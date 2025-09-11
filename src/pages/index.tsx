@@ -879,7 +879,7 @@ const TravelHomePage = () => {
                           
                           // Filter out empty values
                           Object.keys(advancedFilters).forEach(key => {
-                            if (!advancedFilters[key]) {
+                            if (!advancedFilters[key as keyof typeof advancedFilters]) {
                               searchParams.delete(key);
                             }
                           });
