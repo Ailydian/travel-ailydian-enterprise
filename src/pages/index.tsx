@@ -27,14 +27,14 @@ const featuredDestinations = [
   },
   {
     id: 2,
-    name: 'Kapadokya',
-    country: 'Türkiye', 
-    image: 'https://images.unsplash.com/photo-1539650116574-75c0c6d0deeb?w=800&h=600&q=90',
-    price: '₺1,800',
+    name: 'Bali Adası',
+    country: 'Endonezya', 
+    image: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=800&h=600&q=90',
+    price: '₺3,500',
     rating: 4.9,
     reviews: 8642,
-    tags: ['Doğa', 'Balon', 'Romantik'],
-    description: 'Peri bacaları ve sıcak hava balonu deneyimi'
+    tags: ['Tropikal', 'Tapınak', 'Plaj'],
+    description: 'Tapınaklar ve tropikal cennet adası'
   },
   {
     id: 3,
@@ -49,14 +49,14 @@ const featuredDestinations = [
   },
   {
     id: 4,
-    name: 'Paris',
-    country: 'Fransa',
-    image: 'https://images.unsplash.com/photo-1502602898536-47ad22581b52?w=800&h=600&q=90',
-    price: '€850',
+    name: 'Santorini',
+    country: 'Yunanistan',
+    image: 'https://images.unsplash.com/photo-1613395877344-13d4a8e0d49e?w=800&h=600&q=90',
+    price: '€650',
     rating: 4.6,
     reviews: 15630,
-    tags: ['Romantik', 'Sanat', 'Moda'],
-    description: 'Aşk ve sanat şehri'
+    tags: ['Romantik', 'Deniz', 'Gün Batımı'],
+    description: 'Beyaz evler ve mavi kubbeler adası'
   },
   {
     id: 5,
@@ -586,7 +586,7 @@ const TravelHomePage = () => {
             <div className="space-y-4 lg:space-y-6">
               {/* Gidiş-Dönüş Seçenekleri (Sadece uçak biletleri için) */}
               {activeTab === 'flights' && (
-                <div className="relative flex bg-gray-100 dark:bg-gray-600 p-1 rounded-lg w-fit mb-3 lg:mb-4">
+                <div className="relative flex bg-gray-100 dark:bg-gray-600 p-1 rounded-lg w-fit mb-3 lg:mb-4 scale-90 lg:scale-100">
                   {/* Animated background slider */}
                   <div 
                     className={`absolute top-1 bottom-1 bg-gradient-to-r from-blue-500 to-blue-600 rounded-md shadow-sm transition-all duration-300 ease-out`}
@@ -604,12 +604,13 @@ const TravelHomePage = () => {
                         ? 'text-white' 
                         : 'text-gray-600 dark:text-gray-300 hover:text-blue-600'
                     }`}
-                    style={{ minWidth: '120px' }}
+                    style={{ minWidth: '90px' }}
                   >
-                    <span className="flex items-center justify-center">
-                      <Plane className="h-4 w-4 mr-1 rotate-45" />
-                      Gidiş-Dönüş
-                      <Plane className="h-4 w-4 ml-1 -rotate-45" />
+                    <span className="flex items-center justify-center text-xs lg:text-sm">
+                      <Plane className="h-3 w-3 lg:h-4 lg:w-4 mr-1 rotate-45" />
+                      <span className="hidden sm:inline">Gidiş-Dönüş</span>
+                      <span className="sm:hidden">G-D</span>
+                      <Plane className="h-3 w-3 lg:h-4 lg:w-4 ml-1 -rotate-45" />
                     </span>
                   </button>
                   
@@ -620,11 +621,12 @@ const TravelHomePage = () => {
                         ? 'text-white' 
                         : 'text-gray-600 dark:text-gray-300 hover:text-blue-600'
                     }`}
-                    style={{ minWidth: '100px' }}
+                    style={{ minWidth: '70px' }}
                   >
-                    <span className="flex items-center justify-center">
-                      <Plane className="h-4 w-4 mr-1" />
-                      Tek Yön
+                    <span className="flex items-center justify-center text-xs lg:text-sm">
+                      <Plane className="h-3 w-3 lg:h-4 lg:w-4 mr-1" />
+                      <span className="hidden sm:inline">Tek Yön</span>
+                      <span className="sm:hidden">TY</span>
                     </span>
                   </button>
                 </div>
@@ -748,7 +750,11 @@ const TravelHomePage = () => {
 
               {/* Advanced Search Options */}
               {showAdvancedSearch && (
-                <div className="mt-6 p-6 border-t border-gray-200 dark:border-gray-600">
+                <div className="mt-6 p-4 lg:p-6 border-t border-gray-200 dark:border-gray-600 bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-700 rounded-b-xl">
+                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4 flex items-center">
+                    <Filter className="h-5 w-5 mr-2 text-blue-600" />
+                    Gelişmiş Arama Filtreleri
+                  </h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                     <div>
                       <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
@@ -757,7 +763,7 @@ const TravelHomePage = () => {
                       <select
                         value={advancedFilters.budget}
                         onChange={(e) => setAdvancedFilters({...advancedFilters, budget: e.target.value})}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-600 dark:border-gray-500 dark:text-white"
+                        className="w-full px-3 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-600 dark:border-gray-500 dark:text-white transition-all duration-300 hover:shadow-md"
                       >
                         <option value="">Bütçe seçin</option>
                         <option value="budget">Ekonomik (₺0-2,000)</option>
@@ -773,7 +779,7 @@ const TravelHomePage = () => {
                       <select
                         value={advancedFilters.duration}
                         onChange={(e) => setAdvancedFilters({...advancedFilters, duration: e.target.value})}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-600 dark:border-gray-500 dark:text-white"
+                        className="w-full px-3 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-600 dark:border-gray-500 dark:text-white transition-all duration-300 hover:shadow-md"
                       >
                         <option value="">Süre seçin</option>
                         <option value="weekend">Hafta sonu (2-3 gün)</option>
@@ -789,7 +795,7 @@ const TravelHomePage = () => {
                       <select
                         value={advancedFilters.travelStyle}
                         onChange={(e) => setAdvancedFilters({...advancedFilters, travelStyle: e.target.value})}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-600 dark:border-gray-500 dark:text-white"
+                        className="w-full px-3 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-600 dark:border-gray-500 dark:text-white transition-all duration-300 hover:shadow-md"
                       >
                         <option value="">Tarz seçin</option>
                         <option value="adventure">Macera</option>
@@ -806,7 +812,7 @@ const TravelHomePage = () => {
                       <select
                         value={advancedFilters.accommodation}
                         onChange={(e) => setAdvancedFilters({...advancedFilters, accommodation: e.target.value})}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-600 dark:border-gray-500 dark:text-white"
+                        className="w-full px-3 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-600 dark:border-gray-500 dark:text-white transition-all duration-300 hover:shadow-md"
                       >
                         <option value="">Konaklama seçin</option>
                         <option value="hotel">Otel</option>
@@ -823,7 +829,7 @@ const TravelHomePage = () => {
                       <select
                         value={advancedFilters.transportation}
                         onChange={(e) => setAdvancedFilters({...advancedFilters, transportation: e.target.value})}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-600 dark:border-gray-500 dark:text-white"
+                        className="w-full px-3 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-600 dark:border-gray-500 dark:text-white transition-all duration-300 hover:shadow-md"
                       >
                         <option value="">Ulaşım seçin</option>
                         <option value="flight">Uçak</option>
@@ -840,7 +846,7 @@ const TravelHomePage = () => {
                       <select
                         value={advancedFilters.groupSize}
                         onChange={(e) => setAdvancedFilters({...advancedFilters, groupSize: e.target.value})}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-600 dark:border-gray-500 dark:text-white"
+                        className="w-full px-3 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-600 dark:border-gray-500 dark:text-white transition-all duration-300 hover:shadow-md"
                       >
                         <option value="">Grup büyüklüğü</option>
                         <option value="solo">Tek kişi</option>
@@ -854,10 +860,43 @@ const TravelHomePage = () => {
                   <div className="flex gap-4 mt-6">
                     <button 
                       onClick={() => {
-                        console.log('Advanced search filters:', advancedFilters);
-                        alert('Gelişmiş filtreler uygulandı! Arama sonuçları filtrelendi.');
+                        // Create filtered search with advanced filters
+                        const activeFilters = Object.entries(advancedFilters)
+                          .filter(([key, value]) => value !== '')
+                          .map(([key, value]) => `${key}: ${value}`)
+                          .join(', ');
+                        
+                        if (activeFilters) {
+                          console.log('Advanced search filters:', advancedFilters);
+                          const searchParams = new URLSearchParams({
+                            type: activeTab,
+                            destination: searchData.destination,
+                            checkIn: searchData.checkIn,
+                            checkOut: searchData.checkOut || '',
+                            guests: searchData.guests,
+                            ...advancedFilters
+                          });
+                          
+                          // Filter out empty values
+                          Object.keys(advancedFilters).forEach(key => {
+                            if (!advancedFilters[key]) {
+                              searchParams.delete(key);
+                            }
+                          });
+                          
+                          const targetPage = activeTab === 'flights' ? '/flights' :
+                                            activeTab === 'hotels' ? '/hotels' :
+                                            activeTab === 'cars' ? '/cars' :
+                                            activeTab === 'restaurants' ? '/restaurants' :
+                                            '/activities';
+                          
+                          alert(`Gelişmiş filtreler uygulandı!\n\nAktif Filtreler: ${activeFilters}\n\nSonuçlar yükleniyor...`);
+                          router.push(`${targetPage}?${searchParams.toString()}`);
+                        } else {
+                          alert('Lütfen en az bir filtre seçin.');
+                        }
                       }}
-                      className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors font-semibold flex items-center"
+                      className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-xl hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 font-semibold flex items-center shadow-lg"
                     >
                       <Filter className="h-4 w-4 mr-2" />
                       Filtreleri Uygula
@@ -874,8 +913,9 @@ const TravelHomePage = () => {
                           groupSize: '',
                           season: ''
                         });
+                        alert('Tüm filtreler temizlendi!');
                       }}
-                      className="bg-gray-300 dark:bg-gray-600 text-gray-700 dark:text-gray-300 px-6 py-2 rounded-lg hover:bg-gray-400 dark:hover:bg-gray-500 transition-colors font-semibold"
+                      className="bg-gray-300 dark:bg-gray-600 text-gray-700 dark:text-gray-300 px-6 py-3 rounded-xl hover:bg-gray-400 dark:hover:bg-gray-500 transition-all duration-300 font-semibold"
                     >
                       Sıfırla
                     </button>
@@ -1362,6 +1402,15 @@ const TravelHomePage = () => {
                 <Globe className="h-4 w-4 mr-1" />
                 190+ Ülke
               </span>
+            </div>
+          </div>
+          
+          {/* Support Credit */}
+          <div className="border-t border-gray-800 mt-12 pt-8 text-center">
+            <div className="flex items-center justify-center space-x-2">
+              <span className="text-purple-400 font-medium">Destekçimize Teşekkürler</span>
+              <span className="text-purple-500 text-lg">💜</span>
+              <span className="text-purple-400 font-semibold">Software Sardag</span>
             </div>
           </div>
         </div>
