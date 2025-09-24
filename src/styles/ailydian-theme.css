@@ -1,0 +1,112 @@
+/* Ailydian Travel Theme - Neon Dark Design */
+
+:root {
+  --ac-1: #FF214D;  /* Ana Kırmızı */
+  --ac-2: #FF6A45;  /* Turuncu Kırmızı */
+  --bg-0: #0A0A0B;  /* Ana Siyah */
+  --tx-1: #F3F4F6;  /* Ana Beyaz Text */
+}
+
+/* Neon Effects */
+.neon-text {
+  text-shadow: 0 0 10px var(--ac-1), 0 0 20px var(--ac-1), 0 0 30px var(--ac-1);
+}
+
+.neon-text-strong {
+  text-shadow: 0 0 5px var(--ac-1), 0 0 10px var(--ac-1), 0 0 20px var(--ac-1), 0 0 40px var(--ac-1);
+}
+
+.neon-glow {
+  box-shadow: 0 0 10px var(--ac-1), 0 0 20px var(--ac-1), 0 0 30px var(--ac-1);
+}
+
+.neon-button {
+  box-shadow: 0 0 20px rgba(255, 33, 77, 0.3);
+  transition: all 0.3s ease;
+}
+
+.neon-button:hover {
+  box-shadow: 0 0 30px rgba(255, 33, 77, 0.6);
+  transform: scale(1.05);
+}
+
+/* Orbital Animations */
+@keyframes orbit {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.orbit-slow {
+  animation: orbit 20s linear infinite;
+}
+
+.orbit-medium {
+  animation: orbit 15s linear infinite reverse;
+}
+
+.orbit-fast {
+  animation: orbit 10s linear infinite;
+}
+
+/* Grid Pattern Background */
+.neon-grid {
+  background-image: 
+    linear-gradient(rgba(255, 33, 77, 0.3) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 33, 77, 0.3) 1px, transparent 1px);
+  background-size: 50px 50px;
+  opacity: 0.1;
+}
+
+/* Card Hover Effects */
+.card-hover {
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card-hover:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(255, 33, 77, 0.2);
+}
+
+/* Search Bar Focus Effects */
+.search-focus {
+  transition: all 0.3s ease;
+}
+
+.search-focus:focus {
+  border-color: var(--ac-1);
+  box-shadow: 0 0 0 3px rgba(255, 33, 77, 0.1);
+}
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+  .neon-text {
+    text-shadow: 0 0 5px var(--ac-1), 0 0 10px var(--ac-1);
+  }
+  
+  .neon-glow {
+    box-shadow: 0 0 5px var(--ac-1), 0 0 10px var(--ac-1);
+  }
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(10, 10, 11, 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, var(--ac-1), var(--ac-2));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, var(--ac-2), var(--ac-1));
+}

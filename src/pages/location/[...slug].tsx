@@ -1,0 +1,662 @@
+import { GetServerSideProps } from 'next';
+import { NextSeo, LocalBusinessJsonLd } from 'next-seo';
+import Head from 'next/head';
+import Image from 'next/image';
+import { useState, useEffect } from 'react';
+import { useTranslation } from 'next-i18next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { Star, MapPin, Clock, Phone, Globe, Camera, Heart, Share2, Flag, ExternalLink } from 'lucide-react';
+
+import { Location, Review, Photo } from '../../lib/types/review-system';
+import reviewService from '../../lib/services/review-service';
+import PhotoGallery from '../../components/location/PhotoGallery';
+import ReviewsList from '../../components/location/ReviewsList';
+import WriteReviewModal from '../../components/location/WriteReviewModal';
+import LocationMap from '../../components/location/LocationMap';
+
+interface LocationPageProps {
+  location: Location;
+  reviews: Review[];
+  photos: Photo[];
+  nearbyLocations: Location[];
+  locale: string;
+}
+
+export default function LocationPage({ 
+  location, 
+  reviews, 
+  photos, 
+  nearbyLocations,
+  locale = 'en' 
+}: LocationPageProps) {
+  const { t } = useTranslation('common');
+  const [showAllPhotos, setShowAllPhotos] = useState(false);
+  const [showWriteReview, setShowWriteReview] = useState(false);
+  const [isFavorited, setIsFavorited] = useState(false);
+  const [showFullDescription, setShowFullDescription] = useState(false);
+
+  // Get localized content
+  const getLocalizedContent = (content: any, fallback = '') => {
+    if (!content) return fallback;
+    return content[locale] || content['en'] || Object.values(content)[0] || fallback;
+  };
+
+  const locationName = getLocalizedContent(location.name);
+  const locationDescription = getLocalizedContent(location.description);
+  const locationAddress = getLocalizedContent(location.address);
+  const cityName = getLocalizedContent(location.city?.name);
+  const countryName = getLocalizedContent(location.city?.country?.name);
+  const categoryName = getLocalizedContent(location.category?.name);
+
+  // SEO data
+  const seoTitle = getLocalizedContent(location.seo_title, `${locationName} - ${cityName}, ${countryName}`);
+  const seoDescription = getLocalizedContent(location.seo_description, 
+    `${locationDescription} Located in ${cityName}, ${countryName}. Read ${location.total_reviews} reviews and see ${location.total_photos} photos.`);
+  
+  // Structured data for rich snippets
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": location.category?.slug === 'restaurants' ? 'Restaurant' : 
+             location.category?.slug === 'hotels' ? 'Hotel' : 
+             location.category?.slug === 'attractions' ? 'TouristAttraction' : 'LocalBusiness',
+    "name": locationName,
+    "description": locationDescription,
+    "image": photos.map(photo => photo.url),
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": locationAddress,
+      "addressLocality": cityName,
+      "addressCountry": countryName
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": location.coordinates.lat,
+      "longitude": location.coordinates.lng
+    },
+    "telephone": location.phone,
+    "url": location.website,
+    "aggregateRating": location.total_reviews > 0 ? {
+      "@type": "AggregateRating",
+      "ratingValue": location.average_rating,
+      "reviewCount": location.total_reviews,
+      "bestRating": 5,
+      "worstRating": 1
+    } : undefined,
+    "review": reviews.slice(0, 5).map(review => ({
+      "@type": "Review",
+      "author": {
+        "@type": "Person",
+        "name": review.user?.first_name && review.user?.last_name ? 
+               `${review.user.first_name} ${review.user.last_name}` : 
+               review.user?.username || 'Anonymous'
+      },
+      "datePublished": review.created_at,
+      "description": getLocalizedContent(review.content),
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": review.overall_rating,
+        "bestRating": 5,
+        "worstRating": 1
+      }
+    })),
+    "openingHours": location.opening_hours ? Object.entries(location.opening_hours).map(([day, hours]: [string, any]) => 
+      hours.closed ? null : `${day.substring(0, 2)} ${hours.open}-${hours.close}`
+    ).filter(Boolean) : undefined,
+    "priceRange": location.price_range ? '$'.repeat(location.price_range) : undefined
+  };
+
+  // Handle favorite toggle
+  const handleFavoriteToggle = async () => {
+    try {
+      if (isFavorited) {
+        await reviewService.unfavoriteLocation(location.id);
+        setIsFavorited(false);
+      } else {
+        await reviewService.favoriteLocation(location.id);
+        setIsFavorited(true);
+      }
+    } catch (error) {
+      console.error('Error toggling favorite:', error);
+    }
+  };
+
+  // Handle share
+  const handleShare = async () => {
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: locationName,
+          text: locationDescription,
+          url: window.location.href,
+        });
+      } catch (error) {
+        console.log('Error sharing:', error);
+      }
+    } else {
+      // Fallback to clipboard
+      navigator.clipboard.writeText(window.location.href);
+    }
+  };
+
+  return (
+    <>
+      <NextSeo
+        title={seoTitle}
+        description={seoDescription}
+        canonical={`https://travel.ailydian.com/location/${location.slug}`}
+        openGraph={{
+          type: 'business.business',
+          title: seoTitle,
+          description: seoDescription,
+          url: `https://travel.ailydian.com/location/${location.slug}`,
+          images: photos.slice(0, 4).map(photo => ({
+            url: photo.url,
+            width: photo.width || 800,
+            height: photo.height || 600,
+            alt: getLocalizedContent(photo.alt_text, locationName)
+          })),
+          site_name: 'Travel.Ailydian'
+        }}
+        twitter={{
+          cardType: 'summary_large_image',
+        }}
+        additionalMetaTags={[
+          {
+            property: 'business:hours',
+            content: location.opening_hours ? JSON.stringify(location.opening_hours) : ''
+          },
+          {
+            property: 'place:location:latitude',
+            content: location.coordinates.lat.toString()
+          },
+          {
+            property: 'place:location:longitude',
+            content: location.coordinates.lng.toString()
+          },
+          {
+            name: 'geo.position',
+            content: `${location.coordinates.lat};${location.coordinates.lng}`
+          },
+          {
+            name: 'geo.region',
+            content: countryName
+          },
+          {
+            name: 'geo.placename',
+            content: cityName
+          }
+        ]}
+        additionalLinkTags={[
+          {
+            rel: 'alternate',
+            hrefLang: 'x-default',
+            href: `https://travel.ailydian.com/location/${location.slug}`
+          },
+          ...['en', 'tr', 'de', 'fr', 'es'].map(lang => ({
+            rel: 'alternate',
+            hrefLang: lang,
+            href: `https://travel.ailydian.com/${lang}/location/${location.slug}`
+          }))
+        ]}
+      />
+
+      <LocalBusinessJsonLd
+        type={location.category?.slug === 'restaurants' ? 'Restaurant' : 'LocalBusiness'}
+        id={`https://travel.ailydian.com/location/${location.slug}`}
+        name={locationName}
+        description={locationDescription}
+        url={`https://travel.ailydian.com/location/${location.slug}`}
+        telephone={location.phone}
+        address={{
+          streetAddress: locationAddress,
+          addressLocality: cityName,
+          addressRegion: '',
+          postalCode: '',
+          addressCountry: countryName,
+        }}
+        geo={{
+          latitude: location.coordinates.lat,
+          longitude: location.coordinates.lng,
+        }}
+        images={photos.map(photo => photo.url)}
+        rating={location.total_reviews > 0 ? {
+          ratingValue: location.average_rating,
+          ratingCount: location.total_reviews,
+        } : undefined}
+        priceRange={location.price_range ? '$'.repeat(location.price_range) : undefined}
+        openingHours={location.opening_hours ? [
+          {
+            opens: location.opening_hours.monday?.open || '09:00',
+            closes: location.opening_hours.monday?.close || '21:00',
+            dayOfWeek: ['Monday'],
+          },
+          // Add more days...
+        ] : []}
+      />
+
+      <Head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(structuredData)
+          }}
+        />
+        
+        {/* Breadcrumb structured data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://travel.ailydian.com"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": countryName,
+                  "item": `https://travel.ailydian.com/country/${location.city?.country?.code?.toLowerCase()}`
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 3,
+                  "name": cityName,
+                  "item": `https://travel.ailydian.com/city/${location.city?.slug}`
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 4,
+                  "name": categoryName,
+                  "item": `https://travel.ailydian.com/${location.category?.slug}`
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 5,
+                  "name": locationName,
+                  "item": `https://travel.ailydian.com/location/${location.slug}`
+                }
+              ]
+            })
+          }}
+        />
+
+        {/* Preload critical images */}
+        {photos.slice(0, 2).map((photo, index) => (
+          <link
+            key={photo.id}
+            rel="preload"
+            as="image"
+            href={photo.url}
+            fetchPriority={index === 0 ? "high" : "low"}
+          />
+        ))}
+      </Head>
+
+      <main className="min-h-screen bg-gray-50">
+        {/* Breadcrumb Navigation */}
+        <nav className="bg-white border-b border-gray-200" aria-label="Breadcrumb">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <ol className="flex items-center space-x-2 py-4 text-sm">
+              <li><Link href="/" className="text-gray-500 hover:text-gray-700">Home</Link></li>
+              <li><span className="text-gray-400">/</span></li>
+              <li><a href={`/country/${location.city?.country?.code?.toLowerCase()}`} className="text-gray-500 hover:text-gray-700">{countryName}</a></li>
+              <li><span className="text-gray-400">/</span></li>
+              <li><a href={`/city/${location.city?.slug}`} className="text-gray-500 hover:text-gray-700">{cityName}</a></li>
+              <li><span className="text-gray-400">/</span></li>
+              <li><span className="text-gray-900 font-medium">{locationName}</span></li>
+            </ol>
+          </div>
+        </nav>
+
+        {/* Hero Section */}
+        <section className="bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            {/* Header */}
+            <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-8">
+              <div className="flex-1">
+                <h1 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-2">
+                  {locationName}
+                </h1>
+                
+                {/* Rating and Reviews */}
+                <div className="flex items-center space-x-4 mb-4">
+                  {location.total_reviews > 0 && (
+                    <div className="flex items-center">
+                      <div className="flex items-center">
+                        {[...Array(5)].map((_, i) => (
+                          <Star
+                            key={i}
+                            className={`h-5 w-5 ${
+                              i < Math.floor(location.average_rating)
+                                ? 'text-yellow-400 fill-current'
+                                : 'text-gray-300'
+                            }`}
+                          />
+                        ))}
+                      </div>
+                      <span className="ml-2 text-lg font-semibold text-gray-900">
+                        {location.average_rating.toFixed(1)}
+                      </span>
+                      <span className="ml-1 text-gray-600">
+                        ({location.total_reviews} {t('reviews')})
+                      </span>
+                    </div>
+                  )}
+                  
+                  {location.price_range > 0 && (
+                    <div className="text-gray-600">
+                      {reviewService.formatPriceRange(location.price_range)}
+                    </div>
+                  )}
+                  
+                  <span className="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded-full">
+                    {categoryName}
+                  </span>
+
+                  {location.verified && (
+                    <span className="px-2 py-1 bg-green-100 text-green-800 text-xs rounded-full">
+                      ✓ {t('verified')}
+                    </span>
+                  )}
+                </div>
+
+                {/* Location */}
+                <div className="flex items-start text-gray-600 mb-4">
+                  <MapPin className="h-5 w-5 mt-0.5 mr-2 flex-shrink-0" />
+                  <div>
+                    <p>{locationAddress}</p>
+                    <p>{cityName}, {countryName}</p>
+                  </div>
+                </div>
+
+                {/* Contact Info */}
+                <div className="flex flex-wrap gap-4 text-sm">
+                  {location.phone && (
+                    <a 
+                      href={`tel:${location.phone}`}
+                      className="flex items-center text-blue-600 hover:text-blue-700"
+                    >
+                      <Phone className="h-4 w-4 mr-1" />
+                      {location.phone}
+                    </a>
+                  )}
+                  
+                  {location.website && (
+                    <a 
+                      href={location.website}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center text-blue-600 hover:text-blue-700"
+                    >
+                      <Globe className="h-4 w-4 mr-1" />
+                      {t('website')}
+                      <ExternalLink className="h-3 w-3 ml-1" />
+                    </a>
+                  )}
+                </div>
+              </div>
+
+              {/* Action Buttons */}
+              <div className="flex items-center space-x-3 mt-6 lg:mt-0">
+                <button
+                  onClick={handleFavoriteToggle}
+                  className={`flex items-center px-4 py-2 rounded-lg border ${
+                    isFavorited 
+                      ? 'bg-red-50 border-red-300 text-red-700' 
+                      : 'bg-white border-gray-300 text-gray-700 hover:bg-gray-50'
+                  }`}
+                >
+                  <Heart className={`h-5 w-5 mr-2 ${isFavorited ? 'fill-current' : ''}`} />
+                  {t(isFavorited ? 'saved' : 'save')}
+                </button>
+
+                <button
+                  onClick={handleShare}
+                  className="flex items-center px-4 py-2 rounded-lg border border-gray-300 text-gray-700 hover:bg-gray-50"
+                >
+                  <Share2 className="h-5 w-5 mr-2" />
+                  {t('share')}
+                </button>
+
+                <button
+                  onClick={() => setShowWriteReview(true)}
+                  className="flex items-center px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+                >
+                  <Star className="h-5 w-5 mr-2" />
+                  {t('writeReview')}
+                </button>
+              </div>
+            </div>
+
+            {/* Photo Gallery */}
+            {photos.length > 0 && (
+              <div className="mb-8">
+                <PhotoGallery 
+                  photos={photos} 
+                  locationName={locationName}
+                  showAll={showAllPhotos}
+                  onShowAll={() => setShowAllPhotos(true)}
+                />
+              </div>
+            )}
+          </div>
+        </section>
+
+        {/* Main Content */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {/* Main Content Column */}
+            <div className="lg:col-span-2 space-y-8">
+              {/* Description */}
+              {locationDescription && (
+                <section className="bg-white rounded-lg p-6 shadow-sm">
+                  <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                    {t('about')}
+                  </h2>
+                  <div className={`text-gray-700 leading-relaxed ${showFullDescription ? '' : 'line-clamp-4'}`}>
+                    <p>{locationDescription}</p>
+                  </div>
+                  {locationDescription.length > 300 && (
+                    <button
+                      onClick={() => setShowFullDescription(!showFullDescription)}
+                      className="text-blue-600 hover:text-blue-700 font-medium mt-2"
+                    >
+                      {showFullDescription ? t('showLess') : t('showMore')}
+                    </button>
+                  )}
+                </section>
+              )}
+
+              {/* Reviews Section */}
+              <section className="bg-white rounded-lg p-6 shadow-sm">
+                <div className="flex items-center justify-between mb-6">
+                  <h2 className="text-2xl font-bold text-gray-900">
+                    {t('reviews')} ({location.total_reviews})
+                  </h2>
+                  {location.total_reviews > 0 && (
+                    <div className="text-right">
+                      <div className="text-3xl font-bold text-gray-900">
+                        {location.average_rating.toFixed(1)}
+                      </div>
+                      <div className="flex items-center">
+                        {[...Array(5)].map((_, i) => (
+                          <Star
+                            key={i}
+                            className={`h-4 w-4 ${
+                              i < Math.floor(location.average_rating)
+                                ? 'text-yellow-400 fill-current'
+                                : 'text-gray-300'
+                            }`}
+                          />
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+                
+                <ReviewsList 
+                  locationId={location.id}
+                  reviews={reviews} 
+                  onWriteReview={() => setShowWriteReview(true)}
+                />
+              </section>
+            </div>
+
+            {/* Sidebar */}
+            <div className="space-y-6">
+              {/* Quick Info */}
+              <div className="bg-white rounded-lg p-6 shadow-sm">
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">
+                  {t('quickInfo')}
+                </h3>
+                
+                {/* Opening Hours */}
+                {location.opening_hours && (
+                  <div className="mb-4">
+                    <h4 className="font-medium text-gray-900 mb-2 flex items-center">
+                      <Clock className="h-4 w-4 mr-2" />
+                      {t('openingHours')}
+                    </h4>
+                    <div className="space-y-1 text-sm text-gray-600">
+                      {Object.entries(location.opening_hours).map(([day, hours]: [string, any]) => (
+                        <div key={day} className="flex justify-between">
+                          <span className="capitalize">{t(day)}</span>
+                          <span>
+                            {hours.closed ? t('closed') : `${hours.open} - ${hours.close}`}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Features */}
+                {location.features && location.features.length > 0 && (
+                  <div>
+                    <h4 className="font-medium text-gray-900 mb-2">
+                      {t('amenities')}
+                    </h4>
+                    <div className="flex flex-wrap gap-2">
+                      {location.features.map((feature) => (
+                        <span
+                          key={feature}
+                          className="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded"
+                        >
+                          {t(`features.${feature}`, feature.replace('_', ' '))}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {/* Map */}
+              <div className="bg-white rounded-lg p-6 shadow-sm">
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">
+                  {t('location')}
+                </h3>
+                <LocationMap 
+                  location={location} 
+                  nearbyLocations={nearbyLocations} 
+                />
+              </div>
+
+              {/* Nearby Locations */}
+              {nearbyLocations.length > 0 && (
+                <div className="bg-white rounded-lg p-6 shadow-sm">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-4">
+                    {t('nearbyLocations')}
+                  </h3>
+                  <div className="space-y-3">
+                    {nearbyLocations.slice(0, 5).map((nearby) => (
+                      <a
+                        key={nearby.id}
+                        href={`/location/${nearby.slug}`}
+                        className="block p-3 rounded-lg border border-gray-200 hover:bg-gray-50"
+                      >
+                        <h4 className="font-medium text-gray-900 truncate">
+                          {getLocalizedContent(nearby.name)}
+                        </h4>
+                        <div className="flex items-center text-sm text-gray-600 mt-1">
+                          {nearby.average_rating > 0 && (
+                            <div className="flex items-center mr-3">
+                              <Star className="h-4 w-4 text-yellow-400 fill-current mr-1" />
+                              {nearby.average_rating.toFixed(1)}
+                            </div>
+                          )}
+                          <span>{getLocalizedContent(nearby.category?.name)}</span>
+                        </div>
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+
+        {/* Write Review Modal */}
+        {showWriteReview && (
+          <WriteReviewModal
+            locationId={location.id}
+            locationName={locationName}
+            onClose={() => setShowWriteReview(false)}
+            onSuccess={() => {
+              setShowWriteReview(false);
+              // Refresh reviews
+              window.location.reload();
+            }}
+          />
+        )}
+      </main>
+    </>
+  );
+}
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const { slug, locale = 'en' } = context.query;
+  
+  if (!slug || !Array.isArray(slug)) {
+    return { notFound: true };
+  }
+
+  const locationSlug = slug[slug.length - 1]; // Get the last part of the slug
+
+  try {
+    // Fetch location data
+    const location = await reviewService.getLocationBySlug(locationSlug, locale as string);
+    
+    // Fetch reviews
+    const reviews = await reviewService.getReviews(location.id, 1, 10, locale as string);
+    
+    // Fetch photos
+    const photos = await reviewService.getLocationPhotos(location.id, 1, 20);
+    
+    // Fetch nearby locations
+    const nearbyLocations = await reviewService.getNearbyLocations(
+      location.coordinates.lat,
+      location.coordinates.lng,
+      5, // 5km radius
+      10 // limit
+    );
+
+    return {
+      props: {
+        location,
+        reviews,
+        photos,
+        nearbyLocations,
+        locale,
+        ...(await serverSideTranslations(locale as string, ['common', 'location']))
+      }
+    };
+  } catch (error) {
+    console.error('Error fetching location data:', error);
+    return { notFound: true };
+  }
+};
