@@ -39,13 +39,6 @@
     }
   ],
   
-  "redirects": [
-    {
-      "source": "/admin(.*)",
-      "destination": "/dashboard",
-      "permanent": false
-    }
-  ],
   
   "env": {
     "NEXT_PUBLIC_SITE_URL": "https://travel.ailydian.com",
