@@ -273,7 +273,10 @@ const TravelHomePage = () => {
   }, []);
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: 'var(--bg-0)', color: 'var(--tx-1)' }}>
+    <div className="min-h-screen relative" style={{ color: 'var(--tx-1)' }}>
+      {/* Premium Ocean Background */}
+      <div className="premium-ocean-bg"></div>
+      <div className="ocean-waves-overlay"></div>
       {/* Header */}
       <header className="shadow-sm border-b" style={{ backgroundColor: 'var(--bg-0)', borderBottomColor: 'var(--ac-1)' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -484,7 +487,7 @@ const TravelHomePage = () => {
       )}
 
       {/* Hero Section with Ocean Background & Surfer Image */}
-      <section className="relative py-20 overflow-hidden" style={{ background: 'linear-gradient(to bottom, #87CEEB 0%, #4682B4 50%, #1e3a8a 100%)' }}>
+      <section className="relative py-20 overflow-hidden" style={{ background: 'rgba(255, 255, 255, 0.05)', backdropFilter: 'blur(10px)' }}>
         {/* Ocean Wave Background */}
         <div className="absolute inset-0 w-full h-full">
           <div className="ocean-bg">
@@ -498,12 +501,12 @@ const TravelHomePage = () => {
           <div className="text-center">
             {/* Main Content */}
             <div>
-              <h1 className="text-4xl md:text-6xl font-bold mb-6 neon-text-strong" style={{ color: 'var(--tx-1)' }}>
+              <h1 className="text-4xl md:text-6xl font-bold mb-6 neon-text-strong" style={{ color: '#FFFFFF', textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}>
                 Dünyayı Keşfet
               </h1>
-              <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto" style={{ color: 'var(--tx-1)' }}>
+              <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto" style={{ color: '#FFFFFF', textShadow: '0 1px 2px rgba(0,0,0,0.5)' }}>
                 AI destekli akıllı seyahat platformu ile hayalindeki tatili planla. 
-                <span className="neon-text" style={{ color: 'var(--tx-1)' }}>Kişiselleştirilmiş öneriler</span>, en iyi fiyatlar, güvenli rezervasyonlar.
+                <span className="neon-text font-semibold" style={{ color: '#E0F7FA', textShadow: '0 0 10px rgba(14, 165, 233, 0.5)' }}>Kişiselleştirilmiş öneriler</span>, en iyi fiyatlar, güvenli rezervasyonlar.
               </p>
             </div>
           </div>
@@ -511,9 +514,14 @@ const TravelHomePage = () => {
       </section>
 
       {/* Search Section */}
-      <section className="py-6 lg:py-8 -mt-8 lg:-mt-10 relative z-10" style={{ backgroundColor: 'var(--bg-0)' }}>
+      <section className="py-6 lg:py-8 -mt-8 lg:-mt-10 relative z-10" style={{ background: 'transparent' }}>
         <div className="max-w-6xl mx-auto px-3 sm:px-6 lg:px-8">
-          <div className="rounded-xl lg:rounded-2xl shadow-xl lg:shadow-2xl p-4 lg:p-6 neon-glow" style={{ backgroundColor: 'var(--bg-0)', border: '1px solid var(--ac-1)' }}>
+          <div className="rounded-xl lg:rounded-2xl shadow-xl lg:shadow-2xl p-4 lg:p-6 neon-glow" style={{ 
+            background: 'rgba(255, 255, 255, 0.95)', 
+            backdropFilter: 'blur(20px)', 
+            border: '2px solid rgba(14, 165, 233, 0.3)',
+            boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)'
+          }}>
             {/* Search Tabs */}
             <div className="relative flex flex-wrap gap-1 lg:gap-2 mb-4 lg:mb-6 border-b" style={{ borderBottomColor: 'var(--ac-1)' }}>
               {/* Active tab indicator */}
@@ -556,18 +564,32 @@ const TravelHomePage = () => {
                     }}
                     onMouseEnter={(e) => {
                       if (!isActive) {
-                        e.currentTarget.style.color = '#FFFFFF';
-                        e.currentTarget.style.backgroundColor = 'var(--ac-1)';
-                        e.currentTarget.style.border = '1px solid var(--ac-1)';
-                        e.currentTarget.style.boxShadow = '0 4px 15px rgba(14, 165, 233, 0.3)';
+                        const element = e.currentTarget;
+                        element.style.setProperty('color', '#FFFFFF', 'important');
+                        element.style.setProperty('background-color', 'var(--ac-1)', 'important');
+                        element.style.setProperty('border', '1px solid var(--ac-1)', 'important');
+                        element.style.setProperty('box-shadow', '0 4px 15px rgba(14, 165, 233, 0.3)', 'important');
+                        
+                        // Ensure text and icon remain visible
+                        const textElement = element.querySelector('span:not(.absolute)') as HTMLElement;
+                        const iconElement = element.querySelector('svg') as SVGElement;
+                        if (textElement) textElement.style.setProperty('color', '#FFFFFF', 'important');
+                        if (iconElement) iconElement.style.setProperty('color', '#FFFFFF', 'important');
                       }
                     }}
                     onMouseLeave={(e) => {
                       if (!isActive) {
-                        e.currentTarget.style.color = 'var(--tx-1)';
-                        e.currentTarget.style.backgroundColor = 'transparent';
-                        e.currentTarget.style.border = 'none';
-                        e.currentTarget.style.boxShadow = 'none';
+                        const element = e.currentTarget;
+                        element.style.removeProperty('color');
+                        element.style.removeProperty('background-color');
+                        element.style.removeProperty('border');
+                        element.style.removeProperty('box-shadow');
+                        
+                        // Reset text and icon colors
+                        const textElement = element.querySelector('span:not(.absolute)') as HTMLElement;
+                        const iconElement = element.querySelector('svg') as SVGElement;
+                        if (textElement) textElement.style.removeProperty('color');
+                        if (iconElement) iconElement.style.removeProperty('color');
                       }
                     }}
                   >
@@ -1355,8 +1377,12 @@ const TravelHomePage = () => {
 
       {/* Login Modal */}
       {showLoginModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[9999] p-4">
-          <div className="bg-white dark:bg-gray-800 rounded-2xl max-w-md w-full p-8 relative">
+        <div className="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-[10000] p-4 overflow-y-auto">
+          <div className="bg-white dark:bg-gray-800 rounded-2xl max-w-md w-full p-8 relative my-8 mx-auto max-h-[90vh] overflow-y-auto" style={{
+            boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 0 1px var(--ac-1)',
+            backdropFilter: 'blur(20px)',
+            border: '2px solid var(--ac-1)'
+          }}>
             <button
               onClick={() => setShowLoginModal(false)}
               className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300"

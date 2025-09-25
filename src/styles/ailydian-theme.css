@@ -281,6 +281,153 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Premium Ocean Background Gradient Animation */
+.premium-ocean-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: linear-gradient(
+    45deg,
+    #0ea5e9 0%,
+    #06b6d4 25%,
+    #0284c7 50%,
+    #0369a1 75%,
+    #075985 100%
+  );
+  background-size: 400% 400%;
+  animation: oceanGradientShift 15s ease infinite;
+}
+
+@keyframes oceanGradientShift {
+  0% {
+    background-position: 0% 50%;
+    background: linear-gradient(
+      45deg,
+      #0ea5e9 0%,
+      #06b6d4 25%,
+      #0284c7 50%,
+      #0369a1 75%,
+      #075985 100%
+    );
+  }
+  25% {
+    background-position: 100% 50%;
+    background: linear-gradient(
+      135deg,
+      #06b6d4 0%,
+      #0284c7 25%,
+      #0369a1 50%,
+      #075985 75%,
+      #0ea5e9 100%
+    );
+  }
+  50% {
+    background-position: 50% 100%;
+    background: linear-gradient(
+      225deg,
+      #0284c7 0%,
+      #0369a1 25%,
+      #075985 50%,
+      #0ea5e9 75%,
+      #06b6d4 100%
+    );
+  }
+  75% {
+    background-position: 50% 0%;
+    background: linear-gradient(
+      315deg,
+      #0369a1 0%,
+      #075985 25%,
+      #0ea5e9 50%,
+      #06b6d4 75%,
+      #0284c7 100%
+    );
+  }
+  100% {
+    background-position: 0% 50%;
+    background: linear-gradient(
+      45deg,
+      #0ea5e9 0%,
+      #06b6d4 25%,
+      #0284c7 50%,
+      #0369a1 75%,
+      #075985 100%
+    );
+  }
+}
+
+/* Ocean Waves Overlay Animation */
+.ocean-waves-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.ocean-waves-overlay::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 50px,
+    rgba(255, 255, 255, 0.03) 50px,
+    rgba(255, 255, 255, 0.03) 100px
+  );
+  animation: waveSlide 20s linear infinite;
+}
+
+.ocean-waves-overlay::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 80px,
+    rgba(255, 255, 255, 0.02) 80px,
+    rgba(255, 255, 255, 0.02) 160px
+  );
+  animation: waveSlide 25s linear infinite reverse;
+}
+
+@keyframes waveSlide {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+/* Premium Glow Effects */
+.neon-glow {
+  box-shadow: 
+    0 0 20px rgba(14, 165, 233, 0.15),
+    0 0 40px rgba(14, 165, 233, 0.1),
+    0 0 60px rgba(14, 165, 233, 0.05);
+}
+
+.neon-glow:hover {
+  box-shadow: 
+    0 0 30px rgba(14, 165, 233, 0.2),
+    0 0 60px rgba(14, 165, 233, 0.15),
+    0 0 90px rgba(14, 165, 233, 0.1);
+}
+
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
