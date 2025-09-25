@@ -482,10 +482,10 @@ export default function AdminLocations() {
                                 <div className="flex items-center space-x-2">
                                   <span className="font-medium text-gray-900">{location.name}</span>
                                   {location.verified && (
-                                    <CheckCircle className="w-4 h-4 text-green-500" title="Verified" />
+                                    <CheckCircle className="w-4 h-4 text-green-500" />
                                   )}
                                   {location.claimed && (
-                                    <Settings className="w-4 h-4 text-blue-500" title="Claimed" />
+                                    <Settings className="w-4 h-4 text-blue-500" />
                                   )}
                                 </div>
                                 <span className="text-sm text-gray-500">{location.category}</span>
@@ -519,12 +519,12 @@ export default function AdminLocations() {
                           <td className="px-4 py-3">
                             <div className="flex items-center space-x-1">
                               {location.googlePlaceId && (
-                                <div className="w-6 h-6 bg-red-100 text-red-600 rounded-full flex items-center justify-center" title="Google">
+                                <div className="w-6 h-6 bg-red-100 text-red-600 rounded-full flex items-center justify-center">
                                   <Globe className="w-3 h-3" />
                                 </div>
                               )}
                               {location.tripAdvisorId && (
-                                <div className="w-6 h-6 bg-green-100 text-green-600 rounded-full flex items-center justify-center" title="TripAdvisor">
+                                <div className="w-6 h-6 bg-green-100 text-green-600 rounded-full flex items-center justify-center">
                                   <Globe className="w-3 h-3" />
                                 </div>
                               )}
@@ -540,14 +540,12 @@ export default function AdminLocations() {
                               <Link
                                 href={`/location/${location.slug}`}
                                 className="p-1 text-gray-400 hover:text-blue-600"
-                                title="View"
                               >
                                 <Eye className="w-4 h-4" />
                               </Link>
                               <Link
                                 href={`/admin/locations/${location.id}/edit`}
                                 className="p-1 text-gray-400 hover:text-green-600"
-                                title="Edit"
                               >
                                 <Edit className="w-4 h-4" />
                               </Link>
@@ -558,7 +556,6 @@ export default function AdminLocations() {
                                   }
                                 }}
                                 className="p-1 text-gray-400 hover:text-red-600"
-                                title="Delete"
                               >
                                 <Trash2 className="w-4 h-4" />
                               </button>
