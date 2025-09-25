@@ -18,7 +18,7 @@ const adminUsers: AdminUser[] = [
   {
     id: 1,
     email: 'admin@ailydian.com',
-    password_hash: '$2a$12$LQv3c1yqBWVHxkd0LHAkCOYz6TtxMQJqhN8/UnOvZBtBz.U5qytHa', // "admin123"
+    password_hash: '$2b$12$zk7BGvPdgqiuWuNV80fDK.npWKe6wmQoAX6ZKNgOVBu0HaHBmuNlq', // "admin123"
     role: 'super_admin',
     permissions: ['*'],
     is_active: true,
@@ -27,7 +27,7 @@ const adminUsers: AdminUser[] = [
   {
     id: 2,
     email: 'moderator@ailydian.com',
-    password_hash: '$2a$12$LQv3c1yqBWVHxkd0LHAkCOYz6TtxMQJqhN8/UnOvZBtBz.U5qytHa', // "mod123"
+    password_hash: '$2b$12$dSVl.kDLWVc6MMEV6B7e1.0Jv53UE8dBWZvTes72EOZ8b85J2mBTG', // "mod123"
     role: 'moderator',
     permissions: ['reviews:read', 'reviews:moderate', 'locations:read', 'users:read'],
     is_active: true,
