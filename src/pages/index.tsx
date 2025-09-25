@@ -14,6 +14,20 @@ import { Search, MapPin, Calendar, Users, Star, Heart, Menu, X,
 import PremiumLogo from '@/components/ui/PremiumLogo';
 import ParachuteAnimation from '@/components/animations/ParachuteAnimation';
 import BoatAnimation from '@/components/animations/BoatAnimation';
+import { 
+  PremiumCard, 
+  ParallaxContainer, 
+  Scene3D, 
+  ParticleSystem, 
+  PremiumLoader,
+  StaggerContainer,
+  MagneticButton
+} from '@/components/animations/PremiumAnimations';
+import ThemeSwitcher from '@/components/theme/ThemeSwitcher';
+import { useTheme } from '@/hooks/useTheme';
+import AITravelAssistant from '@/components/ai/AITravelAssistant';
+import VirtualTourViewer from '@/components/vr/VirtualTourViewer';
+import TravelSocialHub from '@/components/social/TravelSocialHub';
 
 // Gerçek Türkiye Turizm Verileri
 const featuredDestinations = [
@@ -157,6 +171,7 @@ const popularHotels = [
 const TravelHomePage = () => {
   const { t } = useTranslation('common');
   const router = useRouter();
+  const { currentTheme, getCurrentThemeData } = useTheme();
   const [activeTab, setActiveTab] = useState('flights');
   const [searchQuery, setSearchQuery] = useState('');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -309,10 +324,21 @@ const TravelHomePage = () => {
   }, []);
 
   return (
-    <div className="min-h-screen relative" style={{ color: 'var(--tx-1)' }}>
+    <div className="min-h-screen relative selection-premium" style={{ color: 'var(--tx-1)' }}>
       {/* Premium Ocean Background */}
       <div className="premium-ocean-bg"></div>
       <div className="ocean-waves-overlay"></div>
+      
+      {/* 3D Background Scene */}
+      <Scene3D />
+      
+      {/* Interactive Particle System */}
+      <ParticleSystem 
+        particleCount={60} 
+        color="#FF214D" 
+        interactive={true}
+      />
+      
       {/* Parachute Animation */}
       <ParachuteAnimation />
       {/* Boat Animation */}
@@ -329,58 +355,58 @@ const TravelHomePage = () => {
             {/* Navigation */}
             <nav className="hidden md:flex space-x-8">
               <div className="relative group">
-                <button className="flex items-center transition-colors duration-300 header-neon" onMouseEnter={(e) => (e.currentTarget as HTMLElement).style.color = 'var(--ac-2)'} onMouseLeave={(e) => (e.currentTarget as HTMLElement).style.color = '#FFFFFF'}>
+                <button className="flex items-center transition-colors duration-300 header-neon" onMouseEnter={(e) => (e.currentTarget as HTMLElement).style.color = 'var(--ac-2)'} onMouseLeave={(e) => (e.currentTarget as HTMLElement).style.color = '#1e293b'}>
                   <Compass className="h-4 w-4 mr-1" />
                   Keşfet
                   <ChevronDown className="h-4 w-4 ml-1" />
                 </button>
-                <div className="absolute top-full left-0 mt-2 w-56 bg-white/95 backdrop-blur-20 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 border border-blue-200">
-                  <Link href="/destinations" className="block px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 flex items-center transition-colors rounded-t-xl">
+                <div className="absolute top-full left-0 mt-2 w-56 bg-white backdrop-blur-sm rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-[60] border border-gray-300">
+                  <Link href="/destinations" className="block px-4 py-3 text-sm text-slate-700 hover:bg-slate-50 hover:text-red-600 flex items-center transition-colors rounded-t-xl font-medium">
                     <Mountain className="h-4 w-4 mr-2" style={{ color: 'var(--ac-1)' }} />
                     Destinasyonlar
                   </Link>
-                  <Link href="/tours" className="block px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 flex items-center transition-colors">
+                  <Link href="/tours" className="block px-4 py-3 text-sm text-slate-700 hover:bg-slate-50 hover:text-red-600 flex items-center transition-colors font-medium">
                     <Camera className="h-4 w-4 mr-2" style={{ color: 'var(--ac-1)' }} />
                     Turlar
                   </Link>
-                  <Link href="/activities" className="block px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 flex items-center transition-colors">
+                  <Link href="/activities" className="block px-4 py-3 text-sm text-slate-700 hover:bg-slate-50 hover:text-red-600 flex items-center transition-colors font-medium">
                     <Waves className="h-4 w-4 mr-2" style={{ color: 'var(--ac-1)' }} />
                     Aktiviteler
                   </Link>
-                  <Link href="/reviews" className="block px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 flex items-center transition-colors">
+                  <Link href="/reviews" className="block px-4 py-3 text-sm text-slate-700 hover:bg-slate-50 hover:text-red-600 flex items-center transition-colors font-medium">
                     <Star className="h-4 w-4 mr-2" style={{ color: 'var(--ac-1)' }} />
                     İncelemeler
                   </Link>
-                  <Link href="/business" className="block px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 flex items-center transition-colors rounded-b-xl">
+                  <Link href="/business" className="block px-4 py-3 text-sm text-slate-700 hover:bg-slate-50 hover:text-red-600 flex items-center transition-colors rounded-b-xl font-medium">
                     <Building className="h-4 w-4 mr-2" style={{ color: 'var(--ac-1)' }} />
                     İşletmeler
                   </Link>
                 </div>
               </div>
-              <Link href="/my-trips" className="header-neon hover:text-blue-300 transition-colors flex items-center">
+              <Link href="/my-trips" className="header-neon hover:text-red-600 transition-colors flex items-center" style={{ color: '#1e293b' }}>
                 <Plane className="h-4 w-4 mr-1" />
                 Seyahatlerim
               </Link>
-              <Link href="/favorites" className="header-neon hover:text-blue-300 transition-colors flex items-center">
+              <Link href="/favorites" className="header-neon hover:text-red-600 transition-colors flex items-center" style={{ color: '#1e293b' }}>
                 <Heart className="h-4 w-4 mr-1" />
                 Favoriler
               </Link>
               <div className="relative group">
-                <button className="header-neon hover:text-blue-300 transition-colors flex items-center">
+                <button className="header-neon hover:text-red-600 transition-colors flex items-center" style={{ color: '#1e293b' }}>
                   <HelpCircle className="h-4 w-4 mr-1" />
                   Destek
                   <ChevronDown className="h-4 w-4 ml-1" />
                 </button>
-                <div className="absolute top-full left-0 mt-2 w-48 bg-white/95 backdrop-blur-20 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 border border-blue-200">
-                  <Link href="/help" className="block px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 flex items-center transition-colors rounded-t-xl">
+                <div className="absolute top-full left-0 mt-2 w-48 bg-white backdrop-blur-sm rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-[60] border border-gray-300">
+                  <Link href="/help" className="block px-4 py-3 text-sm text-slate-700 hover:bg-slate-50 hover:text-red-600 flex items-center transition-colors rounded-t-xl font-medium">
                     <HelpCircle className="h-4 w-4 mr-2" style={{ color: 'var(--ac-1)' }} />
                     Yardım Merkezi
                   </Link>
-                  <Link href="/contact" className="block px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 flex items-center transition-colors">
+                  <Link href="/contact" className="block px-4 py-3 text-sm text-slate-700 hover:bg-slate-50 hover:text-red-600 flex items-center transition-colors font-medium">
                     <Phone className="h-4 w-4 mr-2" style={{ color: 'var(--ac-1)' }} />
                     İletişim
                   </Link>
-                  <Link href="/support" className="block px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 flex items-center transition-colors rounded-b-xl">
+                  <Link href="/support" className="block px-4 py-3 text-sm text-slate-700 hover:bg-slate-50 hover:text-red-600 flex items-center transition-colors rounded-b-xl font-medium">
                     <Mail className="h-4 w-4 mr-2" style={{ color: 'var(--ac-1)' }} />
                     Canlı Destek
                   </Link>
@@ -390,13 +416,7 @@ const TravelHomePage = () => {
 
             {/* Right side */}
             <div className="flex items-center space-x-4">
-              <button 
-                onClick={() => setIsDarkMode(!isDarkMode)}
-                className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
-                title="Tema Değiştir"
-              >
-                {isDarkMode ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
-              </button>
+              <ThemeSwitcher />
               
               <div className="relative">
                 <button 
@@ -1054,9 +1074,15 @@ const TravelHomePage = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {featuredDestinations.map((destination) => (
-              <div key={destination.id} className="rounded-2xl shadow-lg overflow-hidden transition-shadow group card-hover" style={{ backgroundColor: 'var(--bg-0)', border: '1px solid var(--ac-1)' }}>
+          <ParallaxContainer speed={0.3} className="mb-8">
+            <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {featuredDestinations.map((destination, index) => (
+                <PremiumCard 
+                  key={destination.id} 
+                  className="group overflow-hidden animate-float" 
+                  glowColor={index % 2 === 0 ? '#FF214D' : '#FF6A45'}
+                  style={{ animationDelay: `${index * 0.2}s` }}
+                >
                 <div className="relative h-48 overflow-hidden">
                   <Image
                     src={destination.image}
@@ -1118,9 +1144,10 @@ const TravelHomePage = () => {
                     </div>
                   </div>
                 </div>
-              </div>
-            ))}
-          </div>
+                </PremiumCard>
+              ))}
+            </StaggerContainer>
+          </ParallaxContainer>
         </div>
       </section>
 
@@ -1136,9 +1163,13 @@ const TravelHomePage = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {popularHotels.map((hotel) => (
-              <div key={hotel.id} className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+          <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {popularHotels.map((hotel, index) => (
+              <PremiumCard 
+                key={hotel.id} 
+                className="card-premium-3d hover-lift overflow-hidden" 
+                glowColor={index % 3 === 0 ? '#FF214D' : index % 3 === 1 ? '#FF6A45' : '#10b981'}
+              >
                 <div className="relative h-48">
                   <Image
                     src={hotel.image}
@@ -1191,13 +1222,16 @@ const TravelHomePage = () => {
                     </div>
                   </div>
 
-                  <button className="w-full mt-4 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                  <MagneticButton 
+                    className="w-full mt-4 btn-premium" 
+                    onClick={() => alert(`${hotel.name} rezervasyonu başlatılıyor...`)}
+                  >
                     Rezervasyon Yap
-                  </button>
+                  </MagneticButton>
                 </div>
-              </div>
+              </PremiumCard>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
       </section>
 

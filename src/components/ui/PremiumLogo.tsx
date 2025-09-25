@@ -26,17 +26,17 @@ export const PremiumLogo: React.FC<PremiumLogoProps> = ({
   // Premium Travel Globe Icon with Modern Design
   const PremiumIcon = () => (
     <div className={`relative ${sizeClasses[size]} ${className}`}>
-      {/* Outer glow ring */}
-      <div className="absolute inset-0 rounded-full animate-pulse" style={{
+      {/* Outer glow ring - subtle */}
+      <div className="absolute inset-0 rounded-full" style={{
         background: 'conic-gradient(from 0deg, var(--ac-1), var(--ac-2), var(--ac-1))',
-        filter: 'blur(8px)',
-        opacity: 0.6
+        filter: 'blur(4px)',
+        opacity: 0.2
       }}></div>
       
       {/* Main globe container */}
       <div className="relative w-full h-full rounded-full overflow-hidden" style={{
         background: 'linear-gradient(135deg, var(--ac-1) 0%, var(--ac-2) 50%, var(--ac-1) 100%)',
-        boxShadow: '0 8px 32px rgba(14, 165, 233, 0.3), inset 0 2px 4px rgba(255, 255, 255, 0.3)'
+        boxShadow: '0 4px 16px rgba(14, 165, 233, 0.2), inset 0 2px 4px rgba(255, 255, 255, 0.3)'
       }}>
         
         {/* Globe grid pattern */}
@@ -80,12 +80,12 @@ export const PremiumLogo: React.FC<PremiumLogoProps> = ({
     </div>
   );
 
-  // Premium Neon Text
+  // Premium Clean Text
   const PremiumText = () => (
-    <div className={`font-bold ${textSizeClasses[size]} premium-neon-text ${className}`}>
+    <div className={`font-bold ${textSizeClasses[size]} ${className}`} style={{ color: '#1e293b' }}>
       <span className="relative">
         Travel.
-        <span className="premium-neon-accent">Ailydian</span>
+        <span style={{ color: 'var(--ac-1)', fontWeight: '700' }}>Ailydian</span>
       </span>
     </div>
   );
