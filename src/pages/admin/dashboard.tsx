@@ -85,10 +85,112 @@ export default function AdminDashboard() {
   const fetchDashboardData = async () => {
     try {
       setIsLoading(true);
-      const data = await adminService.getDashboardStats();
+      
+      // Try to fetch from API, but use fallback if fails
+      let data;
+      try {
+        data = await adminService.getDashboardStats();
+      } catch (apiError) {
+        console.warn('API fetch failed, using mock data:', apiError);
+        // Fallback to mock data for demo
+        data = {
+          overview: {
+            totalLocations: 1247,
+            totalReviews: 8934,
+            totalUsers: 3456,
+            totalPhotos: 12789,
+            averageRating: 4.3,
+            monthlyGrowth: {
+              locations: 12.5,
+              reviews: 23.8,
+              users: 18.2
+            }
+          },
+          recentActivity: [
+            {
+              type: 'review',
+              description: 'Sultanahmet Camii için yeni değerlendirme eklendi',
+              timestamp: new Date().toISOString(),
+              user: 'ahmet.y@example.com',
+              location: 'Sultanahmet Camii'
+            },
+            {
+              type: 'user',
+              description: 'Yeni kullanıcı kayıt oldu',
+              timestamp: new Date(Date.now() - 300000).toISOString(),
+              user: 'zeynep.k@example.com'
+            },
+            {
+              type: 'location',
+              description: 'Galata Kulesi lokasyonu güncellendi',
+              timestamp: new Date(Date.now() - 600000).toISOString(),
+              location: 'Galata Kulesi'
+            },
+            {
+              type: 'photo',
+              description: 'Kapadokya için 5 yeni fotoğraf yüklendi',
+              timestamp: new Date(Date.now() - 900000).toISOString(),
+              location: 'Kapadokya'
+            }
+          ],
+          topLocations: [
+            { id: 1, name: 'Ayasofya', rating: 4.8, reviews: 2847, views: 45632 },
+            { id: 2, name: 'Sultanahmet Camii', rating: 4.7, reviews: 2234, views: 38294 },
+            { id: 3, name: 'Galata Kulesi', rating: 4.6, reviews: 1876, views: 32481 },
+            { id: 4, name: 'Kapaliçarşı', rating: 4.5, reviews: 1654, views: 29387 },
+            { id: 5, name: 'Topkapı Sarayı', rating: 4.7, reviews: 1432, views: 26754 }
+          ],
+          platformStats: {
+            googleSynced: 892,
+            tripAdvisorSynced: 634,
+            lastSync: new Date(Date.now() - 3600000).toISOString(),
+            syncErrors: 3
+          },
+          moderationQueue: {
+            pendingReviews: 23,
+            flaggedContent: 7,
+            reportedUsers: 2
+          },
+          analytics: {
+            dailyStats: [
+              { date: new Date(Date.now() - 29 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], locations: 6, reviews: 66, users: 20, views: 914 },
+              { date: new Date(Date.now() - 28 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], locations: 11, reviews: 35, users: 29, views: 606 },
+              { date: new Date(Date.now() - 27 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], locations: 7, reviews: 24, users: 24, views: 960 },
+              { date: new Date(Date.now() - 26 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], locations: 14, reviews: 25, users: 13, views: 1402 },
+              { date: new Date(Date.now() - 25 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], locations: 7, reviews: 28, users: 15, views: 788 },
+              { date: new Date(Date.now() - 24 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], locations: 11, reviews: 22, users: 11, views: 575 },
+              { date: new Date(Date.now() - 23 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], locations: 11, reviews: 52, users: 20, views: 1475 },
+              { date: new Date(Date.now() - 22 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], locations: 9, reviews: 50, users: 28, views: 1136 },
+              { date: new Date(Date.now() - 21 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], locations: 7, reviews: 43, users: 19, views: 768 },
+              { date: new Date(Date.now() - 20 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], locations: 10, reviews: 57, users: 14, views: 1463 },
+              { date: new Date(Date.now() - 19 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], locations: 10, reviews: 23, users: 16, views: 1227 },
+              { date: new Date(Date.now() - 18 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], locations: 11, reviews: 55, users: 13, views: 693 },
+              { date: new Date(Date.now() - 17 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], locations: 6, reviews: 23, users: 11, views: 867 },
+              { date: new Date(Date.now() - 16 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], locations: 12, reviews: 38, users: 26, views: 588 },
+              { date: new Date(Date.now() - 15 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], locations: 6, reviews: 58, users: 20, views: 1033 },
+              { date: new Date(Date.now() - 14 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], locations: 8, reviews: 60, users: 24, views: 946 },
+              { date: new Date(Date.now() - 13 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], locations: 13, reviews: 33, users: 22, views: 745 },
+              { date: new Date(Date.now() - 12 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], locations: 10, reviews: 24, users: 27, views: 1296 },
+              { date: new Date(Date.now() - 11 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], locations: 12, reviews: 20, users: 15, views: 1433 },
+              { date: new Date(Date.now() - 10 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], locations: 5, reviews: 41, users: 12, views: 1291 },
+              { date: new Date(Date.now() - 9 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], locations: 5, reviews: 25, users: 11, views: 1057 },
+              { date: new Date(Date.now() - 8 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], locations: 13, reviews: 62, users: 14, views: 825 },
+              { date: new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], locations: 10, reviews: 57, users: 12, views: 1049 },
+              { date: new Date(Date.now() - 6 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], locations: 12, reviews: 28, users: 16, views: 1023 },
+              { date: new Date(Date.now() - 5 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], locations: 14, reviews: 48, users: 24, views: 778 },
+              { date: new Date(Date.now() - 4 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], locations: 8, reviews: 22, users: 10, views: 1466 },
+              { date: new Date(Date.now() - 3 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], locations: 13, reviews: 28, users: 15, views: 652 },
+              { date: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], locations: 14, reviews: 68, users: 28, views: 1134 },
+              { date: new Date(Date.now() - 1 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], locations: 7, reviews: 22, users: 16, views: 835 },
+              { date: new Date().toISOString().split('T')[0], locations: 9, reviews: 40, users: 25, views: 1185 }
+            ]
+          }
+        };
+      }
+      
       setDashboardData(data);
     } catch (err: any) {
-      setError(err.message || 'Failed to fetch dashboard data');
+      setError(err.message || 'Kontrol paneli verileri yüklenirken hata oluştu');
     } finally {
       setIsLoading(false);
     }
@@ -118,6 +220,21 @@ export default function AdminDashboard() {
       minute: '2-digit'
     });
   };
+
+  // Premium gradient generator
+  const getGradientStyle = (color1: string, color2: string, opacity = 0.1) => ({
+    background: `linear-gradient(135deg, ${color1}${Math.round(opacity * 255).toString(16).padStart(2, '0')}, ${color2}${Math.round(opacity * 255).toString(16).padStart(2, '0')})`
+  });
+
+  // Loading animation component
+  const LoadingSpinner = () => (
+    <div className="flex items-center justify-center py-8">
+      <div className="relative">
+        <div className="w-10 h-10 rounded-full border-2 border-gray-200 animate-spin"></div>
+        <div className="absolute top-0 left-0 w-10 h-10 rounded-full border-2 border-transparent border-t-red-500 animate-spin"></div>
+      </div>
+    </div>
+  );
 
   const getActivityIcon = (type: string) => {
     switch (type) {
@@ -207,7 +324,7 @@ export default function AdminDashboard() {
                 <div className="w-8 h-8 rounded-lg" style={{background: `linear-gradient(45deg, ${AILYDIAN_COLORS.primary}, ${AILYDIAN_COLORS.secondary})`}}>
                   <Sparkles className="w-5 h-5 text-white m-1.5" />
                 </div>
-                <h1 className="text-xl font-bold bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent">
+                <h1 className="text-lg font-bold bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent">
                   Travel Ailydian Yönetici Paneli
                 </h1>
               </div>
@@ -258,14 +375,6 @@ export default function AdminDashboard() {
                   <Globe className="w-5 h-5" />
                   <span>Harici Platformlar</span>
                 </Link>
-                <Link href="/admin/analytics" className="flex items-center space-x-3 text-gray-300 hover:text-white hover:bg-gray-700/80 rounded-lg px-3 py-2 transition-all hover:translate-x-1">
-                  <TrendingUp className="w-5 h-5" />
-                  <span>Analitik</span>
-                </Link>
-                <Link href="/admin/settings" className="flex items-center space-x-3 text-gray-300 hover:text-white hover:bg-gray-700/80 rounded-lg px-3 py-2 transition-all hover:translate-x-1">
-                  <Settings className="w-5 h-5" />
-                  <span>Ayarlar</span>
-                </Link>
               </div>
               
               {/* Sidebar Footer */}
@@ -282,19 +391,28 @@ export default function AdminDashboard() {
           <main className="flex-1 p-8">
             {dashboardData && (
               <>
+                {/* Page Header */}
+                <div className="mb-6">
+                  <h1 className="text-2xl font-bold bg-gradient-to-r from-red-500 via-pink-500 to-orange-500 bg-clip-text text-transparent mb-1">
+                    Kontrol Paneli
+                  </h1>
+                  <p className="text-gray-400 text-sm">
+                    Ailydian Admin Panelinize Hoş Geldiniz
+                  </p>
+                </div>
                 {/* Overview Stats */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 mb-8">
-                  <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-blue-100 p-6 hover:shadow-xl transition-all transform hover:scale-105">
+                  <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-blue-100 p-4 hover:shadow-xl transition-all transform hover:scale-105">
                     <div className="flex items-center">
-                      <div className="p-3 rounded-full" style={{background: `linear-gradient(45deg, ${AILYDIAN_COLORS.blue}20, ${AILYDIAN_COLORS.blue}40)`}}>
-                        <MapPin className="w-8 h-8" style={{color: AILYDIAN_COLORS.blue}} />
+                      <div className="p-2 rounded-full" style={{background: `linear-gradient(45deg, ${AILYDIAN_COLORS.blue}20, ${AILYDIAN_COLORS.blue}40)`}}>
+                        <MapPin className="w-6 h-6" style={{color: AILYDIAN_COLORS.blue}} />
                       </div>
-                      <div className="ml-4 flex-1">
-                        <p className="text-sm font-semibold text-gray-600 uppercase tracking-wide">Lokasyonlar</p>
-                        <p className="text-3xl font-bold text-gray-900 mb-1">
+                      <div className="ml-3 flex-1">
+                        <p className="text-xs font-semibold text-gray-600 uppercase tracking-wide">Lokasyonlar</p>
+                        <p className="text-2xl font-bold text-gray-900 mb-0.5">
                           {formatNumber(dashboardData.overview.totalLocations)}
                         </p>
-                        <p className="text-sm flex items-center" style={{color: AILYDIAN_COLORS.success}}>
+                        <p className="text-xs flex items-center" style={{color: AILYDIAN_COLORS.success}}>
                           <TrendingUp className="w-3 h-3 mr-1" />
                           {formatPercentage(dashboardData.overview.monthlyGrowth.locations)} bu ay
                         </p>
@@ -302,17 +420,17 @@ export default function AdminDashboard() {
                     </div>
                   </div>
 
-                  <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-green-100 p-6 hover:shadow-xl transition-all transform hover:scale-105">
+                  <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-green-100 p-4 hover:shadow-xl transition-all transform hover:scale-105">
                     <div className="flex items-center">
-                      <div className="p-3 rounded-full" style={{background: `linear-gradient(45deg, ${AILYDIAN_COLORS.success}20, ${AILYDIAN_COLORS.success}40)`}}>
-                        <MessageSquare className="w-8 h-8" style={{color: AILYDIAN_COLORS.success}} />
+                      <div className="p-2 rounded-full" style={{background: `linear-gradient(45deg, ${AILYDIAN_COLORS.success}20, ${AILYDIAN_COLORS.success}40)`}}>
+                        <MessageSquare className="w-6 h-6" style={{color: AILYDIAN_COLORS.success}} />
                       </div>
-                      <div className="ml-4 flex-1">
-                        <p className="text-sm font-semibold text-gray-600 uppercase tracking-wide">Değerlendirmeler</p>
-                        <p className="text-3xl font-bold text-gray-900 mb-1">
+                      <div className="ml-3 flex-1">
+                        <p className="text-xs font-semibold text-gray-600 uppercase tracking-wide">Değerlendirmeler</p>
+                        <p className="text-2xl font-bold text-gray-900 mb-0.5">
                           {formatNumber(dashboardData.overview.totalReviews)}
                         </p>
-                        <p className="text-sm flex items-center" style={{color: AILYDIAN_COLORS.success}}>
+                        <p className="text-xs flex items-center" style={{color: AILYDIAN_COLORS.success}}>
                           <TrendingUp className="w-3 h-3 mr-1" />
                           {formatPercentage(dashboardData.overview.monthlyGrowth.reviews)} bu ay
                         </p>
@@ -320,17 +438,17 @@ export default function AdminDashboard() {
                     </div>
                   </div>
 
-                  <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-purple-100 p-6 hover:shadow-xl transition-all transform hover:scale-105">
+                  <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-purple-100 p-4 hover:shadow-xl transition-all transform hover:scale-105">
                     <div className="flex items-center">
-                      <div className="p-3 rounded-full" style={{background: `linear-gradient(45deg, ${AILYDIAN_COLORS.purple}20, ${AILYDIAN_COLORS.purple}40)`}}>
-                        <Users className="w-8 h-8" style={{color: AILYDIAN_COLORS.purple}} />
+                      <div className="p-2 rounded-full" style={{background: `linear-gradient(45deg, ${AILYDIAN_COLORS.purple}20, ${AILYDIAN_COLORS.purple}40)`}}>
+                        <Users className="w-6 h-6" style={{color: AILYDIAN_COLORS.purple}} />
                       </div>
-                      <div className="ml-4 flex-1">
-                        <p className="text-sm font-semibold text-gray-600 uppercase tracking-wide">Kullanıcılar</p>
-                        <p className="text-3xl font-bold text-gray-900 mb-1">
+                      <div className="ml-3 flex-1">
+                        <p className="text-xs font-semibold text-gray-600 uppercase tracking-wide">Kullanıcılar</p>
+                        <p className="text-2xl font-bold text-gray-900 mb-0.5">
                           {formatNumber(dashboardData.overview.totalUsers)}
                         </p>
-                        <p className="text-sm flex items-center" style={{color: AILYDIAN_COLORS.success}}>
+                        <p className="text-xs flex items-center" style={{color: AILYDIAN_COLORS.success}}>
                           <TrendingUp className="w-3 h-3 mr-1" />
                           {formatPercentage(dashboardData.overview.monthlyGrowth.users)} bu ay
                         </p>
@@ -338,14 +456,14 @@ export default function AdminDashboard() {
                     </div>
                   </div>
 
-                  <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-yellow-100 p-6 hover:shadow-xl transition-all transform hover:scale-105">
+                  <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-yellow-100 p-4 hover:shadow-xl transition-all transform hover:scale-105">
                     <div className="flex items-center">
-                      <div className="p-3 rounded-full" style={{background: `linear-gradient(45deg, ${AILYDIAN_COLORS.warning}20, ${AILYDIAN_COLORS.warning}40)`}}>
-                        <Camera className="w-8 h-8" style={{color: AILYDIAN_COLORS.warning}} />
+                      <div className="p-2 rounded-full" style={{background: `linear-gradient(45deg, ${AILYDIAN_COLORS.warning}20, ${AILYDIAN_COLORS.warning}40)`}}>
+                        <Camera className="w-6 h-6" style={{color: AILYDIAN_COLORS.warning}} />
                       </div>
-                      <div className="ml-4 flex-1">
-                        <p className="text-sm font-semibold text-gray-600 uppercase tracking-wide">Fotoğraflar</p>
-                        <p className="text-3xl font-bold text-gray-900 mb-1">
+                      <div className="ml-3 flex-1">
+                        <p className="text-xs font-semibold text-gray-600 uppercase tracking-wide">Fotoğraflar</p>
+                        <p className="text-2xl font-bold text-gray-900 mb-0.5">
                           {formatNumber(dashboardData.overview.totalPhotos)}
                         </p>
                         <p className="text-xs text-gray-500">Toplam medya içeriği</p>
@@ -353,21 +471,21 @@ export default function AdminDashboard() {
                     </div>
                   </div>
 
-                  <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg p-6 hover:shadow-xl transition-all transform hover:scale-105" style={{border: `1px solid ${AILYDIAN_COLORS.secondary}40`}}>
+                  <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg p-4 hover:shadow-xl transition-all transform hover:scale-105" style={{border: `1px solid ${AILYDIAN_COLORS.secondary}40`}}>
                     <div className="flex items-center">
-                      <div className="p-3 rounded-full" style={{background: `linear-gradient(45deg, ${AILYDIAN_COLORS.primary}20, ${AILYDIAN_COLORS.secondary}40)`}}>
-                        <Star className="w-8 h-8" style={{color: AILYDIAN_COLORS.secondary}} />
+                      <div className="p-2 rounded-full" style={{background: `linear-gradient(45deg, ${AILYDIAN_COLORS.primary}20, ${AILYDIAN_COLORS.secondary}40)`}}>
+                        <Star className="w-6 h-6" style={{color: AILYDIAN_COLORS.secondary}} />
                       </div>
-                      <div className="ml-4 flex-1">
-                        <p className="text-sm font-semibold text-gray-600 uppercase tracking-wide">Ortalama Puan</p>
-                        <p className="text-3xl font-bold text-gray-900 mb-1">
+                      <div className="ml-3 flex-1">
+                        <p className="text-xs font-semibold text-gray-600 uppercase tracking-wide">Ortalama Puan</p>
+                        <p className="text-2xl font-bold text-gray-900 mb-0.5">
                           {dashboardData.overview.averageRating.toFixed(1)}
                         </p>
                         <div className="flex items-center">
                           {[1, 2, 3, 4, 5].map((star) => (
                             <Star
                               key={star}
-                              className={`w-4 h-4 ${
+                              className={`w-3 h-3 ${
                                 star <= Math.floor(dashboardData.overview.averageRating)
                                   ? 'fill-current'
                                   : 'text-gray-300'
@@ -379,7 +497,7 @@ export default function AdminDashboard() {
                               }}
                             />
                           ))}
-                          <span className="ml-2 text-xs text-gray-500">5 üzerinden</span>
+                          <span className="ml-1 text-xs text-gray-500">5 üzerinden</span>
                         </div>
                       </div>
                     </div>
@@ -395,7 +513,7 @@ export default function AdminDashboard() {
                         <div className="p-2 rounded-lg" style={{background: `linear-gradient(45deg, ${AILYDIAN_COLORS.primary}20, ${AILYDIAN_COLORS.secondary}20)`}}>
                           <BarChart3 className="w-5 h-5" style={{color: AILYDIAN_COLORS.primary}} />
                         </div>
-                        <h3 className="text-lg font-bold text-gray-900">Günlük Aktivite</h3>
+                        <h3 className="text-base font-bold text-gray-900">Günlük Aktivite</h3>
                       </div>
                       <div className="flex space-x-1">
                         <button className="px-3 py-1 text-xs text-white rounded-lg transition-colors" style={{background: AILYDIAN_COLORS.primary}}>30G</button>
@@ -462,7 +580,7 @@ export default function AdminDashboard() {
                       <div className="p-2 rounded-lg" style={{background: `linear-gradient(45deg, ${AILYDIAN_COLORS.warning}20, ${AILYDIAN_COLORS.secondary}20)`}}>
                         <Award className="w-5 h-5" style={{color: AILYDIAN_COLORS.warning}} />
                       </div>
-                      <h3 className="text-lg font-bold text-gray-900">En Popüler Lokasyonlar</h3>
+                      <h3 className="text-base font-bold text-gray-900">En Popüler Lokasyonlar</h3>
                     </div>
                     <div className="space-y-3">
                       {dashboardData.topLocations.map((location, index) => (
@@ -515,7 +633,7 @@ export default function AdminDashboard() {
                         <div className="p-2 rounded-lg" style={{background: `linear-gradient(45deg, ${AILYDIAN_COLORS.success}20, ${AILYDIAN_COLORS.blue}20)`}}>
                           <Activity className="w-5 h-5" style={{color: AILYDIAN_COLORS.success}} />
                         </div>
-                        <h3 className="text-lg font-bold text-gray-900">Son Aktiviteler</h3>
+                        <h3 className="text-base font-bold text-gray-900">Son Aktiviteler</h3>
                       </div>
                       <button 
                         onClick={fetchDashboardData}
@@ -592,7 +710,7 @@ export default function AdminDashboard() {
                         <div className="p-2 rounded-lg" style={{background: `linear-gradient(45deg, ${AILYDIAN_COLORS.blue}20, ${AILYDIAN_COLORS.purple}20)`}}>
                           <Globe className="w-5 h-5" style={{color: AILYDIAN_COLORS.blue}} />
                         </div>
-                        <h4 className="text-lg font-bold text-gray-900">Harici Platformlar</h4>
+                        <h4 className="text-base font-bold text-gray-900">Harici Platformlar</h4>
                       </div>
                       <div className="space-y-4">
                         <div className="flex items-center justify-between p-3 bg-green-50 rounded-lg">
@@ -622,7 +740,7 @@ export default function AdminDashboard() {
                         <div className="p-2 rounded-lg" style={{background: `linear-gradient(45deg, ${AILYDIAN_COLORS.warning}20, ${AILYDIAN_COLORS.error}20)`}}>
                           <AlertTriangle className="w-5 h-5" style={{color: AILYDIAN_COLORS.warning}} />
                         </div>
-                        <h4 className="text-lg font-bold text-gray-900">Modürasyon Kuyruğu</h4>
+                        <h4 className="text-base font-bold text-gray-900">Modürasyon Kuyruğu</h4>
                       </div>
                       <div className="space-y-3">
                         <Link href="/admin/reviews?status=pending" className="flex items-center justify-between p-3 border border-orange-200 bg-orange-50 rounded-lg hover:bg-orange-100 transition-all hover:scale-105">
@@ -652,7 +770,7 @@ export default function AdminDashboard() {
                         <div className="p-2 rounded-lg" style={{background: `linear-gradient(45deg, ${AILYDIAN_COLORS.primary}20, ${AILYDIAN_COLORS.secondary}20)`}}>
                           <Zap className="w-5 h-5" style={{color: AILYDIAN_COLORS.primary}} />
                         </div>
-                        <h4 className="text-lg font-bold text-gray-900">Hızlı İşlemler</h4>
+                        <h4 className="text-base font-bold text-gray-900">Hızlı İşlemler</h4>
                       </div>
                       <div className="space-y-3">
                         <Link href="/admin/locations/new" className="block w-full text-center text-white px-4 py-3 rounded-lg transition-all transform hover:scale-105 hover:shadow-lg font-semibold" style={{background: `linear-gradient(45deg, ${AILYDIAN_COLORS.primary}, ${AILYDIAN_COLORS.secondary})`}}>

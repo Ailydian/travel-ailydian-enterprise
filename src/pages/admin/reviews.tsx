@@ -6,7 +6,7 @@ import {
   MessageSquare, Star, User, MapPin, Calendar, Filter, Search,
   CheckCircle, XCircle, AlertTriangle, Flag, Eye, Edit, Trash2,
   ThumbsUp, ThumbsDown, Clock, RefreshCw, Download, BarChart3,
-  Brain, Zap, Award, TrendingUp, Users
+  Brain, Zap, Award, TrendingUp, Users, Globe
 } from 'lucide-react';
 import adminService from '../../lib/services/admin-service';
 
@@ -392,6 +392,10 @@ export default function AdminReviews() {
                 <Link href="/admin/reviews" className="flex items-center space-x-3 text-white rounded-lg px-3 py-2" style={{background: `linear-gradient(45deg, ${AILYDIAN_COLORS.primary}40, ${AILYDIAN_COLORS.secondary}40)`, border: `1px solid ${AILYDIAN_COLORS.primary}60`}}>
                   <MessageSquare className="w-5 h-5" />
                   <span className="font-medium">Değerlendirmeler</span>
+                </Link>
+                <Link href="/admin/platforms" className="flex items-center space-x-3 text-gray-300 hover:text-white hover:bg-gray-700/80 rounded-lg px-3 py-2 transition-all hover:translate-x-1">
+                  <Globe className="w-5 h-5" />
+                  <span>Harici Platformlar</span>
                 </Link>
               </div>
             </div>

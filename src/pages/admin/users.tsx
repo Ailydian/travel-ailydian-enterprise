@@ -6,7 +6,7 @@ import {
   Users, Search, Filter, Plus, Edit, Trash2, Ban, CheckCircle, 
   Mail, Calendar, MapPin, Star, Eye, Download, Upload, RefreshCw,
   ArrowUpDown, ChevronLeft, ChevronRight, MoreHorizontal, UserCheck,
-  UserX, Award, Clock, Activity, Zap, BarChart3
+  UserX, Award, Clock, Activity, Zap, BarChart3, Globe
 } from 'lucide-react';
 import adminService from '../../lib/services/admin-service';
 
@@ -323,6 +323,10 @@ export default function AdminUsers() {
                 <Link href="/admin/reviews" className="flex items-center space-x-3 text-gray-300 hover:text-white hover:bg-gray-700/80 rounded-lg px-3 py-2 transition-all hover:translate-x-1">
                   <Star className="w-5 h-5" />
                   <span>Değerlendirmeler</span>
+                </Link>
+                <Link href="/admin/platforms" className="flex items-center space-x-3 text-gray-300 hover:text-white hover:bg-gray-700/80 rounded-lg px-3 py-2 transition-all hover:translate-x-1">
+                  <Globe className="w-5 h-5" />
+                  <span>Harici Platformlar</span>
                 </Link>
               </div>
             </div>
