@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import { Star, MapPin, Clock, Phone, Globe, Camera, Heart, Share2, Flag, ExternalLink, Sync, CheckCircle, AlertCircle } from 'lucide-react';
+import { Star, MapPin, Clock, Phone, Globe, Camera, Heart, Share2, Flag, ExternalLink, RefreshCw, CheckCircle, AlertCircle } from 'lucide-react';
 
 import { Location, Review, Photo } from '../../lib/types/review-system';
 import reviewService from '../../lib/services/review-service';
@@ -723,7 +723,7 @@ export default function LocationPage({
                           disabled={syncingGoogle}
                           className="flex items-center px-3 py-1.5 bg-red-600 text-white text-sm rounded-md hover:bg-red-700 disabled:opacity-50"
                         >
-                          <Sync className={`h-3 w-3 mr-1 ${syncingGoogle ? 'animate-spin' : ''}`} />
+                          <RefreshCw className={`h-3 w-3 mr-1 ${syncingGoogle ? 'animate-spin' : ''}`} />
                           {syncingGoogle ? 'Syncing...' : 'Sync'}
                         </button>
                       </div>
@@ -760,7 +760,7 @@ export default function LocationPage({
                           disabled={syncingTripAdvisor}
                           className="flex items-center px-3 py-1.5 bg-green-600 text-white text-sm rounded-md hover:bg-green-700 disabled:opacity-50"
                         >
-                          <Sync className={`h-3 w-3 mr-1 ${syncingTripAdvisor ? 'animate-spin' : ''}`} />
+                          <RefreshCw className={`h-3 w-3 mr-1 ${syncingTripAdvisor ? 'animate-spin' : ''}`} />
                           {syncingTripAdvisor ? 'Syncing...' : 'Sync'}
                         </button>
                       </div>
