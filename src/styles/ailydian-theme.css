@@ -428,29 +428,17 @@ html {
     0 0 90px rgba(14, 165, 233, 0.1);
 }
 
-/* Premium Neon Text Effects */
+/* Premium Clean Neon Text Effects */
 .premium-neon-text {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   font-weight: 700;
   letter-spacing: 0.5px;
   color: #FFFFFF;
-  text-shadow: 
-    0 0 5px var(--ac-1),
-    0 0 10px var(--ac-1),
-    0 0 20px var(--ac-1),
-    0 0 40px var(--ac-1);
-  animation: neonPulse 2s ease-in-out infinite alternate;
 }
 
 .premium-neon-accent {
   color: var(--ac-2);
-  text-shadow: 
-    0 0 5px var(--ac-2),
-    0 0 10px var(--ac-2),
-    0 0 20px var(--ac-2),
-    0 0 40px var(--ac-2),
-    0 0 80px var(--ac-2);
-  animation: neonGlow 3s ease-in-out infinite alternate;
+  font-weight: 700;
 }
 
 @keyframes neonPulse {
@@ -492,50 +480,52 @@ html {
   }
 }
 
-/* Premium Header Neon */
+/* Premium Header Clean Neon */
 .header-neon {
   color: #FFFFFF;
-  text-shadow: 
-    0 0 3px var(--ac-1),
-    0 0 6px var(--ac-1),
-    0 0 12px var(--ac-1);
   font-weight: 600;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  letter-spacing: 0.5px;
 }
 
 .header-neon:hover {
-  text-shadow: 
-    0 0 3px var(--ac-2),
-    0 0 6px var(--ac-2),
-    0 0 12px var(--ac-2),
-    0 0 24px var(--ac-2);
-  transition: text-shadow 0.3s ease;
+  color: var(--ac-2);
+  transition: color 0.3s ease;
 }
 
-/* Parachute Animation */
+/* Slow Parachute Animation */
 .parachute-container {
   position: absolute;
   top: -100px;
   left: -200px;
-  animation: parachuteFlight 20s linear infinite;
+  animation: parachuteFlight 35s ease-in-out infinite;
 }
 
 @keyframes parachuteFlight {
   0% {
-    transform: translate(-200px, -100px) rotate(-10deg);
+    transform: translate(-200px, -100px) rotate(-5deg);
     opacity: 0;
   }
-  5% {
+  8% {
+    opacity: 1;
+  }
+  25% {
+    transform: translate(25vw, 15vh) rotate(0deg);
     opacity: 1;
   }
   50% {
-    transform: translate(50vw, 30vh) rotate(5deg);
+    transform: translate(50vw, 30vh) rotate(3deg);
     opacity: 1;
   }
-  95% {
+  75% {
+    transform: translate(75vw, 55vh) rotate(7deg);
+    opacity: 1;
+  }
+  92% {
     opacity: 1;
   }
   100% {
-    transform: translate(120vw, 100vh) rotate(15deg);
+    transform: translate(110vw, 90vh) rotate(10deg);
     opacity: 0;
   }
 }
@@ -594,10 +584,169 @@ html {
   }
 }
 
-/* Responsive Parachute */
+/* Boat Animation */
+.boat-container {
+  position: absolute;
+  top: 40vh;
+  right: -300px;
+  animation: boatSailing 40s ease-in-out infinite;
+}
+
+@keyframes boatSailing {
+  0% {
+    transform: translate(300px, 0) rotate(5deg);
+    opacity: 0;
+  }
+  8% {
+    opacity: 1;
+  }
+  25% {
+    transform: translate(200px, -20px) rotate(3deg);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(-20vw, -10px) rotate(0deg);
+    opacity: 1;
+  }
+  75% {
+    transform: translate(-60vw, 15px) rotate(-2deg);
+    opacity: 1;
+  }
+  92% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-120vw, 30px) rotate(-5deg);
+    opacity: 0;
+  }
+}
+
+/* Boat Elements Animation */
+.boat-hull {
+  animation: boatRocking 4s ease-in-out infinite;
+  transform-origin: 140px 150px;
+}
+
+@keyframes boatRocking {
+  0%, 100% {
+    transform: rotate(-1deg);
+  }
+  50% {
+    transform: rotate(1deg);
+  }
+}
+
+.main-sail, .front-sail {
+  animation: sailFlutter 6s ease-in-out infinite;
+}
+
+@keyframes sailFlutter {
+  0%, 100% {
+    transform: skewX(0deg);
+  }
+  25% {
+    transform: skewX(2deg);
+  }
+  75% {
+    transform: skewX(-2deg);
+  }
+}
+
+.flag {
+  animation: flagWave 2s ease-in-out infinite;
+  transform-origin: 140px 77px;
+}
+
+@keyframes flagWave {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-5deg);
+  }
+}
+
+.sea-waves {
+  animation: waveMotion 8s ease-in-out infinite;
+}
+
+@keyframes waveMotion {
+  0%, 100% {
+    transform: translateX(0px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+}
+
+.water-splashes circle {
+  animation: splash 3s ease-in-out infinite;
+}
+
+.splash-1 {
+  animation-delay: 0s;
+}
+
+.splash-2 {
+  animation-delay: 0.7s;
+}
+
+.splash-3 {
+  animation-delay: 1.4s;
+}
+
+.splash-4 {
+  animation-delay: 2.1s;
+}
+
+@keyframes splash {
+  0%, 100% {
+    opacity: 0.6;
+    r: 1;
+  }
+  50% {
+    opacity: 1;
+    r: 2.5;
+  }
+}
+
+.seagulls path {
+  animation: seagullFly 12s ease-in-out infinite;
+}
+
+.seagull-1 {
+  animation-delay: 0s;
+}
+
+.seagull-2 {
+  animation-delay: 4s;
+}
+
+.seagull-3 {
+  animation-delay: 8s;
+}
+
+@keyframes seagullFly {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-5px) rotate(2deg);
+  }
+  75% {
+    transform: translateY(5px) rotate(-2deg);
+  }
+}
+
+/* Responsive Animations */
 @media (max-width: 768px) {
   .parachute-container {
-    animation-duration: 25s;
+    animation-duration: 40s;
+  }
+  
+  .boat-container {
+    animation-duration: 45s;
+    top: 45vh;
   }
   
   @keyframes parachuteFlight {

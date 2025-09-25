@@ -13,109 +13,143 @@ import { Search, MapPin, Calendar, Users, Star, Heart, Menu, X,
          Compass, Mountain, Waves, Building, TreePine, MessageCircle, Send } from 'lucide-react';
 import PremiumLogo from '@/components/ui/PremiumLogo';
 import ParachuteAnimation from '@/components/animations/ParachuteAnimation';
+import BoatAnimation from '@/components/animations/BoatAnimation';
 
-// Gerçek destinasyon verileri
+// Gerçek Türkiye Turizm Verileri
 const featuredDestinations = [
   {
     id: 1,
     name: 'İstanbul',
     country: 'Türkiye',
     image: 'https://images.unsplash.com/photo-1541432901042-2d8bd64b4a9b?w=800&h=600&q=90',
-    price: '₺2,500',
+    price: '₺2,850',
     rating: 4.8,
-    reviews: 12847,
+    reviews: 45823,
     tags: ['Tarih', 'Kültür', 'Gastronomi'],
-    description: 'İki kıtayı birleştiren büyüleyici şehir'
+    description: 'Ayasofya, Sultanahmet ve Boğazla büyüleyen şehir'
   },
   {
     id: 2,
-    name: 'Bali Adası',
-    country: 'Endonezya', 
-    image: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=800&h=600&q=90',
-    price: '₺3,500',
+    name: 'Kapadokya',
+    country: 'Türkiye',
+    image: 'https://images.unsplash.com/photo-1570939274719-c60ee3bf5cd9?w=800&h=600&q=90',
+    price: '₺2,200',
     rating: 4.9,
-    reviews: 8642,
-    tags: ['Tropikal', 'Tapınak', 'Plaj'],
-    description: 'Tapınaklar ve tropikal cennet adası'
+    reviews: 32456,
+    tags: ['Balon', 'Peri Bacaları', 'Romantik'],
+    description: 'Sıcak hava balonu ile eşsiz gündoğumu deneyimi'
   },
   {
     id: 3,
     name: 'Antalya',
     country: 'Türkiye',
     image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&q=90',
-    price: '₺3,200',
+    price: '₺1,950',
     rating: 4.7,
-    reviews: 9521,
-    tags: ['Deniz', 'Güneş', 'Tatil'],
-    description: 'Türkiye&apos;nin turizm başkenti'
+    reviews: 28937,
+    tags: ['Deniz', 'Güneş', 'Antik Şehir'],
+    description: 'Akdeniz incisi, antik şehirler ve masmavi deniz'
   },
   {
     id: 4,
-    name: 'Santorini',
-    country: 'Yunanistan',
-    image: 'https://images.unsplash.com/photo-1613395877344-13d4a8e0d49e?w=800&h=600&q=90',
-    price: '€650',
+    name: 'Pamukkale',
+    country: 'Türkiye',
+    image: 'https://images.unsplash.com/photo-1609137144813-7d9921338f24?w=800&h=600&q=90',
+    price: '₺1,650',
     rating: 4.6,
-    reviews: 15630,
-    tags: ['Romantik', 'Deniz', 'Gün Batımı'],
-    description: 'Beyaz evler ve mavi kubbeler adası'
+    reviews: 19847,
+    tags: ['Termal', 'Beyaz Travertiler', 'Şifa'],
+    description: 'Doğanın harikalarından beyaz pamuk şelalesi'
   },
   {
     id: 5,
-    name: 'Tokyo',
-    country: 'Japonya',
-    image: 'https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=800&h=600&q=90',
-    price: '¥85,000',
+    name: 'Bodrum',
+    country: 'Türkiye',
+    image: 'https://images.unsplash.com/photo-1566073771259-6a8506862ae3?w=800&h=600&q=90',
+    price: '₺2,750',
     rating: 4.8,
-    reviews: 11247,
-    tags: ['Teknoloji', 'Kültür', 'Anime'],
-    description: 'Gelenekle modernliğin buluştuğu şehir'
+    reviews: 24651,
+    tags: ['Eğlence', 'Marina', 'Gece Hayatı'],
+    description: 'Ege’nin saint-tropezi, marina ve tarih bir arada'
   },
   {
     id: 6,
-    name: 'New York',
-    country: 'ABD',
-    image: 'https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=400&h=300',
-    price: '$1,200',
+    name: 'Trabzon',
+    country: 'Türkiye',
+    image: 'https://images.unsplash.com/photo-1617634667039-8e4cb277ab46?w=800&h=600&q=90',
+    price: '₺1,850',
     rating: 4.5,
-    reviews: 18932,
-    tags: ['Şehir', 'İş', 'Alışveriş'],
-    description: 'Hiç uyumayan şehir'
+    reviews: 16943,
+    tags: ['Doğa', 'Uzungöl', 'Yeşil'],
+    description: 'Karadeniz’in doğa harikaları ve yeşil yaylalar'
   }
 ];
 
 const popularHotels = [
   {
     id: 1,
-    name: 'Four Seasons Hotel Istanbul',
-    location: 'Sultanahmet, İstanbul',
+    name: 'Çırağan Palace Kempinski İstanbul',
+    location: 'Beşiktaş, İstanbul',
     image: 'https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=400&h=300',
     rating: 4.9,
-    reviews: 2847,
-    price: '₺4,500',
-    amenities: ['Spa', 'Havuz', 'WiFi', 'Kahvaltı'],
+    reviews: 4385,
+    price: '₺8,500',
+    amenities: ['Boğaz Manzarası', 'Spa', 'Havuz', 'Fine Dining'],
     stars: 5
   },
   {
     id: 2,
-    name: 'Museum Hotel Cappadocia',
+    name: 'Argos in Cappadocia',
     location: 'Uçhisar, Kapadokya',
     image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400&h=300',
     rating: 4.8,
-    reviews: 1642,
-    price: '₺3,200',
-    amenities: ['Balon Turu', 'Spa', 'WiFi', 'Restoran'],
+    reviews: 2156,
+    price: '₺4,750',
+    amenities: ['Cave Rooms', 'Balon Turu', 'Spa', 'Vineyard'],
     stars: 5
   },
   {
     id: 3,
-    name: 'Rixos Premium Belek',
-    location: 'Belek, Antalya',
+    name: 'Hillside Beach Club',
+    location: 'Fethiye, Muğla',
     image: 'https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=400&h=300',
     rating: 4.7,
-    reviews: 3521,
-    price: '₺2,800',
-    amenities: ['Her Şey Dahil', 'Plaj', 'Golf', 'Spa'],
+    reviews: 3892,
+    price: '₺6,200',
+    amenities: ['Private Beach', 'Water Sports', 'Kids Club', 'Spa'],
+    stars: 5
+  },
+  {
+    id: 4,
+    name: 'Maxx Royal Belek Golf Resort',
+    location: 'Belek, Antalya',
+    image: 'https://images.unsplash.com/photo-1578683010236-d716f9a3f461?w=400&h=300',
+    rating: 4.8,
+    reviews: 2743,
+    price: '₺5,950',
+    amenities: ['Golf Course', 'Ultra All Inclusive', 'Aqua Park', 'Spa'],
+    stars: 5
+  },
+  {
+    id: 5,
+    name: 'Sumahan on the Water',
+    location: 'Çengelköy, İstanbul',
+    image: 'https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=400&h=300',
+    rating: 4.6,
+    reviews: 1876,
+    price: '₺3,850',
+    amenities: ['Waterfront', 'Historic Building', 'Spa', 'Fine Dining'],
+    stars: 5
+  },
+  {
+    id: 6,
+    name: 'Kaya Palazzo Golf Resort',
+    location: 'Belek, Antalya',
+    image: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=400&h=300',
+    rating: 4.5,
+    reviews: 3267,
+    price: '₺4,250',
+    amenities: ['Championship Golf', 'All Inclusive', 'Kids Zone', 'Spa'],
     stars: 5
   }
 ];
@@ -281,6 +315,8 @@ const TravelHomePage = () => {
       <div className="ocean-waves-overlay"></div>
       {/* Parachute Animation */}
       <ParachuteAnimation />
+      {/* Boat Animation */}
+      <BoatAnimation />
       {/* Header */}
       <header className="shadow-sm border-b" style={{ backgroundColor: 'var(--bg-0)', borderBottomColor: 'var(--ac-1)' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
