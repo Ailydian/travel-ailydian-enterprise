@@ -385,12 +385,6 @@ class ReviewService {
     });
   }
 
-  // ==================== UTILITY METHODS ====================
-
-  formatPriceRange(priceRange: number): string {
-    return '$'.repeat(Math.max(1, Math.min(4, priceRange)));
-  }
-
   async moderateContent(reportId: number, action: 'approve' | 'reject' | 'require_changes', notes?: string): Promise<void> {
     await this.apiClient.post(`/reports/${reportId}/moderate`, {
       action,
