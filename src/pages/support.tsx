@@ -161,19 +161,19 @@ export default function Support() {
         <meta name="description" content="7/24 müşteri desteği, teknik yardım ve seyahat danışmanlığı." />
       </Head>
 
-      <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+      <div className="min-h-screen" style={{ backgroundColor: 'white' }}>
         {/* Header */}
-        <div className="bg-white dark:bg-gray-800 shadow-sm border-b">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+        <div className="shadow-sm border-b" style={{ backgroundColor: 'white', borderBottomColor: '#0ea5e9' }}>
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
             <div className="flex items-center justify-between">
               <div>
-                <Link href="/" className="text-2xl font-bold text-blue-600">
+                <Link href="/" className="text-2xl font-bold" style={{ color: '#0ea5e9' }}>
                   Ailydian Travel
                 </Link>
               </div>
               <Link
                 href="/"
-                className="text-gray-600 hover:text-blue-600 flex items-center"
+                className="ocean-button-secondary flex items-center"
               >
                 <ArrowRight className="h-5 w-5 mr-2 rotate-180" />
                 Ana Sayfa&apos;ya Dön
@@ -183,12 +183,12 @@ export default function Support() {
         </div>
 
         {/* Hero Section */}
-        <div className="bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-600 text-white py-16">
+        <div className="text-white py-16" style={{ background: 'linear-gradient(to bottom, #87CEEB 0%, #4682B4 50%, #0ea5e9 100%)' }}>
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
               Destek Merkezi
             </h1>
-            <p className="text-xl mb-8 text-blue-100">
+            <p className="text-xl mb-8" style={{ color: '#f0f9ff' }}>
               7/24 uzman ekibimizden hızlı ve etkili çözümler alın
             </p>
           </div>
@@ -444,19 +444,19 @@ export default function Support() {
             </p>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <button className="bg-white/20 backdrop-blur-sm rounded-lg p-6 hover:bg-white/30 transition-colors group">
+              <button className="bg-gray-900 border-2 border-white rounded-lg p-6 hover:bg-gray-800 transition-colors group">
                 <MessageCircle className="h-8 w-8 mx-auto mb-3 group-hover:scale-110 transition-transform" />
                 <h3 className="text-lg font-semibold mb-2">Canlı Sohbet</h3>
                 <p className="text-blue-100">Anında yanıt alın</p>
               </button>
               
-              <button className="bg-white/20 backdrop-blur-sm rounded-lg p-6 hover:bg-white/30 transition-colors group">
+              <button className="bg-gray-900 border-2 border-white rounded-lg p-6 hover:bg-gray-800 transition-colors group">
                 <Phone className="h-8 w-8 mx-auto mb-3 group-hover:scale-110 transition-transform" />
                 <h3 className="text-lg font-semibold mb-2">Telefon Desteği</h3>
                 <p className="text-blue-100">+90 242 123 4567</p>
               </button>
               
-              <button className="bg-white/20 backdrop-blur-sm rounded-lg p-6 hover:bg-white/30 transition-colors group">
+              <button className="bg-gray-900 border-2 border-white rounded-lg p-6 hover:bg-gray-800 transition-colors group">
                 <Mail className="h-8 w-8 mx-auto mb-3 group-hover:scale-110 transition-transform" />
                 <h3 className="text-lg font-semibold mb-2">E-posta</h3>
                 <p className="text-blue-100">destek@ailydian.com</p>

@@ -5,13 +5,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 
 :root {
-  --primary-color: #3b82f6;
-  --secondary-color: #8b5cf6;
+  /* Ocean Blue Theme Colors - Beyaz Arka Plan */
+  --ac-1: #0ea5e9;  /* Ana Deniz Mavisi */
+  --ac-2: #06b6d4;  /* Turkuaz Mavi */
+  --ac-3: #0284c7;  /* Koyu Deniz Mavisi */
+  --bg-0: #ffffff;  /* Ana Beyaz Arka Plan */
+  --bg-1: #f8fafc;  /* Açık Gri Arka Plan */
+  --tx-1: #1e293b;  /* Ana Koyu Yazı */
+  --tx-2: #334155;  /* İkincil Yazı */
+  --tx-3: #64748b;  /* Açık Yazı */
+  
+  /* Legacy colors for compatibility */
+  --primary-color: #0ea5e9;
+  --secondary-color: #06b6d4;
   --success-color: #10b981;
   --warning-color: #f59e0b;
   --error-color: #ef4444;
   --background-color: #ffffff;
-  --text-color: #1f2937;
+  --text-color: #1e293b;
 }
 
 * {
@@ -29,8 +40,18 @@ body {
 }
 
 body {
-  color: var(--text-color);
-  background: var(--background-color);
+  color: var(--tx-1);
+  background: var(--bg-0);
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  /* Beyaz tema için smooth transitions */
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 a {
@@ -94,21 +115,19 @@ a {
   animation: bounceIn 0.6s ease-out;
 }
 
-/* Glass morphism effect */
+/* Glass morphism effect - No blur for clarity */
 .glass {
-  background: rgba(255, 255, 255, 0.25);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  background: var(--bg-0);
+  box-shadow: 0 8px 32px 0 var(--ac-1);
   border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  border: 2px solid var(--ac-1);
 }
 
 /* Quantum glow effect */
 .quantum-glow {
-  box-shadow: 0 0 20px rgba(59, 130, 246, 0.5),
-              0 0 40px rgba(59, 130, 246, 0.3),
-              0 0 60px rgba(59, 130, 246, 0.1);
+  box-shadow: 0 0 20px var(--ac-1),
+              0 0 40px var(--ac-2),
+              0 0 60px var(--ac-1);
 }
 
 /* AI pulse effect */
@@ -146,23 +165,20 @@ a {
 /* Enterprise grade styling */
 .enterprise-card {
   position: relative;
-  background: linear-gradient(145deg, #ffffff, #f8fafc);
-  border: 1px solid rgba(148, 163, 184, 0.1);
+  background: var(--bg-0);
+  border: 2px solid var(--ac-1);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .enterprise-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 25px 50px -12px var(--ac-1);
 }
 
 /* Metaverse styling */
 .metaverse-portal {
-  background: radial-gradient(circle at center, 
-    rgba(236, 72, 153, 0.1) 0%,
-    rgba(139, 92, 246, 0.1) 50%,
-    rgba(59, 130, 246, 0.1) 100%);
-  border: 2px solid rgba(236, 72, 153, 0.2);
+  background: linear-gradient(135deg, var(--bg-0) 0%, var(--ac-1) 50%, var(--ac-2) 100%);
+  border: 2px solid var(--ac-1);
   border-radius: 20px;
   position: relative;
   overflow: hidden;
@@ -177,7 +193,7 @@ a {
   height: 100%;
   background: linear-gradient(90deg, 
     transparent, 
-    rgba(255, 255, 255, 0.4), 
+    var(--tx-1), 
     transparent);
   transition: left 0.5s;
 }

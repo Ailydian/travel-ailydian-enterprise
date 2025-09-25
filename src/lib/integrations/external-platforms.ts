@@ -743,7 +743,7 @@ class ExternalPlatformIntegration {
       rateLimitStatus: {} as { [platform: string]: { current: number; limit: number } }
     };
 
-    for (const [platform, requests] of this.rateLimiter.entries()) {
+    Array.from(this.rateLimiter.entries()).forEach(([platform, requests]) => {
       const recentRequests = requests.filter(time => Date.now() - time < 60000);
       stats.requestsByPlatform[platform] = recentRequests.length;
       stats.totalRequests += recentRequests.length;
@@ -756,7 +756,7 @@ class ExternalPlatformIntegration {
         current: recentRequests.length,
         limit
       };
-    }
+    });
 
     return stats;
   }
@@ -768,9 +768,12 @@ class ExternalPlatformIntegration {
     tripadvisor: { status: 'ok' | 'error'; error?: string };
     google: { status: 'ok' | 'error'; error?: string };
   }> {
-    const results = {
-      tripadvisor: { status: 'ok' as const, error: undefined as string | undefined },
-      google: { status: 'ok' as const, error: undefined as string | undefined }
+    const results: {
+      tripadvisor: { status: 'ok' | 'error'; error?: string };
+      google: { status: 'ok' | 'error'; error?: string };
+    } = {
+      tripadvisor: { status: 'ok', error: undefined },
+      google: { status: 'ok', error: undefined }
     };
 
     // Test TripAdvisor API

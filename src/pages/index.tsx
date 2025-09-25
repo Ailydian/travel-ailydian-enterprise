@@ -273,15 +273,15 @@ const TravelHomePage = () => {
   }, []);
 
   return (
-    <div className={`min-h-screen ${isDarkMode ? 'dark bg-gray-900' : 'bg-gray-50'}`}>
+    <div className="min-h-screen" style={{ backgroundColor: 'var(--bg-0)', color: 'var(--tx-1)' }}>
       {/* Header */}
-      <header className="bg-white dark:bg-gray-800 shadow-sm border-b">
+      <header className="shadow-sm border-b" style={{ backgroundColor: 'var(--bg-0)', borderBottomColor: 'var(--ac-1)' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
             <div className="flex items-center">
-              <Globe className="h-8 w-8 text-blue-600 mr-2" />
-              <span className="text-xl font-bold text-gray-900 dark:text-white">
+              <Globe className="h-8 w-8 mr-2" style={{ color: 'var(--ac-1)' }} />
+              <span className="text-xl font-bold neon-text" style={{ color: 'var(--tx-1)' }}>
                 Travel.Ailydian
               </span>
             </div>
@@ -289,7 +289,7 @@ const TravelHomePage = () => {
             {/* Navigation */}
             <nav className="hidden md:flex space-x-8">
               <div className="relative group">
-                <button className="text-gray-700 hover:text-blue-600 dark:text-gray-300 flex items-center">
+                <button className="flex items-center transition-colors duration-300" style={{ color: 'var(--tx-1)' }} onMouseEnter={(e) => (e.currentTarget as HTMLElement).style.color = 'var(--ac-1)'} onMouseLeave={(e) => (e.currentTarget as HTMLElement).style.color = 'var(--tx-1)'}>
                   <Compass className="h-4 w-4 mr-1" />
                   Keşfet
                   <ChevronDown className="h-4 w-4 ml-1" />
@@ -383,14 +383,14 @@ const TravelHomePage = () => {
               <div className="hidden md:flex items-center space-x-2">
                 <button 
                   onClick={() => setShowLoginModal(true)}
-                  className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors flex items-center"
+                  className="ocean-button px-4 py-2 rounded-lg transition-colors flex items-center"
                 >
                   <LogIn className="h-4 w-4 mr-1" />
                   Giriş Yap
                 </button>
                 <Link
                   href="/register"
-                  className="border border-blue-600 text-blue-600 px-4 py-2 rounded-lg hover:bg-blue-50 transition-colors flex items-center"
+                  className="ocean-button-secondary px-4 py-2 rounded-lg transition-colors flex items-center"
                 >
                   <UserPlus className="h-4 w-4 mr-1" />
                   Kayıt Ol
@@ -467,13 +467,13 @@ const TravelHomePage = () => {
                   setShowLoginModal(true);
                   setMobileMenuOpen(false);
                 }}
-                className="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-gray-700 transition-colors"
+                className="ocean-button-secondary w-full text-left px-3 py-2 rounded-md text-base font-medium"
               >
                 Giriş Yap
               </button>
               <Link
                 href="/register"
-                className="block px-3 py-2 rounded-md text-base font-medium text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-gray-700 transition-colors"
+                className="ocean-button-secondary block px-3 py-2 rounded-md text-base font-medium"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Kayıt Ol
@@ -483,41 +483,55 @@ const TravelHomePage = () => {
         </div>
       )}
 
-      {/* Hero Section */}
-      <section className="relative text-white py-20 overflow-hidden">
-        {/* Background Image */}
-        <div className="absolute inset-0">
-          <Image
-            src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=1920&h=1080&q=80"
-            alt="Travel Background"
-            fill
-            className="object-cover"
-            priority
-          />
+      {/* Hero Section with Ocean Background & Surfer Image */}
+      <section className="relative py-20 overflow-hidden" style={{ background: 'linear-gradient(to bottom, #87CEEB 0%, #4682B4 50%, #1e3a8a 100%)' }}>
+        {/* Ocean Wave Background */}
+        <div className="absolute inset-0 w-full h-full">
+          <div className="ocean-bg">
+            <div className="wave-layer wave-layer-1"></div>
+            <div className="wave-layer wave-layer-2"></div>
+            <div className="wave-layer wave-layer-3"></div>
+          </div>
         </div>
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/70 via-purple-700/60 to-indigo-600/70"></div>
-        <div className="absolute inset-0 bg-black/20"></div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            Dünyayı Keşfet
-          </h1>
-          <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
-            AI destekli akıllı seyahat platformu ile hayalindeki tatili planla. 
-            Kişiselleştirilmiş öneriler, en iyi fiyatlar, güvenli rezervasyonlar.
-          </p>
+        
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-20">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            {/* Left Side - Surfer Image */}
+            <div className="order-2 lg:order-1">
+              <div className="surfer-image-container">
+                <img 
+                  src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Cdefs%3E%3ClinearGradient id='ocean' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%2387CEEB;stop-opacity:1'/%3E%3Cstop offset='100%25' style='stop-color:%234682B4;stop-opacity:1'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='400' height='300' fill='url(%23ocean)'/%3E%3C!-- Waves --%3E%3Cpath d='M0,200 Q100,180 200,200 T400,200 L400,250 Q300,230 200,250 T0,250 Z' fill='%23ffffff' fill-opacity='0.3'%3E%3CanimateTransform attributeName='transform' type='translate' values='0,0;20,0;0,0' dur='3s' repeatCount='indefinite'/%3E%3C/path%3E%3C!-- Surfboard --%3E%3Cg transform='translate(200,180)'%3E%3CanimateTransform attributeName='transform' type='translate' values='200,180;220,170;200,180' dur='4s' repeatCount='indefinite'/%3E%3Cellipse cx='0' cy='0' rx='40' ry='5' fill='%23ffffff' stroke='%230ea5e9' stroke-width='2'%3E%3CanimateTransform attributeName='transform' type='rotate' values='-5;5;-5' dur='2s' repeatCount='indefinite'/%3E%3C/ellipse%3E%3C!-- Surfer --%3E%3Cg transform='translate(0,-20)'%3E%3CanimateTransform attributeName='transform' type='translate' values='0,-20;2,-25;0,-20' dur='2s' repeatCount='indefinite'/%3E%3C!-- Head --%3E%3Ccircle cx='0' cy='-15' r='6' fill='%23fbbf24'/%3E%3C!-- Body --%3E%3Crect x='-4' y='-10' width='8' height='15' rx='4' fill='%230ea5e9'/%3E%3C!-- Arms --%3E%3Cg%3E%3CanimateTransform attributeName='transform' type='rotate' values='-10;10;-10' dur='1.5s' repeatCount='indefinite'/%3E%3Crect x='-10' y='-5' width='6' height='3' rx='1.5' fill='%23fbbf24'/%3E%3Crect x='4' y='-5' width='6' height='3' rx='1.5' fill='%23fbbf24'/%3E%3C/g%3E%3C!-- Legs --%3E%3Crect x='-6' y='5' width='3' height='12' rx='1.5' fill='%231e293b'/%3E%3Crect x='3' y='5' width='3' height='12' rx='1.5' fill='%231e293b'/%3E%3C/g%3E%3C!-- Splash --%3E%3Cg opacity='0.6'%3E%3Ccircle cx='-15' cy='5' r='4' fill='%23ffffff'%3E%3Canimate attributeName='r' values='4;12;4' dur='2s' repeatCount='indefinite'/%3E%3Canimate attributeName='opacity' values='0.6;0;0.6' dur='2s' repeatCount='indefinite'/%3E%3C/circle%3E%3Ccircle cx='15' cy='8' r='3' fill='%23ffffff'%3E%3Canimate attributeName='r' values='3;8;3' dur='2.5s' repeatCount='indefinite'/%3E%3Canimate attributeName='opacity' values='0.4;0;0.4' dur='2.5s' repeatCount='indefinite'/%3E%3C/circle%3E%3C/g%3E%3C/g%3E%3C/svg%3E"
+                  alt="Surfer riding a wave"
+                  className="surfer-image"
+                />
+              </div>
+            </div>
+            
+            {/* Right Side - Text Content */}
+            <div className="order-1 lg:order-2 text-center lg:text-left">
+              <h1 className="text-4xl md:text-6xl font-bold mb-6 neon-text-strong" style={{ color: 'var(--tx-1)' }}>
+                Dünyayı Keşfet
+              </h1>
+              <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto" style={{ color: 'var(--tx-1)' }}>
+                AI destekli akıllı seyahat platformu ile hayalindeki tatili planla. 
+                <span className="neon-text" style={{ color: 'var(--tx-1)' }}>Kişiselleştirilmiş öneriler</span>, en iyi fiyatlar, güvenli rezervasyonlar.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* Search Section */}
-      <section className="bg-white dark:bg-gray-800 py-6 lg:py-8 -mt-8 lg:-mt-10 relative z-10">
+      <section className="py-6 lg:py-8 -mt-8 lg:-mt-10 relative z-10" style={{ backgroundColor: 'var(--bg-0)' }}>
         <div className="max-w-6xl mx-auto px-3 sm:px-6 lg:px-8">
-          <div className="bg-white dark:bg-gray-700 rounded-xl lg:rounded-2xl shadow-xl lg:shadow-2xl p-4 lg:p-6">
+          <div className="rounded-xl lg:rounded-2xl shadow-xl lg:shadow-2xl p-4 lg:p-6 neon-glow" style={{ backgroundColor: 'var(--bg-0)', border: '1px solid var(--ac-1)' }}>
             {/* Search Tabs */}
-            <div className="relative flex flex-wrap gap-1 lg:gap-2 mb-4 lg:mb-6 border-b border-gray-100 dark:border-gray-600">
+            <div className="relative flex flex-wrap gap-1 lg:gap-2 mb-4 lg:mb-6 border-b" style={{ borderBottomColor: 'var(--ac-1)' }}>
               {/* Active tab indicator */}
               <div 
-                className="absolute bottom-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 transition-all duration-500 ease-out"
+                className="absolute bottom-0 h-0.5 transition-all duration-500 ease-out"
                 style={{
+                  background: 'linear-gradient(to right, var(--ac-1), var(--ac-2))',
                   left: `${searchTabs.findIndex(tab => tab.id === activeTab) * (100 / searchTabs.length)}%`,
                   width: `${100 / searchTabs.length}%`,
                   transform: 'translateX(8px)'
@@ -544,15 +558,31 @@ const TravelHomePage = () => {
                     }}
                     className={`relative flex items-center px-2 py-2 lg:px-4 lg:py-3 rounded-t-lg text-xs lg:text-sm font-medium transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 group ${
                       showTabAnimations ? 'animate-bounce' : ''
-                    } ${
-                      isActive
-                        ? 'text-blue-600 bg-gradient-to-br from-blue-50 to-indigo-50 shadow-lg shadow-blue-100 border-b-2 border-blue-600'
-                        : 'text-gray-600 dark:text-gray-300 hover:text-blue-600 hover:bg-gradient-to-br hover:from-gray-50 hover:to-blue-50 hover:animate-pulse'
                     }`}
-                    style={{ animationDelay: showTabAnimations ? `${index * 0.3}s` : '0s' }}
+                    style={{
+                      color: isActive ? 'var(--ac-1)' : 'var(--tx-1)',
+                      backgroundColor: isActive ? 'var(--bg-0)' : 'transparent',
+                      borderBottom: isActive ? '2px solid var(--ac-1)' : 'none',
+                      border: isActive ? '1px solid var(--ac-1)' : 'none'
+                    }}
+                    onMouseEnter={(e) => {
+                      if (!isActive) {
+                        e.currentTarget.style.color = 'var(--ac-2)';
+                        e.currentTarget.style.backgroundColor = 'var(--bg-0)';
+                        e.currentTarget.style.border = '1px solid var(--ac-2)';
+                      }
+                    }}
+                    onMouseLeave={(e) => {
+                      if (!isActive) {
+                        e.currentTarget.style.color = 'var(--tx-1)';
+                        e.currentTarget.style.backgroundColor = 'transparent';
+                        e.currentTarget.style.border = 'none';
+                      }
+                      animationDelay: showTabAnimations ? `${index * 0.3}s` : '0s'
+                    }}
                   >
                     <IconComponent className={`h-4 w-4 lg:h-5 lg:w-5 mr-1 lg:mr-2 transition-all duration-300 ${
-                      isActive ? 'scale-110 text-blue-600' : 'group-hover:scale-105'
+                      isActive ? 'scale-110' : 'group-hover:scale-105'
                     } ${
                       tab.id === 'flights' && isActive ? 'rotate-12' :
                       tab.id === 'hotels' && isActive ? 'animate-bounce' :
@@ -569,14 +599,14 @@ const TravelHomePage = () => {
                     
                     {/* Active indicator dot */}
                     {isActive && (
-                      <div className="absolute -top-1 -right-1 w-3 h-3 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full animate-pulse">
-                        <div className="absolute inset-0.5 bg-white rounded-full"></div>
-                        <div className="absolute inset-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>
+                      <div className="absolute -top-1 -right-1 w-3 h-3 rounded-full animate-pulse" style={{ background: 'linear-gradient(to right, var(--ac-1), var(--ac-2))' }}>
+                        <div className="absolute inset-0.5 rounded-full" style={{ backgroundColor: 'var(--bg-0)' }}></div>
+                        <div className="absolute inset-1 rounded-full" style={{ background: 'linear-gradient(to right, var(--ac-1), var(--ac-2))' }}></div>
                       </div>
                     )}
                     
                     {/* Hover effect background */}
-                    <div className="absolute inset-0 rounded-t-lg bg-gradient-to-r from-blue-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div className="absolute inset-0 rounded-t-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ background: 'linear-gradient(to right, var(--ac-1), var(--ac-2))' }}></div>
                   </button>
                 );
               })}
@@ -589,8 +619,9 @@ const TravelHomePage = () => {
                 <div className="relative flex bg-gray-100 dark:bg-gray-600 p-1 rounded-lg w-fit mb-3 lg:mb-4 scale-90 lg:scale-100">
                   {/* Animated background slider */}
                   <div 
-                    className={`absolute top-1 bottom-1 bg-gradient-to-r from-blue-500 to-blue-600 rounded-md shadow-sm transition-all duration-300 ease-out`}
+                    className={`absolute top-1 bottom-1 rounded-md shadow-sm transition-all duration-300 ease-out`}
                     style={{
+                      background: 'linear-gradient(to right, var(--ac-1), var(--ac-2))',
                       left: searchData.tripType === 'round-trip' ? '4px' : '50%',
                       width: searchData.tripType === 'round-trip' ? 'calc(50% - 6px)' : 'calc(50% - 6px)',
                       transform: searchData.tripType === 'one-way' ? 'translateX(2px)' : 'translateX(0)'
@@ -602,9 +633,22 @@ const TravelHomePage = () => {
                     className={`relative z-10 flex-1 px-4 py-2 rounded-md font-medium transition-all duration-200 ${
                       searchData.tripType === 'round-trip' 
                         ? 'text-white' 
-                        : 'text-gray-600 dark:text-gray-300 hover:text-blue-600'
+                        : 'text-gray-600 dark:text-gray-300'
                     }`}
-                    style={{ minWidth: '90px' }}
+                    style={{
+                      color: searchData.tripType !== 'round-trip' ? 'var(--tx-1)' : undefined,
+                      minWidth: '90px'
+                    }}
+                    onMouseEnter={(e) => {
+                      if (searchData.tripType !== 'round-trip') {
+                        e.currentTarget.style.color = 'var(--ac-1)';
+                      }
+                    }}
+                    onMouseLeave={(e) => {
+                      if (searchData.tripType !== 'round-trip') {
+                        e.currentTarget.style.color = 'var(--tx-1)';
+                      }
+                    }}
                   >
                     <span className="flex items-center justify-center text-xs lg:text-sm">
                       <Plane className="h-3 w-3 lg:h-4 lg:w-4 mr-1 rotate-45" />
@@ -619,9 +663,22 @@ const TravelHomePage = () => {
                     className={`relative z-10 flex-1 px-4 py-2 rounded-md font-medium transition-all duration-200 ${
                       searchData.tripType === 'one-way' 
                         ? 'text-white' 
-                        : 'text-gray-600 dark:text-gray-300 hover:text-blue-600'
+                        : 'text-gray-600 dark:text-gray-300'
                     }`}
-                    style={{ minWidth: '70px' }}
+                    style={{
+                      color: searchData.tripType !== 'one-way' ? 'var(--tx-1)' : undefined,
+                      minWidth: '70px'
+                    }}
+                    onMouseEnter={(e) => {
+                      if (searchData.tripType !== 'one-way') {
+                        e.currentTarget.style.color = 'var(--ac-1)';
+                      }
+                    }}
+                    onMouseLeave={(e) => {
+                      if (searchData.tripType !== 'one-way') {
+                        e.currentTarget.style.color = 'var(--tx-1)';
+                      }
+                    }}
                   >
                     <span className="flex items-center justify-center text-xs lg:text-sm">
                       <Plane className="h-3 w-3 lg:h-4 lg:w-4 mr-1" />
@@ -715,7 +772,7 @@ const TravelHomePage = () => {
                     </select>
                   </div>
 
-                  <button className="hidden lg:flex items-center px-4 py-3 text-blue-600 hover:text-blue-700 transition-colors bg-blue-50 dark:bg-blue-900/30 rounded-xl hover:bg-blue-100 dark:hover:bg-blue-900/50">
+                  <button className="hidden lg:flex items-center px-4 py-3 ocean-button-secondary rounded-xl">
                     <Filter className="h-4 w-4 lg:h-5 lg:w-5 mr-2" />
                     <span className="text-sm lg:text-base">Gelişmiş Filtreler</span>
                   </button>
@@ -723,7 +780,7 @@ const TravelHomePage = () => {
 
                 <button 
                   onClick={handleSearch}
-                  className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 lg:px-8 lg:py-3 rounded-xl hover:from-blue-700 hover:to-purple-700 font-semibold flex items-center justify-center transition-all duration-300 transform hover:scale-105 shadow-lg text-sm lg:text-base w-full lg:w-auto"
+                  className="ocean-button px-6 py-3 lg:px-8 lg:py-3 rounded-xl font-semibold flex items-center justify-center text-sm lg:text-base w-full lg:w-auto"
                 >
                   <Search className="h-4 w-4 lg:h-5 lg:w-5 mr-2" />
                   <span className="truncate">
@@ -740,7 +797,7 @@ const TravelHomePage = () => {
               <div className="flex justify-center mt-4 lg:hidden">
                 <button
                   onClick={() => setShowAdvancedSearch(!showAdvancedSearch)}
-                  className="text-blue-600 hover:text-blue-700 font-medium text-sm flex items-center transition-all duration-300 bg-blue-50 dark:bg-blue-900/30 px-4 py-2 rounded-xl hover:bg-blue-100 dark:hover:bg-blue-900/50"
+                  className="ocean-button-secondary font-medium text-sm flex items-center px-4 py-2 rounded-xl"
                 >
                   <Filter className="h-4 w-4 mr-2" />
                   Gelişmiş Filtreler
@@ -927,132 +984,22 @@ const TravelHomePage = () => {
         </div>
       </section>
 
-      {/* AiLydian Turizm Rehberi Maskotu */}
-      {mascotVisible && (
-        <div className="fixed bottom-6 left-4 lg:bottom-8 lg:left-6 z-30 hidden lg:block">
-          <div className="relative group">
-            {/* Mascot Character */}
-            <div 
-              className={`bg-gradient-to-br from-pink-400 via-purple-500 to-indigo-500 p-3 lg:p-4 rounded-full shadow-2xl cursor-pointer transform transition-all duration-300 hover:scale-105 ${
-                mascotAnimation === 'bounce' ? 'animate-bounce' : 
-                mascotAnimation === 'pulse' ? 'animate-pulse' :
-                mascotAnimation === 'idle' ? '' : 'hover:animate-pulse'
-              }`}
-              onClick={() => {
-                const animations = ['bounce', 'pulse'];
-                const randomAnimation = animations[Math.floor(Math.random() * animations.length)];
-                setMascotAnimation(randomAnimation);
-                
-                // 2 saniye sonra idle'a döndür
-                setTimeout(() => {
-                  setMascotAnimation('idle');
-                }, 2000);
-              }}
-            >
-              {/* Avatar SVG */}
-              <div className="w-12 h-12 lg:w-16 lg:h-16 relative">
-                <svg viewBox="0 0 64 64" className="w-full h-full">
-                  {/* Face */}
-                  <circle cx="32" cy="28" r="20" fill="#FFE0BD" stroke="#E6B48F" strokeWidth="1"/>
-                  
-                  {/* Hair */}
-                  <path d="M15 25 C15 15, 25 10, 32 10 C39 10, 49 15, 49 25 C49 20, 45 18, 40 18 C38 16, 34 16, 32 16 C30 16, 26 16, 24 18 C19 18, 15 20, 15 25" fill="#8B4513"/>
-                  <path d="M12 28 C12 28, 18 22, 22 24 C20 26, 14 30, 12 28" fill="#8B4513"/>
-                  <path d="M52 28 C52 28, 46 22, 42 24 C44 26, 50 30, 52 28" fill="#8B4513"/>
-                  
-                  {/* Eyes */}
-                  <ellipse cx="26" cy="26" rx="3" ry="4" fill="#FFF"/>
-                  <ellipse cx="38" cy="26" rx="3" ry="4" fill="#FFF"/>
-                  <circle cx="26" cy="26" r="2" fill="#4A90E2"/>
-                  <circle cx="38" cy="26" r="2" fill="#4A90E2"/>
-                  <circle cx="26.5" cy="25.5" r="0.8" fill="#FFF"/>
-                  <circle cx="38.5" cy="25.5" r="0.8" fill="#FFF"/>
-                  
-                  {/* Eyebrows */}
-                  <path d="M22 22 C24 21, 28 21, 30 22" stroke="#8B4513" strokeWidth="1.5" fill="none"/>
-                  <path d="M34 22 C36 21, 40 21, 42 22" stroke="#8B4513" strokeWidth="1.5" fill="none"/>
-                  
-                  {/* Nose */}
-                  <ellipse cx="32" cy="30" rx="1.5" ry="2" fill="#E6B48F"/>
-                  
-                  {/* Mouth */}
-                  <path d="M28 34 Q32 38 36 34" stroke="#E91E63" strokeWidth="2" fill="none"/>
-                  
-                  {/* Blush */}
-                  <circle cx="20" cy="32" r="2.5" fill="#FFB6C1" opacity="0.6"/>
-                  <circle cx="44" cy="32" r="2.5" fill="#FFB6C1" opacity="0.6"/>
-                  
-                  {/* Travel Accessories */}
-                  {/* Hat */}
-                  <ellipse cx="32" cy="12" rx="8" ry="2" fill="#FF6B6B"/>
-                  <rect x="28" y="10" width="8" height="4" fill="#FF6B6B" rx="2"/>
-                  
-                  {/* Backpack straps */}
-                  <path d="M20 35 C20 40, 22 45, 24 50" stroke="#4ECDC4" strokeWidth="2" fill="none"/>
-                  <path d="M44 35 C44 40, 42 45, 40 50" stroke="#4ECDC4" strokeWidth="2" fill="none"/>
-                  
-                  {/* Camera */}
-                  <rect x="45" y="38" width="8" height="6" fill="#333" rx="2"/>
-                  <circle cx="49" cy="41" r="2" fill="#666"/>
-                  <circle cx="49" cy="41" r="1" fill="#333"/>
-                </svg>
-              </div>
-            </div>
-
-            {/* Speech Bubble */}
-            <div 
-              className={`absolute bottom-full left-1/2 transform -translate-x-1/2 mb-3 bg-white dark:bg-gray-800 rounded-lg shadow-lg px-3 py-2 lg:px-4 lg:py-3 max-w-44 lg:max-w-48 transition-all duration-300 ${
-                mascotAnimation === 'idle' ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'
-              }`}
-            >
-              <div className="text-sm font-medium text-gray-800 dark:text-white text-center">
-                Merhaba! Ben <span className="text-pink-500 font-bold">AiLydian</span>
-                <br />
-                <span className="text-xs text-gray-600 dark:text-gray-300">Turizm Rehberin 🌟</span>
-              </div>
-              <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-3 h-3 bg-white dark:bg-gray-800 rotate-45 -mt-1.5"></div>
-            </div>
-
-            {/* Floating Travel Icons */}
-            <div className="absolute -top-6 -right-6 lg:-top-8 lg:-right-8">
-              <div className="text-lg lg:text-2xl animate-pulse" style={{animationDelay: '0s', animationDuration: '3s'}}>✈️</div>
-            </div>
-            <div className="absolute -top-8 -left-6 lg:-top-12 lg:-left-8">
-              <div className="text-base lg:text-xl animate-pulse" style={{animationDelay: '1s', animationDuration: '4s'}}>🏖️</div>
-            </div>
-            <div className="absolute -bottom-6 -right-4 lg:-bottom-8 lg:-right-6">
-              <div className="text-sm lg:text-lg animate-pulse" style={{animationDelay: '2s', animationDuration: '5s'}}>🗺️</div>
-            </div>
-            
-            {/* Close button */}
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                setMascotVisible(false);
-              }}
-              className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-6 h-6 text-xs flex items-center justify-center hover:bg-red-600 transition-colors opacity-0 group-hover:opacity-100"
-            >
-              ×
-            </button>
-          </div>
-        </div>
-      )}
 
       {/* Featured Destinations */}
-      <section className="py-16">
+      <section className="py-16" style={{ backgroundColor: 'var(--bg-0)' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold neon-text mb-4" style={{ color: 'var(--tx-1)' }}>
               Popüler Destinasyonlar
             </h2>
-            <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            <p className="text-lg max-w-2xl mx-auto" style={{ color: 'var(--tx-1)' }}>
               En çok tercih edilen seyahat noktalarını keşfedin ve unutulmaz deneyimler yaşayın
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {featuredDestinations.map((destination) => (
-              <div key={destination.id} className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow group">
+              <div key={destination.id} className="rounded-2xl shadow-lg overflow-hidden transition-shadow group card-hover" style={{ backgroundColor: 'var(--bg-0)', border: '1px solid var(--ac-1)' }}>
                 <div className="relative h-48 overflow-hidden">
                   <Image
                     src={destination.image}
@@ -1075,19 +1022,19 @@ const TravelHomePage = () => {
 
                 <div className="p-6">
                   <div className="flex justify-between items-start mb-2">
-                    <h3 className="text-xl font-bold text-gray-900 dark:text-white">
+                    <h3 className="text-xl font-bold" style={{ color: 'var(--tx-1)' }}>
                       {destination.name}
                     </h3>
-                    <span className="text-lg font-semibold text-blue-600">
+                    <span className="text-lg font-semibold" style={{ color: 'var(--ac-1)' }}>
                       {destination.price}
                     </span>
                   </div>
                   
-                  <p className="text-gray-600 dark:text-gray-300 mb-3">
+                  <p className="mb-3" style={{ color: 'var(--ac-2)' }}>
                     {destination.country}
                   </p>
                   
-                  <p className="text-gray-600 dark:text-gray-300 mb-4 text-sm">
+                  <p className="mb-4 text-sm" style={{ color: 'var(--tx-1)' }}>
                     {destination.description}
                   </p>
 
@@ -1254,8 +1201,8 @@ const TravelHomePage = () => {
           <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
             <div className="col-span-1 md:col-span-2">
               <div className="flex items-center mb-6">
-                <Globe className="h-10 w-10 text-blue-400 mr-3" />
-                <span className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                <Globe className="h-10 w-10 mr-3" style={{ color: 'var(--ac-1)' }} />
+                <span className="text-2xl font-bold" style={{ background: 'linear-gradient(to right, var(--ac-1), var(--ac-2))', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
                   Travel.Ailydian
                 </span>
               </div>
@@ -1277,7 +1224,7 @@ const TravelHomePage = () => {
 
             <div>
               <h4 className="text-lg font-semibold mb-6 flex items-center">
-                <Compass className="h-5 w-5 mr-2 text-blue-400" />
+                <Compass className="h-5 w-5 mr-2" style={{ color: 'var(--ac-1)' }} />
                 Keşfet
               </h4>
               <ul className="space-y-3">
@@ -1306,7 +1253,7 @@ const TravelHomePage = () => {
 
             <div>
               <h4 className="text-lg font-semibold mb-6 flex items-center">
-                <HelpCircle className="h-5 w-5 mr-2 text-blue-400" />
+                <HelpCircle className="h-5 w-5 mr-2" style={{ color: 'var(--ac-1)' }} />
                 Destek
               </h4>
               <ul className="space-y-3">
@@ -1333,7 +1280,7 @@ const TravelHomePage = () => {
 
             <div>
               <h4 className="text-lg font-semibold mb-6 flex items-center">
-                <Shield className="h-5 w-5 mr-2 text-blue-400" />
+                <Shield className="h-5 w-5 mr-2" style={{ color: 'var(--ac-1)' }} />
                 Şirket
               </h4>
               <ul className="space-y-3">
@@ -1377,7 +1324,7 @@ const TravelHomePage = () => {
                   placeholder="E-posta adresiniz..."
                   className="flex-1 px-4 py-3 rounded-l-lg border border-gray-600 bg-gray-800 text-white focus:outline-none focus:border-blue-500"
                 />
-                <button className="bg-gradient-to-r from-blue-600 to-purple-600 px-6 py-3 rounded-r-lg hover:from-blue-700 hover:to-purple-700 transition-all font-semibold">
+                <button className="ocean-button px-6 py-3 rounded-r-lg transition-all font-semibold">
                   Abone Ol
                 </button>
               </div>
@@ -1408,9 +1355,9 @@ const TravelHomePage = () => {
           {/* Support Credit */}
           <div className="border-t border-gray-800 mt-12 pt-8 text-center">
             <div className="flex items-center justify-center space-x-2">
-              <span className="text-purple-400 font-medium">Destekçimize Teşekkürler</span>
-              <span className="text-purple-500 text-lg">💜</span>
-              <span className="text-purple-400 font-semibold">Software Sardag</span>
+              <span className="font-medium" style={{ color: 'var(--ac-1)' }}>Destekçimize Teşekkürler</span>
+              <span className="text-lg" style={{ color: 'var(--ac-2)' }}>💜</span>
+              <span className="font-semibold" style={{ color: 'var(--ac-1)' }}>Software Sardag</span>
             </div>
           </div>
         </div>
@@ -1418,7 +1365,7 @@ const TravelHomePage = () => {
 
       {/* Login Modal */}
       {showLoginModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[9999] p-4">
           <div className="bg-white dark:bg-gray-800 rounded-2xl max-w-md w-full p-8 relative">
             <button
               onClick={() => setShowLoginModal(false)}
@@ -1493,7 +1440,7 @@ const TravelHomePage = () => {
 
               <button
                 type="submit"
-                className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all font-semibold transform hover:scale-105 active:scale-95"
+                className="w-full ocean-button py-3 rounded-lg transition-all font-semibold transform hover:scale-105 active:scale-95"
               >
                 Giriş Yap
               </button>
@@ -1536,7 +1483,7 @@ const TravelHomePage = () => {
         <div className="relative">
           <button
             onClick={() => setShowChatbot(!showChatbot)}
-            className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 animate-pulse"
+            className="ocean-button p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 animate-pulse"
           >
             <MessageCircle className="h-6 w-6" />
           </button>
@@ -1551,7 +1498,7 @@ const TravelHomePage = () => {
         {showChatbot && (
           <div className="absolute bottom-16 right-0 w-80 max-w-[calc(100vw-2rem)] sm:max-w-sm bg-white dark:bg-gray-800 rounded-lg shadow-2xl border border-gray-200 dark:border-gray-700 overflow-hidden">
             {/* Header */}
-            <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-4 flex items-center justify-between">
+            <div className="p-4 flex items-center justify-between" style={{ background: 'linear-gradient(to right, var(--ac-1), var(--ac-2))', color: 'var(--tx-1)' }}>
               <div className="flex items-center space-x-3">
                 <div className="bg-white/20 p-2 rounded-full">
                   <Zap className="h-5 w-5" />
@@ -1572,7 +1519,7 @@ const TravelHomePage = () => {
             {/* Chat Messages */}
             <div className="h-64 overflow-y-auto p-4 space-y-3">
               <div className="flex items-start space-x-2">
-                <div className="bg-blue-600 text-white p-2 rounded-full">
+                <div className="p-2 rounded-full" style={{ backgroundColor: 'var(--ac-1)', color: 'var(--tx-1)' }}>
                   <Zap className="h-4 w-4" />
                 </div>
                 <div className="bg-gray-100 dark:bg-gray-700 p-3 rounded-lg max-w-xs">
@@ -1584,13 +1531,13 @@ const TravelHomePage = () => {
               </div>
               
               <div className="flex justify-end">
-                <div className="bg-blue-600 text-white p-3 rounded-lg max-w-xs">
+                <div className="p-3 rounded-lg max-w-xs" style={{ backgroundColor: 'var(--ac-1)', color: 'var(--tx-1)' }}>
                   <p className="text-sm">Kapadokya için en iyi zamanı söyler misin?</p>
                 </div>
               </div>
               
               <div className="flex items-start space-x-2">
-                <div className="bg-blue-600 text-white p-2 rounded-full">
+                <div className="p-2 rounded-full" style={{ backgroundColor: 'var(--ac-1)', color: 'var(--tx-1)' }}>
                   <Zap className="h-4 w-4" />
                 </div>
                 <div className="bg-gray-100 dark:bg-gray-700 p-3 rounded-lg max-w-xs">

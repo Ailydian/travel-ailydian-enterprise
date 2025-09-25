@@ -1,6 +1,7 @@
 import { appWithTranslation } from 'next-i18next'
 import { DefaultSeo } from 'next-seo'
 import '../styles/globals.css'
+import '../styles/ailydian-theme.css'
 import type { AppProps } from 'next/app'
 
 const seoConfig = {

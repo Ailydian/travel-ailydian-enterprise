@@ -9,7 +9,7 @@ import {
   StarIcon,
   FunnelIcon,
   ClockIcon,
-  TrendingUpIcon,
+  ArrowTrendingUpIcon,
   HeartIcon,
   TagIcon,
   AdjustmentsHorizontalIcon,
@@ -96,6 +96,51 @@ const AdvancedSearchDiscovery: React.FC<AdvancedSearchDiscoveryProps> = ({
     { value: 'reviews', label: t('sort.reviews') }
   ];
 
+  // Get localized content helper
+  const getLocalizedContent = (content: any, fallback = '') => {
+    if (!content) return fallback;
+    return content[i18n.language] || content['en'] || Object.values(content)[0] || fallback;
+  };
+
+  // Handle search
+  const handleSearch = useCallback(async () => {
+    if (!query.trim() && !Object.keys(filters).some(key => filters[key as keyof AdvancedSearchFilters])) {
+      return;
+    }
+
+    setIsLoading(true);
+    try {
+      const searchFilters: AdvancedSearchFilters = {
+        ...filters,
+        query: query.trim(),
+        location: userLocation ? {
+          ...filters.location,
+          coordinates: userLocation
+        } : filters.location
+      };
+
+      const results = await advancedSearchEngine.advancedSearch(
+        searchFilters,
+        personalization,
+        currentPage,
+        20
+      );
+
+      setLocations(results.locations);
+      setTotalResults(results.total_count);
+      setSuggestions(results.suggestions || []);
+      
+      if (showRecommendations) {
+        setRecommendations(results.recommendations || []);
+      }
+
+    } catch (error) {
+      console.error('Search error:', error);
+    } finally {
+      setIsLoading(false);
+    }
+  }, [query, filters, currentPage, userLocation, personalization, showRecommendations]);
+
   // Initialize data
   useEffect(() => {
     const initializeData = async () => {
@@ -140,45 +185,6 @@ const AdvancedSearchDiscovery: React.FC<AdvancedSearchDiscoveryProps> = ({
 
     return () => clearTimeout(timeoutId);
   }, [query, filters, currentPage, handleSearch]);
-
-  // Handle search
-  const handleSearch = useCallback(async () => {
-    if (!query.trim() && !Object.keys(filters).some(key => filters[key as keyof AdvancedSearchFilters])) {
-      return;
-    }
-
-    setIsLoading(true);
-    try {
-      const searchFilters: AdvancedSearchFilters = {
-        ...filters,
-        query: query.trim(),
-        location: userLocation ? {
-          ...filters.location,
-          coordinates: userLocation
-        } : filters.location
-      };
-
-      const results = await advancedSearchEngine.advancedSearch(
-        searchFilters,
-        personalization,
-        currentPage,
-        20
-      );
-
-      setLocations(results.locations);
-      setTotalResults(results.total_count);
-      setSuggestions(results.suggestions || []);
-      
-      if (showRecommendations) {
-        setRecommendations(results.recommendations || []);
-      }
-
-    } catch (error) {
-      console.error('Search error:', error);
-    } finally {
-      setIsLoading(false);
-    }
-  }, [query, filters, currentPage, userLocation, personalization, showRecommendations]);
 
   // Handle suggestion selection
   const handleSuggestionSelect = (suggestion: SearchSuggestion) => {
@@ -247,7 +253,7 @@ const AdvancedSearchDiscovery: React.FC<AdvancedSearchDiscoveryProps> = ({
         <div className="h-48 bg-gray-200 overflow-hidden">
           <Image 
             src={location.photos[0].url} 
-            alt={location.photos[0].caption || Object.values(location.name)[0]}
+            alt={location.photos[0].caption || getLocalizedContent(location.name)}
             fill
             className="object-cover"
           />
@@ -256,7 +262,7 @@ const AdvancedSearchDiscovery: React.FC<AdvancedSearchDiscoveryProps> = ({
       <div className="p-4">
         <div className="flex items-start justify-between mb-2">
           <h3 className="text-lg font-semibold text-gray-900 line-clamp-2">
-            {Object.values(location.name)[0]}
+            {getLocalizedContent(location.name)}
           </h3>
           <button className="text-gray-400 hover:text-red-500 transition-colors">
             <HeartIcon className="w-5 h-5" />
@@ -271,13 +277,13 @@ const AdvancedSearchDiscovery: React.FC<AdvancedSearchDiscoveryProps> = ({
         </div>
         
         <p className="text-gray-600 text-sm line-clamp-2 mb-3">
-          {Object.values(location.description || {})[0]}
+          {getLocalizedContent(location.description)}
         </p>
         
         <div className="flex items-center justify-between">
           <div className="flex items-center text-gray-500 text-sm">
             <MapPinIcon className="w-4 h-4 mr-1" />
-            <span>{location.address}</span>
+            <span>{getLocalizedContent(location.address)}</span>
           </div>
           {location.price_range && (
             <div className="text-green-600 font-semibold">

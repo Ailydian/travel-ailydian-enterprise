@@ -98,14 +98,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     // Transform results
     const transformedCars = response.data
       .map(transformCarRentalData)
-      .filter(car => car !== null);
+      .filter((car: any) => car !== null);
 
     // Apply additional filters if specified
     let filteredCars = transformedCars;
 
     // Filter by vehicle category if specified
     if (searchParams.vehicleCategory && searchParams.vehicleCategory.length > 0) {
-      filteredCars = filteredCars.filter(car => 
+      filteredCars = filteredCars.filter((car: any) => 
         searchParams.vehicleCategory!.some(category => 
           car.category.toLowerCase().includes(category.toLowerCase())
         )
@@ -113,13 +113,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     }
 
     // Sort by price (lowest first)
-    filteredCars.sort((a, b) => a.price - b.price);
+    filteredCars.sort((a: any, b: any) => a.price - b.price);
 
     // Calculate rental duration in days
     const rentalDays = Math.ceil((dropOffDate.getTime() - pickUpDate.getTime()) / (1000 * 60 * 60 * 24));
 
     // Group cars by company for better UX
-    const carsByCompany = filteredCars.reduce((acc, car) => {
+    const carsByCompany = filteredCars.reduce((acc: Record<string, any[]>, car: any) => {
       const company = car.company;
       if (!acc[company]) {
         acc[company] = [];
@@ -149,7 +149,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         },
         companies: Object.keys(carsByCompany),
         averagePrice: filteredCars.length > 0 
-          ? Math.round(filteredCars.reduce((sum, car) => sum + car.price, 0) / filteredCars.length)
+          ? Math.round(filteredCars.reduce((sum: number, car: any) => sum + car.price, 0) / filteredCars.length)
           : 0
       }
     });

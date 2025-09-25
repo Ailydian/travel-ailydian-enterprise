@@ -76,7 +76,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     // Transform results
     const transformedFlights = response.data
       .map(transformFlightData)
-      .filter(flight => flight !== null)
+      .filter((flight: any) => flight !== null)
       .slice(0, searchRequest.max);
 
     // Return successful response

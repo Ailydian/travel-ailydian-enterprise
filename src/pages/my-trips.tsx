@@ -187,19 +187,19 @@ export default function MyTrips() {
         <meta name="description" content="Geçmiş ve gelecek seyahatlerinizi yönetin, rezervasyon detaylarını görüntüleyin." />
       </Head>
 
-      <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+      <div className="min-h-screen" style={{ backgroundColor: 'white' }}>
         {/* Header */}
-        <div className="bg-white dark:bg-gray-800 shadow-sm border-b">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+        <div className="shadow-sm border-b" style={{ backgroundColor: 'white', borderBottomColor: '#0ea5e9' }}>
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
             <div className="flex items-center justify-between">
               <div>
-                <Link href="/" className="text-2xl font-bold text-blue-600">
+                <Link href="/" className="text-2xl font-bold" style={{ color: '#0ea5e9' }}>
                   Ailydian Travel
                 </Link>
               </div>
               <Link
                 href="/"
-                className="text-gray-600 hover:text-blue-600 flex items-center"
+                className="ocean-button-secondary flex items-center"
               >
                 <ArrowRight className="h-5 w-5 mr-2 rotate-180" />
                 Ana Sayfa&apos;ya Dön
@@ -209,12 +209,12 @@ export default function MyTrips() {
         </div>
 
         {/* Hero Section */}
-        <div className="bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-600 text-white py-16">
+        <div className="text-white py-16" style={{ background: 'linear-gradient(to bottom, #87CEEB 0%, #4682B4 50%, #0ea5e9 100%)' }}>
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
               Seyahatlerim
             </h1>
-            <p className="text-xl mb-8 text-blue-100">
+            <p className="text-xl mb-8" style={{ color: '#f0f9ff' }}>
               Geçmiş ve gelecek seyahatlerinizi tek yerden yönetin
             </p>
           </div>

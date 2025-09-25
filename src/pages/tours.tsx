@@ -225,19 +225,19 @@ export default function Tours() {
         <meta name="description" content="Profesyonel rehberlik eşliğinde unutulmaz tur deneyimleri." />
       </Head>
 
-      <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+      <div className="min-h-screen" style={{ backgroundColor: 'white' }}>
         {/* Header */}
-        <div className="bg-white dark:bg-gray-800 shadow-sm border-b">
+        <div className="shadow-sm border-b" style={{ backgroundColor: 'white', borderBottomColor: '#0ea5e9' }}>
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
             <div className="flex items-center justify-between">
               <div>
-                <Link href="/" className="text-2xl font-bold text-blue-600">
+                <Link href="/" className="text-2xl font-bold" style={{ color: '#0ea5e9' }}>
                   Ailydian Travel
                 </Link>
               </div>
               <Link
                 href="/"
-                className="text-gray-600 hover:text-blue-600 flex items-center"
+                className="ocean-button-secondary flex items-center"
               >
                 <ArrowRight className="h-5 w-5 mr-2 rotate-180" />
                 Ana Sayfa&apos;ya Dön
@@ -247,13 +247,13 @@ export default function Tours() {
         </div>
 
         {/* Hero Section */}
-        <div className="bg-gradient-to-br from-emerald-600 via-teal-600 to-cyan-600 text-white py-16">
+        <div className="text-white py-16" style={{ background: 'linear-gradient(to bottom, #87CEEB 0%, #4682B4 50%, #0ea5e9 100%)' }}>
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <Camera className="h-16 w-16 mx-auto mb-4" />
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
               Rehberli Turlar
             </h1>
-            <p className="text-xl mb-8 text-emerald-100">
+            <p className="text-xl mb-8" style={{ color: '#f0f9ff' }}>
               Profesyonel rehberlik eşliğinde unutulmaz deneyimler
             </p>
             
@@ -273,11 +273,11 @@ export default function Tours() {
 
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           {/* Filters */}
-          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 mb-8">
+          <div className="bg-white rounded-lg shadow-md p-6 mb-8" style={{ border: '1px solid #0ea5e9' }}>
             <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
               {/* Category Filter */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                <label className="block text-sm font-medium mb-2" style={{ color: '#1e40af' }}>
                   Kategori
                 </label>
                 <div className="flex flex-wrap gap-2">
@@ -289,9 +289,12 @@ export default function Tours() {
                         onClick={() => setSelectedCategory(category.id)}
                         className={`flex items-center px-3 py-1 rounded-full text-sm font-medium transition-colors ${
                           selectedCategory === category.id
-                            ? 'bg-emerald-600 text-white'
-                            : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-emerald-100 dark:hover:bg-gray-600'
+                            ? 'text-white'
+                            : 'text-gray-700 hover:text-white'
                         }`}
+                        style={{
+                          backgroundColor: selectedCategory === category.id ? '#0ea5e9' : '#e5f3ff'
+                        }}
                       >
                         <IconComponent className="h-3 w-3 mr-1" />
                         {category.name}
@@ -303,13 +306,14 @@ export default function Tours() {
 
               {/* Difficulty Filter */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                <label className="block text-sm font-medium mb-2" style={{ color: '#1e40af' }}>
                   Zorluk
                 </label>
                 <select
                   value={selectedDifficulty}
                   onChange={(e) => setSelectedDifficulty(e.target.value)}
-                  className="w-full px-3 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg text-sm focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
+                  className="w-full px-3 py-2 bg-white rounded-lg text-sm focus:outline-none focus:ring-2"
+                  style={{ border: '1px solid #0ea5e9', color: '#1e40af' }}
                 >
                   {difficulties.map((difficulty) => (
                     <option key={difficulty} value={difficulty}>
@@ -321,13 +325,14 @@ export default function Tours() {
 
               {/* Duration Filter */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                <label className="block text-sm font-medium mb-2" style={{ color: '#1e40af' }}>
                   Süre
                 </label>
                 <select
                   value={selectedDuration}
                   onChange={(e) => setSelectedDuration(e.target.value)}
-                  className="w-full px-3 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg text-sm focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
+                  className="w-full px-3 py-2 bg-white rounded-lg text-sm focus:outline-none focus:ring-2"
+                  style={{ border: '1px solid #0ea5e9', color: '#1e40af' }}
                 >
                   {durations.map((duration) => (
                     <option key={duration} value={duration}>
@@ -339,13 +344,14 @@ export default function Tours() {
 
               {/* Sort */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                <label className="block text-sm font-medium mb-2" style={{ color: '#1e40af' }}>
                   Sırala
                 </label>
                 <select
                   value={sortBy}
                   onChange={(e) => setSortBy(e.target.value)}
-                  className="w-full px-3 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg text-sm focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
+                  className="w-full px-3 py-2 bg-white rounded-lg text-sm focus:outline-none focus:ring-2"
+                  style={{ border: '1px solid #0ea5e9', color: '#1e40af' }}
                 >
                   <option value="popularity">Popülerlik</option>
                   <option value="price-low">Fiyat (Düşük)</option>
@@ -360,7 +366,7 @@ export default function Tours() {
           {/* Tours Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {sortedTours.map((tour) => (
-              <div key={tour.id} className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden group hover:shadow-xl transition-all duration-300">
+              <div key={tour.id} className="bg-white rounded-lg shadow-lg overflow-hidden group hover:shadow-xl transition-all duration-300" style={{ border: '1px solid #e5f3ff' }}>
                 <div className="relative">
                   <Image
                     src={tour.image}

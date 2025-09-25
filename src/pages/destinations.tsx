@@ -225,19 +225,19 @@ export default function Destinations() {
         <meta name="description" content="Dünya&apos;nın en güzel destinasyonlarını keşfedin. İstanbul&apos;dan Kapadokya&apos;ya, Antalya&apos;dan Bodrum&apos;a kadar..." />
       </Head>
 
-      <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+      <div className="min-h-screen" style={{ backgroundColor: 'var(--bg-0)' }}>
         {/* Header */}
-        <div className="bg-white dark:bg-gray-800 shadow-sm border-b">
+        <div className="shadow-sm border-b" style={{ backgroundColor: 'var(--bg-0)', borderBottomColor: 'var(--ac-1)' }}>
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
             <div className="flex items-center justify-between">
               <div>
-                <Link href="/" className="text-2xl font-bold text-blue-600">
+                <Link href="/" className="text-2xl font-bold neon-text" style={{ color: 'var(--ac-1)' }}>
                   Ailydian Travel
                 </Link>
               </div>
               <Link
                 href="/"
-                className="text-gray-600 hover:text-blue-600 flex items-center"
+                className="ocean-button-secondary flex items-center px-4 py-2 rounded-lg"
               >
                 <ArrowRight className="h-5 w-5 mr-2 rotate-180" />
                 Ana Sayfa&apos;ya Dön
@@ -247,7 +247,7 @@ export default function Destinations() {
         </div>
 
         {/* Hero Section */}
-        <div className="bg-gradient-to-br from-blue-600 via-purple-600 to-pink-600 text-white py-16">
+        <div className="text-white py-16" style={{ background: 'linear-gradient(135deg, var(--ac-1) 0%, var(--ac-2) 50%, var(--ac-3) 100%)' }}>
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
               Hayalinizdeki Destinasyonu Keşfedin
@@ -281,8 +281,8 @@ export default function Destinations() {
                   onClick={() => setSelectedCategory(category.id)}
                   className={`flex items-center px-4 py-2 rounded-lg font-medium transition-colors ${
                     selectedCategory === category.id
-                      ? 'bg-blue-600 text-white'
-                      : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-700'
+                      ? 'ocean-button'
+                      : 'ocean-button-secondary'
                   }`}
                 >
                   <IconComponent className="h-4 w-4 mr-2" />

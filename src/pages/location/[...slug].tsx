@@ -2,6 +2,7 @@ import { GetServerSideProps } from 'next';
 import { NextSeo, LocalBusinessJsonLd } from 'next-seo';
 import Head from 'next/head';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
@@ -11,7 +12,7 @@ import { Location, Review, Photo } from '../../lib/types/review-system';
 import reviewService from '../../lib/services/review-service';
 import PhotoGallery from '../../components/location/PhotoGallery';
 import ReviewsList from '../../components/location/ReviewsList';
-import WriteReviewModal from '../../components/location/WriteReviewModal';
+import WriteReviewModal from '../../components/reviews/WriteReviewModal';
 import LocationMap from '../../components/location/LocationMap';
 
 interface LocationPageProps {
@@ -439,8 +440,6 @@ export default function LocationPage({
                 <PhotoGallery 
                   photos={photos} 
                   locationName={locationName}
-                  showAll={showAllPhotos}
-                  onShowAll={() => setShowAllPhotos(true)}
                 />
               </div>
             )}
@@ -500,9 +499,8 @@ export default function LocationPage({
                 </div>
                 
                 <ReviewsList 
-                  locationId={location.id}
                   reviews={reviews} 
-                  onWriteReview={() => setShowWriteReview(true)}
+                  language={locale}
                 />
               </section>
             </div>
@@ -561,8 +559,9 @@ export default function LocationPage({
                   {t('location')}
                 </h3>
                 <LocationMap 
-                  location={location} 
-                  nearbyLocations={nearbyLocations} 
+                  coordinates={location.coordinates}
+                  locationName={locationName}
+                  address={locationAddress}
                 />
               </div>
 

@@ -126,6 +126,18 @@ class AdvancedSearchEngine {
     recommendations?: LocationRecommendation[];
   }> {
     try {
+      // Map sort_by values to supported service values
+      const mapSortBy = (sortBy: string): 'rating' | 'reviews' | 'distance' | 'name' | 'price' => {
+        switch (sortBy) {
+          case 'popularity':
+          case 'recent':
+          case 'relevance':
+            return 'rating'; // Default to rating for unsupported values
+          default:
+            return sortBy as 'rating' | 'reviews' | 'distance' | 'name' | 'price';
+        }
+      };
+
       // Build base search request
       const searchRequest: SearchLocationsRequest = {
         query: filters.query,
@@ -137,7 +149,7 @@ class AdvancedSearchEngine {
         min_rating: filters.rating?.min,
         max_price_range: filters.price_range?.max,
         features: filters.features,
-        sort_by: filters.sort_by || 'relevance',
+        sort_by: mapSortBy(filters.sort_by || 'relevance'),
         sort_order: filters.sort_order || 'desc',
         page,
         limit,
@@ -183,7 +195,7 @@ class AdvancedSearchEngine {
         locations: rankedLocations.slice((page - 1) * limit, page * limit),
         total_count: rankedLocations.length,
         suggestions,
-        trending,
+        trending: trending || undefined,
         recommendations: recommendations.slice(0, 5) // Top 5 recommendations
       };
 
@@ -252,7 +264,7 @@ class AdvancedSearchEngine {
 
     // Historical preferences (visited similar places)
     if (personalization.history?.visits) {
-      const historyScore = await this.calculateHistoryScore(location, personalization.history.visits);
+      const historyScore = await this.calculateHistoryScore(location.id, personalization.history.visits);
       score += historyScore * 0.15;
       weightSum += 0.15;
     }
@@ -396,16 +408,16 @@ class AdvancedSearchEngine {
     const suggestions: SearchSuggestion[] = [];
     const lowerQuery = query.toLowerCase();
 
-    for (const [searchTerm] of this.searchHistory.entries()) {
+    Array.from(this.searchHistory.entries()).forEach(([searchTerm]) => {
       if (searchTerm.toLowerCase().includes(lowerQuery) && searchTerm !== query) {
         suggestions.push({
           type: 'query',
           text: searchTerm,
-          score: 0.5,
-          icon: 'clock'
+          score: 0.8,
+          icon: 'search'
         });
       }
-    }
+    });
 
     return suggestions.slice(0, 3);
   }
@@ -417,7 +429,7 @@ class AdvancedSearchEngine {
       // In a real implementation, this would query analytics data
       // For now, we'll simulate trending data
       const trendingLocations = await reviewService.searchLocations({
-        sort_by: 'popularity',
+        sort_by: 'rating', // Map popularity to rating since popularity is not supported
         sort_order: 'desc',
         limit: 10
       });
@@ -631,7 +643,9 @@ class AdvancedSearchEngine {
     // Keep only last 100 searches
     if (this.searchHistory.size > 100) {
       const oldestKey = this.searchHistory.keys().next().value;
-      this.searchHistory.delete(oldestKey);
+      if (oldestKey !== undefined) {
+        this.searchHistory.delete(oldestKey);
+      }
     }
   }
 

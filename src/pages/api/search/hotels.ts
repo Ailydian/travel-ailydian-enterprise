@@ -90,7 +90,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     // Transform results
     const transformedHotels = response.data
       .map(transformHotelData)
-      .filter(hotel => hotel !== null);
+      .filter((hotel: any) => hotel !== null);
 
     // Apply additional filters if specified
     let filteredHotels = transformedHotels;
@@ -98,7 +98,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     // Filter by price range if specified
     if (searchParams.priceRange) {
       const { min, max } = searchParams.priceRange;
-      filteredHotels = filteredHotels.filter(hotel => {
+      filteredHotels = filteredHotels.filter((hotel: any) => {
         const price = hotel.price;
         return (!min || price >= min) && (!max || price <= max);
       });
@@ -106,13 +106,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     // Filter by ratings if specified
     if (searchParams.ratings && searchParams.ratings.length > 0) {
-      filteredHotels = filteredHotels.filter(hotel => 
+      filteredHotels = filteredHotels.filter((hotel: any) => 
         searchParams.ratings!.includes(Math.floor(hotel.rating))
       );
     }
 
     // Sort by rating (highest first) and then by price (lowest first)
-    filteredHotels.sort((a, b) => {
+    filteredHotels.sort((a: any, b: any) => {
       if (a.rating !== b.rating) {
         return b.rating - a.rating;
       }

@@ -273,7 +273,7 @@ export default function Help() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <Link
                 href="/contact"
-                className="bg-white/20 backdrop-blur-sm rounded-lg p-6 hover:bg-white/30 transition-colors group"
+                className="bg-gray-900 border-2 border-white rounded-lg p-6 hover:bg-gray-800 transition-colors group"
               >
                 <Mail className="h-8 w-8 mx-auto mb-3 group-hover:scale-110 transition-transform" />
                 <h3 className="text-lg font-semibold mb-2">İletişim Formu</h3>
@@ -282,14 +282,14 @@ export default function Help() {
               
               <a
                 href="mailto:info@ailydian.com"
-                className="bg-white/20 backdrop-blur-sm rounded-lg p-6 hover:bg-white/30 transition-colors group"
+                className="bg-gray-900 border-2 border-white rounded-lg p-6 hover:bg-gray-800 transition-colors group"
               >
                 <Mail className="h-8 w-8 mx-auto mb-3 group-hover:scale-110 transition-transform" />
                 <h3 className="text-lg font-semibold mb-2">E-posta Desteği</h3>
                 <p className="text-blue-100">info@ailydian.com</p>
               </a>
               
-              <button className="bg-white/20 backdrop-blur-sm rounded-lg p-6 hover:bg-white/30 transition-colors group">
+              <button className="bg-gray-900 border-2 border-white rounded-lg p-6 hover:bg-gray-800 transition-colors group">
                 <MessageCircle className="h-8 w-8 mx-auto mb-3 group-hover:scale-110 transition-transform" />
                 <h3 className="text-lg font-semibold mb-2">Canlı Destek</h3>
                 <p className="text-blue-100">Anında yardım alın</p>
