@@ -4,7 +4,7 @@
   "description": "Enterprise-grade AI-powered global tourism platform",
   "private": false,
   "engines": {
-    "node": "20.19.4",
+    "node": "20",
     "npm": ">=9.0.0"
   },
   "scripts": {
