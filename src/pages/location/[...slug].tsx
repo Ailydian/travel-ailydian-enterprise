@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import { Star, MapPin, Clock, Phone, Globe, Camera, Heart, Share2, Flag, ExternalLink } from 'lucide-react';
+import { Star, MapPin, Clock, Phone, Globe, Camera, Heart, Share2, Flag, ExternalLink, Sync, CheckCircle, AlertCircle } from 'lucide-react';
 
 import { Location, Review, Photo } from '../../lib/types/review-system';
 import reviewService from '../../lib/services/review-service';
@@ -14,6 +14,7 @@ import PhotoGallery from '../../components/location/PhotoGallery';
 import ReviewsList from '../../components/location/ReviewsList';
 import WriteReviewModal from '../../components/reviews/WriteReviewModal';
 import LocationMap from '../../components/location/LocationMap';
+import ExternalPlatformReviews from '../../components/reviews/ExternalPlatformReviews';
 
 interface LocationPageProps {
   location: Location;
@@ -35,6 +36,54 @@ export default function LocationPage({
   const [showWriteReview, setShowWriteReview] = useState(false);
   const [isFavorited, setIsFavorited] = useState(false);
   const [showFullDescription, setShowFullDescription] = useState(false);
+  const [syncingGoogle, setSyncingGoogle] = useState(false);
+  const [syncingTripAdvisor, setSyncingTripAdvisor] = useState(false);
+  const [syncStatus, setSyncStatus] = useState<{
+    google?: { success: boolean; lastSync?: string; error?: string };
+    tripAdvisor?: { success: boolean; lastSync?: string; error?: string };
+  }>({});
+  
+  // Mock external reviews (in real implementation, this would come from props or API)
+  const [externalReviews] = useState({
+    google: location.google_place_id ? [
+      {
+        id: 'google_1',
+        content: 'Amazing place! Great food and excellent service. Highly recommend for anyone visiting the area.',
+        rating: 5,
+        author_name: 'John Smith',
+        author_avatar: undefined,
+        publish_date: '2024-01-15T00:00:00Z',
+        source: 'google' as const,
+        source_url: `https://maps.google.com/place/${location.google_place_id}`,
+      },
+      {
+        id: 'google_2',
+        content: 'Good experience overall. The location is convenient and staff is friendly.',
+        rating: 4,
+        author_name: 'Sarah Johnson',
+        author_avatar: undefined,
+        publish_date: '2024-01-10T00:00:00Z',
+        source: 'google' as const,
+        source_url: `https://maps.google.com/place/${location.google_place_id}`,
+      }
+    ] : [],
+    tripadvisor: location.tripadvisor_id ? [
+      {
+        id: 'ta_1',
+        title: 'Excellent Experience',
+        content: 'One of the best places we visited during our trip. The atmosphere is wonderful and the quality is top-notch.',
+        rating: 5,
+        author_name: 'Travel_Enthusiast_2024',
+        author_avatar: undefined,
+        publish_date: '2024-01-12T00:00:00Z',
+        source: 'tripadvisor' as const,
+        source_url: `https://tripadvisor.com/ShowUserReviews-${location.tripadvisor_id}`,
+        helpful_votes: 3,
+        trip_type: 'family',
+        travel_date: '2024-01-05T00:00:00Z'
+      }
+    ] : []
+  });
 
   // Get localized content
   const getLocalizedContent = (content: any, fallback = '') => {
@@ -136,6 +185,60 @@ export default function LocationPage({
     } else {
       // Fallback to clipboard
       navigator.clipboard.writeText(window.location.href);
+    }
+  };
+
+  // Handle Google sync
+  const handleGoogleSync = async () => {
+    if (!location.google_place_id) {
+      alert('Google Place ID not configured for this location');
+      return;
+    }
+    
+    setSyncingGoogle(true);
+    try {
+      await reviewService.syncWithGoogle(location.id);
+      setSyncStatus(prev => ({
+        ...prev,
+        google: { success: true, lastSync: new Date().toISOString() }
+      }));
+      alert('Successfully synced with Google My Business!');
+    } catch (error) {
+      console.error('Google sync error:', error);
+      setSyncStatus(prev => ({
+        ...prev,
+        google: { success: false, error: 'Sync failed. Please try again.' }
+      }));
+      alert('Failed to sync with Google My Business. Please try again.');
+    } finally {
+      setSyncingGoogle(false);
+    }
+  };
+
+  // Handle TripAdvisor sync
+  const handleTripAdvisorSync = async () => {
+    if (!location.tripadvisor_id) {
+      alert('TripAdvisor ID not configured for this location');
+      return;
+    }
+    
+    setSyncingTripAdvisor(true);
+    try {
+      await reviewService.syncWithTripAdvisor(location.id);
+      setSyncStatus(prev => ({
+        ...prev,
+        tripAdvisor: { success: true, lastSync: new Date().toISOString() }
+      }));
+      alert('Successfully synced with TripAdvisor!');
+    } catch (error) {
+      console.error('TripAdvisor sync error:', error);
+      setSyncStatus(prev => ({
+        ...prev,
+        tripAdvisor: { success: false, error: 'Sync failed. Please try again.' }
+      }));
+      alert('Failed to sync with TripAdvisor. Please try again.');
+    } finally {
+      setSyncingTripAdvisor(false);
     }
   };
 
@@ -502,6 +605,35 @@ export default function LocationPage({
                   reviews={reviews} 
                   language={locale}
                 />
+                
+                {/* External Platform Reviews */}
+                {(externalReviews.google.length > 0 || externalReviews.tripadvisor.length > 0) && (
+                  <div className="mt-8 space-y-6">
+                    <h3 className="text-xl font-semibold text-gray-900">
+                      {t('externalReviews', 'Reviews from Other Platforms')}
+                    </h3>
+                    
+                    {/* Google Reviews */}
+                    {externalReviews.google.length > 0 && (
+                      <ExternalPlatformReviews
+                        reviews={externalReviews.google}
+                        platform="google"
+                        totalReviews={15} // Mock data
+                        averageRating={4.2} // Mock data
+                      />
+                    )}
+                    
+                    {/* TripAdvisor Reviews */}
+                    {externalReviews.tripadvisor.length > 0 && (
+                      <ExternalPlatformReviews
+                        reviews={externalReviews.tripadvisor}
+                        platform="tripadvisor"
+                        totalReviews={8} // Mock data
+                        averageRating={4.5} // Mock data
+                      />
+                    )}
+                  </div>
+                )}
               </section>
             </div>
 
@@ -552,6 +684,94 @@ export default function LocationPage({
                   </div>
                 )}
               </div>
+
+              {/* External Platforms */}
+              {(location.google_place_id || location.tripadvisor_id) && (
+                <div className="bg-white rounded-lg p-6 shadow-sm">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-4">
+                    {t('externalPlatforms', 'External Platforms')}
+                  </h3>
+                  <div className="space-y-3">
+                    {/* Google My Business */}
+                    {location.google_place_id && (
+                      <div className="flex items-center justify-between p-3 border border-gray-200 rounded-lg">
+                        <div className="flex items-center">
+                          <div className="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center mr-3">
+                            <Globe className="h-4 w-4 text-red-600" />
+                          </div>
+                          <div>
+                            <p className="font-medium text-gray-900">Google My Business</p>
+                            <p className="text-sm text-gray-600">
+                              {syncStatus.google?.success ? (
+                                <span className="flex items-center text-green-600">
+                                  <CheckCircle className="h-3 w-3 mr-1" />
+                                  Last synced
+                                </span>
+                              ) : syncStatus.google?.error ? (
+                                <span className="flex items-center text-red-600">
+                                  <AlertCircle className="h-3 w-3 mr-1" />
+                                  Sync failed
+                                </span>
+                              ) : (
+                                'Ready to sync'
+                              )}
+                            </p>
+                          </div>
+                        </div>
+                        <button
+                          onClick={handleGoogleSync}
+                          disabled={syncingGoogle}
+                          className="flex items-center px-3 py-1.5 bg-red-600 text-white text-sm rounded-md hover:bg-red-700 disabled:opacity-50"
+                        >
+                          <Sync className={`h-3 w-3 mr-1 ${syncingGoogle ? 'animate-spin' : ''}`} />
+                          {syncingGoogle ? 'Syncing...' : 'Sync'}
+                        </button>
+                      </div>
+                    )}
+                    
+                    {/* TripAdvisor */}
+                    {location.tripadvisor_id && (
+                      <div className="flex items-center justify-between p-3 border border-gray-200 rounded-lg">
+                        <div className="flex items-center">
+                          <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center mr-3">
+                            <Globe className="h-4 w-4 text-green-600" />
+                          </div>
+                          <div>
+                            <p className="font-medium text-gray-900">TripAdvisor</p>
+                            <p className="text-sm text-gray-600">
+                              {syncStatus.tripAdvisor?.success ? (
+                                <span className="flex items-center text-green-600">
+                                  <CheckCircle className="h-3 w-3 mr-1" />
+                                  Last synced
+                                </span>
+                              ) : syncStatus.tripAdvisor?.error ? (
+                                <span className="flex items-center text-red-600">
+                                  <AlertCircle className="h-3 w-3 mr-1" />
+                                  Sync failed
+                                </span>
+                              ) : (
+                                'Ready to sync'
+                              )}
+                            </p>
+                          </div>
+                        </div>
+                        <button
+                          onClick={handleTripAdvisorSync}
+                          disabled={syncingTripAdvisor}
+                          className="flex items-center px-3 py-1.5 bg-green-600 text-white text-sm rounded-md hover:bg-green-700 disabled:opacity-50"
+                        >
+                          <Sync className={`h-3 w-3 mr-1 ${syncingTripAdvisor ? 'animate-spin' : ''}`} />
+                          {syncingTripAdvisor ? 'Syncing...' : 'Sync'}
+                        </button>
+                      </div>
+                    )}
+                    
+                    <p className="text-xs text-gray-500 mt-2">
+                      {t('syncDescription', 'Sync reviews and ratings from external platforms to keep your listing up-to-date.')}
+                    </p>
+                  </div>
+                </div>
+              )}
 
               {/* Map */}
               <div className="bg-white rounded-lg p-6 shadow-sm">
