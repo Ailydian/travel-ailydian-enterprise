@@ -4,12 +4,14 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { 
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
-  LineChart, Line, PieChart, Pie, Cell, AreaChart, Area
+  LineChart, Line, PieChart, Pie, Cell, AreaChart, Area, RadialBarChart, RadialBar,
+  ComposedChart, Legend, ReferenceLine
 } from 'recharts';
 import {
   Users, MapPin, MessageSquare, Camera, Star, TrendingUp, TrendingDown,
   Activity, Clock, Globe, AlertTriangle, CheckCircle, RefreshCw,
-  Settings, LogOut, Eye, Edit, Trash2, Calendar, Download
+  Settings, LogOut, Eye, Edit, Trash2, Calendar, Download, Zap,
+  BarChart3, PieChart as PieChartIcon, Target, Award, Sparkles
 } from 'lucide-react';
 import adminService from '../../lib/services/admin-service';
 
@@ -98,12 +100,23 @@ export default function AdminDashboard() {
 
   const formatNumber = (num: number) => {
     if (num >= 1000000) return `${(num / 1000000).toFixed(1)}M`;
-    if (num >= 1000) return `${(num / 1000).toFixed(1)}K`;
-    return num.toString();
+    if (num >= 1000) return `${(num / 1000).toFixed(1)}B`;
+    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
   };
 
   const formatPercentage = (num: number) => {
     return `${num > 0 ? '+' : ''}${num.toFixed(1)}%`;
+  };
+
+  const formatDateTurkish = (dateString: string) => {
+    const date = new Date(dateString);
+    return date.toLocaleDateString('tr-TR', { 
+      day: '2-digit', 
+      month: 'long', 
+      year: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit'
+    });
   };
 
   const getActivityIcon = (type: string) => {
@@ -116,14 +129,41 @@ export default function AdminDashboard() {
     }
   };
 
-  const COLORS = ['#3b82f6', '#10b981', '#f59e0b', '#ef4444', '#8b5cf6'];
+  const getActivityTypeText = (type: string) => {
+    switch (type) {
+      case 'review': return 'Değerlendirme';
+      case 'user': return 'Kullanıcı';
+      case 'location': return 'Lokasyon';
+      case 'photo': return 'Fotoğraf';
+      default: return 'Aktivite';
+    }
+  };
+
+  // Ailydian tema renkleri
+  const AILYDIAN_COLORS = {
+    primary: '#FF214D',
+    secondary: '#FF6A45', 
+    dark: '#0A0A0B',
+    light: '#F3F4F6',
+    success: '#10b981',
+    warning: '#f59e0b',
+    error: '#ef4444',
+    purple: '#8b5cf6',
+    blue: '#3b82f6'
+  };
+
+  const CHART_COLORS = [AILYDIAN_COLORS.primary, AILYDIAN_COLORS.secondary, AILYDIAN_COLORS.blue, AILYDIAN_COLORS.success, AILYDIAN_COLORS.purple];
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-gray-100 flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center">
         <div className="text-center">
-          <div className="w-16 h-16 border-4 border-blue-600 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-          <p className="text-gray-600">Loading dashboard...</p>
+          <div className="relative">
+            <div className="w-20 h-20 border-4 border-gray-200 border-t-transparent rounded-full animate-spin mx-auto mb-6"></div>
+            <div className="absolute inset-0 w-20 h-20 border-4 border-transparent border-t-red-500 rounded-full animate-spin mx-auto" style={{animationDuration: '1.5s'}}></div>
+          </div>
+          <h3 className="text-xl font-semibold text-gray-800 mb-2">Kontrol Paneli Yükleniyor</h3>
+          <p className="text-gray-600">Veriler hazırlanıyor, lütfen bekleyin...</p>
         </div>
       </div>
     );
@@ -131,15 +171,19 @@ export default function AdminDashboard() {
 
   if (error) {
     return (
-      <div className="min-h-screen bg-gray-100 flex items-center justify-center">
-        <div className="text-center">
-          <AlertTriangle className="w-16 h-16 text-red-500 mx-auto mb-4" />
-          <p className="text-red-600 mb-4">{error}</p>
+      <div className="min-h-screen bg-gradient-to-br from-red-50 to-gray-100 flex items-center justify-center">
+        <div className="text-center max-w-md mx-auto p-8">
+          <div className="w-20 h-20 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-6">
+            <AlertTriangle className="w-10 h-10 text-red-600" />
+          </div>
+          <h3 className="text-xl font-semibold text-gray-800 mb-2">Bir Hata Oluştu</h3>
+          <p className="text-red-600 mb-6">{error}</p>
           <button 
             onClick={fetchDashboardData}
-            className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+            className="px-6 py-3 bg-gradient-to-r from-red-600 to-pink-600 text-white rounded-lg hover:from-red-700 hover:to-pink-700 transition-all transform hover:scale-105 font-semibold"
           >
-            Retry
+            <RefreshCw className="w-4 h-4 mr-2 inline" />
+            Tekrar Dene
           </button>
         </div>
       </div>
@@ -149,33 +193,40 @@ export default function AdminDashboard() {
   return (
     <>
       <Head>
-        <title>Admin Dashboard - Travel Ailydian</title>
+        <title>Yönetici Paneli - Travel Ailydian</title>
         <meta name="robots" content="noindex, nofollow" />
+        <meta name="description" content="Travel Ailydian yönetici kontrol paneli" />
       </Head>
 
-      <div className="min-h-screen bg-gray-50">
+      <div className="min-h-screen" style={{background: `linear-gradient(135deg, ${AILYDIAN_COLORS.dark} 0%, #1f1f23 50%, #2d2d35 100%)`}}>
         {/* Top Navigation */}
-        <nav className="bg-white shadow-sm border-b border-gray-200">
+        <nav className="bg-white/95 backdrop-blur-sm shadow-lg border-b border-gray-200">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex justify-between items-center h-16">
-              <div className="flex items-center">
-                <h1 className="text-xl font-semibold text-gray-900">
-                  Travel Ailydian Admin
+              <div className="flex items-center space-x-4">
+                <div className="w-8 h-8 rounded-lg" style={{background: `linear-gradient(45deg, ${AILYDIAN_COLORS.primary}, ${AILYDIAN_COLORS.secondary})`}}>
+                  <Sparkles className="w-5 h-5 text-white m-1.5" />
+                </div>
+                <h1 className="text-xl font-bold bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent">
+                  Travel Ailydian Yönetici Paneli
                 </h1>
               </div>
               <div className="flex items-center space-x-4">
-                <span className="text-sm text-gray-600">
-                  Welcome, {adminData?.email}
-                </span>
-                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
-                  {adminData?.role?.replace('_', ' ').toUpperCase()}
+                <div className="flex items-center space-x-2">
+                  <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                  <span className="text-sm text-gray-600">
+                    Hoşgeldin, {adminData?.email}
+                  </span>
+                </div>
+                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold" style={{background: `linear-gradient(45deg, ${AILYDIAN_COLORS.primary}20, ${AILYDIAN_COLORS.secondary}20)`, color: AILYDIAN_COLORS.primary}}>
+                  {adminData?.role === 'super_admin' ? 'Üst Yönetici' : adminData?.role === 'admin' ? 'Yönetici' : 'Modüratör'}
                 </span>
                 <button
                   onClick={handleLogout}
-                  className="flex items-center space-x-1 text-gray-600 hover:text-gray-900"
+                  className="flex items-center space-x-1 px-3 py-1.5 text-gray-600 hover:text-red-600 rounded-lg hover:bg-red-50 transition-all"
                 >
                   <LogOut className="w-4 h-4" />
-                  <span>Logout</span>
+                  <span>Çıkış</span>
                 </button>
               </div>
             </div>
@@ -184,37 +235,45 @@ export default function AdminDashboard() {
 
         {/* Sidebar Navigation */}
         <div className="flex">
-          <nav className="bg-gray-800 w-64 min-h-screen">
+          <nav className="bg-gray-900/95 backdrop-blur-sm w-64 min-h-screen border-r border-gray-700">
             <div className="p-4">
               <div className="space-y-2">
-                <Link href="/admin/dashboard" className="flex items-center space-x-3 text-white bg-gray-700 rounded-lg px-3 py-2">
-                  <BarChart className="w-5 h-5" />
-                  <span>Dashboard</span>
+                <Link href="/admin/dashboard" className="flex items-center space-x-3 text-white rounded-lg px-3 py-2" style={{background: `linear-gradient(45deg, ${AILYDIAN_COLORS.primary}40, ${AILYDIAN_COLORS.secondary}40)`, border: `1px solid ${AILYDIAN_COLORS.primary}60`}}>
+                  <BarChart3 className="w-5 h-5" />
+                  <span className="font-medium">Kontrol Paneli</span>
                 </Link>
-                <Link href="/admin/locations" className="flex items-center space-x-3 text-gray-300 hover:text-white hover:bg-gray-700 rounded-lg px-3 py-2 transition-colors">
+                <Link href="/admin/locations" className="flex items-center space-x-3 text-gray-300 hover:text-white hover:bg-gray-700/80 rounded-lg px-3 py-2 transition-all hover:translate-x-1">
                   <MapPin className="w-5 h-5" />
-                  <span>Locations</span>
+                  <span>Lokasyonlar</span>
                 </Link>
-                <Link href="/admin/users" className="flex items-center space-x-3 text-gray-300 hover:text-white hover:bg-gray-700 rounded-lg px-3 py-2 transition-colors">
+                <Link href="/admin/users" className="flex items-center space-x-3 text-gray-300 hover:text-white hover:bg-gray-700/80 rounded-lg px-3 py-2 transition-all hover:translate-x-1">
                   <Users className="w-5 h-5" />
-                  <span>Users</span>
+                  <span>Kullanıcılar</span>
                 </Link>
-                <Link href="/admin/reviews" className="flex items-center space-x-3 text-gray-300 hover:text-white hover:bg-gray-700 rounded-lg px-3 py-2 transition-colors">
+                <Link href="/admin/reviews" className="flex items-center space-x-3 text-gray-300 hover:text-white hover:bg-gray-700/80 rounded-lg px-3 py-2 transition-all hover:translate-x-1">
                   <MessageSquare className="w-5 h-5" />
-                  <span>Reviews</span>
+                  <span>Değerlendirmeler</span>
                 </Link>
-                <Link href="/admin/platforms" className="flex items-center space-x-3 text-gray-300 hover:text-white hover:bg-gray-700 rounded-lg px-3 py-2 transition-colors">
+                <Link href="/admin/platforms" className="flex items-center space-x-3 text-gray-300 hover:text-white hover:bg-gray-700/80 rounded-lg px-3 py-2 transition-all hover:translate-x-1">
                   <Globe className="w-5 h-5" />
-                  <span>External Platforms</span>
+                  <span>Harici Platformlar</span>
                 </Link>
-                <Link href="/admin/analytics" className="flex items-center space-x-3 text-gray-300 hover:text-white hover:bg-gray-700 rounded-lg px-3 py-2 transition-colors">
+                <Link href="/admin/analytics" className="flex items-center space-x-3 text-gray-300 hover:text-white hover:bg-gray-700/80 rounded-lg px-3 py-2 transition-all hover:translate-x-1">
                   <TrendingUp className="w-5 h-5" />
-                  <span>Analytics</span>
+                  <span>Analitik</span>
                 </Link>
-                <Link href="/admin/settings" className="flex items-center space-x-3 text-gray-300 hover:text-white hover:bg-gray-700 rounded-lg px-3 py-2 transition-colors">
+                <Link href="/admin/settings" className="flex items-center space-x-3 text-gray-300 hover:text-white hover:bg-gray-700/80 rounded-lg px-3 py-2 transition-all hover:translate-x-1">
                   <Settings className="w-5 h-5" />
-                  <span>Settings</span>
+                  <span>Ayarlar</span>
                 </Link>
+              </div>
+              
+              {/* Sidebar Footer */}
+              <div className="mt-8 pt-4 border-t border-gray-700">
+                <div className="text-xs text-gray-400 text-center">
+                  <p>Travel Ailydian</p>
+                  <p className="mt-1">Versiyon 2.0</p>
+                </div>
               </div>
             </div>
           </nav>
@@ -225,85 +284,102 @@ export default function AdminDashboard() {
               <>
                 {/* Overview Stats */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 mb-8">
-                  <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+                  <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-blue-100 p-6 hover:shadow-xl transition-all transform hover:scale-105">
                     <div className="flex items-center">
-                      <MapPin className="w-8 h-8 text-blue-600" />
-                      <div className="ml-4">
-                        <p className="text-sm font-medium text-gray-600">Locations</p>
-                        <p className="text-2xl font-bold text-gray-900">
+                      <div className="p-3 rounded-full" style={{background: `linear-gradient(45deg, ${AILYDIAN_COLORS.blue}20, ${AILYDIAN_COLORS.blue}40)`}}>
+                        <MapPin className="w-8 h-8" style={{color: AILYDIAN_COLORS.blue}} />
+                      </div>
+                      <div className="ml-4 flex-1">
+                        <p className="text-sm font-semibold text-gray-600 uppercase tracking-wide">Lokasyonlar</p>
+                        <p className="text-3xl font-bold text-gray-900 mb-1">
                           {formatNumber(dashboardData.overview.totalLocations)}
                         </p>
-                        <p className="text-sm text-green-600 flex items-center">
+                        <p className="text-sm flex items-center" style={{color: AILYDIAN_COLORS.success}}>
                           <TrendingUp className="w-3 h-3 mr-1" />
-                          {formatPercentage(dashboardData.overview.monthlyGrowth.locations)}
+                          {formatPercentage(dashboardData.overview.monthlyGrowth.locations)} bu ay
                         </p>
                       </div>
                     </div>
                   </div>
 
-                  <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+                  <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-green-100 p-6 hover:shadow-xl transition-all transform hover:scale-105">
                     <div className="flex items-center">
-                      <MessageSquare className="w-8 h-8 text-green-600" />
-                      <div className="ml-4">
-                        <p className="text-sm font-medium text-gray-600">Reviews</p>
-                        <p className="text-2xl font-bold text-gray-900">
+                      <div className="p-3 rounded-full" style={{background: `linear-gradient(45deg, ${AILYDIAN_COLORS.success}20, ${AILYDIAN_COLORS.success}40)`}}>
+                        <MessageSquare className="w-8 h-8" style={{color: AILYDIAN_COLORS.success}} />
+                      </div>
+                      <div className="ml-4 flex-1">
+                        <p className="text-sm font-semibold text-gray-600 uppercase tracking-wide">Değerlendirmeler</p>
+                        <p className="text-3xl font-bold text-gray-900 mb-1">
                           {formatNumber(dashboardData.overview.totalReviews)}
                         </p>
-                        <p className="text-sm text-green-600 flex items-center">
+                        <p className="text-sm flex items-center" style={{color: AILYDIAN_COLORS.success}}>
                           <TrendingUp className="w-3 h-3 mr-1" />
-                          {formatPercentage(dashboardData.overview.monthlyGrowth.reviews)}
+                          {formatPercentage(dashboardData.overview.monthlyGrowth.reviews)} bu ay
                         </p>
                       </div>
                     </div>
                   </div>
 
-                  <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+                  <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-purple-100 p-6 hover:shadow-xl transition-all transform hover:scale-105">
                     <div className="flex items-center">
-                      <Users className="w-8 h-8 text-purple-600" />
-                      <div className="ml-4">
-                        <p className="text-sm font-medium text-gray-600">Users</p>
-                        <p className="text-2xl font-bold text-gray-900">
+                      <div className="p-3 rounded-full" style={{background: `linear-gradient(45deg, ${AILYDIAN_COLORS.purple}20, ${AILYDIAN_COLORS.purple}40)`}}>
+                        <Users className="w-8 h-8" style={{color: AILYDIAN_COLORS.purple}} />
+                      </div>
+                      <div className="ml-4 flex-1">
+                        <p className="text-sm font-semibold text-gray-600 uppercase tracking-wide">Kullanıcılar</p>
+                        <p className="text-3xl font-bold text-gray-900 mb-1">
                           {formatNumber(dashboardData.overview.totalUsers)}
                         </p>
-                        <p className="text-sm text-green-600 flex items-center">
+                        <p className="text-sm flex items-center" style={{color: AILYDIAN_COLORS.success}}>
                           <TrendingUp className="w-3 h-3 mr-1" />
-                          {formatPercentage(dashboardData.overview.monthlyGrowth.users)}
+                          {formatPercentage(dashboardData.overview.monthlyGrowth.users)} bu ay
                         </p>
                       </div>
                     </div>
                   </div>
 
-                  <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+                  <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-yellow-100 p-6 hover:shadow-xl transition-all transform hover:scale-105">
                     <div className="flex items-center">
-                      <Camera className="w-8 h-8 text-yellow-600" />
-                      <div className="ml-4">
-                        <p className="text-sm font-medium text-gray-600">Photos</p>
-                        <p className="text-2xl font-bold text-gray-900">
+                      <div className="p-3 rounded-full" style={{background: `linear-gradient(45deg, ${AILYDIAN_COLORS.warning}20, ${AILYDIAN_COLORS.warning}40)`}}>
+                        <Camera className="w-8 h-8" style={{color: AILYDIAN_COLORS.warning}} />
+                      </div>
+                      <div className="ml-4 flex-1">
+                        <p className="text-sm font-semibold text-gray-600 uppercase tracking-wide">Fotoğraflar</p>
+                        <p className="text-3xl font-bold text-gray-900 mb-1">
                           {formatNumber(dashboardData.overview.totalPhotos)}
                         </p>
+                        <p className="text-xs text-gray-500">Toplam medya içeriği</p>
                       </div>
                     </div>
                   </div>
 
-                  <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+                  <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg p-6 hover:shadow-xl transition-all transform hover:scale-105" style={{border: `1px solid ${AILYDIAN_COLORS.secondary}40`}}>
                     <div className="flex items-center">
-                      <Star className="w-8 h-8 text-orange-600" />
-                      <div className="ml-4">
-                        <p className="text-sm font-medium text-gray-600">Avg Rating</p>
-                        <p className="text-2xl font-bold text-gray-900">
+                      <div className="p-3 rounded-full" style={{background: `linear-gradient(45deg, ${AILYDIAN_COLORS.primary}20, ${AILYDIAN_COLORS.secondary}40)`}}>
+                        <Star className="w-8 h-8" style={{color: AILYDIAN_COLORS.secondary}} />
+                      </div>
+                      <div className="ml-4 flex-1">
+                        <p className="text-sm font-semibold text-gray-600 uppercase tracking-wide">Ortalama Puan</p>
+                        <p className="text-3xl font-bold text-gray-900 mb-1">
                           {dashboardData.overview.averageRating.toFixed(1)}
                         </p>
-                        <div className="flex">
+                        <div className="flex items-center">
                           {[1, 2, 3, 4, 5].map((star) => (
                             <Star
                               key={star}
-                              className={`w-3 h-3 ${
+                              className={`w-4 h-4 ${
                                 star <= Math.floor(dashboardData.overview.averageRating)
-                                  ? 'text-yellow-400 fill-current'
+                                  ? 'fill-current'
                                   : 'text-gray-300'
                               }`}
+                              style={{
+                                color: star <= Math.floor(dashboardData.overview.averageRating) 
+                                  ? AILYDIAN_COLORS.warning 
+                                  : undefined
+                              }}
                             />
                           ))}
+                          <span className="ml-2 text-xs text-gray-500">5 üzerinden</span>
                         </div>
                       </div>
                     </div>
@@ -313,66 +389,114 @@ export default function AdminDashboard() {
                 {/* Charts Section */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
                   {/* Daily Activity Chart */}
-                  <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+                  <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200 p-6 hover:shadow-xl transition-all">
                     <div className="flex items-center justify-between mb-6">
-                      <h3 className="text-lg font-semibold text-gray-900">Daily Activity</h3>
-                      <div className="flex space-x-2">
-                        <button className="px-3 py-1 text-xs bg-blue-100 text-blue-600 rounded">30D</button>
-                        <button className="px-3 py-1 text-xs text-gray-600 hover:bg-gray-100 rounded">7D</button>
-                        <button className="px-3 py-1 text-xs text-gray-600 hover:bg-gray-100 rounded">24H</button>
+                      <div className="flex items-center space-x-3">
+                        <div className="p-2 rounded-lg" style={{background: `linear-gradient(45deg, ${AILYDIAN_COLORS.primary}20, ${AILYDIAN_COLORS.secondary}20)`}}>
+                          <BarChart3 className="w-5 h-5" style={{color: AILYDIAN_COLORS.primary}} />
+                        </div>
+                        <h3 className="text-lg font-bold text-gray-900">Günlük Aktivite</h3>
+                      </div>
+                      <div className="flex space-x-1">
+                        <button className="px-3 py-1 text-xs text-white rounded-lg transition-colors" style={{background: AILYDIAN_COLORS.primary}}>30G</button>
+                        <button className="px-3 py-1 text-xs text-gray-600 hover:bg-gray-100 rounded-lg transition-colors">7G</button>
+                        <button className="px-3 py-1 text-xs text-gray-600 hover:bg-gray-100 rounded-lg transition-colors">24S</button>
                       </div>
                     </div>
                     <div className="h-80">
                       <ResponsiveContainer width="100%" height="100%">
-                        <AreaChart data={dashboardData.analytics.dailyStats}>
-                          <CartesianGrid strokeDasharray="3 3" />
+                        <ComposedChart data={dashboardData.analytics.dailyStats}>
+                          <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
                           <XAxis 
                             dataKey="date" 
-                            tickFormatter={(date) => new Date(date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
+                            tickFormatter={(date) => new Date(date).toLocaleDateString('tr-TR', { day: 'numeric', month: 'short' })}
+                            stroke="#666"
                           />
-                          <YAxis />
+                          <YAxis stroke="#666" />
                           <Tooltip 
-                            labelFormatter={(date) => new Date(date).toLocaleDateString('en-US', { 
-                              month: 'long', 
-                              day: 'numeric', 
-                              year: 'numeric' 
-                            })}
+                            labelFormatter={(date) => formatDateTurkish(date)}
+                            contentStyle={{
+                              backgroundColor: 'rgba(255, 255, 255, 0.95)',
+                              border: 'none',
+                              borderRadius: '12px',
+                              boxShadow: '0 10px 30px rgba(0,0,0,0.1)'
+                            }}
                           />
-                          <Area type="monotone" dataKey="reviews" stackId="1" stroke="#10b981" fill="#10b981" fillOpacity={0.6} />
-                          <Area type="monotone" dataKey="locations" stackId="1" stroke="#3b82f6" fill="#3b82f6" fillOpacity={0.6} />
-                          <Area type="monotone" dataKey="users" stackId="1" stroke="#8b5cf6" fill="#8b5cf6" fillOpacity={0.6} />
-                        </AreaChart>
+                          <Legend />
+                          <Area 
+                            type="monotone" 
+                            dataKey="reviews" 
+                            stackId="1" 
+                            stroke={AILYDIAN_COLORS.success} 
+                            fill={AILYDIAN_COLORS.success} 
+                            fillOpacity={0.6} 
+                            name="Değerlendirmeler"
+                          />
+                          <Area 
+                            type="monotone" 
+                            dataKey="locations" 
+                            stackId="1" 
+                            stroke={AILYDIAN_COLORS.blue} 
+                            fill={AILYDIAN_COLORS.blue} 
+                            fillOpacity={0.6}
+                            name="Lokasyonlar"
+                          />
+                          <Area 
+                            type="monotone" 
+                            dataKey="users" 
+                            stackId="1" 
+                            stroke={AILYDIAN_COLORS.purple} 
+                            fill={AILYDIAN_COLORS.purple} 
+                            fillOpacity={0.6}
+                            name="Kullanıcılar"
+                          />
+                          <Bar dataKey="views" fill={AILYDIAN_COLORS.primary} opacity={0.8} name="Görüntülemeler" />
+                        </ComposedChart>
                       </ResponsiveContainer>
                     </div>
                   </div>
 
                   {/* Top Locations */}
-                  <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-                    <h3 className="text-lg font-semibold text-gray-900 mb-6">Top Performing Locations</h3>
-                    <div className="space-y-4">
+                  <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200 p-6 hover:shadow-xl transition-all">
+                    <div className="flex items-center space-x-3 mb-6">
+                      <div className="p-2 rounded-lg" style={{background: `linear-gradient(45deg, ${AILYDIAN_COLORS.warning}20, ${AILYDIAN_COLORS.secondary}20)`}}>
+                        <Award className="w-5 h-5" style={{color: AILYDIAN_COLORS.warning}} />
+                      </div>
+                      <h3 className="text-lg font-bold text-gray-900">En Popüler Lokasyonlar</h3>
+                    </div>
+                    <div className="space-y-3">
                       {dashboardData.topLocations.map((location, index) => (
-                        <div key={location.id} className="flex items-center justify-between p-3 border border-gray-100 rounded-lg hover:bg-gray-50">
+                        <div key={location.id} className="flex items-center justify-between p-4 border border-gray-100 rounded-xl hover:shadow-md transition-all hover:scale-102">
                           <div className="flex items-center">
-                            <div className="w-8 h-8 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-sm font-semibold">
+                            <div 
+                              className="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold text-white"
+                              style={{
+                                background: index === 0 
+                                  ? `linear-gradient(45deg, ${AILYDIAN_COLORS.primary}, ${AILYDIAN_COLORS.secondary})`
+                                  : index === 1
+                                  ? `linear-gradient(45deg, ${AILYDIAN_COLORS.blue}, ${AILYDIAN_COLORS.purple})`
+                                  : `linear-gradient(45deg, ${AILYDIAN_COLORS.success}, ${AILYDIAN_COLORS.warning})`
+                              }}
+                            >
                               {index + 1}
                             </div>
-                            <div className="ml-3">
-                              <p className="font-medium text-gray-900">{location.name}</p>
-                              <div className="flex items-center space-x-3 text-sm text-gray-600">
+                            <div className="ml-4">
+                              <p className="font-semibold text-gray-900">{location.name}</p>
+                              <div className="flex items-center space-x-4 text-sm text-gray-600">
                                 <span className="flex items-center">
-                                  <Star className="w-3 h-3 text-yellow-400 fill-current mr-1" />
+                                  <Star className="w-3 h-3 mr-1 fill-current" style={{color: AILYDIAN_COLORS.warning}} />
                                   {location.rating}
                                 </span>
-                                <span>{location.reviews} reviews</span>
-                                <span>{formatNumber(location.views)} views</span>
+                                <span>{location.reviews} değerlendirme</span>
+                                <span>{formatNumber(location.views)} görüntüleme</span>
                               </div>
                             </div>
                           </div>
-                          <div className="flex space-x-1">
-                            <button className="p-1 text-gray-400 hover:text-gray-600">
+                          <div className="flex space-x-2">
+                            <button className="p-2 text-gray-400 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all">
                               <Eye className="w-4 h-4" />
                             </button>
-                            <button className="p-1 text-gray-400 hover:text-gray-600">
+                            <button className="p-2 text-gray-400 hover:text-green-600 hover:bg-green-50 rounded-lg transition-all">
                               <Edit className="w-4 h-4" />
                             </button>
                           </div>
@@ -385,30 +509,74 @@ export default function AdminDashboard() {
                 {/* Bottom Section */}
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                   {/* Recent Activity */}
-                  <div className="lg:col-span-2 bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+                  <div className="lg:col-span-2 bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200 p-6 hover:shadow-xl transition-all">
                     <div className="flex items-center justify-between mb-6">
-                      <h3 className="text-lg font-semibold text-gray-900">Recent Activity</h3>
+                      <div className="flex items-center space-x-3">
+                        <div className="p-2 rounded-lg" style={{background: `linear-gradient(45deg, ${AILYDIAN_COLORS.success}20, ${AILYDIAN_COLORS.blue}20)`}}>
+                          <Activity className="w-5 h-5" style={{color: AILYDIAN_COLORS.success}} />
+                        </div>
+                        <h3 className="text-lg font-bold text-gray-900">Son Aktiviteler</h3>
+                      </div>
                       <button 
                         onClick={fetchDashboardData}
-                        className="flex items-center space-x-1 text-sm text-gray-600 hover:text-gray-900"
+                        className="flex items-center space-x-1 px-3 py-2 text-sm text-gray-600 hover:text-white rounded-lg transition-all" 
+                        style={{'--tw-bg-opacity': '0.1', background: `${AILYDIAN_COLORS.primary}10`}}
+                        onMouseEnter={(e) => e.currentTarget.style.background = AILYDIAN_COLORS.primary}
+                        onMouseLeave={(e) => e.currentTarget.style.background = `${AILYDIAN_COLORS.primary}10`}
                       >
                         <RefreshCw className="w-4 h-4" />
-                        <span>Refresh</span>
+                        <span>Yenile</span>
                       </button>
                     </div>
-                    <div className="space-y-4">
+                    <div className="space-y-3">
                       {dashboardData.recentActivity.map((activity, index) => (
-                        <div key={index} className="flex items-start space-x-3 p-3 border border-gray-100 rounded-lg">
-                          <div className="flex-shrink-0 w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center">
+                        <div key={index} className="flex items-start space-x-4 p-4 border border-gray-100 rounded-xl hover:shadow-md transition-all hover:bg-gray-50/50">
+                          <div 
+                            className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center text-white"
+                            style={{
+                              background: activity.type === 'review' 
+                                ? `linear-gradient(45deg, ${AILYDIAN_COLORS.success}, ${AILYDIAN_COLORS.blue})`
+                                : activity.type === 'user'
+                                ? `linear-gradient(45deg, ${AILYDIAN_COLORS.purple}, ${AILYDIAN_COLORS.primary})`
+                                : activity.type === 'location'
+                                ? `linear-gradient(45deg, ${AILYDIAN_COLORS.warning}, ${AILYDIAN_COLORS.secondary})`
+                                : `linear-gradient(45deg, ${AILYDIAN_COLORS.primary}, ${AILYDIAN_COLORS.secondary})`
+                            }}
+                          >
                             {getActivityIcon(activity.type)}
                           </div>
                           <div className="flex-1 min-w-0">
-                            <p className="text-sm text-gray-900">{activity.description}</p>
-                            <div className="flex items-center space-x-2 text-xs text-gray-500">
-                              <Clock className="w-3 h-3" />
-                              <span>{new Date(activity.timestamp).toLocaleString()}</span>
-                              {activity.user && <span>• {activity.user}</span>}
-                              {activity.location && <span>• {activity.location}</span>}
+                            <div className="flex items-start justify-between">
+                              <div>
+                                <p className="text-sm font-medium text-gray-900">{activity.description}</p>
+                                <div className="flex items-center space-x-3 text-xs text-gray-500 mt-1">
+                                  <div className="flex items-center">
+                                    <Clock className="w-3 h-3 mr-1" />
+                                    <span>{formatDateTurkish(activity.timestamp)}</span>
+                                  </div>
+                                  {activity.user && (
+                                    <span className="flex items-center">
+                                      <Users className="w-3 h-3 mr-1" />
+                                      {activity.user}
+                                    </span>
+                                  )}
+                                  {activity.location && (
+                                    <span className="flex items-center">
+                                      <MapPin className="w-3 h-3 mr-1" />
+                                      {activity.location}
+                                    </span>
+                                  )}
+                                </div>
+                              </div>
+                              <span 
+                                className="text-xs px-2 py-1 rounded-full font-medium"
+                                style={{
+                                  background: `${AILYDIAN_COLORS.primary}10`,
+                                  color: AILYDIAN_COLORS.primary
+                                }}
+                              >
+                                {getActivityTypeText(activity.type)}
+                              </span>
                             </div>
                           </div>
                         </div>
@@ -419,48 +587,59 @@ export default function AdminDashboard() {
                   {/* System Status & Actions */}
                   <div className="space-y-6">
                     {/* External Platform Stats */}
-                    <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-                      <h4 className="text-lg font-semibold text-gray-900 mb-4">External Platforms</h4>
+                    <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200 p-6 hover:shadow-xl transition-all">
+                      <div className="flex items-center space-x-3 mb-4">
+                        <div className="p-2 rounded-lg" style={{background: `linear-gradient(45deg, ${AILYDIAN_COLORS.blue}20, ${AILYDIAN_COLORS.purple}20)`}}>
+                          <Globe className="w-5 h-5" style={{color: AILYDIAN_COLORS.blue}} />
+                        </div>
+                        <h4 className="text-lg font-bold text-gray-900">Harici Platformlar</h4>
+                      </div>
                       <div className="space-y-4">
-                        <div className="flex items-center justify-between">
-                          <span className="text-sm text-gray-600">Google Synced</span>
-                          <span className="font-medium text-gray-900">{dashboardData.platformStats.googleSynced}</span>
+                        <div className="flex items-center justify-between p-3 bg-green-50 rounded-lg">
+                          <span className="text-sm font-medium text-gray-700">Google Senkronize</span>
+                          <span className="font-bold text-green-600">{formatNumber(dashboardData.platformStats.googleSynced)}</span>
                         </div>
-                        <div className="flex items-center justify-between">
-                          <span className="text-sm text-gray-600">TripAdvisor Synced</span>
-                          <span className="font-medium text-gray-900">{dashboardData.platformStats.tripAdvisorSynced}</span>
+                        <div className="flex items-center justify-between p-3 bg-blue-50 rounded-lg">
+                          <span className="text-sm font-medium text-gray-700">TripAdvisor Senkronize</span>
+                          <span className="font-bold text-blue-600">{formatNumber(dashboardData.platformStats.tripAdvisorSynced)}</span>
                         </div>
-                        <div className="flex items-center justify-between">
-                          <span className="text-sm text-gray-600">Sync Errors</span>
-                          <span className="font-medium text-red-600">{dashboardData.platformStats.syncErrors}</span>
+                        <div className="flex items-center justify-between p-3 bg-red-50 rounded-lg">
+                          <span className="text-sm font-medium text-gray-700">Senkronizasyon Hatası</span>
+                          <span className="font-bold text-red-600">{dashboardData.platformStats.syncErrors}</span>
                         </div>
-                        <div className="pt-2 border-t border-gray-200">
-                          <p className="text-xs text-gray-500">
-                            Last sync: {new Date(dashboardData.platformStats.lastSync).toLocaleString()}
+                        <div className="pt-3 border-t border-gray-200">
+                          <p className="text-xs text-gray-500 flex items-center">
+                            <Zap className="w-3 h-3 mr-1" />
+                            Son senkronizasyon: {formatDateTurkish(dashboardData.platformStats.lastSync)}
                           </p>
                         </div>
                       </div>
                     </div>
 
                     {/* Moderation Queue */}
-                    <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-                      <h4 className="text-lg font-semibold text-gray-900 mb-4">Moderation Queue</h4>
+                    <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200 p-6 hover:shadow-xl transition-all">
+                      <div className="flex items-center space-x-3 mb-4">
+                        <div className="p-2 rounded-lg" style={{background: `linear-gradient(45deg, ${AILYDIAN_COLORS.warning}20, ${AILYDIAN_COLORS.error}20)`}}>
+                          <AlertTriangle className="w-5 h-5" style={{color: AILYDIAN_COLORS.warning}} />
+                        </div>
+                        <h4 className="text-lg font-bold text-gray-900">Modürasyon Kuyruğu</h4>
+                      </div>
                       <div className="space-y-3">
-                        <Link href="/admin/reviews?status=pending" className="flex items-center justify-between p-2 text-sm border border-orange-200 bg-orange-50 rounded hover:bg-orange-100">
-                          <span>Pending Reviews</span>
-                          <span className="bg-orange-200 text-orange-800 px-2 py-1 rounded-full text-xs font-medium">
+                        <Link href="/admin/reviews?status=pending" className="flex items-center justify-between p-3 border border-orange-200 bg-orange-50 rounded-lg hover:bg-orange-100 transition-all hover:scale-105">
+                          <span className="font-medium text-orange-800">Bekleyen Değerlendirmeler</span>
+                          <span className="bg-orange-200 text-orange-800 px-3 py-1 rounded-full text-xs font-bold">
                             {dashboardData.moderationQueue.pendingReviews}
                           </span>
                         </Link>
-                        <Link href="/admin/content?flagged=true" className="flex items-center justify-between p-2 text-sm border border-red-200 bg-red-50 rounded hover:bg-red-100">
-                          <span>Flagged Content</span>
-                          <span className="bg-red-200 text-red-800 px-2 py-1 rounded-full text-xs font-medium">
+                        <Link href="/admin/content?flagged=true" className="flex items-center justify-between p-3 border border-red-200 bg-red-50 rounded-lg hover:bg-red-100 transition-all hover:scale-105">
+                          <span className="font-medium text-red-800">Bayraklı İçerik</span>
+                          <span className="bg-red-200 text-red-800 px-3 py-1 rounded-full text-xs font-bold">
                             {dashboardData.moderationQueue.flaggedContent}
                           </span>
                         </Link>
-                        <Link href="/admin/users?reported=true" className="flex items-center justify-between p-2 text-sm border border-yellow-200 bg-yellow-50 rounded hover:bg-yellow-100">
-                          <span>Reported Users</span>
-                          <span className="bg-yellow-200 text-yellow-800 px-2 py-1 rounded-full text-xs font-medium">
+                        <Link href="/admin/users?reported=true" className="flex items-center justify-between p-3 border border-yellow-200 bg-yellow-50 rounded-lg hover:bg-yellow-100 transition-all hover:scale-105">
+                          <span className="font-medium text-yellow-800">Raporlanan Kullanıcılar</span>
+                          <span className="bg-yellow-200 text-yellow-800 px-3 py-1 rounded-full text-xs font-bold">
                             {dashboardData.moderationQueue.reportedUsers}
                           </span>
                         </Link>
@@ -468,17 +647,25 @@ export default function AdminDashboard() {
                     </div>
 
                     {/* Quick Actions */}
-                    <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-                      <h4 className="text-lg font-semibold text-gray-900 mb-4">Quick Actions</h4>
-                      <div className="space-y-2">
-                        <Link href="/admin/locations/new" className="block w-full text-center bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">
-                          Add Location
+                    <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200 p-6 hover:shadow-xl transition-all">
+                      <div className="flex items-center space-x-3 mb-4">
+                        <div className="p-2 rounded-lg" style={{background: `linear-gradient(45deg, ${AILYDIAN_COLORS.primary}20, ${AILYDIAN_COLORS.secondary}20)`}}>
+                          <Zap className="w-5 h-5" style={{color: AILYDIAN_COLORS.primary}} />
+                        </div>
+                        <h4 className="text-lg font-bold text-gray-900">Hızlı İşlemler</h4>
+                      </div>
+                      <div className="space-y-3">
+                        <Link href="/admin/locations/new" className="block w-full text-center text-white px-4 py-3 rounded-lg transition-all transform hover:scale-105 hover:shadow-lg font-semibold" style={{background: `linear-gradient(45deg, ${AILYDIAN_COLORS.primary}, ${AILYDIAN_COLORS.secondary})`}}>
+                          <MapPin className="w-4 h-4 inline mr-2" />
+                          Yeni Lokasyon Ekle
                         </Link>
-                        <Link href="/admin/sync" className="block w-full text-center bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors">
-                          Sync Platforms
+                        <Link href="/admin/sync" className="block w-full text-center text-white px-4 py-3 rounded-lg transition-all transform hover:scale-105 hover:shadow-lg font-semibold" style={{background: `linear-gradient(45deg, ${AILYDIAN_COLORS.success}, ${AILYDIAN_COLORS.blue})`}}>
+                          <RefreshCw className="w-4 h-4 inline mr-2" />
+                          Platformları Senkronize Et
                         </Link>
-                        <Link href="/admin/export" className="block w-full text-center bg-gray-600 text-white px-4 py-2 rounded-lg hover:bg-gray-700 transition-colors">
-                          Export Data
+                        <Link href="/admin/export" className="block w-full text-center text-white px-4 py-3 rounded-lg transition-all transform hover:scale-105 hover:shadow-lg font-semibold" style={{background: `linear-gradient(45deg, ${AILYDIAN_COLORS.purple}, ${AILYDIAN_COLORS.warning})`}}>
+                          <Download className="w-4 h-4 inline mr-2" />
+                          Veri Dışa Aktar
                         </Link>
                       </div>
                     </div>
