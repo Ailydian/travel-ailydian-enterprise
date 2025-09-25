@@ -520,7 +520,7 @@ export default function AdminDashboard() {
                       <button 
                         onClick={fetchDashboardData}
                         className="flex items-center space-x-1 px-3 py-2 text-sm text-gray-600 hover:text-white rounded-lg transition-all" 
-                        style={{'--tw-bg-opacity': '0.1', background: `${AILYDIAN_COLORS.primary}10`}}
+                        style={{background: `${AILYDIAN_COLORS.primary}10`}}
                         onMouseEnter={(e) => e.currentTarget.style.background = AILYDIAN_COLORS.primary}
                         onMouseLeave={(e) => e.currentTarget.style.background = `${AILYDIAN_COLORS.primary}10`}
                       >
