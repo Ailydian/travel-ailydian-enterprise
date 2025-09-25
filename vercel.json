@@ -23,16 +23,6 @@
   
   "regions": ["iad1", "fra1", "sin1"],
   
-  "deploymentProtection": {
-    "bypassForDevelopment": true,
-    "bypassRules": [
-      {
-        "path": "*",
-        "bypass": true
-      }
-    ]
-  },
-  
   "headers": [
     {
       "source": "/(.*)",
