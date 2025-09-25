@@ -11,6 +11,8 @@ import { Search, MapPin, Calendar, Users, Star, Heart, Menu, X,
          Filter, Clock, Wifi, CreditCard, LogIn, UserPlus, 
          Phone, Mail, HelpCircle, Settings, Bell, Lock,
          Compass, Mountain, Waves, Building, TreePine, MessageCircle, Send } from 'lucide-react';
+import PremiumLogo from '@/components/ui/PremiumLogo';
+import ParachuteAnimation from '@/components/animations/ParachuteAnimation';
 
 // Gerçek destinasyon verileri
 const featuredDestinations = [
@@ -277,66 +279,73 @@ const TravelHomePage = () => {
       {/* Premium Ocean Background */}
       <div className="premium-ocean-bg"></div>
       <div className="ocean-waves-overlay"></div>
+      {/* Parachute Animation */}
+      <ParachuteAnimation />
       {/* Header */}
       <header className="shadow-sm border-b" style={{ backgroundColor: 'var(--bg-0)', borderBottomColor: 'var(--ac-1)' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
             <div className="flex items-center">
-              <Globe className="h-8 w-8 mr-2" style={{ color: 'var(--ac-1)' }} />
-              <span className="text-xl font-bold neon-text" style={{ color: 'var(--tx-1)' }}>
-                Travel.Ailydian
-              </span>
+              <PremiumLogo size="large" variant="full" />
             </div>
 
             {/* Navigation */}
             <nav className="hidden md:flex space-x-8">
               <div className="relative group">
-                <button className="flex items-center transition-colors duration-300" style={{ color: 'var(--tx-1)' }} onMouseEnter={(e) => (e.currentTarget as HTMLElement).style.color = 'var(--ac-1)'} onMouseLeave={(e) => (e.currentTarget as HTMLElement).style.color = 'var(--tx-1)'}>
+                <button className="flex items-center transition-colors duration-300 header-neon" onMouseEnter={(e) => (e.currentTarget as HTMLElement).style.color = 'var(--ac-2)'} onMouseLeave={(e) => (e.currentTarget as HTMLElement).style.color = '#FFFFFF'}>
                   <Compass className="h-4 w-4 mr-1" />
                   Keşfet
                   <ChevronDown className="h-4 w-4 ml-1" />
                 </button>
-                <div className="absolute top-full left-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-                  <Link href="/destinations" className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-700 flex items-center">
-                    <Mountain className="h-4 w-4 mr-2" />
+                <div className="absolute top-full left-0 mt-2 w-56 bg-white/95 backdrop-blur-20 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 border border-blue-200">
+                  <Link href="/destinations" className="block px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 flex items-center transition-colors rounded-t-xl">
+                    <Mountain className="h-4 w-4 mr-2" style={{ color: 'var(--ac-1)' }} />
                     Destinasyonlar
                   </Link>
-                  <Link href="/tours" className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-700 flex items-center">
-                    <Camera className="h-4 w-4 mr-2" />
+                  <Link href="/tours" className="block px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 flex items-center transition-colors">
+                    <Camera className="h-4 w-4 mr-2" style={{ color: 'var(--ac-1)' }} />
                     Turlar
                   </Link>
-                  <Link href="/activities" className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-700 flex items-center">
-                    <TreePine className="h-4 w-4 mr-2" />
+                  <Link href="/activities" className="block px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 flex items-center transition-colors">
+                    <Waves className="h-4 w-4 mr-2" style={{ color: 'var(--ac-1)' }} />
                     Aktiviteler
+                  </Link>
+                  <Link href="/reviews" className="block px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 flex items-center transition-colors">
+                    <Star className="h-4 w-4 mr-2" style={{ color: 'var(--ac-1)' }} />
+                    İncelemeler
+                  </Link>
+                  <Link href="/business" className="block px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 flex items-center transition-colors rounded-b-xl">
+                    <Building className="h-4 w-4 mr-2" style={{ color: 'var(--ac-1)' }} />
+                    İşletmeler
                   </Link>
                 </div>
               </div>
-              <Link href="/my-trips" className="text-gray-700 hover:text-blue-600 dark:text-gray-300 flex items-center">
+              <Link href="/my-trips" className="header-neon hover:text-blue-300 transition-colors flex items-center">
                 <Plane className="h-4 w-4 mr-1" />
                 Seyahatlerim
               </Link>
-              <Link href="/favorites" className="text-gray-700 hover:text-blue-600 dark:text-gray-300 flex items-center">
+              <Link href="/favorites" className="header-neon hover:text-blue-300 transition-colors flex items-center">
                 <Heart className="h-4 w-4 mr-1" />
                 Favoriler
               </Link>
               <div className="relative group">
-                <button className="text-gray-700 hover:text-blue-600 dark:text-gray-300 flex items-center">
+                <button className="header-neon hover:text-blue-300 transition-colors flex items-center">
                   <HelpCircle className="h-4 w-4 mr-1" />
                   Destek
                   <ChevronDown className="h-4 w-4 ml-1" />
                 </button>
-                <div className="absolute top-full left-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-                  <Link href="/help" className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-700 flex items-center">
-                    <HelpCircle className="h-4 w-4 mr-2" />
+                <div className="absolute top-full left-0 mt-2 w-48 bg-white/95 backdrop-blur-20 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 border border-blue-200">
+                  <Link href="/help" className="block px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 flex items-center transition-colors rounded-t-xl">
+                    <HelpCircle className="h-4 w-4 mr-2" style={{ color: 'var(--ac-1)' }} />
                     Yardım Merkezi
                   </Link>
-                  <Link href="/contact" className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-700 flex items-center">
-                    <Phone className="h-4 w-4 mr-2" />
+                  <Link href="/contact" className="block px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 flex items-center transition-colors">
+                    <Phone className="h-4 w-4 mr-2" style={{ color: 'var(--ac-1)' }} />
                     İletişim
                   </Link>
-                  <Link href="/support" className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-700 flex items-center">
-                    <Mail className="h-4 w-4 mr-2" />
+                  <Link href="/support" className="block px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 flex items-center transition-colors rounded-b-xl">
+                    <Mail className="h-4 w-4 mr-2" style={{ color: 'var(--ac-1)' }} />
                     Canlı Destek
                   </Link>
                 </div>
