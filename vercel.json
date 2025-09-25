@@ -47,6 +47,8 @@
     "NEXT_PUBLIC_BLOCKCHAIN_NETWORK": "mainnet",
     "NEXT_PUBLIC_METAVERSE_ENDPOINT": "https://metaverse.ailydian.com",
     "NEXT_PUBLIC_NFT_MARKETPLACE": "https://nft.ailydian.com",
-    "NEXT_PUBLIC_AI_GATEWAY": "https://ai.ailydian.com"
+    "NEXT_PUBLIC_AI_GATEWAY": "https://ai.ailydian.com",
+    "TRIPADVISOR_API_KEY": "@tripadvisor_api_key",
+    "GOOGLE_PLACES_API_KEY": "@google_places_api_key"
   }
 }

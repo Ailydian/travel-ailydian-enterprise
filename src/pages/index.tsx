@@ -261,7 +261,7 @@ const TravelHomePage = () => {
     { id: 'hotels', label: 'Oteller', icon: Hotel },
     { id: 'cars', label: 'Araç Kiralama', icon: Car },
     { id: 'restaurants', label: 'Restoranlar', icon: Utensils },
-    { id: 'activities', label: 'Aktiviteler', icon: Camera }
+    { id: 'activities', label: 'Aktiviteler', icon: Waves }
   ];
 
   // Tab animations on page load
@@ -495,20 +495,9 @@ const TravelHomePage = () => {
         </div>
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-20">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-            {/* Left Side - Surfer Image */}
-            <div className="order-2 lg:order-1">
-              <div className="surfer-image-container">
-                <img 
-                  src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Cdefs%3E%3ClinearGradient id='ocean' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%2387CEEB;stop-opacity:1'/%3E%3Cstop offset='100%25' style='stop-color:%234682B4;stop-opacity:1'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='400' height='300' fill='url(%23ocean)'/%3E%3C!-- Waves --%3E%3Cpath d='M0,200 Q100,180 200,200 T400,200 L400,250 Q300,230 200,250 T0,250 Z' fill='%23ffffff' fill-opacity='0.3'%3E%3CanimateTransform attributeName='transform' type='translate' values='0,0;20,0;0,0' dur='3s' repeatCount='indefinite'/%3E%3C/path%3E%3C!-- Surfboard --%3E%3Cg transform='translate(200,180)'%3E%3CanimateTransform attributeName='transform' type='translate' values='200,180;220,170;200,180' dur='4s' repeatCount='indefinite'/%3E%3Cellipse cx='0' cy='0' rx='40' ry='5' fill='%23ffffff' stroke='%230ea5e9' stroke-width='2'%3E%3CanimateTransform attributeName='transform' type='rotate' values='-5;5;-5' dur='2s' repeatCount='indefinite'/%3E%3C/ellipse%3E%3C!-- Surfer --%3E%3Cg transform='translate(0,-20)'%3E%3CanimateTransform attributeName='transform' type='translate' values='0,-20;2,-25;0,-20' dur='2s' repeatCount='indefinite'/%3E%3C!-- Head --%3E%3Ccircle cx='0' cy='-15' r='6' fill='%23fbbf24'/%3E%3C!-- Body --%3E%3Crect x='-4' y='-10' width='8' height='15' rx='4' fill='%230ea5e9'/%3E%3C!-- Arms --%3E%3Cg%3E%3CanimateTransform attributeName='transform' type='rotate' values='-10;10;-10' dur='1.5s' repeatCount='indefinite'/%3E%3Crect x='-10' y='-5' width='6' height='3' rx='1.5' fill='%23fbbf24'/%3E%3Crect x='4' y='-5' width='6' height='3' rx='1.5' fill='%23fbbf24'/%3E%3C/g%3E%3C!-- Legs --%3E%3Crect x='-6' y='5' width='3' height='12' rx='1.5' fill='%231e293b'/%3E%3Crect x='3' y='5' width='3' height='12' rx='1.5' fill='%231e293b'/%3E%3C/g%3E%3C!-- Splash --%3E%3Cg opacity='0.6'%3E%3Ccircle cx='-15' cy='5' r='4' fill='%23ffffff'%3E%3Canimate attributeName='r' values='4;12;4' dur='2s' repeatCount='indefinite'/%3E%3Canimate attributeName='opacity' values='0.6;0;0.6' dur='2s' repeatCount='indefinite'/%3E%3C/circle%3E%3Ccircle cx='15' cy='8' r='3' fill='%23ffffff'%3E%3Canimate attributeName='r' values='3;8;3' dur='2.5s' repeatCount='indefinite'/%3E%3Canimate attributeName='opacity' values='0.4;0;0.4' dur='2.5s' repeatCount='indefinite'/%3E%3C/circle%3E%3C/g%3E%3C/g%3E%3C/svg%3E"
-                  alt="Surfer riding a wave"
-                  className="surfer-image"
-                />
-              </div>
-            </div>
-            
-            {/* Right Side - Text Content */}
-            <div className="order-1 lg:order-2 text-center lg:text-left">
+          <div className="text-center">
+            {/* Main Content */}
+            <div>
               <h1 className="text-4xl md:text-6xl font-bold mb-6 neon-text-strong" style={{ color: 'var(--tx-1)' }}>
                 Dünyayı Keşfet
               </h1>
@@ -567,9 +556,10 @@ const TravelHomePage = () => {
                     }}
                     onMouseEnter={(e) => {
                       if (!isActive) {
-                        e.currentTarget.style.color = 'var(--ac-2)';
-                        e.currentTarget.style.backgroundColor = 'var(--bg-0)';
-                        e.currentTarget.style.border = '1px solid var(--ac-2)';
+                        e.currentTarget.style.color = '#FFFFFF';
+                        e.currentTarget.style.backgroundColor = 'var(--ac-1)';
+                        e.currentTarget.style.border = '1px solid var(--ac-1)';
+                        e.currentTarget.style.boxShadow = '0 4px 15px rgba(14, 165, 233, 0.3)';
                       }
                     }}
                     onMouseLeave={(e) => {
@@ -577,8 +567,8 @@ const TravelHomePage = () => {
                         e.currentTarget.style.color = 'var(--tx-1)';
                         e.currentTarget.style.backgroundColor = 'transparent';
                         e.currentTarget.style.border = 'none';
+                        e.currentTarget.style.boxShadow = 'none';
                       }
-                      animationDelay: showTabAnimations ? `${index * 0.3}s` : '0s'
                     }}
                   >
                     <IconComponent className={`h-4 w-4 lg:h-5 lg:w-5 mr-1 lg:mr-2 transition-all duration-300 ${
