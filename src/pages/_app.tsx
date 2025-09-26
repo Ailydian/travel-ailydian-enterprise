@@ -1,8 +1,11 @@
 import { appWithTranslation } from 'next-i18next'
 import { DefaultSeo } from 'next-seo'
+import { SessionProvider } from 'next-auth/react'
+import { ReactQueryProvider } from '../lib/react-query'
 import '../styles/globals.css'
 import '../styles/ailydian-theme.css'
 import type { AppProps } from 'next/app'
+import type { Session } from 'next-auth'
 
 const seoConfig = {
   title: 'Travel.Ailydian - AI Destekli Turizm Platformu',
@@ -26,12 +29,19 @@ const seoConfig = {
   },
 }
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({ 
+  Component, 
+  pageProps: { session, ...pageProps } 
+}: AppProps & {
+  pageProps: { session: Session }
+}) {
   return (
-    <>
-      <DefaultSeo {...seoConfig} />
-      <Component {...pageProps} />
-    </>
+    <SessionProvider session={session}>
+      <ReactQueryProvider>
+        <DefaultSeo {...seoConfig} />
+        <Component {...pageProps} />
+      </ReactQueryProvider>
+    </SessionProvider>
   )
 }
 

@@ -1,15 +1,15 @@
 /* Ailydian Travel Theme - Neon Dark Design */
 
 :root {
-  /* Ocean Blue Theme - Deniz Mavisi Paleti */
-  --ac-1: #0ea5e9;  /* Ana Deniz Mavisi */
-  --ac-2: #06b6d4;  /* Turkuaz Mavi */
-  --ac-3: #0284c7;  /* Koyu Deniz Mavisi */
-  --bg-0: #ffffff;  /* Ana Beyaz Arka Plan */
-  --bg-1: #f8fafc;  /* Açık Gri Arka Plan */
-  --tx-1: #1e293b;  /* Ana Koyu Yazı */
-  --tx-2: #334155;  /* İkincil Yazı */
-  --tx-3: #64748b;  /* Açık Yazı */
+  /* Ailydian Neon Theme - Neon Dark Design */
+  --ac-1: #FF214D;  /* Ana Neon Kırmızı */
+  --ac-2: #FF6A45;  /* Ana Neon Turuncu */
+  --ac-3: #FF0844;  /* Koyu Neon Kırmızı */
+  --bg-0: #0A0A0B;  /* Ana Karanlık Arka Plan */
+  --bg-1: #1a1a1b;  /* Açık Karanlık Arka Plan */
+  --tx-1: #F3F4F6;  /* Ana Açık Yazı */
+  --tx-2: #E5E7EB;  /* İkincil Açık Yazı */
+  --tx-3: #9CA3AF;  /* Açık Gri Yazı */
 }
 
 /* Clean Text Styles - Beyaz arka plan için */

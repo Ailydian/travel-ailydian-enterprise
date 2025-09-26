@@ -1,0 +1,278 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// NextAuth.js Models
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model User {
+  id              String    @id @default(cuid())
+  name            String?
+  email           String    @unique
+  emailVerified   DateTime?
+  image           String?
+  password        String?
+  phone           String?
+  dateOfBirth     DateTime?
+  gender          String?
+  address         String?
+  city            String?
+  country         String?
+  postalCode      String?
+  preferredLanguage String @default("tr")
+  preferredCurrency String @default("TRY")
+  isEmailVerified Boolean @default(false)
+  isPhoneVerified Boolean @default(false)
+  membershipType  MembershipType @default(BASIC)
+  loyaltyPoints   Int       @default(0)
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+  lastLoginAt     DateTime?
+  isActive        Boolean   @default(true)
+  twoFactorEnabled Boolean  @default(false)
+  
+  // Relations
+  accounts        Account[]
+  sessions        Session[]
+  bookings        Booking[]
+  reviews         Review[]
+  favorites       Favorite[]
+  notifications   Notification[]
+  walletTransactions WalletTransaction[]
+  aiPreferences   AIPreference?
+  
+  @@map("users")
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+
+// Travel-specific Models
+model Booking {
+  id              String      @id @default(cuid())
+  userId          String
+  bookingType     BookingType
+  status          BookingStatus @default(PENDING)
+  totalAmount     Decimal
+  currency        String      @default("TRY")
+  paymentMethod   PaymentMethod
+  paymentStatus   PaymentStatus @default(PENDING)
+  checkInDate     DateTime?
+  checkOutDate    DateTime?
+  guestCount      Int?
+  specialRequests String?
+  bookingReference String     @unique
+  metaData        Json?       // Store booking-specific data
+  createdAt       DateTime    @default(now())
+  updatedAt       DateTime    @updatedAt
+  
+  user            User        @relation(fields: [userId], references: [id])
+  reviews         Review[]
+  
+  @@map("bookings")
+}
+
+model Review {
+  id          String   @id @default(cuid())
+  userId      String
+  bookingId   String?
+  entityType  String   // hotel, activity, flight, etc.
+  entityId    String
+  rating      Int      // 1-5
+  title       String?
+  content     String
+  images      String[] @default([])
+  isVerified  Boolean  @default(false)
+  isBlockchain Boolean @default(false)
+  blockchainHash String?
+  helpfulVotes Int     @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  user        User     @relation(fields: [userId], references: [id])
+  booking     Booking? @relation(fields: [bookingId], references: [id])
+  
+  @@map("reviews")
+}
+
+model Favorite {
+  id         String   @id @default(cuid())
+  userId     String
+  entityType String   // hotel, activity, destination, etc.
+  entityId   String
+  createdAt  DateTime @default(now())
+  
+  user       User     @relation(fields: [userId], references: [id])
+  
+  @@unique([userId, entityType, entityId])
+  @@map("favorites")
+}
+
+model Notification {
+  id        String            @id @default(cuid())
+  userId    String
+  type      NotificationType
+  title     String
+  message   String
+  data      Json?             // Additional notification data
+  isRead    Boolean           @default(false)
+  createdAt DateTime          @default(now())
+  
+  user      User              @relation(fields: [userId], references: [id])
+  
+  @@map("notifications")
+}
+
+model WalletTransaction {
+  id              String            @id @default(cuid())
+  userId          String
+  type            TransactionType
+  amount          Decimal
+  currency        String
+  cryptoCurrency  String?           // BTC, ETH, etc.
+  cryptoAmount    Decimal?
+  status          TransactionStatus @default(PENDING)
+  description     String
+  reference       String?           @unique
+  blockchainTxHash String?
+  metaData        Json?
+  createdAt       DateTime          @default(now())
+  updatedAt       DateTime          @updatedAt
+  
+  user            User              @relation(fields: [userId], references: [id])
+  
+  @@map("wallet_transactions")
+}
+
+model AIPreference {
+  id              String   @id @default(cuid())
+  userId          String   @unique
+  travelStyle     String[] @default([])
+  budgetRange     String?
+  preferredDestinations String[] @default([])
+  interests       String[] @default([])
+  groupSize       String?
+  travelFrequency String?
+  accommodationType String?
+  transportPreference String?
+  dietaryRestrictions String[] @default([])
+  accessibilityNeeds String[] @default([])
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  
+  user            User     @relation(fields: [userId], references: [id])
+  
+  @@map("ai_preferences")
+}
+
+// Enums
+enum MembershipType {
+  BASIC
+  PREMIUM
+  VIP
+  ENTERPRISE
+}
+
+enum BookingType {
+  HOTEL
+  FLIGHT
+  ACTIVITY
+  TOUR
+  CAR_RENTAL
+  RESTAURANT
+  PACKAGE
+}
+
+enum BookingStatus {
+  PENDING
+  CONFIRMED
+  CANCELLED
+  COMPLETED
+  REFUNDED
+}
+
+enum PaymentMethod {
+  CREDIT_CARD
+  DEBIT_CARD
+  BANK_TRANSFER
+  PAYPAL
+  BITCOIN
+  ETHEREUM
+  USDT
+  LOYALTY_POINTS
+}
+
+enum PaymentStatus {
+  PENDING
+  PROCESSING
+  COMPLETED
+  FAILED
+  REFUNDED
+  PARTIALLY_REFUNDED
+}
+
+enum NotificationType {
+  BOOKING_CONFIRMATION
+  BOOKING_REMINDER
+  PAYMENT_SUCCESS
+  PAYMENT_FAILED
+  REVIEW_REQUEST
+  PROMOTION
+  AI_RECOMMENDATION
+  SYSTEM_UPDATE
+}
+
+enum TransactionType {
+  DEPOSIT
+  WITHDRAWAL
+  PAYMENT
+  REFUND
+  LOYALTY_EARN
+  LOYALTY_REDEEM
+}
+
+enum TransactionStatus {
+  PENDING
+  PROCESSING
+  COMPLETED
+  FAILED
+  CANCELLED
+}

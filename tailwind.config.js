@@ -10,29 +10,40 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        // Ailydian Neon Color Palette
+        ailydian: {
+          primary: '#FF214D',    // --ac-1: Ana Neon Kırmızı
+          secondary: '#FF6A45',  // --ac-2: Ana Neon Turuncu
+          dark: '#FF0844',       // --ac-3: Koyu Neon Kırmızı
+          bg: '#0A0A0B',         // --bg-0: Ana Karanlık Arka Plan
+          'bg-light': '#1a1a1b', // --bg-1: Açık Karanlık Arka Plan
+          text: '#F3F4F6',       // --tx-1: Ana Açık Yazı
+          'text-secondary': '#E5E7EB', // --tx-2: İkincil Açık Yazı
+          'text-muted': '#9CA3AF'      // --tx-3: Açık Gri Yazı
+        },
         primary: {
-          50: '#eff6ff',
-          100: '#dbeafe',
-          200: '#bfdbfe',
-          300: '#93c5fd',
-          400: '#60a5fa',
-          500: '#3b82f6',
-          600: '#2563eb',
-          700: '#1d4ed8',
-          800: '#1e40af',
-          900: '#1e3a8a'
+          50: '#fff1f2',
+          100: '#ffe4e6',
+          200: '#fecdd3',
+          300: '#fda4af',
+          400: '#fb7185',
+          500: '#FF214D', // Ailydian Ana Rengi
+          600: '#e11d48',
+          700: '#be123c',
+          800: '#9f1239',
+          900: '#881337'
         },
         secondary: {
-          50: '#faf5ff',
-          100: '#f3e8ff',
-          200: '#e9d5ff',
-          300: '#d8b4fe',
-          400: '#c084fc',
-          500: '#a855f7',
-          600: '#9333ea',
-          700: '#7c3aed',
-          800: '#6b21a8',
-          900: '#581c87'
+          50: '#fff7ed',
+          100: '#ffedd5',
+          200: '#fed7aa',
+          300: '#fdba74',
+          400: '#fb923c',
+          500: '#FF6A45', // Ailydian İkincil Rengi
+          600: '#ea580c',
+          700: '#c2410c',
+          800: '#9a3412',
+          900: '#7c2d12'
         }
       },
       fontFamily: {

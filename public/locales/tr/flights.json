@@ -1,0 +1,98 @@
+{
+  "title": "Uçak Biletleri",
+  "subtitle": "En Uygun Uçak Biletlerini Bulun",
+  "search": {
+    "from": "Nereden",
+    "to": "Nereye",
+    "departure": "Gidiş Tarihi",
+    "return": "Dönüş Tarihi",
+    "passengers": "Yolcu Sayısı",
+    "class": "Sınıf",
+    "searchFlights": "Uçuş Ara"
+  },
+  "tripTypes": {
+    "oneWay": "Tek Yön",
+    "roundTrip": "Gidiş-Dönüş",
+    "multiCity": "Çoklu Şehir"
+  },
+  "classes": {
+    "economy": "Ekonomi",
+    "premiumEconomy": "Premium Ekonomi",
+    "business": "Business",
+    "first": "First Class"
+  },
+  "passengers": {
+    "adult": "Yetişkin",
+    "child": "Çocuk",
+    "infant": "Bebek",
+    "total": "Toplam Yolcu"
+  },
+  "filters": {
+    "price": "Fiyat",
+    "duration": "Uçuş Süresi",
+    "stops": "Aktarma",
+    "airline": "Havayolu",
+    "departure": "Kalkış Saati",
+    "arrival": "Varış Saati"
+  },
+  "stops": {
+    "direct": "Direkt",
+    "oneStop": "1 Aktarma",
+    "twoStops": "2 Aktarma",
+    "multipleStops": "Çoklu Aktarma"
+  },
+  "details": {
+    "flightDetails": "Uçuş Detayları",
+    "baggage": "Bagaj",
+    "meal": "Yemek",
+    "entertainment": "Eğlence",
+    "wifi": "WiFi",
+    "seatMap": "Koltuk Haritası",
+    "cancellation": "İptal Koşulları",
+    "change": "Değişiklik Koşulları"
+  },
+  "booking": {
+    "selectFlight": "Uçuş Seç",
+    "bookNow": "Rezervasyon Yap",
+    "addToCart": "Sepete Ekle",
+    "compareFlights": "Uçuşları Karşılaştır",
+    "priceAlert": "Fiyat Uyarısı Kur"
+  },
+  "status": {
+    "available": "Müsait",
+    "soldOut": "Tükendi",
+    "lastSeats": "Son Koltuklar",
+    "bestPrice": "En İyi Fiyat",
+    "popular": "Popüler",
+    "fastest": "En Hızlı"
+  },
+  "time": {
+    "departure": "Kalkış",
+    "arrival": "Varış",
+    "duration": "Süre",
+    "layover": "Aktarma Süresi",
+    "totalTime": "Toplam Süre"
+  },
+  "airports": {
+    "istanbul": {
+      "IST": "İstanbul Havalimanı",
+      "SAW": "Sabiha Gökçen Havalimanı"
+    },
+    "ankara": {
+      "ESB": "Esenboğa Havalimanı"
+    },
+    "izmir": {
+      "ADB": "Adnan Menderes Havalimanı"
+    },
+    "antalya": {
+      "AYT": "Antalya Havalimanı"
+    }
+  },
+  "airlines": {
+    "turkishAirlines": "Türk Hava Yolları",
+    "pegasus": "Pegasus",
+    "sunExpress": "SunExpress",
+    "atlasGlobal": "AtlasGlobal",
+    "onurAir": "Onur Air"
+  }
+}

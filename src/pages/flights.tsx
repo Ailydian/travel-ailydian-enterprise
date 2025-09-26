@@ -1,7 +1,9 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
-import { Search, Plane, Calendar, Users, ArrowRight, Clock, Zap, Star, Filter } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Search, Plane, Calendar, Users, ArrowLeft, ArrowRight, Clock, Zap, Star, Filter, Shield, Wifi } from 'lucide-react';
+import NavigationHeader from '../components/layout/NavigationHeader';
 
 const flights = [
   {
@@ -119,196 +121,256 @@ export default function Flights() {
   return (
     <>
       <Head>
-        <title>Uçak Biletleri - Ailydian Travel</title>
-        <meta name="description" content="En uygun uçak biletlerini bulun. Türkiye'nin her yerine direkt uçuşlar..." />
+        <title>Uçak Biletleri - Ailydian Travel | AI Destekli Uçak Bileti Rezervasyonu</title>
+        <meta name="description" content="En uygun uçak biletlerini bulun. AI önerileri ve blockchain güvenli rezervasyon ile Türkiye'nin her yerine direkt uçuşlar." />
+        <meta name="keywords" content="uçak bileti, havayolu, rezervasyon, AI öneri, blockchain, Türkiye, iç hat" />
       </Head>
 
-      <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
-        {/* Header */}
-        <div className="bg-white dark:bg-gray-800 shadow-sm border-b">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-            <div className="flex items-center justify-between">
-              <div>
-                <Link href="/" className="text-2xl font-bold text-blue-600">
-                  Ailydian Travel
-                </Link>
-              </div>
-              <Link
-                href="/"
-                className="text-gray-600 hover:text-blue-600 flex items-center"
-              >
-                <ArrowRight className="h-5 w-5 mr-2 rotate-180" />
-                Ana Sayfa&apos;ya Dön
-              </Link>
-            </div>
-          </div>
-        </div>
+      <NavigationHeader />
 
-        {/* Search Section */}
-        <div className="bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-600 text-white py-12">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h1 className="text-4xl font-bold text-center mb-8">
-              Uçak Bileti Ara
-            </h1>
-            
-            <div className="bg-gray-900 border-2 border-white rounded-lg p-6">
-              <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-                <div>
-                  <label className="block text-sm font-medium mb-2">Nereden</label>
-                  <input
-                    type="text"
-                    placeholder="İstanbul, Ankara..."
-                    className="w-full px-3 py-2 bg-white/20 border border-white/30 rounded-lg placeholder-white/70 text-white focus:ring-2 focus:ring-white focus:border-transparent"
-                    value={searchData.from}
-                    onChange={(e) => setSearchData({...searchData, from: e.target.value})}
-                  />
+      {/* Return to Home Button */}
+      <Link 
+        href="/" 
+        className="fixed top-24 left-6 z-10 flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200 text-gray-700 hover:bg-white hover:text-ailydian-primary transition-all duration-200"
+      >
+        <ArrowLeft className="w-4 h-4" />
+        <span className="font-medium">Ana Sayfaya Dön</span>
+      </Link>
+
+      <main className="pt-8">
+        {/* Hero Section */}
+        <section className="bg-gradient-to-r from-ailydian-primary to-ailydian-secondary py-16">
+          <div className="max-w-7xl mx-auto px-4">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="text-center text-white"
+            >
+              <h1 className="text-4xl md:text-5xl font-bold mb-4">
+                En Uygun Uçak Biletleri
+              </h1>
+              <p className="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
+                AI destekli fiyat karşılaştırması ve blockchain güvenli rezervasyon ile hızlı ve güvenli bilet alın
+              </p>
+              
+              {/* Search Form */}
+              <div className="max-w-6xl mx-auto bg-white/10 backdrop-blur-sm rounded-2xl p-6">
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+                  <div>
+                    <label className="block text-sm font-medium mb-2 text-white">Nereden</label>
+                    <input
+                      type="text"
+                      placeholder="İstanbul, Ankara..."
+                      className="w-full px-3 py-3 rounded-xl text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-white/30"
+                      value={searchData.from}
+                      onChange={(e) => setSearchData({...searchData, from: e.target.value})}
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium mb-2 text-white">Nereye</label>
+                    <input
+                      type="text"
+                      placeholder="Antalya, İzmir..."
+                      className="w-full px-3 py-3 rounded-xl text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-white/30"
+                      value={searchData.to}
+                      onChange={(e) => setSearchData({...searchData, to: e.target.value})}
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium mb-2 text-white">Gidiş Tarihi</label>
+                    <input
+                      type="date"
+                      className="w-full px-3 py-3 rounded-xl text-gray-900 focus:outline-none focus:ring-2 focus:ring-white/30"
+                      value={searchData.departure}
+                      onChange={(e) => setSearchData({...searchData, departure: e.target.value})}
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium mb-2 text-white">Yolcu Sayısı</label>
+                    <select 
+                      className="w-full px-3 py-3 rounded-xl text-gray-900 focus:outline-none focus:ring-2 focus:ring-white/30"
+                      value={searchData.passengers}
+                      onChange={(e) => setSearchData({...searchData, passengers: e.target.value})}
+                    >
+                      <option value="1">1 Yolcu</option>
+                      <option value="2">2 Yolcu</option>
+                      <option value="3">3 Yolcu</option>
+                      <option value="4">4+ Yolcu</option>
+                    </select>
+                  </div>
                 </div>
-                <div>
-                  <label className="block text-sm font-medium mb-2">Nereye</label>
-                  <input
-                    type="text"
-                    placeholder="Antalya, İzmir..."
-                    className="w-full px-3 py-2 bg-white/20 border border-white/30 rounded-lg placeholder-white/70 text-white focus:ring-2 focus:ring-white focus:border-transparent"
-                    value={searchData.to}
-                    onChange={(e) => setSearchData({...searchData, to: e.target.value})}
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium mb-2">Gidiş</label>
-                  <input
-                    type="date"
-                    className="w-full px-3 py-2 bg-white/20 border border-white/30 rounded-lg text-white focus:ring-2 focus:ring-white focus:border-transparent"
-                    value={searchData.departure}
-                    onChange={(e) => setSearchData({...searchData, departure: e.target.value})}
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium mb-2">Yolcu</label>
-                  <select 
-                    className="w-full px-3 py-2 bg-white/20 border border-white/30 rounded-lg text-white focus:ring-2 focus:ring-white focus:border-transparent"
-                    value={searchData.passengers}
-                    onChange={(e) => setSearchData({...searchData, passengers: e.target.value})}
+                <div className="mt-6 flex justify-center">
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="flex items-center gap-2 px-8 py-3 bg-white text-ailydian-primary rounded-xl font-medium hover:bg-gray-100 transition-colors"
                   >
-                    <option value="1">1 Yolcu</option>
-                    <option value="2">2 Yolcu</option>
-                    <option value="3">3 Yolcu</option>
-                    <option value="4">4+ Yolcu</option>
-                  </select>
+                    <Search className="w-5 h-5" />
+                    Uçak Bileti Ara
+                  </motion.button>
                 </div>
               </div>
-              <button className="w-full md:w-auto bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors mt-4">
-                Uçak Bileti Ara
-              </button>
-            </div>
+            </motion.div>
           </div>
-        </div>
+        </section>
 
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          {/* Filters */}
-          <div className="flex flex-wrap items-center gap-4 mb-6">
-            <div className="flex flex-wrap gap-2">
+        {/* Filter Section */}
+        <section className="bg-white border-b border-gray-200">
+          <div className="max-w-7xl mx-auto px-4 py-6">
+            <div className="flex items-center justify-between mb-4">
+              <h2 className="text-2xl font-bold text-gray-900">{filteredFlights.length} Uçuş Bulundu</h2>
+              <div className="flex items-center gap-4">
+                <button className="flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors">
+                  <Filter className="w-4 h-4" />
+                  Filtrele
+                </button>
+                <select
+                  value={sortBy}
+                  onChange={(e) => setSortBy(e.target.value)}
+                  className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ailydian-primary focus:border-transparent"
+                >
+                  <option value="price">Fiyata Göre</option>
+                  <option value="duration">Süreye Göre</option>
+                  <option value="departure">Kalkış Saatine Göre</option>
+                </select>
+              </div>
+            </div>
+            
+            {/* Airline Filters */}
+            <div className="flex flex-wrap gap-3">
               {airlines.map((airline) => (
                 <button
                   key={airline}
                   onClick={() => setSelectedAirline(airline)}
-                  className={`px-3 py-1 rounded-full text-sm font-medium transition-colors ${
+                  className={`px-4 py-2 rounded-full font-medium transition-colors text-sm ${
                     selectedAirline === airline
-                      ? 'bg-blue-600 text-white'
-                      : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-blue-100 dark:hover:bg-gray-600'
+                      ? 'bg-ailydian-primary text-white'
+                      : 'bg-gray-100 text-gray-700 hover:bg-ailydian-primary hover:text-white'
                   }`}
                 >
                   {airline}
                 </button>
               ))}
             </div>
-            
-            <select
-              value={sortBy}
-              onChange={(e) => setSortBy(e.target.value)}
-              className="px-3 py-1 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg text-sm"
-            >
-              <option value="price">Fiyata Göre</option>
-              <option value="duration">Süreye Göre</option>
-              <option value="departure">Kalkış Saatine Göre</option>
-            </select>
           </div>
+        </section>
 
-          {/* Results */}
-          <div className="space-y-4">
-            {filteredFlights.map((flight) => (
-              <div key={flight.id} className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
-                <div className="flex flex-col md:flex-row md:items-center md:justify-between">
-                  <div className="flex-1">
-                    <div className="flex items-center mb-4">
-                      <span className="text-2xl mr-3">{flight.logo}</span>
-                      <div>
-                        <h3 className="font-semibold text-gray-900 dark:text-white">{flight.airline}</h3>
-                        <p className="text-sm text-gray-500 dark:text-gray-400">{flight.aircraft}</p>
-                      </div>
-                      <div className="ml-auto">
-                        <span className="bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-2 py-1 rounded-full text-sm font-medium">
-                          {flight.type}
-                        </span>
-                      </div>
-                    </div>
-                    
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-center">
-                      <div className="text-center">
-                        <div className="font-bold text-xl text-gray-900 dark:text-white">{flight.departure}</div>
-                        <div className="text-sm text-gray-500 dark:text-gray-400">{flight.from}</div>
-                      </div>
-                      
-                      <div className="text-center">
-                        <div className="flex items-center justify-center mb-1">
-                          <Plane className="h-4 w-4 text-blue-600 rotate-90" />
+        {/* Results Section */}
+        <section className="py-12 bg-gray-50">
+          <div className="max-w-7xl mx-auto px-4">
+            <div className="space-y-6">
+              {filteredFlights.map((flight) => (
+                <motion.div
+                  key={flight.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: flight.id * 0.1 }}
+                  className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 p-6 group"
+                >
+                  <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between">
+                    {/* Flight Info */}
+                    <div className="flex-1">
+                      <div className="flex items-center justify-between mb-4">
+                        <div className="flex items-center">
+                          <span className="text-3xl mr-4">{flight.logo}</span>
+                          <div>
+                            <h3 className="font-bold text-lg text-gray-900">{flight.airline}</h3>
+                            <p className="text-sm text-gray-500">{flight.aircraft}</p>
+                          </div>
                         </div>
-                        <div className="text-sm text-gray-500 dark:text-gray-400 flex items-center justify-center">
-                          <Clock className="h-4 w-4 mr-1" />
-                          {flight.duration}
+                        <div className="flex items-center gap-2">
+                          <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">
+                            {flight.type}
+                          </span>
+                          <button className="p-2 bg-blue-100 text-blue-600 rounded-full hover:bg-blue-200 transition-colors">
+                            <Shield className="w-4 h-4" />
+                          </button>
                         </div>
                       </div>
                       
-                      <div className="text-center">
-                        <div className="font-bold text-xl text-gray-900 dark:text-white">{flight.arrival}</div>
-                        <div className="text-sm text-gray-500 dark:text-gray-400">{flight.to}</div>
-                      </div>
-                    </div>
-                    
-                    <div className="flex flex-wrap gap-2 mt-4">
-                      {flight.amenities.map((amenity) => (
-                        <span
-                          key={amenity}
-                          className="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs rounded-full"
-                        >
-                          {amenity}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                  
-                  <div className="mt-4 md:mt-0 md:ml-8 text-center md:text-right">
-                    <div className="mb-2">
-                      {flight.originalPrice && (
-                        <div className="text-sm text-gray-500 line-through">
-                          ₺{flight.originalPrice}
+                      {/* Flight Route */}
+                      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-center mb-4">
+                        <div className="text-center md:text-left">
+                          <div className="font-bold text-2xl text-gray-900">{flight.departure}</div>
+                          <div className="text-sm text-gray-500 font-medium">{flight.from}</div>
                         </div>
-                      )}
-                      <div className="text-2xl font-bold text-blue-600">
-                        ₺{flight.price}
+                        
+                        <div className="text-center">
+                          <div className="flex items-center justify-center mb-2">
+                            <div className="w-4 h-0.5 bg-gray-300"></div>
+                            <Plane className="h-5 w-5 text-ailydian-primary mx-2" />
+                            <div className="w-4 h-0.5 bg-gray-300"></div>
+                          </div>
+                          <div className="text-sm text-gray-500 flex items-center justify-center font-medium">
+                            <Clock className="h-4 w-4 mr-1" />
+                            {flight.duration}
+                          </div>
+                        </div>
+                        
+                        <div className="text-center md:text-right">
+                          <div className="font-bold text-2xl text-gray-900">{flight.arrival}</div>
+                          <div className="text-sm text-gray-500 font-medium">{flight.to}</div>
+                        </div>
                       </div>
-                      <div className="text-xs text-gray-500">kişi başına</div>
+                      
+                      {/* Amenities */}
+                      <div className="flex flex-wrap gap-2">
+                        {flight.amenities.map((amenity) => (
+                          <span
+                            key={amenity}
+                            className="inline-flex items-center px-3 py-1 bg-blue-50 text-blue-700 text-sm rounded-full font-medium"
+                          >
+                            {amenity === 'WiFi' && <Wifi className="w-3 h-3 mr-1" />}
+                            {amenity}
+                          </span>
+                        ))}
+                      </div>
                     </div>
                     
-                    <button className="w-full md:w-auto bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors font-semibold">
-                      Seç
-                    </button>
+                    {/* Price and Action */}
+                    <div className="mt-6 lg:mt-0 lg:ml-8 text-center lg:text-right">
+                      <div className="mb-4">
+                        {flight.originalPrice && (
+                          <div className="text-sm text-gray-500 line-through mb-1">
+                            ₺{flight.originalPrice}
+                          </div>
+                        )}
+                        <div className="text-3xl font-bold text-gray-900">
+                          ₺{flight.price}
+                        </div>
+                        <div className="text-sm text-gray-600">kişi başına</div>
+                      </div>
+                      
+                      <motion.button
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        className="w-full lg:w-auto px-8 py-3 bg-ailydian-primary text-white rounded-xl font-semibold hover:bg-ailydian-dark transition-colors"
+                      >
+                        Bileti Seç
+                      </motion.button>
+                      
+                      <div className="mt-2 text-xs text-gray-500">
+                        ✓ Blockchain Güvenli Rezervasyon
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
-            ))}
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Load More */}
+            <div className="text-center mt-12">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="px-8 py-3 border-2 border-ailydian-primary text-ailydian-primary rounded-xl font-semibold hover:bg-ailydian-primary hover:text-white transition-colors"
+              >
+                Daha Fazla Uçuş Yükle
+              </motion.button>
+            </div>
           </div>
-        </div>
-      </div>
+        </section>
+      </main>
     </>
   );
 }

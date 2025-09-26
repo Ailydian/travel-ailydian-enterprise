@@ -2,7 +2,8 @@ import { useState } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Search, MapPin, Star, Heart, Filter, Calendar, Users, ArrowRight, Plane, Camera, Mountain, Waves, Building, TreePine } from 'lucide-react';
+import { Search, MapPin, Star, Heart, Filter, Calendar, Users, ArrowRight, ArrowLeft, Plane, Camera, Mountain, Waves, Building, TreePine } from 'lucide-react';
+import NavigationHeader from '../components/layout/NavigationHeader';
 
 const destinations = [
   {
@@ -221,30 +222,23 @@ export default function Destinations() {
   return (
     <>
       <Head>
-        <title>Destinasyonlar - Ailydian Travel</title>
-        <meta name="description" content="Dünya&apos;nın en güzel destinasyonlarını keşfedin. İstanbul&apos;dan Kapadokya&apos;ya, Antalya&apos;dan Bodrum&apos;a kadar..." />
+        <title>Destinasyonlar - Ailydian Travel | AI Destekli Seyahat Rehberi</title>
+        <meta name="description" content="Türkiye'nin en güzel destinasyonlarını keşfedin. AI rehberli turlar ve güvenli rezervasyon imkanı." />
       </Head>
 
-      <div className="min-h-screen" style={{ backgroundColor: 'var(--bg-0)' }}>
-        {/* Header */}
-        <div className="shadow-sm border-b" style={{ backgroundColor: 'var(--bg-0)', borderBottomColor: 'var(--ac-1)' }}>
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-            <div className="flex items-center justify-between">
-              <div>
-                <Link href="/" className="text-2xl font-bold neon-text" style={{ color: 'var(--ac-1)' }}>
-                  Ailydian Travel
-                </Link>
-              </div>
-              <Link
-                href="/"
-                className="ocean-button-secondary flex items-center px-4 py-2 rounded-lg"
-              >
-                <ArrowRight className="h-5 w-5 mr-2 rotate-180" />
-                Ana Sayfa&apos;ya Dön
-              </Link>
-            </div>
-          </div>
-        </div>
+      <NavigationHeader />
+
+      {/* Return to Home Button */}
+      <Link 
+        href="/" 
+        className="fixed top-24 left-6 z-10 flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200 text-gray-700 hover:bg-white hover:text-ailydian-primary transition-all duration-200"
+      >
+        <ArrowLeft className="w-4 h-4" />
+        <span className="font-medium">Ana Sayfaya Dön</span>
+      </Link>
+
+      <div className="min-h-screen bg-gray-50 pt-8">
+        {/* Header Section Removed - NavigationHeader handles this now */}
 
         {/* Hero Section */}
         <div className="text-white py-16" style={{ background: 'linear-gradient(135deg, var(--ac-1) 0%, var(--ac-2) 50%, var(--ac-3) 100%)' }}>
