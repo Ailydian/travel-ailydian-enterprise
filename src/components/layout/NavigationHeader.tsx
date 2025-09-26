@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useSession, signOut } from 'next-auth/react';
@@ -25,8 +25,11 @@ import {
   Gamepad2,
   Users,
   Mic,
-  TrendingUp
+  TrendingUp,
+  Clock,
+  ArrowRight
 } from 'lucide-react';
+import { searchInData, popularSearches, categoryConfig, type SearchResult } from '../../data/searchData';
 
 const NavigationHeader: React.FC = () => {
   const router = useRouter();
@@ -36,9 +39,155 @@ const NavigationHeader: React.FC = () => {
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [isClient, setIsClient] = useState(false);
+  const [searchResults, setSearchResults] = useState<SearchResult[]>([]);
+  const [isSearchFocused, setIsSearchFocused] = useState(false);
+  const [selectedResultIndex, setSelectedResultIndex] = useState(-1);
+  const [searchHistory, setSearchHistory] = useState<string[]>([]);
+  
+  const searchInputRef = useRef<HTMLInputElement>(null);
+  const searchDropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     setIsClient(true);
+    // Load search history from localStorage
+    const savedHistory = localStorage.getItem('travel-search-history');
+    if (savedHistory) {
+      setSearchHistory(JSON.parse(savedHistory));
+    }
+  }, []);
+
+  // Debounced search function
+  const debouncedSearch = useCallback(
+    debounce((query: string) => {
+      if (query.trim()) {
+        const results = searchInData(query, 8);
+        setSearchResults(results);
+      } else {
+        setSearchResults([]);
+      }
+      setSelectedResultIndex(-1);
+    }, 300),
+    []
+  );
+
+  // Debounce utility function
+  function debounce<T extends (...args: any[]) => void>(
+    func: T,
+    wait: number
+  ): (...args: Parameters<T>) => void {
+    let timeout: NodeJS.Timeout;
+    return (...args: Parameters<T>) => {
+      clearTimeout(timeout);
+      timeout = setTimeout(() => func(...args), wait);
+    };
+  }
+
+  // Handle search input change
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const query = e.target.value;
+    setSearchQuery(query);
+    debouncedSearch(query);
+  };
+
+  // Handle search focus
+  const handleSearchFocus = () => {
+    setIsSearchFocused(true);
+    if (!searchQuery.trim() && searchHistory.length > 0) {
+      // Show popular searches and history when focused without query
+      setSearchResults([]);
+    }
+  };
+
+  // Handle search blur
+  const handleSearchBlur = (e: React.FocusEvent) => {
+    // Delay hiding dropdown to allow clicking on results
+    setTimeout(() => {
+      if (!searchDropdownRef.current?.contains(e.relatedTarget as Node)) {
+        setIsSearchFocused(false);
+        setSelectedResultIndex(-1);
+      }
+    }, 150);
+  };
+
+  // Handle keyboard navigation
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (!isSearchFocused) return;
+
+    switch (e.key) {
+      case 'ArrowDown':
+        e.preventDefault();
+        setSelectedResultIndex(prev => 
+          prev < searchResults.length - 1 ? prev + 1 : prev
+        );
+        break;
+      case 'ArrowUp':
+        e.preventDefault();
+        setSelectedResultIndex(prev => prev > 0 ? prev - 1 : -1);
+        break;
+      case 'Enter':
+        e.preventDefault();
+        if (selectedResultIndex >= 0 && searchResults[selectedResultIndex]) {
+          handleSearchSelect(searchResults[selectedResultIndex]);
+        } else if (searchQuery.trim()) {
+          handleSearchSubmit();
+        }
+        break;
+      case 'Escape':
+        setIsSearchFocused(false);
+        setSelectedResultIndex(-1);
+        searchInputRef.current?.blur();
+        break;
+    }
+  };
+
+  // Handle search result selection
+  const handleSearchSelect = (result: SearchResult) => {
+    addToSearchHistory(result.title);
+    setSearchQuery('');
+    setSearchResults([]);
+    setIsSearchFocused(false);
+    router.push(result.url);
+  };
+
+  // Handle search submit
+  const handleSearchSubmit = () => {
+    if (searchQuery.trim()) {
+      addToSearchHistory(searchQuery);
+      router.push(`/search?q=${encodeURIComponent(searchQuery)}`);
+      setSearchQuery('');
+      setSearchResults([]);
+      setIsSearchFocused(false);
+    }
+  };
+
+  // Add to search history
+  const addToSearchHistory = (query: string) => {
+    const newHistory = [query, ...searchHistory.filter(h => h !== query)].slice(0, 5);
+    setSearchHistory(newHistory);
+    localStorage.setItem('travel-search-history', JSON.stringify(newHistory));
+  };
+
+  // Handle popular search click
+  const handlePopularSearchClick = (query: string) => {
+    setSearchQuery(query);
+    const results = searchInData(query, 8);
+    setSearchResults(results);
+  };
+
+  // Click outside to close dropdown
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        searchDropdownRef.current &&
+        !searchDropdownRef.current.contains(event.target as Node) &&
+        !searchInputRef.current?.contains(event.target as Node)
+      ) {
+        setIsSearchFocused(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
   const mainNavItems = [
@@ -141,12 +290,136 @@ const NavigationHeader: React.FC = () => {
             <div className="relative w-full">
               <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
               <input
+                ref={searchInputRef}
                 type="text"
                 value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
+                onChange={handleSearchChange}
+                onFocus={handleSearchFocus}
+                onBlur={handleSearchBlur}
+                onKeyDown={handleKeyDown}
                 placeholder={isClient ? t('common:searchPlaceholder', 'Destinasyon, deneyim, otel arayın...') : 'Destinasyon, deneyim, otel arayın...'}
-                className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none text-gray-900 placeholder-gray-500"
+                className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none text-gray-900 placeholder-gray-500 font-medium"
+                autoComplete="off"
               />
+              
+              {/* Search Dropdown */}
+              <AnimatePresence>
+                {isSearchFocused && (searchResults.length > 0 || searchQuery.trim() === '' || searchHistory.length > 0) && (
+                  <motion.div
+                    ref={searchDropdownRef}
+                    initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                    transition={{ duration: 0.2 }}
+                    className="absolute top-full left-0 right-0 mt-2 bg-white rounded-xl shadow-2xl border border-gray-200 z-50 max-h-96 overflow-y-auto"
+                  >
+                    {/* Search Results */}
+                    {searchResults.length > 0 && (
+                      <div className="py-2">
+                        <div className="px-4 py-2 text-xs font-semibold text-gray-500 uppercase tracking-wider border-b border-gray-100">
+                          Arama Sonuçları
+                        </div>
+                        {searchResults.map((result, index) => {
+                          const categoryInfo = categoryConfig[result.category];
+                          return (
+                            <button
+                              key={result.id}
+                              onClick={() => handleSearchSelect(result)}
+                              className={`w-full px-4 py-3 text-left hover:bg-gray-50 transition-colors flex items-center gap-3 ${
+                                selectedResultIndex === index ? 'bg-blue-50' : ''
+                              }`}
+                            >
+                              {result.image && (
+                                <img 
+                                  src={result.image} 
+                                  alt={result.title}
+                                  className="w-10 h-10 rounded-lg object-cover"
+                                />
+                              )}
+                              {!result.image && (
+                                <div className={`w-10 h-10 rounded-lg flex items-center justify-center text-lg ${categoryInfo.color}`}>
+                                  {categoryInfo.icon}
+                                </div>
+                              )}
+                              <div className="flex-1 min-w-0">
+                                <div className="flex items-center gap-2">
+                                  <span className="font-medium text-gray-900 truncate">{result.title}</span>
+                                  {result.rating && (
+                                    <div className="flex items-center gap-1 text-xs">
+                                      <Star className="w-3 h-3 text-yellow-500 fill-current" />
+                                      <span className="text-gray-600">{result.rating}</span>
+                                    </div>
+                                  )}
+                                </div>
+                                <p className="text-sm text-gray-500 truncate">{result.subtitle}</p>
+                              </div>
+                              {result.price && (
+                                <span className="text-sm font-semibold text-blue-600">{result.price}</span>
+                              )}
+                            </button>
+                          );
+                        })}
+                      </div>
+                    )}
+                    
+                    {/* Popular Searches & History */}
+                    {searchQuery.trim() === '' && (
+                      <div className="py-2">
+                        {/* Recent Searches */}
+                        {searchHistory.length > 0 && (
+                          <div className="mb-4">
+                            <div className="px-4 py-2 text-xs font-semibold text-gray-500 uppercase tracking-wider border-b border-gray-100">
+                              Son Aramalar
+                            </div>
+                            {searchHistory.map((query, index) => (
+                              <button
+                                key={index}
+                                onClick={() => handlePopularSearchClick(query)}
+                                className="w-full px-4 py-2 text-left hover:bg-gray-50 transition-colors flex items-center gap-3"
+                              >
+                                <Clock className="w-4 h-4 text-gray-400" />
+                                <span className="text-gray-700">{query}</span>
+                              </button>
+                            ))}
+                          </div>
+                        )}
+                        
+                        {/* Popular Searches */}
+                        <div>
+                          <div className="px-4 py-2 text-xs font-semibold text-gray-500 uppercase tracking-wider border-b border-gray-100">
+                            Popüler Aramalar
+                          </div>
+                          {popularSearches.slice(0, 6).map((query, index) => (
+                            <button
+                              key={index}
+                              onClick={() => handlePopularSearchClick(query)}
+                              className="w-full px-4 py-2 text-left hover:bg-gray-50 transition-colors flex items-center gap-3"
+                            >
+                              <TrendingUp className="w-4 h-4 text-gray-400" />
+                              <span className="text-gray-700">{query}</span>
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                    
+                    {/* No Results */}
+                    {searchQuery.trim() !== '' && searchResults.length === 0 && (
+                      <div className="px-4 py-8 text-center">
+                        <Search className="w-8 h-8 text-gray-300 mx-auto mb-2" />
+                        <p className="text-gray-500">Arama sonucu bulunamadı</p>
+                        <button
+                          onClick={handleSearchSubmit}
+                          className="mt-2 text-blue-600 hover:text-blue-700 text-sm flex items-center gap-1 mx-auto"
+                        >
+                          <span>\"{searchQuery}\" için tüm sonuçları görüntüle</span>
+                          <ArrowRight className="w-3 h-3" />
+                        </button>
+                      </div>
+                    )}
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
           </div>
 
@@ -330,8 +603,12 @@ const NavigationHeader: React.FC = () => {
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
                 <input
                   type="text"
+                  value={searchQuery}
+                  onChange={handleSearchChange}
+                  onFocus={handleSearchFocus}
                   placeholder={isClient ? t('common:searchDestinations', 'Destinasyon ara...') : 'Destinasyon ara...'}
-                  className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent font-medium text-gray-800 placeholder-gray-500"
+                  autoComplete="off"
                 />
               </div>
 
