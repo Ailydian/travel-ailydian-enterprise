@@ -58,7 +58,7 @@ const GetYourGuideStyleHome: React.FC = () => {
       id: 2,
       name: 'Kapadokya',
       country: 'Türkiye',
-      image: 'https://images.unsplash.com/photo-1570939274719-c60ee3bf5cd9?w=800&h=600&q=90',
+      image: 'https://images.unsplash.com/photo-1548013146-72479768bada?w=800&h=600&q=90',
       experiences: '567',
       rating: 4.9,
       badge: 'Sıcak Hava Balonu',
@@ -102,7 +102,7 @@ const GetYourGuideStyleHome: React.FC = () => {
       id: 6,
       name: 'Bodrum',
       country: 'Türkiye',
-      image: 'https://images.unsplash.com/photo-1566073771259-6a8506862ae3?w=800&h=600&q=90',
+      image: 'https://images.unsplash.com/photo-1571115764595-644a1f56a55c?w=800&h=600&q=90',
       experiences: '654',
       rating: 4.8,
       badge: 'Eğlence Başkenti',
@@ -132,7 +132,7 @@ const GetYourGuideStyleHome: React.FC = () => {
       id: 2,
       title: 'Kapadokya: VR Teknolojili Balon Turu',
       location: 'Kapadokya, Türkiye',
-      image: 'https://images.unsplash.com/photo-1570939274719-c60ee3bf5cd9?w=400&h=300&q=90',
+      image: 'https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?w=400&h=300&q=90',
       price: '₺320',
       originalPrice: '₺400',
       rating: 4.9,
@@ -147,7 +147,7 @@ const GetYourGuideStyleHome: React.FC = () => {
       id: 3,
       title: 'Blockchain Şehir Turu ve NFT Anılar',
       location: 'İstanbul, Türkiye',
-      image: 'https://images.unsplash.com/photo-1597149478511-67d90ac2d8f4?w=400&h=300&q=90',
+      image: 'https://images.unsplash.com/photo-1639322537228-f710d846310a?w=400&h=300&q=90',
       price: '₺240',
       originalPrice: '₺300',
       rating: 4.7,
@@ -192,7 +192,7 @@ const GetYourGuideStyleHome: React.FC = () => {
       id: 6,
       title: 'Bodrum: Gece Hayatı ve Marina Turu',
       location: 'Bodrum, Türkiye',
-      image: 'https://images.unsplash.com/photo-1566073771259-6a8506862ae3?w=400&h=300&q=90',
+      image: 'https://images.unsplash.com/photo-1567545043955-d6b11e1ce7e3?w=400&h=300&q=90',
       price: '₺85',
       originalPrice: '₺110',
       rating: 4.4,
@@ -282,7 +282,7 @@ const GetYourGuideStyleHome: React.FC = () => {
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
                         placeholder="Nereye gitmek istiyorsunuz?"
-                        className="w-full pl-12 pr-4 py-4 text-lg border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
+                        className="w-full pl-12 pr-4 py-4 text-lg border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none text-gray-800 placeholder-gray-500 font-medium"
                       />
                     </div>
 
@@ -292,18 +292,18 @@ const GetYourGuideStyleHome: React.FC = () => {
                       <input
                         type="date"
                         placeholder="Tarih seçin"
-                        className="w-full pl-12 pr-4 py-4 text-lg text-gray-800 placeholder-gray-500 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
+                        className="w-full pl-12 pr-4 py-4 text-lg text-gray-800 placeholder-gray-500 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none font-medium bg-white"
                       />
                     </div>
 
                     {/* Travelers */}
                     <div className="relative lg:w-36">
                       <Users className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
-                      <select className="w-full pl-12 pr-4 py-4 text-lg text-gray-800 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none appearance-none bg-white">
-                        <option value="">Kişi sayısı</option>
-                        <option value="1">1 kişi</option>
-                        <option value="2">2 kişi</option>
-                        <option value="3">3+ kişi</option>
+                      <select className="w-full pl-12 pr-4 py-4 text-lg text-gray-800 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none appearance-none bg-white font-medium">
+                        <option value="" className="text-gray-500">Kişi sayısı</option>
+                        <option value="1" className="text-gray-800">1 kişi</option>
+                        <option value="2" className="text-gray-800">2 kişi</option>
+                        <option value="3" className="text-gray-800">3+ kişi</option>
                       </select>
                     </div>
 
