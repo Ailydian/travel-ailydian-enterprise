@@ -650,7 +650,7 @@ const GetYourGuideStyleHome: React.FC = () => {
       </motion.div>
 
       {/* Modern Premium Footer */}
-      <footer className="bg-gradient-to-b from-gray-900 to-black text-white">
+      <footer className="bg-white border-t border-gray-200">
         {/* Newsletter Section */}
         <div className="bg-gradient-to-r from-ailydian-primary to-ailydian-secondary py-16">
           <div className="max-w-7xl mx-auto px-4 text-center">
@@ -690,21 +690,25 @@ const GetYourGuideStyleHome: React.FC = () => {
         </div>
 
         {/* Main Footer */}
-        <div className="py-16">
+        <div className="py-16 bg-white">
           <div className="max-w-7xl mx-auto px-4">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
               {/* Company Info */}
               <div className="lg:col-span-2">
-                <div className="flex items-center space-x-3 mb-6">
-                  <div className="w-12 h-12 bg-gradient-to-r from-ailydian-primary to-ailydian-secondary rounded-xl flex items-center justify-center">
-                    <span className="text-white font-bold text-xl">A</span>
+                <div className="mb-6">
+                  <div className="flex items-baseline space-x-1 mb-2">
+                    <span className="text-2xl font-black bg-gradient-to-r from-ailydian-primary to-ailydian-secondary bg-clip-text text-transparent">
+                      Travel
+                    </span>
+                    <span className="text-2xl font-black text-gray-900">
+                      Ailydian
+                    </span>
                   </div>
-                  <div>
-                    <h3 className="text-2xl font-bold">Ailydian Travel</h3>
-                    <p className="text-gray-400 text-sm">AI-Powered Enterprise</p>
-                  </div>
+                  <p className="text-sm font-medium text-gray-600 tracking-wide">
+                    AI-Powered Enterprise
+                  </p>
                 </div>
-                <p className="text-gray-300 mb-6 leading-relaxed">
+                <p className="text-gray-600 mb-6 leading-relaxed">
                   Türkiye&apos;nin ilk AI destekli, blockchain güvenlikli seyahat platformu. VR önizleme, akıllı öneriler ve kripto ödemeler ile seyahatin geleceğini yaşayın.
                 </p>
                 
@@ -743,7 +747,7 @@ const GetYourGuideStyleHome: React.FC = () => {
                         key={index}
                         href={social.href}
                         whileHover={{ scale: 1.1, y: -2 }}
-                        className={`p-3 bg-gray-800 rounded-xl text-gray-400 ${social.color} transition-colors`}
+                        className={`p-3 bg-gray-100 hover:bg-gray-200 rounded-xl text-gray-600 ${social.color} transition-colors`}
                       >
                         <Icon className="w-5 h-5" />
                       </motion.a>
@@ -754,7 +758,7 @@ const GetYourGuideStyleHome: React.FC = () => {
 
               {/* Quick Links */}
               <div>
-                <h4 className="font-bold text-lg mb-6 text-white">Hızlı Erişim</h4>
+                <h4 className="font-bold text-lg mb-6 text-gray-900">Hızlı Erişim</h4>
                 <ul className="space-y-3">
                   {[
                     { name: 'Destinasyonlar', href: '/destinations' },
@@ -765,7 +769,7 @@ const GetYourGuideStyleHome: React.FC = () => {
                     { name: 'Premium Üyelik', href: '/premium' }
                   ].map((link) => (
                     <li key={link.name}>
-                      <a href={link.href} className="text-gray-300 hover:text-white transition-colors flex items-center gap-2 group">
+                      <a href={link.href} className="text-gray-600 hover:text-gray-900 transition-colors flex items-center gap-2 group">
                         <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                         {link.name}
                       </a>
@@ -776,7 +780,7 @@ const GetYourGuideStyleHome: React.FC = () => {
 
               {/* Services */}
               <div>
-                <h4 className="font-bold text-lg mb-6 text-white">Hizmetlerimiz</h4>
+                <h4 className="font-bold text-lg mb-6 text-gray-900">Hizmetlerimiz</h4>
                 <ul className="space-y-3">
                   {[
                     { name: 'Otel Rezervasyonu', href: '/hotels' },
@@ -787,7 +791,7 @@ const GetYourGuideStyleHome: React.FC = () => {
                     { name: 'Grup Seyahatleri', href: '/group-travel' }
                   ].map((service) => (
                     <li key={service.name}>
-                      <a href={service.href} className="text-gray-300 hover:text-white transition-colors flex items-center gap-2 group">
+                      <a href={service.href} className="text-gray-600 hover:text-gray-900 transition-colors flex items-center gap-2 group">
                         <Star className="w-4 h-4 text-yellow-500 group-hover:scale-110 transition-transform" />
                         {service.name}
                       </a>
@@ -798,34 +802,34 @@ const GetYourGuideStyleHome: React.FC = () => {
 
               {/* Contact & Support */}
               <div>
-                <h4 className="font-bold text-lg mb-6 text-white">İletişim & Destek</h4>
+                <h4 className="font-bold text-lg mb-6 text-gray-900">İletişim & Destek</h4>
                 <div className="space-y-4">
                   <div className="flex items-center gap-3">
                     <Phone className="w-5 h-5 text-green-400" />
                     <div>
-                      <p className="text-white font-medium">7/24 Destek Hattı</p>
-                      <p className="text-gray-300 text-sm">+90 212 XXX XX XX</p>
+                      <p className="text-gray-900 font-medium">7/24 Destek Hattı</p>
+                      <p className="text-gray-600 text-sm">+90 212 XXX XX XX</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-3">
                     <Mail className="w-5 h-5 text-blue-400" />
                     <div>
-                      <p className="text-white font-medium">E-posta Destek</p>
-                      <p className="text-gray-300 text-sm">destek@ailydian.com</p>
+                      <p className="text-gray-900 font-medium">E-posta Destek</p>
+                      <p className="text-gray-600 text-sm">destek@ailydian.com</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-3">
                     <MessageCircle className="w-5 h-5 text-purple-400" />
                     <div>
-                      <p className="text-white font-medium">AI Chat Destek</p>
-                      <p className="text-gray-300 text-sm">Anında yanıt</p>
+                      <p className="text-gray-900 font-medium">AI Chat Destek</p>
+                      <p className="text-gray-600 text-sm">Anında yanıt</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-3">
                     <Smartphone className="w-5 h-5 text-orange-400" />
                     <div>
-                      <p className="text-white font-medium">Mobil Uygulama</p>
-                      <p className="text-gray-300 text-sm">Yakında</p>
+                      <p className="text-gray-900 font-medium">Mobil Uygulama</p>
+                      <p className="text-gray-600 text-sm">Yakında</p>
                     </div>
                   </div>
                 </div>
@@ -835,31 +839,31 @@ const GetYourGuideStyleHome: React.FC = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-gray-800">
+        <div className="border-t border-gray-200 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 py-6">
             <div className="flex flex-col lg:flex-row justify-between items-center gap-4">
-              <div className="flex flex-col sm:flex-row items-center gap-4 text-sm text-gray-400">
+              <div className="flex flex-col sm:flex-row items-center gap-4 text-sm text-gray-600">
                 <p>© 2025 Ailydian Travel Enterprise. Tüm hakları saklıdır.</p>
                 <div className="flex items-center gap-4">
-                  <a href="/privacy" className="hover:text-white transition-colors">Gizlilik Politikası</a>
+                  <a href="/privacy" className="hover:text-gray-900 transition-colors">Gizlilik Politikası</a>
                   <span>•</span>
-                  <a href="/terms" className="hover:text-white transition-colors">Kullanım Şartları</a>
+                  <a href="/terms" className="hover:text-gray-900 transition-colors">Kullanım Şartları</a>
                   <span>•</span>
-                  <a href="/cookies" className="hover:text-white transition-colors">Çerez Politikası</a>
+                  <a href="/cookies" className="hover:text-gray-900 transition-colors">Çerez Politikası</a>
                 </div>
               </div>
               
-              <div className="flex items-center gap-6 text-sm text-gray-400">
+              <div className="flex items-center gap-6 text-sm text-gray-600">
                 <div className="flex items-center gap-2">
-                  <CheckCircle className="w-4 h-4 text-green-400" />
+                  <CheckCircle className="w-4 h-4 text-green-500" />
                   <span>TÜRSAB Üyesi</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Shield className="w-4 h-4 text-blue-400" />
+                  <Shield className="w-4 h-4 text-blue-500" />
                   <span>ISO 27001 Sertifikalı</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Award className="w-4 h-4 text-yellow-400" />
+                  <Award className="w-4 h-4 text-yellow-500" />
                   <span>TripAdvisor Excellence</span>
                 </div>
               </div>

@@ -120,13 +120,19 @@ const NavigationHeader: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2">
-            <div className="w-10 h-10 bg-gradient-to-r from-ailydian-primary to-ailydian-secondary rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-lg">A</span>
-            </div>
-            <div className="hidden sm:block">
-              <h1 className="text-xl font-bold text-gray-900">Ailydian</h1>
-              <p className="text-xs text-gray-500 -mt-1">Travel Enterprise</p>
+          <Link href="/" className="flex items-center">
+            <div className="flex flex-col">
+              <div className="flex items-baseline space-x-1">
+                <span className="text-xl md:text-2xl font-black bg-gradient-to-r from-ailydian-primary to-ailydian-secondary bg-clip-text text-transparent">
+                  Travel
+                </span>
+                <span className="text-xl md:text-2xl font-black text-gray-900">
+                  Ailydian
+                </span>
+              </div>
+              <p className="text-xs font-medium text-gray-500 -mt-1 tracking-wide hidden sm:block">
+                AI-Powered Enterprise
+              </p>
             </div>
           </Link>
 
