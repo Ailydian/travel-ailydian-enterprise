@@ -243,7 +243,7 @@ const GetYourGuideStyleHome: React.FC = () => {
       <main>
         {/* Hero Section */}
         <section className="relative bg-gradient-to-r from-ailydian-primary via-ailydian-secondary to-ailydian-primary pt-8 pb-24">
-          <div className="absolute inset-0 bg-black/20"></div>
+          <div className="absolute inset-0 bg-white/10"></div>
           <div className="relative max-w-7xl mx-auto px-4">
             <div className="text-center mb-12">
               <motion.h1 
@@ -385,7 +385,7 @@ const GetYourGuideStyleHome: React.FC = () => {
         </section>
 
         {/* Top Experiences */}
-        <section className="py-16">
+        <section className="py-16 bg-white">
           <div className="max-w-7xl mx-auto px-4">
             <div className="flex items-center justify-between mb-12">
               <div>
@@ -549,7 +549,7 @@ const GetYourGuideStyleHome: React.FC = () => {
         </section>
 
         {/* Why Choose Us */}
-        <section className="py-16">
+        <section className="py-16 bg-white">
           <div className="max-w-7xl mx-auto px-4">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-gray-900 mb-4">Neden Ailydian Travel?</h2>
@@ -635,10 +635,10 @@ const GetYourGuideStyleHome: React.FC = () => {
             
             {/* Tooltip */}
             <div className="absolute right-full mr-4 top-1/2 transform -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none">
-              <div className="bg-gray-900 text-white text-sm px-3 py-2 rounded-lg whitespace-nowrap flex items-center gap-2">
-                <Gift className="w-4 h-4 text-yellow-400" />
+              <div className="bg-white text-gray-900 text-sm px-3 py-2 rounded-lg whitespace-nowrap flex items-center gap-2 shadow-lg border">
+                <Gift className="w-4 h-4 text-yellow-500" />
                 <span>Ücretsiz Kayıt Ol!</span>
-                <div className="absolute left-full top-1/2 transform -translate-y-1/2 w-0 h-0 border-l-8 border-l-gray-900 border-y-4 border-y-transparent"></div>
+                <div className="absolute left-full top-1/2 transform -translate-y-1/2 w-0 h-0 border-l-8 border-l-white border-y-4 border-y-transparent"></div>
               </div>
             </div>
             
