@@ -282,7 +282,7 @@ const GetYourGuideStyleHome: React.FC = () => {
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
                         placeholder="Nereye gitmek istiyorsunuz?"
-                        className="w-full pl-12 pr-4 py-4 text-lg border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none text-gray-800 placeholder-gray-500 font-medium"
+                        className="w-full pl-12 pr-4 py-4 text-lg border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none text-gray-900 placeholder-gray-600 font-semibold bg-white"
                       />
                     </div>
 
@@ -292,18 +292,18 @@ const GetYourGuideStyleHome: React.FC = () => {
                       <input
                         type="date"
                         placeholder="Tarih seçin"
-                        className="w-full pl-12 pr-4 py-4 text-lg text-gray-800 placeholder-gray-500 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none font-medium bg-white"
+                        className="w-full pl-12 pr-4 py-4 text-lg text-gray-900 placeholder-gray-600 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none font-semibold bg-white"
                       />
                     </div>
 
                     {/* Travelers */}
                     <div className="relative lg:w-36">
                       <Users className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
-                      <select className="w-full pl-12 pr-4 py-4 text-lg text-gray-800 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none appearance-none bg-white font-medium">
-                        <option value="" className="text-gray-500">Kişi sayısı</option>
-                        <option value="1" className="text-gray-800">1 kişi</option>
-                        <option value="2" className="text-gray-800">2 kişi</option>
-                        <option value="3" className="text-gray-800">3+ kişi</option>
+                      <select className="w-full pl-12 pr-4 py-4 text-lg text-gray-900 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none appearance-none bg-white font-semibold">
+                        <option value="" className="text-gray-600">Kişi sayısı</option>
+                        <option value="1" className="text-gray-900 font-semibold">1 kişi</option>
+                        <option value="2" className="text-gray-900 font-semibold">2 kişi</option>
+                        <option value="3" className="text-gray-900 font-semibold">3+ kişi</option>
                       </select>
                     </div>
 
