@@ -43,28 +43,28 @@ const NavigationHeader: React.FC = () => {
 
   const mainNavItems = [
     { 
-      title: isClient ? t('navigation:destinations') : 'Destinasyonlar', 
+      title: 'Destinasyonlar', 
       href: '/destinations',
       icon: MapPin,
-      description: isClient ? t('navigation:destinationsDesc', 'Türkiye\'nin en güzel yerlerini keşfedin') : 'Türkiye\'nin en güzel yerlerini keşfedin'
+      description: 'Türkiye\'nin en güzel yerlerini keşfedin'
     },
     { 
-      title: isClient ? t('navigation:experiences') : 'Deneyimler', 
+      title: 'Deneyimler', 
       href: '/experiences',
       icon: Star,
-      description: isClient ? t('navigation:experiencesDesc', 'Benzersiz deneyimler yaşayın') : 'Benzersiz deneyimler yaşayın'
+      description: 'Benzersiz deneyimler yaşayın'
     },
     { 
-      title: isClient ? t('navigation:hotels') : 'Oteller', 
+      title: 'Oteller', 
       href: '/hotels',
       icon: Building,
-      description: isClient ? t('navigation:hotelsDesc', 'En iyi konaklama seçenekleri') : 'En iyi konaklama seçenekleri'
+      description: 'En iyi konaklama seçenekleri'
     },
     { 
-      title: isClient ? t('navigation:flights') : 'Uçak Biletleri', 
+      title: 'Uçak Biletleri', 
       href: '/flights',
       icon: Plane,
-      description: isClient ? t('navigation:flightsDesc', 'Uygun fiyatlı uçak biletleri') : 'Uygun fiyatlı uçak biletleri'
+      description: 'Uygun fiyatlı uçak biletleri'
     },
   ];
 
@@ -174,12 +174,12 @@ const NavigationHeader: React.FC = () => {
             </button>
 
             {/* Cart */}
-            <button className="relative p-2 text-gray-700 hover:bg-gray-50 rounded-lg transition-colors">
+            <Link href="/cart" className="relative p-2 text-gray-700 hover:bg-gray-50 rounded-lg transition-colors">
               <ShoppingCart className="w-5 h-5" />
               <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
                 0
               </span>
-            </button>
+            </Link>
 
             {/* User Menu */}
             <div className="relative">
