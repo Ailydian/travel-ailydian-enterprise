@@ -1,0 +1,17 @@
+{
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "axios": "^1.6.0",
+    "puppeteer": "^21.5.0",
+    "ts-node": "^10.9.0",
+    "typescript": "^5.3.0",
+    "@types/puppeteer": "^7.0.4"
+  },
+  "scripts": {
+    "test:seo": "node scripts/run-seo-tests.js",
+    "test:smoke": "ts-node -e \"import SmokeTestRunner from './src/lib/smoke-test'; const runner = new SmokeTestRunner(); runner.runAllTests().then(console.log);\"",
+    "test:monitor": "ts-node -e \"import SEOMonitor from './src/lib/seo-monitor'; const monitor = new SEOMonitor(); monitor.generateReport().then(console.log);\"",
+    "test:errors": "ts-node -e \"import ErrorMonitor from './src/lib/error-monitor'; const monitor = new ErrorMonitor(); monitor.generateReport().then(console.log);\"",
+    "test:all": "npm run test:seo"
+  }
+}

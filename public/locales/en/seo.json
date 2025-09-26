@@ -1,0 +1,30 @@
+{
+  "defaultTitle": "Travel Ailydian - AI-Powered Travel Platform",
+  "defaultDescription": "Discover unique travel experiences with AI-powered recommendations, VR previews, and blockchain-verified bookings worldwide.",
+  "defaultKeywords": "travel, ai travel, blockchain travel, vr tours, turkey tourism, global travel platform",
+  "homepage": {
+    "title": "Travel Ailydian - Discover the World",
+    "description": "Experience your dream travel adventures with Travel Ailydian. AI-powered recommendations, secure payments, and unique experiences.",
+    "keywords": "travel booking, turkey travel, istanbul hotels, cappadocia tours, antalya vacation, travel recommendations"
+  },
+  "destinations": {
+    "title": "Destinations - Travel Ailydian",
+    "description": "Explore the most beautiful destinations in Turkey and worldwide. Personalized travel recommendations and unique experiences.",
+    "keywords": "travel destinations, places to visit turkey, international tours, travel guide"
+  },
+  "hotels": {
+    "title": "Hotels - Travel Ailydian",
+    "description": "From luxury hotels to boutique accommodation options, thousands of hotel choices for the perfect stay experience.",
+    "keywords": "hotel booking, istanbul hotels, antalya hotels, cappadocia hotels, boutique hotel"
+  },
+  "experiences": {
+    "title": "Experiences - Travel Ailydian",
+    "description": "Unique travel experiences that will create unforgettable memories. From local tours to adventure sports.",
+    "keywords": "travel experiences, local tours, adventure tourism, cultural tours, culinary tours"
+  },
+  "flights": {
+    "title": "Flights - Travel Ailydian",
+    "description": "Open up to the world with the best flight prices. Comfortable flight experience with reliable airlines.",
+    "keywords": "flight booking, cheap flights, istanbul flights, international flights, airline reservation"
+  }
+}

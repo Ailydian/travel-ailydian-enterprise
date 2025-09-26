@@ -1,87 +1,88 @@
-/** @type {import('next-i18next').UserConfig} */
 module.exports = {
   i18n: {
     defaultLocale: 'tr',
-    locales: ['tr', 'en', 'ar'],
-    localeDetection: false,
+    locales: [
+      'en',    // English
+      'tr',    // Turkish (Default)
+      'ar',    // Arabic
+      'de',    // German
+      'fr',    // French
+      'es',    // Spanish
+      'it',    // Italian
+      'pt',    // Portuguese
+      'ru',    // Russian
+      'zh',    // Chinese
+      'ja',    // Japanese
+      'ko',    // Korean
+      'nl',    // Dutch
+      'sv',    // Swedish
+      'da',    // Danish
+      'no',    // Norwegian
+      'fi',    // Finnish
+      'pl',    // Polish
+      'cs',    // Czech
+      'hu',    // Hungarian
+      'ro',    // Romanian
+      'bg',    // Bulgarian
+      'hr',    // Croatian
+      'sk',    // Slovak
+      'sl',    // Slovenian
+      'et',    // Estonian
+      'lv',    // Latvian
+      'lt',    // Lithuanian
+      'mt',    // Maltese
+      'el',    // Greek
+      'cy',    // Welsh
+      'ga',    // Irish
+      'is',    // Icelandic
+      'mk',    // Macedonian
+      'sq',    // Albanian
+      'bs',    // Bosnian
+      'sr',    // Serbian
+      'me',    // Montenegrin
+      'hi',    // Hindi
+      'bn',    // Bengali
+      'ur',    // Urdu
+      'fa',    // Persian
+      'he',    // Hebrew
+      'th',    // Thai
+      'vi',    // Vietnamese
+      'id',    // Indonesian
+      'ms',    // Malay
+      'tl',    // Filipino
+      'sw',    // Swahili
+      'am',    // Amharic
+      'yo',    // Yoruba
+      'zu',    // Zulu
+      'xh',    // Xhosa
+      'af',    // Afrikaans
+    ],
+    localeDetection: true,
     domains: [
       {
         domain: 'travel.ailydian.com',
         defaultLocale: 'tr',
-        locales: ['tr', 'en', 'ar']
       },
       {
         domain: 'en.travel.ailydian.com',
-        defaultLocale: 'en'
+        defaultLocale: 'en',
       },
       {
         domain: 'ar.travel.ailydian.com',
-        defaultLocale: 'ar'
+        defaultLocale: 'ar',
+      },
+      {
+        domain: 'de.travel.ailydian.com',
+        defaultLocale: 'de',
+      },
+      {
+        domain: 'fr.travel.ailydian.com',
+        defaultLocale: 'fr',
+      },
+      {
+        domain: 'es.travel.ailydian.com',
+        defaultLocale: 'es',
       }
     ]
   },
-  fallbackLng: 'tr',
-  debug: process.env.NODE_ENV === 'development',
-  reloadOnPrerender: process.env.NODE_ENV === 'development',
-  
-  // Translation loading
-  localePath: './public/locales',
-  defaultNS: 'common',
-  
-  // RTL support for Arabic
-  supportedLngs: ['tr', 'en', 'ar'],
-  
-  // Interpolation settings
-  interpolation: {
-    escapeValue: false, // React already escapes values
-    formatSeparator: ','
-  },
-
-  // Namespace configuration
-  ns: [
-    'common',
-    'navigation',
-    'destinations', 
-    'hotels',
-    'flights',
-    'activities',
-    'tours',
-    'about',
-    'contact',
-    'auth',
-    'booking',
-    'profile',
-    'reviews',
-    'support',
-    'admin',
-    'errors'
-  ],
-
-  // React specific
-  react: {
-    useSuspense: false,
-    bindI18n: 'languageChanged loaded',
-    bindI18nStore: 'added removed',
-    transEmptyNodeValue: '',
-    transSupportBasicHtmlNodes: true,
-    transKeepBasicHtmlNodesFor: ['br', 'strong', 'i', 'p', 'span', 'em']
-  },
-
-  // Backend options
-  backend: {
-    loadPath: './public/locales/{{lng}}/{{ns}}.json',
-  },
-
-  // Detection options
-  detection: {
-    order: ['path', 'cookie', 'htmlTag', 'localStorage', 'subdomain'],
-    caches: ['cookie'],
-    cookieName: 'ailydian_locale',
-    cookieOptions: {
-      maxAge: 365 * 24 * 60 * 60 * 1000, // 1 year
-      httpOnly: false,
-      sameSite: 'lax',
-      secure: process.env.NODE_ENV === 'production'
-    }
-  }
-};
+}
