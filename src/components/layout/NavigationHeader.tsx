@@ -30,6 +30,7 @@ import {
   ArrowRight
 } from 'lucide-react';
 import { searchInData, popularSearches, categoryConfig, type SearchResult } from '../../data/searchData';
+import AIAssistantPopup from '../ui/AIAssistantPopup';
 
 const NavigationHeader: React.FC = () => {
   const router = useRouter();
@@ -43,6 +44,7 @@ const NavigationHeader: React.FC = () => {
   const [isSearchFocused, setIsSearchFocused] = useState(false);
   const [selectedResultIndex, setSelectedResultIndex] = useState(-1);
   const [searchHistory, setSearchHistory] = useState<string[]>([]);
+  const [isAIAssistantOpen, setIsAIAssistantOpen] = useState(false);
   
   const searchInputRef = useRef<HTMLInputElement>(null);
   const searchDropdownRef = useRef<HTMLDivElement>(null);
@@ -446,6 +448,18 @@ const NavigationHeader: React.FC = () => {
 
           {/* Right side actions */}
           <div className="flex items-center space-x-3">
+            {/* AI Assistant */}
+            <motion.button 
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => setIsAIAssistantOpen(true)}
+              className="relative flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl hover:from-blue-700 hover:to-purple-700 transition-all duration-200 shadow-lg hover:shadow-xl"
+            >
+              <Bot className="w-4 h-4" />
+              <span className="text-sm font-medium hidden lg:inline">AI Asistan</span>
+              <div className="absolute -top-1 -right-1 w-3 h-3 bg-green-500 rounded-full border-2 border-white animate-pulse"></div>
+            </motion.button>
+
             {/* Language */}
             <button className="hidden sm:flex items-center space-x-1 px-3 py-2 text-gray-700 hover:bg-gray-50 rounded-lg transition-colors">
               <Globe className="w-4 h-4" />
@@ -657,6 +671,12 @@ const NavigationHeader: React.FC = () => {
           </motion.div>
         )}
       </AnimatePresence>
+      
+      {/* AI Assistant Popup */}
+      <AIAssistantPopup 
+        isOpen={isAIAssistantOpen}
+        onClose={() => setIsAIAssistantOpen(false)}
+      />
     </header>
   );
 };
