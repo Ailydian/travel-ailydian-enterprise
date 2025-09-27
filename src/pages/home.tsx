@@ -1,7 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import { bookingComService } from '../lib/api/booking-com-service';
+import { amadeusService } from '../lib/api/amadeus-service';
+import { googlePlacesService } from '../lib/api/google-places-service';
+import { tourismApiService } from '../lib/tourism-api-service';
 import { 
   Search, 
   MapPin, 
@@ -38,8 +42,137 @@ import {
 import NavigationHeader from '../components/layout/NavigationHeader';
 
 const GetYourGuideStyleHome: React.FC = () => {
+  // Search state
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
+  const [checkInDate, setCheckInDate] = useState('');
+  const [checkOutDate, setCheckOutDate] = useState('');
+  const [travelers, setTravelers] = useState('2');
+  const [isSearching, setIsSearching] = useState(false);
+  const [suggestions, setSuggestions] = useState<string[]>([]);
+  const [searchResults, setSearchResults] = useState<any[]>([]);
+  
+  // Initialize default dates
+  useEffect(() => {
+    const today = new Date();
+    const tomorrow = new Date(today);
+    const dayAfter = new Date(today);
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    dayAfter.setDate(dayAfter.getDate() + 3);
+    
+    setCheckInDate(tomorrow.toISOString().split('T')[0]);
+    setCheckOutDate(dayAfter.toISOString().split('T')[0]);
+  }, []);
+  
+  // Smart search suggestions
+  const getSuggestions = useCallback(async (query: string) => {
+    if (query.length < 2) {
+      setSuggestions([]);
+      return;
+    }
+    
+    try {
+      const turkishCities = Object.keys(tourismApiService.getLocationSuggestions(query));
+      setSuggestions(turkishCities.slice(0, 5));
+    } catch (error) {
+      console.error('Suggestion error:', error);
+    }
+  }, []);
+  
+  // Advanced search function
+  const handleAdvancedSearch = useCallback(async () => {
+    if (!searchQuery.trim()) {
+      alert('Lütfen bir destinasyon girin!');
+      return;
+    }
+    
+    setIsSearching(true);
+    setSearchResults([]);
+    
+    try {
+      const results = [];
+      
+      // Search based on selected category
+      switch (selectedCategory) {
+        case 'hotels':
+        case 'all':
+          if (selectedCategory === 'hotels' || selectedCategory === 'all') {
+            try {
+              const hotelResults = await bookingComService.searchHotels({
+                destination: searchQuery,
+                checkIn: new Date(checkInDate),
+                checkOut: new Date(checkOutDate),
+                adults: parseInt(travelers),
+                rooms: 1,
+                currency: 'TRY',
+                language: 'tr'
+              });
+              results.push(...hotelResults.hotels.map(hotel => ({ ...hotel, type: 'hotel' })));
+            } catch (error) {
+              console.error('Hotel search error:', error);
+            }
+          }
+          break;
+          
+        case 'flights':
+          try {
+            // This would need origin location - for demo, using Istanbul as default
+            const flightResults = await amadeusService.searchFlights({
+              originLocationCode: 'IST',
+              destinationLocationCode: searchQuery.toUpperCase(),
+              departureDate: checkInDate,
+              adults: parseInt(travelers),
+              max: 10
+            });
+            results.push(...flightResults.flights.map(flight => ({ ...flight, type: 'flight' })));
+          } catch (error) {
+            console.error('Flight search error:', error);
+          }
+          break;
+          
+        case 'restaurants':
+          try {
+            const restaurantResults = await googlePlacesService.searchRestaurants(searchQuery);
+            results.push(...restaurantResults.map(restaurant => ({ ...restaurant, type: 'restaurant' })));
+          } catch (error) {
+            console.error('Restaurant search error:', error);
+          }
+          break;
+          
+        case 'tours':
+          try {
+            const tourResults = await tourismApiService.searchTours(searchQuery);
+            results.push(...tourResults.map(tour => ({ ...tour, type: 'tour' })));
+          } catch (error) {
+            console.error('Tour search error:', error);
+          }
+          break;
+      }
+      
+      setSearchResults(results);
+      
+      // Scroll to results or navigate to results page
+      if (results.length > 0) {
+        // For demo, we'll just log the results
+        console.log('Arama Sonuçları:', results);
+        alert(`${results.length} sonuç bulundu! Konsolu kontrol edin.`);
+      } else {
+        alert('Hiç sonuç bulunamadı. Farklı bir arama deneyin.');
+      }
+      
+    } catch (error) {
+      console.error('Search error:', error);
+      alert('Arama sırasında bir hata oluştu. Lütfen tekrar deneyin.');
+    } finally {
+      setIsSearching(false);
+    }
+  }, [searchQuery, selectedCategory, checkInDate, checkOutDate, travelers]);
+  
+  // Handle search query change with suggestions
+  const handleSearchQueryChange = useCallback((value: string) => {
+    setSearchQuery(value);
+    getSuggestions(value);
+  }, [getSuggestions]);
 
   // Türkiye ve dünya destinasyonları - Türkçe içerikli
   const featuredDestinations = [
@@ -325,24 +458,24 @@ const GetYourGuideStyleHome: React.FC = () => {
           
           <div className="relative z-10 max-w-7xl mx-auto px-4 py-20">
             {/* Content */}
-            <div className="text-center mb-16">
+            <div className="text-center mb-8">
               {/* Premium Badge */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.1 }}
-                className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-yellow-400/20 to-orange-500/20 backdrop-blur-sm border border-yellow-400/30 rounded-full text-yellow-300 text-sm font-medium mb-6"
+                className="inline-flex items-center gap-2 px-3 py-1.5 bg-gradient-to-r from-yellow-400/20 to-orange-500/20 backdrop-blur-sm border border-yellow-400/30 rounded-full text-yellow-300 text-xs font-medium mb-4"
               >
-                <Sparkles className="w-4 h-4" />
+                <Sparkles className="w-3 h-3" />
                 <span>Türkiye&apos;nin İlk AI Destekli Premium Seyahat Platformu</span>
-                <Award className="w-4 h-4" />
+                <Award className="w-3 h-3" />
               </motion.div>
               
               <motion.h1 
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
-                className="text-5xl md:text-7xl lg:text-8xl font-extrabold text-white mb-8 leading-tight"
+                className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-4 leading-tight"
               >
                 <span className="block">
                   Eşsiz Seyahat
@@ -367,101 +500,183 @@ const GetYourGuideStyleHome: React.FC = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
-                className="text-xl md:text-2xl text-white/90 mb-8 max-w-4xl mx-auto font-light leading-relaxed"
+                className="text-lg md:text-xl text-white/90 mb-6 max-w-3xl mx-auto font-light leading-relaxed"
               >
                 <span className="font-semibold text-yellow-300">AI asistanı</span>, <span className="font-semibold text-purple-300">VR önizleme</span> ve <span className="font-semibold text-green-300">blockchain doğrulama</span> ile dünya çapında turlar, aktiviteler ve çekim merkezlerini rezerve edin
               </motion.p>
-              
-              {/* CTA Buttons */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.6 }}
-                className="flex flex-col sm:flex-row gap-4 justify-center mb-12"
-              >
-                <motion.button
-                  whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(0,0,0,0.3)" }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-8 py-4 bg-gradient-to-r from-ailydian-primary to-ailydian-secondary text-white rounded-2xl font-bold text-lg hover:shadow-2xl transition-all duration-300 flex items-center justify-center gap-2 min-w-[200px]"
-                >
-                  <Sparkles className="w-5 h-5" />
-                  AI ile Keşfet
-                </motion.button>
-                
-                <motion.button
-                  whileHover={{ scale: 1.05, backgroundColor: "rgba(255,255,255,0.2)" }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/20 text-white rounded-2xl font-bold text-lg hover:shadow-2xl transition-all duration-300 flex items-center justify-center gap-2 min-w-[200px]"
-                >
-                  <Camera className="w-5 h-5" />
-                  VR Önizleme
-                </motion.button>
-              </motion.div>
 
-              {/* Search Bar */}
+              {/* Advanced Search Engine */}
               <motion.div 
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4 }}
-                className="max-w-4xl mx-auto"
+                transition={{ delay: 0.6 }}
+                className="max-w-7xl mx-auto"
               >
-                <div className="bg-white rounded-2xl shadow-2xl p-4">
-                  <div className="flex flex-col lg:flex-row gap-4">
-                    {/* Destination Search */}
-                    <div className="flex-1 relative">
-                      <MapPin className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                <div className="bg-white/95 backdrop-blur-xl rounded-3xl shadow-2xl border border-white/20 p-6 md:p-8">
+                  {/* Search Tabs */}
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {[
+                      { id: 'all', icon: Globe, label: 'Tüm Hizmetler', active: true },
+                      { id: 'flights', icon: Send, label: 'Uçak' },
+                      { id: 'hotels', icon: MapPin, label: 'Otel' },
+                      { id: 'tours', icon: Camera, label: 'Turlar' },
+                      { id: 'restaurants', icon: Gift, label: 'Restoranlar' }
+                    ].map((tab) => (
+                      <button
+                        key={tab.id}
+                        onClick={() => setSelectedCategory(tab.id)}
+                        className={`flex items-center gap-2 px-4 py-2 rounded-xl font-medium transition-all duration-200 ${
+                          selectedCategory === tab.id || tab.active
+                            ? 'bg-gradient-to-r from-ailydian-primary to-ailydian-secondary text-white shadow-lg'
+                            : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                        }`}
+                      >
+                        <tab.icon className="w-4 h-4" />
+                        <span className="text-sm">{tab.label}</span>
+                      </button>
+                    ))}
+                  </div>
+
+                  {/* Main Search Form */}
+                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 mb-6">
+                    {/* Destination Search - Takes more space */}
+                    <div className="lg:col-span-4 relative">
+                      <div className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10">
+                        <MapPin className="text-ailydian-primary w-5 h-5" />
+                      </div>
                       <input
                         type="text"
                         value={searchQuery}
-                        onChange={(e) => setSearchQuery(e.target.value)}
+                        onChange={(e) => handleSearchQueryChange(e.target.value)}
                         placeholder="Nereye gitmek istiyorsunuz?"
-                        className="w-full pl-12 pr-4 py-4 text-lg border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none text-gray-900 placeholder-gray-600 font-semibold bg-white"
+                        className="w-full pl-12 pr-4 py-4 text-base bg-white border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-ailydian-primary focus:border-ailydian-primary outline-none text-gray-900 placeholder-gray-500 font-medium shadow-sm hover:shadow-md transition-all duration-200"
+                        onKeyPress={(e) => e.key === 'Enter' && handleAdvancedSearch()}
                       />
+                      {/* Smart Suggestions Dropdown */}
+                      {suggestions.length > 0 && (
+                        <div className="absolute top-full left-0 right-0 mt-2 bg-white border-2 border-gray-100 rounded-2xl shadow-xl z-50 overflow-hidden">
+                          {suggestions.map((suggestion, index) => (
+                            <button
+                              key={index}
+                              onClick={() => {
+                                setSearchQuery(suggestion);
+                                setSuggestions([]);
+                              }}
+                              className="w-full text-left px-4 py-3 hover:bg-gray-50 transition-colors border-b border-gray-100 last:border-b-0 flex items-center gap-3"
+                            >
+                              <MapPin className="w-4 h-4 text-gray-400" />
+                              <span className="text-gray-700 font-medium">{suggestion}</span>
+                              <span className="text-xs text-gray-500 ml-auto">Türkiye</span>
+                            </button>
+                          ))}
+                        </div>
+                      )}
                     </div>
 
-                    {/* Date Picker */}
-                    <div className="relative lg:w-48">
-                      <Calendar className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                    {/* Check-in Date */}
+                    <div className="lg:col-span-2 relative">
+                      <div className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10">
+                        <Calendar className="text-ailydian-primary w-5 h-5" />
+                      </div>
                       <input
                         type="date"
-                        placeholder="Tarih seçin"
-                        className="w-full pl-12 pr-4 py-4 text-lg text-gray-900 placeholder-gray-600 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none font-semibold bg-white"
+                        value={checkInDate}
+                        onChange={(e) => setCheckInDate(e.target.value)}
+                        className="w-full pl-12 pr-4 py-4 text-base bg-white border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-ailydian-primary focus:border-ailydian-primary outline-none text-gray-900 font-medium shadow-sm hover:shadow-md transition-all duration-200"
                       />
+                      <label className="absolute -top-2 left-3 px-2 bg-white text-xs text-gray-600 font-medium">
+                        Gidiş
+                      </label>
+                    </div>
+
+                    {/* Check-out Date */}
+                    <div className="lg:col-span-2 relative">
+                      <div className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10">
+                        <Calendar className="text-ailydian-secondary w-5 h-5" />
+                      </div>
+                      <input
+                        type="date"
+                        value={checkOutDate}
+                        onChange={(e) => setCheckOutDate(e.target.value)}
+                        className="w-full pl-12 pr-4 py-4 text-base bg-white border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-ailydian-secondary focus:border-ailydian-secondary outline-none text-gray-900 font-medium shadow-sm hover:shadow-md transition-all duration-200"
+                      />
+                      <label className="absolute -top-2 left-3 px-2 bg-white text-xs text-gray-600 font-medium">
+                        Dönüş
+                      </label>
                     </div>
 
                     {/* Travelers */}
-                    <div className="relative lg:w-36">
-                      <Users className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
-                      <select className="w-full pl-12 pr-4 py-4 text-lg text-gray-900 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none appearance-none bg-white font-semibold">
-                        <option value="" className="text-gray-600">Kişi sayısı</option>
-                        <option value="1" className="text-gray-900 font-semibold">1 kişi</option>
-                        <option value="2" className="text-gray-900 font-semibold">2 kişi</option>
-                        <option value="3" className="text-gray-900 font-semibold">3+ kişi</option>
+                    <div className="lg:col-span-2 relative">
+                      <div className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10">
+                        <Users className="text-ailydian-primary w-5 h-5" />
+                      </div>
+                      <select 
+                        value={travelers}
+                        onChange={(e) => setTravelers(e.target.value)}
+                        className="w-full pl-12 pr-4 py-4 text-base bg-white border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-ailydian-primary focus:border-ailydian-primary outline-none appearance-none text-gray-900 font-medium shadow-sm hover:shadow-md transition-all duration-200"
+                      >
+                        <option value="1">1 Yolcu</option>
+                        <option value="2">2 Yolcu</option>
+                        <option value="3">3 Yolcu</option>
+                        <option value="4+">4+ Yolcu</option>
                       </select>
+                      <label className="absolute -top-2 left-3 px-2 bg-white text-xs text-gray-600 font-medium">
+                        Yolcular
+                      </label>
                     </div>
 
-                    {/* Search Button */}
-                    <motion.button 
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="px-8 py-4 bg-gradient-to-r from-ailydian-primary to-ailydian-secondary text-white rounded-xl font-semibold text-lg hover:shadow-lg transition-all duration-200 flex items-center gap-2"
-                    >
-                      <Search className="w-5 h-5" />
-                      <span className="hidden lg:inline">Ara</span>
-                    </motion.button>
+                    {/* Premium Search Button */}
+                    <div className="lg:col-span-2">
+                      <motion.button 
+                        onClick={handleAdvancedSearch}
+                        whileHover={{ scale: 1.02, boxShadow: "0 20px 40px rgba(255, 33, 77, 0.3)" }}
+                        whileTap={{ scale: 0.98 }}
+                        className="w-full h-full bg-gradient-to-r from-ailydian-primary via-ailydian-secondary to-ailydian-primary text-white rounded-2xl font-bold text-base hover:shadow-2xl transition-all duration-300 flex items-center justify-center gap-3 min-h-[60px] bg-size-200 hover:bg-pos-100"
+                        style={{
+                          backgroundSize: '200% 200%',
+                          backgroundPosition: '0% 50%'
+                        }}
+                      >
+                        <Search className="w-5 h-5" />
+                        <span>AI ile Ara</span>
+                        <Sparkles className="w-4 h-4" />
+                      </motion.button>
+                    </div>
                   </div>
 
-                  {/* Quick Filters */}
-                  <div className="flex flex-wrap gap-2 mt-4 pt-4 border-t border-gray-200">
-                    <span className="text-sm text-gray-600">Popüler:</span>
-                    {['İstanbul', 'Kapadokya', 'AI Turları', 'VR Deneyimleri', 'Blockchain Seyahat'].map((filter) => (
-                      <button
-                        key={filter}
-                        className="px-3 py-1 bg-gray-100 hover:bg-blue-100 text-gray-700 hover:text-blue-700 rounded-full text-sm transition-colors"
-                      >
-                        {filter}
-                      </button>
-                    ))}
+                  {/* Advanced Filters */}
+                  <div className="border-t border-gray-200 pt-4">
+                    <div className="flex flex-wrap items-center justify-between gap-4">
+                      <div className="flex items-center gap-4">
+                        <span className="text-sm font-medium text-gray-700">Popüler Aramalar:</span>
+                        <div className="flex flex-wrap gap-2">
+                          {['İstanbul Otelleri', 'Kapadokya Balon Turu', 'Bodrum Tekne Turu', 'Antalya All Inclusive'].map((suggestion) => (
+                            <motion.button
+                              key={suggestion}
+                              whileHover={{ scale: 1.05 }}
+                              onClick={() => setSearchQuery(suggestion)}
+                              className="px-3 py-1.5 bg-gradient-to-r from-blue-50 to-purple-50 hover:from-blue-100 hover:to-purple-100 text-blue-700 rounded-full text-xs font-medium transition-all duration-200 border border-blue-200"
+                            >
+                              {suggestion}
+                            </motion.button>
+                          ))}
+                        </div>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <div className="flex items-center gap-2 text-xs text-gray-600">
+                          <Shield className="w-4 h-4 text-green-500" />
+                          <span>Blockchain Güvenli</span>
+                        </div>
+                        <div className="flex items-center gap-2 text-xs text-gray-600">
+                          <Zap className="w-4 h-4 text-yellow-500" />
+                          <span>AI Destekli</span>
+                        </div>
+                        <div className="flex items-center gap-2 text-xs text-gray-600">
+                          <Camera className="w-4 h-4 text-purple-500" />
+                          <span>VR Önizleme</span>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </motion.div>
@@ -489,6 +704,143 @@ const GetYourGuideStyleHome: React.FC = () => {
             </div>
           </div>
         </section>
+
+        {/* Search Results */}
+        {searchResults.length > 0 && (
+          <section className="py-16 bg-gray-50">
+            <div className="max-w-7xl mx-auto px-4">
+              <div className="flex items-center justify-between mb-8">
+                <div>
+                  <h2 className="text-2xl font-bold text-gray-900 mb-2">
+&quot;{searchQuery}&quot; için {searchResults.length} sonuç bulundu
+                  </h2>
+                  <p className="text-gray-600">En iyi seçenekler AI tarafından sıralandı</p>
+                </div>
+                <div className="flex items-center gap-2">
+                  <button className="flex items-center gap-2 px-4 py-2 bg-white border border-gray-200 rounded-lg text-sm font-medium hover:bg-gray-50">
+                    <Filter className="w-4 h-4" />
+                    Filtrele
+                  </button>
+                  <select className="px-4 py-2 bg-white border border-gray-200 rounded-lg text-sm font-medium">
+                    <option>Önerilenler</option>
+                    <option>Fiyat (Düşük-Yüksek)</option>
+                    <option>Fiyat (Yüksek-Düşük)</option>
+                    <option>En İyi Puanlar</option>
+                  </select>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {searchResults.map((result, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.1 }}
+                    className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group"
+                  >
+                    {/* Image */}
+                    <div className="relative h-48 overflow-hidden">
+                      <img 
+                        src={result.image || '/api/placeholder/400/300'} 
+                        alt={result.title}
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                      />
+                      
+                      {/* Category Badge */}
+                      <div className="absolute top-4 left-4">
+                        <span className="px-3 py-1 bg-white/90 text-gray-800 rounded-full text-sm font-medium capitalize">
+                          {result.type || selectedCategory}
+                        </span>
+                      </div>
+
+                      {/* AI Badge */}
+                      <div className="absolute top-4 right-4">
+                        <div className="flex items-center gap-1 px-2 py-1 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-full text-xs font-medium">
+                          <Sparkles className="w-3 h-3" />
+                          <span>AI Önerisi</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Content */}
+                    <div className="p-6">
+                      <div className="flex items-center gap-2 text-sm text-gray-500 mb-2">
+                        <MapPin className="w-4 h-4" />
+                        <span>{result.location || 'Türkiye'}</span>
+                        {result.duration && (
+                          <>
+                            <Clock className="w-4 h-4 ml-2" />
+                            <span>{result.duration}</span>
+                          </>
+                        )}
+                      </div>
+
+                      <h3 className="font-bold text-lg text-gray-900 mb-3 line-clamp-2">
+                        {result.title || result.name}
+                      </h3>
+
+                      {/* Rating */}
+                      {result.rating && (
+                        <div className="flex items-center gap-2 mb-3">
+                          <div className="flex items-center gap-1">
+                            <Star className="w-4 h-4 text-yellow-500 fill-current" />
+                            <span className="font-medium">{result.rating}</span>
+                          </div>
+                          {result.reviews && (
+                            <span className="text-gray-500 text-sm">({result.reviews} değerlendirme)</span>
+                          )}
+                        </div>
+                      )}
+
+                      {/* Description or Features */}
+                      {result.description && (
+                        <p className="text-sm text-gray-600 mb-4 line-clamp-2">
+                          {result.description}
+                        </p>
+                      )}
+
+                      {/* Price and Action */}
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-2">
+                          {result.price ? (
+                            <span className="text-xl font-bold text-gray-900">
+                              {typeof result.price === 'string' ? result.price : `₺${result.price}`}
+                            </span>
+                          ) : (
+                            <span className="text-sm text-gray-500">Fiyat bilgisi yok</span>
+                          )}
+                        </div>
+                        <motion.button
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
+                          className="px-4 py-2 bg-gradient-to-r from-ailydian-primary to-ailydian-secondary text-white rounded-lg font-medium hover:shadow-lg transition-all duration-200 text-sm"
+                        >
+                          {result.type === 'hotel' ? 'Rezervasyon' : 
+                           result.type === 'flight' ? 'Bilet Al' : 
+                           result.type === 'restaurant' ? 'Rezerve Et' : 'Detaylar'}
+                        </motion.button>
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+
+              {/* Load More Button */}
+              {searchResults.length >= 9 && (
+                <div className="text-center mt-12">
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="px-8 py-3 bg-white border-2 border-ailydian-primary text-ailydian-primary rounded-2xl font-medium hover:bg-ailydian-primary hover:text-white transition-all duration-200"
+                  >
+                    Daha Fazla Sonuç Yükle
+                  </motion.button>
+                </div>
+              )}
+            </div>
+          </section>
+        )}
 
         {/* Categories */}
         <section className="py-16 bg-white">
