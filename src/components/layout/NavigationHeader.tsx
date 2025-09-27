@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
+import { useRouter, usePathname } from 'next/navigation';
 import { useSession, signOut } from 'next-auth/react';
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -36,6 +36,7 @@ import VoiceMenu from '../voice/VoiceMenu';
 
 const NavigationHeader: React.FC = () => {
   const router = useRouter();
+  const pathname = usePathname();
   const { data: session, status } = useSession();
   const { t } = useTranslation(['common', 'navigation']);
   const { getItemCount } = useCart();
@@ -270,7 +271,7 @@ const NavigationHeader: React.FC = () => {
     { title: isClient ? t('navigation:settings', 'Ayarlar') : 'Ayarlar', href: '/settings', icon: Settings },
   ];
 
-  const isActive = (path: string) => router.pathname === path;
+  const isActive = (path: string) => pathname === path;
 
   return (
     <header className="bg-white shadow-sm border-b border-gray-100 sticky top-0 z-50">
