@@ -2,6 +2,7 @@ import { appWithTranslation } from 'next-i18next'
 import { DefaultSeo } from 'next-seo'
 import { SessionProvider } from 'next-auth/react'
 import { ReactQueryProvider } from '../lib/react-query'
+import { CartProvider } from '../context/CartContext'
 import '../lib/i18n' // i18n konfigürasyonunu yükle
 import '../styles/globals.css'
 import '../styles/ailydian-theme.css'
@@ -40,8 +41,10 @@ function MyApp({
   return (
     <SessionProvider session={session}>
       <ReactQueryProvider>
-        <DefaultSeo {...seoConfig} />
-        <Component {...pageProps} />
+        <CartProvider>
+          <DefaultSeo {...seoConfig} />
+          <Component {...pageProps} />
+        </CartProvider>
       </ReactQueryProvider>
     </SessionProvider>
   )

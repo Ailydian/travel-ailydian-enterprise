@@ -6,6 +6,7 @@ import { bookingComService } from '../lib/api/booking-com-service';
 import { amadeusService } from '../lib/api/amadeus-service';
 import { googlePlacesService } from '../lib/api/google-places-service';
 import { tourismApiService } from '../lib/tourism-api-service';
+import { useCart } from '../context/CartContext';
 import { 
   Search, 
   MapPin, 
@@ -37,11 +38,16 @@ import {
   MessageCircle,
   CheckCircle,
   UserPlus,
-  Gift
+  Gift,
+  ShoppingCart,
+  Plus
 } from 'lucide-react';
 import NavigationHeader from '../components/layout/NavigationHeader';
 
 const GetYourGuideStyleHome: React.FC = () => {
+  // Cart context
+  const { addItem, getItemCount } = useCart();
+  
   // Search state
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
@@ -173,6 +179,41 @@ const GetYourGuideStyleHome: React.FC = () => {
     setSearchQuery(value);
     getSuggestions(value);
   }, [getSuggestions]);
+  
+  // Add to cart function
+  const handleAddToCart = useCallback((item: any) => {
+    const cartItem = {
+      id: item.id || `item_${Date.now()}_${Math.random()}`,
+      type: item.type || 'tour',
+      title: item.title || item.name || 'Ürün',
+      description: item.description || '',
+      image: item.image || item.photos?.[0]?.url || '/api/placeholder/300/200',
+      price: typeof item.price === 'string' ? 
+        parseFloat(item.price.replace(/[^0-9.]/g, '')) : 
+        (item.price || item.priceBreakdown?.grossPrice?.value || 100),
+      originalPrice: item.originalPrice,
+      currency: 'TRY',
+      quantity: 1,
+      date: checkInDate || new Date(Date.now() + 86400000).toISOString().split('T')[0],
+      location: item.location || item.address?.cityName || 'Türkiye',
+      duration: item.duration,
+      rating: item.rating || item.reviewScoreWord,
+      provider: item.provider || 'Ailydian',
+      bookingDetails: {
+        checkIn: checkInDate,
+        checkOut: checkOutDate,
+        guests: parseInt(travelers),
+        rooms: 1
+      },
+      cancellationPolicy: item.cancellationPolicy || 'Ücretsiz iptal 24 saat öncesine kadar',
+      isRefundable: true
+    };
+    
+    addItem(cartItem);
+    
+    // Success notification
+    alert(`"${cartItem.title}" sepete eklendi! Toplam ürün: ${getItemCount() + 1}`);
+  }, [addItem, getItemCount, checkInDate, checkOutDate, travelers]);
 
   // Türkiye ve dünya destinasyonları - Türkçe içerikli
   const featuredDestinations = [
@@ -811,15 +852,26 @@ const GetYourGuideStyleHome: React.FC = () => {
                             <span className="text-sm text-gray-500">Fiyat bilgisi yok</span>
                           )}
                         </div>
-                        <motion.button
-                          whileHover={{ scale: 1.05 }}
-                          whileTap={{ scale: 0.95 }}
-                          className="px-4 py-2 bg-gradient-to-r from-ailydian-primary to-ailydian-secondary text-white rounded-lg font-medium hover:shadow-lg transition-all duration-200 text-sm"
-                        >
-                          {result.type === 'hotel' ? 'Rezervasyon' : 
-                           result.type === 'flight' ? 'Bilet Al' : 
-                           result.type === 'restaurant' ? 'Rezerve Et' : 'Detaylar'}
-                        </motion.button>
+                        <div className="flex items-center gap-2">
+                          <motion.button
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            onClick={() => handleAddToCart(result)}
+                            className="p-2 bg-green-500 hover:bg-green-600 text-white rounded-lg transition-all duration-200"
+                            title="Sepete Ekle"
+                          >
+                            <ShoppingCart className="w-4 h-4" />
+                          </motion.button>
+                          <motion.button
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            className="px-4 py-2 bg-gradient-to-r from-ailydian-primary to-ailydian-secondary text-white rounded-lg font-medium hover:shadow-lg transition-all duration-200 text-sm"
+                          >
+                            {result.type === 'hotel' ? 'Rezervasyon' : 
+                             result.type === 'flight' ? 'Bilet Al' : 
+                             result.type === 'restaurant' ? 'Rezerve Et' : 'Detaylar'}
+                          </motion.button>
+                        </div>
                       </div>
                     </div>
                   </motion.div>
@@ -957,18 +1009,36 @@ const GetYourGuideStyleHome: React.FC = () => {
                       ))}
                     </ul>
 
-                    {/* Price */}
-                    <div className="flex items-center justify-between">
+                    {/* Price and Actions */}
+                    <div className="flex items-center justify-between mb-4">
                       <div className="flex items-center gap-2">
                         <span className="text-2xl font-bold text-gray-900">{experience.price}</span>
                         {experience.originalPrice && (
                           <span className="text-sm text-gray-500 line-through">{experience.originalPrice}</span>
                         )}
                       </div>
+                    </div>
+                    
+                    {/* Action Buttons */}
+                    <div className="flex items-center gap-2">
                       <motion.button
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
-                        className="px-6 py-2 bg-ailydian-primary text-white rounded-lg font-medium hover:bg-ailydian-dark transition-colors"
+                        onClick={() => handleAddToCart({
+                          ...experience,
+                          type: 'tour',
+                          price: typeof experience.price === 'string' ? 
+                            parseFloat(experience.price.replace(/[^0-9]/g, '')) : experience.price
+                        })}
+                        className="flex items-center gap-2 px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded-lg transition-all duration-200 font-medium text-sm"
+                      >
+                        <Plus className="w-4 h-4" />
+                        Sepete Ekle
+                      </motion.button>
+                      <motion.button
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        className="px-4 py-2 bg-ailydian-primary text-white rounded-lg font-medium hover:bg-ailydian-dark transition-colors text-sm"
                       >
                         Rezervasyon Yap
                       </motion.button>

@@ -30,12 +30,14 @@ import {
   ArrowRight
 } from 'lucide-react';
 import { searchInData, popularSearches, categoryConfig, type SearchResult } from '../../data/searchData';
+import { useCart } from '../../context/CartContext';
 import AIAssistantPopup from '../ui/AIAssistantPopup';
 
 const NavigationHeader: React.FC = () => {
   const router = useRouter();
   const { data: session, status } = useSession();
   const { t } = useTranslation(['common', 'navigation']);
+  const { getItemCount } = useCart();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
@@ -477,11 +479,13 @@ const NavigationHeader: React.FC = () => {
             </button>
 
             {/* Cart */}
-            <Link href="/cart" className="relative p-2 text-gray-700 hover:bg-gray-50 rounded-lg transition-colors">
-              <ShoppingCart className="w-5 h-5" />
-              <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
-                0
-              </span>
+            <Link href="/cart-new" className="relative p-2 text-gray-700 hover:bg-gray-50 rounded-lg transition-colors group">
+              <ShoppingCart className="w-5 h-5 group-hover:text-ailydian-primary transition-colors" />
+              {getItemCount() > 0 && (
+                <span className="absolute -top-1 -right-1 bg-ailydian-primary text-white text-xs rounded-full min-w-5 h-5 flex items-center justify-center px-1 font-medium animate-pulse">
+                  {getItemCount()}
+                </span>
+              )}
             </Link>
 
             {/* User Menu */}
