@@ -9,6 +9,8 @@ import {
   Sparkles,
   Volume2
 } from 'lucide-react';
+import { tourismApiService, HotelData, FlightData, RestaurantData, TourData } from '../../lib/tourism-api-service';
+import { COMPLETE_TURKEY_TOURISM_DATABASE, getCitiesByActivity, getCitiesByCuisine } from '../../data/turkey-tourism-database';
 
 interface AIMessage {
   id: string;
@@ -28,13 +30,13 @@ const AIAssistantPopup: React.FC<AIAssistantPopupProps> = ({ isOpen, onClose }) 
     {
       id: '1',
       type: 'ai',
-      content: 'Merhaba! Ben Travel.Ailydian AI asistanınızım. 🌟\n\nSize nasıl yardımcı olabilirim? Türkiye\'nin en güzel destinasyonları, oteller, aktiviteler ve seyahat planlaması hakkında her şeyi sorabilirsiniz!',
+      content: `🤖 **Travel.Ailydian AI Asistanı** (Gerçek Veriler)\n\nMerhaba! Ben sizin kişisel seyahat uzmanınızım. 🌟\n\n📊 **Gerçek Zamanlı Veri ile Hizmetlerim:**\n• 🏨 Otel rezervasyonları ve fiyat karşılaştırması\n• ✈️ Uçak bileti arama ve rezervasyon\n• 🍽️ Restoran önerileri ve rezervasyon\n• 🎯 Tur ve aktivite planlaması\n\n🗺️ **${Object.keys(COMPLETE_TURKEY_TOURISM_DATABASE).length}+ Türk şehri** hakkında detaylı bilgi verebilirim!\n\n💡 Hangi konuda yardım istiyorsunuz?`,
       timestamp: new Date(),
       suggestions: [
-        'İstanbul\'da 3 günlük bir plan öner',
-        'Kapadokya balon turu fiyatları',
-        'Bodrum\'da en iyi oteller',
-        'Antalya\'da yapılacak aktiviteler'
+        'İstanbul otelleri göster',
+        'Ankara-Antalya uçak bileti',
+        'Gaziantep restoranları',
+        'Kapadokya balon turu'
       ]
     }
   ]);
@@ -72,37 +74,312 @@ const AIAssistantPopup: React.FC<AIAssistantPopupProps> = ({ isOpen, onClose }) 
     }
   }, [isTyping]);
 
-  // Premium AI responses for Turkish tourism
+  // Advanced AI responses with real Turkish tourism data
   const getAIResponse = async (userMessage: string): Promise<string> => {
     const message = userMessage.toLowerCase();
     
-    // İstanbul related
-    if (message.includes('istanbul') || message.includes('İstanbul')) {
-      return `🏛️ **İstanbul için harika önerilerim var!**\n\n📍 **3 Günlük Premium Plan:**\n\n**1. Gün - Tarihi Yarımada:**\n• Ayasofya Müzesi (09:00-11:00)\n• Sultanahmet Camii (11:15-12:00)\n• Kapalıçarşı alışverişi (14:00-16:00)\n• AI rehberli Boğaz turu (18:00-20:00) - ₺120\n\n**2. Gün - Modern İstanbul:**\n• Galata Kulesi (10:00-11:30)\n• Taksim-Beyoğlu gezisi (12:00-15:00)\n• Blockchain şehir turu (16:00-20:00) - ₺240\n\n**3. Gün - Bosphorus:**\n• Dolmabahçe Sarayı (09:00-11:00)\n• Ortaköy ve Bebek (12:00-14:00)\n• VR destekli teknoloji müzesi (15:00-17:00)\n\n💰 **Toplam tahmini bütçe:** ₺1,500-2,000 kişi başı\n⭐ **En çok tavsiye edilen:** AI rehberli Boğaz turu!`;
+    try {
+      // Hotel arama
+      if (message.includes('otel') || message.includes('hotel') || message.includes('konaklama')) {
+        return await handleHotelSearch(message);
+      }
+      
+      // Uçak bileti arama
+      if (message.includes('uçak') || message.includes('flight') || message.includes('bilet')) {
+        return await handleFlightSearch(message);
+      }
+      
+      // Restoran arama
+      if (message.includes('restoran') || message.includes('yemek') || message.includes('restaurant')) {
+        return await handleRestaurantSearch(message);
+      }
+      
+      // Tur arama
+      if (message.includes('tur') || message.includes('gezi') || message.includes('aktivite')) {
+        return await handleTourSearch(message);
+      }
+      
+      // Şehir özel arama
+      const cityResult = await handleCitySpecificSearch(message);
+      if (cityResult) {
+        return cityResult;
+      }
+      
+      // Genel seyahat tavsiyesi
+      if (message.includes('plan') || message.includes('öneri') || message.includes('nereye') || message.includes('gitme')) {
+        return await handleGeneralTravelAdvice(message);
+      }
+      
+      // Default response with real data
+      return getDefaultResponse();
+      
+    } catch (error) {
+      console.error('AI Response Error:', error);
+      return getFallbackResponse();
+    }
+  };
+  
+  // Hotel arama fonksiyonu
+  const handleHotelSearch = async (message: string): Promise<string> => {
+    const location = extractLocation(message);
+    if (!location) {
+      return `🏨 **Otel Arama Yardımı**\n\nHangi şehir için otel arıyorsunuz? Örneğin:\n• "İstanbul'da otel"\n• "Antalya otelleri"\n• "Bodrum'da konaklama"\n\n🎯 **Mevcut Destinasyonlar:**\n${Object.keys(COMPLETE_TURKEY_TOURISM_DATABASE).slice(0, 8).join(', ')}`;
     }
     
-    // Kapadokya related
-    if (message.includes('kapadokya') || message.includes('balon')) {
-      return `🎈 **Kapadokya Balon Turu - Premium Deneyim!**\n\n**VR Teknolojili Balon Turu:**\n• Fiyat: ₺320 (Normal: ₺400)\n• Süre: 3 saat\n• Gündoğumu uçuşu\n• VR deneyimi eklentisi\n• Şampanyalı kahvaltı dahil\n• Otel transferi dahil\n\n⭐ Rating: 4.9/5 (1,856 değerlendirme)\n\n**En İyi Zamanlar:**\n• Nisan-Haziran: Mükemmel hava\n• Eylül-Kasım: Altın mevsim\n• Rezervasyon: 3 gün önceden\n\n**Ek Öneriler:**\n• Peri bacaları trekking\n• Yeraltı şehri turu\n• Göreme Açık Hava Müzesi\n\n🚁 **VIP Seçenek:** Helikopter turu da mevcut!`;
+    const today = new Date();
+    const tomorrow = new Date(today);
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    
+    const hotels = await tourismApiService.searchHotels(
+      location,
+      today.toISOString().split('T')[0],
+      tomorrow.toISOString().split('T')[0]
+    );
+    
+    if (hotels.length === 0) {
+      return `😔 **${location} için otel bulunamadı**\n\nDeneyebileceğiniz diğer şehirler:\n${Object.keys(COMPLETE_TURKEY_TOURISM_DATABASE).filter(city => city !== location).slice(0, 5).join(', ')}`;
     }
     
-    // Bodrum related
-    if (message.includes('bodrum')) {
-      return `🏖️ **Bodrum - Eğlence Başkenti!**\n\n**En İyi Oteller:**\n• Four Seasons Bodrum - ₺3,500/gece\n• Mandarin Oriental - ₺4,200/gece\n• Bodrum EDITION - ₺2,800/gece\n\n**Gece Hayatı & Marina Turu:**\n• Fiyat: ₺85 (Normal: ₺110)\n• Süre: 4 saat\n• VIP giriş dahil\n• Welcome drinks\n• Marina turu\n• En iyi gece kulüpleri\n\n⭐ Rating: 4.8/5\n\n**Aktiviteler:**\n• Sualtı dalma - ₺180\n• Tekne partisi\n• Antik tiyatro gezisi\n• Su sporları\n\n🌊 **Premium Tip:** Yazlık sezon için erken rezervasyon yapın!`;
+    let response = `🏨 **${location} Otel Önerileri** (Gerçek Veriler)\n\n`;
+    
+    hotels.forEach((hotel, index) => {
+      response += `**${index + 1}. ${hotel.name}**\n`;
+      response += `⭐ Rating: ${hotel.rating}/5\n`;
+      response += `💰 Fiyat: ₺${hotel.price}/gece\n`;
+      response += `🏷️ Özellikler: ${hotel.amenities.slice(0, 3).join(', ')}\n`;
+      response += `📍 Konum: ${hotel.location}\n\n`;
+    });
+    
+    const regionData = COMPLETE_TURKEY_TOURISM_DATABASE[location];
+    if (regionData) {
+      response += `🗺️ **${location} Hakkında:**\n`;
+      response += `🌟 En iyi zaman: ${regionData.bestTime}\n`;
+      response += `🎯 Öne çıkan yerler: ${regionData.highlights.slice(0, 3).join(', ')}\n`;
     }
     
-    // Antalya related  
-    if (message.includes('antalya')) {
-      return `🌅 **Antalya - Akdeniz İncisi!**\n\n**Yapılacak Aktiviteler:**\n\n🏛️ **Kültürel:**\n• Aspendos Antik Tiyatrosu\n• Perge Antik Kenti\n• Kaleiçi tarihi merkez\n\n🌊 **Su Sporları:**\n• Sualtı dalma - ₺180 (5 saat)\n• Rafting turu - ₺220\n• Yamaç paraşütü - ₺450\n• Tekne turu - ₺120\n\n🏨 **En İyi Resortlar:**\n• Antalya Beach Resort - ₺1,200/gece\n• Rixos Premium - ₺2,100/gece\n• Regnum Carya - ₺1,800/gece\n\n⛰️ **Doğa:**\n• Düden Şelalesi\n• Köprülü Kanyon\n• Olympos Antik Kenti\n\n🎯 **Premium Paket:** 5 gün 4 gece all-inclusive!`;
+    return response;
+  };
+  
+  // Uçak bileti arama fonksiyonu
+  const handleFlightSearch = async (message: string): Promise<string> => {
+    const locations = extractFlightLocations(message);
+    if (!locations.from || !locations.to) {
+      return `✈️ **Uçak Bileti Arama**\n\nNereden nereye uçmak istiyorsunuz? Örneğin:\n• "İstanbul'dan Antalya'ya uçak"\n• "Ankara Bodrum uçuşu"\n\n🛫 **Popüler Rotalar:**\n• İstanbul → Antalya\n• İstanbul → İzmir\n• Ankara → Bodrum\n• İstanbul → Trabzon`;
     }
     
-    // General travel advice
-    if (message.includes('plan') || message.includes('öneri')) {
-      return `✨ **Kişiselleştirilmiş Seyahat Planı Önerisi:**\n\n🎯 **Size Özel AI Analiz:**\n\n📊 **En Popüler Destinasyonlar:**\n1. İstanbul (⭐4.8) - Kültür + Teknoloji\n2. Kapadokya (⭐4.9) - Doğa + Macera\n3. Antalya (⭐4.7) - Deniz + Tarih\n4. Bodrum (⭐4.8) - Eğlence + Lüks\n\n💡 **Akıllı Öneriler:**\n• Blockchain ödemelerle güvenli rezervasyon\n• VR önizleme ile destinasyonları keşfedin\n• AI rehberli turlar ile derinlemesine deneyim\n\n🎁 **Özel Fırsatlar:**\n• Erken rezervasyon %25 indirim\n• Premium üyelik avantajları\n• NFT seyahat anıları\n\n🤖 Hangi destinasyon daha detaylı bilgi istiyorsunuz?`;
+    const today = new Date();
+    const departureDate = new Date(today);
+    departureDate.setDate(departureDate.getDate() + 7); // 1 hafta sonra
+    
+    const flights = await tourismApiService.searchFlights(
+      locations.from,
+      locations.to,
+      departureDate.toISOString().split('T')[0]
+    );
+    
+    if (flights.length === 0) {
+      return `😔 **${locations.from} → ${locations.to} uçuşu bulunamadı**\n\nAlternatif rotalar önerebilirim!`;
     }
     
-    // Default response
-    return `🤖 **AI Asistanınız her zaman burada!**\n\nSize şu konularda yardımcı olabilirim:\n\n🏛️ **Destinasyon Önerileri**\n• İstanbul, Kapadokya, Antalya, Bodrum\n• Gizli cennetler ve yerel deneyimler\n\n🎯 **Aktivite Planlaması**\n• AI rehberli turlar\n• VR destekli deneyimler\n• Blockchain seyahat teknolojisi\n\n🏨 **Rezervasyon Yardımı**\n• En iyi fiyat garantisi\n• Premium otel önerileri\n• Anlık onay sistemi\n\n💎 **VIP Hizmetler**\n• Özel tur düzenlemeleri\n• Lüks transfer hizmetleri\n• Kişiselleştirilmiş deneyimler\n\nHangi konuda detaylı bilgi istiyorsunuz? 😊`;
+    let response = `✈️ **${locations.from} → ${locations.to} Uçuşları** (Gerçek Veriler)\n\n`;
+    
+    flights.forEach((flight, index) => {
+      response += `**${index + 1}. ${flight.airline}**\n`;
+      response += `💰 Fiyat: ₺${flight.price}\n`;
+      response += `⏱️ Süre: ${flight.duration}\n`;
+      response += `🛬 Aktarma: ${flight.stops === 0 ? 'Direkt' : flight.stops + ' aktarma'}\n`;
+      response += `🎫 Sınıf: ${flight.class}\n\n`;
+    });
+    
+    return response;
+  };
+  
+  // Restoran arama fonksiyonu
+  const handleRestaurantSearch = async (message: string): Promise<string> => {
+    const location = extractLocation(message);
+    const cuisine = extractCuisine(message);
+    
+    if (!location) {
+      return `🍽️ **Restoran Arama**\n\nHangi şehirde restoran arıyorsunuz? Örneğin:\n• "İstanbul'da restoran"\n• "Gaziantep yemekleri"\n• "Bodrum'da balık restoranı"\n\n🍴 **Ünlü Mutfaklar:**\n• Gaziantep: Baklava, Lahmacun\n• Adana: Kebap\n• İstanbul: Çeşitli mutfaklar`;
+    }
+    
+    const restaurants = await tourismApiService.searchRestaurants(location, cuisine);
+    
+    if (restaurants.length === 0) {
+      return `🤷‍♂️ **${location}'da restoran bulunamadı**\n\nDiğer şehirleri deneyebilirsiniz!`;
+    }
+    
+    let response = `🍽️ **${location} Restoran Önerileri** (Gerçek Veriler)\n\n`;
+    
+    restaurants.forEach((restaurant, index) => {
+      response += `**${index + 1}. ${restaurant.name}**\n`;
+      response += `⭐ Rating: ${restaurant.rating}/5\n`;
+      response += `💰 Fiyat: ${restaurant.priceRange}\n`;
+      response += `🍳 Mutfak: ${restaurant.cuisine}\n`;
+      response += `⏰ Açılış: ${restaurant.openHours}\n`;
+      response += `🥘 Özel: ${restaurant.specialties.slice(0, 2).join(', ')}\n\n`;
+    });
+    
+    const regionData = COMPLETE_TURKEY_TOURISM_DATABASE[location];
+    if (regionData && regionData.cuisine) {
+      response += `🌟 **${location} Yerel Lezzetleri:**\n${regionData.cuisine.slice(0, 4).join(', ')}\n`;
+    }
+    
+    return response;
+  };
+  
+  // Tur arama fonksiyonu
+  const handleTourSearch = async (message: string): Promise<string> => {
+    const location = extractLocation(message);
+    const category = extractTourCategory(message);
+    
+    if (!location) {
+      return `🎯 **Tur & Aktivite Arama**\n\nHangi şehir için tur arıyorsunuz? Örneğin:\n• "İstanbul city tour"\n• "Kapadokya balon turu"\n• "Antalya günübirlik tur"\n\n🚀 **Popüler Turlar:**\n• Balon Turu (Kapadokya)\n• Boğaz Turu (İstanbul)\n• Antik Kent Turları (Antalya, İzmir)`;
+    }
+    
+    const tours = await tourismApiService.searchTours(location, category);
+    
+    if (tours.length === 0) {
+      return `🤷‍♂️ **${location}'da tur bulunamadı**\n\nDiğer destinasyonları kontrol edebiliriz!`;
+    }
+    
+    let response = `🎯 **${location} Tur Önerileri** (Gerçek Veriler)\n\n`;
+    
+    tours.forEach((tour, index) => {
+      response += `**${index + 1}. ${tour.name}**\n`;
+      response += `⭐ Rating: ${tour.rating}/5\n`;
+      response += `💰 Fiyat: ₺${tour.price}\n`;
+      response += `⏱️ Süre: ${tour.duration}\n`;
+      response += `✅ Dahil: ${tour.includes.slice(0, 3).join(', ')}\n`;
+      response += `🎯 Öne Çıkan: ${tour.highlights.slice(0, 2).join(', ')}\n\n`;
+    });
+    
+    const regionData = COMPLETE_TURKEY_TOURISM_DATABASE[location];
+    if (regionData) {
+      response += `🗺️ **${location} Gezilecek Yerler:**\n${regionData.attractions.slice(0, 4).join(', ')}\n`;
+    }
+    
+    return response;
+  };
+  
+  // Şehir özel arama
+  const handleCitySpecificSearch = async (message: string): Promise<string | null> => {
+    for (const city of Object.keys(COMPLETE_TURKEY_TOURISM_DATABASE)) {
+      if (message.includes(city.toLowerCase())) {
+        const cityData = COMPLETE_TURKEY_TOURISM_DATABASE[city];
+        
+        let response = `🌟 **${city} - Kapsamlı Rehber** (Gerçek Veriler)\n\n`;
+        
+        response += `🗺️ **Bölge:** ${cityData.region}\n`;
+        response += `🌤️ **İklim:** ${cityData.climate}\n`;
+        response += `📅 **En İyi Zaman:** ${cityData.bestTime}\n\n`;
+        
+        response += `🎯 **Öne Çıkan Yerler:**\n${cityData.highlights.slice(0, 4).join(', ')}\n\n`;
+        
+        response += `🏛️ **Gezilecek Yerler:**\n${cityData.attractions.slice(0, 4).join(', ')}\n\n`;
+        
+        response += `🍽️ **Yerel Lezzetler:**\n${cityData.cuisine.slice(0, 4).join(', ')}\n\n`;
+        
+        response += `⚡ **Aktiviteler:**\n${cityData.activities.slice(0, 4).join(', ')}\n\n`;
+        
+        response += `🎪 **Turizm Türleri:**\n${cityData.specialties.join(', ')}\n\n`;
+        
+        response += `💡 Daha detaylı bilgi için "${city} otelleri", "${city} turları" veya "${city} restoranları" yazabilirsiniz!`;
+        
+        return response;
+      }
+    }
+    return null;
+  };
+  
+  // Genel seyahat tavsiyesi
+  const handleGeneralTravelAdvice = async (message: string): Promise<string> => {
+    const allCities = Object.keys(COMPLETE_TURKEY_TOURISM_DATABASE);
+    const randomCities = allCities.sort(() => 0.5 - Math.random()).slice(0, 6);
+    
+    let response = `✨ **Türkiye Seyahat Rehberi** (Gerçek Veriler)\n\n`;
+    
+    response += `🎯 **Bu Ay'ın Top Destinasyonları:**\n`;
+    randomCities.forEach((city, index) => {
+      const cityData = COMPLETE_TURKEY_TOURISM_DATABASE[city];
+      response += `${index + 1}. **${city}** (${cityData.region}) - ${cityData.specialties[0]}\n`;
+    });
+    
+    response += `\n🌊 **Deniz Turizmi için:** `;
+    response += getCitiesByActivity('Plaj').slice(0, 3).join(', ');
+    
+    response += `\n🏛️ **Kültür Turizmi için:** `;
+    response += getCitiesByActivity('Kültür').slice(0, 3).join(', ');
+    
+    response += `\n⛷️ **Kış Turizmi için:** `;
+    response += getCitiesByActivity('Kayak').slice(0, 2).join(', ');
+    
+    response += `\n\n🍴 **Gastronomi Önerileri:**\n`;
+    response += getCitiesByCuisine('Kebap').slice(0, 3).join(', ');
+    
+    response += `\n\n💡 Hangi konuda detaylı bilgi istiyorsunuz?\n• Belirli bir şehir\n• Otel, restoran, tur araması\n• Aktivite önerileri`;
+    
+    return response;
+  };
+  
+  // Yardımcı fonksiyonlar
+  const extractLocation = (message: string): string | null => {
+    for (const city of Object.keys(COMPLETE_TURKEY_TOURISM_DATABASE)) {
+      if (message.includes(city.toLowerCase())) {
+        return city;
+      }
+    }
+    return null;
+  };
+  
+  const extractFlightLocations = (message: string): { from: string | null, to: string | null } => {
+    const cities = Object.keys(COMPLETE_TURKEY_TOURISM_DATABASE);
+    const foundCities = cities.filter(city => message.includes(city.toLowerCase()));
+    
+    if (foundCities.length >= 2) {
+      return { from: foundCities[0], to: foundCities[1] };
+    }
+    
+    // Yaygın kalıpları kontrol et
+    const fromMatch = message.match(/(\w+).*('dan|dan|'den|den).*\b/i);
+    const toMatch = message.match(/\b('ya|ya|'ye|ye)\s+(\w+)/i);
+    
+    return { 
+      from: fromMatch && cities.find(c => c.toLowerCase().includes(fromMatch[1].toLowerCase())) || null,
+      to: toMatch && cities.find(c => c.toLowerCase().includes(toMatch[2].toLowerCase())) || null
+    };
+  };
+  
+  const extractCuisine = (message: string): string | undefined => {
+    const cuisineKeywords = ['türk', 'deniz ürünleri', 'balık', 'kebap', 'pizza', 'çin', 'fast food'];
+    return cuisineKeywords.find(cuisine => message.includes(cuisine));
+  };
+  
+  const extractTourCategory = (message: string): string | undefined => {
+    const categories = ['kültür', 'doğa', 'macera', 'gastronomi', 'balon', 'tekne', 'yürüyüş'];
+    return categories.find(cat => message.includes(cat));
+  };
+  
+  const getDefaultResponse = (): string => {
+    const topCities = Object.keys(COMPLETE_TURKEY_TOURISM_DATABASE).slice(0, 8);
+    
+    return `🤖 **Travel.Ailydian AI Asistanı** (Gerçek Veriler)\n\n` +
+           `Size şu konularda yardımcı olabilirim:\n\n` +
+           `🏨 **Otel Rezervasyonu:** "İstanbul otelleri" yazın\n` +
+           `✈️ **Uçak Bileti:** "İstanbul Antalya uçuşu" yazın\n` +
+           `🍽️ **Restoran Önerileri:** "Gaziantep restoranları" yazın\n` +
+           `🎯 **Tur & Aktiviteler:** "Kapadokya turları" yazın\n\n` +
+           `🗺️ **Popüler Destinasyonlar:**\n${topCities.join(', ')}\n\n` +
+           `💡 Herhangi bir şehir adı yazarak o bölge hakkında detaylı bilgi alabilirsiniz!`;
+  };
+  
+  const getFallbackResponse = (): string => {
+    return `😔 **Geçici bir sorun oluştu**\n\n` +
+           `Lütfen daha sonra tekrar deneyin veya\nfarklı bir şekilde sorun.\n\n` +
+           `🔄 **Alternatif sorular:**\n` +
+           `• "İstanbul gezisi"\n` +
+           `• "Antalya otelleri"\n` +
+           `• "Bodrum turları"`;
   };
 
   const handleSend = async () => {
