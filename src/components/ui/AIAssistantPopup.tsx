@@ -42,13 +42,35 @@ const AIAssistantPopup: React.FC<AIAssistantPopupProps> = ({ isOpen, onClose }) 
   const [isTyping, setIsTyping] = useState(false);
   const [isListening, setIsListening] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const messagesContainerRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
   const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    if (messagesContainerRef.current && messagesEndRef.current) {
+      const container = messagesContainerRef.current;
+      const shouldScroll = container.scrollHeight - container.scrollTop <= container.clientHeight + 100;
+      
+      if (shouldScroll) {
+        messagesEndRef.current.scrollIntoView({ behavior: 'smooth', block: 'end' });
+      }
+    }
   };
 
-  useEffect(scrollToBottom, [messages]);
+  // Scroll to bottom when new messages arrive
+  useEffect(() => {
+    const timer = setTimeout(scrollToBottom, 100);
+    return () => clearTimeout(timer);
+  }, [messages]);
+
+  // Force scroll to bottom when typing state changes
+  useEffect(() => {
+    if (isTyping) {
+      const timer = setTimeout(() => {
+        messagesEndRef.current?.scrollIntoView({ behavior: 'smooth', block: 'end' });
+      }, 50);
+      return () => clearTimeout(timer);
+    }
+  }, [isTyping]);
 
   // Premium AI responses for Turkish tourism
   const getAIResponse = async (userMessage: string): Promise<string> => {
@@ -93,13 +115,23 @@ const AIAssistantPopup: React.FC<AIAssistantPopupProps> = ({ isOpen, onClose }) 
       timestamp: new Date()
     };
 
-    setMessages(prev => [...prev, userMessage]);
+    // Clear input first
+    const messageContent = inputValue;
     setInputValue('');
+    
+    // Add user message and scroll
+    setMessages(prev => [...prev, userMessage]);
+    
+    // Force scroll after user message
+    setTimeout(() => {
+      messagesEndRef.current?.scrollIntoView({ behavior: 'smooth', block: 'end' });
+    }, 50);
+    
     setIsTyping(true);
 
     // Simulate AI thinking time
     setTimeout(async () => {
-      const aiResponse = await getAIResponse(userMessage.content);
+      const aiResponse = await getAIResponse(messageContent);
       const aiMessage: AIMessage = {
         id: (Date.now() + 1).toString(),
         type: 'ai',
@@ -115,6 +147,11 @@ const AIAssistantPopup: React.FC<AIAssistantPopupProps> = ({ isOpen, onClose }) 
       
       setMessages(prev => [...prev, aiMessage]);
       setIsTyping(false);
+      
+      // Force scroll after AI response
+      setTimeout(() => {
+        messagesEndRef.current?.scrollIntoView({ behavior: 'smooth', block: 'end' });
+      }, 100);
     }, 1500);
   };
 
@@ -186,7 +223,7 @@ const AIAssistantPopup: React.FC<AIAssistantPopupProps> = ({ isOpen, onClose }) 
             </div>
 
             {/* Messages */}
-            <div className="flex-1 overflow-y-auto p-6 space-y-4 bg-gray-50">
+            <div ref={messagesContainerRef} className="flex-1 overflow-y-auto p-6 space-y-4 bg-gray-50 scroll-smooth">
               {messages.map((message) => (
                 <div key={message.id} className={`flex ${message.type === 'user' ? 'justify-end' : 'justify-start'}`}>
                   <div className={`max-w-[80%] ${message.type === 'user' ? 'bg-blue-600 text-white' : 'bg-gray-100 border border-gray-300 text-gray-800'} rounded-2xl p-4 shadow-sm`}>
