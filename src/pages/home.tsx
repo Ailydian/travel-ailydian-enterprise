@@ -241,29 +241,162 @@ const GetYourGuideStyleHome: React.FC = () => {
       <NavigationHeader />
 
       <main>
-        {/* Hero Section */}
-        <section className="relative bg-gradient-to-r from-ailydian-primary via-ailydian-secondary to-ailydian-primary pt-8 pb-24">
-          <div className="absolute inset-0 bg-white/10"></div>
-          <div className="relative max-w-7xl mx-auto px-4">
-            <div className="text-center mb-12">
+        {/* Hero Section with 4K Tourism Background */}
+        <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+          {/* 4K Background Video/Image */}
+          <div className="absolute inset-0 z-0">
+            {/* Primary Background Image */}
+            <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/30 to-black/50"></div>
+            <div 
+              className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+              style={{
+                backgroundImage: `url('https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3840&q=90')`
+              }}
+            ></div>
+            
+            {/* Animated Overlay Elements */}
+            <div className="absolute inset-0">
+              {/* Floating Particles */}
+              {[...Array(20)].map((_, i) => (
+                <motion.div
+                  key={i}
+                  className="absolute w-2 h-2 bg-white/20 rounded-full"
+                  style={{
+                    left: `${Math.random() * 100}%`,
+                    top: `${Math.random() * 100}%`,
+                  }}
+                  animate={{
+                    y: [-20, -40, -20],
+                    opacity: [0.3, 0.8, 0.3],
+                    scale: [1, 1.2, 1]
+                  }}
+                  transition={{
+                    duration: 3 + Math.random() * 2,
+                    repeat: Infinity,
+                    delay: Math.random() * 2
+                  }}
+                />
+              ))}
+              
+              {/* Gradient Animations */}
+              <motion.div 
+                className="absolute inset-0 bg-gradient-to-r from-ailydian-primary/20 via-transparent to-ailydian-secondary/20"
+                animate={{
+                  opacity: [0.3, 0.6, 0.3]
+                }}
+                transition={{
+                  duration: 4,
+                  repeat: Infinity
+                }}
+              />
+              
+              {/* Moving Geometric Shapes */}
+              <motion.div 
+                className="absolute top-1/4 left-1/4 w-32 h-32 border border-white/10 rounded-full"
+                animate={{
+                  rotate: [0, 360],
+                  scale: [1, 1.1, 1]
+                }}
+                transition={{
+                  duration: 8,
+                  repeat: Infinity,
+                  ease: "linear"
+                }}
+              />
+              <motion.div 
+                className="absolute top-3/4 right-1/4 w-24 h-24 border border-white/10 rounded-lg"
+                animate={{
+                  rotate: [360, 0],
+                  scale: [1, 0.9, 1]
+                }}
+                transition={{
+                  duration: 6,
+                  repeat: Infinity,
+                  ease: "linear"
+                }}
+              />
+            </div>
+            
+            {/* Premium Pattern Overlay */}
+            <div className="absolute inset-0 opacity-10" style={{
+              backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
+            }}></div>
+          </div>
+          
+          <div className="relative z-10 max-w-7xl mx-auto px-4 py-20">
+            {/* Content */}
+            <div className="text-center mb-16">
+              {/* Premium Badge */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.1 }}
+                className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-yellow-400/20 to-orange-500/20 backdrop-blur-sm border border-yellow-400/30 rounded-full text-yellow-300 text-sm font-medium mb-6"
+              >
+                <Sparkles className="w-4 h-4" />
+                <span>Türkiye&apos;nin İlk AI Destekli Premium Seyahat Platformu</span>
+                <Award className="w-4 h-4" />
+              </motion.div>
+              
               <motion.h1 
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="text-4xl md:text-6xl font-bold text-white mb-6"
+                transition={{ delay: 0.2 }}
+                className="text-5xl md:text-7xl lg:text-8xl font-extrabold text-white mb-8 leading-tight"
               >
-                Eşsiz Seyahat
-                <span className="block bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">
-                  Deneyimleri Keşfedin
+                <span className="block">
+                  Eşsiz Seyahat
                 </span>
+                <motion.span 
+                  className="block bg-gradient-to-r from-yellow-300 via-orange-400 to-red-400 bg-clip-text text-transparent"
+                  animate={{
+                    backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"]
+                  }}
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                    ease: "linear"
+                  }}
+                  style={{ backgroundSize: "200% 200%" }}
+                >
+                  Deneyimleri Keşfedin
+                </motion.span>
               </motion.h1>
+              
               <motion.p 
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 }}
-                className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto"
+                transition={{ delay: 0.4 }}
+                className="text-xl md:text-2xl text-white/90 mb-8 max-w-4xl mx-auto font-light leading-relaxed"
               >
-                AI asistanı, VR önizleme ve blockchain doğrulama ile dünya çapında turlar, aktiviteler ve çekim merkezlerini rezerve edin
+                <span className="font-semibold text-yellow-300">AI asistanı</span>, <span className="font-semibold text-purple-300">VR önizleme</span> ve <span className="font-semibold text-green-300">blockchain doğrulama</span> ile dünya çapında turlar, aktiviteler ve çekim merkezlerini rezerve edin
               </motion.p>
+              
+              {/* CTA Buttons */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.6 }}
+                className="flex flex-col sm:flex-row gap-4 justify-center mb-12"
+              >
+                <motion.button
+                  whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(0,0,0,0.3)" }}
+                  whileTap={{ scale: 0.95 }}
+                  className="px-8 py-4 bg-gradient-to-r from-ailydian-primary to-ailydian-secondary text-white rounded-2xl font-bold text-lg hover:shadow-2xl transition-all duration-300 flex items-center justify-center gap-2 min-w-[200px]"
+                >
+                  <Sparkles className="w-5 h-5" />
+                  AI ile Keşfet
+                </motion.button>
+                
+                <motion.button
+                  whileHover={{ scale: 1.05, backgroundColor: "rgba(255,255,255,0.2)" }}
+                  whileTap={{ scale: 0.95 }}
+                  className="px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/20 text-white rounded-2xl font-bold text-lg hover:shadow-2xl transition-all duration-300 flex items-center justify-center gap-2 min-w-[200px]"
+                >
+                  <Camera className="w-5 h-5" />
+                  VR Önizleme
+                </motion.button>
+              </motion.div>
 
               {/* Search Bar */}
               <motion.div 
