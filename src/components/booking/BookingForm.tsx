@@ -244,8 +244,8 @@ const BookingForm: React.FC<BookingFormProps> = ({
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
-            className="space-y-6"
           >
+            <div className="space-y-6">
             <h2 className="text-2xl font-bold text-gray-900 mb-6">
               Rezervasyon Detayları
             </h2>
@@ -463,6 +463,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
                 </div>
               </div>
             )}
+            </div>
           </motion.div>
         );
 
@@ -471,8 +472,8 @@ const BookingForm: React.FC<BookingFormProps> = ({
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
-            className="space-y-6"
           >
+            <div className="space-y-6">
             <h2 className="text-2xl font-bold text-gray-900 mb-6">
               Kişisel Bilgiler
             </h2>
@@ -575,6 +576,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
               />
             </div>
+            </div>
           </motion.div>
         );
 
@@ -583,8 +585,8 @@ const BookingForm: React.FC<BookingFormProps> = ({
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
-            className="space-y-6"
           >
+            <div className="space-y-6">
             <h2 className="text-2xl font-bold text-gray-900 mb-6">
               Ödeme Bilgileri
             </h2>
@@ -775,7 +777,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
               <h3 className="text-lg font-semibold mb-4">Sipariş Özeti</h3>
               <div className="space-y-3">
                 <div className="flex justify-between">
-                  <span className="font-medium">{item.name.tr || item.name}</span>
+                  <span className="font-medium">{typeof item.name === 'string' ? item.name : item.name.tr}</span>
                 </div>
                 <div className="flex justify-between text-sm text-gray-600">
                   <span>
@@ -797,6 +799,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
                 </div>
               </div>
             </div>
+            </div>
           </motion.div>
         );
 
@@ -805,8 +808,8 @@ const BookingForm: React.FC<BookingFormProps> = ({
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="text-center space-y-6"
           >
+            <div className="text-center space-y-6">
             <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto">
               <svg className="w-10 h-10 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
@@ -860,6 +863,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
                 Kapat
               </button>
             </div>
+            </div>
           </motion.div>
         );
 
@@ -896,21 +900,19 @@ const BookingForm: React.FC<BookingFormProps> = ({
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4"
-          onClick={onClose}
         >
+          <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4" onClick={onClose}>
           <motion.div
             initial={{ scale: 0.95, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.95, opacity: 0 }}
-            className={`bg-white rounded-xl shadow-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto ${className}`}
-            onClick={(e) => e.stopPropagation()}
           >
+            <div className={`bg-white rounded-xl shadow-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto ${className}`} onClick={(e) => e.stopPropagation()}>
             {/* Header */}
             <div className="flex items-center justify-between p-6 border-b border-gray-200">
               <div>
                 <h1 className="text-xl font-bold">Rezervasyon</h1>
-                <p className="text-sm text-gray-500">{item.name.tr || item.name}</p>
+                <p className="text-sm text-gray-500">{typeof item.name === 'string' ? item.name : item.name.tr}</p>
               </div>
               <button
                 onClick={onClose}
@@ -1012,7 +1014,9 @@ const BookingForm: React.FC<BookingFormProps> = ({
                 )}
               </div>
             )}
+            </div>
           </motion.div>
+          </div>
         </motion.div>
       )}
     </AnimatePresence>

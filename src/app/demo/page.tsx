@@ -84,7 +84,7 @@ export default function DemoPage() {
         lat: item.location!.lat,
         lng: item.location!.lng,
         name: typeof item.name === 'string' ? item.name : item.name.tr,
-        type: item.type === 'destination' ? 'attraction' : item.type,
+        type: (item.type === 'destination' ? 'attraction' : item.type) as 'custom' | 'hotel' | 'restaurant' | 'attraction' | 'tour' | 'pickup',
         address: `${typeof item.name === 'string' ? item.name : item.name.tr}`
       }));
   };
@@ -231,9 +231,11 @@ export default function DemoPage() {
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.05 }}
-                    className="p-4 border-b border-gray-100 hover:bg-gray-50 cursor-pointer transition-colors"
-                    onClick={() => handleItemClick(item)}
                   >
+                    <div
+                      className="p-4 border-b border-gray-100 hover:bg-gray-50 cursor-pointer transition-colors"
+                      onClick={() => handleItemClick(item)}
+                    >
                     <div className="flex items-start gap-4">
                       <div className="w-20 h-20 bg-gray-200 rounded-lg flex-shrink-0 flex items-center justify-center">
                         <span className="text-2xl">
@@ -278,6 +280,7 @@ export default function DemoPage() {
                           </button>
                         </div>
                       </div>
+                    </div>
                     </div>
                   </motion.div>
                 ))}

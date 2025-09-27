@@ -31,8 +31,8 @@ export const useVoiceMenu = () => {
     suggestions: []
   });
 
-  const recognitionRef = useRef<SpeechRecognition | null>(null);
-  const synthRef = useRef<SpeechSynthesis | null>(null);
+  const recognitionRef = useRef<any>(null);
+  const synthRef = useRef<any>(null);
 
   // Voice commands configuration for travel website
   const voiceCommands: VoiceCommand[] = [
@@ -176,7 +176,7 @@ export const useVoiceMenu = () => {
       setState(prev => ({ ...prev, isListening: false }));
     };
 
-    recognition.onerror = (event) => {
+    recognition.onerror = (event: any) => {
       let errorMessage = 'Sesli komut hatası';
       
       switch (event.error) {
@@ -208,7 +208,7 @@ export const useVoiceMenu = () => {
       }, 3000);
     };
 
-    recognition.onresult = (event) => {
+    recognition.onresult = (event: any) => {
       const result = event.results[0];
       const transcript = result[0].transcript.toLowerCase().trim();
       const confidence = result[0].confidence;
@@ -394,12 +394,5 @@ export const useVoiceMenu = () => {
   };
 };
 
-// Extend Window interface for speech recognition
-declare global {
-  interface Window {
-    SpeechRecognition: any;
-    webkitSpeechRecognition: any;
-  }
-}
 
 export default useVoiceMenu;

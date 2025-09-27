@@ -241,8 +241,8 @@ const AIAssistantPage: NextPage = () => {
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -20 }}
-                      className={`flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'}`}
                     >
+                      <div className={`flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'}`}>
                       <div className={`max-w-xs lg:max-w-md px-4 py-3 rounded-2xl ${
                         message.sender === 'user' 
                           ? 'bg-blue-600 text-white' 
@@ -258,6 +258,7 @@ const AIAssistantPage: NextPage = () => {
                           })}
                         </p>
                       </div>
+                      </div>
                     </motion.div>
                   ))}
                 </AnimatePresence>
@@ -268,8 +269,8 @@ const AIAssistantPage: NextPage = () => {
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="flex flex-wrap gap-2"
                   >
+                    <div className="flex flex-wrap gap-2">
                     {messages[messages.length - 1].suggestions?.map((suggestion, index) => (
                       <button
                         key={index}
@@ -278,7 +279,8 @@ const AIAssistantPage: NextPage = () => {
                       >
                         {suggestion}
                       </button>
-                    ))}
+                    })}
+                    </div>
                   </motion.div>
                 )}
 
@@ -286,14 +288,15 @@ const AIAssistantPage: NextPage = () => {
                   <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    className="flex justify-start"
                   >
+                    <div className="flex justify-start">
                     <div className="bg-gray-100 px-4 py-3 rounded-2xl">
                       <div className="flex space-x-1">
                         <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
                         <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
                         <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
                       </div>
+                    </div>
                     </div>
                   </motion.div>
                 )}

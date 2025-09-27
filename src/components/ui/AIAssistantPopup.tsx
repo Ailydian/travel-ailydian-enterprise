@@ -456,17 +456,21 @@ const AIAssistantPopup: React.FC<AIAssistantPopupProps> = ({ isOpen, onClose }) 
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 bg-black/30 backdrop-blur-sm z-[100] flex items-start justify-center pt-20 p-4"
-          onClick={onClose}
         >
+          <div
+            className="fixed inset-0 bg-black/30 backdrop-blur-sm z-[100] flex items-start justify-center pt-20 p-4"
+            onClick={onClose}
+          >
           <motion.div
             initial={{ scale: 0.9, opacity: 0, y: 20 }}
             animate={{ scale: 1, opacity: 1, y: 0 }}
             exit={{ scale: 0.9, opacity: 0, y: 20 }}
             transition={{ type: "spring", duration: 0.5 }}
-            className="bg-white rounded-3xl shadow-2xl w-full max-w-4xl h-[75vh] max-h-[600px] flex flex-col overflow-hidden"
-            onClick={(e) => e.stopPropagation()}
           >
+            <div
+              className="bg-white rounded-3xl shadow-2xl w-full max-w-4xl h-[75vh] max-h-[600px] flex flex-col overflow-hidden"
+              onClick={(e) => e.stopPropagation()}
+            >
             {/* Header */}
             <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 p-6 text-white">
               <div className="flex items-center justify-between">
@@ -574,16 +578,19 @@ const AIAssistantPopup: React.FC<AIAssistantPopupProps> = ({ isOpen, onClose }) 
                     {isListening ? <MicOff className="w-4 h-4" /> : <Mic className="w-4 h-4" />}
                   </button>
                 </div>
-                <motion.button
+                <motion.div
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  onClick={handleSend}
-                  disabled={!inputValue.trim() || isTyping}
-                  className="p-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-2xl hover:from-blue-700 hover:to-purple-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 flex items-center gap-2"
                 >
-                  <Send className="w-5 h-5" />
-                  <span className="hidden sm:inline font-medium">Gönder</span>
-                </motion.button>
+                  <button
+                    onClick={handleSend}
+                    disabled={!inputValue.trim() || isTyping}
+                    className="p-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-2xl hover:from-blue-700 hover:to-purple-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 flex items-center gap-2"
+                  >
+                    <Send className="w-5 h-5" />
+                    <span className="hidden sm:inline font-medium">Gönder</span>
+                  </button>
+                </motion.div>
               </div>
               
               {/* Quick Actions */}
@@ -600,7 +607,9 @@ const AIAssistantPopup: React.FC<AIAssistantPopupProps> = ({ isOpen, onClose }) 
                 ))}
               </div>
             </div>
+            </div>
           </motion.div>
+          </div>
         </motion.div>
       )}
     </AnimatePresence>

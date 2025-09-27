@@ -133,10 +133,11 @@ export const VoiceMenu: React.FC<VoiceMenuProps> = ({ className = '' }) => {
                 <Mic className="w-5 h-5" />
                 {/* Listening animation */}
                 <motion.div
-                  className="absolute -inset-1 border-2 border-white rounded-xl"
                   animate={{ scale: [1, 1.2, 1] }}
                   transition={{ duration: 1.5, repeat: Infinity }}
-                />
+                >
+                  <div className="absolute -inset-1 border-2 border-white rounded-xl" />
+                </motion.div>
               </div>
             ) : (
               <MicOff className="w-5 h-5" />
@@ -181,12 +182,13 @@ export const VoiceMenu: React.FC<VoiceMenuProps> = ({ className = '' }) => {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            className={`px-4 py-2 rounded-lg shadow-lg text-sm whitespace-nowrap ${
+          >
+            <div className={`px-4 py-2 rounded-lg shadow-lg text-sm whitespace-nowrap ${
               error 
                 ? 'bg-red-100 text-red-700 border border-red-200' 
                 : 'bg-blue-100 text-blue-700 border border-blue-200'
-            }`}
-          >
+            }`}>
+            
             {error ? (
               <div className="flex items-center gap-2">
                 <AlertCircle className="w-4 h-4" />
@@ -208,6 +210,7 @@ export const VoiceMenu: React.FC<VoiceMenuProps> = ({ className = '' }) => {
                 &quot;{transcript}&quot; {confidence && `(${Math.round(confidence * 100)}%)`}
               </div>
             ) : null}
+            </div>
           </motion.div>
         </div>
       )}
@@ -219,8 +222,8 @@ export const VoiceMenu: React.FC<VoiceMenuProps> = ({ className = '' }) => {
             initial={{ opacity: 0, scale: 0.95, y: -10 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: -10 }}
-            className="absolute top-full right-0 mt-2 w-72 bg-white rounded-xl shadow-xl border border-gray-200 p-4 z-50"
           >
+            <div className="absolute top-full right-0 mt-2 w-72 bg-white rounded-xl shadow-xl border border-gray-200 p-4 z-50">
             <div className="flex items-center justify-between mb-3">
               <h4 className="font-semibold text-gray-900 flex items-center gap-2">
                 <Zap className="w-4 h-4 text-yellow-500" />
@@ -248,6 +251,7 @@ export const VoiceMenu: React.FC<VoiceMenuProps> = ({ className = '' }) => {
                 </button>
               ))}
             </div>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
@@ -259,16 +263,20 @@ export const VoiceMenu: React.FC<VoiceMenuProps> = ({ className = '' }) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50"
-            onClick={() => setShowModal(false)}
           >
+            <div
+              className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50"
+              onClick={() => setShowModal(false)}
+            >
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.9 }}
-              onClick={(e) => e.stopPropagation()}
-              className="bg-white rounded-2xl w-full max-w-4xl max-h-[80vh] overflow-y-auto"
             >
+              <div
+                onClick={(e) => e.stopPropagation()}
+                className="bg-white rounded-2xl w-full max-w-4xl max-h-[80vh] overflow-y-auto"
+              >
               {/* Modal Header */}
               <div className="sticky top-0 bg-white border-b border-gray-200 px-6 py-4 rounded-t-2xl">
                 <div className="flex items-center justify-between">
@@ -387,7 +395,9 @@ export const VoiceMenu: React.FC<VoiceMenuProps> = ({ className = '' }) => {
                   </div>
                 )}
               </div>
+              </div>
             </motion.div>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

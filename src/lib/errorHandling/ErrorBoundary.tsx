@@ -178,25 +178,26 @@ const DefaultErrorFallback: React.FC<ErrorFallbackProps> = ({
   return (
     <div className="min-h-screen bg-ailydian-bg flex items-center justify-center p-4">
       <motion.div
-        className="max-w-md w-full bg-glass-dark rounded-2xl p-8 text-center border border-ailydian-primary/20"
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5 }}
       >
-        <motion.div
-          className="flex justify-center mb-6"
-          animate={{ 
-            rotate: [0, -10, 10, -10, 0],
-            scale: [1, 1.1, 1]
-          }}
-          transition={{ 
-            duration: 2,
-            repeat: Infinity,
-            repeatDelay: 3
-          }}
-        >
-          <ExclamationTriangleIcon className="w-16 h-16 text-ailydian-primary" />
-        </motion.div>
+        <div className="max-w-md w-full bg-glass-dark rounded-2xl p-8 text-center border border-ailydian-primary/20">
+          <motion.div
+            animate={{ 
+              rotate: [0, -10, 10, -10, 0],
+              scale: [1, 1.1, 1]
+            }}
+            transition={{ 
+              duration: 2,
+              repeat: Infinity,
+              repeatDelay: 3
+            }}
+          >
+            <div className="flex justify-center mb-6">
+              <ExclamationTriangleIcon className="w-16 h-16 text-ailydian-primary" />
+            </div>
+          </motion.div>
 
         <h2 className="text-2xl font-display font-bold text-ailydian-text mb-4">
           Bir Şeyler Ters Gitti
@@ -207,60 +208,72 @@ const DefaultErrorFallback: React.FC<ErrorFallbackProps> = ({
         </p>
 
         {process.env.NODE_ENV === 'development' && error && (
-          <motion.details
-            className="mb-6 text-left bg-ailydian-bg-card rounded-lg p-4"
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3 }}
           >
+            <details className="mb-6 text-left bg-ailydian-bg-card rounded-lg p-4">
             <summary className="cursor-pointer text-ailydian-secondary font-semibold mb-2">
               Hata Detayları (Geliştirme)
             </summary>
             <pre className="text-xs text-ailydian-text-dim overflow-auto max-h-32">
               {error.message}
             </pre>
-          </motion.details>
+            </details>
+          </motion.div>
         )}
 
         <div className="space-y-4">
           {canRetry ? (
-            <motion.button
-              onClick={retry}
-              className="w-full bg-gradient-to-r from-ailydian-primary to-ailydian-secondary text-white font-semibold py-3 px-6 rounded-lg shadow-neon hover:shadow-neon-lg transition-all duration-300"
+            <motion.div
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              <ArrowPathIcon className="w-5 h-5 inline-block mr-2" />
-              Tekrar Dene {retryCount > 0 && `(${retryCount}/${maxRetries})`}
-            </motion.button>
+              <button
+                onClick={retry}
+                className="w-full bg-gradient-to-r from-ailydian-primary to-ailydian-secondary text-white font-semibold py-3 px-6 rounded-lg shadow-neon hover:shadow-neon-lg transition-all duration-300"
+              >
+                <ArrowPathIcon className="w-5 h-5 inline-block mr-2" />
+                Tekrar Dene {retryCount > 0 && `(${retryCount}/${maxRetries})`}
+              </button>
+            </motion.div>
           ) : (
-            <motion.button
-              onClick={() => window.location.reload()}
-              className="w-full bg-ailydian-bg-hover text-ailydian-text font-semibold py-3 px-6 rounded-lg border border-ailydian-primary/30 hover:border-ailydian-primary/60 transition-all duration-300"
+            <motion.div
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              Sayfayı Yenile
-            </motion.button>
+              <button
+                onClick={() => window.location.reload()}
+                className="w-full bg-ailydian-bg-hover text-ailydian-text font-semibold py-3 px-6 rounded-lg border border-ailydian-primary/30 hover:border-ailydian-primary/60 transition-all duration-300"
+              >
+                Sayfayı Yenile
+              </button>
+            </motion.div>
           )}
 
-          <motion.button
-            onClick={() => window.location.href = '/'}
-            className="w-full text-ailydian-text-secondary hover:text-ailydian-text transition-colors duration-300"
+          <motion.div
             whileHover={{ scale: 1.02 }}
           >
-            Ana Sayfaya Dön
-          </motion.button>
+            <button
+              onClick={() => window.location.href = '/'}
+              className="w-full text-ailydian-text-secondary hover:text-ailydian-text transition-colors duration-300"
+            >
+              Ana Sayfaya Dön
+            </button>
+          </motion.div>
         </div>
 
-        <motion.p
-          className="text-xs text-ailydian-text-dim mt-6"
+        <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1 }}
         >
-          Sorun devam ederse, destek ekibimizle iletişime geçin.
-        </motion.p>
+          <p className="text-xs text-ailydian-text-dim mt-6">
+            Sorun devam ederse, destek ekibimizle iletişime geçin.
+          </p>
+        </motion.div>
+        </div>
       </motion.div>
     </div>
   );

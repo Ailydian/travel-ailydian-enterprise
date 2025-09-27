@@ -48,7 +48,7 @@ const VoiceController: React.FC<VoiceControllerProps> = ({
   
   const recognitionRef = useRef<any>(null);
   const synthRef = useRef<SpeechSynthesis>(window.speechSynthesis);
-  const timeoutRef = useRef<NodeJS.Timeout>();
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   // Supported languages
   const languages = [
@@ -318,24 +318,27 @@ const VoiceController: React.FC<VoiceControllerProps> = ({
       <motion.div
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
-        className="relative"
       >
-        <motion.button
-          onClick={toggleVoiceControl}
-          className={`p-4 rounded-full shadow-lg transition-all duration-300 ${
-            isEnabled
-              ? 'bg-gradient-to-r from-blue-500 to-purple-600 text-white'
-              : 'bg-white text-gray-600 hover:bg-gray-50'
-          }`}
+        <div className="relative">
+        <motion.div
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          {isEnabled ? (
-            <Volume2 className="w-6 h-6" />
-          ) : (
-            <VolumeX className="w-6 h-6" />
-          )}
-        </motion.button>
+          <button
+            onClick={toggleVoiceControl}
+            className={`p-4 rounded-full shadow-lg transition-all duration-300 ${
+              isEnabled
+                ? 'bg-gradient-to-r from-blue-500 to-purple-600 text-white'
+                : 'bg-white text-gray-600 hover:bg-gray-50'
+            }`}
+          >
+            {isEnabled ? (
+              <Volume2 className="w-6 h-6" />
+            ) : (
+              <VolumeX className="w-6 h-6" />
+            )}
+          </button>
+        </motion.div>
 
         {/* Status Indicators */}
         {isEnabled && (
@@ -344,19 +347,22 @@ const VoiceController: React.FC<VoiceControllerProps> = ({
               <motion.div
                 animate={{ scale: [1, 1.2, 1] }}
                 transition={{ repeat: Infinity, duration: 1 }}
-                className="absolute -top-2 -right-2 w-4 h-4 bg-red-500 rounded-full"
-              />
+              >
+                <div className="absolute -top-2 -right-2 w-4 h-4 bg-red-500 rounded-full" />
+              </motion.div>
             )}
             
             {isSpeaking && (
               <motion.div
                 animate={{ opacity: [0.5, 1, 0.5] }}
                 transition={{ repeat: Infinity, duration: 0.8 }}
-                className="absolute -top-2 -left-2 w-4 h-4 bg-green-500 rounded-full"
-              />
+              >
+                <div className="absolute -top-2 -left-2 w-4 h-4 bg-green-500 rounded-full" />
+              </motion.div>
             )}
           </>
         )}
+        </div>
       </motion.div>
 
       {/* Voice Control Panel */}
@@ -366,8 +372,8 @@ const VoiceController: React.FC<VoiceControllerProps> = ({
             initial={{ opacity: 0, y: 20, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.9 }}
-            className="absolute bottom-16 left-0 w-80 bg-white rounded-2xl shadow-2xl border border-gray-200 overflow-hidden"
           >
+            <div className="absolute bottom-16 left-0 w-80 bg-white rounded-2xl shadow-2xl border border-gray-200 overflow-hidden">
             {/* Header */}
             <div className="p-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white">
               <div className="flex items-center justify-between">
@@ -406,8 +412,8 @@ const VoiceController: React.FC<VoiceControllerProps> = ({
                   initial={{ height: 0 }}
                   animate={{ height: 'auto' }}
                   exit={{ height: 0 }}
-                  className="border-b border-gray-200 overflow-hidden"
                 >
+                  <div className="border-b border-gray-200 overflow-hidden">
                   <div className="p-4">
                     <h4 className="font-medium text-gray-900 mb-3">Dil Seçimi</h4>
                     <div className="grid grid-cols-2 gap-2">
@@ -425,6 +431,7 @@ const VoiceController: React.FC<VoiceControllerProps> = ({
                         </button>
                       ))}
                     </div>
+                  </div>
                   </div>
                 </motion.div>
               )}
@@ -486,30 +493,36 @@ const VoiceController: React.FC<VoiceControllerProps> = ({
 
               {/* Controls */}
               <div className="flex items-center gap-2">
-                <motion.button
-                  onClick={toggleListening}
-                  className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-colors ${
-                    isListening
-                      ? 'bg-red-500 text-white hover:bg-red-600'
-                      : 'bg-blue-500 text-white hover:bg-blue-600'
-                  }`}
+                <motion.div
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
-                  {isListening ? <MicOff className="w-4 h-4" /> : <Mic className="w-4 h-4" />}
-                  {isListening ? 'Dur' : 'Dinle'}
-                </motion.button>
+                  <button
+                    onClick={toggleListening}
+                    className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-colors ${
+                      isListening
+                        ? 'bg-red-500 text-white hover:bg-red-600'
+                        : 'bg-blue-500 text-white hover:bg-blue-600'
+                    }`}
+                  >
+                    {isListening ? <MicOff className="w-4 h-4" /> : <Mic className="w-4 h-4" />}
+                    {isListening ? 'Dur' : 'Dinle'}
+                  </button>
+                </motion.div>
 
                 {isSpeaking && (
-                  <motion.button
-                    onClick={stopSpeaking}
-                    className="flex items-center gap-2 px-4 py-2 bg-orange-500 text-white rounded-lg font-medium hover:bg-orange-600 transition-colors"
+                  <motion.div
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                   >
-                    <Pause className="w-4 h-4" />
-                    Sustur
-                  </motion.button>
+                    <button
+                      onClick={stopSpeaking}
+                      className="flex items-center gap-2 px-4 py-2 bg-orange-500 text-white rounded-lg font-medium hover:bg-orange-600 transition-colors"
+                    >
+                      <Pause className="w-4 h-4" />
+                      Sustur
+                    </button>
+                  </motion.div>
                 )}
               </div>
             </div>
@@ -532,6 +545,7 @@ const VoiceController: React.FC<VoiceControllerProps> = ({
                   </div>
                 ))}
               </div>
+            </div>
             </div>
           </motion.div>
         )}

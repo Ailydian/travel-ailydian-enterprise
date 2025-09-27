@@ -307,7 +307,10 @@ export class ReservationManager {
     checkInDate: Date,
     itemType: string
   ): ReservationData['cancellationPolicy'] {
-    const policies = {
+    const policies: Record<string, {
+      freeCancellationDays: number;
+      fees: { days: number; feePercentage: number; }[];
+    }> = {
       tour: {
         freeCancellationDays: 2,
         fees: [

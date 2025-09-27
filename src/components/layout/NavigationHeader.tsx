@@ -722,17 +722,21 @@ const NavigationHeader: React.FC = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/50 z-[9999] flex items-start justify-center pt-20"
-            onClick={() => setIsSliderSearchOpen(false)}
           >
+            <div 
+              className="fixed inset-0 bg-black/50 z-[9999] flex items-start justify-center pt-20"
+              onClick={() => setIsSliderSearchOpen(false)}
+            >
             <motion.div
               initial={{ opacity: 0, y: -50, scale: 0.95 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -50, scale: 0.95 }}
               transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              className="bg-white rounded-xl shadow-2xl w-full max-w-2xl mx-4 overflow-hidden"
-              onClick={(e) => e.stopPropagation()}
             >
+              <div 
+                className="bg-white rounded-xl shadow-2xl w-full max-w-2xl mx-4 overflow-hidden"
+                onClick={(e) => e.stopPropagation()}
+              >
               {/* Header */}
               <div className="flex items-center justify-between p-4 border-b border-gray-200">
                 <h3 className="text-lg font-semibold text-gray-900 flex items-center gap-2">
@@ -894,7 +898,9 @@ const NavigationHeader: React.FC = () => {
                   </div>
                 )}
               </div>
+              </div>
             </motion.div>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

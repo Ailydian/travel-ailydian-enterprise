@@ -26,7 +26,7 @@ export const useAutoLanguageDetection = () => {
     'RU': 'ru', 'BY': 'ru', 'KZ': 'ru',
     'CN': 'zh', 'TW': 'zh', 'HK': 'zh', 'SG': 'zh',
     'JP': 'ja', 'KR': 'ko', 'PT': 'pt', 'BR': 'pt',
-    'NL': 'nl', 'BE': 'nl', 'SE': 'sv', 'NO': 'no',
+    'NL': 'nl', 'SE': 'sv', 'NO': 'no',
     'DK': 'da', 'FI': 'fi', 'PL': 'pl', 'CZ': 'cs',
     'HU': 'hu', 'RO': 'ro', 'BG': 'bg', 'HR': 'hr',
     'RS': 'sr', 'SK': 'sk', 'SI': 'sl', 'EE': 'et',

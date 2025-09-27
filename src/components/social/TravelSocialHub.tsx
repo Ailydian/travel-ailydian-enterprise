@@ -285,8 +285,8 @@ const TravelSocialHub: React.FC = () => {
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      className="bg-white rounded-2xl shadow-lg overflow-hidden mb-6"
     >
+      <div className="bg-white rounded-2xl shadow-lg overflow-hidden mb-6">
       {/* Header */}
       <div className="p-4 flex items-center justify-between">
         <div className="flex items-center gap-3">
@@ -354,17 +354,20 @@ const TravelSocialHub: React.FC = () => {
       <div className="p-4 border-t border-gray-100">
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center gap-4">
-            <motion.button
+            <motion.div
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
-              onClick={() => handleLikePost(post.id)}
-              className="flex items-center gap-2 text-gray-600 hover:text-red-500 transition-colors"
             >
+              <button
+                onClick={() => handleLikePost(post.id)}
+                className="flex items-center gap-2 text-gray-600 hover:text-red-500 transition-colors"
+              >
               <Heart 
                 className={`w-5 h-5 ${post.isLiked ? 'fill-red-500 text-red-500' : ''}`}
               />
               <span className="text-sm font-medium">{post.likes.length}</span>
-            </motion.button>
+              </button>
+            </motion.div>
             
             <button className="flex items-center gap-2 text-gray-600 hover:text-blue-500 transition-colors">
               <MessageCircle className="w-5 h-5" />
@@ -377,16 +380,19 @@ const TravelSocialHub: React.FC = () => {
             </button>
           </div>
           
-          <motion.button
+          <motion.div
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
-            onClick={() => handleBookmarkPost(post.id)}
-            className="text-gray-600 hover:text-yellow-500 transition-colors"
           >
+            <button
+              onClick={() => handleBookmarkPost(post.id)}
+              className="text-gray-600 hover:text-yellow-500 transition-colors"
+            >
             <Bookmark 
               className={`w-5 h-5 ${post.isBookmarked ? 'fill-yellow-500 text-yellow-500' : ''}`}
             />
-          </motion.button>
+            </button>
+          </motion.div>
         </div>
 
         {/* Comments */}
@@ -419,6 +425,7 @@ const TravelSocialHub: React.FC = () => {
           </div>
         )}
       </div>
+      </div>
     </motion.div>
   );
 
@@ -426,8 +433,8 @@ const TravelSocialHub: React.FC = () => {
     <motion.div
       initial={{ opacity: 0, scale: 0.9 }}
       animate={{ opacity: 1, scale: 1 }}
-      className="bg-white rounded-2xl shadow-lg p-6 mb-4"
     >
+      <div className="bg-white rounded-2xl shadow-lg p-6 mb-4">
       <div className="flex items-start justify-between mb-4">
         <div className="flex items-center gap-4">
           <div className="relative">
@@ -455,15 +462,18 @@ const TravelSocialHub: React.FC = () => {
           </div>
         </div>
         
-        <motion.button
+        <motion.div
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          onClick={() => handleFollowUser(user.id)}
-          className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-xl font-medium hover:bg-blue-700 transition-colors"
         >
-          <UserPlus className="w-4 h-4" />
-          Takip Et
-        </motion.button>
+          <button
+            onClick={() => handleFollowUser(user.id)}
+            className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-xl font-medium hover:bg-blue-700 transition-colors"
+          >
+            <UserPlus className="w-4 h-4" />
+            Takip Et
+          </button>
+        </motion.div>
       </div>
 
       <p className="text-gray-700 mb-4">{user.bio}</p>
@@ -508,6 +518,7 @@ const TravelSocialHub: React.FC = () => {
           <span className="text-sm text-gray-600">{user.countries.length} ülke</span>
         </div>
       </div>
+      </div>
     </motion.div>
   );
 
@@ -523,15 +534,18 @@ const TravelSocialHub: React.FC = () => {
             <div className="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full" />
           </button>
           
-          <motion.button
+          <motion.div
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            onClick={() => setShowNewPostModal(true)}
-            className="flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-xl font-medium hover:bg-blue-700 transition-colors"
           >
+            <button
+              onClick={() => setShowNewPostModal(true)}
+              className="flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-xl font-medium hover:bg-blue-700 transition-colors"
+            >
             <Plus className="w-5 h-5" />
             Paylaş
-          </motion.button>
+            </button>
+          </motion.div>
         </div>
       </div>
 
@@ -545,20 +559,23 @@ const TravelSocialHub: React.FC = () => {
         ].map((tab) => {
           const Icon = tab.icon;
           return (
-            <motion.button
+            <motion.div
               key={tab.key}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              onClick={() => setActiveTab(tab.key as any)}
-              className={`flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-lg font-medium transition-colors ${
-                activeTab === tab.key
-                  ? 'bg-white text-blue-600 shadow-sm'
-                  : 'text-gray-600 hover:text-gray-900'
-              }`}
             >
+              <button
+                onClick={() => setActiveTab(tab.key as any)}
+                className={`flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-lg font-medium transition-colors ${
+                  activeTab === tab.key
+                    ? 'bg-white text-blue-600 shadow-sm'
+                    : 'text-gray-600 hover:text-gray-900'
+                }`}
+              >
               <Icon className="w-5 h-5" />
               {tab.label}
-            </motion.button>
+              </button>
+            </motion.div>
           );
         })}
       </div>
@@ -663,16 +680,20 @@ const TravelSocialHub: React.FC = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50"
-            onClick={() => setShowNewPostModal(false)}
           >
+            <div 
+              className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50"
+              onClick={() => setShowNewPostModal(false)}
+            >
             <motion.div
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
-              onClick={(e) => e.stopPropagation()}
-              className="bg-white rounded-2xl p-6 w-full max-w-lg"
             >
+              <div 
+                onClick={(e) => e.stopPropagation()}
+                className="bg-white rounded-2xl p-6 w-full max-w-lg"
+              >
               <div className="flex items-center justify-between mb-6">
                 <h3 className="text-xl font-bold text-gray-900">Yeni Gönderi</h3>
                 <button
@@ -701,17 +722,22 @@ const TravelSocialHub: React.FC = () => {
                   </button>
                 </div>
 
-                <motion.button
+                <motion.div
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  onClick={createNewPost}
-                  disabled={!newPostContent.trim()}
-                  className="px-6 py-2 bg-blue-600 text-white rounded-xl font-medium hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 >
+                  <button
+                    onClick={createNewPost}
+                    disabled={!newPostContent.trim()}
+                    className="px-6 py-2 bg-blue-600 text-white rounded-xl font-medium hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
                   Paylaş
-                </motion.button>
+                  </button>
+                </motion.div>
+              </div>
               </div>
             </motion.div>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

@@ -91,7 +91,6 @@ const Custom403Page: React.FC = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
-                className="mb-8"
               >
                 <div className="relative inline-block">
                   <div className="text-9xl font-bold neon-text-strong" style={{
@@ -103,16 +102,18 @@ const Custom403Page: React.FC = () => {
                   <motion.div
                     animate={{ scale: [1, 1.1, 1] }}
                     transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                    className="absolute -top-8 -right-8"
                   >
-                    <Shield className="w-12 h-12" style={{color: 'var(--ac-1)', filter: 'drop-shadow(0 0 15px var(--ac-1))'}} />
+                    <div className="absolute -top-8 -right-8">
+                      <Shield className="w-12 h-12" style={{color: 'var(--ac-1)', filter: 'drop-shadow(0 0 15px var(--ac-1))'}} />
+                    </div>
                   </motion.div>
                   <motion.div
                     animate={{ rotate: [0, 5, 0, -5, 0] }}
                     transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                    className="absolute -bottom-4 -left-8"
                   >
-                    <Lock className="w-10 h-10" style={{color: 'var(--ac-2)', filter: 'drop-shadow(0 0 8px var(--ac-2))'}} />
+                    <div className="absolute -bottom-4 -left-8">
+                      <Lock className="w-10 h-10" style={{color: 'var(--ac-2)', filter: 'drop-shadow(0 0 8px var(--ac-2))'}} />
+                    </div>
                   </motion.div>
                 </div>
               </motion.div>
@@ -122,8 +123,8 @@ const Custom403Page: React.FC = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="mb-8"
               >
+                <div className="mb-8">
                 <h1 className="text-4xl md:text-5xl font-bold neon-text-strong mb-4" style={{
                   color: 'var(--tx-1)',
                   textShadow: '0 0 15px var(--ac-1)'
@@ -148,6 +149,7 @@ const Custom403Page: React.FC = () => {
                     Bu içeriği görüntülemek için özel yetkilere sahip olmanız gerekmektedir.
                   </p>
                 </div>
+                </div>
               </motion.div>
 
               {/* Action Buttons */}
@@ -155,8 +157,8 @@ const Custom403Page: React.FC = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
-                className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12"
               >
+                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
                 <Link
                   href="/login"
                   className="inline-flex items-center px-8 py-4 rounded-2xl font-semibold transition-all duration-300 neon-glow"
@@ -236,6 +238,7 @@ const Custom403Page: React.FC = () => {
                   <ArrowLeft className="w-5 h-5 mr-2" />
                   Geri Dön
                 </button>
+                </div>
               </motion.div>
             </div>
           </main>

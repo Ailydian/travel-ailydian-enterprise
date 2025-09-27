@@ -139,29 +139,32 @@ const Custom404Page: React.FC = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
-                className="mb-8"
               >
-                <div className="relative inline-block">
-                  <div className="text-9xl font-bold neon-text-strong" style={{
-                    color: 'var(--tx-1)',
-                    textShadow: '0 0 20px var(--ac-1), 0 0 40px var(--ac-1), 0 0 60px var(--ac-1), 0 0 80px var(--ac-1)'
-                  }}>
-                    404
+                <div className="mb-8">
+                  <div className="relative inline-block">
+                    <div className="text-9xl font-bold neon-text-strong" style={{
+                      color: 'var(--tx-1)',
+                      textShadow: '0 0 20px var(--ac-1), 0 0 40px var(--ac-1), 0 0 60px var(--ac-1), 0 0 80px var(--ac-1)'
+                    }}>
+                      404
+                    </div>
+                    <motion.div
+                      animate={{ rotate: 360 }}
+                      transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                    >
+                      <div className="absolute -top-8 -right-8">
+                        <Sparkles className="w-12 h-12" style={{color: 'var(--ac-2)', filter: 'drop-shadow(0 0 10px var(--ac-2))'}} />
+                      </div>
+                    </motion.div>
+                    <motion.div
+                      animate={{ y: [-10, 10, -10] }}
+                      transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                    >
+                      <div className="absolute -bottom-4 -left-8">
+                        <Plane className="w-10 h-10" style={{color: 'var(--ac-1)', filter: 'drop-shadow(0 0 8px var(--ac-1))'}} />
+                      </div>
+                    </motion.div>
                   </div>
-                  <motion.div
-                    animate={{ rotate: 360 }}
-                    transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                    className="absolute -top-8 -right-8"
-                  >
-                    <Sparkles className="w-12 h-12" style={{color: 'var(--ac-2)', filter: 'drop-shadow(0 0 10px var(--ac-2))'}} />
-                  </motion.div>
-                  <motion.div
-                    animate={{ y: [-10, 10, -10] }}
-                    transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                    className="absolute -bottom-4 -left-8"
-                  >
-                    <Plane className="w-10 h-10" style={{color: 'var(--ac-1)', filter: 'drop-shadow(0 0 8px var(--ac-1))'}} />
-                  </motion.div>
                 </div>
               </motion.div>
 
@@ -170,8 +173,8 @@ const Custom404Page: React.FC = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="mb-8"
               >
+                <div className="mb-8">
                 <h1 className="text-4xl md:text-5xl font-bold neon-text-strong mb-4" style={{
                   color: 'var(--tx-1)',
                   textShadow: '0 0 15px var(--ac-1)'
@@ -181,6 +184,7 @@ const Custom404Page: React.FC = () => {
                 <p className="text-xl mb-6 max-w-2xl mx-auto" style={{color: 'var(--tx-2)'}}>
                   {t('errors.404.description')}
                 </p>
+                </div>
               </motion.div>
 
               {/* Search Form */}
@@ -188,8 +192,8 @@ const Custom404Page: React.FC = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
-                className="mb-12"
               >
+                <div className="mb-12">
                 <form onSubmit={handleSearch} className="max-w-md mx-auto">
                   <div className="relative">
                     <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5" style={{color: 'var(--tx-3)'}} />
@@ -235,6 +239,7 @@ const Custom404Page: React.FC = () => {
                     </button>
                   </div>
                 </form>
+                </div>
               </motion.div>
 
               {/* Action Buttons */}
@@ -242,8 +247,8 @@ const Custom404Page: React.FC = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.6 }}
-                className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16"
               >
+                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
                 <Link
                   href="/"
                   className="inline-flex items-center px-8 py-4 rounded-2xl font-semibold transition-all duration-300 neon-glow"
@@ -291,6 +296,7 @@ const Custom404Page: React.FC = () => {
                   <ArrowLeft className="w-5 h-5 mr-2" />
                   Geri Dön
                 </button>
+                </div>
               </motion.div>
 
               {/* Popular Destinations */}
@@ -298,8 +304,8 @@ const Custom404Page: React.FC = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.8 }}
-                className="mb-8"
               >
+                <div className="mb-8">
                 <h2 className="text-2xl font-bold neon-text-strong mb-8 flex items-center justify-center" style={{
                   color: 'var(--tx-1)',
                   textShadow: '0 0 15px var(--ac-2)'
@@ -363,6 +369,7 @@ const Custom404Page: React.FC = () => {
                     </motion.div>
                   ))}
                 </div>
+                </div>
               </motion.div>
 
               {/* Quick Links */}
@@ -370,8 +377,8 @@ const Custom404Page: React.FC = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 1.2 }}
-                className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto"
               >
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto">
                 {[
                   { icon: MapPin, label: 'Destinasyonlar', href: '/destinations' },
                   { icon: Hotel, label: 'Oteller', href: '/hotels' },
@@ -410,6 +417,7 @@ const Custom404Page: React.FC = () => {
                     </Link>
                   );
                 })}
+                </div>
               </motion.div>
             </div>
           </main>

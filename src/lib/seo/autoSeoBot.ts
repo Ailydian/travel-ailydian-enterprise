@@ -1,6 +1,4 @@
 import { NextSeoProps } from 'next-seo';
-import { generateMetaTags } from './metaTagGenerator';
-import { submitToSearchEngines } from './searchEngineSubmission';
 
 interface SeoAnalysis {
   score: number;
