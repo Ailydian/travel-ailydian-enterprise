@@ -114,16 +114,16 @@ const Custom404Page: React.FC = () => {
                 </Link>
 
                 <nav className="hidden md:flex items-center space-x-8">
-                  <Link href="/destinations" className="transition-colors" style={{color: 'var(--tx-2)'}} onMouseEnter={(e) => e.target.style.color = 'var(--ac-1)'} onMouseLeave={(e) => e.target.style.color = 'var(--tx-2)'}>
+                  <Link href="/destinations" className="transition-colors" style={{color: 'var(--tx-2)'}} onMouseEnter={(e) => (e.target as HTMLElement).style.color = 'var(--ac-1)'} onMouseLeave={(e) => (e.target as HTMLElement).style.color = 'var(--tx-2)'}>
                     Destinasyonlar
                   </Link>
-                  <Link href="/hotels" className="transition-colors" style={{color: 'var(--tx-2)'}} onMouseEnter={(e) => e.target.style.color = 'var(--ac-1)'} onMouseLeave={(e) => e.target.style.color = 'var(--tx-2)'}>
+                  <Link href="/hotels" className="transition-colors" style={{color: 'var(--tx-2)'}} onMouseEnter={(e) => (e.target as HTMLElement).style.color = 'var(--ac-1)'} onMouseLeave={(e) => (e.target as HTMLElement).style.color = 'var(--tx-2)'}>
                     Oteller
                   </Link>
-                  <Link href="/flights" className="transition-colors" style={{color: 'var(--tx-2)'}} onMouseEnter={(e) => e.target.style.color = 'var(--ac-1)'} onMouseLeave={(e) => e.target.style.color = 'var(--tx-2)'}>
+                  <Link href="/flights" className="transition-colors" style={{color: 'var(--tx-2)'}} onMouseEnter={(e) => (e.target as HTMLElement).style.color = 'var(--ac-1)'} onMouseLeave={(e) => (e.target as HTMLElement).style.color = 'var(--tx-2)'}>
                     Uçak Biletleri
                   </Link>
-                  <Link href="/activities" className="transition-colors" style={{color: 'var(--tx-2)'}} onMouseEnter={(e) => e.target.style.color = 'var(--ac-1)'} onMouseLeave={(e) => e.target.style.color = 'var(--tx-2)'}>
+                  <Link href="/activities" className="transition-colors" style={{color: 'var(--tx-2)'}} onMouseEnter={(e) => (e.target as HTMLElement).style.color = 'var(--ac-1)'} onMouseLeave={(e) => (e.target as HTMLElement).style.color = 'var(--tx-2)'}>
                     Aktiviteler
                   </Link>
                 </nav>
@@ -223,12 +223,12 @@ const Custom404Page: React.FC = () => {
                         boxShadow: '0 0 20px var(--ac-1), 0 0 40px var(--ac-1)'
                       }}
                       onMouseEnter={(e) => {
-                        e.target.style.boxShadow = '0 0 30px var(--ac-1), 0 0 60px var(--ac-1)';
-                        e.target.style.transform = 'translateY(-50%) scale(1.05)';
+                        (e.target as HTMLElement).style.boxShadow = '0 0 30px var(--ac-1), 0 0 60px var(--ac-1)';
+                        (e.target as HTMLElement).style.transform = 'translateY(-50%) scale(1.05)';
                       }}
                       onMouseLeave={(e) => {
-                        e.target.style.boxShadow = '0 0 20px var(--ac-1), 0 0 40px var(--ac-1)';
-                        e.target.style.transform = 'translateY(-50%) scale(1)';
+                        (e.target as HTMLElement).style.boxShadow = '0 0 20px var(--ac-1), 0 0 40px var(--ac-1)';
+                        (e.target as HTMLElement).style.transform = 'translateY(-50%) scale(1)';
                       }}
                     >
                       Ara
@@ -254,12 +254,12 @@ const Custom404Page: React.FC = () => {
                     border: 'none'
                   }}
                   onMouseEnter={(e) => {
-                    e.target.style.boxShadow = '0 0 35px var(--ac-1), 0 0 70px var(--ac-1)';
-                    e.target.style.transform = 'scale(1.05) translateY(-2px)';
+                    (e.target as HTMLElement).style.boxShadow = '0 0 35px var(--ac-1), 0 0 70px var(--ac-1)';
+                    (e.target as HTMLElement).style.transform = 'scale(1.05) translateY(-2px)';
                   }}
                   onMouseLeave={(e) => {
-                    e.target.style.boxShadow = '0 0 25px var(--ac-1), 0 0 50px var(--ac-1)';
-                    e.target.style.transform = 'scale(1) translateY(0px)';
+                    (e.target as HTMLElement).style.boxShadow = '0 0 25px var(--ac-1), 0 0 50px var(--ac-1)';
+                    (e.target as HTMLElement).style.transform = 'scale(1) translateY(0px)';
                   }}
                 >
                   <Home className="w-5 h-5 mr-2" />
@@ -276,16 +276,16 @@ const Custom404Page: React.FC = () => {
                     boxShadow: '0 0 15px rgba(255, 33, 77, 0.3)'
                   }}
                   onMouseEnter={(e) => {
-                    e.target.style.backgroundColor = 'var(--ac-1)';
-                    e.target.style.color = 'white';
-                    e.target.style.boxShadow = '0 0 25px var(--ac-1), 0 0 50px var(--ac-1)';
-                    e.target.style.transform = 'scale(1.05) translateY(-2px)';
+                    (e.target as HTMLElement).style.backgroundColor = 'var(--ac-1)';
+                    (e.target as HTMLElement).style.color = 'white';
+                    (e.target as HTMLElement).style.boxShadow = '0 0 25px var(--ac-1), 0 0 50px var(--ac-1)';
+                    (e.target as HTMLElement).style.transform = 'scale(1.05) translateY(-2px)';
                   }}
                   onMouseLeave={(e) => {
-                    e.target.style.backgroundColor = 'var(--bg-1)';
-                    e.target.style.color = 'var(--tx-1)';
-                    e.target.style.boxShadow = '0 0 15px rgba(255, 33, 77, 0.3)';
-                    e.target.style.transform = 'scale(1) translateY(0px)';
+                    (e.target as HTMLElement).style.backgroundColor = 'var(--bg-1)';
+                    (e.target as HTMLElement).style.color = 'var(--tx-1)';
+                    (e.target as HTMLElement).style.boxShadow = '0 0 15px rgba(255, 33, 77, 0.3)';
+                    (e.target as HTMLElement).style.transform = 'scale(1) translateY(0px)';
                   }}
                 >
                   <ArrowLeft className="w-5 h-5 mr-2" />
@@ -325,14 +325,14 @@ const Custom404Page: React.FC = () => {
                           boxShadow: '0 0 20px rgba(255, 33, 77, 0.3)'
                         }}
                         onMouseEnter={(e) => {
-                          e.target.style.boxShadow = '0 0 30px var(--ac-1), 0 0 60px var(--ac-1)';
-                          e.target.style.transform = 'translateY(-5px) scale(1.02)';
-                          e.target.style.borderColor = 'var(--ac-2)';
+                          (e.target as HTMLElement).style.boxShadow = '0 0 30px var(--ac-1), 0 0 60px var(--ac-1)';
+                          (e.target as HTMLElement).style.transform = 'translateY(-5px) scale(1.02)';
+                          (e.target as HTMLElement).style.borderColor = 'var(--ac-2)';
                         }}
                         onMouseLeave={(e) => {
-                          e.target.style.boxShadow = '0 0 20px rgba(255, 33, 77, 0.3)';
-                          e.target.style.transform = 'translateY(0px) scale(1)';
-                          e.target.style.borderColor = 'var(--ac-1)';
+                          (e.target as HTMLElement).style.boxShadow = '0 0 20px rgba(255, 33, 77, 0.3)';
+                          (e.target as HTMLElement).style.transform = 'translateY(0px) scale(1)';
+                          (e.target as HTMLElement).style.borderColor = 'var(--ac-1)';
                         }}
                       >
                         <div className="relative h-48">
@@ -390,12 +390,12 @@ const Custom404Page: React.FC = () => {
                         boxShadow: '0 0 15px rgba(255, 33, 77, 0.3)'
                       }}
                       onMouseEnter={(e) => {
-                        e.target.style.boxShadow = '0 0 25px var(--ac-1), 0 0 50px var(--ac-1)';
-                        e.target.style.transform = 'scale(1.05) translateY(-3px)';
+                        (e.target as HTMLElement).style.boxShadow = '0 0 25px var(--ac-1), 0 0 50px var(--ac-1)';
+                        (e.target as HTMLElement).style.transform = 'scale(1.05) translateY(-3px)';
                       }}
                       onMouseLeave={(e) => {
-                        e.target.style.boxShadow = '0 0 15px rgba(255, 33, 77, 0.3)';
-                        e.target.style.transform = 'scale(1) translateY(0px)';
+                        (e.target as HTMLElement).style.boxShadow = '0 0 15px rgba(255, 33, 77, 0.3)';
+                        (e.target as HTMLElement).style.transform = 'scale(1) translateY(0px)';
                       }}
                     >
                       <div className="w-12 h-12 rounded-2xl flex items-center justify-center mb-3 transition-transform duration-300 group-hover:scale-110 border" style={{
@@ -404,7 +404,7 @@ const Custom404Page: React.FC = () => {
                       }}>
                         <Icon className="w-6 h-6" style={{color: 'var(--ac-1)', filter: 'drop-shadow(0 0 5px var(--ac-1))'}} />
                       </div>
-                      <span className="text-sm font-medium transition-colors" style={{color: 'var(--tx-2)'}} onMouseEnter={(e) => e.target.style.color = 'var(--ac-1)'} onMouseLeave={(e) => e.target.style.color = 'var(--tx-2)'}>
+                      <span className="text-sm font-medium transition-colors" style={{color: 'var(--tx-2)'}} onMouseEnter={(e) => (e.target as HTMLElement).style.color = 'var(--ac-1)'} onMouseLeave={(e) => (e.target as HTMLElement).style.color = 'var(--tx-2)'}>
                         {item.label}
                       </span>
                     </Link>

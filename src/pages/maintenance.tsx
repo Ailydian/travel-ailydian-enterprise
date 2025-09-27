@@ -258,12 +258,12 @@ const MaintenancePage: React.FC = () => {
                       color: 'var(--ac-1)'
                     }}
                     onMouseEnter={(e) => {
-                      e.target.style.backgroundColor = 'var(--ac-1)';
-                      e.target.style.color = 'white';
+                      (e.target as HTMLElement).style.backgroundColor = 'var(--ac-1)';
+                      (e.target as HTMLElement).style.color = 'white';
                     }}
                     onMouseLeave={(e) => {
-                      e.target.style.backgroundColor = 'rgba(255, 33, 77, 0.1)';
-                      e.target.style.color = 'var(--ac-1)';
+                      (e.target as HTMLElement).style.backgroundColor = 'rgba(255, 33, 77, 0.1)';
+                      (e.target as HTMLElement).style.color = 'var(--ac-1)';
                     }}
                   >
                     <span className="text-sm font-medium">E-posta Destek</span>
@@ -277,12 +277,12 @@ const MaintenancePage: React.FC = () => {
                       color: 'var(--ac-2)'
                     }}
                     onMouseEnter={(e) => {
-                      e.target.style.backgroundColor = 'var(--ac-2)';
-                      e.target.style.color = 'white';
+                      (e.target as HTMLElement).style.backgroundColor = 'var(--ac-2)';
+                      (e.target as HTMLElement).style.color = 'white';
                     }}
                     onMouseLeave={(e) => {
-                      e.target.style.backgroundColor = 'rgba(255, 106, 69, 0.1)';
-                      e.target.style.color = 'var(--ac-2)';
+                      (e.target as HTMLElement).style.backgroundColor = 'rgba(255, 106, 69, 0.1)';
+                      (e.target as HTMLElement).style.color = 'var(--ac-2)';
                     }}
                   >
                     <span className="text-sm font-medium">Telefon Destek</span>

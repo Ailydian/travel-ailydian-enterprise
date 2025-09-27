@@ -2,26 +2,23 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "version": 2,
   "framework": "nextjs",
-  "alias": ["travel.ailydian.com", "travel-ailydian.vercel.app"],
+  "alias": ["travel.ailydian.com"],
   
   "build": {
     "env": {
       "NODE_ENV": "production",
-      "NEXT_TELEMETRY_DISABLED": "1",
-      "AI_OPTIMIZATION": "enabled",
-      "QUANTUM_PROCESSING": "enabled",
-      "BLOCKCHAIN_VALIDATION": "enabled"
+      "NEXT_TELEMETRY_DISABLED": "1"
     }
   },
   
   "functions": {
     "src/pages/api/**/*.{js,ts}": {
-      "memory": 1024,
-      "maxDuration": 30
+      "memory": 512,
+      "maxDuration": 15
     }
   },
   
-  "regions": ["iad1", "fra1", "sin1"],
+  "regions": ["iad1"],
   
   "headers": [
     {
@@ -41,12 +38,6 @@
   
   
   "env": {
-    "NEXT_PUBLIC_SITE_URL": "https://travel.ailydian.com",
-    "NEXT_PUBLIC_API_URL": "https://api.travel.ailydian.com",
-    "NEXT_PUBLIC_CDN_URL": "https://cdn.ailydian.com",
-    "NEXT_PUBLIC_BLOCKCHAIN_NETWORK": "mainnet",
-    "NEXT_PUBLIC_METAVERSE_ENDPOINT": "https://metaverse.ailydian.com",
-    "NEXT_PUBLIC_NFT_MARKETPLACE": "https://nft.ailydian.com",
-    "NEXT_PUBLIC_AI_GATEWAY": "https://ai.ailydian.com"
+    "NEXT_PUBLIC_SITE_URL": "https://travel.ailydian.com"
   }
 }

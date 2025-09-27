@@ -1,0 +1,447 @@
+/* ===== AILYDIAN ADVANCED DESIGN SYSTEM ===== */
+
+:root {
+  /* Ana renk paleti - Ailydian Brand Colors */
+  --ac-1: #FF214D;           /* Ana Neon Kırmızı */
+  --ac-2: #FF6A45;           /* Ana Neon Turuncu */
+  --ac-3: #FF0844;           /* Koyu Neon Kırmızı */
+  --bg-0: #0A0A0B;           /* Ana Karanlık Arka Plan */
+  --bg-1: #1a1a1b;           /* Açık Karanlık Arka Plan */
+  --tx-1: #F3F4F6;           /* Ana Açık Yazı */
+  --tx-2: #E5E7EB;           /* İkincil Açık Yazı */
+  --tx-3: #9CA3AF;           /* Açık Gri Yazı */
+  
+  /* Gradient değişkenleri */
+  --gradient-primary: linear-gradient(135deg, var(--ac-1), var(--ac-2));
+  --gradient-secondary: linear-gradient(45deg, var(--ac-2), var(--ac-3));
+  --gradient-dark: linear-gradient(135deg, var(--bg-0), var(--bg-1));
+  
+  /* Glow efektleri */
+  --neon-glow-primary: 0 0 20px var(--ac-1), 0 0 40px var(--ac-1), 0 0 60px var(--ac-1);
+  --neon-glow-secondary: 0 0 20px var(--ac-2), 0 0 40px var(--ac-2), 0 0 60px var(--ac-2);
+  --text-shadow-neon: 0 0 10px currentColor, 0 0 20px currentColor, 0 0 30px currentColor;
+}
+
+/* ===== ADVANCED NEON ANIMATIONS ===== */
+
+@keyframes neon-pulse {
+  0%, 100% {
+    text-shadow: 
+      0 0 5px currentColor,
+      0 0 10px currentColor,
+      0 0 15px currentColor,
+      0 0 20px var(--ac-1),
+      0 0 35px var(--ac-1),
+      0 0 40px var(--ac-1);
+  }
+  50% {
+    text-shadow: 
+      0 0 2px currentColor,
+      0 0 5px currentColor,
+      0 0 8px currentColor,
+      0 0 12px var(--ac-1),
+      0 0 18px var(--ac-1),
+      0 0 25px var(--ac-1);
+  }
+}
+
+@keyframes neon-flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    text-shadow: var(--text-shadow-neon);
+    opacity: 1;
+  }
+  20%, 24%, 55% {
+    text-shadow: none;
+    opacity: 0.4;
+  }
+}
+
+@keyframes glow-rotate {
+  0% {
+    box-shadow: 
+      0 0 20px var(--ac-1),
+      0 0 40px var(--ac-1),
+      inset 0 0 20px var(--ac-1);
+  }
+  25% {
+    box-shadow: 
+      0 0 25px var(--ac-2),
+      0 0 45px var(--ac-2),
+      inset 0 0 25px var(--ac-2);
+  }
+  50% {
+    box-shadow: 
+      0 0 30px var(--ac-1),
+      0 0 50px var(--ac-1),
+      inset 0 0 30px var(--ac-1);
+  }
+  75% {
+    box-shadow: 
+      0 0 25px var(--ac-2),
+      0 0 45px var(--ac-2),
+      inset 0 0 25px var(--ac-2);
+  }
+  100% {
+    box-shadow: 
+      0 0 20px var(--ac-1),
+      0 0 40px var(--ac-1),
+      inset 0 0 20px var(--ac-1);
+  }
+}
+
+@keyframes orbital-motion {
+  0% {
+    transform: rotate(0deg) translateX(100px) rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg) translateX(100px) rotate(-360deg);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes float-up-down {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes scale-pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+/* ===== COMPONENT CLASSES ===== */
+
+.ailydian-neon-text {
+  color: var(--tx-1);
+  text-shadow: var(--text-shadow-neon);
+  animation: neon-pulse 2s infinite ease-in-out;
+}
+
+.ailydian-neon-text-flicker {
+  color: var(--ac-1);
+  animation: neon-flicker 1.5s infinite;
+}
+
+.ailydian-glow-box {
+  background: var(--gradient-dark);
+  border: 2px solid var(--ac-1);
+  border-radius: 16px;
+  box-shadow: var(--neon-glow-primary);
+  animation: glow-rotate 4s infinite ease-in-out;
+  transition: all 0.3s ease;
+}
+
+.ailydian-glow-box:hover {
+  transform: scale(1.02);
+  box-shadow: 
+    0 0 30px var(--ac-1),
+    0 0 60px var(--ac-1),
+    0 0 90px var(--ac-1),
+    inset 0 0 30px var(--ac-1);
+}
+
+.ailydian-orbital-container {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin: 50px auto;
+}
+
+.ailydian-orbital-element {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: var(--gradient-primary);
+  border-radius: 50%;
+  animation: orbital-motion 10s linear infinite;
+  box-shadow: var(--neon-glow-primary);
+}
+
+.ailydian-orbital-element:nth-child(2) {
+  animation-delay: -2.5s;
+  animation-duration: 8s;
+}
+
+.ailydian-orbital-element:nth-child(3) {
+  animation-delay: -5s;
+  animation-duration: 12s;
+}
+
+.ailydian-shimmer-overlay {
+  position: relative;
+  overflow: hidden;
+}
+
+.ailydian-shimmer-overlay::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  animation: shimmer 2s infinite;
+}
+
+.ailydian-floating-element {
+  animation: float-up-down 3s ease-in-out infinite;
+}
+
+.ailydian-scale-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ailydian-scale-hover:hover {
+  animation: scale-pulse 1s ease-in-out infinite;
+  box-shadow: var(--neon-glow-secondary);
+}
+
+/* ===== BUTTON STYLES ===== */
+
+.ailydian-btn-primary {
+  background: var(--gradient-primary);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 24px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 
+    0 4px 15px rgba(255, 33, 77, 0.4),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.ailydian-btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.ailydian-btn-primary:hover::before {
+  left: 100%;
+}
+
+.ailydian-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 8px 25px rgba(255, 33, 77, 0.6),
+    0 0 30px rgba(255, 33, 77, 0.8),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+}
+
+.ailydian-btn-secondary {
+  background: transparent;
+  color: var(--ac-1);
+  border: 2px solid var(--ac-1);
+  border-radius: 12px;
+  padding: 10px 22px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px rgba(255, 33, 77, 0.3);
+}
+
+.ailydian-btn-secondary:hover {
+  background: var(--ac-1);
+  color: white;
+  box-shadow: 
+    0 0 25px var(--ac-1),
+    0 0 50px var(--ac-1),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+/* ===== CARD STYLES ===== */
+
+.ailydian-card {
+  background: linear-gradient(135deg, 
+    rgba(255, 33, 77, 0.05) 0%, 
+    rgba(255, 106, 69, 0.05) 100%);
+  border: 1px solid rgba(255, 33, 77, 0.2);
+  border-radius: 20px;
+  padding: 24px;
+  backdrop-filter: blur(10px);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(255, 33, 77, 0.1),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.ailydian-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--gradient-primary);
+  opacity: 0.6;
+}
+
+.ailydian-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(255, 33, 77, 0.4);
+  box-shadow: 
+    0 20px 50px rgba(0, 0, 0, 0.4),
+    0 0 30px rgba(255, 33, 77, 0.3),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+/* ===== INPUT STYLES ===== */
+
+.ailydian-input {
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid rgba(255, 33, 77, 0.3);
+  border-radius: 12px;
+  padding: 12px 16px;
+  color: var(--tx-1);
+  font-size: 16px;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.ailydian-input:focus {
+  outline: none;
+  border-color: var(--ac-1);
+  box-shadow: 
+    0 0 20px rgba(255, 33, 77, 0.4),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.ailydian-input::placeholder {
+  color: var(--tx-3);
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+
+@media (max-width: 768px) {
+  .ailydian-orbital-container {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .ailydian-orbital-element {
+    width: 15px;
+    height: 15px;
+  }
+  
+  .ailydian-card {
+    padding: 16px;
+    border-radius: 16px;
+  }
+  
+  .ailydian-btn-primary,
+  .ailydian-btn-secondary {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .ailydian-orbital-container {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .ailydian-orbital-element {
+    width: 12px;
+    height: 12px;
+  }
+  
+  .ailydian-neon-text {
+    font-size: 1.5rem;
+  }
+  
+  .ailydian-card {
+    padding: 12px;
+    border-radius: 12px;
+  }
+}
+
+/* ===== ACCESSIBILITY ===== */
+
+@media (prefers-reduced-motion: reduce) {
+  .ailydian-neon-text,
+  .ailydian-neon-text-flicker,
+  .ailydian-glow-box,
+  .ailydian-orbital-element,
+  .ailydian-floating-element,
+  .ailydian-scale-hover:hover,
+  .ailydian-shimmer-overlay::after {
+    animation: none;
+  }
+  
+  .ailydian-btn-primary::before {
+    transition: none;
+  }
+}
+
+/* ===== DARK MODE ENHANCEMENTS ===== */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-0: #000000;
+    --bg-1: #111111;
+  }
+  
+  .ailydian-card {
+    background: linear-gradient(135deg, 
+      rgba(255, 33, 77, 0.08) 0%, 
+      rgba(255, 106, 69, 0.08) 100%);
+  }
+}
+
+/* ===== HIGH CONTRAST MODE ===== */
+
+@media (prefers-contrast: high) {
+  .ailydian-neon-text {
+    text-shadow: none;
+    color: #ffffff;
+  }
+  
+  .ailydian-card {
+    border: 2px solid var(--ac-1);
+  }
+  
+  .ailydian-input {
+    border: 2px solid var(--ac-1);
+  }
+}

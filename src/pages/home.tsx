@@ -845,11 +845,11 @@ const GetYourGuideStyleHome: React.FC = () => {
               <div className="flex flex-col sm:flex-row items-center gap-4 text-sm text-gray-600">
                 <p>© 2025 Ailydian Travel Enterprise. Tüm hakları saklıdır.</p>
                 <div className="flex items-center gap-4">
-                  <a href="/privacy" className="hover:text-gray-900 transition-colors">Gizlilik Politikası</a>
+                  <Link href="/privacy" className="hover:text-gray-900 transition-colors">Gizlilik Politikası</Link>
                   <span>•</span>
-                  <a href="/terms" className="hover:text-gray-900 transition-colors">Kullanım Şartları</a>
+                  <Link href="/terms" className="hover:text-gray-900 transition-colors">Kullanım Şartları</Link>
                   <span>•</span>
-                  <a href="/cookies" className="hover:text-gray-900 transition-colors">Çerez Politikası</a>
+                  <Link href="/cookies" className="hover:text-gray-900 transition-colors">Çerez Politikası</Link>
                 </div>
               </div>
               

@@ -221,7 +221,7 @@ const BookingSuccess: React.FC = () => {
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-2">
                         <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
-                        <span className="text-green-800 font-medium">Onaylandı & Blockchain'de Kayıtlı</span>
+                        <span className="text-green-800 font-medium">Onaylandı &amp; Blockchain&apos;de Kayıtlı</span>
                       </div>
                       <span className="text-sm text-green-600">Biletiniz e-posta ile gönderildi</span>
                     </div>

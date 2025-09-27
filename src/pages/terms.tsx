@@ -58,7 +58,7 @@ const Terms: React.FC = () => {
               <h2 className="text-2xl font-bold text-gray-900 mb-4">5. AI ve VR Hizmetleri</h2>
               <p className="text-gray-700 leading-relaxed">
                 AI seyahat planlama ve VR önizleme hizmetlerimiz sürekli geliştirilmektedir. 
-                Bu teknolojilerin kullanımında doğruluk oranları %95'in üzerindedir ancak mutlak değildir.
+                Bu teknolojilerin kullanımında doğruluk oranları %95&apos;in üzerindedir ancak mutlak değildir.
               </p>
             </section>
 
@@ -74,7 +74,7 @@ const Terms: React.FC = () => {
               <h2 className="text-2xl font-bold text-gray-900 mb-4">7. Fikri Mülkiyet</h2>
               <p className="text-gray-700 leading-relaxed">
                 Platformdaki tüm içerik, AI algoritmaları, VR deneyimleri ve blockchain teknolojisi 
-                Travel.Ailydian'ın fikri mülkiyetindedir ve korunmaktadır.
+                Travel.Ailydian&apos;n fikri mülkiyetindedir ve korunmaktadır.
               </p>
             </section>
 
@@ -87,7 +87,7 @@ const Terms: React.FC = () => {
 
             <div className="border-t pt-8">
               <p className="text-sm text-gray-500">
-                Son güncelleme: 26 Eylül 2025 | Bu şartlar Türk Hukuku'na tabidir.
+                Son güncelleme: 26 Eylül 2025 | Bu şartlar Türk Hukuku&apos;na tabidir.
               </p>
             </div>
           </div>

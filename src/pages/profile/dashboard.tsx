@@ -61,6 +61,11 @@ const Dashboard: React.FC = () => {
   }
 
   const user = session.user;
+  
+  if (!user) {
+    return null;
+  }
+  
   const membershipType = (user as any)?.membershipType || 'BASIC';
   const loyaltyPoints = (user as any)?.loyaltyPoints || 0;
 

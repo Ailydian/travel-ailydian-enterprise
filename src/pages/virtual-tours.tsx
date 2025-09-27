@@ -216,7 +216,7 @@ const VirtualToursPage: NextPage = () => {
                 <h1 className="text-5xl font-bold">Sanal Turlar</h1>
               </div>
               <p className="text-xl mb-8 max-w-3xl mx-auto">
-                Türkiye'nin tarih ve doğa harikalarını evinizin konforunda keşfedin. 
+                Türkiye&apos;nin tarih ve doğa harikalarını evinizin konforunda keşfedin. 
                 VR destekli 360° turlarla immersive seyahat deneyimi yaşayın.
               </p>
               

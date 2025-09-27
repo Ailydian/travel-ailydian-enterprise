@@ -45,6 +45,13 @@ const NavigationHeader: React.FC = () => {
   const [selectedResultIndex, setSelectedResultIndex] = useState(-1);
   const [searchHistory, setSearchHistory] = useState<string[]>([]);
   const [isAIAssistantOpen, setIsAIAssistantOpen] = useState(false);
+
+  // Global AI Assistant state management
+  useEffect(() => {
+    const handleOpenAI = () => setIsAIAssistantOpen(true);
+    window.addEventListener('openAIAssistant', handleOpenAI);
+    return () => window.removeEventListener('openAIAssistant', handleOpenAI);
+  }, []);
   
   const searchInputRef = useRef<HTMLInputElement>(null);
   const searchDropdownRef = useRef<HTMLDivElement>(null);
@@ -414,7 +421,7 @@ const NavigationHeader: React.FC = () => {
                           onClick={handleSearchSubmit}
                           className="mt-2 text-blue-600 hover:text-blue-700 text-sm flex items-center gap-1 mx-auto"
                         >
-                          <span>\"{searchQuery}\" için tüm sonuçları görüntüle</span>
+                          <span>&quot;{searchQuery}&quot; için tüm sonuçları görüntüle</span>
                           <ArrowRight className="w-3 h-3" />
                         </button>
                       </div>
@@ -452,7 +459,10 @@ const NavigationHeader: React.FC = () => {
             <motion.button 
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => setIsAIAssistantOpen(true)}
+              onClick={() => {
+                // AI Asistan'ı hero section üstünde aç
+                window.dispatchEvent(new CustomEvent('openAIAssistant'));
+              }}
               className="relative flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl hover:from-blue-700 hover:to-purple-700 transition-all duration-200 shadow-lg hover:shadow-xl"
             >
               <Bot className="w-4 h-4" />

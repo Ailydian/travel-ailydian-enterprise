@@ -1,4 +1,7 @@
 const { i18n } = require('./next-i18next.config')
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
+})
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -8,10 +11,10 @@ const nextConfig = {
   compress: true,
   poweredByHeader: false,
   eslint: {
-    ignoreDuringBuilds: true,
+    ignoreDuringBuilds: false,
   },
   typescript: {
-    ignoreBuildErrors: true,
+    ignoreBuildErrors: false,
   },
   
   images: {
@@ -56,8 +59,39 @@ const nextConfig = {
       net: false,
       tls: false,
     }
+    
+    // Performance optimizasyonları
+    config.optimization = {
+      ...config.optimization,
+      splitChunks: {
+        chunks: 'all',
+        cacheGroups: {
+          vendor: {
+            test: /[\\\/]node_modules[\\\/]/,
+            name: 'vendors',
+            chunks: 'all',
+          },
+          common: {
+            name: 'common',
+            minChunks: 2,
+            priority: -10,
+            reuseExistingChunk: true,
+          },
+        },
+      },
+    }
+    
     return config
-  }
+  },
+  
+  // Experimental özellikler - CSS optimizasyonu geçici olarak kapatıldı
+  experimental: {
+    // optimizeCss: true, // Vercel deployment hatası nedeniyle kapatıldı
+    scrollRestoration: true,
+  },
+  
+  // Output optimizasyonları - Vercel için kaldırıldı
+  // output: 'standalone'
 }
 
-module.exports = nextConfig
+module.exports = withBundleAnalyzer(nextConfig)

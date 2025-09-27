@@ -278,12 +278,12 @@ const LoginPage: React.FC = () => {
                       boxShadow: `0 0 10px ${social.color}20`
                     }}
                     onMouseEnter={(e) => {
-                      e.target.style.backgroundColor = `${social.color}15`;
-                      e.target.style.borderColor = social.color;
+                      (e.target as HTMLElement).style.backgroundColor = `${social.color}15`;
+                      (e.target as HTMLElement).style.borderColor = social.color;
                     }}
                     onMouseLeave={(e) => {
-                      e.target.style.backgroundColor = 'var(--bg-1)';
-                      e.target.style.borderColor = social.color;
+                      (e.target as HTMLElement).style.backgroundColor = 'var(--bg-1)';
+                      (e.target as HTMLElement).style.borderColor = social.color;
                     }}
                   >
                     <Icon className="w-5 h-5" style={{color: social.color}} />

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import puppeteer from 'puppeteer';
+import puppeteer, { Browser, Page } from 'puppeteer';
 
 export interface TestResult {
   id: string;
@@ -33,8 +33,8 @@ export interface SmokeTestReport {
 
 export class SmokeTestRunner {
   private baseUrl: string;
-  private browser: puppeteer.Browser | null = null;
-  private page: puppeteer.Page | null = null;
+  private browser: Browser | null = null;
+  private page: Page | null = null;
   private results: TestResult[] = [];
   private testStartTime: number = 0;
 
@@ -207,7 +207,7 @@ export class SmokeTestRunner {
       if (searchInput) {
         await searchInput.type('Istanbul');
         await this.page!.keyboard.press('Enter');
-        await this.page!.waitForTimeout(2000);
+        await new Promise(resolve => setTimeout(resolve, 2000));
         
         const currentUrl = this.page!.url();
         if (currentUrl.includes('search') || currentUrl.includes('Istanbul')) {
@@ -260,7 +260,7 @@ export class SmokeTestRunner {
       
       if (cartIcon) {
         await cartIcon.click();
-        await this.page!.waitForTimeout(1000);
+        await new Promise(resolve => setTimeout(resolve, 1000));
         
         const currentUrl = this.page!.url();
         if (currentUrl.includes('cart')) {
@@ -298,7 +298,7 @@ export class SmokeTestRunner {
           await form.$eval('button[type="submit"], input[type="submit"]', button => (button as HTMLElement).click())
             .catch(() => {});
           
-          await this.page!.waitForTimeout(1000);
+          await new Promise(resolve => setTimeout(resolve, 1000));
           
           const validationMessages = await this.page!.$$('.error, .invalid, [data-error], .field-error');
           
@@ -759,7 +759,7 @@ export class SmokeTestRunner {
                 }
                 return acc;
               }, {} as any))
-              .map(([category, stats]) => `
+              .map(([category, stats]: [string, any]) => `
                 <div class="category-card" style="background: ${categoryColors[category]}">
                     <h3>${category.charAt(0).toUpperCase() + category.slice(1)} Tests</h3>
                     <div class="category-stats">

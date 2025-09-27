@@ -21,7 +21,7 @@ const Cookies: React.FC = () => {
               <h2 className="text-2xl font-bold text-gray-900 mb-4">1. Çerez Nedir?</h2>
               <p className="text-gray-700 leading-relaxed">
                 Çerezler, web sitelerini ziyaret ettiğinizde tarayıcınıza kaydedilen küçük metin dosyalarıdır. 
-                Travel.Ailydian'da çerezler, AI öneri sistemi, kişiselleştirme ve site performansını iyileştirmek için kullanılır.
+                Travel.Ailydian&apos;da çerezler, AI öneri sistemi, kişiselleştirme ve site performansını iyileştirmek için kullanılır.
               </p>
             </section>
 
@@ -57,10 +57,10 @@ const Cookies: React.FC = () => {
                 Çerezleri kontrol etmek için tarayıcı ayarlarınızı kullanabilirsiniz:
               </p>
               <ul className="list-disc list-inside text-gray-700 space-y-2">
-                <li><strong>Chrome:</strong> Ayarlar > Gizlilik ve Güvenlik > Çerezler</li>
-                <li><strong>Firefox:</strong> Seçenekler > Gizlilik ve Güvenlik</li>
-                <li><strong>Safari:</strong> Tercihler > Gizlilik</li>
-                <li><strong>Edge:</strong> Ayarlar > Çerezler ve Site İzinleri</li>
+                <li><strong>Chrome:</strong> Ayarlar &gt; Gizlilik ve Güvenlik &gt; Çerezler</li>
+                <li><strong>Firefox:</strong> Seçenekler &gt; Gizlilik ve Güvenlik</li>
+                <li><strong>Safari:</strong> Tercihler &gt; Gizlilik</li>
+                <li><strong>Edge:</strong> Ayarlar &gt; Çerezler ve Site İzinleri</li>
               </ul>
             </section>
 

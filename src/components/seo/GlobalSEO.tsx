@@ -80,7 +80,9 @@ const GlobalSEO: React.FC<SEOProps> = ({
     }));
   };
 
-  const hreflangUrls = alternateUrls ? Object.entries(alternateUrls) : generateHreflangUrls();
+  const hreflangUrls = alternateUrls 
+    ? Object.entries(alternateUrls).map(([hreflang, href]) => ({ hreflang, href }))
+    : generateHreflangUrls();
 
   // Structured Data for Travel Website
   const getStructuredData = () => {
@@ -179,9 +181,7 @@ const GlobalSEO: React.FC<SEOProps> = ({
       <link rel="canonical" href={canonicalUrl || currentUrl} />
       
       {/* Hreflang Tags */}
-      {Array.isArray(hreflangUrls) ? hreflangUrls.map(({ hreflang, href }) => (
-        <link key={hreflang} rel="alternate" hrefLang={hreflang} href={href} />
-      )) : Object.entries(hreflangUrls).map(([hreflang, href]) => (
+      {hreflangUrls.map(({ hreflang, href }) => (
         <link key={hreflang} rel="alternate" hrefLang={hreflang} href={href} />
       ))}
       

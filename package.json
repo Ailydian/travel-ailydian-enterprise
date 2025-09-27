@@ -9,10 +9,15 @@
   },
   "scripts": {
     "dev": "next dev -p 3000",
-    "build": "next build",
+    "build": "NODE_ENV=production next build",
     "start": "next start -p 3000",
-    "lint": "next lint",
-    "type-check": "tsc --noEmit"
+    "lint": "next lint --fix",
+    "type-check": "tsc --noEmit",
+    "analyze": "ANALYZE=true npm run build",
+    "build:production": "NODE_ENV=production next build",
+    "cache:clear": "rm -rf .next && npm run build",
+    "performance:test": "npm run build && npm run start &",
+    "build:fast": "NEXT_TELEMETRY_DISABLED=1 next build"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.0",
@@ -46,6 +51,7 @@
     "jsonwebtoken": "^9.0.2",
     "lodash": "^4.17.0",
     "lottie-web": "^5.13.0",
+    "lru-cache": "^11.2.2",
     "lucide-react": "^0.294.0",
     "next": "^14.0.4",
     "next-auth": "^4.24.11",
@@ -54,6 +60,7 @@
     "node-cache": "^5.1.2",
     "openai": "^5.23.0",
     "prisma": "^6.16.2",
+    "puppeteer": "^24.22.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-dropzone": "^14.3.8",
@@ -77,12 +84,15 @@
     "zustand": "^4.4.0"
   },
   "devDependencies": {
+    "@next/bundle-analyzer": "^15.5.4",
     "@types/lodash": "^4.14.0",
+    "@types/puppeteer": "^5.4.7",
     "@types/uuid": "^9.0.0",
     "autoprefixer": "^10.4.0",
     "eslint": "^8.57.1",
     "eslint-config-next": "^14.0.0",
     "postcss": "^8.4.0",
-    "prettier": "^3.1.0"
+    "prettier": "^3.1.0",
+    "webpack-bundle-analyzer": "^4.10.2"
   }
 }

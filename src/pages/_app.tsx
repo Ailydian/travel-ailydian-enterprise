@@ -2,8 +2,10 @@ import { appWithTranslation } from 'next-i18next'
 import { DefaultSeo } from 'next-seo'
 import { SessionProvider } from 'next-auth/react'
 import { ReactQueryProvider } from '../lib/react-query'
+import '../lib/i18n' // i18n konfigürasyonunu yükle
 import '../styles/globals.css'
 import '../styles/ailydian-theme.css'
+import '../styles/ailydian-advanced.css'
 import type { AppProps } from 'next/app'
 import type { Session } from 'next-auth'
 

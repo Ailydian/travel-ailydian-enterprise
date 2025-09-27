@@ -172,7 +172,7 @@ const DashboardPage: React.FC = () => {
                 >
                   Hoş Geldiniz, {userData.name}
                 </h1>
-                <p style={{color: 'var(--tx-2)'}}>Seyahat dashboard'unuzda yeni keşifler sizi bekliyor</p>
+                <p style={{color: 'var(--tx-2)'}}>Seyahat dashboard&apos;unuzda yeni keşifler sizi bekliyor</p>
               </div>
               <div className="flex items-center gap-4">
                 <button className="p-3 rounded-xl border-2 transition-all hover:scale-105"
