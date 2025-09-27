@@ -232,12 +232,12 @@ const TravelBlockchain: React.FC = () => {
   };
 
   const NFTCard: React.FC<{ nft: TravelNFT }> = ({ nft }) => (
-    <motion.div
-      layoutId={nft.id}
-      onClick={() => setSelectedNFT(nft)}
-      className="bg-white rounded-2xl shadow-lg overflow-hidden cursor-pointer hover:shadow-xl transition-shadow"
-      whileHover={{ y: -4 }}
-    >
+    <div className="bg-white rounded-2xl shadow-lg overflow-hidden cursor-pointer hover:shadow-xl transition-shadow" onClick={() => setSelectedNFT(nft)}>
+      <motion.div
+        layoutId={nft.id}
+        whileHover={{ y: -4 }}
+        style={{ width: '100%' }}
+      >
       <div className="relative">
         <img 
           src={nft.image} 
@@ -276,7 +276,8 @@ const TravelBlockchain: React.FC = () => {
           )}
         </div>
       </div>
-    </motion.div>
+      </motion.div>
+    </div>
   );
 
   return (
@@ -296,12 +297,10 @@ const TravelBlockchain: React.FC = () => {
         </div>
 
         {!isConnected ? (
-          <motion.button
+          <button
             onClick={connectWallet}
             disabled={isLoading}
-            className="flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-xl font-medium hover:shadow-lg transition-all disabled:opacity-50"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+            className="flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-xl font-medium hover:shadow-lg transition-all disabled:opacity-50 transform hover:scale-105"
           >
             {isLoading ? (
               <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
@@ -309,7 +308,7 @@ const TravelBlockchain: React.FC = () => {
               <Wallet className="w-5 h-5" />
             )}
             Cüzdan Bağla
-          </motion.button>
+          </button>
         ) : (
           <div className="text-right">
             <div className="flex items-center gap-2 mb-2">
@@ -379,16 +378,14 @@ const TravelBlockchain: React.FC = () => {
             ].map((tab) => {
               const Icon = tab.icon;
               return (
-                <motion.button
+                <button
                   key={tab.key}
                   onClick={() => setActiveTab(tab.key as any)}
-                  className={`flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-lg font-medium transition-colors ${
+                  className={`flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-lg font-medium transition-colors transform hover:scale-105 ${
                     activeTab === tab.key
                       ? 'bg-white text-purple-600 shadow-sm'
                       : 'text-gray-600 hover:text-gray-900'
                   }`}
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
                 >
                   <Icon className="w-5 h-5" />
                   {tab.label}
@@ -397,7 +394,7 @@ const TravelBlockchain: React.FC = () => {
                       {tab.count}
                     </span>
                   )}
-                </motion.button>
+                </button>
               );
             })}
           </div>
@@ -407,15 +404,13 @@ const TravelBlockchain: React.FC = () => {
             <div>
               <div className="flex items-center justify-between mb-6">
                 <h2 className="text-2xl font-bold text-gray-900">NFT Koleksiyonum</h2>
-                <motion.button
+                <button
                   onClick={() => setShowMintModal(true)}
-                  className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-xl font-medium hover:shadow-lg transition-all"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
+                  className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-xl font-medium hover:shadow-lg transition-all transform hover:scale-105"
                 >
                   <Sparkles className="w-5 h-5" />
                   Yeni NFT Mint Et
-                </motion.button>
+                </button>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -443,18 +438,16 @@ const TravelBlockchain: React.FC = () => {
             <div>
               <div className="flex items-center justify-between mb-6">
                 <h2 className="text-2xl font-bold text-gray-900">Kripto Ödemeler</h2>
-                <motion.button
+                <button
                   onClick={() => {
                     setPaymentData({ amount: 250, description: 'Seyahat Rezervasyonu' });
                     setShowPaymentModal(true);
                   }}
-                  className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-green-600 to-blue-600 text-white rounded-xl font-medium hover:shadow-lg transition-all"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
+                  className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-green-600 to-blue-600 text-white rounded-xl font-medium hover:shadow-lg transition-all transform hover:scale-105"
                 >
                   <CreditCard className="w-5 h-5" />
                   Demo Ödeme Yap
-                </motion.button>
+                </button>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -499,17 +492,20 @@ const TravelBlockchain: React.FC = () => {
                   </div>
                   <h3 className="font-semibold text-gray-900 mb-2">Yeni Ödeme</h3>
                   <p className="text-sm text-gray-600 mb-4">Kripto ile güvenli ödeme yapın</p>
-                  <motion.button
+                  <button
                     onClick={() => {
                       setPaymentData({ amount: 150, description: 'Yeni Rezervasyon' });
                       setShowPaymentModal(true);
                     }}
                     className="px-4 py-2 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
                   >
-                    Ödeme Yap
-                  </motion.button>
+                    <motion.div
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      Ödeme Yap
+                    </motion.div>
+                  </button>
                 </div>
               </div>
 
@@ -546,20 +542,19 @@ const TravelBlockchain: React.FC = () => {
       {/* Mint NFT Modal */}
       <AnimatePresence>
         {showMintModal && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
+          <div
             className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50"
             onClick={() => setShowMintModal(false)}
           >
-            <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
+            <div
               onClick={(e) => e.stopPropagation()}
               className="bg-white rounded-2xl p-6 w-full max-w-md"
             >
+              <motion.div
+                initial={{ scale: 0.9, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.9, opacity: 0 }}
+              >
               <div className="flex items-center justify-between mb-6">
                 <h3 className="text-xl font-bold text-gray-900">Seyahat NFT&apos;si Mint Et</h3>
                 <button
@@ -625,41 +620,49 @@ const TravelBlockchain: React.FC = () => {
                 >
                   İptal
                 </button>
-                <motion.button
+                <button
                   onClick={mintTravelNFT}
                   disabled={isLoading || !mintingData.title || !mintingData.location}
                   className="flex-1 px-4 py-2 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-lg font-medium hover:shadow-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
                 >
-                  {isLoading ? (
-                    <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                  ) : (
-                    <Sparkles className="w-5 h-5" />
-                  )}
-                  {isLoading ? 'Mint Ediliyor...' : 'NFT Mint Et'}
-                </motion.button>
+                  <motion.div
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    <div className="flex items-center gap-2">
+                    {isLoading ? (
+                      <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                    ) : (
+                      <Sparkles className="w-5 h-5" />
+                    )}
+                    {isLoading ? 'Mint Ediliyor...' : 'NFT Mint Et'}
+                    </div>
+                  </motion.div>
+                </button>
               </div>
-            </motion.div>
-          </motion.div>
+              </motion.div>
+            </div>
+          </div>
         )}
       </AnimatePresence>
 
       {/* NFT Detail Modal */}
       <AnimatePresence>
         {selectedNFT && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
+          <div
             className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50"
             onClick={() => setSelectedNFT(null)}
           >
-            <motion.div
-              layoutId={selectedNFT.id}
+            <div
               onClick={(e) => e.stopPropagation()}
               className="bg-white rounded-2xl overflow-hidden w-full max-w-2xl max-h-[90vh] overflow-y-auto"
             >
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.9 }}
+                layoutId={selectedNFT.id}
+              >
               <div className="relative">
                 <img 
                   src={selectedNFT.image} 
@@ -748,28 +751,28 @@ const TravelBlockchain: React.FC = () => {
                   )}
                 </div>
               </div>
-            </motion.div>
-          </motion.div>
+              </motion.div>
+            </div>
+          </div>
         )}
       </AnimatePresence>
 
       {/* Crypto Payment Modal */}
       <AnimatePresence>
         {showPaymentModal && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
+          <div
             className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50"
             onClick={() => setShowPaymentModal(false)}
           >
-            <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
+            <div
               onClick={(e) => e.stopPropagation()}
               className="bg-white rounded-2xl overflow-hidden w-full max-w-4xl max-h-[90vh] overflow-y-auto"
             >
+              <motion.div
+                initial={{ scale: 0.9, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.9, opacity: 0 }}
+              >
               <div className="flex items-center justify-between p-6 border-b">
                 <h3 className="text-2xl font-bold text-gray-900">Kripto Ödeme</h3>
                 <button
@@ -794,8 +797,9 @@ const TravelBlockchain: React.FC = () => {
                   // Could show an error toast here
                 }}
               />
-            </motion.div>
-          </motion.div>
+              </motion.div>
+            </div>
+          </div>
         )}
       </AnimatePresence>
     </div>

@@ -251,12 +251,12 @@ const DecentralizedReviews: React.FC = () => {
   };
 
   const ReviewCard: React.FC<{ review: DecentralizedReview }> = ({ review }) => (
-    <motion.div
-      layoutId={review.id}
-      onClick={() => setSelectedReview(review)}
-      className="bg-white rounded-2xl shadow-lg p-6 cursor-pointer hover:shadow-xl transition-all"
-      whileHover={{ y: -4 }}
-    >
+    <div className="bg-white rounded-2xl shadow-lg p-6 cursor-pointer hover:shadow-xl transition-all" onClick={() => setSelectedReview(review)}>
+      <motion.div
+        layoutId={review.id}
+        whileHover={{ y: -4 }}
+        style={{ width: '100%' }}
+      >
       {/* Header */}
       <div className="flex items-start justify-between mb-4">
         <div className="flex items-center gap-3">
@@ -362,7 +362,8 @@ const DecentralizedReviews: React.FC = () => {
           <Eye className="w-4 h-4 text-gray-400" />
         </div>
       </div>
-    </motion.div>
+      </motion.div>
+    </div>
   );
 
   return (
@@ -381,15 +382,13 @@ const DecentralizedReviews: React.FC = () => {
           </p>
         </div>
 
-        <motion.button
+        <button
           onClick={() => setShowWriteReview(true)}
-          className="flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-green-600 to-blue-600 text-white rounded-xl font-medium hover:shadow-lg transition-all"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
+          className="flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-green-600 to-blue-600 text-white rounded-xl font-medium hover:shadow-lg transition-all transform hover:scale-105"
         >
           <Plus className="w-5 h-5" />
           Yorum Yaz
-        </motion.button>
+        </button>
       </div>
 
       {/* Stats */}
@@ -471,20 +470,19 @@ const DecentralizedReviews: React.FC = () => {
       {/* Review Detail Modal */}
       <AnimatePresence>
         {selectedReview && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50"
-            onClick={() => setSelectedReview(null)}
-          >
+          <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50" onClick={() => setSelectedReview(null)}>
             <motion.div
-              layoutId={selectedReview.id}
-              onClick={(e) => e.stopPropagation()}
-              className="bg-white rounded-2xl overflow-hidden w-full max-w-4xl max-h-[90vh] overflow-y-auto"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
             >
-              {/* Modal content would go here */}
-              <div className="p-6">
+              <div className="bg-white rounded-2xl overflow-hidden w-full max-w-4xl max-h-[90vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
+                <motion.div
+                  layoutId={selectedReview.id}
+                  style={{ width: '100%' }}
+                >
+                {/* Modal content would go here */}
+                <div className="p-6">
                 <div className="flex items-center justify-between mb-6">
                   <h3 className="text-2xl font-bold text-gray-900">Yorum Detayı</h3>
                   <button
@@ -499,29 +497,30 @@ const DecentralizedReviews: React.FC = () => {
                 <div className="text-center py-8 text-gray-500">
                   Detaylı yorum görünümü burada yer alacak...
                 </div>
+                </div>
+                </motion.div>
               </div>
             </motion.div>
-          </motion.div>
+          </div>
         )}
       </AnimatePresence>
 
       {/* Write Review Modal */}
       <AnimatePresence>
         {showWriteReview && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50"
-            onClick={() => setShowWriteReview(false)}
-          >
+          <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50" onClick={() => setShowWriteReview(false)}>
             <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              onClick={(e) => e.stopPropagation()}
-              className="bg-white rounded-2xl p-6 w-full max-w-2xl"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
             >
+              <div className="bg-white rounded-2xl p-6 w-full max-w-2xl" onClick={(e) => e.stopPropagation()}>
+                <motion.div
+                  initial={{ scale: 0.9, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  exit={{ scale: 0.9, opacity: 0 }}
+                  style={{ width: '100%' }}
+                >
               <div className="flex items-center justify-between mb-6">
                 <h3 className="text-2xl font-bold text-gray-900">Yeni Yorum Yaz</h3>
                 <button
@@ -535,8 +534,10 @@ const DecentralizedReviews: React.FC = () => {
               <div className="text-center py-8 text-gray-500">
                 Yorum yazma formu burada yer alacak...
               </div>
+                </motion.div>
+              </div>
             </motion.div>
-          </motion.div>
+          </div>
         )}
       </AnimatePresence>
     </div>

@@ -1,0 +1,125 @@
+/* Leaflet Map Stilleri */
+@import 'leaflet/dist/leaflet.css';
+
+/* Leaflet marker icon düzeltmeleri */
+.leaflet-div-icon {
+  background: transparent !important;
+  border: none !important;
+}
+
+.leaflet-popup-content {
+  margin: 0 !important;
+  line-height: 1.4;
+}
+
+.leaflet-popup-content-wrapper {
+  border-radius: 8px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+}
+
+.leaflet-popup-tip {
+  box-shadow: none !important;
+}
+
+/* Custom marker stilleri */
+.pickup-marker {
+  background-color: #ff6b35;
+  border: 3px solid white;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(255, 107, 53, 0.4);
+}
+
+.hotel-marker {
+  background-color: #4f46e5;
+  border: 3px solid white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(79, 70, 229, 0.4);
+}
+
+.tour-marker {
+  background-color: #059669;
+  border: 3px solid white;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(5, 150, 105, 0.4);
+}
+
+.restaurant-marker {
+  background-color: #dc2626;
+  border: 3px solid white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(220, 38, 38, 0.4);
+}
+
+.attraction-marker {
+  background-color: #7c3aed;
+  border: 3px solid white;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(124, 58, 237, 0.4);
+}
+
+/* Harita kontrolleri */
+.leaflet-control-container {
+  font-family: inherit;
+}
+
+.leaflet-control-zoom a {
+  color: #374151 !important;
+  border-radius: 4px !important;
+}
+
+.leaflet-control-attribution {
+  background: rgba(255, 255, 255, 0.9) !important;
+  border-radius: 4px !important;
+  font-size: 11px !important;
+}
+
+/* Responsive harita */
+@media (max-width: 768px) {
+  .leaflet-popup-content-wrapper {
+    font-size: 14px !important;
+  }
+  
+  .leaflet-control-zoom {
+    transform: scale(0.9);
+  }
+}
+
+/* Loading state */
+.map-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(45deg, #f3f4f6, #e5e7eb);
+  animation: pulse 2s ease-in-out infinite alternate;
+}
+
+@keyframes pulse {
+  from {
+    opacity: 0.6;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Search overlay stilleri */
+.map-search-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+/* Pickup selection mode */
+.leaflet-container.pickup-mode {
+  cursor: crosshair !important;
+}
+
+.leaflet-container.pickup-mode .leaflet-zoom-box {
+  border: 2px dashed #3b82f6 !important;
+  background: rgba(59, 130, 246, 0.1) !important;
+}

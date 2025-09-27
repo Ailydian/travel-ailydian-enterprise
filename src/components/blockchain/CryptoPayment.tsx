@@ -250,25 +250,23 @@ const CryptoPayment: React.FC<CryptoPaymentProps> = ({
       {/* Payment Content */}
       {!isConnected ? (
         /* Wallet Connection */
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="bg-white rounded-2xl shadow-lg p-8 text-center"
-        >
+        <div className="bg-white rounded-2xl shadow-lg p-8 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+          >
           <Wallet className="w-16 h-16 text-gray-400 mx-auto mb-6" />
           <h2 className="text-2xl font-bold text-gray-900 mb-4">Cüzdanınızı Bağlayın</h2>
           <p className="text-gray-600 mb-8">
             Kripto ödeme yapabilmek için MetaMask veya uyumlu bir cüzdan bağlamanız gerekiyor.
           </p>
           
-          <motion.button
+          <button
             onClick={connectWallet}
-            className="w-full py-4 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-xl font-medium hover:shadow-lg transition-all"
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
+            className="w-full py-4 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-xl font-medium hover:shadow-lg transition-all transform hover:scale-105"
           >
             Cüzdan Bağla
-          </motion.button>
+          </button>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
             <div className="text-center p-4">
@@ -287,14 +285,15 @@ const CryptoPayment: React.FC<CryptoPaymentProps> = ({
               <div className="text-xs text-gray-600">Minimum network fee</div>
             </div>
           </div>
-        </motion.div>
+          </motion.div>
+        </div>
       ) : !transactionHash ? (
         /* Payment Form */
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="bg-white rounded-2xl shadow-lg overflow-hidden"
-        >
+        <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+          >
           {/* Connected Wallet Info */}
           <div className="bg-gradient-to-r from-green-50 to-blue-50 p-6 border-b">
             <div className="flex items-center justify-between">
@@ -339,16 +338,14 @@ const CryptoPayment: React.FC<CryptoPaymentProps> = ({
               <h3 className="text-lg font-semibold text-gray-900 mb-4">Ödeme Yöntemi</h3>
               <div className="space-y-3">
                 {cryptoOptions.map((option) => (
-                  <motion.button
+                  <button
                     key={option.symbol}
                     onClick={() => setSelectedCrypto(option.symbol as any)}
-                    className={`w-full p-4 rounded-xl border-2 transition-all ${
+                    className={`w-full p-4 rounded-xl border-2 transition-all transform hover:scale-105 ${
                       selectedCrypto === option.symbol
                         ? 'border-blue-500 bg-blue-50'
                         : 'border-gray-200 hover:border-gray-300'
                     }`}
-                    whileHover={{ scale: 1.01 }}
-                    whileTap={{ scale: 0.99 }}
                   >
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-3">
@@ -369,19 +366,17 @@ const CryptoPayment: React.FC<CryptoPaymentProps> = ({
                         </div>
                       </div>
                     </div>
-                  </motion.button>
+                  </button>
                 ))}
               </div>
             </div>
 
             {/* Payment Actions */}
             <div className="space-y-3">
-              <motion.button
+              <button
                 onClick={processPayment}
                 disabled={isProcessing}
-                className="w-full py-4 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-xl font-medium hover:shadow-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
+                className="w-full py-4 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-xl font-medium hover:shadow-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 transform hover:scale-105"
               >
                 {isProcessing ? (
                   <>
@@ -394,7 +389,7 @@ const CryptoPayment: React.FC<CryptoPaymentProps> = ({
                     Ödemeyi Tamamla
                   </>
                 )}
-              </motion.button>
+              </button>
 
               <button
                 onClick={() => setShowQRCode(true)}
@@ -405,14 +400,15 @@ const CryptoPayment: React.FC<CryptoPaymentProps> = ({
               </button>
             </div>
           </div>
-        </motion.div>
+          </motion.div>
+        </div>
       ) : (
         /* Payment Success */
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          className="bg-white rounded-2xl shadow-lg p-8 text-center"
-        >
+        <div className="bg-white rounded-2xl shadow-lg p-8 text-center">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+          >
           <div className="w-20 h-20 bg-green-100 rounded-full mx-auto mb-6 flex items-center justify-center">
             <CheckCircle className="w-10 h-10 text-green-500" />
           </div>
@@ -467,26 +463,25 @@ const CryptoPayment: React.FC<CryptoPaymentProps> = ({
               Hash&apos;i Kopyala
             </button>
           </div>
-        </motion.div>
+          </motion.div>
+        </div>
       )}
 
       {/* QR Code Modal */}
       <AnimatePresence>
         {showQRCode && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50"
-            onClick={() => setShowQRCode(false)}
-          >
+          <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50" onClick={() => setShowQRCode(false)}>
             <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              onClick={(e) => e.stopPropagation()}
-              className="bg-white rounded-2xl p-6 w-full max-w-md"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
             >
+              <div className="bg-white rounded-2xl p-6 w-full max-w-md" onClick={(e) => e.stopPropagation()}>
+                <motion.div
+                  initial={{ scale: 0.9, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  exit={{ scale: 0.9, opacity: 0 }}
+                >
               <div className="flex items-center justify-between mb-6">
                 <h3 className="text-xl font-bold text-gray-900">QR Kod ile Ödeme</h3>
                 <button
@@ -520,8 +515,10 @@ const CryptoPayment: React.FC<CryptoPaymentProps> = ({
                   Adresi Kopyala
                 </button>
               </div>
+                </motion.div>
+              </div>
             </motion.div>
-          </motion.div>
+          </div>
         )}
       </AnimatePresence>
     </div>

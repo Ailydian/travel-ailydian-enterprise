@@ -296,7 +296,18 @@ const AITravelAssistant: React.FC = () => {
             initial={{ opacity: 0, scale: 0.8, y: 100 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.8, y: 100 }}
-            className="w-96 h-[600px] bg-white rounded-2xl shadow-2xl border border-gray-200 flex flex-col overflow-hidden"
+            transition={{ duration: 0.3 }}
+            style={{
+              width: 384, // w-96
+              height: 600,
+              backgroundColor: 'white',
+              borderRadius: '1rem',
+              boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
+              border: '1px solid #e5e7eb',
+              display: 'flex',
+              flexDirection: 'column',
+              overflow: 'hidden'
+            } as any}
           >
             {/* Header */}
             <div className="p-4 border-b border-gray-200 bg-gradient-to-r from-purple-600 to-blue-600 text-white">
@@ -315,32 +326,26 @@ const AITravelAssistant: React.FC = () => {
                 </div>
                 
                 <div className="flex items-center gap-2">
-                  <motion.button
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
+                  <button
                     onClick={() => setIsVoiceEnabled(!isVoiceEnabled)}
-                    className="p-2 hover:bg-white/20 rounded-lg transition-colors"
+                    className="p-2 hover:bg-white/20 rounded-lg transition-colors text-white"
                   >
                     {isVoiceEnabled ? <Volume2 className="w-4 h-4" /> : <VolumeX className="w-4 h-4" />}
-                  </motion.button>
+                  </button>
                   
-                  <motion.button
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
+                  <button
                     onClick={exportConversation}
-                    className="p-2 hover:bg-white/20 rounded-lg transition-colors"
+                    className="p-2 hover:bg-white/20 rounded-lg transition-colors text-white"
                   >
                     <Download className="w-4 h-4" />
-                  </motion.button>
+                  </button>
                   
-                  <motion.button
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
+                  <button
                     onClick={() => setIsMinimized(true)}
-                    className="p-2 hover:bg-white/20 rounded-lg transition-colors"
+                    className="p-2 hover:bg-white/20 rounded-lg transition-colors text-white"
                   >
                     <Minimize2 className="w-4 h-4" />
-                  </motion.button>
+                  </button>
                 </div>
               </div>
               
@@ -353,20 +358,18 @@ const AITravelAssistant: React.FC = () => {
                 ].map((mode) => {
                   const Icon = mode.icon;
                   return (
-                    <motion.button
+                    <button
                       key={mode.key}
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
                       onClick={() => setConversationMode(mode.key as any)}
-                      className={`flex-1 px-3 py-2 rounded-lg text-xs font-medium transition-colors ${
+                      className={`flex-1 px-3 py-2 rounded-lg text-xs font-medium transition-colors flex flex-col items-center ${
                         conversationMode === mode.key
                           ? 'bg-white text-purple-600'
                           : 'bg-white/20 text-white hover:bg-white/30'
                       }`}
                     >
-                      <Icon className="w-3 h-3 mx-auto mb-1" />
+                      <Icon className="w-3 h-3 mb-1" />
                       {mode.label}
-                    </motion.button>
+                    </button>
                   );
                 })}
               </div>
@@ -379,7 +382,10 @@ const AITravelAssistant: React.FC = () => {
                   key={message.id}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className={`flex ${message.type === 'user' ? 'justify-end' : 'justify-start'}`}
+                  style={{
+                    display: 'flex',
+                    justifyContent: message.type === 'user' ? 'flex-end' : 'flex-start'
+                  }}
                 >
                   <div
                     className={`max-w-[80%] p-3 rounded-2xl ${
@@ -406,15 +412,13 @@ const AITravelAssistant: React.FC = () => {
                         {message.metadata.actions && (
                           <div className="flex flex-wrap gap-1">
                             {message.metadata.actions.map((action, index) => (
-                              <motion.button
+                              <button
                                 key={index}
-                                whileHover={{ scale: 1.05 }}
-                                whileTap={{ scale: 0.95 }}
                                 onClick={() => handleActionClick(action)}
                                 className="px-2 py-1 bg-purple-100 text-purple-700 text-xs rounded-lg hover:bg-purple-200 transition-colors"
                               >
                                 {action.label}
-                              </motion.button>
+                              </button>
                             ))}
                           </div>
                         )}
@@ -424,14 +428,13 @@ const AITravelAssistant: React.FC = () => {
                           <div className="space-y-1">
                             <p className="text-xs text-gray-500">Öneriler:</p>
                             {message.metadata.suggestions.map((suggestion, index) => (
-                              <motion.button
+                              <button
                                 key={index}
-                                whileHover={{ scale: 1.02 }}
                                 onClick={() => handleSendMessage(suggestion)}
                                 className="block w-full text-left px-2 py-1 text-xs text-gray-600 hover:bg-gray-200 rounded transition-colors"
                               >
                                 💡 {suggestion}
-                              </motion.button>
+                              </button>
                             ))}
                           </div>
                         )}
@@ -446,7 +449,7 @@ const AITravelAssistant: React.FC = () => {
                 <motion.div
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  className="flex justify-start"
+                  style={{ display: 'flex', justifyContent: 'flex-start' }}
                 >
                   <div className="bg-gray-100 p-3 rounded-2xl">
                     <div className="flex space-x-1">
@@ -462,7 +465,12 @@ const AITravelAssistant: React.FC = () => {
                             repeat: Infinity,
                             delay: i * 0.2
                           }}
-                          className="w-2 h-2 bg-purple-600 rounded-full"
+                          style={{
+                            width: '8px',
+                            height: '8px',
+                            backgroundColor: '#9333EA',
+                            borderRadius: '50%'
+                          }}
                         />
                       ))}
                     </div>
@@ -483,22 +491,18 @@ const AITravelAssistant: React.FC = () => {
                     screenshotFormat="image/jpeg"
                   />
                   <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-4">
-                    <motion.button
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.9 }}
+                    <button
                       onClick={capturePhoto}
-                      className="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg"
+                      className="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform"
                     >
                       <Camera className="w-6 h-6 text-gray-900" />
-                    </motion.button>
-                    <motion.button
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.9 }}
+                    </button>
+                    <button
                       onClick={() => setShowCamera(false)}
-                      className="w-16 h-16 bg-red-500 rounded-full flex items-center justify-center shadow-lg"
+                      className="w-16 h-16 bg-red-500 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform"
                     >
                       <X className="w-6 h-6 text-white" />
-                    </motion.button>
+                    </button>
                   </div>
                 </div>
               </div>
@@ -508,9 +512,7 @@ const AITravelAssistant: React.FC = () => {
             <div className="p-4 border-t border-gray-200 bg-gray-50">
               <div className="flex items-center gap-2">
                 {conversationMode === 'voice' ? (
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
+                  <button
                     onClick={() => listening ? stopListening() : listen()}
                     className={`flex-1 p-3 rounded-xl font-medium transition-colors flex items-center justify-center gap-2 ${
                       listening
@@ -520,17 +522,15 @@ const AITravelAssistant: React.FC = () => {
                   >
                     {listening ? <MicOff className="w-4 h-4" /> : <Mic className="w-4 h-4" />}
                     {listening ? 'Dinleniyor...' : 'Sesle Konuş'}
-                  </motion.button>
+                  </button>
                 ) : conversationMode === 'visual' ? (
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
+                  <button
                     onClick={() => setShowCamera(!showCamera)}
                     className="flex-1 p-3 bg-purple-600 text-white rounded-xl font-medium hover:bg-purple-700 transition-colors flex items-center justify-center gap-2"
                   >
                     <Camera className="w-4 h-4" />
                     {showCamera ? 'Kamerayı Kapat' : 'Kamerayı Aç'}
-                  </motion.button>
+                  </button>
                 ) : (
                   <>
                     <input
@@ -543,15 +543,13 @@ const AITravelAssistant: React.FC = () => {
                       className="flex-1 p-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
                       disabled={isLoading}
                     />
-                    <motion.button
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
+                    <button
                       onClick={() => handleSendMessage()}
                       disabled={isLoading || !inputMessage.trim()}
                       className="p-3 bg-purple-600 text-white rounded-xl hover:bg-purple-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                       <Send className="w-4 h-4" />
-                    </motion.button>
+                    </button>
                   </>
                 )}
               </div>
@@ -563,21 +561,52 @@ const AITravelAssistant: React.FC = () => {
       {/* Minimized State */}
       <AnimatePresence>
         {isMinimized && (
-          <motion.button
+          <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.8 }}
             whileHover={{ scale: 1.1, y: -5 }}
-            onClick={() => setIsMinimized(false)}
-            className="w-16 h-16 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full shadow-2xl flex items-center justify-center text-white relative"
+            style={{ cursor: 'pointer' }}
           >
-            <Bot className="w-6 h-6" />
-            <motion.div
-              animate={{ scale: [1, 1.2, 1] }}
-              transition={{ duration: 2, repeat: Infinity }}
-              className="absolute -top-1 -right-1 w-4 h-4 bg-green-400 rounded-full border-2 border-white"
-            />
-          </motion.button>
+            <button
+              onClick={() => setIsMinimized(false)}
+              style={{
+                width: '64px',
+                height: '64px',
+                background: 'linear-gradient(to right, #9333ea, #2563eb)',
+                borderRadius: '50%',
+                boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
+                position: 'relative',
+                cursor: 'pointer',
+                border: 'none'
+              }}
+            >
+              <div style={{
+                width: '100%',
+                height: '100%', 
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                color: 'white'
+              }}>
+                <Bot className="w-6 h-6" />
+              </div>
+              <motion.div
+                animate={{ scale: [1, 1.2, 1] }}
+                transition={{ duration: 2, repeat: Infinity }}
+                style={{
+                  position: 'absolute',
+                  top: '-4px',
+                  right: '-4px',
+                  width: '16px',
+                  height: '16px',
+                  backgroundColor: '#4ade80',
+                  borderRadius: '50%',
+                  border: '2px solid white'
+                }}
+              />
+            </button>
+          </motion.div>
         )}
       </AnimatePresence>
     </div>

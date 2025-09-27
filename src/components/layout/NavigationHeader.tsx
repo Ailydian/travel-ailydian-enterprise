@@ -32,6 +32,7 @@ import {
 import { searchInData, popularSearches, categoryConfig, type SearchResult } from '../../data/searchData';
 import { useCart } from '../../context/CartContext';
 import AIAssistantPopup from '../ui/AIAssistantPopup';
+import VoiceMenu from '../voice/VoiceMenu';
 
 const NavigationHeader: React.FC = () => {
   const router = useRouter();
@@ -47,6 +48,7 @@ const NavigationHeader: React.FC = () => {
   const [selectedResultIndex, setSelectedResultIndex] = useState(-1);
   const [searchHistory, setSearchHistory] = useState<string[]>([]);
   const [isAIAssistantOpen, setIsAIAssistantOpen] = useState(false);
+  const [isSliderSearchOpen, setIsSliderSearchOpen] = useState(false);
 
   // Global AI Assistant state management
   useEffect(() => {
@@ -316,14 +318,16 @@ const NavigationHeader: React.FC = () => {
               {/* Search Dropdown */}
               <AnimatePresence>
                 {isSearchFocused && (searchResults.length > 0 || searchQuery.trim() === '' || searchHistory.length > 0) && (
-                  <motion.div
+                  <div
                     ref={searchDropdownRef}
-                    initial={{ opacity: 0, y: 10, scale: 0.95 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                    transition={{ duration: 0.2 }}
                     className="absolute top-full left-0 right-0 mt-2 bg-white rounded-xl shadow-2xl border border-gray-200 z-50 max-h-96 overflow-y-auto"
                   >
+                    <motion.div
+                      initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                      transition={{ duration: 0.2 }}
+                    >
                     {/* Search Results */}
                     {searchResults.length > 0 && (
                       <div className="py-2">
@@ -428,7 +432,8 @@ const NavigationHeader: React.FC = () => {
                         </button>
                       </div>
                     )}
-                  </motion.div>
+                    </motion.div>
+                  </div>
                 )}
               </AnimatePresence>
             </div>
@@ -457,20 +462,35 @@ const NavigationHeader: React.FC = () => {
 
           {/* Right side actions */}
           <div className="flex items-center space-x-3">
+            {/* Search Icon - Mobile & Tablet */}
+            <button
+              onClick={() => setIsSliderSearchOpen(true)}
+              className="lg:hidden p-2 text-gray-700 hover:bg-gray-50 rounded-lg transition-colors group"
+            >
+              <Search className="w-5 h-5 group-hover:text-ailydian-primary transition-colors" />
+            </button>
+            {/* Voice Control */}
+            <VoiceMenu className="hidden sm:block" />
+
             {/* AI Assistant */}
-            <motion.button 
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+            <button 
               onClick={() => {
                 // AI Asistan'ı hero section üstünde aç
                 window.dispatchEvent(new CustomEvent('openAIAssistant'));
               }}
               className="relative flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl hover:from-blue-700 hover:to-purple-700 transition-all duration-200 shadow-lg hover:shadow-xl"
             >
-              <Bot className="w-4 h-4" />
-              <span className="text-sm font-medium hidden lg:inline">AI Asistan</span>
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <div className="flex items-center space-x-2">
+                  <Bot className="w-4 h-4" />
+                  <span className="text-sm font-medium hidden lg:inline">AI Asistan</span>
+                </div>
+              </motion.div>
               <div className="absolute -top-1 -right-1 w-3 h-3 bg-green-500 rounded-full border-2 border-white animate-pulse"></div>
-            </motion.button>
+            </button>
 
             {/* Language */}
             <button className="hidden sm:flex items-center space-x-1 px-3 py-2 text-gray-700 hover:bg-gray-50 rounded-lg transition-colors">
@@ -501,12 +521,12 @@ const NavigationHeader: React.FC = () => {
 
               <AnimatePresence>
                 {isUserMenuOpen && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 10 }}
-                    className="absolute right-0 mt-2 w-64 bg-white rounded-xl shadow-lg border border-gray-200 py-2"
-                  >
+                  <div className="absolute right-0 mt-2 w-64 bg-white rounded-xl shadow-lg border border-gray-200 py-2">
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 10 }}
+                    >
                     {session ? (
                       <>
                         <div className="px-4 py-3 border-b border-gray-100">
@@ -577,7 +597,8 @@ const NavigationHeader: React.FC = () => {
                         </Link>
                       </>
                     )}
-                  </motion.div>
+                    </motion.div>
+                  </div>
                 )}
               </AnimatePresence>
             </div>
@@ -619,12 +640,12 @@ const NavigationHeader: React.FC = () => {
       {/* Mobile Menu */}
       <AnimatePresence>
         {isMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-white border-t border-gray-100"
-          >
+          <div className="lg:hidden bg-white border-t border-gray-100">
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+            >
             <div className="px-4 py-4 space-y-4">
               {/* Mobile Search */}
               <div className="relative">
@@ -661,6 +682,12 @@ const NavigationHeader: React.FC = () => {
                 })}
               </div>
 
+              {/* Mobile Voice Control */}
+              <div className="border-t border-gray-100 pt-4">
+                <p className="text-sm font-medium text-gray-500 mb-3">Sesli Kontrol</p>
+                <VoiceMenu />
+              </div>
+
               {/* Mobile Advanced Features */}
               <div className="border-t border-gray-100 pt-4">
                 <p className="text-sm font-medium text-gray-500 mb-3">{isClient ? t('navigation:advancedFeatures', 'Gelişmiş Özellikler') : 'Gelişmiş Özellikler'}</p>
@@ -682,10 +709,195 @@ const NavigationHeader: React.FC = () => {
                 </div>
               </div>
             </div>
-          </motion.div>
+            </motion.div>
+          </div>
         )}
       </AnimatePresence>
       
+      {/* Slider Search Panel */}
+      <AnimatePresence>
+        {isSliderSearchOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black/50 z-[9999] flex items-start justify-center pt-20"
+            onClick={() => setIsSliderSearchOpen(false)}
+          >
+            <motion.div
+              initial={{ opacity: 0, y: -50, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -50, scale: 0.95 }}
+              transition={{ type: "spring", damping: 25, stiffness: 300 }}
+              className="bg-white rounded-xl shadow-2xl w-full max-w-2xl mx-4 overflow-hidden"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Header */}
+              <div className="flex items-center justify-between p-4 border-b border-gray-200">
+                <h3 className="text-lg font-semibold text-gray-900 flex items-center gap-2">
+                  <Search className="w-5 h-5 text-blue-600" />
+                  Arama Yap
+                </h3>
+                <button
+                  onClick={() => setIsSliderSearchOpen(false)}
+                  className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+                >
+                  <X className="w-5 h-5 text-gray-500" />
+                </button>
+              </div>
+
+              {/* Search Content */}
+              <div className="p-6">
+                {/* Search Input */}
+                <div className="relative mb-6">
+                  <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                  <input
+                    type="text"
+                    value={searchQuery}
+                    onChange={handleSearchChange}
+                    onFocus={handleSearchFocus}
+                    onKeyDown={(e) => {
+                      handleKeyDown(e);
+                      if (e.key === 'Enter' && searchQuery.trim()) {
+                        setIsSliderSearchOpen(false);
+                      }
+                    }}
+                    placeholder="Destinasyon, deneyim, otel arayın..."
+                    className="w-full pl-12 pr-4 py-4 border-2 border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-gray-900 placeholder-gray-500 font-medium text-lg"
+                    autoComplete="off"
+                    autoFocus
+                  />
+                </div>
+
+                {/* Quick Search Categories */}
+                <div className="mb-6">
+                  <h4 className="text-sm font-semibold text-gray-700 mb-3">Hızlı Arama</h4>
+                  <div className="grid grid-cols-2 gap-3">
+                    {[
+                      { title: 'İstanbul Turları', icon: '🏛️', query: 'istanbul' },
+                      { title: 'Kapadokya Balon', icon: '🎈', query: 'kapadokya balon' },
+                      { title: 'Lüks Oteller', icon: '🏨', query: 'luxury hotel' },
+                      { title: 'Deniz Turları', icon: '🏖️', query: 'beach tours' }
+                    ].map((item, index) => (
+                      <button
+                        key={index}
+                        onClick={() => {
+                          setSearchQuery(item.query);
+                          const results = searchInData(item.query, 8);
+                          setSearchResults(results);
+                          setIsSearchFocused(true);
+                        }}
+                        className="flex items-center gap-3 p-3 rounded-lg border border-gray-200 hover:border-blue-300 hover:bg-blue-50 transition-all"
+                      >
+                        <span className="text-xl">{item.icon}</span>
+                        <span className="font-medium text-gray-700">{item.title}</span>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Search Results in Slider */}
+                {searchResults.length > 0 && (
+                  <div className="mb-4">
+                    <h4 className="text-sm font-semibold text-gray-700 mb-3">Arama Sonuçları</h4>
+                    <div className="max-h-60 overflow-y-auto space-y-2">
+                      {searchResults.map((result, index) => {
+                        const categoryInfo = categoryConfig[result.category];
+                        return (
+                          <button
+                            key={result.id}
+                            onClick={() => {
+                              handleSearchSelect(result);
+                              setIsSliderSearchOpen(false);
+                            }}
+                            className={`w-full p-3 rounded-lg hover:bg-gray-50 transition-colors flex items-center gap-3 text-left ${
+                              selectedResultIndex === index ? 'bg-blue-50 border border-blue-200' : 'border border-gray-100'
+                            }`}
+                          >
+                            {result.image ? (
+                              <img 
+                                src={result.image} 
+                                alt={result.title}
+                                className="w-12 h-12 rounded-lg object-cover"
+                              />
+                            ) : (
+                              <div className={`w-12 h-12 rounded-lg flex items-center justify-center text-lg ${categoryInfo.color}`}>
+                                {categoryInfo.icon}
+                              </div>
+                            )}
+                            <div className="flex-1 min-w-0">
+                              <div className="flex items-center gap-2">
+                                <span className="font-medium text-gray-900 truncate">{result.title}</span>
+                                {result.rating && (
+                                  <div className="flex items-center gap-1 text-xs">
+                                    <Star className="w-3 h-3 text-yellow-500 fill-current" />
+                                    <span className="text-gray-600">{result.rating}</span>
+                                  </div>
+                                )}
+                              </div>
+                              <p className="text-sm text-gray-500 truncate">{result.subtitle}</p>
+                            </div>
+                            {result.price && (
+                              <span className="text-sm font-semibold text-blue-600">{result.price}</span>
+                            )}
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+                )}
+
+                {/* Recent Searches in Slider */}
+                {searchHistory.length > 0 && searchQuery.trim() === '' && (
+                  <div className="mb-4">
+                    <h4 className="text-sm font-semibold text-gray-700 mb-3">Son Aramalar</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {searchHistory.map((query, index) => (
+                        <button
+                          key={index}
+                          onClick={() => {
+                            setSearchQuery(query);
+                            const results = searchInData(query, 8);
+                            setSearchResults(results);
+                            setIsSearchFocused(true);
+                          }}
+                          className="px-3 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg text-sm font-medium text-gray-700 transition-colors"
+                        >
+                          {query}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Popular Searches in Slider */}
+                {searchQuery.trim() === '' && (
+                  <div>
+                    <h4 className="text-sm font-semibold text-gray-700 mb-3">Popüler Aramalar</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {popularSearches.slice(0, 8).map((query, index) => (
+                        <button
+                          key={index}
+                          onClick={() => {
+                            setSearchQuery(query);
+                            const results = searchInData(query, 8);
+                            setSearchResults(results);
+                            setIsSearchFocused(true);
+                          }}
+                          className="px-3 py-2 bg-blue-50 hover:bg-blue-100 text-blue-700 rounded-lg text-sm font-medium transition-colors"
+                        >
+                          {query}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       {/* AI Assistant Popup */}
       <AIAssistantPopup 
         isOpen={isAIAssistantOpen}
