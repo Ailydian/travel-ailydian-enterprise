@@ -405,9 +405,10 @@ export default function ReservationPage() {
                         }))
                       }
                       min={new Date().toISOString().split('T')[0]}
-                      className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
+                      className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 [color-scheme:light] ${
                         errors.pickupDate ? 'border-red-500' : 'border-gray-300'
                       }`}
+                      style={{ colorScheme: 'light' }}
                     />
                     {errors.pickupDate && (
                       <p className="text-red-500 text-sm mt-1">
@@ -585,9 +586,10 @@ export default function ReservationPage() {
                         }))
                       }
                       max={new Date().toISOString().split('T')[0]}
-                      className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
+                      className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 [color-scheme:light] ${
                         errors.dateOfBirth ? 'border-red-500' : 'border-gray-300'
                       }`}
+                      style={{ colorScheme: 'light' }}
                     />
                     {errors.dateOfBirth && (
                       <p className="text-red-500 text-sm mt-1">
@@ -656,11 +658,12 @@ export default function ReservationPage() {
                         }))
                       }
                       min={new Date().toISOString().split('T')[0]}
-                      className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
+                      className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 [color-scheme:light] ${
                         errors.passportExpiry
                           ? 'border-red-500'
                           : 'border-gray-300'
                       }`}
+                      style={{ colorScheme: 'light' }}
                     />
                     {errors.passportExpiry && (
                       <p className="text-red-500 text-sm mt-1">
@@ -708,7 +711,8 @@ export default function ReservationPage() {
                         }))
                       }
                       min={new Date().toISOString().split('T')[0]}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 [color-scheme:light]"
+                      style={{ colorScheme: 'light' }}
                     />
                   </div>
 

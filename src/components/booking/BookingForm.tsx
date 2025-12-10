@@ -260,7 +260,8 @@ const BookingForm: React.FC<BookingFormProps> = ({
                   type="date"
                   value={formData.checkInDate.toISOString().split('T')[0]}
                   onChange={(e) => handleInputChange('checkInDate', new Date(e.target.value))}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 text-gray-900 [color-scheme:light]"
+                  style={{ colorScheme: 'light' }}
                   min={new Date().toISOString().split('T')[0]}
                 />
               </div>
@@ -274,7 +275,8 @@ const BookingForm: React.FC<BookingFormProps> = ({
                     type="date"
                     value={formData.checkOutDate?.toISOString().split('T')[0] || ''}
                     onChange={(e) => handleInputChange('checkOutDate', new Date(e.target.value))}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 text-gray-900 [color-scheme:light]"
+                    style={{ colorScheme: 'light' }}
                     min={formData.checkInDate.toISOString().split('T')[0]}
                   />
                 </div>

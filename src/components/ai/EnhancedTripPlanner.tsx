@@ -294,7 +294,8 @@ const EnhancedTripPlanner: React.FC = () => {
                   </label>
                   <input
                     type="date"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-gray-900 [color-scheme:light]"
+                    style={{ colorScheme: 'light' }}
                     onChange={(e) => setPreferences({ ...preferences, startDate: new Date(e.target.value) })}
                   />
                 </div>
@@ -306,7 +307,8 @@ const EnhancedTripPlanner: React.FC = () => {
                   </label>
                   <input
                     type="date"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-gray-900 [color-scheme:light]"
+                    style={{ colorScheme: 'light' }}
                     onChange={(e) => setPreferences({ ...preferences, endDate: new Date(e.target.value) })}
                   />
                 </div>

@@ -249,7 +249,8 @@ export default function Flights() {
                     <label className="block text-sm font-medium mb-2 text-white">Gidiş Tarihi</label>
                     <input
                       type="date"
-                      className="w-full px-3 py-3 rounded-xl text-gray-900 focus:outline-none focus:ring-2 focus:ring-white/30"
+                      className="w-full px-3 py-3 rounded-xl text-gray-900 focus:outline-none focus:ring-2 focus:ring-white/30 [color-scheme:light]"
+                      style={{ colorScheme: 'light' }}
                       value={searchData.departure}
                       onChange={(e) => setSearchData({...searchData, departure: e.target.value})}
                     />

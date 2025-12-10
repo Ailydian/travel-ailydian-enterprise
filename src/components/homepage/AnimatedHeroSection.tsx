@@ -225,7 +225,8 @@ export const AnimatedHeroSection: React.FC<AnimatedHeroSectionProps> = ({ onSear
                     type="date"
                     value={checkInDate}
                     onChange={(e) => setCheckInDate(e.target.value)}
-                    className="w-full pl-12 pr-4 py-4 bg-ailydian-bg-card border border-ailydian-primary/30 rounded-xl text-ailydian-text focus:outline-none focus:border-ailydian-primary transition-colors"
+                    className="w-full pl-12 pr-4 py-4 bg-ailydian-bg-card border border-ailydian-primary/30 rounded-xl text-ailydian-text focus:outline-none focus:border-ailydian-primary transition-colors [color-scheme:light]"
+                    style={{ colorScheme: 'light' }}
                   />
                 </div>
 

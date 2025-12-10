@@ -319,7 +319,8 @@ export default function WriteReviewModal({ locationId, locationName, onClose, on
                   type="date"
                   value={reviewData.visit_date || ''}
                   onChange={(e) => setReviewData(prev => ({ ...prev, visit_date: e.target.value }))}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 text-gray-900 [color-scheme:light]"
+                  style={{ colorScheme: 'light' }}
                   max={new Date().toISOString().split('T')[0]}
                 />
               </div>

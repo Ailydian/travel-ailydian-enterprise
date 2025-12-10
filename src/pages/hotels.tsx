@@ -330,7 +330,8 @@ const HotelsPage: React.FC = () => {
                       type="date"
                       value={checkIn}
                       onChange={(e) => setCheckIn(e.target.value)}
-                      className="w-full pl-10 pr-4 py-3 rounded-xl text-gray-900 focus:outline-none focus:ring-2 focus:ring-white/30"
+                      className="w-full pl-10 pr-4 py-3 rounded-xl text-gray-900 focus:outline-none focus:ring-2 focus:ring-white/30 [color-scheme:light]"
+                      style={{ colorScheme: 'light' }}
                     />
                   </div>
 
@@ -340,7 +341,8 @@ const HotelsPage: React.FC = () => {
                       type="date"
                       value={checkOut}
                       onChange={(e) => setCheckOut(e.target.value)}
-                      className="w-full pl-10 pr-4 py-3 rounded-xl text-gray-900 focus:outline-none focus:ring-2 focus:ring-white/30"
+                      className="w-full pl-10 pr-4 py-3 rounded-xl text-gray-900 focus:outline-none focus:ring-2 focus:ring-white/30 [color-scheme:light]"
+                      style={{ colorScheme: 'light' }}
                     />
                   </div>
 

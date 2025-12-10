@@ -40,7 +40,7 @@ const CarRental: React.FC = () => {
       id: 1,
       name: 'Volkswagen Golf',
       category: 'Ekonomik',
-      image: 'https://images.unsplash.com/photo-1549924231-f129b911e442?w=400&h=300&q=90',
+      image: 'https://images.unsplash.com/photo-1622353219448-46a009f0d44f?w=800&h=600&q=90', // VW Golf
       price: '₺89',
       features: ['Manuel', '5 Kişi', 'Klima', 'Bluetooth'],
       rating: 4.5,
@@ -50,7 +50,7 @@ const CarRental: React.FC = () => {
       id: 2,
       name: 'BMW 3 Serisi',
       category: 'Lüks',
-      image: 'https://images.unsplash.com/photo-1555215695-3004980ad54e?w=400&h=300&q=90',
+      image: 'https://images.unsplash.com/photo-1555215695-3004980ad54e?w=800&h=600&q=90', // BMW
       price: '₺299',
       features: ['Otomatik', '5 Kişi', 'Deri Döşeme', 'GPS'],
       rating: 4.8,
@@ -60,7 +60,7 @@ const CarRental: React.FC = () => {
       id: 3,
       name: 'Ford Transit',
       category: 'Minibüs',
-      image: 'https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=400&h=300&q=90',
+      image: 'https://images.unsplash.com/photo-1527786356703-4b100091cd2c?w=800&h=600&q=90', // Ford Transit/Van
       price: '₺199',
       features: ['Manuel', '9 Kişi', 'Geniş Bagaj', 'Klima'],
       rating: 4.6,
@@ -103,28 +103,31 @@ const CarRental: React.FC = () => {
                     <input
                       type="text"
                       placeholder="Şehir veya havaalanı"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 outline-none"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 outline-none text-gray-900 placeholder-gray-400"
                     />
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">Alış Tarihi</label>
                     <input
                       type="date"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 outline-none"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 outline-none text-gray-900 [color-scheme:light]"
+                      style={{ colorScheme: 'light' }}
                     />
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">İade Tarihi</label>
                     <input
                       type="date"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 outline-none"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 outline-none text-gray-900 [color-scheme:light]"
+                      style={{ colorScheme: 'light' }}
                     />
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">&nbsp;</label>
                     <motion.button
                       whileHover={{ scale: 1.05 }}
-                      className="w-full py-3 bg-green-600 text-white rounded-xl font-semibold hover:bg-green-700 transition-colors"
+                      whileTap={{ scale: 0.98 }}
+                      className="w-full py-3 bg-gradient-to-r from-green-600 to-teal-600 text-white rounded-xl font-bold hover:from-green-700 hover:to-teal-700 transition-all shadow-lg hover:shadow-xl"
                     >
                       Ara
                     </motion.button>
