@@ -279,7 +279,7 @@ const AIAssistantPage: NextPage = () => {
                       >
                         {suggestion}
                       </button>
-                    })}
+                    ))}
                     </div>
                   </motion.div>
                 )}
