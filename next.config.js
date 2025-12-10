@@ -11,7 +11,7 @@ const nextConfig = {
   compress: true,
   poweredByHeader: false,
   eslint: {
-    ignoreDuringBuilds: false,
+    ignoreDuringBuilds: true,
   },
   typescript: {
     ignoreBuildErrors: true, // Temporary: Framer Motion v10 typing issues

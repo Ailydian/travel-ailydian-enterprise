@@ -1,10 +1,14 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-import { ArrowRight, MapPin, Star, Clock, Users, Calendar, Filter, Heart, Zap, Mountain, Waves, Camera, Plane, Car, Utensils, TreePine, ShoppingCart, CheckCircle } from 'lucide-react';
+import { ArrowRight, MapPin, Star, Clock, Users, Calendar, Filter, Heart, Zap, Mountain, Waves, Camera, Plane, Car, Utensils, TreePine, ShoppingCart, CheckCircle, SlidersHorizontal } from 'lucide-react';
 import { useCart } from '../context/CartContext';
+import AdvancedFilters from '../components/search/AdvancedFilters';
+import FilterChips from '../components/search/FilterChips';
+import { useFilters } from '../hooks/useFilters';
+import { ActivityFilters, DEFAULT_ACTIVITY_FILTERS } from '../types/filters';
 
 const activities = [
   {
@@ -234,6 +238,17 @@ export default function Activities() {
   const [sortBy, setSortBy] = useState('popularity');
   const [showToast, setShowToast] = useState(false);
   const [toastMessage, setToastMessage] = useState('');
+  const [showFilters, setShowFilters] = useState(false);
+
+  // Advanced filters hook
+  const {
+    filters,
+    updateFilter,
+    updateFilters,
+    resetFilters,
+    activeFilterCount,
+    isDefaultFilters,
+  } = useFilters<ActivityFilters>({ type: 'activity', syncWithUrl: true });
 
   // Cart handler functions
   const handleAddToCart = (activity: typeof activities[0]) => {
@@ -264,34 +279,82 @@ export default function Activities() {
     setTimeout(() => router.push('/cart'), 500);
   };
 
-  const filteredActivities = activities.filter(activity => {
-    const matchesSearch = activity.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                         activity.location.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                         activity.highlights.some(highlight => highlight.toLowerCase().includes(searchQuery.toLowerCase()));
-    const matchesCategory = selectedCategory === 'all' || activity.category === selectedCategory;
-    const matchesDifficulty = selectedDifficulty === 'Tümü' || activity.difficulty === selectedDifficulty;
-    const matchesDuration = selectedDuration === 'Tümü' || 
-      (selectedDuration === '1-3 saat' && (activity.duration.includes('1') || activity.duration.includes('3'))) ||
-      (selectedDuration === '4-6 saat' && (activity.duration.includes('4') || activity.duration.includes('5') || activity.duration.includes('6'))) ||
-      (selectedDuration === '6+ saat' && parseInt(activity.duration) >= 6);
-    
-    return matchesSearch && matchesCategory && matchesDifficulty && matchesDuration;
-  });
+  // Filter and sort activities with advanced filters
+  const filteredAndSortedActivities = useMemo(() => {
+    let filtered = activities.filter(activity => {
+      // Search query
+      const matchesSearch = activity.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                           activity.location.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                           activity.highlights.some(highlight => highlight.toLowerCase().includes(searchQuery.toLowerCase()));
 
-  const sortedActivities = [...filteredActivities].sort((a, b) => {
-    switch (sortBy) {
-      case 'price-low':
-        return parseInt(a.price.replace(/[^\d]/g, '')) - parseInt(b.price.replace(/[^\d]/g, ''));
-      case 'price-high':
-        return parseInt(b.price.replace(/[^\d]/g, '')) - parseInt(a.price.replace(/[^\d]/g, ''));
-      case 'rating':
-        return b.rating - a.rating;
-      case 'duration':
-        return parseInt(a.duration) - parseInt(b.duration);
-      default: // popularity
-        return b.reviews - a.reviews;
+      if (!matchesSearch) return false;
+
+      // Price filter
+      const price = parseFloat(activity.price.replace('₺', '').replace(',', ''));
+      if (price < filters.priceRange.min || price > filters.priceRange.max) {
+        return false;
+      }
+
+      // Category filter (legacy + advanced)
+      const matchesCategory = selectedCategory === 'all' || activity.category === selectedCategory;
+      const matchesAdvancedCategory = filters.categories.length === 0 ||
+        filters.categories.includes(activity.category as any);
+
+      if (!matchesCategory || !matchesAdvancedCategory) return false;
+
+      // Difficulty filter (legacy + advanced)
+      const difficultyMap: any = { 'Kolay': 'easy', 'Orta': 'moderate', 'Zor': 'challenging' };
+      const activityDifficultyEn = difficultyMap[activity.difficulty] || activity.difficulty;
+
+      const matchesDifficulty = selectedDifficulty === 'Tümü' || activity.difficulty === selectedDifficulty;
+      const matchesAdvancedDifficulty = filters.difficultyLevel.length === 0 ||
+        filters.difficultyLevel.includes(activityDifficultyEn);
+
+      if (!matchesDifficulty || !matchesAdvancedDifficulty) return false;
+
+      // Duration filter (legacy)
+      const matchesDuration = selectedDuration === 'Tümü' ||
+        (selectedDuration === '1-3 saat' && (activity.duration.includes('1') || activity.duration.includes('3'))) ||
+        (selectedDuration === '4-6 saat' && (activity.duration.includes('4') || activity.duration.includes('5') || activity.duration.includes('6'))) ||
+        (selectedDuration === '6+ saat' && parseInt(activity.duration) >= 6);
+
+      if (!matchesDuration) return false;
+
+      return true;
+    });
+
+    // Sort activities
+    filtered.sort((a, b) => {
+      switch (sortBy) {
+        case 'price-low':
+          return parseInt(a.price.replace(/[^\d]/g, '')) - parseInt(b.price.replace(/[^\d]/g, ''));
+        case 'price-high':
+          return parseInt(b.price.replace(/[^\d]/g, '')) - parseInt(a.price.replace(/[^\d]/g, ''));
+        case 'rating':
+          return b.rating - a.rating;
+        case 'duration':
+          return parseInt(a.duration) - parseInt(b.duration);
+        default: // popularity
+          return b.reviews - a.reviews;
+      }
+    });
+
+    return filtered;
+  }, [activities, filters, searchQuery, selectedCategory, selectedDifficulty, selectedDuration, sortBy]);
+
+  // Handle filter chip removal
+  const handleRemoveFilter = (filterKey: string, value?: any) => {
+    if (filterKey === 'priceRange' || filterKey === 'duration') {
+      const defaultFilters = DEFAULT_ACTIVITY_FILTERS;
+      updateFilter(filterKey as keyof ActivityFilters, defaultFilters[filterKey] as any);
+    } else if (value !== undefined) {
+      const currentValues = filters[filterKey as keyof ActivityFilters] as any[];
+      updateFilter(
+        filterKey as keyof ActivityFilters,
+        currentValues.filter((v: any) => v !== value) as any
+      );
     }
-  });
+  };
 
   const toggleFavorite = (id: number) => {
     const newFavorites = new Set(favorites);
@@ -371,7 +434,40 @@ export default function Activities() {
         </div>
 
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          {/* Filters */}
+          {/* Filter Header */}
+          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 mb-4">
+            <div className="flex items-center justify-between mb-4">
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
+                {filteredAndSortedActivities.length} Aktivite Bulundu
+              </h2>
+              <button
+                onClick={() => setShowFilters(!showFilters)}
+                className="flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors relative"
+              >
+                <SlidersHorizontal className="w-4 h-4" />
+                Gelişmiş Filtreler
+                {activeFilterCount > 0 && (
+                  <span className="absolute -top-2 -right-2 px-2 py-0.5 bg-orange-500 text-white rounded-full text-xs font-bold">
+                    {activeFilterCount}
+                  </span>
+                )}
+              </button>
+            </div>
+
+            {/* Active Filter Chips */}
+            {activeFilterCount > 0 && (
+              <div className="mb-4">
+                <FilterChips
+                  type="activity"
+                  filters={filters}
+                  onRemoveFilter={handleRemoveFilter}
+                  onClearAll={resetFilters}
+                />
+              </div>
+            )}
+          </div>
+
+          {/* Quick Filters */}
           <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 mb-8">
             <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
               {/* Category Filter */}
@@ -467,9 +563,23 @@ export default function Activities() {
             </div>
           </div>
 
-          {/* Activities Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {sortedActivities.map((activity) => {
+          {/* Activities Grid with Filters */}
+          <div className="flex gap-6">
+            {/* Advanced Filters Sidebar */}
+            <AdvancedFilters
+              type="activity"
+              filters={filters}
+              onFilterChange={updateFilters}
+              onReset={resetFilters}
+              onClose={() => setShowFilters(false)}
+              isOpen={showFilters}
+              activeFilterCount={activeFilterCount}
+            />
+
+            {/* Activities Grid */}
+            <div className="flex-1">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {filteredAndSortedActivities.map((activity) => {
               const CategoryIcon = getCategoryIcon(activity.category);
               return (
                 <div key={activity.id} className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden group hover:shadow-xl transition-all duration-300">
@@ -634,9 +744,10 @@ export default function Activities() {
                 </div>
               );
             })}
-          </div>
+              </div>
 
-          {sortedActivities.length === 0 && (
+              {/* No Results */}
+              {filteredAndSortedActivities.length === 0 && (
             <div className="text-center py-16">
               <Zap className="h-24 w-24 text-gray-300 mx-auto mb-6" />
               <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
@@ -656,8 +767,10 @@ export default function Activities() {
               >
                 Filtreleri Temizle
               </button>
+                </div>
+              )}
             </div>
-          )}
+          </div>
         </div>
       </div>
 

@@ -74,7 +74,9 @@ model User {
   walletTransactions WalletTransaction[]
   aiPreferences      AIPreference?
   transferBookings   TransferBooking[]
-  
+  priceAlerts        PriceAlert[]
+  trips              Trip[]
+
   @@map("users")
 }
 
@@ -260,6 +262,8 @@ enum NotificationType {
   PROMOTION
   AI_RECOMMENDATION
   SYSTEM_UPDATE
+  PRICE_DROP
+  PRICE_ALERT
 }
 
 enum TransactionType {
@@ -415,4 +419,256 @@ enum AdminRole {
   SUPER_ADMIN
   ADMIN
   MODERATOR
+}
+
+// Price Tracking Models
+model PriceHistory {
+  id          String   @id @default(cuid())
+  entityType  String   // HOTEL, FLIGHT, TOUR
+  entityId    String   // External ID (hotel ID, flight ID, etc.)
+  price       Decimal
+  currency    String   @default("TRY")
+  metadata    Json?    // Store additional data like room type, flight class, etc.
+  source      String?  // Where the price was fetched from
+  checkInDate DateTime? // For hotels
+  checkOutDate DateTime? // For hotels
+  travelDate  DateTime? // For flights/tours
+  createdAt   DateTime @default(now())
+
+  @@map("price_history")
+  @@index([entityType, entityId])
+  @@index([entityType, entityId, createdAt])
+  @@index([createdAt])
+}
+
+model PriceAlert {
+  id              String          @id @default(cuid())
+  userId          String
+  entityType      String          // HOTEL, FLIGHT, TOUR
+  entityId        String          // External ID
+  entityName      String          // Display name
+  targetPrice     Decimal
+  currentPrice    Decimal
+  currency        String          @default("TRY")
+  status          PriceAlertStatus @default(ACTIVE)
+  notificationMethod String[]     @default(["EMAIL"]) // EMAIL, PUSH, SMS
+  metadata        Json?           // Store search criteria, dates, etc.
+
+  // Alert settings
+  priceDropPercentage Decimal?    // Notify when price drops by X%
+  expiresAt       DateTime?       // Auto-disable after this date
+  lastNotifiedAt  DateTime?       // Track last notification sent
+  notificationCount Int           @default(0)
+
+  createdAt       DateTime        @default(now())
+  updatedAt       DateTime        @updatedAt
+
+  user            User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("price_alerts")
+  @@index([userId])
+  @@index([entityType, entityId])
+  @@index([status])
+  @@index([expiresAt])
+}
+
+enum PriceAlertStatus {
+  ACTIVE
+  TRIGGERED
+  EXPIRED
+  DISABLED
+}
+
+// Trip Planner Models
+model Trip {
+  id              String          @id @default(cuid())
+  userId          String          // Creator of the trip
+  title           String
+  description     String?         @db.Text
+  destination     String
+  startDate       DateTime
+  endDate         DateTime
+  budget          Decimal
+  currency        String          @default("TRY")
+  travelers       Int             @default(1)
+  status          TripStatus      @default(DRAFT)
+  preferences     Json?           // Travel preferences, interests
+  aiGenerated     Boolean         @default(false)
+  isPublic        Boolean         @default(false)
+  shareLink       String?         @unique
+
+  createdAt       DateTime        @default(now())
+  updatedAt       DateTime        @updatedAt
+
+  // Relations
+  user            User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+  itinerary       TripItinerary[]
+  collaborators   TripCollaborator[]
+  activities      TripActivity[]
+  comments        TripComment[]
+  votes           TripVote[]
+
+  @@map("trips")
+  @@index([userId])
+  @@index([status])
+  @@index([startDate])
+  @@index([shareLink])
+}
+
+model TripItinerary {
+  id              String          @id @default(cuid())
+  tripId          String
+  day             Int
+  date            DateTime
+  title           String
+  description     String?         @db.Text
+  activities      Json[]          // Array of activities with time, location, cost
+  totalCost       Decimal         @default(0)
+  weather         Json?           // Weather data
+  notes           String?         @db.Text
+
+  createdAt       DateTime        @default(now())
+  updatedAt       DateTime        @updatedAt
+
+  trip            Trip            @relation(fields: [tripId], references: [id], onDelete: Cascade)
+
+  @@map("trip_itineraries")
+  @@index([tripId])
+  @@index([day])
+}
+
+model TripCollaborator {
+  id              String                  @id @default(cuid())
+  tripId          String
+  userId          String?                 // Null if invited by email not yet signed up
+  email           String
+  role            CollaboratorRole        @default(VIEWER)
+  status          CollaboratorStatus      @default(PENDING)
+  invitedBy       String
+  invitedAt       DateTime                @default(now())
+  joinedAt        DateTime?
+  permissions     String[]                @default([])
+
+  trip            Trip                    @relation(fields: [tripId], references: [id], onDelete: Cascade)
+
+  @@unique([tripId, email])
+  @@map("trip_collaborators")
+  @@index([tripId])
+  @@index([userId])
+  @@index([email])
+}
+
+model TripActivity {
+  id              String          @id @default(cuid())
+  tripId          String
+  title           String
+  description     String?         @db.Text
+  type            ActivityType
+  location        String
+  address         String?
+  coordinates     Json?           // {lat, lng}
+  startTime       DateTime
+  endTime         DateTime?
+  duration        Int?            // Duration in minutes
+  cost            Decimal         @default(0)
+  currency        String          @default("TRY")
+  bookingUrl      String?
+  bookingStatus   String?         @default("PENDING")
+  notes           String?         @db.Text
+  addedBy         String
+  aiSuggested     Boolean         @default(false)
+
+  createdAt       DateTime        @default(now())
+  updatedAt       DateTime        @updatedAt
+
+  trip            Trip            @relation(fields: [tripId], references: [id], onDelete: Cascade)
+  votes           TripVote[]
+
+  @@map("trip_activities")
+  @@index([tripId])
+  @@index([type])
+  @@index([startTime])
+}
+
+model TripComment {
+  id              String          @id @default(cuid())
+  tripId          String
+  userId          String
+  activityId      String?         // Optional: comment on specific activity
+  content         String          @db.Text
+  parentId        String?         // For nested comments
+  createdAt       DateTime        @default(now())
+  updatedAt       DateTime        @updatedAt
+
+  trip            Trip            @relation(fields: [tripId], references: [id], onDelete: Cascade)
+
+  @@map("trip_comments")
+  @@index([tripId])
+  @@index([userId])
+  @@index([activityId])
+  @@index([parentId])
+}
+
+model TripVote {
+  id              String          @id @default(cuid())
+  tripId          String
+  activityId      String?         // Can vote on activities
+  userId          String
+  voteType        VoteType
+  comment         String?
+
+  createdAt       DateTime        @default(now())
+  updatedAt       DateTime        @updatedAt
+
+  trip            Trip            @relation(fields: [tripId], references: [id], onDelete: Cascade)
+  activity        TripActivity?   @relation(fields: [activityId], references: [id], onDelete: Cascade)
+
+  @@unique([tripId, activityId, userId])
+  @@map("trip_votes")
+  @@index([tripId])
+  @@index([activityId])
+  @@index([userId])
+}
+
+// Trip Planner Enums
+enum TripStatus {
+  DRAFT
+  PLANNING
+  CONFIRMED
+  IN_PROGRESS
+  COMPLETED
+  CANCELLED
+}
+
+enum CollaboratorRole {
+  OWNER
+  EDITOR
+  VIEWER
+}
+
+enum CollaboratorStatus {
+  PENDING
+  ACTIVE
+  DECLINED
+  REMOVED
+}
+
+enum ActivityType {
+  HOTEL
+  FLIGHT
+  RESTAURANT
+  ATTRACTION
+  TOUR
+  TRANSPORTATION
+  SHOPPING
+  ENTERTAINMENT
+  RELAXATION
+  OTHER
+}
+
+enum VoteType {
+  UPVOTE
+  DOWNVOTE
+  INTERESTED
+  NOT_INTERESTED
 }

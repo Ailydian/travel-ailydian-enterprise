@@ -1,9 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Search, Plane, Calendar, Users, ArrowLeft, ArrowRight, Clock, Zap, Star, Filter, Shield, Wifi } from 'lucide-react';
+import { Search, Plane, Calendar, Users, ArrowLeft, ArrowRight, Clock, Zap, Star, Filter, Shield, Wifi, SlidersHorizontal } from 'lucide-react';
 import NavigationHeader from '../components/layout/NavigationHeader';
+import AdvancedFilters from '../components/search/AdvancedFilters';
+import FilterChips from '../components/search/FilterChips';
+import { useFilters } from '../hooks/useFilters';
+import { FlightFilters, DEFAULT_FLIGHT_FILTERS } from '../types/filters';
 
 const flights = [
   {
@@ -112,11 +116,76 @@ export default function Flights() {
   const [selectedAirline, setSelectedAirline] = useState('Tümü');
   const [selectedTime, setSelectedTime] = useState('Tümü');
   const [sortBy, setSortBy] = useState('price');
+  const [showFilters, setShowFilters] = useState(false);
 
-  const filteredFlights = flights.filter(flight => {
-    if (selectedAirline !== 'Tümü' && flight.airline !== selectedAirline) return false;
-    return true;
-  });
+  // Advanced filters hook
+  const {
+    filters,
+    updateFilter,
+    updateFilters,
+    resetFilters,
+    activeFilterCount,
+    isDefaultFilters,
+  } = useFilters<FlightFilters>({ type: 'flight', syncWithUrl: true });
+
+  // Filter and sort flights
+  const filteredAndSortedFlights = useMemo(() => {
+    let filtered = flights.filter(flight => {
+      // Price filter
+      if (flight.price < filters.priceRange.min || flight.price > filters.priceRange.max) {
+        return false;
+      }
+
+      // Stops filter
+      if (filters.stops.length > 0) {
+        if (!filters.stops.includes('direct')) {
+          return false;
+        }
+      }
+
+      // Airlines filter (legacy compatibility)
+      if (selectedAirline !== 'Tümü' && flight.airline !== selectedAirline) {
+        return false;
+      }
+
+      // Max duration filter
+      const durationHours = parseInt(flight.duration.split('s')[0]);
+      if (durationHours > filters.maxDuration) {
+        return false;
+      }
+
+      return true;
+    });
+
+    // Sort flights
+    filtered.sort((a, b) => {
+      switch (sortBy) {
+        case 'duration':
+          return parseInt(a.duration) - parseInt(b.duration);
+        case 'departure':
+          return a.departure.localeCompare(b.departure);
+        case 'price':
+        default:
+          return a.price - b.price;
+      }
+    });
+
+    return filtered;
+  }, [flights, filters, selectedAirline, sortBy]);
+
+  // Handle filter chip removal
+  const handleRemoveFilter = (filterKey: string, value?: any) => {
+    if (filterKey === 'priceRange' || filterKey === 'maxDuration') {
+      const defaultFilters = DEFAULT_FLIGHT_FILTERS;
+      updateFilter(filterKey as keyof FlightFilters, defaultFilters[filterKey] as any);
+    } else if (value !== undefined) {
+      const currentValues = filters[filterKey as keyof FlightFilters] as any[];
+      updateFilter(
+        filterKey as keyof FlightFilters,
+        currentValues.filter((v: any) => v !== value) as any
+      );
+    }
+  };
 
   return (
     <>
@@ -218,11 +287,21 @@ export default function Flights() {
         <section className="bg-white border-b border-gray-200">
           <div className="max-w-7xl mx-auto px-4 py-6">
             <div className="flex items-center justify-between mb-4">
-              <h2 className="text-2xl font-bold text-gray-900">{filteredFlights.length} Uçuş Bulundu</h2>
+              <h2 className="text-2xl font-bold text-gray-900">
+                {filteredAndSortedFlights.length} Uçuş Bulundu
+              </h2>
               <div className="flex items-center gap-4">
-                <button className="flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors">
-                  <Filter className="w-4 h-4" />
-                  Filtrele
+                <button
+                  onClick={() => setShowFilters(!showFilters)}
+                  className="flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors relative"
+                >
+                  <SlidersHorizontal className="w-4 h-4" />
+                  Gelişmiş Filtreler
+                  {activeFilterCount > 0 && (
+                    <span className="absolute -top-2 -right-2 px-2 py-0.5 bg-ailydian-primary text-white rounded-full text-xs font-bold">
+                      {activeFilterCount}
+                    </span>
+                  )}
                 </button>
                 <select
                   value={sortBy}
@@ -235,8 +314,20 @@ export default function Flights() {
                 </select>
               </div>
             </div>
-            
-            {/* Airline Filters */}
+
+            {/* Active Filter Chips */}
+            {activeFilterCount > 0 && (
+              <div className="mb-4">
+                <FilterChips
+                  type="flight"
+                  filters={filters}
+                  onRemoveFilter={handleRemoveFilter}
+                  onClearAll={resetFilters}
+                />
+              </div>
+            )}
+
+            {/* Airline Filters (Quick Filters) */}
             <div className="flex flex-wrap gap-3">
               {airlines.map((airline) => (
                 <button
@@ -255,11 +346,25 @@ export default function Flights() {
           </div>
         </section>
 
-        {/* Results Section */}
+        {/* Results Section with Filters */}
         <section className="py-12 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4">
-            <div className="space-y-6">
-              {filteredFlights.map((flight) => (
+            <div className="flex gap-6">
+              {/* Advanced Filters Sidebar */}
+              <AdvancedFilters
+                type="flight"
+                filters={filters}
+                onFilterChange={updateFilters}
+                onReset={resetFilters}
+                onClose={() => setShowFilters(false)}
+                isOpen={showFilters}
+                activeFilterCount={activeFilterCount}
+              />
+
+              {/* Flights List */}
+              <div className="flex-1">
+                <div className="space-y-6">
+                  {filteredAndSortedFlights.map((flight) => (
                 <motion.div
                   key={flight.id}
                   initial={{ opacity: 0, y: 20 }}
@@ -356,17 +461,40 @@ export default function Flights() {
                   </div>
                 </motion.div>
               ))}
-            </div>
+                </div>
 
-            {/* Load More */}
-            <div className="text-center mt-12">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-8 py-3 border-2 border-ailydian-primary text-ailydian-primary rounded-xl font-semibold hover:bg-ailydian-primary hover:text-white transition-colors"
-              >
-                Daha Fazla Uçuş Yükle
-              </motion.button>
+                {/* No Results Message */}
+                {filteredAndSortedFlights.length === 0 && (
+                  <div className="text-center py-16">
+                    <Plane className="w-24 h-24 text-gray-300 mx-auto mb-6" />
+                    <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                      Aradığınız kriterlerde uçuş bulunamadı
+                    </h2>
+                    <p className="text-gray-600 mb-8">
+                      Filtrelerinizi değiştirerek tekrar deneyin
+                    </p>
+                    <button
+                      onClick={resetFilters}
+                      className="bg-ailydian-primary text-white px-6 py-3 rounded-lg hover:bg-ailydian-dark transition-colors font-semibold"
+                    >
+                      Filtreleri Temizle
+                    </button>
+                  </div>
+                )}
+
+                {/* Load More */}
+                {filteredAndSortedFlights.length > 0 && (
+                  <div className="text-center mt-12">
+                    <motion.button
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="px-8 py-3 border-2 border-ailydian-primary text-ailydian-primary rounded-xl font-semibold hover:bg-ailydian-primary hover:text-white transition-colors"
+                    >
+                      Daha Fazla Uçuş Yükle
+                    </motion.button>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         </section>

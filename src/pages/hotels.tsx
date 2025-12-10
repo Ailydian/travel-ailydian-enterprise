@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -22,10 +22,15 @@ import {
   Shield,
   Building,
   ShoppingCart,
-  CheckCircle
+  CheckCircle,
+  SlidersHorizontal
 } from 'lucide-react';
 import NavigationHeader from '../components/layout/NavigationHeader';
 import { useCart } from '../context/CartContext';
+import AdvancedFilters from '../components/search/AdvancedFilters';
+import FilterChips from '../components/search/FilterChips';
+import { useFilters } from '../hooks/useFilters';
+import { HotelFilters, DEFAULT_HOTEL_FILTERS } from '../types/filters';
 
 const HotelsPage: React.FC = () => {
   const router = useRouter();
@@ -36,6 +41,18 @@ const HotelsPage: React.FC = () => {
   const [guests, setGuests] = useState(2);
   const [showToast, setShowToast] = useState(false);
   const [toastMessage, setToastMessage] = useState('');
+  const [showFilters, setShowFilters] = useState(false);
+  const [sortBy, setSortBy] = useState('popularity');
+
+  // Advanced filters hook
+  const {
+    filters,
+    updateFilter,
+    updateFilters,
+    resetFilters,
+    activeFilterCount,
+    isDefaultFilters,
+  } = useFilters<HotelFilters>({ type: 'hotel', syncWithUrl: true });
 
   const hotels = [
     {
@@ -182,6 +199,66 @@ const HotelsPage: React.FC = () => {
     }, 500);
   };
 
+  // Filter and sort hotels
+  const filteredAndSortedHotels = useMemo(() => {
+    let filtered = hotels.filter(hotel => {
+      // Price filter
+      const price = parseFloat(hotel.price.replace('₺', '').replace(',', ''));
+      if (price < filters.priceRange.min || price > filters.priceRange.max) {
+        return false;
+      }
+
+      // Star rating filter
+      if (filters.starRating.length > 0) {
+        const hotelStars = Math.floor(hotel.rating);
+        if (!filters.starRating.includes(hotelStars)) {
+          return false;
+        }
+      }
+
+      // Guest rating filter
+      if (hotel.rating < filters.guestRating.min || hotel.rating > filters.guestRating.max) {
+        return false;
+      }
+
+      // Property type filter (would need to add type to hotel data)
+      // Amenities filter (would need to check if hotel has selected amenities)
+      // Meal plans filter (would need to add meal plan to hotel data)
+
+      return true;
+    });
+
+    // Sort hotels
+    filtered.sort((a, b) => {
+      switch (sortBy) {
+        case 'price-low':
+          return parseFloat(a.price.replace(/[^\d]/g, '')) - parseFloat(b.price.replace(/[^\d]/g, ''));
+        case 'price-high':
+          return parseFloat(b.price.replace(/[^\d]/g, '')) - parseFloat(a.price.replace(/[^\d]/g, ''));
+        case 'rating':
+          return b.rating - a.rating;
+        case 'popularity':
+        default:
+          return b.reviews - a.reviews;
+      }
+    });
+
+    return filtered;
+  }, [hotels, filters, sortBy]);
+
+  // Handle filter chip removal
+  const handleRemoveFilter = (filterKey: string, value?: any) => {
+    if (filterKey === 'priceRange' || filterKey === 'guestRating' || filterKey === 'distanceFromCenter') {
+      const defaultFilters = DEFAULT_HOTEL_FILTERS;
+      updateFilter(filterKey as keyof HotelFilters, defaultFilters[filterKey] as any);
+    } else if (value !== undefined) {
+      const currentValues = filters[filterKey as keyof HotelFilters] as any[];
+      updateFilter(
+        filterKey as keyof HotelFilters,
+        currentValues.filter((v: any) => v !== value) as any
+      );
+    }
+  };
 
   return (
     <>
@@ -287,41 +364,68 @@ const HotelsPage: React.FC = () => {
         <section className="bg-white border-b border-gray-200">
           <div className="max-w-7xl mx-auto px-4 py-6">
             <div className="flex items-center justify-between mb-4">
-              <h2 className="text-2xl font-bold text-gray-900">{hotels.length} Otel Bulundu</h2>
+              <h2 className="text-2xl font-bold text-gray-900">
+                {filteredAndSortedHotels.length} Otel Bulundu
+              </h2>
               <div className="flex items-center gap-4">
-                <button className="flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors">
-                  <Filter className="w-4 h-4" />
-                  Filtrele
+                <button
+                  onClick={() => setShowFilters(!showFilters)}
+                  className="flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors relative"
+                >
+                  <SlidersHorizontal className="w-4 h-4" />
+                  Gelişmiş Filtreler
+                  {activeFilterCount > 0 && (
+                    <span className="absolute -top-2 -right-2 px-2 py-0.5 bg-ailydian-primary text-white rounded-full text-xs font-bold">
+                      {activeFilterCount}
+                    </span>
+                  )}
                 </button>
-                <select className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ailydian-primary focus:border-transparent">
-                  <option>Popülerlik</option>
-                  <option>Fiyat (Düşük-Yüksek)</option>
-                  <option>Fiyat (Yüksek-Düşük)</option>
-                  <option>Puan</option>
-                  <option>Mesafe</option>
+                <select
+                  value={sortBy}
+                  onChange={(e) => setSortBy(e.target.value)}
+                  className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ailydian-primary focus:border-transparent"
+                >
+                  <option value="popularity">Popülerlik</option>
+                  <option value="price-low">Fiyat (Düşük-Yüksek)</option>
+                  <option value="price-high">Fiyat (Yüksek-Düşük)</option>
+                  <option value="rating">Puan</option>
                 </select>
               </div>
             </div>
-            
-            {/* Quick Filters */}
-            <div className="flex flex-wrap gap-3">
-              {['AI Önerili', 'VR Önizleme', 'Lüks', 'Aile Dostu', 'Spa', 'Plaj'].map((filter) => (
-                <button 
-                  key={filter}
-                  className="px-4 py-2 bg-gray-100 text-gray-700 rounded-full hover:bg-ailydian-primary hover:text-white transition-colors text-sm"
-                >
-                  {filter}
-                </button>
-              ))}
-            </div>
+
+            {/* Active Filter Chips */}
+            {activeFilterCount > 0 && (
+              <div className="mb-4">
+                <FilterChips
+                  type="hotel"
+                  filters={filters}
+                  onRemoveFilter={handleRemoveFilter}
+                  onClearAll={resetFilters}
+                />
+              </div>
+            )}
           </div>
         </section>
 
-        {/* Hotels Grid */}
+        {/* Hotels Grid with Filters */}
         <section className="py-12 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {hotels.map((hotel) => (
+            <div className="flex gap-6">
+              {/* Advanced Filters Sidebar */}
+              <AdvancedFilters
+                type="hotel"
+                filters={filters}
+                onFilterChange={updateFilters}
+                onReset={resetFilters}
+                onClose={() => setShowFilters(false)}
+                isOpen={showFilters}
+                activeFilterCount={activeFilterCount}
+              />
+
+              {/* Hotels Grid */}
+              <div className="flex-1">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  {filteredAndSortedHotels.map((hotel) => (
                 <motion.div
                   key={hotel.id}
                   initial={{ opacity: 0, y: 20 }}
@@ -458,17 +562,40 @@ const HotelsPage: React.FC = () => {
                   </div>
                 </motion.div>
               ))}
-            </div>
+                </div>
 
-            {/* Load More */}
-            <div className="text-center mt-12">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-8 py-3 border-2 border-ailydian-primary text-ailydian-primary rounded-xl font-semibold hover:bg-ailydian-primary hover:text-white transition-colors"
-              >
-                Daha Fazla Otel Yükle
-              </motion.button>
+                {/* No Results Message */}
+                {filteredAndSortedHotels.length === 0 && (
+                  <div className="text-center py-16">
+                    <Building className="w-24 h-24 text-gray-300 mx-auto mb-6" />
+                    <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                      Aradığınız kriterlerde otel bulunamadı
+                    </h2>
+                    <p className="text-gray-600 mb-8">
+                      Filtrelerinizi değiştirerek tekrar deneyin
+                    </p>
+                    <button
+                      onClick={resetFilters}
+                      className="bg-ailydian-primary text-white px-6 py-3 rounded-lg hover:bg-ailydian-dark transition-colors font-semibold"
+                    >
+                      Filtreleri Temizle
+                    </button>
+                  </div>
+                )}
+
+                {/* Load More */}
+                {filteredAndSortedHotels.length > 0 && (
+                  <div className="text-center mt-12">
+                    <motion.button
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="px-8 py-3 border-2 border-ailydian-primary text-ailydian-primary rounded-xl font-semibold hover:bg-ailydian-primary hover:text-white transition-colors"
+                    >
+                      Daha Fazla Otel Yükle
+                    </motion.button>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         </section>

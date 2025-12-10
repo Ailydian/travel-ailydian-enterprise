@@ -139,17 +139,61 @@ const Checkout: React.FC = () => {
     if (!validateForm()) return;
 
     setIsProcessing(true);
-    
-    // Simulate payment processing
-    setTimeout(() => {
+
+    try {
+      // Simulate payment processing delay
+      await new Promise(resolve => setTimeout(resolve, 2000));
+
+      // Create booking and send confirmation
+      const response = await fetch('/api/bookings/confirm', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          bookingType: 'PACKAGE',
+          totalAmount: orderSummary.total,
+          currency: 'TRY',
+          paymentMethod: 'CREDIT_CARD',
+          checkInDate: new Date().toISOString(),
+          guestCount: orderSummary.items.reduce((sum, item) => sum + item.guests, 0),
+          specialRequests: '',
+          metaData: {
+            items: orderSummary.items,
+            customerInfo: {
+              firstName: formData.firstName,
+              lastName: formData.lastName,
+              email: formData.email,
+              phone: formData.phone
+            },
+            billingAddress: {
+              address: formData.billingAddress,
+              city: formData.city,
+              postalCode: formData.postalCode,
+              country: formData.country
+            }
+          }
+        })
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message || 'Booking confirmation failed');
+      }
+
       setIsProcessing(false);
       setPaymentSuccess(true);
-      
-      // Redirect to success page after 2 seconds
+
+      // Redirect to confirmation page with booking reference
       setTimeout(() => {
-        router.push('/booking-success');
+        router.push(`/booking-confirmed?ref=${data.booking.bookingReference}`);
       }, 2000);
-    }, 3000);
+    } catch (error) {
+      console.error('Payment error:', error);
+      setIsProcessing(false);
+      alert('Payment failed. Please try again.');
+    }
   };
 
   const getCardType = (cardNumber: string) => {

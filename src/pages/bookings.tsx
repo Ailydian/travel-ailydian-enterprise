@@ -23,7 +23,10 @@ import {
   Eye,
   RefreshCw,
   ChevronRight,
-  Package
+  Package,
+  Edit,
+  Trash2,
+  X
 } from 'lucide-react';
 
 interface Booking {
@@ -51,6 +54,10 @@ const Bookings: React.FC = () => {
   const [filterStatus, setFilterStatus] = useState<string>('all');
   const [filterType, setFilterType] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState('');
+  const [cancelModalOpen, setCancelModalOpen] = useState(false);
+  const [bookingToCancel, setBookingToCancel] = useState<Booking | null>(null);
+  const [cancelReason, setCancelReason] = useState('');
+  const [cancelling, setCancelling] = useState(false);
 
   // Redirect if not authenticated
   useEffect(() => {
@@ -139,6 +146,58 @@ const Bookings: React.FC = () => {
           text: status
         };
     }
+  };
+
+  // Cancel booking handler
+  const handleCancelBooking = async () => {
+    if (!bookingToCancel) return;
+
+    setCancelling(true);
+    try {
+      const response = await fetch('/api/bookings/cancel', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          bookingId: bookingToCancel.id,
+          reason: cancelReason
+        })
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        logInfo('Booking cancelled successfully', { bookingId: bookingToCancel.id });
+        alert('Booking cancelled successfully. Refund will be processed within 5-7 business days.');
+        setCancelModalOpen(false);
+        setBookingToCancel(null);
+        setCancelReason('');
+        fetchBookings(); // Refresh bookings list
+      } else {
+        throw new Error(data.message || 'Cancellation failed');
+      }
+    } catch (error) {
+      logError('Booking cancellation failed', error);
+      alert('Failed to cancel booking. Please try again.');
+    } finally {
+      setCancelling(false);
+    }
+  };
+
+  const openCancelModal = (booking: Booking) => {
+    setBookingToCancel(booking);
+    setCancelModalOpen(true);
+  };
+
+  const handleModifyBooking = (bookingId: string) => {
+    // Navigate to modify page
+    router.push(`/bookings/${bookingId}/modify`);
+  };
+
+  const handleViewDetails = (bookingId: string) => {
+    // Navigate to details page
+    router.push(`/bookings/${bookingId}`);
   };
 
   // Filter bookings
@@ -355,24 +414,44 @@ const Bookings: React.FC = () => {
                       )}
 
                       {/* Actions */}
-                      <div className="flex items-center gap-3 pt-4 border-t border-gray-100">
-                        <Link
-                          href={`/bookings/${booking.id}`}
+                      <div className="flex items-center gap-3 pt-4 border-t border-gray-100 flex-wrap">
+                        <button
+                          onClick={() => handleViewDetails(booking.id)}
                           className="flex items-center gap-2 px-4 py-2 text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
                         >
                           <Eye className="w-4 h-4" />
-                          Detaylar
-                        </Link>
+                          View Details
+                        </button>
 
                         <button
                           className="flex items-center gap-2 px-4 py-2 text-gray-600 hover:bg-gray-50 rounded-lg transition-colors"
                         >
                           <Download className="w-4 h-4" />
-                          Fatura İndir
+                          Download Invoice
                         </button>
 
+                        {booking.status.toUpperCase() === 'CONFIRMED' && (
+                          <>
+                            <button
+                              onClick={() => handleModifyBooking(booking.id)}
+                              className="flex items-center gap-2 px-4 py-2 text-purple-600 hover:bg-purple-50 rounded-lg transition-colors"
+                            >
+                              <Edit className="w-4 h-4" />
+                              Modify
+                            </button>
+
+                            <button
+                              onClick={() => openCancelModal(booking)}
+                              className="flex items-center gap-2 px-4 py-2 text-red-600 hover:bg-red-50 rounded-lg transition-colors"
+                            >
+                              <Trash2 className="w-4 h-4" />
+                              Cancel
+                            </button>
+                          </>
+                        )}
+
                         <div className="ml-auto text-xs text-gray-500">
-                          Oluşturulma: {new Date(booking.createdAt).toLocaleDateString('tr-TR')}
+                          Created: {new Date(booking.createdAt).toLocaleDateString('en-US')}
                         </div>
                       </div>
                     </div>
@@ -417,6 +496,82 @@ const Bookings: React.FC = () => {
           )}
         </div>
       </div>
+
+      {/* Cancel Booking Modal */}
+      {cancelModalOpen && bookingToCancel && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="bg-white rounded-2xl shadow-2xl max-w-md w-full p-6"
+          >
+            <div className="flex items-center justify-between mb-4">
+              <h3 className="text-xl font-bold text-gray-900">Cancel Booking</h3>
+              <button
+                onClick={() => {
+                  setCancelModalOpen(false);
+                  setBookingToCancel(null);
+                  setCancelReason('');
+                }}
+                className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            <div className="mb-6">
+              <div className="bg-red-50 border border-red-200 rounded-lg p-4 mb-4">
+                <p className="text-sm text-red-800">
+                  Are you sure you want to cancel this booking?
+                </p>
+                <p className="text-xs text-red-600 mt-2">
+                  Booking Reference: <strong>{bookingToCancel.bookingReference}</strong>
+                </p>
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Cancellation Reason (Optional)
+                </label>
+                <textarea
+                  value={cancelReason}
+                  onChange={(e) => setCancelReason(e.target.value)}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
+                  rows={4}
+                  placeholder="Please let us know why you're cancelling..."
+                />
+              </div>
+            </div>
+
+            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
+              <p className="text-sm text-blue-800">
+                <strong>Refund Policy:</strong> Full refund of {bookingToCancel.totalAmount} {bookingToCancel.currency} will be processed within 5-7 business days to your original payment method.
+              </p>
+            </div>
+
+            <div className="flex gap-3">
+              <button
+                onClick={() => {
+                  setCancelModalOpen(false);
+                  setBookingToCancel(null);
+                  setCancelReason('');
+                }}
+                disabled={cancelling}
+                className="flex-1 px-4 py-3 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors font-medium"
+              >
+                Keep Booking
+              </button>
+              <button
+                onClick={handleCancelBooking}
+                disabled={cancelling}
+                className="flex-1 px-4 py-3 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors font-medium disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {cancelling ? 'Cancelling...' : 'Confirm Cancellation'}
+              </button>
+            </div>
+          </motion.div>
+        </div>
+      )}
     </>
   );
 };
