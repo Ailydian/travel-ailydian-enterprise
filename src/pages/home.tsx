@@ -3,6 +3,13 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { motion } from 'framer-motion';
+import dynamic from 'next/dynamic';
+
+// Dynamic import for VideoBackground to avoid SSR issues
+const VideoBackground = dynamic(() => import('../components/ui/VideoBackground'), {
+  ssr: false,
+  loading: () => <div className="absolute inset-0 bg-gradient-to-br from-ailydian-primary/20 to-ailydian-secondary/20" />
+});
 import { bookingComService } from '../lib/api/booking-com-service';
 import { amadeusService } from '../lib/api/amadeus-service';
 import { googlePlacesService } from '../lib/api/google-places-service';
@@ -443,16 +450,16 @@ const GetYourGuideStyleHome: React.FC = () => {
       <main>
         {/* Hero Section with 4K Tourism Background */}
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-          {/* 4K Background Video/Image */}
+          {/* Video Background - Changes every 60 seconds */}
           <div className="absolute inset-0 z-0">
-            {/* Primary Background Image */}
-            <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/30 to-black/50"></div>
-            <div 
-              className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-              style={{
-                backgroundImage: `url('https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3840&q=90')`
-              }}
-            ></div>
+            <VideoBackground
+              autoPlay={true}
+              muted={true}
+              loop={true}
+              overlay={true}
+              overlayOpacity={0.6}
+              changeInterval={60000}
+            />
             
             {/* Animated Overlay Elements */}
             <div className="absolute inset-0">
