@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import dynamic from 'next/dynamic';
 import {
   AnimatedPlane,
   AnimatedGlobe,
@@ -8,6 +9,12 @@ import {
   CompassAnimated
 } from '../ui/AnimatedSVG';
 import { Search, Calendar, Users, Sparkles } from 'lucide-react';
+
+// Dynamic import for VideoBackground to avoid SSR issues
+const VideoBackground = dynamic(() => import('../ui/VideoBackground'), {
+  ssr: false,
+  loading: () => <div className="absolute inset-0 bg-gradient-to-br from-ailydian-primary/20 to-ailydian-secondary/20" />
+});
 
 export interface AnimatedHeroSectionProps {
   onSearch?: (query: string) => void;
@@ -27,16 +34,24 @@ export const AnimatedHeroSection: React.FC<AnimatedHeroSectionProps> = ({ onSear
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background with animated gradient */}
+      {/* Video Background - Changes every 60 seconds */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-br from-ailydian-bg via-ailydian-bg-card to-ailydian-bg" />
+        <VideoBackground
+          autoPlay={true}
+          muted={true}
+          loop={true}
+          overlay={true}
+          overlayOpacity={0.6}
+          changeInterval={60000}
+        />
+        {/* Additional animated gradient overlay for premium effect */}
         <motion.div
-          className="absolute inset-0 bg-gradient-to-r from-ailydian-primary/10 via-transparent to-ailydian-secondary/10"
+          className="absolute inset-0 bg-gradient-to-r from-ailydian-primary/20 via-transparent to-ailydian-secondary/20"
           animate={{
-            opacity: [0.3, 0.6, 0.3]
+            opacity: [0.3, 0.5, 0.3]
           }}
           transition={{
-            duration: 4,
+            duration: 5,
             repeat: Infinity
           }}
         />

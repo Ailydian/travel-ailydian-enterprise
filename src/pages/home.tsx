@@ -1,6 +1,7 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { motion } from 'framer-motion';
 import { bookingComService } from '../lib/api/booking-com-service';
 import { amadeusService } from '../lib/api/amadeus-service';
@@ -46,9 +47,12 @@ import {
 import NavigationHeader from '../components/layout/NavigationHeader';
 
 const GetYourGuideStyleHome: React.FC = () => {
+  // Router
+  const router = useRouter();
+
   // Cart context
   const { addItem, getItemCount } = useCart();
-  
+
   // Search state
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');

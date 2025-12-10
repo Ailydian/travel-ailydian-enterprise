@@ -7,7 +7,7 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 const nextConfig = {
   i18n,
   reactStrictMode: true,
-  swcMinify: true,
+  // swcMinify: true, // Removed: Deprecated in Next.js 15 (SWC is now default)
   compress: true,
   poweredByHeader: false,
   eslint: {
@@ -23,7 +23,8 @@ const nextConfig = {
       'travel.ailydian.com',
       'api.travel.ailydian.com',
       'cdn.ailydian.com',
-      'assets.ailydian.com'
+      'assets.ailydian.com',
+      'cdn.pixabay.com' // For video posters
     ],
     formats: ['image/avif', 'image/webp'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920],
