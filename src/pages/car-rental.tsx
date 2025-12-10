@@ -135,11 +135,68 @@ const CarRental: React.FC = () => {
           </div>
         </section>
 
-        {/* Car Results */}
-        <section className="py-16">
+        {/* Car Categories */}
+        <section className="py-16 bg-white">
           <div className="max-w-7xl mx-auto px-4">
-            <h2 className="text-3xl font-bold text-gray-900 mb-8">Popüler Araç Seçenekleri</h2>
-            
+            <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Popüler Araç Seçenekleri</h2>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+              {[
+                {
+                  title: 'Ekonomik',
+                  image: 'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=400&h=300&q=90',
+                  badge: 'En Popüler Seçim'
+                },
+                {
+                  title: 'Lüks',
+                  image: 'https://images.unsplash.com/photo-1563720360172-67b8f3dce741?w=400&h=300&q=90',
+                  badge: ''
+                },
+                {
+                  title: 'Minibüs',
+                  image: 'https://images.unsplash.com/photo-1464219789935-c2d9d9aba644?w=400&h=300&q=90',
+                  badge: ''
+                }
+              ].map((category, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                  className="relative group cursor-pointer overflow-hidden rounded-2xl shadow-lg"
+                >
+                  <div className="relative h-48">
+                    <img
+                      src={category.image}
+                      alt={category.title}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                    <div className="absolute bottom-4 left-4 right-4">
+                      <h3 className="text-2xl font-bold text-white mb-1">{category.title}</h3>
+                      {category.badge && (
+                        <span className="inline-block px-3 py-1 bg-green-500 text-white text-xs font-medium rounded-full">
+                          {category.badge}
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                  <div className="absolute bottom-4 right-4">
+                    <button className="px-4 py-2 bg-white text-gray-900 rounded-lg font-medium hover:bg-gray-100 transition-colors text-sm">
+                      Ekran Resmi
+                    </button>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Car Results */}
+        <section className="py-16 bg-gray-50">
+          <div className="max-w-7xl mx-auto px-4">
+            <h2 className="text-3xl font-bold text-gray-900 mb-8">Tüm Araçlar</h2>
+
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {cars.map((car, index) => (
                 <motion.div
