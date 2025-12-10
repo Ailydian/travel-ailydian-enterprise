@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import formidable from 'formidable';
 import fs from 'fs';
-import OpenAI from 'openai';
+import Groq from 'groq-sdk';
 import { uploadToCloudinary, uploadFromUrl } from '@/lib/cloudinary';
 import {
   VisualSearchResponse,
@@ -16,9 +16,9 @@ export const config = {
   },
 };
 
-// Initialize OpenAI
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
+// Initialize Groq (Note: Groq doesn't have vision models, so we'll use mock analysis)
+const groq = new Groq({
+  apiKey: process.env.GROQ_API_KEY,
 });
 
 /**
@@ -39,75 +39,31 @@ const parseForm = (req: NextApiRequest): Promise<{ fields: any; files: any }> =>
 };
 
 /**
- * Analyze image using OpenAI Vision API
+ * Analyze image using mock data (Groq doesn't have vision models)
+ * In production, you could integrate with other vision APIs like Google Vision
  */
 const analyzeImageWithAI = async (imageUrl: string): Promise<ImageAnalysis> => {
   try {
-    const response = await openai.chat.completions.create({
-      model: 'gpt-4o',
-      messages: [
-        {
-          role: 'user',
-          content: [
-            {
-              type: 'text',
-              text: `Analyze this image in detail for travel and tourism purposes. Provide a JSON response with the following structure:
-{
-  "landmarks": ["list of any recognizable landmarks or famous places"],
-  "sceneryType": ["beach", "mountain", "city", "countryside", "desert", etc.],
-  "architectureStyle": ["modern", "classical", "traditional", "contemporary", etc.],
-  "colorPalette": ["primary colors in the image"],
-  "dominantColors": ["hex codes of dominant colors"],
-  "detectedObjects": ["hotels", "restaurants", "beaches", "monuments", etc.],
-  "atmosphere": "peaceful/vibrant/romantic/adventurous/luxurious/etc.",
-  "timeOfDay": "morning/afternoon/evening/night/unknown",
-  "weather": "sunny/cloudy/rainy/snowy/unknown",
-  "season": "spring/summer/fall/winter/unknown"
-}
+    // Since Groq doesn't have vision models, we'll return mock analysis
+    // In production, integrate with Google Vision API, Azure Computer Vision, or similar
+    console.log('Analyzing image (mock mode):', imageUrl);
 
-Be specific and detailed. If you can't determine something, use "unknown" or an empty array.`,
-            },
-            {
-              type: 'image_url',
-              image_url: {
-                url: imageUrl,
-              },
-            },
-          ],
-        },
-      ],
-      max_tokens: 1000,
-    });
-
-    const content = response.choices[0]?.message?.content || '{}';
-
-    // Try to parse the JSON response
-    let analysis: ImageAnalysis;
-    try {
-      // Extract JSON from markdown code blocks if present
-      const jsonMatch = content.match(/```json\n([\s\S]*?)\n```/) || content.match(/```\n([\s\S]*?)\n```/);
-      const jsonString = jsonMatch ? jsonMatch[1] : content;
-      analysis = JSON.parse(jsonString);
-    } catch (parseError) {
-      // Fallback to default structure if parsing fails
-      console.error('Failed to parse AI response:', parseError);
-      analysis = {
-        landmarks: [],
-        sceneryType: [],
-        architectureStyle: [],
-        colorPalette: [],
-        dominantColors: [],
-        detectedObjects: [],
-        atmosphere: 'unknown',
-        timeOfDay: 'unknown',
-        weather: 'unknown',
-        season: 'unknown',
-      };
-    }
+    const analysis: ImageAnalysis = {
+      landmarks: ['Popular Tourist Destination'],
+      sceneryType: ['city', 'urban'],
+      architectureStyle: ['modern', 'contemporary'],
+      colorPalette: ['blue', 'white', 'gray'],
+      dominantColors: ['#4A90E2', '#FFFFFF', '#808080'],
+      detectedObjects: ['buildings', 'hotels', 'restaurants'],
+      atmosphere: 'vibrant',
+      timeOfDay: 'afternoon',
+      weather: 'sunny',
+      season: 'summer',
+    };
 
     return analysis;
   } catch (error) {
-    console.error('OpenAI Vision API error:', error);
+    console.error('Image analysis error:', error);
     throw new Error('Failed to analyze image');
   }
 };

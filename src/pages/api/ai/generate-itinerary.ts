@@ -1,9 +1,9 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import OpenAI from 'openai';
+import Groq from 'groq-sdk';
 import { addDays, differenceInDays, format } from 'date-fns';
 
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY
+const groq = new Groq({
+  apiKey: process.env.GROQ_API_KEY
 });
 
 interface TripPreferences {
@@ -137,8 +137,8 @@ Return the itinerary as a structured JSON with the following format:
   "warnings": ["Warning 1"]
 }`;
 
-    const completion = await openai.chat.completions.create({
-      model: 'gpt-4-turbo-preview',
+    const completion = await groq.chat.completions.create({
+      model: 'llama-3.3-70b-versatile',
       messages: [
         {
           role: 'system',
@@ -156,14 +156,14 @@ Return the itinerary as a structured JSON with the following format:
     const aiResponse = completion.choices[0].message.content;
 
     if (!aiResponse) {
-      throw new Error('No response from OpenAI');
+      throw new Error('No response from Groq');
     }
 
     let itineraryData;
     try {
       itineraryData = JSON.parse(aiResponse);
     } catch (parseError) {
-      console.error('Failed to parse OpenAI response:', aiResponse);
+      console.error('Failed to parse Groq response:', aiResponse);
       // Fallback to mock data if parsing fails
       itineraryData = generateMockItinerary(preferences, numberOfDays);
     }
@@ -190,7 +190,7 @@ Return the itinerary as a structured JSON with the following format:
   } catch (error: any) {
     console.error('Error generating itinerary:', error);
 
-    // If OpenAI fails, return mock data
+    // If Groq fails, return mock data
     const preferences: TripPreferences = req.body;
     const startDate = new Date(preferences.startDate);
     const endDate = new Date(preferences.endDate);
