@@ -255,8 +255,11 @@ const NavigationHeader: React.FC = () => {
   const currentLanguage = languages.find(lang => lang.code === (router.locale || 'tr')) || languages[0];
 
   const handleLanguageChange = (locale: string) => {
-    router.push(router.pathname, router.asPath, { locale });
-    setIsLanguageMenuOpen(false);
+    const { pathname, asPath, query } = router;
+    // Use router.push with locale option to change language
+    router.push({ pathname, query }, asPath, { locale }).then(() => {
+      setIsLanguageMenuOpen(false);
+    });
   };
 
   const isActive = (path: string) => router.pathname === path;
