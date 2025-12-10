@@ -7,12 +7,12 @@ import { amadeusService } from '../lib/api/amadeus-service';
 import { googlePlacesService } from '../lib/api/google-places-service';
 import { tourismApiService } from '../lib/tourism-api-service';
 import { useCart } from '../context/CartContext';
-import { 
-  Search, 
-  MapPin, 
-  Star, 
-  Calendar, 
-  Users, 
+import {
+  Search,
+  MapPin,
+  Star,
+  Calendar,
+  Users,
   TrendingUp,
   Award,
   Shield,
@@ -40,7 +40,8 @@ import {
   UserPlus,
   Gift,
   ShoppingCart,
-  Plus
+  Plus,
+  Car
 } from 'lucide-react';
 import NavigationHeader from '../components/layout/NavigationHeader';
 
@@ -119,7 +120,7 @@ const GetYourGuideStyleHome: React.FC = () => {
             }
           }
           break;
-          
+
         case 'flights':
           try {
             // This would need origin location - for demo, using Istanbul as default
@@ -135,7 +136,28 @@ const GetYourGuideStyleHome: React.FC = () => {
             console.error('Flight search error:', error);
           }
           break;
-          
+
+        case 'transfers':
+          try {
+            // Search airport transfers
+            const response = await fetch(`/api/transfers/search?to=${encodeURIComponent(searchQuery)}&passengers=${travelers}`);
+            const data = await response.json();
+            if (data.success && data.transfers) {
+              results.push(...data.transfers.map((transfer: any) => ({
+                ...transfer,
+                type: 'transfer',
+                title: transfer.name,
+                description: transfer.description,
+                location: `${transfer.fromLocation} → ${transfer.toLocation}`,
+                duration: `${transfer.duration} dakika`,
+                price: transfer.vehicles[0]?.priceStandard || 'N/A'
+              })));
+            }
+          } catch (error) {
+            console.error('Transfer search error:', error);
+          }
+          break;
+
         case 'restaurants':
           try {
             const restaurantResults = await googlePlacesService.searchRestaurants(searchQuery);
@@ -144,7 +166,7 @@ const GetYourGuideStyleHome: React.FC = () => {
             console.error('Restaurant search error:', error);
           }
           break;
-          
+
         case 'tours':
           try {
             const tourResults = await tourismApiService.searchTours(searchQuery);
@@ -561,12 +583,13 @@ const GetYourGuideStyleHome: React.FC = () => {
                       { id: 'flights', icon: Send, label: 'Uçak' },
                       { id: 'hotels', icon: MapPin, label: 'Otel' },
                       { id: 'tours', icon: Camera, label: 'Turlar' },
-                      { id: 'restaurants', icon: Gift, label: 'Restoranlar' }
+                      { id: 'restaurants', icon: Gift, label: 'Restoranlar' },
+                      { id: 'transfers', icon: Car, label: 'Havalimanı Transfer', badge: 'Yeni' }
                     ].map((tab) => (
                       <button
                         key={tab.id}
                         onClick={() => setSelectedCategory(tab.id)}
-                        className={`flex items-center gap-2 px-4 py-2 rounded-xl font-medium transition-all duration-200 ${
+                        className={`relative flex items-center gap-2 px-4 py-2 rounded-xl font-medium transition-all duration-200 ${
                           selectedCategory === tab.id || tab.active
                             ? 'bg-gradient-to-r from-ailydian-primary to-ailydian-secondary text-white shadow-lg'
                             : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
@@ -574,6 +597,11 @@ const GetYourGuideStyleHome: React.FC = () => {
                       >
                         <tab.icon className="w-4 h-4" />
                         <span className="text-sm">{tab.label}</span>
+                        {tab.badge && (
+                          <span className="text-xs bg-gradient-to-r from-green-500 to-emerald-500 text-white px-2 py-0.5 rounded-full font-semibold ml-1">
+                            {tab.badge}
+                          </span>
+                        )}
                       </button>
                     ))}
                   </div>
@@ -867,8 +895,9 @@ const GetYourGuideStyleHome: React.FC = () => {
                             whileTap={{ scale: 0.95 }}
                             className="px-4 py-2 bg-gradient-to-r from-ailydian-primary to-ailydian-secondary text-white rounded-lg font-medium hover:shadow-lg transition-all duration-200 text-sm"
                           >
-                            {result.type === 'hotel' ? 'Rezervasyon' : 
-                             result.type === 'flight' ? 'Bilet Al' : 
+                            {result.type === 'hotel' ? 'Rezervasyon' :
+                             result.type === 'flight' ? 'Bilet Al' :
+                             result.type === 'transfer' ? 'Transfer Rezerve Et' :
                              result.type === 'restaurant' ? 'Rezerve Et' : 'Detaylar'}
                           </motion.button>
                         </div>

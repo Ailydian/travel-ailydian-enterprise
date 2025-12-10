@@ -39,17 +39,36 @@ export const VoiceMenu: React.FC<VoiceMenuProps> = ({ className = '' }) => {
   const [showModal, setShowModal] = useState(false);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [isSpeechEnabled, setIsSpeechEnabled] = useState(true);
+  const [displaySuggestions, setDisplaySuggestions] = useState<string[]>([]);
+
+  // Initialize with default suggestions on mount
+  useEffect(() => {
+    const defaultSuggestions = [
+      'Otellere git',
+      'Uçak bileti ara',
+      'Sepeti göster',
+      'Anasayfaya git'
+    ];
+    setDisplaySuggestions(defaultSuggestions);
+  }, []);
+
+  // Update display suggestions when suggestions change
+  useEffect(() => {
+    if (suggestions.length > 0) {
+      setDisplaySuggestions(suggestions);
+    }
+  }, [suggestions]);
 
   // Auto-hide suggestions after some time
   useEffect(() => {
-    if (suggestions.length > 0 && !showModal) {
+    if (displaySuggestions.length > 0 && !showModal) {
       setShowSuggestions(true);
       const timer = setTimeout(() => {
         setShowSuggestions(false);
-      }, 5000);
+      }, 8000); // Increased time to 8 seconds
       return () => clearTimeout(timer);
     }
-  }, [suggestions, showModal]);
+  }, [displaySuggestions, showModal]);
 
   // Handle voice toggle
   const handleVoiceToggle = () => {
@@ -217,7 +236,7 @@ export const VoiceMenu: React.FC<VoiceMenuProps> = ({ className = '' }) => {
 
       {/* Quick Suggestions Popup */}
       <AnimatePresence>
-        {showSuggestions && suggestions.length > 0 && (
+        {showSuggestions && displaySuggestions.length > 0 && (
           <motion.div
             initial={{ opacity: 0, scale: 0.95, y: -10 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -238,14 +257,14 @@ export const VoiceMenu: React.FC<VoiceMenuProps> = ({ className = '' }) => {
             </div>
 
             <div className="space-y-2">
-              {suggestions.slice(0, 4).map((suggestion, index) => (
+              {displaySuggestions.slice(0, 4).map((suggestion, index) => (
                 <button
                   key={index}
                   onClick={() => {
                     speak(suggestion);
                     setShowSuggestions(false);
                   }}
-                  className="w-full text-left px-3 py-2 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors text-sm"
+                  className="w-full text-left px-3 py-2 rounded-lg bg-gradient-to-r from-blue-50 to-purple-50 hover:from-blue-100 hover:to-purple-100 transition-colors text-sm font-medium text-gray-700 border border-blue-100"
                 >
                   💡 {suggestion}
                 </button>

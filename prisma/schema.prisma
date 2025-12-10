@@ -65,14 +65,15 @@ model User {
   twoFactorEnabled Boolean  @default(false)
   
   // Relations
-  accounts        Account[]
-  sessions        Session[]
-  bookings        Booking[]
-  reviews         Review[]
-  favorites       Favorite[]
-  notifications   Notification[]
+  accounts           Account[]
+  sessions           Session[]
+  bookings           Booking[]
+  reviews            Review[]
+  favorites          Favorite[]
+  notifications      Notification[]
   walletTransactions WalletTransaction[]
-  aiPreferences   AIPreference?
+  aiPreferences      AIPreference?
+  transferBookings   TransferBooking[]
   
   @@map("users")
 }
@@ -219,6 +220,7 @@ enum BookingType {
   CAR_RENTAL
   RESTAURANT
   PACKAGE
+  AIRPORT_TRANSFER
 }
 
 enum BookingStatus {
@@ -275,4 +277,142 @@ enum TransactionStatus {
   COMPLETED
   FAILED
   CANCELLED
+}
+
+// Airport Transfer Models
+model AirportTransfer {
+  id              String   @id @default(cuid())
+  name            String
+  description     String   @db.Text
+  fromLocation    String   // Airport code or location name
+  toLocation      String   // Destination location
+  distance        Float    // Distance in KM
+  duration        Int      // Duration in minutes
+  region          String   // Antalya, Alanya, etc.
+  isActive        Boolean  @default(true)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  // Relations
+  vehicles        TransferVehicle[]
+  bookings        TransferBooking[]
+
+  @@map("airport_transfers")
+  @@index([region])
+  @@index([fromLocation])
+}
+
+model TransferVehicle {
+  id              String          @id @default(cuid())
+  transferId      String
+  vehicleType     VehicleType
+  name            String          // e.g., "Mercedes Vito VIP"
+  capacity        Int             // Passenger capacity
+  luggageCapacity Int             // Luggage capacity
+  priceStandard   Decimal         // Standard price
+  priceVIP        Decimal         // VIP price
+  features        String[]        @default([])
+  image           String?
+  isAvailable     Boolean         @default(true)
+  createdAt       DateTime        @default(now())
+  updatedAt       DateTime        @updatedAt
+
+  // Relations
+  transfer        AirportTransfer @relation(fields: [transferId], references: [id], onDelete: Cascade)
+  bookings        TransferBooking[]
+
+  @@map("transfer_vehicles")
+  @@index([transferId])
+  @@index([vehicleType])
+}
+
+model TransferBooking {
+  id              String          @id @default(cuid())
+  userId          String
+  transferId      String
+  vehicleId       String
+  bookingRef      String          @unique
+
+  // Trip Details
+  transferType    TransferType    @default(ONE_WAY)
+  pickupLocation  String
+  dropoffLocation String
+  pickupDate      DateTime
+  pickupTime      String
+  returnDate      DateTime?
+  returnTime      String?
+
+  // Passenger Details
+  passengerCount  Int
+  luggageCount    Int
+  specialRequests String?         @db.Text
+
+  // Flight Details
+  flightNumber    String?
+  arrivalTime     String?
+
+  // Pricing
+  basePrice       Decimal
+  totalPrice      Decimal
+  currency        String          @default("TRY")
+  isVIP           Boolean         @default(false)
+
+  // Status
+  status          BookingStatus   @default(PENDING)
+  paymentStatus   PaymentStatus   @default(PENDING)
+  paymentMethod   PaymentMethod?
+  paymentIntentId String?         // Stripe payment intent ID
+
+  // Timestamps
+  createdAt       DateTime        @default(now())
+  updatedAt       DateTime        @updatedAt
+
+  // Relations
+  user            User            @relation(fields: [userId], references: [id])
+  transfer        AirportTransfer @relation(fields: [transferId], references: [id])
+  vehicle         TransferVehicle @relation(fields: [vehicleId], references: [id])
+
+  @@map("transfer_bookings")
+  @@index([userId])
+  @@index([transferId])
+  @@index([pickupDate])
+  @@index([status])
+}
+
+// Enums for Airport Transfer
+enum VehicleType {
+  SEDAN          // 1-3 passengers
+  VAN            // 4-8 passengers
+  MINIBUS        // 9-14 passengers
+  BUS            // 15+ passengers
+  LUXURY_SEDAN   // VIP Sedan
+  LUXURY_VAN     // VIP Van
+}
+
+enum TransferType {
+  ONE_WAY
+  ROUND_TRIP
+}
+
+// Admin User Model
+model Admin {
+  id            String    @id @default(cuid())
+  email         String    @unique
+  passwordHash  String
+  role          AdminRole @default(MODERATOR)
+  permissions   String[]  // Array of permission strings
+  isActive      Boolean   @default(true)
+  lastLogin     DateTime?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  @@map("admins")
+  @@index([email])
+  @@index([role])
+}
+
+enum AdminRole {
+  SUPER_ADMIN
+  ADMIN
+  MODERATOR
 }

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { signIn } from 'next-auth/react';
 import { motion } from 'framer-motion';
 import {
   Mail,
@@ -18,6 +19,7 @@ import {
   Home,
   ArrowLeft
 } from 'lucide-react';
+import { logInfo, logError } from '../../lib/logger';
 
 // Custom icons for social providers
 const GoogleIcon = () => (
@@ -82,25 +84,39 @@ const SignIn: React.FC = () => {
     }
 
     try {
-      // Simulated authentication - replace with actual API call
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      // For now, just redirect to dashboard
-      router.push('/profile/dashboard');
+      logInfo('User attempting sign in', { email: formData.email });
+
+      const result = await signIn('credentials', {
+        redirect: false,
+        email: formData.email,
+        password: formData.password,
+      });
+
+      if (result?.error) {
+        logError('Sign in failed', new Error(result.error));
+        setError(result.error);
+        return;
+      }
+
+      if (result?.ok) {
+        logInfo('User signed in successfully', { email: formData.email });
+        router.push('/dashboard');
+      }
     } catch (err) {
+      logError('Sign in error', err);
       setError('Giriş yaparken bir hata oluştu');
     } finally {
       setIsLoading(false);
     }
   };
 
-  const handleSocialSignIn = async (provider: string) => {
+  const handleSocialSignIn = async (provider: 'google' | 'facebook') => {
     setIsLoading(true);
     try {
-      // Simulated social sign in - replace with actual implementation
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      router.push('/profile/dashboard');
+      logInfo(`User attempting ${provider} sign in`);
+      await signIn(provider, { callbackUrl: '/dashboard' });
     } catch (err) {
+      logError(`${provider} sign in error`, err);
       setError('Sosyal medya girişi başarısız oldu');
       setIsLoading(false);
     }

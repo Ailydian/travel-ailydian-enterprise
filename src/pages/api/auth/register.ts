@@ -1,6 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import bcrypt from 'bcryptjs';
 import { prisma } from '../../../lib/prisma';
+import { logInfo, logError } from '../../../lib/logger';
 
 interface RegisterRequest {
   name: string;
@@ -30,14 +31,18 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       preferredCurrency = 'TRY'
     }: RegisterRequest = req.body;
 
+    logInfo('User registration attempt', { email, name });
+
     // Validation
     if (!name || !email || !password) {
+      logError('Registration validation failed - missing required fields', new Error('Missing fields'));
       return res.status(400).json({
         message: 'Ad, email ve şifre gerekli alanlarıdır'
       });
     }
 
     if (password.length < 8) {
+      logError('Registration validation failed - password too short', new Error('Password too short'));
       return res.status(400).json({
         message: 'Şifre en az 8 karakter olmalıdır'
       });
@@ -49,6 +54,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     });
 
     if (existingUser) {
+      logError('Registration failed - user already exists', new Error('User exists'), { email });
       return res.status(400).json({
         message: 'Bu email adresi ile zaten bir hesap bulunmaktadır'
       });
@@ -94,13 +100,15 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       }
     });
 
+    logInfo('User registered successfully', { userId: user.id, email: user.email });
+
     res.status(201).json({
       message: 'Hesabınız başarıyla oluşturuldu!',
       user
     });
 
   } catch (error) {
-    console.error('Registration error:', error);
+    logError('Registration error', error);
     res.status(500).json({
       message: 'Hesap oluşturulurken bir hata oluştu'
     });

@@ -6,15 +6,12 @@ import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Search,
-  Globe,
   User,
   Heart,
   ShoppingCart,
   Menu,
   X,
   MapPin,
-  Plane,
-  Building,
   Activity,
   CreditCard,
   Headphones,
@@ -22,12 +19,10 @@ import {
   LogOut,
   Star,
   Bot,
-  Gamepad2,
-  Users,
-  Mic,
   TrendingUp,
   Clock,
-  ArrowRight
+  ArrowRight,
+  Globe
 } from 'lucide-react';
 import { searchInData, popularSearches, categoryConfig, type SearchResult } from '../../data/searchData';
 import { useCart } from '../../context/CartContext';
@@ -205,61 +200,18 @@ const NavigationHeader: React.FC = () => {
   }, []);
 
   const mainNavItems = [
-    { 
-      title: 'Destinasyonlar', 
+    {
+      title: 'Destinasyonlar',
       href: '/destinations',
       icon: MapPin,
       description: 'Türkiye\'nin en güzel yerlerini keşfedin'
     },
-    { 
-      title: 'Deneyimler', 
+    {
+      title: 'Deneyimler',
       href: '/experiences',
       icon: Star,
       description: 'Benzersiz deneyimler yaşayın'
     },
-    { 
-      title: 'Oteller', 
-      href: '/hotels',
-      icon: Building,
-      description: 'En iyi konaklama seçenekleri'
-    },
-    { 
-      title: 'Uçak Biletleri', 
-      href: '/flights',
-      icon: Plane,
-      description: 'Uygun fiyatlı uçak biletleri'
-    },
-  ];
-
-  const advancedFeatures = [
-    {
-      title: isClient ? t('navigation:aiAssistant', 'AI Asistan') : 'AI Asistan',
-      href: '/ai-assistant',
-      icon: Bot,
-      description: isClient ? t('navigation:aiAssistantDesc', 'Akıllı seyahat planlama') : 'Akıllı seyahat planlama',
-      badge: 'AI'
-    },
-    {
-      title: isClient ? t('navigation:virtualTours', 'Sanal Turlar') : 'Sanal Turlar',
-      href: '/virtual-tours',
-      icon: Gamepad2,
-      description: isClient ? t('navigation:virtualToursDesc', '360° VR deneyimleri') : '360° VR deneyimleri',
-      badge: 'VR'
-    },
-    {
-      title: isClient ? t('navigation:socialHub', 'Sosyal Ağ') : 'Sosyal Ağ',
-      href: '/social',
-      icon: Users,
-      description: isClient ? t('navigation:socialHubDesc', 'Seyahat topluluğu') : 'Seyahat topluluğu',
-      badge: 'Social'
-    },
-    {
-      title: isClient ? t('navigation:voiceControl', 'Sesli Komutlar') : 'Sesli Komutlar',
-      href: '/voice',
-      icon: Mic,
-      description: isClient ? t('navigation:voiceControlDesc', 'Elleri serbest navigasyon') : 'Elleri serbest navigasyon',
-      badge: 'Voice'
-    }
   ];
 
   const userMenuItems = [
@@ -275,11 +227,6 @@ const NavigationHeader: React.FC = () => {
 
   return (
     <header className="bg-white shadow-sm border-b border-gray-100 sticky top-0 z-50">
-      {/* Top promotional bar */}
-      <div className="bg-gradient-to-r from-ailydian-primary to-ailydian-secondary text-white py-2 px-4 text-center text-sm">
-        <span className="font-medium">🎉 Yeni: AI destekli seyahat planlama ve Blockchain ödemeler artık kullanımda!</span>
-      </div>
-
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -448,7 +395,7 @@ const NavigationHeader: React.FC = () => {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`flex items-center space-x-2 px-4 py-2 rounded-lg transition-colors duration-200 ${
+                  className={`relative flex items-center space-x-2 px-4 py-2 rounded-lg transition-colors duration-200 ${
                     isActive(item.href)
                       ? 'bg-blue-50 text-blue-600'
                       : 'text-gray-700 hover:bg-gray-50'
@@ -456,6 +403,11 @@ const NavigationHeader: React.FC = () => {
                 >
                   <Icon className="w-4 h-4" />
                   <span className="font-medium">{item.title}</span>
+                  {item.badge && (
+                    <span className="absolute -top-1 -right-1 text-xs bg-gradient-to-r from-green-500 to-emerald-500 text-white px-2 py-0.5 rounded-full font-semibold shadow-sm">
+                      {item.badge}
+                    </span>
+                  )}
                 </Link>
               );
             })}
@@ -613,29 +565,6 @@ const NavigationHeader: React.FC = () => {
             </button>
           </div>
         </div>
-
-        {/* Advanced Features Bar */}
-        <div className="hidden xl:flex items-center justify-center py-3 border-t border-gray-100">
-          <div className="flex items-center space-x-6">
-            <span className="text-sm font-medium text-gray-500">{isClient ? t('navigation:advancedFeatures', 'Gelişmiş Özellikler:') : 'Gelişmiş Özellikler:'}</span>
-            {advancedFeatures.map((feature) => {
-              const Icon = feature.icon;
-              return (
-                <Link
-                  key={feature.href}
-                  href={feature.href}
-                  className="flex items-center space-x-2 px-3 py-1.5 rounded-full border border-gray-200 hover:border-blue-300 hover:bg-blue-50 transition-all duration-200 group"
-                >
-                  <Icon className="w-4 h-4 text-gray-600 group-hover:text-blue-600" />
-                  <span className="text-sm text-gray-700 group-hover:text-blue-600">{feature.title}</span>
-                  <span className="text-xs bg-gradient-to-r from-blue-500 to-purple-500 text-white px-2 py-0.5 rounded-full">
-                    {feature.badge}
-                  </span>
-                </Link>
-              );
-            })}
-          </div>
-        </div>
       </div>
 
       {/* Mobile Menu */}
@@ -670,12 +599,19 @@ const NavigationHeader: React.FC = () => {
                     <Link
                       key={item.href}
                       href={item.href}
-                      className="flex items-center space-x-3 px-3 py-3 rounded-lg text-gray-700 hover:bg-gray-50"
+                      className="relative flex items-center space-x-3 px-3 py-3 rounded-lg text-gray-700 hover:bg-gray-50"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       <Icon className="w-5 h-5" />
-                      <div>
-                        <div className="font-medium">{item.title}</div>
+                      <div className="flex-1">
+                        <div className="font-medium flex items-center gap-2">
+                          {item.title}
+                          {item.badge && (
+                            <span className="text-xs bg-gradient-to-r from-green-500 to-emerald-500 text-white px-2 py-0.5 rounded-full font-semibold">
+                              {item.badge}
+                            </span>
+                          )}
+                        </div>
                         <div className="text-xs text-gray-500">{item.description}</div>
                       </div>
                     </Link>
@@ -687,27 +623,6 @@ const NavigationHeader: React.FC = () => {
               <div className="border-t border-gray-100 pt-4">
                 <p className="text-sm font-medium text-gray-500 mb-3">Sesli Kontrol</p>
                 <VoiceMenu />
-              </div>
-
-              {/* Mobile Advanced Features */}
-              <div className="border-t border-gray-100 pt-4">
-                <p className="text-sm font-medium text-gray-500 mb-3">{isClient ? t('navigation:advancedFeatures', 'Gelişmiş Özellikler') : 'Gelişmiş Özellikler'}</p>
-                <div className="grid grid-cols-2 gap-2">
-                  {advancedFeatures.map((feature) => {
-                    const Icon = feature.icon;
-                    return (
-                      <Link
-                        key={feature.href}
-                        href={feature.href}
-                        className="flex items-center space-x-2 px-3 py-2 rounded-lg border border-gray-200 hover:bg-gray-50"
-                        onClick={() => setIsMenuOpen(false)}
-                      >
-                        <Icon className="w-4 h-4 text-gray-600" />
-                        <span className="text-sm text-gray-700">{feature.title}</span>
-                      </Link>
-                    );
-                  })}
-                </div>
               </div>
             </div>
             </motion.div>

@@ -2,7 +2,10 @@ import { useState } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowRight, MapPin, Star, Clock, Users, Calendar, Filter, Heart, Zap, Mountain, Waves, Camera, Plane, Car, Utensils, TreePine } from 'lucide-react';
+import { useRouter } from 'next/router';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ArrowRight, MapPin, Star, Clock, Users, Calendar, Filter, Heart, Zap, Mountain, Waves, Camera, Plane, Car, Utensils, TreePine, ShoppingCart, CheckCircle } from 'lucide-react';
+import { useCart } from '../context/CartContext';
 
 const activities = [
   {
@@ -222,12 +225,45 @@ const difficulties = ['Tümü', 'Kolay', 'Orta', 'Zor'];
 const durations = ['Tümü', '1-3 saat', '4-6 saat', '6+ saat'];
 
 export default function Activities() {
+  const router = useRouter();
+  const { addItem } = useCart();
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [selectedDifficulty, setSelectedDifficulty] = useState('Tümü');
   const [selectedDuration, setSelectedDuration] = useState('Tümü');
   const [favorites, setFavorites] = useState<Set<number>>(new Set());
   const [sortBy, setSortBy] = useState('popularity');
+  const [showToast, setShowToast] = useState(false);
+  const [toastMessage, setToastMessage] = useState('');
+
+  // Cart handler functions
+  const handleAddToCart = (activity: typeof activities[0]) => {
+    const priceValue = parseFloat(activity.price.replace('₺', '').replace(',', ''));
+    addItem({
+      id: `activity-${activity.id}`,
+      type: 'activity',
+      title: activity.name,
+      description: activity.description,
+      image: activity.image,
+      price: priceValue,
+      originalPrice: activity.originalPrice ? parseFloat(activity.originalPrice.replace('₺', '').replace(',', '')) : undefined,
+      currency: 'TRY',
+      quantity: 1,
+      location: activity.location,
+      rating: activity.rating,
+      duration: activity.duration,
+      isRefundable: true,
+      cancellationPolicy: 'Ücretsiz iptal: 24 saat öncesine kadar'
+    });
+    setToastMessage(`${activity.name} sepete eklendi!`);
+    setShowToast(true);
+    setTimeout(() => setShowToast(false), 3000);
+  };
+
+  const handleReserve = (activity: typeof activities[0]) => {
+    handleAddToCart(activity);
+    setTimeout(() => router.push('/cart'), 500);
+  };
 
   const filteredActivities = activities.filter(activity => {
     const matchesSearch = activity.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -561,25 +597,43 @@ export default function Activities() {
                       </div>
                     </div>
 
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <div className="flex items-center space-x-2">
-                          {activity.originalPrice && (
-                            <span className="text-sm text-gray-500 line-through">
-                              {activity.originalPrice}
+                    <div className="border-t border-gray-100 pt-4">
+                      <div className="flex items-center justify-between mb-3">
+                        <div>
+                          <div className="flex items-center space-x-2">
+                            {activity.originalPrice && (
+                              <span className="text-sm text-gray-500 line-through">
+                                {activity.originalPrice}
+                              </span>
+                            )}
+                            <span className="text-xl font-bold text-orange-600">
+                              {activity.price}
                             </span>
-                          )}
-                          <span className="text-xl font-bold text-orange-600">
-                            {activity.price}
+                          </div>
+                          <span className="text-xs text-gray-500">
+                            {activity.reviews.toLocaleString()} değerlendirme
                           </span>
                         </div>
-                        <span className="text-xs text-gray-500">
-                          {activity.reviews.toLocaleString()} değerlendirme
-                        </span>
                       </div>
-                      <button className="bg-orange-500 text-white px-4 py-2 rounded-lg hover:bg-orange-600 transition-colors font-semibold">
-                        Rezervasyon
-                      </button>
+                      <div className="flex gap-2">
+                        <motion.button
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
+                          onClick={() => handleAddToCart(activity)}
+                          className="flex-1 px-4 py-2 border-2 border-orange-500 text-orange-600 rounded-lg font-semibold hover:bg-orange-50 transition-colors flex items-center justify-center gap-2"
+                        >
+                          <ShoppingCart className="w-4 h-4" />
+                          Sepete Ekle
+                        </motion.button>
+                        <motion.button
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
+                          onClick={() => handleReserve(activity)}
+                          className="flex-1 px-4 py-2 bg-orange-500 text-white rounded-lg font-semibold hover:bg-orange-600 transition-colors"
+                        >
+                          Rezervasyon
+                        </motion.button>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -611,6 +665,21 @@ export default function Activities() {
           )}
         </div>
       </div>
+
+      {/* Toast Notification */}
+      <AnimatePresence>
+        {showToast && (
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 50 }}
+            className="fixed bottom-8 right-8 z-50 bg-green-500 text-white px-6 py-4 rounded-xl shadow-2xl flex items-center gap-3"
+          >
+            <CheckCircle className="w-6 h-6" />
+            <span className="font-medium">{toastMessage}</span>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 }

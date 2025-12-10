@@ -1,17 +1,18 @@
 import React, { useState } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
-import { 
-  Search, 
-  Calendar, 
-  Users, 
-  MapPin, 
-  Star, 
-  Wifi, 
-  Car, 
-  Utensils, 
-  Dumbbell, 
+import { useRouter } from 'next/router';
+import { motion, AnimatePresence } from 'framer-motion';
+import {
+  Search,
+  Calendar,
+  Users,
+  MapPin,
+  Star,
+  Wifi,
+  Car,
+  Utensils,
+  Dumbbell,
   Waves,
   Heart,
   Filter,
@@ -19,15 +20,22 @@ import {
   Eye,
   ArrowLeft,
   Shield,
-  Building
+  Building,
+  ShoppingCart,
+  CheckCircle
 } from 'lucide-react';
 import NavigationHeader from '../components/layout/NavigationHeader';
+import { useCart } from '../context/CartContext';
 
 const HotelsPage: React.FC = () => {
+  const router = useRouter();
+  const { addItem, isInCart } = useCart();
   const [destination, setDestination] = useState('');
   const [checkIn, setCheckIn] = useState('');
   const [checkOut, setCheckOut] = useState('');
   const [guests, setGuests] = useState(2);
+  const [showToast, setShowToast] = useState(false);
+  const [toastMessage, setToastMessage] = useState('');
 
   const hotels = [
     {
@@ -136,6 +144,43 @@ const HotelsPage: React.FC = () => {
     'Termal Havuz': Waves
   };
 
+  const handleAddToCart = (hotel: typeof hotels[0]) => {
+    const priceValue = parseFloat(hotel.price.replace('₺', '').replace(',', ''));
+
+    addItem({
+      id: `hotel-${hotel.id}`,
+      type: 'hotel',
+      title: hotel.name,
+      description: hotel.description,
+      image: hotel.image,
+      price: priceValue,
+      originalPrice: hotel.originalPrice ? parseFloat(hotel.originalPrice.replace('₺', '').replace(',', '')) : undefined,
+      currency: 'TRY',
+      quantity: 1,
+      location: hotel.location,
+      rating: hotel.rating,
+      bookingDetails: {
+        checkIn,
+        checkOut,
+        guests,
+        rooms: 1
+      },
+      isRefundable: true,
+      cancellationPolicy: 'Ücretsiz iptal: 24 saat öncesine kadar'
+    });
+
+    setToastMessage(`${hotel.name} sepete eklendi!`);
+    setShowToast(true);
+    setTimeout(() => setShowToast(false), 3000);
+  };
+
+  const handleReserve = (hotel: typeof hotels[0]) => {
+    // Add to cart and redirect to checkout
+    handleAddToCart(hotel);
+    setTimeout(() => {
+      router.push('/cart');
+    }, 500);
+  };
 
 
   return (
@@ -378,23 +423,37 @@ const HotelsPage: React.FC = () => {
                       <span className="text-gray-500 text-sm">({hotel.reviews} değerlendirme)</span>
                     </div>
 
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <div className="flex items-center gap-2">
-                          <span className="text-2xl font-bold text-gray-900">{hotel.price}</span>
-                          {hotel.originalPrice && (
-                            <span className="text-sm text-gray-500 line-through">{hotel.originalPrice}</span>
-                          )}
+                    <div className="space-y-3">
+                      <div className="flex items-center justify-between">
+                        <div>
+                          <div className="flex items-center gap-2">
+                            <span className="text-2xl font-bold text-gray-900">{hotel.price}</span>
+                            {hotel.originalPrice && (
+                              <span className="text-sm text-gray-500 line-through">{hotel.originalPrice}</span>
+                            )}
+                          </div>
+                          <span className="text-sm text-gray-600">gecelik</span>
                         </div>
-                        <span className="text-sm text-gray-600">gecelik</span>
                       </div>
-                      <motion.button
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        className="px-6 py-2 bg-ailydian-primary text-white rounded-lg font-medium hover:bg-ailydian-dark transition-colors"
-                      >
-                        Rezerve Et
-                      </motion.button>
+                      <div className="flex gap-2">
+                        <motion.button
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
+                          onClick={() => handleAddToCart(hotel)}
+                          className="flex-1 px-4 py-2 border-2 border-ailydian-primary text-ailydian-primary rounded-lg font-medium hover:bg-ailydian-primary/10 transition-colors flex items-center justify-center gap-2"
+                        >
+                          <ShoppingCart className="w-4 h-4" />
+                          Sepete Ekle
+                        </motion.button>
+                        <motion.button
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
+                          onClick={() => handleReserve(hotel)}
+                          className="flex-1 px-4 py-2 bg-ailydian-primary text-white rounded-lg font-medium hover:bg-ailydian-dark transition-colors"
+                        >
+                          Rezerve Et
+                        </motion.button>
+                      </div>
                     </div>
                   </div>
                 </motion.div>
@@ -414,6 +473,21 @@ const HotelsPage: React.FC = () => {
           </div>
         </section>
       </main>
+
+      {/* Toast Notification */}
+      <AnimatePresence>
+        {showToast && (
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 50 }}
+            className="fixed bottom-8 right-8 z-50 bg-green-500 text-white px-6 py-4 rounded-xl shadow-2xl flex items-center gap-3"
+          >
+            <CheckCircle className="w-6 h-6" />
+            <span className="font-medium">{toastMessage}</span>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 };

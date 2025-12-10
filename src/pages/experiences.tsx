@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
+import { useRouter } from 'next/router';
+import { motion, AnimatePresence } from 'framer-motion';
 import {
   Search,
   MapPin,
@@ -17,15 +18,22 @@ import {
   Building,
   TreePine,
   Sparkles,
-  Play
+  Play,
+  ShoppingCart,
+  CheckCircle
 } from 'lucide-react';
 import NavigationHeader from '../components/layout/NavigationHeader';
+import { useCart } from '../context/CartContext';
 
 const ExperiencesPage: React.FC = () => {
+  const router = useRouter();
+  const { addItem } = useCart();
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [selectedDuration, setSelectedDuration] = useState('all');
   const [priceRange, setPriceRange] = useState('all');
+  const [showToast, setShowToast] = useState(false);
+  const [toastMessage, setToastMessage] = useState('');
 
   const categories = [
     { id: 'all', name: 'Tümü', icon: Sparkles, count: '2,500+' },
@@ -197,6 +205,35 @@ const ExperiencesPage: React.FC = () => {
       languages: ['Türkçe']
     }
   ];
+
+  // Cart handler functions
+  const handleAddToCart = (experience: typeof experiences[0]) => {
+    const priceValue = parseFloat(experience.price.replace('₺', '').replace(',', ''));
+    addItem({
+      id: `experience-${experience.id}`,
+      type: 'tour',
+      title: experience.title,
+      description: experience.description,
+      image: experience.image,
+      price: priceValue,
+      originalPrice: experience.originalPrice ? parseFloat(experience.originalPrice.replace('₺', '').replace(',', '')) : undefined,
+      currency: 'TRY',
+      quantity: 1,
+      location: experience.location,
+      rating: experience.rating,
+      duration: experience.duration,
+      isRefundable: true,
+      cancellationPolicy: 'Ücretsiz iptal: 24 saat öncesine kadar'
+    });
+    setToastMessage(`${experience.title} sepete eklendi!`);
+    setShowToast(true);
+    setTimeout(() => setShowToast(false), 3000);
+  };
+
+  const handleReserve = (experience: typeof experiences[0]) => {
+    handleAddToCart(experience);
+    setTimeout(() => router.push('/cart'), 500);
+  };
 
   const filteredExperiences = experiences.filter(experience => {
     const matchesSearch = experience.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -445,23 +482,37 @@ const ExperiencesPage: React.FC = () => {
                     </div>
 
                     {/* Price and Book */}
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <div className="flex items-center gap-2">
-                          <span className="text-2xl font-bold text-gray-900">{experience.price}</span>
-                          {experience.originalPrice && (
-                            <span className="text-sm text-gray-500 line-through">{experience.originalPrice}</span>
-                          )}
+                    <div className="border-t border-gray-100 pt-4">
+                      <div className="flex items-center justify-between mb-3">
+                        <div>
+                          <div className="flex items-center gap-2">
+                            <span className="text-2xl font-bold text-gray-900">{experience.price}</span>
+                            {experience.originalPrice && (
+                              <span className="text-sm text-gray-500 line-through">{experience.originalPrice}</span>
+                            )}
+                          </div>
+                          <span className="text-sm text-gray-600">kişi başı</span>
                         </div>
-                        <span className="text-sm text-gray-600">kişi başı</span>
                       </div>
-                      <motion.button
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        className="px-6 py-2 bg-ailydian-primary text-white rounded-lg font-medium hover:bg-ailydian-dark transition-colors"
-                      >
-                        Rezerve Et
-                      </motion.button>
+                      <div className="flex gap-2">
+                        <motion.button
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
+                          onClick={() => handleAddToCart(experience)}
+                          className="flex-1 px-4 py-2 border-2 border-ailydian-primary text-ailydian-primary rounded-lg font-medium hover:bg-ailydian-primary/10 transition-colors flex items-center justify-center gap-2"
+                        >
+                          <ShoppingCart className="w-4 h-4" />
+                          Sepete Ekle
+                        </motion.button>
+                        <motion.button
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
+                          onClick={() => handleReserve(experience)}
+                          className="flex-1 px-4 py-2 bg-ailydian-primary text-white rounded-lg font-medium hover:bg-ailydian-dark transition-colors"
+                        >
+                          Rezerve Et
+                        </motion.button>
+                      </div>
                     </div>
                   </div>
                 </motion.div>
@@ -480,6 +531,21 @@ const ExperiencesPage: React.FC = () => {
             </div>
           </div>
         </section>
+
+        {/* Toast Notification */}
+        <AnimatePresence>
+          {showToast && (
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 50 }}
+              className="fixed bottom-8 right-8 z-50 bg-green-500 text-white px-6 py-4 rounded-xl shadow-2xl flex items-center gap-3"
+            >
+              <CheckCircle className="w-6 h-6" />
+              <span className="font-medium">{toastMessage}</span>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </main>
     </>
   );

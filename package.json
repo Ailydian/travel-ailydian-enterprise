@@ -8,9 +8,14 @@
     "npm": ">=9.0.0"
   },
   "scripts": {
-    "dev": "next dev -p 3000",
+    "dev": "next dev -p 3100",
     "build": "NODE_ENV=production next build",
-    "start": "next start -p 3000",
+    "start": "next start -p 3100",
+    "db:generate": "prisma generate",
+    "db:push": "prisma db push",
+    "db:migrate": "prisma migrate dev",
+    "db:seed": "prisma db seed",
+    "db:studio": "prisma studio",
     "lint": "next lint --fix",
     "type-check": "tsc --noEmit",
     "analyze": "ANALYZE=true npm run build",
@@ -38,14 +43,17 @@
     "@types/nodemailer": "^7.0.1",
     "@types/react": "^19.1.14",
     "@types/react-dropzone": "^4.2.2",
+    "@uploadthing/react": "^7.3.3",
     "@use-gesture/react": "^10.3.1",
     "@web3-react/core": "^8.2.3",
     "@web3-react/injected-connector": "^6.0.7",
     "axios": "^1.6.0",
     "bcryptjs": "^3.0.2",
+    "cloudinary": "^2.8.0",
     "date-fns": "^2.30.0",
     "ethers": "^6.15.0",
     "framer-motion": "^10.18.0",
+    "groq-sdk": "^0.37.0",
     "gsap": "^3.13.0",
     "i18next": "^25.5.2",
     "jsonwebtoken": "^9.0.2",
@@ -75,15 +83,18 @@
     "react-use-gesture": "^9.1.3",
     "react-webcam": "^7.2.0",
     "recharts": "^3.2.1",
+    "resend": "^6.6.0",
     "sharp": "^0.32.0",
+    "siriwave": "^2.4.0",
     "socket.io-client": "^4.8.1",
     "tailwindcss": "^3.3.0",
     "three": "^0.180.0",
     "typescript": "^5.9.2",
     "uuid": "^9.0.0",
     "web3": "^4.16.0",
+    "winston": "^3.19.0",
     "yup": "^1.7.1",
-    "zod": "^3.22.0",
+    "zod": "^3.25.76",
     "zustand": "^4.4.0"
   },
   "devDependencies": {
@@ -98,6 +109,10 @@
     "eslint-config-next": "^14.0.0",
     "postcss": "^8.4.0",
     "prettier": "^3.1.0",
+    "ts-node": "^10.9.2",
     "webpack-bundle-analyzer": "^4.10.2"
+  },
+  "prisma": {
+    "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
   }
 }

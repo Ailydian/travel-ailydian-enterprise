@@ -25,6 +25,7 @@ import {
   Home,
   ArrowLeft
 } from 'lucide-react';
+import { logInfo, logError } from '../../lib/logger';
 
 const schema = yup.object({
   name: yup
@@ -84,6 +85,8 @@ const SignUp: React.FC = () => {
     setError('');
 
     try {
+      logInfo('User attempting registration', { email: data.email, name: data.name });
+
       const response = await fetch('/api/auth/register', {
         method: 'POST',
         headers: {
@@ -104,15 +107,18 @@ const SignUp: React.FC = () => {
       const result = await response.json();
 
       if (!response.ok) {
+        logError('Registration failed', new Error(result.message));
         throw new Error(result.message || 'Kayıt olurken bir hata oluştu');
       }
 
+      logInfo('User registration successful', { email: data.email });
       setSuccess(true);
       setTimeout(() => {
         router.push('/auth/signin');
       }, 2000);
 
     } catch (err: any) {
+      logError('Registration error', err);
       setError(err.message);
     } finally {
       setIsLoading(false);

@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import { useSession, signOut } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import { motion } from 'framer-motion';
+import { logInfo, logError } from '../../lib/logger';
 import {
   User,
   MapPin,
@@ -38,14 +39,45 @@ import {
 const Dashboard: React.FC = () => {
   const { data: session, status } = useSession();
   const router = useRouter();
+  const [dashboardData, setDashboardData] = useState<any>(null);
+  const [loading, setLoading] = useState(true);
 
   // Redirect to sign in if not authenticated
-  React.useEffect(() => {
+  useEffect(() => {
     if (status === 'loading') return; // Still loading
     if (!session) router.push('/auth/signin');
   }, [session, status, router]);
 
-  if (status === 'loading') {
+  // Fetch dashboard data
+  useEffect(() => {
+    if (session && status === 'authenticated') {
+      fetchDashboardData();
+    }
+  }, [session, status]);
+
+  const fetchDashboardData = async () => {
+    try {
+      setLoading(true);
+      logInfo('Fetching dashboard data');
+
+      const response = await fetch('/api/user/dashboard');
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message || 'Dashboard verileri alınamadı');
+      }
+
+      logInfo('Dashboard data loaded successfully');
+      setDashboardData(data);
+    } catch (error) {
+      logError('Dashboard data fetch failed', error);
+      console.error('Dashboard error:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  if (status === 'loading' || loading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-50">
         <div className="text-center">
@@ -56,80 +88,28 @@ const Dashboard: React.FC = () => {
     );
   }
 
-  if (!session) {
+  if (!session || !dashboardData) {
     return null;
   }
 
   const user = session.user;
-  
+
   if (!user) {
     return null;
   }
-  
-  const membershipType = (user as any)?.membershipType || 'BASIC';
-  const loyaltyPoints = (user as any)?.loyaltyPoints || 0;
 
-  // Mock data - In real app, these would come from API
-  const stats = {
-    totalBookings: 12,
-    completedTrips: 8,
-    savedMoney: 3250,
-    loyaltyPoints: loyaltyPoints,
-    upcomingTrips: 2,
-    favoriteDestinations: 15
+  const membershipType = dashboardData.user?.membershipType || 'BASIC';
+  const loyaltyPoints = dashboardData.user?.loyaltyPoints || 0;
+  const stats = dashboardData.stats || {
+    totalBookings: 0,
+    completedTrips: 0,
+    savedMoney: 0,
+    loyaltyPoints: 0,
+    upcomingTrips: 0,
+    favoriteDestinations: 0
   };
-
-  const recentBookings = [
-    {
-      id: '1',
-      type: 'hotel',
-      title: 'Swissotel The Bosphorus Istanbul',
-      location: 'İstanbul, Türkiye',
-      date: '2025-02-15',
-      status: 'confirmed',
-      amount: 1250,
-      image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&q=80'
-    },
-    {
-      id: '2',
-      type: 'flight',
-      title: 'İstanbul → Paris',
-      location: 'Turkish Airlines',
-      date: '2025-02-10',
-      status: 'pending',
-      amount: 890,
-      image: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=300&h=200&q=80'
-    },
-    {
-      id: '3',
-      type: 'activity',
-      title: 'Kapadokya Balon Turu',
-      location: 'Kapadokya, Türkiye',
-      date: '2025-01-20',
-      status: 'completed',
-      amount: 320,
-      image: 'https://images.unsplash.com/photo-1570939274719-c60ee3bf5cd9?w=300&h=200&q=80'
-    }
-  ];
-
-  const upcomingTrips = [
-    {
-      id: '1',
-      destination: 'Paris, Fransa',
-      date: '2025-02-10',
-      days: 5,
-      type: 'Romantik Kaçamak',
-      image: 'https://images.unsplash.com/photo-1502602898536-47ad22581b52?w=400&h=300&q=80'
-    },
-    {
-      id: '2',
-      destination: 'Santorini, Yunanistan',
-      date: '2025-03-15',
-      days: 4,
-      type: 'Balayı',
-      image: 'https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=400&h=300&q=80'
-    }
-  ];
+  const recentBookings = dashboardData.recentBookings || [];
+  const upcomingTrips = dashboardData.upcomingTrips || [];
 
   const sidebarItems = [
     { title: 'Dashboard', href: '/profile/dashboard', icon: TrendingUp, active: true },
