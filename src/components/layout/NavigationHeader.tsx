@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import Link from 'next/link';
-import { useRouter, usePathname } from 'next/navigation';
+import { useRouter } from 'next/router';
 import { useSession, signOut } from 'next-auth/react';
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -40,12 +40,12 @@ interface NavItem {
 
 const NavigationHeader: React.FC = () => {
   const router = useRouter();
-  const pathname = usePathname();
   const { data: session, status } = useSession();
-  const { t } = useTranslation(['common', 'navigation']);
+  const { t, i18n } = useTranslation(['common', 'navigation']);
   const { getItemCount } = useCart();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
+  const [isLanguageMenuOpen, setIsLanguageMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [isClient, setIsClient] = useState(false);
   const [searchResults, setSearchResults] = useState<SearchResult[]>([]);
@@ -208,6 +208,19 @@ const NavigationHeader: React.FC = () => {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
+  // Close language menu on outside click
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as HTMLElement;
+      if (isLanguageMenuOpen && !target.closest('.language-menu-container')) {
+        setIsLanguageMenuOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [isLanguageMenuOpen]);
+
   const mainNavItems: NavItem[] = [
     {
       title: 'Destinasyonlar',
@@ -232,7 +245,21 @@ const NavigationHeader: React.FC = () => {
     { title: isClient ? t('navigation:settings', 'Ayarlar') : 'Ayarlar', href: '/settings', icon: Settings },
   ];
 
-  const isActive = (path: string) => pathname === path;
+  const languages = [
+    { code: 'tr', name: 'Türkçe', flag: '🇹🇷' },
+    { code: 'en', name: 'English', flag: '🇬🇧' },
+    { code: 'ru', name: 'Русский', flag: '🇷🇺' },
+    { code: 'fr', name: 'Français', flag: '🇫🇷' }
+  ];
+
+  const currentLanguage = languages.find(lang => lang.code === (router.locale || 'tr')) || languages[0];
+
+  const handleLanguageChange = (locale: string) => {
+    router.push(router.pathname, router.asPath, { locale });
+    setIsLanguageMenuOpen(false);
+  };
+
+  const isActive = (path: string) => router.pathname === path;
 
   return (
     <header className="bg-white shadow-sm border-b border-gray-100 sticky top-0 z-50">
@@ -454,11 +481,43 @@ const NavigationHeader: React.FC = () => {
               <div className="absolute -top-1 -right-1 w-3 h-3 bg-green-500 rounded-full border-2 border-white animate-pulse"></div>
             </button>
 
-            {/* Language */}
-            <button className="hidden sm:flex items-center space-x-1 px-3 py-2 text-gray-700 hover:bg-gray-50 rounded-lg transition-colors">
-              <Globe className="w-4 h-4" />
-              <span className="text-sm font-medium">TR</span>
-            </button>
+            {/* Language Selector */}
+            <div className="relative hidden sm:block language-menu-container">
+              <button
+                onClick={() => setIsLanguageMenuOpen(!isLanguageMenuOpen)}
+                className="flex items-center space-x-2 px-3 py-2 text-gray-700 hover:bg-gray-50 rounded-lg transition-colors"
+              >
+                <Globe className="w-4 h-4" />
+                <span className="text-sm font-medium">{currentLanguage.flag} {currentLanguage.code.toUpperCase()}</span>
+              </button>
+
+              <AnimatePresence>
+                {isLanguageMenuOpen && (
+                  <div className="absolute right-0 mt-2 w-48 bg-white rounded-xl shadow-lg border border-gray-200 py-2 z-50">
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 10 }}
+                    >
+                      {languages.map((language) => (
+                        <button
+                          key={language.code}
+                          onClick={() => handleLanguageChange(language.code)}
+                          className={`w-full flex items-center space-x-3 px-4 py-2 text-left transition-colors ${
+                            currentLanguage.code === language.code
+                              ? 'bg-blue-50 text-blue-600'
+                              : 'text-gray-700 hover:bg-gray-50'
+                          }`}
+                        >
+                          <span className="text-xl">{language.flag}</span>
+                          <span className="text-sm font-medium">{language.name}</span>
+                        </button>
+                      ))}
+                    </motion.div>
+                  </div>
+                )}
+              </AnimatePresence>
+            </div>
 
             {/* Cart */}
             <Link href="/cart-new" className="relative p-2 text-gray-700 hover:bg-gray-50 rounded-lg transition-colors group">

@@ -1,0 +1,266 @@
+{
+  "welcome": "Bienvenue",
+  "title": "Travel Ailydian Enterprise",
+  "subtitle": "Expériences de Voyage Uniques",
+  "search": "Rechercher",
+  "destinations": "Destinations",
+  "hotels": "Hôtels",
+  "flights": "Vols",
+  "activities": "Activités",
+  "blockchain": "Blockchain",
+  "ai_assistant": "Assistant IA",
+  "virtual_tours": "Visites Virtuelles",
+  "social_hub": "Réseau Social",
+  "voice_commands": "Commandes Vocales",
+
+  "meta": {
+    "title": "Travel.Ailydian - Plateforme de Voyage Alimentée par l'IA",
+    "description": "Planifiez vos vacances de rêve avec notre plateforme de voyage intelligente alimentée par l'IA. Trouvez les meilleurs prix pour les hôtels, les vols et les circuits dans le monde entier, y compris en Turquie.",
+    "keywords": "voyage, vacances, réservation d'hôtel, billets d'avion, circuits, activités, voyage IA, tourisme en Turquie"
+  },
+  "navigation": {
+    "home": "Accueil",
+    "destinations": "Destinations",
+    "hotels": "Hôtels",
+    "flights": "Vols",
+    "activities": "Activités",
+    "tours": "Circuits",
+    "cars": "Location de Voiture",
+    "restaurants": "Restaurants",
+    "myTrips": "Mes Voyages",
+    "favorites": "Favoris",
+    "support": "Support",
+    "about": "À propos",
+    "contact": "Contact",
+    "help": "Aide",
+    "login": "Se connecter",
+    "register": "S'inscrire",
+    "profile": "Profil",
+    "logout": "Se déconnecter"
+  },
+  "hero": {
+    "title": "Découvrez le Monde",
+    "subtitle": "Planifiez vos vacances de rêve avec notre plateforme de voyage intelligente alimentée par l'IA",
+    "description": "Recommandations personnalisées, meilleurs prix, réservations sécurisées.",
+    "searchPlaceholder": "Où voulez-vous aller ?",
+    "searchButton": "Rechercher",
+    "discoverMore": "Découvrir Plus"
+  },
+  "search": {
+    "tabs": {
+      "flights": "Vols",
+      "hotels": "Hôtels",
+      "cars": "Location de Voiture",
+      "restaurants": "Restaurants",
+      "activities": "Activités"
+    },
+    "placeholders": {
+      "destination": "Sélectionner une destination",
+      "checkIn": "Date d'arrivée",
+      "checkOut": "Date de départ",
+      "guests": "Nombre de voyageurs",
+      "departure": "Date de départ",
+      "return": "Date de retour"
+    },
+    "tripTypes": {
+      "roundTrip": "Aller-retour",
+      "oneWay": "Aller simple"
+    },
+    "guestOptions": {
+      "1": "1 Personne",
+      "2": "2 Personnes",
+      "3": "3 Personnes",
+      "4": "4+ Personnes"
+    },
+    "advancedFilters": "Filtres Avancés",
+    "searchButtons": {
+      "searchFlights": "Rechercher des Vols",
+      "searchHotels": "Rechercher des Hôtels",
+      "searchCars": "Rechercher des Voitures",
+      "searchRestaurants": "Rechercher des Restaurants",
+      "searchActivities": "Rechercher des Activités"
+    }
+  },
+  "destinations": {
+    "popular": "Destinations Populaires",
+    "featured": "Lieux en Vedette",
+    "experiences": "expériences",
+    "reviews": "avis",
+    "startingFrom": "à partir de",
+    "viewMore": "Voir Plus",
+    "bookNow": "Réserver Maintenant"
+  },
+  "hotels": {
+    "recommended": "Hôtels Recommandés",
+    "luxury": "Hôtels de Luxe",
+    "perNight": "par nuit",
+    "amenities": "Équipements",
+    "starRating": "{{count}} Étoile",
+    "guestRating": "Note des Clients",
+    "bookNow": "Réserver Maintenant",
+    "viewDetails": "Voir les Détails"
+  },
+  "features": {
+    "title": "Pourquoi Travel.Ailydian ?",
+    "aiPowered": {
+      "title": "Alimenté par l'IA",
+      "description": "Recommandations de voyage personnalisées avec intelligence artificielle"
+    },
+    "securePayment": {
+      "title": "Paiement Sécurisé",
+      "description": "Système de paiement sécurisé protégé par SSL"
+    },
+    "support247": {
+      "title": "Support 24/7",
+      "description": "Nous sommes toujours là pour vous, contactez-nous à tout moment"
+    },
+    "bestPrice": {
+      "title": "Meilleur Prix",
+      "description": "Tarifs garantis les plus avantageux pour vos réservations"
+    },
+    "blockchainVerified": {
+      "title": "Vérification Blockchain",
+      "description": "Toutes les réservations sécurisées avec la technologie blockchain"
+    },
+    "vrPreview": {
+      "title": "Aperçu VR",
+      "description": "Expérience en réalité virtuelle avant la réservation"
+    }
+  },
+  "auth": {
+    "signIn": "Se connecter",
+    "signUp": "S'inscrire",
+    "email": "Email",
+    "password": "Mot de passe",
+    "confirmPassword": "Confirmer le mot de passe",
+    "firstName": "Prénom",
+    "lastName": "Nom",
+    "phone": "Téléphone",
+    "rememberMe": "Se souvenir de moi",
+    "forgotPassword": "Mot de passe oublié",
+    "noAccount": "Vous n'avez pas de compte ?",
+    "hasAccount": "Vous avez déjà un compte ?",
+    "signInWith": "Se connecter avec :",
+    "or": "ou"
+  },
+  "footer": {
+    "company": {
+      "title": "Entreprise",
+      "about": "À propos de nous",
+      "careers": "Carrières",
+      "press": "Presse",
+      "partnerships": "Partenariats",
+      "sustainability": "Durabilité"
+    },
+    "support": {
+      "title": "Support",
+      "helpCenter": "Centre d'aide",
+      "contact": "Contact",
+      "liveSupport": "Support en direct",
+      "faq": "FAQ",
+      "travelGuide": "Guide de Voyage"
+    },
+    "discover": {
+      "title": "Découvrir",
+      "destinations": "Destinations",
+      "hotels": "Hôtels",
+      "flights": "Vols",
+      "activities": "Activités",
+      "tours": "Circuits"
+    },
+    "legal": {
+      "privacy": "Politique de Confidentialité",
+      "terms": "Conditions d'Utilisation",
+      "cookies": "Politique des Cookies"
+    },
+    "newsletter": {
+      "title": "Restez Informé des Offres Spéciales",
+      "description": "Recevez les meilleures offres de voyage, des réductions exclusives et des recommandations de destinations directement dans votre boîte de réception",
+      "placeholder": "Votre adresse email...",
+      "subscribe": "S'abonner"
+    },
+    "copyright": "© 2025 Travel.Ailydian. Tous droits réservés.",
+    "poweredBy": "Plateforme de Voyage Alimentée par l'IA",
+    "features": {
+      "sslSecure": "Sécurisé SSL",
+      "aiPowered": "Alimenté par l'IA",
+      "countries": "190+ Pays"
+    }
+  },
+  "common": {
+    "loading": "Chargement...",
+    "search": "Rechercher",
+    "filter": "Filtrer",
+    "sort": "Trier",
+    "price": "Prix",
+    "rating": "Note",
+    "reviews": "Avis",
+    "showMore": "Voir Plus",
+    "showLess": "Voir Moins",
+    "viewAll": "Tout Voir",
+    "book": "Réserver",
+    "select": "Sélectionner",
+    "cancel": "Annuler",
+    "confirm": "Confirmer",
+    "save": "Enregistrer",
+    "edit": "Modifier",
+    "delete": "Supprimer",
+    "share": "Partager",
+    "favorite": "Ajouter aux Favoris",
+    "unfavorite": "Retirer des Favoris",
+    "readMore": "Lire Plus",
+    "close": "Fermer",
+    "back": "Retour",
+    "next": "Suivant",
+    "previous": "Précédent",
+    "date": "Date",
+    "time": "Heure",
+    "duration": "Durée",
+    "location": "Lieu",
+    "address": "Adresse",
+    "phone": "Téléphone",
+    "email": "Email",
+    "website": "Site Web",
+    "available": "Disponible",
+    "unavailable": "Indisponible",
+    "soldOut": "Épuisé",
+    "popular": "Populaire",
+    "recommended": "Recommandé",
+    "new": "Nouveau",
+    "hot": "Tendance",
+    "sale": "Promotion"
+  },
+  "currency": {
+    "try": "₺",
+    "usd": "$",
+    "eur": "€",
+    "gbp": "£"
+  },
+  "errors": {
+    "404": {
+      "title": "Page Non Trouvée",
+      "subtitle": "La page que vous recherchez n'existe pas",
+      "description": "Désolé, la page que vous recherchez a peut-être été déplacée, supprimée ou n'existe pas.",
+      "backHome": "Retour à l'Accueil",
+      "search": "Rechercher"
+    },
+    "500": {
+      "title": "Erreur Serveur",
+      "subtitle": "Quelque chose s'est mal passé",
+      "description": "Nous rencontrons un problème technique temporaire. Veuillez réessayer plus tard.",
+      "retry": "Réessayer",
+      "contact": "Contacter le Support"
+    },
+    "offline": {
+      "title": "Hors ligne",
+      "description": "Veuillez vérifier votre connexion Internet"
+    },
+    "validation": {
+      "required": "Ce champ est obligatoire",
+      "email": "Veuillez entrer une adresse email valide",
+      "phone": "Veuillez entrer un numéro de téléphone valide",
+      "minLength": "Doit contenir au moins {{min}} caractères",
+      "maxLength": "Ne doit pas dépasser {{max}} caractères"
+    }
+  }
+}
