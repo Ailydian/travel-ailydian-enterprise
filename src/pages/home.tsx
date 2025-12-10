@@ -893,6 +893,10 @@ const GetYourGuideStyleHome: React.FC = () => {
                           <motion.button
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
+                            onClick={() => {
+                              handleAddToCart(result);
+                              router.push('/checkout');
+                            }}
                             className="px-4 py-2 bg-gradient-to-r from-ailydian-primary to-ailydian-secondary text-white rounded-lg font-medium hover:shadow-lg transition-all duration-200 text-sm"
                           >
                             {result.type === 'hotel' ? 'Rezervasyon' :
@@ -1067,6 +1071,15 @@ const GetYourGuideStyleHome: React.FC = () => {
                       <motion.button
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
+                        onClick={() => {
+                          handleAddToCart({
+                            ...experience,
+                            type: 'tour',
+                            price: typeof experience.price === 'string' ?
+                              parseFloat(experience.price.replace(/[^0-9]/g, '')) : experience.price
+                          });
+                          router.push('/checkout');
+                        }}
                         className="px-4 py-2 bg-ailydian-primary text-white rounded-lg font-medium hover:bg-ailydian-dark transition-colors text-sm"
                       >
                         Rezervasyon Yap
