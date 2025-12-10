@@ -77,19 +77,17 @@ export const VideoBackground: React.FC<VideoBackgroundProps> = ({
 
   // Video yüklenme
   const handleVideoLoad = () => {
+    console.log('Video yüklendi:', currentVideo.title);
     setIsLoading(false);
     setVideoError(false);
   };
 
   // Video hatası
-  const handleVideoError = () => {
-    console.error('Video yükleme hatası, sonraki videoya geçiliyor...');
+  const handleVideoError = (e: any) => {
+    console.error('Video yükleme hatası:', currentVideo.title, e);
     setVideoError(true);
     setIsLoading(false);
-    // Hata durumunda sonraki videoya geç
-    setTimeout(() => {
-      setCurrentVideoIndex((prevIndex) => (prevIndex + 1) % TRAVEL_VIDEOS.length);
-    }, 2000);
+    // Hata durumunda fallback görseli göster (poster image)
   };
 
   const currentVideo = TRAVEL_VIDEOS[currentVideoIndex];
@@ -106,37 +104,32 @@ export const VideoBackground: React.FC<VideoBackgroundProps> = ({
           transition={{ duration: 1.5, ease: 'easeInOut' }}
           className="absolute inset-0 w-full h-full"
         >
-          {/* Poster image for loading state */}
-          {isLoading && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="absolute inset-0 w-full h-full"
-            >
-              <img
-                src={currentVideo.poster}
-                alt={currentVideo.title}
-                className="w-full h-full object-cover"
-              />
-            </motion.div>
-          )}
+          {/* Poster image - always show as fallback */}
+          <div className="absolute inset-0 w-full h-full">
+            <img
+              src={currentVideo.poster}
+              alt={currentVideo.title}
+              className="w-full h-full object-cover"
+            />
+          </div>
 
-          {/* Video Element */}
-          <video
-            ref={videoRef}
-            src={currentVideo.url}
-            autoPlay={autoPlay}
-            muted={muted}
-            loop={loop}
-            playsInline
-            onLoadedData={handleVideoLoad}
-            onError={handleVideoError}
-            className="w-full h-full object-cover"
-            style={{
-              transform: 'scale(1.02)', // Slight zoom for cinematic effect
-            }}
-          />
+          {/* Video Element - overlays poster when loaded */}
+          {!videoError && (
+            <video
+              ref={videoRef}
+              src={currentVideo.url}
+              autoPlay={autoPlay}
+              muted={muted}
+              loop={loop}
+              playsInline
+              onLoadedData={handleVideoLoad}
+              onError={handleVideoError}
+              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${isLoading ? 'opacity-0' : 'opacity-100'}`}
+              style={{
+                transform: 'scale(1.02)', // Slight zoom for cinematic effect
+              }}
+            />
+          )}
         </motion.div>
       </AnimatePresence>
 
@@ -148,22 +141,7 @@ export const VideoBackground: React.FC<VideoBackgroundProps> = ({
         />
       )}
 
-      {/* Loading Indicator */}
-      <AnimatePresence>
-        {isLoading && !videoError && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="absolute top-4 right-4 z-10"
-          >
-            <div className="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full flex items-center gap-2">
-              <div className="animate-spin rounded-full h-4 w-4 border-2 border-white border-t-transparent"></div>
-              <span className="text-white text-sm font-medium">Video yükleniyor...</span>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {/* Loading Indicator - removed to prevent infinite loading display */}
 
       {/* Video Info Badge */}
       <motion.div
