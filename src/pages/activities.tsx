@@ -3,7 +3,6 @@ import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, MapPin, Star, Clock, Users, Calendar, Filter, Heart, Zap, Mountain, Waves, Camera, Plane, Car, Utensils, TreePine, ShoppingCart, CheckCircle } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 
@@ -616,23 +615,19 @@ export default function Activities() {
                         </div>
                       </div>
                       <div className="flex gap-2">
-                        <motion.button
-                          whileHover={{ scale: 1.05 }}
-                          whileTap={{ scale: 0.95 }}
+                        <button
                           onClick={() => handleAddToCart(activity)}
-                          className="flex-1 px-4 py-2 border-2 border-orange-500 text-orange-600 rounded-lg font-semibold hover:bg-orange-50 transition-colors flex items-center justify-center gap-2"
+                          className="flex-1 px-4 py-2 border-2 border-orange-500 text-orange-600 rounded-lg font-semibold hover:bg-orange-50 transition-all hover:scale-105 active:scale-95 flex items-center justify-center gap-2"
                         >
                           <ShoppingCart className="w-4 h-4" />
                           Sepete Ekle
-                        </motion.button>
-                        <motion.button
-                          whileHover={{ scale: 1.05 }}
-                          whileTap={{ scale: 0.95 }}
+                        </button>
+                        <button
                           onClick={() => handleReserve(activity)}
-                          className="flex-1 px-4 py-2 bg-orange-500 text-white rounded-lg font-semibold hover:bg-orange-600 transition-colors"
+                          className="flex-1 px-4 py-2 bg-orange-500 text-white rounded-lg font-semibold hover:bg-orange-600 transition-all hover:scale-105 active:scale-95"
                         >
                           Rezervasyon
-                        </motion.button>
+                        </button>
                       </div>
                     </div>
                   </div>
@@ -667,19 +662,14 @@ export default function Activities() {
       </div>
 
       {/* Toast Notification */}
-      <AnimatePresence>
-        {showToast && (
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 50 }}
-            className="fixed bottom-8 right-8 z-50 bg-green-500 text-white px-6 py-4 rounded-xl shadow-2xl flex items-center gap-3"
-          >
-            <CheckCircle className="w-6 h-6" />
-            <span className="font-medium">{toastMessage}</span>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {showToast && (
+        <div
+          className="fixed bottom-8 right-8 z-50 bg-green-500 text-white px-6 py-4 rounded-xl shadow-2xl flex items-center gap-3 animate-in fade-in slide-in-from-bottom-4 duration-300"
+        >
+          <CheckCircle className="w-6 h-6" />
+          <span className="font-medium">{toastMessage}</span>
+        </div>
+      )}
     </>
   );
 }

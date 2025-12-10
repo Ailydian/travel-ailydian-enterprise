@@ -22,12 +22,21 @@ import {
   TrendingUp,
   Clock,
   ArrowRight,
-  Globe
+  Globe,
+  LucideIcon
 } from 'lucide-react';
 import { searchInData, popularSearches, categoryConfig, type SearchResult } from '../../data/searchData';
 import { useCart } from '../../context/CartContext';
 import AIAssistantPopup from '../ui/AIAssistantPopup';
 import VoiceMenu from '../voice/VoiceMenu';
+
+interface NavItem {
+  title: string;
+  href: string;
+  icon: LucideIcon;
+  description: string;
+  badge?: string;
+}
 
 const NavigationHeader: React.FC = () => {
   const router = useRouter();
@@ -199,7 +208,7 @@ const NavigationHeader: React.FC = () => {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  const mainNavItems = [
+  const mainNavItems: NavItem[] = [
     {
       title: 'Destinasyonlar',
       href: '/destinations',

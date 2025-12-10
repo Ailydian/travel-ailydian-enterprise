@@ -30,10 +30,10 @@ export async function sendEmail(options: EmailOptions): Promise<boolean> {
       to: Array.isArray(to) ? to : [to],
       subject,
       html,
-      reply_to: replyTo,
+      replyTo: replyTo,
     });
 
-    logInfo('Email sent successfully', { to, subject, id: data.id });
+    logInfo('Email sent successfully', { to, subject, data });
     return true;
   } catch (error) {
     logError('Failed to send email', error, { to: options.to, subject: options.subject });

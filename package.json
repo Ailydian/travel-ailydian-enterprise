@@ -9,8 +9,9 @@
   },
   "scripts": {
     "dev": "next dev -p 3100",
-    "build": "NODE_ENV=production next build",
+    "build": "prisma generate && next build",
     "start": "next start -p 3100",
+    "postinstall": "prisma generate",
     "db:generate": "prisma generate",
     "db:push": "prisma db push",
     "db:migrate": "prisma migrate dev",
@@ -19,7 +20,7 @@
     "lint": "next lint --fix",
     "type-check": "tsc --noEmit",
     "analyze": "ANALYZE=true npm run build",
-    "build:production": "NODE_ENV=production next build",
+    "build:production": "prisma generate && next build",
     "cache:clear": "rm -rf .next && npm run build",
     "performance:test": "npm run build && npm run start &",
     "build:fast": "NEXT_TELEMETRY_DISABLED=1 next build"
