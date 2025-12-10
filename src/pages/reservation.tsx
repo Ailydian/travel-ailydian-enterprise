@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 import { motion } from 'framer-motion';
@@ -17,6 +17,8 @@ import {
   FileText,
   Car,
   Shield,
+  Package,
+  Star,
 } from 'lucide-react';
 
 // Dynamic import for Leaflet to avoid SSR issues
@@ -64,6 +66,7 @@ interface BookingFormData {
 export default function ReservationPage() {
   const router = useRouter();
   const [currentStep, setCurrentStep] = useState(1);
+  const [selectedProduct, setSelectedProduct] = useState<any>(null);
   const [formData, setFormData] = useState<BookingFormData>({
     pickupLocation: null,
     pickupTime: '',
@@ -87,6 +90,19 @@ export default function ReservationPage() {
   });
 
   const [errors, setErrors] = useState<Record<string, string>>({});
+
+  // Load selected product from localStorage
+  useEffect(() => {
+    const productData = localStorage.getItem('selectedProduct');
+    if (productData) {
+      try {
+        const product = JSON.parse(productData);
+        setSelectedProduct(product);
+      } catch (error) {
+        console.error('Error parsing product data:', error);
+      }
+    }
+  }, []);
 
   const handleLocationSelect = useCallback((location: Location) => {
     setFormData((prev) => ({
@@ -185,8 +201,13 @@ export default function ReservationPage() {
   };
 
   const handleSubmit = () => {
-    // Save booking data to localStorage or context
-    localStorage.setItem('bookingData', JSON.stringify(formData));
+    // Save booking data with selected product to localStorage
+    const completeBookingData = {
+      ...formData,
+      selectedProduct: selectedProduct,
+    };
+
+    localStorage.setItem('bookingData', JSON.stringify(completeBookingData));
 
     // Redirect to checkout page
     router.push('/checkout');
@@ -212,6 +233,85 @@ export default function ReservationPage() {
               Lütfen bilgilerinizi eksiksiz doldurun
             </p>
           </div>
+
+          {/* Selected Product Card */}
+          {selectedProduct && (
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="mb-8 bg-white/95 backdrop-blur-sm rounded-2xl shadow-xl p-6"
+            >
+              <div className="flex items-center gap-4 mb-4">
+                <Package className="w-6 h-6 text-blue-600" />
+                <h2 className="text-xl font-bold text-gray-800">
+                  Seçtiğiniz Ürün
+                </h2>
+              </div>
+
+              <div className="flex flex-col md:flex-row gap-6">
+                {selectedProduct.image && (
+                  <div className="md:w-48 h-32 rounded-lg overflow-hidden flex-shrink-0">
+                    <img
+                      src={selectedProduct.image}
+                      alt={selectedProduct.name}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                )}
+
+                <div className="flex-1">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                    {selectedProduct.name}
+                  </h3>
+
+                  <div className="flex flex-wrap gap-4 mb-3">
+                    {selectedProduct.location && (
+                      <div className="flex items-center gap-1 text-gray-600">
+                        <MapPin className="w-4 h-4" />
+                        <span className="text-sm">{selectedProduct.location}</span>
+                      </div>
+                    )}
+
+                    {selectedProduct.rating && (
+                      <div className="flex items-center gap-1 text-yellow-600">
+                        <Star className="w-4 h-4 fill-current" />
+                        <span className="text-sm font-medium">{selectedProduct.rating}</span>
+                        {selectedProduct.reviews && (
+                          <span className="text-sm text-gray-500">({selectedProduct.reviews})</span>
+                        )}
+                      </div>
+                    )}
+
+                    {selectedProduct.type && (
+                      <div className="px-2 py-1 bg-blue-100 text-blue-700 rounded text-xs font-medium uppercase">
+                        {selectedProduct.type === 'hotel' && 'Otel'}
+                        {selectedProduct.type === 'experience' && 'Deneyim'}
+                        {selectedProduct.type === 'car' && 'Araç Kiralama'}
+                      </div>
+                    )}
+                  </div>
+
+                  {selectedProduct.description && (
+                    <p className="text-gray-600 text-sm mb-3 line-clamp-2">
+                      {selectedProduct.description}
+                    </p>
+                  )}
+
+                  <div className="flex items-baseline gap-2">
+                    <span className="text-3xl font-bold text-blue-600">
+                      {selectedProduct.price}
+                    </span>
+                    {selectedProduct.originalPrice && selectedProduct.originalPrice !== selectedProduct.price && (
+                      <span className="text-lg text-gray-400 line-through">
+                        {selectedProduct.originalPrice}
+                      </span>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          )}
 
           {/* Progress Steps */}
           <div className="mb-8">

@@ -192,11 +192,26 @@ const HotelsPage: React.FC = () => {
   };
 
   const handleReserve = (hotel: typeof hotels[0]) => {
-    // Add to cart and redirect to checkout
-    handleAddToCart(hotel);
-    setTimeout(() => {
-      router.push('/cart');
-    }, 500);
+    // Save product info to localStorage and redirect to reservation page
+    const productInfo = {
+      id: hotel.id,
+      type: 'hotel',
+      name: hotel.name,
+      location: hotel.location,
+      image: hotel.image,
+      price: hotel.price,
+      originalPrice: hotel.originalPrice,
+      rating: hotel.rating,
+      reviews: hotel.reviews,
+      amenities: hotel.amenities,
+      description: hotel.description,
+      checkIn: checkIn,
+      checkOut: checkOut,
+      guests: guests,
+    };
+
+    localStorage.setItem('selectedProduct', JSON.stringify(productInfo));
+    router.push('/reservation');
   };
 
   // Filter and sort hotels

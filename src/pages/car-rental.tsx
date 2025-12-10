@@ -1,16 +1,39 @@
 import React, { useState } from 'react';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 import { motion } from 'framer-motion';
 import { Car, MapPin, Calendar, Users, Star, CheckCircle, ArrowRight, Shield, Zap, Clock, Fuel } from 'lucide-react';
 import NavigationHeader from '../components/layout/NavigationHeader';
 
 const CarRental: React.FC = () => {
+  const router = useRouter();
   const [searchData, setSearchData] = useState({
     location: '',
     pickupDate: '',
     returnDate: '',
     passengers: 1
   });
+
+  const handleReserve = (car: typeof cars[0]) => {
+    // Save product info to localStorage and redirect to reservation page
+    const productInfo = {
+      id: car.id,
+      type: 'car',
+      name: car.name,
+      category: car.category,
+      image: car.image,
+      price: car.price,
+      features: car.features,
+      rating: car.rating,
+      location: searchData.location,
+      pickupDate: searchData.pickupDate,
+      returnDate: searchData.returnDate,
+      passengers: searchData.passengers,
+    };
+
+    localStorage.setItem('selectedProduct', JSON.stringify(productInfo));
+    router.push('/reservation');
+  };
 
   const cars = [
     {
@@ -168,6 +191,7 @@ const CarRental: React.FC = () => {
                       </div>
                       <motion.button
                         whileHover={{ scale: 1.05 }}
+                        onClick={() => handleReserve(car)}
                         className="px-6 py-2 bg-green-600 text-white rounded-lg font-medium hover:bg-green-700 transition-colors"
                       >
                         Rezerve Et

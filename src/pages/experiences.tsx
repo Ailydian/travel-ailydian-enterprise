@@ -231,8 +231,24 @@ const ExperiencesPage: React.FC = () => {
   };
 
   const handleReserve = (experience: typeof experiences[0]) => {
-    handleAddToCart(experience);
-    setTimeout(() => router.push('/cart'), 500);
+    // Save product info to localStorage and redirect to reservation page
+    const productInfo = {
+      id: experience.id,
+      type: 'experience',
+      name: experience.title,
+      location: experience.location,
+      image: experience.image,
+      price: experience.price,
+      originalPrice: experience.originalPrice,
+      rating: experience.rating,
+      reviews: experience.reviews,
+      description: experience.description,
+      duration: experience.duration,
+      category: experience.category,
+    };
+
+    localStorage.setItem('selectedProduct', JSON.stringify(productInfo));
+    router.push('/reservation');
   };
 
   const filteredExperiences = experiences.filter(experience => {
