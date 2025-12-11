@@ -7,6 +7,7 @@ import '../lib/i18n' // i18n konfigürasyonunu yükle
 import '../styles/globals.css'
 import '../styles/ailydian-theme.css'
 import '../styles/ailydian-advanced.css'
+import 'leaflet/dist/leaflet.css'
 import type { AppProps } from 'next/app'
 import type { Session } from 'next-auth'
 

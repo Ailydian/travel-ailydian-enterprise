@@ -22,6 +22,7 @@ import {
   Globe
 } from 'lucide-react';
 import NavigationHeader from '../components/layout/NavigationHeader';
+import LocationPicker, { LocationData } from '../components/ui/LocationPicker';
 
 interface PaymentForm {
   email: string;
@@ -49,6 +50,7 @@ const Checkout: React.FC = () => {
   const [showCVV, setShowCVV] = useState(false);
   const [isProcessing, setIsProcessing] = useState(false);
   const [paymentSuccess, setPaymentSuccess] = useState(false);
+  const [deliveryLocation, setDeliveryLocation] = useState<LocationData | null>(null);
 
   const [formData, setFormData] = useState<PaymentForm>({
     email: '',
@@ -109,7 +111,7 @@ const Checkout: React.FC = () => {
     // Personal Info Validation
     if (!formData.email) newErrors.email = 'E-posta adresi gereklidir';
     else if (!/\S+@\S+\.\S+/.test(formData.email)) newErrors.email = 'Geçersiz e-posta adresi';
-    
+
     if (!formData.firstName) newErrors.firstName = 'Ad gereklidir';
     if (!formData.lastName) newErrors.lastName = 'Soyad gereklidir';
     if (!formData.phone) newErrors.phone = 'Telefon numarası gereklidir';
@@ -118,18 +120,21 @@ const Checkout: React.FC = () => {
     const cardDigits = formData.cardNumber.replace(/\s/g, '');
     if (!cardDigits) newErrors.cardNumber = 'Kart numarası gereklidir';
     else if (cardDigits.length !== 16) newErrors.cardNumber = 'Kart numarası 16 haneli olmalıdır';
-    
+
     if (!formData.expiryMonth) newErrors.expiryMonth = 'Ay gereklidir';
     if (!formData.expiryYear) newErrors.expiryYear = 'Yıl gereklidir';
     if (!formData.cvv) newErrors.cvv = 'CVV gereklidir';
     else if (formData.cvv.length !== 3) newErrors.cvv = 'CVV 3 haneli olmalıdır';
-    
+
     if (!formData.cardName) newErrors.cardName = 'Kart üzerindeki isim gereklidir';
 
     // Billing Address
     if (!formData.billingAddress) newErrors.billingAddress = 'Adres gereklidir';
     if (!formData.city) newErrors.city = 'Şehir gereklidir';
     if (!formData.postalCode) newErrors.postalCode = 'Posta kodu gereklidir';
+
+    // Delivery Location Validation
+    if (!deliveryLocation) newErrors.deliveryLocation = 'Teslim alma noktası seçmelisiniz';
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -171,7 +176,15 @@ const Checkout: React.FC = () => {
               city: formData.city,
               postalCode: formData.postalCode,
               country: formData.country
-            }
+            },
+            deliveryLocation: deliveryLocation ? {
+              latitude: deliveryLocation.lat,
+              longitude: deliveryLocation.lng,
+              address: deliveryLocation.address,
+              city: deliveryLocation.city,
+              country: deliveryLocation.country,
+              postalCode: deliveryLocation.postalCode
+            } : null
           }
         })
       });
@@ -654,6 +667,39 @@ const Checkout: React.FC = () => {
                     </select>
                   </div>
                 </div>
+              </motion.div>
+
+              {/* Step 4: Delivery Location */}
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.3 }}
+                className="bg-white rounded-2xl shadow-sm border border-gray-200 p-6"
+              >
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-8 h-8 bg-ailydian-primary text-white rounded-full flex items-center justify-center font-bold text-sm">
+                    4
+                  </div>
+                  <h2 className="text-xl font-bold text-gray-900">Teslim Alma Noktası</h2>
+                </div>
+
+                <LocationPicker
+                  onLocationSelect={(location) => {
+                    setDeliveryLocation(location);
+                    // Clear delivery location error if exists
+                    if (errors.deliveryLocation) {
+                      setErrors(prev => ({ ...prev, deliveryLocation: '' }));
+                    }
+                  }}
+                  required={true}
+                />
+
+                {errors.deliveryLocation && (
+                  <div className="mt-4 p-3 bg-red-50 border border-red-200 rounded-lg flex items-center gap-2">
+                    <AlertCircle className="w-5 h-5 text-red-500 flex-shrink-0" />
+                    <p className="text-sm text-red-700">{errors.deliveryLocation}</p>
+                  </div>
+                )}
               </motion.div>
             </div>
 
