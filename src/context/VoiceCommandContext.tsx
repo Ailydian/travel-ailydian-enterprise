@@ -61,7 +61,7 @@ export const VoiceCommandProvider: React.FC<{ children: React.ReactNode }> = ({ 
         recognition.onstart = () => {
           console.log('Voice recognition started');
           setIsListening(true);
-          speak('Dinliyorum, komutunuzu söyleyebilirsiniz');
+          speak('Merhaba! Ben Lydian, sizi dinliyorum. Size nasıl yardımcı olabilirim?');
         };
 
         recognition.onend = () => {
@@ -108,16 +108,36 @@ export const VoiceCommandProvider: React.FC<{ children: React.ReactNode }> = ({ 
     };
   }, []);
 
-  // Text-to-speech function
+  // Text-to-speech function with Lydian character
   const speak = useCallback((text: string) => {
     if (synthRef.current && typeof window !== 'undefined') {
       synthRef.current.cancel(); // Cancel any ongoing speech
 
       const utterance = new SpeechSynthesisUtterance(text);
       utterance.lang = 'tr-TR';
-      utterance.rate = 1.0;
-      utterance.pitch = 1.0;
+      utterance.rate = 0.95; // Slightly slower for more natural speech
+      utterance.pitch = 0.85; // Lower pitch for male voice
       utterance.volume = 1.0;
+
+      // Try to select a male Turkish voice
+      const voices = synthRef.current.getVoices();
+      const turkishVoices = voices.filter((voice: SpeechSynthesisVoice) =>
+        voice.lang.startsWith('tr')
+      );
+
+      // Prefer male voices
+      const maleVoice = turkishVoices.find((voice: SpeechSynthesisVoice) =>
+        voice.name.toLowerCase().includes('male') ||
+        voice.name.toLowerCase().includes('erkek') ||
+        voice.name.toLowerCase().includes('ahmet') ||
+        voice.name.toLowerCase().includes('mehmet')
+      );
+
+      if (maleVoice) {
+        utterance.voice = maleVoice;
+      } else if (turkishVoices.length > 0) {
+        utterance.voice = turkishVoices[0];
+      }
 
       synthRef.current.speak(utterance);
     }
@@ -128,120 +148,120 @@ export const VoiceCommandProvider: React.FC<{ children: React.ReactNode }> = ({ 
     // Navigation Commands
     {
       command: 'ana sayfa',
-      patterns: ['ana sayfa', 'ana sayfaya git', 'anasayfa', 'home'],
+      patterns: ['ana sayfa', 'ana sayfaya git', 'anasayfa', 'home', 'ev'],
       action: () => {
         router.push('/');
-        speak('Ana sayfaya gidiyorum');
+        speak('Tabii! Hemen ana sayfaya götürüyorum.');
       },
       description: 'Ana sayfaya git',
       category: 'Navigasyon'
     },
     {
       command: 'oteller',
-      patterns: ['oteller', 'otellere git', 'otel ara', 'hotels'],
+      patterns: ['oteller', 'otellere git', 'otel ara', 'hotels', 'otel bul'],
       action: () => {
         router.push('/hotels');
-        speak('Oteller sayfasına gidiyorum');
+        speak('Harika! Size en iyi otelleri gösteriyorum.');
       },
       description: 'Oteller sayfasına git',
       category: 'Navigasyon'
     },
     {
       command: 'uçuşlar',
-      patterns: ['uçuşlar', 'uçuş ara', 'uçuşlara git', 'flights'],
+      patterns: ['uçuşlar', 'uçuş ara', 'uçuşlara git', 'flights', 'uçak bileti'],
       action: () => {
         router.push('/flights');
-        speak('Uçuşlar sayfasına gidiyorum');
+        speak('Uygun uçuşları hemen buluyorum!');
       },
       description: 'Uçuşlar sayfasına git',
       category: 'Navigasyon'
     },
     {
       command: 'turlar',
-      patterns: ['turlar', 'turlara git', 'tur ara', 'tours'],
+      patterns: ['turlar', 'turlara git', 'tur ara', 'tours', 'gezi turları'],
       action: () => {
         router.push('/tours');
-        speak('Turlar sayfasına gidiyorum');
+        speak('Muhteşem turları gösteriyorum.');
       },
       description: 'Turlar sayfasına git',
       category: 'Navigasyon'
     },
     {
       command: 'aktiviteler',
-      patterns: ['aktiviteler', 'aktivitelere git', 'aktivite ara', 'activities'],
+      patterns: ['aktiviteler', 'aktivitelere git', 'aktivite ara', 'activities', 'etkinlikler'],
       action: () => {
         router.push('/activities');
-        speak('Aktiviteler sayfasına gidiyorum');
+        speak('Heyecan verici aktiviteleri keşfedelim!');
       },
       description: 'Aktiviteler sayfasına git',
       category: 'Navigasyon'
     },
     {
       command: 'destinasyonlar',
-      patterns: ['destinasyonlar', 'destinasyonlara git', 'destinations'],
+      patterns: ['destinasyonlar', 'destinasyonlara git', 'destinations', 'şehirler', 'yerler'],
       action: () => {
         router.push('/destinations');
-        speak('Destinasyonlar sayfasına gidiyorum');
+        speak('Harika destinasyonları gösteriyorum.');
       },
       description: 'Destinasyonlar sayfasına git',
       category: 'Navigasyon'
     },
     {
       command: 'sepet',
-      patterns: ['sepet', 'sepete git', 'sepetim', 'cart'],
+      patterns: ['sepet', 'sepete git', 'sepetim', 'cart', 'alışveriş sepeti'],
       action: () => {
         router.push('/cart');
-        speak('Sepetinize gidiyorum');
+        speak('Sepetinizi kontrol edelim.');
       },
       description: 'Sepete git',
       category: 'Navigasyon'
     },
     {
       command: 'rezervasyonlar',
-      patterns: ['rezervasyonlar', 'rezervasyonlarım', 'bookings', 'my bookings'],
+      patterns: ['rezervasyonlar', 'rezervasyonlarım', 'bookings', 'my bookings', 'randevularım'],
       action: () => {
         router.push('/bookings');
-        speak('Rezervasyonlarınıza gidiyorum');
+        speak('Rezervasyonlarınızı gösteriyorum.');
       },
       description: 'Rezervasyonlar sayfasına git',
       category: 'Navigasyon'
     },
     {
       command: 'profil',
-      patterns: ['profil', 'profilim', 'profile', 'hesabım'],
+      patterns: ['profil', 'profilim', 'profile', 'hesabım', 'hesap'],
       action: () => {
         router.push('/profile/dashboard');
-        speak('Profilinize gidiyorum');
+        speak('Hemen profilinize götürüyorum.');
       },
       description: 'Profil sayfasına git',
       category: 'Navigasyon'
     },
     {
       command: 'yapay zeka asistan',
-      patterns: ['yapay zeka', 'ai asistan', 'asistan', 'yardım', 'assistant'],
+      patterns: ['yapay zeka', 'ai asistan', 'asistan', 'yardım', 'assistant', 'yapay zeka yardımcısı'],
       action: () => {
         router.push('/ai-assistant');
-        speak('Yapay zeka asistanını açıyorum');
+        speak('Yapay zeka asistanını başlatıyorum. Size nasıl yardımcı olabilirim?');
       },
       description: 'AI Asistan\'ı aç',
       category: 'Özellikler'
     },
     {
       command: 'gezi planlayıcı',
-      patterns: ['gezi planla', 'planlayıcı', 'trip planner', 'plan yap'],
+      patterns: ['gezi planla', 'planlayıcı', 'trip planner', 'plan yap', 'tatil planla'],
       action: () => {
         router.push('/trip-planner');
-        speak('Gezi planlayıcısını açıyorum');
+        speak('Harika! Gezi planlayıcınızı açıyorum. Hayalinizdeki tatili planlayalım!');
       },
       description: 'Gezi planlayıcısını aç',
       category: 'Özellikler'
     },
     {
       command: 'sanal tur',
-      patterns: ['sanal tur', 'virtual tour', 'vr', 'sanal gezinti'],
+      patterns: ['sanal tur', 'virtual tour', 'vr', 'sanal gezinti', 'sanal gezi'],
       action: () => {
         router.push('/virtual-tours');
-        speak('Sanal turları açıyorum');
+        speak('Sanal turlarla dünyayı keşfedelim!');
       },
       description: 'Sanal turları aç',
       category: 'Özellikler'
@@ -250,30 +270,30 @@ export const VoiceCommandProvider: React.FC<{ children: React.ReactNode }> = ({ 
     // Search Commands
     {
       command: 'istanbul ara',
-      patterns: ['istanbul', 'istanbul ara', 'istanbula git', 'istanbul otelleri'],
+      patterns: ['istanbul', 'istanbul ara', 'istanbula git', 'istanbul otelleri', 'istanbul otel'],
       action: () => {
         router.push('/hotels?destination=istanbul');
-        speak('İstanbul\'da oteller arıyorum');
+        speak('İstanbul için en güzel otelleri buluyorum!');
       },
       description: 'İstanbul\'da ara',
       category: 'Arama'
     },
     {
       command: 'ankara ara',
-      patterns: ['ankara', 'ankara ara', 'ankaraya git', 'ankara otelleri'],
+      patterns: ['ankara', 'ankara ara', 'ankaraya git', 'ankara otelleri', 'ankara otel'],
       action: () => {
         router.push('/hotels?destination=ankara');
-        speak('Ankara\'da oteller arıyorum');
+        speak('Ankara için harika otel seçenekleri getiriyorum!');
       },
       description: 'Ankara\'da ara',
       category: 'Arama'
     },
     {
       command: 'antalya ara',
-      patterns: ['antalya', 'antalya ara', 'antalyaya git', 'antalya otelleri'],
+      patterns: ['antalya', 'antalya ara', 'antalyaya git', 'antalya otelleri', 'antalya otel'],
       action: () => {
         router.push('/hotels?destination=antalya');
-        speak('Antalya\'da oteller arıyorum');
+        speak('Antalya için muhteşem otel fırsatlarını gösteriyorum!');
       },
       description: 'Antalya\'da ara',
       category: 'Arama'
@@ -282,30 +302,30 @@ export const VoiceCommandProvider: React.FC<{ children: React.ReactNode }> = ({ 
     // Action Commands
     {
       command: 'giriş yap',
-      patterns: ['giriş yap', 'login', 'oturum aç'],
+      patterns: ['giriş yap', 'login', 'oturum aç', 'giriş'],
       action: () => {
         router.push('/auth/signin');
-        speak('Giriş sayfasına yönlendiriyorum');
+        speak('Giriş sayfasına yönlendiriyorum. Hoş geldiniz!');
       },
       description: 'Giriş yap',
       category: 'Hesap'
     },
     {
       command: 'kayıt ol',
-      patterns: ['kayıt ol', 'üye ol', 'register', 'sign up'],
+      patterns: ['kayıt ol', 'üye ol', 'register', 'sign up', 'hesap aç'],
       action: () => {
         router.push('/auth/signup');
-        speak('Kayıt sayfasına yönlendiriyorum');
+        speak('Kayıt sayfasına götürüyorum. Ailydian ailesine hoş geldiniz!');
       },
       description: 'Kayıt ol',
       category: 'Hesap'
     },
     {
       command: 'yardım',
-      patterns: ['yardım', 'help', 'destek', 'support'],
+      patterns: ['yardım', 'help', 'destek', 'support', 'yardım et'],
       action: () => {
         router.push('/support');
-        speak('Destek sayfasına yönlendiriyorum');
+        speak('Destek ekibimiz size yardımcı olmak için hazır!');
       },
       description: 'Yardım al',
       category: 'Destek'
@@ -314,19 +334,19 @@ export const VoiceCommandProvider: React.FC<{ children: React.ReactNode }> = ({ 
     // System Commands
     {
       command: 'dinlemeyi durdur',
-      patterns: ['dur', 'durdur', 'dinleme', 'stop', 'kapat'],
+      patterns: ['dur', 'durdur', 'dinleme', 'stop', 'kapat', 'sus'],
       action: () => {
         stopListening();
-        speak('Sesli komutu kapatıyorum');
+        speak('Anlaşıldı! İhtiyacınız olduğunda tekrar buradayım.');
       },
       description: 'Dinlemeyi durdur',
       category: 'Sistem'
     },
     {
       command: 'komutlar',
-      patterns: ['komutlar', 'neler yapabilirsin', 'yardım', 'commands'],
+      patterns: ['komutlar', 'neler yapabilirsin', 'yardım', 'commands', 'ne yaparsın'],
       action: () => {
-        speak('Sesli komutlar menüsünü açıyorum');
+        speak('Size yardımcı olabileceğim tüm komutları gösteriyorum!');
         // Open commands modal
       },
       description: 'Komutları göster',
@@ -334,17 +354,95 @@ export const VoiceCommandProvider: React.FC<{ children: React.ReactNode }> = ({ 
     }
   ];
 
-  // Process voice command
+  // Helper function to normalize Turkish text
+  const normalizeTurkish = (text: string): string => {
+    return text
+      .toLowerCase()
+      .replace(/ı/g, 'i')
+      .replace(/ğ/g, 'g')
+      .replace(/ü/g, 'u')
+      .replace(/ş/g, 's')
+      .replace(/ö/g, 'o')
+      .replace(/ç/g, 'c')
+      .trim();
+  };
+
+  // Helper function to calculate similarity between two strings
+  const calculateSimilarity = (str1: string, str2: string): number => {
+    const longer = str1.length > str2.length ? str1 : str2;
+    const shorter = str1.length > str2.length ? str2 : str1;
+
+    if (longer.length === 0) return 1.0;
+
+    // Check if one string contains the other
+    if (longer.includes(shorter)) {
+      return 0.8 + (shorter.length / longer.length) * 0.2;
+    }
+
+    // Calculate edit distance
+    const editDistance = (s1: string, s2: string): number => {
+      const costs: number[] = [];
+      for (let i = 0; i <= s2.length; i++) {
+        let lastValue = i;
+        for (let j = 0; j <= s1.length; j++) {
+          if (i === 0) {
+            costs[j] = j;
+          } else if (j > 0) {
+            let newValue = costs[j - 1];
+            if (s1.charAt(j - 1) !== s2.charAt(i - 1)) {
+              newValue = Math.min(Math.min(newValue, lastValue), costs[j]) + 1;
+            }
+            costs[j - 1] = lastValue;
+            lastValue = newValue;
+          }
+        }
+        if (i > 0) costs[s1.length] = lastValue;
+      }
+      return costs[s1.length];
+    };
+
+    const distance = editDistance(shorter, longer);
+    return (longer.length - distance) / longer.length;
+  };
+
+  // Process voice command with improved matching
   const processCommand = useCallback((text: string) => {
     setIsProcessing(true);
     const lowerText = text.toLowerCase().trim();
+    const normalizedText = normalizeTurkish(lowerText);
 
     console.log('Processing command:', lowerText);
+    console.log('Normalized:', normalizedText);
 
-    // Find matching command
-    const matchedCommand = commands.find(cmd =>
-      cmd.patterns.some(pattern => lowerText.includes(pattern.toLowerCase()))
+    // Find matching command with exact match first
+    let matchedCommand = commands.find(cmd =>
+      cmd.patterns.some(pattern =>
+        lowerText.includes(pattern.toLowerCase()) ||
+        normalizedText.includes(normalizeTurkish(pattern))
+      )
     );
+
+    // If no exact match, try fuzzy matching
+    if (!matchedCommand) {
+      let bestMatch: { cmd: typeof commands[0], score: number } | null = null;
+
+      commands.forEach(cmd => {
+        cmd.patterns.forEach(pattern => {
+          const normalizedPattern = normalizeTurkish(pattern);
+          const score = calculateSimilarity(normalizedText, normalizedPattern);
+
+          // Accept if similarity is above 70%
+          if (score > 0.7 && (!bestMatch || score > bestMatch.score)) {
+            bestMatch = { cmd, score };
+          }
+        });
+      });
+
+      if (bestMatch) {
+        matchedCommand = bestMatch.cmd;
+        console.log('Fuzzy match found with score:', bestMatch.score);
+      }
+    }
 
     if (matchedCommand) {
       setLastCommand(matchedCommand.command);
@@ -357,7 +455,7 @@ export const VoiceCommandProvider: React.FC<{ children: React.ReactNode }> = ({ 
       }, 500);
     } else {
       setFeedback('Komut anlaşılamadı');
-      speak('Üzgünüm, bu komutu anlayamadım');
+      speak('Üzgünüm, size yardımcı olmak isterdim ama bu komutu tam anlayamadım. Lütfen tekrar deneyin veya "komutlar" diyerek yapabileceklerimi görebilirsiniz.');
       setIsProcessing(false);
     }
 
