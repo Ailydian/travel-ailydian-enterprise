@@ -28,7 +28,6 @@ import {
 import { searchInData, popularSearches, categoryConfig, type SearchResult } from '../../data/searchData';
 import { useCart } from '../../context/CartContext';
 import AIAssistantPopup from '../ui/AIAssistantPopup';
-import VoiceMenu from '../voice/VoiceMenu';
 
 interface NavItem {
   title: string;
@@ -461,8 +460,6 @@ const NavigationHeader: React.FC = () => {
             >
               <Search className="w-5 h-5 group-hover:text-ailydian-primary transition-colors" />
             </button>
-            {/* Voice Control */}
-            <VoiceMenu className="hidden sm:block" />
 
             {/* AI Assistant */}
             <button 
@@ -690,11 +687,6 @@ const NavigationHeader: React.FC = () => {
                 })}
               </div>
 
-              {/* Mobile Voice Control */}
-              <div className="border-t border-gray-100 pt-4">
-                <p className="text-sm font-medium text-gray-500 mb-3">Sesli Kontrol</p>
-                <VoiceMenu />
-              </div>
             </div>
             </motion.div>
           </div>
