@@ -3,6 +3,8 @@ import { DefaultSeo } from 'next-seo'
 import { SessionProvider } from 'next-auth/react'
 import { ReactQueryProvider } from '../lib/react-query'
 import { CartProvider } from '../context/CartContext'
+import { VoiceCommandProvider } from '../context/VoiceCommandContext'
+import VoiceCommandWidget from '../components/ui/VoiceCommandWidget'
 import '../lib/i18n' // i18n konfigürasyonunu yükle
 import '../styles/globals.css'
 import '../styles/ailydian-theme.css'
@@ -33,9 +35,9 @@ const seoConfig = {
   },
 }
 
-function MyApp({ 
-  Component, 
-  pageProps: { session, ...pageProps } 
+function MyApp({
+  Component,
+  pageProps: { session, ...pageProps }
 }: AppProps & {
   pageProps: { session: Session }
 }) {
@@ -43,8 +45,11 @@ function MyApp({
     <SessionProvider session={session}>
       <ReactQueryProvider>
         <CartProvider>
-          <DefaultSeo {...seoConfig} />
-          <Component {...pageProps} />
+          <VoiceCommandProvider>
+            <DefaultSeo {...seoConfig} />
+            <Component {...pageProps} />
+            <VoiceCommandWidget />
+          </VoiceCommandProvider>
         </CartProvider>
       </ReactQueryProvider>
     </SessionProvider>
