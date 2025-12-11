@@ -3,29 +3,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { MapPin, Search, X, CheckCircle, AlertCircle, Navigation } from 'lucide-react';
-import dynamic from 'next/dynamic';
-import type { LatLngExpression } from 'leaflet';
-
-// Dynamically import Leaflet components to avoid SSR issues
-const MapContainer = dynamic(
-  () => import('react-leaflet').then((mod) => mod.MapContainer),
-  { ssr: false }
-);
-
-const TileLayer = dynamic(
-  () => import('react-leaflet').then((mod) => mod.TileLayer),
-  { ssr: false }
-);
-
-const Marker = dynamic(
-  () => import('react-leaflet').then((mod) => mod.Marker),
-  { ssr: false }
-);
-
-const useMapEvents = dynamic(
-  () => import('react-leaflet').then((mod) => mod.useMapEvents),
-  { ssr: false }
-);
 
 export interface LocationData {
   lat: number;
@@ -42,25 +19,14 @@ interface LocationPickerProps {
   required?: boolean;
 }
 
-// Component to handle map clicks
-function LocationMarker({ position, setPosition }: any) {
-  const map = useMapEvents({
-    click(e) {
-      setPosition(e.latlng);
-      map.flyTo(e.latlng, map.getZoom());
-    },
-  });
-
-  return position ? <Marker position={position} /> : null;
-}
-
 export const LocationPicker: React.FC<LocationPickerProps> = ({
   onLocationSelect,
   initialLocation,
   required = true
 }) => {
   const [isClient, setIsClient] = useState(false);
-  const [position, setPosition] = useState<LatLngExpression | null>(
+  const [isMapReady, setIsMapReady] = useState(false);
+  const [position, setPosition] = useState<[number, number] | null>(
     initialLocation ? [initialLocation.lat, initialLocation.lng] : null
   );
   const [searchQuery, setSearchQuery] = useState('');
@@ -69,10 +35,81 @@ export const LocationPicker: React.FC<LocationPickerProps> = ({
   const [selectedAddress, setSelectedAddress] = useState<string>(initialLocation?.address || '');
   const [isGettingLocation, setIsGettingLocation] = useState(false);
   const searchTimeout = useRef<NodeJS.Timeout>();
+  const mapRef = useRef<any>(null);
+  const markerRef = useRef<any>(null);
 
   useEffect(() => {
     setIsClient(true);
   }, []);
+
+  // Initialize map when client-side
+  useEffect(() => {
+    if (!isClient || isMapReady) return;
+
+    const initMap = async () => {
+      try {
+        // Import Leaflet only on client side
+        const L = (await import('leaflet')).default;
+
+        // Fix default icon issue
+        delete (L.Icon.Default.prototype as any)._getIconUrl;
+        L.Icon.Default.mergeOptions({
+          iconRetinaUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-icon-2x.png',
+          iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-icon.png',
+          shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-shadow.png',
+        });
+
+        // Initialize map
+        const mapElement = document.getElementById('location-map');
+        if (!mapElement || mapRef.current) return;
+
+        const map = L.map('location-map').setView(
+          position || [39.9334, 32.8597], // Default to Ankara, Turkey
+          position ? 13 : 6
+        );
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Add marker if position exists
+        if (position) {
+          markerRef.current = L.marker(position).addTo(map);
+        }
+
+        // Handle map clicks
+        map.on('click', (e: any) => {
+          const { lat, lng } = e.latlng;
+          setPosition([lat, lng]);
+
+          // Update or create marker
+          if (markerRef.current) {
+            markerRef.current.setLatLng([lat, lng]);
+          } else {
+            markerRef.current = L.marker([lat, lng]).addTo(map);
+          }
+
+          getAddressFromCoords(lat, lng);
+        });
+
+        mapRef.current = map;
+        setIsMapReady(true);
+      } catch (error) {
+        console.error('Error initializing map:', error);
+      }
+    };
+
+    initMap();
+
+    // Cleanup
+    return () => {
+      if (mapRef.current) {
+        mapRef.current.remove();
+        mapRef.current = null;
+        markerRef.current = null;
+      }
+    };
+  }, [isClient, position]);
 
   // Reverse geocoding - get address from coordinates
   const getAddressFromCoords = async (lat: number, lng: number) => {
@@ -96,12 +133,6 @@ export const LocationPicker: React.FC<LocationPickerProps> = ({
     } catch (error) {
       console.error('Error getting address:', error);
     }
-  };
-
-  // Handle position change
-  const handlePositionChange = (newPosition: any) => {
-    setPosition([newPosition.lat, newPosition.lng]);
-    getAddressFromCoords(newPosition.lat, newPosition.lng);
   };
 
   // Search for location using Nominatim (OpenStreetMap)
@@ -155,6 +186,13 @@ export const LocationPicker: React.FC<LocationPickerProps> = ({
           const lat = position.coords.latitude;
           const lng = position.coords.longitude;
           setPosition([lat, lng]);
+
+          if (mapRef.current && markerRef.current) {
+            const L = require('leaflet');
+            mapRef.current.setView([lat, lng], 13);
+            markerRef.current.setLatLng([lat, lng]);
+          }
+
           getAddressFromCoords(lat, lng);
           setIsGettingLocation(false);
         },
@@ -171,13 +209,25 @@ export const LocationPicker: React.FC<LocationPickerProps> = ({
   };
 
   // Select search result
-  const selectSearchResult = (result: any) => {
+  const selectSearchResult = async (result: any) => {
     const lat = parseFloat(result.lat);
     const lng = parseFloat(result.lon);
     setPosition([lat, lng]);
     setSelectedAddress(result.display_name);
     setSearchQuery('');
     setSearchResults([]);
+
+    // Update map view and marker
+    if (mapRef.current) {
+      const L = (await import('leaflet')).default;
+      mapRef.current.setView([lat, lng], 13);
+
+      if (markerRef.current) {
+        markerRef.current.setLatLng([lat, lng]);
+      } else {
+        markerRef.current = L.marker([lat, lng]).addTo(mapRef.current);
+      }
+    }
 
     const locationData: LocationData = {
       lat,
@@ -279,17 +329,7 @@ export const LocationPicker: React.FC<LocationPickerProps> = ({
 
         {/* Map */}
         <div className="h-96 rounded-lg overflow-hidden border border-gray-200">
-          <MapContainer
-            center={position || [39.9334, 32.8597]} // Default to Ankara, Turkey
-            zoom={position ? 13 : 6}
-            style={{ height: '100%', width: '100%' }}
-          >
-            <TileLayer
-              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-            />
-            <LocationMarker position={position} setPosition={handlePositionChange} />
-          </MapContainer>
+          <div id="location-map" className="w-full h-full"></div>
         </div>
 
         {/* Selected Address Display */}
