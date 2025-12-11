@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import dynamic from 'next/dynamic';
 import { motion } from 'framer-motion';
 import {
   ArrowLeft,
@@ -22,7 +23,22 @@ import {
   Globe
 } from 'lucide-react';
 import NavigationHeader from '../components/layout/NavigationHeader';
-import LocationPicker, { LocationData } from '../components/ui/LocationPicker';
+import type { LocationData } from '../components/ui/LocationPicker';
+
+// Dynamically import LocationPicker to avoid SSR issues
+const LocationPicker = dynamic(
+  () => import('../components/ui/LocationPicker'),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="bg-white rounded-xl border border-gray-200 p-6">
+        <div className="h-96 bg-gray-100 rounded-lg animate-pulse flex items-center justify-center">
+          <MapPin className="w-12 h-12 text-gray-400" />
+        </div>
+      </div>
+    )
+  }
+);
 
 interface PaymentForm {
   email: string;
