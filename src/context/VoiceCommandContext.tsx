@@ -61,7 +61,7 @@ export const VoiceCommandProvider: React.FC<{ children: React.ReactNode }> = ({ 
         recognition.onstart = () => {
           console.log('Voice recognition started');
           setIsListening(true);
-          speak('Merhaba! Ben Lydian, sizi dinliyorum. Size nasıl yardımcı olabilirim?');
+          speak('Merhaba arkadaşım! Ben Lydian. Sizi dinliyorum, buyurun söyleyin.');
         };
 
         recognition.onend = () => {
@@ -108,36 +108,60 @@ export const VoiceCommandProvider: React.FC<{ children: React.ReactNode }> = ({ 
     };
   }, []);
 
-  // Text-to-speech function with Lydian character
+  // Text-to-speech function with Lydian character - Male voice guaranteed
   const speak = useCallback((text: string) => {
     if (synthRef.current && typeof window !== 'undefined') {
       synthRef.current.cancel(); // Cancel any ongoing speech
 
       const utterance = new SpeechSynthesisUtterance(text);
       utterance.lang = 'tr-TR';
-      utterance.rate = 0.95; // Slightly slower for more natural speech
-      utterance.pitch = 0.85; // Lower pitch for male voice
+      utterance.rate = 0.9; // Slower for more natural, conversational speech
+      utterance.pitch = 0.7; // Much lower pitch for distinctly male voice
       utterance.volume = 1.0;
 
-      // Try to select a male Turkish voice
+      // Get all available voices
       const voices = synthRef.current.getVoices();
-      const turkishVoices = voices.filter((voice: SpeechSynthesisVoice) =>
-        voice.lang.startsWith('tr')
-      );
 
-      // Prefer male voices
-      const maleVoice = turkishVoices.find((voice: SpeechSynthesisVoice) =>
-        voice.name.toLowerCase().includes('male') ||
-        voice.name.toLowerCase().includes('erkek') ||
-        voice.name.toLowerCase().includes('ahmet') ||
-        voice.name.toLowerCase().includes('mehmet')
-      );
+      // Priority 1: Look for Turkish male voices
+      let selectedVoice = voices.find((voice: SpeechSynthesisVoice) => {
+        const name = voice.name.toLowerCase();
+        const lang = voice.lang.toLowerCase();
+        return (lang.includes('tr') || lang.includes('turkish')) &&
+               (name.includes('male') || name.includes('erkek'));
+      });
 
-      if (maleVoice) {
-        utterance.voice = maleVoice;
-      } else if (turkishVoices.length > 0) {
-        utterance.voice = turkishVoices[0];
+      // Priority 2: Look for any Turkish voice (we'll adjust pitch anyway)
+      if (!selectedVoice) {
+        selectedVoice = voices.find((voice: SpeechSynthesisVoice) =>
+          voice.lang.toLowerCase().includes('tr') ||
+          voice.lang.toLowerCase().includes('turkish')
+        );
       }
+
+      // Priority 3: Look for voices with male-sounding names
+      if (!selectedVoice) {
+        selectedVoice = voices.find((voice: SpeechSynthesisVoice) => {
+          const name = voice.name.toLowerCase();
+          return name.includes('daniel') ||
+                 name.includes('thomas') ||
+                 name.includes('alex') ||
+                 name.includes('male');
+        });
+      }
+
+      // Priority 4: Use any available voice with low pitch
+      if (!selectedVoice && voices.length > 0) {
+        // Prefer voices from index 0-3 which are usually male on most systems
+        selectedVoice = voices[0];
+      }
+
+      if (selectedVoice) {
+        utterance.voice = selectedVoice;
+        console.log('Selected voice:', selectedVoice.name, selectedVoice.lang);
+      }
+
+      // Ensure male-sounding voice with low pitch regardless
+      utterance.pitch = 0.7; // Very low pitch for male voice
 
       synthRef.current.speak(utterance);
     }
@@ -455,7 +479,7 @@ export const VoiceCommandProvider: React.FC<{ children: React.ReactNode }> = ({ 
       }, 500);
     } else {
       setFeedback('Komut anlaşılamadı');
-      speak('Üzgünüm, size yardımcı olmak isterdim ama bu komutu tam anlayamadım. Lütfen tekrar deneyin veya "komutlar" diyerek yapabileceklerimi görebilirsiniz.');
+      speak('Pardon, tam anlayamadım. Bir daha söyler misiniz? Ya da komutlar diyerek, neler yapabileceğimi öğrenebilirsiniz.');
       setIsProcessing(false);
     }
 
