@@ -209,46 +209,103 @@ export const VoiceCommandWidget: React.FC = () => {
         )}
       </AnimatePresence>
 
-      {/* Commands Modal */}
+      {/* Quick Commands Panel - Opens at Top */}
       <AnimatePresence>
         {showCommands && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+            className="fixed inset-0 bg-black/30 backdrop-blur-sm z-50"
             onClick={() => setShowCommands(false)}
           >
             <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              className="bg-white rounded-2xl shadow-2xl max-w-4xl w-full max-h-[80vh] overflow-hidden"
+              initial={{ y: -100, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: -100, opacity: 0 }}
+              transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+              className="bg-white rounded-b-3xl shadow-2xl max-w-6xl mx-auto overflow-hidden"
               onClick={(e) => e.stopPropagation()}
             >
-              {/* Header */}
-              <div className="bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-600 p-6">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center backdrop-blur">
-                      <Volume2 className="w-6 h-6 text-white" />
+              {/* Lydian Introduction Header */}
+              <div className="bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-600 p-8">
+                <div className="flex items-start justify-between gap-6">
+                  {/* Lydian Avatar & Intro */}
+                  <div className="flex items-center gap-6">
+                    <div className="w-24 h-24 bg-white rounded-full flex items-center justify-center shadow-2xl relative">
+                      <span className="text-5xl">🎙️</span>
+                      <div className="absolute -bottom-2 -right-2 bg-green-500 w-8 h-8 rounded-full border-4 border-white flex items-center justify-center">
+                        <span className="text-xs">AI</span>
+                      </div>
                     </div>
                     <div>
-                      <h2 className="text-2xl font-bold text-white">🎙️ Lydian Sesli Komutlar</h2>
-                      <p className="text-white/90 text-sm">Tüm özellikleri sesinizle kontrol edin</p>
+                      <h2 className="text-3xl font-bold text-white mb-2">Merhaba! Ben Lydian 👋</h2>
+                      <p className="text-white/90 text-lg leading-relaxed max-w-2xl">
+                        Sesli asistanınızım. Seyahat planlamanızda size yardımcı olmak için buradayım.
+                        Oteller, uçuşlar, turlar - ne ararsanız, sadece söyleyin!
+                      </p>
                     </div>
                   </div>
                   <button
                     onClick={() => setShowCommands(false)}
-                    className="w-10 h-10 bg-white/20 hover:bg-white/30 rounded-xl flex items-center justify-center transition-colors"
+                    className="w-12 h-12 bg-white/20 hover:bg-white/30 rounded-xl flex items-center justify-center transition-colors flex-shrink-0"
                   >
-                    <X className="w-5 h-5 text-white" />
+                    <X className="w-6 h-6 text-white" />
                   </button>
+                </div>
+
+                {/* Quick Stats */}
+                <div className="grid grid-cols-3 gap-4 mt-6">
+                  <div className="bg-white/10 backdrop-blur rounded-xl p-4 text-center">
+                    <div className="text-3xl font-bold text-white">25+</div>
+                    <div className="text-white/80 text-sm mt-1">Sesli Komut</div>
+                  </div>
+                  <div className="bg-white/10 backdrop-blur rounded-xl p-4 text-center">
+                    <div className="text-3xl font-bold text-white">TR/EN</div>
+                    <div className="text-white/80 text-sm mt-1">Dil Desteği</div>
+                  </div>
+                  <div className="bg-white/10 backdrop-blur rounded-xl p-4 text-center">
+                    <div className="text-3xl font-bold text-white">7/24</div>
+                    <div className="text-white/80 text-sm mt-1">Her Zaman Hazır</div>
+                  </div>
                 </div>
               </div>
 
-              {/* Commands List */}
-              <div className="p-6 overflow-y-auto max-h-[calc(80vh-120px)]">
+              {/* Quick Commands Section */}
+              <div className="p-8 bg-gradient-to-b from-gray-50 to-white">
+                {/* Popular Commands - Quick Access */}
+                <div className="mb-8">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                    ⚡ Popüler Komutlar
+                    <span className="text-sm font-normal text-gray-500">(En çok kullanılanlar)</span>
+                  </h3>
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                    {[
+                      { cmd: 'oteller', icon: '🏨', desc: 'Otel ara' },
+                      { cmd: 'uçuşlar', icon: '✈️', desc: 'Uçuş bul' },
+                      { cmd: 'istanbul ara', icon: '🌆', desc: 'İstanbul' },
+                      { cmd: 'turlar', icon: '🗺️', desc: 'Tur keşfet' },
+                      { cmd: 'sepet', icon: '🛒', desc: 'Sepetim' },
+                      { cmd: 'rezervasyonlar', icon: '📅', desc: 'Rezervasyonlarım' },
+                      { cmd: 'yapay zeka asistan', icon: '🤖', desc: 'AI Asistan' },
+                      { cmd: 'profil', icon: '👤', desc: 'Profilim' },
+                    ].map((item, i) => (
+                      <motion.button
+                        key={i}
+                        onClick={() => speak(`"${item.cmd}" diyerek ${item.desc} sayfasına gidebilirsiniz`)}
+                        className="bg-gradient-to-br from-purple-100 to-blue-100 hover:from-purple-200 hover:to-blue-200 rounded-xl p-4 text-left transition-all border-2 border-purple-200 hover:border-purple-400 hover:scale-105"
+                        whileHover={{ y: -2 }}
+                        whileTap={{ scale: 0.98 }}
+                      >
+                        <div className="text-3xl mb-2">{item.icon}</div>
+                        <div className="font-bold text-gray-900 text-sm mb-1">"{item.cmd}"</div>
+                        <div className="text-xs text-gray-600">{item.desc}</div>
+                      </motion.button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* All Commands by Category */}
                 <div className="grid gap-6">
                   {Object.entries(
                     commands.reduce((acc, cmd) => {
@@ -299,19 +356,60 @@ export const VoiceCommandWidget: React.FC = () => {
                   ))}
                 </div>
 
-                {/* Usage Tips */}
-                <div className="mt-6 bg-gradient-to-r from-blue-50 to-cyan-50 border-2 border-blue-200 rounded-xl p-4">
-                  <h4 className="font-semibold text-blue-900 mb-2 flex items-center gap-2">
-                    <Info className="w-4 h-4" />
-                    💡 Kullanım İpuçları
-                  </h4>
-                  <ul className="text-sm text-blue-800 space-y-1 list-disc list-inside">
-                    <li>Mikrofon butonuna tıklayın ve komutunuzu net bir şekilde söyleyin</li>
-                    <li>Türkçe veya İngilizce komut kullanabilirsiniz</li>
-                    <li>Komutları doğal bir dille söyleyebilirsiniz (örn: "Antalya otelleri")</li>
-                    <li>Her komut sonrası Lydian size sesli geri bildirim verecek</li>
-                    <li>Benzer komutları da anlayabilirim -걱정하지 마세요!</li>
-                  </ul>
+                {/* Pro Tips & Features */}
+                <div className="mt-8 grid md:grid-cols-2 gap-4">
+                  <div className="bg-gradient-to-br from-blue-50 to-cyan-50 border-2 border-blue-200 rounded-xl p-6">
+                    <h4 className="font-bold text-blue-900 mb-3 flex items-center gap-2 text-lg">
+                      <Sparkles className="w-5 h-5" />
+                      💡 Nasıl Kullanılır?
+                    </h4>
+                    <ul className="text-sm text-blue-800 space-y-2">
+                      <li className="flex items-start gap-2">
+                        <span className="text-blue-600 font-bold">1.</span>
+                        <span>Mikrofon butonuna tıklayın</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-blue-600 font-bold">2.</span>
+                        <span>Komutunuzu net ve açık bir şekilde söyleyin</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-blue-600 font-bold">3.</span>
+                        <span>Lydian komutunuzu işleyip size rehberlik edecek</span>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div className="bg-gradient-to-br from-purple-50 to-pink-50 border-2 border-purple-200 rounded-xl p-6">
+                    <h4 className="font-bold text-purple-900 mb-3 flex items-center gap-2 text-lg">
+                      <Volume2 className="w-5 h-5" />
+                      🎯 Lydian'ın Yetenekleri
+                    </h4>
+                    <ul className="text-sm text-purple-800 space-y-2">
+                      <li className="flex items-start gap-2">
+                        <span>✨</span>
+                        <span><strong>Türkçe & İngilizce</strong> komutları anlıyor</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span>✨</span>
+                        <span><strong>Akıllı eşleştirme</strong> - Benzer ifadeleri de anlıyor</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span>✨</span>
+                        <span><strong>Doğal dil</strong> - "Antalya otelleri" gibi söyleyebilirsiniz</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span>✨</span>
+                        <span><strong>Sesli geri bildirim</strong> - Her komutta size yanıt veriyor</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                {/* Footer Message */}
+                <div className="mt-6 text-center p-6 bg-gradient-to-r from-purple-100 via-blue-100 to-cyan-100 rounded-xl border-2 border-purple-200">
+                  <p className="text-gray-700 text-lg">
+                    🌟 <strong>İpucu:</strong> "Komutlar" diyerek bu paneli istediğiniz zaman açabilirsiniz!
+                  </p>
                 </div>
               </div>
             </motion.div>

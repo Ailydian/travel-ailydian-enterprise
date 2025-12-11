@@ -108,62 +108,110 @@ export const VoiceCommandProvider: React.FC<{ children: React.ReactNode }> = ({ 
     };
   }, []);
 
-  // Text-to-speech function with Lydian character - Male voice guaranteed
+  // Text-to-speech function with Lydian character - Premium Male Voice (Nirvana Level)
   const speak = useCallback((text: string) => {
     if (synthRef.current && typeof window !== 'undefined') {
       synthRef.current.cancel(); // Cancel any ongoing speech
 
       const utterance = new SpeechSynthesisUtterance(text);
       utterance.lang = 'tr-TR';
-      utterance.rate = 0.9; // Slower for more natural, conversational speech
-      utterance.pitch = 0.7; // Much lower pitch for distinctly male voice
+      utterance.rate = 0.85; // Slower, more deliberate for maximum naturalness
+      utterance.pitch = 0.5; // Ultra-low pitch for deep, rich male voice
       utterance.volume = 1.0;
 
-      // Get all available voices
-      const voices = synthRef.current.getVoices();
+      // Get all available voices - wait for them to load if needed
+      let voices = synthRef.current.getVoices();
 
-      // Priority 1: Look for Turkish male voices
-      let selectedVoice = voices.find((voice: SpeechSynthesisVoice) => {
-        const name = voice.name.toLowerCase();
-        const lang = voice.lang.toLowerCase();
-        return (lang.includes('tr') || lang.includes('turkish')) &&
-               (name.includes('male') || name.includes('erkek'));
-      });
-
-      // Priority 2: Look for any Turkish voice (we'll adjust pitch anyway)
-      if (!selectedVoice) {
-        selectedVoice = voices.find((voice: SpeechSynthesisVoice) =>
-          voice.lang.toLowerCase().includes('tr') ||
-          voice.lang.toLowerCase().includes('turkish')
-        );
+      // If voices aren't loaded yet, wait for them
+      if (voices.length === 0) {
+        synthRef.current.onvoiceschanged = () => {
+          voices = synthRef.current.getVoices();
+          selectAndSpeak(voices);
+        };
+        return;
       }
 
-      // Priority 3: Look for voices with male-sounding names
-      if (!selectedVoice) {
-        selectedVoice = voices.find((voice: SpeechSynthesisVoice) => {
+      const selectAndSpeak = (availableVoices: SpeechSynthesisVoice[]) => {
+        console.log('Available voices:', availableVoices.map(v => `${v.name} (${v.lang})`));
+
+        // NIRVANA LEVEL: Multi-tier voice selection for ultimate male voice
+
+        // Tier 1: Premium Turkish Male Voices
+        let selectedVoice = availableVoices.find((voice: SpeechSynthesisVoice) => {
           const name = voice.name.toLowerCase();
-          return name.includes('daniel') ||
-                 name.includes('thomas') ||
-                 name.includes('alex') ||
-                 name.includes('male');
+          const lang = voice.lang.toLowerCase();
+          return (lang.includes('tr') || lang.includes('turkish')) &&
+                 (name.includes('male') || name.includes('erkek') ||
+                  name.includes('mehmet') || name.includes('kemal'));
         });
-      }
 
-      // Priority 4: Use any available voice with low pitch
-      if (!selectedVoice && voices.length > 0) {
-        // Prefer voices from index 0-3 which are usually male on most systems
-        selectedVoice = voices[0];
-      }
+        // Tier 2: High-quality male voices (Google, Microsoft Premium)
+        if (!selectedVoice) {
+          selectedVoice = availableVoices.find((voice: SpeechSynthesisVoice) => {
+            const name = voice.name.toLowerCase();
+            return (name.includes('google') || name.includes('microsoft')) &&
+                   name.includes('male') &&
+                   !name.includes('female');
+          });
+        }
 
-      if (selectedVoice) {
-        utterance.voice = selectedVoice;
-        console.log('Selected voice:', selectedVoice.name, selectedVoice.lang);
-      }
+        // Tier 3: Any Turkish voice (we have ultra-low pitch)
+        if (!selectedVoice) {
+          selectedVoice = availableVoices.find((voice: SpeechSynthesisVoice) => {
+            const lang = voice.lang.toLowerCase();
+            return lang.includes('tr') || lang.includes('turkish');
+          });
+        }
 
-      // Ensure male-sounding voice with low pitch regardless
-      utterance.pitch = 0.7; // Very low pitch for male voice
+        // Tier 4: International deep male voices
+        if (!selectedVoice) {
+          const maleNames = ['daniel', 'thomas', 'alex', 'david', 'james', 'robert', 'michael'];
+          selectedVoice = availableVoices.find((voice: SpeechSynthesisVoice) => {
+            const name = voice.name.toLowerCase();
+            return maleNames.some(maleName => name.includes(maleName)) &&
+                   !name.includes('female');
+          });
+        }
 
-      synthRef.current.speak(utterance);
+        // Tier 5: First voice that doesn't sound female
+        if (!selectedVoice) {
+          selectedVoice = availableVoices.find((voice: SpeechSynthesisVoice) => {
+            const name = voice.name.toLowerCase();
+            return !name.includes('female') && !name.includes('woman') &&
+                   !name.includes('girl') && !name.includes('zoe') &&
+                   !name.includes('samantha') && !name.includes('victoria');
+          });
+        }
+
+        // Tier 6: Fallback to first available
+        if (!selectedVoice && availableVoices.length > 0) {
+          // Try first 3 voices (usually male on most systems)
+          selectedVoice = availableVoices[0];
+        }
+
+        if (selectedVoice) {
+          utterance.voice = selectedVoice;
+          console.log('🎙️ LYDIAN VOICE SELECTED:', selectedVoice.name, '|', selectedVoice.lang);
+          console.log('📊 Voice Settings: Pitch=0.5 (Ultra Deep), Rate=0.85 (Natural)');
+        }
+
+        // NIRVANA SETTINGS: Ultra-realistic male voice
+        utterance.pitch = 0.5; // Ultra-low pitch for deep, masculine voice
+        utterance.rate = 0.85; // Slightly slower for gravitas and clarity
+
+        // Add natural pauses for better flow
+        const naturalText = text
+          .replace(/\./g, '. ')  // Pause after periods
+          .replace(/,/g, ', ')   // Pause after commas
+          .replace(/\?/g, '? ')  // Pause after questions
+          .replace(/!/g, '! '); // Pause after exclamations
+
+        utterance.text = naturalText;
+
+        synthRef.current.speak(utterance);
+      };
+
+      selectAndSpeak(voices);
     }
   }, []);
 
