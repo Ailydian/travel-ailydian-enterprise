@@ -1,5 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { amadeusService, transformHotelData } from '@/lib/amadeus-service';
+import { PrismaClient } from '@prisma/client';
+
+const prisma = new PrismaClient();
 
 interface HotelSearchRequest {
   cityCode: string;
@@ -18,16 +20,17 @@ interface HotelSearchRequest {
 }
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  // Only allow POST requests
-  if (req.method !== 'POST') {
-    return res.status(405).json({ 
+  // Allow both GET and POST
+  if (req.method !== 'GET' && req.method !== 'POST') {
+    return res.status(405).json({
       error: 'Method not allowed',
-      message: 'Only POST requests are accepted'
+      message: 'Only GET and POST requests are accepted'
     });
   }
 
   try {
-    const searchParams: HotelSearchRequest = req.body;
+    // Get params from body (POST) or query (GET)
+    const searchParams: HotelSearchRequest = req.method === 'GET' ? req.query : req.body;
 
     // Validate required parameters
     if (!searchParams.cityCode || !searchParams.checkInDate || !searchParams.checkOutDate) {
@@ -84,40 +87,84 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     console.log('Hotel search request:', searchRequest);
 
-    // Search hotels using Amadeus service
-    const response = await amadeusService.searchHotels(searchRequest);
+    // Build database query
+    const where: any = {
+      isActive: true,
+    };
 
-    // Transform results
-    const transformedHotels = response.data
-      .map(transformHotelData)
-      .filter((hotel: any) => hotel !== null);
+    // City/Region filter
+    if (searchRequest.cityCode) {
+      where.OR = [
+        { city: { contains: searchRequest.cityCode, mode: 'insensitive' } },
+        { region: { contains: searchRequest.cityCode, mode: 'insensitive' } },
+      ];
+    }
 
-    // Apply additional filters if specified
-    let filteredHotels = transformedHotels;
+    // Star rating filter
+    if (searchRequest.ratings && searchRequest.ratings.length > 0) {
+      where.stars = { in: searchRequest.ratings };
+    }
 
-    // Filter by price range if specified
+    // Price range filter
     if (searchParams.priceRange) {
       const { min, max } = searchParams.priceRange;
-      filteredHotels = filteredHotels.filter((hotel: any) => {
-        const price = hotel.price;
-        return (!min || price >= min) && (!max || price <= max);
-      });
-    }
-
-    // Filter by ratings if specified
-    if (searchParams.ratings && searchParams.ratings.length > 0) {
-      filteredHotels = filteredHotels.filter((hotel: any) => 
-        searchParams.ratings!.includes(Math.floor(hotel.rating))
-      );
-    }
-
-    // Sort by rating (highest first) and then by price (lowest first)
-    filteredHotels.sort((a: any, b: any) => {
-      if (a.rating !== b.rating) {
-        return b.rating - a.rating;
+      where.AND = where.AND || [];
+      if (min) {
+        where.AND.push({ priceMin: { gte: min } });
       }
-      return a.price - b.price;
+      if (max) {
+        where.AND.push({ priceMax: { lte: max } });
+      }
+    }
+
+    // Search hotels from database
+    const hotels = await prisma.hotel.findMany({
+      where,
+      include: {
+        rooms: {
+          where: { isAvailable: true },
+          orderBy: { pricePerNight: 'asc' },
+          take: 3,
+        },
+      },
+      orderBy: [
+        { rating: 'desc' },
+        { priceMin: 'asc' },
+      ],
     });
+
+    // Transform to API format
+    const transformedHotels = hotels.map((hotel) => {
+      const cheapestRoom = hotel.rooms[0];
+      return {
+        id: hotel.id,
+        name: hotel.name,
+        location: `${hotel.city}, ${hotel.region}`,
+        city: hotel.city,
+        region: hotel.region,
+        rating: Number(hotel.rating),
+        stars: hotel.stars,
+        reviewCount: hotel.reviewCount,
+        price: Number(cheapestRoom?.pricePerNight || hotel.priceMin),
+        priceMin: Number(hotel.priceMin),
+        priceMax: Number(hotel.priceMax),
+        currency: hotel.currency,
+        mainImage: hotel.mainImage,
+        images: hotel.images,
+        amenities: hotel.amenities,
+        facilities: hotel.facilities,
+        description: hotel.shortDescription || hotel.description,
+        distanceToAirport: hotel.distanceToAirport,
+        distanceToBeach: hotel.distanceToBeach,
+        distanceToCenter: hotel.distanceToCenter,
+        hotelType: hotel.hotelType,
+        availableRooms: hotel.rooms.length,
+        isFeatured: hotel.isFeatured,
+        isRecommended: hotel.isRecommended,
+      };
+    });
+
+    let filteredHotels = transformedHotels;
 
     // Calculate nights
     const nights = Math.ceil((checkOut.getTime() - checkIn.getTime()) / (1000 * 60 * 60 * 24));
@@ -158,5 +205,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         stack: error instanceof Error ? error.stack : 'No stack trace available'
       } : undefined
     });
+  } finally {
+    await prisma.$disconnect();
   }
 }

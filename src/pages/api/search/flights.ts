@@ -1,5 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { amadeusService, transformFlightData } from '@/lib/amadeus-service';
+import { PrismaClient } from '@prisma/client';
+
+const prisma = new PrismaClient();
 
 interface FlightSearchRequest {
   originLocationCode: string;
@@ -16,16 +18,17 @@ interface FlightSearchRequest {
 }
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  // Only allow POST requests
-  if (req.method !== 'POST') {
-    return res.status(405).json({ 
+  // Allow both GET and POST
+  if (req.method !== 'GET' && req.method !== 'POST') {
+    return res.status(405).json({
       error: 'Method not allowed',
-      message: 'Only POST requests are accepted'
+      message: 'Only GET and POST requests are accepted'
     });
   }
 
   try {
-    const searchParams: FlightSearchRequest = req.body;
+    // Get params from body (POST) or query (GET)
+    const searchParams: FlightSearchRequest = req.method === 'GET' ? req.query as any : req.body;
 
     // Validate required parameters
     if (!searchParams.originLocationCode || !searchParams.destinationLocationCode || !searchParams.departureDate) {
@@ -70,14 +73,83 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     console.log('Flight search request:', searchRequest);
 
-    // Search flights using Amadeus service
-    const response = await amadeusService.searchFlights(searchRequest);
+    // Build database query
+    const where: any = {
+      isActive: true,
+    };
 
-    // Transform results
-    const transformedFlights = response.data
-      .map(transformFlightData)
-      .filter((flight: any) => flight !== null)
-      .slice(0, searchRequest.max);
+    // Origin/Destination filter
+    if (searchRequest.originLocationCode && searchRequest.destinationLocationCode) {
+      where.AND = [
+        {
+          OR: [
+            { departureAirport: searchRequest.originLocationCode },
+            { departureCity: { contains: searchRequest.originLocationCode, mode: 'insensitive' } },
+          ],
+        },
+        {
+          OR: [
+            { arrivalAirport: searchRequest.destinationLocationCode },
+            { arrivalCity: { contains: searchRequest.destinationLocationCode, mode: 'insensitive' } },
+          ],
+        },
+      ];
+    }
+
+    // Cabin class filter
+    if (searchRequest.travelClass) {
+      where.cabinClass = searchRequest.travelClass;
+    }
+
+    // Non-stop filter
+    if (searchRequest.nonStop) {
+      where.stops = 0;
+    }
+
+    // Search flights from database
+    const flights = await prisma.flight.findMany({
+      where,
+      orderBy: [
+        { priceAdult: 'asc' },
+        { departureTime: 'asc' },
+      ],
+      take: searchRequest.max,
+    });
+
+    // Transform to API format
+    const transformedFlights = flights.map((flight) => ({
+      id: flight.id,
+      flightNumber: flight.flightNumber,
+      airline: flight.airline,
+      airlineCode: flight.airlineCode,
+      airlineLogo: flight.airlineLogo,
+      from: `${flight.departureCity} (${flight.departureAirport})`,
+      to: `${flight.arrivalCity} (${flight.arrivalAirport})`,
+      departureAirport: flight.departureAirport,
+      arrivalAirport: flight.arrivalAirport,
+      departureCity: flight.departureCity,
+      arrivalCity: flight.arrivalCity,
+      departureTime: flight.departureTime.toISOString(),
+      arrivalTime: flight.arrivalTime.toISOString(),
+      duration: flight.duration,
+      distance: flight.distance,
+      aircraft: flight.aircraft,
+      flightType: flight.flightType,
+      cabinClass: flight.cabinClass,
+      stops: flight.stops,
+      stopAirports: flight.stopAirports,
+      priceAdult: Number(flight.priceAdult),
+      priceChild: Number(flight.priceChild),
+      priceInfant: Number(flight.priceInfant),
+      currency: flight.currency,
+      carryOnBaggage: flight.carryOnBaggage,
+      checkedBaggage: flight.checkedBaggage,
+      availableSeats: flight.availableSeats,
+      mealService: flight.mealService,
+      wifiAvailable: flight.wifiAvailable,
+      entertainmentSystem: flight.entertainmentSystem,
+      isRefundable: flight.isRefundable,
+    }));
 
     // Return successful response
     return res.status(200).json({
@@ -110,5 +182,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         stack: error instanceof Error ? error.stack : 'No stack trace available'
       } : undefined
     });
+  } finally {
+    await prisma.$disconnect();
   }
 }
