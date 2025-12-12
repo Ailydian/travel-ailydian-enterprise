@@ -1033,3 +1033,58 @@ enum DifficultyLevel {
   DIFFICULT
   EXTREME
 }
+
+// Airport Models - Global Coverage
+model Airport {
+  id              String          @id @default(cuid())
+
+  // Airport Identification
+  code            String          @unique // IATA code: IST, AYT, JFK
+  icaoCode        String?         // ICAO code
+  name            String
+  nameLocal       String?
+
+  // Location
+  city            String
+  country         String
+  countryCode     String          // ISO 2-letter
+  continent       String
+  timezone        String
+
+  // Coordinates
+  latitude        Float
+  longitude       Float
+  elevation       Int?
+
+  // Airport Details
+  airportType     AirportType     @default(INTERNATIONAL)
+  terminals       Int             @default(1)
+  runways         Int             @default(1)
+
+  // Services
+  hasCustoms      Boolean         @default(true)
+  hasWifi         Boolean         @default(true)
+  hasLounge       Boolean         @default(false)
+
+  // Transfer Info
+  distanceToCity  Float?          // KM
+  avgTransferTime Int?            // Minutes
+
+  // Status
+  isActive        Boolean         @default(true)
+  isHub           Boolean         @default(false)
+
+  createdAt       DateTime        @default(now())
+  updatedAt       DateTime        @updatedAt
+
+  @@map("airports")
+  @@index([code])
+  @@index([country])
+  @@index([city])
+}
+
+enum AirportType {
+  INTERNATIONAL
+  DOMESTIC
+  REGIONAL
+}
