@@ -13,7 +13,8 @@ export const VoiceCommandWidget: React.FC = () => {
     lastCommand,
     isProcessing,
     feedback,
-    commands
+    commands,
+    speak
   } = useVoiceCommand();
 
   const [showCommands, setShowCommands] = useState(false);

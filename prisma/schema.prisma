@@ -672,3 +672,364 @@ enum VoteType {
   INTERESTED
   NOT_INTERESTED
 }
+
+// Hotel Models
+model Hotel {
+  id              String          @id @default(cuid())
+  name            String
+  slug            String          @unique
+  description     String          @db.Text
+  shortDescription String?        @db.Text
+
+  // Location
+  country         String          @default("Turkey")
+  city            String
+  region          String          // Antalya, Alanya, Belek, etc.
+  address         String
+  coordinates     Json?           // {lat, lng}
+  distanceToAirport Float?        // km
+  distanceToBeach Float?          // km
+  distanceToCenter Float?         // km
+
+  // Hotel Info
+  stars           Int             // 1-5
+  rating          Decimal         @default(0)
+  reviewCount     Int             @default(0)
+  hotelType       HotelType
+  checkInTime     String          @default("14:00")
+  checkOutTime    String          @default("12:00")
+  yearBuilt       Int?
+  yearRenovated   Int?
+  roomCount       Int
+  floorCount      Int?
+
+  // Images
+  mainImage       String
+  images          String[]        @default([])
+  virtualTourUrl  String?
+
+  // Features & Amenities
+  amenities       String[]        @default([])
+  facilities      String[]        @default([])
+  roomFeatures    String[]        @default([])
+
+  // Policies
+  cancellationPolicy String?      @db.Text
+  childPolicy     String?         @db.Text
+  petPolicy       String?         @db.Text
+
+  // Pricing
+  priceMin        Decimal         // Minimum room price per night
+  priceMax        Decimal         // Maximum room price per night
+  currency        String          @default("TRY")
+
+  // Contact
+  phone           String?
+  email           String?
+  website         String?
+
+  // Status
+  isActive        Boolean         @default(true)
+  isFeatured      Boolean         @default(false)
+  isRecommended   Boolean         @default(false)
+
+  // SEO
+  metaTitle       String?
+  metaDescription String?
+  keywords        String[]        @default([])
+
+  createdAt       DateTime        @default(now())
+  updatedAt       DateTime        @updatedAt
+
+  // Relations
+  rooms           HotelRoom[]
+
+  @@map("hotels")
+  @@index([city])
+  @@index([region])
+  @@index([stars])
+  @@index([rating])
+  @@index([isActive])
+  @@index([isFeatured])
+}
+
+model HotelRoom {
+  id              String          @id @default(cuid())
+  hotelId         String
+
+  // Room Info
+  name            String
+  slug            String
+  description     String          @db.Text
+  roomType        RoomType
+  size            Float?          // Square meters
+  bedType         String          // King, Queen, Twin, etc.
+  maxOccupancy    Int
+  maxAdults       Int
+  maxChildren     Int
+
+  // Images
+  images          String[]        @default([])
+
+  // Amenities
+  amenities       String[]        @default([])
+  view            String[]        @default([]) // Sea view, Mountain view, etc.
+
+  // Pricing
+  pricePerNight   Decimal
+  currency        String          @default("TRY")
+
+  // Availability
+  roomCount       Int             // Number of this room type
+  isAvailable     Boolean         @default(true)
+
+  // Meal Options
+  mealPlans       String[]        @default([]) // Room Only, Breakfast, Half Board, Full Board, All Inclusive
+
+  createdAt       DateTime        @default(now())
+  updatedAt       DateTime        @updatedAt
+
+  // Relations
+  hotel           Hotel           @relation(fields: [hotelId], references: [id], onDelete: Cascade)
+
+  @@map("hotel_rooms")
+  @@index([hotelId])
+  @@index([roomType])
+  @@index([isAvailable])
+}
+
+// Hotel Enums
+enum HotelType {
+  RESORT
+  BOUTIQUE
+  CITY_HOTEL
+  BEACH_HOTEL
+  APARTMENT
+  VILLA
+  HOSTEL
+  GUESTHOUSE
+}
+
+enum RoomType {
+  STANDARD
+  DELUXE
+  SUITE
+  FAMILY
+  PENTHOUSE
+  VILLA
+  BUNGALOW
+}
+
+// Flight Models
+model Flight {
+  id              String          @id @default(cuid())
+
+  // Flight Info
+  flightNumber    String
+  airline         String
+  airlineCode     String          // TK, PC, XQ, etc.
+  airlineLogo     String?
+
+  // Departure
+  departureAirport String         // AYT, IST, SAW, etc.
+  departureCity   String
+  departureCountry String         @default("Turkey")
+  departureTime   DateTime
+  departureTerminal String?
+
+  // Arrival
+  arrivalAirport  String
+  arrivalCity     String
+  arrivalCountry  String
+  arrivalTime     DateTime
+  arrivalTerminal String?
+
+  // Flight Details
+  duration        Int             // Minutes
+  distance        Float?          // KM
+  aircraft        String?         // Boeing 737, Airbus A320, etc.
+  flightType      FlightType
+  cabinClass      CabinClass
+
+  // Stops
+  stops           Int             @default(0)
+  stopAirports    String[]        @default([])
+
+  // Pricing
+  priceAdult      Decimal
+  priceChild      Decimal
+  priceInfant     Decimal
+  currency        String          @default("TRY")
+  taxIncluded     Boolean         @default(true)
+
+  // Baggage
+  carryOnBaggage  String?         // "1x8kg"
+  checkedBaggage  String?         // "1x23kg" or "2x23kg"
+  extraBaggagePrice Decimal?
+
+  // Seat & Services
+  availableSeats  Int
+  mealService     Boolean         @default(false)
+  wifiAvailable   Boolean         @default(false)
+  entertainmentSystem Boolean     @default(false)
+  powerOutlets    Boolean         @default(false)
+
+  // Booking
+  isRefundable    Boolean         @default(false)
+  cancellationFee Decimal?
+  changeFee       Decimal?
+
+  // Status
+  isActive        Boolean         @default(true)
+  operatingDays   String[]        @default([]) // ["Mon", "Wed", "Fri"]
+
+  createdAt       DateTime        @default(now())
+  updatedAt       DateTime        @updatedAt
+
+  @@map("flights")
+  @@index([departureAirport, arrivalAirport])
+  @@index([departureTime])
+  @@index([airline])
+  @@index([flightType])
+  @@index([isActive])
+}
+
+// Flight Enums
+enum FlightType {
+  DOMESTIC
+  INTERNATIONAL
+}
+
+enum CabinClass {
+  ECONOMY
+  PREMIUM_ECONOMY
+  BUSINESS
+  FIRST_CLASS
+}
+
+// Tour Package Models
+model TourPackage {
+  id              String          @id @default(cuid())
+
+  // Basic Info
+  name            String
+  slug            String          @unique
+  description     String          @db.Text
+  shortDescription String?        @db.Text
+
+  // Category
+  category        TourCategory
+  tags            String[]        @default([])
+
+  // Location
+  destination     String
+  destinations    String[]        @default([]) // Multiple destinations
+  region          String
+  country         String          @default("Turkey")
+
+  // Duration
+  duration        Int             // Days
+  nights          Int
+
+  // Group
+  minGroupSize    Int             @default(1)
+  maxGroupSize    Int
+
+  // Pricing
+  priceAdult      Decimal
+  priceChild      Decimal
+  priceInfant     Decimal
+  currency        String          @default("TRY")
+
+  // Inclusions
+  includes        String[]        @default([])
+  excludes        String[]        @default([])
+
+  // Itinerary (stored as JSON array)
+  itinerary       Json            // Daily program
+
+  // Schedule
+  availableDays   String[]        @default([]) // Days of week
+  startDates      DateTime[]      @default([])
+
+  // Images
+  mainImage       String
+  images          String[]        @default([])
+  videoUrl        String?
+
+  // Difficulty & Physical
+  difficultyLevel DifficultyLevel @default(EASY)
+  physicalRating  Int             @default(1) // 1-5
+
+  // Requirements
+  minimumAge      Int?
+  requiredDocs    String[]        @default([])
+
+  // Meals
+  mealsIncluded   String[]        @default([]) // Breakfast, Lunch, Dinner
+
+  // Transportation
+  transportType   String?         // Bus, Car, Boat, etc.
+  pickupIncluded  Boolean         @default(false)
+  pickupLocations String[]        @default([])
+
+  // Guide
+  guideLanguages  String[]        @default([])
+  guideIncluded   Boolean         @default(true)
+
+  // Status & Featured
+  isActive        Boolean         @default(true)
+  isFeatured      Boolean         @default(false)
+  isPopular       Boolean         @default(false)
+
+  // Ratings
+  rating          Decimal         @default(0)
+  reviewCount     Int             @default(0)
+
+  // SEO
+  metaTitle       String?
+  metaDescription String?
+  keywords        String[]        @default([])
+
+  // Cancellation
+  cancellationPolicy String?      @db.Text
+  refundable      Boolean         @default(true)
+
+  createdAt       DateTime        @default(now())
+  updatedAt       DateTime        @updatedAt
+
+  @@map("tour_packages")
+  @@index([category])
+  @@index([destination])
+  @@index([region])
+  @@index([isActive])
+  @@index([isFeatured])
+  @@index([rating])
+}
+
+// Tour Enums
+enum TourCategory {
+  CULTURAL
+  ADVENTURE
+  NATURE
+  BEACH
+  CITY_TOUR
+  FOOD_WINE
+  HISTORICAL
+  WATER_SPORTS
+  DIVING
+  SAFARI
+  BALLOON
+  PARAGLIDING
+  BOAT_TOUR
+  DAY_TRIP
+  MULTI_DAY
+}
+
+enum DifficultyLevel {
+  EASY
+  MODERATE
+  CHALLENGING
+  DIFFICULT
+  EXTREME
+}

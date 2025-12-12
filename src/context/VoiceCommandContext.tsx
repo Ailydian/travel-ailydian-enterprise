@@ -19,6 +19,7 @@ interface VoiceCommandContextType {
   isProcessing: boolean;
   feedback: string;
   commands: VoiceCommand[];
+  speak: (text: string) => void;
 }
 
 const VoiceCommandContext = createContext<VoiceCommandContextType | undefined>(undefined);
@@ -108,16 +109,12 @@ export const VoiceCommandProvider: React.FC<{ children: React.ReactNode }> = ({ 
     };
   }, []);
 
-  // Text-to-speech function with Lydian character - Premium Male Voice (Nirvana Level)
+  // 🎙️ ULTIMATE MALE VOICE - Text-to-speech with Lydian character
   const speak = useCallback((text: string) => {
     if (synthRef.current && typeof window !== 'undefined') {
       synthRef.current.cancel(); // Cancel any ongoing speech
 
       const utterance = new SpeechSynthesisUtterance(text);
-      utterance.lang = 'tr-TR';
-      utterance.rate = 0.85; // Slower, more deliberate for maximum naturalness
-      utterance.pitch = 0.5; // Ultra-low pitch for deep, rich male voice
-      utterance.volume = 1.0;
 
       // Get all available voices - wait for them to load if needed
       let voices = synthRef.current.getVoices();
@@ -132,83 +129,114 @@ export const VoiceCommandProvider: React.FC<{ children: React.ReactNode }> = ({ 
       }
 
       const selectAndSpeak = (availableVoices: SpeechSynthesisVoice[]) => {
-        console.log('Available voices:', availableVoices.map(v => `${v.name} (${v.lang})`));
+        console.log('🔍 SCANNING', availableVoices.length, 'VOICES FOR ULTIMATE MALE VOICE...');
 
-        // NIRVANA LEVEL: Multi-tier voice selection for ultimate male voice
+        // Log ALL voices for debugging
+        availableVoices.forEach((v, i) => {
+          console.log(`Voice ${i}: ${v.name} | Lang: ${v.lang} | Local: ${v.localService}`);
+        });
 
-        // Tier 1: Premium Turkish Male Voices
+        // 🏆 ULTIMATE VOICE SELECTION ALGORITHM
+        // Priority 1: Turkish Male Voices (Premium Quality)
         let selectedVoice = availableVoices.find((voice: SpeechSynthesisVoice) => {
           const name = voice.name.toLowerCase();
           const lang = voice.lang.toLowerCase();
-          return (lang.includes('tr') || lang.includes('turkish')) &&
-                 (name.includes('male') || name.includes('erkek') ||
-                  name.includes('mehmet') || name.includes('kemal'));
+          // Specific Turkish male voice names
+          return (lang.startsWith('tr') && (
+            name.includes('erkek') ||
+            name.includes('male') ||
+            name.includes('ahmet') ||
+            name.includes('mehmet') ||
+            name.includes('murat') ||
+            name.includes('cem') ||
+            name.includes('kemal')
+          ));
         });
 
-        // Tier 2: High-quality male voices (Google, Microsoft Premium)
+        // Priority 2: Microsoft/Google Turkish voices (Will adjust with pitch)
         if (!selectedVoice) {
           selectedVoice = availableVoices.find((voice: SpeechSynthesisVoice) => {
             const name = voice.name.toLowerCase();
-            return (name.includes('google') || name.includes('microsoft')) &&
-                   name.includes('male') &&
-                   !name.includes('female');
-          });
-        }
-
-        // Tier 3: Any Turkish voice (we have ultra-low pitch)
-        if (!selectedVoice) {
-          selectedVoice = availableVoices.find((voice: SpeechSynthesisVoice) => {
             const lang = voice.lang.toLowerCase();
-            return lang.includes('tr') || lang.includes('turkish');
+            return lang.startsWith('tr') && (
+              name.includes('microsoft') ||
+              name.includes('google') ||
+              name.includes('premium')
+            ) && !name.includes('female') && !name.includes('kadın');
           });
         }
 
-        // Tier 4: International deep male voices
+        // Priority 3: ANY Turkish voice (we'll masculinize with pitch)
         if (!selectedVoice) {
-          const maleNames = ['daniel', 'thomas', 'alex', 'david', 'james', 'robert', 'michael'];
+          selectedVoice = availableVoices.find((voice: SpeechSynthesisVoice) => {
+            return voice.lang.toLowerCase().startsWith('tr');
+          });
+        }
+
+        // Priority 4: Deep International Male Voices
+        if (!selectedVoice) {
+          const deepMaleVoices = [
+            'daniel', 'thomas', 'alex', 'david', 'aaron', 'bruce',
+            'fred', 'gordon', 'ralph', 'jorge', 'luca', 'diego'
+          ];
           selectedVoice = availableVoices.find((voice: SpeechSynthesisVoice) => {
             const name = voice.name.toLowerCase();
-            return maleNames.some(maleName => name.includes(maleName)) &&
+            return deepMaleVoices.some(male => name.includes(male)) &&
                    !name.includes('female');
           });
         }
 
-        // Tier 5: First voice that doesn't sound female
+        // Priority 5: Any non-female voice
         if (!selectedVoice) {
           selectedVoice = availableVoices.find((voice: SpeechSynthesisVoice) => {
             const name = voice.name.toLowerCase();
-            return !name.includes('female') && !name.includes('woman') &&
-                   !name.includes('girl') && !name.includes('zoe') &&
-                   !name.includes('samantha') && !name.includes('victoria');
+            const femaleKeywords = ['female', 'woman', 'girl', 'kadın', 'kız',
+              'samantha', 'victoria', 'susan', 'karen', 'moira', 'fiona',
+              'kate', 'alice', 'amelie', 'anna', 'alice', 'melina'];
+            return !femaleKeywords.some(keyword => name.includes(keyword));
           });
         }
 
-        // Tier 6: Fallback to first available
+        // Priority 6: Use FIRST voice (desktop Safari typically has good male voices first)
         if (!selectedVoice && availableVoices.length > 0) {
-          // Try first 3 voices (usually male on most systems)
           selectedVoice = availableVoices[0];
         }
 
         if (selectedVoice) {
           utterance.voice = selectedVoice;
-          console.log('🎙️ LYDIAN VOICE SELECTED:', selectedVoice.name, '|', selectedVoice.lang);
-          console.log('📊 Voice Settings: Pitch=0.5 (Ultra Deep), Rate=0.85 (Natural)');
+          utterance.lang = selectedVoice.lang.startsWith('tr') ? selectedVoice.lang : 'tr-TR';
+
+          console.log('✅ SELECTED VOICE:', selectedVoice.name);
+          console.log('🌍 Language:', utterance.lang);
+        } else {
+          utterance.lang = 'tr-TR';
         }
 
-        // NIRVANA SETTINGS: Ultra-realistic male voice
-        utterance.pitch = 0.5; // Ultra-low pitch for deep, masculine voice
-        utterance.rate = 0.85; // Slightly slower for gravitas and clarity
+        // 🎚️ EXTREME MALE VOICE SETTINGS
+        // These are CRITICAL for deep, masculine, realistic voice
+        utterance.pitch = 0.1;  // MINIMUM PITCH - Maximum depth and masculinity
+        utterance.rate = 0.75;  // Slower, more authoritative and clear
+        utterance.volume = 1.0; // Full volume
 
-        // Add natural pauses for better flow
+        console.log('🎚️ VOICE PARAMETERS:');
+        console.log('   Pitch: 0.1 (EXTREME DEEP - Maximum Masculine)');
+        console.log('   Rate: 0.75 (Slower, Authoritative)');
+        console.log('   Volume: 1.0 (Full)');
+
+        // Add natural Turkish speech patterns with pauses
         const naturalText = text
-          .replace(/\./g, '. ')  // Pause after periods
-          .replace(/,/g, ', ')   // Pause after commas
-          .replace(/\?/g, '? ')  // Pause after questions
-          .replace(/!/g, '! '); // Pause after exclamations
+          .replace(/\./g, '... ')     // Longer pause after periods
+          .replace(/,/g, ', ')         // Short pause after commas
+          .replace(/\?/g, '?.. ')      // Pause after questions
+          .replace(/!/g, '!.. ')       // Pause after exclamations
+          .replace(/:/g, ':. ');       // Pause after colons
 
         utterance.text = naturalText;
 
+        // Start speaking
         synthRef.current.speak(utterance);
+
+        console.log('🗣️ Speaking:', text.substring(0, 50) + '...');
       };
 
       selectAndSpeak(voices);
@@ -423,6 +451,210 @@ export const VoiceCommandProvider: React.FC<{ children: React.ReactNode }> = ({ 
       },
       description: 'Komutları göster',
       category: 'Sistem'
+    },
+
+    // Additional Search Commands - More Cities
+    {
+      command: 'izmir ara',
+      patterns: ['izmir', 'izmir ara', 'izmire git', 'izmir otelleri', 'izmir otel'],
+      action: () => {
+        router.push('/hotels?destination=izmir');
+        speak('İzmir için harika otel seçenekleri buluyorum!');
+      },
+      description: 'İzmir\'de ara',
+      category: 'Arama'
+    },
+    {
+      command: 'bodrum ara',
+      patterns: ['bodrum', 'bodrum ara', 'bodruma git', 'bodrum otelleri', 'bodrum otel'],
+      action: () => {
+        router.push('/hotels?destination=bodrum');
+        speak('Bodrum için mükemmel otel fırsatları getiriyorum!');
+      },
+      description: 'Bodrum\'da ara',
+      category: 'Arama'
+    },
+    {
+      command: 'çeşme ara',
+      patterns: ['çeşme', 'cesme', 'çeşme ara', 'çeşmeye git', 'çeşme otelleri'],
+      action: () => {
+        router.push('/hotels?destination=cesme');
+        speak('Çeşme için muhteşem oteller buluyorum!');
+      },
+      description: 'Çeşme\'de ara',
+      category: 'Arama'
+    },
+    {
+      command: 'kapadokya ara',
+      patterns: ['kapadokya', 'kapadokya ara', 'kapadokyaya git', 'kapadokya otelleri'],
+      action: () => {
+        router.push('/hotels?destination=cappadocia');
+        speak('Kapadokya için eşsiz otel seçenekleri gösteriyorum!');
+      },
+      description: 'Kapadokya\'da ara',
+      category: 'Arama'
+    },
+
+    // Advanced Features
+    {
+      command: 'favorilerim',
+      patterns: ['favorilerim', 'favorites', 'beğendiklerim', 'favori', 'kaydettiklerim'],
+      action: () => {
+        router.push('/favorites');
+        speak('Favori listenizi gösteriyorum.');
+      },
+      description: 'Favorileri göster',
+      category: 'Navigasyon'
+    },
+    {
+      command: 'restaurant ara',
+      patterns: ['restaurant', 'restaurant ara', 'restoranlar', 'yemek', 'restoran bul'],
+      action: () => {
+        router.push('/destinations');
+        speak('Size en iyi restoranları buluyorum!');
+      },
+      description: 'Restaurant ara',
+      category: 'Arama'
+    },
+    {
+      command: 'transfer',
+      patterns: ['transfer', 'araç kirala', 'car rental', 'transfer ara', 'ulaşım'],
+      action: () => {
+        router.push('/transfers');
+        speak('Transfer ve araç kiralama seçeneklerini gösteriyorum.');
+      },
+      description: 'Transfer/Araç Kiralama',
+      category: 'Navigasyon'
+    },
+    {
+      command: 'deneyimler',
+      patterns: ['deneyimler', 'experiences', 'deneyim ara', 'yerel deneyimler'],
+      action: () => {
+        router.push('/experiences');
+        speak('Unutulmaz deneyimler sizi bekliyor!');
+      },
+      description: 'Deneyimleri keşfet',
+      category: 'Navigasyon'
+    },
+    {
+      command: 'premium üyelik',
+      patterns: ['premium', 'premium üyelik', 'premium ol', 'özel avantajlar'],
+      action: () => {
+        router.push('/premium');
+        speak('Premium üyelik avantajlarını gösteriyorum!');
+      },
+      description: 'Premium üyelik',
+      category: 'Özellikler'
+    },
+    {
+      command: 'sosyal',
+      patterns: ['sosyal', 'paylaş', 'social', 'arkadaşlarımla paylaş'],
+      action: () => {
+        router.push('/social');
+        speak('Sosyal özelliklere erişiyorsunuz.');
+      },
+      description: 'Sosyal özellikler',
+      category: 'Özellikler'
+    },
+    {
+      command: 'blockchain',
+      patterns: ['blockchain', 'kripto', 'crypto', 'blockchain özelliği'],
+      action: () => {
+        router.push('/blockchain');
+        speak('Blockchain tabanlı güvenli rezervasyon sistemine hoş geldiniz!');
+      },
+      description: 'Blockchain özellikleri',
+      category: 'Özellikler'
+    },
+    {
+      command: 'görsel arama',
+      patterns: ['görsel arama', 'resim ara', 'visual search', 'fotoğraf ara'],
+      action: () => {
+        router.push('/visual-search');
+        speak('Görsel arama özelliğini başlatıyorum!');
+      },
+      description: 'Görsel arama',
+      category: 'Arama'
+    },
+    {
+      command: 'hakkımızda',
+      patterns: ['hakkımızda', 'about', 'about us', 'bilgi'],
+      action: () => {
+        router.push('/about');
+        speak('Travel Ailydian hakkında bilgi sayfasına götürüyorum.');
+      },
+      description: 'Hakkımızda',
+      category: 'Bilgi'
+    },
+    {
+      command: 'iletişim',
+      patterns: ['iletişim', 'contact', 'bize ulaşın', 'iletişime geç'],
+      action: () => {
+        router.push('/contact');
+        speak('İletişim sayfasına yönlendiriyorum.');
+      },
+      description: 'İletişim',
+      category: 'Destek'
+    },
+    {
+      command: 'değerlendirmeler',
+      patterns: ['değerlendirmeler', 'reviews', 'yorumlar', 'review'],
+      action: () => {
+        router.push('/reviews');
+        speak('Kullanıcı değerlendirmelerini gösteriyorum.');
+      },
+      description: 'Değerlendirmeler',
+      category: 'Bilgi'
+    },
+    {
+      command: 'seyahatlerim',
+      patterns: ['seyahatlerim', 'my trips', 'gezilerim', 'trip', 'planlarım'],
+      action: () => {
+        router.push('/my-trips');
+        speak('Seyahat planlarınızı gösteriyorum.');
+      },
+      description: 'Seyahatlerim',
+      category: 'Navigasyon'
+    },
+    {
+      command: 'ödeme',
+      patterns: ['ödeme', 'checkout', 'ödeme yap', 'satın al'],
+      action: () => {
+        router.push('/checkout');
+        speak('Ödeme sayfasına yönlendiriyorum. Güvenli ödeme için hazırız!');
+      },
+      description: 'Ödeme sayfası',
+      category: 'İşlem'
+    },
+    {
+      command: 'grup seyahati',
+      patterns: ['grup seyahati', 'group travel', 'grup rezervasyon', 'grup tatili'],
+      action: () => {
+        router.push('/group-travel');
+        speak('Grup seyahati organizasyonuna hoş geldiniz!');
+      },
+      description: 'Grup seyahati',
+      category: 'Özellikler'
+    },
+    {
+      command: 'kurumsal',
+      patterns: ['kurumsal', 'business', 'iş seyahati', 'corporate'],
+      action: () => {
+        router.push('/business');
+        speak('Kurumsal seyahat çözümlerimize göz atıyorsunuz.');
+      },
+      description: 'Kurumsal seyahat',
+      category: 'Özellikler'
+    },
+    {
+      command: 'animasyon',
+      patterns: ['animasyon', 'animated', 'showcase', 'görsel tur'],
+      action: () => {
+        router.push('/animated-showcase');
+        speak('Harika animasyon showcase\'umuzu gösteriyorum!');
+      },
+      description: 'Animasyon Showcase',
+      category: 'Özellikler'
     }
   ];
 
@@ -569,7 +801,8 @@ export const VoiceCommandProvider: React.FC<{ children: React.ReactNode }> = ({ 
         lastCommand,
         isProcessing,
         feedback,
-        commands
+        commands,
+        speak
       }}
     >
       {children}

@@ -1,0 +1,29 @@
+# robots.txt for travel.ailydian.com
+
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+# Disallow admin and API routes
+Disallow: /api/
+Disallow: /admin/
+Disallow: /dashboard/
+Disallow: /auth/
+
+# Disallow user-specific pages
+Disallow: /profile/
+Disallow: /bookings/
+Disallow: /my-trips/
+
+# Allow specific important pages
+Allow: /api/og
+Allow: /api/sitemap
+
+# Crawl delay (optional, helps prevent overload)
+Crawl-delay: 1
+
+# Sitemap location
+Sitemap: https://travel.ailydian.com/sitemap.xml
+Sitemap: https://travel.ailydian.com/sitemap-hotels.xml
+Sitemap: https://travel.ailydian.com/sitemap-flights.xml
+Sitemap: https://travel.ailydian.com/sitemap-transfers.xml
