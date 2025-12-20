@@ -8,7 +8,7 @@ import {
   MapPinAnimated,
   CompassAnimated
 } from '../ui/AnimatedSVG';
-import { Search, Calendar, Users, Sparkles } from 'lucide-react';
+import { Sparkles } from 'lucide-react';
 
 // Dynamic import for VideoBackground to avoid SSR issues
 const VideoBackground = dynamic(() => import('../ui/VideoBackground'), {
@@ -21,16 +21,6 @@ export interface AnimatedHeroSectionProps {
 }
 
 export const AnimatedHeroSection: React.FC<AnimatedHeroSectionProps> = ({ onSearch }) => {
-  const [searchQuery, setSearchQuery] = React.useState('');
-  const [checkInDate, setCheckInDate] = React.useState('');
-  const [travelers, setTravelers] = React.useState('2');
-
-  const handleSearch = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (onSearch) {
-      onSearch(searchQuery);
-    }
-  };
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -212,67 +202,6 @@ export const AnimatedHeroSection: React.FC<AnimatedHeroSectionProps> = ({ onSear
             </motion.p>
           </motion.div>
 
-          {/* Animated Search Box */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 0.8 }}
-            className="mb-12"
-          >
-            <form onSubmit={handleSearch} className="bg-glass-dark backdrop-blur-xl rounded-3xl p-6 border border-ailydian-primary/20 shadow-neon-lg">
-              <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-                {/* Destination */}
-                <div className="relative">
-                  <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-ailydian-primary" />
-                  <input
-                    type="text"
-                    placeholder="Where to?"
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                    className="w-full pl-12 pr-4 py-4 bg-ailydian-bg-card border border-ailydian-primary/30 rounded-xl text-ailydian-text placeholder-ailydian-text-muted focus:outline-none focus:border-ailydian-primary transition-colors"
-                  />
-                </div>
-
-                {/* Check-in Date */}
-                <div className="relative">
-                  <Calendar className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-ailydian-primary" />
-                  <input
-                    type="date"
-                    value={checkInDate}
-                    onChange={(e) => setCheckInDate(e.target.value)}
-                    className="w-full pl-12 pr-4 py-4 bg-ailydian-bg-card border border-ailydian-primary/30 rounded-xl text-ailydian-text focus:outline-none focus:border-ailydian-primary transition-colors [color-scheme:light]"
-                    style={{ colorScheme: 'light' }}
-                  />
-                </div>
-
-                {/* Travelers */}
-                <div className="relative">
-                  <Users className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-ailydian-primary" />
-                  <select
-                    value={travelers}
-                    onChange={(e) => setTravelers(e.target.value)}
-                    className="w-full pl-12 pr-4 py-4 bg-ailydian-bg-card border border-ailydian-primary/30 rounded-xl text-ailydian-text focus:outline-none focus:border-ailydian-primary transition-colors appearance-none"
-                  >
-                    {[1, 2, 3, 4, 5, 6, 7, 8].map(num => (
-                      <option key={num} value={num}>
-                        {num} {num === 1 ? 'Traveler' : 'Travelers'}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-
-                {/* Search Button */}
-                <motion.button
-                  type="submit"
-                  className="bg-gradient-to-r from-ailydian-primary to-ailydian-secondary text-white py-4 px-8 rounded-xl font-semibold shadow-neon hover:shadow-neon-lg transition-all"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  Search
-                </motion.button>
-              </div>
-            </form>
-          </motion.div>
 
           {/* Feature Badges */}
           <motion.div

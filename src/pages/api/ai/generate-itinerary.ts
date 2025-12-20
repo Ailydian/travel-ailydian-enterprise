@@ -1,6 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import Groq from 'groq-sdk';
 import { addDays, differenceInDays, format } from 'date-fns';
+import { withRateLimit, groqRateLimiter } from '@/lib/middleware/rate-limiter';
 
 const groq = new Groq({
   apiKey: process.env.GROQ_API_KEY
@@ -47,7 +48,7 @@ interface ItineraryDay {
   travelTime: number;
 }
 
-export default async function handler(
+async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
@@ -137,8 +138,14 @@ Return the itinerary as a structured JSON with the following format:
   "warnings": ["Warning 1"]
 }`;
 
+    // Model mapping for obfuscation
+    const modelMap: Record<string, string> = {
+      'nx-primary-v3': 'llama-3.3-70b-versatile',
+      'nx-fast-v1': 'llama-3.1-8b-instant',
+    };
+
     const completion = await groq.chat.completions.create({
-      model: 'llama-3.3-70b-versatile',
+      model: modelMap['nx-primary-v3'],
       messages: [
         {
           role: 'system',
@@ -372,3 +379,6 @@ function generateMockItinerary(preferences: TripPreferences, numberOfDays: numbe
     ]
   };
 }
+
+// Export handler with rate limiting
+export default withRateLimit(handler, groqRateLimiter);

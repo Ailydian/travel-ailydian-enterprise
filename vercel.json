@@ -17,7 +17,34 @@
       "maxDuration": 15
     }
   },
-  
+
+  "crons": [
+    {
+      "path": "/api/cron/nirvana-seo-orchestration",
+      "schedule": "0 */8 * * *"
+    },
+    {
+      "path": "/api/cron/update-seo",
+      "schedule": "0 */6 * * *"
+    },
+    {
+      "path": "/api/cron/check-price-alerts",
+      "schedule": "0 */2 * * *"
+    },
+    {
+      "path": "/api/cron/ping-search-engines",
+      "schedule": "0 */12 * * *"
+    },
+    {
+      "path": "/api/cron/multilingual-seo-ai",
+      "schedule": "0 */4 * * *"
+    },
+    {
+      "path": "/api/cron/seo-health-check",
+      "schedule": "0 */6 * * *"
+    }
+  ],
+
   "regions": ["iad1"],
   
   "headers": [

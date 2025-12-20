@@ -63,7 +63,11 @@ model User {
   lastLoginAt     DateTime?
   isActive        Boolean   @default(true)
   twoFactorEnabled Boolean  @default(false)
-  
+
+  // AI Profile Fields
+  travelProfile   Json?     // Travel DNA Profile from AI analysis
+  profileAnalyzedAt DateTime? // When profile was last analyzed
+
   // Relations
   accounts           Account[]
   sessions           Session[]
@@ -76,6 +80,7 @@ model User {
   transferBookings   TransferBooking[]
   priceAlerts        PriceAlert[]
   trips              Trip[]
+  votes              TripVote[]
 
   @@map("users")
 }
@@ -497,6 +502,11 @@ model Trip {
   isPublic        Boolean         @default(false)
   shareLink       String?         @unique
 
+  // Collaboration Fields
+  isCollaborative Boolean         @default(false)
+  shareCode       String?         // Short code for joining
+  collaborationData Json?         // Full collaboration room data
+
   createdAt       DateTime        @default(now())
   updatedAt       DateTime        @updatedAt
 
@@ -513,6 +523,8 @@ model Trip {
   @@index([status])
   @@index([startDate])
   @@index([shareLink])
+  @@index([shareCode])
+  @@index([isCollaborative])
 }
 
 model TripItinerary {
@@ -612,9 +624,9 @@ model TripComment {
 model TripVote {
   id              String          @id @default(cuid())
   tripId          String
-  activityId      String?         // Can vote on activities
+  activityId      String          // Activity being voted on
   userId          String
-  voteType        VoteType
+  value           Int             // 1 for up, -1 for down, 0 for neutral
   comment         String?
 
   createdAt       DateTime        @default(now())
@@ -622,6 +634,7 @@ model TripVote {
 
   trip            Trip            @relation(fields: [tripId], references: [id], onDelete: Cascade)
   activity        TripActivity?   @relation(fields: [activityId], references: [id], onDelete: Cascade)
+  user            User            @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([tripId, activityId, userId])
   @@map("trip_votes")

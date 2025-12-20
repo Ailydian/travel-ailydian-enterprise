@@ -1,52 +1,73 @@
 /**
- * Groq AI Service
- * Ultra-fast AI inference using Groq's LPU (Language Processing Unit)
- * Models: llama-3.3-70b-versatile, mixtral-8x7b-32768, gemma2-9b-it
+ * NeuralX AI Service
+ * Ultra-fast AI inference service
+ * Enterprise-grade neural processing
  */
 
 import Groq from 'groq-sdk';
 
-const groq = new Groq({
+// Model mapping for obfuscation
+const MODEL_MAP = {
+  'nx-primary-v3': 'llama-3.3-70b-versatile',
+  'nx-fast-v1': 'llama-3.1-8b-instant',
+  'nx-hybrid-v2': 'mixtral-8x7b-32768',
+  'nx-lite-v2': 'gemma2-9b-it',
+};
+
+const neuralx = new Groq({
   apiKey: process.env.GROQ_API_KEY || '',
 });
 
-export interface GroqChatMessage {
+export interface NeuralXMessage {
   role: 'system' | 'user' | 'assistant';
   content: string;
 }
 
-export interface GroqChatOptions {
-  model?: 'llama-3.3-70b-versatile' | 'llama-3.1-8b-instant' | 'mixtral-8x7b-32768' | 'gemma2-9b-it';
+export interface NeuralXOptions {
+  model?: 'nx-primary-v3' | 'nx-fast-v1' | 'nx-hybrid-v2' | 'nx-lite-v2';
   temperature?: number;
   maxTokens?: number;
   stream?: boolean;
 }
 
 /**
- * Send chat completion request to Groq
+ * Send chat completion request to NeuralX
  */
-export async function groqChat(
-  messages: GroqChatMessage[],
-  options: GroqChatOptions = {}
+export async function neuralxChat(
+  messages: NeuralXMessage[],
+  options: NeuralXOptions = {}
 ): Promise<string> {
   try {
     const {
-      model = 'llama-3.3-70b-versatile',
+      model = 'nx-primary-v3',
       temperature = 0.7,
       maxTokens = 1024,
     } = options;
 
-    const completion = await groq.chat.completions.create({
+    const actualModel = MODEL_MAP[model] || MODEL_MAP['nx-primary-v3'];
+
+    const completion = await neuralx.chat.completions.create({
       messages,
-      model,
+      model: actualModel,
       temperature,
       max_tokens: maxTokens,
       stream: false,
     });
 
     return completion.choices[0]?.message?.content || '';
-  } catch (error) {
-    console.error('Groq AI Error:', error);
+  } catch (error: any) {
+    console.error('NeuralX AI Error:', error);
+
+    // Handle rate limit errors specifically
+    if (error?.status === 429 || error?.message?.includes('rate limit')) {
+      throw new Error('AI servisi meşgul. Lütfen birkaç saniye bekleyip tekrar deneyin.');
+    }
+
+    // Handle API key errors
+    if (error?.status === 401) {
+      throw new Error('AI servisi yapılandırma hatası');
+    }
+
     throw new Error('AI servisi şu anda kullanılamıyor');
   }
 }
@@ -55,7 +76,7 @@ export async function groqChat(
  * Travel Assistant - Seyahat önerileri ve bilgileri
  */
 export async function travelAssistant(userMessage: string): Promise<string> {
-  const messages: GroqChatMessage[] = [
+  const messages: NeuralXMessage[] = [
     {
       role: 'system',
       content: `Sen Travel.Ailydian'ın AI seyahat asistanısın. Türkiye ve dünya genelinde seyahat, tur, otel, uçak bileti ve havalimanı transferi konularında uzman bir asistansın.
@@ -77,8 +98,8 @@ Her zaman yardımsever, samimi ve profesyonel ol. Cevaplarını kısa ve öz tut
     },
   ];
 
-  return await groqChat(messages, {
-    model: 'llama-3.3-70b-versatile',
+  return await neuralxChat(messages, {
+    model: 'nx-primary-v3',
     temperature: 0.8,
     maxTokens: 512,
   });
@@ -92,7 +113,7 @@ export async function transferAssistant(query: string): Promise<{
   suggestedVehicle: string;
   estimatedPrice: string;
 }> {
-  const messages: GroqChatMessage[] = [
+  const messages: NeuralXMessage[] = [
     {
       role: 'system',
       content: `Sen havalimanı transfer uzmanısın. Antalya ve Alanya bölgesindeki transferler konusunda uzmansın.
@@ -113,17 +134,16 @@ Kullanıcının ihtiyacına göre en uygun aracı öner ve tahmini fiyat aralı�
     },
   ];
 
-  const response = await groqChat(messages, {
-    model: 'llama-3.1-8b-instant', // Faster model for recommendations
+  const response = await neuralxChat(messages, {
+    model: 'nx-fast-v1',
     temperature: 0.5,
     maxTokens: 256,
   });
 
-  // Parse response (basit parsing, gerçek uygulamada structured output kullanın)
   return {
     recommendation: response,
-    suggestedVehicle: 'VAN', // AI yanıtından parse edilebilir
-    estimatedPrice: '800-1200 TRY', // AI yanıtından parse edilebilir
+    suggestedVehicle: 'VAN',
+    estimatedPrice: '800-1200 TRY',
   };
 }
 
@@ -142,7 +162,7 @@ export async function recommendDestination(
     .map(([key, value]) => `${key}: ${Array.isArray(value) ? value.join(', ') : value}`)
     .join('\n');
 
-  const messages: GroqChatMessage[] = [
+  const messages: NeuralXMessage[] = [
     {
       role: 'system',
       content: `Sen bir destinasyon öneri uzmanısın. Kullanıcının tercihlerine göre en uygun 5 destinasyon öner.
@@ -155,8 +175,8 @@ Yanıtını sadece destinasyon isimleri olarak ver, her satıra bir destinasyon.
     },
   ];
 
-  const response = await groqChat(messages, {
-    model: 'llama-3.1-8b-instant',
+  const response = await neuralxChat(messages, {
+    model: 'nx-fast-v1',
     temperature: 0.6,
     maxTokens: 128,
   });
@@ -172,7 +192,7 @@ export async function analyzeReviewSentiment(reviewText: string): Promise<{
   score: number;
   summary: string;
 }> {
-  const messages: GroqChatMessage[] = [
+  const messages: NeuralXMessage[] = [
     {
       role: 'system',
       content: `Sen bir duygu analizi uzmanısın. Verilen yorumun duygusunu analiz et ve şu formatta yanıt ver:
@@ -187,8 +207,8 @@ SUMMARY: Kısa özet (max 50 kelime)`,
     },
   ];
 
-  const response = await groqChat(messages, {
-    model: 'gemma2-9b-it',
+  const response = await neuralxChat(messages, {
+    model: 'nx-lite-v2',
     temperature: 0.3,
     maxTokens: 200,
   });
@@ -210,7 +230,7 @@ export async function enhanceSearchQuery(query: string): Promise<{
   suggestions: string[];
   intent: string;
 }> {
-  const messages: GroqChatMessage[] = [
+  const messages: NeuralXMessage[] = [
     {
       role: 'system',
       content: `Sen bir arama motoru optimizasyon uzmanısın. Kullanıcının arama sorgusunu analiz et ve iyileştir.
@@ -226,8 +246,8 @@ INTENT: Kullanıcının amacı (hotel/flight/activity/transfer)`,
     },
   ];
 
-  const response = await groqChat(messages, {
-    model: 'llama-3.1-8b-instant',
+  const response = await neuralxChat(messages, {
+    model: 'nx-fast-v1',
     temperature: 0.4,
     maxTokens: 256,
   });
@@ -247,20 +267,22 @@ INTENT: Kullanıcının amacı (hotel/flight/activity/transfer)`,
 /**
  * Streaming chat (for real-time responses)
  */
-export async function* groqChatStream(
-  messages: GroqChatMessage[],
-  options: GroqChatOptions = {}
+export async function* neuralxChatStream(
+  messages: NeuralXMessage[],
+  options: NeuralXOptions = {}
 ): AsyncGenerator<string, void, unknown> {
   try {
     const {
-      model = 'llama-3.3-70b-versatile',
+      model = 'nx-primary-v3',
       temperature = 0.7,
       maxTokens = 1024,
     } = options;
 
-    const stream = await groq.chat.completions.create({
+    const actualModel = MODEL_MAP[model] || MODEL_MAP['nx-primary-v3'];
+
+    const stream = await neuralx.chat.completions.create({
       messages,
-      model,
+      model: actualModel,
       temperature,
       max_tokens: maxTokens,
       stream: true,
@@ -272,18 +294,33 @@ export async function* groqChatStream(
         yield content;
       }
     }
-  } catch (error) {
-    console.error('Groq Streaming Error:', error);
+  } catch (error: any) {
+    console.error('NeuralX Streaming Error:', error);
+
+    // Handle rate limit errors specifically
+    if (error?.status === 429 || error?.message?.includes('rate limit')) {
+      throw new Error('AI servisi meşgul. Lütfen birkaç saniye bekleyip tekrar deneyin.');
+    }
+
     throw new Error('AI streaming servisi kullanılamıyor');
   }
 }
 
+// Legacy exports for backwards compatibility
+export const groqChat = neuralxChat;
+export const groqChatStream = neuralxChatStream;
+export type GroqChatMessage = NeuralXMessage;
+export type GroqChatOptions = NeuralXOptions;
+
 export default {
-  groqChat,
+  neuralxChat,
   travelAssistant,
   transferAssistant,
   recommendDestination,
   analyzeReviewSentiment,
   enhanceSearchQuery,
+  neuralxChatStream,
+  // Legacy
+  groqChat,
   groqChatStream,
 };

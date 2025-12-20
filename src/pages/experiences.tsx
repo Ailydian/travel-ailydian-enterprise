@@ -3,6 +3,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { motion, AnimatePresence } from 'framer-motion';
+import Image from 'next/image';
 import {
   Search,
   MapPin,
@@ -20,10 +21,12 @@ import {
   Sparkles,
   Play,
   ShoppingCart,
-  CheckCircle
+  CheckCircle,
+  Utensils
 } from 'lucide-react';
-import NavigationHeader from '../components/layout/NavigationHeader';
+import ResponsiveHeaderBar from '../components/layout/ResponsiveHeaderBar';
 import { useCart } from '../context/CartContext';
+import { EXPERIENCES_TURKEY } from '../data/experiences-turkey';
 
 const ExperiencesPage: React.FC = () => {
   const router = useRouter();
@@ -36,12 +39,13 @@ const ExperiencesPage: React.FC = () => {
   const [toastMessage, setToastMessage] = useState('');
 
   const categories = [
-    { id: 'all', name: 'Tümü', icon: Sparkles, count: '2,500+' },
-    { id: 'cultural', name: 'Kültürel', icon: Building, count: '850+' },
-    { id: 'adventure', name: 'Macera', icon: Mountain, count: '650+' },
-    { id: 'nature', name: 'Doğa', icon: TreePine, count: '480+' },
-    { id: 'water', name: 'Su Sporları', icon: Waves, count: '320+' },
-    { id: 'photography', name: 'Fotoğraf', icon: Camera, count: '200+' }
+    { id: 'all', name: 'Tümü', icon: Sparkles, count: `${EXPERIENCES_TURKEY.length}` },
+    { id: 'cultural', name: 'Kültürel', icon: Building, count: `${EXPERIENCES_TURKEY.filter(e => e.category === 'cultural').length}` },
+    { id: 'adventure', name: 'Macera', icon: Mountain, count: `${EXPERIENCES_TURKEY.filter(e => e.category === 'adventure').length}` },
+    { id: 'nature', name: 'Doğa', icon: TreePine, count: `${EXPERIENCES_TURKEY.filter(e => e.category === 'nature').length}` },
+    { id: 'water-sports', name: 'Su Sporları', icon: Waves, count: `${EXPERIENCES_TURKEY.filter(e => e.category === 'water-sports').length}` },
+    { id: 'photography', name: 'Fotoğraf', icon: Camera, count: `${EXPERIENCES_TURKEY.filter(e => e.category === 'photography').length}` },
+    { id: 'culinary', name: 'Gastronomi', icon: Utensils, count: `${EXPERIENCES_TURKEY.filter(e => e.category === 'culinary').length}` }
   ];
 
   const durations = [
@@ -59,152 +63,26 @@ const ExperiencesPage: React.FC = () => {
     { id: 'premium', name: '₺300+' }
   ];
 
-  const experiences = [
-    {
-      id: 1,
-      title: 'İstanbul: AI Rehberli Boğaz Turu ve VR Deneyimi',
-      location: 'İstanbul, Türkiye',
-      category: 'cultural',
-      durationFilter: 'half',
-      priceRange: 'mid',
-      image: 'https://images.unsplash.com/photo-1541432901042-2d8bd64b4a9b?w=400&h=300&q=90',
-      price: '₺150',
-      originalPrice: '₺200',
-      rating: 4.9,
-      reviewCount: 3247,
-      duration: '3 saat',
-      groupSize: '12 kişi max',
-      badges: ['AI Rehberli', 'VR Önizleme', 'Çok Satan'],
-      description: 'Boğaz\'ın eşsiz güzelliklerini AI rehber eşliğinde keşfedin.',
-      highlights: [
-        'Canlı AI rehber anlatımı',
-        'VR teknolojisi ile tarihi yeniden yaşayın',
-        'Professional fotoğraf çekimi',
-        'İkramlar dahil'
-      ],
-      languages: ['Türkçe', 'İngilizce', 'Almanca']
-    },
-    {
-      id: 2,
-      title: 'Kapadokya: Blockchain Doğrulamalı Balon Turu',
-      location: 'Kapadokya, Türkiye',
-      category: 'adventure',
-      durationFilter: 'half',
-      priceRange: 'premium',
-      image: 'https://images.unsplash.com/photo-1570939274719-c60ee3bf5cd9?w=400&h=300&q=90',
-      price: '₺450',
-      originalPrice: '₺550',
-      rating: 4.8,
-      reviewCount: 1856,
-      duration: '4 saat',
-      groupSize: '8 kişi max',
-      badges: ['Blockchain Doğrulamalı', 'Lüks Deneyim', 'Küçük Grup'],
-      description: 'Peri bacaları üzerinde unutulmaz bir gündoğumu deneyimi.',
-      highlights: [
-        'Gündoğumu uçuşu garantili',
-        'Blockchain sertifikası ile doğrulanmış pilot',
-        'Şampanyalı kutlama',
-        'Otel transfer servisi'
-      ],
-      languages: ['Türkçe', 'İngilizce', 'Rusça']
-    },
-    {
-      id: 3,
-      title: 'Antalya: Sualtı Fotoğrafçılığı Workshop\'u',
-      location: 'Antalya, Türkiye',
-      category: 'photography',
-      durationFilter: 'full',
-      priceRange: 'mid',
-      image: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=400&h=300&q=90',
-      price: '₺280',
-      originalPrice: '₺350',
-      rating: 4.7,
-      reviewCount: 892,
-      duration: '7 saat',
-      groupSize: '6 kişi max',
-      badges: ['Profesyonel Eğitmen', 'Ekipman Dahil', 'Workshop'],
-      description: 'Akdeniz\'in berrak sularında profesyonel sualtı fotoğrafçılığını öğrenin.',
-      highlights: [
-        'Profesyonel sualtı kamerası eğitimi',
-        'PADI sertifikalı eğitmen',
-        'Antik kalıntı fotoğrafları',
-        'Özel düzenleme teknikleri'
-      ],
-      languages: ['Türkçe', 'İngilizce']
-    },
-    {
-      id: 4,
-      title: 'Pamukkale: Termal Wellness ve Meditasyon',
-      location: 'Pamukkale, Türkiye',
-      category: 'nature',
-      durationFilter: 'full',
-      priceRange: 'mid',
-      image: 'https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=400&h=300&q=90',
-      price: '₺195',
-      originalPrice: '₺250',
-      rating: 4.6,
-      reviewCount: 1547,
-      duration: '6 saat',
-      groupSize: '15 kişi max',
-      badges: ['Wellness', 'Termal Su', 'Rehberli'],
-      description: 'Doğal termal sularda rahatlayın ve iç huzurunuzu bulun.',
-      highlights: [
-        'Doğal termal havuzlarda yüzme',
-        'Profesyonel spa masajı',
-        'Yoga ve meditasyon seansı',
-        'Organik öğle yemeği'
-      ],
-      languages: ['Türkçe', 'İngilizce']
-    },
-    {
-      id: 5,
-      title: 'Bodrum: Gece Marina Turu ve Deniz Ürünleri',
-      location: 'Bodrum, Türkiye',
-      category: 'cultural',
-      durationFilter: 'half',
-      priceRange: 'mid',
-      image: 'https://images.unsplash.com/photo-1566073771259-6a8506862ae3?w=400&h=300&q=90',
-      price: '₺125',
-      originalPrice: '₺180',
-      rating: 4.5,
-      reviewCount: 723,
-      duration: '4 saat',
-      groupSize: '20 kişi max',
-      badges: ['Gece Turu', 'Gastronomi', 'Deniz Ürünleri'],
-      description: 'Marina\'nın büyülü gece atmosferinde deniz ürünleri tadımı.',
-      highlights: [
-        'Marina\'nın ışıklı manzarası',
-        'Taze deniz ürünleri menüsü',
-        'Yerel müzik performansı',
-        'Bodrum Kalesi gezisi'
-      ],
-      languages: ['Türkçe', 'İngilizce']
-    },
-    {
-      id: 6,
-      title: 'Trabzon: Uzungöl Doğa Fotoğrafçılığı',
-      location: 'Trabzon, Türkiye',
-      category: 'photography',
-      durationFilter: 'multi',
-      priceRange: 'mid',
-      image: 'https://images.unsplash.com/photo-1617634667039-8e4cb277ab46?w=400&h=300&q=90',
-      price: '₺320',
-      originalPrice: '₺420',
-      rating: 4.8,
-      reviewCount: 456,
-      duration: '2 gün',
-      groupSize: '8 kişi max',
-      badges: ['2 Gün', 'Doğa Fotoğrafı', 'Uzman Rehber'],
-      description: 'Karadeniz\'in yeşil cennetinde doğa fotoğrafçılığının inceliklerini öğrenin.',
-      highlights: [
-        'Gündoğumu ve günbatımı çekimleri',
-        'Yerel yaşam fotoğrafları',
-        'Profesyonel ekipman kullanımı',
-        'Yöresel lezzetler'
-      ],
-      languages: ['Türkçe']
-    }
-  ];
+  const experiences = EXPERIENCES_TURKEY.map(exp => ({
+    id: exp.id,
+    title: exp.title,
+    location: exp.location,
+    category: exp.category,
+    durationFilter: exp.durationMinutes <= 180 ? 'short' : exp.durationMinutes <= 360 ? 'half' : exp.durationMinutes <= 720 ? 'full' : 'multi',
+    priceRange: exp.pricing.adult <= 500 ? 'budget' : exp.pricing.adult <= 1500 ? 'mid' : 'premium',
+    image: exp.images.hero,
+    price: `₺${exp.pricing.adult}`,
+    originalPrice: exp.originalPrice ? `₺${exp.originalPrice}` : undefined,
+    rating: exp.rating,
+    reviewCount: exp.reviewCount,
+    duration: exp.duration,
+    groupSize: `${exp.groupSize.max} kişi max`,
+    badges: exp.tags.slice(0, 3),
+    description: exp.shortDescription,
+    highlights: exp.highlights,
+    languages: exp.languages,
+    slug: exp.slug
+  }));
 
   // Cart handler functions
   const handleAddToCart = (experience: typeof experiences[0]) => {
@@ -270,7 +148,7 @@ const ExperiencesPage: React.FC = () => {
         <meta name="keywords" content="deneyim, tur, aktivite, AI rehber, VR önizleme, blockchain, Türkiye" />
       </Head>
 
-      <NavigationHeader />
+      <ResponsiveHeaderBar />
 
       {/* Return to Home Button */}
       <Link 
@@ -405,13 +283,16 @@ const ExperiencesPage: React.FC = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {filteredExperiences.map((experience) => (
-                <motion.div
+                <Link
                   key={experience.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: experience.id * 0.1 }}
-                  className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group"
+                  href={`/experiences/${experience.slug}`}
+                  className="block"
                 >
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group h-full"
+                  >
                   {/* Image */}
                   <div className="relative h-48 overflow-hidden">
                     <img 
@@ -510,28 +391,14 @@ const ExperiencesPage: React.FC = () => {
                           <span className="text-sm text-gray-600">kişi başı</span>
                         </div>
                       </div>
-                      <div className="flex gap-2">
-                        <motion.button
-                          whileHover={{ scale: 1.05 }}
-                          whileTap={{ scale: 0.95 }}
-                          onClick={() => handleAddToCart(experience)}
-                          className="flex-1 px-4 py-2 border-2 border-ailydian-primary text-ailydian-primary rounded-lg font-medium hover:bg-ailydian-primary/10 transition-colors flex items-center justify-center gap-2"
-                        >
-                          <ShoppingCart className="w-4 h-4" />
-                          Sepete Ekle
-                        </motion.button>
-                        <motion.button
-                          whileHover={{ scale: 1.05 }}
-                          whileTap={{ scale: 0.95 }}
-                          onClick={() => handleReserve(experience)}
-                          className="flex-1 px-4 py-2 bg-ailydian-primary text-white rounded-lg font-medium hover:bg-ailydian-dark transition-colors"
-                        >
-                          Rezerve Et
-                        </motion.button>
+                      <div className="flex items-center justify-between">
+                        <span className="text-sm text-gray-600">Detayları Gör</span>
+                        <span className="text-ailydian-primary font-semibold group-hover:translate-x-1 transition-transform">→</span>
                       </div>
                     </div>
                   </div>
                 </motion.div>
+              </Link>
               ))}
             </div>
 

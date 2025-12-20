@@ -3,63 +3,28 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { motion } from 'framer-motion';
-import { useForm } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
-import * as yup from 'yup';
 import {
   User,
   Mail,
   Lock,
   Eye,
   EyeOff,
-  Phone,
-  Calendar,
-  Users,
   ArrowRight,
   Shield,
   Sparkles,
   AlertCircle,
   CheckCircle,
   Globe,
-  Gift,
-  Home,
   ArrowLeft
 } from 'lucide-react';
-import { logInfo, logError } from '../../lib/logger';
 
-const schema = yup.object({
-  name: yup
-    .string()
-    .required('Ad ve soyad gereklidir')
-    .min(2, 'Ad en az 2 karakter olmalıdır'),
-  email: yup
-    .string()
-    .required('Email adresi gereklidir')
-    .email('Geçerli bir email adresi giriniz'),
-  password: yup
-    .string()
-    .required('Şifre gereklidir')
-    .min(8, 'Şifre en az 8 karakter olmalıdır')
-    .matches(/[A-Z]/, 'Şifre en az bir büyük harf içermelidir')
-    .matches(/[a-z]/, 'Şifre en az bir küçük harf içermelidir')
-    .matches(/[0-9]/, 'Şifre en az bir rakam içermelidir'),
-  confirmPassword: yup
-    .string()
-    .required('Şifre tekrarı gereklidir')
-    .oneOf([yup.ref('password')], 'Şifreler eşleşmiyor'),
-  phone: yup
-    .string()
-    .matches(/^[0-9+\-\s()]+$/, 'Geçerli bir telefon numarası giriniz'),
-  dateOfBirth: yup
-    .string(),
-  gender: yup
-    .string(),
-  termsAccepted: yup
-    .boolean()
-    .oneOf([true], 'Kullanım şartlarını kabul etmelisiniz'),
-});
-
-type FormData = yup.InferType<typeof schema>;
+interface FormData {
+  name: string;
+  email: string;
+  password: string;
+  confirmPassword: string;
+  termsAccepted: boolean;
+}
 
 const SignUp: React.FC = () => {
   const router = useRouter();
@@ -69,108 +34,112 @@ const SignUp: React.FC = () => {
   const [error, setError] = useState('');
   const [success, setSuccess] = useState(false);
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors, isSubmitting },
-    watch
-  } = useForm<FormData>({
-    resolver: yupResolver(schema)
+  const [formData, setFormData] = useState<FormData>({
+    name: '',
+    email: '',
+    password: '',
+    confirmPassword: '',
+    termsAccepted: false
   });
 
-  const password = watch('password');
+  const [errors, setErrors] = useState<Partial<FormData>>({});
 
-  const onSubmit = async (data: FormData) => {
+  const validateForm = () => {
+    const newErrors: Partial<FormData> = {};
+
+    if (!formData.name || formData.name.length < 2) {
+      newErrors.name = 'Ad ve soyad en az 2 karakter olmalıdır';
+    }
+
+    if (!formData.email) {
+      newErrors.email = 'Email adresi gereklidir';
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      newErrors.email = 'Geçerli bir email adresi giriniz';
+    }
+
+    if (!formData.password) {
+      newErrors.password = 'Şifre gereklidir';
+    } else if (formData.password.length < 8) {
+      newErrors.password = 'Şifre en az 8 karakter olmalıdır';
+    }
+
+    if (formData.password !== formData.confirmPassword) {
+      newErrors.confirmPassword = 'Şifreler eşleşmiyor';
+    }
+
+    if (!formData.termsAccepted) {
+      setError('Kullanım şartlarını kabul etmelisiniz');
+      return false;
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const onSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
     setIsLoading(true);
     setError('');
 
-    try {
-      logInfo('User attempting registration', { email: data.email, name: data.name });
+    if (!validateForm()) {
+      setIsLoading(false);
+      return;
+    }
 
+    try {
       const response = await fetch('/api/auth/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          name: data.name,
-          email: data.email,
-          password: data.password,
-          phone: data.phone,
-          dateOfBirth: data.dateOfBirth,
-          gender: data.gender,
-          preferredLanguage: 'tr',
-          preferredCurrency: 'TRY',
+          name: formData.name,
+          email: formData.email,
+          password: formData.password,
         }),
       });
 
-      const result = await response.json();
+      const data = await response.json();
 
       if (!response.ok) {
-        logError('Registration failed', new Error(result.message));
-        throw new Error(result.message || 'Kayıt olurken bir hata oluştu');
+        throw new Error(data.message || 'Kayıt başarısız oldu');
       }
 
-      logInfo('User registration successful', { email: data.email });
       setSuccess(true);
       setTimeout(() => {
         router.push('/auth/signin');
       }, 2000);
 
     } catch (err: any) {
-      logError('Registration error', err);
-      setError(err.message);
+      setError(err.message || 'Hesap oluşturulurken bir hata oluştu');
     } finally {
       setIsLoading(false);
     }
   };
 
-  const getPasswordStrength = (password: string) => {
-    if (!password) return 0;
-    let strength = 0;
-    if (password.length >= 8) strength += 25;
-    if (/[A-Z]/.test(password)) strength += 25;
-    if (/[a-z]/.test(password)) strength += 25;
-    if (/[0-9]/.test(password)) strength += 25;
-    return strength;
-  };
-
-  const getPasswordStrengthText = (strength: number) => {
-    if (strength === 0) return '';
-    if (strength <= 25) return 'Zayıf';
-    if (strength <= 50) return 'Orta';
-    if (strength <= 75) return 'İyi';
-    return 'Güçlü';
-  };
-
-  const getPasswordStrengthColor = (strength: number) => {
-    if (strength <= 25) return 'bg-red-500';
-    if (strength <= 50) return 'bg-yellow-500';
-    if (strength <= 75) return 'bg-blue-500';
-    return 'bg-green-500';
-  };
-
   if (success) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-green-50 via-white to-blue-50 flex items-center justify-center p-4">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          className="max-w-md w-full text-center"
-        >
-          <div className="bg-white rounded-2xl shadow-xl p-8">
-            <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
-            <h2 className="text-2xl font-bold text-gray-900 mb-2">Kayıt Başarılı! 🎉</h2>
-            <p className="text-gray-600 mb-6">
-              Hoş geldiniz! Hesabınız başarıyla oluşturuldu. Giriş sayfasına yönlendiriliyorsunuz...
-            </p>
-            <div className="flex items-center justify-center gap-2 text-green-600">
-              <Gift className="w-5 h-5" />
-              <span className="text-sm font-medium">100 Hoş Geldin Puanı Kazandınız!</span>
+      <>
+        <Head>
+          <title>Kayıt Başarılı - Ailydian Travel</title>
+        </Head>
+        <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 flex items-center justify-center p-4">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="bg-white rounded-2xl shadow-xl border border-gray-100 p-8 max-w-md w-full text-center"
+          >
+            <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <CheckCircle className="w-8 h-8 text-green-500" />
             </div>
-          </div>
-        </motion.div>
-      </div>
+            <h2 className="text-2xl font-bold text-gray-900 mb-2">Hesabınız Oluşturuldu!</h2>
+            <p className="text-gray-600 mb-6">
+              Giriş sayfasına yönlendiriliyorsunuz...
+            </p>
+            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto"></div>
+          </motion.div>
+        </div>
+      </>
     );
   }
 
@@ -178,21 +147,21 @@ const SignUp: React.FC = () => {
     <>
       <Head>
         <title>Kayıt Ol - Ailydian Travel</title>
-        <meta name="description" content="Ailydian Travel'a ücretsiz kayıt olun ve AI destekli seyahat deneyiminin keyfini çıkarın." />
+        <meta name="description" content="Ailydian Travel'a üye olun ve seyahat deneyiminizi kişiselleştirin." />
         <meta name="robots" content="noindex, nofollow" />
       </Head>
 
       <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 flex items-center justify-center p-4">
         {/* Return to Home Button */}
-        <Link 
-          href="/" 
+        <Link
+          href="/"
           className="fixed top-6 left-6 z-10 flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200 text-gray-700 hover:bg-white hover:text-ailydian-primary transition-all duration-200"
         >
           <ArrowLeft className="w-4 h-4" />
           <span className="font-medium">Ana Sayfaya Dön</span>
         </Link>
-        
-        <div className="max-w-lg w-full">
+
+        <div className="max-w-md w-full">
           {/* Header */}
           <motion.div
             initial={{ opacity: 0, y: -20 }}
@@ -210,15 +179,9 @@ const SignUp: React.FC = () => {
                 </div>
               </div>
             </Link>
-            
-            <h2 className="text-2xl font-bold text-gray-900 mb-2">Seyahate Başlayın!</h2>
-            <p className="text-gray-600">Ücretsiz hesap oluşturun ve AI destekli seyahat deneyiminin keyfini çıkarın</p>
-            
-            {/* Welcome Bonus */}
-            <div className="mt-4 inline-flex items-center gap-2 bg-green-50 text-green-700 px-4 py-2 rounded-full text-sm">
-              <Gift className="w-4 h-4" />
-              <span className="font-medium">100 Hoş Geldin Puanı Hediye!</span>
-            </div>
+
+            <h2 className="text-2xl font-bold text-gray-900 mb-2">Hesap Oluştur</h2>
+            <p className="text-gray-600">Seyahat maceranıza bugün başlayın</p>
           </motion.div>
 
           {/* Main Form Card */}
@@ -240,29 +203,30 @@ const SignUp: React.FC = () => {
               </motion.div>
             )}
 
-            {/* Form */}
-            <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+            {/* Registration Form */}
+            <form onSubmit={onSubmit} className="space-y-5">
               {/* Name Field */}
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                  Ad Soyad *
+                  Ad ve Soyad
                 </label>
                 <div className="relative">
                   <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
                   <input
-                    {...register('name')}
                     type="text"
                     id="name"
+                    value={formData.name}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     className={`w-full pl-11 pr-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-colors ${
                       errors.name ? 'border-red-300 bg-red-50' : 'border-gray-300'
                     }`}
-                    placeholder="Adınız ve soyadınız"
+                    placeholder="Adınız Soyadınız"
                   />
                 </div>
                 {errors.name && (
                   <p className="mt-1 text-sm text-red-600 flex items-center gap-1">
                     <AlertCircle className="w-4 h-4" />
-                    {errors.name.message}
+                    {errors.name}
                   </p>
                 )}
               </div>
@@ -270,14 +234,15 @@ const SignUp: React.FC = () => {
               {/* Email Field */}
               <div>
                 <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                  Email Adresi *
+                  Email Adresi
                 </label>
                 <div className="relative">
                   <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
                   <input
-                    {...register('email')}
                     type="email"
                     id="email"
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     className={`w-full pl-11 pr-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-colors ${
                       errors.email ? 'border-red-300 bg-red-50' : 'border-gray-300'
                     }`}
@@ -287,88 +252,27 @@ const SignUp: React.FC = () => {
                 {errors.email && (
                   <p className="mt-1 text-sm text-red-600 flex items-center gap-1">
                     <AlertCircle className="w-4 h-4" />
-                    {errors.email.message}
+                    {errors.email}
                   </p>
                 )}
-              </div>
-
-              {/* Phone Field */}
-              <div>
-                <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
-                  Telefon Numarası
-                </label>
-                <div className="relative">
-                  <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
-                  <input
-                    {...register('phone')}
-                    type="tel"
-                    id="phone"
-                    className={`w-full pl-11 pr-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-colors ${
-                      errors.phone ? 'border-red-300 bg-red-50' : 'border-gray-300'
-                    }`}
-                    placeholder="+90 (555) 123 45 67"
-                  />
-                </div>
-                {errors.phone && (
-                  <p className="mt-1 text-sm text-red-600 flex items-center gap-1">
-                    <AlertCircle className="w-4 h-4" />
-                    {errors.phone.message}
-                  </p>
-                )}
-              </div>
-
-              {/* Date of Birth and Gender */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label htmlFor="dateOfBirth" className="block text-sm font-medium text-gray-700 mb-2">
-                    Doğum Tarihi
-                  </label>
-                  <div className="relative">
-                    <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
-                    <input
-                      {...register('dateOfBirth')}
-                      type="date"
-                      id="dateOfBirth"
-                      className="w-full pl-11 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-colors"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label htmlFor="gender" className="block text-sm font-medium text-gray-700 mb-2">
-                    Cinsiyet
-                  </label>
-                  <div className="relative">
-                    <Users className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
-                    <select
-                      {...register('gender')}
-                      id="gender"
-                      className="w-full pl-11 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-colors appearance-none bg-white"
-                    >
-                      <option value="">Seçiniz</option>
-                      <option value="male">Erkek</option>
-                      <option value="female">Kadın</option>
-                      <option value="other">Diğer</option>
-                    </select>
-                  </div>
-                </div>
               </div>
 
               {/* Password Field */}
               <div>
                 <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-2">
-                  Şifre *
+                  Şifre
                 </label>
                 <div className="relative">
                   <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
                   <input
-                    {...register('password')}
                     type={showPassword ? 'text' : 'password'}
                     id="password"
+                    value={formData.password}
+                    onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                     className={`w-full pl-11 pr-12 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-colors ${
                       errors.password ? 'border-red-300 bg-red-50' : 'border-gray-300'
                     }`}
-                    placeholder="••••••••"
+                    placeholder="En az 8 karakter"
                   />
                   <button
                     type="button"
@@ -378,28 +282,10 @@ const SignUp: React.FC = () => {
                     {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
                   </button>
                 </div>
-                
-                {/* Password Strength */}
-                {password && (
-                  <div className="mt-2">
-                    <div className="flex items-center gap-2 mb-1">
-                      <div className="flex-1 bg-gray-200 rounded-full h-2">
-                        <div
-                          className={`h-2 rounded-full transition-all duration-300 ${getPasswordStrengthColor(getPasswordStrength(password))}`}
-                          style={{ width: `${getPasswordStrength(password)}%` }}
-                        ></div>
-                      </div>
-                      <span className="text-xs text-gray-600">
-                        {getPasswordStrengthText(getPasswordStrength(password))}
-                      </span>
-                    </div>
-                  </div>
-                )}
-
                 {errors.password && (
                   <p className="mt-1 text-sm text-red-600 flex items-center gap-1">
                     <AlertCircle className="w-4 h-4" />
-                    {errors.password.message}
+                    {errors.password}
                   </p>
                 )}
               </div>
@@ -407,18 +293,19 @@ const SignUp: React.FC = () => {
               {/* Confirm Password Field */}
               <div>
                 <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700 mb-2">
-                  Şifre Tekrarı *
+                  Şifre Tekrar
                 </label>
                 <div className="relative">
                   <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
                   <input
-                    {...register('confirmPassword')}
                     type={showConfirmPassword ? 'text' : 'password'}
                     id="confirmPassword"
+                    value={formData.confirmPassword}
+                    onChange={(e) => setFormData({ ...formData, confirmPassword: e.target.value })}
                     className={`w-full pl-11 pr-12 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-colors ${
                       errors.confirmPassword ? 'border-red-300 bg-red-50' : 'border-gray-300'
                     }`}
-                    placeholder="••••••••"
+                    placeholder="Şifrenizi tekrar girin"
                   />
                   <button
                     type="button"
@@ -431,35 +318,36 @@ const SignUp: React.FC = () => {
                 {errors.confirmPassword && (
                   <p className="mt-1 text-sm text-red-600 flex items-center gap-1">
                     <AlertCircle className="w-4 h-4" />
-                    {errors.confirmPassword.message}
+                    {errors.confirmPassword}
                   </p>
                 )}
               </div>
 
-              {/* Terms and Conditions */}
-              <div className="flex items-start gap-3">
+              {/* Terms Checkbox */}
+              <div className="flex items-start">
                 <input
-                  {...register('termsAccepted')}
                   type="checkbox"
-                  id="termsAccepted"
+                  id="terms"
+                  checked={formData.termsAccepted}
+                  onChange={(e) => setFormData({ ...formData, termsAccepted: e.target.checked })}
                   className="mt-1 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
                 />
-                <label htmlFor="termsAccepted" className="text-sm text-gray-600">
-                  <Link href="/terms" className="text-blue-600 hover:text-blue-700">Kullanım Şartları</Link> ve{' '}
-                  <Link href="/privacy" className="text-blue-600 hover:text-blue-700">Gizlilik Politikası</Link>&apos;nı okudum ve kabul ediyorum. *
+                <label htmlFor="terms" className="ml-2 text-sm text-gray-600">
+                  <Link href="/terms" className="text-blue-600 hover:text-blue-700">
+                    Kullanım şartlarını
+                  </Link>{' '}
+                  ve{' '}
+                  <Link href="/privacy" className="text-blue-600 hover:text-blue-700">
+                    gizlilik politikasını
+                  </Link>{' '}
+                  kabul ediyorum
                 </label>
               </div>
-              {errors.termsAccepted && (
-                <p className="text-sm text-red-600 flex items-center gap-1">
-                  <AlertCircle className="w-4 h-4" />
-                  {errors.termsAccepted.message}
-                </p>
-              )}
 
               {/* Submit Button */}
               <motion.button
                 type="submit"
-                disabled={isSubmitting || isLoading}
+                disabled={isLoading}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 className="w-full bg-gradient-to-r from-ailydian-primary to-ailydian-secondary text-white py-3 px-4 rounded-xl font-semibold hover:opacity-90 transition-opacity disabled:opacity-50 flex items-center justify-center gap-2"
@@ -471,7 +359,7 @@ const SignUp: React.FC = () => {
                   </>
                 ) : (
                   <>
-                    Ücretsiz Hesap Oluştur
+                    Hesap Oluştur
                     <ArrowRight className="w-5 h-5" />
                   </>
                 )}
@@ -483,7 +371,7 @@ const SignUp: React.FC = () => {
               <p className="text-gray-600">
                 Zaten hesabınız var mı?{' '}
                 <Link href="/auth/signin" className="text-blue-600 hover:text-blue-700 font-semibold">
-                  Giriş yap
+                  Giriş yapın
                 </Link>
               </p>
             </div>
@@ -498,15 +386,15 @@ const SignUp: React.FC = () => {
           >
             <div className="flex flex-col items-center gap-2">
               <Shield className="w-8 h-8 text-green-500" />
-              <p className="text-xs text-gray-600">Blockchain Güvenlik</p>
+              <p className="text-xs text-gray-600">Güvenli</p>
             </div>
             <div className="flex flex-col items-center gap-2">
               <Sparkles className="w-8 h-8 text-purple-500" />
-              <p className="text-xs text-gray-600">AI Destekli</p>
+              <p className="text-xs text-gray-600">100 Puan Hediye</p>
             </div>
             <div className="flex flex-col items-center gap-2">
               <Globe className="w-8 h-8 text-blue-500" />
-              <p className="text-xs text-gray-600">190+ Ülke</p>
+              <p className="text-xs text-gray-600">Global</p>
             </div>
           </motion.div>
 

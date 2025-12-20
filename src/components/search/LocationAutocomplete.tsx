@@ -155,8 +155,10 @@ export const LocationAutocomplete: React.FC<LocationAutocompleteProps> = ({
 
   return (
     <div ref={wrapperRef} className={`relative ${className}`}>
-      <div className="relative">
-        {icon || <MapPin className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />}
+      <div className="relative group">
+        <div className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10 pointer-events-none">
+          {icon || <MapPin className="text-gray-400 w-5 h-5 group-hover:scale-110 group-focus-within:scale-110 group-focus-within:text-ailydian-primary transition-all" />}
+        </div>
         <input
           type="text"
           value={value}
@@ -164,42 +166,45 @@ export const LocationAutocomplete: React.FC<LocationAutocompleteProps> = ({
           onKeyDown={handleKeyDown}
           onFocus={() => value.length >= 2 && setShowSuggestions(true)}
           placeholder={placeholder}
-          className="w-full pl-10 pr-10 py-3 rounded-xl text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-ailydian-primary/30 border border-gray-200"
+          className="w-full pl-12 pr-10 py-4 text-base bg-white border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-ailydian-primary focus:border-ailydian-primary outline-none text-gray-900 placeholder-gray-500 font-medium shadow-sm hover:shadow-lg hover:border-ailydian-primary/50 transition-all duration-200"
           autoComplete="off"
         />
         {isLoading && (
-          <Loader2 className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5 animate-spin" />
+          <Loader2 className="absolute right-4 top-1/2 transform -translate-y-1/2 text-ailydian-primary w-5 h-5 animate-spin" />
         )}
       </div>
 
       {/* Suggestions Dropdown */}
       {showSuggestions && suggestions.length > 0 && (
-        <div className="absolute z-50 w-full mt-2 bg-white rounded-xl shadow-2xl border border-gray-200 overflow-hidden max-h-96 overflow-y-auto">
+        <div className="absolute z-50 w-full mt-2 bg-white rounded-2xl shadow-2xl border-2 border-gray-100 overflow-hidden max-h-96 overflow-y-auto">
           {suggestions.map((suggestion, index) => (
             <button
               key={suggestion.id}
               onClick={() => handleSelectSuggestion(suggestion)}
-              className={`w-full px-4 py-3 flex items-start gap-3 hover:bg-gray-50 transition-colors text-left ${
-                index === selectedIndex ? 'bg-ailydian-primary/10' : ''
+              className={`w-full px-5 py-4 flex items-start gap-3 hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 transition-all duration-200 text-left border-b border-gray-100 last:border-b-0 ${
+                index === selectedIndex ? 'bg-gradient-to-r from-ailydian-primary/10 to-ailydian-secondary/10' : ''
               }`}
             >
-              <span className="text-2xl mt-0.5">{getLocationIcon(suggestion.type)}</span>
-              <div className="flex-1">
-                <div className="font-medium text-gray-900">{suggestion.name}</div>
-                <div className="text-sm text-gray-500">
-                  {suggestion.city}
-                  {suggestion.region && `, ${suggestion.region}`}
-                  {' • '}
-                  {suggestion.country}
+              <span className="text-2xl mt-0.5 transform hover:scale-125 transition-transform">{getLocationIcon(suggestion.type)}</span>
+              <div className="flex-1 min-w-0">
+                <div className="font-semibold text-gray-900 truncate">{suggestion.name}</div>
+                <div className="text-sm text-gray-600 flex items-center gap-1 mt-1">
+                  <MapPin className="w-3 h-3 flex-shrink-0" />
+                  <span className="truncate">
+                    {suggestion.city}
+                    {suggestion.region && `, ${suggestion.region}`}
+                    {' • '}
+                    {suggestion.country}
+                  </span>
                   {suggestion.code && (
-                    <span className="ml-2 px-2 py-0.5 bg-blue-100 text-blue-700 rounded text-xs font-mono">
+                    <span className="ml-2 px-2 py-0.5 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-md text-xs font-mono font-semibold shadow-sm flex-shrink-0">
                       {suggestion.code}
                     </span>
                   )}
                 </div>
               </div>
               {suggestion.type === 'airport' && (
-                <Navigation className="w-4 h-4 text-blue-500 mt-1" />
+                <Navigation className="w-5 h-5 text-blue-500 mt-1 flex-shrink-0" />
               )}
             </button>
           ))}
@@ -208,10 +213,12 @@ export const LocationAutocomplete: React.FC<LocationAutocompleteProps> = ({
 
       {/* No results */}
       {showSuggestions && !isLoading && value.length >= 2 && suggestions.length === 0 && (
-        <div className="absolute z-50 w-full mt-2 bg-white rounded-xl shadow-2xl border border-gray-200 p-4 text-center text-gray-500">
-          <Search className="w-8 h-8 mx-auto mb-2 text-gray-300" />
-          <div className="font-medium">Sonuç bulunamadı</div>
-          <div className="text-sm mt-1">Farklı bir arama terimi deneyin</div>
+        <div className="absolute z-50 w-full mt-2 bg-white rounded-2xl shadow-2xl border-2 border-gray-100 p-6 text-center">
+          <div className="w-16 h-16 mx-auto mb-3 rounded-full bg-gradient-to-r from-gray-100 to-gray-200 flex items-center justify-center">
+            <Search className="w-8 h-8 text-gray-400" />
+          </div>
+          <div className="font-semibold text-gray-900 mb-1">Sonuç bulunamadı</div>
+          <div className="text-sm text-gray-500">Farklı bir arama terimi deneyin</div>
         </div>
       )}
     </div>

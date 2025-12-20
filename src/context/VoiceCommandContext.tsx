@@ -212,10 +212,10 @@ export const VoiceCommandProvider: React.FC<{ children: React.ReactNode }> = ({ 
           utterance.lang = 'tr-TR';
         }
 
-        // 🎚️ EXTREME MALE VOICE SETTINGS
-        // These are CRITICAL for deep, masculine, realistic voice
-        utterance.pitch = 0.1;  // MINIMUM PITCH - Maximum depth and masculinity
-        utterance.rate = 0.75;  // Slower, more authoritative and clear
+        // 🎚️ OPTIMIZED MALE VOICE SETTINGS FOR TURKISH
+        // Balanced for natural, fluid Turkish speech
+        utterance.pitch = 0.7;  // Natural male pitch - not too deep, more intelligible
+        utterance.rate = 0.95;  // Near-normal speed for fluid Turkish
         utterance.volume = 1.0; // Full volume
 
         console.log('🎚️ VOICE PARAMETERS:');

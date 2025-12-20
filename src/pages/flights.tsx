@@ -2,6 +2,8 @@ import React, { useState, useMemo } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import { SEOHead } from '../components/seo/SEOHead';
+import { PAGE_SEO } from '../config/seo';
 import { Search, Plane, Calendar, Users, ArrowLeft, ArrowRight, Clock, Zap, Star, Filter, Shield, Wifi, SlidersHorizontal } from 'lucide-react';
 import NavigationHeader from '../components/layout/NavigationHeader';
 import AdvancedFilters from '../components/search/AdvancedFilters';
@@ -189,11 +191,13 @@ export default function Flights() {
 
   return (
     <>
-      <Head>
-        <title>Uçak Biletleri - Ailydian Travel | AI Destekli Uçak Bileti Rezervasyonu</title>
-        <meta name="description" content="En uygun uçak biletlerini bulun. AI önerileri ve blockchain güvenli rezervasyon ile Türkiye'nin her yerine direkt uçuşlar." />
-        <meta name="keywords" content="uçak bileti, havayolu, rezervasyon, AI öneri, blockchain, Türkiye, iç hat" />
-      </Head>
+      <SEOHead
+        title={PAGE_SEO.flights.title}
+        description={PAGE_SEO.flights.description}
+        keywords={PAGE_SEO.flights.keywords?.split(', ')}
+        canonical={PAGE_SEO.flights.canonical}
+        type="website"
+      />
 
       <NavigationHeader />
 

@@ -2,6 +2,8 @@ import React, { useState, useEffect, useMemo } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { SEOHead } from '../components/seo/SEOHead';
+import { PAGE_SEO } from '../config/seo';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Search,
@@ -197,10 +199,13 @@ const HotelsNewPage: React.FC = () => {
 
   return (
     <>
-      <Head>
-        <title>Oteller - Ailydian Travel | Gerçek Otel Rezervasyonu</title>
-        <meta name="description" content="Türkiye'nin en güzel otellerinde konaklama. Gerçek fiyatlar, anlık rezervasyon." />
-      </Head>
+      <SEOHead
+        title={PAGE_SEO.hotels.title}
+        description={PAGE_SEO.hotels.description}
+        keywords={PAGE_SEO.hotels.keywords?.split(', ')}
+        canonical={PAGE_SEO.hotels.canonical}
+        type="website"
+      />
 
       <NavigationHeader />
 

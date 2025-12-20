@@ -1,105 +1,153 @@
 /**
- * Winston Logger Configuration
- * Production-ready logging system
+ * Universal Logger Configuration
+ * Works in both Node.js and Browser environments
  */
 
-import winston from 'winston';
+// Type definitions
+interface LogMeta {
+  [key: string]: any;
+}
 
-const { combine, timestamp, printf, colorize, errors } = winston.format;
+// Check if we're in browser or Node.js
+const isBrowser = typeof window !== 'undefined';
 
-// Custom log format
-const logFormat = printf(({ level, message, timestamp, stack, ...metadata }) => {
-  let msg = `${timestamp} [${level}]: ${message}`;
+// Simple console logger for browser
+const browserLogger = {
+  info: (message: string, meta?: LogMeta) => {
+    if (process.env.NODE_ENV !== 'production') {
+      console.log(`[INFO] ${message}`, meta || '');
+    }
+  },
+  error: (message: string, meta?: LogMeta) => {
+    console.error(`[ERROR] ${message}`, meta || '');
+  },
+  warn: (message: string, meta?: LogMeta) => {
+    console.warn(`[WARN] ${message}`, meta || '');
+  },
+  debug: (message: string, meta?: LogMeta) => {
+    if (process.env.NODE_ENV !== 'production') {
+      console.debug(`[DEBUG] ${message}`, meta || '');
+    }
+  },
+};
 
-  // Add stack trace for errors
-  if (stack) {
-    msg += `\n${stack}`;
-  }
+// Winston logger for Node.js (lazy loaded)
+let winstonLogger: any = null;
 
-  // Add metadata if present
-  if (Object.keys(metadata).length > 0) {
-    msg += `\n${JSON.stringify(metadata, null, 2)}`;
-  }
+const getNodeLogger = () => {
+  if (winstonLogger) return winstonLogger;
 
-  return msg;
-});
+  try {
+    const winston = require('winston');
+    const { combine, timestamp, printf, colorize, errors } = winston.format;
 
-// Create logger instance
-const logger = winston.createLogger({
-  level: process.env.NODE_ENV === 'production' ? 'info' : 'debug',
-  format: combine(
-    errors({ stack: true }),
-    timestamp({ format: 'YYYY-MM-DD HH:mm:ss' }),
-    logFormat
-  ),
-  transports: [
-    // Console transport
-    new winston.transports.Console({
+    const logFormat = printf(({ level, message, timestamp, stack, ...metadata }: any) => {
+      let msg = `${timestamp} [${level}]: ${message}`;
+      if (stack) msg += `\n${stack}`;
+      if (Object.keys(metadata).length > 0) {
+        msg += `\n${JSON.stringify(metadata, null, 2)}`;
+      }
+      return msg;
+    });
+
+    winstonLogger = winston.createLogger({
+      level: process.env.NODE_ENV === 'production' ? 'info' : 'debug',
       format: combine(
-        colorize(),
+        errors({ stack: true }),
+        timestamp({ format: 'YYYY-MM-DD HH:mm:ss' }),
         logFormat
       ),
-    }),
+      transports: [
+        new winston.transports.Console({
+          format: combine(colorize(), logFormat),
+        }),
+      ],
+      exitOnError: false,
+    });
 
-    // File transport for errors
-    new winston.transports.File({
-      filename: 'logs/error.log',
-      level: 'error',
-      maxsize: 5242880, // 5MB
-      maxFiles: 5,
-    }),
+    return winstonLogger;
+  } catch (error) {
+    // Fallback to console if winston fails
+    return browserLogger;
+  }
+};
 
-    // File transport for all logs
-    new winston.transports.File({
-      filename: 'logs/combined.log',
-      maxsize: 5242880, // 5MB
-      maxFiles: 5,
-    }),
-  ],
-  // Don't exit on uncaught errors
-  exitOnError: false,
-});
-
-// Production environment: only log to files
-if (process.env.NODE_ENV === 'production') {
-  logger.transports[0].silent = true; // Silence console in production
-}
+// Universal logger that works in both environments
+const logger = isBrowser ? browserLogger : getNodeLogger();
 
 // Helper functions
 export const logInfo = (message: string, meta?: any) => {
-  logger.info(message, meta);
+  try {
+    if (isBrowser) {
+      browserLogger.info(message, meta);
+    } else {
+      logger.info(message, meta);
+    }
+  } catch (error) {
+    console.log(message, meta);
+  }
 };
 
 export const logError = (message: string, error?: Error | any, meta?: any) => {
-  logger.error(message, { error: error?.message || error, stack: error?.stack, ...meta });
+  try {
+    const errorMeta = {
+      error: error?.message || error,
+      stack: error?.stack,
+      ...meta
+    };
+
+    if (isBrowser) {
+      browserLogger.error(message, errorMeta);
+    } else {
+      logger.error(message, errorMeta);
+    }
+  } catch (err) {
+    console.error(message, error, meta);
+  }
 };
 
 export const logWarn = (message: string, meta?: any) => {
-  logger.warn(message, meta);
+  try {
+    if (isBrowser) {
+      browserLogger.warn(message, meta);
+    } else {
+      logger.warn(message, meta);
+    }
+  } catch (error) {
+    console.warn(message, meta);
+  }
 };
 
 export const logDebug = (message: string, meta?: any) => {
-  logger.debug(message, meta);
+  try {
+    if (isBrowser) {
+      browserLogger.debug(message, meta);
+    } else {
+      logger.debug(message, meta);
+    }
+  } catch (error) {
+    console.debug(message, meta);
+  }
 };
 
 // API request logger
 export const logRequest = (method: string, url: string, userId?: string) => {
-  logger.info('API Request', { method, url, userId });
+  logInfo('API Request', { method, url, userId });
 };
 
 // API response logger
 export const logResponse = (method: string, url: string, statusCode: number, duration: number) => {
-  logger.info('API Response', { method, url, statusCode, duration: `${duration}ms` });
+  logInfo('API Response', { method, url, statusCode, duration: `${duration}ms` });
 };
 
 // Database query logger
 export const logQuery = (query: string, duration: number) => {
-  logger.debug('Database Query', { query, duration: `${duration}ms` });
+  logDebug('Database Query', { query, duration: `${duration}ms` });
 };
 
 // Payment logger
 export const logPayment = (action: string, amount: number, currency: string, meta?: any) => {
-  logger.info('Payment Action', { action, amount, currency, ...meta });
+  logInfo('Payment Action', { action, amount, currency, ...meta });
 };
 
 export default logger;

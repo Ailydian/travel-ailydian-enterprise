@@ -1,0 +1,16 @@
+# NeuralX AI Service Rate Limiting Configuration
+# This configuration implements a sliding window rate limiter
+# for API endpoints to prevent abuse and ensure optimal performance
+
+on_http_request:
+  - expressions:
+      - req.url.contains('/api')
+    actions:
+      - type: rate_limit
+        config:
+          name: only allow 100 requests per minute
+          algorithm: sliding_window
+          capacity: 100
+          rate: 60s
+          bucket_key:
+            - conn.client_ip

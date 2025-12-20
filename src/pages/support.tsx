@@ -1,39 +1,39 @@
 import { useState } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
-import { 
-  ArrowRight, Search, HelpCircle, MessageCircle, Phone, Mail, 
+import {
+  ArrowRight, Search, HelpCircle, MessageCircle, Phone, Mail,
   Clock, CheckCircle, AlertCircle, FileText, Headphones, Monitor,
   Shield, CreditCard, MapPin, Plane, Hotel, Car, Star, User,
-  ChevronDown, ChevronUp, Send, Zap, Globe
+  ChevronDown, ChevronUp, Send, Zap, Globe, Calendar, Settings, Compass
 } from 'lucide-react';
 
 const supportCategories = [
   {
     id: 'reservations',
     title: 'Rezervasyonlar',
-    icon: '📅',
+    icon: Calendar,
     color: 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200',
     description: 'Rezervasyon işlemleri, iptal ve değişiklikler'
   },
   {
     id: 'payments',
     title: 'Ödemeler',
-    icon: '💳',
+    icon: CreditCard,
     color: 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200',
     description: 'Ödeme sorunları, fatura ve geri ödeme'
   },
   {
     id: 'technical',
     title: 'Teknik Destek',
-    icon: '⚙️',
+    icon: Settings,
     color: 'bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200',
     description: 'Site kullanımı, hesap ve uygulama sorunları'
   },
   {
     id: 'travel',
     title: 'Seyahat Danışmanlığı',
-    icon: '🧭',
+    icon: Compass,
     color: 'bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-200',
     description: 'Destinasyon önerileri ve seyahat planlaması'
   }
@@ -215,7 +215,9 @@ export default function Support() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {supportCategories.map((category) => (
                 <div key={category.id} className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow cursor-pointer group">
-                  <div className="text-4xl mb-4">{category.icon}</div>
+                  <div className="mb-4">
+                    <category.icon className="w-12 h-12 text-gray-700 dark:text-gray-300 group-hover:text-blue-600 transition-colors" />
+                  </div>
                   <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3 group-hover:text-blue-600 transition-colors">
                     {category.title}
                   </h3>

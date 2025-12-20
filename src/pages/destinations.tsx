@@ -2,191 +2,9 @@ import { useState } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Search, MapPin, Star, Heart, Filter, Calendar, Users, ArrowRight, ArrowLeft, Plane, Camera, Mountain, Waves, Building, TreePine } from 'lucide-react';
-import NavigationHeader from '../components/layout/NavigationHeader';
-
-const destinations = [
-  {
-    id: 1,
-    name: 'İstanbul',
-    country: 'Türkiye',
-    image: 'https://images.unsplash.com/photo-1541432901042-2d8bd64b4a9b?w=600&h=400&fit=crop',
-    price: 'from ₺1,200',
-    rating: 4.8,
-    reviews: 12847,
-    description: 'Tarihi ve modern yaşamın buluştuğu büyülü şehir',
-    activities: ['Tarihi Yerler', 'Müzeler', 'Yemek', 'Alışveriş'],
-    category: 'historical',
-    duration: '3-5 gün',
-    bestTime: 'Nisan-Haziran, Eylül-Kasım',
-    highlights: ['Ayasofya', 'Topkapı Sarayı', 'Kapalıçarşı', 'Galata Kulesi']
-  },
-  {
-    id: 2,
-    name: 'Kapadokya',
-    country: 'Türkiye',
-    image: 'https://images.unsplash.com/photo-1570939274719-c60ee3bf5cd9?w=600&h=400&fit=crop',
-    price: 'from ₺1,800',
-    rating: 4.9,
-    reviews: 8456,
-    description: 'Peri bacaları ve sıcak hava balonları ile ünlü',
-    activities: ['Balon Turu', 'Yeraltı Şehri', 'Trekking', 'Fotoğraf'],
-    category: 'nature',
-    duration: '2-3 gün',
-    bestTime: 'Nisan-Haziran, Eylül-Kasım',
-    highlights: ['Balon Turu', 'Göreme Açık Hava Müzesi', 'Derinkuyu', 'Avanos']
-  },
-  {
-    id: 3,
-    name: 'Antalya',
-    country: 'Türkiye',
-    image: 'https://images.unsplash.com/photo-1568992687947-868a62a9f521?w=600&h=400&fit=crop',
-    price: 'from ₺950',
-    rating: 4.7,
-    reviews: 9234,
-    description: 'Turkuaz deniz ve antik tarihle dolu sahil kenti',
-    activities: ['Plaj', 'Dalış', 'Tarihi Yerler', 'Tekne Turu'],
-    category: 'beach',
-    duration: '4-7 gün',
-    bestTime: 'Mayıs-Ekim',
-    highlights: ['Kaleiçi', 'Düden Şelalesi', 'Aspendos', 'Konyaaltı Plajı']
-  },
-  {
-    id: 4,
-    name: 'Bodrum',
-    country: 'Türkiye',
-    image: 'https://images.unsplash.com/photo-1566073771259-6a8506862ae3?w=600&h=400&fit=crop',
-    price: 'from ₺1,100',
-    rating: 4.6,
-    reviews: 7823,
-    description: 'Renkli gece hayatı ve marina ile ünlü tatil beldesi',
-    activities: ['Gece Hayatı', 'Tekne', 'Kale', 'Plaj'],
-    category: 'beach',
-    duration: '3-5 gün',
-    bestTime: 'Mayıs-Ekim',
-    highlights: ['Bodrum Kalesi', 'Marina', 'Gümbet Plajı', 'Halikarnas']
-  },
-  {
-    id: 5,
-    name: 'Pamukkale',
-    country: 'Türkiye',
-    image: 'https://images.unsplash.com/photo-1609137144813-7d9921338f24?w=600&h=400&fit=crop',
-    price: 'from ₺800',
-    rating: 4.8,
-    reviews: 5647,
-    description: 'Beyaz travertenler ve termal sular',
-    activities: ['Termal', 'Doğa', 'Hierapolis', 'Fotoğraf'],
-    category: 'nature',
-    duration: '1-2 gün',
-    bestTime: 'Mart-Kasım',
-    highlights: ['Beyaz Travertenler', 'Hierapolis', 'Antik Havuz', 'Termal Su']
-  },
-  {
-    id: 6,
-    name: 'Trabzon',
-    country: 'Türkiye',
-    image: 'https://images.unsplash.com/photo-1617634667039-8e4cb277ab46?w=600&h=400&fit=crop',
-    price: 'from ₺750',
-    rating: 4.7,
-    reviews: 4532,
-    description: 'Yeşil doğa ve Karadeniz kültürü',
-    activities: ['Uzungöl', 'Ayasofya', 'Doğa', 'Yemek'],
-    category: 'nature',
-    duration: '2-4 gün',
-    bestTime: 'Mayıs-Ekim',
-    highlights: ['Uzungöl', 'Ayasofya Müzesi', 'Sumela Manastırı', 'Hamsiköy']
-  },
-  {
-    id: 7,
-    name: 'Mardin',
-    country: 'Türkiye',
-    image: 'https://images.unsplash.com/photo-1609137144813-7d9921338f24?w=600&h=400&fit=crop',
-    price: 'from ₺650',
-    rating: 4.6,
-    reviews: 3421,
-    description: 'Mezopotamya&apos;nın tarihi hazinesi',
-    activities: ['Tarihi Evler', 'Müzeler', 'Gastronomi', 'Kültür'],
-    category: 'historical',
-    duration: '2-3 gün',
-    bestTime: 'Mart-Mayıs, Eylül-Kasım',
-    highlights: ['Eski Mardin', 'Deyrulzafaran', 'Kasımiye Medresesi', 'Midyat']
-  },
-  {
-    id: 8,
-    name: 'Safranbolu',
-    country: 'Türkiye',
-    image: 'https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?w=600&h=400&fit=crop',
-    price: 'from ₺580',
-    rating: 4.5,
-    reviews: 2876,
-    description: 'UNESCO Dünya Mirası listesindeki Osmanlı şehri',
-    activities: ['Tarihi Evler', 'Müzeler', 'El Sanatları', 'Gastronomi'],
-    category: 'historical',
-    duration: '1-2 gün',
-    bestTime: 'Nisan-Ekim',
-    highlights: ['Cinci Hanı', 'Eski Çarşı', 'Kent Tarihi Müzesi', 'Bulak Mağarası']
-  },
-  {
-    id: 9,
-    name: 'Çeşme',
-    country: 'Türkiye',
-    image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&h=400&fit=crop',
-    price: 'from ₺1,150',
-    rating: 4.5,
-    reviews: 6789,
-    description: 'Ege&apos;nin incisi, rüzgar sörfü merkezi',
-    activities: ['Plaj', 'Rüzgar Sörfü', 'Termal', 'Gece Hayatı'],
-    category: 'beach',
-    duration: '3-5 gün',
-    bestTime: 'Mayıs-Ekim',
-    highlights: ['Alaçatı', 'Ilıca Plajı', 'Çeşme Kalesi', 'Boyalık Plajı']
-  },
-  {
-    id: 10,
-    name: 'Fethiye',
-    country: 'Türkiye',
-    image: 'https://images.unsplash.com/photo-1539650116574-75c0c6d0deeb?w=600&h=400&fit=crop',
-    price: 'from ₺890',
-    rating: 4.6,
-    reviews: 8245,
-    description: 'Turkuaz sular ve paragliding&apos;in merkezi',
-    activities: ['Paragliding', 'Tekne Turu', 'Plaj', 'Dalış'],
-    category: 'adventure',
-    duration: '3-6 gün',
-    bestTime: 'Nisan-Kasım',
-    highlights: ['Ölüdeniz', 'Babadağ', 'Saklıkent Kanyonu', 'Kayaköy']
-  },
-  {
-    id: 11,
-    name: 'Amasya',
-    country: 'Türkiye',
-    image: 'https://images.unsplash.com/photo-1605540436563-5bca919ae766?w=600&h=400&fit=crop',
-    price: 'from ₺520',
-    rating: 4.4,
-    reviews: 2156,
-    description: 'Yeşilırmak kenarında tarihi Osmanlı şehri',
-    activities: ['Tarihi Evler', 'Müzeler', 'Doğa', 'Kültür'],
-    category: 'historical',
-    duration: '1-2 gün',
-    bestTime: 'Nisan-Ekim',
-    highlights: ['Amasya Kalesi', 'Yalıboyu Evleri', 'Kral Mezarları', 'Hazeranlar Konağı']
-  },
-  {
-    id: 12,
-    name: 'Rize',
-    country: 'Türkiye',
-    image: 'https://images.unsplash.com/photo-1600298881974-6be191ceeda1?w=600&h=400&fit=crop',
-    price: 'from ₺680',
-    rating: 4.5,
-    reviews: 3567,
-    description: 'Yeşilin her tonunu sunan çay başkenti',
-    activities: ['Çay Bahçeleri', 'Doğa', 'Trekking', 'Fotoğraf'],
-    category: 'nature',
-    duration: '2-3 gün',
-    bestTime: 'Mayıs-Ekim',
-    highlights: ['Ayder Yaylası', 'Çamlıhemşin', 'Zilkale', 'Fırtına Deresi']
-  }
-];
+import { Search, MapPin, Star, Heart, Filter, Calendar, Users, ArrowLeft, Camera, Mountain, Waves, Building, TreePine, Sparkles, Thermometer, DollarSign } from 'lucide-react';
+import ResponsiveHeaderBar from '../components/layout/ResponsiveHeaderBar';
+import { DESTINATIONS_TURKEY } from '../data/destinations-turkey';
 
 const categories = [
   { id: 'all', name: 'Tümü', icon: MapPin },
@@ -194,14 +12,16 @@ const categories = [
   { id: 'nature', name: 'Doğa', icon: TreePine },
   { id: 'beach', name: 'Sahil', icon: Waves },
   { id: 'adventure', name: 'Macera', icon: Mountain },
+  { id: 'urban', name: 'Şehir', icon: Building },
+  { id: 'cultural', name: 'Kültür', icon: Sparkles },
 ];
 
 export default function Destinations() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
-  const [favorites, setFavorites] = useState<Set<number>>(new Set());
+  const [favorites, setFavorites] = useState<Set<string>>(new Set());
 
-  const filteredDestinations = destinations.filter(dest => {
+  const filteredDestinations = DESTINATIONS_TURKEY.filter(dest => {
     const matchesSearch = dest.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
                          dest.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
                          dest.activities.some(activity => activity.toLowerCase().includes(searchQuery.toLowerCase()));
@@ -209,7 +29,7 @@ export default function Destinations() {
     return matchesSearch && matchesCategory;
   });
 
-  const toggleFavorite = (id: number) => {
+  const toggleFavorite = (id: string) => {
     const newFavorites = new Set(favorites);
     if (newFavorites.has(id)) {
       newFavorites.delete(id);
@@ -222,15 +42,16 @@ export default function Destinations() {
   return (
     <>
       <Head>
-        <title>Destinasyonlar - Ailydian Travel | AI Destekli Seyahat Rehberi</title>
-        <meta name="description" content="Türkiye'nin en güzel destinasyonlarını keşfedin. AI rehberli turlar ve güvenli rezervasyon imkanı." />
+        <title>Türkiye Destinasyonları | Ailydian Travel - AI Destekli Seyahat Rehberi</title>
+        <meta name="description" content="Türkiye'nin en güzel destinasyonlarını keşfedin. İstanbul, Kapadokya, Antalya ve daha fazlası. Detaylı rehberler, en iyi oteller ve turlar." />
+        <meta name="keywords" content="türkiye destinasyonları, gezi rehberi, istanbul, kapadokya, antalya, seyahat, tatil" />
       </Head>
 
-      <NavigationHeader />
+      <ResponsiveHeaderBar />
 
       {/* Return to Home Button */}
-      <Link 
-        href="/" 
+      <Link
+        href="/"
         className="fixed top-24 left-6 z-10 flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200 text-gray-700 hover:bg-white hover:text-ailydian-primary transition-all duration-200"
       >
         <ArrowLeft className="w-4 h-4" />
@@ -238,8 +59,6 @@ export default function Destinations() {
       </Link>
 
       <div className="min-h-screen bg-gray-50 pt-8">
-        {/* Header Section Removed - NavigationHeader handles this now */}
-
         {/* Hero Section */}
         <div className="text-white py-16" style={{ background: 'linear-gradient(135deg, var(--ac-1) 0%, var(--ac-2) 50%, var(--ac-3) 100%)' }}>
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -247,9 +66,9 @@ export default function Destinations() {
               Hayalinizdeki Destinasyonu Keşfedin
             </h1>
             <p className="text-xl mb-8 text-blue-100">
-              Dünya&apos;nın en güzel yerlerinde unutulmaz anılar biriktirin
+              Türkiye'nin en güzel yerlerinde unutulmaz anılar biriktirin
             </p>
-            
+
             {/* Search Bar */}
             <div className="relative max-w-2xl mx-auto">
               <Search className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
@@ -286,20 +105,34 @@ export default function Destinations() {
             })}
           </div>
 
+          {/* Results Count */}
+          <div className="mb-6">
+            <p className="text-gray-600">
+              <span className="font-semibold text-gray-900">{filteredDestinations.length}</span> destinasyon bulundu
+            </p>
+          </div>
+
           {/* Destinations Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredDestinations.map((destination) => (
-              <div key={destination.id} className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden group hover:shadow-xl transition-shadow">
+              <Link
+                href={`/destinations/${destination.slug}`}
+                key={destination.id}
+                className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden group hover:shadow-xl transition-shadow"
+              >
                 <div className="relative">
                   <Image
-                    src={destination.image}
+                    src={destination.images.hero}
                     alt={destination.name}
                     width={600}
                     height={400}
                     className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                   <button
-                    onClick={() => toggleFavorite(destination.id)}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      toggleFavorite(destination.id);
+                    }}
                     className="absolute top-3 right-3 p-2 bg-white/80 rounded-full hover:bg-white transition-colors"
                   >
                     <Heart
@@ -311,10 +144,13 @@ export default function Destinations() {
                     />
                   </button>
                   <div className="absolute bottom-3 left-3 bg-white/90 px-3 py-1 rounded-full">
-                    <span className="text-sm font-semibold text-gray-800">{destination.price}</span>
+                    <span className="text-sm font-semibold text-gray-800">{destination.pricing.budgetRange}</span>
+                  </div>
+                  <div className="absolute top-3 left-3 bg-ailydian-primary/90 px-3 py-1 rounded-full">
+                    <span className="text-sm font-semibold text-white">{destination.region}</span>
                   </div>
                 </div>
-                
+
                 <div className="p-6">
                   <div className="flex items-center justify-between mb-2">
                     <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
@@ -327,11 +163,11 @@ export default function Destinations() {
                       </span>
                     </div>
                   </div>
-                  
+
                   <p className="text-gray-600 dark:text-gray-400 mb-3">
-                    {destination.description}
+                    {destination.shortDescription}
                   </p>
-                  
+
                   <div className="flex flex-wrap gap-2 mb-3">
                     {destination.activities.slice(0, 3).map((activity) => (
                       <span
@@ -349,8 +185,8 @@ export default function Destinations() {
                       <span>{destination.duration}</span>
                     </div>
                     <div className="flex items-center">
-                      <span className="text-green-600 mr-2">📅</span>
-                      <span>{destination.bestTime}</span>
+                      <Thermometer className="h-4 w-4 mr-2" />
+                      <span>{destination.avgTemperature.min}°C - {destination.avgTemperature.max}°C</span>
                     </div>
                   </div>
 
@@ -372,19 +208,41 @@ export default function Destinations() {
                       )}
                     </div>
                   </div>
-                  
+
                   <div className="flex items-center justify-between">
                     <span className="text-sm text-gray-500 dark:text-gray-400">
                       {destination.reviews.toLocaleString()} değerlendirme
                     </span>
-                    <button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors font-semibold">
+                    <span className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors font-semibold">
                       Detaylar
-                    </button>
+                    </span>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
+
+          {/* No Results */}
+          {filteredDestinations.length === 0 && (
+            <div className="text-center py-16">
+              <MapPin className="h-24 w-24 text-gray-300 mx-auto mb-6" />
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+                Aradığınız destinasyon bulunamadı
+              </h2>
+              <p className="text-gray-600 dark:text-gray-400 mb-8">
+                Farklı arama kriterleri deneyin
+              </p>
+              <button
+                onClick={() => {
+                  setSearchQuery('');
+                  setSelectedCategory('all');
+                }}
+                className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors font-semibold"
+              >
+                Filtreleri Temizle
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </>

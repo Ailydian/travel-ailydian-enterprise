@@ -1,12 +1,16 @@
+import { useState, useEffect } from 'react'
+import { useRouter } from 'next/router'
 import { appWithTranslation } from 'next-i18next'
 import { DefaultSeo } from 'next-seo'
 import { SessionProvider } from 'next-auth/react'
 import { ReactQueryProvider } from '../lib/react-query'
 import { CartProvider } from '../context/CartContext'
 import { VoiceCommandProvider } from '../context/VoiceCommandContext'
-import VoiceCommandWidget from '../components/ui/VoiceCommandWidget'
+import { PageLoader } from '../components/ui/PageLoader'
+import Head from 'next/head'
 import '../lib/i18n' // i18n konfigürasyonunu yükle
 import '../styles/globals.css'
+import '../styles/responsive.css'
 import '../styles/ailydian-theme.css'
 import '../styles/ailydian-advanced.css'
 import 'leaflet/dist/leaflet.css'
@@ -41,14 +45,39 @@ function MyApp({
 }: AppProps & {
   pageProps: { session: Session }
 }) {
+  const router = useRouter()
+  const [loading, setLoading] = useState(false)
+
+  useEffect(() => {
+    const handleStart = () => setLoading(true)
+    const handleComplete = () => setLoading(false)
+    const handleError = () => setLoading(false)
+
+    router.events.on('routeChangeStart', handleStart)
+    router.events.on('routeChangeComplete', handleComplete)
+    router.events.on('routeChangeError', handleError)
+
+    return () => {
+      router.events.off('routeChangeStart', handleStart)
+      router.events.off('routeChangeComplete', handleComplete)
+      router.events.off('routeChangeError', handleError)
+    }
+  }, [router])
+
   return (
     <SessionProvider session={session}>
       <ReactQueryProvider>
         <CartProvider>
           <VoiceCommandProvider>
+            <Head>
+              <meta name="google-site-verification" content="TV3lQxcrnOK813q8VrYGAMvVd1kgaPxuRJ5pmWpXrbQ" />
+              <meta name="msvalidate.01" content="2F0B3D24686DAB121DC7BA5429119029" />
+              <meta name="yandex-verification" content="travel-ailydian-yandex-verification" />
+              <meta name="baidu-site-verification" content="travel-ailydian-baidu-verification" />
+            </Head>
             <DefaultSeo {...seoConfig} />
+            <PageLoader isLoading={loading} />
             <Component {...pageProps} />
-            <VoiceCommandWidget />
           </VoiceCommandProvider>
         </CartProvider>
       </ReactQueryProvider>
