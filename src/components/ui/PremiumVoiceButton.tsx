@@ -219,26 +219,25 @@ const PremiumVoiceButton: React.FC = () => {
         )}
       </AnimatePresence>
 
-      {/* Tooltip - Always visible on desktop */}
-      <motion.div
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="hidden sm:block absolute top-full mt-2 left-1/2 -translate-x-1/2 whitespace-nowrap pointer-events-none"
-      >
-        <div className={`px-3 py-1.5 rounded-lg text-xs font-medium shadow-lg transition-colors ${
-          isListening
-            ? 'bg-red-500 text-white'
-            : 'bg-gray-900 text-white'
-        }`}>
-          <div className="flex items-center gap-1.5">
-            <Mic className="w-3 h-3" />
-            <span>{isListening ? 'Dinliyorum...' : 'Sesli Asistan'}</span>
-          </div>
-          <div className={`absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 rotate-45 ${
-            isListening ? 'bg-red-500' : 'bg-gray-900'
-          }`} />
-        </div>
-      </motion.div>
+      {/* Tooltip - Only visible when listening */}
+      <AnimatePresence>
+        {isListening && (
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 10 }}
+            className="hidden sm:block absolute top-full mt-2 left-1/2 -translate-x-1/2 whitespace-nowrap pointer-events-none"
+          >
+            <div className="px-3 py-1.5 rounded-lg text-xs font-medium shadow-lg bg-red-500 text-white">
+              <div className="flex items-center gap-1.5">
+                <Mic className="w-3 h-3" />
+                <span>Dinliyorum...</span>
+              </div>
+              <div className="absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 rotate-45 bg-red-500" />
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Mobile: Status Text */}
       <AnimatePresence>

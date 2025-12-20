@@ -525,14 +525,63 @@ const ResponsiveHeaderBar: React.FC = () => {
 
               {/* Right: Action Buttons */}
               <div className="flex items-center gap-2 md:gap-3">
-                {/* Search Button - Opens Quick Search Modal */}
-                <button
+                {/* Premium Search Button - Opens Quick Search Modal */}
+                <motion.button
                   onClick={() => setIsQuickSearchOpen(true)}
-                  className="w-10 h-10 rounded-xl bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-all active:scale-95 touch-target"
-                  aria-label="Ara"
+                  className="relative w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-gradient-to-br from-blue-500 via-blue-600 to-purple-600 flex items-center justify-center shadow-lg hover:shadow-xl transition-all touch-target group overflow-hidden"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  aria-label="Hızlı Arama"
                 >
-                  <Search className="w-5 h-5 text-gray-700" />
-                </button>
+                  {/* Background Glow */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-400 to-purple-400 opacity-50 group-hover:opacity-75 blur-md transition-opacity" />
+
+                  {/* Animated Sparkle Effect */}
+                  <motion.div
+                    animate={{
+                      rotate: [0, 360],
+                      scale: [1, 1.2, 1],
+                    }}
+                    transition={{
+                      duration: 3,
+                      repeat: Infinity,
+                      ease: "linear"
+                    }}
+                    className="absolute inset-0"
+                  >
+                    <Sparkles className="absolute top-1 right-1 w-3 h-3 text-white/50" />
+                    <Sparkles className="absolute bottom-1 left-1 w-2 h-2 text-white/30" />
+                  </motion.div>
+
+                  {/* Search Icon */}
+                  <motion.div
+                    animate={{
+                      y: [0, -2, 0],
+                    }}
+                    transition={{
+                      duration: 2,
+                      repeat: Infinity,
+                      ease: "easeInOut"
+                    }}
+                    className="relative z-10"
+                  >
+                    <Search className="w-6 h-6 md:w-7 md:h-7 text-white drop-shadow-lg" />
+                  </motion.div>
+
+                  {/* Pulse Ring */}
+                  <motion.div
+                    animate={{
+                      scale: [1, 1.3],
+                      opacity: [0.5, 0],
+                    }}
+                    transition={{
+                      duration: 2,
+                      repeat: Infinity,
+                      ease: "easeOut"
+                    }}
+                    className="absolute inset-0 rounded-2xl border-2 border-white pointer-events-none"
+                  />
+                </motion.button>
 
                 {/* Favorites (Desktop) */}
                 <Link
