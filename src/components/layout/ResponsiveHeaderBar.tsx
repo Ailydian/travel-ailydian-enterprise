@@ -430,10 +430,10 @@ const ResponsiveHeaderBar: React.FC = () => {
         }`}
       >
         <div className="mobile-nav-safe">
-          <div className="container-responsive">
-            <div className="flex items-center justify-between h-16 md:h-20">
+          <div className="container-responsive px-3 sm:px-4">
+            <div className="flex items-center justify-between h-14 sm:h-16 md:h-20">
               {/* Left: Menu Button (Mobile) + Logo */}
-              <div className="flex items-center gap-3 md:gap-4">
+              <div className="flex items-center gap-2 sm:gap-3 md:gap-4">
                 {/* Mobile Menu Button */}
                 <button
                   onClick={() => setIsMobileMenuOpen(true)}
@@ -524,11 +524,11 @@ const ResponsiveHeaderBar: React.FC = () => {
               </nav>
 
               {/* Right: Action Buttons */}
-              <div className="flex items-center gap-2 md:gap-3">
+              <div className="flex items-center gap-1.5 sm:gap-2 md:gap-3">
                 {/* Premium Search Button - Opens Quick Search Modal */}
                 <motion.button
                   onClick={() => setIsQuickSearchOpen(true)}
-                  className="relative w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-gradient-to-br from-blue-500 via-blue-600 to-purple-600 flex items-center justify-center shadow-lg hover:shadow-xl transition-all touch-target group overflow-hidden"
+                  className="relative w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 lg:w-14 lg:h-14 rounded-xl sm:rounded-2xl bg-gradient-to-br from-blue-500 via-blue-600 to-purple-600 flex items-center justify-center shadow-lg hover:shadow-xl transition-all touch-target group overflow-hidden"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   aria-label="Hızlı Arama"
@@ -549,8 +549,8 @@ const ResponsiveHeaderBar: React.FC = () => {
                     }}
                     className="absolute inset-0"
                   >
-                    <Sparkles className="absolute top-1 right-1 w-3 h-3 text-white/50" />
-                    <Sparkles className="absolute bottom-1 left-1 w-2 h-2 text-white/30" />
+                    <Sparkles className="absolute top-0.5 right-0.5 sm:top-1 sm:right-1 w-2 h-2 sm:w-3 sm:h-3 text-white/50" />
+                    <Sparkles className="absolute bottom-0.5 left-0.5 sm:bottom-1 sm:left-1 w-1.5 h-1.5 sm:w-2 sm:h-2 text-white/30" />
                   </motion.div>
 
                   {/* Search Icon */}
@@ -565,7 +565,7 @@ const ResponsiveHeaderBar: React.FC = () => {
                     }}
                     className="relative z-10"
                   >
-                    <Search className="w-6 h-6 md:w-7 md:h-7 text-white drop-shadow-lg" />
+                    <Search className="w-5 h-5 sm:w-5.5 sm:h-5.5 md:w-6 md:h-6 lg:w-7 lg:h-7 text-white drop-shadow-lg" />
                   </motion.div>
 
                   {/* Pulse Ring */}
@@ -579,7 +579,7 @@ const ResponsiveHeaderBar: React.FC = () => {
                       repeat: Infinity,
                       ease: "easeOut"
                     }}
-                    className="absolute inset-0 rounded-2xl border-2 border-white pointer-events-none"
+                    className="absolute inset-0 rounded-xl sm:rounded-2xl border-2 border-white pointer-events-none"
                   />
                 </motion.button>
 
@@ -595,15 +595,15 @@ const ResponsiveHeaderBar: React.FC = () => {
                 {/* Cart */}
                 <Link
                   href="/cart"
-                  className="relative w-10 h-10 rounded-xl bg-gray-100 hover:bg-green-50 flex items-center justify-center transition-all active:scale-95 touch-target group"
+                  className="relative w-10 h-10 sm:w-10 sm:h-10 md:w-10 md:h-10 rounded-xl bg-gray-100 hover:bg-green-50 flex items-center justify-center transition-all active:scale-95 touch-target group"
                   aria-label="Sepet"
                 >
-                  <ShoppingCart className="w-5 h-5 text-gray-700 group-hover:text-green-600 group-hover:scale-110 transition-all" />
+                  <ShoppingCart className="w-4.5 h-4.5 sm:w-5 sm:h-5 text-gray-700 group-hover:text-green-600 group-hover:scale-110 transition-all" />
                   {cartItemCount > 0 && (
                     <motion.span
                       initial={{ scale: 0 }}
                       animate={{ scale: 1 }}
-                      className="absolute -top-1 -right-1 w-5 h-5 bg-gradient-to-br from-red-500 to-pink-500 text-white text-xs font-bold rounded-full flex items-center justify-center shadow-lg"
+                      className="absolute -top-1 -right-1 min-w-[18px] h-[18px] sm:min-w-[20px] sm:h-5 bg-gradient-to-br from-red-500 to-pink-500 text-white text-[10px] sm:text-xs font-bold rounded-full flex items-center justify-center shadow-lg px-1"
                     >
                       {cartItemCount > 9 ? '9+' : cartItemCount}
                     </motion.span>
@@ -617,15 +617,15 @@ const ResponsiveHeaderBar: React.FC = () => {
                 {session ? (
                   <Link
                     href="/profile/dashboard"
-                    className="w-10 h-10 rounded-xl bg-gradient-to-br from-ailydian-primary/10 to-ailydian-secondary/10 hover:from-ailydian-primary/20 hover:to-ailydian-secondary/20 flex items-center justify-center transition-all active:scale-95 touch-target"
+                    className="w-10 h-10 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-br from-ailydian-primary/10 to-ailydian-secondary/10 hover:from-ailydian-primary/20 hover:to-ailydian-secondary/20 flex items-center justify-center transition-all active:scale-95 touch-target"
                     aria-label="Profil"
                   >
-                    <User className="w-5 h-5 text-ailydian-primary" />
+                    <User className="w-4.5 h-4.5 sm:w-5 sm:h-5 text-ailydian-primary" />
                   </Link>
                 ) : (
                   <Link
                     href="/auth/signin"
-                    className="hidden sm:flex px-4 py-2 md:px-6 md:py-2.5 bg-gradient-to-r from-ailydian-primary to-ailydian-secondary text-white rounded-xl font-medium hover:shadow-lg active:scale-95 transition-all touch-target text-sm md:text-base"
+                    className="hidden sm:flex px-3 py-1.5 sm:px-4 sm:py-2 md:px-6 md:py-2.5 bg-gradient-to-r from-ailydian-primary to-ailydian-secondary text-white rounded-lg sm:rounded-xl font-medium hover:shadow-lg active:scale-95 transition-all touch-target text-xs sm:text-sm md:text-base whitespace-nowrap"
                   >
                     Giriş
                   </Link>
@@ -655,7 +655,7 @@ const ResponsiveHeaderBar: React.FC = () => {
       />
 
       {/* Spacer to prevent content from being hidden under fixed header */}
-      <div className="h-16 md:h-20" />
+      <div className="h-14 sm:h-16 md:h-20" />
     </>
   );
 };

@@ -318,53 +318,6 @@ const GetYourGuideStyleHome: React.FC = () => {
               <p className="text-xl md:text-2xl text-white/90 mb-12 max-w-3xl mx-auto leading-relaxed">
                 Türkiye ve dünya turizminde binlerce otel, tur ve deneyimi keşfedin.
               </p>
-
-              {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  onClick={() => {
-                    const headerSearchBtn = document.querySelector('button[aria-label="Ara"]') as HTMLElement;
-                    if (headerSearchBtn) headerSearchBtn.click();
-                  }}
-                  className="px-8 py-4 bg-gradient-to-r from-ailydian-primary to-ailydian-secondary text-white rounded-2xl font-bold text-lg shadow-2xl hover:shadow-3xl transition-all flex items-center gap-3"
-                >
-                  <Search className="w-6 h-6" />
-                  Hızlı Arama Yap
-                </motion.button>
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  onClick={() => router.push('/destinations')}
-                  className="px-8 py-4 bg-white/10 backdrop-blur-lg text-white border-2 border-white/30 rounded-2xl font-bold text-lg hover:bg-white/20 transition-all"
-                >
-                  Destinasyonları Keşfet
-                </motion.button>
-              </div>
-
-              {/* Quick Stats */}
-              <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
-                {[
-                  { icon: Hotel, label: '10,000+ Otel', color: 'from-blue-400 to-blue-600' },
-                  { icon: Plane, label: '500+ Destinasyon', color: 'from-purple-400 to-purple-600' },
-                  { icon: Users, label: '50,000+ Kullanıcı', color: 'from-green-400 to-green-600' },
-                  { icon: Star, label: '4.9 Puan', color: 'from-yellow-400 to-yellow-600' }
-                ].map((stat, idx) => (
-                  <motion.div
-                    key={idx}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.8 + idx * 0.1 }}
-                    className="flex flex-col items-center gap-2"
-                  >
-                    <div className={`w-12 h-12 rounded-full bg-gradient-to-br ${stat.color} flex items-center justify-center`}>
-                      <stat.icon className="w-6 h-6 text-white" />
-                    </div>
-                    <span className="text-white font-semibold text-sm">{stat.label}</span>
-                  </motion.div>
-                ))}
-              </div>
             </motion.div>
           </div>
         </section>
