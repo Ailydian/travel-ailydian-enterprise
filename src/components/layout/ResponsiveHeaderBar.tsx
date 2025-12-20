@@ -664,12 +664,12 @@ const NavLinkWithSubmenu: React.FC<{
             className="absolute left-1/2 -translate-x-1/2 top-full mt-2 z-50 pointer-events-auto"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="w-[280px] bg-white/98 backdrop-blur-xl shadow-xl border border-gray-200/50 rounded-2xl overflow-hidden">
+            <div className="w-[280px] bg-white shadow-2xl border border-gray-200 rounded-2xl overflow-hidden">
               <div className="p-4">
                 <div className="space-y-3">
                   {submenuContent.map((category, idx) => (
                     <div key={idx} className={idx > 0 ? 'pt-3 mt-3 border-t border-gray-100' : ''}>
-                      <h3 className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-2 px-1">
+                      <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2 px-1">
                         {category.title}
                       </h3>
                       <div className="space-y-0.5">
@@ -678,21 +678,21 @@ const NavLinkWithSubmenu: React.FC<{
                             key={itemIdx}
                             href={item.href}
                             onClick={() => setActiveSubmenu(null)}
-                            className="flex items-center gap-2.5 px-2 py-2 rounded-xl hover:bg-gradient-to-r hover:from-ailydian-primary/10 hover:to-ailydian-secondary/10 transition-all duration-200 group"
+                            className="flex items-center gap-2.5 px-2 py-2 rounded-xl hover:bg-blue-50 transition-all duration-200 group"
                           >
-                            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-ailydian-primary/20 to-ailydian-secondary/20 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
+                            <div className="w-8 h-8 rounded-lg bg-blue-50 flex items-center justify-center flex-shrink-0 group-hover:bg-blue-100 transition-colors">
                               <item.icon className="w-4 h-4 text-ailydian-primary" />
                             </div>
                             <div className="flex-1 min-w-0">
                               <div className="flex items-center gap-1.5">
-                                <span className="font-medium text-gray-900 text-sm group-hover:text-ailydian-primary transition-colors truncate">
+                                <span className="font-medium text-gray-700 text-sm group-hover:text-ailydian-primary transition-colors truncate">
                                   {item.title}
                                 </span>
                                 {item.popular && (
                                   <span className="w-1.5 h-1.5 rounded-full bg-orange-500 flex-shrink-0"></span>
                                 )}
                                 {item.badge && (
-                                  <span className="px-1.5 py-0.5 bg-gradient-to-r from-green-500 to-emerald-500 text-white text-[10px] font-bold rounded">
+                                  <span className="px-1.5 py-0.5 bg-green-500 text-white text-[10px] font-bold rounded">
                                     {item.badge}
                                   </span>
                                 )}
@@ -707,7 +707,7 @@ const NavLinkWithSubmenu: React.FC<{
               </div>
 
               {/* Compact Footer */}
-              <div className="px-4 py-3 border-t border-gray-100 bg-gradient-to-r from-gray-50/50 to-transparent">
+              <div className="px-4 py-3 border-t border-gray-100 bg-gray-50">
                 <Link
                   href={href}
                   onClick={() => setActiveSubmenu(null)}

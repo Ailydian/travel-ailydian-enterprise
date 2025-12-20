@@ -309,14 +309,14 @@ const GetYourGuideStyleHome: React.FC = () => {
               transition={{ duration: 0.8 }}
             >
               <h1 className="text-5xl md:text-7xl font-black text-white mb-6 leading-tight">
-                Seyahatin Geleceği
+                Hayalinizdeki Tatil
                 <br />
                 <span className="bg-gradient-to-r from-ailydian-primary via-purple-400 to-ailydian-secondary bg-clip-text text-transparent">
-                  AI ile Başlıyor
+                  Bir Arama Kadar Yakın
                 </span>
               </h1>
               <p className="text-xl md:text-2xl text-white/90 mb-12 max-w-3xl mx-auto leading-relaxed">
-                Türkiye&apos;nin ilk yapay zeka destekli seyahat platformu. VR önizleme, blockchain güvenlik ve akıllı önerilerle hayallerinizdeki tatili keşfedin.
+                Türkiye ve dünya turizminde binlerce otel, tur ve deneyimi keşfedin.
               </p>
 
               {/* CTA Buttons */}
