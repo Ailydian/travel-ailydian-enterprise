@@ -39,6 +39,7 @@ import { useCart } from '../../context/CartContext';
 import ResponsiveMobileMenu from './ResponsiveMobileMenu';
 import AIAssistantPopup from '../ui/AIAssistantPopup';
 import PremiumVoiceButton from '../ui/PremiumVoiceButton';
+import QuickSearchModal from '../search/QuickSearchModal';
 
 // Submenu structure
 interface SubMenuItem {
@@ -361,6 +362,7 @@ const ResponsiveHeaderBar: React.FC = () => {
   const { getItemCount } = useCart();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isAIAssistantOpen, setIsAIAssistantOpen] = useState(false);
+  const [isQuickSearchOpen, setIsQuickSearchOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [mounted, setMounted] = useState(false);
   const [activeSubmenu, setActiveSubmenu] = useState<string | null>(null);
@@ -523,9 +525,9 @@ const ResponsiveHeaderBar: React.FC = () => {
 
               {/* Right: Action Buttons */}
               <div className="flex items-center gap-2 md:gap-3">
-                {/* Search Button */}
+                {/* Search Button - Opens Quick Search Modal */}
                 <button
-                  onClick={() => router.push('/hotels')}
+                  onClick={() => setIsQuickSearchOpen(true)}
                   className="w-10 h-10 rounded-xl bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-all active:scale-95 touch-target"
                   aria-label="Ara"
                 >
@@ -589,6 +591,12 @@ const ResponsiveHeaderBar: React.FC = () => {
       <ResponsiveMobileMenu
         isOpen={isMobileMenuOpen}
         onClose={() => setIsMobileMenuOpen(false)}
+      />
+
+      {/* Quick Search Modal */}
+      <QuickSearchModal
+        isOpen={isQuickSearchOpen}
+        onClose={() => setIsQuickSearchOpen(false)}
       />
 
       {/* AI Assistant */}

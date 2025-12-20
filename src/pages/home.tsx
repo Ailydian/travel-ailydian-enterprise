@@ -12,10 +12,6 @@ const VideoBackground = dynamic(() => import('../components/ui/VideoBackground')
   ssr: false,
   loading: () => <div className="absolute inset-0 bg-gradient-to-br from-ailydian-primary/20 to-ailydian-secondary/20" />
 });
-import { bookingComService } from '../lib/api/booking-com-service';
-import { amadeusService } from '../lib/api/amadeus-service';
-import { googlePlacesService } from '../lib/api/google-places-service';
-import { tourismApiService } from '../lib/tourism-api-service';
 import { useCart } from '../context/CartContext';
 import {
   Search,
@@ -51,11 +47,11 @@ import {
   Gift,
   ShoppingCart,
   Plus,
-  Car
+  Car,
+  Hotel,
+  Plane
 } from 'lucide-react';
 import ResponsiveHeaderBar from '../components/layout/ResponsiveHeaderBar';
-import { LocationAutocomplete } from '../components/search/LocationAutocomplete';
-import { detectUserLocation, getNearbyDestinations, getSmartDestinationSuggestions, type LocationData } from '../lib/location-service';
 
 const GetYourGuideStyleHome: React.FC = () => {
   // Router
@@ -64,268 +60,52 @@ const GetYourGuideStyleHome: React.FC = () => {
   // Cart context
   const { addItem, getItemCount } = useCart();
 
-  // Location state
-  const [userLocation, setUserLocation] = useState<LocationData | null>(null);
-  const [nearbyDestinations, setNearbyDestinations] = useState<string[]>([]);
-  const [locationDetected, setLocationDetected] = useState(false);
-
-  // Search state
-  const [searchQuery, setSearchQuery] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState('all');
-  const [checkInDate, setCheckInDate] = useState('');
-  const [checkOutDate, setCheckOutDate] = useState('');
-  const [travelers, setTravelers] = useState('2');
-  const [isSearching, setIsSearching] = useState(false);
+  // Search results state (still needed for search results section)
   const [searchResults, setSearchResults] = useState<any[]>([]);
-  
-  // Initialize default dates
-  useEffect(() => {
-    const today = new Date();
-    const tomorrow = new Date(today);
-    const dayAfter = new Date(today);
-    tomorrow.setDate(tomorrow.getDate() + 1);
-    dayAfter.setDate(dayAfter.getDate() + 3);
-
-    setCheckInDate(tomorrow.toISOString().split('T')[0]);
-    setCheckOutDate(dayAfter.toISOString().split('T')[0]);
-  }, []);
-
-  // Auto-detect user location
-  useEffect(() => {
-    const detectLocation = async () => {
-      try {
-        const location = await detectUserLocation();
-        setUserLocation(location);
-        setLocationDetected(true);
-
-        // Get smart suggestions based on location
-        const suggestions = getSmartDestinationSuggestions(location.city);
-        setNearbyDestinations(suggestions);
-
-        console.log(`📍 Konum tespit edildi: ${location.city}, ${location.country} (${location.source})`);
-
-        // Get nearby destinations
-        const nearby = getNearbyDestinations(location.latitude, location.longitude, 5);
-        console.log(`✈️ Yakın destinasyonlar:`, nearby.map(d => `${d.city} (${d.distance}km)`).join(', '));
-
-      } catch (error) {
-        console.error('Location detection error:', error);
-        // Fallback to default
-        setNearbyDestinations(['İstanbul', 'Antalya', 'Bodrum', 'Kapadokya']);
-      }
-    };
-
-    detectLocation();
-  }, []);
-  
-  
-  // Advanced search function with real API integration
-  const handleAdvancedSearch = useCallback(async () => {
-    // Validation
-    if (!searchQuery.trim()) {
-      alert('⚠️ Lütfen bir destinasyon girin!');
-      return;
-    }
-
-    // Date validation
-    const today = new Date();
-    today.setHours(0, 0, 0, 0);
-    const checkIn = new Date(checkInDate);
-    const checkOut = new Date(checkOutDate);
-
-    if (checkIn < today) {
-      alert('⚠️ Giriş tarihi geçmiş bir tarih olamaz!');
-      return;
-    }
-
-    if (checkOut <= checkIn) {
-      alert('⚠️ Çıkış tarihi, giriş tarihinden sonra olmalıdır!');
-      return;
-    }
-
-    // Traveler validation
-    const travelerCount = parseInt(travelers);
-    if (isNaN(travelerCount) || travelerCount < 1 || travelerCount > 20) {
-      alert('⚠️ Yolcu sayısı 1-20 arasında olmalıdır!');
-      return;
-    }
-
-    setIsSearching(true);
-    setSearchResults([]);
-
-    try {
-      const results = [];
-
-      // Search based on selected category
-      switch (selectedCategory) {
-        case 'hotels':
-        case 'all':
-          if (selectedCategory === 'hotels' || selectedCategory === 'all') {
-            try {
-              // Use real hotels API
-              const params = new URLSearchParams({
-                cityCode: searchQuery,
-                checkInDate: checkInDate,
-                checkOutDate: checkOutDate,
-                adults: travelers,
-                rooms: '1'
-              });
-              const response = await fetch(`/api/search/hotels?${params}`);
-              const data = await response.json();
-
-              if (data.success && data.data?.hotels) {
-                results.push(...data.data.hotels.map((hotel: any) => ({
-                  ...hotel,
-                  type: 'hotel',
-                  title: hotel.name,
-                  image: hotel.mainImage,
-                  price: hotel.rooms?.[0]?.pricePerNight || hotel.priceMin,
-                  rating: hotel.rating,
-                  location: `${hotel.city}, ${hotel.region}`,
-                })));
-              }
-            } catch (error) {
-              console.error('Hotel search error:', error);
-            }
-          }
-          break;
-
-        case 'flights':
-          try {
-            // Use real flights API
-            const params = new URLSearchParams({
-              originLocationCode: 'IST', // Default origin
-              destinationLocationCode: searchQuery.toUpperCase(),
-              departureDate: checkInDate,
-              adults: travelers,
-              max: '10'
-            });
-            const response = await fetch(`/api/search/flights?${params}`);
-            const data = await response.json();
-
-            if (data.success && data.data?.flights) {
-              results.push(...data.data.flights.map((flight: any) => ({
-                ...flight,
-                type: 'flight',
-                title: `${flight.airline} - ${flight.flightNumber}`,
-                image: flight.airlineLogo || '/images/default-flight.jpg',
-                price: flight.priceAdult,
-                location: `${flight.from} → ${flight.to}`,
-              })));
-            }
-          } catch (error) {
-            console.error('Flight search error:', error);
-          }
-          break;
-
-        case 'transfers':
-          try {
-            // Use real transfers API with database
-            const params = new URLSearchParams({
-              to: searchQuery,
-              passengers: travelers
-            });
-            const response = await fetch(`/api/transfers/search?${params}`);
-            const data = await response.json();
-
-            if (data.success && data.transfers) {
-              results.push(...data.transfers.map((transfer: any) => ({
-                ...transfer,
-                type: 'transfer',
-                title: transfer.name,
-                description: transfer.description,
-                location: `${transfer.fromLocation} → ${transfer.toLocation}`,
-                duration: `${transfer.duration} dakika`,
-                image: transfer.image,
-                price: transfer.vehicles?.[0]?.priceStandard || 0
-              })));
-            }
-          } catch (error) {
-            console.error('Transfer search error:', error);
-          }
-          break;
-
-        case 'restaurants':
-          try {
-            const restaurantResults = await googlePlacesService.searchRestaurants(searchQuery);
-            results.push(...restaurantResults.map(restaurant => ({ ...restaurant, type: 'restaurant' })));
-          } catch (error) {
-            console.error('Restaurant search error:', error);
-          }
-          break;
-
-        case 'tours':
-          try {
-            const tourResults = await tourismApiService.searchTours(searchQuery);
-            results.push(...tourResults.map(tour => ({ ...tour, type: 'tour' })));
-          } catch (error) {
-            console.error('Tour search error:', error);
-          }
-          break;
-      }
-
-      setSearchResults(results);
-
-      // Navigate to appropriate results page based on category
-      // ALWAYS navigate - results page will show "no results" if needed
-      console.log(`🔍 Arama: "${searchQuery}" | Kategori: ${selectedCategory} | Sonuç: ${results.length} adet`);
-
-      if (selectedCategory === 'hotels' || selectedCategory === 'all') {
-        router.push(`/hotels?city=${encodeURIComponent(searchQuery)}&checkIn=${checkInDate}&checkOut=${checkOutDate}&guests=${travelers}`);
-      } else if (selectedCategory === 'flights') {
-        router.push(`/flights?to=${encodeURIComponent(searchQuery)}&date=${checkInDate}&passengers=${travelers}`);
-      } else if (selectedCategory === 'transfers') {
-        router.push(`/transfers?to=${encodeURIComponent(searchQuery)}&passengers=${travelers}`);
-      } else if (selectedCategory === 'tours') {
-        // Navigate to tours page with query
-        router.push(`/tours?query=${encodeURIComponent(searchQuery)}&date=${checkInDate}&guests=${travelers}`);
-      } else if (selectedCategory === 'restaurants') {
-        // Navigate to search page with restaurant filter
-        router.push(`/search?type=restaurants&query=${encodeURIComponent(searchQuery)}`);
-      }
-
-    } catch (error) {
-      console.error('❌ Arama hatası:', error);
-      alert('⚠️ Arama sırasında bir hata oluştu. Lütfen internet bağlantınızı kontrol edip tekrar deneyin.');
-    } finally {
-      setIsSearching(false);
-    }
-  }, [searchQuery, selectedCategory, checkInDate, checkOutDate, travelers, router]);
   
   // Add to cart function
   const handleAddToCart = useCallback((item: any) => {
+    // Get default dates
+    const tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    const dayAfter = new Date();
+    dayAfter.setDate(dayAfter.getDate() + 3);
+
+    const defaultCheckIn = tomorrow.toISOString().split('T')[0];
+    const defaultCheckOut = dayAfter.toISOString().split('T')[0];
+
     const cartItem = {
       id: item.id || `item_${Date.now()}_${Math.random()}`,
       type: item.type || 'tour',
       title: item.title || item.name || 'Ürün',
       description: item.description || '',
       image: item.image || item.photos?.[0]?.url || '/api/placeholder/300/200',
-      price: typeof item.price === 'string' ? 
-        parseFloat(item.price.replace(/[^0-9.]/g, '')) : 
+      price: typeof item.price === 'string' ?
+        parseFloat(item.price.replace(/[^0-9.]/g, '')) :
         (item.price || item.priceBreakdown?.grossPrice?.value || 100),
       originalPrice: item.originalPrice,
       currency: 'TRY',
       quantity: 1,
-      date: checkInDate || new Date(Date.now() + 86400000).toISOString().split('T')[0],
+      date: defaultCheckIn,
       location: item.location || item.address?.cityName || 'Türkiye',
       duration: item.duration,
       rating: item.rating || item.reviewScoreWord,
       provider: item.provider || 'Ailydian',
       bookingDetails: {
-        checkIn: checkInDate,
-        checkOut: checkOutDate,
-        guests: parseInt(travelers),
+        checkIn: defaultCheckIn,
+        checkOut: defaultCheckOut,
+        guests: 2,
         rooms: 1
       },
       cancellationPolicy: item.cancellationPolicy || 'Ücretsiz iptal 24 saat öncesine kadar',
       isRefundable: true
     };
-    
+
     addItem(cartItem);
-    
+
     // Success notification
     alert(`"${cartItem.title}" sepete eklendi! Toplam ürün: ${getItemCount() + 1}`);
-  }, [addItem, getItemCount, checkInDate, checkOutDate, travelers]);
+  }, [addItem, getItemCount]);
 
   // Türkiye ve dünya destinasyonları - Türkçe içerikli
   const featuredDestinations = [
@@ -491,20 +271,6 @@ const GetYourGuideStyleHome: React.FC = () => {
     }
   ];
 
-  const categories = [
-    { id: 'all', name: 'Tümü', count: '10,000+' },
-    { id: 'tours', name: 'Turlar', count: '2,500+' },
-    { id: 'activities', name: 'Aktiviteler', count: '3,200+' },
-    { id: 'attractions', name: 'Çekim Merkezleri', count: '1,800+' },
-    { id: 'ai-experiences', name: 'AI Deneyimleri', count: '150+' },
-    { id: 'vr-tours', name: 'VR Turları', count: '89+' },
-    { id: 'blockchain', name: 'Blockchain', count: '45+' },
-    { id: 'wellness', name: 'Wellness & Spa', count: '320+' },
-    { id: 'adventure', name: 'Macera', count: '890+' },
-    { id: 'cultural', name: 'Kültürel', count: '1,200+' },
-    { id: 'nightlife', name: 'Gece Hayatı', count: '280+' }
-  ];
-
   return (
     <>
       <SEOHead
@@ -518,204 +284,88 @@ const GetYourGuideStyleHome: React.FC = () => {
       <ResponsiveHeaderBar />
 
       <main>
-        {/* Hero Section with 4K Tourism Background */}
-        <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-          {/* Video Background - Changes every 60 seconds */}
+        {/* Hero Section - Simple & Clean */}
+        <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
+          {/* Video Background */}
           <div className="absolute inset-0 z-0">
             <VideoBackground
               autoPlay={true}
               muted={true}
               loop={true}
               overlay={true}
-              overlayOpacity={0.6}
+              overlayOpacity={0.65}
               changeInterval={60000}
             />
-            
-            {/* Animated Overlay Elements */}
-            <div className="absolute inset-0">
-              {/* Floating Particles */}
-              {[...Array(20)].map((_, i) => (
-                <motion.div
-                  key={i}
-                  className="absolute w-2 h-2 bg-white/20 rounded-full"
-                  style={{
-                    left: `${Math.random() * 100}%`,
-                    top: `${Math.random() * 100}%`,
-                  }}
-                  animate={{
-                    y: [-20, -40, -20],
-                    opacity: [0.3, 0.8, 0.3],
-                    scale: [1, 1.2, 1]
-                  }}
-                  transition={{
-                    duration: 3 + Math.random() * 2,
-                    repeat: Infinity,
-                    delay: Math.random() * 2
-                  }}
-                />
-              ))}
-              
-              {/* Gradient Animations */}
-              <motion.div 
-                className="absolute inset-0 bg-gradient-to-r from-ailydian-primary/20 via-transparent to-ailydian-secondary/20"
-                animate={{
-                  opacity: [0.3, 0.6, 0.3]
-                }}
-                transition={{
-                  duration: 4,
-                  repeat: Infinity
-                }}
-              />
-              
-              {/* Moving Geometric Shapes */}
-              <motion.div 
-                className="absolute top-1/4 left-1/4 w-32 h-32 border border-white/10 rounded-full"
-                animate={{
-                  rotate: [0, 360],
-                  scale: [1, 1.1, 1]
-                }}
-                transition={{
-                  duration: 8,
-                  repeat: Infinity,
-                  ease: "linear"
-                }}
-              />
-              <motion.div 
-                className="absolute top-3/4 right-1/4 w-24 h-24 border border-white/10 rounded-lg"
-                animate={{
-                  rotate: [360, 0],
-                  scale: [1, 0.9, 1]
-                }}
-                transition={{
-                  duration: 6,
-                  repeat: Infinity,
-                  ease: "linear"
-                }}
-              />
-            </div>
-            
-            {/* Premium Pattern Overlay */}
-            <div className="absolute inset-0 opacity-10" style={{
-              backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
-            }}></div>
+
+            {/* Gradient Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-black/40"></div>
           </div>
-          
-          <div className="relative z-[200] max-w-7xl mx-auto px-4 py-12">
-            {/* Content */}
-            <div className="text-center">
-              {/* Ultra Minimal Premium Search */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.6 }}
-                className="max-w-2xl mx-auto relative z-[200]"
-              >
-                <div className="bg-white/98 backdrop-blur-2xl rounded-full shadow-[0_20px_70px_-10px_rgba(0,0,0,0.3)] border border-white/40 p-2">
-                  {/* Single Line: Category Icons + Search + Button */}
-                  <div className="flex items-center gap-2">
-                    {/* Category Icons - Ultra Compact */}
-                    <div className="flex items-center gap-1 px-2">
-                      {[
-                        { id: 'all', icon: Globe },
-                        { id: 'hotels', icon: MapPin },
-                        { id: 'flights', icon: Send },
-                        { id: 'tours', icon: Camera },
-                        { id: 'transfers', icon: Car, badge: true }
-                      ].map((tab) => (
-                        <button
-                          key={tab.id}
-                          onClick={() => setSelectedCategory(tab.id)}
-                          className={`relative w-8 h-8 rounded-full flex items-center justify-center transition-all duration-200 ${
-                            selectedCategory === tab.id
-                              ? 'bg-gradient-to-r from-ailydian-primary to-ailydian-secondary text-white shadow-lg scale-110'
-                              : 'text-gray-600 hover:bg-gray-100'
-                          }`}
-                          title={tab.id}
-                        >
-                          <tab.icon className="w-4 h-4" />
-                          {tab.badge && selectedCategory !== tab.id && (
-                            <span className="absolute -top-0.5 -right-0.5 w-2 h-2 bg-green-500 rounded-full ring-1 ring-white"></span>
-                          )}
-                        </button>
-                      ))}
+
+          {/* Hero Content */}
+          <div className="relative z-10 max-w-5xl mx-auto px-4 py-20 text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              <h1 className="text-5xl md:text-7xl font-black text-white mb-6 leading-tight">
+                Seyahatin Geleceği
+                <br />
+                <span className="bg-gradient-to-r from-ailydian-primary via-purple-400 to-ailydian-secondary bg-clip-text text-transparent">
+                  AI ile Başlıyor
+                </span>
+              </h1>
+              <p className="text-xl md:text-2xl text-white/90 mb-12 max-w-3xl mx-auto leading-relaxed">
+                Türkiye&apos;nin ilk yapay zeka destekli seyahat platformu. VR önizleme, blockchain güvenlik ve akıllı önerilerle hayallerinizdeki tatili keşfedin.
+              </p>
+
+              {/* CTA Buttons */}
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={() => {
+                    const headerSearchBtn = document.querySelector('button[aria-label="Ara"]') as HTMLElement;
+                    if (headerSearchBtn) headerSearchBtn.click();
+                  }}
+                  className="px-8 py-4 bg-gradient-to-r from-ailydian-primary to-ailydian-secondary text-white rounded-2xl font-bold text-lg shadow-2xl hover:shadow-3xl transition-all flex items-center gap-3"
+                >
+                  <Search className="w-6 h-6" />
+                  Hızlı Arama Yap
+                </motion.button>
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={() => router.push('/destinations')}
+                  className="px-8 py-4 bg-white/10 backdrop-blur-lg text-white border-2 border-white/30 rounded-2xl font-bold text-lg hover:bg-white/20 transition-all"
+                >
+                  Destinasyonları Keşfet
+                </motion.button>
+              </div>
+
+              {/* Quick Stats */}
+              <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+                {[
+                  { icon: Hotel, label: '10,000+ Otel', color: 'from-blue-400 to-blue-600' },
+                  { icon: Plane, label: '500+ Destinasyon', color: 'from-purple-400 to-purple-600' },
+                  { icon: Users, label: '50,000+ Kullanıcı', color: 'from-green-400 to-green-600' },
+                  { icon: Star, label: '4.9 Puan', color: 'from-yellow-400 to-yellow-600' }
+                ].map((stat, idx) => (
+                  <motion.div
+                    key={idx}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.8 + idx * 0.1 }}
+                    className="flex flex-col items-center gap-2"
+                  >
+                    <div className={`w-12 h-12 rounded-full bg-gradient-to-br ${stat.color} flex items-center justify-center`}>
+                      <stat.icon className="w-6 h-6 text-white" />
                     </div>
-
-                    {/* Divider */}
-                    <div className="h-8 w-px bg-gray-200"></div>
-
-                    {/* Search Input - Dominant */}
-                    <div className="flex-1">
-                      <LocationAutocomplete
-                        value={searchQuery}
-                        onChange={(value, suggestion) => {
-                          setSearchQuery(value);
-                          if (suggestion) {
-                            const searchValue = suggestion.code || suggestion.name;
-                            setSearchQuery(searchValue);
-                          }
-                        }}
-                        placeholder="Nereye gitmek istersiniz?"
-                        type="all"
-                        icon={<MapPin className="text-ailydian-primary w-4 h-4" />}
-                        className="location-search-minimal"
-                      />
-                    </div>
-
-                    {/* Search Button - Circular */}
-                    <motion.button
-                      onClick={handleAdvancedSearch}
-                      disabled={isSearching}
-                      whileHover={!isSearching ? { scale: 1.1, rotate: 90 } : {}}
-                      whileTap={!isSearching ? { scale: 0.9 } : {}}
-                      className={`w-12 h-12 rounded-full bg-gradient-to-r from-ailydian-primary to-ailydian-secondary text-white shadow-lg hover:shadow-2xl transition-all duration-300 flex items-center justify-center flex-shrink-0 ${
-                        isSearching ? 'opacity-80 cursor-not-allowed' : ''
-                      }`}
-                    >
-                      {isSearching ? (
-                        <motion.div
-                          animate={{ rotate: 360 }}
-                          transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-                        >
-                          <Search className="w-5 h-5" />
-                        </motion.div>
-                      ) : (
-                        <Search className="w-5 h-5" />
-                      )}
-                    </motion.button>
-                  </div>
-                </div>
-
-                {/* Quick Suggestions Below */}
-                <div className="flex items-center justify-center gap-2 mt-4 flex-wrap">
-                  {(nearbyDestinations.length > 0 ?
-                    nearbyDestinations.slice(0, 3).map(dest => ({
-                      text: dest,
-                      query: dest,
-                      category: 'hotels' as const
-                    })) :
-                    [
-                      { text: 'İstanbul', query: 'Istanbul', category: 'hotels' as const },
-                      { text: 'Kapadokya', query: 'Kapadokya', category: 'tours' as const },
-                      { text: 'Bodrum', query: 'Bodrum', category: 'hotels' as const }
-                    ]
-                  ).map((suggestion) => (
-                    <motion.button
-                      key={suggestion.text}
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      onClick={() => {
-                        setSearchQuery(suggestion.query);
-                        setSelectedCategory(suggestion.category);
-                        setTimeout(() => handleAdvancedSearch(), 300);
-                      }}
-                      className="px-3 py-1.5 bg-white/90 backdrop-blur-sm hover:bg-white text-gray-700 hover:text-ailydian-primary rounded-full text-xs font-medium transition-all duration-200 border border-white/50 hover:border-ailydian-primary/50 shadow-sm hover:shadow-md"
-                    >
-                      {suggestion.text}
-                    </motion.button>
-                  ))}
-                </div>
-              </motion.div>
-            </div>
+                    <span className="text-white font-semibold text-sm">{stat.label}</span>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
           </div>
         </section>
 
@@ -872,32 +522,6 @@ const GetYourGuideStyleHome: React.FC = () => {
           </section>
         )}
 
-        {/* Categories */}
-        <section className="py-16 bg-white">
-          <div className="max-w-7xl mx-auto px-4">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">Kategorilere Göre Gezin</h2>
-              <p className="text-gray-600">İlgi alanlarınıza uygun deneyimleri keşfedin</p>
-            </div>
-
-            <div className="flex flex-wrap justify-center gap-4 mb-12">
-              {categories.map((category) => (
-                <button
-                  key={category.id}
-                  onClick={() => setSelectedCategory(category.id)}
-                  className={`px-6 py-3 rounded-full font-medium transition-all duration-200 ${
-                    selectedCategory === category.id
-                      ? 'bg-ailydian-primary text-white shadow-lg'
-                      : 'bg-white text-gray-700 hover:bg-blue-50 border border-gray-200'
-                  }`}
-                >
-                  {category.name}
-                  <span className="ml-2 text-sm opacity-75">({category.count})</span>
-                </button>
-              ))}
-            </div>
-          </div>
-        </section>
 
         {/* Top Experiences */}
         <section className="py-16 bg-white">
