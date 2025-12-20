@@ -35,8 +35,8 @@ const HotelsNewPage: React.FC = () => {
   const router = useRouter();
   const { addItem, isInCart } = useCart();
 
-  // Search state
-  const [destination, setDestination] = useState('Antalya');
+  // Search state - Initialize from URL params
+  const [destination, setDestination] = useState('');
   const [checkIn, setCheckIn] = useState('');
   const [checkOut, setCheckOut] = useState('');
   const [guests, setGuests] = useState(2);
@@ -59,12 +59,42 @@ const HotelsNewPage: React.FC = () => {
   const [sortBy, setSortBy] = useState('popularity');
   const [showFilters, setShowFilters] = useState(false);
 
-  // Load hotels on component mount or when destination changes
+  // Initialize from URL parameters
   useEffect(() => {
-    if (destination) {
+    if (router.isReady) {
+      const { city, type, checkIn: urlCheckIn, checkOut: urlCheckOut, guests: urlGuests } = router.query;
+
+      // Set destination from URL
+      if (city && typeof city === 'string') {
+        setDestination(city);
+      } else if (!destination) {
+        setDestination('Istanbul'); // Default city
+      }
+
+      // Set property type filter from URL
+      if (type && typeof type === 'string') {
+        setPropertyTypes([type]);
+      }
+
+      // Set dates from URL
+      if (urlCheckIn && typeof urlCheckIn === 'string') {
+        setCheckIn(urlCheckIn);
+      }
+      if (urlCheckOut && typeof urlCheckOut === 'string') {
+        setCheckOut(urlCheckOut);
+      }
+      if (urlGuests && typeof urlGuests === 'string') {
+        setGuests(parseInt(urlGuests) || 2);
+      }
+    }
+  }, [router.isReady, router.query]);
+
+  // Search when destination is set and router is ready
+  useEffect(() => {
+    if (router.isReady && destination) {
       searchHotels();
     }
-  }, []);
+  }, [router.isReady, destination]);
 
   const searchHotels = async () => {
     setLoading(true);

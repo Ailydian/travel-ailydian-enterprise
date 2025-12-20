@@ -2,7 +2,9 @@ import { useState } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowRight, MapPin, Star, Calendar, Users, Clock, Camera, Heart, Filter, Plane, Car, Utensils, Shield } from 'lucide-react';
+import { ArrowRight, MapPin, Star, Calendar, Users, Clock, Camera, Heart, Filter, Plane, Car, Utensils, Shield, ShoppingCart, CheckCircle } from 'lucide-react';
+import { useCart } from '../context/CartContext';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const tours = [
   {
@@ -163,12 +165,15 @@ const difficulties = ['Tümü', 'Kolay', 'Orta', 'Zor'];
 const durations = ['Tümü', '1 gün altı', '1 gün', '2+ gün'];
 
 export default function Tours() {
+  const { addItem } = useCart();
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [selectedDifficulty, setSelectedDifficulty] = useState('Tümü');
   const [selectedDuration, setSelectedDuration] = useState('Tümü');
   const [favorites, setFavorites] = useState<Set<number>>(new Set());
   const [sortBy, setSortBy] = useState('popularity');
+  const [showToast, setShowToast] = useState(false);
+  const [toastMessage, setToastMessage] = useState('');
 
   const filteredTours = tours.filter(tour => {
     const matchesSearch = tour.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -207,6 +212,33 @@ export default function Tours() {
       newFavorites.add(id);
     }
     setFavorites(newFavorites);
+  };
+
+  const handleAddToCart = (tour: any) => {
+    const priceValue = parseInt(tour.price.replace(/[^\d]/g, ''));
+
+    addItem({
+      id: `tour-${tour.id}`,
+      type: 'tour',
+      title: tour.name,
+      description: tour.description,
+      image: tour.image,
+      price: priceValue,
+      originalPrice: tour.originalPrice ? parseInt(tour.originalPrice.replace(/[^\d]/g, '')) : undefined,
+      currency: 'TRY',
+      quantity: 1,
+      location: tour.location,
+      rating: tour.rating,
+      bookingDetails: {
+        duration: tour.duration,
+        groupSize: tour.groupSize,
+        difficulty: tour.difficulty
+      }
+    });
+
+    setToastMessage(`${tour.name} sepete eklendi!`);
+    setShowToast(true);
+    setTimeout(() => setShowToast(false), 3000);
   };
 
   const getDifficultyColor = (difficulty: string) => {
@@ -492,9 +524,15 @@ export default function Tours() {
                         {tour.reviews.toLocaleString()} değerlendirme
                       </span>
                     </div>
-                    <button className="bg-emerald-600 text-white px-4 py-2 rounded-lg hover:bg-emerald-700 transition-colors font-semibold">
-                      Rezervasyon
-                    </button>
+                    <motion.button
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      onClick={() => handleAddToCart(tour)}
+                      className="bg-emerald-600 text-white px-4 py-2 rounded-lg hover:bg-emerald-700 transition-colors font-semibold flex items-center justify-center gap-2"
+                    >
+                      <ShoppingCart className="w-4 h-4" />
+                      Sepete Ekle
+                    </motion.button>
                   </div>
                 </div>
               </div>
@@ -525,6 +563,21 @@ export default function Tours() {
           )}
         </div>
       </div>
+
+      {/* Toast Notification */}
+      <AnimatePresence>
+        {showToast && (
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 50 }}
+            className="fixed bottom-8 right-8 z-50 bg-emerald-500 text-white px-6 py-4 rounded-xl shadow-2xl flex items-center gap-3"
+          >
+            <CheckCircle className="w-6 h-6" />
+            <span className="font-medium">{toastMessage}</span>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 }

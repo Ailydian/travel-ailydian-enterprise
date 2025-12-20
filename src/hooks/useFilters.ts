@@ -86,7 +86,7 @@ export function useFilters<T extends HotelFilters | FlightFilters | ActivityFilt
     }
   }, [filters, type]);
 
-  // Sync filters to URL query parameters
+  // Sync filters to URL query parameters - FIXED: Use router.pathname instead of router
   useEffect(() => {
     if (!syncWithUrl || typeof window === 'undefined') return;
 
@@ -103,9 +103,9 @@ export function useFilters<T extends HotelFilters | FlightFilters | ActivityFilt
     }, debounceMs);
 
     return () => clearTimeout(timeout);
-  }, [filters, syncWithUrl, debounceMs, router]);
+  }, [filters, syncWithUrl, debounceMs, router.pathname]); // FIXED: Only depend on router.pathname
 
-  // Load filters from URL on mount
+  // Load filters from URL on mount - FIXED: Only run once
   useEffect(() => {
     if (!syncWithUrl || !router.isReady) return;
 
@@ -113,7 +113,8 @@ export function useFilters<T extends HotelFilters | FlightFilters | ActivityFilt
     if (urlFilters) {
       setFilters(prevFilters => ({ ...prevFilters, ...urlFilters }));
     }
-  }, [router.isReady, syncWithUrl, type]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [router.isReady]); // FIXED: Only run when router is ready, not on every query change
 
   // Update specific filter
   const updateFilter = useCallback(<K extends keyof T>(key: K, value: T[K]) => {

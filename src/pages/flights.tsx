@@ -201,10 +201,10 @@ export default function Flights() {
 
       <NavigationHeader />
 
-      {/* Return to Home Button */}
-      <Link 
-        href="/" 
-        className="fixed top-24 left-6 z-10 flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200 text-gray-700 hover:bg-white hover:text-ailydian-primary transition-all duration-200"
+      {/* Return to Home Button - FIXED: Increased z-index to be above all overlays */}
+      <Link
+        href="/"
+        className="fixed top-24 left-6 z-[60] flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200 text-gray-700 hover:bg-white hover:text-ailydian-primary transition-all duration-200"
       >
         <ArrowLeft className="w-4 h-4" />
         <span className="font-medium">Ana Sayfaya Dön</span>
