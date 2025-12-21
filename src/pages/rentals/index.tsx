@@ -680,26 +680,24 @@ const PropertyCard: React.FC<PropertyCardProps> = ({
             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
           />
 
-          {/* Badges */}
-          <div className="absolute top-3 left-3 flex flex-col gap-2">
-            {property.featured && (
-              <span className="px-3 py-1 bg-gradient-to-r from-yellow-400 to-orange-400 text-white text-xs font-bold rounded-full shadow-lg flex items-center gap-1">
+          {/* Primary Badge - Priority System: Featured > Superhost > Instant Book */}
+          <div className="absolute top-3 left-3 z-10">
+            {property.featured ? (
+              <span className="px-3 py-1 bg-gradient-to-r from-yellow-400 to-orange-400 text-white text-xs font-bold rounded-full shadow-lg flex items-center gap-1 backdrop-blur-sm">
                 <FireIcon className="w-3 h-3" />
                 Öne Çıkan
               </span>
-            )}
-            {property.host.superhost && (
-              <span className="px-3 py-1 bg-gradient-to-r from-purple-500 to-pink-500 text-white text-xs font-bold rounded-full shadow-lg flex items-center gap-1">
+            ) : property.host.superhost ? (
+              <span className="px-3 py-1 bg-gradient-to-r from-purple-500 to-pink-500 text-white text-xs font-bold rounded-full shadow-lg flex items-center gap-1 backdrop-blur-sm">
                 <CheckBadgeIcon className="w-3 h-3" />
                 Superhost
               </span>
-            )}
-            {property.availability.instantBook && (
-              <span className="px-3 py-1 bg-gradient-to-r from-green-500 to-emerald-500 text-white text-xs font-bold rounded-full shadow-lg flex items-center gap-1">
+            ) : property.availability.instantBook ? (
+              <span className="px-3 py-1 bg-gradient-to-r from-green-500 to-emerald-500 text-white text-xs font-bold rounded-full shadow-lg flex items-center gap-1 backdrop-blur-sm">
                 <BoltIcon className="w-3 h-3" />
                 Anında Rezervasyon
               </span>
-            )}
+            ) : null}
           </div>
 
           {/* Favorite Button */}

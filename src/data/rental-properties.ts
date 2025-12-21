@@ -113,9 +113,12 @@ export const rentalProperties: RentalProperty[] = [
       coordinates: { lat: 36.4979, lng: 32.1261 }
     },
     images: [
-      '/rentals/alanya-villa-1.jpg',
-      '/rentals/alanya-villa-2.jpg',
-      '/rentals/alanya-villa-3.jpg'
+      'https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=1920&q=80',
+      'https://images.unsplash.com/photo-1602343168117-bb8ffe3e2e9f?w=1920&q=80',
+      'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1920&q=80',
+      'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1920&q=80',
+      'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1920&q=80',
+      'https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=1920&q=80'
     ],
     host: {
       id: 'host-001',
@@ -223,9 +226,12 @@ export const rentalProperties: RentalProperty[] = [
       coordinates: { lat: 36.8583, lng: 30.7728 }
     },
     images: [
-      '/rentals/antalya-apt-1.jpg',
-      '/rentals/antalya-apt-2.jpg',
-      '/rentals/antalya-apt-3.jpg'
+      'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1920&q=80',
+      'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=1920&q=80',
+      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920&q=80',
+      'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=1920&q=80',
+      'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=1920&q=80',
+      'https://images.unsplash.com/photo-1600210492493-0946911123ea?w=1920&q=80'
     ],
     host: {
       id: 'host-002',
@@ -328,9 +334,12 @@ export const rentalProperties: RentalProperty[] = [
       coordinates: { lat: 36.7951, lng: 28.0624 }
     },
     images: [
-      '/rentals/marmaris-villa-1.jpg',
-      '/rentals/marmaris-villa-2.jpg',
-      '/rentals/marmaris-villa-3.jpg'
+      'https://images.unsplash.com/photo-1602343168117-bb8ffe3e2e9f?w=1920&q=80',
+      'https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=1920&q=80',
+      'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1920&q=80',
+      'https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1920&q=80',
+      'https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?w=1920&q=80',
+      'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1920&q=80'
     ],
     host: {
       id: 'host-003',
@@ -435,9 +444,12 @@ export const rentalProperties: RentalProperty[] = [
       coordinates: { lat: 37.1486, lng: 27.2658 }
     },
     images: [
-      '/rentals/bodrum-villa-1.jpg',
-      '/rentals/bodrum-villa-2.jpg',
-      '/rentals/bodrum-villa-3.jpg'
+      'https://images.unsplash.com/photo-1600047509358-9dc75507daeb?w=1920&q=80',
+      'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=1920&q=80',
+      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920&q=80',
+      'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=1920&q=80',
+      'https://images.unsplash.com/photo-1600573472556-e91efa960777?w=1920&q=80',
+      'https://images.unsplash.com/photo-1568052261875-f0c2e4b9ab63?w=1920&q=80'
     ],
     host: {
       id: 'host-004',
@@ -541,9 +553,12 @@ export const rentalProperties: RentalProperty[] = [
       coordinates: { lat: 38.2646, lng: 26.3707 }
     },
     images: [
-      '/rentals/cesme-house-1.jpg',
-      '/rentals/cesme-house-2.jpg',
-      '/rentals/cesme-house-3.jpg'
+      'https://images.unsplash.com/photo-1600585152220-90363fe7e115?w=1920&q=80',
+      'https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=1920&q=80',
+      'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=1920&q=80',
+      'https://images.unsplash.com/photo-1600607687644-aac4c3eac7f4?w=1920&q=80',
+      'https://images.unsplash.com/photo-1590523277543-a94d2e4eb00b?w=1920&q=80',
+      'https://images.unsplash.com/photo-1523217582562-09d0def993a6?w=1920&q=80'
     ],
     host: {
       id: 'host-005',
