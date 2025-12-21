@@ -19,8 +19,19 @@ import {
   Plus
 } from 'lucide-react';
 import { LineChart, Line, BarChart, Bar, AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
+import { useTranslation } from 'next-i18next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+
+export async function getStaticProps({ locale }: any) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale ?? 'tr', ['owner', 'common'])),
+    },
+  };
+}
 
 export default function PropertyOwnerDashboard() {
+  const { t } = useTranslation('owner');
   const [timeRange, setTimeRange] = useState('7d');
 
   // Mock Data - Gelişmiş İstatistikler
@@ -161,10 +172,10 @@ export default function PropertyOwnerDashboard() {
            }}>
         <div className="relative z-10">
           <h1 className="text-4xl font-black mb-2 neon-text-strong" style={{ color: '#000000' }}>
-            Hoş Geldiniz, Ahmet! 👋
+            {t('dashboard.welcome', { name: 'Ahmet' })} 👋
           </h1>
           <p className="text-lg mb-4" style={{ color: '#666666' }}>
-            Property Owner Dashboard'unuzda bugün neler oluyor?
+            {t('dashboard.subtitle')}
           </p>
           <div className="flex gap-4">
             <Link
@@ -177,7 +188,7 @@ export default function PropertyOwnerDashboard() {
               }}
             >
               <Plus className="w-5 h-5" />
-              <span>Yeni Mülk Ekle</span>
+              <span>{t('dashboard.addProperty')}</span>
             </Link>
             <Link
               href="/owner/analytics"
@@ -189,7 +200,7 @@ export default function PropertyOwnerDashboard() {
               }}
             >
               <TrendingUp className="w-5 h-5" />
-              <span>Detaylı Analitik</span>
+              <span>{t('dashboard.detailedAnalytics')}</span>
             </Link>
           </div>
         </div>
@@ -198,27 +209,27 @@ export default function PropertyOwnerDashboard() {
       {/* Stats Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         <StatCard
-          title="Toplam Gelir"
+          title={t('dashboard.stats.totalRevenue')}
           value={stats.totalRevenue.value.toLocaleString('tr-TR')}
           change={stats.totalRevenue.change}
           icon={DollarSign}
           prefix="₺"
         />
         <StatCard
-          title="Aktif Rezervasyon"
+          title={t('dashboard.stats.activeBookings')}
           value={stats.activeBookings.value}
           change={stats.activeBookings.change}
           icon={Calendar}
         />
         <StatCard
-          title="Doluluk Oranı"
+          title={t('dashboard.stats.occupancyRate')}
           value={stats.occupancyRate.value}
           change={stats.occupancyRate.change}
           icon={TrendingUp}
           suffix="%"
         />
         <StatCard
-          title="Ortalama Puan"
+          title={t('dashboard.stats.avgRating')}
           value={stats.avgRating.value}
           change={stats.avgRating.change}
           icon={Star}
@@ -237,7 +248,7 @@ export default function PropertyOwnerDashboard() {
              }}>
           <div className="flex items-center justify-between mb-6">
             <h3 className="text-xl font-bold neon-text-strong" style={{ color: '#000000' }}>
-              Haftalık Gelir Analizi
+              {t('dashboard.charts.weeklyRevenue')}
             </h3>
             <select
               value={timeRange}
@@ -249,9 +260,9 @@ export default function PropertyOwnerDashboard() {
                 color: '#000000'
               }}
             >
-              <option value="7d">Son 7 Gün</option>
-              <option value="30d">Son 30 Gün</option>
-              <option value="90d">Son 90 Gün</option>
+              <option value="7d">{t('dashboard.charts.timeRange.7d')}</option>
+              <option value="30d">{t('dashboard.charts.timeRange.30d')}</option>
+              <option value="90d">{t('dashboard.charts.timeRange.90d')}</option>
             </select>
           </div>
           <ResponsiveContainer width="100%" height={300}>
@@ -293,7 +304,7 @@ export default function PropertyOwnerDashboard() {
                boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)'
              }}>
           <h3 className="text-xl font-bold mb-6 neon-text-strong" style={{ color: '#000000' }}>
-            Mülk Performans Dağılımı
+            {t('dashboard.charts.propertyPerformance')}
           </h3>
           <ResponsiveContainer width="100%" height={300}>
             <PieChart>
@@ -335,14 +346,14 @@ export default function PropertyOwnerDashboard() {
              }}>
           <div className="flex items-center justify-between mb-6">
             <h3 className="text-xl font-bold neon-text-strong" style={{ color: '#000000' }}>
-              Yaklaşan Rezervasyonlar
+              {t('dashboard.upcomingBookings.title')}
             </h3>
             <Link
               href="/owner/bookings"
               className="flex items-center gap-2 text-sm font-medium hover:scale-105 transition-all"
               style={{ color: 'var(--ac-1)' }}
             >
-              <span>Tümünü Gör</span>
+              <span>{t('dashboard.upcomingBookings.viewAll')}</span>
               <ArrowUpRight className="w-4 h-4" />
             </Link>
           </div>
@@ -374,21 +385,21 @@ export default function PropertyOwnerDashboard() {
                       color: booking.status === 'confirmed' ? '#10B981' : '#F59E0B'
                     }}
                   >
-                    {booking.status === 'confirmed' ? 'Onaylandı' : 'Beklemede'}
+                    {booking.status === 'confirmed' ? t('dashboard.upcomingBookings.status.confirmed') : t('dashboard.upcomingBookings.status.pending')}
                   </span>
                 </div>
 
                 <div className="grid grid-cols-3 gap-4 text-sm">
                   <div>
-                    <p className="font-medium mb-1" style={{ color: '#666666' }}>Check-in</p>
+                    <p className="font-medium mb-1" style={{ color: '#666666' }}>{t('dashboard.upcomingBookings.checkIn')}</p>
                     <p className="font-bold" style={{ color: '#000000' }}>{booking.checkIn}</p>
                   </div>
                   <div>
-                    <p className="font-medium mb-1" style={{ color: '#666666' }}>Check-out</p>
+                    <p className="font-medium mb-1" style={{ color: '#666666' }}>{t('dashboard.upcomingBookings.checkOut')}</p>
                     <p className="font-bold" style={{ color: '#000000' }}>{booking.checkOut}</p>
                   </div>
                   <div>
-                    <p className="font-medium mb-1" style={{ color: '#666666' }}>Tutar</p>
+                    <p className="font-medium mb-1" style={{ color: '#666666' }}>{t('dashboard.upcomingBookings.amount')}</p>
                     <p className="font-bold" style={{ color: 'var(--ac-1)' }}>₺{booking.amount.toLocaleString('tr-TR')}</p>
                   </div>
                 </div>
@@ -405,7 +416,7 @@ export default function PropertyOwnerDashboard() {
                boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)'
              }}>
           <h3 className="text-xl font-bold mb-6 neon-text-strong" style={{ color: '#000000' }}>
-            Son Aktiviteler
+            {t('dashboard.recentActivity.title')}
           </h3>
 
           <div className="space-y-4">

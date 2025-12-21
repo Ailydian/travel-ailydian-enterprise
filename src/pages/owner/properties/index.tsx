@@ -21,8 +21,19 @@ import {
   Power,
   PowerOff
 } from 'lucide-react';
+import { useTranslation } from 'next-i18next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+
+export async function getStaticProps({ locale }: any) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale ?? 'tr', ['owner', 'common'])),
+    },
+  };
+}
 
 export default function PropertiesPage() {
+  const { t } = useTranslation('owner');
   const [searchQuery, setSearchQuery] = useState('');
   const [filterStatus, setFilterStatus] = useState('all');
   const [viewMode, setViewMode] = useState('grid'); // grid or list
@@ -121,13 +132,13 @@ export default function PropertiesPage() {
   const getStatusColor = (status: string) => {
     switch (status) {
       case 'active':
-        return { bg: 'rgba(16, 185, 129, 0.1)', text: '#10B981', label: 'Aktif' };
+        return { bg: 'rgba(16, 185, 129, 0.1)', text: '#10B981', label: t('properties.status.active') };
       case 'inactive':
-        return { bg: 'rgba(239, 68, 68, 0.1)', text: '#EF4444', label: 'Pasif' };
+        return { bg: 'rgba(239, 68, 68, 0.1)', text: '#EF4444', label: t('properties.status.inactive') };
       case 'maintenance':
-        return { bg: 'rgba(245, 158, 11, 0.1)', text: '#F59E0B', label: 'Bakımda' };
+        return { bg: 'rgba(245, 158, 11, 0.1)', text: '#F59E0B', label: t('properties.status.pending') };
       default:
-        return { bg: 'rgba(107, 114, 128, 0.1)', text: '#6B7280', label: 'Bilinmiyor' };
+        return { bg: 'rgba(107, 114, 128, 0.1)', text: '#6B7280', label: t('properties.status.draft') };
     }
   };
 
@@ -137,10 +148,10 @@ export default function PropertiesPage() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-3xl font-black neon-text-strong mb-2" style={{ color: '#000000' }}>
-            Mülklerim
+            {t('properties.title')}
           </h1>
           <p className="text-sm" style={{ color: '#666666' }}>
-            {stats.total} mülk yönetiyorsunuz • {stats.active} aktif
+            {stats.total} {t('properties.totalProperties')} • {stats.active} {t('properties.filters.active')}
           </p>
         </div>
         <Link
@@ -153,7 +164,7 @@ export default function PropertiesPage() {
           }}
         >
           <Plus className="w-5 h-5" />
-          <span>Yeni Mülk Ekle</span>
+          <span>{t('properties.addNew')}</span>
         </Link>
       </div>
 
