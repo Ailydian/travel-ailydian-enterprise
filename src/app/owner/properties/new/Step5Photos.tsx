@@ -32,12 +32,12 @@ interface PhotoPreview {
 }
 
 const roomTypes = [
-  { value: 'living-room', label: 'Living Room' },
-  { value: 'bedroom', label: 'Bedroom' },
-  { value: 'bathroom', label: 'Bathroom' },
-  { value: 'kitchen', label: 'Kitchen' },
-  { value: 'exterior', label: 'Exterior' },
-  { value: 'other', label: 'Other' },
+  { value: 'living-room', label: 'Oturma Odası' },
+  { value: 'bedroom', label: 'Yatak Odası' },
+  { value: 'bathroom', label: 'Banyo' },
+  { value: 'kitchen', label: 'Mutfak' },
+  { value: 'exterior', label: 'Dış Mekan' },
+  { value: 'other', label: 'Diğer' },
 ];
 
 export default function Step5Photos({ data }: Step5Props) {
@@ -65,13 +65,13 @@ export default function Step5Photos({ data }: Step5Props) {
       for (const file of fileArray) {
         // Validate file type
         if (!file.type.startsWith('image/')) {
-          alert(`${file.name} is not an image file`);
+          alert(`${file.name} bir resim dosyası değil`);
           continue;
         }
 
         // Validate file size (max 10MB)
         if (file.size > 10 * 1024 * 1024) {
-          alert(`${file.name} exceeds 10MB size limit`);
+          alert(`${file.name} 10MB boyut sınırını aşıyor`);
           continue;
         }
 
@@ -190,13 +190,13 @@ export default function Step5Photos({ data }: Step5Props) {
             <Upload className="w-8 h-8 text-blue-600" />
           </div>
           <h3 className="text-lg font-semibold text-slate-900 mb-2">
-            Upload Property Photos
+            Mülk Fotoğraflarını Yükle
           </h3>
           <p className="text-sm text-slate-600 mb-4">
-            Drag and drop images here, or click to browse
+            Resimleri buraya sürükleyip bırakın veya göz atmak için tıklayın
           </p>
           <label className="inline-block px-6 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 cursor-pointer transition-all">
-            Choose Files
+            Dosya Seç
             <input
               type="file"
               multiple
@@ -206,9 +206,9 @@ export default function Step5Photos({ data }: Step5Props) {
             />
           </label>
           <p className="text-xs text-slate-500 mt-4">
-            Upload at least 5 high-quality photos (JPG, PNG, WebP)
+            En az 5 yüksek kaliteli fotoğraf yükleyin (JPG, PNG, WebP)
             <br />
-            Recommended resolution: 1920x1080 or higher • Max 10MB per file
+            Önerilen çözünürlük: 1920x1080 veya daha yüksek • Dosya başına maksimum 10MB
           </p>
         </div>
       </div>
@@ -218,13 +218,13 @@ export default function Step5Photos({ data }: Step5Props) {
         <div className="flex items-start gap-3">
           <AlertCircle className="w-5 h-5 text-blue-600 mt-0.5" />
           <div>
-            <h4 className="font-semibold text-blue-900 mb-1">Photo Requirements:</h4>
+            <h4 className="font-semibold text-blue-900 mb-1">Fotoğraf Gereksinimleri:</h4>
             <ul className="text-sm text-blue-800 space-y-1">
-              <li>• Minimum 5 photos required (up to 50 photos allowed)</li>
-              <li>• First photo will be your cover photo (you can change this later)</li>
-              <li>• Include photos of all rooms and key features</li>
-              <li>• Use natural lighting and avoid filters</li>
-              <li>• Show the space from multiple angles</li>
+              <li>• Minimum 5 fotoğraf gerekli (maksimum 50 fotoğrafa kadar izin verilir)</li>
+              <li>• İlk fotoğraf kapak fotoğrafınız olacak (bunu daha sonra değiştirebilirsiniz)</li>
+              <li>• Tüm odaların ve önemli özelliklerin fotoğraflarını ekleyin</li>
+              <li>• Doğal aydınlatma kullanın ve filtrelerden kaçının</li>
+              <li>• Mekanı birden fazla açıdan gösterin</li>
             </ul>
           </div>
         </div>
@@ -236,17 +236,17 @@ export default function Step5Photos({ data }: Step5Props) {
           <div className="flex items-center gap-3">
             <ImageIcon className="w-5 h-5 text-slate-600" />
             <span className="font-medium text-slate-900">
-              {photos.length} photo{photos.length !== 1 ? 's' : ''} uploaded
+              {photos.length} fotoğraf yüklendi
             </span>
           </div>
           {photos.length >= 5 ? (
             <div className="flex items-center gap-2 text-green-600">
               <Check className="w-5 h-5" />
-              <span className="text-sm font-medium">Minimum requirement met</span>
+              <span className="text-sm font-medium">Minimum gereksinim karşılandı</span>
             </div>
           ) : (
             <span className="text-sm text-amber-600">
-              {5 - photos.length} more photo{5 - photos.length !== 1 ? 's' : ''} needed
+              {5 - photos.length} fotoğraf daha gerekli
             </span>
           )}
         </div>
@@ -255,7 +255,7 @@ export default function Step5Photos({ data }: Step5Props) {
       {/* Photo Grid */}
       {photos.length > 0 && (
         <div className="space-y-4">
-          <h3 className="text-lg font-bold text-slate-900">Uploaded Photos</h3>
+          <h3 className="text-lg font-bold text-slate-900">Yüklenen Fotoğraflar</h3>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <AnimatePresence>
@@ -280,7 +280,7 @@ export default function Step5Photos({ data }: Step5Props) {
                   {index === coverPhotoIndex && (
                     <div className="absolute top-3 left-3 z-10 px-3 py-1 bg-yellow-500 text-white text-xs font-bold rounded-full flex items-center gap-1 shadow-lg">
                       <Star className="w-3 h-3 fill-current" />
-                      Cover Photo
+                      Kapak Fotoğrafı
                     </div>
                   )}
 
@@ -303,7 +303,7 @@ export default function Step5Photos({ data }: Step5Props) {
                     {/* Room Type */}
                     <div>
                       <label className="block text-xs font-medium text-slate-600 mb-1">
-                        Room Type
+                        Oda Tipi
                       </label>
                       <select
                         value={photo.room}
@@ -321,13 +321,13 @@ export default function Step5Photos({ data }: Step5Props) {
                     {/* Caption */}
                     <div>
                       <label className="block text-xs font-medium text-slate-600 mb-1">
-                        Caption (optional)
+                        Açıklama (isteğe bağlı)
                       </label>
                       <input
                         type="text"
                         value={photo.caption || ''}
                         onChange={(e) => updateCaption(photo.id, e.target.value)}
-                        placeholder="Describe this photo..."
+                        placeholder="Bu fotoğrafı açıklayın..."
                         maxLength={200}
                         className="w-full px-3 py-2 text-sm border border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none"
                       />
@@ -341,7 +341,7 @@ export default function Step5Photos({ data }: Step5Props) {
                           onClick={() => setCoverPhoto(index)}
                           className="flex-1 px-3 py-2 text-sm bg-blue-50 text-blue-600 rounded-lg hover:bg-blue-100 transition-all font-medium"
                         >
-                          Set as Cover
+                          Kapak Yap
                         </button>
                       )}
                       <button
@@ -350,7 +350,7 @@ export default function Step5Photos({ data }: Step5Props) {
                         className="px-3 py-2 text-sm bg-red-50 text-red-600 rounded-lg hover:bg-red-100 transition-all font-medium flex items-center gap-1"
                       >
                         <X className="w-4 h-4" />
-                        Remove
+                        Kaldır
                       </button>
                     </div>
                   </div>
@@ -363,12 +363,12 @@ export default function Step5Photos({ data }: Step5Props) {
 
       {/* Video and Virtual Tour URLs */}
       <div className="border-t-2 border-slate-200 pt-8 space-y-6">
-        <h3 className="text-lg font-bold text-slate-900">Additional Media (Optional)</h3>
+        <h3 className="text-lg font-bold text-slate-900">Ek Medya (İsteğe Bağlı)</h3>
 
         {/* Video URL */}
         <div>
           <label className="block text-sm font-semibold text-slate-700 mb-2">
-            Property Video URL
+            Mülk Video URL'si
           </label>
           <input
             type="url"
@@ -377,7 +377,7 @@ export default function Step5Photos({ data }: Step5Props) {
             className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
           />
           <p className="mt-1 text-xs text-slate-500">
-            YouTube or Vimeo video tour link
+            YouTube veya Vimeo video tur linki
           </p>
           {errors.videoUrl && (
             <p className="mt-1 text-sm text-red-600">
@@ -389,7 +389,7 @@ export default function Step5Photos({ data }: Step5Props) {
         {/* Virtual Tour URL */}
         <div>
           <label className="block text-sm font-semibold text-slate-700 mb-2">
-            Virtual Tour URL
+            Sanal Tur URL'si
           </label>
           <input
             type="url"
@@ -398,7 +398,7 @@ export default function Step5Photos({ data }: Step5Props) {
             className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
           />
           <p className="mt-1 text-xs text-slate-500">
-            Matterport or similar 3D virtual tour link
+            Matterport veya benzeri 3D sanal tur linki
           </p>
           {errors.virtualTourUrl && (
             <p className="mt-1 text-sm text-red-600">
@@ -421,13 +421,13 @@ export default function Step5Photos({ data }: Step5Props) {
 
       {/* Tips */}
       <div className="p-4 bg-indigo-50 border border-indigo-200 rounded-lg">
-        <h4 className="font-semibold text-indigo-900 mb-2">Photography Tips:</h4>
+        <h4 className="font-semibold text-indigo-900 mb-2">Fotoğrafçılık İpuçları:</h4>
         <ul className="text-sm text-indigo-800 space-y-1">
-          <li>• Take photos during the day for best natural lighting</li>
-          <li>• Clean and declutter spaces before photographing</li>
-          <li>• Show the unique features that make your property special</li>
-          <li>• Include wide-angle shots to show room sizes</li>
-          <li>• Drag photos to reorder them - first photo is your cover image</li>
+          <li>• En iyi doğal aydınlatma için gün içinde fotoğraf çekin</li>
+          <li>• Fotoğraf çekmeden önce mekanları temizleyin ve düzenleyin</li>
+          <li>• Mülkünüzü özel kılan benzersiz özellikleri gösterin</li>
+          <li>• Oda boyutlarını göstermek için geniş açılı çekimler ekleyin</li>
+          <li>• Fotoğrafları yeniden sıralamak için sürükleyin - ilk fotoğraf kapak resminizdir</li>
         </ul>
       </div>
     </div>

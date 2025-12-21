@@ -41,12 +41,11 @@ export default function Step7HouseRules({ data }: Step7Props) {
           </div>
           <div>
             <h3 className="text-xl font-bold text-blue-900 mb-2">
-              Terms & Agreements
+              Şartlar ve Sözleşmeler
             </h3>
             <p className="text-blue-700">
-              Please review and accept the following terms before submitting your
-              property. These agreements help maintain a safe and trusted community for
-              all users.
+              Mülkünüzü göndermeden önce lütfen aşağıdaki şartları inceleyin ve kabul edin.
+              Bu sözleşmeler, tüm kullanıcılar için güvenli ve güvenilir bir topluluğun sürdürülmesine yardımcı olur.
             </p>
           </div>
         </div>
@@ -54,7 +53,7 @@ export default function Step7HouseRules({ data }: Step7Props) {
 
       {/* Required Agreements */}
       <div className="space-y-4">
-        <h3 className="text-lg font-bold text-slate-900">Required Agreements</h3>
+        <h3 className="text-lg font-bold text-slate-900">Zorunlu Sözleşmeler</h3>
 
         {/* Terms of Service */}
         <div
@@ -82,7 +81,7 @@ export default function Step7HouseRules({ data }: Step7Props) {
               <div className="flex items-start justify-between mb-2">
                 <div className="flex items-center gap-2">
                   <FileText className="w-5 h-5 text-slate-600" />
-                  <h4 className="font-semibold text-slate-900">Terms of Service</h4>
+                  <h4 className="font-semibold text-slate-900">Hizmet Şartları</h4>
                 </div>
                 <a
                   href="/terms"
@@ -90,13 +89,13 @@ export default function Step7HouseRules({ data }: Step7Props) {
                   rel="noopener noreferrer"
                   className="text-sm text-blue-600 hover:text-blue-800 flex items-center gap-1"
                 >
-                  Read Terms
+                  Şartları Oku
                   <ExternalLink className="w-3 h-3" />
                 </a>
               </div>
               <p className="text-sm text-slate-600 mb-3">
-                By accepting, you agree to comply with our platform's terms of service,
-                including hosting standards, booking policies, and community guidelines.
+                Kabul ederek, platformumuzun hizmet şartlarına, ev sahibi standartları, rezervasyon politikaları
+                ve topluluk yönergelerine uymayı kabul etmiş olursunuz.
               </p>
               <label className="flex items-center gap-3 cursor-pointer group">
                 <input
@@ -105,7 +104,7 @@ export default function Step7HouseRules({ data }: Step7Props) {
                   className="w-5 h-5 text-blue-600 rounded focus:ring-2 focus:ring-blue-500"
                 />
                 <span className="text-sm font-medium text-slate-700 group-hover:text-slate-900">
-                  I agree to the Terms of Service <span className="text-red-500">*</span>
+                  Hizmet Şartlarını kabul ediyorum <span className="text-red-500">*</span>
                 </span>
               </label>
               {errors.agreeToTerms && (
@@ -143,7 +142,7 @@ export default function Step7HouseRules({ data }: Step7Props) {
               <div className="flex items-start justify-between mb-2">
                 <div className="flex items-center gap-2">
                   <Shield className="w-5 h-5 text-slate-600" />
-                  <h4 className="font-semibold text-slate-900">Privacy Policy</h4>
+                  <h4 className="font-semibold text-slate-900">Gizlilik Politikası</h4>
                 </div>
                 <a
                   href="/privacy"
@@ -151,13 +150,13 @@ export default function Step7HouseRules({ data }: Step7Props) {
                   rel="noopener noreferrer"
                   className="text-sm text-blue-600 hover:text-blue-800 flex items-center gap-1"
                 >
-                  Read Policy
+                  Politikayı Oku
                   <ExternalLink className="w-3 h-3" />
                 </a>
               </div>
               <p className="text-sm text-slate-600 mb-3">
-                We respect your privacy and protect your personal data. Review how we
-                collect, use, and share information about you and your property.
+                Gizliliğinize saygı duyuyor ve kişisel verilerinizi koruyoruz. Sizin ve mülkünüz hakkındaki
+                bilgileri nasıl topladığımızı, kullandığımızı ve paylaştığımızı inceleyin.
               </p>
               <label className="flex items-center gap-3 cursor-pointer group">
                 <input
@@ -166,7 +165,7 @@ export default function Step7HouseRules({ data }: Step7Props) {
                   className="w-5 h-5 text-blue-600 rounded focus:ring-2 focus:ring-blue-500"
                 />
                 <span className="text-sm font-medium text-slate-700 group-hover:text-slate-900">
-                  I agree to the Privacy Policy <span className="text-red-500">*</span>
+                  Gizlilik Politikasını kabul ediyorum <span className="text-red-500">*</span>
                 </span>
               </label>
               {errors.agreeToPrivacyPolicy && (
@@ -204,12 +203,12 @@ export default function Step7HouseRules({ data }: Step7Props) {
               <div className="flex items-center gap-2 mb-2">
                 <Users className="w-5 h-5 text-slate-600" />
                 <h4 className="font-semibold text-slate-900">
-                  Host Responsibilities & House Rules
+                  Ev Sahibi Sorumlulukları ve Ev Kuralları
                 </h4>
               </div>
               <p className="text-sm text-slate-600 mb-3">
-                As a host, you commit to providing accurate property information,
-                maintaining quality standards, and responding to guest inquiries promptly.
+                Ev sahibi olarak, doğru mülk bilgisi sağlamayı, kalite standartlarını korumayı ve
+                misafir sorularına hızlı yanıt vermeyi taahhüt ediyorsunuz.
               </p>
               <label className="flex items-center gap-3 cursor-pointer group">
                 <input
@@ -218,7 +217,7 @@ export default function Step7HouseRules({ data }: Step7Props) {
                   className="w-5 h-5 text-blue-600 rounded focus:ring-2 focus:ring-blue-500"
                 />
                 <span className="text-sm font-medium text-slate-700 group-hover:text-slate-900">
-                  I agree to uphold host responsibilities{' '}
+                  Ev sahibi sorumluluklarını yerine getirmeyi kabul ediyorum{' '}
                   <span className="text-red-500">*</span>
                 </span>
               </label>
@@ -257,12 +256,12 @@ export default function Step7HouseRules({ data }: Step7Props) {
               <div className="flex items-center gap-2 mb-2">
                 <MessageSquare className="w-5 h-5 text-slate-600" />
                 <h4 className="font-semibold text-slate-900">
-                  Guest Communication Policy
+                  Misafir İletişim Politikası
                 </h4>
               </div>
               <p className="text-sm text-slate-600 mb-3">
-                Commit to responding to guest messages within 24 hours and maintaining
-                professional, respectful communication at all times.
+                Misafir mesajlarına 24 saat içinde yanıt vermeyi ve her zaman profesyonel,
+                saygılı iletişim sürdürmeyi taahhüt edin.
               </p>
               <label className="flex items-center gap-3 cursor-pointer group">
                 <input
@@ -271,7 +270,7 @@ export default function Step7HouseRules({ data }: Step7Props) {
                   className="w-5 h-5 text-blue-600 rounded focus:ring-2 focus:ring-blue-500"
                 />
                 <span className="text-sm font-medium text-slate-700 group-hover:text-slate-900">
-                  I agree to the communication policy{' '}
+                  İletişim politikasını kabul ediyorum{' '}
                   <span className="text-red-500">*</span>
                 </span>
               </label>
@@ -309,11 +308,11 @@ export default function Step7HouseRules({ data }: Step7Props) {
             <div className="flex-1">
               <div className="flex items-center gap-2 mb-2">
                 <Shield className="w-5 h-5 text-slate-600" />
-                <h4 className="font-semibold text-slate-900">Guest Vetting Consent</h4>
+                <h4 className="font-semibold text-slate-900">Misafir Kontrolü Onayı</h4>
               </div>
               <p className="text-sm text-slate-600 mb-3">
-                Allow the platform to verify guest identities and backgrounds to ensure
-                safety and security for all hosts and properties.
+                Tüm ev sahipleri ve mülkler için güvenlik sağlamak amacıyla platformun misafir kimliklerini
+                ve geçmişlerini doğrulamasına izin verin.
               </p>
               <label className="flex items-center gap-3 cursor-pointer group">
                 <input
@@ -322,7 +321,7 @@ export default function Step7HouseRules({ data }: Step7Props) {
                   className="w-5 h-5 text-blue-600 rounded focus:ring-2 focus:ring-blue-500"
                 />
                 <span className="text-sm font-medium text-slate-700 group-hover:text-slate-900">
-                  I consent to guest vetting procedures{' '}
+                  Misafir kontrol prosedürlerini kabul ediyorum{' '}
                   <span className="text-red-500">*</span>
                 </span>
               </label>
@@ -339,57 +338,57 @@ export default function Step7HouseRules({ data }: Step7Props) {
       {/* Optional Legal Information */}
       <div className="border-2 border-slate-200 rounded-xl p-6">
         <h3 className="text-lg font-bold text-slate-900 mb-4">
-          Legal Information (Optional)
+          Yasal Bilgiler (İsteğe Bağlı)
         </h3>
         <p className="text-sm text-slate-600 mb-6">
-          Providing this information can help with regulatory compliance in your area.
+          Bu bilgileri sağlamak, bölgenizdeki düzenleyici uyumlulukta yardımcı olabilir.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
             <label className="block text-sm font-medium text-slate-700 mb-2">
-              License Number
+              Lisans Numarası
             </label>
             <input
               type="text"
               {...register('legalInformation.licenseNumber')}
-              placeholder="e.g., STR-2024-001234"
+              placeholder="örn., STR-2024-001234"
               className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
             />
           </div>
 
           <div>
             <label className="block text-sm font-medium text-slate-700 mb-2">
-              Business Registration
+              İşletme Kaydı
             </label>
             <input
               type="text"
               {...register('legalInformation.businessRegistration')}
-              placeholder="e.g., BR-123456789"
+              placeholder="örn., BR-123456789"
               className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
             />
           </div>
 
           <div>
             <label className="block text-sm font-medium text-slate-700 mb-2">
-              Tax ID
+              Vergi Kimlik Numarası
             </label>
             <input
               type="text"
               {...register('legalInformation.taxId')}
-              placeholder="e.g., 12-3456789"
+              placeholder="örn., 12-3456789"
               className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
             />
           </div>
 
           <div>
             <label className="block text-sm font-medium text-slate-700 mb-2">
-              Insurance Details
+              Sigorta Detayları
             </label>
             <input
               type="text"
               {...register('legalInformation.insuranceDetails')}
-              placeholder="e.g., Policy #ABC123"
+              placeholder="örn., Poliçe #ABC123"
               className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
             />
           </div>
@@ -417,8 +416,8 @@ export default function Step7HouseRules({ data }: Step7Props) {
               }`}
             >
               {allAgreed
-                ? 'All required agreements accepted'
-                : 'Please accept all required agreements'}
+                ? 'Tüm zorunlu sözleşmeler kabul edildi'
+                : 'Lütfen tüm zorunlu sözleşmeleri kabul edin'}
             </h4>
             <p
               className={`text-sm ${
@@ -426,8 +425,8 @@ export default function Step7HouseRules({ data }: Step7Props) {
               }`}
             >
               {allAgreed
-                ? "You're ready to proceed to the final step!"
-                : 'You must accept all agreements marked with * to continue'}
+                ? 'Son adıma geçmeye hazırsınız!'
+                : 'Devam etmek için * ile işaretlenmiş tüm sözleşmeleri kabul etmelisiniz'}
             </p>
           </div>
         </div>
@@ -435,16 +434,16 @@ export default function Step7HouseRules({ data }: Step7Props) {
 
       {/* Info Box */}
       <div className="p-4 bg-slate-50 border border-slate-200 rounded-lg">
-        <h4 className="font-semibold text-slate-900 mb-2">Why these agreements?</h4>
+        <h4 className="font-semibold text-slate-900 mb-2">Bu sözleşmeler neden gerekli?</h4>
         <ul className="text-sm text-slate-700 space-y-1">
           <li>
-            • Protects both hosts and guests by setting clear expectations
+            • Net beklentiler belirleyerek hem ev sahiplerini hem de misafirleri korur
           </li>
-          <li>• Ensures compliance with local laws and platform policies</li>
+          <li>• Yerel yasalara ve platform politikalarına uyumu sağlar</li>
           <li>
-            • Maintains quality standards across all properties on the platform
+            • Platformdaki tüm mülklerde kalite standartlarını korur
           </li>
-          <li>• Enables us to provide support and resolve disputes fairly</li>
+          <li>• Destek sağlamamıza ve anlaşmazlıkları adil bir şekilde çözmemize olanak tanır</li>
         </ul>
       </div>
     </div>

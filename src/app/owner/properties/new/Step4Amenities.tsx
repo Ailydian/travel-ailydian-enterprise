@@ -10,13 +10,13 @@ interface Step4Props {
 }
 
 const currencies = [
-  { code: 'USD', symbol: '$', name: 'US Dollar' },
+  { code: 'USD', symbol: '$', name: 'ABD Doları' },
   { code: 'EUR', symbol: '€', name: 'Euro' },
-  { code: 'GBP', symbol: '£', name: 'British Pound' },
-  { code: 'CAD', symbol: 'C$', name: 'Canadian Dollar' },
-  { code: 'AUD', symbol: 'A$', name: 'Australian Dollar' },
-  { code: 'JPY', symbol: '¥', name: 'Japanese Yen' },
-  { code: 'TRY', symbol: '₺', name: 'Turkish Lira' },
+  { code: 'GBP', symbol: '£', name: 'İngiliz Sterlini' },
+  { code: 'CAD', symbol: 'C$', name: 'Kanada Doları' },
+  { code: 'AUD', symbol: 'A$', name: 'Avustralya Doları' },
+  { code: 'JPY', symbol: '¥', name: 'Japon Yeni' },
+  { code: 'TRY', symbol: '₺', name: 'Türk Lirası' },
 ];
 
 export default function Step4Amenities({ data }: Step4Props) {
@@ -45,19 +45,19 @@ export default function Step4Amenities({ data }: Step4Props) {
     <div className="space-y-8">
       {/* Base Pricing */}
       <div className="border-2 border-slate-200 rounded-xl p-6">
-        <h3 className="text-lg font-bold text-slate-900 mb-4">Base Pricing</h3>
+        <h3 className="text-lg font-bold text-slate-900 mb-4">Temel Fiyatlandırma</h3>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Currency */}
           <div>
             <label className="block text-sm font-semibold text-slate-700 mb-2">
-              Currency <span className="text-red-500">*</span>
+              Para Birimi <span className="text-red-500">*</span>
             </label>
             <select
               {...register('currency')}
               className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all bg-white"
             >
-              <option value="">Select currency</option>
+              <option value="">Para birimi seçin</option>
               {currencies.map((curr) => (
                 <option key={curr.code} value={curr.code}>
                   {curr.symbol} {curr.name} ({curr.code})
@@ -74,7 +74,7 @@ export default function Step4Amenities({ data }: Step4Props) {
           {/* Base Price */}
           <div>
             <label className="block text-sm font-semibold text-slate-700 mb-2">
-              Base Price per Night <span className="text-red-500">*</span>
+              Gecelik Temel Fiyat <span className="text-red-500">*</span>
             </label>
             <div className="relative">
               <DollarSign className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
@@ -102,17 +102,17 @@ export default function Step4Amenities({ data }: Step4Props) {
           <div className="p-2 bg-green-100 rounded-lg">
             <TrendingDown className="w-5 h-5 text-green-600" />
           </div>
-          <h3 className="text-lg font-bold text-slate-900">Length-of-Stay Discounts</h3>
+          <h3 className="text-lg font-bold text-slate-900">Konaklama Süresi İndirimleri</h3>
         </div>
         <p className="text-sm text-slate-600 mb-4">
-          Encourage longer stays with discounted rates
+          İndirimli oranlarla daha uzun konaklamaları teşvik edin
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {/* Weekly Discount */}
           <div>
             <label className="block text-sm font-semibold text-slate-700 mb-2">
-              Weekly Discount (7+ nights)
+              Haftalık İndirim (7+ gece)
             </label>
             <div className="relative">
               <Percent className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
@@ -128,7 +128,7 @@ export default function Step4Amenities({ data }: Step4Props) {
             </div>
             {weeklyPrice && (
               <p className="mt-1 text-sm text-green-600">
-                ≈ ${weeklyPrice.toFixed(0)} per week
+                ≈ ${weeklyPrice.toFixed(0)} haftalık
               </p>
             )}
           </div>
@@ -136,7 +136,7 @@ export default function Step4Amenities({ data }: Step4Props) {
           {/* Monthly Discount */}
           <div>
             <label className="block text-sm font-semibold text-slate-700 mb-2">
-              Monthly Discount (30+ nights)
+              Aylık İndirim (30+ gece)
             </label>
             <div className="relative">
               <Percent className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
@@ -152,7 +152,7 @@ export default function Step4Amenities({ data }: Step4Props) {
             </div>
             {monthlyPrice && (
               <p className="mt-1 text-sm text-green-600">
-                ≈ ${monthlyPrice.toFixed(0)} per month
+                ≈ ${monthlyPrice.toFixed(0)} aylık
               </p>
             )}
           </div>
@@ -160,7 +160,7 @@ export default function Step4Amenities({ data }: Step4Props) {
           {/* Early Booking Discount */}
           <div>
             <label className="block text-sm font-semibold text-slate-700 mb-2">
-              Early Booking Discount
+              Erken Rezervasyon İndirimi
             </label>
             <div className="relative">
               <Percent className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
@@ -175,7 +175,7 @@ export default function Step4Amenities({ data }: Step4Props) {
               />
             </div>
             <p className="mt-1 text-xs text-slate-500">
-              For bookings 30+ days in advance
+              30+ gün önceden yapılan rezervasyonlar için
             </p>
           </div>
         </div>
@@ -183,13 +183,13 @@ export default function Step4Amenities({ data }: Step4Props) {
 
       {/* Additional Fees */}
       <div className="border-2 border-slate-200 rounded-xl p-6">
-        <h3 className="text-lg font-bold text-slate-900 mb-4">Additional Fees</h3>
+        <h3 className="text-lg font-bold text-slate-900 mb-4">Ek Ücretler</h3>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Cleaning Fee */}
           <div>
             <label className="block text-sm font-semibold text-slate-700 mb-2">
-              Cleaning Fee
+              Temizlik Ücreti
             </label>
             <div className="relative">
               <DollarSign className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
@@ -202,13 +202,13 @@ export default function Step4Amenities({ data }: Step4Props) {
                 className="w-full pl-12 pr-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
               />
             </div>
-            <p className="mt-1 text-xs text-slate-500">One-time fee per booking</p>
+            <p className="mt-1 text-xs text-slate-500">Rezervasyon başına tek seferlik ücret</p>
           </div>
 
           {/* Service Fee */}
           <div>
             <label className="block text-sm font-semibold text-slate-700 mb-2">
-              Service Fee
+              Hizmet Ücreti
             </label>
             <div className="relative">
               <DollarSign className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
@@ -221,13 +221,13 @@ export default function Step4Amenities({ data }: Step4Props) {
                 className="w-full pl-12 pr-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
               />
             </div>
-            <p className="mt-1 text-xs text-slate-500">One-time fee per booking</p>
+            <p className="mt-1 text-xs text-slate-500">Rezervasyon başına tek seferlik ücret</p>
           </div>
 
           {/* Tax Percentage */}
           <div>
             <label className="block text-sm font-semibold text-slate-700 mb-2">
-              Tax Percentage
+              Vergi Yüzdesi
             </label>
             <div className="relative">
               <Percent className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
@@ -242,14 +242,14 @@ export default function Step4Amenities({ data }: Step4Props) {
               />
             </div>
             <p className="mt-1 text-xs text-slate-500">
-              Applied to total booking amount
+              Toplam rezervasyon tutarına uygulanır
             </p>
           </div>
 
           {/* Pet Fee */}
           <div>
             <label className="block text-sm font-semibold text-slate-700 mb-2">
-              Pet Fee (if pets allowed)
+              Evcil Hayvan Ücreti (evcil hayvan kabul ediliyorsa)
             </label>
             <div className="relative">
               <DollarSign className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
@@ -269,7 +269,7 @@ export default function Step4Amenities({ data }: Step4Props) {
                   {...register('fees.petFeePerNight')}
                   className="w-4 h-4 text-blue-600 rounded focus:ring-2 focus:ring-blue-500"
                 />
-                <span className="text-sm text-slate-700">Charge per night</span>
+                <span className="text-sm text-slate-700">Gecelik ücret</span>
               </label>
             </div>
           </div>
@@ -282,14 +282,14 @@ export default function Step4Amenities({ data }: Step4Props) {
           <div className="p-2 bg-blue-100 rounded-lg">
             <Calendar className="w-5 h-5 text-blue-600" />
           </div>
-          <h3 className="text-lg font-bold text-slate-900">Stay Requirements</h3>
+          <h3 className="text-lg font-bold text-slate-900">Konaklama Gereksinimleri</h3>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Minimum Stay */}
           <div>
             <label className="block text-sm font-semibold text-slate-700 mb-2">
-              Minimum Stay <span className="text-red-500">*</span>
+              Minimum Konaklama <span className="text-red-500">*</span>
             </label>
             <div className="relative">
               <input
@@ -301,7 +301,7 @@ export default function Step4Amenities({ data }: Step4Props) {
                 className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
               />
               <span className="absolute right-4 top-1/2 -translate-y-1/2 text-sm text-slate-500">
-                night{minStay !== 1 ? 's' : ''}
+                gece
               </span>
             </div>
             {errors.availability?.minStay && (
@@ -314,7 +314,7 @@ export default function Step4Amenities({ data }: Step4Props) {
           {/* Maximum Stay */}
           <div>
             <label className="block text-sm font-semibold text-slate-700 mb-2">
-              Maximum Stay (optional)
+              Maksimum Konaklama (isteğe bağlı)
             </label>
             <div className="relative">
               <input
@@ -322,11 +322,11 @@ export default function Step4Amenities({ data }: Step4Props) {
                 {...register('availability.maxStay', { valueAsNumber: true })}
                 min={1}
                 max={365}
-                placeholder="No limit"
+                placeholder="Limit yok"
                 className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
               />
               <span className="absolute right-4 top-1/2 -translate-y-1/2 text-sm text-slate-500">
-                night{maxStay !== 1 ? 's' : ''}
+                gece
               </span>
             </div>
             {errors.availability?.maxStay && (
@@ -341,27 +341,27 @@ export default function Step4Amenities({ data }: Step4Props) {
       {/* Price Summary */}
       {basePrice && (
         <div className="p-6 bg-gradient-to-br from-blue-50 to-indigo-50 border-2 border-blue-200 rounded-xl">
-          <h4 className="font-bold text-blue-900 mb-4">Pricing Summary</h4>
+          <h4 className="font-bold text-blue-900 mb-4">Fiyat Özeti</h4>
           <div className="space-y-2 text-sm">
             <div className="flex justify-between">
-              <span className="text-slate-700">Base price per night:</span>
+              <span className="text-slate-700">Gecelik temel fiyat:</span>
               <span className="font-semibold text-slate-900">${basePrice}</span>
             </div>
             {weeklyDiscount > 0 && weeklyPrice && (
               <div className="flex justify-between">
-                <span className="text-slate-700">Weekly rate (with {weeklyDiscount}% off):</span>
+                <span className="text-slate-700">Haftalık ücret (%{weeklyDiscount} indirimli):</span>
                 <span className="font-semibold text-green-600">${weeklyPrice.toFixed(0)}</span>
               </div>
             )}
             {monthlyDiscount > 0 && monthlyPrice && (
               <div className="flex justify-between">
-                <span className="text-slate-700">Monthly rate (with {monthlyDiscount}% off):</span>
+                <span className="text-slate-700">Aylık ücret (%{monthlyDiscount} indirimli):</span>
                 <span className="font-semibold text-green-600">${monthlyPrice.toFixed(0)}</span>
               </div>
             )}
             {watch('fees.cleaningFee') > 0 && (
               <div className="flex justify-between">
-                <span className="text-slate-700">Cleaning fee:</span>
+                <span className="text-slate-700">Temizlik ücreti:</span>
                 <span className="font-semibold text-slate-900">
                   ${watch('fees.cleaningFee')}
                 </span>
@@ -373,12 +373,12 @@ export default function Step4Amenities({ data }: Step4Props) {
 
       {/* Info Box */}
       <div className="p-4 bg-purple-50 border border-purple-200 rounded-lg">
-        <h4 className="font-semibold text-purple-900 mb-2">Pricing Tips:</h4>
+        <h4 className="font-semibold text-purple-900 mb-2">Fiyatlandırma İpuçları:</h4>
         <ul className="text-sm text-purple-800 space-y-1">
-          <li>• Research similar properties in your area to set competitive prices</li>
-          <li>• Weekly and monthly discounts can increase your booking rate</li>
-          <li>• Consider your cleaning and service costs when setting fees</li>
-          <li>• Minimum stay requirements can reduce turnover and costs</li>
+          <li>• Rekabetçi fiyatlar belirlemek için bölgenizdeki benzer mülkleri araştırın</li>
+          <li>• Haftalık ve aylık indirimler rezervasyon oranınızı artırabilir</li>
+          <li>• Ücret belirlerken temizlik ve hizmet maliyetlerinizi göz önünde bulundurun</li>
+          <li>• Minimum konaklama gereksinimleri devir ve maliyetleri azaltabilir</li>
         </ul>
       </div>
     </div>

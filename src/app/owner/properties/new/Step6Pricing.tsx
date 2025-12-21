@@ -21,28 +21,28 @@ interface Step6Props {
 const cancellationPolicies = [
   {
     value: 'flexible',
-    label: 'Flexible',
-    description: 'Full refund up to 24 hours before check-in',
+    label: 'Esnek',
+    description: 'Girişten 24 saat öncesine kadar tam iade',
   },
   {
     value: 'moderate',
-    label: 'Moderate',
-    description: 'Full refund up to 5 days before check-in',
+    label: 'Orta',
+    description: 'Girişten 5 gün öncesine kadar tam iade',
   },
   {
     value: 'strict',
-    label: 'Strict',
-    description: 'Full refund up to 14 days before check-in',
+    label: 'Sıkı',
+    description: 'Girişten 14 gün öncesine kadar tam iade',
   },
   {
     value: 'very_strict',
-    label: 'Very Strict',
-    description: 'Full refund up to 30 days before check-in',
+    label: 'Çok Sıkı',
+    description: 'Girişten 30 gün öncesine kadar tam iade',
   },
   {
     value: 'non_refundable',
-    label: 'Non-Refundable',
-    description: 'No refunds after booking',
+    label: 'İade Edilemez',
+    description: 'Rezervasyon sonrası iade yok',
   },
 ];
 
@@ -84,13 +84,13 @@ export default function Step6Pricing({ data }: Step6Props) {
           <div className="p-2 bg-blue-100 rounded-lg">
             <Clock className="w-5 h-5 text-blue-600" />
           </div>
-          <h3 className="text-lg font-bold text-slate-900">Check-in & Check-out</h3>
+          <h3 className="text-lg font-bold text-slate-900">Giriş ve Çıkış</h3>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
             <label className="block text-sm font-semibold text-slate-700 mb-2">
-              Check-in Time <span className="text-red-500">*</span>
+              Giriş Saati <span className="text-red-500">*</span>
             </label>
             <input
               type="time"
@@ -98,7 +98,7 @@ export default function Step6Pricing({ data }: Step6Props) {
               className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
             />
             <p className="mt-1 text-xs text-slate-500">
-              Format: HH:mm (24-hour format)
+              Format: SS:dd (24 saat formatı)
             </p>
             {errors.checkInTime && (
               <p className="mt-1 text-sm text-red-600">
@@ -109,7 +109,7 @@ export default function Step6Pricing({ data }: Step6Props) {
 
           <div>
             <label className="block text-sm font-semibold text-slate-700 mb-2">
-              Check-out Time <span className="text-red-500">*</span>
+              Çıkış Saati <span className="text-red-500">*</span>
             </label>
             <input
               type="time"
@@ -117,7 +117,7 @@ export default function Step6Pricing({ data }: Step6Props) {
               className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
             />
             <p className="mt-1 text-xs text-slate-500">
-              Format: HH:mm (24-hour format)
+              Format: SS:dd (24 saat formatı)
             </p>
             {errors.checkOutTime && (
               <p className="mt-1 text-sm text-red-600">
@@ -130,7 +130,7 @@ export default function Step6Pricing({ data }: Step6Props) {
 
       {/* House Policies */}
       <div className="border-2 border-slate-200 rounded-xl p-6">
-        <h3 className="text-lg font-bold text-slate-900 mb-4">House Policies</h3>
+        <h3 className="text-lg font-bold text-slate-900 mb-4">Ev Politikaları</h3>
 
         <div className="space-y-4">
           {/* Smoking */}
@@ -144,10 +144,10 @@ export default function Step6Pricing({ data }: Step6Props) {
                   htmlFor="smokingAllowed"
                   className="font-medium text-slate-900 cursor-pointer"
                 >
-                  Smoking Allowed
+                  Sigara İçilebilir
                 </label>
                 <p className="text-sm text-slate-600">
-                  Allow guests to smoke on the property
+                  Misafirlerin mülkte sigara içmesine izin ver
                 </p>
               </div>
             </div>
@@ -170,10 +170,10 @@ export default function Step6Pricing({ data }: Step6Props) {
                   htmlFor="petsAllowed"
                   className="font-medium text-slate-900 cursor-pointer"
                 >
-                  Pets Allowed
+                  Evcil Hayvan Kabul Edilir
                 </label>
                 <p className="text-sm text-slate-600">
-                  Allow guests to bring pets
+                  Misafirlerin evcil hayvan getirmesine izin ver
                 </p>
               </div>
             </div>
@@ -189,7 +189,7 @@ export default function Step6Pricing({ data }: Step6Props) {
           {watch('policies.petsAllowed') && (
             <div className="ml-14 p-4 bg-white border border-slate-200 rounded-lg">
               <label className="block text-sm font-medium text-slate-700 mb-2">
-                Allowed Pet Types
+                İzin Verilen Evcil Hayvan Türleri
               </label>
               <div className="space-y-2">
                 <label className="flex items-center gap-2">
@@ -199,7 +199,7 @@ export default function Step6Pricing({ data }: Step6Props) {
                     {...register('policies.petTypes')}
                     className="w-4 h-4 text-blue-600 rounded"
                   />
-                  <span className="text-sm text-slate-700">Dogs</span>
+                  <span className="text-sm text-slate-700">Köpekler</span>
                 </label>
                 <label className="flex items-center gap-2">
                   <input
@@ -208,7 +208,7 @@ export default function Step6Pricing({ data }: Step6Props) {
                     {...register('policies.petTypes')}
                     className="w-4 h-4 text-blue-600 rounded"
                   />
-                  <span className="text-sm text-slate-700">Cats</span>
+                  <span className="text-sm text-slate-700">Kediler</span>
                 </label>
                 <label className="flex items-center gap-2">
                   <input
@@ -217,7 +217,7 @@ export default function Step6Pricing({ data }: Step6Props) {
                     {...register('policies.petTypes')}
                     className="w-4 h-4 text-blue-600 rounded"
                   />
-                  <span className="text-sm text-slate-700">Other small pets</span>
+                  <span className="text-sm text-slate-700">Diğer küçük evcil hayvanlar</span>
                 </label>
               </div>
             </div>
@@ -234,10 +234,10 @@ export default function Step6Pricing({ data }: Step6Props) {
                   htmlFor="eventsAllowed"
                   className="font-medium text-slate-900 cursor-pointer"
                 >
-                  Events Allowed
+                  Etkinliklere İzin Verilir
                 </label>
                 <p className="text-sm text-slate-600">
-                  Allow guests to host events or gatherings
+                  Misafirlerin etkinlik veya toplantı düzenlemesine izin ver
                 </p>
               </div>
             </div>
@@ -260,10 +260,10 @@ export default function Step6Pricing({ data }: Step6Props) {
                   htmlFor="partiesAllowed"
                   className="font-medium text-slate-900 cursor-pointer"
                 >
-                  Parties Allowed
+                  Partilere İzin Verilir
                 </label>
                 <p className="text-sm text-slate-600">
-                  Allow guests to host parties
+                  Misafirlerin parti düzenlemesine izin ver
                 </p>
               </div>
             </div>
@@ -286,10 +286,10 @@ export default function Step6Pricing({ data }: Step6Props) {
                   htmlFor="commercialPhotographyAllowed"
                   className="font-medium text-slate-900 cursor-pointer"
                 >
-                  Commercial Photography Allowed
+                  Ticari Fotoğrafçılığa İzin Verilir
                 </label>
                 <p className="text-sm text-slate-600">
-                  Allow professional photo/video shoots
+                  Profesyonel fotoğraf/video çekimlerine izin ver
                 </p>
               </div>
             </div>
@@ -306,10 +306,10 @@ export default function Step6Pricing({ data }: Step6Props) {
       {/* Custom Rules */}
       <div className="border-2 border-slate-200 rounded-xl p-6">
         <h3 className="text-lg font-bold text-slate-900 mb-4">
-          Additional House Rules
+          Ek Ev Kuralları
         </h3>
         <p className="text-sm text-slate-600 mb-4">
-          Add custom rules specific to your property (max 5)
+          Mülkünüze özel kurallar ekleyin (maksimum 5)
         </p>
 
         <div className="space-y-3 mb-4">
@@ -338,7 +338,7 @@ export default function Step6Pricing({ data }: Step6Props) {
             onKeyPress={(e) =>
               e.key === 'Enter' && (e.preventDefault(), addCustomRule())
             }
-            placeholder="e.g., No loud music after 10 PM"
+            placeholder="örn., Saat 22:00'den sonra yüksek sesle müzik yasaktır"
             maxLength={200}
             className="flex-1 px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
           />
@@ -349,7 +349,7 @@ export default function Step6Pricing({ data }: Step6Props) {
             className="px-6 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all flex items-center gap-2"
           >
             <Plus className="w-5 h-5" />
-            Add
+            Ekle
           </button>
         </div>
 
@@ -362,10 +362,10 @@ export default function Step6Pricing({ data }: Step6Props) {
           <div className="p-2 bg-red-100 rounded-lg">
             <Shield className="w-5 h-5 text-red-600" />
           </div>
-          <h3 className="text-lg font-bold text-slate-900">Cancellation Policy</h3>
+          <h3 className="text-lg font-bold text-slate-900">İptal Politikası</h3>
         </div>
         <p className="text-sm text-slate-600 mb-4">
-          Choose how flexible you want to be with cancellations
+          İptallerde ne kadar esnek olmak istediğinizi seçin
         </p>
 
         <div className="space-y-3">
@@ -431,12 +431,12 @@ export default function Step6Pricing({ data }: Step6Props) {
 
       {/* Info Box */}
       <div className="p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
-        <h4 className="font-semibold text-yellow-900 mb-2">House Rules Tips:</h4>
+        <h4 className="font-semibold text-yellow-900 mb-2">Ev Kuralları İpuçları:</h4>
         <ul className="text-sm text-yellow-800 space-y-1">
-          <li>• Clear rules help set proper expectations for guests</li>
-          <li>• Stricter cancellation policies may reduce bookings but protect revenue</li>
-          <li>• Consider your neighborhood and local regulations</li>
-          <li>• Pet-friendly properties often attract longer stays</li>
+          <li>• Net kurallar, misafirler için uygun beklentiler belirlemeye yardımcı olur</li>
+          <li>• Daha sıkı iptal politikaları rezervasyonları azaltabilir ancak geliri korur</li>
+          <li>• Mahallenizi ve yerel düzenlemeleri göz önünde bulundurun</li>
+          <li>• Evcil hayvan dostu mülkler genellikle daha uzun konaklamaları çeker</li>
         </ul>
       </div>
     </div>
