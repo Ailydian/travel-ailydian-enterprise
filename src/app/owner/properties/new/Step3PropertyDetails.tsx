@@ -22,94 +22,94 @@ interface Step3Props {
 
 const amenityCategories = {
   basic: {
-    title: 'Basic Amenities',
+    title: 'Temel Olanaklar',
     icon: Wifi,
     items: [
       'WiFi',
-      'Air Conditioning',
-      'Heating',
-      'Parking',
+      'Klima',
+      'Isıtma',
+      'Otopark',
       'TV',
-      'Kitchen',
-      'Washer',
-      'Dryer',
-      'Dishwasher',
-      'Refrigerator',
-      'Oven',
+      'Mutfak',
+      'Çamaşır Makinesi',
+      'Kurutma Makinesi',
+      'Bulaşık Makinesi',
+      'Buzdolabı',
+      'Fırın',
     ],
   },
   bathroom: {
-    title: 'Bathroom',
+    title: 'Banyo',
     icon: Bed,
     items: [
-      'Shower',
-      'Bathtub',
-      'Hair Dryer',
-      'Towels',
-      'Toiletries',
-      'Hot Water',
-      'Bidet',
+      'Duş',
+      'Küvet',
+      'Saç Kurutma Makinesi',
+      'Havlular',
+      'Banyo Malzemeleri',
+      'Sıcak Su',
+      'Bide',
     ],
   },
   kitchen: {
-    title: 'Kitchen & Dining',
+    title: 'Mutfak ve Yemek',
     icon: Utensils,
     items: [
-      'Stove',
-      'Oven',
-      'Microwave',
-      'Refrigerator',
-      'Dishwasher',
-      'Coffee Maker',
-      'Kettle',
-      'Toaster',
-      'Dining Table',
-      'Dishes & Silverware',
-      'Wine Glasses',
+      'Ocak',
+      'Fırın',
+      'Mikrodalga',
+      'Buzdolabı',
+      'Bulaşık Makinesi',
+      'Kahve Makinesi',
+      'Su Isıtıcısı',
+      'Ekmek Kızartma Makinesi',
+      'Yemek Masası',
+      'Tabak ve Çatal Bıçak Takımı',
+      'Şarap Kadehleri',
     ],
   },
   entertainment: {
-    title: 'Entertainment',
+    title: 'Eğlence',
     icon: Tv,
     items: [
       'TV',
-      'Cable/Satellite',
-      'Streaming Services',
+      'Kablo/Uydu',
+      'Yayın Hizmetleri',
       'Netflix',
-      'Board Games',
-      'Books',
-      'Music System',
-      'Game Console',
+      'Masa Oyunları',
+      'Kitaplar',
+      'Müzik Sistemi',
+      'Oyun Konsolu',
     ],
   },
   outdoor: {
-    title: 'Outdoor',
+    title: 'Açık Hava',
     icon: Wind,
     items: [
-      'Balcony',
-      'Terrace',
-      'Garden',
-      'BBQ Grill',
-      'Pool',
-      'Hot Tub/Jacuzzi',
+      'Balkon',
+      'Teras',
+      'Bahçe',
+      'Mangal',
+      'Havuz',
+      'Jakuzi',
       'Sauna',
-      'Outdoor Furniture',
-      'Beach Access',
-      'Lake Access',
+      'Bahçe Mobilyaları',
+      'Plaj Erişimi',
+      'Göl Erişimi',
     ],
   },
   safety: {
-    title: 'Safety & Security',
+    title: 'Güvenlik',
     icon: Shield,
     items: [
-      'Smoke Detector',
-      'Carbon Monoxide Detector',
-      'Fire Extinguisher',
-      'First Aid Kit',
-      'Security Cameras',
-      'Door Lock',
-      'Safe',
-      'Emergency Exit',
+      'Duman Dedektörü',
+      'Karbonmonoksit Dedektörü',
+      'Yangın Söndürücü',
+      'İlk Yardım Çantası',
+      'Güvenlik Kameraları',
+      'Kapı Kilidi',
+      'Kasa',
+      'Acil Çıkış',
     ],
   },
 };
@@ -175,7 +175,7 @@ export default function Step3PropertyDetails({ data }: Step3Props) {
           type="text"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          placeholder="Search amenities..."
+          placeholder="Olanakları ara..."
           className="w-full pl-12 pr-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
         />
         {searchQuery && (
@@ -192,10 +192,10 @@ export default function Step3PropertyDetails({ data }: Step3Props) {
       {/* Selected Count */}
       <div className="flex items-center justify-between p-4 bg-blue-50 border border-blue-200 rounded-lg">
         <span className="text-sm font-medium text-blue-900">
-          {selectedAmenities.length + customAmenities.length} amenities selected
+          {selectedAmenities.length + customAmenities.length} olanak seçildi
         </span>
         {selectedAmenities.length === 0 && (
-          <span className="text-sm text-red-600">Select at least one amenity</span>
+          <span className="text-sm text-red-600">En az bir olanak seçin</span>
         )}
       </div>
 
@@ -274,9 +274,9 @@ export default function Step3PropertyDetails({ data }: Step3Props) {
 
       {/* Custom Amenities */}
       <div className="border-2 border-slate-200 rounded-xl p-6">
-        <h3 className="text-lg font-bold text-slate-900 mb-4">Custom Amenities</h3>
+        <h3 className="text-lg font-bold text-slate-900 mb-4">Özel Olanaklar</h3>
         <p className="text-sm text-slate-600 mb-4">
-          Add any unique amenities not listed above (max 10)
+          Yukarıda listelenmeyen benzersiz olanakları ekleyin (maksimum 10)
         </p>
 
         <div className="flex gap-3 mb-4">
@@ -285,7 +285,7 @@ export default function Step3PropertyDetails({ data }: Step3Props) {
             value={customAmenity}
             onChange={(e) => setCustomAmenity(e.target.value)}
             onKeyPress={(e) => e.key === 'Enter' && (e.preventDefault(), addCustomAmenity())}
-            placeholder="e.g., Espresso Machine, Piano, etc."
+            placeholder="örn., Espresso Makinesi, Piyano, vb."
             maxLength={100}
             className="flex-1 px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
           />
@@ -295,7 +295,7 @@ export default function Step3PropertyDetails({ data }: Step3Props) {
             disabled={!customAmenity.trim() || customAmenities.length >= 10}
             className="px-6 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
           >
-            Add
+            Ekle
           </button>
         </div>
 
@@ -328,16 +328,16 @@ export default function Step3PropertyDetails({ data }: Step3Props) {
 
       {/* Property Features Toggles */}
       <div className="border-2 border-slate-200 rounded-xl p-6">
-        <h3 className="text-lg font-bold text-slate-900 mb-4">Advanced Features</h3>
+        <h3 className="text-lg font-bold text-slate-900 mb-4">Gelişmiş Özellikler</h3>
 
         <div className="space-y-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="flex items-center justify-between p-4 bg-slate-50 rounded-lg">
               <div>
                 <label htmlFor="hasWifi" className="font-medium text-slate-900">
-                  WiFi Available
+                  WiFi Mevcut
                 </label>
-                <p className="text-sm text-slate-600">High-speed internet</p>
+                <p className="text-sm text-slate-600">Yüksek hızlı internet</p>
               </div>
               <input
                 type="checkbox"
@@ -350,12 +350,12 @@ export default function Step3PropertyDetails({ data }: Step3Props) {
             {watch('features.hasWifi') && (
               <div>
                 <label className="block text-sm font-medium text-slate-700 mb-2">
-                  WiFi Speed (optional)
+                  WiFi Hızı (isteğe bağlı)
                 </label>
                 <input
                   type="text"
                   {...register('features.wifiSpeed')}
-                  placeholder="e.g., 100 Mbps"
+                  placeholder="örn., 100 Mbps"
                   className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
                 />
               </div>
@@ -364,9 +364,9 @@ export default function Step3PropertyDetails({ data }: Step3Props) {
             <div className="flex items-center justify-between p-4 bg-slate-50 rounded-lg">
               <div>
                 <label htmlFor="hasParking" className="font-medium text-slate-900">
-                  Parking
+                  Otopark
                 </label>
-                <p className="text-sm text-slate-600">On-site parking</p>
+                <p className="text-sm text-slate-600">Yerinde otopark</p>
               </div>
               <input
                 type="checkbox"
@@ -379,15 +379,15 @@ export default function Step3PropertyDetails({ data }: Step3Props) {
             {watch('features.hasParking') && (
               <div>
                 <label className="block text-sm font-medium text-slate-700 mb-2">
-                  Parking Type
+                  Otopark Tipi
                 </label>
                 <select
                   {...register('features.parkingType')}
                   className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all bg-white"
                 >
-                  <option value="free">Free Parking</option>
-                  <option value="paid">Paid Parking</option>
-                  <option value="valet">Valet Parking</option>
+                  <option value="free">Ücretsiz Otopark</option>
+                  <option value="paid">Ücretli Otopark</option>
+                  <option value="valet">Vale Hizmeti</option>
                 </select>
               </div>
             )}
@@ -397,9 +397,9 @@ export default function Step3PropertyDetails({ data }: Step3Props) {
 
       {/* Safety Features */}
       <div className="border-2 border-slate-200 rounded-xl p-6">
-        <h3 className="text-lg font-bold text-slate-900 mb-4">Safety Features</h3>
+        <h3 className="text-lg font-bold text-slate-900 mb-4">Güvenlik Özellikleri</h3>
         <p className="text-sm text-slate-600 mb-4">
-          These features help guests feel safe and secure
+          Bu özellikler misafirlerin kendilerini güvende hissetmesine yardımcı olur
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -411,7 +411,7 @@ export default function Step3PropertyDetails({ data }: Step3Props) {
               className="w-5 h-5 text-blue-600 rounded focus:ring-2 focus:ring-blue-500"
             />
             <label htmlFor="hasSmokeDetector" className="font-medium text-slate-700">
-              Smoke Detector
+              Duman Dedektörü
             </label>
           </div>
 
@@ -423,7 +423,7 @@ export default function Step3PropertyDetails({ data }: Step3Props) {
               className="w-5 h-5 text-blue-600 rounded focus:ring-2 focus:ring-blue-500"
             />
             <label htmlFor="hasCO2Detector" className="font-medium text-slate-700">
-              Carbon Monoxide Detector
+              Karbonmonoksit Dedektörü
             </label>
           </div>
 
@@ -435,7 +435,7 @@ export default function Step3PropertyDetails({ data }: Step3Props) {
               className="w-5 h-5 text-blue-600 rounded focus:ring-2 focus:ring-blue-500"
             />
             <label htmlFor="hasFirstAidKit" className="font-medium text-slate-700">
-              First Aid Kit
+              İlk Yardım Çantası
             </label>
           </div>
 
@@ -447,7 +447,7 @@ export default function Step3PropertyDetails({ data }: Step3Props) {
               className="w-5 h-5 text-blue-600 rounded focus:ring-2 focus:ring-blue-500"
             />
             <label htmlFor="hasLock" className="font-medium text-slate-700">
-              Door Lock
+              Kapı Kilidi
             </label>
           </div>
         </div>
@@ -455,12 +455,12 @@ export default function Step3PropertyDetails({ data }: Step3Props) {
 
       {/* Info Box */}
       <div className="p-4 bg-green-50 border border-green-200 rounded-lg">
-        <h4 className="font-semibold text-green-900 mb-2">Amenity Tips:</h4>
+        <h4 className="font-semibold text-green-900 mb-2">Olanak İpuçları:</h4>
         <ul className="text-sm text-green-800 space-y-1">
-          <li>• List all available amenities to attract more guests</li>
-          <li>• Highlight unique features that set your property apart</li>
-          <li>• Ensure safety features are accurate and functional</li>
-          <li>• Custom amenities can showcase special touches</li>
+          <li>• Daha fazla misafir çekmek için mevcut tüm olanakları listeleyin</li>
+          <li>• Mülkünüzü farklı kılan benzersiz özellikleri vurgulayın</li>
+          <li>• Güvenlik özelliklerinin doğru ve işlevsel olduğundan emin olun</li>
+          <li>• Özel olanaklar, özel dokunuşları sergileyebilir</li>
         </ul>
       </div>
     </div>

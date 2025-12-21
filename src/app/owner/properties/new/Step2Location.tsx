@@ -81,12 +81,12 @@ export default function Step2Location({ data }: Step2Props) {
         },
         (error) => {
           console.error('Error getting location:', error);
-          alert('Unable to get your location. Please enter coordinates manually.');
+          alert('Konumunuz alınamadı. Lütfen koordinatları manuel olarak girin.');
           setIsLocating(false);
         }
       );
     } else {
-      alert('Geolocation is not supported by your browser');
+      alert('Coğrafi konum tarayıcınız tarafından desteklenmiyor');
       setIsLocating(false);
     }
   };
@@ -96,13 +96,13 @@ export default function Step2Location({ data }: Step2Props) {
       {/* Country */}
       <div>
         <label className="block text-sm font-semibold text-slate-700 mb-2">
-          Country <span className="text-red-500">*</span>
+          Ülke <span className="text-red-500">*</span>
         </label>
         <select
           {...register('country')}
           className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all bg-white"
         >
-          <option value="">Select a country</option>
+          <option value="">Ülke seçin</option>
           {countries.map((country) => (
             <option key={country} value={country}>
               {country}
@@ -120,12 +120,12 @@ export default function Step2Location({ data }: Step2Props) {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
           <label className="block text-sm font-semibold text-slate-700 mb-2">
-            Province/State <span className="text-red-500">*</span>
+            İl/Eyalet <span className="text-red-500">*</span>
           </label>
           <input
             type="text"
             {...register('province')}
-            placeholder="e.g., California"
+            placeholder="örn., İstanbul"
             className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
           />
           {errors.province && (
@@ -137,12 +137,12 @@ export default function Step2Location({ data }: Step2Props) {
 
         <div>
           <label className="block text-sm font-semibold text-slate-700 mb-2">
-            City <span className="text-red-500">*</span>
+            Şehir <span className="text-red-500">*</span>
           </label>
           <input
             type="text"
             {...register('city')}
-            placeholder="e.g., San Francisco"
+            placeholder="örn., Kadıköy"
             className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
           />
           {errors.city && (
@@ -155,12 +155,12 @@ export default function Step2Location({ data }: Step2Props) {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
           <label className="block text-sm font-semibold text-slate-700 mb-2">
-            District/Neighborhood <span className="text-red-500">*</span>
+            İlçe/Mahalle <span className="text-red-500">*</span>
           </label>
           <input
             type="text"
             {...register('district')}
-            placeholder="e.g., Downtown"
+            placeholder="örn., Moda"
             className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
           />
           {errors.district && (
@@ -172,12 +172,12 @@ export default function Step2Location({ data }: Step2Props) {
 
         <div>
           <label className="block text-sm font-semibold text-slate-700 mb-2">
-            Postal Code <span className="text-red-500">*</span>
+            Posta Kodu <span className="text-red-500">*</span>
           </label>
           <input
             type="text"
             {...register('postalCode')}
-            placeholder="e.g., 94102"
+            placeholder="örn., 34710"
             className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
           />
           {errors.postalCode && (
@@ -191,12 +191,12 @@ export default function Step2Location({ data }: Step2Props) {
       {/* Street Address */}
       <div>
         <label className="block text-sm font-semibold text-slate-700 mb-2">
-          Street Address <span className="text-red-500">*</span>
+          Sokak Adresi <span className="text-red-500">*</span>
         </label>
         <input
           type="text"
           {...register('address')}
-          placeholder="e.g., 123 Main Street, Apt 4B"
+          placeholder="örn., Bağdat Caddesi No:123, Daire 4B"
           className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
         />
         {errors.address && (
@@ -209,7 +209,7 @@ export default function Step2Location({ data }: Step2Props) {
       {/* Timezone */}
       <div>
         <label className="block text-sm font-semibold text-slate-700 mb-2">
-          Timezone <span className="text-red-500">*</span>
+          Saat Dilimi <span className="text-red-500">*</span>
         </label>
         <div className="relative">
           <Globe className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
@@ -217,7 +217,7 @@ export default function Step2Location({ data }: Step2Props) {
             {...register('timezone')}
             className="w-full pl-12 pr-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all bg-white"
           >
-            <option value="">Select timezone</option>
+            <option value="">Saat dilimi seçin</option>
             {timezones.map((tz) => (
               <option key={tz} value={tz}>
                 {tz.replace(/_/g, ' ')}
@@ -236,7 +236,7 @@ export default function Step2Location({ data }: Step2Props) {
       <div>
         <div className="flex items-center justify-between mb-2">
           <label className="block text-sm font-semibold text-slate-700">
-            GPS Coordinates <span className="text-red-500">*</span>
+            GPS Koordinatları <span className="text-red-500">*</span>
           </label>
           <button
             type="button"
@@ -245,20 +245,20 @@ export default function Step2Location({ data }: Step2Props) {
             className="flex items-center gap-2 px-4 py-2 text-sm bg-blue-50 text-blue-600 rounded-lg hover:bg-blue-100 transition-all disabled:opacity-50"
           >
             <Navigation className="w-4 h-4" />
-            {isLocating ? 'Getting location...' : 'Use Current Location'}
+            {isLocating ? 'Konum alınıyor...' : 'Mevcut Konumu Kullan'}
           </button>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
             <label className="block text-xs font-medium text-slate-600 mb-1">
-              Latitude
+              Enlem
             </label>
             <input
               type="number"
               step="0.000001"
               {...register('coordinates.latitude', { valueAsNumber: true })}
-              placeholder="37.7749"
+              placeholder="41.0082"
               className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
             />
             {errors.coordinates?.latitude && (
@@ -270,13 +270,13 @@ export default function Step2Location({ data }: Step2Props) {
 
           <div>
             <label className="block text-xs font-medium text-slate-600 mb-1">
-              Longitude
+              Boylam
             </label>
             <input
               type="number"
               step="0.000001"
               {...register('coordinates.longitude', { valueAsNumber: true })}
-              placeholder="-122.4194"
+              placeholder="28.9784"
               className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
             />
             {errors.coordinates?.longitude && (
@@ -294,7 +294,7 @@ export default function Step2Location({ data }: Step2Props) {
           <div className="bg-slate-100 p-4 border-b border-slate-200">
             <div className="flex items-center gap-2 text-slate-700">
               <MapPin className="w-5 h-5" />
-              <span className="font-semibold">Location Preview</span>
+              <span className="font-semibold">Konum Önizlemesi</span>
             </div>
           </div>
           <div className="aspect-video bg-slate-200 relative">
@@ -305,23 +305,23 @@ export default function Step2Location({ data }: Step2Props) {
                 <p className="text-slate-700 font-medium">
                   {latitude.toFixed(6)}, {longitude.toFixed(6)}
                 </p>
-                <p className="text-sm text-slate-600 mt-1">{address || 'Location'}</p>
+                <p className="text-sm text-slate-600 mt-1">{address || 'Konum'}</p>
               </div>
             </div>
           </div>
           <div className="bg-slate-50 p-3 text-xs text-slate-600">
-            Note: Interactive map will be displayed here with actual integration
+            Not: Gerçek entegrasyon ile etkileşimli harita burada görüntülenecektir
           </div>
         </div>
       )}
 
       {/* Bedroom Configuration */}
       <div className="border-t-2 border-slate-200 pt-8">
-        <h3 className="text-lg font-bold text-slate-900 mb-4">Bedroom Configuration</h3>
+        <h3 className="text-lg font-bold text-slate-900 mb-4">Yatak Odası Yapılandırması</h3>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           <div>
             <label className="block text-sm font-medium text-slate-700 mb-2">
-              Queen Beds
+              Çift Kişilik Yataklar
             </label>
             <input
               type="number"
@@ -335,7 +335,7 @@ export default function Step2Location({ data }: Step2Props) {
 
           <div>
             <label className="block text-sm font-medium text-slate-700 mb-2">
-              Double Beds
+              Çift Kişilik Yataklar (Standart)
             </label>
             <input
               type="number"
@@ -349,7 +349,7 @@ export default function Step2Location({ data }: Step2Props) {
 
           <div>
             <label className="block text-sm font-medium text-slate-700 mb-2">
-              Single Beds
+              Tek Kişilik Yataklar
             </label>
             <input
               type="number"
@@ -363,7 +363,7 @@ export default function Step2Location({ data }: Step2Props) {
 
           <div>
             <label className="block text-sm font-medium text-slate-700 mb-2">
-              Bunk Beds
+              Ranza Yataklar
             </label>
             <input
               type="number"
@@ -384,7 +384,7 @@ export default function Step2Location({ data }: Step2Props) {
 
       {/* Living Areas */}
       <div className="border-t-2 border-slate-200 pt-8">
-        <h3 className="text-lg font-bold text-slate-900 mb-4">Living Areas</h3>
+        <h3 className="text-lg font-bold text-slate-900 mb-4">Yaşam Alanları</h3>
         <div className="space-y-4">
           <div className="flex items-center gap-4">
             <input
@@ -394,22 +394,22 @@ export default function Step2Location({ data }: Step2Props) {
               className="w-5 h-5 text-blue-600 rounded focus:ring-2 focus:ring-blue-500"
             />
             <label htmlFor="hasKitchen" className="font-medium text-slate-700">
-              Has Kitchen
+              Mutfak Var
             </label>
           </div>
 
           {watch('livingAreas.hasKitchen') && (
             <div className="ml-9">
               <label className="block text-sm font-medium text-slate-700 mb-2">
-                Kitchen Type
+                Mutfak Tipi
               </label>
               <select
                 {...register('livingAreas.kitchenType')}
                 className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all bg-white"
               >
-                <option value="full">Full Kitchen</option>
-                <option value="kitchenette">Kitchenette</option>
-                <option value="none">None</option>
+                <option value="full">Tam Mutfak</option>
+                <option value="kitchenette">Mini Mutfak</option>
+                <option value="none">Yok</option>
               </select>
             </div>
           )}
@@ -422,7 +422,7 @@ export default function Step2Location({ data }: Step2Props) {
               className="w-5 h-5 text-blue-600 rounded focus:ring-2 focus:ring-blue-500"
             />
             <label htmlFor="hasLivingRoom" className="font-medium text-slate-700">
-              Has Living Room
+              Oturma Odası Var
             </label>
           </div>
 
@@ -434,7 +434,7 @@ export default function Step2Location({ data }: Step2Props) {
               className="w-5 h-5 text-blue-600 rounded focus:ring-2 focus:ring-blue-500"
             />
             <label htmlFor="hasDiningArea" className="font-medium text-slate-700">
-              Has Dining Area
+              Yemek Alanı Var
             </label>
           </div>
         </div>
@@ -442,12 +442,12 @@ export default function Step2Location({ data }: Step2Props) {
 
       {/* Info Box */}
       <div className="p-4 bg-amber-50 border border-amber-200 rounded-lg">
-        <h4 className="font-semibold text-amber-900 mb-2">Location Tips:</h4>
+        <h4 className="font-semibold text-amber-900 mb-2">Konum İpuçları:</h4>
         <ul className="text-sm text-amber-800 space-y-1">
-          <li>• Accurate GPS coordinates help guests find your property easily</li>
-          <li>• Your exact address won't be shared until booking is confirmed</li>
-          <li>• Specify bed types to help guests understand sleeping arrangements</li>
-          <li>• Include all living areas to showcase your property's full capacity</li>
+          <li>• Doğru GPS koordinatları misafirlerin mülkünüzü kolayca bulmasına yardımcı olur</li>
+          <li>• Tam adresiniz rezervasyon onaylanana kadar paylaşılmayacaktır</li>
+          <li>• Yatak tiplerini belirterek misafirlerin uyku düzenini anlamasına yardımcı olun</li>
+          <li>• Mülkünüzün tam kapasitesini göstermek için tüm yaşam alanlarını ekleyin</li>
         </ul>
       </div>
     </div>
