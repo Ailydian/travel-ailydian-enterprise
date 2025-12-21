@@ -38,6 +38,16 @@ import Step5Photos from '@/app/owner/properties/new/Step5Photos';
 import Step6Pricing from '@/app/owner/properties/new/Step6Pricing';
 import Step7HouseRules from '@/app/owner/properties/new/Step7HouseRules';
 import Step8Review from '@/app/owner/properties/new/Step8Review';
+import { useTranslation } from 'next-i18next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+
+export async function getStaticProps({ locale }: any) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale ?? 'tr', ['owner', 'common'])),
+    },
+  };
+}
 
 const TOTAL_STEPS = 8;
 const LOCAL_STORAGE_KEY = 'property-submission-draft';
@@ -65,29 +75,30 @@ const stepSchemas = [
   Step8Schema,
 ];
 
-const stepTitles = [
-  'Property Type & Basic Info',
-  'Location & Details',
-  'Property Specifics',
-  'Amenities & Features',
-  'Photos & Media',
-  'Pricing & Availability',
-  'House Rules & Policies',
-  'Review & Submit',
-];
-
-const stepDescriptions = [
-  'Tell us about your property type and basic information',
-  'Where is your property located?',
-  'Share details about rooms, beds, and facilities',
-  'What amenities and features does your property offer?',
-  'Upload photos to showcase your property',
-  'Set your pricing and availability preferences',
-  'Define your house rules and cancellation policy',
-  'Review everything and submit your property',
-];
-
 export default function PropertySubmissionWizard() {
+  const { t } = useTranslation('owner');
+
+  const stepTitles = [
+    t('propertySubmission.step1.title'),
+    t('propertySubmission.step2.title'),
+    t('propertySubmission.step3.title'),
+    t('propertySubmission.step4.title'),
+    t('propertySubmission.step5.title'),
+    t('propertySubmission.step6.title'),
+    t('propertySubmission.step7.title'),
+    t('propertySubmission.step8.title'),
+  ];
+
+  const stepDescriptions = [
+    t('propertySubmission.step1.subtitle'),
+    t('propertySubmission.step2.subtitle'),
+    t('propertySubmission.step3.subtitle'),
+    t('propertySubmission.step4.subtitle'),
+    t('propertySubmission.step5.subtitle'),
+    t('propertySubmission.step6.subtitle'),
+    t('propertySubmission.step7.subtitle'),
+    t('propertySubmission.step8.subtitle'),
+  ];
   const [currentStep, setCurrentStep] = useState(1);
   const [completedSteps, setCompletedSteps] = useState<number[]>([]);
   const [isSubmitting, setIsSubmitting] = useState(false);
