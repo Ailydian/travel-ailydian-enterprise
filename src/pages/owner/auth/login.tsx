@@ -7,12 +7,16 @@ import {
   EyeOff,
   Home,
   ArrowRight,
-  CheckCircle2
+  CheckCircle2,
+  AlertCircle
 } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
+import { authenticateOwner } from '@/data/mockOwnerAuth';
 
 export default function OwnerLoginPage() {
+  const router = useRouter();
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -20,7 +24,8 @@ export default function OwnerLoginPage() {
   });
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const [errors, setErrors] = useState<{ email?: string; password?: string }>({});
+  const [errors, setErrors] = useState<{ email?: string; password?: string; general?: string }>({});
+  const [successMessage, setSuccessMessage] = useState('');
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value, type, checked } = e.target;
@@ -59,14 +64,41 @@ export default function OwnerLoginPage() {
     if (!validateForm()) return;
 
     setIsLoading(true);
+    setErrors({});
 
-    // Simulate API call
+    // Simulate API call delay
     setTimeout(() => {
-      console.log('Login data:', formData);
-      setIsLoading(false);
-      // Redirect to owner dashboard
-      window.location.href = '/owner/dashboard';
-    }, 2000);
+      // Mock authentication
+      const owner = authenticateOwner(formData.email, formData.password);
+
+      if (owner) {
+        // Başarılı giriş
+        setSuccessMessage('Giriş başarılı! Yönlendiriliyorsunuz...');
+
+        // LocalStorage'a kullanıcı bilgilerini kaydet
+        localStorage.setItem('ownerAuth', JSON.stringify({
+          id: owner.id,
+          email: owner.email,
+          fullName: owner.fullName,
+          phone: owner.phone,
+          propertyType: owner.propertyType,
+          propertyCount: owner.propertyCount,
+          status: owner.status,
+          rememberMe: formData.rememberMe
+        }));
+
+        // Dashboard'a yönlendir
+        setTimeout(() => {
+          router.push('/owner');
+        }, 1500);
+      } else {
+        // Hatalı giriş
+        setErrors({
+          general: 'E-posta veya şifre hatalı. Lütfen tekrar deneyin.'
+        });
+        setIsLoading(false);
+      }
+    }, 1500);
   };
 
   const benefits = [
@@ -180,6 +212,30 @@ export default function OwnerLoginPage() {
 
             {/* Login Form */}
             <form onSubmit={handleSubmit} className="space-y-6">
+              {/* Error Message */}
+              {errors.general && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="flex items-center gap-3 p-4 bg-red-50 border border-red-200 rounded-lg"
+                >
+                  <AlertCircle className="w-5 h-5 text-red-500 flex-shrink-0" />
+                  <p className="text-sm text-red-700">{errors.general}</p>
+                </motion.div>
+              )}
+
+              {/* Success Message */}
+              {successMessage && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="flex items-center gap-3 p-4 bg-green-50 border border-green-200 rounded-lg"
+                >
+                  <CheckCircle2 className="w-5 h-5 text-green-500 flex-shrink-0" />
+                  <p className="text-sm text-green-700">{successMessage}</p>
+                </motion.div>
+              )}
+
               {/* Email Field */}
               <div>
                 <label htmlFor="email" className="block text-sm font-medium text-gray-900 mb-2">
