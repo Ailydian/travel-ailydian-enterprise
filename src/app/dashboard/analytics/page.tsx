@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState } from 'react';
-import DashboardShell from '@/components/dashboard/DashboardShell';
 import { useAnalyticsOverview, useRevenueAnalytics } from '@/hooks/useDashboardHooks';
 import {
   Eye,
@@ -296,7 +295,10 @@ const AnalyticsPage: React.FC = () => {
 
   if (isLoading) {
     return (
-      <DashboardShell title="Analytics" breadcrumbs={[{ label: 'Dashboard' }, { label: 'Analytics' }]}>
+      <div className="space-y-6">
+        <h1 className="text-3xl font-black neon-text-strong mb-6" style={{ color: 'var(--tx-1)' }}>
+          Analytics
+        </h1>
         <div className="animate-pulse space-y-4">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[1, 2, 3, 4].map((i) => (
@@ -305,12 +307,15 @@ const AnalyticsPage: React.FC = () => {
           </div>
           <div className="h-96 bg-gray-200 rounded-xl"></div>
         </div>
-      </DashboardShell>
+      </div>
     );
   }
 
   return (
-    <DashboardShell title="Analytics" breadcrumbs={[{ label: 'Dashboard' }, { label: 'Analytics' }]}>
+    <div className="space-y-6">
+      <h1 className="text-3xl font-black neon-text-strong mb-6" style={{ color: 'var(--tx-1)' }}>
+        Analytics
+      </h1>
       <DateRangePicker />
 
       {/* Key Metrics */}
@@ -424,7 +429,7 @@ const AnalyticsPage: React.FC = () => {
 
       {/* Property Performance Table */}
       <PropertyPerformanceTable properties={propertyPerformanceData} />
-    </DashboardShell>
+    </div>
   );
 };
 

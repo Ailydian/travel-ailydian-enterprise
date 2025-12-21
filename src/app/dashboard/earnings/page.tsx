@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState } from 'react';
-import DashboardShell from '@/components/dashboard/DashboardShell';
 import { useEarningRecords, usePayoutHistory, useRequestPayout } from '@/hooks/useDashboardHooks';
 import {
   DollarSign,
@@ -347,7 +346,10 @@ const EarningsPage: React.FC = () => {
 
   if (isLoading) {
     return (
-      <DashboardShell title="Earnings" breadcrumbs={[{ label: 'Dashboard' }, { label: 'Earnings' }]}>
+      <div className="space-y-6">
+        <h1 className="text-3xl font-black neon-text-strong mb-6" style={{ color: 'var(--tx-1)' }}>
+          Earnings
+        </h1>
         <div className="animate-pulse space-y-4">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[1, 2, 3, 4].map((i) => (
@@ -356,12 +358,15 @@ const EarningsPage: React.FC = () => {
           </div>
           <div className="h-96 bg-gray-200 rounded-xl"></div>
         </div>
-      </DashboardShell>
+      </div>
     );
   }
 
   return (
-    <DashboardShell title="Earnings" breadcrumbs={[{ label: 'Dashboard' }, { label: 'Earnings' }]}>
+    <div className="space-y-6">
+      <h1 className="text-3xl font-black neon-text-strong mb-6" style={{ color: 'var(--tx-1)' }}>
+        Earnings
+      </h1>
       {/* Stats Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
         <EarningStatCard
@@ -481,7 +486,7 @@ const EarningsPage: React.FC = () => {
           <TransactionCard key={transaction.id} transaction={transaction} />
         ))}
       </div>
-    </DashboardShell>
+    </div>
   );
 };
 

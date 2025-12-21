@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cache Temizleme</title>
+  <meta charset="utf-8">
+</head>
+<body>
+  <h1>Cache ve Service Worker Temizleniyor...</h1>
+  <p id="status">Lütfen bekleyin...</p>
+  <script>
+    async function clearEverything() {
+      const status = document.getElementById('status');
+
+      // Service Workers'ı kaldır
+      if ('serviceWorker' in navigator) {
+        const registrations = await navigator.serviceWorker.getRegistrations();
+        for (const registration of registrations) {
+          await registration.unregister();
+          status.innerHTML += '<br>✅ Service Worker kaldırıldı';
+        }
+      }
+
+      // Cache'leri temizle
+      if ('caches' in window) {
+        const cacheNames = await caches.keys();
+        for (const cacheName of cacheNames) {
+          await caches.delete(cacheName);
+          status.innerHTML += '<br>✅ Cache temizlendi: ' + cacheName;
+        }
+      }
+
+      // LocalStorage temizle
+      localStorage.clear();
+      status.innerHTML += '<br>✅ LocalStorage temizlendi';
+
+      // SessionStorage temizle
+      sessionStorage.clear();
+      status.innerHTML += '<br>✅ SessionStorage temizlendi';
+
+      status.innerHTML += '<br><br><strong>✅ Tüm cache temizlendi! Sayfayı yenileyebilirsiniz.</strong>';
+
+      // 2 saniye sonra ana sayfaya yönlendir
+      setTimeout(() => {
+        window.location.href = '/dashboard';
+      }, 2000);
+    }
+
+    clearEverything();
+  </script>
+</body>
+</html>

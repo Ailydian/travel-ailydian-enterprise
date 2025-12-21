@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState, useRef, useEffect } from 'react';
-import DashboardShell from '@/components/dashboard/DashboardShell';
 import { useConversations, useMessages, useSendMessage, useMarkAsRead } from '@/hooks/useDashboardHooks';
 import { useMessageStore } from '@/stores/dashboardStore';
 import {
@@ -453,17 +452,23 @@ const MessagesPage: React.FC = () => {
 
   if (isLoading) {
     return (
-      <DashboardShell title="Messages" breadcrumbs={[{ label: 'Dashboard' }, { label: 'Messages' }]}>
+      <div className="space-y-6">
+        <h1 className="text-3xl font-black neon-text-strong mb-6" style={{ color: 'var(--tx-1)' }}>
+          Messages
+        </h1>
         <div className="animate-pulse flex h-[calc(100vh-200px)]">
           <div className="w-1/3 border-r border-gray-200 bg-gray-200"></div>
           <div className="flex-1 bg-gray-100"></div>
         </div>
-      </DashboardShell>
+      </div>
     );
   }
 
   return (
-    <DashboardShell title="Messages" breadcrumbs={[{ label: 'Dashboard' }, { label: 'Messages' }]}>
+    <div className="space-y-6">
+      <h1 className="text-3xl font-black neon-text-strong mb-6" style={{ color: 'var(--tx-1)' }}>
+        Messages
+      </h1>
       <div className="bg-white border border-gray-200 rounded-xl overflow-hidden" style={{ height: 'calc(100vh - 200px)' }}>
         <div className="flex h-full">
           {/* Conversations Sidebar */}
@@ -543,7 +548,7 @@ const MessagesPage: React.FC = () => {
           )}
         </div>
       </div>
-    </DashboardShell>
+    </div>
   );
 };
 

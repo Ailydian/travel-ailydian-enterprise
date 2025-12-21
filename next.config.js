@@ -6,6 +6,9 @@
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Fix workspace root detection issue
+  outputFileTracingRoot: require('path').join(__dirname),
+
   // Strict mode for better SEO
   reactStrictMode: true,
 

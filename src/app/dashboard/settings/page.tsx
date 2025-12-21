@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState } from 'react';
-import DashboardShell from '@/components/dashboard/DashboardShell';
 import {
   useProfileSettings,
   useUpdateProfileSettings,
@@ -539,7 +538,10 @@ const SettingsPage: React.FC = () => {
   ];
 
   return (
-    <DashboardShell title="Settings" breadcrumbs={[{ label: 'Dashboard' }, { label: 'Settings' }]}>
+    <div className="space-y-6">
+      <h1 className="text-3xl font-black neon-text-strong mb-6" style={{ color: 'var(--tx-1)' }}>
+        Settings
+      </h1>
       <div className="flex flex-col lg:flex-row gap-6">
         {/* Tabs Sidebar */}
         <div className="lg:w-64 flex-shrink-0">
@@ -567,7 +569,7 @@ const SettingsPage: React.FC = () => {
           {activeTab === 'security' && <SecurityTab />}
         </div>
       </div>
-    </DashboardShell>
+    </div>
   );
 };
 

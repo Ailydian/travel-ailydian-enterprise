@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState } from 'react';
-import DashboardShell from '@/components/dashboard/DashboardShell';
 import { useProperties, usePropertyCalendar, useBlockDates } from '@/hooks/useDashboardHooks';
 import {
   ChevronLeft,
@@ -398,17 +397,23 @@ const CalendarPage: React.FC = () => {
 
   if (propertiesLoading) {
     return (
-      <DashboardShell title="Calendar" breadcrumbs={[{ label: 'Dashboard' }, { label: 'Calendar' }]}>
+      <div className="space-y-6">
+        <h1 className="text-3xl font-black neon-text-strong mb-6" style={{ color: 'var(--tx-1)' }}>
+          Calendar
+        </h1>
         <div className="animate-pulse space-y-4">
           <div className="h-20 bg-gray-200 rounded-xl"></div>
           <div className="h-96 bg-gray-200 rounded-xl"></div>
         </div>
-      </DashboardShell>
+      </div>
     );
   }
 
   return (
-    <DashboardShell title="Calendar" breadcrumbs={[{ label: 'Dashboard' }, { label: 'Calendar' }]}>
+    <div className="space-y-6">
+      <h1 className="text-3xl font-black neon-text-strong mb-6" style={{ color: 'var(--tx-1)' }}>
+        Calendar
+      </h1>
       <PropertySelector
         properties={displayProperties}
         selectedPropertyId={selectedPropertyId}
@@ -481,7 +486,7 @@ const CalendarPage: React.FC = () => {
         onClose={() => setIsModalOpen(false)}
         onSave={handleSaveEdit}
       />
-    </DashboardShell>
+    </div>
   );
 };
 

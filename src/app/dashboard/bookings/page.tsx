@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState } from 'react';
-import DashboardShell from '@/components/dashboard/DashboardShell';
 import { useBookings, useApproveBooking, useRejectBooking, useCancelBooking } from '@/hooks/useDashboardHooks';
 import { useBookingStore } from '@/stores/dashboardStore';
 import type { BookingStatus } from '@/types/dashboard.types';
@@ -414,7 +413,10 @@ const BookingsPage: React.FC = () => {
 
   if (error) {
     return (
-      <DashboardShell title="Bookings" breadcrumbs={[{ label: 'Dashboard' }, { label: 'Bookings' }]}>
+      <div className="space-y-6">
+        <h1 className="text-3xl font-black neon-text-strong mb-6" style={{ color: 'var(--tx-1)' }}>
+          Bookings
+        </h1>
         <div className="bg-red-50 border border-red-200 rounded-xl p-8 text-center">
           <AlertCircle className="w-12 h-12 text-red-500 mx-auto mb-4" />
           <h3 className="text-lg font-semibold text-red-900 mb-2">Error Loading Bookings</h3>
@@ -426,23 +428,29 @@ const BookingsPage: React.FC = () => {
             Retry
           </button>
         </div>
-      </DashboardShell>
+      </div>
     );
   }
 
   if (isLoading) {
     return (
-      <DashboardShell title="Bookings" breadcrumbs={[{ label: 'Dashboard' }, { label: 'Bookings' }]}>
+      <div className="space-y-6">
+        <h1 className="text-3xl font-black neon-text-strong mb-6" style={{ color: 'var(--tx-1)' }}>
+          Bookings
+        </h1>
         <div className="animate-pulse space-y-4">
           <div className="h-20 bg-gray-200 rounded-xl"></div>
           <div className="h-96 bg-gray-200 rounded-xl"></div>
         </div>
-      </DashboardShell>
+      </div>
     );
   }
 
   return (
-    <DashboardShell title="Bookings" breadcrumbs={[{ label: 'Dashboard' }, { label: 'Bookings' }]}>
+    <div className="space-y-6">
+      <h1 className="text-3xl font-black neon-text-strong mb-6" style={{ color: 'var(--tx-1)' }}>
+        Bookings
+      </h1>
       <FilterBar />
 
       {/* Mobile View - Cards */}
@@ -524,7 +532,7 @@ const BookingsPage: React.FC = () => {
           <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={setCurrentPage} />
         )}
       </div>
-    </DashboardShell>
+    </div>
   );
 };
 
