@@ -11,7 +11,7 @@ interface OptimizedImageProps extends Omit<ImageProps, 'onLoad' | 'onError'> {
 const OptimizedImage: React.FC<OptimizedImageProps> = ({
   src,
   alt,
-  fallbackSrc = '/images/placeholder.jpg',
+  fallbackSrc = 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop',
   showLoadingAnimation = true,
   containerClassName = '',
   className = '',

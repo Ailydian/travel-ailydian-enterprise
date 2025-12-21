@@ -88,7 +88,7 @@ export const marmarisTours: ComprehensiveTour[] = [
       'Snorkeling ekipmanı',
       'Canlı müzik ve animasyon'
     ],
-    images: ['/tours/marmaris-12-islands-1.jpg', '/tours/marmaris-12-islands-2.jpg'],
+    images: ['https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&h=600&fit=crop', 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&h=600&fit=crop'],
     rating: 4.8,
     reviewCount: 342,
     availability: ['Pazartesi', 'Çarşamba', 'Cuma', 'Cumartesi'],
@@ -124,7 +124,7 @@ export const marmarisTours: ComprehensiveTour[] = [
       'Muhteşem manzaralar',
       'Su savaşı eğlencesi'
     ],
-    images: ['/tours/marmaris-jeep-safari-1.jpg', '/tours/marmaris-jeep-safari-2.jpg'],
+    images: ['https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=800&h=600&fit=crop', 'https://images.unsplash.com/photo-1472145246862-b24cf25c4a36?w=800&h=600&fit=crop'],
     rating: 4.9,
     reviewCount: 287,
     availability: ['Her gün'],
@@ -160,7 +160,7 @@ export const marmarisTours: ComprehensiveTour[] = [
       'Küçük gruplar',
       'Sertifika imkanı'
     ],
-    images: ['/tours/marmaris-diving-1.jpg', '/tours/marmaris-diving-2.jpg'],
+    images: ['https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&h=600&fit=crop', 'https://images.unsplash.com/photo-1682687982501-1e58ab814714?w=800&h=600&fit=crop'],
     rating: 4.9,
     reviewCount: 203,
     availability: ['Pazartesi', 'Salı', 'Perşembe', 'Cumartesi'],
@@ -196,7 +196,7 @@ export const marmarisTours: ComprehensiveTour[] = [
       'Kral mezarları',
       'Doğal termal kaynaklar'
     ],
-    images: ['/tours/dalyan-mud-bath-1.jpg', '/tours/dalyan-mud-bath-2.jpg'],
+    images: ['https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop', 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&h=600&fit=crop'],
     rating: 4.7,
     reviewCount: 391,
     availability: ['Her gün'],
@@ -232,7 +232,7 @@ export const marmarisTours: ComprehensiveTour[] = [
       'Su savaşı eğlencesi',
       'Fotoğraf hizmeti'
     ],
-    images: ['/tours/marmaris-rafting-1.jpg', '/tours/marmaris-rafting-2.jpg'],
+    images: ['https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=800&h=600&fit=crop', 'https://images.unsplash.com/photo-1527004013197-933c4bb611b3?w=800&h=600&fit=crop'],
     rating: 4.8,
     reviewCount: 276,
     availability: ['Nisan-Ekim arası her gün'],
@@ -268,7 +268,7 @@ export const marmarisTours: ComprehensiveTour[] = [
       'Profesyonel eğitim',
       'Tek/çift kişilik seçenekler'
     ],
-    images: ['/tours/marmaris-atv-1.jpg', '/tours/marmaris-atv-2.jpg'],
+    images: ['https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop', 'https://images.unsplash.com/photo-1612544409025-171c8fab3a73?w=800&h=600&fit=crop'],
     rating: 4.7,
     reviewCount: 312,
     availability: ['Her gün'],
@@ -304,7 +304,7 @@ export const marmarisTours: ComprehensiveTour[] = [
       'Deneyimli masözler',
       'Rahatlatıcı atmosfer'
     ],
-    images: ['/tours/marmaris-hammam-1.jpg', '/tours/marmaris-hammam-2.jpg'],
+    images: ['https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=800&h=600&fit=crop', 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=800&h=600&fit=crop'],
     rating: 4.8,
     reviewCount: 428,
     availability: ['Her gün'],
@@ -340,7 +340,7 @@ export const marmarisTours: ComprehensiveTour[] = [
       'Deneyim gerektirmez',
       'Uçuş sertifikası'
     ],
-    images: ['/tours/marmaris-paragliding-1.jpg', '/tours/marmaris-paragliding-2.jpg'],
+    images: ['https://images.unsplash.com/photo-1512608455489-4e7e2ee8f4b6?w=800&h=600&fit=crop', 'https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=800&h=600&fit=crop'],
     rating: 5.0,
     reviewCount: 189,
     availability: ['Nisan-Ekim (hava durumuna göre)'],
@@ -376,7 +376,7 @@ export const marmarisTours: ComprehensiveTour[] = [
       'Gün batımı manzarası',
       'Aileler için ideal'
     ],
-    images: ['/tours/marmaris-fishing-1.jpg', '/tours/marmaris-fishing-2.jpg'],
+    images: ['https://images.unsplash.com/photo-1534043464124-3be32fe000c9?w=800&h=600&fit=crop', 'https://images.unsplash.com/photo-1545450660-7a0e946d0e83?w=800&h=600&fit=crop'],
     rating: 4.6,
     reviewCount: 167,
     availability: ['Her gün'],
@@ -412,7 +412,7 @@ export const marmarisTours: ComprehensiveTour[] = [
       'Gün batımı seçeneği',
       'Fotoğraf hizmeti'
     ],
-    images: ['/tours/marmaris-horse-riding-1.jpg', '/tours/marmaris-horse-riding-2.jpg'],
+    images: ['https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?w=800&h=600&fit=crop', 'https://images.unsplash.com/photo-1551958219-acbc608c6377?w=800&h=600&fit=crop'],
     rating: 4.7,
     reviewCount: 198,
     availability: ['Her gün'],
@@ -448,7 +448,7 @@ export const marmarisTours: ComprehensiveTour[] = [
       'Snorkeling ekipmanı',
       'Açık büfe öğle yemeği'
     ],
-    images: ['/tours/cleopatra-island-1.jpg', '/tours/cleopatra-island-2.jpg'],
+    images: ['https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&h=600&fit=crop', 'https://images.unsplash.com/photo-1520454974749-611b7248ffdb?w=800&h=600&fit=crop'],
     rating: 4.9,
     reviewCount: 456,
     availability: ['Salı', 'Perşembe', 'Cumartesi'],
@@ -484,7 +484,7 @@ export const marmarisTours: ComprehensiveTour[] = [
       'Öğle yemeği dahil',
       'Aileler için ideal'
     ],
-    images: ['/tours/marmaris-aquapark-1.jpg', '/tours/marmaris-aquapark-2.jpg'],
+    images: ['https://images.unsplash.com/photo-1561296784-f2d6d4d9c00d?w=800&h=600&fit=crop', 'https://images.unsplash.com/photo-1621944190310-e3cca1564bd7?w=800&h=600&fit=crop'],
     rating: 4.6,
     reviewCount: 521,
     availability: ['Her gün (Mayıs-Ekim)'],
@@ -520,7 +520,7 @@ export const marmarisTours: ComprehensiveTour[] = [
       'Küçük gruplar',
       'Satın alma indirimi %20'
     ],
-    images: ['/tours/marmaris-wine-1.jpg', '/tours/marmaris-wine-2.jpg'],
+    images: ['https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?w=800&h=600&fit=crop', 'https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=800&h=600&fit=crop'],
     rating: 4.8,
     reviewCount: 142,
     availability: ['Çarşamba', 'Cuma', 'Cumartesi'],
@@ -556,7 +556,7 @@ export const marmarisTours: ComprehensiveTour[] = [
       'Tüm ekipman dahil',
       'Deneyim gerektirmez'
     ],
-    images: ['/tours/marmaris-kayaking-1.jpg', '/tours/marmaris-kayaking-2.jpg'],
+    images: ['https://images.unsplash.com/photo-1473496169904-658ba7c44d8a?w=800&h=600&fit=crop', 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&h=600&fit=crop'],
     rating: 4.9,
     reviewCount: 178,
     availability: ['Mayıs-Ekim arası her gün'],
@@ -592,7 +592,7 @@ export const marmarisTours: ComprehensiveTour[] = [
       'Lüks tekne',
       'Balayı paketleri'
     ],
-    images: ['/tours/marmaris-sunset-1.jpg', '/tours/marmaris-sunset-2.jpg'],
+    images: ['https://images.unsplash.com/photo-1495954484750-af469f2f9be5?w=800&h=600&fit=crop', 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=600&fit=crop'],
     rating: 4.9,
     reviewCount: 234,
     availability: ['Her gün (sunset saatine göre)'],
@@ -628,7 +628,7 @@ export const marmarisTours: ComprehensiveTour[] = [
       'Güvenli transfer',
       'Party rehber'
     ],
-    images: ['/tours/marmaris-nightlife-1.jpg', '/tours/marmaris-nightlife-2.jpg'],
+    images: ['https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=800&h=600&fit=crop', 'https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?w=800&h=600&fit=crop'],
     rating: 4.5,
     reviewCount: 298,
     availability: ['Perşembe', 'Cuma', 'Cumartesi'],
@@ -666,7 +666,7 @@ export const bodrumTours: ComprehensiveTour[] = [
       'Canlı DJ performansı',
       'Snorkeling ekipmanı'
     ],
-    images: ['/tours/bodrum-blue-cruise-1.jpg', '/tours/bodrum-blue-cruise-2.jpg'],
+    images: ['https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?w=800&h=600&fit=crop', 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&h=600&fit=crop'],
     rating: 4.9,
     reviewCount: 412,
     availability: ['Her gün'],
@@ -702,7 +702,7 @@ export const bodrumTours: ComprehensiveTour[] = [
       'Bodrum Kalesi turu',
       'Panoramik manzara'
     ],
-    images: ['/tours/bodrum-museum-1.jpg', '/tours/bodrum-museum-2.jpg'],
+    images: ['https://images.unsplash.com/photo-1565008576549-57569a49371d?w=800&h=600&fit=crop', 'https://images.unsplash.com/photo-1503756234508-e32369269deb?w=800&h=600&fit=crop'],
     rating: 4.7,
     reviewCount: 189,
     availability: ['Salı', 'Çarşamba', 'Perşembe', 'Cuma', 'Cumartesi'],
@@ -738,7 +738,7 @@ export const bodrumTours: ComprehensiveTour[] = [
       'Sadece kimlikle giriş',
       'Serbest zaman 6 saat'
     ],
-    images: ['/tours/bodrum-kos-1.jpg', '/tours/bodrum-kos-2.jpg'],
+    images: ['https://images.unsplash.com/photo-1530841377377-3ff06c0ca713?w=800&h=600&fit=crop', 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&h=600&fit=crop'],
     rating: 4.7,
     reviewCount: 534,
     availability: ['Pazartesi', 'Çarşamba', 'Cuma', 'Pazar'],
@@ -774,7 +774,7 @@ export const bodrumTours: ComprehensiveTour[] = [
       'Batık keşfi',
       'Fotoğraf hizmeti'
     ],
-    images: ['/tours/bodrum-diving-1.jpg', '/tours/bodrum-diving-2.jpg'],
+    images: ['https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&h=600&fit=crop', 'https://images.unsplash.com/photo-1559825481-12a05cc00344?w=800&h=600&fit=crop'],
     rating: 4.9,
     reviewCount: 178,
     availability: ['Mayıs-Ekim'],
@@ -810,7 +810,7 @@ export const bodrumTours: ComprehensiveTour[] = [
       'Kafkas dansı',
       'DJ ve dans pisti'
     ],
-    images: ['/tours/bodrum-turkish-night-1.jpg', '/tours/bodrum-turkish-night-2.jpg'],
+    images: ['https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=800&h=600&fit=crop', 'https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&h=600&fit=crop'],
     rating: 4.6,
     reviewCount: 687,
     availability: ['Salı', 'Perşembe', 'Cumartesi'],
@@ -846,7 +846,7 @@ export const bodrumTours: ComprehensiveTour[] = [
       'Profesyonel eğitim',
       'Çift kişilik seçenek'
     ],
-    images: ['/tours/bodrum-buggy-1.jpg', '/tours/bodrum-buggy-2.jpg'],
+    images: ['https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop', 'https://images.unsplash.com/photo-1612544409025-171c8fab3a73?w=800&h=600&fit=crop'],
     rating: 4.8,
     reviewCount: 245,
     availability: ['Her gün'],
@@ -882,7 +882,7 @@ export const bodrumTours: ComprehensiveTour[] = [
       'At bakımı aktivitesi',
       'Aile dostu'
     ],
-    images: ['/tours/bodrum-horse-1.jpg', '/tours/bodrum-horse-2.jpg'],
+    images: ['https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?w=800&h=600&fit=crop', 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop'],
     rating: 4.7,
     reviewCount: 321,
     availability: ['Her gün'],
@@ -918,7 +918,7 @@ export const bodrumTours: ComprehensiveTour[] = [
       'Deneyimli terapistler',
       'Küçük gruplar'
     ],
-    images: ['/tours/bodrum-hammam-1.jpg', '/tours/bodrum-hammam-2.jpg'],
+    images: ['https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=800&h=600&fit=crop', 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=800&h=600&fit=crop'],
     rating: 4.9,
     reviewCount: 412,
     availability: ['Her gün'],
@@ -954,7 +954,7 @@ export const bodrumTours: ComprehensiveTour[] = [
       'Su sporları',
       'Sunset seçeneği'
     ],
-    images: ['/tours/bodrum-catamaran-1.jpg', '/tours/bodrum-catamaran-2.jpg'],
+    images: ['https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?w=800&h=600&fit=crop', 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&h=600&fit=crop'],
     rating: 5.0,
     reviewCount: 167,
     availability: ['Her gün'],
@@ -990,7 +990,7 @@ export const bodrumTours: ComprehensiveTour[] = [
       'Başlangıç dostu',
       'Sertifika imkanı'
     ],
-    images: ['/tours/bodrum-windsurf-1.jpg', '/tours/bodrum-windsurf-2.jpg'],
+    images: ['https://images.unsplash.com/photo-1502680390469-be75c86b636f?w=800&h=600&fit=crop', 'https://images.unsplash.com/photo-1537519646099-335112f03225?w=800&h=600&fit=crop'],
     rating: 4.9,
     reviewCount: 134,
     availability: ['Nisan-Ekim (rüzgar koşullarına göre)'],
@@ -1026,7 +1026,7 @@ export const bodrumTours: ComprehensiveTour[] = [
       'Gün batımı manzarası',
       'Aileler için ideal'
     ],
-    images: ['/tours/bodrum-fishing-1.jpg', '/tours/bodrum-fishing-2.jpg'],
+    images: ['https://images.unsplash.com/photo-1534043464124-3be32fe000c9?w=800&h=600&fit=crop', 'https://images.unsplash.com/photo-1545450660-7a0e946d0e83?w=800&h=600&fit=crop'],
     rating: 4.6,
     reviewCount: 198,
     availability: ['Her gün'],
@@ -1062,7 +1062,7 @@ export const bodrumTours: ComprehensiveTour[] = [
       '3 kurs öğle yemeği',
       'Küçük gruplar'
     ],
-    images: ['/tours/bodrum-wine-1.jpg', '/tours/bodrum-wine-2.jpg'],
+    images: ['https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?w=800&h=600&fit=crop', 'https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=800&h=600&fit=crop'],
     rating: 4.9,
     reviewCount: 156,
     availability: ['Salı', 'Perşembe', 'Cumartesi'],
@@ -1098,7 +1098,7 @@ export const bodrumTours: ComprehensiveTour[] = [
       'Su sporları',
       'Lüks deneyim'
     ],
-    images: ['/tours/bodrum-yacht-1.jpg', '/tours/bodrum-yacht-2.jpg'],
+    images: ['https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?w=800&h=600&fit=crop', 'https://images.unsplash.com/photo-1605281317010-fe5ffe798166?w=800&h=600&fit=crop'],
     rating: 5.0,
     reviewCount: 89,
     availability: ['Her gün (rezervasyon gerekli)'],
@@ -1134,7 +1134,7 @@ export const bodrumTours: ComprehensiveTour[] = [
       'Öğle yemeği dahil',
       'Aileler için ideal'
     ],
-    images: ['/tours/bodrum-aquapark-1.jpg', '/tours/bodrum-aquapark-2.jpg'],
+    images: ['https://images.unsplash.com/photo-1561296784-f2d6d4d9c00d?w=800&h=600&fit=crop', 'https://images.unsplash.com/photo-1621944190310-e3cca1564bd7?w=800&h=600&fit=crop'],
     rating: 4.5,
     reviewCount: 673,
     availability: ['Her gün (Mayıs-Ekim)'],
@@ -1170,7 +1170,7 @@ export const bodrumTours: ComprehensiveTour[] = [
       'Dünya çapında DJ\'ler',
       'Güvenli VIP transfer'
     ],
-    images: ['/tours/bodrum-nightlife-1.jpg', '/tours/bodrum-nightlife-2.jpg'],
+    images: ['https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=800&h=600&fit=crop', 'https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?w=800&h=600&fit=crop'],
     rating: 4.8,
     reviewCount: 412,
     availability: ['Cuma', 'Cumartesi'],
@@ -1208,7 +1208,7 @@ export const cesmeTours: ComprehensiveTour[] = [
       'Sertifika imkanı',
       'Dünya çapında tanınan lokasyon'
     ],
-    images: ['/tours/alacati-surf-1.jpg', '/tours/alacati-surf-2.jpg'],
+    images: ['https://images.unsplash.com/photo-1502680390469-be75c86b636f?w=800&h=600&fit=crop', 'https://images.unsplash.com/photo-1537519646099-335112f03225?w=800&h=600&fit=crop'],
     rating: 4.9,
     reviewCount: 267,
     availability: ['Her gün (hava durumuna göre)'],
@@ -1244,7 +1244,7 @@ export const cesmeTours: ComprehensiveTour[] = [
       'Sağlıklı öğle yemeği',
       'Rahatlatıcı atmosfer'
     ],
-    images: ['/tours/cesme-spa-1.jpg', '/tours/cesme-spa-2.jpg'],
+    images: ['https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=800&h=600&fit=crop', 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=800&h=600&fit=crop'],
     rating: 4.6,
     reviewCount: 156,
     availability: ['Her gün'],
@@ -1280,7 +1280,7 @@ export const cesmeTours: ComprehensiveTour[] = [
       'Sadece kimlikle',
       'Serbest zaman'
     ],
-    images: ['/tours/cesme-chios-1.jpg', '/tours/cesme-chios-2.jpg'],
+    images: ['https://images.unsplash.com/photo-1530841377377-3ff06c0ca713?w=800&h=600&fit=crop', 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&h=600&fit=crop'],
     rating: 4.7,
     reviewCount: 467,
     availability: ['Pazartesi', 'Çarşamba', 'Cuma', 'Pazar'],
@@ -1316,7 +1316,7 @@ export const cesmeTours: ComprehensiveTour[] = [
       'Jump ve freestyle',
       '1-1 eğitim seçeneği'
     ],
-    images: ['/tours/cesme-kitesurf-1.jpg', '/tours/cesme-kitesurf-2.jpg'],
+    images: ['https://images.unsplash.com/photo-1559583985-c80d8ad9b29f?w=800&h=600&fit=crop', 'https://images.unsplash.com/photo-1502680390469-be75c86b636f?w=800&h=600&fit=crop'],
     rating: 5.0,
     reviewCount: 112,
     availability: ['Mayıs-Ekim (rüzgar koşullarına göre)'],
@@ -1352,7 +1352,7 @@ export const cesmeTours: ComprehensiveTour[] = [
       'DJ performansı',
       'Su sporları'
     ],
-    images: ['/tours/cesme-yacht-1.jpg', '/tours/cesme-yacht-2.jpg'],
+    images: ['https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?w=800&h=600&fit=crop', 'https://images.unsplash.com/photo-1605281317010-fe5ffe798166?w=800&h=600&fit=crop'],
     rating: 4.9,
     reviewCount: 234,
     availability: ['Her gün'],
@@ -1388,7 +1388,7 @@ export const cesmeTours: ComprehensiveTour[] = [
       'Profesyonel fotoğrafçı',
       'Küçük gruplar'
     ],
-    images: ['/tours/cesme-diving-1.jpg', '/tours/cesme-diving-2.jpg'],
+    images: ['https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&h=600&fit=crop', 'https://images.unsplash.com/photo-1559825481-12a05cc00344?w=800&h=600&fit=crop'],
     rating: 4.9,
     reviewCount: 189,
     availability: ['Mayıs-Ekim'],
@@ -1424,7 +1424,7 @@ export const cesmeTours: ComprehensiveTour[] = [
       'Fotoğraf hizmeti',
       'Romantik atmosfer'
     ],
-    images: ['/tours/cesme-horse-1.jpg', '/tours/cesme-horse-2.jpg'],
+    images: ['https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?w=800&h=600&fit=crop', 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop'],
     rating: 4.8,
     reviewCount: 267,
     availability: ['Her gün (sunset saatine göre)'],
@@ -1460,7 +1460,7 @@ export const cesmeTours: ComprehensiveTour[] = [
       'Küçük gruplar (max 8)',
       '%30 indirim'
     ],
-    images: ['/tours/cesme-wine-1.jpg', '/tours/cesme-wine-2.jpg'],
+    images: ['https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?w=800&h=600&fit=crop', 'https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=800&h=600&fit=crop'],
     rating: 5.0,
     reviewCount: 134,
     availability: ['Çarşamba', 'Cuma', 'Cumartesi'],
@@ -1496,7 +1496,7 @@ export const cesmeTours: ComprehensiveTour[] = [
       'Deneyim gerektirmez',
       'Uçuş sertifikası'
     ],
-    images: ['/tours/cesme-paragliding-1.jpg', '/tours/cesme-paragliding-2.jpg'],
+    images: ['https://images.unsplash.com/photo-1512608455489-4e7e2ee8f4b6?w=800&h=600&fit=crop', 'https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=800&h=600&fit=crop'],
     rating: 4.9,
     reviewCount: 178,
     availability: ['Nisan-Ekim (hava durumuna göre)'],
@@ -1532,7 +1532,7 @@ export const cesmeTours: ComprehensiveTour[] = [
       'Öğle yemeği dahil',
       'Aileler için ideal'
     ],
-    images: ['/tours/cesme-aquapark-1.jpg', '/tours/cesme-aquapark-2.jpg'],
+    images: ['https://images.unsplash.com/photo-1561296784-f2d6d4d9c00d?w=800&h=600&fit=crop', 'https://images.unsplash.com/photo-1621944190310-e3cca1564bd7?w=800&h=600&fit=crop'],
     rating: 4.6,
     reviewCount: 512,
     availability: ['Her gün (Mayıs-Ekim)'],
@@ -1568,7 +1568,7 @@ export const cesmeTours: ComprehensiveTour[] = [
       'Deneyimli terapistler',
       'Küçük gruplar'
     ],
-    images: ['/tours/cesme-hammam-1.jpg', '/tours/cesme-hammam-2.jpg'],
+    images: ['https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=800&h=600&fit=crop', 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=800&h=600&fit=crop'],
     rating: 4.9,
     reviewCount: 345,
     availability: ['Her gün'],
@@ -1604,7 +1604,7 @@ export const cesmeTours: ComprehensiveTour[] = [
       'Tüm ekipman dahil',
       'Başlangıç dostu'
     ],
-    images: ['/tours/cesme-sup-1.jpg', '/tours/cesme-sup-2.jpg'],
+    images: ['https://images.unsplash.com/photo-1473496169904-658ba7c44d8a?w=800&h=600&fit=crop', 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&h=600&fit=crop'],
     rating: 4.7,
     reviewCount: 198,
     availability: ['Mayıs-Ekim'],
@@ -1640,7 +1640,7 @@ export const cesmeTours: ComprehensiveTour[] = [
       '4-6 kişi',
       'Özel deneyim'
     ],
-    images: ['/tours/cesme-fishing-1.jpg', '/tours/cesme-fishing-2.jpg'],
+    images: ['https://images.unsplash.com/photo-1534043464124-3be32fe000c9?w=800&h=600&fit=crop', 'https://images.unsplash.com/photo-1545450660-7a0e946d0e83?w=800&h=600&fit=crop'],
     rating: 4.8,
     reviewCount: 123,
     availability: ['Her gün (rezervasyon gerekli)'],
@@ -1676,7 +1676,7 @@ export const cesmeTours: ComprehensiveTour[] = [
       'Muhteşem gün batımı',
       'Balayı paketleri'
     ],
-    images: ['/tours/cesme-sunset-1.jpg', '/tours/cesme-sunset-2.jpg'],
+    images: ['https://images.unsplash.com/photo-1495954484750-af469f2f9be5?w=800&h=600&fit=crop', 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=600&fit=crop'],
     rating: 4.9,
     reviewCount: 289,
     availability: ['Her gün (sunset saatine göre)'],
@@ -1712,7 +1712,7 @@ export const cesmeTours: ComprehensiveTour[] = [
       'Profesyonel rehber',
       'Kültürel deneyim'
     ],
-    images: ['/tours/cesme-historic-1.jpg', '/tours/cesme-historic-2.jpg'],
+    images: ['https://images.unsplash.com/photo-1565008576549-57569a49371d?w=800&h=600&fit=crop', 'https://images.unsplash.com/photo-1503756234508-e32369269deb?w=800&h=600&fit=crop'],
     rating: 4.6,
     reviewCount: 234,
     availability: ['Salı', 'Perşembe', 'Cumartesi'],
@@ -1748,7 +1748,7 @@ export const cesmeTours: ComprehensiveTour[] = [
       'Güvenli transfer',
       'Party rehber'
     ],
-    images: ['/tours/cesme-nightlife-1.jpg', '/tours/cesme-nightlife-2.jpg'],
+    images: ['https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=800&h=600&fit=crop', 'https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?w=800&h=600&fit=crop'],
     rating: 4.7,
     reviewCount: 312,
     availability: ['Perşembe', 'Cuma', 'Cumartesi'],

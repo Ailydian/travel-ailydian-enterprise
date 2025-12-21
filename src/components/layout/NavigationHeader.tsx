@@ -23,6 +23,8 @@ import {
   Clock,
   ArrowRight,
   Globe,
+  Compass,
+  ChevronDown,
   LucideIcon
 } from 'lucide-react';
 import { searchInData, popularSearches, categoryConfig, type SearchResult } from '../../data/searchData';
@@ -45,6 +47,8 @@ const NavigationHeader: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
   const [isLanguageMenuOpen, setIsLanguageMenuOpen] = useState(false);
+  const [isToursMenuOpen, setIsToursMenuOpen] = useState(false);
+  const [isMobileToursOpen, setIsMobileToursOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [isClient, setIsClient] = useState(false);
   const [searchResults, setSearchResults] = useState<SearchResult[]>([]);
@@ -228,11 +232,49 @@ const NavigationHeader: React.FC = () => {
       description: 'Türkiye\'nin en güzel yerlerini keşfedin'
     },
     {
+      title: 'Turlar',
+      href: '/tours',
+      icon: Compass,
+      description: 'Marmaris, Bodrum, Çeşme\'de macera'
+    },
+    {
       title: 'Deneyimler',
       href: '/experiences',
       icon: Star,
       description: 'Benzersiz deneyimler yaşayın'
     },
+  ];
+
+  // Tours dropdown menu items
+  const toursMenuItems = [
+    {
+      title: 'Marmaris Turları',
+      href: '/tours?region=Marmaris',
+      description: '12 Ada Tekne, Jeep Safari, Dalyan',
+      icon: '🚤',
+      badge: '16 Tur'
+    },
+    {
+      title: 'Bodrum Turları',
+      href: '/tours?region=Bodrum',
+      description: 'Tekne Turları, Antik Kentler, Plajlar',
+      icon: '⛵',
+      badge: '14 Tur'
+    },
+    {
+      title: 'Çeşme Turları',
+      href: '/tours?region=Çeşme',
+      description: 'Deniz Sporları, Şarap Turları, Alaçatı',
+      icon: '🏄',
+      badge: '16 Tur'
+    },
+    {
+      title: 'Tüm Turlar',
+      href: '/tours',
+      description: '45+ kapsamlı tur seçeneği',
+      icon: '🎯',
+      badge: 'Popüler'
+    }
   ];
 
   const userMenuItems = [
@@ -429,6 +471,66 @@ const NavigationHeader: React.FC = () => {
           <nav className="hidden lg:flex items-center space-x-1">
             {mainNavItems.map((item) => {
               const Icon = item.icon;
+              const isTours = item.title === 'Turlar';
+
+              if (isTours) {
+                return (
+                  <div key={item.href} className="relative">
+                    <button
+                      onMouseEnter={() => setIsToursMenuOpen(true)}
+                      onMouseLeave={() => setIsToursMenuOpen(false)}
+                      className={`relative flex items-center space-x-2 px-4 py-2 rounded-lg transition-colors duration-200 ${
+                        isActive(item.href)
+                          ? 'bg-blue-50 text-blue-600'
+                          : 'text-gray-700 hover:bg-gray-50'
+                      }`}
+                    >
+                      <Icon className="w-4 h-4" />
+                      <span className="font-medium">{item.title}</span>
+                      <ChevronDown className="w-3 h-3" />
+                    </button>
+
+                    {/* Tours Dropdown */}
+                    <AnimatePresence>
+                      {isToursMenuOpen && (
+                        <motion.div
+                          initial={{ opacity: 0, y: 10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: 10 }}
+                          transition={{ duration: 0.2 }}
+                          onMouseEnter={() => setIsToursMenuOpen(true)}
+                          onMouseLeave={() => setIsToursMenuOpen(false)}
+                          className="absolute top-full left-0 mt-2 w-80 bg-white rounded-xl shadow-2xl border border-gray-200 z-50 overflow-hidden"
+                        >
+                          <div className="p-2">
+                            {toursMenuItems.map((tour) => (
+                              <Link
+                                key={tour.href}
+                                href={tour.href}
+                                className="flex items-start gap-3 p-3 rounded-lg hover:bg-gray-50 transition-colors group"
+                              >
+                                <span className="text-2xl">{tour.icon}</span>
+                                <div className="flex-1">
+                                  <div className="flex items-center justify-between mb-1">
+                                    <h4 className="font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">
+                                      {tour.title}
+                                    </h4>
+                                    <span className="text-xs font-medium px-2 py-0.5 rounded-full bg-gradient-to-r from-blue-500 to-indigo-500 text-white">
+                                      {tour.badge}
+                                    </span>
+                                  </div>
+                                  <p className="text-xs text-gray-600">{tour.description}</p>
+                                </div>
+                              </Link>
+                            ))}
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                );
+              }
+
               return (
                 <Link
                   key={item.href}
@@ -663,6 +765,63 @@ const NavigationHeader: React.FC = () => {
               <div className="space-y-1">
                 {mainNavItems.map((item) => {
                   const Icon = item.icon;
+                  const isTours = item.title === 'Turlar';
+
+                  if (isTours) {
+                    return (
+                      <div key={item.href}>
+                        <button
+                          onClick={() => setIsMobileToursOpen(!isMobileToursOpen)}
+                          className="relative flex items-center space-x-3 px-3 py-3 rounded-lg text-gray-700 hover:bg-gray-50 w-full"
+                        >
+                          <Icon className="w-5 h-5" />
+                          <div className="flex-1 text-left">
+                            <div className="font-medium flex items-center gap-2">
+                              {item.title}
+                              <ChevronDown className={`w-4 h-4 transition-transform ${isMobileToursOpen ? 'rotate-180' : ''}`} />
+                            </div>
+                            <div className="text-xs text-gray-500">{item.description}</div>
+                          </div>
+                        </button>
+
+                        {/* Mobile Tours Submenu */}
+                        <AnimatePresence>
+                          {isMobileToursOpen && (
+                            <motion.div
+                              initial={{ opacity: 0, height: 0 }}
+                              animate={{ opacity: 1, height: 'auto' }}
+                              exit={{ opacity: 0, height: 0 }}
+                              className="ml-8 mt-1 space-y-1"
+                            >
+                              {toursMenuItems.map((tour) => (
+                                <Link
+                                  key={tour.href}
+                                  href={tour.href}
+                                  className="flex items-start gap-2 p-2 rounded-lg hover:bg-gray-50 transition-colors"
+                                  onClick={() => {
+                                    setIsMenuOpen(false);
+                                    setIsMobileToursOpen(false);
+                                  }}
+                                >
+                                  <span className="text-lg">{tour.icon}</span>
+                                  <div className="flex-1">
+                                    <div className="flex items-center gap-2">
+                                      <span className="text-sm font-medium text-gray-900">{tour.title}</span>
+                                      <span className="text-xs px-1.5 py-0.5 rounded bg-blue-100 text-blue-700">
+                                        {tour.badge}
+                                      </span>
+                                    </div>
+                                    <p className="text-xs text-gray-600 mt-0.5">{tour.description}</p>
+                                  </div>
+                                </Link>
+                              ))}
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </div>
+                    );
+                  }
+
                   return (
                     <Link
                       key={item.href}

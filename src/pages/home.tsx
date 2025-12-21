@@ -79,7 +79,7 @@ const GetYourGuideStyleHome: React.FC = () => {
       type: item.type || 'tour',
       title: item.title || item.name || 'Ürün',
       description: item.description || '',
-      image: item.image || item.photos?.[0]?.url || '/api/placeholder/300/200',
+      image: item.image || item.photos?.[0]?.url || 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop',
       price: typeof item.price === 'string' ?
         parseFloat(item.price.replace(/[^0-9.]/g, '')) :
         (item.price || item.priceBreakdown?.grossPrice?.value || 100),
@@ -358,8 +358,8 @@ const GetYourGuideStyleHome: React.FC = () => {
                   >
                     {/* Image */}
                     <div className="relative h-48 overflow-hidden">
-                      <img 
-                        src={result.image || '/api/placeholder/400/300'} 
+                      <img
+                        src={result.image || 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop'}
                         alt={result.title}
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                       />

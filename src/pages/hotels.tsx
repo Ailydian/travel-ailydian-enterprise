@@ -23,10 +23,14 @@ import {
   ArrowLeft,
   Shield,
   Building,
+  Building2,
   ShoppingCart,
   CheckCircle,
   SlidersHorizontal,
-  Loader2
+  Loader2,
+  ArrowRight,
+  FileText,
+  UserCheck
 } from 'lucide-react';
 import NavigationHeader from '../components/layout/NavigationHeader';
 import { useCart } from '../context/CartContext';
@@ -451,6 +455,255 @@ const HotelsNewPage: React.FC = () => {
                 </p>
               </div>
             )}
+          </div>
+        </section>
+
+        {/* Property Owner Dashboard CTA Section */}
+        <section className="max-w-7xl mx-auto px-4 py-16">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="relative overflow-hidden rounded-2xl border-2 shadow-2xl"
+            style={{
+              background: 'linear-gradient(135deg, rgba(255, 33, 77, 0.05), rgba(255, 106, 69, 0.05))',
+              borderColor: 'rgba(255, 33, 77, 0.3)'
+            }}
+          >
+            {/* Background Pattern */}
+            <div className="absolute inset-0 opacity-5">
+              <div className="absolute inset-0" style={{
+                backgroundImage: 'radial-gradient(circle at 2px 2px, rgba(255, 33, 77, 0.3) 1px, transparent 0)',
+                backgroundSize: '40px 40px'
+              }}></div>
+            </div>
+
+            <div className="relative z-10 grid md:grid-cols-2 gap-8 p-8 md:p-12">
+              {/* Left Side - Info */}
+              <div>
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6"
+                     style={{
+                       background: 'linear-gradient(135deg, rgba(255, 33, 77, 0.1), rgba(255, 106, 69, 0.1))',
+                       border: '1px solid rgba(255, 33, 77, 0.3)'
+                     }}>
+                  <Building2 className="w-4 h-4" style={{ color: '#FF214D' }} />
+                  <span className="text-sm font-bold" style={{ color: '#FF214D' }}>
+                    Mülk Sahipleri İçin
+                  </span>
+                </div>
+
+                <h2 className="text-3xl md:text-4xl font-black mb-4" style={{ color: '#0A0A0B' }}>
+                  Mülkünüzü Yönetmek
+                  <br />
+                  <span style={{ color: '#FF214D' }}>Artık Çok Kolay</span>
+                </h2>
+
+                <p className="text-lg mb-6" style={{ color: '#6B7280' }}>
+                  Profesyonel Property Owner Dashboard ile rezervasyonlarınızı, gelirlerinizi ve
+                  mülklerinizi tek bir yerden yönetin.
+                </p>
+
+                <div className="space-y-4 mb-8">
+                  {[
+                    { icon: Building2, text: 'Gelişmiş Mülk Yönetimi' },
+                    { icon: Shield, text: 'Güvenli Rezervasyon Sistemi' },
+                    { icon: Star, text: 'Gerçek Zamanlı Analitik & Raporlama' },
+                    { icon: UserCheck, text: 'Misafir İletişim Merkezi' }
+                  ].map((feature, idx) => (
+                    <div key={idx} className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-lg flex items-center justify-center"
+                           style={{
+                             background: 'linear-gradient(135deg, rgba(255, 33, 77, 0.1), rgba(255, 106, 69, 0.1))',
+                             border: '1px solid rgba(255, 33, 77, 0.2)'
+                           }}>
+                        <feature.icon className="w-5 h-5" style={{ color: '#FF214D' }} />
+                      </div>
+                      <span className="font-medium" style={{ color: '#374151' }}>{feature.text}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <Link
+                  href="/dashboard"
+                  className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-bold text-white transition-all hover:scale-105 group shadow-lg"
+                  style={{
+                    background: 'linear-gradient(135deg, #FF214D, #FF6A45)',
+                    boxShadow: '0 0 30px rgba(255, 33, 77, 0.5)'
+                  }}
+                >
+                  Dashboard'a Git
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </div>
+
+              {/* Right Side - Stats */}
+              <div className="grid grid-cols-2 gap-4">
+                {[
+                  { label: 'Aktif Mülk', value: '1,200+', icon: Building2 },
+                  { label: 'Aylık Gelir', value: '₺850K+', icon: Star },
+                  { label: 'Doluluk Oranı', value: '87%', icon: CheckCircle },
+                  { label: 'Memnuniyet', value: '4.9/5', icon: Heart }
+                ].map((stat, idx) => (
+                  <motion.div
+                    key={idx}
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: idx * 0.1 }}
+                    viewport={{ once: true }}
+                    className="p-6 rounded-xl border-2"
+                    style={{
+                      backgroundColor: 'white',
+                      borderColor: 'rgba(255, 33, 77, 0.2)',
+                      boxShadow: '0 4px 6px rgba(0, 0, 0, 0.05)'
+                    }}
+                  >
+                    <stat.icon className="w-8 h-8 mb-3" style={{ color: '#FF214D' }} />
+                    <div className="text-3xl font-black mb-1" style={{ color: '#0A0A0B' }}>
+                      {stat.value}
+                    </div>
+                    <div className="text-sm font-medium" style={{ color: '#6B7280' }}>
+                      {stat.label}
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+        </section>
+
+        {/* Terms & Conditions Section */}
+        <section className="max-w-7xl mx-auto px-4 py-16 border-t" style={{ borderColor: '#E5E7EB' }}>
+          <div className="grid md:grid-cols-3 gap-8">
+            {/* Booking Conditions */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="space-y-4"
+            >
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-12 h-12 rounded-lg flex items-center justify-center"
+                     style={{
+                       background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(37, 99, 235, 0.1))',
+                       border: '1px solid rgba(59, 130, 246, 0.2)'
+                     }}>
+                  <FileText className="w-6 h-6 text-blue-600" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900">Rezervasyon Koşulları</h3>
+              </div>
+              <ul className="space-y-2 text-sm text-gray-600">
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 mt-0.5 text-green-500 flex-shrink-0" />
+                  <span>Ücretsiz iptal: Check-in'den 48 saat öncesine kadar</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 mt-0.5 text-green-500 flex-shrink-0" />
+                  <span>Rezervasyon onayı: Anlık e-posta ve SMS bildirimi</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 mt-0.5 text-green-500 flex-shrink-0" />
+                  <span>Fiyat garantisi: Rezervasyon anındaki fiyat geçerlidir</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 mt-0.5 text-green-500 flex-shrink-0" />
+                  <span>Değişiklik: Rezervasyon tarihlerini değiştirme hakkı</span>
+                </li>
+              </ul>
+            </motion.div>
+
+            {/* Payment & Security */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
+              viewport={{ once: true }}
+              className="space-y-4"
+            >
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-12 h-12 rounded-lg flex items-center justify-center"
+                     style={{
+                       background: 'linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(22, 163, 74, 0.1))',
+                       border: '1px solid rgba(34, 197, 94, 0.2)'
+                     }}>
+                  <Shield className="w-6 h-6 text-green-600" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900">Ödeme & Güvenlik</h3>
+              </div>
+              <ul className="space-y-2 text-sm text-gray-600">
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 mt-0.5 text-green-500 flex-shrink-0" />
+                  <span>SSL sertifikalı güvenli ödeme altyapısı</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 mt-0.5 text-green-500 flex-shrink-0" />
+                  <span>Tüm kredi kartları ve kripto para kabul edilir</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 mt-0.5 text-green-500 flex-shrink-0" />
+                  <span>3D Secure doğrulama ile ekstra güvenlik</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 mt-0.5 text-green-500 flex-shrink-0" />
+                  <span>Kişisel verileriniz KVKK kapsamında korunur</span>
+                </li>
+              </ul>
+            </motion.div>
+
+            {/* Support & Help */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              viewport={{ once: true }}
+              className="space-y-4"
+            >
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-12 h-12 rounded-lg flex items-center justify-center"
+                     style={{
+                       background: 'linear-gradient(135deg, rgba(255, 33, 77, 0.1), rgba(255, 106, 69, 0.1))',
+                       border: '1px solid rgba(255, 33, 77, 0.2)'
+                     }}>
+                  <UserCheck className="w-6 h-6" style={{ color: '#FF214D' }} />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900">Destek & Yardım</h3>
+              </div>
+              <ul className="space-y-2 text-sm text-gray-600">
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 mt-0.5 text-green-500 flex-shrink-0" />
+                  <span>7/24 Türkçe canlı destek hizmeti</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 mt-0.5 text-green-500 flex-shrink-0" />
+                  <span>AI destekli seyahat danışmanlığı</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 mt-0.5 text-green-500 flex-shrink-0" />
+                  <span>Sorun çözümünde %100 memnuniyet garantisi</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 mt-0.5 text-green-500 flex-shrink-0" />
+                  <span>WhatsApp ve e-posta ile hızlı iletişim</span>
+                </li>
+              </ul>
+            </motion.div>
+          </div>
+
+          {/* Additional Info */}
+          <div className="mt-12 p-6 rounded-xl border-2"
+               style={{
+                 backgroundColor: 'rgba(249, 250, 251, 0.5)',
+                 borderColor: '#E5E7EB'
+               }}>
+            <p className="text-sm text-gray-600 text-center">
+              <strong className="font-bold text-gray-900">Önemli Bilgi:</strong> Travel Ailydian,
+              AI destekli blockchain tabanlı güvenli rezervasyon sistemi ile seyahatinizi güvence altına alır.
+              Tüm rezervasyonlarınız anında onaylanır ve blockchain ağında kayıt altına alınır.
+              Detaylı bilgi için{' '}
+              <Link href="/support" className="font-semibold hover:underline" style={{ color: '#FF214D' }}>
+                destek merkezimize
+              </Link>
+              {' '}başvurabilirsiniz.
+            </p>
           </div>
         </section>
       </main>

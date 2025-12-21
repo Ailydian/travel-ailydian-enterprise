@@ -261,8 +261,8 @@ Türkiye&apos;nin en güzel destinasyonlarını ve benzersiz deneyimlerini keşf
                       <div className="flex gap-6">
                         {/* Image */}
                         <div className="relative">
-                          <img 
-                            src={item.image || '/api/placeholder/150/120'}
+                          <img
+                            src={item.image || 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop'}
                             alt={item.title}
                             className="w-40 h-32 object-cover rounded-2xl"
                           />

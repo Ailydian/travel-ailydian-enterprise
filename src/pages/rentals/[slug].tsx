@@ -172,7 +172,7 @@ const PropertyPage: React.FC<PropertyPageProps> = ({ property }) => {
               </button>
 
               <img
-                src={property.images[selectedImage] || '/placeholder-property.jpg'}
+                src={property.images[selectedImage] || 'https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=800&h=600&fit=crop'}
                 alt={`${property.title} - ${selectedImage + 1}`}
                 className="max-w-7xl max-h-[90vh] object-contain"
                 onClick={(e) => e.stopPropagation()}
@@ -259,7 +259,7 @@ const PropertyPage: React.FC<PropertyPageProps> = ({ property }) => {
           >
             <div className="col-span-4 md:col-span-2 md:row-span-2 relative h-64 md:h-96">
               <img
-                src={property.images[0] || '/placeholder-property.jpg'}
+                src={property.images[0] || 'https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=800&h=600&fit=crop'}
                 alt={property.title}
                 className="w-full h-full object-cover hover:opacity-90 transition-opacity"
               />
@@ -267,7 +267,7 @@ const PropertyPage: React.FC<PropertyPageProps> = ({ property }) => {
             {property.images.slice(1, 5).map((image, index) => (
               <div key={index} className="col-span-2 md:col-span-1 relative h-32 md:h-48">
                 <img
-                  src={image || '/placeholder-property.jpg'}
+                  src={image || 'https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=800&h=600&fit=crop'}
                   alt={`${property.title} - ${index + 2}`}
                   className="w-full h-full object-cover hover:opacity-90 transition-opacity"
                 />

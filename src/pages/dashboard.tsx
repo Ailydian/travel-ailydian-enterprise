@@ -33,7 +33,7 @@ const DashboardPage: React.FC = () => {
     email: 'ahmet@example.com',
     memberSince: '2023',
     level: 'Gold Üye',
-    avatar: '/api/placeholder/80/80',
+    avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop',
     totalTrips: 12,
     countriesVisited: 8,
     reviewsWritten: 24,

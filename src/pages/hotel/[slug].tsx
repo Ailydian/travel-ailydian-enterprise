@@ -76,7 +76,7 @@ export default function HotelDetailPage({ hotel }: { hotel: Hotel }) {
         <div className="relative h-96 bg-gray-900">
           {hotel.images.length > 0 && (
             <Image
-              src={hotel.images[0] || '/placeholder-hotel.jpg'}
+              src={hotel.images[0] || 'https://images.unsplash.com/photo-1566073771259-6a8506862ae3?w=800&h=600&fit=crop'}
               alt={hotel.name}
               fill
               className="object-cover opacity-80"

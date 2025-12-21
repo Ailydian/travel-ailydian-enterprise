@@ -102,7 +102,7 @@ const MapView: React.FC<MapViewProps> = ({ properties }) => {
                 {/* Image */}
                 <div className="relative h-40 mb-3 rounded-lg overflow-hidden">
                   <img
-                    src={property.images[0] || '/placeholder-property.jpg'}
+                    src={property.images[0] || 'https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=800&h=600&fit=crop'}
                     alt={property.title}
                     className="w-full h-full object-cover"
                   />
