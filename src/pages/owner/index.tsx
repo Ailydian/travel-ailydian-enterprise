@@ -155,8 +155,9 @@ export default function PropertyOwnerDashboard() {
       {/* Welcome Section */}
       <div className="rounded-2xl p-8 border-2 relative overflow-hidden"
            style={{
-             background: 'linear-gradient(135deg, rgba(255, 33, 77, 0.1), rgba(255, 106, 69, 0.1))',
-             borderColor: '#E5E7EB'
+             backgroundColor: '#FFFFFF',
+             borderColor: '#E5E7EB',
+             boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)'
            }}>
         <div className="relative z-10">
           <h1 className="text-4xl font-black mb-2 neon-text-strong" style={{ color: '#000000' }}>
