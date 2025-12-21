@@ -25,7 +25,11 @@ import {
   Globe,
   Compass,
   ChevronDown,
-  LucideIcon
+  LucideIcon,
+  Car,
+  Bus,
+  Home,
+  Building2
 } from 'lucide-react';
 import { searchInData, popularSearches, categoryConfig, type SearchResult } from '../../data/searchData';
 import { useCart } from '../../context/CartContext';
@@ -244,6 +248,27 @@ const NavigationHeader: React.FC = () => {
       icon: Star,
       description: 'Benzersiz deneyimler yaşayın'
     },
+    {
+      title: 'Ev Kiralama',
+      href: '/owner',
+      icon: Home,
+      description: 'Ev & Villa kiralama yönetimi',
+      badge: 'Partner'
+    },
+    {
+      title: 'Araç Kiralama',
+      href: '/vehicle-owner',
+      icon: Car,
+      description: 'Araç kiralama yönetimi',
+      badge: 'Partner'
+    },
+    {
+      title: 'Transfer',
+      href: '/transfer-owner',
+      icon: Bus,
+      description: 'Transfer hizmeti yönetimi',
+      badge: 'Partner'
+    },
   ];
 
   // Tours dropdown menu items
@@ -282,6 +307,10 @@ const NavigationHeader: React.FC = () => {
     { title: isClient ? t('navigation:profile', 'Profilim') : 'Profilim', href: '/profile', icon: User },
     { title: isClient ? t('navigation:bookings', 'Rezervasyonlarım') : 'Rezervasyonlarım', href: '/bookings', icon: Activity },
     { title: isClient ? t('navigation:favorites', 'Favorilerim') : 'Favorilerim', href: '/favorites', icon: Heart },
+    { title: 'Partner Panelleri', href: '#', icon: Building2, isHeader: true },
+    { title: 'Ev Kiralama Paneli', href: '/owner', icon: Home },
+    { title: 'Araç Kiralama Paneli', href: '/vehicle-owner', icon: Car },
+    { title: 'Transfer Paneli', href: '/transfer-owner', icon: Bus },
     { title: isClient ? t('navigation:billing', 'Faturalandırma & Kripto') : 'Faturalandırma & Kripto', href: '/billing', icon: CreditCard },
     { title: isClient ? t('navigation:support', 'Destek') : 'Destek', href: '/support', icon: Headphones },
     { title: isClient ? t('navigation:settings', 'Ayarlar') : 'Ayarlar', href: '/settings', icon: Settings },
@@ -673,8 +702,18 @@ const NavigationHeader: React.FC = () => {
                           <span className="text-sm font-medium">Dashboard</span>
                         </Link>
                         
-                        {userMenuItems.map((item) => {
+                        {userMenuItems.map((item, index) => {
                           const Icon = item.icon;
+                          if ((item as any).isHeader) {
+                            return (
+                              <div key={index} className="px-4 py-2 mt-2 border-t border-gray-100">
+                                <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider flex items-center gap-2">
+                                  <Icon className="w-3 h-3" />
+                                  {item.title}
+                                </p>
+                              </div>
+                            );
+                          }
                           return (
                             <Link
                               key={item.href}

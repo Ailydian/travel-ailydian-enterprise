@@ -49,7 +49,9 @@ import {
   Plus,
   Car,
   Hotel,
-  Plane
+  Plane,
+  Home,
+  Bus
 } from 'lucide-react';
 import ResponsiveHeaderBar from '../components/layout/ResponsiveHeaderBar';
 
@@ -664,6 +666,185 @@ const GetYourGuideStyleHome: React.FC = () => {
                 </motion.div>
               ))}
             </div>
+          </div>
+        </section>
+
+        {/* Partner Services - Property, Vehicle & Transfer */}
+        <section className="py-20 bg-gradient-to-br from-gray-50 via-white to-gray-50">
+          <div className="max-w-7xl mx-auto px-4">
+            <div className="text-center mb-16">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+              >
+                <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-4">
+                  Partner Hizmetlerimiz
+                </h2>
+                <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                  Ev, araç kiralama ve transfer hizmetlerinizi kolayca yönetin. Gelir elde edin, misafirlerinizi mutlu edin.
+                </p>
+              </motion.div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {/* Property Rental */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 }}
+                className="group"
+              >
+                <Link href="/owner">
+                  <div className="relative bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden cursor-pointer border-2 border-transparent hover:border-pink-500">
+                    {/* Icon Background */}
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-pink-500/10 to-red-500/10 rounded-bl-full"></div>
+
+                    <div className="p-8 relative z-10">
+                      <div className="w-16 h-16 bg-gradient-to-r from-pink-500 to-red-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <Home className="w-8 h-8 text-white" />
+                      </div>
+
+                      <h3 className="text-2xl font-bold text-gray-900 mb-3">
+                        Ev & Villa Kiralama
+                      </h3>
+
+                      <p className="text-gray-600 mb-6 leading-relaxed">
+                        Mülkünüzü kiraya verin, gelir elde edin. Kolay yönetim, güvenli ödemeler.
+                      </p>
+
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-2 text-pink-600 font-semibold">
+                          <span>Hemen Başla</span>
+                          <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
+                        </div>
+                        <div className="px-3 py-1 bg-pink-100 text-pink-700 rounded-full text-sm font-medium">
+                          Partner
+                        </div>
+                      </div>
+
+                      <div className="mt-6 pt-6 border-t border-gray-100">
+                        <div className="flex items-center justify-between text-sm">
+                          <div className="text-gray-500">Ortalama Gelir</div>
+                          <div className="font-bold text-gray-900">₺15,000/ay</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </Link>
+              </motion.div>
+
+              {/* Vehicle Rental */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 }}
+                className="group"
+              >
+                <Link href="/vehicle-owner">
+                  <div className="relative bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden cursor-pointer border-2 border-transparent hover:border-green-500">
+                    {/* Icon Background */}
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-green-500/10 to-emerald-500/10 rounded-bl-full"></div>
+
+                    <div className="p-8 relative z-10">
+                      <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <Car className="w-8 h-8 text-white" />
+                      </div>
+
+                      <h3 className="text-2xl font-bold text-gray-900 mb-3">
+                        Araç Kiralama
+                      </h3>
+
+                      <p className="text-gray-600 mb-6 leading-relaxed">
+                        Araçlarınızı kiraya verin, filo yönetimi yapın. 14+ araç kategorisi desteği.
+                      </p>
+
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-2 text-green-600 font-semibold">
+                          <span>Hemen Başla</span>
+                          <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
+                        </div>
+                        <div className="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-medium">
+                          Partner
+                        </div>
+                      </div>
+
+                      <div className="mt-6 pt-6 border-t border-gray-100">
+                        <div className="flex items-center justify-between text-sm">
+                          <div className="text-gray-500">Ortalama Gelir</div>
+                          <div className="font-bold text-gray-900">₺8,500/ay</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </Link>
+              </motion.div>
+
+              {/* Transfer Service */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.3 }}
+                className="group"
+              >
+                <Link href="/transfer-owner">
+                  <div className="relative bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden cursor-pointer border-2 border-transparent hover:border-blue-500">
+                    {/* Icon Background */}
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-500/10 to-cyan-500/10 rounded-bl-full"></div>
+
+                    <div className="p-8 relative z-10">
+                      <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <Bus className="w-8 h-8 text-white" />
+                      </div>
+
+                      <h3 className="text-2xl font-bold text-gray-900 mb-3">
+                        Transfer Hizmeti
+                      </h3>
+
+                      <p className="text-gray-600 mb-6 leading-relaxed">
+                        Transfer araçlarınızı yönetin, havaalanı-otel transferleri sağlayın. D2 belgeli.
+                      </p>
+
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-2 text-blue-600 font-semibold">
+                          <span>Hemen Başla</span>
+                          <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
+                        </div>
+                        <div className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">
+                          Partner
+                        </div>
+                      </div>
+
+                      <div className="mt-6 pt-6 border-t border-gray-100">
+                        <div className="flex items-center justify-between text-sm">
+                          <div className="text-gray-500">Ortalama Gelir</div>
+                          <div className="font-bold text-gray-900">₺12,000/ay</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </Link>
+              </motion.div>
+            </div>
+
+            {/* CTA Section */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.4 }}
+              className="mt-16 text-center"
+            >
+              <div className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-100 to-pink-100 rounded-full">
+                <CheckCircle className="w-5 h-5 text-purple-600" />
+                <span className="text-purple-900 font-medium">
+                  Ücretsiz kayıt ol, hemen gelir elde etmeye başla
+                </span>
+              </div>
+            </motion.div>
           </div>
         </section>
 

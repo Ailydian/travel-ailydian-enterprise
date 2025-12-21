@@ -6,7 +6,7 @@
 import { z } from 'zod';
 
 // Step 1: Vehicle Type
-export const step1Schema = z.object({
+export const Step1Schema = z.object({
   vehicleType: z.enum([
     'economy-sedan',
     'comfort-sedan',
@@ -26,7 +26,7 @@ export const step1Schema = z.object({
 });
 
 // Step 2: Vehicle Details
-export const step2Schema = z.object({
+export const Step2Schema = z.object({
   brand: z.string().min(2, 'Marka gerekli'),
   model: z.string().min(2, 'Model gerekli'),
   year: z.number().min(1990).max(new Date().getFullYear() + 1),
@@ -42,7 +42,7 @@ export const step2Schema = z.object({
 });
 
 // Step 3: Features
-export const step3Schema = z.object({
+export const Step3Schema = z.object({
   features: z.object({
     basic: z.array(z.string()).optional(),
     comfort: z.array(z.string()).optional(),
@@ -54,7 +54,7 @@ export const step3Schema = z.object({
 });
 
 // Step 4: Photos
-export const step4Schema = z.object({
+export const Step4Schema = z.object({
   photos: z.object({
     exterior: z.array(z.string()).min(3, 'En az 3 dış görüntü gerekli'),
     interior: z.array(z.string()).min(2, 'En az 2 iç görüntü gerekli'),
@@ -71,7 +71,7 @@ export const step4Schema = z.object({
 });
 
 // Step 5: Pricing
-export const step5Schema = z.object({
+export const Step5Schema = z.object({
   dailyRate: z.number().min(100, 'Günlük ücret en az 100₺ olmalı'),
   weeklyDiscount: z.number().min(0).max(50).optional(),
   monthlyDiscount: z.number().min(0).max(50).optional(),
@@ -86,7 +86,7 @@ export const step5Schema = z.object({
 });
 
 // Step 6: Availability
-export const step6Schema = z.object({
+export const Step6Schema = z.object({
   availableFrom: z.string().min(1, 'Başlangıç tarihi seçiniz'),
   availableTo: z.string().optional(),
   blockedDates: z.array(z.object({
@@ -121,7 +121,7 @@ export const step6Schema = z.object({
 });
 
 // Step 7: Insurance & Documents
-export const step7Schema = z.object({
+export const Step7Schema = z.object({
   insurance: z.object({
     trafficInsurance: z.object({
       policyNumber: z.string().min(5),
@@ -149,7 +149,7 @@ export const step7Schema = z.object({
 });
 
 // Step 8: Review & Submit
-export const step8Schema = z.object({
+export const Step8Schema = z.object({
   terms: z.object({
     acceptTerms: z.boolean().refine((val) => val === true, 'Kullanım şartlarını kabul etmelisiniz'),
     acceptCommission: z.boolean().refine((val) => val === true, 'Komisyon şartlarını kabul etmelisiniz'),
@@ -159,13 +159,23 @@ export const step8Schema = z.object({
 });
 
 // Complete form schema
-export const completeVehicleSubmissionSchema = step1Schema
-  .merge(step2Schema)
-  .merge(step3Schema)
-  .merge(step4Schema)
-  .merge(step5Schema)
-  .merge(step6Schema)
-  .merge(step7Schema)
-  .merge(step8Schema);
+export const completeVehicleSubmissionSchema = Step1Schema
+  .merge(Step2Schema)
+  .merge(Step3Schema)
+  .merge(Step4Schema)
+  .merge(Step5Schema)
+  .merge(Step6Schema)
+  .merge(Step7Schema)
+  .merge(Step8Schema);
+
+// Type exports for each step
+export type Step1FormData = z.infer<typeof Step1Schema>;
+export type Step2FormData = z.infer<typeof Step2Schema>;
+export type Step3FormData = z.infer<typeof Step3Schema>;
+export type Step4FormData = z.infer<typeof Step4Schema>;
+export type Step5FormData = z.infer<typeof Step5Schema>;
+export type Step6FormData = z.infer<typeof Step6Schema>;
+export type Step7FormData = z.infer<typeof Step7Schema>;
+export type Step8FormData = z.infer<typeof Step8Schema>;
 
 export type VehicleSubmissionFormData = z.infer<typeof completeVehicleSubmissionSchema>;
