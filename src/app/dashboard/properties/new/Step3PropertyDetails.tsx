@@ -1,0 +1,468 @@
+'use client';
+
+import React, { useState } from 'react';
+import { useFormContext } from 'react-hook-form';
+import {
+  Wifi,
+  Tv,
+  Wind,
+  Flame,
+  Car,
+  Utensils,
+  Bed,
+  Shield,
+  Search,
+  X,
+} from 'lucide-react';
+
+interface Step3Props {
+  data?: any;
+  allData?: any;
+}
+
+const amenityCategories = {
+  basic: {
+    title: 'Basic Amenities',
+    icon: Wifi,
+    items: [
+      'WiFi',
+      'Air Conditioning',
+      'Heating',
+      'Parking',
+      'TV',
+      'Kitchen',
+      'Washer',
+      'Dryer',
+      'Dishwasher',
+      'Refrigerator',
+      'Oven',
+    ],
+  },
+  bathroom: {
+    title: 'Bathroom',
+    icon: Bed,
+    items: [
+      'Shower',
+      'Bathtub',
+      'Hair Dryer',
+      'Towels',
+      'Toiletries',
+      'Hot Water',
+      'Bidet',
+    ],
+  },
+  kitchen: {
+    title: 'Kitchen & Dining',
+    icon: Utensils,
+    items: [
+      'Stove',
+      'Oven',
+      'Microwave',
+      'Refrigerator',
+      'Dishwasher',
+      'Coffee Maker',
+      'Kettle',
+      'Toaster',
+      'Dining Table',
+      'Dishes & Silverware',
+      'Wine Glasses',
+    ],
+  },
+  entertainment: {
+    title: 'Entertainment',
+    icon: Tv,
+    items: [
+      'TV',
+      'Cable/Satellite',
+      'Streaming Services',
+      'Netflix',
+      'Board Games',
+      'Books',
+      'Music System',
+      'Game Console',
+    ],
+  },
+  outdoor: {
+    title: 'Outdoor',
+    icon: Wind,
+    items: [
+      'Balcony',
+      'Terrace',
+      'Garden',
+      'BBQ Grill',
+      'Pool',
+      'Hot Tub/Jacuzzi',
+      'Sauna',
+      'Outdoor Furniture',
+      'Beach Access',
+      'Lake Access',
+    ],
+  },
+  safety: {
+    title: 'Safety & Security',
+    icon: Shield,
+    items: [
+      'Smoke Detector',
+      'Carbon Monoxide Detector',
+      'Fire Extinguisher',
+      'First Aid Kit',
+      'Security Cameras',
+      'Door Lock',
+      'Safe',
+      'Emergency Exit',
+    ],
+  },
+};
+
+export default function Step3PropertyDetails({ data }: Step3Props) {
+  const {
+    register,
+    watch,
+    setValue,
+    formState: { errors },
+  } = useFormContext();
+
+  const [searchQuery, setSearchQuery] = useState('');
+  const [customAmenity, setCustomAmenity] = useState('');
+
+  const selectedAmenities = watch('amenities') || [];
+  const customAmenities = watch('customAmenities') || [];
+
+  const toggleAmenity = (amenity: string) => {
+    const current = selectedAmenities;
+    if (current.includes(amenity)) {
+      setValue(
+        'amenities',
+        current.filter((a: string) => a !== amenity),
+        { shouldValidate: true }
+      );
+    } else {
+      setValue('amenities', [...current, amenity], { shouldValidate: true });
+    }
+  };
+
+  const addCustomAmenity = () => {
+    if (customAmenity.trim() && !customAmenities.includes(customAmenity.trim())) {
+      setValue('customAmenities', [...customAmenities, customAmenity.trim()], {
+        shouldValidate: true,
+      });
+      setCustomAmenity('');
+    }
+  };
+
+  const removeCustomAmenity = (amenity: string) => {
+    setValue(
+      'customAmenities',
+      customAmenities.filter((a: string) => a !== amenity),
+      { shouldValidate: true }
+    );
+  };
+
+  // Filter amenities based on search
+  const filterAmenities = (items: string[]) => {
+    if (!searchQuery) return items;
+    return items.filter((item) =>
+      item.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+  };
+
+  return (
+    <div className="space-y-8">
+      {/* Search */}
+      <div className="relative">
+        <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
+        <input
+          type="text"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          placeholder="Search amenities..."
+          className="w-full pl-12 pr-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
+        />
+        {searchQuery && (
+          <button
+            type="button"
+            onClick={() => setSearchQuery('')}
+            className="absolute right-4 top-1/2 -translate-y-1/2"
+          >
+            <X className="w-5 h-5 text-slate-400 hover:text-slate-600" />
+          </button>
+        )}
+      </div>
+
+      {/* Selected Count */}
+      <div className="flex items-center justify-between p-4 bg-blue-50 border border-blue-200 rounded-lg">
+        <span className="text-sm font-medium text-blue-900">
+          {selectedAmenities.length + customAmenities.length} amenities selected
+        </span>
+        {selectedAmenities.length === 0 && (
+          <span className="text-sm text-red-600">Select at least one amenity</span>
+        )}
+      </div>
+
+      {/* Amenity Categories */}
+      <div className="space-y-6">
+        {Object.entries(amenityCategories).map(([key, category]) => {
+          const CategoryIcon = category.icon;
+          const filteredItems = filterAmenities(category.items);
+
+          if (filteredItems.length === 0 && searchQuery) return null;
+
+          return (
+            <div key={key} className="border-2 border-slate-200 rounded-xl p-6">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="p-2 bg-blue-100 rounded-lg">
+                  <CategoryIcon className="w-5 h-5 text-blue-600" />
+                </div>
+                <h3 className="text-lg font-bold text-slate-900">{category.title}</h3>
+              </div>
+
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+                {filteredItems.map((amenity) => {
+                  const isSelected = selectedAmenities.includes(amenity);
+
+                  return (
+                    <button
+                      key={amenity}
+                      type="button"
+                      onClick={() => toggleAmenity(amenity)}
+                      className={`p-3 border-2 rounded-lg text-left transition-all ${
+                        isSelected
+                          ? 'border-blue-500 bg-blue-50 text-blue-900'
+                          : 'border-slate-200 bg-white text-slate-700 hover:border-slate-300'
+                      }`}
+                    >
+                      <div className="flex items-center gap-2">
+                        <div
+                          className={`w-5 h-5 rounded border-2 flex items-center justify-center ${
+                            isSelected
+                              ? 'border-blue-500 bg-blue-500'
+                              : 'border-slate-300'
+                          }`}
+                        >
+                          {isSelected && (
+                            <svg
+                              className="w-3 h-3 text-white"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              stroke="currentColor"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={3}
+                                d="M5 13l4 4L19 7"
+                              />
+                            </svg>
+                          )}
+                        </div>
+                        <span className="text-sm font-medium">{amenity}</span>
+                      </div>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+      {/* Hidden input for validation */}
+      <input type="hidden" {...register('amenities')} value={selectedAmenities} />
+      {errors.amenities && (
+        <p className="text-sm text-red-600">{errors.amenities.message?.toString()}</p>
+      )}
+
+      {/* Custom Amenities */}
+      <div className="border-2 border-slate-200 rounded-xl p-6">
+        <h3 className="text-lg font-bold text-slate-900 mb-4">Custom Amenities</h3>
+        <p className="text-sm text-slate-600 mb-4">
+          Add any unique amenities not listed above (max 10)
+        </p>
+
+        <div className="flex gap-3 mb-4">
+          <input
+            type="text"
+            value={customAmenity}
+            onChange={(e) => setCustomAmenity(e.target.value)}
+            onKeyPress={(e) => e.key === 'Enter' && (e.preventDefault(), addCustomAmenity())}
+            placeholder="e.g., Espresso Machine, Piano, etc."
+            maxLength={100}
+            className="flex-1 px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
+          />
+          <button
+            type="button"
+            onClick={addCustomAmenity}
+            disabled={!customAmenity.trim() || customAmenities.length >= 10}
+            className="px-6 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+          >
+            Add
+          </button>
+        </div>
+
+        {customAmenities.length > 0 && (
+          <div className="flex flex-wrap gap-2">
+            {customAmenities.map((amenity: string, index: number) => (
+              <div
+                key={index}
+                className="flex items-center gap-2 px-4 py-2 bg-indigo-50 border border-indigo-200 rounded-lg"
+              >
+                <span className="text-sm font-medium text-indigo-900">{amenity}</span>
+                <button
+                  type="button"
+                  onClick={() => removeCustomAmenity(amenity)}
+                  className="text-indigo-600 hover:text-indigo-800"
+                >
+                  <X className="w-4 h-4" />
+                </button>
+              </div>
+            ))}
+          </div>
+        )}
+
+        <input
+          type="hidden"
+          {...register('customAmenities')}
+          value={customAmenities}
+        />
+      </div>
+
+      {/* Property Features Toggles */}
+      <div className="border-2 border-slate-200 rounded-xl p-6">
+        <h3 className="text-lg font-bold text-slate-900 mb-4">Advanced Features</h3>
+
+        <div className="space-y-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="flex items-center justify-between p-4 bg-slate-50 rounded-lg">
+              <div>
+                <label htmlFor="hasWifi" className="font-medium text-slate-900">
+                  WiFi Available
+                </label>
+                <p className="text-sm text-slate-600">High-speed internet</p>
+              </div>
+              <input
+                type="checkbox"
+                id="hasWifi"
+                {...register('features.hasWifi')}
+                className="w-6 h-6 text-blue-600 rounded focus:ring-2 focus:ring-blue-500"
+              />
+            </div>
+
+            {watch('features.hasWifi') && (
+              <div>
+                <label className="block text-sm font-medium text-slate-700 mb-2">
+                  WiFi Speed (optional)
+                </label>
+                <input
+                  type="text"
+                  {...register('features.wifiSpeed')}
+                  placeholder="e.g., 100 Mbps"
+                  className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
+                />
+              </div>
+            )}
+
+            <div className="flex items-center justify-between p-4 bg-slate-50 rounded-lg">
+              <div>
+                <label htmlFor="hasParking" className="font-medium text-slate-900">
+                  Parking
+                </label>
+                <p className="text-sm text-slate-600">On-site parking</p>
+              </div>
+              <input
+                type="checkbox"
+                id="hasParking"
+                {...register('features.hasParking')}
+                className="w-6 h-6 text-blue-600 rounded focus:ring-2 focus:ring-blue-500"
+              />
+            </div>
+
+            {watch('features.hasParking') && (
+              <div>
+                <label className="block text-sm font-medium text-slate-700 mb-2">
+                  Parking Type
+                </label>
+                <select
+                  {...register('features.parkingType')}
+                  className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all bg-white"
+                >
+                  <option value="free">Free Parking</option>
+                  <option value="paid">Paid Parking</option>
+                  <option value="valet">Valet Parking</option>
+                </select>
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+
+      {/* Safety Features */}
+      <div className="border-2 border-slate-200 rounded-xl p-6">
+        <h3 className="text-lg font-bold text-slate-900 mb-4">Safety Features</h3>
+        <p className="text-sm text-slate-600 mb-4">
+          These features help guests feel safe and secure
+        </p>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="flex items-center gap-4">
+            <input
+              type="checkbox"
+              id="hasSmokeDetector"
+              {...register('safetyFeatures.hasSmokeDector')}
+              className="w-5 h-5 text-blue-600 rounded focus:ring-2 focus:ring-blue-500"
+            />
+            <label htmlFor="hasSmokeDetector" className="font-medium text-slate-700">
+              Smoke Detector
+            </label>
+          </div>
+
+          <div className="flex items-center gap-4">
+            <input
+              type="checkbox"
+              id="hasCO2Detector"
+              {...register('safetyFeatures.hasCO2Detector')}
+              className="w-5 h-5 text-blue-600 rounded focus:ring-2 focus:ring-blue-500"
+            />
+            <label htmlFor="hasCO2Detector" className="font-medium text-slate-700">
+              Carbon Monoxide Detector
+            </label>
+          </div>
+
+          <div className="flex items-center gap-4">
+            <input
+              type="checkbox"
+              id="hasFirstAidKit"
+              {...register('safetyFeatures.hasFirstAidKit')}
+              className="w-5 h-5 text-blue-600 rounded focus:ring-2 focus:ring-blue-500"
+            />
+            <label htmlFor="hasFirstAidKit" className="font-medium text-slate-700">
+              First Aid Kit
+            </label>
+          </div>
+
+          <div className="flex items-center gap-4">
+            <input
+              type="checkbox"
+              id="hasLock"
+              {...register('safetyFeatures.hasLock')}
+              className="w-5 h-5 text-blue-600 rounded focus:ring-2 focus:ring-blue-500"
+            />
+            <label htmlFor="hasLock" className="font-medium text-slate-700">
+              Door Lock
+            </label>
+          </div>
+        </div>
+      </div>
+
+      {/* Info Box */}
+      <div className="p-4 bg-green-50 border border-green-200 rounded-lg">
+        <h4 className="font-semibold text-green-900 mb-2">Amenity Tips:</h4>
+        <ul className="text-sm text-green-800 space-y-1">
+          <li>• List all available amenities to attract more guests</li>
+          <li>• Highlight unique features that set your property apart</li>
+          <li>• Ensure safety features are accurate and functional</li>
+          <li>• Custom amenities can showcase special touches</li>
+        </ul>
+      </div>
+    </div>
+  );
+}

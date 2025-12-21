@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
+import AilydianEcosystemFooter from '@/components/AilydianEcosystemFooter'
+import { QueryProvider } from '@/components/providers/QueryProvider'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -11,6 +13,17 @@ export const metadata: Metadata = {
   authors: [{ name: 'Travel Ailydian' }],
   viewport: 'width=device-width, initial-scale=1',
   robots: 'index, follow',
+  icons: {
+    icon: [
+      { url: '/favicon.ico' },
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+    ],
+  },
+  manifest: '/site.webmanifest',
   openGraph: {
     title: 'Travel Ailydian - AI-Powered Global Tourism Platform',
     description: 'Enterprise-grade AI-powered global tourism platform with interactive maps, dynamic pricing, and smart booking system.',
@@ -43,9 +56,18 @@ export default function RootLayout({
   return (
     <html lang="tr">
       <body className={inter.className}>
-        <div className="min-h-screen bg-white">
-          {children}
-        </div>
+        <QueryProvider>
+          <div className="min-h-screen bg-white">
+            {children}
+          </div>
+
+          {/* Ailydian Ecosystem Cross-Links - Güvenli ekleme, mevcut footer'a zarar vermez */}
+          <AilydianEcosystemFooter
+            currentDomain="travel.ailydian.com"
+            theme="dark"
+            position="above-footer"
+          />
+        </QueryProvider>
       </body>
     </html>
   )

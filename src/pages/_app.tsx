@@ -8,6 +8,7 @@ import { CartProvider } from '../context/CartContext'
 import { VoiceCommandProvider } from '../context/VoiceCommandContext'
 import { ToastProvider } from '../context/ToastContext'
 import { PageLoader } from '../components/ui/PageLoader'
+import AilydianEcosystemFooter from '../components/AilydianEcosystemFooter'
 import Head from 'next/head'
 import '../lib/i18n' // i18n konfigürasyonunu yükle
 import '../styles/globals.css'
@@ -80,6 +81,11 @@ function MyApp({
               <DefaultSeo {...seoConfig} />
               <PageLoader isLoading={loading} />
               <Component {...pageProps} />
+              <AilydianEcosystemFooter
+                currentDomain="travel.ailydian.com"
+                theme="dark"
+                position="above-footer"
+              />
             </VoiceCommandProvider>
           </CartProvider>
         </ToastProvider>
