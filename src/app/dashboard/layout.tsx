@@ -53,12 +53,12 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
   };
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: 'var(--bg-0)' }}>
+    <div className="min-h-screen" style={{ backgroundColor: '#FFFFFF' }}>
       {/* Top Header */}
       <header className="fixed top-0 right-0 left-0 z-50 border-b backdrop-blur-lg"
               style={{
-                backgroundColor: 'rgba(10, 10, 11, 0.8)',
-                borderColor: 'rgba(255, 33, 77, 0.2)'
+                backgroundColor: 'rgba(255, 255, 255, 0.95)',
+                borderColor: '#E5E7EB'
               }}>
         <div className="flex items-center justify-between h-16 px-4">
           <div className="flex items-center gap-4">
@@ -79,11 +79,11 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
                   <span className="text-xl font-black neon-text-strong" style={{ color: 'var(--ac-1)' }}>
                     Property
                   </span>
-                  <span className="text-xl font-black" style={{ color: 'var(--tx-1)' }}>
+                  <span className="text-xl font-black" style={{ color: '#000000' }}>
                     Owner
                   </span>
                 </div>
-                <span className="text-xs font-medium" style={{ color: 'var(--tx-2)' }}>
+                <span className="text-xs font-medium" style={{ color: '#666666' }}>
                   Dashboard
                 </span>
               </div>
@@ -94,15 +94,15 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
           <div className="hidden md:flex flex-1 max-w-xl mx-8">
             <div className="relative w-full">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5"
-                      style={{ color: 'var(--tx-2)' }} />
+                      style={{ color: '#666666' }} />
               <input
                 type="text"
                 placeholder="Mülk, rezervasyon veya misafir ara..."
                 className="w-full pl-10 pr-4 py-2 rounded-xl border-2 transition-all focus:outline-none"
                 style={{
-                  backgroundColor: 'rgba(255, 33, 77, 0.05)',
-                  borderColor: 'rgba(255, 33, 77, 0.2)',
-                  color: 'var(--tx-1)'
+                  backgroundColor: '#FFFFFF',
+                  borderColor: '#E5E7EB',
+                  color: '#000000'
                 }}
               />
             </div>
@@ -147,7 +147,7 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
                 className="flex items-center gap-2 p-2 rounded-xl transition-all hover:scale-105"
                 style={{
                   backgroundColor: 'rgba(255, 33, 77, 0.1)',
-                  color: 'var(--tx-1)'
+                  color: '#000000'
                 }}
               >
                 <div className="w-8 h-8 rounded-lg flex items-center justify-center"
@@ -162,16 +162,16 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
               {profileOpen && (
                 <div className="absolute right-0 mt-2 w-64 rounded-xl border-2 overflow-hidden shadow-2xl"
                      style={{
-                       backgroundColor: 'var(--bg-0)',
-                       borderColor: 'rgba(255, 33, 77, 0.3)'
+                       backgroundColor: '#FFFFFF',
+                       borderColor: '#E5E7EB'
                      }}>
                   <div className="p-4 border-b"
-                       style={{ borderColor: 'rgba(255, 33, 77, 0.2)' }}>
-                    <p className="font-bold" style={{ color: 'var(--tx-1)' }}>Ahmet Yılmaz</p>
-                    <p className="text-sm" style={{ color: 'var(--tx-2)' }}>ahmet@example.com</p>
+                       style={{ borderColor: '#E5E7EB' }}>
+                    <p className="font-bold" style={{ color: '#000000' }}>Ahmet Yılmaz</p>
+                    <p className="text-sm" style={{ color: '#666666' }}>ahmet@example.com</p>
                     <div className="mt-2 flex items-center gap-2">
                       <Star className="w-4 h-4" style={{ color: 'var(--ac-1)' }} />
-                      <span className="text-sm font-medium" style={{ color: 'var(--tx-1)' }}>
+                      <span className="text-sm font-medium" style={{ color: '#000000' }}>
                         Süper Host (4.9)
                       </span>
                     </div>
@@ -181,7 +181,7 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
                       href="/dashboard/settings"
                       className="flex items-center gap-3 px-3 py-2 rounded-lg transition-all hover:scale-105"
                       style={{
-                        color: 'var(--tx-1)',
+                        color: '#000000',
                         backgroundColor: profileOpen ? 'rgba(255, 33, 77, 0.1)' : 'transparent'
                       }}
                     >
@@ -209,8 +209,8 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
           sidebarOpen ? 'w-64' : 'w-0 -translate-x-full'
         }`}
         style={{
-          backgroundColor: 'rgba(10, 10, 11, 0.95)',
-          borderColor: 'rgba(255, 33, 77, 0.2)'
+          backgroundColor: '#F9FAFB',
+          borderColor: '#E5E7EB'
         }}
       >
         <nav className="h-full overflow-y-auto p-4 space-y-2">
@@ -228,7 +228,7 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
                 style={{
                   backgroundColor: active ? 'rgba(255, 33, 77, 0.15)' : 'transparent',
                   borderLeft: active ? '3px solid var(--ac-1)' : '3px solid transparent',
-                  color: active ? 'var(--ac-1)' : 'var(--tx-2)'
+                  color: active ? 'var(--ac-1)' : '#666666'
                 }}
               >
                 <div className="flex items-center gap-3">
@@ -253,7 +253,7 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
 
         {/* Sidebar Footer */}
         <div className="absolute bottom-0 left-0 right-0 p-4 border-t"
-             style={{ borderColor: 'rgba(255, 33, 77, 0.2)' }}>
+             style={{ borderColor: '#E5E7EB' }}>
           <div className="rounded-xl p-4"
                style={{
                  background: 'linear-gradient(135deg, rgba(255, 33, 77, 0.1), rgba(255, 106, 69, 0.1))',
@@ -261,15 +261,15 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
                }}>
             <div className="flex items-center gap-2 mb-2">
               <TrendingUp className="w-5 h-5" style={{ color: 'var(--ac-1)' }} />
-              <span className="font-bold" style={{ color: 'var(--tx-1)' }}>Performans</span>
+              <span className="font-bold" style={{ color: '#000000' }}>Performans</span>
             </div>
             <div className="space-y-1 text-sm">
               <div className="flex justify-between">
-                <span style={{ color: 'var(--tx-2)' }}>Doluluk:</span>
+                <span style={{ color: '#666666' }}>Doluluk:</span>
                 <span className="font-medium" style={{ color: 'var(--ac-1)' }}>87%</span>
               </div>
               <div className="flex justify-between">
-                <span style={{ color: 'var(--tx-2)' }}>Ortalama Puan:</span>
+                <span style={{ color: '#666666' }}>Ortalama Puan:</span>
                 <span className="font-medium" style={{ color: 'var(--ac-1)' }}>4.9</span>
               </div>
             </div>

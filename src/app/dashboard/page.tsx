@@ -119,9 +119,9 @@ export default function PropertyOwnerDashboard() {
     return (
       <div className="rounded-2xl p-6 border-2 transition-all hover:scale-105 card-hover"
            style={{
-             background: 'linear-gradient(135deg, rgba(255, 33, 77, 0.05), rgba(255, 106, 69, 0.05))',
-             borderColor: 'rgba(255, 33, 77, 0.3)',
-             boxShadow: '0 0 30px rgba(255, 33, 77, 0.1)'
+             backgroundColor: '#FFFFFF',
+             borderColor: '#E5E7EB',
+             boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)'
            }}>
         <div className="flex items-start justify-between mb-4">
           <div className="p-3 rounded-xl"
@@ -143,8 +143,8 @@ export default function PropertyOwnerDashboard() {
           )}
         </div>
         <div>
-          <p className="text-sm font-medium mb-2" style={{ color: 'var(--tx-2)' }}>{title}</p>
-          <p className="text-3xl font-black neon-text-strong" style={{ color: 'var(--tx-1)' }}>
+          <p className="text-sm font-medium mb-2" style={{ color: '#666666' }}>{title}</p>
+          <p className="text-3xl font-black neon-text-strong" style={{ color: '#000000' }}>
             {prefix}{value}{suffix}
           </p>
         </div>
@@ -158,13 +158,13 @@ export default function PropertyOwnerDashboard() {
       <div className="rounded-2xl p-8 border-2 relative overflow-hidden"
            style={{
              background: 'linear-gradient(135deg, rgba(255, 33, 77, 0.1), rgba(255, 106, 69, 0.1))',
-             borderColor: 'rgba(255, 33, 77, 0.3)'
+             borderColor: '#E5E7EB'
            }}>
         <div className="relative z-10">
-          <h1 className="text-4xl font-black mb-2 neon-text-strong" style={{ color: 'var(--tx-1)' }}>
+          <h1 className="text-4xl font-black mb-2 neon-text-strong" style={{ color: '#000000' }}>
             Hoş Geldiniz, Ahmet! 👋
           </h1>
-          <p className="text-lg mb-4" style={{ color: 'var(--tx-2)' }}>
+          <p className="text-lg mb-4" style={{ color: '#666666' }}>
             Property Owner Dashboard'unuzda bugün neler oluyor?
           </p>
           <div className="flex gap-4">
@@ -232,11 +232,12 @@ export default function PropertyOwnerDashboard() {
         {/* Revenue Chart */}
         <div className="rounded-2xl p-6 border-2"
              style={{
-               background: 'linear-gradient(135deg, rgba(255, 33, 77, 0.03), rgba(255, 106, 69, 0.03))',
-               borderColor: 'rgba(255, 33, 77, 0.2)'
+               backgroundColor: '#FFFFFF',
+               borderColor: '#E5E7EB',
+               boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)'
              }}>
           <div className="flex items-center justify-between mb-6">
-            <h3 className="text-xl font-bold neon-text-strong" style={{ color: 'var(--tx-1)' }}>
+            <h3 className="text-xl font-bold neon-text-strong" style={{ color: '#000000' }}>
               Haftalık Gelir Analizi
             </h3>
             <select
@@ -244,9 +245,9 @@ export default function PropertyOwnerDashboard() {
               onChange={(e) => setTimeRange(e.target.value)}
               className="px-3 py-2 rounded-lg border-2"
               style={{
-                backgroundColor: 'rgba(255, 33, 77, 0.05)',
-                borderColor: 'rgba(255, 33, 77, 0.2)',
-                color: 'var(--tx-1)'
+                backgroundColor: '#FFFFFF',
+                borderColor: '#E5E7EB',
+                color: '#000000'
               }}
             >
               <option value="7d">Son 7 Gün</option>
@@ -262,15 +263,15 @@ export default function PropertyOwnerDashboard() {
                   <stop offset="95%" stopColor="#FF214D" stopOpacity={0}/>
                 </linearGradient>
               </defs>
-              <CartesianGrid strokeDasharray="3 3" stroke="rgba(255, 33, 77, 0.1)" />
-              <XAxis dataKey="name" stroke="var(--tx-2)" />
-              <YAxis stroke="var(--tx-2)" />
+              <CartesianGrid strokeDasharray="3 3" stroke="#E5E7EB" />
+              <XAxis dataKey="name" stroke="#666666" />
+              <YAxis stroke="#666666" />
               <Tooltip
                 contentStyle={{
-                  backgroundColor: 'var(--bg-0)',
-                  border: '2px solid rgba(255, 33, 77, 0.3)',
+                  backgroundColor: '#FFFFFF',
+                  border: '2px solid #E5E7EB',
                   borderRadius: '12px',
-                  color: 'var(--tx-1)'
+                  color: '#000000'
                 }}
               />
               <Area
@@ -288,10 +289,11 @@ export default function PropertyOwnerDashboard() {
         {/* Property Performance Pie Chart */}
         <div className="rounded-2xl p-6 border-2"
              style={{
-               background: 'linear-gradient(135deg, rgba(255, 33, 77, 0.03), rgba(255, 106, 69, 0.03))',
-               borderColor: 'rgba(255, 33, 77, 0.2)'
+               backgroundColor: '#FFFFFF',
+               borderColor: '#E5E7EB',
+               boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)'
              }}>
-          <h3 className="text-xl font-bold mb-6 neon-text-strong" style={{ color: 'var(--tx-1)' }}>
+          <h3 className="text-xl font-bold mb-6 neon-text-strong" style={{ color: '#000000' }}>
             Mülk Performans Dağılımı
           </h3>
           <ResponsiveContainer width="100%" height={300}>
@@ -312,10 +314,10 @@ export default function PropertyOwnerDashboard() {
               </Pie>
               <Tooltip
                 contentStyle={{
-                  backgroundColor: 'var(--bg-0)',
-                  border: '2px solid rgba(255, 33, 77, 0.3)',
+                  backgroundColor: '#FFFFFF',
+                  border: '2px solid #E5E7EB',
                   borderRadius: '12px',
-                  color: 'var(--tx-1)'
+                  color: '#000000'
                 }}
               />
             </PieChart>
@@ -328,11 +330,12 @@ export default function PropertyOwnerDashboard() {
         {/* Upcoming Bookings */}
         <div className="lg:col-span-2 rounded-2xl p-6 border-2"
              style={{
-               background: 'linear-gradient(135deg, rgba(255, 33, 77, 0.03), rgba(255, 106, 69, 0.03))',
-               borderColor: 'rgba(255, 33, 77, 0.2)'
+               backgroundColor: '#FFFFFF',
+               borderColor: '#E5E7EB',
+               boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)'
              }}>
           <div className="flex items-center justify-between mb-6">
-            <h3 className="text-xl font-bold neon-text-strong" style={{ color: 'var(--tx-1)' }}>
+            <h3 className="text-xl font-bold neon-text-strong" style={{ color: '#000000' }}>
               Yaklaşan Rezervasyonlar
             </h3>
             <Link
@@ -351,16 +354,16 @@ export default function PropertyOwnerDashboard() {
                 key={booking.id}
                 className="rounded-xl p-4 border-2 transition-all hover:scale-[1.02]"
                 style={{
-                  backgroundColor: 'rgba(255, 33, 77, 0.05)',
-                  borderColor: 'rgba(255, 33, 77, 0.2)'
+                  backgroundColor: '#FFFFFF',
+                  borderColor: '#E5E7EB'
                 }}
               >
                 <div className="flex items-start justify-between mb-3">
                   <div>
-                    <h4 className="font-bold mb-1" style={{ color: 'var(--tx-1)' }}>
+                    <h4 className="font-bold mb-1" style={{ color: '#000000' }}>
                       {booking.guest}
                     </h4>
-                    <p className="text-sm flex items-center gap-2" style={{ color: 'var(--tx-2)' }}>
+                    <p className="text-sm flex items-center gap-2" style={{ color: '#666666' }}>
                       <Building2 className="w-4 h-4" />
                       {booking.property}
                     </p>
@@ -378,15 +381,15 @@ export default function PropertyOwnerDashboard() {
 
                 <div className="grid grid-cols-3 gap-4 text-sm">
                   <div>
-                    <p className="font-medium mb-1" style={{ color: 'var(--tx-2)' }}>Check-in</p>
-                    <p className="font-bold" style={{ color: 'var(--tx-1)' }}>{booking.checkIn}</p>
+                    <p className="font-medium mb-1" style={{ color: '#666666' }}>Check-in</p>
+                    <p className="font-bold" style={{ color: '#000000' }}>{booking.checkIn}</p>
                   </div>
                   <div>
-                    <p className="font-medium mb-1" style={{ color: 'var(--tx-2)' }}>Check-out</p>
-                    <p className="font-bold" style={{ color: 'var(--tx-1)' }}>{booking.checkOut}</p>
+                    <p className="font-medium mb-1" style={{ color: '#666666' }}>Check-out</p>
+                    <p className="font-bold" style={{ color: '#000000' }}>{booking.checkOut}</p>
                   </div>
                   <div>
-                    <p className="font-medium mb-1" style={{ color: 'var(--tx-2)' }}>Tutar</p>
+                    <p className="font-medium mb-1" style={{ color: '#666666' }}>Tutar</p>
                     <p className="font-bold" style={{ color: 'var(--ac-1)' }}>₺{booking.amount.toLocaleString('tr-TR')}</p>
                   </div>
                 </div>
@@ -398,10 +401,11 @@ export default function PropertyOwnerDashboard() {
         {/* Recent Activity */}
         <div className="rounded-2xl p-6 border-2"
              style={{
-               background: 'linear-gradient(135deg, rgba(255, 33, 77, 0.03), rgba(255, 106, 69, 0.03))',
-               borderColor: 'rgba(255, 33, 77, 0.2)'
+               backgroundColor: '#FFFFFF',
+               borderColor: '#E5E7EB',
+               boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)'
              }}>
-          <h3 className="text-xl font-bold mb-6 neon-text-strong" style={{ color: 'var(--tx-1)' }}>
+          <h3 className="text-xl font-bold mb-6 neon-text-strong" style={{ color: '#000000' }}>
             Son Aktiviteler
           </h3>
 
@@ -420,10 +424,10 @@ export default function PropertyOwnerDashboard() {
                     <Icon className="w-4 h-4" />
                   </div>
                   <div className="flex-1">
-                    <p className="text-sm font-medium mb-1" style={{ color: 'var(--tx-1)' }}>
+                    <p className="text-sm font-medium mb-1" style={{ color: '#000000' }}>
                       {activity.message}
                     </p>
-                    <p className="text-xs" style={{ color: 'var(--tx-2)' }}>
+                    <p className="text-xs" style={{ color: '#666666' }}>
                       {activity.time}
                     </p>
                   </div>

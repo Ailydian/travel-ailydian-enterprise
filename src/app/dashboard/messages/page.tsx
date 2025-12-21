@@ -453,7 +453,7 @@ const MessagesPage: React.FC = () => {
   if (isLoading) {
     return (
       <div className="space-y-6">
-        <h1 className="text-3xl font-black neon-text-strong mb-6" style={{ color: 'var(--tx-1)' }}>
+        <h1 className="text-3xl font-black mb-6 text-black">
           Messages
         </h1>
         <div className="animate-pulse flex h-[calc(100vh-200px)]">
@@ -466,7 +466,7 @@ const MessagesPage: React.FC = () => {
 
   return (
     <div className="space-y-6">
-      <h1 className="text-3xl font-black neon-text-strong mb-6" style={{ color: 'var(--tx-1)' }}>
+      <h1 className="text-3xl font-black mb-6 text-black">
         Messages
       </h1>
       <div className="bg-white border border-gray-200 rounded-xl overflow-hidden" style={{ height: 'calc(100vh - 200px)' }}>

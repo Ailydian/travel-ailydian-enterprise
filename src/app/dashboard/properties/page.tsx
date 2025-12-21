@@ -137,10 +137,10 @@ export default function PropertiesPage() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-black neon-text-strong mb-2" style={{ color: 'var(--tx-1)' }}>
+          <h1 className="text-3xl font-black neon-text-strong mb-2" style={{ color: '#000000' }}>
             Mülklerim
           </h1>
-          <p className="text-sm" style={{ color: 'var(--tx-2)' }}>
+          <p className="text-sm" style={{ color: '#666666' }}>
             {stats.total} mülk yönetiyorsunuz • {stats.active} aktif
           </p>
         </div>
@@ -170,13 +170,14 @@ export default function PropertiesPage() {
             key={index}
             className="rounded-xl p-4 border-2 transition-all hover:scale-105"
             style={{
-              background: 'linear-gradient(135deg, rgba(255, 33, 77, 0.05), rgba(255, 106, 69, 0.05))',
-              borderColor: 'rgba(255, 33, 77, 0.2)'
+              backgroundColor: '#FFFFFF',
+              borderColor: '#E5E7EB',
+              boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)'
             }}
           >
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm font-medium mb-1" style={{ color: 'var(--tx-2)' }}>{stat.label}</p>
+                <p className="text-sm font-medium mb-1" style={{ color: '#666666' }}>{stat.label}</p>
                 <p className="text-2xl font-black" style={{ color: stat.color }}>{stat.value}</p>
               </div>
               <div
@@ -193,7 +194,7 @@ export default function PropertiesPage() {
       {/* Filters and Search */}
       <div className="flex flex-col sm:flex-row gap-4">
         <div className="flex-1 relative">
-          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5" style={{ color: 'var(--tx-2)' }} />
+          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5" style={{ color: '#666666' }} />
           <input
             type="text"
             placeholder="Mülk adı, konum veya türe göre ara..."
@@ -201,9 +202,9 @@ export default function PropertiesPage() {
             onChange={(e) => setSearchQuery(e.target.value)}
             className="w-full pl-10 pr-4 py-3 rounded-xl border-2 transition-all"
             style={{
-              backgroundColor: 'rgba(255, 33, 77, 0.05)',
-              borderColor: 'rgba(255, 33, 77, 0.2)',
-              color: 'var(--tx-1)'
+              backgroundColor: '#FFFFFF',
+              borderColor: '#E5E7EB',
+              color: '#000000'
             }}
           />
         </div>
@@ -213,9 +214,9 @@ export default function PropertiesPage() {
           onChange={(e) => setFilterStatus(e.target.value)}
           className="px-4 py-3 rounded-xl border-2 transition-all"
           style={{
-            backgroundColor: 'rgba(255, 33, 77, 0.05)',
-            borderColor: 'rgba(255, 33, 77, 0.2)',
-            color: 'var(--tx-1)'
+            backgroundColor: '#FFFFFF',
+            borderColor: '#E5E7EB',
+            color: '#000000'
           }}
         >
           <option value="all">Tüm Durumlar</option>
@@ -243,9 +244,9 @@ export default function PropertiesPage() {
                 key={property.id}
                 className="rounded-2xl overflow-hidden border-2 transition-all hover:scale-[1.02]"
                 style={{
-                  background: 'linear-gradient(135deg, rgba(255, 33, 77, 0.03), rgba(255, 106, 69, 0.03))',
-                  borderColor: 'rgba(255, 33, 77, 0.2)',
-                  boxShadow: '0 0 30px rgba(255, 33, 77, 0.1)'
+                  backgroundColor: '#FFFFFF',
+                  borderColor: '#E5E7EB',
+                  boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)'
                 }}
               >
                 {/* Image */}
@@ -278,44 +279,44 @@ export default function PropertiesPage() {
 
                 {/* Content */}
                 <div className="p-5">
-                  <h3 className="text-lg font-bold mb-2 neon-text-strong" style={{ color: 'var(--tx-1)' }}>
+                  <h3 className="text-lg font-bold mb-2 neon-text-strong" style={{ color: '#000000' }}>
                     {property.name}
                   </h3>
 
-                  <div className="flex items-center gap-2 mb-4 text-sm" style={{ color: 'var(--tx-2)' }}>
+                  <div className="flex items-center gap-2 mb-4 text-sm" style={{ color: '#666666' }}>
                     <MapPin className="w-4 h-4" />
                     <span>{property.location}</span>
                   </div>
 
                   {/* Stats */}
-                  <div className="grid grid-cols-2 gap-3 mb-4 pb-4 border-b" style={{ borderColor: 'rgba(255, 33, 77, 0.1)' }}>
+                  <div className="grid grid-cols-2 gap-3 mb-4 pb-4 border-b" style={{ borderColor: '#E5E7EB' }}>
                     <div>
                       <div className="flex items-center gap-1 mb-1">
                         <Star className="w-4 h-4" style={{ color: 'var(--ac-1)' }} />
-                        <span className="text-sm font-bold" style={{ color: 'var(--tx-1)' }}>
+                        <span className="text-sm font-bold" style={{ color: '#000000' }}>
                           {property.rating}
                         </span>
                       </div>
-                      <p className="text-xs" style={{ color: 'var(--tx-2)' }}>{property.reviews} değerlendirme</p>
+                      <p className="text-xs" style={{ color: '#666666' }}>{property.reviews} değerlendirme</p>
                     </div>
                     <div>
                       <div className="flex items-center gap-1 mb-1">
                         <Calendar className="w-4 h-4" style={{ color: 'var(--ac-2)' }} />
-                        <span className="text-sm font-bold" style={{ color: 'var(--tx-1)' }}>
+                        <span className="text-sm font-bold" style={{ color: '#000000' }}>
                           {property.bookings}
                         </span>
                       </div>
-                      <p className="text-xs" style={{ color: 'var(--tx-2)' }}>rezervasyon</p>
+                      <p className="text-xs" style={{ color: '#666666' }}>rezervasyon</p>
                     </div>
                   </div>
 
                   {/* Performance */}
                   <div className="space-y-2 mb-4">
                     <div className="flex items-center justify-between text-sm">
-                      <span style={{ color: 'var(--tx-2)' }}>Doluluk Oranı</span>
+                      <span style={{ color: '#666666' }}>Doluluk Oranı</span>
                       <span className="font-bold" style={{ color: 'var(--ac-1)' }}>{property.occupancy}%</span>
                     </div>
-                    <div className="w-full h-2 rounded-full overflow-hidden" style={{ backgroundColor: 'rgba(255, 33, 77, 0.1)' }}>
+                    <div className="w-full h-2 rounded-full overflow-hidden" style={{ backgroundColor: '#E5E7EB' }}>
                       <div
                         className="h-full rounded-full"
                         style={{
@@ -327,7 +328,7 @@ export default function PropertiesPage() {
                   </div>
 
                   <div className="flex items-center justify-between text-sm mb-4">
-                    <span style={{ color: 'var(--tx-2)' }}>Toplam Gelir</span>
+                    <span style={{ color: '#666666' }}>Toplam Gelir</span>
                     <span className="font-bold text-lg" style={{ color: 'var(--ac-1)' }}>
                       ₺{property.revenue.toLocaleString('tr-TR')}
                     </span>
@@ -369,7 +370,7 @@ export default function PropertiesPage() {
                     </button>
                   </div>
 
-                  <div className="mt-3 text-xs" style={{ color: 'var(--tx-2)' }}>
+                  <div className="mt-3 text-xs" style={{ color: '#666666' }}>
                     Son rezervasyon: {property.lastBooked}
                   </div>
                 </div>
@@ -382,14 +383,14 @@ export default function PropertiesPage() {
       {properties.filter(p => filterStatus === 'all' || p.status === filterStatus).length === 0 && (
         <div className="text-center py-16 rounded-2xl border-2"
              style={{
-               background: 'linear-gradient(135deg, rgba(255, 33, 77, 0.03), rgba(255, 106, 69, 0.03))',
-               borderColor: 'rgba(255, 33, 77, 0.2)'
+               backgroundColor: '#FFFFFF',
+               borderColor: '#E5E7EB'
              }}>
-          <Building2 className="w-16 h-16 mx-auto mb-4" style={{ color: 'var(--tx-2)' }} />
-          <h3 className="text-xl font-bold mb-2" style={{ color: 'var(--tx-1)' }}>
+          <Building2 className="w-16 h-16 mx-auto mb-4" style={{ color: '#666666' }} />
+          <h3 className="text-xl font-bold mb-2" style={{ color: '#000000' }}>
             Mülk Bulunamadı
           </h3>
-          <p className="mb-6" style={{ color: 'var(--tx-2)' }}>
+          <p className="mb-6" style={{ color: '#666666' }}>
             Seçtiğiniz filtreye uygun mülk bulunmamaktadır.
           </p>
           <Link

@@ -296,7 +296,7 @@ const AnalyticsPage: React.FC = () => {
   if (isLoading) {
     return (
       <div className="space-y-6">
-        <h1 className="text-3xl font-black neon-text-strong mb-6" style={{ color: 'var(--tx-1)' }}>
+        <h1 className="text-3xl font-black mb-6 text-black">
           Analytics
         </h1>
         <div className="animate-pulse space-y-4">
@@ -313,7 +313,7 @@ const AnalyticsPage: React.FC = () => {
 
   return (
     <div className="space-y-6">
-      <h1 className="text-3xl font-black neon-text-strong mb-6" style={{ color: 'var(--tx-1)' }}>
+      <h1 className="text-3xl font-black mb-6 text-black">
         Analytics
       </h1>
       <DateRangePicker />

@@ -398,7 +398,7 @@ const CalendarPage: React.FC = () => {
   if (propertiesLoading) {
     return (
       <div className="space-y-6">
-        <h1 className="text-3xl font-black neon-text-strong mb-6" style={{ color: 'var(--tx-1)' }}>
+        <h1 className="text-3xl font-black mb-6 text-black">
           Calendar
         </h1>
         <div className="animate-pulse space-y-4">
@@ -411,7 +411,7 @@ const CalendarPage: React.FC = () => {
 
   return (
     <div className="space-y-6">
-      <h1 className="text-3xl font-black neon-text-strong mb-6" style={{ color: 'var(--tx-1)' }}>
+      <h1 className="text-3xl font-black mb-6 text-black">
         Calendar
       </h1>
       <PropertySelector
