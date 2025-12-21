@@ -1,0 +1,381 @@
+{
+  "dashboard": {
+    "welcome": "Welcome, {{name}}!",
+    "subtitle": "What's happening in your Property Owner Dashboard today?",
+    "addProperty": "Add New Property",
+    "detailedAnalytics": "Detailed Analytics",
+    "stats": {
+      "totalRevenue": "Total Revenue",
+      "activeBookings": "Active Bookings",
+      "occupancyRate": "Occupancy Rate",
+      "avgRating": "Average Rating",
+      "totalProperties": "Total Properties",
+      "pendingReviews": "Pending Reviews",
+      "responseTime": "Response Time",
+      "monthlyIncome": "Monthly Income"
+    },
+    "charts": {
+      "weeklyRevenue": "Weekly Revenue Analysis",
+      "occupancyTrend": "Occupancy Rate Trend",
+      "propertyPerformance": "Property Performance Distribution",
+      "timeRange": {
+        "7d": "Last 7 Days",
+        "30d": "Last 30 Days",
+        "90d": "Last 90 Days"
+      },
+      "days": {
+        "mon": "Mon",
+        "tue": "Tue",
+        "wed": "Wed",
+        "thu": "Thu",
+        "fri": "Fri",
+        "sat": "Sat",
+        "sun": "Sun"
+      },
+      "months": {
+        "jan": "Jan",
+        "feb": "Feb",
+        "mar": "Mar",
+        "apr": "Apr",
+        "may": "May",
+        "jun": "Jun",
+        "jul": "Jul",
+        "aug": "Aug",
+        "sep": "Sep",
+        "oct": "Oct",
+        "nov": "Nov",
+        "dec": "Dec"
+      }
+    },
+    "upcomingBookings": {
+      "title": "Upcoming Bookings",
+      "guest": "Guest",
+      "property": "Property",
+      "checkIn": "Check-in",
+      "checkOut": "Check-out",
+      "amount": "Amount",
+      "nights": "Nights",
+      "status": {
+        "confirmed": "Confirmed",
+        "pending": "Pending",
+        "cancelled": "Cancelled"
+      },
+      "viewAll": "View All"
+    },
+    "recentActivity": {
+      "title": "Recent Activity",
+      "newBooking": "New booking",
+      "newReview": "Received new review",
+      "newMessage": "contacted you",
+      "paymentReceived": "payment received",
+      "timeAgo": {
+        "justNow": "Just now",
+        "minutesAgo": "{{count}} min ago",
+        "hoursAgo": "{{count}} hours ago",
+        "daysAgo": "{{count}} days ago"
+      }
+    },
+    "performance": {
+      "title": "Performance",
+      "occupancy": "Occupancy",
+      "rating": "Average Rating"
+    }
+  },
+  "properties": {
+    "title": "My Properties",
+    "addNew": "Add New Property",
+    "totalProperties": "Total Properties",
+    "activeListings": "Active Listings",
+    "totalEarnings": "Total Earnings",
+    "filters": {
+      "all": "All",
+      "active": "Active",
+      "inactive": "Inactive",
+      "draft": "Draft",
+      "search": "Search properties..."
+    },
+    "table": {
+      "property": "Property",
+      "type": "Type",
+      "location": "Location",
+      "price": "Price",
+      "status": "Status",
+      "occupancy": "Occupancy",
+      "rating": "Rating",
+      "actions": "Actions"
+    },
+    "actions": {
+      "edit": "Edit",
+      "view": "View",
+      "deactivate": "Deactivate",
+      "activate": "Activate",
+      "delete": "Delete",
+      "viewBookings": "View Bookings"
+    },
+    "types": {
+      "villa": "Villa",
+      "apartment": "Apartment",
+      "hotel": "Hotel",
+      "house": "House",
+      "studio": "Studio"
+    },
+    "status": {
+      "active": "Active",
+      "inactive": "Inactive",
+      "draft": "Draft",
+      "pending": "Under Review"
+    }
+  },
+  "propertySubmission": {
+    "title": "Add New Property",
+    "subtitle": "List your property in 8 steps",
+    "progress": "Step {{current}} of {{total}}",
+    "buttons": {
+      "previous": "Previous",
+      "next": "Next",
+      "save": "Save",
+      "saveDraft": "Save as Draft",
+      "submit": "Submit",
+      "cancel": "Cancel"
+    },
+    "autoSave": "Auto-saved",
+    "step1": {
+      "title": "Property Type",
+      "subtitle": "Select your property type",
+      "types": {
+        "villa": {
+          "title": "Villa",
+          "description": "Luxury villa with garden"
+        },
+        "apartment": {
+          "title": "Apartment",
+          "description": "City center apartment"
+        },
+        "hotel": {
+          "title": "Hotel",
+          "description": "Hotel or guesthouse"
+        },
+        "house": {
+          "title": "House",
+          "description": "Detached house"
+        },
+        "studio": {
+          "title": "Studio",
+          "description": "Compact studio apartment"
+        }
+      }
+    },
+    "step2": {
+      "title": "Location",
+      "subtitle": "Where is your property located?",
+      "fields": {
+        "country": "Country",
+        "city": "City",
+        "district": "District",
+        "address": "Address",
+        "zipCode": "Zip Code",
+        "latitude": "Latitude",
+        "longitude": "Longitude"
+      },
+      "placeholders": {
+        "country": "Select country",
+        "city": "Enter city",
+        "district": "Enter district",
+        "address": "Enter full address",
+        "zipCode": "Zip code"
+      }
+    },
+    "step3": {
+      "title": "Property Details",
+      "subtitle": "Enter your property features",
+      "fields": {
+        "name": "Property Name",
+        "description": "Description",
+        "bedrooms": "Bedrooms",
+        "bathrooms": "Bathrooms",
+        "guests": "Maximum Guests",
+        "beds": "Number of Beds",
+        "area": "Square Meters"
+      },
+      "placeholders": {
+        "name": "e.g. Sea View Villa",
+        "description": "Describe your property in detail..."
+      }
+    },
+    "step4": {
+      "title": "Amenities",
+      "subtitle": "What amenities does your property have?",
+      "categories": {
+        "basic": "Basic Amenities",
+        "kitchen": "Kitchen",
+        "entertainment": "Entertainment",
+        "outdoor": "Outdoor",
+        "safety": "Safety"
+      },
+      "amenities": {
+        "wifi": "WiFi",
+        "parking": "Parking",
+        "pool": "Swimming Pool",
+        "airConditioning": "Air Conditioning",
+        "heating": "Heating",
+        "kitchen": "Kitchen",
+        "tv": "TV",
+        "washer": "Washing Machine",
+        "dryer": "Dryer",
+        "gym": "Gym",
+        "elevator": "Elevator",
+        "balcony": "Balcony",
+        "garden": "Garden",
+        "security": "Security",
+        "cctv": "CCTV"
+      }
+    },
+    "step5": {
+      "title": "Photos",
+      "subtitle": "Add photos of your property",
+      "upload": "Upload Photos",
+      "dragDrop": "Drag and drop photos or click",
+      "mainPhoto": "Main Photo",
+      "setAsMain": "Set as Main",
+      "remove": "Remove",
+      "maxFiles": "Maximum {{count}} photos",
+      "uploadedCount": "{{current}} / {{total}} photos uploaded"
+    },
+    "step6": {
+      "title": "Pricing",
+      "subtitle": "Set your prices",
+      "fields": {
+        "basePrice": "Base Price",
+        "currency": "Currency",
+        "weekendPrice": "Weekend Price",
+        "monthlyDiscount": "Monthly Discount",
+        "cleaningFee": "Cleaning Fee",
+        "securityDeposit": "Security Deposit"
+      },
+      "perNight": "/ night",
+      "percentage": "Percentage"
+    },
+    "step7": {
+      "title": "House Rules",
+      "subtitle": "Set rules for your guests",
+      "checkInTime": "Check-in Time",
+      "checkOutTime": "Check-out Time",
+      "rules": {
+        "smoking": "Smoking Allowed",
+        "pets": "Pets Allowed",
+        "parties": "Parties/Events Allowed",
+        "children": "Children Allowed"
+      },
+      "additionalRules": "Additional Rules",
+      "additionalRulesPlaceholder": "Write your additional house rules..."
+    },
+    "step8": {
+      "title": "Preview and Submit",
+      "subtitle": "Review your information and submit",
+      "sections": {
+        "basicInfo": "Basic Information",
+        "location": "Location",
+        "details": "Details",
+        "amenities": "Amenities",
+        "photos": "Photos",
+        "pricing": "Pricing",
+        "houseRules": "House Rules"
+      },
+      "confirmSubmit": "I confirm that the information is correct",
+      "submitButton": "Publish Property",
+      "submitting": "Submitting..."
+    },
+    "validation": {
+      "required": "This field is required",
+      "minLength": "Must be at least {{count}} characters",
+      "maxLength": "Must be at most {{count}} characters",
+      "invalidEmail": "Invalid email address",
+      "invalidNumber": "Invalid number",
+      "minValue": "Must be at least {{value}}",
+      "maxValue": "Must be at most {{value}}",
+      "selectAtLeast": "Select at least {{count}} items",
+      "uploadAtLeast": "Upload at least {{count}} photos"
+    },
+    "success": {
+      "title": "Success!",
+      "message": "Your property has been successfully added and is under review.",
+      "backToDashboard": "Back to Dashboard",
+      "addAnother": "Add Another Property"
+    }
+  },
+  "analytics": {
+    "title": "Detailed Analytics",
+    "subtitle": "Analyze your properties' performance in detail",
+    "dateRange": "Date Range",
+    "export": "Download Report",
+    "overview": {
+      "title": "Overview",
+      "revenue": "Revenue",
+      "bookings": "Bookings",
+      "occupancy": "Occupancy",
+      "revenue_growth": "Revenue Growth"
+    },
+    "charts": {
+      "revenueByMonth": "Monthly Revenue Chart",
+      "bookingsBySource": "Bookings by Source",
+      "occupancyRate": "Occupancy Rate Trend",
+      "topPerformers": "Top Performing Properties"
+    },
+    "sources": {
+      "direct": "Direct",
+      "booking": "Booking.com",
+      "airbnb": "Airbnb",
+      "expedia": "Expedia",
+      "other": "Other"
+    },
+    "period": {
+      "today": "Today",
+      "yesterday": "Yesterday",
+      "last7days": "Last 7 Days",
+      "last30days": "Last 30 Days",
+      "last90days": "Last 90 Days",
+      "thisMonth": "This Month",
+      "lastMonth": "Last Month",
+      "thisYear": "This Year",
+      "custom": "Custom Date"
+    }
+  },
+  "navigation": {
+    "overview": "Overview",
+    "myProperties": "My Properties",
+    "bookings": "Bookings",
+    "calendar": "Calendar",
+    "earnings": "Earnings",
+    "messages": "Messages",
+    "analytics": "Analytics",
+    "settings": "Settings"
+  },
+  "header": {
+    "search": "Search property, booking or guest...",
+    "addProperty": "Add Property",
+    "notifications": "Notifications",
+    "profile": "Profile",
+    "logout": "Logout",
+    "superHost": "Super Host"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "success": "Operation successful",
+    "confirm": "Confirm",
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "view": "View",
+    "close": "Close",
+    "search": "Search",
+    "filter": "Filter",
+    "sort": "Sort",
+    "actions": "Actions",
+    "more": "More",
+    "less": "Less",
+    "showAll": "Show All",
+    "showLess": "Show Less"
+  }
+}

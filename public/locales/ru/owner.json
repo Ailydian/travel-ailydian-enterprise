@@ -1,0 +1,381 @@
+{
+  "dashboard": {
+    "welcome": "Добро пожаловать, {{name}}!",
+    "subtitle": "Что происходит в вашей панели владельца сегодня?",
+    "addProperty": "Добавить недвижимость",
+    "detailedAnalytics": "Подробная аналитика",
+    "stats": {
+      "totalRevenue": "Общий доход",
+      "activeBookings": "Активные бронирования",
+      "occupancyRate": "Уровень занятости",
+      "avgRating": "Средний рейтинг",
+      "totalProperties": "Всего объектов",
+      "pendingReviews": "Ожидающие отзывы",
+      "responseTime": "Время ответа",
+      "monthlyIncome": "Месячный доход"
+    },
+    "charts": {
+      "weeklyRevenue": "Еженедельный анализ дохода",
+      "occupancyTrend": "Тренд занятости",
+      "propertyPerformance": "Распределение производительности",
+      "timeRange": {
+        "7d": "Последние 7 дней",
+        "30d": "Последние 30 дней",
+        "90d": "Последние 90 дней"
+      },
+      "days": {
+        "mon": "Пн",
+        "tue": "Вт",
+        "wed": "Ср",
+        "thu": "Чт",
+        "fri": "Пт",
+        "sat": "Сб",
+        "sun": "Вс"
+      },
+      "months": {
+        "jan": "Янв",
+        "feb": "Фев",
+        "mar": "Мар",
+        "apr": "Апр",
+        "may": "Май",
+        "jun": "Июн",
+        "jul": "Июл",
+        "aug": "Авг",
+        "sep": "Сен",
+        "oct": "Окт",
+        "nov": "Ноя",
+        "dec": "Дек"
+      }
+    },
+    "upcomingBookings": {
+      "title": "Предстоящие бронирования",
+      "guest": "Гость",
+      "property": "Объект",
+      "checkIn": "Заезд",
+      "checkOut": "Выезд",
+      "amount": "Сумма",
+      "nights": "Ночей",
+      "status": {
+        "confirmed": "Подтверждено",
+        "pending": "Ожидание",
+        "cancelled": "Отменено"
+      },
+      "viewAll": "Посмотреть все"
+    },
+    "recentActivity": {
+      "title": "Недавняя активность",
+      "newBooking": "Новое бронирование",
+      "newReview": "Получен новый отзыв",
+      "newMessage": "связался с вами",
+      "paymentReceived": "платеж получен",
+      "timeAgo": {
+        "justNow": "Только что",
+        "minutesAgo": "{{count}} мин назад",
+        "hoursAgo": "{{count}} ч назад",
+        "daysAgo": "{{count}} дн назад"
+      }
+    },
+    "performance": {
+      "title": "Производительность",
+      "occupancy": "Занятость",
+      "rating": "Средний рейтинг"
+    }
+  },
+  "properties": {
+    "title": "Моя недвижимость",
+    "addNew": "Добавить недвижимость",
+    "totalProperties": "Всего объектов",
+    "activeListings": "Активные объявления",
+    "totalEarnings": "Общий доход",
+    "filters": {
+      "all": "Все",
+      "active": "Активные",
+      "inactive": "Неактивные",
+      "draft": "Черновик",
+      "search": "Поиск недвижимости..."
+    },
+    "table": {
+      "property": "Объект",
+      "type": "Тип",
+      "location": "Местоположение",
+      "price": "Цена",
+      "status": "Статус",
+      "occupancy": "Занятость",
+      "rating": "Рейтинг",
+      "actions": "Действия"
+    },
+    "actions": {
+      "edit": "Редактировать",
+      "view": "Просмотр",
+      "deactivate": "Деактивировать",
+      "activate": "Активировать",
+      "delete": "Удалить",
+      "viewBookings": "Просмотр бронирований"
+    },
+    "types": {
+      "villa": "Вилла",
+      "apartment": "Квартира",
+      "hotel": "Отель",
+      "house": "Дом",
+      "studio": "Студия"
+    },
+    "status": {
+      "active": "Активный",
+      "inactive": "Неактивный",
+      "draft": "Черновик",
+      "pending": "На рассмотрении"
+    }
+  },
+  "propertySubmission": {
+    "title": "Добавить недвижимость",
+    "subtitle": "Разместите свою недвижимость за 8 шагов",
+    "progress": "Шаг {{current}} из {{total}}",
+    "buttons": {
+      "previous": "Назад",
+      "next": "Далее",
+      "save": "Сохранить",
+      "saveDraft": "Сохранить как черновик",
+      "submit": "Отправить",
+      "cancel": "Отмена"
+    },
+    "autoSave": "Автосохранено",
+    "step1": {
+      "title": "Тип недвижимости",
+      "subtitle": "Выберите тип вашей недвижимости",
+      "types": {
+        "villa": {
+          "title": "Вилла",
+          "description": "Роскошная вилла с садом"
+        },
+        "apartment": {
+          "title": "Квартира",
+          "description": "Квартира в центре города"
+        },
+        "hotel": {
+          "title": "Отель",
+          "description": "Отель или гостевой дом"
+        },
+        "house": {
+          "title": "Дом",
+          "description": "Отдельный дом"
+        },
+        "studio": {
+          "title": "Студия",
+          "description": "Компактная студия"
+        }
+      }
+    },
+    "step2": {
+      "title": "Местоположение",
+      "subtitle": "Где находится ваша недвижимость?",
+      "fields": {
+        "country": "Страна",
+        "city": "Город",
+        "district": "Район",
+        "address": "Адрес",
+        "zipCode": "Почтовый индекс",
+        "latitude": "Широта",
+        "longitude": "Долгота"
+      },
+      "placeholders": {
+        "country": "Выберите страну",
+        "city": "Введите город",
+        "district": "Введите район",
+        "address": "Введите полный адрес",
+        "zipCode": "Почтовый индекс"
+      }
+    },
+    "step3": {
+      "title": "Детали недвижимости",
+      "subtitle": "Введите характеристики вашей недвижимости",
+      "fields": {
+        "name": "Название",
+        "description": "Описание",
+        "bedrooms": "Спальни",
+        "bathrooms": "Ванные комнаты",
+        "guests": "Максимум гостей",
+        "beds": "Количество кроватей",
+        "area": "Площадь"
+      },
+      "placeholders": {
+        "name": "Например: Вилла с видом на море",
+        "description": "Опишите вашу недвижимость подробно..."
+      }
+    },
+    "step4": {
+      "title": "Удобства",
+      "subtitle": "Какие удобства есть в вашей недвижимости?",
+      "categories": {
+        "basic": "Основные удобства",
+        "kitchen": "Кухня",
+        "entertainment": "Развлечения",
+        "outdoor": "На открытом воздухе",
+        "safety": "Безопасность"
+      },
+      "amenities": {
+        "wifi": "WiFi",
+        "parking": "Парковка",
+        "pool": "Бассейн",
+        "airConditioning": "Кондиционер",
+        "heating": "Отопление",
+        "kitchen": "Кухня",
+        "tv": "Телевизор",
+        "washer": "Стиральная машина",
+        "dryer": "Сушилка",
+        "gym": "Спортзал",
+        "elevator": "Лифт",
+        "balcony": "Балкон",
+        "garden": "Сад",
+        "security": "Охрана",
+        "cctv": "Видеонаблюдение"
+      }
+    },
+    "step5": {
+      "title": "Фотографии",
+      "subtitle": "Добавьте фотографии вашей недвижимости",
+      "upload": "Загрузить фото",
+      "dragDrop": "Перетащите фото или нажмите",
+      "mainPhoto": "Главное фото",
+      "setAsMain": "Сделать главным",
+      "remove": "Удалить",
+      "maxFiles": "Максимум {{count}} фото",
+      "uploadedCount": "{{current}} / {{total}} фото загружено"
+    },
+    "step6": {
+      "title": "Ценообразование",
+      "subtitle": "Установите свои цены",
+      "fields": {
+        "basePrice": "Базовая цена",
+        "currency": "Валюта",
+        "weekendPrice": "Цена на выходные",
+        "monthlyDiscount": "Месячная скидка",
+        "cleaningFee": "Плата за уборку",
+        "securityDeposit": "Залог"
+      },
+      "perNight": "/ ночь",
+      "percentage": "Процент"
+    },
+    "step7": {
+      "title": "Правила дома",
+      "subtitle": "Установите правила для гостей",
+      "checkInTime": "Время заезда",
+      "checkOutTime": "Время выезда",
+      "rules": {
+        "smoking": "Курение разрешено",
+        "pets": "Животные разрешены",
+        "parties": "Вечеринки/мероприятия разрешены",
+        "children": "Дети разрешены"
+      },
+      "additionalRules": "Дополнительные правила",
+      "additionalRulesPlaceholder": "Напишите дополнительные правила..."
+    },
+    "step8": {
+      "title": "Предпросмотр и отправка",
+      "subtitle": "Проверьте информацию и отправьте",
+      "sections": {
+        "basicInfo": "Основная информация",
+        "location": "Местоположение",
+        "details": "Детали",
+        "amenities": "Удобства",
+        "photos": "Фотографии",
+        "pricing": "Цены",
+        "houseRules": "Правила дома"
+      },
+      "confirmSubmit": "Я подтверждаю правильность информации",
+      "submitButton": "Опубликовать объект",
+      "submitting": "Отправка..."
+    },
+    "validation": {
+      "required": "Это поле обязательно",
+      "minLength": "Минимум {{count}} символов",
+      "maxLength": "Максимум {{count}} символов",
+      "invalidEmail": "Неверный email",
+      "invalidNumber": "Неверное число",
+      "minValue": "Минимум {{value}}",
+      "maxValue": "Максимум {{value}}",
+      "selectAtLeast": "Выберите минимум {{count}}",
+      "uploadAtLeast": "Загрузите минимум {{count}} фото"
+    },
+    "success": {
+      "title": "Успешно!",
+      "message": "Ваша недвижимость успешно добавлена и находится на рассмотрении.",
+      "backToDashboard": "Вернуться на панель",
+      "addAnother": "Добавить еще"
+    }
+  },
+  "analytics": {
+    "title": "Подробная аналитика",
+    "subtitle": "Анализируйте производительность вашей недвижимости",
+    "dateRange": "Период",
+    "export": "Скачать отчет",
+    "overview": {
+      "title": "Обзор",
+      "revenue": "Доход",
+      "bookings": "Бронирования",
+      "occupancy": "Занятость",
+      "revenue_growth": "Рост дохода"
+    },
+    "charts": {
+      "revenueByMonth": "График дохода по месяцам",
+      "bookingsBySource": "Бронирования по источникам",
+      "occupancyRate": "Тренд занятости",
+      "topPerformers": "Лучшие объекты"
+    },
+    "sources": {
+      "direct": "Прямые",
+      "booking": "Booking.com",
+      "airbnb": "Airbnb",
+      "expedia": "Expedia",
+      "other": "Другие"
+    },
+    "period": {
+      "today": "Сегодня",
+      "yesterday": "Вчера",
+      "last7days": "Последние 7 дней",
+      "last30days": "Последние 30 дней",
+      "last90days": "Последние 90 дней",
+      "thisMonth": "Этот месяц",
+      "lastMonth": "Прошлый месяц",
+      "thisYear": "Этот год",
+      "custom": "Свой период"
+    }
+  },
+  "navigation": {
+    "overview": "Обзор",
+    "myProperties": "Моя недвижимость",
+    "bookings": "Бронирования",
+    "calendar": "Календарь",
+    "earnings": "Доходы",
+    "messages": "Сообщения",
+    "analytics": "Аналитика",
+    "settings": "Настройки"
+  },
+  "header": {
+    "search": "Поиск объекта, бронирования или гостя...",
+    "addProperty": "Добавить объект",
+    "notifications": "Уведомления",
+    "profile": "Профиль",
+    "logout": "Выход",
+    "superHost": "Супер хозяин"
+  },
+  "common": {
+    "loading": "Загрузка...",
+    "error": "Произошла ошибка",
+    "success": "Операция выполнена",
+    "confirm": "Подтвердить",
+    "cancel": "Отмена",
+    "save": "Сохранить",
+    "delete": "Удалить",
+    "edit": "Редактировать",
+    "view": "Просмотр",
+    "close": "Закрыть",
+    "search": "Поиск",
+    "filter": "Фильтр",
+    "sort": "Сортировка",
+    "actions": "Действия",
+    "more": "Еще",
+    "less": "Меньше",
+    "showAll": "Показать все",
+    "showLess": "Показать меньше"
+  }
+}

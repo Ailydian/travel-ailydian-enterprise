@@ -1,0 +1,381 @@
+{
+  "dashboard": {
+    "welcome": "Hoş Geldiniz, {{name}}!",
+    "subtitle": "Property Owner Dashboard'unuzda bugün neler oluyor?",
+    "addProperty": "Yeni Mülk Ekle",
+    "detailedAnalytics": "Detaylı Analitik",
+    "stats": {
+      "totalRevenue": "Toplam Gelir",
+      "activeBookings": "Aktif Rezervasyon",
+      "occupancyRate": "Doluluk Oranı",
+      "avgRating": "Ortalama Puan",
+      "totalProperties": "Toplam Mülk",
+      "pendingReviews": "Bekleyen Değerlendirmeler",
+      "responseTime": "Yanıt Süresi",
+      "monthlyIncome": "Aylık Gelir"
+    },
+    "charts": {
+      "weeklyRevenue": "Haftalık Gelir Analizi",
+      "occupancyTrend": "Doluluk Oranı Trendi",
+      "propertyPerformance": "Mülk Performans Dağılımı",
+      "timeRange": {
+        "7d": "Son 7 Gün",
+        "30d": "Son 30 Gün",
+        "90d": "Son 90 Gün"
+      },
+      "days": {
+        "mon": "Pzt",
+        "tue": "Sal",
+        "wed": "Çar",
+        "thu": "Per",
+        "fri": "Cum",
+        "sat": "Cmt",
+        "sun": "Paz"
+      },
+      "months": {
+        "jan": "Oca",
+        "feb": "Şub",
+        "mar": "Mar",
+        "apr": "Nis",
+        "may": "May",
+        "jun": "Haz",
+        "jul": "Tem",
+        "aug": "Ağu",
+        "sep": "Eyl",
+        "oct": "Eki",
+        "nov": "Kas",
+        "dec": "Ara"
+      }
+    },
+    "upcomingBookings": {
+      "title": "Yaklaşan Rezervasyonlar",
+      "guest": "Misafir",
+      "property": "Mülk",
+      "checkIn": "Giriş",
+      "checkOut": "Çıkış",
+      "amount": "Tutar",
+      "nights": "Gece",
+      "status": {
+        "confirmed": "Onaylandı",
+        "pending": "Beklemede",
+        "cancelled": "İptal Edildi"
+      },
+      "viewAll": "Tümünü Görüntüle"
+    },
+    "recentActivity": {
+      "title": "Son Aktiviteler",
+      "newBooking": "Yeni rezervasyon",
+      "newReview": "Yeni değerlendirme aldınız",
+      "newMessage": "sizinle iletişime geçti",
+      "paymentReceived": "ödeme alındı",
+      "timeAgo": {
+        "justNow": "Az önce",
+        "minutesAgo": "{{count}} dk önce",
+        "hoursAgo": "{{count}} saat önce",
+        "daysAgo": "{{count}} gün önce"
+      }
+    },
+    "performance": {
+      "title": "Performans",
+      "occupancy": "Doluluk",
+      "rating": "Ortalama Puan"
+    }
+  },
+  "properties": {
+    "title": "Mülklerim",
+    "addNew": "Yeni Mülk Ekle",
+    "totalProperties": "Toplam Mülk",
+    "activeListings": "Aktif İlanlar",
+    "totalEarnings": "Toplam Kazanç",
+    "filters": {
+      "all": "Tümü",
+      "active": "Aktif",
+      "inactive": "Pasif",
+      "draft": "Taslak",
+      "search": "Mülk ara..."
+    },
+    "table": {
+      "property": "Mülk",
+      "type": "Tip",
+      "location": "Konum",
+      "price": "Fiyat",
+      "status": "Durum",
+      "occupancy": "Doluluk",
+      "rating": "Puan",
+      "actions": "İşlemler"
+    },
+    "actions": {
+      "edit": "Düzenle",
+      "view": "Görüntüle",
+      "deactivate": "Pasifleştir",
+      "activate": "Aktifleştir",
+      "delete": "Sil",
+      "viewBookings": "Rezervasyonları Gör"
+    },
+    "types": {
+      "villa": "Villa",
+      "apartment": "Apart",
+      "hotel": "Otel",
+      "house": "Ev",
+      "studio": "Stüdyo"
+    },
+    "status": {
+      "active": "Aktif",
+      "inactive": "Pasif",
+      "draft": "Taslak",
+      "pending": "İnceleniyor"
+    }
+  },
+  "propertySubmission": {
+    "title": "Yeni Mülk Ekle",
+    "subtitle": "8 adımda mülkünüzü listeye ekleyin",
+    "progress": "Adım {{current}} / {{total}}",
+    "buttons": {
+      "previous": "Önceki",
+      "next": "İleri",
+      "save": "Kaydet",
+      "saveDraft": "Taslak Olarak Kaydet",
+      "submit": "Gönder",
+      "cancel": "İptal"
+    },
+    "autoSave": "Otomatik kaydedildi",
+    "step1": {
+      "title": "Mülk Tipi",
+      "subtitle": "Mülkünüzün tipini seçin",
+      "types": {
+        "villa": {
+          "title": "Villa",
+          "description": "Lüks bahçeli villa"
+        },
+        "apartment": {
+          "title": "Apart",
+          "description": "Şehir merkezi daire"
+        },
+        "hotel": {
+          "title": "Otel",
+          "description": "Otel veya pansiyon"
+        },
+        "house": {
+          "title": "Ev",
+          "description": "Müstakil ev"
+        },
+        "studio": {
+          "title": "Stüdyo",
+          "description": "Kompakt stüdyo daire"
+        }
+      }
+    },
+    "step2": {
+      "title": "Konum",
+      "subtitle": "Mülkünüz nerede?",
+      "fields": {
+        "country": "Ülke",
+        "city": "Şehir",
+        "district": "İlçe",
+        "address": "Adres",
+        "zipCode": "Posta Kodu",
+        "latitude": "Enlem",
+        "longitude": "Boylam"
+      },
+      "placeholders": {
+        "country": "Ülke seçin",
+        "city": "Şehir girin",
+        "district": "İlçe girin",
+        "address": "Tam adres girin",
+        "zipCode": "Posta kodu"
+      }
+    },
+    "step3": {
+      "title": "Mülk Detayları",
+      "subtitle": "Mülkünüzün özelliklerini girin",
+      "fields": {
+        "name": "Mülk Adı",
+        "description": "Açıklama",
+        "bedrooms": "Yatak Odası",
+        "bathrooms": "Banyo",
+        "guests": "Maksimum Misafir",
+        "beds": "Yatak Sayısı",
+        "area": "Metrekare"
+      },
+      "placeholders": {
+        "name": "Örn: Deniz Manzaralı Villa",
+        "description": "Mülkünüzü detaylı açıklayın..."
+      }
+    },
+    "step4": {
+      "title": "Olanaklar",
+      "subtitle": "Mülkünüzde hangi olanaklar var?",
+      "categories": {
+        "basic": "Temel Olanaklar",
+        "kitchen": "Mutfak",
+        "entertainment": "Eğlence",
+        "outdoor": "Dış Mekan",
+        "safety": "Güvenlik"
+      },
+      "amenities": {
+        "wifi": "WiFi",
+        "parking": "Otopark",
+        "pool": "Yüzme Havuzu",
+        "airConditioning": "Klima",
+        "heating": "Isıtma",
+        "kitchen": "Mutfak",
+        "tv": "TV",
+        "washer": "Çamaşır Makinesi",
+        "dryer": "Kurutma Makinesi",
+        "gym": "Spor Salonu",
+        "elevator": "Asansör",
+        "balcony": "Balkon",
+        "garden": "Bahçe",
+        "security": "Güvenlik",
+        "cctv": "Güvenlik Kamerası"
+      }
+    },
+    "step5": {
+      "title": "Fotoğraflar",
+      "subtitle": "Mülkünüzün fotoğraflarını ekleyin",
+      "upload": "Fotoğraf Yükle",
+      "dragDrop": "Fotoğrafları sürükle bırak veya tıkla",
+      "mainPhoto": "Ana Fotoğraf",
+      "setAsMain": "Ana Fotoğraf Yap",
+      "remove": "Kaldır",
+      "maxFiles": "Maksimum {{count}} fotoğraf",
+      "uploadedCount": "{{current}} / {{total}} fotoğraf yüklendi"
+    },
+    "step6": {
+      "title": "Fiyatlandırma",
+      "subtitle": "Fiyatlarınızı belirleyin",
+      "fields": {
+        "basePrice": "Temel Fiyat",
+        "currency": "Para Birimi",
+        "weekendPrice": "Hafta Sonu Fiyatı",
+        "monthlyDiscount": "Aylık İndirim",
+        "cleaningFee": "Temizlik Ücreti",
+        "securityDeposit": "Depozito"
+      },
+      "perNight": "/ gece",
+      "percentage": "Yüzde"
+    },
+    "step7": {
+      "title": "Ev Kuralları",
+      "subtitle": "Misafirleriniz için kurallar belirleyin",
+      "checkInTime": "Check-in Saati",
+      "checkOutTime": "Check-out Saati",
+      "rules": {
+        "smoking": "Sigara İçilebilir",
+        "pets": "Evcil Hayvan Kabul Edilir",
+        "parties": "Parti/Etkinlik Yapılabilir",
+        "children": "Çocuk Kabul Edilir"
+      },
+      "additionalRules": "Ek Kurallar",
+      "additionalRulesPlaceholder": "Ek ev kurallarınızı yazın..."
+    },
+    "step8": {
+      "title": "Önizleme ve Gönder",
+      "subtitle": "Bilgilerinizi kontrol edin ve gönderin",
+      "sections": {
+        "basicInfo": "Temel Bilgiler",
+        "location": "Konum",
+        "details": "Detaylar",
+        "amenities": "Olanaklar",
+        "photos": "Fotoğraflar",
+        "pricing": "Fiyatlandırma",
+        "houseRules": "Ev Kuralları"
+      },
+      "confirmSubmit": "Bilgilerin doğru olduğunu onaylıyorum",
+      "submitButton": "Mülkü Yayınla",
+      "submitting": "Gönderiliyor..."
+    },
+    "validation": {
+      "required": "Bu alan zorunludur",
+      "minLength": "En az {{count}} karakter olmalıdır",
+      "maxLength": "En fazla {{count}} karakter olmalıdır",
+      "invalidEmail": "Geçersiz e-posta adresi",
+      "invalidNumber": "Geçersiz sayı",
+      "minValue": "Minimum {{value}} olmalıdır",
+      "maxValue": "Maksimum {{value}} olmalıdır",
+      "selectAtLeast": "En az {{count}} seçim yapın",
+      "uploadAtLeast": "En az {{count}} fotoğraf yükleyin"
+    },
+    "success": {
+      "title": "Başarılı!",
+      "message": "Mülkünüz başarıyla eklendi ve incelemeye alındı.",
+      "backToDashboard": "Dashboard'a Dön",
+      "addAnother": "Başka Mülk Ekle"
+    }
+  },
+  "analytics": {
+    "title": "Detaylı Analitik",
+    "subtitle": "Mülklerinizin performansını detaylı analiz edin",
+    "dateRange": "Tarih Aralığı",
+    "export": "Rapor İndir",
+    "overview": {
+      "title": "Genel Bakış",
+      "revenue": "Gelir",
+      "bookings": "Rezervasyon",
+      "occupancy": "Doluluk",
+      "revenue_growth": "Gelir Artışı"
+    },
+    "charts": {
+      "revenueByMonth": "Aylık Gelir Grafiği",
+      "bookingsBySource": "Rezervasyon Kaynaklarına Göre",
+      "occupancyRate": "Doluluk Oranı Trendi",
+      "topPerformers": "En İyi Performans Gösteren Mülkler"
+    },
+    "sources": {
+      "direct": "Direkt",
+      "booking": "Booking.com",
+      "airbnb": "Airbnb",
+      "expedia": "Expedia",
+      "other": "Diğer"
+    },
+    "period": {
+      "today": "Bugün",
+      "yesterday": "Dün",
+      "last7days": "Son 7 Gün",
+      "last30days": "Son 30 Gün",
+      "last90days": "Son 90 Gün",
+      "thisMonth": "Bu Ay",
+      "lastMonth": "Geçen Ay",
+      "thisYear": "Bu Yıl",
+      "custom": "Özel Tarih"
+    }
+  },
+  "navigation": {
+    "overview": "Genel Bakış",
+    "myProperties": "Mülklerim",
+    "bookings": "Rezervasyonlar",
+    "calendar": "Takvim",
+    "earnings": "Gelirler",
+    "messages": "Mesajlar",
+    "analytics": "Analitik",
+    "settings": "Ayarlar"
+  },
+  "header": {
+    "search": "Mülk, rezervasyon veya misafir ara...",
+    "addProperty": "Mülk Ekle",
+    "notifications": "Bildirimler",
+    "profile": "Profil",
+    "logout": "Çıkış Yap",
+    "superHost": "Süper Host"
+  },
+  "common": {
+    "loading": "Yükleniyor...",
+    "error": "Bir hata oluştu",
+    "success": "İşlem başarılı",
+    "confirm": "Onayla",
+    "cancel": "İptal",
+    "save": "Kaydet",
+    "delete": "Sil",
+    "edit": "Düzenle",
+    "view": "Görüntüle",
+    "close": "Kapat",
+    "search": "Ara",
+    "filter": "Filtrele",
+    "sort": "Sırala",
+    "actions": "İşlemler",
+    "more": "Daha Fazla",
+    "less": "Daha Az",
+    "showAll": "Tümünü Göster",
+    "showLess": "Daha Az Göster"
+  }
+}
