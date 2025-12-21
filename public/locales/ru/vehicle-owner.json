@@ -1,0 +1,1344 @@
+{
+  "dashboard": {
+    "welcome": "Добро пожаловать, {{name}}!",
+    "subtitle": "Что происходит в вашей панели управления арендой автомобилей сегодня?",
+    "addVehicle": "Добавить новый автомобиль",
+    "detailedAnalytics": "Подробная аналитика",
+    "stats": {
+      "totalVehicles": "Всего автомобилей",
+      "activeVehicles": "Активные автомобили",
+      "totalRevenue": "Общая выручка",
+      "activeRentals": "Активные аренды",
+      "monthlyIncome": "Месячный доход",
+      "occupancyRate": "Уровень занятости",
+      "avgRating": "Средний рейтинг",
+      "pendingBookings": "Ожидающие бронирования",
+      "responseTime": "Время ответа",
+      "upcomingPickups": "Предстоящие выдачи",
+      "upcomingReturns": "Предстоящие возвраты",
+      "maintenanceDue": "Требуется обслуживание"
+    },
+    "charts": {
+      "weeklyRevenue": "Анализ недельной выручки",
+      "monthlyRevenue": "График месячной выручки",
+      "rentalTrend": "Тренд аренды",
+      "occupancyTrend": "Тренд уровня занятости",
+      "vehiclePerformance": "Распределение производительности автомобилей",
+      "bookingsBySource": "Бронирования по источникам",
+      "timeRange": {
+        "7d": "Последние 7 дней",
+        "30d": "Последние 30 дней",
+        "90d": "Последние 90 дней"
+      },
+      "days": {
+        "mon": "Пн",
+        "tue": "Вт",
+        "wed": "Ср",
+        "thu": "Чт",
+        "fri": "Пт",
+        "sat": "Сб",
+        "sun": "Вс"
+      },
+      "months": {
+        "jan": "Янв",
+        "feb": "Фев",
+        "mar": "Мар",
+        "apr": "Апр",
+        "may": "Май",
+        "jun": "Июн",
+        "jul": "Июл",
+        "aug": "Авг",
+        "sep": "Сен",
+        "oct": "Окт",
+        "nov": "Ноя",
+        "dec": "Дек"
+      }
+    },
+    "upcomingPickups": {
+      "title": "Предстоящие выдачи",
+      "renter": "Арендатор",
+      "vehicle": "Автомобиль",
+      "pickupDate": "Дата выдачи",
+      "pickupTime": "Время выдачи",
+      "returnDate": "Дата возврата",
+      "amount": "Сумма",
+      "days": "Дни",
+      "status": {
+        "confirmed": "Подтверждено",
+        "pending": "Ожидание",
+        "picked-up": "Выдан",
+        "in-progress": "В использовании",
+        "returned": "Возвращен",
+        "completed": "Завершено",
+        "cancelled": "Отменено",
+        "rejected": "Отклонено"
+      },
+      "viewAll": "Посмотреть все"
+    },
+    "recentRentals": {
+      "title": "Последние аренды",
+      "newRental": "Новая аренда",
+      "rentalCompleted": "Аренда завершена",
+      "newReview": "Вы получили новый отзыв",
+      "newMessage": "связался с вами",
+      "paymentReceived": "платеж получен",
+      "vehicleReturned": "автомобиль возвращен",
+      "timeAgo": {
+        "justNow": "Только что",
+        "minutesAgo": "{{count}} мин назад",
+        "hoursAgo": "{{count}} ч назад",
+        "daysAgo": "{{count}} д назад"
+      }
+    },
+    "recentActivity": {
+      "title": "Последняя активность",
+      "newBooking": "Новое бронирование",
+      "bookingCancelled": "Бронирование отменено",
+      "vehicleViewed": "Ваш автомобиль просмотрен",
+      "messageReceived": "Получено новое сообщение"
+    },
+    "performance": {
+      "title": "Производительность",
+      "occupancy": "Занятость",
+      "rating": "Средний рейтинг",
+      "revenue": "Выручка",
+      "bookings": "Бронирования"
+    }
+  },
+  "vehicles": {
+    "title": "Мои автомобили",
+    "addNew": "Добавить новый автомобиль",
+    "totalVehicles": "Всего автомобилей",
+    "activeListings": "Активные объявления",
+    "totalEarnings": "Общий доход",
+    "filters": {
+      "all": "Все",
+      "available": "Доступные",
+      "rented": "Арендованы",
+      "maintenance": "На обслуживании",
+      "inactive": "Неактивные",
+      "draft": "Черновик",
+      "search": "Поиск автомобилей..."
+    },
+    "table": {
+      "vehicle": "Автомобиль",
+      "brand": "Марка",
+      "model": "Модель",
+      "year": "Год",
+      "type": "Тип",
+      "licensePlate": "Номерной знак",
+      "dailyRate": "Суточная ставка",
+      "status": "Статус",
+      "occupancy": "Занятость",
+      "rating": "Рейтинг",
+      "actions": "Действия",
+      "bookings": "Аренды"
+    },
+    "actions": {
+      "view": "Просмотр",
+      "edit": "Редактировать",
+      "delete": "Удалить",
+      "deactivate": "Деактивировать",
+      "activate": "Активировать",
+      "viewBookings": "Посмотреть бронирования",
+      "viewAnalytics": "Посмотреть аналитику",
+      "duplicate": "Дублировать"
+    },
+    "types": {
+      "economy-sedan": "Эконом седан",
+      "comfort-sedan": "Комфорт седан",
+      "premium-sedan": "Премиум седан",
+      "luxury-sedan": "Люкс седан",
+      "economy-suv": "Эконом внедорожник",
+      "premium-suv": "Премиум внедорожник",
+      "minivan": "Минивэн",
+      "passenger-van": "Пассажирский фургон",
+      "commercial-van": "Коммерческий фургон",
+      "pickup-truck": "Пикап",
+      "convertible": "Кабриолет",
+      "sports-car": "Спортивный автомобиль",
+      "electric-vehicle": "Электромобиль",
+      "hybrid": "Гибридный автомобиль",
+      "other": "Другое"
+    },
+    "status": {
+      "available": "Доступен",
+      "rented": "Арендован",
+      "maintenance": "На обслуживании",
+      "inactive": "Неактивен",
+      "pending_approval": "На проверке",
+      "rejected": "Отклонен",
+      "draft": "Черновик"
+    },
+    "category": {
+      "economy": "Эконом",
+      "comfort": "Комфорт",
+      "premium": "Премиум",
+      "luxury": "Люкс",
+      "suv": "Внедорожник",
+      "family": "Семейный",
+      "commercial": "Коммерческий",
+      "eco": "Экологичный"
+    },
+    "transmission": {
+      "manual": "Механическая",
+      "automatic": "Автоматическая",
+      "semi-automatic": "Полуавтоматическая"
+    },
+    "fuelType": {
+      "petrol": "Бензин",
+      "diesel": "Дизель",
+      "electric": "Электричество",
+      "hybrid": "Гибрид",
+      "lpg": "ГБО",
+      "cng": "КПГ"
+    },
+    "emptyState": {
+      "title": "Вы еще не добавили ни одного автомобиля",
+      "description": "Начните с добавления вашего первого автомобиля для аренды",
+      "action": "Добавить первый автомобиль"
+    }
+  },
+  "vehicleSubmission": {
+    "title": "Добавить новый автомобиль",
+    "subtitle": "Разместите ваш автомобиль за 8 шагов",
+    "progress": "Шаг {{current}} / {{total}}",
+    "buttons": {
+      "previous": "Назад",
+      "next": "Далее",
+      "save": "Сохранить",
+      "saveDraft": "Сохранить как черновик",
+      "submit": "Отправить",
+      "cancel": "Отмена",
+      "skip": "Пропустить"
+    },
+    "autoSave": "Автосохранено",
+    "unsavedChanges": "У вас есть несохраненные изменения",
+    "step1": {
+      "title": "Тип автомобиля",
+      "subtitle": "Выберите категорию вашего автомобиля",
+      "selectType": "Выберите категорию автомобиля",
+      "popular": "Популярные",
+      "types": {
+        "economy-sedan": {
+          "title": "Эконом седан",
+          "description": "Доступные, экономичные городские автомобили"
+        },
+        "comfort-sedan": {
+          "title": "Комфорт седан",
+          "description": "Просторные и комфортные автомобили среднего размера"
+        },
+        "premium-sedan": {
+          "title": "Премиум седан",
+          "description": "Комфортные седаны верхнего среднего класса"
+        },
+        "luxury-sedan": {
+          "title": "Люкс седан",
+          "description": "Роскошные седаны высшего класса"
+        },
+        "economy-suv": {
+          "title": "Эконом внедорожник",
+          "description": "Доступные внедорожники"
+        },
+        "premium-suv": {
+          "title": "Премиум внедорожник",
+          "description": "Роскошные и просторные внедорожники"
+        },
+        "minivan": {
+          "title": "Минивэн (7-9 мест)",
+          "description": "Просторный минивэн для семей и групп"
+        },
+        "passenger-van": {
+          "title": "Пассажирский фургон (12-17 мест)",
+          "description": "Микроавтобус для больших групп"
+        },
+        "commercial-van": {
+          "title": "Коммерческий фургон",
+          "description": "Для перевозки грузов и коммерческого использования"
+        },
+        "pickup-truck": {
+          "title": "Пикап",
+          "description": "Грузовой автомобиль с открытым кузовом"
+        },
+        "convertible": {
+          "title": "Кабриолет",
+          "description": "Роскошные автомобили с открытым верхом"
+        },
+        "sports-car": {
+          "title": "Спортивный автомобиль",
+          "description": "Высокопроизводительные спортивные автомобили"
+        },
+        "electric-vehicle": {
+          "title": "Электромобиль",
+          "description": "Полностью электрические экологичные автомобили"
+        },
+        "hybrid": {
+          "title": "Гибридный автомобиль",
+          "description": "Экономичные бензиново-электрические автомобили"
+        }
+      }
+    },
+    "step2": {
+      "title": "Детали автомобиля",
+      "subtitle": "Введите основную информацию о вашем автомобиле",
+      "fields": {
+        "brand": "Марка",
+        "model": "Модель",
+        "year": "Год выпуска",
+        "licensePlate": "Номерной знак",
+        "vin": "VIN (идентификационный номер)",
+        "color": "Цвет",
+        "description": "Описание",
+        "highlightDescription": "Ключевые особенности",
+        "transmission": "Тип коробки передач",
+        "fuelType": "Тип топлива",
+        "seats": "Количество мест",
+        "doors": "Количество дверей",
+        "luggage": "Вместимость багажника",
+        "engineSize": "Объем двигателя",
+        "horsePower": "Мощность",
+        "mileage": "Пробег",
+        "tankCapacity": "Объем бака",
+        "country": "Страна",
+        "province": "Регион",
+        "city": "Город",
+        "district": "Район",
+        "postalCode": "Почтовый индекс",
+        "address": "Адрес",
+        "latitude": "Широта",
+        "longitude": "Долгота"
+      },
+      "placeholders": {
+        "brand": "Напр., Toyota, BMW, Mercedes",
+        "model": "Напр., Camry, 3 Series, C-Class",
+        "year": "2024",
+        "licensePlate": "А123БВ123",
+        "vin": "17-значный VIN",
+        "color": "Белый, черный, серый...",
+        "description": "Подробно опишите ваш автомобиль...",
+        "highlightDescription": "Что делает этот автомобиль особенным?",
+        "engineSize": "2.0L, 1.6L...",
+        "horsePower": "150",
+        "mileage": "50000",
+        "tankCapacity": "60",
+        "country": "Россия",
+        "province": "Выберите регион",
+        "city": "Введите город",
+        "district": "Введите район",
+        "postalCode": "123456",
+        "address": "Введите полный адрес"
+      },
+      "help": {
+        "vin": "Вы можете найти его в регистрационных документах",
+        "luggage": "Количество больших чемоданов",
+        "engineSize": "Объем двигателя (литры)",
+        "tankCapacity": "В литрах"
+      }
+    },
+    "step3": {
+      "title": "Особенности и удобства",
+      "subtitle": "Какие особенности есть у вашего автомобиля?",
+      "categories": {
+        "basic": "Базовые функции",
+        "comfort": "Комфорт",
+        "technology": "Технологии",
+        "safety": "Безопасность",
+        "entertainment": "Развлечения",
+        "winter": "Зимнее оборудование",
+        "child": "Детская безопасность",
+        "assistance": "Системы помощи водителю",
+        "additional": "Дополнительные функции"
+      },
+      "features": {
+        "air-conditioning": "Кондиционер",
+        "abs": "ABS",
+        "airbags": "Подушки безопасности",
+        "power-steering": "Гидроусилитель руля",
+        "power-windows": "Электростеклоподъемники",
+        "central-locking": "Центральный замок",
+        "leather-seats": "Кожаные сиденья",
+        "heated-seats": "Подогрев сидений",
+        "cooled-seats": "Вентиляция сидений",
+        "electric-seats": "Электрорегулировка сидений",
+        "sunroof": "Люк",
+        "panoramic-roof": "Панорамная крыша",
+        "cruise-control": "Круиз-контроль",
+        "rain-sensor": "Датчик дождя",
+        "light-sensor": "Датчик света",
+        "gps": "GPS-навигация",
+        "bluetooth": "Bluetooth",
+        "usb-port": "USB-порт",
+        "aux-input": "AUX-вход",
+        "apple-carplay": "Apple CarPlay",
+        "android-auto": "Android Auto",
+        "touchscreen": "Сенсорный экран",
+        "rear-camera": "Камера заднего вида",
+        "parking-sensors": "Парктроник",
+        "360-camera": "Камера 360°",
+        "esp": "ESP",
+        "traction-control": "Контроль тяги",
+        "hill-assist": "Помощь при трогании на подъеме",
+        "blind-spot": "Контроль слепых зон",
+        "lane-assist": "Ассистент удержания полосы",
+        "emergency-brake": "Экстренное торможение",
+        "isofix": "ISOFIX",
+        "alarm-system": "Сигнализация",
+        "immobilizer": "Иммобилайзер",
+        "premium-sound": "Премиум аудиосистема",
+        "cd-player": "CD-проигрыватель",
+        "mp3-player": "MP3-проигрыватель",
+        "rear-entertainment": "Развлекательная система для задних пассажиров",
+        "winter-tires": "Зимние шины",
+        "all-season-tires": "Всесезонные шины",
+        "snow-chains": "Цепи противоскольжения",
+        "child-seat-anchors": "Крепления для детских сидений",
+        "roof-rack": "Багажник на крыше",
+        "tow-hitch": "Фаркоп",
+        "bike-rack": "Крепление для велосипедов",
+        "ski-rack": "Крепление для лыж",
+        "dashcam": "Видеорегистратор",
+        "toolkit": "Набор инструментов",
+        "first-aid-kit": "Аптечка",
+        "fire-extinguisher": "Огнетушитель",
+        "emergency-kit": "Аварийный комплект"
+      },
+      "pickupOptions": {
+        "title": "Варианты получения",
+        "airportPickup": "Доставка в аэропорт",
+        "airportName": "Название аэропорта",
+        "airportCode": "Код аэропорта",
+        "airportFee": "Плата за аэропорт",
+        "homeDelivery": "Доставка на дом",
+        "homeDeliveryFee": "Стоимость доставки",
+        "homeDeliveryRadius": "Радиус доставки (км)",
+        "meetupLocations": "Места встречи"
+      }
+    },
+    "step4": {
+      "title": "Фотографии",
+      "subtitle": "Добавьте фотографии вашего автомобиля",
+      "upload": "Загрузить фото",
+      "dragDrop": "Перетащите фотографии или нажмите",
+      "mainPhoto": "Основное фото",
+      "setAsMain": "Сделать основным фото",
+      "remove": "Удалить",
+      "maxFiles": "Максимум {{count}} фотографий",
+      "uploadedCount": "Загружено {{current}} / {{total}} фото",
+      "categories": {
+        "title": "Категории фотографий",
+        "exterior-front": "Экстерьер - спереди",
+        "exterior-rear": "Экстерьер - сзади",
+        "exterior-left": "Экстерьер - слева",
+        "exterior-right": "Экстерьер - справа",
+        "interior-front": "Интерьер - передняя часть",
+        "interior-rear": "Интерьер - задняя часть",
+        "interior-dashboard": "Интерьер - приборная панель",
+        "trunk": "Багажник",
+        "engine": "Двигатель",
+        "wheels": "Колеса",
+        "damage": "Повреждения",
+        "other": "Другое"
+      },
+      "required": {
+        "title": "Обязательные фотографии",
+        "description": "Вы должны загрузить как минимум эти фотографии:",
+        "exteriorFront": "Экстерьер спереди",
+        "exteriorRear": "Экстерьер сзади",
+        "exteriorLeft": "Экстерьер слева",
+        "exteriorRight": "Экстерьер справа",
+        "interior": "Интерьер",
+        "dashboard": "Приборная панель"
+      },
+      "video": {
+        "title": "Видео (необязательно)",
+        "url": "URL видео",
+        "placeholder": "Ссылка на YouTube или Vimeo"
+      },
+      "tips": {
+        "title": "Советы по фотографиям",
+        "tip1": "Снимайте при хорошем освещении в дневное время",
+        "tip2": "Держите автомобиль чистым и опрятным",
+        "tip3": "Делайте четкие фотографии со всех сторон",
+        "tip4": "Покажите любые повреждения или дефекты",
+        "tip5": "Подчеркните особые функции"
+      }
+    },
+    "step5": {
+      "title": "Ценообразование",
+      "subtitle": "Установите тарифы на аренду",
+      "fields": {
+        "dailyRate": "Суточная ставка",
+        "hourlyRate": "Почасовая ставка (необязательно)",
+        "currency": "Валюта",
+        "weeklyDiscount": "Недельная скидка",
+        "monthlyDiscount": "Месячная скидка",
+        "earlyBookingDiscount": "Скидка за раннее бронирование",
+        "lastMinuteDiscard": "Скидка в последнюю минуту",
+        "securityDeposit": "Залог",
+        "depositRefundDays": "Период возврата залога (дни)",
+        "cleaningFee": "Плата за уборку",
+        "serviceFee": "Плата за обслуживание",
+        "taxPercentage": "Налоговая ставка"
+      },
+      "placeholders": {
+        "dailyRate": "500",
+        "hourlyRate": "50",
+        "securityDeposit": "1000"
+      },
+      "perDay": "/ день",
+      "perHour": "/ час",
+      "percentage": "Процент",
+      "mileageLimit": {
+        "title": "Лимит пробега",
+        "unlimited": "Неограниченный",
+        "limited": "Ограниченный",
+        "dailyLimit": "Дневной лимит (км)",
+        "weeklyLimit": "Недельный лимит (км)",
+        "monthlyLimit": "Месячный лимит (км)",
+        "extraMileageFee": "Плата за дополнительный пробег (за км)"
+      },
+      "fuelPolicy": {
+        "title": "Топливная политика",
+        "full-to-full": "Полный - полный",
+        "same-to-same": "Как получили - так верните",
+        "pre-purchase": "Предоплачено",
+        "refund": "Возвратный"
+      },
+      "fees": {
+        "title": "Дополнительные сборы",
+        "additionalDriverFee": "Плата за дополнительного водителя",
+        "youngDriverFee": "Плата для молодого водителя (21-25 лет)",
+        "youngDriverAge": "Минимальный возраст для молодого водителя",
+        "gpsRentalFee": "Плата за аренду GPS",
+        "childSeatFee": "Плата за детское кресло",
+        "boosterSeatFee": "Плата за бустер",
+        "snowChainsFee": "Плата за цепи противоскольжения",
+        "additionalInsuranceFee": "Плата за дополнительную страховку",
+        "lateReturnFeePerHour": "Плата за позднюю сдачу (в час)",
+        "cancellationFee": "Плата за отмену",
+        "cancellationFeePercentage": "Плата за отмену (%)"
+      },
+      "seasonalPricing": {
+        "title": "Сезонное ценообразование (необязательно)",
+        "addSeason": "Добавить сезон",
+        "seasonName": "Название сезона",
+        "startDate": "Дата начала",
+        "endDate": "Дата окончания",
+        "dailyRate": "Суточная ставка",
+        "minRentalDays": "Минимальный срок аренды"
+      },
+      "marketComparison": {
+        "title": "Сравнение с рынком",
+        "description": "Средняя суточная ставка для похожих автомобилей",
+        "average": "Средняя",
+        "yourPrice": "Ваша цена"
+      }
+    },
+    "step6": {
+      "title": "Доступность и правила",
+      "subtitle": "Установите правила аренды",
+      "availability": {
+        "title": "Настройки доступности",
+        "minRentalDays": "Минимальный срок аренды (дни)",
+        "maxRentalDays": "Максимальный срок аренды (дни)",
+        "advanceNoticeHours": "Заблаговременное бронирование (часы)",
+        "instantBookingEnabled": "Мгновенное бронирование включено",
+        "requiresApproval": "Требуется подтверждение"
+      },
+      "rentalRules": {
+        "title": "Требования к водителю",
+        "minimumAge": "Минимальный возраст",
+        "minimumDrivingExperience": "Минимальный стаж вождения (лет)",
+        "requiresInternationalLicense": "Требуются международные права"
+      },
+      "policies": {
+        "title": "Политика",
+        "smokingAllowed": "Разрешено курение",
+        "petsAllowed": "Разрешены домашние животные",
+        "petTypes": "Разрешенные виды животных",
+        "petFee": "Плата за животных",
+        "crossBorderTravelAllowed": "Трансграничные поездки",
+        "allowedCountries": "Разрешенные страны",
+        "offRoadAllowed": "Внедорожное использование",
+        "rideSharingAllowed": "Коммерческая перевозка (Uber и т.д.)",
+        "commercialUseAllowed": "Коммерческое использование"
+      },
+      "cancellationPolicy": {
+        "title": "Политика отмены",
+        "flexible": "Гибкая - бесплатная отмена за 24 часа",
+        "moderate": "Умеренная - бесплатная отмена за 48 часов",
+        "strict": "Строгая - возврат 50% за 7 дней",
+        "very_strict": "Очень строгая - возврат 50% за 14 дней",
+        "non_refundable": "Невозвратная"
+      },
+      "customRules": {
+        "title": "Пользовательские правила",
+        "placeholder": "Напишите ваши дополнительные правила...",
+        "addRule": "Добавить правило"
+      },
+      "instructions": {
+        "title": "Инструкции по передаче",
+        "pickupInstructions": "Инструкции по получению",
+        "pickupPlaceholder": "Объясните, где и как арендатор должен получить автомобиль...",
+        "returnInstructions": "Инструкции по возврату",
+        "returnPlaceholder": "Объясните, как должен быть возвращен автомобиль..."
+      }
+    },
+    "step7": {
+      "title": "Страхование и документы",
+      "subtitle": "Загрузите юридические документы",
+      "insurance": {
+        "title": "Информация о страховании",
+        "hasInsurance": "Есть страховка",
+        "insuranceProvider": "Страховая компания",
+        "policyNumber": "Номер полиса",
+        "expiryDate": "Дата окончания",
+        "coverageType": "Тип покрытия",
+        "comprehensive": "Каско",
+        "third-party": "ОСАГО",
+        "collision": "От столкновений",
+        "insuranceCertificate": "Страховой сертификат",
+        "uploadCertificate": "Загрузить сертификат"
+      },
+      "registration": {
+        "title": "Регистрационная информация",
+        "registrationDocument": "Регистрационный документ",
+        "registrationNumber": "Регистрационный номер",
+        "registrationExpiryDate": "Дата окончания регистрации",
+        "registeredOwner": "Зарегистрированный владелец",
+        "uploadDocument": "Загрузить документ"
+      },
+      "inspection": {
+        "title": "Информация о техосмотре (необязательно)",
+        "inspectionCertificate": "Сертификат техосмотра",
+        "lastInspectionDate": "Дата последнего техосмотра",
+        "nextInspectionDate": "Дата следующего техосмотра",
+        "uploadCertificate": "Загрузить сертификат"
+      },
+      "ownerDocuments": {
+        "title": "Документы владельца",
+        "driverLicense": "Водительское удостоверение",
+        "governmentId": "Удостоверение личности",
+        "uploadLicense": "Загрузить права",
+        "uploadId": "Загрузить удостоверение"
+      },
+      "rentalInsurance": {
+        "title": "Варианты страхования для арендаторов (необязательно)",
+        "addOption": "Добавить страховой пакет",
+        "name": "Название пакета",
+        "description": "Описание",
+        "pricePerDay": "Ежедневная плата",
+        "deductible": "Франшиза",
+        "coverage": {
+          "collisionDamageWaiver": "Отказ от возмещения ущерба при столкновении",
+          "theftProtection": "Защита от кражи",
+          "liabilityProtection": "Защита от ответственности",
+          "personalAccidentInsurance": "Страхование от несчастных случаев",
+          "tiresAndWindscreen": "Защита шин и лобового стекла"
+        },
+        "recommended": "Рекомендуемый пакет"
+      },
+      "documentTips": {
+        "title": "Советы по загрузке документов",
+        "tip1": "Все документы должны быть четкими и читаемыми",
+        "tip2": "Загружайте в формате PDF, JPG или PNG",
+        "tip3": "Проверьте даты окончания",
+        "tip4": "Не скрывайте личную информацию"
+      }
+    },
+    "step8": {
+      "title": "Проверка и отправка",
+      "subtitle": "Проверьте информацию и отправьте",
+      "sections": {
+        "basicInfo": "Основная информация",
+        "vehicleDetails": "Детали автомобиля",
+        "location": "Местоположение",
+        "features": "Особенности",
+        "photos": "Фотографии",
+        "pricing": "Ценообразование",
+        "availability": "Доступность",
+        "rules": "Правила",
+        "insurance": "Страхование",
+        "documents": "Документы"
+      },
+      "summary": {
+        "vehicle": "Автомобиль",
+        "type": "Тип",
+        "year": "Год",
+        "transmission": "Коробка передач",
+        "fuel": "Топливо",
+        "seats": "Места",
+        "dailyRate": "Суточная ставка",
+        "deposit": "Залог",
+        "location": "Местоположение",
+        "features": "Особенности",
+        "photosCount": "Количество фото",
+        "edit": "Редактировать"
+      },
+      "agreements": {
+        "title": "Соглашения",
+        "agreeToTerms": "Я прочитал и согласен с Условиями обслуживания",
+        "agreeToPrivacyPolicy": "Я прочитал и согласен с Политикой конфиденциальности",
+        "agreeToInsurancePolicy": "Я прочитал и согласен с Политикой страхования",
+        "agreeToRentalRules": "Я прочитал и согласен с Правилами аренды",
+        "agreeToBackgroundCheck": "Я согласен на проверку биографических данных",
+        "confirmAccuracy": "Я подтверждаю, что предоставленная информация точна"
+      },
+      "verification": {
+        "title": "Статус проверки",
+        "governmentId": "Удостоверение личности проверено",
+        "driverLicense": "Водительские права проверены",
+        "address": "Адрес проверен",
+        "phone": "Телефон проверен",
+        "email": "Email проверен",
+        "backgroundCheck": "Проверка биографических данных завершена",
+        "pending": "В ожидании",
+        "verified": "Проверено"
+      },
+      "submitButton": "Опубликовать автомобиль",
+      "saveDraftButton": "Сохранить как черновик",
+      "submitting": "Отправка...",
+      "additionalNotes": {
+        "title": "Дополнительные заметки (необязательно)",
+        "placeholder": "Заметки для администраторов платформы..."
+      }
+    },
+    "validation": {
+      "required": "Это поле обязательно",
+      "minLength": "Должно быть не менее {{count}} символов",
+      "maxLength": "Должно быть не более {{count}} символов",
+      "invalidEmail": "Неверный адрес электронной почты",
+      "invalidPhone": "Неверный номер телефона",
+      "invalidNumber": "Неверное число",
+      "minValue": "Должно быть не менее {{value}}",
+      "maxValue": "Должно быть не более {{value}}",
+      "invalidYear": "Введите действительный год",
+      "invalidPlate": "Неверный формат номерного знака",
+      "invalidVin": "VIN должен содержать 17 символов",
+      "selectAtLeast": "Выберите как минимум {{count}}",
+      "uploadAtLeast": "Загрузите как минимум {{count}} фотографий",
+      "selectVehicleType": "Пожалуйста, выберите тип автомобиля",
+      "futureDate": "Выберите будущую дату",
+      "pastDate": "Выберите прошедшую дату",
+      "invalidDateRange": "Неверный диапазон дат",
+      "agreementRequired": "Вы должны принять это соглашение"
+    },
+    "success": {
+      "title": "Успешно!",
+      "message": "Ваш автомобиль успешно добавлен и отправлен на проверку.",
+      "submittedMessage": "Ваш автомобиль отправлен на проверку. Он будет одобрен в течение 24-48 часов.",
+      "draftSavedMessage": "Черновик успешно сохранен. Вы можете продолжить в любое время.",
+      "backToDashboard": "Вернуться к панели управления",
+      "addAnother": "Добавить еще автомобиль",
+      "viewVehicle": "Просмотреть автомобиль"
+    },
+    "error": {
+      "title": "Произошла ошибка",
+      "uploadFailed": "Не удалось загрузить файл",
+      "saveFailed": "Не удалось сохранить",
+      "submitFailed": "Не удалось отправить",
+      "tryAgain": "Попробовать снова",
+      "contactSupport": "Связаться с поддержкой"
+    }
+  },
+  "bookings": {
+    "title": "Бронирования",
+    "subtitle": "Все бронирования аренды",
+    "filters": {
+      "all": "Все",
+      "pending": "Ожидание",
+      "confirmed": "Подтверждено",
+      "picked-up": "Выдан",
+      "in-progress": "В процессе",
+      "returned": "Возвращен",
+      "completed": "Завершено",
+      "cancelled": "Отменено",
+      "search": "Поиск бронирований..."
+    },
+    "table": {
+      "booking": "Бронирование",
+      "renter": "Арендатор",
+      "vehicle": "Автомобиль",
+      "pickupDate": "Дата выдачи",
+      "returnDate": "Дата возврата",
+      "duration": "Продолжительность",
+      "amount": "Сумма",
+      "status": "Статус",
+      "actions": "Действия"
+    },
+    "actions": {
+      "view": "Просмотр",
+      "accept": "Принять",
+      "reject": "Отклонить",
+      "cancel": "Отменить",
+      "message": "Отправить сообщение",
+      "viewDetails": "Просмотреть детали"
+    },
+    "status": {
+      "pending": "Ожидает подтверждения",
+      "confirmed": "Подтверждено",
+      "picked-up": "Выдан",
+      "in-progress": "В процессе",
+      "returned": "Возвращен",
+      "completed": "Завершено",
+      "cancelled": "Отменено",
+      "rejected": "Отклонено"
+    },
+    "details": {
+      "title": "Детали бронирования",
+      "bookingId": "ID бронирования",
+      "renterInfo": "Информация об арендаторе",
+      "renterName": "Имя",
+      "renterEmail": "Email",
+      "renterPhone": "Телефон",
+      "renterAge": "Возраст",
+      "drivingLicense": "Номер водительских прав",
+      "vehicleInfo": "Информация об автомобиле",
+      "rentalPeriod": "Период аренды",
+      "pickupLocation": "Место выдачи",
+      "returnLocation": "Место возврата",
+      "pickupDate": "Дата выдачи",
+      "pickupTime": "Время выдачи",
+      "returnDate": "Дата возврата",
+      "returnTime": "Время возврата",
+      "totalDays": "Всего дней",
+      "pricing": "Детали цены",
+      "subtotal": "Промежуточный итог",
+      "discounts": "Скидки",
+      "fees": "Сборы",
+      "tax": "Налог",
+      "total": "Итого",
+      "deposit": "Залог",
+      "insurance": "Страхование",
+      "extraServices": "Дополнительные услуги",
+      "additionalDrivers": "Дополнительные водители",
+      "specialRequests": "Особые запросы",
+      "notes": "Заметки",
+      "renterNotes": "Заметки арендатора",
+      "ownerNotes": "Заметки владельца"
+    },
+    "inspection": {
+      "title": "Осмотр автомобиля",
+      "preRental": "Осмотр перед арендой",
+      "postRental": "Осмотр после аренды",
+      "mileageAtPickup": "Пробег при выдаче",
+      "mileageAtReturn": "Пробег при возврате",
+      "fuelLevelAtPickup": "Уровень топлива при выдаче",
+      "fuelLevelAtReturn": "Уровень топлива при возврате",
+      "condition": "Состояние автомобиля",
+      "photos": "Фотографии",
+      "damages": "Повреждения",
+      "notes": "Заметки"
+    },
+    "emptyState": {
+      "title": "Бронирований пока нет",
+      "description": "Бронирования для ваших автомобилей будут отображаться здесь",
+      "action": "Посмотреть мои автомобили"
+    }
+  },
+  "analytics": {
+    "title": "Подробная аналитика",
+    "subtitle": "Детальный анализ производительности ваших автомобилей",
+    "dateRange": "Диапазон дат",
+    "export": "Скачать отчет",
+    "overview": {
+      "title": "Обзор",
+      "revenue": "Выручка",
+      "bookings": "Бронирования",
+      "occupancy": "Занятость",
+      "revenue_growth": "Рост выручки",
+      "views": "Просмотры",
+      "inquiries": "Запросы",
+      "conversion": "Конверсия"
+    },
+    "charts": {
+      "revenueByMonth": "График месячной выручки",
+      "revenueByVehicle": "Выручка по автомобилям",
+      "bookingsBySource": "Бронирования по источникам",
+      "occupancyRate": "Тренд уровня занятости",
+      "topPerformers": "Самые эффективные автомобили",
+      "renterDemographics": "Демография арендаторов",
+      "rentalDuration": "Продолжительность аренды"
+    },
+    "metrics": {
+      "title": "Показатели производительности",
+      "totalViews": "Всего просмотров",
+      "totalInquiries": "Всего запросов",
+      "totalBookings": "Всего бронирований",
+      "totalRevenue": "Общая выручка",
+      "avgBookingValue": "Средняя стоимость бронирования",
+      "conversionRate": "Коэффициент конверсии",
+      "avgRating": "Средний рейтинг",
+      "responseRate": "Уровень ответов",
+      "responseTime": "Среднее время ответа",
+      "occupancyRate": "Уровень занятости",
+      "avgRentalDuration": "Средняя продолжительность аренды"
+    },
+    "comparison": {
+      "title": "Сравнение с рынком",
+      "yourVehicles": "Ваши автомобили",
+      "marketAverage": "Среднее по рынку",
+      "pricePosition": "Ценовая позиция",
+      "ratingPosition": "Позиция по рейтингу",
+      "occupancyPosition": "Позиция по занятости"
+    },
+    "vehicleAnalytics": {
+      "title": "Аналитика по автомобилям",
+      "selectVehicle": "Выберите автомобиль",
+      "performance": "Производительность",
+      "earnings": "Доход",
+      "reviews": "Отзывы"
+    },
+    "period": {
+      "today": "Сегодня",
+      "yesterday": "Вчера",
+      "last7days": "Последние 7 дней",
+      "last30days": "Последние 30 дней",
+      "last90days": "Последние 90 дней",
+      "thisMonth": "Этот месяц",
+      "lastMonth": "Прошлый месяц",
+      "thisYear": "Этот год",
+      "lastYear": "Прошлый год",
+      "custom": "Настраиваемая дата"
+    }
+  },
+  "earnings": {
+    "title": "Доходы",
+    "subtitle": "Просмотр доходов от аренды",
+    "totalEarnings": "Общий доход",
+    "thisMonth": "В этом месяце",
+    "lastMonth": "В прошлом месяце",
+    "pendingPayouts": "Ожидающие выплаты",
+    "nextPayout": "Следующая выплата",
+    "table": {
+      "date": "Дата",
+      "booking": "Бронирование",
+      "vehicle": "Автомобиль",
+      "renter": "Арендатор",
+      "gross": "Брутто",
+      "commission": "Комиссия",
+      "net": "Нетто",
+      "status": "Статус",
+      "payout": "Дата выплаты"
+    },
+    "status": {
+      "pending": "Ожидание",
+      "processing": "Обработка",
+      "completed": "Завершено",
+      "refunded": "Возвращено",
+      "disputed": "Оспаривается"
+    },
+    "payout": {
+      "title": "Настройки выплат",
+      "method": "Способ выплаты",
+      "schedule": "График выплат",
+      "weekly": "Еженедельно",
+      "biweekly": "Раз в две недели",
+      "monthly": "Ежемесячно",
+      "minimumAmount": "Минимальная сумма выплаты",
+      "bankDetails": "Банковские реквизиты",
+      "accountName": "Владелец счета",
+      "accountNumber": "Номер счета",
+      "iban": "IBAN",
+      "swiftCode": "SWIFT-код"
+    },
+    "history": {
+      "title": "История выплат",
+      "payoutDate": "Дата выплаты",
+      "amount": "Сумма",
+      "method": "Способ",
+      "status": "Статус",
+      "transactionId": "ID транзакции"
+    }
+  },
+  "messages": {
+    "title": "Сообщения",
+    "subtitle": "Общение с арендаторами",
+    "newMessage": "Новое сообщение",
+    "searchMessages": "Поиск сообщений...",
+    "conversations": "Беседы",
+    "unread": "Непрочитанные",
+    "archived": "Архив",
+    "filters": {
+      "all": "Все",
+      "unread": "Непрочитанные",
+      "archived": "Архивированные",
+      "bookingRelated": "Связанные с бронированием"
+    },
+    "conversation": {
+      "typing": "печатает...",
+      "online": "В сети",
+      "offline": "Не в сети",
+      "lastSeen": "Последний раз",
+      "viewBooking": "Просмотреть бронирование",
+      "viewVehicle": "Просмотреть автомобиль"
+    },
+    "compose": {
+      "to": "Кому",
+      "subject": "Тема",
+      "message": "Сообщение",
+      "send": "Отправить",
+      "attach": "Прикрепить файл",
+      "template": "Использовать шаблон"
+    },
+    "templates": {
+      "title": "Шаблоны сообщений",
+      "welcome": "Приветственное сообщение",
+      "prePickup": "Напоминание перед выдачей",
+      "postReturn": "Благодарность после возврата",
+      "reviewRequest": "Запрос отзыва"
+    },
+    "emptyState": {
+      "title": "Сообщений пока нет",
+      "description": "Сообщения с арендаторами будут отображаться здесь"
+    }
+  },
+  "calendar": {
+    "title": "Календарь",
+    "subtitle": "Управление доступностью автомобилей",
+    "selectVehicle": "Выберите автомобиль",
+    "allVehicles": "Все автомобили",
+    "availability": "Доступность",
+    "bookings": "Бронирования",
+    "blocked": "Заблокировано",
+    "blockDates": {
+      "title": "Заблокировать даты",
+      "startDate": "Дата начала",
+      "endDate": "Дата окончания",
+      "reason": "Причина",
+      "maintenance": "Обслуживание",
+      "personalUse": "Личное использование",
+      "other": "Другое",
+      "notes": "Заметки",
+      "block": "Заблокировать"
+    },
+    "legend": {
+      "available": "Доступно",
+      "booked": "Забронировано",
+      "blocked": "Заблокировано",
+      "past": "Прошедшее"
+    },
+    "pricing": {
+      "title": "Динамическое ценообразование",
+      "customPrice": "Установить особую цену",
+      "applyToRange": "Применить к диапазону дат"
+    }
+  },
+  "reviews": {
+    "title": "Отзывы",
+    "subtitle": "Просмотр отзывов арендаторов",
+    "totalReviews": "Всего отзывов",
+    "averageRating": "Средний рейтинг",
+    "filters": {
+      "all": "Все",
+      "5stars": "5 звезд",
+      "4stars": "4 звезды",
+      "3stars": "3 звезды",
+      "2stars": "2 звезды",
+      "1star": "1 звезда",
+      "withResponse": "С ответом",
+      "withoutResponse": "Без ответа"
+    },
+    "categories": {
+      "vehicleCondition": "Состояние автомобиля",
+      "cleanliness": "Чистота",
+      "valueForMoney": "Соотношение цена/качество",
+      "ownerCommunication": "Общение",
+      "pickupExperience": "Опыт получения",
+      "accuracy": "Точность описания"
+    },
+    "details": {
+      "verifiedRental": "Подтвержденная аренда",
+      "wouldRecommend": "Рекомендует",
+      "wouldRentAgain": "Арендует снова",
+      "helpful": "Полезно",
+      "notHelpful": "Не полезно",
+      "respond": "Ответить",
+      "yourResponse": "Ваш ответ",
+      "editResponse": "Изменить ответ",
+      "deleteResponse": "Удалить ответ"
+    },
+    "emptyState": {
+      "title": "Отзывов пока нет",
+      "description": "Отзывы будут отображаться здесь после завершенных аренд"
+    }
+  },
+  "settings": {
+    "title": "Настройки",
+    "subtitle": "Управление настройками учетной записи и автомобилей",
+    "tabs": {
+      "profile": "Профиль",
+      "vehicles": "Автомобили",
+      "rentalRules": "Правила аренды",
+      "insurance": "Страхование",
+      "payment": "Оплата",
+      "notifications": "Уведомления",
+      "security": "Безопасность",
+      "integrations": "Интеграции"
+    },
+    "profile": {
+      "title": "Информация профиля",
+      "avatar": "Фото профиля",
+      "name": "Полное имя",
+      "email": "Email",
+      "phone": "Телефон",
+      "bio": "О себе",
+      "location": "Местоположение",
+      "languages": "Языки общения",
+      "emergencyContact": {
+        "title": "Экстренный контакт",
+        "name": "Полное имя",
+        "phone": "Телефон",
+        "relationship": "Отношение"
+      },
+      "businessInfo": {
+        "title": "Информация о бизнесе (необязательно)",
+        "businessName": "Название компании",
+        "businessType": "Тип бизнеса",
+        "taxId": "ИНН",
+        "registrationNumber": "Регистрационный номер"
+      }
+    },
+    "payment": {
+      "title": "Платежная информация",
+      "preferredMethod": "Предпочтительный способ",
+      "bankAccount": "Банковский счет",
+      "bankName": "Название банка",
+      "accountHolder": "Владелец счета",
+      "accountNumber": "Номер счета",
+      "iban": "IBAN",
+      "swiftCode": "SWIFT-код",
+      "verified": "Проверено",
+      "notVerified": "Не проверено",
+      "verify": "Проверить",
+      "paypal": "PayPal",
+      "stripe": "Stripe",
+      "wise": "Wise",
+      "connect": "Подключить",
+      "disconnect": "Отключить",
+      "payoutSchedule": "График выплат",
+      "minimumPayout": "Минимальная сумма выплаты",
+      "securityDeposit": {
+        "title": "Залог",
+        "required": "Требуется залог",
+        "amount": "Сумма залога"
+      }
+    },
+    "notifications": {
+      "title": "Настройки уведомлений",
+      "email": {
+        "title": "Email-уведомления",
+        "newBookingRequest": "Новый запрос на бронирование",
+        "bookingConfirmation": "Подтверждение бронирования",
+        "bookingCancellation": "Отмена бронирования",
+        "newMessage": "Новое сообщение",
+        "reviewPosted": "Новый отзыв",
+        "rentalReminders": "Напоминания об аренде",
+        "paymentReceived": "Платеж получен",
+        "maintenanceReminders": "Напоминания об обслуживании",
+        "weeklyReport": "Еженедельный отчет",
+        "monthlyReport": "Ежемесячный отчет"
+      },
+      "push": {
+        "title": "Push-уведомления",
+        "enabled": "Включить Push-уведомления",
+        "newBookingRequest": "Новый запрос на бронирование",
+        "bookingConfirmation": "Подтверждение бронирования",
+        "newMessage": "Новое сообщение",
+        "rentalStartsSoon": "Аренда скоро начнется",
+        "rentalEndsSoon": "Аренда скоро закончится",
+        "urgentAlerts": "Срочные уведомления"
+      },
+      "sms": {
+        "title": "SMS-уведомления",
+        "enabled": "Включить SMS-уведомления",
+        "urgentOnly": "Только срочные",
+        "bookingConfirmation": "Подтверждение бронирования",
+        "rentalReminders": "Напоминания об аренде"
+      }
+    },
+    "security": {
+      "title": "Настройки безопасности",
+      "password": {
+        "title": "Изменить пароль",
+        "currentPassword": "Текущий пароль",
+        "newPassword": "Новый пароль",
+        "confirmPassword": "Подтвердите пароль",
+        "change": "Изменить пароль",
+        "lastChanged": "Последнее изменение"
+      },
+      "twoFactor": {
+        "title": "Двухфакторная аутентификация",
+        "enabled": "Включено",
+        "disabled": "Отключено",
+        "enable": "Включить",
+        "disable": "Отключить",
+        "method": "Метод аутентификации",
+        "sms": "SMS",
+        "authenticator": "Приложение аутентификации",
+        "email": "Email"
+      },
+      "activeSessions": {
+        "title": "Активные сеансы",
+        "device": "Устройство",
+        "location": "Местоположение",
+        "lastActive": "Последняя активность",
+        "current": "Текущий сеанс",
+        "endSession": "Завершить сеанс"
+      },
+      "loginHistory": {
+        "title": "История входов",
+        "date": "Дата",
+        "device": "Устройство",
+        "location": "Местоположение",
+        "status": "Статус",
+        "success": "Успешно",
+        "failed": "Неудачно"
+      }
+    },
+    "integrations": {
+      "title": "Интеграции",
+      "description": "Подключение сторонних сервисов",
+      "calendar": {
+        "title": "Интеграция с календарем",
+        "googleCalendar": "Google Календарь",
+        "outlook": "Outlook Календарь",
+        "ical": "iCal"
+      },
+      "messaging": {
+        "title": "Мессенджеры",
+        "whatsapp": "WhatsApp Business",
+        "telegram": "Telegram"
+      },
+      "accounting": {
+        "title": "Бухгалтерия",
+        "quickbooks": "QuickBooks",
+        "xero": "Xero"
+      },
+      "connected": "Подключено",
+      "notConnected": "Не подключено",
+      "connect": "Подключить",
+      "disconnect": "Отключить",
+      "lastSync": "Последняя синхронизация"
+    }
+  },
+  "navigation": {
+    "overview": "Обзор",
+    "myVehicles": "Мои автомобили",
+    "bookings": "Бронирования",
+    "calendar": "Календарь",
+    "earnings": "Доходы",
+    "messages": "Сообщения",
+    "reviews": "Отзывы",
+    "analytics": "Аналитика",
+    "settings": "Настройки",
+    "help": "Помощь"
+  },
+  "header": {
+    "search": "Поиск автомобилей, бронирований или арендаторов...",
+    "addVehicle": "Добавить автомобиль",
+    "notifications": "Уведомления",
+    "profile": "Профиль",
+    "logout": "Выход",
+    "superHost": "Супер хост"
+  },
+  "notifications": {
+    "title": "Уведомления",
+    "markAllRead": "Отметить все как прочитанные",
+    "viewAll": "Посмотреть все",
+    "types": {
+      "newBooking": "Новое бронирование",
+      "bookingConfirmed": "Бронирование подтверждено",
+      "bookingCancelled": "Бронирование отменено",
+      "newMessage": "Новое сообщение",
+      "newReview": "Новый отзыв",
+      "paymentReceived": "Платеж получен",
+      "rentalStarting": "Аренда начинается",
+      "rentalEnding": "Аренда заканчивается",
+      "maintenanceDue": "Требуется обслуживание"
+    },
+    "emptyState": {
+      "title": "Уведомлений нет",
+      "description": "Новые уведомления будут отображаться здесь"
+    }
+  },
+  "common": {
+    "loading": "Загрузка...",
+    "error": "Произошла ошибка",
+    "success": "Операция успешна",
+    "confirm": "Подтвердить",
+    "cancel": "Отмена",
+    "save": "Сохранить",
+    "delete": "Удалить",
+    "edit": "Редактировать",
+    "view": "Просмотр",
+    "close": "Закрыть",
+    "search": "Поиск",
+    "filter": "Фильтр",
+    "sort": "Сортировка",
+    "actions": "Действия",
+    "more": "Больше",
+    "less": "Меньше",
+    "showAll": "Показать все",
+    "showLess": "Показать меньше",
+    "select": "Выбрать",
+    "upload": "Загрузить",
+    "download": "Скачать",
+    "export": "Экспорт",
+    "import": "Импорт",
+    "print": "Печать",
+    "share": "Поделиться",
+    "yes": "Да",
+    "no": "Нет",
+    "all": "Все",
+    "none": "Нет",
+    "optional": "Необязательно",
+    "required": "Обязательно",
+    "recommended": "Рекомендуется",
+    "new": "Новое",
+    "updated": "Обновлено",
+    "deleted": "Удалено",
+    "draft": "Черновик",
+    "published": "Опубликовано",
+    "active": "Активно",
+    "inactive": "Неактивно",
+    "enabled": "Включено",
+    "disabled": "Отключено",
+    "verified": "Проверено",
+    "unverified": "Не проверено",
+    "pending": "В ожидании",
+    "approved": "Одобрено",
+    "rejected": "Отклонено",
+    "total": "Итого",
+    "average": "Среднее",
+    "min": "Мин",
+    "max": "Макс",
+    "from": "От",
+    "to": "До",
+    "date": "Дата",
+    "time": "Время",
+    "today": "Сегодня",
+    "yesterday": "Вчера",
+    "tomorrow": "Завтра",
+    "week": "Неделя",
+    "month": "Месяц",
+    "year": "Год",
+    "day": "День",
+    "hour": "Час",
+    "minute": "Минута",
+    "second": "Секунда",
+    "currency": {
+      "try": "TRY",
+      "usd": "USD",
+      "eur": "EUR"
+    },
+    "units": {
+      "km": "км",
+      "liter": "литр",
+      "hp": "л.с.",
+      "people": "чел",
+      "days": "дней",
+      "hours": "часов"
+    }
+  }
+}

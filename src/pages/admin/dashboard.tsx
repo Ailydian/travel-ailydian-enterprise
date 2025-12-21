@@ -11,7 +11,8 @@ import {
   Users, MapPin, MessageSquare, Camera, Star, TrendingUp, TrendingDown,
   Activity, Clock, Globe, AlertTriangle, CheckCircle, RefreshCw,
   Settings, LogOut, Eye, Edit, Trash2, Calendar, Download, Zap,
-  BarChart3, PieChart as PieChartIcon, Target, Award, Sparkles
+  BarChart3, PieChart as PieChartIcon, Target, Award, Sparkles,
+  Car, Bus, Navigation, DollarSign
 } from 'lucide-react';
 import adminService from '../../lib/services/admin-service';
 
@@ -28,8 +29,20 @@ interface DashboardData {
       users: number;
     };
   };
+  vehicleRental: {
+    totalVehicles: number;
+    activeRentals: number;
+    monthlyRevenue: number;
+    growth: number;
+  };
+  transferService: {
+    totalFleet: number;
+    activeTransfers: number;
+    monthlyRevenue: number;
+    onTimeRate: number;
+  };
   recentActivity: Array<{
-    type: 'review' | 'user' | 'location' | 'photo';
+    type: 'review' | 'user' | 'location' | 'photo' | 'vehicle' | 'transfer';
     description: string;
     timestamp: string;
     user?: string;
@@ -60,6 +73,9 @@ interface DashboardData {
       reviews: number;
       users: number;
       views: number;
+      vehicleRevenue: number;
+      transferRevenue: number;
+      propertyRevenue: number;
     }>;
   };
 }
@@ -106,30 +122,66 @@ export default function AdminDashboard() {
               users: 18.2
             }
           },
+          vehicleRental: {
+            totalVehicles: 247,
+            activeRentals: 89,
+            monthlyRevenue: 145000,
+            growth: 18.5
+          },
+          transferService: {
+            totalFleet: 128,
+            activeTransfers: 45,
+            monthlyRevenue: 210000,
+            onTimeRate: 96.8
+          },
           recentActivity: [
+            {
+              type: 'vehicle',
+              description: 'Yeni araç eklendi: BMW 3 Serisi',
+              timestamp: new Date().toISOString(),
+              user: 'admin@example.com'
+            },
+            {
+              type: 'transfer',
+              description: 'Transfer rezervasyonu: IST Havalimanı → Sultanahmet',
+              timestamp: new Date(Date.now() - 180000).toISOString(),
+              user: 'mehmet.k@example.com'
+            },
             {
               type: 'review',
               description: 'Sultanahmet Camii için yeni değerlendirme eklendi',
-              timestamp: new Date().toISOString(),
+              timestamp: new Date(Date.now() - 300000).toISOString(),
               user: 'ahmet.y@example.com',
               location: 'Sultanahmet Camii'
             },
             {
+              type: 'vehicle',
+              description: 'Araç kiralama tamamlandı: Mercedes-Benz E-Class',
+              timestamp: new Date(Date.now() - 450000).toISOString(),
+              user: 'ayse.t@example.com'
+            },
+            {
               type: 'user',
               description: 'Yeni kullanıcı kayıt oldu',
-              timestamp: new Date(Date.now() - 300000).toISOString(),
+              timestamp: new Date(Date.now() - 600000).toISOString(),
               user: 'zeynep.k@example.com'
+            },
+            {
+              type: 'transfer',
+              description: 'Transfer tamamlandı: Taksim → SAW Havalimanı',
+              timestamp: new Date(Date.now() - 750000).toISOString(),
+              user: 'can.d@example.com'
             },
             {
               type: 'location',
               description: 'Galata Kulesi lokasyonu güncellendi',
-              timestamp: new Date(Date.now() - 600000).toISOString(),
+              timestamp: new Date(Date.now() - 900000).toISOString(),
               location: 'Galata Kulesi'
             },
             {
               type: 'photo',
               description: 'Kapadokya için 5 yeni fotoğraf yüklendi',
-              timestamp: new Date(Date.now() - 900000).toISOString(),
+              timestamp: new Date(Date.now() - 1050000).toISOString(),
               location: 'Kapadokya'
             }
           ],
@@ -153,36 +205,36 @@ export default function AdminDashboard() {
           },
           analytics: {
             dailyStats: [
-              { date: new Date(Date.now() - 29 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], locations: 6, reviews: 66, users: 20, views: 914 },
-              { date: new Date(Date.now() - 28 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], locations: 11, reviews: 35, users: 29, views: 606 },
-              { date: new Date(Date.now() - 27 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], locations: 7, reviews: 24, users: 24, views: 960 },
-              { date: new Date(Date.now() - 26 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], locations: 14, reviews: 25, users: 13, views: 1402 },
-              { date: new Date(Date.now() - 25 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], locations: 7, reviews: 28, users: 15, views: 788 },
-              { date: new Date(Date.now() - 24 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], locations: 11, reviews: 22, users: 11, views: 575 },
-              { date: new Date(Date.now() - 23 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], locations: 11, reviews: 52, users: 20, views: 1475 },
-              { date: new Date(Date.now() - 22 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], locations: 9, reviews: 50, users: 28, views: 1136 },
-              { date: new Date(Date.now() - 21 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], locations: 7, reviews: 43, users: 19, views: 768 },
-              { date: new Date(Date.now() - 20 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], locations: 10, reviews: 57, users: 14, views: 1463 },
-              { date: new Date(Date.now() - 19 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], locations: 10, reviews: 23, users: 16, views: 1227 },
-              { date: new Date(Date.now() - 18 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], locations: 11, reviews: 55, users: 13, views: 693 },
-              { date: new Date(Date.now() - 17 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], locations: 6, reviews: 23, users: 11, views: 867 },
-              { date: new Date(Date.now() - 16 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], locations: 12, reviews: 38, users: 26, views: 588 },
-              { date: new Date(Date.now() - 15 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], locations: 6, reviews: 58, users: 20, views: 1033 },
-              { date: new Date(Date.now() - 14 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], locations: 8, reviews: 60, users: 24, views: 946 },
-              { date: new Date(Date.now() - 13 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], locations: 13, reviews: 33, users: 22, views: 745 },
-              { date: new Date(Date.now() - 12 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], locations: 10, reviews: 24, users: 27, views: 1296 },
-              { date: new Date(Date.now() - 11 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], locations: 12, reviews: 20, users: 15, views: 1433 },
-              { date: new Date(Date.now() - 10 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], locations: 5, reviews: 41, users: 12, views: 1291 },
-              { date: new Date(Date.now() - 9 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], locations: 5, reviews: 25, users: 11, views: 1057 },
-              { date: new Date(Date.now() - 8 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], locations: 13, reviews: 62, users: 14, views: 825 },
-              { date: new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], locations: 10, reviews: 57, users: 12, views: 1049 },
-              { date: new Date(Date.now() - 6 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], locations: 12, reviews: 28, users: 16, views: 1023 },
-              { date: new Date(Date.now() - 5 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], locations: 14, reviews: 48, users: 24, views: 778 },
-              { date: new Date(Date.now() - 4 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], locations: 8, reviews: 22, users: 10, views: 1466 },
-              { date: new Date(Date.now() - 3 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], locations: 13, reviews: 28, users: 15, views: 652 },
-              { date: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], locations: 14, reviews: 68, users: 28, views: 1134 },
-              { date: new Date(Date.now() - 1 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], locations: 7, reviews: 22, users: 16, views: 835 },
-              { date: new Date().toISOString().split('T')[0], locations: 9, reviews: 40, users: 25, views: 1185 }
+              { date: new Date(Date.now() - 29 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], locations: 6, reviews: 66, users: 20, views: 914, vehicleRevenue: 3800, transferRevenue: 5200, propertyRevenue: 2100 },
+              { date: new Date(Date.now() - 28 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], locations: 11, reviews: 35, users: 29, views: 606, vehicleRevenue: 4200, transferRevenue: 6100, propertyRevenue: 1900 },
+              { date: new Date(Date.now() - 27 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], locations: 7, reviews: 24, users: 24, views: 960, vehicleRevenue: 5100, transferRevenue: 7300, propertyRevenue: 2800 },
+              { date: new Date(Date.now() - 26 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], locations: 14, reviews: 25, users: 13, views: 1402, vehicleRevenue: 4800, transferRevenue: 6900, propertyRevenue: 3200 },
+              { date: new Date(Date.now() - 25 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], locations: 7, reviews: 28, users: 15, views: 788, vehicleRevenue: 3900, transferRevenue: 5800, propertyRevenue: 2300 },
+              { date: new Date(Date.now() - 24 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], locations: 11, reviews: 22, users: 11, views: 575, vehicleRevenue: 4500, transferRevenue: 6400, propertyRevenue: 1700 },
+              { date: new Date(Date.now() - 23 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], locations: 11, reviews: 52, users: 20, views: 1475, vehicleRevenue: 5300, transferRevenue: 7800, propertyRevenue: 3500 },
+              { date: new Date(Date.now() - 22 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], locations: 9, reviews: 50, users: 28, views: 1136, vehicleRevenue: 4900, transferRevenue: 7100, propertyRevenue: 2900 },
+              { date: new Date(Date.now() - 21 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], locations: 7, reviews: 43, users: 19, views: 768, vehicleRevenue: 4100, transferRevenue: 5900, propertyRevenue: 2200 },
+              { date: new Date(Date.now() - 20 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], locations: 10, reviews: 57, users: 14, views: 1463, vehicleRevenue: 5400, transferRevenue: 7600, propertyRevenue: 3400 },
+              { date: new Date(Date.now() - 19 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], locations: 10, reviews: 23, users: 16, views: 1227, vehicleRevenue: 4600, transferRevenue: 6700, propertyRevenue: 2800 },
+              { date: new Date(Date.now() - 18 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], locations: 11, reviews: 55, users: 13, views: 693, vehicleRevenue: 3700, transferRevenue: 5400, propertyRevenue: 2000 },
+              { date: new Date(Date.now() - 17 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], locations: 6, reviews: 23, users: 11, views: 867, vehicleRevenue: 4300, transferRevenue: 6200, propertyRevenue: 2500 },
+              { date: new Date(Date.now() - 16 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], locations: 12, reviews: 38, users: 26, views: 588, vehicleRevenue: 3600, transferRevenue: 5300, propertyRevenue: 1600 },
+              { date: new Date(Date.now() - 15 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], locations: 6, reviews: 58, users: 20, views: 1033, vehicleRevenue: 5000, transferRevenue: 7200, propertyRevenue: 2900 },
+              { date: new Date(Date.now() - 14 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], locations: 8, reviews: 60, users: 24, views: 946, vehicleRevenue: 4800, transferRevenue: 6900, propertyRevenue: 2700 },
+              { date: new Date(Date.now() - 13 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], locations: 13, reviews: 33, users: 22, views: 745, vehicleRevenue: 4200, transferRevenue: 6100, propertyRevenue: 2100 },
+              { date: new Date(Date.now() - 12 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], locations: 10, reviews: 24, users: 27, views: 1296, vehicleRevenue: 5200, transferRevenue: 7500, propertyRevenue: 3100 },
+              { date: new Date(Date.now() - 11 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], locations: 12, reviews: 20, users: 15, views: 1433, vehicleRevenue: 5500, transferRevenue: 7900, propertyRevenue: 3300 },
+              { date: new Date(Date.now() - 10 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], locations: 5, reviews: 41, users: 12, views: 1291, vehicleRevenue: 5100, transferRevenue: 7400, propertyRevenue: 3000 },
+              { date: new Date(Date.now() - 9 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], locations: 5, reviews: 25, users: 11, views: 1057, vehicleRevenue: 4700, transferRevenue: 6800, propertyRevenue: 2600 },
+              { date: new Date(Date.now() - 8 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], locations: 13, reviews: 62, users: 14, views: 825, vehicleRevenue: 4000, transferRevenue: 5700, propertyRevenue: 2400 },
+              { date: new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], locations: 10, reviews: 57, users: 12, views: 1049, vehicleRevenue: 4900, transferRevenue: 7000, propertyRevenue: 2800 },
+              { date: new Date(Date.now() - 6 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], locations: 12, reviews: 28, users: 16, views: 1023, vehicleRevenue: 4800, transferRevenue: 6900, propertyRevenue: 2700 },
+              { date: new Date(Date.now() - 5 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], locations: 14, reviews: 48, users: 24, views: 778, vehicleRevenue: 4100, transferRevenue: 5900, propertyRevenue: 2200 },
+              { date: new Date(Date.now() - 4 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], locations: 8, reviews: 22, users: 10, views: 1466, vehicleRevenue: 5600, transferRevenue: 8100, propertyRevenue: 3500 },
+              { date: new Date(Date.now() - 3 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], locations: 13, reviews: 28, users: 15, views: 652, vehicleRevenue: 3500, transferRevenue: 5100, propertyRevenue: 1800 },
+              { date: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], locations: 14, reviews: 68, users: 28, views: 1134, vehicleRevenue: 5300, transferRevenue: 7600, propertyRevenue: 3200 },
+              { date: new Date(Date.now() - 1 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], locations: 7, reviews: 22, users: 16, views: 835, vehicleRevenue: 4400, transferRevenue: 6300, propertyRevenue: 2400 },
+              { date: new Date().toISOString().split('T')[0], locations: 9, reviews: 40, users: 25, views: 1185, vehicleRevenue: 5000, transferRevenue: 7200, propertyRevenue: 2900 }
             ]
           }
         };
@@ -242,6 +294,8 @@ export default function AdminDashboard() {
       case 'user': return <Users className="w-4 h-4" />;
       case 'location': return <MapPin className="w-4 h-4" />;
       case 'photo': return <Camera className="w-4 h-4" />;
+      case 'vehicle': return <Car className="w-4 h-4" />;
+      case 'transfer': return <Bus className="w-4 h-4" />;
       default: return <Activity className="w-4 h-4" />;
     }
   };
@@ -252,6 +306,8 @@ export default function AdminDashboard() {
       case 'user': return 'Kullanıcı';
       case 'location': return 'Lokasyon';
       case 'photo': return 'Fotoğraf';
+      case 'vehicle': return 'Araç Kiralama';
+      case 'transfer': return 'Transfer';
       default: return 'Aktivite';
     }
   };
@@ -375,8 +431,17 @@ export default function AdminDashboard() {
                   <Globe className="w-5 h-5" />
                   <span>Harici Platformlar</span>
                 </Link>
+                <div className="my-2 border-t border-gray-700"></div>
+                <Link href="/admin/vehicles" className="flex items-center space-x-3 text-gray-300 hover:text-white hover:bg-gray-700/80 rounded-lg px-3 py-2 transition-all hover:translate-x-1">
+                  <Car className="w-5 h-5" />
+                  <span>Araç Kiralama</span>
+                </Link>
+                <Link href="/admin/transfers" className="flex items-center space-x-3 text-gray-300 hover:text-white hover:bg-gray-700/80 rounded-lg px-3 py-2 transition-all hover:translate-x-1">
+                  <Bus className="w-5 h-5" />
+                  <span>Transfer Hizmetleri</span>
+                </Link>
               </div>
-              
+
               {/* Sidebar Footer */}
               <div className="mt-8 pt-4 border-t border-gray-700">
                 <div className="text-xs text-gray-400 text-center">
@@ -399,6 +464,11 @@ export default function AdminDashboard() {
                   <p className="text-gray-400 text-sm">
                     Ailydian Admin Panelinize Hoş Geldiniz
                   </p>
+                </div>
+
+                {/* Property Owner Stats Section */}
+                <div className="mb-6">
+                  <h2 className="text-lg font-bold text-white mb-4">Property Owner Stats</h2>
                 </div>
                 {/* Overview Stats */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 mb-8">
@@ -504,16 +574,154 @@ export default function AdminDashboard() {
                   </div>
                 </div>
 
+                {/* Vehicle Rental Stats Section */}
+                <div className="mb-6">
+                  <h2 className="text-lg font-bold text-white mb-4">Vehicle Rental Stats</h2>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                  <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-green-100 p-4 hover:shadow-xl transition-all transform hover:scale-105">
+                    <div className="flex items-center">
+                      <div className="p-2 rounded-full" style={{background: `linear-gradient(45deg, ${AILYDIAN_COLORS.success}20, ${AILYDIAN_COLORS.success}40)`}}>
+                        <Car className="w-6 h-6" style={{color: AILYDIAN_COLORS.success}} />
+                      </div>
+                      <div className="ml-3 flex-1">
+                        <p className="text-xs font-semibold text-gray-600 uppercase tracking-wide">Total Vehicles</p>
+                        <p className="text-2xl font-bold text-gray-900 mb-0.5">
+                          {formatNumber(dashboardData.vehicleRental.totalVehicles)}
+                        </p>
+                        <p className="text-xs text-gray-500">Filo büyüklüğü</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-green-100 p-4 hover:shadow-xl transition-all transform hover:scale-105">
+                    <div className="flex items-center">
+                      <div className="p-2 rounded-full" style={{background: `linear-gradient(45deg, ${AILYDIAN_COLORS.success}20, ${AILYDIAN_COLORS.success}40)`}}>
+                        <Calendar className="w-6 h-6" style={{color: AILYDIAN_COLORS.success}} />
+                      </div>
+                      <div className="ml-3 flex-1">
+                        <p className="text-xs font-semibold text-gray-600 uppercase tracking-wide">Active Rentals</p>
+                        <p className="text-2xl font-bold text-gray-900 mb-0.5">
+                          {formatNumber(dashboardData.vehicleRental.activeRentals)}
+                        </p>
+                        <p className="text-xs text-gray-500">Devam eden kiralama</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-green-100 p-4 hover:shadow-xl transition-all transform hover:scale-105">
+                    <div className="flex items-center">
+                      <div className="p-2 rounded-full" style={{background: `linear-gradient(45deg, ${AILYDIAN_COLORS.success}20, ${AILYDIAN_COLORS.success}40)`}}>
+                        <DollarSign className="w-6 h-6" style={{color: AILYDIAN_COLORS.success}} />
+                      </div>
+                      <div className="ml-3 flex-1">
+                        <p className="text-xs font-semibold text-gray-600 uppercase tracking-wide">Monthly Revenue</p>
+                        <p className="text-2xl font-bold text-gray-900 mb-0.5">
+                          ₺{formatNumber(dashboardData.vehicleRental.monthlyRevenue)}
+                        </p>
+                        <p className="text-xs text-gray-500">Aylık gelir</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-green-100 p-4 hover:shadow-xl transition-all transform hover:scale-105">
+                    <div className="flex items-center">
+                      <div className="p-2 rounded-full" style={{background: `linear-gradient(45deg, ${AILYDIAN_COLORS.success}20, ${AILYDIAN_COLORS.success}40)`}}>
+                        <TrendingUp className="w-6 h-6" style={{color: AILYDIAN_COLORS.success}} />
+                      </div>
+                      <div className="ml-3 flex-1">
+                        <p className="text-xs font-semibold text-gray-600 uppercase tracking-wide">Growth</p>
+                        <p className="text-2xl font-bold text-gray-900 mb-0.5">
+                          {formatPercentage(dashboardData.vehicleRental.growth)}
+                        </p>
+                        <p className="text-xs flex items-center" style={{color: AILYDIAN_COLORS.success}}>
+                          <TrendingUp className="w-3 h-3 mr-1" />
+                          Bu ay
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Transfer Service Stats Section */}
+                <div className="mb-6">
+                  <h2 className="text-lg font-bold text-white mb-4">Transfer Service Stats</h2>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                  <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-blue-100 p-4 hover:shadow-xl transition-all transform hover:scale-105">
+                    <div className="flex items-center">
+                      <div className="p-2 rounded-full" style={{background: `linear-gradient(45deg, ${AILYDIAN_COLORS.blue}20, ${AILYDIAN_COLORS.blue}40)`}}>
+                        <Bus className="w-6 h-6" style={{color: AILYDIAN_COLORS.blue}} />
+                      </div>
+                      <div className="ml-3 flex-1">
+                        <p className="text-xs font-semibold text-gray-600 uppercase tracking-wide">Total Fleet</p>
+                        <p className="text-2xl font-bold text-gray-900 mb-0.5">
+                          {formatNumber(dashboardData.transferService.totalFleet)}
+                        </p>
+                        <p className="text-xs text-gray-500">Transfer araçları</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-blue-100 p-4 hover:shadow-xl transition-all transform hover:scale-105">
+                    <div className="flex items-center">
+                      <div className="p-2 rounded-full" style={{background: `linear-gradient(45deg, ${AILYDIAN_COLORS.blue}20, ${AILYDIAN_COLORS.blue}40)`}}>
+                        <Navigation className="w-6 h-6" style={{color: AILYDIAN_COLORS.blue}} />
+                      </div>
+                      <div className="ml-3 flex-1">
+                        <p className="text-xs font-semibold text-gray-600 uppercase tracking-wide">Active Transfers</p>
+                        <p className="text-2xl font-bold text-gray-900 mb-0.5">
+                          {formatNumber(dashboardData.transferService.activeTransfers)}
+                        </p>
+                        <p className="text-xs text-gray-500">Devam eden transfer</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-blue-100 p-4 hover:shadow-xl transition-all transform hover:scale-105">
+                    <div className="flex items-center">
+                      <div className="p-2 rounded-full" style={{background: `linear-gradient(45deg, ${AILYDIAN_COLORS.blue}20, ${AILYDIAN_COLORS.blue}40)`}}>
+                        <DollarSign className="w-6 h-6" style={{color: AILYDIAN_COLORS.blue}} />
+                      </div>
+                      <div className="ml-3 flex-1">
+                        <p className="text-xs font-semibold text-gray-600 uppercase tracking-wide">Monthly Revenue</p>
+                        <p className="text-2xl font-bold text-gray-900 mb-0.5">
+                          ₺{formatNumber(dashboardData.transferService.monthlyRevenue)}
+                        </p>
+                        <p className="text-xs text-gray-500">Aylık gelir</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-blue-100 p-4 hover:shadow-xl transition-all transform hover:scale-105">
+                    <div className="flex items-center">
+                      <div className="p-2 rounded-full" style={{background: `linear-gradient(45deg, ${AILYDIAN_COLORS.blue}20, ${AILYDIAN_COLORS.blue}40)`}}>
+                        <CheckCircle className="w-6 h-6" style={{color: AILYDIAN_COLORS.blue}} />
+                      </div>
+                      <div className="ml-3 flex-1">
+                        <p className="text-xs font-semibold text-gray-600 uppercase tracking-wide">On-Time Rate</p>
+                        <p className="text-2xl font-bold text-gray-900 mb-0.5">
+                          {dashboardData.transferService.onTimeRate.toFixed(1)}%
+                        </p>
+                        <p className="text-xs flex items-center" style={{color: AILYDIAN_COLORS.success}}>
+                          <CheckCircle className="w-3 h-3 mr-1" />
+                          Zamanında teslimat
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
                 {/* Charts Section */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
-                  {/* Daily Activity Chart */}
+                  {/* Unified Revenue Chart */}
                   <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200 p-6 hover:shadow-xl transition-all">
                     <div className="flex items-center justify-between mb-6">
                       <div className="flex items-center space-x-3">
                         <div className="p-2 rounded-lg" style={{background: `linear-gradient(45deg, ${AILYDIAN_COLORS.primary}20, ${AILYDIAN_COLORS.secondary}20)`}}>
                           <BarChart3 className="w-5 h-5" style={{color: AILYDIAN_COLORS.primary}} />
                         </div>
-                        <h3 className="text-base font-bold text-gray-900">Günlük Aktivite</h3>
+                        <h3 className="text-base font-bold text-gray-900">Birleşik Gelir Grafiği</h3>
                       </div>
                       <div className="flex space-x-1">
                         <button className="px-3 py-1 text-xs text-white rounded-lg transition-colors" style={{background: AILYDIAN_COLORS.primary}}>30G</button>
@@ -523,16 +731,17 @@ export default function AdminDashboard() {
                     </div>
                     <div className="h-80">
                       <ResponsiveContainer width="100%" height="100%">
-                        <ComposedChart data={dashboardData.analytics.dailyStats}>
+                        <AreaChart data={dashboardData.analytics.dailyStats}>
                           <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
-                          <XAxis 
-                            dataKey="date" 
+                          <XAxis
+                            dataKey="date"
                             tickFormatter={(date) => new Date(date).toLocaleDateString('tr-TR', { day: 'numeric', month: 'short' })}
                             stroke="#666"
                           />
                           <YAxis stroke="#666" />
-                          <Tooltip 
+                          <Tooltip
                             labelFormatter={(date) => formatDateTurkish(date)}
+                            formatter={(value) => `₺${formatNumber(Number(value))}`}
                             contentStyle={{
                               backgroundColor: 'rgba(255, 255, 255, 0.95)',
                               border: 'none',
@@ -541,35 +750,34 @@ export default function AdminDashboard() {
                             }}
                           />
                           <Legend />
-                          <Area 
-                            type="monotone" 
-                            dataKey="reviews" 
-                            stackId="1" 
-                            stroke={AILYDIAN_COLORS.success} 
-                            fill={AILYDIAN_COLORS.success} 
-                            fillOpacity={0.6} 
-                            name="Değerlendirmeler"
-                          />
-                          <Area 
-                            type="monotone" 
-                            dataKey="locations" 
-                            stackId="1" 
-                            stroke={AILYDIAN_COLORS.blue} 
-                            fill={AILYDIAN_COLORS.blue} 
+                          <Area
+                            type="monotone"
+                            dataKey="propertyRevenue"
+                            stackId="1"
+                            stroke="#FF214D"
+                            fill="#FF214D"
                             fillOpacity={0.6}
-                            name="Lokasyonlar"
+                            name="Property (Mülk)"
                           />
-                          <Area 
-                            type="monotone" 
-                            dataKey="users" 
-                            stackId="1" 
-                            stroke={AILYDIAN_COLORS.purple} 
-                            fill={AILYDIAN_COLORS.purple} 
+                          <Area
+                            type="monotone"
+                            dataKey="vehicleRevenue"
+                            stackId="1"
+                            stroke="#10b981"
+                            fill="#10b981"
                             fillOpacity={0.6}
-                            name="Kullanıcılar"
+                            name="Vehicle (Araç)"
                           />
-                          <Bar dataKey="views" fill={AILYDIAN_COLORS.primary} opacity={0.8} name="Görüntülemeler" />
-                        </ComposedChart>
+                          <Area
+                            type="monotone"
+                            dataKey="transferRevenue"
+                            stackId="1"
+                            stroke="#3b82f6"
+                            fill="#3b82f6"
+                            fillOpacity={0.6}
+                            name="Transfer"
+                          />
+                        </AreaChart>
                       </ResponsiveContainer>
                     </div>
                   </div>
@@ -649,15 +857,19 @@ export default function AdminDashboard() {
                     <div className="space-y-3">
                       {dashboardData.recentActivity.map((activity, index) => (
                         <div key={index} className="flex items-start space-x-4 p-4 border border-gray-100 rounded-xl hover:shadow-md transition-all hover:bg-gray-50/50">
-                          <div 
+                          <div
                             className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center text-white"
                             style={{
-                              background: activity.type === 'review' 
+                              background: activity.type === 'review'
                                 ? `linear-gradient(45deg, ${AILYDIAN_COLORS.success}, ${AILYDIAN_COLORS.blue})`
                                 : activity.type === 'user'
                                 ? `linear-gradient(45deg, ${AILYDIAN_COLORS.purple}, ${AILYDIAN_COLORS.primary})`
                                 : activity.type === 'location'
                                 ? `linear-gradient(45deg, ${AILYDIAN_COLORS.warning}, ${AILYDIAN_COLORS.secondary})`
+                                : activity.type === 'vehicle'
+                                ? `linear-gradient(45deg, ${AILYDIAN_COLORS.success}, #16a34a)`
+                                : activity.type === 'transfer'
+                                ? `linear-gradient(45deg, ${AILYDIAN_COLORS.blue}, #2563eb)`
                                 : `linear-gradient(45deg, ${AILYDIAN_COLORS.primary}, ${AILYDIAN_COLORS.secondary})`
                             }}
                           >
@@ -777,11 +989,19 @@ export default function AdminDashboard() {
                           <MapPin className="w-4 h-4 inline mr-2" />
                           Yeni Lokasyon Ekle
                         </Link>
-                        <Link href="/admin/sync" className="block w-full text-center text-white px-4 py-3 rounded-lg transition-all transform hover:scale-105 hover:shadow-lg font-semibold" style={{background: `linear-gradient(45deg, ${AILYDIAN_COLORS.success}, ${AILYDIAN_COLORS.blue})`}}>
+                        <Link href="/admin/vehicles/new" className="block w-full text-center text-white px-4 py-3 rounded-lg transition-all transform hover:scale-105 hover:shadow-lg font-semibold" style={{background: `linear-gradient(45deg, ${AILYDIAN_COLORS.success}, #16a34a)`}}>
+                          <Car className="w-4 h-4 inline mr-2" />
+                          Yeni Araç Ekle
+                        </Link>
+                        <Link href="/admin/transfers/new" className="block w-full text-center text-white px-4 py-3 rounded-lg transition-all transform hover:scale-105 hover:shadow-lg font-semibold" style={{background: `linear-gradient(45deg, ${AILYDIAN_COLORS.blue}, #2563eb)`}}>
+                          <Bus className="w-4 h-4 inline mr-2" />
+                          Yeni Transfer Oluştur
+                        </Link>
+                        <Link href="/admin/sync" className="block w-full text-center text-white px-4 py-3 rounded-lg transition-all transform hover:scale-105 hover:shadow-lg font-semibold" style={{background: `linear-gradient(45deg, ${AILYDIAN_COLORS.purple}, ${AILYDIAN_COLORS.warning})`}}>
                           <RefreshCw className="w-4 h-4 inline mr-2" />
                           Platformları Senkronize Et
                         </Link>
-                        <Link href="/admin/export" className="block w-full text-center text-white px-4 py-3 rounded-lg transition-all transform hover:scale-105 hover:shadow-lg font-semibold" style={{background: `linear-gradient(45deg, ${AILYDIAN_COLORS.purple}, ${AILYDIAN_COLORS.warning})`}}>
+                        <Link href="/admin/export" className="block w-full text-center text-white px-4 py-3 rounded-lg transition-all transform hover:scale-105 hover:shadow-lg font-semibold" style={{background: `linear-gradient(45deg, #6366f1, #8b5cf6)`}}>
                           <Download className="w-4 h-4 inline mr-2" />
                           Veri Dışa Aktar
                         </Link>

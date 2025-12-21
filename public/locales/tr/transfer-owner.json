@@ -1,0 +1,921 @@
+{
+  "dashboard": {
+    "welcome": "Hoş Geldiniz, {{name}}!",
+    "subtitle": "Transfer Hizmet Sağlayıcı Dashboard'unuzda bugün neler oluyor?",
+    "addVehicle": "Yeni Araç Ekle",
+    "detailedAnalytics": "Detaylı Analitik",
+    "stats": {
+      "totalFleet": "Toplam Filo",
+      "activeTransfers": "Aktif Transfer",
+      "monthlyRevenue": "Aylık Gelir",
+      "onTimeDelivery": "Zamanında Teslim",
+      "totalVehicles": "Toplam Araç",
+      "completedTransfers": "Tamamlanan Transfer",
+      "totalDrivers": "Toplam Sürücü",
+      "avgRating": "Ortalama Puan",
+      "pendingBookings": "Bekleyen Rezervasyon",
+      "responseTime": "Yanıt Süresi",
+      "totalRoutes": "Aktif Rota"
+    },
+    "charts": {
+      "weeklyRevenue": "Haftalık Gelir Analizi",
+      "popularRoutes": "Popüler Rotalar",
+      "vehiclePerformance": "Araç Performans Dağılımı",
+      "transferTrend": "Transfer Talep Trendi",
+      "revenueByRoute": "Rotalara Göre Gelir",
+      "revenueByVehicle": "Araç Tipine Göre Gelir",
+      "timeRange": {
+        "7d": "Son 7 Gün",
+        "30d": "Son 30 Gün",
+        "90d": "Son 90 Gün"
+      },
+      "days": {
+        "mon": "Pzt",
+        "tue": "Sal",
+        "wed": "Çar",
+        "thu": "Per",
+        "fri": "Cum",
+        "sat": "Cmt",
+        "sun": "Paz"
+      },
+      "months": {
+        "jan": "Oca",
+        "feb": "Şub",
+        "mar": "Mar",
+        "apr": "Nis",
+        "may": "May",
+        "jun": "Haz",
+        "jul": "Tem",
+        "aug": "Ağu",
+        "sep": "Eyl",
+        "oct": "Eki",
+        "nov": "Kas",
+        "dec": "Ara"
+      }
+    },
+    "upcomingTransfers": {
+      "title": "Yaklaşan Transferler",
+      "passenger": "Yolcu",
+      "route": "Rota",
+      "pickupTime": "Alış Saati",
+      "dropoffTime": "Bırakış Saati",
+      "vehicle": "Araç",
+      "driver": "Sürücü",
+      "amount": "Tutar",
+      "passengers": "Yolcu",
+      "status": {
+        "confirmed": "Onaylandı",
+        "pending": "Beklemede",
+        "inProgress": "Yolda",
+        "completed": "Tamamlandı",
+        "cancelled": "İptal Edildi"
+      },
+      "viewAll": "Tümünü Görüntüle"
+    },
+    "recentBookings": {
+      "title": "Son Rezervasyonlar",
+      "newBooking": "Yeni transfer rezervasyonu",
+      "newReview": "Yeni değerlendirme aldınız",
+      "newMessage": "sizinle iletişime geçti",
+      "paymentReceived": "ödeme alındı",
+      "transferCompleted": "transfer tamamlandı",
+      "timeAgo": {
+        "justNow": "Az önce",
+        "minutesAgo": "{{count}} dk önce",
+        "hoursAgo": "{{count}} saat önce",
+        "daysAgo": "{{count}} gün önce"
+      }
+    },
+    "performance": {
+      "title": "Performans",
+      "utilization": "Araç Kullanım Oranı",
+      "rating": "Ortalama Puan",
+      "onTime": "Zamanında Teslim"
+    }
+  },
+  "fleet": {
+    "title": "Filo Yönetimi",
+    "addNew": "Yeni Araç Ekle",
+    "totalVehicles": "Toplam Araç",
+    "activeVehicles": "Aktif Araçlar",
+    "totalEarnings": "Toplam Kazanç",
+    "filters": {
+      "all": "Tümü",
+      "available": "Müsait",
+      "onRoute": "Seferde",
+      "maintenance": "Bakımda",
+      "inactive": "Pasif",
+      "search": "Araç ara (Plaka, Marka, Model)..."
+    },
+    "categories": {
+      "all": "Tüm Kategoriler",
+      "economy": "Ekonomik",
+      "comfort": "Konfor",
+      "premium": "Premium",
+      "luxury": "Lüks",
+      "group": "Grup"
+    },
+    "table": {
+      "vehicle": "Araç",
+      "category": "Kategori",
+      "plate": "Plaka",
+      "capacity": "Kapasite",
+      "status": "Durum",
+      "driver": "Sürücü",
+      "rating": "Puan",
+      "totalTrips": "Toplam Sefer",
+      "actions": "İşlemler"
+    },
+    "actions": {
+      "edit": "Düzenle",
+      "view": "Görüntüle",
+      "deactivate": "Pasifleştir",
+      "activate": "Aktifleştir",
+      "delete": "Sil",
+      "maintenance": "Bakıma Al",
+      "viewTrips": "Seferleri Gör",
+      "assignDriver": "Sürücü Ata"
+    },
+    "vehicleTypes": {
+      "economySedan": "Ekonomik Sedan",
+      "comfortSedan": "Konfor Sedan",
+      "vipSedan": "VIP Sedan",
+      "minivan": "Minivan (7 Kişilik)",
+      "vipMinivan": "VIP Minivan",
+      "minibus14": "Minibüs (14 Kişilik)",
+      "minibus17": "Minibüs (17 Kişilik)",
+      "bus30": "Otobüs (30 Kişilik)",
+      "luxuryVip": "Lüks VIP Araç",
+      "vipSprinter": "VIP Sprinter"
+    },
+    "status": {
+      "available": "Müsait",
+      "onRoute": "Seferde",
+      "maintenance": "Bakımda",
+      "inactive": "Pasif",
+      "assigned": "Atandı"
+    },
+    "capacityInfo": {
+      "passengers": "{{count}} Kişi",
+      "luggage": "{{count}} Bavul"
+    }
+  },
+  "vehicleSubmission": {
+    "title": "Yeni Transfer Aracı Ekle",
+    "subtitle": "6 adımda transfer aracınızı filosuna ekleyin",
+    "progress": "Adım {{current}} / {{total}}",
+    "buttons": {
+      "previous": "Önceki",
+      "next": "İleri",
+      "save": "Kaydet",
+      "saveDraft": "Taslak Olarak Kaydet",
+      "submit": "Gönder",
+      "cancel": "İptal"
+    },
+    "autoSave": "Otomatik kaydedildi",
+    "step1": {
+      "title": "Araç Kategorisi",
+      "subtitle": "Transfer aracınızın kategorisini seçin",
+      "types": {
+        "economySedan": {
+          "title": "Ekonomik Sedan",
+          "description": "1-3 kişilik aileler için ideal ekonomik transfer aracı",
+          "capacity": "3 Yolcu, 2 Bavul"
+        },
+        "comfortSedan": {
+          "title": "Konfor Sedan",
+          "description": "Daha konforlu yolculuk için geniş bagajlı sedan",
+          "capacity": "3 Yolcu, 3 Bavul"
+        },
+        "vipSedan": {
+          "title": "VIP Sedan",
+          "description": "Mercedes E-Class ile lüks ve konforlu transfer deneyimi",
+          "capacity": "3 Yolcu, 3 Bavul"
+        },
+        "minivan": {
+          "title": "Minivan (7 Kişilik)",
+          "description": "Büyük aileler ve gruplar için ideal 7 kişilik minivan",
+          "capacity": "6 Yolcu, 6 Bavul"
+        },
+        "vipMinivan": {
+          "title": "VIP Minivan",
+          "description": "Mercedes Vito ile premium grup transferi",
+          "capacity": "6 Yolcu, 6 Bavul"
+        },
+        "minibus14": {
+          "title": "Minibüs (14 Kişilik)",
+          "description": "Orta büyüklükte gruplar için 14 kişilik minibüs",
+          "capacity": "12 Yolcu, 12 Bavul"
+        },
+        "minibus17": {
+          "title": "Minibüs (17 Kişilik)",
+          "description": "Büyük gruplar için 17 kişilik minibüs",
+          "capacity": "15 Yolcu, 15 Bavul"
+        },
+        "bus30": {
+          "title": "Otobüs (30 Kişilik)",
+          "description": "Çok büyük gruplar ve organizasyonlar için 30 kişilik otobüs",
+          "capacity": "28 Yolcu, 28 Bavul"
+        },
+        "luxuryVip": {
+          "title": "Lüks VIP Araç",
+          "description": "Mercedes S-Class ile ultimate lüks transfer deneyimi",
+          "capacity": "3 Yolcu, 3 Bavul"
+        },
+        "vipSprinter": {
+          "title": "VIP Sprinter",
+          "description": "VIP Mercedes Sprinter ile lüks grup transferi",
+          "capacity": "12 Yolcu, 12 Bavul"
+        }
+      }
+    },
+    "step2": {
+      "title": "Araç Bilgileri",
+      "subtitle": "Transfer aracınızın detaylarını girin",
+      "fields": {
+        "plate": "Plaka Numarası",
+        "brand": "Marka",
+        "model": "Model",
+        "year": "Model Yılı",
+        "color": "Renk",
+        "capacity": "Yolcu Kapasitesi",
+        "luggage": "Bavul Kapasitesi",
+        "fuelType": "Yakıt Tipi",
+        "transmission": "Vites Tipi",
+        "features": "Araç Özellikleri"
+      },
+      "placeholders": {
+        "plate": "Örn: 34 ABC 123",
+        "brand": "Örn: Mercedes, BMW, Volkswagen",
+        "model": "Örn: E-Class, Vito, Transporter",
+        "year": "Model yılını seçin",
+        "color": "Araç rengini girin"
+      },
+      "fuelTypes": {
+        "diesel": "Dizel",
+        "gasoline": "Benzin",
+        "hybrid": "Hibrit",
+        "electric": "Elektrikli",
+        "lpg": "LPG"
+      },
+      "transmissionTypes": {
+        "automatic": "Otomatik",
+        "manual": "Manuel"
+      },
+      "features": {
+        "airConditioning": "Klima",
+        "wifi": "WiFi",
+        "gps": "GPS Navigasyon",
+        "bluetooth": "Bluetooth",
+        "usbCharging": "USB Şarj",
+        "leatherSeats": "Deri Koltuklar",
+        "sunroof": "Sunroof",
+        "cruiseControl": "Hız Sabitleyici",
+        "reverseCamera": "Geri Görüş Kamerası",
+        "parkingSensors": "Park Sensörü",
+        "abs": "ABS Fren Sistemi",
+        "airbags": "Hava Yastığı",
+        "childSeatReady": "Çocuk Koltuğu Uyumlu"
+      }
+    },
+    "step3": {
+      "title": "Araç Fotoğrafları",
+      "subtitle": "Transfer aracınızın profesyonel fotoğraflarını ekleyin",
+      "upload": "Fotoğraf Yükle",
+      "dragDrop": "Fotoğrafları sürükle bırak veya tıkla",
+      "categories": {
+        "exterior": "Dış Görünüm",
+        "interior": "İç Görünüm",
+        "features": "Özellikler",
+        "vipAmenities": "VIP Donanım"
+      },
+      "exteriorPhotos": {
+        "title": "Dış Görünüm Fotoğrafları",
+        "description": "Aracın ön, yan ve arka görünümü",
+        "required": "En az 3 fotoğraf gerekli"
+      },
+      "interiorPhotos": {
+        "title": "İç Mekan Fotoğrafları",
+        "description": "Koltuklar, gösterge paneli, bagaj alanı",
+        "required": "En az 2 fotoğraf gerekli"
+      },
+      "featurePhotos": {
+        "title": "Özellik Fotoğrafları",
+        "description": "Klima, WiFi, multimedya sistemi gibi özellikler",
+        "optional": "İsteğe bağlı"
+      },
+      "vipPhotos": {
+        "title": "VIP Donanım (Premium/Lüks araçlar için)",
+        "description": "Deri koltuklar, minibar, masaj koltuğu gibi premium özellikler",
+        "optional": "İsteğe bağlı"
+      },
+      "mainPhoto": "Ana Fotoğraf",
+      "setAsMain": "Ana Fotoğraf Yap",
+      "remove": "Kaldır",
+      "maxFiles": "Maksimum {{count}} fotoğraf",
+      "uploadedCount": "{{current}} / {{total}} fotoğraf yüklendi",
+      "photoRequirements": {
+        "title": "Fotoğraf Gereksinimleri",
+        "highQuality": "Yüksek çözünürlük (min 1920x1080)",
+        "wellLit": "İyi aydınlatılmış",
+        "clean": "Temiz ve bakımlı araç",
+        "professional": "Profesyonel görünüm",
+        "noWatermark": "Filigran/logo olmamalı"
+      }
+    },
+    "step4": {
+      "title": "Hizmet Bölgeleri ve Fiyatlandırma",
+      "subtitle": "Hizmet verdiğiniz rotaları ve fiyatları belirleyin",
+      "serviceAreas": {
+        "title": "Hizmet Bölgeleri",
+        "description": "Transfer aracınızın hizmet vereceği bölgeleri seçin"
+      },
+      "airports": {
+        "title": "Havalimanı Transferleri",
+        "description": "Hizmet verdiğiniz havalimanlarını seçin",
+        "options": {
+          "ist": "İstanbul Havalimanı (IST)",
+          "saw": "Sabiha Gökçen Havalimanı (SAW)",
+          "esb": "Esenboğa Havalimanı (ESB)",
+          "ayt": "Antalya Havalimanı (AYT)",
+          "bjv": "Milas-Bodrum Havalimanı (BJV)",
+          "dlm": "Dalaman Havalimanı (DLM)",
+          "adb": "İzmir Adnan Menderes Havalimanı (ADB)",
+          "gzt": "Gaziantep Havalimanı (GZT)",
+          "asf": "Kayseri Havalimanı (ASR)",
+          "adana": "Adana Şakirpaşa Havalimanı (ADA)"
+        }
+      },
+      "cities": {
+        "title": "Şehir İçi Transferler",
+        "description": "Hizmet verdiğiniz şehirleri seçin"
+      },
+      "routes": {
+        "title": "Popüler Rotalar",
+        "addRoute": "Rota Ekle",
+        "from": "Nereden",
+        "to": "Nereye",
+        "distance": "Mesafe (km)",
+        "duration": "Süre (dakika)",
+        "basePrice": "Temel Fiyat",
+        "roundTripDiscount": "Gidiş-Dönüş İndirimi (%)"
+      },
+      "pricing": {
+        "title": "Fiyatlandırma Stratejisi",
+        "basePricePerKm": "Kilometre Başı Fiyat",
+        "minimumFare": "Minimum Ücret",
+        "waitingTime": "Bekleme Saati Ücreti (saat)",
+        "nightSurcharge": "Gece Ücreti (22:00-06:00)",
+        "holidaySurcharge": "Resmi Tatil Ücreti",
+        "roundTripDiscount": "Gidiş-Dönüş İndirimi",
+        "currency": "TRY"
+      },
+      "extraServices": {
+        "title": "Ek Hizmetler",
+        "description": "Sunduğunuz ek hizmetleri ve ücretlerini belirleyin",
+        "babySeats": "Bebek Koltuğu Hizmeti",
+        "childSeats": "Çocuk Koltuğu Hizmeti",
+        "meetGreet": "Karşılama Hizmeti",
+        "waitTime": "Ekstra Bekleme Süresi",
+        "marketStop": "Market Durağı",
+        "portableWifi": "Taşınabilir WiFi"
+      }
+    },
+    "step5": {
+      "title": "Yasal Belgeler ve Ruhsatlar",
+      "subtitle": "Gerekli yasal belgeleri yükleyin",
+      "documents": {
+        "title": "Zorunlu Belgeler",
+        "description": "Transfer hizmeti için gerekli tüm yasal belgeleri ekleyin"
+      },
+      "commercialPlate": {
+        "title": "Ticari Plaka Belgesi",
+        "description": "Aracın ticari taksi veya kiralık araç plakası olduğunu gösteren belge",
+        "required": "Zorunlu"
+      },
+      "d2License": {
+        "title": "D2 Belgesi (Kiralık Taşıt Belgesi)",
+        "description": "Şehirlerarası yolcu taşımacılığı için D2 sınıfı yetki belgesi",
+        "required": "Zorunlu",
+        "info": "Ulaştırma Bakanlığı'ndan alınan kiralık taşıt işletme belgesi"
+      },
+      "vehicleRegistration": {
+        "title": "Araç Ruhsatı",
+        "description": "Güncel araç ruhsat fotokopisi (ön ve arka yüz)",
+        "required": "Zorunlu"
+      },
+      "insurance": {
+        "title": "Kasko ve Trafik Sigortası",
+        "description": "Güncel kasko ve zorunlu trafik sigortası poliçesi",
+        "required": "Zorunlu",
+        "expiryDate": "Bitiş Tarihi"
+      },
+      "inspectionReport": {
+        "title": "Periyodik Muayene Belgesi",
+        "description": "Son 1 yıl içinde alınmış periyodik araç muayene belgesi",
+        "required": "Zorunlu"
+      },
+      "taxiMeter": {
+        "title": "Taksimetre Muayene Belgesi (Varsa)",
+        "description": "Taksimetre kullanılan araçlar için muayene belgesi",
+        "required": "İsteğe bağlı"
+      },
+      "driverInfo": {
+        "title": "Sürücü Bilgileri",
+        "description": "Araca atanacak sürücü bilgilerini girin"
+      },
+      "driverLicense": {
+        "title": "Sürücü Belgesi",
+        "type": "Ehliyet Sınıfı",
+        "number": "Ehliyet No",
+        "expiryDate": "Geçerlilik Tarihi",
+        "required": "Zorunlu",
+        "classes": {
+          "b": "B Sınıfı (Otomobil)",
+          "d1": "D1 Sınıfı (Minibüs)",
+          "d": "D Sınıfı (Otobüs)"
+        }
+      },
+      "src4Certificate": {
+        "title": "SRC-4 Belgesi (Psikoteknik Belgesi)",
+        "description": "Ticari yolcu taşımacılığı için gerekli sürücü psikoteknik belgesi",
+        "required": "Zorunlu",
+        "expiryDate": "Geçerlilik Tarihi",
+        "info": "Sağlık Bakanlığı onaylı sürücü kursu veya hastaneden alınır"
+      },
+      "criminalRecord": {
+        "title": "Adli Sicil Kaydı",
+        "description": "Son 3 ay içinde alınmış adli sicil belgesi",
+        "required": "Zorunlu"
+      },
+      "uploadDocument": "Belge Yükle",
+      "dragDropDocument": "Belgeyi sürükle bırak veya tıkla (PDF, JPG, PNG)",
+      "uploaded": "Yüklendi",
+      "notUploaded": "Yüklenmedi",
+      "reUpload": "Yeniden Yükle",
+      "validUntil": "Geçerlilik: {{date}}",
+      "expired": "Süresi Dolmuş",
+      "expiringWarning": "{{days}} gün içinde sona erecek"
+    },
+    "step6": {
+      "title": "İnceleme ve Yayınla",
+      "subtitle": "Bilgilerinizi kontrol edin ve aracınızı yayınlayın",
+      "sections": {
+        "vehicleInfo": "Araç Bilgileri",
+        "category": "Kategori",
+        "capacity": "Kapasite",
+        "features": "Özellikler",
+        "photos": "Fotoğraflar",
+        "serviceAreas": "Hizmet Bölgeleri",
+        "pricing": "Fiyatlandırma",
+        "documents": "Belgeler",
+        "driver": "Sürücü Bilgileri"
+      },
+      "summary": {
+        "vehicleType": "Araç Tipi",
+        "plateNumber": "Plaka",
+        "brandModel": "Marka/Model",
+        "passengers": "Yolcu Kapasitesi",
+        "luggage": "Bavul Kapasitesi",
+        "totalPhotos": "Toplam Fotoğraf",
+        "airports": "Havalimanları",
+        "routes": "Tanımlı Rotalar",
+        "basePricePerKm": "Km Başı Fiyat",
+        "minimumFare": "Minimum Ücret",
+        "documentsUploaded": "Yüklenen Belgeler",
+        "assignedDriver": "Atanan Sürücü"
+      },
+      "verification": {
+        "title": "Doğrulama",
+        "allDocumentsValid": "Tüm belgeler geçerli ve eksiksiz",
+        "photosCompliant": "Fotoğraflar kalite standartlarına uygun",
+        "pricingSet": "Fiyatlandırma tanımlanmış",
+        "termsAccepted": "Hizmet sağlayıcı sözleşmesini okudum ve kabul ediyorum"
+      },
+      "confirmSubmit": "Bilgilerin doğru olduğunu ve yasal sorumluluğu kabul ettiğimi onaylıyorum",
+      "submitButton": "Aracı Filosuna Ekle",
+      "submitting": "Gönderiliyor...",
+      "reviewProcess": {
+        "title": "İnceleme Süreci",
+        "step1": "Belgeler 24-48 saat içinde incelenecek",
+        "step2": "Araç kalite standartlarına göre değerlendirilecek",
+        "step3": "Onaylandıktan sonra rezervasyon almaya başlayabileceksiniz",
+        "note": "Eksik veya hatalı belgeler durumunda bilgilendirme yapılacaktır"
+      }
+    },
+    "validation": {
+      "required": "Bu alan zorunludur",
+      "minLength": "En az {{count}} karakter olmalıdır",
+      "maxLength": "En fazla {{count}} karakter olmalıdır",
+      "invalidPlate": "Geçersiz plaka formatı (Örn: 34 ABC 123)",
+      "invalidNumber": "Geçersiz sayı",
+      "minValue": "Minimum {{value}} olmalıdır",
+      "maxValue": "Maksimum {{value}} olmalıdır",
+      "selectAtLeast": "En az {{count}} seçim yapın",
+      "uploadAtLeast": "En az {{count}} fotoğraf yükleyin",
+      "invalidDate": "Geçersiz tarih",
+      "expiredDocument": "Belgenin süresi dolmuş",
+      "acceptTerms": "Devam etmek için hizmet sözleşmesini kabul etmelisiniz",
+      "invalidFileType": "Geçersiz dosya tipi. Sadece JPG, PNG veya PDF yüklenebilir",
+      "fileTooLarge": "Dosya çok büyük. Maksimum {{size}}MB",
+      "selectVehicleType": "Lütfen bir araç kategorisi seçin",
+      "selectServiceArea": "En az bir hizmet bölgesi seçin",
+      "uploadAllDocuments": "Tüm zorunlu belgeleri yüklemelisiniz"
+    },
+    "success": {
+      "title": "Başarılı!",
+      "message": "Transfer aracınız başarıyla eklendi ve incelemeye alındı.",
+      "subtitle": "Belge inceleme süreci 24-48 saat sürecektir. Sonuç hakkında e-posta ile bilgilendirileceksiniz.",
+      "backToDashboard": "Dashboard'a Dön",
+      "addAnother": "Başka Araç Ekle"
+    }
+  },
+  "bookings": {
+    "title": "Transfer Rezervasyonları",
+    "totalBookings": "Toplam Rezervasyon",
+    "activeTransfers": "Aktif Transferler",
+    "completedToday": "Bugün Tamamlanan",
+    "filters": {
+      "all": "Tümü",
+      "pending": "Beklemede",
+      "confirmed": "Onaylandı",
+      "inProgress": "Yolda",
+      "completed": "Tamamlandı",
+      "cancelled": "İptal Edildi",
+      "search": "Rezervasyon ara (Yolcu, Rota, Plaka)..."
+    },
+    "table": {
+      "bookingId": "Rezervasyon No",
+      "passenger": "Yolcu",
+      "route": "Rota",
+      "pickupTime": "Alış Zamanı",
+      "vehicle": "Araç",
+      "driver": "Sürücü",
+      "passengers": "Yolcu Sayısı",
+      "amount": "Tutar",
+      "status": "Durum",
+      "actions": "İşlemler"
+    },
+    "details": {
+      "title": "Rezervasyon Detayları",
+      "bookingInfo": "Rezervasyon Bilgileri",
+      "bookingNumber": "Rezervasyon No",
+      "bookingDate": "Rezervasyon Tarihi",
+      "passengerInfo": "Yolcu Bilgileri",
+      "name": "Ad Soyad",
+      "phone": "Telefon",
+      "email": "E-posta",
+      "passengers": "Yolcu Sayısı",
+      "routeInfo": "Rota Bilgileri",
+      "pickupLocation": "Alış Noktası",
+      "dropoffLocation": "Bırakış Noktası",
+      "pickupTime": "Alış Zamanı",
+      "dropoffTime": "Tahmini Varış",
+      "distance": "Mesafe",
+      "duration": "Süre",
+      "tripType": "Transfer Tipi",
+      "oneWay": "Tek Yön",
+      "roundTrip": "Gidiş-Dönüş",
+      "vehicleInfo": "Araç Bilgileri",
+      "assignedVehicle": "Atanan Araç",
+      "driverInfo": "Sürücü Bilgileri",
+      "assignedDriver": "Atanan Sürücü",
+      "driverPhone": "Sürücü Telefon",
+      "extraServices": "Ek Hizmetler",
+      "babySeats": "Bebek Koltuğu",
+      "childSeats": "Çocuk Koltuğu",
+      "meetGreet": "Karşılama Hizmeti",
+      "waitingTime": "Ekstra Bekleme",
+      "marketStop": "Market Durağı",
+      "portableWifi": "Taşınabilir WiFi",
+      "pricing": "Ücret Detayları",
+      "basePrice": "Temel Ücret",
+      "extraServicesTotal": "Ek Hizmetler",
+      "nightSurcharge": "Gece Ücreti",
+      "total": "Toplam",
+      "specialRequests": "Özel İstekler",
+      "notes": "Notlar",
+      "flightInfo": "Uçuş Bilgileri",
+      "flightNumber": "Uçuş No",
+      "arrivalTime": "Varış Saati"
+    },
+    "actions": {
+      "view": "Görüntüle",
+      "confirm": "Onayla",
+      "assignDriver": "Sürücü Ata",
+      "assignVehicle": "Araç Ata",
+      "startTrip": "Seferi Başlat",
+      "completeTrip": "Seferi Tamamla",
+      "cancel": "İptal Et",
+      "message": "Mesaj Gönder",
+      "invoice": "Fatura Görüntüle"
+    },
+    "status": {
+      "pending": "Beklemede",
+      "confirmed": "Onaylandı",
+      "driverAssigned": "Sürücü Atandı",
+      "onTheWay": "Yolda",
+      "arrivedPickup": "Alış Noktasında",
+      "inProgress": "Transfer Devam Ediyor",
+      "completed": "Tamamlandı",
+      "cancelled": "İptal Edildi",
+      "noShow": "Görünmedi"
+    }
+  },
+  "routes": {
+    "title": "Rota Yönetimi",
+    "popularRoutes": "Popüler Rotalar",
+    "addRoute": "Yeni Rota Ekle",
+    "table": {
+      "route": "Rota",
+      "distance": "Mesafe",
+      "avgDuration": "Ort. Süre",
+      "basePrice": "Temel Fiyat",
+      "totalTrips": "Toplam Sefer",
+      "revenue": "Gelir",
+      "actions": "İşlemler"
+    },
+    "airportTransfers": {
+      "title": "Havalimanı Transferleri",
+      "ist": "İstanbul Havalimanı",
+      "saw": "Sabiha Gökçen",
+      "ayt": "Antalya Havalimanı",
+      "esb": "Esenboğa Havalimanı",
+      "adb": "Adnan Menderes"
+    },
+    "routeDetails": {
+      "title": "Rota Detayları",
+      "from": "Nereden",
+      "to": "Nereye",
+      "distance": "Mesafe",
+      "duration": "Ortalama Süre",
+      "pricing": "Fiyatlandırma",
+      "statistics": "İstatistikler",
+      "totalTrips": "Toplam Sefer",
+      "completedTrips": "Tamamlanan",
+      "avgRating": "Ortalama Puan",
+      "revenue": "Toplam Gelir"
+    }
+  },
+  "drivers": {
+    "title": "Sürücü Yönetimi",
+    "addNew": "Yeni Sürücü Ekle",
+    "totalDrivers": "Toplam Sürücü",
+    "activeDrivers": "Aktif Sürücü",
+    "onRoute": "Seferde",
+    "filters": {
+      "all": "Tümü",
+      "available": "Müsait",
+      "onRoute": "Seferde",
+      "offline": "Çevrimdışı",
+      "search": "Sürücü ara..."
+    },
+    "table": {
+      "driver": "Sürücü",
+      "phone": "Telefon",
+      "vehicle": "Araç",
+      "status": "Durum",
+      "rating": "Puan",
+      "totalTrips": "Toplam Sefer",
+      "earnings": "Kazanç",
+      "actions": "İşlemler"
+    },
+    "status": {
+      "available": "Müsait",
+      "onRoute": "Seferde",
+      "busy": "Meşgul",
+      "offline": "Çevrimdışı",
+      "onBreak": "Molada"
+    },
+    "details": {
+      "title": "Sürücü Detayları",
+      "personalInfo": "Kişisel Bilgiler",
+      "fullName": "Ad Soyad",
+      "phone": "Telefon",
+      "email": "E-posta",
+      "joinDate": "Katılım Tarihi",
+      "licenseInfo": "Ehliyet Bilgileri",
+      "licenseNumber": "Ehliyet No",
+      "licenseClass": "Ehliyet Sınıfı",
+      "expiryDate": "Geçerlilik Tarihi",
+      "src4": "SRC-4 Belgesi",
+      "assignedVehicle": "Atanan Araç",
+      "performance": "Performans",
+      "totalTrips": "Toplam Sefer",
+      "completedTrips": "Tamamlanan",
+      "cancelledTrips": "İptal Edilen",
+      "avgRating": "Ortalama Puan",
+      "onTimeRate": "Zamanında Teslim",
+      "earnings": "Kazançlar",
+      "totalEarnings": "Toplam Kazanç",
+      "thisMonth": "Bu Ay"
+    },
+    "actions": {
+      "view": "Görüntüle",
+      "edit": "Düzenle",
+      "assignVehicle": "Araç Ata",
+      "viewTrips": "Seferleri Gör",
+      "deactivate": "Pasifleştir",
+      "activate": "Aktifleştir"
+    }
+  },
+  "analytics": {
+    "title": "Detaylı Analitik",
+    "subtitle": "Transfer hizmetinizin performansını detaylı analiz edin",
+    "dateRange": "Tarih Aralığı",
+    "export": "Rapor İndir",
+    "overview": {
+      "title": "Genel Bakış",
+      "revenue": "Gelir",
+      "transfers": "Transfer Sayısı",
+      "utilization": "Araç Kullanım Oranı",
+      "revenue_growth": "Gelir Artışı",
+      "customer_satisfaction": "Müşteri Memnuniyeti"
+    },
+    "charts": {
+      "revenueByMonth": "Aylık Gelir Grafiği",
+      "transfersByRoute": "Rotalara Göre Transfer Sayısı",
+      "vehicleUtilization": "Araç Kullanım Oranı",
+      "topPerformers": "En İyi Performans Gösteren Araçlar",
+      "driverPerformance": "Sürücü Performansı",
+      "revenueByVehicleType": "Araç Tipine Göre Gelir",
+      "peakHours": "Yoğun Saatler",
+      "customerRatings": "Müşteri Değerlendirmeleri"
+    },
+    "metrics": {
+      "totalRevenue": "Toplam Gelir",
+      "totalTransfers": "Toplam Transfer",
+      "avgTransferValue": "Ortalama Transfer Değeri",
+      "repeatCustomers": "Tekrar Eden Müşteri",
+      "cancellationRate": "İptal Oranı",
+      "onTimeDelivery": "Zamanında Teslim Oranı",
+      "avgRating": "Ortalama Puan",
+      "fleetUtilization": "Filo Kullanım Oranı"
+    },
+    "period": {
+      "today": "Bugün",
+      "yesterday": "Dün",
+      "last7days": "Son 7 Gün",
+      "last30days": "Son 30 Gün",
+      "last90days": "Son 90 Gün",
+      "thisMonth": "Bu Ay",
+      "lastMonth": "Geçen Ay",
+      "thisYear": "Bu Yıl",
+      "custom": "Özel Tarih"
+    },
+    "topRoutes": {
+      "title": "En Çok Gelir Getiren Rotalar",
+      "route": "Rota",
+      "trips": "Sefer",
+      "revenue": "Gelir"
+    },
+    "vehicleTypes": {
+      "title": "Araç Tipi Performansı",
+      "type": "Araç Tipi",
+      "trips": "Sefer",
+      "revenue": "Gelir",
+      "utilization": "Kullanım"
+    }
+  },
+  "navigation": {
+    "overview": "Genel Bakış",
+    "fleet": "Filo Yönetimi",
+    "bookings": "Rezervasyonlar",
+    "routes": "Rotalar",
+    "drivers": "Sürücüler",
+    "earnings": "Gelirler",
+    "messages": "Mesajlar",
+    "analytics": "Analitik",
+    "settings": "Ayarlar"
+  },
+  "header": {
+    "search": "Rezervasyon, araç veya sürücü ara...",
+    "addVehicle": "Araç Ekle",
+    "addDriver": "Sürücü Ekle",
+    "notifications": "Bildirimler",
+    "profile": "Profil",
+    "logout": "Çıkış Yap",
+    "premiumPartner": "Premium Partner"
+  },
+  "settings": {
+    "title": "Ayarlar",
+    "companyInfo": {
+      "title": "Firma Bilgileri",
+      "companyName": "Firma Adı",
+      "taxNumber": "Vergi No",
+      "taxOffice": "Vergi Dairesi",
+      "address": "Adres",
+      "phone": "Telefon",
+      "email": "E-posta",
+      "website": "Web Sitesi"
+    },
+    "operationalSettings": {
+      "title": "Operasyonel Ayarlar",
+      "serviceHours": "Hizmet Saatleri",
+      "24hours": "24 Saat",
+      "customHours": "Özel Saatler",
+      "operatingDays": "Çalışma Günleri",
+      "everyday": "Her Gün",
+      "weekdays": "Hafta İçi",
+      "custom": "Özel"
+    },
+    "pricing": {
+      "title": "Fiyatlandırma Ayarları",
+      "basePricePerKm": "Kilometre Başı Temel Fiyat",
+      "minimumFare": "Minimum Ücret",
+      "nightSurcharge": "Gece Ücreti",
+      "holidaySurcharge": "Tatil Ücreti",
+      "cancelFee": "İptal Ücreti",
+      "waitingFee": "Bekleme Ücreti"
+    },
+    "notifications": {
+      "title": "Bildirim Tercihleri",
+      "newBooking": "Yeni Rezervasyon",
+      "bookingCancellation": "Rezervasyon İptali",
+      "driverAssignment": "Sürücü Ataması",
+      "paymentReceived": "Ödeme Alındı",
+      "reviewReceived": "Değerlendirme Alındı",
+      "email": "E-posta",
+      "sms": "SMS",
+      "push": "Push Bildirim"
+    },
+    "paymentMethods": {
+      "title": "Ödeme Yöntemleri",
+      "cash": "Nakit",
+      "creditCard": "Kredi Kartı",
+      "bankTransfer": "Banka Transferi",
+      "online": "Online Ödeme"
+    }
+  },
+  "common": {
+    "loading": "Yükleniyor...",
+    "error": "Bir hata oluştu",
+    "success": "İşlem başarılı",
+    "confirm": "Onayla",
+    "cancel": "İptal",
+    "save": "Kaydet",
+    "delete": "Sil",
+    "edit": "Düzenle",
+    "view": "Görüntüle",
+    "close": "Kapat",
+    "search": "Ara",
+    "filter": "Filtrele",
+    "sort": "Sırala",
+    "actions": "İşlemler",
+    "more": "Daha Fazla",
+    "less": "Daha Az",
+    "showAll": "Tümünü Göster",
+    "showLess": "Daha Az Göster",
+    "download": "İndir",
+    "upload": "Yükle",
+    "select": "Seç",
+    "selected": "Seçildi",
+    "all": "Tümü",
+    "none": "Hiçbiri",
+    "yes": "Evet",
+    "no": "Hayır",
+    "active": "Aktif",
+    "inactive": "Pasif",
+    "status": "Durum",
+    "date": "Tarih",
+    "time": "Saat",
+    "price": "Fiyat",
+    "total": "Toplam",
+    "subtotal": "Ara Toplam",
+    "discount": "İndirim",
+    "currency": "TRY",
+    "perKm": "/ km",
+    "perHour": "/ saat",
+    "perDay": "/ gün"
+  },
+  "notifications": {
+    "newBooking": "Yeni transfer rezervasyonu alındı",
+    "bookingConfirmed": "Transfer rezervasyonu onaylandı",
+    "bookingCancelled": "Transfer rezervasyonu iptal edildi",
+    "driverAssigned": "Sürücü atandı",
+    "tripStarted": "Sefer başladı",
+    "tripCompleted": "Sefer tamamlandı",
+    "paymentReceived": "Ödeme alındı",
+    "newReview": "Yeni değerlendirme aldınız",
+    "documentExpiring": "{{document}} belgesi {{days}} gün içinde sona erecek",
+    "documentExpired": "{{document}} belgesinin süresi doldu",
+    "maintenanceReminder": "{{vehicle}} bakım zamanı yaklaşıyor"
+  },
+  "messages": {
+    "confirmDelete": "Silmek istediğinizden emin misiniz?",
+    "confirmCancel": "İptal etmek istediğinizden emin misiniz?",
+    "confirmDeactivate": "Pasifleştirmek istediğinizden emin misiniz?",
+    "unsavedChanges": "Kaydedilmemiş değişiklikler var. Çıkmak istediğinizden emin misiniz?",
+    "operationSuccessful": "İşlem başarıyla tamamlandı",
+    "operationFailed": "İşlem başarısız oldu",
+    "vehicleAdded": "Araç başarıyla eklendi",
+    "vehicleUpdated": "Araç bilgileri güncellendi",
+    "vehicleDeleted": "Araç silindi",
+    "driverAdded": "Sürücü başarıyla eklendi",
+    "driverAssigned": "Sürücü atandı",
+    "bookingConfirmed": "Rezervasyon onaylandı",
+    "bookingCancelled": "Rezervasyon iptal edildi",
+    "tripStarted": "Sefer başlatıldı",
+    "tripCompleted": "Sefer tamamlandı"
+  }
+}

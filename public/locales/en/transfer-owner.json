@@ -1,0 +1,921 @@
+{
+  "dashboard": {
+    "welcome": "Welcome, {{name}}!",
+    "subtitle": "What's happening in your Transfer Service Provider Dashboard today?",
+    "addVehicle": "Add New Vehicle",
+    "detailedAnalytics": "Detailed Analytics",
+    "stats": {
+      "totalFleet": "Total Fleet",
+      "activeTransfers": "Active Transfers",
+      "monthlyRevenue": "Monthly Revenue",
+      "onTimeDelivery": "On-Time Delivery",
+      "totalVehicles": "Total Vehicles",
+      "completedTransfers": "Completed Transfers",
+      "totalDrivers": "Total Drivers",
+      "avgRating": "Average Rating",
+      "pendingBookings": "Pending Bookings",
+      "responseTime": "Response Time",
+      "totalRoutes": "Active Routes"
+    },
+    "charts": {
+      "weeklyRevenue": "Weekly Revenue Analysis",
+      "popularRoutes": "Popular Routes",
+      "vehiclePerformance": "Vehicle Performance Distribution",
+      "transferTrend": "Transfer Demand Trend",
+      "revenueByRoute": "Revenue by Route",
+      "revenueByVehicle": "Revenue by Vehicle Type",
+      "timeRange": {
+        "7d": "Last 7 Days",
+        "30d": "Last 30 Days",
+        "90d": "Last 90 Days"
+      },
+      "days": {
+        "mon": "Mon",
+        "tue": "Tue",
+        "wed": "Wed",
+        "thu": "Thu",
+        "fri": "Fri",
+        "sat": "Sat",
+        "sun": "Sun"
+      },
+      "months": {
+        "jan": "Jan",
+        "feb": "Feb",
+        "mar": "Mar",
+        "apr": "Apr",
+        "may": "May",
+        "jun": "Jun",
+        "jul": "Jul",
+        "aug": "Aug",
+        "sep": "Sep",
+        "oct": "Oct",
+        "nov": "Nov",
+        "dec": "Dec"
+      }
+    },
+    "upcomingTransfers": {
+      "title": "Upcoming Transfers",
+      "passenger": "Passenger",
+      "route": "Route",
+      "pickupTime": "Pickup Time",
+      "dropoffTime": "Dropoff Time",
+      "vehicle": "Vehicle",
+      "driver": "Driver",
+      "amount": "Amount",
+      "passengers": "Passengers",
+      "status": {
+        "confirmed": "Confirmed",
+        "pending": "Pending",
+        "inProgress": "In Transit",
+        "completed": "Completed",
+        "cancelled": "Cancelled"
+      },
+      "viewAll": "View All"
+    },
+    "recentBookings": {
+      "title": "Recent Bookings",
+      "newBooking": "New transfer booking",
+      "newReview": "You received a new review",
+      "newMessage": "contacted you",
+      "paymentReceived": "payment received",
+      "transferCompleted": "transfer completed",
+      "timeAgo": {
+        "justNow": "Just now",
+        "minutesAgo": "{{count}}m ago",
+        "hoursAgo": "{{count}}h ago",
+        "daysAgo": "{{count}}d ago"
+      }
+    },
+    "performance": {
+      "title": "Performance",
+      "utilization": "Fleet Utilization Rate",
+      "rating": "Average Rating",
+      "onTime": "On-Time Delivery"
+    }
+  },
+  "fleet": {
+    "title": "Fleet Management",
+    "addNew": "Add New Vehicle",
+    "totalVehicles": "Total Vehicles",
+    "activeVehicles": "Active Vehicles",
+    "totalEarnings": "Total Earnings",
+    "filters": {
+      "all": "All",
+      "available": "Available",
+      "onRoute": "In Service",
+      "maintenance": "Maintenance",
+      "inactive": "Inactive",
+      "search": "Search vehicles (Plate, Brand, Model)..."
+    },
+    "categories": {
+      "all": "All Categories",
+      "economy": "Economy",
+      "comfort": "Comfort",
+      "premium": "Premium",
+      "luxury": "Luxury",
+      "group": "Group"
+    },
+    "table": {
+      "vehicle": "Vehicle",
+      "category": "Category",
+      "plate": "License Plate",
+      "capacity": "Capacity",
+      "status": "Status",
+      "driver": "Driver",
+      "rating": "Rating",
+      "totalTrips": "Total Trips",
+      "actions": "Actions"
+    },
+    "actions": {
+      "edit": "Edit",
+      "view": "View",
+      "deactivate": "Deactivate",
+      "activate": "Activate",
+      "delete": "Delete",
+      "maintenance": "Send to Maintenance",
+      "viewTrips": "View Trips",
+      "assignDriver": "Assign Driver"
+    },
+    "vehicleTypes": {
+      "economySedan": "Economy Sedan",
+      "comfortSedan": "Comfort Sedan",
+      "vipSedan": "VIP Sedan",
+      "minivan": "Minivan (7 Seats)",
+      "vipMinivan": "VIP Minivan",
+      "minibus14": "Minibus (14 Seats)",
+      "minibus17": "Minibus (17 Seats)",
+      "bus30": "Bus (30 Seats)",
+      "luxuryVip": "Luxury VIP Vehicle",
+      "vipSprinter": "VIP Sprinter"
+    },
+    "status": {
+      "available": "Available",
+      "onRoute": "In Service",
+      "maintenance": "Maintenance",
+      "inactive": "Inactive",
+      "assigned": "Assigned"
+    },
+    "capacityInfo": {
+      "passengers": "{{count}} Passengers",
+      "luggage": "{{count}} Luggage"
+    }
+  },
+  "vehicleSubmission": {
+    "title": "Add New Transfer Vehicle",
+    "subtitle": "Add your transfer vehicle to the fleet in 6 steps",
+    "progress": "Step {{current}} / {{total}}",
+    "buttons": {
+      "previous": "Previous",
+      "next": "Next",
+      "save": "Save",
+      "saveDraft": "Save as Draft",
+      "submit": "Submit",
+      "cancel": "Cancel"
+    },
+    "autoSave": "Auto-saved",
+    "step1": {
+      "title": "Vehicle Category",
+      "subtitle": "Select your transfer vehicle category",
+      "types": {
+        "economySedan": {
+          "title": "Economy Sedan",
+          "description": "Ideal economical transfer vehicle for families of 1-3",
+          "capacity": "3 Passengers, 2 Luggage"
+        },
+        "comfortSedan": {
+          "title": "Comfort Sedan",
+          "description": "Spacious trunk sedan for more comfortable travel",
+          "capacity": "3 Passengers, 3 Luggage"
+        },
+        "vipSedan": {
+          "title": "VIP Sedan",
+          "description": "Luxury and comfortable transfer experience with Mercedes E-Class",
+          "capacity": "3 Passengers, 3 Luggage"
+        },
+        "minivan": {
+          "title": "Minivan (7 Seats)",
+          "description": "Ideal 7-seater minivan for large families and groups",
+          "capacity": "6 Passengers, 6 Luggage"
+        },
+        "vipMinivan": {
+          "title": "VIP Minivan",
+          "description": "Premium group transfer with Mercedes Vito",
+          "capacity": "6 Passengers, 6 Luggage"
+        },
+        "minibus14": {
+          "title": "Minibus (14 Seats)",
+          "description": "14-seater minibus for medium-sized groups",
+          "capacity": "12 Passengers, 12 Luggage"
+        },
+        "minibus17": {
+          "title": "Minibus (17 Seats)",
+          "description": "17-seater minibus for large groups",
+          "capacity": "15 Passengers, 15 Luggage"
+        },
+        "bus30": {
+          "title": "Bus (30 Seats)",
+          "description": "30-seater bus for very large groups and organizations",
+          "capacity": "28 Passengers, 28 Luggage"
+        },
+        "luxuryVip": {
+          "title": "Luxury VIP Vehicle",
+          "description": "Ultimate luxury transfer experience with Mercedes S-Class",
+          "capacity": "3 Passengers, 3 Luggage"
+        },
+        "vipSprinter": {
+          "title": "VIP Sprinter",
+          "description": "Luxury group transfer with VIP Mercedes Sprinter",
+          "capacity": "12 Passengers, 12 Luggage"
+        }
+      }
+    },
+    "step2": {
+      "title": "Vehicle Information",
+      "subtitle": "Enter your transfer vehicle details",
+      "fields": {
+        "plate": "License Plate Number",
+        "brand": "Brand",
+        "model": "Model",
+        "year": "Model Year",
+        "color": "Color",
+        "capacity": "Passenger Capacity",
+        "luggage": "Luggage Capacity",
+        "fuelType": "Fuel Type",
+        "transmission": "Transmission Type",
+        "features": "Vehicle Features"
+      },
+      "placeholders": {
+        "plate": "E.g., 34 ABC 123",
+        "brand": "E.g., Mercedes, BMW, Volkswagen",
+        "model": "E.g., E-Class, Vito, Transporter",
+        "year": "Select model year",
+        "color": "Enter vehicle color"
+      },
+      "fuelTypes": {
+        "diesel": "Diesel",
+        "gasoline": "Petrol",
+        "hybrid": "Hybrid",
+        "electric": "Electric",
+        "lpg": "LPG"
+      },
+      "transmissionTypes": {
+        "automatic": "Automatic",
+        "manual": "Manual"
+      },
+      "features": {
+        "airConditioning": "Air Conditioning",
+        "wifi": "WiFi",
+        "gps": "GPS Navigation",
+        "bluetooth": "Bluetooth",
+        "usbCharging": "USB Charging",
+        "leatherSeats": "Leather Seats",
+        "sunroof": "Sunroof",
+        "cruiseControl": "Cruise Control",
+        "reverseCamera": "Rear View Camera",
+        "parkingSensors": "Parking Sensors",
+        "abs": "ABS Braking System",
+        "airbags": "Airbags",
+        "childSeatReady": "Child Seat Compatible"
+      }
+    },
+    "step3": {
+      "title": "Vehicle Photos",
+      "subtitle": "Add professional photos of your transfer vehicle",
+      "upload": "Upload Photo",
+      "dragDrop": "Drag and drop photos or click",
+      "categories": {
+        "exterior": "Exterior",
+        "interior": "Interior",
+        "features": "Features",
+        "vipAmenities": "VIP Amenities"
+      },
+      "exteriorPhotos": {
+        "title": "Exterior Photos",
+        "description": "Front, side, and rear views of the vehicle",
+        "required": "Minimum 3 photos required"
+      },
+      "interiorPhotos": {
+        "title": "Interior Photos",
+        "description": "Seats, dashboard, luggage area",
+        "required": "Minimum 2 photos required"
+      },
+      "featurePhotos": {
+        "title": "Feature Photos",
+        "description": "Features like AC, WiFi, multimedia system",
+        "optional": "Optional"
+      },
+      "vipPhotos": {
+        "title": "VIP Amenities (Premium/Luxury vehicles only)",
+        "description": "Premium features like leather seats, minibar, massage seats",
+        "optional": "Optional"
+      },
+      "mainPhoto": "Main Photo",
+      "setAsMain": "Set as Main Photo",
+      "remove": "Remove",
+      "maxFiles": "Maximum {{count}} photos",
+      "uploadedCount": "{{current}} / {{total}} photos uploaded",
+      "photoRequirements": {
+        "title": "Photo Requirements",
+        "highQuality": "High resolution (min 1920x1080)",
+        "wellLit": "Well-lit",
+        "clean": "Clean and maintained vehicle",
+        "professional": "Professional appearance",
+        "noWatermark": "No watermark/logo"
+      }
+    },
+    "step4": {
+      "title": "Service Areas and Pricing",
+      "subtitle": "Set routes and prices you serve",
+      "serviceAreas": {
+        "title": "Service Areas",
+        "description": "Select areas where your transfer vehicle will serve"
+      },
+      "airports": {
+        "title": "Airport Transfers",
+        "description": "Select airports you serve",
+        "options": {
+          "ist": "Istanbul Airport (IST)",
+          "saw": "Sabiha Gokcen Airport (SAW)",
+          "esb": "Esenboga Airport (ESB)",
+          "ayt": "Antalya Airport (AYT)",
+          "bjv": "Milas-Bodrum Airport (BJV)",
+          "dlm": "Dalaman Airport (DLM)",
+          "adb": "Izmir Adnan Menderes Airport (ADB)",
+          "gzt": "Gaziantep Airport (GZT)",
+          "asf": "Kayseri Airport (ASR)",
+          "adana": "Adana Sakirpasa Airport (ADA)"
+        }
+      },
+      "cities": {
+        "title": "City Transfers",
+        "description": "Select cities you serve"
+      },
+      "routes": {
+        "title": "Popular Routes",
+        "addRoute": "Add Route",
+        "from": "From",
+        "to": "To",
+        "distance": "Distance (km)",
+        "duration": "Duration (minutes)",
+        "basePrice": "Base Price",
+        "roundTripDiscount": "Round Trip Discount (%)"
+      },
+      "pricing": {
+        "title": "Pricing Strategy",
+        "basePricePerKm": "Price Per Kilometer",
+        "minimumFare": "Minimum Fare",
+        "waitingTime": "Waiting Time Fee (per hour)",
+        "nightSurcharge": "Night Surcharge (22:00-06:00)",
+        "holidaySurcharge": "Public Holiday Surcharge",
+        "roundTripDiscount": "Round Trip Discount",
+        "currency": "TRY"
+      },
+      "extraServices": {
+        "title": "Extra Services",
+        "description": "Set additional services and fees you offer",
+        "babySeats": "Baby Seat Service",
+        "childSeats": "Child Seat Service",
+        "meetGreet": "Meet & Greet Service",
+        "waitTime": "Extra Waiting Time",
+        "marketStop": "Market Stop",
+        "portableWifi": "Portable WiFi"
+      }
+    },
+    "step5": {
+      "title": "Legal Documents and Licenses",
+      "subtitle": "Upload required legal documents",
+      "documents": {
+        "title": "Mandatory Documents",
+        "description": "Add all legal documents required for transfer service"
+      },
+      "commercialPlate": {
+        "title": "Commercial Plate Certificate",
+        "description": "Document showing the vehicle has a commercial taxi or rental vehicle plate",
+        "required": "Mandatory"
+      },
+      "d2License": {
+        "title": "D2 Certificate (Rental Vehicle Certificate)",
+        "description": "D2 class authorization certificate for intercity passenger transport",
+        "required": "Mandatory",
+        "info": "Rental vehicle operating certificate issued by Ministry of Transport"
+      },
+      "vehicleRegistration": {
+        "title": "Vehicle Registration",
+        "description": "Current vehicle registration photocopy (front and back)",
+        "required": "Mandatory"
+      },
+      "insurance": {
+        "title": "Comprehensive and Traffic Insurance",
+        "description": "Current comprehensive and mandatory traffic insurance policy",
+        "required": "Mandatory",
+        "expiryDate": "Expiry Date"
+      },
+      "inspectionReport": {
+        "title": "Periodic Inspection Certificate",
+        "description": "Periodic vehicle inspection certificate obtained within the last 1 year",
+        "required": "Mandatory"
+      },
+      "taxiMeter": {
+        "title": "Taximeter Inspection Certificate (If Applicable)",
+        "description": "Inspection certificate for vehicles using taximeter",
+        "required": "Optional"
+      },
+      "driverInfo": {
+        "title": "Driver Information",
+        "description": "Enter driver information to be assigned to the vehicle"
+      },
+      "driverLicense": {
+        "title": "Driver's License",
+        "type": "License Class",
+        "number": "License Number",
+        "expiryDate": "Expiry Date",
+        "required": "Mandatory",
+        "classes": {
+          "b": "Class B (Car)",
+          "d1": "Class D1 (Minibus)",
+          "d": "Class D (Bus)"
+        }
+      },
+      "src4Certificate": {
+        "title": "SRC-4 Certificate (Psychotechnical Certificate)",
+        "description": "Driver psychotechnical certificate required for commercial passenger transport",
+        "required": "Mandatory",
+        "expiryDate": "Expiry Date",
+        "info": "Obtained from Ministry of Health approved driving course or hospital"
+      },
+      "criminalRecord": {
+        "title": "Criminal Record",
+        "description": "Criminal record certificate obtained within the last 3 months",
+        "required": "Mandatory"
+      },
+      "uploadDocument": "Upload Document",
+      "dragDropDocument": "Drag and drop document or click (PDF, JPG, PNG)",
+      "uploaded": "Uploaded",
+      "notUploaded": "Not Uploaded",
+      "reUpload": "Re-upload",
+      "validUntil": "Valid until: {{date}}",
+      "expired": "Expired",
+      "expiringWarning": "Expires in {{days}} days"
+    },
+    "step6": {
+      "title": "Review and Publish",
+      "subtitle": "Review your information and publish your vehicle",
+      "sections": {
+        "vehicleInfo": "Vehicle Information",
+        "category": "Category",
+        "capacity": "Capacity",
+        "features": "Features",
+        "photos": "Photos",
+        "serviceAreas": "Service Areas",
+        "pricing": "Pricing",
+        "documents": "Documents",
+        "driver": "Driver Information"
+      },
+      "summary": {
+        "vehicleType": "Vehicle Type",
+        "plateNumber": "License Plate",
+        "brandModel": "Brand/Model",
+        "passengers": "Passenger Capacity",
+        "luggage": "Luggage Capacity",
+        "totalPhotos": "Total Photos",
+        "airports": "Airports",
+        "routes": "Defined Routes",
+        "basePricePerKm": "Price Per Km",
+        "minimumFare": "Minimum Fare",
+        "documentsUploaded": "Uploaded Documents",
+        "assignedDriver": "Assigned Driver"
+      },
+      "verification": {
+        "title": "Verification",
+        "allDocumentsValid": "All documents valid and complete",
+        "photosCompliant": "Photos comply with quality standards",
+        "pricingSet": "Pricing defined",
+        "termsAccepted": "I have read and accept the service provider agreement"
+      },
+      "confirmSubmit": "I confirm that the information is correct and I accept legal responsibility",
+      "submitButton": "Add Vehicle to Fleet",
+      "submitting": "Submitting...",
+      "reviewProcess": {
+        "title": "Review Process",
+        "step1": "Documents will be reviewed within 24-48 hours",
+        "step2": "Vehicle will be evaluated according to quality standards",
+        "step3": "You can start receiving bookings after approval",
+        "note": "You will be notified in case of missing or incorrect documents"
+      }
+    },
+    "validation": {
+      "required": "This field is required",
+      "minLength": "Must be at least {{count}} characters",
+      "maxLength": "Must be no more than {{count}} characters",
+      "invalidPlate": "Invalid plate format (E.g., 34 ABC 123)",
+      "invalidNumber": "Invalid number",
+      "minValue": "Must be at least {{value}}",
+      "maxValue": "Must be no more than {{value}}",
+      "selectAtLeast": "Select at least {{count}}",
+      "uploadAtLeast": "Upload at least {{count}} photos",
+      "invalidDate": "Invalid date",
+      "expiredDocument": "Document expired",
+      "acceptTerms": "You must accept the service agreement to continue",
+      "invalidFileType": "Invalid file type. Only JPG, PNG, or PDF can be uploaded",
+      "fileTooLarge": "File too large. Maximum {{size}}MB",
+      "selectVehicleType": "Please select a vehicle category",
+      "selectServiceArea": "Select at least one service area",
+      "uploadAllDocuments": "You must upload all mandatory documents"
+    },
+    "success": {
+      "title": "Success!",
+      "message": "Your transfer vehicle has been successfully added and submitted for review.",
+      "subtitle": "The document review process will take 24-48 hours. You will be notified by email about the result.",
+      "backToDashboard": "Back to Dashboard",
+      "addAnother": "Add Another Vehicle"
+    }
+  },
+  "bookings": {
+    "title": "Transfer Bookings",
+    "totalBookings": "Total Bookings",
+    "activeTransfers": "Active Transfers",
+    "completedToday": "Completed Today",
+    "filters": {
+      "all": "All",
+      "pending": "Pending",
+      "confirmed": "Confirmed",
+      "inProgress": "In Transit",
+      "completed": "Completed",
+      "cancelled": "Cancelled",
+      "search": "Search bookings (Passenger, Route, Plate)..."
+    },
+    "table": {
+      "bookingId": "Booking ID",
+      "passenger": "Passenger",
+      "route": "Route",
+      "pickupTime": "Pickup Time",
+      "vehicle": "Vehicle",
+      "driver": "Driver",
+      "passengers": "Passengers",
+      "amount": "Amount",
+      "status": "Status",
+      "actions": "Actions"
+    },
+    "details": {
+      "title": "Booking Details",
+      "bookingInfo": "Booking Information",
+      "bookingNumber": "Booking Number",
+      "bookingDate": "Booking Date",
+      "passengerInfo": "Passenger Information",
+      "name": "Full Name",
+      "phone": "Phone",
+      "email": "Email",
+      "passengers": "Number of Passengers",
+      "routeInfo": "Route Information",
+      "pickupLocation": "Pickup Location",
+      "dropoffLocation": "Dropoff Location",
+      "pickupTime": "Pickup Time",
+      "dropoffTime": "Estimated Arrival",
+      "distance": "Distance",
+      "duration": "Duration",
+      "tripType": "Transfer Type",
+      "oneWay": "One Way",
+      "roundTrip": "Round Trip",
+      "vehicleInfo": "Vehicle Information",
+      "assignedVehicle": "Assigned Vehicle",
+      "driverInfo": "Driver Information",
+      "assignedDriver": "Assigned Driver",
+      "driverPhone": "Driver Phone",
+      "extraServices": "Extra Services",
+      "babySeats": "Baby Seat",
+      "childSeats": "Child Seat",
+      "meetGreet": "Meet & Greet",
+      "waitingTime": "Extra Waiting",
+      "marketStop": "Market Stop",
+      "portableWifi": "Portable WiFi",
+      "pricing": "Pricing Details",
+      "basePrice": "Base Price",
+      "extraServicesTotal": "Extra Services",
+      "nightSurcharge": "Night Surcharge",
+      "total": "Total",
+      "specialRequests": "Special Requests",
+      "notes": "Notes",
+      "flightInfo": "Flight Information",
+      "flightNumber": "Flight Number",
+      "arrivalTime": "Arrival Time"
+    },
+    "actions": {
+      "view": "View",
+      "confirm": "Confirm",
+      "assignDriver": "Assign Driver",
+      "assignVehicle": "Assign Vehicle",
+      "startTrip": "Start Trip",
+      "completeTrip": "Complete Trip",
+      "cancel": "Cancel",
+      "message": "Send Message",
+      "invoice": "View Invoice"
+    },
+    "status": {
+      "pending": "Pending",
+      "confirmed": "Confirmed",
+      "driverAssigned": "Driver Assigned",
+      "onTheWay": "On the Way",
+      "arrivedPickup": "Arrived at Pickup",
+      "inProgress": "Transfer in Progress",
+      "completed": "Completed",
+      "cancelled": "Cancelled",
+      "noShow": "No Show"
+    }
+  },
+  "routes": {
+    "title": "Route Management",
+    "popularRoutes": "Popular Routes",
+    "addRoute": "Add New Route",
+    "table": {
+      "route": "Route",
+      "distance": "Distance",
+      "avgDuration": "Avg. Duration",
+      "basePrice": "Base Price",
+      "totalTrips": "Total Trips",
+      "revenue": "Revenue",
+      "actions": "Actions"
+    },
+    "airportTransfers": {
+      "title": "Airport Transfers",
+      "ist": "Istanbul Airport",
+      "saw": "Sabiha Gokcen",
+      "ayt": "Antalya Airport",
+      "esb": "Esenboga Airport",
+      "adb": "Adnan Menderes"
+    },
+    "routeDetails": {
+      "title": "Route Details",
+      "from": "From",
+      "to": "To",
+      "distance": "Distance",
+      "duration": "Average Duration",
+      "pricing": "Pricing",
+      "statistics": "Statistics",
+      "totalTrips": "Total Trips",
+      "completedTrips": "Completed",
+      "avgRating": "Average Rating",
+      "revenue": "Total Revenue"
+    }
+  },
+  "drivers": {
+    "title": "Driver Management",
+    "addNew": "Add New Driver",
+    "totalDrivers": "Total Drivers",
+    "activeDrivers": "Active Drivers",
+    "onRoute": "In Service",
+    "filters": {
+      "all": "All",
+      "available": "Available",
+      "onRoute": "In Service",
+      "offline": "Offline",
+      "search": "Search driver..."
+    },
+    "table": {
+      "driver": "Driver",
+      "phone": "Phone",
+      "vehicle": "Vehicle",
+      "status": "Status",
+      "rating": "Rating",
+      "totalTrips": "Total Trips",
+      "earnings": "Earnings",
+      "actions": "Actions"
+    },
+    "status": {
+      "available": "Available",
+      "onRoute": "In Service",
+      "busy": "Busy",
+      "offline": "Offline",
+      "onBreak": "On Break"
+    },
+    "details": {
+      "title": "Driver Details",
+      "personalInfo": "Personal Information",
+      "fullName": "Full Name",
+      "phone": "Phone",
+      "email": "Email",
+      "joinDate": "Join Date",
+      "licenseInfo": "License Information",
+      "licenseNumber": "License Number",
+      "licenseClass": "License Class",
+      "expiryDate": "Expiry Date",
+      "src4": "SRC-4 Certificate",
+      "assignedVehicle": "Assigned Vehicle",
+      "performance": "Performance",
+      "totalTrips": "Total Trips",
+      "completedTrips": "Completed",
+      "cancelledTrips": "Cancelled",
+      "avgRating": "Average Rating",
+      "onTimeRate": "On-Time Delivery",
+      "earnings": "Earnings",
+      "totalEarnings": "Total Earnings",
+      "thisMonth": "This Month"
+    },
+    "actions": {
+      "view": "View",
+      "edit": "Edit",
+      "assignVehicle": "Assign Vehicle",
+      "viewTrips": "View Trips",
+      "deactivate": "Deactivate",
+      "activate": "Activate"
+    }
+  },
+  "analytics": {
+    "title": "Detailed Analytics",
+    "subtitle": "Analyze your transfer service performance in detail",
+    "dateRange": "Date Range",
+    "export": "Download Report",
+    "overview": {
+      "title": "Overview",
+      "revenue": "Revenue",
+      "transfers": "Transfer Count",
+      "utilization": "Fleet Utilization Rate",
+      "revenue_growth": "Revenue Growth",
+      "customer_satisfaction": "Customer Satisfaction"
+    },
+    "charts": {
+      "revenueByMonth": "Monthly Revenue Chart",
+      "transfersByRoute": "Transfers by Route",
+      "vehicleUtilization": "Fleet Utilization Rate",
+      "topPerformers": "Top Performing Vehicles",
+      "driverPerformance": "Driver Performance",
+      "revenueByVehicleType": "Revenue by Vehicle Type",
+      "peakHours": "Peak Hours",
+      "customerRatings": "Customer Ratings"
+    },
+    "metrics": {
+      "totalRevenue": "Total Revenue",
+      "totalTransfers": "Total Transfers",
+      "avgTransferValue": "Average Transfer Value",
+      "repeatCustomers": "Repeat Customers",
+      "cancellationRate": "Cancellation Rate",
+      "onTimeDelivery": "On-Time Delivery Rate",
+      "avgRating": "Average Rating",
+      "fleetUtilization": "Fleet Utilization Rate"
+    },
+    "period": {
+      "today": "Today",
+      "yesterday": "Yesterday",
+      "last7days": "Last 7 Days",
+      "last30days": "Last 30 Days",
+      "last90days": "Last 90 Days",
+      "thisMonth": "This Month",
+      "lastMonth": "Last Month",
+      "thisYear": "This Year",
+      "custom": "Custom Date"
+    },
+    "topRoutes": {
+      "title": "Top Revenue Routes",
+      "route": "Route",
+      "trips": "Trips",
+      "revenue": "Revenue"
+    },
+    "vehicleTypes": {
+      "title": "Vehicle Type Performance",
+      "type": "Vehicle Type",
+      "trips": "Trips",
+      "revenue": "Revenue",
+      "utilization": "Utilization"
+    }
+  },
+  "navigation": {
+    "overview": "Overview",
+    "fleet": "Fleet Management",
+    "bookings": "Bookings",
+    "routes": "Routes",
+    "drivers": "Drivers",
+    "earnings": "Earnings",
+    "messages": "Messages",
+    "analytics": "Analytics",
+    "settings": "Settings"
+  },
+  "header": {
+    "search": "Search bookings, vehicles, or drivers...",
+    "addVehicle": "Add Vehicle",
+    "addDriver": "Add Driver",
+    "notifications": "Notifications",
+    "profile": "Profile",
+    "logout": "Logout",
+    "premiumPartner": "Premium Partner"
+  },
+  "settings": {
+    "title": "Settings",
+    "companyInfo": {
+      "title": "Company Information",
+      "companyName": "Company Name",
+      "taxNumber": "Tax Number",
+      "taxOffice": "Tax Office",
+      "address": "Address",
+      "phone": "Phone",
+      "email": "Email",
+      "website": "Website"
+    },
+    "operationalSettings": {
+      "title": "Operational Settings",
+      "serviceHours": "Service Hours",
+      "24hours": "24 Hours",
+      "customHours": "Custom Hours",
+      "operatingDays": "Operating Days",
+      "everyday": "Every Day",
+      "weekdays": "Weekdays",
+      "custom": "Custom"
+    },
+    "pricing": {
+      "title": "Pricing Settings",
+      "basePricePerKm": "Base Price Per Kilometer",
+      "minimumFare": "Minimum Fare",
+      "nightSurcharge": "Night Surcharge",
+      "holidaySurcharge": "Holiday Surcharge",
+      "cancelFee": "Cancellation Fee",
+      "waitingFee": "Waiting Fee"
+    },
+    "notifications": {
+      "title": "Notification Preferences",
+      "newBooking": "New Booking",
+      "bookingCancellation": "Booking Cancellation",
+      "driverAssignment": "Driver Assignment",
+      "paymentReceived": "Payment Received",
+      "reviewReceived": "Review Received",
+      "email": "Email",
+      "sms": "SMS",
+      "push": "Push Notification"
+    },
+    "paymentMethods": {
+      "title": "Payment Methods",
+      "cash": "Cash",
+      "creditCard": "Credit Card",
+      "bankTransfer": "Bank Transfer",
+      "online": "Online Payment"
+    }
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "success": "Operation successful",
+    "confirm": "Confirm",
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "view": "View",
+    "close": "Close",
+    "search": "Search",
+    "filter": "Filter",
+    "sort": "Sort",
+    "actions": "Actions",
+    "more": "More",
+    "less": "Less",
+    "showAll": "Show All",
+    "showLess": "Show Less",
+    "download": "Download",
+    "upload": "Upload",
+    "select": "Select",
+    "selected": "Selected",
+    "all": "All",
+    "none": "None",
+    "yes": "Yes",
+    "no": "No",
+    "active": "Active",
+    "inactive": "Inactive",
+    "status": "Status",
+    "date": "Date",
+    "time": "Time",
+    "price": "Price",
+    "total": "Total",
+    "subtotal": "Subtotal",
+    "discount": "Discount",
+    "currency": "TRY",
+    "perKm": "/ km",
+    "perHour": "/ hour",
+    "perDay": "/ day"
+  },
+  "notifications": {
+    "newBooking": "New transfer booking received",
+    "bookingConfirmed": "Transfer booking confirmed",
+    "bookingCancelled": "Transfer booking cancelled",
+    "driverAssigned": "Driver assigned",
+    "tripStarted": "Trip started",
+    "tripCompleted": "Trip completed",
+    "paymentReceived": "Payment received",
+    "newReview": "You received a new review",
+    "documentExpiring": "{{document}} expires in {{days}} days",
+    "documentExpired": "{{document}} has expired",
+    "maintenanceReminder": "{{vehicle}} maintenance time approaching"
+  },
+  "messages": {
+    "confirmDelete": "Are you sure you want to delete?",
+    "confirmCancel": "Are you sure you want to cancel?",
+    "confirmDeactivate": "Are you sure you want to deactivate?",
+    "unsavedChanges": "You have unsaved changes. Are you sure you want to exit?",
+    "operationSuccessful": "Operation completed successfully",
+    "operationFailed": "Operation failed",
+    "vehicleAdded": "Vehicle successfully added",
+    "vehicleUpdated": "Vehicle information updated",
+    "vehicleDeleted": "Vehicle deleted",
+    "driverAdded": "Driver successfully added",
+    "driverAssigned": "Driver assigned",
+    "bookingConfirmed": "Booking confirmed",
+    "bookingCancelled": "Booking cancelled",
+    "tripStarted": "Trip started",
+    "tripCompleted": "Trip completed"
+  }
+}

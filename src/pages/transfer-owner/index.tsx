@@ -1,0 +1,547 @@
+import React, { useState } from 'react';
+import Link from 'next/link';
+import {
+  TrendingUp,
+  TrendingDown,
+  DollarSign,
+  Bus,
+  Calendar,
+  MapPin,
+  Eye,
+  Star,
+  Users,
+  ArrowUpRight,
+  Clock,
+  CheckCircle,
+  AlertCircle,
+  Award,
+  Navigation,
+  Plus,
+  Settings,
+  Route
+} from 'lucide-react';
+import { LineChart, Line, BarChart, Bar, AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
+import { useTranslation } from 'next-i18next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+
+export async function getStaticProps({ locale }: any) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale ?? 'tr', ['transfer-owner', 'common'])),
+    },
+  };
+}
+
+export default function TransferOwnerDashboard() {
+  const { t } = useTranslation('transfer-owner');
+  const [timeRange, setTimeRange] = useState('7d');
+
+  // Mock Data - Transfer Service Statistics
+  const stats = {
+    totalFleet: { value: 12, change: 20, trend: 'up' },
+    activeTransfers: { value: 8, change: 14.3, trend: 'up' },
+    monthlyRevenue: { value: 87500, change: 18.5, trend: 'up' },
+    onTimeDelivery: { value: 96, change: 2.1, trend: 'up' },
+  };
+
+  // Weekly Revenue Chart Data
+  const revenueData = [
+    { name: 'Pzt', gelir: 8400, transfer: 12 },
+    { name: 'Sal', gelir: 6200, transfer: 9 },
+    { name: 'Çar', gelir: 12800, transfer: 18 },
+    { name: 'Per', gelir: 10500, transfer: 15 },
+    { name: 'Cum', gelir: 14200, transfer: 20 },
+    { name: 'Cmt', gelir: 16500, transfer: 23 },
+    { name: 'Paz', gelir: 13800, transfer: 19 }
+  ];
+
+  // Popular Routes Chart Data
+  const popularRoutesData = [
+    { name: 'IST → Sultanahmet', value: 45, gelir: 23500 },
+    { name: 'SAW → Kadıköy', value: 38, gelir: 18900 },
+    { name: 'IST → Taksim', value: 32, gelir: 16800 },
+    { name: 'SAW → Maltepe', value: 28, gelir: 14200 },
+    { name: 'IST → Şişli', value: 24, gelir: 12600 }
+  ];
+
+  // Vehicle Performance Data (Pie Chart)
+  const vehiclePerformanceData = [
+    { name: 'VIP Minivan', value: 35 },
+    { name: 'Ekonomik Sedan', value: 28 },
+    { name: 'Mercedes Sprinter', value: 22 },
+    { name: 'Konfor Sedan', value: 10 },
+    { name: 'Minibüs 14', value: 5 }
+  ];
+
+  const COLORS = ['#2563EB', '#3B82F6', '#60A5FA', '#93C5FD', '#DBEAFE'];
+
+  // Upcoming Transfers
+  const upcomingTransfers = [
+    {
+      id: 1,
+      passenger: 'Ayşe Demir',
+      route: 'IST Havalimanı → Sultanahmet',
+      pickupTime: '2024-01-15 14:30',
+      vehicle: 'VIP Minivan',
+      driver: 'Mehmet Yılmaz',
+      amount: 850,
+      status: 'confirmed',
+      passengerCount: 4
+    },
+    {
+      id: 2,
+      passenger: 'John Smith',
+      route: 'SAW Havalimanı → Kadıköy',
+      pickupTime: '2024-01-15 16:45',
+      vehicle: 'Ekonomik Sedan',
+      driver: 'Ali Kaya',
+      amount: 450,
+      status: 'confirmed',
+      passengerCount: 2
+    },
+    {
+      id: 3,
+      passenger: 'Zeynep Yılmaz',
+      route: 'Taksim → IST Havalimanı',
+      pickupTime: '2024-01-15 18:00',
+      vehicle: 'Mercedes Sprinter',
+      driver: 'Ahmet Öz',
+      amount: 1250,
+      status: 'pending',
+      passengerCount: 8
+    },
+    {
+      id: 4,
+      passenger: 'Michael Brown',
+      route: 'IST Havalimanı → Beyoğlu',
+      pickupTime: '2024-01-15 20:15',
+      vehicle: 'VIP Sedan',
+      driver: 'Cem Aksoy',
+      amount: 680,
+      status: 'confirmed',
+      passengerCount: 3
+    },
+    {
+      id: 5,
+      passenger: 'Fatma Koç',
+      route: 'SAW Havalimanı → Üsküdar',
+      pickupTime: '2024-01-15 22:30',
+      vehicle: 'Konfor Sedan',
+      driver: 'Murat Demir',
+      amount: 520,
+      status: 'confirmed',
+      passengerCount: 2
+    }
+  ];
+
+  // Driver Performance Summary (Top 3)
+  const topDrivers = [
+    { name: 'Mehmet Yılmaz', rating: 4.9, transfers: 156, avatar: '👨‍✈️' },
+    { name: 'Ali Kaya', rating: 4.8, transfers: 142, avatar: '👨‍✈️' },
+    { name: 'Ahmet Öz', rating: 4.7, transfers: 128, avatar: '👨‍✈️' }
+  ];
+
+  // Recent Activities
+  const recentActivities = [
+    { type: 'booking', message: 'Yeni transfer rezervasyonu: IST → Sultanahmet', time: '5 dk önce', icon: Calendar, color: '#2563EB' },
+    { type: 'review', message: 'Yeni değerlendirme aldınız (5 yıldız)', time: '1 saat önce', icon: Star, color: '#06B6D4' },
+    { type: 'driver', message: 'Mehmet Yılmaz transferi tamamladı', time: '2 saat önce', icon: CheckCircle, color: '#2563EB' },
+    { type: 'payment', message: '850 TL ödeme alındı', time: '3 saat önce', icon: DollarSign, color: '#06B6D4' }
+  ];
+
+  // Stat Card Component
+  const StatCard = ({ title, value, change, icon: Icon, prefix = '', suffix = '' }: any) => {
+    const isPositive = change >= 0;
+    const isNeutral = change === 0;
+
+    return (
+      <div className="rounded-2xl p-6 border-2 transition-all hover:scale-105 card-hover"
+           style={{
+             backgroundColor: '#FFFFFF',
+             borderColor: '#E5E7EB',
+             boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)'
+           }}>
+        <div className="flex items-start justify-between mb-4">
+          <div className="p-3 rounded-xl"
+               style={{
+                 background: 'linear-gradient(135deg, #2563EB, #06B6D4)',
+                 boxShadow: '0 0 20px rgba(37, 99, 235, 0.3)'
+               }}>
+            <Icon className="w-6 h-6" style={{ color: 'white' }} />
+          </div>
+          {!isNeutral && (
+            <div className={`flex items-center gap-1 px-2 py-1 rounded-lg`}
+                 style={{
+                   backgroundColor: isPositive ? 'rgba(16, 185, 129, 0.1)' : 'rgba(239, 68, 68, 0.1)',
+                   color: isPositive ? '#10B981' : '#EF4444'
+                 }}>
+              {isPositive ? <TrendingUp className="w-4 h-4" /> : <TrendingDown className="w-4 h-4" />}
+              <span className="text-sm font-bold">{Math.abs(change)}%</span>
+            </div>
+          )}
+        </div>
+        <div>
+          <p className="text-sm font-medium mb-2" style={{ color: '#666666' }}>{title}</p>
+          <p className="text-3xl font-black neon-text-strong" style={{ color: '#000000' }}>
+            {prefix}{value.toLocaleString('tr-TR')}{suffix}
+          </p>
+        </div>
+      </div>
+    );
+  };
+
+  return (
+    <div className="space-y-6">
+      {/* Welcome Section */}
+      <div className="rounded-2xl p-8 border-2 relative overflow-hidden"
+           style={{
+             backgroundColor: '#FFFFFF',
+             borderColor: '#E5E7EB',
+             boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)'
+           }}>
+        <div className="relative z-10">
+          <h1 className="text-4xl font-black mb-2 neon-text-strong" style={{ color: '#000000' }}>
+            {t('dashboard.welcome', { name: 'Transfer Sahibi' })}
+          </h1>
+          <p className="text-lg mb-4" style={{ color: '#666666' }}>
+            {t('dashboard.subtitle')}
+          </p>
+          <div className="flex gap-4">
+            <Link
+              href="/transfer-owner/vehicles/new"
+              className="flex items-center gap-2 px-6 py-3 rounded-xl font-bold transition-all hover:scale-105 neon-glow"
+              style={{
+                background: 'linear-gradient(135deg, #2563EB, #06B6D4)',
+                color: 'white',
+                boxShadow: '0 0 30px rgba(37, 99, 235, 0.5)'
+              }}
+            >
+              <Plus className="w-5 h-5" />
+              <span>{t('dashboard.addVehicle')}</span>
+            </Link>
+            <Link
+              href="/transfer-owner/analytics"
+              className="flex items-center gap-2 px-6 py-3 rounded-xl font-bold transition-all hover:scale-105"
+              style={{
+                backgroundColor: 'rgba(37, 99, 235, 0.1)',
+                color: '#2563EB',
+                border: '2px solid rgba(37, 99, 235, 0.3)'
+              }}
+            >
+              <TrendingUp className="w-5 h-5" />
+              <span>{t('dashboard.detailedAnalytics')}</span>
+            </Link>
+          </div>
+        </div>
+      </div>
+
+      {/* Stats Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <StatCard
+          title={t('dashboard.stats.totalFleet')}
+          value={stats.totalFleet.value}
+          change={stats.totalFleet.change}
+          icon={Bus}
+        />
+        <StatCard
+          title={t('dashboard.stats.activeTransfers')}
+          value={stats.activeTransfers.value}
+          change={stats.activeTransfers.change}
+          icon={Navigation}
+        />
+        <StatCard
+          title={t('dashboard.stats.monthlyRevenue')}
+          value={stats.monthlyRevenue.value}
+          change={stats.monthlyRevenue.change}
+          icon={DollarSign}
+          prefix="₺"
+        />
+        <StatCard
+          title={t('dashboard.stats.onTimeDelivery')}
+          value={stats.onTimeDelivery.value}
+          change={stats.onTimeDelivery.change}
+          icon={CheckCircle}
+          suffix="%"
+        />
+      </div>
+
+      {/* Charts Row */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        {/* Weekly Revenue Chart */}
+        <div className="rounded-2xl p-6 border-2"
+             style={{
+               backgroundColor: '#FFFFFF',
+               borderColor: '#E5E7EB',
+               boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)'
+             }}>
+          <div className="flex items-center justify-between mb-6">
+            <h3 className="text-xl font-bold neon-text-strong" style={{ color: '#000000' }}>
+              {t('dashboard.charts.weeklyRevenue')}
+            </h3>
+            <select
+              value={timeRange}
+              onChange={(e) => setTimeRange(e.target.value)}
+              className="px-3 py-2 rounded-lg border-2"
+              style={{
+                backgroundColor: '#FFFFFF',
+                borderColor: '#E5E7EB',
+                color: '#000000'
+              }}
+            >
+              <option value="7d">{t('dashboard.charts.timeRange.7d')}</option>
+              <option value="30d">{t('dashboard.charts.timeRange.30d')}</option>
+              <option value="90d">{t('dashboard.charts.timeRange.90d')}</option>
+            </select>
+          </div>
+          <ResponsiveContainer width="100%" height={300}>
+            <AreaChart data={revenueData}>
+              <defs>
+                <linearGradient id="colorGelirBlue" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="5%" stopColor="#2563EB" stopOpacity={0.3}/>
+                  <stop offset="95%" stopColor="#06B6D4" stopOpacity={0}/>
+                </linearGradient>
+              </defs>
+              <CartesianGrid strokeDasharray="3 3" stroke="#E5E7EB" />
+              <XAxis dataKey="name" stroke="#666666" />
+              <YAxis stroke="#666666" />
+              <Tooltip
+                contentStyle={{
+                  backgroundColor: '#FFFFFF',
+                  border: '2px solid #E5E7EB',
+                  borderRadius: '12px',
+                  color: '#000000'
+                }}
+              />
+              <Area
+                type="monotone"
+                dataKey="gelir"
+                stroke="#2563EB"
+                strokeWidth={3}
+                fillOpacity={1}
+                fill="url(#colorGelirBlue)"
+              />
+            </AreaChart>
+          </ResponsiveContainer>
+        </div>
+
+        {/* Popular Routes Bar Chart */}
+        <div className="rounded-2xl p-6 border-2"
+             style={{
+               backgroundColor: '#FFFFFF',
+               borderColor: '#E5E7EB',
+               boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)'
+             }}>
+          <h3 className="text-xl font-bold mb-6 neon-text-strong" style={{ color: '#000000' }}>
+            {t('dashboard.charts.popularRoutes')}
+          </h3>
+          <ResponsiveContainer width="100%" height={300}>
+            <BarChart data={popularRoutesData} layout="vertical">
+              <CartesianGrid strokeDasharray="3 3" stroke="#E5E7EB" />
+              <XAxis type="number" stroke="#666666" />
+              <YAxis dataKey="name" type="category" stroke="#666666" width={120} style={{ fontSize: '12px' }} />
+              <Tooltip
+                contentStyle={{
+                  backgroundColor: '#FFFFFF',
+                  border: '2px solid #E5E7EB',
+                  borderRadius: '12px',
+                  color: '#000000'
+                }}
+              />
+              <Bar dataKey="value" fill="#2563EB" radius={[0, 8, 8, 0]} />
+            </BarChart>
+          </ResponsiveContainer>
+        </div>
+      </div>
+
+      {/* Upcoming Transfers & Driver Performance */}
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        {/* Upcoming Transfers */}
+        <div className="lg:col-span-2 rounded-2xl p-6 border-2"
+             style={{
+               backgroundColor: '#FFFFFF',
+               borderColor: '#E5E7EB',
+               boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)'
+             }}>
+          <div className="flex items-center justify-between mb-6">
+            <h3 className="text-xl font-bold neon-text-strong" style={{ color: '#000000' }}>
+              {t('dashboard.upcomingTransfers.title')}
+            </h3>
+            <Link
+              href="/transfer-owner/bookings"
+              className="flex items-center gap-2 text-sm font-medium hover:scale-105 transition-all"
+              style={{ color: '#2563EB' }}
+            >
+              <span>{t('dashboard.upcomingTransfers.viewAll')}</span>
+              <ArrowUpRight className="w-4 h-4" />
+            </Link>
+          </div>
+
+          <div className="space-y-4">
+            {upcomingTransfers.map((transfer) => (
+              <div
+                key={transfer.id}
+                className="rounded-xl p-4 border-2 transition-all hover:scale-[1.02]"
+                style={{
+                  backgroundColor: '#FFFFFF',
+                  borderColor: '#E5E7EB'
+                }}
+              >
+                <div className="flex items-start justify-between mb-3">
+                  <div>
+                    <h4 className="font-bold mb-1" style={{ color: '#000000' }}>
+                      {transfer.passenger}
+                    </h4>
+                    <p className="text-sm flex items-center gap-2" style={{ color: '#666666' }}>
+                      <MapPin className="w-4 h-4" />
+                      {transfer.route}
+                    </p>
+                  </div>
+                  <span
+                    className="px-3 py-1 rounded-lg text-xs font-bold"
+                    style={{
+                      backgroundColor: transfer.status === 'confirmed' ? 'rgba(16, 185, 129, 0.1)' : 'rgba(245, 158, 11, 0.1)',
+                      color: transfer.status === 'confirmed' ? '#10B981' : '#F59E0B'
+                    }}
+                  >
+                    {transfer.status === 'confirmed' ? t('dashboard.upcomingTransfers.status.confirmed') : t('dashboard.upcomingTransfers.status.pending')}
+                  </span>
+                </div>
+
+                <div className="grid grid-cols-3 gap-4 text-sm">
+                  <div>
+                    <p className="font-medium mb-1" style={{ color: '#666666' }}>{t('dashboard.upcomingTransfers.pickupTime')}</p>
+                    <p className="font-bold" style={{ color: '#000000' }}>{transfer.pickupTime}</p>
+                  </div>
+                  <div>
+                    <p className="font-medium mb-1" style={{ color: '#666666' }}>{t('dashboard.upcomingTransfers.vehicle')}</p>
+                    <p className="font-bold" style={{ color: '#000000' }}>{transfer.vehicle}</p>
+                  </div>
+                  <div>
+                    <p className="font-medium mb-1" style={{ color: '#666666' }}>{t('dashboard.upcomingTransfers.amount')}</p>
+                    <p className="font-bold" style={{ color: '#2563EB' }}>₺{transfer.amount.toLocaleString('tr-TR')}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Driver Performance & Quick Actions */}
+        <div className="space-y-6">
+          {/* Top Drivers */}
+          <div className="rounded-2xl p-6 border-2"
+               style={{
+                 backgroundColor: '#FFFFFF',
+                 borderColor: '#E5E7EB',
+                 boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)'
+               }}>
+            <h3 className="text-xl font-bold mb-6 neon-text-strong" style={{ color: '#000000' }}>
+              En İyi Sürücüler
+            </h3>
+
+            <div className="space-y-4">
+              {topDrivers.map((driver, index) => (
+                <div key={index} className="flex items-center gap-3">
+                  <div className="flex items-center justify-center w-10 h-10 rounded-full text-2xl"
+                       style={{
+                         background: 'linear-gradient(135deg, #2563EB, #06B6D4)'
+                       }}>
+                    {driver.avatar}
+                  </div>
+                  <div className="flex-1">
+                    <p className="font-bold text-sm" style={{ color: '#000000' }}>
+                      {driver.name}
+                    </p>
+                    <p className="text-xs" style={{ color: '#666666' }}>
+                      {driver.transfers} transfer
+                    </p>
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <Star className="w-4 h-4" style={{ color: '#F59E0B', fill: '#F59E0B' }} />
+                    <span className="font-bold text-sm" style={{ color: '#000000' }}>
+                      {driver.rating}
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <Link
+              href="/transfer-owner/drivers"
+              className="mt-4 w-full flex items-center justify-center gap-2 px-4 py-2 rounded-lg font-medium transition-all hover:scale-105"
+              style={{
+                backgroundColor: 'rgba(37, 99, 235, 0.1)',
+                color: '#2563EB'
+              }}
+            >
+              <Users className="w-4 h-4" />
+              <span>Tüm Sürücüler</span>
+            </Link>
+          </div>
+
+          {/* Quick Actions */}
+          <div className="rounded-2xl p-6 border-2"
+               style={{
+                 backgroundColor: '#FFFFFF',
+                 borderColor: '#E5E7EB',
+                 boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)'
+               }}>
+            <h3 className="text-xl font-bold mb-4 neon-text-strong" style={{ color: '#000000' }}>
+              Hızlı İşlemler
+            </h3>
+
+            <div className="space-y-3">
+              <Link
+                href="/transfer-owner/vehicles/new"
+                className="flex items-center gap-3 p-3 rounded-lg transition-all hover:scale-105"
+                style={{
+                  backgroundColor: 'rgba(37, 99, 235, 0.1)',
+                  color: '#2563EB'
+                }}
+              >
+                <Bus className="w-5 h-5" />
+                <span className="font-medium">Yeni Araç Ekle</span>
+              </Link>
+
+              <Link
+                href="/transfer-owner/vehicles"
+                className="flex items-center gap-3 p-3 rounded-lg transition-all hover:scale-105"
+                style={{
+                  backgroundColor: 'rgba(6, 182, 212, 0.1)',
+                  color: '#06B6D4'
+                }}
+              >
+                <Navigation className="w-5 h-5" />
+                <span className="font-medium">Filo Yönetimi</span>
+              </Link>
+
+              <Link
+                href="/transfer-owner/routes"
+                className="flex items-center gap-3 p-3 rounded-lg transition-all hover:scale-105"
+                style={{
+                  backgroundColor: 'rgba(37, 99, 235, 0.1)',
+                  color: '#2563EB'
+                }}
+              >
+                <Route className="w-5 h-5" />
+                <span className="font-medium">Rotalar</span>
+              </Link>
+
+              <Link
+                href="/transfer-owner/settings"
+                className="flex items-center gap-3 p-3 rounded-lg transition-all hover:scale-105"
+                style={{
+                  backgroundColor: 'rgba(6, 182, 212, 0.1)',
+                  color: '#06B6D4'
+                }}
+              >
+                <Settings className="w-5 h-5" />
+                <span className="font-medium">Ayarlar</span>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}

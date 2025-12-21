@@ -1,0 +1,1344 @@
+{
+  "dashboard": {
+    "welcome": "Welcome, {{name}}!",
+    "subtitle": "What's happening in your Vehicle Rental Dashboard today?",
+    "addVehicle": "Add New Vehicle",
+    "detailedAnalytics": "Detailed Analytics",
+    "stats": {
+      "totalVehicles": "Total Vehicles",
+      "activeVehicles": "Active Vehicles",
+      "totalRevenue": "Total Revenue",
+      "activeRentals": "Active Rentals",
+      "monthlyIncome": "Monthly Income",
+      "occupancyRate": "Occupancy Rate",
+      "avgRating": "Average Rating",
+      "pendingBookings": "Pending Bookings",
+      "responseTime": "Response Time",
+      "upcomingPickups": "Upcoming Pickups",
+      "upcomingReturns": "Upcoming Returns",
+      "maintenanceDue": "Maintenance Due"
+    },
+    "charts": {
+      "weeklyRevenue": "Weekly Revenue Analysis",
+      "monthlyRevenue": "Monthly Revenue Chart",
+      "rentalTrend": "Rental Trend",
+      "occupancyTrend": "Occupancy Rate Trend",
+      "vehiclePerformance": "Vehicle Performance Distribution",
+      "bookingsBySource": "Bookings by Source",
+      "timeRange": {
+        "7d": "Last 7 Days",
+        "30d": "Last 30 Days",
+        "90d": "Last 90 Days"
+      },
+      "days": {
+        "mon": "Mon",
+        "tue": "Tue",
+        "wed": "Wed",
+        "thu": "Thu",
+        "fri": "Fri",
+        "sat": "Sat",
+        "sun": "Sun"
+      },
+      "months": {
+        "jan": "Jan",
+        "feb": "Feb",
+        "mar": "Mar",
+        "apr": "Apr",
+        "may": "May",
+        "jun": "Jun",
+        "jul": "Jul",
+        "aug": "Aug",
+        "sep": "Sep",
+        "oct": "Oct",
+        "nov": "Nov",
+        "dec": "Dec"
+      }
+    },
+    "upcomingPickups": {
+      "title": "Upcoming Pickups",
+      "renter": "Renter",
+      "vehicle": "Vehicle",
+      "pickupDate": "Pickup Date",
+      "pickupTime": "Pickup Time",
+      "returnDate": "Return Date",
+      "amount": "Amount",
+      "days": "Days",
+      "status": {
+        "confirmed": "Confirmed",
+        "pending": "Pending",
+        "picked-up": "Picked Up",
+        "in-progress": "In Progress",
+        "returned": "Returned",
+        "completed": "Completed",
+        "cancelled": "Cancelled",
+        "rejected": "Rejected"
+      },
+      "viewAll": "View All"
+    },
+    "recentRentals": {
+      "title": "Recent Rentals",
+      "newRental": "New rental",
+      "rentalCompleted": "Rental completed",
+      "newReview": "You received a new review",
+      "newMessage": "contacted you",
+      "paymentReceived": "payment received",
+      "vehicleReturned": "vehicle returned",
+      "timeAgo": {
+        "justNow": "Just now",
+        "minutesAgo": "{{count}}m ago",
+        "hoursAgo": "{{count}}h ago",
+        "daysAgo": "{{count}}d ago"
+      }
+    },
+    "recentActivity": {
+      "title": "Recent Activity",
+      "newBooking": "New booking",
+      "bookingCancelled": "Booking cancelled",
+      "vehicleViewed": "Your vehicle was viewed",
+      "messageReceived": "New message received"
+    },
+    "performance": {
+      "title": "Performance",
+      "occupancy": "Occupancy",
+      "rating": "Average Rating",
+      "revenue": "Revenue",
+      "bookings": "Bookings"
+    }
+  },
+  "vehicles": {
+    "title": "My Vehicles",
+    "addNew": "Add New Vehicle",
+    "totalVehicles": "Total Vehicles",
+    "activeListings": "Active Listings",
+    "totalEarnings": "Total Earnings",
+    "filters": {
+      "all": "All",
+      "available": "Available",
+      "rented": "Rented",
+      "maintenance": "Maintenance",
+      "inactive": "Inactive",
+      "draft": "Draft",
+      "search": "Search vehicles..."
+    },
+    "table": {
+      "vehicle": "Vehicle",
+      "brand": "Brand",
+      "model": "Model",
+      "year": "Year",
+      "type": "Type",
+      "licensePlate": "License Plate",
+      "dailyRate": "Daily Rate",
+      "status": "Status",
+      "occupancy": "Occupancy",
+      "rating": "Rating",
+      "actions": "Actions",
+      "bookings": "Rentals"
+    },
+    "actions": {
+      "view": "View",
+      "edit": "Edit",
+      "delete": "Delete",
+      "deactivate": "Deactivate",
+      "activate": "Activate",
+      "viewBookings": "View Bookings",
+      "viewAnalytics": "View Analytics",
+      "duplicate": "Duplicate"
+    },
+    "types": {
+      "economy-sedan": "Economy Sedan",
+      "comfort-sedan": "Comfort Sedan",
+      "premium-sedan": "Premium Sedan",
+      "luxury-sedan": "Luxury Sedan",
+      "economy-suv": "Economy SUV",
+      "premium-suv": "Premium SUV",
+      "minivan": "Minivan",
+      "passenger-van": "Passenger Van",
+      "commercial-van": "Commercial Van",
+      "pickup-truck": "Pickup Truck",
+      "convertible": "Convertible",
+      "sports-car": "Sports Car",
+      "electric-vehicle": "Electric Vehicle",
+      "hybrid": "Hybrid Vehicle",
+      "other": "Other"
+    },
+    "status": {
+      "available": "Available",
+      "rented": "Rented",
+      "maintenance": "Maintenance",
+      "inactive": "Inactive",
+      "pending_approval": "Under Review",
+      "rejected": "Rejected",
+      "draft": "Draft"
+    },
+    "category": {
+      "economy": "Economy",
+      "comfort": "Comfort",
+      "premium": "Premium",
+      "luxury": "Luxury",
+      "suv": "SUV",
+      "family": "Family",
+      "commercial": "Commercial",
+      "eco": "Eco-Friendly"
+    },
+    "transmission": {
+      "manual": "Manual",
+      "automatic": "Automatic",
+      "semi-automatic": "Semi-Automatic"
+    },
+    "fuelType": {
+      "petrol": "Petrol",
+      "diesel": "Diesel",
+      "electric": "Electric",
+      "hybrid": "Hybrid",
+      "lpg": "LPG",
+      "cng": "CNG"
+    },
+    "emptyState": {
+      "title": "You haven't added any vehicles yet",
+      "description": "Get started by adding your first vehicle for rental",
+      "action": "Add First Vehicle"
+    }
+  },
+  "vehicleSubmission": {
+    "title": "Add New Vehicle",
+    "subtitle": "List your vehicle in 8 steps",
+    "progress": "Step {{current}} / {{total}}",
+    "buttons": {
+      "previous": "Previous",
+      "next": "Next",
+      "save": "Save",
+      "saveDraft": "Save as Draft",
+      "submit": "Submit",
+      "cancel": "Cancel",
+      "skip": "Skip"
+    },
+    "autoSave": "Auto-saved",
+    "unsavedChanges": "You have unsaved changes",
+    "step1": {
+      "title": "Vehicle Type",
+      "subtitle": "Select your vehicle category",
+      "selectType": "Choose vehicle category",
+      "popular": "Popular",
+      "types": {
+        "economy-sedan": {
+          "title": "Economy Sedan",
+          "description": "Affordable, fuel-efficient city cars"
+        },
+        "comfort-sedan": {
+          "title": "Comfort Sedan",
+          "description": "Spacious and comfortable mid-size vehicles"
+        },
+        "premium-sedan": {
+          "title": "Premium Sedan",
+          "description": "Upper mid-size luxury sedans"
+        },
+        "luxury-sedan": {
+          "title": "Luxury Sedan",
+          "description": "High-end luxury sedans"
+        },
+        "economy-suv": {
+          "title": "Economy SUV",
+          "description": "Affordable SUV vehicles"
+        },
+        "premium-suv": {
+          "title": "Premium SUV",
+          "description": "Luxury and spacious SUV vehicles"
+        },
+        "minivan": {
+          "title": "Minivan (7-9 Seats)",
+          "description": "Spacious minivan for families and groups"
+        },
+        "passenger-van": {
+          "title": "Passenger Van (12-17 Seats)",
+          "description": "Minibus for large groups"
+        },
+        "commercial-van": {
+          "title": "Commercial Van",
+          "description": "For cargo transport and commercial use"
+        },
+        "pickup-truck": {
+          "title": "Pickup Truck",
+          "description": "Open-bed cargo transport vehicle"
+        },
+        "convertible": {
+          "title": "Convertible",
+          "description": "Luxury open-top vehicles"
+        },
+        "sports-car": {
+          "title": "Sports Car",
+          "description": "High-performance sports vehicles"
+        },
+        "electric-vehicle": {
+          "title": "Electric Vehicle",
+          "description": "Fully electric eco-friendly vehicles"
+        },
+        "hybrid": {
+          "title": "Hybrid Vehicle",
+          "description": "Fuel-efficient petrol and electric vehicles"
+        }
+      }
+    },
+    "step2": {
+      "title": "Vehicle Details",
+      "subtitle": "Enter your vehicle's basic information",
+      "fields": {
+        "brand": "Brand",
+        "model": "Model",
+        "year": "Year of Manufacture",
+        "licensePlate": "License Plate",
+        "vin": "VIN (Vehicle Identification Number)",
+        "color": "Color",
+        "description": "Description",
+        "highlightDescription": "Key Features",
+        "transmission": "Transmission Type",
+        "fuelType": "Fuel Type",
+        "seats": "Number of Seats",
+        "doors": "Number of Doors",
+        "luggage": "Luggage Capacity",
+        "engineSize": "Engine Size",
+        "horsePower": "Horsepower",
+        "mileage": "Mileage",
+        "tankCapacity": "Tank Capacity",
+        "country": "Country",
+        "province": "Province",
+        "city": "City",
+        "district": "District",
+        "postalCode": "Postal Code",
+        "address": "Address",
+        "latitude": "Latitude",
+        "longitude": "Longitude"
+      },
+      "placeholders": {
+        "brand": "E.g., Toyota, BMW, Mercedes",
+        "model": "E.g., Camry, 3 Series, C-Class",
+        "year": "2024",
+        "licensePlate": "34 ABC 123",
+        "vin": "17-character VIN",
+        "color": "White, Black, Gray...",
+        "description": "Describe your vehicle in detail...",
+        "highlightDescription": "What makes this vehicle special?",
+        "engineSize": "2.0L, 1.6L...",
+        "horsePower": "150",
+        "mileage": "50000",
+        "tankCapacity": "60",
+        "country": "Turkey",
+        "province": "Select province",
+        "city": "Enter city",
+        "district": "Enter district",
+        "postalCode": "34000",
+        "address": "Enter full address"
+      },
+      "help": {
+        "vin": "You can find it in your vehicle registration",
+        "luggage": "Number of large suitcases",
+        "engineSize": "Engine displacement (Liters)",
+        "tankCapacity": "In liters"
+      }
+    },
+    "step3": {
+      "title": "Features and Amenities",
+      "subtitle": "What features does your vehicle have?",
+      "categories": {
+        "basic": "Basic Features",
+        "comfort": "Comfort Features",
+        "technology": "Technology",
+        "safety": "Safety",
+        "entertainment": "Entertainment",
+        "winter": "Winter Equipment",
+        "child": "Child Safety",
+        "assistance": "Driver Assistance",
+        "additional": "Additional Features"
+      },
+      "features": {
+        "air-conditioning": "Air Conditioning",
+        "abs": "ABS",
+        "airbags": "Airbags",
+        "power-steering": "Power Steering",
+        "power-windows": "Power Windows",
+        "central-locking": "Central Locking",
+        "leather-seats": "Leather Seats",
+        "heated-seats": "Heated Seats",
+        "cooled-seats": "Ventilated Seats",
+        "electric-seats": "Power Seats",
+        "sunroof": "Sunroof",
+        "panoramic-roof": "Panoramic Roof",
+        "cruise-control": "Cruise Control",
+        "rain-sensor": "Rain Sensor",
+        "light-sensor": "Light Sensor",
+        "gps": "GPS Navigation",
+        "bluetooth": "Bluetooth",
+        "usb-port": "USB Port",
+        "aux-input": "AUX Input",
+        "apple-carplay": "Apple CarPlay",
+        "android-auto": "Android Auto",
+        "touchscreen": "Touchscreen",
+        "rear-camera": "Rear Camera",
+        "parking-sensors": "Parking Sensors",
+        "360-camera": "360° Camera",
+        "esp": "ESP",
+        "traction-control": "Traction Control",
+        "hill-assist": "Hill Start Assist",
+        "blind-spot": "Blind Spot Warning",
+        "lane-assist": "Lane Keep Assist",
+        "emergency-brake": "Emergency Brake Assist",
+        "isofix": "ISOFIX",
+        "alarm-system": "Alarm System",
+        "immobilizer": "Immobilizer",
+        "premium-sound": "Premium Sound System",
+        "cd-player": "CD Player",
+        "mp3-player": "MP3 Player",
+        "rear-entertainment": "Rear Entertainment System",
+        "winter-tires": "Winter Tires",
+        "all-season-tires": "All-Season Tires",
+        "snow-chains": "Snow Chains",
+        "child-seat-anchors": "Child Seat Anchors",
+        "roof-rack": "Roof Rack",
+        "tow-hitch": "Tow Hitch",
+        "bike-rack": "Bike Rack",
+        "ski-rack": "Ski Rack",
+        "dashcam": "Dashcam",
+        "toolkit": "Vehicle Toolkit",
+        "first-aid-kit": "First Aid Kit",
+        "fire-extinguisher": "Fire Extinguisher",
+        "emergency-kit": "Emergency Kit"
+      },
+      "pickupOptions": {
+        "title": "Pickup Options",
+        "airportPickup": "Airport Delivery",
+        "airportName": "Airport Name",
+        "airportCode": "Airport Code",
+        "airportFee": "Airport Fee",
+        "homeDelivery": "Home Delivery",
+        "homeDeliveryFee": "Delivery Fee",
+        "homeDeliveryRadius": "Delivery Radius (km)",
+        "meetupLocations": "Meetup Locations"
+      }
+    },
+    "step4": {
+      "title": "Photos",
+      "subtitle": "Add photos of your vehicle",
+      "upload": "Upload Photo",
+      "dragDrop": "Drag and drop photos or click",
+      "mainPhoto": "Main Photo",
+      "setAsMain": "Set as Main Photo",
+      "remove": "Remove",
+      "maxFiles": "Maximum {{count}} photos",
+      "uploadedCount": "{{current}} / {{total}} photos uploaded",
+      "categories": {
+        "title": "Photo Categories",
+        "exterior-front": "Exterior - Front",
+        "exterior-rear": "Exterior - Rear",
+        "exterior-left": "Exterior - Left",
+        "exterior-right": "Exterior - Right",
+        "interior-front": "Interior - Front",
+        "interior-rear": "Interior - Rear",
+        "interior-dashboard": "Interior - Dashboard",
+        "trunk": "Trunk",
+        "engine": "Engine",
+        "wheels": "Wheels",
+        "damage": "Damage",
+        "other": "Other"
+      },
+      "required": {
+        "title": "Required Photos",
+        "description": "You must upload at least these photos:",
+        "exteriorFront": "Exterior front",
+        "exteriorRear": "Exterior rear",
+        "exteriorLeft": "Exterior left",
+        "exteriorRight": "Exterior right",
+        "interior": "Interior",
+        "dashboard": "Dashboard"
+      },
+      "video": {
+        "title": "Video (Optional)",
+        "url": "Video URL",
+        "placeholder": "YouTube or Vimeo link"
+      },
+      "tips": {
+        "title": "Photo Tips",
+        "tip1": "Shoot in bright environment during daylight",
+        "tip2": "Keep vehicle clean and tidy",
+        "tip3": "Take clear photos from all angles",
+        "tip4": "Show any damage or defects",
+        "tip5": "Highlight special features"
+      }
+    },
+    "step5": {
+      "title": "Pricing",
+      "subtitle": "Set your rental rates",
+      "fields": {
+        "dailyRate": "Daily Rate",
+        "hourlyRate": "Hourly Rate (Optional)",
+        "currency": "Currency",
+        "weeklyDiscount": "Weekly Discount",
+        "monthlyDiscount": "Monthly Discount",
+        "earlyBookingDiscount": "Early Booking Discount",
+        "lastMinuteDiscard": "Last Minute Discount",
+        "securityDeposit": "Security Deposit",
+        "depositRefundDays": "Deposit Refund Period (days)",
+        "cleaningFee": "Cleaning Fee",
+        "serviceFee": "Service Fee",
+        "taxPercentage": "Tax Rate"
+      },
+      "placeholders": {
+        "dailyRate": "500",
+        "hourlyRate": "50",
+        "securityDeposit": "1000"
+      },
+      "perDay": "/ day",
+      "perHour": "/ hour",
+      "percentage": "Percentage",
+      "mileageLimit": {
+        "title": "Mileage Limit",
+        "unlimited": "Unlimited",
+        "limited": "Limited",
+        "dailyLimit": "Daily Limit (km)",
+        "weeklyLimit": "Weekly Limit (km)",
+        "monthlyLimit": "Monthly Limit (km)",
+        "extraMileageFee": "Extra Mileage Fee (per km)"
+      },
+      "fuelPolicy": {
+        "title": "Fuel Policy",
+        "full-to-full": "Full to full",
+        "same-to-same": "Same to same",
+        "pre-purchase": "Pre-purchased",
+        "refund": "Refundable"
+      },
+      "fees": {
+        "title": "Extra Fees",
+        "additionalDriverFee": "Additional Driver Fee",
+        "youngDriverFee": "Young Driver Fee (21-25 years)",
+        "youngDriverAge": "Young Driver Minimum Age",
+        "gpsRentalFee": "GPS Rental Fee",
+        "childSeatFee": "Child Seat Fee",
+        "boosterSeatFee": "Booster Seat Fee",
+        "snowChainsFee": "Snow Chains Fee",
+        "additionalInsuranceFee": "Additional Insurance Fee",
+        "lateReturnFeePerHour": "Late Return Fee (per hour)",
+        "cancellationFee": "Cancellation Fee",
+        "cancellationFeePercentage": "Cancellation Fee (%)"
+      },
+      "seasonalPricing": {
+        "title": "Seasonal Pricing (Optional)",
+        "addSeason": "Add Season",
+        "seasonName": "Season Name",
+        "startDate": "Start Date",
+        "endDate": "End Date",
+        "dailyRate": "Daily Rate",
+        "minRentalDays": "Minimum Rental Days"
+      },
+      "marketComparison": {
+        "title": "Market Comparison",
+        "description": "Average daily rate for similar vehicles",
+        "average": "Average",
+        "yourPrice": "Your Price"
+      }
+    },
+    "step6": {
+      "title": "Availability and Rules",
+      "subtitle": "Set your rental rules",
+      "availability": {
+        "title": "Availability Settings",
+        "minRentalDays": "Minimum Rental Period (days)",
+        "maxRentalDays": "Maximum Rental Period (days)",
+        "advanceNoticeHours": "Advance Booking Notice (hours)",
+        "instantBookingEnabled": "Instant Booking Enabled",
+        "requiresApproval": "Requires Approval"
+      },
+      "rentalRules": {
+        "title": "Driver Requirements",
+        "minimumAge": "Minimum Age",
+        "minimumDrivingExperience": "Minimum Driving Experience (years)",
+        "requiresInternationalLicense": "International License Required"
+      },
+      "policies": {
+        "title": "Policies",
+        "smokingAllowed": "Smoking Allowed",
+        "petsAllowed": "Pets Allowed",
+        "petTypes": "Allowed Pet Types",
+        "petFee": "Pet Fee",
+        "crossBorderTravelAllowed": "Cross-Border Travel",
+        "allowedCountries": "Allowed Countries",
+        "offRoadAllowed": "Off-Road Use",
+        "rideSharingAllowed": "Commercial Transport (Uber, etc.)",
+        "commercialUseAllowed": "Commercial Use"
+      },
+      "cancellationPolicy": {
+        "title": "Cancellation Policy",
+        "flexible": "Flexible - Free cancellation until 24 hours before",
+        "moderate": "Moderate - Free cancellation until 48 hours before",
+        "strict": "Strict - 50% refund until 7 days before",
+        "very_strict": "Very Strict - 50% refund until 14 days before",
+        "non_refundable": "Non-Refundable"
+      },
+      "customRules": {
+        "title": "Custom Rules",
+        "placeholder": "Write your additional rules...",
+        "addRule": "Add Rule"
+      },
+      "instructions": {
+        "title": "Delivery Instructions",
+        "pickupInstructions": "Pickup Instructions",
+        "pickupPlaceholder": "Explain where and how the renter should pick up the vehicle...",
+        "returnInstructions": "Return Instructions",
+        "returnPlaceholder": "Explain how the vehicle should be returned..."
+      }
+    },
+    "step7": {
+      "title": "Insurance and Documents",
+      "subtitle": "Upload legal documents",
+      "insurance": {
+        "title": "Insurance Information",
+        "hasInsurance": "Has Insurance",
+        "insuranceProvider": "Insurance Company",
+        "policyNumber": "Policy Number",
+        "expiryDate": "Expiry Date",
+        "coverageType": "Coverage Type",
+        "comprehensive": "Comprehensive",
+        "third-party": "Third Party",
+        "collision": "Collision",
+        "insuranceCertificate": "Insurance Certificate",
+        "uploadCertificate": "Upload Certificate"
+      },
+      "registration": {
+        "title": "Registration Information",
+        "registrationDocument": "Registration Document",
+        "registrationNumber": "Registration Number",
+        "registrationExpiryDate": "Registration Expiry Date",
+        "registeredOwner": "Registered Owner",
+        "uploadDocument": "Upload Registration"
+      },
+      "inspection": {
+        "title": "Inspection Information (Optional)",
+        "inspectionCertificate": "Inspection Certificate",
+        "lastInspectionDate": "Last Inspection Date",
+        "nextInspectionDate": "Next Inspection Date",
+        "uploadCertificate": "Upload Inspection Certificate"
+      },
+      "ownerDocuments": {
+        "title": "Owner Documents",
+        "driverLicense": "Driver's License",
+        "governmentId": "Government ID",
+        "uploadLicense": "Upload License",
+        "uploadId": "Upload ID"
+      },
+      "rentalInsurance": {
+        "title": "Insurance Options for Renters (Optional)",
+        "addOption": "Add Insurance Package",
+        "name": "Package Name",
+        "description": "Description",
+        "pricePerDay": "Daily Fee",
+        "deductible": "Deductible Amount",
+        "coverage": {
+          "collisionDamageWaiver": "Collision Damage Waiver",
+          "theftProtection": "Theft Protection",
+          "liabilityProtection": "Liability Protection",
+          "personalAccidentInsurance": "Personal Accident Insurance",
+          "tiresAndWindscreen": "Tires and Windscreen Protection"
+        },
+        "recommended": "Recommended Package"
+      },
+      "documentTips": {
+        "title": "Document Upload Tips",
+        "tip1": "All documents must be clear and readable",
+        "tip2": "Upload in PDF, JPG, or PNG format",
+        "tip3": "Check expiry dates",
+        "tip4": "Do not hide personal information"
+      }
+    },
+    "step8": {
+      "title": "Review and Submit",
+      "subtitle": "Review your information and submit",
+      "sections": {
+        "basicInfo": "Basic Information",
+        "vehicleDetails": "Vehicle Details",
+        "location": "Location",
+        "features": "Features",
+        "photos": "Photos",
+        "pricing": "Pricing",
+        "availability": "Availability",
+        "rules": "Rules",
+        "insurance": "Insurance",
+        "documents": "Documents"
+      },
+      "summary": {
+        "vehicle": "Vehicle",
+        "type": "Type",
+        "year": "Year",
+        "transmission": "Transmission",
+        "fuel": "Fuel",
+        "seats": "Seats",
+        "dailyRate": "Daily Rate",
+        "deposit": "Deposit",
+        "location": "Location",
+        "features": "Features",
+        "photosCount": "Photos Count",
+        "edit": "Edit"
+      },
+      "agreements": {
+        "title": "Agreements",
+        "agreeToTerms": "I have read and agree to the Terms of Service",
+        "agreeToPrivacyPolicy": "I have read and agree to the Privacy Policy",
+        "agreeToInsurancePolicy": "I have read and agree to the Insurance Policy",
+        "agreeToRentalRules": "I have read and agree to the Rental Rules",
+        "agreeToBackgroundCheck": "I agree to a background check",
+        "confirmAccuracy": "I confirm that the information provided is accurate"
+      },
+      "verification": {
+        "title": "Verification Status",
+        "governmentId": "Government ID Verified",
+        "driverLicense": "Driver's License Verified",
+        "address": "Address Verified",
+        "phone": "Phone Verified",
+        "email": "Email Verified",
+        "backgroundCheck": "Background Check Completed",
+        "pending": "Pending",
+        "verified": "Verified"
+      },
+      "submitButton": "Publish Vehicle",
+      "saveDraftButton": "Save as Draft",
+      "submitting": "Submitting...",
+      "additionalNotes": {
+        "title": "Additional Notes (Optional)",
+        "placeholder": "Notes for platform administrators..."
+      }
+    },
+    "validation": {
+      "required": "This field is required",
+      "minLength": "Must be at least {{count}} characters",
+      "maxLength": "Must be no more than {{count}} characters",
+      "invalidEmail": "Invalid email address",
+      "invalidPhone": "Invalid phone number",
+      "invalidNumber": "Invalid number",
+      "minValue": "Must be at least {{value}}",
+      "maxValue": "Must be no more than {{value}}",
+      "invalidYear": "Enter a valid year",
+      "invalidPlate": "Invalid license plate format",
+      "invalidVin": "VIN must be 17 characters",
+      "selectAtLeast": "Select at least {{count}}",
+      "uploadAtLeast": "Upload at least {{count}} photos",
+      "selectVehicleType": "Please select a vehicle type",
+      "futureDate": "Select a future date",
+      "pastDate": "Select a past date",
+      "invalidDateRange": "Invalid date range",
+      "agreementRequired": "You must accept this agreement"
+    },
+    "success": {
+      "title": "Success!",
+      "message": "Your vehicle has been successfully added and submitted for review.",
+      "submittedMessage": "Your vehicle has been submitted for review. It will be approved within 24-48 hours.",
+      "draftSavedMessage": "Draft saved successfully. You can continue from where you left off anytime.",
+      "backToDashboard": "Back to Dashboard",
+      "addAnother": "Add Another Vehicle",
+      "viewVehicle": "View Vehicle"
+    },
+    "error": {
+      "title": "An Error Occurred",
+      "uploadFailed": "File upload failed",
+      "saveFailed": "Save failed",
+      "submitFailed": "Submit failed",
+      "tryAgain": "Try Again",
+      "contactSupport": "Contact Support"
+    }
+  },
+  "bookings": {
+    "title": "Bookings",
+    "subtitle": "All your rental bookings",
+    "filters": {
+      "all": "All",
+      "pending": "Pending",
+      "confirmed": "Confirmed",
+      "picked-up": "Picked Up",
+      "in-progress": "In Progress",
+      "returned": "Returned",
+      "completed": "Completed",
+      "cancelled": "Cancelled",
+      "search": "Search bookings..."
+    },
+    "table": {
+      "booking": "Booking",
+      "renter": "Renter",
+      "vehicle": "Vehicle",
+      "pickupDate": "Pickup Date",
+      "returnDate": "Return Date",
+      "duration": "Duration",
+      "amount": "Amount",
+      "status": "Status",
+      "actions": "Actions"
+    },
+    "actions": {
+      "view": "View",
+      "accept": "Accept",
+      "reject": "Reject",
+      "cancel": "Cancel",
+      "message": "Send Message",
+      "viewDetails": "View Details"
+    },
+    "status": {
+      "pending": "Pending Approval",
+      "confirmed": "Confirmed",
+      "picked-up": "Picked Up",
+      "in-progress": "In Progress",
+      "returned": "Returned",
+      "completed": "Completed",
+      "cancelled": "Cancelled",
+      "rejected": "Rejected"
+    },
+    "details": {
+      "title": "Booking Details",
+      "bookingId": "Booking ID",
+      "renterInfo": "Renter Information",
+      "renterName": "Name",
+      "renterEmail": "Email",
+      "renterPhone": "Phone",
+      "renterAge": "Age",
+      "drivingLicense": "Driver's License No",
+      "vehicleInfo": "Vehicle Information",
+      "rentalPeriod": "Rental Period",
+      "pickupLocation": "Pickup Location",
+      "returnLocation": "Return Location",
+      "pickupDate": "Pickup Date",
+      "pickupTime": "Pickup Time",
+      "returnDate": "Return Date",
+      "returnTime": "Return Time",
+      "totalDays": "Total Days",
+      "pricing": "Pricing Details",
+      "subtotal": "Subtotal",
+      "discounts": "Discounts",
+      "fees": "Fees",
+      "tax": "Tax",
+      "total": "Total",
+      "deposit": "Deposit",
+      "insurance": "Insurance",
+      "extraServices": "Extra Services",
+      "additionalDrivers": "Additional Drivers",
+      "specialRequests": "Special Requests",
+      "notes": "Notes",
+      "renterNotes": "Renter Notes",
+      "ownerNotes": "Owner Notes"
+    },
+    "inspection": {
+      "title": "Vehicle Inspection",
+      "preRental": "Pre-Rental Inspection",
+      "postRental": "Post-Rental Inspection",
+      "mileageAtPickup": "Mileage at Pickup",
+      "mileageAtReturn": "Mileage at Return",
+      "fuelLevelAtPickup": "Fuel Level at Pickup",
+      "fuelLevelAtReturn": "Fuel Level at Return",
+      "condition": "Vehicle Condition",
+      "photos": "Photos",
+      "damages": "Damages",
+      "notes": "Notes"
+    },
+    "emptyState": {
+      "title": "No bookings yet",
+      "description": "Bookings for your vehicles will appear here",
+      "action": "View My Vehicles"
+    }
+  },
+  "analytics": {
+    "title": "Detailed Analytics",
+    "subtitle": "Analyze your vehicle performance in detail",
+    "dateRange": "Date Range",
+    "export": "Download Report",
+    "overview": {
+      "title": "Overview",
+      "revenue": "Revenue",
+      "bookings": "Bookings",
+      "occupancy": "Occupancy",
+      "revenue_growth": "Revenue Growth",
+      "views": "Views",
+      "inquiries": "Inquiries",
+      "conversion": "Conversion"
+    },
+    "charts": {
+      "revenueByMonth": "Monthly Revenue Chart",
+      "revenueByVehicle": "Revenue by Vehicle",
+      "bookingsBySource": "Bookings by Source",
+      "occupancyRate": "Occupancy Rate Trend",
+      "topPerformers": "Top Performing Vehicles",
+      "renterDemographics": "Renter Demographics",
+      "rentalDuration": "Rental Durations"
+    },
+    "metrics": {
+      "title": "Performance Metrics",
+      "totalViews": "Total Views",
+      "totalInquiries": "Total Inquiries",
+      "totalBookings": "Total Bookings",
+      "totalRevenue": "Total Revenue",
+      "avgBookingValue": "Average Booking Value",
+      "conversionRate": "Conversion Rate",
+      "avgRating": "Average Rating",
+      "responseRate": "Response Rate",
+      "responseTime": "Average Response Time",
+      "occupancyRate": "Occupancy Rate",
+      "avgRentalDuration": "Average Rental Duration"
+    },
+    "comparison": {
+      "title": "Market Comparison",
+      "yourVehicles": "Your Vehicles",
+      "marketAverage": "Market Average",
+      "pricePosition": "Price Position",
+      "ratingPosition": "Rating Position",
+      "occupancyPosition": "Occupancy Position"
+    },
+    "vehicleAnalytics": {
+      "title": "Vehicle-Level Analytics",
+      "selectVehicle": "Select Vehicle",
+      "performance": "Performance",
+      "earnings": "Earnings",
+      "reviews": "Reviews"
+    },
+    "period": {
+      "today": "Today",
+      "yesterday": "Yesterday",
+      "last7days": "Last 7 Days",
+      "last30days": "Last 30 Days",
+      "last90days": "Last 90 Days",
+      "thisMonth": "This Month",
+      "lastMonth": "Last Month",
+      "thisYear": "This Year",
+      "lastYear": "Last Year",
+      "custom": "Custom Date"
+    }
+  },
+  "earnings": {
+    "title": "Earnings",
+    "subtitle": "View your rental earnings",
+    "totalEarnings": "Total Earnings",
+    "thisMonth": "This Month",
+    "lastMonth": "Last Month",
+    "pendingPayouts": "Pending Payouts",
+    "nextPayout": "Next Payout",
+    "table": {
+      "date": "Date",
+      "booking": "Booking",
+      "vehicle": "Vehicle",
+      "renter": "Renter",
+      "gross": "Gross",
+      "commission": "Commission",
+      "net": "Net",
+      "status": "Status",
+      "payout": "Payout Date"
+    },
+    "status": {
+      "pending": "Pending",
+      "processing": "Processing",
+      "completed": "Completed",
+      "refunded": "Refunded",
+      "disputed": "Disputed"
+    },
+    "payout": {
+      "title": "Payout Settings",
+      "method": "Payout Method",
+      "schedule": "Payout Schedule",
+      "weekly": "Weekly",
+      "biweekly": "Bi-weekly",
+      "monthly": "Monthly",
+      "minimumAmount": "Minimum Payout Amount",
+      "bankDetails": "Bank Details",
+      "accountName": "Account Holder",
+      "accountNumber": "Account Number",
+      "iban": "IBAN",
+      "swiftCode": "SWIFT Code"
+    },
+    "history": {
+      "title": "Payout History",
+      "payoutDate": "Payout Date",
+      "amount": "Amount",
+      "method": "Method",
+      "status": "Status",
+      "transactionId": "Transaction ID"
+    }
+  },
+  "messages": {
+    "title": "Messages",
+    "subtitle": "Communicate with renters",
+    "newMessage": "New Message",
+    "searchMessages": "Search messages...",
+    "conversations": "Conversations",
+    "unread": "Unread",
+    "archived": "Archived",
+    "filters": {
+      "all": "All",
+      "unread": "Unread",
+      "archived": "Archived",
+      "bookingRelated": "Booking Related"
+    },
+    "conversation": {
+      "typing": "typing...",
+      "online": "Online",
+      "offline": "Offline",
+      "lastSeen": "Last seen",
+      "viewBooking": "View Booking",
+      "viewVehicle": "View Vehicle"
+    },
+    "compose": {
+      "to": "To",
+      "subject": "Subject",
+      "message": "Message",
+      "send": "Send",
+      "attach": "Attach File",
+      "template": "Use Template"
+    },
+    "templates": {
+      "title": "Message Templates",
+      "welcome": "Welcome Message",
+      "prePickup": "Pre-Pickup Reminder",
+      "postReturn": "Post-Return Thank You",
+      "reviewRequest": "Review Request"
+    },
+    "emptyState": {
+      "title": "No messages yet",
+      "description": "Messages with renters will appear here"
+    }
+  },
+  "calendar": {
+    "title": "Calendar",
+    "subtitle": "Manage your vehicle availability",
+    "selectVehicle": "Select Vehicle",
+    "allVehicles": "All Vehicles",
+    "availability": "Availability",
+    "bookings": "Bookings",
+    "blocked": "Blocked",
+    "blockDates": {
+      "title": "Block Dates",
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "reason": "Reason",
+      "maintenance": "Maintenance",
+      "personalUse": "Personal Use",
+      "other": "Other",
+      "notes": "Notes",
+      "block": "Block"
+    },
+    "legend": {
+      "available": "Available",
+      "booked": "Booked",
+      "blocked": "Blocked",
+      "past": "Past"
+    },
+    "pricing": {
+      "title": "Dynamic Pricing",
+      "customPrice": "Set Custom Price",
+      "applyToRange": "Apply to Date Range"
+    }
+  },
+  "reviews": {
+    "title": "Reviews",
+    "subtitle": "View renter reviews",
+    "totalReviews": "Total Reviews",
+    "averageRating": "Average Rating",
+    "filters": {
+      "all": "All",
+      "5stars": "5 Stars",
+      "4stars": "4 Stars",
+      "3stars": "3 Stars",
+      "2stars": "2 Stars",
+      "1star": "1 Star",
+      "withResponse": "Responded",
+      "withoutResponse": "Not Responded"
+    },
+    "categories": {
+      "vehicleCondition": "Vehicle Condition",
+      "cleanliness": "Cleanliness",
+      "valueForMoney": "Value for Money",
+      "ownerCommunication": "Communication",
+      "pickupExperience": "Pickup Experience",
+      "accuracy": "Accuracy of Description"
+    },
+    "details": {
+      "verifiedRental": "Verified Rental",
+      "wouldRecommend": "Would Recommend",
+      "wouldRentAgain": "Would Rent Again",
+      "helpful": "Helpful",
+      "notHelpful": "Not Helpful",
+      "respond": "Respond",
+      "yourResponse": "Your Response",
+      "editResponse": "Edit Response",
+      "deleteResponse": "Delete Response"
+    },
+    "emptyState": {
+      "title": "No reviews yet",
+      "description": "Reviews will appear here after completed rentals"
+    }
+  },
+  "settings": {
+    "title": "Settings",
+    "subtitle": "Manage your account and vehicle settings",
+    "tabs": {
+      "profile": "Profile",
+      "vehicles": "Vehicles",
+      "rentalRules": "Rental Rules",
+      "insurance": "Insurance",
+      "payment": "Payment",
+      "notifications": "Notifications",
+      "security": "Security",
+      "integrations": "Integrations"
+    },
+    "profile": {
+      "title": "Profile Information",
+      "avatar": "Profile Photo",
+      "name": "Full Name",
+      "email": "Email",
+      "phone": "Phone",
+      "bio": "About Me",
+      "location": "Location",
+      "languages": "Languages Spoken",
+      "emergencyContact": {
+        "title": "Emergency Contact",
+        "name": "Full Name",
+        "phone": "Phone",
+        "relationship": "Relationship"
+      },
+      "businessInfo": {
+        "title": "Business Information (Optional)",
+        "businessName": "Business Name",
+        "businessType": "Business Type",
+        "taxId": "Tax ID",
+        "registrationNumber": "Registration Number"
+      }
+    },
+    "payment": {
+      "title": "Payment Information",
+      "preferredMethod": "Preferred Method",
+      "bankAccount": "Bank Account",
+      "bankName": "Bank Name",
+      "accountHolder": "Account Holder",
+      "accountNumber": "Account Number",
+      "iban": "IBAN",
+      "swiftCode": "SWIFT Code",
+      "verified": "Verified",
+      "notVerified": "Not Verified",
+      "verify": "Verify",
+      "paypal": "PayPal",
+      "stripe": "Stripe",
+      "wise": "Wise",
+      "connect": "Connect",
+      "disconnect": "Disconnect",
+      "payoutSchedule": "Payout Schedule",
+      "minimumPayout": "Minimum Payout Amount",
+      "securityDeposit": {
+        "title": "Security Deposit",
+        "required": "Deposit Required",
+        "amount": "Deposit Amount"
+      }
+    },
+    "notifications": {
+      "title": "Notification Settings",
+      "email": {
+        "title": "Email Notifications",
+        "newBookingRequest": "New Booking Request",
+        "bookingConfirmation": "Booking Confirmation",
+        "bookingCancellation": "Booking Cancellation",
+        "newMessage": "New Message",
+        "reviewPosted": "New Review",
+        "rentalReminders": "Rental Reminders",
+        "paymentReceived": "Payment Received",
+        "maintenanceReminders": "Maintenance Reminders",
+        "weeklyReport": "Weekly Report",
+        "monthlyReport": "Monthly Report"
+      },
+      "push": {
+        "title": "Push Notifications",
+        "enabled": "Enable Push Notifications",
+        "newBookingRequest": "New Booking Request",
+        "bookingConfirmation": "Booking Confirmation",
+        "newMessage": "New Message",
+        "rentalStartsSoon": "Rental Starting Soon",
+        "rentalEndsSoon": "Rental Ending Soon",
+        "urgentAlerts": "Urgent Alerts"
+      },
+      "sms": {
+        "title": "SMS Notifications",
+        "enabled": "Enable SMS Notifications",
+        "urgentOnly": "Urgent Only",
+        "bookingConfirmation": "Booking Confirmation",
+        "rentalReminders": "Rental Reminders"
+      }
+    },
+    "security": {
+      "title": "Security Settings",
+      "password": {
+        "title": "Change Password",
+        "currentPassword": "Current Password",
+        "newPassword": "New Password",
+        "confirmPassword": "Confirm Password",
+        "change": "Change Password",
+        "lastChanged": "Last changed"
+      },
+      "twoFactor": {
+        "title": "Two-Factor Authentication",
+        "enabled": "Enabled",
+        "disabled": "Disabled",
+        "enable": "Enable",
+        "disable": "Disable",
+        "method": "Authentication Method",
+        "sms": "SMS",
+        "authenticator": "Authenticator App",
+        "email": "Email"
+      },
+      "activeSessions": {
+        "title": "Active Sessions",
+        "device": "Device",
+        "location": "Location",
+        "lastActive": "Last Active",
+        "current": "Current Session",
+        "endSession": "End Session"
+      },
+      "loginHistory": {
+        "title": "Login History",
+        "date": "Date",
+        "device": "Device",
+        "location": "Location",
+        "status": "Status",
+        "success": "Success",
+        "failed": "Failed"
+      }
+    },
+    "integrations": {
+      "title": "Integrations",
+      "description": "Connect third-party services",
+      "calendar": {
+        "title": "Calendar Integration",
+        "googleCalendar": "Google Calendar",
+        "outlook": "Outlook Calendar",
+        "ical": "iCal"
+      },
+      "messaging": {
+        "title": "Messaging",
+        "whatsapp": "WhatsApp Business",
+        "telegram": "Telegram"
+      },
+      "accounting": {
+        "title": "Accounting",
+        "quickbooks": "QuickBooks",
+        "xero": "Xero"
+      },
+      "connected": "Connected",
+      "notConnected": "Not Connected",
+      "connect": "Connect",
+      "disconnect": "Disconnect",
+      "lastSync": "Last Sync"
+    }
+  },
+  "navigation": {
+    "overview": "Overview",
+    "myVehicles": "My Vehicles",
+    "bookings": "Bookings",
+    "calendar": "Calendar",
+    "earnings": "Earnings",
+    "messages": "Messages",
+    "reviews": "Reviews",
+    "analytics": "Analytics",
+    "settings": "Settings",
+    "help": "Help"
+  },
+  "header": {
+    "search": "Search vehicles, bookings, or renters...",
+    "addVehicle": "Add Vehicle",
+    "notifications": "Notifications",
+    "profile": "Profile",
+    "logout": "Logout",
+    "superHost": "Super Host"
+  },
+  "notifications": {
+    "title": "Notifications",
+    "markAllRead": "Mark All as Read",
+    "viewAll": "View All",
+    "types": {
+      "newBooking": "New Booking",
+      "bookingConfirmed": "Booking Confirmed",
+      "bookingCancelled": "Booking Cancelled",
+      "newMessage": "New Message",
+      "newReview": "New Review",
+      "paymentReceived": "Payment Received",
+      "rentalStarting": "Rental Starting",
+      "rentalEnding": "Rental Ending",
+      "maintenanceDue": "Maintenance Due"
+    },
+    "emptyState": {
+      "title": "No notifications",
+      "description": "New notifications will appear here"
+    }
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "success": "Operation successful",
+    "confirm": "Confirm",
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "view": "View",
+    "close": "Close",
+    "search": "Search",
+    "filter": "Filter",
+    "sort": "Sort",
+    "actions": "Actions",
+    "more": "More",
+    "less": "Less",
+    "showAll": "Show All",
+    "showLess": "Show Less",
+    "select": "Select",
+    "upload": "Upload",
+    "download": "Download",
+    "export": "Export",
+    "import": "Import",
+    "print": "Print",
+    "share": "Share",
+    "yes": "Yes",
+    "no": "No",
+    "all": "All",
+    "none": "None",
+    "optional": "Optional",
+    "required": "Required",
+    "recommended": "Recommended",
+    "new": "New",
+    "updated": "Updated",
+    "deleted": "Deleted",
+    "draft": "Draft",
+    "published": "Published",
+    "active": "Active",
+    "inactive": "Inactive",
+    "enabled": "Enabled",
+    "disabled": "Disabled",
+    "verified": "Verified",
+    "unverified": "Unverified",
+    "pending": "Pending",
+    "approved": "Approved",
+    "rejected": "Rejected",
+    "total": "Total",
+    "average": "Average",
+    "min": "Min",
+    "max": "Max",
+    "from": "From",
+    "to": "To",
+    "date": "Date",
+    "time": "Time",
+    "today": "Today",
+    "yesterday": "Yesterday",
+    "tomorrow": "Tomorrow",
+    "week": "Week",
+    "month": "Month",
+    "year": "Year",
+    "day": "Day",
+    "hour": "Hour",
+    "minute": "Minute",
+    "second": "Second",
+    "currency": {
+      "try": "TRY",
+      "usd": "USD",
+      "eur": "EUR"
+    },
+    "units": {
+      "km": "km",
+      "liter": "liter",
+      "hp": "HP",
+      "people": "people",
+      "days": "days",
+      "hours": "hours"
+    }
+  }
+}

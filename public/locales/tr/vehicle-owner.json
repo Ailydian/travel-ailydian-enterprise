@@ -1,0 +1,1344 @@
+{
+  "dashboard": {
+    "welcome": "Hoş Geldiniz, {{name}}!",
+    "subtitle": "Araç Kiralama Dashboard'unuzda bugün neler oluyor?",
+    "addVehicle": "Yeni Araç Ekle",
+    "detailedAnalytics": "Detaylı Analitik",
+    "stats": {
+      "totalVehicles": "Toplam Araç",
+      "activeVehicles": "Aktif Araçlar",
+      "totalRevenue": "Toplam Gelir",
+      "activeRentals": "Aktif Kiralama",
+      "monthlyIncome": "Aylık Gelir",
+      "occupancyRate": "Doluluk Oranı",
+      "avgRating": "Ortalama Puan",
+      "pendingBookings": "Bekleyen Rezervasyonlar",
+      "responseTime": "Yanıt Süresi",
+      "upcomingPickups": "Yaklaşan Teslimler",
+      "upcomingReturns": "Yaklaşan İadeler",
+      "maintenanceDue": "Bakım Gereken Araçlar"
+    },
+    "charts": {
+      "weeklyRevenue": "Haftalık Gelir Analizi",
+      "monthlyRevenue": "Aylık Gelir Grafiği",
+      "rentalTrend": "Kiralama Eğilimi",
+      "occupancyTrend": "Doluluk Oranı Trendi",
+      "vehiclePerformance": "Araç Performans Dağılımı",
+      "bookingsBySource": "Rezervasyon Kaynaklarına Göre",
+      "timeRange": {
+        "7d": "Son 7 Gün",
+        "30d": "Son 30 Gün",
+        "90d": "Son 90 Gün"
+      },
+      "days": {
+        "mon": "Pzt",
+        "tue": "Sal",
+        "wed": "Çar",
+        "thu": "Per",
+        "fri": "Cum",
+        "sat": "Cmt",
+        "sun": "Paz"
+      },
+      "months": {
+        "jan": "Oca",
+        "feb": "Şub",
+        "mar": "Mar",
+        "apr": "Nis",
+        "may": "May",
+        "jun": "Haz",
+        "jul": "Tem",
+        "aug": "Ağu",
+        "sep": "Eyl",
+        "oct": "Eki",
+        "nov": "Kas",
+        "dec": "Ara"
+      }
+    },
+    "upcomingPickups": {
+      "title": "Yaklaşan Teslimler",
+      "renter": "Kiralayan",
+      "vehicle": "Araç",
+      "pickupDate": "Teslim Tarihi",
+      "pickupTime": "Teslim Saati",
+      "returnDate": "İade Tarihi",
+      "amount": "Tutar",
+      "days": "Gün",
+      "status": {
+        "confirmed": "Onaylandı",
+        "pending": "Beklemede",
+        "picked-up": "Teslim Alındı",
+        "in-progress": "Kullanımda",
+        "returned": "İade Edildi",
+        "completed": "Tamamlandı",
+        "cancelled": "İptal Edildi",
+        "rejected": "Reddedildi"
+      },
+      "viewAll": "Tümünü Görüntüle"
+    },
+    "recentRentals": {
+      "title": "Son Kiralamalar",
+      "newRental": "Yeni kiralama",
+      "rentalCompleted": "Kiralama tamamlandı",
+      "newReview": "Yeni değerlendirme aldınız",
+      "newMessage": "sizinle iletişime geçti",
+      "paymentReceived": "ödeme alındı",
+      "vehicleReturned": "araç iade edildi",
+      "timeAgo": {
+        "justNow": "Az önce",
+        "minutesAgo": "{{count}} dk önce",
+        "hoursAgo": "{{count}} saat önce",
+        "daysAgo": "{{count}} gün önce"
+      }
+    },
+    "recentActivity": {
+      "title": "Son Aktiviteler",
+      "newBooking": "Yeni rezervasyon",
+      "bookingCancelled": "Rezervasyon iptal edildi",
+      "vehicleViewed": "Aracınız görüntülendi",
+      "messageReceived": "Yeni mesaj alındı"
+    },
+    "performance": {
+      "title": "Performans",
+      "occupancy": "Doluluk",
+      "rating": "Ortalama Puan",
+      "revenue": "Gelir",
+      "bookings": "Rezervasyon"
+    }
+  },
+  "vehicles": {
+    "title": "Araçlarım",
+    "addNew": "Yeni Araç Ekle",
+    "totalVehicles": "Toplam Araç",
+    "activeListings": "Aktif İlanlar",
+    "totalEarnings": "Toplam Kazanç",
+    "filters": {
+      "all": "Tümü",
+      "available": "Müsait",
+      "rented": "Kiralandı",
+      "maintenance": "Bakımda",
+      "inactive": "Pasif",
+      "draft": "Taslak",
+      "search": "Araç ara..."
+    },
+    "table": {
+      "vehicle": "Araç",
+      "brand": "Marka",
+      "model": "Model",
+      "year": "Yıl",
+      "type": "Tip",
+      "licensePlate": "Plaka",
+      "dailyRate": "Günlük Ücret",
+      "status": "Durum",
+      "occupancy": "Doluluk",
+      "rating": "Puan",
+      "actions": "İşlemler",
+      "bookings": "Kiralama"
+    },
+    "actions": {
+      "view": "Görüntüle",
+      "edit": "Düzenle",
+      "delete": "Sil",
+      "deactivate": "Pasifleştir",
+      "activate": "Aktifleştir",
+      "viewBookings": "Kiralamaları Gör",
+      "viewAnalytics": "Analitik Gör",
+      "duplicate": "Kopyala"
+    },
+    "types": {
+      "economy-sedan": "Ekonomik Sedan",
+      "comfort-sedan": "Konfor Sedan",
+      "premium-sedan": "Premium Sedan",
+      "luxury-sedan": "Lüks Sedan",
+      "economy-suv": "Ekonomik SUV",
+      "premium-suv": "Premium SUV",
+      "minivan": "Minivan",
+      "passenger-van": "Yolcu Minibüsü",
+      "commercial-van": "Ticari Van",
+      "pickup-truck": "Kamyonet",
+      "convertible": "Cabrio",
+      "sports-car": "Spor Araba",
+      "electric-vehicle": "Elektrikli Araç",
+      "hybrid": "Hybrid Araç",
+      "other": "Diğer"
+    },
+    "status": {
+      "available": "Müsait",
+      "rented": "Kiralandı",
+      "maintenance": "Bakımda",
+      "inactive": "Pasif",
+      "pending_approval": "İnceleniyor",
+      "rejected": "Reddedildi",
+      "draft": "Taslak"
+    },
+    "category": {
+      "economy": "Ekonomik",
+      "comfort": "Konfor",
+      "premium": "Premium",
+      "luxury": "Lüks",
+      "suv": "SUV",
+      "family": "Aile",
+      "commercial": "Ticari",
+      "eco": "Çevre Dostu"
+    },
+    "transmission": {
+      "manual": "Manuel",
+      "automatic": "Otomatik",
+      "semi-automatic": "Yarı Otomatik"
+    },
+    "fuelType": {
+      "petrol": "Benzin",
+      "diesel": "Dizel",
+      "electric": "Elektrik",
+      "hybrid": "Hibrit",
+      "lpg": "LPG",
+      "cng": "CNG"
+    },
+    "emptyState": {
+      "title": "Henüz araç eklemediniz",
+      "description": "İlk aracınızı ekleyerek kiralama işlemine başlayın",
+      "action": "İlk Aracı Ekle"
+    }
+  },
+  "vehicleSubmission": {
+    "title": "Yeni Araç Ekle",
+    "subtitle": "8 adımda aracınızı listeye ekleyin",
+    "progress": "Adım {{current}} / {{total}}",
+    "buttons": {
+      "previous": "Önceki",
+      "next": "İleri",
+      "save": "Kaydet",
+      "saveDraft": "Taslak Olarak Kaydet",
+      "submit": "Gönder",
+      "cancel": "İptal",
+      "skip": "Atla"
+    },
+    "autoSave": "Otomatik kaydedildi",
+    "unsavedChanges": "Kaydedilmemiş değişiklikleriniz var",
+    "step1": {
+      "title": "Araç Tipi",
+      "subtitle": "Aracınızın kategorisini seçin",
+      "selectType": "Araç kategorisi seçin",
+      "popular": "Popüler",
+      "types": {
+        "economy-sedan": {
+          "title": "Ekonomik Sedan",
+          "description": "Uygun fiyatlı, yakıt tasarruflu şehir içi araçlar"
+        },
+        "comfort-sedan": {
+          "title": "Konfor Sedan",
+          "description": "Geniş ve konforlu orta segment araçlar"
+        },
+        "premium-sedan": {
+          "title": "Premium Sedan",
+          "description": "Üst segment konforlu sedan araçlar"
+        },
+        "luxury-sedan": {
+          "title": "Lüks Sedan",
+          "description": "Üst düzey lüks sedan araçlar"
+        },
+        "economy-suv": {
+          "title": "Ekonomik SUV",
+          "description": "Uygun fiyatlı SUV araçlar"
+        },
+        "premium-suv": {
+          "title": "Premium SUV",
+          "description": "Lüks ve geniş SUV araçlar"
+        },
+        "minivan": {
+          "title": "Minivan (7-9 Kişilik)",
+          "description": "Aileler ve gruplar için geniş minivan"
+        },
+        "passenger-van": {
+          "title": "Yolcu Minibüsü (12-17 Kişi)",
+          "description": "Büyük gruplar için minibüs"
+        },
+        "commercial-van": {
+          "title": "Ticari Van",
+          "description": "Yük taşıma ve ticari işler için"
+        },
+        "pickup-truck": {
+          "title": "Kamyonet",
+          "description": "Açık kasa yük taşıma aracı"
+        },
+        "convertible": {
+          "title": "Cabrio",
+          "description": "Açık tavan lüks araçlar"
+        },
+        "sports-car": {
+          "title": "Spor Araba",
+          "description": "Yüksek performanslı spor araçlar"
+        },
+        "electric-vehicle": {
+          "title": "Elektrikli Araç",
+          "description": "Tamamen elektrikli çevre dostu araçlar"
+        },
+        "hybrid": {
+          "title": "Hybrid Araç",
+          "description": "Benzin ve elektrik motorlu tasarruflu araçlar"
+        }
+      }
+    },
+    "step2": {
+      "title": "Araç Detayları",
+      "subtitle": "Aracınızın temel bilgilerini girin",
+      "fields": {
+        "brand": "Marka",
+        "model": "Model",
+        "year": "Üretim Yılı",
+        "licensePlate": "Plaka",
+        "vin": "Şasi Numarası (VIN)",
+        "color": "Renk",
+        "description": "Açıklama",
+        "highlightDescription": "Öne Çıkan Özellikler",
+        "transmission": "Vites Türü",
+        "fuelType": "Yakıt Türü",
+        "seats": "Koltuk Sayısı",
+        "doors": "Kapı Sayısı",
+        "luggage": "Bagaj Kapasitesi",
+        "engineSize": "Motor Hacmi",
+        "horsePower": "Beygir Gücü",
+        "mileage": "Kilometre",
+        "tankCapacity": "Depo Kapasitesi",
+        "country": "Ülke",
+        "province": "İl",
+        "city": "İlçe",
+        "district": "Mahalle",
+        "postalCode": "Posta Kodu",
+        "address": "Adres",
+        "latitude": "Enlem",
+        "longitude": "Boylam"
+      },
+      "placeholders": {
+        "brand": "Örn: Toyota, BMW, Mercedes",
+        "model": "Örn: Camry, 3 Serisi, C-Class",
+        "year": "2024",
+        "licensePlate": "34 ABC 123",
+        "vin": "17 haneli şasi numarası",
+        "color": "Beyaz, Siyah, Gri...",
+        "description": "Aracınızı detaylı açıklayın...",
+        "highlightDescription": "Bu aracı özel kılan nedir?",
+        "engineSize": "2.0L, 1.6L...",
+        "horsePower": "150",
+        "mileage": "50000",
+        "tankCapacity": "60",
+        "country": "Türkiye",
+        "province": "İl seçin",
+        "city": "İlçe girin",
+        "district": "Mahalle girin",
+        "postalCode": "34000",
+        "address": "Tam adres girin"
+      },
+      "help": {
+        "vin": "Aracınızın ruhsatında bulabilirsiniz",
+        "luggage": "Büyük bavul sayısı",
+        "engineSize": "Motor hacmi (Litre)",
+        "tankCapacity": "Litre cinsinden"
+      }
+    },
+    "step3": {
+      "title": "Özellikler ve Donanımlar",
+      "subtitle": "Aracınızda hangi özellikler var?",
+      "categories": {
+        "basic": "Temel Özellikler",
+        "comfort": "Konfor Özellikleri",
+        "technology": "Teknoloji",
+        "safety": "Güvenlik",
+        "entertainment": "Eğlence",
+        "winter": "Kış Donanımı",
+        "child": "Çocuk Güvenliği",
+        "assistance": "Yardımcı Sistemler",
+        "additional": "Ek Özellikler"
+      },
+      "features": {
+        "air-conditioning": "Klima",
+        "abs": "ABS",
+        "airbags": "Hava Yastıkları",
+        "power-steering": "Hidrolik Direksiyon",
+        "power-windows": "Elektrikli Camlar",
+        "central-locking": "Merkezi Kilit",
+        "leather-seats": "Deri Koltuklar",
+        "heated-seats": "Isıtmalı Koltuklar",
+        "cooled-seats": "Havalandırmalı Koltuklar",
+        "electric-seats": "Elektrikli Koltuklar",
+        "sunroof": "Sunroof",
+        "panoramic-roof": "Panoramik Tavan",
+        "cruise-control": "Hız Sabitleyici",
+        "rain-sensor": "Yağmur Sensörü",
+        "light-sensor": "Işık Sensörü",
+        "gps": "GPS Navigasyon",
+        "bluetooth": "Bluetooth",
+        "usb-port": "USB Portu",
+        "aux-input": "AUX Girişi",
+        "apple-carplay": "Apple CarPlay",
+        "android-auto": "Android Auto",
+        "touchscreen": "Dokunmatik Ekran",
+        "rear-camera": "Geri Görüş Kamerası",
+        "parking-sensors": "Park Sensörleri",
+        "360-camera": "360° Kamera",
+        "esp": "ESP",
+        "traction-control": "Çekiş Kontrolü",
+        "hill-assist": "Yokuş Kalkış Desteği",
+        "blind-spot": "Kör Nokta Uyarısı",
+        "lane-assist": "Şerit Takip Asistanı",
+        "emergency-brake": "Acil Fren Asistanı",
+        "isofix": "ISOFIX",
+        "alarm-system": "Alarm Sistemi",
+        "immobilizer": "İmmobilizer",
+        "premium-sound": "Premium Ses Sistemi",
+        "cd-player": "CD Çalar",
+        "mp3-player": "MP3 Çalar",
+        "rear-entertainment": "Arka Eğlence Sistemi",
+        "winter-tires": "Kış Lastiği",
+        "all-season-tires": "4 Mevsim Lastik",
+        "snow-chains": "Kar Zinciri",
+        "child-seat-anchors": "Çocuk Koltuğu Bağlantısı",
+        "roof-rack": "Tavan Taşıyıcı",
+        "tow-hitch": "Çeki Demiri",
+        "bike-rack": "Bisiklet Taşıyıcı",
+        "ski-rack": "Kayak Taşıyıcı",
+        "dashcam": "Araç Kamerası",
+        "toolkit": "Araç Takım Çantası",
+        "first-aid-kit": "İlk Yardım Çantası",
+        "fire-extinguisher": "Yangın Söndürücü",
+        "emergency-kit": "Acil Durum Kiti"
+      },
+      "pickupOptions": {
+        "title": "Teslim Alma Seçenekleri",
+        "airportPickup": "Havalimanı Teslim",
+        "airportName": "Havalimanı Adı",
+        "airportCode": "Havalimanı Kodu",
+        "airportFee": "Havalimanı Ücreti",
+        "homeDelivery": "Kapıya Teslim",
+        "homeDeliveryFee": "Teslimat Ücreti",
+        "homeDeliveryRadius": "Teslimat Yarıçapı (km)",
+        "meetupLocations": "Buluşma Noktaları"
+      }
+    },
+    "step4": {
+      "title": "Fotoğraflar",
+      "subtitle": "Aracınızın fotoğraflarını ekleyin",
+      "upload": "Fotoğraf Yükle",
+      "dragDrop": "Fotoğrafları sürükle bırak veya tıkla",
+      "mainPhoto": "Ana Fotoğraf",
+      "setAsMain": "Ana Fotoğraf Yap",
+      "remove": "Kaldır",
+      "maxFiles": "Maksimum {{count}} fotoğraf",
+      "uploadedCount": "{{current}} / {{total}} fotoğraf yüklendi",
+      "categories": {
+        "title": "Fotoğraf Kategorileri",
+        "exterior-front": "Dış Görünüm - Ön",
+        "exterior-rear": "Dış Görünüm - Arka",
+        "exterior-left": "Dış Görünüm - Sol",
+        "exterior-right": "Dış Görünüm - Sağ",
+        "interior-front": "İç Mekan - Ön",
+        "interior-rear": "İç Mekan - Arka",
+        "interior-dashboard": "İç Mekan - Gösterge Paneli",
+        "trunk": "Bagaj",
+        "engine": "Motor",
+        "wheels": "Jantlar",
+        "damage": "Hasar",
+        "other": "Diğer"
+      },
+      "required": {
+        "title": "Gerekli Fotoğraflar",
+        "description": "En az bu fotoğrafları yüklemelisiniz:",
+        "exteriorFront": "Dış görünüm ön",
+        "exteriorRear": "Dış görünüm arka",
+        "exteriorLeft": "Dış görünüm sol",
+        "exteriorRight": "Dış görünüm sağ",
+        "interior": "İç mekan",
+        "dashboard": "Gösterge paneli"
+      },
+      "video": {
+        "title": "Video (Opsiyonel)",
+        "url": "Video URL'si",
+        "placeholder": "YouTube veya Vimeo linki"
+      },
+      "tips": {
+        "title": "Fotoğraf İpuçları",
+        "tip1": "Aydınlık bir ortamda, gündüz saatlerinde çekin",
+        "tip2": "Aracı temiz ve düzenli tutun",
+        "tip3": "Tüm açılardan net fotoğraflar çekin",
+        "tip4": "Hasarlı veya kusurlu kısımları gösterin",
+        "tip5": "Özel özellikleri vurgulayın"
+      }
+    },
+    "step5": {
+      "title": "Fiyatlandırma",
+      "subtitle": "Kiralama ücretlerinizi belirleyin",
+      "fields": {
+        "dailyRate": "Günlük Ücret",
+        "hourlyRate": "Saatlik Ücret (Opsiyonel)",
+        "currency": "Para Birimi",
+        "weeklyDiscount": "Haftalık İndirim",
+        "monthlyDiscount": "Aylık İndirim",
+        "earlyBookingDiscount": "Erken Rezervasyon İndirimi",
+        "lastMinuteDiscard": "Son Dakika İndirimi",
+        "securityDeposit": "Güvenlik Deposu",
+        "depositRefundDays": "Depozito İade Süresi (gün)",
+        "cleaningFee": "Temizlik Ücreti",
+        "serviceFee": "Hizmet Bedeli",
+        "taxPercentage": "Vergi Oranı"
+      },
+      "placeholders": {
+        "dailyRate": "500",
+        "hourlyRate": "50",
+        "securityDeposit": "1000"
+      },
+      "perDay": "/ gün",
+      "perHour": "/ saat",
+      "percentage": "Yüzde",
+      "mileageLimit": {
+        "title": "Kilometre Limiti",
+        "unlimited": "Sınırsız",
+        "limited": "Sınırlı",
+        "dailyLimit": "Günlük Limit (km)",
+        "weeklyLimit": "Haftalık Limit (km)",
+        "monthlyLimit": "Aylık Limit (km)",
+        "extraMileageFee": "Fazla Km Ücreti (km başına)"
+      },
+      "fuelPolicy": {
+        "title": "Yakıt Politikası",
+        "full-to-full": "Dolu alındı, dolu iade",
+        "same-to-same": "Aynı seviyede iade",
+        "pre-purchase": "Önceden satın alınmış",
+        "refund": "İade edilebilir"
+      },
+      "fees": {
+        "title": "Ekstra Ücretler",
+        "additionalDriverFee": "Ek Sürücü Ücreti",
+        "youngDriverFee": "Genç Sürücü Ücreti (21-25 yaş)",
+        "youngDriverAge": "Genç Sürücü Minimum Yaş",
+        "gpsRentalFee": "GPS Kiralama Ücreti",
+        "childSeatFee": "Çocuk Koltuğu Ücreti",
+        "boosterSeatFee": "Yükseltici Koltuk Ücreti",
+        "snowChainsFee": "Kar Zinciri Ücreti",
+        "additionalInsuranceFee": "Ek Sigorta Ücreti",
+        "lateReturnFeePerHour": "Geç İade Ücreti (saat başına)",
+        "cancellationFee": "İptal Ücreti",
+        "cancellationFeePercentage": "İptal Ücreti (%)"
+      },
+      "seasonalPricing": {
+        "title": "Sezonluk Fiyatlandırma (Opsiyonel)",
+        "addSeason": "Sezon Ekle",
+        "seasonName": "Sezon Adı",
+        "startDate": "Başlangıç Tarihi",
+        "endDate": "Bitiş Tarihi",
+        "dailyRate": "Günlük Ücret",
+        "minRentalDays": "Minimum Kiralama (gün)"
+      },
+      "marketComparison": {
+        "title": "Piyasa Karşılaştırması",
+        "description": "Benzer araçların ortalama günlük ücreti",
+        "average": "Ortalama",
+        "yourPrice": "Sizin Fiyatınız"
+      }
+    },
+    "step6": {
+      "title": "Müsaitlik ve Kurallar",
+      "subtitle": "Kiralama kurallarınızı belirleyin",
+      "availability": {
+        "title": "Müsaitlik Ayarları",
+        "minRentalDays": "Minimum Kiralama Süresi (gün)",
+        "maxRentalDays": "Maksimum Kiralama Süresi (gün)",
+        "advanceNoticeHours": "Kaç Saat Önceden Rezervasyon",
+        "instantBookingEnabled": "Anında Rezervasyon Aktif",
+        "requiresApproval": "Onay Gerekiyor"
+      },
+      "rentalRules": {
+        "title": "Sürücü Gereksinimleri",
+        "minimumAge": "Minimum Yaş",
+        "minimumDrivingExperience": "Minimum Sürüş Deneyimi (yıl)",
+        "requiresInternationalLicense": "Uluslararası Ehliyet Gerekli"
+      },
+      "policies": {
+        "title": "Politikalar",
+        "smokingAllowed": "Sigara İçilebilir",
+        "petsAllowed": "Evcil Hayvan Kabul Edilir",
+        "petTypes": "İzin Verilen Hayvan Türleri",
+        "petFee": "Evcil Hayvan Ücreti",
+        "crossBorderTravelAllowed": "Sınır Ötesi Seyahat",
+        "allowedCountries": "İzin Verilen Ülkeler",
+        "offRoadAllowed": "Arazi Kullanımı",
+        "rideSharingAllowed": "Ticari Taşımacılık (Uber, vb.)",
+        "commercialUseAllowed": "Ticari Kullanım"
+      },
+      "cancellationPolicy": {
+        "title": "İptal Politikası",
+        "flexible": "Esnek - 24 saat öncesine kadar ücretsiz iptal",
+        "moderate": "Orta - 48 saat öncesine kadar ücretsiz iptal",
+        "strict": "Katı - 7 gün öncesine kadar %50 iade",
+        "very_strict": "Çok Katı - 14 gün öncesine kadar %50 iade",
+        "non_refundable": "İade Edilemez"
+      },
+      "customRules": {
+        "title": "Özel Kurallar",
+        "placeholder": "Ek kurallarınızı yazın...",
+        "addRule": "Kural Ekle"
+      },
+      "instructions": {
+        "title": "Teslim Talimatları",
+        "pickupInstructions": "Teslim Alma Talimatları",
+        "pickupPlaceholder": "Kiracıya aracı nereden ve nasıl alacağını açıklayın...",
+        "returnInstructions": "İade Talimatları",
+        "returnPlaceholder": "Aracın nasıl iade edileceğini açıklayın..."
+      }
+    },
+    "step7": {
+      "title": "Sigorta ve Belgeler",
+      "subtitle": "Yasal belgeleri yükleyin",
+      "insurance": {
+        "title": "Sigorta Bilgileri",
+        "hasInsurance": "Sigorta Var",
+        "insuranceProvider": "Sigorta Şirketi",
+        "policyNumber": "Poliçe Numarası",
+        "expiryDate": "Son Geçerlilik Tarihi",
+        "coverageType": "Teminat Türü",
+        "comprehensive": "Kasko",
+        "third-party": "Trafik Sigortası",
+        "collision": "Çarpışma",
+        "insuranceCertificate": "Sigorta Belgesi",
+        "uploadCertificate": "Belge Yükle"
+      },
+      "registration": {
+        "title": "Ruhsat Bilgileri",
+        "registrationDocument": "Ruhsat Belgesi",
+        "registrationNumber": "Ruhsat Numarası",
+        "registrationExpiryDate": "Ruhsat Geçerlilik Tarihi",
+        "registeredOwner": "Kayıtlı Malik",
+        "uploadDocument": "Ruhsat Yükle"
+      },
+      "inspection": {
+        "title": "Muayene Bilgileri (Opsiyonel)",
+        "inspectionCertificate": "Muayene Belgesi",
+        "lastInspectionDate": "Son Muayene Tarihi",
+        "nextInspectionDate": "Gelecek Muayene Tarihi",
+        "uploadCertificate": "Muayene Belgesi Yükle"
+      },
+      "ownerDocuments": {
+        "title": "Malik Belgeleri",
+        "driverLicense": "Sürücü Belgesi",
+        "governmentId": "Kimlik Belgesi",
+        "uploadLicense": "Ehliyet Yükle",
+        "uploadId": "Kimlik Yükle"
+      },
+      "rentalInsurance": {
+        "title": "Kiracılara Sunulan Sigorta Seçenekleri (Opsiyonel)",
+        "addOption": "Sigorta Paketi Ekle",
+        "name": "Paket Adı",
+        "description": "Açıklama",
+        "pricePerDay": "Günlük Ücret",
+        "deductible": "Muafiyet Tutarı",
+        "coverage": {
+          "collisionDamageWaiver": "Çarpışma Hasarı Muafiyeti",
+          "theftProtection": "Hırsızlık Koruması",
+          "liabilityProtection": "Sorumluluk Koruması",
+          "personalAccidentInsurance": "Kişisel Kaza Sigortası",
+          "tiresAndWindscreen": "Lastik ve Cam Koruması"
+        },
+        "recommended": "Önerilen Paket"
+      },
+      "documentTips": {
+        "title": "Belge Yükleme İpuçları",
+        "tip1": "Tüm belgeler net ve okunabilir olmalı",
+        "tip2": "PDF, JPG veya PNG formatında yükleyin",
+        "tip3": "Geçerlilik tarihlerini kontrol edin",
+        "tip4": "Kişisel bilgilerinizi gizlemeyin"
+      }
+    },
+    "step8": {
+      "title": "İnceleme ve Gönder",
+      "subtitle": "Bilgilerinizi kontrol edin ve gönderin",
+      "sections": {
+        "basicInfo": "Temel Bilgiler",
+        "vehicleDetails": "Araç Detayları",
+        "location": "Konum",
+        "features": "Özellikler",
+        "photos": "Fotoğraflar",
+        "pricing": "Fiyatlandırma",
+        "availability": "Müsaitlik",
+        "rules": "Kurallar",
+        "insurance": "Sigorta",
+        "documents": "Belgeler"
+      },
+      "summary": {
+        "vehicle": "Araç",
+        "type": "Tip",
+        "year": "Yıl",
+        "transmission": "Vites",
+        "fuel": "Yakıt",
+        "seats": "Koltuk",
+        "dailyRate": "Günlük Ücret",
+        "deposit": "Depozito",
+        "location": "Konum",
+        "features": "Özellikler",
+        "photosCount": "Fotoğraf Sayısı",
+        "edit": "Düzenle"
+      },
+      "agreements": {
+        "title": "Anlaşmalar",
+        "agreeToTerms": "Kullanım şartlarını okudum ve kabul ediyorum",
+        "agreeToPrivacyPolicy": "Gizlilik politikasını okudum ve kabul ediyorum",
+        "agreeToInsurancePolicy": "Sigorta politikasını okudum ve kabul ediyorum",
+        "agreeToRentalRules": "Kiralama kurallarını okudum ve kabul ediyorum",
+        "agreeToBackgroundCheck": "Geçmiş kontrolü yapılmasını kabul ediyorum",
+        "confirmAccuracy": "Verdiğim bilgilerin doğru olduğunu onaylıyorum"
+      },
+      "verification": {
+        "title": "Doğrulama Durumu",
+        "governmentId": "Kimlik Doğrulandı",
+        "driverLicense": "Ehliyet Doğrulandı",
+        "address": "Adres Doğrulandı",
+        "phone": "Telefon Doğrulandı",
+        "email": "E-posta Doğrulandı",
+        "backgroundCheck": "Geçmiş Kontrolü Tamamlandı",
+        "pending": "Beklemede",
+        "verified": "Doğrulandı"
+      },
+      "submitButton": "Aracı Yayınla",
+      "saveDraftButton": "Taslak Olarak Kaydet",
+      "submitting": "Gönderiliyor...",
+      "additionalNotes": {
+        "title": "Ek Notlar (Opsiyonel)",
+        "placeholder": "Platform yöneticilerine iletmek istediğiniz notlar..."
+      }
+    },
+    "validation": {
+      "required": "Bu alan zorunludur",
+      "minLength": "En az {{count}} karakter olmalıdır",
+      "maxLength": "En fazla {{count}} karakter olmalıdır",
+      "invalidEmail": "Geçersiz e-posta adresi",
+      "invalidPhone": "Geçersiz telefon numarası",
+      "invalidNumber": "Geçersiz sayı",
+      "minValue": "Minimum {{value}} olmalıdır",
+      "maxValue": "Maksimum {{value}} olmalıdır",
+      "invalidYear": "Geçerli bir yıl girin",
+      "invalidPlate": "Geçersiz plaka formatı",
+      "invalidVin": "VIN 17 karakter olmalıdır",
+      "selectAtLeast": "En az {{count}} seçim yapın",
+      "uploadAtLeast": "En az {{count}} fotoğraf yükleyin",
+      "selectVehicleType": "Lütfen bir araç tipi seçin",
+      "futureDate": "Gelecek bir tarih seçin",
+      "pastDate": "Geçmiş bir tarih seçin",
+      "invalidDateRange": "Geçersiz tarih aralığı",
+      "agreementRequired": "Bu anlaşmayı kabul etmelisiniz"
+    },
+    "success": {
+      "title": "Başarılı!",
+      "message": "Aracınız başarıyla eklendi ve incelemeye alındı.",
+      "submittedMessage": "Aracınız inceleme sürecine alındı. 24-48 saat içinde onaylanacak.",
+      "draftSavedMessage": "Taslak başarıyla kaydedildi. İstediğiniz zaman kaldığınız yerden devam edebilirsiniz.",
+      "backToDashboard": "Dashboard'a Dön",
+      "addAnother": "Başka Araç Ekle",
+      "viewVehicle": "Aracı Görüntüle"
+    },
+    "error": {
+      "title": "Hata Oluştu",
+      "uploadFailed": "Dosya yüklenemedi",
+      "saveFailed": "Kayıt başarısız",
+      "submitFailed": "Gönderim başarısız",
+      "tryAgain": "Tekrar Dene",
+      "contactSupport": "Destek ile İletişime Geç"
+    }
+  },
+  "bookings": {
+    "title": "Rezervasyonlar",
+    "subtitle": "Tüm kiralama rezervasyonlarınız",
+    "filters": {
+      "all": "Tümü",
+      "pending": "Bekleyen",
+      "confirmed": "Onaylı",
+      "picked-up": "Teslim Edildi",
+      "in-progress": "Kullanımda",
+      "returned": "İade Edildi",
+      "completed": "Tamamlandı",
+      "cancelled": "İptal Edildi",
+      "search": "Rezervasyon ara..."
+    },
+    "table": {
+      "booking": "Rezervasyon",
+      "renter": "Kiralayan",
+      "vehicle": "Araç",
+      "pickupDate": "Teslim Tarihi",
+      "returnDate": "İade Tarihi",
+      "duration": "Süre",
+      "amount": "Tutar",
+      "status": "Durum",
+      "actions": "İşlemler"
+    },
+    "actions": {
+      "view": "Görüntüle",
+      "accept": "Kabul Et",
+      "reject": "Reddet",
+      "cancel": "İptal Et",
+      "message": "Mesaj Gönder",
+      "viewDetails": "Detayları Gör"
+    },
+    "status": {
+      "pending": "Onay Bekliyor",
+      "confirmed": "Onaylandı",
+      "picked-up": "Teslim Alındı",
+      "in-progress": "Kullanımda",
+      "returned": "İade Edildi",
+      "completed": "Tamamlandı",
+      "cancelled": "İptal Edildi",
+      "rejected": "Reddedildi"
+    },
+    "details": {
+      "title": "Rezervasyon Detayları",
+      "bookingId": "Rezervasyon No",
+      "renterInfo": "Kiralayan Bilgileri",
+      "renterName": "Ad Soyad",
+      "renterEmail": "E-posta",
+      "renterPhone": "Telefon",
+      "renterAge": "Yaş",
+      "drivingLicense": "Ehliyet No",
+      "vehicleInfo": "Araç Bilgileri",
+      "rentalPeriod": "Kiralama Dönemi",
+      "pickupLocation": "Teslim Alma Yeri",
+      "returnLocation": "İade Yeri",
+      "pickupDate": "Teslim Tarihi",
+      "pickupTime": "Teslim Saati",
+      "returnDate": "İade Tarihi",
+      "returnTime": "İade Saati",
+      "totalDays": "Toplam Gün",
+      "pricing": "Fiyat Detayı",
+      "subtotal": "Ara Toplam",
+      "discounts": "İndirimler",
+      "fees": "Ücretler",
+      "tax": "Vergi",
+      "total": "Toplam",
+      "deposit": "Depozito",
+      "insurance": "Sigorta",
+      "extraServices": "Ekstra Hizmetler",
+      "additionalDrivers": "Ek Sürücüler",
+      "specialRequests": "Özel Talepler",
+      "notes": "Notlar",
+      "renterNotes": "Kiralayan Notları",
+      "ownerNotes": "Malik Notları"
+    },
+    "inspection": {
+      "title": "Araç Kontrolü",
+      "preRental": "Teslim Öncesi Kontrol",
+      "postRental": "İade Sonrası Kontrol",
+      "mileageAtPickup": "Teslim Kilometresi",
+      "mileageAtReturn": "İade Kilometresi",
+      "fuelLevelAtPickup": "Teslim Yakıt Seviyesi",
+      "fuelLevelAtReturn": "İade Yakıt Seviyesi",
+      "condition": "Araç Durumu",
+      "photos": "Fotoğraflar",
+      "damages": "Hasarlar",
+      "notes": "Notlar"
+    },
+    "emptyState": {
+      "title": "Henüz rezervasyon yok",
+      "description": "Araçlarınız rezervasyon almaya başladığında burada görünecek",
+      "action": "Araçlarımı Görüntüle"
+    }
+  },
+  "analytics": {
+    "title": "Detaylı Analitik",
+    "subtitle": "Araçlarınızın performansını detaylı analiz edin",
+    "dateRange": "Tarih Aralığı",
+    "export": "Rapor İndir",
+    "overview": {
+      "title": "Genel Bakış",
+      "revenue": "Gelir",
+      "bookings": "Rezervasyon",
+      "occupancy": "Doluluk",
+      "revenue_growth": "Gelir Artışı",
+      "views": "Görüntülenme",
+      "inquiries": "Sorgu",
+      "conversion": "Dönüşüm"
+    },
+    "charts": {
+      "revenueByMonth": "Aylık Gelir Grafiği",
+      "revenueByVehicle": "Araçlara Göre Gelir",
+      "bookingsBySource": "Rezervasyon Kaynaklarına Göre",
+      "occupancyRate": "Doluluk Oranı Trendi",
+      "topPerformers": "En İyi Performans Gösteren Araçlar",
+      "renterDemographics": "Kiralayan Demografisi",
+      "rentalDuration": "Kiralama Süreleri"
+    },
+    "metrics": {
+      "title": "Performans Metrikleri",
+      "totalViews": "Toplam Görüntülenme",
+      "totalInquiries": "Toplam Sorgu",
+      "totalBookings": "Toplam Rezervasyon",
+      "totalRevenue": "Toplam Gelir",
+      "avgBookingValue": "Ortalama Rezervasyon Değeri",
+      "conversionRate": "Dönüşüm Oranı",
+      "avgRating": "Ortalama Puan",
+      "responseRate": "Yanıt Oranı",
+      "responseTime": "Ortalama Yanıt Süresi",
+      "occupancyRate": "Doluluk Oranı",
+      "avgRentalDuration": "Ortalama Kiralama Süresi"
+    },
+    "comparison": {
+      "title": "Pazar Karşılaştırması",
+      "yourVehicles": "Araçlarınız",
+      "marketAverage": "Piyasa Ortalaması",
+      "pricePosition": "Fiyat Pozisyonu",
+      "ratingPosition": "Puan Pozisyonu",
+      "occupancyPosition": "Doluluk Pozisyonu"
+    },
+    "vehicleAnalytics": {
+      "title": "Araç Bazlı Analitik",
+      "selectVehicle": "Araç Seçin",
+      "performance": "Performans",
+      "earnings": "Kazançlar",
+      "reviews": "Değerlendirmeler"
+    },
+    "period": {
+      "today": "Bugün",
+      "yesterday": "Dün",
+      "last7days": "Son 7 Gün",
+      "last30days": "Son 30 Gün",
+      "last90days": "Son 90 Gün",
+      "thisMonth": "Bu Ay",
+      "lastMonth": "Geçen Ay",
+      "thisYear": "Bu Yıl",
+      "lastYear": "Geçen Yıl",
+      "custom": "Özel Tarih"
+    }
+  },
+  "earnings": {
+    "title": "Gelirler",
+    "subtitle": "Kiralama gelirlerinizi görüntüleyin",
+    "totalEarnings": "Toplam Kazanç",
+    "thisMonth": "Bu Ay",
+    "lastMonth": "Geçen Ay",
+    "pendingPayouts": "Bekleyen Ödemeler",
+    "nextPayout": "Sonraki Ödeme",
+    "table": {
+      "date": "Tarih",
+      "booking": "Rezervasyon",
+      "vehicle": "Araç",
+      "renter": "Kiralayan",
+      "gross": "Brüt",
+      "commission": "Komisyon",
+      "net": "Net",
+      "status": "Durum",
+      "payout": "Ödeme Tarihi"
+    },
+    "status": {
+      "pending": "Beklemede",
+      "processing": "İşlemde",
+      "completed": "Tamamlandı",
+      "refunded": "İade Edildi",
+      "disputed": "İhtilaf"
+    },
+    "payout": {
+      "title": "Ödeme Ayarları",
+      "method": "Ödeme Yöntemi",
+      "schedule": "Ödeme Takvimi",
+      "weekly": "Haftalık",
+      "biweekly": "2 Haftada Bir",
+      "monthly": "Aylık",
+      "minimumAmount": "Minimum Ödeme Tutarı",
+      "bankDetails": "Banka Bilgileri",
+      "accountName": "Hesap Sahibi",
+      "accountNumber": "Hesap No",
+      "iban": "IBAN",
+      "swiftCode": "SWIFT Kodu"
+    },
+    "history": {
+      "title": "Ödeme Geçmişi",
+      "payoutDate": "Ödeme Tarihi",
+      "amount": "Tutar",
+      "method": "Yöntem",
+      "status": "Durum",
+      "transactionId": "İşlem No"
+    }
+  },
+  "messages": {
+    "title": "Mesajlar",
+    "subtitle": "Kiracılarla iletişim kurun",
+    "newMessage": "Yeni Mesaj",
+    "searchMessages": "Mesaj ara...",
+    "conversations": "Görüşmeler",
+    "unread": "Okunmamış",
+    "archived": "Arşiv",
+    "filters": {
+      "all": "Tümü",
+      "unread": "Okunmamış",
+      "archived": "Arşivlenmiş",
+      "bookingRelated": "Rezervasyon İlgili"
+    },
+    "conversation": {
+      "typing": "yazıyor...",
+      "online": "Çevrimiçi",
+      "offline": "Çevrimdışı",
+      "lastSeen": "Son görülme",
+      "viewBooking": "Rezervasyonu Gör",
+      "viewVehicle": "Aracı Gör"
+    },
+    "compose": {
+      "to": "Kime",
+      "subject": "Konu",
+      "message": "Mesaj",
+      "send": "Gönder",
+      "attach": "Dosya Ekle",
+      "template": "Şablon Kullan"
+    },
+    "templates": {
+      "title": "Mesaj Şablonları",
+      "welcome": "Hoş Geldiniz Mesajı",
+      "prePickup": "Teslim Öncesi Hatırlatma",
+      "postReturn": "İade Sonrası Teşekkür",
+      "reviewRequest": "Değerlendirme İsteği"
+    },
+    "emptyState": {
+      "title": "Henüz mesaj yok",
+      "description": "Kiracılarla mesajlaşmaya başladığınızda burada görünecek"
+    }
+  },
+  "calendar": {
+    "title": "Takvim",
+    "subtitle": "Araç müsaitliğinizi yönetin",
+    "selectVehicle": "Araç Seçin",
+    "allVehicles": "Tüm Araçlar",
+    "availability": "Müsaitlik",
+    "bookings": "Rezervasyonlar",
+    "blocked": "Engellenmiş",
+    "blockDates": {
+      "title": "Tarihleri Engelle",
+      "startDate": "Başlangıç Tarihi",
+      "endDate": "Bitiş Tarihi",
+      "reason": "Sebep",
+      "maintenance": "Bakım",
+      "personalUse": "Kişisel Kullanım",
+      "other": "Diğer",
+      "notes": "Notlar",
+      "block": "Engelle"
+    },
+    "legend": {
+      "available": "Müsait",
+      "booked": "Rezerve",
+      "blocked": "Engellenmiş",
+      "past": "Geçmiş"
+    },
+    "pricing": {
+      "title": "Dinamik Fiyatlandırma",
+      "customPrice": "Özel Fiyat Belirle",
+      "applyToRange": "Tarih Aralığına Uygula"
+    }
+  },
+  "reviews": {
+    "title": "Değerlendirmeler",
+    "subtitle": "Kiracı değerlendirmelerini görüntüleyin",
+    "totalReviews": "Toplam Değerlendirme",
+    "averageRating": "Ortalama Puan",
+    "filters": {
+      "all": "Tümü",
+      "5stars": "5 Yıldız",
+      "4stars": "4 Yıldız",
+      "3stars": "3 Yıldız",
+      "2stars": "2 Yıldız",
+      "1star": "1 Yıldız",
+      "withResponse": "Yanıtlanmış",
+      "withoutResponse": "Yanıtlanmamış"
+    },
+    "categories": {
+      "vehicleCondition": "Araç Durumu",
+      "cleanliness": "Temizlik",
+      "valueForMoney": "Fiyat/Performans",
+      "ownerCommunication": "İletişim",
+      "pickupExperience": "Teslim Alma Deneyimi",
+      "accuracy": "Açıklamaya Uygunluk"
+    },
+    "details": {
+      "verifiedRental": "Doğrulanmış Kiralama",
+      "wouldRecommend": "Tavsiye Eder",
+      "wouldRentAgain": "Tekrar Kiralar",
+      "helpful": "Yararlı",
+      "notHelpful": "Yararlı Değil",
+      "respond": "Yanıtla",
+      "yourResponse": "Yanıtınız",
+      "editResponse": "Yanıtı Düzenle",
+      "deleteResponse": "Yanıtı Sil"
+    },
+    "emptyState": {
+      "title": "Henüz değerlendirme yok",
+      "description": "Kiralamanız tamamlandığında değerlendirmeler burada görünecek"
+    }
+  },
+  "settings": {
+    "title": "Ayarlar",
+    "subtitle": "Hesap ve araç ayarlarınızı yönetin",
+    "tabs": {
+      "profile": "Profil",
+      "vehicles": "Araçlar",
+      "rentalRules": "Kiralama Kuralları",
+      "insurance": "Sigorta",
+      "payment": "Ödeme",
+      "notifications": "Bildirimler",
+      "security": "Güvenlik",
+      "integrations": "Entegrasyonlar"
+    },
+    "profile": {
+      "title": "Profil Bilgileri",
+      "avatar": "Profil Fotoğrafı",
+      "name": "Ad Soyad",
+      "email": "E-posta",
+      "phone": "Telefon",
+      "bio": "Hakkımda",
+      "location": "Konum",
+      "languages": "Konuşulan Diller",
+      "emergencyContact": {
+        "title": "Acil Durum İletişim",
+        "name": "Ad Soyad",
+        "phone": "Telefon",
+        "relationship": "Yakınlık"
+      },
+      "businessInfo": {
+        "title": "İş Bilgileri (Opsiyonel)",
+        "businessName": "İşletme Adı",
+        "businessType": "İşletme Türü",
+        "taxId": "Vergi Kimlik No",
+        "registrationNumber": "Ticaret Sicil No"
+      }
+    },
+    "payment": {
+      "title": "Ödeme Bilgileri",
+      "preferredMethod": "Tercih Edilen Yöntem",
+      "bankAccount": "Banka Hesabı",
+      "bankName": "Banka Adı",
+      "accountHolder": "Hesap Sahibi",
+      "accountNumber": "Hesap No",
+      "iban": "IBAN",
+      "swiftCode": "SWIFT Kodu",
+      "verified": "Doğrulandı",
+      "notVerified": "Doğrulanmadı",
+      "verify": "Doğrula",
+      "paypal": "PayPal",
+      "stripe": "Stripe",
+      "wise": "Wise",
+      "connect": "Bağlan",
+      "disconnect": "Bağlantıyı Kes",
+      "payoutSchedule": "Ödeme Takvimi",
+      "minimumPayout": "Minimum Ödeme Tutarı",
+      "securityDeposit": {
+        "title": "Güvenlik Deposu",
+        "required": "Depozito Gerekli",
+        "amount": "Depozito Tutarı"
+      }
+    },
+    "notifications": {
+      "title": "Bildirim Ayarları",
+      "email": {
+        "title": "E-posta Bildirimleri",
+        "newBookingRequest": "Yeni Rezervasyon Talebi",
+        "bookingConfirmation": "Rezervasyon Onayı",
+        "bookingCancellation": "Rezervasyon İptali",
+        "newMessage": "Yeni Mesaj",
+        "reviewPosted": "Yeni Değerlendirme",
+        "rentalReminders": "Kiralama Hatırlatmaları",
+        "paymentReceived": "Ödeme Alındı",
+        "maintenanceReminders": "Bakım Hatırlatmaları",
+        "weeklyReport": "Haftalık Rapor",
+        "monthlyReport": "Aylık Rapor"
+      },
+      "push": {
+        "title": "Anlık Bildirimler",
+        "enabled": "Anlık Bildirimleri Aktif Et",
+        "newBookingRequest": "Yeni Rezervasyon Talebi",
+        "bookingConfirmation": "Rezervasyon Onayı",
+        "newMessage": "Yeni Mesaj",
+        "rentalStartsSoon": "Kiralama Yakında Başlıyor",
+        "rentalEndsSoon": "Kiralama Yakında Bitiyor",
+        "urgentAlerts": "Acil Uyarılar"
+      },
+      "sms": {
+        "title": "SMS Bildirimleri",
+        "enabled": "SMS Bildirimlerini Aktif Et",
+        "urgentOnly": "Sadece Acil Durumlar",
+        "bookingConfirmation": "Rezervasyon Onayı",
+        "rentalReminders": "Kiralama Hatırlatmaları"
+      }
+    },
+    "security": {
+      "title": "Güvenlik Ayarları",
+      "password": {
+        "title": "Şifre Değiştir",
+        "currentPassword": "Mevcut Şifre",
+        "newPassword": "Yeni Şifre",
+        "confirmPassword": "Şifre Tekrar",
+        "change": "Şifreyi Değiştir",
+        "lastChanged": "Son değişiklik"
+      },
+      "twoFactor": {
+        "title": "İki Faktörlü Doğrulama",
+        "enabled": "Aktif",
+        "disabled": "Pasif",
+        "enable": "Aktif Et",
+        "disable": "Pasif Et",
+        "method": "Doğrulama Yöntemi",
+        "sms": "SMS",
+        "authenticator": "Authenticator Uygulaması",
+        "email": "E-posta"
+      },
+      "activeSessions": {
+        "title": "Aktif Oturumlar",
+        "device": "Cihaz",
+        "location": "Konum",
+        "lastActive": "Son Aktivite",
+        "current": "Mevcut Oturum",
+        "endSession": "Oturumu Sonlandır"
+      },
+      "loginHistory": {
+        "title": "Giriş Geçmişi",
+        "date": "Tarih",
+        "device": "Cihaz",
+        "location": "Konum",
+        "status": "Durum",
+        "success": "Başarılı",
+        "failed": "Başarısız"
+      }
+    },
+    "integrations": {
+      "title": "Entegrasyonlar",
+      "description": "Üçüncü parti hizmetleri bağlayın",
+      "calendar": {
+        "title": "Takvim Entegrasyonu",
+        "googleCalendar": "Google Takvim",
+        "outlook": "Outlook Takvim",
+        "ical": "iCal"
+      },
+      "messaging": {
+        "title": "Mesajlaşma",
+        "whatsapp": "WhatsApp Business",
+        "telegram": "Telegram"
+      },
+      "accounting": {
+        "title": "Muhasebe",
+        "quickbooks": "QuickBooks",
+        "xero": "Xero"
+      },
+      "connected": "Bağlandı",
+      "notConnected": "Bağlı Değil",
+      "connect": "Bağlan",
+      "disconnect": "Bağlantıyı Kes",
+      "lastSync": "Son Senkronizasyon"
+    }
+  },
+  "navigation": {
+    "overview": "Genel Bakış",
+    "myVehicles": "Araçlarım",
+    "bookings": "Rezervasyonlar",
+    "calendar": "Takvim",
+    "earnings": "Gelirler",
+    "messages": "Mesajlar",
+    "reviews": "Değerlendirmeler",
+    "analytics": "Analitik",
+    "settings": "Ayarlar",
+    "help": "Yardım"
+  },
+  "header": {
+    "search": "Araç, rezervasyon veya kiracı ara...",
+    "addVehicle": "Araç Ekle",
+    "notifications": "Bildirimler",
+    "profile": "Profil",
+    "logout": "Çıkış Yap",
+    "superHost": "Süper Host"
+  },
+  "notifications": {
+    "title": "Bildirimler",
+    "markAllRead": "Tümünü Okundu İşaretle",
+    "viewAll": "Tümünü Gör",
+    "types": {
+      "newBooking": "Yeni Rezervasyon",
+      "bookingConfirmed": "Rezervasyon Onaylandı",
+      "bookingCancelled": "Rezervasyon İptal Edildi",
+      "newMessage": "Yeni Mesaj",
+      "newReview": "Yeni Değerlendirme",
+      "paymentReceived": "Ödeme Alındı",
+      "rentalStarting": "Kiralama Başlıyor",
+      "rentalEnding": "Kiralama Bitiyor",
+      "maintenanceDue": "Bakım Zamanı"
+    },
+    "emptyState": {
+      "title": "Bildirim yok",
+      "description": "Yeni bildirimler burada görünecek"
+    }
+  },
+  "common": {
+    "loading": "Yükleniyor...",
+    "error": "Bir hata oluştu",
+    "success": "İşlem başarılı",
+    "confirm": "Onayla",
+    "cancel": "İptal",
+    "save": "Kaydet",
+    "delete": "Sil",
+    "edit": "Düzenle",
+    "view": "Görüntüle",
+    "close": "Kapat",
+    "search": "Ara",
+    "filter": "Filtrele",
+    "sort": "Sırala",
+    "actions": "İşlemler",
+    "more": "Daha Fazla",
+    "less": "Daha Az",
+    "showAll": "Tümünü Göster",
+    "showLess": "Daha Az Göster",
+    "select": "Seç",
+    "upload": "Yükle",
+    "download": "İndir",
+    "export": "Dışa Aktar",
+    "import": "İçe Aktar",
+    "print": "Yazdır",
+    "share": "Paylaş",
+    "yes": "Evet",
+    "no": "Hayır",
+    "all": "Tümü",
+    "none": "Hiçbiri",
+    "optional": "Opsiyonel",
+    "required": "Zorunlu",
+    "recommended": "Önerilen",
+    "new": "Yeni",
+    "updated": "Güncellendi",
+    "deleted": "Silindi",
+    "draft": "Taslak",
+    "published": "Yayınlandı",
+    "active": "Aktif",
+    "inactive": "Pasif",
+    "enabled": "Aktif",
+    "disabled": "Pasif",
+    "verified": "Doğrulandı",
+    "unverified": "Doğrulanmadı",
+    "pending": "Beklemede",
+    "approved": "Onaylandı",
+    "rejected": "Reddedildi",
+    "total": "Toplam",
+    "average": "Ortalama",
+    "min": "Min",
+    "max": "Maks",
+    "from": "Başlangıç",
+    "to": "Bitiş",
+    "date": "Tarih",
+    "time": "Saat",
+    "today": "Bugün",
+    "yesterday": "Dün",
+    "tomorrow": "Yarın",
+    "week": "Hafta",
+    "month": "Ay",
+    "year": "Yıl",
+    "day": "Gün",
+    "hour": "Saat",
+    "minute": "Dakika",
+    "second": "Saniye",
+    "currency": {
+      "try": "TRY",
+      "usd": "USD",
+      "eur": "EUR"
+    },
+    "units": {
+      "km": "km",
+      "liter": "litre",
+      "hp": "BG",
+      "people": "kişi",
+      "days": "gün",
+      "hours": "saat"
+    }
+  }
+}
