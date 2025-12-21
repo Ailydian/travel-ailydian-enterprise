@@ -81,27 +81,27 @@ const DateRangePicker: React.FC = () => {
       <div className="flex flex-col sm:flex-row gap-4 items-stretch sm:items-center justify-between">
         <div className="flex gap-2 flex-wrap">
           <button className="px-4 py-2 bg-blue-600 text-white rounded-lg font-medium text-sm hover:bg-blue-700 transition-colors">
-            Last 30 Days
+            Son 30 Gün
           </button>
           <button className="px-4 py-2 bg-white border border-gray-300 text-gray-700 rounded-lg font-medium text-sm hover:bg-gray-50 transition-colors">
-            Last 7 Days
+            Son 7 Gün
           </button>
           <button className="px-4 py-2 bg-white border border-gray-300 text-gray-700 rounded-lg font-medium text-sm hover:bg-gray-50 transition-colors">
-            This Month
+            Bu Ay
           </button>
           <button className="px-4 py-2 bg-white border border-gray-300 text-gray-700 rounded-lg font-medium text-sm hover:bg-gray-50 transition-colors">
-            This Year
+            Bu Yıl
           </button>
         </div>
         <div className="flex gap-2">
           <button className="flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors font-medium text-sm">
             <Calendar className="w-4 h-4" />
-            Custom Range
+            Özel Tarih
             <ChevronDown className="w-4 h-4" />
           </button>
           <button className="flex items-center gap-2 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors font-medium text-sm">
             <Download className="w-4 h-4" />
-            Export
+            Dışa Aktar
           </button>
         </div>
       </div>
@@ -125,30 +125,30 @@ const PropertyPerformanceTable: React.FC<PropertyPerformanceProps> = ({ properti
   return (
     <div className="bg-white border border-gray-200 rounded-xl overflow-hidden">
       <div className="p-6 border-b border-gray-200">
-        <h3 className="text-lg font-semibold text-gray-900">Property Performance Comparison</h3>
-        <p className="text-sm text-gray-500 mt-1">Compare metrics across all your properties</p>
+        <h3 className="text-lg font-semibold text-gray-900">Mülk Performans Karşılaştırması</h3>
+        <p className="text-sm text-gray-500 mt-1">Tüm mülklerinizin metriklerini karşılaştırın</p>
       </div>
       <div className="overflow-x-auto">
         <table className="w-full">
           <thead className="bg-gray-50 border-b border-gray-200">
             <tr>
               <th className="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                Property
+                Mülk
               </th>
               <th className="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                Views
+                Görüntüleme
               </th>
               <th className="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                Bookings
+                Rezervasyon
               </th>
               <th className="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                Conversion
+                Dönüşüm
               </th>
               <th className="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                Revenue
+                Gelir
               </th>
               <th className="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                Rating
+                Puan
               </th>
             </tr>
           </thead>
@@ -210,7 +210,7 @@ const BookingSourceChart: React.FC = () => {
 
   return (
     <div className="bg-white border border-gray-200 rounded-xl p-6">
-      <h3 className="text-lg font-semibold text-gray-900 mb-4">Booking Sources</h3>
+      <h3 className="text-lg font-semibold text-gray-900 mb-4">Rezervasyon Kaynakları</h3>
       <ResponsiveContainer width="100%" height={300}>
         <PieChart>
           <Pie
@@ -306,7 +306,7 @@ const AnalyticsPage: React.FC = () => {
     return (
       <div className="space-y-6">
         <h1 className="text-3xl font-black mb-6 text-black">
-          Analytics
+          Analitik
         </h1>
         <div className="animate-pulse space-y-4">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -323,33 +323,33 @@ const AnalyticsPage: React.FC = () => {
   return (
     <div className="space-y-6">
       <h1 className="text-3xl font-black mb-6 text-black">
-        Analytics
+        Analitik
       </h1>
       <DateRangePicker />
 
       {/* Key Metrics */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
         <MetricCard
-          title="Total Views"
+          title="Toplam Görüntüleme"
           value="15,740"
           change={18.5}
           icon={<Eye className="w-6 h-6" />}
         />
         <MetricCard
-          title="Total Bookings"
+          title="Toplam Rezervasyon"
           value="103"
           change={12.3}
           icon={<Calendar className="w-6 h-6" />}
         />
         <MetricCard
-          title="Conversion Rate"
+          title="Dönüşüm Oranı"
           value="6.5"
           change={3.2}
           icon={<TrendingUp className="w-6 h-6" />}
           suffix="%"
         />
         <MetricCard
-          title="Avg. Rating"
+          title="Ort. Puan"
           value="4.8"
           change={2.1}
           icon={<Star className="w-6 h-6" />}
@@ -361,11 +361,11 @@ const AnalyticsPage: React.FC = () => {
         <div className="bg-white border border-gray-200 rounded-xl p-6">
           <div className="flex items-center justify-between mb-6">
             <div>
-              <h3 className="text-lg font-semibold text-gray-900">Property Views</h3>
-              <p className="text-sm text-gray-500 mt-1">Views over the last 30 days</p>
+              <h3 className="text-lg font-semibold text-gray-900">Mülk Görüntülemeleri</h3>
+              <p className="text-sm text-gray-500 mt-1">Son 30 gün içindeki görüntüleme sayısı</p>
             </div>
             <div className="flex items-center gap-2 text-sm">
-              <span className="text-gray-500">Total:</span>
+              <span className="text-gray-500">Toplam:</span>
               <span className="font-bold text-gray-900">15,740</span>
             </div>
           </div>
@@ -398,11 +398,11 @@ const AnalyticsPage: React.FC = () => {
         <div className="bg-white border border-gray-200 rounded-xl p-6">
           <div className="flex items-center justify-between mb-6">
             <div>
-              <h3 className="text-lg font-semibold text-gray-900">Bookings Trend</h3>
-              <p className="text-sm text-gray-500 mt-1">Monthly bookings over 6 months</p>
+              <h3 className="text-lg font-semibold text-gray-900">Rezervasyon Eğilimi</h3>
+              <p className="text-sm text-gray-500 mt-1">6 aylık aylık rezervasyon sayısı</p>
             </div>
             <div className="flex items-center gap-2 text-sm">
-              <span className="text-gray-500">Total:</span>
+              <span className="text-gray-500">Toplam:</span>
               <span className="font-bold text-gray-900">130</span>
             </div>
           </div>
