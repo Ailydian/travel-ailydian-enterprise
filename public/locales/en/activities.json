@@ -1,0 +1,98 @@
+{
+  "title": "Aktiviteler",
+  "subtitle": "Unutulmaz Deneyimler Yaşayın",
+  "search": {
+    "placeholder": "Aktivite, şehir veya kategori arayın...",
+    "button": "Ara",
+    "filters": "Filtreler",
+    "sort": "Sırala"
+  },
+  "categories": {
+    "all": "Tümü",
+    "adventure": "Macera",
+    "water": "Su Sporları",
+    "culture": "Kültürel",
+    "nature": "Doğa",
+    "food": "Gastronomi",
+    "nightlife": "Gece Hayatı",
+    "shopping": "Alışveriş",
+    "wellness": "Sağlık & Wellness",
+    "family": "Aile",
+    "romantic": "Romantik"
+  },
+  "filters": {
+    "price": "Fiyat",
+    "duration": "Süre",
+    "rating": "Puan",
+    "difficulty": "Zorluk",
+    "groupSize": "Grup Büyüklüğü",
+    "season": "Sezon"
+  },
+  "difficulty": {
+    "easy": "Kolay",
+    "moderate": "Orta",
+    "hard": "Zor",
+    "expert": "Uzman"
+  },
+  "duration": {
+    "short": "1-3 saat",
+    "half": "Yarım gün",
+    "full": "Tam gün",
+    "multi": "Çok günlük"
+  },
+  "details": {
+    "overview": "Genel Bakış",
+    "highlights": "Öne Çıkanlar",
+    "includes": "Dahil Olanlar",
+    "excludes": "Dahil Olmayanlar",
+    "requirements": "Gereksinimler",
+    "cancellation": "İptal Politikası",
+    "meetingPoint": "Buluşma Noktası",
+    "whatToBring": "Yanınızda Getirin"
+  },
+  "booking": {
+    "selectDate": "Tarih Seçin",
+    "selectTime": "Saat Seçin",
+    "participants": "Katılımcı Sayısı",
+    "adults": "Yetişkin",
+    "children": "Çocuk",
+    "infants": "Bebek",
+    "bookNow": "Rezervasyon Yap",
+    "addToCart": "Sepete Ekle",
+    "checkAvailability": "Müsaitlik Kontrol Et"
+  },
+  "status": {
+    "available": "Müsait",
+    "soldOut": "Tükendi",
+    "almostFull": "Neredeyse Dolu",
+    "lastSpots": "Son Yerler",
+    "confirmed": "Onaylandı",
+    "pending": "Beklemede"
+  },
+  "features": {
+    "instantConfirmation": "Anında Onay",
+    "freeCancellation": "Ücretsiz İptal",
+    "skipTheLine": "Kuyruksuz Giriş",
+    "smallGroup": "Küçük Grup",
+    "privateGuide": "Özel Rehber",
+    "hotelPickup": "Otel Transferi",
+    "equipment": "Ekipman Dahil",
+    "meal": "Yemek Dahil"
+  },
+  "actions": {
+    "viewDetails": "Detayları Gör",
+    "bookNow": "Rezervasyon Yap",
+    "addToWishlist": "İstek Listesine Ekle",
+    "share": "Paylaş",
+    "compare": "Karşılaştır",
+    "askQuestion": "Soru Sor"
+  },
+  "reviews": {
+    "title": "Değerlendirmeler",
+    "writeReview": "Değerlendirme Yaz",
+    "helpful": "Faydalı",
+    "notHelpful": "Faydalı Değil",
+    "verified": "Doğrulanmış",
+    "anonymous": "Anonim"
+  }
+}

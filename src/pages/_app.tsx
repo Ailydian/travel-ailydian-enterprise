@@ -83,7 +83,7 @@ function MyApp({
               <Component {...pageProps} />
               <AilydianEcosystemFooter
                 currentDomain="travel.ailydian.com"
-                theme="dark"
+                theme="light"
                 position="above-footer"
               />
             </VoiceCommandProvider>

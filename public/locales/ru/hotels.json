@@ -1,0 +1,94 @@
+{
+  "title": "Oteller",
+  "subtitle": "En İyi Konaklama Seçenekleri",
+  "recommended": "Önerilen Oteller",
+  "luxury": "Lüks Oteller",
+  "boutique": "Butik Oteller",
+  "budget": "Ekonomik Oteller",
+  "resort": "Resort Oteller",
+  "business": "İş Otelleri",
+  "family": "Aile Otelleri",
+  "romantic": "Romantik Oteller",
+  "search": {
+    "destination": "Nereye gitmek istiyorsunuz?",
+    "checkIn": "Giriş Tarihi",
+    "checkOut": "Çıkış Tarihi",
+    "guests": "Misafir Sayısı",
+    "rooms": "Oda Sayısı",
+    "searchHotels": "Otel Ara"
+  },
+  "filters": {
+    "price": "Fiyat",
+    "rating": "Puan",
+    "amenities": "Olanaklar",
+    "location": "Konum",
+    "type": "Otel Türü",
+    "features": "Özellikler"
+  },
+  "amenities": {
+    "wifi": "Ücretsiz WiFi",
+    "parking": "Otopark",
+    "pool": "Havuz",
+    "spa": "SPA",
+    "gym": "Fitness Center",
+    "restaurant": "Restoran",
+    "bar": "Bar",
+    "roomService": "Oda Servisi",
+    "aircon": "Klima",
+    "breakfast": "Kahvaltı",
+    "petFriendly": "Evcil Hayvan Dostu",
+    "businessCenter": "İş Merkezi",
+    "conference": "Toplantı Salonu",
+    "shuttle": "Transfer Servisi",
+    "beachAccess": "Plaj Erişimi",
+    "skiAccess": "Kayak Merkezi Erişimi"
+  },
+  "details": {
+    "overview": "Genel Bakış",
+    "rooms": "Odalar",
+    "amenities": "Olanaklar",
+    "location": "Konum",
+    "reviews": "Değerlendirmeler",
+    "policies": "Otel Politikaları",
+    "photos": "Fotoğraflar"
+  },
+  "room": {
+    "standard": "Standart Oda",
+    "deluxe": "Deluxe Oda",
+    "suite": "Süit",
+    "family": "Aile Odası",
+    "executive": "Executive Oda",
+    "presidential": "Presidential Süit",
+    "capacity": "Kapasite",
+    "size": "Oda Boyutu",
+    "bedType": "Yatak Türü",
+    "view": "Manzara"
+  },
+  "booking": {
+    "available": "Müsait",
+    "unavailable": "Dolu",
+    "lastRoom": "Son Oda",
+    "bestDeal": "En İyi Fırsat",
+    "freeBreakfast": "Ücretsiz Kahvaltı",
+    "freeCancellation": "Ücretsiz İptal",
+    "payAtHotel": "Otelde Öde",
+    "instantConfirmation": "Anında Onay"
+  },
+  "actions": {
+    "bookNow": "Rezervasyon Yap",
+    "viewDetails": "Detayları Gör",
+    "checkAvailability": "Müsaitlik Sorgula",
+    "addToFavorites": "Favorilere Ekle",
+    "shareHotel": "Paylaş",
+    "writeReview": "Değerlendirme Yaz"
+  },
+  "pricing": {
+    "perNight": "gecelik",
+    "perPerson": "kişi başı",
+    "total": "Toplam",
+    "taxes": "Vergiler",
+    "fees": "Ek Ücretler",
+    "discount": "İndirim",
+    "originalPrice": "Orijinal Fiyat"
+  }
+}

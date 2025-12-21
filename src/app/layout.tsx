@@ -64,7 +64,7 @@ export default function RootLayout({
           {/* Ailydian Ecosystem Cross-Links - Güvenli ekleme, mevcut footer'a zarar vermez */}
           <AilydianEcosystemFooter
             currentDomain="travel.ailydian.com"
-            theme="dark"
+            theme="light"
             position="above-footer"
           />
         </QueryProvider>

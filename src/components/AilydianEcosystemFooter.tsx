@@ -102,7 +102,7 @@ interface AilydianEcosystemFooterProps {
 export default function AilydianEcosystemFooter({
   currentDomain,
   position = 'above-footer',
-  theme = 'dark'
+  theme = 'light'
 }: AilydianEcosystemFooterProps) {
   const [isClient, setIsClient] = useState(false);
   const [hasError, setHasError] = useState(false);
@@ -126,9 +126,9 @@ export default function AilydianEcosystemFooter({
     domain => !domain.url.includes(currentDomain)
   );
 
-  const bgColor = theme === 'dark' ? 'bg-gradient-to-b from-black/50 to-black' : 'bg-gradient-to-b from-white/50 to-white';
-  const textColor = theme === 'dark' ? 'text-white' : 'text-black';
-  const borderColor = theme === 'dark' ? 'border-white/10' : 'border-black/10';
+  const bgColor = theme === 'dark' ? 'bg-gradient-to-b from-black/50 to-black' : 'bg-white';
+  const textColor = theme === 'dark' ? 'text-white' : 'text-gray-900';
+  const borderColor = theme === 'dark' ? 'border-white/10' : 'border-gray-200';
 
   return (
     <div

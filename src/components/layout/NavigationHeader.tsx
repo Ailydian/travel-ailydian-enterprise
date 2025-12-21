@@ -30,6 +30,7 @@ import {
 import { searchInData, popularSearches, categoryConfig, type SearchResult } from '../../data/searchData';
 import { useCart } from '../../context/CartContext';
 import AIAssistantPopup from '../ui/AIAssistantPopup';
+import LanguageSwitcher from '../LanguageSwitcher';
 
 interface NavItem {
   title: string;
@@ -630,6 +631,9 @@ const NavigationHeader: React.FC = () => {
                 </span>
               )}
             </Link>
+
+            {/* Language Switcher */}
+            <LanguageSwitcher variant="compact" position="header" />
 
             {/* User Menu */}
             <div className="relative">

@@ -1,0 +1,51 @@
+{
+  "title": "Destinasyonlar",
+  "subtitle": "Türkiye'nin En Güzel Yerlerini Keşfedin",
+  "popular": "Popüler Destinasyonlar",
+  "featured": "Öne Çıkan Yerler",
+  "domestic": "Yurt İçi",
+  "international": "Yurt Dışı",
+  "beach": "Sahil",
+  "mountain": "Dağ",
+  "city": "Şehir",
+  "historical": "Tarihi",
+  "nature": "Doğa",
+  "adventure": "Macera",
+  "cultural": "Kültürel",
+  "filter": {
+    "all": "Tümü",
+    "region": "Bölge",
+    "type": "Tür",
+    "season": "Sezon",
+    "budget": "Bütçe",
+    "duration": "Süre"
+  },
+  "regions": {
+    "marmara": "Marmara Bölgesi",
+    "aegean": "Ege Bölgesi",
+    "mediterranean": "Akdeniz Bölgesi",
+    "blacksea": "Karadeniz Bölgesi",
+    "central": "İç Anadolu Bölgesi",
+    "eastern": "Doğu Anadolu Bölgesi",
+    "southeastern": "Güneydoğu Anadolu Bölgesi"
+  },
+  "details": {
+    "overview": "Genel Bakış",
+    "attractions": "Görülecek Yerler",
+    "activities": "Aktiviteler",
+    "accommodation": "Konaklama",
+    "transportation": "Ulaşım",
+    "weather": "Hava Durumu",
+    "bestTime": "En İyi Ziyaret Zamanı",
+    "budget": "Tahmini Bütçe",
+    "duration": "Önerilen Süre",
+    "difficulty": "Zorluk Seviyesi"
+  },
+  "actions": {
+    "viewDetails": "Detayları Gör",
+    "bookNow": "Rezervasyon Yap",
+    "addToFavorites": "Favorilere Ekle",
+    "shareDestination": "Paylaş",
+    "getDirections": "Yol Tarifi Al"
+  }
+}
