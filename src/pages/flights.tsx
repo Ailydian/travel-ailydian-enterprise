@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { SEOHead } from '../components/seo/SEOHead';
 import { PAGE_SEO } from '../config/seo';
@@ -15,7 +16,7 @@ const flights = [
   {
     id: 1,
     airline: 'Turkish Airlines',
-    logo: '🇹🇷',
+    logo: 'https://images.unsplash.com/photo-1464037866556-6812c9d1c72e?w=100&h=100&fit=crop',
     from: 'İstanbul (IST)',
     to: 'Antalya (AYT)',
     departure: '08:30',
@@ -30,7 +31,7 @@ const flights = [
   {
     id: 2,
     airline: 'Pegasus Airlines',
-    logo: '✈️',
+    logo: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=100&h=100&fit=crop',
     from: 'İstanbul (SAW)',
     to: 'İzmir (ADB)',
     departure: '14:20',
@@ -45,7 +46,7 @@ const flights = [
   {
     id: 3,
     airline: 'Turkish Airlines',
-    logo: '🇹🇷',
+    logo: 'https://images.unsplash.com/photo-1464037866556-6812c9d1c72e?w=100&h=100&fit=crop',
     from: 'Ankara (ESB)',
     to: 'Trabzon (TZX)',
     departure: '11:45',
@@ -60,7 +61,7 @@ const flights = [
   {
     id: 4,
     airline: 'Anadolu Jet',
-    logo: '🟡',
+    logo: 'https://images.unsplash.com/photo-1540962351504-03099e0a754b?w=100&h=100&fit=crop',
     from: 'İstanbul (IST)',
     to: 'Bodrum (BJV)',
     departure: '16:10',
@@ -75,7 +76,7 @@ const flights = [
   {
     id: 5,
     airline: 'SunExpress',
-    logo: '☀️',
+    logo: 'https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=100&h=100&fit=crop',
     from: 'İzmir (ADB)',
     to: 'Antalya (AYT)',
     departure: '09:15',
@@ -90,7 +91,7 @@ const flights = [
   {
     id: 6,
     airline: 'Turkish Airlines',
-    logo: '🇹🇷',
+    logo: 'https://images.unsplash.com/photo-1464037866556-6812c9d1c72e?w=100&h=100&fit=crop',
     from: 'İstanbul (IST)',
     to: 'Kayseri (ASR)',
     departure: '12:30',
@@ -382,7 +383,15 @@ export default function Flights() {
                     <div className="flex-1">
                       <div className="flex items-center justify-between mb-4">
                         <div className="flex items-center">
-                          <span className="text-3xl mr-4">{flight.logo}</span>
+                          <div className="w-12 h-12 mr-4 rounded-full overflow-hidden bg-gray-100 flex items-center justify-center">
+                            <Image
+                              src={flight.logo}
+                              alt={flight.airline}
+                              width={48}
+                              height={48}
+                              className="object-cover"
+                            />
+                          </div>
                           <div>
                             <h3 className="font-bold text-lg text-gray-900">{flight.airline}</h3>
                             <p className="text-sm text-gray-500">{flight.aircraft}</p>

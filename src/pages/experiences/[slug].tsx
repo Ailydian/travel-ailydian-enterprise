@@ -44,6 +44,9 @@ export default function ExperienceDetail({ experience, relatedExperiences }: Exp
   const [adults, setAdults] = useState(2);
   const [children, setChildren] = useState(0);
 
+  // Combine hero and gallery images for consistent rendering
+  const allImages = [experience.images.hero, ...experience.images.gallery];
+
   const destination = getDestinationById(experience.destinationId);
 
   const totalPrice = (adults * experience.pricing.adult) + (children * experience.pricing.child);
@@ -147,7 +150,7 @@ export default function ExperienceDetail({ experience, relatedExperiences }: Exp
         {/* Hero Section */}
         <section className="relative h-[400px] bg-black">
           <Image
-            src={experience.images.gallery[selectedImageIndex] || experience.images.hero}
+            src={allImages[selectedImageIndex]}
             alt={experience.title}
             fill
             className="object-cover opacity-80"
@@ -157,7 +160,7 @@ export default function ExperienceDetail({ experience, relatedExperiences }: Exp
 
           {/* Gallery Thumbnails */}
           <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2 px-4">
-            {[experience.images.hero, ...experience.images.gallery].slice(0, 5).map((img, idx) => (
+            {allImages.slice(0, 5).map((img, idx) => (
               <button
                 key={idx}
                 onClick={() => setSelectedImageIndex(idx)}

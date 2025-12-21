@@ -115,7 +115,7 @@ const activities = [
     id: 6,
     name: 'Çeşme Rüzgar Sörfü Kursu',
     location: 'Çeşme, Türkiye',
-    image: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&h=400&fit=crop',
+    image: 'https://images.unsplash.com/photo-1502680390469-be75c86b636f?w=600&h=400&fit=crop',
     price: '₺380',
     originalPrice: '₺450',
     rating: 4.7,

@@ -48,6 +48,9 @@ export default function DestinationDetail({ destination, relatedDestinations, ex
   const [isFavorite, setIsFavorite] = useState(false);
   const [activeTab, setActiveTab] = useState<'overview' | 'places' | 'activities' | 'tips'>('overview');
 
+  // Combine hero and gallery images for consistent rendering
+  const allImages = [destination.images.hero, ...destination.images.gallery];
+
   // Schema.org structured data for SEO
   const structuredData = {
     "@context": "https://schema.org",
@@ -131,7 +134,7 @@ export default function DestinationDetail({ destination, relatedDestinations, ex
         {/* Hero Section with Gallery */}
         <section className="relative h-[500px] bg-black">
           <Image
-            src={destination.images.gallery[selectedImageIndex] || destination.images.hero}
+            src={allImages[selectedImageIndex]}
             alt={destination.name}
             fill
             className="object-cover opacity-80"
@@ -141,7 +144,7 @@ export default function DestinationDetail({ destination, relatedDestinations, ex
 
           {/* Image Gallery Thumbnails */}
           <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2 px-4">
-            {[destination.images.hero, ...destination.images.gallery].slice(0, 5).map((img, idx) => (
+            {allImages.slice(0, 5).map((img, idx) => (
               <button
                 key={idx}
                 onClick={() => setSelectedImageIndex(idx)}

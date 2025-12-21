@@ -33,6 +33,9 @@ import {
   Award,
   Star,
   Navigation,
+  Home,
+  Waves,
+  TreePine,
 } from 'lucide-react';
 import { useSession } from 'next-auth/react';
 import { useCart } from '../../context/CartContext';
@@ -297,6 +300,101 @@ const TOURS_MENU: MenuCategory[] = [
   },
 ];
 
+const RENTALS_MENU: MenuCategory[] = [
+  {
+    title: 'Konaklama Tipleri',
+    items: [
+      {
+        title: 'Tüm Kiralık Evler',
+        href: '/rentals',
+        icon: Home,
+        description: 'Villa, apart, ev seçenekleri',
+        popular: true,
+      },
+      {
+        title: 'Villalar',
+        href: '/rentals?type=villa',
+        icon: Home,
+        description: 'Lüks villa kiralama',
+        badge: 'Popüler',
+      },
+      {
+        title: 'Apartlar',
+        href: '/rentals?type=apartment',
+        icon: Building2,
+        description: 'Denize sıfır apartlar',
+      },
+      {
+        title: 'Stüdyo Daireler',
+        href: '/rentals?type=studio',
+        icon: Building2,
+        description: 'Ekonomik konaklama',
+      },
+    ],
+  },
+  {
+    title: 'Popüler Lokasyonlar',
+    items: [
+      {
+        title: 'Alanya',
+        href: '/rentals?city=alanya',
+        icon: Palmtree,
+        description: 'Akdeniz incisi',
+        popular: true,
+      },
+      {
+        title: 'Antalya',
+        href: '/rentals?city=antalya',
+        icon: Palmtree,
+        description: 'Turizm başkenti',
+        popular: true,
+      },
+      {
+        title: 'Marmaris',
+        href: '/rentals?city=marmaris',
+        icon: Waves,
+        description: 'Doğa ve deniz',
+      },
+      {
+        title: 'Bodrum',
+        href: '/rentals?city=bodrum',
+        icon: Waves,
+        description: 'Lüks tatil',
+      },
+      {
+        title: 'Çeşme',
+        href: '/rentals?city=cesme',
+        icon: Waves,
+        description: 'Rüzgar sörfü cenneti',
+      },
+    ],
+  },
+  {
+    title: 'Özellikler',
+    items: [
+      {
+        title: 'Havuzlu',
+        href: '/rentals?feature=pool',
+        icon: Waves,
+        description: 'Özel havuzlu evler',
+        popular: true,
+      },
+      {
+        title: 'Deniz Manzaralı',
+        href: '/rentals?feature=seaview',
+        icon: Mountain,
+        description: 'Panoramik manzara',
+      },
+      {
+        title: 'Sahile Yakın',
+        href: '/rentals?feature=beachfront',
+        icon: Palmtree,
+        description: 'Plaja yürüme mesafesi',
+      },
+    ],
+  },
+];
+
 const DESTINATIONS_MENU: MenuCategory[] = [
   {
     title: 'Keşfet',
@@ -333,21 +431,21 @@ const DESTINATIONS_MENU: MenuCategory[] = [
     items: [
       {
         title: 'İstanbul',
-        href: '/destinations/istanbul',
+        href: '/destinations/istanbul-tarihi-yarimada',
         icon: MapPin,
         description: 'Kültür başkenti',
         popular: true,
       },
       {
         title: 'Antalya',
-        href: '/destinations/antalya',
+        href: '/destinations/antalya-turkuaz-sahiller',
         icon: MapPin,
         description: 'Turizm cenneti',
         popular: true,
       },
       {
         title: 'Kapadokya',
-        href: '/destinations/cappadocia',
+        href: '/destinations/kapadokya-balon-turu',
         icon: MapPin,
         description: 'Peri bacaları',
         popular: true,
@@ -407,6 +505,8 @@ const ResponsiveHeaderBar: React.FC = () => {
         return FLIGHTS_MENU;
       case 'transfers':
         return TRANSFERS_MENU;
+      case 'rentals':
+        return RENTALS_MENU;
       case 'tours':
         return TOURS_MENU;
       case 'destinations':
@@ -502,6 +602,16 @@ const ResponsiveHeaderBar: React.FC = () => {
                   activeSubmenu={activeSubmenu}
                   setActiveSubmenu={setActiveSubmenu}
                   submenuContent={getSubmenuContent('transfers')}
+                />
+                <NavLinkWithSubmenu
+                  href="/rentals"
+                  icon={Home}
+                  label="Konaklama"
+                  badge="Yeni"
+                  submenuKey="rentals"
+                  activeSubmenu={activeSubmenu}
+                  setActiveSubmenu={setActiveSubmenu}
+                  submenuContent={getSubmenuContent('rentals')}
                 />
                 <NavLinkWithSubmenu
                   href="/tours"
@@ -610,10 +720,12 @@ const ResponsiveHeaderBar: React.FC = () => {
                   )}
                 </Link>
 
-                {/* Premium Voice Assistant Button - After Cart */}
-                <PremiumVoiceButton />
+                {/* Premium Voice Assistant Button - Hidden on Mobile */}
+                <div className="hidden md:block">
+                  <PremiumVoiceButton />
+                </div>
 
-                {/* User Menu */}
+                {/* User Menu - ALWAYS VISIBLE */}
                 {session ? (
                   <Link
                     href="/profile/dashboard"
@@ -625,7 +737,7 @@ const ResponsiveHeaderBar: React.FC = () => {
                 ) : (
                   <Link
                     href="/auth/signin"
-                    className="hidden sm:flex px-3 py-1.5 sm:px-4 sm:py-2 md:px-6 md:py-2.5 bg-gradient-to-r from-ailydian-primary to-ailydian-secondary text-white rounded-lg sm:rounded-xl font-medium hover:shadow-lg active:scale-95 transition-all touch-target text-xs sm:text-sm md:text-base whitespace-nowrap"
+                    className="flex items-center justify-center px-2.5 py-1.5 sm:px-4 sm:py-2 md:px-6 md:py-2.5 bg-gradient-to-r from-ailydian-primary to-ailydian-secondary text-white rounded-lg sm:rounded-xl font-medium hover:shadow-lg active:scale-95 transition-all touch-target text-xs sm:text-sm md:text-base whitespace-nowrap min-w-[60px] sm:min-w-[80px]"
                   >
                     Giriş
                   </Link>

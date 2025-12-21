@@ -550,3 +550,195 @@ export const ANTALYA_TRANSFER_KEYWORDS = [
   'akdeniz transfer',
   'mediterranean transfer'
 ];
+
+// Popular Transfer Routes with SEO Content
+export interface PopularRoute {
+  id: string;
+  from: string;
+  to: string;
+  fromLocation: TransferLocation;
+  toLocation: TransferLocation;
+  distance: number;
+  duration: number;
+  basePrice: number;
+  popular: boolean;
+  title: string;
+  titleEn: string;
+  description: string;
+  descriptionEn: string;
+  seoKeywords: string[];
+  highlights: string[];
+}
+
+export const POPULAR_TRANSFER_ROUTES: PopularRoute[] = [
+  {
+    id: 'ayt-alanya',
+    from: 'AYT',
+    to: 'alanya',
+    fromLocation: ANTALYA_AIRPORTS[0],
+    toLocation: ANTALYA_LOCATIONS.find(l => l.id === 'alanya')!,
+    distance: 135,
+    duration: 120,
+    basePrice: 1150,
+    popular: true,
+    title: 'Antalya Havalimanı - Alanya Transfer',
+    titleEn: 'Antalya Airport - Alanya Transfer',
+    description: 'Antalya Havalimanı\'ndan Alanya\'ya konforlu ve güvenli transfer hizmeti. 7/24 profesyonel şoför eşliğinde, klimalı araçlarla 2 saatte Alanya\'ya ulaşın. VIP ve ekonomik seçeneklerimizle her bütçeye uygun çözümler.',
+    descriptionEn: 'Comfortable and safe transfer service from Antalya Airport to Alanya. Reach Alanya in 2 hours with professional drivers 24/7 in air-conditioned vehicles.',
+    seoKeywords: ['antalya alanya transfer', 'antalya airport alanya', 'ayt alanya transfer', 'alanya airport shuttle'],
+    highlights: ['135 km mesafe', '2 saat süre', 'Otel kapısına teslim', '24/7 hizmet', 'Ücretsiz beklem']
+  },
+  {
+    id: 'gzp-alanya',
+    from: 'GZP',
+    to: 'alanya',
+    fromLocation: ANTALYA_AIRPORTS[1],
+    toLocation: ANTALYA_LOCATIONS.find(l => l.id === 'alanya')!,
+    distance: 45,
+    duration: 40,
+    basePrice: 450,
+    popular: true,
+    title: 'Gazipaşa Havalimanı - Alanya Transfer',
+    titleEn: 'Gazipasa Airport - Alanya Transfer',
+    description: 'Gazipaşa Alanya Havalimanı\'ndan Alanya merkeze en hızlı ve uygun transfer! Sadece 40 dakikada, profesyonel şoförlerimizle otelinizdeyiz. Havalimanından çıkışta karşılama hizmeti dahil.',
+    descriptionEn: 'Fastest and most affordable transfer from Gazipasa Alanya Airport to Alanya center! We arrive at your hotel in just 40 minutes with our professional drivers.',
+    seoKeywords: ['gazipaşa alanya transfer', 'gzp alanya transfer', 'gazipasa airport transfer', 'alanya gazipasa taxi'],
+    highlights: ['45 km mesafe', '40 dakika', 'Havalimanı karşılama', 'Uygun fiyat', 'Hızlı ulaşım']
+  },
+  {
+    id: 'ayt-belek',
+    from: 'AYT',
+    to: 'belek',
+    fromLocation: ANTALYA_AIRPORTS[0],
+    toLocation: ANTALYA_LOCATIONS.find(l => l.id === 'belek')!,
+    distance: 35,
+    duration: 35,
+    basePrice: 350,
+    popular: true,
+    title: 'Antalya Havalimanı - Belek Transfer',
+    titleEn: 'Antalya Airport - Belek Transfer',
+    description: 'Antalya Havalimanı\'ndan Belek\'e lüks ve konforlu transfer. Golf otelleri ve 5 yıldızlı tesislere özel VIP transfer hizmeti. Sadece 35 dakikada otelinizdeyiz. Mercedes araçlarla premium hizmet.',
+    descriptionEn: 'Luxury and comfortable transfer from Antalya Airport to Belek. VIP transfer service to golf hotels and 5-star facilities.',
+    seoKeywords: ['antalya belek transfer', 'belek airport transfer', 'belek vip transfer', 'antalya airport belek'],
+    highlights: ['35 km mesafe', '35 dakika', 'VIP araçlar', 'Golf otelleri', 'Premium hizmet']
+  },
+  {
+    id: 'ayt-side',
+    from: 'AYT',
+    to: 'side',
+    fromLocation: ANTALYA_AIRPORTS[0],
+    toLocation: ANTALYA_LOCATIONS.find(l => l.id === 'side')!,
+    distance: 65,
+    duration: 60,
+    basePrice: 600,
+    popular: true,
+    title: 'Antalya Havalimanı - Side Transfer',
+    titleEn: 'Antalya Airport - Side Transfer',
+    description: 'Antalya Havalimanı\'ndan Side\'ye güvenli transfer hizmeti. Antik Side\'nin eşsiz tatil bölgesine 1 saatte ulaşın. Manavgat, Kumköy, Sorgun ve Çolaklı bölgelerine de hizmet veriyoruz.',
+    descriptionEn: 'Safe transfer service from Antalya Airport to Side. Reach the unique holiday region of ancient Side in 1 hour.',
+    seoKeywords: ['antalya side transfer', 'side airport transfer', 'antalya airport side', 'side taxi'],
+    highlights: ['65 km mesafe', '1 saat süre', 'Tüm Side bölgeleri', 'Güvenli sürüş', 'Ailelere ideal']
+  },
+  {
+    id: 'ayt-kemer',
+    from: 'AYT',
+    to: 'kemer',
+    fromLocation: ANTALYA_AIRPORTS[0],
+    toLocation: ANTALYA_LOCATIONS.find(l => l.id === 'kemer')!,
+    distance: 45,
+    duration: 50,
+    basePrice: 450,
+    popular: true,
+    title: 'Antalya Havalimanı - Kemer Transfer',
+    titleEn: 'Antalya Airport - Kemer Transfer',
+    description: 'Antalya Havalimanı\'ndan Kemer\'e panoramik deniz manzaralı transfer rotası. Beldibi, Göynük, Çamyuva, Tekirova gibi tüm Kemer bölgelerine hizmet. 50 dakikada Akdeniz\'in incisindeyiz.',
+    descriptionEn: 'Panoramic sea view transfer route from Antalya Airport to Kemer. Service to all Kemer regions including Beldibi, Goynuk, Camyuva, Tekirova.',
+    seoKeywords: ['antalya kemer transfer', 'kemer airport transfer', 'kemer shuttle', 'antalya airport kemer'],
+    highlights: ['45 km mesafe', '50 dakika', 'Deniz manzarası', 'Tüm Kemer bölgesi', 'Konforlu araçlar']
+  },
+  {
+    id: 'ayt-lara',
+    from: 'AYT',
+    to: 'lara',
+    fromLocation: ANTALYA_AIRPORTS[0],
+    toLocation: ANTALYA_LOCATIONS.find(l => l.id === 'lara')!,
+    distance: 12,
+    duration: 15,
+    basePrice: 250,
+    popular: true,
+    title: 'Antalya Havalimanı - Lara Transfer',
+    titleEn: 'Antalya Airport - Lara Transfer',
+    description: 'Antalya Havalimanı\'ndan Lara Beach\'e en hızlı transfer! Sadece 15 dakikada lüks otellerin bulunduğu Lara sahiline ulaşın. Kundu bölgesine de hizmet veriyoruz.',
+    descriptionEn: 'Fastest transfer from Antalya Airport to Lara Beach! Reach Lara coast with luxury hotels in just 15 minutes.',
+    seoKeywords: ['antalya lara transfer', 'lara beach transfer', 'lara airport transfer', 'kundu transfer'],
+    highlights: ['12 km mesafe', '15 dakika', 'Hızlı ulaşım', 'Lara Beach', 'Lüks oteller']
+  },
+  {
+    id: 'ayt-mahmutlar',
+    from: 'AYT',
+    to: 'mahmutlar',
+    fromLocation: ANTALYA_AIRPORTS[0],
+    toLocation: ANTALYA_LOCATIONS.find(l => l.id === 'mahmutlar')!,
+    distance: 145,
+    duration: 130,
+    basePrice: 1250,
+    popular: true,
+    title: 'Antalya Havalimanı - Mahmutlar Transfer',
+    titleEn: 'Antalya Airport - Mahmutlar Transfer',
+    description: 'Antalya Havalimanı\'ndan Mahmutlar\'a direkt transfer hizmeti. Alanya\'nın en popüler tatil bölgelerinden Mahmutlar\'a 2 saat 10 dakikada ulaşın. Rusça konuşan şoför seçeneği mevcut.',
+    descriptionEn: 'Direct transfer service from Antalya Airport to Mahmutlar. Reach Mahmutlar, one of Alanya\'s most popular holiday regions, in 2 hours 10 minutes.',
+    seoKeywords: ['antalya mahmutlar transfer', 'mahmutlar airport transfer', 'mahmutlar alanya transfer'],
+    highlights: ['145 km mesafe', '2 saat 10 dakika', 'Rusça hizmet', 'Direkt güzergah', 'Konforlu yolculuk']
+  },
+  {
+    id: 'gzp-mahmutlar',
+    from: 'GZP',
+    to: 'mahmutlar',
+    fromLocation: ANTALYA_AIRPORTS[1],
+    toLocation: ANTALYA_LOCATIONS.find(l => l.id === 'mahmutlar')!,
+    distance: 35,
+    duration: 30,
+    basePrice: 350,
+    popular: true,
+    title: 'Gazipaşa Havalimanı - Mahmutlar Transfer',
+    titleEn: 'Gazipasa Airport - Mahmutlar Transfer',
+    description: 'Gazipaşa Havalimanı\'ndan Mahmutlar\'a en yakın ve ekonomik transfer çözümü. 30 dakikada Mahmutlar\'daki otelinizdeyiz. Erken rezervasyonda %10 indirim!',
+    descriptionEn: 'Closest and most economical transfer solution from Gazipasa Airport to Mahmutlar. We are at your hotel in Mahmutlar in 30 minutes.',
+    seoKeywords: ['gazipaşa mahmutlar transfer', 'gzp mahmutlar', 'gazipasa airport mahmutlar'],
+    highlights: ['35 km mesafe', '30 dakika', 'En yakın havalimanı', 'Ekonomik fiyat', 'Hızlı transfer']
+  },
+  {
+    id: 'ayt-konakli',
+    from: 'AYT',
+    to: 'konakli',
+    fromLocation: ANTALYA_AIRPORTS[0],
+    toLocation: ANTALYA_LOCATIONS.find(l => l.id === 'konakli')!,
+    distance: 105,
+    duration: 95,
+    basePrice: 950,
+    popular: true,
+    title: 'Antalya Havalimanı - Konaklı Transfer',
+    titleEn: 'Antalya Airport - Konakli Transfer',
+    description: 'Antalya Havalimanı\'ndan Konaklı\'ya özel transfer hizmeti. Alanya\'nın sakin ve huzurlu tatil bölgesi Konaklı\'ya 1 saat 35 dakikada konforlu yolculuk. Aile dostu araç seçenekleri.',
+    descriptionEn: 'Private transfer service from Antalya Airport to Konakli. Comfortable journey to Konakli, Alanya\'s calm and peaceful holiday region, in 1 hour 35 minutes.',
+    seoKeywords: ['antalya konaklı transfer', 'konakli airport transfer', 'konakli alanya transfer'],
+    highlights: ['105 km mesafe', '1 saat 35 dakika', 'Aile dostu', 'Sakin bölge', 'Konforlu araçlar']
+  },
+  {
+    id: 'ayt-kaleici',
+    from: 'AYT',
+    to: 'kaleici',
+    fromLocation: ANTALYA_AIRPORTS[0],
+    toLocation: ANTALYA_LOCATIONS.find(l => l.id === 'kaleici')!,
+    distance: 14,
+    duration: 20,
+    basePrice: 280,
+    popular: true,
+    title: 'Antalya Havalimanı - Kaleiçi Transfer',
+    titleEn: 'Antalya Airport - Kaleici Transfer',
+    description: 'Antalya Havalimanı\'ndan tarihi Kaleiçi\'ne (Old Town) butik otel transferi. Dar sokaklar için özel araçlarla, 20 dakikada Antalya\'nın tarihi merkezindeyiz. Butik otellere özel servis.',
+    descriptionEn: 'Boutique hotel transfer from Antalya Airport to historic Kaleici (Old Town). Special vehicles for narrow streets, arrive in Antalya\'s historic center in 20 minutes.',
+    seoKeywords: ['antalya kaleiçi transfer', 'kaleici old town transfer', 'antalya old town airport'],
+    highlights: ['14 km mesafe', '20 dakika', 'Butik oteller', 'Tarihi merkez', 'Özel araçlar']
+  }
+];

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- Homepage -->
+  <url>
+    <loc>https://travel.ailydian.com/</loc>
+    <lastmod>2025-12-21</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="tr-TR" href="https://travel.ailydian.com/tr/" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://travel.ailydian.com/en/" />
+    <xhtml:link rel="alternate" hreflang="de-DE" href="https://travel.ailydian.com/de/" />
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://travel.ailydian.com/fr/" />
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://travel.ailydian.com/es/" />
+  </url>
+
+  <!-- ai travel planner free -->
+  <url>
+    <loc>https://travel.ailydian.com/ai-travel-planner-free</loc>
+    <lastmod>2025-12-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- alanya transfer -->
+  <url>
+    <loc>https://travel.ailydian.com/alanya-transfer</loc>
+    <lastmod>2025-12-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- antalya transfer -->
+  <url>
+    <loc>https://travel.ailydian.com/antalya-transfer</loc>
+    <lastmod>2025-12-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- vip transfer -->
+  <url>
+    <loc>https://travel.ailydian.com/vip-transfer</loc>
+    <lastmod>2025-12-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- tatil planlama yapay zeka -->
+  <url>
+    <loc>https://travel.ailydian.com/tatil-planlama-yapay-zeka</loc>
+    <lastmod>2025-12-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+</urlset>

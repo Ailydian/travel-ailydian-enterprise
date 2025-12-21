@@ -86,6 +86,13 @@ const ResponsiveMobileMenu: React.FC<ResponsiveMobileMenuProps> = ({
       badge: 'Yeni'
     },
     {
+      icon: Home,
+      label: 'Konaklama',
+      href: '/rentals',
+      color: 'from-purple-500 to-purple-600',
+      badge: 'Yeni'
+    },
+    {
       icon: Compass,
       label: 'Turlar ve Aktiviteler',
       href: '/tours',

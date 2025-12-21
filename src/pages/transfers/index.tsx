@@ -297,7 +297,7 @@ export default function AntalyaTransferPage() {
 
       addItem({
         id: `transfer-${Date.now()}`,
-        type: 'transfer',
+        type: 'tour',
         title: `${vehicleWithPrice.vehicle.name} Transfer`,
         description: `${quotes.fromLocation.name} → ${quotes.toLocation.name}${
           searchParams.isRoundTrip ? ' (Gidiş-Dönüş)' : ''
@@ -308,20 +308,10 @@ export default function AntalyaTransferPage() {
         quantity: 1,
         location: `${quotes.fromLocation.name} - ${quotes.toLocation.name}`,
         duration: `${quotes.duration} dakika`,
-        transferDetails: {
-          from: quotes.fromLocation.name,
-          to: quotes.toLocation.name,
-          distance: quotes.distance,
-          vehicleType: vehicleWithPrice.vehicle.id,
-          capacity: vehicleWithPrice.vehicle.capacity.passengers,
-          luggageCapacity: vehicleWithPrice.vehicle.capacity.luggage,
-          features: vehicleWithPrice.vehicle.features,
-          isVIP: vehicleWithPrice.vehicle.category === 'premium' || vehicleWithPrice.vehicle.category === 'luxury',
+        bookingDetails: {
+          meetingPoint: quotes.fromLocation.name,
+          specialRequests: `Araç: ${vehicleWithPrice.vehicle.name} | Kapasite: ${vehicleWithPrice.vehicle.capacity.passengers} kişi | Mesafe: ${quotes.distance}km | ${searchParams.isRoundTrip ? 'Gidiş-Dönüş' : 'Tek Yön'} | Ekstralar: ${selectedExtras.map(id => EXTRA_SERVICES.find(e => e.id === id)!.name).join(', ') || 'Yok'}`,
           passengers: searchParams.passengers,
-          date: searchParams.date,
-          time: searchParams.time,
-          isRoundTrip: searchParams.isRoundTrip,
-          extras: selectedExtras.map(id => EXTRA_SERVICES.find(e => e.id === id)!.name),
         },
         isRefundable: true,
         cancellationPolicy: 'Ücretsiz iptal: 24 saat öncesine kadar',

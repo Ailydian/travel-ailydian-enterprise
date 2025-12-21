@@ -1,8 +1,9 @@
 import React, { createContext, useContext, useReducer, useEffect } from 'react';
+import { useToast } from './ToastContext';
 
 export interface CartItem {
   id: string;
-  type: 'hotel' | 'flight' | 'tour' | 'restaurant' | 'activity';
+  type: 'hotel' | 'flight' | 'tour' | 'restaurant' | 'activity' | 'transfer';
   title: string;
   description?: string;
   image?: string;
@@ -212,9 +213,25 @@ const CartContext = createContext<CartContextType | undefined>(undefined);
 
 export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [state, dispatch] = useReducer(cartReducer, initialState);
+  const [isClient, setIsClient] = React.useState(false);
+
+  // Toast context - always use hook, but only call methods on client
+  let toast: ReturnType<typeof useToast> | null = null;
+  try {
+    toast = useToast();
+  } catch (e) {
+    // Toast context not available yet (SSR)
+  }
+
+  // Set client-side flag
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   // Load cart from localStorage on mount
   useEffect(() => {
+    if (typeof window === 'undefined') return;
+
     const savedCart = localStorage.getItem('ailydian_cart');
     if (savedCart) {
       try {
@@ -232,8 +249,42 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
   }, [state]);
 
   const addItem = (item: CartItem) => {
+    const previousItem = state.items.find(i => i.id === item.id && i.type === item.type);
+
     dispatch({ type: 'ADD_ITEM', payload: item });
-    
+
+    // Show premium toast notification
+    if (isClient && toast) {
+      const itemTypeLabels = {
+        hotel: '🏨 Otel',
+        flight: '✈️ Uçak Bileti',
+        tour: '🎯 Tur',
+        restaurant: '🍽️ Restoran',
+        activity: '⚡ Aktivite',
+        transfer: '🚗 Transfer'
+      };
+
+      toast.showCartToast({
+        title: previousItem ? 'Miktar Güncellendi' : 'Sepete Eklendi',
+        message: `${itemTypeLabels[item.type] || item.type} - ${item.title}`,
+        image: item.image,
+        price: `${item.price.toLocaleString('tr-TR')} ${item.currency}`,
+        itemCount: state.totalItems + item.quantity,
+        undoAction: () => {
+          if (previousItem) {
+            // Restore previous quantity
+            dispatch({
+              type: 'UPDATE_QUANTITY',
+              payload: { id: item.id, quantity: previousItem.quantity }
+            });
+          } else {
+            // Remove item completely
+            dispatch({ type: 'REMOVE_ITEM', payload: item.id });
+          }
+        },
+      });
+    }
+
     // Analytics event
     if (typeof window !== 'undefined' && (window as any).gtag) {
       (window as any).gtag('event', 'add_to_cart', {
@@ -251,7 +302,19 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
   };
 
   const removeItem = (id: string) => {
+    const removedItem = state.items.find(item => item.id === id);
+
     dispatch({ type: 'REMOVE_ITEM', payload: id });
+
+    // Show removal toast with undo
+    if (isClient && toast && removedItem) {
+      toast.showWarning('Sepetten Çıkarıldı', removedItem.title, {
+        duration: 5000,
+        undoAction: () => {
+          dispatch({ type: 'ADD_ITEM', payload: removedItem });
+        },
+      });
+    }
   };
 
   const updateQuantity = (id: string, quantity: number) => {

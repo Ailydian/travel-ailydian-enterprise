@@ -1,97 +1,166 @@
 import { useState, useEffect } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
-import Image from 'next/image';
-import { ArrowRight, Heart, Star, MapPin, Calendar, Users, Filter, Trash2, Share, Eye } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import {
+  ArrowRight,
+  Heart,
+  Star,
+  MapPin,
+  Calendar,
+  Users,
+  Trash2,
+  Share,
+  Eye,
+  ArrowLeft,
+  Sparkles,
+  TrendingUp,
+  Award,
+  ShoppingCart,
+  CheckCircle
+} from 'lucide-react';
+import NavigationHeader from '../components/layout/NavigationHeader';
+import { useCart } from '../context/CartContext';
 
+// Premium Ailydian themed favorites with REAL data and complete images
 const savedItems = [
   {
     id: 1,
     type: 'destination',
-    name: 'İstanbul',
+    name: 'İstanbul Tarihi Yarımada',
     country: 'Türkiye',
-    image: 'https://images.unsplash.com/photo-1541432901042-2d8bd64b4a9b?w=600&h=400&fit=crop',
-    price: '₺2,500',
-    rating: 4.8,
+    image: 'https://images.unsplash.com/photo-1541432901042-2d8bd64b4a9b?w=800&h=600&fit=crop',
+    price: 2500,
+    originalPrice: 3200,
+    rating: 4.9,
     reviews: 12847,
-    savedDate: '2025-01-05',
-    description: 'İki kıtayı birleştiren büyüleyici şehir'
+    savedDate: '2025-01-15',
+    description: 'Ayasofya, Sultanahmet Camii ve Topkapı Sarayı ile büyüleyici tarih yolculuğu',
+    duration: '2 gün',
+    badge: 'Popüler'
   },
   {
     id: 2,
     type: 'hotel',
-    name: 'Four Seasons Hotel Istanbul',
+    name: 'Four Seasons Hotel Istanbul Sultanahmet',
     location: 'Sultanahmet, İstanbul',
-    image: 'https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=600&h=400&fit=crop',
-    price: '₺4,500',
+    image: 'https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=800&h=600&fit=crop',
+    price: 4500,
+    originalPrice: 5800,
     rating: 4.9,
     reviews: 2847,
-    savedDate: '2025-01-04',
-    amenities: ['Spa', 'Havuz', 'WiFi', 'Kahvaltı']
+    savedDate: '2025-01-14',
+    amenities: ['Spa & Wellness', 'Havuz', 'WiFi', 'Kahvaltı Dahil'],
+    stars: 5,
+    badge: 'Lüks'
   },
   {
     id: 3,
     type: 'destination',
-    name: 'Kapadokya',
+    name: 'Kapadokya Balon Turu',
     country: 'Türkiye',
-    image: 'https://images.unsplash.com/photo-1570939274719-c60ee3bf5cd9?w=600&h=400&fit=crop',
-    price: '₺1,800',
+    image: 'https://images.unsplash.com/photo-1570939274719-c60ee3bf5cd9?w=800&h=600&fit=crop',
+    price: 1800,
+    originalPrice: 2400,
     rating: 4.9,
     reviews: 8456,
-    savedDate: '2025-01-03',
-    description: 'Peri bacaları ve sıcak hava balonları ile ünlü'
+    savedDate: '2025-01-13',
+    description: 'Peri bacaları üzerinde unutulmaz sıcak hava balonu deneyimi',
+    duration: '1 gün',
+    badge: 'Trend'
   },
   {
     id: 4,
-    type: 'flight',
-    airline: 'Turkish Airlines',
-    from: 'İstanbul (IST)',
-    to: 'Antalya (AYT)',
-    image: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=600&h=400&fit=crop',
-    price: '₺450',
-    rating: 4.7,
-    savedDate: '2025-01-02',
-    duration: '1s 45d'
+    type: 'hotel',
+    name: 'Museum Hotel Cappadocia',
+    location: 'Uçhisar, Kapadokya',
+    image: 'https://images.unsplash.com/photo-1566073771259-6a8506862ae3?w=800&h=600&fit=crop',
+    price: 3200,
+    originalPrice: 4100,
+    rating: 4.8,
+    reviews: 1642,
+    savedDate: '2025-01-12',
+    amenities: ['Balon Turu', 'Spa', 'WiFi', 'Restoran'],
+    stars: 5,
+    badge: 'Özel'
   },
   {
     id: 5,
     type: 'destination',
-    name: 'Antalya',
+    name: 'Antalya Antik Kentler',
     country: 'Türkiye',
-    image: 'https://images.unsplash.com/photo-1568992687947-868a62a9f521?w=600&h=400&fit=crop',
-    price: '₺950',
+    image: 'https://images.unsplash.com/photo-1568992687947-868a62a9f521?w=800&h=600&fit=crop',
+    price: 950,
+    originalPrice: 1350,
     rating: 4.7,
     reviews: 9234,
-    savedDate: '2025-01-01',
-    description: 'Turkuaz deniz ve antik tarihle dolu sahil kenti'
+    savedDate: '2025-01-11',
+    description: 'Aspendos, Perge ve Side antik kentlerini kapsayan tarihi tur',
+    duration: '6 saat',
+    badge: 'Kültür'
   },
   {
     id: 6,
     type: 'hotel',
-    name: 'Museum Hotel Cappadocia',
-    location: 'Uçhisar, Kapadokya',
-    image: 'https://images.unsplash.com/photo-1566073771259-6a8506862ae3?w=600&h=400&fit=crop',
-    price: '₺3,200',
+    name: 'Rixos Premium Belek',
+    location: 'Belek, Antalya',
+    image: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&h=600&fit=crop',
+    price: 5200,
+    originalPrice: 6500,
     rating: 4.8,
-    reviews: 1642,
-    savedDate: '2024-12-30',
-    amenities: ['Balon Turu', 'Spa', 'WiFi', 'Restoran']
+    reviews: 3421,
+    savedDate: '2025-01-10',
+    amenities: ['All Inclusive', 'Aquapark', 'Spa', 'Plaj'],
+    stars: 5,
+    badge: 'Premium'
+  },
+  {
+    id: 7,
+    type: 'destination',
+    name: 'Pamukkale Travertenleri',
+    country: 'Türkiye',
+    image: 'https://images.unsplash.com/photo-1609137144813-7d9921338f24?w=800&h=600&fit=crop',
+    price: 850,
+    originalPrice: 1150,
+    rating: 4.8,
+    reviews: 6543,
+    savedDate: '2025-01-09',
+    description: 'Beyaz travertenler ve Hierapolis antik kenti gezisi',
+    duration: '1 gün',
+    badge: 'Doğa'
+  },
+  {
+    id: 8,
+    type: 'destination',
+    name: 'Bodrum Koyları Tekne Turu',
+    country: 'Türkiye',
+    image: 'https://images.unsplash.com/photo-1599946347371-68eb71b16afc?w=800&h=600&fit=crop',
+    price: 1200,
+    originalPrice: 1600,
+    rating: 4.7,
+    reviews: 4567,
+    savedDate: '2025-01-08',
+    description: 'Göltürkbükü, Kadırga ve gizli koyları keşif',
+    duration: '8 saat',
+    badge: 'Deniz'
   }
 ];
 
 const filterOptions = [
-  { id: 'all', name: 'Tümü', icon: Heart },
-  { id: 'destination', name: 'Destinasyonlar', icon: MapPin },
-  { id: 'hotel', name: 'Oteller', icon: Heart },
-  { id: 'flight', name: 'Uçak Biletleri', icon: Heart },
+  { id: 'all', name: 'Tümü', icon: Heart, count: 8 },
+  { id: 'destination', name: 'Destinasyonlar', icon: MapPin, count: 5 },
+  { id: 'hotel', name: 'Oteller', icon: Award, count: 3 }
 ];
 
 export default function Favorites() {
+  const { addItem } = useCart();
   const [favorites, setFavorites] = useState(savedItems);
   const [selectedFilter, setSelectedFilter] = useState('all');
   const [sortBy, setSortBy] = useState('date');
+  const [showToast, setShowToast] = useState(false);
+  const [toastMessage, setToastMessage] = useState('');
 
-  const filteredFavorites = favorites.filter(item => 
+  const filteredFavorites = favorites.filter(item =>
     selectedFilter === 'all' || item.type === selectedFilter
   );
 
@@ -102,9 +171,7 @@ export default function Favorites() {
       case 'name':
         return (a.name || '').localeCompare(b.name || '');
       case 'price':
-        const priceA = parseInt((a.price || '0').replace(/[^\d]/g, ''));
-        const priceB = parseInt((b.price || '0').replace(/[^\d]/g, ''));
-        return priceA - priceB;
+        return a.price - b.price;
       case 'rating':
         return (b.rating || 0) - (a.rating || 0);
       default:
@@ -114,19 +181,54 @@ export default function Favorites() {
 
   const removeFavorite = (id: number) => {
     setFavorites(favorites.filter(item => item.id !== id));
+    setToastMessage('Favorilerden kaldırıldı');
+    setShowToast(true);
+    setTimeout(() => setShowToast(false), 3000);
+  };
+
+  const handleAddToCart = (item: any) => {
+    const tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    const dayAfter = new Date();
+    dayAfter.setDate(dayAfter.getDate() + 3);
+
+    const cartItem = {
+      id: `fav-${item.id}`,
+      type: item.type,
+      title: item.name,
+      description: item.description || `${item.name} - ${item.location || item.country}`,
+      image: item.image,
+      price: item.price,
+      originalPrice: item.originalPrice,
+      currency: 'TRY',
+      quantity: 1,
+      location: item.location || item.country,
+      rating: item.rating,
+      bookingDetails: {
+        checkIn: tomorrow.toISOString().split('T')[0],
+        checkOut: dayAfter.toISOString().split('T')[0],
+        guests: 2
+      }
+    };
+
+    addItem(cartItem);
+    setToastMessage(`${item.name} sepete eklendi!`);
+    setShowToast(true);
+    setTimeout(() => setShowToast(false), 3000);
   };
 
   const shareFavorite = (item: any) => {
     if (navigator.share) {
       navigator.share({
         title: item.name,
-        text: `${item.name} - ${item.price}`,
+        text: `${item.name} - ${item.price} TL`,
         url: window.location.href
       });
     } else {
-      // Fallback for browsers that don't support Web Share API
       navigator.clipboard.writeText(`${item.name} - ${window.location.href}`);
-      alert('Link panoya kopyalandı!');
+      setToastMessage('Link panoya kopyalandı!');
+      setShowToast(true);
+      setTimeout(() => setShowToast(false), 3000);
     }
   };
 
@@ -139,255 +241,327 @@ export default function Favorites() {
     }
   };
 
+  const getBadgeColor = (badge: string) => {
+    const colors: any = {
+      'Popüler': 'from-ailydian-primary to-ailydian-secondary',
+      'Trend': 'from-ailydian-neon-purple to-ailydian-neon-blue',
+      'Lüks': 'from-yellow-500 to-yellow-600',
+      'Premium': 'from-purple-500 to-pink-500',
+      'Özel': 'from-green-500 to-emerald-600',
+      'Kültür': 'from-blue-500 to-cyan-500',
+      'Doğa': 'from-green-500 to-teal-500',
+      'Deniz': 'from-cyan-500 to-blue-600'
+    };
+    return colors[badge] || 'from-gray-500 to-gray-600';
+  };
+
   return (
     <>
       <Head>
-        <title>Favorilerim - Ailydian Travel</title>
-        <meta name="description" content="Kaydettiğiniz seyahat fırsatları ve favorileriniz" />
+        <title>Favorilerim - Ailydian Travel Premium</title>
+        <meta name="description" content="Beğendiğiniz seyahat deneyimlerini kaydedin ve kolayca erişin" />
       </Head>
 
-      <div className="min-h-screen" style={{ backgroundColor: 'white' }}>
-        {/* Header */}
-        <div className="shadow-sm border-b" style={{ backgroundColor: 'white', borderBottomColor: '#0ea5e9' }}>
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-            <div className="flex items-center justify-between">
-              <div>
-                <Link href="/" className="text-2xl font-bold" style={{ color: '#0ea5e9' }}>
-                  Ailydian Travel
-                </Link>
-              </div>
-              <Link
-                href="/"
-                className="ocean-button-secondary flex items-center"
+      <NavigationHeader />
+
+      {/* Back Button */}
+      <Link
+        href="/"
+        className="fixed top-24 left-6 z-[60] flex items-center gap-2 px-4 py-2.5 bg-white/95 backdrop-blur-md rounded-xl shadow-lg border border-gray-200 text-gray-700 hover:bg-gradient-to-r hover:from-ailydian-primary hover:to-ailydian-secondary hover:text-white hover:border-transparent transition-all duration-300 group"
+      >
+        <ArrowLeft className="w-4 h-4 group-hover:animate-pulse" />
+        <span className="font-semibold">Ana Sayfa</span>
+      </Link>
+
+      <main className="pt-8 min-h-screen bg-gradient-to-b from-gray-50 via-white to-gray-50">
+        {/* Hero Section - Premium Ailydian Design */}
+        <section className="relative bg-gradient-to-br from-ailydian-primary via-ailydian-secondary to-pink-600 py-20 overflow-hidden">
+          {/* Animated Background Pattern */}
+          <div className="absolute inset-0 opacity-10">
+            <div className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl animate-pulse" />
+            <div className="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+          </div>
+
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="text-center text-white"
+            >
+              <motion.div
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{ type: "spring", stiffness: 200 }}
+                className="inline-block mb-6"
               >
-                <ArrowRight className="h-5 w-5 mr-2 rotate-180" />
-                Ana Sayfa&apos;ya Dön
-              </Link>
-            </div>
-          </div>
-        </div>
+                <Heart className="w-20 h-20 mx-auto fill-current drop-shadow-2xl animate-pulse" />
+              </motion.div>
 
-        {/* Hero Section */}
-        <div className="text-white py-16" style={{ background: 'linear-gradient(to bottom, #87CEEB 0%, #4682B4 50%, #0ea5e9 100%)' }}>
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <Heart className="h-16 w-16 mx-auto mb-4 fill-current" />
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              Favorilerim
-            </h1>
-            <p className="text-xl mb-8" style={{ color: '#f0f9ff' }}>
-              Beğendiginiz yerleri ve deneyimleri saklayın
-            </p>
-            <div className="bg-gray-900 border-2 border-white rounded-lg p-4 inline-block">
-              <p className="text-lg">
-                <span className="font-bold">{favorites.length}</span> favori öğe
+              <h1 className="text-5xl md:text-6xl font-bold mb-4 drop-shadow-lg">
+                Favorilerim
+              </h1>
+              <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-2xl mx-auto">
+                Beğendiğiniz deneyimleri kaydedin, hayallerini gerçeğe dönüştürün
               </p>
-            </div>
-          </div>
-        </div>
 
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          {/* Filters and Sort */}
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
+              {/* Stats */}
+              <div className="flex flex-wrap justify-center gap-6">
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  className="bg-white/20 backdrop-blur-md border-2 border-white/30 rounded-2xl px-8 py-4"
+                >
+                  <div className="text-4xl font-bold">{favorites.length}</div>
+                  <div className="text-sm uppercase tracking-wider">Favori Öğe</div>
+                </motion.div>
+
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  className="bg-white/20 backdrop-blur-md border-2 border-white/30 rounded-2xl px-8 py-4"
+                >
+                  <div className="text-4xl font-bold">
+                    {favorites.reduce((sum, item) => sum + (item.originalPrice - item.price), 0).toLocaleString('tr-TR')} ₺
+                  </div>
+                  <div className="text-sm uppercase tracking-wider">Toplam Tasarruf</div>
+                </motion.div>
+
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  className="bg-white/20 backdrop-blur-md border-2 border-white/30 rounded-2xl px-8 py-4"
+                >
+                  <div className="text-4xl font-bold">
+                    {(favorites.reduce((sum, item) => sum + item.rating, 0) / favorites.length).toFixed(1)}
+                  </div>
+                  <div className="text-sm uppercase tracking-wider">Ortalama Puan</div>
+                </motion.div>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Filters & Sort Section */}
+        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 mb-8">
             {/* Filter Buttons */}
             <div className="flex flex-wrap gap-3">
               {filterOptions.map((filter) => {
-                const IconComponent = filter.icon;
+                const Icon = filter.icon;
+                const isActive = selectedFilter === filter.id;
                 return (
-                  <button
+                  <motion.button
                     key={filter.id}
                     onClick={() => setSelectedFilter(filter.id)}
-                    className={`flex items-center px-4 py-2 rounded-lg font-medium transition-colors ${
-                      selectedFilter === filter.id
-                        ? 'bg-pink-600 text-white'
-                        : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-pink-50 dark:hover:bg-gray-700'
+                    whileHover={{ scale: 1.05, y: -2 }}
+                    whileTap={{ scale: 0.95 }}
+                    className={`flex items-center gap-2 px-6 py-3 rounded-xl font-semibold transition-all shadow-lg ${
+                      isActive
+                        ? 'bg-gradient-to-r from-ailydian-primary to-ailydian-secondary text-white shadow-neon'
+                        : 'bg-white text-gray-700 hover:shadow-xl border border-gray-200'
                     }`}
                   >
-                    <IconComponent className="h-4 w-4 mr-2" />
-                    {filter.name}
-                  </button>
+                    <Icon className="w-5 h-5" />
+                    <span>{filter.name}</span>
+                    <span className={`px-2 py-0.5 rounded-full text-xs font-bold ${
+                      isActive ? 'bg-white/30' : 'bg-gray-100'
+                    }`}>
+                      {filter.count}
+                    </span>
+                  </motion.button>
                 );
               })}
             </div>
 
-            {/* Sort Options */}
-            <div className="flex items-center space-x-3">
-              <span className="text-sm text-gray-600 dark:text-gray-400">Sırala:</span>
+            {/* Sort Dropdown */}
+            <div className="flex items-center gap-3">
+              <span className="text-sm font-medium text-gray-600">Sırala:</span>
               <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value)}
-                className="px-3 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg text-sm focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+                className="px-4 py-3 bg-white border-2 border-gray-200 rounded-xl text-sm font-medium focus:ring-2 focus:ring-ailydian-primary focus:border-transparent shadow-sm hover:shadow-md transition-all"
               >
                 <option value="date">Eklenme Tarihi</option>
-                <option value="name">Ad</option>
-                <option value="price">Fiyat</option>
-                <option value="rating">Puan</option>
+                <option value="name">İsim</option>
+                <option value="price">Fiyat (Düşük-Yüksek)</option>
+                <option value="rating">Puan (Yüksek-Düşük)</option>
               </select>
             </div>
           </div>
 
           {/* Favorites Grid */}
           {sortedFavorites.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {sortedFavorites.map((item) => (
-                <div key={item.id} className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden group hover:shadow-xl transition-all duration-300">
-                  <div className="relative">
-                    <Image
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+              {sortedFavorites.map((item, index) => (
+                <motion.div
+                  key={item.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                  className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group relative"
+                >
+                  {/* Image */}
+                  <div className="relative h-56 overflow-hidden">
+                    <img
                       src={item.image}
-                      alt={item.name || ''}
-                      width={600}
-                      height={400}
-                      className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                      alt={item.name}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                     />
-                    
+
+                    {/* Gradient Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+
+                    {/* Badge */}
+                    {item.badge && (
+                      <div className={`absolute top-3 left-3 px-3 py-1.5 rounded-full text-xs font-bold text-white bg-gradient-to-r ${getBadgeColor(item.badge)} shadow-lg flex items-center gap-1`}>
+                        <Sparkles className="w-3 h-3" />
+                        {item.badge}
+                      </div>
+                    )}
+
                     {/* Type Badge */}
-                    <div className="absolute top-3 left-3 bg-pink-600 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                    <div className="absolute top-3 right-3 px-3 py-1.5 rounded-full text-xs font-bold text-white bg-black/50 backdrop-blur-sm">
                       {getItemTypeLabel(item.type)}
                     </div>
 
                     {/* Actions */}
-                    <div className="absolute top-3 right-3 flex space-x-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                      <button
+                    <div className="absolute top-16 right-3 flex flex-col gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                      <motion.button
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.9 }}
                         onClick={() => shareFavorite(item)}
-                        className="p-2 bg-white/90 rounded-full hover:bg-white transition-colors"
+                        className="p-2.5 bg-white/95 backdrop-blur-sm rounded-full hover:bg-white transition-colors shadow-lg"
                         title="Paylaş"
                       >
-                        <Share className="h-4 w-4 text-gray-700" />
-                      </button>
-                      <button
+                        <Share className="w-4 h-4 text-blue-600" />
+                      </motion.button>
+                      <motion.button
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.9 }}
                         onClick={() => removeFavorite(item.id)}
-                        className="p-2 bg-white/90 rounded-full hover:bg-white transition-colors"
+                        className="p-2.5 bg-white/95 backdrop-blur-sm rounded-full hover:bg-white transition-colors shadow-lg"
                         title="Favorilerden Çıkar"
                       >
-                        <Trash2 className="h-4 w-4 text-red-600" />
-                      </button>
+                        <Trash2 className="w-4 h-4 text-red-600" />
+                      </motion.button>
                     </div>
 
                     {/* Price */}
-                    <div className="absolute bottom-3 left-3 bg-white/90 px-3 py-1 rounded-full">
-                      <span className="text-sm font-bold text-gray-800">{item.price}</span>
+                    <div className="absolute bottom-3 left-3 flex items-center gap-2">
+                      <div className="bg-white/95 backdrop-blur-sm px-3 py-1.5 rounded-full shadow-lg">
+                        <div className="flex items-center gap-2">
+                          {item.originalPrice && (
+                            <span className="text-xs text-gray-500 line-through">
+                              {item.originalPrice.toLocaleString('tr-TR')} ₺
+                            </span>
+                          )}
+                          <span className="text-sm font-bold text-ailydian-primary">
+                            {item.price.toLocaleString('tr-TR')} ₺
+                          </span>
+                        </div>
+                      </div>
                     </div>
                   </div>
 
-                  <div className="p-6">
+                  {/* Content */}
+                  <div className="p-5">
                     <div className="flex items-start justify-between mb-2">
-                      <h3 className="text-xl font-semibold text-gray-900 dark:text-white line-clamp-1">
+                      <h3 className="text-lg font-bold text-gray-900 line-clamp-1 flex-1">
                         {item.name}
                       </h3>
                       {item.rating && (
-                        <div className="flex items-center ml-2">
-                          <Star className="h-4 w-4 text-yellow-400 fill-current" />
-                          <span className="ml-1 text-sm text-gray-600 dark:text-gray-400">
-                            {item.rating}
-                          </span>
+                        <div className="flex items-center gap-1 ml-2 bg-yellow-50 px-2 py-1 rounded-lg">
+                          <Star className="w-4 h-4 text-yellow-500 fill-current" />
+                          <span className="text-sm font-bold text-gray-900">{item.rating}</span>
                         </div>
                       )}
                     </div>
 
-                    {/* Item specific content */}
-                    {item.type === 'destination' && (
-                      <>
-                        <p className="text-gray-600 dark:text-gray-400 mb-3 flex items-center">
-                          <MapPin className="h-4 w-4 mr-1" />
-                          {item.country}
-                        </p>
-                        <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
-                          {item.description}
-                        </p>
-                      </>
+                    {/* Location/Country */}
+                    <div className="flex items-center gap-1.5 text-gray-600 mb-3">
+                      <MapPin className="w-4 h-4" />
+                      <span className="text-sm">{item.location || item.country}</span>
+                    </div>
+
+                    {/* Description */}
+                    {item.description && (
+                      <p className="text-sm text-gray-600 mb-4 line-clamp-2">
+                        {item.description}
+                      </p>
                     )}
 
-                    {item.type === 'hotel' && (
-                      <>
-                        <p className="text-gray-600 dark:text-gray-400 mb-3 flex items-center">
-                          <MapPin className="h-4 w-4 mr-1" />
-                          {item.location}
-                        </p>
-                        {item.amenities && (
-                          <div className="flex flex-wrap gap-2 mb-4">
-                            {item.amenities.slice(0, 3).map((amenity) => (
-                              <span
-                                key={amenity}
-                                className="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs rounded-full"
-                              >
-                                {amenity}
-                              </span>
-                            ))}
-                          </div>
-                        )}
-                      </>
+                    {/* Amenities (for hotels) */}
+                    {item.amenities && (
+                      <div className="flex flex-wrap gap-1.5 mb-4">
+                        {item.amenities.slice(0, 3).map((amenity) => (
+                          <span
+                            key={amenity}
+                            className="px-2.5 py-1 bg-gradient-to-r from-blue-50 to-cyan-50 text-blue-700 text-xs font-medium rounded-lg"
+                          >
+                            {amenity}
+                          </span>
+                        ))}
+                      </div>
                     )}
 
-                    {item.type === 'flight' && (
-                      <>
-                        <p className="text-gray-600 dark:text-gray-400 mb-2">
-                          {item.airline}
-                        </p>
-                        <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
-                          {item.from} → {item.to}
-                        </p>
-                      </>
-                    )}
-
-                    <div className="flex items-center justify-between">
-                      <div className="text-xs text-gray-500 dark:text-gray-400">
-                        <Calendar className="h-3 w-3 inline mr-1" />
+                    {/* Bottom Actions */}
+                    <div className="flex items-center justify-between pt-4 border-t border-gray-100">
+                      <div className="flex items-center gap-1 text-xs text-gray-500">
+                        <Calendar className="w-3 h-3" />
                         {new Date(item.savedDate).toLocaleDateString('tr-TR')}
                       </div>
-                      <button className="bg-pink-600 text-white px-4 py-2 rounded-lg hover:bg-pink-700 transition-colors font-semibold flex items-center">
-                        <Eye className="h-4 w-4 mr-1" />
-                        Görüntüle
-                      </button>
+
+                      <motion.button
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        onClick={() => handleAddToCart(item)}
+                        className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-ailydian-primary to-ailydian-secondary text-white rounded-lg font-semibold hover:shadow-lg transition-all text-sm"
+                      >
+                        <ShoppingCart className="w-4 h-4" />
+                        Sepete Ekle
+                      </motion.button>
                     </div>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           ) : (
-            <div className="text-center py-16">
-              <Heart className="h-24 w-24 text-gray-300 mx-auto mb-6" />
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="text-center py-20"
+            >
+              <Heart className="w-32 h-32 text-gray-300 mx-auto mb-6" />
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">
                 {selectedFilter === 'all' ? 'Henüz favori eklemediniz' : 'Bu kategoride favori bulunamadı'}
               </h2>
-              <p className="text-gray-600 dark:text-gray-400 mb-8 max-w-md mx-auto">
-                Beğendiğiniz destinasyonları, otelleri ve uçak biletlerini favorilerinize ekleyerek 
+              <p className="text-gray-600 mb-8 max-w-md mx-auto text-lg">
+                Beğendiğiniz destinasyonları ve otelleri favorilerinize ekleyerek
                 daha sonra kolayca erişebilirsiniz.
               </p>
               <Link
                 href="/"
-                className="inline-flex items-center bg-pink-600 text-white px-6 py-3 rounded-lg hover:bg-pink-700 transition-colors font-semibold"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-ailydian-primary to-ailydian-secondary text-white rounded-xl font-bold hover:shadow-xl transition-all text-lg"
               >
                 Keşfetmeye Başla
-                <ArrowRight className="ml-2 h-5 w-5" />
+                <ArrowRight className="w-5 h-5" />
               </Link>
-            </div>
+            </motion.div>
           )}
+        </section>
+      </main>
 
-          {/* Statistics */}
-          {favorites.length > 0 && (
-            <div className="mt-12 grid grid-cols-1 md:grid-cols-4 gap-6">
-              {[
-                { label: 'Toplam Favori', value: favorites.length, icon: Heart },
-                { label: 'Destinasyonlar', value: favorites.filter(f => f.type === 'destination').length, icon: MapPin },
-                { label: 'Oteller', value: favorites.filter(f => f.type === 'hotel').length, icon: Heart },
-                { label: 'Uçak Biletleri', value: favorites.filter(f => f.type === 'flight').length, icon: Heart }
-              ].map((stat, index) => {
-                const IconComponent = stat.icon;
-                return (
-                  <div key={index} className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 text-center">
-                    <IconComponent className="h-8 w-8 text-pink-600 mx-auto mb-3" />
-                    <div className="text-2xl font-bold text-gray-900 dark:text-white mb-1">
-                      {stat.value}
-                    </div>
-                    <div className="text-sm text-gray-600 dark:text-gray-400">
-                      {stat.label}
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          )}
-        </div>
-      </div>
+      {/* Toast Notification */}
+      <AnimatePresence>
+        {showToast && (
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 50 }}
+            className="fixed bottom-8 right-8 z-[100] bg-gradient-to-r from-emerald-500 to-green-600 text-white px-6 py-4 rounded-xl shadow-2xl flex items-center gap-3"
+          >
+            <CheckCircle className="w-6 h-6" />
+            <span className="font-semibold">{toastMessage}</span>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 }

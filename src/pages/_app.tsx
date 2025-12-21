@@ -6,6 +6,7 @@ import { SessionProvider } from 'next-auth/react'
 import { ReactQueryProvider } from '../lib/react-query'
 import { CartProvider } from '../context/CartContext'
 import { VoiceCommandProvider } from '../context/VoiceCommandContext'
+import { ToastProvider } from '../context/ToastContext'
 import { PageLoader } from '../components/ui/PageLoader'
 import Head from 'next/head'
 import '../lib/i18n' // i18n konfigürasyonunu yükle
@@ -67,19 +68,21 @@ function MyApp({
   return (
     <SessionProvider session={session}>
       <ReactQueryProvider>
-        <CartProvider>
-          <VoiceCommandProvider>
-            <Head>
-              <meta name="google-site-verification" content="TV3lQxcrnOK813q8VrYGAMvVd1kgaPxuRJ5pmWpXrbQ" />
-              <meta name="msvalidate.01" content="2F0B3D24686DAB121DC7BA5429119029" />
-              <meta name="yandex-verification" content="travel-ailydian-yandex-verification" />
-              <meta name="baidu-site-verification" content="travel-ailydian-baidu-verification" />
-            </Head>
-            <DefaultSeo {...seoConfig} />
-            <PageLoader isLoading={loading} />
-            <Component {...pageProps} />
-          </VoiceCommandProvider>
-        </CartProvider>
+        <ToastProvider position="top-right" maxToasts={3}>
+          <CartProvider>
+            <VoiceCommandProvider>
+              <Head>
+                <meta name="google-site-verification" content="TV3lQxcrnOK813q8VrYGAMvVd1kgaPxuRJ5pmWpXrbQ" />
+                <meta name="msvalidate.01" content="2F0B3D24686DAB121DC7BA5429119029" />
+                <meta name="yandex-verification" content="travel-ailydian-yandex-verification" />
+                <meta name="baidu-site-verification" content="travel-ailydian-baidu-verification" />
+              </Head>
+              <DefaultSeo {...seoConfig} />
+              <PageLoader isLoading={loading} />
+              <Component {...pageProps} />
+            </VoiceCommandProvider>
+          </CartProvider>
+        </ToastProvider>
       </ReactQueryProvider>
     </SessionProvider>
   )
