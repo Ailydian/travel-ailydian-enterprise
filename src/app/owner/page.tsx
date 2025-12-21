@@ -169,7 +169,7 @@ export default function PropertyOwnerDashboard() {
           </p>
           <div className="flex gap-4">
             <Link
-              href="/dashboard/properties/new"
+              href="/owner/properties/new"
               className="flex items-center gap-2 px-6 py-3 rounded-xl font-bold transition-all hover:scale-105 neon-glow"
               style={{
                 background: 'linear-gradient(135deg, var(--ac-1), var(--ac-2))',
@@ -181,7 +181,7 @@ export default function PropertyOwnerDashboard() {
               <span>Yeni Mülk Ekle</span>
             </Link>
             <Link
-              href="/dashboard/analytics"
+              href="/owner/analytics"
               className="flex items-center gap-2 px-6 py-3 rounded-xl font-bold transition-all hover:scale-105"
               style={{
                 backgroundColor: 'rgba(255, 33, 77, 0.1)',
@@ -339,7 +339,7 @@ export default function PropertyOwnerDashboard() {
               Yaklaşan Rezervasyonlar
             </h3>
             <Link
-              href="/dashboard/bookings"
+              href="/owner/bookings"
               className="flex items-center gap-2 text-sm font-medium hover:scale-105 transition-all"
               style={{ color: 'var(--ac-1)' }}
             >

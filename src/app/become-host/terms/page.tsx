@@ -47,7 +47,7 @@ export default function HostTermsPage() {
     }));
 
     // Navigate to property submission
-    router.push('/dashboard/properties/new');
+    router.push('/owner/properties/new');
   };
 
   const termsCategories = [

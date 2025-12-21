@@ -709,17 +709,31 @@ const RentalsPage: React.FC = () => {
                   ))}
                 </div>
 
-                <Link
-                  href="/dashboard"
-                  className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-bold text-white transition-all hover:scale-105 group shadow-lg"
-                  style={{
-                    background: 'linear-gradient(135deg, #FF214D, #FF6A45)',
-                    boxShadow: '0 0 30px rgba(255, 33, 77, 0.5)'
-                  }}
-                >
-                  Dashboard'a Git
-                  <ArrowRightIcon className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </Link>
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <Link
+                    href="/owner/auth/register"
+                    className="flex-1 inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold text-white transition-all hover:scale-105 group shadow-lg"
+                    style={{
+                      background: 'linear-gradient(135deg, #FF214D, #FF6A45)',
+                      boxShadow: '0 0 30px rgba(255, 33, 77, 0.5)'
+                    }}
+                  >
+                    Kayıt Ol
+                    <ArrowRightIcon className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  </Link>
+
+                  <Link
+                    href="/owner/auth/login"
+                    className="flex-1 inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold transition-all hover:scale-105"
+                    style={{
+                      backgroundColor: 'white',
+                      color: '#FF214D',
+                      border: '2px solid #FF214D'
+                    }}
+                  >
+                    Giriş Yap
+                  </Link>
+                </div>
               </div>
 
               {/* Right Side - Stats */}

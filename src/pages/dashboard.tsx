@@ -157,7 +157,7 @@ const DashboardPage: React.FC = () => {
 
       <NavigationHeader />
 
-      <main className="min-h-screen py-8" style={{backgroundColor: 'var(--bg-0)', color: 'var(--tx-1)'}}>
+      <main className="min-h-screen py-8" style={{backgroundColor: '#FFFFFF', color: '#000000'}}>
         <div className="max-w-7xl mx-auto px-4">
           {/* Header */}
           <motion.div 
@@ -167,28 +167,28 @@ const DashboardPage: React.FC = () => {
           >
             <div className="flex items-center justify-between">
               <div>
-                <h1 className="text-3xl font-bold neon-text-strong mb-2" 
-                  style={{color: 'var(--tx-1)', textShadow: '0 0 15px var(--ac-1)'}}
+                <h1 className="text-3xl font-bold mb-2"
+                  style={{color: '#000000'}}
                 >
                   Hoş Geldiniz, {userData.name}
                 </h1>
-                <p style={{color: 'var(--tx-2)'}}>Seyahat dashboard&apos;unuzda yeni keşifler sizi bekliyor</p>
+                <p style={{color: '#666666'}}>Seyahat dashboard&apos;unuzda yeni keşifler sizi bekliyor</p>
               </div>
               <div className="flex items-center gap-4">
-                <button className="p-3 rounded-xl border-2 transition-all hover:scale-105"
+                <button className="p-3 rounded-xl border transition-all hover:scale-105"
                   style={{
-                    backgroundColor: 'var(--bg-1)',
-                    borderColor: 'var(--ac-1)',
-                    color: 'var(--ac-1)'
+                    backgroundColor: '#F9FAFB',
+                    borderColor: '#E5E7EB',
+                    color: '#374151'
                   }}
                 >
                   <Bell className="w-5 h-5" />
                 </button>
-                <button className="p-3 rounded-xl border-2 transition-all hover:scale-105"
+                <button className="p-3 rounded-xl border transition-all hover:scale-105"
                   style={{
-                    backgroundColor: 'var(--bg-1)',
-                    borderColor: 'var(--ac-1)',
-                    color: 'var(--ac-1)'
+                    backgroundColor: '#F9FAFB',
+                    borderColor: '#E5E7EB',
+                    color: '#374151'
                   }}
                 >
                   <Settings className="w-5 h-5" />
@@ -205,47 +205,47 @@ const DashboardPage: React.FC = () => {
             className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8"
           >
             {[
-              { label: 'Toplam Seyahat', value: userData.totalTrips, icon: MapPin, color: 'var(--ac-1)' },
-              { label: 'Ziyaret Edilen Ülke', value: userData.countriesVisited, icon: Globe, color: 'var(--ac-2)' },
-              { label: 'Yazılan İnceleme', value: userData.reviewsWritten, icon: Star, color: 'var(--ac-1)' },
-              { label: 'Puan', value: userData.points, icon: Award, color: 'var(--ac-2)' }
+              { label: 'Toplam Seyahat', value: userData.totalTrips, icon: MapPin, color: '#3B82F6' },
+              { label: 'Ziyaret Edilen Ülke', value: userData.countriesVisited, icon: Globe, color: '#10B981' },
+              { label: 'Yazılan İnceleme', value: userData.reviewsWritten, icon: Star, color: '#F59E0B' },
+              { label: 'Puan', value: userData.points, icon: Award, color: '#8B5CF6' }
             ].map((stat, index) => {
               const Icon = stat.icon;
               return (
-                <div key={stat.label} className="rounded-2xl p-6 border-2 card-hover"
+                <div key={stat.label} className="rounded-2xl p-6 border card-hover"
                   style={{
-                    backgroundColor: 'var(--bg-1)',
-                    borderColor: stat.color,
-                    boxShadow: `0 0 15px ${stat.color}30`
+                    backgroundColor: '#FFFFFF',
+                    borderColor: '#E5E7EB',
+                    boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)'
                   }}
                 >
                   <div className="flex items-center justify-between mb-3">
-                    <div className="w-12 h-12 rounded-xl flex items-center justify-center border"
+                    <div className="w-12 h-12 rounded-xl flex items-center justify-center"
                       style={{
                         backgroundColor: `${stat.color}20`,
-                        borderColor: stat.color
+                        border: 'none'
                       }}
                     >
                       <Icon className="w-6 h-6" style={{color: stat.color}} />
                     </div>
                     <TrendingUp className="w-4 h-4" style={{color: stat.color}} />
                   </div>
-                  <div className="text-2xl font-bold neon-text-strong" style={{color: 'var(--tx-1)'}}>
+                  <div className="text-2xl font-bold" style={{color: '#000000'}}>
                     {stat.value}
                   </div>
-                  <div className="text-sm" style={{color: 'var(--tx-2)'}}>{stat.label}</div>
+                  <div className="text-sm" style={{color: '#666666'}}>{stat.label}</div>
                 </div>
               );
             })}
           </motion.div>
 
           {/* Tabs */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="border-b mb-8" 
-            style={{borderColor: 'rgba(255, 33, 77, 0.3)'}}
+            className="border-b mb-8"
+            style={{borderColor: '#E5E7EB'}}
           >
             <div className="flex flex-wrap gap-2 -mb-px">
               {tabs.map((tab) => {
@@ -254,13 +254,11 @@ const DashboardPage: React.FC = () => {
                   <button
                     key={tab.id}
                     onClick={() => setActiveTab(tab.id)}
-                    className={`flex items-center gap-2 px-6 py-3 border-b-2 font-medium transition-all ${
-                      activeTab === tab.id ? 'neon-glow' : ''
-                    }`}
+                    className="flex items-center gap-2 px-6 py-3 border-b-2 font-medium transition-all"
                     style={{
-                      borderColor: activeTab === tab.id ? 'var(--ac-1)' : 'transparent',
-                      color: activeTab === tab.id ? 'var(--ac-1)' : 'var(--tx-2)',
-                      boxShadow: activeTab === tab.id ? '0 0 10px var(--ac-1)' : 'none'
+                      borderColor: activeTab === tab.id ? '#3B82F6' : 'transparent',
+                      color: activeTab === tab.id ? '#3B82F6' : '#6B7280',
+                      boxShadow: 'none'
                     }}
                   >
                     <Icon className="w-4 h-4" />
@@ -282,16 +280,16 @@ const DashboardPage: React.FC = () => {
               <>
                 {/* Upcoming Bookings */}
                 <div>
-                  <h2 className="text-2xl font-bold neon-text-strong mb-6" style={{color: 'var(--tx-1)'}}>
+                  <h2 className="text-2xl font-bold mb-6" style={{color: '#000000'}}>
                     Yaklaşan Rezervasyonlar
                   </h2>
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {upcomingBookings.map((booking) => (
-                      <div key={booking.id} className="rounded-2xl overflow-hidden border-2 card-hover"
+                      <div key={booking.id} className="rounded-2xl overflow-hidden border card-hover"
                         style={{
-                          backgroundColor: 'var(--bg-1)',
-                          borderColor: 'var(--ac-1)',
-                          boxShadow: '0 0 15px rgba(255, 33, 77, 0.2)'
+                          backgroundColor: '#FFFFFF',
+                          borderColor: '#E5E7EB',
+                          boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)'
                         }}
                       >
                         <div className="h-32 relative">
@@ -306,24 +304,24 @@ const DashboardPage: React.FC = () => {
                           </div>
                         </div>
                         <div className="p-4">
-                          <h3 className="font-bold neon-text-strong mb-2" style={{color: 'var(--tx-1)'}}>
+                          <h3 className="font-bold mb-2" style={{color: '#000000'}}>
                             {booking.title}
                           </h3>
-                          <div className="flex items-center gap-2 text-sm mb-2" style={{color: 'var(--tx-2)'}}>
+                          <div className="flex items-center gap-2 text-sm mb-2" style={{color: '#666666'}}>
                             <MapPin className="w-4 h-4" />
                             {booking.location}
                           </div>
-                          <div className="flex items-center gap-2 text-sm mb-3" style={{color: 'var(--tx-2)'}}>
+                          <div className="flex items-center gap-2 text-sm mb-3" style={{color: '#666666'}}>
                             <Calendar className="w-4 h-4" />
                             {new Date(booking.date).toLocaleDateString('tr-TR')}
                           </div>
                           <div className="flex items-center justify-between">
-                            <span className="font-bold" style={{color: 'var(--ac-1)'}}>
+                            <span className="font-bold" style={{color: '#000000'}}>
                               {booking.price}
                             </span>
                             <button className="px-4 py-2 rounded-lg text-sm font-medium transition-all hover:scale-105"
                               style={{
-                                backgroundColor: 'var(--ac-1)',
+                                backgroundColor: '#3B82F6',
                                 color: 'white'
                               }}
                             >
@@ -338,16 +336,16 @@ const DashboardPage: React.FC = () => {
 
                 {/* AI Recommendations */}
                 <div>
-                  <h2 className="text-2xl font-bold neon-text-strong mb-6" style={{color: 'var(--tx-1)'}}>
+                  <h2 className="text-2xl font-bold mb-6" style={{color: '#000000'}}>
                     Size Özel AI Önerileri
                   </h2>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {aiRecommendations.map((rec) => (
-                      <div key={rec.id} className="rounded-2xl overflow-hidden border-2 card-hover"
+                      <div key={rec.id} className="rounded-2xl overflow-hidden border card-hover"
                         style={{
-                          backgroundColor: 'var(--bg-1)',
-                          borderColor: 'var(--ac-2)',
-                          boxShadow: '0 0 15px rgba(255, 106, 69, 0.2)'
+                          backgroundColor: '#FFFFFF',
+                          borderColor: '#E5E7EB',
+                          boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)'
                         }}
                       >
                         <div className="flex">
@@ -355,19 +353,19 @@ const DashboardPage: React.FC = () => {
                             <img src={rec.image} alt={rec.title} className="w-full h-full object-cover" />
                           </div>
                           <div className="w-2/3 p-4">
-                            <h3 className="font-bold neon-text-strong mb-1" style={{color: 'var(--tx-1)'}}>
+                            <h3 className="font-bold mb-1" style={{color: '#000000'}}>
                               {rec.title}
                             </h3>
-                            <p className="text-xs mb-2" style={{color: 'var(--ac-2)'}}>
+                            <p className="text-xs mb-2" style={{color: '#3B82F6'}}>
                               <Zap className="w-3 h-3 inline mr-1" />
                               {rec.reason}
                             </p>
                             <div className="flex items-center justify-between">
                               <div className="flex items-center gap-2">
-                                <Star className="w-4 h-4 fill-current" style={{color: 'var(--ac-2)'}} />
-                                <span className="text-sm" style={{color: 'var(--tx-2)'}}>{rec.rating}</span>
+                                <Star className="w-4 h-4 fill-current" style={{color: '#F59E0B'}} />
+                                <span className="text-sm" style={{color: '#666666'}}>{rec.rating}</span>
                               </div>
-                              <span className="font-bold" style={{color: 'var(--ac-1)'}}>
+                              <span className="font-bold" style={{color: '#000000'}}>
                                 {rec.price}
                               </span>
                             </div>
@@ -382,16 +380,16 @@ const DashboardPage: React.FC = () => {
 
             {activeTab === 'bookings' && (
               <div>
-                <h2 className="text-2xl font-bold neon-text-strong mb-6" style={{color: 'var(--tx-1)'}}>
+                <h2 className="text-2xl font-bold mb-6" style={{color: '#000000'}}>
                   Tüm Rezervasyonlar
                 </h2>
                 <div className="space-y-4">
                   {upcomingBookings.map((booking) => (
-                    <div key={booking.id} className="rounded-2xl p-6 border-2"
+                    <div key={booking.id} className="rounded-2xl p-6 border"
                       style={{
-                        backgroundColor: 'var(--bg-1)',
-                        borderColor: 'var(--ac-1)',
-                        boxShadow: '0 0 15px rgba(255, 33, 77, 0.1)'
+                        backgroundColor: '#FFFFFF',
+                        borderColor: '#E5E7EB',
+                        boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)'
                       }}
                     >
                       <div className="flex items-center justify-between">
@@ -400,12 +398,12 @@ const DashboardPage: React.FC = () => {
                             <img src={booking.image} alt={booking.title} className="w-full h-full object-cover" />
                           </div>
                           <div>
-                            <h3 className="font-bold neon-text-strong" style={{color: 'var(--tx-1)'}}>
+                            <h3 className="font-bold" style={{color: '#000000'}}>
                               {booking.title}
                             </h3>
-                            <p className="text-sm" style={{color: 'var(--tx-2)'}}>{booking.location}</p>
+                            <p className="text-sm" style={{color: '#666666'}}>{booking.location}</p>
                             <div className="flex items-center gap-4 mt-1">
-                              <span className="text-sm" style={{color: 'var(--tx-3)'}}>
+                              <span className="text-sm" style={{color: '#9CA3AF'}}>
                                 {new Date(booking.date).toLocaleDateString('tr-TR')}
                               </span>
                               <span className="px-2 py-1 rounded-lg text-xs font-medium"
@@ -420,12 +418,12 @@ const DashboardPage: React.FC = () => {
                           </div>
                         </div>
                         <div className="text-right">
-                          <div className="font-bold text-lg" style={{color: 'var(--ac-1)'}}>
+                          <div className="font-bold text-lg" style={{color: '#000000'}}>
                             {booking.price}
                           </div>
                           <button className="mt-2 px-4 py-2 rounded-lg text-sm font-medium transition-all hover:scale-105"
                             style={{
-                              backgroundColor: 'var(--ac-1)',
+                              backgroundColor: '#3B82F6',
                               color: 'white'
                             }}
                           >
@@ -441,40 +439,40 @@ const DashboardPage: React.FC = () => {
 
             {activeTab === 'trips' && (
               <div>
-                <h2 className="text-2xl font-bold neon-text-strong mb-6" style={{color: 'var(--tx-1)'}}>
+                <h2 className="text-2xl font-bold mb-6" style={{color: '#000000'}}>
                   Geçmiş Seyahatler
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                   {recentTrips.map((trip) => (
-                    <div key={trip.id} className="rounded-2xl overflow-hidden border-2 card-hover"
+                    <div key={trip.id} className="rounded-2xl overflow-hidden border card-hover"
                       style={{
-                        backgroundColor: 'var(--bg-1)',
-                        borderColor: 'var(--ac-1)',
-                        boxShadow: '0 0 15px rgba(255, 33, 77, 0.2)'
+                        backgroundColor: '#FFFFFF',
+                        borderColor: '#E5E7EB',
+                        boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)'
                       }}
                     >
                       <div className="h-40 relative">
                         <img src={trip.image} alt={trip.destination} className="w-full h-full object-cover" />
                       </div>
                       <div className="p-4">
-                        <h3 className="font-bold text-lg neon-text-strong mb-2" style={{color: 'var(--tx-1)'}}>
+                        <h3 className="font-bold text-lg mb-2" style={{color: '#000000'}}>
                           {trip.destination}
                         </h3>
-                        <div className="flex items-center justify-between text-sm mb-3" style={{color: 'var(--tx-2)'}}>
+                        <div className="flex items-center justify-between text-sm mb-3" style={{color: '#666666'}}>
                           <span>{new Date(trip.date).toLocaleDateString('tr-TR')}</span>
                           <span>{trip.duration}</span>
                         </div>
                         <div className="flex items-center justify-between">
                           <div className="flex items-center gap-1">
                             {[...Array(5)].map((_, i) => (
-                              <Star key={i} className={`w-4 h-4 ${i < trip.rating ? 'fill-current' : ''}`} 
-                                style={{color: i < trip.rating ? 'var(--ac-2)' : 'var(--tx-3)'}} 
+                              <Star key={i} className={`w-4 h-4 ${i < trip.rating ? 'fill-current' : ''}`}
+                                style={{color: i < trip.rating ? '#F59E0B' : '#D1D5DB'}}
                               />
                             ))}
                           </div>
                           <button className="px-4 py-2 rounded-lg text-sm font-medium transition-all hover:scale-105"
                             style={{
-                              backgroundColor: 'var(--ac-2)',
+                              backgroundColor: '#10B981',
                               color: 'white'
                             }}
                           >
@@ -490,20 +488,20 @@ const DashboardPage: React.FC = () => {
 
             {activeTab === 'favorites' && (
               <div>
-                <h2 className="text-2xl font-bold neon-text-strong mb-6" style={{color: 'var(--tx-1)'}}>
+                <h2 className="text-2xl font-bold mb-6" style={{color: '#000000'}}>
                   Favori Destinasyonlar
                 </h2>
                 <div className="text-center py-16">
-                  <Heart className="w-16 h-16 mx-auto mb-4" style={{color: 'var(--tx-3)'}} />
-                  <h3 className="text-xl font-bold neon-text-strong mb-2" style={{color: 'var(--tx-1)'}}>
+                  <Heart className="w-16 h-16 mx-auto mb-4" style={{color: '#D1D5DB'}} />
+                  <h3 className="text-xl font-bold mb-2" style={{color: '#000000'}}>
                     Henüz favori eklememişsiniz
                   </h3>
-                  <p className="mb-6" style={{color: 'var(--tx-2)'}}>
+                  <p className="mb-6" style={{color: '#666666'}}>
                     Beğendiğiniz destinasyonları kalp ikonuna tıklayarak favorilerinize ekleyin
                   </p>
                   <button className="px-6 py-3 rounded-xl font-semibold transition-all hover:scale-105"
                     style={{
-                      background: 'linear-gradient(135deg, var(--ac-1), var(--ac-2))',
+                      backgroundColor: '#3B82F6',
                       color: 'white'
                     }}
                   >
@@ -515,33 +513,33 @@ const DashboardPage: React.FC = () => {
 
             {activeTab === 'profile' && (
               <div>
-                <h2 className="text-2xl font-bold neon-text-strong mb-6" style={{color: 'var(--tx-1)'}}>
+                <h2 className="text-2xl font-bold mb-6" style={{color: '#000000'}}>
                   Profil Ayarları
                 </h2>
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                   {/* Profile Info */}
                   <div className="lg:col-span-1">
-                    <div className="rounded-2xl p-6 text-center border-2"
+                    <div className="rounded-2xl p-6 text-center border"
                       style={{
-                        backgroundColor: 'var(--bg-1)',
-                        borderColor: 'var(--ac-1)',
-                        boxShadow: '0 0 15px rgba(255, 33, 77, 0.2)'
+                        backgroundColor: '#FFFFFF',
+                        borderColor: '#E5E7EB',
+                        boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)'
                       }}
                     >
                       <div className="w-24 h-24 rounded-full mx-auto mb-4 border-4"
-                        style={{borderColor: 'var(--ac-1)'}}
+                        style={{borderColor: '#E5E7EB'}}
                       >
                         <img src={userData.avatar} alt="Avatar" className="w-full h-full rounded-full object-cover" />
                       </div>
-                      <h3 className="text-xl font-bold neon-text-strong mb-2" style={{color: 'var(--tx-1)'}}>
+                      <h3 className="text-xl font-bold mb-2" style={{color: '#000000'}}>
                         {userData.name}
                       </h3>
-                      <p style={{color: 'var(--tx-2)'}}>
+                      <p style={{color: '#666666'}}>
                         {userData.level}
                       </p>
                       <div className="flex items-center justify-center gap-1 mt-2">
-                        <Award className="w-4 h-4" style={{color: 'var(--ac-2)'}} />
-                        <span className="text-sm" style={{color: 'var(--tx-3)'}}>
+                        <Award className="w-4 h-4" style={{color: '#F59E0B'}} />
+                        <span className="text-sm" style={{color: '#9CA3AF'}}>
                           {userData.memberSince} yılından beri üye
                         </span>
                       </div>
@@ -550,75 +548,75 @@ const DashboardPage: React.FC = () => {
 
                   {/* Profile Form */}
                   <div className="lg:col-span-2">
-                    <div className="rounded-2xl p-6 border-2"
+                    <div className="rounded-2xl p-6 border"
                       style={{
-                        backgroundColor: 'var(--bg-1)',
-                        borderColor: 'var(--ac-1)',
-                        boxShadow: '0 0 15px rgba(255, 33, 77, 0.1)'
+                        backgroundColor: '#FFFFFF',
+                        borderColor: '#E5E7EB',
+                        boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)'
                       }}
                     >
                       <form className="space-y-6">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                           <div>
-                            <label className="block text-sm font-medium mb-2" style={{color: 'var(--tx-2)'}}>
+                            <label className="block text-sm font-medium mb-2" style={{color: '#666666'}}>
                               Ad
                             </label>
                             <input
                               type="text"
                               defaultValue="Ahmet"
-                              className="w-full px-4 py-3 rounded-xl border-2 transition-all"
+                              className="w-full px-4 py-3 rounded-xl border transition-all"
                               style={{
-                                backgroundColor: 'var(--bg-0)',
-                                color: 'var(--tx-1)',
-                                borderColor: 'var(--ac-2)'
+                                backgroundColor: '#FFFFFF',
+                                color: '#000000',
+                                borderColor: '#E5E7EB'
                               }}
                             />
                           </div>
                           <div>
-                            <label className="block text-sm font-medium mb-2" style={{color: 'var(--tx-2)'}}>
+                            <label className="block text-sm font-medium mb-2" style={{color: '#666666'}}>
                               Soyad
                             </label>
                             <input
                               type="text"
                               defaultValue="Yılmaz"
-                              className="w-full px-4 py-3 rounded-xl border-2 transition-all"
+                              className="w-full px-4 py-3 rounded-xl border transition-all"
                               style={{
-                                backgroundColor: 'var(--bg-0)',
-                                color: 'var(--tx-1)',
-                                borderColor: 'var(--ac-2)'
+                                backgroundColor: '#FFFFFF',
+                                color: '#000000',
+                                borderColor: '#E5E7EB'
                               }}
                             />
                           </div>
                         </div>
 
                         <div>
-                          <label className="block text-sm font-medium mb-2" style={{color: 'var(--tx-2)'}}>
+                          <label className="block text-sm font-medium mb-2" style={{color: '#666666'}}>
                             E-posta
                           </label>
                           <input
                             type="email"
                             defaultValue={userData.email}
-                            className="w-full px-4 py-3 rounded-xl border-2 transition-all"
+                            className="w-full px-4 py-3 rounded-xl border transition-all"
                             style={{
-                              backgroundColor: 'var(--bg-0)',
-                              color: 'var(--tx-1)',
-                              borderColor: 'var(--ac-2)'
+                              backgroundColor: '#FFFFFF',
+                              color: '#000000',
+                              borderColor: '#E5E7EB'
                             }}
                           />
                         </div>
 
                         <div>
-                          <label className="block text-sm font-medium mb-2" style={{color: 'var(--tx-2)'}}>
+                          <label className="block text-sm font-medium mb-2" style={{color: '#666666'}}>
                             Telefon
                           </label>
                           <input
                             type="tel"
                             placeholder="+90 555 123 45 67"
-                            className="w-full px-4 py-3 rounded-xl border-2 transition-all"
+                            className="w-full px-4 py-3 rounded-xl border transition-all"
                             style={{
-                              backgroundColor: 'var(--bg-0)',
-                              color: 'var(--tx-1)',
-                              borderColor: 'var(--ac-2)'
+                              backgroundColor: '#FFFFFF',
+                              color: '#000000',
+                              borderColor: '#E5E7EB'
                             }}
                           />
                         </div>
@@ -628,7 +626,7 @@ const DashboardPage: React.FC = () => {
                             type="submit"
                             className="px-8 py-3 rounded-xl font-semibold transition-all hover:scale-105"
                             style={{
-                              background: 'linear-gradient(135deg, var(--ac-1), var(--ac-2))',
+                              backgroundColor: '#3B82F6',
                               color: 'white'
                             }}
                           >
@@ -636,11 +634,11 @@ const DashboardPage: React.FC = () => {
                           </button>
                           <button
                             type="button"
-                            className="px-8 py-3 rounded-xl font-semibold border-2 transition-all hover:scale-105"
+                            className="px-8 py-3 rounded-xl font-semibold border transition-all hover:scale-105"
                             style={{
                               backgroundColor: 'transparent',
-                              borderColor: 'var(--ac-1)',
-                              color: 'var(--ac-1)'
+                              borderColor: '#E5E7EB',
+                              color: '#666666'
                             }}
                           >
                             İptal

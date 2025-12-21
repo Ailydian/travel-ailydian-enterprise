@@ -35,19 +35,19 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
   const [profileOpen, setProfileOpen] = useState(false);
 
   const navigation = [
-    { name: 'Genel Bakış', href: '/dashboard', icon: LayoutDashboard },
-    { name: 'Mülklerim', href: '/dashboard/properties', icon: Building2 },
-    { name: 'Rezervasyonlar', href: '/dashboard/bookings', icon: Calendar },
-    { name: 'Takvim', href: '/dashboard/calendar', icon: Calendar },
-    { name: 'Gelirler', href: '/dashboard/earnings', icon: DollarSign },
-    { name: 'Mesajlar', href: '/dashboard/messages', icon: MessageSquare, badge: 5 },
-    { name: 'Analitik', href: '/dashboard/analytics', icon: BarChart3 },
-    { name: 'Ayarlar', href: '/dashboard/settings', icon: Settings },
+    { name: 'Genel Bakış', href: '/owner', icon: LayoutDashboard },
+    { name: 'Mülklerim', href: '/owner/properties', icon: Building2 },
+    { name: 'Rezervasyonlar', href: '/owner/bookings', icon: Calendar },
+    { name: 'Takvim', href: '/owner/calendar', icon: Calendar },
+    { name: 'Gelirler', href: '/owner/earnings', icon: DollarSign },
+    { name: 'Mesajlar', href: '/owner/messages', icon: MessageSquare, badge: 5 },
+    { name: 'Analitik', href: '/owner/analytics', icon: BarChart3 },
+    { name: 'Ayarlar', href: '/owner/settings', icon: Settings },
   ];
 
   const isActive = (href: string) => {
-    if (href === '/dashboard') {
-      return pathname === '/dashboard';
+    if (href === '/owner') {
+      return pathname === '/owner';
     }
     return pathname.startsWith(href);
   };
@@ -112,7 +112,7 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
           <div className="flex items-center gap-3">
             {/* Add Property Button */}
             <Link
-              href="/dashboard/properties/new"
+              href="/owner/properties/new"
               className="hidden sm:flex items-center gap-2 px-4 py-2 rounded-xl font-medium transition-all hover:scale-105 neon-glow"
               style={{
                 background: 'linear-gradient(135deg, var(--ac-1), var(--ac-2))',
@@ -178,7 +178,7 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
                   </div>
                   <div className="p-2">
                     <Link
-                      href="/dashboard/settings"
+                      href="/owner/settings"
                       className="flex items-center gap-3 px-3 py-2 rounded-lg transition-all hover:scale-105"
                       style={{
                         color: '#000000',

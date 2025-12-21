@@ -145,7 +145,7 @@ export default function PropertiesPage() {
           </p>
         </div>
         <Link
-          href="/dashboard/properties/new"
+          href="/owner/properties/new"
           className="flex items-center gap-2 px-6 py-3 rounded-xl font-bold transition-all hover:scale-105 neon-glow"
           style={{
             background: 'linear-gradient(135deg, var(--ac-1), var(--ac-2))',
@@ -337,7 +337,7 @@ export default function PropertiesPage() {
                   {/* Actions */}
                   <div className="flex gap-2">
                     <Link
-                      href={`/dashboard/properties/${property.id}`}
+                      href={`/owner/properties/${property.id}`}
                       className="flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-lg font-medium transition-all hover:scale-105"
                       style={{
                         backgroundColor: 'rgba(255, 33, 77, 0.1)',
@@ -394,7 +394,7 @@ export default function PropertiesPage() {
             Seçtiğiniz filtreye uygun mülk bulunmamaktadır.
           </p>
           <Link
-            href="/dashboard/properties/new"
+            href="/owner/properties/new"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold transition-all hover:scale-105"
             style={{
               background: 'linear-gradient(135deg, var(--ac-1), var(--ac-2))',
