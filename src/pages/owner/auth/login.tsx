@@ -89,7 +89,7 @@ export default function OwnerLoginPage() {
 
         // Dashboard'a yönlendir
         setTimeout(() => {
-          router.push('/owner');
+          window.location.href = '/owner';
         }, 1500);
       } else {
         // Hatalı giriş
