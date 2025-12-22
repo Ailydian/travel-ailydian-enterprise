@@ -17,8 +17,8 @@ export default async function handler(
     // TODO: Get owner ID from session/auth
     const ownerId = 'owner-1'; // Placeholder
 
-    // Get owner's properties
-    const properties = await prisma.property.findMany({
+    // Get owner's rental properties
+    const properties = await prisma.rentalProperty.findMany({
       where: { ownerId },
       include: {
         bookings: {
@@ -155,7 +155,7 @@ export default async function handler(
       : 0;
 
     // AI Pricing Optimization
-    const avgBasePrice = properties.reduce((sum, p) => sum + parseFloat(p.basePrice), 0) / properties.length;
+    const avgBasePrice = properties.reduce((sum, p) => sum + parseFloat(p.basePrice.toString()), 0) / properties.length;
 
     // Competitor analysis (simplified - in production would scrape real data)
     const competitorAverage = Math.round(avgBasePrice * 1.15);
