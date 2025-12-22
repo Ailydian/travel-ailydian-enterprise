@@ -1,2629 +1,797 @@
 /**
- * Prisma Seed Data
- * Seeds database with Antalya/Alanya airport transfers and admin users
+ * 🌱 Travel Ailydian Enterprise - Production Seed Data
+ *
+ * This seed file creates initial data for all 15+ features:
+ * - Admin & Test Users
+ * - Ailydian Miles Loyalty Accounts
+ * - Hotels, Cars, Tours
+ * - Reviews & Ratings
+ * - Partner Profiles
+ * - SEO Landing Pages
+ * - Miles Transactions
+ * - Virtual Tours
+ * - WhatsApp Conversations (sample)
+ *
+ * Run with: npx prisma db seed
  */
 
-import { PrismaClient } from '@prisma/client';
+import { PrismaClient, LoyaltyTier, PartnerType, SEOPageType, PanoramaType, HotspotType } from '@prisma/client';
 import bcrypt from 'bcryptjs';
 
 const prisma = new PrismaClient();
 
 async function main() {
-  console.log('🌱 Starting database seed...');
+  console.log('\n' + '='.repeat(60));
+  console.log('🌱  TRAVEL AILYDIAN ENTERPRISE - DATABASE SEED');
+  console.log('='.repeat(60) + '\n');
 
-  // Clean existing data (development only!)
-  if (process.env.NODE_ENV !== 'production') {
-    console.log('🧹 Cleaning existing data...');
-    try {
-      await prisma.transferBooking.deleteMany();
-      await prisma.transferVehicle.deleteMany();
-      await prisma.airportTransfer.deleteMany();
-      await prisma.hotelRoom.deleteMany();
-      await prisma.hotel.deleteMany();
-      await prisma.admin.deleteMany();
-    } catch (error) {
-      console.log('⚠️  Tables might not exist yet, skipping cleanup...');
-    }
-  }
+  // ============================================
+  // 1. CREATE ADMIN USER
+  // ============================================
+  console.log('👤 Creating admin user...');
 
-  // Create Admin Users
-  console.log('👤 Creating admin users...');
-
-  const superAdmin = await prisma.admin.create({
-    data: {
+  const adminPassword = await bcrypt.hash('Admin123!', 12);
+  const admin = await prisma.user.upsert({
+    where: { email: 'admin@ailydian.com' },
+    update: {},
+    create: {
+      name: 'Admin User',
       email: 'admin@ailydian.com',
-      passwordHash: await bcrypt.hash('admin123', 12),
-      role: 'SUPER_ADMIN',
-      permissions: ['*'],
-      isActive: true,
-    }
-  });
-
-  const moderator = await prisma.admin.create({
-    data: {
-      email: 'moderator@ailydian.com',
-      passwordHash: await bcrypt.hash('mod123', 12),
-      role: 'MODERATOR',
-      permissions: ['reviews:read', 'reviews:moderate', 'locations:read', 'users:read'],
-      isActive: true,
-    }
-  });
-
-  console.log(`✅ Created ${superAdmin.role}: ${superAdmin.email}`);
-  console.log(`✅ Created ${moderator.role}: ${moderator.email}`);
-
-  // Create Antalya Airport Transfers
-  console.log('✈️ Creating Antalya airport transfers...');
-
-  // 1. Antalya Airport to City Center
-  const antalyaCity = await prisma.airportTransfer.create({
-    data: {
-      name: 'Antalya Havalimanı - Şehir Merkezi',
-      description: 'Antalya Havalimanından şehir merkezine konforlu ve güvenli transfer hizmeti. 7/24 hizmet, profesyonel şoförler.',
-      fromLocation: 'AYT',
-      toLocation: 'Antalya Şehir Merkezi',
-      distance: 15,
-      duration: 25,
-      region: 'Antalya',
-      vehicles: {
-        create: [
-          {
-            vehicleType: 'SEDAN',
-            name: 'Standart Sedan',
-            capacity: 3,
-            luggageCapacity: 2,
-            priceStandard: 250,
-            priceVIP: 400,
-            features: ['Klima', 'Konforlu Koltuklar'],
-          },
-          {
-            vehicleType: 'LUXURY_SEDAN',
-            name: 'Mercedes E-Class VIP',
-            capacity: 3,
-            luggageCapacity: 2,
-            priceStandard: 500,
-            priceVIP: 700,
-            features: ['Lüks İç Mekan', 'Wi-Fi', 'Su İkramı', 'Telefon Şarjı', 'Meet & Greet'],
-          },
-          {
-            vehicleType: 'VAN',
-            name: 'Standart Van',
-            capacity: 7,
-            luggageCapacity: 5,
-            priceStandard: 400,
-            priceVIP: 650,
-            features: ['Geniş Bagaj Alanı', 'Klima', 'Konforlu Koltuklar'],
-          },
-          {
-            vehicleType: 'LUXURY_VAN',
-            name: 'Mercedes Vito VIP',
-            capacity: 7,
-            luggageCapacity: 6,
-            priceStandard: 800,
-            priceVIP: 1200,
-            features: ['Premium İç Mekan', 'Wi-Fi', 'İkramlı Bar', 'Masaj Koltukları', 'Meet & Greet', 'Profesyonel Şoför'],
-          },
-        ],
-      },
+      password: adminPassword,
+      role: 'ADMIN',
+      emailVerified: new Date(),
+      phone: '+905551234567',
+      image: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Admin',
     },
   });
 
-  // 2. Antalya Airport to Lara Beach
-  const antalyaLara = await prisma.airportTransfer.create({
-    data: {
-      name: 'Antalya Havalimanı - Lara Plajı',
-      description: 'Antalya Havalimanından Lara bölgesindeki otellerinize direkt transfer. En popüler destinasyon.',
-      fromLocation: 'AYT',
-      toLocation: 'Lara',
-      distance: 18,
-      duration: 30,
-      region: 'Antalya',
-      vehicles: {
-        create: [
-          {
-            vehicleType: 'SEDAN',
-            name: 'Standart Sedan',
-            capacity: 3,
-            luggageCapacity: 2,
-            priceStandard: 280,
-            priceVIP: 450,
-            features: ['Klima', 'Konforlu Koltuklar'],
-          },
-          {
-            vehicleType: 'LUXURY_SEDAN',
-            name: 'BMW 5 Serisi VIP',
-            capacity: 3,
-            luggageCapacity: 2,
-            priceStandard: 550,
-            priceVIP: 750,
-            features: ['Premium İç Mekan', 'Wi-Fi', 'Su İkramı', 'Meet & Greet'],
-          },
-          {
-            vehicleType: 'VAN',
-            name: 'Ford Transit',
-            capacity: 8,
-            luggageCapacity: 6,
-            priceStandard: 450,
-            priceVIP: 700,
-            features: ['Geniş İç Mekan', 'Klima', 'USB Şarj'],
-          },
-          {
-            vehicleType: 'LUXURY_VAN',
-            name: 'Mercedes Vito VIP',
-            capacity: 7,
-            luggageCapacity: 6,
-            priceStandard: 850,
-            priceVIP: 1250,
-            features: ['Lüks Deri Koltuklar', 'Wi-Fi', 'İkram', 'Meet & Greet'],
-          },
-        ],
+  console.log(`   ✅ Admin user: ${admin.email} (password: Admin123!)`);
+
+  // ============================================
+  // 2. CREATE TEST USERS
+  // ============================================
+  console.log('\n👥 Creating test users...');
+
+  const testUsers = await Promise.all([
+    prisma.user.upsert({
+      where: { email: 'ayse@example.com' },
+      update: {},
+      create: {
+        name: 'Ayşe Yılmaz',
+        email: 'ayse@example.com',
+        password: await bcrypt.hash('User123!', 12),
+        emailVerified: new Date(),
+        phone: '+905551234568',
+        image: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Ayse',
+        role: 'USER',
       },
-    },
-  });
-
-  // 3. Antalya Airport to Belek
-  const antalyaBelek = await prisma.airportTransfer.create({
-    data: {
-      name: 'Antalya Havalimanı - Belek',
-      description: 'Golf ve lüks oteller bölgesi Belek\'e konforlu transfer hizmeti.',
-      fromLocation: 'AYT',
-      toLocation: 'Belek',
-      distance: 35,
-      duration: 45,
-      region: 'Antalya',
-      vehicles: {
-        create: [
-          {
-            vehicleType: 'SEDAN',
-            name: 'Standart Sedan',
-            capacity: 3,
-            luggageCapacity: 2,
-            priceStandard: 350,
-            priceVIP: 550,
-            features: ['Klima', 'Konforlu Koltuklar'],
-          },
-          {
-            vehicleType: 'LUXURY_SEDAN',
-            name: 'Mercedes E-Class VIP',
-            capacity: 3,
-            luggageCapacity: 2,
-            priceStandard: 650,
-            priceVIP: 900,
-            features: ['Premium İç Mekan', 'Wi-Fi', 'Su İkramı', 'Meet & Greet'],
-          },
-          {
-            vehicleType: 'VAN',
-            name: 'Standart Van',
-            capacity: 7,
-            luggageCapacity: 5,
-            priceStandard: 500,
-            priceVIP: 800,
-            features: ['Geniş Bagaj Alanı', 'Klima'],
-          },
-          {
-            vehicleType: 'LUXURY_VAN',
-            name: 'Mercedes Vito VIP',
-            capacity: 7,
-            luggageCapacity: 6,
-            priceStandard: 950,
-            priceVIP: 1400,
-            features: ['Premium İç Mekan', 'Wi-Fi', 'İkram', 'Meet & Greet', 'Uçuş Takibi'],
-          },
-        ],
+    }),
+    prisma.user.upsert({
+      where: { email: 'mehmet@example.com' },
+      update: {},
+      create: {
+        name: 'Mehmet Demir',
+        email: 'mehmet@example.com',
+        password: await bcrypt.hash('User123!', 12),
+        emailVerified: new Date(),
+        phone: '+905551234569',
+        image: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Mehmet',
+        role: 'USER',
       },
-    },
-  });
-
-  // 4. Antalya Airport to Side
-  const antalyaSide = await prisma.airportTransfer.create({
-    data: {
-      name: 'Antalya Havalimanı - Side',
-      description: 'Antik Side bölgesine transfer hizmeti. Tarihi ve plajlarıyla ünlü.',
-      fromLocation: 'AYT',
-      toLocation: 'Side',
-      distance: 65,
-      duration: 75,
-      region: 'Antalya',
-      vehicles: {
-        create: [
-          {
-            vehicleType: 'SEDAN',
-            name: 'Standart Sedan',
-            capacity: 3,
-            luggageCapacity: 2,
-            priceStandard: 450,
-            priceVIP: 700,
-            features: ['Klima', 'Konforlu Koltuklar'],
-          },
-          {
-            vehicleType: 'LUXURY_SEDAN',
-            name: 'BMW 5 Serisi VIP',
-            capacity: 3,
-            luggageCapacity: 2,
-            priceStandard: 800,
-            priceVIP: 1100,
-            features: ['Premium İç Mekan', 'Wi-Fi', 'Su İkramı', 'Meet & Greet'],
-          },
-          {
-            vehicleType: 'VAN',
-            name: 'Standart Van',
-            capacity: 8,
-            luggageCapacity: 6,
-            priceStandard: 650,
-            priceVIP: 1000,
-            features: ['Geniş Bagaj', 'Klima'],
-          },
-          {
-            vehicleType: 'LUXURY_VAN',
-            name: 'Mercedes Vito VIP',
-            capacity: 7,
-            luggageCapacity: 6,
-            priceStandard: 1200,
-            priceVIP: 1700,
-            features: ['Lüks İç Mekan', 'Wi-Fi', 'İkram', 'Meet & Greet', 'Profesyonel Şoför'],
-          },
-        ],
+    }),
+    prisma.user.upsert({
+      where: { email: 'zeynep@example.com' },
+      update: {},
+      create: {
+        name: 'Zeynep Kaya',
+        email: 'zeynep@example.com',
+        password: await bcrypt.hash('User123!', 12),
+        emailVerified: new Date(),
+        phone: '+905551234570',
+        image: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Zeynep',
+        role: 'USER',
       },
-    },
-  });
+    }),
+  ]);
 
-  // 5. Antalya Airport to Alanya (Most Popular!)
-  const antalyaAlanya = await prisma.airportTransfer.create({
-    data: {
-      name: 'Antalya Havalimanı - Alanya',
-      description: 'Antalya Havalimanından Alanya\'ya VIP ve standart transfer hizmetleri. En popüler rota!',
-      fromLocation: 'AYT',
-      toLocation: 'Alanya',
-      distance: 125,
-      duration: 120,
-      region: 'Antalya-Alanya',
-      vehicles: {
-        create: [
-          {
-            vehicleType: 'SEDAN',
-            name: 'Standart Sedan',
-            capacity: 3,
-            luggageCapacity: 2,
-            priceStandard: 650,
-            priceVIP: 1000,
-            features: ['Klima', 'Konforlu Koltuklar', 'Bagaj Alanı'],
-          },
-          {
-            vehicleType: 'LUXURY_SEDAN',
-            name: 'Mercedes E-Class VIP',
-            capacity: 3,
-            luggageCapacity: 2,
-            priceStandard: 1200,
-            priceVIP: 1600,
-            features: ['Premium İç Mekan', 'Wi-Fi', 'Su ve İkram', 'Telefon Şarjı', 'Meet & Greet', 'Uçuş Takibi'],
-          },
-          {
-            vehicleType: 'VAN',
-            name: 'Ford Transit',
-            capacity: 8,
-            luggageCapacity: 7,
-            priceStandard: 850,
-            priceVIP: 1300,
-            features: ['Geniş Bagaj Alanı', 'Klima', 'USB Şarj Noktaları'],
-          },
-          {
-            vehicleType: 'LUXURY_VAN',
-            name: 'Mercedes Vito VIP',
-            capacity: 7,
-            luggageCapacity: 6,
-            priceStandard: 1500,
-            priceVIP: 2200,
-            features: [
-              'Premium Deri Koltuklar',
-              'Wi-Fi',
-              'İkramlı Minibar',
-              'Masaj Koltukları',
-              'Tablet Eğlence Sistemi',
-              'Meet & Greet',
-              'Profesyonel Şoför',
-              'Uçuş Takibi',
-              '7/24 Destek'
-            ],
-          },
-          {
-            vehicleType: 'MINIBUS',
-            name: 'Mercedes Sprinter',
-            capacity: 14,
-            luggageCapacity: 10,
-            priceStandard: 1100,
-            priceVIP: 1600,
-            features: ['Geniş İç Mekan', 'Klima', 'Bagaj Bölmesi'],
-          },
-        ],
+  console.log(`   ✅ Created ${testUsers.length} test users`);
+
+  // ============================================
+  // 3. CREATE AILYDIAN MILES ACCOUNTS
+  // ============================================
+  console.log('\n💎 Creating Ailydian Miles loyalty accounts...');
+
+  const milesAccounts = await Promise.all([
+    prisma.ailydianMilesAccount.upsert({
+      where: { userId: testUsers[0].id },
+      update: {},
+      create: {
+        userId: testUsers[0].id,
+        totalEarned: 5000,
+        totalSpent: 1000,
+        currentBalance: 4000,
+        tier: LoyaltyTier.GOLD,
+        tierProgress: 4000,
+        lifetimeBookings: 5,
+        lifetimeValue: 25000,
       },
-    },
-  });
-
-  // 6. Alanya Airport (GZP) to Alanya
-  const alanyaCity = await prisma.airportTransfer.create({
-    data: {
-      name: 'Gazipaşa Havalimanı - Alanya',
-      description: 'Gazipaşa-Alanya Havalimanından Alanya merkezine kısa mesafe transfer.',
-      fromLocation: 'GZP',
-      toLocation: 'Alanya',
-      distance: 35,
-      duration: 40,
-      region: 'Alanya',
-      vehicles: {
-        create: [
-          {
-            vehicleType: 'SEDAN',
-            name: 'Standart Sedan',
-            capacity: 3,
-            luggageCapacity: 2,
-            priceStandard: 300,
-            priceVIP: 500,
-            features: ['Klima', 'Konforlu Koltuklar'],
-          },
-          {
-            vehicleType: 'LUXURY_SEDAN',
-            name: 'BMW 3 Serisi VIP',
-            capacity: 3,
-            luggageCapacity: 2,
-            priceStandard: 550,
-            priceVIP: 750,
-            features: ['Premium İç Mekan', 'Wi-Fi', 'Meet & Greet'],
-          },
-          {
-            vehicleType: 'VAN',
-            name: 'Standart Van',
-            capacity: 7,
-            luggageCapacity: 5,
-            priceStandard: 450,
-            priceVIP: 700,
-            features: ['Geniş Bagaj', 'Klima'],
-          },
-          {
-            vehicleType: 'LUXURY_VAN',
-            name: 'Mercedes Vito VIP',
-            capacity: 7,
-            luggageCapacity: 6,
-            priceStandard: 850,
-            priceVIP: 1200,
-            features: ['Lüks İç Mekan', 'Wi-Fi', 'İkram', 'Meet & Greet'],
-          },
-        ],
+    }),
+    prisma.ailydianMilesAccount.upsert({
+      where: { userId: testUsers[1].id },
+      update: {},
+      create: {
+        userId: testUsers[1].id,
+        totalEarned: 800,
+        totalSpent: 200,
+        currentBalance: 600,
+        tier: LoyaltyTier.BRONZE,
+        tierProgress: 600,
+        lifetimeBookings: 2,
+        lifetimeValue: 8000,
       },
-    },
-  });
-
-  // 7. Antalya districts transfers
-  const antalyaKemer = await prisma.airportTransfer.create({
-    data: {
-      name: 'Antalya Havalimanı - Kemer',
-      description: 'Kemer bölgesine transfer - doğa ve plajların buluştuğu nokta.',
-      fromLocation: 'AYT',
-      toLocation: 'Kemer',
-      distance: 55,
-      duration: 60,
-      region: 'Antalya',
-      vehicles: {
-        create: [
-          {
-            vehicleType: 'SEDAN',
-            name: 'Standart Sedan',
-            capacity: 3,
-            luggageCapacity: 2,
-            priceStandard: 400,
-            priceVIP: 650,
-            features: ['Klima', 'Konforlu Koltuklar'],
-          },
-          {
-            vehicleType: 'VAN',
-            name: 'Standart Van',
-            capacity: 8,
-            luggageCapacity: 6,
-            priceStandard: 600,
-            priceVIP: 950,
-            features: ['Geniş Bagaj', 'Klima'],
-          },
-          {
-            vehicleType: 'LUXURY_VAN',
-            name: 'Mercedes Vito VIP',
-            capacity: 7,
-            luggageCapacity: 6,
-            priceStandard: 1100,
-            priceVIP: 1600,
-            features: ['Premium İç Mekan', 'Wi-Fi', 'İkram', 'Meet & Greet'],
-          },
-        ],
+    }),
+    prisma.ailydianMilesAccount.upsert({
+      where: { userId: testUsers[2].id },
+      update: {},
+      create: {
+        userId: testUsers[2].id,
+        totalEarned: 12000,
+        totalSpent: 3000,
+        currentBalance: 9000,
+        tier: LoyaltyTier.GOLD,
+        tierProgress: 9000,
+        lifetimeBookings: 10,
+        lifetimeValue: 60000,
       },
-    },
-  });
+    }),
+  ]);
 
-  console.log('✅ Database seeded successfully!');
-  console.log(`Created 2 admin users`);
-  console.log(`Created 7 airport transfer routes`);
-  console.log(`Most popular: Antalya Airport -> Alanya (125km)`);
+  console.log(`   ✅ Created ${milesAccounts.length} miles accounts`);
+  console.log(`      • GOLD tier: ${testUsers[0].name} (4,000 miles)`);
+  console.log(`      • BRONZE tier: ${testUsers[1].name} (600 miles)`);
+  console.log(`      • GOLD tier: ${testUsers[2].name} (9,000 miles)`);
 
-  // ===========================================
-  // HOTELS - 30 Real Hotels in Turkish Riviera
-  // ===========================================
-  console.log('🏨 Creating hotels...');
+  // ============================================
+  // 4. CREATE HOTELS
+  // ============================================
+  console.log('\n🏨 Creating hotels...');
 
-  // ANTALYA HOTELS
-  const rixosDowntown = await prisma.hotel.create({
-    data: {
-      name: 'Rixos Downtown Antalya',
-      slug: 'rixos-downtown-antalya',
-      description: 'Antalya şehir merkezinde modern ve lüks bir otel. Akdeniz manzaralı odalar, rooftop havuz, spa merkezi ve gurme restoranlar ile unutulmaz bir konaklama deneyimi sunuyor.',
-      shortDescription: 'Şehir merkezinde ultra lüks 5 yıldızlı otel',
-      city: 'Antalya',
-      region: 'Antalya Merkez',
-      address: 'Sakıp Sabancı Bulvarı, Kepez, Antalya',
-      coordinates: { lat: 36.8969, lng: 30.7133 },
-      distanceToAirport: 12,
-      distanceToBeach: 8,
-      distanceToCenter: 1,
+  const hotels = [
+    {
+      name: 'Grand Hilton Istanbul',
+      slug: 'grand-hilton-istanbul',
+      description: 'Lüks 5 yıldızlı otel Taksim\'de, muhteşem Boğaz manzarası ile.',
+      city: 'Istanbul',
+      country: 'Turkey',
+      address: 'Harbiye, Cumhuriyet Cd., 34367 Şişli/İstanbul',
+      rating: 4.8,
       stars: 5,
-      rating: 9.2,
-      reviewCount: 1847,
-      hotelType: 'CITY_HOTEL',
-      yearBuilt: 2019,
-      roomCount: 178,
-      floorCount: 11,
-      mainImage: 'https://images.unsplash.com/photo-1566073771259-6a8506099945',
+      pricePerNight: 2500,
+      currency: 'TRY',
       images: [
-        'https://images.unsplash.com/photo-1566073771259-6a8506099945',
-        'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b',
-        'https://images.unsplash.com/photo-1571896349842-33c89424de2d'
+        'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800',
+        'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800',
       ],
-      amenities: ['Wi-Fi', 'Spa', 'Fitness Center', 'Indoor Pool', 'Outdoor Pool', 'Restaurant', 'Bar', 'Room Service', 'Concierge'],
-      facilities: ['Rooftop Pool', 'Turkish Bath', 'Sauna', 'Massage Rooms', 'Kids Club', 'Business Center', 'Meeting Rooms'],
-      roomFeatures: ['Air Conditioning', 'Safe', 'Minibar', 'Smart TV', 'Coffee Machine', 'Balcony'],
-      priceMin: 3500,
-      priceMax: 12000,
-      currency: 'TRY',
-      phone: '+90 242 123 4567',
-      email: 'info@rixosdowntown.com',
-      website: 'https://rixos.com',
+      amenities: ['wifi', 'pool', 'spa', 'gym', 'restaurant', 'bar', 'parking', 'room-service'],
+      latitude: 41.0376,
+      longitude: 28.9869,
       isActive: true,
       isFeatured: true,
-      isRecommended: true,
-      rooms: {
-        create: [
-          {
-            name: 'Deluxe Room',
-            slug: 'deluxe-room',
-            description: 'Modern tasarımlı 35 m² oda, şehir manzaralı',
-            roomType: 'DELUXE',
-            size: 35,
-            bedType: 'King',
-            maxOccupancy: 2,
-            maxAdults: 2,
-            maxChildren: 0,
-            images: ['https://images.unsplash.com/photo-1590490360182-c33d57733427'],
-            amenities: ['City View', 'King Bed', 'Minibar', 'Safe', 'Smart TV'],
-            view: ['City View'],
-            pricePerNight: 3500,
-            roomCount: 80,
-            isAvailable: true,
-            mealPlans: ['Room Only', 'Breakfast']
-          },
-          {
-            name: 'Executive Suite',
-            slug: 'executive-suite',
-            description: 'Geniş 65 m² suit, oturma alanı ve Akdeniz manzaralı',
-            roomType: 'SUITE',
-            size: 65,
-            bedType: 'King',
-            maxOccupancy: 3,
-            maxAdults: 2,
-            maxChildren: 1,
-            images: ['https://images.unsplash.com/photo-1582719508461-905c673771fd'],
-            amenities: ['Sea View', 'Living Room', 'King Bed', 'Minibar', 'Nespresso Machine'],
-            view: ['Sea View', 'City View'],
-            pricePerNight: 7500,
-            roomCount: 40,
-            isAvailable: true,
-            mealPlans: ['Breakfast', 'Half Board']
-          }
-        ]
-      }
-    }
-  });
-
-  const delphinBeOcean = await prisma.hotel.create({
-    data: {
-      name: 'Delphin Be Grand Resort',
-      slug: 'delphin-be-grand-resort',
-      description: 'Lara sahilinde all-inclusive lüks resort. 400 metre özel plaj, 7 restoran, aquapark ve çocuklar için eğlence merkezi. Aile tatili için ideal.',
-      shortDescription: 'Lara\'da ultra her şey dahil sahil resort',
-      city: 'Antalya',
-      region: 'Lara',
-      address: 'Güzeloba Mah., Lara, Antalya',
-      coordinates: { lat: 36.8576, lng: 30.7815 },
-      distanceToAirport: 15,
-      distanceToBeach: 0,
-      distanceToCenter: 12,
+    },
+    {
+      name: 'Swissotel The Bosphorus',
+      slug: 'swissotel-bosphorus-istanbul',
+      description: 'Beşiktaş\'ta Boğaz kıyısında, zarif ve modern 5 yıldızlı otel.',
+      city: 'Istanbul',
+      country: 'Turkey',
+      address: 'Visnezade Mah. Acisu Sok. No:19, Macka, Besiktas',
+      rating: 4.7,
       stars: 5,
-      rating: 8.9,
-      reviewCount: 3241,
-      hotelType: 'RESORT',
-      yearBuilt: 2015,
-      yearRenovated: 2022,
-      roomCount: 528,
-      floorCount: 8,
-      mainImage: 'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4',
+      pricePerNight: 3200,
+      currency: 'TRY',
       images: [
-        'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4',
-        'https://images.unsplash.com/photo-1551882547-ff40c63fe5fa',
-        'https://images.unsplash.com/photo-1540541338287-41700207dee6'
+        'https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800',
+        'https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=800',
       ],
-      amenities: ['All Inclusive', 'Private Beach', 'Multiple Pools', 'Aquapark', 'Spa', 'Fitness', 'Kids Club', 'Animation'],
-      facilities: ['7 Restaurants', '9 Bars', 'Aquapark', 'Turkish Bath', 'Sauna', 'Massage', 'Tennis Court', 'Mini Golf'],
-      roomFeatures: ['Air Conditioning', 'Balcony', 'Safe', 'Minibar', 'Satellite TV'],
-      priceMin: 8500,
-      priceMax: 22000,
-      currency: 'TRY',
-      phone: '+90 242 352 6000',
+      amenities: ['wifi', 'pool', 'spa', 'gym', 'restaurant', 'bar', 'concierge'],
+      latitude: 41.0486,
+      longitude: 29.0031,
       isActive: true,
       isFeatured: true,
-      isRecommended: true,
-      rooms: {
+    },
+    {
+      name: 'Rixos Premium Belek',
+      slug: 'rixos-premium-belek',
+      description: 'Her şey dahil lüks resort, Antalya Belek\'te harika plaj ile.',
+      city: 'Antalya',
+      country: 'Turkey',
+      address: 'Belek Turizm Merkezi, 07506 Belek/Antalya',
+      rating: 4.9,
+      stars: 5,
+      pricePerNight: 4500,
+      currency: 'TRY',
+      images: [
+        'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=800',
+        'https://images.unsplash.com/photo-1584132967334-10e028bd69f7?w=800',
+      ],
+      amenities: ['wifi', 'pool', 'beach', 'spa', 'gym', 'restaurant', 'bar', 'kids-club', 'water-park'],
+      latitude: 36.8629,
+      longitude: 31.0546,
+      isActive: true,
+      isFeatured: true,
+    },
+    {
+      name: 'Maxx Royal Kemer Resort',
+      slug: 'maxx-royal-kemer-resort',
+      description: 'Ultra lüks her şey dahil resort, muhteşem hizmet ve yemekler.',
+      city: 'Antalya',
+      country: 'Turkey',
+      address: 'Beldibi Mah. Başkomutan Atatürk Cad. No:104, 07985 Kemer/Antalya',
+      rating: 5.0,
+      stars: 5,
+      pricePerNight: 8500,
+      currency: 'TRY',
+      images: [
+        'https://images.unsplash.com/photo-1549294413-26f195200c16?w=800',
+        'https://images.unsplash.com/photo-1582719508461-905c673771fd?w=800',
+      ],
+      amenities: ['wifi', 'pool', 'beach', 'spa', 'gym', 'restaurant', 'bar', 'kids-club', 'concierge', 'butler'],
+      latitude: 36.5940,
+      longitude: 30.5606,
+      isActive: true,
+      isFeatured: true,
+    },
+    {
+      name: 'Çırağan Palace Kempinski',
+      slug: 'ciragan-palace-kempinski-istanbul',
+      description: 'Tarihi Osmanlı sarayı, ultra lüks 5 yıldızlı otel.',
+      city: 'Istanbul',
+      country: 'Turkey',
+      address: 'Çırağan Cd. No:32, 34349 Beşiktaş/İstanbul',
+      rating: 4.9,
+      stars: 5,
+      pricePerNight: 12000,
+      currency: 'TRY',
+      images: [
+        'https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800',
+        'https://images.unsplash.com/photo-1563911302283-d2bc129e7570?w=800',
+      ],
+      amenities: ['wifi', 'pool', 'spa', 'gym', 'restaurant', 'bar', 'concierge', 'butler', 'yacht'],
+      latitude: 41.0476,
+      longitude: 29.0335,
+      isActive: true,
+      isFeatured: true,
+    },
+  ];
+
+  const createdHotels = await Promise.all(
+    hotels.map((hotel) =>
+      prisma.hotel.upsert({
+        where: { slug: hotel.slug },
+        update: {},
+        create: hotel,
+      })
+    )
+  );
+
+  console.log(`   ✅ Created ${createdHotels.length} hotels`);
+
+  // ============================================
+  // 5. CREATE CARS
+  // ============================================
+  console.log('\n🚗 Creating rental cars...');
+
+  const cars = [
+    {
+      name: 'Mercedes-Benz E-Class',
+      slug: 'mercedes-benz-e-class-istanbul',
+      brand: 'Mercedes-Benz',
+      model: 'E-Class',
+      year: 2023,
+      category: 'Luxury',
+      pricePerDay: 850,
+      currency: 'TRY',
+      location: 'Istanbul',
+      transmission: 'Automatic',
+      fuelType: 'Diesel',
+      seats: 5,
+      doors: 4,
+      airConditioning: true,
+      features: ['GPS', 'Leather Seats', 'Bluetooth', 'Cruise Control'],
+      images: [
+        'https://images.unsplash.com/photo-1617531653332-bd46c24f2068?w=800',
+      ],
+      rating: 4.8,
+      isActive: true,
+      isFeatured: true,
+    },
+    {
+      name: 'BMW 5 Series',
+      slug: 'bmw-5-series-istanbul',
+      brand: 'BMW',
+      model: '5 Series',
+      year: 2024,
+      category: 'Luxury',
+      pricePerDay: 900,
+      currency: 'TRY',
+      location: 'Istanbul',
+      transmission: 'Automatic',
+      fuelType: 'Hybrid',
+      seats: 5,
+      doors: 4,
+      airConditioning: true,
+      features: ['GPS', 'Leather Seats', 'Bluetooth', 'Parking Sensors'],
+      images: [
+        'https://images.unsplash.com/photo-1555215695-3004980ad54e?w=800',
+      ],
+      rating: 4.9,
+      isActive: true,
+      isFeatured: true,
+    },
+    {
+      name: 'Volkswagen Passat',
+      slug: 'vw-passat-ankara',
+      brand: 'Volkswagen',
+      model: 'Passat',
+      year: 2023,
+      category: 'Standard',
+      pricePerDay: 450,
+      currency: 'TRY',
+      location: 'Ankara',
+      transmission: 'Automatic',
+      fuelType: 'Diesel',
+      seats: 5,
+      doors: 4,
+      airConditioning: true,
+      features: ['GPS', 'Bluetooth', 'USB'],
+      images: [
+        'https://images.unsplash.com/photo-1493238792000-8113da705763?w=800',
+      ],
+      rating: 4.5,
+      isActive: true,
+      isFeatured: false,
+    },
+    {
+      name: 'Renault Clio',
+      slug: 'renault-clio-izmir',
+      brand: 'Renault',
+      model: 'Clio',
+      year: 2023,
+      category: 'Economy',
+      pricePerDay: 250,
+      currency: 'TRY',
+      location: 'Izmir',
+      transmission: 'Manual',
+      fuelType: 'Petrol',
+      seats: 5,
+      doors: 4,
+      airConditioning: true,
+      features: ['Bluetooth', 'USB'],
+      images: [
+        'https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=800',
+      ],
+      rating: 4.3,
+      isActive: true,
+      isFeatured: false,
+    },
+  ];
+
+  const createdCars = await Promise.all(
+    cars.map((car) =>
+      prisma.car.upsert({
+        where: { slug: car.slug },
+        update: {},
+        create: car,
+      })
+    )
+  );
+
+  console.log(`   ✅ Created ${createdCars.length} rental cars`);
+
+  // ============================================
+  // 6. CREATE TOURS
+  // ============================================
+  console.log('\n🎫 Creating tours...');
+
+  const tours = [
+    {
+      name: 'Istanbul Historical Tour',
+      slug: 'istanbul-historical-tour',
+      description: 'Tarihi yarımadada Sultanahmet, Ayasofya, Topkapı Sarayı ve Kapalıçarşı turu.',
+      city: 'Istanbul',
+      country: 'Turkey',
+      duration: 480,
+      price: 450,
+      currency: 'TRY',
+      category: 'Cultural',
+      images: [
+        'https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?w=800',
+      ],
+      highlights: [
+        'Sultanahmet Camii',
+        'Ayasofya',
+        'Topkapı Sarayı',
+        'Kapalıçarşı',
+        'Yerebatan Sarnıcı',
+      ],
+      included: ['Professional guide', 'Lunch', 'Museum tickets', 'Transportation'],
+      rating: 4.8,
+      isActive: true,
+      isFeatured: true,
+    },
+    {
+      name: 'Cappadocia Hot Air Balloon',
+      slug: 'cappadocia-hot-air-balloon',
+      description: 'Kapadokya\'da gün doğumunda sıcak hava balonu turu, eşsiz bir deneyim.',
+      city: 'Nevsehir',
+      country: 'Turkey',
+      duration: 180,
+      price: 1200,
+      currency: 'TRY',
+      category: 'Adventure',
+      images: [
+        'https://images.unsplash.com/photo-1525088553704-2a1579f8f88f?w=800',
+      ],
+      highlights: [
+        '1 saat balon uçuşu',
+        'Gün doğumu manzarası',
+        'Şampanya servisi',
+        'Uçuş sertifikası',
+      ],
+      included: ['Hot air balloon flight', 'Hotel pick-up', 'Champagne', 'Flight certificate'],
+      rating: 5.0,
+      isActive: true,
+      isFeatured: true,
+    },
+    {
+      name: 'Pamukkale & Hierapolis Tour',
+      slug: 'pamukkale-hierapolis-tour',
+      description: 'Pamukkale travertenleri ve antik Hierapolis şehri tam gün turu.',
+      city: 'Denizli',
+      country: 'Turkey',
+      duration: 600,
+      price: 380,
+      currency: 'TRY',
+      category: 'Nature',
+      images: [
+        'https://images.unsplash.com/photo-1587974928442-77dc3e0dba72?w=800',
+      ],
+      highlights: [
+        'Pamukkale travertenleri',
+        'Hierapolis antik kenti',
+        'Kleopatra havuzu',
+        'Antik tiyatro',
+      ],
+      included: ['Professional guide', 'Lunch', 'Museum tickets', 'Transportation'],
+      rating: 4.7,
+      isActive: true,
+      isFeatured: true,
+    },
+  ];
+
+  const createdTours = await Promise.all(
+    tours.map((tour) =>
+      prisma.tour.upsert({
+        where: { slug: tour.slug },
+        update: {},
+        create: tour,
+      })
+    )
+  );
+
+  console.log(`   ✅ Created ${createdTours.length} tours`);
+
+  // ============================================
+  // 7. CREATE REVIEWS
+  // ============================================
+  console.log('\n⭐ Creating reviews...');
+
+  const reviews = [
+    {
+      userId: testUsers[0].id,
+      listingType: 'hotel',
+      listingId: createdHotels[0].id,
+      rating: 5,
+      title: 'Muhteşem konaklama!',
+      comment: 'Otel çok temizdi, personel son derece ilgiliydi. Boğaz manzarası harika. Kesinlikle tekrar geleceğim.',
+      isVerified: true,
+    },
+    {
+      userId: testUsers[1].id,
+      listingType: 'hotel',
+      listingId: createdHotels[0].id,
+      rating: 4,
+      title: 'Çok güzeldi',
+      comment: 'Konum mükemmel, kahvaltı çeşitleri çok iyi. Tek eksi spa biraz küçüktü.',
+      isVerified: true,
+    },
+    {
+      userId: testUsers[2].id,
+      listingType: 'car',
+      listingId: createdCars[0].id,
+      rating: 5,
+      title: 'Harika araç',
+      comment: 'Mercedes çok konforlu ve temizdi. Teslimat ve iade işlemleri çok hızlıydı.',
+      isVerified: true,
+    },
+    {
+      userId: testUsers[0].id,
+      listingType: 'tour',
+      listingId: createdTours[0].id,
+      rating: 5,
+      title: 'Unutulmaz bir gün',
+      comment: 'Rehberimiz çok bilgiliydi, tarihi yerler hakkında harika bilgiler verdi. Öğle yemeği de çok lezzetliydi.',
+      isVerified: true,
+    },
+  ];
+
+  const createdReviews = await Promise.all(
+    reviews.map((review) =>
+      prisma.review.create({
+        data: review,
+      })
+    )
+  );
+
+  console.log(`   ✅ Created ${createdReviews.length} reviews`);
+
+  // ============================================
+  // 8. CREATE PARTNER PROFILES
+  // ============================================
+  console.log('\n🤝 Creating partner profiles...');
+
+  const partnerUser = await prisma.user.upsert({
+    where: { email: 'partner@example.com' },
+    update: {},
+    create: {
+      name: 'Hotel Partner',
+      email: 'partner@example.com',
+      password: await bcrypt.hash('Partner123!', 12),
+      emailVerified: new Date(),
+      phone: '+905551234571',
+      role: 'PARTNER',
+    },
+  });
+
+  const partnerProfile = await prisma.partnerProfile.upsert({
+    where: { userId: partnerUser.id },
+    update: {},
+    create: {
+      userId: partnerUser.id,
+      businessName: 'Grand Hotels Group',
+      businessType: PartnerType.HOTEL_MANAGER,
+      taxId: '1234567890',
+      licenseNumber: 'HTL-2024-001',
+      contactPerson: 'Ahmet Yılmaz',
+      phone: '+905551234571',
+      email: 'partner@example.com',
+      address: 'Taksim, Istanbul',
+      isVerified: true,
+      verifiedAt: new Date(),
+      bankName: 'İş Bankası',
+      accountNumber: '1234567890',
+      iban: 'TR330006100519786457841326',
+      totalListings: 2,
+      totalBookings: 50,
+      totalRevenue: 125000,
+      rating: 4.8,
+      isActive: true,
+    },
+  });
+
+  console.log(`   ✅ Partner profile: ${partnerProfile.businessName}`);
+
+  // ============================================
+  // 9. CREATE SEO LANDING PAGES
+  // ============================================
+  console.log('\n🔍 Creating SEO landing pages...');
+
+  const seoPages = [
+    {
+      slug: 'istanbul-otelleri',
+      title: 'Istanbul Otelleri - En İyi Fiyatlarla Otel Rezervasyonu',
+      description: 'Istanbul\'da otel mi arıyorsunuz? 500+ otel arasından size en uygun oteli bulun. Ücretsiz iptal, en iyi fiyat garantisi.',
+      metaTitle: 'Istanbul Otelleri - Uygun Fiyatlı Otel Rezervasyonu | Ailydian',
+      metaDescription: 'Istanbul\'da 500+ otelden en uygununu seçin. Taksim, Sultanahmet, Kadıköy ve tüm semtlerde oteller. Hemen rezervasyon yapın!',
+      keywords: ['istanbul otelleri', 'istanbul otel rezervasyonu', 'uygun otel istanbul'],
+      pageType: SEOPageType.CITY_HOTELS,
+      category: 'hotels',
+      filters: JSON.stringify({ city: 'Istanbul' }),
+      h1: 'Istanbul Otelleri',
+      content: 'Istanbul\'da konaklama için en iyi otelleri keşfedin. Boğaz manzaralı oteller, butik oteller, lüks 5 yıldızlı oteller ve bütçe dostu seçenekler...',
+      isActive: true,
+    },
+    {
+      slug: 'antalya-otelleri',
+      title: 'Antalya Otelleri - Her Şey Dahil Tatil Otelleri',
+      description: 'Antalya\'da her şey dahil tatil otelleri. Belek, Kemer, Side, Alanya\'da 300+ otel seçeneği. En iyi fiyat garantisi.',
+      metaTitle: 'Antalya Otelleri - Her Şey Dahil Tatil | Ailydian',
+      metaDescription: 'Antalya\'da denize sıfır oteller, her şey dahil tatil köyleri. Belek, Kemer, Side otelleri en uygun fiyatlarla!',
+      keywords: ['antalya otelleri', 'her şey dahil antalya', 'antalya tatil'],
+      pageType: SEOPageType.CITY_HOTELS,
+      category: 'hotels',
+      filters: JSON.stringify({ city: 'Antalya' }),
+      h1: 'Antalya Otelleri',
+      content: 'Antalya\'da unutulmaz bir tatil için en iyi otelleri keşfedin. Her şey dahil sistemde lüks resort oteller, butik oteller ve aile otelleri...',
+      isActive: true,
+    },
+    {
+      slug: 'istanbul-arac-kiralama',
+      title: 'Istanbul Araç Kiralama - Uygun Fiyatlarla Rent A Car',
+      description: 'Istanbul\'da araç kiralama. Havalimanı, Taksim, Kadıköy\'de araç kiralama. Ekonomik ve lüks araçlar.',
+      metaTitle: 'Istanbul Araç Kiralama - Rent A Car Istanbul | Ailydian',
+      metaDescription: 'Istanbul\'da günlük araç kiralama. 100+ araç seçeneği, havalimanı teslimat, en uygun fiyatlar!',
+      keywords: ['istanbul araç kiralama', 'rent a car istanbul', 'araba kiralama istanbul'],
+      pageType: SEOPageType.CITY_CARS,
+      category: 'cars',
+      filters: JSON.stringify({ city: 'Istanbul' }),
+      h1: 'Istanbul Araç Kiralama',
+      content: 'Istanbul\'da araç kiralama ihtiyacınız için en uygun seçenekler. Ekonomik araçlardan lüks SUV\'lara kadar geniş araç filosu...',
+      isActive: true,
+    },
+  ];
+
+  const createdSEOPages = await Promise.all(
+    seoPages.map((page) =>
+      prisma.sEOLandingPage.upsert({
+        where: { slug: page.slug },
+        update: {},
+        create: page,
+      })
+    )
+  );
+
+  console.log(`   ✅ Created ${createdSEOPages.length} SEO landing pages`);
+
+  // ============================================
+  // 10. CREATE MILES TRANSACTIONS
+  // ============================================
+  console.log('\n💰 Creating miles transactions...');
+
+  const milesTransactions = [
+    {
+      accountId: milesAccounts[0].id,
+      type: 'EARNED',
+      amount: 2500,
+      balanceBefore: 1500,
+      balanceAfter: 4000,
+      description: 'Otel rezervasyonundan kazanılan mil',
+      referenceType: 'BOOKING',
+      referenceId: 'BOOK-001',
+    },
+    {
+      accountId: milesAccounts[0].id,
+      type: 'REDEEMED',
+      amount: 1000,
+      balanceBefore: 5000,
+      balanceAfter: 4000,
+      description: 'Rezervasyonda mil kullanımı',
+      referenceType: 'BOOKING',
+      referenceId: 'BOOK-002',
+    },
+    {
+      accountId: milesAccounts[1].id,
+      type: 'EARNED',
+      amount: 600,
+      balanceBefore: 0,
+      balanceAfter: 600,
+      description: 'İlk rezervasyondan kazanılan mil',
+      referenceType: 'BOOKING',
+      referenceId: 'BOOK-003',
+    },
+  ];
+
+  const createdTransactions = await Promise.all(
+    milesTransactions.map((tx) =>
+      prisma.milesTransaction.create({
+        data: tx,
+      })
+    )
+  );
+
+  console.log(`   ✅ Created ${createdTransactions.length} miles transactions`);
+
+  // ============================================
+  // 11. CREATE VIRTUAL TOURS
+  // ============================================
+  console.log('\n🏛️ Creating virtual tours...');
+
+  const virtualTour = await prisma.virtualTour.create({
+    data: {
+      listingType: 'hotel',
+      listingId: createdHotels[0].id,
+      title: 'Grand Hilton Istanbul - 360° Sanal Tur',
+      description: 'Otelimizin tüm alanlarını 360° panoramik görüntülerle keşfedin',
+      coverImage: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800',
+      views: 5420,
+      featured: true,
+      isActive: true,
+      scenes: {
         create: [
           {
-            name: 'Standard Room',
-            slug: 'standard-room',
-            description: '32 m² konforlu oda, bahçe manzaralı',
-            roomType: 'STANDARD',
-            size: 32,
-            bedType: 'Queen',
-            maxOccupancy: 3,
-            maxAdults: 2,
-            maxChildren: 1,
-            amenities: ['Garden View', 'Balcony', 'Minibar', 'Safe'],
-            view: ['Garden View'],
-            pricePerNight: 8500,
-            roomCount: 300,
-            isAvailable: true,
-            mealPlans: ['All Inclusive']
+            title: 'Lobby',
+            panoramaUrl: 'https://cdn.ailydian.com/360/lobby.jpg',
+            type: PanoramaType.EQUIRECTANGULAR,
+            order: 0,
+            initialPitch: 0,
+            initialYaw: 0,
+            initialFov: 90,
+            hotspots: {
+              create: [
+                {
+                  type: HotspotType.INFO,
+                  positionPitch: -20,
+                  positionYaw: 0,
+                  title: 'Lüks Lobby',
+                  content: '24/7 resepsiyon hizmeti, ücretsiz Wi-Fi',
+                  icon: 'info',
+                },
+              ],
+            },
           },
           {
-            name: 'Family Suite Sea View',
-            slug: 'family-suite-sea-view',
-            description: '55 m² aile suit, deniz manzaralı, 2 yatak odası',
-            roomType: 'FAMILY',
-            size: 55,
-            bedType: 'King + Twin',
-            maxOccupancy: 4,
-            maxAdults: 2,
-            maxChildren: 2,
-            amenities: ['Sea View', 'Two Bedrooms', 'Balcony', 'Minibar'],
-            view: ['Sea View'],
-            pricePerNight: 15000,
-            roomCount: 120,
-            isAvailable: true,
-            mealPlans: ['All Inclusive']
-          }
-        ]
-      }
-    }
-  });
-
-  const marmaraTalya = await prisma.hotel.create({
-    data: {
-      name: 'The Marmara Antalya',
-      slug: 'the-marmara-antalya',
-      description: 'Antalya\'nın kalbinde, Kaleiçi\'ne yakın butik otel. Akdeniz ve Toros Dağları manzarası, dönen oda konsepti ile ünlü. Romantik tatiller için mükemmel.',
-      shortDescription: 'Panoramik manzaralı butik otel',
-      city: 'Antalya',
-      region: 'Antalya Merkez',
-      address: 'Sirinyali Mah., Antalya',
-      coordinates: { lat: 36.8845, lng: 30.7067 },
-      distanceToAirport: 13,
-      distanceToBeach: 0.5,
-      distanceToCenter: 2,
-      stars: 5,
-      rating: 9.1,
-      reviewCount: 892,
-      hotelType: 'BOUTIQUE',
-      yearBuilt: 2009,
-      yearRenovated: 2020,
-      roomCount: 238,
-      floorCount: 12,
-      mainImage: 'https://images.unsplash.com/photo-1564501049412-61c2a3083791',
-      images: ['https://images.unsplash.com/photo-1564501049412-61c2a3083791'],
-      amenities: ['Infinity Pool', 'Spa', 'Fitness', 'Restaurant', 'Bar', 'Beach Access'],
-      facilities: ['Rotating Rooms', 'Rooftop Bar', 'Private Beach', 'Spa Center'],
-      roomFeatures: ['Panoramic Windows', 'Smart Room Control', 'Minibar', 'Safe'],
-      priceMin: 4500,
-      priceMax: 9000,
-      currency: 'TRY',
-      phone: '+90 242 249 3600',
-      isActive: true,
-      isFeatured: true,
-      rooms: {
-        create: [
-          {
-            name: 'Panoramic Room',
-            slug: 'panoramic-room',
-            description: '28 m² panoramik pencereli oda',
-            roomType: 'DELUXE',
-            size: 28,
-            bedType: 'Queen',
-            maxOccupancy: 2,
-            maxAdults: 2,
-            maxChildren: 0,
-            amenities: ['Panoramic View', 'Minibar', 'Smart TV'],
-            view: ['Sea View', 'Mountain View'],
-            pricePerNight: 4500,
-            roomCount: 180,
-            isAvailable: true,
-            mealPlans: ['Breakfast', 'Half Board']
-          }
-        ]
-      }
-    }
-  });
-
-  // BELEK HOTELS
-  const regnum = await prisma.hotel.create({
-    data: {
-      name: 'Regnum Carya Golf & Spa Resort',
-      slug: 'regnum-carya-golf-spa-resort',
-      description: 'Belek\'in en lüks golf resort\'ü. Uluslararası şampiyonalık golf sahası, termal spa, 500 metre özel plaj. Golf tutkunları ve lüks tatil arayanlar için.',
-      shortDescription: 'Golf sahası olan ultra lüks resort',
-      city: 'Antalya',
-      region: 'Belek',
-      address: 'İskele Mevkii, Belek, Antalya',
-      coordinates: { lat: 36.8625, lng: 31.0542 },
-      distanceToAirport: 32,
-      distanceToBeach: 0,
-      distanceToCenter: 35,
-      stars: 5,
-      rating: 9.4,
-      reviewCount: 2156,
-      hotelType: 'RESORT',
-      yearBuilt: 2006,
-      yearRenovated: 2021,
-      roomCount: 628,
-      floorCount: 5,
-      mainImage: 'https://images.unsplash.com/photo-1596394516093-501ba68a0ba6',
-      images: ['https://images.unsplash.com/photo-1596394516093-501ba68a0ba6'],
-      amenities: ['Golf Course', 'Spa', 'Private Beach', 'Multiple Pools', 'All Inclusive', 'Fitness', 'Kids Club'],
-      facilities: ['18-Hole Golf', 'Thermal Spa', '8 Restaurants', '11 Bars', 'Tennis Academy', 'Diving Center'],
-      roomFeatures: ['Balcony', 'Minibar', 'Safe', 'Satellite TV', 'Jacuzzi in Suites'],
-      priceMin: 12000,
-      priceMax: 35000,
-      currency: 'TRY',
-      phone: '+90 242 710 1500',
-      isActive: true,
-      isFeatured: true,
-      isRecommended: true,
-      rooms: {
-        create: [
-          {
-            name: 'Deluxe Golf View',
-            slug: 'deluxe-golf-view',
-            description: '42 m² golf sahası manzaralı oda',
-            roomType: 'DELUXE',
-            size: 42,
-            bedType: 'King',
-            maxOccupancy: 3,
-            maxAdults: 2,
-            maxChildren: 1,
-            amenities: ['Golf View', 'Balcony', 'Minibar'],
-            view: ['Golf View', 'Garden View'],
-            pricePerNight: 12000,
-            roomCount: 320,
-            isAvailable: true,
-            mealPlans: ['All Inclusive', 'Ultra All Inclusive']
+            title: 'Deluxe Room',
+            panoramaUrl: 'https://cdn.ailydian.com/360/deluxe-room.jpg',
+            type: PanoramaType.EQUIRECTANGULAR,
+            order: 1,
+            initialPitch: 0,
+            initialYaw: 180,
+            initialFov: 90,
+            hotspots: {
+              create: [
+                {
+                  type: HotspotType.INFO,
+                  positionPitch: 0,
+                  positionYaw: -90,
+                  title: 'Boğaz Manzarası',
+                  content: 'Odalarımızdan eşsiz Boğaz manzarası',
+                  icon: 'info',
+                },
+              ],
+            },
           },
-          {
-            name: 'Presidential Villa',
-            slug: 'presidential-villa',
-            description: '250 m² özel villa, jakuzili, özel havuzlu',
-            roomType: 'VILLA',
-            size: 250,
-            bedType: 'Multiple',
-            maxOccupancy: 6,
-            maxAdults: 4,
-            maxChildren: 2,
-            amenities: ['Private Pool', 'Jacuzzi', 'Butler Service', 'Golf Cart'],
-            view: ['Golf View', 'Sea View'],
-            pricePerNight: 35000,
-            roomCount: 12,
-            isAvailable: true,
-            mealPlans: ['Ultra All Inclusive']
-          }
-        ]
-      }
-    }
+        ],
+      },
+    },
   });
 
-  const maxxRoyal = await prisma.hotel.create({
-    data: {
-      name: 'Maxx Royal Belek Golf Resort',
-      slug: 'maxx-royal-belek-golf-resort',
-      description: 'Dünyanın en iyi all-inclusive resort\'lerinden biri. Her detayda lüks, Michelin yıldızlı şef restoranlar, kişisel butler hizmeti, 500 metre altın kumsallı özel plaj.',
-      shortDescription: 'Ultra lüks all-inclusive deneyimi',
-      city: 'Antalya',
-      region: 'Belek',
-      address: 'Acısu Mevkii, Belek, Antalya',
-      coordinates: { lat: 36.8583, lng: 31.0417 },
-      distanceToAirport: 30,
-      distanceToBeach: 0,
-      distanceToCenter: 38,
-      stars: 5,
-      rating: 9.6,
-      reviewCount: 4782,
-      hotelType: 'RESORT',
-      yearBuilt: 2013,
-      yearRenovated: 2023,
-      roomCount: 502,
-      floorCount: 6,
-      mainImage: 'https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9',
-      images: ['https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9'],
-      amenities: ['Butler Service', 'Private Beach', 'Golf Course', 'Luxury Spa', 'Michelin Chef', 'Kids Club', 'All Inclusive'],
-      facilities: ['10 Restaurants', '14 Bars', 'Aquapark', 'Thermal Spa', 'Tennis', 'Water Sports', 'Shopping Avenue'],
-      roomFeatures: ['Butler Service', 'Balcony', 'Premium Minibar', 'Nespresso', 'Smart TV', 'Premium Toiletries'],
-      priceMin: 18000,
-      priceMax: 55000,
-      currency: 'TRY',
-      phone: '+90 242 715 1515',
-      isActive: true,
-      isFeatured: true,
-      isRecommended: true,
-      rooms: {
-        create: [
-          {
-            name: 'Maxx Deluxe Room',
-            slug: 'maxx-deluxe-room',
-            description: '45 m² ultra lüks oda, her detay düşünülmüş',
-            roomType: 'DELUXE',
-            size: 45,
-            bedType: 'King',
-            maxOccupancy: 2,
-            maxAdults: 2,
-            maxChildren: 0,
-            amenities: ['Butler Service', 'Sea View', 'Balcony', 'Premium Minibar'],
-            view: ['Sea View'],
-            pricePerNight: 18000,
-            roomCount: 280,
-            isAvailable: true,
-            mealPlans: ['Ultra All Inclusive']
-          },
-          {
-            name: 'Royal Villa',
-            slug: 'royal-villa',
-            description: '300 m² kraliyet villası, özel havuz, 24/7 butler',
-            roomType: 'VILLA',
-            size: 300,
-            bedType: 'Multiple',
-            maxOccupancy: 8,
-            maxAdults: 4,
-            maxChildren: 4,
-            amenities: ['Private Pool', 'Butler 24/7', 'Private Garden', 'Golf Cart', 'Limousine Service'],
-            view: ['Sea View', 'Garden View'],
-            pricePerNight: 55000,
-            roomCount: 8,
-            isAvailable: true,
-            mealPlans: ['Ultra All Inclusive']
-          }
-        ]
-      }
-    }
-  });
+  console.log(`   ✅ Virtual tour: ${virtualTour.title}`);
 
-  // ALANYA HOTELS
-  const saphirResort = await prisma.hotel.create({
-    data: {
-      name: 'Saphir Resort & Spa',
-      slug: 'saphir-resort-spa',
-      description: 'Alanya Turkler bölgesinde modern all-inclusive resort. 300 metre özel plaj, aquapark, spa ve eğlence programları. Aileler için ideal.',
-      shortDescription: 'Turkler\'de aile dostu resort',
-      city: 'Alanya',
-      region: 'Alanya',
-      address: 'Türkler Mevkii, Alanya, Antalya',
-      coordinates: { lat: 36.5145, lng: 31.7825 },
-      distanceToAirport: 90,
-      distanceToBeach: 0,
-      distanceToCenter: 18,
-      stars: 5,
-      rating: 8.7,
-      reviewCount: 2934,
-      hotelType: 'RESORT',
-      yearBuilt: 2016,
-      roomCount: 456,
-      floorCount: 7,
-      mainImage: 'https://images.unsplash.com/photo-1566073771259-6a8506099945',
-      images: ['https://images.unsplash.com/photo-1566073771259-6a8506099945'],
-      amenities: ['All Inclusive', 'Private Beach', 'Aquapark', 'Spa', 'Kids Club', 'Animation'],
-      facilities: ['5 Restaurants', '7 Bars', 'Aquapark', 'Turkish Bath', 'Fitness', 'Mini Club'],
-      roomFeatures: ['Balcony', 'Minibar', 'Safe', 'Satellite TV'],
-      priceMin: 6500,
-      priceMax: 18000,
-      currency: 'TRY',
-      phone: '+90 242 527 5000',
-      isActive: true,
-      isFeatured: true,
-      rooms: {
-        create: [
-          {
-            name: 'Standard Room',
-            slug: 'standard-room',
-            description: '28 m² deniz veya bahçe manzaralı oda',
-            roomType: 'STANDARD',
-            size: 28,
-            bedType: 'Queen',
-            maxOccupancy: 3,
-            maxAdults: 2,
-            maxChildren: 1,
-            amenities: ['Balcony', 'Minibar', 'Safe'],
-            view: ['Sea View', 'Garden View'],
-            pricePerNight: 6500,
-            roomCount: 320,
-            isAvailable: true,
-            mealPlans: ['All Inclusive']
-          }
-        ]
-      }
-    }
-  });
-
-  const grandPark = await prisma.hotel.create({
-    data: {
-      name: 'Grand Park Lara',
-      slug: 'grand-park-lara',
-      description: 'Lara sahilinde ailelere özel tasarlanmış resort. Geniş aquapark, çocuk kulübü, mini zoo ve zengin animasyon programları.',
-      shortDescription: 'Çocuklu aileler için ideal resort',
-      city: 'Antalya',
-      region: 'Lara',
-      address: 'Lara Turizm Yolu, Lara, Antalya',
-      coordinates: { lat: 36.8456, lng: 30.7901 },
-      distanceToAirport: 18,
-      distanceToBeach: 0,
-      distanceToCenter: 15,
-      stars: 5,
-      rating: 8.8,
-      reviewCount: 4123,
-      hotelType: 'RESORT',
-      yearBuilt: 2017,
-      roomCount: 612,
-      floorCount: 9,
-      mainImage: 'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb',
-      images: ['https://images.unsplash.com/photo-1542314831-068cd1dbfeeb'],
-      amenities: ['All Inclusive', 'Aquapark', 'Kids Club', 'Mini Zoo', 'Animation', 'Private Beach'],
-      facilities: ['6 Restaurants', '9 Bars', 'Giant Aquapark', 'Kids Club', 'Teen Club', 'Mini Zoo'],
-      roomFeatures: ['Family Rooms', 'Balcony', 'Minibar', 'Safe'],
-      priceMin: 7500,
-      priceMax: 19000,
-      currency: 'TRY',
-      isActive: true,
-      rooms: {
-        create: [
-          {
-            name: 'Family Room',
-            slug: 'family-room',
-            description: '38 m² geniş aile odası',
-            roomType: 'FAMILY',
-            size: 38,
-            bedType: 'Queen + Sofa Bed',
-            maxOccupancy: 4,
-            maxAdults: 2,
-            maxChildren: 2,
-            amenities: ['Balcony', 'Minibar', 'Safe', 'Kids Amenities'],
-            view: ['Sea View', 'Pool View'],
-            pricePerNight: 10000,
-            roomCount: 280,
-            isAvailable: true,
-            mealPlans: ['All Inclusive']
-          }
-        ]
-      }
-    }
-  });
-
-  // SIDE HOTELS
-  const barut = await prisma.hotel.create({
-    data: {
-      name: 'Barut Hemera Resort',
-      slug: 'barut-hemera-resort',
-      description: 'Side\'de antik tiyatro manzaralı butik resort. Özel plaj, spa ve romantik atmosfer. Balayı çiftleri için popüler.',
-      shortDescription: 'Romantik atmosferli butik resort',
-      city: 'Antalya',
-      region: 'Side',
-      address: 'Side, Manavgat, Antalya',
-      coordinates: { lat: 36.7674, lng: 31.3889 },
-      distanceToAirport: 65,
-      distanceToBeach: 0,
-      distanceToCenter: 2,
-      stars: 5,
-      rating: 9.0,
-      reviewCount: 1567,
-      hotelType: 'RESORT',
-      yearBuilt: 2018,
-      roomCount: 298,
-      floorCount: 5,
-      mainImage: 'https://images.unsplash.com/photo-1549294413-26f195200c16',
-      images: ['https://images.unsplash.com/photo-1549294413-26f195200c16'],
-      amenities: ['All Inclusive', 'Private Beach', 'Spa', 'Adult Only Section', 'Fine Dining'],
-      facilities: ['4 Restaurants', '6 Bars', 'Spa Center', 'Fitness', 'Water Sports'],
-      roomFeatures: ['Balcony', 'Minibar', 'Safe', 'Premium Bedding'],
-      priceMin: 8000,
-      priceMax: 16000,
-      currency: 'TRY',
-      isActive: true,
-      isFeatured: true,
-      rooms: {
-        create: [
-          {
-            name: 'Deluxe Room',
-            slug: 'deluxe-room',
-            description: '32 m² deniz manzaralı oda',
-            roomType: 'DELUXE',
-            size: 32,
-            bedType: 'King',
-            maxOccupancy: 2,
-            maxAdults: 2,
-            maxChildren: 0,
-            amenities: ['Sea View', 'Balcony', 'Minibar'],
-            view: ['Sea View'],
-            pricePerNight: 8000,
-            roomCount: 180,
-            isAvailable: true,
-            mealPlans: ['All Inclusive']
-          }
-        ]
-      }
-    }
-  });
-
-  // KEMER HOTELS
-  const rixosKemer = await prisma.hotel.create({
-    data: {
-      name: 'Rixos Premium Tekirova',
-      slug: 'rixos-premium-tekirova',
-      description: 'Kemer Tekirova\'da dağ ve deniz buluşması. Kristal berraklığında deniz, pine forest, ultra lüks all-inclusive konsept.',
-      shortDescription: 'Tekirova\'da premium all-inclusive',
-      city: 'Antalya',
-      region: 'Kemer',
-      address: 'Tekirova, Kemer, Antalya',
-      coordinates: { lat: 36.5129, lng: 30.5345 },
-      distanceToAirport: 70,
-      distanceToBeach: 0,
-      distanceToCenter: 25,
-      stars: 5,
-      rating: 9.3,
-      reviewCount: 3456,
-      hotelType: 'RESORT',
-      yearBuilt: 2014,
-      yearRenovated: 2021,
-      roomCount: 425,
-      floorCount: 5,
-      mainImage: 'https://images.unsplash.com/photo-1561501900-3701fa6a0864',
-      images: ['https://images.unsplash.com/photo-1561501900-3701fa6a0864'],
-      amenities: ['Ultra All Inclusive', 'Private Beach', 'Pine Forest', 'Spa', 'Diving Center'],
-      facilities: ['7 Restaurants', '10 Bars', 'Diving Center', 'Spa', 'Fitness', 'Kids Club'],
-      roomFeatures: ['Balcony', 'Minibar', 'Safe', 'Premium Toiletries'],
-      priceMin: 11000,
-      priceMax: 28000,
-      currency: 'TRY',
-      isActive: true,
-      isFeatured: true,
-      rooms: {
-        create: [
-          {
-            name: 'Deluxe Sea View',
-            slug: 'deluxe-sea-view',
-            description: '38 m² deniz manzaralı oda',
-            roomType: 'DELUXE',
-            size: 38,
-            bedType: 'King',
-            maxOccupancy: 3,
-            maxAdults: 2,
-            maxChildren: 1,
-            amenities: ['Sea View', 'Balcony', 'Minibar'],
-            view: ['Sea View', 'Mountain View'],
-            pricePerNight: 11000,
-            roomCount: 250,
-            isAvailable: true,
-            mealPlans: ['Ultra All Inclusive']
-          }
-        ]
-      }
-    }
-  });
-
-  // 10 MORE HOTELS - Quick additions
-  await prisma.hotel.createMany({
-    data: [
-      {
-        name: 'Titanic Beach Lara',
-        slug: 'titanic-beach-lara',
-        description: 'Titanik temalı muhteşem mimari, all-inclusive',
-        shortDescription: 'Titanik temalı resort',
-        city: 'Antalya',
-        region: 'Lara',
-        address: 'Lara, Antalya',
-        stars: 5,
-        rating: 8.6,
-        reviewCount: 2845,
-        hotelType: 'RESORT',
-        roomCount: 586,
-        mainImage: 'https://images.unsplash.com/photo-1551882547-ff40c63fe5fa',
-        amenities: ['All Inclusive', 'Private Beach', 'Aquapark'],
-        facilities: ['6 Restaurants', '8 Bars'],
-        roomFeatures: ['Balcony', 'Minibar'],
-        priceMin: 7000,
-        priceMax: 17000,
-        isActive: true,
-        distanceToAirport: 16,
-        distanceToBeach: 0,
-        distanceToCenter: 13
-      },
-      {
-        name: 'Cornelia Diamond Golf Resort',
-        slug: 'cornelia-diamond-golf-resort',
-        description: 'Belek\'te golf ve spa resort',
-        shortDescription: 'Elmas konseptli golf resort',
-        city: 'Antalya',
-        region: 'Belek',
-        address: 'Belek, Antalya',
-        stars: 5,
-        rating: 9.1,
-        reviewCount: 1987,
-        hotelType: 'RESORT',
-        roomCount: 532,
-        mainImage: 'https://images.unsplash.com/photo-1551882547-ff40c63fe5fa',
-        amenities: ['Golf', 'Spa', 'All Inclusive'],
-        facilities: ['Championship Golf Course', 'Spa'],
-        roomFeatures: ['Balcony', 'Minibar'],
-        priceMin: 13000,
-        priceMax: 32000,
-        isActive: true,
-        isFeatured: true,
-        distanceToAirport: 35,
-        distanceToBeach: 0,
-        distanceToCenter: 40
-      },
-      {
-        name: 'Limak Lara Deluxe Hotel',
-        slug: 'limak-lara-deluxe',
-        description: 'Lara\'da aile dostu büyük resort',
-        shortDescription: 'Geniş aquapark\'lı resort',
-        city: 'Antalya',
-        region: 'Lara',
-        address: 'Lara, Antalya',
-        stars: 5,
-        rating: 8.5,
-        reviewCount: 3567,
-        hotelType: 'RESORT',
-        roomCount: 696,
-        mainImage: 'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4',
-        amenities: ['All Inclusive', 'Giant Aquapark'],
-        facilities: ['Aquapark', 'Kids Club'],
-        roomFeatures: ['Balcony', 'Minibar'],
-        priceMin: 6800,
-        priceMax: 16500,
-        isActive: true,
-        distanceToAirport: 17,
-        distanceToBeach: 0,
-        distanceToCenter: 14
-      },
-      {
-        name: 'Voyage Belek Golf & Spa',
-        slug: 'voyage-belek-golf-spa',
-        description: 'Belek\'te golf ve spa odaklı resort',
-        shortDescription: 'Golf tutkunları için ideal',
-        city: 'Antalya',
-        region: 'Belek',
-        address: 'Belek, Antalya',
-        stars: 5,
-        rating: 8.9,
-        reviewCount: 2341,
-        hotelType: 'RESORT',
-        roomCount: 512,
-        mainImage: 'https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9',
-        amenities: ['Golf', 'Spa', 'All Inclusive'],
-        facilities: ['18-Hole Golf', 'Thermal Spa'],
-        roomFeatures: ['Balcony', 'Minibar'],
-        priceMin: 11500,
-        priceMax: 27000,
-        isActive: true,
-        distanceToAirport: 33,
-        distanceToBeach: 0,
-        distanceToCenter: 36
-      },
-      {
-        name: 'Crystal Sunset Luxury Resort',
-        slug: 'crystal-sunset-luxury-resort',
-        description: 'Side\'de ultra lüks all-inclusive',
-        shortDescription: 'Premium deneyim',
-        city: 'Antalya',
-        region: 'Side',
-        address: 'Side, Manavgat, Antalya',
-        stars: 5,
-        rating: 9.2,
-        reviewCount: 1876,
-        hotelType: 'RESORT',
-        roomCount: 398,
-        mainImage: 'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb',
-        amenities: ['Ultra All Inclusive', 'Private Beach'],
-        facilities: ['5 Restaurants', '8 Bars'],
-        roomFeatures: ['Premium', 'Sea View'],
-        priceMin: 12000,
-        priceMax: 29000,
-        isActive: true,
-        isFeatured: true,
-        distanceToAirport: 68,
-        distanceToBeach: 0,
-        distanceToCenter: 5
-      },
-      {
-        name: 'Delphin Imperial Hotel Lara',
-        slug: 'delphin-imperial-lara',
-        description: 'Lara\'da Roma temalı lüks resort',
-        shortDescription: 'Roma sarayı temalı',
-        city: 'Antalya',
-        region: 'Lara',
-        address: 'Lara, Antalya',
-        stars: 5,
-        rating: 8.8,
-        reviewCount: 2954,
-        hotelType: 'RESORT',
-        roomCount: 638,
-        mainImage: 'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4',
-        amenities: ['All Inclusive', 'Themed Architecture'],
-        facilities: ['Roman Theme', 'Aquapark'],
-        roomFeatures: ['Imperial Style', 'Balcony'],
-        priceMin: 8200,
-        priceMax: 19500,
-        isActive: true,
-        distanceToAirport: 15,
-        distanceToBeach: 0,
-        distanceToCenter: 12
-      },
-      {
-        name: 'Gloria Serenity Resort',
-        slug: 'gloria-serenity-resort',
-        description: 'Belek\'te huzur dolu tatil',
-        shortDescription: 'Sessiz ve lüks',
-        city: 'Antalya',
-        region: 'Belek',
-        address: 'Belek, Antalya',
-        stars: 5,
-        rating: 9.0,
-        reviewCount: 1765,
-        hotelType: 'RESORT',
-        roomCount: 442,
-        mainImage: 'https://images.unsplash.com/photo-1596394516093-501ba68a0ba6',
-        amenities: ['All Inclusive', 'Golf', 'Spa'],
-        facilities: ['Golf Course', 'Spa Center'],
-        roomFeatures: ['Peaceful', 'Garden View'],
-        priceMin: 10500,
-        priceMax: 24000,
-        isActive: true,
-        distanceToAirport: 34,
-        distanceToBeach: 0,
-        distanceToCenter: 37
-      },
-      {
-        name: 'Sueno Hotels Golf Belek',
-        slug: 'sueno-hotels-golf-belek',
-        description: 'Belek\'te golf odaklı dev resort kompleksi',
-        shortDescription: 'Dev golf kompleksi',
-        city: 'Antalya',
-        region: 'Belek',
-        address: 'Belek, Antalya',
-        stars: 5,
-        rating: 8.7,
-        reviewCount: 3421,
-        hotelType: 'RESORT',
-        roomCount: 742,
-        mainImage: 'https://images.unsplash.com/photo-1596394516093-501ba68a0ba6',
-        amenities: ['All Inclusive', 'Golf Academy'],
-        facilities: ['2 Championship Courses', 'Golf Academy'],
-        roomFeatures: ['Golf View', 'Balcony'],
-        priceMin: 9500,
-        priceMax: 23000,
-        isActive: true,
-        distanceToAirport: 36,
-        distanceToBeach: 0,
-        distanceToCenter: 39
-      },
-      {
-        name: 'Kaya Palazzo Golf Resort',
-        slug: 'kaya-palazzo-golf-resort',
-        description: 'Belek\'te palace konseptli lüks otel',
-        shortDescription: 'Saray gibi resort',
-        city: 'Antalya',
-        region: 'Belek',
-        address: 'Belek, Antalya',
-        stars: 5,
-        rating: 9.1,
-        reviewCount: 1543,
-        hotelType: 'RESORT',
-        roomCount: 328,
-        mainImage: 'https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9',
-        amenities: ['Ultra All Inclusive', 'Palace Design'],
-        facilities: ['Golf', 'Premium Spa'],
-        roomFeatures: ['Palace Style', 'Premium'],
-        priceMin: 14000,
-        priceMax: 34000,
-        isActive: true,
-        isFeatured: true,
-        distanceToAirport: 31,
-        distanceToBeach: 0,
-        distanceToCenter: 35
-      },
-      {
-        name: 'Orange County Resort Hotel Kemer',
-        slug: 'orange-county-resort-kemer',
-        description: 'Kemer\'de aile dostu resort',
-        shortDescription: 'Aileler için ideal',
-        city: 'Antalya',
-        region: 'Kemer',
-        address: 'Kemer, Antalya',
-        stars: 5,
-        rating: 8.6,
-        reviewCount: 2678,
-        hotelType: 'RESORT',
-        roomCount: 456,
-        mainImage: 'https://images.unsplash.com/photo-1561501900-3701fa6a0864',
-        amenities: ['All Inclusive', 'Kids Friendly'],
-        facilities: ['Kids Club', 'Aquapark'],
-        roomFeatures: ['Family Rooms', 'Balcony'],
-        priceMin: 7200,
-        priceMax: 17500,
-        isActive: true,
-        distanceToAirport: 58,
-        distanceToBeach: 0,
-        distanceToCenter: 5
-      },
-      {
-        name: 'Queen\'s Park Tekirova Resort',
-        slug: 'queens-park-tekirova-resort',
-        description: 'Tekirova\'da doğayla iç içe',
-        shortDescription: 'Doğa içinde lüks',
-        city: 'Antalya',
-        region: 'Kemer',
-        address: 'Tekirova, Kemer, Antalya',
-        stars: 5,
-        rating: 8.8,
-        reviewCount: 1987,
-        hotelType: 'RESORT',
-        roomCount: 384,
-        mainImage: 'https://images.unsplash.com/photo-1561501900-3701fa6a0864',
-        amenities: ['All Inclusive', 'Nature Setting'],
-        facilities: ['Pine Forest', 'Private Beach'],
-        roomFeatures: ['Nature View', 'Balcony'],
-        priceMin: 8500,
-        priceMax: 19000,
-        isActive: true,
-        distanceToAirport: 72,
-        distanceToBeach: 0,
-        distanceToCenter: 26
-      },
-      {
-        name: 'Akra Hotel Antalya',
-        slug: 'akra-hotel-antalya',
-        description: 'Şehir merkezinde modern butik otel',
-        shortDescription: 'Modern şehir oteli',
-        city: 'Antalya',
-        region: 'Antalya Merkez',
-        address: 'Antalya Merkez',
-        stars: 5,
-        rating: 9.3,
-        reviewCount: 1234,
-        hotelType: 'CITY_HOTEL',
-        roomCount: 198,
-        mainImage: 'https://images.unsplash.com/photo-1566073771259-6a8506099945',
-        amenities: ['City Center', 'Rooftop Pool'],
-        facilities: ['Rooftop Bar', 'Spa'],
-        roomFeatures: ['City View', 'Modern Design'],
-        priceMin: 4200,
-        priceMax: 9500,
-        isActive: true,
-        isFeatured: true,
-        distanceToAirport: 11,
-        distanceToBeach: 2,
-        distanceToCenter: 0.5
-      },
-      {
-        name: 'Euphoria Aegean Resort',
-        slug: 'euphoria-aegean-resort',
-        description: 'Side\'de her şey dahil resort',
-        shortDescription: 'Konforlu tatil',
-        city: 'Antalya',
-        region: 'Side',
-        address: 'Side, Manavgat',
-        stars: 5,
-        rating: 8.4,
-        reviewCount: 2156,
-        hotelType: 'RESORT',
-        roomCount: 498,
-        mainImage: 'https://images.unsplash.com/photo-1549294413-26f195200c16',
-        amenities: ['All Inclusive', 'Animation'],
-        facilities: ['5 Pools', 'Spa'],
-        roomFeatures: ['Balcony', 'Sea View'],
-        priceMin: 7500,
-        priceMax: 16000,
-        isActive: true,
-        distanceToAirport: 64,
-        distanceToBeach: 0,
-        distanceToCenter: 8
-      },
-      {
-        name: 'Selectum Luxury Resort Belek',
-        slug: 'selectum-luxury-resort-belek',
-        description: 'Belek\'te seçkin tatil',
-        shortDescription: 'Premium all-inclusive',
-        city: 'Antalya',
-        region: 'Belek',
-        address: 'Belek, Antalya',
-        stars: 5,
-        rating: 9.0,
-        reviewCount: 1678,
-        hotelType: 'RESORT',
-        roomCount: 368,
-        mainImage: 'https://images.unsplash.com/photo-1596394516093-501ba68a0ba6',
-        amenities: ['Premium All Inclusive', 'Adults Only'],
-        facilities: ['Gourmet Restaurants', 'Spa'],
-        roomFeatures: ['Premium', 'Sea View'],
-        priceMin: 13500,
-        priceMax: 28000,
-        isActive: true,
-        isFeatured: true,
-        distanceToAirport: 32,
-        distanceToBeach: 0,
-        distanceToCenter: 38
-      },
-      {
-        name: 'Paloma Grida Resort',
-        slug: 'paloma-grida-resort',
-        description: 'Belek\'te ailelere özel',
-        shortDescription: 'Aile tatili',
-        city: 'Antalya',
-        region: 'Belek',
-        address: 'Belek, Antalya',
-        stars: 5,
-        rating: 8.7,
-        reviewCount: 2456,
-        hotelType: 'RESORT',
-        roomCount: 512,
-        mainImage: 'https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9',
-        amenities: ['All Inclusive', 'Family Friendly'],
-        facilities: ['Kids Village', 'Aquapark'],
-        roomFeatures: ['Family Rooms', 'Balcony'],
-        priceMin: 8800,
-        priceMax: 20000,
-        isActive: true,
-        distanceToAirport: 35,
-        distanceToBeach: 0,
-        distanceToCenter: 38
-      },
-      {
-        name: 'Ela Quality Resort Belek',
-        slug: 'ela-quality-resort-belek',
-        description: 'Belek\'te kaliteli hizmet',
-        shortDescription: 'Kaliteli resort',
-        city: 'Antalya',
-        region: 'Belek',
-        address: 'Belek, Antalya',
-        stars: 5,
-        rating: 8.9,
-        reviewCount: 1876,
-        hotelType: 'RESORT',
-        roomCount: 456,
-        mainImage: 'https://images.unsplash.com/photo-1596394516093-501ba68a0ba6',
-        amenities: ['All Inclusive', 'Quality Service'],
-        facilities: ['Spa', 'Golf Nearby'],
-        roomFeatures: ['Comfortable', 'Modern'],
-        priceMin: 9200,
-        priceMax: 21000,
-        isActive: true,
-        distanceToAirport: 34,
-        distanceToBeach: 0,
-        distanceToCenter: 37
-      },
-      {
-        name: 'IC Hotels Santai',
-        slug: 'ic-hotels-santai',
-        description: 'Belek\'te modern konsept',
-        shortDescription: 'Modern tatil deneyimi',
-        city: 'Antalya',
-        region: 'Belek',
-        address: 'Belek, Antalya',
-        stars: 5,
-        rating: 8.8,
-        reviewCount: 1654,
-        hotelType: 'RESORT',
-        roomCount: 412,
-        mainImage: 'https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9',
-        amenities: ['All Inclusive', 'Modern Design'],
-        facilities: ['Contemporary Dining', 'Spa'],
-        roomFeatures: ['Modern', 'Comfortable'],
-        priceMin: 8900,
-        priceMax: 19500,
-        isActive: true,
-        distanceToAirport: 33,
-        distanceToBeach: 0,
-        distanceToCenter: 36
-      },
-      {
-        name: 'Papillon Belvil Hotel Belek',
-        slug: 'papillon-belvil-hotel-belek',
-        description: 'Belek\'te villa konseptli resort',
-        shortDescription: 'Villa tatili',
-        city: 'Antalya',
-        region: 'Belek',
-        address: 'Belek, Antalya',
-        stars: 5,
-        rating: 8.6,
-        reviewCount: 2234,
-        hotelType: 'RESORT',
-        roomCount: 386,
-        mainImage: 'https://images.unsplash.com/photo-1596394516093-501ba68a0ba6',
-        amenities: ['All Inclusive', 'Villa Concept'],
-        facilities: ['Private Villas', 'Beach Club'],
-        roomFeatures: ['Villa Style', 'Private'],
-        priceMin: 10200,
-        priceMax: 24000,
-        isActive: true,
-        distanceToAirport: 35,
-        distanceToBeach: 0,
-        distanceToCenter: 38
-      },
-      {
-        name: 'Titanic Mardan Palace',
-        slug: 'titanic-mardan-palace',
-        description: 'Lara\'da ihtişamlı palace otel',
-        shortDescription: 'Efsane palace otel',
-        city: 'Antalya',
-        region: 'Lara',
-        address: 'Lara, Antalya',
-        stars: 5,
-        rating: 9.4,
-        reviewCount: 2987,
-        hotelType: 'RESORT',
-        roomCount: 546,
-        mainImage: 'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4',
-        amenities: ['Ultra Luxury', 'Palace Design'],
-        facilities: ['Marble Everything', 'Luxury Spa'],
-        roomFeatures: ['Palace Style', 'Opulent'],
-        priceMin: 16000,
-        priceMax: 45000,
-        isActive: true,
-        isFeatured: true,
-        isRecommended: true,
-        distanceToAirport: 14,
-        distanceToBeach: 0,
-        distanceToCenter: 11
-      },
-      {
-        name: 'Calista Luxury Resort',
-        slug: 'calista-luxury-resort',
-        description: 'Belek\'te ultra lüks deneyim',
-        shortDescription: 'Lüks ve konfor',
-        city: 'Antalya',
-        region: 'Belek',
-        address: 'Belek, Antalya',
-        stars: 5,
-        rating: 9.2,
-        reviewCount: 1765,
-        hotelType: 'RESORT',
-        roomCount: 498,
-        mainImage: 'https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9',
-        amenities: ['Ultra All Inclusive', 'Luxury'],
-        facilities: ['Fine Dining', 'Luxury Spa'],
-        roomFeatures: ['Luxury', 'Premium'],
-        priceMin: 14500,
-        priceMax: 32000,
-        isActive: true,
-        isFeatured: true,
-        distanceToAirport: 33,
-        distanceToBeach: 0,
-        distanceToCenter: 36
-      }
-    ]
-  });
-
-  const hotelCount = await prisma.hotel.count();
-  console.log(`✅ Created ${hotelCount} hotels across Turkish Riviera`);
-  console.log(`   - Antalya Center, Lara, Belek, Side, Kemer, Alanya regions`);
-  console.log(`   - Price range: 3,500 - 55,000 TRY per night`);
-
-  // ===========================================
-  // FLIGHTS - Popular Routes to/from Antalya
-  // ===========================================
-  console.log('✈️ Creating flights...');
-
-  // Helper function to create date
-  const createFlightDate = (hoursFromNow: number) => {
-    const date = new Date();
-    date.setHours(date.getHours() + hoursFromNow);
-    return date;
-  };
-
-  // TURKISH AIRLINES - Premium carrier
-  await prisma.flight.createMany({
-    data: [
-      // Istanbul (IST) <-> Antalya (AYT)
-      {
-        flightNumber: 'TK2310',
-        airline: 'Turkish Airlines',
-        airlineCode: 'TK',
-        departureAirport: 'IST',
-        departureCity: 'İstanbul',
-        departureTime: createFlightDate(24),
-        arrivalAirport: 'AYT',
-        arrivalCity: 'Antalya',
-        arrivalCountry: 'Turkey',
-        arrivalTime: createFlightDate(25.5),
-        duration: 90,
-        distance: 480,
-        aircraft: 'Airbus A321',
-        flightType: 'DOMESTIC',
-        cabinClass: 'ECONOMY',
-        priceAdult: 1200,
-        priceChild: 900,
-        priceInfant: 150,
-        carryOnBaggage: '1x8kg',
-        checkedBaggage: '1x23kg',
-        availableSeats: 45,
-        mealService: true,
-        wifiAvailable: true,
-        entertainmentSystem: true,
-        isRefundable: true,
-        cancellationFee: 200,
-        isActive: true,
-        operatingDays: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
-      },
-      {
-        flightNumber: 'TK2311',
-        airline: 'Turkish Airlines',
-        airlineCode: 'TK',
-        departureAirport: 'AYT',
-        departureCity: 'Antalya',
-        departureTime: createFlightDate(48),
-        arrivalAirport: 'IST',
-        arrivalCity: 'İstanbul',
-        arrivalCountry: 'Turkey',
-        arrivalTime: createFlightDate(49.5),
-        duration: 90,
-        distance: 480,
-        aircraft: 'Airbus A321',
-        flightType: 'DOMESTIC',
-        cabinClass: 'ECONOMY',
-        priceAdult: 1250,
-        priceChild: 950,
-        priceInfant: 150,
-        carryOnBaggage: '1x8kg',
-        checkedBaggage: '1x23kg',
-        availableSeats: 38,
-        mealService: true,
-        wifiAvailable: true,
-        entertainmentSystem: true,
-        isRefundable: true,
-        cancellationFee: 200,
-        isActive: true,
-        operatingDays: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
-      },
-      // Business Class
-      {
-        flightNumber: 'TK2320',
-        airline: 'Turkish Airlines',
-        airlineCode: 'TK',
-        departureAirport: 'IST',
-        departureCity: 'İstanbul',
-        departureTime: createFlightDate(36),
-        arrivalAirport: 'AYT',
-        arrivalCity: 'Antalya',
-        arrivalCountry: 'Turkey',
-        arrivalTime: createFlightDate(37.5),
-        duration: 90,
-        distance: 480,
-        aircraft: 'Boeing 737-800',
-        flightType: 'DOMESTIC',
-        cabinClass: 'BUSINESS',
-        priceAdult: 3500,
-        priceChild: 2800,
-        priceInfant: 350,
-        carryOnBaggage: '2x8kg',
-        checkedBaggage: '2x32kg',
-        availableSeats: 12,
-        mealService: true,
-        wifiAvailable: true,
-        entertainmentSystem: true,
-        powerOutlets: true,
-        isRefundable: true,
-        cancellationFee: 0,
-        isActive: true,
-        operatingDays: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
-      }
-    ]
-  });
-
-  // PEGASUS - Budget carrier
-  await prisma.flight.createMany({
-    data: [
-      // Sabiha Gökçen (SAW) <-> Antalya (AYT)
-      {
-        flightNumber: 'PC2852',
-        airline: 'Pegasus Airlines',
-        airlineCode: 'PC',
-        departureAirport: 'SAW',
-        departureCity: 'İstanbul',
-        departureTime: createFlightDate(30),
-        arrivalAirport: 'AYT',
-        arrivalCity: 'Antalya',
-        arrivalCountry: 'Turkey',
-        arrivalTime: createFlightDate(31.5),
-        duration: 90,
-        distance: 490,
-        aircraft: 'Airbus A320neo',
-        flightType: 'DOMESTIC',
-        cabinClass: 'ECONOMY',
-        priceAdult: 850,
-        priceChild: 650,
-        priceInfant: 100,
-        carryOnBaggage: '1x8kg',
-        checkedBaggage: '1x20kg',
-        extraBaggagePrice: 150,
-        availableSeats: 67,
-        mealService: false,
-        wifiAvailable: false,
-        isRefundable: false,
-        changeFee: 150,
-        isActive: true,
-        operatingDays: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
-      },
-      {
-        flightNumber: 'PC2853',
-        airline: 'Pegasus Airlines',
-        airlineCode: 'PC',
-        departureAirport: 'AYT',
-        departureCity: 'Antalya',
-        departureTime: createFlightDate(54),
-        arrivalAirport: 'SAW',
-        arrivalCity: 'İstanbul',
-        arrivalCountry: 'Turkey',
-        arrivalTime: createFlightDate(55.5),
-        duration: 90,
-        distance: 490,
-        aircraft: 'Airbus A320neo',
-        flightType: 'DOMESTIC',
-        cabinClass: 'ECONOMY',
-        priceAdult: 900,
-        priceChild: 700,
-        priceInfant: 100,
-        carryOnBaggage: '1x8kg',
-        checkedBaggage: '1x20kg',
-        extraBaggagePrice: 150,
-        availableSeats: 58,
-        mealService: false,
-        wifiAvailable: false,
-        isRefundable: false,
-        changeFee: 150,
-        isActive: true,
-        operatingDays: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
-      },
-      // Ankara (ESB) <-> Antalya (AYT)
-      {
-        flightNumber: 'PC2704',
-        airline: 'Pegasus Airlines',
-        airlineCode: 'PC',
-        departureAirport: 'ESB',
-        departureCity: 'Ankara',
-        departureTime: createFlightDate(42),
-        arrivalAirport: 'AYT',
-        arrivalCity: 'Antalya',
-        arrivalCountry: 'Turkey',
-        arrivalTime: createFlightDate(43),
-        duration: 60,
-        distance: 320,
-        aircraft: 'Boeing 737-800',
-        flightType: 'DOMESTIC',
-        cabinClass: 'ECONOMY',
-        priceAdult: 750,
-        priceChild: 550,
-        priceInfant: 80,
-        carryOnBaggage: '1x8kg',
-        checkedBaggage: '1x20kg',
-        availableSeats: 72,
-        mealService: false,
-        isRefundable: false,
-        isActive: true,
-        operatingDays: ['Mon', 'Wed', 'Fri', 'Sun']
-      }
-    ]
-  });
-
-  // SUNEXPRESS - Hybrid carrier
-  await prisma.flight.createMany({
-    data: [
-      // Izmir (ADB) <-> Antalya (AYT)
-      {
-        flightNumber: 'XQ252',
-        airline: 'SunExpress',
-        airlineCode: 'XQ',
-        departureAirport: 'ADB',
-        departureCity: 'İzmir',
-        departureTime: createFlightDate(60),
-        arrivalAirport: 'AYT',
-        arrivalCity: 'Antalya',
-        arrivalCountry: 'Turkey',
-        arrivalTime: createFlightDate(61),
-        duration: 60,
-        distance: 280,
-        aircraft: 'Boeing 737-800',
-        flightType: 'DOMESTIC',
-        cabinClass: 'ECONOMY',
-        priceAdult: 950,
-        priceChild: 750,
-        priceInfant: 120,
-        carryOnBaggage: '1x8kg',
-        checkedBaggage: '1x20kg',
-        availableSeats: 54,
-        mealService: true,
-        wifiAvailable: false,
-        isRefundable: true,
-        cancellationFee: 150,
-        isActive: true,
-        operatingDays: ['Tue', 'Thu', 'Sat']
-      },
-      // International: Frankfurt (FRA) -> Antalya (AYT)
-      {
-        flightNumber: 'XQ150',
-        airline: 'SunExpress',
-        airlineCode: 'XQ',
-        departureAirport: 'FRA',
-        departureCity: 'Frankfurt',
-        departureCountry: 'Germany',
-        departureTime: createFlightDate(72),
-        arrivalAirport: 'AYT',
-        arrivalCity: 'Antalya',
-        arrivalCountry: 'Turkey',
-        arrivalTime: createFlightDate(75.5),
-        duration: 210,
-        distance: 2150,
-        aircraft: 'Boeing 737 MAX 8',
-        flightType: 'INTERNATIONAL',
-        cabinClass: 'ECONOMY',
-        priceAdult: 4500,
-        priceChild: 3500,
-        priceInfant: 450,
-        carryOnBaggage: '1x8kg',
-        checkedBaggage: '1x23kg',
-        availableSeats: 89,
-        mealService: true,
-        wifiAvailable: true,
-        entertainmentSystem: true,
-        isRefundable: true,
-        cancellationFee: 800,
-        isActive: true,
-        operatingDays: ['Mon', 'Wed', 'Fri', 'Sun']
-      },
-      // International: Munich (MUC) -> Antalya (AYT)
-      {
-        flightNumber: 'XQ124',
-        airline: 'SunExpress',
-        airlineCode: 'XQ',
-        departureAirport: 'MUC',
-        departureCity: 'Munich',
-        departureCountry: 'Germany',
-        departureTime: createFlightDate(84),
-        arrivalAirport: 'AYT',
-        arrivalCity: 'Antalya',
-        arrivalCountry: 'Turkey',
-        arrivalTime: createFlightDate(87.5),
-        duration: 210,
-        distance: 2080,
-        aircraft: 'Airbus A321',
-        flightType: 'INTERNATIONAL',
-        cabinClass: 'ECONOMY',
-        priceAdult: 4800,
-        priceChild: 3800,
-        priceInfant: 480,
-        carryOnBaggage: '1x8kg',
-        checkedBaggage: '1x23kg',
-        availableSeats: 76,
-        mealService: true,
-        wifiAvailable: true,
-        isRefundable: true,
-        cancellationFee: 900,
-        isActive: true,
-        operatingDays: ['Tue', 'Thu', 'Sat']
-      }
-    ]
-  });
-
-  // ANADOLUJET - Budget THY subsidiary
-  await prisma.flight.createMany({
-    data: [
-      // Ankara (ESB) <-> Antalya (AYT)
-      {
-        flightNumber: 'AJ1814',
-        airline: 'AnadoluJet',
-        airlineCode: 'AJ',
-        departureAirport: 'ESB',
-        departureCity: 'Ankara',
-        departureTime: createFlightDate(96),
-        arrivalAirport: 'AYT',
-        arrivalCity: 'Antalya',
-        arrivalCountry: 'Turkey',
-        arrivalTime: createFlightDate(97),
-        duration: 60,
-        distance: 320,
-        aircraft: 'Boeing 737-800',
-        flightType: 'DOMESTIC',
-        cabinClass: 'ECONOMY',
-        priceAdult: 700,
-        priceChild: 500,
-        priceInfant: 70,
-        carryOnBaggage: '1x8kg',
-        checkedBaggage: '1x15kg',
-        extraBaggagePrice: 100,
-        availableSeats: 82,
-        mealService: false,
-        isRefundable: false,
-        changeFee: 100,
-        isActive: true,
-        operatingDays: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
-      },
-      // Trabzon (TZX) -> Antalya (AYT)
-      {
-        flightNumber: 'AJ1542',
-        airline: 'AnadoluJet',
-        airlineCode: 'AJ',
-        departureAirport: 'TZX',
-        departureCity: 'Trabzon',
-        departureTime: createFlightDate(108),
-        arrivalAirport: 'AYT',
-        arrivalCity: 'Antalya',
-        arrivalCountry: 'Turkey',
-        arrivalTime: createFlightDate(110),
-        duration: 120,
-        distance: 720,
-        aircraft: 'Boeing 737-800',
-        flightType: 'DOMESTIC',
-        cabinClass: 'ECONOMY',
-        priceAdult: 1100,
-        priceChild: 850,
-        priceInfant: 110,
-        carryOnBaggage: '1x8kg',
-        checkedBaggage: '1x15kg',
-        availableSeats: 64,
-        mealService: false,
-        isRefundable: false,
-        isActive: true,
-        operatingDays: ['Mon', 'Wed', 'Fri']
-      }
-    ]
-  });
-
-  const flightCount = await prisma.flight.count();
-  console.log(`✅ Created ${flightCount} flights`);
-  console.log(`   - Turkish Airlines (TK): Premium full service`);
-  console.log(`   - Pegasus (PC): Budget friendly`);
-  console.log(`   - SunExpress (XQ): Domestic & International`);
-  console.log(`   - AnadoluJet (AJ): Budget THY subsidiary`);
-  console.log(`   - Routes: IST, SAW, ESB, ADB, TZX <-> AYT`);
-  console.log(`   - International: FRA, MUC -> AYT`);
-
-  // ===========================================
-  // AIRPORTS - Global Coverage
-  // ===========================================
-  console.log('🛫 Creating global airports...');
-
-  await prisma.airport.createMany({
-    data: [
-      // TURKEY
-      {
-        code: 'IST',
-        icaoCode: 'LTFM',
-        name: 'Istanbul Airport',
-        nameLocal: 'İstanbul Havalimanı',
-        city: 'Istanbul',
-        country: 'Turkey',
-        countryCode: 'TR',
-        continent: 'Europe',
-        timezone: 'Europe/Istanbul',
-        latitude: 41.2619,
-        longitude: 28.7419,
-        airportType: 'INTERNATIONAL',
-        distanceToCity: 35,
-        avgTransferTime: 45,
-        isActive: true,
-        isHub: true,
-      },
-      {
-        code: 'SAW',
-        icaoCode: 'LTFJ',
-        name: 'Sabiha Gökçen International Airport',
-        nameLocal: 'Sabiha Gökçen Havalimanı',
-        city: 'Istanbul',
-        country: 'Turkey',
-        countryCode: 'TR',
-        continent: 'Europe',
-        timezone: 'Europe/Istanbul',
-        latitude: 40.8986,
-        longitude: 29.3092,
-        airportType: 'INTERNATIONAL',
-        distanceToCity: 40,
-        avgTransferTime: 55,
-        isActive: true,
-        isHub: false,
-      },
-      {
-        code: 'AYT',
-        icaoCode: 'LTAI',
-        name: 'Antalya Airport',
-        nameLocal: 'Antalya Havalimanı',
-        city: 'Antalya',
-        country: 'Turkey',
-        countryCode: 'TR',
-        continent: 'Europe',
-        timezone: 'Europe/Istanbul',
-        latitude: 36.8987,
-        longitude: 30.8005,
-        airportType: 'INTERNATIONAL',
-        distanceToCity: 13,
-        avgTransferTime: 25,
-        isActive: true,
-        isHub: false,
-      },
-      {
-        code: 'ESB',
-        icaoCode: 'LTAC',
-        name: 'Esenboğa Airport',
-        nameLocal: 'Esenboğa Havalimanı',
-        city: 'Ankara',
-        country: 'Turkey',
-        countryCode: 'TR',
-        continent: 'Europe',
-        timezone: 'Europe/Istanbul',
-        latitude: 40.1281,
-        longitude: 32.9951,
-        airportType: 'INTERNATIONAL',
-        distanceToCity: 28,
-        avgTransferTime: 35,
-        isActive: true,
-        isHub: false,
-      },
-      {
-        code: 'ADB',
-        icaoCode: 'LTBJ',
-        name: 'Adnan Menderes Airport',
-        nameLocal: 'Adnan Menderes Havalimanı',
-        city: 'Izmir',
-        country: 'Turkey',
-        countryCode: 'TR',
-        continent: 'Europe',
-        timezone: 'Europe/Istanbul',
-        latitude: 38.2924,
-        longitude: 27.1570,
-        airportType: 'INTERNATIONAL',
-        distanceToCity: 18,
-        avgTransferTime: 30,
-        isActive: true,
-        isHub: false,
-      },
-      {
-        code: 'BJV',
-        icaoCode: 'LTFE',
-        name: 'Bodrum–Milas Airport',
-        nameLocal: 'Bodrum Havalimanı',
-        city: 'Bodrum',
-        country: 'Turkey',
-        countryCode: 'TR',
-        continent: 'Europe',
-        timezone: 'Europe/Istanbul',
-        latitude: 37.2506,
-        longitude: 27.6643,
-        airportType: 'INTERNATIONAL',
-        distanceToCity: 36,
-        avgTransferTime: 50,
-        isActive: true,
-        isHub: false,
-      },
-      {
-        code: 'DLM',
-        icaoCode: 'LTBS',
-        name: 'Dalaman Airport',
-        nameLocal: 'Dalaman Havalimanı',
-        city: 'Dalaman',
-        country: 'Turkey',
-        countryCode: 'TR',
-        continent: 'Europe',
-        timezone: 'Europe/Istanbul',
-        latitude: 36.7131,
-        longitude: 28.7925,
-        airportType: 'INTERNATIONAL',
-        distanceToCity: 8,
-        avgTransferTime: 15,
-        isActive: true,
-        isHub: false,
-      },
-      {
-        code: 'GZP',
-        icaoCode: 'LTFG',
-        name: 'Gazipaşa-Alanya Airport',
-        nameLocal: 'Gazipaşa Havalimanı',
-        city: 'Alanya',
-        country: 'Turkey',
-        countryCode: 'TR',
-        continent: 'Europe',
-        timezone: 'Europe/Istanbul',
-        latitude: 36.2992,
-        longitude: 32.3006,
-        airportType: 'INTERNATIONAL',
-        distanceToCity: 35,
-        avgTransferTime: 40,
-        isActive: true,
-        isHub: false,
-      },
-      {
-        code: 'TZX',
-        icaoCode: 'LTCG',
-        name: 'Trabzon Airport',
-        nameLocal: 'Trabzon Havalimanı',
-        city: 'Trabzon',
-        country: 'Turkey',
-        countryCode: 'TR',
-        continent: 'Europe',
-        timezone: 'Europe/Istanbul',
-        latitude: 40.9951,
-        longitude: 39.7897,
-        airportType: 'DOMESTIC',
-        distanceToCity: 6,
-        avgTransferTime: 15,
-        isActive: true,
-        isHub: false,
-      },
-
-      // EUROPE - Major Hubs
-      {
-        code: 'LHR',
-        icaoCode: 'EGLL',
-        name: 'London Heathrow Airport',
-        city: 'London',
-        country: 'United Kingdom',
-        countryCode: 'GB',
-        continent: 'Europe',
-        timezone: 'Europe/London',
-        latitude: 51.4700,
-        longitude: -0.4543,
-        airportType: 'INTERNATIONAL',
-        distanceToCity: 24,
-        avgTransferTime: 50,
-        isActive: true,
-        isHub: true,
-      },
-      {
-        code: 'CDG',
-        icaoCode: 'LFPG',
-        name: 'Charles de Gaulle Airport',
-        nameLocal: 'Aéroport Charles-de-Gaulle',
-        city: 'Paris',
-        country: 'France',
-        countryCode: 'FR',
-        continent: 'Europe',
-        timezone: 'Europe/Paris',
-        latitude: 49.0097,
-        longitude: 2.5479,
-        airportType: 'INTERNATIONAL',
-        distanceToCity: 25,
-        avgTransferTime: 45,
-        isActive: true,
-        isHub: true,
-      },
-      {
-        code: 'FRA',
-        icaoCode: 'EDDF',
-        name: 'Frankfurt Airport',
-        nameLocal: 'Flughafen Frankfurt',
-        city: 'Frankfurt',
-        country: 'Germany',
-        countryCode: 'DE',
-        continent: 'Europe',
-        timezone: 'Europe/Berlin',
-        latitude: 50.0379,
-        longitude: 8.5622,
-        airportType: 'INTERNATIONAL',
-        distanceToCity: 12,
-        avgTransferTime: 25,
-        isActive: true,
-        isHub: true,
-      },
-      {
-        code: 'AMS',
-        icaoCode: 'EHAM',
-        name: 'Amsterdam Airport Schiphol',
-        city: 'Amsterdam',
-        country: 'Netherlands',
-        countryCode: 'NL',
-        continent: 'Europe',
-        timezone: 'Europe/Amsterdam',
-        latitude: 52.3105,
-        longitude: 4.7683,
-        airportType: 'INTERNATIONAL',
-        distanceToCity: 9,
-        avgTransferTime: 20,
-        isActive: true,
-        isHub: true,
-      },
-      {
-        code: 'MUC',
-        icaoCode: 'EDDM',
-        name: 'Munich Airport',
-        nameLocal: 'Flughafen München',
-        city: 'Munich',
-        country: 'Germany',
-        countryCode: 'DE',
-        continent: 'Europe',
-        timezone: 'Europe/Berlin',
-        latitude: 48.3537,
-        longitude: 11.7750,
-        airportType: 'INTERNATIONAL',
-        distanceToCity: 28,
-        avgTransferTime: 40,
-        isActive: true,
-        isHub: true,
-      },
-      {
-        code: 'BCN',
-        icaoCode: 'LEBL',
-        name: 'Barcelona–El Prat Airport',
-        city: 'Barcelona',
-        country: 'Spain',
-        countryCode: 'ES',
-        continent: 'Europe',
-        timezone: 'Europe/Madrid',
-        latitude: 41.2974,
-        longitude: 2.0833,
-        airportType: 'INTERNATIONAL',
-        distanceToCity: 12,
-        avgTransferTime: 25,
-        isActive: true,
-        isHub: false,
-      },
-      {
-        code: 'FCO',
-        icaoCode: 'LIRF',
-        name: 'Leonardo da Vinci–Fiumicino Airport',
-        city: 'Rome',
-        country: 'Italy',
-        countryCode: 'IT',
-        continent: 'Europe',
-        timezone: 'Europe/Rome',
-        latitude: 41.8003,
-        longitude: 12.2389,
-        airportType: 'INTERNATIONAL',
-        distanceToCity: 30,
-        avgTransferTime: 45,
-        isActive: true,
-        isHub: true,
-      },
-      {
-        code: 'MAD',
-        icaoCode: 'LEMD',
-        name: 'Adolfo Suárez Madrid–Barajas Airport',
-        city: 'Madrid',
-        country: 'Spain',
-        countryCode: 'ES',
-        continent: 'Europe',
-        timezone: 'Europe/Madrid',
-        latitude: 40.4719,
-        longitude: -3.5626,
-        airportType: 'INTERNATIONAL',
-        distanceToCity: 12,
-        avgTransferTime: 25,
-        isActive: true,
-        isHub: true,
-      },
-      {
-        code: 'VIE',
-        icaoCode: 'LOWW',
-        name: 'Vienna International Airport',
-        nameLocal: 'Flughafen Wien',
-        city: 'Vienna',
-        country: 'Austria',
-        countryCode: 'AT',
-        continent: 'Europe',
-        timezone: 'Europe/Vienna',
-        latitude: 48.1103,
-        longitude: 16.5697,
-        airportType: 'INTERNATIONAL',
-        distanceToCity: 18,
-        avgTransferTime: 30,
-        isActive: true,
-        isHub: true,
-      },
-      {
-        code: 'ZRH',
-        icaoCode: 'LSZH',
-        name: 'Zürich Airport',
-        nameLocal: 'Flughafen Zürich',
-        city: 'Zürich',
-        country: 'Switzerland',
-        countryCode: 'CH',
-        continent: 'Europe',
-        timezone: 'Europe/Zurich',
-        latitude: 47.4647,
-        longitude: 8.5492,
-        airportType: 'INTERNATIONAL',
-        distanceToCity: 10,
-        avgTransferTime: 15,
-        isActive: true,
-        isHub: false,
-      },
-
-      // MIDDLE EAST
-      {
-        code: 'DXB',
-        icaoCode: 'OMDB',
-        name: 'Dubai International Airport',
-        city: 'Dubai',
-        country: 'United Arab Emirates',
-        countryCode: 'AE',
-        continent: 'Asia',
-        timezone: 'Asia/Dubai',
-        latitude: 25.2532,
-        longitude: 55.3657,
-        airportType: 'INTERNATIONAL',
-        distanceToCity: 5,
-        avgTransferTime: 20,
-        isActive: true,
-        isHub: true,
-      },
-      {
-        code: 'DOH',
-        icaoCode: 'OTHH',
-        name: 'Hamad International Airport',
-        city: 'Doha',
-        country: 'Qatar',
-        countryCode: 'QA',
-        continent: 'Asia',
-        timezone: 'Asia/Qatar',
-        latitude: 25.2731,
-        longitude: 51.6080,
-        airportType: 'INTERNATIONAL',
-        distanceToCity: 5,
-        avgTransferTime: 15,
-        isActive: true,
-        isHub: true,
-      },
-      {
-        code: 'AUH',
-        icaoCode: 'OMAA',
-        name: 'Abu Dhabi International Airport',
-        city: 'Abu Dhabi',
-        country: 'United Arab Emirates',
-        countryCode: 'AE',
-        continent: 'Asia',
-        timezone: 'Asia/Dubai',
-        latitude: 24.4330,
-        longitude: 54.6511,
-        airportType: 'INTERNATIONAL',
-        distanceToCity: 30,
-        avgTransferTime: 40,
-        isActive: true,
-        isHub: true,
-      },
-
-      // AMERICAS
-      {
-        code: 'JFK',
-        icaoCode: 'KJFK',
-        name: 'John F. Kennedy International Airport',
-        city: 'New York',
-        country: 'United States',
-        countryCode: 'US',
-        continent: 'North America',
-        timezone: 'America/New_York',
-        latitude: 40.6413,
-        longitude: -73.7781,
-        airportType: 'INTERNATIONAL',
-        distanceToCity: 24,
-        avgTransferTime: 50,
-        isActive: true,
-        isHub: true,
-      },
-      {
-        code: 'LAX',
-        icaoCode: 'KLAX',
-        name: 'Los Angeles International Airport',
-        city: 'Los Angeles',
-        country: 'United States',
-        countryCode: 'US',
-        continent: 'North America',
-        timezone: 'America/Los_Angeles',
-        latitude: 33.9416,
-        longitude: -118.4085,
-        airportType: 'INTERNATIONAL',
-        distanceToCity: 27,
-        avgTransferTime: 45,
-        isActive: true,
-        isHub: true,
-      },
-      {
-        code: 'ORD',
-        icaoCode: 'KORD',
-        name: "O'Hare International Airport",
-        city: 'Chicago',
-        country: 'United States',
-        countryCode: 'US',
-        continent: 'North America',
-        timezone: 'America/Chicago',
-        latitude: 41.9742,
-        longitude: -87.9073,
-        airportType: 'INTERNATIONAL',
-        distanceToCity: 27,
-        avgTransferTime: 40,
-        isActive: true,
-        isHub: true,
-      },
-      {
-        code: 'MIA',
-        icaoCode: 'KMIA',
-        name: 'Miami International Airport',
-        city: 'Miami',
-        country: 'United States',
-        countryCode: 'US',
-        continent: 'North America',
-        timezone: 'America/New_York',
-        latitude: 25.7959,
-        longitude: -80.2870,
-        airportType: 'INTERNATIONAL',
-        distanceToCity: 13,
-        avgTransferTime: 25,
-        isActive: true,
-        isHub: true,
-      },
-      {
-        code: 'YYZ',
-        icaoCode: 'CYYZ',
-        name: 'Toronto Pearson International Airport',
-        city: 'Toronto',
-        country: 'Canada',
-        countryCode: 'CA',
-        continent: 'North America',
-        timezone: 'America/Toronto',
-        latitude: 43.6777,
-        longitude: -79.6248,
-        airportType: 'INTERNATIONAL',
-        distanceToCity: 22,
-        avgTransferTime: 35,
-        isActive: true,
-        isHub: true,
-      },
-
-      // ASIA-PACIFIC
-      {
-        code: 'SIN',
-        icaoCode: 'WSSS',
-        name: 'Singapore Changi Airport',
-        city: 'Singapore',
-        country: 'Singapore',
-        countryCode: 'SG',
-        continent: 'Asia',
-        timezone: 'Asia/Singapore',
-        latitude: 1.3644,
-        longitude: 103.9915,
-        airportType: 'INTERNATIONAL',
-        distanceToCity: 17,
-        avgTransferTime: 25,
-        isActive: true,
-        isHub: true,
-      },
-      {
-        code: 'HKG',
-        icaoCode: 'VHHH',
-        name: 'Hong Kong International Airport',
-        city: 'Hong Kong',
-        country: 'Hong Kong',
-        countryCode: 'HK',
-        continent: 'Asia',
-        timezone: 'Asia/Hong_Kong',
-        latitude: 22.3080,
-        longitude: 113.9185,
-        airportType: 'INTERNATIONAL',
-        distanceToCity: 34,
-        avgTransferTime: 40,
-        isActive: true,
-        isHub: true,
-      },
-      {
-        code: 'NRT',
-        icaoCode: 'RJAA',
-        name: 'Narita International Airport',
-        city: 'Tokyo',
-        country: 'Japan',
-        countryCode: 'JP',
-        continent: 'Asia',
-        timezone: 'Asia/Tokyo',
-        latitude: 35.7653,
-        longitude: 140.3856,
-        airportType: 'INTERNATIONAL',
-        distanceToCity: 66,
-        avgTransferTime: 90,
-        isActive: true,
-        isHub: true,
-      },
-      {
-        code: 'ICN',
-        icaoCode: 'RKSI',
-        name: 'Incheon International Airport',
-        city: 'Seoul',
-        country: 'South Korea',
-        countryCode: 'KR',
-        continent: 'Asia',
-        timezone: 'Asia/Seoul',
-        latitude: 37.4602,
-        longitude: 126.4407,
-        airportType: 'INTERNATIONAL',
-        distanceToCity: 48,
-        avgTransferTime: 60,
-        isActive: true,
-        isHub: true,
-      },
-      {
-        code: 'BKK',
-        icaoCode: 'VTBS',
-        name: 'Suvarnabhumi Airport',
-        city: 'Bangkok',
-        country: 'Thailand',
-        countryCode: 'TH',
-        continent: 'Asia',
-        timezone: 'Asia/Bangkok',
-        latitude: 13.6900,
-        longitude: 100.7501,
-        airportType: 'INTERNATIONAL',
-        distanceToCity: 30,
-        avgTransferTime: 45,
-        isActive: true,
-        isHub: true,
-      },
-      {
-        code: 'SYD',
-        icaoCode: 'YSSY',
-        name: 'Sydney Kingsford Smith Airport',
-        city: 'Sydney',
-        country: 'Australia',
-        countryCode: 'AU',
-        continent: 'Oceania',
-        timezone: 'Australia/Sydney',
-        latitude: -33.9399,
-        longitude: 151.1753,
-        airportType: 'INTERNATIONAL',
-        distanceToCity: 8,
-        avgTransferTime: 20,
-        isActive: true,
-        isHub: true,
-      },
-      {
-        code: 'MEL',
-        icaoCode: 'YMML',
-        name: 'Melbourne Airport',
-        city: 'Melbourne',
-        country: 'Australia',
-        countryCode: 'AU',
-        continent: 'Oceania',
-        timezone: 'Australia/Melbourne',
-        latitude: -37.6690,
-        longitude: 144.8410,
-        airportType: 'INTERNATIONAL',
-        distanceToCity: 23,
-        avgTransferTime: 35,
-        isActive: true,
-        isHub: true,
-      },
-
-      // RUSSIA
-      {
-        code: 'SVO',
-        icaoCode: 'UUEE',
-        name: 'Sheremetyevo International Airport',
-        city: 'Moscow',
-        country: 'Russia',
-        countryCode: 'RU',
-        continent: 'Europe',
-        timezone: 'Europe/Moscow',
-        latitude: 55.9726,
-        longitude: 37.4146,
-        airportType: 'INTERNATIONAL',
-        distanceToCity: 29,
-        avgTransferTime: 50,
-        isActive: true,
-        isHub: true,
-      },
-
-      // AFRICA
-      {
-        code: 'CAI',
-        icaoCode: 'HECA',
-        name: 'Cairo International Airport',
-        city: 'Cairo',
-        country: 'Egypt',
-        countryCode: 'EG',
-        continent: 'Africa',
-        timezone: 'Africa/Cairo',
-        latitude: 30.1219,
-        longitude: 31.4056,
-        airportType: 'INTERNATIONAL',
-        distanceToCity: 15,
-        avgTransferTime: 35,
-        isActive: true,
-        isHub: true,
-      },
-      {
-        code: 'JNB',
-        icaoCode: 'FAJS',
-        name: 'O.R. Tambo International Airport',
-        city: 'Johannesburg',
-        country: 'South Africa',
-        countryCode: 'ZA',
-        continent: 'Africa',
-        timezone: 'Africa/Johannesburg',
-        latitude: -26.1392,
-        longitude: 28.2460,
-        airportType: 'INTERNATIONAL',
-        distanceToCity: 24,
-        avgTransferTime: 40,
-        isActive: true,
-        isHub: true,
-      },
-
-      // SOUTH AMERICA
-      {
-        code: 'GRU',
-        icaoCode: 'SBGR',
-        name: 'São Paulo/Guarulhos International Airport',
-        city: 'São Paulo',
-        country: 'Brazil',
-        countryCode: 'BR',
-        continent: 'South America',
-        timezone: 'America/Sao_Paulo',
-        latitude: -23.4356,
-        longitude: -46.4731,
-        airportType: 'INTERNATIONAL',
-        distanceToCity: 25,
-        avgTransferTime: 45,
-        isActive: true,
-        isHub: true,
-      },
-      {
-        code: 'EZE',
-        icaoCode: 'SAEZ',
-        name: 'Ministro Pistarini International Airport',
-        city: 'Buenos Aires',
-        country: 'Argentina',
-        countryCode: 'AR',
-        continent: 'South America',
-        timezone: 'America/Argentina/Buenos_Aires',
-        latitude: -34.8222,
-        longitude: -58.5358,
-        airportType: 'INTERNATIONAL',
-        distanceToCity: 35,
-        avgTransferTime: 50,
-        isActive: true,
-        isHub: true,
-      }
-    ]
-  });
-
-  const airportCount = await prisma.airport.count();
-  console.log(`✅ Created ${airportCount} airports globally`);
-  console.log(`   - Turkey: IST, SAW, AYT, ESB, ADB, BJV, DLM, GZP, TZX`);
-  console.log(`   - Europe: LHR, CDG, FRA, AMS, MUC, BCN, FCO, MAD, VIE, ZRH`);
-  console.log(`   - Middle East: DXB, DOH, AUH`);
-  console.log(`   - Americas: JFK, LAX, ORD, MIA, YYZ, GRU, EZE`);
-  console.log(`   - Asia-Pacific: SIN, HKG, NRT, ICN, BKK, SYD, MEL`);
-  console.log(`   - Russia: SVO`);
-  console.log(`   - Africa: CAI, JNB`);
+  // ============================================
+  // SUMMARY
+  // ============================================
+  console.log('\n' + '='.repeat(60));
+  console.log('🎉  DATABASE SEED COMPLETED SUCCESSFULLY!');
+  console.log('='.repeat(60) + '\n');
+  console.log('Created:');
+  console.log(`   • 1 Admin user`);
+  console.log(`   • ${testUsers.length} Test users`);
+  console.log(`   • ${milesAccounts.length} Ailydian Miles accounts`);
+  console.log(`   • ${createdHotels.length} Hotels`);
+  console.log(`   • ${createdCars.length} Rental cars`);
+  console.log(`   • ${createdTours.length} Tours`);
+  console.log(`   • ${createdReviews.length} Reviews`);
+  console.log(`   • 1 Partner profile`);
+  console.log(`   • ${createdSEOPages.length} SEO landing pages`);
+  console.log(`   • ${createdTransactions.length} Miles transactions`);
+  console.log(`   • 1 Virtual tour with 2 scenes`);
+  console.log('\n' + '='.repeat(60));
+  console.log('\n✅ You can now login with these accounts:\n');
+  console.log('   🔐 ADMIN:');
+  console.log('      Email: admin@ailydian.com');
+  console.log('      Password: Admin123!\n');
+  console.log('   👤 TEST USERS:');
+  console.log('      Email: ayse@example.com | mehmet@example.com | zeynep@example.com');
+  console.log('      Password: User123!\n');
+  console.log('   🤝 PARTNER:');
+  console.log('      Email: partner@example.com');
+  console.log('      Password: Partner123!\n');
+  console.log('='.repeat(60) + '\n');
 }
 
 main()
   .catch((e) => {
-    console.error('❌ Seed error:', e);
+    console.error('\n❌ ERROR DURING SEED:', e);
     process.exit(1);
   })
   .finally(async () => {

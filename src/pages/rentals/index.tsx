@@ -31,9 +31,61 @@ import {
   ArrowRightIcon,
 } from '@heroicons/react/24/outline';
 import { HeartIcon as HeartSolidIcon, StarIcon as StarSolidIcon } from '@heroicons/react/24/solid';
-import { rentalProperties, RentalProperty, getPriceSavings } from '../../data/rental-properties';
 import { useToast } from '../../context/ToastContext';
 import SimpleNavigationHeader from '../../components/layout/SimpleNavigationHeader';
+
+// Real property interface from API
+interface RentalProperty {
+  id: string;
+  title: string;
+  slug: string;
+  description: string;
+  type: string;
+  city: string;
+  district: string;
+  guests: number;
+  bedrooms: number;
+  bathrooms: number;
+  beds: number;
+  basePrice: number;
+  cleaningFee: number;
+  serviceFee: number;
+  weeklyDiscount: number;
+  monthlyDiscount: number;
+  minimumStay: number;
+  maximumStay: number;
+  checkInTime: string;
+  checkOutTime: string;
+  wifi: boolean;
+  kitchen: boolean;
+  parking: boolean;
+  pool: boolean;
+  airConditioning: boolean;
+  beachfront: boolean;
+  seaview: boolean;
+  balcony: boolean;
+  workspace: boolean;
+  tv: boolean;
+  washingMachine: boolean;
+  heating: boolean;
+  smokingAllowed: boolean;
+  petsAllowed: boolean;
+  partiesAllowed: boolean;
+  childrenAllowed: boolean;
+  instantBook: boolean;
+  hostName: string;
+  hostMemberSince: string;
+  hostResponseTime: string;
+  hostResponseRate: number;
+  hostLanguages: string[];
+  hostSuperhost: boolean;
+  mainImage: string;
+  images: string[];
+  overall: number;
+  reviewCount: number;
+  isActive: boolean;
+  isFeatured: boolean;
+}
 
 // Dynamic imports for performance
 const MapView = dynamic(() => import('../../components/rentals/MapView'), { ssr: false });
@@ -84,6 +136,11 @@ const RentalsPage: React.FC = () => {
   const [showFilters, setShowFilters] = useState(false);
   const [favorites, setFavorites] = useState<Set<string>>(new Set());
 
+  // Real data from API
+  const [properties, setProperties] = useState<RentalProperty[]>([]);
+  const [featuredProperties, setFeaturedProperties] = useState<RentalProperty[]>([]);
+  const [loading, setLoading] = useState(true);
+
   // Search and filters
   const [searchQuery, setSearchQuery] = useState('');
   const [filters, setFilters] = useState<Filters>({
@@ -99,75 +156,97 @@ const RentalsPage: React.FC = () => {
     rating: 0,
   });
 
+  // Fetch properties from API
+  useEffect(() => {
+    const fetchProperties = async () => {
+      setLoading(true);
+      try {
+        const response = await fetch('/api/rental-properties');
+        const data = await response.json();
+
+        if (data.success) {
+          setProperties(data.data || []);
+          setFeaturedProperties(data.featured || []);
+        }
+      } catch (error) {
+        console.error('Error fetching properties:', error);
+        showToast('Hata', 'Özellikler yüklenirken bir hata oluştu', 'error');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProperties();
+  }, []);
+
   // Filtered and sorted properties
   const filteredProperties = useMemo(() => {
-    return rentalProperties.filter((property) => {
+    return properties.filter((property) => {
+      // Only show active properties
+      if (!property.isActive) return false;
+
       // Search query
       if (searchQuery) {
         const query = searchQuery.toLowerCase();
         const matchesSearch =
           property.title.toLowerCase().includes(query) ||
           property.description.toLowerCase().includes(query) ||
-          property.location.city.toLowerCase().includes(query) ||
-          property.location.district.toLowerCase().includes(query);
+          property.city.toLowerCase().includes(query) ||
+          property.district.toLowerCase().includes(query);
         if (!matchesSearch) return false;
       }
 
       // City filter
-      if (filters.city !== 'Tümü' && property.location.city !== filters.city) {
+      if (filters.city !== 'Tümü' && property.city !== filters.city) {
         return false;
       }
 
       // Property type
-      if (filters.propertyType !== 'all' && property.type !== filters.propertyType) {
+      if (filters.propertyType !== 'all' && property.type.toLowerCase() !== filters.propertyType) {
         return false;
       }
 
       // Price range
-      if (
-        property.pricing.basePrice < filters.priceMin ||
-        property.pricing.basePrice > filters.priceMax
-      ) {
+      if (property.basePrice < filters.priceMin || property.basePrice > filters.priceMax) {
         return false;
       }
 
       // Guests
-      if (filters.guests > 0 && property.capacity.guests < filters.guests) {
+      if (filters.guests > 0 && property.guests < filters.guests) {
         return false;
       }
 
       // Bedrooms
-      if (filters.bedrooms > 0 && property.capacity.bedrooms < filters.bedrooms) {
+      if (filters.bedrooms > 0 && property.bedrooms < filters.bedrooms) {
         return false;
       }
 
       // Instant book
-      if (filters.instantBook && !property.availability.instantBook) {
+      if (filters.instantBook && !property.instantBook) {
         return false;
       }
 
       // Superhost
-      if (filters.superhost && !property.host.superhost) {
+      if (filters.superhost && !property.hostSuperhost) {
         return false;
       }
 
       // Amenities
       if (filters.amenities.length > 0) {
         const hasAllAmenities = filters.amenities.every((amenity) => {
-          const amenityKey = amenity as keyof typeof property.features;
-          return property.features[amenityKey] === true;
+          return property[amenity as keyof RentalProperty] === true;
         });
         if (!hasAllAmenities) return false;
       }
 
       // Rating
-      if (filters.rating > 0 && property.rating.overall < filters.rating) {
+      if (filters.rating > 0 && property.overall < filters.rating) {
         return false;
       }
 
       return true;
     });
-  }, [searchQuery, filters]);
+  }, [properties, searchQuery, filters]);
 
   // Toggle favorite
   const toggleFavorite = (propertyId: string) => {

@@ -1,0 +1,521 @@
+/**
+ * Car Rental Details Page
+ * Comprehensive car information with booking calculator
+ */
+
+import React, { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
+import Link from 'next/link';
+import { motion } from 'framer-motion';
+import {
+  Car, Star, Users, Settings, Fuel, Shield, MapPin, Calendar,
+  Check, X, ChevronLeft, ChevronRight, Heart, Share2, Clock,
+  CreditCard, FileText, AlertCircle, ArrowRight, Sparkles,
+  Gauge, DollarSign, TrendingUp
+} from 'lucide-react';
+
+// Types
+interface CarRental {
+  id: string;
+  name: string;
+  slug: string;
+  description: string;
+  shortDescription: string;
+  brand: string;
+  model: string;
+  year: number;
+  category: string;
+  transmission: string;
+  fuelType: string;
+  seats: number;
+  doors: number;
+  luggage: number;
+  features: string[];
+  airConditioning: boolean;
+  gps: boolean;
+  bluetooth: boolean;
+  usbCharger: boolean;
+  pricePerDay: string;
+  pricePerWeek: string;
+  pricePerMonth: string;
+  currency: string;
+  deposit: string;
+  insuranceIncluded: boolean;
+  insuranceType: string;
+  pickupLocations: string[];
+  allowDifferentDropoff: boolean;
+  availableCount: number;
+  isAvailable: boolean;
+  mainImage: string;
+  images: string[];
+  minimumAge: number;
+  drivingLicenseYears: number;
+  requiredDocuments: string[];
+  unlimitedMileage: boolean;
+  mileageLimit: number;
+  isActive: boolean;
+  isFeatured: boolean;
+  isPopular: boolean;
+  rating: string;
+  reviewCount: number;
+}
+
+interface SimilarCar {
+  id: string;
+  name: string;
+  slug: string;
+  brand: string;
+  model: string;
+  category: string;
+  pricePerDay: string;
+  currency: string;
+  mainImage: string;
+  rating: string;
+  reviewCount: number;
+}
+
+const CarDetailsPage = () => {
+  const router = useRouter();
+  const { slug } = router.query;
+
+  const [car, setCar] = useState<CarRental | null>(null);
+  const [similarCars, setSimilarCars] = useState<SimilarCar[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isFavorite, setIsFavorite] = useState(false);
+
+  // Booking calculator state
+  const [pickupDate, setPickupDate] = useState('');
+  const [returnDate, setReturnDate] = useState('');
+  const [pickupLocation, setPickupLocation] = useState('');
+  const [selectedAddons, setSelectedAddons] = useState<string[]>([]);
+
+  // Fetch car details
+  useEffect(() => {
+    if (!slug) return;
+
+    const fetchCarDetails = async () => {
+      setLoading(true);
+      try {
+        const response = await fetch(`/api/car-rentals/${slug}`);
+        const data = await response.json();
+
+        if (data.success) {
+          setCar(data.data);
+          setSimilarCars(data.similar || []);
+          if (data.data.pickupLocations.length > 0) {
+            setPickupLocation(data.data.pickupLocations[0]);
+          }
+        }
+      } catch (error) {
+        console.error('Error fetching car:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchCarDetails();
+  }, [slug]);
+
+  // Calculate rental days
+  const calculateDays = () => {
+    if (!pickupDate || !returnDate) return 0;
+    const pickup = new Date(pickupDate);
+    const returnD = new Date(returnDate);
+    const diff = returnD.getTime() - pickup.getTime();
+    return Math.ceil(diff / (1000 * 60 * 60 * 24));
+  };
+
+  // Calculate total price
+  const calculateTotal = () => {
+    if (!car) return 0;
+    const days = calculateDays();
+    if (days <= 0) return 0;
+
+    let total = parseInt(car.pricePerDay) * days;
+
+    // Add addons
+    selectedAddons.forEach(addon => {
+      if (addon === 'gps') total += 50 * days;
+      if (addon === 'insurance') total += 100 * days;
+      if (addon === 'child-seat') total += 30 * days;
+    });
+
+    return total;
+  };
+
+  const toggleAddon = (addon: string) => {
+    setSelectedAddons(prev =>
+      prev.includes(addon)
+        ? prev.filter(a => a !== addon)
+        : [...prev, addon]
+    );
+  };
+
+  const getCategoryColor = (category: string) => {
+    const colors: Record<string, string> = {
+      ECONOMY_SEDAN: 'bg-blue-100 text-blue-800',
+      PREMIUM_SEDAN: 'bg-purple-100 text-purple-800',
+      ECONOMY_SUV: 'bg-green-100 text-green-800',
+      PREMIUM_SUV: 'bg-indigo-100 text-indigo-800',
+      LUXURY: 'bg-amber-100 text-amber-800',
+      SPORTS: 'bg-red-100 text-red-800',
+      VAN: 'bg-cyan-100 text-cyan-800',
+      MINIVAN: 'bg-teal-100 text-teal-800',
+      COMPACT: 'bg-slate-100 text-slate-800',
+    };
+    return colors[category] || 'bg-gray-100 text-gray-800';
+  };
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <div className="w-16 h-16 border-4 border-blue-600 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+          <p className="text-gray-600">Yükleniyor...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (!car) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <Car className="w-16 h-16 text-gray-300 mx-auto mb-4" />
+          <h2 className="text-2xl font-bold text-gray-900 mb-2">Araç Bulunamadı</h2>
+          <p className="text-gray-600 mb-4">Aradığınız araç mevcut değil.</p>
+          <Link href="/car-rentals">
+            <button className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+              Tüm Araçlara Dön
+            </button>
+          </Link>
+        </div>
+      </div>
+    );
+  }
+
+  const days = calculateDays();
+  const total = calculateTotal();
+
+  return (
+    <div className="min-h-screen bg-gray-50">
+      {/* Header */}
+      <div className="bg-white border-b border-gray-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+          <Link href="/car-rentals">
+            <button className="flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors">
+              <ChevronLeft className="w-5 h-5" />
+              Tüm Araçlar
+            </button>
+          </Link>
+        </div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          {/* Left Column - Main Content */}
+          <div className="lg:col-span-2 space-y-6">
+            {/* Image Gallery */}
+            <div className="bg-white rounded-2xl overflow-hidden shadow-sm">
+              <div className="relative aspect-video bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
+                <Car className="w-24 h-24 text-gray-300" />
+                {car.isFeatured && (
+                  <div className="absolute top-4 left-4 bg-gradient-to-r from-amber-500 to-orange-500 text-white px-4 py-2 rounded-full text-sm font-bold flex items-center gap-2">
+                    <Sparkles className="w-4 h-4" />
+                    ÖNE ÇIKAN
+                  </div>
+                )}
+                {car.isPopular && (
+                  <div className="absolute top-4 right-4 bg-green-600 text-white px-4 py-2 rounded-full text-sm font-bold flex items-center gap-2">
+                    <TrendingUp className="w-4 h-4" />
+                    POPÜLER
+                  </div>
+                )}
+                <button
+                  onClick={() => setIsFavorite(!isFavorite)}
+                  className="absolute bottom-4 right-4 w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform"
+                >
+                  <Heart className={`w-6 h-6 ${isFavorite ? 'fill-red-500 text-red-500' : 'text-gray-700'}`} />
+                </button>
+              </div>
+            </div>
+
+            {/* Car Info */}
+            <div className="bg-white rounded-2xl p-6 shadow-sm">
+              <div className="flex items-start justify-between mb-4">
+                <div>
+                  <h1 className="text-3xl font-bold text-gray-900 mb-2">{car.name}</h1>
+                  <p className="text-lg text-gray-600">{car.brand} {car.model} • {car.year}</p>
+                </div>
+                <span className={`inline-flex items-center px-3 py-1 rounded-lg text-sm font-semibold ${getCategoryColor(car.category)}`}>
+                  {car.category.replace(/_/g, ' ')}
+                </span>
+              </div>
+
+              <div className="flex items-center gap-6 mb-6">
+                <div className="flex items-center gap-2">
+                  <Star className="w-5 h-5 text-amber-500 fill-amber-500" />
+                  <span className="font-semibold text-gray-900">{car.rating}</span>
+                  <span className="text-gray-500">({car.reviewCount} değerlendirme)</span>
+                </div>
+                {car.availableCount > 0 && (
+                  <div className="flex items-center gap-2 text-green-600">
+                    <Check className="w-5 h-5" />
+                    <span className="font-medium">{car.availableCount} araç müsait</span>
+                  </div>
+                )}
+              </div>
+
+              <p className="text-gray-700 leading-relaxed">{car.description}</p>
+            </div>
+
+            {/* Specifications */}
+            <div className="bg-white rounded-2xl p-6 shadow-sm">
+              <h2 className="text-xl font-bold text-gray-900 mb-6">Teknik Özellikler</h2>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div className="text-center p-4 bg-gray-50 rounded-xl">
+                  <Users className="w-8 h-8 text-blue-600 mx-auto mb-2" />
+                  <p className="text-sm text-gray-600 mb-1">Yolcu</p>
+                  <p className="text-lg font-bold text-gray-900">{car.seats}</p>
+                </div>
+                <div className="text-center p-4 bg-gray-50 rounded-xl">
+                  <Settings className="w-8 h-8 text-purple-600 mx-auto mb-2" />
+                  <p className="text-sm text-gray-600 mb-1">Vites</p>
+                  <p className="text-lg font-bold text-gray-900">{car.transmission === 'AUTOMATIC' ? 'Otomatik' : 'Manuel'}</p>
+                </div>
+                <div className="text-center p-4 bg-gray-50 rounded-xl">
+                  <Fuel className="w-8 h-8 text-green-600 mx-auto mb-2" />
+                  <p className="text-sm text-gray-600 mb-1">Yakıt</p>
+                  <p className="text-lg font-bold text-gray-900">{car.fuelType}</p>
+                </div>
+                <div className="text-center p-4 bg-gray-50 rounded-xl">
+                  <Car className="w-8 h-8 text-amber-600 mx-auto mb-2" />
+                  <p className="text-sm text-gray-600 mb-1">Kapı</p>
+                  <p className="text-lg font-bold text-gray-900">{car.doors}</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Features */}
+            <div className="bg-white rounded-2xl p-6 shadow-sm">
+              <h2 className="text-xl font-bold text-gray-900 mb-6">Özellikler</h2>
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                {car.features.map((feature, index) => (
+                  <div key={index} className="flex items-center gap-3 p-3 bg-blue-50 rounded-lg">
+                    <Check className="w-5 h-5 text-blue-600 flex-shrink-0" />
+                    <span className="text-sm font-medium text-gray-900">{feature}</span>
+                  </div>
+                ))}
+                {car.airConditioning && (
+                  <div className="flex items-center gap-3 p-3 bg-blue-50 rounded-lg">
+                    <Check className="w-5 h-5 text-blue-600" />
+                    <span className="text-sm font-medium text-gray-900">Klima</span>
+                  </div>
+                )}
+                {car.gps && (
+                  <div className="flex items-center gap-3 p-3 bg-blue-50 rounded-lg">
+                    <Check className="w-5 h-5 text-blue-600" />
+                    <span className="text-sm font-medium text-gray-900">GPS Navigasyon</span>
+                  </div>
+                )}
+                {car.bluetooth && (
+                  <div className="flex items-center gap-3 p-3 bg-blue-50 rounded-lg">
+                    <Check className="w-5 h-5 text-blue-600" />
+                    <span className="text-sm font-medium text-gray-900">Bluetooth</span>
+                  </div>
+                )}
+              </div>
+            </div>
+
+            {/* Requirements */}
+            <div className="bg-white rounded-2xl p-6 shadow-sm">
+              <h2 className="text-xl font-bold text-gray-900 mb-6">Kiralama Gereksinimleri</h2>
+              <div className="space-y-4">
+                <div className="flex items-center gap-3">
+                  <AlertCircle className="w-5 h-5 text-blue-600" />
+                  <span className="text-gray-700">Minimum yaş: <strong>{car.minimumAge}</strong></span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <AlertCircle className="w-5 h-5 text-blue-600" />
+                  <span className="text-gray-700">Ehliyet süresi: En az <strong>{car.drivingLicenseYears} yıl</strong></span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <FileText className="w-5 h-5 text-blue-600 mt-1" />
+                  <div>
+                    <p className="font-semibold text-gray-900 mb-2">Gerekli Belgeler:</p>
+                    <ul className="space-y-1">
+                      {car.requiredDocuments.map((doc, index) => (
+                        <li key={index} className="text-gray-700">• {doc}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Similar Cars */}
+            {similarCars.length > 0 && (
+              <div className="bg-white rounded-2xl p-6 shadow-sm">
+                <h2 className="text-xl font-bold text-gray-900 mb-6">Benzer Araçlar</h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {similarCars.map((similar) => (
+                    <Link key={similar.id} href={`/car-rentals/${similar.slug}`}>
+                      <div className="border border-gray-200 rounded-xl p-4 hover:border-blue-500 hover:shadow-md transition-all cursor-pointer">
+                        <div className="aspect-video bg-gradient-to-br from-gray-100 to-gray-200 rounded-lg mb-3 flex items-center justify-center">
+                          <Car className="w-12 h-12 text-gray-300" />
+                        </div>
+                        <h3 className="font-semibold text-gray-900 mb-1">{similar.name}</h3>
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center gap-1">
+                            <Star className="w-4 h-4 text-amber-500 fill-amber-500" />
+                            <span className="text-sm text-gray-600">{similar.rating}</span>
+                          </div>
+                          <p className="font-bold text-blue-600">₺{parseInt(similar.pricePerDay).toLocaleString('tr-TR')}/gün</p>
+                        </div>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Right Column - Booking Card (Sticky) */}
+          <div className="lg:col-span-1">
+            <div className="bg-white rounded-2xl p-6 shadow-lg sticky top-4">
+              <div className="mb-6">
+                <div className="flex items-baseline gap-2 mb-2">
+                  <span className="text-4xl font-bold text-gray-900">₺{parseInt(car.pricePerDay).toLocaleString('tr-TR')}</span>
+                  <span className="text-gray-600">/gün</span>
+                </div>
+                <div className="flex items-center gap-4 text-sm text-gray-600">
+                  <span>Haftalık: ₺{parseInt(car.pricePerWeek).toLocaleString('tr-TR')}</span>
+                  <span>Aylık: ₺{parseInt(car.pricePerMonth).toLocaleString('tr-TR')}</span>
+                </div>
+              </div>
+
+              {car.insuranceIncluded && (
+                <div className="flex items-center gap-2 p-3 bg-green-50 rounded-lg mb-6">
+                  <Shield className="w-5 h-5 text-green-600" />
+                  <span className="text-sm font-medium text-green-700">Sigorta Dahil</span>
+                </div>
+              )}
+
+              <div className="space-y-4 mb-6">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Teslim Alma Tarihi
+                  </label>
+                  <input
+                    type="date"
+                    value={pickupDate}
+                    onChange={(e) => setPickupDate(e.target.value)}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    İade Tarihi
+                  </label>
+                  <input
+                    type="date"
+                    value={returnDate}
+                    onChange={(e) => setReturnDate(e.target.value)}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Teslim Alma Noktası
+                  </label>
+                  <select
+                    value={pickupLocation}
+                    onChange={(e) => setPickupLocation(e.target.value)}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
+                  >
+                    {car.pickupLocations.map((location) => (
+                      <option key={location} value={location}>
+                        {location}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+
+              <div className="border-t border-gray-200 pt-4 mb-6">
+                <h3 className="font-semibold text-gray-900 mb-3">Ekstra Hizmetler</h3>
+                <div className="space-y-2">
+                  <label className="flex items-center gap-3 cursor-pointer">
+                    <input
+                      type="checkbox"
+                      checked={selectedAddons.includes('gps')}
+                      onChange={() => toggleAddon('gps')}
+                      className="w-4 h-4 text-blue-600 rounded focus:ring-blue-500"
+                    />
+                    <span className="text-sm text-gray-700">GPS Navigasyon (+₺50/gün)</span>
+                  </label>
+                  <label className="flex items-center gap-3 cursor-pointer">
+                    <input
+                      type="checkbox"
+                      checked={selectedAddons.includes('insurance')}
+                      onChange={() => toggleAddon('insurance')}
+                      className="w-4 h-4 text-blue-600 rounded focus:ring-blue-500"
+                    />
+                    <span className="text-sm text-gray-700">Tam Sigorta (+₺100/gün)</span>
+                  </label>
+                  <label className="flex items-center gap-3 cursor-pointer">
+                    <input
+                      type="checkbox"
+                      checked={selectedAddons.includes('child-seat')}
+                      onChange={() => toggleAddon('child-seat')}
+                      className="w-4 h-4 text-blue-600 rounded focus:ring-blue-500"
+                    />
+                    <span className="text-sm text-gray-700">Çocuk Koltuğu (+₺30/gün)</span>
+                  </label>
+                </div>
+              </div>
+
+              {days > 0 && (
+                <div className="bg-gray-50 rounded-lg p-4 mb-6">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-sm text-gray-600">{days} gün</span>
+                    <span className="text-sm text-gray-900">₺{(parseInt(car.pricePerDay) * days).toLocaleString('tr-TR')}</span>
+                  </div>
+                  {selectedAddons.length > 0 && (
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="text-sm text-gray-600">Ekstralar</span>
+                      <span className="text-sm text-gray-900">₺{(total - parseInt(car.pricePerDay) * days).toLocaleString('tr-TR')}</span>
+                    </div>
+                  )}
+                  <div className="border-t border-gray-300 pt-2 mt-2">
+                    <div className="flex items-center justify-between">
+                      <span className="font-semibold text-gray-900">Toplam</span>
+                      <span className="text-xl font-bold text-blue-600">₺{total.toLocaleString('tr-TR')}</span>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              <button
+                disabled={!pickupDate || !returnDate || days <= 0}
+                className="w-full py-4 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors flex items-center justify-center gap-2"
+              >
+                Rezervasyon Yap
+                <ArrowRight className="w-5 h-5" />
+              </button>
+
+              <p className="text-xs text-gray-500 text-center mt-4">
+                Depozito: ₺{parseInt(car.deposit).toLocaleString('tr-TR')}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default CarDetailsPage;

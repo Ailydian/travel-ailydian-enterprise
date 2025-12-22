@@ -3,7 +3,7 @@
  * Premium UI with vehicle filters, categories, and instant booking
  */
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { NextSeo } from 'next-seo';
 import Head from 'next/head';
@@ -42,54 +42,41 @@ import {
   generateBreadcrumbSchema
 } from '@/lib/seo-config';
 
-// Mock vehicle data
-const MOCK_VEHICLES = [
-  {
-    id: 'v1',
-    type: 'economy-sedan',
-    brand: 'Renault',
-    model: 'Symbol',
-    year: 2023,
-    image: 'https://images.unsplash.com/photo-1619767886558-efdc259cde1a?w=800',
-    price: 350,
-    rating: 4.8,
-    reviews: 124,
-    city: 'İstanbul',
-    features: ['Otomatik', 'Klima', 'Bluetooth'],
-    instantBook: true,
-    owner: { name: 'Ahmet Y.', verified: true },
-  },
-  {
-    id: 'v2',
-    type: 'premium-sedan',
-    brand: 'BMW',
-    model: '3 Serisi',
-    year: 2023,
-    image: 'https://images.unsplash.com/photo-1555215695-3004980ad54e?w=800',
-    price: 850,
-    rating: 4.9,
-    reviews: 89,
-    city: 'Ankara',
-    features: ['Otomatik', 'Deri Döşeme', 'Sunroof'],
-    instantBook: true,
-    owner: { name: 'Mehmet D.', verified: true },
-  },
-  {
-    id: 'v3',
-    type: 'economy-suv',
-    brand: 'Dacia',
-    model: 'Duster',
-    year: 2022,
-    image: 'https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?w=800',
-    price: 600,
-    rating: 4.7,
-    reviews: 156,
-    city: 'Antalya',
-    features: ['4x4', 'Otomatik', 'Klima'],
-    instantBook: false,
-    owner: { name: 'Ayşe K.', verified: true },
-  },
-];
+// Real vehicle data interface
+interface Vehicle {
+  id: string;
+  name: string;
+  slug: string;
+  brand: string;
+  model: string;
+  year: number;
+  category: string;
+  transmission: string;
+  fuelType: string;
+  seats: number;
+  doors: number;
+  luggage: number;
+  features: string[];
+  airConditioning: boolean;
+  gps: boolean;
+  bluetooth: boolean;
+  usbCharger: boolean;
+  pricePerDay: string;
+  pricePerWeek: string;
+  pricePerMonth: string;
+  currency: string;
+  deposit: string;
+  insuranceIncluded: boolean;
+  mainImage: string;
+  images: string[];
+  rating: string;
+  reviewCount: number;
+  isActive: boolean;
+  isPopular: boolean;
+  isFeatured: boolean;
+  pickupLocations: string[];
+  availableCount: number;
+}
 
 interface Filters {
   city: string;
@@ -108,6 +95,9 @@ const CarRentalsPage: React.FC = () => {
   const [showFilters, setShowFilters] = useState(false);
   const [favorites, setFavorites] = useState<Set<string>>(new Set());
   const [searchQuery, setSearchQuery] = useState('');
+  const [vehicles, setVehicles] = useState<Vehicle[]>([]);
+  const [featuredVehicles, setFeaturedVehicles] = useState<Vehicle[]>([]);
+  const [loading, setLoading] = useState(true);
   const [filters, setFilters] = useState<Filters>({
     city: 'Tümü',
     vehicleType: 'all',
@@ -118,6 +108,28 @@ const CarRentalsPage: React.FC = () => {
     instantBook: false,
     verified: false,
   });
+
+  // Fetch real vehicles from API
+  useEffect(() => {
+    const fetchVehicles = async () => {
+      setLoading(true);
+      try {
+        const response = await fetch('/api/car-rentals');
+        const data = await response.json();
+
+        if (data.success) {
+          setVehicles(data.data || []);
+          setFeaturedVehicles(data.featured || []);
+        }
+      } catch (error) {
+        console.error('Error fetching vehicles:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchVehicles();
+  }, []);
 
   const toggleFavorite = (id: string) => {
     setFavorites(prev => {
@@ -132,16 +144,35 @@ const CarRentalsPage: React.FC = () => {
   };
 
   const filteredVehicles = useMemo(() => {
-    return MOCK_VEHICLES.filter(vehicle => {
-      if (filters.city !== 'Tümü' && vehicle.city !== filters.city) return false;
-      if (filters.vehicleType !== 'all' && vehicle.type !== filters.vehicleType) return false;
-      if (vehicle.price < filters.priceMin || vehicle.price > filters.priceMax) return false;
-      if (filters.instantBook && !vehicle.instantBook) return false;
-      if (filters.verified && !vehicle.owner.verified) return false;
-      if (searchQuery && !`${vehicle.brand} ${vehicle.model}`.toLowerCase().includes(searchQuery.toLowerCase())) return false;
+    return vehicles.filter(vehicle => {
+      // Only show active vehicles
+      if (!vehicle.isActive) return false;
+
+      // City filter - check pickup locations
+      if (filters.city !== 'Tümü' && !vehicle.pickupLocations.includes(filters.city)) return false;
+
+      // Vehicle type (category) filter
+      if (filters.vehicleType !== 'all' && vehicle.category.toLowerCase().replace(/_/g, '-') !== filters.vehicleType) return false;
+
+      // Price filter
+      const vehiclePrice = parseInt(vehicle.pricePerDay);
+      if (vehiclePrice < filters.priceMin || vehiclePrice > filters.priceMax) return false;
+
+      // Transmission filter
+      if (filters.transmission !== 'all' && vehicle.transmission !== filters.transmission.toUpperCase()) return false;
+
+      // Fuel type filter
+      if (filters.fuelType !== 'all' && vehicle.fuelType !== filters.fuelType.toUpperCase()) return false;
+
+      // Instant book filter (show only available cars)
+      if (filters.instantBook && vehicle.availableCount === 0) return false;
+
+      // Search query
+      if (searchQuery && !`${vehicle.brand} ${vehicle.model} ${vehicle.name}`.toLowerCase().includes(searchQuery.toLowerCase())) return false;
+
       return true;
     });
-  }, [filters, searchQuery]);
+  }, [vehicles, filters, searchQuery]);
 
   const breadcrumbSchema = generateBreadcrumbSchema([
     { name: 'Ana Sayfa', url: '/' },
@@ -462,17 +493,26 @@ const CarRentalsPage: React.FC = () => {
                 className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all overflow-hidden group cursor-pointer"
               >
                 {/* Image */}
-                <div className="relative h-56 overflow-hidden">
-                  <img
-                    src={vehicle.image}
-                    alt={`${vehicle.brand} ${vehicle.model}`}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
+                <div className="relative h-56 overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
+                  <Car className="w-20 h-20 text-gray-300" />
 
-                  {vehicle.instantBook && (
+                  {vehicle.isFeatured && (
+                    <div className="absolute top-4 left-4 px-3 py-1 bg-gradient-to-r from-amber-500 to-orange-500 text-white rounded-full text-xs font-medium flex items-center gap-1">
+                      <Sparkles className="w-3 h-3" />
+                      Öne Çıkan
+                    </div>
+                  )}
+
+                  {vehicle.isPopular && (
                     <div className="absolute top-4 left-4 px-3 py-1 bg-green-600 text-white rounded-full text-xs font-medium flex items-center gap-1">
-                      <Zap className="w-3 h-3" />
-                      Anında Kirala
+                      <TrendingUp className="w-3 h-3" />
+                      Popüler
+                    </div>
+                  )}
+
+                  {vehicle.availableCount > 0 && (
+                    <div className="absolute top-4 right-4 px-3 py-1 bg-blue-600 text-white rounded-full text-xs font-medium">
+                      {vehicle.availableCount} Müsait
                     </div>
                   )}
 
@@ -481,7 +521,7 @@ const CarRentalsPage: React.FC = () => {
                       e.stopPropagation();
                       toggleFavorite(vehicle.id);
                     }}
-                    className="absolute top-4 right-4 w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white transition-all"
+                    className="absolute bottom-4 right-4 w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white transition-all"
                   >
                     <Heart
                       className={`w-5 h-5 ${
@@ -494,44 +534,58 @@ const CarRentalsPage: React.FC = () => {
                 {/* Content */}
                 <div className="p-6">
                   <div className="flex items-center justify-between mb-3">
-                    <div>
-                      <h3 className="font-bold text-lg text-gray-900">
-                        {vehicle.brand} {vehicle.model}
+                    <div className="flex-1">
+                      <h3 className="font-bold text-lg text-gray-900 line-clamp-1">
+                        {vehicle.name}
                       </h3>
-                      <p className="text-sm text-gray-500">{vehicle.year}</p>
+                      <p className="text-sm text-gray-500">{vehicle.brand} • {vehicle.year}</p>
                     </div>
-                    {vehicle.owner.verified && (
-                      <CheckCircle className="w-5 h-5 text-green-600" />
+                    {vehicle.insuranceIncluded && (
+                      <Shield className="w-5 h-5 text-green-600" title="Sigorta Dahil" />
                     )}
                   </div>
 
                   <div className="flex items-center gap-2 text-sm text-gray-500 mb-4">
                     <MapPin className="w-4 h-4" />
-                    <span>{vehicle.city}</span>
+                    <span>{vehicle.pickupLocations[0]}</span>
                     <span>•</span>
                     <Star className="w-4 h-4 text-yellow-500 fill-current" />
                     <span className="font-medium text-gray-900">{vehicle.rating}</span>
-                    <span>({vehicle.reviews})</span>
+                    <span>({vehicle.reviewCount})</span>
                   </div>
 
                   <div className="flex flex-wrap gap-2 mb-4">
-                    {vehicle.features.map((feature) => (
-                      <span
-                        key={feature}
-                        className="px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs"
-                      >
-                        {feature}
+                    <span className="px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs flex items-center gap-1">
+                      <Users className="w-3 h-3" />
+                      {vehicle.seats} Koltuk
+                    </span>
+                    <span className="px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs flex items-center gap-1">
+                      <Settings className="w-3 h-3" />
+                      {vehicle.transmission === 'AUTOMATIC' ? 'Otomatik' : 'Manuel'}
+                    </span>
+                    <span className="px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs flex items-center gap-1">
+                      <Fuel className="w-3 h-3" />
+                      {vehicle.fuelType}
+                    </span>
+                    {vehicle.airConditioning && (
+                      <span className="px-2 py-1 bg-blue-50 text-blue-700 rounded text-xs" title="Klima">
+                        ❄️
                       </span>
-                    ))}
+                    )}
+                    {vehicle.gps && (
+                      <span className="px-2 py-1 bg-green-50 text-green-700 rounded text-xs" title="GPS">
+                        🗺️
+                      </span>
+                    )}
                   </div>
 
                   <div className="flex items-center justify-between pt-4 border-t border-gray-100">
                     <div>
-                      <div className="text-2xl font-bold text-gray-900">₺{vehicle.price}</div>
+                      <div className="text-2xl font-bold text-gray-900">₺{parseInt(vehicle.pricePerDay).toLocaleString('tr-TR')}</div>
                       <div className="text-sm text-gray-500">/ gün</div>
                     </div>
                     <Link
-                      href={`/car-rental?id=${vehicle.id}`}
+                      href={`/car-rentals/${vehicle.slug}`}
                       className="px-6 py-2.5 bg-gradient-to-r from-green-600 to-emerald-600 text-white rounded-lg font-semibold hover:shadow-lg hover:scale-105 transition-all flex items-center gap-2"
                     >
                       Kirala

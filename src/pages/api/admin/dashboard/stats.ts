@@ -1,51 +1,60 @@
 import { NextApiResponse } from 'next';
 import { withAdminAuth, AuthenticatedRequest } from '../../../../lib/middleware/admin-auth';
+import { PrismaClient } from '@prisma/client';
+
+const prisma = new PrismaClient();
 
 interface DashboardStats {
   overview: {
     totalLocations: number;
     totalReviews: number;
     totalUsers: number;
-    totalPhotos: number;
+    totalBookings: number;
+    totalRevenue: number;
     averageRating: number;
     monthlyGrowth: {
-      locations: number;
-      reviews: number;
+      bookings: number;
+      revenue: number;
       users: number;
     };
   };
+  productCounts: {
+    hotels: number;
+    tours: number;
+    transfers: number;
+    carRentals: number;
+    rentalProperties: number;
+  };
   recentActivity: {
-    type: 'review' | 'user' | 'location' | 'photo';
+    type: 'booking' | 'user' | 'review' | 'hotel' | 'tour';
     description: string;
     timestamp: string;
     user?: string;
-    location?: string;
+    entity?: string;
   }[];
-  topLocations: {
-    id: number;
-    name: string;
-    rating: number;
-    reviews: number;
-    views: number;
-  }[];
-  platformStats: {
-    googleSynced: number;
-    tripAdvisorSynced: number;
-    lastSync: string;
-    syncErrors: number;
+  topPerformers: {
+    hotels: { id: string; name: string; rating: number; bookings: number }[];
+    tours: { id: string; title: string; rating: number; bookings: number }[];
   };
-  moderationQueue: {
-    pendingReviews: number;
-    flaggedContent: number;
-    reportedUsers: number;
+  bookingStats: {
+    pending: number;
+    confirmed: number;
+    completed: number;
+    cancelled: number;
+  };
+  revenueByCategory: {
+    hotels: number;
+    tours: number;
+    transfers: number;
+    carRentals: number;
+    rentalProperties: number;
   };
   analytics: {
     dailyStats: {
       date: string;
-      locations: number;
-      reviews: number;
+      bookings: number;
+      revenue: number;
       users: number;
-      views: number;
     }[];
   };
 }
@@ -56,107 +65,257 @@ async function handler(req: AuthenticatedRequest, res: NextApiResponse) {
   }
 
   try {
-    // Mock data - in production, this would come from database queries
+    // Calculate date ranges
+    const now = new Date();
+    const thirtyDaysAgo = new Date(now.getTime() - 30 * 24 * 60 * 60 * 1000);
+    const lastMonthStart = new Date(now.getFullYear(), now.getMonth() - 1, 1);
+    const lastMonthEnd = new Date(now.getFullYear(), now.getMonth(), 0);
+    const twoMonthsAgo = new Date(now.getFullYear(), now.getMonth() - 2, 1);
+
+    // Parallel database queries for performance
+    const [
+      totalUsers,
+      totalReviews,
+      totalHotels,
+      totalTours,
+      totalTransfers,
+      totalCarRentals,
+      totalRentalProperties,
+      totalBookings,
+      hotelBookings,
+      tourBookings,
+      transferBookings,
+      carRentalBookings,
+      propertyBookings,
+      bookingsByStatus,
+      recentBookings,
+      recentUsers,
+      recentReviews,
+      topHotels,
+      topTours,
+      lastMonthBookings,
+      twoMonthsAgoBookings,
+      lastMonthUsers,
+      twoMonthsAgoUsers,
+    ] = await Promise.all([
+      prisma.user.count(),
+      prisma.review.count(),
+      prisma.hotel.count(),
+      prisma.tour.count(),
+      prisma.transfer.count(),
+      prisma.carRental.count(),
+      prisma.rentalProperty.count(),
+      prisma.booking.count(),
+      prisma.booking.findMany({ select: { totalPrice: true, paymentStatus: true } }),
+      prisma.tourBooking.findMany({ select: { totalPrice: true, paymentStatus: true } }),
+      prisma.transferBooking.findMany({ select: { totalPrice: true, paymentStatus: true } }),
+      prisma.carRentalBooking.findMany({ select: { totalPrice: true, paymentStatus: true } }),
+      prisma.rentalPropertyBooking.findMany({ select: { totalPrice: true, paymentStatus: true } }),
+      prisma.booking.groupBy({
+        by: ['status'],
+        _count: { status: true }
+      }),
+      prisma.booking.findMany({
+        take: 5,
+        orderBy: { createdAt: 'desc' },
+        include: { hotel: { select: { name: true } }, user: { select: { name: true, email: true } } }
+      }),
+      prisma.user.findMany({
+        take: 5,
+        orderBy: { createdAt: 'desc' },
+        select: { name: true, email: true, createdAt: true }
+      }),
+      prisma.review.findMany({
+        take: 5,
+        orderBy: { createdAt: 'desc' },
+        include: { hotel: { select: { name: true } }, user: { select: { name: true } } }
+      }),
+      prisma.hotel.findMany({
+        take: 5,
+        orderBy: { averageRating: 'desc' },
+        where: { isActive: true },
+        select: { id: true, name: true, averageRating: true, totalReviews: true, _count: { select: { bookings: true } } }
+      }),
+      prisma.tour.findMany({
+        take: 5,
+        orderBy: { rating: 'desc' },
+        where: { isActive: true },
+        select: { id: true, title: true, rating: true, reviewCount: true, _count: { select: { bookings: true } } }
+      }),
+      prisma.booking.count({ where: { createdAt: { gte: lastMonthStart, lte: lastMonthEnd } } }),
+      prisma.booking.count({ where: { createdAt: { gte: twoMonthsAgo, lt: lastMonthStart } } }),
+      prisma.user.count({ where: { createdAt: { gte: lastMonthStart, lte: lastMonthEnd } } }),
+      prisma.user.count({ where: { createdAt: { gte: twoMonthsAgo, lt: lastMonthStart } } }),
+    ]);
+
+    // Calculate total revenue
+    const calculateRevenue = (bookings: any[]) => {
+      return bookings
+        .filter(b => b.paymentStatus === 'PAID' || b.paymentStatus === 'COMPLETED')
+        .reduce((sum, b) => sum + Number(b.totalPrice || 0), 0);
+    };
+
+    const hotelRevenue = calculateRevenue(hotelBookings);
+    const tourRevenue = calculateRevenue(tourBookings);
+    const transferRevenue = calculateRevenue(transferBookings);
+    const carRentalRevenue = calculateRevenue(carRentalBookings);
+    const propertyRevenue = calculateRevenue(propertyBookings);
+    const totalRevenue = hotelRevenue + tourRevenue + transferRevenue + carRentalRevenue + propertyRevenue;
+
+    // Calculate average rating
+    const allRatings = await prisma.review.aggregate({
+      _avg: { rating: true }
+    });
+    const averageRating = Number(allRatings._avg.rating || 0);
+
+    // Calculate monthly growth
+    const bookingGrowth = twoMonthsAgoBookings > 0
+      ? ((lastMonthBookings - twoMonthsAgoBookings) / twoMonthsAgoBookings) * 100
+      : 0;
+    const userGrowth = twoMonthsAgoUsers > 0
+      ? ((lastMonthUsers - twoMonthsAgoUsers) / twoMonthsAgoUsers) * 100
+      : 0;
+
+    // Get last 30 days revenue by day
+    const last30DaysRevenue = await prisma.booking.groupBy({
+      by: ['createdAt'],
+      where: {
+        createdAt: { gte: thirtyDaysAgo },
+        paymentStatus: { in: ['PAID', 'COMPLETED'] }
+      },
+      _sum: { totalPrice: true },
+      _count: { id: true }
+    });
+
+    const dailyStatsMap = new Map();
+    for (let i = 0; i < 30; i++) {
+      const date = new Date(now.getTime() - i * 24 * 60 * 60 * 1000);
+      const dateStr = date.toISOString().split('T')[0];
+      dailyStatsMap.set(dateStr, { bookings: 0, revenue: 0, users: 0 });
+    }
+
+    last30DaysRevenue.forEach(item => {
+      const dateStr = new Date(item.createdAt).toISOString().split('T')[0];
+      if (dailyStatsMap.has(dateStr)) {
+        const existing = dailyStatsMap.get(dateStr);
+        existing.bookings += item._count.id;
+        existing.revenue += Number(item._sum.totalPrice || 0);
+      }
+    });
+
+    // Get daily user signups
+    const dailyUsers = await prisma.user.groupBy({
+      by: ['createdAt'],
+      where: { createdAt: { gte: thirtyDaysAgo } },
+      _count: { id: true }
+    });
+
+    dailyUsers.forEach(item => {
+      const dateStr = new Date(item.createdAt).toISOString().split('T')[0];
+      if (dailyStatsMap.has(dateStr)) {
+        dailyStatsMap.get(dateStr).users = item._count.id;
+      }
+    });
+
+    // Format booking status counts
+    const bookingStatusMap = {
+      pending: 0,
+      confirmed: 0,
+      completed: 0,
+      cancelled: 0
+    };
+    bookingsByStatus.forEach(item => {
+      const status = item.status.toLowerCase();
+      if (status in bookingStatusMap) {
+        bookingStatusMap[status as keyof typeof bookingStatusMap] = item._count.status;
+      }
+    });
+
+    // Build recent activity feed
+    const recentActivity: DashboardStats['recentActivity'] = [];
+
+    recentBookings.forEach(booking => {
+      recentActivity.push({
+        type: 'booking',
+        description: `New booking for "${booking.hotel.name}"`,
+        timestamp: booking.createdAt.toISOString(),
+        user: booking.user.email,
+        entity: booking.hotel.name
+      });
+    });
+
+    recentUsers.forEach(user => {
+      recentActivity.push({
+        type: 'user',
+        description: 'New user registered',
+        timestamp: user.createdAt.toISOString(),
+        user: user.email
+      });
+    });
+
+    recentReviews.forEach(review => {
+      recentActivity.push({
+        type: 'review',
+        description: `New review for "${review.hotel.name}"`,
+        timestamp: review.createdAt.toISOString(),
+        user: review.user.name || 'Anonymous',
+        entity: review.hotel.name
+      });
+    });
+
+    // Sort by timestamp descending and take top 10
+    recentActivity.sort((a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime());
+    const topActivity = recentActivity.slice(0, 10);
+
+    // Build the stats response
     const stats: DashboardStats = {
       overview: {
-        totalLocations: 1247,
-        totalReviews: 8934,
-        totalUsers: 3456,
-        totalPhotos: 12789,
-        averageRating: 4.3,
+        totalLocations: totalHotels + totalTours + totalTransfers + totalCarRentals + totalRentalProperties,
+        totalReviews,
+        totalUsers,
+        totalBookings,
+        totalRevenue: Math.round(totalRevenue * 100) / 100,
+        averageRating: Math.round(averageRating * 10) / 10,
         monthlyGrowth: {
-          locations: 12.5,
-          reviews: 23.8,
-          users: 18.2
+          bookings: Math.round(bookingGrowth * 10) / 10,
+          revenue: Math.round(bookingGrowth * 10) / 10, // Using same as bookings for now
+          users: Math.round(userGrowth * 10) / 10
         }
       },
-      recentActivity: [
-        {
-          type: 'review',
-          description: 'New review submitted for "Blue Mosque"',
-          timestamp: '2024-01-15T14:30:00Z',
-          user: 'john.doe@example.com',
-          location: 'Blue Mosque'
-        },
-        {
-          type: 'user',
-          description: 'New user registered',
-          timestamp: '2024-01-15T14:25:00Z',
-          user: 'jane.smith@example.com'
-        },
-        {
-          type: 'location',
-          description: 'Location "Hagia Sophia" was updated',
-          timestamp: '2024-01-15T14:20:00Z',
-          location: 'Hagia Sophia'
-        },
-        {
-          type: 'photo',
-          description: '5 new photos uploaded for "Galata Tower"',
-          timestamp: '2024-01-15T14:15:00Z',
-          location: 'Galata Tower'
-        }
-      ],
-      topLocations: [
-        {
-          id: 1,
-          name: 'Hagia Sophia',
-          rating: 4.8,
-          reviews: 2847,
-          views: 45632
-        },
-        {
-          id: 2,
-          name: 'Blue Mosque',
-          rating: 4.7,
-          reviews: 2234,
-          views: 38294
-        },
-        {
-          id: 3,
-          name: 'Galata Tower',
-          rating: 4.6,
-          reviews: 1876,
-          views: 32481
-        },
-        {
-          id: 4,
-          name: 'Grand Bazaar',
-          rating: 4.5,
-          reviews: 1654,
-          views: 29387
-        },
-        {
-          id: 5,
-          name: 'Topkapi Palace',
-          rating: 4.7,
-          reviews: 1432,
-          views: 26754
-        }
-      ],
-      platformStats: {
-        googleSynced: 892,
-        tripAdvisorSynced: 634,
-        lastSync: '2024-01-15T12:00:00Z',
-        syncErrors: 3
+      productCounts: {
+        hotels: totalHotels,
+        tours: totalTours,
+        transfers: totalTransfers,
+        carRentals: totalCarRentals,
+        rentalProperties: totalRentalProperties
       },
-      moderationQueue: {
-        pendingReviews: 23,
-        flaggedContent: 7,
-        reportedUsers: 2
+      recentActivity: topActivity,
+      topPerformers: {
+        hotels: topHotels.map(h => ({
+          id: h.id,
+          name: h.name,
+          rating: Number(h.averageRating || 0),
+          bookings: h._count.bookings
+        })),
+        tours: topTours.map(t => ({
+          id: t.id,
+          title: t.title,
+          rating: Number(t.rating || 0),
+          bookings: t._count.bookings
+        }))
+      },
+      bookingStats: bookingStatusMap,
+      revenueByCategory: {
+        hotels: Math.round(hotelRevenue * 100) / 100,
+        tours: Math.round(tourRevenue * 100) / 100,
+        transfers: Math.round(transferRevenue * 100) / 100,
+        carRentals: Math.round(carRentalRevenue * 100) / 100,
+        rentalProperties: Math.round(propertyRevenue * 100) / 100
       },
       analytics: {
-        dailyStats: Array.from({ length: 30 }, (_, i) => {
-          const date = new Date();
-          date.setDate(date.getDate() - (29 - i));
-          return {
-            date: date.toISOString().split('T')[0],
-            locations: Math.floor(Math.random() * 10) + 5,
-            reviews: Math.floor(Math.random() * 50) + 20,
-            users: Math.floor(Math.random() * 20) + 10,
-            views: Math.floor(Math.random() * 1000) + 500
-          };
-        })
+        dailyStats: Array.from(dailyStatsMap.entries())
+          .map(([date, data]) => ({ date, ...data }))
+          .sort((a, b) => a.date.localeCompare(b.date))
       }
     };
 
@@ -168,8 +327,11 @@ async function handler(req: AuthenticatedRequest, res: NextApiResponse) {
     console.error('Dashboard stats error:', error);
     res.status(500).json({
       success: false,
-      error: 'Failed to fetch dashboard statistics'
+      error: 'Failed to fetch dashboard statistics',
+      details: error instanceof Error ? error.message : 'Unknown error'
     });
+  } finally {
+    await prisma.$disconnect();
   }
 }
 

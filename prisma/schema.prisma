@@ -81,6 +81,7 @@ model User {
   priceAlerts        PriceAlert[]
   trips              Trip[]
   votes              TripVote[]
+  milesAccount       AilydianMilesAccount?
 
   @@map("users")
 }
@@ -1185,4 +1186,948 @@ enum ContentType {
   PROMOTION
   ANNOUNCEMENT
   BANNER
+}
+
+// ============================================
+// CAR RENTAL MODELS
+// ============================================
+
+model CarRental {
+  id              String          @id @default(cuid())
+
+  // Basic Info
+  name            String
+  slug            String          @unique
+  description     String          @db.Text
+  shortDescription String?        @db.Text
+
+  // Vehicle Details
+  brand           String          // Mercedes, BMW, Toyota, etc.
+  model           String          // Vito, E-Class, Corolla, etc.
+  year            Int
+  category        CarCategory
+  transmission    TransmissionType @default(AUTOMATIC)
+  fuelType        FuelType        @default(GASOLINE)
+
+  // Capacity
+  seats           Int
+  doors           Int
+  luggage         Int             // Number of suitcases
+
+  // Features
+  features        String[]        @default([])
+  airConditioning Boolean         @default(true)
+  gps             Boolean         @default(false)
+  bluetooth       Boolean         @default(false)
+  usbCharger      Boolean         @default(false)
+
+  // Pricing
+  pricePerDay     Decimal
+  pricePerWeek    Decimal?
+  pricePerMonth   Decimal?
+  currency        String          @default("TRY")
+  deposit         Decimal         @default(0)
+
+  // Insurance
+  insuranceIncluded Boolean       @default(true)
+  insuranceType   String?
+
+  // Location
+  pickupLocations String[]        @default([])
+  allowDifferentDropoff Boolean   @default(true)
+
+  // Availability
+  availableCount  Int             @default(1)
+  isAvailable     Boolean         @default(true)
+
+  // Images
+  mainImage       String
+  images          String[]        @default([])
+
+  // Requirements
+  minimumAge      Int             @default(21)
+  drivingLicenseYears Int         @default(1)
+  requiredDocuments String[]      @default([])
+
+  // Mileage
+  unlimitedMileage Boolean        @default(true)
+  mileageLimit    Int?            // Per day if limited
+
+  // Status & Featured
+  isActive        Boolean         @default(true)
+  isFeatured      Boolean         @default(false)
+  isPopular       Boolean         @default(false)
+
+  // Ratings
+  rating          Decimal         @default(0)
+  reviewCount     Int             @default(0)
+
+  // SEO
+  metaTitle       String?
+  metaDescription String?
+  keywords        String[]        @default([])
+
+  createdAt       DateTime        @default(now())
+  updatedAt       DateTime        @updatedAt
+
+  // Relations
+  bookings        CarRentalBooking[]
+
+  @@map("car_rentals")
+  @@index([category])
+  @@index([brand])
+  @@index([isActive])
+  @@index([isFeatured])
+}
+
+model CarRentalBooking {
+  id              String          @id @default(cuid())
+  userId          String
+  carId           String
+  bookingRef      String          @unique
+
+  // Rental Details
+  pickupLocation  String
+  dropoffLocation String
+  pickupDate      DateTime
+  pickupTime      String
+  dropoffDate     DateTime
+  dropoffTime     String
+
+  // Pricing
+  dailyRate       Decimal
+  numberOfDays    Int
+  subtotal        Decimal
+  tax             Decimal         @default(0)
+  deposit         Decimal         @default(0)
+  totalPrice      Decimal
+  currency        String          @default("TRY")
+
+  // Extras
+  gpsRequested    Boolean         @default(false)
+  childSeatRequested Boolean      @default(false)
+  additionalDriver Boolean        @default(false)
+  extrasTotal     Decimal         @default(0)
+
+  // Driver Info
+  driverName      String
+  driverLicense   String
+  driverPhone     String
+  driverEmail     String
+
+  // Status
+  status          BookingStatus   @default(PENDING)
+  paymentStatus   PaymentStatus   @default(PENDING)
+  paymentMethod   PaymentMethod?
+  paymentIntentId String?
+
+  // Special Requests
+  specialRequests String?         @db.Text
+
+  // Timestamps
+  createdAt       DateTime        @default(now())
+  updatedAt       DateTime        @updatedAt
+
+  // Relations
+  car             CarRental       @relation(fields: [carId], references: [id])
+
+  @@map("car_rental_bookings")
+  @@index([userId])
+  @@index([carId])
+  @@index([pickupDate])
+  @@index([status])
+}
+
+enum CarCategory {
+  ECONOMY_SEDAN
+  PREMIUM_SEDAN
+  ECONOMY_SUV
+  PREMIUM_SUV
+  LUXURY
+  SPORTS
+  VAN
+  MINIVAN
+  COMPACT
+  FULLSIZE
+}
+
+enum TransmissionType {
+  MANUAL
+  AUTOMATIC
+  SEMI_AUTOMATIC
+}
+
+enum FuelType {
+  GASOLINE
+  DIESEL
+  ELECTRIC
+  HYBRID
+  PLUGIN_HYBRID
+}
+
+// ============================================
+// RENTAL PROPERTY MODELS (Konaklama)
+// ============================================
+
+model RentalProperty {
+  id              String          @id @default(cuid())
+
+  // Basic Info
+  title           String
+  slug            String          @unique
+  description     String          @db.Text
+  shortDescription String?        @db.Text
+
+  // Property Type
+  type            PropertyType
+
+  // Location
+  city            String
+  district        String
+  address         String
+  coordinates     Json?           // {lat, lng}
+
+  // Capacity
+  guests          Int
+  bedrooms        Int
+  bathrooms       Int
+  beds            Int
+
+  // Size
+  squareMeters    Float?
+
+  // Pricing
+  basePrice       Decimal         // Per night
+  weeklyDiscount  Decimal?        // Percentage
+  monthlyDiscount Decimal?        // Percentage
+  currency        String          @default("TRY")
+  cleaningFee     Decimal         @default(0)
+  securityDeposit Decimal         @default(0)
+
+  // Features
+  wifi            Boolean         @default(false)
+  kitchen         Boolean         @default(false)
+  parking         Boolean         @default(false)
+  pool            Boolean         @default(false)
+  airConditioning Boolean         @default(false)
+  heating         Boolean         @default(false)
+  tv              Boolean         @default(false)
+  washer          Boolean         @default(false)
+  beachfront      Boolean         @default(false)
+  seaview         Boolean         @default(false)
+  balcony         Boolean         @default(false)
+
+  // House Rules
+  smokingAllowed  Boolean         @default(false)
+  petsAllowed     Boolean         @default(false)
+  partiesAllowed  Boolean         @default(false)
+  childrenAllowed Boolean         @default(true)
+
+  // Availability
+  instantBook     Boolean         @default(false)
+  minimumStay     Int             @default(1)
+  maximumStay     Int?
+
+  // Check-in/out
+  checkInTime     String          @default("15:00")
+  checkOutTime    String          @default("11:00")
+
+  // Images
+  mainImage       String
+  images          String[]        @default([])
+  virtualTourUrl  String?
+
+  // Host Info
+  hostName        String
+  hostSuperhost   Boolean         @default(false)
+  hostResponseTime String?
+  hostLanguages   String[]        @default([])
+
+  // Status & Featured
+  isActive        Boolean         @default(true)
+  isFeatured      Boolean         @default(false)
+
+  // Ratings
+  overall         Decimal         @default(0)
+  cleanliness     Decimal         @default(0)
+  accuracy        Decimal         @default(0)
+  checkIn         Decimal         @default(0)
+  communication   Decimal         @default(0)
+  location        Decimal         @default(0)
+  value           Decimal         @default(0)
+  reviewCount     Int             @default(0)
+
+  // Competitor Prices (for comparison)
+  airbnbPrice     Decimal?
+  bookingPrice    Decimal?
+  agodaPrice      Decimal?
+
+  // SEO
+  metaTitle       String?
+  metaDescription String?
+  keywords        String[]        @default([])
+
+  createdAt       DateTime        @default(now())
+  updatedAt       DateTime        @updatedAt
+
+  // Relations
+  bookings        RentalPropertyBooking[]
+
+  @@map("rental_properties")
+  @@index([type])
+  @@index([city])
+  @@index([isActive])
+  @@index([isFeatured])
+}
+
+model RentalPropertyBooking {
+  id              String          @id @default(cuid())
+  userId          String
+  propertyId      String
+  bookingRef      String          @unique
+
+  // Booking Details
+  checkIn         DateTime
+  checkOut        DateTime
+  numberOfNights  Int
+  numberOfGuests  Int
+
+  // Pricing
+  nightlyRate     Decimal
+  subtotal        Decimal
+  cleaningFee     Decimal         @default(0)
+  serviceFee      Decimal         @default(0)
+  tax             Decimal         @default(0)
+  totalPrice      Decimal
+  currency        String          @default("TRY")
+
+  // Guest Info
+  guestName       String
+  guestPhone      String
+  guestEmail      String
+
+  // Status
+  status          BookingStatus   @default(PENDING)
+  paymentStatus   PaymentStatus   @default(PENDING)
+  paymentMethod   PaymentMethod?
+  paymentIntentId String?
+
+  // Special Requests
+  specialRequests String?         @db.Text
+
+  // Timestamps
+  createdAt       DateTime        @default(now())
+  updatedAt       DateTime        @updatedAt
+
+  // Relations
+  property        RentalProperty  @relation(fields: [propertyId], references: [id])
+
+  @@map("rental_property_bookings")
+  @@index([userId])
+  @@index([propertyId])
+  @@index([checkIn])
+  @@index([status])
+}
+
+enum PropertyType {
+  VILLA
+  APARTMENT
+  HOUSE
+  STUDIO
+  PENTHOUSE
+  COTTAGE
+}
+
+// ============================================
+// SYSTEM SETTINGS & CONFIGURATION
+// ============================================
+
+model SystemSettings {
+  id              String          @id @default(cuid())
+  key             String          @unique
+  value           Json
+  description     String?
+  category        SettingsCategory @default(GENERAL)
+  isPublic        Boolean         @default(false)
+
+  createdAt       DateTime        @default(now())
+  updatedAt       DateTime        @updatedAt
+
+  @@map("system_settings")
+  @@index([category])
+}
+
+enum SettingsCategory {
+  GENERAL
+  PAYMENT
+  EMAIL
+  SMS
+  NOTIFICATION
+  SEO
+  ANALYTICS
+  SECURITY
+  API
+  FEATURE_FLAGS
+}
+
+// ============================================
+// AILYDIAN MILES LOYALTY PROGRAM
+// ============================================
+
+model AilydianMilesAccount {
+  id              String          @id @default(cuid())
+  userId          String          @unique
+
+  // Miles Balance
+  totalEarned     Decimal         @default(0)
+  totalSpent      Decimal         @default(0)
+  currentBalance  Decimal         @default(0)
+
+  // Tier Information
+  tier            LoyaltyTier     @default(BRONZE)
+  tierProgress    Decimal         @default(0) // Progress to next tier
+  nextTier        LoyaltyTier?
+  tierExpiresAt   DateTime?
+
+  // Statistics
+  lifetimeBookings Int            @default(0)
+  lifetimeValue   Decimal         @default(0)
+
+  createdAt       DateTime        @default(now())
+  updatedAt       DateTime        @updatedAt
+
+  // Relations
+  user            User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+  transactions    MilesTransaction[]
+
+  @@map("ailydian_miles_accounts")
+  @@index([userId])
+  @@index([tier])
+}
+
+model MilesTransaction {
+  id              String          @id @default(cuid())
+  accountId       String
+  userId          String
+
+  // Transaction Details
+  type            MilesTransactionType
+  amount          Decimal
+  description     String
+  reference       String?         // Booking ID, etc.
+
+  // Balance Snapshot
+  balanceBefore   Decimal
+  balanceAfter    Decimal
+
+  // Expiration (for earned miles)
+  expiresAt       DateTime?
+  expired         Boolean         @default(false)
+
+  // Metadata
+  metadata        Json?
+
+  createdAt       DateTime        @default(now())
+
+  // Relations
+  account         AilydianMilesAccount @relation(fields: [accountId], references: [id], onDelete: Cascade)
+
+  @@map("miles_transactions")
+  @@index([accountId])
+  @@index([userId])
+  @@index([type])
+  @@index([createdAt])
+}
+
+enum LoyaltyTier {
+  BRONZE      // 0-999 miles
+  SILVER      // 1,000-4,999 miles (2% discount)
+  GOLD        // 5,000-9,999 miles (5% discount)
+  VIP         // 10,000+ miles (10% discount)
+}
+
+enum MilesTransactionType {
+  EARNED_BOOKING     // Earned from booking
+  EARNED_REFERRAL    // Earned from referral
+  EARNED_PROMOTION   // Earned from promotion
+  EARNED_BONUS       // Bonus miles
+  SPENT_REDEMPTION   // Spent on booking
+  EXPIRED            // Miles expired
+  ADJUSTED           // Manual adjustment
+}
+
+// ============================================
+// WHATSAPP BUSINESS INTEGRATION
+// ============================================
+
+model WhatsAppConversation {
+  id              String          @id @default(cuid())
+  customerPhone   String
+  customerName    String?
+
+  // Conversation Status
+  status          ConversationStatus @default(ACTIVE)
+  lastMessageAt   DateTime        @default(now())
+
+  // Assignment
+  assignedTo      String?         // Support agent ID
+  assignedAt      DateTime?
+
+  // Tags & Categories
+  tags            String[]        @default([])
+  category        String?         // Booking, Support, Inquiry, etc.
+
+  // Metadata
+  metadata        Json?
+
+  createdAt       DateTime        @default(now())
+  updatedAt       DateTime        @updatedAt
+
+  // Relations
+  messages        WhatsAppMessage[]
+
+  @@map("whatsapp_conversations")
+  @@index([customerPhone])
+  @@index([status])
+  @@index([lastMessageAt])
+}
+
+model WhatsAppMessage {
+  id              String          @id @default(cuid())
+  conversationId  String
+
+  // Message Details
+  messageId       String?         @unique // WhatsApp message ID
+  from            String
+  to              String
+  direction       MessageDirection
+  type            MessageType     @default(TEXT)
+
+  // Content
+  text            String?         @db.Text
+  mediaUrl        String?
+  caption         String?
+
+  // Status
+  status          MessageStatus   @default(SENT)
+  deliveredAt     DateTime?
+  readAt          DateTime?
+
+  // Interactive Messages
+  buttons         Json?
+  listItems       Json?
+
+  // Metadata
+  metadata        Json?
+
+  createdAt       DateTime        @default(now())
+
+  // Relations
+  conversation    WhatsAppConversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+
+  @@map("whatsapp_messages")
+  @@index([conversationId])
+  @@index([direction])
+  @@index([createdAt])
+}
+
+enum ConversationStatus {
+  ACTIVE
+  RESOLVED
+  ARCHIVED
+  PENDING
+}
+
+enum MessageDirection {
+  INBOUND   // From customer
+  OUTBOUND  // To customer
+}
+
+enum MessageType {
+  TEXT
+  IMAGE
+  VIDEO
+  DOCUMENT
+  AUDIO
+  LOCATION
+  INTERACTIVE
+  TEMPLATE
+}
+
+enum MessageStatus {
+  SENT
+  DELIVERED
+  READ
+  FAILED
+}
+
+// ============================================
+// VIDEO REVIEWS & 360° VIRTUAL TOURS
+// ============================================
+
+model VideoReview {
+  id              String          @id @default(cuid())
+  userId          String
+
+  // Listing Info
+  listingType     String          // hotel, car, tour, transfer, vehicle, property
+  listingId       String
+
+  // Video Details
+  videoUrl        String
+  thumbnailUrl    String
+  duration        Int             // seconds
+  title           String
+  description     String?         @db.Text
+
+  // Rating
+  rating          Int             // 1-5
+  tags            String[]        @default([])
+
+  // Engagement
+  views           Int             @default(0)
+  likes           Int             @default(0)
+
+  // Verification
+  verifiedBooking Boolean         @default(false)
+  bookingRef      String?
+
+  // Language
+  language        String          @default("tr")
+
+  // Status
+  isApproved      Boolean         @default(false)
+  isActive        Boolean         @default(true)
+
+  createdAt       DateTime        @default(now())
+  updatedAt       DateTime        @updatedAt
+
+  // Relations
+  likes_relation  VideoLike[]
+
+  @@map("video_reviews")
+  @@index([listingType, listingId])
+  @@index([userId])
+  @@index([isApproved])
+  @@index([createdAt])
+}
+
+model VideoLike {
+  id              String          @id @default(cuid())
+  videoId         String
+  userId          String
+
+  createdAt       DateTime        @default(now())
+
+  // Relations
+  video           VideoReview     @relation(fields: [videoId], references: [id], onDelete: Cascade)
+
+  @@unique([videoId, userId])
+  @@map("video_likes")
+  @@index([videoId])
+  @@index([userId])
+}
+
+model VirtualTour {
+  id              String          @id @default(cuid())
+
+  // Listing Info
+  listingType     String          // hotel, property, vehicle
+  listingId       String
+
+  // Tour Details
+  title           String
+  description     String          @db.Text
+  coverImage      String
+
+  // Engagement
+  views           Int             @default(0)
+  featured        Boolean         @default(false)
+
+  // Status
+  isActive        Boolean         @default(true)
+
+  createdAt       DateTime        @default(now())
+  updatedAt       DateTime        @updatedAt
+
+  // Relations
+  scenes          VirtualTourScene[]
+
+  @@map("virtual_tours")
+  @@index([listingType, listingId])
+  @@index([featured])
+  @@index([isActive])
+}
+
+model VirtualTourScene {
+  id              String          @id @default(cuid())
+  tourId          String
+
+  // Scene Details
+  title           String
+  panoramaUrl     String
+  type            PanoramaType    @default(EQUIRECTANGULAR)
+  order           Int             @default(0)
+
+  // Initial View
+  initialPitch    Float           @default(0)
+  initialYaw      Float           @default(0)
+  initialFov      Float           @default(90)
+
+  // Metadata
+  metadata        Json?
+
+  createdAt       DateTime        @default(now())
+  updatedAt       DateTime        @updatedAt
+
+  // Relations
+  tour            VirtualTour     @relation(fields: [tourId], references: [id], onDelete: Cascade)
+  hotspots        VirtualTourHotspot[]
+
+  @@map("virtual_tour_scenes")
+  @@index([tourId])
+  @@index([order])
+}
+
+model VirtualTourHotspot {
+  id              String          @id @default(cuid())
+  sceneId         String
+
+  // Hotspot Details
+  type            HotspotType
+  title           String
+  content         String?         @db.Text
+
+  // Position
+  pitch           Float
+  yaw             Float
+
+  // Links
+  imageUrl        String?
+  videoUrl        String?
+  linkToSceneId   String?
+  icon            String?
+
+  // Metadata
+  metadata        Json?
+
+  createdAt       DateTime        @default(now())
+
+  // Relations
+  scene           VirtualTourScene @relation(fields: [sceneId], references: [id], onDelete: Cascade)
+
+  @@map("virtual_tour_hotspots")
+  @@index([sceneId])
+  @@index([type])
+}
+
+enum PanoramaType {
+  EQUIRECTANGULAR
+  CUBEMAP
+}
+
+enum HotspotType {
+  INFO
+  LINK
+  VIDEO
+  IMAGE
+}
+
+// ============================================
+// SEO LANDING PAGES (Auto-Generated)
+// ============================================
+
+model SEOLandingPage {
+  id              String          @id @default(cuid())
+
+  // Page Info
+  slug            String          @unique
+  title           String
+  description     String          @db.Text
+
+  // SEO
+  metaTitle       String
+  metaDescription String
+  keywords        String[]        @default([])
+
+  // Page Type
+  pageType        SEOPageType
+  category        String          // hotels, cars, tours, etc.
+
+  // Filters (JSON encoded for flexibility)
+  filters         Json            // {city: "Istanbul", type: "luxury", stars: 5}
+
+  // Content
+  h1              String
+  content         String          @db.Text
+  faq             Json?           // FAQ section
+
+  // Stats
+  views           Int             @default(0)
+  lastCrawled     DateTime?
+
+  // Status
+  isActive        Boolean         @default(true)
+  isIndexed       Boolean         @default(false)
+
+  createdAt       DateTime        @default(now())
+  updatedAt       DateTime        @updatedAt
+
+  @@map("seo_landing_pages")
+  @@index([slug])
+  @@index([pageType])
+  @@index([category])
+  @@index([isActive])
+}
+
+enum SEOPageType {
+  CITY_HOTELS          // "Istanbul Hotels"
+  CATEGORY_HOTELS      // "Luxury Hotels Turkey"
+  CITY_CARS            // "Istanbul Car Rental"
+  CITY_TOURS           // "Istanbul Tours"
+  CATEGORY_TOURS       // "Cultural Tours Turkey"
+  CITY_TRANSFERS       // "Istanbul Airport Transfer"
+  DESTINATION          // "Antalya Travel Guide"
+  ROUTE                // "Istanbul to Cappadocia"
+}
+
+// ============================================
+// PARTNER DASHBOARDS
+// ============================================
+
+model PartnerProfile {
+  id              String          @id @default(cuid())
+  userId          String          @unique
+
+  // Business Info
+  businessName    String
+  businessType    PartnerType
+  taxId           String?
+  licenseNumber   String?
+
+  // Contact
+  contactPerson   String
+  phone           String
+  email           String
+  address         String?
+
+  // Verification
+  isVerified      Boolean         @default(false)
+  verifiedAt      DateTime?
+  documents       Json?           // Uploaded documents
+
+  // Payment Info
+  bankName        String?
+  accountNumber   String?
+  iban            String?
+
+  // Statistics
+  totalListings   Int             @default(0)
+  totalBookings   Int             @default(0)
+  totalRevenue    Decimal         @default(0)
+  rating          Decimal         @default(0)
+
+  // Status
+  isActive        Boolean         @default(true)
+  suspendedUntil  DateTime?
+
+  createdAt       DateTime        @default(now())
+  updatedAt       DateTime        @updatedAt
+
+  // Relations
+  listings        PartnerListing[]
+  payouts         PartnerPayout[]
+
+  @@map("partner_profiles")
+  @@index([userId])
+  @@index([businessType])
+  @@index([isVerified])
+}
+
+model PartnerListing {
+  id              String          @id @default(cuid())
+  partnerId       String
+
+  // Listing Info
+  listingType     String          // hotel, car, tour, transfer, vehicle, property
+  listingId       String
+
+  // Status
+  status          ListingStatus   @default(DRAFT)
+  isActive        Boolean         @default(true)
+
+  // Performance
+  views           Int             @default(0)
+  bookings        Int             @default(0)
+  revenue         Decimal         @default(0)
+
+  createdAt       DateTime        @default(now())
+  updatedAt       DateTime        @updatedAt
+
+  // Relations
+  partner         PartnerProfile  @relation(fields: [partnerId], references: [id], onDelete: Cascade)
+
+  @@map("partner_listings")
+  @@index([partnerId])
+  @@index([listingType])
+  @@index([status])
+}
+
+model PartnerPayout {
+  id              String          @id @default(cuid())
+  partnerId       String
+
+  // Payout Details
+  amount          Decimal
+  currency        String          @default("TRY")
+  period          String          // "2025-01" for January 2025
+
+  // Status
+  status          PayoutStatus    @default(PENDING)
+  requestedAt     DateTime        @default(now())
+  processedAt     DateTime?
+  paidAt          DateTime?
+
+  // Payment Details
+  paymentMethod   String?
+  transactionId   String?
+
+  // Metadata
+  metadata        Json?           // Breakdown of earnings
+
+  createdAt       DateTime        @default(now())
+  updatedAt       DateTime        @updatedAt
+
+  // Relations
+  partner         PartnerProfile  @relation(fields: [partnerId], references: [id], onDelete: Cascade)
+
+  @@map("partner_payouts")
+  @@index([partnerId])
+  @@index([status])
+  @@index([period])
+}
+
+enum PartnerType {
+  PROPERTY_OWNER
+  CAR_RENTAL
+  TRANSFER_PROVIDER
+  VEHICLE_OWNER
+  TOUR_OPERATOR
+  HOTEL_MANAGER
+}
+
+enum ListingStatus {
+  DRAFT
+  PENDING_REVIEW
+  APPROVED
+  REJECTED
+  SUSPENDED
+}
+
+enum PayoutStatus {
+  PENDING
+  PROCESSING
+  COMPLETED
+  FAILED
+  CANCELLED
 }

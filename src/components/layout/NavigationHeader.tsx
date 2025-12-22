@@ -62,12 +62,62 @@ const NavigationHeader: React.FC = () => {
   const [searchHistory, setSearchHistory] = useState<string[]>([]);
   const [isAIAssistantOpen, setIsAIAssistantOpen] = useState(false);
   const [isSliderSearchOpen, setIsSliderSearchOpen] = useState(false);
+  const [dynamicMenuItems, setDynamicMenuItems] = useState<NavItem[]>([]);
+  const [dynamicToursItems, setDynamicToursItems] = useState<any[]>([]);
 
   // Global AI Assistant state management
   useEffect(() => {
     const handleOpenAI = () => setIsAIAssistantOpen(true);
     window.addEventListener('openAIAssistant', handleOpenAI);
     return () => window.removeEventListener('openAIAssistant', handleOpenAI);
+  }, []);
+
+  // Fetch dynamic navigation menus from API
+  useEffect(() => {
+    const fetchNavigationMenus = async () => {
+      try {
+        // Fetch header menus
+        const headerResponse = await fetch('/api/admin/navigation/menus?type=HEADER&isActive=true');
+        const headerResult = await headerResponse.json();
+
+        if (headerResult.success && headerResult.data) {
+          // Map icon strings to actual icon components
+          const iconMap: Record<string, LucideIcon> = {
+            MapPin, Compass, Star, Home, Car, Bus, Building2
+          };
+
+          const menus: NavItem[] = headerResult.data
+            .filter((menu: any) => !menu.parentId) // Only top-level menus
+            .map((menu: any) => ({
+              title: menu.translations?.tr?.title || menu.title,
+              href: menu.href,
+              icon: iconMap[menu.icon || 'MapPin'] || MapPin,
+              description: menu.translations?.tr?.description || menu.description || '',
+              badge: menu.badge,
+            }));
+
+          setDynamicMenuItems(menus);
+
+          // Find Tours parent and get its children for dropdown
+          const toursParent = headerResult.data.find((m: any) => m.slug === 'tours');
+          if (toursParent && toursParent.children) {
+            const toursSubmenus = toursParent.children.map((child: any) => ({
+              title: child.translations?.tr?.title || child.title,
+              href: child.href,
+              description: child.translations?.tr?.description || child.description || '',
+              icon: '🎯', // Could be enhanced to support emoji mapping
+              badge: child.badge || ''
+            }));
+            setDynamicToursItems(toursSubmenus);
+          }
+        }
+      } catch (error) {
+        console.error('Error fetching navigation menus:', error);
+        // Fallback to static menus on error - handled below
+      }
+    };
+
+    fetchNavigationMenus();
   }, []);
   
   const searchInputRef = useRef<HTMLInputElement>(null);
@@ -581,9 +631,10 @@ const NavigationHeader: React.FC = () => {
 
           {/* Navigation Items - Desktop */}
           <nav className="hidden lg:flex items-center space-x-1">
-            {mainNavItems.map((item) => {
+            {(dynamicMenuItems.length > 0 ? dynamicMenuItems : mainNavItems).map((item) => {
               const Icon = item.icon;
               const isTours = item.title === 'Turlar';
+              const toursItems = dynamicToursItems.length > 0 ? dynamicToursItems : toursMenuItems;
 
               if (isTours) {
                 return (
@@ -615,7 +666,7 @@ const NavigationHeader: React.FC = () => {
                           className="absolute top-full left-0 mt-2 w-80 bg-white rounded-xl shadow-2xl border border-gray-200 z-50 overflow-hidden"
                         >
                           <div className="p-2">
-                            {toursMenuItems.map((tour) => (
+                            {toursItems.map((tour) => (
                               <Link
                                 key={tour.href}
                                 href={tour.href}
@@ -888,9 +939,10 @@ const NavigationHeader: React.FC = () => {
 
               {/* Mobile Navigation */}
               <div className="space-y-1">
-                {mainNavItems.map((item) => {
+                {(dynamicMenuItems.length > 0 ? dynamicMenuItems : mainNavItems).map((item) => {
                   const Icon = item.icon;
                   const isTours = item.title === 'Turlar';
+                  const toursItems = dynamicToursItems.length > 0 ? dynamicToursItems : toursMenuItems;
 
                   if (isTours) {
                     return (
@@ -918,7 +970,7 @@ const NavigationHeader: React.FC = () => {
                               exit={{ opacity: 0, height: 0 }}
                               className="ml-8 mt-1 space-y-1"
                             >
-                              {toursMenuItems.map((tour) => (
+                              {toursItems.map((tour) => (
                                 <Link
                                   key={tour.href}
                                   href={tour.href}
