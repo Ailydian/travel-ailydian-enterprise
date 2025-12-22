@@ -462,6 +462,135 @@ const TransfersPage: React.FC = () => {
             </div>
           </section>
         )}
+
+        {/* Partner Program Section */}
+        <section className="py-20 bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-600 relative overflow-hidden">
+          {/* Background Pattern */}
+          <div className="absolute inset-0 opacity-10">
+            <div className="absolute inset-0" style={{
+              backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+            }}></div>
+          </div>
+
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div className="text-center mb-12">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="inline-flex items-center gap-2 px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-white mb-6"
+              >
+                <Sparkles className="w-5 h-5" />
+                <span className="font-semibold">Transfer Ortağı Olun</span>
+              </motion.div>
+
+              <motion.h2
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 }}
+                className="text-4xl md:text-5xl font-bold text-white mb-6"
+              >
+                Transfer Hizmetinizi{' '}
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-yellow-300 to-orange-300">
+                  Global Pazara
+                </span>{' '}
+                Taşıyın
+              </motion.h2>
+
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 }}
+                className="text-xl text-white/90 max-w-3xl mx-auto"
+              >
+                Ailydian ile dünyanın dört bir yanından müşterilere ulaşın. %0 komisyon ile başlayın,
+                kazancınızı maksimuma çıkarın.
+              </motion.p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-8 mb-12">
+              {[
+                {
+                  icon: <TrendingUp className="w-8 h-8" />,
+                  title: 'Yüksek Gelir',
+                  description: 'Aylık ortalama ₺35,000 - ₺95,000 kazanç fırsatı',
+                  color: 'from-yellow-400 to-orange-400',
+                },
+                {
+                  icon: <Shield className="w-8 h-8" />,
+                  title: 'Güvenli Ödeme',
+                  description: 'Otomatik ödeme sistemi ile garantili kazanç',
+                  color: 'from-green-400 to-emerald-400',
+                },
+                {
+                  icon: <Users className="w-8 h-8" />,
+                  title: 'Geniş Müşteri Ağı',
+                  description: '50+ ülkeden binlerce potansiyel müşteri',
+                  color: 'from-blue-400 to-cyan-400',
+                },
+              ].map((feature, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.1 * index }}
+                  className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 hover:bg-white/15 transition-all group"
+                >
+                  <div className={`inline-flex p-3 rounded-xl bg-gradient-to-r ${feature.color} text-white mb-4 group-hover:scale-110 transition-transform`}>
+                    {feature.icon}
+                  </div>
+                  <h3 className="text-xl font-bold text-white mb-2">{feature.title}</h3>
+                  <p className="text-white/80">{feature.description}</p>
+                </motion.div>
+              ))}
+            </div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.4 }}
+              className="flex flex-col sm:flex-row items-center justify-center gap-4"
+            >
+              <Link
+                href="/partner/transfer/dashboard"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-white text-blue-600 rounded-xl font-bold text-lg hover:bg-gray-50 transition-all hover:scale-105 shadow-2xl group"
+              >
+                <span>Partner Paneline Git</span>
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </Link>
+
+              <Link
+                href="/owner/auth/login?type=transfer"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-sm text-white rounded-xl font-bold text-lg hover:bg-white/20 transition-all border-2 border-white/30"
+              >
+                Giriş Yap
+              </Link>
+
+              <Link
+                href="/owner/auth/register?type=transfer"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-yellow-400 to-orange-400 text-gray-900 rounded-xl font-bold text-lg hover:from-yellow-300 hover:to-orange-300 transition-all shadow-2xl"
+              >
+                Ücretsiz Kayıt Ol
+              </Link>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.5 }}
+              className="mt-12 text-center"
+            >
+              <p className="text-white/70 text-sm">
+                ✨ İlk 3 ay %0 komisyon | 🎁 Ücretsiz profesyonel fotoğraf | 📱 7/24 destek
+              </p>
+            </motion.div>
+          </div>
+        </section>
       </main>
     </>
   );

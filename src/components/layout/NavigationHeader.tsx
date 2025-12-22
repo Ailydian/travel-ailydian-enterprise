@@ -316,6 +316,12 @@ const NavigationHeader: React.FC = () => {
       icon: Bus,
       description: 'Havalimanı ve şehir içi transfer'
     },
+    {
+      title: 'Partner',
+      href: '/partner',
+      icon: Building2,
+      description: 'Ortaklık fırsatları ve partner paneli'
+    },
   ];
 
   // Tours dropdown menu items
