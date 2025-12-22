@@ -1,6 +1,6 @@
 /**
- * Simple Navigation Header for Transfers and Car Rentals Pages
- * Only shows relevant menus with dropdown functionality and home button
+ * Simple Navigation Header for Service Pages
+ * Shows navigation menu with home button and language switcher
  */
 
 import React from 'react';
@@ -10,11 +10,12 @@ import {
   Home,
   Car as CarIcon,
   Bus,
+  Building2,
 } from 'lucide-react';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
 
 interface SimpleNavigationHeaderProps {
-  currentPage: 'transfers' | 'car-rentals';
+  currentPage: 'transfers' | 'car-rentals' | 'rentals';
 }
 
 const SimpleNavigationHeader: React.FC<SimpleNavigationHeaderProps> = ({ currentPage }) => {
@@ -35,6 +36,19 @@ const SimpleNavigationHeader: React.FC<SimpleNavigationHeaderProps> = ({ current
 
           {/* Navigation Menu */}
           <nav className="flex items-center space-x-2">
+            {/* Rentals Link */}
+            <Link
+              href="/rentals"
+              className={`flex items-center space-x-2 px-4 py-2 rounded-lg transition-colors duration-200 ${
+                currentPage === 'rentals'
+                  ? 'bg-purple-50 text-purple-600'
+                  : 'text-gray-700 hover:bg-gray-50'
+              }`}
+            >
+              <Building2 className="w-4 h-4" />
+              <span className="font-medium">Konaklama</span>
+            </Link>
+
             {/* Car Rentals Link */}
             <Link
               href="/car-rentals"

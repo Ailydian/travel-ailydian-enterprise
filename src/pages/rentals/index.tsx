@@ -33,6 +33,7 @@ import {
 import { HeartIcon as HeartSolidIcon, StarIcon as StarSolidIcon } from '@heroicons/react/24/solid';
 import { rentalProperties, RentalProperty, getPriceSavings } from '../../data/rental-properties';
 import { useToast } from '../../context/ToastContext';
+import SimpleNavigationHeader from '../../components/layout/SimpleNavigationHeader';
 
 // Dynamic imports for performance
 const MapView = dynamic(() => import('../../components/rentals/MapView'), { ssr: false });
@@ -242,6 +243,9 @@ const RentalsPage: React.FC = () => {
         <meta name="description" content="Türkiye'nin en popüler tatil bölgelerinde kiralık villa ve tatil evleri." />
         <meta name="keywords" content="kiralık villa, tatil evi, alanya villa, bodrum villa, marmaris villa, antalya kiralık daire" />
       </Head>
+
+      {/* Simple Navigation Header */}
+      <SimpleNavigationHeader currentPage="rentals" />
 
       <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100">
         {/* Header */}
