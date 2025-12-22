@@ -1,1188 +1,728 @@
 /**
- * 🚗 Antalya Airport Transfer - Premium Transfer Service
- * Complete transfer solution for Antalya region (AYT & GZP airports)
- * Industry-leading features: real-time pricing, vehicle selection, booking flow
- * SEO-optimized for Akdeniz region top rankings
+ * Transfers Listing Page - Viator Style
+ * Premium UI for airport & city transfers with route selection
  */
 
-import React, { useState, useEffect, useCallback, useMemo } from 'react';
-import Head from 'next/head';
-import { useRouter } from 'next/router';
+import React, { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { NextSeo } from 'next-seo';
+import Head from 'next/head';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 import {
+  Bus,
   Car,
+  Filter,
+  X,
   Search,
-  MapPin,
+  Star,
+  Heart,
+  Zap,
+  CheckCircle,
   Users,
-  Luggage,
+  DollarSign,
+  MapPin,
+  Settings,
+  ChevronDown,
+  Sparkles,
+  TrendingUp,
+  ArrowRight,
+  Plane,
+  Hotel,
   Calendar,
   Clock,
-  Star,
   Shield,
-  Wifi,
-  Coffee,
-  Sparkles,
-  ChevronRight,
-  Filter,
-  ArrowRight,
-  ShoppingCart,
-  CheckCircle,
-  Info,
-  Phone,
-  MessageCircle,
-  Award,
-  Zap,
-  Heart,
-  TrendingUp,
-  ArrowLeftRight,
-  Plus,
-  Minus,
-  X,
-  Check,
-  AlertCircle,
-  Baby,
-  MapPinned,
-  Navigation,
-  DollarSign,
-  Hand,
-  ShoppingBag,
-  UserCheck,
 } from 'lucide-react';
-import ResponsiveHeaderBar from '../../components/layout/ResponsiveHeaderBar';
-import { useCart } from '../../context/CartContext';
-import { logInfo, logError } from '../../lib/logger';
+import SimpleNavigationHeader from '@/components/layout/SimpleNavigationHeader';
 import {
-  ALL_ANTALYA_LOCATIONS,
-  ANTALYA_AIRPORTS,
-  getLocationById,
-  getPopularLocations,
-  searchLocations,
-  type TransferLocation,
-} from '../../data/antalya-transfer-locations';
-import {
-  TRANSFER_VEHICLES,
-  getVehiclesByCapacity,
-  calculateTransferPrice,
-  EXTRA_SERVICES,
-  type VehicleType,
-  type ExtraService,
-} from '../../data/transfer-vehicles';
+  TRANSFERS_SEO,
+  TRANSFER_SERVICE_SCHEMA,
+  TRANSFER_FAQ_SCHEMA,
+  generateBreadcrumbSchema
+} from '@/lib/seo-config';
 
-interface TransferSearchParams {
-  from: string;
-  to: string;
-  fromType: 'airport' | 'location';
-  toType: 'airport' | 'location';
-  passengers: number;
-  luggage: number;
-  date: string;
-  time: string;
-  returnDate?: string;
-  isRoundTrip: boolean;
+// Transfer vehicle types
+const TRANSFER_TYPES = [
+  { value: 'all', label: 'Tüm Araçlar', capacity: null },
+  { value: 'economy-sedan', label: 'Ekonomik Sedan', capacity: 3 },
+  { value: 'vip-sedan', label: 'VIP Sedan', capacity: 3 },
+  { value: 'minivan', label: 'Minivan', capacity: 7 },
+  { value: 'vip-minivan', label: 'VIP Minivan', capacity: 7 },
+  { value: 'minibus-14', label: 'Minibüs (14)', capacity: 14 },
+  { value: 'bus-30', label: 'Otobüs (30)', capacity: 30 },
+];
+
+// Popular routes
+const POPULAR_ROUTES = [
+  {
+    id: 'r1',
+    from: 'İstanbul Havalimanı',
+    to: 'Taksim',
+    distance: '45 km',
+    duration: '40 dk',
+    price: 250,
+    vehicles: 24,
+  },
+  {
+    id: 'r2',
+    from: 'Antalya Havalimanı',
+    to: 'Lara Oteller',
+    distance: '18 km',
+    duration: '25 dk',
+    price: 180,
+    vehicles: 18,
+  },
+  {
+    id: 'r3',
+    from: 'Sabiha Gökçen',
+    to: 'Kadıköy',
+    distance: '35 km',
+    duration: '35 dk',
+    price: 220,
+    vehicles: 31,
+  },
+];
+
+// Mock transfer data
+const MOCK_TRANSFERS = [
+  {
+    id: 't1',
+    company: 'VIP Transfer İstanbul',
+    vehicleType: 'vip-sedan',
+    vehicle: 'Mercedes E-Class',
+    capacity: 3,
+    luggage: 3,
+    image: 'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=800',
+    price: 280,
+    rating: 4.9,
+    reviews: 234,
+    city: 'İstanbul',
+    features: ['WiFi', 'Su', 'Klima', 'Profesyonel Şoför'],
+    instantBook: true,
+    d2License: true,
+    onTimeRate: 98,
+  },
+  {
+    id: 't2',
+    company: 'Antalya Premium Transfer',
+    vehicleType: 'minivan',
+    vehicle: 'Mercedes Vito',
+    capacity: 7,
+    luggage: 7,
+    image: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=800',
+    price: 350,
+    rating: 4.8,
+    reviews: 189,
+    city: 'Antalya',
+    features: ['WiFi', 'Soğuk İçecek', 'Çocuk Koltuğu', 'Klima'],
+    instantBook: true,
+    d2License: true,
+    onTimeRate: 96,
+  },
+  {
+    id: 't3',
+    company: 'Bodrum Airport Transfer',
+    vehicleType: 'vip-minivan',
+    vehicle: 'Mercedes Vito VIP',
+    capacity: 6,
+    luggage: 6,
+    image: 'https://images.unsplash.com/photo-1600054800747-be294a6a0d26?w=800',
+    price: 450,
+    rating: 5.0,
+    reviews: 156,
+    city: 'Bodrum',
+    features: ['Deri Koltuk', 'WiFi', 'Tablet', 'Premium Su'],
+    instantBook: true,
+    d2License: true,
+    onTimeRate: 99,
+  },
+];
+
+interface Filters {
+  city: string;
+  vehicleType: string;
+  capacity: number;
+  priceMin: number;
+  priceMax: number;
+  instantBook: boolean;
+  d2License: boolean;
 }
 
-interface TransferQuote {
-  fromLocation: TransferLocation;
-  toLocation: TransferLocation;
-  distance: number;
-  duration: number;
-  vehicles: Array<{
-    vehicle: VehicleType;
-    price: number;
-    priceReturn?: number;
-    totalPrice: number;
-  }>;
-}
-
-// Icon mapper for extra services
-const getExtraServiceIcon = (iconName: string) => {
-  const icons: Record<string, React.ElementType> = {
-    baby: Baby,
-    child: UserCheck,
-    meetgreet: Hand,
-    clock: Clock,
-    shopping: ShoppingBag,
-    wifi: Wifi,
-  };
-  return icons[iconName] || Baby;
-};
-
-export default function AntalyaTransferPage() {
+const TransfersPage: React.FC = () => {
   const router = useRouter();
-  const { addItem } = useCart();
 
-  // Search State
-  const [searchParams, setSearchParams] = useState<TransferSearchParams>({
+  const [showFilters, setShowFilters] = useState(false);
+  const [favorites, setFavorites] = useState<Set<string>>(new Set());
+  const [searchQuery, setSearchQuery] = useState('');
+  const [searchForm, setSearchForm] = useState({
     from: '',
     to: '',
-    fromType: 'airport',
-    toType: 'location',
-    passengers: 2,
-    luggage: 2,
-    date: new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString().split('T')[0],
-    time: '12:00',
-    isRoundTrip: false,
+    dateTime: '',
+    passengers: '1',
+    vehicleType: 'economy-sedan'
+  });
+  const [filters, setFilters] = useState<Filters>({
+    city: 'Tümü',
+    vehicleType: 'all',
+    capacity: 0,
+    priceMin: 0,
+    priceMax: 2000,
+    instantBook: false,
+    d2License: false,
   });
 
-  // UI State
-  const [quotes, setQuotes] = useState<TransferQuote | null>(null);
-  const [loading, setLoading] = useState(false);
-  const [selectedVehicle, setSelectedVehicle] = useState<VehicleType | null>(null);
-  const [selectedExtras, setSelectedExtras] = useState<string[]>([]);
-  const [showQuickBooking, setShowQuickBooking] = useState(false);
-  const [showToast, setShowToast] = useState(false);
-  const [toastMessage, setToastMessage] = useState('');
-  const [fromSuggestions, setFromSuggestions] = useState<TransferLocation[]>([]);
-  const [toSuggestions, setToSuggestions] = useState<TransferLocation[]>([]);
-  const [showFromDropdown, setShowFromDropdown] = useState(false);
-  const [showToDropdown, setShowToDropdown] = useState(false);
+  const handleSearch = () => {
+    // Update filters based on search form
+    const newFilters = { ...filters };
 
-  // Initialize from URL params
-  useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    if (params.get('from')) {
-      setSearchParams(prev => ({ ...prev, from: params.get('from')! }));
+    if (searchForm.vehicleType && searchForm.vehicleType !== 'all') {
+      newFilters.vehicleType = searchForm.vehicleType;
     }
-    if (params.get('to')) {
-      setSearchParams(prev => ({ ...prev, to: params.get('to')! }));
-    }
-  }, []);
 
-  // Handle "From" search
-  const handleFromSearch = useCallback((query: string) => {
-    setSearchParams(prev => ({ ...prev, from: query }));
-    if (query.length >= 2) {
-      const results = searchLocations(query);
-      const airports = results.filter(loc => loc.type === 'airport');
-      setFromSuggestions(airports.length > 0 ? airports : results.slice(0, 8));
-      setShowFromDropdown(true);
-    } else {
-      setShowFromDropdown(false);
-    }
-  }, []);
+    // Map passengers to capacity
+    const passengersMap: { [key: string]: number } = {
+      '1': 1,
+      '2': 2,
+      '3': 3,
+      '4-7': 4,
+      '8-14': 8,
+      '15+': 15
+    };
 
-  // Handle "To" search
-  const handleToSearch = useCallback((query: string) => {
-    setSearchParams(prev => ({ ...prev, to: query }));
-    if (query.length >= 2) {
-      const results = searchLocations(query);
-      setToSuggestions(results.slice(0, 10));
-      setShowToDropdown(true);
-    } else {
-      setShowToDropdown(false);
+    if (searchForm.passengers && passengersMap[searchForm.passengers]) {
+      newFilters.capacity = passengersMap[searchForm.passengers];
     }
-  }, []);
 
-  // Select location
-  const selectFromLocation = (location: TransferLocation) => {
-    setSearchParams(prev => ({
-      ...prev,
-      from: location.name,
-      fromType: location.type === 'airport' ? 'airport' : 'location',
-    }));
-    setShowFromDropdown(false);
+    setFilters(newFilters);
+    setShowFilters(true);
   };
 
-  const selectToLocation = (location: TransferLocation) => {
-    setSearchParams(prev => ({
-      ...prev,
-      to: location.name,
-      toType: location.type === 'airport' ? 'airport' : 'location',
-    }));
-    setShowToDropdown(false);
-  };
-
-  // Swap locations
-  const swapLocations = () => {
-    setSearchParams(prev => ({
-      ...prev,
-      from: prev.to,
-      to: prev.from,
-      fromType: prev.toType,
-      toType: prev.fromType,
-    }));
-  };
-
-  // Search transfers
-  const handleSearch = useCallback(async () => {
-    if (!searchParams.from || !searchParams.to) {
-      setToastMessage('⚠️ Lütfen kalkış ve varış noktalarını seçin');
-      setShowToast(true);
-      setTimeout(() => setShowToast(false), 3000);
-      return;
-    }
-
-    setLoading(true);
-    setQuotes(null);
-
-    try {
-      // Find locations
-      const fromLocations = searchLocations(searchParams.from);
-      const toLocations = searchLocations(searchParams.to);
-
-      const fromLoc = fromLocations[0];
-      const toLoc = toLocations[0];
-
-      if (!fromLoc || !toLoc) {
-        throw new Error('Lokasyon bulunamadı');
+  const toggleFavorite = (id: string) => {
+    setFavorites(prev => {
+      const newSet = new Set(prev);
+      if (newSet.has(id)) {
+        newSet.delete(id);
+      } else {
+        newSet.add(id);
       }
-
-      // Calculate distance and duration
-      const distance =
-        searchParams.fromType === 'airport' && searchParams.toType === 'location'
-          ? toLoc.distanceFromAYT || toLoc.distanceFromGZP
-          : searchParams.fromType === 'location' && searchParams.toType === 'airport'
-          ? fromLoc.distanceFromAYT || fromLoc.distanceFromGZP
-          : Math.abs(fromLoc.distanceFromAYT - toLoc.distanceFromAYT);
-
-      const duration =
-        searchParams.fromType === 'airport' && searchParams.toType === 'location'
-          ? toLoc.transferDuration.fromAYT || toLoc.transferDuration.fromGZP
-          : searchParams.fromType === 'location' && searchParams.toType === 'airport'
-          ? fromLoc.transferDuration.fromAYT || fromLoc.transferDuration.fromGZP
-          : Math.abs(fromLoc.transferDuration.fromAYT - toLoc.transferDuration.fromAYT);
-
-      // Get suitable vehicles
-      const suitableVehicles = getVehiclesByCapacity(searchParams.passengers);
-
-      // Calculate prices
-      const vehiclesWithPrices = suitableVehicles.map(vehicle => {
-        const price = calculateTransferPrice(distance, vehicle.id, false);
-        const priceReturn = searchParams.isRoundTrip
-          ? calculateTransferPrice(distance, vehicle.id, false)
-          : undefined;
-        const totalPrice = searchParams.isRoundTrip ? price + (priceReturn || 0) : price;
-
-        return {
-          vehicle,
-          price,
-          priceReturn,
-          totalPrice,
-        };
-      });
-
-      setQuotes({
-        fromLocation: fromLoc,
-        toLocation: toLoc,
-        distance,
-        duration,
-        vehicles: vehiclesWithPrices,
-      });
-
-      logInfo('Transfer quotes generated', {
-        from: fromLoc.name,
-        to: toLoc.name,
-        distance,
-        vehicleCount: vehiclesWithPrices.length,
-      });
-    } catch (error) {
-      logError('Transfer search failed', error);
-      setToastMessage('❌ Transfer araması başarısız oldu');
-      setShowToast(true);
-      setTimeout(() => setShowToast(false), 3000);
-    } finally {
-      setLoading(false);
-    }
-  }, [searchParams]);
-
-  // Add to cart
-  const handleAddToCart = useCallback(
-    (vehicleWithPrice: { vehicle: VehicleType; price: number; totalPrice: number }) => {
-      if (!quotes) return;
-
-      const extrasTotal = selectedExtras.reduce((sum, extraId) => {
-        const extra = EXTRA_SERVICES.find(e => e.id === extraId);
-        return sum + (extra?.price || 0);
-      }, 0);
-
-      addItem({
-        id: `transfer-${Date.now()}`,
-        type: 'tour',
-        title: `${vehicleWithPrice.vehicle.name} Transfer`,
-        description: `${quotes.fromLocation.name} → ${quotes.toLocation.name}${
-          searchParams.isRoundTrip ? ' (Gidiş-Dönüş)' : ''
-        }`,
-        image: vehicleWithPrice.vehicle.image,
-        price: vehicleWithPrice.totalPrice + extrasTotal,
-        currency: 'TRY',
-        quantity: 1,
-        location: `${quotes.fromLocation.name} - ${quotes.toLocation.name}`,
-        duration: `${quotes.duration} dakika`,
-        bookingDetails: {
-          meetingPoint: quotes.fromLocation.name,
-          specialRequests: `Araç: ${vehicleWithPrice.vehicle.name} | Kapasite: ${vehicleWithPrice.vehicle.capacity.passengers} kişi | Mesafe: ${quotes.distance}km | ${searchParams.isRoundTrip ? 'Gidiş-Dönüş' : 'Tek Yön'} | Ekstralar: ${selectedExtras.map(id => EXTRA_SERVICES.find(e => e.id === id)!.name).join(', ') || 'Yok'}`,
-          passengers: searchParams.passengers,
-        },
-        isRefundable: true,
-        cancellationPolicy: 'Ücretsiz iptal: 24 saat öncesine kadar',
-      });
-
-      setToastMessage(`✅ ${vehicleWithPrice.vehicle.name} sepete eklendi!`);
-      setShowToast(true);
-      setTimeout(() => setShowToast(false), 3000);
-      setSelectedExtras([]);
-    },
-    [quotes, searchParams, selectedExtras, addItem]
-  );
-
-  // Quick booking (Add to cart + Go to checkout)
-  const handleQuickBook = useCallback(
-    (vehicleWithPrice: { vehicle: VehicleType; price: number; totalPrice: number }) => {
-      handleAddToCart(vehicleWithPrice);
-      setTimeout(() => router.push('/cart'), 800);
-    },
-    [handleAddToCart, router]
-  );
-
-  // Popular routes
-  const popularRoutes = useMemo(
-    () => [
-      { from: 'AYT', to: 'lara', label: 'Antalya Havalimanı → Lara' },
-      { from: 'AYT', to: 'belek', label: 'Antalya Havalimanı → Belek' },
-      { from: 'AYT', to: 'side', label: 'Antalya Havalimanı → Side' },
-      { from: 'AYT', to: 'kemer', label: 'Antalya Havalimanı → Kemer' },
-      { from: 'GZP', to: 'alanya', label: 'Gazipaşa Havalimanı → Alanya' },
-      { from: 'GZP', to: 'mahmutlar', label: 'Gazipaşa Havalimanı → Mahmutlar' },
-    ],
-    []
-  );
-
-  const fillPopularRoute = (from: string, to: string) => {
-    const fromLoc = getLocationById(from);
-    const toLoc = getLocationById(to);
-    if (fromLoc && toLoc) {
-      setSearchParams(prev => ({
-        ...prev,
-        from: fromLoc.name,
-        to: toLoc.name,
-        fromType: fromLoc.type === 'airport' ? 'airport' : 'location',
-        toType: toLoc.type === 'airport' ? 'airport' : 'location',
-      }));
-      setTimeout(() => handleSearch(), 300);
-    }
+      return newSet;
+    });
   };
+
+  const filteredTransfers = useMemo(() => {
+    return MOCK_TRANSFERS.filter(transfer => {
+      if (filters.city !== 'Tümü' && transfer.city !== filters.city) return false;
+      if (filters.vehicleType !== 'all' && transfer.vehicleType !== filters.vehicleType) return false;
+      if (filters.capacity > 0 && transfer.capacity < filters.capacity) return false;
+      if (transfer.price < filters.priceMin || transfer.price > filters.priceMax) return false;
+      if (filters.instantBook && !transfer.instantBook) return false;
+      if (filters.d2License && !transfer.d2License) return false;
+      if (searchQuery && !transfer.company.toLowerCase().includes(searchQuery.toLowerCase())) return false;
+      return true;
+    });
+  }, [filters, searchQuery]);
+
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: 'Ana Sayfa', url: '/' },
+    { name: 'Transfer Hizmetleri', url: '/transfers' }
+  ]);
 
   return (
     <>
+      <NextSeo
+        {...TRANSFERS_SEO}
+      />
+
       <Head>
-        <title>
-          Antalya Havalimanı Transfer | AYT & Gazipaşa Transfer Hizmetleri | Ailydian
-        </title>
-        <meta
-          name="description"
-          content="Antalya Havalimanı (AYT) ve Gazipaşa (GZP) havalimanı transfer hizmetleri. Tüm Antalya ilçeleri: Lara, Belek, Side, Kemer, Alanya. VIP ve ekonomik araçlar, 7/24 hizmet, güvenli transfer."
+        <title>{TRANSFERS_SEO.title}</title>
+
+        {/* Structured Data - Schema.org */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(TRANSFER_SERVICE_SCHEMA) }}
         />
-        <meta
-          name="keywords"
-          content="antalya havalimanı transfer, antalya airport transfer, gazipaşa havalimanı transfer, belek transfer, side transfer, kemer transfer, alanya transfer, lara transfer, antalya vip transfer, ucuz transfer antalya, akdeniz transfer"
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(TRANSFER_FAQ_SCHEMA) }}
         />
-        <meta property="og:title" content="Antalya Havalimanı Transfer - Premium Transfer Hizmetleri" />
-        <meta
-          property="og:description"
-          content="Antalya ve Gazipaşa havalimanlarından tüm Akdeniz bölgesine transfer hizmetleri. Online rezervasyon, sabit fiyat garantisi."
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
         />
-        <link rel="canonical" href="https://travel.ailydian.com/transfers" />
       </Head>
 
-      <ResponsiveHeaderBar />
+      <SimpleNavigationHeader currentPage="transfers" />
 
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-blue-600 via-purple-600 to-pink-500 text-white pt-24 pb-32 md:pb-40 overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/patterns/grid.svg')] opacity-10"></div>
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/20"></div>
-
-        <div className="relative max-w-7xl mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-center mb-12"
-          >
-            {/* Badge */}
-            <motion.div
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ delay: 0.2 }}
-              className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-md px-4 py-2 rounded-full mb-6 border border-white/30"
-            >
-              <Sparkles className="w-4 h-4 text-yellow-300" />
-              <span className="text-sm font-semibold">7/24 Premium Transfer Hizmeti</span>
-            </motion.div>
-
-            {/* Title */}
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-              Antalya Havalimanı
-              <br />
-              <span className="bg-gradient-to-r from-yellow-300 to-pink-300 bg-clip-text text-transparent">
-                Transfer Hizmetleri
-              </span>
-            </h1>
-
-            {/* Subtitle */}
-            <p className="text-lg md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto">
-              Antalya (AYT) ve Gazipaşa (GZP) havalimanlarından tüm Akdeniz bölgesine
-              <br className="hidden md:block" />
-              güvenli, konforlu ve ekonomik transfer
-            </p>
-
-            {/* Features Grid */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
-              {[
-                { icon: Shield, label: '7/24 Güvenli', desc: 'Lisanslı Şoförler' },
-                { icon: Star, label: 'VIP Araçlar', desc: 'Lüks Filo' },
-                { icon: DollarSign, label: 'Sabit Fiyat', desc: 'Ek Ücret Yok' },
-                { icon: Award, label: '%100 Garanti', desc: 'Zamanında Teslimat' },
-              ].map((feature, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.4 + i * 0.1 }}
-                  className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 border border-white/20 hover:bg-white/20 transition-all"
-                >
-                  <feature.icon className="w-8 h-8 mx-auto mb-2 text-yellow-300" />
-                  <p className="text-sm font-bold mb-1">{feature.label}</p>
-                  <p className="text-xs text-white/70">{feature.desc}</p>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-        </div>
-
-        {/* Decorative Wave */}
-        <div className="absolute bottom-0 left-0 right-0">
-          <svg
-            className="w-full h-12 md:h-24 text-white"
-            viewBox="0 0 1440 120"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            preserveAspectRatio="none"
-          >
-            <path
-              d="M0 0L60 10C120 20 240 40 360 46.7C480 53 600 47 720 43.3C840 40 960 40 1080 46.7C1200 53 1320 67 1380 73.3L1440 80V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0V0Z"
-              fill="currentColor"
-            />
-          </svg>
-        </div>
-      </section>
-
-      {/* Search Section */}
-      <section className="-mt-20 md:-mt-32 relative z-10 mb-16">
-        <div className="max-w-7xl mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6 }}
-            className="bg-white rounded-3xl shadow-2xl p-6 md:p-10 border border-gray-100"
-          >
-            {/* Search Header */}
-            <div className="flex items-center justify-between mb-8">
-              <div className="flex items-center gap-4">
-                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center shadow-lg">
-                  <Search className="w-7 h-7 text-white" />
-                </div>
-                <div>
-                  <h2 className="text-3xl font-bold text-gray-900">Transfer Ara</h2>
-                  <p className="text-gray-600 mt-1">Size en uygun transfer seçeneğini bulun</p>
-                </div>
-              </div>
-
-              {/* Round Trip Toggle */}
-              <div className="hidden md:flex items-center gap-3 bg-gradient-to-r from-green-50 to-emerald-50 px-5 py-3 rounded-xl border border-green-200">
-                <input
-                  type="checkbox"
-                  id="round-trip"
-                  checked={searchParams.isRoundTrip}
-                  onChange={e => setSearchParams(prev => ({ ...prev, isRoundTrip: e.target.checked }))}
-                  className="w-5 h-5 rounded border-gray-300 text-green-600 focus:ring-green-500"
-                />
-                <label htmlFor="round-trip" className="flex items-center gap-2 cursor-pointer">
-                  <ArrowLeftRight className="w-5 h-5 text-green-600" />
-                  <span className="font-semibold text-gray-900">Gidiş-Dönüş</span>
-                  <span className="text-xs text-green-700 font-bold bg-green-200 px-2 py-0.5 rounded-full">
-                    %10 İndirim
-                  </span>
-                </label>
-              </div>
-            </div>
-
-            {/* Search Form */}
-            <div className="space-y-6">
-              {/* From & To */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {/* From */}
-                <div className="relative">
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">
-                    <MapPin className="w-4 h-4 inline mr-1 text-blue-600" />
-                    Nereden (Kalkış)
-                  </label>
-                  <div className="relative">
-                    <input
-                      type="text"
-                      value={searchParams.from}
-                      onChange={e => handleFromSearch(e.target.value)}
-                      onFocus={() => {
-                        if (searchParams.from.length >= 2) setShowFromDropdown(true);
-                      }}
-                      placeholder="Antalya Havalimanı, Gazipaşa..."
-                      className="w-full px-4 py-4 pr-12 rounded-xl border-2 border-gray-200 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-lg transition-all"
-                    />
-                    <MapPinned className="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
-                  </div>
-
-                  {/* From Dropdown */}
-                  <AnimatePresence>
-                    {showFromDropdown && fromSuggestions.length > 0 && (
-                      <motion.div
-                        initial={{ opacity: 0, y: -10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -10 }}
-                        className="absolute z-50 mt-2 w-full bg-white rounded-xl shadow-2xl border border-gray-200 max-h-80 overflow-y-auto"
-                      >
-                        {fromSuggestions.map(loc => (
-                          <button
-                            key={loc.id}
-                            onClick={() => selectFromLocation(loc)}
-                            className="w-full px-4 py-3 text-left hover:bg-blue-50 transition-colors flex items-center gap-3 border-b border-gray-100 last:border-0"
-                          >
-                            <MapPin className="w-4 h-4 text-blue-600" />
-                            <div className="flex-1">
-                              <p className="font-semibold text-gray-900">{loc.name}</p>
-                              <p className="text-xs text-gray-500">{loc.region}</p>
-                            </div>
-                            {loc.type === 'airport' && (
-                              <span className="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded-full font-bold">
-                                Havalimanı
-                              </span>
-                            )}
-                          </button>
-                        ))}
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
-
-                {/* To */}
-                <div className="relative">
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">
-                    <Navigation className="w-4 h-4 inline mr-1 text-purple-600" />
-                    Nereye (Varış)
-                  </label>
-                  <div className="relative">
-                    <input
-                      type="text"
-                      value={searchParams.to}
-                      onChange={e => handleToSearch(e.target.value)}
-                      onFocus={() => {
-                        if (searchParams.to.length >= 2) setShowToDropdown(true);
-                      }}
-                      placeholder="Lara, Belek, Side, Kemer, Alanya..."
-                      className="w-full px-4 py-4 pr-12 rounded-xl border-2 border-gray-200 focus:ring-2 focus:ring-purple-500 focus:border-purple-500 text-lg transition-all"
-                    />
-                    <button
-                      onClick={swapLocations}
-                      className="absolute right-12 top-1/2 -translate-y-1/2 p-2 rounded-lg hover:bg-gray-100 transition-colors z-10"
-                      title="Yerleri Değiştir"
-                    >
-                      <ArrowLeftRight className="w-5 h-5 text-gray-600 hover:text-purple-600" />
-                    </button>
-                    <MapPinned className="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 pointer-events-none" />
-                  </div>
-
-                  {/* To Dropdown */}
-                  <AnimatePresence>
-                    {showToDropdown && toSuggestions.length > 0 && (
-                      <motion.div
-                        initial={{ opacity: 0, y: -10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -10 }}
-                        className="absolute z-50 mt-2 w-full bg-white rounded-xl shadow-2xl border border-gray-200 max-h-80 overflow-y-auto"
-                      >
-                        {toSuggestions.map(loc => (
-                          <button
-                            key={loc.id}
-                            onClick={() => selectToLocation(loc)}
-                            className="w-full px-4 py-3 text-left hover:bg-purple-50 transition-colors flex items-center gap-3 border-b border-gray-100 last:border-0"
-                          >
-                            <Navigation className="w-4 h-4 text-purple-600" />
-                            <div className="flex-1">
-                              <p className="font-semibold text-gray-900">{loc.name}</p>
-                              <p className="text-xs text-gray-500">
-                                {loc.region} • {loc.distanceFromAYT}km from AYT
-                              </p>
-                            </div>
-                            {loc.popular && (
-                              <Star className="w-4 h-4 text-yellow-500 fill-current" />
-                            )}
-                          </button>
-                        ))}
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
-              </div>
-
-              {/* Date, Time, Passengers, Luggage */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
-                {/* Date */}
-                <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">
-                    <Calendar className="w-4 h-4 inline mr-1 text-green-600" />
-                    Tarih
-                  </label>
-                  <input
-                    type="date"
-                    value={searchParams.date}
-                    onChange={e => setSearchParams(prev => ({ ...prev, date: e.target.value }))}
-                    min={new Date().toISOString().split('T')[0]}
-                    className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all"
-                  />
-                </div>
-
-                {/* Time */}
-                <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">
-                    <Clock className="w-4 h-4 inline mr-1 text-orange-600" />
-                    Saat
-                  </label>
-                  <input
-                    type="time"
-                    value={searchParams.time}
-                    onChange={e => setSearchParams(prev => ({ ...prev, time: e.target.value }))}
-                    className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-all"
-                  />
-                </div>
-
-                {/* Passengers */}
-                <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">
-                    <Users className="w-4 h-4 inline mr-1 text-indigo-600" />
-                    Yolcu
-                  </label>
-                  <div className="flex items-center gap-2">
-                    <button
-                      onClick={() =>
-                        setSearchParams(prev => ({ ...prev, passengers: Math.max(1, prev.passengers - 1) }))
-                      }
-                      className="flex-shrink-0 w-10 h-12 rounded-lg bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors"
-                    >
-                      <Minus className="w-4 h-4" />
-                    </button>
-                    <div className="flex-1 min-w-0 text-center text-lg font-bold text-gray-900 bg-gray-50 rounded-lg py-3">
-                      {searchParams.passengers}
-                    </div>
-                    <button
-                      onClick={() =>
-                        setSearchParams(prev => ({ ...prev, passengers: Math.min(30, prev.passengers + 1) }))
-                      }
-                      className="flex-shrink-0 w-10 h-12 rounded-lg bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors"
-                    >
-                      <Plus className="w-4 h-4" />
-                    </button>
-                  </div>
-                </div>
-
-                {/* Luggage */}
-                <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">
-                    <Luggage className="w-4 h-4 inline mr-1 text-red-600" />
-                    Bagaj
-                  </label>
-                  <div className="flex items-center gap-2">
-                    <button
-                      onClick={() =>
-                        setSearchParams(prev => ({ ...prev, luggage: Math.max(0, prev.luggage - 1) }))
-                      }
-                      className="flex-shrink-0 w-10 h-12 rounded-lg bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors"
-                    >
-                      <Minus className="w-4 h-4" />
-                    </button>
-                    <div className="flex-1 min-w-0 text-center text-lg font-bold text-gray-900 bg-gray-50 rounded-lg py-3">
-                      {searchParams.luggage}
-                    </div>
-                    <button
-                      onClick={() =>
-                        setSearchParams(prev => ({ ...prev, luggage: Math.min(20, prev.luggage + 1) }))
-                      }
-                      className="flex-shrink-0 w-10 h-12 rounded-lg bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors"
-                    >
-                      <Plus className="w-4 h-4" />
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-              {/* Mobile Round Trip */}
-              <div className="md:hidden flex items-center gap-3 bg-gradient-to-r from-green-50 to-emerald-50 px-5 py-3 rounded-xl border border-green-200">
-                <input
-                  type="checkbox"
-                  id="round-trip-mobile"
-                  checked={searchParams.isRoundTrip}
-                  onChange={e => setSearchParams(prev => ({ ...prev, isRoundTrip: e.target.checked }))}
-                  className="w-5 h-5 rounded border-gray-300 text-green-600 focus:ring-green-500"
-                />
-                <label htmlFor="round-trip-mobile" className="flex items-center gap-2 cursor-pointer flex-1">
-                  <ArrowLeftRight className="w-5 h-5 text-green-600" />
-                  <span className="font-semibold text-gray-900">Gidiş-Dönüş</span>
-                  <span className="text-xs text-green-700 font-bold bg-green-200 px-2 py-0.5 rounded-full">
-                    %10 İndirim
-                  </span>
-                </label>
-              </div>
-
-              {/* Search Button */}
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                onClick={handleSearch}
-                disabled={loading}
-                className="w-full py-5 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-white rounded-2xl font-bold text-lg shadow-2xl hover:shadow-3xl transition-all duration-300 flex items-center justify-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                {loading ? (
-                  <>
-                    <div className="w-6 h-6 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
-                    Araçlar Bulunuyor...
-                  </>
-                ) : (
-                  <>
-                    <Search className="w-6 h-6" />
-                    Transfer Seçeneklerini Göster
-                    <ChevronRight className="w-6 h-6" />
-                  </>
-                )}
-              </motion.button>
-            </div>
-
-            {/* Popular Routes */}
-            <div className="mt-8 pt-8 border-t border-gray-200">
-              <h3 className="text-sm font-semibold text-gray-700 mb-4 flex items-center gap-2">
-                <TrendingUp className="w-4 h-4 text-blue-600" />
-                Popüler Transferler:
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                {popularRoutes.map((route, i) => (
-                  <button
-                    key={i}
-                    onClick={() => fillPopularRoute(route.from, route.to)}
-                    className="px-4 py-2 bg-gradient-to-r from-blue-50 to-purple-50 hover:from-blue-100 hover:to-purple-100 border border-blue-200 text-blue-700 rounded-full text-sm font-medium transition-all duration-200 hover:shadow-md"
-                  >
-                    {route.label}
-                  </button>
-                ))}
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Quotes/Results Section */}
-      {quotes && (
-        <section className="max-w-7xl mx-auto px-4 mb-16">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-          >
-            {/* Result Header */}
-            <div className="mb-8">
-              <h2 className="text-4xl font-bold text-gray-900 mb-4">
-                Transfer Seçenekleri
-              </h2>
-              <div className="flex items-center gap-4 text-gray-600">
-                <div className="flex items-center gap-2">
-                  <MapPin className="w-5 h-5 text-blue-600" />
-                  <span className="font-semibold">{quotes.fromLocation.name}</span>
-                </div>
-                <ArrowRight className="w-5 h-5" />
-                <div className="flex items-center gap-2">
-                  <Navigation className="w-5 h-5 text-purple-600" />
-                  <span className="font-semibold">{quotes.toLocation.name}</span>
-                </div>
-                <span className="text-gray-400">•</span>
-                <div className="flex items-center gap-2">
-                  <MapPin className="w-4 h-4 text-gray-400" />
-                  <span>{quotes.distance} km</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Clock className="w-4 h-4 text-gray-400" />
-                  <span>{quotes.duration} dakika</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Vehicles Grid */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-              {quotes.vehicles.map((vehicleQuote, index) => (
-                <motion.div
-                  key={vehicleQuote.vehicle.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                  className="bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden border-2 border-gray-100 hover:border-blue-200"
-                >
-                  {/* Vehicle Image */}
-                  <div className="relative h-56 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center p-8">
-                    <Car className="w-32 h-32 text-gray-400" />
-                    {vehicleQuote.vehicle.popular && (
-                      <div className="absolute top-4 right-4 bg-gradient-to-r from-yellow-400 to-orange-500 text-white px-4 py-2 rounded-full text-sm font-bold flex items-center gap-2 shadow-lg">
-                        <Star className="w-4 h-4 fill-current" />
-                        Popüler
-                      </div>
-                    )}
-                    {vehicleQuote.vehicle.category === 'luxury' && (
-                      <div className="absolute top-4 left-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white px-4 py-2 rounded-full text-sm font-bold flex items-center gap-2 shadow-lg">
-                        <Sparkles className="w-4 h-4" />
-                        Lüks
-                      </div>
-                    )}
-                  </div>
-
-                  {/* Vehicle Info */}
-                  <div className="p-6">
-                    {/* Title */}
-                    <div className="mb-4">
-                      <h3 className="text-2xl font-bold text-gray-900 mb-2">
-                        {vehicleQuote.vehicle.name}
-                      </h3>
-                      <p className="text-gray-600">{vehicleQuote.vehicle.description}</p>
-                    </div>
-
-                    {/* Capacity */}
-                    <div className="flex items-center gap-6 mb-6 pb-6 border-b border-gray-200">
-                      <div className="flex items-center gap-2">
-                        <Users className="w-5 h-5 text-blue-600" />
-                        <span className="font-semibold text-gray-900">
-                          {vehicleQuote.vehicle.capacity.passengers} Yolcu
-                        </span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <Luggage className="w-5 h-5 text-purple-600" />
-                        <span className="font-semibold text-gray-900">
-                          {vehicleQuote.vehicle.capacity.luggage} Bagaj
-                        </span>
-                      </div>
-                    </div>
-
-                    {/* Features */}
-                    <div className="mb-6">
-                      <h4 className="text-sm font-semibold text-gray-700 mb-3 flex items-center gap-2">
-                        <CheckCircle className="w-4 h-4 text-green-600" />
-                        Özellikler:
-                      </h4>
-                      <div className="grid grid-cols-2 gap-2">
-                        {vehicleQuote.vehicle.features.slice(0, 6).map((feature, i) => (
-                          <div key={i} className="flex items-center gap-2 text-sm text-gray-600">
-                            <Check className="w-4 h-4 text-green-600 flex-shrink-0" />
-                            <span>{feature}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* Pricing */}
-                    <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-5 mb-6 border border-blue-100">
-                      <div className="flex items-center justify-between mb-3">
-                        <span className="text-gray-700 font-semibold">Tek Yön:</span>
-                        <span className="text-3xl font-bold text-blue-600">
-                          {vehicleQuote.price} ₺
-                        </span>
-                      </div>
-                      {searchParams.isRoundTrip && vehicleQuote.priceReturn && (
-                        <>
-                          <div className="flex items-center justify-between mb-3 text-sm">
-                            <span className="text-gray-600">Dönüş:</span>
-                            <span className="text-gray-600 line-through">
-                              {vehicleQuote.priceReturn} ₺
-                            </span>
-                          </div>
-                          <div className="flex items-center justify-between pt-3 border-t border-blue-200">
-                            <span className="font-bold text-gray-900">Toplam (Gidiş-Dönüş):</span>
-                            <div className="text-right">
-                              <div className="text-xs text-green-600 font-semibold mb-1">%10 İndirim Uygulandı</div>
-                              <span className="text-3xl font-bold text-green-600">
-                                {vehicleQuote.totalPrice} ₺
-                              </span>
-                            </div>
-                          </div>
-                        </>
-                      )}
-                    </div>
-
-                    {/* Actions */}
-                    <div className="flex flex-col gap-3">
-                      <motion.button
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.98 }}
-                        onClick={() => handleQuickBook(vehicleQuote)}
-                        className="w-full py-4 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-white rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all duration-200 flex items-center justify-center gap-2"
-                      >
-                        <ShoppingCart className="w-5 h-5" />
-                        Hemen Rezervasyon Yap
-                        <ChevronRight className="w-5 h-5" />
-                      </motion.button>
-
-                      <motion.button
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.98 }}
-                        onClick={() => handleAddToCart(vehicleQuote)}
-                        className="w-full py-3 border-2 border-blue-600 text-blue-600 rounded-xl font-semibold hover:bg-blue-50 transition-colors flex items-center justify-center gap-2"
-                      >
-                        <ShoppingCart className="w-5 h-5" />
-                        Sepete Ekle
-                      </motion.button>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-
-            {/* Extra Services */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
-              className="mt-8 bg-gradient-to-r from-yellow-50 to-amber-50 rounded-3xl p-8 border-2 border-yellow-200"
-            >
-              <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
-                <Plus className="w-7 h-7 text-yellow-600" />
-                Ekstra Hizmetler
-              </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                {EXTRA_SERVICES.map(extra => (
-                  <label
-                    key={extra.id}
-                    className="flex items-center gap-4 p-4 bg-white rounded-xl border-2 border-gray-200 hover:border-yellow-400 cursor-pointer transition-all"
-                  >
-                    <input
-                      type="checkbox"
-                      checked={selectedExtras.includes(extra.id)}
-                      onChange={e => {
-                        if (e.target.checked) {
-                          setSelectedExtras(prev => [...prev, extra.id]);
-                        } else {
-                          setSelectedExtras(prev => prev.filter(id => id !== extra.id));
-                        }
-                      }}
-                      className="w-5 h-5 rounded border-gray-300 text-yellow-600 focus:ring-yellow-500"
-                    />
-                    <div className="flex-1">
-                      <div className="flex items-center gap-2 mb-1">
-                        {React.createElement(getExtraServiceIcon(extra.iconName), {
-                          className: "w-6 h-6 text-yellow-600"
-                        })}
-                        <p className="font-semibold text-gray-900">{extra.name}</p>
-                      </div>
-                      <p className="text-xs text-gray-600">{extra.description}</p>
-                    </div>
-                    <div className="text-right">
-                      <p className="text-lg font-bold text-yellow-600">+{extra.price} ₺</p>
-                    </div>
-                  </label>
-                ))}
-              </div>
-              {selectedExtras.length > 0 && (
-                <div className="mt-6 pt-6 border-t border-yellow-200 flex items-center justify-between">
-                  <span className="text-lg font-semibold text-gray-900">Ekstra Hizmetler Toplamı:</span>
-                  <span className="text-2xl font-bold text-yellow-600">
-                    +
-                    {selectedExtras.reduce((sum, id) => {
-                      const extra = EXTRA_SERVICES.find(e => e.id === id);
-                      return sum + (extra?.price || 0);
-                    }, 0)}{' '}
-                    ₺
-                  </span>
-                </div>
-              )}
-            </motion.div>
-          </motion.div>
-        </section>
-      )}
-
-      {/* Why Choose Us */}
-      <section className="bg-gradient-to-br from-gray-50 to-blue-50 py-20">
-        <div className="max-w-7xl mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Neden Ailydian Transfer?
-            </h2>
-            <p className="text-xl text-gray-600">
-              Akdeniz bölgesinin en güvenilir transfer hizmeti
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              {
-                icon: Shield,
-                title: '7/24 Güvenli Transfer',
-                desc: 'Lisanslı şoförler ve sigortalı araçlarla güvenle seyahat edin',
-                color: 'blue',
-              },
-              {
-                icon: DollarSign,
-                title: 'Sabit Fiyat Garantisi',
-                desc: 'Rezervasyon sonrası ek ücret yok, şeffaf fiyatlandırma',
-                color: 'green',
-              },
-              {
-                icon: Award,
-                title: '%100 Zamanında',
-                desc: 'Uçuş takibi ile gecikmesiz karşılama garantisi',
-                color: 'purple',
-              },
-              {
-                icon: Heart,
-                title: 'Müşteri Memnuniyeti',
-                desc: '50,000+ mutlu müşteri, %98 memnuniyet oranı',
-                color: 'pink',
-              },
-            ].map((feature, i) => (
+      <main className="min-h-screen bg-gray-50">
+        {/* Hero Section with Stats - Same as rentals page */}
+        <section className="relative bg-gradient-to-br from-blue-600 via-cyan-600 to-blue-700 text-white py-20">
+          <div className="max-w-7xl mx-auto px-4">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <motion.div
-                key={i}
+                initial={{ opacity: 0, x: -30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6 }}
+              >
+                <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/20 rounded-full mb-6">
+                  <Bus className="w-5 h-5" />
+                  <span className="text-sm font-medium">Transfer Hizmetleri</span>
+                </div>
+
+                <h1 className="text-5xl md:text-6xl font-black mb-6 leading-tight">
+                  Güvenli ve Konforlu
+                  <br />
+                  <span className="text-blue-200">Transfer Deneyimi</span>
+                </h1>
+
+                <p className="text-xl text-blue-50 mb-8 leading-relaxed">
+                  D2 belgeli transfer firmaları ile havaalanı, otel ve şehir içi transferleriniz güvende. 7/24 hizmet.
+                </p>
+
+                {/* Advanced Transfer Search Form */}
+                <div className="bg-white rounded-2xl p-6 shadow-2xl">
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+                    {/* From Location */}
+                    <div className="relative">
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        <MapPin className="w-4 h-4 inline mr-1" />
+                        Nereden
+                      </label>
+                      <input
+                        type="text"
+                        value={searchForm.from}
+                        onChange={(e) => setSearchForm({ ...searchForm, from: e.target.value })}
+                        placeholder="İstanbul Havalimanı..."
+                        className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      />
+                    </div>
+
+                    {/* To Location */}
+                    <div className="relative">
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        <MapPin className="w-4 h-4 inline mr-1" />
+                        Nereye
+                      </label>
+                      <input
+                        type="text"
+                        value={searchForm.to}
+                        onChange={(e) => setSearchForm({ ...searchForm, to: e.target.value })}
+                        placeholder="Taksim Meydanı..."
+                        className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      />
+                    </div>
+
+                    {/* Date & Time */}
+                    <div className="relative">
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        <Calendar className="w-4 h-4 inline mr-1" />
+                        Tarih & Saat
+                      </label>
+                      <input
+                        type="datetime-local"
+                        value={searchForm.dateTime}
+                        onChange={(e) => setSearchForm({ ...searchForm, dateTime: e.target.value })}
+                        className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    {/* Passengers */}
+                    <div className="relative">
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        <Users className="w-4 h-4 inline mr-1" />
+                        Yolcu Sayısı
+                      </label>
+                      <select
+                        value={searchForm.passengers}
+                        onChange={(e) => setSearchForm({ ...searchForm, passengers: e.target.value })}
+                        className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      >
+                        <option value="1">1 Kişi</option>
+                        <option value="2">2 Kişi</option>
+                        <option value="3">3 Kişi</option>
+                        <option value="4-7">4-7 Kişi</option>
+                        <option value="8-14">8-14 Kişi</option>
+                        <option value="15+">15+ Kişi (Grup)</option>
+                      </select>
+                    </div>
+
+                    {/* Vehicle Type */}
+                    <div className="relative">
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        <Car className="w-4 h-4 inline mr-1" />
+                        Araç Tipi
+                      </label>
+                      <select
+                        value={searchForm.vehicleType}
+                        onChange={(e) => setSearchForm({ ...searchForm, vehicleType: e.target.value })}
+                        className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      >
+                        <option value="economy-sedan">Ekonomik Sedan</option>
+                        <option value="vip-sedan">VIP Sedan</option>
+                        <option value="minivan">Minivan (7 kişi)</option>
+                        <option value="vip-minivan">VIP Minivan</option>
+                        <option value="minibus">Minibüs (14 kişi)</option>
+                        <option value="bus">Otobüs (30 kişi)</option>
+                      </select>
+                    </div>
+
+                    {/* Search Button */}
+                    <div className="flex items-end">
+                      <button
+                        onClick={handleSearch}
+                        className="w-full px-8 py-3 bg-gradient-to-r from-blue-600 to-cyan-600 text-white rounded-lg font-semibold hover:shadow-lg hover:scale-105 transition-all flex items-center justify-center gap-2"
+                      >
+                        <Search className="w-5 h-5" />
+                        Transfer Ara
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, x: 30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="grid grid-cols-2 gap-4"
+              >
+                <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20">
+                  <Bus className="w-8 h-8 text-blue-200 mb-3" />
+                  <div className="text-3xl font-bold mb-1">128</div>
+                  <div className="text-blue-100 text-sm">Toplam Filo</div>
+                </div>
+
+                <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20">
+                  <TrendingUp className="w-8 h-8 text-blue-200 mb-3" />
+                  <div className="text-3xl font-bold mb-1">₺210K+</div>
+                  <div className="text-blue-100 text-sm">Aylık Gelir</div>
+                </div>
+
+                <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20">
+                  <Clock className="w-8 h-8 text-blue-200 mb-3" />
+                  <div className="text-3xl font-bold mb-1">96.8%</div>
+                  <div className="text-blue-100 text-sm">Zamanında Teslimat</div>
+                </div>
+
+                <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20">
+                  <Star className="w-8 h-8 text-blue-200 mb-3" />
+                  <div className="text-3xl font-bold mb-1">4.9/5</div>
+                  <div className="text-blue-100 text-sm">Memnuniyet</div>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
+        {/* Owner CTA Banner - Same as rentals */}
+        <section className="bg-gradient-to-r from-blue-50 to-cyan-50 border-y border-blue-100">
+          <div className="max-w-7xl mx-auto px-4 py-8">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+              <div className="flex items-center gap-4">
+                <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center">
+                  <Bus className="w-8 h-8 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-1">
+                    Transfer Filonuzu Kiraya Verin
+                  </h3>
+                  <p className="text-gray-600">
+                    Profesyonel dashboard ile transfer araçlarınızı ve rotalarınızı yönetin
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-4">
+                <div className="text-right">
+                  <div className="text-sm text-gray-500">Ortalama Aylık Gelir</div>
+                  <div className="text-2xl font-bold text-blue-600">₺12,000</div>
+                </div>
+                <Link href="/transfer-owner">
+                  <button className="px-6 py-3 bg-gradient-to-r from-blue-600 to-cyan-600 text-white rounded-xl font-semibold hover:shadow-lg transition-all flex items-center gap-2">
+                    Kayıt Ol
+                    <ArrowRight className="w-5 h-5" />
+                  </button>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Promotional Content Section with Animated Images */}
+        <section className="bg-white py-16">
+          <div className="max-w-7xl mx-auto px-4">
+            <div className="text-center mb-12">
+              <motion.h2
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100"
+                className="text-4xl font-black text-gray-900 mb-4"
               >
-                <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br from-${feature.color}-500 to-${feature.color}-600 flex items-center justify-center mb-4 shadow-lg`}>
-                  <feature.icon className="w-8 h-8 text-white" />
+                Neden Ailydian Transfer?
+              </motion.h2>
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 }}
+                className="text-xl text-gray-600"
+              >
+                Güvenli, konforlu ve zamanında transfer hizmetinin avantajları
+              </motion.p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {/* Feature 1 */}
+              <motion.div
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 }}
+                className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-blue-50 to-cyan-100 p-8"
+              >
+                <motion.div
+                  animate={{ y: [0, -10, 0] }}
+                  transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                  className="absolute top-4 right-4 w-24 h-24 bg-blue-200 rounded-full opacity-50 blur-2xl"
+                />
+                <div className="relative z-10">
+                  <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-2xl flex items-center justify-center mb-6">
+                    <Shield className="w-8 h-8 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-3">
+                    D2 Belgeli Transfer Firmaları
+                  </h3>
+                  <p className="text-gray-600 leading-relaxed">
+                    Sadece yasal D2 belgeli transfer firmaları. Tüm sürücülerimiz SRC belgeli. Tam kapsamlı sigorta garantisi.
+                  </p>
+                  <div className="mt-6 flex items-center gap-2 text-sm text-blue-600 font-semibold">
+                    <CheckCircle className="w-5 h-5" />
+                    <span>128 Doğrulanmış Filo</span>
+                  </div>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">{feature.title}</h3>
-                <p className="text-gray-600">{feature.desc}</p>
               </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      {/* FAQ */}
-      <section className="max-w-4xl mx-auto px-4 py-20">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-12"
-        >
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
-            Sıkça Sorulan Sorular
-          </h2>
-        </motion.div>
+              {/* Feature 2 */}
+              <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.3 }}
+                className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-green-50 to-emerald-100 p-8"
+              >
+                <motion.div
+                  animate={{ scale: [1, 1.2, 1] }}
+                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                  className="absolute bottom-4 left-4 w-32 h-32 bg-green-200 rounded-full opacity-40 blur-3xl"
+                />
+                <div className="relative z-10">
+                  <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl flex items-center justify-center mb-6">
+                    <Clock className="w-8 h-8 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-3">
+                    7/24 Hizmet & Zamanında Teslimat
+                  </h3>
+                  <p className="text-gray-600 leading-relaxed">
+                    Havalimanı transferlerinde %96.8 zamanında teslimat oranı. Geciken uçuşlar için otomatik takip. 7/24 müşteri desteği.
+                  </p>
+                  <div className="mt-6 flex items-center gap-2 text-sm text-green-600 font-semibold">
+                    <Users className="w-5 h-5" />
+                    <span>7/24 Canlı Destek</span>
+                  </div>
+                </div>
+              </motion.div>
 
-        <div className="space-y-4">
-          {[
-            {
-              q: 'Transfer rezervasyonu nasıl yapılır?',
-              a: 'Yukarıdaki arama formunu doldurarak kalkış ve varış noktalarınızı, tarih ve yolcu sayınızı seçin. Size uygun aracı seçtikten sonra sepete ekleyerek rezervasyonunuzu tamamlayabilirsiniz.',
-            },
-            {
-              q: 'Ödeme nasıl yapılır?',
-              a: 'Kredi kartı, banka kartı ve havale ile ödeme yapabilirsiniz. Tüm ödemeler SSL sertifikası ile güvenli şekilde işlenir.',
-            },
-            {
-              q: 'Uçuşum gecikirse ne olur?',
-              a: 'Şoförlerimiz uçuş takibi yapar. Uçuşunuz gecikirse şoförünüz sizi bekler, ek ücret talep edilmez.',
-            },
-            {
-              q: 'İptal politikası nedir?',
-              a: 'Transfer tarihinden 24 saat öncesine kadar ücretsiz iptal hakkınız bulunmaktadır.',
-            },
-          ].map((faq, i) => (
+              {/* Feature 3 */}
+              <motion.div
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.4 }}
+                className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-purple-50 to-pink-100 p-8"
+              >
+                <motion.div
+                  animate={{ rotate: [0, 360] }}
+                  transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                  className="absolute top-1/2 right-1/2 w-40 h-40 bg-purple-200 rounded-full opacity-30 blur-3xl"
+                />
+                <div className="relative z-10">
+                  <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center mb-6">
+                    <DollarSign className="w-8 h-8 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-3">
+                    Sabit Fiyat Garantisi
+                  </h3>
+                  <p className="text-gray-600 leading-relaxed">
+                    Gizli ücret yok, trafik ücreti yok. Rezervasyonda gördüğünüz fiyat nihai fiyat. İstanbul Havalimanı transfer sadece ₺250'dan başlıyor.
+                  </p>
+                  <div className="mt-6 flex items-center gap-2 text-sm text-purple-600 font-semibold">
+                    <TrendingUp className="w-5 h-5" />
+                    <span>Sabit Fiyat</span>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+
+            {/* How It Works Section */}
             <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100"
+              transition={{ delay: 0.5 }}
+              className="mt-16 bg-gradient-to-r from-gray-50 to-gray-100 rounded-3xl p-12"
             >
-              <h3 className="text-lg font-bold text-gray-900 mb-3 flex items-center gap-3">
-                <Info className="w-5 h-5 text-blue-600 flex-shrink-0" />
-                {faq.q}
+              <h3 className="text-3xl font-black text-gray-900 mb-8 text-center">
+                Nasıl Çalışır?
               </h3>
-              <p className="text-gray-600 pl-8">{faq.a}</p>
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-2xl font-bold">
+                    1
+                  </div>
+                  <h4 className="font-bold text-gray-900 mb-2">Rota Seçin</h4>
+                  <p className="text-sm text-gray-600">Nereden nereye gitmek istediğinizi belirtin</p>
+                </div>
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-2xl font-bold">
+                    2
+                  </div>
+                  <h4 className="font-bold text-gray-900 mb-2">Araç Türü</h4>
+                  <p className="text-sm text-gray-600">Ekonomik, VIP veya grup transfer seçin</p>
+                </div>
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-2xl font-bold">
+                    3
+                  </div>
+                  <h4 className="font-bold text-gray-900 mb-2">Anında Rezervasyon</h4>
+                  <p className="text-sm text-gray-600">Onay SMS ve e-posta anında gelir</p>
+                </div>
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-2xl font-bold">
+                    4
+                  </div>
+                  <h4 className="font-bold text-gray-900 mb-2">Rahat Yolculuk</h4>
+                  <p className="text-sm text-gray-600">Sürücünüz sizi zamanında karşılar</p>
+                </div>
+              </div>
             </motion.div>
-          ))}
-        </div>
-      </section>
+          </div>
+        </section>
 
-      {/* CTA Section */}
-      <section className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-white py-20">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Güvenli ve Konforlu Yolculuk İçin
-            </h2>
-            <p className="text-xl md:text-2xl text-white/90 mb-8">
-              Hemen rezervasyon yapın, sorunsuz transfer deneyimi yaşayın
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <a
-                href="#search"
-                onClick={e => {
-                  e.preventDefault();
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
-                }}
-                className="px-8 py-4 bg-white text-blue-600 rounded-xl font-bold text-lg shadow-2xl hover:shadow-3xl transition-all duration-300 flex items-center gap-2"
-              >
-                <Search className="w-6 h-6" />
-                Hemen Transfer Ara
-              </a>
-              <a
-                href="tel:+908501234567"
-                className="px-8 py-4 bg-white/10 backdrop-blur-sm border-2 border-white text-white rounded-xl font-bold text-lg hover:bg-white/20 transition-all duration-300 flex items-center gap-2"
-              >
-                <Phone className="w-6 h-6" />
-                0850 123 45 67
-              </a>
+        {/* More sections continue... */}
+        <section className="bg-white py-12">
+          <div className="max-w-7xl mx-auto px-4">
+            <h2 className="text-3xl font-bold text-gray-900 mb-8">Popüler Rotalar</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {POPULAR_ROUTES.map((route) => (
+                <div
+                  key={route.id}
+                  className="bg-gradient-to-br from-gray-50 to-white border border-gray-200 rounded-2xl p-6 hover:shadow-lg transition-all cursor-pointer group"
+                >
+                  <div className="flex items-start justify-between mb-4">
+                    <div className="flex-1">
+                      <div className="flex items-center gap-2 text-gray-500 text-sm mb-2">
+                        <Plane className="w-4 h-4" />
+                        <span>{route.from}</span>
+                      </div>
+                      <div className="flex items-center gap-2 my-3">
+                        <div className="h-px flex-1 bg-gradient-to-r from-blue-400 to-cyan-400"></div>
+                        <ArrowRight className="w-5 h-5 text-blue-600 group-hover:translate-x-1 transition-transform" />
+                        <div className="h-px flex-1 bg-gradient-to-r from-cyan-400 to-blue-400"></div>
+                      </div>
+                      <div className="flex items-center gap-2 text-gray-500 text-sm">
+                        <Hotel className="w-4 h-4" />
+                        <span>{route.to}</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center justify-between text-sm text-gray-600 mb-4">
+                    <span>{route.distance}</span>
+                    <span>•</span>
+                    <span>{route.duration}</span>
+                    <span>•</span>
+                    <span>{route.vehicles} araç</span>
+                  </div>
+
+                  <div className="flex items-center justify-between pt-4 border-t border-gray-200">
+                    <div>
+                      <div className="text-sm text-gray-500">Başlangıç</div>
+                      <div className="text-2xl font-bold text-gray-900">₺{route.price}</div>
+                    </div>
+                    <button className="px-4 py-2 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors">
+                      Ara Bul
+                    </button>
+                  </div>
+                </div>
+              ))}
             </div>
-          </motion.div>
-        </div>
-      </section>
+          </div>
+        </section>
 
-      {/* Toast Notification */}
-      <AnimatePresence>
-        {showToast && (
-          <motion.div
-            initial={{ opacity: 0, y: 50, scale: 0.9 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 50, scale: 0.9 }}
-            className="fixed bottom-8 right-8 z-[9999] max-w-md"
-          >
-            <div className="bg-gradient-to-r from-green-500 to-emerald-500 text-white px-6 py-4 rounded-2xl shadow-2xl flex items-center gap-3 border-2 border-white/30">
-              <CheckCircle className="w-6 h-6 flex-shrink-0" />
-              <span className="font-semibold">{toastMessage}</span>
-              <button
-                onClick={() => setShowToast(false)}
-                className="ml-4 p-1 hover:bg-white/20 rounded-lg transition-colors"
+        {/* Owner CTA Banner */}
+        <section className="max-w-7xl mx-auto px-4 py-16">
+          <div className="bg-gradient-to-r from-blue-600 to-cyan-600 rounded-2xl overflow-hidden">
+            <div className="px-6 py-12 sm:px-12 text-center">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
               >
-                <X className="w-5 h-5" />
-              </button>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-white rounded-full mb-6">
+                  <Bus className="w-8 h-8 text-blue-600" />
+                </div>
 
-      {/* Floating Contact Button */}
-      <motion.a
-        href="https://wa.me/908501234567"
-        target="_blank"
-        rel="noopener noreferrer"
-        initial={{ scale: 0 }}
-        animate={{ scale: 1 }}
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.9 }}
-        className="fixed bottom-8 left-8 z-[9998] w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full shadow-2xl flex items-center justify-center text-white hover:shadow-3xl transition-all duration-300"
-      >
-        <MessageCircle className="w-8 h-8" />
-      </motion.a>
+                <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                  Transfer Firmanızı Büyütün
+                </h2>
+
+                <p className="text-lg text-blue-50 mb-8 max-w-2xl mx-auto">
+                  1500+ transfer firması Ailydian platformu ile daha fazla müşteriye ulaşıyor.
+                  Siz de transfer hizmetinizi listeleyerek gelirinizi artırın.
+                </p>
+
+                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
+                  <div className="flex items-center gap-2 text-white">
+                    <CheckCircle className="w-5 h-5" />
+                    <span>%10-12 Komisyon</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-white">
+                    <CheckCircle className="w-5 h-5" />
+                    <span>D2 Belge Desteği</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-white">
+                    <CheckCircle className="w-5 h-5" />
+                    <span>Havalimanı İzinleri</span>
+                  </div>
+                </div>
+
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <Link href="/transfer-owner/auth/register">
+                    <button className="px-8 py-4 bg-white text-blue-600 rounded-lg font-semibold hover:bg-blue-50 transition-all transform hover:scale-105 flex items-center justify-center gap-2 shadow-lg">
+                      <span>Transfer Firmanızı Ekleyin</span>
+                      <ArrowRight className="w-5 h-5" />
+                    </button>
+                  </Link>
+
+                  <Link href="/transfer-owner/auth/login">
+                    <button className="px-8 py-4 bg-transparent border-2 border-white text-white rounded-lg font-semibold hover:bg-white/10 transition-all flex items-center justify-center gap-2">
+                      <span>Giriş Yap</span>
+                    </button>
+                  </Link>
+                </div>
+
+                <p className="text-sm text-blue-100 mt-6">
+                  1500+ transfer firması bize güveniyor • 98% zamanında hizmet
+                </p>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+      </main>
     </>
   );
-}
+};
+
+export default TransfersPage;

@@ -112,12 +112,12 @@ export default function Step1PropertyType({ data }: Step1Props) {
       {/* Property Name */}
       <div>
         <label className="block text-sm font-semibold text-slate-700 mb-2">
-          Property Name <span className="text-red-500">*</span>
+          Mülk Adı <span className="text-red-500">*</span>
         </label>
         <input
           type="text"
           {...register('propertyName')}
-          placeholder="e.g., Cozy Downtown Apartment"
+          placeholder="örn., Şehir Merkezinde Rahat Daire"
           className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
         />
         {errors.propertyName && (
@@ -130,7 +130,7 @@ export default function Step1PropertyType({ data }: Step1Props) {
       {/* Property Type Selection */}
       <div>
         <label className="block text-sm font-semibold text-slate-700 mb-4">
-          Property Type <span className="text-red-500">*</span>
+          Mülk Tipi <span className="text-red-500">*</span>
         </label>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {propertyTypes.map((type) => {
@@ -213,7 +213,7 @@ export default function Step1PropertyType({ data }: Step1Props) {
         {/* Number of Rooms */}
         <div>
           <label className="block text-sm font-semibold text-slate-700 mb-2">
-            Number of Bedrooms <span className="text-red-500">*</span>
+            Yatak Odası Sayısı <span className="text-red-500">*</span>
           </label>
           <input
             type="number"
@@ -233,7 +233,7 @@ export default function Step1PropertyType({ data }: Step1Props) {
         {/* Number of Bathrooms */}
         <div>
           <label className="block text-sm font-semibold text-slate-700 mb-2">
-            Number of Bathrooms <span className="text-red-500">*</span>
+            Banyo Sayısı <span className="text-red-500">*</span>
           </label>
           <input
             type="number"
@@ -254,7 +254,7 @@ export default function Step1PropertyType({ data }: Step1Props) {
         {/* Maximum Guests */}
         <div>
           <label className="block text-sm font-semibold text-slate-700 mb-2">
-            Maximum Guests <span className="text-red-500">*</span>
+            Maksimum Misafir Sayısı <span className="text-red-500">*</span>
           </label>
           <input
             type="number"
@@ -275,12 +275,12 @@ export default function Step1PropertyType({ data }: Step1Props) {
       {/* Description */}
       <div>
         <label className="block text-sm font-semibold text-slate-700 mb-2">
-          Property Description <span className="text-red-500">*</span>
+          Mülk Açıklaması <span className="text-red-500">*</span>
         </label>
         <textarea
           {...register('description')}
           rows={6}
-          placeholder="Describe your property in detail. Include unique features, nearby attractions, and what makes it special..."
+          placeholder="Mülkünüzü detaylı bir şekilde açıklayın. Benzersiz özellikleri, yakındaki cazibe merkezlerini ve özel kılan yanlarını ekleyin..."
           className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all resize-none"
         />
         <div className="flex justify-between items-center mt-1">
@@ -296,7 +296,7 @@ export default function Step1PropertyType({ data }: Step1Props) {
               description?.length >= 50 ? 'text-green-600' : 'text-slate-500'
             }`}
           >
-            {description?.length || 0} / 50 characters minimum
+            {description?.length || 0} / 50 karakter minimum
           </p>
         </div>
       </div>
@@ -304,17 +304,17 @@ export default function Step1PropertyType({ data }: Step1Props) {
       {/* Highlight Description (Optional) */}
       <div>
         <label className="block text-sm font-semibold text-slate-700 mb-2">
-          Highlight Description (Optional)
+          Öne Çıkan Özellik Açıklaması (İsteğe Bağlı)
         </label>
         <input
           type="text"
           {...register('highlightDescription')}
-          placeholder="e.g., Ocean View • Walking Distance to Beach"
+          placeholder="örn., Deniz Manzarası • Plaja Yürüme Mesafesinde"
           maxLength={60}
           className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
         />
         <p className="mt-1 text-sm text-slate-500">
-          A short, catchy description that highlights your property's best feature
+          Mülkünüzün en iyi özelliğini vurgulayan kısa, çekici bir açıklama
         </p>
         {errors.highlightDescription && (
           <p className="mt-1 text-sm text-red-600">
@@ -325,12 +325,12 @@ export default function Step1PropertyType({ data }: Step1Props) {
 
       {/* Info Box */}
       <div className="p-4 bg-blue-50 border border-blue-200 rounded-lg">
-        <h4 className="font-semibold text-blue-900 mb-2">Tips for a great listing:</h4>
+        <h4 className="font-semibold text-blue-900 mb-2">Harika bir ilan için ipuçları:</h4>
         <ul className="text-sm text-blue-800 space-y-1">
-          <li>• Choose a property name that's descriptive and memorable</li>
-          <li>• Write a detailed description highlighting unique features</li>
-          <li>• Be accurate with capacity information to set proper expectations</li>
-          <li>• Include nearby attractions and amenities in your description</li>
+          <li>• Açıklayıcı ve akılda kalıcı bir mülk adı seçin</li>
+          <li>• Benzersiz özellikleri vurgulayan detaylı bir açıklama yazın</li>
+          <li>• Doğru beklentiler oluşturmak için kapasite bilgilerinde kesin olun</li>
+          <li>• Yakındaki cazibe merkezlerini ve olanakları açıklamanıza dahil edin</li>
         </ul>
       </div>
     </div>

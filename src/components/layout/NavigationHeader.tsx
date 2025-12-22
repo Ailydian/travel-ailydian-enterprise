@@ -54,6 +54,10 @@ const NavigationHeader: React.FC = () => {
   const [isLanguageMenuOpen, setIsLanguageMenuOpen] = useState(false);
   const [isToursMenuOpen, setIsToursMenuOpen] = useState(false);
   const [isMobileToursOpen, setIsMobileToursOpen] = useState(false);
+  const [isCarRentalsMenuOpen, setIsCarRentalsMenuOpen] = useState(false);
+  const [isMobileCarRentalsOpen, setIsMobileCarRentalsOpen] = useState(false);
+  const [isTransferMenuOpen, setIsTransferMenuOpen] = useState(false);
+  const [isMobileTransferOpen, setIsMobileTransferOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [isClient, setIsClient] = useState(false);
   const [searchResults, setSearchResults] = useState<SearchResult[]>([]);
@@ -249,25 +253,22 @@ const NavigationHeader: React.FC = () => {
       description: 'Benzersiz deneyimler yaşayın'
     },
     {
-      title: 'Ev Kiralama',
-      href: '/owner',
+      title: 'Konaklama',
+      href: '/rentals',
       icon: Home,
-      description: 'Ev & Villa kiralama yönetimi',
-      badge: 'Partner'
+      description: 'Villa, Daire ve Ev kiralama'
     },
     {
       title: 'Araç Kiralama',
-      href: '/vehicle-owner',
+      href: '/car-rentals',
       icon: Car,
-      description: 'Araç kiralama yönetimi',
-      badge: 'Partner'
+      description: 'Ekonomik ve lüks araçlar'
     },
     {
       title: 'Transfer',
-      href: '/transfer-owner',
+      href: '/transfers',
       icon: Bus,
-      description: 'Transfer hizmeti yönetimi',
-      badge: 'Partner'
+      description: 'Havalimanı ve şehir içi transfer'
     },
   ];
 
@@ -300,6 +301,91 @@ const NavigationHeader: React.FC = () => {
       description: '45+ kapsamlı tur seçeneği',
       icon: '🎯',
       badge: 'Popüler'
+    }
+  ];
+
+  // Car Rentals dropdown menu items
+  const carRentalsMenuItems = [
+    {
+      title: 'Ekonomik Araçlar',
+      href: '/car-rentals?type=economy-sedan',
+      description: 'Uygun fiyatlı sedan ve kompakt',
+      icon: '🚗',
+      badge: '₺350/gün'
+    },
+    {
+      title: 'SUV & Crossover',
+      href: '/car-rentals?type=economy-suv',
+      description: 'Geniş aileler için ideal',
+      icon: '🚙',
+      badge: '₺600/gün'
+    },
+    {
+      title: 'Lüks Araçlar',
+      href: '/car-rentals?type=luxury-sedan',
+      description: 'Premium konfor ve prestij',
+      icon: '🏎️',
+      badge: '₺1,200/gün'
+    },
+    {
+      title: 'Ticari Araçlar',
+      href: '/car-rentals?type=commercial-van',
+      description: 'Minivan, Minibüs, Kamyonet',
+      icon: '🚐',
+      badge: '₺800/gün'
+    },
+    {
+      title: 'Tüm Araçlar',
+      href: '/car-rentals',
+      description: '1,200+ araç seçeneği',
+      icon: '🎯',
+      badge: 'Popüler'
+    }
+  ];
+
+  // Transfer dropdown menu items
+  const transferMenuItems = [
+    {
+      title: 'Havalimanı Transfer',
+      href: '/transfers?route=airport',
+      description: 'İstanbul, Antalya, Bodrum Havalimanları',
+      icon: '✈️',
+      badge: 'Popüler'
+    },
+    {
+      title: 'VIP Transfer',
+      href: '/transfers?type=vip-sedan',
+      description: 'Lüks araçlarla özel transfer',
+      icon: '👔',
+      badge: 'Premium'
+    },
+    {
+      title: 'Şehir İçi Transfer',
+      href: '/transfers?route=city',
+      description: 'Şehir içi güvenli ulaşım',
+      icon: '🏙️',
+      badge: '₺200+'
+    },
+    {
+      title: 'Grup Transfer',
+      href: '/transfers?type=minibus-14',
+      description: '8-30 kişilik grup taşıma',
+      icon: '👥',
+      badge: '14-30 kişi'
+    },
+    {
+      title: 'Şehirlerarası Transfer',
+      href: '/transfers?route=intercity',
+      description: 'İstanbul-Ankara, İzmir-Bodrum vb.',
+      icon: '🛣️',
+      badge: 'Uzun mesafe'
+    },
+    {
+      title: 'Tüm Transferler',
+      href: '/transfers',
+      description: '1,500+ transfer hizmeti',
+      icon: '🎯',
+      badge: 'D2 Belgeli'
     }
   ];
 

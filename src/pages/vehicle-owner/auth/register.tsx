@@ -30,6 +30,7 @@ interface FormData {
   businessType: 'individual' | 'company' | '';
   termsAccepted: boolean;
   privacyAccepted: boolean;
+  rentalAgreementAccepted: boolean;
 }
 
 interface FormErrors {
@@ -48,7 +49,8 @@ export default function VehicleOwnerRegisterPage() {
     businessName: '',
     businessType: '',
     termsAccepted: false,
-    privacyAccepted: false
+    privacyAccepted: false,
+    rentalAgreementAccepted: false
   });
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
@@ -157,6 +159,10 @@ export default function VehicleOwnerRegisterPage() {
 
       if (!formData.privacyAccepted) {
         newErrors.privacyAccepted = 'Gizlilik politikasını kabul etmelisiniz';
+      }
+
+      if (!formData.rentalAgreementAccepted) {
+        newErrors.rentalAgreementAccepted = 'Araç Kiralama Hizmet Sözleşmesi\'ni kabul etmelisiniz';
       }
     }
 
@@ -740,6 +746,35 @@ export default function VehicleOwnerRegisterPage() {
                         </label>
                         {errors.privacyAccepted && (
                           <p className="mt-2 text-sm text-red-500 ml-8">{errors.privacyAccepted}</p>
+                        )}
+                      </div>
+
+                      <div className={`border-2 rounded-lg p-4 ${
+                        errors.rentalAgreementAccepted ? 'border-red-500 bg-red-50' : 'border-gray-200'
+                      }`}>
+                        <label className="flex items-start gap-3 cursor-pointer">
+                          <input
+                            type="checkbox"
+                            name="rentalAgreementAccepted"
+                            checked={formData.rentalAgreementAccepted}
+                            onChange={handleInputChange}
+                            className="mt-1 h-5 w-5 text-green-600 focus:ring-green-600 border-gray-300 rounded cursor-pointer"
+                          />
+                          <div className="flex-1">
+                            <span className="text-gray-900">
+                              <Link
+                                href="/vehicle-owner/auth/terms#rental-agreement"
+                                target="_blank"
+                                className="font-medium text-green-600 hover:text-emerald-600 underline"
+                              >
+                                Araç Kiralama Hizmet Sözleşmesi
+                              </Link>
+                              'ni okudum ve kabul ediyorum.
+                            </span>
+                          </div>
+                        </label>
+                        {errors.rentalAgreementAccepted && (
+                          <p className="mt-2 text-sm text-red-500 ml-8">{errors.rentalAgreementAccepted}</p>
                         )}
                       </div>
                     </div>

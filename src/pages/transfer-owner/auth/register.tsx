@@ -30,6 +30,7 @@ interface FormData {
   tourismLicense: string;
   termsAccepted: boolean;
   kvkkAccepted: boolean;
+  transferAgreementAccepted: boolean;
 }
 
 interface FormErrors {
@@ -47,7 +48,8 @@ export default function TransferOwnerRegisterPage() {
     companyName: '',
     tourismLicense: '',
     termsAccepted: false,
-    kvkkAccepted: false
+    kvkkAccepted: false,
+    transferAgreementAccepted: false
   });
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
@@ -154,6 +156,10 @@ export default function TransferOwnerRegisterPage() {
 
       if (!formData.kvkkAccepted) {
         newErrors.kvkkAccepted = 'KVKK metnini kabul etmelisiniz';
+      }
+
+      if (!formData.transferAgreementAccepted) {
+        newErrors.transferAgreementAccepted = 'Transfer Hizmeti Sağlayıcı Sözleşmesini kabul etmelisiniz';
       }
     }
 
@@ -647,6 +653,21 @@ export default function TransferOwnerRegisterPage() {
                       </div>
                     </div>
 
+                    {/* D2 License Info Box */}
+                    <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-4">
+                      <h3 className="text-sm font-semibold text-blue-900 mb-2">D2 Turizm Belgesi Gerekli</h3>
+                      <p className="text-sm text-blue-700 mb-3">
+                        Transfer hizmeti sağlayıcısı olmak için Kültür ve Turizm Bakanlığı tarafından verilen geçerli bir D2 Tourism License gereklidir.
+                      </p>
+                      <Link
+                        href="https://www.ktb.gov.tr"
+                        target="_blank"
+                        className="text-sm font-medium text-blue-600 hover:text-blue-800 underline inline-block"
+                      >
+                        Kültür ve Turizm Bakanlığı resmi kaynağını ziyaret edin →
+                      </Link>
+                    </div>
+
                     {/* Terms Acceptance */}
                     <div className="space-y-4">
                       <div className={`border-2 rounded-lg p-4 ${
@@ -713,6 +734,35 @@ export default function TransferOwnerRegisterPage() {
                         </label>
                         {errors.kvkkAccepted && (
                           <p className="mt-2 text-sm text-red-500 ml-8">{errors.kvkkAccepted}</p>
+                        )}
+                      </div>
+
+                      <div className={`border-2 rounded-lg p-4 ${
+                        errors.transferAgreementAccepted ? 'border-red-500 bg-red-50' : 'border-gray-200'
+                      }`}>
+                        <label className="flex items-start gap-3 cursor-pointer">
+                          <input
+                            type="checkbox"
+                            name="transferAgreementAccepted"
+                            checked={formData.transferAgreementAccepted}
+                            onChange={handleInputChange}
+                            className="mt-1 h-5 w-5 text-blue-600 focus:ring-blue-600 border-gray-300 rounded cursor-pointer"
+                          />
+                          <div className="flex-1">
+                            <span className="text-gray-900">
+                              <Link
+                                href="/transfer-owner/auth/terms#transfer-agreement"
+                                target="_blank"
+                                className="font-medium text-blue-600 hover:text-cyan-600 underline"
+                              >
+                                Transfer Hizmeti Sağlayıcı Sözleşmesi
+                              </Link>
+                              'ni okudum ve kabul ediyorum.
+                            </span>
+                          </div>
+                        </label>
+                        {errors.transferAgreementAccepted && (
+                          <p className="mt-2 text-sm text-red-500 ml-8">{errors.transferAgreementAccepted}</p>
                         )}
                       </div>
                     </div>

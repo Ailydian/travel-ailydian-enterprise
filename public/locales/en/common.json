@@ -1,266 +1,47 @@
 {
-  "welcome": "Welcome",
-  "title": "Travel Ailydian Enterprise",
-  "subtitle": "Unique Travel Experiences",
-  "search": "Search",
-  "destinations": "Destinations",
-  "hotels": "Hotels",
-  "flights": "Flights",
-  "activities": "Activities",
-  "blockchain": "Blockchain",
-  "ai_assistant": "AI Assistant",
-  "virtual_tours": "Virtual Tours",
-  "social_hub": "Social Hub",
-  "voice_commands": "Voice Commands",
-  
-  "meta": {
-    "title": "Travel.Ailydian - AI-Powered Travel Platform",
-    "description": "Plan your dream vacation with our AI-powered intelligent travel platform. Find the best prices for hotels, flights, and tours worldwide including Turkey.",
-    "keywords": "travel, vacation, hotel booking, flight tickets, tours, activities, AI travel, Turkey tourism"
-  },
-  "navigation": {
+  "nav": {
     "home": "Home",
-    "destinations": "Destinations", 
-    "hotels": "Hotels",
-    "flights": "Flights",
-    "activities": "Activities",
+    "carRentals": "Car Rentals",
+    "transfers": "Transfers",
     "tours": "Tours",
-    "cars": "Car Rental",
-    "restaurants": "Restaurants",
-    "myTrips": "My Trips",
-    "favorites": "Favorites",
-    "support": "Support",
-    "about": "About",
-    "contact": "Contact",
-    "help": "Help",
-    "login": "Sign In",
-    "register": "Sign Up",
-    "profile": "Profile",
-    "logout": "Sign Out"
+    "experiences": "Experiences",
+    "rentals": "Accommodations"
   },
-  "hero": {
-    "title": "Discover the World",
-    "subtitle": "Plan your dream vacation with our AI-powered intelligent travel platform",
-    "description": "Personalized recommendations, best prices, secure bookings.",
-    "searchPlaceholder": "Where do you want to go?",
-    "searchButton": "Search",
-    "discoverMore": "Discover More"
+  "dashboard": {
+    "title": "System Management",
+    "search": "Search...",
+    "totalRevenue": "Total Revenue",
+    "activeBookings": "Active Bookings",
+    "totalUsers": "Total Users",
+    "satisfaction": "Customer Satisfaction",
+    "productPerformance": "Product Performance",
+    "recentActivity": "Recent Activity",
+    "revenueTrend": "Revenue Trend",
+    "quickStats": "Quick Stats",
+    "downloadReport": "Download Report",
+    "viewAll": "View All",
+    "details": "Details"
   },
-  "search": {
-    "tabs": {
-      "flights": "Flights",
-      "hotels": "Hotels", 
-      "cars": "Car Rental",
-      "restaurants": "Restaurants",
-      "activities": "Activities"
-    },
-    "placeholders": {
-      "destination": "Select destination",
-      "checkIn": "Check-in Date",
-      "checkOut": "Check-out Date",
-      "guests": "Number of Guests",
-      "departure": "Departure Date",
-      "return": "Return Date"
-    },
-    "tripTypes": {
-      "roundTrip": "Round Trip",
-      "oneWay": "One Way"
-    },
-    "guestOptions": {
-      "1": "1 Person",
-      "2": "2 People", 
-      "3": "3 People",
-      "4": "4+ People"
-    },
-    "advancedFilters": "Advanced Filters",
-    "searchButtons": {
-      "searchFlights": "Search Flights",
-      "searchHotels": "Search Hotels",
-      "searchCars": "Search Cars",
-      "searchRestaurants": "Search Restaurants",
-      "searchActivities": "Search Activities"
-    }
+  "filters": {
+    "last24h": "Last 24 Hours",
+    "last7d": "Last 7 Days",
+    "last30d": "Last 30 Days",
+    "last90d": "Last 90 Days",
+    "allProducts": "All Products"
   },
-  "destinations": {
-    "popular": "Popular Destinations",
-    "featured": "Featured Places",
-    "experiences": "experiences",
-    "reviews": "reviews",
-    "startingFrom": "starting from",
-    "viewMore": "View More",
-    "bookNow": "Book Now"
-  },
-  "hotels": {
-    "recommended": "Recommended Hotels",
-    "luxury": "Luxury Hotels",
-    "perNight": "per night",
-    "amenities": "Amenities",
-    "starRating": "{{count}} Star",
-    "guestRating": "Guest Rating",
-    "bookNow": "Book Now",
-    "viewDetails": "View Details"
-  },
-  "features": {
-    "title": "Why Travel.Ailydian?",
-    "aiPowered": {
-      "title": "AI-Powered",
-      "description": "Personalized travel recommendations with artificial intelligence"
-    },
-    "securePayment": {
-      "title": "Secure Payment", 
-      "description": "SSL-protected secure payment system"
-    },
-    "support247": {
-      "title": "24/7 Support",
-      "description": "We're always here for you, reach us anytime"
-    },
-    "bestPrice": {
-      "title": "Best Price",
-      "description": "Guaranteed best rates for your bookings"
-    },
-    "blockchainVerified": {
-      "title": "Blockchain Verification",
-      "description": "All bookings secured with blockchain technology"
-    },
-    "vrPreview": {
-      "title": "VR Preview", 
-      "description": "Virtual reality experience before booking"
-    }
-  },
-  "auth": {
-    "signIn": "Sign In",
-    "signUp": "Sign Up",
-    "email": "Email",
-    "password": "Password", 
-    "confirmPassword": "Confirm Password",
-    "firstName": "First Name",
-    "lastName": "Last Name",
-    "phone": "Phone",
-    "rememberMe": "Remember Me",
-    "forgotPassword": "Forgot Password",
-    "noAccount": "Don't have an account?",
-    "hasAccount": "Already have an account?",
-    "signInWith": "Sign in with:",
-    "or": "or"
-  },
-  "footer": {
-    "company": {
-      "title": "Company",
-      "about": "About Us",
-      "careers": "Careers", 
-      "press": "Press",
-      "partnerships": "Partnerships",
-      "sustainability": "Sustainability"
-    },
-    "support": {
-      "title": "Support",
-      "helpCenter": "Help Center",
-      "contact": "Contact",
-      "liveSupport": "Live Support",
-      "faq": "FAQ",
-      "travelGuide": "Travel Guide"
-    },
-    "discover": {
-      "title": "Discover",
-      "destinations": "Destinations",
-      "hotels": "Hotels", 
-      "flights": "Flights",
-      "activities": "Activities",
-      "tours": "Tours"
-    },
-    "legal": {
-      "privacy": "Privacy Policy",
-      "terms": "Terms of Service",
-      "cookies": "Cookie Policy"
-    },
-    "newsletter": {
-      "title": "Stay Updated with Special Offers",
-      "description": "Get the best travel deals, exclusive discounts, and destination recommendations directly in your inbox",
-      "placeholder": "Your email address...",
-      "subscribe": "Subscribe"
-    },
-    "copyright": "© 2025 Travel.Ailydian. All rights reserved.",
-    "poweredBy": "AI-Powered Travel Platform",
-    "features": {
-      "sslSecure": "SSL Secure",
-      "aiPowered": "AI-Powered", 
-      "countries": "190+ Countries"
-    }
+  "products": {
+    "carRental": "Car Rentals",
+    "transfer": "Transfer Services",
+    "accommodation": "Accommodation",
+    "tours": "Tours"
   },
   "common": {
-    "loading": "Loading...",
-    "search": "Search",
-    "filter": "Filter",
-    "sort": "Sort",
-    "price": "Price",
-    "rating": "Rating",
-    "reviews": "Reviews",
-    "showMore": "Show More",
-    "showLess": "Show Less",
-    "viewAll": "View All",
-    "book": "Book",
-    "select": "Select",
-    "cancel": "Cancel",
-    "confirm": "Confirm",
-    "save": "Save",
-    "edit": "Edit",
-    "delete": "Delete",
-    "share": "Share",
-    "favorite": "Add to Favorites",
-    "unfavorite": "Remove from Favorites",
-    "readMore": "Read More",
-    "close": "Close",
-    "back": "Back",
-    "next": "Next",
-    "previous": "Previous",
-    "date": "Date",
-    "time": "Time",
-    "duration": "Duration",
-    "location": "Location",
-    "address": "Address",
-    "phone": "Phone",
-    "email": "Email",
-    "website": "Website",
-    "available": "Available",
-    "unavailable": "Unavailable",
-    "soldOut": "Sold Out",
-    "popular": "Popular",
-    "recommended": "Recommended",
-    "new": "New",
-    "hot": "Hot",
-    "sale": "Sale"
-  },
-  "currency": {
-    "try": "₺",
-    "usd": "$",
-    "eur": "€",
-    "gbp": "£"
-  },
-  "errors": {
-    "404": {
-      "title": "Page Not Found",
-      "subtitle": "The page you're looking for doesn't exist",
-      "description": "Sorry, the page you are looking for might have been moved, deleted, or does not exist.",
-      "backHome": "Back to Home",
-      "search": "Search"
-    },
-    "500": {
-      "title": "Server Error",
-      "subtitle": "Something went wrong",
-      "description": "We're experiencing a temporary technical issue. Please try again later.",
-      "retry": "Try Again",
-      "contact": "Contact Support"
-    },
-    "offline": {
-      "title": "Offline",
-      "description": "Please check your internet connection"
-    },
-    "validation": {
-      "required": "This field is required",
-      "email": "Please enter a valid email address",
-      "phone": "Please enter a valid phone number",
-      "minLength": "Must be at least {{min}} characters",
-      "maxLength": "Must be no more than {{max}} characters"
-    }
+    "revenue": "Revenue",
+    "bookings": "Bookings",
+    "active": "Active",
+    "success": "Success",
+    "warning": "Warning",
+    "error": "Error",
+    "info": "Info"
   }
 }

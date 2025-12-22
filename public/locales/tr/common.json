@@ -1,268 +1,47 @@
 {
-  "welcome": "Hoş Geldiniz",
-  "title": "Travel Ailydian Enterprise",
-  "subtitle": "Benzersiz Seyahat Deneyimleri",
-  "search": "Arama",
-  "destinations": "Destinasyonlar",
-  "hotels": "Oteller",
-  "flights": "Uçaklar",
-  "activities": "Aktiviteler",
-  "blockchain": "Blockchain",
-  "ai_assistant": "AI Asistan",
-  "virtual_tours": "Sanal Turlar",
-  "social_hub": "Sosyal Ağ",
-  "voice_commands": "Sesli Komutlar",
-  
-  "meta": {
-    "title": "Travel.Ailydian - AI Destekli Seyahat Platformu",
-    "description": "Yapay zeka destekli akıllı seyahat platformu ile hayalinizdeki tatili planlayın. Türkiye ve dünya genelinde en iyi fiyatlarla otel, uçak bileti ve tur rezervasyonları.",
-    "keywords": "seyahat, tatil, otel rezervasyonu, uçak bileti, tur, aktivite, AI seyahat, Türkiye turizm"
-  },
-  "navigation": {
+  "nav": {
     "home": "Ana Sayfa",
-    "destinations": "Destinasyonlar", 
-    "hotels": "Oteller",
-    "flights": "Uçak Biletleri",
-    "activities": "Aktiviteler",
+    "carRentals": "Araç Kiralama",
+    "transfers": "Transfer",
     "tours": "Turlar",
-    "cars": "Araç Kiralama",
-    "restaurants": "Restoranlar",
-    "myTrips": "Seyahatlerim",
-    "favorites": "Favorilerim",
-    "support": "Destek",
-    "about": "Hakkımızda",
-    "contact": "İletişim",
-    "help": "Yardım",
-    "login": "Giriş Yap",
-    "register": "Kayıt Ol",
-    "profile": "Profil",
-    "logout": "Çıkış Yap"
+    "experiences": "Deneyimler",
+    "rentals": "Konaklama"
   },
-  "hero": {
-    "title": "Dünyayı Keşfet",
-    "subtitle": "AI destekli akıllı seyahat platformu ile hayalindeki tatili planla",
-    "description": "Kişiselleştirilmiş öneriler, en iyi fiyatlar, güvenli rezervasyonlar.",
-    "searchPlaceholder": "Nereye gitmek istiyorsunuz?",
-    "searchButton": "Ara",
-    "discoverMore": "Daha Fazla Keşfet"
+  "dashboard": {
+    "title": "Sistem Yönetimi",
+    "search": "Ara...",
+    "totalRevenue": "Toplam Gelir",
+    "activeBookings": "Aktif Rezervasyonlar",
+    "totalUsers": "Toplam Kullanıcılar",
+    "satisfaction": "Müşteri Memnuniyeti",
+    "productPerformance": "Ürün Performansı",
+    "recentActivity": "Son Aktiviteler",
+    "revenueTrend": "Gelir Trendi",
+    "quickStats": "Hızlı İstatistikler",
+    "downloadReport": "Rapor İndir",
+    "viewAll": "Tümünü Gör",
+    "details": "Detaylar"
   },
-  "search": {
-    "tabs": {
-      "flights": "Uçak Bileti",
-      "hotels": "Oteller", 
-      "cars": "Araç Kiralama",
-      "restaurants": "Restoranlar",
-      "activities": "Aktiviteler"
-    },
-    "placeholders": {
-      "destination": "Destinasyon seçin",
-      "checkIn": "Giriş Tarihi",
-      "checkOut": "Çıkış Tarihi",
-      "guests": "Misafir Sayısı",
-      "departure": "Gidiş Tarihi",
-      "return": "Dönüş Tarihi"
-    },
-    "tripTypes": {
-      "roundTrip": "Gidiş-Dönüş",
-      "oneWay": "Tek Yön"
-    },
-    "guestOptions": {
-      "1": "1 Kişi",
-      "2": "2 Kişi", 
-      "3": "3 Kişi",
-      "4": "4+ Kişi"
-    },
-    "advancedFilters": "Gelişmiş Filtreler",
-    "searchButtons": {
-      "searchFlights": "Uçak Bileti Ara",
-      "searchHotels": "Otel Ara",
-      "searchCars": "Araç Ara",
-      "searchRestaurants": "Restoran Ara",
-      "searchActivities": "Aktivite Ara"
-    }
+  "filters": {
+    "last24h": "Son 24 Saat",
+    "last7d": "Son 7 Gün",
+    "last30d": "Son 30 Gün",
+    "last90d": "Son 90 Gün",
+    "allProducts": "Tüm Ürünler"
   },
-  "destinations": {
-    "popular": "Popüler Destinasyonlar",
-    "featured": "Öne Çıkan Yerler",
-    "experiences": "deneyim",
-    "reviews": "değerlendirme",
-    "startingFrom": "başlayan fiyatlarla",
-    "viewMore": "Daha Fazla Gör",
-    "bookNow": "Rezervasyon Yap"
-  },
-  "hotels": {
-    "recommended": "Önerilen Oteller",
-    "luxury": "Lüks Oteller",
-    "perNight": "gecelik",
-    "amenities": "Olanaklar",
-    "starRating": "{{count}} Yıldız",
-    "guestRating": "Misafir Puanı",
-    "bookNow": "Rezervasyon Yap",
-    "viewDetails": "Detayları Gör"
-  },
-  "features": {
-    "title": "Neden Travel.Ailydian?",
-    "aiPowered": {
-      "title": "AI Destekli",
-      "description": "Yapay zeka ile kişiselleştirilmiş seyahat önerileri"
-    },
-    "securePayment": {
-      "title": "Güvenli Ödeme", 
-      "description": "SSL sertifikası ile korumalı güvenli ödeme sistemi"
-    },
-    "support247": {
-      "title": "7/24 Destek",
-      "description": "Her zaman yanınızdayız, istediğiniz zaman ulaşın"
-    },
-    "bestPrice": {
-      "title": "En İyi Fiyat",
-      "description": "Garantili en uygun fiyatlarla rezervasyon"
-    },
-    "blockchainVerified": {
-      "title": "Blockchain Doğrulama",
-      "description": "Tüm rezervasyonlar blockchain ile güvence altında"
-    },
-    "vrPreview": {
-      "title": "VR Önizleme", 
-      "description": "Rezervasyon öncesi sanal gerçeklik deneyimi"
-    }
-  },
-  "auth": {
-    "signIn": "Giriş Yap",
-    "signUp": "Kayıt Ol",
-    "email": "E-posta",
-    "password": "Şifre", 
-    "confirmPassword": "Şifre Tekrar",
-    "firstName": "Ad",
-    "lastName": "Soyad",
-    "phone": "Telefon",
-    "rememberMe": "Beni Hatırla",
-    "forgotPassword": "Şifremi Unuttum",
-    "noAccount": "Hesabınız yok mu?",
-    "hasAccount": "Zaten hesabınız var mı?",
-    "signInWith": "Giriş yap:",
-    "or": "veya"
-  },
-  "footer": {
-    "company": {
-      "title": "Şirket",
-      "about": "Hakkımızda",
-      "careers": "Kariyer", 
-      "press": "Basın",
-      "partnerships": "Ortaklıklar",
-      "sustainability": "Sürdürülebilirlik"
-    },
-    "support": {
-      "title": "Destek",
-      "helpCenter": "Yardım Merkezi",
-      "contact": "İletişim",
-      "liveSupport": "Canlı Destek",
-      "faq": "Sık Sorulan Sorular",
-      "travelGuide": "Seyahat Rehberi"
-    },
-    "discover": {
-      "title": "Keşfet",
-      "destinations": "Destinasyonlar",
-      "hotels": "Oteller", 
-      "flights": "Uçak Biletleri",
-      "activities": "Aktiviteler",
-      "tours": "Turlar"
-    },
-    "legal": {
-      "privacy": "Gizlilik Politikası",
-      "terms": "Kullanım Şartları",
-      "cookies": "Çerez Politikası"
-    },
-    "newsletter": {
-      "title": "Özel Fırsatlardan Haberdar Olun",
-      "description": "En iyi seyahat fırsatları, özel indirimler ve destinasyon önerileri doğrudan e-postanızda",
-      "placeholder": "E-posta adresiniz...",
-      "subscribe": "Abone Ol"
-    },
-    "copyright": "© 2025 Travel.Ailydian. Tüm hakları saklıdır.",
-    "poweredBy": "AI Destekli Seyahat Platformu",
-    "features": {
-      "sslSecure": "SSL Güvenli",
-      "aiPowered": "AI Destekli", 
-      "countries": "190+ Ülke"
-    }
+  "products": {
+    "carRental": "Araç Kiralama",
+    "transfer": "Transfer Hizmetleri",
+    "accommodation": "Konaklama",
+    "tours": "Turlar"
   },
   "common": {
-    "loading": "Yüklüyor...",
-    "search": "Ara",
-    "searchPlaceholder": "Destinasyon, deneyim, otel arayın...",
-    "searchDestinations": "Destinasyon ara...",
-    "filter": "Filtrele",
-    "sort": "Sırala",
-    "price": "Fiyat",
-    "rating": "Puan",
-    "reviews": "Değerlendirmeler",
-    "showMore": "Daha Fazla Göster",
-    "showLess": "Daha Az Göster",
-    "viewAll": "Tümünü Gör",
-    "book": "Rezervasyon Yap",
-    "select": "Seç",
-    "cancel": "İptal",
-    "confirm": "Onayla",
-    "save": "Kaydet",
-    "edit": "Düzenle",
-    "delete": "Sil",
-    "share": "Paylaş",
-    "favorite": "Favorile",
-    "unfavorite": "Favorilerden Çıkar",
-    "readMore": "Devamını Oku",
-    "close": "Kapat",
-    "back": "Geri",
-    "next": "İleri",
-    "previous": "Önceki",
-    "date": "Tarih",
-    "time": "Saat",
-    "duration": "Süre",
-    "location": "Konum",
-    "address": "Adres",
-    "phone": "Telefon",
-    "email": "E-posta",
-    "website": "Web Sitesi",
-    "available": "Müsait",
-    "unavailable": "Müsait Değil",
-    "soldOut": "Tükendi",
-    "popular": "Popüler",
-    "recommended": "Önerilen",
-    "new": "Yeni",
-    "hot": "Sıcak",
-    "sale": "İndirim"
-  },
-  "currency": {
-    "try": "₺",
-    "usd": "$",
-    "eur": "€",
-    "gbp": "£"
-  },
-  "errors": {
-    "404": {
-      "title": "Sayfa Bulunamadı",
-      "subtitle": "Aradığınız sayfa mevcut değil",
-      "description": "Üzgünüz, aradığınız sayfa taşınmış, silinmiş veya mevcut olmayabilir.",
-      "backHome": "Ana Sayfaya Dön",
-      "search": "Arama Yap"
-    },
-    "500": {
-      "title": "Sunucu Hatası",
-      "subtitle": "Bir şeyler ters gitti",
-      "description": "Geçici bir teknik sorun yaşıyoruz. Lütfen daha sonra tekrar deneyin.",
-      "retry": "Tekrar Dene",
-      "contact": "Destek İletişim"
-    },
-    "offline": {
-      "title": "Çevrimdışı",
-      "description": "İnternet bağlantınızı kontrol edin"
-    },
-    "validation": {
-      "required": "Bu alan zorunludur",
-      "email": "Geçerli bir e-posta adresi girin",
-      "phone": "Geçerli bir telefon numarası girin",
-      "minLength": "En az {{min}} karakter olmalıdır",
-      "maxLength": "En fazla {{max}} karakter olmalıdır"
-    }
+    "revenue": "Gelir",
+    "bookings": "Rezervasyon",
+    "active": "Aktif",
+    "success": "Başarılı",
+    "warning": "Uyarı",
+    "error": "Hata",
+    "info": "Bilgi"
   }
 }
