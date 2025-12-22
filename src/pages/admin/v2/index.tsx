@@ -34,6 +34,8 @@ import {
 } from 'lucide-react';
 import jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable';
+import { useDashboardWebSocket, BookingNotification, MetricUpdate } from '@/lib/websocket/dashboard';
+import { LiveNotifications, useNotificationSound } from '@/components/admin/LiveNotifications';
 
 // Types
 interface RealtimeMetric {
@@ -101,6 +103,12 @@ const AdminDashboardV2 = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [isRealtimeEnabled, setIsRealtimeEnabled] = useState(true);
   const [showNotifications, setShowNotifications] = useState(false);
+
+  // WebSocket integration
+  const dashboardWS = useDashboardWebSocket();
+  const { playSound } = useNotificationSound();
+  const [wsConnected, setWsConnected] = useState(false);
+  const [notifications, setNotifications] = useState<BookingNotification[]>([]);
 
   // Currency converter (mock - would use real rates)
   const currencyRates = { TRY: 1, USD: 34.5, EUR: 37.2 };
@@ -302,6 +310,118 @@ const AdminDashboardV2 = () => {
     cache: 'operational',
     lastCheck: 'Az önce',
   });
+
+  // WebSocket connection and event handlers
+  useEffect(() => {
+    if (!isRealtimeEnabled) return;
+
+    // Connect to WebSocket
+    dashboardWS.connect()
+      .then(() => {
+        console.log('✅ Dashboard WebSocket connected successfully');
+        setWsConnected(true);
+      })
+      .catch((error) => {
+        console.error('Failed to connect to WebSocket:', error);
+        setWsConnected(false);
+      });
+
+    // Subscribe to events
+    const unsubscribers: (() => void)[] = [];
+
+    // New booking event
+    unsubscribers.push(
+      dashboardWS.on('booking:new', (booking: BookingNotification) => {
+        console.log('📨 New booking:', booking);
+        setNotifications((prev) => [booking, ...prev].slice(0, 5)); // Keep last 5
+        playSound('info');
+
+        // Update bookings count
+        setMetrics((prev) =>
+          prev.map((m) =>
+            m.id === 'bookings'
+              ? { ...m, value: String(parseInt(String(m.value).replace(/,/g, '')) + 1) }
+              : m
+          )
+        );
+      })
+    );
+
+    // Confirmed booking event
+    unsubscribers.push(
+      dashboardWS.on('booking:confirmed', (booking: BookingNotification) => {
+        console.log('✅ Booking confirmed:', booking);
+        setNotifications((prev) => [booking, ...prev].slice(0, 5));
+        playSound('success');
+      })
+    );
+
+    // Cancelled booking event
+    unsubscribers.push(
+      dashboardWS.on('booking:cancelled', (booking: BookingNotification) => {
+        console.log('❌ Booking cancelled:', booking);
+        setNotifications((prev) => [booking, ...prev].slice(0, 5));
+        playSound('error');
+      })
+    );
+
+    // Real-time metrics update
+    unsubscribers.push(
+      dashboardWS.on('metrics:update', (update: MetricUpdate) => {
+        console.log('📊 Metrics update:', update);
+        setMetrics((prev) =>
+          prev.map((m) => {
+            if (m.id === 'revenue') {
+              return {
+                ...m,
+                value: update.totalRevenue,
+                change: update.revenueChange,
+                trend: update.revenueChange >= 0 ? 'up' : 'down',
+              };
+            }
+            if (m.id === 'bookings') {
+              return {
+                ...m,
+                value: update.activeBookings.toLocaleString('tr-TR'),
+                change: update.bookingsChange,
+                trend: update.bookingsChange >= 0 ? 'up' : 'down',
+              };
+            }
+            if (m.id === 'users') {
+              return {
+                ...m,
+                value: update.totalCustomers.toLocaleString('tr-TR'),
+                change: update.customersChange,
+                trend: update.customersChange >= 0 ? 'up' : 'down',
+              };
+            }
+            return m;
+          })
+        );
+      })
+    );
+
+    // Connection events
+    unsubscribers.push(
+      dashboardWS.on('connected', () => {
+        setWsConnected(true);
+      })
+    );
+
+    unsubscribers.push(
+      dashboardWS.on('disconnected', () => {
+        setWsConnected(false);
+      })
+    );
+
+    // Cleanup
+    return () => {
+      unsubscribers.forEach((unsub) => unsub());
+      if (!isRealtimeEnabled) {
+        dashboardWS.disconnect();
+      }
+    };
+  }, [isRealtimeEnabled]);
 
   // Fetch real dashboard data from API
   useEffect(() => {
@@ -599,8 +719,19 @@ const AdminDashboardV2 = () => {
     }
   };
 
+  // Handle notification dismissal
+  const handleDismissNotification = (id: string) => {
+    setNotifications((prev) => prev.filter((n) => n.id !== id));
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
+      {/* Live Notifications */}
+      <LiveNotifications
+        notifications={notifications}
+        onDismiss={handleDismissNotification}
+      />
+
       {/* Premium Header */}
       <header className="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-sm backdrop-blur-lg bg-white/95">
         <div className="max-w-[1920px] mx-auto px-6 lg:px-8">
@@ -621,13 +752,22 @@ const AdminDashboardV2 = () => {
 
               {/* Real-time Indicator */}
               <div className="hidden lg:flex items-center gap-2">
-                {isRealtimeEnabled ? (
+                {isRealtimeEnabled && wsConnected ? (
                   <>
                     <div className="relative">
                       <Wifi className="w-4 h-4 text-green-600" />
                       <span className="absolute -top-1 -right-1 w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
                     </div>
                     <span className="text-xs font-semibold text-green-600">LIVE</span>
+                    <span className="text-xs text-gray-400">• WebSocket</span>
+                  </>
+                ) : isRealtimeEnabled && !wsConnected ? (
+                  <>
+                    <div className="relative">
+                      <Wifi className="w-4 h-4 text-amber-600" />
+                      <span className="absolute -top-1 -right-1 w-2 h-2 bg-amber-500 rounded-full animate-pulse"></span>
+                    </div>
+                    <span className="text-xs font-semibold text-amber-600">CONNECTING...</span>
                   </>
                 ) : (
                   <>
