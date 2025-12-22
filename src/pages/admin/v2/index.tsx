@@ -858,23 +858,192 @@ const AdminDashboardV2 = () => {
           </>
         )}
 
-        {/* Other tabs placeholder */}
-        {activeTab !== 'overview' && (
+        {/* Products Tab */}
+        {activeTab === 'products' && (
+          <div className="space-y-6">
+            <div className="flex items-center justify-between">
+              <div>
+                <h2 className="text-2xl font-bold text-slate-900">Ürün Yönetimi</h2>
+                <p className="text-slate-600">Tüm ürünleri görüntüle, düzenle ve yönet</p>
+              </div>
+              <Link href="/admin/v2/products">
+                <button className="flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all font-medium shadow-lg">
+                  <Package className="w-5 h-5" />
+                  Tüm Ürünler
+                  <ArrowUpRight className="w-4 h-4" />
+                </button>
+              </Link>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {productCategories.map((product, index) => {
+                const Icon = product.icon;
+                return (
+                  <motion.div
+                    key={product.id}
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: index * 0.1 }}
+                    className="bg-white rounded-2xl p-6 border border-slate-200 hover:shadow-xl transition-all cursor-pointer group"
+                  >
+                    <div className="flex items-center gap-4 mb-4">
+                      <div className="p-4 bg-blue-50 rounded-xl group-hover:bg-blue-100 transition-colors">
+                        <Icon className="w-8 h-8 text-blue-600" />
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="font-bold text-slate-900 text-lg">{product.name}</h3>
+                        <p className="text-sm text-slate-500">{product.active} aktif ürün</p>
+                      </div>
+                    </div>
+                    <div className="grid grid-cols-2 gap-4 mb-4">
+                      <div>
+                        <p className="text-xs text-slate-500">Gelir</p>
+                        <p className="text-lg font-bold text-slate-900">{formatCurrency(product.revenue)}</p>
+                      </div>
+                      <div>
+                        <p className="text-xs text-slate-500">Rezervasyon</p>
+                        <p className="text-lg font-bold text-slate-900">{product.bookings}</p>
+                      </div>
+                    </div>
+                    <div className="flex items-center justify-between pt-4 border-t border-slate-100">
+                      <span className={`text-xs px-2 py-1 rounded-full font-semibold ${getStatusColor(product.status)}`}>
+                        {product.status.toUpperCase()}
+                      </span>
+                      <span className={`text-sm font-semibold ${product.growth >= 0 ? 'text-green-600' : 'text-red-600'}`}>
+                        {product.growth >= 0 ? '+' : ''}{product.growth}%
+                      </span>
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </div>
+
+            <Link href="/admin/v2/products">
+              <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-8 text-center border-2 border-dashed border-blue-200 hover:border-blue-400 transition-all cursor-pointer group">
+                <Package className="w-12 h-12 text-blue-600 mx-auto mb-4 group-hover:scale-110 transition-transform" />
+                <h3 className="text-lg font-bold text-slate-900 mb-2">Detaylı Ürün Yönetimi</h3>
+                <p className="text-slate-600">Tüm ürünleri görüntülemek ve düzenlemek için tıklayın</p>
+              </div>
+            </Link>
+          </div>
+        )}
+
+        {/* B2B Tab */}
+        {activeTab === 'b2b' && (
+          <div className="space-y-6">
+            <div className="flex items-center justify-between">
+              <div>
+                <h2 className="text-2xl font-bold text-slate-900">B2B Partner Yönetimi</h2>
+                <p className="text-slate-600">İş ortaklıklarını görüntüle ve yönet</p>
+              </div>
+              <button className="flex items-center gap-2 px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-all font-medium shadow-lg">
+                <Plus className="w-5 h-5" />
+                Yeni Partner
+              </button>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+              {b2bPartners.map((partner, index) => (
+                <motion.div
+                  key={partner.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                  className="bg-white rounded-2xl p-6 border border-slate-200 hover:shadow-xl transition-all"
+                >
+                  <div className="flex items-start justify-between mb-4">
+                    <div className="flex items-center gap-3">
+                      <div className="p-3 bg-purple-50 rounded-xl">
+                        <Briefcase className="w-6 h-6 text-purple-600" />
+                      </div>
+                      <div>
+                        <h3 className="font-bold text-slate-900">{partner.name}</h3>
+                        <p className="text-sm text-slate-500">{partner.type.toUpperCase()}</p>
+                      </div>
+                    </div>
+                    <span className={`text-xs px-3 py-1 rounded-full font-semibold ${getStatusColor(partner.status)}`}>
+                      {partner.status.toUpperCase()}
+                    </span>
+                  </div>
+
+                  <div className="space-y-3 mb-4">
+                    <div className="flex items-center justify-between">
+                      <span className="text-sm text-slate-600">Gelir</span>
+                      <span className="font-semibold text-slate-900">{formatCurrency(partner.revenue)}</span>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <span className="text-sm text-slate-600">Rezervasyon</span>
+                      <span className="font-semibold text-slate-900">{partner.bookings}</span>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <span className="text-sm text-slate-600">Komisyon</span>
+                      <span className="font-semibold text-purple-600">{partner.commission}%</span>
+                    </div>
+                  </div>
+
+                  <div className="pt-4 border-t border-slate-100">
+                    <p className="text-xs text-slate-400 mb-3">Son aktivite: {partner.lastActivity}</p>
+                    <div className="flex items-center gap-2">
+                      <button className="flex-1 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm font-medium">
+                        Düzenle
+                      </button>
+                      <button className="p-2 bg-slate-100 text-slate-600 rounded-lg hover:bg-slate-200 transition-colors">
+                        <Eye className="w-4 h-4" />
+                      </button>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="bg-white rounded-xl p-6 border border-slate-200">
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-sm text-slate-600">Toplam Partner</span>
+                  <Briefcase className="w-5 h-5 text-purple-600" />
+                </div>
+                <div className="text-3xl font-bold text-slate-900">{b2bPartners.length}</div>
+              </div>
+              <div className="bg-white rounded-xl p-6 border border-slate-200">
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-sm text-slate-600">Toplam Gelir</span>
+                  <DollarSign className="w-5 h-5 text-green-600" />
+                </div>
+                <div className="text-3xl font-bold text-slate-900">
+                  {formatCurrency(b2bPartners.reduce((acc, p) => acc + p.revenue, 0))}
+                </div>
+              </div>
+              <div className="bg-white rounded-xl p-6 border border-slate-200">
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-sm text-slate-600">Ort. Komisyon</span>
+                  <Target className="w-5 h-5 text-amber-600" />
+                </div>
+                <div className="text-3xl font-bold text-slate-900">
+                  {(b2bPartners.reduce((acc, p) => acc + p.commission, 0) / b2bPartners.length).toFixed(1)}%
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Analytics & Settings Placeholder */}
+        {(activeTab === 'analytics' || activeTab === 'settings') && (
           <div className="bg-white rounded-2xl p-12 text-center border border-slate-200">
             <div className="max-w-md mx-auto">
               <div className="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Package className="w-8 h-8 text-blue-600" />
+                {activeTab === 'analytics' ? <BarChart3 className="w-8 h-8 text-blue-600" /> : <Settings className="w-8 h-8 text-blue-600" />}
               </div>
               <h3 className="text-xl font-bold text-slate-900 mb-2">
-                {activeTab === 'products' && 'Ürün Yönetimi'}
-                {activeTab === 'b2b' && 'B2B Partner Portalı'}
                 {activeTab === 'analytics' && 'Detaylı Analytics'}
                 {activeTab === 'settings' && 'Sistem Ayarları'}
               </h3>
               <p className="text-slate-600 mb-6">
-                Bu modül yapım aşamasında. En kısa sürede tamamlanacak.
+                Bu modül geliştirilme aşamasında. Yakında tamamlanacak.
               </p>
-              <button className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all font-medium">
+              <button
+                onClick={() => setActiveTab('overview')}
+                className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all font-medium"
+              >
                 Genel Bakışa Dön
               </button>
             </div>
