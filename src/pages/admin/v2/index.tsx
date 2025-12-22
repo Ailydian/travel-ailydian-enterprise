@@ -1035,26 +1035,46 @@ const AdminDashboardV2 = () => {
           </div>
         )}
 
-        {/* Analytics & Settings Placeholder */}
-        {(activeTab === 'analytics' || activeTab === 'settings') && (
-          <div className="bg-white rounded-2xl p-12 text-center border border-slate-200">
+        {/* Analytics Tab - Redirect to dedicated page */}
+        {activeTab === 'analytics' && (
+          <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl p-12 text-center border-2 border-dashed border-blue-300">
             <div className="max-w-md mx-auto">
-              <div className="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-4">
-                {activeTab === 'analytics' ? <BarChart3 className="w-8 h-8 text-blue-600" /> : <Settings className="w-8 h-8 text-blue-600" />}
+              <div className="w-16 h-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                <BarChart3 className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-2">
-                {activeTab === 'analytics' && 'Detaylı Analytics'}
-                {activeTab === 'settings' && 'Sistem Ayarları'}
+              <h3 className="text-2xl font-bold text-slate-900 mb-2">
+                Detaylı Analytics
               </h3>
               <p className="text-slate-600 mb-6">
-                Bu modül geliştirilme aşamasında. Yakında tamamlanacak.
+                Gelişmiş analitik raporları ve grafikler için özel sayfaya gidin
               </p>
-              <button
-                onClick={() => setActiveTab('overview')}
-                className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all font-medium"
-              >
-                Genel Bakışa Dön
-              </button>
+              <Link href="/admin/v2/analytics">
+                <button className="px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:shadow-xl transition-all font-medium">
+                  Analytics Sayfasına Git
+                </button>
+              </Link>
+            </div>
+          </div>
+        )}
+
+        {/* Settings Tab - Redirect to dedicated page */}
+        {activeTab === 'settings' && (
+          <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-12 text-center border-2 border-dashed border-purple-300">
+            <div className="max-w-md mx-auto">
+              <div className="w-16 h-16 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Settings className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-2xl font-bold text-slate-900 mb-2">
+                Sistem Ayarları
+              </h3>
+              <p className="text-slate-600 mb-6">
+                Tüm sistem konfigürasyonları için özel ayarlar sayfasına gidin
+              </p>
+              <Link href="/admin/v2/settings">
+                <button className="px-8 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg hover:shadow-xl transition-all font-medium">
+                  Ayarlar Sayfasına Git
+                </button>
+              </Link>
             </div>
           </div>
         )}
