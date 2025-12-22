@@ -33,7 +33,7 @@ import {
   Clock,
 } from 'lucide-react';
 import { VEHICLE_CATEGORIES } from '@/data/vehicleCategories';
-import SimpleNavigationHeader from '@/components/layout/SimpleNavigationHeader';
+import { SimpleBackButton } from '@/components/navigation/SimpleBackButton';
 import CarRentalSearchEngine, { type CarRentalSearchData } from '@/components/car-rentals/CarRentalSearchEngine';
 import {
   CAR_RENTALS_SEO,
@@ -203,7 +203,8 @@ const CarRentalsPage: React.FC = () => {
         />
       </Head>
 
-      <SimpleNavigationHeader currentPage="car-rentals" />
+      {/* Simple Back to Home Button */}
+      <SimpleBackButton showHomeButton={true} showBackButton={false} />
 
       <main className="min-h-screen bg-gray-50">
         {/* Hero Section - Full Width Search Engine */}

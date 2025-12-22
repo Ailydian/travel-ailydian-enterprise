@@ -32,7 +32,7 @@ import {
 } from '@heroicons/react/24/outline';
 import { HeartIcon as HeartSolidIcon, StarIcon as StarSolidIcon } from '@heroicons/react/24/solid';
 import { useToast } from '../../context/ToastContext';
-import SimpleNavigationHeader from '../../components/layout/SimpleNavigationHeader';
+import { SimpleBackButton } from '../../components/navigation/SimpleBackButton';
 
 // Real property interface from API
 interface RentalProperty {
@@ -323,8 +323,8 @@ const RentalsPage: React.FC = () => {
         <meta name="keywords" content="kiralık villa, tatil evi, alanya villa, bodrum villa, marmaris villa, antalya kiralık daire" />
       </Head>
 
-      {/* Simple Navigation Header */}
-      <SimpleNavigationHeader currentPage="rentals" />
+      {/* Simple Back to Home Button */}
+      <SimpleBackButton showHomeButton={true} showBackButton={false} />
 
       <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100">
         {/* Header */}

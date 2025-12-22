@@ -55,7 +55,7 @@ import {
   Sparkles,
   CheckCircle2,
 } from 'lucide-react';
-import SimpleNavigationHeader from '@/components/layout/SimpleNavigationHeader';
+import { SimpleBackButton } from '@/components/navigation/SimpleBackButton';
 
 // Sample transfer data - in production this would come from API/database
 const getTransferBySlug = (slug: string) => {
@@ -535,7 +535,8 @@ const TransferDetailPage = () => {
         <link rel="canonical" href={`https://travel.ailydian.com/transfers/${slug}`} />
       </Head>
 
-      <SimpleNavigationHeader />
+      {/* Simple Back to Home Button */}
+      <SimpleBackButton showHomeButton={true} showBackButton={true} />
 
       <main className="min-h-screen bg-gray-50">
         {/* Image Gallery */}

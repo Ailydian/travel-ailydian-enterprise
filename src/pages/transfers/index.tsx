@@ -33,7 +33,7 @@ import {
   Clock,
   Shield,
 } from 'lucide-react';
-import SimpleNavigationHeader from '@/components/layout/SimpleNavigationHeader';
+import { SimpleBackButton } from '@/components/navigation/SimpleBackButton';
 import TransferRouteSelector from '@/components/transfers/TransferRouteSelector';
 import type { AdvancedLocationSuggestion } from '@/lib/location-service-advanced';
 import {
@@ -253,7 +253,8 @@ const TransfersPage: React.FC = () => {
         />
       </Head>
 
-      <SimpleNavigationHeader currentPage="transfers" />
+      {/* Simple Back to Home Button */}
+      <SimpleBackButton showHomeButton={true} showBackButton={false} />
 
       <main className="min-h-screen bg-gray-50">
         {/* Hero Section - Full Width Search */}
