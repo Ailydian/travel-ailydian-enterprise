@@ -5,7 +5,6 @@ import { useRouter } from 'next/router';
 import dynamic from 'next/dynamic';
 import { motion } from 'framer-motion';
 import {
-  ArrowLeft,
   CreditCard,
   Shield,
   CheckCircle,
@@ -296,16 +295,7 @@ const Checkout: React.FC = () => {
 
       <NavigationHeader />
 
-      {/* Return to Cart Button */}
-      <Link
-        href="/cart"
-        className="fixed top-24 left-3 sm:left-6 z-10 flex items-center gap-1 sm:gap-2 px-3 sm:px-4 py-2 bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200 text-gray-700 hover:bg-white hover:text-ailydian-primary transition-all duration-200"
-      >
-        <ArrowLeft className="w-4 h-4 sm:w-5 sm:h-5" />
-        <span className="font-medium text-sm sm:text-base">Sepete Dön</span>
-      </Link>
-
-      <main className="pt-8 min-h-screen bg-gray-50">
+      <main className="min-h-screen bg-gray-50">
         <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6 py-4 sm:py-6 lg:py-8">
           {/* Header */}
           <motion.div

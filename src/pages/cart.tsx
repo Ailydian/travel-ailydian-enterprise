@@ -3,7 +3,6 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import {
-  ArrowLeft,
   ShoppingCart,
   Trash2,
   Plus,
@@ -118,17 +117,7 @@ const Cart: React.FC = () => {
 
       <NavigationHeader />
 
-      {/* Return to Home Button */}
-      <Link
-        href="/"
-        className="fixed top-20 sm:top-24 left-2 sm:left-6 z-10 flex items-center gap-1 sm:gap-2 px-2 sm:px-4 py-1.5 sm:py-2 text-sm sm:text-base bg-white/90 backdrop-blur-sm rounded-lg sm:rounded-xl shadow-lg border border-gray-200 text-gray-700 hover:bg-white hover:text-ailydian-primary transition-all duration-200"
-      >
-        <ArrowLeft className="w-3 h-3 sm:w-4 sm:h-4" />
-        <span className="font-medium hidden sm:inline">Ana Sayfaya Dön</span>
-        <span className="font-medium sm:hidden">Geri</span>
-      </Link>
-
-      <main className="pt-4 sm:pt-8 min-h-screen bg-gray-50">
+      <main className="min-h-screen bg-gray-50">
         <div className="max-w-7xl mx-auto px-3 sm:px-4 py-4 sm:py-8">
           {/* Header */}
           <motion.div

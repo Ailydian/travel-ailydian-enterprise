@@ -32,7 +32,7 @@ import {
 } from '@heroicons/react/24/outline';
 import { HeartIcon as HeartSolidIcon, StarIcon as StarSolidIcon } from '@heroicons/react/24/solid';
 import { useToast } from '../../context/ToastContext';
-import { SimpleBackButton } from '../../components/navigation/SimpleBackButton';
+import NavigationHeader from '../../components/layout/NavigationHeader';
 
 // Real property interface from API
 interface RentalProperty {
@@ -323,15 +323,14 @@ const RentalsPage: React.FC = () => {
         <meta name="keywords" content="kiralık villa, tatil evi, alanya villa, bodrum villa, marmaris villa, antalya kiralık daire" />
       </Head>
 
-      {/* Simple Back to Home Button */}
-      <SimpleBackButton showHomeButton={true} showBackButton={false} />
+      <NavigationHeader />
 
       <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100">
         {/* Header */}
         <motion.header
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-sm"
+          className="sticky top-20 z-40 bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-sm"
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
             <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
@@ -421,7 +420,7 @@ const RentalsPage: React.FC = () => {
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -20 }}
-                  className="lg:w-80 bg-white rounded-2xl shadow-lg p-6 h-fit sticky top-24 max-h-[calc(100vh-7rem)] overflow-y-auto"
+                  className="lg:w-80 bg-white rounded-2xl shadow-lg p-6 h-fit sticky top-20 max-h-[calc(100vh-6rem)] overflow-y-auto"
                 >
                   {/* Filter Header */}
                   <div className="flex items-center justify-between mb-6">

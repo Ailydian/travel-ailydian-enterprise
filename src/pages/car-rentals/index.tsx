@@ -33,7 +33,7 @@ import {
   Clock,
 } from 'lucide-react';
 import { VEHICLE_CATEGORIES } from '@/data/vehicleCategories';
-import { SimpleBackButton } from '@/components/navigation/SimpleBackButton';
+import NavigationHeader from '@/components/layout/NavigationHeader';
 import CarRentalSearchEngine, { type CarRentalSearchData } from '@/components/car-rentals/CarRentalSearchEngine';
 import {
   CAR_RENTALS_SEO,
@@ -203,8 +203,7 @@ const CarRentalsPage: React.FC = () => {
         />
       </Head>
 
-      {/* Simple Back to Home Button */}
-      <SimpleBackButton showHomeButton={true} showBackButton={false} />
+      <NavigationHeader />
 
       <main className="min-h-screen bg-gray-50">
         {/* Hero Section - Full Width Search Engine */}
@@ -445,7 +444,7 @@ const CarRentalsPage: React.FC = () => {
         </section>
 
         {/* Filters Bar */}
-        <section className="bg-white border-b border-gray-200 sticky top-16 z-40">
+        <section className="bg-white border-b border-gray-200 sticky top-20 z-40">
           <div className="max-w-7xl mx-auto px-4 py-4">
             <div className="flex items-center justify-between gap-4">
               <div className="flex items-center gap-2 flex-wrap">

@@ -45,7 +45,7 @@ import {
   ChevronDown,
   ChevronUp,
 } from 'lucide-react';
-import { SimpleBackButton } from '@/components/navigation/SimpleBackButton';
+import NavigationHeader from '@/components/layout/NavigationHeader';
 
 // Sample tour data - in production this would come from API/database
 const getTourBySlug = (slug: string) => {
@@ -295,8 +295,7 @@ const TourDetailPage = () => {
         <link rel="canonical" href={`https://travel.ailydian.com/tours/${slug}`} />
       </Head>
 
-      {/* Simple Back to Home Button */}
-      <SimpleBackButton showHomeButton={true} showBackButton={true} />
+      <NavigationHeader />
 
       <main className="min-h-screen bg-gray-50">
         {/* Image Gallery */}
@@ -329,31 +328,21 @@ const TourDetailPage = () => {
               </button>
 
               {/* Top Bar Actions */}
-              <div className="absolute top-4 left-4 right-4 flex items-center justify-between">
+              <div className="absolute top-4 right-4 flex items-center gap-2">
                 <button
-                  onClick={() => router.back()}
-                  className="px-4 py-2 bg-white/90 hover:bg-white rounded-lg font-semibold text-gray-900 transition-all flex items-center gap-2"
+                  onClick={handleShare}
+                  className="p-2 bg-white/90 hover:bg-white rounded-lg transition-all"
                 >
-                  <ChevronLeft className="w-5 h-5" />
-                  Geri
+                  <Share2 className="w-5 h-5 text-gray-900" />
                 </button>
-
-                <div className="flex items-center gap-2">
-                  <button
-                    onClick={handleShare}
-                    className="p-2 bg-white/90 hover:bg-white rounded-lg transition-all"
-                  >
-                    <Share2 className="w-5 h-5 text-gray-900" />
-                  </button>
-                  <button
-                    onClick={() => setIsFavorite(!isFavorite)}
-                    className="p-2 bg-white/90 hover:bg-white rounded-lg transition-all"
-                  >
-                    <Heart
-                      className={`w-5 h-5 ${isFavorite ? 'fill-red-500 text-red-500' : 'text-gray-900'}`}
-                    />
-                  </button>
-                </div>
+                <button
+                  onClick={() => setIsFavorite(!isFavorite)}
+                  className="p-2 bg-white/90 hover:bg-white rounded-lg transition-all"
+                >
+                  <Heart
+                    className={`w-5 h-5 ${isFavorite ? 'fill-red-500 text-red-500' : 'text-gray-900'}`}
+                  />
+                </button>
               </div>
 
               {/* Image Counter */}
@@ -795,7 +784,7 @@ const TourDetailPage = () => {
 
             {/* Right Column - Booking Panel */}
             <div className="lg:col-span-1">
-              <div className="sticky top-4">
+              <div className="sticky top-20">
                 <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-200">
                   {/* Price */}
                   <div className="mb-6">

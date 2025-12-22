@@ -33,7 +33,7 @@ import {
   Clock,
   Shield,
 } from 'lucide-react';
-import { SimpleBackButton } from '@/components/navigation/SimpleBackButton';
+import NavigationHeader from '@/components/layout/NavigationHeader';
 import TransferRouteSelector from '@/components/transfers/TransferRouteSelector';
 import type { AdvancedLocationSuggestion } from '@/lib/location-service-advanced';
 import {
@@ -253,8 +253,7 @@ const TransfersPage: React.FC = () => {
         />
       </Head>
 
-      {/* Simple Back to Home Button */}
-      <SimpleBackButton showHomeButton={true} showBackButton={false} />
+      <NavigationHeader />
 
       <main className="min-h-screen bg-gray-50">
         {/* Hero Section - Full Width Search */}
@@ -361,21 +360,27 @@ const TransfersPage: React.FC = () => {
           </div>
         </section>
 
+        {/* Filters Bar */}
+        <section className="bg-white border-b border-gray-200 sticky top-20 z-40 py-4">
+          <div className="max-w-7xl mx-auto px-4">
+            <button
+              onClick={() => setShowFilters(!showFilters)}
+              className="flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
+            >
+              <Filter className="w-5 h-5" />
+              Filtrele
+            </button>
+          </div>
+        </section>
+
         {/* Transfer Listings - Results from search */}
         {filteredTransfers.length > 0 && (
           <section className="bg-white py-12">
             <div className="max-w-7xl mx-auto px-4">
-              <div className="flex items-center justify-between mb-8">
+              <div className="mb-8">
                 <h2 className="text-3xl font-bold text-gray-900">
                   Mevcut Transferler ({filteredTransfers.length})
                 </h2>
-                <button
-                  onClick={() => setShowFilters(!showFilters)}
-                  className="flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
-                >
-                  <Filter className="w-5 h-5" />
-                  Filtrele
-                </button>
               </div>
 
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
