@@ -79,14 +79,128 @@ interface CarDetailsPageProps {
   slug: string;
 }
 
+// Mock data function - matches database schema
+const getCarBySlug = (slug: string): CarRental => {
+  const carData: Record<string, CarRental> = {
+    'mercedes-vito-vip': {
+      id: '1',
+      name: 'Mercedes Vito VIP',
+      slug: 'mercedes-vito-vip',
+      description: 'Lüks ve konforlu Mercedes Vito VIP ile seyahatinizin keyfini çıkarın. Profesyonel şoför hizmeti ile havalimanı transferleri, şehir içi geziler ve özel etkinlikleriniz için ideal.',
+      shortDescription: 'Premium VIP transfer aracı',
+      brand: 'Mercedes-Benz',
+      model: 'Vito',
+      year: 2023,
+      category: 'VAN',
+      transmission: 'AUTOMATIC',
+      fuelType: 'Dizel',
+      seats: 8,
+      doors: 4,
+      luggage: 8,
+      features: ['Deri Koltuklar', 'Geniş Bagaj', 'Premium Ses Sistemi', 'Panoramik Tavan', 'Çift Klima', 'USB Şarj Portları'],
+      airConditioning: true,
+      gps: true,
+      bluetooth: true,
+      usbCharger: true,
+      pricePerDay: '1200',
+      pricePerWeek: '7500',
+      pricePerMonth: '25000',
+      currency: 'TRY',
+      deposit: '3000',
+      insuranceIncluded: true,
+      insuranceType: 'Kasko',
+      pickupLocations: ['İstanbul Havalimanı', 'Sabiha Gökçen Havalimanı', 'Taksim', 'Beşiktaş'],
+      allowDifferentDropoff: true,
+      availableCount: 3,
+      isAvailable: true,
+      mainImage: 'https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?w=1200',
+      images: [
+        'https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?w=1200',
+        'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=1200',
+      ],
+      minimumAge: 25,
+      drivingLicenseYears: 3,
+      requiredDocuments: ['Geçerli Ehliyet', 'Kimlik/Pasaport', 'Kredi Kartı'],
+      unlimitedMileage: false,
+      mileageLimit: 200,
+      isActive: true,
+      isFeatured: true,
+      isPopular: true,
+      rating: '4.8',
+      reviewCount: 156,
+    },
+    'volkswagen-transporter': {
+      id: '2',
+      name: 'Volkswagen Transporter',
+      slug: 'volkswagen-transporter',
+      description: 'Volkswagen Transporter ile güvenli ve konforlu yolculuk yapın.',
+      shortDescription: 'Güvenilir ve konforlu',
+      brand: 'Volkswagen',
+      model: 'Transporter',
+      year: 2022,
+      category: 'VAN',
+      transmission: 'MANUAL',
+      fuelType: 'Dizel',
+      seats: 9,
+      doors: 4,
+      luggage: 10,
+      features: ['Geniş İç Mekan', 'Ekonomik Yakıt', 'Bagaj Alanı', 'Klima'],
+      airConditioning: true,
+      gps: true,
+      bluetooth: false,
+      usbCharger: true,
+      pricePerDay: '950',
+      pricePerWeek: '6000',
+      pricePerMonth: '20000',
+      currency: 'TRY',
+      deposit: '2500',
+      insuranceIncluded: true,
+      insuranceType: 'Trafik + Kasko',
+      pickupLocations: ['İstanbul Havalimanı', 'Kadıköy', 'Üsküdar'],
+      allowDifferentDropoff: true,
+      availableCount: 5,
+      isAvailable: true,
+      mainImage: 'https://images.unsplash.com/photo-1527786356703-4b100091cd2c?w=1200',
+      images: ['https://images.unsplash.com/photo-1527786356703-4b100091cd2c?w=1200'],
+      minimumAge: 23,
+      drivingLicenseYears: 2,
+      requiredDocuments: ['Geçerli Ehliyet', 'Kimlik/Pasaport', 'Kredi Kartı'],
+      unlimitedMileage: true,
+      mileageLimit: 0,
+      isActive: true,
+      isFeatured: false,
+      isPopular: true,
+      rating: '4.6',
+      reviewCount: 98,
+    },
+  };
+
+  return carData[slug] || carData['mercedes-vito-vip'];
+};
+
+const getSimilarCars = (currentSlug: string): SimilarCar[] => {
+  return [
+    {
+      id: '2',
+      name: 'Volkswagen Transporter',
+      slug: 'volkswagen-transporter',
+      brand: 'Volkswagen',
+      model: 'Transporter',
+      category: 'VAN',
+      pricePerDay: '950',
+      currency: 'TRY',
+      mainImage: 'https://images.unsplash.com/photo-1527786356703-4b100091cd2c?w=600',
+      rating: '4.6',
+      reviewCount: 98,
+    },
+  ].filter(car => car.slug !== currentSlug);
+};
+
 const CarDetailsPage = ({ slug: initialSlug }: CarDetailsPageProps) => {
   const router = useRouter();
   const { slug: routerSlug } = router.query;
   const slug = initialSlug || routerSlug;
 
-  const [car, setCar] = useState<CarRental | null>(null);
-  const [similarCars, setSimilarCars] = useState<SimilarCar[]>([]);
-  const [loading, setLoading] = useState(true);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isFavorite, setIsFavorite] = useState(false);
 
@@ -96,32 +210,16 @@ const CarDetailsPage = ({ slug: initialSlug }: CarDetailsPageProps) => {
   const [pickupLocation, setPickupLocation] = useState('');
   const [selectedAddons, setSelectedAddons] = useState<string[]>([]);
 
-  // Fetch car details
+  // Get car data directly from mock function
+  const car = slug ? getCarBySlug(slug as string) : null;
+  const similarCars = slug ? getSimilarCars(slug as string) : [];
+
+  // Set initial pickup location
   useEffect(() => {
-    if (!slug) return;
-
-    const fetchCarDetails = async () => {
-      setLoading(true);
-      try {
-        const response = await fetch(`/api/car-rentals/${slug}`);
-        const data = await response.json();
-
-        if (data.success) {
-          setCar(data.data);
-          setSimilarCars(data.similar || []);
-          if (data.data.pickupLocations.length > 0) {
-            setPickupLocation(data.data.pickupLocations[0]);
-          }
-        }
-      } catch (error) {
-        console.error('Error fetching car:', error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchCarDetails();
-  }, [slug]);
+    if (car && car.pickupLocations.length > 0 && !pickupLocation) {
+      setPickupLocation(car.pickupLocations[0]);
+    }
+  }, [car, pickupLocation]);
 
   // Calculate rental days
   const calculateDays = () => {
@@ -172,17 +270,6 @@ const CarDetailsPage = ({ slug: initialSlug }: CarDetailsPageProps) => {
     };
     return colors[category] || 'bg-gray-100 text-gray-800';
   };
-
-  if (loading) {
-    return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-        <div className="text-center">
-          <div className="w-16 h-16 border-4 border-blue-600 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-          <p className="text-gray-600">Yükleniyor...</p>
-        </div>
-      </div>
-    );
-  }
 
   if (!car) {
     return (

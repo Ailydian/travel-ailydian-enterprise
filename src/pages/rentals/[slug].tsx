@@ -119,15 +119,100 @@ interface PropertyDetailsPageProps {
   slug: string;
 }
 
+// Mock data function - matches database schema
+const getPropertyBySlug = (slug: string): RentalProperty => {
+  const propertyData: Record<string, RentalProperty> = {
+    'istanbul-bogaz-manzarali-villa': {
+      id: '1',
+      title: 'İstanbul Boğaz Manzaralı Lüks Villa',
+      slug: 'istanbul-bogaz-manzarali-villa',
+      description: 'Boğaz manzaralı, modern ve lüks villa. Muhteşem manzara, geniş teraslar ve özel havuz ile unutulmaz bir tatil deneyimi.',
+      type: 'VILLA',
+      city: 'İstanbul',
+      district: 'Beşiktaş',
+      address: 'Bebek Mahallesi, Boğaz Caddesi',
+      coordinates: { lat: 41.0766, lng: 29.0433 },
+      guests: 8,
+      bedrooms: 4,
+      bathrooms: 3,
+      beds: 6,
+      squareMeters: 350,
+      basePrice: '5000',
+      weeklyDiscount: '15',
+      monthlyDiscount: '25',
+      cleaningFee: '800',
+      securityDeposit: '5000',
+      wifi: true,
+      kitchen: true,
+      parking: true,
+      pool: true,
+      airConditioning: true,
+      heating: true,
+      tv: true,
+      washer: true,
+      beachfront: false,
+      seaview: true,
+      balcony: true,
+      smokingAllowed: false,
+      petsAllowed: false,
+      partiesAllowed: false,
+      childrenAllowed: true,
+      instantBook: true,
+      minimumStay: 2,
+      maximumStay: 90,
+      checkInTime: '15:00',
+      checkOutTime: '11:00',
+      mainImage: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200',
+      images: [
+        'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200',
+        'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200',
+        'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200',
+      ],
+      virtualTourUrl: null,
+      hostName: 'Mehmet Bey',
+      hostSuperhost: true,
+      hostResponseTime: '1 saat içinde',
+      hostLanguages: ['Türkçe', 'İngilizce'],
+      isActive: true,
+      isFeatured: true,
+      overall: '4.9',
+      cleanliness: '5.0',
+      accuracy: '4.9',
+      checkIn: '4.8',
+      communication: '5.0',
+      location: '5.0',
+      value: '4.7',
+      reviewCount: 87,
+      airbnbPrice: null,
+      bookingPrice: null,
+      agodaPrice: null,
+    },
+  };
+
+  return propertyData[slug] || propertyData['istanbul-bogaz-manzarali-villa'];
+};
+
+const getSimilarProperties = (currentSlug: string): SimilarProperty[] => {
+  return [
+    {
+      id: '2',
+      title: 'Kadıköy Modern Loft',
+      slug: 'kadikoy-modern-loft',
+      city: 'İstanbul',
+      mainImage: 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=600',
+      basePrice: '2500',
+      overall: '4.7',
+      reviewCount: 45,
+      bedrooms: 2,
+      bathrooms: 1,
+    },
+  ].filter(prop => prop.slug !== currentSlug);
+};
+
 const PropertyDetailsPage = ({ slug: initialSlug }: PropertyDetailsPageProps) => {
   const router = useRouter();
   const { slug: routerSlug } = router.query;
   const slug = initialSlug || routerSlug;
-
-  const [property, setProperty] = useState<RentalProperty | null>(null);
-  const [similarProperties, setSimilarProperties] = useState<SimilarProperty[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
 
   // UI States
   const [isFavorite, setIsFavorite] = useState(false);
@@ -142,33 +227,9 @@ const PropertyDetailsPage = ({ slug: initialSlug }: PropertyDetailsPageProps) =>
   const [childrenCount, setChildrenCount] = useState(0);
   const [infantsCount, setInfantsCount] = useState(0);
 
-  // Fetch property details
-  useEffect(() => {
-    if (!slug) return;
-
-    const fetchPropertyDetails = async () => {
-      setLoading(true);
-      setError(null);
-      try {
-        const response = await fetch(`/api/rental-properties/${slug}`);
-        const data = await response.json();
-
-        if (data.success) {
-          setProperty(data.data);
-          setSimilarProperties(data.similar || []);
-        } else {
-          setError(data.error || 'Property not found');
-        }
-      } catch (err) {
-        console.error('Error fetching property:', err);
-        setError('Failed to load property details');
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchPropertyDetails();
-  }, [slug]);
+  // Get property data directly from mock function
+  const property = slug ? getPropertyBySlug(slug as string) : null;
+  const similarProperties = slug ? getSimilarProperties(slug as string) : [];
 
   // Calculate nights
   const calculateNights = () => {
@@ -298,25 +359,13 @@ const PropertyDetailsPage = ({ slug: initialSlug }: PropertyDetailsPageProps) =>
     router.push(bookingUrl);
   };
 
-  // Loading state
-  if (loading) {
-    return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-        <div className="text-center">
-          <Loader2 className="w-12 h-12 text-blue-600 animate-spin mx-auto mb-4" />
-          <p className="text-gray-600">Özellik yükleniyor...</p>
-        </div>
-      </div>
-    );
-  }
-
   // Error state
-  if (error || !property) {
+  if (!property) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-2xl font-bold text-gray-900 mb-2">Özellik Bulunamadı</h1>
-          <p className="text-gray-600 mb-6">{error || 'Bu özellik mevcut değil.'}</p>
+          <p className="text-gray-600 mb-6">Bu özellik mevcut değil.</p>
           <button
             onClick={() => router.push('/rentals')}
             className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
