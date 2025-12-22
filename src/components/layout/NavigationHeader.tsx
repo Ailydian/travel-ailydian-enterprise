@@ -54,10 +54,6 @@ const NavigationHeader: React.FC = () => {
   const [isLanguageMenuOpen, setIsLanguageMenuOpen] = useState(false);
   const [isToursMenuOpen, setIsToursMenuOpen] = useState(false);
   const [isMobileToursOpen, setIsMobileToursOpen] = useState(false);
-  const [isCarRentalsMenuOpen, setIsCarRentalsMenuOpen] = useState(false);
-  const [isMobileCarRentalsOpen, setIsMobileCarRentalsOpen] = useState(false);
-  const [isTransferMenuOpen, setIsTransferMenuOpen] = useState(false);
-  const [isMobileTransferOpen, setIsMobileTransferOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [isClient, setIsClient] = useState(false);
   const [searchResults, setSearchResults] = useState<SearchResult[]>([]);
