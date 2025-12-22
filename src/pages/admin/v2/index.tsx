@@ -866,13 +866,22 @@ const AdminDashboardV2 = () => {
                 <h2 className="text-2xl font-bold text-slate-900">Ürün Yönetimi</h2>
                 <p className="text-slate-600">Tüm ürünleri görüntüle, düzenle ve yönet</p>
               </div>
-              <Link href="/admin/v2/products">
-                <button className="flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all font-medium shadow-lg">
-                  <Package className="w-5 h-5" />
-                  Tüm Ürünler
-                  <ArrowUpRight className="w-4 h-4" />
-                </button>
-              </Link>
+              <div className="flex items-center gap-3">
+                <Link href="/admin/v2/all-products">
+                  <button className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-lg hover:shadow-xl transition-all font-medium">
+                    <Database className="w-5 h-5" />
+                    Tüm Ürünler (Gerçek Veri)
+                    <ArrowUpRight className="w-4 h-4" />
+                  </button>
+                </Link>
+                <Link href="/admin/v2/content">
+                  <button className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-600 to-purple-700 text-white rounded-lg hover:shadow-xl transition-all font-medium">
+                    <Edit className="w-5 h-5" />
+                    İçerik Yönetimi
+                    <ArrowUpRight className="w-4 h-4" />
+                  </button>
+                </Link>
+              </div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
