@@ -295,7 +295,7 @@ const TourDetailPage = () => {
         <link rel="canonical" href={`https://travel.ailydian.com/tours/${slug}`} />
       </Head>
 
-      <NavigationHeader />
+      <NavigationHeader theme="orange" />
 
       <main className="min-h-screen bg-gray-50">
         {/* Image Gallery */}

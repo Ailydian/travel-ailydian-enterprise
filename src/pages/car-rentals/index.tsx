@@ -203,7 +203,7 @@ const CarRentalsPage: React.FC = () => {
         />
       </Head>
 
-      <NavigationHeader />
+      <NavigationHeader theme="green" />
 
       <main className="min-h-screen bg-gray-50">
         {/* Hero Section - Full Width Search Engine */}

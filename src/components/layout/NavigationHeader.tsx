@@ -44,11 +44,61 @@ interface NavItem {
   badge?: string;
 }
 
-const NavigationHeader: React.FC = () => {
+export type NavigationTheme = 'default' | 'blue' | 'green' | 'purple' | 'orange' | 'cyan' | 'pink';
+
+interface NavigationHeaderProps {
+  theme?: NavigationTheme;
+}
+
+const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }) => {
   const router = useRouter();
   const { data: session, status } = useSession();
   const { t, i18n } = useTranslation(['common', 'navigation']);
   const { getItemCount } = useCart();
+
+  // Theme color configurations
+  const getThemeColors = (themeType: NavigationTheme) => {
+    const themes = {
+      default: {
+        logo: 'from-ailydian-primary to-ailydian-secondary',
+        aiButton: 'from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700',
+        activeLink: 'bg-blue-50 text-blue-600',
+      },
+      blue: {
+        logo: 'from-blue-600 to-cyan-600',
+        aiButton: 'from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700',
+        activeLink: 'bg-blue-50 text-blue-600',
+      },
+      cyan: {
+        logo: 'from-cyan-600 to-blue-600',
+        aiButton: 'from-cyan-600 to-blue-600 hover:from-cyan-700 hover:to-blue-700',
+        activeLink: 'bg-cyan-50 text-cyan-600',
+      },
+      green: {
+        logo: 'from-green-600 to-emerald-600',
+        aiButton: 'from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700',
+        activeLink: 'bg-green-50 text-green-600',
+      },
+      purple: {
+        logo: 'from-purple-600 to-pink-600',
+        aiButton: 'from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700',
+        activeLink: 'bg-purple-50 text-purple-600',
+      },
+      orange: {
+        logo: 'from-orange-600 to-amber-600',
+        aiButton: 'from-orange-600 to-amber-600 hover:from-orange-700 hover:to-amber-700',
+        activeLink: 'bg-orange-50 text-orange-600',
+      },
+      pink: {
+        logo: 'from-pink-600 to-rose-600',
+        aiButton: 'from-pink-600 to-rose-600 hover:from-pink-700 hover:to-rose-700',
+        activeLink: 'bg-pink-50 text-pink-600',
+      },
+    };
+    return themes[themeType];
+  };
+
+  const themeColors = getThemeColors(theme);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
   const [isLanguageMenuOpen, setIsLanguageMenuOpen] = useState(false);
@@ -481,7 +531,7 @@ const NavigationHeader: React.FC = () => {
           <Link href="/" className="flex items-center">
             <div className="flex flex-col">
               <div className="flex items-baseline space-x-1">
-                <span className="text-xl md:text-2xl font-black bg-gradient-to-r from-ailydian-primary to-ailydian-secondary bg-clip-text text-transparent">
+                <span className={`text-xl md:text-2xl font-black bg-gradient-to-r ${themeColors.logo} bg-clip-text text-transparent`}>
                   Travel
                 </span>
                 <span className="text-xl md:text-2xl font-black text-gray-900">
@@ -650,7 +700,7 @@ const NavigationHeader: React.FC = () => {
                       onMouseLeave={() => setIsToursMenuOpen(false)}
                       className={`relative flex items-center space-x-2 px-4 py-2 rounded-lg transition-colors duration-200 ${
                         isActive(item.href)
-                          ? 'bg-blue-50 text-blue-600'
+                          ? themeColors.activeLink
                           : 'text-gray-700 hover:bg-gray-50'
                       }`}
                     >
@@ -706,7 +756,7 @@ const NavigationHeader: React.FC = () => {
                   href={item.href}
                   className={`relative flex items-center space-x-2 px-4 py-2 rounded-lg transition-colors duration-200 ${
                     isActive(item.href)
-                      ? 'bg-blue-50 text-blue-600'
+                      ? themeColors.activeLink
                       : 'text-gray-700 hover:bg-gray-50'
                   }`}
                 >
@@ -733,12 +783,12 @@ const NavigationHeader: React.FC = () => {
             </button>
 
             {/* AI Assistant */}
-            <button 
+            <button
               onClick={() => {
                 // AI Asistan'ı hero section üstünde aç
                 window.dispatchEvent(new CustomEvent('openAIAssistant'));
               }}
-              className="relative flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl hover:from-blue-700 hover:to-purple-700 transition-all duration-200 shadow-lg hover:shadow-xl"
+              className={`relative flex items-center space-x-2 px-4 py-2 bg-gradient-to-r ${themeColors.aiButton} text-white rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl`}
             >
               <motion.div
                 whileHover={{ scale: 1.05 }}

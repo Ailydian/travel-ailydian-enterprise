@@ -323,7 +323,7 @@ const RentalsPage: React.FC = () => {
         <meta name="keywords" content="kiralık villa, tatil evi, alanya villa, bodrum villa, marmaris villa, antalya kiralık daire" />
       </Head>
 
-      <NavigationHeader />
+      <NavigationHeader theme="purple" />
 
       <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100">
         {/* Header */}

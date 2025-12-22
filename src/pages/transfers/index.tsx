@@ -253,7 +253,7 @@ const TransfersPage: React.FC = () => {
         />
       </Head>
 
-      <NavigationHeader />
+      <NavigationHeader theme="blue" />
 
       <main className="min-h-screen bg-gray-50">
         {/* Hero Section - Full Width Search */}
