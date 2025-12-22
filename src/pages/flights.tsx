@@ -15,6 +15,7 @@ import { FlightFilters, DEFAULT_FLIGHT_FILTERS } from '../types/filters';
 const flights = [
   {
     id: 1,
+    slug: 'ist-ayt-tk123',
     airline: 'Turkish Airlines',
     logo: 'https://images.unsplash.com/photo-1464037866556-6812c9d1c72e?w=100&h=100&fit=crop',
     from: 'İstanbul (IST)',
@@ -30,6 +31,7 @@ const flights = [
   },
   {
     id: 2,
+    slug: 'saw-adb-pg456',
     airline: 'Pegasus Airlines',
     logo: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=100&h=100&fit=crop',
     from: 'İstanbul (SAW)',
@@ -45,6 +47,7 @@ const flights = [
   },
   {
     id: 3,
+    slug: 'esb-tzx-tk789',
     airline: 'Turkish Airlines',
     logo: 'https://images.unsplash.com/photo-1464037866556-6812c9d1c72e?w=100&h=100&fit=crop',
     from: 'Ankara (ESB)',
@@ -60,6 +63,7 @@ const flights = [
   },
   {
     id: 4,
+    slug: 'ist-bjv-aj234',
     airline: 'Anadolu Jet',
     logo: 'https://images.unsplash.com/photo-1540962351504-03099e0a754b?w=100&h=100&fit=crop',
     from: 'İstanbul (IST)',
@@ -75,6 +79,7 @@ const flights = [
   },
   {
     id: 5,
+    slug: 'adb-ayt-sx567',
     airline: 'SunExpress',
     logo: 'https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=100&h=100&fit=crop',
     from: 'İzmir (ADB)',
@@ -90,6 +95,7 @@ const flights = [
   },
   {
     id: 6,
+    slug: 'ist-asr-tk890',
     airline: 'Turkish Airlines',
     logo: 'https://images.unsplash.com/photo-1464037866556-6812c9d1c72e?w=100&h=100&fit=crop',
     from: 'İstanbul (IST)',
@@ -460,13 +466,15 @@ export default function Flights() {
                         <div className="text-sm text-gray-600">kişi başına</div>
                       </div>
                       
-                      <motion.button
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        className="w-full lg:w-auto px-8 py-3 bg-ailydian-primary text-white rounded-xl font-semibold hover:bg-ailydian-dark transition-colors"
-                      >
-                        Bileti Seç
-                      </motion.button>
+                      <Link href={`/flights/${flight.slug}`}>
+                        <motion.button
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
+                          className="w-full lg:w-auto px-8 py-3 bg-ailydian-primary text-white rounded-xl font-semibold hover:bg-ailydian-dark transition-colors"
+                        >
+                          Bileti Seç
+                        </motion.button>
+                      </Link>
                       
                       <div className="mt-2 text-xs text-gray-500">
                         ✓ Blockchain Güvenli Rezervasyon

@@ -7,6 +7,7 @@ import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import { GetStaticPaths, GetStaticProps } from 'next';
 import {
   Car, Star, Users, Settings, Fuel, Shield, MapPin, Calendar,
   Check, X, ChevronLeft, ChevronRight, Heart, Share2, Clock,
@@ -74,9 +75,14 @@ interface SimilarCar {
   reviewCount: number;
 }
 
-const CarDetailsPage = () => {
+interface CarDetailsPageProps {
+  slug: string;
+}
+
+const CarDetailsPage = ({ slug: initialSlug }: CarDetailsPageProps) => {
   const router = useRouter();
-  const { slug } = router.query;
+  const { slug: routerSlug } = router.query;
+  const slug = initialSlug || routerSlug;
 
   const [car, setCar] = useState<CarRental | null>(null);
   const [similarCars, setSimilarCars] = useState<SimilarCar[]>([]);
@@ -501,6 +507,18 @@ const CarDetailsPage = () => {
 
               <button
                 disabled={!pickupDate || !returnDate || days <= 0}
+                onClick={() => {
+                  if (pickupDate && returnDate && days > 0) {
+                    router.push({
+                      pathname: '/car-rentals/book',
+                      query: {
+                        slug: car.slug,
+                        pickupDate,
+                        returnDate,
+                      },
+                    });
+                  }
+                }}
                 className="w-full py-4 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors flex items-center justify-center gap-2"
               >
                 Rezervasyon Yap
@@ -516,6 +534,36 @@ const CarDetailsPage = () => {
       </div>
     </div>
   );
+};
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const slugs = [
+    'mercedes-vito-vip',
+    'volkswagen-transporter',
+    'ford-transit-minibus',
+    'hyundai-h350',
+    'mercedes-sprinter',
+  ];
+
+  const paths = slugs.map((slug) => ({
+    params: { slug }
+  }));
+
+  return {
+    paths,
+    fallback: 'blocking'
+  };
+};
+
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const slug = params?.slug as string;
+
+  return {
+    props: {
+      slug,
+    },
+    revalidate: 3600, // Revalidate every hour
+  };
 };
 
 export default CarDetailsPage;

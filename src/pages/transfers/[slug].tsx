@@ -10,6 +10,7 @@ import { NextSeo } from 'next-seo';
 import Head from 'next/head';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { GetStaticPaths, GetStaticProps } from 'next';
 import {
   Calendar,
   Clock,
@@ -436,9 +437,12 @@ Temiz, konforlu ve tam donanımlı araçlarımızda ücretsiz WiFi, su ikramı v
   };
 };
 
-const TransferDetailPage = () => {
+interface TransferDetailPageProps {
+  slug: string;
+}
+
+const TransferDetailPage = ({ slug }: TransferDetailPageProps) => {
   const router = useRouter();
-  const { slug } = router.query;
 
   const [selectedImage, setSelectedImage] = useState(0);
   const [isFavorite, setIsFavorite] = useState(false);
@@ -455,8 +459,6 @@ const TransferDetailPage = () => {
   const [selectedTerminal, setSelectedTerminal] = useState('');
   const [selectedExtras, setSelectedExtras] = useState<string[]>([]);
   const [showRealTimeTracking, setShowRealTimeTracking] = useState(false);
-
-  if (!slug) return null;
 
   const transfer = getTransferBySlug(slug as string);
 
@@ -1480,6 +1482,35 @@ const TransferDetailPage = () => {
       </main>
     </>
   );
+};
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const slugs = [
+    'istanbul-havalimani-transfer',
+    'sabiha-gokcen-transfer',
+    'antalya-havalimani-transfer',
+    'bodrum-havalimani-transfer',
+  ];
+
+  const paths = slugs.map((slug) => ({
+    params: { slug }
+  }));
+
+  return {
+    paths,
+    fallback: 'blocking'
+  };
+};
+
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const slug = params?.slug as string;
+
+  return {
+    props: {
+      slug,
+    },
+    revalidate: 3600, // Revalidate every hour
+  };
 };
 
 export default TransferDetailPage;

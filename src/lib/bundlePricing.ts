@@ -22,7 +22,7 @@ export interface BundlePricing {
   totalDiscount: number;
   finalTotal: number;
   savingsPercentage: number;
-  ailydi anMiles: number; // Loyalty points earned
+  ailydianMiles: number; // Loyalty points earned
 }
 
 /**
@@ -202,22 +202,22 @@ export function calculateSeasonalDiscount(travelDate: Date, location: string): B
  * 5,000+ miles = %5
  * 10,000+ miles = %10 (VIP)
  */
-export function calculateLoyaltyDiscount(ailydiانMiles: number): BundleDiscount | null {
-  if (ailydiانMiles >= 10000) {
+export function calculateLoyaltyDiscount(ailydianMiles: number): BundleDiscount | null {
+  if (ailydianMiles >= 10000) {
     return {
       percentage: 10,
       amount: 0,
       reason: 'VIP üye indirimi (10,000+ miles)',
       badge: '👑 VIP Üye'
     };
-  } else if (ailydiانMiles >= 5000) {
+  } else if (ailydianMiles >= 5000) {
     return {
       percentage: 5,
       amount: 0,
       reason: 'Gold üye indirimi (5,000+ miles)',
       badge: '🥇 Gold Üye'
     };
-  } else if (ailydiانMiles >= 1000) {
+  } else if (ailydianMiles >= 1000) {
     return {
       percentage: 2,
       amount: 0,
@@ -321,7 +321,7 @@ export function calculateBundlePricing(
     totalDiscount,
     finalTotal,
     savingsPercentage,
-    ailydiانMiles: milesEarned
+    ailydianMiles: milesEarned
   };
 }
 

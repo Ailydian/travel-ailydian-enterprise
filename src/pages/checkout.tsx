@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -19,7 +19,12 @@ import {
   Eye,
   EyeOff,
   Building,
-  Globe
+  Globe,
+  Package,
+  Plane,
+  Car,
+  Home,
+  Ticket
 } from 'lucide-react';
 import SimplifiedHeader from '../components/layout/SimplifiedHeader';
 import type { LocationData } from '../components/ui/LocationPicker';
@@ -59,6 +64,196 @@ interface FormErrors {
   [key: string]: string;
 }
 
+interface UnifiedBookingData {
+  type: 'transfer' | 'car-rental' | 'rental-property' | 'tour' | 'hotel' | 'flight';
+  productId: string;
+  productName: string;
+  productImage?: string;
+  basePrice: number;
+  quantity: number;
+  totalPrice: number;
+  dates: {
+    start: string;
+    end?: string;
+  };
+  participants?: number;
+  guests?: number;
+  passengers?: number;
+  productSpecific: Record<string, any>;
+}
+
+interface OrderItem {
+  title: string;
+  guests?: number;
+  passengers?: number;
+  quantity?: number;
+  price: number;
+}
+
+interface OrderSummary {
+  items: OrderItem[];
+  subtotal: number;
+  tax: number;
+  discount: number;
+  total: number;
+}
+
+// Normalization function to convert any product data to unified format
+const normalizeBookingData = (rawData: any): UnifiedBookingData | null => {
+  if (!rawData || !rawData.type) return null;
+
+  const type = rawData.type as UnifiedBookingData['type'];
+
+  switch (type) {
+    case 'hotel':
+      return {
+        type: 'hotel',
+        productId: rawData.hotel || '',
+        productName: rawData.hotelName || 'Hotel',
+        basePrice: rawData.roomPrice || 0,
+        quantity: rawData.rooms || 1,
+        totalPrice: rawData.totalPrice || 0,
+        dates: {
+          start: rawData.checkIn || '',
+          end: rawData.checkOut || ''
+        },
+        guests: rawData.guests,
+        productSpecific: {
+          roomType: rawData.roomType,
+          nights: rawData.nights,
+          checkIn: rawData.checkIn,
+          checkOut: rawData.checkOut,
+          rooms: rawData.rooms,
+          guests: rawData.guests
+        }
+      };
+
+    case 'tour':
+      return {
+        type: 'tour',
+        productId: rawData.id || '',
+        productName: rawData.title || 'Tour',
+        basePrice: rawData.price || 0,
+        quantity: rawData.guests || 1,
+        totalPrice: (rawData.price || 0) * (rawData.guests || 1),
+        dates: {
+          start: rawData.date || ''
+        },
+        passengers: rawData.guests,
+        productSpecific: {
+          date: rawData.date,
+          guests: rawData.guests,
+          slug: rawData.slug
+        }
+      };
+
+    case 'transfer':
+      return {
+        type: 'transfer',
+        productId: rawData.id || '',
+        productName: rawData.title || 'Transfer',
+        basePrice: rawData.pricePerVehicle || rawData.price || 0,
+        quantity: 1,
+        totalPrice: rawData.totalPrice || rawData.pricePerVehicle || 0,
+        dates: {
+          start: rawData.date || '',
+          end: rawData.returnDate
+        },
+        passengers: rawData.passengers,
+        productSpecific: {
+          date: rawData.date,
+          time: rawData.time,
+          serviceType: rawData.serviceType,
+          passengers: rawData.passengers,
+          luggage: rawData.luggage,
+          flightNumber: rawData.flightNumber,
+          terminal: rawData.terminal,
+          extras: rawData.extras,
+          returnDate: rawData.returnDate,
+          returnTime: rawData.returnTime,
+          slug: rawData.slug
+        }
+      };
+
+    case 'car-rental':
+      return {
+        type: 'car-rental',
+        productId: rawData.carId || '',
+        productName: rawData.carName || 'Car Rental',
+        basePrice: rawData.dailyPrice || 0,
+        quantity: rawData.days || 1,
+        totalPrice: (rawData.dailyPrice || 0) * (rawData.days || 1),
+        dates: {
+          start: rawData.pickupDate || '',
+          end: rawData.returnDate || ''
+        },
+        passengers: rawData.passengers,
+        productSpecific: {
+          pickupDate: rawData.pickupDate,
+          returnDate: rawData.returnDate,
+          days: rawData.days,
+          passengers: rawData.passengers,
+          carType: rawData.carType,
+          slug: rawData.slug
+        }
+      };
+
+    case 'rental-property':
+      return {
+        type: 'rental-property',
+        productId: rawData.propertyId || '',
+        productName: rawData.propertyTitle || rawData.propertyName || 'Rental Property',
+        basePrice: rawData.priceBreakdown?.nightlyRate || rawData.nightPrice || 0,
+        quantity: rawData.nights || 1,
+        totalPrice: rawData.totalPrice || ((rawData.nightPrice || 0) * (rawData.nights || 1)),
+        dates: {
+          start: rawData.checkInDate || '',
+          end: rawData.checkOutDate || ''
+        },
+        guests: rawData.guests,
+        productSpecific: {
+          checkInDate: rawData.checkInDate,
+          checkOutDate: rawData.checkOutDate,
+          nights: rawData.nights,
+          guests: rawData.guests,
+          slug: rawData.slug,
+          propertyImage: rawData.propertyImage,
+          priceBreakdown: rawData.priceBreakdown,
+          primaryGuest: rawData.primaryGuest,
+          emergencyContact: rawData.emergencyContact,
+          purposeOfStay: rawData.purposeOfStay,
+          arrivalTime: rawData.arrivalTime,
+          specialRequests: rawData.specialRequests,
+          rulesAccepted: rawData.rulesAccepted
+        }
+      };
+
+    case 'flight':
+      return {
+        type: 'flight',
+        productId: rawData.flightId || '',
+        productName: rawData.flightName || 'Flight',
+        basePrice: rawData.price || 0,
+        quantity: rawData.passengers || 1,
+        totalPrice: (rawData.price || 0) * (rawData.passengers || 1),
+        dates: {
+          start: rawData.departureDate || ''
+        },
+        passengers: rawData.passengers,
+        productSpecific: {
+          departureDate: rawData.departureDate,
+          passengers: rawData.passengers,
+          flightNumber: rawData.flightNumber,
+          from: rawData.from,
+          to: rawData.to
+        }
+      };
+
+    default:
+      return null;
+  }
+};
+
 const Checkout: React.FC = () => {
   const router = useRouter();
   const [currentStep, setCurrentStep] = useState(1);
@@ -66,6 +261,7 @@ const Checkout: React.FC = () => {
   const [isProcessing, setIsProcessing] = useState(false);
   const [paymentSuccess, setPaymentSuccess] = useState(false);
   const [deliveryLocation, setDeliveryLocation] = useState<LocationData | null>(null);
+  const [bookingData, setBookingData] = useState<UnifiedBookingData | null>(null);
 
   const [formData, setFormData] = useState<PaymentForm>({
     email: '',
@@ -85,25 +281,100 @@ const Checkout: React.FC = () => {
 
   const [errors, setErrors] = useState<FormErrors>({});
 
-  // Mock order data
-  const orderSummary = {
-    items: [
-      {
-        title: 'Kapadokya: Blockchain Doğrulamalı Balon Turu',
-        guests: 2,
-        price: 900
-      },
-      {
-        title: 'Boğaziçi Palace Hotel',
-        guests: 2,
-        price: 4800
+  // Load booking data from URL params or localStorage on mount
+  useEffect(() => {
+    if (!router.isReady) return;
+
+    // Try to get from URL query params first
+    let data = router.query;
+
+    // If not in query, try localStorage for rental-checkout-data or generic bookingData
+    if (!data.type) {
+      const rentalCheckout = localStorage.getItem('rental-checkout-data');
+      const genericBooking = localStorage.getItem('bookingData');
+
+      if (rentalCheckout) {
+        try {
+          data = JSON.parse(rentalCheckout);
+          // Clear after loading
+          localStorage.removeItem('rental-checkout-data');
+        } catch (e) {
+          console.error('Failed to parse rental checkout data:', e);
+        }
+      } else if (genericBooking) {
+        try {
+          data = JSON.parse(genericBooking);
+        } catch (e) {
+          console.error('Failed to parse stored booking data:', e);
+        }
       }
-    ],
-    subtotal: 5700,
-    tax: 1026,
-    discount: 570, // AILYDIAN10 applied
-    total: 6156
+    }
+
+    // Normalize the data
+    const normalized = normalizeBookingData(data);
+    if (normalized) {
+      setBookingData(normalized);
+      // Clear localStorage after loading
+      localStorage.removeItem('bookingData');
+    }
+  }, [router.isReady, router.query]);
+
+  // Generate order summary from booking data
+  const getOrderSummary = (): OrderSummary => {
+    if (!bookingData) {
+      // Fallback mock data
+      return {
+        items: [
+          {
+            title: 'Kapadokya: Blockchain Doğrulamalı Balon Turu',
+            guests: 2,
+            price: 900
+          },
+          {
+            title: 'Boğaziçi Palace Hotel',
+            guests: 2,
+            price: 4800
+          }
+        ],
+        subtotal: 5700,
+        tax: 1026,
+        discount: 570,
+        total: 6156
+      };
+    }
+
+    // Format booking data as order item
+    const item: OrderItem = {
+      title: bookingData.productName,
+      price: bookingData.totalPrice
+    };
+
+    // Add relevant count based on type
+    if (bookingData.type === 'hotel' || bookingData.type === 'rental-property') {
+      item.guests = bookingData.guests || 0;
+    } else if (bookingData.type === 'tour') {
+      item.passengers = bookingData.passengers || 0;
+    } else if (bookingData.type === 'transfer' || bookingData.type === 'car-rental') {
+      item.passengers = bookingData.passengers || 0;
+    }
+
+    const subtotal = bookingData.totalPrice;
+    const taxRate = 0.18; // 18% VAT
+    const tax = Math.round(subtotal * taxRate);
+    const discountRate = 0.10; // 10% AILYDIAN10 discount
+    const discount = Math.round(subtotal * discountRate);
+    const total = subtotal + tax - discount;
+
+    return {
+      items: [item],
+      subtotal,
+      tax,
+      discount,
+      total
+    };
   };
+
+  const orderSummary = getOrderSummary();
 
   const handleInputChange = (field: keyof PaymentForm, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));
@@ -164,21 +435,34 @@ const Checkout: React.FC = () => {
       // Simulate payment processing delay
       await new Promise(resolve => setTimeout(resolve, 2000));
 
-      // Create booking and send confirmation
+      // Determine guest/passenger count based on booking type
+      let guestCount = 0;
+      if (bookingData) {
+        if (bookingData.type === 'hotel' || bookingData.type === 'rental-property') {
+          guestCount = bookingData.guests || 0;
+        } else {
+          guestCount = bookingData.passengers || 0;
+        }
+      } else {
+        guestCount = orderSummary.items.reduce((sum, item) => sum + (item.guests || item.passengers || 0), 0);
+      }
+
+      // Create booking and send confirmation with complete product data
       const response = await fetch('/api/bookings/confirm', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          bookingType: 'PACKAGE',
+          bookingType: bookingData?.type?.toUpperCase() || 'PACKAGE',
           totalAmount: orderSummary.total,
           currency: 'TRY',
           paymentMethod: 'CREDIT_CARD',
-          checkInDate: new Date().toISOString(),
-          guestCount: orderSummary.items.reduce((sum, item) => sum + item.guests, 0),
+          checkInDate: bookingData?.dates.start || new Date().toISOString(),
+          guestCount,
           specialRequests: '',
           metaData: {
+            bookingData: bookingData || null,
             items: orderSummary.items,
             customerInfo: {
               firstName: formData.firstName,
@@ -199,7 +483,13 @@ const Checkout: React.FC = () => {
               city: deliveryLocation.city,
               country: deliveryLocation.country,
               postalCode: deliveryLocation.postalCode
-            } : null
+            } : null,
+            priceBreakdown: {
+              subtotal: orderSummary.subtotal,
+              tax: orderSummary.tax,
+              discount: orderSummary.discount,
+              total: orderSummary.total
+            }
           }
         })
       });
@@ -718,16 +1008,41 @@ const Checkout: React.FC = () => {
                 animate={{ opacity: 1, x: 0 }}
                 className="bg-white rounded-2xl shadow-sm border border-gray-200 p-4 sm:p-6 lg:sticky lg:top-8"
               >
-                <h3 className="font-bold text-base sm:text-lg text-gray-900 mb-4 sm:mb-6">Sipariş Özeti</h3>
+                <div className="flex items-center justify-between mb-4 sm:mb-6">
+                  <h3 className="font-bold text-base sm:text-lg text-gray-900">Sipariş Özeti</h3>
+                  {bookingData && (
+                    <div className="flex items-center gap-1 px-2 py-1 bg-blue-50 rounded-full">
+                      {bookingData.type === 'hotel' && <Home className="w-3 h-3 sm:w-4 sm:h-4 text-blue-600" />}
+                      {bookingData.type === 'tour' && <Ticket className="w-3 h-3 sm:w-4 sm:h-4 text-blue-600" />}
+                      {bookingData.type === 'transfer' && <Car className="w-3 h-3 sm:w-4 sm:h-4 text-blue-600" />}
+                      {bookingData.type === 'car-rental' && <Car className="w-3 h-3 sm:w-4 sm:h-4 text-blue-600" />}
+                      {bookingData.type === 'rental-property' && <Home className="w-3 h-3 sm:w-4 sm:h-4 text-blue-600" />}
+                      {bookingData.type === 'flight' && <Plane className="w-3 h-3 sm:w-4 sm:h-4 text-blue-600" />}
+                      <span className="text-[10px] sm:text-xs text-blue-700 font-semibold">
+                        {bookingData.type.replace('-', ' ').toUpperCase()}
+                      </span>
+                    </div>
+                  )}
+                </div>
 
                 <div className="space-y-3 sm:space-y-4 mb-4 sm:mb-6">
                   {orderSummary.items.map((item, index) => (
                     <div key={index} className="flex justify-between items-start">
                       <div className="min-w-0 pr-2">
                         <p className="font-medium text-gray-900 text-xs sm:text-sm line-clamp-2">{item.title}</p>
-                        <p className="text-[10px] sm:text-xs text-gray-500">{item.guests} kişi</p>
+                        {item.guests && <p className="text-[10px] sm:text-xs text-gray-500">{item.guests} misafir</p>}
+                        {item.passengers && <p className="text-[10px] sm:text-xs text-gray-500">{item.passengers} yolcu</p>}
+                        {bookingData && bookingData.type === 'hotel' && bookingData.productSpecific.nights && (
+                          <p className="text-[10px] sm:text-xs text-gray-500">{bookingData.productSpecific.nights} gece</p>
+                        )}
+                        {bookingData && bookingData.type === 'transfer' && bookingData.productSpecific.date && (
+                          <p className="text-[10px] sm:text-xs text-gray-500">{bookingData.productSpecific.date}</p>
+                        )}
+                        {bookingData && bookingData.type === 'tour' && bookingData.productSpecific.date && (
+                          <p className="text-[10px] sm:text-xs text-gray-500">{bookingData.productSpecific.date}</p>
+                        )}
                       </div>
-                      <span className="font-semibold text-sm sm:text-base whitespace-nowrap">₺{item.price}</span>
+                      <span className="font-semibold text-sm sm:text-base whitespace-nowrap">₺{item.price.toLocaleString('tr-TR')}</span>
                     </div>
                   ))}
                 </div>
@@ -735,20 +1050,20 @@ const Checkout: React.FC = () => {
                 <div className="space-y-2 sm:space-y-3 mb-4 sm:mb-6 border-t border-gray-200 pt-3 sm:pt-4">
                   <div className="flex justify-between text-sm sm:text-base">
                     <span className="text-gray-600">Ara Toplam</span>
-                    <span className="font-semibold">₺{orderSummary.subtotal}</span>
+                    <span className="font-semibold">₺{orderSummary.subtotal.toLocaleString('tr-TR')}</span>
                   </div>
                   <div className="flex justify-between text-sm sm:text-base">
                     <span className="text-gray-600">KDV (%18)</span>
-                    <span className="font-semibold">₺{orderSummary.tax}</span>
+                    <span className="font-semibold">₺{orderSummary.tax.toLocaleString('tr-TR')}</span>
                   </div>
                   <div className="flex justify-between text-sm sm:text-base text-green-600">
                     <span>İndirim (AILYDIAN10)</span>
-                    <span className="font-semibold">-₺{orderSummary.discount}</span>
+                    <span className="font-semibold">-₺{orderSummary.discount.toLocaleString('tr-TR')}</span>
                   </div>
                   <div className="border-t border-gray-200 pt-2 sm:pt-3">
                     <div className="flex justify-between items-center">
                       <span className="text-base sm:text-lg font-bold text-gray-900">Toplam</span>
-                      <span className="text-xl sm:text-2xl font-bold text-ailydian-primary">₺{orderSummary.total}</span>
+                      <span className="text-xl sm:text-2xl font-bold text-ailydian-primary">₺{orderSummary.total.toLocaleString('tr-TR')}</span>
                     </div>
                   </div>
                 </div>

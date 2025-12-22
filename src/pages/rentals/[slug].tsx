@@ -7,6 +7,7 @@ import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 import { motion, AnimatePresence } from 'framer-motion';
+import { GetStaticPaths, GetStaticProps } from 'next';
 import {
   Heart,
   Share2,
@@ -114,9 +115,14 @@ interface SimilarProperty {
   bathrooms: number;
 }
 
-const PropertyDetailsPage = () => {
+interface PropertyDetailsPageProps {
+  slug: string;
+}
+
+const PropertyDetailsPage = ({ slug: initialSlug }: PropertyDetailsPageProps) => {
   const router = useRouter();
-  const { slug } = router.query;
+  const { slug: routerSlug } = router.query;
+  const slug = initialSlug || routerSlug;
 
   const [property, setProperty] = useState<RentalProperty | null>(null);
   const [similarProperties, setSimilarProperties] = useState<SimilarProperty[]>([]);
@@ -281,9 +287,15 @@ const PropertyDetailsPage = () => {
       return;
     }
 
-    // Navigate to booking page (to be implemented)
-    console.log('Booking:', { checkInDate, checkOutDate, adultsCount, childrenCount, infantsCount });
-    alert('Rezervasyon sistemi yakında aktif olacak!');
+    // Validate dates are selected
+    if (!checkInDate || !checkOutDate) {
+      alert('Lütfen giriş ve çıkış tarihlerini seçiniz.');
+      return;
+    }
+
+    // Navigate to booking page with query parameters
+    const bookingUrl = `/rentals/book?slug=${property?.slug}&checkIn=${checkInDate}&checkOut=${checkOutDate}&guests=${totalGuests}`;
+    router.push(bookingUrl);
   };
 
   // Loading state
@@ -1041,6 +1053,35 @@ const PropertyDetailsPage = () => {
       </div>
     </>
   );
+};
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const slugs = [
+    'istanbul-bogaz-manzarali-villa',
+    'bodrum-deniz-kenari-ev',
+    'antalya-lux-apart',
+    'cappadocia-cave-hotel',
+  ];
+
+  const paths = slugs.map((slug) => ({
+    params: { slug }
+  }));
+
+  return {
+    paths,
+    fallback: 'blocking'
+  };
+};
+
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const slug = params?.slug as string;
+
+  return {
+    props: {
+      slug,
+    },
+    revalidate: 3600, // Revalidate every hour
+  };
 };
 
 export default PropertyDetailsPage;

@@ -9,6 +9,7 @@ import { NextSeo } from 'next-seo';
 import Head from 'next/head';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { GetStaticPaths, GetStaticProps } from 'next';
 import {
   Calendar,
   Clock,
@@ -235,9 +236,12 @@ Lüks teknemizdeki konforlu koltuklar, açık ve kapalı alanlar sayesinde her m
   };
 };
 
-const TourDetailPage = () => {
+interface TourDetailPageProps {
+  slug: string;
+}
+
+const TourDetailPage = ({ slug }: TourDetailPageProps) => {
   const router = useRouter();
-  const { slug } = router.query;
 
   const [selectedImage, setSelectedImage] = useState(0);
   const [isFavorite, setIsFavorite] = useState(false);
@@ -246,8 +250,6 @@ const TourDetailPage = () => {
   const [showAllImages, setShowAllImages] = useState(false);
   const [expandedFAQ, setExpandedFAQ] = useState<string | null>(null);
   const [showBookingPanel, setShowBookingPanel] = useState(false);
-
-  if (!slug) return null;
 
   const tour = getTourBySlug(slug as string);
 
@@ -944,6 +946,36 @@ const TourDetailPage = () => {
       </main>
     </>
   );
+};
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const slugs = [
+    'istanbul-bogaz-turu-gunbatimi',
+    'kapadokya-balon-turu',
+    'efes-antik-kenti-turu',
+    'pamukkale-hierapolis-turu',
+    'antalya-tekne-turu',
+  ];
+
+  const paths = slugs.map((slug) => ({
+    params: { slug }
+  }));
+
+  return {
+    paths,
+    fallback: 'blocking'
+  };
+};
+
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const slug = params?.slug as string;
+
+  return {
+    props: {
+      slug,
+    },
+    revalidate: 3600, // Revalidate every hour
+  };
 };
 
 export default TourDetailPage;
