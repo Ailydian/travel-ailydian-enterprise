@@ -556,7 +556,7 @@ const TransfersPage: React.FC = () => {
               className="flex flex-col sm:flex-row items-center justify-center gap-4"
             >
               <Link
-                href="/partner/transfer/dashboard"
+                href="/transfer-owner/dashboard"
                 className="inline-flex items-center gap-2 px-8 py-4 bg-white text-blue-600 rounded-xl font-bold text-lg hover:bg-gray-50 transition-all hover:scale-105 shadow-2xl group"
               >
                 <span>Partner Paneline Git</span>
@@ -564,14 +564,14 @@ const TransfersPage: React.FC = () => {
               </Link>
 
               <Link
-                href="/owner/auth/login?type=transfer"
+                href="/transfer-owner/auth/login"
                 className="inline-flex items-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-sm text-white rounded-xl font-bold text-lg hover:bg-white/20 transition-all border-2 border-white/30"
               >
                 Giriş Yap
               </Link>
 
               <Link
-                href="/owner/auth/register?type=transfer"
+                href="/transfer-owner/auth/register"
                 className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-yellow-400 to-orange-400 text-gray-900 rounded-xl font-bold text-lg hover:from-yellow-300 hover:to-orange-300 transition-all shadow-2xl"
               >
                 Ücretsiz Kayıt Ol
