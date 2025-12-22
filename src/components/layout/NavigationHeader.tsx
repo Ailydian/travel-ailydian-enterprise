@@ -343,12 +343,6 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
       description: 'Marmaris, Bodrum, Çeşme\'de macera'
     },
     {
-      title: 'Deneyimler',
-      href: '/experiences',
-      icon: Star,
-      description: 'Benzersiz deneyimler yaşayın'
-    },
-    {
       title: 'Konaklama',
       href: '/rentals',
       icon: Home,
@@ -365,12 +359,6 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
       href: '/transfers',
       icon: Bus,
       description: 'Havalimanı ve şehir içi transfer'
-    },
-    {
-      title: 'Partner',
-      href: '/partner',
-      icon: Building2,
-      description: 'Ortaklık fırsatları ve partner paneli'
     },
   ];
 
@@ -781,6 +769,16 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
             >
               <Search className="w-5 h-5 group-hover:text-ailydian-primary transition-colors" />
             </button>
+
+            {/* Partner Button */}
+            <Link href="/partner">
+              <button
+                className="relative flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 text-white rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl"
+              >
+                <Building2 className="w-4 h-4" />
+                <span className="hidden lg:inline font-semibold">Partner</span>
+              </button>
+            </Link>
 
             {/* AI Assistant */}
             <button
