@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Link from 'next/link';
 import { Home, Search, Filter, Plus, Edit2, Copy, Star, Power, Trash2, MapPin, Users, Bed, Wifi, Waves } from 'lucide-react';
 
 interface RentalProperty {
@@ -480,12 +481,14 @@ export default function RentalPropertiesManagement() {
                           >
                             <Star className={property.isFeatured ? 'fill-current' : ''} style={{ width: '1rem', height: '1rem' }} />
                           </button>
-                          <button
-                            className="p-2 text-purple-600 hover:bg-purple-50 rounded-lg transition-colors"
-                            title="Düzenle"
-                          >
-                            <Edit2 className="w-4 h-4" />
-                          </button>
+                          <Link href={`/admin/v2/rental-properties/${property.id}/edit`}>
+                            <button
+                              className="p-2 text-purple-600 hover:bg-purple-50 rounded-lg transition-colors"
+                              title="Düzenle"
+                            >
+                              <Edit2 className="w-4 h-4" />
+                            </button>
+                          </Link>
                           <button
                             onClick={() => deleteProperty(property.id)}
                             className="p-2 text-red-600 hover:bg-red-50 rounded-lg transition-colors"

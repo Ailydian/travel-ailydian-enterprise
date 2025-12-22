@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Link from 'next/link';
 import { Car, Search, Filter, Plus, Edit2, Copy, Star, Power, Trash2, ChevronDown } from 'lucide-react';
 
 interface CarRental {
@@ -414,12 +415,14 @@ export default function CarRentalsManagement() {
                           >
                             <Star className={car.isFeatured ? 'fill-current' : ''} style={{ width: '1rem', height: '1rem' }} />
                           </button>
-                          <button
-                            className="p-2 text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
-                            title="Düzenle"
-                          >
-                            <Edit2 className="w-4 h-4" />
-                          </button>
+                          <Link href={`/admin/v2/car-rentals/${car.id}/edit`}>
+                            <button
+                              className="p-2 text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
+                              title="Düzenle"
+                            >
+                              <Edit2 className="w-4 h-4" />
+                            </button>
+                          </Link>
                           <button
                             onClick={() => deleteCar(car.id)}
                             className="p-2 text-red-600 hover:bg-red-50 rounded-lg transition-colors"

@@ -52,7 +52,7 @@ const partnerTypes: PartnerType[] = [
       'Pazarlama desteği'
     ],
     avgIncome: '₺25,000 - ₺85,000',
-    dashboardUrl: '/partner/property/dashboard',
+    dashboardUrl: '/owner',
     loginUrl: '/owner/auth/login',
     registerUrl: '/owner/auth/register',
     color: 'from-blue-500 to-cyan-500'
@@ -77,9 +77,9 @@ const partnerTypes: PartnerType[] = [
       'Seasonal kampanya desteği'
     ],
     avgIncome: '₺18,000 - ₺65,000',
-    dashboardUrl: '/partner/car-rental/dashboard',
-    loginUrl: '/owner/auth/login',
-    registerUrl: '/owner/auth/register',
+    dashboardUrl: '/vehicle-owner',
+    loginUrl: '/vehicle-owner/auth/login',
+    registerUrl: '/vehicle-owner/auth/register',
     color: 'from-purple-500 to-pink-500'
   },
   {
@@ -102,7 +102,7 @@ const partnerTypes: PartnerType[] = [
       'VIP müşteri transferleri'
     ],
     avgIncome: '₺15,000 - ₺45,000',
-    dashboardUrl: '/partner/transfer/dashboard',
+    dashboardUrl: '/transfer-owner',
     loginUrl: '/transfer-owner/auth/login',
     registerUrl: '/transfer-owner/auth/register',
     color: 'from-green-500 to-emerald-500'
@@ -127,7 +127,7 @@ const partnerTypes: PartnerType[] = [
       'Comprehensive insurance options'
     ],
     avgIncome: '₺12,000 - ₺38,000',
-    dashboardUrl: '/partner/vehicle/dashboard',
+    dashboardUrl: '/vehicle-owner',
     loginUrl: '/vehicle-owner/auth/login',
     registerUrl: '/vehicle-owner/auth/register',
     color: 'from-orange-500 to-red-500'
