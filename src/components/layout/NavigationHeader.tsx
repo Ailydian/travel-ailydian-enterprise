@@ -360,6 +360,12 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
       icon: Bus,
       description: 'Havalimanı ve şehir içi transfer'
     },
+    {
+      title: 'Partner',
+      href: '/partner',
+      icon: Building2,
+      description: 'İş ortağımız olun ve kazancınızı artırın'
+    },
   ];
 
   // Tours dropdown menu items
