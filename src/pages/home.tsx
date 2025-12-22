@@ -48,6 +48,7 @@ import {
   ShoppingCart,
   Plus,
   Car,
+  Compass,
   Hotel,
   Plane,
   Home,
