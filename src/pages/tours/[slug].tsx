@@ -45,7 +45,7 @@ import {
   ChevronDown,
   ChevronUp,
 } from 'lucide-react';
-import NavigationHeader from '@/components/layout/NavigationHeader';
+import SimplifiedHeader from '@/components/layout/SimplifiedHeader';
 
 // Sample tour data - in production this would come from API/database
 const getTourBySlug = (slug: string) => {
@@ -295,7 +295,7 @@ const TourDetailPage = () => {
         <link rel="canonical" href={`https://travel.ailydian.com/tours/${slug}`} />
       </Head>
 
-      <NavigationHeader theme="orange" />
+      <SimplifiedHeader />
 
       <main className="min-h-screen bg-gray-50">
         {/* Image Gallery */}

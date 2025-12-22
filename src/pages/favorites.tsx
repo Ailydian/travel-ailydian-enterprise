@@ -19,7 +19,7 @@ import {
   ShoppingCart,
   CheckCircle
 } from 'lucide-react';
-import NavigationHeader from '../components/layout/NavigationHeader';
+import SimplifiedHeader from '../components/layout/SimplifiedHeader';
 import { useCart } from '../context/CartContext';
 
 // Premium Ailydian themed favorites with REAL data and complete images
@@ -262,7 +262,7 @@ export default function Favorites() {
         <meta name="description" content="Beğendiğiniz seyahat deneyimlerini kaydedin ve kolayca erişin" />
       </Head>
 
-      <NavigationHeader />
+      <SimplifiedHeader />
 
       {/* Back Button */}
       <Link

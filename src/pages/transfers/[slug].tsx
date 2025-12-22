@@ -55,7 +55,7 @@ import {
   Sparkles,
   CheckCircle2,
 } from 'lucide-react';
-import NavigationHeader from '@/components/layout/NavigationHeader';
+import SimplifiedHeader from '@/components/layout/SimplifiedHeader';
 
 // Sample transfer data - in production this would come from API/database
 const getTransferBySlug = (slug: string) => {
@@ -535,7 +535,7 @@ const TransferDetailPage = () => {
         <link rel="canonical" href={`https://travel.ailydian.com/transfers/${slug}`} />
       </Head>
 
-      <NavigationHeader theme="blue" />
+      <SimplifiedHeader />
 
       <main className="min-h-screen bg-gray-50">
         {/* Image Gallery */}

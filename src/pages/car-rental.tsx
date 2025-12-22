@@ -3,7 +3,7 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { motion } from 'framer-motion';
 import { Car, MapPin, Calendar, Users, Star, CheckCircle, ArrowRight, Shield, Zap, Clock, Fuel } from 'lucide-react';
-import NavigationHeader from '../components/layout/NavigationHeader';
+import SimplifiedHeader from '../components/layout/SimplifiedHeader';
 
 const CarRental: React.FC = () => {
   const router = useRouter();
@@ -75,7 +75,7 @@ const CarRental: React.FC = () => {
         <meta name="description" content="Travel.Ailydian ile güvenilir araç kiralama hizmeti. Ekonomik, konfor ve lüks araç seçenekleri ile seyahatinizi özgürce planlayın." />
       </Head>
 
-      <NavigationHeader />
+      <SimplifiedHeader />
 
       <main className="min-h-screen bg-gray-50">
         {/* Hero Section */}

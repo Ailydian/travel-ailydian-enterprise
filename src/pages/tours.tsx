@@ -28,7 +28,7 @@ import {
   Eye
 } from 'lucide-react';
 import { useCart } from '../context/CartContext';
-import NavigationHeader from '../components/layout/NavigationHeader';
+import SimplifiedHeader from '../components/layout/SimplifiedHeader';
 import { allComprehensiveTours as importedComprehensiveTours } from '../data/marmaris-bodrum-cesme-tours';
 
 // Premium Ailydian Tours - Now with 45+ comprehensive tours from Marmaris, Bodrum, and Çeşme
@@ -552,7 +552,7 @@ export default function Tours() {
         <meta name="description" content="Türkiye'nin en özel turları ve unutulmaz deneyimleri keşfedin" />
       </Head>
 
-      <NavigationHeader />
+      <SimplifiedHeader />
 
       {/* Back Button */}
       <Link

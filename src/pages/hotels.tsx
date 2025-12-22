@@ -32,7 +32,7 @@ import {
   FileText,
   UserCheck
 } from 'lucide-react';
-import NavigationHeader from '../components/layout/NavigationHeader';
+import SimplifiedHeader from '../components/layout/SimplifiedHeader';
 import { useCart } from '../context/CartContext';
 
 const HotelsNewPage: React.FC = () => {
@@ -241,7 +241,7 @@ const HotelsNewPage: React.FC = () => {
         type="website"
       />
 
-      <NavigationHeader />
+      <SimplifiedHeader />
 
       <Link
         href="/"

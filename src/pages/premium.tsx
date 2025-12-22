@@ -13,7 +13,7 @@ import {
   Globe,
   Heart
 } from 'lucide-react';
-import NavigationHeader from '../components/layout/NavigationHeader';
+import SimplifiedHeader from '../components/layout/SimplifiedHeader';
 
 const Premium: React.FC = () => {
   const plans = [
@@ -78,7 +78,7 @@ const Premium: React.FC = () => {
         <meta name="keywords" content="premium üyelik, VIP seyahat, AI planlama, VR turlar, blockchain güvenlik" />
       </Head>
 
-      <NavigationHeader />
+      <SimplifiedHeader />
 
       <main className="min-h-screen bg-gray-50">
         {/* Hero Section */}

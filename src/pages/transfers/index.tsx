@@ -33,7 +33,7 @@ import {
   Clock,
   Shield,
 } from 'lucide-react';
-import NavigationHeader from '@/components/layout/NavigationHeader';
+import SimplifiedHeader from '@/components/layout/SimplifiedHeader';
 import TransferRouteSelector from '@/components/transfers/TransferRouteSelector';
 import type { AdvancedLocationSuggestion } from '@/lib/location-service-advanced';
 import {
@@ -253,7 +253,7 @@ const TransfersPage: React.FC = () => {
         />
       </Head>
 
-      <NavigationHeader theme="blue" />
+      <SimplifiedHeader />
 
       <main className="min-h-screen bg-gray-50">
         {/* Hero Section - Full Width Search */}

@@ -2,7 +2,7 @@ import React from 'react';
 import Head from 'next/head';
 import { motion } from 'framer-motion';
 import { Users, Star, CheckCircle, ArrowRight, Shield, Calendar, MapPin, Phone } from 'lucide-react';
-import NavigationHeader from '../components/layout/NavigationHeader';
+import SimplifiedHeader from '../components/layout/SimplifiedHeader';
 
 const GroupTravel: React.FC = () => {
   return (
@@ -12,7 +12,7 @@ const GroupTravel: React.FC = () => {
         <meta name="description" content="Şirket gezileri, okul turları ve grup seyahatleri için özel planlar. Grup indirimleri ve kişiselleştirilmiş hizmetlerle unutulmaz deneyimler." />
       </Head>
 
-      <NavigationHeader />
+      <SimplifiedHeader />
 
       <main className="min-h-screen bg-gray-50">
         <section className="bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600 py-20">

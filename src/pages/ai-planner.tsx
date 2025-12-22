@@ -22,7 +22,7 @@ import {
   Plus,
   Minus
 } from 'lucide-react';
-import NavigationHeader from '../components/layout/NavigationHeader';
+import SimplifiedHeader from '../components/layout/SimplifiedHeader';
 
 const AITravelPlanner: React.FC = () => {
   const [step, setStep] = useState(1);
@@ -66,7 +66,7 @@ const AITravelPlanner: React.FC = () => {
         <meta name="keywords" content="AI seyahat planlama, akıllı seyahat, yapay zeka turizm, otomatik itinerary, seyahat planlayıcı" />
       </Head>
 
-      <NavigationHeader />
+      <SimplifiedHeader />
 
       <main className="min-h-screen bg-gray-50">
         {/* Hero Section */}

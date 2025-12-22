@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Head from 'next/head';
 import { motion } from 'framer-motion';
-import NavigationHeader from '../components/layout/NavigationHeader';
+import SimplifiedHeader from '../components/layout/SimplifiedHeader';
 import {
   AnimatedPlane,
   AnimatedGlobe,
@@ -181,7 +181,7 @@ const AnimatedShowcase: React.FC = () => {
         <meta name="description" content="Interactive showcase of animated SVG components and sliders" />
       </Head>
 
-      <NavigationHeader />
+      <SimplifiedHeader />
 
       <main className="min-h-screen bg-ailydian-bg pt-20">
         <div className="container mx-auto px-4 py-12">

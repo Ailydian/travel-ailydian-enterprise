@@ -22,7 +22,7 @@ import {
   Shield,
   Globe
 } from 'lucide-react';
-import NavigationHeader from '../components/layout/NavigationHeader';
+import SimplifiedHeader from '../components/layout/SimplifiedHeader';
 
 const DashboardPage: React.FC = () => {
   const [activeTab, setActiveTab] = useState('overview');
@@ -155,7 +155,7 @@ const DashboardPage: React.FC = () => {
         <meta name="description" content="Travel.Ailydian hesap dashboard'unuz. Rezervasyonlarınızı görün, seyahat geçmişinizi inceleyin ve AI önerilerini keşfedin." />
       </Head>
 
-      <NavigationHeader />
+      <SimplifiedHeader />
 
       <main className="min-h-screen py-8" style={{backgroundColor: '#FFFFFF', color: '#000000'}}>
         <div className="max-w-7xl mx-auto px-4">

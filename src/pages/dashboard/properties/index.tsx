@@ -50,7 +50,7 @@ import {
   ChevronLeft,
   ChevronRight
 } from 'lucide-react';
-import NavigationHeader from '../../../components/layout/NavigationHeader';
+import SimplifiedHeader from '../../../components/layout/SimplifiedHeader';
 import { useToast } from '../../../context/ToastContext';
 import { useCart } from '../../../context/CartContext';
 
@@ -617,7 +617,7 @@ const PropertyOwnerDashboard: React.FC = () => {
         <meta name="description" content="Manage your property listings, bookings, and earnings" />
       </Head>
 
-      <NavigationHeader />
+      <SimplifiedHeader />
 
       <main className="min-h-screen py-8" style={{ backgroundColor: 'var(--bg-0)', color: 'var(--tx-1)' }}>
         <div className="max-w-7xl mx-auto px-4">

@@ -1,6 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
-import NavigationHeader from '../components/layout/NavigationHeader';
+import SimplifiedHeader from '../components/layout/SimplifiedHeader';
 
 const Terms: React.FC = () => {
   return (
@@ -10,7 +10,7 @@ const Terms: React.FC = () => {
         <meta name="description" content="Travel.Ailydian hizmet kullanım şartları ve koşulları hakkında detaylı bilgilendirme." />
       </Head>
 
-      <NavigationHeader />
+      <SimplifiedHeader />
 
       <main className="min-h-screen bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 py-16">

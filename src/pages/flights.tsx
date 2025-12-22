@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 import { SEOHead } from '../components/seo/SEOHead';
 import { PAGE_SEO } from '../config/seo';
 import { Search, Plane, Calendar, Users, ArrowLeft, ArrowRight, Clock, Zap, Star, Filter, Shield, Wifi, SlidersHorizontal } from 'lucide-react';
-import NavigationHeader from '../components/layout/NavigationHeader';
+import SimplifiedHeader from '../components/layout/SimplifiedHeader';
 import AdvancedFilters from '../components/search/AdvancedFilters';
 import FilterChips from '../components/search/FilterChips';
 import { useFilters } from '../hooks/useFilters';
@@ -200,7 +200,7 @@ export default function Flights() {
         type="website"
       />
 
-      <NavigationHeader />
+      <SimplifiedHeader />
 
       {/* Return to Home Button - FIXED: Increased z-index to be above all overlays */}
       <Link

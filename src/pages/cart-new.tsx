@@ -30,7 +30,7 @@ import {
   ArrowLeft,
   Lock
 } from 'lucide-react';
-import NavigationHeader from '../components/layout/NavigationHeader';
+import SimplifiedHeader from '../components/layout/SimplifiedHeader';
 import { useCart } from '../context/CartContext';
 
 const CartPage: React.FC = () => {
@@ -141,7 +141,7 @@ const CartPage: React.FC = () => {
         <meta name="keywords" content="sepet, rezervasyon, ödeme, travel, Türkiye" />
       </Head>
 
-      <NavigationHeader />
+      <SimplifiedHeader />
 
       {/* Background */}
       <div className="fixed inset-0 bg-gradient-to-br from-blue-50 via-white to-purple-50 -z-10" />

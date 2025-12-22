@@ -13,7 +13,7 @@ import {
   TrendingUp,
   Lock
 } from 'lucide-react';
-import NavigationHeader from '../components/layout/NavigationHeader';
+import SimplifiedHeader from '../components/layout/SimplifiedHeader';
 
 const CryptoPayments: React.FC = () => {
   return (
@@ -24,7 +24,7 @@ const CryptoPayments: React.FC = () => {
         <meta name="keywords" content="kripto ödeme, bitcoin ödeme, ethereum, USDT, blockchain ödeme, kripto para seyahat" />
       </Head>
 
-      <NavigationHeader />
+      <SimplifiedHeader />
 
       <main className="min-h-screen bg-gray-50">
         {/* Hero Section */}

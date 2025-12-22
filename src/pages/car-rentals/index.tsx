@@ -33,7 +33,7 @@ import {
   Clock,
 } from 'lucide-react';
 import { VEHICLE_CATEGORIES } from '@/data/vehicleCategories';
-import NavigationHeader from '@/components/layout/NavigationHeader';
+import SimplifiedHeader from '@/components/layout/SimplifiedHeader';
 import CarRentalSearchEngine, { type CarRentalSearchData } from '@/components/car-rentals/CarRentalSearchEngine';
 import {
   CAR_RENTALS_SEO,
@@ -203,7 +203,7 @@ const CarRentalsPage: React.FC = () => {
         />
       </Head>
 
-      <NavigationHeader theme="green" />
+      <SimplifiedHeader />
 
       <main className="min-h-screen bg-gray-50">
         {/* Hero Section - Full Width Search Engine */}

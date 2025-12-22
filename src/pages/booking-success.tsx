@@ -20,7 +20,7 @@ import {
   CreditCard,
   ArrowRight
 } from 'lucide-react';
-import NavigationHeader from '../components/layout/NavigationHeader';
+import SimplifiedHeader from '../components/layout/SimplifiedHeader';
 
 const BookingSuccess: React.FC = () => {
   // Mock booking data
@@ -96,7 +96,7 @@ const BookingSuccess: React.FC = () => {
         <meta name="description" content="Rezervasyonunuz başarıyla onaylandı. Blockchain teknologisi ile güvenceye alınmış seyahat deneyiminiz sizi bekliyor!" />
       </Head>
 
-      <NavigationHeader />
+      <SimplifiedHeader />
 
       <main className="pt-8 min-h-screen bg-gradient-to-br from-green-50 via-blue-50 to-purple-50">
         <div className="max-w-4xl mx-auto px-3 sm:px-4 lg:px-6 py-4 sm:py-6 lg:py-8">

@@ -25,7 +25,7 @@ import {
   CheckCircle,
   SlidersHorizontal
 } from 'lucide-react';
-import NavigationHeader from '../components/layout/NavigationHeader';
+import SimplifiedHeader from '../components/layout/SimplifiedHeader';
 import { useCart } from '../context/CartContext';
 import AdvancedFilters from '../components/search/AdvancedFilters';
 import FilterChips from '../components/search/FilterChips';
@@ -283,7 +283,7 @@ const HotelsPage: React.FC = () => {
         <meta name="keywords" content="otel, konaklama, rezervasyon, AI önerisi, VR önizleme, blockchain, Türkiye" />
       </Head>
 
-      <NavigationHeader />
+      <SimplifiedHeader />
 
       {/* Return to Home Button */}
       <Link 
