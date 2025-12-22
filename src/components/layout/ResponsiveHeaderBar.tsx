@@ -395,60 +395,65 @@ const RENTALS_MENU: MenuCategory[] = [
   },
 ];
 
-const DESTINATIONS_MENU: MenuCategory[] = [
+const PARTNER_MENU: MenuCategory[] = [
   {
-    title: 'Keşfet',
+    title: 'Partner Kategorileri',
     items: [
       {
-        title: 'Tüm Destinasyonlar',
-        href: '/destinations',
-        icon: Globe,
-        description: 'Seyahat fikirleri',
+        title: 'Konaklama Ortağı',
+        href: '/partner#property',
+        icon: Building2,
+        description: 'Otel, apart, villa',
         popular: true,
       },
       {
-        title: 'Plaj Tatilleri',
-        href: '/destinations?type=beach',
-        icon: Palmtree,
-        description: 'Sahil beldelerimiz',
+        title: 'Araç Kiralama Ortağı',
+        href: '/partner#car-rental',
+        icon: Car,
+        description: 'Araç filosu yönetimi',
       },
       {
-        title: 'Kış Tatilleri',
-        href: '/destinations?type=winter',
-        icon: Mountain,
-        description: 'Kayak merkezleri',
+        title: 'Transfer Ortağı',
+        href: '/partner#transfer',
+        icon: Navigation,
+        description: 'Havalimanı transferleri',
       },
       {
-        title: 'Gastronomi Turları',
-        href: '/destinations?type=food',
-        icon: Utensils,
-        description: 'Lezzet rotaları',
+        title: 'Ticari Araç Ortağı',
+        href: '/partner#commercial-vehicle',
+        icon: Users,
+        description: 'Minibüs, grup araçları',
       },
     ],
   },
   {
-    title: 'En Popüler',
+    title: 'Partner Avantajları',
     items: [
       {
-        title: 'İstanbul',
-        href: '/destinations/istanbul-tarihi-yarimada',
-        icon: MapPin,
-        description: 'Kültür başkenti',
+        title: '%0 Komisyon',
+        href: '/partner',
+        icon: TrendingUp,
+        description: 'İlk 6 ay ücretsiz',
         popular: true,
       },
       {
-        title: 'Antalya',
-        href: '/destinations/antalya-turkuaz-sahiller',
-        icon: MapPin,
-        description: 'Turizm cenneti',
+        title: 'Gelir Artırın',
+        href: '/partner',
+        icon: Award,
+        description: '₺120K/ay potansiyel',
         popular: true,
       },
       {
-        title: 'Kapadokya',
-        href: '/destinations/kapadokya-balon-turu',
-        icon: MapPin,
-        description: 'Peri bacaları',
-        popular: true,
+        title: 'AI Araçlar',
+        href: '/partner',
+        icon: Sparkles,
+        description: 'Akıllı fiyatlandırma',
+      },
+      {
+        title: '24/7 Destek',
+        href: '/partner',
+        icon: Users,
+        description: 'Premium müşteri desteği',
       },
     ],
   },
@@ -509,8 +514,8 @@ const ResponsiveHeaderBar: React.FC = () => {
         return RENTALS_MENU;
       case 'tours':
         return TOURS_MENU;
-      case 'destinations':
-        return DESTINATIONS_MENU;
+      case 'partner':
+        return PARTNER_MENU;
       default:
         return [];
     }
@@ -623,13 +628,13 @@ const ResponsiveHeaderBar: React.FC = () => {
                   submenuContent={getSubmenuContent('tours')}
                 />
                 <NavLinkWithSubmenu
-                  href="/destinations"
-                  icon={Globe}
-                  label="Keşfet"
-                  submenuKey="destinations"
+                  href="/partner"
+                  icon={Building2}
+                  label="Partner"
+                  submenuKey="partner"
                   activeSubmenu={activeSubmenu}
                   setActiveSubmenu={setActiveSubmenu}
-                  submenuContent={getSubmenuContent('destinations')}
+                  submenuContent={getSubmenuContent('partner')}
                 />
               </nav>
 
