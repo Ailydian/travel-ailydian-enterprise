@@ -1105,14 +1105,23 @@ const AdminDashboardV2 = () => {
                 <div className="space-y-4">
                   {productCategories.map((product, index) => {
                     const Icon = product.icon;
+                    const getProductLink = (id: string) => {
+                      const links: Record<string, string> = {
+                        'rentals': '/admin/v2/rental-properties',
+                        'transfers': '/admin/v2/transfers',
+                        'cars': '/admin/v2/car-rentals',
+                        'tours': '/admin/v2/tours',
+                      };
+                      return links[id] || '/admin/v2/products';
+                    };
                     return (
-                      <motion.div
-                        key={product.id}
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: index * 0.1 }}
-                        className="flex items-center gap-4 p-4 rounded-xl hover:bg-slate-50 transition-all group cursor-pointer"
-                      >
+                      <Link key={product.id} href={getProductLink(product.id)}>
+                        <motion.div
+                          initial={{ opacity: 0, x: -20 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ delay: index * 0.1 }}
+                          className="flex items-center gap-4 p-4 rounded-xl hover:bg-slate-50 transition-all group cursor-pointer"
+                        >
                         <div className="p-3 bg-blue-50 rounded-xl group-hover:bg-blue-100 transition-colors">
                           <Icon className="w-6 h-6 text-blue-600" />
                         </div>
@@ -1147,7 +1156,8 @@ const AdminDashboardV2 = () => {
                             </div>
                           </div>
                         </div>
-                      </motion.div>
+                        </motion.div>
+                      </Link>
                     );
                   })}
                 </div>
@@ -1338,14 +1348,23 @@ const AdminDashboardV2 = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {productCategories.map((product, index) => {
                 const Icon = product.icon;
+                const getProductLink = (id: string) => {
+                  const links: Record<string, string> = {
+                    'rentals': '/admin/v2/rental-properties',
+                    'transfers': '/admin/v2/transfers',
+                    'cars': '/admin/v2/car-rentals',
+                    'tours': '/admin/v2/tours',
+                  };
+                  return links[id] || '/admin/v2/products';
+                };
                 return (
-                  <motion.div
-                    key={product.id}
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: index * 0.1 }}
-                    className="bg-white rounded-2xl p-6 border border-slate-200 hover:shadow-xl transition-all cursor-pointer group"
-                  >
+                  <Link key={product.id} href={getProductLink(product.id)}>
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ delay: index * 0.1 }}
+                      className="bg-white rounded-2xl p-6 border border-slate-200 hover:shadow-xl transition-all cursor-pointer group"
+                    >
                     <div className="flex items-center gap-4 mb-4">
                       <div className="p-4 bg-blue-50 rounded-xl group-hover:bg-blue-100 transition-colors">
                         <Icon className="w-8 h-8 text-blue-600" />
@@ -1373,7 +1392,8 @@ const AdminDashboardV2 = () => {
                         {product.growth >= 0 ? '+' : ''}{product.growth}%
                       </span>
                     </div>
-                  </motion.div>
+                    </motion.div>
+                  </Link>
                 );
               })}
             </div>
