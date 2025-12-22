@@ -874,6 +874,13 @@ const AdminDashboardV2 = () => {
                     <ArrowUpRight className="w-4 h-4" />
                   </button>
                 </Link>
+                <Link href="/admin/v2/navigation">
+                  <button className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-green-600 to-green-700 text-white rounded-lg hover:shadow-xl transition-all font-medium">
+                    <Globe className="w-5 h-5" />
+                    Menü Yönetimi
+                    <ArrowUpRight className="w-4 h-4" />
+                  </button>
+                </Link>
                 <Link href="/admin/v2/content">
                   <button className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-600 to-purple-700 text-white rounded-lg hover:shadow-xl transition-all font-medium">
                     <Edit className="w-5 h-5" />

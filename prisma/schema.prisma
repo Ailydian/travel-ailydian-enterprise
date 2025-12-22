@@ -1101,3 +1101,88 @@ enum AirportType {
   DOMESTIC
   REGIONAL
 }
+
+// ============================================
+// DYNAMIC NAVIGATION & CONTENT MANAGEMENT
+// ============================================
+
+// Navigation Menu Model - Database-Driven Menus
+model NavigationMenu {
+  id            String   @id @default(cuid())
+  type          MenuType @default(HEADER)
+  title         String
+  slug          String   @unique
+  href          String
+  icon          String?
+  description   String?
+  badge         String?
+  order         Int      @default(0)
+  isActive      Boolean  @default(true)
+  parentId      String?
+
+  // Multi-language support
+  translations  Json?    // {tr: {title: "", description: ""}, en: {...}}
+
+  // Role-based access
+  requiredRole  String?
+  permissions   String[]  @default([])
+
+  // Metadata
+  metadata      Json?
+  openInNewTab  Boolean  @default(false)
+
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  // Self-referencing relation for nested menus
+  parent        NavigationMenu?  @relation("MenuHierarchy", fields: [parentId], references: [id], onDelete: Cascade)
+  children      NavigationMenu[] @relation("MenuHierarchy")
+
+  @@map("navigation_menus")
+  @@index([type, order])
+  @@index([isActive])
+  @@index([slug])
+}
+
+enum MenuType {
+  HEADER
+  FOOTER
+  SIDEBAR
+  MOBILE
+}
+
+// Featured Content Model - Homepage Featured Items
+model FeaturedContent {
+  id            String          @id @default(cuid())
+  type          ContentType     @default(DESTINATION)
+  title         String
+  slug          String          @unique
+  description   String?         @db.Text
+  image         String
+  link          String?
+  order         Int             @default(0)
+  isActive      Boolean         @default(true)
+
+  // Metadata
+  metadata      Json?           // rating, badge, experiences, etc.
+  translations  Json?
+
+  // Display settings
+  displayFrom   DateTime?
+  displayUntil  DateTime?
+
+  createdAt     DateTime        @default(now())
+  updatedAt     DateTime        @updatedAt
+
+  @@map("featured_content")
+  @@index([type, order])
+  @@index([isActive])
+}
+
+enum ContentType {
+  DESTINATION
+  EXPERIENCE
+  PROMOTION
+  ANNOUNCEMENT
+  BANNER
+}

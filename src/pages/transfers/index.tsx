@@ -256,280 +256,61 @@ const TransfersPage: React.FC = () => {
       <SimpleNavigationHeader currentPage="transfers" />
 
       <main className="min-h-screen bg-gray-50">
-        {/* Hero Section with Stats - Same as rentals page */}
-        <section className="relative bg-gradient-to-br from-blue-600 via-cyan-600 to-blue-700 text-white py-20">
+        {/* Hero Section - Full Width Search */}
+        <section className="relative bg-gradient-to-br from-blue-600 via-cyan-600 to-blue-700 text-white py-24">
           <div className="max-w-7xl mx-auto px-4">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <motion.div
-                initial={{ opacity: 0, x: -30 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6 }}
-              >
-                <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/20 rounded-full mb-6">
-                  <Bus className="w-5 h-5" />
-                  <span className="text-sm font-medium">Transfer Hizmetleri</span>
-                </div>
-
-                <h1 className="text-5xl md:text-6xl font-black mb-6 leading-tight">
-                  Güvenli ve Konforlu
-                  <br />
-                  <span className="text-blue-200">Transfer Deneyimi</span>
-                </h1>
-
-                <p className="text-xl text-blue-50 mb-8 leading-relaxed">
-                  D2 belgeli transfer firmaları ile havaalanı, otel ve şehir içi transferleriniz güvende. 7/24 hizmet.
-                </p>
-
-                {/* Ultra Premium Transfer Route Selector */}
-                <TransferRouteSelector
-                  from={searchForm.from}
-                  to={searchForm.to}
-                  dateTime={searchForm.dateTime}
-                  passengers={searchForm.passengers}
-                  vehicleType={searchForm.vehicleType}
-                  onFromChange={(value, location) => {
-                    setSearchForm({ ...searchForm, from: value });
-                  }}
-                  onToChange={(value, location) => {
-                    setSearchForm({ ...searchForm, to: value });
-                  }}
-                  onDateTimeChange={(value) => setSearchForm({ ...searchForm, dateTime: value })}
-                  onPassengersChange={(value) => setSearchForm({ ...searchForm, passengers: value })}
-                  onVehicleTypeChange={(value) => setSearchForm({ ...searchForm, vehicleType: value })}
-                  onSearch={handleSearch}
-                />
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, x: 30 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="grid grid-cols-2 gap-4"
-              >
-                <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20">
-                  <Bus className="w-8 h-8 text-blue-200 mb-3" />
-                  <div className="text-3xl font-bold mb-1">128</div>
-                  <div className="text-blue-100 text-sm">Toplam Filo</div>
-                </div>
-
-                <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20">
-                  <TrendingUp className="w-8 h-8 text-blue-200 mb-3" />
-                  <div className="text-3xl font-bold mb-1">₺210K+</div>
-                  <div className="text-blue-100 text-sm">Aylık Gelir</div>
-                </div>
-
-                <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20">
-                  <Clock className="w-8 h-8 text-blue-200 mb-3" />
-                  <div className="text-3xl font-bold mb-1">96.8%</div>
-                  <div className="text-blue-100 text-sm">Zamanında Teslimat</div>
-                </div>
-
-                <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20">
-                  <Star className="w-8 h-8 text-blue-200 mb-3" />
-                  <div className="text-3xl font-bold mb-1">4.9/5</div>
-                  <div className="text-blue-100 text-sm">Memnuniyet</div>
-                </div>
-              </motion.div>
-            </div>
-          </div>
-        </section>
-
-        {/* Owner CTA Banner - Same as rentals */}
-        <section className="bg-gradient-to-r from-blue-50 to-cyan-50 border-y border-blue-100">
-          <div className="max-w-7xl mx-auto px-4 py-8">
-            <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-              <div className="flex items-center gap-4">
-                <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center">
-                  <Bus className="w-8 h-8 text-white" />
-                </div>
-                <div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-1">
-                    Transfer Filonuzu Kiraya Verin
-                  </h3>
-                  <p className="text-gray-600">
-                    Profesyonel dashboard ile transfer araçlarınızı ve rotalarınızı yönetin
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-4">
-                <div className="text-right">
-                  <div className="text-sm text-gray-500">Ortalama Aylık Gelir</div>
-                  <div className="text-2xl font-bold text-blue-600">₺12,000</div>
-                </div>
-                <Link href="/transfer-owner">
-                  <button className="px-6 py-3 bg-gradient-to-r from-blue-600 to-cyan-600 text-white rounded-xl font-semibold hover:shadow-lg transition-all flex items-center gap-2">
-                    Kayıt Ol
-                    <ArrowRight className="w-5 h-5" />
-                  </button>
-                </Link>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Promotional Content Section with Animated Images */}
-        <section className="bg-white py-16">
-          <div className="max-w-7xl mx-auto px-4">
-            <div className="text-center mb-12">
-              <motion.h2
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className="text-4xl font-black text-gray-900 mb-4"
-              >
-                Neden Ailydian Transfer?
-              </motion.h2>
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.1 }}
-                className="text-xl text-gray-600"
-              >
-                Güvenli, konforlu ve zamanında transfer hizmetinin avantajları
-              </motion.p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {/* Feature 1 */}
-              <motion.div
-                initial={{ opacity: 0, x: -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.2 }}
-                className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-blue-50 to-cyan-100 p-8"
-              >
-                <motion.div
-                  animate={{ y: [0, -10, 0] }}
-                  transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute top-4 right-4 w-24 h-24 bg-blue-200 rounded-full opacity-50 blur-2xl"
-                />
-                <div className="relative z-10">
-                  <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-2xl flex items-center justify-center mb-6">
-                    <Shield className="w-8 h-8 text-white" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-3">
-                    D2 Belgeli Transfer Firmaları
-                  </h3>
-                  <p className="text-gray-600 leading-relaxed">
-                    Sadece yasal D2 belgeli transfer firmaları. Tüm sürücülerimiz SRC belgeli. Tam kapsamlı sigorta garantisi.
-                  </p>
-                  <div className="mt-6 flex items-center gap-2 text-sm text-blue-600 font-semibold">
-                    <CheckCircle className="w-5 h-5" />
-                    <span>128 Doğrulanmış Filo</span>
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* Feature 2 */}
-              <motion.div
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.3 }}
-                className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-green-50 to-emerald-100 p-8"
-              >
-                <motion.div
-                  animate={{ scale: [1, 1.2, 1] }}
-                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute bottom-4 left-4 w-32 h-32 bg-green-200 rounded-full opacity-40 blur-3xl"
-                />
-                <div className="relative z-10">
-                  <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl flex items-center justify-center mb-6">
-                    <Clock className="w-8 h-8 text-white" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-3">
-                    7/24 Hizmet & Zamanında Teslimat
-                  </h3>
-                  <p className="text-gray-600 leading-relaxed">
-                    Havalimanı transferlerinde %96.8 zamanında teslimat oranı. Geciken uçuşlar için otomatik takip. 7/24 müşteri desteği.
-                  </p>
-                  <div className="mt-6 flex items-center gap-2 text-sm text-green-600 font-semibold">
-                    <Users className="w-5 h-5" />
-                    <span>7/24 Canlı Destek</span>
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* Feature 3 */}
-              <motion.div
-                initial={{ opacity: 0, x: 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.4 }}
-                className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-purple-50 to-pink-100 p-8"
-              >
-                <motion.div
-                  animate={{ rotate: [0, 360] }}
-                  transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                  className="absolute top-1/2 right-1/2 w-40 h-40 bg-purple-200 rounded-full opacity-30 blur-3xl"
-                />
-                <div className="relative z-10">
-                  <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center mb-6">
-                    <DollarSign className="w-8 h-8 text-white" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-3">
-                    Sabit Fiyat Garantisi
-                  </h3>
-                  <p className="text-gray-600 leading-relaxed">
-                    Gizli ücret yok, trafik ücreti yok. Rezervasyonda gördüğünüz fiyat nihai fiyat. İstanbul Havalimanı transfer sadece ₺250'dan başlıyor.
-                  </p>
-                  <div className="mt-6 flex items-center gap-2 text-sm text-purple-600 font-semibold">
-                    <TrendingUp className="w-5 h-5" />
-                    <span>Sabit Fiyat</span>
-                  </div>
-                </div>
-              </motion.div>
-            </div>
-
-            {/* How It Works Section */}
             <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.5 }}
-              className="mt-16 bg-gradient-to-r from-gray-50 to-gray-100 rounded-3xl p-12"
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="text-center mb-12"
             >
-              <h3 className="text-3xl font-black text-gray-900 mb-8 text-center">
-                Nasıl Çalışır?
-              </h3>
-              <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-                <div className="text-center">
-                  <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-2xl font-bold">
-                    1
-                  </div>
-                  <h4 className="font-bold text-gray-900 mb-2">Rota Seçin</h4>
-                  <p className="text-sm text-gray-600">Nereden nereye gitmek istediğinizi belirtin</p>
-                </div>
-                <div className="text-center">
-                  <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-2xl font-bold">
-                    2
-                  </div>
-                  <h4 className="font-bold text-gray-900 mb-2">Araç Türü</h4>
-                  <p className="text-sm text-gray-600">Ekonomik, VIP veya grup transfer seçin</p>
-                </div>
-                <div className="text-center">
-                  <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-2xl font-bold">
-                    3
-                  </div>
-                  <h4 className="font-bold text-gray-900 mb-2">Anında Rezervasyon</h4>
-                  <p className="text-sm text-gray-600">Onay SMS ve e-posta anında gelir</p>
-                </div>
-                <div className="text-center">
-                  <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-2xl font-bold">
-                    4
-                  </div>
-                  <h4 className="font-bold text-gray-900 mb-2">Rahat Yolculuk</h4>
-                  <p className="text-sm text-gray-600">Sürücünüz sizi zamanında karşılar</p>
-                </div>
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/20 rounded-full mb-6">
+                <Bus className="w-5 h-5" />
+                <span className="text-sm font-medium">Transfer Hizmetleri</span>
               </div>
+
+              <h1 className="text-5xl md:text-6xl font-black mb-6 leading-tight">
+                Güvenli ve Konforlu
+                <br />
+                <span className="text-blue-200">Transfer Deneyimi</span>
+              </h1>
+
+              <p className="text-xl text-blue-50 mb-2 leading-relaxed max-w-3xl mx-auto">
+                D2 belgeli transfer firmaları ile havaalanı, otel ve şehir içi transferleriniz güvende. 7/24 hizmet.
+              </p>
+            </motion.div>
+
+            {/* Full Width Transfer Route Selector */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="max-w-6xl mx-auto"
+            >
+              <TransferRouteSelector
+                from={searchForm.from}
+                to={searchForm.to}
+                dateTime={searchForm.dateTime}
+                passengers={searchForm.passengers}
+                vehicleType={searchForm.vehicleType}
+                onFromChange={(value, location) => {
+                  setSearchForm({ ...searchForm, from: value });
+                }}
+                onToChange={(value, location) => {
+                  setSearchForm({ ...searchForm, to: value });
+                }}
+                onDateTimeChange={(value) => setSearchForm({ ...searchForm, dateTime: value })}
+                onPassengersChange={(value) => setSearchForm({ ...searchForm, passengers: value })}
+                onVehicleTypeChange={(value) => setSearchForm({ ...searchForm, vehicleType: value })}
+                onSearch={handleSearch}
+              />
             </motion.div>
           </div>
         </section>
 
-        {/* More sections continue... */}
-        <section className="bg-white py-12">
+        {/* Popüler Rotalar */}
+        <section className="bg-gray-50 py-12">
           <div className="max-w-7xl mx-auto px-4">
             <h2 className="text-3xl font-bold text-gray-900 mb-8">Popüler Rotalar</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -579,66 +360,108 @@ const TransfersPage: React.FC = () => {
           </div>
         </section>
 
-        {/* Owner CTA Banner */}
-        <section className="max-w-7xl mx-auto px-4 py-16">
-          <div className="bg-gradient-to-r from-blue-600 to-cyan-600 rounded-2xl overflow-hidden">
-            <div className="px-6 py-12 sm:px-12 text-center">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-              >
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-white rounded-full mb-6">
-                  <Bus className="w-8 h-8 text-blue-600" />
-                </div>
-
-                <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-                  Transfer Firmanızı Büyütün
+        {/* Transfer Listings - Results from search */}
+        {filteredTransfers.length > 0 && (
+          <section className="bg-white py-12">
+            <div className="max-w-7xl mx-auto px-4">
+              <div className="flex items-center justify-between mb-8">
+                <h2 className="text-3xl font-bold text-gray-900">
+                  Mevcut Transferler ({filteredTransfers.length})
                 </h2>
+                <button
+                  onClick={() => setShowFilters(!showFilters)}
+                  className="flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
+                >
+                  <Filter className="w-5 h-5" />
+                  Filtrele
+                </button>
+              </div>
 
-                <p className="text-lg text-blue-50 mb-8 max-w-2xl mx-auto">
-                  1500+ transfer firması Ailydian platformu ile daha fazla müşteriye ulaşıyor.
-                  Siz de transfer hizmetinizi listeleyerek gelirinizi artırın.
-                </p>
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                {filteredTransfers.map((transfer) => (
+                  <motion.div
+                    key={transfer.id}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-xl transition-all cursor-pointer group"
+                  >
+                    <div className="relative h-48">
+                      <img
+                        src={transfer.image}
+                        alt={transfer.vehicle}
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                      />
+                      <button
+                        onClick={() => toggleFavorite(transfer.id)}
+                        className="absolute top-3 right-3 w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white transition-colors"
+                      >
+                        <Heart
+                          className={`w-5 h-5 ${
+                            favorites.has(transfer.id)
+                              ? 'fill-red-500 text-red-500'
+                              : 'text-gray-600'
+                          }`}
+                        />
+                      </button>
+                      {transfer.instantBook && (
+                        <div className="absolute top-3 left-3 px-3 py-1 bg-blue-600 text-white text-sm font-semibold rounded-full flex items-center gap-1">
+                          <Zap className="w-4 h-4" />
+                          Anında Rezervasyon
+                        </div>
+                      )}
+                    </div>
 
-                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
-                  <div className="flex items-center gap-2 text-white">
-                    <CheckCircle className="w-5 h-5" />
-                    <span>%10-12 Komisyon</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-white">
-                    <CheckCircle className="w-5 h-5" />
-                    <span>D2 Belge Desteği</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-white">
-                    <CheckCircle className="w-5 h-5" />
-                    <span>Havalimanı İzinleri</span>
-                  </div>
-                </div>
+                    <div className="p-5">
+                      <div className="flex items-center justify-between mb-3">
+                        <div>
+                          <h3 className="font-bold text-lg text-gray-900">{transfer.company}</h3>
+                          <p className="text-sm text-gray-600">{transfer.vehicle}</p>
+                        </div>
+                        <div className="flex items-center gap-1">
+                          <Star className="w-5 h-5 fill-yellow-400 text-yellow-400" />
+                          <span className="font-semibold text-gray-900">{transfer.rating}</span>
+                          <span className="text-sm text-gray-500">({transfer.reviews})</span>
+                        </div>
+                      </div>
 
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Link href="/transfer-owner/auth/register">
-                    <button className="px-8 py-4 bg-white text-blue-600 rounded-lg font-semibold hover:bg-blue-50 transition-all transform hover:scale-105 flex items-center justify-center gap-2 shadow-lg">
-                      <span>Transfer Firmanızı Ekleyin</span>
-                      <ArrowRight className="w-5 h-5" />
-                    </button>
-                  </Link>
+                      <div className="flex items-center gap-4 text-sm text-gray-600 mb-4">
+                        <div className="flex items-center gap-1">
+                          <Users className="w-4 h-4" />
+                          <span>{transfer.capacity} kişi</span>
+                        </div>
+                        <div className="flex items-center gap-1">
+                          <Bus className="w-4 h-4" />
+                          <span>{transfer.luggage} bavul</span>
+                        </div>
+                      </div>
 
-                  <Link href="/transfer-owner/auth/login">
-                    <button className="px-8 py-4 bg-transparent border-2 border-white text-white rounded-lg font-semibold hover:bg-white/10 transition-all flex items-center justify-center gap-2">
-                      <span>Giriş Yap</span>
-                    </button>
-                  </Link>
-                </div>
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        {transfer.features.slice(0, 3).map((feature, index) => (
+                          <span
+                            key={index}
+                            className="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded-full"
+                          >
+                            {feature}
+                          </span>
+                        ))}
+                      </div>
 
-                <p className="text-sm text-blue-100 mt-6">
-                  1500+ transfer firması bize güveniyor • 98% zamanında hizmet
-                </p>
-              </motion.div>
+                      <div className="flex items-center justify-between pt-4 border-t border-gray-200">
+                        <div>
+                          <div className="text-sm text-gray-500">Başlangıç</div>
+                          <div className="text-2xl font-bold text-gray-900">₺{transfer.price}</div>
+                        </div>
+                        <button className="px-6 py-2 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors">
+                          Rezervasyon
+                        </button>
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+        )}
       </main>
     </>
   );

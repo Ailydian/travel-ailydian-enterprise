@@ -34,6 +34,7 @@ import {
 } from 'lucide-react';
 import { VEHICLE_CATEGORIES } from '@/data/vehicleCategories';
 import SimpleNavigationHeader from '@/components/layout/SimpleNavigationHeader';
+import CarRentalSearchEngine, { type CarRentalSearchData } from '@/components/car-rentals/CarRentalSearchEngine';
 import {
   CAR_RENTALS_SEO,
   CAR_RENTAL_SERVICE_SCHEMA,
@@ -174,83 +175,46 @@ const CarRentalsPage: React.FC = () => {
       <SimpleNavigationHeader currentPage="car-rentals" />
 
       <main className="min-h-screen bg-gray-50">
-        {/* Hero Section with Stats */}
-        <section className="relative bg-gradient-to-br from-green-600 via-emerald-600 to-teal-600 text-white py-20">
+        {/* Hero Section - Full Width Search Engine */}
+        <section className="relative bg-gradient-to-br from-green-600 via-emerald-600 to-teal-600 text-white py-24">
           <div className="max-w-7xl mx-auto px-4">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              {/* Left - Text Content */}
-              <motion.div
-                initial={{ opacity: 0, x: -30 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6 }}
-              >
-                <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/20 rounded-full mb-6">
-                  <Car className="w-5 h-5" />
-                  <span className="text-sm font-medium">Araç Kiralama</span>
-                </div>
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="text-center mb-12"
+            >
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/20 rounded-full mb-6">
+                <Car className="w-5 h-5" />
+                <span className="text-sm font-medium">Araç Kiralama</span>
+              </div>
 
-                <h1 className="text-5xl md:text-6xl font-black mb-6 leading-tight">
-                  Hayalinizdeki Arabayı
-                  <br />
-                  <span className="text-green-200">Şimdi Kiralayın</span>
-                </h1>
+              <h1 className="text-5xl md:text-6xl font-black mb-6 leading-tight">
+                Hayalinizdeki Arabayı
+                <br />
+                <span className="text-green-200">Şimdi Kiralayın</span>
+              </h1>
 
-                <p className="text-xl text-green-50 mb-8 leading-relaxed">
-                  14+ araç kategorisi, binlerce doğrulanmış araç sahibi. Ekonomik sedan'dan lüks spor arabalara kadar.
-                </p>
+              <p className="text-xl text-green-50 mb-2 leading-relaxed max-w-3xl mx-auto">
+                14+ araç kategorisi, binlerce doğrulanmış araç sahibi. Ekonomik sedan'dan lüks spor arabalara kadar.
+              </p>
+            </motion.div>
 
-                {/* Search Box */}
-                <div className="bg-white rounded-2xl p-2 shadow-2xl">
-                  <div className="flex flex-col md:flex-row gap-2">
-                    <div className="flex-1 relative">
-                      <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
-                      <input
-                        type="text"
-                        placeholder="Araç markası veya model ara..."
-                        value={searchQuery}
-                        onChange={(e) => setSearchQuery(e.target.value)}
-                        className="w-full pl-12 pr-4 py-4 rounded-xl text-gray-900 border-0 focus:ring-2 focus:ring-green-500"
-                      />
-                    </div>
-                    <button className="px-8 py-4 bg-gradient-to-r from-green-600 to-emerald-600 text-white rounded-xl font-semibold hover:shadow-lg transition-all">
-                      Ara
-                    </button>
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* Right - Stats Cards */}
-              <motion.div
-                initial={{ opacity: 0, x: 30 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="grid grid-cols-2 gap-4"
-              >
-                <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20">
-                  <Star className="w-8 h-8 text-green-200 mb-3" />
-                  <div className="text-3xl font-bold mb-1">1,200+</div>
-                  <div className="text-green-100 text-sm">Aktif Araç</div>
-                </div>
-
-                <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20">
-                  <TrendingUp className="w-8 h-8 text-green-200 mb-3" />
-                  <div className="text-3xl font-bold mb-1">₺850K+</div>
-                  <div className="text-green-100 text-sm">Aylık Gelir</div>
-                </div>
-
-                <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20">
-                  <Gauge className="w-8 h-8 text-green-200 mb-3" />
-                  <div className="text-3xl font-bold mb-1">87%</div>
-                  <div className="text-green-100 text-sm">Doluluk Oranı</div>
-                </div>
-
-                <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20">
-                  <Star className="w-8 h-8 text-green-200 mb-3" />
-                  <div className="text-3xl font-bold mb-1">4.9/5</div>
-                  <div className="text-green-100 text-sm">Memnuniyet</div>
-                </div>
-              </motion.div>
-            </div>
+            {/* Advanced Search Engine */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="max-w-6xl mx-auto"
+            >
+              <CarRentalSearchEngine
+                onSearch={(searchData: CarRentalSearchData) => {
+                  console.log('Search data:', searchData);
+                  // Filter logic will be implemented
+                  setShowFilters(true);
+                }}
+              />
+            </motion.div>
           </div>
         </section>
 
