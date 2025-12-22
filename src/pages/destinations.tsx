@@ -60,22 +60,22 @@ export default function Destinations() {
 
       <div className="min-h-screen bg-gray-50 pt-8">
         {/* Hero Section */}
-        <div className="text-white py-16" style={{ background: 'linear-gradient(135deg, var(--ac-1) 0%, var(--ac-2) 50%, var(--ac-3) 100%)' }}>
+        <div className="text-white py-12 sm:py-16" style={{ background: 'linear-gradient(135deg, var(--ac-1) 0%, var(--ac-2) 50%, var(--ac-3) 100%)' }}>
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6">
               Hayalinizdeki Destinasyonu Keşfedin
             </h1>
-            <p className="text-xl mb-8 text-blue-100">
+            <p className="text-base sm:text-lg lg:text-xl mb-6 sm:mb-8 text-blue-100">
               Türkiye'nin en güzel yerlerinde unutulmaz anılar biriktirin
             </p>
 
             {/* Search Bar */}
             <div className="relative max-w-2xl mx-auto">
-              <Search className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
+              <Search className="absolute left-3 top-3 h-4 w-4 sm:h-5 sm:w-5 text-gray-400" />
               <input
                 type="text"
                 placeholder="Destinasyon ara..."
-                className="w-full pl-10 pr-4 py-3 rounded-lg text-gray-900 focus:ring-2 focus:ring-white focus:outline-none"
+                className="w-full pl-9 sm:pl-10 pr-4 py-2.5 sm:py-3 rounded-lg text-sm sm:text-base text-gray-900 focus:ring-2 focus:ring-white focus:outline-none"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
               />
@@ -85,20 +85,20 @@ export default function Destinations() {
 
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           {/* Category Filter */}
-          <div className="flex flex-wrap gap-4 mb-8">
+          <div className="flex flex-wrap gap-2 sm:gap-3 lg:gap-4 mb-6 sm:mb-8">
             {categories.map((category) => {
               const IconComponent = category.icon;
               return (
                 <button
                   key={category.id}
                   onClick={() => setSelectedCategory(category.id)}
-                  className={`flex items-center px-4 py-2 rounded-lg font-medium transition-colors ${
+                  className={`flex items-center px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg text-sm sm:text-base font-medium transition-colors ${
                     selectedCategory === category.id
                       ? 'ocean-button'
                       : 'ocean-button-secondary'
                   }`}
                 >
-                  <IconComponent className="h-4 w-4 mr-2" />
+                  <IconComponent className="h-3 w-3 sm:h-4 sm:w-4 mr-1.5 sm:mr-2" />
                   {category.name}
                 </button>
               );

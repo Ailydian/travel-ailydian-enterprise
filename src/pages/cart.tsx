@@ -119,24 +119,25 @@ const Cart: React.FC = () => {
       <NavigationHeader />
 
       {/* Return to Home Button */}
-      <Link 
-        href="/" 
-        className="fixed top-24 left-6 z-10 flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200 text-gray-700 hover:bg-white hover:text-ailydian-primary transition-all duration-200"
+      <Link
+        href="/"
+        className="fixed top-20 sm:top-24 left-2 sm:left-6 z-10 flex items-center gap-1 sm:gap-2 px-2 sm:px-4 py-1.5 sm:py-2 text-sm sm:text-base bg-white/90 backdrop-blur-sm rounded-lg sm:rounded-xl shadow-lg border border-gray-200 text-gray-700 hover:bg-white hover:text-ailydian-primary transition-all duration-200"
       >
-        <ArrowLeft className="w-4 h-4" />
-        <span className="font-medium">Ana Sayfaya Dön</span>
+        <ArrowLeft className="w-3 h-3 sm:w-4 sm:h-4" />
+        <span className="font-medium hidden sm:inline">Ana Sayfaya Dön</span>
+        <span className="font-medium sm:hidden">Geri</span>
       </Link>
 
-      <main className="pt-8 min-h-screen bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 py-8">
+      <main className="pt-4 sm:pt-8 min-h-screen bg-gray-50">
+        <div className="max-w-7xl mx-auto px-3 sm:px-4 py-4 sm:py-8">
           {/* Header */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-center mb-8"
+            className="text-center mb-4 sm:mb-8"
           >
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">Sepetim</h1>
-            <p className="text-gray-600">Rezervasyonlarınızı gözden geçirin ve ödemeyi tamamlayın</p>
+            <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">Sepetim</h1>
+            <p className="text-sm sm:text-base text-gray-600">Rezervasyonlarınızı gözden geçirin ve ödemeyi tamamlayın</p>
           </motion.div>
 
           {cartItems.length === 0 ? (
@@ -144,115 +145,115 @@ const Cart: React.FC = () => {
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="text-center py-16"
+              className="text-center py-8 sm:py-16"
             >
-              <ShoppingCart className="w-24 h-24 text-gray-300 mx-auto mb-8" />
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">Sepetiniz Boş</h2>
-              <p className="text-gray-600 mb-8">Harika deneyimler keşfetmek için alışverişe başlayın!</p>
-              <Link 
-                href="/" 
-                className="inline-flex items-center gap-2 px-8 py-4 bg-ailydian-primary text-white rounded-xl font-semibold hover:bg-ailydian-dark transition-colors"
+              <ShoppingCart className="w-16 h-16 sm:w-24 sm:h-24 text-gray-300 mx-auto mb-4 sm:mb-8" />
+              <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">Sepetiniz Boş</h2>
+              <p className="text-sm sm:text-base text-gray-600 mb-6 sm:mb-8 px-4">Harika deneyimler keşfetmek için alışverişe başlayın!</p>
+              <Link
+                href="/"
+                className="inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base bg-ailydian-primary text-white rounded-lg sm:rounded-xl font-semibold hover:bg-ailydian-dark transition-colors"
               >
                 Alışverişe Başla
               </Link>
             </motion.div>
           ) : (
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
               {/* Cart Items */}
-              <div className="lg:col-span-2 space-y-6">
+              <div className="lg:col-span-2 space-y-3 sm:space-y-4 lg:space-y-6">
                 {cartItems.map((item, index) => (
                   <motion.div
                     key={item.id}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: index * 0.1 }}
-                    className="bg-white rounded-2xl shadow-sm border border-gray-200 p-6"
+                    className="bg-white rounded-lg sm:rounded-xl lg:rounded-2xl shadow-sm border border-gray-200 p-3 sm:p-4 lg:p-6"
                   >
-                    <div className="flex gap-6">
+                    <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 lg:gap-6">
                       {/* Image */}
-                      <div className="relative">
-                        <img 
+                      <div className="relative w-full sm:w-24 md:w-28 lg:w-32 flex-shrink-0">
+                        <img
                           src={item.image}
                           alt={item.title}
-                          className="w-32 h-24 object-cover rounded-xl"
+                          className="w-full h-32 sm:h-20 md:h-22 lg:h-24 object-cover rounded-lg sm:rounded-xl"
                         />
-                        <div className="absolute -top-2 -left-2 w-8 h-8 bg-ailydian-primary rounded-full flex items-center justify-center text-white text-lg">
+                        <div className="absolute -top-2 -left-2 w-7 h-7 sm:w-8 sm:h-8 bg-ailydian-primary rounded-full flex items-center justify-center text-white text-base sm:text-lg">
                           {getTypeIcon(item.type)}
                         </div>
                       </div>
 
                       {/* Details */}
-                      <div className="flex-1">
-                        <div className="flex justify-between items-start mb-3">
-                          <div>
-                            <h3 className="font-bold text-lg text-gray-900 mb-1">{item.title}</h3>
-                            <div className="flex items-center gap-4 text-sm text-gray-600">
+                      <div className="flex-1 min-w-0">
+                        <div className="flex justify-between items-start mb-2 sm:mb-3">
+                          <div className="flex-1 min-w-0 pr-2">
+                            <h3 className="font-bold text-base sm:text-lg text-gray-900 mb-1 line-clamp-2">{item.title}</h3>
+                            <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4 text-xs sm:text-sm text-gray-600">
                               <div className="flex items-center gap-1">
-                                <MapPin className="w-4 h-4" />
-                                {item.location}
+                                <MapPin className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" />
+                                <span className="truncate">{item.location}</span>
                               </div>
                               <div className="flex items-center gap-1">
-                                <Calendar className="w-4 h-4" />
-                                {item.date}
+                                <Calendar className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" />
+                                <span>{item.date}</span>
                               </div>
                               {item.duration && (
                                 <div className="flex items-center gap-1">
-                                  <Clock className="w-4 h-4" />
-                                  {item.duration}
+                                  <Clock className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" />
+                                  <span>{item.duration}</span>
                                 </div>
                               )}
                             </div>
                           </div>
-                          <button 
+                          <button
                             onClick={() => removeItem(item.id)}
-                            className="p-2 text-red-500 hover:bg-red-50 rounded-lg transition-colors"
+                            className="p-1.5 sm:p-2 text-red-500 hover:bg-red-50 rounded-lg transition-colors flex-shrink-0"
                           >
-                            <Trash2 className="w-5 h-5" />
+                            <Trash2 className="w-4 h-4 sm:w-5 sm:h-5" />
                           </button>
                         </div>
 
                         {/* Badges */}
-                        <div className="flex flex-wrap gap-2 mb-4">
+                        <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-3 sm:mb-4">
                           {item.badges.map(badge => (
-                            <span key={badge} className="px-2 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-medium">
+                            <span key={badge} className="px-2 py-0.5 sm:py-1 bg-blue-100 text-blue-700 rounded-full text-[10px] sm:text-xs font-medium">
                               {badge}
                             </span>
                           ))}
                           <div className="flex items-center gap-1">
-                            <Star className="w-4 h-4 text-yellow-500 fill-current" />
-                            <span className="text-sm font-medium">{item.rating}</span>
+                            <Star className="w-3 h-3 sm:w-4 sm:h-4 text-yellow-500 fill-current" />
+                            <span className="text-xs sm:text-sm font-medium">{item.rating}</span>
                           </div>
                         </div>
 
                         {/* Quantity & Price */}
-                        <div className="flex items-center justify-between">
-                          <div className="flex items-center gap-3">
-                            <span className="text-sm text-gray-600">Kişi sayısı:</span>
-                            <div className="flex items-center gap-2">
-                              <button 
+                        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                          <div className="flex items-center gap-2 sm:gap-3">
+                            <span className="text-xs sm:text-sm text-gray-600">Kişi:</span>
+                            <div className="flex items-center gap-1.5 sm:gap-2">
+                              <button
                                 onClick={() => updateGuestCount(item.id, item.guests - 1)}
-                                className="w-8 h-8 flex items-center justify-center border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
+                                className="w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
                               >
-                                <Minus className="w-4 h-4" />
+                                <Minus className="w-3 h-3 sm:w-4 sm:h-4" />
                               </button>
-                              <span className="w-8 text-center font-semibold">{item.guests}</span>
-                              <button 
+                              <span className="w-7 sm:w-8 text-center text-sm sm:text-base font-semibold">{item.guests}</span>
+                              <button
                                 onClick={() => updateGuestCount(item.id, item.guests + 1)}
-                                className="w-8 h-8 flex items-center justify-center border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
+                                className="w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
                               >
-                                <Plus className="w-4 h-4" />
+                                <Plus className="w-3 h-3 sm:w-4 sm:h-4" />
                               </button>
                             </div>
                           </div>
 
-                          <div className="text-right">
+                          <div className="text-left sm:text-right">
                             <div className="flex items-center gap-2">
-                              <span className="text-2xl font-bold text-gray-900">₺{item.price * item.guests}</span>
+                              <span className="text-xl sm:text-2xl font-bold text-gray-900">₺{item.price * item.guests}</span>
                               {item.originalPrice && (
-                                <span className="text-sm text-gray-500 line-through">₺{item.originalPrice * item.guests}</span>
+                                <span className="text-xs sm:text-sm text-gray-500 line-through">₺{item.originalPrice * item.guests}</span>
                               )}
                             </div>
-                            <p className="text-sm text-gray-600">₺{item.price} x {item.guests} kişi</p>
+                            <p className="text-xs sm:text-sm text-gray-600">₺{item.price} x {item.guests} kişi</p>
                           </div>
                         </div>
                       </div>
@@ -262,41 +263,41 @@ const Cart: React.FC = () => {
               </div>
 
               {/* Order Summary */}
-              <div className="space-y-6">
+              <div className="space-y-3 sm:space-y-4 lg:space-y-6">
                 {/* Promo Code */}
                 <motion.div
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
-                  className="bg-white rounded-2xl shadow-sm border border-gray-200 p-6"
+                  className="bg-white rounded-lg sm:rounded-xl lg:rounded-2xl shadow-sm border border-gray-200 p-4 sm:p-5 lg:p-6"
                 >
-                  <h3 className="font-bold text-lg text-gray-900 mb-4">Promosyon Kodu</h3>
+                  <h3 className="font-bold text-base sm:text-lg text-gray-900 mb-3 sm:mb-4">Promosyon Kodu</h3>
                   {appliedPromo ? (
-                    <div className="flex items-center justify-between bg-green-50 border border-green-200 rounded-lg p-3">
-                      <div className="flex items-center gap-2">
-                        <Tag className="w-5 h-5 text-green-600" />
-                        <span className="font-semibold text-green-900">{appliedPromo}</span>
+                    <div className="flex items-center justify-between bg-green-50 border border-green-200 rounded-lg p-2.5 sm:p-3">
+                      <div className="flex items-center gap-1.5 sm:gap-2">
+                        <Tag className="w-4 h-4 sm:w-5 sm:h-5 text-green-600" />
+                        <span className="text-sm sm:text-base font-semibold text-green-900">{appliedPromo}</span>
                       </div>
-                      <CheckCircle className="w-5 h-5 text-green-600" />
+                      <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-green-600" />
                     </div>
                   ) : (
-                    <div className="flex gap-2">
+                    <div className="flex flex-col sm:flex-row gap-2">
                       <input
                         type="text"
                         value={promoCode}
                         onChange={(e) => setPromoCode(e.target.value)}
-                        placeholder="Promosyon kodunu girin"
-                        className="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ailydian-primary focus:border-transparent outline-none"
+                        placeholder="Promosyon kodu"
+                        className="flex-1 px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-ailydian-primary focus:border-transparent outline-none"
                       />
                       <button
                         onClick={applyPromoCode}
-                        className="px-6 py-3 bg-ailydian-primary text-white rounded-lg font-semibold hover:bg-ailydian-dark transition-colors"
+                        className="px-4 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base bg-ailydian-primary text-white rounded-lg font-semibold hover:bg-ailydian-dark transition-colors whitespace-nowrap"
                       >
                         Uygula
                       </button>
                     </div>
                   )}
-                  <div className="mt-4 space-y-2 text-sm">
-                    <p className="text-gray-600">Mevcut kodlar:</p>
+                  <div className="mt-3 sm:mt-4 space-y-1 sm:space-y-2 text-xs sm:text-sm">
+                    <p className="text-gray-600 font-medium">Mevcut kodlar:</p>
                     <p className="text-ailydian-primary">• AILYDIAN10 (%10 indirim)</p>
                     <p className="text-ailydian-primary">• BLOCKCHAIN20 (%20 indirim)</p>
                   </div>
@@ -307,54 +308,54 @@ const Cart: React.FC = () => {
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.1 }}
-                  className="bg-white rounded-2xl shadow-sm border border-gray-200 p-6"
+                  className="bg-white rounded-lg sm:rounded-xl lg:rounded-2xl shadow-sm border border-gray-200 p-4 sm:p-5 lg:p-6"
                 >
-                  <h3 className="font-bold text-lg text-gray-900 mb-6">Sipariş Özeti</h3>
-                  
-                  <div className="space-y-4 mb-6">
-                    <div className="flex justify-between">
+                  <h3 className="font-bold text-base sm:text-lg text-gray-900 mb-4 sm:mb-6">Sipariş Özeti</h3>
+
+                  <div className="space-y-3 sm:space-y-4 mb-4 sm:mb-6">
+                    <div className="flex justify-between text-sm sm:text-base">
                       <span className="text-gray-600">Ara Toplam</span>
                       <span className="font-semibold">₺{subtotal.toFixed(2)}</span>
                     </div>
-                    <div className="flex justify-between">
+                    <div className="flex justify-between text-sm sm:text-base">
                       <span className="text-gray-600">KDV (%18)</span>
                       <span className="font-semibold">₺{tax.toFixed(2)}</span>
                     </div>
                     {discount > 0 && (
-                      <div className="flex justify-between text-green-600">
+                      <div className="flex justify-between text-green-600 text-sm sm:text-base">
                         <span>İndirim ({appliedPromo})</span>
                         <span className="font-semibold">-₺{discount.toFixed(2)}</span>
                       </div>
                     )}
-                    <div className="border-t border-gray-200 pt-4">
+                    <div className="border-t border-gray-200 pt-3 sm:pt-4">
                       <div className="flex justify-between items-center">
-                        <span className="text-lg font-bold text-gray-900">Toplam</span>
-                        <span className="text-2xl font-bold text-ailydian-primary">₺{total.toFixed(2)}</span>
+                        <span className="text-base sm:text-lg font-bold text-gray-900">Toplam</span>
+                        <span className="text-xl sm:text-2xl font-bold text-ailydian-primary">₺{total.toFixed(2)}</span>
                       </div>
                     </div>
                   </div>
 
                   {/* Security Features */}
-                  <div className="space-y-3 mb-6 p-4 bg-gray-50 rounded-xl">
-                    <div className="flex items-center gap-2 text-sm">
-                      <Shield className="w-4 h-4 text-green-500" />
+                  <div className="space-y-2 sm:space-y-3 mb-4 sm:mb-6 p-3 sm:p-4 bg-gray-50 rounded-lg sm:rounded-xl">
+                    <div className="flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm">
+                      <Shield className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-green-500 flex-shrink-0" />
                       <span className="text-gray-700">SSL Güvenli Ödeme</span>
                     </div>
-                    <div className="flex items-center gap-2 text-sm">
-                      <CheckCircle className="w-4 h-4 text-blue-500" />
+                    <div className="flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm">
+                      <CheckCircle className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-blue-500 flex-shrink-0" />
                       <span className="text-gray-700">Blockchain Doğrulama</span>
                     </div>
-                    <div className="flex items-center gap-2 text-sm">
-                      <CreditCard className="w-4 h-4 text-purple-500" />
+                    <div className="flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm">
+                      <CreditCard className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-purple-500 flex-shrink-0" />
                       <span className="text-gray-700">Anında Rezervasyon</span>
                     </div>
                   </div>
 
                   <Link
                     href="/checkout"
-                    className="w-full bg-gradient-to-r from-ailydian-primary to-ailydian-secondary text-white py-4 px-6 rounded-xl font-bold hover:opacity-90 transition-opacity flex items-center justify-center gap-2"
+                    className="w-full bg-gradient-to-r from-ailydian-primary to-ailydian-secondary text-white py-3 sm:py-4 px-4 sm:px-6 text-sm sm:text-base rounded-lg sm:rounded-xl font-bold hover:opacity-90 transition-opacity flex items-center justify-center gap-2"
                   >
-                    <CreditCard className="w-5 h-5" />
+                    <CreditCard className="w-4 h-4 sm:w-5 sm:h-5" />
                     Ödemeye Geç
                   </Link>
                 </motion.div>

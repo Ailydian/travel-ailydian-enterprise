@@ -161,33 +161,33 @@ const ExperiencesPage: React.FC = () => {
 
       <main className="pt-8">
         {/* Hero Section */}
-        <section className="bg-gradient-to-r from-ailydian-primary to-ailydian-secondary py-16">
-          <div className="max-w-7xl mx-auto px-4">
+        <section className="bg-gradient-to-r from-ailydian-primary to-ailydian-secondary py-12 sm:py-16">
+          <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               className="text-center text-white"
             >
-              <h1 className="text-4xl md:text-5xl font-bold mb-4">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4">
                 Unutulmaz Deneyimler
               </h1>
-              <p className="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
+              <p className="text-base sm:text-lg lg:text-xl text-blue-100 mb-6 sm:mb-8 max-w-3xl mx-auto">
                 AI rehberli turlar, VR önizlemeler ve blockchain doğrulaması ile güvenli rezervasyon
               </p>
-              
+
               {/* Search Bar */}
               <div className="max-w-2xl mx-auto">
                 <div className="relative">
-                  <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                  <Search className="absolute left-3 sm:left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4 sm:w-5 sm:h-5" />
                   <input
                     type="text"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     placeholder="Deneyim ara..."
-                    className="w-full pl-12 pr-16 py-4 rounded-xl text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-white/30"
+                    className="w-full pl-10 sm:pl-12 pr-14 sm:pr-16 py-3 sm:py-4 rounded-xl text-sm sm:text-base text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-white/30"
                   />
                   <button className="absolute right-2 top-1/2 transform -translate-y-1/2 p-2 bg-ailydian-primary text-white rounded-lg hover:bg-ailydian-dark transition-colors">
-                    <Filter className="w-5 h-5" />
+                    <Filter className="w-4 h-4 sm:w-5 sm:h-5" />
                   </button>
                 </div>
               </div>
@@ -197,25 +197,25 @@ const ExperiencesPage: React.FC = () => {
 
         {/* Filters Section */}
         <section className="bg-white border-b border-gray-200">
-          <div className="max-w-7xl mx-auto px-4 py-6">
+          <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6 py-4 sm:py-6">
             {/* Categories */}
-            <div className="mb-6">
-              <h3 className="font-semibold text-gray-900 mb-3">Kategoriler</h3>
-              <div className="flex flex-wrap gap-3">
+            <div className="mb-4 sm:mb-6">
+              <h3 className="font-semibold text-gray-900 mb-2 sm:mb-3 text-sm sm:text-base">Kategoriler</h3>
+              <div className="flex flex-wrap gap-2 sm:gap-3">
                 {categories.map((category) => {
                   const Icon = category.icon;
                   return (
                     <button
                       key={category.id}
                       onClick={() => setSelectedCategory(category.id)}
-                      className={`flex items-center gap-2 px-4 py-2 rounded-full font-medium transition-colors ${
+                      className={`flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium transition-colors ${
                         selectedCategory === category.id
                           ? 'bg-ailydian-primary text-white'
                           : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                       }`}
                     >
-                      <Icon className="w-4 h-4" />
-                      {category.name} ({category.count})
+                      <Icon className="w-3 h-3 sm:w-4 sm:h-4" />
+                      <span className="whitespace-nowrap">{category.name} ({category.count})</span>
                     </button>
                   );
                 })}
@@ -223,15 +223,15 @@ const ExperiencesPage: React.FC = () => {
             </div>
 
             {/* Duration and Price Filters */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
               <div>
-                <h3 className="font-semibold text-gray-900 mb-3">Süre</h3>
+                <h3 className="font-semibold text-gray-900 mb-2 sm:mb-3 text-sm sm:text-base">Süre</h3>
                 <div className="flex flex-wrap gap-2">
                   {durations.map((duration) => (
                     <button
                       key={duration.id}
                       onClick={() => setSelectedDuration(duration.id)}
-                      className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
+                      className={`px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm font-medium transition-colors ${
                         selectedDuration === duration.id
                           ? 'bg-ailydian-primary text-white'
                           : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
@@ -244,13 +244,13 @@ const ExperiencesPage: React.FC = () => {
               </div>
 
               <div>
-                <h3 className="font-semibold text-gray-900 mb-3">Fiyat Aralığı</h3>
+                <h3 className="font-semibold text-gray-900 mb-2 sm:mb-3 text-sm sm:text-base">Fiyat Aralığı</h3>
                 <div className="flex flex-wrap gap-2">
                   {priceRanges.map((range) => (
                     <button
                       key={range.id}
                       onClick={() => setPriceRange(range.id)}
-                      className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
+                      className={`px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm font-medium transition-colors ${
                         priceRange === range.id
                           ? 'bg-ailydian-primary text-white'
                           : 'bg-gray-100 text-gray-700 hover:bg-gray-200'

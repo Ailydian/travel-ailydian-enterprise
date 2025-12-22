@@ -99,23 +99,23 @@ const BookingSuccess: React.FC = () => {
       <NavigationHeader />
 
       <main className="pt-8 min-h-screen bg-gradient-to-br from-green-50 via-blue-50 to-purple-50">
-        <div className="max-w-4xl mx-auto px-4 py-8">
+        <div className="max-w-4xl mx-auto px-3 sm:px-4 lg:px-6 py-4 sm:py-6 lg:py-8">
           {/* Success Header */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="text-center mb-12"
+            className="text-center mb-8 sm:mb-10 lg:mb-12"
           >
-            <div className="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-              <CheckCircle className="w-16 h-16 text-green-500" />
+            <div className="w-20 h-20 sm:w-24 sm:h-24 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6">
+              <CheckCircle className="w-12 h-12 sm:w-16 sm:h-16 text-green-500" />
             </div>
-            <h1 className="text-4xl font-bold text-gray-900 mb-4">
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">
               🎉 Rezervasyonunuz Onaylandı!
             </h1>
-            <p className="text-xl text-gray-600 mb-2">
+            <p className="text-base sm:text-lg lg:text-xl text-gray-600 mb-2">
               Harika bir seçim yaptınız! Seyahatiniz blockchain teknologisi ile güvenceye alındı.
             </p>
-            <p className="text-lg text-ailydian-primary font-semibold">
+            <p className="text-sm sm:text-base lg:text-lg text-ailydian-primary font-semibold">
               Onay Numaranız: <span className="font-bold">{bookingDetails.confirmationNumber}</span>
             </p>
           </motion.div>
@@ -125,34 +125,34 @@ const BookingSuccess: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="flex flex-wrap justify-center gap-4 mb-12"
+            className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4 mb-8 sm:mb-10 lg:mb-12"
           >
             <button
               onClick={handleDownloadTicket}
-              className="flex items-center gap-2 px-6 py-3 bg-ailydian-primary text-white rounded-xl font-semibold hover:bg-ailydian-dark transition-colors"
+              className="flex items-center justify-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 bg-ailydian-primary text-white rounded-xl text-sm sm:text-base font-semibold hover:bg-ailydian-dark transition-colors"
             >
-              <Download className="w-5 h-5" />
+              <Download className="w-4 h-4 sm:w-5 sm:h-5" />
               Biletimi İndir
             </button>
             <button
               onClick={handleShare}
-              className="flex items-center gap-2 px-6 py-3 bg-white border-2 border-gray-200 text-gray-700 rounded-xl font-semibold hover:border-ailydian-primary hover:text-ailydian-primary transition-colors"
+              className="flex items-center justify-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 bg-white border-2 border-gray-200 text-gray-700 rounded-xl text-sm sm:text-base font-semibold hover:border-ailydian-primary hover:text-ailydian-primary transition-colors"
             >
-              <Share2 className="w-5 h-5" />
+              <Share2 className="w-4 h-4 sm:w-5 sm:h-5" />
               Paylaş
             </button>
             <Link
               href="/"
-              className="flex items-center gap-2 px-6 py-3 bg-gray-800 text-white rounded-xl font-semibold hover:bg-gray-700 transition-colors"
+              className="flex items-center justify-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 bg-gray-800 text-white rounded-xl text-sm sm:text-base font-semibold hover:bg-gray-700 transition-colors"
             >
-              <Home className="w-5 h-5" />
+              <Home className="w-4 h-4 sm:w-5 sm:h-5" />
               Ana Sayfa
             </Link>
           </motion.div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
             {/* Booking Details */}
-            <div className="lg:col-span-2 space-y-8">
+            <div className="lg:col-span-2 space-y-6 sm:space-y-8">
               {/* Reservation Items */}
               {bookingDetails.items.map((item, index) => (
                 <motion.div
@@ -162,54 +162,54 @@ const BookingSuccess: React.FC = () => {
                   transition={{ delay: 0.3 + index * 0.1 }}
                   className="bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden"
                 >
-                  <div className="p-6">
-                    <div className="flex items-start gap-6">
+                  <div className="p-4 sm:p-6">
+                    <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6">
                       {/* Image */}
-                      <div className="relative">
-                        <img 
+                      <div className="relative w-full sm:w-32 flex-shrink-0">
+                        <img
                           src={item.image}
                           alt={item.title}
-                          className="w-32 h-24 object-cover rounded-xl"
+                          className="w-full sm:w-32 h-32 sm:h-24 object-cover rounded-xl"
                         />
-                        <div className="absolute -top-2 -left-2 w-10 h-10 bg-ailydian-primary rounded-full flex items-center justify-center text-white text-xl">
+                        <div className="absolute -top-2 -left-2 w-8 h-8 sm:w-10 sm:h-10 bg-ailydian-primary rounded-full flex items-center justify-center text-white text-lg sm:text-xl">
                           {getTypeIcon(item.type)}
                         </div>
                         <div className="absolute -bottom-2 -right-2 bg-green-500 text-white rounded-full p-1">
-                          <CheckCircle className="w-4 h-4" />
+                          <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4" />
                         </div>
                       </div>
 
                       {/* Details */}
-                      <div className="flex-1">
-                        <div className="flex items-start justify-between mb-3">
-                          <div>
-                            <h3 className="text-xl font-bold text-gray-900 mb-2">{item.title}</h3>
-                            <span className="inline-block px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm font-medium">
+                      <div className="flex-1 min-w-0">
+                        <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-3">
+                          <div className="min-w-0">
+                            <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 line-clamp-2">{item.title}</h3>
+                            <span className="inline-block px-2 sm:px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-xs sm:text-sm font-medium">
                               {item.badge}
                             </span>
                           </div>
-                          <div className="text-right">
-                            <div className="text-2xl font-bold text-green-600 mb-1">₺{item.price}</div>
-                            <div className="text-sm text-gray-500">{item.guests} kişi</div>
+                          <div className="text-left sm:text-right flex-shrink-0">
+                            <div className="text-xl sm:text-2xl font-bold text-green-600 mb-1">₺{item.price}</div>
+                            <div className="text-xs sm:text-sm text-gray-500">{item.guests} kişi</div>
                           </div>
                         </div>
 
-                        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
-                          <div className="flex items-center gap-2">
-                            <MapPin className="w-4 h-4 text-gray-400" />
-                            <span>{item.location}</span>
+                        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 text-xs sm:text-sm">
+                          <div className="flex items-center gap-1.5 sm:gap-2">
+                            <MapPin className="w-3 h-3 sm:w-4 sm:h-4 text-gray-400" />
+                            <span className="line-clamp-1">{item.location}</span>
                           </div>
-                          <div className="flex items-center gap-2">
-                            <Calendar className="w-4 h-4 text-gray-400" />
-                            <span>{item.date}</span>
+                          <div className="flex items-center gap-1.5 sm:gap-2">
+                            <Calendar className="w-3 h-3 sm:w-4 sm:h-4 text-gray-400" />
+                            <span className="line-clamp-1">{item.date}</span>
                           </div>
-                          <div className="flex items-center gap-2">
-                            <Clock className="w-4 h-4 text-gray-400" />
-                            <span>{item.time}</span>
+                          <div className="flex items-center gap-1.5 sm:gap-2">
+                            <Clock className="w-3 h-3 sm:w-4 sm:h-4 text-gray-400" />
+                            <span className="line-clamp-1">{item.time}</span>
                           </div>
-                          <div className="flex items-center gap-2">
-                            <Users className="w-4 h-4 text-gray-400" />
-                            <span>{item.duration}</span>
+                          <div className="flex items-center gap-1.5 sm:gap-2">
+                            <Users className="w-3 h-3 sm:w-4 sm:h-4 text-gray-400" />
+                            <span className="line-clamp-1">{item.duration}</span>
                           </div>
                         </div>
                       </div>
@@ -264,45 +264,45 @@ const BookingSuccess: React.FC = () => {
             </div>
 
             {/* Booking Summary */}
-            <div className="space-y-6">
+            <div className="space-y-4 sm:space-y-6">
               {/* Customer Info */}
               <motion.div
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.4 }}
-                className="bg-white rounded-2xl shadow-sm border border-gray-200 p-6"
+                className="bg-white rounded-2xl shadow-sm border border-gray-200 p-4 sm:p-6"
               >
-                <h3 className="font-bold text-lg text-gray-900 mb-6">Rezervasyon Bilgileri</h3>
-                
-                <div className="space-y-4">
-                  <div className="flex justify-between">
-                    <span className="text-gray-600">Onay Numarası</span>
-                    <span className="font-semibold text-ailydian-primary">{bookingDetails.confirmationNumber}</span>
+                <h3 className="font-bold text-base sm:text-lg text-gray-900 mb-4 sm:mb-6">Rezervasyon Bilgileri</h3>
+
+                <div className="space-y-3 sm:space-y-4">
+                  <div className="flex justify-between gap-2">
+                    <span className="text-xs sm:text-sm text-gray-600">Onay Numarası</span>
+                    <span className="font-semibold text-xs sm:text-sm text-ailydian-primary text-right">{bookingDetails.confirmationNumber}</span>
                   </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-600">Rezervasyon Tarihi</span>
-                    <span className="font-semibold">{bookingDetails.bookingDate}</span>
+                  <div className="flex justify-between gap-2">
+                    <span className="text-xs sm:text-sm text-gray-600">Rezervasyon Tarihi</span>
+                    <span className="font-semibold text-xs sm:text-sm">{bookingDetails.bookingDate}</span>
                   </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-600">Müşteri</span>
-                    <span className="font-semibold">{bookingDetails.customerName}</span>
+                  <div className="flex justify-between gap-2">
+                    <span className="text-xs sm:text-sm text-gray-600">Müşteri</span>
+                    <span className="font-semibold text-xs sm:text-sm text-right">{bookingDetails.customerName}</span>
                   </div>
-                  <div className="flex items-center justify-between">
-                    <span className="text-gray-600">E-posta</span>
-                    <span className="font-semibold text-sm">{bookingDetails.customerEmail}</span>
+                  <div className="flex items-center justify-between gap-2">
+                    <span className="text-xs sm:text-sm text-gray-600">E-posta</span>
+                    <span className="font-semibold text-[10px] sm:text-xs text-right break-all">{bookingDetails.customerEmail}</span>
                   </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-600">Telefon</span>
-                    <span className="font-semibold">{bookingDetails.customerPhone}</span>
+                  <div className="flex justify-between gap-2">
+                    <span className="text-xs sm:text-sm text-gray-600">Telefon</span>
+                    <span className="font-semibold text-xs sm:text-sm">{bookingDetails.customerPhone}</span>
                   </div>
                 </div>
 
-                <div className="border-t border-gray-200 pt-4 mt-6">
+                <div className="border-t border-gray-200 pt-3 sm:pt-4 mt-4 sm:mt-6">
                   <div className="flex justify-between items-center">
-                    <span className="text-lg font-bold text-gray-900">Toplam Ödenen</span>
-                    <span className="text-2xl font-bold text-green-600">₺{bookingDetails.total}</span>
+                    <span className="text-base sm:text-lg font-bold text-gray-900">Toplam Ödenen</span>
+                    <span className="text-xl sm:text-2xl font-bold text-green-600">₺{bookingDetails.total}</span>
                   </div>
-                  <div className="flex justify-between text-sm text-gray-600 mt-2">
+                  <div className="flex justify-between text-xs sm:text-sm text-gray-600 mt-2">
                     <span>Ödeme Yöntemi</span>
                     <span>{bookingDetails.paymentMethod}</span>
                   </div>

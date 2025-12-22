@@ -222,12 +222,12 @@ export default function MyTrips() {
 
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           {/* Stats */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-8 sm:mb-12">
             {tripStats.map((stat, index) => (
-              <div key={index} className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 text-center">
-                <stat.icon className={`h-8 w-8 mx-auto mb-3 ${stat.color}`} />
-                <div className="text-2xl font-bold text-gray-900 dark:text-white mb-1">{stat.value}</div>
-                <div className="text-sm text-gray-600 dark:text-gray-400">{stat.title}</div>
+              <div key={index} className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-4 sm:p-6 text-center">
+                <stat.icon className={`h-6 w-6 sm:h-8 sm:w-8 mx-auto mb-2 sm:mb-3 ${stat.color}`} />
+                <div className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-1">{stat.value}</div>
+                <div className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">{stat.title}</div>
               </div>
             ))}
           </div>
@@ -282,22 +282,22 @@ export default function MyTrips() {
               
               return (
                 <div key={trip.id} className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden">
-                  <div className="md:flex">
-                    <div className="md:w-1/3 relative">
+                  <div className="flex flex-col md:flex-row">
+                    <div className="w-full md:w-1/3 relative flex-shrink-0">
                       <Image
                         src={trip.image}
                         alt={trip.title}
                         width={400}
                         height={300}
-                        className="w-full h-48 md:h-full object-cover"
+                        className="w-full h-48 sm:h-56 md:h-full object-cover"
                       />
-                      <div className="absolute top-4 left-4">
-                        <span className={`px-3 py-1 rounded-full text-xs font-medium ${getStatusColor(trip.status)}`}>
+                      <div className="absolute top-3 sm:top-4 left-3 sm:left-4">
+                        <span className={`px-2 sm:px-3 py-1 rounded-full text-[10px] sm:text-xs font-medium ${getStatusColor(trip.status)}`}>
                           {getStatusText(trip.status)}
                         </span>
                       </div>
-                      <div className="absolute top-4 right-4 bg-white/90 dark:bg-gray-800/90 p-2 rounded-full">
-                        <TypeIcon className="h-4 w-4 text-gray-700 dark:text-gray-300" />
+                      <div className="absolute top-3 sm:top-4 right-3 sm:right-4 bg-white/90 dark:bg-gray-800/90 p-1.5 sm:p-2 rounded-full">
+                        <TypeIcon className="h-3 w-3 sm:h-4 sm:w-4 text-gray-700 dark:text-gray-300" />
                       </div>
                     </div>
                     
@@ -345,39 +345,39 @@ export default function MyTrips() {
                         </div>
 
                         {/* Action Buttons */}
-                        <div className="flex flex-wrap gap-3">
-                          <button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors text-sm flex items-center">
-                            <Eye className="h-4 w-4 mr-2" />
+                        <div className="flex flex-wrap gap-2 sm:gap-3">
+                          <button className="bg-blue-600 text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg hover:bg-blue-700 transition-colors text-xs sm:text-sm flex items-center">
+                            <Eye className="h-3 w-3 sm:h-4 sm:w-4 mr-1.5 sm:mr-2" />
                             Detayları Gör
                           </button>
-                          
+
                           {trip.status === 'upcoming' && (
-                            <button className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors text-sm flex items-center">
-                              <Edit className="h-4 w-4 mr-2" />
+                            <button className="bg-green-600 text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg hover:bg-green-700 transition-colors text-xs sm:text-sm flex items-center">
+                              <Edit className="h-3 w-3 sm:h-4 sm:w-4 mr-1.5 sm:mr-2" />
                               Düzenle
                             </button>
                           )}
-                          
-                          <button className="bg-gray-600 text-white px-4 py-2 rounded-lg hover:bg-gray-700 transition-colors text-sm flex items-center">
-                            <Download className="h-4 w-4 mr-2" />
+
+                          <button className="bg-gray-600 text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg hover:bg-gray-700 transition-colors text-xs sm:text-sm flex items-center">
+                            <Download className="h-3 w-3 sm:h-4 sm:w-4 mr-1.5 sm:mr-2" />
                             İndir
                           </button>
-                          
-                          <button className="bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition-colors text-sm flex items-center">
-                            <Share className="h-4 w-4 mr-2" />
+
+                          <button className="bg-purple-600 text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg hover:bg-purple-700 transition-colors text-xs sm:text-sm flex items-center">
+                            <Share className="h-3 w-3 sm:h-4 sm:w-4 mr-1.5 sm:mr-2" />
                             Paylaş
                           </button>
 
                           {trip.status === 'upcoming' && (
-                            <button className="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition-colors text-sm flex items-center">
-                              <XCircle className="h-4 w-4 mr-2" />
+                            <button className="bg-red-600 text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg hover:bg-red-700 transition-colors text-xs sm:text-sm flex items-center">
+                              <XCircle className="h-3 w-3 sm:h-4 sm:w-4 mr-1.5 sm:mr-2" />
                               İptal Et
                             </button>
                           )}
 
                           {trip.status === 'completed' && !trip.rating && (
-                            <button className="bg-yellow-600 text-white px-4 py-2 rounded-lg hover:bg-yellow-700 transition-colors text-sm flex items-center">
-                              <Star className="h-4 w-4 mr-2" />
+                            <button className="bg-yellow-600 text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg hover:bg-yellow-700 transition-colors text-xs sm:text-sm flex items-center">
+                              <Star className="h-3 w-3 sm:h-4 sm:w-4 mr-1.5 sm:mr-2" />
                               Değerlendir
                             </button>
                           )}

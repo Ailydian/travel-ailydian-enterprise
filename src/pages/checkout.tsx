@@ -239,18 +239,18 @@ const Checkout: React.FC = () => {
           <title>Ödeme Başarılı - Ailydian Travel</title>
         </Head>
         <NavigationHeader />
-        <main className="pt-8 min-h-screen bg-gray-50 flex items-center justify-center">
+        <main className="pt-8 min-h-screen bg-gray-50 flex items-center justify-center px-3 sm:px-4">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="text-center bg-white rounded-2xl shadow-lg p-12 max-w-md mx-4"
+            className="text-center bg-white rounded-2xl shadow-lg p-6 sm:p-8 lg:p-12 max-w-md w-full"
           >
-            <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-              <CheckCircle className="w-12 h-12 text-green-500" />
+            <div className="w-16 h-16 sm:w-20 sm:h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6">
+              <CheckCircle className="w-10 h-10 sm:w-12 sm:h-12 text-green-500" />
             </div>
-            <h1 className="text-2xl font-bold text-gray-900 mb-4">Ödeme Başarılı!</h1>
-            <p className="text-gray-600 mb-8">Rezervasyonunuz onaylandı. E-posta ile detayları gönderdik.</p>
-            <div className="animate-pulse text-ailydian-primary font-medium">
+            <h1 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">Ödeme Başarılı!</h1>
+            <p className="text-sm sm:text-base text-gray-600 mb-6 sm:mb-8">Rezervasyonunuz onaylandı. E-posta ile detayları gönderdik.</p>
+            <div className="animate-pulse text-ailydian-primary font-medium text-sm sm:text-base">
               Başarı sayfasına yönlendiriliyorsunuz...
             </div>
           </motion.div>
@@ -266,19 +266,19 @@ const Checkout: React.FC = () => {
           <title>Ödeme İşleniyor - Ailydian Travel</title>
         </Head>
         <NavigationHeader />
-        <main className="pt-8 min-h-screen bg-gray-50 flex items-center justify-center">
+        <main className="pt-8 min-h-screen bg-gray-50 flex items-center justify-center px-3 sm:px-4">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="text-center bg-white rounded-2xl shadow-lg p-12 max-w-md mx-4"
+            className="text-center bg-white rounded-2xl shadow-lg p-6 sm:p-8 lg:p-12 max-w-md w-full"
           >
-            <div className="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6 animate-pulse">
-              <Zap className="w-12 h-12 text-ailydian-primary" />
+            <div className="w-16 h-16 sm:w-20 sm:h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6 animate-pulse">
+              <Zap className="w-10 h-10 sm:w-12 sm:h-12 text-ailydian-primary" />
             </div>
-            <h1 className="text-2xl font-bold text-gray-900 mb-4">Ödeme İşleniyor</h1>
-            <p className="text-gray-600 mb-8">Lütfen bekleyin, ödemeniz güvenli şekilde işleniyor...</p>
-            <div className="flex items-center gap-2 justify-center text-sm text-gray-500">
-              <Lock className="w-4 h-4" />
+            <h1 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">Ödeme İşleniyor</h1>
+            <p className="text-sm sm:text-base text-gray-600 mb-6 sm:mb-8">Lütfen bekleyin, ödemeniz güvenli şekilde işleniyor...</p>
+            <div className="flex items-center gap-2 justify-center text-xs sm:text-sm text-gray-500">
+              <Lock className="w-3 h-3 sm:w-4 sm:h-4" />
               256-bit SSL ile korumalı
             </div>
           </motion.div>
@@ -297,24 +297,24 @@ const Checkout: React.FC = () => {
       <NavigationHeader />
 
       {/* Return to Cart Button */}
-      <Link 
-        href="/cart" 
-        className="fixed top-24 left-6 z-10 flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200 text-gray-700 hover:bg-white hover:text-ailydian-primary transition-all duration-200"
+      <Link
+        href="/cart"
+        className="fixed top-24 left-3 sm:left-6 z-10 flex items-center gap-1 sm:gap-2 px-3 sm:px-4 py-2 bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200 text-gray-700 hover:bg-white hover:text-ailydian-primary transition-all duration-200"
       >
-        <ArrowLeft className="w-4 h-4" />
-        <span className="font-medium">Sepete Dön</span>
+        <ArrowLeft className="w-4 h-4 sm:w-5 sm:h-5" />
+        <span className="font-medium text-sm sm:text-base">Sepete Dön</span>
       </Link>
 
       <main className="pt-8 min-h-screen bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 py-8">
+        <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6 py-4 sm:py-6 lg:py-8">
           {/* Header */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-center mb-8"
+            className="text-center mb-6 sm:mb-8"
           >
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">Güvenli Ödeme</h1>
-            <p className="text-gray-600">Blockchain teknologisi ile doğrulanmış güvenli ödeme</p>
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-2">Güvenli Ödeme</h1>
+            <p className="text-sm sm:text-base text-gray-600">Blockchain teknologisi ile doğrulanmış güvenli ödeme</p>
           </motion.div>
 
           {/* Security Banner */}
@@ -322,124 +322,124 @@ const Checkout: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="bg-gradient-to-r from-green-50 to-blue-50 border border-green-200 rounded-2xl p-4 mb-8"
+            className="bg-gradient-to-r from-green-50 to-blue-50 border border-green-200 rounded-2xl p-3 sm:p-4 mb-6 sm:mb-8"
           >
-            <div className="flex items-center justify-center gap-6 text-sm">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 text-xs sm:text-sm">
               <div className="flex items-center gap-2">
-                <Shield className="w-5 h-5 text-green-500" />
+                <Shield className="w-4 h-4 sm:w-5 sm:h-5 text-green-500" />
                 <span className="font-medium">256-bit SSL</span>
               </div>
               <div className="flex items-center gap-2">
-                <Lock className="w-5 h-5 text-blue-500" />
+                <Lock className="w-4 h-4 sm:w-5 sm:h-5 text-blue-500" />
                 <span className="font-medium">PCI DSS Uyumlu</span>
               </div>
               <div className="flex items-center gap-2">
-                <Zap className="w-5 h-5 text-purple-500" />
+                <Zap className="w-4 h-4 sm:w-5 sm:h-5 text-purple-500" />
                 <span className="font-medium">Blockchain Doğrulamalı</span>
               </div>
             </div>
           </motion.div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
             {/* Payment Form */}
-            <div className="lg:col-span-2 space-y-8">
+            <div className="lg:col-span-2 space-y-6 sm:space-y-8">
               {/* Step 1: Personal Information */}
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
-                className="bg-white rounded-2xl shadow-sm border border-gray-200 p-6"
+                className="bg-white rounded-2xl shadow-sm border border-gray-200 p-4 sm:p-6"
               >
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="w-8 h-8 bg-ailydian-primary text-white rounded-full flex items-center justify-center font-bold text-sm">
+                <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
+                  <div className="w-7 h-7 sm:w-8 sm:h-8 bg-ailydian-primary text-white rounded-full flex items-center justify-center font-bold text-xs sm:text-sm">
                     1
                   </div>
-                  <h2 className="text-xl font-bold text-gray-900">Kişisel Bilgiler</h2>
+                  <h2 className="text-lg sm:text-xl font-bold text-gray-900">Kişisel Bilgiler</h2>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      <User className="w-4 h-4 inline mr-1" />
+                    <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-2">
+                      <User className="w-3 h-3 sm:w-4 sm:h-4 inline mr-1" />
                       Ad *
                     </label>
                     <input
                       type="text"
                       value={formData.firstName}
                       onChange={(e) => handleInputChange('firstName', e.target.value)}
-                      className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-ailydian-primary focus:border-transparent outline-none transition-colors ${
+                      className={`w-full px-3 sm:px-4 py-2.5 sm:py-3 border rounded-lg text-sm sm:text-base focus:ring-2 focus:ring-ailydian-primary focus:border-transparent outline-none transition-colors ${
                         errors.firstName ? 'border-red-500' : 'border-gray-300'
                       }`}
                       placeholder="Adınız"
                     />
                     {errors.firstName && (
-                      <p className="mt-1 text-sm text-red-500 flex items-center gap-1">
-                        <AlertCircle className="w-4 h-4" />
+                      <p className="mt-1 text-xs sm:text-sm text-red-500 flex items-center gap-1">
+                        <AlertCircle className="w-3 h-3 sm:w-4 sm:h-4" />
                         {errors.firstName}
                       </p>
                     )}
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      <User className="w-4 h-4 inline mr-1" />
+                    <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-2">
+                      <User className="w-3 h-3 sm:w-4 sm:h-4 inline mr-1" />
                       Soyad *
                     </label>
                     <input
                       type="text"
                       value={formData.lastName}
                       onChange={(e) => handleInputChange('lastName', e.target.value)}
-                      className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-ailydian-primary focus:border-transparent outline-none transition-colors ${
+                      className={`w-full px-3 sm:px-4 py-2.5 sm:py-3 border rounded-lg text-sm sm:text-base focus:ring-2 focus:ring-ailydian-primary focus:border-transparent outline-none transition-colors ${
                         errors.lastName ? 'border-red-500' : 'border-gray-300'
                       }`}
                       placeholder="Soyadınız"
                     />
                     {errors.lastName && (
-                      <p className="mt-1 text-sm text-red-500 flex items-center gap-1">
-                        <AlertCircle className="w-4 h-4" />
+                      <p className="mt-1 text-xs sm:text-sm text-red-500 flex items-center gap-1">
+                        <AlertCircle className="w-3 h-3 sm:w-4 sm:h-4" />
                         {errors.lastName}
                       </p>
                     )}
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      <Mail className="w-4 h-4 inline mr-1" />
+                    <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-2">
+                      <Mail className="w-3 h-3 sm:w-4 sm:h-4 inline mr-1" />
                       E-posta *
                     </label>
                     <input
                       type="email"
                       value={formData.email}
                       onChange={(e) => handleInputChange('email', e.target.value)}
-                      className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-ailydian-primary focus:border-transparent outline-none transition-colors ${
+                      className={`w-full px-3 sm:px-4 py-2.5 sm:py-3 border rounded-lg text-sm sm:text-base focus:ring-2 focus:ring-ailydian-primary focus:border-transparent outline-none transition-colors ${
                         errors.email ? 'border-red-500' : 'border-gray-300'
                       }`}
                       placeholder="ornek@email.com"
                     />
                     {errors.email && (
-                      <p className="mt-1 text-sm text-red-500 flex items-center gap-1">
-                        <AlertCircle className="w-4 h-4" />
+                      <p className="mt-1 text-xs sm:text-sm text-red-500 flex items-center gap-1">
+                        <AlertCircle className="w-3 h-3 sm:w-4 sm:h-4" />
                         {errors.email}
                       </p>
                     )}
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      <Phone className="w-4 h-4 inline mr-1" />
+                    <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-2">
+                      <Phone className="w-3 h-3 sm:w-4 sm:h-4 inline mr-1" />
                       Telefon *
                     </label>
                     <input
                       type="tel"
                       value={formData.phone}
                       onChange={(e) => handleInputChange('phone', e.target.value)}
-                      className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-ailydian-primary focus:border-transparent outline-none transition-colors ${
+                      className={`w-full px-3 sm:px-4 py-2.5 sm:py-3 border rounded-lg text-sm sm:text-base focus:ring-2 focus:ring-ailydian-primary focus:border-transparent outline-none transition-colors ${
                         errors.phone ? 'border-red-500' : 'border-gray-300'
                       }`}
                       placeholder="+90 5XX XXX XX XX"
                     />
                     {errors.phone && (
-                      <p className="mt-1 text-sm text-red-500 flex items-center gap-1">
-                        <AlertCircle className="w-4 h-4" />
+                      <p className="mt-1 text-xs sm:text-sm text-red-500 flex items-center gap-1">
+                        <AlertCircle className="w-3 h-3 sm:w-4 sm:h-4" />
                         {errors.phone}
                       </p>
                     )}
@@ -452,23 +452,25 @@ const Checkout: React.FC = () => {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.1 }}
-                className="bg-white rounded-2xl shadow-sm border border-gray-200 p-6"
+                className="bg-white rounded-2xl shadow-sm border border-gray-200 p-4 sm:p-6"
               >
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="w-8 h-8 bg-ailydian-primary text-white rounded-full flex items-center justify-center font-bold text-sm">
-                    2
+                <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
+                  <div className="flex items-center gap-2 sm:gap-3">
+                    <div className="w-7 h-7 sm:w-8 sm:h-8 bg-ailydian-primary text-white rounded-full flex items-center justify-center font-bold text-xs sm:text-sm">
+                      2
+                    </div>
+                    <h2 className="text-lg sm:text-xl font-bold text-gray-900">Kart Bilgileri</h2>
                   </div>
-                  <h2 className="text-xl font-bold text-gray-900">Kart Bilgileri</h2>
-                  <div className="flex items-center gap-2 ml-auto">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png" alt="Visa" className="h-6" />
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard" className="h-6" />
+                  <div className="flex items-center gap-2 sm:ml-auto">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png" alt="Visa" className="h-4 sm:h-6" />
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard" className="h-4 sm:h-6" />
                   </div>
                 </div>
 
-                <div className="space-y-6">
+                <div className="space-y-4 sm:space-y-6">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      <CreditCard className="w-4 h-4 inline mr-1" />
+                    <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-2">
+                      <CreditCard className="w-3 h-3 sm:w-4 sm:h-4 inline mr-1" />
                       Kart Numarası *
                     </label>
                     <input
@@ -476,29 +478,29 @@ const Checkout: React.FC = () => {
                       value={formatCardNumber(formData.cardNumber)}
                       onChange={(e) => handleInputChange('cardNumber', e.target.value.replace(/\s/g, ''))}
                       maxLength={19}
-                      className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-ailydian-primary focus:border-transparent outline-none transition-colors font-mono text-lg ${
+                      className={`w-full px-3 sm:px-4 py-2.5 sm:py-3 border rounded-lg text-sm sm:text-base focus:ring-2 focus:ring-ailydian-primary focus:border-transparent outline-none transition-colors font-mono ${
                         errors.cardNumber ? 'border-red-500' : 'border-gray-300'
                       }`}
                       placeholder="1234 5678 9012 3456"
                     />
                     {errors.cardNumber && (
-                      <p className="mt-1 text-sm text-red-500 flex items-center gap-1">
-                        <AlertCircle className="w-4 h-4" />
+                      <p className="mt-1 text-xs sm:text-sm text-red-500 flex items-center gap-1">
+                        <AlertCircle className="w-3 h-3 sm:w-4 sm:h-4" />
                         {errors.cardNumber}
                       </p>
                     )}
                   </div>
 
-                  <div className="grid grid-cols-3 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        <Calendar className="w-4 h-4 inline mr-1" />
+                      <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-2">
+                        <Calendar className="w-3 h-3 sm:w-4 sm:h-4 inline mr-1" />
                         Ay *
                       </label>
                       <select
                         value={formData.expiryMonth}
                         onChange={(e) => handleInputChange('expiryMonth', e.target.value)}
-                        className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-ailydian-primary focus:border-transparent outline-none transition-colors ${
+                        className={`w-full px-3 sm:px-4 py-2.5 sm:py-3 border rounded-lg text-sm sm:text-base focus:ring-2 focus:ring-ailydian-primary focus:border-transparent outline-none transition-colors ${
                           errors.expiryMonth ? 'border-red-500' : 'border-gray-300'
                         }`}
                       >
@@ -512,14 +514,14 @@ const Checkout: React.FC = () => {
                     </div>
 
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        <Calendar className="w-4 h-4 inline mr-1" />
+                      <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-2">
+                        <Calendar className="w-3 h-3 sm:w-4 sm:h-4 inline mr-1" />
                         Yıl *
                       </label>
                       <select
                         value={formData.expiryYear}
                         onChange={(e) => handleInputChange('expiryYear', e.target.value)}
-                        className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-ailydian-primary focus:border-transparent outline-none transition-colors ${
+                        className={`w-full px-3 sm:px-4 py-2.5 sm:py-3 border rounded-lg text-sm sm:text-base focus:ring-2 focus:ring-ailydian-primary focus:border-transparent outline-none transition-colors ${
                           errors.expiryYear ? 'border-red-500' : 'border-gray-300'
                         }`}
                       >
@@ -533,8 +535,8 @@ const Checkout: React.FC = () => {
                     </div>
 
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        <Lock className="w-4 h-4 inline mr-1" />
+                      <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-2">
+                        <Lock className="w-3 h-3 sm:w-4 sm:h-4 inline mr-1" />
                         CVV *
                       </label>
                       <div className="relative">
@@ -543,7 +545,7 @@ const Checkout: React.FC = () => {
                           value={formData.cvv}
                           onChange={(e) => handleInputChange('cvv', e.target.value.replace(/\D/g, ''))}
                           maxLength={3}
-                          className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-ailydian-primary focus:border-transparent outline-none transition-colors font-mono text-center ${
+                          className={`w-full px-3 sm:px-4 py-2.5 sm:py-3 border rounded-lg text-sm sm:text-base focus:ring-2 focus:ring-ailydian-primary focus:border-transparent outline-none transition-colors font-mono text-center ${
                             errors.cvv ? 'border-red-500' : 'border-gray-300'
                           }`}
                           placeholder="123"
@@ -551,31 +553,31 @@ const Checkout: React.FC = () => {
                         <button
                           type="button"
                           onClick={() => setShowCVV(!showCVV)}
-                          className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                          className="absolute right-2 sm:right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
                         >
-                          {showCVV ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                          {showCVV ? <EyeOff className="w-3 h-3 sm:w-4 sm:h-4" /> : <Eye className="w-3 h-3 sm:w-4 sm:h-4" />}
                         </button>
                       </div>
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      <User className="w-4 h-4 inline mr-1" />
+                    <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-2">
+                      <User className="w-3 h-3 sm:w-4 sm:h-4 inline mr-1" />
                       Kart Üzerindeki İsim *
                     </label>
                     <input
                       type="text"
                       value={formData.cardName}
                       onChange={(e) => handleInputChange('cardName', e.target.value.toUpperCase())}
-                      className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-ailydian-primary focus:border-transparent outline-none transition-colors ${
+                      className={`w-full px-3 sm:px-4 py-2.5 sm:py-3 border rounded-lg text-sm sm:text-base focus:ring-2 focus:ring-ailydian-primary focus:border-transparent outline-none transition-colors ${
                         errors.cardName ? 'border-red-500' : 'border-gray-300'
                       }`}
                       placeholder="AHMET YILMAZ"
                     />
                     {errors.cardName && (
-                      <p className="mt-1 text-sm text-red-500 flex items-center gap-1">
-                        <AlertCircle className="w-4 h-4" />
+                      <p className="mt-1 text-xs sm:text-sm text-red-500 flex items-center gap-1">
+                        <AlertCircle className="w-3 h-3 sm:w-4 sm:h-4" />
                         {errors.cardName}
                       </p>
                     )}
@@ -588,63 +590,63 @@ const Checkout: React.FC = () => {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.2 }}
-                className="bg-white rounded-2xl shadow-sm border border-gray-200 p-6"
+                className="bg-white rounded-2xl shadow-sm border border-gray-200 p-4 sm:p-6"
               >
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="w-8 h-8 bg-ailydian-primary text-white rounded-full flex items-center justify-center font-bold text-sm">
+                <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
+                  <div className="w-7 h-7 sm:w-8 sm:h-8 bg-ailydian-primary text-white rounded-full flex items-center justify-center font-bold text-xs sm:text-sm">
                     3
                   </div>
-                  <h2 className="text-xl font-bold text-gray-900">Fatura Adresi</h2>
+                  <h2 className="text-lg sm:text-xl font-bold text-gray-900">Fatura Adresi</h2>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                   <div className="md:col-span-2">
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      <MapPin className="w-4 h-4 inline mr-1" />
+                    <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-2">
+                      <MapPin className="w-3 h-3 sm:w-4 sm:h-4 inline mr-1" />
                       Adres *
                     </label>
                     <input
                       type="text"
                       value={formData.billingAddress}
                       onChange={(e) => handleInputChange('billingAddress', e.target.value)}
-                      className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-ailydian-primary focus:border-transparent outline-none transition-colors ${
+                      className={`w-full px-3 sm:px-4 py-2.5 sm:py-3 border rounded-lg text-sm sm:text-base focus:ring-2 focus:ring-ailydian-primary focus:border-transparent outline-none transition-colors ${
                         errors.billingAddress ? 'border-red-500' : 'border-gray-300'
                       }`}
                       placeholder="Tam adresinizi girin"
                     />
                     {errors.billingAddress && (
-                      <p className="mt-1 text-sm text-red-500 flex items-center gap-1">
-                        <AlertCircle className="w-4 h-4" />
+                      <p className="mt-1 text-xs sm:text-sm text-red-500 flex items-center gap-1">
+                        <AlertCircle className="w-3 h-3 sm:w-4 sm:h-4" />
                         {errors.billingAddress}
                       </p>
                     )}
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      <Building className="w-4 h-4 inline mr-1" />
+                    <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-2">
+                      <Building className="w-3 h-3 sm:w-4 sm:h-4 inline mr-1" />
                       Şehir *
                     </label>
                     <input
                       type="text"
                       value={formData.city}
                       onChange={(e) => handleInputChange('city', e.target.value)}
-                      className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-ailydian-primary focus:border-transparent outline-none transition-colors ${
+                      className={`w-full px-3 sm:px-4 py-2.5 sm:py-3 border rounded-lg text-sm sm:text-base focus:ring-2 focus:ring-ailydian-primary focus:border-transparent outline-none transition-colors ${
                         errors.city ? 'border-red-500' : 'border-gray-300'
                       }`}
                       placeholder="İstanbul"
                     />
                     {errors.city && (
-                      <p className="mt-1 text-sm text-red-500 flex items-center gap-1">
-                        <AlertCircle className="w-4 h-4" />
+                      <p className="mt-1 text-xs sm:text-sm text-red-500 flex items-center gap-1">
+                        <AlertCircle className="w-3 h-3 sm:w-4 sm:h-4" />
                         {errors.city}
                       </p>
                     )}
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      <MapPin className="w-4 h-4 inline mr-1" />
+                    <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-2">
+                      <MapPin className="w-3 h-3 sm:w-4 sm:h-4 inline mr-1" />
                       Posta Kodu *
                     </label>
                     <input
@@ -652,28 +654,28 @@ const Checkout: React.FC = () => {
                       value={formData.postalCode}
                       onChange={(e) => handleInputChange('postalCode', e.target.value.replace(/\D/g, ''))}
                       maxLength={5}
-                      className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-ailydian-primary focus:border-transparent outline-none transition-colors ${
+                      className={`w-full px-3 sm:px-4 py-2.5 sm:py-3 border rounded-lg text-sm sm:text-base focus:ring-2 focus:ring-ailydian-primary focus:border-transparent outline-none transition-colors ${
                         errors.postalCode ? 'border-red-500' : 'border-gray-300'
                       }`}
                       placeholder="34000"
                     />
                     {errors.postalCode && (
-                      <p className="mt-1 text-sm text-red-500 flex items-center gap-1">
-                        <AlertCircle className="w-4 h-4" />
+                      <p className="mt-1 text-xs sm:text-sm text-red-500 flex items-center gap-1">
+                        <AlertCircle className="w-3 h-3 sm:w-4 sm:h-4" />
                         {errors.postalCode}
                       </p>
                     )}
                   </div>
 
                   <div className="md:col-span-2">
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      <Globe className="w-4 h-4 inline mr-1" />
+                    <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-2">
+                      <Globe className="w-3 h-3 sm:w-4 sm:h-4 inline mr-1" />
                       Ülke *
                     </label>
                     <select
                       value={formData.country}
                       onChange={(e) => handleInputChange('country', e.target.value)}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ailydian-primary focus:border-transparent outline-none transition-colors"
+                      className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg text-sm sm:text-base focus:ring-2 focus:ring-ailydian-primary focus:border-transparent outline-none transition-colors"
                     >
                       <option value="TR">Türkiye</option>
                       <option value="US">Amerika Birleşik Devletleri</option>
@@ -690,13 +692,13 @@ const Checkout: React.FC = () => {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.3 }}
-                className="bg-white rounded-2xl shadow-sm border border-gray-200 p-6"
+                className="bg-white rounded-2xl shadow-sm border border-gray-200 p-4 sm:p-6"
               >
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="w-8 h-8 bg-ailydian-primary text-white rounded-full flex items-center justify-center font-bold text-sm">
+                <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
+                  <div className="w-7 h-7 sm:w-8 sm:h-8 bg-ailydian-primary text-white rounded-full flex items-center justify-center font-bold text-xs sm:text-sm">
                     4
                   </div>
-                  <h2 className="text-xl font-bold text-gray-900">Teslim Alma Noktası</h2>
+                  <h2 className="text-lg sm:text-xl font-bold text-gray-900">Teslim Alma Noktası</h2>
                 </div>
 
                 <LocationPicker
@@ -724,68 +726,68 @@ const Checkout: React.FC = () => {
               <motion.div
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
-                className="bg-white rounded-2xl shadow-sm border border-gray-200 p-6 sticky top-8"
+                className="bg-white rounded-2xl shadow-sm border border-gray-200 p-4 sm:p-6 lg:sticky lg:top-8"
               >
-                <h3 className="font-bold text-lg text-gray-900 mb-6">Sipariş Özeti</h3>
-                
-                <div className="space-y-4 mb-6">
+                <h3 className="font-bold text-base sm:text-lg text-gray-900 mb-4 sm:mb-6">Sipariş Özeti</h3>
+
+                <div className="space-y-3 sm:space-y-4 mb-4 sm:mb-6">
                   {orderSummary.items.map((item, index) => (
                     <div key={index} className="flex justify-between items-start">
-                      <div>
-                        <p className="font-medium text-gray-900 text-sm">{item.title}</p>
-                        <p className="text-xs text-gray-500">{item.guests} kişi</p>
+                      <div className="min-w-0 pr-2">
+                        <p className="font-medium text-gray-900 text-xs sm:text-sm line-clamp-2">{item.title}</p>
+                        <p className="text-[10px] sm:text-xs text-gray-500">{item.guests} kişi</p>
                       </div>
-                      <span className="font-semibold">₺{item.price}</span>
+                      <span className="font-semibold text-sm sm:text-base whitespace-nowrap">₺{item.price}</span>
                     </div>
                   ))}
                 </div>
 
-                <div className="space-y-3 mb-6 border-t border-gray-200 pt-4">
-                  <div className="flex justify-between">
+                <div className="space-y-2 sm:space-y-3 mb-4 sm:mb-6 border-t border-gray-200 pt-3 sm:pt-4">
+                  <div className="flex justify-between text-sm sm:text-base">
                     <span className="text-gray-600">Ara Toplam</span>
                     <span className="font-semibold">₺{orderSummary.subtotal}</span>
                   </div>
-                  <div className="flex justify-between">
+                  <div className="flex justify-between text-sm sm:text-base">
                     <span className="text-gray-600">KDV (%18)</span>
                     <span className="font-semibold">₺{orderSummary.tax}</span>
                   </div>
-                  <div className="flex justify-between text-green-600">
+                  <div className="flex justify-between text-sm sm:text-base text-green-600">
                     <span>İndirim (AILYDIAN10)</span>
                     <span className="font-semibold">-₺{orderSummary.discount}</span>
                   </div>
-                  <div className="border-t border-gray-200 pt-3">
+                  <div className="border-t border-gray-200 pt-2 sm:pt-3">
                     <div className="flex justify-between items-center">
-                      <span className="text-lg font-bold text-gray-900">Toplam</span>
-                      <span className="text-2xl font-bold text-ailydian-primary">₺{orderSummary.total}</span>
+                      <span className="text-base sm:text-lg font-bold text-gray-900">Toplam</span>
+                      <span className="text-xl sm:text-2xl font-bold text-ailydian-primary">₺{orderSummary.total}</span>
                     </div>
                   </div>
                 </div>
 
                 {/* Security Features */}
-                <div className="space-y-3 mb-6 p-4 bg-gray-50 rounded-xl">
-                  <div className="flex items-center gap-2 text-sm">
-                    <Shield className="w-4 h-4 text-green-500" />
+                <div className="space-y-2 sm:space-y-3 mb-4 sm:mb-6 p-3 sm:p-4 bg-gray-50 rounded-xl">
+                  <div className="flex items-center gap-2 text-xs sm:text-sm">
+                    <Shield className="w-3 h-3 sm:w-4 sm:h-4 text-green-500" />
                     <span className="text-gray-700">256-bit SSL Güvenli</span>
                   </div>
-                  <div className="flex items-center gap-2 text-sm">
-                    <Lock className="w-4 h-4 text-blue-500" />
+                  <div className="flex items-center gap-2 text-xs sm:text-sm">
+                    <Lock className="w-3 h-3 sm:w-4 sm:h-4 text-blue-500" />
                     <span className="text-gray-700">PCI DSS Uyumlu</span>
                   </div>
-                  <div className="flex items-center gap-2 text-sm">
-                    <Zap className="w-4 h-4 text-purple-500" />
+                  <div className="flex items-center gap-2 text-xs sm:text-sm">
+                    <Zap className="w-3 h-3 sm:w-4 sm:h-4 text-purple-500" />
                     <span className="text-gray-700">Blockchain Doğrulama</span>
                   </div>
                 </div>
 
                 <button
                   onClick={handleSubmit}
-                  className="w-full bg-gradient-to-r from-ailydian-primary to-ailydian-secondary text-white py-4 px-6 rounded-xl font-bold hover:opacity-90 transition-opacity flex items-center justify-center gap-2"
+                  className="w-full bg-gradient-to-r from-ailydian-primary to-ailydian-secondary text-white py-3 sm:py-4 px-4 sm:px-6 rounded-xl text-sm sm:text-base font-bold hover:opacity-90 transition-opacity flex items-center justify-center gap-2"
                 >
-                  <Lock className="w-5 h-5" />
+                  <Lock className="w-4 h-4 sm:w-5 sm:h-5" />
                   Güvenli Ödeme Yap
                 </button>
 
-                <p className="text-xs text-gray-500 text-center mt-4">
+                <p className="text-[10px] sm:text-xs text-gray-500 text-center mt-3 sm:mt-4">
                   Tüm kart bilgileriniz 256-bit SSL ile şifrelenir ve güvenli şekilde işlenir.
                 </p>
               </motion.div>
