@@ -1,0 +1,16 @@
+/* Force hide toggle menu button on desktop - lg breakpoint (1024px+) */
+@media (min-width: 1024px) {
+  button[aria-label="Menüyü Aç"] {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+}
+
+/* Ensure desktop navigation shows on lg+ */
+@media (min-width: 1024px) {
+  nav.hidden.lg\:flex {
+    display: flex !important;
+  }
+}

@@ -39,7 +39,7 @@ import {
 } from 'lucide-react';
 import { useSession } from 'next-auth/react';
 import { useCart } from '../../context/CartContext';
-// import ResponsiveMobileMenu from './ResponsiveMobileMenu'; // Disabled - toggle menu removed
+import ResponsiveMobileMenu from './ResponsiveMobileMenu';
 import AIAssistantPopup from '../ui/AIAssistantPopup';
 import PremiumVoiceButton from '../ui/PremiumVoiceButton';
 import QuickSearchModal from '../search/QuickSearchModal';
@@ -584,7 +584,7 @@ const ResponsiveHeaderBar: React.FC = () => {
   const router = useRouter();
   const { data: session } = useSession();
   const { getItemCount } = useCart();
-  // const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false); // Removed - toggle menu disabled
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isAIAssistantOpen, setIsAIAssistantOpen] = useState(false);
   const [isQuickSearchOpen, setIsQuickSearchOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -662,8 +662,18 @@ const ResponsiveHeaderBar: React.FC = () => {
         <div className="mobile-nav-safe">
           <div className="container-responsive px-3 sm:px-4">
             <div className="flex items-center justify-between h-14 sm:h-16 md:h-20">
-              {/* Left: Logo Only */}
+              {/* Left: Toggle (Mobile Only) + Logo */}
               <div className="flex items-center gap-2 sm:gap-3 md:gap-4">
+                {/* Mobile Menu Button - ONLY MOBILE - Uses @media query for absolute hiding on desktop */}
+                <button
+                  onClick={() => setIsMobileMenuOpen(true)}
+                  className="lg:hidden w-10 h-10 rounded-xl bg-gradient-to-br from-green-600/10 to-emerald-600/10 hover:from-green-600/20 hover:to-emerald-600/20 flex items-center justify-center transition-all active:scale-95 touch-target"
+                  aria-label="Menüyü Aç"
+                  title="Menü"
+                >
+                  <Menu className="w-5 h-5 text-green-600" />
+                </button>
+
                 {/* Logo */}
                 <Link href="/" className="flex items-center gap-2 group">
                   <motion.div
@@ -694,8 +704,8 @@ const ResponsiveHeaderBar: React.FC = () => {
                 </Link>
               </div>
 
-              {/* Center: Desktop Navigation with Dropdowns (Visible from sm breakpoint) */}
-              <nav className="hidden sm:flex items-center gap-1">
+              {/* Center: Desktop Navigation - ONLY DESKTOP (lg and up) */}
+              <nav className="hidden lg:flex items-center gap-1">
                 <NavLinkWithSubmenu
                   href="/hotels"
                   icon={Hotel}
@@ -885,11 +895,11 @@ const ResponsiveHeaderBar: React.FC = () => {
         </div>
       </motion.header>
 
-      {/* Mobile Menu - Disabled per user request */}
-      {/* <ResponsiveMobileMenu
+      {/* Mobile Menu - Active for mobile devices */}
+      <ResponsiveMobileMenu
         isOpen={isMobileMenuOpen}
         onClose={() => setIsMobileMenuOpen(false)}
-      /> */}
+      />
 
       {/* Quick Search Modal */}
       <QuickSearchModal
