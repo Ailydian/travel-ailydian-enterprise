@@ -506,7 +506,6 @@ export const antalyaTours: ComprehensiveTour[] = [
       metaDescription: 'Olimpos Teleferik ile 2365 metre zirveye çıkın. Muhteşem Akdeniz panoraması ve transfer dahil!',
       keywords: ['tahtalı dağı teleferik', 'olimpos cable car', 'olympos tahtali', 'kemer teleferik', 'antalya cable car']
     }
-  }
   },
 
   // WATER SPORTS & DIVING
