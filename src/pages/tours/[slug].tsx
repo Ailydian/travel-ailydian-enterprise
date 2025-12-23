@@ -271,15 +271,15 @@ Lüks teknemizdeki konforlu koltuklar, açık ve kapalı alanlar sayesinde her m
     instantConfirmation: true,
     mobileTicket: true,
     skipTheLine: false,
-    images: tour.images.length > 0 ? tour.images : [
+    images: tour.images && tour.images.length > 0 ? tour.images : [
       'https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?w=1200',
       'https://images.unsplash.com/photo-1541432901042-2d8bd64b4a9b?w=1200',
     ],
     videoUrl: 'https://www.youtube.com/embed/sample-video',
-    highlights: tour.highlights,
-    description: tour.longDescription,
-    included: tour.included,
-    excluded: tour.excluded,
+    highlights: tour.highlights || [],
+    description: tour.longDescription || tour.description,
+    included: tour.included || [],
+    excluded: tour.excluded || [],
     itinerary: [
       {
         time: '09:00',
