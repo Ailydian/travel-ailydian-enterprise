@@ -878,7 +878,7 @@ const NavLinkWithSubmenu: React.FC<{
         }`}
       >
         <Icon className={`w-4 h-4 ${isActive ? 'text-ailydian-primary' : 'text-gray-600'}`} />
-        <span className="text-xs font-semibold">{label}</span>
+        <span className="text-sm font-semibold">{label}</span>
         <ChevronDown
           className={`w-3 h-3 transition-transform ${isSubmenuOpen ? 'rotate-180' : ''}`}
         />
