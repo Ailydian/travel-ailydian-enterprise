@@ -852,9 +852,8 @@ export const useWizardStore = create<WizardStore>()(
   )
 );
 
-// Export all stores
+// Export additional stores (useDashboardStore already exported above)
 export {
-  useDashboardStore,
   useBookingStore,
   useMessageStore,
   useAnalyticsStore,
