@@ -704,8 +704,8 @@ const ResponsiveHeaderBar: React.FC = () => {
                 </Link>
               </div>
 
-              {/* Center: Desktop Navigation - ONLY DESKTOP (lg and up) */}
-              <nav className="hidden lg:flex items-center gap-1">
+              {/* Center: Desktop Navigation - ONLY DESKTOP (lg and up) - Compact */}
+              <nav className="hidden lg:flex items-center gap-0.5">
                 <NavLinkWithSubmenu
                   href="/hotels"
                   icon={Hotel}
@@ -781,11 +781,11 @@ const ResponsiveHeaderBar: React.FC = () => {
               </nav>
 
               {/* Right: Action Buttons */}
-              <div className="flex items-center gap-1.5 sm:gap-2 md:gap-3">
+              <div className="flex items-center gap-1 sm:gap-1.5 md:gap-2">
                 {/* Premium Search Button - Opens Quick Search Modal */}
                 <motion.button
                   onClick={() => setIsQuickSearchOpen(true)}
-                  className="relative w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 lg:w-14 lg:h-14 rounded-xl sm:rounded-2xl bg-gradient-to-br from-green-600 to-emerald-600 flex items-center justify-center shadow-lg hover:shadow-xl transition-all touch-target group overflow-hidden"
+                  className="relative w-9 h-9 sm:w-10 sm:h-10 md:w-11 md:h-11 lg:w-12 lg:h-12 rounded-xl bg-gradient-to-br from-green-600 to-emerald-600 flex items-center justify-center shadow-lg hover:shadow-xl transition-all touch-target group overflow-hidden"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   aria-label="Hızlı Arama"
@@ -843,19 +843,19 @@ const ResponsiveHeaderBar: React.FC = () => {
                 {/* Favorites (Desktop) */}
                 <Link
                   href="/favorites"
-                  className="hidden md:flex w-10 h-10 rounded-xl bg-gray-100 hover:bg-red-50 items-center justify-center transition-all active:scale-95 touch-target group"
+                  className="hidden md:flex w-9 h-9 rounded-lg bg-gray-100 hover:bg-red-50 items-center justify-center transition-all active:scale-95 touch-target group"
                   aria-label="Favoriler"
                 >
-                  <Heart className="w-5 h-5 text-gray-700 group-hover:text-red-500 group-hover:scale-110 transition-all" />
+                  <Heart className="w-4 h-4 text-gray-700 group-hover:text-red-500 group-hover:scale-110 transition-all" />
                 </Link>
 
                 {/* Cart */}
                 <Link
                   href="/cart"
-                  className="relative w-10 h-10 sm:w-10 sm:h-10 md:w-10 md:h-10 rounded-xl bg-gray-100 hover:bg-green-50 flex items-center justify-center transition-all active:scale-95 touch-target group"
+                  className="relative w-9 h-9 sm:w-9 sm:h-9 md:w-9 md:h-9 rounded-lg bg-gray-100 hover:bg-green-50 flex items-center justify-center transition-all active:scale-95 touch-target group"
                   aria-label="Sepet"
                 >
-                  <ShoppingCart className="w-4.5 h-4.5 sm:w-5 sm:h-5 text-gray-700 group-hover:text-green-600 group-hover:scale-110 transition-all" />
+                  <ShoppingCart className="w-4 h-4 sm:w-4 sm:h-4 text-gray-700 group-hover:text-green-600 group-hover:scale-110 transition-all" />
                   {cartItemCount > 0 && (
                     <motion.span
                       initial={{ scale: 0 }}
@@ -876,15 +876,15 @@ const ResponsiveHeaderBar: React.FC = () => {
                 {session ? (
                   <Link
                     href="/profile/dashboard"
-                    className="w-10 h-10 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-br from-ailydian-primary/10 to-ailydian-secondary/10 hover:from-ailydian-primary/20 hover:to-ailydian-secondary/20 flex items-center justify-center transition-all active:scale-95 touch-target"
+                    className="w-9 h-9 sm:w-9 sm:h-9 rounded-lg bg-gradient-to-br from-ailydian-primary/10 to-ailydian-secondary/10 hover:from-ailydian-primary/20 hover:to-ailydian-secondary/20 flex items-center justify-center transition-all active:scale-95 touch-target"
                     aria-label="Profil"
                   >
-                    <User className="w-4.5 h-4.5 sm:w-5 sm:h-5 text-ailydian-primary" />
+                    <User className="w-4 h-4 sm:w-4 sm:h-4 text-ailydian-primary" />
                   </Link>
                 ) : (
                   <Link
                     href="/auth/signin"
-                    className="flex items-center justify-center px-2.5 py-1.5 sm:px-4 sm:py-2 md:px-6 md:py-2.5 bg-gradient-to-r from-ailydian-primary to-ailydian-secondary text-white rounded-lg sm:rounded-xl font-medium hover:shadow-lg active:scale-95 transition-all touch-target text-xs sm:text-sm md:text-base whitespace-nowrap min-w-[60px] sm:min-w-[80px]"
+                    className="flex items-center justify-center px-2 py-1.5 sm:px-3 sm:py-1.5 md:px-4 md:py-2 bg-gradient-to-r from-ailydian-primary to-ailydian-secondary text-white rounded-lg font-medium hover:shadow-lg active:scale-95 transition-all touch-target text-[11px] sm:text-xs md:text-sm whitespace-nowrap"
                   >
                     Giriş
                   </Link>
@@ -943,16 +943,16 @@ const NavLinkWithSubmenu: React.FC<{
     <div className="relative">
       <button
         onClick={handleClick}
-        className={`relative flex items-center gap-2 px-4 py-2 rounded-xl font-medium transition-all hover:bg-gray-50 group ${
+        className={`relative flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg font-medium transition-all hover:bg-gray-50 group ${
           isActive
             ? 'bg-gradient-to-r from-ailydian-primary/10 to-ailydian-secondary/10 text-ailydian-primary'
             : 'text-gray-700'
         }`}
       >
-        <Icon className={`w-5 h-5 ${isActive ? 'text-ailydian-primary' : 'text-gray-600'}`} />
-        <span className="text-sm">{label}</span>
+        <Icon className={`w-4 h-4 ${isActive ? 'text-ailydian-primary' : 'text-gray-600'}`} />
+        <span className="text-xs font-semibold">{label}</span>
         <ChevronDown
-          className={`w-4 h-4 transition-transform ${isSubmenuOpen ? 'rotate-180' : ''}`}
+          className={`w-3 h-3 transition-transform ${isSubmenuOpen ? 'rotate-180' : ''}`}
         />
         {badge && (
           <span className="absolute -top-1 -right-1 px-1.5 py-0.5 bg-gradient-to-r from-green-500 to-emerald-500 text-white text-xs font-bold rounded-full">
