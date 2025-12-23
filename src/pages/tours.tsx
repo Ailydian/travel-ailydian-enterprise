@@ -87,6 +87,7 @@ const allComprehensiveTours = [...antalyaToursFormatted, ...otherRegionTours];
 const legacyTours = [
   {
     id: 1,
+    slug: 'istanbul-buyulu-sehir-turu',
     name: 'İstanbul Büyülü Şehir Turu',
     location: 'İstanbul, Türkiye',
     image: 'https://images.unsplash.com/photo-1541432901042-2d8bd64b4a9b?w=800&h=600&fit=crop',
@@ -107,6 +108,7 @@ const legacyTours = [
   },
   {
     id: 2,
+    slug: 'kapadokya-balon-ve-doga-turu',
     name: 'Kapadokya Balon ve Doğa Turu',
     location: 'Nevşehir, Türkiye',
     image: 'https://images.unsplash.com/photo-1570939274719-c60ee3bf5cd9?w=800&h=600&fit=crop',
@@ -127,6 +129,7 @@ const legacyTours = [
   },
   {
     id: 3,
+    slug: 'antalya-antik-kentler-turu',
     name: 'Antalya Antik Kentler Turu',
     location: 'Antalya, Türkiye',
     image: 'https://images.unsplash.com/photo-1568992687947-868a62a9f521?w=800&h=600&fit=crop',
@@ -147,6 +150,7 @@ const legacyTours = [
   },
   {
     id: 4,
+    slug: 'fethiye-yamac-parasutu-tekne-turu',
     name: 'Fethiye Yamaç Paraşütü ve Tekne Turu',
     location: 'Fethiye, Türkiye',
     image: 'https://images.unsplash.com/photo-1539650116574-75c0c6d0deeb?w=800&h=600&fit=crop',
@@ -167,6 +171,7 @@ const legacyTours = [
   },
   {
     id: 5,
+    slug: 'pamukkale-hierapolis-gunubirlik',
     name: 'Pamukkale ve Hierapolis Günübirlik',
     location: 'Denizli, Türkiye',
     image: 'https://images.unsplash.com/photo-1609137144813-7d9921338f24?w=800&h=600&fit=crop',
@@ -187,6 +192,7 @@ const legacyTours = [
   },
   {
     id: 6,
+    slug: 'cesme-alacati-gastronomi-turu',
     name: 'Çeşme Alaçatı Gastronomi Turu',
     location: 'İzmir, Türkiye',
     image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop',
@@ -207,6 +213,7 @@ const legacyTours = [
   },
   {
     id: 7,
+    slug: 'trabzon-doga-kultur-turu',
     name: 'Trabzon Doğa ve Kültür Turu',
     location: 'Trabzon, Türkiye',
     image: 'https://images.unsplash.com/photo-1617634667039-8e4cb277ab46?w=800&h=600&fit=crop',
@@ -227,6 +234,7 @@ const legacyTours = [
   },
   {
     id: 8,
+    slug: 'bodrum-antik-yolculuk',
     name: 'Bodrum Antik Yolculuk',
     location: 'Muğla, Türkiye',
     image: 'https://images.unsplash.com/photo-1566073771259-6a8506862ae3?w=800&h=600&fit=crop',
@@ -248,6 +256,7 @@ const legacyTours = [
   // ALANYA & ANTALYA REGION TOURS
   {
     id: 9,
+    slug: 'alanya-korsan-tekne-turu',
     name: 'Alanya Korsan Tekne Turu',
     location: 'Alanya, Antalya',
     image: 'https://images.unsplash.com/photo-1569263979104-865ab7cd8d13?w=800&h=600&fit=crop',
@@ -268,6 +277,7 @@ const legacyTours = [
   },
   {
     id: 10,
+    slug: 'sapadere-kanyonu-koy-turu',
     name: 'Sapadere Kanyonu ve Köy Turu',
     location: 'Alanya, Antalya',
     image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop',
@@ -288,6 +298,7 @@ const legacyTours = [
   },
   {
     id: 11,
+    slug: 'koprulu-kanyon-rafting-macerasi',
     name: 'Köprülü Kanyon Rafting Macerası',
     location: 'Belek, Antalya',
     image: 'https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=800&h=600&fit=crop',
@@ -308,6 +319,7 @@ const legacyTours = [
   },
   {
     id: 12,
+    slug: 'belek-super-kombo-rafting-atv-zipline',
     name: 'Belek Süper Kombo: Rafting + ATV + Zipline',
     location: 'Belek, Antalya',
     image: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&h=600&fit=crop',
@@ -328,6 +340,7 @@ const legacyTours = [
   },
   {
     id: 13,
+    slug: 'perge-aspendos-side-antik-kentler',
     name: 'Perge, Aspendos ve Side Antik Kentler',
     location: 'Side, Antalya',
     image: 'https://images.unsplash.com/photo-1572478219402-e287fa9ae5d0?w=800&h=600&fit=crop',
@@ -348,6 +361,7 @@ const legacyTours = [
   },
   {
     id: 14,
+    slug: 'alanya-quad-safari-jeep-safari-turu',
     name: 'Alanya Quad Safari ve Jeep Safari Turu',
     location: 'Alanya, Antalya',
     image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop',
@@ -368,6 +382,7 @@ const legacyTours = [
   },
   {
     id: 15,
+    slug: 'antalya-sehir-turu-duden-selaleleri',
     name: 'Antalya Şehir Turu ve Düden Şelaleleri',
     location: 'Antalya Merkez',
     image: 'https://images.unsplash.com/photo-1568592410210-e0e4b24f5684?w=800&h=600&fit=crop',
@@ -388,6 +403,7 @@ const legacyTours = [
   },
   {
     id: 16,
+    slug: 'kemer-tekne-turu-suluada-adasi',
     name: 'Kemer Tekne Turu ve Suluada Adası',
     location: 'Kemer, Antalya',
     image: 'https://images.unsplash.com/photo-1544551763-92f7d5a0c2c0?w=800&h=600&fit=crop',
@@ -408,6 +424,7 @@ const legacyTours = [
   },
   {
     id: 17,
+    slug: 'alanya-tuplu-dalis-deneyimi',
     name: 'Alanya Tüplü Dalış Deneyimi',
     location: 'Alanya, Antalya',
     image: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&h=600&fit=crop',
@@ -428,6 +445,7 @@ const legacyTours = [
   },
   {
     id: 18,
+    slug: 'belek-aquapark-dolphinland',
     name: 'Belek Aquapark ve Dolphinland',
     location: 'Belek, Antalya',
     image: 'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=800&h=600&fit=crop',
