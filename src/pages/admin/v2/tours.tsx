@@ -61,7 +61,7 @@ const ToursManagementPage = () => {
       const toursResponse = await fetch('/api/admin/tours?limit=100');
       const toursData = await toursResponse.json();
 
-      if (toursData.success && toursData.data) {
+      if (toursData.success && toursData.data && toursData.data.length > 0) {
         // Transform Prisma data to Tour interface
         const transformedTours: Tour[] = toursData.data.map((tour: any) => ({
           id: tour.id,
