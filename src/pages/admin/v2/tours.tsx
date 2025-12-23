@@ -62,9 +62,12 @@ const ToursManagementPage = () => {
       const toursData = await toursResponse.json();
 
       console.log('[Tours Debug] API Response:', toursData);
+      console.log('[Tours Debug] Has success:', toursData.success);
+      console.log('[Tours Debug] Has data:', !!toursData.data);
       console.log('[Tours Debug] Data length:', toursData.data?.length);
 
-      if (toursData.success && toursData.data && toursData.data.length > 0) {
+      // Check if API returned valid data with tours
+      if (toursData.success === true && Array.isArray(toursData.data) && toursData.data.length > 0) {
         // Transform Prisma data to Tour interface
         const transformedTours: Tour[] = toursData.data.map((tour: any) => ({
           id: tour.id,
@@ -88,9 +91,11 @@ const ToursManagementPage = () => {
         }));
 
         setTours(transformedTours);
+        console.log('[Tours Debug] Successfully loaded real data:', transformedTours.length, 'tours');
       } else {
-        // Fallback to mock data if database is empty
-        console.log('[Tours Debug] Using fallback mock data - database is empty');
+        // Fallback to mock data if API fails or database is empty
+        console.log('[Tours Debug] Using fallback mock data - API error or empty database');
+        console.log('[Tours Debug] Reason - success:', toursData.success, 'isArray:', Array.isArray(toursData.data), 'length:', toursData.data?.length);
         const mockTours: Tour[] = [
         {
           id: '1',
