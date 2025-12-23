@@ -115,6 +115,7 @@ const GetYourGuideStyleHome: React.FC = () => {
   const featuredDestinations = [
     {
       id: 1,
+      slug: 'istanbul-tarihi-yarimada',
       name: 'İstanbul',
       country: 'Türkiye',
       image: 'https://images.unsplash.com/photo-1541432901042-2d8bd64b4a9b?w=800&h=600&q=90',
@@ -126,6 +127,7 @@ const GetYourGuideStyleHome: React.FC = () => {
     },
     {
       id: 2,
+      slug: 'kapadokya-balon-turu',
       name: 'Kapadokya',
       country: 'Türkiye',
       image: 'https://images.unsplash.com/photo-1548013146-72479768bada?w=800&h=600&q=90',
@@ -137,28 +139,7 @@ const GetYourGuideStyleHome: React.FC = () => {
     },
     {
       id: 3,
-      name: 'Santorini',
-      country: 'Yunanistan',
-      image: 'https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=800&h=600&q=90',
-      experiences: '432',
-      rating: 4.7,
-      badge: 'Günbatımı Manzarası',
-      description: 'Egede beyaz evler ve masmavi deniz',
-      specialOffers: ['Günbatımı turu', 'Tekne gezisi', 'Şarap tadımı']
-    },
-    {
-      id: 4,
-      name: 'Pamukkale',
-      country: 'Türkiye',
-      image: 'https://images.unsplash.com/photo-1609137144813-7d9921338f24?w=800&h=600&q=90',
-      experiences: '234',
-      rating: 4.6,
-      badge: 'Doğa Harikası',
-      description: 'Beyaz travertinler ve termal su havuzları',
-      specialOffers: ['Termal havuzlar', 'Hierapolis antik kenti', 'Şifa suyu terapisi']
-    },
-    {
-      id: 5,
+      slug: 'antalya-turkuaz-sahiller',
       name: 'Antalya',
       country: 'Türkiye',
       image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&q=90',
@@ -167,17 +148,6 @@ const GetYourGuideStyleHome: React.FC = () => {
       badge: 'Akdeniz İncisi',
       description: 'Antik şehirler, masmavi deniz ve güneş',
       specialOffers: ['Antik şehir turu', 'Tekne turu', 'Adrenalin sporları']
-    },
-    {
-      id: 6,
-      name: 'Bodrum',
-      country: 'Türkiye',
-      image: 'https://images.unsplash.com/photo-1540979388789-6cee28a1cdc9?w=800&h=600&q=90',
-      experiences: '654',
-      rating: 4.8,
-      badge: 'Eğlence Başkenti',
-      description: 'Marina, gece hayatı ve tarihi doku bir arada',
-      specialOffers: ['Tekne partisi', 'Sualtı dalma', 'Gece turu']
     }
   ];
 
@@ -723,7 +693,7 @@ const GetYourGuideStyleHome: React.FC = () => {
                       </div>
                     </div>
                     <Link
-                      href={`/destinations/${destination.name.toLowerCase().replace(/[^a-z0-9ğüşıöçĞÜŞİÖÇ\s]/g, '').replace(/\s+/g, '-')}`}
+                      href={`/destinations/${destination.slug}`}
                       className="block"
                     >
                       <motion.button
