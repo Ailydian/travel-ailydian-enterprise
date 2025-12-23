@@ -853,16 +853,31 @@ export default function Tours() {
                       <span>{tour.reviews.toLocaleString('tr-TR')} değerlendirme</span>
                     </div>
 
-                    {/* Add to Cart Button */}
-                    <motion.button
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                      onClick={() => handleAddToCart(tour)}
-                      className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-ailydian-primary to-ailydian-secondary text-white rounded-xl font-semibold hover:shadow-lg transition-all"
-                    >
-                      <ShoppingCart className="w-5 h-5" />
-                      Sepete Ekle
-                    </motion.button>
+                    {/* Action Buttons */}
+                    <div className="space-y-2">
+                      <Link
+                        href={`/tours/${tour.title.toLowerCase().replace(/[^a-z0-9ğüşıöçĞÜŞİÖÇ\s]/g, '').replace(/\s+/g, '-')}`}
+                        className="block"
+                      >
+                        <motion.button
+                          whileHover={{ scale: 1.02 }}
+                          whileTap={{ scale: 0.98 }}
+                          className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white rounded-xl font-semibold transition-all"
+                        >
+                          <Eye className="w-5 h-5" />
+                          Detayları Gör
+                        </motion.button>
+                      </Link>
+                      <motion.button
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                        onClick={() => handleAddToCart(tour)}
+                        className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-ailydian-primary to-ailydian-secondary text-white rounded-xl font-semibold hover:shadow-lg transition-all"
+                      >
+                        <ShoppingCart className="w-5 h-5" />
+                        Sepete Ekle
+                      </motion.button>
+                    </div>
                   </div>
                 </motion.div>
               ))}
