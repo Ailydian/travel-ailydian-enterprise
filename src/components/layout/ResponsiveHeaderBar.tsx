@@ -395,6 +395,127 @@ const RENTALS_MENU: MenuCategory[] = [
   },
 ];
 
+const CAR_RENTALS_MENU: MenuCategory[] = [
+  {
+    title: 'Araç Kiralama',
+    items: [
+      {
+        title: 'Tüm Araçlar',
+        href: '/car-rentals',
+        icon: Car,
+        description: '1200+ araç seçeneği',
+        popular: true,
+      },
+      {
+        title: 'Ekonomik Sedan',
+        href: '/car-rentals?type=economy-sedan',
+        icon: Car,
+        description: '₺350/gün',
+        popular: true,
+      },
+      {
+        title: 'SUV & Minivan',
+        href: '/car-rentals?type=suv',
+        icon: Car,
+        description: 'Geniş araçlar',
+      },
+      {
+        title: 'Lüks Araçlar',
+        href: '/car-rentals?type=luxury',
+        icon: Award,
+        description: 'Premium deneyim',
+        badge: 'VIP',
+      },
+    ],
+  },
+  {
+    title: 'Popüler Lokasyonlar',
+    items: [
+      {
+        title: 'İstanbul Araç Kiralama',
+        href: '/car-rentals?city=istanbul',
+        icon: MapPin,
+        description: 'Havalimanı teslimat',
+        popular: true,
+      },
+      {
+        title: 'Antalya Araç Kiralama',
+        href: '/car-rentals?city=antalya',
+        icon: MapPin,
+        description: 'Sahil tatili için',
+        popular: true,
+      },
+      {
+        title: 'İzmir Araç Kiralama',
+        href: '/car-rentals?city=izmir',
+        icon: MapPin,
+        description: 'Ege gezisi',
+      },
+    ],
+  },
+];
+
+const EXPLORE_MENU: MenuCategory[] = [
+  {
+    title: 'Keşfet',
+    items: [
+      {
+        title: 'Destinasyonlar',
+        href: '/destinations',
+        icon: MapPin,
+        description: 'Popüler şehirler',
+        popular: true,
+      },
+      {
+        title: 'Deneyimler',
+        href: '/experiences',
+        icon: Camera,
+        description: 'Özel aktiviteler',
+        popular: true,
+      },
+      {
+        title: 'AI Seyahat Planlayıcı',
+        href: '/ai-planner',
+        icon: Sparkles,
+        description: 'Kişisel rotalar',
+        badge: 'AI',
+      },
+      {
+        title: 'VR Turlar',
+        href: '/virtual-tours',
+        icon: Globe,
+        description: '360° önizleme',
+        badge: 'Yeni',
+      },
+    ],
+  },
+  {
+    title: 'Popüler Yerler',
+    items: [
+      {
+        title: 'İstanbul',
+        href: '/destinations/istanbul-tarihi-yarimada',
+        icon: Star,
+        description: 'Tarihi yarımada',
+        popular: true,
+      },
+      {
+        title: 'Kapadokya',
+        href: '/destinations/kapadokya-balon-turu',
+        icon: Mountain,
+        description: 'Sıcak hava balonu',
+        popular: true,
+      },
+      {
+        title: 'Antalya',
+        href: '/destinations/antalya-turkuaz-sahiller',
+        icon: Palmtree,
+        description: 'Turkuaz sahiller',
+      },
+    ],
+  },
+];
+
 const PARTNER_MENU: MenuCategory[] = [
   {
     title: 'Partner Kategorileri',
@@ -510,10 +631,14 @@ const ResponsiveHeaderBar: React.FC = () => {
         return FLIGHTS_MENU;
       case 'transfers':
         return TRANSFERS_MENU;
+      case 'car-rentals':
+        return CAR_RENTALS_MENU;
       case 'rentals':
         return RENTALS_MENU;
       case 'tours':
         return TOURS_MENU;
+      case 'explore':
+        return EXPLORE_MENU;
       case 'partner':
         return PARTNER_MENU;
       default:
@@ -602,17 +727,24 @@ const ResponsiveHeaderBar: React.FC = () => {
                   href="/transfers"
                   icon={Car}
                   label="Transfer"
-                  badge="Yeni"
                   submenuKey="transfers"
                   activeSubmenu={activeSubmenu}
                   setActiveSubmenu={setActiveSubmenu}
                   submenuContent={getSubmenuContent('transfers')}
                 />
                 <NavLinkWithSubmenu
+                  href="/car-rentals"
+                  icon={Car}
+                  label="Araç Kiralama"
+                  submenuKey="car-rentals"
+                  activeSubmenu={activeSubmenu}
+                  setActiveSubmenu={setActiveSubmenu}
+                  submenuContent={getSubmenuContent('car-rentals')}
+                />
+                <NavLinkWithSubmenu
                   href="/rentals"
                   icon={Home}
                   label="Konaklama"
-                  badge="Yeni"
                   submenuKey="rentals"
                   activeSubmenu={activeSubmenu}
                   setActiveSubmenu={setActiveSubmenu}
@@ -626,6 +758,15 @@ const ResponsiveHeaderBar: React.FC = () => {
                   activeSubmenu={activeSubmenu}
                   setActiveSubmenu={setActiveSubmenu}
                   submenuContent={getSubmenuContent('tours')}
+                />
+                <NavLinkWithSubmenu
+                  href="/destinations"
+                  icon={Compass}
+                  label="Keşfet"
+                  submenuKey="explore"
+                  activeSubmenu={activeSubmenu}
+                  setActiveSubmenu={setActiveSubmenu}
+                  submenuContent={getSubmenuContent('explore')}
                 />
                 <NavLinkWithSubmenu
                   href="/partner"

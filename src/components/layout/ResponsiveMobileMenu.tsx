@@ -69,40 +69,49 @@ const ResponsiveMobileMenu: React.FC<ResponsiveMobileMenuProps> = ({
       icon: Building,
       label: 'Oteller',
       href: '/hotels',
-      color: 'from-purple-500 to-purple-600',
-      badge: '2000+'
+      color: 'from-purple-500 to-purple-600'
     },
     {
       icon: Plane,
-      label: 'Uçak Biletleri',
+      label: 'Uçuşlar',
       href: '/flights',
       color: 'from-indigo-500 to-indigo-600'
     },
     {
       icon: Car,
-      label: 'Havalimanı Transfer',
+      label: 'Transfer',
       href: '/transfers',
-      color: 'from-green-500 to-green-600',
-      badge: 'Yeni'
+      color: 'from-green-500 to-green-600'
+    },
+    {
+      icon: Car,
+      label: 'Araç Kiralama',
+      href: '/car-rentals',
+      color: 'from-cyan-500 to-cyan-600'
     },
     {
       icon: Home,
       label: 'Konaklama',
       href: '/rentals',
-      color: 'from-purple-500 to-purple-600',
-      badge: 'Yeni'
+      color: 'from-purple-500 to-purple-600'
     },
     {
       icon: Compass,
-      label: 'Turlar ve Aktiviteler',
+      label: 'Turlar',
       href: '/tours',
       color: 'from-orange-500 to-orange-600'
     },
     {
       icon: MapPin,
-      label: 'Destinasyonlar',
+      label: 'Keşfet',
       href: '/destinations',
       color: 'from-pink-500 to-pink-600'
+    },
+    {
+      icon: Building,
+      label: 'Partner',
+      href: '/partner',
+      color: 'from-teal-500 to-teal-600'
     }
   ];
 
