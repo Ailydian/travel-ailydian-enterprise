@@ -320,12 +320,37 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
         additionalLinkTags={[
           {
             rel: 'alternate',
-            hrefLang: 'tr',
+            hrefLang: 'tr-TR',
             href: `https://travel.ailydian.com/tours/${slug}`,
           },
           {
             rel: 'alternate',
-            hrefLang: 'en',
+            hrefLang: 'en-US',
+            href: `https://travel.ailydian.com/en/tours/${slug}`,
+          },
+          {
+            rel: 'alternate',
+            hrefLang: 'ru-RU',
+            href: `https://travel.ailydian.com/ru/tours/${slug}`,
+          },
+          {
+            rel: 'alternate',
+            hrefLang: 'de-DE',
+            href: `https://travel.ailydian.com/de/tours/${slug}`,
+          },
+          {
+            rel: 'alternate',
+            hrefLang: 'ar-SA',
+            href: `https://travel.ailydian.com/ar/tours/${slug}`,
+          },
+          {
+            rel: 'alternate',
+            hrefLang: 'fr-FR',
+            href: `https://travel.ailydian.com/fr/tours/${slug}`,
+          },
+          {
+            rel: 'alternate',
+            hrefLang: 'x-default',
             href: `https://travel.ailydian.com/en/tours/${slug}`,
           },
         ]}
