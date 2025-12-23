@@ -280,6 +280,18 @@ Lüks teknemizdeki konforlu koltuklar, açık ve kapalı alanlar sayesinde her m
     description: tour.longDescription || tour.description,
     included: tour.included || [],
     excluded: tour.excluded || [],
+    requirements: [
+      'Geçerli kimlik veya pasaport',
+      'Rezervasyon onay belgesi (mobil veya basılı)',
+      'Uygun giyim ve rahat ayakkabılar',
+      'Güneş kremi ve şapka (opsiyonel)',
+    ],
+    importantInfo: [
+      tour.cancellationPolicy,
+      `Minimum yaş: ${tour.minAge} yaş`,
+      `Maksimum grup büyüklüğü: ${tour.maxGroupSize} kişi`,
+      'Hava koşullarına bağlı olarak tur iptal edilebilir',
+    ],
     itinerary: [
       {
         time: '09:00',
