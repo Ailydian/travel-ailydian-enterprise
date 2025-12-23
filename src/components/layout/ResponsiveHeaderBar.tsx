@@ -39,7 +39,7 @@ import {
 } from 'lucide-react';
 import { useSession } from 'next-auth/react';
 import { useCart } from '../../context/CartContext';
-import ResponsiveMobileMenu from './ResponsiveMobileMenu';
+// import ResponsiveMobileMenu from './ResponsiveMobileMenu'; // Disabled - toggle menu removed
 import AIAssistantPopup from '../ui/AIAssistantPopup';
 import PremiumVoiceButton from '../ui/PremiumVoiceButton';
 import QuickSearchModal from '../search/QuickSearchModal';
@@ -584,7 +584,7 @@ const ResponsiveHeaderBar: React.FC = () => {
   const router = useRouter();
   const { data: session } = useSession();
   const { getItemCount } = useCart();
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  // const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false); // Removed - toggle menu disabled
   const [isAIAssistantOpen, setIsAIAssistantOpen] = useState(false);
   const [isQuickSearchOpen, setIsQuickSearchOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -662,18 +662,8 @@ const ResponsiveHeaderBar: React.FC = () => {
         <div className="mobile-nav-safe">
           <div className="container-responsive px-3 sm:px-4">
             <div className="flex items-center justify-between h-14 sm:h-16 md:h-20">
-              {/* Left: Menu Button (Mobile Only) + Logo */}
+              {/* Left: Logo Only */}
               <div className="flex items-center gap-2 sm:gap-3 md:gap-4">
-                {/* Mobile Menu Button - ONLY visible on very small screens */}
-                <button
-                  onClick={() => setIsMobileMenuOpen(true)}
-                  className="flex sm:hidden w-10 h-10 rounded-xl bg-gradient-to-br from-ailydian-primary/10 to-ailydian-secondary/10 hover:from-ailydian-primary/20 hover:to-ailydian-secondary/20 items-center justify-center transition-all active:scale-95 touch-target"
-                  aria-label="Menüyü Aç"
-                  title="Menü"
-                >
-                  <Menu className="w-5 h-5 text-ailydian-primary" />
-                </button>
-
                 {/* Logo */}
                 <Link href="/" className="flex items-center gap-2 group">
                   <motion.div
@@ -895,11 +885,11 @@ const ResponsiveHeaderBar: React.FC = () => {
         </div>
       </motion.header>
 
-      {/* Mobile Menu */}
-      <ResponsiveMobileMenu
+      {/* Mobile Menu - Disabled per user request */}
+      {/* <ResponsiveMobileMenu
         isOpen={isMobileMenuOpen}
         onClose={() => setIsMobileMenuOpen(false)}
-      />
+      /> */}
 
       {/* Quick Search Modal */}
       <QuickSearchModal
