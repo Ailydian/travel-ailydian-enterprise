@@ -30,12 +30,37 @@ import {
 import { useCart } from '../context/CartContext';
 import SimplifiedHeader from '../components/layout/SimplifiedHeader';
 import { allComprehensiveTours as importedComprehensiveTours } from '../data/marmaris-bodrum-cesme-tours';
+import { antalyaTours } from '../data/antalya-tours';
 
-// Premium Ailydian Tours - Now with 45+ comprehensive tours from Marmaris, Bodrum, and Çeşme
-const allComprehensiveTours = importedComprehensiveTours.map(tour => ({
+// Antalya Tours (16 tours with competitive pricing)
+const antalyaToursFormatted = antalyaTours.map(tour => ({
   id: tour.id,
   name: tour.name,
-  slug: tour.slug, // Add slug from real data
+  slug: tour.slug,
+  location: `${tour.region}, Türkiye`,
+  image: tour.images[0],
+  price: tour.pricing.travelAilydian,
+  originalPrice: Math.round(tour.pricing.travelAilydian / (1 - tour.pricing.savingsPercentage / 100)),
+  rating: tour.rating,
+  reviews: tour.reviewCount,
+  duration: tour.duration,
+  groupSize: `${tour.maxGroupSize} kişi`,
+  category: tour.category,
+  type: 'Günlük Tur',
+  highlights: tour.highlights.slice(0, 4),
+  includes: tour.included,
+  description: tour.description,
+  difficulty: tour.difficulty,
+  languages: ['Türkçe', 'İngilizce', 'Rusça', 'Almanca', 'Arapça', 'Fransızca'],
+  badge: tour.pricing.savingsPercentage >= 15 ? 'İndirim' : undefined,
+  region: { city: tour.region, country: 'Türkiye' }
+}));
+
+// Premium Ailydian Tours - Now with 45+ comprehensive tours from Marmaris, Bodrum, and Çeşme
+const otherRegionTours = importedComprehensiveTours.map(tour => ({
+  id: tour.id,
+  name: tour.name,
+  slug: tour.slug,
   location: `${tour.region}, Türkiye`,
   image: tour.images[0],
   price: tour.pricing.travelAilydian,
@@ -54,6 +79,9 @@ const allComprehensiveTours = importedComprehensiveTours.map(tour => ({
   badge: tour.pricing.savingsPercentage >= 15 ? 'İndirim' : undefined,
   region: { city: tour.region, country: 'Türkiye' }
 }));
+
+// Combine all tours: Antalya first, then other regions
+const allComprehensiveTours = [...antalyaToursFormatted, ...otherRegionTours];
 
 // Legacy tours for backward compatibility
 const legacyTours = [

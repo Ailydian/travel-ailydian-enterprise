@@ -48,10 +48,14 @@ import {
 } from 'lucide-react';
 import SimplifiedHeader from '@/components/layout/SimplifiedHeader';
 import { allComprehensiveTours, ComprehensiveTour } from '@/data/marmaris-bodrum-cesme-tours';
+import { antalyaTours } from '@/data/antalya-tours';
+
+// Combine all tours: Antalya + Other regions
+const allTours = [...antalyaTours, ...allComprehensiveTours];
 
 // Get tour data by slug from real data
 const getTourBySlug = (slug: string) => {
-  const tour = allComprehensiveTours.find(t => t.slug === slug);
+  const tour = allTours.find(t => t.slug === slug);
 
   if (!tour) {
     // Fallback to default Istanbul tour if not found
@@ -1220,8 +1224,8 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  // Generate paths for all tours from the comprehensive tours data
-  const paths = allComprehensiveTours.map((tour) => ({
+  // Generate paths for all tours (Antalya + Other regions)
+  const paths = allTours.map((tour) => ({
     params: { slug: tour.slug }
   }));
 
@@ -1235,7 +1239,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   ];
 
   const legacyPaths = legacySlugs
-    .filter(slug => !allComprehensiveTours.find(t => t.slug === slug))
+    .filter(slug => !allTours.find(t => t.slug === slug))
     .map(slug => ({ params: { slug } }));
 
   return {
