@@ -48,6 +48,7 @@ import {
   ShoppingCart,
   Plus,
   Car,
+  Eye,
   Compass,
   Hotel,
   Plane,
@@ -452,30 +453,51 @@ const GetYourGuideStyleHome: React.FC = () => {
                             <span className="text-sm text-gray-500">Fiyat bilgisi yok</span>
                           )}
                         </div>
-                        <div className="flex items-center gap-2">
-                          <motion.button
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                            onClick={() => handleAddToCart(result)}
-                            className="p-2 bg-green-500 hover:bg-green-600 text-white rounded-lg transition-all duration-200"
-                            title="Sepete Ekle"
+                        <div className="flex flex-col gap-2">
+                          <Link
+                            href={
+                              result.type === 'tour' ? `/tours/${result.title.toLowerCase().replace(/[^a-z0-9ğüşıöçĞÜŞİÖÇ\s]/g, '').replace(/\s+/g, '-')}` :
+                              result.type === 'transfer' ? `/transfers/${result.title.toLowerCase().replace(/[^a-z0-9ğüşıöçĞÜŞİÖÇ\s]/g, '').replace(/\s+/g, '-')}` :
+                              result.type === 'car-rental' ? `/car-rentals/${result.title.toLowerCase().replace(/[^a-z0-9ğüşıöçĞÜŞİÖÇ\s]/g, '').replace(/\s+/g, '-')}` :
+                              result.type === 'destination' ? `/destinations/${result.title.toLowerCase().replace(/[^a-z0-9ğüşıöçĞÜŞİÖÇ\s]/g, '').replace(/\s+/g, '-')}` :
+                              '#'
+                            }
+                            className="block"
                           >
-                            <ShoppingCart className="w-4 h-4" />
-                          </motion.button>
-                          <motion.button
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                            onClick={() => {
-                              handleAddToCart(result);
-                              router.push('/checkout');
-                            }}
-                            className="px-4 py-2 bg-gradient-to-r from-ailydian-primary to-ailydian-secondary text-white rounded-lg font-medium hover:shadow-lg transition-all duration-200 text-sm"
-                          >
-                            {result.type === 'hotel' ? 'Rezervasyon' :
-                             result.type === 'flight' ? 'Bilet Al' :
-                             result.type === 'transfer' ? 'Transfer Rezerve Et' :
-                             result.type === 'restaurant' ? 'Rezerve Et' : 'Detaylar'}
-                          </motion.button>
+                            <motion.button
+                              whileHover={{ scale: 1.02 }}
+                              whileTap={{ scale: 0.98 }}
+                              className="w-full px-4 py-2.5 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white rounded-lg font-semibold transition-all duration-200 text-sm flex items-center justify-center gap-2"
+                            >
+                              <Eye className="w-4 h-4" />
+                              Detayları Gör
+                            </motion.button>
+                          </Link>
+                          <div className="flex items-center gap-2">
+                            <motion.button
+                              whileHover={{ scale: 1.05 }}
+                              whileTap={{ scale: 0.95 }}
+                              onClick={() => handleAddToCart(result)}
+                              className="p-2 bg-green-500 hover:bg-green-600 text-white rounded-lg transition-all duration-200 flex-shrink-0"
+                              title="Sepete Ekle"
+                            >
+                              <ShoppingCart className="w-4 h-4" />
+                            </motion.button>
+                            <motion.button
+                              whileHover={{ scale: 1.05 }}
+                              whileTap={{ scale: 0.95 }}
+                              onClick={() => {
+                                handleAddToCart(result);
+                                router.push('/checkout');
+                              }}
+                              className="flex-1 px-4 py-2 bg-gradient-to-r from-ailydian-primary to-ailydian-secondary text-white rounded-lg font-medium hover:shadow-lg transition-all duration-200 text-sm"
+                            >
+                              {result.type === 'hotel' ? 'Rezervasyon' :
+                               result.type === 'flight' ? 'Bilet Al' :
+                               result.type === 'transfer' ? 'Transfer Rezerve Et' :
+                               result.type === 'restaurant' ? 'Rezerve Et' : 'Rezervasyon'}
+                            </motion.button>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -599,37 +621,52 @@ const GetYourGuideStyleHome: React.FC = () => {
                     </div>
                     
                     {/* Action Buttons */}
-                    <div className="flex items-center gap-2">
-                      <motion.button
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        onClick={() => handleAddToCart({
-                          ...experience,
-                          type: 'tour',
-                          price: typeof experience.price === 'string' ? 
-                            parseFloat(experience.price.replace(/[^0-9]/g, '')) : experience.price
-                        })}
-                        className="flex items-center gap-2 px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded-lg transition-all duration-200 font-medium text-sm"
+                    <div className="flex flex-col gap-2">
+                      <Link
+                        href={`/tours/${experience.title.toLowerCase().replace(/[^a-z0-9ğüşıöçĞÜŞİÖÇ\s]/g, '').replace(/\s+/g, '-')}`}
+                        className="w-full"
                       >
-                        <Plus className="w-4 h-4" />
-                        Sepete Ekle
-                      </motion.button>
-                      <motion.button
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        onClick={() => {
-                          handleAddToCart({
+                        <motion.button
+                          whileHover={{ scale: 1.02 }}
+                          whileTap={{ scale: 0.98 }}
+                          className="w-full px-4 py-2.5 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white rounded-lg font-semibold transition-all duration-200 text-sm flex items-center justify-center gap-2"
+                        >
+                          <Eye className="w-4 h-4" />
+                          Detayları Gör
+                        </motion.button>
+                      </Link>
+                      <div className="flex items-center gap-2">
+                        <motion.button
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
+                          onClick={() => handleAddToCart({
                             ...experience,
                             type: 'tour',
                             price: typeof experience.price === 'string' ?
                               parseFloat(experience.price.replace(/[^0-9]/g, '')) : experience.price
-                          });
-                          router.push('/checkout');
-                        }}
-                        className="px-4 py-2 bg-ailydian-primary text-white rounded-lg font-medium hover:bg-ailydian-dark transition-colors text-sm"
-                      >
-                        Rezervasyon Yap
-                      </motion.button>
+                          })}
+                          className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded-lg transition-all duration-200 font-medium text-sm"
+                        >
+                          <Plus className="w-4 h-4" />
+                          Sepete Ekle
+                        </motion.button>
+                        <motion.button
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
+                          onClick={() => {
+                            handleAddToCart({
+                              ...experience,
+                              type: 'tour',
+                              price: typeof experience.price === 'string' ?
+                                parseFloat(experience.price.replace(/[^0-9]/g, '')) : experience.price
+                            });
+                            router.push('/checkout');
+                          }}
+                          className="flex-1 px-4 py-2 bg-ailydian-primary text-white rounded-lg font-medium hover:bg-ailydian-dark transition-colors text-sm"
+                        >
+                          Rezervasyon
+                        </motion.button>
+                      </div>
                     </div>
                   </div>
                 </motion.div>
@@ -653,16 +690,16 @@ const GetYourGuideStyleHome: React.FC = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: destination.id * 0.1 }}
-                  className="group cursor-pointer"
+                  className="group"
                 >
                   <div className="relative h-64 rounded-2xl overflow-hidden mb-4">
-                    <img 
-                      src={destination.image} 
+                    <img
+                      src={destination.image}
                       alt={destination.name}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-                    
+
                     <div className="absolute top-4 left-4">
                       <span className="px-3 py-1 bg-white/90 text-gray-800 rounded-full text-sm font-medium">
                         {destination.badge}
@@ -675,15 +712,29 @@ const GetYourGuideStyleHome: React.FC = () => {
                     </div>
                   </div>
 
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <p className="text-gray-600">{destination.experiences} deneyim</p>
-                      <div className="flex items-center gap-1 mt-1">
-                        <Star className="w-4 h-4 text-yellow-500 fill-current" />
-                        <span className="font-medium">{destination.rating}</span>
+                  <div className="space-y-3">
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <p className="text-gray-600">{destination.experiences} deneyim</p>
+                        <div className="flex items-center gap-1 mt-1">
+                          <Star className="w-4 h-4 text-yellow-500 fill-current" />
+                          <span className="font-medium">{destination.rating}</span>
+                        </div>
                       </div>
                     </div>
-                    <ChevronRight className="w-5 h-5 text-gray-400 group-hover:text-green-600 transition-colors" />
+                    <Link
+                      href={`/destinations/${destination.name.toLowerCase().replace(/[^a-z0-9ğüşıöçĞÜŞİÖÇ\s]/g, '').replace(/\s+/g, '-')}`}
+                      className="block"
+                    >
+                      <motion.button
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                        className="w-full px-4 py-2.5 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white rounded-lg font-semibold transition-all duration-200 text-sm flex items-center justify-center gap-2"
+                      >
+                        <Compass className="w-4 h-4" />
+                        Keşfet
+                      </motion.button>
+                    </Link>
                   </div>
                 </motion.div>
               ))}
