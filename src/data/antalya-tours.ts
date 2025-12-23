@@ -684,9 +684,7 @@ export const antalyaTours: ComprehensiveTour[] = [
     region: 'Antalya',
     category: 'adventure',
     description: 'Dağ ve ormanlarda ATV macerası. Toz bulutu ve adrenalin dolu parkur.',
-    longDescription: 'ATV (All Terrain Vehicle) ile Toros Dağları\'nın eteklerinde unutulmaz bir macera deneyimi! Hiçbir deneyim gerektirmeyen bu turda, otomatik ATV\'ler ile dağ yollarında, orman parkurlarında ve çamur yollarında sürüş yapacaksınız.\n\nTur başlamadan önce güvenlik eğitimi ve sürüş pratiği yapılır. Kask, gözlük ve toz maskesi sağlanır. Konvoy halinde hareket edilir ve deneyimli rehber grubu yönlendirir. Parkurumuz hem acemi hem de deneyimli sürücüler için uygundur.\n\nYol boyunca manzara fotoğraf molal
-
-arı verilir. Köy ziyareti ve çay molası dahildir. İki saat sürüş sonrası, çamurlu ATV\'leri yıkama keyfi de size aittir! Tek kişilik veya çift kişilik ATV seçenekleri mevcuttur.',
+    longDescription: 'ATV (All Terrain Vehicle) ile Toros Dağları\'nın eteklerinde unutulmaz bir macera deneyimi! Hiçbir deneyim gerektirmeyen bu turda, otomatik ATV\'ler ile dağ yollarında, orman parkurlarında ve çamur yollarında sürüş yapacaksınız.\n\nTur başlamadan önce güvenlik eğitimi ve sürüş pratiği yapılır. Kask, gözlük ve toz maskesi sağlanır. Konvoy halinde hareket edilir ve deneyimli rehber grubu yönlendirir. Parkurumuz hem acemi hem de deneyimli sürücüler için uygundur.\n\nYol boyunca manzara fotoğraf molaları verilir. Köy ziyareti ve çay molası dahildir. İki saat sürüş sonrası, çamurlu ATV\'leri yıkama keyfi de size aittir! Tek kişilik veya çift kişilik ATV seçenekleri mevcuttur.',
     pricing: calculateBestPrice([550, 600, 575]),
     duration: '4 saat',
     difficulty: 'Orta',
