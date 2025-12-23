@@ -56,8 +56,38 @@ const ToursManagementPage = () => {
   const fetchData = async () => {
     try {
       setLoading(true);
-      // Mock data - will be replaced with real API calls
-      const mockTours: Tour[] = [
+
+      // Fetch real data from API
+      const toursResponse = await fetch('/api/admin/tours?limit=100');
+      const toursData = await toursResponse.json();
+
+      if (toursData.success && toursData.data) {
+        // Transform Prisma data to Tour interface
+        const transformedTours: Tour[] = toursData.data.map((tour: any) => ({
+          id: tour.id,
+          title: tour.name || tour.title,
+          location: tour.destination || tour.location,
+          region: tour.region || 'Türkiye',
+          duration: tour.duration || '1 gün',
+          category: tour.category || 'cultural',
+          groupSize: {
+            min: tour.minGroupSize || 1,
+            max: tour.maxGroupSize || 20
+          },
+          price: tour.price || 0,
+          status: tour.isActive ? 'active' : 'inactive',
+          rating: tour.rating || 4.5,
+          totalBookings: tour.bookingsCount || 0,
+          revenue: (tour.bookingsCount || 0) * (tour.price || 0),
+          language: tour.languages || ['Türkçe', 'English'],
+          includes: tour.includes || [],
+          schedule: tour.schedule || [{ day: 'Her Gün', time: '09:00' }],
+        }));
+
+        setTours(transformedTours);
+      } else {
+        // Fallback to mock data if API fails
+        const mockTours: Tour[] = [
         {
           id: '1',
           title: 'Kapadokya Sıcak Hava Balonu Turu',
@@ -141,10 +171,14 @@ const ToursManagementPage = () => {
         },
       ];
 
-      setTours(mockTours);
-      setGuides(mockGuides);
+        setTours(mockTours);
+        setGuides(mockGuides);
+      }
     } catch (error) {
       console.error('Error fetching data:', error);
+      // Set empty arrays on error
+      setTours([]);
+      setGuides([]);
     } finally {
       setLoading(false);
     }
