@@ -1760,10 +1760,14 @@ export const cesmeTours: ComprehensiveTour[] = [
   }
 ];
 
+// Import Antalya tours
+import antalyaTours from './antalya-tours';
+
 export const allComprehensiveTours = [
   ...marmarisTours,
   ...bodrumTours,
-  ...cesmeTours
+  ...cesmeTours,
+  ...antalyaTours
 ];
 
 export const getToursByRegion = (region: string) => {
