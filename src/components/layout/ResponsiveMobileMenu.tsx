@@ -63,19 +63,19 @@ const ResponsiveMobileMenu: React.FC<ResponsiveMobileMenuProps> = ({
       icon: Home,
       label: 'Ana Sayfa',
       href: '/',
-      color: 'from-blue-500 to-blue-600'
+      color: 'from-green-600 to-emerald-600'
     },
     {
       icon: Building,
       label: 'Oteller',
       href: '/hotels',
-      color: 'from-purple-500 to-purple-600'
+      color: 'from-green-600 to-emerald-600'
     },
     {
       icon: Plane,
       label: 'Uçuşlar',
       href: '/flights',
-      color: 'from-indigo-500 to-indigo-600'
+      color: 'from-green-600 to-emerald-600'
     },
     {
       icon: Car,
@@ -87,31 +87,31 @@ const ResponsiveMobileMenu: React.FC<ResponsiveMobileMenuProps> = ({
       icon: Car,
       label: 'Araç Kiralama',
       href: '/car-rentals',
-      color: 'from-cyan-500 to-cyan-600'
+      color: 'from-green-600 to-emerald-600'
     },
     {
       icon: Home,
       label: 'Konaklama',
       href: '/rentals',
-      color: 'from-purple-500 to-purple-600'
+      color: 'from-green-600 to-emerald-600'
     },
     {
       icon: Compass,
       label: 'Turlar',
       href: '/tours',
-      color: 'from-orange-500 to-orange-600'
+      color: 'from-green-600 to-emerald-600'
     },
     {
       icon: MapPin,
       label: 'Keşfet',
       href: '/destinations',
-      color: 'from-pink-500 to-pink-600'
+      color: 'from-green-600 to-emerald-600'
     },
     {
       icon: Building,
       label: 'Partner',
       href: '/partner',
-      color: 'from-teal-500 to-teal-600'
+      color: 'from-green-600 to-emerald-600'
     }
   ];
 
@@ -121,19 +121,19 @@ const ResponsiveMobileMenu: React.FC<ResponsiveMobileMenuProps> = ({
           icon: User,
           label: 'Profilim',
           href: '/profile/dashboard',
-          color: 'from-gray-500 to-gray-600'
+          color: 'from-green-600 to-emerald-600'
         },
         {
           icon: Calendar,
           label: 'Rezervasyonlarım',
           href: '/bookings',
-          color: 'from-blue-500 to-blue-600'
+          color: 'from-green-600 to-emerald-600'
         },
         {
           icon: Heart,
           label: 'Favorilerim',
           href: '/favorites',
-          color: 'from-red-500 to-red-600'
+          color: 'from-green-600 to-emerald-600'
         },
         {
           icon: ShoppingCart,
@@ -146,13 +146,13 @@ const ResponsiveMobileMenu: React.FC<ResponsiveMobileMenuProps> = ({
           icon: CreditCard,
           label: 'Ödeme Yöntemlerim',
           href: '/profile/payments',
-          color: 'from-purple-500 to-purple-600'
+          color: 'from-green-600 to-emerald-600'
         },
         {
           icon: Settings,
           label: 'Ayarlar',
           href: '/profile/settings',
-          color: 'from-gray-500 to-gray-600'
+          color: 'from-green-600 to-emerald-600'
         }
       ]
     : [
@@ -160,7 +160,7 @@ const ResponsiveMobileMenu: React.FC<ResponsiveMobileMenuProps> = ({
           icon: User,
           label: 'Giriş Yap',
           href: '/auth/signin',
-          color: 'from-blue-500 to-blue-600'
+          color: 'from-green-600 to-emerald-600'
         },
         {
           icon: User,
@@ -326,7 +326,7 @@ const ResponsiveMobileMenu: React.FC<ResponsiveMobileMenuProps> = ({
                   onClick={handleSignOut}
                   className="w-full flex items-center gap-4 p-4 rounded-2xl hover:bg-red-50 active:bg-red-100 transition-all group touch-target mt-2"
                 >
-                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-red-500 to-red-600 flex items-center justify-center shadow-md group-hover:scale-110 transition-transform">
+                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-green-600 to-emerald-600 flex items-center justify-center shadow-md group-hover:scale-110 transition-transform">
                     <LogOut className="w-5 h-5 text-white" />
                   </div>
                   <div className="flex-1 text-left">

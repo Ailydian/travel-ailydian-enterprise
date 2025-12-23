@@ -785,13 +785,13 @@ const ResponsiveHeaderBar: React.FC = () => {
                 {/* Premium Search Button - Opens Quick Search Modal */}
                 <motion.button
                   onClick={() => setIsQuickSearchOpen(true)}
-                  className="relative w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 lg:w-14 lg:h-14 rounded-xl sm:rounded-2xl bg-gradient-to-br from-blue-500 via-blue-600 to-purple-600 flex items-center justify-center shadow-lg hover:shadow-xl transition-all touch-target group overflow-hidden"
+                  className="relative w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 lg:w-14 lg:h-14 rounded-xl sm:rounded-2xl bg-gradient-to-br from-green-600 to-emerald-600 flex items-center justify-center shadow-lg hover:shadow-xl transition-all touch-target group overflow-hidden"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   aria-label="Hızlı Arama"
                 >
                   {/* Background Glow */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-400 to-purple-400 opacity-50 group-hover:opacity-75 blur-md transition-opacity" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-green-500 to-emerald-500 opacity-50 group-hover:opacity-75 blur-md transition-opacity" />
 
                   {/* Animated Sparkle Effect */}
                   <motion.div
@@ -860,7 +860,7 @@ const ResponsiveHeaderBar: React.FC = () => {
                     <motion.span
                       initial={{ scale: 0 }}
                       animate={{ scale: 1 }}
-                      className="absolute -top-1 -right-1 min-w-[18px] h-[18px] sm:min-w-[20px] sm:h-5 bg-gradient-to-br from-red-500 to-pink-500 text-white text-[10px] sm:text-xs font-bold rounded-full flex items-center justify-center shadow-lg px-1"
+                      className="absolute -top-1 -right-1 min-w-[18px] h-[18px] sm:min-w-[20px] sm:h-5 bg-gradient-to-br from-green-600 to-emerald-600 text-white text-[10px] sm:text-xs font-bold rounded-full flex items-center justify-center shadow-lg px-1"
                     >
                       {cartItemCount > 9 ? '9+' : cartItemCount}
                     </motion.span>
