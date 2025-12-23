@@ -55,195 +55,30 @@ const allTours = [...antalyaTours, ...allComprehensiveTours];
 
 // Get tour data by slug from real data
 const getTourBySlug = (slug: string) => {
-  const tour = allTours.find(t => t.slug === slug);
+  // Try exact match first
+  let tour = allTours.find(t => t.slug === slug);
+
+  // If not found, try case-insensitive match
+  if (!tour) {
+    tour = allTours.find(t => t.slug?.toLowerCase() === slug?.toLowerCase());
+  }
+
+  // If still not found, try partial match (for URL variations)
+  if (!tour) {
+    const normalizedSlug = slug?.toLowerCase().replace(/[^a-z0-9]/g, '');
+    tour = allTours.find(t => {
+      const normalizedTourSlug = t.slug?.toLowerCase().replace(/[^a-z0-9]/g, '');
+      return normalizedTourSlug === normalizedSlug ||
+             normalizedTourSlug?.includes(normalizedSlug) ||
+             normalizedSlug?.includes(normalizedTourSlug);
+    });
+  }
 
   if (!tour) {
-    // Fallback to default Istanbul tour if not found
-    return {
-      id: '1',
-      slug: 'istanbul-bogaz-turu-gunbatimi',
-      title: 'İstanbul Boğaz Turu - Gün Batımı Özel',
-    subtitle: 'Muhteşem manzaralar eşliğinde unutulmaz bir gün batımı deneyimi',
-    rating: 4.9,
-    reviewCount: 2847,
-    bookingCount: 12450,
-    badges: ['En Çok Satan', 'VIP Deneyim', '2024 Excellence Award'],
-    price: 450,
-    originalPrice: 650,
-    discount: 31,
-    duration: '3 saat',
-    language: ['Türkçe', 'İngilizce', 'Arapça'],
-    groupSize: 'Maksimum 50 kişi',
-    category: 'Tekne Turları',
-    location: 'İstanbul Boğazı',
-    meetingPoint: 'Kabataş Sahil, Beşiktaş - İstanbul',
-    meetingPointCoords: { lat: 41.0382, lng: 29.0074 },
-    cancellationPolicy: '24 saat öncesine kadar ücretsiz iptal',
-    instantConfirmation: true,
-    mobileTicket: true,
-    skipTheLine: false,
-
-    images: [
-      'https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?w=1200',
-      'https://images.unsplash.com/photo-1541432901042-2d8bd64b4a9b?w=1200',
-      'https://images.unsplash.com/photo-1527838832700-5059252407fa?w=1200',
-      'https://images.unsplash.com/photo-1605084344326-53c89d7d5371?w=1200',
-      'https://images.unsplash.com/photo-1567095761054-7a02e69e5c43?w=1200',
-    ],
-
-    videoUrl: 'https://www.youtube.com/embed/sample-video', // Benzersiz özellik
-
-    highlights: [
-      'Profesyonel rehber eşliğinde İstanbul Boğazı turu',
-      'Gün batımı manzarası eşliğinde seyahat',
-      'Rumeli Hisarı ve Anadolu Hisarı görüntüleme',
-      'Dolmabahçe Sarayı ve Çırağan Sarayı',
-      'Boğaz Köprüleri altından geçiş',
-      'Ücretsiz içecek servisi',
-      'Fotoğraf çekimi için özel molalar',
-      'Canlı müzik performansı',
-    ],
-
-    description: `İstanbul'un en ikonik deneyimlerinden biri olan Boğaz Turu'nda, şehrin iki yakasını birbirine bağlayan bu muhteşem suyolunda unutulmaz bir yolculuk yapacaksınız.
-
-Gün batımı sırası başlayan turumuzda, İstanbul'un en özel manzaralarını profesyonel rehberimizin anlatımıyla keşfedeceksiniz. Tarihi yarımadadan Karadeniz'e kadar uzanan rotamızda, Dolmabahçe Sarayı, Çırağan Sarayı, Rumeli Hisarı, Anadolu Hisarı, Ortaköy Camii ve Boğaz Köprüleri gibi simgesel yapıları göreceksiniz.
-
-Lüks teknemizdeki konforlu koltuklar, açık ve kapalı alanlar sayesinde her mevsim keyifle gezebilirsiniz. Ücretsiz içecek servisi ve canlı müzik eşliğinde, İstanbul'u bambaşka bir açıdan deneyimleyin.`,
-
-    itinerary: [
-      {
-        time: '17:00',
-        title: 'Buluşma ve Karşılama',
-        description: 'Kabataş iskelesinde misafirlerimizi karşılıyor ve tekneye bindiriyoruz.',
-        duration: '15 dk',
-      },
-      {
-        time: '17:15',
-        title: 'Dolmabahçe Sarayı ve Beşiktaş',
-        description: 'Boğaz kıyısındaki en görkemli saraylara doğru yol alıyoruz.',
-        duration: '30 dk',
-      },
-      {
-        time: '17:45',
-        title: 'Ortaköy ve Boğaziçi Köprüsü',
-        description: 'Ortaköy Camii\'nin muhteşem manzarası ve 1. Köprü altından geçiş.',
-        duration: '30 dk',
-      },
-      {
-        time: '18:15',
-        title: 'Rumeli Hisarı ve Anadolu Hisarı',
-        description: 'Fatih Sultan Mehmet\'in Boğaz\'ı kontrol etmek için yaptırdığı kaleler.',
-        duration: '30 dk',
-      },
-      {
-        time: '18:45',
-        title: 'Gün Batımı ve Dönüş',
-        description: 'Muhteşem gün batımını izlerken Kabataş iskelesine dönüyoruz.',
-        duration: '45 dk',
-      },
-    ],
-
-    included: [
-      '3 saatlik Boğaz turu',
-      'Profesyonel Türkçe/İngilizce rehber',
-      'Canlı müzik performansı',
-      'Ücretsiz içecek (çay, kahve, su)',
-      'Tekne üzerinde WiFi',
-      'Fotoğraf çekimi için özel molalar',
-      'Ses sistemi ve mikrofonla anlatım',
-      'Güvenlik ekipmanları',
-    ],
-
-    excluded: [
-      'Yemekler',
-      'Alkollü içecekler',
-      'Otel transfer hizmeti',
-      'Kişisel harcamalar',
-      'Bahşiş (opsiyonel)',
-    ],
-
-    requirements: [
-      'Geçerli kimlik veya pasaport',
-      'Rezervasyon onay belgesi (mobil veya basılı)',
-      'Uygun giyim (akşam serinleyebilir)',
-      'Fotoğraf makinesi / kamera (opsiyonel)',
-    ],
-
-    importantInfo: [
-      'Tur hava koşullarına bağlıdır, kötü hava durumunda iptal edilebilir',
-      'Tekne tam kapasitede çalışır, erken rezervasyon önerilir',
-      'Çocuklar için özel indirim mevcuttur',
-      'Engelli erişimi sınırlıdır, lütfen önceden bilgi alın',
-      'Deniz tutması olan misafirler ilaç almayı unutmamalı',
-    ],
-
-    reviews: [
-      {
-        id: '1',
-        author: 'Mehmet Yılmaz',
-        avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=mehmet',
-        rating: 5,
-        date: '2024-12-15',
-        title: 'Muhteşem bir deneyim!',
-        text: 'Gün batımı sırasında Boğaz\'ı görmek paha biçilemez. Rehberimiz çok bilgiliydi, müzik harikaydi. Kesinlikle tavsiye ederim!',
-        helpful: 127,
-        verified: true,
-      },
-      {
-        id: '2',
-        author: 'Sarah Johnson',
-        avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=sarah',
-        rating: 5,
-        date: '2024-12-10',
-        title: 'Best tour in Istanbul!',
-        text: 'The sunset cruise was absolutely magical. Our guide spoke perfect English and shared fascinating stories about the historical sites. Highly recommended!',
-        helpful: 89,
-        verified: true,
-      },
-      {
-        id: '3',
-        author: 'Ali Kara',
-        avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=ali',
-        rating: 4,
-        date: '2024-12-05',
-        title: 'Çok güzeldi',
-        text: 'Tekne çok lükstü, manzaralar harikaydı. Sadece biraz daha uzun olabilirdi. Genel olarak çok memnun kaldım.',
-        helpful: 45,
-        verified: true,
-      },
-    ],
-
-    faqs: [
-      {
-        question: 'Tur iptal edilirse ne olur?',
-        answer: 'Kötü hava koşulları nedeniyle tur iptal edilirse, tam iade yapılır veya başka bir tarihe ertelenebilir.',
-      },
-      {
-        question: 'Çocuklar için uygun mu?',
-        answer: 'Evet, tur tüm yaş grupları için uygundur. 6 yaş altı çocuklar ücretsiz, 6-12 yaş arası %50 indirimlidir.',
-      },
-      {
-        question: 'Yemek servisi var mı?',
-        answer: 'Ücretsiz içecek servisi vardır. Yemek için teknede büfe mevcuttur (ekstra ücret karşılığı).',
-      },
-      {
-        question: 'Fotoğraf çekebilir miyiz?',
-        answer: 'Elbette! Özel fotoğraf molalarımız vardır. Ayrıca profesyonel fotoğrafçı hizmeti de mevcuttur (opsiyonel).',
-      },
-    ],
-
-    guide: {
-      name: 'Ahmet Demir',
-      title: 'Turizm Rehberi',
-      rating: 4.9,
-      tours: 1247,
-      years: 12,
-      languages: ['Türkçe', 'İngilizce', 'Almanca'],
-      bio: '12 yıldır İstanbul\'da profesyonel turizm rehberliği yapıyorum. Boğaz turları ve tarihi yarımada turları konusunda uzmanım.',
-      avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=ahmet',
-    },
-  };
+    // Return null instead of fallback - this will show 404
+    return null;
   }
+
 
   // Return real tour data mapped to the expected format
   return {
@@ -390,6 +225,24 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
   const [showBookingPanel, setShowBookingPanel] = useState(false);
 
   const tour = getTourBySlug(slug as string);
+
+  // If tour not found, show 404
+  if (!tour) {
+    return (
+      <>
+        <SimplifiedHeader />
+        <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+          <div className="text-center">
+            <h1 className="text-4xl font-bold text-gray-900 mb-4">Tur Bulunamadı</h1>
+            <p className="text-gray-600 mb-8">Aradığınız tur mevcut değil veya kaldırılmış olabilir.</p>
+            <Link href="/tours" className="px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors">
+              Tüm Turları Görüntüle
+            </Link>
+          </div>
+        </div>
+      </>
+    );
+  }
 
   const handleShare = async () => {
     if (navigator.share) {
