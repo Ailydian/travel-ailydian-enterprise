@@ -280,6 +280,9 @@ Lüks teknemizdeki konforlu koltuklar, açık ve kapalı alanlar sayesinde her m
     description: tour.longDescription || tour.description,
     included: tour.included || [],
     excluded: tour.excluded || [],
+    seoTitle: tour.seo?.metaTitle,
+    seoDescription: tour.seo?.metaDescription,
+    seoKeywords: tour.seo?.keywords,
     requirements: [
       'Geçerli kimlik veya pasaport',
       'Rezervasyon onay belgesi (mobil veya basılı)',
@@ -414,18 +417,139 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
   return (
     <>
       <NextSeo
-        title={`${tour.title} | Ailydian Travel`}
-        description={tour.subtitle}
+        title={tour.seoTitle || `${tour.title} | En Uygun Fiyat Garantisi | Ailydian Travel`}
+        description={tour.seoDescription || `${tour.subtitle} - ${tour.location}. Online rezervasyon, anında onay, ücretsiz iptal. En iyi fiyat garantisi ile şimdi rezervasyon yapın!`}
+        canonical={`https://travel.ailydian.com/tours/${slug}`}
         openGraph={{
-          title: tour.title,
-          description: tour.subtitle,
-          images: [{ url: tour.images[0] }],
+          title: tour.seoTitle || tour.title,
+          description: tour.seoDescription || tour.subtitle,
+          images: tour.images.map(img => ({ url: img, alt: tour.title })),
           type: 'website',
+          url: `https://travel.ailydian.com/tours/${slug}`,
+          siteName: 'Ailydian Travel',
+          locale: 'tr_TR',
         }}
+        twitter={{
+          cardType: 'summary_large_image',
+          handle: '@ailydian',
+          site: '@ailydian',
+        }}
+        additionalMetaTags={[
+          {
+            name: 'keywords',
+            content: tour.seoKeywords?.join(', ') || `${tour.title}, ${tour.location}, tur, gezi, seyahat, tatil, rezervasyon`,
+          },
+          {
+            name: 'author',
+            content: 'Ailydian Travel',
+          },
+          {
+            name: 'robots',
+            content: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
+          },
+          {
+            name: 'rating',
+            content: tour.rating.toString(),
+          },
+          {
+            property: 'product:price:amount',
+            content: tour.price.toString(),
+          },
+          {
+            property: 'product:price:currency',
+            content: 'TRY',
+          },
+        ]}
+        additionalLinkTags={[
+          {
+            rel: 'alternate',
+            hrefLang: 'tr',
+            href: `https://travel.ailydian.com/tours/${slug}`,
+          },
+          {
+            rel: 'alternate',
+            hrefLang: 'en',
+            href: `https://travel.ailydian.com/en/tours/${slug}`,
+          },
+        ]}
       />
 
       <Head>
         <link rel="canonical" href={`https://travel.ailydian.com/tours/${slug}`} />
+        {/* Structured Data - Tour Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'TouristTrip',
+              name: tour.title,
+              description: tour.description,
+              image: tour.images,
+              offers: {
+                '@type': 'Offer',
+                price: tour.price,
+                priceCurrency: 'TRY',
+                availability: 'https://schema.org/InStock',
+                url: `https://travel.ailydian.com/tours/${slug}`,
+                validFrom: new Date().toISOString(),
+              },
+              provider: {
+                '@type': 'Organization',
+                name: 'Ailydian Travel',
+                url: 'https://travel.ailydian.com',
+              },
+              touristType: tour.category,
+              duration: tour.duration,
+              aggregateRating: {
+                '@type': 'AggregateRating',
+                ratingValue: tour.rating,
+                reviewCount: tour.reviewCount,
+                bestRating: 5,
+                worstRating: 1,
+              },
+              location: {
+                '@type': 'Place',
+                name: tour.location,
+                address: {
+                  '@type': 'PostalAddress',
+                  addressLocality: tour.location,
+                  addressCountry: 'TR',
+                },
+              },
+            }),
+          }}
+        />
+        {/* Breadcrumb Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'BreadcrumbList',
+              itemListElement: [
+                {
+                  '@type': 'ListItem',
+                  position: 1,
+                  name: 'Ana Sayfa',
+                  item: 'https://travel.ailydian.com',
+                },
+                {
+                  '@type': 'ListItem',
+                  position: 2,
+                  name: 'Turlar',
+                  item: 'https://travel.ailydian.com/tours',
+                },
+                {
+                  '@type': 'ListItem',
+                  position: 3,
+                  name: tour.title,
+                  item: `https://travel.ailydian.com/tours/${slug}`,
+                },
+              ],
+            }),
+          }}
+        />
       </Head>
 
       <SimplifiedHeader />

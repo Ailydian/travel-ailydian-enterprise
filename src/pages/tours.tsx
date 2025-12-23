@@ -35,6 +35,7 @@ import { allComprehensiveTours as importedComprehensiveTours } from '../data/mar
 const allComprehensiveTours = importedComprehensiveTours.map(tour => ({
   id: tour.id,
   name: tour.name,
+  slug: tour.slug, // Add slug from real data
   location: `${tour.region}, Türkiye`,
   image: tour.images[0],
   price: tour.pricing.travelAilydian,
@@ -856,7 +857,7 @@ export default function Tours() {
                     {/* Action Buttons */}
                     <div className="space-y-2">
                       <Link
-                        href={`/tours/${tour.name.toLowerCase().replace(/[^a-z0-9ğüşıöçĞÜŞİÖÇ\s]/g, '').replace(/\s+/g, '-')}`}
+                        href={`/tours/${tour.slug || tour.name.toLowerCase().replace(/[^a-z0-9ğüşıöçĞÜŞİÖÇ\s]/g, '').replace(/\s+/g, '-')}`}
                         className="block"
                       >
                         <motion.button
