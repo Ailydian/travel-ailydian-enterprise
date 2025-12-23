@@ -852,11 +852,4 @@ export const useWizardStore = create<WizardStore>()(
   )
 );
 
-// Export additional stores (useDashboardStore already exported above)
-export {
-  useBookingStore,
-  useMessageStore,
-  useAnalyticsStore,
-  useUIStore,
-  useWizardStore,
-};
+// All stores are already exported above with their definitions
