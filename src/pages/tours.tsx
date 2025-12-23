@@ -856,7 +856,7 @@ export default function Tours() {
                     {/* Action Buttons */}
                     <div className="space-y-2">
                       <Link
-                        href={`/tours/${tour.title.toLowerCase().replace(/[^a-z0-9ğüşıöçĞÜŞİÖÇ\s]/g, '').replace(/\s+/g, '-')}`}
+                        href={`/tours/${tour.name.toLowerCase().replace(/[^a-z0-9ğüşıöçĞÜŞİÖÇ\s]/g, '').replace(/\s+/g, '-')}`}
                         className="block"
                       >
                         <motion.button
