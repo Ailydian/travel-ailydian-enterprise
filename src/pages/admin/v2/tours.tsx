@@ -61,6 +61,9 @@ const ToursManagementPage = () => {
       const toursResponse = await fetch('/api/admin/tours?limit=100');
       const toursData = await toursResponse.json();
 
+      console.log('[Tours Debug] API Response:', toursData);
+      console.log('[Tours Debug] Data length:', toursData.data?.length);
+
       if (toursData.success && toursData.data && toursData.data.length > 0) {
         // Transform Prisma data to Tour interface
         const transformedTours: Tour[] = toursData.data.map((tour: any) => ({
@@ -86,7 +89,8 @@ const ToursManagementPage = () => {
 
         setTours(transformedTours);
       } else {
-        // Fallback to mock data if API fails
+        // Fallback to mock data if database is empty
+        console.log('[Tours Debug] Using fallback mock data - database is empty');
         const mockTours: Tour[] = [
         {
           id: '1',
@@ -173,9 +177,10 @@ const ToursManagementPage = () => {
 
         setTours(mockTours);
         setGuides(mockGuides);
+        console.log('[Tours Debug] Mock data set successfully:', mockTours.length, 'tours');
       }
     } catch (error) {
-      console.error('Error fetching data:', error);
+      console.error('[Tours Debug] Error fetching data:', error);
       // Set empty arrays on error
       setTours([]);
       setGuides([]);
