@@ -662,13 +662,14 @@ const ResponsiveHeaderBar: React.FC = () => {
         <div className="mobile-nav-safe">
           <div className="container-responsive px-3 sm:px-4">
             <div className="flex items-center justify-between h-14 sm:h-16 md:h-20">
-              {/* Left: Menu Button (Mobile) + Logo */}
+              {/* Left: Logo Only (Desktop) / Menu Button + Logo (Mobile) */}
               <div className="flex items-center gap-2 sm:gap-3 md:gap-4">
-                {/* Mobile Menu Button */}
+                {/* Mobile Menu Button - ONLY MOBILE/TABLET (Hidden on Desktop) */}
                 <button
                   onClick={() => setIsMobileMenuOpen(true)}
                   className="lg:hidden w-10 h-10 rounded-xl bg-gradient-to-br from-ailydian-primary/10 to-ailydian-secondary/10 hover:from-ailydian-primary/20 hover:to-ailydian-secondary/20 flex items-center justify-center transition-all active:scale-95 touch-target"
                   aria-label="Menüyü Aç"
+                  title="Menü"
                 >
                   <Menu className="w-5 h-5 text-ailydian-primary" />
                 </button>
