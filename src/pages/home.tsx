@@ -60,6 +60,7 @@ import antalyaTransfers from '@/data/antalya-transfers';
 import antalyaCarRentals from '@/data/antalya-car-rentals';
 import { BookingSearchForm } from '../components/booking/BookingSearchForm';
 import { BookingProductCard } from '../components/booking/BookingProductCard';
+import { FilterSidebar } from '../components/booking/FilterSidebar';
 
 const GetYourGuideStyleHome: React.FC = () => {
   // Router
@@ -70,6 +71,9 @@ const GetYourGuideStyleHome: React.FC = () => {
 
   // Search results state (still needed for search results section)
   const [searchResults, setSearchResults] = useState<any[]>([]);
+
+  // Mobile filter state
+  const [showMobileFilters, setShowMobileFilters] = useState(false);
   
   // Add to cart function
   const handleAddToCart = useCallback((item: any) => {
@@ -495,7 +499,7 @@ const GetYourGuideStyleHome: React.FC = () => {
         )}
 
 
-        {/* Top Experiences - Booking.com Style Horizontal Listing */}
+        {/* Top Experiences - Booking.com Style Horizontal Listing with Sidebar */}
         <section className="py-16 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4">
             {/* Header */}
@@ -505,16 +509,20 @@ const GetYourGuideStyleHome: React.FC = () => {
                   <h2 className="text-3xl font-bold text-gray-900 mb-2">Türkiye: {topExperiences.length} özellik bulundu</h2>
                   <p className="text-gray-600">En popüler turlar ve aktiviteler</p>
                 </div>
-                <Link href="/tours" className="flex items-center gap-2 text-ailydian-primary hover:text-ailydian-dark font-medium">
+                <Link href="/tours" className="hidden md:flex items-center gap-2 text-ailydian-primary hover:text-ailydian-dark font-medium">
                   Tüm Turları Gör
                   <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
 
               {/* Sorting & View Options */}
-              <div className="flex items-center justify-between">
+              <div className="flex items-center justify-between flex-wrap gap-4">
                 <div className="flex items-center gap-2">
-                  <button className="px-4 py-2 bg-white border border-gray-300 rounded-lg text-sm font-medium hover:border-ailydian-primary transition-colors">
+                  {/* Mobile Filter Button */}
+                  <button
+                    onClick={() => setShowMobileFilters(true)}
+                    className="md:hidden px-4 py-2 bg-white border border-gray-300 rounded-lg text-sm font-medium hover:border-ailydian-primary transition-colors"
+                  >
                     <Filter className="w-4 h-4 inline mr-2" />
                     Filtreler
                   </button>
@@ -526,38 +534,87 @@ const GetYourGuideStyleHome: React.FC = () => {
                   </select>
                 </div>
                 <div className="text-sm text-gray-600">
-                  <span className="font-medium">{topExperiences.length}</span> sonuçtan <span className="font-medium">1-{Math.min(3, topExperiences.length)}</span> arası gösteriliyor
+                  <span className="font-medium">{topExperiences.length}</span> sonuçtan <span className="font-medium">1-{Math.min(6, topExperiences.length)}</span> arası gösteriliyor
                 </div>
               </div>
             </div>
 
-            {/* Horizontal Product Cards - Booking.com Style */}
-            <div className="space-y-4">
-              {topExperiences.slice(0, 6).map((experience, index) => (
-                <BookingProductCard
-                  key={experience.id}
-                  id={experience.id}
-                  title={experience.title}
-                  location={experience.location}
-                  rating={experience.rating}
-                  reviewCount={experience.reviews}
-                  images={[experience.image]}
-                  price={typeof experience.price === 'string' ? parseFloat(experience.price.replace(/[^0-9]/g, '')) : experience.price}
-                  originalPrice={experience.originalPrice ? (typeof experience.originalPrice === 'string' ? parseFloat(experience.originalPrice.replace(/[^0-9]/g, '')) : experience.originalPrice) : undefined}
-                  currency="₺"
-                  features={experience.highlights}
-                  badges={experience.badges}
-                  description={`${experience.duration} · ${experience.category}`}
-                  href={`/tours/${experience.title.toLowerCase().replace(/[^a-z0-9ğüşıöçĞÜŞİÖÇ\s]/g, '').replace(/\s+/g, '-')}`}
-                  type="tour"
-                  onAddToCart={() => handleAddToCart({
-                    ...experience,
-                    type: 'tour',
-                    price: typeof experience.price === 'string' ?
-                      parseFloat(experience.price.replace(/[^0-9]/g, '')) : experience.price
-                  })}
+            {/* Sidebar + Main Content Layout */}
+            <div className="flex flex-col md:flex-row gap-6">
+              {/* Left Sidebar - Desktop Only */}
+              <aside className="hidden md:block w-80 flex-shrink-0">
+                <FilterSidebar
+                  isMobile={false}
+                  onFilterChange={(filters) => {
+                    console.log('Filters applied:', filters);
+                    // TODO: Apply filters to products
+                  }}
                 />
-              ))}
+              </aside>
+
+              {/* Mobile Filter Sidebar */}
+              <FilterSidebar
+                isMobile={true}
+                isOpen={showMobileFilters}
+                onClose={() => setShowMobileFilters(false)}
+                onFilterChange={(filters) => {
+                  console.log('Filters applied:', filters);
+                  // TODO: Apply filters to products
+                }}
+              />
+
+              {/* Main Content - Product Listing */}
+              <div className="flex-1">
+                <div className="space-y-4">
+                  {topExperiences.slice(0, 6).map((experience, index) => (
+                    <BookingProductCard
+                      key={experience.id}
+                      id={experience.id}
+                      title={experience.title}
+                      location={experience.location}
+                      rating={experience.rating}
+                      reviewCount={experience.reviews}
+                      images={[experience.image]}
+                      price={typeof experience.price === 'string' ? parseFloat(experience.price.replace(/[^0-9]/g, '')) : experience.price}
+                      originalPrice={experience.originalPrice ? (typeof experience.originalPrice === 'string' ? parseFloat(experience.originalPrice.replace(/[^0-9]/g, '')) : experience.originalPrice) : undefined}
+                      currency="₺"
+                      features={experience.highlights}
+                      badges={experience.badges}
+                      description={`${experience.duration} · ${experience.category}`}
+                      href={`/tours/${experience.title.toLowerCase().replace(/[^a-z0-9ğüşıöçĞÜŞİÖÇ\s]/g, '').replace(/\s+/g, '-')}`}
+                      type="tour"
+                      onAddToCart={() => handleAddToCart({
+                        ...experience,
+                        type: 'tour',
+                        price: typeof experience.price === 'string' ?
+                          parseFloat(experience.price.replace(/[^0-9]/g, '')) : experience.price
+                      })}
+                    />
+                  ))}
+                </div>
+
+                {/* Pagination */}
+                <div className="mt-8 flex justify-center">
+                  <div className="flex items-center gap-2">
+                    <button className="px-4 py-2 border border-gray-300 rounded-lg text-sm font-medium hover:bg-gray-50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed" disabled>
+                      Önceki
+                    </button>
+                    <button className="px-4 py-2 bg-ailydian-primary text-white rounded-lg text-sm font-medium">
+                      1
+                    </button>
+                    <button className="px-4 py-2 border border-gray-300 rounded-lg text-sm font-medium hover:bg-gray-50 transition-colors">
+                      2
+                    </button>
+                    <button className="px-4 py-2 border border-gray-300 rounded-lg text-sm font-medium hover:bg-gray-50 transition-colors">
+                      3
+                    </button>
+                    <span className="px-2 text-gray-500">...</span>
+                    <button className="px-4 py-2 border border-gray-300 rounded-lg text-sm font-medium hover:bg-gray-50 transition-colors">
+                      Sonraki
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
