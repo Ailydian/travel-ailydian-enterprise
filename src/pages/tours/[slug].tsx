@@ -1113,7 +1113,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   // Also include legacy tour slugs for backward compatibility
   const legacySlugs = [
     'istanbul-bogaz-turu-gunbatimi',
-    'kapadokya-balon-turu',
+    'kapadokya-balon-ve-doga-turu', // Fixed: updated to match tours.tsx
     'efes-antik-kenti-turu',
     'pamukkale-hierapolis-turu',
     'antalya-tekne-turu',
