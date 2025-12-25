@@ -61,6 +61,7 @@ import antalyaCarRentals from '@/data/antalya-car-rentals';
 import { BookingSearchForm } from '../components/booking/BookingSearchForm';
 import { BookingProductCard } from '../components/booking/BookingProductCard';
 import { FilterSidebar } from '../components/booking/FilterSidebar';
+import AIRecommendations from '../components/ai/AIRecommendations';
 
 const GetYourGuideStyleHome: React.FC = () => {
   // Router
@@ -1147,6 +1148,9 @@ const GetYourGuideStyleHome: React.FC = () => {
             </div>
           </div>
         </section>
+
+        {/* AI Recommendations Widget - Claude Innovation */}
+        <AIRecommendations />
       </main>
 
       {/* Floating Signup Button */}
