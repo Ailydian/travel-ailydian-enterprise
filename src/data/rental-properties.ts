@@ -113,12 +113,12 @@ export const rentalProperties: RentalProperty[] = [
       coordinates: { lat: 36.4979, lng: 32.1261 }
     },
     images: [
-      'https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=1920&q=80',
-      'https://images.unsplash.com/photo-1602343168117-bb8ffe3e2e9f?w=1920&q=80',
-      'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1920&q=80',
-      'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1920&q=80',
-      'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1920&q=80',
-      'https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=1920&q=80'
+      'https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?auto=format&fit=crop&w=1920&q=80', // Luxury villa infinity pool Mediterranean sea view Turkey
+      'https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=1920&q=80', // Villa terrace sunset Alanya Mediterranean coast
+      'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1920&q=80', // Modern villa interior luxury living room Turkey
+      'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1920&q=80', // Villa garden pool deck lounge chairs sea view
+      'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1920&q=80', // Luxury villa bedroom master suite ocean view
+      'https://images.unsplash.com/photo-1600607687644-c7171b42498f?auto=format&fit=crop&w=1920&q=80'  // Villa outdoor dining terrace Mediterranean sunset
     ],
     host: {
       id: 'host-001',
@@ -226,12 +226,12 @@ export const rentalProperties: RentalProperty[] = [
       coordinates: { lat: 36.8583, lng: 30.7728 }
     },
     images: [
-      'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1920&q=80',
-      'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=1920&q=80',
-      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920&q=80',
-      'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=1920&q=80',
-      'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=1920&q=80',
-      'https://images.unsplash.com/photo-1600210492493-0946911123ea?w=1920&q=80'
+      'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=1920&q=80', // Modern apartment building exterior Antalya Mediterranean
+      'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=1920&q=80', // Luxury apartment living room modern interior design
+      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1920&q=80', // Apartment bedroom contemporary minimalist Antalya
+      'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=1920&q=80', // Modern apartment bathroom marble luxury
+      'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1920&q=80', // Apartment balcony sea view Antalya coast
+      'https://images.unsplash.com/photo-1600210492493-0946911123ea?auto=format&fit=crop&w=1920&q=80'  // Residence pool complex Antalya luxury
     ],
     host: {
       id: 'host-002',
@@ -334,12 +334,12 @@ export const rentalProperties: RentalProperty[] = [
       coordinates: { lat: 36.7951, lng: 28.0624 }
     },
     images: [
-      'https://images.unsplash.com/photo-1602343168117-bb8ffe3e2e9f?w=1920&q=80',
-      'https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=1920&q=80',
-      'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1920&q=80',
-      'https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1920&q=80',
-      'https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?w=1920&q=80',
-      'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1920&q=80'
+      'https://images.unsplash.com/photo-1602343168117-bb8ffe3e2e9f?auto=format&fit=crop&w=1920&q=80', // Luxury villa pool sunset Marmaris Aegean Sea
+      'https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=1920&q=80', // Modern villa architecture exterior white Turkey
+      'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1920&q=80', // Villa living room contemporary luxury interior
+      'https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1920&q=80', // Villa infinity pool overlooking sea Marmaris
+      'https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?auto=format&fit=crop&w=1920&q=80', // Villa terrace lounge furniture mountain view
+      'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1920&q=80'  // Villa bedroom luxury suite sea view Marmaris
     ],
     host: {
       id: 'host-003',
@@ -444,12 +444,12 @@ export const rentalProperties: RentalProperty[] = [
       coordinates: { lat: 37.1486, lng: 27.2658 }
     },
     images: [
-      'https://images.unsplash.com/photo-1600047509358-9dc75507daeb?w=1920&q=80',
-      'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=1920&q=80',
-      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920&q=80',
-      'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=1920&q=80',
-      'https://images.unsplash.com/photo-1600573472556-e91efa960777?w=1920&q=80',
-      'https://images.unsplash.com/photo-1568052261875-f0c2e4b9ab63?w=1920&q=80'
+      'https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&w=1920&q=80', // Beachfront villa pool Bodrum Aegean Sea Turkey
+      'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1920&q=80', // Luxury villa white architecture Bodrum Yalikavak
+      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1920&q=80', // Villa modern bedroom suite Bodrum luxury
+      'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1920&q=80', // Villa terrace Aegean Sea view Bodrum sunset
+      'https://images.unsplash.com/photo-1600573472556-e91efa960777?auto=format&fit=crop&w=1920&q=80', // Villa infinity pool overlooking bay Bodrum
+      'https://images.unsplash.com/photo-1568052261875-f0c2e4b9ab63?auto=format&fit=crop&w=1920&q=80'  // Luxury villa living room modern Bodrum interior
     ],
     host: {
       id: 'host-004',
@@ -553,12 +553,12 @@ export const rentalProperties: RentalProperty[] = [
       coordinates: { lat: 38.2646, lng: 26.3707 }
     },
     images: [
-      'https://images.unsplash.com/photo-1600585152220-90363fe7e115?w=1920&q=80',
-      'https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=1920&q=80',
-      'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=1920&q=80',
-      'https://images.unsplash.com/photo-1600607687644-aac4c3eac7f4?w=1920&q=80',
-      'https://images.unsplash.com/photo-1590523277543-a94d2e4eb00b?w=1920&q=80',
-      'https://images.unsplash.com/photo-1523217582562-09d0def993a6?w=1920&q=80'
+      'https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=1920&q=80', // Traditional stone house Alacati Cesme vintage exterior
+      'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=1920&q=80', // Stone house modern bathroom luxury Alacati
+      'https://images.unsplash.com/photo-1615876063052-2eaa6c41e99b?auto=format&fit=crop&w=1920&q=80', // Traditional Turkish house garden courtyard Alacati
+      'https://images.unsplash.com/photo-1600607687644-aac4c3eac7f4?auto=format&fit=crop&w=1920&q=80', // Stone house bedroom vintage decor Cesme
+      'https://images.unsplash.com/photo-1590523277543-a94d2e4eb00b?auto=format&fit=crop&w=1920&q=80', // Alacati house terrace outdoor seating area
+      'https://images.unsplash.com/photo-1523217582562-09d0def993a6?auto=format&fit=crop&w=1920&q=80'  // Traditional house living room boho style Cesme
     ],
     host: {
       id: 'host-005',

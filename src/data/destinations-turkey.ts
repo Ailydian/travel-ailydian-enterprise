@@ -87,12 +87,14 @@ export const DESTINATIONS_TURKEY: Destination[] = [
     country: 'Türkiye',
     category: 'historical',
     images: {
-      hero: 'https://images.unsplash.com/photo-1541432901042-2d8bd64b4a9b?w=1200&h=800&fit=crop',
+      hero: 'https://images.unsplash.com/photo-1541432901042-2d8bd64b4a9b?auto=format&fit=crop&w=2400&q=80', // Hagia Sophia and Blue Mosque Istanbul panorama
       gallery: [
-        'https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?w=800&h=600&fit=crop',
-        'https://images.unsplash.com/photo-1527838832700-5059252407fa?w=800&h=600&fit=crop',
-        'https://images.unsplash.com/photo-1561727946-6a970bb942be?w=800&h=600&fit=crop',
-        'https://images.unsplash.com/photo-1566073771259-6a8506862ae3?w=800&h=600&fit=crop'
+        'https://images.unsplash.com/photo-1527838832700-5059252407fa?auto=format&fit=crop&w=1200&q=80', // Hagia Sophia interior dome Istanbul
+        'https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?auto=format&fit=crop&w=1200&q=80', // Blue Mosque Istanbul at dusk
+        'https://images.unsplash.com/photo-1570939274717-7eda259b50ed?auto=format&fit=crop&w=1200&q=80', // Galata Tower Istanbul cityscape
+        'https://images.unsplash.com/photo-1599799761776-ed69c3a46c43?auto=format&fit=crop&w=1200&q=80', // Grand Bazaar Istanbul colorful lamps
+        'https://images.unsplash.com/photo-1561727946-6a970bb942be?auto=format&fit=crop&w=1200&q=80', // Bosphorus Bridge sunset Istanbul
+        'https://images.unsplash.com/photo-1606903028920-f4e1643d5be7?auto=format&fit=crop&w=1200&q=80'  // Topkapi Palace Istanbul gardens
       ]
     },
     coordinates: {
@@ -201,7 +203,7 @@ export const DESTINATIONS_TURKEY: Destination[] = [
       title: 'İstanbul Gezi Rehberi 2024 | Tarihi Yerler, Oteller, Turlar',
       description: 'İstanbul seyahatinizi planlayın! Ayasofya, Topkapı Sarayı, Kapalıçarşı ve daha fazlası. En iyi oteller, restoranlar ve gezi ipuçları. %100 gerçek bilgiler.',
       keywords: ['istanbul', 'istanbul gezi', 'ayasofya', 'sultanahmet', 'boğaz turu', 'istanbul otelleri', 'istanbul turları', 'kapalıçarşı', 'galata kulesi'],
-      ogImage: 'https://images.unsplash.com/photo-1541432901042-2d8bd64b4a9b?w=1200&h=630&fit=crop'
+      ogImage: 'https://images.unsplash.com/photo-1541432901042-2d8bd64b4a9b?auto=format&fit=crop&w=1200&h=630&q=80'
     },
     relatedDestinations: ['bursa', 'canakkale', 'edirne'],
     popularMonths: [4, 5, 6, 9, 10],
@@ -219,12 +221,14 @@ export const DESTINATIONS_TURKEY: Destination[] = [
     country: 'Türkiye',
     category: 'nature',
     images: {
-      hero: 'https://images.unsplash.com/photo-1570939274719-c60ee3bf5cd9?w=1200&h=800&fit=crop',
+      hero: 'https://images.unsplash.com/photo-1606234982193-fcca2e32fb9f?auto=format&fit=crop&w=2400&q=80', // Cappadocia hot air balloons sunrise panorama
       gallery: [
-        'https://images.unsplash.com/photo-1566912436285-cb15e4d0dcd6?w=800&h=600&fit=crop',
-        'https://images.unsplash.com/photo-1605967840894-e47f7d87a96d?w=800&h=600&fit=crop',
-        'https://images.unsplash.com/photo-1526392060635-9d6019884377?w=800&h=600&fit=crop',
-        'https://images.unsplash.com/photo-1577876987942-2c0c4f7c634b?w=800&h=600&fit=crop'
+        'https://images.unsplash.com/photo-1571768534842-95d5b5f07d45?auto=format&fit=crop&w=1200&q=80', // Hot air balloons over Cappadocia fairy chimneys
+        'https://images.unsplash.com/photo-1604608672516-f1b1f838d7b9?auto=format&fit=crop&w=1200&q=80', // Goreme fairy chimneys rock formations
+        'https://images.unsplash.com/photo-1570939274719-c60ee3bf5cd9?auto=format&fit=crop&w=1200&q=80', // Cappadocia cave hotels sunset view
+        'https://images.unsplash.com/photo-1585904898778-1d26e6f2a58b?auto=format&fit=crop&w=1200&q=80', // Derinkuyu underground city Cappadocia
+        'https://images.unsplash.com/photo-1566912436285-cb15e4d0dcd6?auto=format&fit=crop&w=1200&q=80', // Pasabag Valley fairy chimneys three-headed
+        'https://images.unsplash.com/photo-1541969187011-88a2137a7c5e?auto=format&fit=crop&w=1200&q=80'  // Cappadocia red valley sunset landscape
       ]
     },
     coordinates: {
@@ -332,7 +336,7 @@ export const DESTINATIONS_TURKEY: Destination[] = [
       title: 'Kapadokya Gezi Rehberi 2024 | Balon Turu, Otel, Turlar',
       description: 'Kapadokya seyahati için rehber! Sıcak hava balonu turları, peri bacaları, yeraltı şehirleri, mağara oteller. En iyi fiyatlar ve ipuçları.',
       keywords: ['kapadokya', 'balon turu', 'peri bacaları', 'göreme', 'yeraltı şehri', 'kapadokya otelleri', 'mağara otel', 'kapadokya turları'],
-      ogImage: 'https://images.unsplash.com/photo-1570939274719-c60ee3bf5cd9?w=1200&h=630&fit=crop'
+      ogImage: 'https://images.unsplash.com/photo-1606234982193-fcca2e32fb9f?auto=format&fit=crop&w=1200&h=630&q=80'
     },
     relatedDestinations: ['konya', 'kayseri', 'aksaray'],
     popularMonths: [4, 5, 6, 9, 10],
@@ -350,12 +354,14 @@ export const DESTINATIONS_TURKEY: Destination[] = [
     country: 'Türkiye',
     category: 'beach',
     images: {
-      hero: 'https://images.unsplash.com/photo-1568992687947-868a62a9f521?w=1200&h=800&fit=crop',
+      hero: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?auto=format&fit=crop&w=2400&q=80', // Antalya turquoise Mediterranean beach panorama
       gallery: [
-        'https://images.unsplash.com/photo-1561461986-a4ea95d1e632?w=800&h=600&fit=crop',
-        'https://images.unsplash.com/photo-1597303898398-ffb7c27c1bc0?w=800&h=600&fit=crop',
-        'https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=800&h=600&fit=crop',
-        'https://images.unsplash.com/photo-1591289009675-1e6d6e1f9c67?w=800&h=600&fit=crop'
+        'https://images.unsplash.com/photo-1588421357574-87938a86fa28?auto=format&fit=crop&w=1200&q=80', // Kaleici old town marina Antalya harbor
+        'https://images.unsplash.com/photo-1568992687947-868a62a9f521?auto=format&fit=crop&w=1200&q=80', // Aspendos ancient Roman theatre Antalya
+        'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80', // Lower Duden waterfall Mediterranean Sea Antalya
+        'https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&w=1200&q=80', // Konyaalti beach turquoise water Antalya
+        'https://images.unsplash.com/photo-1605640840605-14ac1855827b?auto=format&fit=crop&w=1200&q=80', // Side ancient ruins Apollo temple Antalya
+        'https://images.unsplash.com/photo-1583417319070-4a69db38a482?auto=format&fit=crop&w=1200&q=80'  // Antalya marina boats sunset Mediterranean
       ]
     },
     coordinates: {
@@ -462,7 +468,7 @@ export const DESTINATIONS_TURKEY: Destination[] = [
       title: 'Antalya Tatil Rehberi 2024 | Oteller, Plajlar, Gezilecek Yerler',
       description: 'Antalya tatili için komple rehber! En iyi plajlar, oteller, antik kentler, aktiviteler. Kaleiçi, Aspendos, Düden Şelalesi ve daha fazlası.',
       keywords: ['antalya', 'antalya otelleri', 'kaleiçi', 'konyaaltı', 'aspendos', 'antalya plajları', 'antalya turları', 'side'],
-      ogImage: 'https://images.unsplash.com/photo-1568992687947-868a62a9f521?w=1200&h=630&fit=crop'
+      ogImage: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?auto=format&fit=crop&w=1200&h=630&q=80'
     },
     relatedDestinations: ['alanya', 'kas', 'kemer', 'side'],
     popularMonths: [5, 6, 7, 8, 9, 10],

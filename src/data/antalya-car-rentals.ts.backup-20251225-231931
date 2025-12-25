@@ -913,11 +913,7 @@ export const antalyaCarRentals: AntalyaCarRental[] = [
     insurance: { included: { tr: 'Trafik Sigortası, Kasko, Ferdi Kaza', en: 'Traffic Insurance, Comprehensive, Personal Accident', ru: 'Страхование, КАСКО, Личное страхование', de: 'Haftpflicht, Vollkasko, Unfallversicherung', ar: 'تأمين مروري، شامل، حوادث', fr: 'Assurance RC, Tous risques, Accident' }, optional: { tr: 'Full Kasko, İlave Sürücü, GPS', en: 'Full Coverage, Additional Driver, GPS', ru: 'Полное КАСКО, Доп. водитель, GPS', de: 'Vollkasko, Zusatzfahrer, GPS', ar: 'تأمين كامل، سائق إضافي، GPS', fr: 'Couverture complète, Conducteur additionnel, GPS' } },
     pickupLocations: ['antalya-airport', 'antalya-city', 'kemer', 'belek', 'side', 'lara'],
     availability: { antalyaAirport: true, antalyaCity: true, kemer: true, belek: true, side: true, alanya: false, lara: true, kundu: true },
-    images: [
-      'https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=1200&q=80', // BMW 5 series luxury sedan front
-      'https://images.unsplash.com/photo-1617469767053-d3b523a0b982?auto=format&fit=crop&w=1200&q=80', // BMW 5 series side view
-      'https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=1200&q=80'  // BMW 5 series interior
-    ],
+    images: ['https://images.pexels.com/photos/136872/pexels-photo-136872.jpeg?auto=compress&cs=tinysrgb&w=1200', 'https://images.pexels.com/photos/1007410/pexels-photo-1007410.jpeg?auto=compress&cs=tinysrgb&w=1200'],
     rating: 4.9,
     totalRentals: 5678,
     freeKm: 400,
@@ -947,11 +943,7 @@ export const antalyaCarRentals: AntalyaCarRental[] = [
     insurance: { included: { tr: 'Trafik Sigortası, Kasko, Ferdi Kaza', en: 'Traffic Insurance, Comprehensive, Personal Accident', ru: 'Страхование, КАСКО, Личное страхование', de: 'Haftpflicht, Vollkasko, Unfallversicherung', ar: 'تأمين مروري، شامل، حوادث', fr: 'Assurance RC, Tous risques, Accident' }, optional: { tr: 'Full Kasko, İlave Sürücü, GPS', en: 'Full Coverage, Additional Driver, GPS', ru: 'Полное КАСКО, Доп. водитель, GPS', de: 'Vollkasko, Zusatzfahrer, GPS', ar: 'تأمين كامل، سائق إضافي، GPS', fr: 'Couverture complète, Conducteur additionnel, GPS' } },
     pickupLocations: ['antalya-airport', 'antalya-city', 'kemer', 'belek', 'side', 'lara'],
     availability: { antalyaAirport: true, antalyaCity: true, kemer: true, belek: true, side: true, alanya: false, lara: true, kundu: true },
-    images: [
-      'https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=1200&q=80', // Mercedes E-class premium sedan front
-      'https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?auto=format&fit=crop&w=1200&q=80', // Mercedes E-class side view
-      'https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?auto=format&fit=crop&w=1200&q=80'  // Mercedes E-class interior
-    ],
+    images: ['https://images.pexels.com/photos/136872/pexels-photo-136872.jpeg?auto=compress&cs=tinysrgb&w=1200', 'https://images.pexels.com/photos/1007410/pexels-photo-1007410.jpeg?auto=compress&cs=tinysrgb&w=1200'],
     rating: 4.9,
     totalRentals: 5890,
     freeKm: 420,
@@ -981,11 +973,7 @@ export const antalyaCarRentals: AntalyaCarRental[] = [
     insurance: { included: { tr: 'Trafik Sigortası, Kasko, Ferdi Kaza', en: 'Traffic Insurance, Comprehensive, Personal Accident', ru: 'Страхование, КАСКО, Личное страхование', de: 'Haftpflicht, Vollkasko, Unfallversicherung', ar: 'تأمين مروري، شامل، حوادث', fr: 'Assurance RC, Tous risques, Accident' }, optional: { tr: 'Full Kasko, İlave Sürücü, GPS', en: 'Full Coverage, Additional Driver, GPS', ru: 'Полное КАСКО, Доп. водитель, GPS', de: 'Vollkasko, Zusatzfahrer, GPS', ar: 'تأمين كامل، سائق إضافي، GPS', fr: 'Couverture complète, Conducteur additionnel, GPS' } },
     pickupLocations: ['antalya-airport', 'antalya-city', 'kemer', 'belek', 'side', 'lara'],
     availability: { antalyaAirport: true, antalyaCity: true, kemer: true, belek: true, side: true, alanya: false, lara: true, kundu: true },
-    images: [
-      'https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?auto=format&fit=crop&w=1200&q=80', // Audi A6 executive sedan front
-      'https://images.unsplash.com/photo-1614200187524-dc4b892acf16?auto=format&fit=crop&w=1200&q=80', // Audi A6 side view
-      'https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?auto=format&fit=crop&w=1200&q=80'  // Audi A6 interior
-    ],
+    images: ['https://images.pexels.com/photos/136872/pexels-photo-136872.jpeg?auto=compress&cs=tinysrgb&w=1200', 'https://images.pexels.com/photos/1007410/pexels-photo-1007410.jpeg?auto=compress&cs=tinysrgb&w=1200'],
     rating: 4.9,
     totalRentals: 5456,
     freeKm: 410,
@@ -1015,11 +1003,7 @@ export const antalyaCarRentals: AntalyaCarRental[] = [
     insurance: { included: { tr: 'Trafik Sigortası, Kasko, Ferdi Kaza', en: 'Traffic Insurance, Comprehensive, Personal Accident', ru: 'Страхование, КАСКО, Личное страхование', de: 'Haftpflicht, Vollkasko, Unfallversicherung', ar: 'تأمين مروري، شامل، حوادث', fr: 'Assurance RC, Tous risques, Accident' }, optional: { tr: 'Full Kasko, İlave Sürücü, GPS', en: 'Full Coverage, Additional Driver, GPS', ru: 'Полное КАСКО, Доп. водитель, GPS', de: 'Vollkasko, Zusatzfahrer, GPS', ar: 'تأمين كامل، سائق إضافي، GPS', fr: 'Couverture complète, Conducteur additionnel, GPS' } },
     pickupLocations: ['antalya-airport', 'antalya-city', 'kemer', 'belek', 'side', 'lara'],
     availability: { antalyaAirport: true, antalyaCity: true, kemer: true, belek: true, side: true, alanya: false, lara: true, kundu: true },
-    images: [
-      'https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=1200&q=80', // Volvo S90 luxury sedan front
-      'https://images.unsplash.com/photo-1621939514649-280e2ee25f60?auto=format&fit=crop&w=1200&q=80', // Volvo S90 side view
-      'https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=1200&q=80'  // Volvo S90 interior
-    ],
+    images: ['https://images.pexels.com/photos/136872/pexels-photo-136872.jpeg?auto=compress&cs=tinysrgb&w=1200', 'https://images.pexels.com/photos/1007410/pexels-photo-1007410.jpeg?auto=compress&cs=tinysrgb&w=1200'],
     rating: 4.8,
     totalRentals: 4890,
     freeKm: 390,
@@ -1049,11 +1033,7 @@ export const antalyaCarRentals: AntalyaCarRental[] = [
     insurance: { included: { tr: 'Trafik Sigortası, Kasko, Ferdi Kaza', en: 'Traffic Insurance, Comprehensive, Personal Accident', ru: 'Страхование, КАСКО, Личное страхование', de: 'Haftpflicht, Vollkasko, Unfallversicherung', ar: 'تأمين مروري، شامل، حوادث', fr: 'Assurance RC, Tous risques, Accident' }, optional: { tr: 'Full Kasko, İlave Sürücü, GPS', en: 'Full Coverage, Additional Driver, GPS', ru: 'Полное КАСКО, Доп. водитель, GPS', de: 'Vollkasko, Zusatzfahrer, GPS', ar: 'تأمين كامل، سائق إضافي، GPS', fr: 'Couverture complète, Conducteur additionnel, GPS' } },
     pickupLocations: ['antalya-airport', 'antalya-city', 'kemer', 'belek', 'side', 'lara'],
     availability: { antalyaAirport: true, antalyaCity: true, kemer: true, belek: true, side: true, alanya: false, lara: true, kundu: true },
-    images: [
-      'https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=1200&q=80', // Jaguar XF premium sedan front
-      'https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?auto=format&fit=crop&w=1200&q=80', // Jaguar XF side view
-      'https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?auto=format&fit=crop&w=1200&q=80'  // Jaguar XF interior
-    ],
+    images: ['https://images.pexels.com/photos/136872/pexels-photo-136872.jpeg?auto=compress&cs=tinysrgb&w=1200', 'https://images.pexels.com/photos/1007410/pexels-photo-1007410.jpeg?auto=compress&cs=tinysrgb&w=1200'],
     rating: 4.9,
     totalRentals: 4567,
     freeKm: 430,
@@ -1083,11 +1063,7 @@ export const antalyaCarRentals: AntalyaCarRental[] = [
     insurance: { included: { tr: 'Trafik Sigortası, Kasko, Ferdi Kaza', en: 'Traffic Insurance, Comprehensive, Personal Accident', ru: 'Страхование, КАСКО, Личное страхование', de: 'Haftpflicht, Vollkasko, Unfallversicherung', ar: 'تأمين مروري، شامل، حوادث', fr: 'Assurance RC, Tous risques, Accident' }, optional: { tr: 'Full Kasko, İlave Sürücü, GPS', en: 'Full Coverage, Additional Driver, GPS', ru: 'Полное КАСКО, Доп. водитель, GPS', de: 'Vollkasko, Zusatzfahrer, GPS', ar: 'تأمين كامل، سائق إضافي، GPS', fr: 'Couverture complète, Conducteur additionnel, GPS' } },
     pickupLocations: ['antalya-airport', 'antalya-city', 'kemer', 'belek', 'side', 'lara'],
     availability: { antalyaAirport: true, antalyaCity: true, kemer: true, belek: true, side: true, alanya: false, lara: true, kundu: true },
-    images: [
-      'https://images.unsplash.com/photo-1621939514649-280e2ee25f60?auto=format&fit=crop&w=1200&q=80', // Lexus ES luxury sedan front
-      'https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=1200&q=80', // Lexus ES side view
-      'https://images.unsplash.com/photo-1617886322168-72b886573c35?auto=format&fit=crop&w=1200&q=80'  // Lexus ES interior
-    ],
+    images: ['https://images.pexels.com/photos/136872/pexels-photo-136872.jpeg?auto=compress&cs=tinysrgb&w=1200', 'https://images.pexels.com/photos/1007410/pexels-photo-1007410.jpeg?auto=compress&cs=tinysrgb&w=1200'],
     rating: 4.9,
     totalRentals: 5123,
     freeKm: 450,
@@ -1117,11 +1093,7 @@ export const antalyaCarRentals: AntalyaCarRental[] = [
     insurance: { included: { tr: 'Trafik Sigortası, Kasko, Ferdi Kaza', en: 'Traffic Insurance, Comprehensive, Personal Accident', ru: 'Страхование, КАСКО, Личное страхование', de: 'Haftpflicht, Vollkasko, Unfallversicherung', ar: 'تأمين مروري، شامل، حوادث', fr: 'Assurance RC, Tous risques, Accident' }, optional: { tr: 'Full Kasko, İlave Sürücü, GPS', en: 'Full Coverage, Additional Driver, GPS', ru: 'Полное КАСКО, Доп. водитель, GPS', de: 'Vollkasko, Zusatzfahrer, GPS', ar: 'تأمين كامل، سائق إضافي، GPS', fr: 'Couverture complète, Conducteur additionnel, GPS' } },
     pickupLocations: ['antalya-airport', 'antalya-city', 'kemer', 'belek', 'side', 'lara'],
     availability: { antalyaAirport: true, antalyaCity: true, kemer: true, belek: true, side: true, alanya: false, lara: true, kundu: true },
-    images: [
-      'https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=1200&q=80', // Genesis G80 luxury sedan front
-      'https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=1200&q=80', // Genesis G80 side view
-      'https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?auto=format&fit=crop&w=1200&q=80'  // Genesis G80 interior
-    ],
+    images: ['https://images.pexels.com/photos/136872/pexels-photo-136872.jpeg?auto=compress&cs=tinysrgb&w=1200', 'https://images.pexels.com/photos/1007410/pexels-photo-1007410.jpeg?auto=compress&cs=tinysrgb&w=1200'],
     rating: 4.9,
     totalRentals: 4678,
     freeKm: 420,
@@ -1151,11 +1123,7 @@ export const antalyaCarRentals: AntalyaCarRental[] = [
     insurance: { included: { tr: 'Trafik Sigortası, Kasko, Ferdi Kaza', en: 'Traffic Insurance, Comprehensive, Personal Accident', ru: 'Страхование, КАСКО, Личное страхование', de: 'Haftpflicht, Vollkasko, Unfallversicherung', ar: 'تأمين مروري، شامل، حوادث', fr: 'Assurance RC, Tous risques, Accident' }, optional: { tr: 'Full Kasko, İlave Sürücü, GPS', en: 'Full Coverage, Additional Driver, GPS', ru: 'Полное КАСКО, Доп. водитель, GPS', de: 'Vollkasko, Zusatzfahrer, GPS', ar: 'تأمين كامل، سائق إضافي، GPS', fr: 'Couverture complète, Conducteur additionnel, GPS' } },
     pickupLocations: ['antalya-airport', 'antalya-city', 'kemer', 'belek', 'side', 'lara'],
     availability: { antalyaAirport: true, antalyaCity: true, kemer: true, belek: true, side: true, alanya: false, lara: true, kundu: true },
-    images: [
-      'https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=1200&q=80', // Alfa Romeo Giulia sport sedan front
-      'https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?auto=format&fit=crop&w=1200&q=80', // Alfa Romeo Giulia side view
-      'https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?auto=format&fit=crop&w=1200&q=80'  // Alfa Romeo Giulia interior
-    ],
+    images: ['https://images.pexels.com/photos/136872/pexels-photo-136872.jpeg?auto=compress&cs=tinysrgb&w=1200', 'https://images.pexels.com/photos/1007410/pexels-photo-1007410.jpeg?auto=compress&cs=tinysrgb&w=1200'],
     rating: 4.8,
     totalRentals: 3890,
     freeKm: 400,
@@ -1185,11 +1153,7 @@ export const antalyaCarRentals: AntalyaCarRental[] = [
     insurance: { included: { tr: 'Trafik Sigortası, Kasko, Ferdi Kaza', en: 'Traffic Insurance, Comprehensive, Personal Accident', ru: 'Страхование, КАСКО, Личное страхование', de: 'Haftpflicht, Vollkasko, Unfallversicherung', ar: 'تأمين مروري، شامل، حوادث', fr: 'Assurance RC, Tous risques, Accident' }, optional: { tr: 'Full Kasko, İlave Sürücü, GPS', en: 'Full Coverage, Additional Driver, GPS', ru: 'Полное КАСКО, Доп. водитель, GPS', de: 'Vollkasko, Zusatzfahrer, GPS', ar: 'تأمين كامل، سائق إضافي، GPS', fr: 'Couverture complète, Conducteur additionnel, GPS' } },
     pickupLocations: ['antalya-airport', 'antalya-city', 'kemer', 'belek', 'side', 'lara'],
     availability: { antalyaAirport: true, antalyaCity: true, kemer: true, belek: true, side: true, alanya: false, lara: true, kundu: true },
-    images: [
-      'https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=1200&q=80', // Mercedes S-class luxury sedan front
-      'https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?auto=format&fit=crop&w=1200&q=80', // Mercedes S-class side view
-      'https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?auto=format&fit=crop&w=1200&q=80'  // Mercedes S-class interior
-    ],
+    images: ['https://images.pexels.com/photos/136872/pexels-photo-136872.jpeg?auto=compress&cs=tinysrgb&w=1200', 'https://images.pexels.com/photos/1007410/pexels-photo-1007410.jpeg?auto=compress&cs=tinysrgb&w=1200'],
     rating: 4.9,
     totalRentals: 6789,
     freeKm: 500,
@@ -1219,11 +1183,7 @@ export const antalyaCarRentals: AntalyaCarRental[] = [
     insurance: { included: { tr: 'Trafik Sigortası, Kasko, Ferdi Kaza', en: 'Traffic Insurance, Comprehensive, Personal Accident', ru: 'Страхование, КАСКО, Личное страхование', de: 'Haftpflicht, Vollkasko, Unfallversicherung', ar: 'تأمين مروري، شامل، حوادث', fr: 'Assurance RC, Tous risques, Accident' }, optional: { tr: 'Full Kasko, İlave Sürücü, GPS', en: 'Full Coverage, Additional Driver, GPS', ru: 'Полное КАСКО, Доп. водитель, GPS', de: 'Vollkasko, Zusatzfahrer, GPS', ar: 'تأمين كامل، سائق إضافي، GPS', fr: 'Couverture complète, Conducteur additionnel, GPS' } },
     pickupLocations: ['antalya-airport', 'antalya-city', 'kemer', 'belek', 'side', 'lara'],
     availability: { antalyaAirport: true, antalyaCity: true, kemer: true, belek: true, side: true, alanya: false, lara: true, kundu: true },
-    images: [
-      'https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=1200&q=80', // BMW 7 series executive sedan front
-      'https://images.unsplash.com/photo-1617469767053-d3b523a0b982?auto=format&fit=crop&w=1200&q=80', // BMW 7 series side view
-      'https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=1200&q=80'  // BMW 7 series interior
-    ],
+    images: ['https://images.pexels.com/photos/136872/pexels-photo-136872.jpeg?auto=compress&cs=tinysrgb&w=1200', 'https://images.pexels.com/photos/1007410/pexels-photo-1007410.jpeg?auto=compress&cs=tinysrgb&w=1200'],
     rating: 4.9,
     totalRentals: 6234,
     freeKm: 480,
@@ -1253,11 +1213,7 @@ export const antalyaCarRentals: AntalyaCarRental[] = [
     insurance: { included: { tr: 'Trafik Sigortası, Kasko, Ferdi Kaza', en: 'Traffic Insurance, Comprehensive, Personal Accident', ru: 'Страхование, КАСКО, Личное страхование', de: 'Haftpflicht, Vollkasko, Unfallversicherung', ar: 'تأمين مروري، شامل، حوادث', fr: 'Assurance RC, Tous risques, Accident' }, optional: { tr: 'Full Kasko, İlave Sürücü, GPS', en: 'Full Coverage, Additional Driver, GPS', ru: 'Полное КАСКО, Доп. водитель, GPS', de: 'Vollkasko, Zusatzfahrer, GPS', ar: 'تأمين كامل، سائق إضافي، GPS', fr: 'Couverture complète, Conducteur additionnel, GPS' } },
     pickupLocations: ['antalya-airport', 'antalya-city', 'kemer', 'belek', 'side', 'lara'],
     availability: { antalyaAirport: true, antalyaCity: true, kemer: true, belek: true, side: true, alanya: false, lara: true, kundu: true },
-    images: [
-      'https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?auto=format&fit=crop&w=1200&q=80', // Audi A8 flagship sedan front
-      'https://images.unsplash.com/photo-1614200187524-dc4b892acf16?auto=format&fit=crop&w=1200&q=80', // Audi A8 side view
-      'https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?auto=format&fit=crop&w=1200&q=80'  // Audi A8 interior
-    ],
+    images: ['https://images.pexels.com/photos/136872/pexels-photo-136872.jpeg?auto=compress&cs=tinysrgb&w=1200', 'https://images.pexels.com/photos/1007410/pexels-photo-1007410.jpeg?auto=compress&cs=tinysrgb&w=1200'],
     rating: 4.9,
     totalRentals: 5678,
     freeKm: 510,
@@ -1287,11 +1243,7 @@ export const antalyaCarRentals: AntalyaCarRental[] = [
     insurance: { included: { tr: 'Trafik Sigortası, Kasko, Ferdi Kaza', en: 'Traffic Insurance, Comprehensive, Personal Accident', ru: 'Страхование, КАСКО, Личное страхование', de: 'Haftpflicht, Vollkasko, Unfallversicherung', ar: 'تأمين مروري، شامل، حوادث', fr: 'Assurance RC, Tous risques, Accident' }, optional: { tr: 'Full Kasko, İlave Sürücü, GPS', en: 'Full Coverage, Additional Driver, GPS', ru: 'Полное КАСКО, Доп. водитель, GPS', de: 'Vollkasko, Zusatzfahrer, GPS', ar: 'تأمين كامل، سائق إضافي، GPS', fr: 'Couverture complète, Conducteur additionnel, GPS' } },
     pickupLocations: ['antalya-airport', 'antalya-city', 'kemer', 'belek', 'side', 'lara'],
     availability: { antalyaAirport: true, antalyaCity: true, kemer: true, belek: true, side: true, alanya: false, lara: true, kundu: true },
-    images: [
-      'https://images.unsplash.com/photo-1614200187524-dc4b892acf16?auto=format&fit=crop&w=1200&q=80', // Porsche Panamera sport sedan front
-      'https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?auto=format&fit=crop&w=1200&q=80', // Porsche Panamera side view
-      'https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?auto=format&fit=crop&w=1200&q=80'  // Porsche Panamera interior
-    ],
+    images: ['https://images.pexels.com/photos/136872/pexels-photo-136872.jpeg?auto=compress&cs=tinysrgb&w=1200', 'https://images.pexels.com/photos/1007410/pexels-photo-1007410.jpeg?auto=compress&cs=tinysrgb&w=1200'],
     rating: 4.9,
     totalRentals: 5123,
     freeKm: 520,
@@ -1321,11 +1273,7 @@ export const antalyaCarRentals: AntalyaCarRental[] = [
     insurance: { included: { tr: 'Trafik Sigortası, Kasko, Ferdi Kaza', en: 'Traffic Insurance, Comprehensive, Personal Accident', ru: 'Страхование, КАСКО, Личное страхование', de: 'Haftpflicht, Vollkasko, Unfallversicherung', ar: 'تأمين مروري، شامل، حوادث', fr: 'Assurance RC, Tous risques, Accident' }, optional: { tr: 'Full Kasko, İlave Sürücü, GPS', en: 'Full Coverage, Additional Driver, GPS', ru: 'Полное КАСКО, Доп. водитель, GPS', de: 'Vollkasko, Zusatzfahrer, GPS', ar: 'تأمين كامل، سائق إضافي، GPS', fr: 'Couverture complète, Conducteur additionnel, GPS' } },
     pickupLocations: ['antalya-airport', 'antalya-city', 'kemer', 'belek', 'side', 'lara'],
     availability: { antalyaAirport: true, antalyaCity: true, kemer: true, belek: true, side: true, alanya: false, lara: true, kundu: true },
-    images: [
-      'https://images.unsplash.com/photo-1621939514649-280e2ee25f60?auto=format&fit=crop&w=1200&q=80', // Lexus LS flagship sedan front
-      'https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=1200&q=80', // Lexus LS side view
-      'https://images.unsplash.com/photo-1617886322168-72b886573c35?auto=format&fit=crop&w=1200&q=80'  // Lexus LS interior
-    ],
+    images: ['https://images.pexels.com/photos/136872/pexels-photo-136872.jpeg?auto=compress&cs=tinysrgb&w=1200', 'https://images.pexels.com/photos/1007410/pexels-photo-1007410.jpeg?auto=compress&cs=tinysrgb&w=1200'],
     rating: 4.9,
     totalRentals: 4890,
     freeKm: 500,
@@ -1355,11 +1303,7 @@ export const antalyaCarRentals: AntalyaCarRental[] = [
     insurance: { included: { tr: 'Trafik Sigortası, Kasko, Ferdi Kaza', en: 'Traffic Insurance, Comprehensive, Personal Accident', ru: 'Страхование, КАСКО, Личное страхование', de: 'Haftpflicht, Vollkasko, Unfallversicherung', ar: 'تأمين مروري، شامل، حوادث', fr: 'Assurance RC, Tous risques, Accident' }, optional: { tr: 'Full Kasko, İlave Sürücü, GPS', en: 'Full Coverage, Additional Driver, GPS', ru: 'Полное КАСКО, Доп. водитель, GPS', de: 'Vollkasko, Zusatzfahrer, GPS', ar: 'تأمين كامل، سائق إضافي، GPS', fr: 'Couverture complète, Conducteur additionnel, GPS' } },
     pickupLocations: ['antalya-airport', 'antalya-city', 'kemer', 'belek', 'side', 'lara'],
     availability: { antalyaAirport: true, antalyaCity: true, kemer: true, belek: true, side: true, alanya: false, lara: true, kundu: true },
-    images: [
-      'https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?auto=format&fit=crop&w=1200&q=80', // Range Rover luxury SUV front
-      'https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?auto=format&fit=crop&w=1200&q=80', // Range Rover side view
-      'https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?auto=format&fit=crop&w=1200&q=80'  // Range Rover interior
-    ],
+    images: ['https://images.pexels.com/photos/136872/pexels-photo-136872.jpeg?auto=compress&cs=tinysrgb&w=1200', 'https://images.pexels.com/photos/1007410/pexels-photo-1007410.jpeg?auto=compress&cs=tinysrgb&w=1200'],
     rating: 4.9,
     totalRentals: 6012,
     freeKm: 550,
@@ -1389,11 +1333,7 @@ export const antalyaCarRentals: AntalyaCarRental[] = [
     insurance: { included: { tr: 'Trafik Sigortası, Kasko, Ferdi Kaza', en: 'Traffic Insurance, Comprehensive, Personal Accident', ru: 'Страхование, КАСКО, Личное страхование', de: 'Haftpflicht, Vollkasko, Unfallversicherung', ar: 'تأمين مروري، شامل، حوادث', fr: 'Assurance RC, Tous risques, Accident' }, optional: { tr: 'Full Kasko, İlave Sürücü, GPS', en: 'Full Coverage, Additional Driver, GPS', ru: 'Полное КАСКО, Доп. водитель, GPS', de: 'Vollkasko, Zusatzfahrer, GPS', ar: 'تأمين كامل، سائق إضافي، GPS', fr: 'Couverture complète, Conducteur additionnel, GPS' } },
     pickupLocations: ['antalya-airport', 'antalya-city', 'kemer', 'belek', 'side', 'lara'],
     availability: { antalyaAirport: true, antalyaCity: true, kemer: true, belek: true, side: true, alanya: false, lara: true, kundu: true },
-    images: [
-      'https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=1200&q=80', // Bentley Flying Spur luxury sedan front
-      'https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?auto=format&fit=crop&w=1200&q=80', // Bentley Flying Spur side view
-      'https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?auto=format&fit=crop&w=1200&q=80'  // Bentley Flying Spur interior
-    ],
+    images: ['https://images.pexels.com/photos/136872/pexels-photo-136872.jpeg?auto=compress&cs=tinysrgb&w=1200', 'https://images.pexels.com/photos/1007410/pexels-photo-1007410.jpeg?auto=compress&cs=tinysrgb&w=1200'],
     rating: 4.9,
     totalRentals: 3456,
     freeKm: 600,
@@ -1423,11 +1363,7 @@ export const antalyaCarRentals: AntalyaCarRental[] = [
     insurance: { included: { tr: 'Trafik Sigortası, Kasko, Ferdi Kaza', en: 'Traffic Insurance, Comprehensive, Personal Accident', ru: 'Страхование, КАСКО, Личное страхование', de: 'Haftpflicht, Vollkasko, Unfallversicherung', ar: 'تأمين مروري، شامل، حوادث', fr: 'Assurance RC, Tous risques, Accident' }, optional: { tr: 'Full Kasko, İlave Sürücü, GPS', en: 'Full Coverage, Additional Driver, GPS', ru: 'Полное КАСКО, Доп. водитель, GPS', de: 'Vollkasko, Zusatzfahrer, GPS', ar: 'تأمين كامل، سائق إضافي، GPS', fr: 'Couverture complète, Conducteur additionnel, GPS' } },
     pickupLocations: ['antalya-airport', 'antalya-city', 'kemer', 'belek', 'side', 'lara'],
     availability: { antalyaAirport: true, antalyaCity: true, kemer: true, belek: true, side: true, alanya: false, lara: true, kundu: true },
-    images: [
-      'https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=1200&q=80', // Maserati Quattroporte sport sedan front
-      'https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?auto=format&fit=crop&w=1200&q=80', // Maserati Quattroporte side view
-      'https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?auto=format&fit=crop&w=1200&q=80'  // Maserati Quattroporte interior
-    ],
+    images: ['https://images.pexels.com/photos/136872/pexels-photo-136872.jpeg?auto=compress&cs=tinysrgb&w=1200', 'https://images.pexels.com/photos/1007410/pexels-photo-1007410.jpeg?auto=compress&cs=tinysrgb&w=1200'],
     rating: 4.9,
     totalRentals: 3890,
     freeKm: 500,
@@ -1457,11 +1393,7 @@ export const antalyaCarRentals: AntalyaCarRental[] = [
     insurance: { included: { tr: 'Trafik Sigortası, Kasko, Ferdi Kaza', en: 'Traffic Insurance, Comprehensive, Personal Accident', ru: 'Страхование, КАСКО, Личное страхование', de: 'Haftpflicht, Vollkasko, Unfallversicherung', ar: 'تأمين مروري، شامل، حوادث', fr: 'Assurance RC, Tous risques, Accident' }, optional: { tr: 'Full Kasko, İlave Sürücü, GPS', en: 'Full Coverage, Additional Driver, GPS', ru: 'Полное КАСКО, Доп. водитель, GPS', de: 'Vollkasko, Zusatzfahrer, GPS', ar: 'تأمين كامل، سائق إضافي، GPS', fr: 'Couverture complète, Conducteur additionnel, GPS' } },
     pickupLocations: ['antalya-airport', 'antalya-city', 'kemer', 'belek', 'side', 'lara'],
     availability: { antalyaAirport: true, antalyaCity: true, kemer: true, belek: true, side: true, alanya: false, lara: true, kundu: true },
-    images: [
-      'https://images.unsplash.com/photo-1621939514649-280e2ee25f60?auto=format&fit=crop&w=1200&q=80', // Toyota RAV4 SUV front
-      'https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=1200&q=80', // Toyota RAV4 side view
-      'https://images.unsplash.com/photo-1617886322168-72b886573c35?auto=format&fit=crop&w=1200&q=80'  // Toyota RAV4 interior
-    ],
+    images: ['https://images.pexels.com/photos/136872/pexels-photo-136872.jpeg?auto=compress&cs=tinysrgb&w=1200', 'https://images.pexels.com/photos/1007410/pexels-photo-1007410.jpeg?auto=compress&cs=tinysrgb&w=1200'],
     rating: 4.8,
     totalRentals: 5678,
     freeKm: 350,
@@ -1491,11 +1423,7 @@ export const antalyaCarRentals: AntalyaCarRental[] = [
     insurance: { included: { tr: 'Trafik Sigortası, Kasko, Ferdi Kaza', en: 'Traffic Insurance, Comprehensive, Personal Accident', ru: 'Страхование, КАСКО, Личное страхование', de: 'Haftpflicht, Vollkasko, Unfallversicherung', ar: 'تأمين مروري، شامل، حوادث', fr: 'Assurance RC, Tous risques, Accident' }, optional: { tr: 'Full Kasko, İlave Sürücü, GPS', en: 'Full Coverage, Additional Driver, GPS', ru: 'Полное КАСКО, Доп. водитель, GPS', de: 'Vollkasko, Zusatzfahrer, GPS', ar: 'تأمين كامل، سائق إضافي، GPS', fr: 'Couverture complète, Conducteur additionnel, GPS' } },
     pickupLocations: ['antalya-airport', 'antalya-city', 'kemer', 'belek', 'side', 'lara'],
     availability: { antalyaAirport: true, antalyaCity: true, kemer: true, belek: true, side: true, alanya: false, lara: true, kundu: true },
-    images: [
-      'https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=1200&q=80', // Honda CR-V SUV front
-      'https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?auto=format&fit=crop&w=1200&q=80', // Honda CR-V side view
-      'https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?auto=format&fit=crop&w=1200&q=80'  // Honda CR-V interior
-    ],
+    images: ['https://images.pexels.com/photos/136872/pexels-photo-136872.jpeg?auto=compress&cs=tinysrgb&w=1200', 'https://images.pexels.com/photos/1007410/pexels-photo-1007410.jpeg?auto=compress&cs=tinysrgb&w=1200'],
     rating: 4.8,
     totalRentals: 5234,
     freeKm: 360,
@@ -1525,11 +1453,7 @@ export const antalyaCarRentals: AntalyaCarRental[] = [
     insurance: { included: { tr: 'Trafik Sigortası, Kasko, Ferdi Kaza', en: 'Traffic Insurance, Comprehensive, Personal Accident', ru: 'Страхование, КАСКО, Личное страхование', de: 'Haftpflicht, Vollkasko, Unfallversicherung', ar: 'تأمين مروري، شامل، حوادث', fr: 'Assurance RC, Tous risques, Accident' }, optional: { tr: 'Full Kasko, İlave Sürücü, GPS', en: 'Full Coverage, Additional Driver, GPS', ru: 'Полное КАСКО, Доп. водитель, GPS', de: 'Vollkasko, Zusatzfahrer, GPS', ar: 'تأمين كامل، سائق إضافي، GPS', fr: 'Couverture complète, Conducteur additionnel, GPS' } },
     pickupLocations: ['antalya-airport', 'antalya-city', 'kemer', 'belek', 'side', 'lara'],
     availability: { antalyaAirport: true, antalyaCity: true, kemer: true, belek: true, side: true, alanya: false, lara: true, kundu: true },
-    images: [
-      'https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=1200&q=80', // Mazda CX-5 SUV front
-      'https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=1200&q=80', // Mazda CX-5 side view
-      'https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?auto=format&fit=crop&w=1200&q=80'  // Mazda CX-5 interior
-    ],
+    images: ['https://images.pexels.com/photos/136872/pexels-photo-136872.jpeg?auto=compress&cs=tinysrgb&w=1200', 'https://images.pexels.com/photos/1007410/pexels-photo-1007410.jpeg?auto=compress&cs=tinysrgb&w=1200'],
     rating: 4.8,
     totalRentals: 4890,
     freeKm: 340,
@@ -1559,11 +1483,7 @@ export const antalyaCarRentals: AntalyaCarRental[] = [
     insurance: { included: { tr: 'Trafik Sigortası, Kasko, Ferdi Kaza', en: 'Traffic Insurance, Comprehensive, Personal Accident', ru: 'Страхование, КАСКО, Личное страхование', de: 'Haftpflicht, Vollkasko, Unfallversicherung', ar: 'تأمين مروري، شامل، حوادث', fr: 'Assurance RC, Tous risques, Accident' }, optional: { tr: 'Full Kasko, İlave Sürücü, GPS', en: 'Full Coverage, Additional Driver, GPS', ru: 'Полное КАСКО, Доп. водитель, GPS', de: 'Vollkasko, Zusatzfahrer, GPS', ar: 'تأمين كامل، سائق إضافي، GPS', fr: 'Couverture complète, Conducteur additionnel, GPS' } },
     pickupLocations: ['antalya-airport', 'antalya-city', 'kemer', 'belek', 'side', 'lara'],
     availability: { antalyaAirport: true, antalyaCity: true, kemer: true, belek: true, side: true, alanya: false, lara: true, kundu: true },
-    images: [
-      'https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=1200&q=80', // Nissan X-Trail SUV front
-      'https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=1200&q=80', // Nissan X-Trail side view
-      'https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?auto=format&fit=crop&w=1200&q=80'  // Nissan X-Trail interior
-    ],
+    images: ['https://images.pexels.com/photos/136872/pexels-photo-136872.jpeg?auto=compress&cs=tinysrgb&w=1200', 'https://images.pexels.com/photos/1007410/pexels-photo-1007410.jpeg?auto=compress&cs=tinysrgb&w=1200'],
     rating: 4.7,
     totalRentals: 4567,
     freeKm: 370,
@@ -1593,11 +1513,7 @@ export const antalyaCarRentals: AntalyaCarRental[] = [
     insurance: { included: { tr: 'Trafik Sigortası, Kasko, Ferdi Kaza', en: 'Traffic Insurance, Comprehensive, Personal Accident', ru: 'Страхование, КАСКО, Личное страхование', de: 'Haftpflicht, Vollkasko, Unfallversicherung', ar: 'تأمين مروري، شامل، حوادث', fr: 'Assurance RC, Tous risques, Accident' }, optional: { tr: 'Full Kasko, İlave Sürücü, GPS', en: 'Full Coverage, Additional Driver, GPS', ru: 'Полное КАСКО, Доп. водитель, GPS', de: 'Vollkasko, Zusatzfahrer, GPS', ar: 'تأمين كامل، سائق إضافي، GPS', fr: 'Couverture complète, Conducteur additionnel, GPS' } },
     pickupLocations: ['antalya-airport', 'antalya-city', 'kemer', 'belek', 'side', 'lara'],
     availability: { antalyaAirport: true, antalyaCity: true, kemer: true, belek: true, side: true, alanya: false, lara: true, kundu: true },
-    images: [
-      'https://images.unsplash.com/photo-1622353219448-46a9f522c7b8?auto=format&fit=crop&w=1200&q=80', // Volkswagen Tiguan SUV front
-      'https://images.unsplash.com/photo-1617469767053-d3b523a0b982?auto=format&fit=crop&w=1200&q=80', // Volkswagen Tiguan side view
-      'https://images.unsplash.com/photo-1614200187524-dc4b892acf16?auto=format&fit=crop&w=1200&q=80'  // Volkswagen Tiguan interior
-    ],
+    images: ['https://images.pexels.com/photos/136872/pexels-photo-136872.jpeg?auto=compress&cs=tinysrgb&w=1200', 'https://images.pexels.com/photos/1007410/pexels-photo-1007410.jpeg?auto=compress&cs=tinysrgb&w=1200'],
     rating: 4.8,
     totalRentals: 5123,
     freeKm: 380,
@@ -1627,11 +1543,7 @@ export const antalyaCarRentals: AntalyaCarRental[] = [
     insurance: { included: { tr: 'Trafik Sigortası, Kasko, Ferdi Kaza', en: 'Traffic Insurance, Comprehensive, Personal Accident', ru: 'Страхование, КАСКО, Личное страхование', de: 'Haftpflicht, Vollkasko, Unfallversicherung', ar: 'تأمين مروري، شامل، حوادث', fr: 'Assurance RC, Tous risques, Accident' }, optional: { tr: 'Full Kasko, İlave Sürücü, GPS', en: 'Full Coverage, Additional Driver, GPS', ru: 'Полное КАСКО, Доп. водитель, GPS', de: 'Vollkasko, Zusatzfahrer, GPS', ar: 'تأمين كامل، سائق إضافي، GPS', fr: 'Couverture complète, Conducteur additionnel, GPS' } },
     pickupLocations: ['antalya-airport', 'antalya-city', 'kemer', 'belek', 'side', 'lara'],
     availability: { antalyaAirport: true, antalyaCity: true, kemer: true, belek: true, side: true, alanya: false, lara: true, kundu: true },
-    images: [
-      'https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=1200&q=80', // BMW X3 luxury SUV front
-      'https://images.unsplash.com/photo-1617469767053-d3b523a0b982?auto=format&fit=crop&w=1200&q=80', // BMW X3 side view
-      'https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=1200&q=80'  // BMW X3 interior
-    ],
+    images: ['https://images.pexels.com/photos/136872/pexels-photo-136872.jpeg?auto=compress&cs=tinysrgb&w=1200', 'https://images.pexels.com/photos/1007410/pexels-photo-1007410.jpeg?auto=compress&cs=tinysrgb&w=1200'],
     rating: 4.9,
     totalRentals: 5678,
     freeKm: 400,
@@ -1661,11 +1573,7 @@ export const antalyaCarRentals: AntalyaCarRental[] = [
     insurance: { included: { tr: 'Trafik Sigortası, Kasko, Ferdi Kaza', en: 'Traffic Insurance, Comprehensive, Personal Accident', ru: 'Страхование, КАСКО, Личное страхование', de: 'Haftpflicht, Vollkasko, Unfallversicherung', ar: 'تأمين مروري، شامل، حوادث', fr: 'Assurance RC, Tous risques, Accident' }, optional: { tr: 'Full Kasko, İlave Sürücü, GPS', en: 'Full Coverage, Additional Driver, GPS', ru: 'Полное КАСКО, Доп. водитель, GPS', de: 'Vollkasko, Zusatzfahrer, GPS', ar: 'تأمين كامل، سائق إضافي، GPS', fr: 'Couverture complète, Conducteur additionnel, GPS' } },
     pickupLocations: ['antalya-airport', 'antalya-city', 'kemer', 'belek', 'side', 'lara'],
     availability: { antalyaAirport: true, antalyaCity: true, kemer: true, belek: true, side: true, alanya: false, lara: true, kundu: true },
-    images: [
-      'https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=1200&q=80', // Mercedes GLC premium SUV front
-      'https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?auto=format&fit=crop&w=1200&q=80', // Mercedes GLC side view
-      'https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?auto=format&fit=crop&w=1200&q=80'  // Mercedes GLC interior
-    ],
+    images: ['https://images.pexels.com/photos/136872/pexels-photo-136872.jpeg?auto=compress&cs=tinysrgb&w=1200', 'https://images.pexels.com/photos/1007410/pexels-photo-1007410.jpeg?auto=compress&cs=tinysrgb&w=1200'],
     rating: 4.9,
     totalRentals: 5890,
     freeKm: 420,
@@ -1695,11 +1603,7 @@ export const antalyaCarRentals: AntalyaCarRental[] = [
     insurance: { included: { tr: 'Trafik Sigortası, Kasko, Ferdi Kaza', en: 'Traffic Insurance, Comprehensive, Personal Accident', ru: 'Страхование, КАСКО, Личное страхование', de: 'Haftpflicht, Vollkasko, Unfallversicherung', ar: 'تأمين مروري، شامل، حوادث', fr: 'Assurance RC, Tous risques, Accident' }, optional: { tr: 'Full Kasko, İlave Sürücü, GPS', en: 'Full Coverage, Additional Driver, GPS', ru: 'Полное КАСКО, Доп. водитель, GPS', de: 'Vollkasko, Zusatzfahrer, GPS', ar: 'تأمين كامل، سائق إضافي، GPS', fr: 'Couverture complète, Conducteur additionnel, GPS' } },
     pickupLocations: ['antalya-airport', 'antalya-city', 'kemer', 'belek', 'side', 'lara'],
     availability: { antalyaAirport: true, antalyaCity: true, kemer: true, belek: true, side: true, alanya: false, lara: true, kundu: true },
-    images: [
-      'https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?auto=format&fit=crop&w=1200&q=80', // Audi Q5 luxury SUV front
-      'https://images.unsplash.com/photo-1614200187524-dc4b892acf16?auto=format&fit=crop&w=1200&q=80', // Audi Q5 side view
-      'https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?auto=format&fit=crop&w=1200&q=80'  // Audi Q5 interior
-    ],
+    images: ['https://images.pexels.com/photos/136872/pexels-photo-136872.jpeg?auto=compress&cs=tinysrgb&w=1200', 'https://images.pexels.com/photos/1007410/pexels-photo-1007410.jpeg?auto=compress&cs=tinysrgb&w=1200'],
     rating: 4.9,
     totalRentals: 5456,
     freeKm: 410,
@@ -1729,11 +1633,7 @@ export const antalyaCarRentals: AntalyaCarRental[] = [
     insurance: { included: { tr: 'Trafik Sigortası, Kasko, Ferdi Kaza', en: 'Traffic Insurance, Comprehensive, Personal Accident', ru: 'Страхование, КАСКО, Личное страхование', de: 'Haftpflicht, Vollkasko, Unfallversicherung', ar: 'تأمين مروري، شامل، حوادث', fr: 'Assurance RC, Tous risques, Accident' }, optional: { tr: 'Full Kasko, İlave Sürücü, GPS', en: 'Full Coverage, Additional Driver, GPS', ru: 'Полное КАСКО, Доп. водитель, GPS', de: 'Vollkasko, Zusatzfahrer, GPS', ar: 'تأمين كامل، سائق إضافي، GPS', fr: 'Couverture complète, Conducteur additionnel, GPS' } },
     pickupLocations: ['antalya-airport', 'antalya-city', 'kemer', 'belek', 'side', 'lara'],
     availability: { antalyaAirport: true, antalyaCity: true, kemer: true, belek: true, side: true, alanya: false, lara: true, kundu: true },
-    images: [
-      'https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=1200&q=80', // BMW X5 executive SUV front
-      'https://images.unsplash.com/photo-1617469767053-d3b523a0b982?auto=format&fit=crop&w=1200&q=80', // BMW X5 side view
-      'https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=1200&q=80'  // BMW X5 interior
-    ],
+    images: ['https://images.pexels.com/photos/136872/pexels-photo-136872.jpeg?auto=compress&cs=tinysrgb&w=1200', 'https://images.pexels.com/photos/1007410/pexels-photo-1007410.jpeg?auto=compress&cs=tinysrgb&w=1200'],
     rating: 4.9,
     totalRentals: 6123,
     freeKm: 450,
@@ -1763,11 +1663,7 @@ export const antalyaCarRentals: AntalyaCarRental[] = [
     insurance: { included: { tr: 'Trafik Sigortası, Kasko, Ferdi Kaza', en: 'Traffic Insurance, Comprehensive, Personal Accident', ru: 'Страхование, КАСКО, Личное страхование', de: 'Haftpflicht, Vollkasko, Unfallversicherung', ar: 'تأمين مروري، شامل، حوادث', fr: 'Assurance RC, Tous risques, Accident' }, optional: { tr: 'Full Kasko, İlave Sürücü, GPS', en: 'Full Coverage, Additional Driver, GPS', ru: 'Полное КАСКО, Доп. водитель, GPS', de: 'Vollkasko, Zusatzfahrer, GPS', ar: 'تأمين كامل، سائق إضافي، GPS', fr: 'Couverture complète, Conducteur additionnel, GPS' } },
     pickupLocations: ['antalya-airport', 'antalya-city', 'kemer', 'belek', 'side', 'lara'],
     availability: { antalyaAirport: true, antalyaCity: true, kemer: true, belek: true, side: true, alanya: false, lara: true, kundu: true },
-    images: [
-      'https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=1200&q=80', // Mercedes GLE luxury SUV front
-      'https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?auto=format&fit=crop&w=1200&q=80', // Mercedes GLE side view
-      'https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?auto=format&fit=crop&w=1200&q=80'  // Mercedes GLE interior
-    ],
+    images: ['https://images.pexels.com/photos/136872/pexels-photo-136872.jpeg?auto=compress&cs=tinysrgb&w=1200', 'https://images.pexels.com/photos/1007410/pexels-photo-1007410.jpeg?auto=compress&cs=tinysrgb&w=1200'],
     rating: 4.9,
     totalRentals: 6456,
     freeKm: 470,
@@ -1797,11 +1693,7 @@ export const antalyaCarRentals: AntalyaCarRental[] = [
     insurance: { included: { tr: 'Trafik Sigortası, Kasko, Ferdi Kaza', en: 'Traffic Insurance, Comprehensive, Personal Accident', ru: 'Страхование, КАСКО, Личное страхование', de: 'Haftpflicht, Vollkasko, Unfallversicherung', ar: 'تأمين مروري، شامل، حوادث', fr: 'Assurance RC, Tous risques, Accident' }, optional: { tr: 'Full Kasko, İlave Sürücü, GPS', en: 'Full Coverage, Additional Driver, GPS', ru: 'Полное КАСКО, Доп. водитель, GPS', de: 'Vollkasko, Zusatzfahrer, GPS', ar: 'تأمين كامل، سائق إضافي، GPS', fr: 'Couverture complète, Conducteur additionnel, GPS' } },
     pickupLocations: ['antalya-airport', 'antalya-city', 'kemer', 'belek', 'side', 'lara'],
     availability: { antalyaAirport: true, antalyaCity: true, kemer: true, belek: true, side: true, alanya: false, lara: true, kundu: true },
-    images: [
-      'https://images.unsplash.com/photo-1621939514649-280e2ee25f60?auto=format&fit=crop&w=1200&q=80', // Toyota Land Cruiser SUV front
-      'https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=1200&q=80', // Toyota Land Cruiser side view
-      'https://images.unsplash.com/photo-1617886322168-72b886573c35?auto=format&fit=crop&w=1200&q=80'  // Toyota Land Cruiser interior
-    ],
+    images: ['https://images.pexels.com/photos/136872/pexels-photo-136872.jpeg?auto=compress&cs=tinysrgb&w=1200', 'https://images.pexels.com/photos/1007410/pexels-photo-1007410.jpeg?auto=compress&cs=tinysrgb&w=1200'],
     rating: 4.9,
     totalRentals: 5890,
     freeKm: 500,
@@ -1831,11 +1723,7 @@ export const antalyaCarRentals: AntalyaCarRental[] = [
     insurance: { included: { tr: 'Trafik Sigortası, Kasko, Ferdi Kaza', en: 'Traffic Insurance, Comprehensive, Personal Accident', ru: 'Страхование, КАСКО, Личное страхование', de: 'Haftpflicht, Vollkasko, Unfallversicherung', ar: 'تأمين مروري، شامل، حوادث', fr: 'Assurance RC, Tous risques, Accident' }, optional: { tr: 'Full Kasko, İlave Sürücü, GPS', en: 'Full Coverage, Additional Driver, GPS', ru: 'Полное КАСКО, Доп. водитель, GPS', de: 'Vollkasko, Zusatzfahrer, GPS', ar: 'تأمين كامل، سائق إضافي، GPS', fr: 'Couverture complète, Conducteur additionnel, GPS' } },
     pickupLocations: ['antalya-airport', 'antalya-city', 'kemer', 'belek', 'side', 'lara'],
     availability: { antalyaAirport: true, antalyaCity: true, kemer: true, belek: true, side: true, alanya: false, lara: true, kundu: true },
-    images: [
-      'https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?auto=format&fit=crop&w=1200&q=80', // Range Rover Sport luxury SUV front
-      'https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?auto=format&fit=crop&w=1200&q=80', // Range Rover Sport side view
-      'https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?auto=format&fit=crop&w=1200&q=80'  // Range Rover Sport interior
-    ],
+    images: ['https://images.pexels.com/photos/136872/pexels-photo-136872.jpeg?auto=compress&cs=tinysrgb&w=1200', 'https://images.pexels.com/photos/1007410/pexels-photo-1007410.jpeg?auto=compress&cs=tinysrgb&w=1200'],
     rating: 4.9,
     totalRentals: 5123,
     freeKm: 520,
@@ -1865,11 +1753,7 @@ export const antalyaCarRentals: AntalyaCarRental[] = [
     insurance: { included: { tr: 'Trafik Sigortası, Kasko, Ferdi Kaza', en: 'Traffic Insurance, Comprehensive, Personal Accident', ru: 'Страхование, КАСКО, Личное страхование', de: 'Haftpflicht, Vollkasko, Unfallversicherung', ar: 'تأمين مروري، شامل، حوادث', fr: 'Assurance RC, Tous risques, Accident' }, optional: { tr: 'Full Kasko, İlave Sürücü, GPS', en: 'Full Coverage, Additional Driver, GPS', ru: 'Полное КАСКО, Доп. водитель, GPS', de: 'Vollkasko, Zusatzfahrer, GPS', ar: 'تأمين كامل، سائق إضافي، GPS', fr: 'Couverture complète, Conducteur additionnel, GPS' } },
     pickupLocations: ['antalya-airport', 'antalya-city', 'kemer', 'belek', 'side', 'lara'],
     availability: { antalyaAirport: true, antalyaCity: true, kemer: true, belek: true, side: true, alanya: false, lara: true, kundu: true },
-    images: [
-      'https://images.unsplash.com/photo-1527786356703-4b100091cd2c?auto=format&fit=crop&w=1200&q=80', // Mercedes Vito passenger van front
-      'https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?auto=format&fit=crop&w=1200&q=80', // Mercedes Vito side view
-      'https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?auto=format&fit=crop&w=1200&q=80'  // Mercedes Vito interior
-    ],
+    images: ['https://images.pexels.com/photos/136872/pexels-photo-136872.jpeg?auto=compress&cs=tinysrgb&w=1200', 'https://images.pexels.com/photos/1007410/pexels-photo-1007410.jpeg?auto=compress&cs=tinysrgb&w=1200'],
     rating: 4.8,
     totalRentals: 4567,
     freeKm: 400,
@@ -1899,11 +1783,7 @@ export const antalyaCarRentals: AntalyaCarRental[] = [
     insurance: { included: { tr: 'Trafik Sigortası, Kasko, Ferdi Kaza', en: 'Traffic Insurance, Comprehensive, Personal Accident', ru: 'Страхование, КАСКО, Личное страхование', de: 'Haftpflicht, Vollkasko, Unfallversicherung', ar: 'تأمين مروري، شامل، حوادث', fr: 'Assurance RC, Tous risques, Accident' }, optional: { tr: 'Full Kasko, İlave Sürücü, GPS', en: 'Full Coverage, Additional Driver, GPS', ru: 'Полное КАСКО, Доп. водитель, GPS', de: 'Vollkasko, Zusatzfahrer, GPS', ar: 'تأمين كامل، سائق إضافي، GPS', fr: 'Couverture complète, Conducteur additionnel, GPS' } },
     pickupLocations: ['antalya-airport', 'antalya-city', 'kemer', 'belek', 'side', 'lara'],
     availability: { antalyaAirport: true, antalyaCity: true, kemer: true, belek: true, side: true, alanya: false, lara: true, kundu: true },
-    images: [
-      'https://images.unsplash.com/photo-1527786356703-4b100091cd2c?auto=format&fit=crop&w=1200&q=80', // Volkswagen Caravelle van front
-      'https://images.unsplash.com/photo-1622353219448-46a9f522c7b8?auto=format&fit=crop&w=1200&q=80', // Volkswagen Caravelle side view
-      'https://images.unsplash.com/photo-1614200187524-dc4b892acf16?auto=format&fit=crop&w=1200&q=80'  // Volkswagen Caravelle interior
-    ],
+    images: ['https://images.pexels.com/photos/136872/pexels-photo-136872.jpeg?auto=compress&cs=tinysrgb&w=1200', 'https://images.pexels.com/photos/1007410/pexels-photo-1007410.jpeg?auto=compress&cs=tinysrgb&w=1200'],
     rating: 4.8,
     totalRentals: 4234,
     freeKm: 410,
@@ -1933,11 +1813,7 @@ export const antalyaCarRentals: AntalyaCarRental[] = [
     insurance: { included: { tr: 'Trafik Sigortası, Kasko, Ferdi Kaza', en: 'Traffic Insurance, Comprehensive, Personal Accident', ru: 'Страхование, КАСКО, Личное страхование', de: 'Haftpflicht, Vollkasko, Unfallversicherung', ar: 'تأمين مروري، شامل، حوادث', fr: 'Assurance RC, Tous risques, Accident' }, optional: { tr: 'Full Kasko, İlave Sürücü, GPS', en: 'Full Coverage, Additional Driver, GPS', ru: 'Полное КАСКО, Доп. водитель, GPS', de: 'Vollkasko, Zusatzfahrer, GPS', ar: 'تأمين كامل، سائق إضافي، GPS', fr: 'Couverture complète, Conducteur additionnel, GPS' } },
     pickupLocations: ['antalya-airport', 'antalya-city', 'kemer', 'belek', 'side', 'lara'],
     availability: { antalyaAirport: true, antalyaCity: true, kemer: true, belek: true, side: true, alanya: false, lara: true, kundu: true },
-    images: [
-      'https://images.unsplash.com/photo-1527786356703-4b100091cd2c?auto=format&fit=crop&w=1200&q=80', // Ford Tourneo Custom van front
-      'https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=1200&q=80', // Ford Tourneo side view
-      'https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?auto=format&fit=crop&w=1200&q=80'  // Ford Tourneo interior
-    ],
+    images: ['https://images.pexels.com/photos/136872/pexels-photo-136872.jpeg?auto=compress&cs=tinysrgb&w=1200', 'https://images.pexels.com/photos/1007410/pexels-photo-1007410.jpeg?auto=compress&cs=tinysrgb&w=1200'],
     rating: 4.7,
     totalRentals: 3890,
     freeKm: 390,
@@ -1967,11 +1843,7 @@ export const antalyaCarRentals: AntalyaCarRental[] = [
     insurance: { included: { tr: 'Trafik Sigortası, Kasko, Ferdi Kaza', en: 'Traffic Insurance, Comprehensive, Personal Accident', ru: 'Страхование, КАСКО, Личное страхование', de: 'Haftpflicht, Vollkasko, Unfallversicherung', ar: 'تأمين مروري، شامل، حوادث', fr: 'Assurance RC, Tous risques, Accident' }, optional: { tr: 'Full Kasko, İlave Sürücü, GPS', en: 'Full Coverage, Additional Driver, GPS', ru: 'Полное КАСКО, Доп. водитель, GPS', de: 'Vollkasko, Zusatzfahrer, GPS', ar: 'تأمين كامل، سائق إضافي، GPS', fr: 'Couverture complète, Conducteur additionnel, GPS' } },
     pickupLocations: ['antalya-airport', 'antalya-city', 'kemer', 'belek', 'side', 'lara'],
     availability: { antalyaAirport: true, antalyaCity: true, kemer: true, belek: true, side: true, alanya: false, lara: true, kundu: true },
-    images: [
-      'https://images.unsplash.com/photo-1527786356703-4b100091cd2c?auto=format&fit=crop&w=1200&q=80', // Hyundai H1 Starex van front
-      'https://images.unsplash.com/photo-1590362891991-f776e747a588?auto=format&fit=crop&w=1200&q=80', // Hyundai H1 side view
-      'https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?auto=format&fit=crop&w=1200&q=80'  // Hyundai H1 interior
-    ],
+    images: ['https://images.pexels.com/photos/136872/pexels-photo-136872.jpeg?auto=compress&cs=tinysrgb&w=1200', 'https://images.pexels.com/photos/1007410/pexels-photo-1007410.jpeg?auto=compress&cs=tinysrgb&w=1200'],
     rating: 4.7,
     totalRentals: 3567,
     freeKm: 370,
@@ -2001,11 +1873,7 @@ export const antalyaCarRentals: AntalyaCarRental[] = [
     insurance: { included: { tr: 'Trafik Sigortası, Kasko, Ferdi Kaza', en: 'Traffic Insurance, Comprehensive, Personal Accident', ru: 'Страхование, КАСКО, Личное страхование', de: 'Haftpflicht, Vollkasko, Unfallversicherung', ar: 'تأمين مروري، شامل، حوادث', fr: 'Assurance RC, Tous risques, Accident' }, optional: { tr: 'Full Kasko, İlave Sürücü, GPS', en: 'Full Coverage, Additional Driver, GPS', ru: 'Полное КАСКО, Доп. водитель, GPS', de: 'Vollkasko, Zusatzfahrer, GPS', ar: 'تأمين كامل، سائق إضافي، GPS', fr: 'Couverture complète, Conducteur additionnel, GPS' } },
     pickupLocations: ['antalya-airport', 'antalya-city', 'kemer', 'belek', 'side', 'lara'],
     availability: { antalyaAirport: true, antalyaCity: true, kemer: true, belek: true, side: true, alanya: false, lara: true, kundu: true },
-    images: [
-      'https://images.unsplash.com/photo-1527786356703-4b100091cd2c?auto=format&fit=crop&w=1200&q=80', // Peugeot Traveller van front
-      'https://images.unsplash.com/photo-1621291868379-08e85cbf0b6e?auto=format&fit=crop&w=1200&q=80', // Peugeot Traveller side view
-      'https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?auto=format&fit=crop&w=1200&q=80'  // Peugeot Traveller interior
-    ],
+    images: ['https://images.pexels.com/photos/136872/pexels-photo-136872.jpeg?auto=compress&cs=tinysrgb&w=1200', 'https://images.pexels.com/photos/1007410/pexels-photo-1007410.jpeg?auto=compress&cs=tinysrgb&w=1200'],
     rating: 4.7,
     totalRentals: 3234,
     freeKm: 380,
@@ -2035,11 +1903,7 @@ export const antalyaCarRentals: AntalyaCarRental[] = [
     insurance: { included: { tr: 'Trafik Sigortası, Kasko, Ferdi Kaza', en: 'Traffic Insurance, Comprehensive, Personal Accident', ru: 'Страхование, КАСКО, Личное страхование', de: 'Haftpflicht, Vollkasko, Unfallversicherung', ar: 'تأمين مروري، شامل، حوادث', fr: 'Assurance RC, Tous risques, Accident' }, optional: { tr: 'Full Kasko, İlave Sürücü, GPS', en: 'Full Coverage, Additional Driver, GPS', ru: 'Полное КАСКО, Доп. водитель, GPS', de: 'Vollkasko, Zusatzfahrer, GPS', ar: 'تأمين كامل، سائق إضافي، GPS', fr: 'Couverture complète, Conducteur additionnel, GPS' } },
     pickupLocations: ['antalya-airport', 'antalya-city', 'kemer', 'belek', 'side', 'lara'],
     availability: { antalyaAirport: true, antalyaCity: true, kemer: true, belek: true, side: true, alanya: false, lara: true, kundu: true },
-    images: [
-      'https://images.unsplash.com/photo-1527786356703-4b100091cd2c?auto=format&fit=crop&w=1200&q=80', // Toyota Proace Verso van front
-      'https://images.unsplash.com/photo-1621939514649-280e2ee25f60?auto=format&fit=crop&w=1200&q=80', // Toyota Proace side view
-      'https://images.unsplash.com/photo-1617886322168-72b886573c35?auto=format&fit=crop&w=1200&q=80'  // Toyota Proace interior
-    ],
+    images: ['https://images.pexels.com/photos/136872/pexels-photo-136872.jpeg?auto=compress&cs=tinysrgb&w=1200', 'https://images.pexels.com/photos/1007410/pexels-photo-1007410.jpeg?auto=compress&cs=tinysrgb&w=1200'],
     rating: 4.8,
     totalRentals: 3890,
     freeKm: 390,
@@ -2069,11 +1933,7 @@ export const antalyaCarRentals: AntalyaCarRental[] = [
     insurance: { included: { tr: 'Trafik Sigortası, Kasko, Ferdi Kaza', en: 'Traffic Insurance, Comprehensive, Personal Accident', ru: 'Страхование, КАСКО, Личное страхование', de: 'Haftpflicht, Vollkasko, Unfallversicherung', ar: 'تأمين مروري، شامل، حوادث', fr: 'Assurance RC, Tous risques, Accident' }, optional: { tr: 'Full Kasko, İlave Sürücü, GPS', en: 'Full Coverage, Additional Driver, GPS', ru: 'Полное КАСКО, Доп. водитель, GPS', de: 'Vollkasko, Zusatzfahrer, GPS', ar: 'تأمين كامل، سائق إضافي، GPS', fr: 'Couverture complète, Conducteur additionnel, GPS' } },
     pickupLocations: ['antalya-airport', 'antalya-city', 'kemer', 'belek', 'side', 'lara'],
     availability: { antalyaAirport: true, antalyaCity: true, kemer: true, belek: true, side: true, alanya: false, lara: true, kundu: true },
-    images: [
-      'https://images.unsplash.com/photo-1527786356703-4b100091cd2c?auto=format&fit=crop&w=1200&q=80', // Mercedes Sprinter minibus front
-      'https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?auto=format&fit=crop&w=1200&q=80', // Mercedes Sprinter side view
-      'https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?auto=format&fit=crop&w=1200&q=80'  // Mercedes Sprinter interior
-    ],
+    images: ['https://images.pexels.com/photos/136872/pexels-photo-136872.jpeg?auto=compress&cs=tinysrgb&w=1200', 'https://images.pexels.com/photos/1007410/pexels-photo-1007410.jpeg?auto=compress&cs=tinysrgb&w=1200'],
     rating: 4.8,
     totalRentals: 3456,
     freeKm: 450,
@@ -2103,11 +1963,7 @@ export const antalyaCarRentals: AntalyaCarRental[] = [
     insurance: { included: { tr: 'Trafik Sigortası, Kasko, Ferdi Kaza', en: 'Traffic Insurance, Comprehensive, Personal Accident', ru: 'Страхование, КАСКО, Личное страхование', de: 'Haftpflicht, Vollkasko, Unfallversicherung', ar: 'تأمين مروري، شامل، حوادث', fr: 'Assurance RC, Tous risques, Accident' }, optional: { tr: 'Full Kasko, İlave Sürücü, GPS', en: 'Full Coverage, Additional Driver, GPS', ru: 'Полное КАСКО, Доп. водитель, GPS', de: 'Vollkasko, Zusatzfahrer, GPS', ar: 'تأمين كامل، سائق إضافي، GPS', fr: 'Couverture complète, Conducteur additionnel, GPS' } },
     pickupLocations: ['antalya-airport', 'antalya-city', 'kemer', 'belek', 'side', 'lara'],
     availability: { antalyaAirport: true, antalyaCity: true, kemer: true, belek: true, side: true, alanya: false, lara: true, kundu: true },
-    images: [
-      'https://images.unsplash.com/photo-1527786356703-4b100091cd2c?auto=format&fit=crop&w=1200&q=80', // Volkswagen Crafter minibus front
-      'https://images.unsplash.com/photo-1622353219448-46a9f522c7b8?auto=format&fit=crop&w=1200&q=80', // Volkswagen Crafter side view
-      'https://images.unsplash.com/photo-1614200187524-dc4b892acf16?auto=format&fit=crop&w=1200&q=80'  // Volkswagen Crafter interior
-    ],
+    images: ['https://images.pexels.com/photos/136872/pexels-photo-136872.jpeg?auto=compress&cs=tinysrgb&w=1200', 'https://images.pexels.com/photos/1007410/pexels-photo-1007410.jpeg?auto=compress&cs=tinysrgb&w=1200'],
     rating: 4.8,
     totalRentals: 3234,
     freeKm: 460,
@@ -2137,11 +1993,7 @@ export const antalyaCarRentals: AntalyaCarRental[] = [
     insurance: { included: { tr: 'Trafik Sigortası, Kasko, Ferdi Kaza', en: 'Traffic Insurance, Comprehensive, Personal Accident', ru: 'Страхование, КАСКО, Личное страхование', de: 'Haftpflicht, Vollkasko, Unfallversicherung', ar: 'تأمين مروري، شامل، حوادث', fr: 'Assurance RC, Tous risques, Accident' }, optional: { tr: 'Full Kasko, İlave Sürücü, GPS', en: 'Full Coverage, Additional Driver, GPS', ru: 'Полное КАСКО, Доп. водитель, GPS', de: 'Vollkasko, Zusatzfahrer, GPS', ar: 'تأمين كامل، سائق إضافي، GPS', fr: 'Couverture complète, Conducteur additionnel, GPS' } },
     pickupLocations: ['antalya-airport', 'antalya-city', 'kemer', 'belek', 'side', 'lara'],
     availability: { antalyaAirport: true, antalyaCity: true, kemer: true, belek: true, side: true, alanya: false, lara: true, kundu: true },
-    images: [
-      'https://images.unsplash.com/photo-1527786356703-4b100091cd2c?auto=format&fit=crop&w=1200&q=80', // Ford Transit minibus front
-      'https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=1200&q=80', // Ford Transit side view
-      'https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?auto=format&fit=crop&w=1200&q=80'  // Ford Transit interior
-    ],
+    images: ['https://images.pexels.com/photos/136872/pexels-photo-136872.jpeg?auto=compress&cs=tinysrgb&w=1200', 'https://images.pexels.com/photos/1007410/pexels-photo-1007410.jpeg?auto=compress&cs=tinysrgb&w=1200'],
     rating: 4.7,
     totalRentals: 2890,
     freeKm: 440,
@@ -2171,11 +2023,7 @@ export const antalyaCarRentals: AntalyaCarRental[] = [
     insurance: { included: { tr: 'Trafik Sigortası, Kasko, Ferdi Kaza', en: 'Traffic Insurance, Comprehensive, Personal Accident', ru: 'Страхование, КАСКО, Личное страхование', de: 'Haftpflicht, Vollkasko, Unfallversicherung', ar: 'تأمين مروري، شامل، حوادث', fr: 'Assurance RC, Tous risques, Accident' }, optional: { tr: 'Full Kasko, İlave Sürücü, GPS', en: 'Full Coverage, Additional Driver, GPS', ru: 'Полное КАСКО, Доп. водитель, GPS', de: 'Vollkasko, Zusatzfahrer, GPS', ar: 'تأمين كامل، سائق إضافي، GPS', fr: 'Couverture complète, Conducteur additionnel, GPS' } },
     pickupLocations: ['antalya-airport', 'antalya-city', 'kemer', 'belek', 'side', 'lara'],
     availability: { antalyaAirport: true, antalyaCity: true, kemer: true, belek: true, side: true, alanya: false, lara: true, kundu: true },
-    images: [
-      'https://images.unsplash.com/photo-1527786356703-4b100091cd2c?auto=format&fit=crop&w=1200&q=80', // Iveco Daily minibus front
-      'https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=1200&q=80', // Iveco Daily side view
-      'https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?auto=format&fit=crop&w=1200&q=80'  // Iveco Daily interior
-    ],
+    images: ['https://images.pexels.com/photos/136872/pexels-photo-136872.jpeg?auto=compress&cs=tinysrgb&w=1200', 'https://images.pexels.com/photos/1007410/pexels-photo-1007410.jpeg?auto=compress&cs=tinysrgb&w=1200'],
     rating: 4.7,
     totalRentals: 2567,
     freeKm: 450,

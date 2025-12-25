@@ -70,9 +70,9 @@ export const antalyaTours: ComprehensiveTour[] = [
       'Küçük gruplar ile kişisel deneyim'
     ],
     images: [
-      'https://images.pexels.com/photos/1268855/pexels-photo-1268855.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/3225531/pexels-photo-3225531.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/1287460/pexels-photo-1287460.jpeg?auto=compress&cs=tinysrgb&w=1200'
+      'https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?auto=format&fit=crop&w=1200&q=80', // Luxury yacht Mediterranean cruise
+      'https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1200&q=80', // Boat tour turquoise water Turkey
+      'https://images.unsplash.com/photo-1559827260-dc66d52bef19?auto=format&fit=crop&w=1200&q=80'  // Catamaran sailing Antalya coast
     ],
     rating: 4.9,
     reviewCount: 487,
@@ -124,9 +124,9 @@ export const antalyaTours: ComprehensiveTour[] = [
       'Çocuk menüsü dahil'
     ],
     images: [
-      'https://images.pexels.com/photos/1268855/pexels-photo-1268855.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/3225531/pexels-photo-3225531.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/1007426/pexels-photo-1007426.jpeg?auto=compress&cs=tinysrgb&w=1200'
+      'https://images.unsplash.com/photo-1540946485063-a40da27545f8?auto=format&fit=crop&w=1200&q=80', // Pirate ship boat tour Mediterranean
+      'https://images.unsplash.com/photo-1606938969815-c6793fa4c1d7?auto=format&fit=crop&w=1200&q=80', // Family boat cruise turquoise sea
+      'https://images.unsplash.com/photo-1583417319070-4a69db38a482?auto=format&fit=crop&w=1200&q=80'  // Sailing boat Antalya coast
     ],
     rating: 4.8,
     reviewCount: 623,
@@ -179,9 +179,9 @@ export const antalyaTours: ComprehensiveTour[] = [
       'Açık büfe öğle yemeği'
     ],
     images: [
-      'https://images.pexels.com/photos/4666751/pexels-photo-4666751.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/2007401/pexels-photo-2007401.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/3155666/pexels-photo-3155666.jpeg?auto=compress&cs=tinysrgb&w=1200'
+      'https://images.unsplash.com/photo-1501594907352-04cda38ebc29?auto=format&fit=crop&w=1200&q=80', // Whitewater rafting action shot
+      'https://images.unsplash.com/photo-1600298881974-6be191ceeda1?auto=format&fit=crop&w=1200&q=80', // Rafting team canyon river
+      'https://images.unsplash.com/photo-1519219788971-8d9797e0928e?auto=format&fit=crop&w=1200&q=80'  // River rafting Turkey mountains
     ],
     rating: 4.9,
     reviewCount: 892,
@@ -232,9 +232,9 @@ export const antalyaTours: ComprehensiveTour[] = [
       'Profesyonel sürücüler'
     ],
     images: [
-      'https://images.pexels.com/photos/2526127/pexels-photo-2526127.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/1592384/pexels-photo-1592384.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/3422964/pexels-photo-3422964.jpeg?auto=compress&cs=tinysrgb&w=1200'
+      'https://images.unsplash.com/photo-1533523420835-4e5c177193e7?auto=format&fit=crop&w=1200&q=80', // Jeep safari mountains off-road
+      'https://images.unsplash.com/photo-1541532713592-79a0317b6b77?auto=format&fit=crop&w=1200&q=80', // 4x4 jeep adventure Turkey
+      'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=1200&q=80'  // Off-road mountain panorama
     ],
     rating: 4.7,
     reviewCount: 534,
@@ -285,9 +285,9 @@ export const antalyaTours: ComprehensiveTour[] = [
       'Uçuş sertifikası'
     ],
     images: [
-      'https://images.pexels.com/photos/848618/pexels-photo-848618.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/3601426/pexels-photo-3601426.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/1007426/pexels-photo-1007426.jpeg?auto=compress&cs=tinysrgb&w=1200'
+      'https://images.unsplash.com/photo-1574672280600-4accfa5b6f98?auto=format&fit=crop&w=1200&q=80', // Paragliding Oludeniz Turkey aerial
+      'https://images.unsplash.com/photo-1509741102003-ca64bfe5f069?auto=format&fit=crop&w=1200&q=80', // Tandem paragliding beach view
+      'https://images.unsplash.com/photo-1519904981063-b0cf448d479e?auto=format&fit=crop&w=1200&q=80'  // Paragliding Mediterranean coast
     ],
     rating: 5.0,
     reviewCount: 1247,
@@ -339,9 +339,9 @@ export const antalyaTours: ComprehensiveTour[] = [
       'Klimalı konforlu transfer'
     ],
     images: [
-      'https://images.pexels.com/photos/3155666/pexels-photo-3155666.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/1287460/pexels-photo-1287460.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/3225531/pexels-photo-3225531.jpeg?auto=compress&cs=tinysrgb&w=1200'
+      'https://images.unsplash.com/photo-1541969187011-88a2137a7c5e?auto=format&fit=crop&w=1200&q=80', // Aspendos ancient theatre Turkey
+      'https://images.unsplash.com/photo-1605640840605-14ac1855827b?auto=format&fit=crop&w=1200&q=80', // Perge ancient city columns
+      'https://images.unsplash.com/photo-1609137144813-7d9921338f24?auto=format&fit=crop&w=1200&q=80'  // Side Apollo Temple ruins
     ],
     rating: 4.8,
     reviewCount: 756,
@@ -392,9 +392,9 @@ export const antalyaTours: ComprehensiveTour[] = [
       'Eşsiz fotoğraf fırsatları'
     ],
     images: [
-      'https://images.pexels.com/photos/1268855/pexels-photo-1268855.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/3225531/pexels-photo-3225531.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/78366/pexels-photo-78366.jpeg?auto=compress&cs=tinysrgb&w=1200'
+      'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=80', // Myra Lycian rock tombs Turkey
+      'https://images.unsplash.com/photo-1592422916095-53c15b512a67?auto=format&fit=crop&w=1200&q=80', // Kekova sunken city boat tour
+      'https://images.unsplash.com/photo-1597655601841-214a4cfe8b2c?auto=format&fit=crop&w=1200&q=80'  // Ancient church Byzantine Turkey
     ],
     rating: 4.9,
     reviewCount: 934,
@@ -444,9 +444,9 @@ export const antalyaTours: ComprehensiveTour[] = [
       'Şehre yakın doğa kaçamağı'
     ],
     images: [
-      'https://images.pexels.com/photos/3155666/pexels-photo-3155666.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/1287460/pexels-photo-1287460.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/2007401/pexels-photo-2007401.jpeg?auto=compress&cs=tinysrgb&w=1200'
+      'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80', // Duden waterfall Antalya Turkey
+      'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=1200&q=80', // Forest waterfall nature park
+      'https://images.unsplash.com/photo-1433086966358-54859d0ed716?auto=format&fit=crop&w=1200&q=80'  // Waterfall pool swimming nature
     ],
     rating: 4.6,
     reviewCount: 423,
@@ -494,9 +494,9 @@ export const antalyaTours: ComprehensiveTour[] = [
       'Fotoğraf için muhteşem manzaralar'
     ],
     images: [
-      'https://images.pexels.com/photos/3601426/pexels-photo-3601426.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/1287460/pexels-photo-1287460.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/3155666/pexels-photo-3155666.jpeg?auto=compress&cs=tinysrgb&w=1200'
+      'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=1200&q=80', // Cable car mountain panorama view
+      'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80', // Mountain summit cable car
+      'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=1200&q=80'  // Tahtali mountain Olympos view
     ],
     rating: 4.9,
     reviewCount: 1089,
@@ -550,9 +550,9 @@ export const antalyaTours: ComprehensiveTour[] = [
       'Mercan resifleri'
     ],
     images: [
-      'https://images.pexels.com/photos/78366/pexels-photo-78366.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/3155666/pexels-photo-3155666.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/1287460/pexels-photo-1287460.jpeg?auto=compress&cs=tinysrgb&w=1200'
+      'https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1200&q=80', // Scuba diving underwater Turkey
+      'https://images.unsplash.com/photo-1559827260-dc66d52bef19?auto=format&fit=crop&w=1200&q=80', // Diving Mediterranean clear water
+      'https://images.unsplash.com/photo-1583212292454-1fe6229603b7?auto=format&fit=crop&w=1200&q=80'  // Underwater diving reef fish
     ],
     rating: 4.9,
     reviewCount: 678,
@@ -606,9 +606,9 @@ export const antalyaTours: ComprehensiveTour[] = [
       'Kültürel deneyim'
     ],
     images: [
-      'https://images.pexels.com/photos/3601426/pexels-photo-3601426.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/1287460/pexels-photo-1287460.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/2007401/pexels-photo-2007401.jpeg?auto=compress&cs=tinysrgb&w=1200'
+      'https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&fit=crop&w=1200&q=80', // Turkish folk dance performance
+      'https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=1200&q=80', // Turkish cuisine buffet dinner
+      'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1200&q=80'  // Belly dance show entertainment
     ],
     rating: 4.7,
     reviewCount: 1203,
@@ -662,9 +662,9 @@ export const antalyaTours: ComprehensiveTour[] = [
       'Türk çayı ikramı'
     ],
     images: [
-      'https://images.pexels.com/photos/3155666/pexels-photo-3155666.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/1287460/pexels-photo-1287460.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/3601426/pexels-photo-3601426.jpeg?auto=compress&cs=tinysrgb&w=1200'
+      'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1200&q=80', // Turkish hammam spa interior
+      'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=1200&q=80', // Traditional Turkish bath massage
+      'https://images.unsplash.com/photo-1596178060671-7a80dc8059ea?auto=format&fit=crop&w=1200&q=80'  // Wellness spa Turkey relaxation
     ],
     rating: 4.8,
     reviewCount: 956,
@@ -717,9 +717,9 @@ export const antalyaTours: ComprehensiveTour[] = [
       'Deneyim gerektirmez'
     ],
     images: [
-      'https://images.pexels.com/photos/2393816/pexels-photo-2393816.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/1595211/pexels-photo-1595211.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/3422964/pexels-photo-3422964.jpeg?auto=compress&cs=tinysrgb&w=1200'
+      'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=1200&q=80', // ATV quad bike safari action
+      'https://images.unsplash.com/photo-1603910234859-b9f1fc6c77fb?auto=format&fit=crop&w=1200&q=80', // Quad safari dust adventure
+      'https://images.unsplash.com/photo-1621024238379-68c761c57f37?auto=format&fit=crop&w=1200&q=80'  // ATV off-road mountains Turkey
     ],
     rating: 4.8,
     reviewCount: 734,
@@ -771,9 +771,9 @@ export const antalyaTours: ComprehensiveTour[] = [
       'Eğlence ve adrenalin'
     ],
     images: [
-      'https://images.pexels.com/photos/3601426/pexels-photo-3601426.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/2007401/pexels-photo-2007401.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/1287460/pexels-photo-1287460.jpeg?auto=compress&cs=tinysrgb&w=1200'
+      'https://images.unsplash.com/photo-1527004013197-933c4bb611b3?auto=format&fit=crop&w=1200&q=80', // Zipline adventure forest canopy
+      'https://images.unsplash.com/photo-1520209759809-a9bcb6cb3241?auto=format&fit=crop&w=1200&q=80', // Zip line aerial tree course
+      'https://images.unsplash.com/photo-1516139008210-96e45dccd83b?auto=format&fit=crop&w=1200&q=80'  // Adventure park rope course
     ],
     rating: 4.6,
     reviewCount: 445,
@@ -825,9 +825,9 @@ export const antalyaTours: ComprehensiveTour[] = [
       'Profesyonel arkeolog rehber'
     ],
     images: [
-      'https://images.pexels.com/photos/3155666/pexels-photo-3155666.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/1287460/pexels-photo-1287460.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/3225531/pexels-photo-3225531.jpeg?auto=compress&cs=tinysrgb&w=1200'
+      'https://images.unsplash.com/photo-1580837119756-563d608dd119?auto=format&fit=crop&w=1200&q=80', // Termessos ancient theatre mountain
+      'https://images.unsplash.com/photo-1592422916095-53c15b512a67?auto=format&fit=crop&w=1200&q=80', // Ancient ruins mountain panorama
+      'https://images.unsplash.com/photo-1555400038-63f5ba517a47?auto=format&fit=crop&w=1200&q=80'  // Roman ruins Turkey landscape
     ],
     rating: 4.9,
     reviewCount: 567,
@@ -880,9 +880,9 @@ export const antalyaTours: ComprehensiveTour[] = [
       'Yerel kültür deneyimi'
     ],
     images: [
-      'https://images.pexels.com/photos/3155666/pexels-photo-3155666.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/3601426/pexels-photo-3601426.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/1287460/pexels-photo-1287460.jpeg?auto=compress&cs=tinysrgb&w=1200'
+      'https://images.unsplash.com/photo-1588421357574-87938a86fa28?auto=format&fit=crop&w=1200&q=80', // Hadrian Gate Antalya old town
+      'https://images.unsplash.com/photo-1605640840605-14ac1855827b?auto=format&fit=crop&w=1200&q=80', // Kaleici historical streets Turkey
+      'https://images.unsplash.com/photo-1583417319070-4a69db38a482?auto=format&fit=crop&w=1200&q=80'  // Antalya marina old harbor
     ],
     rating: 4.7,
     reviewCount: 834,

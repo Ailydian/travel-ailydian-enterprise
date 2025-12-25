@@ -90,11 +90,11 @@ export const EXPERIENCES_TURKEY: Experience[] = [
     category: 'cultural',
     type: 'tour',
     images: {
-      hero: 'https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?w=1200&h=800&fit=crop',
+      hero: 'https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?auto=format&fit=crop&w=1200&q=80', // Luxury yacht Bosphorus cruise Istanbul sunset
       gallery: [
-        'https://images.unsplash.com/photo-1527838832700-5059252407fa?w=800&h=600&fit=crop',
-        'https://images.unsplash.com/photo-1561727946-6a970bb942be?w=800&h=600&fit=crop',
-        'https://images.unsplash.com/photo-1566073771259-6a8506862ae3?w=800&h=600&fit=crop'
+        'https://images.unsplash.com/photo-1527838832700-5059252407fa?auto=format&fit=crop&w=800&q=80', // Bosphorus Bridge Istanbul illuminated evening
+        'https://images.unsplash.com/photo-1541432901042-2d8bd64b4a9b?auto=format&fit=crop&w=800&q=80', // Istanbul skyline from Bosphorus cruise view
+        'https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?auto=format&fit=crop&w=800&q=80' // Istanbul Maiden Tower Bosphorus sunset
       ]
     },
     pricing: {
@@ -195,7 +195,7 @@ export const EXPERIENCES_TURKEY: Experience[] = [
       title: 'İstanbul Boğaz Gün Batımı Turu | Yemekli Cruise 2024',
       description: 'İstanbul Boğazı\'nda romantik gün batımı turu! Yemek, canlı müzik, muhteşem manzara. Online rezervasyon, en iyi fiyat garantisi. %100 gerçek yorumlar.',
       keywords: ['boğaz turu', 'istanbul cruise', 'gün batımı turu', 'yemekli tur', 'boğazda yemek', 'istanbul tekne turu'],
-      ogImage: 'https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?w=1200&h=630&fit=crop'
+      ogImage: 'https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?auto=format&fit=crop&w=1200&q=80'
     },
     relatedExperiences: ['istanbul-walking-tour', 'istanbul-food-tour', 'princes-islands-tour']
   },
@@ -209,11 +209,11 @@ export const EXPERIENCES_TURKEY: Experience[] = [
     category: 'adventure',
     type: 'activity',
     images: {
-      hero: 'https://images.unsplash.com/photo-1570939274719-c60ee3bf5cd9?w=1200&h=800&fit=crop',
+      hero: 'https://images.unsplash.com/photo-1570939274719-c60ee3bf5cd9?auto=format&fit=crop&w=1200&q=80', // Cappadocia hot air balloon sunrise fairy chimneys
       gallery: [
-        'https://images.unsplash.com/photo-1566912436285-cb15e4d0dcd6?w=800&h=600&fit=crop',
-        'https://images.unsplash.com/photo-1605967840894-e47f7d87a96d?w=800&h=600&fit=crop',
-        'https://images.unsplash.com/photo-1526392060635-9d6019884377?w=800&h=600&fit=crop'
+        'https://images.unsplash.com/photo-1566912436285-cb15e4d0dcd6?auto=format&fit=crop&w=800&q=80', // Multiple hot air balloons Cappadocia sunrise sky
+        'https://images.unsplash.com/photo-1605967840894-e47f7d87a96d?auto=format&fit=crop&w=800&q=80', // Cappadocia balloon flight valley view aerial
+        'https://images.unsplash.com/photo-1526392060635-9d6019884377?auto=format&fit=crop&w=800&q=80' // Hot air balloon basket Cappadocia landscape
       ]
     },
     pricing: {
@@ -326,7 +326,7 @@ export const EXPERIENCES_TURKEY: Experience[] = [
       title: 'Kapadokya Balon Turu | Gün Doğumu Uçuşu 2024 - En İyi Fiyat',
       description: 'Kapadokya\'da unutulmaz balon deneyimi! Profesyonel pilotlar, güvenli uçuş, şampanya kutlaması. Online rezervasyon, %100 güvenli ödeme.',
       keywords: ['kapadokya balon', 'balon turu', 'sıcak hava balonu', 'kapadokya gün doğumu', 'balon fiyatları', 'kapadokya turları'],
-      ogImage: 'https://images.unsplash.com/photo-1570939274719-c60ee3bf5cd9?w=1200&h=630&fit=crop'
+      ogImage: 'https://images.unsplash.com/photo-1570939274719-c60ee3bf5cd9?auto=format&fit=crop&w=1200&q=80'
     },
     relatedExperiences: ['cappadocia-atv-tour', 'cappadocia-walking-tour', 'underground-city-tour']
   },
@@ -340,11 +340,11 @@ export const EXPERIENCES_TURKEY: Experience[] = [
     category: 'water-sports',
     type: 'activity',
     images: {
-      hero: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=1200&h=800&fit=crop',
+      hero: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1200&q=80', // Scuba diver underwater Mediterranean Turkey diving
       gallery: [
-        'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&h=600&fit=crop',
-        'https://images.unsplash.com/photo-1544551763-92d6c2e6949f?w=800&h=600&fit=crop',
-        'https://images.unsplash.com/photo-1583212292454-1fe6229603b7?w=800&h=600&fit=crop'
+        'https://images.unsplash.com/photo-1559827260-dc66d52bef19?auto=format&fit=crop&w=800&q=80', // Underwater coral reef scuba diving Turkey
+        'https://images.unsplash.com/photo-1544551763-92d6c2e6949f?auto=format&fit=crop&w=800&q=80', // Diver exploring underwater cave Mediterranean sea
+        'https://images.unsplash.com/photo-1583212292454-1fe6229603b7?auto=format&fit=crop&w=800&q=80' // Scuba diving instructor student underwater training
       ]
     },
     pricing: {
@@ -464,7 +464,7 @@ export const EXPERIENCES_TURKEY: Experience[] = [
       title: 'Antalya Dalış Turu | PADI Sertifikalı Scuba Diving 2024',
       description: 'Antalya\'da profesyonel dalış deneyimi! PADI eğitmenler, tüm ekipman dahil, küçük gruplar. Yeni başlayanlar için ideal. Online rezervasyon.',
       keywords: ['antalya dalış', 'scuba diving', 'dalış turu', 'padi dalış', 'sualtı', 'antalya su sporları'],
-      ogImage: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=1200&h=630&fit=crop'
+      ogImage: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1200&q=80'
     },
     relatedExperiences: ['antalya-boat-tour', 'antalya-rafting', 'antalya-paragliding']
   },
@@ -478,11 +478,11 @@ export const EXPERIENCES_TURKEY: Experience[] = [
     category: 'culinary',
     type: 'tour',
     images: {
-      hero: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=1200&h=800&fit=crop',
+      hero: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=1200&q=80', // Turkish cuisine mezze spread traditional dishes Istanbul
       gallery: [
-        'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=800&h=600&fit=crop',
-        'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&h=600&fit=crop',
-        'https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=800&h=600&fit=crop'
+        'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=800&q=80', // Turkish food mezze appetizers restaurant table
+        'https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?auto=format&fit=crop&w=800&q=80', // Turkish street food simit kebab Istanbul market
+        'https://images.unsplash.com/photo-1583892318657-682c827f4f80?auto=format&fit=crop&w=800&q=80' // Turkish baklava dessert Istanbul Grand Bazaar
       ]
     },
     pricing: {
@@ -595,7 +595,7 @@ export const EXPERIENCES_TURKEY: Experience[] = [
       title: 'İstanbul Yemek Turu | Gastronomi ve Sokak Lezzetleri 2024',
       description: 'İstanbul\'un en iyi lezzetlerini keşfedin! Kapalıçarşı, sokak yemekleri, yerel pazarlar. Profesyonel rehber, 15+ tadım. Online rezervasyon.',
       keywords: ['istanbul yemek turu', 'gastronomi turu', 'istanbul lezzetleri', 'sokak yemekleri', 'kapalıçarşı', 'türk mutfağı'],
-      ogImage: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=1200&h=630&fit=crop'
+      ogImage: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=1200&q=80'
     },
     relatedExperiences: ['istanbul-bosphorus-sunset-cruise', 'istanbul-walking-tour', 'turkish-cooking-class']
   }
