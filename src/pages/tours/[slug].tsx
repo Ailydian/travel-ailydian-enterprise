@@ -8,6 +8,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { NextSeo } from 'next-seo';
 import Head from 'next/head';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import {
@@ -445,32 +446,32 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
           <div className="max-w-7xl mx-auto">
             {/* Main Image */}
             <div className="relative h-[70vh] overflow-hidden">
-              <motion.img
+              <Image
                 key={selectedImage}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.5 }}
                 src={tour.images[selectedImage]}
                 alt={tour.title}
-                className="w-full h-full object-cover"
+                fill
+                className="object-cover"
+                priority
+                sizes="100vw"
               />
 
               {/* Navigation Arrows */}
               <button
                 onClick={() => setSelectedImage(prev => (prev === 0 ? tour.images.length - 1 : prev - 1))}
-                className="absolute left-4 top-1/2 -translate-y-1/2 p-3 bg-white/90 hover:bg-white rounded-full shadow-lg transition-all"
+                className="absolute left-4 top-1/2 -translate-y-1/2 p-3 bg-white/90 hover:bg-white rounded-full shadow-lg transition-all z-10"
               >
                 <ChevronLeft className="w-6 h-6 text-gray-900" />
               </button>
               <button
                 onClick={() => setSelectedImage(prev => (prev === tour.images.length - 1 ? 0 : prev + 1))}
-                className="absolute right-4 top-1/2 -translate-y-1/2 p-3 bg-white/90 hover:bg-white rounded-full shadow-lg transition-all"
+                className="absolute right-4 top-1/2 -translate-y-1/2 p-3 bg-white/90 hover:bg-white rounded-full shadow-lg transition-all z-10"
               >
                 <ChevronRight className="w-6 h-6 text-gray-900" />
               </button>
 
               {/* Top Bar Actions */}
-              <div className="absolute top-4 right-4 flex items-center gap-2">
+              <div className="absolute top-4 right-4 flex items-center gap-2 z-10">
                 <button
                   onClick={handleShare}
                   className="p-2 bg-white/90 hover:bg-white rounded-lg transition-all"
@@ -488,14 +489,14 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
               </div>
 
               {/* Image Counter */}
-              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 px-4 py-2 bg-black/60 text-white rounded-full text-sm font-semibold">
+              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 px-4 py-2 bg-black/60 text-white rounded-full text-sm font-semibold z-10">
                 {selectedImage + 1} / {tour.images.length}
               </div>
 
               {/* View All Photos Button */}
               <button
                 onClick={() => setShowAllImages(true)}
-                className="absolute bottom-4 right-4 px-4 py-2 bg-white rounded-lg font-semibold flex items-center gap-2 hover:bg-gray-50 transition-all"
+                className="absolute bottom-4 right-4 px-4 py-2 bg-white rounded-lg font-semibold flex items-center gap-2 hover:bg-gray-50 transition-all z-10"
               >
                 <ImageIcon className="w-5 h-5" />
                 Tüm Fotoğrafları Gör
@@ -509,16 +510,18 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
                   <button
                     key={index}
                     onClick={() => setSelectedImage(index)}
-                    className={`flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden border-2 transition-all ${
+                    className={`flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden border-2 transition-all relative ${
                       selectedImage === index
                         ? 'border-white scale-105'
                         : 'border-transparent opacity-60 hover:opacity-100'
                     }`}
                   >
-                    <img
+                    <Image
                       src={image}
                       alt={`${tour.title} ${index + 1}`}
-                      className="w-full h-full object-cover"
+                      fill
+                      className="object-cover"
+                      sizes="80px"
                     />
                   </button>
                 ))}
@@ -809,11 +812,15 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
               <div className="bg-white rounded-2xl p-6 shadow-sm">
                 <h3 className="text-xl font-bold text-gray-900 mb-4">Rehberiniz</h3>
                 <div className="flex items-start gap-4">
-                  <img
-                    src={tour.guide.avatar}
-                    alt={tour.guide.name}
-                    className="w-16 h-16 rounded-full"
-                  />
+                  <div className="relative w-16 h-16 rounded-full overflow-hidden flex-shrink-0">
+                    <Image
+                      src={tour.guide.avatar}
+                      alt={tour.guide.name}
+                      fill
+                      className="object-cover"
+                      sizes="64px"
+                    />
+                  </div>
                   <div className="flex-1">
                     <h4 className="font-bold text-gray-900">{tour.guide.name}</h4>
                     <p className="text-sm text-gray-600 mb-2">{tour.guide.title}</p>
@@ -855,11 +862,15 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
                   {tour.reviews.map((review) => (
                     <div key={review.id} className="border-b border-gray-200 pb-6 last:border-0">
                       <div className="flex items-start gap-3 mb-3">
-                        <img
-                          src={review.avatar}
-                          alt={review.author}
-                          className="w-12 h-12 rounded-full"
-                        />
+                        <div className="relative w-12 h-12 rounded-full overflow-hidden flex-shrink-0">
+                          <Image
+                            src={review.avatar}
+                            alt={review.author}
+                            fill
+                            className="object-cover"
+                            sizes="48px"
+                          />
+                        </div>
                         <div className="flex-1">
                           <div className="flex items-center gap-2 mb-1">
                             <span className="font-semibold text-gray-900">{review.author}</span>
@@ -1087,13 +1098,19 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
               </button>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-4 max-w-6xl max-h-full overflow-auto">
                 {tour.images.map((image, index) => (
-                  <img
+                  <div
                     key={index}
-                    src={image}
-                    alt={`${tour.title} ${index + 1}`}
-                    className="w-full h-64 object-cover rounded-lg"
+                    className="relative w-full h-64 rounded-lg overflow-hidden"
                     onClick={(e) => e.stopPropagation()}
-                  />
+                  >
+                    <Image
+                      src={image}
+                      alt={`${tour.title} ${index + 1}`}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 50vw, 33vw"
+                    />
+                  </div>
                 ))}
               </div>
             </motion.div>
