@@ -650,7 +650,7 @@ export const antalyaCarRentals: AntalyaCarRental[] = [
     },
     active: true,
     popular: true
-,
+  },
 
   // ==================== ADDITIONAL 45 VEHICLES FOR PRODUCTION ====================
 

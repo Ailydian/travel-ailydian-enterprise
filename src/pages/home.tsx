@@ -56,6 +56,8 @@ import {
   Bus
 } from 'lucide-react';
 import ResponsiveHeaderBar from '../components/layout/ResponsiveHeaderBar';
+import antalyaTransfers from '@/data/antalya-transfers';
+import antalyaCarRentals from '@/data/antalya-car-rentals';
 
 const GetYourGuideStyleHome: React.FC = () => {
   // Router
@@ -638,6 +640,224 @@ const GetYourGuideStyleHome: React.FC = () => {
                         </motion.button>
                       </div>
                     </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Popular Transfers - Antalya Routes */}
+        <section className="py-16 bg-gradient-to-br from-blue-50 to-indigo-50">
+          <div className="max-w-7xl mx-auto px-4">
+            <div className="flex items-center justify-between mb-12">
+              <div>
+                <h2 className="text-3xl font-bold text-gray-900 mb-2">Popüler Transfer Rotaları</h2>
+                <p className="text-gray-600">Antalya bölgesi 19 transfer rotası - D2 belgeli araçlar</p>
+              </div>
+              <Link href="/transfers" className="flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium">
+                Tümünü Gör
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {antalyaTransfers.slice(0, 8).map((transfer) => (
+                <motion.div
+                  key={transfer.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group"
+                >
+                  {/* Image */}
+                  <div className="relative h-40 overflow-hidden">
+                    <img
+                      src={transfer.images[0]}
+                      alt={`${transfer.from.tr} - ${transfer.to.tr}`}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+
+                    {/* D2 License Badge */}
+                    <div className="absolute top-3 left-3">
+                      <span className="px-2 py-1 bg-green-600 text-white rounded-full text-xs font-bold">
+                        D2 Belgeli
+                      </span>
+                    </div>
+
+                    {/* Instant Booking Badge */}
+                    <div className="absolute top-3 right-3">
+                      <span className="px-2 py-1 bg-blue-600 text-white rounded-full text-xs font-medium">
+                        Anlık Rezervasyon
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Content */}
+                  <div className="p-5">
+                    {/* Route Information */}
+                    <div className="mb-4">
+                      <div className="flex items-center gap-2 mb-2">
+                        <MapPin className="w-4 h-4 text-blue-600 flex-shrink-0" />
+                        <span className="font-bold text-gray-900 text-sm">{transfer.from.tr}</span>
+                      </div>
+                      <div className="flex items-center gap-2 ml-6">
+                        <ArrowRight className="w-4 h-4 text-gray-400" />
+                        <span className="text-sm text-gray-700">{transfer.to.tr}</span>
+                      </div>
+                      <div className="flex items-center gap-3 mt-2 ml-6 text-xs text-gray-500">
+                        <span className="flex items-center gap-1">
+                          <Clock className="w-3 h-3" />
+                          {transfer.duration} dk
+                        </span>
+                        <span>•</span>
+                        <span>{transfer.distance} km</span>
+                      </div>
+                    </div>
+
+                    {/* Rating */}
+                    <div className="flex items-center gap-2 mb-3">
+                      <div className="flex items-center gap-1">
+                        <Star className="w-4 h-4 text-yellow-500 fill-current" />
+                        <span className="font-medium text-sm">{transfer.rating}</span>
+                      </div>
+                      <span className="text-gray-500 text-xs">({transfer.totalTransfers} transfer)</span>
+                    </div>
+
+                    {/* Price */}
+                    <div className="mb-4 pb-4 border-b border-gray-100">
+                      <div className="flex items-baseline gap-2">
+                        <span className="text-xl font-bold text-gray-900">₺{transfer.pricing.economySedan}</span>
+                        <span className="text-xs text-gray-500">başlangıç</span>
+                      </div>
+                    </div>
+
+                    {/* Action Buttons */}
+                    <div className="grid grid-cols-2 gap-2">
+                      <Link
+                        href={`/transfers/${transfer.seo.slug.tr}`}
+                        className="px-3 py-2 border border-blue-600 text-blue-600 rounded-lg font-semibold hover:bg-blue-50 transition-colors text-center text-xs"
+                      >
+                        Detaylar
+                      </Link>
+                      <Link
+                        href={`/transfers/${transfer.seo.slug.tr}?book=true`}
+                        className="px-3 py-2 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors text-center text-xs"
+                      >
+                        Rezervasyon
+                      </Link>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Car Rentals Showcase */}
+        <section className="py-16 bg-white">
+          <div className="max-w-7xl mx-auto px-4">
+            <div className="flex items-center justify-between mb-12">
+              <div>
+                <h2 className="text-3xl font-bold text-gray-900 mb-2">Araç Kiralama Fırsatları</h2>
+                <p className="text-gray-600">51 araç, 7 kategori - %2 Ucuz Fiyat Garantisi</p>
+              </div>
+              <Link href="/car-rentals" className="flex items-center gap-2 text-green-600 hover:text-green-700 font-medium">
+                Tüm Araçlar
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {antalyaCarRentals.filter(car => car.popular).slice(0, 8).map((car) => (
+                <motion.div
+                  key={car.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group border border-gray-100"
+                >
+                  {/* Image */}
+                  <div className="relative h-40 overflow-hidden bg-gray-100">
+                    <img
+                      src={car.images[0]}
+                      alt={`${car.brand} ${car.model.tr}`}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+
+                    {/* Category Badge */}
+                    <div className="absolute top-3 left-3">
+                      <span className="px-2 py-1 bg-gradient-to-r from-green-600 to-emerald-600 text-white rounded-full text-xs font-bold capitalize">
+                        {car.category}
+                      </span>
+                    </div>
+
+                    {/* Popular Badge */}
+                    {car.popular && (
+                      <div className="absolute top-3 right-3">
+                        <span className="px-2 py-1 bg-yellow-500 text-white rounded-full text-xs font-medium flex items-center gap-1">
+                          <Star className="w-3 h-3 fill-current" />
+                          Popüler
+                        </span>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Content */}
+                  <div className="p-5">
+                    {/* Car Name */}
+                    <h3 className="font-bold text-lg text-gray-900 mb-3">
+                      {car.brand} {car.model.tr}
+                    </h3>
+
+                    {/* Specs */}
+                    <div className="grid grid-cols-3 gap-2 mb-3 text-xs text-gray-600">
+                      <div className="flex items-center gap-1">
+                        <Users className="w-3 h-3" />
+                        <span>{car.seats}</span>
+                      </div>
+                      <div className="flex items-center gap-1">
+                        <span className="font-medium">{car.transmission === 'automatic' ? 'Otomatik' : 'Manuel'}</span>
+                      </div>
+                      <div className="flex items-center gap-1">
+                        <span>{car.year}</span>
+                      </div>
+                    </div>
+
+                    {/* Rating */}
+                    <div className="flex items-center gap-2 mb-3">
+                      <div className="flex items-center gap-1">
+                        <Star className="w-4 h-4 text-yellow-500 fill-current" />
+                        <span className="font-medium text-sm">{car.rating}</span>
+                      </div>
+                      <span className="text-gray-500 text-xs">({car.totalRentals} kiralama)</span>
+                    </div>
+
+                    {/* Price */}
+                    <div className="mb-4 pb-4 border-b border-gray-100">
+                      <div className="flex items-baseline gap-2">
+                        <span className="text-xl font-bold text-gray-900">₺{car.pricing.daily}</span>
+                        <span className="text-xs text-gray-500">/gün</span>
+                      </div>
+                      <div className="text-xs text-gray-500 mt-1">
+                        Haftalık: ₺{car.pricing.weekly}
+                      </div>
+                    </div>
+
+                    {/* Action Button */}
+                    <Link
+                      href={`/car-rentals/${car.seo.slug.tr}`}
+                      className="w-full block"
+                    >
+                      <motion.button
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                        className="w-full px-4 py-2.5 bg-gradient-to-r from-green-600 to-emerald-600 text-white rounded-lg font-semibold hover:shadow-lg transition-all flex items-center justify-center gap-2 text-sm"
+                      >
+                        <Car className="w-4 h-4" />
+                        Kirala
+                      </motion.button>
+                    </Link>
                   </div>
                 </motion.div>
               ))}

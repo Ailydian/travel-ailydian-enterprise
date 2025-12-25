@@ -41,6 +41,7 @@ import {
   CAR_RENTAL_FAQ_SCHEMA,
   generateBreadcrumbSchema
 } from '@/lib/seo-config';
+import antalyaCarRentals from '@/data/antalya-car-rentals';
 
 // Real vehicle data interface
 interface Vehicle {
@@ -95,9 +96,6 @@ const CarRentalsPage: React.FC = () => {
   const [showFilters, setShowFilters] = useState(false);
   const [favorites, setFavorites] = useState<Set<string>>(new Set());
   const [searchQuery, setSearchQuery] = useState('');
-  const [vehicles, setVehicles] = useState<Vehicle[]>([]);
-  const [featuredVehicles, setFeaturedVehicles] = useState<Vehicle[]>([]);
-  const [loading, setLoading] = useState(true);
   const [filters, setFilters] = useState<Filters>({
     city: 'Tümü',
     vehicleType: 'all',
@@ -109,27 +107,50 @@ const CarRentalsPage: React.FC = () => {
     verified: false,
   });
 
-  // Fetch real vehicles from API
-  useEffect(() => {
-    const fetchVehicles = async () => {
-      setLoading(true);
-      try {
-        const response = await fetch('/api/car-rentals');
-        const data = await response.json();
-
-        if (data.success) {
-          setVehicles(data.data || []);
-          setFeaturedVehicles(data.featured || []);
-        }
-      } catch (error) {
-        console.error('Error fetching vehicles:', error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchVehicles();
+  // Convert Antalya car rentals to display format
+  const allVehicles = useMemo(() => {
+    return antalyaCarRentals.map((car) => ({
+      id: car.id,
+      name: `${car.brand} ${car.model.tr}`,
+      slug: car.seo.slug.tr,
+      brand: car.brand,
+      model: car.model.tr,
+      year: car.year,
+      category: car.category,
+      transmission: car.transmission,
+      fuelType: car.fuelType,
+      seats: car.seats,
+      doors: car.doors,
+      luggage: car.luggage,
+      features: car.features.tr,
+      airConditioning: car.features.tr.includes('Klima'),
+      gps: car.features.tr.some(f => f.includes('GPS')),
+      bluetooth: car.features.tr.some(f => f.includes('Bluetooth')),
+      usbCharger: car.features.tr.some(f => f.includes('USB')),
+      pricePerDay: car.pricing.daily.toString(),
+      pricePerWeek: car.pricing.weekly.toString(),
+      pricePerMonth: car.pricing.monthly.toString(),
+      currency: 'TRY',
+      deposit: car.pricing.deposit.toString(),
+      insuranceIncluded: true,
+      mainImage: car.images[0] || 'https://images.unsplash.com/photo-1552345387-68-16f0e330e3d?w=800',
+      images: car.images,
+      rating: car.rating.toString(),
+      reviewCount: car.totalRentals,
+      isActive: car.active,
+      isPopular: car.popular,
+      isFeatured: car.popular,
+      pickupLocations: Object.entries(car.availability)
+        .filter(([key, value]) => value === true)
+        .map(([key]) => key),
+      availableCount: 5,
+      carData: car // Orijinal data
+    }));
   }, []);
+
+  const loading = false;
+  const vehicles = allVehicles;
+  const featuredVehicles = allVehicles.filter(v => v.isFeatured);
 
   const toggleFavorite = (id: string) => {
     setFavorites(prev => {

@@ -42,6 +42,7 @@ import {
   TRANSFER_FAQ_SCHEMA,
   generateBreadcrumbSchema
 } from '@/lib/seo-config';
+import antalyaTransfers from '@/data/antalya-transfers';
 
 // Transfer vehicle types
 const TRANSFER_TYPES = [
@@ -211,18 +212,55 @@ const TransfersPage: React.FC = () => {
     });
   };
 
+  // Convert Antalya transfers to display format
+  const allTransfers = useMemo(() => {
+    return antalyaTransfers.map((transfer, index) => ({
+      id: transfer.id,
+      company: `Ailydian Transfer ${index + 1}`,
+      vehicleType: index % 3 === 0 ? 'vip-sedan' : index % 3 === 1 ? 'minivan' : 'vip-minivan',
+      vehicle: transfer.vehicleOptions?.[0]?.tr || 'Transfer Aracı',
+      capacity: 7,
+      luggage: 7,
+      image: transfer.images?.[0] || 'https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=800',
+      price: transfer.pricing?.economySedan || 0,
+      rating: transfer.rating || 4.5,
+      reviews: transfer.totalTransfers || 0,
+      city: 'Antalya',
+      features: transfer.highlights?.tr?.slice(0, 4) || [],
+      instantBook: true,
+      d2License: true,
+      onTimeRate: 98,
+      transferData: transfer // Orijinal data
+    }));
+  }, []);
+
   const filteredTransfers = useMemo(() => {
-    return MOCK_TRANSFERS.filter(transfer => {
-      if (filters.city !== 'Tümü' && transfer.city !== filters.city) return false;
-      if (filters.vehicleType !== 'all' && transfer.vehicleType !== filters.vehicleType) return false;
-      if (filters.capacity > 0 && transfer.capacity < filters.capacity) return false;
-      if (transfer.price < filters.priceMin || transfer.price > filters.priceMax) return false;
-      if (filters.instantBook && !transfer.instantBook) return false;
-      if (filters.d2License && !transfer.d2License) return false;
-      if (searchQuery && !transfer.company.toLowerCase().includes(searchQuery.toLowerCase())) return false;
-      return true;
-    });
-  }, [filters, searchQuery]);
+    let transfers = allTransfers;
+
+    // Filtreler varsa uygula
+    if (filters.city !== 'Tümü') {
+      transfers = transfers.filter(t => t.city === filters.city);
+    }
+    if (filters.vehicleType !== 'all') {
+      transfers = transfers.filter(t => t.vehicleType === filters.vehicleType);
+    }
+    if (filters.capacity > 0) {
+      transfers = transfers.filter(t => t.capacity >= filters.capacity);
+    }
+    if (filters.priceMin > 0 || filters.priceMax < 2000) {
+      transfers = transfers.filter(t => t.price >= filters.priceMin && t.price <= filters.priceMax);
+    }
+    if (searchQuery) {
+      transfers = transfers.filter(t =>
+        t.company.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        t.vehicle.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        t.transferData.from.tr.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        t.transferData.to.tr.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+    }
+
+    return transfers;
+  }, [allTransfers, filters, searchQuery]);
 
   const breadcrumbSchema = generateBreadcrumbSchema([
     { name: 'Ana Sayfa', url: '/' },
@@ -373,101 +411,166 @@ const TransfersPage: React.FC = () => {
           </div>
         </section>
 
-        {/* Transfer Listings - Results from search */}
-        {filteredTransfers.length > 0 && (
-          <section className="bg-white py-12">
-            <div className="max-w-7xl mx-auto px-4">
-              <div className="mb-8">
-                <h2 className="text-3xl font-bold text-gray-900">
-                  Mevcut Transferler ({filteredTransfers.length})
-                </h2>
-              </div>
+        {/* Transfer Listings - Always show, not conditional */}
+        <section className="bg-white py-12">
+          <div className="max-w-7xl mx-auto px-4">
+            <div className="mb-8">
+              <h2 className="text-3xl font-bold text-gray-900">
+                Mevcut Transferler ({filteredTransfers.length})
+              </h2>
+              <p className="text-gray-600 mt-2">
+                {filteredTransfers.length === allTransfers.length
+                  ? 'Tüm transfer seçenekleri gösteriliyor'
+                  : 'Filtrelenmiş transfer seçenekleri'}
+              </p>
+            </div>
 
-              <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                {filteredTransfers.map((transfer) => (
-                  <motion.div
-                    key={transfer.id}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    className="bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-xl transition-all cursor-pointer group"
-                  >
-                    <div className="relative h-48">
-                      <img
-                        src={transfer.image}
-                        alt={transfer.vehicle}
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+              {filteredTransfers.map((transfer) => (
+                <motion.div
+                  key={transfer.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-xl transition-all group"
+                >
+                  <div className="relative h-48">
+                    <img
+                      src={transfer.image}
+                      alt={transfer.vehicle}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                    <button
+                      onClick={() => toggleFavorite(transfer.id)}
+                      className="absolute top-3 right-3 w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white transition-colors"
+                    >
+                      <Heart
+                        className={`w-5 h-5 ${
+                          favorites.has(transfer.id)
+                            ? 'fill-red-500 text-red-500'
+                            : 'text-gray-600'
+                        }`}
                       />
-                      <button
-                        onClick={() => toggleFavorite(transfer.id)}
-                        className="absolute top-3 right-3 w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white transition-colors"
-                      >
-                        <Heart
-                          className={`w-5 h-5 ${
-                            favorites.has(transfer.id)
-                              ? 'fill-red-500 text-red-500'
-                              : 'text-gray-600'
-                          }`}
-                        />
-                      </button>
-                      {transfer.instantBook && (
-                        <div className="absolute top-3 left-3 px-3 py-1 bg-blue-600 text-white text-sm font-semibold rounded-full flex items-center gap-1">
-                          <Zap className="w-4 h-4" />
-                          Anında Rezervasyon
-                        </div>
-                      )}
+                    </button>
+                    {transfer.instantBook && (
+                      <div className="absolute top-3 left-3 px-3 py-1 bg-blue-600 text-white text-sm font-semibold rounded-full flex items-center gap-1">
+                        <Zap className="w-4 h-4" />
+                        Anında Rezervasyon
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="p-5">
+                    {/* Route Info */}
+                    <div className="mb-3 pb-3 border-b border-gray-100">
+                      <div className="flex items-center gap-2 text-sm text-gray-600 mb-1">
+                        <MapPin className="w-4 h-4 text-blue-600" />
+                        <span className="font-medium">{transfer.transferData.from.tr}</span>
+                      </div>
+                      <div className="flex items-center gap-2 ml-6">
+                        <ArrowRight className="w-4 h-4 text-gray-400" />
+                        <span className="text-sm text-gray-600">{transfer.transferData.to.tr}</span>
+                      </div>
+                      <div className="flex items-center gap-3 mt-2 text-xs text-gray-500 ml-6">
+                        <span className="flex items-center gap-1">
+                          <Clock className="w-3 h-3" />
+                          {transfer.transferData.duration} dk
+                        </span>
+                        <span>•</span>
+                        <span>{transfer.transferData.distance} km</span>
+                      </div>
                     </div>
 
-                    <div className="p-5">
+                    <div className="flex items-center justify-between mb-3">
+                      <div>
+                        <h3 className="font-bold text-lg text-gray-900">{transfer.company}</h3>
+                        <p className="text-sm text-gray-600">{transfer.vehicle}</p>
+                      </div>
+                      <div className="flex items-center gap-1">
+                        <Star className="w-5 h-5 fill-yellow-400 text-yellow-400" />
+                        <span className="font-semibold text-gray-900">{transfer.rating}</span>
+                        <span className="text-sm text-gray-500">({transfer.reviews})</span>
+                      </div>
+                    </div>
+
+                    <div className="flex items-center gap-4 text-sm text-gray-600 mb-4">
+                      <div className="flex items-center gap-1">
+                        <Users className="w-4 h-4" />
+                        <span>{transfer.capacity} kişi</span>
+                      </div>
+                      <div className="flex items-center gap-1">
+                        <Bus className="w-4 h-4" />
+                        <span>{transfer.luggage} bavul</span>
+                      </div>
+                    </div>
+
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {transfer.features.slice(0, 3).map((feature, index) => (
+                        <span
+                          key={index}
+                          className="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded-full"
+                        >
+                          {feature}
+                        </span>
+                      ))}
+                    </div>
+
+                    <div className="pt-4 border-t border-gray-200">
                       <div className="flex items-center justify-between mb-3">
-                        <div>
-                          <h3 className="font-bold text-lg text-gray-900">{transfer.company}</h3>
-                          <p className="text-sm text-gray-600">{transfer.vehicle}</p>
-                        </div>
-                        <div className="flex items-center gap-1">
-                          <Star className="w-5 h-5 fill-yellow-400 text-yellow-400" />
-                          <span className="font-semibold text-gray-900">{transfer.rating}</span>
-                          <span className="text-sm text-gray-500">({transfer.reviews})</span>
-                        </div>
-                      </div>
-
-                      <div className="flex items-center gap-4 text-sm text-gray-600 mb-4">
-                        <div className="flex items-center gap-1">
-                          <Users className="w-4 h-4" />
-                          <span>{transfer.capacity} kişi</span>
-                        </div>
-                        <div className="flex items-center gap-1">
-                          <Bus className="w-4 h-4" />
-                          <span>{transfer.luggage} bavul</span>
-                        </div>
-                      </div>
-
-                      <div className="flex flex-wrap gap-2 mb-4">
-                        {transfer.features.slice(0, 3).map((feature, index) => (
-                          <span
-                            key={index}
-                            className="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded-full"
-                          >
-                            {feature}
-                          </span>
-                        ))}
-                      </div>
-
-                      <div className="flex items-center justify-between pt-4 border-t border-gray-200">
                         <div>
                           <div className="text-sm text-gray-500">Başlangıç</div>
                           <div className="text-2xl font-bold text-gray-900">₺{transfer.price}</div>
                         </div>
-                        <button className="px-6 py-2 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors">
+                        <div className="text-right">
+                          <div className="text-xs text-gray-500">Zamanında Gelme</div>
+                          <div className="text-sm font-semibold text-green-600">%{transfer.onTimeRate}</div>
+                        </div>
+                      </div>
+
+                      {/* Buttons */}
+                      <div className="grid grid-cols-2 gap-2">
+                        <Link
+                          href={`/transfers/${transfer.transferData.seo.slug.tr}`}
+                          className="px-4 py-2 border border-blue-600 text-blue-600 rounded-lg font-semibold hover:bg-blue-50 transition-colors text-center text-sm"
+                        >
+                          Detayları Gör
+                        </Link>
+                        <Link
+                          href={`/transfers/${transfer.transferData.seo.slug.tr}?book=true`}
+                          className="px-4 py-2 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors text-center text-sm"
+                        >
                           Rezervasyon
-                        </button>
+                        </Link>
                       </div>
                     </div>
-                  </motion.div>
-                ))}
-              </div>
+                  </div>
+                </motion.div>
+              ))}
             </div>
-          </section>
-        )}
+
+            {filteredTransfers.length === 0 && (
+              <div className="text-center py-12">
+                <p className="text-gray-500 text-lg">Aradığınız kriterlere uygun transfer bulunamadı.</p>
+                <button
+                  onClick={() => {
+                    setFilters({
+                      city: 'Tümü',
+                      vehicleType: 'all',
+                      capacity: 0,
+                      priceMin: 0,
+                      priceMax: 2000,
+                      instantBook: false,
+                      d2License: false,
+                    });
+                    setSearchQuery('');
+                  }}
+                  className="mt-4 px-6 py-2 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+                >
+                  Filtreleri Temizle
+                </button>
+              </div>
+            )}
+          </div>
+        </section>
 
         {/* Partner Program Section */}
         <section className="py-20 bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-600 relative overflow-hidden">
