@@ -70,9 +70,9 @@ export const antalyaTours: ComprehensiveTour[] = [
       'Küçük gruplar ile kişisel deneyim'
     ],
     images: [
-      'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop'
+      'https://images.pexels.com/photos/1268855/pexels-photo-1268855.jpeg?auto=compress&cs=tinysrgb&w=1200',
+      'https://images.pexels.com/photos/3225531/pexels-photo-3225531.jpeg?auto=compress&cs=tinysrgb&w=1200',
+      'https://images.pexels.com/photos/1287460/pexels-photo-1287460.jpeg?auto=compress&cs=tinysrgb&w=1200'
     ],
     rating: 4.9,
     reviewCount: 487,
@@ -124,9 +124,9 @@ export const antalyaTours: ComprehensiveTour[] = [
       'Çocuk menüsü dahil'
     ],
     images: [
-      'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1527004013197-933c4bb611b3?w=800&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&h=600&fit=crop'
+      'https://images.pexels.com/photos/1268855/pexels-photo-1268855.jpeg?auto=compress&cs=tinysrgb&w=1200',
+      'https://images.pexels.com/photos/3225531/pexels-photo-3225531.jpeg?auto=compress&cs=tinysrgb&w=1200',
+      'https://images.pexels.com/photos/1007426/pexels-photo-1007426.jpeg?auto=compress&cs=tinysrgb&w=1200'
     ],
     rating: 4.8,
     reviewCount: 623,
@@ -179,9 +179,9 @@ export const antalyaTours: ComprehensiveTour[] = [
       'Açık büfe öğle yemeği'
     ],
     images: [
-      'https://images.unsplash.com/photo-1583037189850-1921ae7c6c22?w=800&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=800&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1532274402911-5a369e4c4bb5?w=800&h=600&fit=crop'
+      'https://images.pexels.com/photos/4666751/pexels-photo-4666751.jpeg?auto=compress&cs=tinysrgb&w=1200',
+      'https://images.pexels.com/photos/2007401/pexels-photo-2007401.jpeg?auto=compress&cs=tinysrgb&w=1200',
+      'https://images.pexels.com/photos/3155666/pexels-photo-3155666.jpeg?auto=compress&cs=tinysrgb&w=1200'
     ],
     rating: 4.9,
     reviewCount: 892,
@@ -232,9 +232,9 @@ export const antalyaTours: ComprehensiveTour[] = [
       'Profesyonel sürücüler'
     ],
     images: [
-      'https://images.unsplash.com/photo-1533587851505-d119e13fa0d7?w=800&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=800&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop'
+      'https://images.pexels.com/photos/2526127/pexels-photo-2526127.jpeg?auto=compress&cs=tinysrgb&w=1200',
+      'https://images.pexels.com/photos/1592384/pexels-photo-1592384.jpeg?auto=compress&cs=tinysrgb&w=1200',
+      'https://images.pexels.com/photos/3422964/pexels-photo-3422964.jpeg?auto=compress&cs=tinysrgb&w=1200'
     ],
     rating: 4.7,
     reviewCount: 534,
@@ -285,9 +285,9 @@ export const antalyaTours: ComprehensiveTour[] = [
       'Uçuş sertifikası'
     ],
     images: [
-      'https://images.unsplash.com/photo-1509515837298-2c67a3933321?w=800&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1525174933341-e73293b485f9?w=800&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop'
+      'https://images.pexels.com/photos/848618/pexels-photo-848618.jpeg?auto=compress&cs=tinysrgb&w=1200',
+      'https://images.pexels.com/photos/3601426/pexels-photo-3601426.jpeg?auto=compress&cs=tinysrgb&w=1200',
+      'https://images.pexels.com/photos/1007426/pexels-photo-1007426.jpeg?auto=compress&cs=tinysrgb&w=1200'
     ],
     rating: 5.0,
     reviewCount: 1247,
@@ -339,9 +339,9 @@ export const antalyaTours: ComprehensiveTour[] = [
       'Klimalı konforlu transfer'
     ],
     images: [
-      'https://images.unsplash.com/photo-1591825729269-caeb344f6df2?w=800&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1555424681-79b60053721b?w=800&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1503177146873-2e80f74d4218?w=800&h=600&fit=crop'
+      'https://images.pexels.com/photos/3155666/pexels-photo-3155666.jpeg?auto=compress&cs=tinysrgb&w=1200',
+      'https://images.pexels.com/photos/1287460/pexels-photo-1287460.jpeg?auto=compress&cs=tinysrgb&w=1200',
+      'https://images.pexels.com/photos/3225531/pexels-photo-3225531.jpeg?auto=compress&cs=tinysrgb&w=1200'
     ],
     rating: 4.8,
     reviewCount: 756,
@@ -392,9 +392,9 @@ export const antalyaTours: ComprehensiveTour[] = [
       'Eşsiz fotoğraf fırsatları'
     ],
     images: [
-      'https://images.unsplash.com/photo-1591825729269-caeb344f6df2?w=800&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1555424681-79b60053721b?w=800&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&h=600&fit=crop'
+      'https://images.pexels.com/photos/1268855/pexels-photo-1268855.jpeg?auto=compress&cs=tinysrgb&w=1200',
+      'https://images.pexels.com/photos/3225531/pexels-photo-3225531.jpeg?auto=compress&cs=tinysrgb&w=1200',
+      'https://images.pexels.com/photos/78366/pexels-photo-78366.jpeg?auto=compress&cs=tinysrgb&w=1200'
     ],
     rating: 4.9,
     reviewCount: 934,
@@ -444,9 +444,9 @@ export const antalyaTours: ComprehensiveTour[] = [
       'Şehre yakın doğa kaçamağı'
     ],
     images: [
-      'https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?w=800&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1511593358241-7eea1f3c84e5?w=800&h=600&fit=crop'
+      'https://images.pexels.com/photos/3155666/pexels-photo-3155666.jpeg?auto=compress&cs=tinysrgb&w=1200',
+      'https://images.pexels.com/photos/1287460/pexels-photo-1287460.jpeg?auto=compress&cs=tinysrgb&w=1200',
+      'https://images.pexels.com/photos/2007401/pexels-photo-2007401.jpeg?auto=compress&cs=tinysrgb&w=1200'
     ],
     rating: 4.6,
     reviewCount: 423,
@@ -494,9 +494,9 @@ export const antalyaTours: ComprehensiveTour[] = [
       'Fotoğraf için muhteşem manzaralar'
     ],
     images: [
-      'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=800&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&h=600&fit=crop'
+      'https://images.pexels.com/photos/3601426/pexels-photo-3601426.jpeg?auto=compress&cs=tinysrgb&w=1200',
+      'https://images.pexels.com/photos/1287460/pexels-photo-1287460.jpeg?auto=compress&cs=tinysrgb&w=1200',
+      'https://images.pexels.com/photos/3155666/pexels-photo-3155666.jpeg?auto=compress&cs=tinysrgb&w=1200'
     ],
     rating: 4.9,
     reviewCount: 1089,
@@ -550,9 +550,9 @@ export const antalyaTours: ComprehensiveTour[] = [
       'Mercan resifleri'
     ],
     images: [
-      'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1682687220208-22d7a2543e88?w=800&h=600&fit=crop'
+      'https://images.pexels.com/photos/78366/pexels-photo-78366.jpeg?auto=compress&cs=tinysrgb&w=1200',
+      'https://images.pexels.com/photos/3155666/pexels-photo-3155666.jpeg?auto=compress&cs=tinysrgb&w=1200',
+      'https://images.pexels.com/photos/1287460/pexels-photo-1287460.jpeg?auto=compress&cs=tinysrgb&w=1200'
     ],
     rating: 4.9,
     reviewCount: 678,
@@ -606,9 +606,9 @@ export const antalyaTours: ComprehensiveTour[] = [
       'Kültürel deneyim'
     ],
     images: [
-      'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=800&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&h=600&fit=crop'
+      'https://images.pexels.com/photos/3601426/pexels-photo-3601426.jpeg?auto=compress&cs=tinysrgb&w=1200',
+      'https://images.pexels.com/photos/1287460/pexels-photo-1287460.jpeg?auto=compress&cs=tinysrgb&w=1200',
+      'https://images.pexels.com/photos/2007401/pexels-photo-2007401.jpeg?auto=compress&cs=tinysrgb&w=1200'
     ],
     rating: 4.7,
     reviewCount: 1203,
@@ -662,9 +662,9 @@ export const antalyaTours: ComprehensiveTour[] = [
       'Türk çayı ikramı'
     ],
     images: [
-      'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=800&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1600334129128-685c5582fd35?w=800&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1596178060810-4dd2c93d7e7a?w=800&h=600&fit=crop'
+      'https://images.pexels.com/photos/3155666/pexels-photo-3155666.jpeg?auto=compress&cs=tinysrgb&w=1200',
+      'https://images.pexels.com/photos/1287460/pexels-photo-1287460.jpeg?auto=compress&cs=tinysrgb&w=1200',
+      'https://images.pexels.com/photos/3601426/pexels-photo-3601426.jpeg?auto=compress&cs=tinysrgb&w=1200'
     ],
     rating: 4.8,
     reviewCount: 956,
@@ -717,9 +717,9 @@ export const antalyaTours: ComprehensiveTour[] = [
       'Deneyim gerektirmez'
     ],
     images: [
-      'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1533587851505-d119e13fa0d7?w=800&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&h=600&fit=crop'
+      'https://images.pexels.com/photos/2393816/pexels-photo-2393816.jpeg?auto=compress&cs=tinysrgb&w=1200',
+      'https://images.pexels.com/photos/1595211/pexels-photo-1595211.jpeg?auto=compress&cs=tinysrgb&w=1200',
+      'https://images.pexels.com/photos/3422964/pexels-photo-3422964.jpeg?auto=compress&cs=tinysrgb&w=1200'
     ],
     rating: 4.8,
     reviewCount: 734,
@@ -771,9 +771,9 @@ export const antalyaTours: ComprehensiveTour[] = [
       'Eğlence ve adrenalin'
     ],
     images: [
-      'https://images.unsplash.com/photo-1527004013197-933c4bb611b3?w=800&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1533587851505-d119e13fa0d7?w=800&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop'
+      'https://images.pexels.com/photos/3601426/pexels-photo-3601426.jpeg?auto=compress&cs=tinysrgb&w=1200',
+      'https://images.pexels.com/photos/2007401/pexels-photo-2007401.jpeg?auto=compress&cs=tinysrgb&w=1200',
+      'https://images.pexels.com/photos/1287460/pexels-photo-1287460.jpeg?auto=compress&cs=tinysrgb&w=1200'
     ],
     rating: 4.6,
     reviewCount: 445,
@@ -825,9 +825,9 @@ export const antalyaTours: ComprehensiveTour[] = [
       'Profesyonel arkeolog rehber'
     ],
     images: [
-      'https://images.unsplash.com/photo-1591825729269-caeb344f6df2?w=800&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1555424681-79b60053721b?w=800&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop'
+      'https://images.pexels.com/photos/3155666/pexels-photo-3155666.jpeg?auto=compress&cs=tinysrgb&w=1200',
+      'https://images.pexels.com/photos/1287460/pexels-photo-1287460.jpeg?auto=compress&cs=tinysrgb&w=1200',
+      'https://images.pexels.com/photos/3225531/pexels-photo-3225531.jpeg?auto=compress&cs=tinysrgb&w=1200'
     ],
     rating: 4.9,
     reviewCount: 567,
@@ -880,9 +880,9 @@ export const antalyaTours: ComprehensiveTour[] = [
       'Yerel kültür deneyimi'
     ],
     images: [
-      'https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?w=800&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1591825729269-caeb344f6df2?w=800&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1555424681-79b60053721b?w=800&h=600&fit=crop'
+      'https://images.pexels.com/photos/3155666/pexels-photo-3155666.jpeg?auto=compress&cs=tinysrgb&w=1200',
+      'https://images.pexels.com/photos/3601426/pexels-photo-3601426.jpeg?auto=compress&cs=tinysrgb&w=1200',
+      'https://images.pexels.com/photos/1287460/pexels-photo-1287460.jpeg?auto=compress&cs=tinysrgb&w=1200'
     ],
     rating: 4.7,
     reviewCount: 834,
