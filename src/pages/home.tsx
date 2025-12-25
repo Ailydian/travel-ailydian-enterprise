@@ -55,7 +55,8 @@ import {
   Home,
   Bus
 } from 'lucide-react';
-import ResponsiveHeaderBar from '../components/layout/ResponsiveHeaderBar';
+import { BookingHeader } from '../components/layout/BookingHeader';
+import { BookingFooter } from '../components/layout/BookingFooter';
 import antalyaTransfers from '@/data/antalya-transfers';
 import antalyaCarRentals from '@/data/antalya-car-rentals';
 import { BookingSearchForm } from '../components/booking/BookingSearchForm';
@@ -264,7 +265,7 @@ const GetYourGuideStyleHome: React.FC = () => {
         type="website"
       />
 
-      <ResponsiveHeaderBar />
+      <BookingHeader />
 
       <main>
         {/* Hero Section - Booking.com SEARCH-FIRST Design */}
@@ -1188,228 +1189,8 @@ const GetYourGuideStyleHome: React.FC = () => {
         </Link>
       </motion.div>
 
-      {/* Modern Premium Footer */}
-      <footer className="bg-white border-t border-gray-200">
-        {/* Newsletter Section */}
-        <div className="bg-gradient-to-r from-ailydian-primary to-ailydian-secondary py-16">
-          <div className="max-w-7xl mx-auto px-4 text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <h3 className="text-3xl font-bold text-white mb-4">
-                Özel Fırsatlardan İlk Sen Haberdar Ol!
-              </h3>
-              <p className="text-green-100 mb-8 max-w-2xl mx-auto">
-                En iyi seyahat fırsatları, özel indirimler ve yeni destinasyon önerilerini e-postanla al. Blockchain ödemeler ve AI öneriler için erken erişim!
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
-                <div className="relative flex-1">
-                  <Mail className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
-                  <input
-                    type="email"
-                    placeholder="E-posta adresinizi girin..."
-                    className="w-full pl-12 pr-4 py-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/30"
-                  />
-                </div>
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-8 py-4 bg-white text-ailydian-primary font-semibold rounded-xl hover:bg-green-50 transition-colors flex items-center gap-2 justify-center"
-                >
-                  <Send className="w-5 h-5" />
-                  Abone Ol
-                </motion.button>
-              </div>
-              <p className="text-green-100/80 text-sm mt-4">✨ 50,000+ mutlu kullanıcı zaten abone!</p>
-            </motion.div>
-          </div>
-        </div>
-
-        {/* Main Footer */}
-        <div className="py-16 bg-white">
-          <div className="max-w-7xl mx-auto px-4">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
-              {/* Company Info */}
-              <div className="lg:col-span-2">
-                <div className="mb-6">
-                  <div className="flex items-baseline space-x-1 mb-2">
-                    <span className="text-2xl font-black bg-gradient-to-r from-ailydian-primary to-ailydian-secondary bg-clip-text text-transparent">
-                      Travel
-                    </span>
-                    <span className="text-2xl font-black text-gray-900">
-                      Ailydian
-                    </span>
-                  </div>
-                  <p className="text-sm font-medium text-gray-600 tracking-wide">
-                    AI-Powered Enterprise
-                  </p>
-                </div>
-                <p className="text-gray-600 mb-6 leading-relaxed">
-                  Türkiye&apos;nin ilk AI destekli, blockchain güvenlikli seyahat platformu. VR önizleme, akıllı öneriler ve kripto ödemeler ile seyahatin geleceğini yaşayın.
-                </p>
-                
-                {/* Premium Features */}
-                <div className="flex flex-wrap gap-2 mb-6">
-                  <span className="px-3 py-1 bg-ailydian-primary/20 text-green-400 rounded-full text-xs font-medium flex items-center gap-1">
-                    <Shield className="w-3 h-3" />
-                    SSL Güvenli
-                  </span>
-                  <span className="px-3 py-1 bg-ailydian-primary/20 text-blue-400 rounded-full text-xs font-medium flex items-center gap-1">
-                    <Zap className="w-3 h-3" />
-                    AI Destekli
-                  </span>
-                  <span className="px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full text-xs font-medium flex items-center gap-1">
-                    <Globe className="w-3 h-3" />
-                    190+ Ülke
-                  </span>
-                  <span className="px-3 py-1 bg-orange-500/20 text-orange-400 rounded-full text-xs font-medium flex items-center gap-1">
-                    <CreditCard className="w-3 h-3" />
-                    Kripto Ödemeler
-                  </span>
-                </div>
-
-                {/* Social Links */}
-                <div className="flex space-x-4">
-                  {[
-                    { icon: Facebook, href: '#', color: 'hover:text-green-400' },
-                    { icon: Twitter, href: '#', color: 'hover:text-sky-400' },
-                    { icon: Instagram, href: '#', color: 'hover:text-pink-400' },
-                    { icon: Youtube, href: '#', color: 'hover:text-red-400' },
-                    { icon: Linkedin, href: '#', color: 'hover:text-green-500' }
-                  ].map((social, index) => {
-                    const Icon = social.icon;
-                    return (
-                      <motion.a
-                        key={index}
-                        href={social.href}
-                        whileHover={{ scale: 1.1, y: -2 }}
-                        className={`p-3 bg-gray-100 hover:bg-gray-200 rounded-xl text-gray-600 ${social.color} transition-colors`}
-                      >
-                        <Icon className="w-5 h-5" />
-                      </motion.a>
-                    );
-                  })}
-                </div>
-              </div>
-
-              {/* Quick Links */}
-              <div>
-                <h4 className="font-bold text-lg mb-6 text-gray-900">Hızlı Erişim</h4>
-                <ul className="space-y-3">
-                  {[
-                    { name: 'Destinasyonlar', href: '/destinations' },
-                    { name: 'AI Seyahat Planlama', href: '/ai-planner' },
-                    { name: 'VR Önizlemeler', href: '/virtual-tours' },
-                    { name: 'Blockchain Güvenlik', href: '/blockchain' },
-                    { name: 'Kripto Ödemeler', href: '/crypto-payments' },
-                    { name: 'Premium Üyelik', href: '/premium' }
-                  ].map((link) => (
-                    <li key={link.name}>
-                      <a href={link.href} className="text-gray-600 hover:text-gray-900 transition-colors flex items-center gap-2 group">
-                        <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                        {link.name}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Services */}
-              <div>
-                <h4 className="font-bold text-lg mb-6 text-gray-900">Hizmetlerimiz</h4>
-                <ul className="space-y-3">
-                  {[
-                    { name: 'Otel Rezervasyonu', href: '/hotels' },
-                    { name: 'Uçak Biletleri', href: '/flights' },
-                    { name: 'Tur Paketleri', href: '/tours' },
-                    { name: 'Araç Kiralama', href: '/car-rental' },
-                    { name: 'Aktivite Rezervasyonu', href: '/activities' },
-                    { name: 'Grup Seyahatleri', href: '/group-travel' }
-                  ].map((service) => (
-                    <li key={service.name}>
-                      <a href={service.href} className="text-gray-600 hover:text-gray-900 transition-colors flex items-center gap-2 group">
-                        <Star className="w-4 h-4 text-yellow-500 group-hover:scale-110 transition-transform" />
-                        {service.name}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Contact & Support */}
-              <div>
-                <h4 className="font-bold text-lg mb-6 text-gray-900">İletişim & Destek</h4>
-                <div className="space-y-4">
-                  <div className="flex items-center gap-3">
-                    <Phone className="w-5 h-5 text-green-400" />
-                    <div>
-                      <p className="text-gray-900 font-medium">7/24 Destek Hattı</p>
-                      <p className="text-gray-600 text-sm">+90 212 XXX XX XX</p>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <Mail className="w-5 h-5 text-blue-400" />
-                    <div>
-                      <p className="text-gray-900 font-medium">E-posta Destek</p>
-                      <p className="text-gray-600 text-sm">destek@ailydian.com</p>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <MessageCircle className="w-5 h-5 text-purple-400" />
-                    <div>
-                      <p className="text-gray-900 font-medium">AI Chat Destek</p>
-                      <p className="text-gray-600 text-sm">Anında yanıt</p>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <Smartphone className="w-5 h-5 text-orange-400" />
-                    <div>
-                      <p className="text-gray-900 font-medium">Mobil Uygulama</p>
-                      <p className="text-gray-600 text-sm">Yakında</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Bottom Bar */}
-        <div className="border-t border-gray-200 bg-gray-50">
-          <div className="max-w-7xl mx-auto px-4 py-6">
-            <div className="flex flex-col lg:flex-row justify-between items-center gap-4">
-              <div className="flex flex-col sm:flex-row items-center gap-4 text-sm text-gray-600">
-                <p>© 2025 Ailydian Travel Enterprise. Tüm hakları saklıdır.</p>
-                <div className="flex items-center gap-4">
-                  <Link href="/privacy" className="hover:text-gray-900 transition-colors">Gizlilik Politikası</Link>
-                  <span>•</span>
-                  <Link href="/terms" className="hover:text-gray-900 transition-colors">Kullanım Şartları</Link>
-                  <span>•</span>
-                  <Link href="/cookies" className="hover:text-gray-900 transition-colors">Çerez Politikası</Link>
-                </div>
-              </div>
-              
-              <div className="flex items-center gap-6 text-sm text-gray-600">
-                <div className="flex items-center gap-2">
-                  <CheckCircle className="w-4 h-4 text-green-500" />
-                  <span>TÜRSAB Üyesi</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Shield className="w-4 h-4 text-blue-500" />
-                  <span>ISO 27001 Sertifikalı</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Award className="w-4 h-4 text-yellow-500" />
-                  <span>TripAdvisor Excellence</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </footer>
+      {/* Booking.com Style Footer */}
+      <BookingFooter />
     </>
   );
 };
