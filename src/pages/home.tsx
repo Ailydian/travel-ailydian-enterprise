@@ -58,6 +58,7 @@ import {
 import ResponsiveHeaderBar from '../components/layout/ResponsiveHeaderBar';
 import antalyaTransfers from '@/data/antalya-transfers';
 import antalyaCarRentals from '@/data/antalya-car-rentals';
+import { BookingSearchForm } from '../components/booking/BookingSearchForm';
 
 const GetYourGuideStyleHome: React.FC = () => {
   // Router
@@ -260,61 +261,60 @@ const GetYourGuideStyleHome: React.FC = () => {
       <ResponsiveHeaderBar />
 
       <main>
-        {/* Hero Section - Booking.com Style Red Theme */}
-        <section className="hero-section relative min-h-[80vh] flex items-center justify-center overflow-hidden">
-          {/* Video Background */}
-          <div className="absolute inset-0 z-0">
-            <VideoBackground
-              autoPlay={true}
-              muted={true}
-              loop={true}
-              overlay={true}
-              overlayOpacity={0.65}
-              changeInterval={60000}
-            />
-
-            {/* Gradient Overlay - Red Theme */}
-            <div className="absolute inset-0 bg-gradient-to-b from-ailydian-dark/30 via-ailydian-primary/20 to-ailydian-dark/40"></div>
+        {/* Hero Section - Booking.com SEARCH-FIRST Design */}
+        <section className="relative min-h-[75vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-ailydian-primary via-ailydian-secondary to-ailydian-dark">
+          {/* Background Pattern */}
+          <div className="absolute inset-0 opacity-10">
+            <div className="absolute inset-0" style={{
+              backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)',
+              backgroundSize: '40px 40px'
+            }} />
           </div>
 
           {/* Hero Content */}
-          <div className="relative z-10 max-w-5xl mx-auto px-4 py-20 text-center">
+          <div className="relative z-10 w-full max-w-7xl mx-auto px-4 py-16">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 0.6 }}
+              className="text-center mb-8"
             >
-              <h1 className="hero-title text-5xl md:text-7xl font-black text-white mb-6 leading-tight">
-                Hayalinizdeki Tatil
-                <br />
-                <span className="bg-gradient-to-r from-white via-red-100 to-white bg-clip-text text-transparent">
-                  Bir Arama Kadar Yakın
-                </span>
+              <h1 className="text-4xl md:text-6xl font-black text-white mb-4 leading-tight">
+                Bir Sonraki Maceranızı Bulun
               </h1>
-              <p className="hero-subtitle text-xl md:text-2xl text-white/95 mb-8 max-w-3xl mx-auto leading-relaxed">
-                Türkiye ve dünya turizminde binlerce otel, tur ve deneyimi keşfedin.
+              <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto">
+                Türkiye'nin dört bir yanında oteller, turlar, arabalar ve daha fazlası
               </p>
+            </motion.div>
 
-              {/* Keşfet Button - Red Theme */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.3 }}
-                className="flex justify-center"
-              >
-                <Link href="/experiences">
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="group relative flex items-center gap-3 px-8 py-4 bg-white text-ailydian-primary rounded-full font-bold text-lg shadow-2xl hover:shadow-red-500/30 transition-all duration-300"
-                  >
-                    <Compass className="w-6 h-6 group-hover:rotate-180 transition-transform duration-500" />
-                    <span>Keşfet</span>
-                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                    <div className="absolute inset-0 bg-white rounded-full blur-xl opacity-30 group-hover:opacity-50 transition-opacity -z-10" />
-                  </motion.button>
-                </Link>
-              </motion.div>
+            {/* Booking Search Form */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              <BookingSearchForm />
+            </motion.div>
+
+            {/* Trust Badges */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="mt-8 flex flex-wrap items-center justify-center gap-8 text-white/80"
+            >
+              <div className="flex items-center gap-2">
+                <Shield className="w-5 h-5" />
+                <span className="text-sm font-medium">Güvenli Ödeme</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Award className="w-5 h-5" />
+                <span className="text-sm font-medium">En İyi Fiyat Garantisi</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle className="w-5 h-5" />
+                <span className="text-sm font-medium">Ücretsiz İptal</span>
+              </div>
             </motion.div>
           </div>
         </section>
