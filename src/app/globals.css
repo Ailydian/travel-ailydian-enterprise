@@ -5,14 +5,43 @@
 /* Leaflet CSS */
 @import 'leaflet/dist/leaflet.css';
 
-/* Custom CSS Variables */
+/* Booking.com Style CSS Variables - Red Theme & White Background */
 :root {
-  --ac-1: #FF214D;
-  --ac-2: #FF6A45;
-  --bg-0: #0A0A0B;
-  --tx-1: #F3F4F6;
-  --ailydian-primary: #FF214D;
-  --ailydian-secondary: #FF6A45;
+  /* Primary Red Colors */
+  --ailydian-primary: #DC2626;      /* red-600 - Main CTA color */
+  --ailydian-secondary: #EF4444;    /* red-500 - Secondary */
+  --ailydian-dark: #991B1B;         /* red-800 - Dark variant */
+  --ailydian-light: #FCA5A5;        /* red-300 - Light variant */
+
+  /* Background Colors - White & Clean */
+  --bg-primary: #FFFFFF;            /* Pure white background */
+  --bg-secondary: #F9FAFB;          /* Very light gray - surfaces */
+  --bg-surface: #FFFFFF;            /* Card backgrounds */
+  --bg-hover: #F3F4F6;              /* Hover states */
+  --bg-selected: #FEF2F2;           /* Selected/active - red tint */
+
+  /* Text Colors - High Contrast */
+  --text-primary: #111827;          /* gray-900 - Main text */
+  --text-secondary: #374151;        /* gray-700 - Secondary text */
+  --text-muted: #6B7280;            /* gray-500 - Muted text */
+  --text-dim: #9CA3AF;              /* gray-400 - Disabled/dim */
+
+  /* Border Colors */
+  --border-default: #E5E7EB;        /* gray-200 - Default borders */
+  --border-light: #F3F4F6;          /* gray-100 - Light borders */
+  --border-dark: #D1D5DB;           /* gray-300 - Dark borders */
+
+  /* Semantic Colors */
+  --color-success: #059669;         /* Green - success/confirmation */
+  --color-warning: #F59E0B;         /* Orange - warnings */
+  --color-error: #DC2626;           /* Red - errors */
+  --color-info: #3B82F6;            /* Blue - info */
+
+  /* Legacy support (for backward compatibility) */
+  --ac-1: #DC2626;
+  --ac-2: #EF4444;
+  --bg-0: #FFFFFF;
+  --tx-1: #111827;
 }
 
 /* Base Styles */
@@ -32,6 +61,8 @@ body {
   font-family: 'Inter', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
 }
 
 a {
@@ -39,23 +70,24 @@ a {
   text-decoration: none;
 }
 
-/* Scrollbar Styling */
+/* Booking.com Style Scrollbar - Red Theme */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 10px;
+  height: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f5f9;
+  background: var(--bg-secondary);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
-  border-radius: 4px;
+  background: #D1D5DB;
+  border-radius: 6px;
+  border: 2px solid var(--bg-secondary);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #94a3b8;
+  background: var(--ailydian-primary);
 }
 
 /* Utility Classes */
