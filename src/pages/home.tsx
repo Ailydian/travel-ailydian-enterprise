@@ -260,8 +260,8 @@ const GetYourGuideStyleHome: React.FC = () => {
       <ResponsiveHeaderBar />
 
       <main>
-        {/* Hero Section - Simple & Clean */}
-        <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
+        {/* Hero Section - Booking.com Style Red Theme */}
+        <section className="hero-section relative min-h-[80vh] flex items-center justify-center overflow-hidden">
           {/* Video Background */}
           <div className="absolute inset-0 z-0">
             <VideoBackground
@@ -273,8 +273,8 @@ const GetYourGuideStyleHome: React.FC = () => {
               changeInterval={60000}
             />
 
-            {/* Gradient Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-black/40"></div>
+            {/* Gradient Overlay - Red Theme */}
+            <div className="absolute inset-0 bg-gradient-to-b from-ailydian-dark/30 via-ailydian-primary/20 to-ailydian-dark/40"></div>
           </div>
 
           {/* Hero Content */}
@@ -284,18 +284,18 @@ const GetYourGuideStyleHome: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <h1 className="text-5xl md:text-7xl font-black text-white mb-6 leading-tight">
+              <h1 className="hero-title text-5xl md:text-7xl font-black text-white mb-6 leading-tight">
                 Hayalinizdeki Tatil
                 <br />
-                <span className="bg-gradient-to-r from-ailydian-primary via-purple-400 to-ailydian-secondary bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-white via-red-100 to-white bg-clip-text text-transparent">
                   Bir Arama Kadar Yakın
                 </span>
               </h1>
-              <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto leading-relaxed">
+              <p className="hero-subtitle text-xl md:text-2xl text-white/95 mb-8 max-w-3xl mx-auto leading-relaxed">
                 Türkiye ve dünya turizminde binlerce otel, tur ve deneyimi keşfedin.
               </p>
 
-              {/* Keşfet Button */}
+              {/* Keşfet Button - Red Theme */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -306,12 +306,12 @@ const GetYourGuideStyleHome: React.FC = () => {
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="group relative flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-green-600 to-emerald-600 text-white rounded-full font-bold text-lg shadow-2xl hover:shadow-emerald-500/50 transition-all duration-300"
+                    className="group relative flex items-center gap-3 px-8 py-4 bg-white text-ailydian-primary rounded-full font-bold text-lg shadow-2xl hover:shadow-red-500/30 transition-all duration-300"
                   >
                     <Compass className="w-6 h-6 group-hover:rotate-180 transition-transform duration-500" />
                     <span>Keşfet</span>
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                    <div className="absolute inset-0 bg-gradient-to-r from-green-600 to-emerald-600 rounded-full blur-xl opacity-50 group-hover:opacity-75 transition-opacity -z-10" />
+                    <div className="absolute inset-0 bg-white rounded-full blur-xl opacity-30 group-hover:opacity-50 transition-opacity -z-10" />
                   </motion.button>
                 </Link>
               </motion.div>
@@ -370,7 +370,7 @@ const GetYourGuideStyleHome: React.FC = () => {
 
                       {/* AI Badge */}
                       <div className="absolute top-4 right-4">
-                        <div className="flex items-center gap-1 px-2 py-1 bg-gradient-to-r from-green-600 to-emerald-600 text-white rounded-full text-xs font-medium">
+                        <div className="flex items-center gap-1 px-2 py-1 bg-gradient-to-r from-ailydian-primary to-ailydian-secondary text-white rounded-full text-xs font-medium">
                           <Sparkles className="w-3 h-3" />
                           <span>AI Önerisi</span>
                         </div>
@@ -450,7 +450,7 @@ const GetYourGuideStyleHome: React.FC = () => {
                               whileHover={{ scale: 1.05 }}
                               whileTap={{ scale: 0.95 }}
                               onClick={() => handleAddToCart(result)}
-                              className="p-2 bg-green-500 hover:bg-green-600 text-white rounded-lg transition-all duration-200 flex-shrink-0"
+                              className="p-2 bg-ailydian-primary hover:bg-ailydian-dark text-white rounded-lg transition-all duration-200 flex-shrink-0"
                               title="Sepete Ekle"
                             >
                               <ShoppingCart className="w-4 h-4" />
@@ -502,7 +502,7 @@ const GetYourGuideStyleHome: React.FC = () => {
                 <h2 className="text-3xl font-bold text-gray-900 mb-2">En İyi Deneyimler</h2>
                 <p className="text-gray-600">En popüler aktiviteler ve turlar</p>
               </div>
-              <button className="flex items-center gap-2 text-green-600 hover:text-green-700 font-medium">
+              <button className="flex items-center gap-2 text-ailydian-primary hover:text-ailydian-dark font-medium">
                 Tümünü Gör
                 <ArrowRight className="w-4 h-4" />
               </button>
@@ -544,7 +544,7 @@ const GetYourGuideStyleHome: React.FC = () => {
 
                     {/* Category */}
                     <div className="absolute bottom-4 left-4">
-                      <span className="px-3 py-1 bg-green-600 text-white rounded-full text-sm font-medium">
+                      <span className="px-3 py-1 bg-ailydian-primary text-white rounded-full text-sm font-medium">
                         {experience.category}
                       </span>
                     </div>
@@ -576,7 +576,7 @@ const GetYourGuideStyleHome: React.FC = () => {
                     <ul className="text-sm text-gray-600 mb-4 space-y-1">
                       {experience.highlights.slice(0, 2).map((highlight, index) => (
                         <li key={index} className="flex items-center gap-2">
-                          <div className="w-1.5 h-1.5 bg-green-500 rounded-full"></div>
+                          <div className="w-1.5 h-1.5 bg-ailydian-primary rounded-full"></div>
                           {highlight}
                         </li>
                       ))}
@@ -617,7 +617,7 @@ const GetYourGuideStyleHome: React.FC = () => {
                             price: typeof experience.price === 'string' ?
                               parseFloat(experience.price.replace(/[^0-9]/g, '')) : experience.price
                           })}
-                          className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded-lg transition-all duration-200 font-medium text-sm"
+                          className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-ailydian-primary hover:bg-ailydian-dark text-white rounded-lg transition-all duration-200 font-medium text-sm"
                         >
                           <Plus className="w-4 h-4" />
                           Sepete Ekle
@@ -680,7 +680,7 @@ const GetYourGuideStyleHome: React.FC = () => {
 
                     {/* D2 License Badge */}
                     <div className="absolute top-3 left-3">
-                      <span className="px-2 py-1 bg-green-600 text-white rounded-full text-xs font-bold">
+                      <span className="px-2 py-1 bg-ailydian-primary text-white rounded-full text-xs font-bold">
                         D2 Belgeli
                       </span>
                     </div>
@@ -762,7 +762,7 @@ const GetYourGuideStyleHome: React.FC = () => {
                 <h2 className="text-3xl font-bold text-gray-900 mb-2">Araç Kiralama Fırsatları</h2>
                 <p className="text-gray-600">51 araç, 7 kategori - %2 Ucuz Fiyat Garantisi</p>
               </div>
-              <Link href="/car-rentals" className="flex items-center gap-2 text-green-600 hover:text-green-700 font-medium">
+              <Link href="/car-rentals" className="flex items-center gap-2 text-ailydian-primary hover:text-ailydian-dark font-medium">
                 Tüm Araçlar
                 <ArrowRight className="w-4 h-4" />
               </Link>
@@ -787,7 +787,7 @@ const GetYourGuideStyleHome: React.FC = () => {
 
                     {/* Category Badge */}
                     <div className="absolute top-3 left-3">
-                      <span className="px-2 py-1 bg-gradient-to-r from-green-600 to-emerald-600 text-white rounded-full text-xs font-bold capitalize">
+                      <span className="px-2 py-1 bg-gradient-to-r from-ailydian-primary to-ailydian-secondary text-white rounded-full text-xs font-bold capitalize">
                         {car.category}
                       </span>
                     </div>
@@ -852,7 +852,7 @@ const GetYourGuideStyleHome: React.FC = () => {
                       <motion.button
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
-                        className="w-full px-4 py-2.5 bg-gradient-to-r from-green-600 to-emerald-600 text-white rounded-lg font-semibold hover:shadow-lg transition-all flex items-center justify-center gap-2 text-sm"
+                        className="w-full px-4 py-2.5 bg-gradient-to-r from-ailydian-primary to-ailydian-secondary text-white rounded-lg font-semibold hover:shadow-lg transition-all flex items-center justify-center gap-2 text-sm"
                       >
                         <Car className="w-4 h-4" />
                         Kirala
@@ -919,7 +919,7 @@ const GetYourGuideStyleHome: React.FC = () => {
                       <motion.button
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
-                        className="w-full px-4 py-2.5 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white rounded-lg font-semibold transition-all duration-200 text-sm flex items-center justify-center gap-2"
+                        className="w-full px-4 py-2.5 bg-gradient-to-r from-ailydian-primary to-ailydian-secondary hover:from-green-700 hover:to-emerald-700 text-white rounded-lg font-semibold transition-all duration-200 text-sm flex items-center justify-center gap-2"
                       >
                         <Compass className="w-4 h-4" />
                         Keşfet
@@ -960,12 +960,12 @@ const GetYourGuideStyleHome: React.FC = () => {
                 className="group"
               >
                 <Link href="/owner">
-                  <div className="relative bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden cursor-pointer border-2 border-transparent hover:border-green-500">
+                  <div className="relative bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden cursor-pointer border-2 border-transparent hover:border-ailydian-primary">
                     {/* Icon Background */}
                     <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-pink-500/10 to-red-500/10 rounded-bl-full"></div>
 
                     <div className="p-8 relative z-10">
-                      <div className="w-16 h-16 bg-gradient-to-r from-green-600 to-emerald-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                      <div className="w-16 h-16 bg-gradient-to-r from-ailydian-primary to-ailydian-secondary rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                         <Home className="w-8 h-8 text-white" />
                       </div>
 
@@ -978,11 +978,11 @@ const GetYourGuideStyleHome: React.FC = () => {
                       </p>
 
                       <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-2 text-green-600 font-semibold">
+                        <div className="flex items-center gap-2 text-ailydian-primary font-semibold">
                           <span>Hemen Başla</span>
                           <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
                         </div>
-                        <div className="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-medium">
+                        <div className="px-3 py-1 bg-red-50 text-ailydian-primary rounded-full text-sm font-medium">
                           Partner
                         </div>
                       </div>
@@ -1007,12 +1007,12 @@ const GetYourGuideStyleHome: React.FC = () => {
                 className="group"
               >
                 <Link href="/vehicle-owner">
-                  <div className="relative bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden cursor-pointer border-2 border-transparent hover:border-green-500">
+                  <div className="relative bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden cursor-pointer border-2 border-transparent hover:border-ailydian-primary">
                     {/* Icon Background */}
                     <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-green-600/10 to-emerald-600/10 rounded-bl-full"></div>
 
                     <div className="p-8 relative z-10">
-                      <div className="w-16 h-16 bg-gradient-to-r from-green-600 to-emerald-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                      <div className="w-16 h-16 bg-gradient-to-r from-ailydian-primary to-ailydian-secondary rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                         <Car className="w-8 h-8 text-white" />
                       </div>
 
@@ -1025,11 +1025,11 @@ const GetYourGuideStyleHome: React.FC = () => {
                       </p>
 
                       <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-2 text-green-600 font-semibold">
+                        <div className="flex items-center gap-2 text-ailydian-primary font-semibold">
                           <span>Hemen Başla</span>
                           <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
                         </div>
-                        <div className="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-medium">
+                        <div className="px-3 py-1 bg-red-50 text-ailydian-primary rounded-full text-sm font-medium">
                           Partner
                         </div>
                       </div>
@@ -1054,12 +1054,12 @@ const GetYourGuideStyleHome: React.FC = () => {
                 className="group"
               >
                 <Link href="/transfer-owner">
-                  <div className="relative bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden cursor-pointer border-2 border-transparent hover:border-green-600">
+                  <div className="relative bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden cursor-pointer border-2 border-transparent hover:border-ailydian-primary">
                     {/* Icon Background */}
                     <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-green-600/10 to-emerald-600/10 rounded-bl-full"></div>
 
                     <div className="p-8 relative z-10">
-                      <div className="w-16 h-16 bg-gradient-to-r from-green-600 to-emerald-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                      <div className="w-16 h-16 bg-gradient-to-r from-ailydian-primary to-ailydian-secondary rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                         <Bus className="w-8 h-8 text-white" />
                       </div>
 
@@ -1072,11 +1072,11 @@ const GetYourGuideStyleHome: React.FC = () => {
                       </p>
 
                       <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-2 text-green-600 font-semibold">
+                        <div className="flex items-center gap-2 text-ailydian-primary font-semibold">
                           <span>Hemen Başla</span>
                           <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
                         </div>
-                        <div className="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-medium">
+                        <div className="px-3 py-1 bg-red-50 text-ailydian-primary rounded-full text-sm font-medium">
                           Partner
                         </div>
                       </div>
@@ -1101,9 +1101,9 @@ const GetYourGuideStyleHome: React.FC = () => {
               transition={{ delay: 0.4 }}
               className="mt-16 text-center"
             >
-              <div className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-green-100 to-emerald-100 rounded-full">
-                <CheckCircle className="w-5 h-5 text-green-600" />
-                <span className="text-green-900 font-medium">
+              <div className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-red-50 to-red-100 rounded-full">
+                <CheckCircle className="w-5 h-5 text-ailydian-primary" />
+                <span className="text-ailydian-dark font-medium">
                   Ücretsiz kayıt ol, hemen gelir elde etmeye başla
                 </span>
               </div>
@@ -1131,31 +1131,31 @@ const GetYourGuideStyleHome: React.FC = () => {
                   icon: Camera,
                   title: 'Sanal Gerçeklik Önizlemeleri',
                   description: 'Rezervasyon yapmadan önce destinasyonları 360° VR ile deneyimleyin. Tam olarak ne aldığınızı görün.',
-                  color: 'bg-purple-100 text-green-600'
+                  color: 'bg-purple-100 text-ailydian-primary'
                 },
                 {
                   icon: Shield,
                   title: 'Blockchain Doğrulama',
                   description: 'Tüm yorumlar ve rezervasyonlar maksimum güven ve şeffaflık için blockchain üzerinde doğrulanır.',
-                  color: 'bg-green-100 text-green-600'
+                  color: 'bg-red-50 text-ailydian-primary'
                 },
                 {
                   icon: Zap,
                   title: 'Anlık Onay',
                   description: 'Çoğu deneyim için rezervasyon yapın ve anlık onay alın. Bekleme yok, belirsizlik yok.',
-                  color: 'bg-green-100 text-green-600'
+                  color: 'bg-red-50 text-ailydian-primary'
                 },
                 {
                   icon: Award,
                   title: 'Premium Deneyimler',
                   description: 'Başka yerde bulunmayan özel deneyimlere ve VIP hizmetlere erişim.',
-                  color: 'bg-green-100 text-green-600'
+                  color: 'bg-red-50 text-ailydian-primary'
                 },
                 {
                   icon: TrendingUp,
                   title: '7/24 AI Destek',
                   description: 'AI destekli müşteri destek sistemimizle istediğiniz zaman yardım alın.',
-                  color: 'bg-green-100 text-green-600'
+                  color: 'bg-red-50 text-ailydian-primary'
                 }
               ].map((feature, index) => (
                 <motion.div
@@ -1241,7 +1241,7 @@ const GetYourGuideStyleHome: React.FC = () => {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-8 py-4 bg-white text-green-600 font-semibold rounded-xl hover:bg-green-50 transition-colors flex items-center gap-2 justify-center"
+                  className="px-8 py-4 bg-white text-ailydian-primary font-semibold rounded-xl hover:bg-green-50 transition-colors flex items-center gap-2 justify-center"
                 >
                   <Send className="w-5 h-5" />
                   Abone Ol
@@ -1277,11 +1277,11 @@ const GetYourGuideStyleHome: React.FC = () => {
                 
                 {/* Premium Features */}
                 <div className="flex flex-wrap gap-2 mb-6">
-                  <span className="px-3 py-1 bg-green-500/20 text-green-400 rounded-full text-xs font-medium flex items-center gap-1">
+                  <span className="px-3 py-1 bg-ailydian-primary/20 text-green-400 rounded-full text-xs font-medium flex items-center gap-1">
                     <Shield className="w-3 h-3" />
                     SSL Güvenli
                   </span>
-                  <span className="px-3 py-1 bg-green-500/20 text-blue-400 rounded-full text-xs font-medium flex items-center gap-1">
+                  <span className="px-3 py-1 bg-ailydian-primary/20 text-blue-400 rounded-full text-xs font-medium flex items-center gap-1">
                     <Zap className="w-3 h-3" />
                     AI Destekli
                   </span>
