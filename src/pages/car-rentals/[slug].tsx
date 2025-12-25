@@ -6,6 +6,7 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import {
@@ -14,6 +15,7 @@ import {
   CreditCard, FileText, AlertCircle, ArrowRight, Sparkles,
   Gauge, DollarSign, TrendingUp
 } from 'lucide-react';
+import antalyaCarRentals from '@/data/antalya-car-rentals';
 
 // Types
 interface CarRental {
@@ -77,6 +79,7 @@ interface SimilarCar {
 
 interface CarDetailsPageProps {
   slug: string;
+  car?: CarRental;
 }
 
 // Mock data function - matches database schema
@@ -196,7 +199,7 @@ const getSimilarCars = (currentSlug: string): SimilarCar[] => {
   ].filter(car => car.slug !== currentSlug);
 };
 
-const CarDetailsPage = ({ slug: initialSlug }: CarDetailsPageProps) => {
+const CarDetailsPage = ({ slug: initialSlug, car: carProp }: CarDetailsPageProps) => {
   const router = useRouter();
   const { slug: routerSlug } = router.query;
   const slug = initialSlug || routerSlug;
@@ -210,8 +213,8 @@ const CarDetailsPage = ({ slug: initialSlug }: CarDetailsPageProps) => {
   const [pickupLocation, setPickupLocation] = useState('');
   const [selectedAddons, setSelectedAddons] = useState<string[]>([]);
 
-  // Get car data directly from mock function
-  const car = slug ? getCarBySlug(slug as string) : null;
+  // Get car data from props or fallback to mock function
+  const car = carProp || (slug ? getCarBySlug(slug as string) : null);
   const similarCars = slug ? getSimilarCars(slug as string) : [];
 
   // Set initial pickup location
@@ -311,26 +314,64 @@ const CarDetailsPage = ({ slug: initialSlug }: CarDetailsPageProps) => {
           <div className="lg:col-span-2 space-y-6">
             {/* Image Gallery */}
             <div className="bg-white rounded-2xl overflow-hidden shadow-sm">
-              <div className="relative aspect-video bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
-                <Car className="w-24 h-24 text-gray-300" />
+              <div className="relative aspect-video bg-gradient-to-br from-gray-100 to-gray-200">
+                {car.images && car.images.length > 0 && (
+                  <Image
+                    src={car.images[currentImageIndex]}
+                    alt={car.name}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 66vw, 50vw"
+                    priority
+                  />
+                )}
                 {car.isFeatured && (
-                  <div className="absolute top-4 left-4 bg-gradient-to-r from-amber-500 to-orange-500 text-white px-4 py-2 rounded-full text-sm font-bold flex items-center gap-2">
+                  <div className="absolute top-4 left-4 bg-gradient-to-r from-amber-500 to-orange-500 text-white px-4 py-2 rounded-full text-sm font-bold flex items-center gap-2 z-10">
                     <Sparkles className="w-4 h-4" />
                     ÖNE ÇIKAN
                   </div>
                 )}
                 {car.isPopular && (
-                  <div className="absolute top-4 right-4 bg-green-600 text-white px-4 py-2 rounded-full text-sm font-bold flex items-center gap-2">
+                  <div className="absolute top-4 right-4 bg-green-600 text-white px-4 py-2 rounded-full text-sm font-bold flex items-center gap-2 z-10">
                     <TrendingUp className="w-4 h-4" />
                     POPÜLER
                   </div>
                 )}
                 <button
                   onClick={() => setIsFavorite(!isFavorite)}
-                  className="absolute bottom-4 right-4 w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform"
+                  className="absolute bottom-4 right-4 w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform z-10"
                 >
                   <Heart className={`w-6 h-6 ${isFavorite ? 'fill-red-500 text-red-500' : 'text-gray-700'}`} />
                 </button>
+                {/* Image Navigation */}
+                {car.images && car.images.length > 1 && (
+                  <>
+                    <button
+                      onClick={() => setCurrentImageIndex((prev) => (prev === 0 ? car.images.length - 1 : prev - 1))}
+                      className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/90 rounded-full flex items-center justify-center shadow-lg hover:bg-white transition-all z-10"
+                    >
+                      <ChevronLeft className="w-5 h-5 text-gray-900" />
+                    </button>
+                    <button
+                      onClick={() => setCurrentImageIndex((prev) => (prev === car.images.length - 1 ? 0 : prev + 1))}
+                      className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/90 rounded-full flex items-center justify-center shadow-lg hover:bg-white transition-all z-10"
+                    >
+                      <ChevronRight className="w-5 h-5 text-gray-900" />
+                    </button>
+                    {/* Image Indicators */}
+                    <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+                      {car.images.map((_, idx) => (
+                        <button
+                          key={idx}
+                          onClick={() => setCurrentImageIndex(idx)}
+                          className={`w-2 h-2 rounded-full transition-all ${
+                            idx === currentImageIndex ? 'bg-white w-8' : 'bg-white/50'
+                          }`}
+                        />
+                      ))}
+                    </div>
+                  </>
+                )}
               </div>
             </div>
 
@@ -624,16 +665,9 @@ const CarDetailsPage = ({ slug: initialSlug }: CarDetailsPageProps) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const slugs = [
-    'mercedes-vito-vip',
-    'volkswagen-transporter',
-    'ford-transit-minibus',
-    'hyundai-h350',
-    'mercedes-sprinter',
-  ];
-
-  const paths = slugs.map((slug) => ({
-    params: { slug }
+  // Get all car rental slugs from real data
+  const paths = antalyaCarRentals.map((car) => ({
+    params: { slug: car.seo.slug.tr }
   }));
 
   return {
@@ -645,11 +679,64 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const slug = params?.slug as string;
 
+  // Find the car by slug
+  const carData = antalyaCarRentals.find(car => car.seo.slug.tr === slug);
+
+  if (!carData) {
+    return {
+      notFound: true
+    };
+  }
+
+  // Transform to CarRental format
+  const car: CarRental = {
+    id: carData.id,
+    name: `${carData.brand} ${carData.model.tr}`,
+    slug: carData.seo.slug.tr,
+    description: carData.seo.metaDescription.tr,
+    shortDescription: carData.seo.metaDescription.tr.substring(0, 150),
+    brand: carData.brand,
+    model: carData.model.tr,
+    year: carData.year,
+    category: carData.category,
+    transmission: carData.transmission === 'automatic' ? 'Otomatik' : 'Manuel',
+    fuelType: carData.fuelType === 'gasoline' ? 'Benzin' : carData.fuelType === 'diesel' ? 'Dizel' : 'Hibrit',
+    seats: carData.seats,
+    doors: carData.doors,
+    luggage: carData.luggage,
+    features: carData.features.tr,
+    airConditioning: carData.features.tr.some(f => f.includes('Klima')),
+    gps: carData.features.tr.some(f => f.includes('GPS')),
+    bluetooth: carData.features.tr.some(f => f.includes('Bluetooth')),
+    usbCharger: carData.features.tr.some(f => f.includes('USB')),
+    pricePerDay: carData.pricing.daily.toString(),
+    pricePerWeek: carData.pricing.weekly.toString(),
+    pricePerMonth: carData.pricing.monthly.toString(),
+    currency: 'TRY',
+    deposit: carData.pricing.deposit.toString(),
+    insuranceIncluded: true,
+    mainImage: carData.images[0] || 'https://images.unsplash.com/photo-1552345387-68-16f0e330e3d?w=1200',
+    images: carData.images.length > 0 ? carData.images : [
+      'https://images.unsplash.com/photo-1552345387-68-16f0e330e3d?w=1200',
+      'https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=1200'
+    ],
+    rating: carData.rating.toString(),
+    reviewCount: carData.totalRentals,
+    isActive: carData.active,
+    isPopular: carData.popular,
+    isFeatured: carData.popular,
+    pickupLocations: Object.entries(carData.availability)
+      .filter(([key, value]) => value === true)
+      .map(([key]) => key),
+    availableCount: 5,
+  };
+
   return {
     props: {
       slug,
+      car
     },
-    revalidate: 3600, // Revalidate every hour
+    revalidate: 3600,
   };
 };
 
