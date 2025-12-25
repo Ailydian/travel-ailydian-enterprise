@@ -518,7 +518,7 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
   const isActive = (path: string) => router.pathname === path;
 
   return (
-    <header className="bg-white shadow-sm border-b border-gray-100 sticky top-0 z-50">
+    <header className="booking-header sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -551,7 +551,7 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
                 onBlur={handleSearchBlur}
                 onKeyDown={handleKeyDown}
                 placeholder={isClient ? t('common:searchPlaceholder', 'Destinasyon, deneyim, otel arayın...') : 'Destinasyon, deneyim, otel arayın...'}
-                className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none text-gray-900 placeholder-gray-500 font-medium"
+                className="header-search w-full pl-12 pr-4 py-3 outline-none text-gray-900 placeholder-gray-500 font-medium"
                 autoComplete="off"
               />
               
@@ -694,8 +694,8 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
                       onMouseLeave={() => setIsToursMenuOpen(false)}
                       className={`relative flex items-center space-x-2 px-4 py-2 rounded-lg transition-colors duration-200 ${
                         isActive(item.href)
-                          ? themeColors.activeLink
-                          : 'text-gray-700 hover:bg-gray-50'
+                          ? 'nav-link-active'
+                          : 'nav-link'
                       }`}
                     >
                       <Icon className="w-4 h-4" />
@@ -750,8 +750,8 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
                   href={item.href}
                   className={`relative flex items-center space-x-2 px-4 py-2 rounded-lg transition-colors duration-200 ${
                     isActive(item.href)
-                      ? themeColors.activeLink
-                      : 'text-gray-700 hover:bg-gray-50'
+                      ? 'nav-link-active'
+                      : 'nav-link'
                   }`}
                 >
                   <Icon className="w-4 h-4" />
@@ -779,7 +779,7 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
             {/* Partner Button */}
             <Link href="/partner">
               <button
-                className="relative flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 text-white rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl"
+                className="relative flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-ailydian-primary to-ailydian-secondary hover:from-ailydian-dark hover:to-ailydian-primary text-white rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl"
               >
                 <Building2 className="w-4 h-4" />
                 <span className="hidden lg:inline font-semibold">Partner</span>
@@ -792,7 +792,7 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
                 // AI Asistan'ı hero section üstünde aç
                 window.dispatchEvent(new CustomEvent('openAIAssistant'));
               }}
-              className={`relative flex items-center space-x-2 px-4 py-2 bg-gradient-to-r ${themeColors.aiButton} text-white rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl`}
+              className="relative flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl"
             >
               <motion.div
                 whileHover={{ scale: 1.05 }}
@@ -810,7 +810,7 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
             <div className="relative hidden sm:block language-menu-container">
               <button
                 onClick={() => setIsLanguageMenuOpen(!isLanguageMenuOpen)}
-                className="flex items-center space-x-2 px-3 py-2 text-gray-700 hover:bg-gray-50 rounded-lg transition-colors"
+                className="language-selector"
               >
                 <Globe className="w-4 h-4" />
                 <span className="text-sm font-medium">{currentLanguage.flag} {currentLanguage.code.toUpperCase()}</span>
@@ -830,7 +830,7 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
                           onClick={() => handleLanguageChange(language.code)}
                           className={`w-full flex items-center space-x-3 px-4 py-2 text-left transition-colors ${
                             currentLanguage.code === language.code
-                              ? 'bg-blue-50 text-blue-600'
+                              ? 'bg-red-50 text-ailydian-primary'
                               : 'text-gray-700 hover:bg-gray-50'
                           }`}
                         >
@@ -976,7 +976,7 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
       {/* Mobile Menu */}
       <AnimatePresence>
         {isMenuOpen && (
-          <div className="lg:hidden bg-white border-t border-gray-100">
+          <div className="mobile-menu lg:hidden">
             <motion.div
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
@@ -1009,7 +1009,7 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
                       <div key={item.href}>
                         <button
                           onClick={() => setIsMobileToursOpen(!isMobileToursOpen)}
-                          className="relative flex items-center space-x-3 px-3 py-3 rounded-lg text-gray-700 hover:bg-gray-50 w-full"
+                          className="mobile-menu-link w-full"
                         >
                           <Icon className="w-5 h-5" />
                           <div className="flex-1 text-left">
@@ -1063,7 +1063,7 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
                     <Link
                       key={item.href}
                       href={item.href}
-                      className="relative flex items-center space-x-3 px-3 py-3 rounded-lg text-gray-700 hover:bg-gray-50"
+                      className="mobile-menu-link relative flex items-center space-x-3"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       <Icon className="w-5 h-5" />
