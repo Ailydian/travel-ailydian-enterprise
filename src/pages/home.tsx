@@ -59,6 +59,7 @@ import ResponsiveHeaderBar from '../components/layout/ResponsiveHeaderBar';
 import antalyaTransfers from '@/data/antalya-transfers';
 import antalyaCarRentals from '@/data/antalya-car-rentals';
 import { BookingSearchForm } from '../components/booking/BookingSearchForm';
+import { BookingProductCard } from '../components/booking/BookingProductCard';
 
 const GetYourGuideStyleHome: React.FC = () => {
   // Router
@@ -494,154 +495,68 @@ const GetYourGuideStyleHome: React.FC = () => {
         )}
 
 
-        {/* Top Experiences */}
-        <section className="py-16 bg-white">
+        {/* Top Experiences - Booking.com Style Horizontal Listing */}
+        <section className="py-16 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4">
-            <div className="flex items-center justify-between mb-12">
-              <div>
-                <h2 className="text-3xl font-bold text-gray-900 mb-2">En İyi Deneyimler</h2>
-                <p className="text-gray-600">En popüler aktiviteler ve turlar</p>
+            {/* Header */}
+            <div className="mb-8">
+              <div className="flex items-center justify-between mb-4">
+                <div>
+                  <h2 className="text-3xl font-bold text-gray-900 mb-2">Türkiye: {topExperiences.length} özellik bulundu</h2>
+                  <p className="text-gray-600">En popüler turlar ve aktiviteler</p>
+                </div>
+                <Link href="/tours" className="flex items-center gap-2 text-ailydian-primary hover:text-ailydian-dark font-medium">
+                  Tüm Turları Gör
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
               </div>
-              <button className="flex items-center gap-2 text-ailydian-primary hover:text-ailydian-dark font-medium">
-                Tümünü Gör
-                <ArrowRight className="w-4 h-4" />
-              </button>
+
+              {/* Sorting & View Options */}
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <button className="px-4 py-2 bg-white border border-gray-300 rounded-lg text-sm font-medium hover:border-ailydian-primary transition-colors">
+                    <Filter className="w-4 h-4 inline mr-2" />
+                    Filtreler
+                  </button>
+                  <select className="px-4 py-2 bg-white border border-gray-300 rounded-lg text-sm font-medium hover:border-ailydian-primary transition-colors">
+                    <option>Önerilenler</option>
+                    <option>En Düşük Fiyat</option>
+                    <option>En Yüksek Puan</option>
+                    <option>En Çok Değerlendirilen</option>
+                  </select>
+                </div>
+                <div className="text-sm text-gray-600">
+                  <span className="font-medium">{topExperiences.length}</span> sonuçtan <span className="font-medium">1-{Math.min(3, topExperiences.length)}</span> arası gösteriliyor
+                </div>
+              </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {topExperiences.map((experience) => (
-                <motion.div
+            {/* Horizontal Product Cards - Booking.com Style */}
+            <div className="space-y-4">
+              {topExperiences.slice(0, 6).map((experience, index) => (
+                <BookingProductCard
                   key={experience.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: experience.id * 0.1 }}
-                  className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group"
-                >
-                  {/* Image */}
-                  <div className="relative h-48 overflow-hidden">
-                    <img 
-                      src={experience.image} 
-                      alt={experience.title}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                    />
-                    
-                    {/* Badges */}
-                    <div className="absolute top-4 left-4 flex flex-wrap gap-2">
-                      {experience.badges.slice(0, 2).map((badge) => (
-                        <span
-                          key={badge}
-                          className="px-2 py-1 bg-white/90 text-gray-800 rounded-full text-xs font-medium"
-                        >
-                          {badge}
-                        </span>
-                      ))}
-                    </div>
-
-                    {/* Heart Icon */}
-                    <button className="absolute top-4 right-4 p-2 bg-white/80 hover:bg-white rounded-full transition-colors">
-                      <Heart className="w-4 h-4 text-gray-600" />
-                    </button>
-
-                    {/* Category */}
-                    <div className="absolute bottom-4 left-4">
-                      <span className="px-3 py-1 bg-ailydian-primary text-white rounded-full text-sm font-medium">
-                        {experience.category}
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Content */}
-                  <div className="p-6">
-                    <div className="flex items-center gap-2 text-sm text-gray-500 mb-2">
-                      <MapPin className="w-4 h-4" />
-                      <span>{experience.location}</span>
-                      <Clock className="w-4 h-4 ml-2" />
-                      <span>{experience.duration}</span>
-                    </div>
-
-                    <h3 className="font-bold text-lg text-gray-900 mb-3 line-clamp-2">
-                      {experience.title}
-                    </h3>
-
-                    {/* Rating */}
-                    <div className="flex items-center gap-2 mb-4">
-                      <div className="flex items-center gap-1">
-                        <Star className="w-4 h-4 text-yellow-500 fill-current" />
-                        <span className="font-medium">{experience.rating}</span>
-                      </div>
-                      <span className="text-gray-500 text-sm">({experience.reviews} değerlendirme)</span>
-                    </div>
-
-                    {/* Highlights */}
-                    <ul className="text-sm text-gray-600 mb-4 space-y-1">
-                      {experience.highlights.slice(0, 2).map((highlight, index) => (
-                        <li key={index} className="flex items-center gap-2">
-                          <div className="w-1.5 h-1.5 bg-ailydian-primary rounded-full"></div>
-                          {highlight}
-                        </li>
-                      ))}
-                    </ul>
-
-                    {/* Price and Actions */}
-                    <div className="flex items-center justify-between mb-4">
-                      <div className="flex items-center gap-2">
-                        <span className="text-2xl font-bold text-gray-900">{experience.price}</span>
-                        {experience.originalPrice && (
-                          <span className="text-sm text-gray-500 line-through">{experience.originalPrice}</span>
-                        )}
-                      </div>
-                    </div>
-                    
-                    {/* Action Buttons */}
-                    <div className="flex flex-col gap-2">
-                      <Link
-                        href={`/tours/${experience.title.toLowerCase().replace(/[^a-z0-9ğüşıöçĞÜŞİÖÇ\s]/g, '').replace(/\s+/g, '-')}`}
-                        className="w-full"
-                      >
-                        <motion.button
-                          whileHover={{ scale: 1.02 }}
-                          whileTap={{ scale: 0.98 }}
-                          className="w-full px-4 py-2.5 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white rounded-lg font-semibold transition-all duration-200 text-sm flex items-center justify-center gap-2"
-                        >
-                          <Eye className="w-4 h-4" />
-                          Detayları Gör
-                        </motion.button>
-                      </Link>
-                      <div className="flex items-center gap-2">
-                        <motion.button
-                          whileHover={{ scale: 1.05 }}
-                          whileTap={{ scale: 0.95 }}
-                          onClick={() => handleAddToCart({
-                            ...experience,
-                            type: 'tour',
-                            price: typeof experience.price === 'string' ?
-                              parseFloat(experience.price.replace(/[^0-9]/g, '')) : experience.price
-                          })}
-                          className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-ailydian-primary hover:bg-ailydian-dark text-white rounded-lg transition-all duration-200 font-medium text-sm"
-                        >
-                          <Plus className="w-4 h-4" />
-                          Sepete Ekle
-                        </motion.button>
-                        <motion.button
-                          whileHover={{ scale: 1.05 }}
-                          whileTap={{ scale: 0.95 }}
-                          onClick={() => {
-                            handleAddToCart({
-                              ...experience,
-                              type: 'tour',
-                              price: typeof experience.price === 'string' ?
-                                parseFloat(experience.price.replace(/[^0-9]/g, '')) : experience.price
-                            });
-                            router.push('/checkout');
-                          }}
-                          className="flex-1 px-4 py-2 bg-ailydian-primary text-white rounded-lg font-medium hover:bg-ailydian-dark transition-colors text-sm"
-                        >
-                          Rezervasyon
-                        </motion.button>
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
+                  id={experience.id}
+                  title={experience.title}
+                  location={experience.location}
+                  rating={experience.rating}
+                  reviewCount={experience.reviews}
+                  images={[experience.image]}
+                  price={typeof experience.price === 'string' ? parseFloat(experience.price.replace(/[^0-9]/g, '')) : experience.price}
+                  originalPrice={experience.originalPrice ? (typeof experience.originalPrice === 'string' ? parseFloat(experience.originalPrice.replace(/[^0-9]/g, '')) : experience.originalPrice) : undefined}
+                  currency="₺"
+                  features={experience.highlights}
+                  badges={experience.badges}
+                  description={`${experience.duration} · ${experience.category}`}
+                  href={`/tours/${experience.title.toLowerCase().replace(/[^a-z0-9ğüşıöçĞÜŞİÖÇ\s]/g, '').replace(/\s+/g, '-')}`}
+                  type="tour"
+                  onAddToCart={() => handleAddToCart({
+                    ...experience,
+                    type: 'tour',
+                    price: typeof experience.price === 'string' ?
+                      parseFloat(experience.price.replace(/[^0-9]/g, '')) : experience.price
+                  })}
+                />
               ))}
             </div>
           </div>
