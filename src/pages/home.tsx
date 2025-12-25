@@ -1151,7 +1151,9 @@ const GetYourGuideStyleHome: React.FC = () => {
         </section>
 
         {/* AI Recommendations Widget - Claude Innovation */}
-        <AIRecommendations />
+        <div className="pb-16">
+          <AIRecommendations />
+        </div>
       </main>
 
       {/* Floating Signup Button */}

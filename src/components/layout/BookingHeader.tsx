@@ -41,20 +41,20 @@ export const BookingHeader: React.FC = () => {
   return (
     <header className="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm">
       {/* Top Bar - Currency & Language */}
-      <div className="bg-gray-900 text-white">
+      <div className="bg-[#003580] text-white">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex items-center justify-end gap-4 py-2 text-sm">
-            <button className="flex items-center gap-1 hover:text-gray-300 transition-colors">
+            <button className="flex items-center gap-1 text-white hover:text-white/80 transition-colors font-medium">
               <Globe className="w-4 h-4" />
-              <span>TRY</span>
+              <span className="text-white">₺ TRY</span>
             </button>
-            <button className="flex items-center gap-1 hover:text-gray-300 transition-colors">
+            <button className="flex items-center gap-1 text-white hover:text-white/80 transition-colors font-medium">
               <Globe className="w-4 h-4" />
-              <span>Türkçe</span>
+              <span className="text-white">Türkçe</span>
             </button>
-            <button className="flex items-center gap-1 hover:text-gray-300 transition-colors">
+            <button className="flex items-center gap-1 text-white hover:text-white/80 transition-colors font-medium">
               <HelpCircle className="w-4 h-4" />
-              <span>Yardım</span>
+              <span className="text-white">Yardım</span>
             </button>
           </div>
         </div>

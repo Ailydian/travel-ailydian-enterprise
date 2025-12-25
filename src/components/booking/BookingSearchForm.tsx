@@ -97,10 +97,10 @@ export const BookingSearchForm: React.FC<SearchFormProps> = ({
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
               className={`
-                relative flex items-center gap-2 px-6 py-3 rounded-t-md font-medium transition-all whitespace-nowrap
+                relative flex items-center gap-2 px-6 py-3 rounded-t-md font-semibold transition-all whitespace-nowrap
                 ${isActive
-                  ? 'bg-white text-ailydian-primary'
-                  : 'text-white hover:bg-white/10'
+                  ? 'bg-white text-gray-900'
+                  : 'bg-white text-gray-700 border-2 border-white'
                 }
               `}
             >
