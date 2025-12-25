@@ -113,23 +113,7 @@ export const VideoBackground: React.FC<VideoBackgroundProps> = ({
             />
           </div>
 
-          {/* Video Element - overlays poster when loaded */}
-          {!videoError && (
-            <video
-              ref={videoRef}
-              src={currentVideo.url}
-              autoPlay={autoPlay}
-              muted={muted}
-              loop={loop}
-              playsInline
-              onLoadedData={handleVideoLoad}
-              onError={handleVideoError}
-              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${isLoading ? 'opacity-0' : 'opacity-100'}`}
-              style={{
-                transform: 'scale(1.02)', // Slight zoom for cinematic effect
-              }}
-            />
-          )}
+          {/* Video disabled - using poster images only for better performance and no 404 errors */}
         </motion.div>
       </AnimatePresence>
 
