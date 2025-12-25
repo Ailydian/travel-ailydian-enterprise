@@ -360,7 +360,7 @@ const CarDetailsPage = ({ slug: initialSlug, car: carProp }: CarDetailsPageProps
                     </button>
                     {/* Image Indicators */}
                     <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
-                      {car.images.map((_, idx) => (
+                      {car.images?.map((_, idx) => (
                         <button
                           key={idx}
                           onClick={() => setCurrentImageIndex(idx)}
@@ -435,7 +435,7 @@ const CarDetailsPage = ({ slug: initialSlug, car: carProp }: CarDetailsPageProps
             <div className="bg-white rounded-2xl p-6 shadow-sm">
               <h2 className="text-xl font-bold text-gray-900 mb-6">Özellikler</h2>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                {car.features.map((feature, index) => (
+                {car.features?.map((feature, index) => (
                   <div key={index} className="flex items-center gap-3 p-3 bg-blue-50 rounded-lg">
                     <Check className="w-5 h-5 text-blue-600 flex-shrink-0" />
                     <span className="text-sm font-medium text-gray-900">{feature}</span>
@@ -479,7 +479,7 @@ const CarDetailsPage = ({ slug: initialSlug, car: carProp }: CarDetailsPageProps
                   <div>
                     <p className="font-semibold text-gray-900 mb-2">Gerekli Belgeler:</p>
                     <ul className="space-y-1">
-                      {car.requiredDocuments.map((doc, index) => (
+                      {car.requiredDocuments?.map((doc, index) => (
                         <li key={index} className="text-gray-700">• {doc}</li>
                       ))}
                     </ul>
@@ -570,7 +570,7 @@ const CarDetailsPage = ({ slug: initialSlug, car: carProp }: CarDetailsPageProps
                     onChange={(e) => setPickupLocation(e.target.value)}
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
                   >
-                    {car.pickupLocations.map((location) => (
+                    {car.pickupLocations?.map((location) => (
                       <option key={location} value={location}>
                         {location}
                       </option>
@@ -704,11 +704,11 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     seats: carData.seats,
     doors: carData.doors,
     luggage: carData.luggage,
-    features: carData.features.tr,
-    airConditioning: carData.features.tr.some(f => f.includes('Klima')),
-    gps: carData.features.tr.some(f => f.includes('GPS')),
-    bluetooth: carData.features.tr.some(f => f.includes('Bluetooth')),
-    usbCharger: carData.features.tr.some(f => f.includes('USB')),
+    features: carData.features?.tr || [],
+    airConditioning: carData.features?.tr?.some(f => f.includes('Klima')) || false,
+    gps: carData.features?.tr?.some(f => f.includes('GPS')) || false,
+    bluetooth: carData.features?.tr?.some(f => f.includes('Bluetooth')) || false,
+    usbCharger: carData.features?.tr?.some(f => f.includes('USB')) || false,
     pricePerDay: carData.pricing.daily.toString(),
     pricePerWeek: carData.pricing.weekly.toString(),
     pricePerMonth: carData.pricing.monthly.toString(),
@@ -725,9 +725,11 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     isActive: carData.active,
     isPopular: carData.popular,
     isFeatured: carData.popular,
-    pickupLocations: Object.entries(carData.availability)
-      .filter(([key, value]) => value === true)
-      .map(([key]) => key),
+    pickupLocations: carData.availability
+      ? Object.entries(carData.availability)
+          .filter(([key, value]) => value === true)
+          .map(([key]) => key)
+      : [],
     availableCount: 5,
   };
 
