@@ -2,6 +2,8 @@ import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRight, Users, Globe, Shield, Award, Zap, Heart } from 'lucide-react';
+import { BookingHeader } from '../components/layout/BookingHeader';
+import { BookingFooter } from '../components/layout/BookingFooter';
 
 export default function About() {
   const stats = [
@@ -39,26 +41,9 @@ export default function About() {
         <meta name="description" content="Ailydian Travel olarak 15 yıldır seyahat tutkusunu teknoloji ile buluşturuyoruz." />
       </Head>
 
+      <BookingHeader />
+
       <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
-        {/* Header */}
-        <div className="bg-white dark:bg-gray-800 shadow-sm border-b">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-            <div className="flex items-center justify-between">
-              <div>
-                <Link href="/" className="text-2xl font-bold text-blue-600">
-                  Ailydian Travel
-                </Link>
-              </div>
-              <Link
-                href="/"
-                className="text-gray-600 hover:text-blue-600 flex items-center"
-              >
-                <ArrowRight className="h-5 w-5 mr-2 rotate-180" />
-                Ana Sayfa&apos;ya Dön
-              </Link>
-            </div>
-          </div>
-        </div>
 
         {/* Hero Section */}
         <div className="bg-gradient-to-br from-blue-600 via-purple-600 to-pink-600 text-white py-20">
@@ -234,6 +219,8 @@ export default function About() {
           </div>
         </div>
       </div>
+
+      <BookingFooter />
     </>
   );
 }

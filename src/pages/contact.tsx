@@ -2,6 +2,8 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { Phone, Mail, MapPin, Clock, ArrowRight, Send } from 'lucide-react';
 import { useState } from 'react';
+import { BookingHeader } from '../components/layout/BookingHeader';
+import { BookingFooter } from '../components/layout/BookingFooter';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -24,26 +26,9 @@ export default function Contact() {
         <meta name="description" content="Bize ulaşın. Tüm sorularınız için 7/24 müşteri hizmetleri." />
       </Head>
 
+      <BookingHeader />
+
       <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
-        {/* Header */}
-        <div className="bg-white dark:bg-gray-800 shadow-sm border-b">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-            <div className="flex items-center justify-between">
-              <div>
-                <Link href="/" className="text-2xl font-bold text-blue-600">
-                  Ailydian Travel
-                </Link>
-              </div>
-              <Link
-                href="/"
-                className="text-gray-600 hover:text-blue-600 flex items-center"
-              >
-                <ArrowRight className="h-5 w-5 mr-2 rotate-180" />
-                Ana Sayfa&apos;ya Dön
-              </Link>
-            </div>
-          </div>
-        </div>
 
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="text-center mb-12">
@@ -207,6 +192,8 @@ export default function Contact() {
           </div>
         </div>
       </div>
+
+      <BookingFooter />
     </>
   );
 }

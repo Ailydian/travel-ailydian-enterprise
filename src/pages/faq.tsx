@@ -2,7 +2,8 @@ import { useState } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import { ChevronDown, Search, HelpCircle, ArrowLeft } from 'lucide-react';
-import ResponsiveHeaderBar from '../components/layout/ResponsiveHeaderBar';
+import { BookingHeader } from '../components/layout/BookingHeader';
+import { BookingFooter } from '../components/layout/BookingFooter';
 
 const FAQ_CATEGORIES = [
   {
@@ -202,7 +203,7 @@ export default function FAQ() {
         </script>
       </Head>
 
-      <ResponsiveHeaderBar />
+      <BookingHeader />
 
       {/* Return to Home Button */}
       <Link
@@ -363,6 +364,8 @@ export default function FAQ() {
           </div>
         </div>
       </div>
+
+      <BookingFooter />
     </>
   );
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
-import SimplifiedHeader from '../components/layout/SimplifiedHeader';
+import { BookingHeader } from '../components/layout/BookingHeader';
+import { BookingFooter } from '../components/layout/BookingFooter';
 
 const Cookies: React.FC = () => {
   return (
@@ -10,7 +11,7 @@ const Cookies: React.FC = () => {
         <meta name="description" content="Travel.Ailydian çerez kullanım politikası ve web sitesinde kullanılan çerez türleri hakkında bilgi." />
       </Head>
 
-      <SimplifiedHeader />
+      <BookingHeader />
 
       <main className="min-h-screen bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 py-16">
@@ -105,6 +106,8 @@ const Cookies: React.FC = () => {
           </div>
         </div>
       </main>
+
+      <BookingFooter />
     </>
   );
 };

@@ -32,8 +32,9 @@ import {
   FileText,
   UserCheck
 } from 'lucide-react';
-import SimplifiedHeader from '../components/layout/SimplifiedHeader';
 import { useCart } from '../context/CartContext';
+import { BookingHeader } from '../components/layout/BookingHeader';
+import { BookingFooter } from '../components/layout/BookingFooter';
 
 const HotelsNewPage: React.FC = () => {
   const router = useRouter();
@@ -241,7 +242,7 @@ const HotelsNewPage: React.FC = () => {
         type="website"
       />
 
-      <SimplifiedHeader />
+      <BookingHeader />
 
       <Link
         href="/"
@@ -608,6 +609,8 @@ const HotelsNewPage: React.FC = () => {
           </motion.div>
         )}
       </AnimatePresence>
+
+      <BookingFooter />
     </>
   );
 };

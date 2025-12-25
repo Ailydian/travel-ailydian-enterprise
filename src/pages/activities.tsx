@@ -9,6 +9,8 @@ import AdvancedFilters from '../components/search/AdvancedFilters';
 import FilterChips from '../components/search/FilterChips';
 import { useFilters } from '../hooks/useFilters';
 import { ActivityFilters, DEFAULT_ACTIVITY_FILTERS } from '../types/filters';
+import { BookingHeader } from '../components/layout/BookingHeader';
+import { BookingFooter } from '../components/layout/BookingFooter';
 
 const activities = [
   {
@@ -387,26 +389,9 @@ export default function Activities() {
         <meta name="description" content="Heyecan verici aktiviteler ve deneyimler. Maceradan wellness&apos;a kadar." />
       </Head>
 
+      <BookingHeader />
+
       <div className="min-h-screen" style={{ backgroundColor: 'white' }}>
-        {/* Header */}
-        <div className="shadow-sm border-b" style={{ backgroundColor: 'white', borderBottomColor: '#0ea5e9' }}>
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-            <div className="flex items-center justify-between">
-              <div>
-                <Link href="/" className="text-2xl font-bold" style={{ color: '#0ea5e9' }}>
-                  Ailydian Travel
-                </Link>
-              </div>
-              <Link
-                href="/"
-                className="ocean-button-secondary flex items-center"
-              >
-                <ArrowRight className="h-5 w-5 mr-2 rotate-180" />
-                Ana Sayfa&apos;ya Dön
-              </Link>
-            </div>
-          </div>
-        </div>
 
         {/* Hero Section */}
         <div className="text-white py-16" style={{ background: 'linear-gradient(to bottom, #87CEEB 0%, #4682B4 50%, #0ea5e9 100%)' }}>
@@ -783,6 +768,8 @@ export default function Activities() {
           <span className="font-medium">{toastMessage}</span>
         </div>
       )}
+
+      <BookingFooter />
     </>
   );
 }

@@ -3,8 +3,9 @@ import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Search, MapPin, Star, Heart, Filter, Calendar, Users, ArrowLeft, Camera, Mountain, Waves, Building, TreePine, Sparkles, Thermometer, DollarSign } from 'lucide-react';
-import ResponsiveHeaderBar from '../components/layout/ResponsiveHeaderBar';
 import { DESTINATIONS_TURKEY } from '../data/destinations-turkey';
+import { BookingHeader } from '../components/layout/BookingHeader';
+import { BookingFooter } from '../components/layout/BookingFooter';
 
 const categories = [
   { id: 'all', name: 'Tümü', icon: MapPin },
@@ -47,7 +48,7 @@ export default function Destinations() {
         <meta name="keywords" content="türkiye destinasyonları, gezi rehberi, istanbul, kapadokya, antalya, seyahat, tatil" />
       </Head>
 
-      <ResponsiveHeaderBar />
+      <BookingHeader />
 
       {/* Return to Home Button */}
       <Link
@@ -245,6 +246,8 @@ export default function Destinations() {
           )}
         </div>
       </div>
+
+      <BookingFooter />
     </>
   );
 }
