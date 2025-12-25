@@ -49,9 +49,10 @@ import {
 import SimplifiedHeader from '@/components/layout/SimplifiedHeader';
 import { allComprehensiveTours, ComprehensiveTour } from '@/data/marmaris-bodrum-cesme-tours';
 import { antalyaTours } from '@/data/antalya-tours';
+import { legacyTours } from '../tours';
 
-// Combine all tours: Antalya + Other regions
-const allTours = [...antalyaTours, ...allComprehensiveTours];
+// Combine all tours: Antalya + Other regions + Legacy tours
+const allTours = [...antalyaTours, ...allComprehensiveTours, ...legacyTours];
 
 // Get tour data by slug from real data
 const getTourBySlug = (slug: string) => {
@@ -80,48 +81,51 @@ const getTourBySlug = (slug: string) => {
   }
 
 
+  // Check if it's a legacy tour (has 'price' instead of 'pricing')
+  const isLegacyTour = 'price' in tour;
+
   // Return real tour data mapped to the expected format
   return {
     id: tour.id,
     slug: tour.slug,
-    title: tour.name,
+    title: isLegacyTour ? tour.name : tour.name,
     subtitle: tour.description,
     rating: tour.rating,
-    reviewCount: tour.reviewCount,
-    bookingCount: tour.reviewCount * 4, // Approximate booking count
+    reviewCount: isLegacyTour ? tour.reviews : tour.reviewCount,
+    bookingCount: isLegacyTour ? tour.reviews * 4 : tour.reviewCount * 4,
     badges: [
-      tour.pricing.savingsPercentage >= 15 ? 'En Çok İndirim' : '',
+      isLegacyTour ? (tour.badge || '') : (tour.pricing.savingsPercentage >= 15 ? 'En Çok İndirim' : ''),
       tour.difficulty === 'Kolay' ? 'Herkese Uygun' : '',
       tour.rating >= 4.7 ? '2024 Excellence Award' : ''
     ].filter(Boolean),
-    price: tour.pricing.travelAilydian,
-    originalPrice: tour.pricing.competitors.getYourGuide || tour.pricing.travelAilydian + tour.pricing.savings,
-    discount: tour.pricing.savingsPercentage,
+    price: isLegacyTour ? tour.price : tour.pricing.travelAilydian,
+    originalPrice: isLegacyTour ? tour.originalPrice : (tour.pricing.competitors.getYourGuide || tour.pricing.travelAilydian + tour.pricing.savings),
+    discount: isLegacyTour ? Math.round(((tour.originalPrice - tour.price) / tour.originalPrice) * 100) : tour.pricing.savingsPercentage,
     duration: tour.duration,
-    language: ['Türkçe', 'İngilizce'],
-    groupSize: `Maksimum ${tour.maxGroupSize} kişi`,
+    language: isLegacyTour ? tour.languages : ['Türkçe', 'İngilizce'],
+    groupSize: isLegacyTour ? tour.groupSize : `Maksimum ${tour.maxGroupSize} kişi`,
     category: tour.category === 'boat' ? 'Tekne Turları' :
               tour.category === 'adventure' ? 'Macera Turları' :
               tour.category === 'cultural' ? 'Kültürel Turlar' : 'Günlük Turlar',
-    location: `${tour.region}, Türkiye`,
-    meetingPoint: tour.meetingPoint,
-    meetingPointCoords: { lat: 36.8969, lng: 28.2663 }, // Default coords, can be enhanced later
-    cancellationPolicy: tour.cancellationPolicy,
+    location: isLegacyTour ? tour.location : `${tour.region}, Türkiye`,
+    meetingPoint: isLegacyTour ? (tour.location + ' - Merkez Buluşma Noktası') : tour.meetingPoint,
+    meetingPointCoords: { lat: 36.8969, lng: 28.2663 }, // Default coords
+    cancellationPolicy: isLegacyTour ? '24 saat öncesine kadar ücretsiz iptal' : tour.cancellationPolicy,
     instantConfirmation: true,
     mobileTicket: true,
     skipTheLine: false,
-    images: tour.images && tour.images.length > 0 ? tour.images : [
+    images: isLegacyTour ? [tour.image] : (tour.images && tour.images.length > 0 ? tour.images : [
       'https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?w=1200',
       'https://images.unsplash.com/photo-1541432901042-2d8bd64b4a9b?w=1200',
-    ],
+    ]),
     videoUrl: 'https://www.youtube.com/embed/sample-video',
     highlights: tour.highlights || [],
-    description: tour.longDescription || tour.description,
-    included: tour.included || [],
-    excluded: tour.excluded || [],
-    seoTitle: tour.seo?.metaTitle,
-    seoDescription: tour.seo?.metaDescription,
-    seoKeywords: tour.seo?.keywords,
+    description: isLegacyTour ? tour.description : (tour.longDescription || tour.description),
+    included: isLegacyTour ? (tour.includes || []) : (tour.included || []),
+    excluded: isLegacyTour ? ['Kişisel harcamalar', 'Bahşiş'] : (tour.excluded || []),
+    seoTitle: isLegacyTour ? `${tour.name} | Ailydian Travel` : tour.seo?.metaTitle,
+    seoDescription: isLegacyTour ? tour.description : tour.seo?.metaDescription,
+    seoKeywords: isLegacyTour ? [tour.name, tour.location, 'tur'] : tour.seo?.keywords,
     requirements: [
       'Geçerli kimlik veya pasaport',
       'Rezervasyon onay belgesi (mobil veya basılı)',
@@ -129,9 +133,8 @@ const getTourBySlug = (slug: string) => {
       'Güneş kremi ve şapka (opsiyonel)',
     ],
     importantInfo: [
-      tour.cancellationPolicy,
-      `Minimum yaş: ${tour.minAge} yaş`,
-      `Maksimum grup büyüklüğü: ${tour.maxGroupSize} kişi`,
+      isLegacyTour ? '24 saat öncesine kadar ücretsiz iptal' : tour.cancellationPolicy,
+      `Grup büyüklüğü: ${isLegacyTour ? tour.groupSize : tour.maxGroupSize + ' kişi'}`,
       'Hava koşullarına bağlı olarak tur iptal edilebilir',
     ],
     itinerary: [

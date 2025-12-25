@@ -469,6 +469,9 @@ const legacyTours = [
 // Combine legacy tours with comprehensive tours (45+ tours total)
 const tours = [...legacyTours, ...allComprehensiveTours];
 
+// Export legacy tours for use in [slug].tsx
+export { legacyTours };
+
 const categories = [
   { id: 'all', name: 'Tümü', icon: Globe, color: 'from-ailydian-primary to-ailydian-secondary' },
   { id: 'cultural', name: 'Kültürel', icon: Camera, color: 'from-blue-500 to-cyan-500' },
