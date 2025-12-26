@@ -157,8 +157,9 @@ const GetYourGuideStyleHome: React.FC = () => {
   const topExperiences = [
     {
       id: 1,
-      title: 'Alanya: Quad Safari & Jeep Safari Turu',
-      location: 'Alanya, Türkiye',
+      slug: 'atv-quad-safari-antalya',
+      title: 'ATV & Quad Safari - Antalya',
+      location: 'Antalya, Türkiye',
       image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&q=90',
       price: '₺299',
       originalPrice: '₺380',
@@ -172,7 +173,8 @@ const GetYourGuideStyleHome: React.FC = () => {
     },
     {
       id: 2,
-      title: 'Antalya Şehir Turu - Düden Şelaleleri',
+      slug: 'duden-kursunlu-waterfalls-tour',
+      title: 'Düden & Kurşunlu Şelaleleri Turu',
       location: 'Antalya, Türkiye',
       image: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400&h=300&q=90',
       price: '₺189',
@@ -187,7 +189,8 @@ const GetYourGuideStyleHome: React.FC = () => {
     },
     {
       id: 3,
-      title: 'Kemer Tekne Turu - Suluada Adası',
+      slug: 'kemer-pirate-boat-tour',
+      title: 'Kemer Korsan Teknesi Turu',
       location: 'Kemer, Türkiye',
       image: 'https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?w=400&h=300&q=90',
       price: '₺249',
@@ -202,7 +205,8 @@ const GetYourGuideStyleHome: React.FC = () => {
     },
     {
       id: 4,
-      title: 'Belek: Süper Kombo - Rafting, ATV, Zipline',
+      slug: 'kopru-canyon-rafting-tour',
+      title: 'Köprülü Kanyon Rafting Turu',
       location: 'Belek, Türkiye',
       image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&q=90',
       price: '₺449',
@@ -217,7 +221,8 @@ const GetYourGuideStyleHome: React.FC = () => {
     },
     {
       id: 5,
-      title: 'Perge, Aspendos, Side - Antik Şehirler',
+      slug: 'perge-aspendos-side-ancient-cities-tour',
+      title: 'Perge, Aspendos, Side - Antik Kentler',
       location: 'Side, Türkiye',
       image: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400&h=300&q=90',
       price: '₺219',
@@ -232,8 +237,9 @@ const GetYourGuideStyleHome: React.FC = () => {
     },
     {
       id: 6,
-      title: 'Alanya Tüplü Dalış Deneyimi',
-      location: 'Alanya, Türkiye',
+      slug: 'kas-scuba-diving-padi-certified',
+      title: 'Kaş Tüplü Dalış - PADI Sertifikalı',
+      location: 'Kaş, Türkiye',
       image: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400&h=300&q=90',
       price: '₺399',
       originalPrice: '₺500',
@@ -520,7 +526,7 @@ const GetYourGuideStyleHome: React.FC = () => {
                       features={experience.highlights}
                       badges={experience.badges}
                       description={`${experience.duration} · ${experience.category}`}
-                      href={`/tours/${experience.title.toLowerCase().replace(/[^a-z0-9ğüşıöçĞÜŞİÖÇ\s]/g, '').replace(/\s+/g, '-')}`}
+                      href={`/tours/${experience.slug}`}
                       type="tour"
                       onAddToCart={() => handleAddToCart({
                         ...experience,

@@ -140,7 +140,7 @@ export default function DestinationDetail({ destination, relatedDestinations, ex
             className="object-cover opacity-80"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20" />
 
           {/* Image Gallery Thumbnails */}
           <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2 px-4">
@@ -201,43 +201,87 @@ export default function DestinationDetail({ destination, relatedDestinations, ex
           </div>
         </section>
 
-        {/* Quick Info Bar */}
-        <section className="bg-white border-b border-gray-200 sticky top-16 z-10 shadow-sm">
+        {/* Quick Info Bar - Premium Tab Menu */}
+        <section className="bg-gradient-to-r from-gray-50 to-white border-b border-gray-200 sticky top-16 z-10 shadow-lg">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center justify-between py-4">
-              <div className="flex gap-8">
-                <button
+              <div className="flex gap-3">
+                <motion.button
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
                   onClick={() => setActiveTab('overview')}
-                  className={`pb-2 border-b-2 font-medium transition-colors ${
-                    activeTab === 'overview' ? 'border-ailydian-primary text-ailydian-primary' : 'border-transparent text-gray-600'
+                  className={`relative px-6 py-3 rounded-xl font-bold transition-all duration-300 ${
+                    activeTab === 'overview'
+                      ? 'bg-gradient-to-r from-ailydian-primary to-ailydian-secondary text-white shadow-lg shadow-red-500/30'
+                      : 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-200 hover:border-ailydian-primary/50'
                   }`}
                 >
-                  Genel Bakış
-                </button>
-                <button
+                  <span className="relative z-10">Genel Bakış</span>
+                  {activeTab === 'overview' && (
+                    <motion.div
+                      layoutId="activeTabIndicator"
+                      className="absolute inset-0 bg-gradient-to-r from-ailydian-primary to-ailydian-secondary rounded-xl"
+                      transition={{ type: "spring", stiffness: 500, damping: 30 }}
+                    />
+                  )}
+                </motion.button>
+                <motion.button
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
                   onClick={() => setActiveTab('places')}
-                  className={`pb-2 border-b-2 font-medium transition-colors ${
-                    activeTab === 'places' ? 'border-ailydian-primary text-ailydian-primary' : 'border-transparent text-gray-600'
+                  className={`relative px-6 py-3 rounded-xl font-bold transition-all duration-300 ${
+                    activeTab === 'places'
+                      ? 'bg-gradient-to-r from-ailydian-primary to-ailydian-secondary text-white shadow-lg shadow-red-500/30'
+                      : 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-200 hover:border-ailydian-primary/50'
                   }`}
                 >
-                  Gezilecek Yerler
-                </button>
-                <button
+                  <span className="relative z-10">Gezilecek Yerler</span>
+                  {activeTab === 'places' && (
+                    <motion.div
+                      layoutId="activeTabIndicator"
+                      className="absolute inset-0 bg-gradient-to-r from-ailydian-primary to-ailydian-secondary rounded-xl"
+                      transition={{ type: "spring", stiffness: 500, damping: 30 }}
+                    />
+                  )}
+                </motion.button>
+                <motion.button
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
                   onClick={() => setActiveTab('activities')}
-                  className={`pb-2 border-b-2 font-medium transition-colors ${
-                    activeTab === 'activities' ? 'border-ailydian-primary text-ailydian-primary' : 'border-transparent text-gray-600'
+                  className={`relative px-6 py-3 rounded-xl font-bold transition-all duration-300 ${
+                    activeTab === 'activities'
+                      ? 'bg-gradient-to-r from-ailydian-primary to-ailydian-secondary text-white shadow-lg shadow-red-500/30'
+                      : 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-200 hover:border-ailydian-primary/50'
                   }`}
                 >
-                  Aktiviteler
-                </button>
-                <button
+                  <span className="relative z-10">Aktiviteler</span>
+                  {activeTab === 'activities' && (
+                    <motion.div
+                      layoutId="activeTabIndicator"
+                      className="absolute inset-0 bg-gradient-to-r from-ailydian-primary to-ailydian-secondary rounded-xl"
+                      transition={{ type: "spring", stiffness: 500, damping: 30 }}
+                    />
+                  )}
+                </motion.button>
+                <motion.button
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
                   onClick={() => setActiveTab('tips')}
-                  className={`pb-2 border-b-2 font-medium transition-colors ${
-                    activeTab === 'tips' ? 'border-ailydian-primary text-ailydian-primary' : 'border-transparent text-gray-600'
+                  className={`relative px-6 py-3 rounded-xl font-bold transition-all duration-300 ${
+                    activeTab === 'tips'
+                      ? 'bg-gradient-to-r from-ailydian-primary to-ailydian-secondary text-white shadow-lg shadow-red-500/30'
+                      : 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-200 hover:border-ailydian-primary/50'
                   }`}
                 >
-                  İpuçları
-                </button>
+                  <span className="relative z-10">İpuçları</span>
+                  {activeTab === 'tips' && (
+                    <motion.div
+                      layoutId="activeTabIndicator"
+                      className="absolute inset-0 bg-gradient-to-r from-ailydian-primary to-ailydian-secondary rounded-xl"
+                      transition={{ type: "spring", stiffness: 500, damping: 30 }}
+                    />
+                  )}
+                </motion.button>
               </div>
 
               <div className="flex items-center gap-3">
