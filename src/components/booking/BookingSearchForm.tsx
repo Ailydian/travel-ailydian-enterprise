@@ -88,7 +88,7 @@ export const BookingSearchForm: React.FC<SearchFormProps> = ({
   return (
     <div className="w-full max-w-6xl mx-auto">
       {/* Tabs - Premium Animated */}
-      <div className="flex gap-1 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 backdrop-blur-sm p-1 rounded-t-lg overflow-x-auto scrollbar-hide">
+      <div className="flex gap-1 bg-white/50 backdrop-blur-sm p-1 rounded-t-lg overflow-x-auto scrollbar-hide">
         {tabs.map((tab, index) => {
           const Icon = tab.icon;
           const isActive = activeTab === tab.id;
