@@ -58,7 +58,7 @@ import { FilterSidebar } from '../components/booking/FilterSidebar';
 import { VideoHero } from '../components/ui/VideoHero';
 import { AnimatedCarSVG } from '../components/icons/AnimatedCarSVG';
 import { MinimalistHero, MinimalistCard, MinimalistButton, ScrollReveal } from '../components/minimalist';
-import { NeoHero, NeoCard, NeoButton, NeoSection } from '../components/neo-glass';
+import { NeoHero, FuturisticCard, FuturisticButton, NeoSection } from '../components/neo-glass';
 
 const GetYourGuideStyleHome: React.FC = () => {
   // Translation
@@ -284,7 +284,7 @@ const GetYourGuideStyleHome: React.FC = () => {
           showFloatingElements={true}
         >
           <div className="flex flex-wrap gap-4">
-            <NeoButton
+            <FuturisticButton
               variant="primary"
               size="xl"
               onClick={() => router.push('/tours')}
@@ -292,8 +292,8 @@ const GetYourGuideStyleHome: React.FC = () => {
               iconPosition="left"
             >
               Destinasyonları Keşfet
-            </NeoButton>
-            <NeoButton
+            </FuturisticButton>
+            <FuturisticButton
               variant="glass"
               size="xl"
               onClick={() => router.push('/ai-planner')}
@@ -301,7 +301,7 @@ const GetYourGuideStyleHome: React.FC = () => {
               iconPosition="left"
             >
               AI Planlayıcı
-            </NeoButton>
+            </FuturisticButton>
           </div>
         </NeoHero>
 
@@ -496,35 +496,43 @@ const GetYourGuideStyleHome: React.FC = () => {
                 viewport={{ once: true, margin: '-100px' }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
               >
-                <NeoCard
+                <FuturisticCard
                   image={experience.image}
                   title={experience.title}
                   description={experience.highlights[0]}
                   price={experience.price}
                   badge={experience.category}
+                  badges={experience.badges}
                   metadata={[
                     { icon: <MapPin className="w-4 h-4" />, label: experience.location },
                     { icon: <Clock className="w-4 h-4" />, label: experience.duration },
-                    { icon: <Star className="w-4 h-4 fill-current text-yellow-400" />, label: `${experience.rating} ⭐` },
                   ]}
+                  rating={experience.rating}
+                  reviews={experience.reviews}
                   onClick={() => router.push(`/tours/${experience.slug}`)}
-                  variant="glass"
-                  hover3D={true}
+                  category={experience.category}
+                  categoryColor={
+                    experience.category === 'Macera' ? '#FF9500' :
+                    experience.category === 'Kültür' ? '#667EEA' :
+                    experience.category === 'Doğa' ? '#10B981' :
+                    '#00BAFF'
+                  }
                 />
               </motion.div>
             ))}
           </div>
 
           <div className="text-center mt-16">
-            <NeoButton
-              variant="gradient"
+            <FuturisticButton
+              variant="primary"
               size="xl"
               onClick={() => router.push('/tours')}
               icon={<ArrowRight className="w-6 h-6" />}
               iconPosition="right"
+              glow={true}
             >
               Tüm Deneyimleri Gör
-            </NeoButton>
+            </FuturisticButton>
           </div>
         </NeoSection>
 
@@ -544,52 +552,28 @@ const GetYourGuideStyleHome: React.FC = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.05 }}
               >
-                <NeoCard
+                <FuturisticCard
                   title={`${transfer.from.tr} → ${transfer.to.tr}`}
                   description={`${transfer.distance} km • ${transfer.duration} dk`}
                   price={`₺${transfer.pricing.economySedan}+`}
                   badges={['D2 Belgeli', 'Anlık Rezervasyon']}
-                  metadata={[
-                    { icon: <Star className="w-4 h-4 fill-current text-yellow-400" />, label: `${transfer.rating} (${transfer.totalTransfers} transfer)` },
-                  ]}
-                  variant="neo"
-                  hover3D={false}
+                  metadata={[]}
+                  rating={transfer.rating}
+                  reviews={transfer.totalTransfers}
                   onClick={() => router.push(`/transfers/${transfer.seo.slug.tr}`)}
+                  category="transfer"
+                  categoryColor="#00BAFF"
                 >
-                  <div className="relative h-32 -mx-6 -mt-6 mb-4 bg-gradient-to-br from-gray-100 to-gray-50 flex items-center justify-center">
+                  <div className="relative h-32 mb-4 bg-gradient-to-br from-cyan-50/50 via-blue-50/50 to-purple-50/50 rounded-2xl flex items-center justify-center">
                     <AnimatedCarSVG className="w-24 h-20" />
                   </div>
-                  <div className="flex gap-2 mt-4">
-                    <NeoButton
-                      variant="secondary"
-                      size="sm"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        router.push(`/transfers/${transfer.seo.slug.tr}`);
-                      }}
-                      fullWidth
-                    >
-                      Detaylar
-                    </NeoButton>
-                    <NeoButton
-                      variant="primary"
-                      size="sm"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        router.push(`/transfers/${transfer.seo.slug.tr}?book=true`);
-                      }}
-                      fullWidth
-                    >
-                      Rezerve Et
-                    </NeoButton>
-                  </div>
-                </NeoCard>
+                </FuturisticCard>
               </motion.div>
             ))}
           </div>
 
           <div className="text-center mt-12">
-            <NeoButton
+            <FuturisticButton
               variant="neo"
               size="lg"
               onClick={() => router.push('/transfers')}
@@ -597,7 +581,7 @@ const GetYourGuideStyleHome: React.FC = () => {
               iconPosition="left"
             >
               Tüm Transferleri Gör
-            </NeoButton>
+            </FuturisticButton>
           </div>
         </NeoSection>
 
