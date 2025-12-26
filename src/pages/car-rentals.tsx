@@ -304,6 +304,7 @@ const CarRental: React.FC = () => {
                   transition={{ duration: 0.5, delay: idx * 0.05 }}
                 >
                   <FuturisticCard
+                    image="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=800&h=600&fit=crop"
                     title={car.name}
                     description={car.category}
                     price={`${car.price}/gün`}
@@ -319,12 +320,7 @@ const CarRental: React.FC = () => {
                     onClick={() => handleReserve(car)}
                     category="car-rental"
                     categoryColor="#FF9500"
-                  >
-                    {/* Brand Logo */}
-                    <div className="mb-4 bg-gradient-to-br from-orange-50/50 via-amber-50/50 to-yellow-50/50 rounded-2xl p-6">
-                      {getBrandLogo(car.brand, 'w-20 h-20 mx-auto')}
-                    </div>
-                  </FuturisticCard>
+                  />
                 </motion.div>
               ))}
             </div>

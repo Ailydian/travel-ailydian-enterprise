@@ -15,7 +15,7 @@ import { FuturisticHeader } from '../components/layout/FuturisticHeader';
 import antalyaAirportTransfers from '../data/antalya-transfers';
 import { AnimatedCarIcon } from '../components/icons/AnimatedCarIcon';
 import { TransferCarCard } from '../components/cards/TransferCarCard';
-import { NeoHero, FuturisticCard, FuturisticButton } from '../components/neo-glass';
+import { NeoHero, FuturisticCard, FuturisticButton, NeoSection } from '../components/neo-glass';
 import { HorizontalScrollSection } from '../components/scroll/HorizontalScrollSection';
 import { FuturisticFilter } from '../components/filters/FuturisticFilter';
 
@@ -175,7 +175,7 @@ export default function TransfersPage() {
       </div>
 
       {/* 🎨 NEO-GLASS TRANSFERS GRID */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <NeoSection background="gradient" padding="xl">
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredTransfers.map((transfer, idx) => {
             const minPrice = Math.min(
@@ -201,12 +201,13 @@ export default function TransfersPage() {
             return (
               <motion.div
                 key={transfer.id}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.05 }}
+                viewport={{ once: true, margin: '-100px' }}
+                transition={{ duration: 0.6, delay: idx * 0.1 }}
               >
                 <FuturisticCard
+                  image="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=800&h=600&fit=crop"
                   title={transfer.seo.title[selectedLanguage]}
                   description={routeText}
                   price={`₺${minPrice}`}
@@ -221,17 +222,12 @@ export default function TransfersPage() {
                   onClick={() => window.location.href = `/transfers/${transfer.slug}`}
                   category="transfer"
                   categoryColor="#00BAFF"
-                >
-                  {/* Animated Car Icon */}
-                  <div className="relative bg-gradient-to-br from-blue-50/50 via-purple-50/50 to-pink-50/50 rounded-2xl p-8 mb-4">
-                    <AnimatedCarIcon size="lg" className="w-full max-w-xs mx-auto" />
-                  </div>
-                </FuturisticCard>
+                />
               </motion.div>
             );
           })}
         </div>
-      </div>
+      </NeoSection>
 
       {/* Footer CTA */}
       <div className="bg-gradient-to-r from-[#667EEA] via-[#764BA2] to-[#667EEA] text-white py-16">

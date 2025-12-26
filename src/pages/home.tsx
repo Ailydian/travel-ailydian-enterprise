@@ -585,179 +585,108 @@ const GetYourGuideStyleHome: React.FC = () => {
           </div>
         </NeoSection>
 
-        {/* Car Rentals Showcase */}
-        <section className="py-16 bg-white/5">
-          <div className="max-w-7xl mx-auto px-4">
-            <div className="flex items-center justify-between mb-12">
-              <div>
-                <h2 className="text-3xl font-bold text-white mb-2">Araç Kiralama Fırsatları</h2>
-                <p className="text-gray-300">51 araç, 7 kategori - %2 Ucuz Fiyat Garantisi</p>
-              </div>
-              <Link href="/car-rentals" className="flex items-center gap-2 text-lydian-primary hover:text-lydian-dark font-medium">
-                Tüm Araçlar
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {antalyaCarRentals.filter(car => car.popular).slice(0, 8).map((car) => (
-                <motion.div
-                  key={car.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  className="bg-transparent rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group border border-gray-100"
+        {/* 🚗 NEO-GLASS CAR RENTALS */}
+        <NeoSection
+          title="Araç Kiralama Fırsatları"
+          subtitle="51 araç, 7 kategori - %2 Ucuz Fiyat Garantisi"
+          background="gradient"
+          padding="xl"
+        >
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {antalyaCarRentals.filter(car => car.popular).slice(0, 6).map((car, index) => (
+              <motion.div
+                key={car.id}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-100px' }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+              >
+                <FuturisticCard
+                  title={`${car.brand} ${car.model.tr}`}
+                  description={`${car.year} • ${car.transmission === 'automatic' ? 'Otomatik' : 'Manuel'}`}
+                  price={`₺${car.pricing.daily}/gün`}
+                  badge={car.popular ? '⭐ POPÜLER' : undefined}
+                  badges={[car.category, `${car.seats} Kişi`]}
+                  metadata={[
+                    { icon: <Users className="w-4 h-4" />, label: `${car.seats} Kişi` },
+                    { icon: <Car className="w-4 h-4" />, label: car.transmission === 'automatic' ? 'Otomatik' : 'Manuel' },
+                  ]}
+                  rating={car.rating}
+                  reviews={car.totalRentals}
+                  onClick={() => router.push(`/car-rentals/${car.seo.slug.tr}`)}
+                  category="car-rental"
+                  categoryColor="#00BAFF"
                 >
-                  {/* Image */}
-                  <div className="relative h-40 bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center overflow-hidden">
-                    <AnimatedCarSVG className="w-32 h-24" />
-
-                    {/* Category Badge */}
-                    <div className="absolute top-3 left-3">
-                      <span className="px-2 py-1 bg-gradient-to-r from-lydian-primary to-lydian-secondary text-white rounded-full text-xs font-bold capitalize">
-                        {car.category}
-                      </span>
-                    </div>
-
-                    {/* Popular Badge */}
-                    {car.popular && (
-                      <div className="absolute top-3 right-3">
-                        <span className="px-2 py-1 bg-yellow-500 text-white rounded-full text-xs font-medium flex items-center gap-1">
-                          <Star className="w-3 h-3 fill-current" />
-                          Popüler
-                        </span>
-                      </div>
-                    )}
+                  <div className="relative h-32 mb-4 bg-gradient-to-br from-cyan-50/50 via-blue-50/50 to-purple-50/50 rounded-2xl flex items-center justify-center">
+                    <AnimatedCarSVG className="w-24 h-20" />
                   </div>
-
-                  {/* Content */}
-                  <div className="p-5">
-                    {/* Car Name */}
-                    <h3 className="font-bold text-lg text-white mb-3">
-                      {car.brand} {car.model.tr}
-                    </h3>
-
-                    {/* Specs */}
-                    <div className="grid grid-cols-3 gap-2 mb-3 text-xs text-gray-300">
-                      <div className="flex items-center gap-1">
-                        <Users className="w-3 h-3" />
-                        <span>{car.seats}</span>
-                      </div>
-                      <div className="flex items-center gap-1">
-                        <span className="font-medium">{car.transmission === 'automatic' ? 'Otomatik' : 'Manuel'}</span>
-                      </div>
-                      <div className="flex items-center gap-1">
-                        <span>{car.year}</span>
-                      </div>
-                    </div>
-
-                    {/* Rating */}
-                    <div className="flex items-center gap-2 mb-3">
-                      <div className="flex items-center gap-1">
-                        <Star className="w-4 h-4 text-yellow-500 fill-current" />
-                        <span className="font-medium text-sm">{car.rating}</span>
-                      </div>
-                      <span className="text-gray-500 text-xs">({car.totalRentals} kiralama)</span>
-                    </div>
-
-                    {/* Price */}
-                    <div className="mb-4 pb-4 border-b border-gray-100">
-                      <div className="flex items-baseline gap-2">
-                        <span className="text-xl font-bold text-white">₺{car.pricing.daily}</span>
-                        <span className="text-xs text-gray-500">/gün</span>
-                      </div>
-                      <div className="text-xs text-gray-500 mt-1">
-                        Haftalık: ₺{car.pricing.weekly}
-                      </div>
-                    </div>
-
-                    {/* Action Button */}
-                    <Link
-                      href={`/car-rentals/${car.seo.slug.tr}`}
-                      className="w-full block"
-                    >
-                      <motion.button
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.98 }}
-                        className="w-full px-4 py-2.5 bg-gradient-to-r from-lydian-primary to-lydian-secondary text-white rounded-lg font-semibold hover:shadow-lg transition-all flex items-center justify-center gap-2 text-sm"
-                      >
-                        <Car className="w-4 h-4" />
-                        Kirala
-                      </motion.button>
-                    </Link>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
+                </FuturisticCard>
+              </motion.div>
+            ))}
           </div>
-        </section>
 
-        {/* Featured Destinations */}
-        <section className="py-16 bg-gray-50">
-          <div className="max-w-7xl mx-auto px-4">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-white mb-4">Trend Destinasyonlar</h2>
-              <p className="text-gray-300">Dünya genelindeki en popüler destinasyonları keşfedin</p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {featuredDestinations.map((destination) => (
-                <motion.div
-                  key={destination.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: destination.id * 0.1 }}
-                  className="group"
-                >
-                  <div className="relative h-64 rounded-2xl overflow-hidden mb-4">
-                    <img
-                      src={destination.image}
-                      alt={destination.name}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-
-                    <div className="absolute top-4 left-4">
-                      <span className="px-3 py-1 bg-white/90 text-gray-100 rounded-full text-sm font-medium">
-                        {destination.badge}
-                      </span>
-                    </div>
-
-                    <div className="absolute bottom-4 left-4 right-4">
-                      <h3 className="text-xl font-bold text-white mb-1">{destination.name}</h3>
-                      <p className="text-white/80 text-sm">{destination.country}</p>
-                    </div>
-                  </div>
-
-                  <div className="space-y-3">
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <p className="text-gray-300">{destination.experiences} deneyim</p>
-                        <div className="flex items-center gap-1 mt-1">
-                          <Star className="w-4 h-4 text-yellow-500 fill-current" />
-                          <span className="font-medium">{destination.rating}</span>
-                        </div>
-                      </div>
-                    </div>
-                    <Link
-                      href={`/destinations/${destination.slug}`}
-                      className="block"
-                    >
-                      <motion.button
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.98 }}
-                        className="w-full px-4 py-2.5 bg-gradient-to-r from-lydian-primary to-lydian-secondary hover:from-green-700 hover:to-emerald-700 text-white rounded-lg font-semibold transition-all duration-200 text-sm flex items-center justify-center gap-2"
-                      >
-                        <Compass className="w-4 h-4" />
-                        Keşfet
-                      </motion.button>
-                    </Link>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
+          <div className="text-center mt-16">
+            <FuturisticButton
+              variant="primary"
+              size="xl"
+              onClick={() => router.push('/car-rentals')}
+              icon={<Car className="w-6 h-6" />}
+              iconPosition="left"
+              glow={true}
+            >
+              Tüm Araçları Gör
+            </FuturisticButton>
           </div>
-        </section>
+        </NeoSection>
+
+        {/* 🌍 NEO-GLASS DESTINATIONS */}
+        <NeoSection
+          title="Trend Destinasyonlar"
+          subtitle="Dünya genelindeki en popüler destinasyonları keşfedin"
+          background="neo"
+          padding="xl"
+        >
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {featuredDestinations.slice(0, 6).map((destination, index) => (
+              <motion.div
+                key={destination.id}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-100px' }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+              >
+                <FuturisticCard
+                  image={destination.image}
+                  title={destination.name}
+                  description={destination.country}
+                  price={`${destination.experiences} Deneyim`}
+                  badge={destination.badge}
+                  metadata={[
+                    { icon: <MapPin className="w-4 h-4" />, label: destination.country },
+                    { icon: <Sparkles className="w-4 h-4" />, label: `${destination.experiences} Deneyim` },
+                  ]}
+                  rating={destination.rating}
+                  onClick={() => router.push(`/destinations/${destination.slug}`)}
+                  category="destination"
+                  categoryColor="#10B981"
+                />
+              </motion.div>
+            ))}
+          </div>
+
+          <div className="text-center mt-16">
+            <FuturisticButton
+              variant="primary"
+              size="xl"
+              onClick={() => router.push('/destinations')}
+              icon={<Compass className="w-6 h-6" />}
+              iconPosition="left"
+              glow={true}
+            >
+              Tüm Destinasyonları Gör
+            </FuturisticButton>
+          </div>
+        </NeoSection>
 
         {/* Partner Services - Property, Vehicle & Transfer */}
         <section className="py-20 bg-white/5">
