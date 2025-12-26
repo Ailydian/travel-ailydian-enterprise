@@ -34,6 +34,7 @@ import { antalyaTours } from '../data/antalya-tours';
 import { greeceTours } from '../data/greece-tours';
 import { cyprusTours } from '../data/cyprus-tours';
 import CountryFilterWidget from '../components/filters/CountryFilterWidget';
+import { NeoHero, NeoCard, NeoButton, NeoSection } from '../components/neo-glass';
 
 // Antalya Tours (16 tours with competitive pricing)
 const antalyaToursFormatted = antalyaTours.map(tour => ({
@@ -714,74 +715,47 @@ export default function Tours() {
 
       <BookingHeader />
 
-      <main className="min-h-screen bg-gradient-to-b from-gray-50 via-white to-gray-50">
-        {/* Hero Section - Premium LyDian Design */}
-        <section className="relative bg-gradient-to-br from-lydian-primary via-lydian-secondary to-pink-600 py-20 overflow-hidden">
-          {/* Animated Background */}
-          <div className="absolute inset-0 opacity-10">
-            <div className="absolute top-10 left-10 w-96 h-96 bg-white rounded-full blur-3xl animate-pulse" />
-            <div className="absolute bottom-10 right-10 w-96 h-96 bg-white rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1.5s' }} />
-            <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-white rounded-full blur-3xl animate-pulse" style={{ animationDelay: '0.75s' }} />
-          </div>
-
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <main className="min-h-screen">
+        {/* 🎬 NEO-GLASS TOURS HERO */}
+        <NeoHero
+          title="Unutulmaz Turlar"
+          subtitle="Türkiye'nin en güzel köşelerinde eşsiz deneyimler sizi bekliyor"
+          gradient="twilight"
+          height="70vh"
+          overlayOpacity={0.2}
+          showFloatingElements={true}
+        >
+          {/* Stats Cards with Glassmorphism */}
+          <div className="flex flex-wrap justify-center gap-6 mt-12">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="text-center text-white"
+              className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl px-8 py-6 shadow-[0_8px_32px_0_rgba(31,38,135,0.2)]"
+              whileHover={{ scale: 1.05, y: -5 }}
             >
-              <motion.div
-                initial={{ scale: 0, rotate: -180 }}
-                animate={{ scale: 1, rotate: 0 }}
-                transition={{ type: "spring", stiffness: 200, delay: 0.2 }}
-                className="inline-block mb-6"
-              >
-                <div className="relative">
-                  <Globe className="w-20 h-20 mx-auto drop-shadow-2xl animate-spin-slow" />
-                  <Sparkles className="w-10 h-10 absolute -top-2 -right-2 text-yellow-300 animate-pulse" />
-                </div>
-              </motion.div>
+              <div className="text-5xl font-black text-white mb-2">{tours.length}</div>
+              <div className="text-sm uppercase tracking-widest text-white/80">Benzersiz Tur</div>
+            </motion.div>
 
-              <h1 className="text-5xl md:text-6xl font-bold mb-4 drop-shadow-lg">
-                Unutulmaz Turlar
-              </h1>
-              <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto">
-                Türkiye'nin en güzel köşelerinde eşsiz deneyimler sizi bekliyor
-              </p>
-
-              {/* Stats */}
-              <div className="flex flex-wrap justify-center gap-6">
-                <motion.div
-                  whileHover={{ scale: 1.05, y: -5 }}
-                  className="bg-white/20 backdrop-blur-md border-2 border-white/30 rounded-2xl px-8 py-4 shadow-xl"
-                >
-                  <div className="text-4xl font-bold">{tours.length}</div>
-                  <div className="text-sm uppercase tracking-wider">Benzersiz Tur</div>
-                </motion.div>
-
-                <motion.div
-                  whileHover={{ scale: 1.05, y: -5 }}
-                  className="bg-white/20 backdrop-blur-md border-2 border-white/30 rounded-2xl px-8 py-4 shadow-xl"
-                >
-                  <div className="text-4xl font-bold">
-                    {(tours.reduce((sum, tour) => sum + tour.rating, 0) / tours.length).toFixed(1)}
-                  </div>
-                  <div className="text-sm uppercase tracking-wider">Ortalama Puan</div>
-                </motion.div>
-
-                <motion.div
-                  whileHover={{ scale: 1.05, y: -5 }}
-                  className="bg-white/20 backdrop-blur-md border-2 border-white/30 rounded-2xl px-8 py-4 shadow-xl"
-                >
-                  <div className="text-4xl font-bold">
-                    {tours.reduce((sum, tour) => sum + tour.reviews, 0).toLocaleString('tr-TR')}
-                  </div>
-                  <div className="text-sm uppercase tracking-wider">Mutlu Misafir</div>
-                </motion.div>
+            <motion.div
+              className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl px-8 py-6 shadow-[0_8px_32px_0_rgba(31,38,135,0.2)]"
+              whileHover={{ scale: 1.05, y: -5 }}
+            >
+              <div className="text-5xl font-black text-white mb-2">
+                {(tours.reduce((sum, tour) => sum + tour.rating, 0) / tours.length).toFixed(1)}
               </div>
+              <div className="text-sm uppercase tracking-widest text-white/80">Ortalama Puan</div>
+            </motion.div>
+
+            <motion.div
+              className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl px-8 py-6 shadow-[0_8px_32px_0_rgba(31,38,135,0.2)]"
+              whileHover={{ scale: 1.05, y: -5 }}
+            >
+              <div className="text-5xl font-black text-white mb-2">
+                {tours.reduce((sum, tour) => sum + tour.reviews, 0).toLocaleString('tr-TR')}
+              </div>
+              <div className="text-sm uppercase tracking-widest text-white/80">Mutlu Misafir</div>
             </motion.div>
           </div>
-        </section>
+        </NeoHero>
 
         {/* Search & Filters */}
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
