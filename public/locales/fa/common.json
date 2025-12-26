@@ -177,5 +177,169 @@
     "creditCard": "کارت اعتباری",
     "paypal": "PayPal",
     "crypto": "ارز دیجیتال"
+  },
+  "home": {
+    "experiences": {
+      "title": "ترکیه: {{count}} تجربه یافت شد",
+      "subtitle": "محبوب‌ترین تورها و فعالیت‌ها",
+      "viewAllTours": "مشاهده همه تورها",
+      "instantBooking": "رزرو فوری",
+      "booking": "رزرو",
+      "loadMore": "بارگذاری نتایج بیشتر",
+      "showingResults": "نمایش {{start}}-{{end}} از {{total}} نتیجه"
+    },
+    "filters": {
+      "title": "فیلترها",
+      "sortBy": "مرتب‌سازی بر اساس",
+      "recommended": "توصیه شده",
+      "lowestPrice": "کمترین قیمت",
+      "highestRating": "بالاترین امتیاز",
+      "mostReviewed": "بیشترین نظر"
+    },
+    "cart": {
+      "addToCart": "افزودن به سبد",
+      "bookNow": "رزرو کنید",
+      "product": "محصول"
+    },
+    "bookingTypes": {
+      "hotel": "رزرو کنید",
+      "flight": "خرید بلیط",
+      "transfer": "رزرو ترانسفر",
+      "restaurant": "رزرو",
+      "default": "رزرو کنید"
+    },
+    "categories": {
+      "adventure": "ماجراجویی",
+      "culture": "فرهنگ",
+      "boatTours": "تورهای قایق",
+      "historical": "تاریخی",
+      "waterSports": "ورزش‌های آبی"
+    },
+    "badges": {
+      "popular": "محبوب",
+      "adrenaline": "آدرنالین",
+      "professional": "حرفه‌ای",
+      "historic": "تاریخی",
+      "nature": "طبیعت",
+      "photography": "عکاسی",
+      "sea": "دریا",
+      "swimming": "شنا",
+      "snorkeling": "غواصی با لوله تنفسی",
+      "combo": "ترکیبی",
+      "exciting": "هیجان‌انگیز",
+      "fun": "سرگرم‌کننده",
+      "unesco": "یونسکو",
+      "history": "تاریخ",
+      "guided": "با راهنما",
+      "padi": "PADI",
+      "safe": "ایمن",
+      "trend": "پرطرفدار",
+      "hotAirBalloon": "بالون هوای گرم",
+      "mediterraneanPearl": "مروارید مدیترانه"
+    },
+    "destinations": {
+      "turkey": "ترکیه",
+      "cappadocia": {
+        "name": "کاپادوکیا",
+        "description": "دودکش‌های پری و تورهای بالون",
+        "badge": "میراث یونسکو"
+      },
+      "pamukkale": {
+        "name": "پاموکاله",
+        "description": "استخرهای سفید تراورتن و شهر باستانی",
+        "badge": "بالون هوای گرم"
+      },
+      "antalya": {
+        "name": "آنتالیا",
+        "description": "شهرهای باستانی، دریای آبی و آفتاب",
+        "badge": "مروارید مدیترانه",
+        "specialOffers": {
+          "ancientCity": "تور شهر باستانی",
+          "boatTour": "تور قایق",
+          "adrenalineSports": "ورزش‌های آدرنالین"
+        }
+      }
+    },
+    "tours": {
+      "atvSafari": {
+        "title": "سافاری ATV و کواد - آنتالیا",
+        "location": "آنتالیا، ترکیه",
+        "highlights": {
+          "mountainViews": "مناظر کوهستانی",
+          "funAdrenaline": "آدرنالین سرگرم‌کننده",
+          "guidedTour": "تور با راهنما"
+        }
+      },
+      "waterfalls": {
+        "title": "تور آبشارهای دودن و کورشونلو",
+        "location": "آنتالیا، ترکیه",
+        "highlights": {
+          "historyExploration": "کاوش تاریخی",
+          "naturalBeauty": "زیبایی طبیعی",
+          "waterfallViews": "مناظر آبشار"
+        }
+      },
+      "pirateBoat": {
+        "title": "تور قایق دزدان دریایی کمر",
+        "location": "کمر، ترکیه",
+        "highlights": {
+          "turquoiseWater": "آب فیروزه‌ای",
+          "islandVisit": "بازدید از جزیره",
+          "snorkeling": "غواصی با لوله"
+        }
+      },
+      "rafting": {
+        "title": "تور رفتینگ دره کوپرولو",
+        "location": "بلک، ترکیه",
+        "highlights": {
+          "threeActivities": "سه فعالیت",
+          "actionPacked": "پر از اکشن",
+          "proEquipment": "تجهیزات حرفه‌ای"
+        }
+      },
+      "ancientCities": {
+        "title": "پرگه، آسپندوس، سیده - شهرهای باستانی",
+        "location": "سیده، ترکیه",
+        "highlights": {
+          "ancientRuins": "ویرانه‌های باستانی",
+          "historicalSites": "مکان‌های تاریخی",
+          "educationalTour": "تور آموزشی"
+        }
+      },
+      "scubaDiving": {
+        "title": "غواصی کاش - گواهی PADI",
+        "location": "کاش، ترکیه"
+      }
+    },
+    "transfers": {
+      "title": "ترانسفرهای محبوب",
+      "antalyaRoutes": "منطقه آنتالیا {{count}} مسیر ترانسفر - وسایل نقلیه دارای مجوز D2"
+    },
+    "features": {
+      "aiRecommendations": {
+        "title": "پیشنهادات هوش مصنوعی",
+        "description": "پیشنهادات سفر شخصی‌سازی شده با هوش مصنوعی"
+      },
+      "vrPreviews": {
+        "title": "پیش‌نمایش واقعیت مجازی",
+        "description": "مقصدها را در VR 360° قبل از رزرو تجربه کنید"
+      },
+      "blockchain": {
+        "title": "تأیید بلاک‌چین",
+        "description": "رزروهای شما با فناوری بلاک‌چین ایمن شده است"
+      },
+      "instantConfirmation": {
+        "title": "تأیید فوری",
+        "description": "همه رزروهای شما فوراً تأیید می‌شوند"
+      },
+      "premiumExperiences": {
+        "title": "تجربیات ویژه",
+        "description": "مجموعه‌های منتخب برای تجربیات منحصر به فرد و لوکس"
+      },
+      "support247": {
+        "title": "پشتیبانی هوش مصنوعی 24/7",
+        "description": "خدمات مشتریان با قدرت هوش مصنوعی همیشه در خدمت شما"
+      }
+    }
   }
 }

@@ -176,5 +176,169 @@
     "creditCard": "Carte de crédit",
     "paypal": "PayPal",
     "crypto": "Cryptomonnaie"
+  },
+  "home": {
+    "experiences": {
+      "title": "Turquie : {{count}} expériences trouvées",
+      "subtitle": "Tours et activités les plus populaires",
+      "viewAllTours": "Voir tous les tours",
+      "instantBooking": "Réservation instantanée",
+      "booking": "Réservation",
+      "loadMore": "Charger plus de résultats",
+      "showingResults": "Affichage de {{start}}-{{end}} sur {{total}} résultats"
+    },
+    "filters": {
+      "title": "Filtres",
+      "sortBy": "Trier par",
+      "recommended": "Recommandé",
+      "lowestPrice": "Prix le plus bas",
+      "highestRating": "Note la plus élevée",
+      "mostReviewed": "Le plus commenté"
+    },
+    "cart": {
+      "addToCart": "Ajouter au panier",
+      "bookNow": "Réserver maintenant",
+      "product": "Produit"
+    },
+    "bookingTypes": {
+      "hotel": "Réserver maintenant",
+      "flight": "Acheter un billet",
+      "transfer": "Réserver un transfert",
+      "restaurant": "Réserver",
+      "default": "Réserver maintenant"
+    },
+    "categories": {
+      "adventure": "Aventure",
+      "culture": "Culture",
+      "boatTours": "Tours en bateau",
+      "historical": "Historique",
+      "waterSports": "Sports nautiques"
+    },
+    "badges": {
+      "popular": "Populaire",
+      "adrenaline": "Adrénaline",
+      "professional": "Professionnel",
+      "historic": "Historique",
+      "nature": "Nature",
+      "photography": "Photographie",
+      "sea": "Mer",
+      "swimming": "Natation",
+      "snorkeling": "Plongée avec tuba",
+      "combo": "Combo",
+      "exciting": "Passionnant",
+      "fun": "Amusant",
+      "unesco": "UNESCO",
+      "history": "Histoire",
+      "guided": "Guidé",
+      "padi": "PADI",
+      "safe": "Sûr",
+      "trend": "Tendance",
+      "hotAirBalloon": "Montgolfière",
+      "mediterraneanPearl": "Perle de la Méditerranée"
+    },
+    "destinations": {
+      "turkey": "Turquie",
+      "cappadocia": {
+        "name": "Cappadoce",
+        "description": "Cheminées de fées et tours en montgolfière",
+        "badge": "Patrimoine UNESCO"
+      },
+      "pamukkale": {
+        "name": "Pamukkale",
+        "description": "Piscines de travertin blanc et ville antique",
+        "badge": "Montgolfière"
+      },
+      "antalya": {
+        "name": "Antalya",
+        "description": "Villes anciennes, mer azur et soleil",
+        "badge": "Perle de la Méditerranée",
+        "specialOffers": {
+          "ancientCity": "Tour de la ville antique",
+          "boatTour": "Tour en bateau",
+          "adrenalineSports": "Sports d'adrénaline"
+        }
+      }
+    },
+    "tours": {
+      "atvSafari": {
+        "title": "Safari en quad et ATV - Antalya",
+        "location": "Antalya, Turquie",
+        "highlights": {
+          "mountainViews": "Vues sur les montagnes",
+          "funAdrenaline": "Adrénaline amusante",
+          "guidedTour": "Visite guidée"
+        }
+      },
+      "waterfalls": {
+        "title": "Tour des cascades de Düden et Kurşunlu",
+        "location": "Antalya, Turquie",
+        "highlights": {
+          "historyExploration": "Exploration historique",
+          "naturalBeauty": "Beauté naturelle",
+          "waterfallViews": "Vues sur les cascades"
+        }
+      },
+      "pirateBoat": {
+        "title": "Tour en bateau pirate à Kemer",
+        "location": "Kemer, Turquie",
+        "highlights": {
+          "turquoiseWater": "Eau turquoise",
+          "islandVisit": "Visite de l'île",
+          "snorkeling": "Plongée avec tuba"
+        }
+      },
+      "rafting": {
+        "title": "Rafting dans le canyon de Köprülü",
+        "location": "Belek, Turquie",
+        "highlights": {
+          "threeActivities": "Trois activités",
+          "actionPacked": "Plein d'action",
+          "proEquipment": "Équipement professionnel"
+        }
+      },
+      "ancientCities": {
+        "title": "Perge, Aspendos, Side - Villes anciennes",
+        "location": "Side, Turquie",
+        "highlights": {
+          "ancientRuins": "Ruines antiques",
+          "historicalSites": "Sites historiques",
+          "educationalTour": "Tour éducatif"
+        }
+      },
+      "scubaDiving": {
+        "title": "Plongée à Kaş - Certifié PADI",
+        "location": "Kaş, Turquie"
+      }
+    },
+    "transfers": {
+      "title": "Transferts populaires",
+      "antalyaRoutes": "Région d'Antalya {{count}} routes de transfert - Véhicules avec licence D2"
+    },
+    "features": {
+      "aiRecommendations": {
+        "title": "Recommandations par IA",
+        "description": "Recommandations de voyage personnalisées avec intelligence artificielle"
+      },
+      "vrPreviews": {
+        "title": "Aperçus en réalité virtuelle",
+        "description": "Découvrez les destinations en VR 360° avant de réserver"
+      },
+      "blockchain": {
+        "title": "Vérification blockchain",
+        "description": "Vos réservations sont sécurisées par la technologie blockchain"
+      },
+      "instantConfirmation": {
+        "title": "Confirmation instantanée",
+        "description": "Toutes vos réservations sont confirmées instantanément"
+      },
+      "premiumExperiences": {
+        "title": "Expériences premium",
+        "description": "Collections sélectionnées pour des expériences exclusives et luxueuses"
+      },
+      "support247": {
+        "title": "Support IA 24/7",
+        "description": "Service client alimenté par l'IA toujours à votre service"
+      }
+    }
   }
 }

@@ -176,5 +176,169 @@
     "creditCard": "Kreditkarte",
     "paypal": "PayPal",
     "crypto": "Kryptowährung"
+  },
+  "home": {
+    "experiences": {
+      "title": "Türkei: {{count}} Erlebnisse gefunden",
+      "subtitle": "Beliebteste Touren und Aktivitäten",
+      "viewAllTours": "Alle Touren ansehen",
+      "instantBooking": "Sofortbuchung",
+      "booking": "Buchung",
+      "loadMore": "Weitere Ergebnisse laden",
+      "showingResults": "{{start}}-{{end}} von {{total}} Ergebnissen werden angezeigt"
+    },
+    "filters": {
+      "title": "Filter",
+      "sortBy": "Sortieren nach",
+      "recommended": "Empfohlen",
+      "lowestPrice": "Niedrigster Preis",
+      "highestRating": "Höchste Bewertung",
+      "mostReviewed": "Am meisten bewertet"
+    },
+    "cart": {
+      "addToCart": "In den Warenkorb",
+      "bookNow": "Jetzt buchen",
+      "product": "Produkt"
+    },
+    "bookingTypes": {
+      "hotel": "Jetzt buchen",
+      "flight": "Ticket kaufen",
+      "transfer": "Transfer buchen",
+      "restaurant": "Reservieren",
+      "default": "Jetzt buchen"
+    },
+    "categories": {
+      "adventure": "Abenteuer",
+      "culture": "Kultur",
+      "boatTours": "Bootstouren",
+      "historical": "Historisch",
+      "waterSports": "Wassersport"
+    },
+    "badges": {
+      "popular": "Beliebt",
+      "adrenaline": "Adrenalin",
+      "professional": "Professionell",
+      "historic": "Historisch",
+      "nature": "Natur",
+      "photography": "Fotografie",
+      "sea": "Meer",
+      "swimming": "Schwimmen",
+      "snorkeling": "Schnorcheln",
+      "combo": "Kombo",
+      "exciting": "Aufregend",
+      "fun": "Spaß",
+      "unesco": "UNESCO",
+      "history": "Geschichte",
+      "guided": "Geführt",
+      "padi": "PADI",
+      "safe": "Sicher",
+      "trend": "Trend",
+      "hotAirBalloon": "Heißluftballon",
+      "mediterraneanPearl": "Mittelmeerperle"
+    },
+    "destinations": {
+      "turkey": "Türkei",
+      "cappadocia": {
+        "name": "Kappadokien",
+        "description": "Feenkamine und Heißluftballontouren",
+        "badge": "UNESCO-Erbe"
+      },
+      "pamukkale": {
+        "name": "Pamukkale",
+        "description": "Weiße Travertinpools und antike Stadt",
+        "badge": "Heißluftballon"
+      },
+      "antalya": {
+        "name": "Antalya",
+        "description": "Antike Städte, azurblaues Meer und Sonnenschein",
+        "badge": "Mittelmeerperle",
+        "specialOffers": {
+          "ancientCity": "Antike Stadttour",
+          "boatTour": "Bootstour",
+          "adrenalineSports": "Adrenalinsportarten"
+        }
+      }
+    },
+    "tours": {
+      "atvSafari": {
+        "title": "ATV & Quad Safari - Antalya",
+        "location": "Antalya, Türkei",
+        "highlights": {
+          "mountainViews": "Bergblicke",
+          "funAdrenaline": "Spaßiges Adrenalin",
+          "guidedTour": "Geführte Tour"
+        }
+      },
+      "waterfalls": {
+        "title": "Düden & Kurşunlu Wasserfälle Tour",
+        "location": "Antalya, Türkei",
+        "highlights": {
+          "historyExploration": "Geschichtserkundung",
+          "naturalBeauty": "Natürliche Schönheit",
+          "waterfallViews": "Wasserfallblicke"
+        }
+      },
+      "pirateBoat": {
+        "title": "Kemer Piratenboot Tour",
+        "location": "Kemer, Türkei",
+        "highlights": {
+          "turquoiseWater": "Türkisfarbenes Wasser",
+          "islandVisit": "Inselbesuch",
+          "snorkeling": "Schnorcheln"
+        }
+      },
+      "rafting": {
+        "title": "Köprülü Canyon Rafting Tour",
+        "location": "Belek, Türkei",
+        "highlights": {
+          "threeActivities": "Drei Aktivitäten",
+          "actionPacked": "Actiongeladen",
+          "proEquipment": "Professionelle Ausrüstung"
+        }
+      },
+      "ancientCities": {
+        "title": "Perge, Aspendos, Side - Antike Städte",
+        "location": "Side, Türkei",
+        "highlights": {
+          "ancientRuins": "Antike Ruinen",
+          "historicalSites": "Historische Stätten",
+          "educationalTour": "Bildungstour"
+        }
+      },
+      "scubaDiving": {
+        "title": "Kaş Tauchen - PADI-zertifiziert",
+        "location": "Kaş, Türkei"
+      }
+    },
+    "transfers": {
+      "title": "Beliebte Transfers",
+      "antalyaRoutes": "Antalya Region {{count}} Transferrouten - D2-lizenzierte Fahrzeuge"
+    },
+    "features": {
+      "aiRecommendations": {
+        "title": "KI-gestützte Empfehlungen",
+        "description": "Personalisierte Reiseempfehlungen mit künstlicher Intelligenz"
+      },
+      "vrPreviews": {
+        "title": "Virtual Reality Vorschauen",
+        "description": "Erleben Sie Reiseziele in 360° VR vor der Buchung"
+      },
+      "blockchain": {
+        "title": "Blockchain-Verifizierung",
+        "description": "Ihre Buchungen sind durch Blockchain-Technologie gesichert"
+      },
+      "instantConfirmation": {
+        "title": "Sofortbestätigung",
+        "description": "Alle Ihre Buchungen werden sofort bestätigt"
+      },
+      "premiumExperiences": {
+        "title": "Premium-Erlebnisse",
+        "description": "Kuratierte Sammlungen für exklusive und luxuriöse Erlebnisse"
+      },
+      "support247": {
+        "title": "24/7 KI-Support",
+        "description": "KI-gestützter Kundenservice steht Ihnen jederzeit zur Verfügung"
+      }
+    }
   }
 }

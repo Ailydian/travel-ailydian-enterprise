@@ -249,6 +249,170 @@
       "bestMonths": "Best Months",
       "topAttractions": "Top Attractions",
       "topExperiences": "Top Experiences"
+    },
+    "home": {
+      "experiences": {
+        "title": "Turkey: {{count}} experiences found",
+        "subtitle": "Most popular tours and activities",
+        "viewAllTours": "View All Tours",
+        "instantBooking": "Instant Booking",
+        "booking": "Booking",
+        "loadMore": "Load More Results",
+        "showingResults": "Showing {{start}}-{{end}} of {{total}} results"
+      },
+      "filters": {
+        "title": "Filters",
+        "sortBy": "Sort by",
+        "recommended": "Recommended",
+        "lowestPrice": "Lowest Price",
+        "highestRating": "Highest Rating",
+        "mostReviewed": "Most Reviewed"
+      },
+      "cart": {
+        "addToCart": "Add to Cart",
+        "bookNow": "Book Now",
+        "product": "Product"
+      },
+      "bookingTypes": {
+        "hotel": "Book Now",
+        "flight": "Buy Ticket",
+        "transfer": "Book Transfer",
+        "restaurant": "Reserve",
+        "default": "Book Now"
+      },
+      "categories": {
+        "adventure": "Adventure",
+        "culture": "Culture",
+        "boatTours": "Boat Tours",
+        "historical": "Historical",
+        "waterSports": "Water Sports"
+      },
+      "badges": {
+        "popular": "Popular",
+        "adrenaline": "Adrenaline",
+        "professional": "Professional",
+        "historic": "Historic",
+        "nature": "Nature",
+        "photography": "Photography",
+        "sea": "Sea",
+        "swimming": "Swimming",
+        "snorkeling": "Snorkeling",
+        "combo": "Combo",
+        "exciting": "Exciting",
+        "fun": "Fun",
+        "unesco": "UNESCO",
+        "history": "History",
+        "guided": "Guided",
+        "padi": "PADI",
+        "safe": "Safe",
+        "trend": "Trending",
+        "hotAirBalloon": "Hot Air Balloon",
+        "mediterraneanPearl": "Mediterranean Pearl"
+      },
+      "destinations": {
+        "turkey": "Turkey",
+        "cappadocia": {
+          "name": "Cappadocia",
+          "description": "Fairy chimneys and hot air balloon tours",
+          "badge": "UNESCO Heritage"
+        },
+        "pamukkale": {
+          "name": "Pamukkale",
+          "description": "White travertine pools and ancient city",
+          "badge": "Hot Air Balloon"
+        },
+        "antalya": {
+          "name": "Antalya",
+          "description": "Ancient cities, azure sea and sunshine",
+          "badge": "Mediterranean Pearl",
+          "specialOffers": {
+            "ancientCity": "Ancient city tour",
+            "boatTour": "Boat tour",
+            "adrenalineSports": "Adrenaline sports"
+          }
+        }
+      },
+      "tours": {
+        "atvSafari": {
+          "title": "ATV & Quad Safari - Antalya",
+          "location": "Antalya, Turkey",
+          "highlights": {
+            "mountainViews": "Mountain views",
+            "funAdrenaline": "Fun adrenaline",
+            "guidedTour": "Guided tour"
+          }
+        },
+        "waterfalls": {
+          "title": "Düden & Kurşunlu Waterfalls Tour",
+          "location": "Antalya, Turkey",
+          "highlights": {
+            "historyExploration": "History exploration",
+            "naturalBeauty": "Natural beauty",
+            "waterfallViews": "Waterfall views"
+          }
+        },
+        "pirateBoat": {
+          "title": "Kemer Pirate Boat Tour",
+          "location": "Kemer, Turkey",
+          "highlights": {
+            "turquoiseWater": "Turquoise water",
+            "islandVisit": "Island visit",
+            "snorkeling": "Snorkeling"
+          }
+        },
+        "rafting": {
+          "title": "Köprülü Canyon Rafting Tour",
+          "location": "Belek, Turkey",
+          "highlights": {
+            "threeActivities": "Three activities",
+            "actionPacked": "Action packed",
+            "proEquipment": "Professional equipment"
+          }
+        },
+        "ancientCities": {
+          "title": "Perge, Aspendos, Side - Ancient Cities",
+          "location": "Side, Turkey",
+          "highlights": {
+            "ancientRuins": "Ancient ruins",
+            "historicalSites": "Historical sites",
+            "educationalTour": "Educational tour"
+          }
+        },
+        "scubaDiving": {
+          "title": "Kaş Scuba Diving - PADI Certified",
+          "location": "Kaş, Turkey"
+        }
+      },
+      "transfers": {
+        "title": "Popular Transfers",
+        "antalyaRoutes": "Antalya region {{count}} transfer routes - D2 licensed vehicles"
+      },
+      "features": {
+        "aiRecommendations": {
+          "title": "AI-Powered Recommendations",
+          "description": "Personalized travel recommendations with artificial intelligence"
+        },
+        "vrPreviews": {
+          "title": "Virtual Reality Previews",
+          "description": "Experience destinations in 360° VR before booking"
+        },
+        "blockchain": {
+          "title": "Blockchain Verification",
+          "description": "Your reservations are secured with blockchain technology"
+        },
+        "instantConfirmation": {
+          "title": "Instant Confirmation",
+          "description": "All your reservations are confirmed instantly"
+        },
+        "premiumExperiences": {
+          "title": "Premium Experiences",
+          "description": "Curated collections for exclusive and luxury experiences"
+        },
+        "support247": {
+          "title": "24/7 AI Support",
+          "description": "AI-powered customer service always at your service"
+        }
+      }
     }
   }
 }

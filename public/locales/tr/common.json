@@ -257,6 +257,170 @@
       "bestMonths": "En İyi Aylar",
       "topAttractions": "Öne Çıkan Yerler",
       "topExperiences": "En İyi Deneyimler"
+    },
+    "home": {
+      "experiences": {
+        "title": "Türkiye: {{count}} özellik bulundu",
+        "subtitle": "En popüler turlar ve aktiviteler",
+        "viewAllTours": "Tüm Turları Gör",
+        "instantBooking": "Anlık Rezervasyon",
+        "booking": "Rezervasyon",
+        "loadMore": "Daha Fazla Sonuç Yükle",
+        "showingResults": "{{total}} sonuçtan {{start}}-{{end}} arası gösteriliyor"
+      },
+      "filters": {
+        "title": "Filtreler",
+        "sortBy": "Sırala",
+        "recommended": "Önerilenler",
+        "lowestPrice": "En Düşük Fiyat",
+        "highestRating": "En Yüksek Puan",
+        "mostReviewed": "En Çok Değerlendirilen"
+      },
+      "cart": {
+        "addToCart": "Sepete Ekle",
+        "bookNow": "Hemen Rezerve Et",
+        "product": "Ürün"
+      },
+      "bookingTypes": {
+        "hotel": "Rezervasyon",
+        "flight": "Bilet Al",
+        "transfer": "Transfer Rezerve Et",
+        "restaurant": "Rezerve Et",
+        "default": "Rezervasyon"
+      },
+      "categories": {
+        "adventure": "Macera",
+        "culture": "Kültür",
+        "boatTours": "Tekne Turları",
+        "historical": "Tarihi",
+        "waterSports": "Su Sporları"
+      },
+      "badges": {
+        "popular": "Popüler",
+        "adrenaline": "Adrenalin",
+        "professional": "Profesyonel",
+        "historic": "Tarihi",
+        "nature": "Doğa",
+        "photography": "Fotoğraf",
+        "sea": "Deniz",
+        "swimming": "Yüzme",
+        "snorkeling": "Snorkeling",
+        "combo": "Kombine",
+        "exciting": "Heyecanlı",
+        "fun": "Eğlenceli",
+        "unesco": "UNESCO",
+        "history": "Tarih",
+        "guided": "Rehberli",
+        "padi": "PADI",
+        "safe": "Güvenli",
+        "trend": "Trend",
+        "hotAirBalloon": "Sıcak Hava Balonu",
+        "mediterraneanPearl": "Akdeniz İncisi"
+      },
+      "destinations": {
+        "turkey": "Türkiye",
+        "cappadocia": {
+          "name": "Kapadokya",
+          "description": "Peri bacaları ve balon turları",
+          "badge": "UNESCO Mirası"
+        },
+        "pamukkale": {
+          "name": "Pamukkale",
+          "description": "Beyaz traverten havuzları ve antik şehir",
+          "badge": "Sıcak Hava Balonu"
+        },
+        "antalya": {
+          "name": "Antalya",
+          "description": "Antik şehirler, masmavi deniz ve güneş",
+          "badge": "Akdeniz İncisi",
+          "specialOffers": {
+            "ancientCity": "Antik şehir turu",
+            "boatTour": "Tekne turu",
+            "adrenalineSports": "Adrenalin sporları"
+          }
+        }
+      },
+      "tours": {
+        "atvSafari": {
+          "title": "ATV & Quad Safari - Antalya",
+          "location": "Antalya, Türkiye",
+          "highlights": {
+            "mountainViews": "Dağ manzaraları",
+            "funAdrenaline": "Eğlenceli adrenalin",
+            "guidedTour": "Rehberli tur"
+          }
+        },
+        "waterfalls": {
+          "title": "Düden & Kurşunlu Şelaleleri Turu",
+          "location": "Antalya, Türkiye",
+          "highlights": {
+            "historyExploration": "Tarih keşfi",
+            "naturalBeauty": "Doğal güzellik",
+            "waterfallViews": "Şelale manzarası"
+          }
+        },
+        "pirateBoat": {
+          "title": "Kemer Korsan Teknesi Turu",
+          "location": "Kemer, Türkiye",
+          "highlights": {
+            "turquoiseWater": "Turkuaz su",
+            "islandVisit": "Ada ziyareti",
+            "snorkeling": "Snorkeling"
+          }
+        },
+        "rafting": {
+          "title": "Köprülü Kanyon Rafting Turu",
+          "location": "Belek, Türkiye",
+          "highlights": {
+            "threeActivities": "Üç aktivite",
+            "actionPacked": "Aksiyon dolu",
+            "proEquipment": "Profesyonel ekipman"
+          }
+        },
+        "ancientCities": {
+          "title": "Perge, Aspendos, Side - Antik Kentler",
+          "location": "Side, Türkiye",
+          "highlights": {
+            "ancientRuins": "Antik kalıntılar",
+            "historicalSites": "Tarihi mekanlar",
+            "educationalTour": "Eğitici tur"
+          }
+        },
+        "scubaDiving": {
+          "title": "Kaş Tüplü Dalış - PADI Sertifikalı",
+          "location": "Kaş, Türkiye"
+        }
+      },
+      "transfers": {
+        "title": "Popüler Transferler",
+        "antalyaRoutes": "Antalya bölgesi {{count}} transfer rotası - D2 belgeli araçlar"
+      },
+      "features": {
+        "aiRecommendations": {
+          "title": "AI Destekli Öneriler",
+          "description": "Yapay zeka ile kişiselleştirilmiş seyahat önerileri"
+        },
+        "vrPreviews": {
+          "title": "Sanal Gerçeklik Önizlemeleri",
+          "description": "Rezervasyon yapmadan önce destinasyonları 360° VR ile deneyimleyin"
+        },
+        "blockchain": {
+          "title": "Blockchain Doğrulama",
+          "description": "Rezervasyonlarınız blockchain teknolojisi ile güvence altında"
+        },
+        "instantConfirmation": {
+          "title": "Anlık Onay",
+          "description": "Tüm rezervasyonlarınız anında onaylanır"
+        },
+        "premiumExperiences": {
+          "title": "Premium Deneyimler",
+          "description": "Özel ve lüks deneyimler için küratörlü koleksiyonlar"
+        },
+        "support247": {
+          "title": "7/24 AI Destek",
+          "description": "Yapay zeka destekli müşteri hizmetleri her zaman hizmetinizde"
+        }
+      }
     }
   }
 }

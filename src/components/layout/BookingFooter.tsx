@@ -22,7 +22,7 @@ import {
 } from 'lucide-react';
 
 export const BookingFooter: React.FC = () => {
-  const currentYear = new Date().getFullYear();
+  const currentYear = 2025; // Fixed year to prevent hydration mismatch
 
   const footerLinks = {
     services: {

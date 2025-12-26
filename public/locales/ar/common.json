@@ -177,5 +177,169 @@
     "creditCard": "بطاقة ائتمان",
     "paypal": "PayPal",
     "crypto": "عملة مشفرة"
+  },
+  "home": {
+    "experiences": {
+      "title": "تركيا: {{count}} تجربة تم العثور عليها",
+      "subtitle": "الجولات والأنشطة الأكثر شعبية",
+      "viewAllTours": "عرض جميع الجولات",
+      "instantBooking": "حجز فوري",
+      "booking": "حجز",
+      "loadMore": "تحميل المزيد من النتائج",
+      "showingResults": "عرض {{start}}-{{end}} من {{total}} نتيجة"
+    },
+    "filters": {
+      "title": "الفلاتر",
+      "sortBy": "ترتيب حسب",
+      "recommended": "موصى به",
+      "lowestPrice": "أقل سعر",
+      "highestRating": "أعلى تقييم",
+      "mostReviewed": "الأكثر تقييماً"
+    },
+    "cart": {
+      "addToCart": "أضف إلى السلة",
+      "bookNow": "احجز الآن",
+      "product": "منتج"
+    },
+    "bookingTypes": {
+      "hotel": "احجز الآن",
+      "flight": "شراء تذكرة",
+      "transfer": "حجز نقل",
+      "restaurant": "احجز",
+      "default": "احجز الآن"
+    },
+    "categories": {
+      "adventure": "مغامرة",
+      "culture": "ثقافة",
+      "boatTours": "جولات بالقارب",
+      "historical": "تاريخي",
+      "waterSports": "رياضات مائية"
+    },
+    "badges": {
+      "popular": "شائع",
+      "adrenaline": "أدرينالين",
+      "professional": "محترف",
+      "historic": "تاريخي",
+      "nature": "طبيعة",
+      "photography": "تصوير",
+      "sea": "بحر",
+      "swimming": "سباحة",
+      "snorkeling": "غطس",
+      "combo": "مجموعة",
+      "exciting": "مثير",
+      "fun": "ممتع",
+      "unesco": "اليونسكو",
+      "history": "تاريخ",
+      "guided": "بمرشد",
+      "padi": "PADI",
+      "safe": "آمن",
+      "trend": "رائج",
+      "hotAirBalloon": "منطاد هواء ساخن",
+      "mediterraneanPearl": "لؤلؤة البحر الأبيض المتوسط"
+    },
+    "destinations": {
+      "turkey": "تركيا",
+      "cappadocia": {
+        "name": "كابادوكيا",
+        "description": "مداخن الجنيات وجولات المناطيد",
+        "badge": "تراث اليونسكو"
+      },
+      "pamukkale": {
+        "name": "باموكالي",
+        "description": "برك الترافرتين البيضاء والمدينة القديمة",
+        "badge": "منطاد هواء ساخن"
+      },
+      "antalya": {
+        "name": "أنطاليا",
+        "description": "مدن قديمة وبحر أزرق وأشعة الشمس",
+        "badge": "لؤلؤة البحر الأبيض المتوسط",
+        "specialOffers": {
+          "ancientCity": "جولة المدينة القديمة",
+          "boatTour": "جولة بالقارب",
+          "adrenalineSports": "رياضات الأدرينالين"
+        }
+      }
+    },
+    "tours": {
+      "atvSafari": {
+        "title": "سفاري ATV وكواد - أنطاليا",
+        "location": "أنطاليا، تركيا",
+        "highlights": {
+          "mountainViews": "مناظر جبلية",
+          "funAdrenaline": "أدرينالين ممتع",
+          "guidedTour": "جولة بمرشد"
+        }
+      },
+      "waterfalls": {
+        "title": "جولة شلالات دودن وكورشونلو",
+        "location": "أنطاليا، تركيا",
+        "highlights": {
+          "historyExploration": "استكشاف التاريخ",
+          "naturalBeauty": "جمال طبيعي",
+          "waterfallViews": "مناظر الشلالات"
+        }
+      },
+      "pirateBoat": {
+        "title": "جولة القارب القرصاني في كيمر",
+        "location": "كيمر، تركيا",
+        "highlights": {
+          "turquoiseWater": "مياه فيروزية",
+          "islandVisit": "زيارة الجزيرة",
+          "snorkeling": "غطس"
+        }
+      },
+      "rafting": {
+        "title": "جولة التجديف في وادي كوبرولو",
+        "location": "بيليك، تركيا",
+        "highlights": {
+          "threeActivities": "ثلاثة أنشطة",
+          "actionPacked": "مليء بالحركة",
+          "proEquipment": "معدات احترافية"
+        }
+      },
+      "ancientCities": {
+        "title": "بيرج، أسبندوس، سايد - مدن قديمة",
+        "location": "سايد، تركيا",
+        "highlights": {
+          "ancientRuins": "أطلال قديمة",
+          "historicalSites": "مواقع تاريخية",
+          "educationalTour": "جولة تعليمية"
+        }
+      },
+      "scubaDiving": {
+        "title": "غوص كاش - معتمد من PADI",
+        "location": "كاش، تركيا"
+      }
+    },
+    "transfers": {
+      "title": "التنقلات الشائعة",
+      "antalyaRoutes": "منطقة أنطاليا {{count}} طرق نقل - مركبات مرخصة D2"
+    },
+    "features": {
+      "aiRecommendations": {
+        "title": "توصيات مدعومة بالذكاء الاصطناعي",
+        "description": "توصيات سفر مخصصة مع الذكاء الاصطناعي"
+      },
+      "vrPreviews": {
+        "title": "معاينات الواقع الافتراضي",
+        "description": "اختبر الوجهات في VR 360° قبل الحجز"
+      },
+      "blockchain": {
+        "title": "التحقق من البلوكتشين",
+        "description": "حجوزاتك مؤمنة بتقنية البلوكتشين"
+      },
+      "instantConfirmation": {
+        "title": "تأكيد فوري",
+        "description": "يتم تأكيد جميع حجوزاتك على الفور"
+      },
+      "premiumExperiences": {
+        "title": "تجارب مميزة",
+        "description": "مجموعات منسقة للتجارب الحصرية والفاخرة"
+      },
+      "support247": {
+        "title": "دعم الذكاء الاصطناعي 24/7",
+        "description": "خدمة العملاء المدعومة بالذكاء الاصطناعي دائماً في خدمتك"
+      }
+    }
   }
 }

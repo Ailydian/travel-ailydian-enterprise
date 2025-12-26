@@ -176,5 +176,169 @@
     "creditCard": "Кредитная карта",
     "paypal": "PayPal",
     "crypto": "Криптовалюта"
+  },
+  "home": {
+    "experiences": {
+      "title": "Турция: {{count}} впечатлений найдено",
+      "subtitle": "Самые популярные туры и мероприятия",
+      "viewAllTours": "Посмотреть все туры",
+      "instantBooking": "Мгновенное бронирование",
+      "booking": "Бронирование",
+      "loadMore": "Загрузить больше результатов",
+      "showingResults": "Показано {{start}}-{{end}} из {{total}} результатов"
+    },
+    "filters": {
+      "title": "Фильтры",
+      "sortBy": "Сортировать по",
+      "recommended": "Рекомендуемые",
+      "lowestPrice": "Самая низкая цена",
+      "highestRating": "Самый высокий рейтинг",
+      "mostReviewed": "Самые популярные"
+    },
+    "cart": {
+      "addToCart": "Добавить в корзину",
+      "bookNow": "Забронировать сейчас",
+      "product": "Продукт"
+    },
+    "bookingTypes": {
+      "hotel": "Забронировать",
+      "flight": "Купить билет",
+      "transfer": "Забронировать трансфер",
+      "restaurant": "Зарезервировать",
+      "default": "Забронировать"
+    },
+    "categories": {
+      "adventure": "Приключения",
+      "culture": "Культура",
+      "boatTours": "Лодочные туры",
+      "historical": "Исторические",
+      "waterSports": "Водные виды спорта"
+    },
+    "badges": {
+      "popular": "Популярный",
+      "adrenaline": "Адреналин",
+      "professional": "Профессиональный",
+      "historic": "Исторический",
+      "nature": "Природа",
+      "photography": "Фотография",
+      "sea": "Море",
+      "swimming": "Плавание",
+      "snorkeling": "Снорклинг",
+      "combo": "Комбо",
+      "exciting": "Захватывающий",
+      "fun": "Веселый",
+      "unesco": "ЮНЕСКО",
+      "history": "История",
+      "guided": "С гидом",
+      "padi": "PADI",
+      "safe": "Безопасный",
+      "trend": "Тренд",
+      "hotAirBalloon": "Воздушный шар",
+      "mediterraneanPearl": "Жемчужина Средиземноморья"
+    },
+    "destinations": {
+      "turkey": "Турция",
+      "cappadocia": {
+        "name": "Каппадокия",
+        "description": "Сказочные дымоходы и туры на воздушном шаре",
+        "badge": "Наследие ЮНЕСКО"
+      },
+      "pamukkale": {
+        "name": "Памуккале",
+        "description": "Белые травертиновые бассейны и древний город",
+        "badge": "Воздушный шар"
+      },
+      "antalya": {
+        "name": "Анталия",
+        "description": "Древние города, лазурное море и солнце",
+        "badge": "Жемчужина Средиземноморья",
+        "specialOffers": {
+          "ancientCity": "Тур по древнему городу",
+          "boatTour": "Лодочный тур",
+          "adrenalineSports": "Экстремальные виды спорта"
+        }
+      }
+    },
+    "tours": {
+      "atvSafari": {
+        "title": "Сафари на квадроциклах - Анталия",
+        "location": "Анталия, Турция",
+        "highlights": {
+          "mountainViews": "Горные виды",
+          "funAdrenaline": "Веселый адреналин",
+          "guidedTour": "Экскурсия с гидом"
+        }
+      },
+      "waterfalls": {
+        "title": "Тур по водопадам Дюден и Куршунлу",
+        "location": "Анталия, Турция",
+        "highlights": {
+          "historyExploration": "Исследование истории",
+          "naturalBeauty": "Природная красота",
+          "waterfallViews": "Виды водопадов"
+        }
+      },
+      "pirateBoat": {
+        "title": "Тур на пиратской лодке в Кемере",
+        "location": "Кемер, Турция",
+        "highlights": {
+          "turquoiseWater": "Бирюзовая вода",
+          "islandVisit": "Посещение острова",
+          "snorkeling": "Снорклинг"
+        }
+      },
+      "rafting": {
+        "title": "Рафтинг в каньоне Кёпрюлю",
+        "location": "Белек, Турция",
+        "highlights": {
+          "threeActivities": "Три мероприятия",
+          "actionPacked": "Насыщенный экшеном",
+          "proEquipment": "Профессиональное оборудование"
+        }
+      },
+      "ancientCities": {
+        "title": "Перге, Аспендос, Сиде - Древние города",
+        "location": "Сиде, Турция",
+        "highlights": {
+          "ancientRuins": "Древние руины",
+          "historicalSites": "Исторические места",
+          "educationalTour": "Образовательный тур"
+        }
+      },
+      "scubaDiving": {
+        "title": "Подводное плавание в Каше - сертификат PADI",
+        "location": "Каш, Турция"
+      }
+    },
+    "transfers": {
+      "title": "Популярные трансферы",
+      "antalyaRoutes": "Регион Анталия {{count}} маршрутов трансфера - Автомобили с лицензией D2"
+    },
+    "features": {
+      "aiRecommendations": {
+        "title": "Рекомендации на основе ИИ",
+        "description": "Персонализированные рекомендации путешествий с искусственным интеллектом"
+      },
+      "vrPreviews": {
+        "title": "Предпросмотр виртуальной реальности",
+        "description": "Испытайте направления в 360° VR перед бронированием"
+      },
+      "blockchain": {
+        "title": "Проверка блокчейн",
+        "description": "Ваши бронирования защищены технологией блокчейн"
+      },
+      "instantConfirmation": {
+        "title": "Мгновенное подтверждение",
+        "description": "Все ваши бронирования подтверждаются мгновенно"
+      },
+      "premiumExperiences": {
+        "title": "Премиум впечатления",
+        "description": "Кураторские коллекции для эксклюзивных и роскошных впечатлений"
+      },
+      "support247": {
+        "title": "Поддержка 24/7 с ИИ",
+        "description": "Служба поддержки клиентов на основе ИИ всегда к вашим услугам"
+      }
+    }
   }
 }

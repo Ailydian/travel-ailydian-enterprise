@@ -250,5 +250,169 @@
       "topAttractions": "Κορυφαία Αξιοθέατα",
       "topExperiences": "Κορυφαίες Εμπειρίες"
     }
+  },
+  "home": {
+    "experiences": {
+      "title": "Τουρκία: {{count}} εμπειρίες βρέθηκαν",
+      "subtitle": "Οι πιο δημοφιλείς περιηγήσεις και δραστηριότητες",
+      "viewAllTours": "Δείτε όλες τις περιηγήσεις",
+      "instantBooking": "Άμεση κράτηση",
+      "booking": "Κράτηση",
+      "loadMore": "Φόρτωση περισσότερων αποτελεσμάτων",
+      "showingResults": "Εμφάνιση {{start}}-{{end}} από {{total}} αποτελέσματα"
+    },
+    "filters": {
+      "title": "Φίλτρα",
+      "sortBy": "Ταξινόμηση κατά",
+      "recommended": "Συνιστώμενα",
+      "lowestPrice": "Χαμηλότερη τιμή",
+      "highestRating": "Υψηλότερη βαθμολογία",
+      "mostReviewed": "Περισσότερες κριτικές"
+    },
+    "cart": {
+      "addToCart": "Προσθήκη στο καλάθι",
+      "bookNow": "Κράτηση τώρα",
+      "product": "Προϊόν"
+    },
+    "bookingTypes": {
+      "hotel": "Κράτηση τώρα",
+      "flight": "Αγορά εισιτηρίου",
+      "transfer": "Κράτηση μεταφοράς",
+      "restaurant": "Κράτηση",
+      "default": "Κράτηση τώρα"
+    },
+    "categories": {
+      "adventure": "Περιπέτεια",
+      "culture": "Πολιτισμός",
+      "boatTours": "Περιηγήσεις με σκάφος",
+      "historical": "Ιστορικό",
+      "waterSports": "Θαλάσσια σπορ"
+    },
+    "badges": {
+      "popular": "Δημοφιλές",
+      "adrenaline": "Αδρεναλίνη",
+      "professional": "Επαγγελματικό",
+      "historic": "Ιστορικό",
+      "nature": "Φύση",
+      "photography": "Φωτογραφία",
+      "sea": "Θάλασσα",
+      "swimming": "Κολύμβηση",
+      "snorkeling": "Κολύμβηση με αναπνευστήρα",
+      "combo": "Συνδυασμός",
+      "exciting": "Συναρπαστικό",
+      "fun": "Διασκεδαστικό",
+      "unesco": "UNESCO",
+      "history": "Ιστορία",
+      "guided": "Με οδηγό",
+      "padi": "PADI",
+      "safe": "Ασφαλές",
+      "trend": "Τάση",
+      "hotAirBalloon": "Αερόστατο",
+      "mediterraneanPearl": "Μεσογειακό μαργαριτάρι"
+    },
+    "destinations": {
+      "turkey": "Τουρκία",
+      "cappadocia": {
+        "name": "Καππαδοκία",
+        "description": "Νεραϊδόκαμινα και περιηγήσεις με αερόστατο",
+        "badge": "Μνημείο UNESCO"
+      },
+      "pamukkale": {
+        "name": "Παμούκκαλε",
+        "description": "Λευκές πισίνες τραβερτίνη και αρχαία πόλη",
+        "badge": "Αερόστατο"
+      },
+      "antalya": {
+        "name": "Αττάλεια",
+        "description": "Αρχαίες πόλεις, γαλάζια θάλασσα και ήλιος",
+        "badge": "Μεσογειακό μαργαριτάρι",
+        "specialOffers": {
+          "ancientCity": "Περιήγηση στην αρχαία πόλη",
+          "boatTour": "Περιήγηση με σκάφος",
+          "adrenalineSports": "Σπορ αδρεναλίνης"
+        }
+      }
+    },
+    "tours": {
+      "atvSafari": {
+        "title": "Safari με ATV & Quad - Αττάλεια",
+        "location": "Αττάλεια, Τουρκία",
+        "highlights": {
+          "mountainViews": "Θέα στα βουνά",
+          "funAdrenaline": "Διασκεδαστική αδρεναλίνη",
+          "guidedTour": "Ξενάγηση με οδηγό"
+        }
+      },
+      "waterfalls": {
+        "title": "Περιήγηση στους καταρράκτες Düden & Kurşunlu",
+        "location": "Αττάλεια, Τουρκία",
+        "highlights": {
+          "historyExploration": "Εξερεύνηση ιστορίας",
+          "naturalBeauty": "Φυσική ομορφιά",
+          "waterfallViews": "Θέα στους καταρράκτες"
+        }
+      },
+      "pirateBoat": {
+        "title": "Περιήγηση με πειρατικό σκάφος στο Kemer",
+        "location": "Kemer, Τουρκία",
+        "highlights": {
+          "turquoiseWater": "Τιρκουάζ νερό",
+          "islandVisit": "Επίσκεψη σε νησί",
+          "snorkeling": "Κολύμβηση με αναπνευστήρα"
+        }
+      },
+      "rafting": {
+        "title": "Rafting στο φαράγγι Köprülü",
+        "location": "Belek, Τουρκία",
+        "highlights": {
+          "threeActivities": "Τρεις δραστηριότητες",
+          "actionPacked": "Γεμάτο δράση",
+          "proEquipment": "Επαγγελματικός εξοπλισμός"
+        }
+      },
+      "ancientCities": {
+        "title": "Perge, Aspendos, Side - Αρχαίες πόλεις",
+        "location": "Side, Τουρκία",
+        "highlights": {
+          "ancientRuins": "Αρχαία ερείπια",
+          "historicalSites": "Ιστορικοί χώροι",
+          "educationalTour": "Εκπαιδευτική περιήγηση"
+        }
+      },
+      "scubaDiving": {
+        "title": "Κατάδυση στο Kaş - Πιστοποίηση PADI",
+        "location": "Kaş, Τουρκία"
+      }
+    },
+    "transfers": {
+      "title": "Δημοφιλείς μεταφορές",
+      "antalyaRoutes": "Περιοχή Αττάλειας {{count}} διαδρομές μεταφοράς - Οχήματα με άδεια D2"
+    },
+    "features": {
+      "aiRecommendations": {
+        "title": "Προτάσεις με τεχνητή νοημοσύνη",
+        "description": "Εξατομικευμένες προτάσεις ταξιδιών με τεχνητή νοημοσύνη"
+      },
+      "vrPreviews": {
+        "title": "Προεπισκοπήσεις εικονικής πραγματικότητας",
+        "description": "Ζήστε προορισμούς σε VR 360° πριν κάνετε κράτηση"
+      },
+      "blockchain": {
+        "title": "Επαλήθευση blockchain",
+        "description": "Οι κρατήσεις σας προστατεύονται με τεχνολογία blockchain"
+      },
+      "instantConfirmation": {
+        "title": "Άμεση επιβεβαίωση",
+        "description": "Όλες οι κρατήσεις σας επιβεβαιώνονται αμέσως"
+      },
+      "premiumExperiences": {
+        "title": "Premium εμπειρίες",
+        "description": "Επιμελημένες συλλογές για αποκλειστικές και πολυτελείς εμπειρίες"
+      },
+      "support247": {
+        "title": "Υποστήριξη 24/7 με τεχνητή νοημοσύνη",
+        "description": "Εξυπηρέτηση πελατών με τεχνητή νοημοσύνη πάντα στη διάθεσή σας"
+      }
+    }
   }
 }

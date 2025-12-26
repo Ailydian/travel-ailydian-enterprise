@@ -6,20 +6,13 @@ import { ArrowRight, Users, MapPin, Star, TrendingUp } from 'lucide-react';
 export const VideoHero: React.FC = () => {
   return (
     <section className="relative min-h-[600px] md:min-h-[700px] flex items-center justify-center overflow-hidden">
-      {/* Video Background */}
+      {/* Background Image (replacing broken video) */}
       <div className="absolute inset-0">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
+        <img
+          src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&h=1080&q=90&fit=crop"
+          alt="Antalya Travel Background"
           className="w-full h-full object-cover"
-        >
-          <source
-            src="https://videos.pexels.com/video-files/3147741/3147741-uhd_2560_1440_30fps.mp4"
-            type="video/mp4"
-          />
-        </video>
+        />
 
         {/* Dark overlay for text readability */}
         <div className="absolute inset-0 bg-black/40" />
