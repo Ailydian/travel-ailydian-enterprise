@@ -32,7 +32,8 @@ import {
 } from '@heroicons/react/24/outline';
 import { HeartIcon as HeartSolidIcon, StarIcon as StarSolidIcon } from '@heroicons/react/24/solid';
 import { useToast } from '../../context/ToastContext';
-import SimplifiedHeader from '../../components/layout/SimplifiedHeader';
+import { BookingHeader } from '../../components/layout/BookingHeader';
+import antalyaRentals, { getRentalPriceSavings, type AntalyaRentalProperty } from '../../data/antalya-rentals';
 
 // Real property interface from API
 interface RentalProperty {
@@ -156,28 +157,72 @@ const RentalsPage: React.FC = () => {
     rating: 0,
   });
 
-  // Fetch properties from API
+  // Use Antalya rentals data directly
   useEffect(() => {
-    const fetchProperties = async () => {
-      setLoading(true);
-      try {
-        const response = await fetch('/api/rental-properties');
-        const data = await response.json();
+    setLoading(true);
+    try {
+      // Convert AntalyaRentalProperty to RentalProperty interface
+      const convertedProperties = antalyaRentals.map((rental): RentalProperty => ({
+        id: rental.id,
+        title: rental.name.tr,
+        slug: rental.seo.slug.tr,
+        description: rental.shortDescription.tr,
+        type: rental.propertyType,
+        city: rental.region === 'antalya-city' ? 'Antalya' : rental.region === 'lara' ? 'Antalya' : rental.region === 'belek' ? 'Belek' : rental.region === 'side' ? 'Side' : rental.region === 'alanya' ? 'Alanya' : rental.region === 'kemer' ? 'Kemer' : rental.region === 'konyaalti' ? 'Antalya' : 'Antalya',
+        district: rental.location.district.tr,
+        guests: rental.capacity.guests,
+        bedrooms: rental.capacity.bedrooms,
+        bathrooms: rental.capacity.bathrooms,
+        beds: rental.capacity.beds,
+        basePrice: rental.pricing.perNight,
+        cleaningFee: rental.pricing.cleaningFee,
+        serviceFee: 0,
+        weeklyDiscount: 10,
+        monthlyDiscount: 25,
+        minimumStay: rental.rules.minStay,
+        maximumStay: rental.rules.maxStay,
+        checkInTime: rental.rules.checkIn,
+        checkOutTime: rental.rules.checkOut,
+        wifi: rental.features.wifi,
+        kitchen: rental.features.kitchen,
+        parking: rental.features.parking,
+        pool: rental.features.pool,
+        airConditioning: rental.features.airConditioning,
+        beachfront: rental.features.beachfront,
+        seaview: rental.features.seaview,
+        balcony: rental.features.balcony,
+        workspace: false,
+        tv: rental.features.tv,
+        washingMachine: rental.features.washer,
+        heating: rental.features.heating,
+        smokingAllowed: rental.rules.smokingAllowed,
+        petsAllowed: rental.rules.petsAllowed,
+        partiesAllowed: rental.rules.partiesAllowed,
+        childrenAllowed: rental.rules.childrenAllowed,
+        instantBook: rental.instantBook,
+        hostName: rental.host.name,
+        hostMemberSince: rental.host.memberSince,
+        hostResponseTime: rental.host.responseTime,
+        hostResponseRate: rental.host.responseRate,
+        hostLanguages: rental.host.languages,
+        hostSuperhost: rental.host.superhost,
+        mainImage: rental.images[0] || 'https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=1920&h=1080&fit=crop',
+        images: rental.images,
+        overall: rental.rating,
+        reviewCount: rental.reviewCount,
+        isActive: rental.active,
+        isFeatured: rental.featured
+      }));
 
-        if (data.success) {
-          setProperties(data.data || []);
-          setFeaturedProperties(data.featured || []);
-        }
-      } catch (error) {
-        console.error('Error fetching properties:', error);
-        showToast('Hata', 'Özellikler yüklenirken bir hata oluştu', 'error');
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchProperties();
-  }, []);
+      setProperties(convertedProperties);
+      setFeaturedProperties(convertedProperties.filter(p => p.isFeatured));
+    } catch (error) {
+      console.error('Error loading properties:', error);
+      showToast('Hata', 'Özellikler yüklenirken bir hata oluştu', 'error');
+    } finally {
+      setLoading(false);
+    }
+  }, [showToast]);
 
   // Filtered and sorted properties
   const filteredProperties = useMemo(() => {
@@ -323,7 +368,7 @@ const RentalsPage: React.FC = () => {
         <meta name="keywords" content="kiralık villa, tatil evi, alanya villa, bodrum villa, marmaris villa, antalya kiralık daire" />
       </Head>
 
-      <SimplifiedHeader />
+      <BookingHeader />
 
       <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100">
         {/* Header */}
@@ -1007,8 +1052,10 @@ const PropertyCard: React.FC<PropertyCardProps> = ({
   onToggleFavorite,
   index,
 }) => {
-  const savings = getPriceSavings(property);
-  const savingsPercentage = savings > 0 ? Math.round((savings / property.pricing.basePrice) * 100) : 0;
+  // Calculate savings using base price comparison
+  const competitorAvgPrice = 0; // We'll calculate this from the original rental data if available
+  const savings = competitorAvgPrice > 0 ? Math.round(competitorAvgPrice - property.basePrice) : 0;
+  const savingsPercentage = savings > 0 && competitorAvgPrice > 0 ? Math.round((savings / competitorAvgPrice) * 100) : 0;
 
   return (
     <motion.div
@@ -1028,17 +1075,17 @@ const PropertyCard: React.FC<PropertyCardProps> = ({
 
           {/* Primary Badge - Priority System: Featured > Superhost > Instant Book */}
           <div className="absolute top-3 left-3 z-10">
-            {property.featured ? (
+            {property.isFeatured ? (
               <span className="px-3 py-1 bg-gradient-to-r from-yellow-400 to-orange-400 text-white text-xs font-bold rounded-full shadow-lg flex items-center gap-1 backdrop-blur-sm">
                 <FireIcon className="w-3 h-3" />
                 Öne Çıkan
               </span>
-            ) : property.host.superhost ? (
+            ) : property.hostSuperhost ? (
               <span className="px-3 py-1 bg-gradient-to-r from-purple-500 to-pink-500 text-white text-xs font-bold rounded-full shadow-lg flex items-center gap-1 backdrop-blur-sm">
                 <CheckBadgeIcon className="w-3 h-3" />
                 Superhost
               </span>
-            ) : property.availability.instantBook ? (
+            ) : property.instantBook ? (
               <span className="px-3 py-1 bg-gradient-to-r from-green-500 to-emerald-500 text-white text-xs font-bold rounded-full shadow-lg flex items-center gap-1 backdrop-blur-sm">
                 <BoltIcon className="w-3 h-3" />
                 Anında Rezervasyon
@@ -1076,7 +1123,7 @@ const PropertyCard: React.FC<PropertyCardProps> = ({
           <div className="flex items-center gap-2 text-sm text-gray-600 mb-2">
             <MapPinIcon className="w-4 h-4" />
             <span>
-              {property.location.district}, {property.location.city}
+              {property.district}, {property.city}
             </span>
           </div>
 
@@ -1087,25 +1134,25 @@ const PropertyCard: React.FC<PropertyCardProps> = ({
 
           {/* Property Info */}
           <div className="flex items-center gap-4 text-sm text-gray-600 mb-4">
-            <span>{property.capacity.guests} misafir</span>
+            <span>{property.guests} misafir</span>
             <span>•</span>
-            <span>{property.capacity.bedrooms} yatak odası</span>
+            <span>{property.bedrooms} yatak odası</span>
             <span>•</span>
-            <span>{property.capacity.bathrooms} banyo</span>
+            <span>{property.bathrooms} banyo</span>
           </div>
 
           {/* Features */}
           <div className="flex flex-wrap gap-2 mb-4">
-            {property.features.pool && (
+            {property.pool && (
               <span className="px-2 py-1 bg-blue-50 text-blue-700 text-xs rounded-lg">Havuz</span>
             )}
-            {property.features.wifi && (
+            {property.wifi && (
               <span className="px-2 py-1 bg-purple-50 text-purple-700 text-xs rounded-lg">WiFi</span>
             )}
-            {property.features.parking && (
+            {property.parking && (
               <span className="px-2 py-1 bg-green-50 text-green-700 text-xs rounded-lg">Otopark</span>
             )}
-            {property.features.seaview && (
+            {property.seaview && (
               <span className="px-2 py-1 bg-cyan-50 text-cyan-700 text-xs rounded-lg">Deniz Manzarası</span>
             )}
           </div>
@@ -1115,10 +1162,10 @@ const PropertyCard: React.FC<PropertyCardProps> = ({
             <div className="flex items-center gap-2">
               <div className="flex items-center gap-1 bg-gradient-to-r from-red-600 to-orange-500 text-white px-2 py-1 rounded-lg">
                 <StarSolidIcon className="w-4 h-4" />
-                <span className="font-bold text-sm">{property.rating.overall.toFixed(1)}</span>
+                <span className="font-bold text-sm">{property.overall.toFixed(1)}</span>
               </div>
               <span className="text-sm text-gray-600">
-                ({property.rating.reviewCount} değerlendirme)
+                ({property.reviewCount} değerlendirme)
               </span>
             </div>
           </div>
@@ -1126,18 +1173,13 @@ const PropertyCard: React.FC<PropertyCardProps> = ({
           {/* Price */}
           <div className="flex items-end justify-between pt-4 border-t border-gray-100">
             <div>
-              {property.pricing.competitorPrices && (
+              {savings > 0 && (
                 <p className="text-xs text-gray-400 line-through">
-                  {Math.round(
-                    ((property.pricing.competitorPrices.airbnb || 0) +
-                      (property.pricing.competitorPrices.booking || 0) +
-                      (property.pricing.competitorPrices.agoda || 0)) /
-                      3
-                  ).toLocaleString('tr-TR')} ₺
+                  {(property.basePrice + savings).toLocaleString('tr-TR')} ₺
                 </p>
               )}
               <p className="text-2xl font-bold text-gray-900">
-                {property.pricing.basePrice.toLocaleString('tr-TR')} ₺
+                {property.basePrice.toLocaleString('tr-TR')} ₺
                 <span className="text-sm font-normal text-gray-600"> / gece</span>
               </p>
             </div>
