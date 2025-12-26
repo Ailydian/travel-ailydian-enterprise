@@ -71,10 +71,10 @@ export const VideoHero: React.FC = () => {
             <motion.button
               whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(255, 255, 255, 0.2)" }}
               whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 bg-white/20 backdrop-blur-md border-2 border-white/40 text-white rounded-full font-bold text-lg shadow-2xl hover:bg-white/30 transition-all duration-300 flex items-center gap-2 min-w-[200px] justify-center"
+              className="px-8 py-4 bg-white/20 backdrop-blur-md border-2 border-white/40 rounded-full font-black text-lg shadow-2xl hover:bg-white/30 transition-all duration-300 flex items-center gap-2 min-w-[200px] justify-center"
             >
-              Yardım Al
-              <ArrowRight className="w-5 h-5" />
+              <span className="text-white drop-shadow-lg">Yardım Al</span>
+              <ArrowRight className="w-5 h-5 text-white drop-shadow-lg" />
             </motion.button>
           </Link>
         </motion.div>
