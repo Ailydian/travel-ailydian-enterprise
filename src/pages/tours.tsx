@@ -796,7 +796,7 @@ export default function Tours() {
                   className={`flex items-center gap-2 px-6 py-3 rounded-xl font-semibold transition-all shadow-lg ${
                     isActive
                       ? `bg-gradient-to-r ${category.color} text-white shadow-neon`
-                      : 'bg-white text-gray-700 hover:shadow-xl border border-gray-200'
+                      : 'bg-white text-gray-200 hover:shadow-xl border border-gray-200'
                   }`}
                 >
                   <Icon className="w-5 h-5" />
@@ -813,7 +813,7 @@ export default function Tours() {
               <select
                 value={selectedDifficulty}
                 onChange={(e) => setSelectedDifficulty(e.target.value)}
-                className="px-4 py-2.5 bg-white border-2 border-gray-200 rounded-xl text-sm font-medium focus:ring-2 focus:ring-lydian-primary focus:border-transparent shadow-sm hover:shadow-md transition-all"
+                className="px-4 py-2.5 bg-transparent border-2 border-gray-200 rounded-xl text-sm font-medium focus:ring-2 focus:ring-lydian-primary focus:border-transparent shadow-sm hover:shadow-md transition-all"
               >
                 {difficulties.map(diff => (
                   <option key={diff} value={diff}>Zorluk: {diff}</option>
@@ -824,7 +824,7 @@ export default function Tours() {
               <select
                 value={selectedDuration}
                 onChange={(e) => setSelectedDuration(e.target.value)}
-                className="px-4 py-2.5 bg-white border-2 border-gray-200 rounded-xl text-sm font-medium focus:ring-2 focus:ring-lydian-primary focus:border-transparent shadow-sm hover:shadow-md transition-all"
+                className="px-4 py-2.5 bg-transparent border-2 border-gray-200 rounded-xl text-sm font-medium focus:ring-2 focus:ring-lydian-primary focus:border-transparent shadow-sm hover:shadow-md transition-all"
               >
                 {durations.map(dur => (
                   <option key={dur} value={dur}>Süre: {dur}</option>
@@ -842,11 +842,11 @@ export default function Tours() {
 
             {/* Sort */}
             <div className="flex items-center gap-3">
-              <span className="text-sm font-medium text-gray-600">Sırala:</span>
+              <span className="text-sm font-medium text-gray-300">Sırala:</span>
               <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value)}
-                className="px-4 py-2.5 bg-white border-2 border-gray-200 rounded-xl text-sm font-medium focus:ring-2 focus:ring-lydian-primary focus:border-transparent shadow-sm hover:shadow-md transition-all"
+                className="px-4 py-2.5 bg-transparent border-2 border-gray-200 rounded-xl text-sm font-medium focus:ring-2 focus:ring-lydian-primary focus:border-transparent shadow-sm hover:shadow-md transition-all"
               >
                 <option value="popularity">Popülerlik</option>
                 <option value="rating">Puan (Yüksek-Düşük)</option>
@@ -859,7 +859,7 @@ export default function Tours() {
 
           {/* Results Count */}
           <div className="text-center mb-8">
-            <p className="text-lg text-gray-600">
+            <p className="text-lg text-gray-300">
               <span className="font-bold text-lydian-primary">{sortedTours.length}</span> tur bulundu
             </p>
           </div>
@@ -918,10 +918,10 @@ export default function Tours() {
               className="text-center py-20"
             >
               <Camera className="w-32 h-32 text-gray-300 mx-auto mb-6" />
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              <h2 className="text-3xl font-bold text-white mb-4">
                 Aradığınız kriterlerde tur bulunamadı
               </h2>
-              <p className="text-gray-600 mb-8 max-w-md mx-auto text-lg">
+              <p className="text-gray-300 mb-8 max-w-md mx-auto text-lg">
                 Arama kriterlerinizi değiştirerek tekrar deneyin
               </p>
               <button
@@ -956,7 +956,7 @@ export default function Tours() {
             {toastMessage.includes('sepete eklendi') && (
               <button
                 onClick={() => router.push('/cart')}
-                className="flex items-center gap-2 px-4 py-2 bg-white text-emerald-600 rounded-lg font-semibold hover:bg-gray-100 transition-colors ml-2"
+                className="flex items-center gap-2 px-4 py-2 bg-transparent text-emerald-600 rounded-lg font-semibold hover:bg-gray-100 transition-colors ml-2"
               >
                 <Eye className="w-4 h-4" />
                 Sepeti Gör

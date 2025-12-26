@@ -202,9 +202,9 @@ const TransportationPage: NextPage = () => {
         </div>
 
         {/* Breadcrumbs */}
-        <div className="bg-white border-b border-gray-200">
+        <div className="bg-transparent border-b border-gray-200">
           <div className="max-w-7xl mx-auto px-4 py-3">
-            <div className="flex items-center gap-2 text-sm text-gray-600">
+            <div className="flex items-center gap-2 text-sm text-gray-300">
               <Link href="/" className="hover:text-lydian-primary">
                 {currentLang === 'tr' ? 'Ana Sayfa' : 'Home'}
               </Link>
@@ -213,7 +213,7 @@ const TransportationPage: NextPage = () => {
                 {currentLang === 'tr' ? 'Keşfet' : 'Explore'}
               </Link>
               <span>/</span>
-              <span className="text-gray-900 font-semibold">
+              <span className="text-white font-semibold">
                 {currentLang === 'tr' ? 'Ulaşım' : 'Transportation'}
               </span>
             </div>
@@ -221,7 +221,7 @@ const TransportationPage: NextPage = () => {
         </div>
 
         {/* Category Filter Tabs */}
-        <div className="bg-white border-b border-gray-200">
+        <div className="bg-transparent border-b border-gray-200">
           <div className="max-w-7xl mx-auto px-4">
             <div className="flex items-center gap-2 overflow-x-auto py-4">
               {categories.map((category) => {
@@ -233,7 +233,7 @@ const TransportationPage: NextPage = () => {
                     className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium whitespace-nowrap transition-all ${
                       selectedCategory === category.id
                         ? 'bg-lydian-primary text-white'
-                        : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                        : 'bg-gray-100 text-gray-200 hover:bg-gray-200'
                     }`}
                   >
                     <Icon className="w-4 h-4" />
@@ -249,8 +249,8 @@ const TransportationPage: NextPage = () => {
         <div className="max-w-7xl mx-auto px-4 py-8">
           {/* Toolbar */}
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6">
-            <div className="text-gray-600">
-              <span className="font-semibold text-gray-900">{sortedTransportations.length}</span>{' '}
+            <div className="text-gray-300">
+              <span className="font-semibold text-white">{sortedTransportations.length}</span>{' '}
               {currentLang === 'tr' ? 'hizmet bulundu' : 'services found'}
             </div>
 
@@ -271,16 +271,16 @@ const TransportationPage: NextPage = () => {
               </div>
 
               {/* View Toggle */}
-              <div className="hidden sm:flex items-center gap-2 bg-white border border-gray-300 rounded-lg p-1">
+              <div className="hidden sm:flex items-center gap-2 bg-transparent border border-gray-300 rounded-lg p-1">
                 <button
                   onClick={() => setViewMode('grid')}
-                  className={`p-2 rounded ${viewMode === 'grid' ? 'bg-lydian-primary text-white' : 'text-gray-600'}`}
+                  className={`p-2 rounded ${viewMode === 'grid' ? 'bg-lydian-primary text-white' : 'text-gray-300'}`}
                 >
                   <Grid className="w-4 h-4" />
                 </button>
                 <button
                   onClick={() => setViewMode('list')}
-                  className={`p-2 rounded ${viewMode === 'list' ? 'bg-lydian-primary text-white' : 'text-gray-600'}`}
+                  className={`p-2 rounded ${viewMode === 'list' ? 'bg-lydian-primary text-white' : 'text-gray-300'}`}
                 >
                   <List className="w-4 h-4" />
                 </button>
@@ -294,7 +294,7 @@ const TransportationPage: NextPage = () => {
               <motion.div
                 key={transport.id}
                 whileHover={{ y: -4 }}
-                className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all"
+                className="bg-transparent rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all"
               >
                 <Link href={`/transfers/${transport.id}`}>
                   <div className="relative h-56">
@@ -303,36 +303,36 @@ const TransportationPage: NextPage = () => {
                       alt={transport.name}
                       className="w-full h-full object-cover"
                     />
-                    <div className="absolute top-3 right-3 bg-white px-3 py-1 rounded-full flex items-center gap-1 shadow-lg">
+                    <div className="absolute top-3 right-3 bg-transparent px-3 py-1 rounded-full flex items-center gap-1 shadow-lg">
                       <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                      <span className="font-bold text-gray-900">{transport.rating}</span>
+                      <span className="font-bold text-white">{transport.rating}</span>
                     </div>
-                    <div className="absolute bottom-3 left-3 bg-white/95 px-3 py-1 rounded-full text-sm font-semibold text-gray-900 flex items-center gap-1">
+                    <div className="absolute bottom-3 left-3 bg-white/95 px-3 py-1 rounded-full text-sm font-semibold text-white flex items-center gap-1">
                       <Users className="w-4 h-4" />
                       <span>{transport.capacity} {currentLang === 'tr' ? 'kişi' : 'people'}</span>
                     </div>
                   </div>
                   <div className="p-4">
                     <h3 className="font-bold text-lg mb-1 line-clamp-1">{transport.name}</h3>
-                    <div className="flex items-center gap-1 text-gray-600 text-sm mb-2">
+                    <div className="flex items-center gap-1 text-gray-300 text-sm mb-2">
                       <MapPin className="w-4 h-4" />
                       <span>{transport.route}</span>
                     </div>
-                    <p className="text-sm text-gray-600 mb-3 line-clamp-2">
+                    <p className="text-sm text-gray-300 mb-3 line-clamp-2">
                       {transport.description}
                     </p>
                     <div className="flex flex-wrap gap-2 mb-4">
                       {transport.features.map((feature, idx) => (
                         <span
                           key={idx}
-                          className="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded"
+                          className="text-xs bg-gray-100 text-gray-200 px-2 py-1 rounded"
                         >
                           {feature}
                         </span>
                       ))}
                     </div>
                     <div className="flex items-end justify-between border-t border-gray-100 pt-3">
-                      <div className="text-sm text-gray-600">
+                      <div className="text-sm text-gray-300">
                         {transport.reviews} {currentLang === 'tr' ? 'değerlendirme' : 'reviews'}
                       </div>
                       <div className="text-right">

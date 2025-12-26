@@ -75,16 +75,16 @@ const HotelDetailPage: NextPage<HotelDetailPageProps> = ({ hotel }) => {
 
       <main className="min-h-screen bg-gray-50">
         {/* Breadcrumbs */}
-        <div className="bg-white border-b border-gray-200">
+        <div className="bg-transparent border-b border-gray-200">
           <div className="max-w-7xl mx-auto px-4 py-3">
-            <div className="flex items-center gap-2 text-sm text-gray-600">
+            <div className="flex items-center gap-2 text-sm text-gray-300">
               <Link href="/" className="hover:text-lydian-primary">{currentLang === 'tr' ? 'Ana Sayfa' : 'Home'}</Link>
               <span>/</span>
               <Link href="/explore" className="hover:text-lydian-primary">{currentLang === 'tr' ? 'Keşfet' : 'Explore'}</Link>
               <span>/</span>
               <Link href="/explore/places-to-stay" className="hover:text-lydian-primary">{currentLang === 'tr' ? 'Konaklama' : 'Places to Stay'}</Link>
               <span>/</span>
-              <span className="text-gray-900 font-semibold">{hotel.name[currentLang]}</span>
+              <span className="text-white font-semibold">{hotel.name[currentLang]}</span>
             </div>
           </div>
         </div>
@@ -143,11 +143,11 @@ const HotelDetailPage: NextPage<HotelDetailPageProps> = ({ hotel }) => {
             {/* Main Content */}
             <div className="lg:col-span-2">
               {/* Title & Rating */}
-              <div className="bg-white rounded-2xl p-6 mb-6 shadow-sm">
+              <div className="bg-transparent rounded-2xl p-6 mb-6 shadow-sm">
                 <div className="flex items-start justify-between mb-4">
                   <div>
-                    <h1 className="text-3xl font-black text-gray-900 mb-2">{hotel.name[currentLang]}</h1>
-                    <div className="flex items-center gap-2 text-gray-600">
+                    <h1 className="text-3xl font-black text-white mb-2">{hotel.name[currentLang]}</h1>
+                    <div className="flex items-center gap-2 text-gray-300">
                       <MapPin className="w-5 h-5" />
                       <span>{hotel.location.address[currentLang]}</span>
                     </div>
@@ -172,36 +172,36 @@ const HotelDetailPage: NextPage<HotelDetailPageProps> = ({ hotel }) => {
                     <div className="px-3 py-1 bg-lydian-primary text-white font-bold rounded-lg">
                       {hotel.rating}
                     </div>
-                    <span className="text-gray-600">({hotel.reviewCount} {currentLang === 'tr' ? 'değerlendirme' : 'reviews'})</span>
+                    <span className="text-gray-300">({hotel.reviewCount} {currentLang === 'tr' ? 'değerlendirme' : 'reviews'})</span>
                   </div>
                 </div>
               </div>
 
               {/* Description */}
-              <div className="bg-white rounded-2xl p-6 mb-6 shadow-sm">
+              <div className="bg-transparent rounded-2xl p-6 mb-6 shadow-sm">
                 <h2 className="text-2xl font-bold mb-4">{currentLang === 'tr' ? 'Açıklama' : 'Description'}</h2>
-                <p className="text-gray-700 leading-relaxed">{hotel.longDescription[currentLang]}</p>
+                <p className="text-gray-200 leading-relaxed">{hotel.longDescription[currentLang]}</p>
               </div>
 
               {/* Features */}
-              <div className="bg-white rounded-2xl p-6 mb-6 shadow-sm">
+              <div className="bg-transparent rounded-2xl p-6 mb-6 shadow-sm">
                 <h2 className="text-2xl font-bold mb-4">{currentLang === 'tr' ? 'Özellikler' : 'Features'}</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                   {hotel.features[currentLang].map((feature, idx) => (
                     <div key={idx} className="flex items-start gap-3">
                       <Check className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                      <span className="text-gray-700">{feature}</span>
+                      <span className="text-gray-200">{feature}</span>
                     </div>
                   ))}
                 </div>
               </div>
 
               {/* Amenities */}
-              <div className="bg-white rounded-2xl p-6 mb-6 shadow-sm">
+              <div className="bg-transparent rounded-2xl p-6 mb-6 shadow-sm">
                 <h2 className="text-2xl font-bold mb-4">{currentLang === 'tr' ? 'Olanaklar' : 'Amenities'}</h2>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                   {hotel.amenities[currentLang].map((amenity, idx) => (
-                    <div key={idx} className="flex flex-col items-center gap-2 p-4 bg-gray-50 rounded-xl">
+                    <div key={idx} className="flex flex-col items-center gap-2 p-4 bg-white/5 rounded-xl">
                       <div className="w-12 h-12 bg-lydian-primary/10 rounded-full flex items-center justify-center">
                         {idx % 5 === 0 && <Wifi className="w-6 h-6 text-lydian-primary" />}
                         {idx % 5 === 1 && <Waves className="w-6 h-6 text-lydian-primary" />}
@@ -216,29 +216,29 @@ const HotelDetailPage: NextPage<HotelDetailPageProps> = ({ hotel }) => {
               </div>
 
               {/* Policies */}
-              <div className="bg-white rounded-2xl p-6 mb-6 shadow-sm">
+              <div className="bg-transparent rounded-2xl p-6 mb-6 shadow-sm">
                 <h2 className="text-2xl font-bold mb-4">{currentLang === 'tr' ? 'Otel Politikaları' : 'Hotel Policies'}</h2>
                 <div className="space-y-3">
                   {hotel.policies[currentLang].map((policy, idx) => (
                     <div key={idx} className="flex items-start gap-3">
                       <Shield className="w-5 h-5 text-lydian-primary flex-shrink-0 mt-0.5" />
-                      <span className="text-gray-700">{policy}</span>
+                      <span className="text-gray-200">{policy}</span>
                     </div>
                   ))}
                 </div>
               </div>
 
               {/* Nearby Attractions */}
-              <div className="bg-white rounded-2xl p-6 shadow-sm">
+              <div className="bg-transparent rounded-2xl p-6 shadow-sm">
                 <h2 className="text-2xl font-bold mb-4">{currentLang === 'tr' ? 'Yakındaki Yerler' : 'Nearby Attractions'}</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {hotel.nearbyAttractions.map((attraction, idx) => (
-                    <div key={idx} className="flex items-center justify-between p-4 bg-gray-50 rounded-xl">
+                    <div key={idx} className="flex items-center justify-between p-4 bg-white/5 rounded-xl">
                       <div className="flex items-center gap-3">
                         <MapPin className="w-5 h-5 text-lydian-primary" />
                         <span className="font-medium">{attraction.name}</span>
                       </div>
-                      <span className="text-sm text-gray-600">{attraction.distance}</span>
+                      <span className="text-sm text-gray-300">{attraction.distance}</span>
                     </div>
                   ))}
                 </div>
@@ -248,13 +248,13 @@ const HotelDetailPage: NextPage<HotelDetailPageProps> = ({ hotel }) => {
             {/* Booking Sidebar */}
             <div className="lg:col-span-1">
               <div className="sticky top-24">
-                <div className="bg-white rounded-2xl p-6 shadow-lg border-2 border-gray-100">
+                <div className="bg-transparent rounded-2xl p-6 shadow-lg border-2 border-gray-100">
                   <div className="mb-6">
-                    <div className="text-sm text-gray-600 mb-1">{currentLang === 'tr' ? 'Fiyat' : 'Price'}</div>
+                    <div className="text-sm text-gray-300 mb-1">{currentLang === 'tr' ? 'Fiyat' : 'Price'}</div>
                     <div className="text-4xl font-black text-lydian-primary">
                       ₺{selectedRoomType.price.toLocaleString()}
                     </div>
-                    <div className="text-sm text-gray-600">{currentLang === 'tr' ? 'Gecelik' : 'Per night'}</div>
+                    <div className="text-sm text-gray-300">{currentLang === 'tr' ? 'Gecelik' : 'Per night'}</div>
                   </div>
 
                   {/* Room Type Selection */}
@@ -280,7 +280,7 @@ const HotelDetailPage: NextPage<HotelDetailPageProps> = ({ hotel }) => {
                   <div className="mb-6">
                     <label className="block text-sm font-semibold mb-2">{currentLang === 'tr' ? 'Misafir Sayısı' : 'Guests'}</label>
                     <div className="flex items-center gap-2 p-4 border border-gray-300 rounded-xl">
-                      <Users className="w-5 h-5 text-gray-600" />
+                      <Users className="w-5 h-5 text-gray-300" />
                       <span>{selectedRoomType.capacity} {currentLang === 'tr' ? 'kişi' : 'people'}</span>
                     </div>
                   </div>
@@ -290,14 +290,14 @@ const HotelDetailPage: NextPage<HotelDetailPageProps> = ({ hotel }) => {
                     <div>
                       <label className="block text-sm font-semibold mb-2">{currentLang === 'tr' ? 'Giriş' : 'Check-in'}</label>
                       <div className="flex items-center gap-2 p-3 border border-gray-300 rounded-xl">
-                        <Clock className="w-5 h-5 text-gray-600" />
+                        <Clock className="w-5 h-5 text-gray-300" />
                         <span className="text-sm">{hotel.checkInTime}</span>
                       </div>
                     </div>
                     <div>
                       <label className="block text-sm font-semibold mb-2">{currentLang === 'tr' ? 'Çıkış' : 'Check-out'}</label>
                       <div className="flex items-center gap-2 p-3 border border-gray-300 rounded-xl">
-                        <Clock className="w-5 h-5 text-gray-600" />
+                        <Clock className="w-5 h-5 text-gray-300" />
                         <span className="text-sm">{hotel.checkOutTime}</span>
                       </div>
                     </div>
@@ -313,7 +313,7 @@ const HotelDetailPage: NextPage<HotelDetailPageProps> = ({ hotel }) => {
                     {currentLang === 'tr' ? 'Rezervasyon Yap' : 'Book Now'}
                   </motion.button>
 
-                  <p className="text-xs text-center text-gray-600">
+                  <p className="text-xs text-center text-gray-300">
                     {currentLang === 'tr' ? 'Şimdi ödeme yapmayacaksınız' : 'You won\'t be charged yet'}
                   </p>
                 </div>

@@ -311,17 +311,17 @@ const GetYourGuideStyleHome: React.FC = () => {
             <div className="max-w-7xl mx-auto px-4">
               <div className="flex items-center justify-between mb-8">
                 <div>
-                  <h2 className="text-2xl font-bold text-gray-900 mb-2">
+                  <h2 className="text-2xl font-bold text-white mb-2">
 &quot;{searchQuery}&quot; için {searchResults.length} sonuç bulundu
                   </h2>
-                  <p className="text-gray-600">En iyi seçenekler AI tarafından sıralandı</p>
+                  <p className="text-gray-300">En iyi seçenekler AI tarafından sıralandı</p>
                 </div>
                 <div className="flex items-center gap-2">
-                  <button className="flex items-center gap-2 px-4 py-2 bg-white border border-gray-200 rounded-lg text-sm font-medium hover:bg-gray-50">
+                  <button className="flex items-center gap-2 px-4 py-2 bg-transparent border border-gray-200 rounded-lg text-sm font-medium hover:bg-gray-50">
                     <Filter className="w-4 h-4" />
                     Filtrele
                   </button>
-                  <select className="px-4 py-2 bg-white border border-gray-200 rounded-lg text-sm font-medium">
+                  <select className="px-4 py-2 bg-transparent border border-gray-200 rounded-lg text-sm font-medium">
                     <option>Önerilenler</option>
                     <option>Fiyat (Düşük-Yüksek)</option>
                     <option>Fiyat (Yüksek-Düşük)</option>
@@ -337,7 +337,7 @@ const GetYourGuideStyleHome: React.FC = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: index * 0.1 }}
-                    className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group"
+                    className="bg-transparent rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group"
                   >
                     {/* Image */}
                     <div className="relative h-48 overflow-hidden">
@@ -349,7 +349,7 @@ const GetYourGuideStyleHome: React.FC = () => {
                       
                       {/* Category Badge */}
                       <div className="absolute top-4 left-4">
-                        <span className="px-3 py-1 bg-white/90 text-gray-800 rounded-full text-sm font-medium capitalize">
+                        <span className="px-3 py-1 bg-white/90 text-gray-100 rounded-full text-sm font-medium capitalize">
                           {result.type || selectedCategory}
                         </span>
                       </div>
@@ -376,7 +376,7 @@ const GetYourGuideStyleHome: React.FC = () => {
                         )}
                       </div>
 
-                      <h3 className="font-bold text-lg text-gray-900 mb-3 line-clamp-2">
+                      <h3 className="font-bold text-lg text-white mb-3 line-clamp-2">
                         {result.title || result.name}
                       </h3>
 
@@ -395,7 +395,7 @@ const GetYourGuideStyleHome: React.FC = () => {
 
                       {/* Description or Features */}
                       {result.description && (
-                        <p className="text-sm text-gray-600 mb-4 line-clamp-2">
+                        <p className="text-sm text-gray-300 mb-4 line-clamp-2">
                           {result.description}
                         </p>
                       )}
@@ -404,7 +404,7 @@ const GetYourGuideStyleHome: React.FC = () => {
                       <div className="flex items-center justify-between">
                         <div className="flex items-center gap-2">
                           {result.price ? (
-                            <span className="text-xl font-bold text-gray-900">
+                            <span className="text-xl font-bold text-white">
                               {typeof result.price === 'string' ? result.price : `₺${result.price}`}
                             </span>
                           ) : (
@@ -469,7 +469,7 @@ const GetYourGuideStyleHome: React.FC = () => {
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="px-8 py-3 bg-white border-2 border-lydian-primary text-lydian-primary rounded-2xl font-medium hover:bg-lydian-primary hover:text-white transition-all duration-200"
+                    className="px-8 py-3 bg-transparent border-2 border-lydian-primary text-lydian-primary rounded-2xl font-medium hover:bg-lydian-primary hover:text-white transition-all duration-200"
                   >
                     {t('home.experiences.loadMore')}
                   </motion.button>
@@ -590,8 +590,8 @@ const GetYourGuideStyleHome: React.FC = () => {
           <div className="max-w-7xl mx-auto px-4">
             <div className="flex items-center justify-between mb-12">
               <div>
-                <h2 className="text-3xl font-bold text-gray-900 mb-2">Araç Kiralama Fırsatları</h2>
-                <p className="text-gray-600">51 araç, 7 kategori - %2 Ucuz Fiyat Garantisi</p>
+                <h2 className="text-3xl font-bold text-white mb-2">Araç Kiralama Fırsatları</h2>
+                <p className="text-gray-300">51 araç, 7 kategori - %2 Ucuz Fiyat Garantisi</p>
               </div>
               <Link href="/car-rentals" className="flex items-center gap-2 text-lydian-primary hover:text-lydian-dark font-medium">
                 Tüm Araçlar
@@ -606,7 +606,7 @@ const GetYourGuideStyleHome: React.FC = () => {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group border border-gray-100"
+                  className="bg-transparent rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group border border-gray-100"
                 >
                   {/* Image */}
                   <div className="relative h-40 bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center overflow-hidden">
@@ -633,12 +633,12 @@ const GetYourGuideStyleHome: React.FC = () => {
                   {/* Content */}
                   <div className="p-5">
                     {/* Car Name */}
-                    <h3 className="font-bold text-lg text-gray-900 mb-3">
+                    <h3 className="font-bold text-lg text-white mb-3">
                       {car.brand} {car.model.tr}
                     </h3>
 
                     {/* Specs */}
-                    <div className="grid grid-cols-3 gap-2 mb-3 text-xs text-gray-600">
+                    <div className="grid grid-cols-3 gap-2 mb-3 text-xs text-gray-300">
                       <div className="flex items-center gap-1">
                         <Users className="w-3 h-3" />
                         <span>{car.seats}</span>
@@ -663,7 +663,7 @@ const GetYourGuideStyleHome: React.FC = () => {
                     {/* Price */}
                     <div className="mb-4 pb-4 border-b border-gray-100">
                       <div className="flex items-baseline gap-2">
-                        <span className="text-xl font-bold text-gray-900">₺{car.pricing.daily}</span>
+                        <span className="text-xl font-bold text-white">₺{car.pricing.daily}</span>
                         <span className="text-xs text-gray-500">/gün</span>
                       </div>
                       <div className="text-xs text-gray-500 mt-1">
@@ -696,8 +696,8 @@ const GetYourGuideStyleHome: React.FC = () => {
         <section className="py-16 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">Trend Destinasyonlar</h2>
-              <p className="text-gray-600">Dünya genelindeki en popüler destinasyonları keşfedin</p>
+              <h2 className="text-3xl font-bold text-white mb-4">Trend Destinasyonlar</h2>
+              <p className="text-gray-300">Dünya genelindeki en popüler destinasyonları keşfedin</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -718,7 +718,7 @@ const GetYourGuideStyleHome: React.FC = () => {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
 
                     <div className="absolute top-4 left-4">
-                      <span className="px-3 py-1 bg-white/90 text-gray-800 rounded-full text-sm font-medium">
+                      <span className="px-3 py-1 bg-white/90 text-gray-100 rounded-full text-sm font-medium">
                         {destination.badge}
                       </span>
                     </div>
@@ -732,7 +732,7 @@ const GetYourGuideStyleHome: React.FC = () => {
                   <div className="space-y-3">
                     <div className="flex items-center justify-between">
                       <div>
-                        <p className="text-gray-600">{destination.experiences} deneyim</p>
+                        <p className="text-gray-300">{destination.experiences} deneyim</p>
                         <div className="flex items-center gap-1 mt-1">
                           <Star className="w-4 h-4 text-yellow-500 fill-current" />
                           <span className="font-medium">{destination.rating}</span>
@@ -768,10 +768,10 @@ const GetYourGuideStyleHome: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
               >
-                <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-4">
+                <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
                   Partner Hizmetlerimiz
                 </h2>
-                <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                <p className="text-xl text-gray-300 max-w-3xl mx-auto">
                   Ev, araç kiralama ve transfer hizmetlerinizi kolayca yönetin. Gelir elde edin, misafirlerinizi mutlu edin.
                 </p>
               </motion.div>
@@ -787,7 +787,7 @@ const GetYourGuideStyleHome: React.FC = () => {
                 className="group"
               >
                 <Link href="/owner">
-                  <div className="relative bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden cursor-pointer border-2 border-transparent hover:border-lydian-primary">
+                  <div className="relative bg-transparent rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden cursor-pointer border-2 border-transparent hover:border-lydian-primary">
                     {/* Icon Background */}
                     <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-pink-500/10 to-red-500/10 rounded-bl-full"></div>
 
@@ -796,11 +796,11 @@ const GetYourGuideStyleHome: React.FC = () => {
                         <Home className="w-8 h-8 text-white" />
                       </div>
 
-                      <h3 className="text-2xl font-bold text-gray-900 mb-3">
+                      <h3 className="text-2xl font-bold text-white mb-3">
                         Ev & Villa Kiralama
                       </h3>
 
-                      <p className="text-gray-600 mb-6 leading-relaxed">
+                      <p className="text-gray-300 mb-6 leading-relaxed">
                         Mülkünüzü kiraya verin, gelir elde edin. Kolay yönetim, güvenli ödemeler.
                       </p>
 
@@ -817,7 +817,7 @@ const GetYourGuideStyleHome: React.FC = () => {
                       <div className="mt-6 pt-6 border-t border-gray-100">
                         <div className="flex items-center justify-between text-sm">
                           <div className="text-gray-500">Ortalama Gelir</div>
-                          <div className="font-bold text-gray-900">₺15,000/ay</div>
+                          <div className="font-bold text-white">₺15,000/ay</div>
                         </div>
                       </div>
                     </div>
@@ -834,7 +834,7 @@ const GetYourGuideStyleHome: React.FC = () => {
                 className="group"
               >
                 <Link href="/vehicle-owner">
-                  <div className="relative bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden cursor-pointer border-2 border-transparent hover:border-lydian-primary">
+                  <div className="relative bg-transparent rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden cursor-pointer border-2 border-transparent hover:border-lydian-primary">
                     {/* Icon Background */}
                     <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-green-600/10 to-emerald-600/10 rounded-bl-full"></div>
 
@@ -843,11 +843,11 @@ const GetYourGuideStyleHome: React.FC = () => {
                         <Car className="w-8 h-8 text-white" />
                       </div>
 
-                      <h3 className="text-2xl font-bold text-gray-900 mb-3">
+                      <h3 className="text-2xl font-bold text-white mb-3">
                         Araç Kiralama
                       </h3>
 
-                      <p className="text-gray-600 mb-6 leading-relaxed">
+                      <p className="text-gray-300 mb-6 leading-relaxed">
                         Araçlarınızı kiraya verin, filo yönetimi yapın. 14+ araç kategorisi desteği.
                       </p>
 
@@ -864,7 +864,7 @@ const GetYourGuideStyleHome: React.FC = () => {
                       <div className="mt-6 pt-6 border-t border-gray-100">
                         <div className="flex items-center justify-between text-sm">
                           <div className="text-gray-500">Ortalama Gelir</div>
-                          <div className="font-bold text-gray-900">₺8,500/ay</div>
+                          <div className="font-bold text-white">₺8,500/ay</div>
                         </div>
                       </div>
                     </div>
@@ -881,7 +881,7 @@ const GetYourGuideStyleHome: React.FC = () => {
                 className="group"
               >
                 <Link href="/transfer-owner">
-                  <div className="relative bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden cursor-pointer border-2 border-transparent hover:border-lydian-primary">
+                  <div className="relative bg-transparent rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden cursor-pointer border-2 border-transparent hover:border-lydian-primary">
                     {/* Icon Background */}
                     <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-green-600/10 to-emerald-600/10 rounded-bl-full"></div>
 
@@ -890,11 +890,11 @@ const GetYourGuideStyleHome: React.FC = () => {
                         <Bus className="w-8 h-8 text-white" />
                       </div>
 
-                      <h3 className="text-2xl font-bold text-gray-900 mb-3">
+                      <h3 className="text-2xl font-bold text-white mb-3">
                         Transfer Hizmeti
                       </h3>
 
-                      <p className="text-gray-600 mb-6 leading-relaxed">
+                      <p className="text-gray-300 mb-6 leading-relaxed">
                         Transfer araçlarınızı yönetin, havaalanı-otel transferleri sağlayın. D2 belgeli.
                       </p>
 
@@ -911,7 +911,7 @@ const GetYourGuideStyleHome: React.FC = () => {
                       <div className="mt-6 pt-6 border-t border-gray-100">
                         <div className="flex items-center justify-between text-sm">
                           <div className="text-gray-500">Ortalama Gelir</div>
-                          <div className="font-bold text-gray-900">₺12,000/ay</div>
+                          <div className="font-bold text-white">₺12,000/ay</div>
                         </div>
                       </div>
                     </div>
@@ -942,8 +942,8 @@ const GetYourGuideStyleHome: React.FC = () => {
         <section className="py-16 bg-white">
           <div className="max-w-7xl mx-auto px-4">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">Neden LyDian Travel?</h2>
-              <p className="text-gray-600">Gelişmiş özelliklerimizle seyahatin geleceğini yaşayın</p>
+              <h2 className="text-3xl font-bold text-white mb-4">Neden LyDian Travel?</h2>
+              <p className="text-gray-300">Gelişmiş özelliklerimizle seyahatin geleceğini yaşayın</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -995,8 +995,8 @@ const GetYourGuideStyleHome: React.FC = () => {
                   <div className={`w-16 h-16 rounded-full ${feature.color} flex items-center justify-center mx-auto mb-4`}>
                     <feature.icon className="w-8 h-8" />
                   </div>
-                  <h3 className="font-bold text-lg text-gray-900 mb-2">{feature.title}</h3>
-                  <p className="text-gray-600">{feature.description}</p>
+                  <h3 className="font-bold text-lg text-white mb-2">{feature.title}</h3>
+                  <p className="text-gray-300">{feature.description}</p>
                 </motion.div>
               ))}
             </div>
@@ -1025,7 +1025,7 @@ const GetYourGuideStyleHome: React.FC = () => {
             
             {/* Tooltip */}
             <div className="absolute right-full mr-4 top-1/2 transform -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none">
-              <div className="bg-white text-gray-900 text-sm px-3 py-2 rounded-lg whitespace-nowrap flex items-center gap-2 shadow-lg border">
+              <div className="bg-transparent text-white text-sm px-3 py-2 rounded-lg whitespace-nowrap flex items-center gap-2 shadow-lg border">
                 <Gift className="w-4 h-4 text-yellow-500" />
                 <span>Ücretsiz Kayıt Ol!</span>
                 <div className="absolute left-full top-1/2 transform -translate-y-1/2 w-0 h-0 border-l-8 border-l-white border-y-4 border-y-transparent"></div>

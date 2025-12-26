@@ -116,10 +116,10 @@ export default function HotelDetailPage({ hotel }: { hotel: Hotel }) {
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="bg-white rounded-xl p-6 shadow-sm"
+                className="bg-transparent rounded-xl p-6 shadow-sm"
               >
                 <h2 className="text-2xl font-bold mb-4">Otel Hakkında</h2>
-                <p className="text-gray-600 leading-relaxed">{hotel.description}</p>
+                <p className="text-gray-300 leading-relaxed">{hotel.description}</p>
               </motion.div>
 
               {/* Amenities */}
@@ -127,12 +127,12 @@ export default function HotelDetailPage({ hotel }: { hotel: Hotel }) {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 }}
-                className="bg-white rounded-xl p-6 shadow-sm"
+                className="bg-transparent rounded-xl p-6 shadow-sm"
               >
                 <h2 className="text-2xl font-bold mb-4">Otel Özellikleri</h2>
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                   {hotel.amenities.map((amenity, i) => (
-                    <div key={i} className="flex items-center gap-2 text-gray-700">
+                    <div key={i} className="flex items-center gap-2 text-gray-200">
                       <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center">
                         <Wifi className="w-4 h-4 text-blue-600" />
                       </div>
@@ -147,7 +147,7 @@ export default function HotelDetailPage({ hotel }: { hotel: Hotel }) {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
-                className="bg-white rounded-xl p-6 shadow-sm"
+                className="bg-transparent rounded-xl p-6 shadow-sm"
               >
                 <h2 className="text-2xl font-bold mb-4">Oda Tipleri</h2>
                 <div className="space-y-4">
@@ -164,7 +164,7 @@ export default function HotelDetailPage({ hotel }: { hotel: Hotel }) {
                       <div className="flex justify-between items-start">
                         <div>
                           <h3 className="font-bold text-lg">{room.name}</h3>
-                          <div className="flex gap-4 text-sm text-gray-600 mt-2">
+                          <div className="flex gap-4 text-sm text-gray-300 mt-2">
                             <span>{room.size} m²</span>
                             <span>• {room.capacity} Kişi</span>
                           </div>
@@ -186,14 +186,14 @@ export default function HotelDetailPage({ hotel }: { hotel: Hotel }) {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
-                className="bg-white rounded-xl p-6 shadow-sm"
+                className="bg-transparent rounded-xl p-6 shadow-sm"
               >
                 <h2 className="text-2xl font-bold mb-4">Yakındaki Yerler</h2>
                 <div className="space-y-3">
                   {hotel.nearbyAttractions.map((attraction, i) => (
                     <div key={i} className="flex items-center justify-between py-2 border-b last:border-0">
                       <span className="font-medium">{attraction.name}</span>
-                      <span className="text-sm text-gray-600">
+                      <span className="text-sm text-gray-300">
                         {attraction.distance} {attraction.unit}
                       </span>
                     </div>
@@ -207,7 +207,7 @@ export default function HotelDetailPage({ hotel }: { hotel: Hotel }) {
               <motion.div
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
-                className="bg-white rounded-xl p-6 shadow-lg sticky top-4"
+                className="bg-transparent rounded-xl p-6 shadow-lg sticky top-4"
               >
                 <div className="text-center mb-6">
                   <div className="text-3xl font-bold text-blue-600">
@@ -219,7 +219,7 @@ export default function HotelDetailPage({ hotel }: { hotel: Hotel }) {
                 <div className="space-y-4">
                   {/* Check-in */}
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                    <label className="block text-sm font-medium text-gray-200 mb-1">
                       Giriş Tarihi
                     </label>
                     <div className="relative">
@@ -236,7 +236,7 @@ export default function HotelDetailPage({ hotel }: { hotel: Hotel }) {
 
                   {/* Check-out */}
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                    <label className="block text-sm font-medium text-gray-200 mb-1">
                       Çıkış Tarihi
                     </label>
                     <div className="relative">
@@ -253,7 +253,7 @@ export default function HotelDetailPage({ hotel }: { hotel: Hotel }) {
 
                   {/* Guests */}
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                    <label className="block text-sm font-medium text-gray-200 mb-1">
                       Misafir Sayısı
                     </label>
                     <div className="relative">
@@ -271,7 +271,7 @@ export default function HotelDetailPage({ hotel }: { hotel: Hotel }) {
 
                   {/* Rooms */}
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                    <label className="block text-sm font-medium text-gray-200 mb-1">
                       Oda Sayısı
                     </label>
                     <input
@@ -287,7 +287,7 @@ export default function HotelDetailPage({ hotel }: { hotel: Hotel }) {
                   {/* Total Price */}
                   {calculateNights() > 0 && (
                     <div className="border-t pt-4">
-                      <div className="flex justify-between text-sm text-gray-600 mb-2">
+                      <div className="flex justify-between text-sm text-gray-300 mb-2">
                         <span>{selectedRoom.price.toLocaleString('tr-TR')} ₺ x {calculateNights()} gece x {rooms} oda</span>
                         <span>{totalPrice.toLocaleString('tr-TR')} ₺</span>
                       </div>
@@ -317,13 +317,13 @@ export default function HotelDetailPage({ hotel }: { hotel: Hotel }) {
 
                 {/* Contact Info */}
                 <div className="mt-6 pt-6 border-t space-y-3">
-                  <div className="flex items-center gap-2 text-sm text-gray-600">
+                  <div className="flex items-center gap-2 text-sm text-gray-300">
                     <Phone className="w-4 h-4" />
                     <a href={`tel:${hotel.phone}`} className="hover:text-blue-600">
                       {hotel.phone}
                     </a>
                   </div>
-                  <div className="flex items-center gap-2 text-sm text-gray-600">
+                  <div className="flex items-center gap-2 text-sm text-gray-300">
                     <Mail className="w-4 h-4" />
                     <a href={`mailto:${hotel.email}`} className="hover:text-blue-600">
                       {hotel.email}

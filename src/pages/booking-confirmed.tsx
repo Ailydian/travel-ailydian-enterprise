@@ -126,7 +126,7 @@ END:VCALENDAR`;
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
-          <p className="mt-4 text-gray-600">Loading your booking details...</p>
+          <p className="mt-4 text-gray-300">Loading your booking details...</p>
         </div>
       </div>
     );
@@ -136,7 +136,7 @@ END:VCALENDAR`;
     return (
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50">
         <div className="text-center">
-          <p className="text-gray-600">Booking not found</p>
+          <p className="text-gray-300">Booking not found</p>
           <Link href="/" className="text-blue-600 hover:underline mt-4 inline-block">
             Go to Home
           </Link>
@@ -190,7 +190,7 @@ END:VCALENDAR`;
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="text-4xl md:text-5xl font-bold text-gray-900 mb-4"
+              className="text-4xl md:text-5xl font-bold text-white mb-4"
             >
               Booking Confirmed!
             </motion.h1>
@@ -199,7 +199,7 @@ END:VCALENDAR`;
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
-              className="text-xl text-gray-600 mb-2"
+              className="text-xl text-gray-300 mb-2"
             >
               Your adventure awaits
             </motion.p>
@@ -208,10 +208,10 @@ END:VCALENDAR`;
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.5 }}
-              className="inline-flex items-center gap-2 px-6 py-3 bg-white rounded-full shadow-lg"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-transparent rounded-full shadow-lg"
             >
               <Sparkles className="w-5 h-5 text-yellow-500" />
-              <span className="font-semibold text-gray-900">Confirmation sent to your email</span>
+              <span className="font-semibold text-white">Confirmation sent to your email</span>
               <Mail className="w-5 h-5 text-blue-500" />
             </motion.div>
           </motion.div>
@@ -221,7 +221,7 @@ END:VCALENDAR`;
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6 }}
-            className="bg-white rounded-2xl shadow-xl p-8 mb-6"
+            className="bg-transparent rounded-2xl shadow-xl p-8 mb-6"
           >
             <div className="text-center mb-6">
               <p className="text-sm text-gray-500 mb-2">Your Booking Reference</p>
@@ -278,45 +278,45 @@ END:VCALENDAR`;
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7 }}
-            className="bg-white rounded-2xl shadow-xl p-8 mb-6"
+            className="bg-transparent rounded-2xl shadow-xl p-8 mb-6"
           >
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">Booking Details</h3>
+            <h3 className="text-2xl font-bold text-white mb-6">Booking Details</h3>
 
             <div className="space-y-4">
               {/* Items */}
               {booking.metaData?.items?.map((item: any, index: number) => (
-                <div key={index} className="flex justify-between items-start p-4 bg-gray-50 rounded-xl">
+                <div key={index} className="flex justify-between items-start p-4 bg-white/5 rounded-xl">
                   <div>
-                    <p className="font-semibold text-gray-900">{item.title}</p>
-                    <p className="text-sm text-gray-600">{item.guests} guests</p>
+                    <p className="font-semibold text-white">{item.title}</p>
+                    <p className="text-sm text-gray-300">{item.guests} guests</p>
                   </div>
-                  <span className="font-bold text-gray-900">{item.price} TRY</span>
+                  <span className="font-bold text-white">{item.price} TRY</span>
                 </div>
               ))}
 
               {/* Summary */}
               <div className="border-t border-gray-200 pt-4 space-y-3">
-                <div className="flex items-center gap-3 text-gray-700">
+                <div className="flex items-center gap-3 text-gray-200">
                   <Calendar className="w-5 h-5 text-blue-500" />
                   <span className="font-medium">Check-in:</span>
                   <span>{booking.checkInDate ? new Date(booking.checkInDate).toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }) : 'TBD'}</span>
                 </div>
 
                 {booking.checkOutDate && (
-                  <div className="flex items-center gap-3 text-gray-700">
+                  <div className="flex items-center gap-3 text-gray-200">
                     <Calendar className="w-5 h-5 text-blue-500" />
                     <span className="font-medium">Check-out:</span>
                     <span>{new Date(booking.checkOutDate).toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</span>
                   </div>
                 )}
 
-                <div className="flex items-center gap-3 text-gray-700">
+                <div className="flex items-center gap-3 text-gray-200">
                   <Users className="w-5 h-5 text-purple-500" />
                   <span className="font-medium">Guests:</span>
                   <span>{booking.guestCount} people</span>
                 </div>
 
-                <div className="flex items-center gap-3 text-gray-700">
+                <div className="flex items-center gap-3 text-gray-200">
                   <CreditCard className="w-5 h-5 text-green-500" />
                   <span className="font-medium">Total Paid:</span>
                   <span className="text-xl font-bold text-green-600">{booking.totalAmount} {booking.currency}</span>
@@ -359,8 +359,8 @@ END:VCALENDAR`;
             <div className="flex items-start gap-4">
               <Mail className="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" />
               <div>
-                <h4 className="font-semibold text-gray-900 mb-2">Email Confirmation Sent</h4>
-                <p className="text-gray-700 text-sm leading-relaxed">
+                <h4 className="font-semibold text-white mb-2">Email Confirmation Sent</h4>
+                <p className="text-gray-200 text-sm leading-relaxed">
                   A detailed confirmation email has been sent to your registered email address.
                   Please check your inbox (and spam folder) for complete booking details, important information,
                   and next steps for your journey.
@@ -374,17 +374,17 @@ END:VCALENDAR`;
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.0 }}
-            className="bg-white rounded-2xl shadow-xl p-8 mb-6"
+            className="bg-transparent rounded-2xl shadow-xl p-8 mb-6"
           >
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">What's Next?</h3>
+            <h3 className="text-2xl font-bold text-white mb-6">What's Next?</h3>
             <div className="space-y-4">
               <div className="flex items-start gap-4">
                 <div className="w-8 h-8 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center font-bold flex-shrink-0">
                   1
                 </div>
                 <div>
-                  <p className="font-semibold text-gray-900">Check Your Email</p>
-                  <p className="text-sm text-gray-600">Review your booking details and save important documents</p>
+                  <p className="font-semibold text-white">Check Your Email</p>
+                  <p className="text-sm text-gray-300">Review your booking details and save important documents</p>
                 </div>
               </div>
 
@@ -393,8 +393,8 @@ END:VCALENDAR`;
                   2
                 </div>
                 <div>
-                  <p className="font-semibold text-gray-900">Prepare for Your Trip</p>
-                  <p className="text-sm text-gray-600">Check travel requirements, weather, and pack accordingly</p>
+                  <p className="font-semibold text-white">Prepare for Your Trip</p>
+                  <p className="text-sm text-gray-300">Check travel requirements, weather, and pack accordingly</p>
                 </div>
               </div>
 
@@ -403,8 +403,8 @@ END:VCALENDAR`;
                   3
                 </div>
                 <div>
-                  <p className="font-semibold text-gray-900">Arrive and Enjoy</p>
-                  <p className="text-sm text-gray-600">Present your booking reference at check-in and enjoy your experience</p>
+                  <p className="font-semibold text-white">Arrive and Enjoy</p>
+                  <p className="text-sm text-gray-300">Present your booking reference at check-in and enjoy your experience</p>
                 </div>
               </div>
             </div>
@@ -428,7 +428,7 @@ END:VCALENDAR`;
 
             <Link
               href="/"
-              className="flex items-center justify-center gap-2 px-8 py-4 bg-white text-gray-700 border-2 border-gray-300 rounded-xl hover:bg-gray-50 transition-all shadow-md hover:shadow-lg font-semibold"
+              className="flex items-center justify-center gap-2 px-8 py-4 bg-transparent text-gray-200 border-2 border-gray-300 rounded-xl hover:bg-gray-50 transition-all shadow-md hover:shadow-lg font-semibold"
             >
               <Home className="w-5 h-5" />
               Back to Home
@@ -440,7 +440,7 @@ END:VCALENDAR`;
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.2 }}
-            className="text-center mt-8 text-sm text-gray-600"
+            className="text-center mt-8 text-sm text-gray-300"
           >
             <p>Need help? Contact our 24/7 support team at support@travel.lydian.com</p>
           </motion.div>

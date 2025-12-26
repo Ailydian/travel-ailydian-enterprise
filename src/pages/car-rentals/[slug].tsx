@@ -271,16 +271,16 @@ const CarDetailsPage = ({ slug: initialSlug, car: carProp }: CarDetailsPageProps
       MINIVAN: 'bg-teal-100 text-teal-800',
       COMPACT: 'bg-slate-100 text-slate-800',
     };
-    return colors[category] || 'bg-gray-100 text-gray-800';
+    return colors[category] || 'bg-gray-100 text-gray-100';
   };
 
   if (!car) {
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+      <div className="min-h-screen bg-white/5 flex items-center justify-center">
         <div className="text-center">
           <Car className="w-16 h-16 text-gray-300 mx-auto mb-4" />
-          <h2 className="text-2xl font-bold text-gray-900 mb-2">Araç Bulunamadı</h2>
-          <p className="text-gray-600 mb-4">Aradığınız araç mevcut değil.</p>
+          <h2 className="text-2xl font-bold text-white mb-2">Araç Bulunamadı</h2>
+          <p className="text-gray-300 mb-4">Aradığınız araç mevcut değil.</p>
           <Link href="/car-rentals">
             <button className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
               Tüm Araçlara Dön
@@ -297,10 +297,10 @@ const CarDetailsPage = ({ slug: initialSlug, car: carProp }: CarDetailsPageProps
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
-      <div className="bg-white border-b border-gray-200">
+      <div className="bg-transparent border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <Link href="/car-rentals">
-            <button className="flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors">
+            <button className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors">
               <ChevronLeft className="w-5 h-5" />
               Tüm Araçlar
             </button>
@@ -313,7 +313,7 @@ const CarDetailsPage = ({ slug: initialSlug, car: carProp }: CarDetailsPageProps
           {/* Left Column - Main Content */}
           <div className="lg:col-span-2 space-y-6">
             {/* Car Display */}
-            <div className="bg-white rounded-2xl overflow-hidden shadow-sm">
+            <div className="bg-transparent rounded-2xl overflow-hidden shadow-sm">
               <div className="relative bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 p-12 flex items-center justify-center min-h-[400px] rounded-2xl">
                 <AnimatedCarIcon size="xl" />
                 {car.isFeatured && (
@@ -330,19 +330,19 @@ const CarDetailsPage = ({ slug: initialSlug, car: carProp }: CarDetailsPageProps
                 )}
                 <button
                   onClick={() => setIsFavorite(!isFavorite)}
-                  className="absolute bottom-4 right-4 w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform z-10"
+                  className="absolute bottom-4 right-4 w-12 h-12 bg-transparent rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform z-10"
                 >
-                  <Heart className={`w-6 h-6 ${isFavorite ? 'fill-red-500 text-red-500' : 'text-gray-700'}`} />
+                  <Heart className={`w-6 h-6 ${isFavorite ? 'fill-red-500 text-red-500' : 'text-gray-200'}`} />
                 </button>
               </div>
             </div>
 
             {/* Car Info */}
-            <div className="bg-white rounded-2xl p-6 shadow-sm">
+            <div className="bg-transparent rounded-2xl p-6 shadow-sm">
               <div className="flex items-start justify-between mb-4">
                 <div>
-                  <h1 className="text-3xl font-bold text-gray-900 mb-2">{car.name}</h1>
-                  <p className="text-lg text-gray-600">{car.brand} {car.model} • {car.year}</p>
+                  <h1 className="text-3xl font-bold text-white mb-2">{car.name}</h1>
+                  <p className="text-lg text-gray-300">{car.brand} {car.model} • {car.year}</p>
                 </div>
                 <span className={`inline-flex items-center px-3 py-1 rounded-lg text-sm font-semibold ${getCategoryColor(car.category)}`}>
                   {car.category.replace(/_/g, ' ')}
@@ -352,7 +352,7 @@ const CarDetailsPage = ({ slug: initialSlug, car: carProp }: CarDetailsPageProps
               <div className="flex items-center gap-6 mb-6">
                 <div className="flex items-center gap-2">
                   <Star className="w-5 h-5 text-amber-500 fill-amber-500" />
-                  <span className="font-semibold text-gray-900">{car.rating}</span>
+                  <span className="font-semibold text-white">{car.rating}</span>
                   <span className="text-gray-500">({car.reviewCount} değerlendirme)</span>
                 </div>
                 {car.availableCount > 0 && (
@@ -363,86 +363,86 @@ const CarDetailsPage = ({ slug: initialSlug, car: carProp }: CarDetailsPageProps
                 )}
               </div>
 
-              <p className="text-gray-700 leading-relaxed">{car.description}</p>
+              <p className="text-gray-200 leading-relaxed">{car.description}</p>
             </div>
 
             {/* Specifications */}
-            <div className="bg-white rounded-2xl p-6 shadow-sm">
-              <h2 className="text-xl font-bold text-gray-900 mb-6">Teknik Özellikler</h2>
+            <div className="bg-transparent rounded-2xl p-6 shadow-sm">
+              <h2 className="text-xl font-bold text-white mb-6">Teknik Özellikler</h2>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-                <div className="text-center p-4 bg-gray-50 rounded-xl">
+                <div className="text-center p-4 bg-white/5 rounded-xl">
                   <Users className="w-8 h-8 text-blue-600 mx-auto mb-2" />
-                  <p className="text-sm text-gray-600 mb-1">Yolcu</p>
-                  <p className="text-lg font-bold text-gray-900">{car.seats}</p>
+                  <p className="text-sm text-gray-300 mb-1">Yolcu</p>
+                  <p className="text-lg font-bold text-white">{car.seats}</p>
                 </div>
-                <div className="text-center p-4 bg-gray-50 rounded-xl">
+                <div className="text-center p-4 bg-white/5 rounded-xl">
                   <Settings className="w-8 h-8 text-purple-600 mx-auto mb-2" />
-                  <p className="text-sm text-gray-600 mb-1">Vites</p>
-                  <p className="text-lg font-bold text-gray-900">{car.transmission === 'AUTOMATIC' ? 'Otomatik' : 'Manuel'}</p>
+                  <p className="text-sm text-gray-300 mb-1">Vites</p>
+                  <p className="text-lg font-bold text-white">{car.transmission === 'AUTOMATIC' ? 'Otomatik' : 'Manuel'}</p>
                 </div>
-                <div className="text-center p-4 bg-gray-50 rounded-xl">
+                <div className="text-center p-4 bg-white/5 rounded-xl">
                   <Fuel className="w-8 h-8 text-green-600 mx-auto mb-2" />
-                  <p className="text-sm text-gray-600 mb-1">Yakıt</p>
-                  <p className="text-lg font-bold text-gray-900">{car.fuelType}</p>
+                  <p className="text-sm text-gray-300 mb-1">Yakıt</p>
+                  <p className="text-lg font-bold text-white">{car.fuelType}</p>
                 </div>
-                <div className="text-center p-4 bg-gray-50 rounded-xl">
+                <div className="text-center p-4 bg-white/5 rounded-xl">
                   <Car className="w-8 h-8 text-amber-600 mx-auto mb-2" />
-                  <p className="text-sm text-gray-600 mb-1">Kapı</p>
-                  <p className="text-lg font-bold text-gray-900">{car.doors}</p>
+                  <p className="text-sm text-gray-300 mb-1">Kapı</p>
+                  <p className="text-lg font-bold text-white">{car.doors}</p>
                 </div>
               </div>
             </div>
 
             {/* Features */}
-            <div className="bg-white rounded-2xl p-6 shadow-sm">
-              <h2 className="text-xl font-bold text-gray-900 mb-6">Özellikler</h2>
+            <div className="bg-transparent rounded-2xl p-6 shadow-sm">
+              <h2 className="text-xl font-bold text-white mb-6">Özellikler</h2>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                 {car.features?.map((feature, index) => (
                   <div key={index} className="flex items-center gap-3 p-3 bg-blue-50 rounded-lg">
                     <Check className="w-5 h-5 text-blue-600 flex-shrink-0" />
-                    <span className="text-sm font-medium text-gray-900">{feature}</span>
+                    <span className="text-sm font-medium text-white">{feature}</span>
                   </div>
                 ))}
                 {car.airConditioning && (
                   <div className="flex items-center gap-3 p-3 bg-blue-50 rounded-lg">
                     <Check className="w-5 h-5 text-blue-600" />
-                    <span className="text-sm font-medium text-gray-900">Klima</span>
+                    <span className="text-sm font-medium text-white">Klima</span>
                   </div>
                 )}
                 {car.gps && (
                   <div className="flex items-center gap-3 p-3 bg-blue-50 rounded-lg">
                     <Check className="w-5 h-5 text-blue-600" />
-                    <span className="text-sm font-medium text-gray-900">GPS Navigasyon</span>
+                    <span className="text-sm font-medium text-white">GPS Navigasyon</span>
                   </div>
                 )}
                 {car.bluetooth && (
                   <div className="flex items-center gap-3 p-3 bg-blue-50 rounded-lg">
                     <Check className="w-5 h-5 text-blue-600" />
-                    <span className="text-sm font-medium text-gray-900">Bluetooth</span>
+                    <span className="text-sm font-medium text-white">Bluetooth</span>
                   </div>
                 )}
               </div>
             </div>
 
             {/* Requirements */}
-            <div className="bg-white rounded-2xl p-6 shadow-sm">
-              <h2 className="text-xl font-bold text-gray-900 mb-6">Kiralama Gereksinimleri</h2>
+            <div className="bg-transparent rounded-2xl p-6 shadow-sm">
+              <h2 className="text-xl font-bold text-white mb-6">Kiralama Gereksinimleri</h2>
               <div className="space-y-4">
                 <div className="flex items-center gap-3">
                   <AlertCircle className="w-5 h-5 text-blue-600" />
-                  <span className="text-gray-700">Minimum yaş: <strong>{car.minimumAge}</strong></span>
+                  <span className="text-gray-200">Minimum yaş: <strong>{car.minimumAge}</strong></span>
                 </div>
                 <div className="flex items-center gap-3">
                   <AlertCircle className="w-5 h-5 text-blue-600" />
-                  <span className="text-gray-700">Ehliyet süresi: En az <strong>{car.drivingLicenseYears} yıl</strong></span>
+                  <span className="text-gray-200">Ehliyet süresi: En az <strong>{car.drivingLicenseYears} yıl</strong></span>
                 </div>
                 <div className="flex items-start gap-3">
                   <FileText className="w-5 h-5 text-blue-600 mt-1" />
                   <div>
-                    <p className="font-semibold text-gray-900 mb-2">Gerekli Belgeler:</p>
+                    <p className="font-semibold text-white mb-2">Gerekli Belgeler:</p>
                     <ul className="space-y-1">
                       {car.requiredDocuments?.map((doc, index) => (
-                        <li key={index} className="text-gray-700">• {doc}</li>
+                        <li key={index} className="text-gray-200">• {doc}</li>
                       ))}
                     </ul>
                   </div>
@@ -452,8 +452,8 @@ const CarDetailsPage = ({ slug: initialSlug, car: carProp }: CarDetailsPageProps
 
             {/* Similar Cars */}
             {similarCars.length > 0 && (
-              <div className="bg-white rounded-2xl p-6 shadow-sm">
-                <h2 className="text-xl font-bold text-gray-900 mb-6">Benzer Araçlar</h2>
+              <div className="bg-transparent rounded-2xl p-6 shadow-sm">
+                <h2 className="text-xl font-bold text-white mb-6">Benzer Araçlar</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {similarCars.map((similar) => (
                     <Link key={similar.id} href={`/car-rentals/${similar.slug}`}>
@@ -461,11 +461,11 @@ const CarDetailsPage = ({ slug: initialSlug, car: carProp }: CarDetailsPageProps
                         <div className="aspect-video bg-gradient-to-br from-gray-100 to-gray-200 rounded-lg mb-3 flex items-center justify-center">
                           <Car className="w-12 h-12 text-gray-300" />
                         </div>
-                        <h3 className="font-semibold text-gray-900 mb-1">{similar.name}</h3>
+                        <h3 className="font-semibold text-white mb-1">{similar.name}</h3>
                         <div className="flex items-center justify-between">
                           <div className="flex items-center gap-1">
                             <Star className="w-4 h-4 text-amber-500 fill-amber-500" />
-                            <span className="text-sm text-gray-600">{similar.rating}</span>
+                            <span className="text-sm text-gray-300">{similar.rating}</span>
                           </div>
                           <p className="font-bold text-blue-600">₺{parseInt(similar.pricePerDay).toLocaleString('tr-TR')}/gün</p>
                         </div>
@@ -479,13 +479,13 @@ const CarDetailsPage = ({ slug: initialSlug, car: carProp }: CarDetailsPageProps
 
           {/* Right Column - Booking Card (Sticky) */}
           <div className="lg:col-span-1">
-            <div className="bg-white rounded-2xl p-6 shadow-lg sticky top-4">
+            <div className="bg-transparent rounded-2xl p-6 shadow-lg sticky top-4">
               <div className="mb-6">
                 <div className="flex items-baseline gap-2 mb-2">
-                  <span className="text-4xl font-bold text-gray-900">₺{parseInt(car.pricePerDay).toLocaleString('tr-TR')}</span>
-                  <span className="text-gray-600">/gün</span>
+                  <span className="text-4xl font-bold text-white">₺{parseInt(car.pricePerDay).toLocaleString('tr-TR')}</span>
+                  <span className="text-gray-300">/gün</span>
                 </div>
-                <div className="flex items-center gap-4 text-sm text-gray-600">
+                <div className="flex items-center gap-4 text-sm text-gray-300">
                   <span>Haftalık: ₺{parseInt(car.pricePerWeek).toLocaleString('tr-TR')}</span>
                   <span>Aylık: ₺{parseInt(car.pricePerMonth).toLocaleString('tr-TR')}</span>
                 </div>
@@ -500,7 +500,7 @@ const CarDetailsPage = ({ slug: initialSlug, car: carProp }: CarDetailsPageProps
 
               <div className="space-y-4 mb-6">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-gray-200 mb-2">
                     Teslim Alma Tarihi
                   </label>
                   <input
@@ -512,7 +512,7 @@ const CarDetailsPage = ({ slug: initialSlug, car: carProp }: CarDetailsPageProps
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-gray-200 mb-2">
                     İade Tarihi
                   </label>
                   <input
@@ -524,7 +524,7 @@ const CarDetailsPage = ({ slug: initialSlug, car: carProp }: CarDetailsPageProps
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-gray-200 mb-2">
                     Teslim Alma Noktası
                   </label>
                   <select
@@ -542,7 +542,7 @@ const CarDetailsPage = ({ slug: initialSlug, car: carProp }: CarDetailsPageProps
               </div>
 
               <div className="border-t border-gray-200 pt-4 mb-6">
-                <h3 className="font-semibold text-gray-900 mb-3">Ekstra Hizmetler</h3>
+                <h3 className="font-semibold text-white mb-3">Ekstra Hizmetler</h3>
                 <div className="space-y-2">
                   <label className="flex items-center gap-3 cursor-pointer">
                     <input
@@ -551,7 +551,7 @@ const CarDetailsPage = ({ slug: initialSlug, car: carProp }: CarDetailsPageProps
                       onChange={() => toggleAddon('gps')}
                       className="w-4 h-4 text-blue-600 rounded focus:ring-blue-500"
                     />
-                    <span className="text-sm text-gray-700">GPS Navigasyon (+₺50/gün)</span>
+                    <span className="text-sm text-gray-200">GPS Navigasyon (+₺50/gün)</span>
                   </label>
                   <label className="flex items-center gap-3 cursor-pointer">
                     <input
@@ -560,7 +560,7 @@ const CarDetailsPage = ({ slug: initialSlug, car: carProp }: CarDetailsPageProps
                       onChange={() => toggleAddon('insurance')}
                       className="w-4 h-4 text-blue-600 rounded focus:ring-blue-500"
                     />
-                    <span className="text-sm text-gray-700">Tam Sigorta (+₺100/gün)</span>
+                    <span className="text-sm text-gray-200">Tam Sigorta (+₺100/gün)</span>
                   </label>
                   <label className="flex items-center gap-3 cursor-pointer">
                     <input
@@ -569,26 +569,26 @@ const CarDetailsPage = ({ slug: initialSlug, car: carProp }: CarDetailsPageProps
                       onChange={() => toggleAddon('child-seat')}
                       className="w-4 h-4 text-blue-600 rounded focus:ring-blue-500"
                     />
-                    <span className="text-sm text-gray-700">Çocuk Koltuğu (+₺30/gün)</span>
+                    <span className="text-sm text-gray-200">Çocuk Koltuğu (+₺30/gün)</span>
                   </label>
                 </div>
               </div>
 
               {days > 0 && (
-                <div className="bg-gray-50 rounded-lg p-4 mb-6">
+                <div className="bg-white/5 rounded-lg p-4 mb-6">
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-sm text-gray-600">{days} gün</span>
-                    <span className="text-sm text-gray-900">₺{(parseInt(car.pricePerDay) * days).toLocaleString('tr-TR')}</span>
+                    <span className="text-sm text-gray-300">{days} gün</span>
+                    <span className="text-sm text-white">₺{(parseInt(car.pricePerDay) * days).toLocaleString('tr-TR')}</span>
                   </div>
                   {selectedAddons.length > 0 && (
                     <div className="flex items-center justify-between mb-2">
-                      <span className="text-sm text-gray-600">Ekstralar</span>
-                      <span className="text-sm text-gray-900">₺{(total - parseInt(car.pricePerDay) * days).toLocaleString('tr-TR')}</span>
+                      <span className="text-sm text-gray-300">Ekstralar</span>
+                      <span className="text-sm text-white">₺{(total - parseInt(car.pricePerDay) * days).toLocaleString('tr-TR')}</span>
                     </div>
                   )}
                   <div className="border-t border-gray-300 pt-2 mt-2">
                     <div className="flex items-center justify-between">
-                      <span className="font-semibold text-gray-900">Toplam</span>
+                      <span className="font-semibold text-white">Toplam</span>
                       <span className="text-xl font-bold text-blue-600">₺{total.toLocaleString('tr-TR')}</span>
                     </div>
                   </div>

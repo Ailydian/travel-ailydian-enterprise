@@ -70,10 +70,10 @@ const ExplorePage: NextPage = () => {
         {/* Main Categories */}
         <section className="max-w-7xl mx-auto px-4 py-16">
           <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-black text-gray-900 mb-4">
+            <h2 className="text-3xl sm:text-4xl font-black text-white mb-4">
               {t('explore.categories.title')}
             </h2>
-            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+            <p className="text-gray-300 text-lg max-w-2xl mx-auto">
               {t('explore.categories.subtitle')}
             </p>
           </div>
@@ -81,15 +81,15 @@ const ExplorePage: NextPage = () => {
         </section>
 
         {/* Trending Experiences */}
-        <section className="bg-white py-16">
+        <section className="bg-transparent py-16">
           <div className="max-w-7xl mx-auto px-4">
             <div className="flex items-center justify-between mb-8">
               <div>
                 <div className="flex items-center gap-3 mb-2">
                   <TrendingUp className="w-8 h-8 text-lydian-primary" />
-                  <h2 className="text-3xl font-black text-gray-900">{t('explore.trending')}</h2>
+                  <h2 className="text-3xl font-black text-white">{t('explore.trending')}</h2>
                 </div>
-                <p className="text-gray-600">{t('explore.trendingDescription')}</p>
+                <p className="text-gray-300">{t('explore.trendingDescription')}</p>
               </div>
             </div>
 
@@ -98,7 +98,7 @@ const ExplorePage: NextPage = () => {
                 <motion.div
                   key={tour.id}
                   whileHover={{ y: -4 }}
-                  className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all"
+                  className="bg-transparent rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all"
                 >
                   <div className="relative h-56">
                     <img src={tour.images[0]} alt={tour.name} className="w-full h-full object-cover" />
@@ -109,9 +109,9 @@ const ExplorePage: NextPage = () => {
                   </div>
                   <div className="p-4">
                     <h3 className="font-bold text-lg mb-2 line-clamp-2">{tour.name}</h3>
-                    <p className="text-sm text-gray-600 mb-3 line-clamp-2">{tour.description}</p>
+                    <p className="text-sm text-gray-300 mb-3 line-clamp-2">{tour.description}</p>
                     <div className="flex items-end justify-between">
-                      <div className="text-sm text-gray-600">{tour.duration}</div>
+                      <div className="text-sm text-gray-300">{tour.duration}</div>
                       <div className="text-right">
                         <span className="text-2xl font-black text-lydian-primary">
                           ₺{tour.pricing.travelLyDian}
@@ -181,7 +181,7 @@ const ExplorePage: NextPage = () => {
                 placeholder={t('explore.newsletter.placeholder')}
                 className="flex-1 px-4 py-3 rounded-lg focus:ring-2 focus:ring-white"
               />
-              <button className="px-6 py-3 bg-white text-lydian-primary rounded-lg font-bold hover:shadow-lg transition-all">
+              <button className="px-6 py-3 bg-transparent text-lydian-primary rounded-lg font-bold hover:shadow-lg transition-all">
                 {t('explore.newsletter.subscribe')}
               </button>
             </div>

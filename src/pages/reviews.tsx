@@ -127,7 +127,7 @@ export default function ReviewsPage() {
                 </div>
                 <div className="p-4">
                   <h3 className="font-semibold text-lg mb-2">{destination.name}</h3>
-                  <div className="flex items-center text-sm text-gray-600 mb-2">
+                  <div className="flex items-center text-sm text-gray-300 mb-2">
                     <MapPin className="h-4 w-4 mr-1" />
                     {destination.location}
                   </div>

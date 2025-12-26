@@ -188,10 +188,10 @@ export default function AdminLocations() {
   const getStatusColor = (status: string) => {
     switch (status) {
       case 'active': return 'bg-green-100 text-green-800';
-      case 'inactive': return 'bg-gray-100 text-gray-800';
+      case 'inactive': return 'bg-gray-100 text-gray-100';
       case 'pending': return 'bg-yellow-100 text-yellow-800';
       case 'blocked': return 'bg-red-100 text-red-800';
-      default: return 'bg-gray-100 text-gray-800';
+      default: return 'bg-gray-100 text-gray-100';
     }
   };
 
@@ -210,14 +210,14 @@ export default function AdminLocations() {
 
       <div className="min-h-screen bg-gray-50">
         {/* Header */}
-        <div className="bg-white shadow-sm border-b border-gray-200">
+        <div className="bg-transparent shadow-sm border-b border-gray-200">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex justify-between items-center h-16">
               <div className="flex items-center">
-                <Link href="/admin/dashboard" className="text-gray-600 hover:text-gray-900 mr-4">
+                <Link href="/admin/dashboard" className="text-gray-300 hover:text-white mr-4">
                   ← Dashboard
                 </Link>
-                <h1 className="text-xl font-semibold text-gray-900">
+                <h1 className="text-xl font-semibold text-white">
                   Locations Management
                 </h1>
               </div>
@@ -243,7 +243,7 @@ export default function AdminLocations() {
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           {/* Search and Filters */}
-          <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 mb-6">
+          <div className="bg-transparent rounded-lg shadow-sm border border-gray-200 p-6 mb-6">
             <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between space-y-4 lg:space-y-0">
               <div className="flex-1 max-w-lg">
                 <div className="relative">
@@ -279,35 +279,35 @@ export default function AdminLocations() {
                     </button>
                     
                     {showBulkActions && (
-                      <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 z-10">
+                      <div className="absolute right-0 mt-2 w-48 bg-transparent rounded-lg shadow-lg border border-gray-200 z-10">
                         <div className="py-1">
                           <button
                             onClick={() => handleBulkAction('activate')}
-                            className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                            className="w-full text-left px-4 py-2 text-sm text-gray-200 hover:bg-gray-100"
                           >
                             Activate
                           </button>
                           <button
                             onClick={() => handleBulkAction('deactivate')}
-                            className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                            className="w-full text-left px-4 py-2 text-sm text-gray-200 hover:bg-gray-100"
                           >
                             Deactivate
                           </button>
                           <button
                             onClick={() => handleBulkAction('verify')}
-                            className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                            className="w-full text-left px-4 py-2 text-sm text-gray-200 hover:bg-gray-100"
                           >
                             Verify
                           </button>
                           <button
                             onClick={() => handleBulkAction('sync-google')}
-                            className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                            className="w-full text-left px-4 py-2 text-sm text-gray-200 hover:bg-gray-100"
                           >
                             Sync Google
                           </button>
                           <button
                             onClick={() => handleBulkAction('sync-tripadvisor')}
-                            className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                            className="w-full text-left px-4 py-2 text-sm text-gray-200 hover:bg-gray-100"
                           >
                             Sync TripAdvisor
                           </button>
@@ -331,7 +331,7 @@ export default function AdminLocations() {
               <div className="mt-6 pt-6 border-t border-gray-200">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Status</label>
+                    <label className="block text-sm font-medium text-gray-200 mb-1">Status</label>
                     <select
                       value={filters.status}
                       onChange={(e) => handleFilterChange('status', e.target.value)}
@@ -346,7 +346,7 @@ export default function AdminLocations() {
                   </div>
                   
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Verified</label>
+                    <label className="block text-sm font-medium text-gray-200 mb-1">Verified</label>
                     <select
                       value={filters.verified}
                       onChange={(e) => handleFilterChange('verified', e.target.value)}
@@ -359,7 +359,7 @@ export default function AdminLocations() {
                   </div>
                   
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Claimed</label>
+                    <label className="block text-sm font-medium text-gray-200 mb-1">Claimed</label>
                     <select
                       value={filters.claimed}
                       onChange={(e) => handleFilterChange('claimed', e.target.value)}
@@ -372,7 +372,7 @@ export default function AdminLocations() {
                   </div>
                   
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Min Rating</label>
+                    <label className="block text-sm font-medium text-gray-200 mb-1">Min Rating</label>
                     <select
                       value={filters.minRating}
                       onChange={(e) => handleFilterChange('minRating', e.target.value)}
@@ -391,11 +391,11 @@ export default function AdminLocations() {
           </div>
 
           {/* Locations Table */}
-          <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
+          <div className="bg-transparent rounded-lg shadow-sm border border-gray-200 overflow-hidden">
             {isLoading ? (
               <div className="flex items-center justify-center h-64">
                 <div className="w-8 h-8 border-2 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
-                <span className="ml-3 text-gray-600">Loading locations...</span>
+                <span className="ml-3 text-gray-300">Loading locations...</span>
               </div>
             ) : error ? (
               <div className="flex items-center justify-center h-64">
@@ -413,7 +413,7 @@ export default function AdminLocations() {
               <>
                 <div className="overflow-x-auto">
                   <table className="w-full">
-                    <thead className="bg-gray-50 border-b border-gray-200">
+                    <thead className="bg-white/5 border-b border-gray-200">
                       <tr>
                         <th className="w-12 px-4 py-3">
                           <input
@@ -423,46 +423,46 @@ export default function AdminLocations() {
                             className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
                           />
                         </th>
-                        <th className="text-left px-4 py-3 font-medium text-gray-700">
+                        <th className="text-left px-4 py-3 font-medium text-gray-200">
                           <button
                             onClick={() => handleSort('name')}
-                            className="flex items-center space-x-1 hover:text-gray-900"
+                            className="flex items-center space-x-1 hover:text-white"
                           >
                             <span>Name</span>
                             <ArrowUpDown className="w-3 h-3" />
                           </button>
                         </th>
-                        <th className="text-left px-4 py-3 font-medium text-gray-700">Location</th>
-                        <th className="text-left px-4 py-3 font-medium text-gray-700">
+                        <th className="text-left px-4 py-3 font-medium text-gray-200">Location</th>
+                        <th className="text-left px-4 py-3 font-medium text-gray-200">
                           <button
                             onClick={() => handleSort('status')}
-                            className="flex items-center space-x-1 hover:text-gray-900"
+                            className="flex items-center space-x-1 hover:text-white"
                           >
                             <span>Status</span>
                             <ArrowUpDown className="w-3 h-3" />
                           </button>
                         </th>
-                        <th className="text-left px-4 py-3 font-medium text-gray-700">
+                        <th className="text-left px-4 py-3 font-medium text-gray-200">
                           <button
                             onClick={() => handleSort('averageRating')}
-                            className="flex items-center space-x-1 hover:text-gray-900"
+                            className="flex items-center space-x-1 hover:text-white"
                           >
                             <span>Rating</span>
                             <ArrowUpDown className="w-3 h-3" />
                           </button>
                         </th>
-                        <th className="text-left px-4 py-3 font-medium text-gray-700">Stats</th>
-                        <th className="text-left px-4 py-3 font-medium text-gray-700">External</th>
-                        <th className="text-left px-4 py-3 font-medium text-gray-700">
+                        <th className="text-left px-4 py-3 font-medium text-gray-200">Stats</th>
+                        <th className="text-left px-4 py-3 font-medium text-gray-200">External</th>
+                        <th className="text-left px-4 py-3 font-medium text-gray-200">
                           <button
                             onClick={() => handleSort('updatedAt')}
-                            className="flex items-center space-x-1 hover:text-gray-900"
+                            className="flex items-center space-x-1 hover:text-white"
                           >
                             <span>Updated</span>
                             <ArrowUpDown className="w-3 h-3" />
                           </button>
                         </th>
-                        <th className="text-center px-4 py-3 font-medium text-gray-700">Actions</th>
+                        <th className="text-center px-4 py-3 font-medium text-gray-200">Actions</th>
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-gray-200">
@@ -480,7 +480,7 @@ export default function AdminLocations() {
                             <div className="flex items-center">
                               <div>
                                 <div className="flex items-center space-x-2">
-                                  <span className="font-medium text-gray-900">{location.name}</span>
+                                  <span className="font-medium text-white">{location.name}</span>
                                   {location.verified && (
                                     <CheckCircle className="w-4 h-4 text-green-500" />
                                   )}
@@ -494,7 +494,7 @@ export default function AdminLocations() {
                           </td>
                           <td className="px-4 py-3">
                             <div className="text-sm">
-                              <div className="text-gray-900">{location.city}</div>
+                              <div className="text-white">{location.city}</div>
                               <div className="text-gray-500">{location.country}</div>
                             </div>
                           </td>
@@ -511,7 +511,7 @@ export default function AdminLocations() {
                             </div>
                           </td>
                           <td className="px-4 py-3">
-                            <div className="text-xs text-gray-600">
+                            <div className="text-xs text-gray-300">
                               <div>{formatNumber(location.totalViews)} views</div>
                               <div>{location.totalPhotos} photos</div>
                             </div>
@@ -569,30 +569,30 @@ export default function AdminLocations() {
 
                 {/* Pagination */}
                 {pagination.pages > 1 && (
-                  <div className="bg-gray-50 px-4 py-3 border-t border-gray-200 sm:px-6">
+                  <div className="bg-white/5 px-4 py-3 border-t border-gray-200 sm:px-6">
                     <div className="flex items-center justify-between">
                       <div className="flex justify-between items-center sm:hidden">
                         <button
                           onClick={() => setPagination(prev => ({ ...prev, page: Math.max(1, prev.page - 1) }))}
                           disabled={pagination.page === 1}
-                          className="relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 disabled:bg-gray-100 disabled:text-gray-400"
+                          className="relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-200 bg-transparent hover:bg-gray-50 disabled:bg-gray-100 disabled:text-gray-400"
                         >
                           Previous
                         </button>
-                        <span className="text-sm text-gray-700">
+                        <span className="text-sm text-gray-200">
                           Page {pagination.page} of {pagination.pages}
                         </span>
                         <button
                           onClick={() => setPagination(prev => ({ ...prev, page: Math.min(prev.pages, prev.page + 1) }))}
                           disabled={pagination.page === pagination.pages}
-                          className="ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 disabled:bg-gray-100 disabled:text-gray-400"
+                          className="ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-200 bg-transparent hover:bg-gray-50 disabled:bg-gray-100 disabled:text-gray-400"
                         >
                           Next
                         </button>
                       </div>
                       <div className="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
                         <div>
-                          <p className="text-sm text-gray-700">
+                          <p className="text-sm text-gray-200">
                             Showing{' '}
                             <span className="font-medium">{(pagination.page - 1) * pagination.limit + 1}</span>
                             {' '} to{' '}
@@ -609,7 +609,7 @@ export default function AdminLocations() {
                             <button
                               onClick={() => setPagination(prev => ({ ...prev, page: Math.max(1, prev.page - 1) }))}
                               disabled={pagination.page === 1}
-                              className="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 disabled:bg-gray-100 disabled:text-gray-400"
+                              className="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-transparent text-sm font-medium text-gray-500 hover:bg-gray-50 disabled:bg-gray-100 disabled:text-gray-400"
                             >
                               Previous
                             </button>
@@ -644,7 +644,7 @@ export default function AdminLocations() {
                             <button
                               onClick={() => setPagination(prev => ({ ...prev, page: Math.min(prev.pages, prev.page + 1) }))}
                               disabled={pagination.page === pagination.pages}
-                              className="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 disabled:bg-gray-100 disabled:text-gray-400"
+                              className="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-transparent text-sm font-medium text-gray-500 hover:bg-gray-50 disabled:bg-gray-100 disabled:text-gray-400"
                             >
                               Next
                             </button>

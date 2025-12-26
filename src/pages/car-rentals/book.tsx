@@ -412,7 +412,7 @@ const CarRentalBookingPage: React.FC = () => {
         <div className="min-h-screen bg-gradient-to-br from-blue-50 to-cyan-50 flex items-center justify-center">
           <div className="text-center">
             <div className="w-16 h-16 border-4 border-blue-600 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-            <p className="text-gray-600">Rezervasyon sayfası hazırlanıyor...</p>
+            <p className="text-gray-300">Rezervasyon sayfası hazırlanıyor...</p>
           </div>
         </div>
       </>
@@ -441,7 +441,7 @@ const CarRentalBookingPage: React.FC = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="bg-white rounded-2xl shadow-sm p-6 mb-8"
+            className="bg-transparent rounded-2xl shadow-sm p-6 mb-8"
           >
             <div className="flex items-center justify-between">
               {steps.map((step, index) => (
@@ -489,20 +489,20 @@ const CarRentalBookingPage: React.FC = () => {
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: -20 }}
-                    className="bg-white rounded-2xl shadow-sm p-6"
+                    className="bg-transparent rounded-2xl shadow-sm p-6"
                   >
-                    <h2 className="text-2xl font-bold text-gray-900 mb-6">Kiralama Detayları</h2>
+                    <h2 className="text-2xl font-bold text-white mb-6">Kiralama Detayları</h2>
 
                     <div className="space-y-6">
                       {/* Pickup Details */}
                       <div className="border border-gray-200 rounded-xl p-6">
-                        <h3 className="font-semibold text-lg text-gray-900 mb-4 flex items-center gap-2">
+                        <h3 className="font-semibold text-lg text-white mb-4 flex items-center gap-2">
                           <MapPin className="w-5 h-5 text-green-600" />
                           Teslim Alma
                         </h3>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                           <div className="md:col-span-2">
-                            <label className="block text-sm font-medium text-gray-700 mb-2">Lokasyon *</label>
+                            <label className="block text-sm font-medium text-gray-200 mb-2">Lokasyon *</label>
                             <select
                               value={bookingData.pickupLocation}
                               onChange={(e) => setBookingData({ ...bookingData, pickupLocation: e.target.value })}
@@ -516,7 +516,7 @@ const CarRentalBookingPage: React.FC = () => {
                             </select>
                           </div>
                           <div>
-                            <label className="block text-sm font-medium text-gray-700 mb-2">Tarih *</label>
+                            <label className="block text-sm font-medium text-gray-200 mb-2">Tarih *</label>
                             <input
                               type="date"
                               value={bookingData.pickupDate}
@@ -527,7 +527,7 @@ const CarRentalBookingPage: React.FC = () => {
                             />
                           </div>
                           <div>
-                            <label className="block text-sm font-medium text-gray-700 mb-2">Saat *</label>
+                            <label className="block text-sm font-medium text-gray-200 mb-2">Saat *</label>
                             <select
                               value={bookingData.pickupTime}
                               onChange={(e) => setBookingData({ ...bookingData, pickupTime: e.target.value })}
@@ -545,13 +545,13 @@ const CarRentalBookingPage: React.FC = () => {
 
                       {/* Return Details */}
                       <div className="border border-gray-200 rounded-xl p-6">
-                        <h3 className="font-semibold text-lg text-gray-900 mb-4 flex items-center gap-2">
+                        <h3 className="font-semibold text-lg text-white mb-4 flex items-center gap-2">
                           <MapPin className="w-5 h-5 text-red-600" />
                           İade
                         </h3>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                           <div className="md:col-span-2">
-                            <label className="block text-sm font-medium text-gray-700 mb-2">Lokasyon *</label>
+                            <label className="block text-sm font-medium text-gray-200 mb-2">Lokasyon *</label>
                             <select
                               value={bookingData.returnLocation}
                               onChange={(e) => setBookingData({ ...bookingData, returnLocation: e.target.value })}
@@ -565,7 +565,7 @@ const CarRentalBookingPage: React.FC = () => {
                             </select>
                           </div>
                           <div>
-                            <label className="block text-sm font-medium text-gray-700 mb-2">Tarih *</label>
+                            <label className="block text-sm font-medium text-gray-200 mb-2">Tarih *</label>
                             <input
                               type="date"
                               value={bookingData.returnDate}
@@ -579,7 +579,7 @@ const CarRentalBookingPage: React.FC = () => {
                             )}
                           </div>
                           <div>
-                            <label className="block text-sm font-medium text-gray-700 mb-2">Saat *</label>
+                            <label className="block text-sm font-medium text-gray-200 mb-2">Saat *</label>
                             <select
                               value={bookingData.returnTime}
                               onChange={(e) => setBookingData({ ...bookingData, returnTime: e.target.value })}
@@ -617,8 +617,8 @@ const CarRentalBookingPage: React.FC = () => {
                     className="space-y-6"
                   >
                     {/* Insurance Options */}
-                    <div className="bg-white rounded-2xl shadow-sm p-6">
-                      <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+                    <div className="bg-transparent rounded-2xl shadow-sm p-6">
+                      <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-2">
                         <Shield className="w-6 h-6 text-blue-600" />
                         Sigorta Seçenekleri
                       </h2>
@@ -641,8 +641,8 @@ const CarRentalBookingPage: React.FC = () => {
                               </div>
                             )}
                             <div className="mb-4">
-                              <h3 className="font-bold text-lg text-gray-900">{option.name}</h3>
-                              <p className="text-sm text-gray-600 mb-2">{option.description}</p>
+                              <h3 className="font-bold text-lg text-white">{option.name}</h3>
+                              <p className="text-sm text-gray-300 mb-2">{option.description}</p>
                               <p className="text-2xl font-bold text-blue-600">
                                 {option.price === 0 ? 'Ücretsiz' : `₺${option.price}/gün`}
                               </p>
@@ -651,7 +651,7 @@ const CarRentalBookingPage: React.FC = () => {
                               {option.features.map((feature, idx) => (
                                 <li key={idx} className="flex items-start gap-2 text-sm">
                                   <Check className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />
-                                  <span className="text-gray-700">{feature}</span>
+                                  <span className="text-gray-200">{feature}</span>
                                 </li>
                               ))}
                             </ul>
@@ -666,8 +666,8 @@ const CarRentalBookingPage: React.FC = () => {
                     </div>
 
                     {/* Extra Options */}
-                    <div className="bg-white rounded-2xl shadow-sm p-6">
-                      <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+                    <div className="bg-transparent rounded-2xl shadow-sm p-6">
+                      <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-2">
                         <Sparkles className="w-6 h-6 text-purple-600" />
                         Ekstra Hizmetler
                       </h2>
@@ -688,13 +688,13 @@ const CarRentalBookingPage: React.FC = () => {
                             >
                               <div className="flex items-start gap-4">
                                 <div className={`w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 ${
-                                  isSelected ? 'bg-purple-600 text-white' : 'bg-gray-100 text-gray-600'
+                                  isSelected ? 'bg-purple-600 text-white' : 'bg-gray-100 text-gray-300'
                                 }`}>
                                   <extra.icon className="w-6 h-6" />
                                 </div>
                                 <div className="flex-1">
-                                  <h3 className="font-semibold text-gray-900 mb-1">{extra.name}</h3>
-                                  <p className="text-sm text-gray-600 mb-2">{extra.description}</p>
+                                  <h3 className="font-semibold text-white mb-1">{extra.name}</h3>
+                                  <p className="text-sm text-gray-300 mb-2">{extra.description}</p>
                                   <p className="font-bold text-purple-600">₺{extra.price}/gün</p>
                                 </div>
                                 <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center flex-shrink-0 ${
@@ -718,12 +718,12 @@ const CarRentalBookingPage: React.FC = () => {
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: -20 }}
-                    className="bg-white rounded-2xl shadow-sm p-6"
+                    className="bg-transparent rounded-2xl shadow-sm p-6"
                   >
-                    <h2 className="text-2xl font-bold text-gray-900 mb-6">Sürücü Bilgileri</h2>
+                    <h2 className="text-2xl font-bold text-white mb-6">Sürücü Bilgileri</h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">Ad Soyad *</label>
+                        <label className="block text-sm font-medium text-gray-200 mb-2">Ad Soyad *</label>
                         <input
                           type="text"
                           value={bookingData.driver.name}
@@ -740,7 +740,7 @@ const CarRentalBookingPage: React.FC = () => {
                       </div>
 
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">E-posta *</label>
+                        <label className="block text-sm font-medium text-gray-200 mb-2">E-posta *</label>
                         <input
                           type="email"
                           value={bookingData.driver.email}
@@ -757,7 +757,7 @@ const CarRentalBookingPage: React.FC = () => {
                       </div>
 
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">Telefon *</label>
+                        <label className="block text-sm font-medium text-gray-200 mb-2">Telefon *</label>
                         <input
                           type="tel"
                           value={bookingData.driver.phone}
@@ -774,7 +774,7 @@ const CarRentalBookingPage: React.FC = () => {
                       </div>
 
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">Yaş *</label>
+                        <label className="block text-sm font-medium text-gray-200 mb-2">Yaş *</label>
                         <input
                           type="number"
                           value={bookingData.driver.age || ''}
@@ -792,7 +792,7 @@ const CarRentalBookingPage: React.FC = () => {
                       </div>
 
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">Ehliyet Numarası *</label>
+                        <label className="block text-sm font-medium text-gray-200 mb-2">Ehliyet Numarası *</label>
                         <input
                           type="text"
                           value={bookingData.driver.licenseNumber}
@@ -809,7 +809,7 @@ const CarRentalBookingPage: React.FC = () => {
                       </div>
 
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">Ehliyet Bitiş Tarihi *</label>
+                        <label className="block text-sm font-medium text-gray-200 mb-2">Ehliyet Bitiş Tarihi *</label>
                         <input
                           type="date"
                           value={bookingData.driver.licenseExpiry}
@@ -832,7 +832,7 @@ const CarRentalBookingPage: React.FC = () => {
                             onChange={(e) => setTermsAccepted(e.target.checked)}
                             className="w-5 h-5 text-blue-600 rounded focus:ring-blue-500"
                           />
-                          <span className="text-sm text-gray-700">
+                          <span className="text-sm text-gray-200">
                             Kiralama şartlarını ve koşullarını okudum ve kabul ediyorum *
                           </span>
                         </label>
@@ -866,21 +866,21 @@ const CarRentalBookingPage: React.FC = () => {
                     className="space-y-6"
                   >
                     {/* Vehicle Summary */}
-                    <div className="bg-white rounded-2xl shadow-sm p-6">
-                      <h2 className="text-2xl font-bold text-gray-900 mb-6">Rezervasyon Özeti</h2>
-                      <div className="flex items-center gap-6 p-4 bg-gray-50 rounded-xl">
+                    <div className="bg-transparent rounded-2xl shadow-sm p-6">
+                      <h2 className="text-2xl font-bold text-white mb-6">Rezervasyon Özeti</h2>
+                      <div className="flex items-center gap-6 p-4 bg-white/5 rounded-xl">
                         <div className="w-32 h-24 bg-gradient-to-br from-gray-200 to-gray-300 rounded-lg flex items-center justify-center">
                           <Car className="w-16 h-16 text-gray-400" />
                         </div>
                         <div>
-                          <h3 className="font-bold text-xl text-gray-900">{bookingData.carName}</h3>
-                          <p className="text-gray-600">{bookingData.carCategory.replace(/_/g, ' ')}</p>
+                          <h3 className="font-bold text-xl text-white">{bookingData.carName}</h3>
+                          <p className="text-gray-300">{bookingData.carCategory.replace(/_/g, ' ')}</p>
                         </div>
                       </div>
                     </div>
 
                     {/* Rental Details Summary */}
-                    <div className="bg-white rounded-2xl shadow-sm p-6">
+                    <div className="bg-transparent rounded-2xl shadow-sm p-6">
                       <div className="flex items-center justify-between mb-4">
                         <h3 className="font-semibold text-lg">Kiralama Detayları</h3>
                         <button
@@ -892,16 +892,16 @@ const CarRentalBookingPage: React.FC = () => {
                       </div>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
-                          <p className="text-sm text-gray-600 mb-1">Teslim Alma</p>
-                          <p className="font-medium text-gray-900">{bookingData.pickupLocation}</p>
-                          <p className="text-sm text-gray-600">
+                          <p className="text-sm text-gray-300 mb-1">Teslim Alma</p>
+                          <p className="font-medium text-white">{bookingData.pickupLocation}</p>
+                          <p className="text-sm text-gray-300">
                             {bookingData.pickupDate} • {bookingData.pickupTime}
                           </p>
                         </div>
                         <div>
-                          <p className="text-sm text-gray-600 mb-1">İade</p>
-                          <p className="font-medium text-gray-900">{bookingData.returnLocation}</p>
-                          <p className="text-sm text-gray-600">
+                          <p className="text-sm text-gray-300 mb-1">İade</p>
+                          <p className="font-medium text-white">{bookingData.returnLocation}</p>
+                          <p className="text-sm text-gray-300">
                             {bookingData.returnDate} • {bookingData.returnTime}
                           </p>
                         </div>
@@ -909,7 +909,7 @@ const CarRentalBookingPage: React.FC = () => {
                     </div>
 
                     {/* Insurance & Extras Summary */}
-                    <div className="bg-white rounded-2xl shadow-sm p-6">
+                    <div className="bg-transparent rounded-2xl shadow-sm p-6">
                       <div className="flex items-center justify-between mb-4">
                         <h3 className="font-semibold text-lg">Sigorta & Ekstralar</h3>
                         <button
@@ -921,7 +921,7 @@ const CarRentalBookingPage: React.FC = () => {
                       </div>
                       <div className="space-y-3">
                         <div className="flex items-center justify-between">
-                          <span className="text-gray-700">
+                          <span className="text-gray-200">
                             {INSURANCE_OPTIONS.find(opt => opt.id === bookingData.insurance)?.name}
                           </span>
                           <span className="font-semibold">
@@ -933,7 +933,7 @@ const CarRentalBookingPage: React.FC = () => {
                             const extra = EXTRA_OPTIONS.find(opt => opt.id === extraId);
                             return extra ? (
                               <div key={extraId} className="flex items-center justify-between">
-                                <span className="text-gray-700">{extra.name}</span>
+                                <span className="text-gray-200">{extra.name}</span>
                                 <span className="font-semibold">₺{(extra.price * pricing.days).toLocaleString('tr-TR')}</span>
                               </div>
                             ) : null;
@@ -945,7 +945,7 @@ const CarRentalBookingPage: React.FC = () => {
                     </div>
 
                     {/* Driver Info Summary */}
-                    <div className="bg-white rounded-2xl shadow-sm p-6">
+                    <div className="bg-transparent rounded-2xl shadow-sm p-6">
                       <div className="flex items-center justify-between mb-4">
                         <h3 className="font-semibold text-lg">Sürücü Bilgileri</h3>
                         <button
@@ -957,20 +957,20 @@ const CarRentalBookingPage: React.FC = () => {
                       </div>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
-                          <p className="text-sm text-gray-600">Ad Soyad</p>
-                          <p className="font-medium text-gray-900">{bookingData.driver.name}</p>
+                          <p className="text-sm text-gray-300">Ad Soyad</p>
+                          <p className="font-medium text-white">{bookingData.driver.name}</p>
                         </div>
                         <div>
-                          <p className="text-sm text-gray-600">E-posta</p>
-                          <p className="font-medium text-gray-900">{bookingData.driver.email}</p>
+                          <p className="text-sm text-gray-300">E-posta</p>
+                          <p className="font-medium text-white">{bookingData.driver.email}</p>
                         </div>
                         <div>
-                          <p className="text-sm text-gray-600">Telefon</p>
-                          <p className="font-medium text-gray-900">{bookingData.driver.phone}</p>
+                          <p className="text-sm text-gray-300">Telefon</p>
+                          <p className="font-medium text-white">{bookingData.driver.phone}</p>
                         </div>
                         <div>
-                          <p className="text-sm text-gray-600">Yaş</p>
-                          <p className="font-medium text-gray-900">{bookingData.driver.age}</p>
+                          <p className="text-sm text-gray-300">Yaş</p>
+                          <p className="font-medium text-white">{bookingData.driver.age}</p>
                         </div>
                       </div>
                     </div>
@@ -983,14 +983,14 @@ const CarRentalBookingPage: React.FC = () => {
                 {currentStep > 1 ? (
                   <button
                     onClick={handleBack}
-                    className="flex items-center gap-2 px-6 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors"
+                    className="flex items-center gap-2 px-6 py-3 border border-gray-300 text-gray-200 rounded-lg hover:bg-gray-50 transition-colors"
                   >
                     <ChevronLeft className="w-5 h-5" />
                     Geri
                   </button>
                 ) : (
                   <Link href={`/car-rentals/${slug}`}>
-                    <button className="flex items-center gap-2 px-6 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors">
+                    <button className="flex items-center gap-2 px-6 py-3 border border-gray-300 text-gray-200 rounded-lg hover:bg-gray-50 transition-colors">
                       <ChevronLeft className="w-5 h-5" />
                       Araç Detayı
                     </button>
@@ -1020,37 +1020,37 @@ const CarRentalBookingPage: React.FC = () => {
 
             {/* Sidebar - Price Summary */}
             <div className="lg:col-span-1">
-              <div className="bg-white rounded-2xl shadow-lg p-6 sticky top-24">
-                <h3 className="font-bold text-lg text-gray-900 mb-6">Fiyat Özeti</h3>
+              <div className="bg-transparent rounded-2xl shadow-lg p-6 sticky top-24">
+                <h3 className="font-bold text-lg text-white mb-6">Fiyat Özeti</h3>
 
                 <div className="space-y-4 mb-6">
                   <div className="flex items-center justify-between text-sm">
-                    <span className="text-gray-600">Günlük kiralama ({pricing.days} gün)</span>
+                    <span className="text-gray-300">Günlük kiralama ({pricing.days} gün)</span>
                     <span className="font-semibold">₺{pricing.basePrice.toLocaleString('tr-TR')}</span>
                   </div>
 
                   {pricing.insurance > 0 && (
                     <div className="flex items-center justify-between text-sm">
-                      <span className="text-gray-600">Sigorta</span>
+                      <span className="text-gray-300">Sigorta</span>
                       <span className="font-semibold">₺{pricing.insurance.toLocaleString('tr-TR')}</span>
                     </div>
                   )}
 
                   {pricing.extras > 0 && (
                     <div className="flex items-center justify-between text-sm">
-                      <span className="text-gray-600">Ekstra hizmetler</span>
+                      <span className="text-gray-300">Ekstra hizmetler</span>
                       <span className="font-semibold">₺{pricing.extras.toLocaleString('tr-TR')}</span>
                     </div>
                   )}
 
                   <div className="flex items-center justify-between text-sm">
-                    <span className="text-gray-600">KDV (%18)</span>
+                    <span className="text-gray-300">KDV (%18)</span>
                     <span className="font-semibold">₺{pricing.tax.toLocaleString('tr-TR')}</span>
                   </div>
 
                   <div className="border-t border-gray-200 pt-4">
                     <div className="flex items-center justify-between">
-                      <span className="font-bold text-lg text-gray-900">Toplam</span>
+                      <span className="font-bold text-lg text-white">Toplam</span>
                       <span className="text-2xl font-bold text-blue-600">
                         ₺{pricing.total.toLocaleString('tr-TR')}
                       </span>
@@ -1061,15 +1061,15 @@ const CarRentalBookingPage: React.FC = () => {
                 <div className="space-y-3 mb-6 p-4 bg-gradient-to-br from-green-50 to-blue-50 rounded-xl">
                   <div className="flex items-center gap-2 text-sm">
                     <CheckCircle className="w-4 h-4 text-green-600" />
-                    <span className="text-gray-700">Ücretsiz iptal (24 saat öncesine kadar)</span>
+                    <span className="text-gray-200">Ücretsiz iptal (24 saat öncesine kadar)</span>
                   </div>
                   <div className="flex items-center gap-2 text-sm">
                     <CheckCircle className="w-4 h-4 text-green-600" />
-                    <span className="text-gray-700">Fiyat garantisi</span>
+                    <span className="text-gray-200">Fiyat garantisi</span>
                   </div>
                   <div className="flex items-center gap-2 text-sm">
                     <CheckCircle className="w-4 h-4 text-green-600" />
-                    <span className="text-gray-700">Anında onay</span>
+                    <span className="text-gray-200">Anında onay</span>
                   </div>
                 </div>
 

@@ -246,7 +246,7 @@ const HotelsNewPage: React.FC = () => {
 
       <Link
         href="/"
-        className="fixed top-24 left-6 z-50 flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200 text-gray-700 hover:bg-white hover:text-lydian-primary transition-all duration-200"
+        className="fixed top-24 left-6 z-50 flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200 text-gray-200 hover:bg-white hover:text-lydian-primary transition-all duration-200"
       >
         <ArrowLeft className="w-4 h-4" />
         <span className="font-medium">Ana Sayfaya Dön</span>
@@ -278,7 +278,7 @@ const HotelsNewPage: React.FC = () => {
                       value={destination}
                       onChange={(e) => setDestination(e.target.value)}
                       placeholder="Nereye gidiyorsunuz?"
-                      className="w-full pl-10 pr-4 py-3 rounded-xl text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-white/30"
+                      className="w-full pl-10 pr-4 py-3 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-white/30"
                     />
                   </div>
 
@@ -288,7 +288,7 @@ const HotelsNewPage: React.FC = () => {
                       type="date"
                       value={checkIn}
                       onChange={(e) => setCheckIn(e.target.value)}
-                      className="w-full pl-10 pr-4 py-3 rounded-xl text-gray-900 focus:outline-none focus:ring-2 focus:ring-white/30"
+                      className="w-full pl-10 pr-4 py-3 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-white/30"
                     />
                   </div>
 
@@ -298,7 +298,7 @@ const HotelsNewPage: React.FC = () => {
                       type="date"
                       value={checkOut}
                       onChange={(e) => setCheckOut(e.target.value)}
-                      className="w-full pl-10 pr-4 py-3 rounded-xl text-gray-900 focus:outline-none focus:ring-2 focus:ring-white/30"
+                      className="w-full pl-10 pr-4 py-3 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-white/30"
                     />
                   </div>
 
@@ -307,7 +307,7 @@ const HotelsNewPage: React.FC = () => {
                     <select
                       value={guests}
                       onChange={(e) => setGuests(Number(e.target.value))}
-                      className="w-full pl-10 pr-4 py-3 rounded-xl text-gray-900 focus:outline-none focus:ring-2 focus:ring-white/30"
+                      className="w-full pl-10 pr-4 py-3 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-white/30"
                     >
                       <option value={1}>1 Misafir</option>
                       <option value={2}>2 Misafir</option>
@@ -324,7 +324,7 @@ const HotelsNewPage: React.FC = () => {
                     whileTap={{ scale: 0.95 }}
                     onClick={searchHotels}
                     disabled={loading}
-                    className="flex items-center gap-2 px-8 py-3 bg-white text-lydian-primary rounded-xl font-medium hover:bg-gray-100 transition-colors disabled:opacity-50"
+                    className="flex items-center gap-2 px-8 py-3 bg-transparent text-lydian-primary rounded-xl font-medium hover:bg-gray-100 transition-colors disabled:opacity-50"
                   >
                     {loading ? <Loader2 className="w-5 h-5 animate-spin" /> : <Search className="w-5 h-5" />}
                     {loading ? 'Aranıyor...' : 'Otel Ara'}
@@ -336,10 +336,10 @@ const HotelsNewPage: React.FC = () => {
         </section>
 
         {/* Filter Section */}
-        <section className="bg-white border-b border-gray-200">
+        <section className="bg-transparent border-b border-gray-200">
           <div className="max-w-7xl mx-auto px-4 py-6">
             <div className="flex items-center justify-between mb-4">
-              <h2 className="text-2xl font-bold text-gray-900">
+              <h2 className="text-2xl font-bold text-white">
                 {filteredHotels.length} Otel Bulundu
               </h2>
               <div className="flex items-center gap-4">
@@ -385,7 +385,7 @@ const HotelsNewPage: React.FC = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: index * 0.1 }}
-                    className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group"
+                    className="bg-transparent rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group"
                   >
                     <div className="relative h-56 overflow-hidden">
                       <img
@@ -399,7 +399,7 @@ const HotelsNewPage: React.FC = () => {
                         </span>
                       </div>
                       <button className="absolute top-4 right-4 p-2 bg-white/80 hover:bg-white rounded-full">
-                        <Heart className="w-4 h-4 text-gray-600" />
+                        <Heart className="w-4 h-4 text-gray-300" />
                       </button>
                     </div>
 
@@ -409,8 +409,8 @@ const HotelsNewPage: React.FC = () => {
                         <span>{hotel.location}</span>
                       </div>
 
-                      <h3 className="font-bold text-xl text-gray-900 mb-2">{hotel.name}</h3>
-                      <p className="text-gray-600 text-sm mb-4 line-clamp-2">{hotel.description}</p>
+                      <h3 className="font-bold text-xl text-white mb-2">{hotel.name}</h3>
+                      <p className="text-gray-300 text-sm mb-4 line-clamp-2">{hotel.description}</p>
 
                       <div className="flex items-center gap-2 mb-4">
                         <Star className="w-4 h-4 text-yellow-500 fill-current" />
@@ -421,10 +421,10 @@ const HotelsNewPage: React.FC = () => {
                       <div className="space-y-3">
                         <div className="flex items-center justify-between">
                           <div>
-                            <div className="text-2xl font-bold text-gray-900">
+                            <div className="text-2xl font-bold text-white">
                               {hotel.price.toLocaleString('tr-TR')} {hotel.currency}
                             </div>
-                            <span className="text-sm text-gray-600">gecelik</span>
+                            <span className="text-sm text-gray-300">gecelik</span>
                           </div>
                         </div>
                         <div className="flex gap-2">
@@ -448,10 +448,10 @@ const HotelsNewPage: React.FC = () => {
             {!loading && filteredHotels.length === 0 && (
               <div className="text-center py-16">
                 <Building className="w-24 h-24 text-gray-300 mx-auto mb-6" />
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                <h2 className="text-2xl font-bold text-white mb-4">
                   Aradığınız kriterlerde otel bulunamadı
                 </h2>
-                <p className="text-gray-600 mb-8">
+                <p className="text-gray-300 mb-8">
                   Filtrelerinizi değiştirerek tekrar deneyin
                 </p>
               </div>
@@ -477,9 +477,9 @@ const HotelsNewPage: React.FC = () => {
                      }}>
                   <FileText className="w-6 h-6 text-blue-600" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900">Rezervasyon Koşulları</h3>
+                <h3 className="text-xl font-bold text-white">Rezervasyon Koşulları</h3>
               </div>
-              <ul className="space-y-2 text-sm text-gray-600">
+              <ul className="space-y-2 text-sm text-gray-300">
                 <li className="flex items-start gap-2">
                   <CheckCircle className="w-4 h-4 mt-0.5 text-green-500 flex-shrink-0" />
                   <span>Ücretsiz iptal: Check-in'den 48 saat öncesine kadar</span>
@@ -515,9 +515,9 @@ const HotelsNewPage: React.FC = () => {
                      }}>
                   <Shield className="w-6 h-6 text-green-600" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900">Ödeme & Güvenlik</h3>
+                <h3 className="text-xl font-bold text-white">Ödeme & Güvenlik</h3>
               </div>
-              <ul className="space-y-2 text-sm text-gray-600">
+              <ul className="space-y-2 text-sm text-gray-300">
                 <li className="flex items-start gap-2">
                   <CheckCircle className="w-4 h-4 mt-0.5 text-green-500 flex-shrink-0" />
                   <span>SSL sertifikalı güvenli ödeme altyapısı</span>
@@ -553,9 +553,9 @@ const HotelsNewPage: React.FC = () => {
                      }}>
                   <UserCheck className="w-6 h-6" style={{ color: '#FF214D' }} />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900">Destek & Yardım</h3>
+                <h3 className="text-xl font-bold text-white">Destek & Yardım</h3>
               </div>
-              <ul className="space-y-2 text-sm text-gray-600">
+              <ul className="space-y-2 text-sm text-gray-300">
                 <li className="flex items-start gap-2">
                   <CheckCircle className="w-4 h-4 mt-0.5 text-green-500 flex-shrink-0" />
                   <span>7/24 Türkçe canlı destek hizmeti</span>
@@ -582,8 +582,8 @@ const HotelsNewPage: React.FC = () => {
                  backgroundColor: 'rgba(249, 250, 251, 0.5)',
                  borderColor: '#E5E7EB'
                }}>
-            <p className="text-sm text-gray-600 text-center">
-              <strong className="font-bold text-gray-900">Önemli Bilgi:</strong> Travel LyDian,
+            <p className="text-sm text-gray-300 text-center">
+              <strong className="font-bold text-white">Önemli Bilgi:</strong> Travel LyDian,
               AI destekli blockchain tabanlı güvenli rezervasyon sistemi ile seyahatinizi güvence altına alır.
               Tüm rezervasyonlarınız anında onaylanır ve blockchain ağında kayıt altına alınır.
               Detaylı bilgi için{' '}

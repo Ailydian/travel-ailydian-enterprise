@@ -64,7 +64,7 @@ export default function ForgotPassword() {
           transition={{ duration: 0.5 }}
           className="w-full max-w-md"
         >
-          <div className="bg-white rounded-2xl shadow-2xl p-8">
+          <div className="bg-transparent rounded-2xl shadow-2xl p-8">
             {!isSubmitted ? (
               <>
                 {/* Header */}
@@ -72,10 +72,10 @@ export default function ForgotPassword() {
                   <div className="w-16 h-16 bg-gradient-to-r from-lydian-primary to-lydian-secondary rounded-full flex items-center justify-center mx-auto mb-4">
                     <Mail className="w-8 h-8 text-white" />
                   </div>
-                  <h1 className="text-3xl font-bold text-gray-900 mb-2">
+                  <h1 className="text-3xl font-bold text-white mb-2">
                     Şifremi Unuttum
                   </h1>
-                  <p className="text-gray-600">
+                  <p className="text-gray-300">
                     E-posta adresinize şifre sıfırlama linki göndereceğiz
                   </p>
                 </div>
@@ -96,7 +96,7 @@ export default function ForgotPassword() {
 
                   {/* Email Input */}
                   <div>
-                    <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label htmlFor="email" className="block text-sm font-semibold text-gray-200 mb-2">
                       E-posta Adresi
                     </label>
                     <div className="relative">
@@ -138,13 +138,13 @@ export default function ForgotPassword() {
 
                 {/* Footer */}
                 <div className="mt-6 text-center">
-                  <p className="text-sm text-gray-600">
+                  <p className="text-sm text-gray-300">
                     Şifrenizi hatırladınız mı?{' '}
                     <Link href="/auth/signin" className="text-lydian-primary font-semibold hover:underline">
                       Giriş Yap
                     </Link>
                   </p>
-                  <p className="text-sm text-gray-600 mt-2">
+                  <p className="text-sm text-gray-300 mt-2">
                     Hesabınız yok mu?{' '}
                     <Link href="/auth/signup" className="text-lydian-primary font-semibold hover:underline">
                       Kayıt Ol
@@ -164,10 +164,10 @@ export default function ForgotPassword() {
                   >
                     <CheckCircle className="w-12 h-12 text-green-600" />
                   </motion.div>
-                  <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                  <h2 className="text-2xl font-bold text-white mb-4">
                     E-posta Gönderildi!
                   </h2>
-                  <p className="text-gray-600 mb-6">
+                  <p className="text-gray-300 mb-6">
                     <strong>{email}</strong> adresine şifre sıfırlama linki gönderdik.
                     Lütfen e-postanızı kontrol edin ve linke tıklayarak yeni şifrenizi oluşturun.
                   </p>
@@ -186,7 +186,7 @@ export default function ForgotPassword() {
                     </button>
                     <Link
                       href="/auth/signin"
-                      className="w-full px-6 py-3 bg-gray-100 text-gray-700 rounded-lg font-semibold hover:bg-gray-200 transition-all text-center"
+                      className="w-full px-6 py-3 bg-gray-100 text-gray-200 rounded-lg font-semibold hover:bg-gray-200 transition-all text-center"
                     >
                       Giriş Sayfasına Dön
                     </Link>

@@ -109,14 +109,14 @@ const AITravelPlanner: React.FC = () => {
         {/* AI Planner Form */}
         <section className="py-16">
           <div className="max-w-4xl mx-auto px-4">
-            <div className="bg-white rounded-3xl shadow-2xl overflow-hidden">
+            <div className="bg-transparent rounded-3xl shadow-2xl overflow-hidden">
               {/* Progress Bar */}
-              <div className="bg-gray-50 px-8 py-6 border-b">
+              <div className="bg-white/5 px-8 py-6 border-b">
                 <div className="flex items-center justify-between mb-4">
-                  <h2 className="text-2xl font-bold text-gray-900">
+                  <h2 className="text-2xl font-bold text-white">
                     AI ile Kişisel Seyahat Planı Oluştur
                   </h2>
-                  <span className="text-sm text-gray-600">Adım {step}/4</span>
+                  <span className="text-sm text-gray-300">Adım {step}/4</span>
                 </div>
                 <div className="w-full bg-gray-200 rounded-full h-2">
                   <div 
@@ -137,12 +137,12 @@ const AITravelPlanner: React.FC = () => {
                     <div className="text-center mb-8">
                       <MapPin className="w-12 h-12 text-blue-600 mx-auto mb-4" />
                       <h3 className="text-2xl font-bold mb-2">Nereye gitmek istiyorsunuz?</h3>
-                      <p className="text-gray-600">Temel bilgileri verin, AI size en uygun planı oluştursun.</p>
+                      <p className="text-gray-300">Temel bilgileri verin, AI size en uygun planı oluştursun.</p>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                        <label className="block text-sm font-medium text-gray-200 mb-2">
                           Destinasyon
                         </label>
                         <input
@@ -155,7 +155,7 @@ const AITravelPlanner: React.FC = () => {
                       </div>
 
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                        <label className="block text-sm font-medium text-gray-200 mb-2">
                           Seyahat Süresi
                         </label>
                         <select
@@ -173,7 +173,7 @@ const AITravelPlanner: React.FC = () => {
                       </div>
 
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                        <label className="block text-sm font-medium text-gray-200 mb-2">
                           Kaç Kişi?
                         </label>
                         <div className="flex items-center gap-4">
@@ -194,7 +194,7 @@ const AITravelPlanner: React.FC = () => {
                       </div>
 
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                        <label className="block text-sm font-medium text-gray-200 mb-2">
                           Bütçe (Kişi başı)
                         </label>
                         <select
@@ -223,7 +223,7 @@ const AITravelPlanner: React.FC = () => {
                     <div className="text-center mb-8">
                       <Star className="w-12 h-12 text-purple-600 mx-auto mb-4" />
                       <h3 className="text-2xl font-bold mb-2">İlgi Alanlarınız</h3>
-                      <p className="text-gray-600">Hangi aktiviteler sizi heyecanlandırıyor?</p>
+                      <p className="text-gray-300">Hangi aktiviteler sizi heyecanlandırıyor?</p>
                     </div>
 
                     <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
@@ -234,7 +234,7 @@ const AITravelPlanner: React.FC = () => {
                           className={`p-4 rounded-xl border-2 transition-all text-sm font-medium ${
                             formData.interests.includes(interest)
                               ? 'border-purple-500 bg-purple-50 text-purple-700'
-                              : 'border-gray-200 hover:border-gray-300 text-gray-700'
+                              : 'border-gray-200 hover:border-gray-300 text-gray-200'
                           }`}
                         >
                           {interest}
@@ -254,7 +254,7 @@ const AITravelPlanner: React.FC = () => {
                     <div className="text-center mb-8">
                       <Wand2 className="w-12 h-12 text-indigo-600 mx-auto mb-4" />
                       <h3 className="text-2xl font-bold mb-2">Seyahat Tarzınız</h3>
-                      <p className="text-gray-600">Nasıl bir deneyim yaşamak istiyorsunuz?</p>
+                      <p className="text-gray-300">Nasıl bir deneyim yaşamak istiyorsunuz?</p>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -269,7 +269,7 @@ const AITravelPlanner: React.FC = () => {
                           }`}
                         >
                           <h4 className="font-bold text-lg mb-2">{style.name}</h4>
-                          <p className="text-gray-600">{style.desc}</p>
+                          <p className="text-gray-300">{style.desc}</p>
                         </button>
                       ))}
                     </div>
@@ -286,10 +286,10 @@ const AITravelPlanner: React.FC = () => {
                     <div className="text-center mb-8">
                       <Bot className="w-12 h-12 text-green-600 mx-auto mb-4" />
                       <h3 className="text-2xl font-bold mb-2">AI Planınız Hazırlanıyor</h3>
-                      <p className="text-gray-600">Son bir kontrol yapalım ve AI size mükemmel planı oluştursun!</p>
+                      <p className="text-gray-300">Son bir kontrol yapalım ve AI size mükemmel planı oluştursun!</p>
                     </div>
 
-                    <div className="bg-gray-50 rounded-2xl p-6">
+                    <div className="bg-white/5 rounded-2xl p-6">
                       <h4 className="font-bold mb-4">Plan Özeti:</h4>
                       <div className="grid grid-cols-2 gap-4 text-sm">
                         <div><strong>Destinasyon:</strong> {formData.destination}</div>
@@ -319,7 +319,7 @@ const AITravelPlanner: React.FC = () => {
                   <button
                     onClick={() => setStep(Math.max(1, step - 1))}
                     disabled={step === 1}
-                    className="px-6 py-3 border border-gray-300 rounded-xl text-gray-700 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="px-6 py-3 border border-gray-300 rounded-xl text-gray-200 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     Geri
                   </button>
@@ -341,8 +341,8 @@ const AITravelPlanner: React.FC = () => {
         <section className="py-16 bg-white">
           <div className="max-w-7xl mx-auto px-4">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">AI Planlama Avantajları</h2>
-              <p className="text-gray-600">Neden AI ile seyahat planlamak daha iyi?</p>
+              <h2 className="text-3xl font-bold text-white mb-4">AI Planlama Avantajları</h2>
+              <p className="text-gray-300">Neden AI ile seyahat planlamak daha iyi?</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -377,7 +377,7 @@ const AITravelPlanner: React.FC = () => {
                     <feature.icon className="w-8 h-8" />
                   </div>
                   <h3 className="font-bold text-xl mb-4">{feature.title}</h3>
-                  <p className="text-gray-600 leading-relaxed">{feature.description}</p>
+                  <p className="text-gray-300 leading-relaxed">{feature.description}</p>
                 </motion.div>
               ))}
             </div>

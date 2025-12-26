@@ -725,7 +725,7 @@ const HelpPage: React.FC = () => {
                 <input
                   type="text"
                   placeholder="Sorunuzu yazın... (örn: rezervasyon iptali, ödeme yöntemleri, transfer saatleri)"
-                  className="w-full pl-14 pr-4 py-5 rounded-2xl text-gray-900 text-lg focus:ring-4 focus:ring-white/50 focus:outline-none shadow-2xl"
+                  className="w-full pl-14 pr-4 py-5 rounded-2xl text-white text-lg focus:ring-4 focus:ring-white/50 focus:outline-none shadow-2xl"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                 />
@@ -734,7 +734,7 @@ const HelpPage: React.FC = () => {
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
                     onClick={() => setSearchQuery('')}
-                    className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                    className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-300"
                   >
                     <XCircle className="w-6 h-6" />
                   </motion.button>
@@ -775,15 +775,15 @@ const HelpPage: React.FC = () => {
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.1 * index }}
                 whileHover={{ y: -5, scale: 1.02 }}
-                className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all p-6 cursor-pointer"
+                className="group bg-transparent rounded-2xl shadow-lg hover:shadow-2xl transition-all p-6 cursor-pointer"
               >
                 <div className={`inline-flex p-3 rounded-xl bg-gradient-to-br ${topic.color} mb-4`}>
                   <topic.icon className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-lydian-primary transition-colors">
+                <h3 className="text-xl font-bold text-white mb-2 group-hover:text-lydian-primary transition-colors">
                   {topic.title}
                 </h3>
-                <p className="text-gray-600">
+                <p className="text-gray-300">
                   {topic.description}
                 </p>
               </motion.a>
@@ -799,7 +799,7 @@ const HelpPage: React.FC = () => {
             animate={{ y: 0, opacity: 1 }}
             className="mb-12"
           >
-            <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">
+            <h2 className="text-3xl font-bold text-white mb-6 text-center">
               Kategoriler
             </h2>
             <div className="flex flex-wrap gap-3 justify-center">
@@ -817,7 +817,7 @@ const HelpPage: React.FC = () => {
                       relative flex items-center gap-3 px-6 py-3 rounded-xl font-semibold transition-all
                       ${isActive
                         ? `bg-gradient-to-r ${category.color} text-white shadow-lg`
-                        : 'bg-white text-gray-700 hover:bg-gray-50 shadow-md hover:shadow-lg'
+                        : 'bg-white text-gray-200 hover:bg-gray-50 shadow-md hover:shadow-lg'
                       }
                     `}
                   >
@@ -841,7 +841,7 @@ const HelpPage: React.FC = () => {
             animate={{ y: 0, opacity: 1 }}
             className="mb-12"
           >
-            <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
+            <h2 className="text-3xl font-bold text-white mb-8 text-center">
               {searchQuery
                 ? `"${searchQuery}" için ${filteredFaqs.length} sonuç bulundu`
                 : selectedCategory === 'all'
@@ -859,7 +859,7 @@ const HelpPage: React.FC = () => {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -20 }}
                     transition={{ delay: index * 0.05 }}
-                    className="bg-white rounded-xl shadow-md hover:shadow-xl transition-all overflow-hidden"
+                    className="bg-transparent rounded-xl shadow-md hover:shadow-xl transition-all overflow-hidden"
                   >
                     <button
                       onClick={() => toggleFaq(faq.id)}
@@ -869,7 +869,7 @@ const HelpPage: React.FC = () => {
                         <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-br from-lydian-primary to-lydian-secondary flex items-center justify-center text-white font-bold text-sm">
                           {index + 1}
                         </div>
-                        <span className="text-lg font-semibold text-gray-900 group-hover:text-lydian-primary transition-colors">
+                        <span className="text-lg font-semibold text-white group-hover:text-lydian-primary transition-colors">
                           {faq.question}
                         </span>
                       </div>
@@ -891,8 +891,8 @@ const HelpPage: React.FC = () => {
                           className="overflow-hidden"
                         >
                           <div className="px-6 pb-6 pl-[72px]">
-                            <div className="bg-gray-50 rounded-lg p-4 border-l-4 border-lydian-primary">
-                              <p className="text-gray-700 leading-relaxed whitespace-pre-line">
+                            <div className="bg-white/5 rounded-lg p-4 border-l-4 border-lydian-primary">
+                              <p className="text-gray-200 leading-relaxed whitespace-pre-line">
                                 {faq.answer}
                               </p>
                             </div>
@@ -911,10 +911,10 @@ const HelpPage: React.FC = () => {
                   className="text-center py-16"
                 >
                   <AlertCircle className="w-20 h-20 text-gray-300 mx-auto mb-4" />
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                  <h3 className="text-2xl font-bold text-white mb-2">
                     Sonuç Bulunamadı
                   </h3>
-                  <p className="text-gray-600 mb-6">
+                  <p className="text-gray-300 mb-6">
                     Aradığınız soruyu bulamadık. Farklı kelimeler deneyin veya bizimle iletişime geçin.
                   </p>
                   <button
@@ -1026,39 +1026,39 @@ const HelpPage: React.FC = () => {
           <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
             <Link
               href="/cancellation-policy"
-              className="bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-all group"
+              className="bg-transparent rounded-xl p-6 shadow-md hover:shadow-xl transition-all group"
             >
               <FileText className="w-10 h-10 text-lydian-primary mb-3 group-hover:scale-110 transition-transform" />
-              <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-lydian-primary transition-colors">
+              <h3 className="text-xl font-bold text-white mb-2 group-hover:text-lydian-primary transition-colors">
                 İptal Politikası
               </h3>
-              <p className="text-gray-600">
+              <p className="text-gray-300">
                 Detaylı iptal ve iade koşulları
               </p>
             </Link>
 
             <Link
               href="/privacy"
-              className="bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-all group"
+              className="bg-transparent rounded-xl p-6 shadow-md hover:shadow-xl transition-all group"
             >
               <Shield className="w-10 h-10 text-lydian-primary mb-3 group-hover:scale-110 transition-transform" />
-              <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-lydian-primary transition-colors">
+              <h3 className="text-xl font-bold text-white mb-2 group-hover:text-lydian-primary transition-colors">
                 Gizlilik Politikası
               </h3>
-              <p className="text-gray-600">
+              <p className="text-gray-300">
                 Verilerinizin güvenliği ve KVKK
               </p>
             </Link>
 
             <Link
               href="/terms"
-              className="bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-all group"
+              className="bg-transparent rounded-xl p-6 shadow-md hover:shadow-xl transition-all group"
             >
               <FileText className="w-10 h-10 text-lydian-primary mb-3 group-hover:scale-110 transition-transform" />
-              <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-lydian-primary transition-colors">
+              <h3 className="text-xl font-bold text-white mb-2 group-hover:text-lydian-primary transition-colors">
                 Kullanım Koşulları
               </h3>
-              <p className="text-gray-600">
+              <p className="text-gray-300">
                 Hizmet şartları ve kullanıcı anlaşması
               </p>
             </Link>

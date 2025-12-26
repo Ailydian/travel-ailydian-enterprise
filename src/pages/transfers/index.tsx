@@ -349,9 +349,9 @@ const TransfersPage: React.FC = () => {
         </section>
 
         {/* Popüler Rotalar */}
-        <section className="bg-gray-50 py-12">
+        <section className="bg-white/5 py-12">
           <div className="max-w-7xl mx-auto px-4">
-            <h2 className="text-3xl font-bold text-gray-900 mb-8">Popüler Rotalar</h2>
+            <h2 className="text-3xl font-bold text-white mb-8">Popüler Rotalar</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {POPULAR_ROUTES.map((route) => (
                 <div
@@ -376,7 +376,7 @@ const TransfersPage: React.FC = () => {
                     </div>
                   </div>
 
-                  <div className="flex items-center justify-between text-sm text-gray-600 mb-4">
+                  <div className="flex items-center justify-between text-sm text-gray-300 mb-4">
                     <span>{route.distance}</span>
                     <span>•</span>
                     <span>{route.duration}</span>
@@ -387,7 +387,7 @@ const TransfersPage: React.FC = () => {
                   <div className="flex items-center justify-between pt-4 border-t border-gray-200">
                     <div>
                       <div className="text-sm text-gray-500">Başlangıç</div>
-                      <div className="text-2xl font-bold text-gray-900">₺{route.price}</div>
+                      <div className="text-2xl font-bold text-white">₺{route.price}</div>
                     </div>
                     <button className="px-4 py-2 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors">
                       Ara Bul
@@ -400,7 +400,7 @@ const TransfersPage: React.FC = () => {
         </section>
 
         {/* Filters Bar */}
-        <section className="bg-white border-b border-gray-200 sticky top-20 z-40 py-4">
+        <section className="bg-transparent border-b border-gray-200 sticky top-20 z-40 py-4">
           <div className="max-w-7xl mx-auto px-4">
             <button
               onClick={() => setShowFilters(!showFilters)}
@@ -413,13 +413,13 @@ const TransfersPage: React.FC = () => {
         </section>
 
         {/* Transfer Listings - Always show, not conditional */}
-        <section className="bg-white py-12">
+        <section className="bg-transparent py-12">
           <div className="max-w-7xl mx-auto px-4">
             <div className="mb-8">
-              <h2 className="text-3xl font-bold text-gray-900">
+              <h2 className="text-3xl font-bold text-white">
                 Mevcut Transferler ({filteredTransfers.length})
               </h2>
-              <p className="text-gray-600 mt-2">
+              <p className="text-gray-300 mt-2">
                 {filteredTransfers.length === allTransfers.length
                   ? 'Tüm transfer seçenekleri gösteriliyor'
                   : 'Filtrelenmiş transfer seçenekleri'}
@@ -432,7 +432,7 @@ const TransfersPage: React.FC = () => {
                   key={transfer.id}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-xl transition-all group"
+                  className="bg-transparent border border-gray-200 rounded-2xl overflow-hidden hover:shadow-xl transition-all group"
                 >
                   <div className="relative h-48 bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center">
                     <AnimatedCarSVG className="w-48 h-32" />
@@ -444,7 +444,7 @@ const TransfersPage: React.FC = () => {
                         className={`w-5 h-5 ${
                           favorites.has(transfer.id)
                             ? 'fill-red-500 text-red-500'
-                            : 'text-gray-600'
+                            : 'text-gray-300'
                         }`}
                       />
                     </button>
@@ -459,13 +459,13 @@ const TransfersPage: React.FC = () => {
                   <div className="p-5">
                     {/* Route Info */}
                     <div className="mb-3 pb-3 border-b border-gray-100">
-                      <div className="flex items-center gap-2 text-sm text-gray-600 mb-1">
+                      <div className="flex items-center gap-2 text-sm text-gray-300 mb-1">
                         <MapPin className="w-4 h-4 text-blue-600" />
                         <span className="font-medium">{transfer.transferData.from.tr}</span>
                       </div>
                       <div className="flex items-center gap-2 ml-6">
                         <ArrowRight className="w-4 h-4 text-gray-400" />
-                        <span className="text-sm text-gray-600">{transfer.transferData.to.tr}</span>
+                        <span className="text-sm text-gray-300">{transfer.transferData.to.tr}</span>
                       </div>
                       <div className="flex items-center gap-3 mt-2 text-xs text-gray-500 ml-6">
                         <span className="flex items-center gap-1">
@@ -479,17 +479,17 @@ const TransfersPage: React.FC = () => {
 
                     <div className="flex items-center justify-between mb-3">
                       <div>
-                        <h3 className="font-bold text-lg text-gray-900">{transfer.company}</h3>
-                        <p className="text-sm text-gray-600">{transfer.vehicle}</p>
+                        <h3 className="font-bold text-lg text-white">{transfer.company}</h3>
+                        <p className="text-sm text-gray-300">{transfer.vehicle}</p>
                       </div>
                       <div className="flex items-center gap-1">
                         <Star className="w-5 h-5 fill-yellow-400 text-yellow-400" />
-                        <span className="font-semibold text-gray-900">{transfer.rating}</span>
+                        <span className="font-semibold text-white">{transfer.rating}</span>
                         <span className="text-sm text-gray-500">({transfer.reviews})</span>
                       </div>
                     </div>
 
-                    <div className="flex items-center gap-4 text-sm text-gray-600 mb-4">
+                    <div className="flex items-center gap-4 text-sm text-gray-300 mb-4">
                       <div className="flex items-center gap-1">
                         <Users className="w-4 h-4" />
                         <span>{transfer.capacity} kişi</span>
@@ -504,7 +504,7 @@ const TransfersPage: React.FC = () => {
                       {transfer.features.slice(0, 3).map((feature, index) => (
                         <span
                           key={index}
-                          className="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded-full"
+                          className="px-2 py-1 bg-gray-100 text-gray-200 text-xs rounded-full"
                         >
                           {feature}
                         </span>
@@ -515,7 +515,7 @@ const TransfersPage: React.FC = () => {
                       <div className="flex items-center justify-between mb-3">
                         <div>
                           <div className="text-sm text-gray-500">Başlangıç</div>
-                          <div className="text-2xl font-bold text-gray-900">₺{transfer.price}</div>
+                          <div className="text-2xl font-bold text-white">₺{transfer.price}</div>
                         </div>
                         <div className="text-right">
                           <div className="text-xs text-gray-500">Zamanında Gelme</div>
@@ -663,7 +663,7 @@ const TransfersPage: React.FC = () => {
             >
               <Link
                 href="/transfer-owner/dashboard"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-white text-blue-600 rounded-xl font-bold text-lg hover:bg-gray-50 transition-all hover:scale-105 shadow-2xl group"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-transparent text-blue-600 rounded-xl font-bold text-lg hover:bg-gray-50 transition-all hover:scale-105 shadow-2xl group"
               >
                 <span>Partner Paneline Git</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -678,7 +678,7 @@ const TransfersPage: React.FC = () => {
 
               <Link
                 href="/transfer-owner/auth/register"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-yellow-400 to-orange-400 text-gray-900 rounded-xl font-bold text-lg hover:from-yellow-300 hover:to-orange-300 transition-all shadow-2xl"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-yellow-400 to-orange-400 text-white rounded-xl font-bold text-lg hover:from-yellow-300 hover:to-orange-300 transition-all shadow-2xl"
               >
                 Ücretsiz Kayıt Ol
               </Link>

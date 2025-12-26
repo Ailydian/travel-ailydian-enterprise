@@ -385,7 +385,7 @@ const RentalsPage: React.FC = () => {
                   <h1 className="text-2xl lg:text-3xl font-bold bg-gradient-to-r from-red-600 via-orange-500 to-red-700 bg-clip-text text-transparent">
                     Tatil Evleri & Villalar
                   </h1>
-                  <p className="text-sm text-gray-600 mt-1">
+                  <p className="text-sm text-gray-300 mt-1">
                     {filteredProperties.length} özellik bulundu
                   </p>
                 </div>
@@ -414,12 +414,12 @@ const RentalsPage: React.FC = () => {
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     placeholder="Lokasyon, özellik veya şehir ara..."
-                    className="w-full pl-12 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all"
+                    className="w-full pl-12 pr-4 py-3 bg-white/5 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all"
                   />
                   {searchQuery && (
                     <button
                       onClick={() => setSearchQuery('')}
-                      className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                      className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-300"
                     >
                       <XMarkIcon className="w-5 h-5" />
                     </button>
@@ -434,7 +434,7 @@ const RentalsPage: React.FC = () => {
                   className={`px-4 py-2 rounded-lg font-medium transition-all ${
                     viewMode === 'grid'
                       ? 'bg-white text-red-600 shadow-md'
-                      : 'text-gray-600 hover:text-gray-900'
+                      : 'text-gray-300 hover:text-white'
                   }`}
                 >
                   <ListBulletIcon className="w-5 h-5 inline mr-2" />
@@ -445,7 +445,7 @@ const RentalsPage: React.FC = () => {
                   className={`px-4 py-2 rounded-lg font-medium transition-all ${
                     viewMode === 'map'
                       ? 'bg-white text-red-600 shadow-md'
-                      : 'text-gray-600 hover:text-gray-900'
+                      : 'text-gray-300 hover:text-white'
                   }`}
                 >
                   <MapIcon className="w-5 h-5 inline mr-2" />
@@ -465,13 +465,13 @@ const RentalsPage: React.FC = () => {
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -20 }}
-                  className="lg:w-80 bg-white rounded-2xl shadow-lg p-6 h-fit sticky top-20 max-h-[calc(100vh-6rem)] overflow-y-auto"
+                  className="lg:w-80 bg-transparent rounded-2xl shadow-lg p-6 h-fit sticky top-20 max-h-[calc(100vh-6rem)] overflow-y-auto"
                 >
                   {/* Filter Header */}
                   <div className="flex items-center justify-between mb-6">
                     <div className="flex items-center gap-2">
                       <AdjustmentsHorizontalIcon className="w-6 h-6 text-red-600" />
-                      <h2 className="text-xl font-bold text-gray-900">Filtreler</h2>
+                      <h2 className="text-xl font-bold text-white">Filtreler</h2>
                       {activeFilterCount > 0 && (
                         <span className="bg-red-100 text-red-600 text-xs px-2 py-1 rounded-full font-semibold">
                           {activeFilterCount}
@@ -491,14 +491,14 @@ const RentalsPage: React.FC = () => {
                   <div className="space-y-6">
                     {/* City Filter */}
                     <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-3">
+                      <label className="block text-sm font-semibold text-gray-200 mb-3">
                         <MapPinIcon className="w-4 h-4 inline mr-2" />
                         Şehir
                       </label>
                       <select
                         value={filters.city}
                         onChange={(e) => setFilters({ ...filters, city: e.target.value })}
-                        className="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all"
+                        className="w-full px-4 py-2.5 bg-white/5 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all"
                       >
                         {CITIES.map((city) => (
                           <option key={city} value={city}>
@@ -510,7 +510,7 @@ const RentalsPage: React.FC = () => {
 
                     {/* Property Type */}
                     <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-3">
+                      <label className="block text-sm font-semibold text-gray-200 mb-3">
                         <HomeIcon className="w-4 h-4 inline mr-2" />
                         Özellik Tipi
                       </label>
@@ -522,7 +522,7 @@ const RentalsPage: React.FC = () => {
                             className={`px-3 py-2 rounded-lg text-sm font-medium transition-all ${
                               filters.propertyType === type.value
                                 ? 'bg-gradient-to-r from-red-600 to-orange-500 text-white shadow-md'
-                                : 'bg-gray-50 text-gray-700 hover:bg-gray-100'
+                                : 'bg-gray-50 text-gray-200 hover:bg-gray-100'
                             }`}
                           >
                             {type.label}
@@ -533,7 +533,7 @@ const RentalsPage: React.FC = () => {
 
                     {/* Price Range */}
                     <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-3">
+                      <label className="block text-sm font-semibold text-gray-200 mb-3">
                         <CurrencyDollarIcon className="w-4 h-4 inline mr-2" />
                         Fiyat Aralığı (TRY/gece)
                       </label>
@@ -546,7 +546,7 @@ const RentalsPage: React.FC = () => {
                               setFilters({ ...filters, priceMin: parseInt(e.target.value) || 0 })
                             }
                             placeholder="Min"
-                            className="w-full px-3 py-2 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
+                            className="w-full px-3 py-2 bg-white/5 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
                           />
                           <span className="text-gray-400">-</span>
                           <input
@@ -556,7 +556,7 @@ const RentalsPage: React.FC = () => {
                               setFilters({ ...filters, priceMax: parseInt(e.target.value) || 10000 })
                             }
                             placeholder="Max"
-                            className="w-full px-3 py-2 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
+                            className="w-full px-3 py-2 bg-white/5 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
                           />
                         </div>
                         <input
@@ -575,7 +575,7 @@ const RentalsPage: React.FC = () => {
 
                     {/* Guests */}
                     <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-3">
+                      <label className="block text-sm font-semibold text-gray-200 mb-3">
                         <UserGroupIcon className="w-4 h-4 inline mr-2" />
                         Misafir Sayısı
                       </label>
@@ -584,16 +584,16 @@ const RentalsPage: React.FC = () => {
                           onClick={() =>
                             setFilters({ ...filters, guests: Math.max(0, filters.guests - 1) })
                           }
-                          className="w-10 h-10 bg-gray-100 rounded-lg font-bold text-gray-700 hover:bg-gray-200 transition-all"
+                          className="w-10 h-10 bg-gray-100 rounded-lg font-bold text-gray-200 hover:bg-gray-200 transition-all"
                         >
                           -
                         </button>
-                        <div className="flex-1 text-center py-2 bg-gray-50 rounded-lg font-semibold">
+                        <div className="flex-1 text-center py-2 bg-white/5 rounded-lg font-semibold">
                           {filters.guests === 0 ? 'Tümü' : filters.guests}
                         </div>
                         <button
                           onClick={() => setFilters({ ...filters, guests: filters.guests + 1 })}
-                          className="w-10 h-10 bg-gray-100 rounded-lg font-bold text-gray-700 hover:bg-gray-200 transition-all"
+                          className="w-10 h-10 bg-gray-100 rounded-lg font-bold text-gray-200 hover:bg-gray-200 transition-all"
                         >
                           +
                         </button>
@@ -602,7 +602,7 @@ const RentalsPage: React.FC = () => {
 
                     {/* Bedrooms */}
                     <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-3">
+                      <label className="block text-sm font-semibold text-gray-200 mb-3">
                         Yatak Odası
                       </label>
                       <div className="flex items-center gap-3">
@@ -610,16 +610,16 @@ const RentalsPage: React.FC = () => {
                           onClick={() =>
                             setFilters({ ...filters, bedrooms: Math.max(0, filters.bedrooms - 1) })
                           }
-                          className="w-10 h-10 bg-gray-100 rounded-lg font-bold text-gray-700 hover:bg-gray-200 transition-all"
+                          className="w-10 h-10 bg-gray-100 rounded-lg font-bold text-gray-200 hover:bg-gray-200 transition-all"
                         >
                           -
                         </button>
-                        <div className="flex-1 text-center py-2 bg-gray-50 rounded-lg font-semibold">
+                        <div className="flex-1 text-center py-2 bg-white/5 rounded-lg font-semibold">
                           {filters.bedrooms === 0 ? 'Tümü' : filters.bedrooms}
                         </div>
                         <button
                           onClick={() => setFilters({ ...filters, bedrooms: filters.bedrooms + 1 })}
-                          className="w-10 h-10 bg-gray-100 rounded-lg font-bold text-gray-700 hover:bg-gray-200 transition-all"
+                          className="w-10 h-10 bg-gray-100 rounded-lg font-bold text-gray-200 hover:bg-gray-200 transition-all"
                         >
                           +
                         </button>
@@ -628,7 +628,7 @@ const RentalsPage: React.FC = () => {
 
                     {/* Amenities */}
                     <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-3">
+                      <label className="block text-sm font-semibold text-gray-200 mb-3">
                         <SparklesIcon className="w-4 h-4 inline mr-2" />
                         Olanaklar
                       </label>
@@ -656,7 +656,7 @@ const RentalsPage: React.FC = () => {
                               }}
                               className="w-4 h-4 text-red-600 rounded focus:ring-red-500"
                             />
-                            <span className="text-sm text-gray-700">{amenity.label}</span>
+                            <span className="text-sm text-gray-200">{amenity.label}</span>
                           </label>
                         ))}
                       </div>
@@ -664,7 +664,7 @@ const RentalsPage: React.FC = () => {
 
                     {/* Quick Filters */}
                     <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-3">
+                      <label className="block text-sm font-semibold text-gray-200 mb-3">
                         <FireIcon className="w-4 h-4 inline mr-2" />
                         Hızlı Filtreler
                       </label>
@@ -679,7 +679,7 @@ const RentalsPage: React.FC = () => {
                             className="w-4 h-4 text-red-600 rounded focus:ring-red-500"
                           />
                           <BoltIcon className="w-5 h-5 text-yellow-600" />
-                          <span className="text-sm font-medium text-gray-700">Anında Rezervasyon</span>
+                          <span className="text-sm font-medium text-gray-200">Anında Rezervasyon</span>
                         </label>
 
                         <label className="flex items-center gap-3 p-3 rounded-lg bg-gradient-to-r from-purple-50 to-pink-50 cursor-pointer transition-all hover:shadow-md">
@@ -690,14 +690,14 @@ const RentalsPage: React.FC = () => {
                             className="w-4 h-4 text-red-600 rounded focus:ring-red-500"
                           />
                           <CheckBadgeIcon className="w-5 h-5 text-purple-600" />
-                          <span className="text-sm font-medium text-gray-700">Superhost</span>
+                          <span className="text-sm font-medium text-gray-200">Superhost</span>
                         </label>
                       </div>
                     </div>
 
                     {/* Rating Filter */}
                     <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-3">
+                      <label className="block text-sm font-semibold text-gray-200 mb-3">
                         <StarIcon className="w-4 h-4 inline mr-2" />
                         Minimum Puan
                       </label>
@@ -709,7 +709,7 @@ const RentalsPage: React.FC = () => {
                             className={`flex-1 px-3 py-2 rounded-lg text-sm font-medium transition-all ${
                               filters.rating === rating
                                 ? 'bg-gradient-to-r from-red-600 to-orange-500 text-white shadow-md'
-                                : 'bg-gray-50 text-gray-700 hover:bg-gray-100'
+                                : 'bg-gray-50 text-gray-200 hover:bg-gray-100'
                             }`}
                           >
                             {rating === 0 ? 'Tümü' : `${rating}+`}
@@ -755,8 +755,8 @@ const RentalsPage: React.FC = () => {
                   <div className="w-24 h-24 mx-auto mb-6 bg-gradient-to-br from-red-100 to-orange-100 rounded-full flex items-center justify-center">
                     <HomeIcon className="w-12 h-12 text-red-600" />
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-3">Özellik Bulunamadı</h3>
-                  <p className="text-gray-600 mb-6">
+                  <h3 className="text-2xl font-bold text-white mb-3">Özellik Bulunamadı</h3>
+                  <p className="text-gray-300 mb-6">
                     Aradığınız kriterlere uygun özellik bulunamadı. Lütfen filtreleri değiştirin.
                   </p>
                   <button
@@ -916,9 +916,9 @@ const RentalsPage: React.FC = () => {
                      }}>
                   <CheckBadgeIcon className="w-6 h-6 text-blue-600" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900">Rezervasyon Koşulları</h3>
+                <h3 className="text-xl font-bold text-white">Rezervasyon Koşulları</h3>
               </div>
-              <ul className="space-y-2 text-sm text-gray-600">
+              <ul className="space-y-2 text-sm text-gray-300">
                 <li className="flex items-start gap-2">
                   <CheckBadgeIcon className="w-4 h-4 mt-0.5 text-green-500 flex-shrink-0" />
                   <span>Ücretsiz iptal: Check-in'den 48 saat öncesine kadar</span>
@@ -954,9 +954,9 @@ const RentalsPage: React.FC = () => {
                      }}>
                   <CheckBadgeIcon className="w-6 h-6 text-green-600" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900">Ödeme & Güvenlik</h3>
+                <h3 className="text-xl font-bold text-white">Ödeme & Güvenlik</h3>
               </div>
-              <ul className="space-y-2 text-sm text-gray-600">
+              <ul className="space-y-2 text-sm text-gray-300">
                 <li className="flex items-start gap-2">
                   <CheckBadgeIcon className="w-4 h-4 mt-0.5 text-green-500 flex-shrink-0" />
                   <span>SSL sertifikalı güvenli ödeme altyapısı</span>
@@ -992,9 +992,9 @@ const RentalsPage: React.FC = () => {
                      }}>
                   <UserGroupIcon className="w-6 h-6" style={{ color: '#FF214D' }} />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900">Destek & Yardım</h3>
+                <h3 className="text-xl font-bold text-white">Destek & Yardım</h3>
               </div>
-              <ul className="space-y-2 text-sm text-gray-600">
+              <ul className="space-y-2 text-sm text-gray-300">
                 <li className="flex items-start gap-2">
                   <CheckBadgeIcon className="w-4 h-4 mt-0.5 text-green-500 flex-shrink-0" />
                   <span>7/24 Türkçe canlı destek hizmeti</span>
@@ -1021,8 +1021,8 @@ const RentalsPage: React.FC = () => {
                  backgroundColor: 'rgba(249, 250, 251, 0.5)',
                  borderColor: '#E5E7EB'
                }}>
-            <p className="text-sm text-gray-600 text-center">
-              <strong className="font-bold text-gray-900">Önemli Bilgi:</strong> Travel LyDian,
+            <p className="text-sm text-gray-300 text-center">
+              <strong className="font-bold text-white">Önemli Bilgi:</strong> Travel LyDian,
               AI destekli blockchain tabanlı güvenli rezervasyon sistemi ile kiralık mülklerinizi güvence altına alır.
               Tüm rezervasyonlarınız anında onaylanır ve blockchain ağında kayıt altına alınır.
               Detaylı bilgi için{' '}
@@ -1062,7 +1062,7 @@ const PropertyCard: React.FC<PropertyCardProps> = ({
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: index * 0.05 }}
-      className="group bg-white rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 overflow-hidden"
+      className="group bg-transparent rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 overflow-hidden"
     >
       <Link href={`/rentals/${property.slug}`}>
         {/* Image */}
@@ -1104,7 +1104,7 @@ const PropertyCard: React.FC<PropertyCardProps> = ({
             {isFavorite ? (
               <HeartSolidIcon className="w-5 h-5 text-red-500" />
             ) : (
-              <HeartIcon className="w-5 h-5 text-gray-700" />
+              <HeartIcon className="w-5 h-5 text-gray-200" />
             )}
           </button>
 
@@ -1120,7 +1120,7 @@ const PropertyCard: React.FC<PropertyCardProps> = ({
         {/* Content */}
         <div className="p-5">
           {/* Location */}
-          <div className="flex items-center gap-2 text-sm text-gray-600 mb-2">
+          <div className="flex items-center gap-2 text-sm text-gray-300 mb-2">
             <MapPinIcon className="w-4 h-4" />
             <span>
               {property.district}, {property.city}
@@ -1128,12 +1128,12 @@ const PropertyCard: React.FC<PropertyCardProps> = ({
           </div>
 
           {/* Title */}
-          <h3 className="text-lg font-bold text-gray-900 mb-3 line-clamp-2 group-hover:text-red-600 transition-colors">
+          <h3 className="text-lg font-bold text-white mb-3 line-clamp-2 group-hover:text-red-600 transition-colors">
             {property.title}
           </h3>
 
           {/* Property Info */}
-          <div className="flex items-center gap-4 text-sm text-gray-600 mb-4">
+          <div className="flex items-center gap-4 text-sm text-gray-300 mb-4">
             <span>{property.guests} misafir</span>
             <span>•</span>
             <span>{property.bedrooms} yatak odası</span>
@@ -1164,7 +1164,7 @@ const PropertyCard: React.FC<PropertyCardProps> = ({
                 <StarSolidIcon className="w-4 h-4" />
                 <span className="font-bold text-sm">{property.overall.toFixed(1)}</span>
               </div>
-              <span className="text-sm text-gray-600">
+              <span className="text-sm text-gray-300">
                 ({property.reviewCount} değerlendirme)
               </span>
             </div>
@@ -1178,9 +1178,9 @@ const PropertyCard: React.FC<PropertyCardProps> = ({
                   {(property.basePrice + savings).toLocaleString('tr-TR')} ₺
                 </p>
               )}
-              <p className="text-2xl font-bold text-gray-900">
+              <p className="text-2xl font-bold text-white">
                 {property.basePrice.toLocaleString('tr-TR')} ₺
-                <span className="text-sm font-normal text-gray-600"> / gece</span>
+                <span className="text-sm font-normal text-gray-300"> / gece</span>
               </p>
             </div>
             <span className="text-xs text-gray-500 uppercase font-semibold">{property.type}</span>

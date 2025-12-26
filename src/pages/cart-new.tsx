@@ -149,7 +149,7 @@ const CartPage: React.FC = () => {
       {/* Back Button */}
       <Link 
         href="/" 
-        className="fixed top-24 left-6 z-40 flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200 text-gray-700 hover:bg-white hover:text-lydian-primary transition-all duration-200"
+        className="fixed top-24 left-6 z-40 flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200 text-gray-200 hover:bg-white hover:text-lydian-primary transition-all duration-200"
       >
         <ArrowLeft className="w-4 h-4" />
         <span className="font-medium">Ana Sayfaya Dön</span>
@@ -174,7 +174,7 @@ const CartPage: React.FC = () => {
                 {state.totalItems} ürün
               </div>
             </div>
-            <p className="text-gray-600 text-lg">Rezervasyonlarınızı gözden geçirin ve güvenli ödeme ile tamamlayın</p>
+            <p className="text-gray-300 text-lg">Rezervasyonlarınızı gözden geçirin ve güvenli ödeme ile tamamlayın</p>
           </motion.div>
 
           {/* Recently Removed Item Notification */}
@@ -184,13 +184,13 @@ const CartPage: React.FC = () => {
                 initial={{ opacity: 0, y: -50 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -50 }}
-                className="fixed top-32 right-6 z-50 bg-white rounded-2xl shadow-xl border border-gray-200 p-4 max-w-sm"
+                className="fixed top-32 right-6 z-50 bg-transparent rounded-2xl shadow-xl border border-gray-200 p-4 max-w-sm"
               >
                 <div className="flex items-center gap-3">
                   <AlertCircle className="w-5 h-5 text-orange-500" />
                   <div className="flex-1">
-                    <p className="font-medium text-gray-900">Ürün kaldırıldı</p>
-                    <p className="text-sm text-gray-600">{recentlyRemoved.title}</p>
+                    <p className="font-medium text-white">Ürün kaldırıldı</p>
+                    <p className="text-sm text-gray-300">{recentlyRemoved.title}</p>
                   </div>
                   <button
                     onClick={handleUndoRemove}
@@ -213,8 +213,8 @@ const CartPage: React.FC = () => {
               <div className="w-32 h-32 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-8">
                 <ShoppingCart className="w-16 h-16 text-gray-400" />
               </div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">Sepetiniz Boş</h2>
-              <p className="text-gray-600 text-lg mb-8 max-w-md mx-auto">
+              <h2 className="text-3xl font-bold text-white mb-4">Sepetiniz Boş</h2>
+              <p className="text-gray-300 text-lg mb-8 max-w-md mx-auto">
 Türkiye&apos;nin en güzel destinasyonlarını ve benzersiz deneyimlerini keşfetmek için alışverişe başlayın!
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -239,7 +239,7 @@ Türkiye&apos;nin en güzel destinasyonlarını ve benzersiz deneyimlerini keşf
               <div className="xl:col-span-2 space-y-6">
                 {/* Clear Cart Button */}
                 <div className="flex justify-between items-center">
-                  <h2 className="text-xl font-bold text-gray-900">Sepet Öğeleri ({state.totalItems})</h2>
+                  <h2 className="text-xl font-bold text-white">Sepet Öğeleri ({state.totalItems})</h2>
                   <button
                     onClick={handleClearCart}
                     className="flex items-center gap-2 px-4 py-2 text-red-600 hover:text-red-700 hover:bg-red-50 rounded-lg transition-colors"
@@ -255,7 +255,7 @@ Türkiye&apos;nin en güzel destinasyonlarını ve benzersiz deneyimlerini keşf
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: index * 0.1 }}
-                    className="bg-white rounded-3xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300"
+                    className="bg-transparent rounded-3xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300"
                   >
                     <div className="p-6">
                       <div className="flex gap-6">
@@ -281,8 +281,8 @@ Türkiye&apos;nin en güzel destinasyonlarını ve benzersiz deneyimlerini keşf
                         <div className="flex-1">
                           <div className="flex justify-between items-start mb-4">
                             <div className="flex-1">
-                              <h3 className="font-bold text-xl text-gray-900 mb-2 line-clamp-2">{item.title}</h3>
-                              <div className="flex flex-wrap items-center gap-4 text-sm text-gray-600 mb-3">
+                              <h3 className="font-bold text-xl text-white mb-2 line-clamp-2">{item.title}</h3>
+                              <div className="flex flex-wrap items-center gap-4 text-sm text-gray-300 mb-3">
                                 {item.location && (
                                   <div className="flex items-center gap-1">
                                     <MapPin className="w-4 h-4" />
@@ -303,7 +303,7 @@ Türkiye&apos;nin en güzel destinasyonlarını ve benzersiz deneyimlerini keşf
                                 )}
                               </div>
                               {item.description && (
-                                <p className="text-gray-600 text-sm line-clamp-2 mb-3">{item.description}</p>
+                                <p className="text-gray-300 text-sm line-clamp-2 mb-3">{item.description}</p>
                               )}
                             </div>
 
@@ -331,18 +331,18 @@ Türkiye&apos;nin en güzel destinasyonlarını ve benzersiz deneyimlerini keşf
                           <div className="flex items-center justify-between">
                             <div className="flex items-center gap-4">
                               {/* Quantity Controls */}
-                              <div className="flex items-center gap-3 bg-gray-50 rounded-2xl p-1">
+                              <div className="flex items-center gap-3 bg-white/5 rounded-2xl p-1">
                                 <button
                                   onClick={() => updateQuantity(item.id, item.quantity - 1)}
                                   disabled={item.quantity <= 1}
-                                  className="w-10 h-10 flex items-center justify-center rounded-xl bg-white shadow-sm disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50 transition-colors"
+                                  className="w-10 h-10 flex items-center justify-center rounded-xl bg-transparent shadow-sm disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50 transition-colors"
                                 >
                                   <Minus className="w-4 h-4" />
                                 </button>
                                 <span className="w-8 text-center font-semibold">{item.quantity}</span>
                                 <button
                                   onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                                  className="w-10 h-10 flex items-center justify-center rounded-xl bg-white shadow-sm hover:bg-gray-50 transition-colors"
+                                  className="w-10 h-10 flex items-center justify-center rounded-xl bg-transparent shadow-sm hover:bg-gray-50 transition-colors"
                                 >
                                   <Plus className="w-4 h-4" />
                                 </button>
@@ -386,10 +386,10 @@ Türkiye&apos;nin en güzel destinasyonlarını ve benzersiz deneyimlerini keşf
 
                     {/* Bottom Info */}
                     {(item.cancellationPolicy || item.bookingDetails) && (
-                      <div className="px-6 py-4 bg-gray-50 border-t border-gray-100">
+                      <div className="px-6 py-4 bg-white/5 border-t border-gray-100">
                         <div className="flex items-center justify-between text-sm">
                           {item.cancellationPolicy && (
-                            <div className="flex items-center gap-2 text-gray-600">
+                            <div className="flex items-center gap-2 text-gray-300">
                               <Info className="w-4 h-4" />
                               {item.cancellationPolicy}
                             </div>
@@ -411,18 +411,18 @@ Türkiye&apos;nin en güzel destinasyonlarını ve benzersiz deneyimlerini keşf
                 <motion.div
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
-                  className="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden sticky top-8"
+                  className="bg-transparent rounded-3xl shadow-xl border border-gray-100 overflow-hidden sticky top-8"
                 >
                   {/* Header */}
                   <div className="p-6 border-b border-gray-100">
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">Sipariş Özeti</h3>
-                    <p className="text-gray-600">Fiyat detayları ve ödeme bilgileri</p>
+                    <h3 className="text-xl font-bold text-white mb-2">Sipariş Özeti</h3>
+                    <p className="text-gray-300">Fiyat detayları ve ödeme bilgileri</p>
                   </div>
 
                   <div className="p-6 space-y-6">
                     {/* Discount Code */}
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-3">İndirim Kodu</label>
+                      <label className="block text-sm font-medium text-gray-200 mb-3">İndirim Kodu</label>
                       <div className="flex gap-2">
                         <input
                           type="text"
@@ -471,7 +471,7 @@ Türkiye&apos;nin en güzel destinasyonlarını ve benzersiz deneyimlerini keşf
                             <button
                               key={code}
                               onClick={() => setDiscountCode(code)}
-                              className="px-2 py-1 bg-gray-100 text-gray-600 rounded text-xs hover:bg-gray-200 transition-colors"
+                              className="px-2 py-1 bg-gray-100 text-gray-300 rounded text-xs hover:bg-gray-200 transition-colors"
                             >
                               {code}
                             </button>
@@ -482,7 +482,7 @@ Türkiye&apos;nin en güzel destinasyonlarını ve benzersiz deneyimlerini keşf
 
                     {/* Price Breakdown */}
                     <div className="space-y-3">
-                      <div className="flex justify-between text-gray-600">
+                      <div className="flex justify-between text-gray-300">
                         <span>Ara Toplam ({state.totalItems} ürün)</span>
                         <span>₺{state.totalPrice.toLocaleString()}</span>
                       </div>
@@ -495,7 +495,7 @@ Türkiye&apos;nin en güzel destinasyonlarını ve benzersiz deneyimlerini keşf
                       )}
                       
                       {state.taxAmount && (
-                        <div className="flex justify-between text-gray-600">
+                        <div className="flex justify-between text-gray-300">
                           <span>KDV (%18)</span>
                           <span>₺{state.taxAmount.toLocaleString()}</span>
                         </div>
@@ -503,7 +503,7 @@ Türkiye&apos;nin en güzel destinasyonlarını ve benzersiz deneyimlerini keşf
                       
                       <div className="pt-3 border-t border-gray-200">
                         <div className="flex justify-between items-center">
-                          <span className="text-xl font-bold text-gray-900">Toplam</span>
+                          <span className="text-xl font-bold text-white">Toplam</span>
                           <span className="text-2xl font-bold text-lydian-primary">
                             ₺{state.finalTotal.toLocaleString()}
                           </span>
@@ -514,15 +514,15 @@ Türkiye&apos;nin en güzel destinasyonlarını ve benzersiz deneyimlerini keşf
 
                     {/* Security Features */}
                     <div className="space-y-3 pt-4 border-t border-gray-100">
-                      <div className="flex items-center gap-2 text-sm text-gray-600">
+                      <div className="flex items-center gap-2 text-sm text-gray-300">
                         <Shield className="w-4 h-4 text-green-500" />
                         SSL ile güvenli ödeme
                       </div>
-                      <div className="flex items-center gap-2 text-sm text-gray-600">
+                      <div className="flex items-center gap-2 text-sm text-gray-300">
                         <CheckCircle className="w-4 h-4 text-green-500" />
                         24/7 müşteri desteği
                       </div>
-                      <div className="flex items-center gap-2 text-sm text-gray-600">
+                      <div className="flex items-center gap-2 text-sm text-gray-300">
                         <Truck className="w-4 h-4 text-blue-500" />
                         Ücretsiz rezervasyon iptali
                       </div>
@@ -576,21 +576,21 @@ Türkiye&apos;nin en güzel destinasyonlarını ve benzersiz deneyimlerini keşf
               initial={{ scale: 0.95, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.95, opacity: 0 }}
-              className="bg-white rounded-3xl p-8 max-w-md w-full"
+              className="bg-transparent rounded-3xl p-8 max-w-md w-full"
             >
               <div className="text-center">
                 <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Trash2 className="w-8 h-8 text-red-600" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">Sepeti Temizle</h3>
-                <p className="text-gray-600 mb-6">
+                <h3 className="text-xl font-bold text-white mb-2">Sepeti Temizle</h3>
+                <p className="text-gray-300 mb-6">
                   Tüm ürünleri sepetinizden kaldırmak istediğinizden emin misiniz?
                   Bu işlem geri alınamaz.
                 </p>
                 <div className="flex gap-3">
                   <button
                     onClick={() => setShowClearConfirm(false)}
-                    className="flex-1 px-4 py-3 border border-gray-200 text-gray-700 rounded-xl font-medium hover:bg-gray-50 transition-colors"
+                    className="flex-1 px-4 py-3 border border-gray-200 text-gray-200 rounded-xl font-medium hover:bg-gray-50 transition-colors"
                   >
                     İptal
                   </button>

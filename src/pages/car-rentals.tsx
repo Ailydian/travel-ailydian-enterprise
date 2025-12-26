@@ -174,14 +174,14 @@ const CarRental: React.FC = () => {
                   <input
                     type="text"
                     placeholder="Şehir veya havaalanı"
-                    className="w-full px-4 py-3 bg-white/90 backdrop-blur-sm border border-white/30 rounded-xl focus:ring-2 focus:ring-[#FF9500] outline-none text-gray-900 placeholder-gray-500"
+                    className="w-full px-4 py-3 bg-white/90 backdrop-blur-sm border border-white/30 rounded-xl focus:ring-2 focus:ring-[#FF9500] outline-none text-white placeholder-gray-500"
                   />
                 </div>
                 <div>
                   <label className="block text-sm font-semibold text-white mb-2">Alış Tarihi</label>
                   <input
                     type="date"
-                    className="w-full px-4 py-3 bg-white/90 backdrop-blur-sm border border-white/30 rounded-xl focus:ring-2 focus:ring-[#FF9500] outline-none text-gray-900 [color-scheme:light]"
+                    className="w-full px-4 py-3 bg-white/90 backdrop-blur-sm border border-white/30 rounded-xl focus:ring-2 focus:ring-[#FF9500] outline-none text-white [color-scheme:light]"
                     style={{ colorScheme: 'light' }}
                   />
                 </div>
@@ -189,7 +189,7 @@ const CarRental: React.FC = () => {
                   <label className="block text-sm font-semibold text-white mb-2">İade Tarihi</label>
                   <input
                     type="date"
-                    className="w-full px-4 py-3 bg-white/90 backdrop-blur-sm border border-white/30 rounded-xl focus:ring-2 focus:ring-[#FF9500] outline-none text-gray-900 [color-scheme:light]"
+                    className="w-full px-4 py-3 bg-white/90 backdrop-blur-sm border border-white/30 rounded-xl focus:ring-2 focus:ring-[#FF9500] outline-none text-white [color-scheme:light]"
                     style={{ colorScheme: 'light' }}
                   />
                 </div>
@@ -213,8 +213,8 @@ const CarRental: React.FC = () => {
         <section className="py-16 bg-white">
           <div className="max-w-7xl mx-auto px-4">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">Popüler Araç Kategorileri</h2>
-              <p className="text-gray-600 max-w-2xl mx-auto">
+              <h2 className="text-3xl font-bold text-white mb-4">Popüler Araç Kategorileri</h2>
+              <p className="text-gray-300 max-w-2xl mx-auto">
                 İhtiyacınıza uygun araç kategorisini seçin. Ekonomik, konfor ve lüks seçeneklerimizle her bütçeye uygun araçlar.
               </p>
             </div>
@@ -261,8 +261,8 @@ const CarRental: React.FC = () => {
                       <category.icon className="w-8 h-8 text-white" />
                     </div>
 
-                    <h3 className="text-2xl font-bold text-gray-900 mb-2">{category.title}</h3>
-                    <p className="text-gray-600 text-sm mb-4">{category.description}</p>
+                    <h3 className="text-2xl font-bold text-white mb-2">{category.title}</h3>
+                    <p className="text-gray-300 text-sm mb-4">{category.description}</p>
 
                     {category.badge && (
                       <span className="inline-block px-3 py-1 bg-green-500 text-white text-xs font-bold rounded-full mb-4">
@@ -271,7 +271,7 @@ const CarRental: React.FC = () => {
                     )}
 
                     <div className="flex items-baseline gap-2 mt-4">
-                      <span className="text-2xl font-bold text-gray-900">{category.price}</span>
+                      <span className="text-2xl font-bold text-white">{category.price}</span>
                       <span className="text-sm text-gray-500">/ gün başlayan fiyatlarla</span>
                     </div>
                   </div>
@@ -334,7 +334,7 @@ const CarRental: React.FC = () => {
         <section className="py-16 bg-white">
           <div className="max-w-7xl mx-auto px-4">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">Neden Bizden Araç Kiralayın?</h2>
+              <h2 className="text-3xl font-bold text-white mb-4">Neden Bizden Araç Kiralayın?</h2>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -355,7 +355,7 @@ const CarRental: React.FC = () => {
                     <feature.icon className="w-8 h-8" />
                   </div>
                   <h3 className="font-bold text-lg mb-2">{feature.title}</h3>
-                  <p className="text-gray-600">{feature.desc}</p>
+                  <p className="text-gray-300">{feature.desc}</p>
                 </motion.div>
               ))}
             </div>

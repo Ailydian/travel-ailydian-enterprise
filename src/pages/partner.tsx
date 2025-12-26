@@ -185,8 +185,8 @@ export default function Partners() {
         <section className="relative bg-gradient-to-br from-lydian-primary via-red-600 to-lydian-secondary py-20 overflow-hidden">
           {/* Animated Background */}
           <div className="absolute inset-0 opacity-10">
-            <div className="absolute top-10 left-10 w-96 h-96 bg-white rounded-full blur-3xl animate-pulse" />
-            <div className="absolute bottom-10 right-10 w-96 h-96 bg-white rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+            <div className="absolute top-10 left-10 w-96 h-96 bg-transparent rounded-full blur-3xl animate-pulse" />
+            <div className="absolute bottom-10 right-10 w-96 h-96 bg-transparent rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
           </div>
 
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -218,7 +218,7 @@ export default function Partners() {
                   href="#basvuru"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="inline-flex items-center gap-2 px-8 py-4 bg-white text-lydian-primary rounded-xl font-bold text-lg shadow-2xl hover:shadow-white/20 transition-all"
+                  className="inline-flex items-center gap-2 px-8 py-4 bg-transparent text-lydian-primary rounded-xl font-bold text-lg shadow-2xl hover:shadow-white/20 transition-all"
                 >
                   Hemen Başvur
                   <ArrowRight className="w-5 h-5" />
@@ -245,10 +245,10 @@ export default function Partners() {
               viewport={{ once: true }}
               className="text-center mb-16"
             >
-              <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              <h2 className="text-4xl font-bold text-white mb-4">
                 Hangi Alanda İş Ortağı Olabilirsiniz?
               </h2>
-              <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              <p className="text-xl text-gray-300 max-w-2xl mx-auto">
                 Turizm sektöründeki tüm hizmet sağlayıcılar için özel çözümler
               </p>
             </motion.div>
@@ -264,16 +264,16 @@ export default function Partners() {
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1 }}
                     whileHover={{ y: -8, scale: 1.02 }}
-                    className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all border border-gray-100"
+                    className="bg-transparent rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all border border-gray-100"
                   >
                     <div className={`inline-flex p-4 rounded-xl bg-gradient-to-br ${type.color} text-white mb-6`}>
                       <Icon className="w-8 h-8" />
                     </div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-3">{type.title}</h3>
-                    <p className="text-gray-600 mb-6">{type.description}</p>
+                    <h3 className="text-2xl font-bold text-white mb-3">{type.title}</h3>
+                    <p className="text-gray-300 mb-6">{type.description}</p>
                     <div className="space-y-2">
                       {type.benefits.map((benefit, idx) => (
-                        <div key={idx} className="flex items-center gap-2 text-sm text-gray-700">
+                        <div key={idx} className="flex items-center gap-2 text-sm text-gray-200">
                           <CheckCircle className="w-4 h-4 text-green-500" />
                           <span>{benefit}</span>
                         </div>
@@ -295,10 +295,10 @@ export default function Partners() {
               viewport={{ once: true }}
               className="text-center mb-16"
             >
-              <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              <h2 className="text-4xl font-bold text-white mb-4">
                 Neden LyDian Partner Programı?
               </h2>
-              <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              <p className="text-xl text-gray-300 max-w-2xl mx-auto">
                 Sektörün en avantajlı partner programı ile işinizi büyütün
               </p>
             </motion.div>
@@ -313,14 +313,14 @@ export default function Partners() {
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1 }}
-                    className="relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all"
+                    className="relative bg-transparent rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all"
                   >
                     <div className="absolute top-4 right-4 text-5xl font-black text-lydian-primary/10">
                       {benefit.stat}
                     </div>
                     <Icon className="w-12 h-12 text-lydian-primary mb-4" />
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">{benefit.title}</h3>
-                    <p className="text-gray-600">{benefit.description}</p>
+                    <h3 className="text-xl font-bold text-white mb-2">{benefit.title}</h3>
+                    <p className="text-gray-300">{benefit.description}</p>
                   </motion.div>
                 );
               })}
@@ -337,10 +337,10 @@ export default function Partners() {
               viewport={{ once: true }}
               className="text-center mb-16"
             >
-              <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              <h2 className="text-4xl font-bold text-white mb-4">
                 Başarı Hikayeleri
               </h2>
-              <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              <p className="text-xl text-gray-300 max-w-2xl mx-auto">
                 Partnerlerimizin gerçek deneyimleri
               </p>
             </motion.div>
@@ -353,7 +353,7 @@ export default function Partners() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all"
+                  className="bg-transparent rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all"
                 >
                   <div className="relative h-48 overflow-hidden">
                     <img
@@ -368,10 +368,10 @@ export default function Partners() {
                     </div>
                   </div>
                   <div className="p-6">
-                    <p className="text-gray-700 italic mb-4">"{story.quote}"</p>
+                    <p className="text-gray-200 italic mb-4">"{story.quote}"</p>
                     <div className="flex items-center justify-between pt-4 border-t border-gray-100">
                       <div className="text-lydian-primary font-bold">{story.increase}</div>
-                      <div className="text-gray-600 text-sm">{story.stat}</div>
+                      <div className="text-gray-300 text-sm">{story.stat}</div>
                     </div>
                   </div>
                 </motion.div>
@@ -389,10 +389,10 @@ export default function Partners() {
               viewport={{ once: true }}
               className="text-center mb-12"
             >
-              <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              <h2 className="text-4xl font-bold text-white mb-4">
                 Partner Başvurusu
               </h2>
-              <p className="text-xl text-gray-600">
+              <p className="text-xl text-gray-300">
                 Formu doldurun, en kısa sürede sizinle iletişime geçelim
               </p>
             </motion.div>
@@ -401,12 +401,12 @@ export default function Partners() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="bg-white rounded-2xl shadow-xl p-8"
+              className="bg-transparent rounded-2xl shadow-xl p-8"
             >
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-sm font-bold text-gray-700 mb-2">
+                    <label className="block text-sm font-bold text-gray-200 mb-2">
                       Şirket Adı *
                     </label>
                     <input
@@ -420,7 +420,7 @@ export default function Partners() {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-bold text-gray-700 mb-2">
+                    <label className="block text-sm font-bold text-gray-200 mb-2">
                       Yetkili Kişi *
                     </label>
                     <input
@@ -434,7 +434,7 @@ export default function Partners() {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-bold text-gray-700 mb-2">
+                    <label className="block text-sm font-bold text-gray-200 mb-2">
                       E-posta *
                     </label>
                     <input
@@ -448,7 +448,7 @@ export default function Partners() {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-bold text-gray-700 mb-2">
+                    <label className="block text-sm font-bold text-gray-200 mb-2">
                       Telefon *
                     </label>
                     <input
@@ -462,7 +462,7 @@ export default function Partners() {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-bold text-gray-700 mb-2">
+                    <label className="block text-sm font-bold text-gray-200 mb-2">
                       İş Ortaklığı Türü *
                     </label>
                     <select
@@ -482,7 +482,7 @@ export default function Partners() {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-bold text-gray-700 mb-2">
+                    <label className="block text-sm font-bold text-gray-200 mb-2">
                       Şehir *
                     </label>
                     <input
@@ -497,7 +497,7 @@ export default function Partners() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-bold text-gray-700 mb-2">
+                  <label className="block text-sm font-bold text-gray-200 mb-2">
                     Mesajınız
                   </label>
                   <textarea

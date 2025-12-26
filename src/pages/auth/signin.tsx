@@ -134,7 +134,7 @@ const SignIn: React.FC = () => {
         {/* Return to Home Button */}
         <Link 
           href="/" 
-          className="fixed top-6 left-6 z-10 flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200 text-gray-700 hover:bg-white hover:text-lydian-primary transition-all duration-200"
+          className="fixed top-6 left-6 z-10 flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200 text-gray-200 hover:bg-white hover:text-lydian-primary transition-all duration-200"
         >
           <ArrowLeft className="w-4 h-4" />
           <span className="font-medium">Ana Sayfaya Dön</span>
@@ -153,14 +153,14 @@ const SignIn: React.FC = () => {
                   <span className="text-white font-bold text-xl">A</span>
                 </div>
                 <div>
-                  <h1 className="text-2xl font-bold text-gray-900">LyDian Travel</h1>
+                  <h1 className="text-2xl font-bold text-white">LyDian Travel</h1>
                   <p className="text-xs text-gray-500">AI-Powered Enterprise</p>
                 </div>
               </div>
             </Link>
             
-            <h2 className="text-2xl font-bold text-gray-900 mb-2">Tekrar Hoş Geldiniz!</h2>
-            <p className="text-gray-600">Seyahat maceranıza kaldığınız yerden devam edin</p>
+            <h2 className="text-2xl font-bold text-white mb-2">Tekrar Hoş Geldiniz!</h2>
+            <p className="text-gray-300">Seyahat maceranıza kaldığınız yerden devam edin</p>
           </motion.div>
 
           {/* Main Form Card */}
@@ -168,7 +168,7 @@ const SignIn: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="bg-white rounded-2xl shadow-xl border border-gray-100 p-8"
+            className="bg-transparent rounded-2xl shadow-xl border border-gray-100 p-8"
           >
             {/* Error Message */}
             {error && (
@@ -190,7 +190,7 @@ const SignIn: React.FC = () => {
                 className="w-full flex items-center justify-center gap-3 px-4 py-3 border border-gray-300 rounded-xl hover:bg-gray-50 transition-colors disabled:opacity-50"
               >
                 <GoogleIcon />
-                <span className="text-gray-700 font-medium">Google ile Giriş Yap</span>
+                <span className="text-gray-200 font-medium">Google ile Giriş Yap</span>
               </button>
               <button
                 onClick={() => handleSocialSignIn('facebook')}
@@ -198,7 +198,7 @@ const SignIn: React.FC = () => {
                 className="w-full flex items-center justify-center gap-3 px-4 py-3 border border-gray-300 rounded-xl hover:bg-gray-50 transition-colors disabled:opacity-50"
               >
                 <FacebookIcon />
-                <span className="text-gray-700 font-medium">Facebook ile Giriş Yap</span>
+                <span className="text-gray-200 font-medium">Facebook ile Giriş Yap</span>
               </button>
             </div>
 
@@ -212,7 +212,7 @@ const SignIn: React.FC = () => {
             <form onSubmit={onSubmit} className="space-y-6">
               {/* Email Field */}
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="email" className="block text-sm font-medium text-gray-200 mb-2">
                   Email Adresi
                 </label>
                 <div className="relative">
@@ -238,7 +238,7 @@ const SignIn: React.FC = () => {
 
               {/* Password Field */}
               <div>
-                <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="password" className="block text-sm font-medium text-gray-200 mb-2">
                   Şifre
                 </label>
                 <div className="relative">
@@ -256,7 +256,7 @@ const SignIn: React.FC = () => {
                   <button
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
-                    className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                    className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-300"
                   >
                     {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
                   </button>
@@ -273,7 +273,7 @@ const SignIn: React.FC = () => {
               <div className="flex items-center justify-between">
                 <label className="flex items-center">
                   <input type="checkbox" className="rounded border-gray-300 text-blue-600 focus:ring-blue-500" />
-                  <span className="ml-2 text-sm text-gray-600">Beni hatırla</span>
+                  <span className="ml-2 text-sm text-gray-300">Beni hatırla</span>
                 </label>
                 <Link href="/auth/forgot-password" className="text-sm text-blue-600 hover:text-blue-700">
                   Şifremi unuttum
@@ -304,7 +304,7 @@ const SignIn: React.FC = () => {
 
             {/* Sign Up Link */}
             <div className="mt-6 text-center">
-              <p className="text-gray-600">
+              <p className="text-gray-300">
                 Henüz hesabınız yok mu?{' '}
                 <Link href="/auth/signup" className="text-blue-600 hover:text-blue-700 font-semibold">
                   Ücretsiz kayıt ol
@@ -322,15 +322,15 @@ const SignIn: React.FC = () => {
           >
             <div className="flex flex-col items-center gap-2">
               <Shield className="w-8 h-8 text-green-500" />
-              <p className="text-xs text-gray-600">Blockchain Güvenlik</p>
+              <p className="text-xs text-gray-300">Blockchain Güvenlik</p>
             </div>
             <div className="flex flex-col items-center gap-2">
               <Sparkles className="w-8 h-8 text-purple-500" />
-              <p className="text-xs text-gray-600">AI Destekli</p>
+              <p className="text-xs text-gray-300">AI Destekli</p>
             </div>
             <div className="flex flex-col items-center gap-2">
               <Globe className="w-8 h-8 text-blue-500" />
-              <p className="text-xs text-gray-600">190+ Ülke</p>
+              <p className="text-xs text-gray-300">190+ Ülke</p>
             </div>
           </motion.div>
 

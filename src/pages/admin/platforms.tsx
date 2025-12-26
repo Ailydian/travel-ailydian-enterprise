@@ -262,8 +262,8 @@ export default function AdminPlatforms() {
             <div className="w-20 h-20 border-4 border-gray-200 border-t-transparent rounded-full animate-spin mx-auto mb-6"></div>
             <div className="absolute inset-0 w-20 h-20 border-4 border-transparent border-t-red-500 rounded-full animate-spin mx-auto" style={{animationDuration: '1.5s'}}></div>
           </div>
-          <h3 className="text-xl font-semibold text-gray-800 mb-2">Harici Platformlar Yükleniyor</h3>
-          <p className="text-gray-600">Platform verileri hazırlanıyor...</p>
+          <h3 className="text-xl font-semibold text-gray-100 mb-2">Harici Platformlar Yükleniyor</h3>
+          <p className="text-gray-300">Platform verileri hazırlanıyor...</p>
         </div>
       </div>
     );
@@ -276,7 +276,7 @@ export default function AdminPlatforms() {
           <div className="w-20 h-20 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-6">
             <Globe className="w-10 h-10 text-red-600" />
           </div>
-          <h3 className="text-xl font-semibold text-gray-800 mb-2">Bir Hata Oluştu</h3>
+          <h3 className="text-xl font-semibold text-gray-100 mb-2">Bir Hata Oluştu</h3>
           <p className="text-red-600 mb-6">{error}</p>
           <button 
             onClick={fetchPlatformsData}
@@ -313,13 +313,13 @@ export default function AdminPlatforms() {
               <div className="flex items-center space-x-4">
                 <div className="flex items-center space-x-2">
                   <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                  <span className="text-sm text-gray-600">
+                  <span className="text-sm text-gray-300">
                     {adminData?.email}
                   </span>
                 </div>
                 <button
                   onClick={handleLogout}
-                  className="flex items-center space-x-1 px-3 py-1.5 text-gray-600 hover:text-red-600 rounded-lg hover:bg-red-50 transition-all"
+                  className="flex items-center space-x-1 px-3 py-1.5 text-gray-300 hover:text-red-600 rounded-lg hover:bg-red-50 transition-all"
                 >
                   <span>Çıkış</span>
                 </button>
@@ -369,8 +369,8 @@ export default function AdminPlatforms() {
                         <Globe className="w-6 h-6" style={{color: AILYDIAN_COLORS.blue}} />
                       </div>
                       <div className="ml-4">
-                        <p className="text-sm font-semibold text-gray-600 uppercase">Bağlı Platform</p>
-                        <p className="text-2xl font-bold text-gray-900">{platformsData.stats.totalConnectedPlatforms}</p>
+                        <p className="text-sm font-semibold text-gray-300 uppercase">Bağlı Platform</p>
+                        <p className="text-2xl font-bold text-white">{platformsData.stats.totalConnectedPlatforms}</p>
                       </div>
                     </div>
                   </div>
@@ -381,8 +381,8 @@ export default function AdminPlatforms() {
                         <MapPin className="w-6 h-6" style={{color: AILYDIAN_COLORS.success}} />
                       </div>
                       <div className="ml-4">
-                        <p className="text-sm font-semibold text-gray-600 uppercase">Senkron Lokasyon</p>
-                        <p className="text-2xl font-bold text-gray-900">{formatNumber(platformsData.stats.totalSyncedLocations)}</p>
+                        <p className="text-sm font-semibold text-gray-300 uppercase">Senkron Lokasyon</p>
+                        <p className="text-2xl font-bold text-white">{formatNumber(platformsData.stats.totalSyncedLocations)}</p>
                       </div>
                     </div>
                   </div>
@@ -393,8 +393,8 @@ export default function AdminPlatforms() {
                         <Star className="w-6 h-6" style={{color: AILYDIAN_COLORS.warning}} />
                       </div>
                       <div className="ml-4">
-                        <p className="text-sm font-semibold text-gray-600 uppercase">Senkron Yorum</p>
-                        <p className="text-2xl font-bold text-gray-900">{formatNumber(platformsData.stats.totalSyncedReviews)}</p>
+                        <p className="text-sm font-semibold text-gray-300 uppercase">Senkron Yorum</p>
+                        <p className="text-2xl font-bold text-white">{formatNumber(platformsData.stats.totalSyncedReviews)}</p>
                       </div>
                     </div>
                   </div>
@@ -405,8 +405,8 @@ export default function AdminPlatforms() {
                         <CheckCircle className="w-6 h-6" style={{color: AILYDIAN_COLORS.primary}} />
                       </div>
                       <div className="ml-4">
-                        <p className="text-sm font-semibold text-gray-600 uppercase">Başarı Oranı</p>
-                        <p className="text-2xl font-bold text-gray-900">{platformsData.stats.syncSuccess}%</p>
+                        <p className="text-sm font-semibold text-gray-300 uppercase">Başarı Oranı</p>
+                        <p className="text-2xl font-bold text-white">{platformsData.stats.syncSuccess}%</p>
                       </div>
                     </div>
                   </div>
@@ -417,8 +417,8 @@ export default function AdminPlatforms() {
                         <AlertTriangle className="w-6 h-6" style={{color: AILYDIAN_COLORS.error}} />
                       </div>
                       <div className="ml-4">
-                        <p className="text-sm font-semibold text-gray-600 uppercase">Hatalar</p>
-                        <p className="text-2xl font-bold text-gray-900">{platformsData.stats.syncErrors}</p>
+                        <p className="text-sm font-semibold text-gray-300 uppercase">Hatalar</p>
+                        <p className="text-2xl font-bold text-white">{platformsData.stats.syncErrors}</p>
                       </div>
                     </div>
                   </div>
@@ -429,8 +429,8 @@ export default function AdminPlatforms() {
                         <Clock className="w-6 h-6" style={{color: AILYDIAN_COLORS.purple}} />
                       </div>
                       <div className="ml-4">
-                        <p className="text-sm font-semibold text-gray-600 uppercase text-xs">Son Senkron</p>
-                        <p className="text-lg font-bold text-gray-900">{formatDate(platformsData.stats.lastSyncTime).split(' ')[1]}</p>
+                        <p className="text-sm font-semibold text-gray-300 uppercase text-xs">Son Senkron</p>
+                        <p className="text-lg font-bold text-white">{formatDate(platformsData.stats.lastSyncTime).split(' ')[1]}</p>
                       </div>
                     </div>
                   </div>
@@ -445,15 +445,15 @@ export default function AdminPlatforms() {
                         <div className="flex items-center space-x-3">
                           {getPlatformIcon(platform.platform)}
                           <div>
-                            <h3 className="text-lg font-bold text-gray-900">{platform.name}</h3>
-                            <p className="text-sm text-gray-600">Hesap: {platform.accountId}</p>
+                            <h3 className="text-lg font-bold text-white">{platform.name}</h3>
+                            <p className="text-sm text-gray-300">Hesap: {platform.accountId}</p>
                           </div>
                         </div>
                         <div className="flex items-center space-x-3">
                           {getStatusBadge(platform.status)}
                           <div className="flex items-center space-x-1">
                             <div className={`w-2 h-2 rounded-full ${platform.autoSync ? 'bg-green-500 animate-pulse' : 'bg-gray-400'}`}></div>
-                            <span className="text-xs text-gray-600">{platform.autoSync ? 'Otomatik' : 'Manuel'}</span>
+                            <span className="text-xs text-gray-300">{platform.autoSync ? 'Otomatik' : 'Manuel'}</span>
                           </div>
                         </div>
                       </div>
@@ -494,7 +494,7 @@ export default function AdminPlatforms() {
                       </div>
 
                       {/* Platform Info */}
-                      <div className="flex items-center justify-between text-sm text-gray-600 mb-4">
+                      <div className="flex items-center justify-between text-sm text-gray-300 mb-4">
                         <div className="flex items-center space-x-4">
                           <div className="flex items-center space-x-1">
                             <Award className="w-4 h-4" />
@@ -532,11 +532,11 @@ export default function AdminPlatforms() {
                       </div>
 
                       {/* API Key Info */}
-                      <div className="mt-4 p-3 bg-gray-50 rounded-lg">
+                      <div className="mt-4 p-3 bg-white/5 rounded-lg">
                         <div className="flex items-center justify-between text-sm">
                           <div className="flex items-center space-x-2">
                             <Key className="w-4 h-4 text-gray-500" />
-                            <span className="text-gray-600">API Anahtarı: {platform.apiKey}</span>
+                            <span className="text-gray-300">API Anahtarı: {platform.apiKey}</span>
                           </div>
                           <button className="text-blue-600 hover:text-blue-800 font-medium">
                             Düzenle
@@ -550,7 +550,7 @@ export default function AdminPlatforms() {
                 {/* Sync Jobs */}
                 <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg p-6">
                   <div className="flex items-center justify-between mb-6">
-                    <h3 className="text-lg font-bold text-gray-900">Senkronizasyon İşleri</h3>
+                    <h3 className="text-lg font-bold text-white">Senkronizasyon İşleri</h3>
                     <button 
                       onClick={fetchPlatformsData}
                       className="flex items-center space-x-2 px-4 py-2 text-white rounded-lg font-semibold hover:shadow-lg transition-all"
@@ -569,8 +569,8 @@ export default function AdminPlatforms() {
                             <Activity className="w-6 h-6 text-white" />
                           </div>
                           <div>
-                            <h4 className="font-semibold text-gray-900">{job.platform} - {job.type}</h4>
-                            <div className="flex items-center space-x-3 text-sm text-gray-600">
+                            <h4 className="font-semibold text-white">{job.platform} - {job.type}</h4>
+                            <div className="flex items-center space-x-3 text-sm text-gray-300">
                               <span>Başlangıç: {formatDate(job.startedAt)}</span>
                               {job.completedAt && <span>Tamamlanma: {formatDate(job.completedAt)}</span>}
                             </div>
@@ -581,7 +581,7 @@ export default function AdminPlatforms() {
                                   style={{width: `${(job.itemsProcessed / job.totalItems) * 100}%`}}
                                 ></div>
                               </div>
-                              <span className="text-sm text-gray-600">{job.itemsProcessed}/{job.totalItems}</span>
+                              <span className="text-sm text-gray-300">{job.itemsProcessed}/{job.totalItems}</span>
                             </div>
                           </div>
                         </div>

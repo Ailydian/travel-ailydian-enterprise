@@ -356,7 +356,7 @@ const PartnerIndexPage = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => setShowVideo(true)}
-                className="group flex items-center gap-3 px-8 py-4 bg-white border-2 border-slate-200 text-slate-700 rounded-full font-semibold text-lg shadow-xl hover:shadow-2xl transition-all"
+                className="group flex items-center gap-3 px-8 py-4 bg-transparent border-2 border-slate-200 text-slate-700 rounded-full font-semibold text-lg shadow-xl hover:shadow-2xl transition-all"
               >
                 <Play className="w-5 h-5 text-blue-600" />
                 <span>Nasıl Çalışır?</span>
@@ -425,7 +425,7 @@ const PartnerIndexPage = () => {
                   whileHover={{ y: -10 }}
                   className="group relative"
                 >
-                  <div className="relative bg-white rounded-3xl p-8 shadow-2xl border border-slate-100 hover:shadow-blue-500/20 transition-all overflow-hidden">
+                  <div className="relative bg-transparent rounded-3xl p-8 shadow-2xl border border-slate-100 hover:shadow-blue-500/20 transition-all overflow-hidden">
                     {/* Gradient Background */}
                     <div className={`absolute top-0 right-0 w-64 h-64 bg-gradient-to-br ${partner.gradient} opacity-10 rounded-full blur-3xl group-hover:opacity-20 transition-opacity`} />
 
@@ -553,7 +553,7 @@ const PartnerIndexPage = () => {
 
                           <div className="mt-6 flex gap-3">
                             <Link href={partner.loginUrl} className="flex-1">
-                              <button className="w-full px-6 py-3 bg-white border-2 border-slate-200 text-slate-700 rounded-xl font-semibold hover:border-slate-300 transition-all">
+                              <button className="w-full px-6 py-3 bg-transparent border-2 border-slate-200 text-slate-700 rounded-xl font-semibold hover:border-slate-300 transition-all">
                                 Giriş Yap
                               </button>
                             </Link>
@@ -633,7 +633,7 @@ const PartnerIndexPage = () => {
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
                   whileHover={{ y: -10 }}
-                  className="bg-white rounded-2xl p-8 shadow-xl border border-slate-100 hover:shadow-2xl transition-all"
+                  className="bg-transparent rounded-2xl p-8 shadow-xl border border-slate-100 hover:shadow-2xl transition-all"
                 >
                   <div className={`inline-flex p-4 bg-gradient-to-br ${item.color} rounded-2xl mb-4`}>
                     <item.icon className="w-8 h-8 text-white" />
@@ -666,7 +666,7 @@ const PartnerIndexPage = () => {
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="px-12 py-4 bg-white text-blue-600 rounded-full font-bold text-lg shadow-2xl hover:shadow-white/30 transition-all"
+                    className="px-12 py-4 bg-transparent text-blue-600 rounded-full font-bold text-lg shadow-2xl hover:shadow-white/30 transition-all"
                   >
                     Partner Başvurusu Yap
                   </motion.button>

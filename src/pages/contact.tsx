@@ -28,28 +28,28 @@ export default function Contact() {
 
       <FuturisticHeader />
 
-      <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+      <div className="min-h-screen bg-white/5 dark:bg-gray-900">
 
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="text-center mb-12">
-            <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+            <h1 className="text-4xl font-bold text-white dark:text-white mb-4">
               Bize Ulaşın
             </h1>
-            <p className="text-xl text-gray-600 dark:text-gray-400">
+            <p className="text-xl text-gray-300 dark:text-gray-400">
               Sorularınız için 7/24 hizmetinizdeyiz
             </p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Form */}
-            <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8">
-              <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">
+            <div className="bg-transparent dark:bg-gray-800 rounded-lg shadow-lg p-8">
+              <h2 className="text-2xl font-semibold text-white dark:text-white mb-6">
                 Mesaj Gönderin
               </h2>
               
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  <label className="block text-sm font-medium text-gray-200 dark:text-gray-300 mb-2">
                     Ad Soyad
                   </label>
                   <input
@@ -62,7 +62,7 @@ export default function Contact() {
                 </div>
                 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  <label className="block text-sm font-medium text-gray-200 dark:text-gray-300 mb-2">
                     E-posta
                   </label>
                   <input
@@ -75,7 +75,7 @@ export default function Contact() {
                 </div>
                 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  <label className="block text-sm font-medium text-gray-200 dark:text-gray-300 mb-2">
                     Konu
                   </label>
                   <select
@@ -95,7 +95,7 @@ export default function Contact() {
                 </div>
                 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  <label className="block text-sm font-medium text-gray-200 dark:text-gray-300 mb-2">
                     Mesaj
                   </label>
                   <textarea
@@ -119,8 +119,8 @@ export default function Contact() {
 
             {/* Contact Info */}
             <div>
-              <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8 mb-8">
-                <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">
+              <div className="bg-transparent dark:bg-gray-800 rounded-lg shadow-lg p-8 mb-8">
+                <h2 className="text-2xl font-semibold text-white dark:text-white mb-6">
                   İletişim Bilgileri
                 </h2>
                 
@@ -128,26 +128,26 @@ export default function Contact() {
                   <div className="flex items-start">
                     <Phone className="h-6 w-6 text-blue-600 mr-4 mt-1" />
                     <div>
-                      <h3 className="font-semibold text-gray-900 dark:text-white">E-posta</h3>
-                      <p className="text-gray-600 dark:text-gray-400">info@lydian.com</p>
-                      <p className="text-gray-600 dark:text-gray-400">destek@lydian.com</p>
+                      <h3 className="font-semibold text-white dark:text-white">E-posta</h3>
+                      <p className="text-gray-300 dark:text-gray-400">info@lydian.com</p>
+                      <p className="text-gray-300 dark:text-gray-400">destek@lydian.com</p>
                     </div>
                   </div>
                   
                   <div className="flex items-start">
                     <Mail className="h-6 w-6 text-blue-600 mr-4 mt-1" />
                     <div>
-                      <h3 className="font-semibold text-gray-900 dark:text-white">E-posta</h3>
-                      <p className="text-gray-600 dark:text-gray-400">info@lydian.com</p>
-                      <p className="text-gray-600 dark:text-gray-400">destek@lydian.com</p>
+                      <h3 className="font-semibold text-white dark:text-white">E-posta</h3>
+                      <p className="text-gray-300 dark:text-gray-400">info@lydian.com</p>
+                      <p className="text-gray-300 dark:text-gray-400">destek@lydian.com</p>
                     </div>
                   </div>
                   
                   <div className="flex items-start">
                     <MapPin className="h-6 w-6 text-blue-600 mr-4 mt-1" />
                     <div>
-                      <h3 className="font-semibold text-gray-900 dark:text-white">Adres</h3>
-                      <p className="text-gray-600 dark:text-gray-400">
+                      <h3 className="font-semibold text-white dark:text-white">Adres</h3>
+                      <p className="text-gray-300 dark:text-gray-400">
                         Atatürk Bulvarı No: 456<br/>
                         Alanya Merkez<br/>
                         07400 Alanya / Antalya
@@ -158,18 +158,18 @@ export default function Contact() {
                   <div className="flex items-start">
                     <Clock className="h-6 w-6 text-blue-600 mr-4 mt-1" />
                     <div>
-                      <h3 className="font-semibold text-gray-900 dark:text-white">Çalışma Saatleri</h3>
-                      <p className="text-gray-600 dark:text-gray-400">Pazartesi - Cuma: 09:00 - 18:00</p>
-                      <p className="text-gray-600 dark:text-gray-400">Cumartesi: 09:00 - 16:00</p>
-                      <p className="text-gray-600 dark:text-gray-400">Pazar: Kapalı</p>
+                      <h3 className="font-semibold text-white dark:text-white">Çalışma Saatleri</h3>
+                      <p className="text-gray-300 dark:text-gray-400">Pazartesi - Cuma: 09:00 - 18:00</p>
+                      <p className="text-gray-300 dark:text-gray-400">Cumartesi: 09:00 - 16:00</p>
+                      <p className="text-gray-300 dark:text-gray-400">Pazar: Kapalı</p>
                     </div>
                   </div>
                 </div>
               </div>
 
               {/* Quick Links */}
-              <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8">
-                <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">
+              <div className="bg-transparent dark:bg-gray-800 rounded-lg shadow-lg p-8">
+                <h2 className="text-2xl font-semibold text-white dark:text-white mb-6">
                   Hızlı Bağlantılar
                 </h2>
                 

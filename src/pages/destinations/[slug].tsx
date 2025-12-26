@@ -130,7 +130,7 @@ export default function DestinationDetail({ destination, relatedDestinations, ex
 
       <ResponsiveHeaderBar />
 
-      <main className="pt-16 bg-gray-50 min-h-screen">
+      <main className="pt-16 bg-white/5 min-h-screen">
         {/* Hero Section with Gallery */}
         <section className="relative h-[500px] bg-black">
           <Image
@@ -213,7 +213,7 @@ export default function DestinationDetail({ destination, relatedDestinations, ex
                   className={`relative px-6 py-3 rounded-xl font-bold transition-all duration-300 ${
                     activeTab === 'overview'
                       ? 'bg-gradient-to-r from-lydian-primary to-lydian-secondary text-white shadow-lg shadow-red-500/30'
-                      : 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-200 hover:border-lydian-primary/50'
+                      : 'bg-white text-gray-200 hover:bg-gray-50 border border-gray-200 hover:border-lydian-primary/50'
                   }`}
                 >
                   <span className="relative z-10">Genel Bakış</span>
@@ -232,7 +232,7 @@ export default function DestinationDetail({ destination, relatedDestinations, ex
                   className={`relative px-6 py-3 rounded-xl font-bold transition-all duration-300 ${
                     activeTab === 'places'
                       ? 'bg-gradient-to-r from-lydian-primary to-lydian-secondary text-white shadow-lg shadow-red-500/30'
-                      : 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-200 hover:border-lydian-primary/50'
+                      : 'bg-white text-gray-200 hover:bg-gray-50 border border-gray-200 hover:border-lydian-primary/50'
                   }`}
                 >
                   <span className="relative z-10">Gezilecek Yerler</span>
@@ -251,7 +251,7 @@ export default function DestinationDetail({ destination, relatedDestinations, ex
                   className={`relative px-6 py-3 rounded-xl font-bold transition-all duration-300 ${
                     activeTab === 'activities'
                       ? 'bg-gradient-to-r from-lydian-primary to-lydian-secondary text-white shadow-lg shadow-red-500/30'
-                      : 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-200 hover:border-lydian-primary/50'
+                      : 'bg-white text-gray-200 hover:bg-gray-50 border border-gray-200 hover:border-lydian-primary/50'
                   }`}
                 >
                   <span className="relative z-10">Aktiviteler</span>
@@ -270,7 +270,7 @@ export default function DestinationDetail({ destination, relatedDestinations, ex
                   className={`relative px-6 py-3 rounded-xl font-bold transition-all duration-300 ${
                     activeTab === 'tips'
                       ? 'bg-gradient-to-r from-lydian-primary to-lydian-secondary text-white shadow-lg shadow-red-500/30'
-                      : 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-200 hover:border-lydian-primary/50'
+                      : 'bg-white text-gray-200 hover:bg-gray-50 border border-gray-200 hover:border-lydian-primary/50'
                   }`}
                 >
                   <span className="relative z-10">İpuçları</span>
@@ -286,7 +286,7 @@ export default function DestinationDetail({ destination, relatedDestinations, ex
 
               <div className="flex items-center gap-3">
                 <div className="text-right">
-                  <div className="text-sm text-gray-600">Ortalama Bütçe</div>
+                  <div className="text-sm text-gray-300">Ortalama Bütçe</div>
                   <div className="text-xl font-bold text-lydian-primary">{destination.pricing.budgetRange}</div>
                 </div>
                 <Link
@@ -312,27 +312,27 @@ export default function DestinationDetail({ destination, relatedDestinations, ex
                   className="space-y-8"
                 >
                   {/* Description */}
-                  <div className="bg-white rounded-2xl shadow-sm p-6">
-                    <h2 className="text-2xl font-bold text-gray-900 mb-4">Hakkında</h2>
-                    <p className="text-gray-700 leading-relaxed">{destination.description}</p>
+                  <div className="bg-transparent rounded-2xl shadow-sm p-6">
+                    <h2 className="text-2xl font-bold text-white mb-4">Hakkında</h2>
+                    <p className="text-gray-200 leading-relaxed">{destination.description}</p>
                   </div>
 
                   {/* Highlights */}
-                  <div className="bg-white rounded-2xl shadow-sm p-6">
-                    <h2 className="text-2xl font-bold text-gray-900 mb-4">Öne Çıkanlar</h2>
+                  <div className="bg-transparent rounded-2xl shadow-sm p-6">
+                    <h2 className="text-2xl font-bold text-white mb-4">Öne Çıkanlar</h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                       {destination.highlights.map((highlight, idx) => (
                         <div key={idx} className="flex items-start gap-3">
                           <Check className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                          <span className="text-gray-700">{highlight}</span>
+                          <span className="text-gray-200">{highlight}</span>
                         </div>
                       ))}
                     </div>
                   </div>
 
                   {/* Activities */}
-                  <div className="bg-white rounded-2xl shadow-sm p-6">
-                    <h2 className="text-2xl font-bold text-gray-900 mb-4">Aktiviteler</h2>
+                  <div className="bg-transparent rounded-2xl shadow-sm p-6">
+                    <h2 className="text-2xl font-bold text-white mb-4">Aktiviteler</h2>
                     <div className="flex flex-wrap gap-2">
                       {destination.activities.map((activity, idx) => (
                         <span
@@ -346,15 +346,15 @@ export default function DestinationDetail({ destination, relatedDestinations, ex
                   </div>
 
                   {/* Food & Drink */}
-                  <div className="bg-white rounded-2xl shadow-sm p-6">
-                    <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                  <div className="bg-transparent rounded-2xl shadow-sm p-6">
+                    <h2 className="text-2xl font-bold text-white mb-4 flex items-center gap-2">
                       <Utensils className="w-6 h-6 text-lydian-primary" />
                       Yerel Lezzetler
                     </h2>
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
                       {destination.foodAndDrink.map((food, idx) => (
                         <div key={idx} className="text-center p-3 bg-orange-50 rounded-lg">
-                          <span className="text-gray-800 font-medium">{food}</span>
+                          <span className="text-gray-100 font-medium">{food}</span>
                         </div>
                       ))}
                     </div>
@@ -369,18 +369,18 @@ export default function DestinationDetail({ destination, relatedDestinations, ex
                   className="space-y-4"
                 >
                   {destination.mustSee.map((place, idx) => (
-                    <div key={idx} className="bg-white rounded-2xl shadow-sm p-6">
+                    <div key={idx} className="bg-transparent rounded-2xl shadow-sm p-6">
                       <div className="flex items-start justify-between mb-3">
                         <div className="flex-1">
-                          <h3 className="text-xl font-bold text-gray-900 mb-2">{place.name}</h3>
-                          <p className="text-gray-700">{place.description}</p>
+                          <h3 className="text-xl font-bold text-white mb-2">{place.name}</h3>
+                          <p className="text-gray-200">{place.description}</p>
                         </div>
                         <div className="text-right ml-4">
-                          <div className="text-sm text-gray-600">Giriş</div>
+                          <div className="text-sm text-gray-300">Giriş</div>
                           <div className="font-semibold text-lydian-primary">{place.entrance}</div>
                         </div>
                       </div>
-                      <div className="flex items-center gap-4 text-sm text-gray-600">
+                      <div className="flex items-center gap-4 text-sm text-gray-300">
                         <div className="flex items-center gap-1">
                           <Clock className="w-4 h-4" />
                           <span>{place.estimatedTime}</span>
@@ -401,15 +401,15 @@ export default function DestinationDetail({ destination, relatedDestinations, ex
                     <Link
                       key={exp.id}
                       href={`/experiences/${exp.slug}`}
-                      className="bg-white rounded-2xl shadow-sm overflow-hidden hover:shadow-lg transition-shadow"
+                      className="bg-transparent rounded-2xl shadow-sm overflow-hidden hover:shadow-lg transition-shadow"
                     >
                       <div className="relative h-48">
                         <Image src={exp.images.hero} alt={exp.title} fill className="object-cover" />
                       </div>
                       <div className="p-4">
-                        <h3 className="font-bold text-gray-900 mb-2 line-clamp-2">{exp.title}</h3>
+                        <h3 className="font-bold text-white mb-2 line-clamp-2">{exp.title}</h3>
                         <div className="flex items-center justify-between text-sm">
-                          <span className="text-gray-600">{exp.duration}</span>
+                          <span className="text-gray-300">{exp.duration}</span>
                           <span className="font-bold text-lydian-primary">₺{exp.pricing.adult}</span>
                         </div>
                       </div>
@@ -422,9 +422,9 @@ export default function DestinationDetail({ destination, relatedDestinations, ex
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="bg-white rounded-2xl shadow-sm p-6"
+                  className="bg-transparent rounded-2xl shadow-sm p-6"
                 >
-                  <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+                  <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-2">
                     <AlertCircle className="w-6 h-6 text-lydian-primary" />
                     Seyahat İpuçları
                   </h2>
@@ -432,7 +432,7 @@ export default function DestinationDetail({ destination, relatedDestinations, ex
                     {destination.tips.map((tip, idx) => (
                       <div key={idx} className="flex items-start gap-3 p-4 bg-blue-50 rounded-lg">
                         <Info className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
-                        <p className="text-gray-800">{tip}</p>
+                        <p className="text-gray-100">{tip}</p>
                       </div>
                     ))}
                   </div>
@@ -443,34 +443,34 @@ export default function DestinationDetail({ destination, relatedDestinations, ex
             {/* Right Column - Sidebar */}
             <div className="space-y-6">
               {/* Weather Info */}
-              <div className="bg-white rounded-2xl shadow-sm p-6">
-                <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
+              <div className="bg-transparent rounded-2xl shadow-sm p-6">
+                <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
                   <Thermometer className="w-5 h-5 text-lydian-primary" />
                   İklim Bilgisi
                 </h3>
                 <div className="space-y-3">
                   <div className="flex justify-between">
-                    <span className="text-gray-600">Yaz:</span>
+                    <span className="text-gray-300">Yaz:</span>
                     <span className="font-medium">{destination.climate.summer}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-gray-600">Kış:</span>
+                    <span className="text-gray-300">Kış:</span>
                     <span className="font-medium">{destination.climate.winter}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-gray-600">İlkbahar:</span>
+                    <span className="text-gray-300">İlkbahar:</span>
                     <span className="font-medium">{destination.climate.spring}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-gray-600">Sonbahar:</span>
+                    <span className="text-gray-300">Sonbahar:</span>
                     <span className="font-medium">{destination.climate.autumn}</span>
                   </div>
                 </div>
               </div>
 
               {/* Best Time to Visit */}
-              <div className="bg-white rounded-2xl shadow-sm p-6">
-                <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
+              <div className="bg-transparent rounded-2xl shadow-sm p-6">
+                <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
                   <Calendar className="w-5 h-5 text-lydian-primary" />
                   En İyi Ziyaret Zamanı
                 </h3>
@@ -484,22 +484,22 @@ export default function DestinationDetail({ destination, relatedDestinations, ex
               </div>
 
               {/* Transportation */}
-              <div className="bg-white rounded-2xl shadow-sm p-6">
-                <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
+              <div className="bg-transparent rounded-2xl shadow-sm p-6">
+                <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
                   <Car className="w-5 h-5 text-lydian-primary" />
                   Ulaşım
                 </h3>
                 <div className="space-y-3">
                   <div>
-                    <div className="text-sm text-gray-600 mb-1">İstanbul'dan:</div>
+                    <div className="text-sm text-gray-300 mb-1">İstanbul'dan:</div>
                     <div className="font-medium">{destination.transportation.fromIstanbul}</div>
                   </div>
                   <div>
-                    <div className="text-sm text-gray-600 mb-1">Ankara'dan:</div>
+                    <div className="text-sm text-gray-300 mb-1">Ankara'dan:</div>
                     <div className="font-medium">{destination.transportation.fromAnkara}</div>
                   </div>
                   <div>
-                    <div className="text-sm text-gray-600 mb-1">Şehir içi:</div>
+                    <div className="text-sm text-gray-300 mb-1">Şehir içi:</div>
                     <div className="flex flex-wrap gap-1">
                       {destination.transportation.local.map((transport, idx) => (
                         <span key={idx} className="px-2 py-1 bg-gray-100 rounded text-sm">{transport}</span>
@@ -510,30 +510,30 @@ export default function DestinationDetail({ destination, relatedDestinations, ex
               </div>
 
               {/* Budget Info */}
-              <div className="bg-white rounded-2xl shadow-sm p-6">
-                <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
+              <div className="bg-transparent rounded-2xl shadow-sm p-6">
+                <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
                   <Hotel className="w-5 h-5 text-lydian-primary" />
                   Konaklama Fiyatları
                 </h3>
                 <div className="space-y-3">
                   <div className="flex justify-between">
-                    <span className="text-gray-600">Ekonomik:</span>
+                    <span className="text-gray-300">Ekonomik:</span>
                     <span className="font-medium">₺{destination.accommodation.budget}/gece</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-gray-600">Orta:</span>
+                    <span className="text-gray-300">Orta:</span>
                     <span className="font-medium">₺{destination.accommodation.midRange}/gece</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-gray-600">Lüks:</span>
+                    <span className="text-gray-300">Lüks:</span>
                     <span className="font-medium">₺{destination.accommodation.luxury}/gece</span>
                   </div>
                 </div>
               </div>
 
               {/* Accessibility */}
-              <div className="bg-white rounded-2xl shadow-sm p-6">
-                <h3 className="text-lg font-bold text-gray-900 mb-4">Erişilebilirlik</h3>
+              <div className="bg-transparent rounded-2xl shadow-sm p-6">
+                <h3 className="text-lg font-bold text-white mb-4">Erişilebilirlik</h3>
                 <div className="space-y-2">
                   <div className="flex items-center gap-2">
                     {destination.accessibility.wheelchairFriendly ? (
@@ -541,7 +541,7 @@ export default function DestinationDetail({ destination, relatedDestinations, ex
                     ) : (
                       <span className="w-5 h-5" />
                     )}
-                    <span className={destination.accessibility.wheelchairFriendly ? 'text-gray-900' : 'text-gray-400'}>
+                    <span className={destination.accessibility.wheelchairFriendly ? 'text-white' : 'text-gray-400'}>
                       Tekerlekli Sandalye
                     </span>
                   </div>
@@ -551,7 +551,7 @@ export default function DestinationDetail({ destination, relatedDestinations, ex
                     ) : (
                       <span className="w-5 h-5" />
                     )}
-                    <span className={destination.accessibility.publicTransport ? 'text-gray-900' : 'text-gray-400'}>
+                    <span className={destination.accessibility.publicTransport ? 'text-white' : 'text-gray-400'}>
                       Toplu Taşıma
                     </span>
                   </div>
@@ -561,7 +561,7 @@ export default function DestinationDetail({ destination, relatedDestinations, ex
                     ) : (
                       <span className="w-5 h-5" />
                     )}
-                    <span className={destination.accessibility.englishSpoken ? 'text-gray-900' : 'text-gray-400'}>
+                    <span className={destination.accessibility.englishSpoken ? 'text-white' : 'text-gray-400'}>
                       İngilizce Konuşulur
                     </span>
                   </div>
@@ -573,22 +573,22 @@ export default function DestinationDetail({ destination, relatedDestinations, ex
 
         {/* Related Destinations */}
         {relatedDestinations.length > 0 && (
-          <section className="bg-white py-12">
+          <section className="bg-transparent py-12">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <h2 className="text-3xl font-bold text-gray-900 mb-8">Benzer Destinasyonlar</h2>
+              <h2 className="text-3xl font-bold text-white mb-8">Benzer Destinasyonlar</h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {relatedDestinations.map((dest) => (
                   <Link
                     key={dest.id}
                     href={`/destinations/${dest.slug}`}
-                    className="group bg-white rounded-2xl shadow-sm overflow-hidden hover:shadow-lg transition-all"
+                    className="group bg-transparent rounded-2xl shadow-sm overflow-hidden hover:shadow-lg transition-all"
                   >
                     <div className="relative h-48">
                       <Image src={dest.images.hero} alt={dest.name} fill className="object-cover group-hover:scale-110 transition-transform duration-300" />
                     </div>
                     <div className="p-6">
-                      <h3 className="text-xl font-bold text-gray-900 mb-2">{dest.name}</h3>
-                      <p className="text-gray-600 mb-4">{dest.shortDescription}</p>
+                      <h3 className="text-xl font-bold text-white mb-2">{dest.name}</h3>
+                      <p className="text-gray-300 mb-4">{dest.shortDescription}</p>
                       <div className="flex items-center justify-between">
                         <div className="flex items-center gap-1">
                           <Star className="w-4 h-4 text-yellow-400 fill-current" />

@@ -237,8 +237,8 @@ export default function AdminUsers() {
             <div className="w-20 h-20 border-4 border-gray-200 border-t-transparent rounded-full animate-spin mx-auto mb-6"></div>
             <div className="absolute inset-0 w-20 h-20 border-4 border-transparent border-t-red-500 rounded-full animate-spin mx-auto" style={{animationDuration: '1.5s'}}></div>
           </div>
-          <h3 className="text-xl font-semibold text-gray-800 mb-2">Kullanıcılar Yükleniyor</h3>
-          <p className="text-gray-600">Kullanıcı verileri hazırlanıyor...</p>
+          <h3 className="text-xl font-semibold text-gray-100 mb-2">Kullanıcılar Yükleniyor</h3>
+          <p className="text-gray-300">Kullanıcı verileri hazırlanıyor...</p>
         </div>
       </div>
     );
@@ -251,7 +251,7 @@ export default function AdminUsers() {
           <div className="w-20 h-20 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-6">
             <Users className="w-10 h-10 text-red-600" />
           </div>
-          <h3 className="text-xl font-semibold text-gray-800 mb-2">Bir Hata Oluştu</h3>
+          <h3 className="text-xl font-semibold text-gray-100 mb-2">Bir Hata Oluştu</h3>
           <p className="text-red-600 mb-6">{error}</p>
           <button 
             onClick={fetchUsersData}
@@ -288,13 +288,13 @@ export default function AdminUsers() {
               <div className="flex items-center space-x-4">
                 <div className="flex items-center space-x-2">
                   <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                  <span className="text-sm text-gray-600">
+                  <span className="text-sm text-gray-300">
                     {adminData?.email}
                   </span>
                 </div>
                 <button
                   onClick={handleLogout}
-                  className="flex items-center space-x-1 px-3 py-1.5 text-gray-600 hover:text-red-600 rounded-lg hover:bg-red-50 transition-all"
+                  className="flex items-center space-x-1 px-3 py-1.5 text-gray-300 hover:text-red-600 rounded-lg hover:bg-red-50 transition-all"
                 >
                   <span>Çıkış</span>
                 </button>
@@ -344,8 +344,8 @@ export default function AdminUsers() {
                         <Users className="w-6 h-6" style={{color: AILYDIAN_COLORS.blue}} />
                       </div>
                       <div className="ml-4">
-                        <p className="text-sm font-semibold text-gray-600 uppercase">Toplam</p>
-                        <p className="text-2xl font-bold text-gray-900">{formatNumber(usersData.stats.totalUsers)}</p>
+                        <p className="text-sm font-semibold text-gray-300 uppercase">Toplam</p>
+                        <p className="text-2xl font-bold text-white">{formatNumber(usersData.stats.totalUsers)}</p>
                       </div>
                     </div>
                   </div>
@@ -356,8 +356,8 @@ export default function AdminUsers() {
                         <UserCheck className="w-6 h-6" style={{color: AILYDIAN_COLORS.success}} />
                       </div>
                       <div className="ml-4">
-                        <p className="text-sm font-semibold text-gray-600 uppercase">Aktif</p>
-                        <p className="text-2xl font-bold text-gray-900">{formatNumber(usersData.stats.activeUsers)}</p>
+                        <p className="text-sm font-semibold text-gray-300 uppercase">Aktif</p>
+                        <p className="text-2xl font-bold text-white">{formatNumber(usersData.stats.activeUsers)}</p>
                       </div>
                     </div>
                   </div>
@@ -368,8 +368,8 @@ export default function AdminUsers() {
                         <Clock className="w-6 h-6" style={{color: AILYDIAN_COLORS.warning}} />
                       </div>
                       <div className="ml-4">
-                        <p className="text-sm font-semibold text-gray-600 uppercase">Askıda</p>
-                        <p className="text-2xl font-bold text-gray-900">{usersData.stats.suspendedUsers}</p>
+                        <p className="text-sm font-semibold text-gray-300 uppercase">Askıda</p>
+                        <p className="text-2xl font-bold text-white">{usersData.stats.suspendedUsers}</p>
                       </div>
                     </div>
                   </div>
@@ -380,8 +380,8 @@ export default function AdminUsers() {
                         <UserX className="w-6 h-6" style={{color: AILYDIAN_COLORS.error}} />
                       </div>
                       <div className="ml-4">
-                        <p className="text-sm font-semibold text-gray-600 uppercase">Yasaklı</p>
-                        <p className="text-2xl font-bold text-gray-900">{usersData.stats.bannedUsers}</p>
+                        <p className="text-sm font-semibold text-gray-300 uppercase">Yasaklı</p>
+                        <p className="text-2xl font-bold text-white">{usersData.stats.bannedUsers}</p>
                       </div>
                     </div>
                   </div>
@@ -392,8 +392,8 @@ export default function AdminUsers() {
                         <Award className="w-6 h-6" style={{color: AILYDIAN_COLORS.primary}} />
                       </div>
                       <div className="ml-4">
-                        <p className="text-sm font-semibold text-gray-600 uppercase">Doğrulanmış</p>
-                        <p className="text-2xl font-bold text-gray-900">{usersData.stats.verifiedUsers}</p>
+                        <p className="text-sm font-semibold text-gray-300 uppercase">Doğrulanmış</p>
+                        <p className="text-2xl font-bold text-white">{usersData.stats.verifiedUsers}</p>
                       </div>
                     </div>
                   </div>
@@ -404,8 +404,8 @@ export default function AdminUsers() {
                         <Plus className="w-6 h-6" style={{color: AILYDIAN_COLORS.purple}} />
                       </div>
                       <div className="ml-4">
-                        <p className="text-sm font-semibold text-gray-600 uppercase">Bu Ay Yeni</p>
-                        <p className="text-2xl font-bold text-gray-900">{usersData.stats.newUsersThisMonth}</p>
+                        <p className="text-sm font-semibold text-gray-300 uppercase">Bu Ay Yeni</p>
+                        <p className="text-2xl font-bold text-white">{usersData.stats.newUsersThisMonth}</p>
                       </div>
                     </div>
                   </div>
@@ -465,7 +465,7 @@ export default function AdminUsers() {
                 {/* Users Table */}
                 <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg overflow-hidden">
                   <div className="px-6 py-4 border-b border-gray-200">
-                    <h3 className="text-lg font-bold text-gray-900">Kullanıcılar ({usersData.total})</h3>
+                    <h3 className="text-lg font-bold text-white">Kullanıcılar ({usersData.total})</h3>
                   </div>
                   
                   <div className="overflow-x-auto">
@@ -495,7 +495,7 @@ export default function AdminUsers() {
                           </th>
                         </tr>
                       </thead>
-                      <tbody className="bg-white divide-y divide-gray-200">
+                      <tbody className="bg-transparent divide-y divide-gray-200">
                         {usersData.users.map((user) => (
                           <tr key={user.id} className="hover:bg-gray-50 transition-colors">
                             <td className="px-6 py-4 whitespace-nowrap">
@@ -519,7 +519,7 @@ export default function AdminUsers() {
                                 </div>
                                 <div className="ml-4">
                                   <div className="flex items-center">
-                                    <div className="text-sm font-medium text-gray-900">{user.fullName}</div>
+                                    <div className="text-sm font-medium text-white">{user.fullName}</div>
                                     {user.isVerified && <CheckCircle className="w-4 h-4 text-blue-500 ml-1" />}
                                   </div>
                                   <div className="text-sm text-gray-500">@{user.username}</div>
@@ -533,7 +533,7 @@ export default function AdminUsers() {
                             <td className="px-6 py-4 whitespace-nowrap">
                               {getRoleBadge(user.role)}
                             </td>
-                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                            <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
                               <div>{formatDate(user.joinDate)}</div>
                               <div className="text-gray-500 text-xs">Son giriş: {formatDate(user.lastLogin)}</div>
                             </td>
@@ -564,7 +564,7 @@ export default function AdminUsers() {
                                 <button className="text-red-600 hover:text-red-900 p-1 rounded hover:bg-red-50">
                                   <Trash2 className="w-4 h-4" />
                                 </button>
-                                <button className="text-gray-400 hover:text-gray-600 p-1 rounded hover:bg-gray-50">
+                                <button className="text-gray-400 hover:text-gray-300 p-1 rounded hover:bg-gray-50">
                                   <MoreHorizontal className="w-4 h-4" />
                                 </button>
                               </div>
@@ -578,7 +578,7 @@ export default function AdminUsers() {
                   {/* Pagination */}
                   <div className="px-6 py-4 border-t border-gray-200 flex items-center justify-between">
                     <div className="flex items-center">
-                      <span className="text-sm text-gray-700">
+                      <span className="text-sm text-gray-200">
                         Sayfa {usersData.pagination.currentPage} / {usersData.pagination.totalPages}
                       </span>
                     </div>

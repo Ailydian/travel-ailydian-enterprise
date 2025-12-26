@@ -404,7 +404,7 @@ export default function DriversPage() {
               initial={{ opacity: 0, y: -50, scale: 0.9 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, scale: 0.9 }}
-              className="bg-white rounded-xl shadow-2xl border-2 p-4 min-w-[320px]"
+              className="bg-transparent rounded-xl shadow-2xl border-2 p-4 min-w-[320px]"
               style={{
                 borderColor: toast.type === 'success' ? '#10B981' : '#EF4444'
               }}
@@ -425,9 +425,9 @@ export default function DriversPage() {
                   )}
                 </div>
                 <div className="flex-1">
-                  <h4 className="font-bold text-gray-900">{toast.title}</h4>
+                  <h4 className="font-bold text-white">{toast.title}</h4>
                   {toast.message && (
-                    <p className="text-sm text-gray-600 mt-1">{toast.message}</p>
+                    <p className="text-sm text-gray-300 mt-1">{toast.message}</p>
                   )}
                 </div>
                 <button
@@ -952,7 +952,7 @@ export default function DriversPage() {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               onClick={(e) => e.stopPropagation()}
-              className="bg-white rounded-2xl p-6 max-w-2xl w-full max-h-[90vh] overflow-y-auto"
+              className="bg-transparent rounded-2xl p-6 max-w-2xl w-full max-h-[90vh] overflow-y-auto"
             >
               <div className="flex items-center justify-between mb-6">
                 <h2 className="text-2xl font-black" style={{ color: '#000000' }}>
@@ -1162,7 +1162,7 @@ export default function DriversPage() {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               onClick={(e) => e.stopPropagation()}
-              className="bg-white rounded-2xl p-6 max-w-2xl w-full max-h-[90vh] overflow-y-auto"
+              className="bg-transparent rounded-2xl p-6 max-w-2xl w-full max-h-[90vh] overflow-y-auto"
             >
               <div className="flex items-center justify-between mb-6">
                 <h2 className="text-2xl font-black" style={{ color: '#000000' }}>

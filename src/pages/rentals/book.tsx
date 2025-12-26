@@ -349,7 +349,7 @@ const RentalBookingPage = () => {
         <div className="min-h-screen bg-gradient-to-br from-purple-50 to-pink-50 flex items-center justify-center">
           <div className="text-center">
             <div className="w-16 h-16 border-4 border-purple-600 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-            <p className="text-gray-600">Rezervasyon sayfası yükleniyor...</p>
+            <p className="text-gray-300">Rezervasyon sayfası yükleniyor...</p>
           </div>
         </div>
       </>
@@ -362,7 +362,7 @@ const RentalBookingPage = () => {
         <ResponsiveHeaderBar />
         <div className="min-h-screen bg-gradient-to-br from-purple-50 to-pink-50 flex items-center justify-center">
           <div className="text-center">
-            <h1 className="text-2xl font-bold text-gray-900 mb-4">Özellik Bulunamadı</h1>
+            <h1 className="text-2xl font-bold text-white mb-4">Özellik Bulunamadı</h1>
             <Link
               href="/rentals"
               className="px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-xl hover:shadow-lg transition-all inline-block"
@@ -424,7 +424,7 @@ const RentalBookingPage = () => {
                           <Icon className={`w-6 h-6 ${isActive ? 'text-white' : 'text-gray-500'}`} />
                         )}
                       </motion.div>
-                      <p className={`text-xs mt-2 font-medium ${isActive ? 'text-purple-600' : 'text-gray-600'}`}>
+                      <p className={`text-xs mt-2 font-medium ${isActive ? 'text-purple-600' : 'text-gray-300'}`}>
                         {step.title}
                       </p>
                     </div>
@@ -447,16 +447,16 @@ const RentalBookingPage = () => {
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -20 }}
-                  className="bg-white rounded-2xl shadow-xl p-6 md:p-8"
+                  className="bg-transparent rounded-2xl shadow-xl p-6 md:p-8"
                 >
                   {/* Step 1: Date Selection */}
                   {currentStep === 1 && (
                     <div>
-                      <h2 className="text-2xl font-bold text-gray-900 mb-6">Tarihlerinizi Seçin</h2>
+                      <h2 className="text-2xl font-bold text-white mb-6">Tarihlerinizi Seçin</h2>
 
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                         <div>
-                          <label className="block text-sm font-semibold text-gray-700 mb-2">
+                          <label className="block text-sm font-semibold text-gray-200 mb-2">
                             <Calendar className="w-4 h-4 inline mr-2" />
                             Giriş Tarihi
                           </label>
@@ -478,7 +478,7 @@ const RentalBookingPage = () => {
                         </div>
 
                         <div>
-                          <label className="block text-sm font-semibold text-gray-700 mb-2">
+                          <label className="block text-sm font-semibold text-gray-200 mb-2">
                             <Calendar className="w-4 h-4 inline mr-2" />
                             Çıkış Tarihi
                           </label>
@@ -535,13 +535,13 @@ const RentalBookingPage = () => {
                   {/* Step 2: Guest Information */}
                   {currentStep === 2 && (
                     <div>
-                      <h2 className="text-2xl font-bold text-gray-900 mb-6">Misafir Bilgileri</h2>
+                      <h2 className="text-2xl font-bold text-white mb-6">Misafir Bilgileri</h2>
 
                       <div className="space-y-4 mb-6">
                         {/* Adults */}
-                        <div className="flex items-center justify-between p-4 bg-gray-50 rounded-xl">
+                        <div className="flex items-center justify-between p-4 bg-white/5 rounded-xl">
                           <div>
-                            <p className="font-semibold text-gray-900">Yetişkinler</p>
+                            <p className="font-semibold text-white">Yetişkinler</p>
                             <p className="text-sm text-gray-500">13 yaş ve üzeri</p>
                           </div>
                           <div className="flex items-center gap-4">
@@ -562,9 +562,9 @@ const RentalBookingPage = () => {
                         </div>
 
                         {/* Children */}
-                        <div className="flex items-center justify-between p-4 bg-gray-50 rounded-xl">
+                        <div className="flex items-center justify-between p-4 bg-white/5 rounded-xl">
                           <div>
-                            <p className="font-semibold text-gray-900">Çocuklar</p>
+                            <p className="font-semibold text-white">Çocuklar</p>
                             <p className="text-sm text-gray-500">2-12 yaş</p>
                           </div>
                           <div className="flex items-center gap-4">
@@ -585,9 +585,9 @@ const RentalBookingPage = () => {
                         </div>
 
                         {/* Infants */}
-                        <div className="flex items-center justify-between p-4 bg-gray-50 rounded-xl">
+                        <div className="flex items-center justify-between p-4 bg-white/5 rounded-xl">
                           <div>
-                            <p className="font-semibold text-gray-900">Bebekler</p>
+                            <p className="font-semibold text-white">Bebekler</p>
                             <p className="text-sm text-gray-500">2 yaş altı</p>
                           </div>
                           <div className="flex items-center gap-4">
@@ -619,7 +619,7 @@ const RentalBookingPage = () => {
 
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                         <div>
-                          <label className="block text-sm font-semibold text-gray-700 mb-2">
+                          <label className="block text-sm font-semibold text-gray-200 mb-2">
                             Konaklama Amacı
                           </label>
                           <select
@@ -640,7 +640,7 @@ const RentalBookingPage = () => {
                         </div>
 
                         <div>
-                          <label className="block text-sm font-semibold text-gray-700 mb-2">
+                          <label className="block text-sm font-semibold text-gray-200 mb-2">
                             Tahmini Varış Saati
                           </label>
                           <input
@@ -672,11 +672,11 @@ const RentalBookingPage = () => {
                   {/* Step 3: House Rules */}
                   {currentStep === 3 && (
                     <div>
-                      <h2 className="text-2xl font-bold text-gray-900 mb-6">Ev Kuralları</h2>
+                      <h2 className="text-2xl font-bold text-white mb-6">Ev Kuralları</h2>
 
                       <div className="space-y-4 mb-6">
-                        <div className="bg-gray-50 rounded-xl p-4">
-                          <h3 className="font-semibold text-gray-900 mb-3">Genel Kurallar</h3>
+                        <div className="bg-white/5 rounded-xl p-4">
+                          <h3 className="font-semibold text-white mb-3">Genel Kurallar</h3>
                           <div className="space-y-2">
                             <div className="flex items-center gap-2">
                               {property.smokingAllowed ? (
@@ -684,7 +684,7 @@ const RentalBookingPage = () => {
                               ) : (
                                 <X className="w-5 h-5 text-red-600" />
                               )}
-                              <span className="text-sm text-gray-700">
+                              <span className="text-sm text-gray-200">
                                 {property.smokingAllowed ? 'Sigara içilir' : 'Sigara içilmez'}
                               </span>
                             </div>
@@ -694,7 +694,7 @@ const RentalBookingPage = () => {
                               ) : (
                                 <X className="w-5 h-5 text-red-600" />
                               )}
-                              <span className="text-sm text-gray-700">
+                              <span className="text-sm text-gray-200">
                                 {property.petsAllowed ? 'Evcil hayvan kabul edilir' : 'Evcil hayvan kabul edilmez'}
                               </span>
                             </div>
@@ -704,7 +704,7 @@ const RentalBookingPage = () => {
                               ) : (
                                 <X className="w-5 h-5 text-red-600" />
                               )}
-                              <span className="text-sm text-gray-700">
+                              <span className="text-sm text-gray-200">
                                 {property.partiesAllowed ? 'Parti yapılabilir' : 'Parti yapılamaz'}
                               </span>
                             </div>
@@ -714,35 +714,35 @@ const RentalBookingPage = () => {
                               ) : (
                                 <X className="w-5 h-5 text-red-600" />
                               )}
-                              <span className="text-sm text-gray-700">
+                              <span className="text-sm text-gray-200">
                                 {property.childrenAllowed ? 'Çocuklar kabul edilir' : 'Çocuklar kabul edilmez'}
                               </span>
                             </div>
                           </div>
                         </div>
 
-                        <div className="bg-gray-50 rounded-xl p-4">
-                          <h3 className="font-semibold text-gray-900 mb-3">Giriş & Çıkış Kuralları</h3>
+                        <div className="bg-white/5 rounded-xl p-4">
+                          <h3 className="font-semibold text-white mb-3">Giriş & Çıkış Kuralları</h3>
                           <div className="space-y-2">
                             <div className="flex items-start gap-2">
-                              <Clock className="w-5 h-5 text-gray-600 mt-0.5" />
+                              <Clock className="w-5 h-5 text-gray-300 mt-0.5" />
                               <div>
-                                <p className="text-sm font-semibold text-gray-900">Giriş Saati</p>
-                                <p className="text-sm text-gray-600">{property.checkInTime}</p>
+                                <p className="text-sm font-semibold text-white">Giriş Saati</p>
+                                <p className="text-sm text-gray-300">{property.checkInTime}</p>
                               </div>
                             </div>
                             <div className="flex items-start gap-2">
-                              <Clock className="w-5 h-5 text-gray-600 mt-0.5" />
+                              <Clock className="w-5 h-5 text-gray-300 mt-0.5" />
                               <div>
-                                <p className="text-sm font-semibold text-gray-900">Çıkış Saati</p>
-                                <p className="text-sm text-gray-600">{property.checkOutTime}</p>
+                                <p className="text-sm font-semibold text-white">Çıkış Saati</p>
+                                <p className="text-sm text-gray-300">{property.checkOutTime}</p>
                               </div>
                             </div>
                             <div className="flex items-start gap-2">
-                              <Calendar className="w-5 h-5 text-gray-600 mt-0.5" />
+                              <Calendar className="w-5 h-5 text-gray-300 mt-0.5" />
                               <div>
-                                <p className="text-sm font-semibold text-gray-900">Minimum Konaklama</p>
-                                <p className="text-sm text-gray-600">{property.minimumStay} gece</p>
+                                <p className="text-sm font-semibold text-white">Minimum Konaklama</p>
+                                <p className="text-sm text-gray-300">{property.minimumStay} gece</p>
                               </div>
                             </div>
                           </div>
@@ -768,8 +768,8 @@ const RentalBookingPage = () => {
                             className="w-5 h-5 mt-1 text-purple-600 rounded focus:ring-2 focus:ring-purple-500"
                           />
                           <div>
-                            <p className="font-semibold text-gray-900">Ev kurallarını okudum ve kabul ediyorum</p>
-                            <p className="text-sm text-gray-600 mt-1">
+                            <p className="font-semibold text-white">Ev kurallarını okudum ve kabul ediyorum</p>
+                            <p className="text-sm text-gray-300 mt-1">
                               Yukarıda belirtilen tüm kurallara uyacağımı taahhüt ediyorum.
                             </p>
                           </div>
@@ -790,14 +790,14 @@ const RentalBookingPage = () => {
                   {/* Step 4: Contact & Special Requests */}
                   {currentStep === 4 && (
                     <div>
-                      <h2 className="text-2xl font-bold text-gray-900 mb-6">İletişim Bilgileri</h2>
+                      <h2 className="text-2xl font-bold text-white mb-6">İletişim Bilgileri</h2>
 
                       <div className="space-y-6 mb-6">
                         <div>
-                          <h3 className="font-semibold text-gray-900 mb-4">Birincil Misafir</h3>
+                          <h3 className="font-semibold text-white mb-4">Birincil Misafir</h3>
                           <div className="space-y-4">
                             <div>
-                              <label className="block text-sm font-semibold text-gray-700 mb-2">
+                              <label className="block text-sm font-semibold text-gray-200 mb-2">
                                 <User className="w-4 h-4 inline mr-2" />
                                 Ad Soyad
                               </label>
@@ -816,7 +816,7 @@ const RentalBookingPage = () => {
                             </div>
 
                             <div>
-                              <label className="block text-sm font-semibold text-gray-700 mb-2">
+                              <label className="block text-sm font-semibold text-gray-200 mb-2">
                                 <Mail className="w-4 h-4 inline mr-2" />
                                 E-posta
                               </label>
@@ -835,7 +835,7 @@ const RentalBookingPage = () => {
                             </div>
 
                             <div>
-                              <label className="block text-sm font-semibold text-gray-700 mb-2">
+                              <label className="block text-sm font-semibold text-gray-200 mb-2">
                                 <Phone className="w-4 h-4 inline mr-2" />
                                 Telefon
                               </label>
@@ -856,10 +856,10 @@ const RentalBookingPage = () => {
                         </div>
 
                         <div className="border-t border-gray-200 pt-6">
-                          <h3 className="font-semibold text-gray-900 mb-4">Acil Durum İletişim</h3>
+                          <h3 className="font-semibold text-white mb-4">Acil Durum İletişim</h3>
                           <div className="space-y-4">
                             <div>
-                              <label className="block text-sm font-semibold text-gray-700 mb-2">
+                              <label className="block text-sm font-semibold text-gray-200 mb-2">
                                 <User className="w-4 h-4 inline mr-2" />
                                 Ad Soyad
                               </label>
@@ -878,7 +878,7 @@ const RentalBookingPage = () => {
                             </div>
 
                             <div>
-                              <label className="block text-sm font-semibold text-gray-700 mb-2">
+                              <label className="block text-sm font-semibold text-gray-200 mb-2">
                                 <Phone className="w-4 h-4 inline mr-2" />
                                 Telefon
                               </label>
@@ -899,7 +899,7 @@ const RentalBookingPage = () => {
                         </div>
 
                         <div className="border-t border-gray-200 pt-6">
-                          <h3 className="font-semibold text-gray-900 mb-4">Özel İstekler (İsteğe Bağlı)</h3>
+                          <h3 className="font-semibold text-white mb-4">Özel İstekler (İsteğe Bağlı)</h3>
                           <textarea
                             value={specialRequests}
                             onChange={(e) => setSpecialRequests(e.target.value)}
@@ -918,12 +918,12 @@ const RentalBookingPage = () => {
                   {/* Step 5: Review & Confirm */}
                   {currentStep === 5 && (
                     <div>
-                      <h2 className="text-2xl font-bold text-gray-900 mb-6">Rezervasyonu Onaylayın</h2>
+                      <h2 className="text-2xl font-bold text-white mb-6">Rezervasyonu Onaylayın</h2>
 
                       <div className="space-y-6">
                         {/* Property Summary */}
-                        <div className="bg-gray-50 rounded-xl p-4">
-                          <h3 className="font-semibold text-gray-900 mb-3">Özellik Bilgileri</h3>
+                        <div className="bg-white/5 rounded-xl p-4">
+                          <h3 className="font-semibold text-white mb-3">Özellik Bilgileri</h3>
                           <div className="flex gap-4">
                             <img
                               src={property.mainImage}
@@ -931,41 +931,41 @@ const RentalBookingPage = () => {
                               className="w-24 h-24 object-cover rounded-lg"
                             />
                             <div>
-                              <p className="font-bold text-gray-900">{property.title}</p>
-                              <p className="text-sm text-gray-600">
+                              <p className="font-bold text-white">{property.title}</p>
+                              <p className="text-sm text-gray-300">
                                 {property.district}, {property.city}
                               </p>
                               <div className="flex items-center gap-2 mt-2">
                                 <Star className="w-4 h-4 text-yellow-400 fill-yellow-400" />
                                 <span className="text-sm font-semibold">{parseFloat(property.overall).toFixed(1)}</span>
-                                <span className="text-sm text-gray-600">({property.reviewCount} değerlendirme)</span>
+                                <span className="text-sm text-gray-300">({property.reviewCount} değerlendirme)</span>
                               </div>
                             </div>
                           </div>
                         </div>
 
                         {/* Dates & Guests */}
-                        <div className="bg-gray-50 rounded-xl p-4">
-                          <h3 className="font-semibold text-gray-900 mb-3">Rezervasyon Detayları</h3>
+                        <div className="bg-white/5 rounded-xl p-4">
+                          <h3 className="font-semibold text-white mb-3">Rezervasyon Detayları</h3>
                           <div className="space-y-2 text-sm">
                             <div className="flex justify-between">
-                              <span className="text-gray-600">Giriş:</span>
+                              <span className="text-gray-300">Giriş:</span>
                               <span className="font-semibold">{new Date(checkInDate).toLocaleDateString('tr-TR')}</span>
                             </div>
                             <div className="flex justify-between">
-                              <span className="text-gray-600">Çıkış:</span>
+                              <span className="text-gray-300">Çıkış:</span>
                               <span className="font-semibold">{new Date(checkOutDate).toLocaleDateString('tr-TR')}</span>
                             </div>
                             <div className="flex justify-between">
-                              <span className="text-gray-600">Gece:</span>
+                              <span className="text-gray-300">Gece:</span>
                               <span className="font-semibold">{nights} gece</span>
                             </div>
                             <div className="flex justify-between">
-                              <span className="text-gray-600">Misafirler:</span>
+                              <span className="text-gray-300">Misafirler:</span>
                               <span className="font-semibold">{totalGuests} kişi</span>
                             </div>
                             <div className="flex justify-between">
-                              <span className="text-gray-600">Amaç:</span>
+                              <span className="text-gray-300">Amaç:</span>
                               <span className="font-semibold">
                                 {purposeOfStay === 'leisure' ? 'Tatil' : purposeOfStay === 'business' ? 'İş' : 'Diğer'}
                               </span>
@@ -974,19 +974,19 @@ const RentalBookingPage = () => {
                         </div>
 
                         {/* Contact Info */}
-                        <div className="bg-gray-50 rounded-xl p-4">
-                          <h3 className="font-semibold text-gray-900 mb-3">İletişim Bilgileri</h3>
+                        <div className="bg-white/5 rounded-xl p-4">
+                          <h3 className="font-semibold text-white mb-3">İletişim Bilgileri</h3>
                           <div className="space-y-2 text-sm">
                             <div className="flex justify-between">
-                              <span className="text-gray-600">Misafir:</span>
+                              <span className="text-gray-300">Misafir:</span>
                               <span className="font-semibold">{primaryGuestName}</span>
                             </div>
                             <div className="flex justify-between">
-                              <span className="text-gray-600">E-posta:</span>
+                              <span className="text-gray-300">E-posta:</span>
                               <span className="font-semibold">{primaryGuestEmail}</span>
                             </div>
                             <div className="flex justify-between">
-                              <span className="text-gray-600">Telefon:</span>
+                              <span className="text-gray-300">Telefon:</span>
                               <span className="font-semibold">{primaryGuestPhone}</span>
                             </div>
                           </div>
@@ -994,9 +994,9 @@ const RentalBookingPage = () => {
 
                         {/* Special Requests */}
                         {specialRequests && (
-                          <div className="bg-gray-50 rounded-xl p-4">
-                            <h3 className="font-semibold text-gray-900 mb-3">Özel İstekler</h3>
-                            <p className="text-sm text-gray-700">{specialRequests}</p>
+                          <div className="bg-white/5 rounded-xl p-4">
+                            <h3 className="font-semibold text-white mb-3">Özel İstekler</h3>
+                            <p className="text-sm text-gray-200">{specialRequests}</p>
                           </div>
                         )}
 
@@ -1050,14 +1050,14 @@ const RentalBookingPage = () => {
             <div className="lg:col-span-1">
               <div className="sticky top-24">
                 {/* Property Card */}
-                <div className="bg-white rounded-2xl shadow-xl p-6 mb-6">
+                <div className="bg-transparent rounded-2xl shadow-xl p-6 mb-6">
                   <img
                     src={property.mainImage}
                     alt={property.title}
                     className="w-full h-48 object-cover rounded-xl mb-4"
                   />
-                  <h3 className="font-bold text-lg text-gray-900 mb-2">{property.title}</h3>
-                  <p className="text-sm text-gray-600 mb-4">
+                  <h3 className="font-bold text-lg text-white mb-2">{property.title}</h3>
+                  <p className="text-sm text-gray-300 mb-4">
                     <MapPin className="w-4 h-4 inline mr-1" />
                     {property.district}, {property.city}
                   </p>
@@ -1065,10 +1065,10 @@ const RentalBookingPage = () => {
                   <div className="flex items-center gap-2 mb-4">
                     <Star className="w-5 h-5 text-yellow-400 fill-yellow-400" />
                     <span className="font-semibold">{parseFloat(property.overall).toFixed(1)}</span>
-                    <span className="text-sm text-gray-600">({property.reviewCount} değerlendirme)</span>
+                    <span className="text-sm text-gray-300">({property.reviewCount} değerlendirme)</span>
                   </div>
 
-                  <div className="flex items-center gap-4 text-sm text-gray-600">
+                  <div className="flex items-center gap-4 text-sm text-gray-300">
                     <div className="flex items-center gap-1">
                       <Users className="w-4 h-4" />
                       {property.guests}
@@ -1084,7 +1084,7 @@ const RentalBookingPage = () => {
                   </div>
 
                   <div className="mt-4 pt-4 border-t border-gray-200">
-                    <p className="text-xs text-gray-600 mb-2">Özellikler:</p>
+                    <p className="text-xs text-gray-300 mb-2">Özellikler:</p>
                     <div className="flex flex-wrap gap-2">
                       {property.wifi && (
                         <div className="px-2 py-1 bg-blue-50 rounded-lg text-xs flex items-center gap-1">
@@ -1116,29 +1116,29 @@ const RentalBookingPage = () => {
 
                 {/* Price Breakdown */}
                 {nights > 0 && (
-                  <div className="bg-white rounded-2xl shadow-xl p-6">
-                    <h3 className="font-bold text-lg text-gray-900 mb-4">Fiyat Detayları</h3>
+                  <div className="bg-transparent rounded-2xl shadow-xl p-6">
+                    <h3 className="font-bold text-lg text-white mb-4">Fiyat Detayları</h3>
 
                     <div className="space-y-3">
                       <div className="flex justify-between text-sm">
-                        <span className="text-gray-600">
+                        <span className="text-gray-300">
                           ₺{pricing.nightlyRate.toLocaleString('tr-TR')} × {nights} gece
                         </span>
                         <span className="font-semibold">₺{pricing.subtotal.toLocaleString('tr-TR')}</span>
                       </div>
 
                       <div className="flex justify-between text-sm">
-                        <span className="text-gray-600">Temizlik ücreti</span>
+                        <span className="text-gray-300">Temizlik ücreti</span>
                         <span className="font-semibold">₺{pricing.cleaningFee.toLocaleString('tr-TR')}</span>
                       </div>
 
                       <div className="flex justify-between text-sm">
-                        <span className="text-gray-600">Hizmet bedeli</span>
+                        <span className="text-gray-300">Hizmet bedeli</span>
                         <span className="font-semibold">₺{pricing.serviceFee.toLocaleString('tr-TR')}</span>
                       </div>
 
                       <div className="flex justify-between text-sm">
-                        <span className="text-gray-600">Vergiler</span>
+                        <span className="text-gray-300">Vergiler</span>
                         <span className="font-semibold">₺{pricing.tax.toLocaleString('tr-TR')}</span>
                       </div>
 
@@ -1153,7 +1153,7 @@ const RentalBookingPage = () => {
                     </div>
 
                     <div className="mt-4 pt-4 border-t border-gray-200">
-                      <div className="flex items-start gap-2 text-xs text-gray-600">
+                      <div className="flex items-start gap-2 text-xs text-gray-300">
                         <Shield className="w-4 h-4 text-green-600 mt-0.5" />
                         <p>Rezervasyonunuz güvenli ödeme sistemi ile korunmaktadır.</p>
                       </div>
@@ -1168,11 +1168,11 @@ const RentalBookingPage = () => {
                       {property.hostName.charAt(0)}
                     </div>
                     <div>
-                      <p className="font-bold text-gray-900">{property.hostName}</p>
-                      <p className="text-sm text-gray-600">Ev Sahibi</p>
+                      <p className="font-bold text-white">{property.hostName}</p>
+                      <p className="text-sm text-gray-300">Ev Sahibi</p>
                     </div>
                   </div>
-                  <p className="text-xs text-gray-600">
+                  <p className="text-xs text-gray-300">
                     Sorularınız için rezervasyon sonrası ev sahibi ile iletişime geçebilirsiniz.
                   </p>
                 </div>

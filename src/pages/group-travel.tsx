@@ -42,11 +42,11 @@ const GroupTravel: React.FC = () => {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
-                  className="bg-white p-6 rounded-2xl shadow-lg text-center"
+                  className="bg-transparent p-6 rounded-2xl shadow-lg text-center"
                 >
                   <div className="text-4xl mb-4">{type.icon}</div>
                   <h3 className="font-bold text-xl mb-2">{type.title}</h3>
-                  <p className="text-gray-600">{type.desc}</p>
+                  <p className="text-gray-300">{type.desc}</p>
                 </motion.div>
               ))}
             </div>
@@ -55,7 +55,7 @@ const GroupTravel: React.FC = () => {
 
         <section className="py-16 bg-white">
           <div className="max-w-7xl mx-auto px-4 text-center">
-            <h2 className="text-3xl font-bold text-gray-900 mb-8">Grup Avantajları</h2>
+            <h2 className="text-3xl font-bold text-white mb-8">Grup Avantajları</h2>
             <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
               {[
                 { icon: Star, title: '%30 Grup İndirimi', desc: '10+ kişi için özel indirim' },
@@ -74,7 +74,7 @@ const GroupTravel: React.FC = () => {
                     <benefit.icon className="w-8 h-8" />
                   </div>
                   <h3 className="font-bold text-lg mb-2">{benefit.title}</h3>
-                  <p className="text-gray-600">{benefit.desc}</p>
+                  <p className="text-gray-300">{benefit.desc}</p>
                 </motion.div>
               ))}
             </div>

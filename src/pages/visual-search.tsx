@@ -102,15 +102,15 @@ const VisualSearchPage: React.FC = () => {
 
       <div className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50">
         {/* Header */}
-        <div className="bg-white border-b border-gray-200">
+        <div className="bg-transparent border-b border-gray-200">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
             <div className="flex items-center space-x-3">
               <div className="p-3 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl">
                 <SparklesIcon className="w-8 h-8 text-white" />
               </div>
               <div>
-                <h1 className="text-3xl font-bold text-gray-900">Visual Search</h1>
-                <p className="text-gray-600 mt-1">
+                <h1 className="text-3xl font-bold text-white">Visual Search</h1>
+                <p className="text-gray-300 mt-1">
                   Discover travel destinations through the power of AI vision
                 </p>
               </div>
@@ -123,8 +123,8 @@ const VisualSearchPage: React.FC = () => {
             {/* Left Column - Upload & Examples */}
             <div className="lg:col-span-1 space-y-6">
               {/* Upload Section */}
-              <div className="bg-white rounded-2xl shadow-lg p-6">
-                <h2 className="text-xl font-bold text-gray-900 mb-4">
+              <div className="bg-transparent rounded-2xl shadow-lg p-6">
+                <h2 className="text-xl font-bold text-white mb-4">
                   Upload Image
                 </h2>
                 <VisualSearch
@@ -135,8 +135,8 @@ const VisualSearchPage: React.FC = () => {
               </div>
 
               {/* Example Images */}
-              <div className="bg-white rounded-2xl shadow-lg p-6">
-                <h3 className="text-lg font-bold text-gray-900 mb-4">
+              <div className="bg-transparent rounded-2xl shadow-lg p-6">
+                <h3 className="text-lg font-bold text-white mb-4">
                   Try These Examples
                 </h3>
                 <div className="grid grid-cols-2 gap-3">
@@ -169,9 +169,9 @@ const VisualSearchPage: React.FC = () => {
 
               {/* Search History */}
               {searchHistory.length > 0 && (
-                <div className="bg-white rounded-2xl shadow-lg p-6">
-                  <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center">
-                    <ClockIcon className="w-5 h-5 mr-2 text-gray-600" />
+                <div className="bg-transparent rounded-2xl shadow-lg p-6">
+                  <h3 className="text-lg font-bold text-white mb-4 flex items-center">
+                    <ClockIcon className="w-5 h-5 mr-2 text-gray-300" />
                     Recent Searches
                   </h3>
                   <div className="space-y-3">
@@ -186,7 +186,7 @@ const VisualSearchPage: React.FC = () => {
                           className="w-12 h-12 rounded-lg object-cover"
                         />
                         <div className="flex-1 text-left">
-                          <p className="text-sm font-medium text-gray-900">
+                          <p className="text-sm font-medium text-white">
                             {item.resultCount} results
                           </p>
                           <p className="text-xs text-gray-500">
@@ -204,14 +204,14 @@ const VisualSearchPage: React.FC = () => {
             <div className="lg:col-span-2">
               {searchResults.length === 0 ? (
                 // Empty State
-                <div className="bg-white rounded-2xl shadow-lg p-12 text-center">
+                <div className="bg-transparent rounded-2xl shadow-lg p-12 text-center">
                   <div className="inline-flex items-center justify-center w-24 h-24 rounded-full bg-gradient-to-br from-blue-100 to-purple-100 mb-6">
                     <SparklesIcon className="w-12 h-12 text-blue-600" />
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-3">
+                  <h3 className="text-2xl font-bold text-white mb-3">
                     Start Your Visual Search
                   </h3>
-                  <p className="text-gray-600 max-w-md mx-auto mb-8">
+                  <p className="text-gray-300 max-w-md mx-auto mb-8">
                     Upload an image or try one of our examples to discover amazing
                     travel destinations, hotels, and experiences that match your vision.
                   </p>
@@ -220,10 +220,10 @@ const VisualSearchPage: React.FC = () => {
                       <div className="w-10 h-10 bg-blue-500 rounded-lg flex items-center justify-center mb-3">
                         <SparklesIcon className="w-6 h-6 text-white" />
                       </div>
-                      <h4 className="font-semibold text-gray-900 mb-1">
+                      <h4 className="font-semibold text-white mb-1">
                         AI-Powered Analysis
                       </h4>
-                      <p className="text-sm text-gray-600">
+                      <p className="text-sm text-gray-300">
                         Advanced computer vision detects landmarks, scenery, and more
                       </p>
                     </div>
@@ -231,10 +231,10 @@ const VisualSearchPage: React.FC = () => {
                       <div className="w-10 h-10 bg-purple-500 rounded-lg flex items-center justify-center mb-3">
                         <MapPinIcon className="w-6 h-6 text-white" />
                       </div>
-                      <h4 className="font-semibold text-gray-900 mb-1">
+                      <h4 className="font-semibold text-white mb-1">
                         Smart Matching
                       </h4>
-                      <p className="text-sm text-gray-600">
+                      <p className="text-sm text-gray-300">
                         Find destinations with similar features and atmosphere
                       </p>
                     </div>
@@ -242,10 +242,10 @@ const VisualSearchPage: React.FC = () => {
                       <div className="w-10 h-10 bg-pink-500 rounded-lg flex items-center justify-center mb-3">
                         <StarIcon className="w-6 h-6 text-white" />
                       </div>
-                      <h4 className="font-semibold text-gray-900 mb-1">
+                      <h4 className="font-semibold text-white mb-1">
                         Ranked Results
                       </h4>
-                      <p className="text-sm text-gray-600">
+                      <p className="text-sm text-gray-300">
                         Results sorted by similarity score and confidence
                       </p>
                     </div>
@@ -260,15 +260,15 @@ const VisualSearchPage: React.FC = () => {
                         initial={{ opacity: 0, y: -20 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -20 }}
-                        className="bg-white rounded-2xl shadow-lg p-6 mb-6"
+                        className="bg-transparent rounded-2xl shadow-lg p-6 mb-6"
                       >
                         <div className="flex items-center justify-between mb-4">
-                          <h3 className="text-lg font-bold text-gray-900">
+                          <h3 className="text-lg font-bold text-white">
                             Image Analysis
                           </h3>
                           <button
                             onClick={() => setShowAnalysis(false)}
-                            className="text-gray-500 hover:text-gray-700"
+                            className="text-gray-500 hover:text-gray-200"
                           >
                             Hide
                           </button>
@@ -277,7 +277,7 @@ const VisualSearchPage: React.FC = () => {
                         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                           {imageAnalysis.sceneryType.length > 0 && (
                             <div>
-                              <p className="text-sm font-semibold text-gray-700 mb-2">
+                              <p className="text-sm font-semibold text-gray-200 mb-2">
                                 Scenery
                               </p>
                               <div className="flex flex-wrap gap-2">
@@ -295,7 +295,7 @@ const VisualSearchPage: React.FC = () => {
 
                           {imageAnalysis.architectureStyle.length > 0 && (
                             <div>
-                              <p className="text-sm font-semibold text-gray-700 mb-2">
+                              <p className="text-sm font-semibold text-gray-200 mb-2">
                                 Architecture
                               </p>
                               <div className="flex flex-wrap gap-2">
@@ -313,7 +313,7 @@ const VisualSearchPage: React.FC = () => {
 
                           {imageAnalysis.atmosphere && (
                             <div>
-                              <p className="text-sm font-semibold text-gray-700 mb-2">
+                              <p className="text-sm font-semibold text-gray-200 mb-2">
                                 Atmosphere
                               </p>
                               <span className="px-3 py-1 bg-pink-100 text-pink-700 rounded-full text-xs font-medium">
@@ -324,7 +324,7 @@ const VisualSearchPage: React.FC = () => {
 
                           {imageAnalysis.landmarks.length > 0 && (
                             <div>
-                              <p className="text-sm font-semibold text-gray-700 mb-2">
+                              <p className="text-sm font-semibold text-gray-200 mb-2">
                                 Landmarks
                               </p>
                               <div className="flex flex-wrap gap-2">
@@ -345,11 +345,11 @@ const VisualSearchPage: React.FC = () => {
                   </AnimatePresence>
 
                   {/* Filters and Sort */}
-                  <div className="bg-white rounded-2xl shadow-lg p-6 mb-6">
+                  <div className="bg-transparent rounded-2xl shadow-lg p-6 mb-6">
                     <div className="flex flex-col md:flex-row md:items-center md:justify-between space-y-4 md:space-y-0">
                       {/* Filter Buttons */}
                       <div className="flex items-center space-x-2">
-                        <FunnelIcon className="w-5 h-5 text-gray-600" />
+                        <FunnelIcon className="w-5 h-5 text-gray-300" />
                         <div className="flex flex-wrap gap-2">
                           {['all', 'destination', 'hotel', 'restaurant', 'activity'].map(
                             (filter) => (
@@ -359,7 +359,7 @@ const VisualSearchPage: React.FC = () => {
                                 className={`px-4 py-2 rounded-lg font-medium text-sm transition-colors duration-200 ${
                                   selectedFilter === filter
                                     ? 'bg-blue-600 text-white'
-                                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                                    : 'bg-gray-100 text-gray-200 hover:bg-gray-200'
                                 }`}
                               >
                                 {filter.charAt(0).toUpperCase() + filter.slice(1)}
@@ -371,7 +371,7 @@ const VisualSearchPage: React.FC = () => {
 
                       {/* Sort Dropdown */}
                       <div className="flex items-center space-x-2">
-                        <ArrowPathIcon className="w-5 h-5 text-gray-600" />
+                        <ArrowPathIcon className="w-5 h-5 text-gray-300" />
                         <select
                           value={sortBy}
                           onChange={(e) =>
@@ -386,7 +386,7 @@ const VisualSearchPage: React.FC = () => {
                       </div>
                     </div>
 
-                    <p className="text-sm text-gray-600 mt-4">
+                    <p className="text-sm text-gray-300 mt-4">
                       Found {filteredResults.length} results
                     </p>
                   </div>
@@ -399,7 +399,7 @@ const VisualSearchPage: React.FC = () => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: index * 0.1 }}
-                        className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
+                        className="bg-transparent rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
                       >
                         {/* Image */}
                         <div className="relative h-48">
@@ -413,7 +413,7 @@ const VisualSearchPage: React.FC = () => {
                           <div className="absolute top-4 right-4 px-3 py-1 bg-white/90 backdrop-blur-sm rounded-full">
                             <div className="flex items-center space-x-1">
                               <SparklesIcon className="w-4 h-4 text-blue-600" />
-                              <span className="text-sm font-bold text-gray-900">
+                              <span className="text-sm font-bold text-white">
                                 {Math.round(result.similarityScore * 100)}%
                               </span>
                             </div>
@@ -430,7 +430,7 @@ const VisualSearchPage: React.FC = () => {
                         {/* Content */}
                         <div className="p-6">
                           <div className="flex items-start justify-between mb-2">
-                            <h3 className="text-xl font-bold text-gray-900">
+                            <h3 className="text-xl font-bold text-white">
                               {result.name}
                             </h3>
                             <button className="text-gray-400 hover:text-blue-600 transition-colors">
@@ -440,7 +440,7 @@ const VisualSearchPage: React.FC = () => {
 
                           <div className="flex items-center space-x-2 mb-3">
                             <MapPinIcon className="w-4 h-4 text-gray-500" />
-                            <span className="text-sm text-gray-600">{result.location}</span>
+                            <span className="text-sm text-gray-300">{result.location}</span>
                           </div>
 
                           {result.rating && (
@@ -457,7 +457,7 @@ const VisualSearchPage: React.FC = () => {
                                   />
                                 ))}
                               </div>
-                              <span className="text-sm font-semibold text-gray-900">
+                              <span className="text-sm font-semibold text-white">
                                 {result.rating}
                               </span>
                               <span className="text-sm text-gray-500">
@@ -466,13 +466,13 @@ const VisualSearchPage: React.FC = () => {
                             </div>
                           )}
 
-                          <p className="text-gray-600 mb-4 line-clamp-2">
+                          <p className="text-gray-300 mb-4 line-clamp-2">
                             {result.description}
                           </p>
 
                           {/* Match Reasons */}
                           <div className="mb-4">
-                            <p className="text-xs font-semibold text-gray-700 mb-2">
+                            <p className="text-xs font-semibold text-gray-200 mb-2">
                               Why this matches:
                             </p>
                             <div className="flex flex-wrap gap-2">
@@ -500,7 +500,7 @@ const VisualSearchPage: React.FC = () => {
 
                             <div className="flex space-x-2">
                               <button className="p-2 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors">
-                                <ShareIcon className="w-5 h-5 text-gray-700" />
+                                <ShareIcon className="w-5 h-5 text-gray-200" />
                               </button>
                               <button className="px-6 py-2 bg-gradient-to-r from-[#667EEA] via-[#764BA2] to-[#667EEA] hover:from-blue-700 hover:to-purple-700 text-white rounded-lg font-semibold transition-all duration-200">
                                 Book Now

@@ -211,7 +211,7 @@ export default function Flights() {
       {/* Return to Home Button - FIXED: Increased z-index to be above all overlays */}
       <Link
         href="/"
-        className="fixed top-24 left-6 z-[60] flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200 text-gray-700 hover:bg-white hover:text-lydian-primary transition-all duration-200"
+        className="fixed top-24 left-6 z-[60] flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200 text-gray-200 hover:bg-white hover:text-lydian-primary transition-all duration-200"
       >
         <ArrowLeft className="w-4 h-4" />
         <span className="font-medium">Ana Sayfaya Dön</span>
@@ -241,7 +241,7 @@ export default function Flights() {
                     <input
                       type="text"
                       placeholder="İstanbul, Ankara..."
-                      className="w-full px-3 py-3 rounded-xl text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-white/30"
+                      className="w-full px-3 py-3 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-white/30"
                       value={searchData.from}
                       onChange={(e) => setSearchData({...searchData, from: e.target.value})}
                     />
@@ -251,7 +251,7 @@ export default function Flights() {
                     <input
                       type="text"
                       placeholder="Antalya, İzmir..."
-                      className="w-full px-3 py-3 rounded-xl text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-white/30"
+                      className="w-full px-3 py-3 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-white/30"
                       value={searchData.to}
                       onChange={(e) => setSearchData({...searchData, to: e.target.value})}
                     />
@@ -260,7 +260,7 @@ export default function Flights() {
                     <label className="block text-sm font-medium mb-2 text-white">Gidiş Tarihi</label>
                     <input
                       type="date"
-                      className="w-full px-3 py-3 rounded-xl text-gray-900 focus:outline-none focus:ring-2 focus:ring-white/30 [color-scheme:light]"
+                      className="w-full px-3 py-3 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-white/30 [color-scheme:light]"
                       style={{ colorScheme: 'light' }}
                       value={searchData.departure}
                       onChange={(e) => setSearchData({...searchData, departure: e.target.value})}
@@ -269,7 +269,7 @@ export default function Flights() {
                   <div>
                     <label className="block text-sm font-medium mb-2 text-white">Yolcu Sayısı</label>
                     <select 
-                      className="w-full px-3 py-3 rounded-xl text-gray-900 focus:outline-none focus:ring-2 focus:ring-white/30"
+                      className="w-full px-3 py-3 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-white/30"
                       value={searchData.passengers}
                       onChange={(e) => setSearchData({...searchData, passengers: e.target.value})}
                     >
@@ -284,7 +284,7 @@ export default function Flights() {
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="flex items-center gap-2 px-8 py-3 bg-white text-lydian-primary rounded-xl font-medium hover:bg-gray-100 transition-colors"
+                    className="flex items-center gap-2 px-8 py-3 bg-transparent text-lydian-primary rounded-xl font-medium hover:bg-gray-100 transition-colors"
                   >
                     <Search className="w-5 h-5" />
                     Uçak Bileti Ara
@@ -296,10 +296,10 @@ export default function Flights() {
         </section>
 
         {/* Filter Section */}
-        <section className="bg-white border-b border-gray-200">
+        <section className="bg-transparent border-b border-gray-200">
           <div className="max-w-7xl mx-auto px-4 py-6">
             <div className="flex items-center justify-between mb-4">
-              <h2 className="text-2xl font-bold text-gray-900">
+              <h2 className="text-2xl font-bold text-white">
                 {filteredAndSortedFlights.length} Uçuş Bulundu
               </h2>
               <div className="flex items-center gap-4">
@@ -348,7 +348,7 @@ export default function Flights() {
                   className={`px-4 py-2 rounded-full font-medium transition-colors text-sm ${
                     selectedAirline === airline
                       ? 'bg-lydian-primary text-white'
-                      : 'bg-gray-100 text-gray-700 hover:bg-lydian-primary hover:text-white'
+                      : 'bg-gray-100 text-gray-200 hover:bg-lydian-primary hover:text-white'
                   }`}
                 >
                   {airline}
@@ -382,7 +382,7 @@ export default function Flights() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: flight.id * 0.1 }}
-                  className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 p-6 group"
+                  className="bg-transparent rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 p-6 group"
                 >
                   <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between">
                     {/* Flight Info */}
@@ -399,7 +399,7 @@ export default function Flights() {
                             />
                           </div>
                           <div>
-                            <h3 className="font-bold text-lg text-gray-900">{flight.airline}</h3>
+                            <h3 className="font-bold text-lg text-white">{flight.airline}</h3>
                             <p className="text-sm text-gray-500">{flight.aircraft}</p>
                           </div>
                         </div>
@@ -416,7 +416,7 @@ export default function Flights() {
                       {/* Flight Route */}
                       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-center mb-4">
                         <div className="text-center md:text-left">
-                          <div className="font-bold text-2xl text-gray-900">{flight.departure}</div>
+                          <div className="font-bold text-2xl text-white">{flight.departure}</div>
                           <div className="text-sm text-gray-500 font-medium">{flight.from}</div>
                         </div>
                         
@@ -433,7 +433,7 @@ export default function Flights() {
                         </div>
                         
                         <div className="text-center md:text-right">
-                          <div className="font-bold text-2xl text-gray-900">{flight.arrival}</div>
+                          <div className="font-bold text-2xl text-white">{flight.arrival}</div>
                           <div className="text-sm text-gray-500 font-medium">{flight.to}</div>
                         </div>
                       </div>
@@ -460,10 +460,10 @@ export default function Flights() {
                             ₺{flight.originalPrice}
                           </div>
                         )}
-                        <div className="text-3xl font-bold text-gray-900">
+                        <div className="text-3xl font-bold text-white">
                           ₺{flight.price}
                         </div>
-                        <div className="text-sm text-gray-600">kişi başına</div>
+                        <div className="text-sm text-gray-300">kişi başına</div>
                       </div>
                       
                       <Link href={`/flights/${flight.slug}`}>
@@ -489,10 +489,10 @@ export default function Flights() {
                 {filteredAndSortedFlights.length === 0 && (
                   <div className="text-center py-16">
                     <Plane className="w-24 h-24 text-gray-300 mx-auto mb-6" />
-                    <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                    <h2 className="text-2xl font-bold text-white mb-4">
                       Aradığınız kriterlerde uçuş bulunamadı
                     </h2>
-                    <p className="text-gray-600 mb-8">
+                    <p className="text-gray-300 mb-8">
                       Filtrelerinizi değiştirerek tekrar deneyin
                     </p>
                     <button

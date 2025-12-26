@@ -288,7 +288,7 @@ const HotelsPage: React.FC = () => {
       {/* Return to Home Button */}
       <Link 
         href="/" 
-        className="fixed top-24 left-6 z-10 flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200 text-gray-700 hover:bg-white hover:text-lydian-primary transition-all duration-200"
+        className="fixed top-24 left-6 z-10 flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200 text-gray-200 hover:bg-white hover:text-lydian-primary transition-all duration-200"
       >
         <ArrowLeft className="w-4 h-4" />
         <span className="font-medium">Ana Sayfaya Dön</span>
@@ -320,7 +320,7 @@ const HotelsPage: React.FC = () => {
                       value={destination}
                       onChange={(e) => setDestination(e.target.value)}
                       placeholder="Nereye gidiyorsunuz?"
-                      className="w-full pl-10 pr-4 py-3 rounded-xl text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-white/30"
+                      className="w-full pl-10 pr-4 py-3 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-white/30"
                     />
                   </div>
 
@@ -330,7 +330,7 @@ const HotelsPage: React.FC = () => {
                       type="date"
                       value={checkIn}
                       onChange={(e) => setCheckIn(e.target.value)}
-                      className="w-full pl-10 pr-4 py-3 rounded-xl text-gray-900 focus:outline-none focus:ring-2 focus:ring-white/30 [color-scheme:light]"
+                      className="w-full pl-10 pr-4 py-3 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-white/30 [color-scheme:light]"
                       style={{ colorScheme: 'light' }}
                     />
                   </div>
@@ -341,7 +341,7 @@ const HotelsPage: React.FC = () => {
                       type="date"
                       value={checkOut}
                       onChange={(e) => setCheckOut(e.target.value)}
-                      className="w-full pl-10 pr-4 py-3 rounded-xl text-gray-900 focus:outline-none focus:ring-2 focus:ring-white/30 [color-scheme:light]"
+                      className="w-full pl-10 pr-4 py-3 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-white/30 [color-scheme:light]"
                       style={{ colorScheme: 'light' }}
                     />
                   </div>
@@ -351,7 +351,7 @@ const HotelsPage: React.FC = () => {
                     <select
                       value={guests}
                       onChange={(e) => setGuests(Number(e.target.value))}
-                      className="w-full pl-10 pr-4 py-3 rounded-xl text-gray-900 focus:outline-none focus:ring-2 focus:ring-white/30 appearance-none"
+                      className="w-full pl-10 pr-4 py-3 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-white/30 appearance-none"
                     >
                       <option value={1}>1 Misafir</option>
                       <option value={2}>2 Misafir</option>
@@ -366,7 +366,7 @@ const HotelsPage: React.FC = () => {
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="flex items-center gap-2 px-8 py-3 bg-white text-lydian-primary rounded-xl font-medium hover:bg-gray-100 transition-colors"
+                    className="flex items-center gap-2 px-8 py-3 bg-transparent text-lydian-primary rounded-xl font-medium hover:bg-gray-100 transition-colors"
                   >
                     <Search className="w-5 h-5" />
                     Otel Ara
@@ -378,10 +378,10 @@ const HotelsPage: React.FC = () => {
         </section>
 
         {/* Filter Section */}
-        <section className="bg-white border-b border-gray-200">
+        <section className="bg-transparent border-b border-gray-200">
           <div className="max-w-7xl mx-auto px-4 py-6">
             <div className="flex items-center justify-between mb-4">
-              <h2 className="text-2xl font-bold text-gray-900">
+              <h2 className="text-2xl font-bold text-white">
                 {filteredAndSortedHotels.length} Otel Bulundu
               </h2>
               <div className="flex items-center gap-4">
@@ -448,7 +448,7 @@ const HotelsPage: React.FC = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: hotel.id * 0.1 }}
-                  className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group"
+                  className="bg-transparent rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group"
                 >
                   {/* Image */}
                   <div className="relative h-56 overflow-hidden">
@@ -470,7 +470,7 @@ const HotelsPage: React.FC = () => {
 
                     {/* Heart */}
                     <button className="absolute top-4 right-4 p-2 bg-white/80 hover:bg-white rounded-full transition-colors">
-                      <Heart className="w-4 h-4 text-gray-600" />
+                      <Heart className="w-4 h-4 text-gray-300" />
                     </button>
 
                     {/* Feature Buttons */}
@@ -498,8 +498,8 @@ const HotelsPage: React.FC = () => {
                       <span>{hotel.location}</span>
                     </div>
 
-                    <h3 className="font-bold text-xl text-gray-900 mb-2">{hotel.name}</h3>
-                    <p className="text-gray-600 text-sm mb-4">{hotel.description}</p>
+                    <h3 className="font-bold text-xl text-white mb-2">{hotel.name}</h3>
+                    <p className="text-gray-300 text-sm mb-4">{hotel.description}</p>
 
                     {/* Features */}
                     <div className="flex flex-wrap gap-2 mb-4">
@@ -512,8 +512,8 @@ const HotelsPage: React.FC = () => {
 
                     {/* Highlights */}
                     <div className="mb-4">
-                      <h4 className="font-semibold text-sm text-gray-900 mb-2">Öne Çıkanlar:</h4>
-                      <ul className="text-sm text-gray-600 space-y-1">
+                      <h4 className="font-semibold text-sm text-white mb-2">Öne Çıkanlar:</h4>
+                      <ul className="text-sm text-gray-300 space-y-1">
                         {hotel.highlights.slice(0, 2).map((highlight, index) => (
                           <li key={index} className="flex items-center gap-2">
                             <div className="w-1.5 h-1.5 bg-green-500 rounded-full"></div>
@@ -548,12 +548,12 @@ const HotelsPage: React.FC = () => {
                       <div className="flex items-center justify-between">
                         <div>
                           <div className="flex items-center gap-2">
-                            <span className="text-2xl font-bold text-gray-900">{hotel.price}</span>
+                            <span className="text-2xl font-bold text-white">{hotel.price}</span>
                             {hotel.originalPrice && (
                               <span className="text-sm text-gray-500 line-through">{hotel.originalPrice}</span>
                             )}
                           </div>
-                          <span className="text-sm text-gray-600">gecelik</span>
+                          <span className="text-sm text-gray-300">gecelik</span>
                         </div>
                       </div>
                       <div className="flex gap-2">
@@ -585,10 +585,10 @@ const HotelsPage: React.FC = () => {
                 {filteredAndSortedHotels.length === 0 && (
                   <div className="text-center py-16">
                     <Building className="w-24 h-24 text-gray-300 mx-auto mb-6" />
-                    <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                    <h2 className="text-2xl font-bold text-white mb-4">
                       Aradığınız kriterlerde otel bulunamadı
                     </h2>
-                    <p className="text-gray-600 mb-8">
+                    <p className="text-gray-300 mb-8">
                       Filtrelerinizi değiştirerek tekrar deneyin
                     </p>
                     <button

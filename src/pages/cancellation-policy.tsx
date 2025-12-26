@@ -33,30 +33,30 @@ export default function CancellationPolicy() {
 
         {/* Quick Overview */}
         <div className="max-w-7xl mx-auto px-4 -mt-8">
-          <div className="bg-white rounded-xl shadow-xl p-8">
+          <div className="bg-transparent rounded-xl shadow-xl p-8">
             <div className="grid md:grid-cols-3 gap-6">
               <div className="text-center p-4">
                 <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <CheckCircle2 className="w-8 h-8 text-green-600" />
                 </div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">Ücretsiz İptal</h3>
-                <p className="text-gray-600">24 saat içinde ücretsiz iptal hakkı</p>
+                <h3 className="text-lg font-semibold text-white mb-2">Ücretsiz İptal</h3>
+                <p className="text-gray-300">24 saat içinde ücretsiz iptal hakkı</p>
               </div>
 
               <div className="text-center p-4">
                 <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <RefreshCw className="w-8 h-8 text-lydian-primary" />
                 </div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">Hızlı İade</h3>
-                <p className="text-gray-600">5-10 iş günü içinde iade işlemi</p>
+                <h3 className="text-lg font-semibold text-white mb-2">Hızlı İade</h3>
+                <p className="text-gray-300">5-10 iş günü içinde iade işlemi</p>
               </div>
 
               <div className="text-center p-4">
                 <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Clock className="w-8 h-8 text-purple-600" />
                 </div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">7/24 Destek</h3>
-                <p className="text-gray-600">İptal sürecinizde yardım</p>
+                <h3 className="text-lg font-semibold text-white mb-2">7/24 Destek</h3>
+                <p className="text-gray-300">İptal sürecinizde yardım</p>
               </div>
             </div>
           </div>
@@ -65,21 +65,21 @@ export default function CancellationPolicy() {
         {/* Main Content */}
         <div className="max-w-4xl mx-auto px-4 py-16">
           {/* Hotel Cancellations */}
-          <section className="bg-white rounded-lg shadow-md p-8 mb-8">
+          <section className="bg-transparent rounded-lg shadow-md p-8 mb-8">
             <div className="flex items-center gap-3 mb-6">
               <div className="w-12 h-12 bg-lydian-primary/10 rounded-lg flex items-center justify-center">
                 <Calendar className="w-6 h-6 text-lydian-primary" />
               </div>
-              <h2 className="text-2xl font-bold text-gray-900">Otel Rezervasyonları</h2>
+              <h2 className="text-2xl font-bold text-white">Otel Rezervasyonları</h2>
             </div>
 
             <div className="space-y-6">
               <div className="border-l-4 border-green-500 pl-4">
-                <h3 className="text-lg font-semibold text-gray-900 mb-2 flex items-center gap-2">
+                <h3 className="text-lg font-semibold text-white mb-2 flex items-center gap-2">
                   <CheckCircle2 className="w-5 h-5 text-green-600" />
                   Ücretsiz İptal
                 </h3>
-                <ul className="space-y-2 text-gray-700">
+                <ul className="space-y-2 text-gray-200">
                   <li className="flex items-start gap-2">
                     <span className="text-lydian-primary mt-1">•</span>
                     <span>Rezervasyon tarihinden 24 saat içinde yapılan iptal işlemleri tamamen ücretsizdir</span>
@@ -96,11 +96,11 @@ export default function CancellationPolicy() {
               </div>
 
               <div className="border-l-4 border-yellow-500 pl-4">
-                <h3 className="text-lg font-semibold text-gray-900 mb-2 flex items-center gap-2">
+                <h3 className="text-lg font-semibold text-white mb-2 flex items-center gap-2">
                   <AlertTriangle className="w-5 h-5 text-yellow-600" />
                   Kısmi İade
                 </h3>
-                <ul className="space-y-2 text-gray-700">
+                <ul className="space-y-2 text-gray-200">
                   <li className="flex items-start gap-2">
                     <span className="text-lydian-primary mt-1">•</span>
                     <span>Check-in tarihinden 3-7 gün önce: %50 iade</span>
@@ -117,11 +117,11 @@ export default function CancellationPolicy() {
               </div>
 
               <div className="border-l-4 border-red-500 pl-4">
-                <h3 className="text-lg font-semibold text-gray-900 mb-2 flex items-center gap-2">
+                <h3 className="text-lg font-semibold text-white mb-2 flex items-center gap-2">
                   <XCircle className="w-5 h-5 text-red-600" />
                   İade Edilmeyen Durumlar
                 </h3>
-                <ul className="space-y-2 text-gray-700">
+                <ul className="space-y-2 text-gray-200">
                   <li className="flex items-start gap-2">
                     <span className="text-lydian-primary mt-1">•</span>
                     <span>Check-in tarihinden 24 saat önce veya daha geç yapılan iptaller</span>
@@ -140,15 +140,15 @@ export default function CancellationPolicy() {
           </section>
 
           {/* Flight Cancellations */}
-          <section className="bg-white rounded-lg shadow-md p-8 mb-8">
+          <section className="bg-transparent rounded-lg shadow-md p-8 mb-8">
             <div className="flex items-center gap-3 mb-6">
               <div className="w-12 h-12 bg-lydian-primary/10 rounded-lg flex items-center justify-center">
                 <Calendar className="w-6 h-6 text-lydian-primary" />
               </div>
-              <h2 className="text-2xl font-bold text-gray-900">Uçak Biletleri</h2>
+              <h2 className="text-2xl font-bold text-white">Uçak Biletleri</h2>
             </div>
 
-            <div className="space-y-4 text-gray-700">
+            <div className="space-y-4 text-gray-200">
               <p className="flex items-start gap-2">
                 <CheckCircle2 className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
                 <span>Rezervasyon tarihinden 24 saat içinde yapılan iptaller ücretsizdir</span>
@@ -173,15 +173,15 @@ export default function CancellationPolicy() {
           </section>
 
           {/* Tours & Activities */}
-          <section className="bg-white rounded-lg shadow-md p-8 mb-8">
+          <section className="bg-transparent rounded-lg shadow-md p-8 mb-8">
             <div className="flex items-center gap-3 mb-6">
               <div className="w-12 h-12 bg-lydian-primary/10 rounded-lg flex items-center justify-center">
                 <Calendar className="w-6 h-6 text-lydian-primary" />
               </div>
-              <h2 className="text-2xl font-bold text-gray-900">Turlar ve Aktiviteler</h2>
+              <h2 className="text-2xl font-bold text-white">Turlar ve Aktiviteler</h2>
             </div>
 
-            <div className="space-y-4 text-gray-700">
+            <div className="space-y-4 text-gray-200">
               <p className="flex items-start gap-2">
                 <CheckCircle2 className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
                 <span>Tur tarihinden 48 saat veya daha fazla önce yapılan iptaller tam iade edilir</span>
@@ -202,18 +202,18 @@ export default function CancellationPolicy() {
           </section>
 
           {/* Refund Process */}
-          <section className="bg-white rounded-lg shadow-md p-8 mb-8">
+          <section className="bg-transparent rounded-lg shadow-md p-8 mb-8">
             <div className="flex items-center gap-3 mb-6">
               <div className="w-12 h-12 bg-lydian-primary/10 rounded-lg flex items-center justify-center">
                 <CreditCard className="w-6 h-6 text-lydian-primary" />
               </div>
-              <h2 className="text-2xl font-bold text-gray-900">İade Süreci</h2>
+              <h2 className="text-2xl font-bold text-white">İade Süreci</h2>
             </div>
 
             <div className="space-y-6">
               <div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-3">İade Nasıl Yapılır?</h3>
-                <ol className="space-y-3 text-gray-700">
+                <h3 className="text-lg font-semibold text-white mb-3">İade Nasıl Yapılır?</h3>
+                <ol className="space-y-3 text-gray-200">
                   <li className="flex items-start gap-3">
                     <span className="flex-shrink-0 w-6 h-6 bg-lydian-primary text-white rounded-full flex items-center justify-center text-sm font-bold">1</span>
                     <span>Rezervasyon Yönetimi sayfasından iptal talebinizi oluşturun</span>
@@ -236,7 +236,7 @@ export default function CancellationPolicy() {
               <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
                 <div className="flex items-start gap-3">
                   <Info className="w-5 h-5 text-lydian-primary flex-shrink-0 mt-0.5" />
-                  <div className="text-sm text-gray-700">
+                  <div className="text-sm text-gray-200">
                     <p className="font-semibold mb-1">Önemli Bilgi:</p>
                     <p>İade süreleri bankanıza göre değişiklik gösterebilir. Kredi kartına yapılan iadelerde süre ekstreden düşme tarihine göre 1-2 ay uzayabilir.</p>
                   </div>
@@ -246,18 +246,18 @@ export default function CancellationPolicy() {
           </section>
 
           {/* Special Circumstances */}
-          <section className="bg-white rounded-lg shadow-md p-8 mb-8">
+          <section className="bg-transparent rounded-lg shadow-md p-8 mb-8">
             <div className="flex items-center gap-3 mb-6">
               <div className="w-12 h-12 bg-lydian-primary/10 rounded-lg flex items-center justify-center">
                 <Shield className="w-6 h-6 text-lydian-primary" />
               </div>
-              <h2 className="text-2xl font-bold text-gray-900">Özel Durumlar</h2>
+              <h2 className="text-2xl font-bold text-white">Özel Durumlar</h2>
             </div>
 
-            <div className="space-y-4 text-gray-700">
+            <div className="space-y-4 text-gray-200">
               <div>
                 <h3 className="font-semibold mb-2">Doğal Afet ve Salgın Hastalık</h3>
-                <p className="text-gray-600">
+                <p className="text-gray-300">
                   Doğal afet, salgın hastalık veya seyahat kısıtlamaları durumunda esnek iptal politikası uygulanır.
                   Tam iade veya tarihi erteleme seçenekleri sunulur.
                 </p>
@@ -265,7 +265,7 @@ export default function CancellationPolicy() {
 
               <div>
                 <h3 className="font-semibold mb-2">Sağlık Sorunları</h3>
-                <p className="text-gray-600">
+                <p className="text-gray-300">
                   Doktor raporu ile belgelendirilen sağlık sorunları durumunda özel değerlendirme yapılır.
                   Gerekli belgeler ibraz edildiğinde iade işlemi başlatılır.
                 </p>
@@ -273,7 +273,7 @@ export default function CancellationPolicy() {
 
               <div>
                 <h3 className="font-semibold mb-2">Hizmet Sağlayıcı Kaynaklı İptal</h3>
-                <p className="text-gray-600">
+                <p className="text-gray-300">
                   Otel, havayolu veya tur operatörü kaynaklı iptallerde tam iade garanti edilir.
                   Alternatif seçenekler veya telafi paketleri sunulabilir.
                 </p>
@@ -291,7 +291,7 @@ export default function CancellationPolicy() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a
                   href="tel:+908505551234"
-                  className="bg-white text-lydian-primary px-6 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors inline-flex items-center justify-center gap-2"
+                  className="bg-transparent text-lydian-primary px-6 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors inline-flex items-center justify-center gap-2"
                 >
                   <Clock className="w-5 h-5" />
                   0850 555 12 34

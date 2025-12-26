@@ -43,7 +43,7 @@ export default function About() {
 
       <FuturisticHeader />
 
-      <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+      <div className="min-h-screen bg-white/5 dark:bg-gray-900">
 
         {/* Hero Section */}
         <div className="bg-gradient-to-br from-blue-600 via-purple-600 to-pink-600 text-white py-20">
@@ -60,7 +60,7 @@ export default function About() {
         </div>
 
         {/* Stats */}
-        <div className="bg-white dark:bg-gray-800 py-16">
+        <div className="bg-transparent dark:bg-gray-800 py-16">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
               {stats.map((stat, index) => {
@@ -70,10 +70,10 @@ export default function About() {
                     <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 dark:bg-blue-900 rounded-full mb-4">
                       <IconComponent className="h-8 w-8 text-blue-600 dark:text-blue-400" />
                     </div>
-                    <div className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
+                    <div className="text-3xl font-bold text-white dark:text-white mb-2">
                       {stat.value}
                     </div>
-                    <div className="text-gray-600 dark:text-gray-400">
+                    <div className="text-gray-300 dark:text-gray-400">
                       {stat.label}
                     </div>
                   </div>
@@ -87,28 +87,28 @@ export default function About() {
         <div className="py-16">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-              <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8">
+              <div className="bg-transparent dark:bg-gray-800 rounded-lg shadow-lg p-8">
                 <div className="flex items-center mb-6">
                   <Zap className="h-8 w-8 text-blue-600 mr-3" />
-                  <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
+                  <h2 className="text-3xl font-bold text-white dark:text-white">
                     Misyonumuz
                   </h2>
                 </div>
-                <p className="text-gray-600 dark:text-gray-400 text-lg leading-relaxed">
+                <p className="text-gray-300 dark:text-gray-400 text-lg leading-relaxed">
                   Yapay zeka ve blockchain teknolojilerini kullanarak, her bütçeye uygun, 
                   güvenli ve kişiselleştirilmiş seyahat deneyimleri sunmak. Müşterilerimizin 
                   hayallerindeki tatili gerçekleştirmelerine yardımcı olmak.
                 </p>
               </div>
               
-              <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8">
+              <div className="bg-transparent dark:bg-gray-800 rounded-lg shadow-lg p-8">
                 <div className="flex items-center mb-6">
                   <Shield className="h-8 w-8 text-blue-600 mr-3" />
-                  <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
+                  <h2 className="text-3xl font-bold text-white dark:text-white">
                     Vizyonumuz
                   </h2>
                 </div>
-                <p className="text-gray-600 dark:text-gray-400 text-lg leading-relaxed">
+                <p className="text-gray-300 dark:text-gray-400 text-lg leading-relaxed">
                   Türkiye&apos;nin en güvenilir ve teknolojik seyahat platformu olmak. 
                   Global pazarda öncü konumda yer alan, sürdürülebilir turizme katkıda bulunan, 
                   müşteri memnuniyetinde sektör lideri bir şirket olarak tanınmak.
@@ -119,9 +119,9 @@ export default function About() {
         </div>
 
         {/* Values */}
-        <div className="bg-white dark:bg-gray-800 py-16">
+        <div className="bg-transparent dark:bg-gray-800 py-16">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-4xl font-bold text-center text-gray-900 dark:text-white mb-12">
+            <h2 className="text-4xl font-bold text-center text-white dark:text-white mb-12">
               Değerlerimiz
             </h2>
             
@@ -130,10 +130,10 @@ export default function About() {
                 <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 dark:bg-blue-900 rounded-full mb-4">
                   <Heart className="h-8 w-8 text-blue-600 dark:text-blue-400" />
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
+                <h3 className="text-xl font-semibold text-white dark:text-white mb-4">
                   Müşteri Odaklılık
                 </h3>
-                <p className="text-gray-600 dark:text-gray-400">
+                <p className="text-gray-300 dark:text-gray-400">
                   Her kararımızda müşteri memnuniyetini ön planda tutarak, 
                   beklentileri aşan hizmetler sunmayı hedefliyoruz.
                 </p>
@@ -143,10 +143,10 @@ export default function About() {
                 <div className="inline-flex items-center justify-center w-16 h-16 bg-green-100 dark:bg-green-900 rounded-full mb-4">
                   <Shield className="h-8 w-8 text-green-600 dark:text-green-400" />
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
+                <h3 className="text-xl font-semibold text-white dark:text-white mb-4">
                   Güvenlik
                 </h3>
-                <p className="text-gray-600 dark:text-gray-400">
+                <p className="text-gray-300 dark:text-gray-400">
                   Blockchain teknolojisi ile korunan ödemeler ve 
                   kişisel verilerinizin güvenliği bizim önceliğimizdir.
                 </p>
@@ -156,10 +156,10 @@ export default function About() {
                 <div className="inline-flex items-center justify-center w-16 h-16 bg-purple-100 dark:bg-purple-900 rounded-full mb-4">
                   <Zap className="h-8 w-8 text-purple-600 dark:text-purple-400" />
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
+                <h3 className="text-xl font-semibold text-white dark:text-white mb-4">
                   İnovasyon
                 </h3>
-                <p className="text-gray-600 dark:text-gray-400">
+                <p className="text-gray-300 dark:text-gray-400">
                   AI teknolojileri ile kişiselleştirilmiş öneriler sunarak, 
                   seyahat deneyimini sürekli geliştiriyoruz.
                 </p>
@@ -171,13 +171,13 @@ export default function About() {
         {/* Team */}
         <div className="py-16">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-4xl font-bold text-center text-gray-900 dark:text-white mb-12">
+            <h2 className="text-4xl font-bold text-center text-white dark:text-white mb-12">
               Liderlik Ekibimiz
             </h2>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {team.map((member, index) => (
-                <div key={index} className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8 text-center">
+                <div key={index} className="bg-transparent dark:bg-gray-800 rounded-lg shadow-lg p-8 text-center">
                   <Image
                     src={member.image}
                     alt={member.name}
@@ -185,13 +185,13 @@ export default function About() {
                     height={96}
                     className="w-24 h-24 rounded-full mx-auto mb-6 object-cover"
                   />
-                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+                  <h3 className="text-xl font-semibold text-white dark:text-white mb-2">
                     {member.name}
                   </h3>
                   <p className="text-blue-600 dark:text-blue-400 font-medium mb-4">
                     {member.role}
                   </p>
-                  <p className="text-gray-600 dark:text-gray-400">
+                  <p className="text-gray-300 dark:text-gray-400">
                     {member.description}
                   </p>
                 </div>
@@ -211,7 +211,7 @@ export default function About() {
             </p>
             <Link
               href="/"
-              className="inline-flex items-center bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold hover:bg-blue-50 transition-colors"
+              className="inline-flex items-center bg-transparent text-blue-600 px-8 py-4 rounded-lg font-semibold hover:bg-blue-50 transition-colors"
             >
               Seyahat Planlamaya Başla
               <ArrowRight className="ml-2 h-5 w-5" />

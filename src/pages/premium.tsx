@@ -122,8 +122,8 @@ const Premium: React.FC = () => {
         <section className="py-16">
           <div className="max-w-7xl mx-auto px-4">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">Size Uygun Planı Seçin</h2>
-              <p className="text-gray-600">Her ihtiyaca uygun esnek üyelik paketleri</p>
+              <h2 className="text-3xl font-bold text-white mb-4">Size Uygun Planı Seçin</h2>
+              <p className="text-gray-300">Her ihtiyaca uygun esnek üyelik paketleri</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
@@ -133,7 +133,7 @@ const Premium: React.FC = () => {
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
-                  className={`relative bg-white rounded-3xl shadow-xl p-8 border-2 ${plan.color} ${plan.popular ? 'transform scale-105' : ''}`}
+                  className={`relative bg-transparent rounded-3xl shadow-xl p-8 border-2 ${plan.color} ${plan.popular ? 'transform scale-105' : ''}`}
                 >
                   {plan.popular && (
                     <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
@@ -145,11 +145,11 @@ const Premium: React.FC = () => {
                   )}
 
                   <div className="text-center mb-8">
-                    <h3 className="text-2xl font-bold text-gray-900 mb-2">{plan.name}</h3>
-                    <p className="text-gray-600 mb-4">{plan.description}</p>
+                    <h3 className="text-2xl font-bold text-white mb-2">{plan.name}</h3>
+                    <p className="text-gray-300 mb-4">{plan.description}</p>
                     <div className="flex items-baseline justify-center gap-1">
-                      <span className="text-5xl font-bold text-gray-900">{plan.price}</span>
-                      <span className="text-gray-600">{plan.period}</span>
+                      <span className="text-5xl font-bold text-white">{plan.price}</span>
+                      <span className="text-gray-300">{plan.period}</span>
                     </div>
                   </div>
 
@@ -157,7 +157,7 @@ const Premium: React.FC = () => {
                     {plan.features.map((feature, idx) => (
                       <div key={idx} className="flex items-center gap-3">
                         <Check className="w-5 h-5 text-green-500 flex-shrink-0" />
-                        <span className="text-gray-700">{feature}</span>
+                        <span className="text-gray-200">{feature}</span>
                       </div>
                     ))}
                   </div>
@@ -180,8 +180,8 @@ const Premium: React.FC = () => {
         <section className="py-16 bg-white">
           <div className="max-w-7xl mx-auto px-4">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">Premium Özellikler</h2>
-              <p className="text-gray-600">Neden Premium üyelik tercih etmelisiniz?</p>
+              <h2 className="text-3xl font-bold text-white mb-4">Premium Özellikler</h2>
+              <p className="text-gray-300">Neden Premium üyelik tercih etmelisiniz?</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -228,7 +228,7 @@ const Premium: React.FC = () => {
                     <feature.icon className="w-8 h-8" />
                   </div>
                   <h3 className="font-bold text-xl mb-4">{feature.title}</h3>
-                  <p className="text-gray-600 leading-relaxed">{feature.description}</p>
+                  <p className="text-gray-300 leading-relaxed">{feature.description}</p>
                 </motion.div>
               ))}
             </div>
@@ -253,7 +253,7 @@ const Premium: React.FC = () => {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 bg-white text-purple-600 rounded-xl font-bold text-lg hover:bg-gray-50 transition-colors inline-flex items-center gap-2"
+                className="px-8 py-4 bg-transparent text-purple-600 rounded-xl font-bold text-lg hover:bg-gray-50 transition-colors inline-flex items-center gap-2"
               >
                 30 Gün Ücretsiz Dene
                 <ArrowRight className="w-5 h-5" />

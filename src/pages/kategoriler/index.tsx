@@ -86,13 +86,13 @@ const CategoriesPage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           {/* Filters */}
           <div className="flex items-center gap-3 mb-8">
-            <Filter className="h-5 w-5 text-gray-600" />
+            <Filter className="h-5 w-5 text-gray-300" />
             <button
               onClick={() => setSelectedFilter('all')}
               className={`px-4 py-2 rounded-full font-medium transition-colors ${
                 selectedFilter === 'all'
                   ? 'bg-purple-600 text-white'
-                  : 'bg-white text-gray-700 hover:bg-gray-100'
+                  : 'bg-white text-gray-200 hover:bg-gray-100'
               }`}
             >
               Tüm Kategoriler ({categories.length})
@@ -102,7 +102,7 @@ const CategoriesPage: React.FC = () => {
               className={`px-4 py-2 rounded-full font-medium transition-colors ${
                 selectedFilter === 'seasonal'
                   ? 'bg-purple-600 text-white'
-                  : 'bg-white text-gray-700 hover:bg-gray-100'
+                  : 'bg-white text-gray-200 hover:bg-gray-100'
               }`}
             >
               <span className="flex items-center gap-2">
@@ -122,10 +122,10 @@ const CategoriesPage: React.FC = () => {
               <div className="flex items-start gap-4">
                 <TrendingUp className="h-6 w-6 text-purple-600 flex-shrink-0 mt-1" />
                 <div>
-                  <h3 className="text-lg font-bold text-gray-900 mb-2">
+                  <h3 className="text-lg font-bold text-white mb-2">
                     {currentMonth} Ayı İçin Önerilerimiz
                   </h3>
-                  <p className="text-sm text-gray-700">
+                  <p className="text-sm text-gray-200">
                     Bu ay için en uygun {seasonal.current.length} kategoriyi sizin için seçtik.
                     Hava koşulları, sezon açılışları ve yerel etkinlikler göz önünde bulunduruldu.
                   </p>
@@ -143,7 +143,7 @@ const CategoriesPage: React.FC = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
                 onClick={() => router.push(`/kategoriler/${category.slug}`)}
-                className="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition-all cursor-pointer"
+                className="group bg-transparent rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition-all cursor-pointer"
               >
                 {/* Image */}
                 <div className="relative h-48 overflow-hidden">
@@ -165,11 +165,11 @@ const CategoriesPage: React.FC = () => {
 
                 {/* Content */}
                 <div className="p-6">
-                  <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-purple-600 transition-colors">
+                  <h3 className="text-xl font-bold text-white mb-2 group-hover:text-purple-600 transition-colors">
                     {category.name}
                   </h3>
 
-                  <p className="text-sm text-gray-600 mb-4 line-clamp-2">
+                  <p className="text-sm text-gray-300 mb-4 line-clamp-2">
                     {category.description}
                   </p>
 
@@ -177,7 +177,7 @@ const CategoriesPage: React.FC = () => {
                   <div className="mb-4">
                     <div className="flex items-center gap-2 mb-2">
                       <MapPin className="h-4 w-4 text-gray-400" />
-                      <span className="text-xs font-semibold text-gray-700">
+                      <span className="text-xs font-semibold text-gray-200">
                         Popüler Destinasyonlar:
                       </span>
                     </div>
@@ -185,7 +185,7 @@ const CategoriesPage: React.FC = () => {
                       {category.popularDestinations.slice(0, 4).map((dest) => (
                         <span
                           key={dest}
-                          className="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full"
+                          className="text-xs bg-gray-100 text-gray-200 px-2 py-1 rounded-full"
                         >
                           {dest}
                         </span>
@@ -200,7 +200,7 @@ const CategoriesPage: React.FC = () => {
 
                   {/* Price Range */}
                   <div className="flex items-center justify-between mb-4">
-                    <span className="text-xs text-gray-600">Ortalama Fiyat:</span>
+                    <span className="text-xs text-gray-300">Ortalama Fiyat:</span>
                     <span className="text-sm font-bold text-purple-600">
                       ₺{category.averagePrice.min.toLocaleString()} - ₺
                       {category.averagePrice.max.toLocaleString()}
@@ -208,7 +208,7 @@ const CategoriesPage: React.FC = () => {
                   </div>
 
                   {/* Features */}
-                  <div className="flex items-center gap-2 text-xs text-gray-600 mb-4">
+                  <div className="flex items-center gap-2 text-xs text-gray-300 mb-4">
                     {category.features.slice(0, 3).map((feature) => (
                       <span key={feature} className="flex items-center gap-1">
                         <div className="w-1 h-1 bg-purple-600 rounded-full"></div>
@@ -232,9 +232,9 @@ const CategoriesPage: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5 }}
-            className="mt-16 bg-white rounded-xl shadow-md p-8"
+            className="mt-16 bg-transparent rounded-xl shadow-md p-8"
           >
-            <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">
+            <h2 className="text-2xl font-bold text-white mb-6 text-center">
               Neden Travel LyDian Kategorileri?
             </h2>
 
@@ -243,10 +243,10 @@ const CategoriesPage: React.FC = () => {
                 <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Sparkles className="h-8 w-8 text-purple-600" />
                 </div>
-                <h3 className="font-bold text-gray-900 mb-2">
+                <h3 className="font-bold text-white mb-2">
                   Türkiye'ye Özel
                 </h3>
-                <p className="text-sm text-gray-600">
+                <p className="text-sm text-gray-300">
                   Rakip platformlarda bulamayacağınız, Türkiye'nin benzersiz
                   tatil deneyimlerini kategorize ettik.
                 </p>
@@ -256,8 +256,8 @@ const CategoriesPage: React.FC = () => {
                 <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <MapPin className="h-8 w-8 text-blue-600" />
                 </div>
-                <h3 className="font-bold text-gray-900 mb-2">Yerel Uzmanlık</h3>
-                <p className="text-sm text-gray-600">
+                <h3 className="font-bold text-white mb-2">Yerel Uzmanlık</h3>
+                <p className="text-sm text-gray-300">
                   Her kategori için en iyi destinasyonları, zamanlamaları ve
                   aktiviteleri özenle seçtik.
                 </p>
@@ -267,10 +267,10 @@ const CategoriesPage: React.FC = () => {
                 <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <TrendingUp className="h-8 w-8 text-green-600" />
                 </div>
-                <h3 className="font-bold text-gray-900 mb-2">
+                <h3 className="font-bold text-white mb-2">
                   En İyi Fiyat Garantisi
                 </h3>
-                <p className="text-sm text-gray-600">
+                <p className="text-sm text-gray-300">
                   Bundle pricing sistemimizle paket rezervasyonlarda %20'ye
                   varan indirimler kazanın.
                 </p>
@@ -280,11 +280,11 @@ const CategoriesPage: React.FC = () => {
 
           {/* SEO Content */}
           <div className="mt-12 bg-gray-100 rounded-xl p-8">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">
+            <h2 className="text-2xl font-bold text-white mb-4">
               Türkiye'nin Benzersiz Tatil Deneyimleri
             </h2>
 
-            <div className="prose max-w-none text-gray-700">
+            <div className="prose max-w-none text-gray-200">
               <p>
                 Travel LyDian olarak, Türkiye'nin zengin kültürel mirası ve doğal güzelliklerini
                 yansıtan özel kategoriler oluşturduk. Termal oteller, kış sporları tesisleri,

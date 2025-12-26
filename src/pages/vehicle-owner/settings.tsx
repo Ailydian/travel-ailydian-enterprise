@@ -179,7 +179,7 @@ export default function VehicleOwnerSettings() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50 p-6">
+    <div className="min-h-screen bg-white/5 p-6">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-8">
@@ -216,7 +216,7 @@ export default function VehicleOwnerSettings() {
         )}
 
         {/* Tabs */}
-        <div className="bg-white rounded-2xl border-2 shadow-sm mb-6" style={{ borderColor: '#E5E7EB' }}>
+        <div className="bg-transparent rounded-2xl border-2 shadow-sm mb-6" style={{ borderColor: '#E5E7EB' }}>
           <div className="flex overflow-x-auto">
             {tabs.map(tab => {
               const Icon = tab.icon;
@@ -241,7 +241,7 @@ export default function VehicleOwnerSettings() {
         </div>
 
         {/* Tab Content */}
-        <div className="bg-white rounded-2xl border-2 shadow-sm p-8" style={{ borderColor: '#E5E7EB' }}>
+        <div className="bg-transparent rounded-2xl border-2 shadow-sm p-8" style={{ borderColor: '#E5E7EB' }}>
           {/* Account Tab */}
           {activeTab === 'account' && (
             <div className="space-y-8">
@@ -503,7 +503,7 @@ export default function VehicleOwnerSettings() {
                         style={{ backgroundColor: businessData.autoAccept ? '#059669' : '#E5E7EB' }}
                       >
                         <div
-                          className="absolute top-1 w-6 h-6 bg-white rounded-full transition-transform"
+                          className="absolute top-1 w-6 h-6 bg-transparent rounded-full transition-transform"
                           style={{ transform: businessData.autoAccept ? 'translateX(24px)' : 'translateX(4px)' }}
                         />
                       </button>
@@ -692,7 +692,7 @@ export default function VehicleOwnerSettings() {
                             style={{ backgroundColor: value ? '#059669' : '#E5E7EB' }}
                           >
                             <div
-                              className="absolute top-1 w-6 h-6 bg-white rounded-full transition-transform"
+                              className="absolute top-1 w-6 h-6 bg-transparent rounded-full transition-transform"
                               style={{ transform: value ? 'translateX(24px)' : 'translateX(4px)' }}
                             />
                           </button>
@@ -727,7 +727,7 @@ export default function VehicleOwnerSettings() {
                             style={{ backgroundColor: value ? '#059669' : '#E5E7EB' }}
                           >
                             <div
-                              className="absolute top-1 w-6 h-6 bg-white rounded-full transition-transform"
+                              className="absolute top-1 w-6 h-6 bg-transparent rounded-full transition-transform"
                               style={{ transform: value ? 'translateX(24px)' : 'translateX(4px)' }}
                             />
                           </button>
@@ -763,7 +763,7 @@ export default function VehicleOwnerSettings() {
                             style={{ backgroundColor: value ? '#059669' : '#E5E7EB' }}
                           >
                             <div
-                              className="absolute top-1 w-6 h-6 bg-white rounded-full transition-transform"
+                              className="absolute top-1 w-6 h-6 bg-transparent rounded-full transition-transform"
                               style={{ transform: value ? 'translateX(24px)' : 'translateX(4px)' }}
                             />
                           </button>
@@ -838,7 +838,7 @@ export default function VehicleOwnerSettings() {
                       style={{ backgroundColor: securityData.twoFactorEnabled ? '#059669' : '#E5E7EB' }}
                     >
                       <div
-                        className="absolute top-1 w-6 h-6 bg-white rounded-full transition-transform"
+                        className="absolute top-1 w-6 h-6 bg-transparent rounded-full transition-transform"
                         style={{ transform: securityData.twoFactorEnabled ? 'translateX(24px)' : 'translateX(4px)' }}
                       />
                     </button>
@@ -988,7 +988,7 @@ export default function VehicleOwnerSettings() {
       {/* Password Change Modal */}
       {showModal && modalAction === 'password' && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-2xl p-8 max-w-md w-full" style={{ maxHeight: '90vh', overflowY: 'auto' }}>
+          <div className="bg-transparent rounded-2xl p-8 max-w-md w-full" style={{ maxHeight: '90vh', overflowY: 'auto' }}>
             <h3 className="text-2xl font-bold mb-6" style={{ color: '#000000' }}>Şifre Değiştir</h3>
 
             <div className="space-y-4">

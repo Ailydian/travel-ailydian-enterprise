@@ -373,7 +373,7 @@ export default function Activities() {
       case 'Kolay': return 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200';
       case 'Orta': return 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200';
       case 'Zor': return 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200';
-      default: return 'bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200';
+      default: return 'bg-gray-100 text-gray-100 dark:bg-gray-700 dark:text-gray-200';
     }
   };
 
@@ -410,7 +410,7 @@ export default function Activities() {
               <input
                 type="text"
                 placeholder="Aktivite ara..."
-                className="w-full pl-10 pr-4 py-3 rounded-lg text-gray-900 focus:ring-2 focus:ring-white focus:outline-none"
+                className="w-full pl-10 pr-4 py-3 rounded-lg text-white focus:ring-2 focus:ring-white focus:outline-none"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
               />
@@ -420,9 +420,9 @@ export default function Activities() {
 
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           {/* Filter Header */}
-          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 mb-4">
+          <div className="bg-transparent dark:bg-gray-800 rounded-lg shadow-md p-6 mb-4">
             <div className="flex items-center justify-between mb-4">
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
+              <h2 className="text-2xl font-bold text-white dark:text-white">
                 {filteredAndSortedActivities.length} Aktivite Bulundu
               </h2>
               <button
@@ -453,11 +453,11 @@ export default function Activities() {
           </div>
 
           {/* Quick Filters */}
-          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 mb-8">
+          <div className="bg-transparent dark:bg-gray-800 rounded-lg shadow-md p-6 mb-8">
             <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
               {/* Category Filter */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                <label className="block text-sm font-medium text-gray-200 dark:text-gray-300 mb-2">
                   Kategori
                 </label>
                 <div className="flex flex-wrap gap-2">
@@ -470,7 +470,7 @@ export default function Activities() {
                         className={`flex items-center px-3 py-1 rounded-full text-sm font-medium transition-colors ${
                           selectedCategory === category.id
                             ? 'bg-orange-500 text-white'
-                            : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-orange-100 dark:hover:bg-gray-600'
+                            : 'bg-gray-200 dark:bg-gray-700 text-gray-200 dark:text-gray-300 hover:bg-orange-100 dark:hover:bg-gray-600'
                         }`}
                       >
                         <IconComponent className="h-3 w-3 mr-1" />
@@ -482,7 +482,7 @@ export default function Activities() {
                 <select
                   value={selectedCategory}
                   onChange={(e) => setSelectedCategory(e.target.value)}
-                  className="w-full mt-2 px-3 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg text-sm focus:ring-2 focus:ring-orange-500 focus:border-transparent md:hidden"
+                  className="w-full mt-2 px-3 py-2 bg-transparent dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg text-sm focus:ring-2 focus:ring-orange-500 focus:border-transparent md:hidden"
                 >
                   {categories.map((category) => (
                     <option key={category.id} value={category.id}>
@@ -494,13 +494,13 @@ export default function Activities() {
 
               {/* Difficulty Filter */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                <label className="block text-sm font-medium text-gray-200 dark:text-gray-300 mb-2">
                   Zorluk
                 </label>
                 <select
                   value={selectedDifficulty}
                   onChange={(e) => setSelectedDifficulty(e.target.value)}
-                  className="w-full px-3 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg text-sm focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                  className="w-full px-3 py-2 bg-transparent dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg text-sm focus:ring-2 focus:ring-orange-500 focus:border-transparent"
                 >
                   {difficulties.map((difficulty) => (
                     <option key={difficulty} value={difficulty}>
@@ -512,13 +512,13 @@ export default function Activities() {
 
               {/* Duration Filter */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                <label className="block text-sm font-medium text-gray-200 dark:text-gray-300 mb-2">
                   Süre
                 </label>
                 <select
                   value={selectedDuration}
                   onChange={(e) => setSelectedDuration(e.target.value)}
-                  className="w-full px-3 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg text-sm focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                  className="w-full px-3 py-2 bg-transparent dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg text-sm focus:ring-2 focus:ring-orange-500 focus:border-transparent"
                 >
                   {durations.map((duration) => (
                     <option key={duration} value={duration}>
@@ -530,13 +530,13 @@ export default function Activities() {
 
               {/* Sort */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                <label className="block text-sm font-medium text-gray-200 dark:text-gray-300 mb-2">
                   Sırala
                 </label>
                 <select
                   value={sortBy}
                   onChange={(e) => setSortBy(e.target.value)}
-                  className="w-full px-3 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg text-sm focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                  className="w-full px-3 py-2 bg-transparent dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg text-sm focus:ring-2 focus:ring-orange-500 focus:border-transparent"
                 >
                   <option value="popularity">Popülerlik</option>
                   <option value="price-low">Fiyat (Düşük)</option>
@@ -567,7 +567,7 @@ export default function Activities() {
                 {filteredAndSortedActivities.map((activity) => {
               const CategoryIcon = getCategoryIcon(activity.category);
               return (
-                <div key={activity.id} className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden group hover:shadow-xl transition-all duration-300">
+                <div key={activity.id} className="bg-transparent dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden group hover:shadow-xl transition-all duration-300">
                   <div className="relative">
                     <Image
                       src={activity.image}
@@ -585,7 +585,7 @@ export default function Activities() {
                         className={`h-5 w-5 ${
                           favorites.has(activity.id)
                             ? 'text-red-500 fill-current'
-                            : 'text-gray-600'
+                            : 'text-gray-300'
                         }`}
                       />
                     </button>
@@ -611,41 +611,41 @@ export default function Activities() {
 
                   <div className="p-6">
                     <div className="flex items-start justify-between mb-2">
-                      <h3 className="text-xl font-semibold text-gray-900 dark:text-white line-clamp-2 flex-1">
+                      <h3 className="text-xl font-semibold text-white dark:text-white line-clamp-2 flex-1">
                         {activity.name}
                       </h3>
                       <div className="flex items-center ml-3">
                         <Star className="h-4 w-4 text-yellow-400 fill-current" />
-                        <span className="ml-1 text-sm font-semibold text-gray-900 dark:text-white">
+                        <span className="ml-1 text-sm font-semibold text-white dark:text-white">
                           {activity.rating}
                         </span>
                       </div>
                     </div>
 
-                    <p className="text-gray-600 dark:text-gray-400 mb-3 flex items-center">
+                    <p className="text-gray-300 dark:text-gray-400 mb-3 flex items-center">
                       <MapPin className="h-4 w-4 mr-1" />
                       {activity.location}
                     </p>
 
-                    <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
+                    <p className="text-sm text-gray-300 dark:text-gray-400 mb-4">
                       {activity.description}
                     </p>
 
                     {/* Activity Details */}
                     <div className="grid grid-cols-2 gap-3 mb-4 text-sm">
-                      <div className="flex items-center text-gray-600 dark:text-gray-400">
+                      <div className="flex items-center text-gray-300 dark:text-gray-400">
                         <Clock className="h-4 w-4 mr-1" />
                         {activity.duration}
                       </div>
-                      <div className="flex items-center text-gray-600 dark:text-gray-400">
+                      <div className="flex items-center text-gray-300 dark:text-gray-400">
                         <Users className="h-4 w-4 mr-1" />
                         {activity.groupSize}
                       </div>
-                      <div className="flex items-center text-gray-600 dark:text-gray-400">
+                      <div className="flex items-center text-gray-300 dark:text-gray-400">
                         <Calendar className="h-4 w-4 mr-1" />
                         {activity.ageLimit}
                       </div>
-                      <div className="flex items-center text-gray-600 dark:text-gray-400">
+                      <div className="flex items-center text-gray-300 dark:text-gray-400">
                         <span className="text-green-600 mr-1">🌟</span>
                         {activity.bestTime}
                       </div>
@@ -653,7 +653,7 @@ export default function Activities() {
 
                     {/* Highlights */}
                     <div className="mb-4">
-                      <h4 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Öne Çıkanlar:</h4>
+                      <h4 className="text-sm font-semibold text-gray-200 dark:text-gray-300 mb-2">Öne Çıkanlar:</h4>
                       <div className="flex flex-wrap gap-1">
                         {activity.highlights.slice(0, 2).map((highlight) => (
                           <span
@@ -673,7 +673,7 @@ export default function Activities() {
 
                     {/* Includes */}
                     <div className="mb-4">
-                      <h4 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Dahil Olanlar:</h4>
+                      <h4 className="text-sm font-semibold text-gray-200 dark:text-gray-300 mb-2">Dahil Olanlar:</h4>
                       <div className="flex flex-wrap gap-1">
                         {activity.includes.slice(0, 3).map((item) => (
                           <span
@@ -735,10 +735,10 @@ export default function Activities() {
               {filteredAndSortedActivities.length === 0 && (
             <div className="text-center py-16">
               <Zap className="h-24 w-24 text-gray-300 mx-auto mb-6" />
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+              <h2 className="text-2xl font-bold text-white dark:text-white mb-4">
                 Aradığınız kriterlerde aktivite bulunamadı
               </h2>
-              <p className="text-gray-600 dark:text-gray-400 mb-8">
+              <p className="text-gray-300 dark:text-gray-400 mb-8">
                 Arama kriterlerinizi değiştirerek tekrar deneyin
               </p>
               <button

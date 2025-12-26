@@ -245,7 +245,7 @@ const VirtualToursPage: NextPage = () => {
         <div className="max-w-7xl mx-auto px-4 py-12">
           {/* Category Filters */}
           <div className="mb-8">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">Kategoriler</h2>
+            <h2 className="text-2xl font-bold text-white mb-6">Kategoriler</h2>
             <div className="flex flex-wrap gap-3">
               {categories.map((category) => {
                 const Icon = category.icon;
@@ -256,7 +256,7 @@ const VirtualToursPage: NextPage = () => {
                     className={`flex items-center gap-2 px-6 py-3 rounded-full font-medium transition-all ${
                       selectedCategory === category.id
                         ? 'bg-blue-600 text-white shadow-md'
-                        : 'bg-white text-gray-700 hover:bg-blue-50 border border-gray-200'
+                        : 'bg-white text-gray-200 hover:bg-blue-50 border border-gray-200'
                     }`}
                   >
                     <Icon className="w-4 h-4" />
@@ -277,7 +277,7 @@ const VirtualToursPage: NextPage = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow cursor-pointer"
+                  className="bg-transparent rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow cursor-pointer"
                   onClick={() => handleTourSelect(tour)}
                 >
                   <div className="relative">
@@ -285,7 +285,7 @@ const VirtualToursPage: NextPage = () => {
                       {/* Placeholder for video thumbnail */}
                       <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
                         <div className="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center">
-                          <Play className="w-6 h-6 text-gray-800 ml-1" />
+                          <Play className="w-6 h-6 text-gray-100 ml-1" />
                         </div>
                       </div>
                     </div>
@@ -331,9 +331,9 @@ const VirtualToursPage: NextPage = () => {
                       </span>
                     </div>
 
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">{tour.title}</h3>
+                    <h3 className="text-xl font-bold text-white mb-2">{tour.title}</h3>
                     
-                    <div className="flex items-center gap-4 text-sm text-gray-600 mb-4">
+                    <div className="flex items-center gap-4 text-sm text-gray-300 mb-4">
                       <div className="flex items-center gap-1">
                         <MapPin className="w-4 h-4" />
                         {tour.location}
@@ -352,7 +352,7 @@ const VirtualToursPage: NextPage = () => {
                       </div>
                     </div>
 
-                    <p className="text-gray-600 mb-4 text-sm line-clamp-2">
+                    <p className="text-gray-300 mb-4 text-sm line-clamp-2">
                       {tour.description}
                     </p>
 
@@ -360,7 +360,7 @@ const VirtualToursPage: NextPage = () => {
                       {tour.highlights.slice(0, 3).map((highlight, idx) => (
                         <span
                           key={idx}
-                          className="bg-gray-100 text-gray-700 px-2 py-1 rounded-lg text-xs"
+                          className="bg-white/10 text-gray-200 px-2 py-1 rounded-lg text-xs"
                         >
                           {highlight}
                         </span>
@@ -403,7 +403,7 @@ const VirtualToursPage: NextPage = () => {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.9 }}
-              className="bg-white rounded-2xl w-full max-w-4xl h-full max-h-[80vh] overflow-hidden"
+              className="bg-transparent rounded-2xl w-full max-w-4xl h-full max-h-[80vh] overflow-hidden"
             >
               <div className="relative h-full flex flex-col">
                 {/* Video Player */}
@@ -451,8 +451,8 @@ const VirtualToursPage: NextPage = () => {
                 <div className="p-6 bg-white">
                   <div className="flex items-center justify-between">
                     <div>
-                      <h3 className="text-xl font-bold text-gray-900">{selectedTour.title}</h3>
-                      <p className="text-gray-600">{selectedTour.location} • {selectedTour.duration}</p>
+                      <h3 className="text-xl font-bold text-white">{selectedTour.title}</h3>
+                      <p className="text-gray-300">{selectedTour.location} • {selectedTour.duration}</p>
                     </div>
                     <div className="flex items-center gap-2">
                       <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />

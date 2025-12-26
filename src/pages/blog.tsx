@@ -165,7 +165,7 @@ export default function Blog() {
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     placeholder="Blog yazılarında ara..."
-                    className="w-full pl-12 pr-4 py-4 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-white"
+                    className="w-full pl-12 pr-4 py-4 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-white"
                   />
                 </div>
               </div>
@@ -176,10 +176,10 @@ export default function Blog() {
         {/* Featured Posts */}
         {searchQuery === '' && selectedCategory === 'all' && (
           <div className="max-w-7xl mx-auto px-4 -mt-16 relative z-10 mb-16">
-            <div className="bg-white rounded-xl shadow-xl p-8">
+            <div className="bg-transparent rounded-xl shadow-xl p-8">
               <div className="flex items-center gap-2 mb-6">
                 <TrendingUp className="w-6 h-6 text-lydian-primary" />
-                <h2 className="text-2xl font-bold text-gray-900">Öne Çıkan Yazılar</h2>
+                <h2 className="text-2xl font-bold text-white">Öne Çıkan Yazılar</h2>
               </div>
 
               <div className="grid md:grid-cols-2 gap-6">
@@ -198,10 +198,10 @@ export default function Blog() {
                         </span>
                       </div>
                     </div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-lydian-primary transition-colors">
+                    <h3 className="text-xl font-bold text-white mb-2 group-hover:text-lydian-primary transition-colors">
                       {post.title}
                     </h3>
-                    <p className="text-gray-600 mb-4 line-clamp-2">
+                    <p className="text-gray-300 mb-4 line-clamp-2">
                       {post.excerpt}
                     </p>
                     <div className="flex items-center gap-4 text-sm text-gray-500">
@@ -235,7 +235,7 @@ export default function Blog() {
                 className={`px-6 py-2 rounded-full font-medium transition-colors ${
                   selectedCategory === category
                     ? 'bg-lydian-primary text-white'
-                    : 'bg-white text-gray-700 hover:bg-gray-100'
+                    : 'bg-white text-gray-200 hover:bg-gray-100'
                 }`}
               >
                 {category === 'all' ? 'Tümü' : category}
@@ -248,7 +248,7 @@ export default function Blog() {
         <div className="max-w-7xl mx-auto px-4 pb-16">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredPosts.map((post) => (
-              <article key={post.id} className="bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow overflow-hidden group cursor-pointer">
+              <article key={post.id} className="bg-transparent rounded-lg shadow-md hover:shadow-xl transition-shadow overflow-hidden group cursor-pointer">
                 <div className="relative h-48 overflow-hidden">
                   <Image
                     src={post.image}
@@ -264,10 +264,10 @@ export default function Blog() {
                 </div>
 
                 <div className="p-6">
-                  <h3 className="text-lg font-bold text-gray-900 mb-3 group-hover:text-lydian-primary transition-colors line-clamp-2">
+                  <h3 className="text-lg font-bold text-white mb-3 group-hover:text-lydian-primary transition-colors line-clamp-2">
                     {post.title}
                   </h3>
-                  <p className="text-gray-600 mb-4 line-clamp-3 text-sm">
+                  <p className="text-gray-300 mb-4 line-clamp-3 text-sm">
                     {post.excerpt}
                   </p>
 
@@ -307,7 +307,7 @@ export default function Blog() {
         </div>
 
         {/* Newsletter Section */}
-        <div className="bg-white py-16 border-t border-gray-200">
+        <div className="bg-transparent py-16 border-t border-gray-200">
           <div className="max-w-4xl mx-auto px-4">
             <div className="bg-gradient-to-r from-lydian-primary to-lydian-dark text-white rounded-2xl p-8 md:p-12 text-center">
               <h2 className="text-3xl font-bold mb-4">
@@ -320,9 +320,9 @@ export default function Blog() {
                 <input
                   type="email"
                   placeholder="E-posta adresiniz"
-                  className="flex-1 px-4 py-3 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-white"
+                  className="flex-1 px-4 py-3 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-white"
                 />
-                <button className="bg-white text-lydian-primary px-6 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors whitespace-nowrap">
+                <button className="bg-transparent text-lydian-primary px-6 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors whitespace-nowrap">
                   Abone Ol
                 </button>
               </div>
@@ -331,9 +331,9 @@ export default function Blog() {
         </div>
 
         {/* Popular Tags */}
-        <div className="bg-gray-50 py-12">
+        <div className="bg-white/5 py-12">
           <div className="max-w-7xl mx-auto px-4">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">
+            <h2 className="text-2xl font-bold text-white mb-6 text-center">
               Popüler Etiketler
             </h2>
             <div className="flex flex-wrap gap-3 justify-center">
@@ -355,7 +355,7 @@ export default function Blog() {
               ].map((tag, index) => (
                 <button
                   key={index}
-                  className="px-4 py-2 bg-white rounded-full text-sm text-gray-700 hover:bg-lydian-primary hover:text-white transition-colors flex items-center gap-2"
+                  className="px-4 py-2 bg-transparent rounded-full text-sm text-gray-200 hover:bg-lydian-primary hover:text-white transition-colors flex items-center gap-2"
                 >
                   <Tag className="w-4 h-4" />
                   {tag}

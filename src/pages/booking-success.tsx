@@ -109,10 +109,10 @@ const BookingSuccess: React.FC = () => {
             <div className="w-20 h-20 sm:w-24 sm:h-24 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6">
               <CheckCircle className="w-12 h-12 sm:w-16 sm:h-16 text-green-500" />
             </div>
-            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-3 sm:mb-4">
               🎉 Rezervasyonunuz Onaylandı!
             </h1>
-            <p className="text-base sm:text-lg lg:text-xl text-gray-600 mb-2">
+            <p className="text-base sm:text-lg lg:text-xl text-gray-300 mb-2">
               Harika bir seçim yaptınız! Seyahatiniz blockchain teknologisi ile güvenceye alındı.
             </p>
             <p className="text-sm sm:text-base lg:text-lg text-lydian-primary font-semibold">
@@ -136,7 +136,7 @@ const BookingSuccess: React.FC = () => {
             </button>
             <button
               onClick={handleShare}
-              className="flex items-center justify-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 bg-white border-2 border-gray-200 text-gray-700 rounded-xl text-sm sm:text-base font-semibold hover:border-lydian-primary hover:text-lydian-primary transition-colors"
+              className="flex items-center justify-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 bg-transparent border-2 border-gray-200 text-gray-200 rounded-xl text-sm sm:text-base font-semibold hover:border-lydian-primary hover:text-lydian-primary transition-colors"
             >
               <Share2 className="w-4 h-4 sm:w-5 sm:h-5" />
               Paylaş
@@ -160,7 +160,7 @@ const BookingSuccess: React.FC = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3 + index * 0.1 }}
-                  className="bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden"
+                  className="bg-transparent rounded-2xl shadow-lg border border-gray-200 overflow-hidden"
                 >
                   <div className="p-4 sm:p-6">
                     <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6">
@@ -183,7 +183,7 @@ const BookingSuccess: React.FC = () => {
                       <div className="flex-1 min-w-0">
                         <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-3">
                           <div className="min-w-0">
-                            <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 line-clamp-2">{item.title}</h3>
+                            <h3 className="text-lg sm:text-xl font-bold text-white mb-2 line-clamp-2">{item.title}</h3>
                             <span className="inline-block px-2 sm:px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-xs sm:text-sm font-medium">
                               {item.badge}
                             </span>
@@ -236,27 +236,27 @@ const BookingSuccess: React.FC = () => {
                 transition={{ delay: 0.5 }}
                 className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl border border-blue-200 p-6"
               >
-                <h3 className="text-xl font-bold text-gray-900 mb-4">🚀 Sonraki Adımlar</h3>
+                <h3 className="text-xl font-bold text-white mb-4">🚀 Sonraki Adımlar</h3>
                 <div className="space-y-4">
                   <div className="flex items-start gap-3">
                     <div className="w-6 h-6 bg-blue-500 text-white rounded-full flex items-center justify-center text-sm font-bold">1</div>
                     <div>
-                      <p className="font-medium text-gray-900">Biletlerinizi İndirin</p>
-                      <p className="text-sm text-gray-600">QR kodlu biletlerinizi mobil cihazınıza kaydedin</p>
+                      <p className="font-medium text-white">Biletlerinizi İndirin</p>
+                      <p className="text-sm text-gray-300">QR kodlu biletlerinizi mobil cihazınıza kaydedin</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
                     <div className="w-6 h-6 bg-purple-500 text-white rounded-full flex items-center justify-center text-sm font-bold">2</div>
                     <div>
-                      <p className="font-medium text-gray-900">VR Önizleme Yapın</p>
-                      <p className="text-sm text-gray-600">Seyahatinizden önce sanal gerçeklik deneyimi yaşayın</p>
+                      <p className="font-medium text-white">VR Önizleme Yapın</p>
+                      <p className="text-sm text-gray-300">Seyahatinizden önce sanal gerçeklik deneyimi yaşayın</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
                     <div className="w-6 h-6 bg-green-500 text-white rounded-full flex items-center justify-center text-sm font-bold">3</div>
                     <div>
-                      <p className="font-medium text-gray-900">Seyahat Günü</p>
-                      <p className="text-sm text-gray-600">QR kodunuzu göstererek check-in yapın</p>
+                      <p className="font-medium text-white">Seyahat Günü</p>
+                      <p className="text-sm text-gray-300">QR kodunuzu göstererek check-in yapın</p>
                     </div>
                   </div>
                 </div>
@@ -270,39 +270,39 @@ const BookingSuccess: React.FC = () => {
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.4 }}
-                className="bg-white rounded-2xl shadow-sm border border-gray-200 p-4 sm:p-6"
+                className="bg-transparent rounded-2xl shadow-sm border border-gray-200 p-4 sm:p-6"
               >
-                <h3 className="font-bold text-base sm:text-lg text-gray-900 mb-4 sm:mb-6">Rezervasyon Bilgileri</h3>
+                <h3 className="font-bold text-base sm:text-lg text-white mb-4 sm:mb-6">Rezervasyon Bilgileri</h3>
 
                 <div className="space-y-3 sm:space-y-4">
                   <div className="flex justify-between gap-2">
-                    <span className="text-xs sm:text-sm text-gray-600">Onay Numarası</span>
+                    <span className="text-xs sm:text-sm text-gray-300">Onay Numarası</span>
                     <span className="font-semibold text-xs sm:text-sm text-lydian-primary text-right">{bookingDetails.confirmationNumber}</span>
                   </div>
                   <div className="flex justify-between gap-2">
-                    <span className="text-xs sm:text-sm text-gray-600">Rezervasyon Tarihi</span>
+                    <span className="text-xs sm:text-sm text-gray-300">Rezervasyon Tarihi</span>
                     <span className="font-semibold text-xs sm:text-sm">{bookingDetails.bookingDate}</span>
                   </div>
                   <div className="flex justify-between gap-2">
-                    <span className="text-xs sm:text-sm text-gray-600">Müşteri</span>
+                    <span className="text-xs sm:text-sm text-gray-300">Müşteri</span>
                     <span className="font-semibold text-xs sm:text-sm text-right">{bookingDetails.customerName}</span>
                   </div>
                   <div className="flex items-center justify-between gap-2">
-                    <span className="text-xs sm:text-sm text-gray-600">E-posta</span>
+                    <span className="text-xs sm:text-sm text-gray-300">E-posta</span>
                     <span className="font-semibold text-[10px] sm:text-xs text-right break-all">{bookingDetails.customerEmail}</span>
                   </div>
                   <div className="flex justify-between gap-2">
-                    <span className="text-xs sm:text-sm text-gray-600">Telefon</span>
+                    <span className="text-xs sm:text-sm text-gray-300">Telefon</span>
                     <span className="font-semibold text-xs sm:text-sm">{bookingDetails.customerPhone}</span>
                   </div>
                 </div>
 
                 <div className="border-t border-gray-200 pt-3 sm:pt-4 mt-4 sm:mt-6">
                   <div className="flex justify-between items-center">
-                    <span className="text-base sm:text-lg font-bold text-gray-900">Toplam Ödenen</span>
+                    <span className="text-base sm:text-lg font-bold text-white">Toplam Ödenen</span>
                     <span className="text-xl sm:text-2xl font-bold text-green-600">₺{bookingDetails.total}</span>
                   </div>
-                  <div className="flex justify-between text-xs sm:text-sm text-gray-600 mt-2">
+                  <div className="flex justify-between text-xs sm:text-sm text-gray-300 mt-2">
                     <span>Ödeme Yöntemi</span>
                     <span>{bookingDetails.paymentMethod}</span>
                   </div>
@@ -314,31 +314,31 @@ const BookingSuccess: React.FC = () => {
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.5 }}
-                className="bg-white rounded-2xl shadow-sm border border-gray-200 p-6"
+                className="bg-transparent rounded-2xl shadow-sm border border-gray-200 p-6"
               >
-                <h3 className="font-bold text-lg text-gray-900 mb-6">Güvenlik & Destek</h3>
+                <h3 className="font-bold text-lg text-white mb-6">Güvenlik & Destek</h3>
                 
                 <div className="space-y-4">
                   <div className="flex items-center gap-3 text-sm">
                     <Shield className="w-5 h-5 text-green-500" />
-                    <span className="text-gray-700">Blockchain ile doğrulanmış rezervasyon</span>
+                    <span className="text-gray-200">Blockchain ile doğrulanmış rezervasyon</span>
                   </div>
                   <div className="flex items-center gap-3 text-sm">
                     <CreditCard className="w-5 h-5 text-blue-500" />
-                    <span className="text-gray-700">256-bit SSL ile güvenli ödeme</span>
+                    <span className="text-gray-200">256-bit SSL ile güvenli ödeme</span>
                   </div>
                   <div className="flex items-center gap-3 text-sm">
                     <Smartphone className="w-5 h-5 text-purple-500" />
-                    <span className="text-gray-700">Mobil bilet & QR kod</span>
+                    <span className="text-gray-200">Mobil bilet & QR kod</span>
                   </div>
                   <div className="flex items-center gap-3 text-sm">
                     <Star className="w-5 h-5 text-yellow-500" />
-                    <span className="text-gray-700">24/7 müşteri desteği</span>
+                    <span className="text-gray-200">24/7 müşteri desteği</span>
                   </div>
                 </div>
 
                 <div className="border-t border-gray-200 pt-4 mt-6 space-y-3">
-                  <h4 className="font-semibold text-gray-900">İletişim</h4>
+                  <h4 className="font-semibold text-white">İletişim</h4>
                   <div className="flex items-center gap-2 text-sm">
                     <Phone className="w-4 h-4 text-gray-400" />
                     <span>+90 212 555 0123</span>
@@ -361,7 +361,7 @@ const BookingSuccess: React.FC = () => {
                 <p className="text-white/90 text-sm mb-6">
                   Seyahatiniz tamamlandıktan sonra deneyiminizi paylaşmayı unutmayın!
                 </p>
-                <button className="w-full bg-white text-lydian-primary py-3 px-4 rounded-xl font-semibold hover:bg-gray-100 transition-colors flex items-center justify-center gap-2">
+                <button className="w-full bg-transparent text-lydian-primary py-3 px-4 rounded-xl font-semibold hover:bg-gray-100 transition-colors flex items-center justify-center gap-2">
                   <Star className="w-5 h-5" />
                   Değerlendirme Yap
                 </button>
@@ -376,7 +376,7 @@ const BookingSuccess: React.FC = () => {
             transition={{ delay: 0.7 }}
             className="text-center mt-16"
           >
-            <p className="text-gray-600 mb-6">
+            <p className="text-gray-300 mb-6">
               Başka bir seyahat planlamak ister misiniz?
             </p>
             <Link

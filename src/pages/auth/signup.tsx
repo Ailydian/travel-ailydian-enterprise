@@ -127,13 +127,13 @@ const SignUp: React.FC = () => {
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="bg-white rounded-2xl shadow-xl border border-gray-100 p-8 max-w-md w-full text-center"
+            className="bg-transparent rounded-2xl shadow-xl border border-gray-100 p-8 max-w-md w-full text-center"
           >
             <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
               <CheckCircle className="w-8 h-8 text-green-500" />
             </div>
-            <h2 className="text-2xl font-bold text-gray-900 mb-2">Hesabınız Oluşturuldu!</h2>
-            <p className="text-gray-600 mb-6">
+            <h2 className="text-2xl font-bold text-white mb-2">Hesabınız Oluşturuldu!</h2>
+            <p className="text-gray-300 mb-6">
               Giriş sayfasına yönlendiriliyorsunuz...
             </p>
             <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto"></div>
@@ -155,7 +155,7 @@ const SignUp: React.FC = () => {
         {/* Return to Home Button */}
         <Link
           href="/"
-          className="fixed top-6 left-6 z-10 flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200 text-gray-700 hover:bg-white hover:text-lydian-primary transition-all duration-200"
+          className="fixed top-6 left-6 z-10 flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200 text-gray-200 hover:bg-white hover:text-lydian-primary transition-all duration-200"
         >
           <ArrowLeft className="w-4 h-4" />
           <span className="font-medium">Ana Sayfaya Dön</span>
@@ -174,14 +174,14 @@ const SignUp: React.FC = () => {
                   <span className="text-white font-bold text-xl">A</span>
                 </div>
                 <div>
-                  <h1 className="text-2xl font-bold text-gray-900">LyDian Travel</h1>
+                  <h1 className="text-2xl font-bold text-white">LyDian Travel</h1>
                   <p className="text-xs text-gray-500">AI-Powered Enterprise</p>
                 </div>
               </div>
             </Link>
 
-            <h2 className="text-2xl font-bold text-gray-900 mb-2">Hesap Oluştur</h2>
-            <p className="text-gray-600">Seyahat maceranıza bugün başlayın</p>
+            <h2 className="text-2xl font-bold text-white mb-2">Hesap Oluştur</h2>
+            <p className="text-gray-300">Seyahat maceranıza bugün başlayın</p>
           </motion.div>
 
           {/* Main Form Card */}
@@ -189,7 +189,7 @@ const SignUp: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="bg-white rounded-2xl shadow-xl border border-gray-100 p-8"
+            className="bg-transparent rounded-2xl shadow-xl border border-gray-100 p-8"
           >
             {/* Error Message */}
             {error && (
@@ -207,7 +207,7 @@ const SignUp: React.FC = () => {
             <form onSubmit={onSubmit} className="space-y-5">
               {/* Name Field */}
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="name" className="block text-sm font-medium text-gray-200 mb-2">
                   Ad ve Soyad
                 </label>
                 <div className="relative">
@@ -233,7 +233,7 @@ const SignUp: React.FC = () => {
 
               {/* Email Field */}
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="email" className="block text-sm font-medium text-gray-200 mb-2">
                   Email Adresi
                 </label>
                 <div className="relative">
@@ -259,7 +259,7 @@ const SignUp: React.FC = () => {
 
               {/* Password Field */}
               <div>
-                <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="password" className="block text-sm font-medium text-gray-200 mb-2">
                   Şifre
                 </label>
                 <div className="relative">
@@ -277,7 +277,7 @@ const SignUp: React.FC = () => {
                   <button
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
-                    className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                    className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-300"
                   >
                     {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
                   </button>
@@ -292,7 +292,7 @@ const SignUp: React.FC = () => {
 
               {/* Confirm Password Field */}
               <div>
-                <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-200 mb-2">
                   Şifre Tekrar
                 </label>
                 <div className="relative">
@@ -310,7 +310,7 @@ const SignUp: React.FC = () => {
                   <button
                     type="button"
                     onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                    className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                    className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-300"
                   >
                     {showConfirmPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
                   </button>
@@ -332,7 +332,7 @@ const SignUp: React.FC = () => {
                   onChange={(e) => setFormData({ ...formData, termsAccepted: e.target.checked })}
                   className="mt-1 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
                 />
-                <label htmlFor="terms" className="ml-2 text-sm text-gray-600">
+                <label htmlFor="terms" className="ml-2 text-sm text-gray-300">
                   <Link href="/terms" className="text-blue-600 hover:text-blue-700">
                     Kullanım şartlarını
                   </Link>{' '}
@@ -368,7 +368,7 @@ const SignUp: React.FC = () => {
 
             {/* Sign In Link */}
             <div className="mt-6 text-center">
-              <p className="text-gray-600">
+              <p className="text-gray-300">
                 Zaten hesabınız var mı?{' '}
                 <Link href="/auth/signin" className="text-blue-600 hover:text-blue-700 font-semibold">
                   Giriş yapın
@@ -386,15 +386,15 @@ const SignUp: React.FC = () => {
           >
             <div className="flex flex-col items-center gap-2">
               <Shield className="w-8 h-8 text-green-500" />
-              <p className="text-xs text-gray-600">Güvenli</p>
+              <p className="text-xs text-gray-300">Güvenli</p>
             </div>
             <div className="flex flex-col items-center gap-2">
               <Sparkles className="w-8 h-8 text-purple-500" />
-              <p className="text-xs text-gray-600">100 Puan Hediye</p>
+              <p className="text-xs text-gray-300">100 Puan Hediye</p>
             </div>
             <div className="flex flex-col items-center gap-2">
               <Globe className="w-8 h-8 text-blue-500" />
-              <p className="text-xs text-gray-600">Global</p>
+              <p className="text-xs text-gray-300">Global</p>
             </div>
           </motion.div>
 

@@ -53,13 +53,13 @@ export default function Destinations() {
       {/* Return to Home Button */}
       <Link
         href="/"
-        className="fixed top-24 left-6 z-10 flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200 text-gray-700 hover:bg-white hover:text-lydian-primary transition-all duration-200"
+        className="fixed top-24 left-6 z-10 flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200 text-gray-200 hover:bg-white hover:text-lydian-primary transition-all duration-200"
       >
         <ArrowLeft className="w-4 h-4" />
         <span className="font-medium">Ana Sayfaya Dön</span>
       </Link>
 
-      <div className="min-h-screen bg-gray-50 pt-8">
+      <div className="min-h-screen bg-white/5 pt-8">
         {/* Hero Section */}
         <div className="text-white py-12 sm:py-16" style={{ background: 'linear-gradient(135deg, var(--ac-1) 0%, var(--ac-2) 50%, var(--ac-3) 100%)' }}>
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -76,7 +76,7 @@ export default function Destinations() {
               <input
                 type="text"
                 placeholder="Destinasyon ara..."
-                className="w-full pl-9 sm:pl-10 pr-4 py-2.5 sm:py-3 rounded-lg text-sm sm:text-base text-gray-900 focus:ring-2 focus:ring-white focus:outline-none"
+                className="w-full pl-9 sm:pl-10 pr-4 py-2.5 sm:py-3 rounded-lg text-sm sm:text-base text-white focus:ring-2 focus:ring-white focus:outline-none"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
               />
@@ -108,8 +108,8 @@ export default function Destinations() {
 
           {/* Results Count */}
           <div className="mb-6">
-            <p className="text-gray-600">
-              <span className="font-semibold text-gray-900">{filteredDestinations.length}</span> destinasyon bulundu
+            <p className="text-gray-300">
+              <span className="font-semibold text-white">{filteredDestinations.length}</span> destinasyon bulundu
             </p>
           </div>
 
@@ -119,7 +119,7 @@ export default function Destinations() {
               <Link
                 href={`/destinations/${destination.slug}`}
                 key={destination.id}
-                className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden group hover:shadow-xl transition-shadow"
+                className="bg-transparent dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden group hover:shadow-xl transition-shadow"
               >
                 <div className="relative">
                   <Image
@@ -140,12 +140,12 @@ export default function Destinations() {
                       className={`h-5 w-5 ${
                         favorites.has(destination.id)
                           ? 'text-red-500 fill-current'
-                          : 'text-gray-600'
+                          : 'text-gray-300'
                       }`}
                     />
                   </button>
                   <div className="absolute bottom-3 left-3 bg-white/90 px-3 py-1 rounded-full">
-                    <span className="text-sm font-semibold text-gray-800">{destination.pricing.budgetRange}</span>
+                    <span className="text-sm font-semibold text-gray-100">{destination.pricing.budgetRange}</span>
                   </div>
                   <div className="absolute top-3 left-3 bg-lydian-primary/90 px-3 py-1 rounded-full">
                     <span className="text-sm font-semibold text-white">{destination.region}</span>
@@ -154,18 +154,18 @@ export default function Destinations() {
 
                 <div className="p-6">
                   <div className="flex items-center justify-between mb-2">
-                    <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
+                    <h3 className="text-xl font-semibold text-white dark:text-white">
                       {destination.name}
                     </h3>
                     <div className="flex items-center">
                       <Star className="h-4 w-4 text-yellow-400 fill-current" />
-                      <span className="ml-1 text-sm text-gray-600 dark:text-gray-400">
+                      <span className="ml-1 text-sm text-gray-300 dark:text-gray-400">
                         {destination.rating}
                       </span>
                     </div>
                   </div>
 
-                  <p className="text-gray-600 dark:text-gray-400 mb-3">
+                  <p className="text-gray-300 dark:text-gray-400 mb-3">
                     {destination.shortDescription}
                   </p>
 
@@ -180,7 +180,7 @@ export default function Destinations() {
                     ))}
                   </div>
 
-                  <div className="space-y-2 mb-4 text-sm text-gray-600 dark:text-gray-400">
+                  <div className="space-y-2 mb-4 text-sm text-gray-300 dark:text-gray-400">
                     <div className="flex items-center">
                       <Calendar className="h-4 w-4 mr-2" />
                       <span>{destination.duration}</span>
@@ -192,7 +192,7 @@ export default function Destinations() {
                   </div>
 
                   <div className="mb-4">
-                    <h4 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Öne Çıkanlar:</h4>
+                    <h4 className="text-sm font-semibold text-gray-200 dark:text-gray-300 mb-2">Öne Çıkanlar:</h4>
                     <div className="flex flex-wrap gap-1">
                       {destination.highlights.slice(0, 2).map((highlight) => (
                         <span
@@ -227,10 +227,10 @@ export default function Destinations() {
           {filteredDestinations.length === 0 && (
             <div className="text-center py-16">
               <MapPin className="h-24 w-24 text-gray-300 mx-auto mb-6" />
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+              <h2 className="text-2xl font-bold text-white dark:text-white mb-4">
                 Aradığınız destinasyon bulunamadı
               </h2>
-              <p className="text-gray-600 dark:text-gray-400 mb-8">
+              <p className="text-gray-300 dark:text-gray-400 mb-8">
                 Farklı arama kriterleri deneyin
               </p>
               <button

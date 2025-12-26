@@ -41,14 +41,14 @@ const ThingsToDoPage: NextPage = () => {
         </div>
 
         {/* Breadcrumbs */}
-        <div className="bg-white border-b border-gray-200">
+        <div className="bg-transparent border-b border-gray-200">
           <div className="max-w-7xl mx-auto px-4 py-3">
-            <div className="flex items-center gap-2 text-sm text-gray-600">
+            <div className="flex items-center gap-2 text-sm text-gray-300">
               <a href="/" className="hover:text-lydian-primary">{t('navigation.home')}</a>
               <span>/</span>
               <a href="/explore" className="hover:text-lydian-primary">{t('explore.title')}</a>
               <span>/</span>
-              <span className="text-gray-900 font-semibold">{t('explore.thingsToDo.title')}</span>
+              <span className="text-white font-semibold">{t('explore.thingsToDo.title')}</span>
             </div>
           </div>
         </div>
@@ -57,8 +57,8 @@ const ThingsToDoPage: NextPage = () => {
         <div className="max-w-7xl mx-auto px-4 py-8">
           {/* Toolbar */}
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6">
-            <div className="text-gray-600">
-              <span className="font-semibold text-gray-900">{tours.length}</span> {t('explore.experiencesFound')}
+            <div className="text-gray-300">
+              <span className="font-semibold text-white">{tours.length}</span> {t('explore.experiencesFound')}
             </div>
 
             <div className="flex items-center gap-4">
@@ -78,16 +78,16 @@ const ThingsToDoPage: NextPage = () => {
               </div>
 
               {/* View Toggle */}
-              <div className="hidden sm:flex items-center gap-2 bg-white border border-gray-300 rounded-lg p-1">
+              <div className="hidden sm:flex items-center gap-2 bg-transparent border border-gray-300 rounded-lg p-1">
                 <button
                   onClick={() => setViewMode('grid')}
-                  className={`p-2 rounded ${viewMode === 'grid' ? 'bg-lydian-primary text-white' : 'text-gray-600'}`}
+                  className={`p-2 rounded ${viewMode === 'grid' ? 'bg-lydian-primary text-white' : 'text-gray-300'}`}
                 >
                   <Grid className="w-4 h-4" />
                 </button>
                 <button
                   onClick={() => setViewMode('list')}
-                  className={`p-2 rounded ${viewMode === 'list' ? 'bg-lydian-primary text-white' : 'text-gray-600'}`}
+                  className={`p-2 rounded ${viewMode === 'list' ? 'bg-lydian-primary text-white' : 'text-gray-300'}`}
                 >
                   <List className="w-4 h-4" />
                 </button>

@@ -191,7 +191,7 @@ export default function TransferDetailPage({ transfer, relatedTransfers }: Trans
 
       <div className="min-h-screen bg-gradient-to-b from-slate-50 via-white to-slate-50">
         {/* Language Selector Bar */}
-        <div className="bg-white border-b border-slate-200 sticky top-0 z-40 shadow-sm">
+        <div className="bg-transparent border-b border-slate-200 sticky top-0 z-40 shadow-sm">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
             <div className="flex flex-wrap items-center justify-between gap-3">
               {/* Breadcrumb */}
@@ -338,7 +338,7 @@ export default function TransferDetailPage({ transfer, relatedTransfers }: Trans
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
-                className="bg-white rounded-2xl shadow-lg p-8"
+                className="bg-transparent rounded-2xl shadow-lg p-8"
               >
                 <h2 className="text-2xl font-bold text-slate-900 mb-4">
                   {selectedLanguage === 'tr' && 'Transfer Hakkında'}
@@ -360,7 +360,7 @@ export default function TransferDetailPage({ transfer, relatedTransfers }: Trans
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
-                className="bg-white rounded-2xl shadow-lg p-8"
+                className="bg-transparent rounded-2xl shadow-lg p-8"
               >
                 <h2 className="text-2xl font-bold text-slate-900 mb-6">
                   {selectedLanguage === 'tr' && 'Öne Çıkan Özellikler'}
@@ -385,7 +385,7 @@ export default function TransferDetailPage({ transfer, relatedTransfers }: Trans
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 }}
-                className="bg-white rounded-2xl shadow-lg p-8"
+                className="bg-transparent rounded-2xl shadow-lg p-8"
               >
                 <h2 className="text-2xl font-bold text-slate-900 mb-6">
                   {selectedLanguage === 'tr' && 'Rota Haritası'}
@@ -431,7 +431,7 @@ export default function TransferDetailPage({ transfer, relatedTransfers }: Trans
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.3 }}
-                className="bg-white rounded-2xl shadow-2xl p-6 sticky top-24"
+                className="bg-transparent rounded-2xl shadow-2xl p-6 sticky top-24"
               >
                 {/* Price Badge */}
                 <div className="bg-gradient-to-r from-green-500 to-emerald-600 text-white px-4 py-2 rounded-xl mb-6 flex items-center justify-center gap-2">
@@ -595,7 +595,7 @@ export default function TransferDetailPage({ transfer, relatedTransfers }: Trans
                     href={`/transfers/${relatedTransfer.seo.slug[selectedLanguage]}`}
                     className="group"
                   >
-                    <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all">
+                    <div className="bg-transparent rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all">
                       <div className="relative h-48">
                         <Image
                           src={relatedTransfer.images[0]}

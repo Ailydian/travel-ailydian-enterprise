@@ -127,8 +127,8 @@ export default function BusinessPage() {
                 </div>
                 <div className="p-4">
                   <h3 className="font-semibold text-lg mb-1">{business.name}</h3>
-                  <p className="text-gray-600 text-sm mb-2">{business.category}</p>
-                  <div className="flex items-center text-sm text-gray-600 mb-2">
+                  <p className="text-gray-300 text-sm mb-2">{business.category}</p>
+                  <div className="flex items-center text-sm text-gray-300 mb-2">
                     <MapPin className="h-4 w-4 mr-1" />
                     {business.location}
                   </div>

@@ -82,7 +82,7 @@ const Dashboard: React.FC = () => {
       <div className="min-h-screen flex items-center justify-center bg-gray-50">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
-          <p className="mt-4 text-gray-600">Yükleniyor...</p>
+          <p className="mt-4 text-gray-300">Yükleniyor...</p>
         </div>
       </div>
     );
@@ -124,7 +124,7 @@ const Dashboard: React.FC = () => {
 
   const getMembershipBadge = (type: string) => {
     const badges = {
-      BASIC: { color: 'bg-gray-100 text-gray-700', text: 'Temel Üye' },
+      BASIC: { color: 'bg-gray-100 text-gray-200', text: 'Temel Üye' },
       PREMIUM: { color: 'bg-blue-100 text-blue-700', text: 'Premium Üye' },
       VIP: { color: 'bg-purple-100 text-purple-700', text: 'VIP Üye' },
       ENTERPRISE: { color: 'bg-yellow-100 text-yellow-700', text: 'Kurumsal Üye' }
@@ -167,7 +167,7 @@ const Dashboard: React.FC = () => {
 
       <div className="min-h-screen bg-gray-50">
         {/* Navigation Header */}
-        <header className="bg-white shadow-sm border-b border-gray-100">
+        <header className="bg-transparent shadow-sm border-b border-gray-100">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex justify-between items-center py-4">
               <Link href="/" className="flex items-center space-x-3">
@@ -175,19 +175,19 @@ const Dashboard: React.FC = () => {
                   <span className="text-white font-bold text-lg">A</span>
                 </div>
                 <div className="hidden sm:block">
-                  <h1 className="text-xl font-bold text-gray-900">LyDian Travel</h1>
+                  <h1 className="text-xl font-bold text-white">LyDian Travel</h1>
                   <p className="text-xs text-gray-500 -mt-1">Dashboard</p>
                 </div>
               </Link>
 
               <div className="flex items-center space-x-4">
-                <button className="p-2 text-gray-400 hover:text-gray-600 relative">
+                <button className="p-2 text-gray-400 hover:text-gray-300 relative">
                   <Bell className="w-6 h-6" />
                   <span className="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full"></span>
                 </button>
                 <div className="flex items-center space-x-3">
                   <div className="text-right hidden sm:block">
-                    <p className="text-sm font-medium text-gray-900">{user.name}</p>
+                    <p className="text-sm font-medium text-white">{user.name}</p>
                     <p className="text-xs text-gray-500">{user.email}</p>
                   </div>
                   <div className="w-10 h-10 bg-gradient-to-r from-lydian-primary to-lydian-secondary rounded-full flex items-center justify-center">
@@ -203,13 +203,13 @@ const Dashboard: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
             {/* Sidebar */}
             <div className="lg:col-span-1">
-              <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+              <div className="bg-transparent rounded-2xl shadow-sm border border-gray-100 p-6">
                 {/* User Profile Card */}
                 <div className="text-center mb-6">
                   <div className="w-20 h-20 bg-gradient-to-r from-lydian-primary to-lydian-secondary rounded-full flex items-center justify-center mx-auto mb-4">
                     <User className="w-10 h-10 text-white" />
                   </div>
-                  <h3 className="font-bold text-lg text-gray-900">{user.name}</h3>
+                  <h3 className="font-bold text-lg text-white">{user.name}</h3>
                   <p className="text-gray-500 text-sm mb-3">{user.email}</p>
                   <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-medium ${membershipBadge.color}`}>
                     <Award className="w-3 h-3 mr-1" />
@@ -228,7 +228,7 @@ const Dashboard: React.FC = () => {
                         className={`flex items-center space-x-3 px-4 py-3 rounded-xl transition-colors duration-200 ${
                           item.active
                             ? 'bg-blue-50 text-blue-600 border border-blue-200'
-                            : 'text-gray-700 hover:bg-gray-50'
+                            : 'text-gray-200 hover:bg-gray-50'
                         }`}
                       >
                         <Icon className="w-5 h-5" />
@@ -292,12 +292,12 @@ const Dashboard: React.FC = () => {
                       key={stat.title}
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
-                      className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100"
+                      className="bg-transparent rounded-2xl p-6 shadow-sm border border-gray-100"
                     >
                       <div className="flex items-center justify-between">
                         <div>
                           <p className="text-gray-500 text-sm font-medium">{stat.title}</p>
-                          <p className="text-2xl font-bold text-gray-900 mt-1">{stat.value}</p>
+                          <p className="text-2xl font-bold text-white mt-1">{stat.value}</p>
                         </div>
                         <div className={`p-3 rounded-xl ${stat.bg}`}>
                           <Icon className={`w-6 h-6 ${stat.color}`} />
@@ -309,8 +309,8 @@ const Dashboard: React.FC = () => {
               </div>
 
               {/* Quick Actions */}
-              <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
-                <h3 className="text-lg font-bold text-gray-900 mb-4">Hızlı İşlemler</h3>
+              <div className="bg-transparent rounded-2xl shadow-sm border border-gray-100 p-6">
+                <h3 className="text-lg font-bold text-white mb-4">Hızlı İşlemler</h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                   {[
                     { title: 'Yeni Rezervasyon', href: '/', icon: Plus, color: 'bg-blue-500 hover:bg-blue-600' },
@@ -338,9 +338,9 @@ const Dashboard: React.FC = () => {
               {/* Recent Bookings & Upcoming Trips */}
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 {/* Recent Bookings */}
-                <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+                <div className="bg-transparent rounded-2xl shadow-sm border border-gray-100 p-6">
                   <div className="flex items-center justify-between mb-6">
-                    <h3 className="text-lg font-bold text-gray-900">Son Rezervasyonlar</h3>
+                    <h3 className="text-lg font-bold text-white">Son Rezervasyonlar</h3>
                     <Link href="/profile/bookings" className="text-blue-600 hover:text-blue-700 text-sm font-medium flex items-center gap-1">
                       Tümü
                       <ArrowRight className="w-4 h-4" />
@@ -348,20 +348,20 @@ const Dashboard: React.FC = () => {
                   </div>
                   <div className="space-y-4">
                     {recentBookings.map((booking) => (
-                      <div key={booking.id} className="flex items-center space-x-4 p-4 bg-gray-50 rounded-xl">
+                      <div key={booking.id} className="flex items-center space-x-4 p-4 bg-white/5 rounded-xl">
                         <div className="w-16 h-16 bg-gray-200 rounded-lg overflow-hidden flex-shrink-0">
                           <img src={booking.image} alt={booking.title} className="w-full h-full object-cover" />
                         </div>
                         <div className="flex-1 min-w-0">
-                          <h4 className="font-medium text-gray-900 truncate">{booking.title}</h4>
+                          <h4 className="font-medium text-white truncate">{booking.title}</h4>
                           <p className="text-sm text-gray-500">{booking.location}</p>
                           <div className="flex items-center space-x-2 mt-1">
                             {getStatusIcon(booking.status)}
-                            <span className="text-xs text-gray-600">{getStatusText(booking.status)}</span>
+                            <span className="text-xs text-gray-300">{getStatusText(booking.status)}</span>
                           </div>
                         </div>
                         <div className="text-right">
-                          <p className="font-bold text-gray-900">₺{booking.amount}</p>
+                          <p className="font-bold text-white">₺{booking.amount}</p>
                           <p className="text-xs text-gray-500">{booking.date}</p>
                         </div>
                       </div>
@@ -370,9 +370,9 @@ const Dashboard: React.FC = () => {
                 </div>
 
                 {/* Upcoming Trips */}
-                <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+                <div className="bg-transparent rounded-2xl shadow-sm border border-gray-100 p-6">
                   <div className="flex items-center justify-between mb-6">
-                    <h3 className="text-lg font-bold text-gray-900">Yaklaşan Seyahatler</h3>
+                    <h3 className="text-lg font-bold text-white">Yaklaşan Seyahatler</h3>
                     <span className="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-medium">
                       {upcomingTrips.length} Seyahat
                     </span>
@@ -385,7 +385,7 @@ const Dashboard: React.FC = () => {
                             <img src={trip.image} alt={trip.destination} className="w-full h-full object-cover" />
                           </div>
                           <div className="flex-1">
-                            <h4 className="font-bold text-gray-900 mb-1">{trip.destination}</h4>
+                            <h4 className="font-bold text-white mb-1">{trip.destination}</h4>
                             <p className="text-sm text-blue-600 font-medium">{trip.type}</p>
                             <div className="flex items-center space-x-4 mt-2 text-sm text-gray-500">
                               <div className="flex items-center space-x-1">

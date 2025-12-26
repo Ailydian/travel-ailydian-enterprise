@@ -119,7 +119,7 @@ const TripPlannerPage: React.FC = () => {
 
       <div className="min-h-screen bg-gradient-to-br from-purple-50 via-blue-50 to-pink-50">
         {/* Header */}
-        <header className="bg-white shadow-md sticky top-0 z-40">
+        <header className="bg-transparent shadow-md sticky top-0 z-40">
           <div className="max-w-7xl mx-auto px-4 py-4">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-4">
@@ -127,8 +127,8 @@ const TripPlannerPage: React.FC = () => {
                   <Sparkles className="w-6 h-6 text-white" />
                 </div>
                 <div>
-                  <h1 className="text-2xl font-bold text-gray-900">AI Trip Planner</h1>
-                  <p className="text-sm text-gray-600">Powered by OpenAI GPT-4</p>
+                  <h1 className="text-2xl font-bold text-white">AI Trip Planner</h1>
+                  <p className="text-sm text-gray-300">Powered by OpenAI GPT-4</p>
                 </div>
               </div>
 
@@ -136,7 +136,7 @@ const TripPlannerPage: React.FC = () => {
                 <div className="flex items-center gap-2">
                   <button
                     onClick={handleSaveTrip}
-                    className="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-lg flex items-center gap-2 transition-colors"
+                    className="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-200 rounded-lg flex items-center gap-2 transition-colors"
                   >
                     <Save className="w-4 h-4" />
                     Save
@@ -169,7 +169,7 @@ const TripPlannerPage: React.FC = () => {
                       className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-all ${
                         activeView === view.key
                           ? 'bg-purple-600 text-white shadow-lg'
-                          : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                          : 'bg-gray-100 text-gray-200 hover:bg-gray-200'
                       }`}
                     >
                       <Icon className="w-4 h-4" />
@@ -204,13 +204,13 @@ const TripPlannerPage: React.FC = () => {
                 exit={{ opacity: 0, y: -20 }}
                 className="max-w-7xl mx-auto px-4"
               >
-                <div className="bg-white rounded-2xl shadow-xl p-8">
+                <div className="bg-transparent rounded-2xl shadow-xl p-8">
                   <div className="flex items-start justify-between mb-6">
                     <div>
-                      <h2 className="text-3xl font-bold text-gray-900 mb-2">
+                      <h2 className="text-3xl font-bold text-white mb-2">
                         {currentTrip.title}
                       </h2>
-                      <div className="flex items-center gap-4 text-gray-600">
+                      <div className="flex items-center gap-4 text-gray-300">
                         <div className="flex items-center gap-1">
                           <MapPin className="w-4 h-4" />
                           {currentTrip.destination}
@@ -260,13 +260,13 @@ const TripPlannerPage: React.FC = () => {
                 exit={{ opacity: 0, y: -20 }}
                 className="max-w-7xl mx-auto px-4"
               >
-                <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
+                <div className="bg-transparent rounded-2xl shadow-xl overflow-hidden">
                   <div className="h-[600px] relative">
                     {/* Map component would be rendered here */}
                     <div className="absolute inset-0 flex items-center justify-center bg-gray-100">
                       <div className="text-center">
                         <MapIcon className="w-16 h-16 mx-auto mb-4 text-gray-400" />
-                        <p className="text-gray-600">Interactive map showing all locations</p>
+                        <p className="text-gray-300">Interactive map showing all locations</p>
                         <p className="text-sm text-gray-500 mt-2">
                           Markers for hotels, attractions, restaurants, and activities
                         </p>
@@ -274,7 +274,7 @@ const TripPlannerPage: React.FC = () => {
                     </div>
 
                     {/* Map Controls */}
-                    <div className="absolute top-4 right-4 bg-white rounded-lg shadow-lg p-2 space-y-2">
+                    <div className="absolute top-4 right-4 bg-transparent rounded-lg shadow-lg p-2 space-y-2">
                       <button className="w-full px-3 py-2 text-sm text-left hover:bg-gray-100 rounded transition-colors">
                         Show All
                       </button>
@@ -290,15 +290,15 @@ const TripPlannerPage: React.FC = () => {
                     </div>
 
                     {/* Location List */}
-                    <div className="absolute bottom-4 left-4 right-4 bg-white rounded-lg shadow-lg p-4 max-h-48 overflow-y-auto">
-                      <h4 className="font-semibold text-gray-900 mb-2">Trip Locations</h4>
+                    <div className="absolute bottom-4 left-4 right-4 bg-transparent rounded-lg shadow-lg p-4 max-h-48 overflow-y-auto">
+                      <h4 className="font-semibold text-white mb-2">Trip Locations</h4>
                       <div className="space-y-2">
                         {/* Mock locations */}
                         {[1, 2, 3].map((i) => (
                           <div key={i} className="flex items-center justify-between p-2 hover:bg-gray-50 rounded cursor-pointer">
                             <div className="flex items-center gap-2">
                               <MapPin className="w-4 h-4 text-purple-600" />
-                              <span className="text-sm text-gray-900">Location {i}</span>
+                              <span className="text-sm text-white">Location {i}</span>
                             </div>
                             <button className="text-xs text-purple-600 hover:text-purple-700">
                               View
@@ -330,22 +330,22 @@ const TripPlannerPage: React.FC = () => {
 
         {/* Budget Tracker Sidebar */}
         {currentTrip && (
-          <div className="fixed right-4 bottom-4 bg-white rounded-2xl shadow-2xl p-4 w-64 z-30">
-            <h4 className="font-semibold text-gray-900 mb-3 flex items-center gap-2">
+          <div className="fixed right-4 bottom-4 bg-transparent rounded-2xl shadow-2xl p-4 w-64 z-30">
+            <h4 className="font-semibold text-white mb-3 flex items-center gap-2">
               <TrendingUp className="w-4 h-4 text-purple-600" />
               Budget Tracker
             </h4>
             <div className="space-y-2">
               <div className="flex items-center justify-between text-sm">
-                <span className="text-gray-600">Total Budget</span>
-                <span className="font-semibold text-gray-900">${currentTrip.budget}</span>
+                <span className="text-gray-300">Total Budget</span>
+                <span className="font-semibold text-white">${currentTrip.budget}</span>
               </div>
               <div className="flex items-center justify-between text-sm">
-                <span className="text-gray-600">Spent</span>
+                <span className="text-gray-300">Spent</span>
                 <span className="font-semibold text-green-600">$0</span>
               </div>
               <div className="flex items-center justify-between text-sm">
-                <span className="text-gray-600">Remaining</span>
+                <span className="text-gray-300">Remaining</span>
                 <span className="font-semibold text-purple-600">${currentTrip.budget}</span>
               </div>
               <div className="w-full h-2 bg-gray-200 rounded-full overflow-hidden mt-2">

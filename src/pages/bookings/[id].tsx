@@ -115,7 +115,7 @@ const BookingDetailPage: React.FC = () => {
       case 'COMPLETED':
         return 'bg-blue-100 text-blue-800 border-blue-200';
       default:
-        return 'bg-gray-100 text-gray-800 border-gray-200';
+        return 'bg-gray-100 text-gray-100 border-gray-200';
     }
   };
 
@@ -140,7 +140,7 @@ const BookingDetailPage: React.FC = () => {
       <div className="min-h-screen flex items-center justify-center bg-gray-50">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
-          <p className="mt-4 text-gray-600">Loading booking details...</p>
+          <p className="mt-4 text-gray-300">Loading booking details...</p>
         </div>
       </div>
     );
@@ -150,7 +150,7 @@ const BookingDetailPage: React.FC = () => {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-50">
         <div className="text-center">
-          <p className="text-gray-600">Booking not found</p>
+          <p className="text-gray-300">Booking not found</p>
           <Link href="/bookings" className="text-blue-600 hover:underline mt-4 inline-block">
             Back to Bookings
           </Link>
@@ -180,7 +180,7 @@ const BookingDetailPage: React.FC = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="bg-white rounded-2xl shadow-lg p-8 mb-6"
+            className="bg-transparent rounded-2xl shadow-lg p-8 mb-6"
           >
             <div className="flex items-start justify-between mb-6">
               <div className="flex items-start gap-4">
@@ -188,10 +188,10 @@ const BookingDetailPage: React.FC = () => {
                   {getBookingIcon(booking.bookingType)}
                 </div>
                 <div>
-                  <h1 className="text-3xl font-bold text-gray-900 mb-2">
+                  <h1 className="text-3xl font-bold text-white mb-2">
                     {booking.bookingType.charAt(0).toUpperCase() + booking.bookingType.slice(1)} Booking
                   </h1>
-                  <p className="text-gray-600 font-mono text-lg">{booking.bookingReference}</p>
+                  <p className="text-gray-300 font-mono text-lg">{booking.bookingReference}</p>
                 </div>
               </div>
               <span className={`px-4 py-2 rounded-full text-sm font-semibold border ${getStatusBadge(booking.status)}`}>
@@ -217,7 +217,7 @@ const BookingDetailPage: React.FC = () => {
                   </button>
                 </>
               )}
-              <button className="flex items-center gap-2 px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors">
+              <button className="flex items-center gap-2 px-4 py-2 bg-gray-100 text-gray-200 rounded-lg hover:bg-gray-200 transition-colors">
                 <Share2 className="w-4 h-4" />
                 Share
               </button>
@@ -229,17 +229,17 @@ const BookingDetailPage: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="bg-white rounded-2xl shadow-lg p-8 mb-6"
+            className="bg-transparent rounded-2xl shadow-lg p-8 mb-6"
           >
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">Booking Items</h2>
+            <h2 className="text-2xl font-bold text-white mb-6">Booking Items</h2>
             <div className="space-y-4">
               {booking.metaData?.items?.map((item: any, index: number) => (
-                <div key={index} className="flex justify-between items-start p-4 bg-gray-50 rounded-xl">
+                <div key={index} className="flex justify-between items-start p-4 bg-white/5 rounded-xl">
                   <div>
-                    <p className="font-semibold text-gray-900 mb-1">{item.title}</p>
-                    <p className="text-sm text-gray-600">{item.guests} guests</p>
+                    <p className="font-semibold text-white mb-1">{item.title}</p>
+                    <p className="text-sm text-gray-300">{item.guests} guests</p>
                   </div>
-                  <span className="font-bold text-gray-900">{item.price} TRY</span>
+                  <span className="font-bold text-white">{item.price} TRY</span>
                 </div>
               ))}
             </div>
@@ -251,16 +251,16 @@ const BookingDetailPage: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="bg-white rounded-2xl shadow-lg p-8"
+              className="bg-transparent rounded-2xl shadow-lg p-8"
             >
-              <h2 className="text-xl font-bold text-gray-900 mb-6">Travel Details</h2>
+              <h2 className="text-xl font-bold text-white mb-6">Travel Details</h2>
               <div className="space-y-4">
                 {booking.checkInDate && (
                   <div className="flex items-start gap-3">
                     <Calendar className="w-5 h-5 text-blue-600 mt-1" />
                     <div>
-                      <p className="text-sm text-gray-600">Check-in</p>
-                      <p className="font-semibold text-gray-900">
+                      <p className="text-sm text-gray-300">Check-in</p>
+                      <p className="font-semibold text-white">
                         {new Date(booking.checkInDate).toLocaleDateString('en-US', {
                           weekday: 'long',
                           year: 'numeric',
@@ -276,8 +276,8 @@ const BookingDetailPage: React.FC = () => {
                   <div className="flex items-start gap-3">
                     <Calendar className="w-5 h-5 text-blue-600 mt-1" />
                     <div>
-                      <p className="text-sm text-gray-600">Check-out</p>
-                      <p className="font-semibold text-gray-900">
+                      <p className="text-sm text-gray-300">Check-out</p>
+                      <p className="font-semibold text-white">
                         {new Date(booking.checkOutDate).toLocaleDateString('en-US', {
                           weekday: 'long',
                           year: 'numeric',
@@ -293,8 +293,8 @@ const BookingDetailPage: React.FC = () => {
                   <div className="flex items-start gap-3">
                     <Users className="w-5 h-5 text-purple-600 mt-1" />
                     <div>
-                      <p className="text-sm text-gray-600">Guests</p>
-                      <p className="font-semibold text-gray-900">{booking.guestCount} people</p>
+                      <p className="text-sm text-gray-300">Guests</p>
+                      <p className="font-semibold text-white">{booking.guestCount} people</p>
                     </div>
                   </div>
                 )}
@@ -303,8 +303,8 @@ const BookingDetailPage: React.FC = () => {
                   <div className="flex items-start gap-3">
                     <FileText className="w-5 h-5 text-orange-600 mt-1" />
                     <div>
-                      <p className="text-sm text-gray-600">Special Requests</p>
-                      <p className="font-semibold text-gray-900">{booking.specialRequests}</p>
+                      <p className="text-sm text-gray-300">Special Requests</p>
+                      <p className="font-semibold text-white">{booking.specialRequests}</p>
                     </div>
                   </div>
                 )}
@@ -316,14 +316,14 @@ const BookingDetailPage: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="bg-white rounded-2xl shadow-lg p-8"
+              className="bg-transparent rounded-2xl shadow-lg p-8"
             >
-              <h2 className="text-xl font-bold text-gray-900 mb-6">Payment & Contact</h2>
+              <h2 className="text-xl font-bold text-white mb-6">Payment & Contact</h2>
               <div className="space-y-4">
                 <div className="flex items-start gap-3">
                   <CreditCard className="w-5 h-5 text-green-600 mt-1" />
                   <div>
-                    <p className="text-sm text-gray-600">Total Amount</p>
+                    <p className="text-sm text-gray-300">Total Amount</p>
                     <p className="font-bold text-2xl text-green-600">
                       {booking.totalAmount} {booking.currency}
                     </p>
@@ -338,26 +338,26 @@ const BookingDetailPage: React.FC = () => {
                     <div className="flex items-start gap-3">
                       <Mail className="w-5 h-5 text-blue-600 mt-1" />
                       <div>
-                        <p className="text-sm text-gray-600">Email</p>
-                        <p className="font-semibold text-gray-900">{booking.metaData.customerInfo.email}</p>
+                        <p className="text-sm text-gray-300">Email</p>
+                        <p className="font-semibold text-white">{booking.metaData.customerInfo.email}</p>
                       </div>
                     </div>
 
                     <div className="flex items-start gap-3">
                       <Phone className="w-5 h-5 text-purple-600 mt-1" />
                       <div>
-                        <p className="text-sm text-gray-600">Phone</p>
-                        <p className="font-semibold text-gray-900">{booking.metaData.customerInfo.phone}</p>
+                        <p className="text-sm text-gray-300">Phone</p>
+                        <p className="font-semibold text-white">{booking.metaData.customerInfo.phone}</p>
                       </div>
                     </div>
                   </>
                 )}
 
                 <div className="flex items-start gap-3">
-                  <Clock className="w-5 h-5 text-gray-600 mt-1" />
+                  <Clock className="w-5 h-5 text-gray-300 mt-1" />
                   <div>
-                    <p className="text-sm text-gray-600">Booked on</p>
-                    <p className="font-semibold text-gray-900">
+                    <p className="text-sm text-gray-300">Booked on</p>
+                    <p className="font-semibold text-white">
                       {new Date(booking.createdAt).toLocaleDateString('en-US', {
                         year: 'numeric',
                         month: 'long',
@@ -377,8 +377,8 @@ const BookingDetailPage: React.FC = () => {
             transition={{ delay: 0.4 }}
             className="bg-blue-50 border border-blue-200 rounded-2xl p-6 mt-6"
           >
-            <h3 className="font-bold text-gray-900 mb-3">Important Information</h3>
-            <ul className="space-y-2 text-sm text-gray-700">
+            <h3 className="font-bold text-white mb-3">Important Information</h3>
+            <ul className="space-y-2 text-sm text-gray-200">
               <li className="flex items-start gap-2">
                 <CheckCircle className="w-4 h-4 text-blue-600 mt-0.5 flex-shrink-0" />
                 <span>Please arrive 15 minutes before your scheduled time</span>

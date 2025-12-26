@@ -68,8 +68,8 @@ const CryptoPayments: React.FC = () => {
         <section className="py-16 bg-white">
           <div className="max-w-7xl mx-auto px-4">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">Desteklenen Kripto Paralar</h2>
-              <p className="text-gray-600">En popüler kripto paralarla ödeme yapabilirsiniz</p>
+              <h2 className="text-3xl font-bold text-white mb-4">Desteklenen Kripto Paralar</h2>
+              <p className="text-gray-300">En popüler kripto paralarla ödeme yapabilirsiniz</p>
             </div>
 
             <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
@@ -103,8 +103,8 @@ const CryptoPayments: React.FC = () => {
         <section className="py-16 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">Nasıl Çalışır?</h2>
-              <p className="text-gray-600">3 basit adımda kripto ile ödeme yapın</p>
+              <h2 className="text-3xl font-bold text-white mb-4">Nasıl Çalışır?</h2>
+              <p className="text-gray-300">3 basit adımda kripto ile ödeme yapın</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -147,7 +147,7 @@ const CryptoPayments: React.FC = () => {
                     </div>
                   </div>
                   <h3 className="font-bold text-xl mb-4">{step.title}</h3>
-                  <p className="text-gray-600">{step.description}</p>
+                  <p className="text-gray-300">{step.description}</p>
                 </motion.div>
               ))}
             </div>
@@ -158,8 +158,8 @@ const CryptoPayments: React.FC = () => {
         <section className="py-16 bg-white">
           <div className="max-w-7xl mx-auto px-4">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">Kripto Ödeme Avantajları</h2>
-              <p className="text-gray-600">Neden kripto para ile ödeme yapmayı tercih etmelisiniz?</p>
+              <h2 className="text-3xl font-bold text-white mb-4">Kripto Ödeme Avantajları</h2>
+              <p className="text-gray-300">Neden kripto para ile ödeme yapmayı tercih etmelisiniz?</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -196,7 +196,7 @@ const CryptoPayments: React.FC = () => {
                     <benefit.icon className="w-8 h-8" />
                   </div>
                   <h3 className="font-bold text-lg mb-4">{benefit.title}</h3>
-                  <p className="text-gray-600">{benefit.description}</p>
+                  <p className="text-gray-300">{benefit.description}</p>
                 </motion.div>
               ))}
             </div>
@@ -220,7 +220,7 @@ const CryptoPayments: React.FC = () => {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 bg-white text-orange-600 rounded-xl font-bold text-lg hover:bg-gray-50 transition-colors inline-flex items-center gap-2"
+                className="px-8 py-4 bg-transparent text-orange-600 rounded-xl font-bold text-lg hover:bg-gray-50 transition-colors inline-flex items-center gap-2"
               >
                 Şimdi Rezervasyon Yap
                 <ArrowRight className="w-5 h-5" />

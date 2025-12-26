@@ -98,9 +98,9 @@ export default function Register() {
         <meta name="description" content="LyDian Travel&apos;a üye olun ve özel avantajlardan yararlanın." />
       </Head>
 
-      <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+      <div className="min-h-screen bg-white/5 dark:bg-gray-900">
         {/* Header */}
-        <div className="bg-white dark:bg-gray-800 shadow-sm border-b">
+        <div className="bg-transparent dark:bg-gray-800 shadow-sm border-b">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
             <div className="flex items-center justify-between">
               <div>
@@ -111,7 +111,7 @@ export default function Register() {
               <div className="flex items-center space-x-4">
                 <Link
                   href="/"
-                  className="text-gray-600 hover:text-blue-600 flex items-center"
+                  className="text-gray-300 hover:text-blue-600 flex items-center"
                 >
                   <ArrowRight className="h-5 w-5 mr-2 rotate-180" />
                   Ana Sayfa&apos;ya Dön
@@ -131,12 +131,12 @@ export default function Register() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Registration Form */}
-            <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8">
+            <div className="bg-transparent dark:bg-gray-800 rounded-2xl shadow-xl p-8">
               <div className="text-center mb-8">
-                <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
+                <h1 className="text-3xl font-bold text-white dark:text-white mb-2">
                   LyDian Travel&apos;a Katılın
                 </h1>
-                <p className="text-gray-600 dark:text-gray-400">
+                <p className="text-gray-300 dark:text-gray-400">
                   Ücretsiz hesap oluşturun ve avantajlardan yararlanın
                 </p>
               </div>
@@ -145,7 +145,7 @@ export default function Register() {
                 {/* Name Fields */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                    <label className="block text-sm font-medium text-gray-200 dark:text-gray-300 mb-2">
                       Ad *
                     </label>
                     <div className="relative">
@@ -167,7 +167,7 @@ export default function Register() {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                    <label className="block text-sm font-medium text-gray-200 dark:text-gray-300 mb-2">
                       Soyad *
                     </label>
                     <div className="relative">
@@ -191,7 +191,7 @@ export default function Register() {
 
                 {/* Email */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  <label className="block text-sm font-medium text-gray-200 dark:text-gray-300 mb-2">
                     E-posta *
                   </label>
                   <div className="relative">
@@ -214,7 +214,7 @@ export default function Register() {
 
                 {/* Phone */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  <label className="block text-sm font-medium text-gray-200 dark:text-gray-300 mb-2">
                     Telefon *
                   </label>
                   <div className="relative">
@@ -238,7 +238,7 @@ export default function Register() {
                 {/* Password Fields */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                    <label className="block text-sm font-medium text-gray-200 dark:text-gray-300 mb-2">
                       Şifre *
                     </label>
                     <div className="relative">
@@ -256,7 +256,7 @@ export default function Register() {
                       <button
                         type="button"
                         onClick={() => setShowPassword(!showPassword)}
-                        className="absolute right-3 top-3 text-gray-400 hover:text-gray-600"
+                        className="absolute right-3 top-3 text-gray-400 hover:text-gray-300"
                       >
                         {showPassword ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
                       </button>
@@ -267,7 +267,7 @@ export default function Register() {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                    <label className="block text-sm font-medium text-gray-200 dark:text-gray-300 mb-2">
                       Şifre Tekrar *
                     </label>
                     <div className="relative">
@@ -285,7 +285,7 @@ export default function Register() {
                       <button
                         type="button"
                         onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                        className="absolute right-3 top-3 text-gray-400 hover:text-gray-600"
+                        className="absolute right-3 top-3 text-gray-400 hover:text-gray-300"
                       >
                         {showConfirmPassword ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
                       </button>
@@ -299,7 +299,7 @@ export default function Register() {
                 {/* Optional Fields */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                    <label className="block text-sm font-medium text-gray-200 dark:text-gray-300 mb-2">
                       Doğum Tarihi
                     </label>
                     <div className="relative">
@@ -314,7 +314,7 @@ export default function Register() {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                    <label className="block text-sm font-medium text-gray-200 dark:text-gray-300 mb-2">
                       Cinsiyet
                     </label>
                     <select
@@ -342,7 +342,7 @@ export default function Register() {
                       onChange={(e) => setFormData({...formData, terms: e.target.checked})}
                       className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded mt-1"
                     />
-                    <label htmlFor="terms" className="ml-3 text-sm text-gray-700 dark:text-gray-300">
+                    <label htmlFor="terms" className="ml-3 text-sm text-gray-200 dark:text-gray-300">
                       <Link href="/terms" className="text-blue-600 hover:text-blue-500">
                         Kullanım Şartları
                       </Link>
@@ -366,7 +366,7 @@ export default function Register() {
                       onChange={(e) => setFormData({...formData, newsletter: e.target.checked})}
                       className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded mt-1"
                     />
-                    <label htmlFor="newsletter" className="ml-3 text-sm text-gray-700 dark:text-gray-300">
+                    <label htmlFor="newsletter" className="ml-3 text-sm text-gray-200 dark:text-gray-300">
                       Özel kampanya ve fırsatlardan haberdar olmak istiyorum
                     </label>
                   </div>
@@ -381,7 +381,7 @@ export default function Register() {
               </form>
 
               <div className="mt-6 text-center">
-                <p className="text-gray-600 dark:text-gray-400">
+                <p className="text-gray-300 dark:text-gray-400">
                   Zaten hesabınız var mı?{' '}
                   <button
                     onClick={() => window.history.back()}
@@ -416,11 +416,11 @@ export default function Register() {
                 </div>
               </div>
 
-              <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8">
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+              <div className="bg-transparent dark:bg-gray-800 rounded-2xl shadow-lg p-8">
+                <h3 className="text-2xl font-bold text-white dark:text-white mb-4">
                   🔒 Güvenliğiniz Önceliğimiz
                 </h3>
-                <p className="text-gray-600 dark:text-gray-400 mb-4">
+                <p className="text-gray-300 dark:text-gray-400 mb-4">
                   Kişisel bilgileriniz SSL şifreleme ile korunur ve blockchain teknolojisi 
                   ile güvence altına alınır. KVKK uyumlu veri politikamız gereği 
                   verileriniz asla üçüncü taraflarla paylaşılmaz.

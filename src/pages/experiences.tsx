@@ -153,7 +153,7 @@ const ExperiencesPage: React.FC = () => {
       {/* Return to Home Button */}
       <Link 
         href="/" 
-        className="fixed top-24 left-6 z-10 flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200 text-gray-700 hover:bg-white hover:text-lydian-primary transition-all duration-200"
+        className="fixed top-24 left-6 z-10 flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200 text-gray-200 hover:bg-white hover:text-lydian-primary transition-all duration-200"
       >
         <ArrowLeft className="w-4 h-4" />
         <span className="font-medium">Ana Sayfaya Dön</span>
@@ -184,7 +184,7 @@ const ExperiencesPage: React.FC = () => {
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     placeholder="Deneyim ara..."
-                    className="w-full pl-10 sm:pl-12 pr-14 sm:pr-16 py-3 sm:py-4 rounded-xl text-sm sm:text-base text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-white/30"
+                    className="w-full pl-10 sm:pl-12 pr-14 sm:pr-16 py-3 sm:py-4 rounded-xl text-sm sm:text-base text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-white/30"
                   />
                   <button className="absolute right-2 top-1/2 transform -translate-y-1/2 p-2 bg-lydian-primary text-white rounded-lg hover:bg-lydian-dark transition-colors">
                     <Filter className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -196,11 +196,11 @@ const ExperiencesPage: React.FC = () => {
         </section>
 
         {/* Filters Section */}
-        <section className="bg-white border-b border-gray-200">
+        <section className="bg-transparent border-b border-gray-200">
           <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6 py-4 sm:py-6">
             {/* Categories */}
             <div className="mb-4 sm:mb-6">
-              <h3 className="font-semibold text-gray-900 mb-2 sm:mb-3 text-sm sm:text-base">Kategoriler</h3>
+              <h3 className="font-semibold text-white mb-2 sm:mb-3 text-sm sm:text-base">Kategoriler</h3>
               <div className="flex flex-wrap gap-2 sm:gap-3">
                 {categories.map((category) => {
                   const Icon = category.icon;
@@ -211,7 +211,7 @@ const ExperiencesPage: React.FC = () => {
                       className={`flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium transition-colors ${
                         selectedCategory === category.id
                           ? 'bg-lydian-primary text-white'
-                          : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                          : 'bg-gray-100 text-gray-200 hover:bg-gray-200'
                       }`}
                     >
                       <Icon className="w-3 h-3 sm:w-4 sm:h-4" />
@@ -225,7 +225,7 @@ const ExperiencesPage: React.FC = () => {
             {/* Duration and Price Filters */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
               <div>
-                <h3 className="font-semibold text-gray-900 mb-2 sm:mb-3 text-sm sm:text-base">Süre</h3>
+                <h3 className="font-semibold text-white mb-2 sm:mb-3 text-sm sm:text-base">Süre</h3>
                 <div className="flex flex-wrap gap-2">
                   {durations.map((duration) => (
                     <button
@@ -234,7 +234,7 @@ const ExperiencesPage: React.FC = () => {
                       className={`px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm font-medium transition-colors ${
                         selectedDuration === duration.id
                           ? 'bg-lydian-primary text-white'
-                          : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                          : 'bg-gray-100 text-gray-200 hover:bg-gray-200'
                       }`}
                     >
                       {duration.name}
@@ -244,7 +244,7 @@ const ExperiencesPage: React.FC = () => {
               </div>
 
               <div>
-                <h3 className="font-semibold text-gray-900 mb-2 sm:mb-3 text-sm sm:text-base">Fiyat Aralığı</h3>
+                <h3 className="font-semibold text-white mb-2 sm:mb-3 text-sm sm:text-base">Fiyat Aralığı</h3>
                 <div className="flex flex-wrap gap-2">
                   {priceRanges.map((range) => (
                     <button
@@ -253,7 +253,7 @@ const ExperiencesPage: React.FC = () => {
                       className={`px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm font-medium transition-colors ${
                         priceRange === range.id
                           ? 'bg-lydian-primary text-white'
-                          : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                          : 'bg-gray-100 text-gray-200 hover:bg-gray-200'
                       }`}
                     >
                       {range.name}
@@ -269,7 +269,7 @@ const ExperiencesPage: React.FC = () => {
         <section className="py-12 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4">
             <div className="flex items-center justify-between mb-8">
-              <h2 className="text-2xl font-bold text-gray-900">
+              <h2 className="text-2xl font-bold text-white">
                 {filteredExperiences.length} Deneyim Bulundu
               </h2>
               <select className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-lydian-primary focus:border-transparent">
@@ -291,7 +291,7 @@ const ExperiencesPage: React.FC = () => {
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group h-full"
+                    className="bg-transparent rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group h-full"
                   >
                   {/* Image */}
                   <div className="relative h-48 overflow-hidden">
@@ -309,7 +309,7 @@ const ExperiencesPage: React.FC = () => {
                       {experience.badges.slice(0, 2).map((badge) => (
                         <span
                           key={badge}
-                          className="px-2 py-1 bg-white/90 text-gray-800 rounded-full text-xs font-medium"
+                          className="px-2 py-1 bg-white/90 text-gray-100 rounded-full text-xs font-medium"
                         >
                           {badge}
                         </span>
@@ -318,7 +318,7 @@ const ExperiencesPage: React.FC = () => {
 
                     {/* Heart */}
                     <button className="absolute top-4 right-4 p-2 bg-white/80 hover:bg-white rounded-full transition-colors">
-                      <Heart className="w-4 h-4 text-gray-600" />
+                      <Heart className="w-4 h-4 text-gray-300" />
                     </button>
 
                     {/* VR Preview Button */}
@@ -335,14 +335,14 @@ const ExperiencesPage: React.FC = () => {
                       <span>{experience.location}</span>
                     </div>
 
-                    <h3 className="font-bold text-lg text-gray-900 mb-3 line-clamp-2">
+                    <h3 className="font-bold text-lg text-white mb-3 line-clamp-2">
                       {experience.title}
                     </h3>
 
-                    <p className="text-gray-600 text-sm mb-4">{experience.description}</p>
+                    <p className="text-gray-300 text-sm mb-4">{experience.description}</p>
 
                     {/* Stats */}
-                    <div className="flex items-center justify-between text-sm text-gray-600 mb-4">
+                    <div className="flex items-center justify-between text-sm text-gray-300 mb-4">
                       <div className="flex items-center gap-1">
                         <Clock className="w-4 h-4" />
                         <span>{experience.duration}</span>
@@ -359,8 +359,8 @@ const ExperiencesPage: React.FC = () => {
 
                     {/* Highlights */}
                     <div className="mb-4">
-                      <h4 className="font-semibold text-sm text-gray-900 mb-2">Öne Çıkanlar:</h4>
-                      <ul className="text-sm text-gray-600 space-y-1">
+                      <h4 className="font-semibold text-sm text-white mb-2">Öne Çıkanlar:</h4>
+                      <ul className="text-sm text-gray-300 space-y-1">
                         {experience.highlights.slice(0, 2).map((highlight, index) => (
                           <li key={index} className="flex items-center gap-2">
                             <div className="w-1.5 h-1.5 bg-green-500 rounded-full"></div>
@@ -372,8 +372,8 @@ const ExperiencesPage: React.FC = () => {
 
                     {/* Languages */}
                     <div className="mb-4">
-                      <span className="text-sm text-gray-600">Diller: </span>
-                      <span className="text-sm font-medium text-gray-900">
+                      <span className="text-sm text-gray-300">Diller: </span>
+                      <span className="text-sm font-medium text-white">
                         {experience.languages.join(', ')}
                       </span>
                     </div>
@@ -383,16 +383,16 @@ const ExperiencesPage: React.FC = () => {
                       <div className="flex items-center justify-between mb-3">
                         <div>
                           <div className="flex items-center gap-2">
-                            <span className="text-2xl font-bold text-gray-900">{experience.price}</span>
+                            <span className="text-2xl font-bold text-white">{experience.price}</span>
                             {experience.originalPrice && (
                               <span className="text-sm text-gray-500 line-through">{experience.originalPrice}</span>
                             )}
                           </div>
-                          <span className="text-sm text-gray-600">kişi başı</span>
+                          <span className="text-sm text-gray-300">kişi başı</span>
                         </div>
                       </div>
                       <div className="flex items-center justify-between">
-                        <span className="text-sm text-gray-600">Detayları Gör</span>
+                        <span className="text-sm text-gray-300">Detayları Gör</span>
                         <span className="text-lydian-primary font-semibold group-hover:translate-x-1 transition-transform">→</span>
                       </div>
                     </div>

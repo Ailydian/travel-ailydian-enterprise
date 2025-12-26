@@ -35,7 +35,7 @@ const LocationPicker = dynamic(
   {
     ssr: false,
     loading: () => (
-      <div className="bg-white rounded-xl border border-gray-200 p-6">
+      <div className="bg-transparent rounded-xl border border-gray-200 p-6">
         <div className="h-96 bg-gray-100 rounded-lg animate-pulse flex items-center justify-center">
           <MapPin className="w-12 h-12 text-gray-400" />
         </div>
@@ -528,17 +528,17 @@ const Checkout: React.FC = () => {
           <title>Ödeme Başarılı - LyDian Travel</title>
         </Head>
         <FuturisticHeader />
-        <main className="pt-8 min-h-screen bg-gray-50 flex items-center justify-center px-3 sm:px-4">
+        <main className="pt-8 min-h-screen bg-white/5 flex items-center justify-center px-3 sm:px-4">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="text-center bg-white rounded-2xl shadow-lg p-6 sm:p-8 lg:p-12 max-w-md w-full"
+            className="text-center bg-transparent rounded-2xl shadow-lg p-6 sm:p-8 lg:p-12 max-w-md w-full"
           >
             <div className="w-16 h-16 sm:w-20 sm:h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6">
               <CheckCircle className="w-10 h-10 sm:w-12 sm:h-12 text-green-500" />
             </div>
-            <h1 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">Ödeme Başarılı!</h1>
-            <p className="text-sm sm:text-base text-gray-600 mb-6 sm:mb-8">Rezervasyonunuz onaylandı. E-posta ile detayları gönderdik.</p>
+            <h1 className="text-xl sm:text-2xl font-bold text-white mb-3 sm:mb-4">Ödeme Başarılı!</h1>
+            <p className="text-sm sm:text-base text-gray-300 mb-6 sm:mb-8">Rezervasyonunuz onaylandı. E-posta ile detayları gönderdik.</p>
             <div className="animate-pulse text-lydian-primary font-medium text-sm sm:text-base">
               Başarı sayfasına yönlendiriliyorsunuz...
             </div>
@@ -555,17 +555,17 @@ const Checkout: React.FC = () => {
           <title>Ödeme İşleniyor - LyDian Travel</title>
         </Head>
         <FuturisticHeader />
-        <main className="pt-8 min-h-screen bg-gray-50 flex items-center justify-center px-3 sm:px-4">
+        <main className="pt-8 min-h-screen bg-white/5 flex items-center justify-center px-3 sm:px-4">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="text-center bg-white rounded-2xl shadow-lg p-6 sm:p-8 lg:p-12 max-w-md w-full"
+            className="text-center bg-transparent rounded-2xl shadow-lg p-6 sm:p-8 lg:p-12 max-w-md w-full"
           >
             <div className="w-16 h-16 sm:w-20 sm:h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6 animate-pulse">
               <Zap className="w-10 h-10 sm:w-12 sm:h-12 text-lydian-primary" />
             </div>
-            <h1 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">Ödeme İşleniyor</h1>
-            <p className="text-sm sm:text-base text-gray-600 mb-6 sm:mb-8">Lütfen bekleyin, ödemeniz güvenli şekilde işleniyor...</p>
+            <h1 className="text-xl sm:text-2xl font-bold text-white mb-3 sm:mb-4">Ödeme İşleniyor</h1>
+            <p className="text-sm sm:text-base text-gray-300 mb-6 sm:mb-8">Lütfen bekleyin, ödemeniz güvenli şekilde işleniyor...</p>
             <div className="flex items-center gap-2 justify-center text-xs sm:text-sm text-gray-500">
               <Lock className="w-3 h-3 sm:w-4 sm:h-4" />
               256-bit SSL ile korumalı
@@ -593,8 +593,8 @@ const Checkout: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             className="text-center mb-6 sm:mb-8"
           >
-            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-2">Güvenli Ödeme</h1>
-            <p className="text-sm sm:text-base text-gray-600">Blockchain teknologisi ile doğrulanmış güvenli ödeme</p>
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-2">Güvenli Ödeme</h1>
+            <p className="text-sm sm:text-base text-gray-300">Blockchain teknologisi ile doğrulanmış güvenli ödeme</p>
           </motion.div>
 
           {/* Security Banner */}
@@ -627,18 +627,18 @@ const Checkout: React.FC = () => {
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
-                className="bg-white rounded-2xl shadow-sm border border-gray-200 p-4 sm:p-6"
+                className="bg-transparent rounded-2xl shadow-sm border border-gray-200 p-4 sm:p-6"
               >
                 <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
                   <div className="w-7 h-7 sm:w-8 sm:h-8 bg-lydian-primary text-white rounded-full flex items-center justify-center font-bold text-xs sm:text-sm">
                     1
                   </div>
-                  <h2 className="text-lg sm:text-xl font-bold text-gray-900">Kişisel Bilgiler</h2>
+                  <h2 className="text-lg sm:text-xl font-bold text-white">Kişisel Bilgiler</h2>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                   <div>
-                    <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-xs sm:text-sm font-medium text-gray-200 mb-2">
                       <User className="w-3 h-3 sm:w-4 sm:h-4 inline mr-1" />
                       Ad *
                     </label>
@@ -660,7 +660,7 @@ const Checkout: React.FC = () => {
                   </div>
 
                   <div>
-                    <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-xs sm:text-sm font-medium text-gray-200 mb-2">
                       <User className="w-3 h-3 sm:w-4 sm:h-4 inline mr-1" />
                       Soyad *
                     </label>
@@ -682,7 +682,7 @@ const Checkout: React.FC = () => {
                   </div>
 
                   <div>
-                    <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-xs sm:text-sm font-medium text-gray-200 mb-2">
                       <Mail className="w-3 h-3 sm:w-4 sm:h-4 inline mr-1" />
                       E-posta *
                     </label>
@@ -704,7 +704,7 @@ const Checkout: React.FC = () => {
                   </div>
 
                   <div>
-                    <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-xs sm:text-sm font-medium text-gray-200 mb-2">
                       <Phone className="w-3 h-3 sm:w-4 sm:h-4 inline mr-1" />
                       Telefon *
                     </label>
@@ -732,14 +732,14 @@ const Checkout: React.FC = () => {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.1 }}
-                className="bg-white rounded-2xl shadow-sm border border-gray-200 p-4 sm:p-6"
+                className="bg-transparent rounded-2xl shadow-sm border border-gray-200 p-4 sm:p-6"
               >
                 <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
                   <div className="flex items-center gap-2 sm:gap-3">
                     <div className="w-7 h-7 sm:w-8 sm:h-8 bg-lydian-primary text-white rounded-full flex items-center justify-center font-bold text-xs sm:text-sm">
                       2
                     </div>
-                    <h2 className="text-lg sm:text-xl font-bold text-gray-900">Kart Bilgileri</h2>
+                    <h2 className="text-lg sm:text-xl font-bold text-white">Kart Bilgileri</h2>
                   </div>
                   <div className="flex items-center gap-2 sm:ml-auto">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png" alt="Visa" className="h-4 sm:h-6" />
@@ -749,7 +749,7 @@ const Checkout: React.FC = () => {
 
                 <div className="space-y-4 sm:space-y-6">
                   <div>
-                    <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-xs sm:text-sm font-medium text-gray-200 mb-2">
                       <CreditCard className="w-3 h-3 sm:w-4 sm:h-4 inline mr-1" />
                       Kart Numarası *
                     </label>
@@ -773,7 +773,7 @@ const Checkout: React.FC = () => {
 
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
                     <div>
-                      <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-xs sm:text-sm font-medium text-gray-200 mb-2">
                         <Calendar className="w-3 h-3 sm:w-4 sm:h-4 inline mr-1" />
                         Ay *
                       </label>
@@ -794,7 +794,7 @@ const Checkout: React.FC = () => {
                     </div>
 
                     <div>
-                      <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-xs sm:text-sm font-medium text-gray-200 mb-2">
                         <Calendar className="w-3 h-3 sm:w-4 sm:h-4 inline mr-1" />
                         Yıl *
                       </label>
@@ -815,7 +815,7 @@ const Checkout: React.FC = () => {
                     </div>
 
                     <div>
-                      <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-xs sm:text-sm font-medium text-gray-200 mb-2">
                         <Lock className="w-3 h-3 sm:w-4 sm:h-4 inline mr-1" />
                         CVV *
                       </label>
@@ -833,7 +833,7 @@ const Checkout: React.FC = () => {
                         <button
                           type="button"
                           onClick={() => setShowCVV(!showCVV)}
-                          className="absolute right-2 sm:right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                          className="absolute right-2 sm:right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-300"
                         >
                           {showCVV ? <EyeOff className="w-3 h-3 sm:w-4 sm:h-4" /> : <Eye className="w-3 h-3 sm:w-4 sm:h-4" />}
                         </button>
@@ -842,7 +842,7 @@ const Checkout: React.FC = () => {
                   </div>
 
                   <div>
-                    <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-xs sm:text-sm font-medium text-gray-200 mb-2">
                       <User className="w-3 h-3 sm:w-4 sm:h-4 inline mr-1" />
                       Kart Üzerindeki İsim *
                     </label>
@@ -870,18 +870,18 @@ const Checkout: React.FC = () => {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.2 }}
-                className="bg-white rounded-2xl shadow-sm border border-gray-200 p-4 sm:p-6"
+                className="bg-transparent rounded-2xl shadow-sm border border-gray-200 p-4 sm:p-6"
               >
                 <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
                   <div className="w-7 h-7 sm:w-8 sm:h-8 bg-lydian-primary text-white rounded-full flex items-center justify-center font-bold text-xs sm:text-sm">
                     3
                   </div>
-                  <h2 className="text-lg sm:text-xl font-bold text-gray-900">Fatura Adresi</h2>
+                  <h2 className="text-lg sm:text-xl font-bold text-white">Fatura Adresi</h2>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                   <div className="md:col-span-2">
-                    <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-xs sm:text-sm font-medium text-gray-200 mb-2">
                       <MapPin className="w-3 h-3 sm:w-4 sm:h-4 inline mr-1" />
                       Adres *
                     </label>
@@ -903,7 +903,7 @@ const Checkout: React.FC = () => {
                   </div>
 
                   <div>
-                    <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-xs sm:text-sm font-medium text-gray-200 mb-2">
                       <Building className="w-3 h-3 sm:w-4 sm:h-4 inline mr-1" />
                       Şehir *
                     </label>
@@ -925,7 +925,7 @@ const Checkout: React.FC = () => {
                   </div>
 
                   <div>
-                    <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-xs sm:text-sm font-medium text-gray-200 mb-2">
                       <MapPin className="w-3 h-3 sm:w-4 sm:h-4 inline mr-1" />
                       Posta Kodu *
                     </label>
@@ -948,7 +948,7 @@ const Checkout: React.FC = () => {
                   </div>
 
                   <div className="md:col-span-2">
-                    <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-xs sm:text-sm font-medium text-gray-200 mb-2">
                       <Globe className="w-3 h-3 sm:w-4 sm:h-4 inline mr-1" />
                       Ülke *
                     </label>
@@ -972,13 +972,13 @@ const Checkout: React.FC = () => {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.3 }}
-                className="bg-white rounded-2xl shadow-sm border border-gray-200 p-4 sm:p-6"
+                className="bg-transparent rounded-2xl shadow-sm border border-gray-200 p-4 sm:p-6"
               >
                 <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
                   <div className="w-7 h-7 sm:w-8 sm:h-8 bg-lydian-primary text-white rounded-full flex items-center justify-center font-bold text-xs sm:text-sm">
                     4
                   </div>
-                  <h2 className="text-lg sm:text-xl font-bold text-gray-900">Teslim Alma Noktası</h2>
+                  <h2 className="text-lg sm:text-xl font-bold text-white">Teslim Alma Noktası</h2>
                 </div>
 
                 <LocationPicker
@@ -1006,10 +1006,10 @@ const Checkout: React.FC = () => {
               <motion.div
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
-                className="bg-white rounded-2xl shadow-sm border border-gray-200 p-4 sm:p-6 lg:sticky lg:top-8"
+                className="bg-transparent rounded-2xl shadow-sm border border-gray-200 p-4 sm:p-6 lg:sticky lg:top-8"
               >
                 <div className="flex items-center justify-between mb-4 sm:mb-6">
-                  <h3 className="font-bold text-base sm:text-lg text-gray-900">Sipariş Özeti</h3>
+                  <h3 className="font-bold text-base sm:text-lg text-white">Sipariş Özeti</h3>
                   {bookingData && (
                     <div className="flex items-center gap-1 px-2 py-1 bg-blue-50 rounded-full">
                       {bookingData.type === 'hotel' && <Home className="w-3 h-3 sm:w-4 sm:h-4 text-blue-600" />}
@@ -1029,7 +1029,7 @@ const Checkout: React.FC = () => {
                   {orderSummary.items.map((item, index) => (
                     <div key={index} className="flex justify-between items-start">
                       <div className="min-w-0 pr-2">
-                        <p className="font-medium text-gray-900 text-xs sm:text-sm line-clamp-2">{item.title}</p>
+                        <p className="font-medium text-white text-xs sm:text-sm line-clamp-2">{item.title}</p>
                         {item.guests && <p className="text-[10px] sm:text-xs text-gray-500">{item.guests} misafir</p>}
                         {item.passengers && <p className="text-[10px] sm:text-xs text-gray-500">{item.passengers} yolcu</p>}
                         {bookingData && bookingData.type === 'hotel' && bookingData.productSpecific.nights && (
@@ -1049,11 +1049,11 @@ const Checkout: React.FC = () => {
 
                 <div className="space-y-2 sm:space-y-3 mb-4 sm:mb-6 border-t border-gray-200 pt-3 sm:pt-4">
                   <div className="flex justify-between text-sm sm:text-base">
-                    <span className="text-gray-600">Ara Toplam</span>
+                    <span className="text-gray-300">Ara Toplam</span>
                     <span className="font-semibold">₺{orderSummary.subtotal.toLocaleString('tr-TR')}</span>
                   </div>
                   <div className="flex justify-between text-sm sm:text-base">
-                    <span className="text-gray-600">KDV (%18)</span>
+                    <span className="text-gray-300">KDV (%18)</span>
                     <span className="font-semibold">₺{orderSummary.tax.toLocaleString('tr-TR')}</span>
                   </div>
                   <div className="flex justify-between text-sm sm:text-base text-green-600">
@@ -1062,25 +1062,25 @@ const Checkout: React.FC = () => {
                   </div>
                   <div className="border-t border-gray-200 pt-2 sm:pt-3">
                     <div className="flex justify-between items-center">
-                      <span className="text-base sm:text-lg font-bold text-gray-900">Toplam</span>
+                      <span className="text-base sm:text-lg font-bold text-white">Toplam</span>
                       <span className="text-xl sm:text-2xl font-bold text-lydian-primary">₺{orderSummary.total.toLocaleString('tr-TR')}</span>
                     </div>
                   </div>
                 </div>
 
                 {/* Security Features */}
-                <div className="space-y-2 sm:space-y-3 mb-4 sm:mb-6 p-3 sm:p-4 bg-gray-50 rounded-xl">
+                <div className="space-y-2 sm:space-y-3 mb-4 sm:mb-6 p-3 sm:p-4 bg-white/5 rounded-xl">
                   <div className="flex items-center gap-2 text-xs sm:text-sm">
                     <Shield className="w-3 h-3 sm:w-4 sm:h-4 text-green-500" />
-                    <span className="text-gray-700">256-bit SSL Güvenli</span>
+                    <span className="text-gray-200">256-bit SSL Güvenli</span>
                   </div>
                   <div className="flex items-center gap-2 text-xs sm:text-sm">
                     <Lock className="w-3 h-3 sm:w-4 sm:h-4 text-blue-500" />
-                    <span className="text-gray-700">PCI DSS Uyumlu</span>
+                    <span className="text-gray-200">PCI DSS Uyumlu</span>
                   </div>
                   <div className="flex items-center gap-2 text-xs sm:text-sm">
                     <Zap className="w-3 h-3 sm:w-4 sm:h-4 text-purple-500" />
-                    <span className="text-gray-700">Blockchain Doğrulama</span>
+                    <span className="text-gray-200">Blockchain Doğrulama</span>
                   </div>
                 </div>
 

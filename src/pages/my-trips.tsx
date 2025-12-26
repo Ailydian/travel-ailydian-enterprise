@@ -155,7 +155,7 @@ export default function MyTrips() {
       case 'upcoming': return 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200';
       case 'cancelled': return 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200';
       case 'in-progress': return 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200';
-      default: return 'bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-200';
+      default: return 'bg-gray-100 text-gray-100 dark:bg-gray-900 dark:text-gray-200';
     }
   };
 
@@ -224,16 +224,16 @@ export default function MyTrips() {
           {/* Stats */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-8 sm:mb-12">
             {tripStats.map((stat, index) => (
-              <div key={index} className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-4 sm:p-6 text-center">
+              <div key={index} className="bg-transparent dark:bg-gray-800 rounded-lg shadow-lg p-4 sm:p-6 text-center">
                 <stat.icon className={`h-6 w-6 sm:h-8 sm:w-8 mx-auto mb-2 sm:mb-3 ${stat.color}`} />
-                <div className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-1">{stat.value}</div>
-                <div className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">{stat.title}</div>
+                <div className="text-xl sm:text-2xl font-bold text-white dark:text-white mb-1">{stat.value}</div>
+                <div className="text-xs sm:text-sm text-gray-300 dark:text-gray-400">{stat.title}</div>
               </div>
             ))}
           </div>
 
           {/* Filters and Tabs */}
-          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 mb-8">
+          <div className="bg-transparent dark:bg-gray-800 rounded-lg shadow-lg p-6 mb-8">
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
               {/* Status Tabs */}
               <div className="flex flex-wrap gap-2">
@@ -249,7 +249,7 @@ export default function MyTrips() {
                     className={`px-4 py-2 rounded-lg font-medium transition-colors ${
                       selectedTab === tab.key
                         ? 'bg-blue-600 text-white'
-                        : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-600'
+                        : 'bg-gray-100 dark:bg-gray-700 text-gray-200 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-600'
                     }`}
                   >
                     {tab.label}
@@ -259,7 +259,7 @@ export default function MyTrips() {
 
               {/* Sort Dropdown */}
               <div className="flex items-center gap-2">
-                <label className="text-sm font-medium text-gray-700 dark:text-gray-300">
+                <label className="text-sm font-medium text-gray-200 dark:text-gray-300">
                   Sırala:
                 </label>
                 <select
@@ -281,7 +281,7 @@ export default function MyTrips() {
               const TypeIcon = getTypeIcon(trip.type);
               
               return (
-                <div key={trip.id} className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden">
+                <div key={trip.id} className="bg-transparent dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden">
                   <div className="flex flex-col md:flex-row">
                     <div className="w-full md:w-1/3 relative flex-shrink-0">
                       <Image
@@ -297,35 +297,35 @@ export default function MyTrips() {
                         </span>
                       </div>
                       <div className="absolute top-3 sm:top-4 right-3 sm:right-4 bg-white/90 dark:bg-gray-800/90 p-1.5 sm:p-2 rounded-full">
-                        <TypeIcon className="h-3 w-3 sm:h-4 sm:w-4 text-gray-700 dark:text-gray-300" />
+                        <TypeIcon className="h-3 w-3 sm:h-4 sm:w-4 text-gray-200 dark:text-gray-300" />
                       </div>
                     </div>
                     
                     <div className="md:w-2/3 p-6">
                       <div className="flex items-start justify-between mb-4">
                         <div>
-                          <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+                          <h3 className="text-xl font-semibold text-white dark:text-white mb-2">
                             {trip.title}
                           </h3>
-                          <div className="flex items-center text-gray-600 dark:text-gray-400 mb-2">
+                          <div className="flex items-center text-gray-300 dark:text-gray-400 mb-2">
                             <MapPin className="h-4 w-4 mr-2" />
                             {trip.destination}
                           </div>
-                          <div className="flex items-center text-gray-600 dark:text-gray-400 mb-2">
+                          <div className="flex items-center text-gray-300 dark:text-gray-400 mb-2">
                             <Calendar className="h-4 w-4 mr-2" />
                             {trip.startDate} - {trip.endDate} ({trip.duration})
                           </div>
-                          <div className="flex items-center text-gray-600 dark:text-gray-400">
+                          <div className="flex items-center text-gray-300 dark:text-gray-400">
                             <Users className="h-4 w-4 mr-2" />
                             {trip.participants} kişi
                           </div>
                         </div>
                         
                         <div className="text-right">
-                          <div className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+                          <div className="text-2xl font-bold text-white dark:text-white mb-2">
                             {trip.totalPrice}
                           </div>
-                          <div className="text-sm text-gray-600 dark:text-gray-400">
+                          <div className="text-sm text-gray-300 dark:text-gray-400">
                             {trip.confirmationCode}
                           </div>
                         </div>
@@ -386,7 +386,7 @@ export default function MyTrips() {
                         {/* Rating Display */}
                         {trip.rating && (
                           <div className="flex items-center mt-3">
-                            <span className="text-sm text-gray-600 dark:text-gray-400 mr-2">Değerlendirmeniz:</span>
+                            <span className="text-sm text-gray-300 dark:text-gray-400 mr-2">Değerlendirmeniz:</span>
                             <div className="flex">
                               {[...Array(5)].map((_, i) => (
                                 <Star
@@ -411,10 +411,10 @@ export default function MyTrips() {
           {sortedTrips.length === 0 && (
             <div className="text-center py-12">
               <MapPin className="h-16 w-16 text-gray-400 mx-auto mb-4" />
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+              <h3 className="text-xl font-semibold text-white dark:text-white mb-2">
                 Henüz seyahat kaydınız bulunmuyor
               </h3>
-              <p className="text-gray-600 dark:text-gray-400 mb-6">
+              <p className="text-gray-300 dark:text-gray-400 mb-6">
                 İlk seyahatinizi planlamaya başlayın!
               </p>
               <Link
@@ -438,7 +438,7 @@ export default function MyTrips() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/"
-                className="bg-white text-blue-600 px-6 py-3 rounded-lg hover:bg-blue-50 transition-colors font-semibold flex items-center justify-center"
+                className="bg-transparent text-blue-600 px-6 py-3 rounded-lg hover:bg-blue-50 transition-colors font-semibold flex items-center justify-center"
               >
                 <Plus className="h-5 w-5 mr-2" />
                 Yeni Seyahat Planla

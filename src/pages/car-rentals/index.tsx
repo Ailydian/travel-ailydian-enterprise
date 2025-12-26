@@ -280,10 +280,10 @@ const CarRentalsPage: React.FC = () => {
                   <Car className="w-8 h-8 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-1">
+                  <h3 className="text-2xl font-bold text-white mb-1">
                     Aracınızı Kiraya Verin
                   </h3>
-                  <p className="text-gray-600">
+                  <p className="text-gray-300">
                     Profesyonel Property Owner Dashboard ile kiralık araçlarınızı yönetin
                   </p>
                 </div>
@@ -306,14 +306,14 @@ const CarRentalsPage: React.FC = () => {
         </section>
 
         {/* Promotional Content Section with Animated Images */}
-        <section className="bg-white py-16">
+        <section className="bg-transparent py-16">
           <div className="max-w-7xl mx-auto px-4">
             <div className="text-center mb-12">
               <motion.h2
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="text-4xl font-black text-gray-900 mb-4"
+                className="text-4xl font-black text-white mb-4"
               >
                 Neden LyDian Car Rental?
               </motion.h2>
@@ -322,7 +322,7 @@ const CarRentalsPage: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.1 }}
-                className="text-xl text-gray-600"
+                className="text-xl text-gray-300"
               >
                 Premium araç kiralama deneyiminin tüm avantajları
               </motion.p>
@@ -346,10 +346,10 @@ const CarRentalsPage: React.FC = () => {
                   <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl flex items-center justify-center mb-6">
                     <CheckCircle className="w-8 h-8 text-white" />
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-3">
+                  <h3 className="text-2xl font-bold text-white mb-3">
                     Doğrulanmış Araç Sahipleri
                   </h3>
-                  <p className="text-gray-600 leading-relaxed">
+                  <p className="text-gray-300 leading-relaxed">
                     Tüm araç sahiplerimiz kimlik doğrulamasından geçer. Sigortasız, ruhsatsız araç yok. %100 güvenilir platform.
                   </p>
                   <div className="mt-6 flex items-center gap-2 text-sm text-green-600 font-semibold">
@@ -376,10 +376,10 @@ const CarRentalsPage: React.FC = () => {
                   <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-2xl flex items-center justify-center mb-6">
                     <Zap className="w-8 h-8 text-white" />
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-3">
+                  <h3 className="text-2xl font-bold text-white mb-3">
                     Anında Rezervasyon
                   </h3>
-                  <p className="text-gray-600 leading-relaxed">
+                  <p className="text-gray-300 leading-relaxed">
                     Beklemeden, onay süreçleri olmadan anında kiralayın. Araç sahibiyle görüşmeye gerek yok. Dijital anahtarla hemen yola çıkın.
                   </p>
                   <div className="mt-6 flex items-center gap-2 text-sm text-blue-600 font-semibold">
@@ -406,10 +406,10 @@ const CarRentalsPage: React.FC = () => {
                   <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center mb-6">
                     <DollarSign className="w-8 h-8 text-white" />
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-3">
+                  <h3 className="text-2xl font-bold text-white mb-3">
                     En Uygun Fiyatlar
                   </h3>
-                  <p className="text-gray-600 leading-relaxed">
+                  <p className="text-gray-300 leading-relaxed">
                     Aracılık komisyonu yok. Doğrudan araç sahibinden kiralayın. Ekonomik sedan ₺350/gün, lüks araçlar ₺1,200/gün.
                   </p>
                   <div className="mt-6 flex items-center gap-2 text-sm text-purple-600 font-semibold">
@@ -428,7 +428,7 @@ const CarRentalsPage: React.FC = () => {
               transition={{ delay: 0.5 }}
               className="mt-16 bg-gradient-to-r from-gray-50 to-gray-100 rounded-3xl p-12"
             >
-              <h3 className="text-3xl font-black text-gray-900 mb-8 text-center">
+              <h3 className="text-3xl font-black text-white mb-8 text-center">
                 Nasıl Çalışır?
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
@@ -436,29 +436,29 @@ const CarRentalsPage: React.FC = () => {
                   <div className="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-2xl font-bold">
                     1
                   </div>
-                  <h4 className="font-bold text-gray-900 mb-2">Araç Seçin</h4>
-                  <p className="text-sm text-gray-600">14+ kategoriden istediğiniz aracı bulun</p>
+                  <h4 className="font-bold text-white mb-2">Araç Seçin</h4>
+                  <p className="text-sm text-gray-300">14+ kategoriden istediğiniz aracı bulun</p>
                 </div>
                 <div className="text-center">
                   <div className="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-2xl font-bold">
                     2
                   </div>
-                  <h4 className="font-bold text-gray-900 mb-2">Rezervasyon</h4>
-                  <p className="text-sm text-gray-600">Anında onay, ödeme güvenli</p>
+                  <h4 className="font-bold text-white mb-2">Rezervasyon</h4>
+                  <p className="text-sm text-gray-300">Anında onay, ödeme güvenli</p>
                 </div>
                 <div className="text-center">
                   <div className="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-2xl font-bold">
                     3
                   </div>
-                  <h4 className="font-bold text-gray-900 mb-2">Dijital Anahtar</h4>
-                  <p className="text-sm text-gray-600">Mobil uygulama ile kilidi açın</p>
+                  <h4 className="font-bold text-white mb-2">Dijital Anahtar</h4>
+                  <p className="text-sm text-gray-300">Mobil uygulama ile kilidi açın</p>
                 </div>
                 <div className="text-center">
                   <div className="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-2xl font-bold">
                     4
                   </div>
-                  <h4 className="font-bold text-gray-900 mb-2">Yola Çıkın</h4>
-                  <p className="text-sm text-gray-600">Maceranızı başlatın!</p>
+                  <h4 className="font-bold text-white mb-2">Yola Çıkın</h4>
+                  <p className="text-sm text-gray-300">Maceranızı başlatın!</p>
                 </div>
               </div>
             </motion.div>
@@ -466,7 +466,7 @@ const CarRentalsPage: React.FC = () => {
         </section>
 
         {/* Filters Bar */}
-        <section className="bg-white border-b border-gray-200 sticky top-20 z-40">
+        <section className="bg-transparent border-b border-gray-200 sticky top-20 z-40">
           <div className="max-w-7xl mx-auto px-4 py-4">
             <div className="flex items-center justify-between gap-4">
               <div className="flex items-center gap-2 flex-wrap">
@@ -477,7 +477,7 @@ const CarRentalsPage: React.FC = () => {
                     className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
                       filters.vehicleType === cat.value
                         ? 'bg-green-600 text-white'
-                        : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                        : 'bg-gray-100 text-gray-200 hover:bg-gray-200'
                     }`}
                   >
                     {cat.label}
@@ -499,10 +499,10 @@ const CarRentalsPage: React.FC = () => {
         {/* Results Section */}
         <section className="max-w-7xl mx-auto px-4 py-12">
           <div className="mb-6">
-            <h2 className="text-2xl font-bold text-gray-900">
+            <h2 className="text-2xl font-bold text-white">
               {filteredVehicles.length} Araç Bulundu
             </h2>
-            <p className="text-gray-600">En iyi seçenekler sizin için</p>
+            <p className="text-gray-300">En iyi seçenekler sizin için</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -512,7 +512,7 @@ const CarRentalsPage: React.FC = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
-                className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all overflow-hidden group cursor-pointer"
+                className="bg-transparent rounded-2xl shadow-lg hover:shadow-xl transition-all overflow-hidden group cursor-pointer"
               >
                 {/* Image */}
                 <div className="relative h-56 overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center">
@@ -547,7 +547,7 @@ const CarRentalsPage: React.FC = () => {
                   >
                     <Heart
                       className={`w-5 h-5 ${
-                        favorites.has(vehicle.id) ? 'fill-red-500 text-red-500' : 'text-gray-700'
+                        favorites.has(vehicle.id) ? 'fill-red-500 text-red-500' : 'text-gray-200'
                       }`}
                     />
                   </button>
@@ -557,7 +557,7 @@ const CarRentalsPage: React.FC = () => {
                 <div className="p-6">
                   <div className="flex items-center justify-between mb-3">
                     <div className="flex-1">
-                      <h3 className="font-bold text-lg text-gray-900 line-clamp-1">
+                      <h3 className="font-bold text-lg text-white line-clamp-1">
                         {vehicle.name}
                       </h3>
                       <p className="text-sm text-gray-500">{vehicle.brand} • {vehicle.year}</p>
@@ -572,20 +572,20 @@ const CarRentalsPage: React.FC = () => {
                     <span>{vehicle.pickupLocations[0]}</span>
                     <span>•</span>
                     <Star className="w-4 h-4 text-yellow-500 fill-current" />
-                    <span className="font-medium text-gray-900">{vehicle.rating}</span>
+                    <span className="font-medium text-white">{vehicle.rating}</span>
                     <span>({vehicle.reviewCount})</span>
                   </div>
 
                   <div className="flex flex-wrap gap-2 mb-4">
-                    <span className="px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs flex items-center gap-1">
+                    <span className="px-2 py-1 bg-gray-100 text-gray-200 rounded text-xs flex items-center gap-1">
                       <Users className="w-3 h-3" />
                       {vehicle.seats} Koltuk
                     </span>
-                    <span className="px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs flex items-center gap-1">
+                    <span className="px-2 py-1 bg-gray-100 text-gray-200 rounded text-xs flex items-center gap-1">
                       <Settings className="w-3 h-3" />
                       {vehicle.transmission === 'AUTOMATIC' ? 'Otomatik' : 'Manuel'}
                     </span>
-                    <span className="px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs flex items-center gap-1">
+                    <span className="px-2 py-1 bg-gray-100 text-gray-200 rounded text-xs flex items-center gap-1">
                       <Fuel className="w-3 h-3" />
                       {vehicle.fuelType}
                     </span>
@@ -603,7 +603,7 @@ const CarRentalsPage: React.FC = () => {
 
                   <div className="flex items-center justify-between pt-4 border-t border-gray-100">
                     <div>
-                      <div className="text-2xl font-bold text-gray-900">₺{parseInt(vehicle.pricePerDay).toLocaleString('tr-TR')}</div>
+                      <div className="text-2xl font-bold text-white">₺{parseInt(vehicle.pricePerDay).toLocaleString('tr-TR')}</div>
                       <div className="text-sm text-gray-500">/ gün</div>
                     </div>
                     <Link
@@ -630,7 +630,7 @@ const CarRentalsPage: React.FC = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
               >
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-white rounded-full mb-6">
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-transparent rounded-full mb-6">
                   <Car className="w-8 h-8 text-green-600" />
                 </div>
 
@@ -660,7 +660,7 @@ const CarRentalsPage: React.FC = () => {
 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <Link href="/vehicle-owner/auth/register">
-                    <button className="px-8 py-4 bg-white text-green-600 rounded-lg font-semibold hover:bg-green-50 transition-all transform hover:scale-105 flex items-center justify-center gap-2 shadow-lg">
+                    <button className="px-8 py-4 bg-transparent text-green-600 rounded-lg font-semibold hover:bg-green-50 transition-all transform hover:scale-105 flex items-center justify-center gap-2 shadow-lg">
                       <span>Ücretsiz Kayıt Ol</span>
                       <ArrowRight className="w-5 h-5" />
                     </button>

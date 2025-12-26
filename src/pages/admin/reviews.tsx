@@ -270,7 +270,7 @@ export default function AdminReviews() {
             }`}
           />
         ))}
-        <span className="ml-2 text-sm font-medium text-gray-600">({rating})</span>
+        <span className="ml-2 text-sm font-medium text-gray-300">({rating})</span>
       </div>
     );
   };
@@ -306,8 +306,8 @@ export default function AdminReviews() {
             <div className="w-20 h-20 border-4 border-gray-200 border-t-transparent rounded-full animate-spin mx-auto mb-6"></div>
             <div className="absolute inset-0 w-20 h-20 border-4 border-transparent border-t-red-500 rounded-full animate-spin mx-auto" style={{animationDuration: '1.5s'}}></div>
           </div>
-          <h3 className="text-xl font-semibold text-gray-800 mb-2">Değerlendirmeler Yükleniyor</h3>
-          <p className="text-gray-600">Değerlendirme verileri hazırlanıyor...</p>
+          <h3 className="text-xl font-semibold text-gray-100 mb-2">Değerlendirmeler Yükleniyor</h3>
+          <p className="text-gray-300">Değerlendirme verileri hazırlanıyor...</p>
         </div>
       </div>
     );
@@ -320,7 +320,7 @@ export default function AdminReviews() {
           <div className="w-20 h-20 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-6">
             <MessageSquare className="w-10 h-10 text-red-600" />
           </div>
-          <h3 className="text-xl font-semibold text-gray-800 mb-2">Bir Hata Oluştu</h3>
+          <h3 className="text-xl font-semibold text-gray-100 mb-2">Bir Hata Oluştu</h3>
           <p className="text-red-600 mb-6">{error}</p>
           <button 
             onClick={fetchReviewsData}
@@ -357,13 +357,13 @@ export default function AdminReviews() {
               <div className="flex items-center space-x-4">
                 <div className="flex items-center space-x-2">
                   <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                  <span className="text-sm text-gray-600">
+                  <span className="text-sm text-gray-300">
                     {adminData?.email}
                   </span>
                 </div>
                 <button
                   onClick={handleLogout}
-                  className="flex items-center space-x-1 px-3 py-1.5 text-gray-600 hover:text-red-600 rounded-lg hover:bg-red-50 transition-all"
+                  className="flex items-center space-x-1 px-3 py-1.5 text-gray-300 hover:text-red-600 rounded-lg hover:bg-red-50 transition-all"
                 >
                   <span>Çıkış</span>
                 </button>
@@ -413,8 +413,8 @@ export default function AdminReviews() {
                         <MessageSquare className="w-6 h-6" style={{color: AILYDIAN_COLORS.blue}} />
                       </div>
                       <div className="ml-4">
-                        <p className="text-sm font-semibold text-gray-600 uppercase">Toplam</p>
-                        <p className="text-2xl font-bold text-gray-900">{formatNumber(reviewsData.stats.total)}</p>
+                        <p className="text-sm font-semibold text-gray-300 uppercase">Toplam</p>
+                        <p className="text-2xl font-bold text-white">{formatNumber(reviewsData.stats.total)}</p>
                       </div>
                     </div>
                   </div>
@@ -425,8 +425,8 @@ export default function AdminReviews() {
                         <Clock className="w-6 h-6" style={{color: AILYDIAN_COLORS.warning}} />
                       </div>
                       <div className="ml-4">
-                        <p className="text-sm font-semibold text-gray-600 uppercase">Bekliyor</p>
-                        <p className="text-2xl font-bold text-gray-900">{reviewsData.stats.pending}</p>
+                        <p className="text-sm font-semibold text-gray-300 uppercase">Bekliyor</p>
+                        <p className="text-2xl font-bold text-white">{reviewsData.stats.pending}</p>
                       </div>
                     </div>
                   </div>
@@ -437,8 +437,8 @@ export default function AdminReviews() {
                         <CheckCircle className="w-6 h-6" style={{color: AILYDIAN_COLORS.success}} />
                       </div>
                       <div className="ml-4">
-                        <p className="text-sm font-semibold text-gray-600 uppercase">Onaylı</p>
-                        <p className="text-2xl font-bold text-gray-900">{formatNumber(reviewsData.stats.approved)}</p>
+                        <p className="text-sm font-semibold text-gray-300 uppercase">Onaylı</p>
+                        <p className="text-2xl font-bold text-white">{formatNumber(reviewsData.stats.approved)}</p>
                       </div>
                     </div>
                   </div>
@@ -449,8 +449,8 @@ export default function AdminReviews() {
                         <XCircle className="w-6 h-6" style={{color: AILYDIAN_COLORS.error}} />
                       </div>
                       <div className="ml-4">
-                        <p className="text-sm font-semibold text-gray-600 uppercase">Reddedildi</p>
-                        <p className="text-2xl font-bold text-gray-900">{reviewsData.stats.rejected}</p>
+                        <p className="text-sm font-semibold text-gray-300 uppercase">Reddedildi</p>
+                        <p className="text-2xl font-bold text-white">{reviewsData.stats.rejected}</p>
                       </div>
                     </div>
                   </div>
@@ -461,8 +461,8 @@ export default function AdminReviews() {
                         <Flag className="w-6 h-6" style={{color: AILYDIAN_COLORS.primary}} />
                       </div>
                       <div className="ml-4">
-                        <p className="text-sm font-semibold text-gray-600 uppercase">Bayraklı</p>
-                        <p className="text-2xl font-bold text-gray-900">{reviewsData.stats.flagged}</p>
+                        <p className="text-sm font-semibold text-gray-300 uppercase">Bayraklı</p>
+                        <p className="text-2xl font-bold text-white">{reviewsData.stats.flagged}</p>
                       </div>
                     </div>
                   </div>
@@ -473,8 +473,8 @@ export default function AdminReviews() {
                         <Star className="w-6 h-6" style={{color: AILYDIAN_COLORS.warning}} />
                       </div>
                       <div className="ml-4">
-                        <p className="text-sm font-semibold text-gray-600 uppercase">Ort. Puan</p>
-                        <p className="text-2xl font-bold text-gray-900">{reviewsData.stats.averageRating.toFixed(1)}</p>
+                        <p className="text-sm font-semibold text-gray-300 uppercase">Ort. Puan</p>
+                        <p className="text-2xl font-bold text-white">{reviewsData.stats.averageRating.toFixed(1)}</p>
                       </div>
                     </div>
                   </div>
@@ -485,8 +485,8 @@ export default function AdminReviews() {
                         <Brain className="w-6 h-6" style={{color: AILYDIAN_COLORS.purple}} />
                       </div>
                       <div className="ml-4">
-                        <p className="text-sm font-semibold text-gray-600 uppercase">AI Modereli</p>
-                        <p className="text-2xl font-bold text-gray-900">{formatNumber(reviewsData.stats.aiModerated)}</p>
+                        <p className="text-sm font-semibold text-gray-300 uppercase">AI Modereli</p>
+                        <p className="text-2xl font-bold text-white">{formatNumber(reviewsData.stats.aiModerated)}</p>
                       </div>
                     </div>
                   </div>
@@ -558,7 +558,7 @@ export default function AdminReviews() {
                           </div>
                           <div>
                             <div className="flex items-center space-x-2">
-                              <h4 className="font-semibold text-gray-900">{review.user.name}</h4>
+                              <h4 className="font-semibold text-white">{review.user.name}</h4>
                               {review.user.isVerified && (
                                 <CheckCircle className="w-4 h-4 text-blue-500" />
                               )}
@@ -566,11 +566,11 @@ export default function AdminReviews() {
                             </div>
                             <div className="flex items-center space-x-2 mt-1">
                               <MapPin className="w-4 h-4 text-gray-400" />
-                              <span className="text-sm text-gray-600">{review.location.name}, {review.location.city}</span>
+                              <span className="text-sm text-gray-300">{review.location.name}, {review.location.city}</span>
                             </div>
                             <div className="flex items-center space-x-2 mt-1">
                               <Calendar className="w-4 h-4 text-gray-400" />
-                              <span className="text-sm text-gray-600">{formatDate(review.createdAt)}</span>
+                              <span className="text-sm text-gray-300">{formatDate(review.createdAt)}</span>
                             </div>
                           </div>
                         </div>
@@ -591,8 +591,8 @@ export default function AdminReviews() {
                           {getRatingStars(review.rating)}
                           {getSentimentBadge(review.sentimentScore)}
                         </div>
-                        <h5 className="font-semibold text-gray-900 mb-2">{review.title}</h5>
-                        <p className="text-gray-700 leading-relaxed">{review.content}</p>
+                        <h5 className="font-semibold text-white mb-2">{review.title}</h5>
+                        <p className="text-gray-200 leading-relaxed">{review.content}</p>
                         
                         {review.photos && review.photos.length > 0 && (
                           <div className="flex space-x-2 mt-3">
@@ -602,7 +602,7 @@ export default function AdminReviews() {
                               </div>
                             ))}
                             {review.photos.length > 3 && (
-                              <div className="w-16 h-16 bg-gray-100 rounded-lg flex items-center justify-center text-sm font-medium text-gray-600">
+                              <div className="w-16 h-16 bg-gray-100 rounded-lg flex items-center justify-center text-sm font-medium text-gray-300">
                                 +{review.photos.length - 3}
                               </div>
                             )}
@@ -612,7 +612,7 @@ export default function AdminReviews() {
 
                       {/* Review Stats and Actions */}
                       <div className="flex items-center justify-between pt-4 border-t border-gray-200">
-                        <div className="flex items-center space-x-6 text-sm text-gray-600">
+                        <div className="flex items-center space-x-6 text-sm text-gray-300">
                           <div className="flex items-center space-x-1">
                             <ThumbsUp className="w-4 h-4" />
                             <span>{review.helpfulVotes}/{review.totalVotes} faydalı</span>
@@ -656,11 +656,11 @@ export default function AdminReviews() {
 
                       {/* Moderation Info */}
                       {review.moderatedAt && (
-                        <div className="mt-4 p-3 bg-gray-50 rounded-lg">
+                        <div className="mt-4 p-3 bg-white/5 rounded-lg">
                           <div className="flex items-center justify-between text-sm">
                             <div className="flex items-center space-x-2">
                               <Zap className="w-4 h-4 text-gray-500" />
-                              <span className="text-gray-600">
+                              <span className="text-gray-300">
                                 Modere edildi: {formatDate(review.moderatedAt)} - {review.moderatedBy}
                               </span>
                             </div>

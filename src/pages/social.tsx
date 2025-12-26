@@ -193,7 +193,7 @@ const SocialPage: NextPage = () => {
 
       <div className="min-h-screen bg-gray-50">
         {/* Header */}
-        <div className="bg-white shadow-sm border-b sticky top-0 z-40">
+        <div className="bg-transparent shadow-sm border-b sticky top-0 z-40">
           <div className="max-w-7xl mx-auto px-4">
             <div className="flex items-center justify-between h-16">
               <div className="flex items-center gap-8">
@@ -201,7 +201,7 @@ const SocialPage: NextPage = () => {
                   <div className="w-10 h-10 bg-gradient-to-r from-pink-500 to-purple-600 rounded-full flex items-center justify-center">
                     <Users className="w-6 h-6 text-white" />
                   </div>
-                  <h1 className="text-2xl font-bold text-gray-900">Sosyal Ağ</h1>
+                  <h1 className="text-2xl font-bold text-white">Sosyal Ağ</h1>
                 </div>
 
                 {/* Navigation Tabs */}
@@ -220,7 +220,7 @@ const SocialPage: NextPage = () => {
                         className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-colors ${
                           activeTab === tab.id
                             ? 'bg-blue-50 text-blue-600'
-                            : 'text-gray-600 hover:bg-gray-100'
+                            : 'text-gray-300 hover:bg-gray-100'
                         }`}
                       >
                         <Icon className="w-4 h-4" />
@@ -232,10 +232,10 @@ const SocialPage: NextPage = () => {
               </div>
 
               <div className="flex items-center gap-3">
-                <button className="p-2 text-gray-600 hover:bg-gray-100 rounded-lg">
+                <button className="p-2 text-gray-300 hover:bg-gray-100 rounded-lg">
                   <Search className="w-5 h-5" />
                 </button>
-                <button className="p-2 text-gray-600 hover:bg-gray-100 rounded-lg">
+                <button className="p-2 text-gray-300 hover:bg-gray-100 rounded-lg">
                   <Bell className="w-5 h-5" />
                 </button>
                 <button
@@ -255,8 +255,8 @@ const SocialPage: NextPage = () => {
             {/* Left Sidebar */}
             <div className="lg:col-span-1 space-y-6">
               {/* Trending Topics */}
-              <div className="bg-white rounded-2xl p-6 shadow-sm">
-                <h3 className="font-bold text-gray-900 mb-4 flex items-center gap-2">
+              <div className="bg-transparent rounded-2xl p-6 shadow-sm">
+                <h3 className="font-bold text-white mb-4 flex items-center gap-2">
                   <TrendingUp className="w-5 h-5 text-orange-500" />
                   Trend Konular
                 </h3>
@@ -273,19 +273,19 @@ const SocialPage: NextPage = () => {
               </div>
 
               {/* Quick Stats */}
-              <div className="bg-white rounded-2xl p-6 shadow-sm">
-                <h3 className="font-bold text-gray-900 mb-4">Topluluk İstatistikleri</h3>
+              <div className="bg-transparent rounded-2xl p-6 shadow-sm">
+                <h3 className="font-bold text-white mb-4">Topluluk İstatistikleri</h3>
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
-                    <span className="text-gray-600">Aktif Üyeler</span>
+                    <span className="text-gray-300">Aktif Üyeler</span>
                     <span className="font-bold text-green-600">24,567</span>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-gray-600">Bu Ay Paylaşım</span>
+                    <span className="text-gray-300">Bu Ay Paylaşım</span>
                     <span className="font-bold text-blue-600">8,923</span>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-gray-600">Seyahat Planı</span>
+                    <span className="text-gray-300">Seyahat Planı</span>
                     <span className="font-bold text-purple-600">1,456</span>
                   </div>
                 </div>
@@ -299,20 +299,20 @@ const SocialPage: NextPage = () => {
                 <motion.div
                   initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="bg-white rounded-2xl p-6 shadow-sm"
+                  className="bg-transparent rounded-2xl p-6 shadow-sm"
                 >
-                  <h3 className="font-bold text-gray-900 mb-4">Seyahat Deneyimini Paylaş</h3>
+                  <h3 className="font-bold text-white mb-4">Seyahat Deneyimini Paylaş</h3>
                   <textarea
                     placeholder="Hangi harika yerleri keşfettin?"
                     className="w-full p-4 border border-gray-300 rounded-xl resize-none h-24 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   />
                   <div className="flex items-center justify-between mt-4">
                     <div className="flex items-center gap-4">
-                      <button className="flex items-center gap-2 text-gray-600 hover:text-blue-600">
+                      <button className="flex items-center gap-2 text-gray-300 hover:text-blue-600">
                         <Camera className="w-5 h-5" />
                         <span>Fotoğraf</span>
                       </button>
-                      <button className="flex items-center gap-2 text-gray-600 hover:text-blue-600">
+                      <button className="flex items-center gap-2 text-gray-300 hover:text-blue-600">
                         <MapPin className="w-5 h-5" />
                         <span>Konum</span>
                       </button>
@@ -333,7 +333,7 @@ const SocialPage: NextPage = () => {
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: index * 0.1 }}
-                      className="bg-white rounded-2xl shadow-sm overflow-hidden"
+                      className="bg-transparent rounded-2xl shadow-sm overflow-hidden"
                     >
                       {/* Post Header */}
                       <div className="p-6 pb-4">
@@ -342,7 +342,7 @@ const SocialPage: NextPage = () => {
                             <div className="w-12 h-12 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full"></div>
                             <div>
                               <div className="flex items-center gap-2">
-                                <h4 className="font-semibold text-gray-900">{post.user.name}</h4>
+                                <h4 className="font-semibold text-white">{post.user.name}</h4>
                                 {post.user.verified && (
                                   <div className="w-5 h-5 bg-blue-500 rounded-full flex items-center justify-center">
                                     <Award className="w-3 h-3 text-white" />
@@ -352,12 +352,12 @@ const SocialPage: NextPage = () => {
                               <p className="text-sm text-gray-500">@{post.user.username} • {post.timestamp}</p>
                             </div>
                           </div>
-                          <button className="p-2 text-gray-400 hover:text-gray-600">
+                          <button className="p-2 text-gray-400 hover:text-gray-300">
                             <Settings className="w-5 h-5" />
                           </button>
                         </div>
 
-                        <p className="text-gray-900 mb-4">{post.content}</p>
+                        <p className="text-white mb-4">{post.content}</p>
 
                         {/* Location */}
                         <div className="flex items-center gap-2 text-blue-600 mb-4">
@@ -424,9 +424,9 @@ const SocialPage: NextPage = () => {
               {/* Travel Buddies */}
               {activeTab === 'buddies' && (
                 <div className="space-y-6">
-                  <div className="bg-white rounded-2xl p-6 shadow-sm">
-                    <h3 className="text-xl font-bold text-gray-900 mb-4">Seyahat Arkadaşları Bul</h3>
-                    <p className="text-gray-600 mb-6">Size uygun seyahat arkadaşları bulun ve unutulmaz deneyimler yaşayın.</p>
+                  <div className="bg-transparent rounded-2xl p-6 shadow-sm">
+                    <h3 className="text-xl font-bold text-white mb-4">Seyahat Arkadaşları Bul</h3>
+                    <p className="text-gray-300 mb-6">Size uygun seyahat arkadaşları bulun ve unutulmaz deneyimler yaşayın.</p>
                     
                     <div className="grid grid-cols-1 gap-4">
                       {travelBuddies.map((buddy) => (
@@ -441,7 +441,7 @@ const SocialPage: NextPage = () => {
                               </div>
                               <div>
                                 <div className="flex items-center gap-2">
-                                  <h4 className="font-semibold text-gray-900">{buddy.name}</h4>
+                                  <h4 className="font-semibold text-white">{buddy.name}</h4>
                                   {buddy.verified && (
                                     <div className="w-5 h-5 bg-blue-500 rounded-full flex items-center justify-center">
                                       <Award className="w-3 h-3 text-white" />
@@ -463,7 +463,7 @@ const SocialPage: NextPage = () => {
 
                           <div className="space-y-3">
                             <div>
-                              <h5 className="text-sm font-medium text-gray-700 mb-2">Diller</h5>
+                              <h5 className="text-sm font-medium text-gray-200 mb-2">Diller</h5>
                               <div className="flex flex-wrap gap-2">
                                 {buddy.languages.map((lang, idx) => (
                                   <span key={idx} className="bg-blue-100 text-blue-700 px-2 py-1 rounded text-xs">
@@ -474,10 +474,10 @@ const SocialPage: NextPage = () => {
                             </div>
 
                             <div>
-                              <h5 className="text-sm font-medium text-gray-700 mb-2">İlgi Alanları</h5>
+                              <h5 className="text-sm font-medium text-gray-200 mb-2">İlgi Alanları</h5>
                               <div className="flex flex-wrap gap-2">
                                 {buddy.interests.map((interest, idx) => (
-                                  <span key={idx} className="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">
+                                  <span key={idx} className="bg-white/10 text-gray-200 px-2 py-1 rounded text-xs">
                                     {interest}
                                   </span>
                                 ))}
@@ -495,8 +495,8 @@ const SocialPage: NextPage = () => {
             {/* Right Sidebar */}
             <div className="lg:col-span-1 space-y-6">
               {/* Suggested People */}
-              <div className="bg-white rounded-2xl p-6 shadow-sm">
-                <h3 className="font-bold text-gray-900 mb-4">Takip Edilecekler</h3>
+              <div className="bg-transparent rounded-2xl p-6 shadow-sm">
+                <h3 className="font-bold text-white mb-4">Takip Edilecekler</h3>
                 <div className="space-y-4">
                   {[
                     { name: "Travel Turkey", username: "travelturkey", followers: "45.2K" },
@@ -507,7 +507,7 @@ const SocialPage: NextPage = () => {
                       <div className="flex items-center gap-3">
                         <div className="w-10 h-10 bg-gradient-to-r from-purple-400 to-pink-500 rounded-full"></div>
                         <div>
-                          <h4 className="font-medium text-gray-900 text-sm">{suggestion.name}</h4>
+                          <h4 className="font-medium text-white text-sm">{suggestion.name}</h4>
                           <p className="text-xs text-gray-500">@{suggestion.username}</p>
                           <p className="text-xs text-gray-500">{suggestion.followers} takipçi</p>
                         </div>
@@ -521,8 +521,8 @@ const SocialPage: NextPage = () => {
               </div>
 
               {/* Upcoming Events */}
-              <div className="bg-white rounded-2xl p-6 shadow-sm">
-                <h3 className="font-bold text-gray-900 mb-4">Yaklaşan Etkinlikler</h3>
+              <div className="bg-transparent rounded-2xl p-6 shadow-sm">
+                <h3 className="font-bold text-white mb-4">Yaklaşan Etkinlikler</h3>
                 <div className="space-y-4">
                   {[
                     {
@@ -542,7 +542,7 @@ const SocialPage: NextPage = () => {
                     }
                   ].map((event, index) => (
                     <div key={index} className="border border-gray-200 rounded-lg p-3">
-                      <h4 className="font-medium text-gray-900 text-sm mb-1">{event.title}</h4>
+                      <h4 className="font-medium text-white text-sm mb-1">{event.title}</h4>
                       <div className="flex items-center gap-4 text-xs text-gray-500">
                         <div className="flex items-center gap-1">
                           <Calendar className="w-3 h-3" />

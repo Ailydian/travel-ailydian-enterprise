@@ -267,7 +267,7 @@ export default function Favorites() {
       {/* Back Button */}
       <Link
         href="/"
-        className="fixed top-24 left-6 z-[60] flex items-center gap-2 px-4 py-2.5 bg-white/95 backdrop-blur-md rounded-xl shadow-lg border border-gray-200 text-gray-700 hover:bg-gradient-to-r hover:from-lydian-primary hover:to-lydian-secondary hover:text-white hover:border-transparent transition-all duration-300 group"
+        className="fixed top-24 left-6 z-[60] flex items-center gap-2 px-4 py-2.5 bg-white/95 backdrop-blur-md rounded-xl shadow-lg border border-gray-200 text-gray-200 hover:bg-gradient-to-r hover:from-lydian-primary hover:to-lydian-secondary hover:text-white hover:border-transparent transition-all duration-300 group"
       >
         <ArrowLeft className="w-4 h-4 group-hover:animate-pulse" />
         <span className="font-semibold">Ana Sayfa</span>
@@ -278,8 +278,8 @@ export default function Favorites() {
         <section className="relative bg-gradient-to-br from-lydian-primary via-lydian-secondary to-pink-600 py-20 overflow-hidden">
           {/* Animated Background Pattern */}
           <div className="absolute inset-0 opacity-10">
-            <div className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl animate-pulse" />
-            <div className="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+            <div className="absolute top-0 left-0 w-96 h-96 bg-transparent rounded-full blur-3xl animate-pulse" />
+            <div className="absolute bottom-0 right-0 w-96 h-96 bg-transparent rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
           </div>
 
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -355,7 +355,7 @@ export default function Favorites() {
                     className={`flex items-center gap-2 px-6 py-3 rounded-xl font-semibold transition-all shadow-lg ${
                       isActive
                         ? 'bg-gradient-to-r from-lydian-primary to-lydian-secondary text-white shadow-neon'
-                        : 'bg-white text-gray-700 hover:shadow-xl border border-gray-200'
+                        : 'bg-white text-gray-200 hover:shadow-xl border border-gray-200'
                     }`}
                   >
                     <Icon className="w-5 h-5" />
@@ -372,11 +372,11 @@ export default function Favorites() {
 
             {/* Sort Dropdown */}
             <div className="flex items-center gap-3">
-              <span className="text-sm font-medium text-gray-600">Sırala:</span>
+              <span className="text-sm font-medium text-gray-300">Sırala:</span>
               <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value)}
-                className="px-4 py-3 bg-white border-2 border-gray-200 rounded-xl text-sm font-medium focus:ring-2 focus:ring-lydian-primary focus:border-transparent shadow-sm hover:shadow-md transition-all"
+                className="px-4 py-3 bg-transparent border-2 border-gray-200 rounded-xl text-sm font-medium focus:ring-2 focus:ring-lydian-primary focus:border-transparent shadow-sm hover:shadow-md transition-all"
               >
                 <option value="date">Eklenme Tarihi</option>
                 <option value="name">İsim</option>
@@ -395,7 +395,7 @@ export default function Favorites() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
-                  className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group relative"
+                  className="bg-transparent rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group relative"
                 >
                   {/* Image */}
                   <div className="relative h-56 overflow-hidden">
@@ -463,26 +463,26 @@ export default function Favorites() {
                   {/* Content */}
                   <div className="p-5">
                     <div className="flex items-start justify-between mb-2">
-                      <h3 className="text-lg font-bold text-gray-900 line-clamp-1 flex-1">
+                      <h3 className="text-lg font-bold text-white line-clamp-1 flex-1">
                         {item.name}
                       </h3>
                       {item.rating && (
                         <div className="flex items-center gap-1 ml-2 bg-yellow-50 px-2 py-1 rounded-lg">
                           <Star className="w-4 h-4 text-yellow-500 fill-current" />
-                          <span className="text-sm font-bold text-gray-900">{item.rating}</span>
+                          <span className="text-sm font-bold text-white">{item.rating}</span>
                         </div>
                       )}
                     </div>
 
                     {/* Location/Country */}
-                    <div className="flex items-center gap-1.5 text-gray-600 mb-3">
+                    <div className="flex items-center gap-1.5 text-gray-300 mb-3">
                       <MapPin className="w-4 h-4" />
                       <span className="text-sm">{item.location || item.country}</span>
                     </div>
 
                     {/* Description */}
                     {item.description && (
-                      <p className="text-sm text-gray-600 mb-4 line-clamp-2">
+                      <p className="text-sm text-gray-300 mb-4 line-clamp-2">
                         {item.description}
                       </p>
                     )}
@@ -529,10 +529,10 @@ export default function Favorites() {
               className="text-center py-20"
             >
               <Heart className="w-32 h-32 text-gray-300 mx-auto mb-6" />
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              <h2 className="text-3xl font-bold text-white mb-4">
                 {selectedFilter === 'all' ? 'Henüz favori eklemediniz' : 'Bu kategoride favori bulunamadı'}
               </h2>
-              <p className="text-gray-600 mb-8 max-w-md mx-auto text-lg">
+              <p className="text-gray-300 mb-8 max-w-md mx-auto text-lg">
                 Beğendiğiniz destinasyonları ve otelleri favorilerinize ekleyerek
                 daha sonra kolayca erişebilirsiniz.
               </p>

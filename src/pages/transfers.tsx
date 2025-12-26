@@ -163,7 +163,7 @@ export default function TransfersPage() {
                 className={`px-6 py-3 rounded-xl font-semibold transition-all ${
                   selectedCategory === cat.id
                     ? 'bg-gradient-to-br from-[#00BAFF] to-[#0088BD] text-white shadow-[0_10px_30px_-5px_rgba(0,186,255,0.4)]'
-                    : 'bg-white/60 backdrop-blur-sm border border-gray-200 hover:bg-white/80 text-gray-700 shadow-sm'
+                    : 'bg-white/60 backdrop-blur-sm border border-gray-200 hover:bg-white/80 text-gray-200 shadow-sm'
                 }`}
               >
                 {cat.label[selectedLanguage]}

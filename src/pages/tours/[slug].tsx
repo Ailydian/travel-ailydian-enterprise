@@ -235,10 +235,10 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
     return (
       <>
         <SimplifiedHeader />
-        <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="min-h-screen bg-white/5 flex items-center justify-center">
           <div className="text-center">
-            <h1 className="text-4xl font-bold text-gray-900 mb-4">Tur Bulunamadı</h1>
-            <p className="text-gray-600 mb-8">Aradığınız tur mevcut değil veya kaldırılmış olabilir.</p>
+            <h1 className="text-4xl font-bold text-white mb-4">Tur Bulunamadı</h1>
+            <p className="text-gray-300 mb-8">Aradığınız tur mevcut değil veya kaldırılmış olabilir.</p>
             <Link href="/tours" className="px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors">
               Tüm Turları Görüntüle
             </Link>
@@ -464,13 +464,13 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
                 onClick={() => setSelectedImage(prev => (prev === 0 ? tour.images.length - 1 : prev - 1))}
                 className="absolute left-4 top-1/2 -translate-y-1/2 p-3 bg-white/90 hover:bg-white rounded-full shadow-lg transition-all z-10"
               >
-                <ChevronLeft className="w-6 h-6 text-gray-900" />
+                <ChevronLeft className="w-6 h-6 text-white" />
               </button>
               <button
                 onClick={() => setSelectedImage(prev => (prev === tour.images.length - 1 ? 0 : prev + 1))}
                 className="absolute right-4 top-1/2 -translate-y-1/2 p-3 bg-white/90 hover:bg-white rounded-full shadow-lg transition-all z-10"
               >
-                <ChevronRight className="w-6 h-6 text-gray-900" />
+                <ChevronRight className="w-6 h-6 text-white" />
               </button>
 
               {/* Top Bar Actions */}
@@ -479,14 +479,14 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
                   onClick={handleShare}
                   className="p-2 bg-white/90 hover:bg-white rounded-lg transition-all"
                 >
-                  <Share2 className="w-5 h-5 text-gray-900" />
+                  <Share2 className="w-5 h-5 text-white" />
                 </button>
                 <button
                   onClick={() => setIsFavorite(!isFavorite)}
                   className="p-2 bg-white/90 hover:bg-white rounded-lg transition-all"
                 >
                   <Heart
-                    className={`w-5 h-5 ${isFavorite ? 'fill-red-500 text-red-500' : 'text-gray-900'}`}
+                    className={`w-5 h-5 ${isFavorite ? 'fill-red-500 text-red-500' : 'text-white'}`}
                   />
                 </button>
               </div>
@@ -499,7 +499,7 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
               {/* View All Photos Button */}
               <button
                 onClick={() => setShowAllImages(true)}
-                className="absolute bottom-4 right-4 px-4 py-2 bg-white rounded-lg font-semibold flex items-center gap-2 hover:bg-gray-50 transition-all z-10"
+                className="absolute bottom-4 right-4 px-4 py-2 bg-transparent rounded-lg font-semibold flex items-center gap-2 hover:bg-gray-50 transition-all z-10"
               >
                 <ImageIcon className="w-5 h-5" />
                 Tüm Fotoğrafları Gör
@@ -546,13 +546,13 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
             {/* Left Column - Main Content */}
             <div className="lg:col-span-2 space-y-6">
               {/* Title & Rating */}
-              <div className="bg-white rounded-2xl p-6 shadow-sm">
+              <div className="bg-transparent rounded-2xl p-6 shadow-sm">
                 {/* Badges */}
                 <div className="flex flex-wrap gap-2 mb-4">
                   {tour.badges.map((badge, index) => (
                     <span
                       key={index}
-                      className="px-3 py-1 bg-gradient-to-r from-yellow-400 to-orange-400 text-gray-900 rounded-full text-xs font-bold flex items-center gap-1"
+                      className="px-3 py-1 bg-gradient-to-r from-yellow-400 to-orange-400 text-white rounded-full text-xs font-bold flex items-center gap-1"
                     >
                       <Award className="w-3 h-3" />
                       {badge}
@@ -566,23 +566,23 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
                   )}
                 </div>
 
-                <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
+                <h1 className="text-3xl md:text-4xl font-bold text-white mb-2">
                   {tour.title}
                 </h1>
-                <p className="text-lg text-gray-600 mb-4">{tour.subtitle}</p>
+                <p className="text-lg text-gray-300 mb-4">{tour.subtitle}</p>
 
                 {/* Rating & Stats */}
                 <div className="flex flex-wrap items-center gap-4 text-sm">
                   <div className="flex items-center gap-1">
                     <Star className="w-5 h-5 fill-yellow-400 text-yellow-400" />
-                    <span className="font-bold text-gray-900">{tour.rating}</span>
+                    <span className="font-bold text-white">{tour.rating}</span>
                     <span className="text-gray-500">({tour.reviewCount.toLocaleString()} yorum)</span>
                   </div>
-                  <div className="flex items-center gap-1 text-gray-600">
+                  <div className="flex items-center gap-1 text-gray-300">
                     <TrendingUp className="w-5 h-5" />
                     <span>{tour.bookingCount.toLocaleString()} rezervasyon</span>
                   </div>
-                  <div className="flex items-center gap-1 text-gray-600">
+                  <div className="flex items-center gap-1 text-gray-300">
                     <MapPin className="w-5 h-5" />
                     <span>{tour.location}</span>
                   </div>
@@ -590,7 +590,7 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
               </div>
 
               {/* Quick Info */}
-              <div className="bg-white rounded-2xl p-6 shadow-sm">
+              <div className="bg-transparent rounded-2xl p-6 shadow-sm">
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div className="flex items-center gap-3">
                     <div className="p-3 bg-blue-50 rounded-lg">
@@ -598,7 +598,7 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
                     </div>
                     <div>
                       <p className="text-sm text-gray-500">Süre</p>
-                      <p className="font-semibold text-gray-900">{tour.duration}</p>
+                      <p className="font-semibold text-white">{tour.duration}</p>
                     </div>
                   </div>
 
@@ -608,7 +608,7 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
                     </div>
                     <div>
                       <p className="text-sm text-gray-500">Grup Boyutu</p>
-                      <p className="font-semibold text-gray-900">{tour.groupSize}</p>
+                      <p className="font-semibold text-white">{tour.groupSize}</p>
                     </div>
                   </div>
 
@@ -618,7 +618,7 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
                     </div>
                     <div>
                       <p className="text-sm text-gray-500">Dil</p>
-                      <p className="font-semibold text-gray-900">{tour.language.join(', ')}</p>
+                      <p className="font-semibold text-white">{tour.language.join(', ')}</p>
                     </div>
                   </div>
 
@@ -628,7 +628,7 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
                     </div>
                     <div>
                       <p className="text-sm text-gray-500">İptal</p>
-                      <p className="font-semibold text-gray-900">{tour.cancellationPolicy}</p>
+                      <p className="font-semibold text-white">{tour.cancellationPolicy}</p>
                     </div>
                   </div>
                 </div>
@@ -636,7 +636,7 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
                 {tour.mobileTicket && (
                   <div className="mt-4 p-3 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg flex items-center gap-2 text-sm">
                     <Download className="w-5 h-5 text-blue-600" />
-                    <span className="text-gray-700">
+                    <span className="text-gray-200">
                       <strong>Mobil Bilet:</strong> Yazdırmanıza gerek yok, telefonunuzdan gösterin!
                     </span>
                   </div>
@@ -644,29 +644,29 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
               </div>
 
               {/* Highlights */}
-              <div className="bg-white rounded-2xl p-6 shadow-sm">
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">Öne Çıkanlar</h2>
+              <div className="bg-transparent rounded-2xl p-6 shadow-sm">
+                <h2 className="text-2xl font-bold text-white mb-4">Öne Çıkanlar</h2>
                 <div className="grid sm:grid-cols-2 gap-3">
                   {tour.highlights.map((highlight, index) => (
                     <div key={index} className="flex items-start gap-2">
                       <Check className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                      <span className="text-gray-700">{highlight}</span>
+                      <span className="text-gray-200">{highlight}</span>
                     </div>
                   ))}
                 </div>
               </div>
 
               {/* Description */}
-              <div className="bg-white rounded-2xl p-6 shadow-sm">
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">Açıklama</h2>
-                <div className="prose max-w-none text-gray-700 whitespace-pre-line">
+              <div className="bg-transparent rounded-2xl p-6 shadow-sm">
+                <h2 className="text-2xl font-bold text-white mb-4">Açıklama</h2>
+                <div className="prose max-w-none text-gray-200 whitespace-pre-line">
                   {tour.description}
                 </div>
               </div>
 
               {/* Itinerary */}
-              <div className="bg-white rounded-2xl p-6 shadow-sm">
-                <h2 className="text-2xl font-bold text-gray-900 mb-6">Program</h2>
+              <div className="bg-transparent rounded-2xl p-6 shadow-sm">
+                <h2 className="text-2xl font-bold text-white mb-6">Program</h2>
                 <div className="space-y-4">
                   {tour.itinerary.map((item, index) => (
                     <motion.div
@@ -695,8 +695,8 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
                           </span>
                           <span className="text-xs text-gray-500">{item.duration}</span>
                         </div>
-                        <h3 className="text-lg font-bold text-gray-900 mb-1">{item.title}</h3>
-                        <p className="text-gray-600">{item.description}</p>
+                        <h3 className="text-lg font-bold text-white mb-1">{item.title}</h3>
+                        <p className="text-gray-300">{item.description}</p>
                       </div>
                     </motion.div>
                   ))}
@@ -705,14 +705,14 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
 
               {/* Included/Excluded */}
               <div className="grid md:grid-cols-2 gap-6">
-                <div className="bg-white rounded-2xl p-6 shadow-sm">
-                  <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                <div className="bg-transparent rounded-2xl p-6 shadow-sm">
+                  <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
                     <Check className="w-6 h-6 text-green-500" />
                     Dahil Olanlar
                   </h3>
                   <ul className="space-y-2">
                     {tour.included.map((item, index) => (
-                      <li key={index} className="flex items-start gap-2 text-gray-700">
+                      <li key={index} className="flex items-start gap-2 text-gray-200">
                         <Check className="w-4 h-4 text-green-500 flex-shrink-0 mt-1" />
                         <span>{item}</span>
                       </li>
@@ -720,14 +720,14 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
                   </ul>
                 </div>
 
-                <div className="bg-white rounded-2xl p-6 shadow-sm">
-                  <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                <div className="bg-transparent rounded-2xl p-6 shadow-sm">
+                  <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
                     <X className="w-6 h-6 text-red-500" />
                     Dahil Olmayanlar
                   </h3>
                   <ul className="space-y-2">
                     {tour.excluded.map((item, index) => (
-                      <li key={index} className="flex items-start gap-2 text-gray-700">
+                      <li key={index} className="flex items-start gap-2 text-gray-200">
                         <X className="w-4 h-4 text-red-500 flex-shrink-0 mt-1" />
                         <span>{item}</span>
                       </li>
@@ -737,17 +737,17 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
               </div>
 
               {/* Requirements & Important Info */}
-              <div className="bg-white rounded-2xl p-6 shadow-sm">
-                <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+              <div className="bg-transparent rounded-2xl p-6 shadow-sm">
+                <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
                   <AlertCircle className="w-6 h-6 text-orange-500" />
                   Gereksinimler ve Önemli Bilgiler
                 </h3>
 
                 <div className="mb-6">
-                  <h4 className="font-semibold text-gray-900 mb-2">Yanınızda Bulundurmanız Gerekenler:</h4>
+                  <h4 className="font-semibold text-white mb-2">Yanınızda Bulundurmanız Gerekenler:</h4>
                   <ul className="space-y-1">
                     {tour.requirements.map((req, index) => (
-                      <li key={index} className="flex items-start gap-2 text-gray-700 text-sm">
+                      <li key={index} className="flex items-start gap-2 text-gray-200 text-sm">
                         <Info className="w-4 h-4 text-blue-500 flex-shrink-0 mt-0.5" />
                         <span>{req}</span>
                       </li>
@@ -756,10 +756,10 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
                 </div>
 
                 <div>
-                  <h4 className="font-semibold text-gray-900 mb-2">Önemli Notlar:</h4>
+                  <h4 className="font-semibold text-white mb-2">Önemli Notlar:</h4>
                   <ul className="space-y-1">
                     {tour.importantInfo.map((info, index) => (
-                      <li key={index} className="flex items-start gap-2 text-gray-700 text-sm">
+                      <li key={index} className="flex items-start gap-2 text-gray-200 text-sm">
                         <AlertCircle className="w-4 h-4 text-orange-500 flex-shrink-0 mt-0.5" />
                         <span>{info}</span>
                       </li>
@@ -769,12 +769,12 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
               </div>
 
               {/* Meeting Point */}
-              <div className="bg-white rounded-2xl p-6 shadow-sm">
-                <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+              <div className="bg-transparent rounded-2xl p-6 shadow-sm">
+                <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
                   <Navigation className="w-6 h-6 text-blue-600" />
                   Buluşma Noktası
                 </h3>
-                <p className="text-gray-700 mb-4">{tour.meetingPoint}</p>
+                <p className="text-gray-200 mb-4">{tour.meetingPoint}</p>
 
                 {/* Interactive Map */}
                 <div className="aspect-video bg-gray-100 rounded-lg overflow-hidden border border-gray-200">
@@ -804,7 +804,7 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
                     href={`https://www.google.com/maps/search/?api=1&query=${tour.meetingPointCoords.lat},${tour.meetingPointCoords.lng}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg font-semibold hover:bg-gray-200 transition-colors"
+                    className="px-4 py-2 bg-gray-100 text-gray-200 rounded-lg font-semibold hover:bg-gray-200 transition-colors"
                   >
                     <MapPin className="w-5 h-5" />
                   </a>
@@ -812,8 +812,8 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
               </div>
 
               {/* Tour Guide */}
-              <div className="bg-white rounded-2xl p-6 shadow-sm">
-                <h3 className="text-xl font-bold text-gray-900 mb-4">Rehberiniz</h3>
+              <div className="bg-transparent rounded-2xl p-6 shadow-sm">
+                <h3 className="text-xl font-bold text-white mb-4">Rehberiniz</h3>
                 <div className="flex items-start gap-4">
                   <div className="relative w-16 h-16 rounded-full overflow-hidden flex-shrink-0">
                     <Image
@@ -825,9 +825,9 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
                     />
                   </div>
                   <div className="flex-1">
-                    <h4 className="font-bold text-gray-900">{tour.guide.name}</h4>
-                    <p className="text-sm text-gray-600 mb-2">{tour.guide.title}</p>
-                    <div className="flex flex-wrap gap-3 text-sm text-gray-600 mb-2">
+                    <h4 className="font-bold text-white">{tour.guide.name}</h4>
+                    <p className="text-sm text-gray-300 mb-2">{tour.guide.title}</p>
+                    <div className="flex flex-wrap gap-3 text-sm text-gray-300 mb-2">
                       <div className="flex items-center gap-1">
                         <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
                         <span className="font-semibold">{tour.guide.rating}</span>
@@ -839,24 +839,24 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
                       {tour.guide.languages.map((lang, index) => (
                         <span
                           key={index}
-                          className="px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs"
+                          className="px-2 py-1 bg-gray-100 text-gray-200 rounded text-xs"
                         >
                           {lang}
                         </span>
                       ))}
                     </div>
-                    <p className="text-sm text-gray-700">{tour.guide.bio}</p>
+                    <p className="text-sm text-gray-200">{tour.guide.bio}</p>
                   </div>
                 </div>
               </div>
 
               {/* Reviews */}
-              <div className="bg-white rounded-2xl p-6 shadow-sm">
+              <div className="bg-transparent rounded-2xl p-6 shadow-sm">
                 <div className="flex items-center justify-between mb-6">
-                  <h3 className="text-xl font-bold text-gray-900">Yorumlar</h3>
+                  <h3 className="text-xl font-bold text-white">Yorumlar</h3>
                   <div className="flex items-center gap-2">
                     <Star className="w-6 h-6 fill-yellow-400 text-yellow-400" />
-                    <span className="text-2xl font-bold text-gray-900">{tour.rating}</span>
+                    <span className="text-2xl font-bold text-white">{tour.rating}</span>
                     <span className="text-gray-500">({tour.reviewCount.toLocaleString()})</span>
                   </div>
                 </div>
@@ -876,7 +876,7 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
                         </div>
                         <div className="flex-1">
                           <div className="flex items-center gap-2 mb-1">
-                            <span className="font-semibold text-gray-900">{review.author}</span>
+                            <span className="font-semibold text-white">{review.author}</span>
                             {review.verified && (
                               <span className="px-2 py-0.5 bg-green-100 text-green-700 rounded text-xs font-semibold flex items-center gap-1">
                                 <Check className="w-3 h-3" />
@@ -901,10 +901,10 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
                             <span>{review.date}</span>
                           </div>
                           {review.title && (
-                            <h4 className="font-semibold text-gray-900 mb-1">{review.title}</h4>
+                            <h4 className="font-semibold text-white mb-1">{review.title}</h4>
                           )}
-                          <p className="text-gray-700 text-sm mb-2">{review.text}</p>
-                          <button className="text-sm text-gray-500 hover:text-gray-700 transition-colors">
+                          <p className="text-gray-200 text-sm mb-2">{review.text}</p>
+                          <button className="text-sm text-gray-500 hover:text-gray-200 transition-colors">
                             Yararlı ({review.helpful})
                           </button>
                         </div>
@@ -913,14 +913,14 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
                   ))}
                 </div>
 
-                <button className="w-full mt-6 py-3 border-2 border-gray-200 rounded-lg font-semibold text-gray-700 hover:border-gray-300 hover:bg-gray-50 transition-all">
+                <button className="w-full mt-6 py-3 border-2 border-gray-200 rounded-lg font-semibold text-gray-200 hover:border-gray-300 hover:bg-gray-50 transition-all">
                   Tüm Yorumları Göster ({tour.reviewCount.toLocaleString()})
                 </button>
               </div>
 
               {/* FAQs */}
-              <div className="bg-white rounded-2xl p-6 shadow-sm">
-                <h3 className="text-xl font-bold text-gray-900 mb-4">Sıkça Sorulan Sorular</h3>
+              <div className="bg-transparent rounded-2xl p-6 shadow-sm">
+                <h3 className="text-xl font-bold text-white mb-4">Sıkça Sorulan Sorular</h3>
                 <div className="space-y-3">
                   {tour.faqs.map((faq, index) => (
                     <div key={index} className="border border-gray-200 rounded-lg overflow-hidden">
@@ -928,7 +928,7 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
                         onClick={() => setExpandedFAQ(expandedFAQ === faq.question ? null : faq.question)}
                         className="w-full px-4 py-3 flex items-center justify-between text-left hover:bg-gray-50 transition-colors"
                       >
-                        <span className="font-semibold text-gray-900">{faq.question}</span>
+                        <span className="font-semibold text-white">{faq.question}</span>
                         {expandedFAQ === faq.question ? (
                           <ChevronUp className="w-5 h-5 text-gray-500" />
                         ) : (
@@ -944,7 +944,7 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
                             transition={{ duration: 0.2 }}
                             className="overflow-hidden"
                           >
-                            <div className="px-4 pb-3 text-gray-700">{faq.answer}</div>
+                            <div className="px-4 pb-3 text-gray-200">{faq.answer}</div>
                           </motion.div>
                         )}
                       </AnimatePresence>
@@ -957,17 +957,17 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
             {/* Right Column - Booking Panel */}
             <div className="lg:col-span-1">
               <div className="sticky top-20">
-                <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-200">
+                <div className="bg-transparent rounded-2xl p-6 shadow-lg border border-gray-200">
                   {/* Price */}
                   <div className="mb-6">
                     <div className="flex items-baseline gap-2 mb-1">
-                      <span className="text-3xl font-bold text-gray-900">₺{tour.price}</span>
+                      <span className="text-3xl font-bold text-white">₺{tour.price}</span>
                       {tour.originalPrice && (
                         <span className="text-lg text-gray-400 line-through">₺{tour.originalPrice}</span>
                       )}
                     </div>
                     <div className="flex items-center gap-2">
-                      <span className="text-sm text-gray-600">kişi başı</span>
+                      <span className="text-sm text-gray-300">kişi başı</span>
                       {tour.discount && (
                         <span className="px-2 py-0.5 bg-red-100 text-red-600 rounded text-xs font-bold">
                           %{tour.discount} İndirim
@@ -978,7 +978,7 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
 
                   {/* Date Selection */}
                   <div className="mb-4">
-                    <label className="block text-sm font-semibold text-gray-900 mb-2">
+                    <label className="block text-sm font-semibold text-white mb-2">
                       Tarih Seçin
                     </label>
                     <div className="relative">
@@ -995,7 +995,7 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
 
                   {/* Guest Selection */}
                   <div className="mb-6">
-                    <label className="block text-sm font-semibold text-gray-900 mb-2">
+                    <label className="block text-sm font-semibold text-white mb-2">
                       Misafir Sayısı
                     </label>
                     <div className="flex items-center gap-3">
@@ -1007,8 +1007,8 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
                         <ChevronLeft className="w-5 h-5" />
                       </button>
                       <div className="flex-1 text-center">
-                        <span className="text-2xl font-bold text-gray-900">{selectedGuests}</span>
-                        <span className="text-sm text-gray-600 ml-1">kişi</span>
+                        <span className="text-2xl font-bold text-white">{selectedGuests}</span>
+                        <span className="text-sm text-gray-300 ml-1">kişi</span>
                       </div>
                       <button
                         onClick={() => setSelectedGuests(selectedGuests + 1)}
@@ -1020,10 +1020,10 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
                   </div>
 
                   {/* Total */}
-                  <div className="mb-6 p-4 bg-gray-50 rounded-lg">
+                  <div className="mb-6 p-4 bg-white/5 rounded-lg">
                     <div className="flex items-center justify-between mb-1">
-                      <span className="text-gray-600">Toplam</span>
-                      <span className="text-2xl font-bold text-gray-900">
+                      <span className="text-gray-300">Toplam</span>
+                      <span className="text-2xl font-bold text-white">
                         ₺{(tour.price * selectedGuests).toLocaleString()}
                       </span>
                     </div>
@@ -1047,15 +1047,15 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
 
                   {/* Contact */}
                   <div className="mt-6 pt-6 border-t border-gray-200">
-                    <p className="text-sm font-semibold text-gray-900 mb-3">
+                    <p className="text-sm font-semibold text-white mb-3">
                       Sorularınız mı var?
                     </p>
                     <div className="space-y-2">
-                      <button className="w-full px-4 py-2 border border-gray-200 rounded-lg font-semibold text-gray-700 hover:bg-gray-50 transition-colors flex items-center justify-center gap-2">
+                      <button className="w-full px-4 py-2 border border-gray-200 rounded-lg font-semibold text-gray-200 hover:bg-gray-50 transition-colors flex items-center justify-center gap-2">
                         <MessageCircle className="w-5 h-5" />
                         Canlı Destek
                       </button>
-                      <button className="w-full px-4 py-2 border border-gray-200 rounded-lg font-semibold text-gray-700 hover:bg-gray-50 transition-colors flex items-center justify-center gap-2">
+                      <button className="w-full px-4 py-2 border border-gray-200 rounded-lg font-semibold text-gray-200 hover:bg-gray-50 transition-colors flex items-center justify-center gap-2">
                         <Phone className="w-5 h-5" />
                         Bizi Arayın
                       </button>
@@ -1065,17 +1065,17 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
 
                 {/* Trust Badges */}
                 <div className="mt-4 grid grid-cols-3 gap-2">
-                  <div className="bg-white rounded-lg p-3 text-center shadow-sm">
+                  <div className="bg-transparent rounded-lg p-3 text-center shadow-sm">
                     <Shield className="w-6 h-6 text-green-500 mx-auto mb-1" />
-                    <p className="text-xs font-semibold text-gray-700">Güvenli Ödeme</p>
+                    <p className="text-xs font-semibold text-gray-200">Güvenli Ödeme</p>
                   </div>
-                  <div className="bg-white rounded-lg p-3 text-center shadow-sm">
+                  <div className="bg-transparent rounded-lg p-3 text-center shadow-sm">
                     <Zap className="w-6 h-6 text-blue-500 mx-auto mb-1" />
-                    <p className="text-xs font-semibold text-gray-700">Anında Onay</p>
+                    <p className="text-xs font-semibold text-gray-200">Anında Onay</p>
                   </div>
-                  <div className="bg-white rounded-lg p-3 text-center shadow-sm">
+                  <div className="bg-transparent rounded-lg p-3 text-center shadow-sm">
                     <Award className="w-6 h-6 text-yellow-500 mx-auto mb-1" />
-                    <p className="text-xs font-semibold text-gray-700">En İyi Fiyat</p>
+                    <p className="text-xs font-semibold text-gray-200">En İyi Fiyat</p>
                   </div>
                 </div>
               </div>

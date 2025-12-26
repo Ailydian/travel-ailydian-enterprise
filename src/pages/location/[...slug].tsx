@@ -403,16 +403,16 @@ export default function LocationPage({
 
       <main className="min-h-screen bg-gray-50">
         {/* Breadcrumb Navigation */}
-        <nav className="bg-white border-b border-gray-200" aria-label="Breadcrumb">
+        <nav className="bg-transparent border-b border-gray-200" aria-label="Breadcrumb">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <ol className="flex items-center space-x-2 py-4 text-sm">
-              <li><Link href="/" className="text-gray-500 hover:text-gray-700">Home</Link></li>
+              <li><Link href="/" className="text-gray-500 hover:text-gray-200">Home</Link></li>
               <li><span className="text-gray-400">/</span></li>
-              <li><a href={`/country/${location.city?.country?.code?.toLowerCase()}`} className="text-gray-500 hover:text-gray-700">{countryName}</a></li>
+              <li><a href={`/country/${location.city?.country?.code?.toLowerCase()}`} className="text-gray-500 hover:text-gray-200">{countryName}</a></li>
               <li><span className="text-gray-400">/</span></li>
-              <li><a href={`/city/${location.city?.slug}`} className="text-gray-500 hover:text-gray-700">{cityName}</a></li>
+              <li><a href={`/city/${location.city?.slug}`} className="text-gray-500 hover:text-gray-200">{cityName}</a></li>
               <li><span className="text-gray-400">/</span></li>
-              <li><span className="text-gray-900 font-medium">{locationName}</span></li>
+              <li><span className="text-white font-medium">{locationName}</span></li>
             </ol>
           </div>
         </nav>
@@ -423,7 +423,7 @@ export default function LocationPage({
             {/* Header */}
             <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-8">
               <div className="flex-1">
-                <h1 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-2">
+                <h1 className="text-3xl lg:text-4xl font-bold text-white mb-2">
                   {locationName}
                 </h1>
                 
@@ -443,17 +443,17 @@ export default function LocationPage({
                           />
                         ))}
                       </div>
-                      <span className="ml-2 text-lg font-semibold text-gray-900">
+                      <span className="ml-2 text-lg font-semibold text-white">
                         {location.average_rating.toFixed(1)}
                       </span>
-                      <span className="ml-1 text-gray-600">
+                      <span className="ml-1 text-gray-300">
                         ({location.total_reviews} {t('reviews')})
                       </span>
                     </div>
                   )}
                   
                   {location.price_range > 0 && (
-                    <div className="text-gray-600">
+                    <div className="text-gray-300">
                       {reviewService.formatPriceRange(location.price_range)}
                     </div>
                   )}
@@ -470,7 +470,7 @@ export default function LocationPage({
                 </div>
 
                 {/* Location */}
-                <div className="flex items-start text-gray-600 mb-4">
+                <div className="flex items-start text-gray-300 mb-4">
                   <MapPin className="h-5 w-5 mt-0.5 mr-2 flex-shrink-0" />
                   <div>
                     <p>{locationAddress}</p>
@@ -512,7 +512,7 @@ export default function LocationPage({
                   className={`flex items-center px-4 py-2 rounded-lg border ${
                     isFavorited 
                       ? 'bg-red-50 border-red-300 text-red-700' 
-                      : 'bg-white border-gray-300 text-gray-700 hover:bg-gray-50'
+                      : 'bg-white border-gray-300 text-gray-200 hover:bg-gray-50'
                   }`}
                 >
                   <Heart className={`h-5 w-5 mr-2 ${isFavorited ? 'fill-current' : ''}`} />
@@ -521,7 +521,7 @@ export default function LocationPage({
 
                 <button
                   onClick={handleShare}
-                  className="flex items-center px-4 py-2 rounded-lg border border-gray-300 text-gray-700 hover:bg-gray-50"
+                  className="flex items-center px-4 py-2 rounded-lg border border-gray-300 text-gray-200 hover:bg-gray-50"
                 >
                   <Share2 className="h-5 w-5 mr-2" />
                   {t('share')}
@@ -556,11 +556,11 @@ export default function LocationPage({
             <div className="lg:col-span-2 space-y-8">
               {/* Description */}
               {locationDescription && (
-                <section className="bg-white rounded-lg p-6 shadow-sm">
-                  <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                <section className="bg-transparent rounded-lg p-6 shadow-sm">
+                  <h2 className="text-2xl font-bold text-white mb-4">
                     {t('about')}
                   </h2>
-                  <div className={`text-gray-700 leading-relaxed ${showFullDescription ? '' : 'line-clamp-4'}`}>
+                  <div className={`text-gray-200 leading-relaxed ${showFullDescription ? '' : 'line-clamp-4'}`}>
                     <p>{locationDescription}</p>
                   </div>
                   {locationDescription.length > 300 && (
@@ -575,14 +575,14 @@ export default function LocationPage({
               )}
 
               {/* Reviews Section */}
-              <section className="bg-white rounded-lg p-6 shadow-sm">
+              <section className="bg-transparent rounded-lg p-6 shadow-sm">
                 <div className="flex items-center justify-between mb-6">
-                  <h2 className="text-2xl font-bold text-gray-900">
+                  <h2 className="text-2xl font-bold text-white">
                     {t('reviews')} ({location.total_reviews})
                   </h2>
                   {location.total_reviews > 0 && (
                     <div className="text-right">
-                      <div className="text-3xl font-bold text-gray-900">
+                      <div className="text-3xl font-bold text-white">
                         {location.average_rating.toFixed(1)}
                       </div>
                       <div className="flex items-center">
@@ -609,7 +609,7 @@ export default function LocationPage({
                 {/* External Platform Reviews */}
                 {(externalReviews.google.length > 0 || externalReviews.tripadvisor.length > 0) && (
                   <div className="mt-8 space-y-6">
-                    <h3 className="text-xl font-semibold text-gray-900">
+                    <h3 className="text-xl font-semibold text-white">
                       {t('externalReviews', 'Reviews from Other Platforms')}
                     </h3>
                     
@@ -640,19 +640,19 @@ export default function LocationPage({
             {/* Sidebar */}
             <div className="space-y-6">
               {/* Quick Info */}
-              <div className="bg-white rounded-lg p-6 shadow-sm">
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">
+              <div className="bg-transparent rounded-lg p-6 shadow-sm">
+                <h3 className="text-lg font-semibold text-white mb-4">
                   {t('quickInfo')}
                 </h3>
                 
                 {/* Opening Hours */}
                 {location.opening_hours && (
                   <div className="mb-4">
-                    <h4 className="font-medium text-gray-900 mb-2 flex items-center">
+                    <h4 className="font-medium text-white mb-2 flex items-center">
                       <Clock className="h-4 w-4 mr-2" />
                       {t('openingHours')}
                     </h4>
-                    <div className="space-y-1 text-sm text-gray-600">
+                    <div className="space-y-1 text-sm text-gray-300">
                       {Object.entries(location.opening_hours).map(([day, hours]: [string, any]) => (
                         <div key={day} className="flex justify-between">
                           <span className="capitalize">{t(day)}</span>
@@ -668,14 +668,14 @@ export default function LocationPage({
                 {/* Features */}
                 {location.features && location.features.length > 0 && (
                   <div>
-                    <h4 className="font-medium text-gray-900 mb-2">
+                    <h4 className="font-medium text-white mb-2">
                       {t('amenities')}
                     </h4>
                     <div className="flex flex-wrap gap-2">
                       {location.features.map((feature) => (
                         <span
                           key={feature}
-                          className="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded"
+                          className="px-2 py-1 bg-gray-100 text-gray-200 text-xs rounded"
                         >
                           {t(`features.${feature}`, feature.replace('_', ' '))}
                         </span>
@@ -687,8 +687,8 @@ export default function LocationPage({
 
               {/* External Platforms */}
               {(location.google_place_id || location.tripadvisor_id) && (
-                <div className="bg-white rounded-lg p-6 shadow-sm">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-4">
+                <div className="bg-transparent rounded-lg p-6 shadow-sm">
+                  <h3 className="text-lg font-semibold text-white mb-4">
                     {t('externalPlatforms', 'External Platforms')}
                   </h3>
                   <div className="space-y-3">
@@ -700,8 +700,8 @@ export default function LocationPage({
                             <Globe className="h-4 w-4 text-red-600" />
                           </div>
                           <div>
-                            <p className="font-medium text-gray-900">Google My Business</p>
-                            <p className="text-sm text-gray-600">
+                            <p className="font-medium text-white">Google My Business</p>
+                            <p className="text-sm text-gray-300">
                               {syncStatus.google?.success ? (
                                 <span className="flex items-center text-green-600">
                                   <CheckCircle className="h-3 w-3 mr-1" />
@@ -737,8 +737,8 @@ export default function LocationPage({
                             <Globe className="h-4 w-4 text-green-600" />
                           </div>
                           <div>
-                            <p className="font-medium text-gray-900">TripAdvisor</p>
-                            <p className="text-sm text-gray-600">
+                            <p className="font-medium text-white">TripAdvisor</p>
+                            <p className="text-sm text-gray-300">
                               {syncStatus.tripAdvisor?.success ? (
                                 <span className="flex items-center text-green-600">
                                   <CheckCircle className="h-3 w-3 mr-1" />
@@ -774,8 +774,8 @@ export default function LocationPage({
               )}
 
               {/* Map */}
-              <div className="bg-white rounded-lg p-6 shadow-sm">
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">
+              <div className="bg-transparent rounded-lg p-6 shadow-sm">
+                <h3 className="text-lg font-semibold text-white mb-4">
                   {t('location')}
                 </h3>
                 <LocationMap 
@@ -787,8 +787,8 @@ export default function LocationPage({
 
               {/* Nearby Locations */}
               {nearbyLocations.length > 0 && (
-                <div className="bg-white rounded-lg p-6 shadow-sm">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-4">
+                <div className="bg-transparent rounded-lg p-6 shadow-sm">
+                  <h3 className="text-lg font-semibold text-white mb-4">
                     {t('nearbyLocations')}
                   </h3>
                   <div className="space-y-3">
@@ -798,10 +798,10 @@ export default function LocationPage({
                         href={`/location/${nearby.slug}`}
                         className="block p-3 rounded-lg border border-gray-200 hover:bg-gray-50"
                       >
-                        <h4 className="font-medium text-gray-900 truncate">
+                        <h4 className="font-medium text-white truncate">
                           {getLocalizedContent(nearby.name)}
                         </h4>
-                        <div className="flex items-center text-sm text-gray-600 mt-1">
+                        <div className="flex items-center text-sm text-gray-300 mt-1">
                           {nearby.average_rating > 0 && (
                             <div className="flex items-center mr-3">
                               <Star className="h-4 w-4 text-yellow-400 fill-current mr-1" />

@@ -143,7 +143,7 @@ export default function Careers() {
               </p>
               <a
                 href="#open-positions"
-                className="inline-flex items-center gap-2 bg-white text-lydian-primary px-8 py-4 rounded-lg font-semibold hover:bg-blue-50 transition-colors"
+                className="inline-flex items-center gap-2 bg-transparent text-lydian-primary px-8 py-4 rounded-lg font-semibold hover:bg-blue-50 transition-colors"
               >
                 Açık Pozisyonları Gör
                 <ChevronRight className="w-5 h-5" />
@@ -153,24 +153,24 @@ export default function Careers() {
         </div>
 
         {/* Stats Section */}
-        <div className="bg-white border-b border-gray-200 py-12">
+        <div className="bg-transparent border-b border-gray-200 py-12">
           <div className="max-w-7xl mx-auto px-4">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
               <div>
                 <div className="text-4xl font-bold text-lydian-primary mb-2">200+</div>
-                <div className="text-gray-600">Çalışan</div>
+                <div className="text-gray-300">Çalışan</div>
               </div>
               <div>
                 <div className="text-4xl font-bold text-lydian-primary mb-2">15+</div>
-                <div className="text-gray-600">Ülkede Ofis</div>
+                <div className="text-gray-300">Ülkede Ofis</div>
               </div>
               <div>
                 <div className="text-4xl font-bold text-lydian-primary mb-2">4.8/5</div>
-                <div className="text-gray-600">Çalışan Memnuniyeti</div>
+                <div className="text-gray-300">Çalışan Memnuniyeti</div>
               </div>
               <div>
                 <div className="text-4xl font-bold text-lydian-primary mb-2">%85</div>
-                <div className="text-gray-600">İç Terfi Oranı</div>
+                <div className="text-gray-300">İç Terfi Oranı</div>
               </div>
             </div>
           </div>
@@ -180,10 +180,10 @@ export default function Careers() {
         <div className="py-16 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4">
             <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              <h2 className="text-4xl font-bold text-white mb-4">
                 Neden Travel.com?
               </h2>
-              <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              <p className="text-xl text-gray-300 max-w-2xl mx-auto">
                 Çalışanlarımızın mutluluğu ve gelişimi bizim önceliğimiz
               </p>
             </div>
@@ -192,14 +192,14 @@ export default function Careers() {
               {benefits.map((benefit, index) => {
                 const Icon = benefit.icon;
                 return (
-                  <div key={index} className="bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow">
+                  <div key={index} className="bg-transparent rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow">
                     <div className="w-12 h-12 bg-lydian-primary/10 rounded-lg flex items-center justify-center mb-4">
                       <Icon className="w-6 h-6 text-lydian-primary" />
                     </div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                    <h3 className="text-lg font-semibold text-white mb-2">
                       {benefit.title}
                     </h3>
-                    <p className="text-gray-600">
+                    <p className="text-gray-300">
                       {benefit.description}
                     </p>
                   </div>
@@ -213,7 +213,7 @@ export default function Careers() {
         <div className="py-16 bg-white">
           <div className="max-w-7xl mx-auto px-4">
             <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              <h2 className="text-4xl font-bold text-white mb-4">
                 Değerlerimiz
               </h2>
             </div>
@@ -223,10 +223,10 @@ export default function Careers() {
                 <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Users className="w-8 h-8 text-lydian-primary" />
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                <h3 className="text-xl font-semibold text-white mb-3">
                   Takım Ruhu
                 </h3>
-                <p className="text-gray-600">
+                <p className="text-gray-300">
                   Birlikte çalışarak daha güçlü olduğumuza inanıyoruz.
                   İşbirliği ve karşılıklı destek kültürümüzün temelidir.
                 </p>
@@ -236,10 +236,10 @@ export default function Careers() {
                 <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Zap className="w-8 h-8 text-purple-600" />
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                <h3 className="text-xl font-semibold text-white mb-3">
                   İnovasyon
                 </h3>
-                <p className="text-gray-600">
+                <p className="text-gray-300">
                   Yenilikçi düşünmeyi ve risk almayı teşvik ediyoruz.
                   Her fikir değerli ve her ses duyulur.
                 </p>
@@ -249,10 +249,10 @@ export default function Careers() {
                 <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Heart className="w-8 h-8 text-green-600" />
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                <h3 className="text-xl font-semibold text-white mb-3">
                   Müşteri Odaklılık
                 </h3>
-                <p className="text-gray-600">
+                <p className="text-gray-300">
                   Müşterilerimizin seyahat deneyimini mükemmelleştirmek
                   için tutkuyla çalışıyoruz.
                 </p>
@@ -265,10 +265,10 @@ export default function Careers() {
         <div id="open-positions" className="py-16 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4">
             <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              <h2 className="text-4xl font-bold text-white mb-4">
                 Açık Pozisyonlar
               </h2>
-              <p className="text-xl text-gray-600">
+              <p className="text-xl text-gray-300">
                 Size uygun pozisyonu bulun ve başvurun
               </p>
             </div>
@@ -282,7 +282,7 @@ export default function Careers() {
                   className={`px-6 py-2 rounded-full font-medium transition-colors ${
                     selectedDepartment === dept
                       ? 'bg-lydian-primary text-white'
-                      : 'bg-white text-gray-700 hover:bg-gray-100'
+                      : 'bg-white text-gray-200 hover:bg-gray-100'
                   }`}
                 >
                   {dept === 'all' ? 'Tümü' : dept}
@@ -293,29 +293,29 @@ export default function Careers() {
             {/* Job Listings */}
             <div className="space-y-4">
               {filteredJobs.map((job) => (
-                <div key={job.id} className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow p-6">
+                <div key={job.id} className="bg-transparent rounded-lg shadow-md hover:shadow-lg transition-shadow p-6">
                   <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                     <div className="flex-1">
-                      <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                      <h3 className="text-xl font-semibold text-white mb-2">
                         {job.title}
                       </h3>
-                      <p className="text-gray-600 mb-4">
+                      <p className="text-gray-300 mb-4">
                         {job.description}
                       </p>
                       <div className="flex flex-wrap gap-3 text-sm">
-                        <span className="inline-flex items-center gap-1 text-gray-600">
+                        <span className="inline-flex items-center gap-1 text-gray-300">
                           <Briefcase className="w-4 h-4" />
                           {job.department}
                         </span>
-                        <span className="inline-flex items-center gap-1 text-gray-600">
+                        <span className="inline-flex items-center gap-1 text-gray-300">
                           <MapPin className="w-4 h-4" />
                           {job.location}
                         </span>
-                        <span className="inline-flex items-center gap-1 text-gray-600">
+                        <span className="inline-flex items-center gap-1 text-gray-300">
                           <Clock className="w-4 h-4" />
                           {job.type}
                         </span>
-                        <span className="inline-flex items-center gap-1 text-gray-600">
+                        <span className="inline-flex items-center gap-1 text-gray-300">
                           <TrendingUp className="w-4 h-4" />
                           {job.experience}
                         </span>
@@ -357,7 +357,7 @@ export default function Careers() {
                 </p>
                 <a
                   href="mailto:kariyer@travel.lydian.com"
-                  className="inline-flex items-center gap-2 bg-white text-lydian-primary px-8 py-4 rounded-lg font-semibold hover:bg-blue-50 transition-colors"
+                  className="inline-flex items-center gap-2 bg-transparent text-lydian-primary px-8 py-4 rounded-lg font-semibold hover:bg-blue-50 transition-colors"
                 >
                   <Send className="w-5 h-5" />
                   CV Gönder
@@ -371,38 +371,38 @@ export default function Careers() {
         <div className="py-16 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4">
             <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              <h2 className="text-4xl font-bold text-white mb-4">
                 Ofis Kültürümüz
               </h2>
-              <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              <p className="text-xl text-gray-300 max-w-2xl mx-auto">
                 Travel.com&apos;da sadece çalışmıyorsunuz, aynı zamanda eğleniyor ve gelişiyorsunuz
               </p>
             </div>
 
             <div className="grid md:grid-cols-3 gap-6">
-              <div className="bg-white rounded-lg p-6 shadow-md">
-                <h3 className="text-lg font-semibold text-gray-900 mb-3">
+              <div className="bg-transparent rounded-lg p-6 shadow-md">
+                <h3 className="text-lg font-semibold text-white mb-3">
                   Sosyal Aktiviteler
                 </h3>
-                <p className="text-gray-600 mb-4">
+                <p className="text-gray-300 mb-4">
                   Düzenli team building etkinlikleri, oyun turnuvaları ve sosyal geziler
                 </p>
               </div>
 
-              <div className="bg-white rounded-lg p-6 shadow-md">
-                <h3 className="text-lg font-semibold text-gray-900 mb-3">
+              <div className="bg-transparent rounded-lg p-6 shadow-md">
+                <h3 className="text-lg font-semibold text-white mb-3">
                   Modern Ofis
                 </h3>
-                <p className="text-gray-600 mb-4">
+                <p className="text-gray-300 mb-4">
                   Son teknoloji ekipman, rahat çalışma alanları ve dinlenme odaları
                 </p>
               </div>
 
-              <div className="bg-white rounded-lg p-6 shadow-md">
-                <h3 className="text-lg font-semibold text-gray-900 mb-3">
+              <div className="bg-transparent rounded-lg p-6 shadow-md">
+                <h3 className="text-lg font-semibold text-white mb-3">
                   Çeşitlilik ve Kapsayıcılık
                 </h3>
-                <p className="text-gray-600 mb-4">
+                <p className="text-gray-300 mb-4">
                   Farklılıkları değerli bulan, herkesin kendini değerli hissettiği bir ortam
                 </p>
               </div>

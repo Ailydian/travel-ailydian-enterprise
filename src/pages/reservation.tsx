@@ -226,10 +226,10 @@ export default function ReservationPage() {
         >
           {/* Header */}
           <div className="text-center mb-8">
-            <h1 className="text-4xl font-bold text-gray-900 mb-2">
+            <h1 className="text-4xl font-bold text-white mb-2">
               Rezervasyon Formu
             </h1>
-            <p className="text-gray-600">
+            <p className="text-gray-300">
               Lütfen bilgilerinizi eksiksiz doldurun
             </p>
           </div>
@@ -244,7 +244,7 @@ export default function ReservationPage() {
             >
               <div className="flex items-center gap-4 mb-4">
                 <Package className="w-6 h-6 text-blue-600" />
-                <h2 className="text-xl font-bold text-gray-800">
+                <h2 className="text-xl font-bold text-gray-100">
                   Seçtiğiniz Ürün
                 </h2>
               </div>
@@ -261,13 +261,13 @@ export default function ReservationPage() {
                 )}
 
                 <div className="flex-1">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                  <h3 className="text-2xl font-bold text-white mb-2">
                     {selectedProduct.name}
                   </h3>
 
                   <div className="flex flex-wrap gap-4 mb-3">
                     {selectedProduct.location && (
-                      <div className="flex items-center gap-1 text-gray-600">
+                      <div className="flex items-center gap-1 text-gray-300">
                         <MapPin className="w-4 h-4" />
                         <span className="text-sm">{selectedProduct.location}</span>
                       </div>
@@ -293,7 +293,7 @@ export default function ReservationPage() {
                   </div>
 
                   {selectedProduct.description && (
-                    <p className="text-gray-600 text-sm mb-3 line-clamp-2">
+                    <p className="text-gray-300 text-sm mb-3 line-clamp-2">
                       {selectedProduct.description}
                     </p>
                   )}
@@ -328,7 +328,7 @@ export default function ReservationPage() {
                     >
                       {step}
                     </div>
-                    <span className="text-xs mt-2 text-gray-600">
+                    <span className="text-xs mt-2 text-gray-300">
                       {step === 1 && 'Konum & Tarih'}
                       {step === 2 && 'Yolcu Bilgileri'}
                       {step === 3 && 'Acenta Gereksinimleri'}
@@ -358,14 +358,14 @@ export default function ReservationPage() {
             {/* Step 1: Location & Time */}
             {currentStep === 1 && (
               <div className="space-y-6">
-                <h2 className="text-2xl font-bold text-gray-800 flex items-center gap-2">
+                <h2 className="text-2xl font-bold text-gray-100 flex items-center gap-2">
                   <MapPin className="text-blue-600" />
                   Alınacak Konum ve Zaman
                 </h2>
 
                 {/* Map */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-gray-200 mb-2">
                     Haritadan Alınacak Konumu Seçin *
                   </label>
                   <MapWithNoSSR
@@ -379,7 +379,7 @@ export default function ReservationPage() {
                   )}
                   {formData.pickupLocation && (
                     <div className="mt-2 p-3 bg-blue-50 rounded-lg">
-                      <p className="text-sm text-gray-700">
+                      <p className="text-sm text-gray-200">
                         <strong>Seçilen Konum:</strong>{' '}
                         {formData.pickupLocation.address ||
                           `Lat: ${formData.pickupLocation.lat.toFixed(4)}, Lng: ${formData.pickupLocation.lng.toFixed(4)}`}
@@ -391,7 +391,7 @@ export default function ReservationPage() {
                 {/* Date & Time */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium text-gray-200 mb-2">
                       <Calendar className="inline w-4 h-4 mr-1" />
                       Alınacak Tarih *
                     </label>
@@ -405,7 +405,7 @@ export default function ReservationPage() {
                         }))
                       }
                       min={new Date().toISOString().split('T')[0]}
-                      className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 [color-scheme:light] ${
+                      className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white [color-scheme:light] ${
                         errors.pickupDate ? 'border-red-500' : 'border-gray-300'
                       }`}
                       style={{ colorScheme: 'light' }}
@@ -418,7 +418,7 @@ export default function ReservationPage() {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium text-gray-200 mb-2">
                       <Clock className="inline w-4 h-4 mr-1" />
                       Alınacak Saat *
                     </label>
@@ -448,14 +448,14 @@ export default function ReservationPage() {
             {/* Step 2: Passenger Information */}
             {currentStep === 2 && (
               <div className="space-y-6">
-                <h2 className="text-2xl font-bold text-gray-800 flex items-center gap-2">
+                <h2 className="text-2xl font-bold text-gray-100 flex items-center gap-2">
                   <User className="text-blue-600" />
                   Yolcu Bilgileri
                 </h2>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="md:col-span-2">
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium text-gray-200 mb-2">
                       Ad Soyad *
                     </label>
                     <input
@@ -483,7 +483,7 @@ export default function ReservationPage() {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium text-gray-200 mb-2">
                       <Mail className="inline w-4 h-4 mr-1" />
                       E-posta *
                     </label>
@@ -510,7 +510,7 @@ export default function ReservationPage() {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium text-gray-200 mb-2">
                       <Phone className="inline w-4 h-4 mr-1" />
                       Telefon *
                     </label>
@@ -537,7 +537,7 @@ export default function ReservationPage() {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium text-gray-200 mb-2">
                       <Users className="inline w-4 h-4 mr-1" />
                       Yolcu Sayısı *
                     </label>
@@ -569,7 +569,7 @@ export default function ReservationPage() {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium text-gray-200 mb-2">
                       <Calendar className="inline w-4 h-4 mr-1" />
                       Doğum Tarihi *
                     </label>
@@ -586,7 +586,7 @@ export default function ReservationPage() {
                         }))
                       }
                       max={new Date().toISOString().split('T')[0]}
-                      className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 [color-scheme:light] ${
+                      className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white [color-scheme:light] ${
                         errors.dateOfBirth ? 'border-red-500' : 'border-gray-300'
                       }`}
                       style={{ colorScheme: 'light' }}
@@ -604,14 +604,14 @@ export default function ReservationPage() {
             {/* Step 3: Agency Requirements */}
             {currentStep === 3 && (
               <div className="space-y-6">
-                <h2 className="text-2xl font-bold text-gray-800 flex items-center gap-2">
+                <h2 className="text-2xl font-bold text-gray-100 flex items-center gap-2">
                   <Shield className="text-blue-600" />
                   Acenta Gereksinimleri
                 </h2>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium text-gray-200 mb-2">
                       <FileText className="inline w-4 h-4 mr-1" />
                       Pasaport Numarası *
                     </label>
@@ -642,7 +642,7 @@ export default function ReservationPage() {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium text-gray-200 mb-2">
                       Pasaport Son Kullanma *
                     </label>
                     <input
@@ -658,7 +658,7 @@ export default function ReservationPage() {
                         }))
                       }
                       min={new Date().toISOString().split('T')[0]}
-                      className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 [color-scheme:light] ${
+                      className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white [color-scheme:light] ${
                         errors.passportExpiry
                           ? 'border-red-500'
                           : 'border-gray-300'
@@ -673,7 +673,7 @@ export default function ReservationPage() {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium text-gray-200 mb-2">
                       <Car className="inline w-4 h-4 mr-1" />
                       Sürücü Belgesi (Opsiyonel)
                     </label>
@@ -695,7 +695,7 @@ export default function ReservationPage() {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium text-gray-200 mb-2">
                       Belge Son Kullanma (Opsiyonel)
                     </label>
                     <input
@@ -711,13 +711,13 @@ export default function ReservationPage() {
                         }))
                       }
                       min={new Date().toISOString().split('T')[0]}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 [color-scheme:light]"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white [color-scheme:light]"
                       style={{ colorScheme: 'light' }}
                     />
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium text-gray-200 mb-2">
                       Acil Durum İletişim *
                     </label>
                     <input
@@ -747,7 +747,7 @@ export default function ReservationPage() {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium text-gray-200 mb-2">
                       Acil Durum Telefonu *
                     </label>
                     <input
@@ -777,7 +777,7 @@ export default function ReservationPage() {
                   </div>
 
                   <div className="md:col-span-2">
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium text-gray-200 mb-2">
                       Özel İstekler (Opsiyonel)
                     </label>
                     <textarea
@@ -808,7 +808,7 @@ export default function ReservationPage() {
                 className={`px-6 py-3 rounded-lg font-medium transition-all ${
                   currentStep === 1
                     ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
-                    : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                    : 'bg-gray-200 text-gray-200 hover:bg-gray-300'
                 }`}
               >
                 Geri

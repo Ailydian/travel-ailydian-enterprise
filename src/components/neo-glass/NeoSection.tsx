@@ -30,13 +30,13 @@ export const NeoSection: React.FC<NeoSectionProps> = ({
   containerSize = 'xl',
   animate = true,
 }) => {
-  // Background styles
+  // Background styles - DARK THEME
   const backgrounds = {
-    white: 'bg-white',
-    gray: 'bg-gray-50',
-    gradient: 'bg-gradient-to-br from-blue-50 via-purple-50 to-orange-50',
-    glass: 'bg-white/60 backdrop-blur-2xl',
-    neo: 'bg-[#F1F5F9]',
+    white: 'bg-transparent', // Transparent to show body gradient
+    gray: 'bg-white/5', // Subtle glassmorphism
+    gradient: 'bg-gradient-to-br from-purple-900/20 via-blue-900/20 to-cyan-900/20',
+    glass: 'bg-white/5 backdrop-blur-2xl border-y border-white/10',
+    neo: 'bg-white/5',
   };
 
   // Padding styles
@@ -69,17 +69,17 @@ export const NeoSection: React.FC<NeoSectionProps> = ({
         >
           {title && (
             <div className="relative inline-block">
-              {/* Subtle underline decoration */}
-              <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-[#00BAFF] via-[#667EEA] to-[#FF9500] rounded-full opacity-50" />
+              {/* Glowing underline decoration */}
+              <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-[#00BAFF] via-[#667EEA] to-[#FF9500] rounded-full opacity-70 shadow-[0_0_20px_rgba(102,126,234,0.5)]" />
 
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 leading-tight tracking-tight">
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight tracking-tight drop-shadow-[0_0_30px_rgba(102,126,234,0.3)]">
                 {title}
               </h2>
             </div>
           )}
 
           {subtitle && (
-            <p className="text-lg md:text-xl lg:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed font-light">
+            <p className="text-lg md:text-xl lg:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed font-light">
               {subtitle}
             </p>
           )}

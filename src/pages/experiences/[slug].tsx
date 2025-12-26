@@ -146,7 +146,7 @@ export default function ExperienceDetail({ experience, relatedExperiences }: Exp
 
       <ResponsiveHeaderBar />
 
-      <main className="pt-16 bg-gray-50 min-h-screen">
+      <main className="pt-16 bg-white/5 min-h-screen">
         {/* Hero Section */}
         <section className="relative h-[400px] bg-black">
           <Image
@@ -233,19 +233,19 @@ export default function ExperienceDetail({ experience, relatedExperiences }: Exp
             {/* Left Column */}
             <div className="lg:col-span-2 space-y-6">
               {/* Description */}
-              <div className="bg-white rounded-2xl shadow-sm p-6">
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">Açıklama</h2>
-                <p className="text-gray-700 leading-relaxed">{experience.description}</p>
+              <div className="bg-transparent rounded-2xl shadow-sm p-6">
+                <h2 className="text-2xl font-bold text-white mb-4">Açıklama</h2>
+                <p className="text-gray-200 leading-relaxed">{experience.description}</p>
               </div>
 
               {/* Highlights */}
-              <div className="bg-white rounded-2xl shadow-sm p-6">
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">Öne Çıkanlar</h2>
+              <div className="bg-transparent rounded-2xl shadow-sm p-6">
+                <h2 className="text-2xl font-bold text-white mb-4">Öne Çıkanlar</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                   {experience.highlights.map((highlight, idx) => (
                     <div key={idx} className="flex items-start gap-3">
                       <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                      <span className="text-gray-700">{highlight}</span>
+                      <span className="text-gray-200">{highlight}</span>
                     </div>
                   ))}
                 </div>
@@ -253,8 +253,8 @@ export default function ExperienceDetail({ experience, relatedExperiences }: Exp
 
               {/* Itinerary */}
               {experience.itinerary.length > 0 && (
-                <div className="bg-white rounded-2xl shadow-sm p-6">
-                  <h2 className="text-2xl font-bold text-gray-900 mb-6">Program</h2>
+                <div className="bg-transparent rounded-2xl shadow-sm p-6">
+                  <h2 className="text-2xl font-bold text-white mb-6">Program</h2>
                   <div className="space-y-4">
                     {experience.itinerary.map((item, idx) => (
                       <div key={idx} className="flex gap-4">
@@ -264,8 +264,8 @@ export default function ExperienceDetail({ experience, relatedExperiences }: Exp
                           </div>
                         </div>
                         <div className="flex-1">
-                          <h3 className="font-bold text-gray-900 mb-1">{item.activity}</h3>
-                          <p className="text-gray-600 text-sm">{item.description}</p>
+                          <h3 className="font-bold text-white mb-1">{item.activity}</h3>
+                          <p className="text-gray-300 text-sm">{item.description}</p>
                         </div>
                       </div>
                     ))}
@@ -274,26 +274,26 @@ export default function ExperienceDetail({ experience, relatedExperiences }: Exp
               )}
 
               {/* Included/Excluded */}
-              <div className="bg-white rounded-2xl shadow-sm p-6">
+              <div className="bg-transparent rounded-2xl shadow-sm p-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <h3 className="text-lg font-bold text-gray-900 mb-4">Dahil Olanlar</h3>
+                    <h3 className="text-lg font-bold text-white mb-4">Dahil Olanlar</h3>
                     <div className="space-y-2">
                       {experience.included.map((item, idx) => (
                         <div key={idx} className="flex items-start gap-2">
                           <Check className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                          <span className="text-gray-700 text-sm">{item}</span>
+                          <span className="text-gray-200 text-sm">{item}</span>
                         </div>
                       ))}
                     </div>
                   </div>
                   <div>
-                    <h3 className="text-lg font-bold text-gray-900 mb-4">Dahil Olmayanlar</h3>
+                    <h3 className="text-lg font-bold text-white mb-4">Dahil Olmayanlar</h3>
                     <div className="space-y-2">
                       {experience.excluded.map((item, idx) => (
                         <div key={idx} className="flex items-start gap-2">
                           <X className="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5" />
-                          <span className="text-gray-700 text-sm">{item}</span>
+                          <span className="text-gray-200 text-sm">{item}</span>
                         </div>
                       ))}
                     </div>
@@ -303,11 +303,11 @@ export default function ExperienceDetail({ experience, relatedExperiences }: Exp
 
               {/* Cancellation Policy */}
               <div className="bg-blue-50 rounded-2xl p-6">
-                <h3 className="text-lg font-bold text-gray-900 mb-3 flex items-center gap-2">
+                <h3 className="text-lg font-bold text-white mb-3 flex items-center gap-2">
                   <Info className="w-5 h-5 text-blue-600" />
                   İptal Politikası
                 </h3>
-                <p className="text-gray-700">
+                <p className="text-gray-200">
                   {experience.cancellationPolicy.freeCancellation ? (
                     <>
                       <span className="font-semibold text-green-700">Ücretsiz iptal!</span> Aktivite başlangıcından {experience.cancellationPolicy.hoursBeforeStart} saat önce iptal ederseniz %{experience.cancellationPolicy.refundPercentage} iade alırsınız.
@@ -321,7 +321,7 @@ export default function ExperienceDetail({ experience, relatedExperiences }: Exp
 
             {/* Right Column - Booking Card */}
             <div>
-              <div className="bg-white rounded-2xl shadow-lg p-6 sticky top-24">
+              <div className="bg-transparent rounded-2xl shadow-lg p-6 sticky top-24">
                 <div className="mb-6">
                   <div className="flex items-baseline gap-2 mb-2">
                     <span className="text-3xl font-bold text-lydian-primary">₺{experience.pricing.adult}</span>
@@ -329,12 +329,12 @@ export default function ExperienceDetail({ experience, relatedExperiences }: Exp
                       <span className="text-lg text-gray-500 line-through">₺{experience.originalPrice}</span>
                     )}
                   </div>
-                  <span className="text-gray-600">kişi başı</span>
+                  <span className="text-gray-300">kişi başı</span>
                 </div>
 
                 {/* Date Selection */}
                 <div className="mb-4">
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">
+                  <label className="block text-sm font-semibold text-gray-200 mb-2">
                     Tarih Seçin
                   </label>
                   <input
@@ -350,8 +350,8 @@ export default function ExperienceDetail({ experience, relatedExperiences }: Exp
                 <div className="space-y-3 mb-6">
                   <div className="flex items-center justify-between">
                     <div>
-                      <div className="font-semibold text-gray-900">Yetişkin</div>
-                      <div className="text-sm text-gray-600">₺{experience.pricing.adult}</div>
+                      <div className="font-semibold text-white">Yetişkin</div>
+                      <div className="text-sm text-gray-300">₺{experience.pricing.adult}</div>
                     </div>
                     <div className="flex items-center gap-3">
                       <button
@@ -372,8 +372,8 @@ export default function ExperienceDetail({ experience, relatedExperiences }: Exp
 
                   <div className="flex items-center justify-between">
                     <div>
-                      <div className="font-semibold text-gray-900">Çocuk</div>
-                      <div className="text-sm text-gray-600">₺{experience.pricing.child}</div>
+                      <div className="font-semibold text-white">Çocuk</div>
+                      <div className="text-sm text-gray-300">₺{experience.pricing.child}</div>
                     </div>
                     <div className="flex items-center gap-3">
                       <button
@@ -396,8 +396,8 @@ export default function ExperienceDetail({ experience, relatedExperiences }: Exp
                 {/* Total Price */}
                 <div className="border-t border-gray-200 pt-4 mb-6">
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-gray-600">Toplam</span>
-                    <span className="text-2xl font-bold text-gray-900">₺{totalPrice.toLocaleString()}</span>
+                    <span className="text-gray-300">Toplam</span>
+                    <span className="text-2xl font-bold text-white">₺{totalPrice.toLocaleString()}</span>
                   </div>
                   <p className="text-xs text-gray-500">Vergi ve hizmet bedeli dahil</p>
                 </div>
@@ -412,7 +412,7 @@ export default function ExperienceDetail({ experience, relatedExperiences }: Exp
                 </button>
 
                 {/* Additional Info */}
-                <div className="mt-6 space-y-3 text-sm text-gray-600">
+                <div className="mt-6 space-y-3 text-sm text-gray-300">
                   <div className="flex items-center gap-2">
                     <Shield className="w-4 h-4 text-green-600" />
                     <span>%100 Güvenli Ödeme</span>
@@ -437,28 +437,28 @@ export default function ExperienceDetail({ experience, relatedExperiences }: Exp
 
         {/* Related Experiences */}
         {relatedExperiences.length > 0 && (
-          <section className="bg-white py-12">
+          <section className="bg-transparent py-12">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <h2 className="text-3xl font-bold text-gray-900 mb-8">Benzer Deneyimler</h2>
+              <h2 className="text-3xl font-bold text-white mb-8">Benzer Deneyimler</h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {relatedExperiences.map((exp) => (
                   <Link
                     key={exp.id}
                     href={`/experiences/${exp.slug}`}
-                    className="group bg-white rounded-2xl shadow-sm overflow-hidden hover:shadow-lg transition-all"
+                    className="group bg-transparent rounded-2xl shadow-sm overflow-hidden hover:shadow-lg transition-all"
                   >
                     <div className="relative h-48">
                       <Image src={exp.images.hero} alt={exp.title} fill className="object-cover group-hover:scale-110 transition-transform duration-300" />
                     </div>
                     <div className="p-6">
-                      <h3 className="font-bold text-gray-900 mb-2 line-clamp-2">{exp.title}</h3>
+                      <h3 className="font-bold text-white mb-2 line-clamp-2">{exp.title}</h3>
                       <div className="flex items-center gap-2 mb-3">
                         <Star className="w-4 h-4 text-yellow-400 fill-current" />
                         <span className="text-sm font-semibold">{exp.rating}</span>
-                        <span className="text-sm text-gray-600">({exp.reviewCount})</span>
+                        <span className="text-sm text-gray-300">({exp.reviewCount})</span>
                       </div>
                       <div className="flex items-center justify-between">
-                        <span className="text-sm text-gray-600">{exp.duration}</span>
+                        <span className="text-sm text-gray-300">{exp.duration}</span>
                         <span className="text-lg font-bold text-lydian-primary">₺{exp.pricing.adult}</span>
                       </div>
                     </div>

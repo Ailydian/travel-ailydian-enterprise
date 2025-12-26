@@ -122,12 +122,12 @@ const AIContentWriterPage: React.FC = () => {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="bg-white rounded-xl shadow-md p-6"
+              className="bg-transparent rounded-xl shadow-md p-6"
             >
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm text-gray-600">Desteklenen Tipler</p>
-                  <p className="text-2xl font-bold text-gray-900">6</p>
+                  <p className="text-sm text-gray-300">Desteklenen Tipler</p>
+                  <p className="text-2xl font-bold text-white">6</p>
                 </div>
                 <FileText className="h-8 w-8 text-purple-600" />
               </div>
@@ -137,12 +137,12 @@ const AIContentWriterPage: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="bg-white rounded-xl shadow-md p-6"
+              className="bg-transparent rounded-xl shadow-md p-6"
             >
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm text-gray-600">Ortalama Kalite Skoru</p>
-                  <p className="text-2xl font-bold text-gray-900">
+                  <p className="text-sm text-gray-300">Ortalama Kalite Skoru</p>
+                  <p className="text-2xl font-bold text-white">
                     {quality ? quality.score : '95'}%
                   </p>
                 </div>
@@ -154,12 +154,12 @@ const AIContentWriterPage: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="bg-white rounded-xl shadow-md p-6"
+              className="bg-transparent rounded-xl shadow-md p-6"
             >
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm text-gray-600">Üretim Süresi</p>
-                  <p className="text-2xl font-bold text-gray-900">&lt;1s</p>
+                  <p className="text-sm text-gray-300">Üretim Süresi</p>
+                  <p className="text-2xl font-bold text-white">&lt;1s</p>
                 </div>
                 <Zap className="h-8 w-8 text-yellow-600" />
               </div>
@@ -169,11 +169,11 @@ const AIContentWriterPage: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="bg-white rounded-xl shadow-md p-6"
+              className="bg-transparent rounded-xl shadow-md p-6"
             >
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm text-gray-600">SEO Optimized</p>
+                  <p className="text-sm text-gray-300">SEO Optimized</p>
                   <p className="text-2xl font-bold text-green-600">✓</p>
                 </div>
                 <Check className="h-8 w-8 text-green-600" />
@@ -187,16 +187,16 @@ const AIContentWriterPage: React.FC = () => {
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
-              className="bg-white rounded-xl shadow-md p-6"
+              className="bg-transparent rounded-xl shadow-md p-6"
             >
-              <h2 className="text-xl font-bold text-gray-900 mb-6">
+              <h2 className="text-xl font-bold text-white mb-6">
                 İçerik Parametreleri
               </h2>
 
               <div className="space-y-4">
                 {/* Type */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-gray-200 mb-2">
                     Tip *
                   </label>
                   <select
@@ -215,7 +215,7 @@ const AIContentWriterPage: React.FC = () => {
 
                 {/* Name */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-gray-200 mb-2">
                     İsim *
                   </label>
                   <input
@@ -229,7 +229,7 @@ const AIContentWriterPage: React.FC = () => {
 
                 {/* Location */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-gray-200 mb-2">
                     Konum *
                   </label>
                   <input
@@ -243,7 +243,7 @@ const AIContentWriterPage: React.FC = () => {
 
                 {/* Category */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-gray-200 mb-2">
                     Kategori (opsiyonel)
                   </label>
                   <input
@@ -257,7 +257,7 @@ const AIContentWriterPage: React.FC = () => {
 
                 {/* Features */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-gray-200 mb-2">
                     Özellikler
                   </label>
                   <div className="flex gap-2 mb-2">
@@ -296,7 +296,7 @@ const AIContentWriterPage: React.FC = () => {
 
                 {/* Price */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-gray-200 mb-2">
                     Fiyat (₺) (opsiyonel)
                   </label>
                   <input
@@ -310,7 +310,7 @@ const AIContentWriterPage: React.FC = () => {
 
                 {/* Rating */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-gray-200 mb-2">
                     Puan (0-5) (opsiyonel)
                   </label>
                   <input
@@ -350,10 +350,10 @@ const AIContentWriterPage: React.FC = () => {
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
-              className="bg-white rounded-xl shadow-md p-6"
+              className="bg-transparent rounded-xl shadow-md p-6"
             >
               <div className="flex items-center justify-between mb-6">
-                <h2 className="text-xl font-bold text-gray-900">
+                <h2 className="text-xl font-bold text-white">
                   Önizleme
                 </h2>
 
@@ -364,14 +364,14 @@ const AIContentWriterPage: React.FC = () => {
                       className="p-2 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors"
                       title="JSON Kopyala"
                     >
-                      <Copy className="h-5 w-5 text-gray-700" />
+                      <Copy className="h-5 w-5 text-gray-200" />
                     </button>
                     <button
                       onClick={handleDownloadJSON}
                       className="p-2 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors"
                       title="JSON İndir"
                     >
-                      <Download className="h-5 w-5 text-gray-700" />
+                      <Download className="h-5 w-5 text-gray-200" />
                     </button>
                   </div>
                 )}
@@ -395,7 +395,7 @@ const AIContentWriterPage: React.FC = () => {
                       'bg-red-50 border border-red-200'
                     }`}>
                       <div className="flex items-center justify-between mb-2">
-                        <span className="text-sm font-medium text-gray-700">
+                        <span className="text-sm font-medium text-gray-200">
                           Kalite Skoru
                         </span>
                         <span className={`text-2xl font-bold ${
@@ -408,7 +408,7 @@ const AIContentWriterPage: React.FC = () => {
                       </div>
                       <div className="space-y-1">
                         {quality.feedback.map((item, idx) => (
-                          <p key={idx} className="text-xs text-gray-600">
+                          <p key={idx} className="text-xs text-gray-300">
                             {item}
                           </p>
                         ))}
@@ -423,7 +423,7 @@ const AIContentWriterPage: React.FC = () => {
                       className={`px-4 py-2 font-medium border-b-2 transition-colors ${
                         activeTab === 'preview'
                           ? 'border-purple-600 text-purple-600'
-                          : 'border-transparent text-gray-600 hover:text-gray-900'
+                          : 'border-transparent text-gray-300 hover:text-white'
                       }`}
                     >
                       <Eye className="h-4 w-4 inline mr-2" />
@@ -434,7 +434,7 @@ const AIContentWriterPage: React.FC = () => {
                       className={`px-4 py-2 font-medium border-b-2 transition-colors ${
                         activeTab === 'json'
                           ? 'border-purple-600 text-purple-600'
-                          : 'border-transparent text-gray-600 hover:text-gray-900'
+                          : 'border-transparent text-gray-300 hover:text-white'
                       }`}
                     >
                       <FileText className="h-4 w-4 inline mr-2" />
@@ -449,31 +449,31 @@ const AIContentWriterPage: React.FC = () => {
                         {/* Title */}
                         <div>
                           <h3 className="text-sm font-semibold text-gray-500 mb-2">BAŞLIK</h3>
-                          <p className="text-xl font-bold text-gray-900">{generatedContent.title}</p>
+                          <p className="text-xl font-bold text-white">{generatedContent.title}</p>
                         </div>
 
                         {/* SEO */}
                         <div>
                           <h3 className="text-sm font-semibold text-gray-500 mb-2">SEO BAŞLIK</h3>
-                          <p className="text-sm text-gray-700">{generatedContent.seoTitle}</p>
+                          <p className="text-sm text-gray-200">{generatedContent.seoTitle}</p>
                         </div>
 
                         {/* Meta Description */}
                         <div>
                           <h3 className="text-sm font-semibold text-gray-500 mb-2">META AÇIKLAMA</h3>
-                          <p className="text-sm text-gray-700">{generatedContent.metaDescription}</p>
+                          <p className="text-sm text-gray-200">{generatedContent.metaDescription}</p>
                         </div>
 
                         {/* Short Description */}
                         <div>
                           <h3 className="text-sm font-semibold text-gray-500 mb-2">KISA AÇIKLAMA</h3>
-                          <p className="text-sm text-gray-700">{generatedContent.shortDescription}</p>
+                          <p className="text-sm text-gray-200">{generatedContent.shortDescription}</p>
                         </div>
 
                         {/* Long Description */}
                         <div>
                           <h3 className="text-sm font-semibold text-gray-500 mb-2">DETAYLI AÇIKLAMA</h3>
-                          <p className="text-sm text-gray-700 whitespace-pre-line">{generatedContent.longDescription}</p>
+                          <p className="text-sm text-gray-200 whitespace-pre-line">{generatedContent.longDescription}</p>
                         </div>
 
                         {/* Highlights */}
@@ -481,7 +481,7 @@ const AIContentWriterPage: React.FC = () => {
                           <h3 className="text-sm font-semibold text-gray-500 mb-2">ÖZELLİKLER</h3>
                           <ul className="space-y-1">
                             {generatedContent.highlights.map((highlight, idx) => (
-                              <li key={idx} className="text-sm text-gray-700 flex items-start gap-2">
+                              <li key={idx} className="text-sm text-gray-200 flex items-start gap-2">
                                 <span className="text-purple-600">•</span>
                                 {highlight}
                               </li>
@@ -510,10 +510,10 @@ const AIContentWriterPage: React.FC = () => {
                           <div className="space-y-3">
                             {generatedContent.faq.map((item, idx) => (
                               <div key={idx} className="border-l-4 border-purple-600 pl-4">
-                                <p className="text-sm font-semibold text-gray-900 mb-1">
+                                <p className="text-sm font-semibold text-white mb-1">
                                   {item.question}
                                 </p>
-                                <p className="text-sm text-gray-700">
+                                <p className="text-sm text-gray-200">
                                   {item.answer}
                                 </p>
                               </div>
@@ -534,7 +534,7 @@ const AIContentWriterPage: React.FC = () => {
                             {generatedContent.tags.map((tag, idx) => (
                               <span
                                 key={idx}
-                                className="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded"
+                                className="px-2 py-1 bg-gray-100 text-gray-200 text-xs rounded"
                               >
                                 #{tag}
                               </span>
@@ -567,7 +567,7 @@ const AIContentWriterPage: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             className="mt-8 bg-gradient-to-r from-purple-50 to-indigo-50 rounded-xl p-8 border border-purple-200"
           >
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">
+            <h2 className="text-2xl font-bold text-white mb-6">
               AI Content Writer Özellikleri
             </h2>
 
@@ -575,9 +575,9 @@ const AIContentWriterPage: React.FC = () => {
               <div>
                 <div className="flex items-center gap-3 mb-3">
                   <Sparkles className="h-6 w-6 text-purple-600" />
-                  <h3 className="font-bold text-gray-900">SEO-Optimized</h3>
+                  <h3 className="font-bold text-white">SEO-Optimized</h3>
                 </div>
-                <p className="text-sm text-gray-700">
+                <p className="text-sm text-gray-200">
                   Otomatik anahtar kelime, meta açıklama ve başlık optimizasyonu
                 </p>
               </div>
@@ -585,9 +585,9 @@ const AIContentWriterPage: React.FC = () => {
               <div>
                 <div className="flex items-center gap-3 mb-3">
                   <Check className="h-6 w-6 text-green-600" />
-                  <h3 className="font-bold text-gray-900">Kalite Kontrolü</h3>
+                  <h3 className="font-bold text-white">Kalite Kontrolü</h3>
                 </div>
-                <p className="text-sm text-gray-700">
+                <p className="text-sm text-gray-200">
                   Otomatik kalite skoru ve iyileştirme önerileri
                 </p>
               </div>
@@ -595,9 +595,9 @@ const AIContentWriterPage: React.FC = () => {
               <div>
                 <div className="flex items-center gap-3 mb-3">
                   <Zap className="h-6 w-6 text-yellow-600" />
-                  <h3 className="font-bold text-gray-900">Hızlı Üretim</h3>
+                  <h3 className="font-bold text-white">Hızlı Üretim</h3>
                 </div>
-                <p className="text-sm text-gray-700">
+                <p className="text-sm text-gray-200">
                   1 saniyeden kısa sürede tam içerik üretimi
                 </p>
               </div>

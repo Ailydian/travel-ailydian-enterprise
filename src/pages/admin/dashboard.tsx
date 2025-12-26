@@ -335,8 +335,8 @@ export default function AdminDashboard() {
             <div className="w-20 h-20 border-4 border-gray-200 border-t-transparent rounded-full animate-spin mx-auto mb-6"></div>
             <div className="absolute inset-0 w-20 h-20 border-4 border-transparent border-t-red-500 rounded-full animate-spin mx-auto" style={{animationDuration: '1.5s'}}></div>
           </div>
-          <h3 className="text-xl font-semibold text-gray-800 mb-2">Kontrol Paneli Yükleniyor</h3>
-          <p className="text-gray-600">Veriler hazırlanıyor, lütfen bekleyin...</p>
+          <h3 className="text-xl font-semibold text-gray-100 mb-2">Kontrol Paneli Yükleniyor</h3>
+          <p className="text-gray-300">Veriler hazırlanıyor, lütfen bekleyin...</p>
         </div>
       </div>
     );
@@ -349,7 +349,7 @@ export default function AdminDashboard() {
           <div className="w-20 h-20 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-6">
             <AlertTriangle className="w-10 h-10 text-red-600" />
           </div>
-          <h3 className="text-xl font-semibold text-gray-800 mb-2">Bir Hata Oluştu</h3>
+          <h3 className="text-xl font-semibold text-gray-100 mb-2">Bir Hata Oluştu</h3>
           <p className="text-red-600 mb-6">{error}</p>
           <button 
             onClick={fetchDashboardData}
@@ -387,7 +387,7 @@ export default function AdminDashboard() {
               <div className="flex items-center space-x-4">
                 <div className="flex items-center space-x-2">
                   <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                  <span className="text-sm text-gray-600">
+                  <span className="text-sm text-gray-300">
                     Hoşgeldin, {adminData?.email}
                   </span>
                 </div>
@@ -396,7 +396,7 @@ export default function AdminDashboard() {
                 </span>
                 <button
                   onClick={handleLogout}
-                  className="flex items-center space-x-1 px-3 py-1.5 text-gray-600 hover:text-red-600 rounded-lg hover:bg-red-50 transition-all"
+                  className="flex items-center space-x-1 px-3 py-1.5 text-gray-300 hover:text-red-600 rounded-lg hover:bg-red-50 transition-all"
                 >
                   <LogOut className="w-4 h-4" />
                   <span>Çıkış</span>
@@ -478,8 +478,8 @@ export default function AdminDashboard() {
                         <MapPin className="w-6 h-6" style={{color: AILYDIAN_COLORS.blue}} />
                       </div>
                       <div className="ml-3 flex-1">
-                        <p className="text-xs font-semibold text-gray-600 uppercase tracking-wide">Lokasyonlar</p>
-                        <p className="text-2xl font-bold text-gray-900 mb-0.5">
+                        <p className="text-xs font-semibold text-gray-300 uppercase tracking-wide">Lokasyonlar</p>
+                        <p className="text-2xl font-bold text-white mb-0.5">
                           {formatNumber(dashboardData.overview.totalLocations)}
                         </p>
                         <p className="text-xs flex items-center" style={{color: AILYDIAN_COLORS.success}}>
@@ -496,8 +496,8 @@ export default function AdminDashboard() {
                         <MessageSquare className="w-6 h-6" style={{color: AILYDIAN_COLORS.success}} />
                       </div>
                       <div className="ml-3 flex-1">
-                        <p className="text-xs font-semibold text-gray-600 uppercase tracking-wide">Değerlendirmeler</p>
-                        <p className="text-2xl font-bold text-gray-900 mb-0.5">
+                        <p className="text-xs font-semibold text-gray-300 uppercase tracking-wide">Değerlendirmeler</p>
+                        <p className="text-2xl font-bold text-white mb-0.5">
                           {formatNumber(dashboardData.overview.totalReviews)}
                         </p>
                         <p className="text-xs flex items-center" style={{color: AILYDIAN_COLORS.success}}>
@@ -514,8 +514,8 @@ export default function AdminDashboard() {
                         <Users className="w-6 h-6" style={{color: AILYDIAN_COLORS.purple}} />
                       </div>
                       <div className="ml-3 flex-1">
-                        <p className="text-xs font-semibold text-gray-600 uppercase tracking-wide">Kullanıcılar</p>
-                        <p className="text-2xl font-bold text-gray-900 mb-0.5">
+                        <p className="text-xs font-semibold text-gray-300 uppercase tracking-wide">Kullanıcılar</p>
+                        <p className="text-2xl font-bold text-white mb-0.5">
                           {formatNumber(dashboardData.overview.totalUsers)}
                         </p>
                         <p className="text-xs flex items-center" style={{color: AILYDIAN_COLORS.success}}>
@@ -532,8 +532,8 @@ export default function AdminDashboard() {
                         <Camera className="w-6 h-6" style={{color: AILYDIAN_COLORS.warning}} />
                       </div>
                       <div className="ml-3 flex-1">
-                        <p className="text-xs font-semibold text-gray-600 uppercase tracking-wide">Fotoğraflar</p>
-                        <p className="text-2xl font-bold text-gray-900 mb-0.5">
+                        <p className="text-xs font-semibold text-gray-300 uppercase tracking-wide">Fotoğraflar</p>
+                        <p className="text-2xl font-bold text-white mb-0.5">
                           {formatNumber(dashboardData.overview.totalPhotos)}
                         </p>
                         <p className="text-xs text-gray-500">Toplam medya içeriği</p>
@@ -547,8 +547,8 @@ export default function AdminDashboard() {
                         <Star className="w-6 h-6" style={{color: AILYDIAN_COLORS.secondary}} />
                       </div>
                       <div className="ml-3 flex-1">
-                        <p className="text-xs font-semibold text-gray-600 uppercase tracking-wide">Ortalama Puan</p>
-                        <p className="text-2xl font-bold text-gray-900 mb-0.5">
+                        <p className="text-xs font-semibold text-gray-300 uppercase tracking-wide">Ortalama Puan</p>
+                        <p className="text-2xl font-bold text-white mb-0.5">
                           {dashboardData.overview.averageRating.toFixed(1)}
                         </p>
                         <div className="flex items-center">
@@ -585,8 +585,8 @@ export default function AdminDashboard() {
                         <Car className="w-6 h-6" style={{color: AILYDIAN_COLORS.success}} />
                       </div>
                       <div className="ml-3 flex-1">
-                        <p className="text-xs font-semibold text-gray-600 uppercase tracking-wide">Total Vehicles</p>
-                        <p className="text-2xl font-bold text-gray-900 mb-0.5">
+                        <p className="text-xs font-semibold text-gray-300 uppercase tracking-wide">Total Vehicles</p>
+                        <p className="text-2xl font-bold text-white mb-0.5">
                           {formatNumber(dashboardData.vehicleRental.totalVehicles)}
                         </p>
                         <p className="text-xs text-gray-500">Filo büyüklüğü</p>
@@ -600,8 +600,8 @@ export default function AdminDashboard() {
                         <Calendar className="w-6 h-6" style={{color: AILYDIAN_COLORS.success}} />
                       </div>
                       <div className="ml-3 flex-1">
-                        <p className="text-xs font-semibold text-gray-600 uppercase tracking-wide">Active Rentals</p>
-                        <p className="text-2xl font-bold text-gray-900 mb-0.5">
+                        <p className="text-xs font-semibold text-gray-300 uppercase tracking-wide">Active Rentals</p>
+                        <p className="text-2xl font-bold text-white mb-0.5">
                           {formatNumber(dashboardData.vehicleRental.activeRentals)}
                         </p>
                         <p className="text-xs text-gray-500">Devam eden kiralama</p>
@@ -615,8 +615,8 @@ export default function AdminDashboard() {
                         <DollarSign className="w-6 h-6" style={{color: AILYDIAN_COLORS.success}} />
                       </div>
                       <div className="ml-3 flex-1">
-                        <p className="text-xs font-semibold text-gray-600 uppercase tracking-wide">Monthly Revenue</p>
-                        <p className="text-2xl font-bold text-gray-900 mb-0.5">
+                        <p className="text-xs font-semibold text-gray-300 uppercase tracking-wide">Monthly Revenue</p>
+                        <p className="text-2xl font-bold text-white mb-0.5">
                           ₺{formatNumber(dashboardData.vehicleRental.monthlyRevenue)}
                         </p>
                         <p className="text-xs text-gray-500">Aylık gelir</p>
@@ -630,8 +630,8 @@ export default function AdminDashboard() {
                         <TrendingUp className="w-6 h-6" style={{color: AILYDIAN_COLORS.success}} />
                       </div>
                       <div className="ml-3 flex-1">
-                        <p className="text-xs font-semibold text-gray-600 uppercase tracking-wide">Growth</p>
-                        <p className="text-2xl font-bold text-gray-900 mb-0.5">
+                        <p className="text-xs font-semibold text-gray-300 uppercase tracking-wide">Growth</p>
+                        <p className="text-2xl font-bold text-white mb-0.5">
                           {formatPercentage(dashboardData.vehicleRental.growth)}
                         </p>
                         <p className="text-xs flex items-center" style={{color: AILYDIAN_COLORS.success}}>
@@ -654,8 +654,8 @@ export default function AdminDashboard() {
                         <Bus className="w-6 h-6" style={{color: AILYDIAN_COLORS.blue}} />
                       </div>
                       <div className="ml-3 flex-1">
-                        <p className="text-xs font-semibold text-gray-600 uppercase tracking-wide">Total Fleet</p>
-                        <p className="text-2xl font-bold text-gray-900 mb-0.5">
+                        <p className="text-xs font-semibold text-gray-300 uppercase tracking-wide">Total Fleet</p>
+                        <p className="text-2xl font-bold text-white mb-0.5">
                           {formatNumber(dashboardData.transferService.totalFleet)}
                         </p>
                         <p className="text-xs text-gray-500">Transfer araçları</p>
@@ -669,8 +669,8 @@ export default function AdminDashboard() {
                         <Navigation className="w-6 h-6" style={{color: AILYDIAN_COLORS.blue}} />
                       </div>
                       <div className="ml-3 flex-1">
-                        <p className="text-xs font-semibold text-gray-600 uppercase tracking-wide">Active Transfers</p>
-                        <p className="text-2xl font-bold text-gray-900 mb-0.5">
+                        <p className="text-xs font-semibold text-gray-300 uppercase tracking-wide">Active Transfers</p>
+                        <p className="text-2xl font-bold text-white mb-0.5">
                           {formatNumber(dashboardData.transferService.activeTransfers)}
                         </p>
                         <p className="text-xs text-gray-500">Devam eden transfer</p>
@@ -684,8 +684,8 @@ export default function AdminDashboard() {
                         <DollarSign className="w-6 h-6" style={{color: AILYDIAN_COLORS.blue}} />
                       </div>
                       <div className="ml-3 flex-1">
-                        <p className="text-xs font-semibold text-gray-600 uppercase tracking-wide">Monthly Revenue</p>
-                        <p className="text-2xl font-bold text-gray-900 mb-0.5">
+                        <p className="text-xs font-semibold text-gray-300 uppercase tracking-wide">Monthly Revenue</p>
+                        <p className="text-2xl font-bold text-white mb-0.5">
                           ₺{formatNumber(dashboardData.transferService.monthlyRevenue)}
                         </p>
                         <p className="text-xs text-gray-500">Aylık gelir</p>
@@ -699,8 +699,8 @@ export default function AdminDashboard() {
                         <CheckCircle className="w-6 h-6" style={{color: AILYDIAN_COLORS.blue}} />
                       </div>
                       <div className="ml-3 flex-1">
-                        <p className="text-xs font-semibold text-gray-600 uppercase tracking-wide">On-Time Rate</p>
-                        <p className="text-2xl font-bold text-gray-900 mb-0.5">
+                        <p className="text-xs font-semibold text-gray-300 uppercase tracking-wide">On-Time Rate</p>
+                        <p className="text-2xl font-bold text-white mb-0.5">
                           {dashboardData.transferService.onTimeRate.toFixed(1)}%
                         </p>
                         <p className="text-xs flex items-center" style={{color: AILYDIAN_COLORS.success}}>
@@ -721,12 +721,12 @@ export default function AdminDashboard() {
                         <div className="p-2 rounded-lg" style={{background: `linear-gradient(45deg, ${AILYDIAN_COLORS.primary}20, ${AILYDIAN_COLORS.secondary}20)`}}>
                           <BarChart3 className="w-5 h-5" style={{color: AILYDIAN_COLORS.primary}} />
                         </div>
-                        <h3 className="text-base font-bold text-gray-900">Birleşik Gelir Grafiği</h3>
+                        <h3 className="text-base font-bold text-white">Birleşik Gelir Grafiği</h3>
                       </div>
                       <div className="flex space-x-1">
                         <button className="px-3 py-1 text-xs text-white rounded-lg transition-colors" style={{background: AILYDIAN_COLORS.primary}}>30G</button>
-                        <button className="px-3 py-1 text-xs text-gray-600 hover:bg-gray-100 rounded-lg transition-colors">7G</button>
-                        <button className="px-3 py-1 text-xs text-gray-600 hover:bg-gray-100 rounded-lg transition-colors">24S</button>
+                        <button className="px-3 py-1 text-xs text-gray-300 hover:bg-gray-100 rounded-lg transition-colors">7G</button>
+                        <button className="px-3 py-1 text-xs text-gray-300 hover:bg-gray-100 rounded-lg transition-colors">24S</button>
                       </div>
                     </div>
                     <div className="h-80">
@@ -788,7 +788,7 @@ export default function AdminDashboard() {
                       <div className="p-2 rounded-lg" style={{background: `linear-gradient(45deg, ${AILYDIAN_COLORS.warning}20, ${AILYDIAN_COLORS.secondary}20)`}}>
                         <Award className="w-5 h-5" style={{color: AILYDIAN_COLORS.warning}} />
                       </div>
-                      <h3 className="text-base font-bold text-gray-900">En Popüler Lokasyonlar</h3>
+                      <h3 className="text-base font-bold text-white">En Popüler Lokasyonlar</h3>
                     </div>
                     <div className="space-y-3">
                       {dashboardData.topLocations.map((location, index) => (
@@ -807,8 +807,8 @@ export default function AdminDashboard() {
                               {index + 1}
                             </div>
                             <div className="ml-4">
-                              <p className="font-semibold text-gray-900">{location.name}</p>
-                              <div className="flex items-center space-x-4 text-sm text-gray-600">
+                              <p className="font-semibold text-white">{location.name}</p>
+                              <div className="flex items-center space-x-4 text-sm text-gray-300">
                                 <span className="flex items-center">
                                   <Star className="w-3 h-3 mr-1 fill-current" style={{color: AILYDIAN_COLORS.warning}} />
                                   {location.rating}
@@ -841,11 +841,11 @@ export default function AdminDashboard() {
                         <div className="p-2 rounded-lg" style={{background: `linear-gradient(45deg, ${AILYDIAN_COLORS.success}20, ${AILYDIAN_COLORS.blue}20)`}}>
                           <Activity className="w-5 h-5" style={{color: AILYDIAN_COLORS.success}} />
                         </div>
-                        <h3 className="text-base font-bold text-gray-900">Son Aktiviteler</h3>
+                        <h3 className="text-base font-bold text-white">Son Aktiviteler</h3>
                       </div>
                       <button 
                         onClick={fetchDashboardData}
-                        className="flex items-center space-x-1 px-3 py-2 text-sm text-gray-600 hover:text-white rounded-lg transition-all" 
+                        className="flex items-center space-x-1 px-3 py-2 text-sm text-gray-300 hover:text-white rounded-lg transition-all" 
                         style={{background: `${AILYDIAN_COLORS.primary}10`}}
                         onMouseEnter={(e) => e.currentTarget.style.background = AILYDIAN_COLORS.primary}
                         onMouseLeave={(e) => e.currentTarget.style.background = `${AILYDIAN_COLORS.primary}10`}
@@ -878,7 +878,7 @@ export default function AdminDashboard() {
                           <div className="flex-1 min-w-0">
                             <div className="flex items-start justify-between">
                               <div>
-                                <p className="text-sm font-medium text-gray-900">{activity.description}</p>
+                                <p className="text-sm font-medium text-white">{activity.description}</p>
                                 <div className="flex items-center space-x-3 text-xs text-gray-500 mt-1">
                                   <div className="flex items-center">
                                     <Clock className="w-3 h-3 mr-1" />
@@ -922,19 +922,19 @@ export default function AdminDashboard() {
                         <div className="p-2 rounded-lg" style={{background: `linear-gradient(45deg, ${AILYDIAN_COLORS.blue}20, ${AILYDIAN_COLORS.purple}20)`}}>
                           <Globe className="w-5 h-5" style={{color: AILYDIAN_COLORS.blue}} />
                         </div>
-                        <h4 className="text-base font-bold text-gray-900">Harici Platformlar</h4>
+                        <h4 className="text-base font-bold text-white">Harici Platformlar</h4>
                       </div>
                       <div className="space-y-4">
                         <div className="flex items-center justify-between p-3 bg-green-50 rounded-lg">
-                          <span className="text-sm font-medium text-gray-700">Google Senkronize</span>
+                          <span className="text-sm font-medium text-gray-200">Google Senkronize</span>
                           <span className="font-bold text-green-600">{formatNumber(dashboardData.platformStats.googleSynced)}</span>
                         </div>
                         <div className="flex items-center justify-between p-3 bg-blue-50 rounded-lg">
-                          <span className="text-sm font-medium text-gray-700">TripAdvisor Senkronize</span>
+                          <span className="text-sm font-medium text-gray-200">TripAdvisor Senkronize</span>
                           <span className="font-bold text-blue-600">{formatNumber(dashboardData.platformStats.tripAdvisorSynced)}</span>
                         </div>
                         <div className="flex items-center justify-between p-3 bg-red-50 rounded-lg">
-                          <span className="text-sm font-medium text-gray-700">Senkronizasyon Hatası</span>
+                          <span className="text-sm font-medium text-gray-200">Senkronizasyon Hatası</span>
                           <span className="font-bold text-red-600">{dashboardData.platformStats.syncErrors}</span>
                         </div>
                         <div className="pt-3 border-t border-gray-200">
@@ -952,7 +952,7 @@ export default function AdminDashboard() {
                         <div className="p-2 rounded-lg" style={{background: `linear-gradient(45deg, ${AILYDIAN_COLORS.warning}20, ${AILYDIAN_COLORS.error}20)`}}>
                           <AlertTriangle className="w-5 h-5" style={{color: AILYDIAN_COLORS.warning}} />
                         </div>
-                        <h4 className="text-base font-bold text-gray-900">Modürasyon Kuyruğu</h4>
+                        <h4 className="text-base font-bold text-white">Modürasyon Kuyruğu</h4>
                       </div>
                       <div className="space-y-3">
                         <Link href="/admin/reviews?status=pending" className="flex items-center justify-between p-3 border border-orange-200 bg-orange-50 rounded-lg hover:bg-orange-100 transition-all hover:scale-105">
@@ -982,7 +982,7 @@ export default function AdminDashboard() {
                         <div className="p-2 rounded-lg" style={{background: `linear-gradient(45deg, ${AILYDIAN_COLORS.primary}20, ${AILYDIAN_COLORS.secondary}20)`}}>
                           <Zap className="w-5 h-5" style={{color: AILYDIAN_COLORS.primary}} />
                         </div>
-                        <h4 className="text-base font-bold text-gray-900">Hızlı İşlemler</h4>
+                        <h4 className="text-base font-bold text-white">Hızlı İşlemler</h4>
                       </div>
                       <div className="space-y-3">
                         <Link href="/admin/locations/new" className="block w-full text-center text-white px-4 py-3 rounded-lg transition-all transform hover:scale-105 hover:shadow-lg font-semibold" style={{background: `linear-gradient(45deg, ${AILYDIAN_COLORS.primary}, ${AILYDIAN_COLORS.secondary})`}}>
