@@ -33,7 +33,7 @@ import {
   Clock,
   Shield,
 } from 'lucide-react';
-import SimplifiedHeader from '@/components/layout/SimplifiedHeader';
+import { BookingHeader } from '@/components/layout/BookingHeader';
 import TransferRouteSelector from '@/components/transfers/TransferRouteSelector';
 import type { AdvancedLocationSuggestion } from '@/lib/location-service-advanced';
 import {
@@ -291,7 +291,7 @@ const TransfersPage: React.FC = () => {
         />
       </Head>
 
-      <SimplifiedHeader />
+      <BookingHeader />
 
       <main className="min-h-screen bg-gray-50">
         {/* Hero Section - Full Width Search */}
