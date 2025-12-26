@@ -25,93 +25,30 @@ import {
   Building2,
   Crown
 } from 'lucide-react';
+import antalyaHotels from '../../data/antalya-hotels';
 
 const PlacesToStayPage: NextPage = () => {
   const { t, i18n } = useTranslation('common');
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
   const [sortBy, setSortBy] = useState('popular');
   const [selectedCategory, setSelectedCategory] = useState('all');
-  const currentLang = i18n.language || 'tr';
+  const currentLang = (i18n.language || 'tr') as 'tr' | 'en';
 
-  // Sample accommodation data - replace with real data from database
-  const accommodations = [
-    {
-      id: 'lara-luxury-resort',
-      type: 'hotel',
-      name: currentLang === 'tr' ? 'Lara Lüks Resort' : 'Lara Luxury Resort',
-      description: currentLang === 'tr'
-        ? 'Her Şey Dahil 5 yıldızlı resort'
-        : 'All-Inclusive 5-star resort',
-      location: currentLang === 'tr' ? 'Lara, Antalya' : 'Lara, Antalya',
-      rating: 4.8,
-      reviews: 1247,
-      price: 3500,
-      image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80',
-      features: [
-        currentLang === 'tr' ? 'WiFi' : 'WiFi',
-        currentLang === 'tr' ? 'Havuz' : 'Pool',
-        currentLang === 'tr' ? 'Spa' : 'Spa',
-        currentLang === 'tr' ? 'Restoran' : 'Restaurant'
-      ]
-    },
-    {
-      id: 'belek-villa',
-      type: 'villa',
-      name: currentLang === 'tr' ? 'Belek Özel Villa' : 'Belek Private Villa',
-      description: currentLang === 'tr'
-        ? 'Özel havuzlu lüks villa'
-        : 'Luxury villa with private pool',
-      location: currentLang === 'tr' ? 'Belek, Antalya' : 'Belek, Antalya',
-      rating: 4.9,
-      reviews: 523,
-      price: 5000,
-      image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80',
-      features: [
-        currentLang === 'tr' ? 'Özel Havuz' : 'Private Pool',
-        currentLang === 'tr' ? 'Bahçe' : 'Garden',
-        currentLang === 'tr' ? 'BBQ' : 'BBQ',
-        currentLang === 'tr' ? 'Mutfak' : 'Kitchen'
-      ]
-    },
-    {
-      id: 'kaleici-boutique',
-      type: 'boutique',
-      name: currentLang === 'tr' ? 'Kaleiçi Butik Otel' : 'Kaleici Boutique Hotel',
-      description: currentLang === 'tr'
-        ? 'Tarihi Kaleiçi\'nde butik otel'
-        : 'Boutique hotel in historic Kaleici',
-      location: currentLang === 'tr' ? 'Kaleiçi, Antalya' : 'Kaleici, Antalya',
-      rating: 4.7,
-      reviews: 842,
-      price: 2200,
-      image: 'https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=800&q=80',
-      features: [
-        currentLang === 'tr' ? 'Kahvaltı' : 'Breakfast',
-        currentLang === 'tr' ? 'Teras' : 'Terrace',
-        currentLang === 'tr' ? 'WiFi' : 'WiFi',
-        currentLang === 'tr' ? 'Klima' : 'AC'
-      ]
-    },
-    {
-      id: 'lara-sea-view',
-      type: 'apartment',
-      name: currentLang === 'tr' ? 'Lara Deniz Manzaralı Daire' : 'Lara Sea View Apartment',
-      description: currentLang === 'tr'
-        ? 'Panoramik deniz manzaralı daire'
-        : 'Panoramic sea view apartment',
-      location: currentLang === 'tr' ? 'Lara, Antalya' : 'Lara, Antalya',
-      rating: 4.6,
-      reviews: 315,
-      price: 1800,
-      image: 'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=800&q=80',
-      features: [
-        currentLang === 'tr' ? 'Deniz Manzarası' : 'Sea View',
-        currentLang === 'tr' ? 'Balkon' : 'Balcony',
-        currentLang === 'tr' ? 'Mutfak' : 'Kitchen',
-        currentLang === 'tr' ? 'Otopark' : 'Parking'
-      ]
-    }
-  ];
+  // Real hotel data from database
+  const lang = (currentLang === 'tr' || currentLang === 'en') ? currentLang : 'en';
+  const accommodations = antalyaHotels.map(hotel => ({
+    id: hotel.id,
+    type: hotel.category,
+    name: hotel.name[lang],
+    description: hotel.description[lang],
+    location: hotel.location.region + ', Antalya',
+    rating: hotel.rating,
+    reviews: hotel.reviewCount,
+    price: hotel.pricing.perNight,
+    image: hotel.images[0],
+    features: hotel.amenities[lang].slice(0, 4)
+  }));
+
 
   const categories = [
     { id: 'all', name: currentLang === 'tr' ? 'Tümü' : 'All', icon: Building },
