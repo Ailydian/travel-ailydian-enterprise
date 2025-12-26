@@ -151,7 +151,7 @@ const PremiumToast: React.FC<PremiumToastProps> = ({ toast, onClose, position = 
       transition={{ type: 'spring', damping: 25, stiffness: 300 }}
       className="relative w-full max-w-md"
     >
-      <div className={`relative bg-white rounded-2xl shadow-2xl border-2 ${config.border} overflow-hidden backdrop-blur-xl`}>
+      <div className={`relative bg-white/5 rounded-2xl shadow-2xl border-2 ${config.border} overflow-hidden backdrop-blur-xl`}>
         {/* Background Gradient Glow */}
         <div className={`absolute inset-0 bg-gradient-to-r ${config.gradient} opacity-5`} />
 
@@ -171,7 +171,7 @@ const PremiumToast: React.FC<PremiumToastProps> = ({ toast, onClose, position = 
                   <motion.div
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
-                    className="absolute -top-2 -right-2 w-5 h-5 bg-white rounded-full flex items-center justify-center shadow-md"
+                    className="absolute -top-2 -right-2 w-5 h-5 bg-white/5 rounded-full flex items-center justify-center shadow-md"
                   >
                     <span className="text-xs font-bold text-blue-600">{toast.itemCount}</span>
                   </motion.div>
@@ -204,7 +204,7 @@ const PremiumToast: React.FC<PremiumToastProps> = ({ toast, onClose, position = 
 
               {/* Image Preview (for cart items) */}
               {toast.image && (
-                <div className="mb-3 rounded-lg overflow-hidden border border-gray-200">
+                <div className="mb-3 rounded-lg overflow-hidden border border-white/10">
                   <img
                     src={toast.image}
                     alt={toast.title}

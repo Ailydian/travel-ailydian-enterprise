@@ -282,7 +282,7 @@ export default function AdminDashboard() {
   const LoadingSpinner = () => (
     <div className="flex items-center justify-center py-8">
       <div className="relative">
-        <div className="w-10 h-10 rounded-full border-2 border-gray-200 animate-spin"></div>
+        <div className="w-10 h-10 rounded-full border-2 border-white/10 animate-spin"></div>
         <div className="absolute top-0 left-0 w-10 h-10 rounded-full border-2 border-transparent border-t-red-500 animate-spin"></div>
       </div>
     </div>
@@ -332,7 +332,7 @@ export default function AdminDashboard() {
       <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center">
         <div className="text-center">
           <div className="relative">
-            <div className="w-20 h-20 border-4 border-gray-200 border-t-transparent rounded-full animate-spin mx-auto mb-6"></div>
+            <div className="w-20 h-20 border-4 border-white/10 border-t-transparent rounded-full animate-spin mx-auto mb-6"></div>
             <div className="absolute inset-0 w-20 h-20 border-4 border-transparent border-t-red-500 rounded-full animate-spin mx-auto" style={{animationDuration: '1.5s'}}></div>
           </div>
           <h3 className="text-xl font-semibold text-gray-100 mb-2">Kontrol Paneli Yükleniyor</h3>
@@ -373,7 +373,7 @@ export default function AdminDashboard() {
 
       <div className="min-h-screen" style={{background: `linear-gradient(135deg, ${AILYDIAN_COLORS.dark} 0%, #1f1f23 50%, #2d2d35 100%)`}}>
         {/* Top Navigation */}
-        <nav className="bg-white/95 backdrop-blur-sm shadow-lg border-b border-gray-200">
+        <nav className="bg-white/95 backdrop-blur-sm shadow-lg border-b border-white/10">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex justify-between items-center h-16">
               <div className="flex items-center space-x-4">
@@ -715,7 +715,7 @@ export default function AdminDashboard() {
                 {/* Charts Section */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
                   {/* Unified Revenue Chart */}
-                  <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200 p-6 hover:shadow-xl transition-all">
+                  <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-white/10 p-6 hover:shadow-xl transition-all">
                     <div className="flex items-center justify-between mb-6">
                       <div className="flex items-center space-x-3">
                         <div className="p-2 rounded-lg" style={{background: `linear-gradient(45deg, ${AILYDIAN_COLORS.primary}20, ${AILYDIAN_COLORS.secondary}20)`}}>
@@ -783,7 +783,7 @@ export default function AdminDashboard() {
                   </div>
 
                   {/* Top Locations */}
-                  <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200 p-6 hover:shadow-xl transition-all">
+                  <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-white/10 p-6 hover:shadow-xl transition-all">
                     <div className="flex items-center space-x-3 mb-6">
                       <div className="p-2 rounded-lg" style={{background: `linear-gradient(45deg, ${AILYDIAN_COLORS.warning}20, ${AILYDIAN_COLORS.secondary}20)`}}>
                         <Award className="w-5 h-5" style={{color: AILYDIAN_COLORS.warning}} />
@@ -835,7 +835,7 @@ export default function AdminDashboard() {
                 {/* Bottom Section */}
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                   {/* Recent Activity */}
-                  <div className="lg:col-span-2 bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200 p-6 hover:shadow-xl transition-all">
+                  <div className="lg:col-span-2 bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-white/10 p-6 hover:shadow-xl transition-all">
                     <div className="flex items-center justify-between mb-6">
                       <div className="flex items-center space-x-3">
                         <div className="p-2 rounded-lg" style={{background: `linear-gradient(45deg, ${AILYDIAN_COLORS.success}20, ${AILYDIAN_COLORS.blue}20)`}}>
@@ -917,7 +917,7 @@ export default function AdminDashboard() {
                   {/* System Status & Actions */}
                   <div className="space-y-6">
                     {/* External Platform Stats */}
-                    <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200 p-6 hover:shadow-xl transition-all">
+                    <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-white/10 p-6 hover:shadow-xl transition-all">
                       <div className="flex items-center space-x-3 mb-4">
                         <div className="p-2 rounded-lg" style={{background: `linear-gradient(45deg, ${AILYDIAN_COLORS.blue}20, ${AILYDIAN_COLORS.purple}20)`}}>
                           <Globe className="w-5 h-5" style={{color: AILYDIAN_COLORS.blue}} />
@@ -937,7 +937,7 @@ export default function AdminDashboard() {
                           <span className="text-sm font-medium text-gray-200">Senkronizasyon Hatası</span>
                           <span className="font-bold text-red-600">{dashboardData.platformStats.syncErrors}</span>
                         </div>
-                        <div className="pt-3 border-t border-gray-200">
+                        <div className="pt-3 border-t border-white/10">
                           <p className="text-xs text-gray-500 flex items-center">
                             <Zap className="w-3 h-3 mr-1" />
                             Son senkronizasyon: {formatDateTurkish(dashboardData.platformStats.lastSync)}
@@ -947,7 +947,7 @@ export default function AdminDashboard() {
                     </div>
 
                     {/* Moderation Queue */}
-                    <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200 p-6 hover:shadow-xl transition-all">
+                    <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-white/10 p-6 hover:shadow-xl transition-all">
                       <div className="flex items-center space-x-3 mb-4">
                         <div className="p-2 rounded-lg" style={{background: `linear-gradient(45deg, ${AILYDIAN_COLORS.warning}20, ${AILYDIAN_COLORS.error}20)`}}>
                           <AlertTriangle className="w-5 h-5" style={{color: AILYDIAN_COLORS.warning}} />
@@ -977,7 +977,7 @@ export default function AdminDashboard() {
                     </div>
 
                     {/* Quick Actions */}
-                    <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200 p-6 hover:shadow-xl transition-all">
+                    <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-white/10 p-6 hover:shadow-xl transition-all">
                       <div className="flex items-center space-x-3 mb-4">
                         <div className="p-2 rounded-lg" style={{background: `linear-gradient(45deg, ${AILYDIAN_COLORS.primary}20, ${AILYDIAN_COLORS.secondary}20)`}}>
                           <Zap className="w-5 h-5" style={{color: AILYDIAN_COLORS.primary}} />

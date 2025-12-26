@@ -136,19 +136,19 @@ const MapSelector: React.FC<MapSelectorProps> = ({
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           placeholder="Adres veya konum ara... (örn: Kızılay, Ankara)"
-          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          className="w-full px-4 py-3 border border-white/20 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
         />
 
         {/* Search Results Dropdown */}
         {searchResults.length > 0 && (
-          <div className="absolute z-50 w-full mt-2 bg-white border border-gray-200 rounded-lg shadow-lg max-h-60 overflow-y-auto">
+          <div className="absolute z-50 w-full mt-2 bg-white/5 border border-white/10 rounded-lg shadow-lg max-h-60 overflow-y-auto">
             {searchResults.map((result, index) => (
               <button
                 key={index}
                 onClick={() => handleSelectSearchResult(result)}
                 className="w-full text-left px-4 py-3 hover:bg-blue-50 border-b border-gray-100 last:border-b-0 transition-colors"
               >
-                <p className="text-sm text-gray-800 font-medium">
+                <p className="text-sm text-gray-100 font-medium">
                   {result.display_name}
                 </p>
               </button>
@@ -164,7 +164,7 @@ const MapSelector: React.FC<MapSelectorProps> = ({
       </div>
 
       {/* Map Container */}
-      <div className="relative w-full h-[400px] rounded-lg overflow-hidden border-2 border-gray-200 shadow-md">
+      <div className="relative w-full h-[400px] rounded-lg overflow-hidden border-2 border-white/10 shadow-md">
         <MapContainer
           center={position ? [position.lat, position.lng] : defaultCenter}
           zoom={defaultZoom}

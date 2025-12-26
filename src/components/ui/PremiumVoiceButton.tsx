@@ -135,7 +135,7 @@ const PremiumVoiceButton: React.FC = () => {
                       repeat: Infinity,
                       ease: 'easeInOut'
                     }}
-                    className="absolute left-1 top-1/2 -translate-y-1/2 w-1 h-3 bg-white rounded-full"
+                    className="absolute left-1 top-1/2 -translate-y-1/2 w-1 h-3 bg-white/5 rounded-full"
                   />
                   <motion.div
                     animate={{
@@ -147,7 +147,7 @@ const PremiumVoiceButton: React.FC = () => {
                       ease: 'easeInOut',
                       delay: 0.1
                     }}
-                    className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 w-1 h-5 bg-white rounded-full"
+                    className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 w-1 h-5 bg-white/5 rounded-full"
                   />
                   <motion.div
                     animate={{
@@ -159,7 +159,7 @@ const PremiumVoiceButton: React.FC = () => {
                       ease: 'easeInOut',
                       delay: 0.2
                     }}
-                    className="absolute right-1 top-1/2 -translate-y-1/2 w-1 h-3 bg-white rounded-full"
+                    className="absolute right-1 top-1/2 -translate-y-1/2 w-1 h-3 bg-white/5 rounded-full"
                   />
                 </div>
               </motion.div>
@@ -202,7 +202,7 @@ const PremiumVoiceButton: React.FC = () => {
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             exit={{ scale: 0 }}
-            className="absolute -top-1 -right-1 w-4 h-4 bg-white rounded-full border-2 border-red-500 shadow-lg z-20"
+            className="absolute -top-1 -right-1 w-4 h-4 bg-white/5 rounded-full border-2 border-red-500 shadow-lg z-20"
           >
             <motion.div
               animate={{
@@ -252,7 +252,7 @@ const PremiumVoiceButton: React.FC = () => {
               <motion.div
                 animate={{ scale: [1, 1.2, 1] }}
                 transition={{ duration: 1, repeat: Infinity }}
-                className="w-2 h-2 bg-white rounded-full"
+                className="w-2 h-2 bg-white/5 rounded-full"
               />
               <span>Dinliyorum...</span>
             </div>

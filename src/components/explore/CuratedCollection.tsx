@@ -14,7 +14,7 @@ export const CuratedCollection: React.FC = () => {
   return (
     <div className="space-y-6">
       <div className="text-center space-y-2">
-        <h2 className="text-3xl sm:text-4xl font-black text-gray-900">{t('explore.collections.title')}</h2>
+        <h2 className="text-3xl sm:text-4xl font-black text-white">{t('explore.collections.title')}</h2>
         <p className="text-gray-600 text-lg">{t('explore.collections.subtitle')}</p>
       </div>
 

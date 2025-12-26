@@ -232,7 +232,7 @@ const TravelBlockchain: React.FC = () => {
   };
 
   const NFTCard: React.FC<{ nft: TravelNFT }> = ({ nft }) => (
-    <div className="bg-white rounded-2xl shadow-lg overflow-hidden cursor-pointer hover:shadow-xl transition-shadow" onClick={() => setSelectedNFT(nft)}>
+    <div className="bg-white/5 rounded-2xl shadow-lg overflow-hidden cursor-pointer hover:shadow-xl transition-shadow" onClick={() => setSelectedNFT(nft)}>
       <motion.div
         layoutId={nft.id}
         whileHover={{ y: -4 }}
@@ -259,7 +259,7 @@ const TravelBlockchain: React.FC = () => {
       </div>
       
       <div className="p-4">
-        <h3 className="font-bold text-gray-900 mb-2">{nft.title}</h3>
+        <h3 className="font-bold text-white mb-2">{nft.title}</h3>
         <div className="flex items-center gap-2 text-sm text-gray-600 mb-2">
           <MapPin className="w-4 h-4" />
           <span>{nft.location}</span>
@@ -285,7 +285,7 @@ const TravelBlockchain: React.FC = () => {
       {/* Header */}
       <div className="flex items-center justify-between mb-8">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900 flex items-center gap-3">
+          <h1 className="text-3xl font-bold text-white flex items-center gap-3">
             <div className="p-3 bg-gradient-to-r from-purple-500 to-blue-600 rounded-2xl">
               <Coins className="w-8 h-8 text-white" />
             </div>
@@ -313,7 +313,7 @@ const TravelBlockchain: React.FC = () => {
           <div className="text-right">
             <div className="flex items-center gap-2 mb-2">
               <div className="w-3 h-3 bg-green-400 rounded-full"></div>
-              <span className="text-sm font-medium text-gray-900">Bağlandı</span>
+              <span className="text-sm font-medium text-white">Bağlandı</span>
             </div>
             <div className="text-xs text-gray-500 mb-1">
               {walletAddress.slice(0, 6)}...{walletAddress.slice(-4)}
@@ -330,7 +330,7 @@ const TravelBlockchain: React.FC = () => {
           <div className="w-20 h-20 bg-gradient-to-r from-purple-500 to-blue-600 rounded-2xl mx-auto mb-6 flex items-center justify-center">
             <Wallet className="w-10 h-10 text-white" />
           </div>
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Cüzdanınızı Bağlayın</h2>
+          <h2 className="text-2xl font-bold text-white mb-4">Cüzdanınızı Bağlayın</h2>
           <p className="text-gray-600 mb-8 max-w-md mx-auto">
             NFT seyahat anılarınızı mint etmek, kripto ödemeler yapmak ve merkezi olmayan değerlendirmeleri görüntülemek için cüzdanınızı bağlayın.
           </p>
@@ -340,7 +340,7 @@ const TravelBlockchain: React.FC = () => {
               <div className="w-16 h-16 bg-purple-100 rounded-2xl mx-auto mb-4 flex items-center justify-center">
                 <Image className="w-8 h-8 text-purple-600" />
               </div>
-              <h3 className="font-semibold text-gray-900 mb-2">NFT Anılar</h3>
+              <h3 className="font-semibold text-white mb-2">NFT Anılar</h3>
                 <p className="text-sm text-gray-600">
                   Seyahat deneyimlerinizi benzersiz NFT&apos;ler olarak kaydedin
                 </p>
@@ -350,7 +350,7 @@ const TravelBlockchain: React.FC = () => {
               <div className="w-16 h-16 bg-blue-100 rounded-2xl mx-auto mb-4 flex items-center justify-center">
                 <CreditCard className="w-8 h-8 text-blue-600" />
               </div>
-              <h3 className="font-semibold text-gray-900 mb-2">Kripto Ödemeler</h3>
+              <h3 className="font-semibold text-white mb-2">Kripto Ödemeler</h3>
               <p className="text-sm text-gray-600">
                 ETH, BTC ve stable coin&apos;lerle güvenli ödemeler yapın
               </p>
@@ -360,7 +360,7 @@ const TravelBlockchain: React.FC = () => {
               <div className="w-16 h-16 bg-green-100 rounded-2xl mx-auto mb-4 flex items-center justify-center">
                 <Shield className="w-8 h-8 text-green-600" />
               </div>
-              <h3 className="font-semibold text-gray-900 mb-2">Güvenilir Yorumlar</h3>
+              <h3 className="font-semibold text-white mb-2">Güvenilir Yorumlar</h3>
               <p className="text-sm text-gray-600">
                 Blockchain ile doğrulanmış gerçek kullanıcı yorumları
               </p>
@@ -383,8 +383,8 @@ const TravelBlockchain: React.FC = () => {
                   onClick={() => setActiveTab(tab.key as any)}
                   className={`flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-lg font-medium transition-colors transform hover:scale-105 ${
                     activeTab === tab.key
-                      ? 'bg-white text-purple-600 shadow-sm'
-                      : 'text-gray-600 hover:text-gray-900'
+                      ? 'bg-white/5 text-purple-600 shadow-sm'
+                      : 'text-gray-600 hover:text-white'
                   }`}
                 >
                   <Icon className="w-5 h-5" />
@@ -403,7 +403,7 @@ const TravelBlockchain: React.FC = () => {
           {activeTab === 'nfts' && (
             <div>
               <div className="flex items-center justify-between mb-6">
-                <h2 className="text-2xl font-bold text-gray-900">NFT Koleksiyonum</h2>
+                <h2 className="text-2xl font-bold text-white">NFT Koleksiyonum</h2>
                 <button
                   onClick={() => setShowMintModal(true)}
                   className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-xl font-medium hover:shadow-lg transition-all transform hover:scale-105"
@@ -423,7 +423,7 @@ const TravelBlockchain: React.FC = () => {
                     <div className="w-20 h-20 bg-gray-100 rounded-2xl mx-auto mb-6 flex items-center justify-center">
                       <Image className="w-10 h-10 text-gray-400" />
                     </div>
-                    <h3 className="text-xl font-semibold text-gray-900 mb-2">Henüz NFT&apos;niz yok</h3>
+                    <h3 className="text-xl font-semibold text-white mb-2">Henüz NFT&apos;niz yok</h3>
                     <p className="text-gray-600 mb-6">
                       İlk seyahat anınızı NFT olarak mint edin!
                     </p>
@@ -437,7 +437,7 @@ const TravelBlockchain: React.FC = () => {
           {activeTab === 'payments' && (
             <div>
               <div className="flex items-center justify-between mb-6">
-                <h2 className="text-2xl font-bold text-gray-900">Kripto Ödemeler</h2>
+                <h2 className="text-2xl font-bold text-white">Kripto Ödemeler</h2>
                 <button
                   onClick={() => {
                     setPaymentData({ amount: 250, description: 'Seyahat Rezervasyonu' });
@@ -452,7 +452,7 @@ const TravelBlockchain: React.FC = () => {
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {/* Payment History Cards */}
-                <div className="bg-white rounded-2xl shadow-lg p-6">
+                <div className="bg-white/5 rounded-2xl shadow-lg p-6">
                   <div className="flex items-center justify-between mb-4">
                     <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center">
                       <CheckCircle className="w-6 h-6 text-green-600" />
@@ -461,15 +461,15 @@ const TravelBlockchain: React.FC = () => {
                       Tamamlandı
                     </span>
                   </div>
-                  <h3 className="font-semibold text-gray-900 mb-2">Otel Rezervasyonu</h3>
+                  <h3 className="font-semibold text-white mb-2">Otel Rezervasyonu</h3>
                   <p className="text-sm text-gray-600 mb-4">Kapadokya Cave Hotel - 3 gece</p>
                   <div className="flex items-center justify-between">
-                    <span className="text-lg font-bold text-gray-900">$420.50</span>
+                    <span className="text-lg font-bold text-white">$420.50</span>
                     <span className="text-sm text-gray-500">ETH</span>
                   </div>
                 </div>
 
-                <div className="bg-white rounded-2xl shadow-lg p-6">
+                <div className="bg-white/5 rounded-2xl shadow-lg p-6">
                   <div className="flex items-center justify-between mb-4">
                     <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
                       <Clock className="w-6 h-6 text-blue-600" />
@@ -478,19 +478,19 @@ const TravelBlockchain: React.FC = () => {
                       Beklemede
                     </span>
                   </div>
-                  <h3 className="font-semibold text-gray-900 mb-2">Balon Turu</h3>
+                  <h3 className="font-semibold text-white mb-2">Balon Turu</h3>
                   <p className="text-sm text-gray-600 mb-4">Kapadokya Hot Air Balloon</p>
                   <div className="flex items-center justify-between">
-                    <span className="text-lg font-bold text-gray-900">$180.00</span>
+                    <span className="text-lg font-bold text-white">$180.00</span>
                     <span className="text-sm text-gray-500">USDC</span>
                   </div>
                 </div>
 
-                <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-dashed border-gray-300 flex flex-col items-center justify-center text-center">
+                <div className="bg-white/5 rounded-2xl shadow-lg p-6 border-2 border-dashed border-white/20 flex flex-col items-center justify-center text-center">
                   <div className="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center mb-4">
                     <CreditCard className="w-6 h-6 text-gray-400" />
                   </div>
-                  <h3 className="font-semibold text-gray-900 mb-2">Yeni Ödeme</h3>
+                  <h3 className="font-semibold text-white mb-2">Yeni Ödeme</h3>
                   <p className="text-sm text-gray-600 mb-4">Kripto ile güvenli ödeme yapın</p>
                   <button
                     onClick={() => {
@@ -511,7 +511,7 @@ const TravelBlockchain: React.FC = () => {
 
               {/* Supported Cryptocurrencies */}
               <div className="mt-8">
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">Desteklenen Kripto Para Birimleri</h3>
+                <h3 className="text-lg font-semibold text-white mb-4">Desteklenen Kripto Para Birimleri</h3>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                   {[
                     { name: 'Ethereum', symbol: 'ETH', icon: '🔷', color: 'bg-blue-100 text-blue-700' },
@@ -519,11 +519,11 @@ const TravelBlockchain: React.FC = () => {
                     { name: 'Tether', symbol: 'USDT', icon: '💚', color: 'bg-green-100 text-green-700' },
                     { name: 'Bitcoin', symbol: 'BTC', icon: '₿', color: 'bg-orange-100 text-orange-700' }
                   ].map((crypto) => (
-                    <div key={crypto.symbol} className="bg-white rounded-xl p-4 text-center shadow-sm border">
+                    <div key={crypto.symbol} className="bg-white/5 rounded-xl p-4 text-center shadow-sm border">
                       <div className={`w-12 h-12 rounded-xl mx-auto mb-2 flex items-center justify-center text-xl ${crypto.color}`}>
                         {crypto.icon}
                       </div>
-                      <div className="font-medium text-gray-900">{crypto.symbol}</div>
+                      <div className="font-medium text-white">{crypto.symbol}</div>
                       <div className="text-xs text-gray-600">{crypto.name}</div>
                     </div>
                   ))}
@@ -548,7 +548,7 @@ const TravelBlockchain: React.FC = () => {
           >
             <div
               onClick={(e) => e.stopPropagation()}
-              className="bg-white rounded-2xl p-6 w-full max-w-md"
+              className="bg-white/5 rounded-2xl p-6 w-full max-w-md"
             >
               <motion.div
                 initial={{ scale: 0.9, opacity: 0 }}
@@ -556,7 +556,7 @@ const TravelBlockchain: React.FC = () => {
                 exit={{ scale: 0.9, opacity: 0 }}
               >
               <div className="flex items-center justify-between mb-6">
-                <h3 className="text-xl font-bold text-gray-900">Seyahat NFT&apos;si Mint Et</h3>
+                <h3 className="text-xl font-bold text-white">Seyahat NFT&apos;si Mint Et</h3>
                 <button
                   onClick={() => setShowMintModal(false)}
                   className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
@@ -574,7 +574,7 @@ const TravelBlockchain: React.FC = () => {
                     type="text"
                     value={mintingData.title}
                     onChange={(e) => setMintingData(prev => ({ ...prev, title: e.target.value }))}
-                    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                    className="w-full p-3 border border-white/20 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
                     placeholder="Örn: Kapadokya Balon Turu"
                   />
                 </div>
@@ -586,7 +586,7 @@ const TravelBlockchain: React.FC = () => {
                   <textarea
                     value={mintingData.description}
                     onChange={(e) => setMintingData(prev => ({ ...prev, description: e.target.value }))}
-                    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                    className="w-full p-3 border border-white/20 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
                     rows={3}
                     placeholder="Bu deneyimi anlatan bir açıklama yazın..."
                   />
@@ -600,7 +600,7 @@ const TravelBlockchain: React.FC = () => {
                     type="text"
                     value={mintingData.location}
                     onChange={(e) => setMintingData(prev => ({ ...prev, location: e.target.value }))}
-                    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                    className="w-full p-3 border border-white/20 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
                     placeholder="Örn: Göreme, Kapadokya"
                   />
                 </div>
@@ -616,7 +616,7 @@ const TravelBlockchain: React.FC = () => {
               <div className="flex gap-3 mt-6">
                 <button
                   onClick={() => setShowMintModal(false)}
-                  className="flex-1 px-4 py-2 border border-gray-300 rounded-lg font-medium hover:bg-gray-50 transition-colors"
+                  className="flex-1 px-4 py-2 border border-white/20 rounded-lg font-medium hover:bg-gray-50 transition-colors"
                 >
                   İptal
                 </button>
@@ -655,7 +655,7 @@ const TravelBlockchain: React.FC = () => {
           >
             <div
               onClick={(e) => e.stopPropagation()}
-              className="bg-white rounded-2xl overflow-hidden w-full max-w-2xl max-h-[90vh] overflow-y-auto"
+              className="bg-white/5 rounded-2xl overflow-hidden w-full max-w-2xl max-h-[90vh] overflow-y-auto"
             >
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
@@ -680,7 +680,7 @@ const TravelBlockchain: React.FC = () => {
               <div className="p-6">
                 <div className="flex items-start justify-between mb-4">
                   <div>
-                    <h2 className="text-2xl font-bold text-gray-900 mb-2">{selectedNFT.title}</h2>
+                    <h2 className="text-2xl font-bold text-white mb-2">{selectedNFT.title}</h2>
                     <span className={`px-3 py-1 rounded-full text-sm font-medium ${getRarityColor(selectedNFT.rarity)}`}>
                       {getRarityEmoji(selectedNFT.rarity)} {selectedNFT.rarity.toUpperCase()}
                     </span>
@@ -695,7 +695,7 @@ const TravelBlockchain: React.FC = () => {
 
                 <div className="grid grid-cols-2 gap-6 mb-6">
                   <div>
-                    <h3 className="font-semibold text-gray-900 mb-3">Özellikler</h3>
+                    <h3 className="font-semibold text-white mb-3">Özellikler</h3>
                     <div className="space-y-2 text-sm">
                       <div className="flex items-center justify-between">
                         <span className="text-gray-600">Destinasyon</span>
@@ -717,7 +717,7 @@ const TravelBlockchain: React.FC = () => {
                   </div>
 
                   <div>
-                    <h3 className="font-semibold text-gray-900 mb-3">Detaylar</h3>
+                    <h3 className="font-semibold text-white mb-3">Detaylar</h3>
                     <div className="space-y-2 text-sm">
                       <div className="flex items-center gap-2">
                         <MapPin className="w-4 h-4 text-gray-500" />
@@ -736,11 +736,11 @@ const TravelBlockchain: React.FC = () => {
                 </div>
 
                 <div className="flex gap-3">
-                  <button className="flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-lg font-medium hover:bg-gray-50 transition-colors">
+                  <button className="flex items-center gap-2 px-4 py-2 border border-white/20 rounded-lg font-medium hover:bg-gray-50 transition-colors">
                     <Share2 className="w-4 h-4" />
                     Paylaş
                   </button>
-                  <button className="flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-lg font-medium hover:bg-gray-50 transition-colors">
+                  <button className="flex items-center gap-2 px-4 py-2 border border-white/20 rounded-lg font-medium hover:bg-gray-50 transition-colors">
                     <Download className="w-4 h-4" />
                     İndir
                   </button>
@@ -766,7 +766,7 @@ const TravelBlockchain: React.FC = () => {
           >
             <div
               onClick={(e) => e.stopPropagation()}
-              className="bg-white rounded-2xl overflow-hidden w-full max-w-4xl max-h-[90vh] overflow-y-auto"
+              className="bg-white/5 rounded-2xl overflow-hidden w-full max-w-4xl max-h-[90vh] overflow-y-auto"
             >
               <motion.div
                 initial={{ scale: 0.9, opacity: 0 }}
@@ -774,7 +774,7 @@ const TravelBlockchain: React.FC = () => {
                 exit={{ scale: 0.9, opacity: 0 }}
               >
               <div className="flex items-center justify-between p-6 border-b">
-                <h3 className="text-2xl font-bold text-gray-900">Kripto Ödeme</h3>
+                <h3 className="text-2xl font-bold text-white">Kripto Ödeme</h3>
                 <button
                   onClick={() => setShowPaymentModal(false)}
                   className="p-2 hover:bg-gray-100 rounded-lg transition-colors"

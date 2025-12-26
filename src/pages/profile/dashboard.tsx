@@ -379,7 +379,7 @@ const Dashboard: React.FC = () => {
                   </div>
                   <div className="space-y-4">
                     {upcomingTrips.map((trip) => (
-                      <div key={trip.id} className="border border-gray-200 rounded-xl p-4 hover:border-blue-300 transition-colors">
+                      <div key={trip.id} className="border border-white/10 rounded-xl p-4 hover:border-blue-300 transition-colors">
                         <div className="flex items-start space-x-4">
                           <div className="w-20 h-20 bg-gray-200 rounded-lg overflow-hidden flex-shrink-0">
                             <img src={trip.image} alt={trip.destination} className="w-full h-full object-cover" />

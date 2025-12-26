@@ -462,13 +462,13 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
               {/* Navigation Arrows */}
               <button
                 onClick={() => setSelectedImage(prev => (prev === 0 ? tour.images.length - 1 : prev - 1))}
-                className="absolute left-4 top-1/2 -translate-y-1/2 p-3 bg-white/90 hover:bg-white rounded-full shadow-lg transition-all z-10"
+                className="absolute left-4 top-1/2 -translate-y-1/2 p-3 bg-white/90 hover:bg-white/5 rounded-full shadow-lg transition-all z-10"
               >
                 <ChevronLeft className="w-6 h-6 text-white" />
               </button>
               <button
                 onClick={() => setSelectedImage(prev => (prev === tour.images.length - 1 ? 0 : prev + 1))}
-                className="absolute right-4 top-1/2 -translate-y-1/2 p-3 bg-white/90 hover:bg-white rounded-full shadow-lg transition-all z-10"
+                className="absolute right-4 top-1/2 -translate-y-1/2 p-3 bg-white/90 hover:bg-white/5 rounded-full shadow-lg transition-all z-10"
               >
                 <ChevronRight className="w-6 h-6 text-white" />
               </button>
@@ -477,13 +477,13 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
               <div className="absolute top-4 right-4 flex items-center gap-2 z-10">
                 <button
                   onClick={handleShare}
-                  className="p-2 bg-white/90 hover:bg-white rounded-lg transition-all"
+                  className="p-2 bg-white/90 hover:bg-white/5 rounded-lg transition-all"
                 >
                   <Share2 className="w-5 h-5 text-white" />
                 </button>
                 <button
                   onClick={() => setIsFavorite(!isFavorite)}
-                  className="p-2 bg-white/90 hover:bg-white rounded-lg transition-all"
+                  className="p-2 bg-white/90 hover:bg-white/5 rounded-lg transition-all"
                 >
                   <Heart
                     className={`w-5 h-5 ${isFavorite ? 'fill-red-500 text-red-500' : 'text-white'}`}
@@ -777,7 +777,7 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
                 <p className="text-gray-200 mb-4">{tour.meetingPoint}</p>
 
                 {/* Interactive Map */}
-                <div className="aspect-video bg-gray-100 rounded-lg overflow-hidden border border-gray-200">
+                <div className="aspect-video bg-gray-100 rounded-lg overflow-hidden border border-white/10">
                   <iframe
                     src={`https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3009.8!2d${tour.meetingPointCoords.lng}!3d${tour.meetingPointCoords.lat}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDHCsDAyJzE4LjAiTiAyOcKwMDAnMjYuNiJF!5e0!3m2!1str!2str!4v1234567890123!5m2!1str!2str`}
                     width="100%"
@@ -863,7 +863,7 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
 
                 <div className="space-y-6">
                   {tour.reviews.map((review) => (
-                    <div key={review.id} className="border-b border-gray-200 pb-6 last:border-0">
+                    <div key={review.id} className="border-b border-white/10 pb-6 last:border-0">
                       <div className="flex items-start gap-3 mb-3">
                         <div className="relative w-12 h-12 rounded-full overflow-hidden flex-shrink-0">
                           <Image
@@ -913,7 +913,7 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
                   ))}
                 </div>
 
-                <button className="w-full mt-6 py-3 border-2 border-gray-200 rounded-lg font-semibold text-gray-200 hover:border-gray-300 hover:bg-gray-50 transition-all">
+                <button className="w-full mt-6 py-3 border-2 border-white/10 rounded-lg font-semibold text-gray-200 hover:border-white/20 hover:bg-gray-50 transition-all">
                   Tüm Yorumları Göster ({tour.reviewCount.toLocaleString()})
                 </button>
               </div>
@@ -923,7 +923,7 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
                 <h3 className="text-xl font-bold text-white mb-4">Sıkça Sorulan Sorular</h3>
                 <div className="space-y-3">
                   {tour.faqs.map((faq, index) => (
-                    <div key={index} className="border border-gray-200 rounded-lg overflow-hidden">
+                    <div key={index} className="border border-white/10 rounded-lg overflow-hidden">
                       <button
                         onClick={() => setExpandedFAQ(expandedFAQ === faq.question ? null : faq.question)}
                         className="w-full px-4 py-3 flex items-center justify-between text-left hover:bg-gray-50 transition-colors"
@@ -957,7 +957,7 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
             {/* Right Column - Booking Panel */}
             <div className="lg:col-span-1">
               <div className="sticky top-20">
-                <div className="bg-transparent rounded-2xl p-6 shadow-lg border border-gray-200">
+                <div className="bg-transparent rounded-2xl p-6 shadow-lg border border-white/10">
                   {/* Price */}
                   <div className="mb-6">
                     <div className="flex items-baseline gap-2 mb-1">
@@ -988,7 +988,7 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
                         value={selectedDate}
                         onChange={(e) => setSelectedDate(e.target.value)}
                         min={new Date().toISOString().split('T')[0]}
-                        className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        className="w-full pl-10 pr-4 py-3 border border-white/20 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                       />
                     </div>
                   </div>
@@ -1001,7 +1001,7 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
                     <div className="flex items-center gap-3">
                       <button
                         onClick={() => setSelectedGuests(Math.max(1, selectedGuests - 1))}
-                        className="p-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
+                        className="p-2 border border-white/20 rounded-lg hover:bg-gray-50 transition-colors"
                         disabled={selectedGuests <= 1}
                       >
                         <ChevronLeft className="w-5 h-5" />
@@ -1012,7 +1012,7 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
                       </div>
                       <button
                         onClick={() => setSelectedGuests(selectedGuests + 1)}
-                        className="p-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
+                        className="p-2 border border-white/20 rounded-lg hover:bg-gray-50 transition-colors"
                       >
                         <ChevronRight className="w-5 h-5" />
                       </button>
@@ -1046,16 +1046,16 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
                   </p>
 
                   {/* Contact */}
-                  <div className="mt-6 pt-6 border-t border-gray-200">
+                  <div className="mt-6 pt-6 border-t border-white/10">
                     <p className="text-sm font-semibold text-white mb-3">
                       Sorularınız mı var?
                     </p>
                     <div className="space-y-2">
-                      <button className="w-full px-4 py-2 border border-gray-200 rounded-lg font-semibold text-gray-200 hover:bg-gray-50 transition-colors flex items-center justify-center gap-2">
+                      <button className="w-full px-4 py-2 border border-white/10 rounded-lg font-semibold text-gray-200 hover:bg-gray-50 transition-colors flex items-center justify-center gap-2">
                         <MessageCircle className="w-5 h-5" />
                         Canlı Destek
                       </button>
-                      <button className="w-full px-4 py-2 border border-gray-200 rounded-lg font-semibold text-gray-200 hover:bg-gray-50 transition-colors flex items-center justify-center gap-2">
+                      <button className="w-full px-4 py-2 border border-white/10 rounded-lg font-semibold text-gray-200 hover:bg-gray-50 transition-colors flex items-center justify-center gap-2">
                         <Phone className="w-5 h-5" />
                         Bizi Arayın
                       </button>

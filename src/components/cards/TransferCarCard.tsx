@@ -47,7 +47,7 @@ export const TransferCarCard: React.FC<TransferCarCardProps> = ({
       viewport={{ once: true }}
       whileHover={{ y: -8, boxShadow: '0 20px 40px rgba(0,0,0,0.15)' }}
       transition={{ duration: 0.3 }}
-      className={`group relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 ${className}`}
+      className={`group relative bg-white/5 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 ${className}`}
     >
       {/* Popular Badge */}
       {popular && (
@@ -65,7 +65,7 @@ export const TransferCarCard: React.FC<TransferCarCardProps> = ({
       {/* Category Badge */}
       {category && (
         <div className="absolute top-4 left-4 z-10">
-          <div className="bg-white/90 backdrop-blur-sm text-gray-800 px-3 py-1 rounded-full text-xs font-semibold shadow-md">
+          <div className="bg-white/90 backdrop-blur-sm text-gray-100 px-3 py-1 rounded-full text-xs font-semibold shadow-md">
             {category}
           </div>
         </div>
@@ -79,7 +79,7 @@ export const TransferCarCard: React.FC<TransferCarCardProps> = ({
       {/* Content */}
       <div className="p-6">
         {/* Title */}
-        <h3 className="text-xl font-bold text-gray-900 mb-3 line-clamp-2 group-hover:text-blue-600 transition-colors">
+        <h3 className="text-xl font-bold text-white mb-3 line-clamp-2 group-hover:text-blue-600 transition-colors">
           {title}
         </h3>
 
@@ -124,7 +124,7 @@ export const TransferCarCard: React.FC<TransferCarCardProps> = ({
           <div className="flex items-center gap-2 mb-4">
             <div className="flex items-center gap-1">
               <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-              <span className="font-semibold text-gray-900">{rating.toFixed(1)}</span>
+              <span className="font-semibold text-white">{rating.toFixed(1)}</span>
             </div>
             {reviews > 0 && (
               <span className="text-sm text-gray-500">({reviews} değerlendirme)</span>

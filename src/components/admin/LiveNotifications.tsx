@@ -93,7 +93,7 @@ const NotificationItem: React.FC<{
       className="relative w-96 max-w-full"
     >
       <div className={`bg-gradient-to-r ${colorClass} p-0.5 rounded-xl shadow-2xl`}>
-        <div className="bg-white dark:bg-gray-900 rounded-xl p-4">
+        <div className="bg-white/5 dark:bg-gray-900 rounded-xl p-4">
           <div className="flex items-start gap-3">
             {/* Icon */}
             <div className={`flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br ${colorClass} flex items-center justify-center shadow-lg`}>
@@ -111,7 +111,7 @@ const NotificationItem: React.FC<{
               </div>
 
               {/* Title */}
-              <h4 className="text-sm font-bold text-gray-900 dark:text-white mb-1 truncate">
+              <h4 className="text-sm font-bold text-white dark:text-white mb-1 truncate">
                 {notification.title}
               </h4>
 
@@ -122,7 +122,7 @@ const NotificationItem: React.FC<{
 
               {/* Amount & Time */}
               <div className="flex items-center justify-between">
-                <span className="text-sm font-bold text-gray-900 dark:text-white">
+                <span className="text-sm font-bold text-white dark:text-white">
                   {notification.amount.toLocaleString('tr-TR')} {notification.currency}
                 </span>
                 <span className="text-xs text-gray-500">

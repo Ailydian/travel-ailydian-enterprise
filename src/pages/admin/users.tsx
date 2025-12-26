@@ -234,7 +234,7 @@ export default function AdminUsers() {
       <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center">
         <div className="text-center">
           <div className="relative">
-            <div className="w-20 h-20 border-4 border-gray-200 border-t-transparent rounded-full animate-spin mx-auto mb-6"></div>
+            <div className="w-20 h-20 border-4 border-white/10 border-t-transparent rounded-full animate-spin mx-auto mb-6"></div>
             <div className="absolute inset-0 w-20 h-20 border-4 border-transparent border-t-red-500 rounded-full animate-spin mx-auto" style={{animationDuration: '1.5s'}}></div>
           </div>
           <h3 className="text-xl font-semibold text-gray-100 mb-2">Kullanıcılar Yükleniyor</h3>
@@ -274,7 +274,7 @@ export default function AdminUsers() {
 
       <div className="min-h-screen" style={{background: `linear-gradient(135deg, ${AILYDIAN_COLORS.dark} 0%, #1f1f23 50%, #2d2d35 100%)`}}>
         {/* Top Navigation */}
-        <nav className="bg-white/95 backdrop-blur-sm shadow-lg border-b border-gray-200">
+        <nav className="bg-white/95 backdrop-blur-sm shadow-lg border-b border-white/10">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex justify-between items-center h-16">
               <div className="flex items-center space-x-4">
@@ -421,14 +421,14 @@ export default function AdminUsers() {
                         placeholder="Kullanıcı ara..."
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
-                        className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                        className="w-full pl-10 pr-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                       />
                     </div>
 
                     <select
                       value={statusFilter}
                       onChange={(e) => setStatusFilter(e.target.value)}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                      className="w-full px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                     >
                       <option value="all">Tüm Durumlar</option>
                       <option value="active">Aktif</option>
@@ -439,7 +439,7 @@ export default function AdminUsers() {
                     <select
                       value={roleFilter}
                       onChange={(e) => setRoleFilter(e.target.value)}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                      className="w-full px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                     >
                       <option value="all">Tüm Roller</option>
                       <option value="user">Kullanıcı</option>
@@ -455,7 +455,7 @@ export default function AdminUsers() {
                         <Filter className="w-4 h-4 mr-2 inline" />
                         Filtrele
                       </button>
-                      <button className="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50">
+                      <button className="px-4 py-2 border border-white/20 rounded-lg hover:bg-gray-50">
                         <Download className="w-4 h-4" />
                       </button>
                     </div>
@@ -464,7 +464,7 @@ export default function AdminUsers() {
 
                 {/* Users Table */}
                 <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg overflow-hidden">
-                  <div className="px-6 py-4 border-b border-gray-200">
+                  <div className="px-6 py-4 border-b border-white/10">
                     <h3 className="text-lg font-bold text-white">Kullanıcılar ({usersData.total})</h3>
                   </div>
                   
@@ -576,7 +576,7 @@ export default function AdminUsers() {
                   </div>
 
                   {/* Pagination */}
-                  <div className="px-6 py-4 border-t border-gray-200 flex items-center justify-between">
+                  <div className="px-6 py-4 border-t border-white/10 flex items-center justify-between">
                     <div className="flex items-center">
                       <span className="text-sm text-gray-200">
                         Sayfa {usersData.pagination.currentPage} / {usersData.pagination.totalPages}
@@ -585,13 +585,13 @@ export default function AdminUsers() {
                     <div className="flex items-center space-x-2">
                       <button 
                         disabled={!usersData.pagination.hasPrevious}
-                        className="px-3 py-1 border border-gray-300 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50"
+                        className="px-3 py-1 border border-white/20 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50"
                       >
                         <ChevronLeft className="w-4 h-4" />
                       </button>
                       <button 
                         disabled={!usersData.pagination.hasNext}
-                        className="px-3 py-1 border border-gray-300 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50"
+                        className="px-3 py-1 border border-white/20 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50"
                       >
                         <ChevronRight className="w-4 h-4" />
                       </button>

@@ -126,14 +126,14 @@ const ResponsiveSearchBar: React.FC<ResponsiveSearchBarProps> = ({
       {isMobile && !isExpanded ? (
         <motion.button
           onClick={() => setIsExpanded(true)}
-          className="w-full bg-white rounded-2xl shadow-lg p-4 flex items-center gap-3 active:scale-98 transition-transform touch-target"
+          className="w-full bg-white/5 rounded-2xl shadow-lg p-4 flex items-center gap-3 active:scale-98 transition-transform touch-target"
           whileTap={{ scale: 0.98 }}
         >
           <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-lydian-primary to-lydian-secondary flex items-center justify-center">
             <Search className="w-5 h-5 text-white" />
           </div>
           <div className="flex-1 text-left">
-            <p className="font-semibold text-gray-900">Nereye gidiyorsun?</p>
+            <p className="font-semibold text-white">Nereye gidiyorsun?</p>
             <p className="text-sm text-gray-500">Otel, uçuş veya transfer ara</p>
           </div>
           <ChevronRight className="w-5 h-5 text-gray-400" />
@@ -143,7 +143,7 @@ const ResponsiveSearchBar: React.FC<ResponsiveSearchBarProps> = ({
         <motion.div
           initial={isMobile ? { opacity: 0, scale: 0.95 } : false}
           animate={isMobile ? { opacity: 1, scale: 1 } : false}
-          className={`bg-white rounded-3xl shadow-2xl ${
+          className={`bg-white/5 rounded-3xl shadow-2xl ${
             isMobile
               ? 'fixed inset-4 z-[9999] overflow-y-auto'
               : 'relative'
@@ -152,8 +152,8 @@ const ResponsiveSearchBar: React.FC<ResponsiveSearchBarProps> = ({
           <div className="p-4 md:p-6">
             {/* Mobile Header */}
             {isMobile && (
-              <div className="flex items-center justify-between mb-4 pb-4 border-b border-gray-200">
-                <h3 className="text-lg font-bold text-gray-900">Ara</h3>
+              <div className="flex items-center justify-between mb-4 pb-4 border-b border-white/10">
+                <h3 className="text-lg font-bold text-white">Ara</h3>
                 <button
                   onClick={() => setIsExpanded(false)}
                   className="w-10 h-10 rounded-xl bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors touch-target"
@@ -261,7 +261,7 @@ const ResponsiveSearchBar: React.FC<ResponsiveSearchBarProps> = ({
 
             {/* Popular Searches (Mobile) */}
             {isMobile && (
-              <div className="mt-6 pt-6 border-t border-gray-200">
+              <div className="mt-6 pt-6 border-t border-white/10">
                 <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">
                   Popüler Aramalar
                 </p>
@@ -276,7 +276,7 @@ const ResponsiveSearchBar: React.FC<ResponsiveSearchBarProps> = ({
                       className="w-full flex items-center gap-3 p-3 rounded-xl bg-gray-50 hover:bg-gray-100 active:bg-gray-200 transition-colors touch-target text-left"
                     >
                       <TrendingUp className="w-4 h-4 text-lydian-primary" />
-                      <span className="text-sm font-medium text-gray-900">{query}</span>
+                      <span className="text-sm font-medium text-white">{query}</span>
                     </button>
                   ))}
                 </div>

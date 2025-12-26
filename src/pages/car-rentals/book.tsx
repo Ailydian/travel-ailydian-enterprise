@@ -495,7 +495,7 @@ const CarRentalBookingPage: React.FC = () => {
 
                     <div className="space-y-6">
                       {/* Pickup Details */}
-                      <div className="border border-gray-200 rounded-xl p-6">
+                      <div className="border border-white/10 rounded-xl p-6">
                         <h3 className="font-semibold text-lg text-white mb-4 flex items-center gap-2">
                           <MapPin className="w-5 h-5 text-green-600" />
                           Teslim Alma
@@ -507,7 +507,7 @@ const CarRentalBookingPage: React.FC = () => {
                               value={bookingData.pickupLocation}
                               onChange={(e) => setBookingData({ ...bookingData, pickupLocation: e.target.value })}
                               className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none ${
-                                errors.pickupLocation ? 'border-red-500' : 'border-gray-300'
+                                errors.pickupLocation ? 'border-red-500' : 'border-white/20'
                               }`}
                             >
                               {LOCATIONS.map(loc => (
@@ -522,7 +522,7 @@ const CarRentalBookingPage: React.FC = () => {
                               value={bookingData.pickupDate}
                               onChange={(e) => setBookingData({ ...bookingData, pickupDate: e.target.value })}
                               className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none ${
-                                errors.pickupDate ? 'border-red-500' : 'border-gray-300'
+                                errors.pickupDate ? 'border-red-500' : 'border-white/20'
                               }`}
                             />
                           </div>
@@ -532,7 +532,7 @@ const CarRentalBookingPage: React.FC = () => {
                               value={bookingData.pickupTime}
                               onChange={(e) => setBookingData({ ...bookingData, pickupTime: e.target.value })}
                               className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none ${
-                                errors.pickupTime ? 'border-red-500' : 'border-gray-300'
+                                errors.pickupTime ? 'border-red-500' : 'border-white/20'
                               }`}
                             >
                               {TIME_SLOTS.map(time => (
@@ -544,7 +544,7 @@ const CarRentalBookingPage: React.FC = () => {
                       </div>
 
                       {/* Return Details */}
-                      <div className="border border-gray-200 rounded-xl p-6">
+                      <div className="border border-white/10 rounded-xl p-6">
                         <h3 className="font-semibold text-lg text-white mb-4 flex items-center gap-2">
                           <MapPin className="w-5 h-5 text-red-600" />
                           İade
@@ -556,7 +556,7 @@ const CarRentalBookingPage: React.FC = () => {
                               value={bookingData.returnLocation}
                               onChange={(e) => setBookingData({ ...bookingData, returnLocation: e.target.value })}
                               className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none ${
-                                errors.returnLocation ? 'border-red-500' : 'border-gray-300'
+                                errors.returnLocation ? 'border-red-500' : 'border-white/20'
                               }`}
                             >
                               {LOCATIONS.map(loc => (
@@ -571,7 +571,7 @@ const CarRentalBookingPage: React.FC = () => {
                               value={bookingData.returnDate}
                               onChange={(e) => setBookingData({ ...bookingData, returnDate: e.target.value })}
                               className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none ${
-                                errors.returnDate ? 'border-red-500' : 'border-gray-300'
+                                errors.returnDate ? 'border-red-500' : 'border-white/20'
                               }`}
                             />
                             {errors.returnDate && (
@@ -584,7 +584,7 @@ const CarRentalBookingPage: React.FC = () => {
                               value={bookingData.returnTime}
                               onChange={(e) => setBookingData({ ...bookingData, returnTime: e.target.value })}
                               className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none ${
-                                errors.returnTime ? 'border-red-500' : 'border-gray-300'
+                                errors.returnTime ? 'border-red-500' : 'border-white/20'
                               }`}
                             >
                               {TIME_SLOTS.map(time => (
@@ -632,7 +632,7 @@ const CarRentalBookingPage: React.FC = () => {
                             className={`relative border-2 rounded-xl p-5 cursor-pointer transition-all ${
                               bookingData.insurance === option.id
                                 ? 'border-blue-600 bg-blue-50'
-                                : 'border-gray-200 hover:border-blue-300'
+                                : 'border-white/10 hover:border-blue-300'
                             }`}
                           >
                             {option.badge && (
@@ -683,7 +683,7 @@ const CarRentalBookingPage: React.FC = () => {
                               className={`border-2 rounded-xl p-4 cursor-pointer transition-all ${
                                 isSelected
                                   ? 'border-purple-600 bg-purple-50'
-                                  : 'border-gray-200 hover:border-purple-300'
+                                  : 'border-white/10 hover:border-purple-300'
                               }`}
                             >
                               <div className="flex items-start gap-4">
@@ -698,7 +698,7 @@ const CarRentalBookingPage: React.FC = () => {
                                   <p className="font-bold text-purple-600">₺{extra.price}/gün</p>
                                 </div>
                                 <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center flex-shrink-0 ${
-                                  isSelected ? 'border-purple-600 bg-purple-600' : 'border-gray-300'
+                                  isSelected ? 'border-purple-600 bg-purple-600' : 'border-white/20'
                                 }`}>
                                   {isSelected && <Check className="w-4 h-4 text-white" />}
                                 </div>
@@ -732,7 +732,7 @@ const CarRentalBookingPage: React.FC = () => {
                             driver: { ...bookingData.driver, name: e.target.value }
                           })}
                           className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none ${
-                            errors.driverName ? 'border-red-500' : 'border-gray-300'
+                            errors.driverName ? 'border-red-500' : 'border-white/20'
                           }`}
                           placeholder="Ahmet Yılmaz"
                         />
@@ -749,7 +749,7 @@ const CarRentalBookingPage: React.FC = () => {
                             driver: { ...bookingData.driver, email: e.target.value }
                           })}
                           className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none ${
-                            errors.driverEmail ? 'border-red-500' : 'border-gray-300'
+                            errors.driverEmail ? 'border-red-500' : 'border-white/20'
                           }`}
                           placeholder="ornek@email.com"
                         />
@@ -766,7 +766,7 @@ const CarRentalBookingPage: React.FC = () => {
                             driver: { ...bookingData.driver, phone: e.target.value }
                           })}
                           className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none ${
-                            errors.driverPhone ? 'border-red-500' : 'border-gray-300'
+                            errors.driverPhone ? 'border-red-500' : 'border-white/20'
                           }`}
                           placeholder="+90 5XX XXX XX XX"
                         />
@@ -783,7 +783,7 @@ const CarRentalBookingPage: React.FC = () => {
                             driver: { ...bookingData.driver, age: parseInt(e.target.value) || 0 }
                           })}
                           className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none ${
-                            errors.driverAge ? 'border-red-500' : 'border-gray-300'
+                            errors.driverAge ? 'border-red-500' : 'border-white/20'
                           }`}
                           placeholder="25"
                           min="21"
@@ -801,7 +801,7 @@ const CarRentalBookingPage: React.FC = () => {
                             driver: { ...bookingData.driver, licenseNumber: e.target.value }
                           })}
                           className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none ${
-                            errors.licenseNumber ? 'border-red-500' : 'border-gray-300'
+                            errors.licenseNumber ? 'border-red-500' : 'border-white/20'
                           }`}
                           placeholder="XXXXX"
                         />
@@ -818,7 +818,7 @@ const CarRentalBookingPage: React.FC = () => {
                             driver: { ...bookingData.driver, licenseExpiry: e.target.value }
                           })}
                           className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none ${
-                            errors.licenseExpiry ? 'border-red-500' : 'border-gray-300'
+                            errors.licenseExpiry ? 'border-red-500' : 'border-white/20'
                           }`}
                         />
                         {errors.licenseExpiry && <p className="text-sm text-red-500 mt-1">{errors.licenseExpiry}</p>}
@@ -983,14 +983,14 @@ const CarRentalBookingPage: React.FC = () => {
                 {currentStep > 1 ? (
                   <button
                     onClick={handleBack}
-                    className="flex items-center gap-2 px-6 py-3 border border-gray-300 text-gray-200 rounded-lg hover:bg-gray-50 transition-colors"
+                    className="flex items-center gap-2 px-6 py-3 border border-white/20 text-gray-200 rounded-lg hover:bg-gray-50 transition-colors"
                   >
                     <ChevronLeft className="w-5 h-5" />
                     Geri
                   </button>
                 ) : (
                   <Link href={`/car-rentals/${slug}`}>
-                    <button className="flex items-center gap-2 px-6 py-3 border border-gray-300 text-gray-200 rounded-lg hover:bg-gray-50 transition-colors">
+                    <button className="flex items-center gap-2 px-6 py-3 border border-white/20 text-gray-200 rounded-lg hover:bg-gray-50 transition-colors">
                       <ChevronLeft className="w-5 h-5" />
                       Araç Detayı
                     </button>
@@ -1048,7 +1048,7 @@ const CarRentalBookingPage: React.FC = () => {
                     <span className="font-semibold">₺{pricing.tax.toLocaleString('tr-TR')}</span>
                   </div>
 
-                  <div className="border-t border-gray-200 pt-4">
+                  <div className="border-t border-white/10 pt-4">
                     <div className="flex items-center justify-between">
                       <span className="font-bold text-lg text-white">Toplam</span>
                       <span className="text-2xl font-bold text-blue-600">

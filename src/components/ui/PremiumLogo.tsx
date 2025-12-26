@@ -69,11 +69,11 @@ export const PremiumLogo: React.FC<PremiumLogoProps> = ({
         
         {/* Animated orbiting elements */}
         <div className="absolute inset-0">
-          <div className="absolute top-2 left-4 w-1 h-1 bg-white rounded-full animate-ping" 
+          <div className="absolute top-2 left-4 w-1 h-1 bg-white/5 rounded-full animate-ping" 
                style={{animationDelay: '0s', animationDuration: '3s'}}></div>
-          <div className="absolute top-6 right-3 w-1 h-1 bg-white rounded-full animate-ping" 
+          <div className="absolute top-6 right-3 w-1 h-1 bg-white/5 rounded-full animate-ping" 
                style={{animationDelay: '1s', animationDuration: '3s'}}></div>
-          <div className="absolute bottom-3 left-6 w-1 h-1 bg-white rounded-full animate-ping" 
+          <div className="absolute bottom-3 left-6 w-1 h-1 bg-white/5 rounded-full animate-ping" 
                style={{animationDelay: '2s', animationDuration: '3s'}}></div>
         </div>
       </div>

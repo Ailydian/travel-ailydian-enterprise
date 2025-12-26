@@ -284,7 +284,7 @@ const InteractiveMap: React.FC<InteractiveMapProps> = ({
   return (
     <div className={`relative ${className}`}>
       {/* Arama ve kontrol paneli */}
-      <div className="absolute top-4 left-4 right-4 z-[1000] bg-white rounded-lg shadow-lg p-4">
+      <div className="absolute top-4 left-4 right-4 z-[1000] bg-white/5 rounded-lg shadow-lg p-4">
         <div className="space-y-3">
           {/* Adres arama */}
           <div className="relative">
@@ -297,7 +297,7 @@ const InteractiveMap: React.FC<InteractiveMapProps> = ({
                 setShowSearchResults(true);
               }}
               onFocus={() => setShowSearchResults(true)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             />
             {isSearching && (
               <div className="absolute right-3 top-2.5">
@@ -307,7 +307,7 @@ const InteractiveMap: React.FC<InteractiveMapProps> = ({
             
             {/* Arama sonuçları */}
             {showSearchResults && searchResults.length > 0 && (
-              <div className="absolute top-full left-0 right-0 mt-1 bg-white border border-gray-200 rounded-lg shadow-lg max-h-60 overflow-y-auto">
+              <div className="absolute top-full left-0 right-0 mt-1 bg-white/5 border border-white/10 rounded-lg shadow-lg max-h-60 overflow-y-auto">
                 {searchResults.map((result, index) => (
                   <button
                     key={index}
@@ -471,7 +471,7 @@ const InteractiveMap: React.FC<InteractiveMapProps> = ({
       {/* Harita kapatma butonu */}
       <button
         onClick={() => setShowSearchResults(false)}
-        className="absolute top-4 right-4 z-[1001] w-8 h-8 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-50"
+        className="absolute top-4 right-4 z-[1001] w-8 h-8 bg-white/5 rounded-full shadow-lg flex items-center justify-center hover:bg-gray-50"
         style={{ display: showSearchResults ? 'flex' : 'none' }}
       >
         ✕

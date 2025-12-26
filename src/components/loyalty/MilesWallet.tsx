@@ -83,8 +83,8 @@ const MilesWallet: React.FC<MilesWalletProps> = ({ userId }) => {
       >
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-white rounded-full -mr-32 -mt-32"></div>
-          <div className="absolute bottom-0 left-0 w-48 h-48 bg-white rounded-full -ml-24 -mb-24"></div>
+          <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -mr-32 -mt-32"></div>
+          <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full -ml-24 -mb-24"></div>
         </div>
 
         <div className="relative">
@@ -149,11 +149,11 @@ const MilesWallet: React.FC<MilesWalletProps> = ({ userId }) => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
-          className="bg-white rounded-xl shadow-md p-6"
+          className="bg-white/5 rounded-xl shadow-md p-6"
         >
           <div className="flex items-center justify-between mb-4">
             <div>
-              <h3 className="text-lg font-bold text-gray-900">
+              <h3 className="text-lg font-bold text-white">
                 {tierProgress.nextTier.name}'e Yükseltin!
               </h3>
               <p className="text-sm text-gray-600">
@@ -202,11 +202,11 @@ const MilesWallet: React.FC<MilesWalletProps> = ({ userId }) => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="bg-white rounded-xl shadow-md p-6"
+          className="bg-white/5 rounded-xl shadow-md p-6"
         >
           <div className="flex items-center gap-3 mb-4">
             <Award className="h-6 w-6 text-purple-600" />
-            <h3 className="text-lg font-bold text-gray-900">Avantajlarınız</h3>
+            <h3 className="text-lg font-bold text-white">Avantajlarınız</h3>
           </div>
 
           <ul className="space-y-3">
@@ -240,16 +240,16 @@ const MilesWallet: React.FC<MilesWalletProps> = ({ userId }) => {
           className="space-y-4"
         >
           {/* How to Earn */}
-          <div className="bg-white rounded-xl shadow-md p-6">
+          <div className="bg-white/5 rounded-xl shadow-md p-6">
             <div className="flex items-center gap-3 mb-4">
               <TrendingUp className="h-6 w-6 text-green-600" />
-              <h3 className="text-lg font-bold text-gray-900">Miles Kazanın</h3>
+              <h3 className="text-lg font-bold text-white">Miles Kazanın</h3>
             </div>
 
             <div className="space-y-3">
               <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
                 <span className="text-sm text-gray-700">Rezervasyon</span>
-                <span className="text-sm font-bold text-gray-900">₺1 = 1 Mile</span>
+                <span className="text-sm font-bold text-white">₺1 = 1 Mile</span>
               </div>
 
               <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
@@ -274,10 +274,10 @@ const MilesWallet: React.FC<MilesWalletProps> = ({ userId }) => {
           </div>
 
           {/* How to Redeem */}
-          <div className="bg-white rounded-xl shadow-md p-6">
+          <div className="bg-white/5 rounded-xl shadow-md p-6">
             <div className="flex items-center gap-3 mb-4">
               <Gift className="h-6 w-6 text-orange-600" />
-              <h3 className="text-lg font-bold text-gray-900">Miles Kullanın</h3>
+              <h3 className="text-lg font-bold text-white">Miles Kullanın</h3>
             </div>
 
             <div className="space-y-3">
@@ -292,11 +292,11 @@ const MilesWallet: React.FC<MilesWalletProps> = ({ userId }) => {
 
               <div className="grid grid-cols-2 gap-2 text-xs">
                 <div className="p-2 bg-gray-50 rounded text-center">
-                  <p className="font-bold text-gray-900">5,000 Miles</p>
+                  <p className="font-bold text-white">5,000 Miles</p>
                   <p className="text-gray-600">₺250</p>
                 </div>
                 <div className="p-2 bg-gray-50 rounded text-center">
-                  <p className="font-bold text-gray-900">10,000 Miles</p>
+                  <p className="font-bold text-white">10,000 Miles</p>
                   <p className="text-gray-600">₺500</p>
                 </div>
               </div>
@@ -318,7 +318,7 @@ const MilesWallet: React.FC<MilesWalletProps> = ({ userId }) => {
           </div>
 
           <div className="flex-1">
-            <h3 className="text-lg font-bold text-gray-900 mb-2">
+            <h3 className="text-lg font-bold text-white mb-2">
               Arkadaşınızı Davet Edin, Miles Kazanın!
             </h3>
             <p className="text-sm text-gray-600 mb-4">
@@ -330,7 +330,7 @@ const MilesWallet: React.FC<MilesWalletProps> = ({ userId }) => {
                 type="text"
                 value={`AILXYZ${userId.substring(0, 3).toUpperCase()}`}
                 readOnly
-                className="flex-1 px-4 py-2 bg-white border border-gray-300 rounded-lg text-sm font-mono"
+                className="flex-1 px-4 py-2 bg-white/5 border border-white/20 rounded-lg text-sm font-mono"
               />
               <button className="px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg font-medium flex items-center gap-2 transition-colors">
                 <Share2 className="h-4 w-4" />
@@ -371,7 +371,7 @@ const MilesWallet: React.FC<MilesWalletProps> = ({ userId }) => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.6 }}
-        className="bg-white rounded-xl shadow-md"
+        className="bg-white/5 rounded-xl shadow-md"
       >
         <button
           onClick={() => setShowHistory(!showHistory)}
@@ -379,7 +379,7 @@ const MilesWallet: React.FC<MilesWalletProps> = ({ userId }) => {
         >
           <div className="flex items-center gap-3">
             <History className="h-5 w-5 text-gray-600" />
-            <h3 className="text-lg font-bold text-gray-900">İşlem Geçmişi</h3>
+            <h3 className="text-lg font-bold text-white">İşlem Geçmişi</h3>
             <span className="text-sm text-gray-500">({transactions.length})</span>
           </div>
           <ChevronRight
@@ -397,7 +397,7 @@ const MilesWallet: React.FC<MilesWalletProps> = ({ userId }) => {
                 className="flex items-center justify-between p-3 bg-gray-50 rounded-lg"
               >
                 <div className="flex-1">
-                  <p className="text-sm font-semibold text-gray-900">
+                  <p className="text-sm font-semibold text-white">
                     {transaction.description}
                   </p>
                   <p className="text-xs text-gray-500">

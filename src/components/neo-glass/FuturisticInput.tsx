@@ -69,7 +69,7 @@ export const FuturisticInput: React.FC<FuturisticInputProps> = ({
     bg-white/10 backdrop-blur-xl
     border-2 border-white/30
     rounded-2xl
-    text-gray-900
+    text-white
     placeholder-gray-500
     outline-none
     transition-all duration-300
@@ -93,7 +93,7 @@ export const FuturisticInput: React.FC<FuturisticInputProps> = ({
             absolute left-4
             ${icon ? 'left-12' : 'left-4'}
             px-2
-            bg-white rounded-lg
+            bg-white/5 rounded-lg
             font-semibold
             pointer-events-none
             z-10

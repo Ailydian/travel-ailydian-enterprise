@@ -466,7 +466,7 @@ const CarRentalsPage: React.FC = () => {
         </section>
 
         {/* Filters Bar */}
-        <section className="bg-transparent border-b border-gray-200 sticky top-20 z-40">
+        <section className="bg-transparent border-b border-white/10 sticky top-20 z-40">
           <div className="max-w-7xl mx-auto px-4 py-4">
             <div className="flex items-center justify-between gap-4">
               <div className="flex items-center gap-2 flex-wrap">
@@ -487,7 +487,7 @@ const CarRentalsPage: React.FC = () => {
 
               <button
                 onClick={() => setShowFilters(!showFilters)}
-                className="flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50"
+                className="flex items-center gap-2 px-4 py-2 border border-white/20 rounded-lg hover:bg-gray-50"
               >
                 <Filter className="w-5 h-5" />
                 <span className="text-sm font-medium">Filtreler</span>
@@ -543,7 +543,7 @@ const CarRentalsPage: React.FC = () => {
                       e.stopPropagation();
                       toggleFavorite(vehicle.id);
                     }}
-                    className="absolute bottom-4 right-4 w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white transition-all"
+                    className="absolute bottom-4 right-4 w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/5 transition-all"
                   >
                     <Heart
                       className={`w-5 h-5 ${

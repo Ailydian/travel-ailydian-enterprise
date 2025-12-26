@@ -256,7 +256,7 @@ const VirtualToursPage: NextPage = () => {
                     className={`flex items-center gap-2 px-6 py-3 rounded-full font-medium transition-all ${
                       selectedCategory === category.id
                         ? 'bg-blue-600 text-white shadow-md'
-                        : 'bg-white text-gray-200 hover:bg-blue-50 border border-gray-200'
+                        : 'bg-white/5 text-gray-200 hover:bg-blue-50 border border-gray-200'
                     }`}
                   >
                     <Icon className="w-4 h-4" />
@@ -448,7 +448,7 @@ const VirtualToursPage: NextPage = () => {
                 </div>
 
                 {/* Tour Info */}
-                <div className="p-6 bg-white">
+                <div className="p-6 bg-white/5">
                   <div className="flex items-center justify-between">
                     <div>
                       <h3 className="text-xl font-bold text-white">{selectedTour.title}</h3>

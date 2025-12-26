@@ -86,7 +86,7 @@ const DashboardHeader: React.FC<DashboardHeaderProps> = ({
   };
 
   return (
-    <header className="sticky top-0 z-30 bg-white border-b border-gray-200 shadow-sm">
+    <header className="sticky top-0 z-30 bg-white/5 border-b border-white/10 shadow-sm">
       <div className="px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           {/* Left section: Mobile menu + Breadcrumbs */}
@@ -94,7 +94,7 @@ const DashboardHeader: React.FC<DashboardHeaderProps> = ({
             {/* Mobile menu toggle */}
             <button
               onClick={onMenuClick}
-              className="lg:hidden p-2 rounded-md text-gray-500 hover:bg-gray-100 hover:text-gray-900 transition-colors"
+              className="lg:hidden p-2 rounded-md text-gray-500 hover:bg-gray-100 hover:text-white transition-colors"
               aria-label="Open menu"
             >
               <Menu className="h-6 w-6" />
@@ -115,14 +115,14 @@ const DashboardHeader: React.FC<DashboardHeaderProps> = ({
                       {crumb.label}
                     </Link>
                   ) : (
-                    <span className="text-gray-900 font-medium truncate">{crumb.label}</span>
+                    <span className="text-white font-medium truncate">{crumb.label}</span>
                   )}
                 </React.Fragment>
               ))}
             </nav>
 
             {/* Mobile title */}
-            <h1 className="sm:hidden text-lg font-semibold text-gray-900 truncate">
+            <h1 className="sm:hidden text-lg font-semibold text-white truncate">
               {title}
             </h1>
           </div>
@@ -138,7 +138,7 @@ const DashboardHeader: React.FC<DashboardHeaderProps> = ({
                   placeholder="Search..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-64 pl-10 pr-4 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-64 pl-10 pr-4 py-2 border border-white/20 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   aria-label="Search"
                 />
               </div>
@@ -162,9 +162,9 @@ const DashboardHeader: React.FC<DashboardHeaderProps> = ({
 
               {/* Notifications dropdown */}
               {notificationsOpen && (
-                <div className="absolute right-0 mt-2 w-80 bg-white rounded-lg shadow-lg border border-gray-200 py-2">
-                  <div className="px-4 py-2 border-b border-gray-200">
-                    <h3 className="text-sm font-semibold text-gray-900">Notifications</h3>
+                <div className="absolute right-0 mt-2 w-80 bg-white/5 rounded-lg shadow-lg border border-white/10 py-2">
+                  <div className="px-4 py-2 border-b border-white/10">
+                    <h3 className="text-sm font-semibold text-white">Notifications</h3>
                   </div>
                   <div className="max-h-96 overflow-y-auto">
                     {notifications.map((notification) => (
@@ -177,7 +177,7 @@ const DashboardHeader: React.FC<DashboardHeaderProps> = ({
                             <span className="mt-1.5 h-2 w-2 bg-blue-600 rounded-full flex-shrink-0" />
                           )}
                           <div className="flex-1 min-w-0">
-                            <p className={`text-sm ${notification.unread ? 'font-medium text-gray-900' : 'text-gray-700'}`}>
+                            <p className={`text-sm ${notification.unread ? 'font-medium text-white' : 'text-gray-700'}`}>
                               {notification.title}
                             </p>
                             <p className="text-xs text-gray-500 mt-1">{notification.time}</p>
@@ -186,7 +186,7 @@ const DashboardHeader: React.FC<DashboardHeaderProps> = ({
                       </button>
                     ))}
                   </div>
-                  <div className="px-4 py-2 border-t border-gray-200">
+                  <div className="px-4 py-2 border-t border-white/10">
                     <Link
                       href="/dashboard/notifications"
                       className="text-sm text-blue-600 hover:text-blue-700 font-medium"
@@ -220,16 +220,16 @@ const DashboardHeader: React.FC<DashboardHeaderProps> = ({
                   </div>
                 )}
                 <div className="hidden md:block text-left">
-                  <p className="text-sm font-medium text-gray-900">{userName}</p>
+                  <p className="text-sm font-medium text-white">{userName}</p>
                   <p className="text-xs text-gray-500">Host</p>
                 </div>
               </button>
 
               {/* User dropdown menu */}
               {userMenuOpen && (
-                <div className="absolute right-0 mt-2 w-56 bg-white rounded-lg shadow-lg border border-gray-200 py-1">
-                  <div className="px-4 py-3 border-b border-gray-200">
-                    <p className="text-sm font-medium text-gray-900">{userName}</p>
+                <div className="absolute right-0 mt-2 w-56 bg-white/5 rounded-lg shadow-lg border border-white/10 py-1">
+                  <div className="px-4 py-3 border-b border-white/10">
+                    <p className="text-sm font-medium text-white">{userName}</p>
                     <p className="text-xs text-gray-500 truncate">{userEmail}</p>
                   </div>
 
@@ -260,7 +260,7 @@ const DashboardHeader: React.FC<DashboardHeaderProps> = ({
                     </Link>
                   </div>
 
-                  <div className="border-t border-gray-200 py-1">
+                  <div className="border-t border-white/10 py-1">
                     <button
                       onClick={() => {
                         setUserMenuOpen(false);

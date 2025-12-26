@@ -157,7 +157,7 @@ export default function WatchPriceButton({
           className={`flex items-center gap-2 px-3 py-1.5 rounded-lg border ${
             isWatching
               ? 'bg-yellow-50 border-yellow-300 text-yellow-700'
-              : 'bg-white border-gray-300 text-gray-700 hover:bg-gray-50'
+              : 'bg-white/5 border-white/20 text-gray-700 hover:bg-gray-50'
           } transition-colors ${className}`}
         >
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -186,9 +186,9 @@ export default function WatchPriceButton({
   // Default variant
   const WatchPriceModal = () => (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-      <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl max-w-md w-full mx-4 p-6">
+      <div className="bg-white/5 dark:bg-gray-800 rounded-2xl shadow-2xl max-w-md w-full mx-4 p-6">
         <div className="flex items-center justify-between mb-6">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
+          <h2 className="text-2xl font-bold text-white dark:text-white">
             Set Price Alert
           </h2>
           <button
@@ -211,7 +211,7 @@ export default function WatchPriceButton({
             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
               Item
             </label>
-            <p className="text-gray-900 dark:text-white font-semibold">{entityName}</p>
+            <p className="text-white dark:text-white font-semibold">{entityName}</p>
             <p className="text-sm text-gray-600 dark:text-gray-400">
               Current Price: {currency} {currentPrice.toFixed(2)}
             </p>
@@ -228,7 +228,7 @@ export default function WatchPriceButton({
                 onChange={(e) =>
                   setAlertSettings({ ...alertSettings, targetPrice: parseFloat(e.target.value) })
                 }
-                className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white"
+                className="w-full px-4 py-2 border border-white/20 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white"
                 step="0.01"
                 min="0"
               />
@@ -254,7 +254,7 @@ export default function WatchPriceButton({
                     priceDropPercentage: parseFloat(e.target.value),
                   })
                 }
-                className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white"
+                className="w-full px-4 py-2 border border-white/20 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white"
                 step="1"
                 min="1"
                 max="50"
@@ -272,7 +272,7 @@ export default function WatchPriceButton({
               onChange={(e) =>
                 setAlertSettings({ ...alertSettings, expiresInDays: parseInt(e.target.value) })
               }
-              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white"
+              className="w-full px-4 py-2 border border-white/20 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white"
             >
               <option value={7}>7 days</option>
               <option value={14}>14 days</option>
@@ -312,7 +312,7 @@ export default function WatchPriceButton({
         <div className="flex gap-3 mt-6">
           <button
             onClick={() => setShowModal(false)}
-            className="flex-1 px-4 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+            className="flex-1 px-4 py-2 border border-white/20 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
           >
             Cancel
           </button>

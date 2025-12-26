@@ -235,7 +235,7 @@ export default function Blog() {
                 className={`px-6 py-2 rounded-full font-medium transition-colors ${
                   selectedCategory === category
                     ? 'bg-lydian-primary text-white'
-                    : 'bg-white text-gray-200 hover:bg-gray-100'
+                    : 'bg-white/5 text-gray-200 hover:bg-gray-100'
                 }`}
               >
                 {category === 'all' ? 'Tümü' : category}

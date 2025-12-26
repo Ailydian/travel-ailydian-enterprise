@@ -286,7 +286,7 @@ const TravelSocialHub: React.FC = () => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
     >
-      <div className="bg-white rounded-2xl shadow-lg overflow-hidden mb-6">
+      <div className="bg-white/5 rounded-2xl shadow-lg overflow-hidden mb-6">
       {/* Header */}
       <div className="p-4 flex items-center justify-between">
         <div className="flex items-center gap-3">
@@ -301,7 +301,7 @@ const TravelSocialHub: React.FC = () => {
             )}
           </div>
           <div>
-            <h4 className="font-semibold text-gray-900">{post.user.name}</h4>
+            <h4 className="font-semibold text-white">{post.user.name}</h4>
             <div className="flex items-center gap-2 text-sm text-gray-500">
               {post.location && (
                 <div className="flex items-center gap-1">
@@ -322,7 +322,7 @@ const TravelSocialHub: React.FC = () => {
 
       {/* Content */}
       <div className="px-4 pb-3">
-        <p className="text-gray-900 leading-relaxed">{post.content}</p>
+        <p className="text-white leading-relaxed">{post.content}</p>
         
         {/* Tags */}
         {post.tags.length > 0 && (
@@ -406,7 +406,7 @@ const TravelSocialHub: React.FC = () => {
                   className="w-6 h-6 rounded-full object-cover"
                 />
                 <div className="flex-1">
-                  <span className="font-medium text-sm text-gray-900">{comment.user.name}</span>
+                  <span className="font-medium text-sm text-white">{comment.user.name}</span>
                   <span className="text-gray-700 text-sm ml-2">{comment.content}</span>
                   <div className="flex items-center gap-3 mt-1">
                     <span className="text-xs text-gray-500">
@@ -434,7 +434,7 @@ const TravelSocialHub: React.FC = () => {
       initial={{ opacity: 0, scale: 0.9 }}
       animate={{ opacity: 1, scale: 1 }}
     >
-      <div className="bg-white rounded-2xl shadow-lg p-6 mb-4">
+      <div className="bg-white/5 rounded-2xl shadow-lg p-6 mb-4">
       <div className="flex items-start justify-between mb-4">
         <div className="flex items-center gap-4">
           <div className="relative">
@@ -448,7 +448,7 @@ const TravelSocialHub: React.FC = () => {
             )}
           </div>
           <div>
-            <h3 className="font-bold text-gray-900 text-lg">{user.name}</h3>
+            <h3 className="font-bold text-white text-lg">{user.name}</h3>
             <div className="flex items-center gap-1 text-gray-600 mb-1">
               <MapPin className="w-4 h-4" />
               <span className="text-sm">{user.location}</span>
@@ -480,7 +480,7 @@ const TravelSocialHub: React.FC = () => {
 
       {/* Travel Interests */}
       <div className="mb-4">
-        <h4 className="font-medium text-gray-900 mb-2">Seyahat Tarzı</h4>
+        <h4 className="font-medium text-white mb-2">Seyahat Tarzı</h4>
         <div className="flex flex-wrap gap-2">
           {user.travelStyle.map((style, index) => (
             <span 
@@ -496,7 +496,7 @@ const TravelSocialHub: React.FC = () => {
       {/* Mutual Interests */}
       {user.mutualInterests.length > 0 && (
         <div className="mb-4">
-          <h4 className="font-medium text-gray-900 mb-2">Ortak İlgi Alanları</h4>
+          <h4 className="font-medium text-white mb-2">Ortak İlgi Alanları</h4>
           <div className="flex flex-wrap gap-2">
             {user.mutualInterests.map((interest, index) => (
               <span 
@@ -512,7 +512,7 @@ const TravelSocialHub: React.FC = () => {
 
       {/* Countries */}
       <div>
-        <h4 className="font-medium text-gray-900 mb-2">Ziyaret Ettiği Ülkeler</h4>
+        <h4 className="font-medium text-white mb-2">Ziyaret Ettiği Ülkeler</h4>
         <div className="flex items-center gap-2">
           <Globe className="w-4 h-4 text-gray-500" />
           <span className="text-sm text-gray-600">{user.countries.length} ülke</span>
@@ -526,7 +526,7 @@ const TravelSocialHub: React.FC = () => {
     <div className="max-w-6xl mx-auto p-6">
       {/* Header */}
       <div className="flex items-center justify-between mb-8">
-        <h1 className="text-3xl font-bold text-gray-900">Sosyal Seyahat</h1>
+        <h1 className="text-3xl font-bold text-white">Sosyal Seyahat</h1>
         
         <div className="flex items-center gap-4">
           <button className="relative p-2 hover:bg-gray-100 rounded-lg transition-colors">
@@ -568,8 +568,8 @@ const TravelSocialHub: React.FC = () => {
                 onClick={() => setActiveTab(tab.key as any)}
                 className={`flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-lg font-medium transition-colors ${
                   activeTab === tab.key
-                    ? 'bg-white text-blue-600 shadow-sm'
-                    : 'text-gray-600 hover:text-gray-900'
+                    ? 'bg-white/5 text-blue-600 shadow-sm'
+                    : 'text-gray-600 hover:text-white'
                 }`}
               >
               <Icon className="w-5 h-5" />
@@ -594,7 +594,7 @@ const TravelSocialHub: React.FC = () => {
 
           {activeTab === 'discover' && (
             <div>
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">Seyahat Arkadaşları Keşfet</h2>
+              <h2 className="text-2xl font-bold text-white mb-6">Seyahat Arkadaşları Keşfet</h2>
               {users.map((user) => (
                 <UserCard key={user.id} user={user} />
               ))}
@@ -603,7 +603,7 @@ const TravelSocialHub: React.FC = () => {
 
           {activeTab === 'plans' && (
             <div>
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">Grup Seyahat Planları</h2>
+              <h2 className="text-2xl font-bold text-white mb-6">Grup Seyahat Planları</h2>
               <div className="text-center text-gray-500 py-12">
                 <Calendar className="w-12 h-12 mx-auto mb-4 text-gray-400" />
                 <p>Henüz aktif seyahat planı yok</p>
@@ -616,7 +616,7 @@ const TravelSocialHub: React.FC = () => {
 
           {activeTab === 'chat' && (
             <div>
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">Mesajlar</h2>
+              <h2 className="text-2xl font-bold text-white mb-6">Mesajlar</h2>
               <div className="text-center text-gray-500 py-12">
                 <MessageCircle className="w-12 h-12 mx-auto mb-4 text-gray-400" />
                 <p>Henüz mesaj yok</p>
@@ -628,8 +628,8 @@ const TravelSocialHub: React.FC = () => {
         {/* Sidebar */}
         <div className="space-y-6">
           {/* Online Users */}
-          <div className="bg-white rounded-2xl shadow-lg p-6">
-            <h3 className="font-bold text-gray-900 mb-4">Online Seyahat Arkadaşları</h3>
+          <div className="bg-white/5 rounded-2xl shadow-lg p-6">
+            <h3 className="font-bold text-white mb-4">Online Seyahat Arkadaşları</h3>
             <div className="space-y-3">
               {users.filter(user => user.isOnline).map((user) => (
                 <div key={user.id} className="flex items-center gap-3">
@@ -642,7 +642,7 @@ const TravelSocialHub: React.FC = () => {
                     <div className="absolute -bottom-1 -right-1 w-3 h-3 bg-green-400 rounded-full border-2 border-white" />
                   </div>
                   <div className="flex-1">
-                    <p className="font-medium text-gray-900 text-sm">{user.name}</p>
+                    <p className="font-medium text-white text-sm">{user.name}</p>
                     <p className="text-xs text-gray-500">{user.location}</p>
                   </div>
                 </div>
@@ -651,8 +651,8 @@ const TravelSocialHub: React.FC = () => {
           </div>
 
           {/* Trending Destinations */}
-          <div className="bg-white rounded-2xl shadow-lg p-6">
-            <h3 className="font-bold text-gray-900 mb-4">Trend Destinasyonlar</h3>
+          <div className="bg-white/5 rounded-2xl shadow-lg p-6">
+            <h3 className="font-bold text-white mb-4">Trend Destinasyonlar</h3>
             <div className="space-y-3">
               {[
                 { name: 'Kapadokya', count: 124, trend: '+12%' },
@@ -662,7 +662,7 @@ const TravelSocialHub: React.FC = () => {
               ].map((destination, index) => (
                 <div key={index} className="flex items-center justify-between">
                   <div>
-                    <p className="font-medium text-gray-900">{destination.name}</p>
+                    <p className="font-medium text-white">{destination.name}</p>
                     <p className="text-sm text-gray-500">{destination.count} gönderi</p>
                   </div>
                   <span className="text-sm font-medium text-green-600">{destination.trend}</span>
@@ -692,10 +692,10 @@ const TravelSocialHub: React.FC = () => {
             >
               <div 
                 onClick={(e) => e.stopPropagation()}
-                className="bg-white rounded-2xl p-6 w-full max-w-lg"
+                className="bg-white/5 rounded-2xl p-6 w-full max-w-lg"
               >
               <div className="flex items-center justify-between mb-6">
-                <h3 className="text-xl font-bold text-gray-900">Yeni Gönderi</h3>
+                <h3 className="text-xl font-bold text-white">Yeni Gönderi</h3>
                 <button
                   onClick={() => setShowNewPostModal(false)}
                   className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
@@ -708,7 +708,7 @@ const TravelSocialHub: React.FC = () => {
                 value={newPostContent}
                 onChange={(e) => setNewPostContent(e.target.value)}
                 placeholder="Seyahat deneyimlerinizi paylaşın..."
-                className="w-full p-4 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
+                className="w-full p-4 border border-white/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
                 rows={4}
               />
 

@@ -355,7 +355,7 @@ export default function Favorites() {
                     className={`flex items-center gap-2 px-6 py-3 rounded-xl font-semibold transition-all shadow-lg ${
                       isActive
                         ? 'bg-gradient-to-r from-lydian-primary to-lydian-secondary text-white shadow-neon'
-                        : 'bg-white text-gray-200 hover:shadow-xl border border-gray-200'
+                        : 'bg-white/5 text-gray-200 hover:shadow-xl border border-gray-200'
                     }`}
                   >
                     <Icon className="w-5 h-5" />
@@ -427,7 +427,7 @@ export default function Favorites() {
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.9 }}
                         onClick={() => shareFavorite(item)}
-                        className="p-2.5 bg-white/95 backdrop-blur-sm rounded-full hover:bg-white transition-colors shadow-lg"
+                        className="p-2.5 bg-white/95 backdrop-blur-sm rounded-full hover:bg-white/5 transition-colors shadow-lg"
                         title="Paylaş"
                       >
                         <Share className="w-4 h-4 text-blue-600" />
@@ -436,7 +436,7 @@ export default function Favorites() {
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.9 }}
                         onClick={() => removeFavorite(item.id)}
-                        className="p-2.5 bg-white/95 backdrop-blur-sm rounded-full hover:bg-white transition-colors shadow-lg"
+                        className="p-2.5 bg-white/95 backdrop-blur-sm rounded-full hover:bg-white/5 transition-colors shadow-lg"
                         title="Favorilerden Çıkar"
                       >
                         <Trash2 className="w-4 h-4 text-red-600" />

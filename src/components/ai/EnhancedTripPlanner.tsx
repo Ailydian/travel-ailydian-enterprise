@@ -220,7 +220,7 @@ const EnhancedTripPlanner: React.FC = () => {
               >
                 <Sparkles className="w-10 h-10 text-white" />
               </motion.div>
-              <h1 className="text-4xl font-bold text-gray-900">
+              <h1 className="text-4xl font-bold text-white">
                 AI-Powered Trip Planner
               </h1>
               <p className="text-xl text-gray-600">
@@ -229,13 +229,13 @@ const EnhancedTripPlanner: React.FC = () => {
             </div>
 
             {/* Natural Language Input */}
-            <div className="bg-white rounded-2xl shadow-xl p-8 space-y-6">
+            <div className="bg-white/5 rounded-2xl shadow-xl p-8 space-y-6">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   Describe Your Dream Trip
                 </label>
                 <textarea
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent resize-none"
+                  className="w-full px-4 py-3 border border-white/20 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent resize-none"
                   rows={4}
                   placeholder="e.g., 5-day Istanbul trip for 2 people, budget $2000, love history and food"
                   onChange={(e) => {
@@ -263,7 +263,7 @@ const EnhancedTripPlanner: React.FC = () => {
                   </label>
                   <input
                     type="text"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-white/20 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
                     placeholder="e.g., Istanbul, Turkey"
                     value={preferences.destination}
                     onChange={(e) => setPreferences({ ...preferences, destination: e.target.value })}
@@ -278,7 +278,7 @@ const EnhancedTripPlanner: React.FC = () => {
                   <input
                     type="number"
                     min="1"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-white/20 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
                     value={preferences.travelers}
                     onChange={(e) => setPreferences({ ...preferences, travelers: parseInt(e.target.value) })}
                   />
@@ -294,7 +294,7 @@ const EnhancedTripPlanner: React.FC = () => {
                   </label>
                   <input
                     type="date"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-gray-900 [color-scheme:light]"
+                    className="w-full px-4 py-3 border border-white/20 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white [color-scheme:light]"
                     style={{ colorScheme: 'light' }}
                     onChange={(e) => setPreferences({ ...preferences, startDate: new Date(e.target.value) })}
                   />
@@ -307,7 +307,7 @@ const EnhancedTripPlanner: React.FC = () => {
                   </label>
                   <input
                     type="date"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-gray-900 [color-scheme:light]"
+                    className="w-full px-4 py-3 border border-white/20 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white [color-scheme:light]"
                     style={{ colorScheme: 'light' }}
                     onChange={(e) => setPreferences({ ...preferences, endDate: new Date(e.target.value) })}
                   />
@@ -350,7 +350,7 @@ const EnhancedTripPlanner: React.FC = () => {
                         className={`p-4 rounded-lg border-2 transition-all ${
                           preferences.travelStyle === style.value
                             ? 'border-purple-600 bg-purple-50'
-                            : 'border-gray-200 hover:border-purple-300'
+                            : 'border-white/10 hover:border-purple-300'
                         }`}
                       >
                         <Icon className={`w-6 h-6 mx-auto mb-2 ${
@@ -420,7 +420,7 @@ const EnhancedTripPlanner: React.FC = () => {
             >
               <Sparkles className="w-10 h-10 text-white" />
             </motion.div>
-            <h2 className="text-2xl font-bold text-gray-900">Creating Your Perfect Itinerary</h2>
+            <h2 className="text-2xl font-bold text-white">Creating Your Perfect Itinerary</h2>
             <div className="space-y-2 text-center">
               <p className="text-gray-600">Analyzing {preferences.destination}...</p>
               <p className="text-gray-600">Finding best attractions and activities...</p>
@@ -445,10 +445,10 @@ const EnhancedTripPlanner: React.FC = () => {
             className="space-y-6"
           >
             {/* Header */}
-            <div className="bg-white rounded-2xl shadow-xl p-6">
+            <div className="bg-white/5 rounded-2xl shadow-xl p-6">
               <div className="flex items-start justify-between">
                 <div>
-                  <h1 className="text-3xl font-bold text-gray-900 mb-2">
+                  <h1 className="text-3xl font-bold text-white mb-2">
                     {preferences.destination} Trip Itinerary
                   </h1>
                   <div className="flex items-center gap-4 text-gray-600">
@@ -495,8 +495,8 @@ const EnhancedTripPlanner: React.FC = () => {
 
             {/* Budget Breakdown */}
             {budgetBreakdown && (
-              <div className="bg-white rounded-2xl shadow-xl p-6">
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">Budget Breakdown</h3>
+              <div className="bg-white/5 rounded-2xl shadow-xl p-6">
+                <h3 className="text-lg font-semibold text-white mb-4">Budget Breakdown</h3>
                 <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
                   {Object.entries(budgetBreakdown).map(([key, value]) => (
                     key !== 'total' && (
@@ -507,7 +507,7 @@ const EnhancedTripPlanner: React.FC = () => {
                     )
                   ))}
                 </div>
-                <div className="mt-4 pt-4 border-t border-gray-200">
+                <div className="mt-4 pt-4 border-t border-white/10">
                   <div className="flex justify-between items-center">
                     <span className="text-lg font-semibold">Total</span>
                     <span className="text-2xl font-bold text-purple-600">
@@ -519,7 +519,7 @@ const EnhancedTripPlanner: React.FC = () => {
             )}
 
             {/* Day Tabs */}
-            <div className="bg-white rounded-2xl shadow-xl p-6">
+            <div className="bg-white/5 rounded-2xl shadow-xl p-6">
               <div className="flex gap-2 overflow-x-auto pb-2">
                 {itinerary.map((day, index) => (
                   <button
@@ -550,7 +550,7 @@ const EnhancedTripPlanner: React.FC = () => {
                   {/* Day Header */}
                   <div className="flex items-start justify-between">
                     <div>
-                      <h3 className="text-2xl font-bold text-gray-900">
+                      <h3 className="text-2xl font-bold text-white">
                         {itinerary[selectedDay].title}
                       </h3>
                       <p className="text-gray-600 mt-1">
@@ -592,12 +592,12 @@ const EnhancedTripPlanner: React.FC = () => {
                                     {activity.duration} min
                                   </span>
                                 </div>
-                                <h4 className="text-lg font-semibold text-gray-900 mt-1">
+                                <h4 className="text-lg font-semibold text-white mt-1">
                                   {activity.title}
                                 </h4>
                               </div>
                               <div className="text-right">
-                                <div className="text-lg font-bold text-gray-900">
+                                <div className="text-lg font-bold text-white">
                                   ${activity.cost}
                                 </div>
                                 {activity.rating && (
@@ -644,8 +644,8 @@ const EnhancedTripPlanner: React.FC = () => {
                             </div>
 
                             {activity.aiConfidence < 0.8 && (
-                              <div className="mt-2 pt-2 border-t border-gray-200">
-                                <button className="text-xs text-gray-600 hover:text-gray-900 flex items-center gap-1">
+                              <div className="mt-2 pt-2 border-t border-white/10">
+                                <button className="text-xs text-gray-600 hover:text-white flex items-center gap-1">
                                   <RefreshCw className="w-3 h-3" />
                                   View alternatives
                                 </button>
@@ -680,12 +680,12 @@ const EnhancedTripPlanner: React.FC = () => {
             </div>
 
             {/* Action Buttons */}
-            <div className="bg-white rounded-2xl shadow-xl p-6">
+            <div className="bg-white/5 rounded-2xl shadow-xl p-6">
               <div className="flex flex-col md:flex-row gap-4">
                 <button className="flex-1 py-3 bg-purple-600 hover:bg-purple-700 text-white rounded-lg font-semibold transition-colors">
                   Book All Activities
                 </button>
-                <button className="flex-1 py-3 bg-white hover:bg-gray-50 text-purple-600 border-2 border-purple-600 rounded-lg font-semibold transition-colors">
+                <button className="flex-1 py-3 bg-white/5 hover:bg-gray-50 text-purple-600 border-2 border-purple-600 rounded-lg font-semibold transition-colors">
                   Invite Collaborators
                 </button>
                 <button

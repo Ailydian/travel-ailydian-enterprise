@@ -900,7 +900,7 @@ const NavLinkWithSubmenu: React.FC<{
             className="absolute left-1/2 -translate-x-1/2 top-full mt-2 z-50 pointer-events-auto"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="w-[280px] bg-white shadow-2xl border border-gray-200 rounded-2xl overflow-hidden">
+            <div className="w-[280px] bg-white/5 shadow-2xl border border-white/10 rounded-2xl overflow-hidden">
               <div className="p-4">
                 <div className="space-y-3">
                   {submenuContent.map((category, idx) => (

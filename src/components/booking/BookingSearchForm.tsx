@@ -129,8 +129,8 @@ export const BookingSearchForm: React.FC<SearchFormProps> = ({
                 className={`
                   relative flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 px-3 sm:px-6 py-2 sm:py-3 rounded-t-md font-bold transition-all whitespace-nowrap min-w-[70px] sm:min-w-0
                   ${isActive
-                    ? 'bg-white text-lydian-primary shadow-lg'
-                    : 'bg-white/90 text-gray-700 hover:bg-white hover:text-gray-900'
+                    ? 'bg-white/5 text-lydian-primary shadow-lg'
+                    : 'bg-white/90 text-gray-700 hover:bg-white/5 hover:text-white'
                   }
                 `}
               >
@@ -164,7 +164,7 @@ export const BookingSearchForm: React.FC<SearchFormProps> = ({
         </div>
 
       {/* Search Form */}
-      <div className="bg-white rounded-b-lg rounded-tr-lg shadow-2xl p-6">
+      <div className="bg-white/5 rounded-b-lg rounded-tr-lg shadow-2xl p-6">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
           {/* Destination */}
           <div className="md:col-span-4">
@@ -181,7 +181,7 @@ export const BookingSearchForm: React.FC<SearchFormProps> = ({
                 value={destination}
                 onChange={(e) => setDestination(e.target.value)}
                 placeholder="Şehir, otel, bölge..."
-                className="w-full pl-11 pr-4 py-3 border-2 border-gray-200 rounded-lg focus:border-lydian-primary focus:ring-2 focus:ring-lydian-primary/20 outline-none transition-all text-gray-900 font-medium"
+                className="w-full pl-11 pr-4 py-3 border-2 border-white/10 rounded-lg focus:border-lydian-primary focus:ring-2 focus:ring-lydian-primary/20 outline-none transition-all text-white font-medium"
               />
             </div>
           </div>
@@ -197,7 +197,7 @@ export const BookingSearchForm: React.FC<SearchFormProps> = ({
                 type="date"
                 value={checkIn}
                 onChange={(e) => setCheckIn(e.target.value)}
-                className="w-full pl-11 pr-4 py-3 border-2 border-gray-200 rounded-lg focus:border-lydian-primary focus:ring-2 focus:ring-lydian-primary/20 outline-none transition-all text-gray-900 font-medium"
+                className="w-full pl-11 pr-4 py-3 border-2 border-white/10 rounded-lg focus:border-lydian-primary focus:ring-2 focus:ring-lydian-primary/20 outline-none transition-all text-white font-medium"
               />
             </div>
           </div>
@@ -213,7 +213,7 @@ export const BookingSearchForm: React.FC<SearchFormProps> = ({
                 type="date"
                 value={checkOut}
                 onChange={(e) => setCheckOut(e.target.value)}
-                className="w-full pl-11 pr-4 py-3 border-2 border-gray-200 rounded-lg focus:border-lydian-primary focus:ring-2 focus:ring-lydian-primary/20 outline-none transition-all text-gray-900 font-medium"
+                className="w-full pl-11 pr-4 py-3 border-2 border-white/10 rounded-lg focus:border-lydian-primary focus:ring-2 focus:ring-lydian-primary/20 outline-none transition-all text-white font-medium"
               />
             </div>
           </div>
@@ -225,7 +225,7 @@ export const BookingSearchForm: React.FC<SearchFormProps> = ({
             </label>
             <button
               onClick={() => setShowGuestPicker(!showGuestPicker)}
-              className="w-full flex items-center justify-between px-4 py-3 border-2 border-gray-200 rounded-lg hover:border-lydian-primary focus:border-lydian-primary focus:ring-2 focus:ring-lydian-primary/20 outline-none transition-all text-gray-900 font-medium"
+              className="w-full flex items-center justify-between px-4 py-3 border-2 border-white/10 rounded-lg hover:border-lydian-primary focus:border-lydian-primary focus:ring-2 focus:ring-lydian-primary/20 outline-none transition-all text-white font-medium"
             >
               <div className="flex items-center gap-2">
                 <Users className="w-5 h-5 text-gray-400" />
@@ -241,12 +241,12 @@ export const BookingSearchForm: React.FC<SearchFormProps> = ({
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
-                  className="absolute top-full left-0 right-0 mt-2 bg-white border-2 border-gray-200 rounded-lg shadow-xl p-4 z-50"
+                  className="absolute top-full left-0 right-0 mt-2 bg-white/5 border-2 border-white/10 rounded-lg shadow-xl p-4 z-50"
                 >
                   {/* Adults */}
                   <div className="flex items-center justify-between py-3 border-b">
                     <div>
-                      <div className="font-semibold text-gray-900">Yetişkinler</div>
+                      <div className="font-semibold text-white">Yetişkinler</div>
                       <div className="text-xs text-gray-500">18 yaş ve üzeri</div>
                     </div>
                     <div className="flex items-center gap-3">
@@ -269,7 +269,7 @@ export const BookingSearchForm: React.FC<SearchFormProps> = ({
                   {/* Children */}
                   <div className="flex items-center justify-between py-3 border-b">
                     <div>
-                      <div className="font-semibold text-gray-900">Çocuklar</div>
+                      <div className="font-semibold text-white">Çocuklar</div>
                       <div className="text-xs text-gray-500">0-17 yaş</div>
                     </div>
                     <div className="flex items-center gap-3">
@@ -292,7 +292,7 @@ export const BookingSearchForm: React.FC<SearchFormProps> = ({
                   {/* Rooms */}
                   <div className="flex items-center justify-between py-3">
                     <div>
-                      <div className="font-semibold text-gray-900">Odalar</div>
+                      <div className="font-semibold text-white">Odalar</div>
                       <div className="text-xs text-gray-500">Kaç oda?</div>
                     </div>
                     <div className="flex items-center gap-3">

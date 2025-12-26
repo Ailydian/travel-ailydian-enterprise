@@ -77,7 +77,7 @@ const CarRentalSearchEngine: React.FC<CarRentalSearchEngineProps> = ({ onSearch 
   };
 
   return (
-    <div className="bg-white rounded-2xl shadow-2xl p-6 md:p-8">
+    <div className="bg-white/5 rounded-2xl shadow-2xl p-6 md:p-8">
       {/* Pickup Location */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
         <div className="relative">
@@ -93,12 +93,12 @@ const CarRentalSearchEngine: React.FC<CarRentalSearchEngineProps> = ({ onSearch 
               onFocus={() => setShowPickupSuggestions(true)}
               onBlur={() => setTimeout(() => setShowPickupSuggestions(false), 200)}
               placeholder="Havalimanı veya şehir seçin"
-              className="w-full px-4 py-3 pl-12 border-2 border-gray-200 rounded-xl focus:border-green-500 focus:ring-2 focus:ring-green-200 outline-none transition-all"
+              className="w-full px-4 py-3 pl-12 border-2 border-white/10 rounded-xl focus:border-green-500 focus:ring-2 focus:ring-green-200 outline-none transition-all"
             />
             <MapPin className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
 
             {showPickupSuggestions && (
-              <div className="absolute z-50 w-full mt-2 bg-white border border-gray-200 rounded-xl shadow-lg max-h-60 overflow-y-auto">
+              <div className="absolute z-50 w-full mt-2 bg-white/5 border border-white/10 rounded-xl shadow-lg max-h-60 overflow-y-auto">
                 {POPULAR_LOCATIONS.map((location) => (
                   <button
                     key={location}
@@ -109,7 +109,7 @@ const CarRentalSearchEngine: React.FC<CarRentalSearchEngineProps> = ({ onSearch 
                     className="w-full text-left px-4 py-3 hover:bg-green-50 transition-colors flex items-center gap-2"
                   >
                     <MapPin className="w-4 h-4 text-green-600" />
-                    <span className="text-gray-900">{location}</span>
+                    <span className="text-white">{location}</span>
                   </button>
                 ))}
               </div>
@@ -132,12 +132,12 @@ const CarRentalSearchEngine: React.FC<CarRentalSearchEngineProps> = ({ onSearch 
                 onFocus={() => setShowDropoffSuggestions(true)}
                 onBlur={() => setTimeout(() => setShowDropoffSuggestions(false), 200)}
                 placeholder="Teslim yeri seçin"
-                className="w-full px-4 py-3 pl-12 border-2 border-gray-200 rounded-xl focus:border-green-500 focus:ring-2 focus:ring-green-200 outline-none transition-all"
+                className="w-full px-4 py-3 pl-12 border-2 border-white/10 rounded-xl focus:border-green-500 focus:ring-2 focus:ring-green-200 outline-none transition-all"
               />
               <MapPin className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
 
               {showDropoffSuggestions && (
-                <div className="absolute z-50 w-full mt-2 bg-white border border-gray-200 rounded-xl shadow-lg max-h-60 overflow-y-auto">
+                <div className="absolute z-50 w-full mt-2 bg-white/5 border border-white/10 rounded-xl shadow-lg max-h-60 overflow-y-auto">
                   {POPULAR_LOCATIONS.map((location) => (
                     <button
                       key={location}
@@ -148,7 +148,7 @@ const CarRentalSearchEngine: React.FC<CarRentalSearchEngineProps> = ({ onSearch 
                       className="w-full text-left px-4 py-3 hover:bg-green-50 transition-colors flex items-center gap-2"
                     >
                       <MapPin className="w-4 h-4 text-green-600" />
-                      <span className="text-gray-900">{location}</span>
+                      <span className="text-white">{location}</span>
                     </button>
                   ))}
                 </div>
@@ -161,7 +161,7 @@ const CarRentalSearchEngine: React.FC<CarRentalSearchEngineProps> = ({ onSearch 
           <div className="flex items-end">
             <button
               onClick={() => setSameLocation(false)}
-              className="w-full px-4 py-3 border-2 border-dashed border-gray-300 rounded-xl hover:border-green-500 hover:bg-green-50 transition-all text-gray-600 hover:text-green-700 font-medium"
+              className="w-full px-4 py-3 border-2 border-dashed border-white/20 rounded-xl hover:border-green-500 hover:bg-green-50 transition-all text-gray-600 hover:text-green-700 font-medium"
             >
               + Farklı Teslim Yeri
             </button>
@@ -193,7 +193,7 @@ const CarRentalSearchEngine: React.FC<CarRentalSearchEngineProps> = ({ onSearch 
             type="date"
             value={searchData.pickupDate}
             onChange={(e) => setSearchData({ ...searchData, pickupDate: e.target.value })}
-            className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-green-500 focus:ring-2 focus:ring-green-200 outline-none transition-all"
+            className="w-full px-4 py-3 border-2 border-white/10 rounded-xl focus:border-green-500 focus:ring-2 focus:ring-green-200 outline-none transition-all"
           />
         </div>
 
@@ -205,7 +205,7 @@ const CarRentalSearchEngine: React.FC<CarRentalSearchEngineProps> = ({ onSearch 
           <select
             value={searchData.pickupTime}
             onChange={(e) => setSearchData({ ...searchData, pickupTime: e.target.value })}
-            className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-green-500 focus:ring-2 focus:ring-green-200 outline-none transition-all appearance-none"
+            className="w-full px-4 py-3 border-2 border-white/10 rounded-xl focus:border-green-500 focus:ring-2 focus:ring-green-200 outline-none transition-all appearance-none"
           >
             {Array.from({ length: 24 }, (_, i) => {
               const hour = i.toString().padStart(2, '0');
@@ -228,7 +228,7 @@ const CarRentalSearchEngine: React.FC<CarRentalSearchEngineProps> = ({ onSearch 
             type="date"
             value={searchData.dropoffDate}
             onChange={(e) => setSearchData({ ...searchData, dropoffDate: e.target.value })}
-            className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-green-500 focus:ring-2 focus:ring-green-200 outline-none transition-all"
+            className="w-full px-4 py-3 border-2 border-white/10 rounded-xl focus:border-green-500 focus:ring-2 focus:ring-green-200 outline-none transition-all"
           />
         </div>
 
@@ -240,7 +240,7 @@ const CarRentalSearchEngine: React.FC<CarRentalSearchEngineProps> = ({ onSearch 
           <select
             value={searchData.dropoffTime}
             onChange={(e) => setSearchData({ ...searchData, dropoffTime: e.target.value })}
-            className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-green-500 focus:ring-2 focus:ring-green-200 outline-none transition-all appearance-none"
+            className="w-full px-4 py-3 border-2 border-white/10 rounded-xl focus:border-green-500 focus:ring-2 focus:ring-green-200 outline-none transition-all appearance-none"
           >
             {Array.from({ length: 24 }, (_, i) => {
               const hour = i.toString().padStart(2, '0');
@@ -264,7 +264,7 @@ const CarRentalSearchEngine: React.FC<CarRentalSearchEngineProps> = ({ onSearch 
         <select
           value={searchData.category}
           onChange={(e) => setSearchData({ ...searchData, category: e.target.value })}
-          className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-green-500 focus:ring-2 focus:ring-green-200 outline-none transition-all appearance-none"
+          className="w-full px-4 py-3 border-2 border-white/10 rounded-xl focus:border-green-500 focus:ring-2 focus:ring-green-200 outline-none transition-all appearance-none"
         >
           {VEHICLE_CATEGORIES.map((cat) => (
             <option key={cat.value} value={cat.value}>
@@ -285,7 +285,7 @@ const CarRentalSearchEngine: React.FC<CarRentalSearchEngineProps> = ({ onSearch 
       </button>
 
       {/* Quick Stats */}
-      <div className="mt-6 grid grid-cols-3 gap-4 pt-6 border-t border-gray-200">
+      <div className="mt-6 grid grid-cols-3 gap-4 pt-6 border-t border-white/10">
         <div className="text-center">
           <div className="text-2xl font-bold text-green-600">1,200+</div>
           <div className="text-xs text-gray-600">Aktif Araç</div>

@@ -403,7 +403,7 @@ export default function LocationPage({
 
       <main className="min-h-screen bg-gray-50">
         {/* Breadcrumb Navigation */}
-        <nav className="bg-transparent border-b border-gray-200" aria-label="Breadcrumb">
+        <nav className="bg-transparent border-b border-white/10" aria-label="Breadcrumb">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <ol className="flex items-center space-x-2 py-4 text-sm">
               <li><Link href="/" className="text-gray-500 hover:text-gray-200">Home</Link></li>
@@ -418,7 +418,7 @@ export default function LocationPage({
         </nav>
 
         {/* Hero Section */}
-        <section className="bg-white">
+        <section className="bg-white/5">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
             {/* Header */}
             <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-8">
@@ -512,7 +512,7 @@ export default function LocationPage({
                   className={`flex items-center px-4 py-2 rounded-lg border ${
                     isFavorited 
                       ? 'bg-red-50 border-red-300 text-red-700' 
-                      : 'bg-white border-gray-300 text-gray-200 hover:bg-gray-50'
+                      : 'bg-white/5 border-white/20 text-gray-200 hover:bg-gray-50'
                   }`}
                 >
                   <Heart className={`h-5 w-5 mr-2 ${isFavorited ? 'fill-current' : ''}`} />
@@ -521,7 +521,7 @@ export default function LocationPage({
 
                 <button
                   onClick={handleShare}
-                  className="flex items-center px-4 py-2 rounded-lg border border-gray-300 text-gray-200 hover:bg-gray-50"
+                  className="flex items-center px-4 py-2 rounded-lg border border-white/20 text-gray-200 hover:bg-gray-50"
                 >
                   <Share2 className="h-5 w-5 mr-2" />
                   {t('share')}
@@ -694,7 +694,7 @@ export default function LocationPage({
                   <div className="space-y-3">
                     {/* Google My Business */}
                     {location.google_place_id && (
-                      <div className="flex items-center justify-between p-3 border border-gray-200 rounded-lg">
+                      <div className="flex items-center justify-between p-3 border border-white/10 rounded-lg">
                         <div className="flex items-center">
                           <div className="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center mr-3">
                             <Globe className="h-4 w-4 text-red-600" />
@@ -731,7 +731,7 @@ export default function LocationPage({
                     
                     {/* TripAdvisor */}
                     {location.tripadvisor_id && (
-                      <div className="flex items-center justify-between p-3 border border-gray-200 rounded-lg">
+                      <div className="flex items-center justify-between p-3 border border-white/10 rounded-lg">
                         <div className="flex items-center">
                           <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center mr-3">
                             <Globe className="h-4 w-4 text-green-600" />
@@ -796,7 +796,7 @@ export default function LocationPage({
                       <a
                         key={nearby.id}
                         href={`/location/${nearby.slug}`}
-                        className="block p-3 rounded-lg border border-gray-200 hover:bg-gray-50"
+                        className="block p-3 rounded-lg border border-white/10 hover:bg-gray-50"
                       >
                         <h4 className="font-medium text-white truncate">
                           {getLocalizedContent(nearby.name)}

@@ -56,13 +56,13 @@ export const NeoButton: React.FC<NeoButtonProps> = ({
     glass: `
       bg-white/10 backdrop-blur-xl
       border border-white/20
-      text-gray-900 font-medium
+      text-white font-medium
       shadow-[0_8px_32px_0_rgba(31,38,135,0.15)]
       hover:bg-white/20
     `,
     neo: `
       bg-[#F1F5F9]
-      text-gray-900 font-semibold
+      text-white font-semibold
       shadow-[8px_8px_16px_rgba(0,0,0,0.1),-8px_-8px_16px_rgba(255,255,255,0.7)]
       hover:shadow-[12px_12px_24px_rgba(0,0,0,0.15),-12px_-12px_24px_rgba(255,255,255,0.8)]
     `,

@@ -342,7 +342,7 @@ export default function ExperienceDetail({ experience, relatedExperiences }: Exp
                     value={selectedDate}
                     onChange={(e) => setSelectedDate(e.target.value)}
                     min={new Date().toISOString().split('T')[0]}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-lydian-primary focus:border-transparent"
+                    className="w-full px-4 py-3 border border-white/20 rounded-lg focus:ring-2 focus:ring-lydian-primary focus:border-transparent"
                   />
                 </div>
 
@@ -356,14 +356,14 @@ export default function ExperienceDetail({ experience, relatedExperiences }: Exp
                     <div className="flex items-center gap-3">
                       <button
                         onClick={() => setAdults(Math.max(1, adults - 1))}
-                        className="w-8 h-8 rounded-full border border-gray-300 hover:bg-gray-100"
+                        className="w-8 h-8 rounded-full border border-white/20 hover:bg-gray-100"
                       >
                         -
                       </button>
                       <span className="w-8 text-center font-semibold">{adults}</span>
                       <button
                         onClick={() => setAdults(Math.min(experience.groupSize.max, adults + 1))}
-                        className="w-8 h-8 rounded-full border border-gray-300 hover:bg-gray-100"
+                        className="w-8 h-8 rounded-full border border-white/20 hover:bg-gray-100"
                       >
                         +
                       </button>
@@ -378,14 +378,14 @@ export default function ExperienceDetail({ experience, relatedExperiences }: Exp
                     <div className="flex items-center gap-3">
                       <button
                         onClick={() => setChildren(Math.max(0, children - 1))}
-                        className="w-8 h-8 rounded-full border border-gray-300 hover:bg-gray-100"
+                        className="w-8 h-8 rounded-full border border-white/20 hover:bg-gray-100"
                       >
                         -
                       </button>
                       <span className="w-8 text-center font-semibold">{children}</span>
                       <button
                         onClick={() => setChildren(Math.min(experience.groupSize.max - adults, children + 1))}
-                        className="w-8 h-8 rounded-full border border-gray-300 hover:bg-gray-100"
+                        className="w-8 h-8 rounded-full border border-white/20 hover:bg-gray-100"
                       >
                         +
                       </button>
@@ -394,7 +394,7 @@ export default function ExperienceDetail({ experience, relatedExperiences }: Exp
                 </div>
 
                 {/* Total Price */}
-                <div className="border-t border-gray-200 pt-4 mb-6">
+                <div className="border-t border-white/10 pt-4 mb-6">
                   <div className="flex items-center justify-between mb-2">
                     <span className="text-gray-300">Toplam</span>
                     <span className="text-2xl font-bold text-white">₺{totalPrice.toLocaleString()}</span>

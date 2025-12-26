@@ -466,7 +466,7 @@ const RentalBookingPage = () => {
                             onChange={(e) => setCheckInDate(e.target.value)}
                             min={new Date().toISOString().split('T')[0]}
                             className={`w-full px-4 py-3 border ${
-                              errors.checkInDate ? 'border-red-500' : 'border-gray-300'
+                              errors.checkInDate ? 'border-red-500' : 'border-white/20'
                             } rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500`}
                           />
                           {errors.checkInDate && (
@@ -488,7 +488,7 @@ const RentalBookingPage = () => {
                             onChange={(e) => setCheckOutDate(e.target.value)}
                             min={checkInDate || new Date().toISOString().split('T')[0]}
                             className={`w-full px-4 py-3 border ${
-                              errors.checkOutDate ? 'border-red-500' : 'border-gray-300'
+                              errors.checkOutDate ? 'border-red-500' : 'border-white/20'
                             } rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500`}
                           />
                           {errors.checkOutDate && (
@@ -626,7 +626,7 @@ const RentalBookingPage = () => {
                             value={purposeOfStay}
                             onChange={(e) => setPurposeOfStay(e.target.value)}
                             className={`w-full px-4 py-3 border ${
-                              errors.purposeOfStay ? 'border-red-500' : 'border-gray-300'
+                              errors.purposeOfStay ? 'border-red-500' : 'border-white/20'
                             } rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500`}
                           >
                             <option value="">Seçiniz</option>
@@ -648,7 +648,7 @@ const RentalBookingPage = () => {
                             value={arrivalTime}
                             onChange={(e) => setArrivalTime(e.target.value)}
                             className={`w-full px-4 py-3 border ${
-                              errors.arrivalTime ? 'border-red-500' : 'border-gray-300'
+                              errors.arrivalTime ? 'border-red-500' : 'border-white/20'
                             } rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500`}
                           />
                           {errors.arrivalTime && (
@@ -807,7 +807,7 @@ const RentalBookingPage = () => {
                                 onChange={(e) => setPrimaryGuestName(e.target.value)}
                                 placeholder="Adınız ve soyadınız"
                                 className={`w-full px-4 py-3 border ${
-                                  errors.primaryGuestName ? 'border-red-500' : 'border-gray-300'
+                                  errors.primaryGuestName ? 'border-red-500' : 'border-white/20'
                                 } rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500`}
                               />
                               {errors.primaryGuestName && (
@@ -826,7 +826,7 @@ const RentalBookingPage = () => {
                                 onChange={(e) => setPrimaryGuestEmail(e.target.value)}
                                 placeholder="ornek@email.com"
                                 className={`w-full px-4 py-3 border ${
-                                  errors.primaryGuestEmail ? 'border-red-500' : 'border-gray-300'
+                                  errors.primaryGuestEmail ? 'border-red-500' : 'border-white/20'
                                 } rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500`}
                               />
                               {errors.primaryGuestEmail && (
@@ -845,7 +845,7 @@ const RentalBookingPage = () => {
                                 onChange={(e) => setPrimaryGuestPhone(e.target.value)}
                                 placeholder="+90 5XX XXX XX XX"
                                 className={`w-full px-4 py-3 border ${
-                                  errors.primaryGuestPhone ? 'border-red-500' : 'border-gray-300'
+                                  errors.primaryGuestPhone ? 'border-red-500' : 'border-white/20'
                                 } rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500`}
                               />
                               {errors.primaryGuestPhone && (
@@ -855,7 +855,7 @@ const RentalBookingPage = () => {
                           </div>
                         </div>
 
-                        <div className="border-t border-gray-200 pt-6">
+                        <div className="border-t border-white/10 pt-6">
                           <h3 className="font-semibold text-white mb-4">Acil Durum İletişim</h3>
                           <div className="space-y-4">
                             <div>
@@ -869,7 +869,7 @@ const RentalBookingPage = () => {
                                 onChange={(e) => setEmergencyContactName(e.target.value)}
                                 placeholder="Acil durumda ulaşılacak kişi"
                                 className={`w-full px-4 py-3 border ${
-                                  errors.emergencyContactName ? 'border-red-500' : 'border-gray-300'
+                                  errors.emergencyContactName ? 'border-red-500' : 'border-white/20'
                                 } rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500`}
                               />
                               {errors.emergencyContactName && (
@@ -888,7 +888,7 @@ const RentalBookingPage = () => {
                                 onChange={(e) => setEmergencyContactPhone(e.target.value)}
                                 placeholder="+90 5XX XXX XX XX"
                                 className={`w-full px-4 py-3 border ${
-                                  errors.emergencyContactPhone ? 'border-red-500' : 'border-gray-300'
+                                  errors.emergencyContactPhone ? 'border-red-500' : 'border-white/20'
                                 } rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500`}
                               />
                               {errors.emergencyContactPhone && (
@@ -898,14 +898,14 @@ const RentalBookingPage = () => {
                           </div>
                         </div>
 
-                        <div className="border-t border-gray-200 pt-6">
+                        <div className="border-t border-white/10 pt-6">
                           <h3 className="font-semibold text-white mb-4">Özel İstekler (İsteğe Bağlı)</h3>
                           <textarea
                             value={specialRequests}
                             onChange={(e) => setSpecialRequests(e.target.value)}
                             placeholder="Alerjiler, özel ihtiyaçlar, erken giriş talebi vb..."
                             rows={4}
-                            className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500"
+                            className="w-full px-4 py-3 border border-white/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500"
                           />
                           <p className="text-xs text-gray-500 mt-1">
                             Özel istekleriniz ev sahibine iletilecektir, ancak garanti edilmez.
@@ -1013,7 +1013,7 @@ const RentalBookingPage = () => {
                   )}
 
                   {/* Navigation Buttons */}
-                  <div className="flex items-center gap-4 mt-8 pt-6 border-t border-gray-200">
+                  <div className="flex items-center gap-4 mt-8 pt-6 border-t border-white/10">
                     {currentStep > 1 && (
                       <button
                         onClick={handlePrevious}
@@ -1083,7 +1083,7 @@ const RentalBookingPage = () => {
                     </div>
                   </div>
 
-                  <div className="mt-4 pt-4 border-t border-gray-200">
+                  <div className="mt-4 pt-4 border-t border-white/10">
                     <p className="text-xs text-gray-300 mb-2">Özellikler:</p>
                     <div className="flex flex-wrap gap-2">
                       {property.wifi && (
@@ -1142,7 +1142,7 @@ const RentalBookingPage = () => {
                         <span className="font-semibold">₺{pricing.tax.toLocaleString('tr-TR')}</span>
                       </div>
 
-                      <div className="pt-3 border-t-2 border-gray-300">
+                      <div className="pt-3 border-t-2 border-white/20">
                         <div className="flex justify-between">
                           <span className="font-bold text-lg">Toplam</span>
                           <span className="font-bold text-lg text-purple-600">
@@ -1152,7 +1152,7 @@ const RentalBookingPage = () => {
                       </div>
                     </div>
 
-                    <div className="mt-4 pt-4 border-t border-gray-200">
+                    <div className="mt-4 pt-4 border-t border-white/10">
                       <div className="flex items-start gap-2 text-xs text-gray-300">
                         <Shield className="w-4 h-4 text-green-600 mt-0.5" />
                         <p>Rezervasyonunuz güvenli ödeme sistemi ile korunmaktadır.</p>

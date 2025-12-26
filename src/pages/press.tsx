@@ -356,7 +356,7 @@ export default function Press() {
         </div>
 
         {/* Newsletter Signup */}
-        <div className="py-16 bg-white">
+        <div className="py-16 bg-white/5">
           <div className="max-w-4xl mx-auto px-4">
             <div className="bg-gradient-to-r from-lydian-primary to-lydian-dark text-white rounded-2xl p-8 md:p-12 text-center">
               <h2 className="text-3xl font-bold mb-4">

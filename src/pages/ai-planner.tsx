@@ -338,7 +338,7 @@ const AITravelPlanner: React.FC = () => {
         </section>
 
         {/* Features Section */}
-        <section className="py-16 bg-white">
+        <section className="py-16 bg-white/5">
           <div className="max-w-7xl mx-auto px-4">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-white mb-4">AI Planlama Avantajları</h2>

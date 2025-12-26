@@ -310,11 +310,11 @@ const AITravelAssistant: React.FC = () => {
             } as any}
           >
             {/* Header */}
-            <div className="p-4 border-b border-gray-200 bg-gradient-to-r from-purple-600 to-blue-600 text-white">
+            <div className="p-4 border-b border-white/10 bg-gradient-to-r from-purple-600 to-blue-600 text-white">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
                   <div className="relative">
-                    <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+                    <div className="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center">
                       <Bot className="w-6 h-6 text-purple-600" />
                     </div>
                     <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-green-400 rounded-full border-2 border-white animate-pulse" />
@@ -363,7 +363,7 @@ const AITravelAssistant: React.FC = () => {
                       onClick={() => setConversationMode(mode.key as any)}
                       className={`flex-1 px-3 py-2 rounded-lg text-xs font-medium transition-colors flex flex-col items-center ${
                         conversationMode === mode.key
-                          ? 'bg-white text-purple-600'
+                          ? 'bg-white/5 text-purple-600'
                           : 'bg-white/20 text-white hover:bg-white/30'
                       }`}
                     >
@@ -391,7 +391,7 @@ const AITravelAssistant: React.FC = () => {
                     className={`max-w-[80%] p-3 rounded-2xl ${
                       message.type === 'user'
                         ? 'bg-gradient-to-r from-purple-600 to-blue-600 text-white'
-                        : 'bg-gray-100 text-gray-900'
+                        : 'bg-gray-100 text-white'
                     }`}
                   >
                     <p className="text-sm whitespace-pre-line">{message.content}</p>
@@ -493,9 +493,9 @@ const AITravelAssistant: React.FC = () => {
                   <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-4">
                     <button
                       onClick={capturePhoto}
-                      className="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform"
+                      className="w-16 h-16 bg-white/5 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform"
                     >
-                      <Camera className="w-6 h-6 text-gray-900" />
+                      <Camera className="w-6 h-6 text-white" />
                     </button>
                     <button
                       onClick={() => setShowCamera(false)}
@@ -509,7 +509,7 @@ const AITravelAssistant: React.FC = () => {
             )}
 
             {/* Input Area */}
-            <div className="p-4 border-t border-gray-200 bg-gray-50">
+            <div className="p-4 border-t border-white/10 bg-gray-50">
               <div className="flex items-center gap-2">
                 {conversationMode === 'voice' ? (
                   <button
@@ -540,7 +540,7 @@ const AITravelAssistant: React.FC = () => {
                       onChange={(e) => setInputMessage(e.target.value)}
                       onKeyPress={(e) => e.key === 'Enter' && !isLoading && handleSendMessage()}
                       placeholder="Seyahat planlarınızı sorun..."
-                      className="flex-1 p-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                      className="flex-1 p-3 border border-white/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
                       disabled={isLoading}
                     />
                     <button

@@ -251,7 +251,7 @@ const DecentralizedReviews: React.FC = () => {
   };
 
   const ReviewCard: React.FC<{ review: DecentralizedReview }> = ({ review }) => (
-    <div className="bg-white rounded-2xl shadow-lg p-6 cursor-pointer hover:shadow-xl transition-all" onClick={() => setSelectedReview(review)}>
+    <div className="bg-white/5 rounded-2xl shadow-lg p-6 cursor-pointer hover:shadow-xl transition-all" onClick={() => setSelectedReview(review)}>
       <motion.div
         layoutId={review.id}
         whileHover={{ y: -4 }}
@@ -265,7 +265,7 @@ const DecentralizedReviews: React.FC = () => {
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <span className="font-semibold text-gray-900">{review.reviewer.nickname}</span>
+              <span className="font-semibold text-white">{review.reviewer.nickname}</span>
               {review.reviewer.verifiedTraveler && (
                 <CheckCircle className="w-4 h-4 text-green-500" />
               )}
@@ -298,7 +298,7 @@ const DecentralizedReviews: React.FC = () => {
 
       {/* Business Info */}
       <div className="mb-3">
-        <h3 className="font-semibold text-gray-900 mb-1">{review.businessName}</h3>
+        <h3 className="font-semibold text-white mb-1">{review.businessName}</h3>
         <div className="flex items-center gap-2 text-sm text-gray-600">
           <MapPin className="w-4 h-4" />
           <span>{review.location.city}, {review.location.country}</span>
@@ -313,7 +313,7 @@ const DecentralizedReviews: React.FC = () => {
           </div>
           <span className="text-sm font-medium text-gray-700">{review.rating}/5</span>
         </div>
-        <h4 className="font-medium text-gray-900">{review.title}</h4>
+        <h4 className="font-medium text-white">{review.title}</h4>
       </div>
 
       {/* Content Preview */}
@@ -371,7 +371,7 @@ const DecentralizedReviews: React.FC = () => {
       {/* Header */}
       <div className="flex items-center justify-between mb-8">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900 flex items-center gap-3">
+          <h1 className="text-3xl font-bold text-white flex items-center gap-3">
             <div className="p-3 bg-gradient-to-r from-green-500 to-blue-600 rounded-2xl">
               <Shield className="w-8 h-8 text-white" />
             </div>
@@ -393,30 +393,30 @@ const DecentralizedReviews: React.FC = () => {
 
       {/* Stats */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-        <div className="bg-white rounded-2xl p-6 text-center shadow-lg">
-          <div className="text-3xl font-bold text-gray-900 mb-2">{reviews.length}</div>
+        <div className="bg-white/5 rounded-2xl p-6 text-center shadow-lg">
+          <div className="text-3xl font-bold text-white mb-2">{reviews.length}</div>
           <div className="text-sm text-gray-600">Toplam Yorum</div>
         </div>
-        <div className="bg-white rounded-2xl p-6 text-center shadow-lg">
+        <div className="bg-white/5 rounded-2xl p-6 text-center shadow-lg">
           <div className="text-3xl font-bold text-green-600 mb-2">
             {reviews.filter(r => r.isVerified).length}
           </div>
           <div className="text-sm text-gray-600">Doğrulanmış</div>
         </div>
-        <div className="bg-white rounded-2xl p-6 text-center shadow-lg">
+        <div className="bg-white/5 rounded-2xl p-6 text-center shadow-lg">
           <div className="text-3xl font-bold text-purple-600 mb-2">
             {reviews.filter(r => r.nftProof).length}
           </div>
           <div className="text-sm text-gray-600">NFT Kanıtlı</div>
         </div>
-        <div className="bg-white rounded-2xl p-6 text-center shadow-lg">
+        <div className="bg-white/5 rounded-2xl p-6 text-center shadow-lg">
           <div className="text-3xl font-bold text-blue-600 mb-2">4.7</div>
           <div className="text-sm text-gray-600">Ortalama Puan</div>
         </div>
       </div>
 
       {/* Filters and Search */}
-      <div className="bg-white rounded-2xl shadow-lg p-6 mb-8">
+      <div className="bg-white/5 rounded-2xl shadow-lg p-6 mb-8">
         <div className="flex flex-col md:flex-row gap-4">
           {/* Search */}
           <div className="flex-1 relative">
@@ -426,7 +426,7 @@ const DecentralizedReviews: React.FC = () => {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Yorum, işletme adı veya içerik ara..."
-              className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full pl-10 pr-4 py-3 border border-white/20 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             />
           </div>
 
@@ -434,7 +434,7 @@ const DecentralizedReviews: React.FC = () => {
           <select
             value={filter}
             onChange={(e) => setFilter(e.target.value as any)}
-            className="px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="px-4 py-3 border border-white/20 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
           >
             <option value="all">Tüm Yorumlar</option>
             <option value="verified">Doğrulanmış</option>
@@ -445,7 +445,7 @@ const DecentralizedReviews: React.FC = () => {
           <select
             value={sortBy}
             onChange={(e) => setSortBy(e.target.value as any)}
-            className="px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="px-4 py-3 border border-white/20 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
           >
             <option value="newest">En Yeni</option>
             <option value="rating">En Yüksek Puan</option>
@@ -476,7 +476,7 @@ const DecentralizedReviews: React.FC = () => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
             >
-              <div className="bg-white rounded-2xl overflow-hidden w-full max-w-4xl max-h-[90vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
+              <div className="bg-white/5 rounded-2xl overflow-hidden w-full max-w-4xl max-h-[90vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
                 <motion.div
                   layoutId={selectedReview.id}
                   style={{ width: '100%' }}
@@ -484,7 +484,7 @@ const DecentralizedReviews: React.FC = () => {
                 {/* Modal content would go here */}
                 <div className="p-6">
                 <div className="flex items-center justify-between mb-6">
-                  <h3 className="text-2xl font-bold text-gray-900">Yorum Detayı</h3>
+                  <h3 className="text-2xl font-bold text-white">Yorum Detayı</h3>
                   <button
                     onClick={() => setSelectedReview(null)}
                     className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
@@ -514,7 +514,7 @@ const DecentralizedReviews: React.FC = () => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
             >
-              <div className="bg-white rounded-2xl p-6 w-full max-w-2xl" onClick={(e) => e.stopPropagation()}>
+              <div className="bg-white/5 rounded-2xl p-6 w-full max-w-2xl" onClick={(e) => e.stopPropagation()}>
                 <motion.div
                   initial={{ scale: 0.9, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
@@ -522,7 +522,7 @@ const DecentralizedReviews: React.FC = () => {
                   style={{ width: '100%' }}
                 >
               <div className="flex items-center justify-between mb-6">
-                <h3 className="text-2xl font-bold text-gray-900">Yeni Yorum Yaz</h3>
+                <h3 className="text-2xl font-bold text-white">Yeni Yorum Yaz</h3>
                 <button
                   onClick={() => setShowWriteReview(false)}
                   className="p-2 hover:bg-gray-100 rounded-lg transition-colors"

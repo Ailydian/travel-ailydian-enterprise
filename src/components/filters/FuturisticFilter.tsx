@@ -133,7 +133,7 @@ export const FuturisticFilter: React.FC<FuturisticFilterProps> = ({
                         <SlidersHorizontal className="w-6 h-6 text-white" />
                       </div>
                       <div>
-                        <h3 className="text-2xl font-black text-gray-900">Filtreler</h3>
+                        <h3 className="text-2xl font-black text-white">Filtreler</h3>
                         <p className="text-sm text-gray-600">
                           {activeFilterCount > 0 ? `${activeFilterCount} aktif filtre` : 'Sonuçları daralt'}
                         </p>
@@ -185,7 +185,7 @@ export const FuturisticFilter: React.FC<FuturisticFilterProps> = ({
                               {group.icon}
                             </div>
                           )}
-                          <span className="font-bold text-gray-900">{group.label}</span>
+                          <span className="font-bold text-white">{group.label}</span>
                         </div>
                         <motion.div
                           animate={{ rotate: expandedGroups.has(group.id) ? 180 : 0 }}

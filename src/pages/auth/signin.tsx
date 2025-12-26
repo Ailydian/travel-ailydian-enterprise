@@ -134,7 +134,7 @@ const SignIn: React.FC = () => {
         {/* Return to Home Button */}
         <Link 
           href="/" 
-          className="fixed top-6 left-6 z-10 flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200 text-gray-200 hover:bg-white hover:text-lydian-primary transition-all duration-200"
+          className="fixed top-6 left-6 z-10 flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-sm rounded-xl shadow-lg border border-white/10 text-gray-200 hover:bg-white/5 hover:text-lydian-primary transition-all duration-200"
         >
           <ArrowLeft className="w-4 h-4" />
           <span className="font-medium">Ana Sayfaya Dön</span>
@@ -187,7 +187,7 @@ const SignIn: React.FC = () => {
               <button
                 onClick={() => handleSocialSignIn('google')}
                 disabled={isLoading}
-                className="w-full flex items-center justify-center gap-3 px-4 py-3 border border-gray-300 rounded-xl hover:bg-gray-50 transition-colors disabled:opacity-50"
+                className="w-full flex items-center justify-center gap-3 px-4 py-3 border border-white/20 rounded-xl hover:bg-gray-50 transition-colors disabled:opacity-50"
               >
                 <GoogleIcon />
                 <span className="text-gray-200 font-medium">Google ile Giriş Yap</span>
@@ -195,7 +195,7 @@ const SignIn: React.FC = () => {
               <button
                 onClick={() => handleSocialSignIn('facebook')}
                 disabled={isLoading}
-                className="w-full flex items-center justify-center gap-3 px-4 py-3 border border-gray-300 rounded-xl hover:bg-gray-50 transition-colors disabled:opacity-50"
+                className="w-full flex items-center justify-center gap-3 px-4 py-3 border border-white/20 rounded-xl hover:bg-gray-50 transition-colors disabled:opacity-50"
               >
                 <FacebookIcon />
                 <span className="text-gray-200 font-medium">Facebook ile Giriş Yap</span>
@@ -223,7 +223,7 @@ const SignIn: React.FC = () => {
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     className={`w-full pl-11 pr-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-colors ${
-                      errors.email ? 'border-red-300 bg-red-50' : 'border-gray-300'
+                      errors.email ? 'border-red-300 bg-red-50' : 'border-white/20'
                     }`}
                     placeholder="ornek@email.com"
                   />
@@ -249,7 +249,7 @@ const SignIn: React.FC = () => {
                     value={formData.password}
                     onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                     className={`w-full pl-11 pr-12 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-colors ${
-                      errors.password ? 'border-red-300 bg-red-50' : 'border-gray-300'
+                      errors.password ? 'border-red-300 bg-red-50' : 'border-white/20'
                     }`}
                     placeholder="••••••••"
                   />
@@ -272,7 +272,7 @@ const SignIn: React.FC = () => {
               {/* Remember & Forgot Password */}
               <div className="flex items-center justify-between">
                 <label className="flex items-center">
-                  <input type="checkbox" className="rounded border-gray-300 text-blue-600 focus:ring-blue-500" />
+                  <input type="checkbox" className="rounded border-white/20 text-blue-600 focus:ring-blue-500" />
                   <span className="ml-2 text-sm text-gray-300">Beni hatırla</span>
                 </label>
                 <Link href="/auth/forgot-password" className="text-sm text-blue-600 hover:text-blue-700">

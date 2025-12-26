@@ -36,7 +36,7 @@ const createCustomIcon = (price: number, featured: boolean) => {
             : 'bg-white'
         } px-3 py-2 rounded-full shadow-lg border-2 ${
           featured ? 'border-white' : 'border-red-600'
-        } font-bold text-sm ${featured ? 'text-white' : 'text-gray-900'} hover:scale-110 transition-transform cursor-pointer">
+        } font-bold text-sm ${featured ? 'text-white' : 'text-white'} hover:scale-110 transition-transform cursor-pointer">
           ${priceLabel}
         </div>
       </div>
@@ -114,7 +114,7 @@ const MapView: React.FC<MapViewProps> = ({ properties }) => {
                 </div>
 
                 {/* Title */}
-                <h3 className="font-bold text-gray-900 mb-2 line-clamp-2">
+                <h3 className="font-bold text-white mb-2 line-clamp-2">
                   {property.title}
                 </h3>
 
@@ -150,7 +150,7 @@ const MapView: React.FC<MapViewProps> = ({ properties }) => {
                 {/* Price */}
                 <div className="flex items-center justify-between pt-3 border-t border-gray-100 mb-3">
                   <div>
-                    <p className="text-xl font-bold text-gray-900">
+                    <p className="text-xl font-bold text-white">
                       {property.pricing.basePrice.toLocaleString('tr-TR')} ₺
                     </p>
                     <p className="text-xs text-gray-600">/ gece</p>
@@ -172,14 +172,14 @@ const MapView: React.FC<MapViewProps> = ({ properties }) => {
 
       {/* Map Legend */}
       <div className="absolute bottom-6 left-6 bg-white/95 backdrop-blur-sm rounded-xl shadow-lg p-4 z-[1000]">
-        <h4 className="font-bold text-gray-900 mb-3">Harita Gösterimi</h4>
+        <h4 className="font-bold text-white mb-3">Harita Gösterimi</h4>
         <div className="space-y-2 text-sm">
           <div className="flex items-center gap-2">
             <div className="w-8 h-8 bg-gradient-to-r from-red-600 to-orange-500 rounded-full"></div>
             <span className="text-gray-700">Öne Çıkan</span>
           </div>
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-white border-2 border-red-600 rounded-full"></div>
+            <div className="w-8 h-8 bg-white/5 border-2 border-red-600 rounded-full"></div>
             <span className="text-gray-700">Standart</span>
           </div>
         </div>

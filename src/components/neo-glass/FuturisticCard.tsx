@@ -101,30 +101,38 @@ export const FuturisticCard: React.FC<FuturisticCardProps> = ({
         rotateY,
         transformStyle: 'preserve-3d',
       }}
-      whileHover={{ scale: 1.02 }}
+      animate={{
+        scale: [1, 1.01, 1],
+      }}
+      transition={{
+        duration: 4,
+        repeat: Infinity,
+        ease: 'easeInOut',
+      }}
+      whileHover={{ scale: 1.03 }}
       className="relative group cursor-pointer"
     >
       {/* Main Card Container - Dark Glassmorphism for Vision Pro */}
       <div className="relative bg-white/5 backdrop-blur-3xl rounded-3xl overflow-hidden border border-white/10 shadow-[0_20px_60px_-15px_rgba(102,126,234,0.3)]">
 
-        {/* Animated Shine Effect */}
+        {/* Animated Shine Effect - PERMANENT */}
         <motion.div
-          className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-20"
+          className="absolute inset-0 opacity-60 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-20"
           style={{
             background: `radial-gradient(circle at ${shineX} ${shineY}, rgba(255,255,255,0.8) 0%, transparent 50%)`,
           }}
         />
 
-        {/* Liquid Morphing Gradient Background */}
+        {/* Liquid Morphing Gradient Background - PERMANENT ANIMATION */}
         <motion.div
-          className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-700"
-          animate={isHovered ? {
+          className="absolute inset-0 opacity-40 group-hover:opacity-100 transition-all duration-700"
+          animate={{
             background: [
               `conic-gradient(from 0deg at 50% 50%, ${categoryColor}20, transparent, ${categoryColor}20)`,
               `conic-gradient(from 180deg at 50% 50%, ${categoryColor}30, transparent, ${categoryColor}30)`,
               `conic-gradient(from 360deg at 50% 50%, ${categoryColor}20, transparent, ${categoryColor}20)`,
             ],
-          } : {}}
+          }}
           transition={{ duration: 3, repeat: Infinity }}
         />
 
@@ -341,21 +349,30 @@ export const FuturisticCard: React.FC<FuturisticCardProps> = ({
           />
         </div>
 
-        {/* 3D Depth Border Glow */}
+        {/* 3D Depth Border Glow - PERMANENT */}
         <motion.div
-          className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+          className="absolute inset-0 rounded-3xl opacity-50 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
           style={{
             boxShadow: `0 0 40px ${categoryColor}40, inset 0 0 40px ${categoryColor}20`,
           }}
         />
       </div>
 
-      {/* Shadow Layer for 3D Depth */}
-      <div
-        className="absolute inset-0 -z-10 rounded-3xl blur-2xl opacity-0 group-hover:opacity-50 transition-opacity duration-500"
+      {/* Shadow Layer for 3D Depth - PERMANENT GLOW */}
+      <motion.div
+        className="absolute inset-0 -z-10 rounded-3xl blur-2xl opacity-30 group-hover:opacity-60 transition-opacity duration-500"
         style={{
           background: `radial-gradient(circle at 50% 50%, ${categoryColor}60, transparent)`,
           transform: 'translateZ(-20px) scale(0.95)',
+        }}
+        animate={{
+          opacity: [0.3, 0.5, 0.3],
+          scale: [0.95, 1, 0.95],
+        }}
+        transition={{
+          duration: 3,
+          repeat: Infinity,
+          ease: 'easeInOut',
         }}
       />
     </motion.div>

@@ -16,6 +16,7 @@ import antalyaAirportTransfers from '../data/antalya-transfers';
 import { AnimatedCarIcon } from '../components/icons/AnimatedCarIcon';
 import { TransferCarCard } from '../components/cards/TransferCarCard';
 import { NeoHero, FuturisticCard, FuturisticButton } from '../components/neo-glass';
+import { HorizontalScrollSection } from '../components/scroll/HorizontalScrollSection';
 import { FuturisticFilter } from '../components/filters/FuturisticFilter';
 
 export default function TransfersPage() {
@@ -111,7 +112,7 @@ export default function TransfersPage() {
               whileTap={{ scale: 0.95 }}
               className={`px-5 py-2.5 rounded-xl font-semibold transition-all ${
                 selectedLanguage === lang
-                  ? 'bg-white text-[#00BAFF] shadow-lg'
+                  ? 'bg-white/5 text-[#00BAFF] shadow-lg'
                   : 'bg-white/10 backdrop-blur-xl border border-white/20 text-white hover:bg-white/20'
               }`}
             >

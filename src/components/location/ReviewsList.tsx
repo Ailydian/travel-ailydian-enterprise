@@ -46,7 +46,7 @@ const ReviewsList: React.FC<ReviewsListProps> = ({ reviews, language = 'en' }) =
   return (
     <div className="space-y-6">
       {reviews.map((review) => (
-        <div key={review.id} className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+        <div key={review.id} className="bg-white/5 border border-white/10 rounded-lg p-6 shadow-sm">
           {/* Review Header */}
           <div className="flex items-start justify-between mb-4">
             <div className="flex items-center space-x-3">
@@ -57,7 +57,7 @@ const ReviewsList: React.FC<ReviewsListProps> = ({ reviews, language = 'en' }) =
                 }
               </div>
               <div>
-                <h4 className="font-semibold text-gray-900">
+                <h4 className="font-semibold text-white">
                   {review.user?.first_name && review.user?.last_name 
                     ? `${review.user.first_name} ${review.user.last_name.charAt(0)}.`
                     : review.user?.username || 'Anonymous'
@@ -87,7 +87,7 @@ const ReviewsList: React.FC<ReviewsListProps> = ({ reviews, language = 'en' }) =
 
           {/* Review Title */}
           {review.title && (
-            <h3 className="text-lg font-medium text-gray-900 mb-3">
+            <h3 className="text-lg font-medium text-white mb-3">
               {getLocalizedContent(review.title)}
             </h3>
           )}

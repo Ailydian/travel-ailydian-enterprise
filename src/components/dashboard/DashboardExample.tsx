@@ -40,7 +40,7 @@ const StatCard: React.FC<StatCardProps> = ({
   isPositive,
   icon: Icon,
 }) => (
-  <div className="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-lg transition-shadow">
+  <div className="bg-white/5 rounded-lg border border-white/10 p-6 hover:shadow-lg transition-shadow">
     <div className="flex items-center justify-between mb-4">
       <div className="p-2 bg-blue-50 rounded-lg">
         <Icon className="h-6 w-6 text-blue-600" />
@@ -58,7 +58,7 @@ const StatCard: React.FC<StatCardProps> = ({
         <span>{change}</span>
       </div>
     </div>
-    <h3 className="text-2xl font-bold text-gray-900 mb-1">{value}</h3>
+    <h3 className="text-2xl font-bold text-white mb-1">{value}</h3>
     <p className="text-sm text-gray-500">{title}</p>
   </div>
 );
@@ -85,7 +85,7 @@ const BookingRow: React.FC<{ booking: Booking }> = ({ booking }) => {
   return (
     <tr className="hover:bg-gray-50">
       <td className="px-6 py-4 whitespace-nowrap">
-        <div className="text-sm font-medium text-gray-900">{booking.guestName}</div>
+        <div className="text-sm font-medium text-white">{booking.guestName}</div>
       </td>
       <td className="px-6 py-4 whitespace-nowrap">
         <div className="text-sm text-gray-500">{booking.property}</div>
@@ -94,7 +94,7 @@ const BookingRow: React.FC<{ booking: Booking }> = ({ booking }) => {
         <div className="text-sm text-gray-500">{booking.checkIn}</div>
       </td>
       <td className="px-6 py-4 whitespace-nowrap">
-        <div className="text-sm font-medium text-gray-900">{booking.amount}</div>
+        <div className="text-sm font-medium text-white">{booking.amount}</div>
       </td>
       <td className="px-6 py-4 whitespace-nowrap">
         <span
@@ -187,7 +187,7 @@ export default function DashboardPage() {
     >
       {/* Welcome Section */}
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">
+        <h1 className="text-3xl font-bold text-white mb-2">
           Welcome back, John!
         </h1>
         <p className="text-gray-500">
@@ -203,9 +203,9 @@ export default function DashboardPage() {
       </div>
 
       {/* Recent Bookings Table */}
-      <div className="bg-white rounded-lg border border-gray-200 shadow-sm">
-        <div className="px-6 py-4 border-b border-gray-200">
-          <h2 className="text-lg font-semibold text-gray-900">Recent Bookings</h2>
+      <div className="bg-white/5 rounded-lg border border-white/10 shadow-sm">
+        <div className="px-6 py-4 border-b border-white/10">
+          <h2 className="text-lg font-semibold text-white">Recent Bookings</h2>
         </div>
         <div className="overflow-x-auto">
           <table className="min-w-full divide-y divide-gray-200">
@@ -228,14 +228,14 @@ export default function DashboardPage() {
                 </th>
               </tr>
             </thead>
-            <tbody className="bg-white divide-y divide-gray-200">
+            <tbody className="bg-white/5 divide-y divide-gray-200">
               {recentBookings.map((booking) => (
                 <BookingRow key={booking.id} booking={booking} />
               ))}
             </tbody>
           </table>
         </div>
-        <div className="px-6 py-4 border-t border-gray-200 bg-gray-50">
+        <div className="px-6 py-4 border-t border-white/10 bg-gray-50">
           <a
             href="/dashboard/bookings"
             className="text-sm font-medium text-blue-600 hover:text-blue-700"
@@ -247,25 +247,25 @@ export default function DashboardPage() {
 
       {/* Quick Actions */}
       <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
-        <button className="p-6 bg-white border border-gray-200 rounded-lg hover:shadow-lg transition-shadow text-left">
+        <button className="p-6 bg-white/5 border border-white/10 rounded-lg hover:shadow-lg transition-shadow text-left">
           <Calendar className="h-8 w-8 text-blue-600 mb-3" />
-          <h3 className="font-semibold text-gray-900 mb-1">Manage Calendar</h3>
+          <h3 className="font-semibold text-white mb-1">Manage Calendar</h3>
           <p className="text-sm text-gray-500">
             Update availability and pricing
           </p>
         </button>
 
-        <button className="p-6 bg-white border border-gray-200 rounded-lg hover:shadow-lg transition-shadow text-left">
+        <button className="p-6 bg-white/5 border border-white/10 rounded-lg hover:shadow-lg transition-shadow text-left">
           <Users className="h-8 w-8 text-blue-600 mb-3" />
-          <h3 className="font-semibold text-gray-900 mb-1">Guest Messages</h3>
+          <h3 className="font-semibold text-white mb-1">Guest Messages</h3>
           <p className="text-sm text-gray-500">
             Respond to guest inquiries
           </p>
         </button>
 
-        <button className="p-6 bg-white border border-gray-200 rounded-lg hover:shadow-lg transition-shadow text-left">
+        <button className="p-6 bg-white/5 border border-white/10 rounded-lg hover:shadow-lg transition-shadow text-left">
           <DollarSign className="h-8 w-8 text-blue-600 mb-3" />
-          <h3 className="font-semibold text-gray-900 mb-1">View Earnings</h3>
+          <h3 className="font-semibold text-white mb-1">View Earnings</h3>
           <p className="text-sm text-gray-500">
             Check your financial reports
           </p>

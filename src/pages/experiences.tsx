@@ -153,7 +153,7 @@ const ExperiencesPage: React.FC = () => {
       {/* Return to Home Button */}
       <Link 
         href="/" 
-        className="fixed top-24 left-6 z-10 flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200 text-gray-200 hover:bg-white hover:text-lydian-primary transition-all duration-200"
+        className="fixed top-24 left-6 z-10 flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200 text-gray-200 hover:bg-white/5 hover:text-lydian-primary transition-all duration-200"
       >
         <ArrowLeft className="w-4 h-4" />
         <span className="font-medium">Ana Sayfaya Dön</span>
@@ -317,7 +317,7 @@ const ExperiencesPage: React.FC = () => {
                     </div>
 
                     {/* Heart */}
-                    <button className="absolute top-4 right-4 p-2 bg-white/80 hover:bg-white rounded-full transition-colors">
+                    <button className="absolute top-4 right-4 p-2 bg-white/80 hover:bg-white/5 rounded-full transition-colors">
                       <Heart className="w-4 h-4 text-gray-300" />
                     </button>
 

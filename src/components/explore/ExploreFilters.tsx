@@ -24,7 +24,7 @@ export const ExploreFilters: React.FC = () => {
       </button>
 
       {/* Filters Panel */}
-      <div className={`bg-white rounded-xl shadow-lg p-6 space-y-6 ${isOpen ? 'block' : 'hidden lg:block'}`}>
+      <div className={`bg-white/5 rounded-xl shadow-lg p-6 space-y-6 ${isOpen ? 'block' : 'hidden lg:block'}`}>
         <div className="flex items-center justify-between">
           <h3 className="font-bold text-lg">{t('search.filters')}</h3>
           <button onClick={() => setIsOpen(false)} className="lg:hidden">
@@ -34,7 +34,7 @@ export const ExploreFilters: React.FC = () => {
 
         {/* Price Range */}
         <div>
-          <label className="font-semibold text-gray-900 mb-3 block">{t('search.priceRange')}</label>
+          <label className="font-semibold text-white mb-3 block">{t('search.priceRange')}</label>
           <input
             type="range"
             min="0"
@@ -52,7 +52,7 @@ export const ExploreFilters: React.FC = () => {
 
         {/* Categories */}
         <div>
-          <label className="font-semibold text-gray-900 mb-3 block">{t('search.categories')}</label>
+          <label className="font-semibold text-white mb-3 block">{t('search.categories')}</label>
           <div className="space-y-2">
             {categories.map((cat) => (
               <label key={cat} className="flex items-center gap-2 cursor-pointer">
@@ -76,10 +76,10 @@ export const ExploreFilters: React.FC = () => {
 
         {/* Duration */}
         <div>
-          <label className="font-semibold text-gray-900 mb-3 block">{t('search.duration')}</label>
+          <label className="font-semibold text-white mb-3 block">{t('search.duration')}</label>
           <div className="grid grid-cols-2 gap-2">
             {durations.map((dur) => (
-              <button key={dur} className="py-2 px-3 border border-gray-300 rounded-lg text-sm hover:border-lydian-primary hover:text-lydian-primary transition-colors">
+              <button key={dur} className="py-2 px-3 border border-white/20 rounded-lg text-sm hover:border-lydian-primary hover:text-lydian-primary transition-colors">
                 {dur}
               </button>
             ))}

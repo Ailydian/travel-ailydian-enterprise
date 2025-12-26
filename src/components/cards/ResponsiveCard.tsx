@@ -156,7 +156,7 @@ const ResponsiveCard: React.FC<ResponsiveCardProps> = ({
           {/* Favorite Button */}
           <button
             onClick={handleFavorite}
-            className="ml-auto w-9 h-9 md:w-10 md:h-10 rounded-lg bg-white/90 backdrop-blur-sm hover:bg-white flex items-center justify-center transition-all active:scale-90 touch-target shadow-lg"
+            className="ml-auto w-9 h-9 md:w-10 md:h-10 rounded-lg bg-white/90 backdrop-blur-sm hover:bg-white/5 flex items-center justify-center transition-all active:scale-90 touch-target shadow-lg"
             aria-label={isFavorited ? 'Favorilerden Çıkar' : 'Favorilere Ekle'}
           >
             <Heart
@@ -182,7 +182,7 @@ const ResponsiveCard: React.FC<ResponsiveCardProps> = ({
             e.stopPropagation();
             handleView();
           }}
-          className="hidden md:flex absolute bottom-3 right-3 items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-sm hover:bg-white rounded-lg text-sm font-medium text-gray-900 opacity-0 group-hover:opacity-100 transition-all active:scale-95 shadow-lg"
+          className="hidden md:flex absolute bottom-3 right-3 items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-sm hover:bg-white/5 rounded-lg text-sm font-medium text-white opacity-0 group-hover:opacity-100 transition-all active:scale-95 shadow-lg"
         >
           <Eye className="w-4 h-4" />
           Detay
@@ -207,7 +207,7 @@ const ResponsiveCard: React.FC<ResponsiveCardProps> = ({
         )}
 
         {/* Title & Subtitle */}
-        <h3 className="font-bold text-gray-900 mb-1 line-clamp-2 heading-responsive-sm">
+        <h3 className="font-bold text-white mb-1 line-clamp-2 heading-responsive-sm">
           {title}
         </h3>
         {subtitle && (

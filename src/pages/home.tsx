@@ -586,7 +586,7 @@ const GetYourGuideStyleHome: React.FC = () => {
         </NeoSection>
 
         {/* Car Rentals Showcase */}
-        <section className="py-16 bg-white">
+        <section className="py-16 bg-white/5">
           <div className="max-w-7xl mx-auto px-4">
             <div className="flex items-center justify-between mb-12">
               <div>
@@ -760,7 +760,7 @@ const GetYourGuideStyleHome: React.FC = () => {
         </section>
 
         {/* Partner Services - Property, Vehicle & Transfer */}
-        <section className="py-20 bg-white">
+        <section className="py-20 bg-white/5">
           <div className="max-w-7xl mx-auto px-4">
             <div className="text-center mb-16">
               <motion.div
@@ -939,7 +939,7 @@ const GetYourGuideStyleHome: React.FC = () => {
         </section>
 
         {/* Why Choose Us */}
-        <section className="py-16 bg-white">
+        <section className="py-16 bg-white/5">
           <div className="max-w-7xl mx-auto px-4">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-white mb-4">Neden LyDian Travel?</h2>

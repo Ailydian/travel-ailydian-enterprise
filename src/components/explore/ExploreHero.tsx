@@ -67,7 +67,7 @@ export const ExploreHero: React.FC = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="max-w-4xl mx-auto"
           >
-            <div className="bg-white rounded-2xl shadow-2xl p-6">
+            <div className="bg-white/5 rounded-2xl shadow-2xl p-6">
               <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
                 {/* Destination */}
                 <div className="relative">
@@ -79,7 +79,7 @@ export const ExploreHero: React.FC = () => {
                     <input
                       type="text"
                       placeholder={t('explore.hero.searchPlaceholder')}
-                      className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-lydian-primary focus:border-transparent"
+                      className="w-full pl-10 pr-4 py-3 border border-white/20 rounded-lg focus:ring-2 focus:ring-lydian-primary focus:border-transparent"
                     />
                   </div>
                 </div>
@@ -94,7 +94,7 @@ export const ExploreHero: React.FC = () => {
                     <input
                       type="text"
                       placeholder={t('explore.hero.selectDates')}
-                      className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-lydian-primary focus:border-transparent"
+                      className="w-full pl-10 pr-4 py-3 border border-white/20 rounded-lg focus:ring-2 focus:ring-lydian-primary focus:border-transparent"
                     />
                   </div>
                 </div>
@@ -106,7 +106,7 @@ export const ExploreHero: React.FC = () => {
                   </label>
                   <div className="relative">
                     <Users className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
-                    <select className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-lydian-primary focus:border-transparent appearance-none">
+                    <select className="w-full pl-10 pr-4 py-3 border border-white/20 rounded-lg focus:ring-2 focus:ring-lydian-primary focus:border-transparent appearance-none">
                       <option>1 {t('search.guest')}</option>
                       <option>2 {t('search.guests')}</option>
                       <option>3-4 {t('search.guests')}</option>

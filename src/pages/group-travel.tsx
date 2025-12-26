@@ -53,7 +53,7 @@ const GroupTravel: React.FC = () => {
           </div>
         </section>
 
-        <section className="py-16 bg-white">
+        <section className="py-16 bg-white/5">
           <div className="max-w-7xl mx-auto px-4 text-center">
             <h2 className="text-3xl font-bold text-white mb-8">Grup Avantajları</h2>
             <div className="grid grid-cols-1 md:grid-cols-4 gap-8">

@@ -196,7 +196,7 @@ export default function FlightDetail() {
       <SimplifiedHeader />
 
       {/* Return Button */}
-      <div className="sticky top-16 z-40 bg-transparent border-b border-gray-200 shadow-sm">
+      <div className="sticky top-16 z-40 bg-transparent border-b border-white/10 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 py-3">
           <Link
             href="/flights"
@@ -297,7 +297,7 @@ export default function FlightDetail() {
             </div>
 
             {/* Amenities */}
-            <div className="mt-6 pt-6 border-t border-gray-200">
+            <div className="mt-6 pt-6 border-t border-white/10">
               <h3 className="text-sm font-semibold text-gray-200 mb-3">Uçuş İmkanları</h3>
               <div className="flex flex-wrap gap-3">
                 {flight.amenities.map((amenity: string) => (
@@ -334,7 +334,7 @@ export default function FlightDetail() {
                       className={`relative p-6 rounded-xl border-2 transition-all ${
                         selectedFareClass === fare.type
                           ? 'border-lydian-primary bg-blue-50'
-                          : 'border-gray-200 hover:border-gray-300'
+                          : 'border-white/10 hover:border-white/20'
                       }`}
                     >
                       {selectedFareClass === fare.type && (
@@ -467,7 +467,7 @@ export default function FlightDetail() {
                       </p>
                     </div>
                   </div>
-                  <div className="pt-3 border-t border-gray-200">
+                  <div className="pt-3 border-t border-white/10">
                     <p className="text-sm text-gray-300">
                       İptal süresi: <span className="font-semibold">{flight.cancellationPolicy.deadline}</span>
                     </p>
@@ -503,14 +503,14 @@ export default function FlightDetail() {
                       <div className="flex items-center gap-3">
                         <button
                           onClick={() => setPassengers(p => ({ ...p, adults: Math.max(1, p.adults - 1) }))}
-                          className="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-100"
+                          className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center hover:bg-gray-100"
                         >
                           -
                         </button>
                         <span className="w-8 text-center font-semibold">{passengers.adults}</span>
                         <button
                           onClick={() => setPassengers(p => ({ ...p, adults: Math.min(9, p.adults + 1) }))}
-                          className="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-100"
+                          className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center hover:bg-gray-100"
                         >
                           +
                         </button>
@@ -521,14 +521,14 @@ export default function FlightDetail() {
                       <div className="flex items-center gap-3">
                         <button
                           onClick={() => setPassengers(p => ({ ...p, children: Math.max(0, p.children - 1) }))}
-                          className="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-100"
+                          className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center hover:bg-gray-100"
                         >
                           -
                         </button>
                         <span className="w-8 text-center font-semibold">{passengers.children}</span>
                         <button
                           onClick={() => setPassengers(p => ({ ...p, children: Math.min(9, p.children + 1) }))}
-                          className="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-100"
+                          className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center hover:bg-gray-100"
                         >
                           +
                         </button>
@@ -539,14 +539,14 @@ export default function FlightDetail() {
                       <div className="flex items-center gap-3">
                         <button
                           onClick={() => setPassengers(p => ({ ...p, infants: Math.max(0, p.infants - 1) }))}
-                          className="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-100"
+                          className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center hover:bg-gray-100"
                         >
                           -
                         </button>
                         <span className="w-8 text-center font-semibold">{passengers.infants}</span>
                         <button
                           onClick={() => setPassengers(p => ({ ...p, infants: Math.min(passengers.adults, p.infants + 1) }))}
-                          className="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-100"
+                          className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center hover:bg-gray-100"
                         >
                           +
                         </button>
@@ -556,7 +556,7 @@ export default function FlightDetail() {
                 </div>
 
                 {/* Price Breakdown */}
-                <div className="border-t border-gray-200 pt-4 mb-6">
+                <div className="border-t border-white/10 pt-4 mb-6">
                   <h3 className="font-semibold text-white mb-3">Fiyat Detayı</h3>
                   <div className="space-y-2 text-sm">
                     {passengers.adults > 0 && (
@@ -578,7 +578,7 @@ export default function FlightDetail() {
                       </div>
                     )}
                   </div>
-                  <div className="border-t border-gray-200 mt-4 pt-4">
+                  <div className="border-t border-white/10 mt-4 pt-4">
                     <div className="flex justify-between items-center">
                       <span className="font-bold text-white">Toplam</span>
                       <span className="text-2xl font-bold text-lydian-primary">₺{totalPrice}</span>

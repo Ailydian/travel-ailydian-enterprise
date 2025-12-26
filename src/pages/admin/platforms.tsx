@@ -259,7 +259,7 @@ export default function AdminPlatforms() {
       <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center">
         <div className="text-center">
           <div className="relative">
-            <div className="w-20 h-20 border-4 border-gray-200 border-t-transparent rounded-full animate-spin mx-auto mb-6"></div>
+            <div className="w-20 h-20 border-4 border-white/10 border-t-transparent rounded-full animate-spin mx-auto mb-6"></div>
             <div className="absolute inset-0 w-20 h-20 border-4 border-transparent border-t-red-500 rounded-full animate-spin mx-auto" style={{animationDuration: '1.5s'}}></div>
           </div>
           <h3 className="text-xl font-semibold text-gray-100 mb-2">Harici Platformlar Yükleniyor</h3>
@@ -299,7 +299,7 @@ export default function AdminPlatforms() {
 
       <div className="min-h-screen" style={{background: `linear-gradient(135deg, ${AILYDIAN_COLORS.dark} 0%, #1f1f23 50%, #2d2d35 100%)`}}>
         {/* Top Navigation */}
-        <nav className="bg-white/95 backdrop-blur-sm shadow-lg border-b border-gray-200">
+        <nav className="bg-white/95 backdrop-blur-sm shadow-lg border-b border-white/10">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex justify-between items-center h-16">
               <div className="flex items-center space-x-4">
@@ -526,7 +526,7 @@ export default function AdminPlatforms() {
                           <Star className="w-4 h-4 mr-2 inline" />
                           Yorumları Senkronize Et
                         </button>
-                        <button className="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50">
+                        <button className="px-4 py-2 border border-white/20 rounded-lg hover:bg-gray-50">
                           <Settings className="w-4 h-4" />
                         </button>
                       </div>
@@ -563,7 +563,7 @@ export default function AdminPlatforms() {
 
                   <div className="space-y-4">
                     {platformsData.syncJobs.map((job) => (
-                      <div key={job.id} className="flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:bg-gray-50">
+                      <div key={job.id} className="flex items-center justify-between p-4 border border-white/10 rounded-lg hover:bg-gray-50">
                         <div className="flex items-center space-x-4">
                           <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg flex items-center justify-center">
                             <Activity className="w-6 h-6 text-white" />

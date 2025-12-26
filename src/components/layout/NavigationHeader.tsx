@@ -528,7 +528,7 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
                 <span className={`text-xl md:text-2xl font-black bg-gradient-to-r ${themeColors.logo} bg-clip-text text-transparent`}>
                   Travel
                 </span>
-                <span className="text-xl md:text-2xl font-black text-gray-900">
+                <span className="text-xl md:text-2xl font-black text-white">
                   LyDian
                 </span>
               </div>
@@ -551,7 +551,7 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
                 onBlur={handleSearchBlur}
                 onKeyDown={handleKeyDown}
                 placeholder={isClient ? t('common:searchPlaceholder', 'Destinasyon, deneyim, otel arayın...') : 'Destinasyon, deneyim, otel arayın...'}
-                className="header-search w-full pl-12 pr-4 py-3 outline-none text-gray-900 placeholder-gray-500 font-medium"
+                className="header-search w-full pl-12 pr-4 py-3 outline-none text-white placeholder-gray-500 font-medium"
                 autoComplete="off"
               />
               
@@ -560,7 +560,7 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
                 {isSearchFocused && (searchResults.length > 0 || searchQuery.trim() === '' || searchHistory.length > 0) && (
                   <div
                     ref={searchDropdownRef}
-                    className="absolute top-full left-0 right-0 mt-2 bg-white rounded-xl shadow-2xl border border-gray-200 z-50 max-h-96 overflow-y-auto"
+                    className="absolute top-full left-0 right-0 mt-2 bg-white/5 rounded-xl shadow-2xl border border-white/10 z-50 max-h-96 overflow-y-auto"
                   >
                     <motion.div
                       initial={{ opacity: 0, y: 10, scale: 0.95 }}
@@ -598,7 +598,7 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
                               )}
                               <div className="flex-1 min-w-0">
                                 <div className="flex items-center gap-2">
-                                  <span className="font-medium text-gray-900 truncate">{result.title}</span>
+                                  <span className="font-medium text-white truncate">{result.title}</span>
                                   {result.rating && (
                                     <div className="flex items-center gap-1 text-xs">
                                       <Star className="w-3 h-3 text-yellow-500 fill-current" />
@@ -713,7 +713,7 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
                           transition={{ duration: 0.2 }}
                           onMouseEnter={() => setIsToursMenuOpen(true)}
                           onMouseLeave={() => setIsToursMenuOpen(false)}
-                          className="absolute top-full left-0 mt-2 w-80 bg-white rounded-xl shadow-2xl border border-gray-200 z-50 overflow-hidden"
+                          className="absolute top-full left-0 mt-2 w-80 bg-white/5 rounded-xl shadow-2xl border border-white/10 z-50 overflow-hidden"
                         >
                           <div className="p-2">
                             {toursItems.map((tour) => (
@@ -725,7 +725,7 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
                                 <span className="text-2xl">{tour.icon}</span>
                                 <div className="flex-1">
                                   <div className="flex items-center justify-between mb-1">
-                                    <h4 className="font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">
+                                    <h4 className="font-semibold text-white group-hover:text-blue-600 transition-colors">
                                       {tour.title}
                                     </h4>
                                     <span className="text-xs font-medium px-2 py-0.5 rounded-full bg-gradient-to-r from-blue-500 to-indigo-500 text-white">
@@ -818,7 +818,7 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
 
               <AnimatePresence>
                 {isLanguageMenuOpen && (
-                  <div className="absolute right-0 mt-2 w-48 bg-white rounded-xl shadow-lg border border-gray-200 py-2 z-50">
+                  <div className="absolute right-0 mt-2 w-48 bg-white/5 rounded-xl shadow-lg border border-white/10 py-2 z-50">
                     <motion.div
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
@@ -870,7 +870,7 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
 
               <AnimatePresence>
                 {isUserMenuOpen && (
-                  <div className="absolute right-0 mt-2 w-64 bg-white rounded-xl shadow-lg border border-gray-200 py-2">
+                  <div className="absolute right-0 mt-2 w-64 bg-white/5 rounded-xl shadow-lg border border-white/10 py-2">
                     <motion.div
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
@@ -879,7 +879,7 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
                     {session ? (
                       <>
                         <div className="px-4 py-3 border-b border-gray-100">
-                          <p className="text-sm font-medium text-gray-900">{session.user?.name || 'Kullanıcı'}</p>
+                          <p className="text-sm font-medium text-white">{session.user?.name || 'Kullanıcı'}</p>
                           <p className="text-xs text-gray-500">{session.user?.email}</p>
                           <span className="inline-flex items-center px-2 py-1 mt-2 rounded-full text-xs bg-blue-100 text-blue-700">
                             {(session.user as any)?.membershipType || 'BASIC'} Üye
@@ -933,7 +933,7 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
                     ) : (
                       <>
                         <div className="px-4 py-3 border-b border-gray-100">
-                          <p className="text-sm font-medium text-gray-900">Merhaba! 👋</p>
+                          <p className="text-sm font-medium text-white">Merhaba! 👋</p>
                           <p className="text-xs text-gray-500">Seyahat maceranıza başlayın</p>
                         </div>
                         
@@ -992,7 +992,7 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
                   onChange={handleSearchChange}
                   onFocus={handleSearchFocus}
                   placeholder={isClient ? t('common:searchDestinations', 'Destinasyon ara...') : 'Destinasyon ara...'}
-                  className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent font-medium text-gray-800 placeholder-gray-500"
+                  className="w-full pl-10 pr-4 py-3 border border-white/20 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent font-medium text-gray-100 placeholder-gray-500"
                   autoComplete="off"
                 />
               </div>
@@ -1043,7 +1043,7 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
                                   <span className="text-lg">{tour.icon}</span>
                                   <div className="flex-1">
                                     <div className="flex items-center gap-2">
-                                      <span className="text-sm font-medium text-gray-900">{tour.title}</span>
+                                      <span className="text-sm font-medium text-white">{tour.title}</span>
                                       <span className="text-xs px-1.5 py-0.5 rounded bg-blue-100 text-blue-700">
                                         {tour.badge}
                                       </span>
@@ -1108,12 +1108,12 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
               transition={{ type: "spring", damping: 25, stiffness: 300 }}
             >
               <div 
-                className="bg-white rounded-xl shadow-2xl w-full max-w-2xl mx-4 overflow-hidden"
+                className="bg-white/5 rounded-xl shadow-2xl w-full max-w-2xl mx-4 overflow-hidden"
                 onClick={(e) => e.stopPropagation()}
               >
               {/* Header */}
-              <div className="flex items-center justify-between p-4 border-b border-gray-200">
-                <h3 className="text-lg font-semibold text-gray-900 flex items-center gap-2">
+              <div className="flex items-center justify-between p-4 border-b border-white/10">
+                <h3 className="text-lg font-semibold text-white flex items-center gap-2">
                   <Search className="w-5 h-5 text-blue-600" />
                   Arama Yap
                 </h3>
@@ -1142,7 +1142,7 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
                       }
                     }}
                     placeholder="Destinasyon, deneyim, otel arayın..."
-                    className="w-full pl-12 pr-4 py-4 border-2 border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-gray-900 placeholder-gray-500 font-medium text-lg"
+                    className="w-full pl-12 pr-4 py-4 border-2 border-white/20 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-white placeholder-gray-500 font-medium text-lg"
                     autoComplete="off"
                     autoFocus
                   />
@@ -1166,7 +1166,7 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
                           setSearchResults(results);
                           setIsSearchFocused(true);
                         }}
-                        className="flex items-center gap-3 p-3 rounded-lg border border-gray-200 hover:border-blue-300 hover:bg-blue-50 transition-all"
+                        className="flex items-center gap-3 p-3 rounded-lg border border-white/10 hover:border-blue-300 hover:bg-blue-50 transition-all"
                       >
                         <span className="text-xl">{item.icon}</span>
                         <span className="font-medium text-gray-700">{item.title}</span>
@@ -1206,7 +1206,7 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
                             )}
                             <div className="flex-1 min-w-0">
                               <div className="flex items-center gap-2">
-                                <span className="font-medium text-gray-900 truncate">{result.title}</span>
+                                <span className="font-medium text-white truncate">{result.title}</span>
                                 {result.rating && (
                                   <div className="flex items-center gap-1 text-xs">
                                     <Star className="w-3 h-3 text-yellow-500 fill-current" />

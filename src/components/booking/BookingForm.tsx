@@ -246,7 +246,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
             animate={{ opacity: 1, x: 0 }}
           >
             <div className="space-y-6">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">
+            <h2 className="text-2xl font-bold text-white mb-6">
               Rezervasyon Detayları
             </h2>
 
@@ -260,7 +260,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
                   type="date"
                   value={formData.checkInDate.toISOString().split('T')[0]}
                   onChange={(e) => handleInputChange('checkInDate', new Date(e.target.value))}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 text-gray-900 [color-scheme:light]"
+                  className="w-full px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-blue-500 text-white [color-scheme:light]"
                   style={{ colorScheme: 'light' }}
                   min={new Date().toISOString().split('T')[0]}
                 />
@@ -275,7 +275,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
                     type="date"
                     value={formData.checkOutDate?.toISOString().split('T')[0] || ''}
                     onChange={(e) => handleInputChange('checkOutDate', new Date(e.target.value))}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 text-gray-900 [color-scheme:light]"
+                    className="w-full px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-blue-500 text-white [color-scheme:light]"
                     style={{ colorScheme: 'light' }}
                     min={formData.checkInDate.toISOString().split('T')[0]}
                   />
@@ -292,7 +292,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
                 <select
                   value={formData.adultsCount}
                   onChange={(e) => handleInputChange('adultsCount', parseInt(e.target.value))}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-blue-500"
                 >
                   {[1, 2, 3, 4, 5, 6, 7, 8].map(num => (
                     <option key={num} value={num}>{num}</option>
@@ -307,7 +307,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
                 <select
                   value={formData.childrenCount}
                   onChange={(e) => handleInputChange('childrenCount', parseInt(e.target.value))}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-blue-500"
                 >
                   {[0, 1, 2, 3, 4].map(num => (
                     <option key={num} value={num}>{num}</option>
@@ -329,7 +329,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
                       className={`p-4 border-2 rounded-lg cursor-pointer transition-all ${
                         formData.roomType === room.name.tr
                           ? 'border-blue-500 bg-blue-50'
-                          : 'border-gray-200 hover:border-gray-300'
+                          : 'border-white/10 hover:border-white/20'
                       }`}
                       onClick={() => handleInputChange('roomType', room.name.tr)}
                     >
@@ -414,7 +414,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
                   placeholder="Kupon kodunuzu girin"
                   value={formData.couponCode || ''}
                   onChange={(e) => handleInputChange('couponCode', e.target.value)}
-                  className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                  className="flex-1 px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-blue-500"
                 />
               </div>
               {couponDiscount.message && (
@@ -476,7 +476,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
             animate={{ opacity: 1, x: 0 }}
           >
             <div className="space-y-6">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">
+            <h2 className="text-2xl font-bold text-white mb-6">
               Kişisel Bilgiler
             </h2>
 
@@ -490,7 +490,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
                   required
                   value={formData.customerInfo.firstName}
                   onChange={(e) => handleCustomerInfoChange('firstName', e.target.value)}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-blue-500"
                 />
               </div>
 
@@ -503,7 +503,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
                   required
                   value={formData.customerInfo.lastName}
                   onChange={(e) => handleCustomerInfoChange('lastName', e.target.value)}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-blue-500"
                 />
               </div>
             </div>
@@ -517,7 +517,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
                 required
                 value={formData.customerInfo.email}
                 onChange={(e) => handleCustomerInfoChange('email', e.target.value)}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                className="w-full px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-blue-500"
               />
             </div>
 
@@ -531,7 +531,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
                 placeholder="+90 555 123 45 67"
                 value={formData.customerInfo.phone}
                 onChange={(e) => handleCustomerInfoChange('phone', e.target.value)}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                className="w-full px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-blue-500"
               />
             </div>
 
@@ -542,7 +542,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
               <select
                 value={formData.customerInfo.nationality}
                 onChange={(e) => handleCustomerInfoChange('nationality', e.target.value)}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                className="w-full px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-blue-500"
               >
                 <option value="TR">Türkiye</option>
                 <option value="US">Amerika Birleşik Devletleri</option>
@@ -563,7 +563,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
                   type="text"
                   value={formData.customerInfo.passportNumber || ''}
                   onChange={(e) => handleCustomerInfoChange('passportNumber', e.target.value)}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-blue-500"
                 />
               </div>
             )}
@@ -575,7 +575,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
               <textarea
                 rows={3}
                 placeholder="Herhangi bir özel isteğiniz varsa buraya yazabilirsiniz..."
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                className="w-full px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-blue-500"
               />
             </div>
             </div>
@@ -589,7 +589,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
             animate={{ opacity: 1, x: 0 }}
           >
             <div className="space-y-6">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">
+            <h2 className="text-2xl font-bold text-white mb-6">
               Ödeme Bilgileri
             </h2>
 
@@ -609,7 +609,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
                     className={`p-4 border-2 rounded-lg cursor-pointer transition-all ${
                       paymentMethod === method.id
                         ? 'border-blue-500 bg-blue-50'
-                        : 'border-gray-200 hover:border-gray-300'
+                        : 'border-white/10 hover:border-white/20'
                     }`}
                     onClick={() => setPaymentMethod(method.id as any)}
                   >
@@ -633,7 +633,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
                     type="text"
                     value={cardInfo.cardHolderName}
                     onChange={(e) => setCardInfo(prev => ({ ...prev, cardHolderName: e.target.value }))}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-blue-500"
                   />
                 </div>
 
@@ -646,7 +646,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
                     placeholder="1234 5678 9012 3456"
                     value={cardInfo.cardNumber}
                     onChange={(e) => setCardInfo(prev => ({ ...prev, cardNumber: e.target.value }))}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-blue-500"
                   />
                 </div>
 
@@ -658,7 +658,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
                     <select
                       value={cardInfo.expiryMonth}
                       onChange={(e) => setCardInfo(prev => ({ ...prev, expiryMonth: e.target.value }))}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                      className="w-full px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-blue-500"
                     >
                       <option value="">Ay</option>
                       {Array.from({ length: 12 }, (_, i) => (
@@ -676,7 +676,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
                     <select
                       value={cardInfo.expiryYear}
                       onChange={(e) => setCardInfo(prev => ({ ...prev, expiryYear: e.target.value }))}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                      className="w-full px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-blue-500"
                     >
                       <option value="">Yıl</option>
                       {Array.from({ length: 10 }, (_, i) => {
@@ -700,7 +700,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
                       maxLength={4}
                       value={cardInfo.cvv}
                       onChange={(e) => setCardInfo(prev => ({ ...prev, cvv: e.target.value }))}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                      className="w-full px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-blue-500"
                     />
                   </div>
                 </div>
@@ -719,7 +719,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
                   type="text"
                   value={billingAddress.fullName}
                   onChange={(e) => setBillingAddress(prev => ({ ...prev, fullName: e.target.value }))}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-blue-500"
                 />
               </div>
 
@@ -731,7 +731,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
                   type="text"
                   value={billingAddress.addressLine1}
                   onChange={(e) => setBillingAddress(prev => ({ ...prev, addressLine1: e.target.value }))}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-blue-500"
                 />
               </div>
 
@@ -744,7 +744,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
                     type="text"
                     value={billingAddress.city}
                     onChange={(e) => setBillingAddress(prev => ({ ...prev, city: e.target.value }))}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-blue-500"
                   />
                 </div>
 
@@ -756,7 +756,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
                     type="text"
                     value={billingAddress.state}
                     onChange={(e) => setBillingAddress(prev => ({ ...prev, state: e.target.value }))}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-blue-500"
                   />
                 </div>
 
@@ -768,7 +768,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
                     type="text"
                     value={billingAddress.postalCode}
                     onChange={(e) => setBillingAddress(prev => ({ ...prev, postalCode: e.target.value }))}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-blue-500"
                   />
                 </div>
               </div>
@@ -819,7 +819,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
             </div>
 
             <div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-2">
+              <h2 className="text-3xl font-bold text-white mb-2">
                 Rezervasyon Tamamlandı!
               </h2>
               <p className="text-gray-600 mb-6">
@@ -909,9 +909,9 @@ const BookingForm: React.FC<BookingFormProps> = ({
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.95, opacity: 0 }}
           >
-            <div className={`bg-white rounded-xl shadow-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto ${className}`} onClick={(e) => e.stopPropagation()}>
+            <div className={`bg-white/5 rounded-xl shadow-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto ${className}`} onClick={(e) => e.stopPropagation()}>
             {/* Header */}
-            <div className="flex items-center justify-between p-6 border-b border-gray-200">
+            <div className="flex items-center justify-between p-6 border-b border-white/10">
               <div>
                 <h1 className="text-xl font-bold">Rezervasyon</h1>
                 <p className="text-sm text-gray-500">{typeof item.name === 'string' ? item.name : item.name.tr}</p>
@@ -926,7 +926,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
 
             {/* Progress steps */}
             {currentStep < 4 && (
-              <div className="px-6 py-4 bg-gray-50 border-b border-gray-200">
+              <div className="px-6 py-4 bg-gray-50 border-b border-white/10">
                 <div className="flex items-center justify-between">
                   {[
                     { step: 1, label: 'Detaylar' },
@@ -973,11 +973,11 @@ const BookingForm: React.FC<BookingFormProps> = ({
 
             {/* Footer */}
             {currentStep < 4 && (
-              <div className="flex items-center justify-between p-6 border-t border-gray-200">
+              <div className="flex items-center justify-between p-6 border-t border-white/10">
                 <button
                   onClick={handlePrevStep}
                   disabled={currentStep === 1}
-                  className="px-6 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="px-6 py-2 border border-white/20 rounded-lg hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   ← Geri
                 </button>

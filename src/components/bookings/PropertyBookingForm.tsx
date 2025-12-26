@@ -300,9 +300,9 @@ const PropertyBookingForm: React.FC<BookingFormProps> = ({
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -20 }}
-                className="bg-white rounded-2xl shadow-md p-6"
+                className="bg-white/5 rounded-2xl shadow-md p-6"
               >
-                <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+                <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-2">
                   <Home className="w-6 h-6 text-blue-600" />
                   Konaklama Detayları
                 </h2>
@@ -320,7 +320,7 @@ const PropertyBookingForm: React.FC<BookingFormProps> = ({
                         value={formData.checkInDate}
                         onChange={(e) => updateField('checkInDate', e.target.value)}
                         className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                          errors.checkInDate ? 'border-red-500' : 'border-gray-300'
+                          errors.checkInDate ? 'border-red-500' : 'border-white/20'
                         }`}
                       />
                       {errors.checkInDate && (
@@ -341,7 +341,7 @@ const PropertyBookingForm: React.FC<BookingFormProps> = ({
                         value={formData.checkOutDate}
                         onChange={(e) => updateField('checkOutDate', e.target.value)}
                         className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                          errors.checkOutDate ? 'border-red-500' : 'border-gray-300'
+                          errors.checkOutDate ? 'border-red-500' : 'border-white/20'
                         }`}
                       />
                       {errors.checkOutDate && (
@@ -354,8 +354,8 @@ const PropertyBookingForm: React.FC<BookingFormProps> = ({
                   </div>
 
                   {/* Guest Counters */}
-                  <div className="border-t border-gray-200 pt-6">
-                    <h3 className="font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                  <div className="border-t border-white/10 pt-6">
+                    <h3 className="font-semibold text-white mb-4 flex items-center gap-2">
                       <Users className="w-5 h-5 text-blue-600" />
                       Misafir Sayısı
                     </h3>
@@ -364,14 +364,14 @@ const PropertyBookingForm: React.FC<BookingFormProps> = ({
                       {/* Adults */}
                       <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
                         <div>
-                          <p className="font-medium text-gray-900">Yetişkinler</p>
+                          <p className="font-medium text-white">Yetişkinler</p>
                           <p className="text-xs text-gray-500">13 yaş ve üzeri</p>
                         </div>
                         <div className="flex items-center gap-3">
                           <button
                             type="button"
                             onClick={() => updateField('adults', Math.max(1, formData.adults - 1))}
-                            className="w-8 h-8 flex items-center justify-center border border-gray-300 rounded-full hover:border-gray-400 transition-colors"
+                            className="w-8 h-8 flex items-center justify-center border border-white/20 rounded-full hover:border-gray-400 transition-colors"
                           >
                             -
                           </button>
@@ -379,7 +379,7 @@ const PropertyBookingForm: React.FC<BookingFormProps> = ({
                           <button
                             type="button"
                             onClick={() => updateField('adults', Math.min(property.guests, formData.adults + 1))}
-                            className="w-8 h-8 flex items-center justify-center border border-gray-300 rounded-full hover:border-gray-400 transition-colors"
+                            className="w-8 h-8 flex items-center justify-center border border-white/20 rounded-full hover:border-gray-400 transition-colors"
                           >
                             +
                           </button>
@@ -389,14 +389,14 @@ const PropertyBookingForm: React.FC<BookingFormProps> = ({
                       {/* Children */}
                       <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
                         <div>
-                          <p className="font-medium text-gray-900">Çocuklar</p>
+                          <p className="font-medium text-white">Çocuklar</p>
                           <p className="text-xs text-gray-500">2-12 yaş</p>
                         </div>
                         <div className="flex items-center gap-3">
                           <button
                             type="button"
                             onClick={() => updateField('children', Math.max(0, formData.children - 1))}
-                            className="w-8 h-8 flex items-center justify-center border border-gray-300 rounded-full hover:border-gray-400 transition-colors"
+                            className="w-8 h-8 flex items-center justify-center border border-white/20 rounded-full hover:border-gray-400 transition-colors"
                           >
                             -
                           </button>
@@ -406,7 +406,7 @@ const PropertyBookingForm: React.FC<BookingFormProps> = ({
                             onClick={() =>
                               updateField('children', Math.min(property.guests - formData.adults, formData.children + 1))
                             }
-                            className="w-8 h-8 flex items-center justify-center border border-gray-300 rounded-full hover:border-gray-400 transition-colors"
+                            className="w-8 h-8 flex items-center justify-center border border-white/20 rounded-full hover:border-gray-400 transition-colors"
                           >
                             +
                           </button>
@@ -417,7 +417,7 @@ const PropertyBookingForm: React.FC<BookingFormProps> = ({
                       <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
                         <div className="flex items-center gap-2">
                           <div>
-                            <p className="font-medium text-gray-900">Bebekler</p>
+                            <p className="font-medium text-white">Bebekler</p>
                             <p className="text-xs text-gray-500">2 yaş altı</p>
                           </div>
                         </div>
@@ -425,7 +425,7 @@ const PropertyBookingForm: React.FC<BookingFormProps> = ({
                           <button
                             type="button"
                             onClick={() => updateField('infants', Math.max(0, formData.infants - 1))}
-                            className="w-8 h-8 flex items-center justify-center border border-gray-300 rounded-full hover:border-gray-400 transition-colors"
+                            className="w-8 h-8 flex items-center justify-center border border-white/20 rounded-full hover:border-gray-400 transition-colors"
                           >
                             -
                           </button>
@@ -433,7 +433,7 @@ const PropertyBookingForm: React.FC<BookingFormProps> = ({
                           <button
                             type="button"
                             onClick={() => updateField('infants', formData.infants + 1)}
-                            className="w-8 h-8 flex items-center justify-center border border-gray-300 rounded-full hover:border-gray-400 transition-colors"
+                            className="w-8 h-8 flex items-center justify-center border border-white/20 rounded-full hover:border-gray-400 transition-colors"
                           >
                             +
                           </button>
@@ -455,7 +455,7 @@ const PropertyBookingForm: React.FC<BookingFormProps> = ({
                   </div>
 
                   {/* Special Requests */}
-                  <div className="border-t border-gray-200 pt-6">
+                  <div className="border-t border-white/10 pt-6">
                     <label className="block text-sm font-medium text-gray-700 mb-2">
                       <MessageSquare className="w-4 h-4 inline mr-1" />
                       Özel İstekler (Opsiyonel)
@@ -465,7 +465,7 @@ const PropertyBookingForm: React.FC<BookingFormProps> = ({
                       onChange={(e) => updateField('specialRequests', e.target.value)}
                       placeholder="Ev sahibine iletmek istediğiniz özel isteklerinizi yazabilirsiniz..."
                       rows={4}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full px-4 py-2 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                     />
                   </div>
 
@@ -492,9 +492,9 @@ const PropertyBookingForm: React.FC<BookingFormProps> = ({
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -20 }}
-                className="bg-white rounded-2xl shadow-md p-6"
+                className="bg-white/5 rounded-2xl shadow-md p-6"
               >
-                <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+                <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-2">
                   <User className="w-6 h-6 text-blue-600" />
                   Misafir Bilgileri
                 </h2>
@@ -511,7 +511,7 @@ const PropertyBookingForm: React.FC<BookingFormProps> = ({
                       onChange={(e) => updateField('fullName', e.target.value)}
                       placeholder="Adınız ve soyadınız"
                       className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                        errors.fullName ? 'border-red-500' : 'border-gray-300'
+                        errors.fullName ? 'border-red-500' : 'border-white/20'
                       }`}
                     />
                     {errors.fullName && (
@@ -531,7 +531,7 @@ const PropertyBookingForm: React.FC<BookingFormProps> = ({
                         onChange={(e) => updateField('email', e.target.value)}
                         placeholder="ornek@email.com"
                         className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                          errors.email ? 'border-red-500' : 'border-gray-300'
+                          errors.email ? 'border-red-500' : 'border-white/20'
                         }`}
                       />
                       {errors.email && (
@@ -550,7 +550,7 @@ const PropertyBookingForm: React.FC<BookingFormProps> = ({
                         onChange={(e) => updateField('phone', e.target.value)}
                         placeholder="+90 555 123 45 67"
                         className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                          errors.phone ? 'border-red-500' : 'border-gray-300'
+                          errors.phone ? 'border-red-500' : 'border-white/20'
                         }`}
                       />
                       {errors.phone && (
@@ -570,7 +570,7 @@ const PropertyBookingForm: React.FC<BookingFormProps> = ({
                       placeholder="Tam adresinizi giriniz"
                       rows={3}
                       className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                        errors.address ? 'border-red-500' : 'border-gray-300'
+                        errors.address ? 'border-red-500' : 'border-white/20'
                       }`}
                     />
                     {errors.address && (
@@ -600,9 +600,9 @@ const PropertyBookingForm: React.FC<BookingFormProps> = ({
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -20 }}
-                className="bg-white rounded-2xl shadow-md p-6"
+                className="bg-white/5 rounded-2xl shadow-md p-6"
               >
-                <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+                <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-2">
                   <CreditCard className="w-6 h-6 text-blue-600" />
                   Ödeme & Onay
                 </h2>
@@ -630,7 +630,7 @@ const PropertyBookingForm: React.FC<BookingFormProps> = ({
                       placeholder="1234 5678 9012 3456"
                       maxLength={16}
                       className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                        errors.cardNumber ? 'border-red-500' : 'border-gray-300'
+                        errors.cardNumber ? 'border-red-500' : 'border-white/20'
                       }`}
                     />
                     {errors.cardNumber && (
@@ -650,7 +650,7 @@ const PropertyBookingForm: React.FC<BookingFormProps> = ({
                         placeholder="MM/YY"
                         maxLength={5}
                         className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                          errors.expiryDate ? 'border-red-500' : 'border-gray-300'
+                          errors.expiryDate ? 'border-red-500' : 'border-white/20'
                         }`}
                       />
                       {errors.expiryDate && (
@@ -667,7 +667,7 @@ const PropertyBookingForm: React.FC<BookingFormProps> = ({
                         placeholder="123"
                         maxLength={4}
                         className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                          errors.cvv ? 'border-red-500' : 'border-gray-300'
+                          errors.cvv ? 'border-red-500' : 'border-white/20'
                         }`}
                       />
                       {errors.cvv && <p className="text-red-500 text-xs mt-1">{errors.cvv}</p>}
@@ -684,7 +684,7 @@ const PropertyBookingForm: React.FC<BookingFormProps> = ({
                       placeholder="Fatura adresinizi giriniz"
                       rows={3}
                       className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                        errors.billingAddress ? 'border-red-500' : 'border-gray-300'
+                        errors.billingAddress ? 'border-red-500' : 'border-white/20'
                       }`}
                     />
                     {errors.billingAddress && (
@@ -708,7 +708,7 @@ const PropertyBookingForm: React.FC<BookingFormProps> = ({
                   )}
 
                   {/* Terms & Conditions */}
-                  <div className="border-t border-gray-200 pt-6 space-y-4">
+                  <div className="border-t border-white/10 pt-6 space-y-4">
                     <label className="flex items-start gap-3 cursor-pointer">
                       <input
                         type="checkbox"
@@ -762,7 +762,7 @@ const PropertyBookingForm: React.FC<BookingFormProps> = ({
           <div className="flex items-center justify-between mt-6">
             <button
               onClick={step === 1 ? onCancel : handlePrevious}
-              className="flex items-center gap-2 px-6 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors"
+              className="flex items-center gap-2 px-6 py-3 border border-white/20 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors"
             >
               <ChevronLeft className="w-5 h-5" />
               {step === 1 ? 'İptal' : 'Geri'}
@@ -780,12 +780,12 @@ const PropertyBookingForm: React.FC<BookingFormProps> = ({
 
         {/* Summary Sidebar */}
         <div className="lg:col-span-1">
-          <div className="bg-white rounded-2xl shadow-md p-6 sticky top-6">
-            <h3 className="font-bold text-gray-900 mb-4">Rezervasyon Özeti</h3>
+          <div className="bg-white/5 rounded-2xl shadow-md p-6 sticky top-6">
+            <h3 className="font-bold text-white mb-4">Rezervasyon Özeti</h3>
 
             {/* Property Info */}
-            <div className="mb-4 pb-4 border-b border-gray-200">
-              <p className="font-semibold text-gray-900">{property.title}</p>
+            <div className="mb-4 pb-4 border-b border-white/10">
+              <p className="font-semibold text-white">{property.title}</p>
               <p className="text-sm text-gray-600">
                 {property.type === 'VILLA' ? 'Villa' : property.type === 'APARTMENT' ? 'Apartman' : 'Ev'} - {property.city}
               </p>
@@ -801,7 +801,7 @@ const PropertyBookingForm: React.FC<BookingFormProps> = ({
 
             {/* Dates */}
             {formData.checkInDate && formData.checkOutDate && (
-              <div className="mb-4 pb-4 border-b border-gray-200 text-sm">
+              <div className="mb-4 pb-4 border-b border-white/10 text-sm">
                 <div className="flex items-center gap-2 mb-2">
                   <Calendar className="w-4 h-4 text-gray-400" />
                   <span className="text-gray-600">Giriş:</span>
@@ -822,7 +822,7 @@ const PropertyBookingForm: React.FC<BookingFormProps> = ({
 
             {/* Guests */}
             {totalGuests > 0 && (
-              <div className="mb-4 pb-4 border-b border-gray-200 text-sm">
+              <div className="mb-4 pb-4 border-b border-white/10 text-sm">
                 <div className="flex items-center gap-2">
                   <Users className="w-4 h-4 text-gray-400" />
                   <span className="text-gray-600">Misafirler:</span>
@@ -858,9 +858,9 @@ const PropertyBookingForm: React.FC<BookingFormProps> = ({
                 </div>
 
                 {/* Total */}
-                <div className="pt-4 border-t border-gray-200">
+                <div className="pt-4 border-t border-white/10">
                   <div className="flex justify-between items-center">
-                    <span className="font-bold text-gray-900">Toplam</span>
+                    <span className="font-bold text-white">Toplam</span>
                     <span className="text-2xl font-bold text-blue-600">
                       ₺{pricing.total.toLocaleString('tr-TR')}
                     </span>

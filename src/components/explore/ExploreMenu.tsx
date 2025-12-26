@@ -83,7 +83,7 @@ export const ExploreMenu: React.FC = () => {
             transition={{ duration: 0.2 }}
             onMouseEnter={() => setIsOpen(true)}
             onMouseLeave={() => setIsOpen(false)}
-            className="absolute top-full left-0 mt-2 w-[900px] bg-white rounded-xl shadow-2xl border border-gray-200 overflow-hidden z-50"
+            className="absolute top-full left-0 mt-2 w-[900px] bg-white/5 rounded-xl shadow-2xl border border-white/10 overflow-hidden z-50"
           >
             <div className="grid grid-cols-12 gap-6 p-6">
               {/* Main Categories - Left Side */}
@@ -104,7 +104,7 @@ export const ExploreMenu: React.FC = () => {
                           <CategoryIcon className="w-5 h-5 text-white" />
                         </div>
                         <div className="flex-1">
-                          <h3 className="font-bold text-gray-900 group-hover:text-lydian-primary transition-colors">
+                          <h3 className="font-bold text-white group-hover:text-lydian-primary transition-colors">
                             {categoryData.name}
                           </h3>
                           <p className="text-xs text-gray-500">{categoryData.description}</p>
@@ -138,10 +138,10 @@ export const ExploreMenu: React.FC = () => {
               </div>
 
               {/* Popular Destinations - Right Side */}
-              <div className="col-span-4 border-l border-gray-200 pl-6">
+              <div className="col-span-4 border-l border-white/10 pl-6">
                 <div className="flex items-center gap-2 mb-4">
                   <MapPin className="w-5 h-5 text-lydian-primary" />
-                  <h3 className="font-bold text-gray-900">{t('explore.popularDestinations')}</h3>
+                  <h3 className="font-bold text-white">{t('explore.popularDestinations')}</h3>
                 </div>
 
                 <div className="space-y-2">
@@ -163,7 +163,7 @@ export const ExploreMenu: React.FC = () => {
                           />
                         </div>
                         <div className="flex-1 min-w-0">
-                          <h4 className="font-semibold text-sm text-gray-900 group-hover:text-lydian-primary truncate">
+                          <h4 className="font-semibold text-sm text-white group-hover:text-lydian-primary truncate">
                             {destData.name}
                           </h4>
                           <p className="text-xs text-gray-500 truncate">{destData.description}</p>
@@ -186,21 +186,21 @@ export const ExploreMenu: React.FC = () => {
             </div>
 
             {/* Bottom Featured Section */}
-            <div className="bg-gradient-to-r from-blue-50 to-purple-50 border-t border-gray-200 px-6 py-4">
+            <div className="bg-gradient-to-r from-blue-50 to-purple-50 border-t border-white/10 px-6 py-4">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 bg-gradient-to-br from-lydian-primary to-lydian-secondary rounded-full flex items-center justify-center">
                     <TrendingUp className="w-5 h-5 text-white" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-gray-900">{t('explore.trending')}</h4>
+                    <h4 className="font-bold text-white">{t('explore.trending')}</h4>
                     <p className="text-xs text-gray-600">{t('explore.trendingDescription')}</p>
                   </div>
                 </div>
                 <Link
                   href="/explore/trending"
                   onClick={() => setIsOpen(false)}
-                  className="px-4 py-2 bg-white text-lydian-primary rounded-lg hover:shadow-md transition-all font-medium text-sm border border-gray-200"
+                  className="px-4 py-2 bg-white/5 text-lydian-primary rounded-lg hover:shadow-md transition-all font-medium text-sm border border-white/10"
                 >
                   {t('explore.exploreTrending')}
                 </Link>

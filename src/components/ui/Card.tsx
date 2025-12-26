@@ -20,7 +20,7 @@ export const Card: React.FC<CardProps> = ({
   return (
     <div
       className={`
-        bg-white rounded-lg border border-neutral-200
+        bg-white/5 rounded-lg border border-neutral-200
         ${hover ? 'transition-all duration-200 hover:shadow-card-hover hover:border-neutral-300 cursor-pointer' : 'shadow-card'}
         ${onClick ? 'cursor-pointer' : ''}
         ${className}

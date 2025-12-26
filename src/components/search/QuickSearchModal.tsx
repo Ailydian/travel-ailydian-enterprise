@@ -149,7 +149,7 @@ const QuickSearchModal: React.FC<QuickSearchModalProps> = ({
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: -20 }}
           transition={{ type: "spring", stiffness: 300, damping: 30 }}
-          className="relative w-full max-w-2xl bg-white rounded-3xl shadow-2xl overflow-hidden"
+          className="relative w-full max-w-2xl bg-white/5 rounded-3xl shadow-2xl overflow-hidden"
           onClick={(e) => e.stopPropagation()}
         >
           {/* Header */}
@@ -229,7 +229,7 @@ const QuickSearchModal: React.FC<QuickSearchModalProps> = ({
                       type="date"
                       value={checkInDate}
                       onChange={(e) => setCheckInDate(e.target.value)}
-                      className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-lydian-primary/50"
+                      className="w-full pl-10 pr-4 py-3 border border-white/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-lydian-primary/50"
                     />
                   </div>
                 </div>
@@ -243,7 +243,7 @@ const QuickSearchModal: React.FC<QuickSearchModalProps> = ({
                       type="date"
                       value={checkOutDate}
                       onChange={(e) => setCheckOutDate(e.target.value)}
-                      className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-lydian-primary/50"
+                      className="w-full pl-10 pr-4 py-3 border border-white/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-lydian-primary/50"
                     />
                   </div>
                 </div>
@@ -262,7 +262,7 @@ const QuickSearchModal: React.FC<QuickSearchModalProps> = ({
                     max="20"
                     value={travelers}
                     onChange={(e) => setTravelers(e.target.value)}
-                    className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-lydian-primary/50"
+                    className="w-full pl-10 pr-4 py-3 border border-white/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-lydian-primary/50"
                   />
                 </div>
               </div>

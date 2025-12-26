@@ -202,7 +202,7 @@ export default function DestinationDetail({ destination, relatedDestinations, ex
         </section>
 
         {/* Quick Info Bar - Premium Tab Menu */}
-        <section className="bg-gradient-to-r from-gray-50 to-white border-b border-gray-200 sticky top-16 z-10 shadow-lg">
+        <section className="bg-gradient-to-r from-gray-50 to-white border-b border-white/10 sticky top-16 z-10 shadow-lg">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center justify-between py-4">
               <div className="flex gap-3">
@@ -213,7 +213,7 @@ export default function DestinationDetail({ destination, relatedDestinations, ex
                   className={`relative px-6 py-3 rounded-xl font-bold transition-all duration-300 ${
                     activeTab === 'overview'
                       ? 'bg-gradient-to-r from-lydian-primary to-lydian-secondary text-white shadow-lg shadow-red-500/30'
-                      : 'bg-white text-gray-200 hover:bg-gray-50 border border-gray-200 hover:border-lydian-primary/50'
+                      : 'bg-white/5 text-gray-200 hover:bg-gray-50 border border-white/10 hover:border-lydian-primary/50'
                   }`}
                 >
                   <span className="relative z-10">Genel Bakış</span>
@@ -232,7 +232,7 @@ export default function DestinationDetail({ destination, relatedDestinations, ex
                   className={`relative px-6 py-3 rounded-xl font-bold transition-all duration-300 ${
                     activeTab === 'places'
                       ? 'bg-gradient-to-r from-lydian-primary to-lydian-secondary text-white shadow-lg shadow-red-500/30'
-                      : 'bg-white text-gray-200 hover:bg-gray-50 border border-gray-200 hover:border-lydian-primary/50'
+                      : 'bg-white/5 text-gray-200 hover:bg-gray-50 border border-white/10 hover:border-lydian-primary/50'
                   }`}
                 >
                   <span className="relative z-10">Gezilecek Yerler</span>
@@ -251,7 +251,7 @@ export default function DestinationDetail({ destination, relatedDestinations, ex
                   className={`relative px-6 py-3 rounded-xl font-bold transition-all duration-300 ${
                     activeTab === 'activities'
                       ? 'bg-gradient-to-r from-lydian-primary to-lydian-secondary text-white shadow-lg shadow-red-500/30'
-                      : 'bg-white text-gray-200 hover:bg-gray-50 border border-gray-200 hover:border-lydian-primary/50'
+                      : 'bg-white/5 text-gray-200 hover:bg-gray-50 border border-white/10 hover:border-lydian-primary/50'
                   }`}
                 >
                   <span className="relative z-10">Aktiviteler</span>
@@ -270,7 +270,7 @@ export default function DestinationDetail({ destination, relatedDestinations, ex
                   className={`relative px-6 py-3 rounded-xl font-bold transition-all duration-300 ${
                     activeTab === 'tips'
                       ? 'bg-gradient-to-r from-lydian-primary to-lydian-secondary text-white shadow-lg shadow-red-500/30'
-                      : 'bg-white text-gray-200 hover:bg-gray-50 border border-gray-200 hover:border-lydian-primary/50'
+                      : 'bg-white/5 text-gray-200 hover:bg-gray-50 border border-white/10 hover:border-lydian-primary/50'
                   }`}
                 >
                   <span className="relative z-10">İpuçları</span>

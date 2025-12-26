@@ -67,10 +67,10 @@ const BundlePricingCard: React.FC<BundlePricingCardProps> = ({
   };
 
   return (
-    <div className="bg-white rounded-2xl shadow-xl p-6 sticky top-24">
+    <div className="bg-white/5 rounded-2xl shadow-xl p-6 sticky top-24">
       {/* Header */}
       <div className="flex items-center justify-between mb-6">
-        <h3 className="text-xl font-bold text-gray-900 flex items-center gap-2">
+        <h3 className="text-xl font-bold text-white flex items-center gap-2">
           <ShoppingCart className="h-5 w-5 text-purple-600" />
           Sepetiniz
         </h3>
@@ -90,7 +90,7 @@ const BundlePricingCard: React.FC<BundlePricingCardProps> = ({
           >
             <span className="text-2xl">{categoryIcons[item.category]}</span>
             <div className="flex-1">
-              <p className="text-sm font-semibold text-gray-900">{item.name}</p>
+              <p className="text-sm font-semibold text-white">{item.name}</p>
               <p className="text-xs text-gray-500">{categoryNames[item.category]}</p>
               {item.quantity && item.quantity > 1 && (
                 <p className="text-xs text-purple-600 mt-1">
@@ -98,7 +98,7 @@ const BundlePricingCard: React.FC<BundlePricingCardProps> = ({
                 </p>
               )}
             </div>
-            <p className="text-sm font-bold text-gray-900">
+            <p className="text-sm font-bold text-white">
               {formatCurrency(item.basePrice * (item.quantity || 1))}
             </p>
           </div>
@@ -106,7 +106,7 @@ const BundlePricingCard: React.FC<BundlePricingCardProps> = ({
       </div>
 
       {/* Price Breakdown */}
-      <div className="border-t border-gray-200 pt-4 mb-4">
+      <div className="border-t border-white/10 pt-4 mb-4">
         <div className="flex justify-between text-sm text-gray-600 mb-2">
           <span>Ara Toplam</span>
           <span className="font-semibold">{formatCurrency(pricing.subtotal)}</span>
@@ -156,8 +156,8 @@ const BundlePricingCard: React.FC<BundlePricingCardProps> = ({
         )}
 
         {/* Final Total */}
-        <div className="flex justify-between items-center pt-3 border-t-2 border-gray-200">
-          <span className="text-lg font-bold text-gray-900">Toplam</span>
+        <div className="flex justify-between items-center pt-3 border-t-2 border-white/10">
+          <span className="text-lg font-bold text-white">Toplam</span>
           <div className="text-right">
             {pricing.savingsPercentage > 0 && (
               <div className="text-xs text-green-600 font-semibold mb-1">
@@ -227,7 +227,7 @@ const BundlePricingCard: React.FC<BundlePricingCardProps> = ({
       </div>
 
       {/* Trust Badges */}
-      <div className="mt-6 pt-6 border-t border-gray-200">
+      <div className="mt-6 pt-6 border-t border-white/10">
         <div className="grid grid-cols-3 gap-4 text-center">
           <div>
             <div className="text-2xl mb-1">🔒</div>

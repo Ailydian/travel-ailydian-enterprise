@@ -210,7 +210,7 @@ export default function Careers() {
         </div>
 
         {/* Our Values */}
-        <div className="py-16 bg-white">
+        <div className="py-16 bg-white/5">
           <div className="max-w-7xl mx-auto px-4">
             <div className="text-center mb-12">
               <h2 className="text-4xl font-bold text-white mb-4">
@@ -282,7 +282,7 @@ export default function Careers() {
                   className={`px-6 py-2 rounded-full font-medium transition-colors ${
                     selectedDepartment === dept
                       ? 'bg-lydian-primary text-white'
-                      : 'bg-white text-gray-200 hover:bg-gray-100'
+                      : 'bg-white/5 text-gray-200 hover:bg-gray-100'
                   }`}
                 >
                   {dept === 'all' ? 'Tümü' : dept}
@@ -343,7 +343,7 @@ export default function Careers() {
         </div>
 
         {/* Spontaneous Application */}
-        <div className="py-16 bg-white">
+        <div className="py-16 bg-white/5">
           <div className="max-w-4xl mx-auto px-4">
             <div className="bg-gradient-to-r from-lydian-primary to-lydian-dark text-white rounded-2xl p-8 md:p-12">
               <div className="text-center">

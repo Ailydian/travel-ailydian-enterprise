@@ -373,9 +373,9 @@ const CollaborativePlanning: React.FC<CollaborativePlanningProps> = ({ tripId, c
         {/* Main Content */}
         <div className="lg:col-span-2 space-y-6">
           {/* Header */}
-          <div className="bg-white rounded-2xl shadow-lg p-6">
+          <div className="bg-white/5 rounded-2xl shadow-lg p-6">
             <div className="flex items-center justify-between mb-4">
-              <h2 className="text-2xl font-bold text-gray-900">Collaborative Planning</h2>
+              <h2 className="text-2xl font-bold text-white">Collaborative Planning</h2>
               <button
                 onClick={() => setShowInviteModal(true)}
                 className="px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg flex items-center gap-2 transition-colors"
@@ -404,8 +404,8 @@ const CollaborativePlanning: React.FC<CollaborativePlanningProps> = ({ tripId, c
           </div>
 
           {/* Tabs */}
-          <div className="bg-white rounded-2xl shadow-lg p-6">
-            <div className="flex gap-2 border-b border-gray-200 mb-6 overflow-x-auto">
+          <div className="bg-white/5 rounded-2xl shadow-lg p-6">
+            <div className="flex gap-2 border-b border-white/10 mb-6 overflow-x-auto">
               {[
                 { key: 'collaborators', label: 'Collaborators', icon: Users },
                 { key: 'chat', label: 'Group Chat', icon: MessageCircle },
@@ -421,7 +421,7 @@ const CollaborativePlanning: React.FC<CollaborativePlanningProps> = ({ tripId, c
                     className={`flex items-center gap-2 px-4 py-2 border-b-2 transition-colors whitespace-nowrap ${
                       activeTab === tab.key
                         ? 'border-purple-600 text-purple-600'
-                        : 'border-transparent text-gray-600 hover:text-gray-900'
+                        : 'border-transparent text-gray-600 hover:text-white'
                     }`}
                   >
                     <Icon className="w-4 h-4" />
@@ -456,7 +456,7 @@ const CollaborativePlanning: React.FC<CollaborativePlanningProps> = ({ tripId, c
                           </div>
                           <div>
                             <div className="flex items-center gap-2">
-                              <span className="font-semibold text-gray-900">{collaborator.name}</span>
+                              <span className="font-semibold text-white">{collaborator.name}</span>
                               <RoleIcon className="w-4 h-4 text-gray-400" />
                             </div>
                             <div className="text-sm text-gray-600">{collaborator.email}</div>
@@ -500,7 +500,7 @@ const CollaborativePlanning: React.FC<CollaborativePlanningProps> = ({ tripId, c
                         </div>
                         <div className={`flex-1 ${msg.userId === currentUser.id ? 'text-right' : ''}`}>
                           <div className="flex items-baseline gap-2 mb-1">
-                            <span className="text-sm font-semibold text-gray-900">{msg.userName}</span>
+                            <span className="text-sm font-semibold text-white">{msg.userName}</span>
                             <span className="text-xs text-gray-500">
                               {format(msg.timestamp, 'HH:mm')}
                             </span>
@@ -508,7 +508,7 @@ const CollaborativePlanning: React.FC<CollaborativePlanningProps> = ({ tripId, c
                           <div className={`inline-block px-4 py-2 rounded-lg ${
                             msg.userId === currentUser.id
                               ? 'bg-purple-600 text-white'
-                              : 'bg-gray-100 text-gray-900'
+                              : 'bg-gray-100 text-white'
                           }`}>
                             {msg.message}
                           </div>
@@ -525,7 +525,7 @@ const CollaborativePlanning: React.FC<CollaborativePlanningProps> = ({ tripId, c
                       onChange={(e) => setNewMessage(e.target.value)}
                       onKeyPress={(e) => e.key === 'Enter' && sendMessage()}
                       placeholder="Type a message..."
-                      className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                      className="flex-1 px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
                     />
                     <button
                       onClick={sendMessage}
@@ -558,7 +558,7 @@ const CollaborativePlanning: React.FC<CollaborativePlanningProps> = ({ tripId, c
                             {vote.userName.charAt(0)}
                           </div>
                           <div>
-                            <div className="font-semibold text-gray-900">{vote.userName}</div>
+                            <div className="font-semibold text-white">{vote.userName}</div>
                             <div className="text-sm text-gray-600">
                               voted {vote.voteType.replace('_', ' ')} on an activity
                             </div>
@@ -585,7 +585,7 @@ const CollaborativePlanning: React.FC<CollaborativePlanningProps> = ({ tripId, c
                     <div key={item.id} className="p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
                       <div className="flex items-start justify-between mb-2">
                         <div className="flex-1">
-                          <h4 className="font-semibold text-gray-900">{item.title}</h4>
+                          <h4 className="font-semibold text-white">{item.title}</h4>
                           <p className="text-sm text-gray-600 mt-1">{item.description}</p>
                           <div className="flex items-center gap-4 mt-2 text-sm text-gray-500">
                             <div className="flex items-center gap-1">
@@ -606,7 +606,7 @@ const CollaborativePlanning: React.FC<CollaborativePlanningProps> = ({ tripId, c
                           <span className="text-xs text-gray-500">{item.category}</span>
                         </div>
                       </div>
-                      <div className="flex items-center justify-between pt-2 border-t border-gray-200">
+                      <div className="flex items-center justify-between pt-2 border-t border-white/10">
                         <span className="text-xs text-gray-500">
                           Added by {item.addedBy}
                         </span>
@@ -634,7 +634,7 @@ const CollaborativePlanning: React.FC<CollaborativePlanningProps> = ({ tripId, c
                         type="number"
                         value={totalCost}
                         onChange={(e) => setTotalCost(parseFloat(e.target.value))}
-                        className="w-32 px-3 py-2 border border-gray-300 rounded-lg text-right"
+                        className="w-32 px-3 py-2 border border-white/20 rounded-lg text-right"
                         placeholder="0.00"
                       />
                     </div>
@@ -648,7 +648,7 @@ const CollaborativePlanning: React.FC<CollaborativePlanningProps> = ({ tripId, c
 
                   {costSplits.length > 0 && (
                     <div className="space-y-3">
-                      <h4 className="font-semibold text-gray-900">Cost Per Person</h4>
+                      <h4 className="font-semibold text-white">Cost Per Person</h4>
                       {costSplits.map((split) => (
                         <div key={split.userId} className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
                           <div className="flex items-center gap-3">
@@ -656,7 +656,7 @@ const CollaborativePlanning: React.FC<CollaborativePlanningProps> = ({ tripId, c
                               {split.userName.charAt(0)}
                             </div>
                             <div>
-                              <div className="font-semibold text-gray-900">{split.userName}</div>
+                              <div className="font-semibold text-white">{split.userName}</div>
                               <div className="text-sm text-gray-600">${split.amount.toFixed(2)}</div>
                             </div>
                           </div>
@@ -682,8 +682,8 @@ const CollaborativePlanning: React.FC<CollaborativePlanningProps> = ({ tripId, c
           </div>
 
           {/* Comments Section */}
-          <div className="bg-white rounded-2xl shadow-lg p-6">
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">Comments & Suggestions</h3>
+          <div className="bg-white/5 rounded-2xl shadow-lg p-6">
+            <h3 className="text-lg font-semibold text-white mb-4">Comments & Suggestions</h3>
 
             <div className="space-y-4 mb-4">
               {comments.map((comment) => (
@@ -693,7 +693,7 @@ const CollaborativePlanning: React.FC<CollaborativePlanningProps> = ({ tripId, c
                   </div>
                   <div className="flex-1">
                     <div className="flex items-baseline gap-2 mb-1">
-                      <span className="font-semibold text-gray-900">{comment.userName}</span>
+                      <span className="font-semibold text-white">{comment.userName}</span>
                       <span className="text-xs text-gray-500">
                         {format(comment.timestamp, 'MMM dd, yyyy HH:mm')}
                       </span>
@@ -711,7 +711,7 @@ const CollaborativePlanning: React.FC<CollaborativePlanningProps> = ({ tripId, c
                 onChange={(e) => setNewComment(e.target.value)}
                 onKeyPress={(e) => e.key === 'Enter' && addComment()}
                 placeholder="Add a comment or suggestion..."
-                className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                className="flex-1 px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
               />
               <button
                 onClick={addComment}
@@ -726,8 +726,8 @@ const CollaborativePlanning: React.FC<CollaborativePlanningProps> = ({ tripId, c
         {/* Sidebar */}
         <div className="space-y-6">
           {/* Active Collaborators */}
-          <div className="bg-white rounded-2xl shadow-lg p-6">
-            <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
+          <div className="bg-white/5 rounded-2xl shadow-lg p-6">
+            <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
               <Users className="w-5 h-5" />
               Online Now
             </h3>
@@ -741,7 +741,7 @@ const CollaborativePlanning: React.FC<CollaborativePlanningProps> = ({ tripId, c
                     <div className="absolute -bottom-1 -right-1 w-3 h-3 bg-green-400 rounded-full border-2 border-white" />
                   </div>
                   <div className="flex-1">
-                    <div className="font-medium text-gray-900 text-sm">{collaborator.name}</div>
+                    <div className="font-medium text-white text-sm">{collaborator.name}</div>
                     <div className="text-xs text-gray-500">Active now</div>
                   </div>
                 </div>
@@ -750,8 +750,8 @@ const CollaborativePlanning: React.FC<CollaborativePlanningProps> = ({ tripId, c
           </div>
 
           {/* Activity Feed */}
-          <div className="bg-white rounded-2xl shadow-lg p-6">
-            <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
+          <div className="bg-white/5 rounded-2xl shadow-lg p-6">
+            <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
               <Bell className="w-5 h-5" />
               Recent Activity
             </h3>
@@ -797,9 +797,9 @@ const CollaborativePlanning: React.FC<CollaborativePlanningProps> = ({ tripId, c
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               onClick={(e) => e.stopPropagation()}
-              className="bg-white rounded-2xl p-6 max-w-md w-full"
+              className="bg-white/5 rounded-2xl p-6 max-w-md w-full"
             >
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Invite Collaborator</h3>
+              <h3 className="text-xl font-bold text-white mb-4">Invite Collaborator</h3>
               <div className="space-y-4">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -810,7 +810,7 @@ const CollaborativePlanning: React.FC<CollaborativePlanningProps> = ({ tripId, c
                     value={inviteEmail}
                     onChange={(e) => setInviteEmail(e.target.value)}
                     placeholder="friend@example.com"
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                    className="w-full px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
                   />
                 </div>
                 <div className="flex gap-3">

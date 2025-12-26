@@ -468,7 +468,7 @@ const AIAssistantPopup: React.FC<AIAssistantPopupProps> = ({ isOpen, onClose }) 
             transition={{ type: "spring", duration: 0.5 }}
           >
             <div
-              className="bg-white rounded-3xl shadow-2xl w-full max-w-4xl h-[75vh] max-h-[600px] flex flex-col overflow-hidden"
+              className="bg-white/5 rounded-3xl shadow-2xl w-full max-w-4xl h-[75vh] max-h-[600px] flex flex-col overflow-hidden"
               onClick={(e) => e.stopPropagation()}
             >
             {/* Header */}
@@ -507,7 +507,7 @@ const AIAssistantPopup: React.FC<AIAssistantPopupProps> = ({ isOpen, onClose }) 
             <div ref={messagesContainerRef} className="flex-1 overflow-y-auto p-6 space-y-4 bg-gray-50 scroll-smooth">
               {messages.map((message) => (
                 <div key={message.id} className={`flex ${message.type === 'user' ? 'justify-end' : 'justify-start'}`}>
-                  <div className={`max-w-[80%] ${message.type === 'user' ? 'bg-blue-600 text-white' : 'bg-gray-100 border border-gray-300 text-gray-800'} rounded-2xl p-4 shadow-sm`}>
+                  <div className={`max-w-[80%] ${message.type === 'user' ? 'bg-blue-600 text-white' : 'bg-gray-100 border border-white/20 text-gray-100'} rounded-2xl p-4 shadow-sm`}>
                     {message.type === 'ai' && (
                       <div className="flex items-center gap-2 mb-2">
                         <Bot className="w-4 h-4 text-blue-600" />
@@ -539,7 +539,7 @@ const AIAssistantPopup: React.FC<AIAssistantPopupProps> = ({ isOpen, onClose }) 
               
               {isTyping && (
                 <div className="flex justify-start">
-                  <div className="bg-white border border-gray-200 rounded-2xl p-4 shadow-sm">
+                  <div className="bg-white/5 border border-white/10 rounded-2xl p-4 shadow-sm">
                     <div className="flex items-center gap-2">
                       <Bot className="w-4 h-4 text-blue-600" />
                       <span className="text-xs text-gray-500 font-medium">AI Asistan yazıyor...</span>
@@ -556,7 +556,7 @@ const AIAssistantPopup: React.FC<AIAssistantPopupProps> = ({ isOpen, onClose }) 
             </div>
 
             {/* Input */}
-            <div className="p-6 bg-white border-t border-gray-200">
+            <div className="p-6 bg-white/5 border-t border-white/10">
               <div className="flex items-center gap-4">
                 <div className="flex-1 relative">
                   <input
@@ -566,7 +566,7 @@ const AIAssistantPopup: React.FC<AIAssistantPopupProps> = ({ isOpen, onClose }) 
                     onChange={(e) => setInputValue(e.target.value)}
                     onKeyPress={handleKeyPress}
                     placeholder="Seyahat planınız hakkında soru sorun... (örn: İstanbul'da 3 günlük plan)"
-                    className="w-full pl-4 pr-12 py-4 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none text-gray-800 placeholder-gray-500"
+                    className="w-full pl-4 pr-12 py-4 border border-white/20 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none text-gray-100 placeholder-gray-500"
                     disabled={isTyping}
                   />
                   <button

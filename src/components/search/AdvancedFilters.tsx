@@ -151,7 +151,7 @@ const AdvancedFilters: React.FC<AdvancedFiltersProps> = ({
                 className={`flex items-center gap-1 px-3 py-2 rounded-lg border-2 transition-all ${
                   hotelFilters.starRating.includes(rating)
                     ? 'bg-lydian-primary text-white border-lydian-primary'
-                    : 'bg-white text-gray-700 border-gray-200 hover:border-lydian-primary'
+                    : 'bg-white/5 text-gray-700 border-white/10 hover:border-lydian-primary'
                 }`}
               >
                 {Array.from({ length: rating }).map((_, i) => (
@@ -213,7 +213,7 @@ const AdvancedFilters: React.FC<AdvancedFiltersProps> = ({
                 className={`px-3 py-2 rounded-lg border-2 text-sm transition-all ${
                   hotelFilters.propertyTypes.includes(type.value)
                     ? 'bg-lydian-primary text-white border-lydian-primary'
-                    : 'bg-white text-gray-700 border-gray-200 hover:border-lydian-primary'
+                    : 'bg-white/5 text-gray-700 border-white/10 hover:border-lydian-primary'
                 }`}
               >
                 {type.label}
@@ -238,7 +238,7 @@ const AdvancedFilters: React.FC<AdvancedFiltersProps> = ({
                 placeholder="Search amenities..."
                 value={amenitySearch}
                 onChange={e => setAmenitySearch(e.target.value)}
-                className="w-full pl-10 pr-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-lydian-primary focus:border-transparent"
+                className="w-full pl-10 pr-4 py-2 border border-white/10 rounded-lg focus:ring-2 focus:ring-lydian-primary focus:border-transparent"
               />
             </div>
             <div className="max-h-64 overflow-y-auto space-y-2">
@@ -481,7 +481,7 @@ const AdvancedFilters: React.FC<AdvancedFiltersProps> = ({
                 className={`px-3 py-2 rounded-lg border-2 text-sm transition-all ${
                   flightFilters.departureTime.includes(slot.value)
                     ? 'bg-lydian-primary text-white border-lydian-primary'
-                    : 'bg-white text-gray-700 border-gray-200 hover:border-lydian-primary'
+                    : 'bg-white/5 text-gray-700 border-white/10 hover:border-lydian-primary'
                 }`}
               >
                 <div className="font-medium">{slot.label}</div>
@@ -512,7 +512,7 @@ const AdvancedFilters: React.FC<AdvancedFiltersProps> = ({
                 className={`px-3 py-2 rounded-lg border-2 text-sm transition-all ${
                   flightFilters.arrivalTime.includes(slot.value)
                     ? 'bg-lydian-primary text-white border-lydian-primary'
-                    : 'bg-white text-gray-700 border-gray-200 hover:border-lydian-primary'
+                    : 'bg-white/5 text-gray-700 border-white/10 hover:border-lydian-primary'
                 }`}
               >
                 <div className="font-medium">{slot.label}</div>
@@ -674,7 +674,7 @@ const AdvancedFilters: React.FC<AdvancedFiltersProps> = ({
                 className={`px-3 py-2 rounded-lg border-2 text-sm transition-all flex items-center gap-2 ${
                   activityFilters.categories.includes(category.value)
                     ? 'bg-lydian-primary text-white border-lydian-primary'
-                    : 'bg-white text-gray-700 border-gray-200 hover:border-lydian-primary'
+                    : 'bg-white/5 text-gray-700 border-white/10 hover:border-lydian-primary'
                 }`}
               >
                 <span>{category.icon}</span>
@@ -842,15 +842,15 @@ const AdvancedFilters: React.FC<AdvancedFiltersProps> = ({
             animate={{ x: 0 }}
             exit={{ x: -320 }}
             transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-            className="fixed top-0 left-0 bottom-0 w-80 bg-white shadow-2xl z-50 lg:static lg:shadow-none overflow-hidden flex flex-col"
+            className="fixed top-0 left-0 bottom-0 w-80 bg-white/5 shadow-2xl z-50 lg:static lg:shadow-none overflow-hidden flex flex-col"
           >
             {/* Header */}
-            <div className="p-4 border-b border-gray-200 flex items-center justify-between bg-gradient-to-r from-lydian-primary to-lydian-secondary text-white">
+            <div className="p-4 border-b border-white/10 flex items-center justify-between bg-gradient-to-r from-lydian-primary to-lydian-secondary text-white">
               <div className="flex items-center gap-2">
                 <Filter className="w-5 h-5" />
                 <h2 className="font-bold text-lg">Filters</h2>
                 {activeFilterCount > 0 && (
-                  <span className="px-2 py-0.5 bg-white text-lydian-primary rounded-full text-xs font-bold">
+                  <span className="px-2 py-0.5 bg-white/5 text-lydian-primary rounded-full text-xs font-bold">
                     {activeFilterCount}
                   </span>
                 )}
@@ -871,10 +871,10 @@ const AdvancedFilters: React.FC<AdvancedFiltersProps> = ({
             </div>
 
             {/* Footer Actions */}
-            <div className="p-4 border-t border-gray-200 bg-gray-50 space-y-2">
+            <div className="p-4 border-t border-white/10 bg-gray-50 space-y-2">
               <button
                 onClick={onReset}
-                className="w-full py-2.5 px-4 border-2 border-gray-300 text-gray-700 rounded-lg font-medium hover:bg-gray-100 transition-colors flex items-center justify-center gap-2"
+                className="w-full py-2.5 px-4 border-2 border-white/20 text-gray-700 rounded-lg font-medium hover:bg-gray-100 transition-colors flex items-center justify-center gap-2"
               >
                 <RotateCcw className="w-4 h-4" />
                 Reset All Filters
@@ -912,14 +912,14 @@ const FilterSection: React.FC<FilterSectionProps> = ({
   children,
 }) => {
   return (
-    <div className="border border-gray-200 rounded-lg overflow-hidden">
+    <div className="border border-white/10 rounded-lg overflow-hidden">
       <button
         onClick={onToggle}
         className="w-full p-3 flex items-center justify-between hover:bg-gray-50 transition-colors"
       >
         <div className="flex items-center gap-2">
           <div className="text-lydian-primary">{icon}</div>
-          <span className="font-medium text-gray-900">{title}</span>
+          <span className="font-medium text-white">{title}</span>
           {count > 0 && (
             <span className="px-2 py-0.5 bg-lydian-primary text-white rounded-full text-xs font-bold">
               {count}

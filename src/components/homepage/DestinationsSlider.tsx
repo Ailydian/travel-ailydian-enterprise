@@ -162,7 +162,7 @@ const DestinationCard: React.FC<{ destination: Destination }> = ({ destination }
           >
             <Link href={`/destinations/${destination.name.toLowerCase()}`}>
               <motion.button
-                className="bg-white text-lydian-primary px-6 py-3 rounded-xl font-semibold shadow-lg"
+                className="bg-white/5 text-lydian-primary px-6 py-3 rounded-xl font-semibold shadow-lg"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
               >

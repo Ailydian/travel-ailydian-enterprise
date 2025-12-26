@@ -208,14 +208,14 @@ const ResponsiveMobileMenu: React.FC<ResponsiveMobileMenuProps> = ({
               stiffness: 300,
               mass: 0.8
             }}
-            className="fixed top-0 left-0 bottom-0 w-[85%] max-w-sm bg-white z-[99999] overflow-y-auto shadow-2xl overscroll-contain"
+            className="fixed top-0 left-0 bottom-0 w-[85%] max-w-sm bg-white/5 z-[99999] overflow-y-auto shadow-2xl overscroll-contain"
           >
             {/* Header */}
             <div className="sticky top-0 bg-gradient-to-r from-lydian-primary to-lydian-secondary p-6 mobile-nav-safe">
               <div className="flex items-center justify-between mb-4">
                 <Link href="/" onClick={onClose}>
                   <div className="flex items-center gap-2">
-                    <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center shadow-lg">
+                    <div className="w-10 h-10 bg-white/5 rounded-xl flex items-center justify-center shadow-lg">
                       <span className="text-2xl">✈️</span>
                     </div>
                     <div>
@@ -271,7 +271,7 @@ const ResponsiveMobileMenu: React.FC<ResponsiveMobileMenuProps> = ({
                     <item.icon className="w-6 h-6 text-white" />
                   </div>
                   <div className="flex-1 text-left">
-                    <p className="font-semibold text-gray-900">{item.label}</p>
+                    <p className="font-semibold text-white">{item.label}</p>
                   </div>
                   {item.badge && (
                     <span className="px-2 py-1 bg-gradient-to-r from-green-500 to-emerald-500 text-white text-xs font-bold rounded-full">
@@ -306,7 +306,7 @@ const ResponsiveMobileMenu: React.FC<ResponsiveMobileMenuProps> = ({
                     <item.icon className="w-5 h-5 text-white" />
                   </div>
                   <div className="flex-1 text-left">
-                    <p className="font-medium text-gray-900">{item.label}</p>
+                    <p className="font-medium text-white">{item.label}</p>
                   </div>
                   {item.badge && item.badge !== '0' && (
                     <span className="px-2 py-1 bg-lydian-primary text-white text-xs font-bold rounded-full min-w-[24px] text-center">
@@ -342,7 +342,7 @@ const ResponsiveMobileMenu: React.FC<ResponsiveMobileMenuProps> = ({
               <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl p-4 border border-blue-100">
                 <div className="flex items-center gap-3 mb-3">
                   <Headphones className="w-5 h-5 text-lydian-primary" />
-                  <p className="font-semibold text-gray-900">Müşteri Desteği</p>
+                  <p className="font-semibold text-white">Müşteri Desteği</p>
                 </div>
                 <p className="text-sm text-gray-600 mb-3">
                   7/24 size yardımcı olmaya hazırız

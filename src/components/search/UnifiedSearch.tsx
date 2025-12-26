@@ -142,7 +142,7 @@ const UnifiedSearch: React.FC = () => {
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="AI ile akıllı arama: 'İstanbul'da 3 gece otel + Kapadokya turu + araç kiralama'..."
-            className="w-full pl-12 pr-12 py-4 text-lg border-2 border-gray-200 rounded-2xl focus:outline-none focus:border-purple-500 transition-all shadow-lg"
+            className="w-full pl-12 pr-12 py-4 text-lg border-2 border-white/10 rounded-2xl focus:outline-none focus:border-purple-500 transition-all shadow-lg"
           />
 
           <div className="absolute inset-y-0 right-0 pr-4 flex items-center">
@@ -189,7 +189,7 @@ const UnifiedSearch: React.FC = () => {
                 <button
                   key={index}
                   onClick={() => setSearchQuery(search.text)}
-                  className="flex items-center gap-3 p-4 bg-white border border-gray-200 rounded-xl hover:border-purple-300 hover:shadow-md transition-all text-left"
+                  className="flex items-center gap-3 p-4 bg-white/5 border border-white/10 rounded-xl hover:border-purple-300 hover:shadow-md transition-all text-left"
                 >
                   <Icon className={`h-5 w-5 ${search.color}`} />
                   <span className="text-sm text-gray-700">{search.text}</span>
@@ -212,7 +212,7 @@ const UnifiedSearch: React.FC = () => {
           >
             <div className="flex items-center gap-2 mb-4">
               <Sparkles className="h-5 w-5 text-purple-600" />
-              <h3 className="text-lg font-bold text-gray-900">AI Önerileri</h3>
+              <h3 className="text-lg font-bold text-white">AI Önerileri</h3>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -231,7 +231,7 @@ const UnifiedSearch: React.FC = () => {
                         {suggestion.type === 'alternative' && '🔄 Alternatif'}
                         {suggestion.type === 'upgrade' && '⭐ Premium Seçenek'}
                       </span>
-                      <h4 className="text-base font-bold text-gray-900 mt-1">
+                      <h4 className="text-base font-bold text-white mt-1">
                         {suggestion.title}
                       </h4>
                     </div>
@@ -272,7 +272,7 @@ const UnifiedSearch: React.FC = () => {
             exit={{ opacity: 0 }}
             className="mt-8"
           >
-            <h3 className="text-lg font-bold text-gray-900 mb-4">
+            <h3 className="text-lg font-bold text-white mb-4">
               {results.length} Sonuç Bulundu
             </h3>
 
@@ -284,7 +284,7 @@ const UnifiedSearch: React.FC = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.05 }}
                   onClick={() => router.push(result.url)}
-                  className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all cursor-pointer group"
+                  className="bg-white/5 rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all cursor-pointer group"
                 >
                   {/* Image */}
                   <div className="relative h-48 overflow-hidden">
@@ -314,7 +314,7 @@ const UnifiedSearch: React.FC = () => {
 
                   {/* Content */}
                   <div className="p-4">
-                    <h4 className="font-bold text-gray-900 mb-1 line-clamp-1">
+                    <h4 className="font-bold text-white mb-1 line-clamp-1">
                       {result.title}
                     </h4>
 
@@ -355,7 +355,7 @@ const UnifiedSearch: React.FC = () => {
           <div className="inline-block p-6 bg-gray-100 rounded-full mb-4">
             <Search className="h-12 w-12 text-gray-400" />
           </div>
-          <h3 className="text-xl font-bold text-gray-900 mb-2">
+          <h3 className="text-xl font-bold text-white mb-2">
             Sonuç Bulunamadı
           </h3>
           <p className="text-gray-600 mb-6">

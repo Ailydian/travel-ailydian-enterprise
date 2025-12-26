@@ -297,7 +297,7 @@ const CarDetailsPage = ({ slug: initialSlug, car: carProp }: CarDetailsPageProps
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
-      <div className="bg-transparent border-b border-gray-200">
+      <div className="bg-transparent border-b border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <Link href="/car-rentals">
             <button className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors">
@@ -457,7 +457,7 @@ const CarDetailsPage = ({ slug: initialSlug, car: carProp }: CarDetailsPageProps
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {similarCars.map((similar) => (
                     <Link key={similar.id} href={`/car-rentals/${similar.slug}`}>
-                      <div className="border border-gray-200 rounded-xl p-4 hover:border-blue-500 hover:shadow-md transition-all cursor-pointer">
+                      <div className="border border-white/10 rounded-xl p-4 hover:border-blue-500 hover:shadow-md transition-all cursor-pointer">
                         <div className="aspect-video bg-gradient-to-br from-gray-100 to-gray-200 rounded-lg mb-3 flex items-center justify-center">
                           <Car className="w-12 h-12 text-gray-300" />
                         </div>
@@ -507,7 +507,7 @@ const CarDetailsPage = ({ slug: initialSlug, car: carProp }: CarDetailsPageProps
                     type="date"
                     value={pickupDate}
                     onChange={(e) => setPickupDate(e.target.value)}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
+                    className="w-full px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
                   />
                 </div>
 
@@ -519,7 +519,7 @@ const CarDetailsPage = ({ slug: initialSlug, car: carProp }: CarDetailsPageProps
                     type="date"
                     value={returnDate}
                     onChange={(e) => setReturnDate(e.target.value)}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
+                    className="w-full px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
                   />
                 </div>
 
@@ -530,7 +530,7 @@ const CarDetailsPage = ({ slug: initialSlug, car: carProp }: CarDetailsPageProps
                   <select
                     value={pickupLocation}
                     onChange={(e) => setPickupLocation(e.target.value)}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
+                    className="w-full px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
                   >
                     {car.pickupLocations?.map((location) => (
                       <option key={location} value={location}>
@@ -541,7 +541,7 @@ const CarDetailsPage = ({ slug: initialSlug, car: carProp }: CarDetailsPageProps
                 </div>
               </div>
 
-              <div className="border-t border-gray-200 pt-4 mb-6">
+              <div className="border-t border-white/10 pt-4 mb-6">
                 <h3 className="font-semibold text-white mb-3">Ekstra Hizmetler</h3>
                 <div className="space-y-2">
                   <label className="flex items-center gap-3 cursor-pointer">
@@ -586,7 +586,7 @@ const CarDetailsPage = ({ slug: initialSlug, car: carProp }: CarDetailsPageProps
                       <span className="text-sm text-white">₺{(total - parseInt(car.pricePerDay) * days).toLocaleString('tr-TR')}</span>
                     </div>
                   )}
-                  <div className="border-t border-gray-300 pt-2 mt-2">
+                  <div className="border-t border-white/20 pt-2 mt-2">
                     <div className="flex items-center justify-between">
                       <span className="font-semibold text-white">Toplam</span>
                       <span className="text-xl font-bold text-blue-600">₺{total.toLocaleString('tr-TR')}</span>

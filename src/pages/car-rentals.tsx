@@ -8,6 +8,7 @@ import { getBrandLogo } from '../components/icons/CarBrandLogos';
 import { AnimatedCarIcon } from '../components/icons/AnimatedCarIcon';
 import { TransferCarCard } from '../components/cards/TransferCarCard';
 import { NeoHero, FuturisticCard, FuturisticButton } from '../components/neo-glass';
+import { HorizontalScrollSection } from '../components/scroll/HorizontalScrollSection';
 
 const CarRental: React.FC = () => {
   const router = useRouter();
@@ -210,7 +211,7 @@ const CarRental: React.FC = () => {
         </NeoHero>
 
         {/* Car Categories */}
-        <section className="py-16 bg-white">
+        <section className="py-16 bg-white/5">
           <div className="max-w-7xl mx-auto px-4">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-white mb-4">Popüler Araç Kategorileri</h2>
@@ -331,7 +332,7 @@ const CarRental: React.FC = () => {
         </section>
 
         {/* Features */}
-        <section className="py-16 bg-white">
+        <section className="py-16 bg-white/5">
           <div className="max-w-7xl mx-auto px-4">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-white mb-4">Neden Bizden Araç Kiralayın?</h2>

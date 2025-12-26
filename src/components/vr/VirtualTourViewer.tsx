@@ -533,10 +533,10 @@ const VirtualTourViewer: React.FC = () => {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: 300 }}
           >
-            <div className="absolute top-4 right-4 w-80 bg-white rounded-2xl shadow-2xl overflow-hidden z-20">
+            <div className="absolute top-4 right-4 w-80 bg-white/5 rounded-2xl shadow-2xl overflow-hidden z-20">
             <div className="p-6">
               <div className="flex items-center justify-between mb-4">
-                <h3 className="text-xl font-bold text-gray-900">{selectedHotspot.title}</h3>
+                <h3 className="text-xl font-bold text-white">{selectedHotspot.title}</h3>
                 <button
                   onClick={() => setSelectedHotspot(null)}
                   className="p-2 hover:bg-gray-100 rounded-lg transition-colors"

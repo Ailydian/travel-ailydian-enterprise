@@ -63,7 +63,7 @@ export const MinimalistCard: React.FC<MinimalistCardProps> = ({
       {/* Content */}
       <div className="space-y-2">
         {/* Title */}
-        <h3 className="text-xl md:text-2xl font-light text-gray-900 leading-tight">
+        <h3 className="text-xl md:text-2xl font-light text-white leading-tight">
           {title}
         </h3>
 

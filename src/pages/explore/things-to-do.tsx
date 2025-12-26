@@ -41,7 +41,7 @@ const ThingsToDoPage: NextPage = () => {
         </div>
 
         {/* Breadcrumbs */}
-        <div className="bg-transparent border-b border-gray-200">
+        <div className="bg-transparent border-b border-white/10">
           <div className="max-w-7xl mx-auto px-4 py-3">
             <div className="flex items-center gap-2 text-sm text-gray-300">
               <a href="/" className="hover:text-lydian-primary">{t('navigation.home')}</a>
@@ -67,7 +67,7 @@ const ThingsToDoPage: NextPage = () => {
                 <select
                   value={sortBy}
                   onChange={(e) => setSortBy(e.target.value)}
-                  className="px-4 py-2 pr-10 border border-gray-300 rounded-lg focus:ring-2 focus:ring-lydian-primary appearance-none bg-white"
+                  className="px-4 py-2 pr-10 border border-white/20 rounded-lg focus:ring-2 focus:ring-lydian-primary appearance-none bg-white/5"
                 >
                   <option value="popular">{t('search.sortBy.popular')}</option>
                   <option value="rating">{t('search.sortBy.rating')}</option>
@@ -78,7 +78,7 @@ const ThingsToDoPage: NextPage = () => {
               </div>
 
               {/* View Toggle */}
-              <div className="hidden sm:flex items-center gap-2 bg-transparent border border-gray-300 rounded-lg p-1">
+              <div className="hidden sm:flex items-center gap-2 bg-transparent border border-white/20 rounded-lg p-1">
                 <button
                   onClick={() => setViewMode('grid')}
                   className={`p-2 rounded ${viewMode === 'grid' ? 'bg-lydian-primary text-white' : 'text-gray-300'}`}

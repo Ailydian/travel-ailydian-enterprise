@@ -166,7 +166,7 @@ export const LocationAutocomplete: React.FC<LocationAutocompleteProps> = ({
           onKeyDown={handleKeyDown}
           onFocus={() => value.length >= 2 && setShowSuggestions(true)}
           placeholder={placeholder}
-          className="w-full pl-12 pr-10 py-4 text-base bg-white border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-lydian-primary focus:border-lydian-primary outline-none text-gray-900 placeholder-gray-500 font-medium shadow-sm hover:shadow-lg hover:border-lydian-primary/50 transition-all duration-200"
+          className="w-full pl-12 pr-10 py-4 text-base bg-white/5 border-2 border-white/10 rounded-2xl focus:ring-2 focus:ring-lydian-primary focus:border-lydian-primary outline-none text-white placeholder-gray-500 font-medium shadow-sm hover:shadow-lg hover:border-lydian-primary/50 transition-all duration-200"
           autoComplete="off"
         />
         {isLoading && (
@@ -176,7 +176,7 @@ export const LocationAutocomplete: React.FC<LocationAutocompleteProps> = ({
 
       {/* Suggestions Dropdown */}
       {showSuggestions && suggestions.length > 0 && (
-        <div className="absolute z-50 w-full mt-2 bg-white rounded-2xl shadow-2xl border-2 border-gray-100 overflow-hidden max-h-96 overflow-y-auto">
+        <div className="absolute z-50 w-full mt-2 bg-white/5 rounded-2xl shadow-2xl border-2 border-gray-100 overflow-hidden max-h-96 overflow-y-auto">
           {suggestions.map((suggestion, index) => (
             <button
               key={suggestion.id}
@@ -187,7 +187,7 @@ export const LocationAutocomplete: React.FC<LocationAutocompleteProps> = ({
             >
               <span className="text-2xl mt-0.5 transform hover:scale-125 transition-transform">{getLocationIcon(suggestion.type)}</span>
               <div className="flex-1 min-w-0">
-                <div className="font-semibold text-gray-900 truncate">{suggestion.name}</div>
+                <div className="font-semibold text-white truncate">{suggestion.name}</div>
                 <div className="text-sm text-gray-600 flex items-center gap-1 mt-1">
                   <MapPin className="w-3 h-3 flex-shrink-0" />
                   <span className="truncate">
@@ -213,11 +213,11 @@ export const LocationAutocomplete: React.FC<LocationAutocompleteProps> = ({
 
       {/* No results */}
       {showSuggestions && !isLoading && value.length >= 2 && suggestions.length === 0 && (
-        <div className="absolute z-50 w-full mt-2 bg-white rounded-2xl shadow-2xl border-2 border-gray-100 p-6 text-center">
+        <div className="absolute z-50 w-full mt-2 bg-white/5 rounded-2xl shadow-2xl border-2 border-gray-100 p-6 text-center">
           <div className="w-16 h-16 mx-auto mb-3 rounded-full bg-gradient-to-r from-gray-100 to-gray-200 flex items-center justify-center">
             <Search className="w-8 h-8 text-gray-400" />
           </div>
-          <div className="font-semibold text-gray-900 mb-1">Sonuç bulunamadı</div>
+          <div className="font-semibold text-white mb-1">Sonuç bulunamadı</div>
           <div className="text-sm text-gray-500">Farklı bir arama terimi deneyin</div>
         </div>
       )}

@@ -319,7 +319,7 @@ export default function FlightBooking() {
       <SimplifiedHeader />
 
       {/* Back Button */}
-      <div className="sticky top-16 z-40 bg-transparent border-b border-gray-200 shadow-sm">
+      <div className="sticky top-16 z-40 bg-transparent border-b border-white/10 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 py-3">
           <button
             onClick={() => router.back()}
@@ -469,7 +469,7 @@ export default function FlightBooking() {
 
                     <div className="space-y-6">
                       {passengers.map((passenger, idx) => (
-                        <div key={idx} className="border-2 border-gray-200 rounded-xl p-6">
+                        <div key={idx} className="border-2 border-white/10 rounded-xl p-6">
                           <h3 className="font-bold text-lg text-white mb-4">
                             Yolcu {idx + 1} - {passenger.type === 'adult' ? 'Yetişkin' : passenger.type === 'child' ? 'Çocuk' : 'Bebek'}
                           </h3>
@@ -483,7 +483,7 @@ export default function FlightBooking() {
                                 value={passenger.title}
                                 onChange={(e) => updatePassenger(idx, 'title', e.target.value)}
                                 className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-lydian-primary ${
-                                  errors[`passenger-${idx}-title`] ? 'border-red-500' : 'border-gray-300'
+                                  errors[`passenger-${idx}-title`] ? 'border-red-500' : 'border-white/20'
                                 }`}
                               >
                                 <option value="">Seçiniz</option>
@@ -505,7 +505,7 @@ export default function FlightBooking() {
                                 value={passenger.firstName}
                                 onChange={(e) => updatePassenger(idx, 'firstName', e.target.value)}
                                 className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-lydian-primary ${
-                                  errors[`passenger-${idx}-firstName`] ? 'border-red-500' : 'border-gray-300'
+                                  errors[`passenger-${idx}-firstName`] ? 'border-red-500' : 'border-white/20'
                                 }`}
                                 placeholder="Adınız"
                               />
@@ -523,7 +523,7 @@ export default function FlightBooking() {
                                 value={passenger.lastName}
                                 onChange={(e) => updatePassenger(idx, 'lastName', e.target.value)}
                                 className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-lydian-primary ${
-                                  errors[`passenger-${idx}-lastName`] ? 'border-red-500' : 'border-gray-300'
+                                  errors[`passenger-${idx}-lastName`] ? 'border-red-500' : 'border-white/20'
                                 }`}
                                 placeholder="Soyadınız"
                               />
@@ -541,7 +541,7 @@ export default function FlightBooking() {
                                 value={passenger.dateOfBirth}
                                 onChange={(e) => updatePassenger(idx, 'dateOfBirth', e.target.value)}
                                 className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-lydian-primary ${
-                                  errors[`passenger-${idx}-dateOfBirth`] ? 'border-red-500' : 'border-gray-300'
+                                  errors[`passenger-${idx}-dateOfBirth`] ? 'border-red-500' : 'border-white/20'
                                 }`}
                               />
                               {errors[`passenger-${idx}-dateOfBirth`] && (
@@ -557,7 +557,7 @@ export default function FlightBooking() {
                                 value={passenger.nationality}
                                 onChange={(e) => updatePassenger(idx, 'nationality', e.target.value)}
                                 className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-lydian-primary ${
-                                  errors[`passenger-${idx}-nationality`] ? 'border-red-500' : 'border-gray-300'
+                                  errors[`passenger-${idx}-nationality`] ? 'border-red-500' : 'border-white/20'
                                 }`}
                               >
                                 <option value="TR">Türkiye</option>
@@ -575,7 +575,7 @@ export default function FlightBooking() {
                                 type="text"
                                 value={passenger.frequentFlyerNumber || ''}
                                 onChange={(e) => updatePassenger(idx, 'frequentFlyerNumber', e.target.value)}
-                                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-lydian-primary"
+                                className="w-full px-4 py-3 border border-white/20 rounded-lg focus:ring-2 focus:ring-lydian-primary"
                                 placeholder="FF1234567"
                               />
                             </div>
@@ -598,7 +598,7 @@ export default function FlightBooking() {
                               value={leadPassenger.email}
                               onChange={(e) => setLeadPassenger(prev => ({ ...prev, email: e.target.value }))}
                               className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-lydian-primary ${
-                                errors['leadPassenger-email'] ? 'border-red-500' : 'border-gray-300'
+                                errors['leadPassenger-email'] ? 'border-red-500' : 'border-white/20'
                               }`}
                               placeholder="ornek@email.com"
                             />
@@ -617,7 +617,7 @@ export default function FlightBooking() {
                               value={leadPassenger.phone}
                               onChange={(e) => setLeadPassenger(prev => ({ ...prev, phone: e.target.value }))}
                               className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-lydian-primary ${
-                                errors['leadPassenger-phone'] ? 'border-red-500' : 'border-gray-300'
+                                errors['leadPassenger-phone'] ? 'border-red-500' : 'border-white/20'
                               }`}
                               placeholder="+90 5XX XXX XX XX"
                             />
@@ -759,7 +759,7 @@ export default function FlightBooking() {
 
                     <div className="space-y-6">
                       {passengers.map((passenger, idx) => (
-                        <div key={idx} className="border-2 border-gray-200 rounded-xl p-6">
+                        <div key={idx} className="border-2 border-white/10 rounded-xl p-6">
                           <h3 className="font-bold text-lg text-white mb-4">
                             Yolcu {idx + 1} - {passenger.firstName || 'İsimsiz'} {passenger.lastName || ''}
                           </h3>
@@ -779,7 +779,7 @@ export default function FlightBooking() {
                                 className={`w-full p-4 rounded-lg border-2 text-left transition-all ${
                                   passenger.baggage.checked === option.weight
                                     ? 'border-lydian-primary bg-blue-50'
-                                    : 'border-gray-200 hover:border-gray-300'
+                                    : 'border-white/10 hover:border-white/20'
                                 }`}
                               >
                                 <div className="flex items-center justify-between">
@@ -830,7 +830,7 @@ export default function FlightBooking() {
                       <button
                         onClick={() => setExtras(prev => ({ ...prev, insurance: !prev.insurance }))}
                         className={`w-full p-6 rounded-xl border-2 text-left transition-all ${
-                          extras.insurance ? 'border-lydian-primary bg-blue-50' : 'border-gray-200 hover:border-gray-300'
+                          extras.insurance ? 'border-lydian-primary bg-blue-50' : 'border-white/10 hover:border-white/20'
                         }`}
                       >
                         <div className="flex items-start justify-between">
@@ -852,7 +852,7 @@ export default function FlightBooking() {
                       <button
                         onClick={() => setExtras(prev => ({ ...prev, priorityBoarding: !prev.priorityBoarding }))}
                         className={`w-full p-6 rounded-xl border-2 text-left transition-all ${
-                          extras.priorityBoarding ? 'border-lydian-primary bg-blue-50' : 'border-gray-200 hover:border-gray-300'
+                          extras.priorityBoarding ? 'border-lydian-primary bg-blue-50' : 'border-white/10 hover:border-white/20'
                         }`}
                       >
                         <div className="flex items-start justify-between">
@@ -874,7 +874,7 @@ export default function FlightBooking() {
                       <button
                         onClick={() => setExtras(prev => ({ ...prev, loungeAccess: !prev.loungeAccess }))}
                         className={`w-full p-6 rounded-xl border-2 text-left transition-all ${
-                          extras.loungeAccess ? 'border-lydian-primary bg-blue-50' : 'border-gray-200 hover:border-gray-300'
+                          extras.loungeAccess ? 'border-lydian-primary bg-blue-50' : 'border-white/10 hover:border-white/20'
                         }`}
                       >
                         <div className="flex items-start justify-between">
@@ -893,7 +893,7 @@ export default function FlightBooking() {
                       </button>
 
                       {/* Meals */}
-                      <div className="border-2 border-gray-200 rounded-xl p-6">
+                      <div className="border-2 border-white/10 rounded-xl p-6">
                         <h3 className="font-bold text-lg mb-4">Özel Yemek Seçenekleri</h3>
                         <div className="grid md:grid-cols-2 gap-3">
                           {MEAL_OPTIONS.map((meal) => (
@@ -910,7 +910,7 @@ export default function FlightBooking() {
                               className={`p-4 rounded-lg border-2 transition-all ${
                                 extras.meals.includes(meal.id)
                                   ? 'border-lydian-primary bg-blue-50'
-                                  : 'border-gray-200 hover:border-gray-300'
+                                  : 'border-white/10 hover:border-white/20'
                               }`}
                             >
                               <div className="flex items-center justify-between">
@@ -1047,7 +1047,7 @@ export default function FlightBooking() {
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     onClick={handlePrev}
-                    className="flex items-center gap-2 px-6 py-3 border-2 border-gray-300 rounded-xl font-semibold text-gray-200 hover:border-gray-400"
+                    className="flex items-center gap-2 px-6 py-3 border-2 border-white/20 rounded-xl font-semibold text-gray-200 hover:border-gray-400"
                   >
                     <ChevronLeft className="w-5 h-5" />
                     Geri
@@ -1116,7 +1116,7 @@ export default function FlightBooking() {
                   )}
                 </div>
 
-                <div className="border-t border-gray-200 pt-4 mb-6">
+                <div className="border-t border-white/10 pt-4 mb-6">
                   <div className="flex justify-between items-center">
                     <span className="font-bold text-lg text-white">Toplam</span>
                     <span className="text-3xl font-bold text-lydian-primary">₺{prices.total}</span>

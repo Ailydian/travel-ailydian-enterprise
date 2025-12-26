@@ -57,7 +57,7 @@ export default function CommercialVehicleOwnerDashboard() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50">
       {/* Header */}
-      <header className="bg-transparent border-b border-gray-200 sticky top-0 z-40">
+      <header className="bg-transparent border-b border-white/10 sticky top-0 z-40">
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
@@ -154,7 +154,7 @@ export default function CommercialVehicleOwnerDashboard() {
           <div className="overflow-x-auto">
             <table className="w-full">
               <thead>
-                <tr className="border-b border-gray-200">
+                <tr className="border-b border-white/10">
                   <th className="text-left py-3 px-4 text-sm font-semibold text-gray-300">Müşteri</th>
                   <th className="text-left py-3 px-4 text-sm font-semibold text-gray-300">Araç</th>
                   <th className="text-left py-3 px-4 text-sm font-semibold text-gray-300">Tarih</th>

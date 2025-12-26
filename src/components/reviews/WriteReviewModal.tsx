@@ -250,7 +250,7 @@ export default function WriteReviewModal({ locationId, locationName, onClose, on
       case 1:
         return (
           <div>
-            <h3 className="text-lg font-medium text-gray-900 mb-4">
+            <h3 className="text-lg font-medium text-white mb-4">
               {t('review.rateYourExperience')}
             </h3>
             
@@ -304,7 +304,7 @@ export default function WriteReviewModal({ locationId, locationName, onClose, on
       case 2:
         return (
           <div>
-            <h3 className="text-lg font-medium text-gray-900 mb-4">
+            <h3 className="text-lg font-medium text-white mb-4">
               {t('review.tellUsMore')}
             </h3>
 
@@ -319,7 +319,7 @@ export default function WriteReviewModal({ locationId, locationName, onClose, on
                   type="date"
                   value={reviewData.visit_date || ''}
                   onChange={(e) => setReviewData(prev => ({ ...prev, visit_date: e.target.value }))}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 text-gray-900 [color-scheme:light]"
+                  className="w-full px-3 py-2 border border-white/20 rounded-md focus:ring-blue-500 focus:border-blue-500 text-white [color-scheme:light]"
                   style={{ colorScheme: 'light' }}
                   max={new Date().toISOString().split('T')[0]}
                 />
@@ -333,7 +333,7 @@ export default function WriteReviewModal({ locationId, locationName, onClose, on
                 <select
                   value={reviewData.visit_type}
                   onChange={(e) => setReviewData(prev => ({ ...prev, visit_type: e.target.value as any }))}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                  className="w-full px-3 py-2 border border-white/20 rounded-md focus:ring-blue-500 focus:border-blue-500"
                 >
                   <option value="business">{t('review.visitTypes.business')}</option>
                   <option value="leisure">{t('review.visitTypes.leisure')}</option>
@@ -354,7 +354,7 @@ export default function WriteReviewModal({ locationId, locationName, onClose, on
                 value={reviewData.title}
                 onChange={(e) => setReviewData(prev => ({ ...prev, title: e.target.value }))}
                 placeholder={t('review.titlePlaceholder')}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                className="w-full px-3 py-2 border border-white/20 rounded-md focus:ring-blue-500 focus:border-blue-500"
                 maxLength={100}
               />
             </div>
@@ -369,7 +369,7 @@ export default function WriteReviewModal({ locationId, locationName, onClose, on
                 onChange={(e) => setReviewData(prev => ({ ...prev, content: e.target.value }))}
                 placeholder={t('review.contentPlaceholder')}
                 rows={6}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                className="w-full px-3 py-2 border border-white/20 rounded-md focus:ring-blue-500 focus:border-blue-500"
                 minLength={50}
                 maxLength={5000}
                 required
@@ -408,7 +408,7 @@ export default function WriteReviewModal({ locationId, locationName, onClose, on
       case 3:
         return (
           <div>
-            <h3 className="text-lg font-medium text-gray-900 mb-4">
+            <h3 className="text-lg font-medium text-white mb-4">
               {t('review.addPhotos')} <span className="text-gray-500">({t('optional')})</span>
             </h3>
 
@@ -419,8 +419,8 @@ export default function WriteReviewModal({ locationId, locationName, onClose, on
                 isDragActive
                   ? 'border-blue-400 bg-blue-50'
                   : photos.length >= MAX_PHOTOS
-                  ? 'border-gray-200 bg-gray-50'
-                  : 'border-gray-300 hover:border-blue-400 hover:bg-blue-50'
+                  ? 'border-white/10 bg-gray-50'
+                  : 'border-white/20 hover:border-blue-400 hover:bg-blue-50'
               } ${photos.length >= MAX_PHOTOS ? 'cursor-not-allowed' : 'cursor-pointer'}`}
             >
               <input {...getInputProps()} ref={fileInputRef} />
@@ -449,7 +449,7 @@ export default function WriteReviewModal({ locationId, locationName, onClose, on
             {/* Photo previews */}
             {photos.length > 0 && (
               <div className="mt-6">
-                <h4 className="text-sm font-medium text-gray-900 mb-3">
+                <h4 className="text-sm font-medium text-white mb-3">
                   {t('review.uploadedPhotos')} ({photos.length}/{MAX_PHOTOS})
                 </h4>
                 
@@ -546,11 +546,11 @@ export default function WriteReviewModal({ locationId, locationName, onClose, on
       <div className="flex items-center justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0">
         <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" onClick={onClose} />
 
-        <div className="inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-2xl sm:w-full sm:p-6">
+        <div className="inline-block align-bottom bg-white/5 rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-2xl sm:w-full sm:p-6">
           {/* Header */}
           <div className="flex items-center justify-between mb-6">
             <div>
-              <h2 className="text-xl font-semibold text-gray-900">
+              <h2 className="text-xl font-semibold text-white">
                 {t('review.writeReviewFor')}
               </h2>
               <p className="text-sm text-gray-600 flex items-center mt-1">
@@ -619,7 +619,7 @@ export default function WriteReviewModal({ locationId, locationName, onClose, on
                   setCurrentStep(currentStep - 1);
                 }
               }}
-              className="px-4 py-2 text-gray-600 hover:text-gray-800 font-medium"
+              className="px-4 py-2 text-gray-600 hover:text-gray-100 font-medium"
               disabled={isSubmitting}
             >
               {currentStep === 1 ? t('cancel') : t('back')}

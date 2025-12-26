@@ -107,10 +107,10 @@ export const FilterSidebar: React.FC<FilterSidebarProps> = ({
   const content = (
     <div className="space-y-6">
       {/* Header */}
-      <div className="flex items-center justify-between pb-4 border-b border-gray-200">
+      <div className="flex items-center justify-between pb-4 border-b border-white/10">
         <div className="flex items-center gap-2">
           <Sliders className="w-5 h-5 text-gray-700" />
-          <h3 className="text-lg font-bold text-gray-900">Filtreler</h3>
+          <h3 className="text-lg font-bold text-white">Filtreler</h3>
           {activeFilterCount > 0 && (
             <span className="px-2 py-0.5 bg-lydian-primary text-white text-xs font-semibold rounded-full">
               {activeFilterCount}
@@ -135,12 +135,12 @@ export const FilterSidebar: React.FC<FilterSidebarProps> = ({
       )}
 
       {/* Price Range */}
-      <div className="border-b border-gray-200 pb-6">
+      <div className="border-b border-white/10 pb-6">
         <button
           onClick={() => toggleSection('price')}
           className="w-full flex items-center justify-between mb-4"
         >
-          <h4 className="font-semibold text-gray-900">Fiyat Aralığı</h4>
+          <h4 className="font-semibold text-white">Fiyat Aralığı</h4>
           {expandedSections.includes('price') ? (
             <ChevronUp className="w-4 h-4 text-gray-600" />
           ) : (
@@ -173,11 +173,11 @@ export const FilterSidebar: React.FC<FilterSidebarProps> = ({
               <div className="flex items-center justify-between text-sm">
                 <div className="flex items-center gap-2">
                   <span className="text-gray-600">Min:</span>
-                  <span className="font-semibold text-gray-900">₺{priceRange[0].toLocaleString()}</span>
+                  <span className="font-semibold text-white">₺{priceRange[0].toLocaleString()}</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="text-gray-600">Max:</span>
-                  <span className="font-semibold text-gray-900">₺{priceRange[1].toLocaleString()}</span>
+                  <span className="font-semibold text-white">₺{priceRange[1].toLocaleString()}</span>
                 </div>
               </div>
 
@@ -197,18 +197,18 @@ export const FilterSidebar: React.FC<FilterSidebarProps> = ({
       </div>
 
       {/* Popular Filters */}
-      <div className="border-b border-gray-200 pb-6">
-        <h4 className="font-semibold text-gray-900 mb-4">Popüler Filtreler</h4>
+      <div className="border-b border-white/10 pb-6">
+        <h4 className="font-semibold text-white mb-4">Popüler Filtreler</h4>
         <div className="space-y-3">
           <label className="flex items-center gap-3 cursor-pointer group">
             <input
               type="checkbox"
               checked={freeCancel}
               onChange={(e) => setFreeCancel(e.target.checked)}
-              className="w-5 h-5 rounded border-2 border-gray-300 text-lydian-primary focus:ring-2 focus:ring-lydian-primary/20 cursor-pointer"
+              className="w-5 h-5 rounded border-2 border-white/20 text-lydian-primary focus:ring-2 focus:ring-lydian-primary/20 cursor-pointer"
             />
             <div className="flex-1">
-              <div className="font-medium text-gray-900 group-hover:text-lydian-primary transition-colors">
+              <div className="font-medium text-white group-hover:text-lydian-primary transition-colors">
                 Ücretsiz İptal
               </div>
               <div className="text-xs text-gray-500">İptal esnekliği</div>
@@ -221,10 +221,10 @@ export const FilterSidebar: React.FC<FilterSidebarProps> = ({
               type="checkbox"
               checked={breakfastIncluded}
               onChange={(e) => setBreakfastIncluded(e.target.checked)}
-              className="w-5 h-5 rounded border-2 border-gray-300 text-lydian-primary focus:ring-2 focus:ring-lydian-primary/20 cursor-pointer"
+              className="w-5 h-5 rounded border-2 border-white/20 text-lydian-primary focus:ring-2 focus:ring-lydian-primary/20 cursor-pointer"
             />
             <div className="flex-1">
-              <div className="font-medium text-gray-900 group-hover:text-lydian-primary transition-colors">
+              <div className="font-medium text-white group-hover:text-lydian-primary transition-colors">
                 Kahvaltı Dahil
               </div>
               <div className="text-xs text-gray-500">Ücretsiz kahvaltı</div>
@@ -235,12 +235,12 @@ export const FilterSidebar: React.FC<FilterSidebarProps> = ({
       </div>
 
       {/* Rating Filter */}
-      <div className="border-b border-gray-200 pb-6">
+      <div className="border-b border-white/10 pb-6">
         <button
           onClick={() => toggleSection('rating')}
           className="w-full flex items-center justify-between mb-4"
         >
-          <h4 className="font-semibold text-gray-900">Değerlendirme Puanı</h4>
+          <h4 className="font-semibold text-white">Değerlendirme Puanı</h4>
           {expandedSections.includes('rating') ? (
             <ChevronUp className="w-4 h-4 text-gray-600" />
           ) : (
@@ -263,13 +263,13 @@ export const FilterSidebar: React.FC<FilterSidebarProps> = ({
                   className={`w-full flex items-center gap-3 p-3 rounded-lg border-2 transition-all ${
                     selectedRatings.includes(rating)
                       ? 'border-lydian-primary bg-red-50'
-                      : 'border-gray-200 hover:border-gray-300'
+                      : 'border-white/10 hover:border-white/20'
                   }`}
                 >
                   <div className={`w-5 h-5 rounded border-2 flex items-center justify-center ${
                     selectedRatings.includes(rating)
                       ? 'border-lydian-primary bg-lydian-primary'
-                      : 'border-gray-300'
+                      : 'border-white/20'
                   }`}>
                     {selectedRatings.includes(rating) && (
                       <Check className="w-3 h-3 text-white" />
@@ -277,7 +277,7 @@ export const FilterSidebar: React.FC<FilterSidebarProps> = ({
                   </div>
                   <div className="flex items-center gap-2 flex-1">
                     <Star className="w-4 h-4 text-yellow-500 fill-yellow-500" />
-                    <span className="font-medium text-gray-900">{rating}+ Puan</span>
+                    <span className="font-medium text-white">{rating}+ Puan</span>
                   </div>
                   <span className="text-sm text-gray-500">(245)</span>
                 </button>
@@ -293,7 +293,7 @@ export const FilterSidebar: React.FC<FilterSidebarProps> = ({
           onClick={() => toggleSection('amenities')}
           className="w-full flex items-center justify-between mb-4"
         >
-          <h4 className="font-semibold text-gray-900">Olanaklar</h4>
+          <h4 className="font-semibold text-white">Olanaklar</h4>
           {expandedSections.includes('amenities') ? (
             <ChevronUp className="w-4 h-4 text-gray-600" />
           ) : (
@@ -322,11 +322,11 @@ export const FilterSidebar: React.FC<FilterSidebarProps> = ({
                     type="checkbox"
                     checked={selectedAmenities.includes(amenity.id)}
                     onChange={() => toggleAmenity(amenity.id)}
-                    className="w-5 h-5 rounded border-2 border-gray-300 text-lydian-primary focus:ring-2 focus:ring-lydian-primary/20 cursor-pointer"
+                    className="w-5 h-5 rounded border-2 border-white/20 text-lydian-primary focus:ring-2 focus:ring-lydian-primary/20 cursor-pointer"
                   />
                   <div className="flex items-center gap-2 flex-1">
                     {amenity.icon}
-                    <span className="font-medium text-gray-900">{amenity.label}</span>
+                    <span className="font-medium text-white">{amenity.label}</span>
                   </div>
                   <span className="text-xs text-gray-500">({amenity.count})</span>
                 </label>
@@ -338,7 +338,7 @@ export const FilterSidebar: React.FC<FilterSidebarProps> = ({
 
       {/* Apply Filters Button (Mobile) */}
       {isMobile && (
-        <div className="sticky bottom-0 bg-white pt-4 border-t border-gray-200">
+        <div className="sticky bottom-0 bg-white/5 pt-4 border-t border-white/10">
           <button
             onClick={() => {
               onFilterChange?.({
@@ -379,7 +379,7 @@ export const FilterSidebar: React.FC<FilterSidebarProps> = ({
               animate={{ x: 0 }}
               exit={{ x: '-100%' }}
               transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-              className="fixed left-0 top-0 bottom-0 w-80 bg-white shadow-2xl z-50 overflow-y-auto p-6"
+              className="fixed left-0 top-0 bottom-0 w-80 bg-white/5 shadow-2xl z-50 overflow-y-auto p-6"
             >
               {content}
             </motion.div>
@@ -390,7 +390,7 @@ export const FilterSidebar: React.FC<FilterSidebarProps> = ({
   }
 
   return (
-    <div className="sticky top-24 bg-white rounded-lg border border-gray-200 p-6 shadow-sm">
+    <div className="sticky top-24 bg-white/5 rounded-lg border border-white/10 p-6 shadow-sm">
       {content}
     </div>
   );

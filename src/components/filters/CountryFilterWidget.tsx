@@ -36,7 +36,7 @@ export const CountryFilterWidget: React.FC<CountryFilterWidgetProps> = ({
   const currentLang = (i18n.language || 'tr') as keyof Country['name'];
 
   return (
-    <div className={`bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden ${className}`}>
+    <div className={`bg-white/5 rounded-2xl shadow-lg border border-gray-100 overflow-hidden ${className}`}>
       {/* Header */}
       <div className="bg-gradient-to-r from-lydian-primary to-lydian-secondary p-4">
         <div className="flex items-center gap-3 text-white">
@@ -80,7 +80,7 @@ export const CountryFilterWidget: React.FC<CountryFilterWidgetProps> = ({
             <motion.div
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
-              className="w-6 h-6 bg-white rounded-full flex items-center justify-center"
+              className="w-6 h-6 bg-white/5 rounded-full flex items-center justify-center"
             >
               <div className="w-3 h-3 bg-lydian-primary rounded-full" />
             </motion.div>
@@ -116,7 +116,7 @@ export const CountryFilterWidget: React.FC<CountryFilterWidgetProps> = ({
               <motion.div
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
-                className="w-6 h-6 bg-white rounded-full flex items-center justify-center"
+                className="w-6 h-6 bg-white/5 rounded-full flex items-center justify-center"
               >
                 <div className="w-3 h-3 bg-lydian-primary rounded-full" />
               </motion.div>

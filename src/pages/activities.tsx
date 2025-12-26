@@ -579,7 +579,7 @@ export default function Activities() {
                     
                     <button
                       onClick={() => toggleFavorite(activity.id)}
-                      className="absolute top-3 right-3 p-2 bg-white/90 rounded-full hover:bg-white transition-colors shadow-lg"
+                      className="absolute top-3 right-3 p-2 bg-white/90 rounded-full hover:bg-white/5 transition-colors shadow-lg"
                     >
                       <Heart
                         className={`h-5 w-5 ${

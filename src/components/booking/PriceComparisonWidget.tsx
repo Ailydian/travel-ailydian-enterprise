@@ -63,7 +63,7 @@ export const PriceComparisonWidget: React.FC<PriceComparisonWidgetProps> = ({
               <TrendingDown className="w-6 h-6 text-white" />
             </div>
             <div>
-              <h3 className="text-xl font-bold text-gray-900">
+              <h3 className="text-xl font-bold text-white">
                 En İyi Fiyat Garantisi
               </h3>
               <p className="text-sm text-gray-600">
@@ -174,7 +174,7 @@ export const PriceComparisonWidget: React.FC<PriceComparisonWidgetProps> = ({
                   initial={{ x: -20, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
                   transition={{ delay: index * 0.1 }}
-                  className="bg-white rounded-xl p-4 border border-gray-200 hover:border-gray-300 transition-all"
+                  className="bg-white/5 rounded-xl p-4 border border-white/10 hover:border-white/20 transition-all"
                 >
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-3">
@@ -188,7 +188,7 @@ export const PriceComparisonWidget: React.FC<PriceComparisonWidgetProps> = ({
                         )}
                       </div>
                       <div>
-                        <div className="font-semibold text-gray-900">{competitor.provider}</div>
+                        <div className="font-semibold text-white">{competitor.provider}</div>
                         {competitor.rating && (
                           <div className="text-xs text-gray-500 flex items-center gap-1">
                             <Star className="w-3 h-3 fill-yellow-400 text-yellow-400" />
@@ -198,7 +198,7 @@ export const PriceComparisonWidget: React.FC<PriceComparisonWidgetProps> = ({
                       </div>
                     </div>
                     <div className="text-right">
-                      <div className="text-xl font-bold text-gray-900">
+                      <div className="text-xl font-bold text-white">
                         {currency}{competitor.price}
                       </div>
                       <div className="text-xs text-red-600 font-semibold">

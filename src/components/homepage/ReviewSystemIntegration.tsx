@@ -164,7 +164,7 @@ export default function ReviewSystemIntegration() {
                 <MessageSquare className="h-6 w-6 text-white" />
               </div>
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-white dark:text-white mb-4">
               🌟 Gerçek Deneyimler, Güvenilir Yorumlar
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
@@ -186,7 +186,7 @@ export default function ReviewSystemIntegration() {
                   <div className={`inline-flex items-center justify-center w-12 h-12 bg-${stat.color}-100 rounded-lg mb-3`}>
                     <IconComponent className={`h-6 w-6 text-${stat.color}-600`} />
                   </div>
-                  <div className="text-2xl font-bold text-gray-900 dark:text-white">{stat.value}</div>
+                  <div className="text-2xl font-bold text-white dark:text-white">{stat.value}</div>
                   <div className="text-sm text-gray-600 dark:text-gray-300">{stat.label}</div>
                 </div>
               );
@@ -196,7 +196,7 @@ export default function ReviewSystemIntegration() {
           {/* Featured Reviews Grid */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {featuredReviews.map((review) => (
-              <div key={review.id} className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-700">
+              <div key={review.id} className="bg-white/5 dark:bg-gray-800 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-700">
                 {/* User Info */}
                 <div className="flex items-center mb-4">
                   <Image
@@ -207,7 +207,7 @@ export default function ReviewSystemIntegration() {
                     className="rounded-full border-2 border-blue-200"
                   />
                   <div className="ml-3">
-                    <h4 className="font-semibold text-gray-900 dark:text-white">{review.user.name}</h4>
+                    <h4 className="font-semibold text-white dark:text-white">{review.user.name}</h4>
                     <div className="flex items-center">
                       <Badge className="h-3 w-3 text-purple-600 mr-1" />
                       <span className="text-xs text-purple-600 font-medium">{review.user.level}</span>
@@ -238,7 +238,7 @@ export default function ReviewSystemIntegration() {
                 </div>
 
                 {/* Review Content */}
-                <h5 className="font-semibold text-gray-900 dark:text-white mb-2">{review.title}</h5>
+                <h5 className="font-semibold text-white dark:text-white mb-2">{review.title}</h5>
                 <p className="text-gray-600 dark:text-gray-300 text-sm mb-4 line-clamp-3">{review.content}</p>
 
                 {/* Photo */}
@@ -283,7 +283,7 @@ export default function ReviewSystemIntegration() {
       </section>
 
       {/* User Incentives & Gamification */}
-      <section className="py-12 bg-white dark:bg-gray-900">
+      <section className="py-12 bg-white/5 dark:bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <div className="flex items-center justify-center mb-4">
@@ -291,7 +291,7 @@ export default function ReviewSystemIntegration() {
                 <Trophy className="h-6 w-6 text-white" />
               </div>
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-white dark:text-white mb-4">
               🎯 Katkılarınız Ödüllendirilir
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
@@ -312,7 +312,7 @@ export default function ReviewSystemIntegration() {
                       <IconComponent className="h-6 w-6 text-white" />
                     </div>
                     <div className="ml-3">
-                      <h4 className="font-bold text-gray-900 dark:text-white">{program.title}</h4>
+                      <h4 className="font-bold text-white dark:text-white">{program.title}</h4>
                       <p className="text-sm text-gray-600 dark:text-gray-300">{program.description}</p>
                     </div>
                   </div>
@@ -321,7 +321,7 @@ export default function ReviewSystemIntegration() {
                   <div className="mb-4">
                     <div className="flex justify-between text-sm mb-2">
                       <span className="text-gray-600 dark:text-gray-300">İlerleme</span>
-                      <span className="font-semibold text-gray-900 dark:text-white">
+                      <span className="font-semibold text-white dark:text-white">
                         {program.progress}/{program.target}
                       </span>
                     </div>
@@ -337,7 +337,7 @@ export default function ReviewSystemIntegration() {
                   <div className={`bg-white/50 dark:bg-black/20 rounded-lg p-3 border border-${program.color}-200 dark:border-${program.color}-800`}>
                     <div className="flex items-center">
                       <Gift className={`h-4 w-4 text-${program.color}-600 mr-2`} />
-                      <span className="text-sm font-medium text-gray-900 dark:text-white">
+                      <span className="text-sm font-medium text-white dark:text-white">
                         {program.reward}
                       </span>
                     </div>
@@ -356,7 +356,7 @@ export default function ReviewSystemIntegration() {
           <div className="bg-gradient-to-r from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 rounded-2xl p-8">
             <div className="flex items-center justify-between mb-6">
               <div>
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+                <h3 className="text-2xl font-bold text-white dark:text-white mb-2">
                   🏆 Bu Ayın En Aktif Katkıda Bulunanları
                 </h3>
                 <p className="text-gray-600 dark:text-gray-300">
@@ -374,7 +374,7 @@ export default function ReviewSystemIntegration() {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {topReviewers.map((reviewer, index) => (
-                <div key={reviewer.id} className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg relative">
+                <div key={reviewer.id} className="bg-white/5 dark:bg-gray-800 rounded-xl p-6 shadow-lg relative">
                   {/* Rank Badge */}
                   <div className={`absolute -top-3 -right-3 w-8 h-8 rounded-full flex items-center justify-center text-white font-bold text-sm ${
                     index === 0 ? 'bg-yellow-500' : index === 1 ? 'bg-gray-400' : 'bg-orange-500'
@@ -391,7 +391,7 @@ export default function ReviewSystemIntegration() {
                       className="rounded-full border-2 border-purple-200"
                     />
                     <div className="ml-3">
-                      <h4 className="font-bold text-gray-900 dark:text-white">{reviewer.name}</h4>
+                      <h4 className="font-bold text-white dark:text-white">{reviewer.name}</h4>
                       <div className="flex items-center">
                         <Trophy className="h-3 w-3 text-purple-600 mr-1" />
                         <span className="text-xs text-purple-600 font-medium">{reviewer.level}</span>
@@ -402,15 +402,15 @@ export default function ReviewSystemIntegration() {
                   {/* Stats */}
                   <div className="grid grid-cols-3 gap-3 mb-4">
                     <div className="text-center">
-                      <div className="text-lg font-bold text-gray-900 dark:text-white">{reviewer.reviews}</div>
+                      <div className="text-lg font-bold text-white dark:text-white">{reviewer.reviews}</div>
                       <div className="text-xs text-gray-500">Yorum</div>
                     </div>
                     <div className="text-center">
-                      <div className="text-lg font-bold text-gray-900 dark:text-white">{reviewer.photos}</div>
+                      <div className="text-lg font-bold text-white dark:text-white">{reviewer.photos}</div>
                       <div className="text-xs text-gray-500">Fotoğraf</div>
                     </div>
                     <div className="text-center">
-                      <div className="text-lg font-bold text-gray-900 dark:text-white">{reviewer.locations}</div>
+                      <div className="text-lg font-bold text-white dark:text-white">{reviewer.locations}</div>
                       <div className="text-xs text-gray-500">Mekan</div>
                     </div>
                   </div>
@@ -443,7 +443,7 @@ export default function ReviewSystemIntegration() {
           {/* Join Community CTA */}
           <div className="text-center mt-12">
             <div className="max-w-2xl mx-auto">
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+              <h3 className="text-2xl font-bold text-white dark:text-white mb-4">
                 Sen de Topluluğumuza Katıl! 🚀
               </h3>
               <p className="text-gray-600 dark:text-gray-300 mb-6">
@@ -460,7 +460,7 @@ export default function ReviewSystemIntegration() {
                 </Link>
                 <Link
                   href="/how-it-works"
-                  className="inline-flex items-center px-6 py-3 border-2 border-gray-300 text-gray-700 dark:text-gray-300 font-semibold rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-all duration-300"
+                  className="inline-flex items-center px-6 py-3 border-2 border-white/20 text-gray-700 dark:text-gray-300 font-semibold rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-all duration-300"
                 >
                   <Target className="h-5 w-5 mr-2" />
                   Nasıl Çalışır?
@@ -482,10 +482,10 @@ export default function ReviewSystemIntegration() {
               </p>
             </div>
             <div className="mt-4 md:mt-0 flex space-x-3">
-              <button className="bg-white text-blue-600 px-6 py-2 rounded-lg font-semibold hover:bg-blue-50 transition-colors">
+              <button className="bg-white/5 text-blue-600 px-6 py-2 rounded-lg font-semibold hover:bg-blue-50 transition-colors">
                 Yorum Yaz
               </button>
-              <button className="border-2 border-white text-white px-6 py-2 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors">
+              <button className="border-2 border-white text-white px-6 py-2 rounded-lg font-semibold hover:bg-white/5 hover:text-blue-600 transition-colors">
                 Fotoğraf Paylaş
               </button>
             </div>

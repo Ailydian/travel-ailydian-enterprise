@@ -35,6 +35,7 @@ import { greeceTours } from '../data/greece-tours';
 import { cyprusTours } from '../data/cyprus-tours';
 import CountryFilterWidget from '../components/filters/CountryFilterWidget';
 import { NeoHero, FuturisticCard, FuturisticButton, NeoSection } from '../components/neo-glass';
+import { HorizontalScrollSection } from '../components/scroll/HorizontalScrollSection';
 
 // Antalya Tours (16 tours with competitive pricing)
 const antalyaToursFormatted = antalyaTours.map(tour => ({
@@ -796,7 +797,7 @@ export default function Tours() {
                   className={`flex items-center gap-2 px-6 py-3 rounded-xl font-semibold transition-all shadow-lg ${
                     isActive
                       ? `bg-gradient-to-r ${category.color} text-white shadow-neon`
-                      : 'bg-white text-gray-200 hover:shadow-xl border border-gray-200'
+                      : 'bg-white/5 text-gray-200 hover:shadow-xl border border-gray-200'
                   }`}
                 >
                   <Icon className="w-5 h-5" />

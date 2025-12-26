@@ -128,8 +128,8 @@ export default function PriceChart({
       const isPredicted = data.isPrediction;
 
       return (
-        <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700">
-          <p className="font-semibold text-gray-900 dark:text-white">{label}</p>
+        <div className="bg-white/5 dark:bg-gray-800 p-4 rounded-lg shadow-lg border border-white/10 dark:border-gray-700">
+          <p className="font-semibold text-white dark:text-white">{label}</p>
           <p className={`text-sm ${isPredicted ? 'text-blue-600' : 'text-green-600'}`}>
             {isPredicted ? 'Predicted: ' : 'Actual: '}
             {currency} {(data.price || data.predictedPrice)?.toFixed(2)}
@@ -187,9 +187,9 @@ export default function PriceChart({
       {/* Stats Cards */}
       {stats && (
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow">
+          <div className="bg-white/5 dark:bg-gray-800 p-4 rounded-lg shadow">
             <p className="text-sm text-gray-600 dark:text-gray-400">Current Price</p>
-            <p className="text-2xl font-bold text-gray-900 dark:text-white">
+            <p className="text-2xl font-bold text-white dark:text-white">
               {currency} {currentPrice?.toFixed(2)}
             </p>
             {stats.trend && (
@@ -205,7 +205,7 @@ export default function PriceChart({
             )}
           </div>
 
-          <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow">
+          <div className="bg-white/5 dark:bg-gray-800 p-4 rounded-lg shadow">
             <p className="text-sm text-gray-600 dark:text-gray-400">Lowest Price</p>
             <p className="text-2xl font-bold text-green-600">
               {currency} {minPrice?.toFixed(2)}
@@ -215,7 +215,7 @@ export default function PriceChart({
             </p>
           </div>
 
-          <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow">
+          <div className="bg-white/5 dark:bg-gray-800 p-4 rounded-lg shadow">
             <p className="text-sm text-gray-600 dark:text-gray-400">Highest Price</p>
             <p className="text-2xl font-bold text-red-600">
               {currency} {maxPrice?.toFixed(2)}
@@ -225,7 +225,7 @@ export default function PriceChart({
             </p>
           </div>
 
-          <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow">
+          <div className="bg-white/5 dark:bg-gray-800 p-4 rounded-lg shadow">
             <p className="text-sm text-gray-600 dark:text-gray-400">Average Price</p>
             <p className="text-2xl font-bold text-blue-600">
               {currency} {stats.avg}
@@ -304,8 +304,8 @@ export default function PriceChart({
       )}
 
       {/* Chart */}
-      <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow">
-        <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
+      <div className="bg-white/5 dark:bg-gray-800 p-6 rounded-lg shadow">
+        <h3 className="text-lg font-semibold text-white dark:text-white mb-4">
           Price History & Predictions
         </h3>
         <ResponsiveContainer width="100%" height={height}>

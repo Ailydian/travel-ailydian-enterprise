@@ -155,7 +155,7 @@ const SignUp: React.FC = () => {
         {/* Return to Home Button */}
         <Link
           href="/"
-          className="fixed top-6 left-6 z-10 flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200 text-gray-200 hover:bg-white hover:text-lydian-primary transition-all duration-200"
+          className="fixed top-6 left-6 z-10 flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-sm rounded-xl shadow-lg border border-white/10 text-gray-200 hover:bg-white/5 hover:text-lydian-primary transition-all duration-200"
         >
           <ArrowLeft className="w-4 h-4" />
           <span className="font-medium">Ana Sayfaya Dön</span>
@@ -218,7 +218,7 @@ const SignUp: React.FC = () => {
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     className={`w-full pl-11 pr-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-colors ${
-                      errors.name ? 'border-red-300 bg-red-50' : 'border-gray-300'
+                      errors.name ? 'border-red-300 bg-red-50' : 'border-white/20'
                     }`}
                     placeholder="Adınız Soyadınız"
                   />
@@ -244,7 +244,7 @@ const SignUp: React.FC = () => {
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     className={`w-full pl-11 pr-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-colors ${
-                      errors.email ? 'border-red-300 bg-red-50' : 'border-gray-300'
+                      errors.email ? 'border-red-300 bg-red-50' : 'border-white/20'
                     }`}
                     placeholder="ornek@email.com"
                   />
@@ -270,7 +270,7 @@ const SignUp: React.FC = () => {
                     value={formData.password}
                     onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                     className={`w-full pl-11 pr-12 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-colors ${
-                      errors.password ? 'border-red-300 bg-red-50' : 'border-gray-300'
+                      errors.password ? 'border-red-300 bg-red-50' : 'border-white/20'
                     }`}
                     placeholder="En az 8 karakter"
                   />
@@ -303,7 +303,7 @@ const SignUp: React.FC = () => {
                     value={formData.confirmPassword}
                     onChange={(e) => setFormData({ ...formData, confirmPassword: e.target.value })}
                     className={`w-full pl-11 pr-12 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-colors ${
-                      errors.confirmPassword ? 'border-red-300 bg-red-50' : 'border-gray-300'
+                      errors.confirmPassword ? 'border-red-300 bg-red-50' : 'border-white/20'
                     }`}
                     placeholder="Şifrenizi tekrar girin"
                   />
@@ -330,7 +330,7 @@ const SignUp: React.FC = () => {
                   id="terms"
                   checked={formData.termsAccepted}
                   onChange={(e) => setFormData({ ...formData, termsAccepted: e.target.checked })}
-                  className="mt-1 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                  className="mt-1 rounded border-white/20 text-blue-600 focus:ring-blue-500"
                 />
                 <label htmlFor="terms" className="ml-2 text-sm text-gray-300">
                   <Link href="/terms" className="text-blue-600 hover:text-blue-700">

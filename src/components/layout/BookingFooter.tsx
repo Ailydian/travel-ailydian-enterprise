@@ -96,7 +96,7 @@ export const BookingFooter: React.FC = () => {
               <input
                 type="email"
                 placeholder="E-posta adresiniz"
-                className="flex-1 px-4 py-3 rounded-md bg-white text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-lydian-primary"
+                className="flex-1 px-4 py-3 rounded-md bg-white/5 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-lydian-primary"
               />
               <button className="px-6 py-3 bg-lydian-primary text-white rounded-md font-semibold hover:bg-lydian-dark transition-colors whitespace-nowrap">
                 Abone Ol
@@ -323,16 +323,16 @@ export const BookingFooter: React.FC = () => {
             <div className="flex items-center gap-4">
               <span className="text-sm text-gray-400">Ödeme Yöntemleri:</span>
               <div className="flex gap-2">
-                <div className="w-12 h-8 bg-white rounded flex items-center justify-center text-xs font-bold text-gray-700">
+                <div className="w-12 h-8 bg-white/5 rounded flex items-center justify-center text-xs font-bold text-gray-700">
                   VISA
                 </div>
-                <div className="w-12 h-8 bg-white rounded flex items-center justify-center text-xs font-bold text-gray-700">
+                <div className="w-12 h-8 bg-white/5 rounded flex items-center justify-center text-xs font-bold text-gray-700">
                   MC
                 </div>
-                <div className="w-12 h-8 bg-white rounded flex items-center justify-center text-xs font-bold text-gray-700">
+                <div className="w-12 h-8 bg-white/5 rounded flex items-center justify-center text-xs font-bold text-gray-700">
                   AMEX
                 </div>
-                <div className="w-12 h-8 bg-white rounded flex items-center justify-center text-xs font-bold text-gray-700">
+                <div className="w-12 h-8 bg-white/5 rounded flex items-center justify-center text-xs font-bold text-gray-700">
                   TROY
                 </div>
               </div>

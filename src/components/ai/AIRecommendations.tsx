@@ -137,7 +137,7 @@ export const AIRecommendations: React.FC<AIRecommendationsProps> = ({
       initial={{ opacity: 0, x: 50 }}
       animate={{ opacity: 1, x: 0 }}
       exit={{ opacity: 0, x: 50 }}
-      className={`fixed top-20 right-4 w-96 max-h-[calc(100vh-6rem)] bg-white rounded-2xl shadow-2xl border border-purple-100 z-40 overflow-hidden hidden lg:block ${className}`}
+      className={`fixed top-20 right-4 w-96 max-h-[calc(100vh-6rem)] bg-white/5 rounded-2xl shadow-2xl border border-purple-100 z-40 overflow-hidden hidden lg:block ${className}`}
     >
       {/* Header */}
       <div className="bg-gradient-to-r from-purple-600 to-pink-600 p-4 text-white">
@@ -237,7 +237,7 @@ export const AIRecommendations: React.FC<AIRecommendationsProps> = ({
 
                   {/* Content */}
                   <div className="flex-1 min-w-0">
-                    <h4 className="font-semibold text-sm text-gray-900 line-clamp-1 group-hover:text-purple-600 transition-colors">
+                    <h4 className="font-semibold text-sm text-white line-clamp-1 group-hover:text-purple-600 transition-colors">
                       {tour.title}
                     </h4>
                     <div className="flex items-center gap-1 text-xs text-gray-600 mt-1">

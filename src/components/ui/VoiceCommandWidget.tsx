@@ -54,7 +54,7 @@ export const VoiceCommandWidget: React.FC = () => {
                     transition={{ duration: 1.5, repeat: Infinity }}
                     className="relative"
                   >
-                    <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-xl relative overflow-hidden">
+                    <div className="w-20 h-20 bg-white/5 rounded-full flex items-center justify-center shadow-xl relative overflow-hidden">
                       {isListening ? (
                         <motion.div
                           className="absolute inset-0 bg-gradient-to-br from-green-400 to-emerald-500"
@@ -225,7 +225,7 @@ export const VoiceCommandWidget: React.FC = () => {
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: -100, opacity: 0 }}
               transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-              className="bg-white rounded-b-3xl shadow-2xl max-w-6xl mx-auto overflow-hidden"
+              className="bg-white/5 rounded-b-3xl shadow-2xl max-w-6xl mx-auto overflow-hidden"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Lydian Introduction Header */}
@@ -233,7 +233,7 @@ export const VoiceCommandWidget: React.FC = () => {
                 <div className="flex items-start justify-between gap-6">
                   {/* Lydian Avatar & Intro */}
                   <div className="flex items-center gap-6">
-                    <div className="w-24 h-24 bg-white rounded-full flex items-center justify-center shadow-2xl relative">
+                    <div className="w-24 h-24 bg-white/5 rounded-full flex items-center justify-center shadow-2xl relative">
                       <span className="text-5xl">🎙️</span>
                       <div className="absolute -bottom-2 -right-2 bg-green-500 w-8 h-8 rounded-full border-4 border-white flex items-center justify-center">
                         <span className="text-xs">AI</span>
@@ -276,7 +276,7 @@ export const VoiceCommandWidget: React.FC = () => {
               <div className="p-8 bg-gradient-to-b from-gray-50 to-white">
                 {/* Popular Commands - Quick Access */}
                 <div className="mb-8">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                  <h3 className="text-2xl font-bold text-white mb-4 flex items-center gap-2">
                     ⚡ Popüler Komutlar
                     <span className="text-sm font-normal text-gray-500">(En çok kullanılanlar)</span>
                   </h3>
@@ -299,7 +299,7 @@ export const VoiceCommandWidget: React.FC = () => {
                         whileTap={{ scale: 0.98 }}
                       >
                         <div className="text-3xl mb-2">{item.icon}</div>
-                        <div className="font-bold text-gray-900 text-sm mb-1">"{item.cmd}"</div>
+                        <div className="font-bold text-white text-sm mb-1">"{item.cmd}"</div>
                         <div className="text-xs text-gray-600">{item.desc}</div>
                       </motion.button>
                     ))}
@@ -318,7 +318,7 @@ export const VoiceCommandWidget: React.FC = () => {
                     }, {} as Record<string, typeof commands>)
                   ).map(([category, cmds]) => (
                     <div key={category}>
-                      <h3 className="text-lg font-bold text-gray-900 mb-3 flex items-center gap-2">
+                      <h3 className="text-lg font-bold text-white mb-3 flex items-center gap-2">
                         <div className="w-1 h-6 bg-gradient-to-b from-purple-600 to-blue-600 rounded-full" />
                         {category}
                       </h3>
@@ -333,7 +333,7 @@ export const VoiceCommandWidget: React.FC = () => {
                           >
                             <div className="flex items-start justify-between gap-4">
                               <div className="flex-1">
-                                <h4 className="font-semibold text-gray-900 mb-1">
+                                <h4 className="font-semibold text-white mb-1">
                                   "{cmd.command}"
                                 </h4>
                                 <p className="text-sm text-gray-600 mb-2">{cmd.description}</p>
@@ -341,7 +341,7 @@ export const VoiceCommandWidget: React.FC = () => {
                                   {cmd.patterns.map((pattern, i) => (
                                     <span
                                       key={i}
-                                      className="text-xs px-2 py-1 bg-white rounded-lg text-gray-700 border border-purple-200"
+                                      className="text-xs px-2 py-1 bg-white/5 rounded-lg text-gray-700 border border-purple-200"
                                     >
                                       💬 {pattern}
                                     </span>

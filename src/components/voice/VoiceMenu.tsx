@@ -242,9 +242,9 @@ export const VoiceMenu: React.FC<VoiceMenuProps> = ({ className = '' }) => {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: -10 }}
           >
-            <div className="absolute top-full right-0 mt-2 w-72 bg-white rounded-xl shadow-xl border border-gray-200 p-4 z-50">
+            <div className="absolute top-full right-0 mt-2 w-72 bg-white/5 rounded-xl shadow-xl border border-white/10 p-4 z-50">
             <div className="flex items-center justify-between mb-3">
-              <h4 className="font-semibold text-gray-900 flex items-center gap-2">
+              <h4 className="font-semibold text-white flex items-center gap-2">
                 <Zap className="w-4 h-4 text-yellow-500" />
                 Deneyebileceğiniz komutlar
               </h4>
@@ -294,13 +294,13 @@ export const VoiceMenu: React.FC<VoiceMenuProps> = ({ className = '' }) => {
             >
               <div
                 onClick={(e) => e.stopPropagation()}
-                className="bg-white rounded-2xl w-full max-w-4xl max-h-[80vh] overflow-y-auto"
+                className="bg-white/5 rounded-2xl w-full max-w-4xl max-h-[80vh] overflow-y-auto"
               >
               {/* Modal Header */}
-              <div className="sticky top-0 bg-white border-b border-gray-200 px-6 py-4 rounded-t-2xl">
+              <div className="sticky top-0 bg-white/5 border-b border-white/10 px-6 py-4 rounded-t-2xl">
                 <div className="flex items-center justify-between">
                   <div>
-                    <h2 className="text-2xl font-bold text-gray-900 flex items-center gap-3">
+                    <h2 className="text-2xl font-bold text-white flex items-center gap-3">
                       <div className="p-2 bg-gradient-to-r from-purple-500 to-blue-600 rounded-xl">
                         <Brain className="w-6 h-6 text-white" />
                       </div>
@@ -327,7 +327,7 @@ export const VoiceMenu: React.FC<VoiceMenuProps> = ({ className = '' }) => {
                 {!isSupported ? (
                   <div className="text-center py-8">
                     <AlertCircle className="w-16 h-16 text-red-500 mx-auto mb-4" />
-                    <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                    <h3 className="text-xl font-semibold text-white mb-2">
                       Tarayıcı Desteklemiyor
                     </h3>
                     <p className="text-gray-600">
@@ -342,7 +342,7 @@ export const VoiceMenu: React.FC<VoiceMenuProps> = ({ className = '' }) => {
                       <div className="flex items-center gap-3">
                         <statusInfo.icon className={`w-5 h-5 ${statusInfo.color}`} />
                         <div>
-                          <div className="font-medium text-gray-900">Durum: {statusInfo.status}</div>
+                          <div className="font-medium text-white">Durum: {statusInfo.status}</div>
                           {lastCommand && (
                             <div className="text-sm text-gray-600">
                               Son komut: {lastCommand}
@@ -355,7 +355,7 @@ export const VoiceMenu: React.FC<VoiceMenuProps> = ({ className = '' }) => {
                     {/* Commands by Category */}
                     {Object.entries(commandsByCategory).map(([category, commands]) => (
                       <div key={category} className="space-y-3">
-                        <h3 className="text-lg font-semibold text-gray-900 capitalize flex items-center gap-2">
+                        <h3 className="text-lg font-semibold text-white capitalize flex items-center gap-2">
                           {category === 'navigation' && '🧭 Navigasyon'}
                           {category === 'search' && '🔍 Arama'}
                           {category === 'action' && '⚡ Aksiyon'}
@@ -365,9 +365,9 @@ export const VoiceMenu: React.FC<VoiceMenuProps> = ({ className = '' }) => {
                           {commands.map((command, index) => (
                             <div
                               key={index}
-                              className="bg-white border border-gray-200 rounded-xl p-4 hover:shadow-md transition-shadow"
+                              className="bg-white/5 border border-white/10 rounded-xl p-4 hover:shadow-md transition-shadow"
                             >
-                              <div className="font-medium text-gray-900 mb-2">
+                              <div className="font-medium text-white mb-2">
                                 {command.description}
                               </div>
                               <div className="flex flex-wrap gap-1 mb-2">

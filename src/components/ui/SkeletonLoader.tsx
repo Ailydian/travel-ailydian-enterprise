@@ -45,7 +45,7 @@ export const Skeleton: React.FC<SkeletonProps> = ({
 // Horizontal Product Card Skeleton (Premium Style)
 export const ProductCardSkeleton: React.FC = () => {
   return (
-    <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
+    <div className="bg-white/5 rounded-lg border border-white/10 overflow-hidden">
       <div className="flex flex-col md:flex-row">
         {/* Image Skeleton */}
         <div className="w-full md:w-80 h-64 md:h-auto flex-shrink-0">
@@ -93,7 +93,7 @@ export const ProductCardSkeleton: React.FC = () => {
 // Filter Sidebar Skeleton
 export const FilterSidebarSkeleton: React.FC = () => {
   return (
-    <div className="bg-white rounded-lg border border-gray-200 p-6">
+    <div className="bg-white/5 rounded-lg border border-white/10 p-6">
       {/* Header */}
       <div className="flex items-center gap-2 mb-6">
         <Skeleton className="w-5 h-5" variant="circular" />
@@ -164,7 +164,7 @@ export const SearchFormSkeleton: React.FC = () => {
       </div>
 
       {/* Form */}
-      <div className="bg-white rounded-b-lg rounded-tr-lg shadow-2xl p-6">
+      <div className="bg-white/5 rounded-b-lg rounded-tr-lg shadow-2xl p-6">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-4 mb-6">
           <Skeleton className="md:col-span-4 h-16" variant="rectangular" />
           <Skeleton className="md:col-span-3 h-16" variant="rectangular" />
@@ -180,7 +180,7 @@ export const SearchFormSkeleton: React.FC = () => {
 // Grid Card Skeleton (for vertical cards)
 export const GridCardSkeleton: React.FC = () => {
   return (
-    <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+    <div className="bg-white/5 rounded-2xl shadow-lg overflow-hidden">
       {/* Image */}
       <Skeleton className="w-full h-48" variant="rectangular" />
 
@@ -208,7 +208,7 @@ export const GridCardSkeleton: React.FC = () => {
 // Page Loader (Full screen)
 export const PageLoader: React.FC = () => {
   return (
-    <div className="fixed inset-0 bg-white z-50 flex items-center justify-center">
+    <div className="fixed inset-0 bg-white/5 z-50 flex items-center justify-center">
       <div className="text-center">
         {/* Logo Skeleton */}
         <div className="mb-8">
@@ -217,7 +217,7 @@ export const PageLoader: React.FC = () => {
 
         {/* Spinner */}
         <div className="relative w-16 h-16 mx-auto mb-4">
-          <div className="absolute inset-0 border-4 border-gray-200 rounded-full"></div>
+          <div className="absolute inset-0 border-4 border-white/10 rounded-full"></div>
           <div className="absolute inset-0 border-4 border-lydian-primary border-t-transparent rounded-full animate-spin"></div>
         </div>
 
@@ -241,7 +241,7 @@ export const Spinner: React.FC<{ size?: 'sm' | 'md' | 'lg'; className?: string }
 
   return (
     <div className={`relative ${sizeClasses[size]} ${className}`}>
-      <div className="absolute inset-0 border-gray-200 rounded-full"></div>
+      <div className="absolute inset-0 border-white/10 rounded-full"></div>
       <div className="absolute inset-0 border-lydian-primary border-t-transparent rounded-full animate-spin"></div>
     </div>
   );

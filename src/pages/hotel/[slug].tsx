@@ -158,7 +158,7 @@ export default function HotelDetailPage({ hotel }: { hotel: Hotel }) {
                       className={`border-2 rounded-lg p-4 cursor-pointer transition ${
                         selectedRoom.name === room.name
                           ? 'border-blue-600 bg-blue-50'
-                          : 'border-gray-200 hover:border-blue-300'
+                          : 'border-white/10 hover:border-blue-300'
                       }`}
                     >
                       <div className="flex justify-between items-start">
@@ -229,7 +229,7 @@ export default function HotelDetailPage({ hotel }: { hotel: Hotel }) {
                         value={checkInDate}
                         onChange={(e) => setCheckInDate(e.target.value)}
                         min={new Date().toISOString().split('T')[0]}
-                        className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        className="w-full pl-10 pr-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                       />
                     </div>
                   </div>
@@ -246,7 +246,7 @@ export default function HotelDetailPage({ hotel }: { hotel: Hotel }) {
                         value={checkOutDate}
                         onChange={(e) => setCheckOutDate(e.target.value)}
                         min={checkInDate || new Date().toISOString().split('T')[0]}
-                        className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        className="w-full pl-10 pr-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                       />
                     </div>
                   </div>
@@ -264,7 +264,7 @@ export default function HotelDetailPage({ hotel }: { hotel: Hotel }) {
                         onChange={(e) => setGuests(Number(e.target.value))}
                         min="1"
                         max="10"
-                        className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        className="w-full pl-10 pr-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                       />
                     </div>
                   </div>
@@ -280,7 +280,7 @@ export default function HotelDetailPage({ hotel }: { hotel: Hotel }) {
                       onChange={(e) => setRooms(Number(e.target.value))}
                       min="1"
                       max="5"
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      className="w-full px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                     />
                   </div>
 

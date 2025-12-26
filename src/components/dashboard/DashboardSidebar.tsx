@@ -87,7 +87,7 @@ const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
       {/* Sidebar - mobile (drawer) and desktop */}
       <aside
         className={`
-          fixed inset-y-0 left-0 z-50 flex flex-col bg-white border-r border-gray-200
+          fixed inset-y-0 left-0 z-50 flex flex-col bg-white/5 border-r border-white/10
           transition-all duration-300 ease-in-out
           ${isOpen ? 'translate-x-0' : '-translate-x-full'}
           lg:translate-x-0 lg:static
@@ -97,11 +97,11 @@ const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
         aria-label="Sidebar navigation"
       >
         {/* Logo and brand */}
-        <div className="flex h-16 items-center justify-between px-4 border-b border-gray-200">
+        <div className="flex h-16 items-center justify-between px-4 border-b border-white/10">
           {!isCollapsed && (
             <Link href="/" className="flex items-center space-x-2">
               <Building2 className="h-8 w-8 text-blue-600" />
-              <span className="text-xl font-bold text-gray-900">LyDian</span>
+              <span className="text-xl font-bold text-white">LyDian</span>
             </Link>
           )}
           {isCollapsed && (
@@ -126,11 +126,11 @@ const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
 
         {/* Property switcher */}
         {!isCollapsed && (
-          <div className="px-3 py-4 border-b border-gray-200">
+          <div className="px-3 py-4 border-b border-white/10">
             <div className="relative">
               <button
                 onClick={() => setPropertyDropdownOpen(!propertyDropdownOpen)}
-                className="w-full flex items-center justify-between px-3 py-2 text-sm font-medium text-gray-900 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
+                className="w-full flex items-center justify-between px-3 py-2 text-sm font-medium text-white bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
                 aria-expanded={propertyDropdownOpen}
                 aria-haspopup="true"
               >
@@ -147,7 +147,7 @@ const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
 
               {/* Dropdown menu */}
               {propertyDropdownOpen && (
-                <div className="absolute z-10 mt-2 w-full bg-white rounded-lg shadow-lg border border-gray-200 py-1">
+                <div className="absolute z-10 mt-2 w-full bg-white/5 rounded-lg shadow-lg border border-white/10 py-1">
                   {properties.map((property) => (
                     <button
                       key={property}
@@ -193,7 +193,7 @@ const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
                       ${
                         active
                           ? 'bg-blue-50 text-blue-700'
-                          : 'text-gray-700 hover:bg-gray-100 hover:text-gray-900'
+                          : 'text-gray-700 hover:bg-gray-100 hover:text-white'
                       }
                     `}
                     aria-current={active ? 'page' : undefined}
@@ -209,7 +209,7 @@ const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
         </nav>
 
         {/* Add Property button */}
-        <div className="px-3 py-4 border-t border-gray-200">
+        <div className="px-3 py-4 border-t border-white/10">
           <button
             className={`
               w-full flex items-center justify-center px-4 py-2.5 bg-blue-600 text-white rounded-lg

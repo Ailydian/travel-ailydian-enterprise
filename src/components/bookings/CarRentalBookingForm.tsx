@@ -283,9 +283,9 @@ const CarRentalBookingForm: React.FC<BookingFormProps> = ({
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -20 }}
-                className="bg-white rounded-2xl shadow-md p-6"
+                className="bg-white/5 rounded-2xl shadow-md p-6"
               >
-                <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+                <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-2">
                   <Car className="w-6 h-6 text-blue-600" />
                   Kiralama Detayları
                 </h2>
@@ -303,7 +303,7 @@ const CarRentalBookingForm: React.FC<BookingFormProps> = ({
                         value={formData.pickupDate}
                         onChange={(e) => updateField('pickupDate', e.target.value)}
                         className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                          errors.pickupDate ? 'border-red-500' : 'border-gray-300'
+                          errors.pickupDate ? 'border-red-500' : 'border-white/20'
                         }`}
                       />
                       {errors.pickupDate && (
@@ -322,7 +322,7 @@ const CarRentalBookingForm: React.FC<BookingFormProps> = ({
                         value={formData.pickupTime}
                         onChange={(e) => updateField('pickupTime', e.target.value)}
                         className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                          errors.pickupTime ? 'border-red-500' : 'border-gray-300'
+                          errors.pickupTime ? 'border-red-500' : 'border-white/20'
                         }`}
                       />
                       {errors.pickupTime && (
@@ -343,7 +343,7 @@ const CarRentalBookingForm: React.FC<BookingFormProps> = ({
                         value={formData.returnDate}
                         onChange={(e) => updateField('returnDate', e.target.value)}
                         className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                          errors.returnDate ? 'border-red-500' : 'border-gray-300'
+                          errors.returnDate ? 'border-red-500' : 'border-white/20'
                         }`}
                       />
                       {errors.returnDate && (
@@ -362,7 +362,7 @@ const CarRentalBookingForm: React.FC<BookingFormProps> = ({
                         value={formData.returnTime}
                         onChange={(e) => updateField('returnTime', e.target.value)}
                         className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                          errors.returnTime ? 'border-red-500' : 'border-gray-300'
+                          errors.returnTime ? 'border-red-500' : 'border-white/20'
                         }`}
                       />
                       {errors.returnTime && (
@@ -381,7 +381,7 @@ const CarRentalBookingForm: React.FC<BookingFormProps> = ({
                       value={formData.pickupLocation}
                       onChange={(e) => updateField('pickupLocation', e.target.value)}
                       className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                        errors.pickupLocation ? 'border-red-500' : 'border-gray-300'
+                        errors.pickupLocation ? 'border-red-500' : 'border-white/20'
                       }`}
                     >
                       <option value="">Lokasyon seçiniz</option>
@@ -406,7 +406,7 @@ const CarRentalBookingForm: React.FC<BookingFormProps> = ({
                       value={formData.returnLocation}
                       onChange={(e) => updateField('returnLocation', e.target.value)}
                       className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                        errors.returnLocation ? 'border-red-500' : 'border-gray-300'
+                        errors.returnLocation ? 'border-red-500' : 'border-white/20'
                       }`}
                     >
                       <option value="">Lokasyon seçiniz</option>
@@ -422,8 +422,8 @@ const CarRentalBookingForm: React.FC<BookingFormProps> = ({
                   </div>
 
                   {/* Add-ons */}
-                  <div className="border-t border-gray-200 pt-6">
-                    <h3 className="font-semibold text-gray-900 mb-4">Ekstra Hizmetler</h3>
+                  <div className="border-t border-white/10 pt-6">
+                    <h3 className="font-semibold text-white mb-4">Ekstra Hizmetler</h3>
                     <div className="space-y-3">
                       <label className="flex items-center justify-between p-3 bg-gray-50 rounded-lg cursor-pointer hover:bg-gray-100">
                         <div className="flex items-center gap-3">
@@ -434,11 +434,11 @@ const CarRentalBookingForm: React.FC<BookingFormProps> = ({
                             className="w-5 h-5 text-blue-600 rounded focus:ring-blue-500"
                           />
                           <div>
-                            <p className="font-medium text-gray-900">Ek Sürücü</p>
+                            <p className="font-medium text-white">Ek Sürücü</p>
                             <p className="text-xs text-gray-500">İkinci bir sürücü ekleyin</p>
                           </div>
                         </div>
-                        <span className="text-sm font-bold text-gray-900">+₺100/gün</span>
+                        <span className="text-sm font-bold text-white">+₺100/gün</span>
                       </label>
 
                       <label className="flex items-center justify-between p-3 bg-gray-50 rounded-lg cursor-pointer hover:bg-gray-100">
@@ -450,14 +450,14 @@ const CarRentalBookingForm: React.FC<BookingFormProps> = ({
                             className="w-5 h-5 text-blue-600 rounded focus:ring-blue-500"
                           />
                           <div>
-                            <p className="font-medium text-gray-900 flex items-center gap-2">
+                            <p className="font-medium text-white flex items-center gap-2">
                               <Shield className="w-4 h-4 text-blue-600" />
                               Tam Kasko Sigortası
                             </p>
                             <p className="text-xs text-gray-500">Muafiyetsiz tam koruma</p>
                           </div>
                         </div>
-                        <span className="text-sm font-bold text-gray-900">+₺100/gün</span>
+                        <span className="text-sm font-bold text-white">+₺100/gün</span>
                       </label>
 
                       <label className="flex items-center justify-between p-3 bg-gray-50 rounded-lg cursor-pointer hover:bg-gray-100">
@@ -469,14 +469,14 @@ const CarRentalBookingForm: React.FC<BookingFormProps> = ({
                             className="w-5 h-5 text-blue-600 rounded focus:ring-blue-500"
                           />
                           <div>
-                            <p className="font-medium text-gray-900 flex items-center gap-2">
+                            <p className="font-medium text-white flex items-center gap-2">
                               <Navigation className="w-4 h-4 text-blue-600" />
                               GPS Navigasyon
                             </p>
                             <p className="text-xs text-gray-500">Kolay yol bulma</p>
                           </div>
                         </div>
-                        <span className="text-sm font-bold text-gray-900">+₺50/gün</span>
+                        <span className="text-sm font-bold text-white">+₺50/gün</span>
                       </label>
 
                       <label className="flex items-center justify-between p-3 bg-gray-50 rounded-lg cursor-pointer hover:bg-gray-100">
@@ -488,14 +488,14 @@ const CarRentalBookingForm: React.FC<BookingFormProps> = ({
                             className="w-5 h-5 text-blue-600 rounded focus:ring-blue-500"
                           />
                           <div>
-                            <p className="font-medium text-gray-900 flex items-center gap-2">
+                            <p className="font-medium text-white flex items-center gap-2">
                               <Baby className="w-4 h-4 text-blue-600" />
                               Çocuk Koltuğu
                             </p>
                             <p className="text-xs text-gray-500">0-4 yaş arası çocuklar için</p>
                           </div>
                         </div>
-                        <span className="text-sm font-bold text-gray-900">+₺30/gün</span>
+                        <span className="text-sm font-bold text-white">+₺30/gün</span>
                       </label>
                     </div>
                   </div>
@@ -510,9 +510,9 @@ const CarRentalBookingForm: React.FC<BookingFormProps> = ({
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -20 }}
-                className="bg-white rounded-2xl shadow-md p-6"
+                className="bg-white/5 rounded-2xl shadow-md p-6"
               >
-                <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+                <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-2">
                   <User className="w-6 h-6 text-blue-600" />
                   Müşteri Bilgileri
                 </h2>
@@ -529,7 +529,7 @@ const CarRentalBookingForm: React.FC<BookingFormProps> = ({
                       onChange={(e) => updateField('fullName', e.target.value)}
                       placeholder="Adınız ve soyadınız"
                       className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                        errors.fullName ? 'border-red-500' : 'border-gray-300'
+                        errors.fullName ? 'border-red-500' : 'border-white/20'
                       }`}
                     />
                     {errors.fullName && (
@@ -549,7 +549,7 @@ const CarRentalBookingForm: React.FC<BookingFormProps> = ({
                         onChange={(e) => updateField('email', e.target.value)}
                         placeholder="ornek@email.com"
                         className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                          errors.email ? 'border-red-500' : 'border-gray-300'
+                          errors.email ? 'border-red-500' : 'border-white/20'
                         }`}
                       />
                       {errors.email && (
@@ -568,7 +568,7 @@ const CarRentalBookingForm: React.FC<BookingFormProps> = ({
                         onChange={(e) => updateField('phone', e.target.value)}
                         placeholder="+90 555 123 45 67"
                         className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                          errors.phone ? 'border-red-500' : 'border-gray-300'
+                          errors.phone ? 'border-red-500' : 'border-white/20'
                         }`}
                       />
                       {errors.phone && (
@@ -577,8 +577,8 @@ const CarRentalBookingForm: React.FC<BookingFormProps> = ({
                     </div>
                   </div>
 
-                  <div className="border-t border-gray-200 pt-6">
-                    <h3 className="font-semibold text-gray-900 mb-4">Ehliyet Bilgileri</h3>
+                  <div className="border-t border-white/10 pt-6">
+                    <h3 className="font-semibold text-white mb-4">Ehliyet Bilgileri</h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div>
                         <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -590,7 +590,7 @@ const CarRentalBookingForm: React.FC<BookingFormProps> = ({
                           onChange={(e) => updateField('driverLicenseNumber', e.target.value)}
                           placeholder="12345678901"
                           className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                            errors.driverLicenseNumber ? 'border-red-500' : 'border-gray-300'
+                            errors.driverLicenseNumber ? 'border-red-500' : 'border-white/20'
                           }`}
                         />
                         {errors.driverLicenseNumber && (
@@ -607,7 +607,7 @@ const CarRentalBookingForm: React.FC<BookingFormProps> = ({
                           value={formData.licenseIssueDate}
                           onChange={(e) => updateField('licenseIssueDate', e.target.value)}
                           className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                            errors.licenseIssueDate ? 'border-red-500' : 'border-gray-300'
+                            errors.licenseIssueDate ? 'border-red-500' : 'border-white/20'
                           }`}
                         />
                         {errors.licenseIssueDate && (
@@ -641,9 +641,9 @@ const CarRentalBookingForm: React.FC<BookingFormProps> = ({
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -20 }}
-                className="bg-white rounded-2xl shadow-md p-6"
+                className="bg-white/5 rounded-2xl shadow-md p-6"
               >
-                <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+                <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-2">
                   <CreditCard className="w-6 h-6 text-blue-600" />
                   Ödeme Bilgileri
                 </h2>
@@ -671,7 +671,7 @@ const CarRentalBookingForm: React.FC<BookingFormProps> = ({
                       placeholder="1234 5678 9012 3456"
                       maxLength={16}
                       className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                        errors.cardNumber ? 'border-red-500' : 'border-gray-300'
+                        errors.cardNumber ? 'border-red-500' : 'border-white/20'
                       }`}
                     />
                     {errors.cardNumber && (
@@ -691,7 +691,7 @@ const CarRentalBookingForm: React.FC<BookingFormProps> = ({
                         placeholder="MM/YY"
                         maxLength={5}
                         className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                          errors.expiryDate ? 'border-red-500' : 'border-gray-300'
+                          errors.expiryDate ? 'border-red-500' : 'border-white/20'
                         }`}
                       />
                       {errors.expiryDate && (
@@ -710,7 +710,7 @@ const CarRentalBookingForm: React.FC<BookingFormProps> = ({
                         placeholder="123"
                         maxLength={4}
                         className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                          errors.cvv ? 'border-red-500' : 'border-gray-300'
+                          errors.cvv ? 'border-red-500' : 'border-white/20'
                         }`}
                       />
                       {errors.cvv && (
@@ -729,7 +729,7 @@ const CarRentalBookingForm: React.FC<BookingFormProps> = ({
                       placeholder="Tam adresinizi giriniz"
                       rows={3}
                       className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                        errors.billingAddress ? 'border-red-500' : 'border-gray-300'
+                        errors.billingAddress ? 'border-red-500' : 'border-white/20'
                       }`}
                     />
                     {errors.billingAddress && (
@@ -737,7 +737,7 @@ const CarRentalBookingForm: React.FC<BookingFormProps> = ({
                     )}
                   </div>
 
-                  <div className="border-t border-gray-200 pt-6">
+                  <div className="border-t border-white/10 pt-6">
                     <label className="flex items-start gap-3 cursor-pointer">
                       <input
                         type="checkbox"
@@ -775,7 +775,7 @@ const CarRentalBookingForm: React.FC<BookingFormProps> = ({
           <div className="flex items-center justify-between mt-6">
             <button
               onClick={step === 1 ? onCancel : handlePrevious}
-              className="flex items-center gap-2 px-6 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors"
+              className="flex items-center gap-2 px-6 py-3 border border-white/20 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors"
             >
               <ChevronLeft className="w-5 h-5" />
               {step === 1 ? 'İptal' : 'Geri'}
@@ -793,12 +793,12 @@ const CarRentalBookingForm: React.FC<BookingFormProps> = ({
 
         {/* Summary Sidebar */}
         <div className="lg:col-span-1">
-          <div className="bg-white rounded-2xl shadow-md p-6 sticky top-6">
-            <h3 className="font-bold text-gray-900 mb-4">Rezervasyon Özeti</h3>
+          <div className="bg-white/5 rounded-2xl shadow-md p-6 sticky top-6">
+            <h3 className="font-bold text-white mb-4">Rezervasyon Özeti</h3>
 
             {/* Car Info */}
-            <div className="mb-4 pb-4 border-b border-gray-200">
-              <p className="font-semibold text-gray-900">{car.name}</p>
+            <div className="mb-4 pb-4 border-b border-white/10">
+              <p className="font-semibold text-white">{car.name}</p>
               <p className="text-sm text-gray-600">
                 {car.brand} {car.model}
               </p>
@@ -811,7 +811,7 @@ const CarRentalBookingForm: React.FC<BookingFormProps> = ({
 
             {/* Dates */}
             {formData.pickupDate && formData.returnDate && (
-              <div className="mb-4 pb-4 border-b border-gray-200 text-sm">
+              <div className="mb-4 pb-4 border-b border-white/10 text-sm">
                 <div className="flex items-center gap-2 mb-2">
                   <Calendar className="w-4 h-4 text-gray-400" />
                   <span className="text-gray-600">Alış:</span>
@@ -845,9 +845,9 @@ const CarRentalBookingForm: React.FC<BookingFormProps> = ({
             </div>
 
             {/* Total */}
-            <div className="pt-4 border-t border-gray-200">
+            <div className="pt-4 border-t border-white/10">
               <div className="flex justify-between items-center">
-                <span className="font-bold text-gray-900">Toplam</span>
+                <span className="font-bold text-white">Toplam</span>
                 <span className="text-2xl font-bold text-blue-600">
                   ₺{pricing.total.toLocaleString('tr-TR')}
                 </span>

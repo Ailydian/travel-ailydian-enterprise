@@ -102,7 +102,7 @@ export default function PriceAlertsDashboard() {
     const styles = {
       ACTIVE: 'bg-green-100 text-green-800 border-green-300',
       TRIGGERED: 'bg-blue-100 text-blue-800 border-blue-300',
-      EXPIRED: 'bg-gray-100 text-gray-800 border-gray-300',
+      EXPIRED: 'bg-gray-100 text-gray-100 border-white/20',
       DISABLED: 'bg-yellow-100 text-yellow-800 border-yellow-300',
     };
 
@@ -192,7 +192,7 @@ export default function PriceAlertsDashboard() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Price Alerts</h1>
+          <h1 className="text-3xl font-bold text-white dark:text-white">Price Alerts</h1>
           <p className="text-gray-600 dark:text-gray-400 mt-1">
             Manage your travel price tracking alerts
           </p>
@@ -200,7 +200,7 @@ export default function PriceAlertsDashboard() {
       </div>
 
       {/* Filter Tabs */}
-      <div className="flex gap-2 border-b border-gray-200 dark:border-gray-700">
+      <div className="flex gap-2 border-b border-white/10 dark:border-gray-700">
         {(['ALL', 'ACTIVE', 'TRIGGERED', 'EXPIRED'] as const).map((status) => (
           <button
             key={status}
@@ -208,7 +208,7 @@ export default function PriceAlertsDashboard() {
             className={`px-4 py-2 font-medium transition-colors ${
               filter === status
                 ? 'text-blue-600 dark:text-blue-400 border-b-2 border-blue-600'
-                : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200'
+                : 'text-gray-600 dark:text-gray-400 hover:text-white dark:hover:text-gray-200'
             }`}
           >
             {status}
@@ -250,7 +250,7 @@ export default function PriceAlertsDashboard() {
             return (
               <div
                 key={alert.id}
-                className="bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-lg transition-shadow p-6"
+                className="bg-white/5 dark:bg-gray-800 rounded-lg shadow-md hover:shadow-lg transition-shadow p-6"
               >
                 <div className="flex items-start justify-between">
                   <div className="flex items-start gap-4 flex-1">
@@ -262,7 +262,7 @@ export default function PriceAlertsDashboard() {
                     {/* Content */}
                     <div className="flex-1">
                       <div className="flex items-center gap-3 mb-2">
-                        <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+                        <h3 className="text-lg font-semibold text-white dark:text-white">
                           {alert.entityName}
                         </h3>
                         {getStatusBadge(alert.status)}
@@ -271,7 +271,7 @@ export default function PriceAlertsDashboard() {
                       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
                         <div>
                           <p className="text-xs text-gray-600 dark:text-gray-400">Current Price</p>
-                          <p className="text-lg font-bold text-gray-900 dark:text-white">
+                          <p className="text-lg font-bold text-white dark:text-white">
                             {alert.currency} {parseFloat(alert.currentPrice.toString()).toFixed(2)}
                           </p>
                         </div>

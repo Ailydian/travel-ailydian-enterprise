@@ -94,7 +94,7 @@ export const NeoCard: React.FC<NeoCardProps> = ({
     `,
     minimal: `
       bg-white
-      border border-gray-200
+      border border-white/10
       shadow-lg
       hover:shadow-2xl
     `,
@@ -150,7 +150,7 @@ export const NeoCard: React.FC<NeoCardProps> = ({
               {allBadges.map((badgeText, index) => (
                 <motion.span
                   key={index}
-                  className="px-3 py-1 bg-white/90 backdrop-blur-md rounded-full text-xs font-semibold text-gray-900 shadow-lg"
+                  className="px-3 py-1 bg-white/90 backdrop-blur-md rounded-full text-xs font-semibold text-white shadow-lg"
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: index * 0.1 }}
@@ -193,7 +193,7 @@ export const NeoCard: React.FC<NeoCardProps> = ({
       <div className="p-6 space-y-4">
         {/* Title */}
         <motion.h3
-          className="text-xl md:text-2xl font-bold text-gray-900 leading-tight"
+          className="text-xl md:text-2xl font-bold text-white leading-tight"
           style={hover3D ? { transform: 'translateZ(30px)' } : undefined}
         >
           {title}

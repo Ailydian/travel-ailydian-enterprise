@@ -75,7 +75,7 @@ const HotelDetailPage: NextPage<HotelDetailPageProps> = ({ hotel }) => {
 
       <main className="min-h-screen bg-gray-50">
         {/* Breadcrumbs */}
-        <div className="bg-transparent border-b border-gray-200">
+        <div className="bg-transparent border-b border-white/10">
           <div className="max-w-7xl mx-auto px-4 py-3">
             <div className="flex items-center gap-2 text-sm text-gray-300">
               <Link href="/" className="hover:text-lydian-primary">{currentLang === 'tr' ? 'Ana Sayfa' : 'Home'}</Link>
@@ -101,13 +101,13 @@ const HotelDetailPage: NextPage<HotelDetailPageProps> = ({ hotel }) => {
               />
               <button
                 onClick={prevImage}
-                className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white p-3 rounded-full shadow-lg transition"
+                className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white/5 p-3 rounded-full shadow-lg transition"
               >
                 <ChevronLeft className="w-6 h-6" />
               </button>
               <button
                 onClick={nextImage}
-                className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white p-3 rounded-full shadow-lg transition"
+                className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white/5 p-3 rounded-full shadow-lg transition"
               >
                 <ChevronRight className="w-6 h-6" />
               </button>
@@ -266,7 +266,7 @@ const HotelDetailPage: NextPage<HotelDetailPageProps> = ({ hotel }) => {
                         const room = hotel.roomTypes.find(r => r.name[currentLang] === e.target.value);
                         if (room) setSelectedRoomType(room);
                       }}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-lydian-primary focus:border-transparent"
+                      className="w-full px-4 py-3 border border-white/20 rounded-xl focus:ring-2 focus:ring-lydian-primary focus:border-transparent"
                     >
                       {hotel.roomTypes.map((room, idx) => (
                         <option key={idx} value={room.name[currentLang]}>
@@ -279,7 +279,7 @@ const HotelDetailPage: NextPage<HotelDetailPageProps> = ({ hotel }) => {
                   {/* Guest Count */}
                   <div className="mb-6">
                     <label className="block text-sm font-semibold mb-2">{currentLang === 'tr' ? 'Misafir Sayısı' : 'Guests'}</label>
-                    <div className="flex items-center gap-2 p-4 border border-gray-300 rounded-xl">
+                    <div className="flex items-center gap-2 p-4 border border-white/20 rounded-xl">
                       <Users className="w-5 h-5 text-gray-300" />
                       <span>{selectedRoomType.capacity} {currentLang === 'tr' ? 'kişi' : 'people'}</span>
                     </div>
@@ -289,14 +289,14 @@ const HotelDetailPage: NextPage<HotelDetailPageProps> = ({ hotel }) => {
                   <div className="mb-6 grid grid-cols-2 gap-4">
                     <div>
                       <label className="block text-sm font-semibold mb-2">{currentLang === 'tr' ? 'Giriş' : 'Check-in'}</label>
-                      <div className="flex items-center gap-2 p-3 border border-gray-300 rounded-xl">
+                      <div className="flex items-center gap-2 p-3 border border-white/20 rounded-xl">
                         <Clock className="w-5 h-5 text-gray-300" />
                         <span className="text-sm">{hotel.checkInTime}</span>
                       </div>
                     </div>
                     <div>
                       <label className="block text-sm font-semibold mb-2">{currentLang === 'tr' ? 'Çıkış' : 'Check-out'}</label>
-                      <div className="flex items-center gap-2 p-3 border border-gray-300 rounded-xl">
+                      <div className="flex items-center gap-2 p-3 border border-white/20 rounded-xl">
                         <Clock className="w-5 h-5 text-gray-300" />
                         <span className="text-sm">{hotel.checkOutTime}</span>
                       </div>

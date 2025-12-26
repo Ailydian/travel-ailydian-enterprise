@@ -246,13 +246,13 @@ const HotelsNewPage: React.FC = () => {
 
       <Link
         href="/"
-        className="fixed top-24 left-6 z-50 flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200 text-gray-200 hover:bg-white hover:text-lydian-primary transition-all duration-200"
+        className="fixed top-24 left-6 z-50 flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200 text-gray-200 hover:bg-white/5 hover:text-lydian-primary transition-all duration-200"
       >
         <ArrowLeft className="w-4 h-4" />
         <span className="font-medium">Ana Sayfaya Dön</span>
       </Link>
 
-      <main className="min-h-screen bg-white">
+      <main className="min-h-screen bg-white/5">
         {/* Hero Section */}
         <section className="bg-gradient-to-r from-lydian-primary to-lydian-secondary py-16">
           <div className="max-w-7xl mx-auto px-4">
@@ -398,7 +398,7 @@ const HotelsNewPage: React.FC = () => {
                           {hotel.stars} Yıldız
                         </span>
                       </div>
-                      <button className="absolute top-4 right-4 p-2 bg-white/80 hover:bg-white rounded-full">
+                      <button className="absolute top-4 right-4 p-2 bg-white/80 hover:bg-white/5 rounded-full">
                         <Heart className="w-4 h-4 text-gray-300" />
                       </button>
                     </div>

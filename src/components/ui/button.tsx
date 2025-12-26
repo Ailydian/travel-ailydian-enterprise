@@ -32,9 +32,9 @@ export const Button: React.FC<ButtonProps> = ({
   // Variant styles - Red theme
   const variantStyles = {
     primary: 'bg-lydian-primary text-white hover:bg-lydian-dark active:bg-lydian-dark shadow-sm hover:shadow-md',
-    secondary: 'border-2 border-lydian-primary text-lydian-primary bg-white hover:bg-red-50 active:bg-red-100',
+    secondary: 'border-2 border-lydian-primary text-lydian-primary bg-white/5 hover:bg-red-50 active:bg-red-100',
     ghost: 'text-lydian-primary hover:bg-red-50 active:bg-red-100',
-    white: 'bg-white text-lydian-primary border border-neutral-200 hover:border-lydian-primary hover:shadow-sm',
+    white: 'bg-white/5 text-lydian-primary border border-neutral-200 hover:border-lydian-primary hover:shadow-sm',
     link: 'text-lydian-primary underline-offset-4 hover:underline px-0',
   };
 

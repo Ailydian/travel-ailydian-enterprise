@@ -92,9 +92,9 @@ const ThemeSwitcher: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
           >
-            <div className="absolute top-full right-0 mt-2 w-64 bg-white rounded-xl shadow-xl border border-gray-200 overflow-hidden">
+            <div className="absolute top-full right-0 mt-2 w-64 bg-white/5 rounded-xl shadow-xl border border-white/10 overflow-hidden">
               <div className="p-4">
-              <h3 className="font-semibold text-gray-900 mb-3">Tema Seçimi</h3>
+              <h3 className="font-semibold text-white mb-3">Tema Seçimi</h3>
               <div className="grid grid-cols-2 gap-2">
                 {Object.values(themes).map((theme) => {
                   const ThemeIcon = themeIcons[theme.name as keyof typeof themeIcons] || Palette;
@@ -110,7 +110,7 @@ const ThemeSwitcher: React.FC = () => {
                       className={`p-2 rounded-lg border transition-all ${
                         isActive 
                           ? 'border-blue-500 bg-blue-50' 
-                          : 'border-gray-200 hover:border-gray-300'
+                          : 'border-white/10 hover:border-white/20'
                       }`}
                     >
                       <div className="flex items-center gap-2">

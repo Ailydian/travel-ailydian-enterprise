@@ -227,7 +227,7 @@ const VisualSearch: React.FC<VisualSearchProps> = ({
             className={`relative border-2 border-dashed rounded-2xl p-12 text-center cursor-pointer transition-all duration-300 ${
               isDragActive
                 ? 'border-blue-500 bg-blue-50'
-                : 'border-gray-300 hover:border-blue-400 bg-white'
+                : 'border-white/20 hover:border-blue-400 bg-white'
             }`}
           >
             <input {...getInputProps()} />
@@ -240,7 +240,7 @@ const VisualSearch: React.FC<VisualSearchProps> = ({
             </div>
 
             {/* Upload Text */}
-            <h3 className="text-2xl font-bold text-gray-900 mb-2">
+            <h3 className="text-2xl font-bold text-white mb-2">
               {isDragActive ? 'Drop your image here' : 'Upload an image to search'}
             </h3>
             <p className="text-gray-600 mb-6">
@@ -306,10 +306,10 @@ const VisualSearch: React.FC<VisualSearchProps> = ({
                   initial={{ scale: 0.9, y: 20 }}
                   animate={{ scale: 1, y: 0 }}
                   exit={{ scale: 0.9, y: 20 }}
-                  className="bg-white rounded-2xl p-8 max-w-lg w-full"
+                  className="bg-white/5 rounded-2xl p-8 max-w-lg w-full"
                   onClick={(e) => e.stopPropagation()}
                 >
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                  <h3 className="text-2xl font-bold text-white mb-4">
                     Enter Image URL
                   </h3>
                   <input
@@ -317,7 +317,7 @@ const VisualSearch: React.FC<VisualSearchProps> = ({
                     value={imageUrl}
                     onChange={(e) => setImageUrl(e.target.value)}
                     placeholder="https://example.com/image.jpg"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 mb-4"
+                    className="w-full px-4 py-3 border border-white/20 rounded-xl focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 mb-4"
                     onKeyPress={(e) => e.key === 'Enter' && handleUrlSubmit()}
                   />
                   <div className="flex space-x-3">
@@ -384,7 +384,7 @@ const VisualSearch: React.FC<VisualSearchProps> = ({
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
-          className="bg-white rounded-2xl border border-gray-200 overflow-hidden"
+          className="bg-white/5 rounded-2xl border border-white/10 overflow-hidden"
         >
           <div className="relative">
             <img
@@ -396,7 +396,7 @@ const VisualSearch: React.FC<VisualSearchProps> = ({
             {/* Clear Button */}
             <button
               onClick={clearImage}
-              className="absolute top-4 right-4 p-2 bg-white/90 hover:bg-white rounded-full transition-colors duration-200 shadow-lg"
+              className="absolute top-4 right-4 p-2 bg-white/90 hover:bg-white/5 rounded-full transition-colors duration-200 shadow-lg"
             >
               <XMarkIcon className="w-5 h-5 text-gray-700" />
             </button>

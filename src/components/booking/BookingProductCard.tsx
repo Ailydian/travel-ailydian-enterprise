@@ -115,7 +115,7 @@ export const BookingProductCard: React.FC<ProductCardProps> = ({
     <Link href={href} className="block">
       <motion.div
         whileHover={{ y: -4 }}
-        className="bg-white rounded-lg border border-gray-200 hover:border-lydian-primary hover:shadow-xl transition-all duration-200 overflow-hidden group"
+        className="bg-white/5 rounded-lg border border-white/10 hover:border-lydian-primary hover:shadow-xl transition-all duration-200 overflow-hidden group"
       >
         <div className="flex flex-col md:flex-row">
           {/* Image Section - Left Side */}
@@ -137,15 +137,15 @@ export const BookingProductCard: React.FC<ProductCardProps> = ({
                 <>
                   <button
                     onClick={prevImage}
-                    className="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 bg-white/90 hover:bg-white rounded-full flex items-center justify-center shadow-lg transition-all z-10"
+                    className="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 bg-white/90 hover:bg-white/5 rounded-full flex items-center justify-center shadow-lg transition-all z-10"
                   >
-                    <ChevronLeft className="w-5 h-5 text-gray-800" />
+                    <ChevronLeft className="w-5 h-5 text-gray-100" />
                   </button>
                   <button
                     onClick={nextImage}
-                    className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 bg-white/90 hover:bg-white rounded-full flex items-center justify-center shadow-lg transition-all z-10"
+                    className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 bg-white/90 hover:bg-white/5 rounded-full flex items-center justify-center shadow-lg transition-all z-10"
                   >
-                    <ChevronRight className="w-5 h-5 text-gray-800" />
+                    <ChevronRight className="w-5 h-5 text-gray-100" />
                   </button>
                 </>
               )}
@@ -157,7 +157,7 @@ export const BookingProductCard: React.FC<ProductCardProps> = ({
                     <div
                       key={index}
                       className={`w-1.5 h-1.5 rounded-full transition-all ${
-                        index === currentImageIndex ? 'bg-white w-3' : 'bg-white/60'
+                        index === currentImageIndex ? 'bg-white/5 w-3' : 'bg-white/60'
                       }`}
                     />
                   ))}
@@ -171,7 +171,7 @@ export const BookingProductCard: React.FC<ProductCardProps> = ({
                 e.preventDefault();
                 onFavorite?.();
               }}
-              className="absolute top-3 right-3 w-9 h-9 bg-white/90 hover:bg-white rounded-full flex items-center justify-center shadow-lg transition-all z-10"
+              className="absolute top-3 right-3 w-9 h-9 bg-white/90 hover:bg-white/5 rounded-full flex items-center justify-center shadow-lg transition-all z-10"
             >
               <Heart
                 className={`w-5 h-5 transition-all ${
@@ -193,7 +193,7 @@ export const BookingProductCard: React.FC<ProductCardProps> = ({
                 {badges.slice(0, 2).map((badge, index) => (
                   <span
                     key={index}
-                    className="px-2 py-1 bg-white/95 text-gray-800 rounded text-xs font-semibold shadow-sm"
+                    className="px-2 py-1 bg-white/95 text-gray-100 rounded text-xs font-semibold shadow-sm"
                   >
                     {badge}
                   </span>
@@ -206,7 +206,7 @@ export const BookingProductCard: React.FC<ProductCardProps> = ({
           <div className="flex-1 p-4 md:p-5 flex flex-col">
             {/* Title & Location */}
             <div className="mb-3">
-              <h3 className="text-xl font-bold text-gray-900 mb-1 line-clamp-2 group-hover:text-lydian-primary transition-colors">
+              <h3 className="text-xl font-bold text-white mb-1 line-clamp-2 group-hover:text-lydian-primary transition-colors">
                 {title}
               </h3>
               <div className="flex items-center gap-1 text-sm text-gray-600">
@@ -222,7 +222,7 @@ export const BookingProductCard: React.FC<ProductCardProps> = ({
                   {rating.toFixed(1)}
                 </div>
                 <div>
-                  <div className="text-sm font-semibold text-gray-900">{getRatingText(rating)}</div>
+                  <div className="text-sm font-semibold text-white">{getRatingText(rating)}</div>
                   {reviewCount > 0 && (
                     <div className="text-xs text-gray-600">{reviewCount.toLocaleString()} değerlendirme</div>
                   )}
@@ -344,7 +344,7 @@ export const BookingProductCard: React.FC<ProductCardProps> = ({
                   </div>
                 )}
                 <div className="flex items-baseline gap-1">
-                  <span className="text-2xl font-bold text-gray-900">
+                  <span className="text-2xl font-bold text-white">
                     {currency}{typeof price === 'number' ? price.toLocaleString() : price}
                   </span>
                   <span className="text-sm text-gray-600">/ gece</span>

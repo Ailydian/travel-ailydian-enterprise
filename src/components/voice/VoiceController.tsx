@@ -329,7 +329,7 @@ const VoiceController: React.FC<VoiceControllerProps> = ({
             className={`p-4 rounded-full shadow-lg transition-all duration-300 ${
               isEnabled
                 ? 'bg-gradient-to-r from-blue-500 to-purple-600 text-white'
-                : 'bg-white text-gray-600 hover:bg-gray-50'
+                : 'bg-white/5 text-gray-600 hover:bg-gray-50'
             }`}
           >
             {isEnabled ? (
@@ -373,7 +373,7 @@ const VoiceController: React.FC<VoiceControllerProps> = ({
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.9 }}
           >
-            <div className="absolute bottom-16 left-0 w-80 bg-white rounded-2xl shadow-2xl border border-gray-200 overflow-hidden">
+            <div className="absolute bottom-16 left-0 w-80 bg-white/5 rounded-2xl shadow-2xl border border-white/10 overflow-hidden">
             {/* Header */}
             <div className="p-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white">
               <div className="flex items-center justify-between">
@@ -413,9 +413,9 @@ const VoiceController: React.FC<VoiceControllerProps> = ({
                   animate={{ height: 'auto' }}
                   exit={{ height: 0 }}
                 >
-                  <div className="border-b border-gray-200 overflow-hidden">
+                  <div className="border-b border-white/10 overflow-hidden">
                   <div className="p-4">
-                    <h4 className="font-medium text-gray-900 mb-3">Dil Seçimi</h4>
+                    <h4 className="font-medium text-white mb-3">Dil Seçimi</h4>
                     <div className="grid grid-cols-2 gap-2">
                       {languages.map((lang) => (
                         <button
@@ -438,7 +438,7 @@ const VoiceController: React.FC<VoiceControllerProps> = ({
             </AnimatePresence>
 
             {/* Status */}
-            <div className="p-4 border-b border-gray-200">
+            <div className="p-4 border-b border-white/10">
               <div className="flex items-center justify-between mb-3">
                 <span className="text-sm font-medium text-gray-700">Durum</span>
                 <div className="flex items-center gap-2">
@@ -466,7 +466,7 @@ const VoiceController: React.FC<VoiceControllerProps> = ({
               {/* Transcript */}
               {transcript && (
                 <div className="bg-gray-50 p-3 rounded-lg mb-3">
-                  <p className="text-sm text-gray-900">{transcript}</p>
+                  <p className="text-sm text-white">{transcript}</p>
                   {confidence > 0 && (
                     <div className="flex items-center gap-2 mt-2">
                       <div className="flex-1 bg-gray-200 h-1 rounded-full">
@@ -529,7 +529,7 @@ const VoiceController: React.FC<VoiceControllerProps> = ({
 
             {/* Quick Commands */}
             <div className="p-4">
-              <h4 className="font-medium text-gray-900 mb-3">Hızlı Komutlar</h4>
+              <h4 className="font-medium text-white mb-3">Hızlı Komutlar</h4>
               <div className="space-y-2">
                 {[
                   { text: '"Istanbul ara"', action: 'İstanbul\'u arar' },
@@ -538,7 +538,7 @@ const VoiceController: React.FC<VoiceControllerProps> = ({
                   { text: '"Yardım"', action: 'Yardım menüsü' }
                 ].map((cmd, index) => (
                   <div key={index} className="flex items-center justify-between text-sm">
-                    <code className="bg-gray-100 px-2 py-1 rounded text-gray-800">
+                    <code className="bg-gray-100 px-2 py-1 rounded text-gray-100">
                       {cmd.text}
                     </code>
                     <span className="text-gray-500 text-xs">{cmd.action}</span>

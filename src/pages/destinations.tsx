@@ -53,7 +53,7 @@ export default function Destinations() {
       {/* Return to Home Button */}
       <Link
         href="/"
-        className="fixed top-24 left-6 z-10 flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200 text-gray-200 hover:bg-white hover:text-lydian-primary transition-all duration-200"
+        className="fixed top-24 left-6 z-10 flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200 text-gray-200 hover:bg-white/5 hover:text-lydian-primary transition-all duration-200"
       >
         <ArrowLeft className="w-4 h-4" />
         <span className="font-medium">Ana Sayfaya Dön</span>
@@ -134,7 +134,7 @@ export default function Destinations() {
                       e.preventDefault();
                       toggleFavorite(destination.id);
                     }}
-                    className="absolute top-3 right-3 p-2 bg-white/80 rounded-full hover:bg-white transition-colors"
+                    className="absolute top-3 right-3 p-2 bg-white/80 rounded-full hover:bg-white/5 transition-colors"
                   >
                     <Heart
                       className={`h-5 w-5 ${

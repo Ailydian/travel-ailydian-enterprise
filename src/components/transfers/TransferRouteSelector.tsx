@@ -96,10 +96,10 @@ export const TransferRouteSelector: React.FC<TransferRouteSelectorProps> = ({
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="bg-white rounded-2xl shadow-2xl border border-gray-200 p-6 md:p-8"
+        className="bg-white/5 rounded-2xl shadow-2xl border border-white/10 p-6 md:p-8"
       >
         <div className="mb-6">
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2 flex items-center gap-3">
+          <h2 className="text-2xl md:text-3xl font-bold text-white mb-2 flex items-center gap-3">
             <div className="p-2 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-xl">
               <Car className="w-6 h-6 text-white" />
             </div>
@@ -165,7 +165,7 @@ export const TransferRouteSelector: React.FC<TransferRouteSelectorProps> = ({
                 value={dateTime}
                 onChange={(e) => onDateTimeChange(e.target.value)}
                 min={getMinDateTime()}
-                className="w-full pl-12 pr-4 py-4 text-base bg-white border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-gray-900 font-medium shadow-sm hover:shadow-md hover:border-blue-300 transition-all duration-200"
+                className="w-full pl-12 pr-4 py-4 text-base bg-white/5 border-2 border-white/10 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-white font-medium shadow-sm hover:shadow-md hover:border-blue-300 transition-all duration-200"
               />
             </div>
           </div>
@@ -180,7 +180,7 @@ export const TransferRouteSelector: React.FC<TransferRouteSelectorProps> = ({
               <select
                 value={passengers}
                 onChange={(e) => onPassengersChange(e.target.value)}
-                className="w-full pl-12 pr-10 py-4 text-base bg-white border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-gray-900 font-medium shadow-sm hover:shadow-md hover:border-blue-300 transition-all duration-200 appearance-none cursor-pointer"
+                className="w-full pl-12 pr-10 py-4 text-base bg-white/5 border-2 border-white/10 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-white font-medium shadow-sm hover:shadow-md hover:border-blue-300 transition-all duration-200 appearance-none cursor-pointer"
               >
                 {PASSENGER_OPTIONS.map(option => (
                   <option key={option.value} value={option.value}>
@@ -206,7 +206,7 @@ export const TransferRouteSelector: React.FC<TransferRouteSelectorProps> = ({
               <select
                 value={vehicleType}
                 onChange={(e) => onVehicleTypeChange(e.target.value)}
-                className="w-full pl-12 pr-10 py-4 text-base bg-white border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-gray-900 font-medium shadow-sm hover:shadow-md hover:border-blue-300 transition-all duration-200 appearance-none cursor-pointer"
+                className="w-full pl-12 pr-10 py-4 text-base bg-white/5 border-2 border-white/10 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-white font-medium shadow-sm hover:shadow-md hover:border-blue-300 transition-all duration-200 appearance-none cursor-pointer"
               >
                 {VEHICLE_TYPE_OPTIONS.map(option => (
                   <option key={option.value} value={option.value}>
@@ -235,7 +235,7 @@ export const TransferRouteSelector: React.FC<TransferRouteSelectorProps> = ({
                 <MapPin className="w-5 h-5 text-blue-600" />
                 <div>
                   <div className="text-sm font-medium text-gray-700">Rota</div>
-                  <div className="text-lg font-bold text-gray-900">
+                  <div className="text-lg font-bold text-white">
                     {fromLocation.name} <ArrowRight className="inline w-4 h-4 mx-2" /> {toLocation.name}
                   </div>
                 </div>
@@ -245,7 +245,7 @@ export const TransferRouteSelector: React.FC<TransferRouteSelectorProps> = ({
                 <div className="flex items-center gap-4">
                   <div className="text-sm">
                     <span className="text-gray-600">Mesafe:</span>
-                    <span className="ml-2 font-semibold text-gray-900">
+                    <span className="ml-2 font-semibold text-white">
                       {Math.round(
                         calculateDistance(
                           fromLocation.coordinates.lat,
@@ -275,7 +275,7 @@ export const TransferRouteSelector: React.FC<TransferRouteSelectorProps> = ({
         </div>
 
         {/* Popular Routes */}
-        <div className="mt-6 pt-6 border-t border-gray-200">
+        <div className="mt-6 pt-6 border-t border-white/10">
           <div className="text-sm font-semibold text-gray-700 mb-3">Popüler Rotalar</div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
             {POPULAR_ROUTES.map(route => (
@@ -285,10 +285,10 @@ export const TransferRouteSelector: React.FC<TransferRouteSelectorProps> = ({
                   onFromChange(route.from);
                   onToChange(route.to);
                 }}
-                className="p-3 bg-gray-50 hover:bg-blue-50 rounded-lg border border-gray-200 hover:border-blue-300 transition-all text-left group"
+                className="p-3 bg-gray-50 hover:bg-blue-50 rounded-lg border border-white/10 hover:border-blue-300 transition-all text-left group"
               >
                 <div className="flex items-center justify-between mb-1">
-                  <span className="text-sm font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">
+                  <span className="text-sm font-semibold text-white group-hover:text-blue-600 transition-colors">
                     {route.from}
                   </span>
                   <ArrowRight className="w-4 h-4 text-gray-400 group-hover:text-blue-600" />

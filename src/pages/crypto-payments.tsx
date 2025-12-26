@@ -65,7 +65,7 @@ const CryptoPayments: React.FC = () => {
         </section>
 
         {/* Supported Cryptocurrencies */}
-        <section className="py-16 bg-white">
+        <section className="py-16 bg-white/5">
           <div className="max-w-7xl mx-auto px-4">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-white mb-4">Desteklenen Kripto Paralar</h2>
@@ -155,7 +155,7 @@ const CryptoPayments: React.FC = () => {
         </section>
 
         {/* Benefits */}
-        <section className="py-16 bg-white">
+        <section className="py-16 bg-white/5">
           <div className="max-w-7xl mx-auto px-4">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-white mb-4">Kripto Ödeme Avantajları</h2>

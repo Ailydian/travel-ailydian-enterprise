@@ -210,7 +210,7 @@ export default function AdminLocations() {
 
       <div className="min-h-screen bg-gray-50">
         {/* Header */}
-        <div className="bg-transparent shadow-sm border-b border-gray-200">
+        <div className="bg-transparent shadow-sm border-b border-white/10">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex justify-between items-center h-16">
               <div className="flex items-center">
@@ -243,7 +243,7 @@ export default function AdminLocations() {
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           {/* Search and Filters */}
-          <div className="bg-transparent rounded-lg shadow-sm border border-gray-200 p-6 mb-6">
+          <div className="bg-transparent rounded-lg shadow-sm border border-white/10 p-6 mb-6">
             <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between space-y-4 lg:space-y-0">
               <div className="flex-1 max-w-lg">
                 <div className="relative">
@@ -253,7 +253,7 @@ export default function AdminLocations() {
                     placeholder="Search locations..."
                     value={filters.search}
                     onChange={(e) => handleFilterChange('search', e.target.value)}
-                    className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    className="w-full pl-10 pr-4 py-2 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                   />
                 </div>
               </div>
@@ -261,7 +261,7 @@ export default function AdminLocations() {
               <div className="flex items-center space-x-3">
                 <button
                   onClick={() => setShowFilters(!showFilters)}
-                  className="flex items-center space-x-2 px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50"
+                  className="flex items-center space-x-2 px-4 py-2 border border-white/20 rounded-lg hover:bg-gray-50"
                 >
                   <Filter className="w-4 h-4" />
                   <span>Filters</span>
@@ -279,7 +279,7 @@ export default function AdminLocations() {
                     </button>
                     
                     {showBulkActions && (
-                      <div className="absolute right-0 mt-2 w-48 bg-transparent rounded-lg shadow-lg border border-gray-200 z-10">
+                      <div className="absolute right-0 mt-2 w-48 bg-transparent rounded-lg shadow-lg border border-white/10 z-10">
                         <div className="py-1">
                           <button
                             onClick={() => handleBulkAction('activate')}
@@ -328,14 +328,14 @@ export default function AdminLocations() {
 
             {/* Advanced Filters */}
             {showFilters && (
-              <div className="mt-6 pt-6 border-t border-gray-200">
+              <div className="mt-6 pt-6 border-t border-white/10">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                   <div>
                     <label className="block text-sm font-medium text-gray-200 mb-1">Status</label>
                     <select
                       value={filters.status}
                       onChange={(e) => handleFilterChange('status', e.target.value)}
-                      className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full border border-white/20 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
                     >
                       <option value="">All Status</option>
                       <option value="active">Active</option>
@@ -350,7 +350,7 @@ export default function AdminLocations() {
                     <select
                       value={filters.verified}
                       onChange={(e) => handleFilterChange('verified', e.target.value)}
-                      className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full border border-white/20 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
                     >
                       <option value="">All</option>
                       <option value="true">Verified</option>
@@ -363,7 +363,7 @@ export default function AdminLocations() {
                     <select
                       value={filters.claimed}
                       onChange={(e) => handleFilterChange('claimed', e.target.value)}
-                      className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full border border-white/20 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
                     >
                       <option value="">All</option>
                       <option value="true">Claimed</option>
@@ -376,7 +376,7 @@ export default function AdminLocations() {
                     <select
                       value={filters.minRating}
                       onChange={(e) => handleFilterChange('minRating', e.target.value)}
-                      className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full border border-white/20 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
                     >
                       <option value="">Any Rating</option>
                       <option value="4.5">4.5+ Stars</option>
@@ -391,7 +391,7 @@ export default function AdminLocations() {
           </div>
 
           {/* Locations Table */}
-          <div className="bg-transparent rounded-lg shadow-sm border border-gray-200 overflow-hidden">
+          <div className="bg-transparent rounded-lg shadow-sm border border-white/10 overflow-hidden">
             {isLoading ? (
               <div className="flex items-center justify-center h-64">
                 <div className="w-8 h-8 border-2 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
@@ -413,14 +413,14 @@ export default function AdminLocations() {
               <>
                 <div className="overflow-x-auto">
                   <table className="w-full">
-                    <thead className="bg-white/5 border-b border-gray-200">
+                    <thead className="bg-white/5 border-b border-white/10">
                       <tr>
                         <th className="w-12 px-4 py-3">
                           <input
                             type="checkbox"
                             checked={selectedLocations.length === locations.length && locations.length > 0}
                             onChange={handleSelectAll}
-                            className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                            className="rounded border-white/20 text-blue-600 focus:ring-blue-500"
                           />
                         </th>
                         <th className="text-left px-4 py-3 font-medium text-gray-200">
@@ -473,7 +473,7 @@ export default function AdminLocations() {
                               type="checkbox"
                               checked={selectedLocations.includes(location.id)}
                               onChange={() => handleSelectLocation(location.id)}
-                              className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                              className="rounded border-white/20 text-blue-600 focus:ring-blue-500"
                             />
                           </td>
                           <td className="px-4 py-3">
@@ -569,13 +569,13 @@ export default function AdminLocations() {
 
                 {/* Pagination */}
                 {pagination.pages > 1 && (
-                  <div className="bg-white/5 px-4 py-3 border-t border-gray-200 sm:px-6">
+                  <div className="bg-white/5 px-4 py-3 border-t border-white/10 sm:px-6">
                     <div className="flex items-center justify-between">
                       <div className="flex justify-between items-center sm:hidden">
                         <button
                           onClick={() => setPagination(prev => ({ ...prev, page: Math.max(1, prev.page - 1) }))}
                           disabled={pagination.page === 1}
-                          className="relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-200 bg-transparent hover:bg-gray-50 disabled:bg-gray-100 disabled:text-gray-400"
+                          className="relative inline-flex items-center px-4 py-2 border border-white/20 text-sm font-medium rounded-md text-gray-200 bg-transparent hover:bg-gray-50 disabled:bg-gray-100 disabled:text-gray-400"
                         >
                           Previous
                         </button>
@@ -585,7 +585,7 @@ export default function AdminLocations() {
                         <button
                           onClick={() => setPagination(prev => ({ ...prev, page: Math.min(prev.pages, prev.page + 1) }))}
                           disabled={pagination.page === pagination.pages}
-                          className="ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-200 bg-transparent hover:bg-gray-50 disabled:bg-gray-100 disabled:text-gray-400"
+                          className="ml-3 relative inline-flex items-center px-4 py-2 border border-white/20 text-sm font-medium rounded-md text-gray-200 bg-transparent hover:bg-gray-50 disabled:bg-gray-100 disabled:text-gray-400"
                         >
                           Next
                         </button>
@@ -609,7 +609,7 @@ export default function AdminLocations() {
                             <button
                               onClick={() => setPagination(prev => ({ ...prev, page: Math.max(1, prev.page - 1) }))}
                               disabled={pagination.page === 1}
-                              className="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-transparent text-sm font-medium text-gray-500 hover:bg-gray-50 disabled:bg-gray-100 disabled:text-gray-400"
+                              className="relative inline-flex items-center px-2 py-2 rounded-l-md border border-white/20 bg-transparent text-sm font-medium text-gray-500 hover:bg-gray-50 disabled:bg-gray-100 disabled:text-gray-400"
                             >
                               Previous
                             </button>
@@ -633,7 +633,7 @@ export default function AdminLocations() {
                                   className={`relative inline-flex items-center px-4 py-2 border text-sm font-medium ${
                                     pagination.page === pageNum
                                       ? 'z-10 bg-blue-50 border-blue-500 text-blue-600'
-                                      : 'bg-white border-gray-300 text-gray-500 hover:bg-gray-50'
+                                      : 'bg-white/5 border-white/20 text-gray-500 hover:bg-gray-50'
                                   }`}
                                 >
                                   {pageNum}
@@ -644,7 +644,7 @@ export default function AdminLocations() {
                             <button
                               onClick={() => setPagination(prev => ({ ...prev, page: Math.min(prev.pages, prev.page + 1) }))}
                               disabled={pagination.page === pagination.pages}
-                              className="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-transparent text-sm font-medium text-gray-500 hover:bg-gray-50 disabled:bg-gray-100 disabled:text-gray-400"
+                              className="relative inline-flex items-center px-2 py-2 rounded-r-md border border-white/20 bg-transparent text-sm font-medium text-gray-500 hover:bg-gray-50 disabled:bg-gray-100 disabled:text-gray-400"
                             >
                               Next
                             </button>

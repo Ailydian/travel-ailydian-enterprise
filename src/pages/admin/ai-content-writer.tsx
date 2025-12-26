@@ -202,7 +202,7 @@ const AIContentWriterPage: React.FC = () => {
                   <select
                     value={formData.type}
                     onChange={(e) => setFormData({ ...formData, type: e.target.value as any })}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent"
+                    className="w-full px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent"
                   >
                     <option value="hotel">🏨 Otel</option>
                     <option value="car">🚗 Araç Kiralama</option>
@@ -223,7 +223,7 @@ const AIContentWriterPage: React.FC = () => {
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     placeholder="örn: Grand Hilton Istanbul"
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent"
+                    className="w-full px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent"
                   />
                 </div>
 
@@ -237,7 +237,7 @@ const AIContentWriterPage: React.FC = () => {
                     value={formData.location}
                     onChange={(e) => setFormData({ ...formData, location: e.target.value })}
                     placeholder="örn: İstanbul Taksim"
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent"
+                    className="w-full px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent"
                   />
                 </div>
 
@@ -251,7 +251,7 @@ const AIContentWriterPage: React.FC = () => {
                     value={formData.category || ''}
                     onChange={(e) => setFormData({ ...formData, category: e.target.value })}
                     placeholder="örn: Butik Otel, Lüks Sedan"
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent"
+                    className="w-full px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent"
                   />
                 </div>
 
@@ -267,7 +267,7 @@ const AIContentWriterPage: React.FC = () => {
                       onChange={(e) => setFeatureInput(e.target.value)}
                       onKeyPress={(e) => e.key === 'Enter' && handleAddFeature()}
                       placeholder="Özellik ekle (Enter)"
-                      className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent"
+                      className="flex-1 px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent"
                     />
                     <button
                       onClick={handleAddFeature}
@@ -304,7 +304,7 @@ const AIContentWriterPage: React.FC = () => {
                     value={formData.price || ''}
                     onChange={(e) => setFormData({ ...formData, price: Number(e.target.value) || undefined })}
                     placeholder="örn: 1500"
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent"
+                    className="w-full px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent"
                   />
                 </div>
 
@@ -321,7 +321,7 @@ const AIContentWriterPage: React.FC = () => {
                     value={formData.rating || ''}
                     onChange={(e) => setFormData({ ...formData, rating: Number(e.target.value) || undefined })}
                     placeholder="örn: 4.5"
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent"
+                    className="w-full px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent"
                   />
                 </div>
 
@@ -417,7 +417,7 @@ const AIContentWriterPage: React.FC = () => {
                   )}
 
                   {/* Tabs */}
-                  <div className="flex items-center gap-2 mb-4 border-b border-gray-200">
+                  <div className="flex items-center gap-2 mb-4 border-b border-white/10">
                     <button
                       onClick={() => setActiveTab('preview')}
                       className={`px-4 py-2 font-medium border-b-2 transition-colors ${

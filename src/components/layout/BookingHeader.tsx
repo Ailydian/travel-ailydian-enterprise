@@ -184,7 +184,7 @@ export const BookingHeader: React.FC = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden border-t border-gray-200 bg-white overflow-hidden"
+            className="md:hidden border-t border-white/10 bg-white/5 overflow-hidden"
           >
             <nav className="px-4 py-4 space-y-2">
               {navigation.map((item) => {
@@ -210,7 +210,7 @@ export const BookingHeader: React.FC = () => {
                 );
               })}
 
-              <div className="pt-4 mt-4 border-t border-gray-200 space-y-2">
+              <div className="pt-4 mt-4 border-t border-white/10 space-y-2">
                 {/* Language Switcher in Mobile Menu */}
                 <div className="px-4 py-3">
                   <LanguageSwitcher />

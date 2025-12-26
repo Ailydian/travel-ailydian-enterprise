@@ -99,7 +99,7 @@ export default function ExternalPlatformReviews({
                 />
               ))}
             </div>
-            <span className="ml-2 text-sm font-medium text-gray-900">
+            <span className="ml-2 text-sm font-medium text-white">
               {averageRating.toFixed(1)}
             </span>
           </div>
@@ -109,7 +109,7 @@ export default function ExternalPlatformReviews({
       {/* Reviews */}
       <div className="space-y-4">
         {displayedReviews.map((review) => (
-          <div key={review.id} className="bg-white p-4 rounded-lg border border-gray-100">
+          <div key={review.id} className="bg-white/5 p-4 rounded-lg border border-gray-100">
             {/* Review Header */}
             <div className="flex items-start justify-between mb-2">
               <div className="flex items-center">
@@ -125,7 +125,7 @@ export default function ExternalPlatformReviews({
                   </div>
                 )}
                 <div className="ml-3">
-                  <p className="font-medium text-gray-900 text-sm">
+                  <p className="font-medium text-white text-sm">
                     {review.author_name}
                   </p>
                   <div className="flex items-center text-xs text-gray-500">
@@ -162,7 +162,7 @@ export default function ExternalPlatformReviews({
 
             {/* Review Title */}
             {review.title && (
-              <h4 className="font-medium text-gray-900 mb-2 text-sm">
+              <h4 className="font-medium text-white mb-2 text-sm">
                 {review.title}
               </h4>
             )}
@@ -221,7 +221,7 @@ export default function ExternalPlatformReviews({
           <button
             onClick={onLoadMore}
             disabled={isLoading}
-            className={`px-4 py-2 text-sm font-medium ${config.color} border ${config.borderColor} rounded-md hover:bg-white disabled:opacity-50`}
+            className={`px-4 py-2 text-sm font-medium ${config.color} border ${config.borderColor} rounded-md hover:bg-white/5 disabled:opacity-50`}
           >
             {isLoading ? 'Loading...' : 'Load More Reviews'}
           </button>
@@ -229,7 +229,7 @@ export default function ExternalPlatformReviews({
       )}
 
       {/* Source Attribution */}
-      <div className="mt-4 pt-3 border-t border-gray-200">
+      <div className="mt-4 pt-3 border-t border-white/10">
         <p className="text-xs text-gray-500 flex items-center justify-center">
           Reviews synced from {config.name}
           {config.logo}

@@ -64,7 +64,7 @@ const FilterChips: React.FC<FilterChipsProps> = ({
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           onClick={onClearAll}
-          className="flex items-center gap-1.5 px-3 py-1.5 bg-gray-100 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-200 transition-colors border border-gray-200"
+          className="flex items-center gap-1.5 px-3 py-1.5 bg-gray-100 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-200 transition-colors border border-white/10"
         >
           <RotateCcw className="w-3 h-3" />
           Clear All

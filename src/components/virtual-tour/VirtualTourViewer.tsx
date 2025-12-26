@@ -122,7 +122,7 @@ const VirtualTourViewer: React.FC<VirtualTourViewerProps> = ({
             <button
               key={hotspot.id}
               onClick={() => handleHotspotClick(hotspot)}
-              className="absolute w-12 h-12 bg-white/90 hover:bg-white rounded-full shadow-lg flex items-center justify-center transform -translate-x-1/2 -translate-y-1/2 hover:scale-110 transition-all"
+              className="absolute w-12 h-12 bg-white/90 hover:bg-white/5 rounded-full shadow-lg flex items-center justify-center transform -translate-x-1/2 -translate-y-1/2 hover:scale-110 transition-all"
               style={{
                 left: `${50 + (hotspot.position.yaw / 180) * 50}%`,
                 top: `${50 - (hotspot.position.pitch / 90) * 50}%`
@@ -252,11 +252,11 @@ const VirtualTourViewer: React.FC<VirtualTourViewerProps> = ({
           >
             <motion.div
               onClick={(e) => e.stopPropagation()}
-              className="bg-white rounded-xl shadow-2xl max-w-2xl w-full max-h-[80vh] overflow-y-auto"
+              className="bg-white/5 rounded-xl shadow-2xl max-w-2xl w-full max-h-[80vh] overflow-y-auto"
             >
               <div className="p-6">
                 <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-2xl font-bold text-gray-900">
+                  <h3 className="text-2xl font-bold text-white">
                     {selectedHotspot.title}
                   </h3>
                   <button

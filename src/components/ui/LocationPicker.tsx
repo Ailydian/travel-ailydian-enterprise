@@ -361,7 +361,7 @@ export const LocationPicker: React.FC<LocationPickerProps> = ({
 
   if (!isClient) {
     return (
-      <div className="bg-white rounded-xl border border-gray-200 p-6">
+      <div className="bg-white/5 rounded-xl border border-white/10 p-6">
         <div className="h-96 bg-gray-100 rounded-lg animate-pulse flex items-center justify-center">
           <MapPin className="w-12 h-12 text-gray-400" />
         </div>
@@ -370,7 +370,7 @@ export const LocationPicker: React.FC<LocationPickerProps> = ({
   }
 
   return (
-    <div className="bg-white rounded-xl border border-gray-200 overflow-hidden">
+    <div className="bg-white/5 rounded-xl border border-white/10 overflow-hidden">
       {/* Header */}
       <div className="bg-gradient-to-r from-lydian-primary to-lydian-secondary p-4">
         <div className="flex items-center gap-3 text-white">
@@ -392,7 +392,7 @@ export const LocationPicker: React.FC<LocationPickerProps> = ({
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Adres, şehir veya nokta arayın... (örn: İstanbul, Ankara, İzmir)"
-              className="w-full pl-10 pr-10 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-lydian-primary focus:border-transparent outline-none"
+              className="w-full pl-10 pr-10 py-3 border border-white/20 rounded-lg focus:ring-2 focus:ring-lydian-primary focus:border-transparent outline-none"
             />
             {isSearching && (
               <Loader2 className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5 animate-spin" />
@@ -413,7 +413,7 @@ export const LocationPicker: React.FC<LocationPickerProps> = ({
 
           {/* Search Results Dropdown */}
           {searchResults.length > 0 && (
-            <div className="absolute top-full left-0 right-0 mt-2 bg-white border border-gray-200 rounded-lg shadow-lg max-h-80 overflow-y-auto z-10">
+            <div className="absolute top-full left-0 right-0 mt-2 bg-white/5 border border-white/10 rounded-lg shadow-lg max-h-80 overflow-y-auto z-10">
               {searchResults.map((result, index) => (
                 <button
                   key={index}
@@ -423,7 +423,7 @@ export const LocationPicker: React.FC<LocationPickerProps> = ({
                   <div className="flex items-start gap-2">
                     <MapPin className="w-4 h-4 text-lydian-primary mt-1 flex-shrink-0" />
                     <div className="flex-1 min-w-0">
-                      <p className="font-medium text-gray-900 text-sm">
+                      <p className="font-medium text-white text-sm">
                         {result.display_name}
                       </p>
                       {result.address && (
@@ -474,7 +474,7 @@ export const LocationPicker: React.FC<LocationPickerProps> = ({
         )}
 
         {/* Map */}
-        <div className="relative h-96 rounded-lg overflow-hidden border border-gray-200 bg-gray-100">
+        <div className="relative h-96 rounded-lg overflow-hidden border border-white/10 bg-gray-100">
           <div id="location-map" className="w-full h-full"></div>
           {!isMapReady && (
             <div className="absolute inset-0 flex items-center justify-center bg-gray-100">

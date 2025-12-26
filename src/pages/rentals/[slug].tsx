@@ -444,7 +444,7 @@ const PropertyDetailsPage = ({ slug: initialSlug }: PropertyDetailsPageProps) =>
         </AnimatePresence>
 
         {/* Header */}
-        <div className="bg-transparent border-b border-gray-200">
+        <div className="bg-transparent border-b border-white/10">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
             <div className="flex items-start justify-between gap-4">
               <div className="flex-1">
@@ -556,7 +556,7 @@ const PropertyDetailsPage = ({ slug: initialSlug }: PropertyDetailsPageProps) =>
                   </div>
                 </div>
 
-                <div className="border-t border-gray-200 pt-6">
+                <div className="border-t border-white/10 pt-6">
                   <div className="flex items-center gap-4 mb-4">
                     <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold text-lg">
                       {property.hostName.charAt(0)}
@@ -577,7 +577,7 @@ const PropertyDetailsPage = ({ slug: initialSlug }: PropertyDetailsPageProps) =>
                 </div>
 
                 {/* Badges */}
-                <div className="flex flex-wrap gap-3 pt-6 border-t border-gray-200">
+                <div className="flex flex-wrap gap-3 pt-6 border-t border-white/10">
                   {property.instantBook && (
                     <div className="flex items-center gap-2 px-4 py-2 bg-green-50 rounded-xl">
                       <Check className="w-5 h-5 text-green-600" />
@@ -764,7 +764,7 @@ const PropertyDetailsPage = ({ slug: initialSlug }: PropertyDetailsPageProps) =>
                   </div>
                 </div>
 
-                <div className="mt-6 pt-6 border-t border-gray-200">
+                <div className="mt-6 pt-6 border-t border-white/10">
                   <div className="grid grid-cols-2 gap-3">
                     <div className="flex items-center gap-2">
                       {property.smokingAllowed ? (
@@ -828,7 +828,7 @@ const PropertyDetailsPage = ({ slug: initialSlug }: PropertyDetailsPageProps) =>
               <motion.div
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
-                className="sticky top-24 bg-transparent rounded-2xl shadow-2xl p-6 border border-gray-200"
+                className="sticky top-24 bg-transparent rounded-2xl shadow-2xl p-6 border border-white/10"
               >
                 {/* Price */}
                 <div className="mb-6">
@@ -877,7 +877,7 @@ const PropertyDetailsPage = ({ slug: initialSlug }: PropertyDetailsPageProps) =>
                         type="date"
                         value={checkInDate}
                         onChange={(e) => setCheckInDate(e.target.value)}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full px-3 py-2 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                       />
                     </div>
                     <div>
@@ -889,7 +889,7 @@ const PropertyDetailsPage = ({ slug: initialSlug }: PropertyDetailsPageProps) =>
                         type="date"
                         value={checkOutDate}
                         onChange={(e) => setCheckOutDate(e.target.value)}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full px-3 py-2 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                       />
                     </div>
                   </div>
@@ -909,14 +909,14 @@ const PropertyDetailsPage = ({ slug: initialSlug }: PropertyDetailsPageProps) =>
                         <div className="flex items-center gap-3">
                           <button
                             onClick={() => setAdultsCount(Math.max(1, adultsCount - 1))}
-                            className="w-8 h-8 flex items-center justify-center border border-gray-300 rounded-full hover:border-gray-400"
+                            className="w-8 h-8 flex items-center justify-center border border-white/20 rounded-full hover:border-gray-400"
                           >
                             -
                           </button>
                           <span className="w-8 text-center font-semibold">{adultsCount}</span>
                           <button
                             onClick={() => setAdultsCount(Math.min(property.guests, adultsCount + 1))}
-                            className="w-8 h-8 flex items-center justify-center border border-gray-300 rounded-full hover:border-gray-400"
+                            className="w-8 h-8 flex items-center justify-center border border-white/20 rounded-full hover:border-gray-400"
                           >
                             +
                           </button>
@@ -931,7 +931,7 @@ const PropertyDetailsPage = ({ slug: initialSlug }: PropertyDetailsPageProps) =>
                         <div className="flex items-center gap-3">
                           <button
                             onClick={() => setChildrenCount(Math.max(0, childrenCount - 1))}
-                            className="w-8 h-8 flex items-center justify-center border border-gray-300 rounded-full hover:border-gray-400"
+                            className="w-8 h-8 flex items-center justify-center border border-white/20 rounded-full hover:border-gray-400"
                           >
                             -
                           </button>
@@ -940,7 +940,7 @@ const PropertyDetailsPage = ({ slug: initialSlug }: PropertyDetailsPageProps) =>
                             onClick={() =>
                               setChildrenCount(Math.min(property.guests - adultsCount, childrenCount + 1))
                             }
-                            className="w-8 h-8 flex items-center justify-center border border-gray-300 rounded-full hover:border-gray-400"
+                            className="w-8 h-8 flex items-center justify-center border border-white/20 rounded-full hover:border-gray-400"
                           >
                             +
                           </button>
@@ -955,14 +955,14 @@ const PropertyDetailsPage = ({ slug: initialSlug }: PropertyDetailsPageProps) =>
                         <div className="flex items-center gap-3">
                           <button
                             onClick={() => setInfantsCount(Math.max(0, infantsCount - 1))}
-                            className="w-8 h-8 flex items-center justify-center border border-gray-300 rounded-full hover:border-gray-400"
+                            className="w-8 h-8 flex items-center justify-center border border-white/20 rounded-full hover:border-gray-400"
                           >
                             -
                           </button>
                           <span className="w-8 text-center font-semibold">{infantsCount}</span>
                           <button
                             onClick={() => setInfantsCount(infantsCount + 1)}
-                            className="w-8 h-8 flex items-center justify-center border border-gray-300 rounded-full hover:border-gray-400"
+                            className="w-8 h-8 flex items-center justify-center border border-white/20 rounded-full hover:border-gray-400"
                           >
                             +
                           </button>
@@ -974,7 +974,7 @@ const PropertyDetailsPage = ({ slug: initialSlug }: PropertyDetailsPageProps) =>
 
                 {/* Price Breakdown */}
                 {nights > 0 && (
-                  <div className="space-y-3 py-4 border-t border-b border-gray-200 mb-4">
+                  <div className="space-y-3 py-4 border-t border-b border-white/10 mb-4">
                     <div className="flex justify-between text-sm">
                       <span className="text-gray-300">
                         ₺{parseInt(property.basePrice).toLocaleString('tr-TR')} × {nights} gece
@@ -1028,7 +1028,7 @@ const PropertyDetailsPage = ({ slug: initialSlug }: PropertyDetailsPageProps) =>
 
                 {/* Security Deposit */}
                 {property.securityDeposit && parseInt(property.securityDeposit) > 0 && (
-                  <div className="mt-6 pt-6 border-t border-gray-200">
+                  <div className="mt-6 pt-6 border-t border-white/10">
                     <div className="flex items-start gap-2 text-sm text-gray-300">
                       <Shield className="w-4 h-4 mt-0.5" />
                       <div>
@@ -1040,7 +1040,7 @@ const PropertyDetailsPage = ({ slug: initialSlug }: PropertyDetailsPageProps) =>
                 )}
 
                 {/* Host Response Info */}
-                <div className="mt-6 pt-6 border-t border-gray-200 space-y-2">
+                <div className="mt-6 pt-6 border-t border-white/10 space-y-2">
                   <div className="flex items-center gap-2 text-sm text-gray-300">
                     <Clock className="w-4 h-4" />
                     <span>Yanıt süresi: {property.hostResponseTime}</span>

@@ -333,7 +333,7 @@ export default function Support() {
                   className={`px-4 py-2 rounded-lg font-medium transition-colors ${
                     selectedCategory === 'all'
                       ? 'bg-blue-600 text-white'
-                      : 'bg-white dark:bg-gray-800 text-gray-200 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-700'
+                      : 'bg-white/5 dark:bg-gray-800 text-gray-200 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-700'
                   }`}
                 >
                   Tümü
@@ -345,7 +345,7 @@ export default function Support() {
                     className={`px-4 py-2 rounded-lg font-medium transition-colors ${
                       selectedCategory === category.id
                         ? 'bg-blue-600 text-white'
-                        : 'bg-white dark:bg-gray-800 text-gray-200 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-700'
+                        : 'bg-white/5 dark:bg-gray-800 text-gray-200 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-700'
                     }`}
                   >
                     {category.title}
@@ -356,7 +356,7 @@ export default function Support() {
 
             <div className="space-y-4">
               {filteredTickets.map((ticket) => (
-                <div key={ticket.id} className={`bg-white dark:bg-gray-800 rounded-lg shadow-md ${getPriorityColor(ticket.priority)}`}>
+                <div key={ticket.id} className={`bg-white/5 dark:bg-gray-800 rounded-lg shadow-md ${getPriorityColor(ticket.priority)}`}>
                   <div 
                     className="p-6 cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
                     onClick={() => setSelectedTicket(selectedTicket === ticket.id ? null : ticket.id)}

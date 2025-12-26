@@ -375,7 +375,7 @@ const RentalsPage: React.FC = () => {
         <motion.header
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="sticky top-20 z-40 bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-sm"
+          className="sticky top-20 z-40 bg-white/95 backdrop-blur-md border-b border-white/10 shadow-sm"
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
             <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
@@ -414,7 +414,7 @@ const RentalsPage: React.FC = () => {
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     placeholder="Lokasyon, özellik veya şehir ara..."
-                    className="w-full pl-12 pr-4 py-3 bg-white/5 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all"
+                    className="w-full pl-12 pr-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all"
                   />
                   {searchQuery && (
                     <button
@@ -433,7 +433,7 @@ const RentalsPage: React.FC = () => {
                   onClick={() => setViewMode('grid')}
                   className={`px-4 py-2 rounded-lg font-medium transition-all ${
                     viewMode === 'grid'
-                      ? 'bg-white text-red-600 shadow-md'
+                      ? 'bg-white/5 text-red-600 shadow-md'
                       : 'text-gray-300 hover:text-white'
                   }`}
                 >
@@ -444,7 +444,7 @@ const RentalsPage: React.FC = () => {
                   onClick={() => setViewMode('map')}
                   className={`px-4 py-2 rounded-lg font-medium transition-all ${
                     viewMode === 'map'
-                      ? 'bg-white text-red-600 shadow-md'
+                      ? 'bg-white/5 text-red-600 shadow-md'
                       : 'text-gray-300 hover:text-white'
                   }`}
                 >
@@ -498,7 +498,7 @@ const RentalsPage: React.FC = () => {
                       <select
                         value={filters.city}
                         onChange={(e) => setFilters({ ...filters, city: e.target.value })}
-                        className="w-full px-4 py-2.5 bg-white/5 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all"
+                        className="w-full px-4 py-2.5 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all"
                       >
                         {CITIES.map((city) => (
                           <option key={city} value={city}>
@@ -546,7 +546,7 @@ const RentalsPage: React.FC = () => {
                               setFilters({ ...filters, priceMin: parseInt(e.target.value) || 0 })
                             }
                             placeholder="Min"
-                            className="w-full px-3 py-2 bg-white/5 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
+                            className="w-full px-3 py-2 bg-white/5 border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
                           />
                           <span className="text-gray-400">-</span>
                           <input
@@ -556,7 +556,7 @@ const RentalsPage: React.FC = () => {
                               setFilters({ ...filters, priceMax: parseInt(e.target.value) || 10000 })
                             }
                             placeholder="Max"
-                            className="w-full px-3 py-2 bg-white/5 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
+                            className="w-full px-3 py-2 bg-white/5 border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
                           />
                         </div>
                         <input

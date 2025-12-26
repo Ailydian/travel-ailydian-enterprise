@@ -56,7 +56,7 @@ const SimplifiedHeader = () => {
   ];
 
   return (
-    <header className="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm">
+    <header className="sticky top-0 z-50 bg-white/5 border-b border-white/10 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -160,7 +160,7 @@ const SimplifiedHeader = () => {
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: 'auto' }}
           exit={{ opacity: 0, height: 0 }}
-          className="md:hidden border-t border-gray-200 bg-white"
+          className="md:hidden border-t border-white/10 bg-white/5"
         >
           <div className="px-4 py-4 space-y-2">
             {mainNavItems.map((item) => {
@@ -186,7 +186,7 @@ const SimplifiedHeader = () => {
               );
             })}
 
-            <div className="pt-4 border-t border-gray-200 mt-4">
+            <div className="pt-4 border-t border-white/10 mt-4">
               <Link
                 href="/auth/signin"
                 onClick={() => setMobileMenuOpen(false)}

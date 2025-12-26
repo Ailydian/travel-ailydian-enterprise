@@ -248,7 +248,7 @@ export const LocationAutocompleteAdvanced: React.FC<LocationAutocompleteAdvanced
             }
           }}
           placeholder={placeholder}
-          className="w-full pl-12 pr-12 py-4 text-base bg-white border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-gray-900 placeholder-gray-500 font-medium shadow-sm hover:shadow-md hover:border-blue-300 transition-all duration-200"
+          className="w-full pl-12 pr-12 py-4 text-base bg-white/5 border-2 border-white/10 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-white placeholder-gray-500 font-medium shadow-sm hover:shadow-md hover:border-blue-300 transition-all duration-200"
           autoComplete="off"
         />
 
@@ -290,7 +290,7 @@ export const LocationAutocompleteAdvanced: React.FC<LocationAutocompleteAdvanced
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
-            className="absolute z-50 w-full mt-2 bg-white rounded-xl shadow-2xl border border-gray-200 overflow-hidden max-h-[500px] overflow-y-auto"
+            className="absolute z-50 w-full mt-2 bg-white/5 rounded-xl shadow-2xl border border-white/10 overflow-hidden max-h-[500px] overflow-y-auto"
           >
             {/* Recent Searches */}
             {value.length < 2 && showRecentSearches && recentSearches.length > 0 && (
@@ -307,7 +307,7 @@ export const LocationAutocompleteAdvanced: React.FC<LocationAutocompleteAdvanced
                   >
                     {getLocationIcon(location.type)}
                     <div className="flex-1">
-                      <div className="font-medium text-gray-900">{location.name}</div>
+                      <div className="font-medium text-white">{location.name}</div>
                       <div className="text-xs text-gray-600">
                         {location.city} • {location.country}
                       </div>
@@ -332,7 +332,7 @@ export const LocationAutocompleteAdvanced: React.FC<LocationAutocompleteAdvanced
                   >
                     {getLocationIcon(location.type)}
                     <div className="flex-1">
-                      <div className="font-medium text-gray-900">{location.name}</div>
+                      <div className="font-medium text-white">{location.name}</div>
                       <div className="text-xs text-gray-600 flex items-center gap-2">
                         <span>{location.city} • {location.country}</span>
                         {location.distance && (
@@ -363,7 +363,7 @@ export const LocationAutocompleteAdvanced: React.FC<LocationAutocompleteAdvanced
                     {getLocationIcon(location.type)}
                     <div className="flex-1">
                       <div className="flex items-center gap-2">
-                        <span className="font-medium text-gray-900">{location.name}</span>
+                        <span className="font-medium text-white">{location.name}</span>
                         {location.popular && (
                           <Star className="w-3 h-3 text-yellow-500 fill-yellow-500" />
                         )}
@@ -410,7 +410,7 @@ export const LocationAutocompleteAdvanced: React.FC<LocationAutocompleteAdvanced
 
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-2">
-                        <span className="font-semibold text-gray-900 truncate">
+                        <span className="font-semibold text-white truncate">
                           {suggestion.name}
                         </span>
                         {suggestion.code && (
@@ -461,7 +461,7 @@ export const LocationAutocompleteAdvanced: React.FC<LocationAutocompleteAdvanced
                 <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-r from-gray-100 to-gray-200 flex items-center justify-center">
                   <Search className="w-8 h-8 text-gray-400" />
                 </div>
-                <div className="font-semibold text-gray-900 mb-2">Sonuç bulunamadı</div>
+                <div className="font-semibold text-white mb-2">Sonuç bulunamadı</div>
                 <div className="text-sm text-gray-500">
                   "{value}" için sonuç bulunamadı
                   <br />

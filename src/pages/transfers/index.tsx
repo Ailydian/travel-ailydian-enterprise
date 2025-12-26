@@ -356,7 +356,7 @@ const TransfersPage: React.FC = () => {
               {POPULAR_ROUTES.map((route) => (
                 <div
                   key={route.id}
-                  className="bg-gradient-to-br from-gray-50 to-white border border-gray-200 rounded-2xl p-6 hover:shadow-lg transition-all cursor-pointer group"
+                  className="bg-gradient-to-br from-gray-50 to-white border border-white/10 rounded-2xl p-6 hover:shadow-lg transition-all cursor-pointer group"
                 >
                   <div className="flex items-start justify-between mb-4">
                     <div className="flex-1">
@@ -384,7 +384,7 @@ const TransfersPage: React.FC = () => {
                     <span>{route.vehicles} araç</span>
                   </div>
 
-                  <div className="flex items-center justify-between pt-4 border-t border-gray-200">
+                  <div className="flex items-center justify-between pt-4 border-t border-white/10">
                     <div>
                       <div className="text-sm text-gray-500">Başlangıç</div>
                       <div className="text-2xl font-bold text-white">₺{route.price}</div>
@@ -400,11 +400,11 @@ const TransfersPage: React.FC = () => {
         </section>
 
         {/* Filters Bar */}
-        <section className="bg-transparent border-b border-gray-200 sticky top-20 z-40 py-4">
+        <section className="bg-transparent border-b border-white/10 sticky top-20 z-40 py-4">
           <div className="max-w-7xl mx-auto px-4">
             <button
               onClick={() => setShowFilters(!showFilters)}
-              className="flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
+              className="flex items-center gap-2 px-4 py-2 border border-white/20 rounded-lg hover:bg-gray-50 transition-colors"
             >
               <Filter className="w-5 h-5" />
               Filtrele
@@ -432,13 +432,13 @@ const TransfersPage: React.FC = () => {
                   key={transfer.id}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="bg-transparent border border-gray-200 rounded-2xl overflow-hidden hover:shadow-xl transition-all group"
+                  className="bg-transparent border border-white/10 rounded-2xl overflow-hidden hover:shadow-xl transition-all group"
                 >
                   <div className="relative h-48 bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center">
                     <AnimatedCarSVG className="w-48 h-32" />
                     <button
                       onClick={() => toggleFavorite(transfer.id)}
-                      className="absolute top-3 right-3 w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white transition-colors"
+                      className="absolute top-3 right-3 w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/5 transition-colors"
                     >
                       <Heart
                         className={`w-5 h-5 ${
@@ -511,7 +511,7 @@ const TransfersPage: React.FC = () => {
                       ))}
                     </div>
 
-                    <div className="pt-4 border-t border-gray-200">
+                    <div className="pt-4 border-t border-white/10">
                       <div className="flex items-center justify-between mb-3">
                         <div>
                           <div className="text-sm text-gray-500">Başlangıç</div>
