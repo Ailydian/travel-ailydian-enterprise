@@ -275,7 +275,7 @@ const GetYourGuideStyleHome: React.FC = () => {
         {/* 🎨 MINIMALIST HERO - Option5.studio inspired */}
         <MinimalistHero
           title={t('Dünyanızı Keşfedin')}
-          subtitle="Thoughtfully curated journeys for the modern traveler"
+          subtitle="Modern gezgin için özenle seçilmiş unutulmaz yolculuklar"
           image="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&h=1080&fit=crop&q=85"
           height="70vh"
           overlayOpacity={0.3}
@@ -285,7 +285,7 @@ const GetYourGuideStyleHome: React.FC = () => {
             size="lg"
             onClick={() => router.push('/tours')}
           >
-            {t('Explore Destinations')}
+            Destinasyonları Keşfet
           </MinimalistButton>
         </MinimalistHero>
 
@@ -465,40 +465,53 @@ const GetYourGuideStyleHome: React.FC = () => {
 
 
         {/* 💎 MINIMALIST EXPERIENCES - Option5.studio inspired */}
-        <section className="py-20 md:py-32 bg-gray-50">
-          <div className="max-w-7xl mx-auto px-4">
+        <section className="py-24 md:py-32 bg-white relative overflow-hidden">
+          {/* Subtle background decoration */}
+          <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-gray-50 to-transparent opacity-50" />
+
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <ScrollReveal animation="fadeInUp">
-              <h2 className="text-3xl md:text-5xl font-light text-center mb-4 text-gray-900">
-                Curated Experiences
-              </h2>
-              <p className="text-lg md:text-xl text-gray-600 text-center mb-16 max-w-2xl mx-auto">
-                Thoughtfully selected journeys for memorable adventures
-              </p>
+              <div className="text-center mb-16 md:mb-20">
+                <h2 className="text-4xl md:text-6xl font-light text-gray-900 mb-6 tracking-tight">
+                  Özenle Seçilmiş Deneyimler
+                </h2>
+                <p className="text-lg md:text-2xl text-gray-600 leading-relaxed max-w-3xl mx-auto font-light">
+                  Unutulmaz maceralar için düşünceli bir şekilde hazırlanmış yolculuklar
+                </p>
+              </div>
             </ScrollReveal>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12 mb-16">
               {topExperiences.map((experience, index) => (
-                <MinimalistCard
+                <ScrollReveal
                   key={experience.id}
-                  image={experience.image}
-                  title={experience.title}
-                  description={experience.highlights[0]}
-                  metadata={[experience.location, experience.duration]}
-                  onClick={() => router.push(`/tours/${experience.slug}`)}
-                  imageRatio="4/3"
-                />
+                  animation="fadeInUp"
+                  delay={index * 100}
+                >
+                  <MinimalistCard
+                    image={experience.image}
+                    title={experience.title}
+                    description={experience.highlights[0]}
+                    metadata={[experience.location, experience.duration]}
+                    onClick={() => router.push(`/tours/${experience.slug}`)}
+                    imageRatio="4/3"
+                  />
+                </ScrollReveal>
               ))}
             </div>
 
-            <div className="text-center mt-16">
-              <MinimalistButton
-                variant="primary"
-                size="lg"
-                onClick={() => router.push('/tours')}
-              >
-                View All Experiences
-              </MinimalistButton>
-            </div>
+            <ScrollReveal animation="fadeInUp" delay={300}>
+              <div className="text-center">
+                <MinimalistButton
+                  variant="primary"
+                  size="lg"
+                  onClick={() => router.push('/tours')}
+                  className="min-w-[240px]"
+                >
+                  Tüm Deneyimleri Gör
+                </MinimalistButton>
+              </div>
+            </ScrollReveal>
           </div>
         </section>
 
