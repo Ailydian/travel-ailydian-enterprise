@@ -445,7 +445,7 @@ const GetYourGuideStyleHome: React.FC = () => {
         )}
 
 
-        {/* Top Experiences - Booking.com Style Horizontal Listing with Sidebar */}
+        {/* Top Experiences - Premium Style Horizontal Listing with Sidebar */}
         <section className="py-16 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4">
             {/* Header */}
@@ -1122,7 +1122,7 @@ const GetYourGuideStyleHome: React.FC = () => {
         </Link>
       </motion.div>
 
-      {/* Booking.com Style Footer */}
+      {/* Premium Style Footer */}
       <BookingFooter />
     </>
   );

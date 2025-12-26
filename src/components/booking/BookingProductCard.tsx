@@ -1,6 +1,6 @@
 /**
- * Booking.com Style Horizontal Product Card
- * Premium listing layout with image carousel, ratings, pricing
+ * Premium Style Horizontal Product Card
+ * Professional listing layout with image carousel, ratings, pricing
  */
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
@@ -255,7 +255,7 @@ export const BookingProductCard: React.FC<ProductCardProps> = ({
               </div>
             )}
 
-            {/* Smart Urgency & Social Proof - Claude Innovation */}
+            {/* Smart Urgency & Social Proof */}
             <div className="mb-3 space-y-2">
               {/* Price Trend Indicator */}
               {originalPrice && (

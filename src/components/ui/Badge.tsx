@@ -1,5 +1,5 @@
 /**
- * Booking.com Style Badge Component - Red Theme
+ * Premium Style Badge Component - Red Theme
  * For labels, tags, status indicators
  */
 import React from 'react';

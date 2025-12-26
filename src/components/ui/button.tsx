@@ -1,5 +1,5 @@
 /**
- * Booking.com Style Button Component - Red Theme
+ * Premium Style Button Component - Red Theme
  * Professional, Modern, Accessible
  */
 import React from 'react';

@@ -1,5 +1,5 @@
 /**
- * AI-Powered Recommendations Widget - Claude Innovation
+ * AI-Powered Recommendations Widget - Premium Feature
  * Personalized tour suggestions based on viewing behavior and preferences
  */
 import React, { useState, useEffect } from 'react';

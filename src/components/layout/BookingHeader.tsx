@@ -1,5 +1,5 @@
 /**
- * Booking.com Style Navigation Header
+ * Premium Style Navigation Header
  * Clean white background, red accents, simple navigation
  */
 import React, { useState } from 'react';

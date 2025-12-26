@@ -1,5 +1,5 @@
 /**
- * Premium Filter Sidebar - Booking.com Style + Claude Enhancements
+ * Premium Filter Sidebar - Premium Style + Premium Features
  * Advanced filtering with price histogram, amenities, ratings
  */
 import React, { useState } from 'react';

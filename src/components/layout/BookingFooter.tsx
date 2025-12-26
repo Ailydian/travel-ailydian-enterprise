@@ -1,5 +1,5 @@
 /**
- * Booking.com Style Footer
+ * Premium Style Footer
  * Clean, organized multi-column layout with red accents
  */
 import React from 'react';

@@ -1,5 +1,5 @@
 /**
- * Booking.com Style Search Form - Premium Design
+ * Premium Style Search Form - Premium Design
  * Multi-tab search interface with date pickers, guest selector
  */
 import React, { useState } from 'react';

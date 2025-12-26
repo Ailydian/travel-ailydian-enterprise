@@ -5,7 +5,7 @@
  * Target: Google, Bing, Yandex, Baidu, Naver - İlk Sayfa İlk 3 Sıra
  *
  * ÖNEMLİ KURALLAR:
- * ❌ Asla AI model isimleri kullanma (GPT, Claude, Gemini, etc.)
+ * ❌ Asla AI model isimleri kullanma (AI models, etc.)
  * ❌ Yazar isimleri ve fotoğrafları YOK
  * ✅ URL'ye özel yüksek kaliteli görseller (1200x675px, WebP)
  * ✅ Kısa, öz, arama motoru dostu tanıtımlar

@@ -1,5 +1,5 @@
 /**
- * Booking.com Style UI Components - Red Theme
+ * Premium Style UI Components - Red Theme
  * Export all UI components for easy import
  */
 

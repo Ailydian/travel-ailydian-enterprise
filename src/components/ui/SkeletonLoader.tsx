@@ -1,5 +1,5 @@
 /**
- * Premium Skeleton Loaders - Booking.com Style
+ * Premium Skeleton Loaders - Premium Style
  * Smooth shimmer effects for loading states
  */
 import React from 'react';
@@ -42,7 +42,7 @@ export const Skeleton: React.FC<SkeletonProps> = ({
   );
 };
 
-// Horizontal Product Card Skeleton (Booking.com Style)
+// Horizontal Product Card Skeleton (Premium Style)
 export const ProductCardSkeleton: React.FC = () => {
   return (
     <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">

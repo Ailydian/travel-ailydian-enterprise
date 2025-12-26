@@ -1,5 +1,5 @@
 /**
- * Booking.com Style Card Component - Red Theme
+ * Premium Style Card Component - Red Theme
  * Clean, professional product cards
  */
 import React from 'react';
