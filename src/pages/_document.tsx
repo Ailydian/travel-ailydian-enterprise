@@ -5,11 +5,21 @@ export default function Document() {
     <Html lang="tr">
       <Head>
         <meta charSet="utf-8" />
-        <meta name="theme-color" content="#3b82f6" />
+        {/* Futuristic Purple Gradient Theme Color */}
+        <meta name="theme-color" content="#667EEA" />
         <link rel="manifest" href="/manifest.json" />
-        <link rel="icon" href={`/favicon.ico?v=${Date.now()}`} />
+
+        {/* Modern SVG Favicon - Best for scalability */}
+        <link rel="icon" type="image/svg+xml" href={`/favicon.svg?v=${Date.now()}`} />
+
+        {/* Fallback PNG favicons for older browsers */}
         <link rel="icon" type="image/png" sizes="16x16" href={`/favicon-16x16.png?v=${Date.now()}`} />
         <link rel="icon" type="image/png" sizes="32x32" href={`/favicon-32x32.png?v=${Date.now()}`} />
+
+        {/* Legacy .ico favicon */}
+        <link rel="icon" href={`/favicon.ico?v=${Date.now()}`} />
+
+        {/* Apple Touch Icon */}
         <link rel="apple-touch-icon" sizes="180x180" href={`/apple-touch-icon.png?v=${Date.now()}`} />
 
         {/* Search Engine Verification Tags */}
