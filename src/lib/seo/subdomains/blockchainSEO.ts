@@ -3,8 +3,8 @@
  * ❌ No author names/photos ✅ URL-specific images & short intros
  */
 
-export class BlockchainAilydianSEO {
-  private readonly baseUrl = 'https://blockchain.ailydian.com';
+export class BlockchainLyDianSEO {
+  private readonly baseUrl = 'https://blockchain.lydian.com';
 
   private readonly platformIntros = {
     homepage: 'Secure blockchain platform with multi-chain support. Trade cryptocurrencies with 0.1% fees, deploy smart contracts, and access DeFi services. Enterprise-grade security with multi-sig wallets.',
@@ -76,11 +76,11 @@ export class BlockchainAilydianSEO {
   }
 }
 
-let blockchainSEOInstance: BlockchainAilydianSEO | null = null;
+let blockchainSEOInstance: BlockchainLyDianSEO | null = null;
 
-export function getBlockchainSEO(): BlockchainAilydianSEO {
+export function getBlockchainSEO(): BlockchainLyDianSEO {
   if (!blockchainSEOInstance) {
-    blockchainSEOInstance = new BlockchainAilydianSEO();
+    blockchainSEOInstance = new BlockchainLyDianSEO();
   }
   return blockchainSEOInstance;
 }

@@ -220,7 +220,7 @@ function generateLongDescription(request: ContentRequest): string {
   description += ` ${request.location}'da kaliteli ve güvenilir hizmet arayanlar için ${request.name} ideal bir seçimdir. Rezervasyonunuzu hemen yapın ve avantajlı fiyatlardan yararlanın!`;
 
   // Add bundle pricing info
-  description += ` Travel Ailydian'ın bundle pricing sistemi ile diğer hizmetlerle birleştirerek %20'ye varan indirim kazanabilirsiniz.`;
+  description += ` Travel LyDian'ın bundle pricing sistemi ile diğer hizmetlerle birleştirerek %20'ye varan indirim kazanabilirsiniz.`;
 
   return description;
 }
@@ -257,7 +257,7 @@ function generateSEOMetadata(request: ContentRequest): {
   metaDescription: string;
   keywords: string[];
 } {
-  const seoTitle = `${request.name} ${request.location} | Travel Ailydian - En Uygun Fiyatlar`;
+  const seoTitle = `${request.name} ${request.location} | Travel LyDian - En Uygun Fiyatlar`;
 
   const metaDescription = `${request.location}'da ${request.name} için en uygun fiyatlar ve güvenli rezervasyon. ${request.features?.slice(0, 2).join(', ')}. Hemen rezervasyon yapın!`;
 
@@ -291,7 +291,7 @@ function generateFAQ(request: ContentRequest): Array<{ question: string; answer:
 
     faq.push({
       question: `${request.name} için rezervasyon nasıl yapılır?`,
-      answer: `Travel Ailydian üzerinden online olarak güvenli rezervasyon yapabilirsiniz. Tarih ve misafir sayısını seçtikten sonra anında onay alırsınız.`
+      answer: `Travel LyDian üzerinden online olarak güvenli rezervasyon yapabilirsiniz. Tarih ve misafir sayısını seçtikten sonra anında onay alırsınız.`
     });
 
     if (request.price) {
@@ -334,7 +334,7 @@ function generateFAQ(request: ContentRequest): Array<{ question: string; answer:
 
   faq.push({
     question: 'Ödeme seçenekleri nelerdir?',
-    answer: 'Kredi kartı, banka kartı ile güvenli ödeme yapabilirsiniz. Tüm ödemeler 3D Secure ile korunmaktadır. Ailydian Miles ile de ödeme yapabilirsiniz.'
+    answer: 'Kredi kartı, banka kartı ile güvenli ödeme yapabilirsiniz. Tüm ödemeler 3D Secure ile korunmaktadır. LyDian Miles ile de ödeme yapabilirsiniz.'
   });
 
   return faq;
@@ -397,7 +397,7 @@ function generateCallToAction(request: ContentRequest): string {
     `${request.location} tatiliniz için ${request.name}'i tercih edin. Şimdi rezerve edin!`,
     `En uygun fiyatlarla ${request.name} rezervasyonu için tıklayın!`,
     `${request.name} ile unutulmaz bir deneyim için bugün rezervasyon yapın!`,
-    `Travel Ailydian'ın bundle pricing sistemi ile ${request.name} + diğer hizmetleri birleştirin, %20 indirim kazanın!`
+    `Travel LyDian'ın bundle pricing sistemi ile ${request.name} + diğer hizmetleri birleştirin, %20 indirim kazanın!`
   ];
 
   return ctas[Math.floor(Math.random() * ctas.length)];

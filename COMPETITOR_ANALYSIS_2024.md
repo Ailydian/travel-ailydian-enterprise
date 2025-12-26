@@ -1,8 +1,8 @@
-# Travel Ailydian - Kapsamlı Rakip Analizi ve Farklılaşma Stratejisi 2024
+# Travel LyDian - Kapsamlı Rakip Analizi ve Farklılaşma Stratejisi 2024
 
 ## 📊 Executive Summary
 
-8 ana rakip platformun detaylı analizi yapılmış ve Travel Ailydian için benzersiz farklılaşma stratejisi oluşturulmuştur.
+8 ana rakip platformun detaylı analizi yapılmış ve Travel LyDian için benzersiz farklılaşma stratejisi oluşturulmuştur.
 
 **Analiz Edilen Platformlar:**
 - Otel Rezervasyonu: Booking.com, Expedia, Agoda, Hotels.com, TripAdvisor
@@ -24,7 +24,7 @@
 - ✅ Ağırlıklı puanlama sistemi (konum, temizlik, personel, konfor, tesis, değer, WiFi)
 - ✅ Geçmiş davranışlara göre kişiselleştirilmiş öneriler
 
-**Travel Ailydian İçin İyileştirmeler:**
+**Travel LyDian İçin İyileştirmeler:**
 ```typescript
 // Booking.com'dan farklılaşma
 - Türkiye odaklı AI önerileri (yerel festivaller, mevsimsel özellikler)
@@ -47,7 +47,7 @@
 - ❌ Aşırı reklam ve içerik yoğunluğu
 - ❌ Karmaşık kullanıcı arayüzü
 
-**Travel Ailydian Farkı:**
+**Travel LyDian Farkı:**
 ```typescript
 // Expedia'yı geçme stratejisi
 - Sade ve hızlı arayüz (1 sayfa scroll'da tüm bilgi)
@@ -68,7 +68,7 @@
 - ✅ Şeffaf fiyat gösterimi (vergiler dahil)
 - ✅ Global olarak %34 oranında en iyi fiyat (2023 data)
 
-**Travel Ailydian İçin Adaptasyon:**
+**Travel LyDian İçin Adaptasyon:**
 ```typescript
 // Agoda'yı geçme stratejisi
 - "Sürpriz Fırsat" özelliği (3 otel seçeneği, kullanıcı seçiyor, %25 indirim)
@@ -88,7 +88,7 @@
 - ✅ %49 kullanıcı online yorumlara güveniyor (en güvenilir platform)
 - ✅ Rezervasyon ve yorumları birleştiren sistem
 
-**Travel Ailydian Farkı:**
+**Travel LyDian Farkı:**
 ```typescript
 // TripAdvisor'ı geçme stratejisi
 - Doğrulanmış konaklama yorumları (QR kod ile check-out sonrası otomatik)
@@ -111,7 +111,7 @@
 - ✅ Ev sahipleri için hızlı yanıt şablonları
 - ✅ Görünürlük metrikleri ile detaylı analytics
 
-**Travel Ailydian Adaptasyonu:**
+**Travel LyDian Adaptasyonu:**
 ```typescript
 // Airbnb'yi geçme stratejisi
 - "Partner Co-Manager" AI sistemi (optimum fiyat önerisi, sezonluk ayarlama)
@@ -135,7 +135,7 @@
 - ✅ 24 saat önceden ücretsiz iptal
 - ✅ Avrupa ve Avustralya'da güçlü
 
-**Travel Ailydian Farkı:**
+**Travel LyDian Farkı:**
 ```typescript
 // GetYourGuide'ı geçme stratejisi
 - Türkiye'ye özel turlar (baklava atölyesi, seramik yapımı, geleneksel kahve falı)
@@ -156,7 +156,7 @@
 - ✅ Accelerate tool (partner aracı)
 - ✅ Global kapsam (GetYourGuide'dan daha geniş)
 
-**Travel Ailydian Adaptasyonu:**
+**Travel LyDian Adaptasyonu:**
 ```typescript
 // Viator'ı geçme stratejisi
 - "Esnek Tarih" seçeneği (3 gün içinde istediğiniz tarih)
@@ -178,7 +178,7 @@
 - ✅ "Pay now" vs "pay later" karşılaştırması
 - ✅ AI-powered search ve generative AI customer service
 
-**Travel Ailydian Farkı:**
+**Travel LyDian Farkı:**
 ```typescript
 // Kayak'ı geçme stratejisi
 - "Araç Karşılaştırma" özelliği (3 aracı yan yana kıyasla)
@@ -196,7 +196,7 @@
 - ✅ Ücretsiz iptal ve "pay now"/"pay later" belirgin gösterim
 - ✅ Opaque deals (araç tipi belli değil ama ucuz)
 
-**Travel Ailydian Adaptasyonu:**
+**Travel LyDian Adaptasyonu:**
 ```typescript
 // Rentalcars.com'u geçme stratejisi
 - "Araç Kategorisi Garantisi" (compact isterseniz, upgrade ücretsiz)
@@ -219,7 +219,7 @@
 - ✅ 24 saat öncesine kadar ücretsiz iptal
 - ✅ Offline erişim (hücresel bağlantı olmadan trip detayları)
 
-**Travel Ailydian Farkı:**
+**Travel LyDian Farkı:**
 ```typescript
 // Mozio'yu geçme stratejisi
 - "Meet & Greet" standart (sürücü isim tabelası ile karşılıyor)
@@ -241,7 +241,7 @@
 - ✅ AI tercih yorumlama (kullanıcı niyetini anlar)
 - ✅ En uygun seçenek önceliklendirmesi (kısa süre, az aktarma)
 
-**Travel Ailydian Adaptasyonu:**
+**Travel LyDian Adaptasyonu:**
 ```typescript
 // Google Flights'ı geçme stratejisi
 - "Esnek Tarih Takvimi" (+-3 gün fiyat karşılaştırması takvimde)
@@ -262,7 +262,7 @@
 - ✅ 1,200+ havayolu (Google Flights'tan 4 kat fazla)
 - ✅ Budget havayolları dahil
 
-**Travel Ailydian Farkı:**
+**Travel LyDian Farkı:**
 ```typescript
 // Skyscanner'ı geçme stratejisi
 - "Türkiye İç Hatlar Uzmanı" (tüm Türk havayolları entegre)
@@ -299,10 +299,10 @@
 - Full Package (Otel + Transfer + Tur + Araç + Uçuş) = %20 indirim
 ```
 
-#### 3. Loyalty Program - "Ailydian Miles"
+#### 3. Loyalty Program - "LyDian Miles"
 ```typescript
 // Her harcamaya puan, puanlarla rezervasyon
-- ₺1 harcama = 1 Ailydian Mile
+- ₺1 harcama = 1 LyDian Mile
 - 1,000 Miles = ₺50 indirim
 - 5,000 Miles = ₺300 indirim
 - 10,000 Miles = ₺750 indirim + VIP statü
@@ -508,7 +508,7 @@ interface SEOMetrics {
 ### Phase 1: Core Features (2-3 hafta)
 - [ ] AI-Powered Unified Search
 - [ ] Smart Bundle Pricing Engine
-- [ ] Ailydian Miles Loyalty Program
+- [ ] LyDian Miles Loyalty Program
 - [ ] Türkiye-Centric Categories
 
 ### Phase 2: Partner Dashboards (2-3 hafta)
@@ -576,7 +576,7 @@ interface SEOMetrics {
 
 ## 🎯 SONUÇ
 
-Travel Ailydian, rakiplerinin en iyi özelliklerini alıp Türkiye pazarına özel geliştirmeleri birleştirerek **benzersiz bir platform** oluşturacak:
+Travel LyDian, rakiplerinin en iyi özelliklerini alıp Türkiye pazarına özel geliştirmeleri birleştirerek **benzersiz bir platform** oluşturacak:
 
 ✅ Booking.com'dan → AI-powered search
 ✅ Airbnb'den → Advanced analytics dashboard
@@ -586,7 +586,7 @@ Travel Ailydian, rakiplerinin en iyi özelliklerini alıp Türkiye pazarına öz
 ✅ Google Flights'tan → AI-powered deals
 
 **+ Türkiye'ye özel özellikler:**
-- Ailydian Miles loyalty program
+- LyDian Miles loyalty program
 - Smart bundle pricing
 - Türkiye-centric categories
 - Unified search (tüm kategoriler tek yerden)

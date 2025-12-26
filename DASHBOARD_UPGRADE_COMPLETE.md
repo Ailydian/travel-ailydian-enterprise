@@ -2,7 +2,7 @@
 
 ## 🎨 YENİ TASARIM SİSTEMİ
 
-Dashboard artık **travel.ailydian.com** ile aynı neon/futuristik tasarım dilini kullanıyor!
+Dashboard artık **travel.lydian.com** ile aynı neon/futuristik tasarım dilini kullanıyor!
 
 ### Tasarım Özellikleri:
 - ✅ **Neon Efektler** - Gradient borders, glow effects

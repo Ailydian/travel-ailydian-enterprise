@@ -252,10 +252,10 @@ const PartnerIndexPage = () => {
   return (
     <>
       <Head>
-        <title>Partner Olun - Ailydian | Turizm Sektöründe Kazancınızı Artırın</title>
+        <title>Partner Olun - LyDian | Turizm Sektöründe Kazancınızı Artırın</title>
         <meta
           name="description"
-          content="Ailydian ile turizm sektöründe iş ortağımız olun. %0 komisyon, premium destek, AI destekli araçlar ile aylık 120.000 TL'ye kadar kazanç potansiyeli."
+          content="LyDian ile turizm sektöründe iş ortağımız olun. %0 komisyon, premium destek, AI destekli araçlar ile aylık 120.000 TL'ye kadar kazanç potansiyeli."
         />
       </Head>
 
@@ -573,7 +573,7 @@ const PartnerIndexPage = () => {
           </div>
         </section>
 
-        {/* Why Ailydian Section */}
+        {/* Why LyDian Section */}
         <section className="py-20 px-6 bg-gradient-to-br from-blue-50 to-purple-50">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
@@ -583,7 +583,7 @@ const PartnerIndexPage = () => {
                 viewport={{ once: true }}
                 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4"
               >
-                Neden <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Ailydian</span>?
+                Neden <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">LyDian</span>?
               </motion.h2>
             </div>
 
@@ -700,7 +700,7 @@ const PartnerIndexPage = () => {
               <div>
                 <Mail className="w-12 h-12 text-purple-600 mx-auto mb-4" />
                 <h3 className="font-bold text-slate-900 mb-2">E-posta</h3>
-                <p className="text-slate-600">partner@ailydian.com</p>
+                <p className="text-slate-600">partner@lydian.com</p>
               </div>
               <div>
                 <MessageCircle className="w-12 h-12 text-emerald-600 mx-auto mb-4" />

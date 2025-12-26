@@ -122,7 +122,7 @@ export function generateLandingPage(
   }
 
   const slug = `${citySlug}-${categorySlug}`;
-  const title = `${city.name} ${category.plural} - En Uygun Fiyatlar | Travel Ailydian`;
+  const title = `${city.name} ${category.plural} - En Uygun Fiyatlar | Travel LyDian`;
   const h1 = `${city.name}'da ${category.plural}`;
 
   // Generate unique content
@@ -171,7 +171,7 @@ export function generateLandingPage(
       `${city.name.toLowerCase()} tatil`,
       `${city.name.toLowerCase()} rezervasyon`
     ],
-    canonicalUrl: `https://travel.ailydian.com/${slug}`,
+    canonicalUrl: `https://travel.lydian.com/${slug}`,
     structuredData,
     breadcrumbs,
     faq
@@ -182,7 +182,7 @@ export function generateLandingPage(
  * Generate intro content
  */
 function generateIntroContent(cityName: string, category: any): string {
-  return `${cityName}, Türkiye'nin en popüler tatil destinasyonlarından biridir. ${cityName}'da ${category.verbPhrase} isteyenler için geniş bir ${category.plural.toLowerCase()} yelpazesi sunuyoruz. Travel Ailydian olarak, ${cityName}'daki en iyi ${category.plural.toLowerCase()}i karşılaştırabilir, en uygun fiyatları bulabilir ve anında rezervasyon yapabilirsiniz.`;
+  return `${cityName}, Türkiye'nin en popüler tatil destinasyonlarından biridir. ${cityName}'da ${category.verbPhrase} isteyenler için geniş bir ${category.plural.toLowerCase()} yelpazesi sunuyoruz. Travel LyDian olarak, ${cityName}'daki en iyi ${category.plural.toLowerCase()}i karşılaştırabilir, en uygun fiyatları bulabilir ve anında rezervasyon yapabilirsiniz.`;
 }
 
 /**
@@ -191,7 +191,7 @@ function generateIntroContent(cityName: string, category: any): string {
 function generateMainContent(city: any, category: any): string[] {
   return [
     `${city.name} ${city.region} bölgesinde yer alan ve ${city.tourism === 'high' ? 'yoğun turist akışına sahip' : 'huzurlu'} bir destinasyondur. ${category.plural}, ${city.name}'ın en çok tercih edilen konaklama seçenekleri arasındadır.`,
-    `Travel Ailydian'da ${city.name} ${category.plural.toLowerCase()} için AI-powered arama sistemimiz sayesinde size en uygun seçenekleri sunuyoruz. Fiyat karşılaştırması yapabilir, kullanıcı yorumlarını okuyabilir ve güvenli ödeme ile rezervasyon yapabilirsiniz.`,
+    `Travel LyDian'da ${city.name} ${category.plural.toLowerCase()} için AI-powered arama sistemimiz sayesinde size en uygun seçenekleri sunuyoruz. Fiyat karşılaştırması yapabilir, kullanıcı yorumlarını okuyabilir ve güvenli ödeme ile rezervasyon yapabilirsiniz.`,
     `Bundle pricing sistemimiz ile ${city.name}'da ${category.singular.toLowerCase()} rezervasyonunuza transfer, tur veya araç kiralama ekleyerek %20'ye varan indirimlerden yararlanabilirsiniz.`
   ];
 }
@@ -208,7 +208,7 @@ function generateFeatures(cityName: string, category: any): string[] {
     '✓ %100 güvenli ödeme (3D Secure)',
     '✓ 7/24 Türkçe müşteri desteği',
     '✓ Ücretsiz iptal seçeneği',
-    '✓ Ailydian Miles ile puan kazanın',
+    '✓ LyDian Miles ile puan kazanın',
     '✓ Bundle pricing ile %20 indirim'
   ];
 }
@@ -227,7 +227,7 @@ function generateFAQ(cityName: string, category: any): Array<{ question: string;
   return [
     {
       question: `${cityName}'da ${category.singular.toLowerCase()} rezervasyonu nasıl yapılır?`,
-      answer: `Travel Ailydian'da ${cityName} ${category.plural.toLowerCase()} sayfasına girerek tarih ve misafir sayısı seçin, size uygun ${category.singular.toLowerCase()}i bulun ve "Rezervasyon Yap" butonuna tıklayın. Güvenli ödeme ile rezervasyonunuzu tamamlayın.`
+      answer: `Travel LyDian'da ${cityName} ${category.plural.toLowerCase()} sayfasına girerek tarih ve misafir sayısı seçin, size uygun ${category.singular.toLowerCase()}i bulun ve "Rezervasyon Yap" butonuna tıklayın. Güvenli ödeme ile rezervasyonunuzu tamamlayın.`
     },
     {
       question: `${cityName} ${category.plural.toLowerCase()} fiyatları ne kadardır?`,
@@ -242,8 +242,8 @@ function generateFAQ(cityName: string, category: any): Array<{ question: string;
       answer: 'Çoğu rezervasyon 24-48 saat öncesine kadar ücretsiz iptal edilebilir. Detaylı iptal koşulları rezervasyon sırasında gösterilir. Bazı özel fırsatlar ve paket rezervasyonlar farklı iptal koşullarına sahip olabilir.'
     },
     {
-      question: 'Ailydian Miles nedir?',
-      answer: 'Ailydian Miles, sadakat programımızdır. Her ₺1 harcamada 1 Mile kazanırsınız. 1,000 Miles = ₺50 indirim olarak kullanabilirsiniz. Miles ile rezervasyon yaparak daha fazla tasarruf edebilirsiniz.'
+      question: 'LyDian Miles nedir?',
+      answer: 'LyDian Miles, sadakat programımızdır. Her ₺1 harcamada 1 Mile kazanırsınız. 1,000 Miles = ₺50 indirim olarak kullanabilirsiniz. Miles ile rezervasyon yaparak daha fazla tasarruf edebilirsiniz.'
     }
   ];
 }
@@ -257,7 +257,7 @@ function generateStructuredData(cityName: string, category: any, slug: string): 
     '@type': 'WebPage',
     name: `${cityName} ${category.plural}`,
     description: `${cityName}'da ${category.plural.toLowerCase()} için en iyi seçenekler`,
-    url: `https://travel.ailydian.com/${slug}`,
+    url: `https://travel.lydian.com/${slug}`,
     breadcrumb: {
       '@type': 'BreadcrumbList',
       itemListElement: [
@@ -265,27 +265,27 @@ function generateStructuredData(cityName: string, category: any, slug: string): 
           '@type': 'ListItem',
           position: 1,
           name: 'Ana Sayfa',
-          item: 'https://travel.ailydian.com'
+          item: 'https://travel.lydian.com'
         },
         {
           '@type': 'ListItem',
           position: 2,
           name: cityName,
-          item: `https://travel.ailydian.com/destinasyonlar/${slug.split('-')[0]}`
+          item: `https://travel.lydian.com/destinasyonlar/${slug.split('-')[0]}`
         },
         {
           '@type': 'ListItem',
           position: 3,
           name: category.plural,
-          item: `https://travel.ailydian.com/${slug}`
+          item: `https://travel.lydian.com/${slug}`
         }
       ]
     },
     provider: {
       '@type': 'Organization',
-      name: 'Travel Ailydian',
-      url: 'https://travel.ailydian.com',
-      logo: 'https://travel.ailydian.com/logo.png'
+      name: 'Travel LyDian',
+      url: 'https://travel.lydian.com',
+      logo: 'https://travel.lydian.com/logo.png'
     }
   };
 }

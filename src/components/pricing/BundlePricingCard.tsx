@@ -171,7 +171,7 @@ const BundlePricingCard: React.FC<BundlePricingCardProps> = ({
         </div>
       </div>
 
-      {/* Ailydian Miles */}
+      {/* LyDian Miles */}
       {pricing.ailydiانMiles > 0 && (
         <div className="bg-gradient-to-r from-purple-50 to-blue-50 p-4 rounded-lg mb-4">
           <div className="flex items-center gap-2 mb-2">

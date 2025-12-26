@@ -38,9 +38,9 @@ const LoginPage: React.FC = () => {
   return (
     <>
       <Head>
-        <title>Giriş Yap | Travel.Ailydian - AI Destekli Seyahat Platformu</title>
-        <meta name="description" content="Travel.Ailydian hesabınıza giriş yapın. Kişiselleştirilmiş seyahat deneyimleri ve AI destekli planlamaya erişin." />
-        <meta name="keywords" content="giriş yap, oturum aç, travel ailydian, seyahat hesap" />
+        <title>Giriş Yap | Travel.LyDian - AI Destekli Seyahat Platformu</title>
+        <meta name="description" content="Travel.LyDian hesabınıza giriş yapın. Kişiselleştirilmiş seyahat deneyimleri ve AI destekli planlamaya erişin." />
+        <meta name="keywords" content="giriş yap, oturum aç, travel lydian, seyahat hesap" />
       </Head>
 
       <div className="min-h-screen flex" style={{backgroundColor: 'var(--bg-0)'}}>
@@ -69,7 +69,7 @@ const LoginPage: React.FC = () => {
                       textShadow: '0 0 15px var(--ac-1)'
                     }}
                   >
-                    Travel.Ailydian
+                    Travel.LyDian
                   </h1>
                   <p className="text-sm" style={{color: 'var(--tx-3)'}}>AI Destekli Seyahat Platformu</p>
                 </div>

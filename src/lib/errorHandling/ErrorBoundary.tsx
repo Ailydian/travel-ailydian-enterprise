@@ -176,13 +176,13 @@ const DefaultErrorFallback: React.FC<ErrorFallbackProps> = ({
   const canRetry = retryCount < maxRetries;
 
   return (
-    <div className="min-h-screen bg-ailydian-bg flex items-center justify-center p-4">
+    <div className="min-h-screen bg-lydian-bg flex items-center justify-center p-4">
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5 }}
       >
-        <div className="max-w-md w-full bg-glass-dark rounded-2xl p-8 text-center border border-ailydian-primary/20">
+        <div className="max-w-md w-full bg-glass-dark rounded-2xl p-8 text-center border border-lydian-primary/20">
           <motion.div
             animate={{ 
               rotate: [0, -10, 10, -10, 0],
@@ -195,15 +195,15 @@ const DefaultErrorFallback: React.FC<ErrorFallbackProps> = ({
             }}
           >
             <div className="flex justify-center mb-6">
-              <ExclamationTriangleIcon className="w-16 h-16 text-ailydian-primary" />
+              <ExclamationTriangleIcon className="w-16 h-16 text-lydian-primary" />
             </div>
           </motion.div>
 
-        <h2 className="text-2xl font-display font-bold text-ailydian-text mb-4">
+        <h2 className="text-2xl font-display font-bold text-lydian-text mb-4">
           Bir Şeyler Ters Gitti
         </h2>
         
-        <p className="text-ailydian-text-muted mb-6">
+        <p className="text-lydian-text-muted mb-6">
           Beklenmeyen bir hata oluştu. Endişelenmeyin, sorunu çözmeye çalışıyoruz.
         </p>
 
@@ -213,11 +213,11 @@ const DefaultErrorFallback: React.FC<ErrorFallbackProps> = ({
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3 }}
           >
-            <details className="mb-6 text-left bg-ailydian-bg-card rounded-lg p-4">
-            <summary className="cursor-pointer text-ailydian-secondary font-semibold mb-2">
+            <details className="mb-6 text-left bg-lydian-bg-card rounded-lg p-4">
+            <summary className="cursor-pointer text-lydian-secondary font-semibold mb-2">
               Hata Detayları (Geliştirme)
             </summary>
-            <pre className="text-xs text-ailydian-text-dim overflow-auto max-h-32">
+            <pre className="text-xs text-lydian-text-dim overflow-auto max-h-32">
               {error.message}
             </pre>
             </details>
@@ -232,7 +232,7 @@ const DefaultErrorFallback: React.FC<ErrorFallbackProps> = ({
             >
               <button
                 onClick={retry}
-                className="w-full bg-gradient-to-r from-ailydian-primary to-ailydian-secondary text-white font-semibold py-3 px-6 rounded-lg shadow-neon hover:shadow-neon-lg transition-all duration-300"
+                className="w-full bg-gradient-to-r from-lydian-primary to-lydian-secondary text-white font-semibold py-3 px-6 rounded-lg shadow-neon hover:shadow-neon-lg transition-all duration-300"
               >
                 <ArrowPathIcon className="w-5 h-5 inline-block mr-2" />
                 Tekrar Dene {retryCount > 0 && `(${retryCount}/${maxRetries})`}
@@ -245,7 +245,7 @@ const DefaultErrorFallback: React.FC<ErrorFallbackProps> = ({
             >
               <button
                 onClick={() => window.location.reload()}
-                className="w-full bg-ailydian-bg-hover text-ailydian-text font-semibold py-3 px-6 rounded-lg border border-ailydian-primary/30 hover:border-ailydian-primary/60 transition-all duration-300"
+                className="w-full bg-lydian-bg-hover text-lydian-text font-semibold py-3 px-6 rounded-lg border border-lydian-primary/30 hover:border-lydian-primary/60 transition-all duration-300"
               >
                 Sayfayı Yenile
               </button>
@@ -257,7 +257,7 @@ const DefaultErrorFallback: React.FC<ErrorFallbackProps> = ({
           >
             <button
               onClick={() => window.location.href = '/'}
-              className="w-full text-ailydian-text-secondary hover:text-ailydian-text transition-colors duration-300"
+              className="w-full text-lydian-text-secondary hover:text-lydian-text transition-colors duration-300"
             >
               Ana Sayfaya Dön
             </button>
@@ -269,7 +269,7 @@ const DefaultErrorFallback: React.FC<ErrorFallbackProps> = ({
           animate={{ opacity: 1 }}
           transition={{ delay: 1 }}
         >
-          <p className="text-xs text-ailydian-text-dim mt-6">
+          <p className="text-xs text-lydian-text-dim mt-6">
             Sorun devam ederse, destek ekibimizle iletişime geçin.
           </p>
         </motion.div>

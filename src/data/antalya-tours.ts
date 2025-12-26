@@ -16,7 +16,7 @@ const calculateBestPrice = (competitorPrices: number[]) => {
   const savingsPercentage = Math.round((savings / avgCompetitorPrice) * 100);
 
   return {
-    travelAilydian: ourPrice,
+    travelLyDian: ourPrice,
     competitors: {
       getYourGuide: competitorPrices[0],
       viator: competitorPrices[1],

@@ -346,3 +346,149 @@ a {
 .custom-popup .leaflet-popup-close-button:hover {
   color: #111827;
 }
+
+/* RTL (Right-to-Left) Support for Arabic and Persian */
+[dir="rtl"] {
+  direction: rtl;
+}
+
+[dir="rtl"] body {
+  text-align: right;
+}
+
+/* RTL Text Direction */
+.rtl {
+  direction: rtl;
+  text-align: right;
+}
+
+/* RTL Flex Direction Reversals */
+[dir="rtl"] .flex-row {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .flex-row-reverse {
+  flex-direction: row;
+}
+
+/* RTL Margins and Paddings */
+[dir="rtl"] .ml-auto {
+  margin-right: auto;
+  margin-left: 0;
+}
+
+[dir="rtl"] .mr-auto {
+  margin-left: auto;
+  margin-right: 0;
+}
+
+/* RTL Rounded Corners */
+[dir="rtl"] .rounded-l {
+  border-radius: 0 0.25rem 0.25rem 0;
+}
+
+[dir="rtl"] .rounded-r {
+  border-radius: 0.25rem 0 0 0.25rem;
+}
+
+[dir="rtl"] .rounded-tl {
+  border-top-right-radius: 0.25rem;
+  border-top-left-radius: 0;
+}
+
+[dir="rtl"] .rounded-tr {
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0;
+}
+
+[dir="rtl"] .rounded-bl {
+  border-bottom-right-radius: 0.25rem;
+  border-bottom-left-radius: 0;
+}
+
+[dir="rtl"] .rounded-br {
+  border-bottom-left-radius: 0.25rem;
+  border-bottom-right-radius: 0;
+}
+
+/* RTL Text Alignment */
+[dir="rtl"] .text-left {
+  text-align: right;
+}
+
+[dir="rtl"] .text-right {
+  text-align: left;
+}
+
+/* RTL Border Directions */
+[dir="rtl"] .border-l {
+  border-right-width: 1px;
+  border-left-width: 0;
+}
+
+[dir="rtl"] .border-r {
+  border-left-width: 1px;
+  border-right-width: 0;
+}
+
+/* RTL Positioning */
+[dir="rtl"] .left-0 {
+  right: 0;
+  left: auto;
+}
+
+[dir="rtl"] .right-0 {
+  left: 0;
+  right: auto;
+}
+
+/* RTL Transform Origin */
+[dir="rtl"] .origin-top-right {
+  transform-origin: top left;
+}
+
+[dir="rtl"] .origin-top-left {
+  transform-origin: top right;
+}
+
+[dir="rtl"] .origin-bottom-right {
+  transform-origin: bottom left;
+}
+
+[dir="rtl"] .origin-bottom-left {
+  transform-origin: bottom right;
+}
+
+/* RTL Dropdown Menus */
+[dir="rtl"] .dropdown-menu {
+  left: auto;
+  right: 0;
+}
+
+/* RTL Icons */
+[dir="rtl"] .icon-flip {
+  transform: scaleX(-1);
+}
+
+/* RTL Checkboxes and Radio Buttons */
+[dir="rtl"] input[type="checkbox"],
+[dir="rtl"] input[type="radio"] {
+  margin-right: 0;
+  margin-left: 0.5rem;
+}
+
+/* RTL Form Inputs */
+[dir="rtl"] input,
+[dir="rtl"] textarea,
+[dir="rtl"] select {
+  text-align: right;
+}
+
+/* RTL Breadcrumbs */
+[dir="rtl"] .breadcrumb {
+  direction: rtl;
+}
+
+[dir="rtl"] .breadcrumb > * + *::before {
+  transform: scaleX(-1);
+}

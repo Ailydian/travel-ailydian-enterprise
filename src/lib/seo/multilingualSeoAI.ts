@@ -36,38 +36,38 @@ export class MultilingualSeoAI {
     changefreq: 'daily',
     title: {
       tr: [
-        'Travel Ailydian - AI Destekli Premium Seyahat Platformu',
-        'En İyi Otel ve Uçak Bileti Fiyatları | Travel Ailydian',
+        'Travel LyDian - AI Destekli Premium Seyahat Platformu',
+        'En İyi Otel ve Uçak Bileti Fiyatları | Travel LyDian',
         'Türkiye\'nin 1 Numaralı Seyahat Platformu'
       ],
       en: [
-        'Travel Ailydian - AI-Powered Premium Travel Platform',
-        'Best Hotel and Flight Deals | Travel Ailydian',
+        'Travel LyDian - AI-Powered Premium Travel Platform',
+        'Best Hotel and Flight Deals | Travel LyDian',
         'Turkey\'s Leading Travel Platform'
       ],
       ru: [
-        'Travel Ailydian - Премиум платформа для путешествий с ИИ',
-        'Лучшие отели и авиабилеты | Travel Ailydian',
+        'Travel LyDian - Премиум платформа для путешествий с ИИ',
+        'Лучшие отели и авиабилеты | Travel LyDian',
         'Ведущая туристическая платформа Турции'
       ],
       de: [
-        'Travel Ailydian - KI-gestützte Premium-Reiseplattform',
-        'Beste Hotel- und Flugangebote | Travel Ailydian',
+        'Travel LyDian - KI-gestützte Premium-Reiseplattform',
+        'Beste Hotel- und Flugangebote | Travel LyDian',
         'Türkeis führende Reiseplattform'
       ],
       ua: [
-        'Travel Ailydian - Преміум платформа подорожей зі штучним інтелектом',
-        'Найкращі готелі та авіаквитки | Travel Ailydian',
+        'Travel LyDian - Преміум платформа подорожей зі штучним інтелектом',
+        'Найкращі готелі та авіаквитки | Travel LyDian',
         'Провідна туристична платформа Туреччини'
       ],
       zh: [
-        'Travel Ailydian - 人工智能高级旅行平台',
-        '最佳酒店和机票优惠 | Travel Ailydian',
+        'Travel LyDian - 人工智能高级旅行平台',
+        '最佳酒店和机票优惠 | Travel LyDian',
         '土耳其领先的旅游平台'
       ],
       it: [
-        'Travel Ailydian - Piattaforma di viaggio premium con IA',
-        'Migliori offerte hotel e voli | Travel Ailydian',
+        'Travel LyDian - Piattaforma di viaggio premium con IA',
+        'Migliori offerte hotel e voli | Travel LyDian',
         'La principale piattaforma di viaggio della Turchia'
       ]
     },
@@ -163,37 +163,37 @@ export class MultilingualSeoAI {
     changefreq: 'hourly',
     title: {
       tr: [
-        'Otel Rezervasyonu - En İyi Otel Fiyatları | Travel Ailydian',
+        'Otel Rezervasyonu - En İyi Otel Fiyatları | Travel LyDian',
         '1M+ Otel Seçeneği - VR Tur ile Keşfet',
         'Türkiye ve Dünya Otelleri - AI Destekli Öneriler'
       ],
       en: [
-        'Hotel Booking - Best Hotel Prices | Travel Ailydian',
+        'Hotel Booking - Best Hotel Prices | Travel LyDian',
         '1M+ Hotel Options - Explore with VR Tours',
         'Turkey and Worldwide Hotels - AI-Powered Recommendations'
       ],
       ru: [
-        'Бронирование отелей - Лучшие цены | Travel Ailydian',
+        'Бронирование отелей - Лучшие цены | Travel LyDian',
         '1M+ отелей - VR-туры',
         'Отели Турции и мира - ИИ-рекомендации'
       ],
       de: [
-        'Hotelbuchung - Beste Hotelpreise | Travel Ailydian',
+        'Hotelbuchung - Beste Hotelpreise | Travel LyDian',
         '1M+ Hotels - VR-Touren',
         'Hotels Türkei und weltweit - KI-Empfehlungen'
       ],
       ua: [
-        'Бронювання готелів - Найкращі ціни | Travel Ailydian',
+        'Бронювання готелів - Найкращі ціни | Travel LyDian',
         '1M+ готелів - VR-тури',
         'Готелі Туреччини та світу - ШІ-рекомендації'
       ],
       zh: [
-        '酒店预订 - 最优价格 | Travel Ailydian',
+        '酒店预订 - 最优价格 | Travel LyDian',
         '100万+酒店 - VR虚拟游览',
         '土耳其及全球酒店 - 人工智能推荐'
       ],
       it: [
-        'Prenotazione Hotel - Migliori Prezzi | Travel Ailydian',
+        'Prenotazione Hotel - Migliori Prezzi | Travel LyDian',
         '1M+ Hotel - Tour VR',
         'Hotel Turchia e mondo - Raccomandazioni IA'
       ]
@@ -352,7 +352,7 @@ export class MultilingualSeoAI {
   private generateHreflangAlternates(path: string): any[] {
     return this.languages.map(lang => ({
       hreflang: lang,
-      href: `https://travel.ailydian.com/${lang}${path}`
+      href: `https://travel.lydian.com/${lang}${path}`
     }));
   }
 

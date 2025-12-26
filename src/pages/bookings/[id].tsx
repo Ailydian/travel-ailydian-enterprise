@@ -162,7 +162,7 @@ const BookingDetailPage: React.FC = () => {
   return (
     <>
       <Head>
-        <title>Booking Details - {booking.bookingReference} - Travel.Ailydian</title>
+        <title>Booking Details - {booking.bookingReference} - Travel.LyDian</title>
       </Head>
 
       <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 py-12">
@@ -393,7 +393,7 @@ const BookingDetailPage: React.FC = () => {
               </li>
               <li className="flex items-start gap-2">
                 <CheckCircle className="w-4 h-4 text-blue-600 mt-0.5 flex-shrink-0" />
-                <span>For any questions, contact our 24/7 support at support@travel.ailydian.com</span>
+                <span>For any questions, contact our 24/7 support at support@travel.lydian.com</span>
               </li>
             </ul>
           </motion.div>

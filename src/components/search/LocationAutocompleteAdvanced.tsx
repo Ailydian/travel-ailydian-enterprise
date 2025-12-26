@@ -32,7 +32,7 @@ interface LocationAutocompleteAdvancedProps {
   label?: string;
 }
 
-const RECENT_SEARCHES_KEY = 'ailydian_recent_locations';
+const RECENT_SEARCHES_KEY = 'lydian_recent_locations';
 const MAX_RECENT_SEARCHES = 5;
 
 export const LocationAutocompleteAdvanced: React.FC<LocationAutocompleteAdvancedProps> = ({

@@ -194,7 +194,7 @@ const VirtualToursPage: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Sanal Turlar - Travel Ailydian</title>
+        <title>Sanal Turlar - Travel LyDian</title>
         <meta name="description" content="Türkiye'nin en güzel destinasyonlarını VR ve 360° sanal turlarla keşfedin. 4K-8K kalitede immersive deneyimler." />
       </Head>
 

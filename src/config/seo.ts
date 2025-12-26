@@ -1,36 +1,36 @@
 /**
  * Enterprise SEO Configuration
- * Global travel platform optimization for travel.ailydian.com
+ * Global travel platform optimization for travel.lydian.com
  */
 
 export const SEO_CONFIG = {
   // Primary domain
-  domain: 'travel.ailydian.com',
-  url: 'https://travel.ailydian.com',
+  domain: 'travel.lydian.com',
+  url: 'https://travel.lydian.com',
 
   // Default metadata
-  defaultTitle: 'Ailydian Travel - AI-Powered Enterprise Travel Platform | Hotels, Flights & Transfers',
-  titleTemplate: '%s | Ailydian Travel',
-  defaultDescription: 'Discover the future of travel with Ailydian AI. Book hotels, flights, and airport transfers worldwide. Blockchain-secured bookings, VR previews, and personalized AI travel planning.',
+  defaultTitle: 'LyDian Travel - AI-Powered Enterprise Travel Platform | Hotels, Flights & Transfers',
+  titleTemplate: '%s | LyDian Travel',
+  defaultDescription: 'Discover the future of travel with LyDian AI. Book hotels, flights, and airport transfers worldwide. Blockchain-secured bookings, VR previews, and personalized AI travel planning.',
 
   // Brand information
-  siteName: 'Ailydian Travel',
-  brandName: 'Ailydian',
+  siteName: 'LyDian Travel',
+  brandName: 'LyDian',
   slogan: 'AI-Powered Enterprise Travel Solutions',
 
   // Social media
   social: {
-    twitter: '@ailydiantravel',
-    facebook: 'ailydiantravel',
-    instagram: 'ailydiantravel',
-    linkedin: 'company/ailydian',
+    twitter: '@lydiantravel',
+    facebook: 'lydiantravel',
+    instagram: 'lydiantravel',
+    linkedin: 'company/lydian',
   },
 
   // Contact
   contact: {
-    email: 'info@ailydian.com',
+    email: 'info@lydian.com',
     phone: '+90-850-XXX-XXXX',
-    supportEmail: 'support@ailydian.com',
+    supportEmail: 'support@lydian.com',
   },
 
   // Geographic targeting
@@ -74,7 +74,7 @@ export const SEO_CONFIG = {
     'blockchain travel booking',
     'vr hotel preview',
     'smart travel assistant',
-    'ailydian ai',
+    'lydian ai',
   ],
 
   secondaryKeywords: [
@@ -102,13 +102,13 @@ export const SEO_CONFIG = {
   structuredData: {
     '@context': 'https://schema.org',
     '@type': 'TravelAgency',
-    name: 'Ailydian Travel',
+    name: 'LyDian Travel',
     description: 'AI-powered enterprise travel platform offering hotels, flights, and transfers worldwide',
-    url: 'https://travel.ailydian.com',
-    logo: 'https://travel.ailydian.com/images/logo.png',
-    image: 'https://travel.ailydian.com/images/og-image.jpg',
+    url: 'https://travel.lydian.com',
+    logo: 'https://travel.lydian.com/images/logo.png',
+    image: 'https://travel.lydian.com/images/og-image.jpg',
     telephone: '+90-850-XXX-XXXX',
-    email: 'info@ailydian.com',
+    email: 'info@lydian.com',
     address: {
       '@type': 'PostalAddress',
       addressCountry: 'TR',
@@ -116,10 +116,10 @@ export const SEO_CONFIG = {
       addressLocality: 'Istanbul',
     },
     sameAs: [
-      'https://twitter.com/ailydiantravel',
-      'https://facebook.com/ailydiantravel',
-      'https://instagram.com/ailydiantravel',
-      'https://linkedin.com/company/ailydian',
+      'https://twitter.com/lydiantravel',
+      'https://facebook.com/lydiantravel',
+      'https://instagram.com/lydiantravel',
+      'https://linkedin.com/company/lydian',
     ],
     priceRange: '$$',
     areaServed: [
@@ -152,13 +152,13 @@ export const SEO_CONFIG = {
     type: 'website',
     locale: 'tr_TR',
     alternateLocales: ['en_US', 'de_DE', 'ru_RU', 'ar_SA', 'zh_CN'],
-    siteName: 'Ailydian Travel',
+    siteName: 'LyDian Travel',
     images: [
       {
-        url: 'https://travel.ailydian.com/images/og-image.jpg',
+        url: 'https://travel.lydian.com/images/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Ailydian Travel - AI-Powered Travel Platform',
+        alt: 'LyDian Travel - AI-Powered Travel Platform',
       },
     ],
   },
@@ -166,8 +166,8 @@ export const SEO_CONFIG = {
   // Twitter Card defaults
   twitter: {
     cardType: 'summary_large_image',
-    site: '@ailydiantravel',
-    creator: '@ailydiantravel',
+    site: '@lydiantravel',
+    creator: '@lydiantravel',
   },
 
   // Verification codes

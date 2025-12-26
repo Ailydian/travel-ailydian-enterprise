@@ -1,7 +1,7 @@
 {
-  "name": "travel-ailydian-enterprise",
+  "name": "travel-lydian-enterprise",
   "version": "2.0.0",
-  "description": "Enterprise-grade AI-powered global tourism platform",
+  "description": "Enterprise-grade AI-powered global tourism platform - Travel LyDian",
   "private": false,
   "engines": {
     "node": "20",

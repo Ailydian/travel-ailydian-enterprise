@@ -8,8 +8,8 @@ import { logInfo, logError } from './logger';
 
 const resend = new Resend(process.env.RESEND_API_KEY || '');
 
-const FROM_EMAIL = process.env.EMAIL_FROM || 'noreply@travel.ailydian.com';
-const COMPANY_NAME = 'Travel.Ailydian';
+const FROM_EMAIL = process.env.EMAIL_FROM || 'noreply@travel.lydian.com';
+const COMPANY_NAME = 'Travel.LyDian';
 
 export interface EmailOptions {
   to: string | string[];
@@ -65,7 +65,7 @@ export async function sendWelcomeEmail(to: string, name: string): Promise<boolea
           <h1>🎉 Hoş Geldiniz ${name}!</h1>
         </div>
         <div class="content">
-          <h2>Travel.Ailydian'a Hoş Geldiniz</h2>
+          <h2>Travel.LyDian'a Hoş Geldiniz</h2>
           <p>Merhaba ${name},</p>
           <p>Türkiye'nin en gelişmiş AI destekli seyahat platformuna katıldığınız için teşekkür ederiz!</p>
 
@@ -77,12 +77,12 @@ export async function sendWelcomeEmail(to: string, name: string): Promise<boolea
           </ul>
 
           <p>Hemen keşfetmeye başlayın:</p>
-          <a href="https://travel.ailydian.com/destinations" class="button">Destinasyonları Keşfet</a>
+          <a href="https://travel.lydian.com/destinations" class="button">Destinasyonları Keşfet</a>
 
           <p>Sorularınız için 7/24 AI asistanımız hizmetinizde!</p>
         </div>
         <div class="footer">
-          <p>&copy; 2025 Travel.Ailydian. Tüm hakları saklıdır.</p>
+          <p>&copy; 2025 Travel.LyDian. Tüm hakları saklıdır.</p>
           <p>Antalya, Türkiye</p>
         </div>
       </div>
@@ -92,7 +92,7 @@ export async function sendWelcomeEmail(to: string, name: string): Promise<boolea
 
   return await sendEmail({
     to,
-    subject: `${name}, Travel.Ailydian'a Hoş Geldiniz! 🎉`,
+    subject: `${name}, Travel.LyDian'a Hoş Geldiniz! 🎉`,
     html,
   });
 }
@@ -160,13 +160,13 @@ export async function sendBookingConfirmation(
           </div>
 
           <p>Rezervasyon detaylarınızı profil sayfanızdan görebilirsiniz.</p>
-          <a href="https://travel.ailydian.com/profile/bookings" class="button">Rezervasyonlarım</a>
+          <a href="https://travel.lydian.com/profile/bookings" class="button">Rezervasyonlarım</a>
 
           <p><strong>Önemli:</strong> Rezervasyon numaranızı saklayın ve check-in sırasında gösterin.</p>
         </div>
         <div class="footer">
           <p>İyi yolculuklar dileriz! 🌍✈️</p>
-          <p>&copy; 2025 Travel.Ailydian</p>
+          <p>&copy; 2025 Travel.LyDian</p>
         </div>
       </div>
     </body>
@@ -277,11 +277,11 @@ export async function sendTransferConfirmation(
             <li>Uçuş gecikmelerinde şoförünüz bekleyecektir</li>
           </ul>
 
-          <a href="https://travel.ailydian.com/profile/transfers" class="button">Transferlerim</a>
+          <a href="https://travel.lydian.com/profile/transfers" class="button">Transferlerim</a>
         </div>
         <div class="footer">
           <p>İyi yolculuklar! 🚗✈️</p>
-          <p>&copy; 2025 Travel.Ailydian</p>
+          <p>&copy; 2025 Travel.LyDian</p>
         </div>
       </div>
     </body>
@@ -299,7 +299,7 @@ export async function sendTransferConfirmation(
  * Send password reset email
  */
 export async function sendPasswordResetEmail(to: string, resetToken: string, name: string): Promise<boolean> {
-  const resetUrl = `https://travel.ailydian.com/auth/reset-password?token=${resetToken}`;
+  const resetUrl = `https://travel.lydian.com/auth/reset-password?token=${resetToken}`;
 
   const html = `
     <!DOCTYPE html>
@@ -341,7 +341,7 @@ export async function sendPasswordResetEmail(to: string, resetToken: string, nam
           <p style="word-break: break-all; background: #e5e7eb; padding: 10px; border-radius: 5px; font-size: 12px;">${resetUrl}</p>
         </div>
         <div class="footer">
-          <p>&copy; 2025 Travel.Ailydian</p>
+          <p>&copy; 2025 Travel.LyDian</p>
         </div>
       </div>
     </body>

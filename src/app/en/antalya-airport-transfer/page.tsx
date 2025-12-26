@@ -19,19 +19,19 @@ export const metadata: Metadata = {
     'book antalya transfer'
   ],
   alternates: {
-    canonical: 'https://travel.ailydian.com/en/antalya-airport-transfer',
+    canonical: 'https://travel.lydian.com/en/antalya-airport-transfer',
     languages: {
-      'tr': 'https://travel.ailydian.com/tr/antalya-havalimani-transfer',
-      'ru': 'https://travel.ailydian.com/ru/transfer-antalya',
-      'de': 'https://travel.ailydian.com/de/antalya-flughafentransfer',
-      'fr': 'https://travel.ailydian.com/fr/transfert-aeroport-antalya'
+      'tr': 'https://travel.lydian.com/tr/antalya-havalimani-transfer',
+      'ru': 'https://travel.lydian.com/ru/transfer-antalya',
+      'de': 'https://travel.lydian.com/de/antalya-flughafentransfer',
+      'fr': 'https://travel.lydian.com/fr/transfert-aeroport-antalya'
     }
   },
   openGraph: {
     title: 'Antalya Airport Transfer - Most Trusted Service 2025',
     description: 'Safe and comfortable 24/7 airport transfer service from Antalya Airport to all destinations. VIP vehicles, professional drivers, 30% discount!',
-    url: 'https://travel.ailydian.com/en/antalya-airport-transfer',
-    siteName: 'Ailydian Travel',
+    url: 'https://travel.lydian.com/en/antalya-airport-transfer',
+    siteName: 'LyDian Travel',
     locale: 'en_US',
     type: 'website',
   }
@@ -149,9 +149,9 @@ export default function AntalyaAirportTransferPage() {
           __html: JSON.stringify({
             '@context': 'https://schema.org',
             '@type': 'LocalBusiness',
-            name: 'Ailydian Transfer - Antalya Airport Transfer',
+            name: 'LyDian Transfer - Antalya Airport Transfer',
             description: 'Antalya Airport Transfer Service - Alanya, Belek, Side, Kemer',
-            url: 'https://travel.ailydian.com/en/antalya-airport-transfer',
+            url: 'https://travel.lydian.com/en/antalya-airport-transfer',
             telephone: '+90-242-123-4567',
             priceRange: '€€',
             address: {
@@ -245,7 +245,7 @@ export default function AntalyaAirportTransferPage() {
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-gray-900">
-            Why Choose Ailydian Transfer?
+            Why Choose LyDian Transfer?
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
             {features.map((feature, index) => (

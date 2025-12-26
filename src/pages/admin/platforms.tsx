@@ -104,7 +104,7 @@ export default function AdminPlatforms() {
             totalReviews: 2847,
             syncedReviews: 2698,
             apiKey: 'AIzaSyC...hidden',
-            accountId: 'travel-ailydian',
+            accountId: 'travel-lydian',
             averageRating: 4.3,
             autoSync: true,
             syncInterval: 6
@@ -120,7 +120,7 @@ export default function AdminPlatforms() {
             totalReviews: 1956,
             syncedReviews: 1834,
             apiKey: 'TA_API...hidden',
-            accountId: 'ailydian-travel',
+            accountId: 'lydian-travel',
             averageRating: 4.1,
             autoSync: true,
             syncInterval: 12
@@ -293,7 +293,7 @@ export default function AdminPlatforms() {
   return (
     <>
       <Head>
-        <title>Harici Platform Yönetimi - Travel Ailydian</title>
+        <title>Harici Platform Yönetimi - Travel LyDian</title>
         <meta name="robots" content="noindex, nofollow" />
       </Head>
 

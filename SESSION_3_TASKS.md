@@ -1,7 +1,7 @@
 # 🚀 SESSION 3 - GÖREV LİSTESİ
 
-**Proje:** Travel Ailydian Enterprise
-**Konum:** `/Users/sardag/Desktop/travel-ailydian-enterprise`
+**Proje:** Travel LyDian Enterprise
+**Konum:** `/Users/sardag/Desktop/travel-lydian-enterprise`
 **Başlangıç Durumu:** %60 Complete (Session 1 + 2)
 **Tarih:** 22 Aralık 2025
 

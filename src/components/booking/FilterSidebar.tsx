@@ -112,7 +112,7 @@ export const FilterSidebar: React.FC<FilterSidebarProps> = ({
           <Sliders className="w-5 h-5 text-gray-700" />
           <h3 className="text-lg font-bold text-gray-900">Filtreler</h3>
           {activeFilterCount > 0 && (
-            <span className="px-2 py-0.5 bg-ailydian-primary text-white text-xs font-semibold rounded-full">
+            <span className="px-2 py-0.5 bg-lydian-primary text-white text-xs font-semibold rounded-full">
               {activeFilterCount}
             </span>
           )}
@@ -128,7 +128,7 @@ export const FilterSidebar: React.FC<FilterSidebarProps> = ({
       {activeFilterCount > 0 && (
         <button
           onClick={clearAllFilters}
-          className="w-full px-4 py-2 text-sm font-medium text-ailydian-primary hover:bg-red-50 rounded-lg transition-colors"
+          className="w-full px-4 py-2 text-sm font-medium text-lydian-primary hover:bg-red-50 rounded-lg transition-colors"
         >
           Tüm Filtreleri Temizle
         </button>
@@ -165,7 +165,7 @@ export const FilterSidebar: React.FC<FilterSidebarProps> = ({
                   step="100"
                   value={priceRange[1]}
                   onChange={(e) => setPriceRange([priceRange[0], parseInt(e.target.value)])}
-                  className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-ailydian-primary"
+                  className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-lydian-primary"
                 />
               </div>
 
@@ -186,7 +186,7 @@ export const FilterSidebar: React.FC<FilterSidebarProps> = ({
                 {[20, 45, 80, 95, 100, 85, 60, 40, 25, 15].map((height, index) => (
                   <div
                     key={index}
-                    className="flex-1 bg-gradient-to-t from-ailydian-primary to-ailydian-secondary rounded-t opacity-30"
+                    className="flex-1 bg-gradient-to-t from-lydian-primary to-lydian-secondary rounded-t opacity-30"
                     style={{ height: `${height}%` }}
                   />
                 ))}
@@ -205,10 +205,10 @@ export const FilterSidebar: React.FC<FilterSidebarProps> = ({
               type="checkbox"
               checked={freeCancel}
               onChange={(e) => setFreeCancel(e.target.checked)}
-              className="w-5 h-5 rounded border-2 border-gray-300 text-ailydian-primary focus:ring-2 focus:ring-ailydian-primary/20 cursor-pointer"
+              className="w-5 h-5 rounded border-2 border-gray-300 text-lydian-primary focus:ring-2 focus:ring-lydian-primary/20 cursor-pointer"
             />
             <div className="flex-1">
-              <div className="font-medium text-gray-900 group-hover:text-ailydian-primary transition-colors">
+              <div className="font-medium text-gray-900 group-hover:text-lydian-primary transition-colors">
                 Ücretsiz İptal
               </div>
               <div className="text-xs text-gray-500">İptal esnekliği</div>
@@ -221,10 +221,10 @@ export const FilterSidebar: React.FC<FilterSidebarProps> = ({
               type="checkbox"
               checked={breakfastIncluded}
               onChange={(e) => setBreakfastIncluded(e.target.checked)}
-              className="w-5 h-5 rounded border-2 border-gray-300 text-ailydian-primary focus:ring-2 focus:ring-ailydian-primary/20 cursor-pointer"
+              className="w-5 h-5 rounded border-2 border-gray-300 text-lydian-primary focus:ring-2 focus:ring-lydian-primary/20 cursor-pointer"
             />
             <div className="flex-1">
-              <div className="font-medium text-gray-900 group-hover:text-ailydian-primary transition-colors">
+              <div className="font-medium text-gray-900 group-hover:text-lydian-primary transition-colors">
                 Kahvaltı Dahil
               </div>
               <div className="text-xs text-gray-500">Ücretsiz kahvaltı</div>
@@ -262,13 +262,13 @@ export const FilterSidebar: React.FC<FilterSidebarProps> = ({
                   onClick={() => toggleRating(rating)}
                   className={`w-full flex items-center gap-3 p-3 rounded-lg border-2 transition-all ${
                     selectedRatings.includes(rating)
-                      ? 'border-ailydian-primary bg-red-50'
+                      ? 'border-lydian-primary bg-red-50'
                       : 'border-gray-200 hover:border-gray-300'
                   }`}
                 >
                   <div className={`w-5 h-5 rounded border-2 flex items-center justify-center ${
                     selectedRatings.includes(rating)
-                      ? 'border-ailydian-primary bg-ailydian-primary'
+                      ? 'border-lydian-primary bg-lydian-primary'
                       : 'border-gray-300'
                   }`}>
                     {selectedRatings.includes(rating) && (
@@ -314,7 +314,7 @@ export const FilterSidebar: React.FC<FilterSidebarProps> = ({
                   key={amenity.id}
                   className={`flex items-center gap-3 p-3 rounded-lg border-2 cursor-pointer transition-all ${
                     selectedAmenities.includes(amenity.id)
-                      ? 'border-ailydian-primary bg-red-50'
+                      ? 'border-lydian-primary bg-red-50'
                       : 'border-transparent hover:bg-gray-50'
                   }`}
                 >
@@ -322,7 +322,7 @@ export const FilterSidebar: React.FC<FilterSidebarProps> = ({
                     type="checkbox"
                     checked={selectedAmenities.includes(amenity.id)}
                     onChange={() => toggleAmenity(amenity.id)}
-                    className="w-5 h-5 rounded border-2 border-gray-300 text-ailydian-primary focus:ring-2 focus:ring-ailydian-primary/20 cursor-pointer"
+                    className="w-5 h-5 rounded border-2 border-gray-300 text-lydian-primary focus:ring-2 focus:ring-lydian-primary/20 cursor-pointer"
                   />
                   <div className="flex items-center gap-2 flex-1">
                     {amenity.icon}
@@ -350,7 +350,7 @@ export const FilterSidebar: React.FC<FilterSidebarProps> = ({
               });
               onClose?.();
             }}
-            className="w-full px-6 py-3 bg-gradient-to-r from-ailydian-primary to-ailydian-secondary text-white rounded-lg font-semibold hover:shadow-lg transition-all"
+            className="w-full px-6 py-3 bg-gradient-to-r from-lydian-primary to-lydian-secondary text-white rounded-lg font-semibold hover:shadow-lg transition-all"
           >
             Filtreleri Uygula
           </button>

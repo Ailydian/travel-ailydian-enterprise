@@ -129,7 +129,7 @@ const ResponsiveSearchBar: React.FC<ResponsiveSearchBarProps> = ({
           className="w-full bg-white rounded-2xl shadow-lg p-4 flex items-center gap-3 active:scale-98 transition-transform touch-target"
           whileTap={{ scale: 0.98 }}
         >
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-ailydian-primary to-ailydian-secondary flex items-center justify-center">
+          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-lydian-primary to-lydian-secondary flex items-center justify-center">
             <Search className="w-5 h-5 text-white" />
           </div>
           <div className="flex-1 text-left">
@@ -197,7 +197,7 @@ const ResponsiveSearchBar: React.FC<ResponsiveSearchBarProps> = ({
                   onChange={(value) => setSearchQuery(value)}
                   placeholder={placeholder}
                   type={selectedCategory === 'all' ? 'all' : selectedCategory}
-                  icon={<MapPin className="w-5 h-5 text-ailydian-primary" />}
+                  icon={<MapPin className="w-5 h-5 text-lydian-primary" />}
                   className="w-full"
                 />
               </div>
@@ -253,7 +253,7 @@ const ResponsiveSearchBar: React.FC<ResponsiveSearchBarProps> = ({
             <button
               onClick={handleSearch}
               disabled={!searchQuery.trim()}
-              className="button-responsive w-full mt-4 bg-gradient-to-r from-ailydian-primary to-ailydian-secondary text-white font-semibold disabled:opacity-50 disabled:cursor-not-allowed hover:shadow-xl active:scale-95 transition-all"
+              className="button-responsive w-full mt-4 bg-gradient-to-r from-lydian-primary to-lydian-secondary text-white font-semibold disabled:opacity-50 disabled:cursor-not-allowed hover:shadow-xl active:scale-95 transition-all"
             >
               <Search className="w-5 h-5 inline mr-2" />
               Ara
@@ -275,7 +275,7 @@ const ResponsiveSearchBar: React.FC<ResponsiveSearchBarProps> = ({
                       }}
                       className="w-full flex items-center gap-3 p-3 rounded-xl bg-gray-50 hover:bg-gray-100 active:bg-gray-200 transition-colors touch-target text-left"
                     >
-                      <TrendingUp className="w-4 h-4 text-ailydian-primary" />
+                      <TrendingUp className="w-4 h-4 text-lydian-primary" />
                       <span className="text-sm font-medium text-gray-900">{query}</span>
                     </button>
                   ))}

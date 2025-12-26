@@ -3,8 +3,8 @@
  * ❌ No author names/photos ✅ URL-specific images & short intros
  */
 
-export class OtoAIAilydianSEO {
-  private readonly baseUrl = 'https://otoai.ailydian.com';
+export class OtoAILyDianSEO {
+  private readonly baseUrl = 'https://otoai.lydian.com';
 
   private readonly platformIntros = {
     homepage: 'Transform any vehicle into a smart car with advanced automotive intelligence. Real-time diagnostics, autonomous driving features, and EV charging optimization. Compatible with 500+ vehicle models from 2010+.',
@@ -93,11 +93,11 @@ export class OtoAIAilydianSEO {
   }
 }
 
-let otoaiSEOInstance: OtoAIAilydianSEO | null = null;
+let otoaiSEOInstance: OtoAILyDianSEO | null = null;
 
-export function getOtoAISEO(): OtoAIAilydianSEO {
+export function getOtoAISEO(): OtoAILyDianSEO {
   if (!otoaiSEOInstance) {
-    otoaiSEOInstance = new OtoAIAilydianSEO();
+    otoaiSEOInstance = new OtoAILyDianSEO();
   }
   return otoaiSEOInstance;
 }

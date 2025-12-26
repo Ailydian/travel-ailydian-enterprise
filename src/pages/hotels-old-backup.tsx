@@ -278,7 +278,7 @@ const HotelsPage: React.FC = () => {
   return (
     <>
       <Head>
-        <title>Oteller - Ailydian Travel | AI Destekli Otel Rezervasyonu</title>
+        <title>Oteller - LyDian Travel | AI Destekli Otel Rezervasyonu</title>
         <meta name="description" content="Türkiye'nin en güzel otellerinde konaklama. AI önerileri, VR önizleme ve blockchain güvenli rezervasyon." />
         <meta name="keywords" content="otel, konaklama, rezervasyon, AI önerisi, VR önizleme, blockchain, Türkiye" />
       </Head>
@@ -288,7 +288,7 @@ const HotelsPage: React.FC = () => {
       {/* Return to Home Button */}
       <Link 
         href="/" 
-        className="fixed top-24 left-6 z-10 flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200 text-gray-700 hover:bg-white hover:text-ailydian-primary transition-all duration-200"
+        className="fixed top-24 left-6 z-10 flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200 text-gray-700 hover:bg-white hover:text-lydian-primary transition-all duration-200"
       >
         <ArrowLeft className="w-4 h-4" />
         <span className="font-medium">Ana Sayfaya Dön</span>
@@ -296,7 +296,7 @@ const HotelsPage: React.FC = () => {
 
       <main className="pt-8">
         {/* Hero Section */}
-        <section className="bg-gradient-to-r from-ailydian-primary to-ailydian-secondary py-16">
+        <section className="bg-gradient-to-r from-lydian-primary to-lydian-secondary py-16">
           <div className="max-w-7xl mx-auto px-4">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -366,7 +366,7 @@ const HotelsPage: React.FC = () => {
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="flex items-center gap-2 px-8 py-3 bg-white text-ailydian-primary rounded-xl font-medium hover:bg-gray-100 transition-colors"
+                    className="flex items-center gap-2 px-8 py-3 bg-white text-lydian-primary rounded-xl font-medium hover:bg-gray-100 transition-colors"
                   >
                     <Search className="w-5 h-5" />
                     Otel Ara
@@ -392,7 +392,7 @@ const HotelsPage: React.FC = () => {
                   <SlidersHorizontal className="w-4 h-4" />
                   Gelişmiş Filtreler
                   {activeFilterCount > 0 && (
-                    <span className="absolute -top-2 -right-2 px-2 py-0.5 bg-ailydian-primary text-white rounded-full text-xs font-bold">
+                    <span className="absolute -top-2 -right-2 px-2 py-0.5 bg-lydian-primary text-white rounded-full text-xs font-bold">
                       {activeFilterCount}
                     </span>
                   )}
@@ -400,7 +400,7 @@ const HotelsPage: React.FC = () => {
                 <select
                   value={sortBy}
                   onChange={(e) => setSortBy(e.target.value)}
-                  className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ailydian-primary focus:border-transparent"
+                  className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-lydian-primary focus:border-transparent"
                 >
                   <option value="popularity">Popülerlik</option>
                   <option value="price-low">Fiyat (Düşük-Yüksek)</option>
@@ -463,7 +463,7 @@ const HotelsPage: React.FC = () => {
                     
                     {/* Badge */}
                     <div className="absolute top-4 left-4">
-                      <span className="px-3 py-1 bg-ailydian-primary text-white rounded-full text-sm font-medium">
+                      <span className="px-3 py-1 bg-lydian-primary text-white rounded-full text-sm font-medium">
                         {hotel.badge}
                       </span>
                     </div>
@@ -561,7 +561,7 @@ const HotelsPage: React.FC = () => {
                           whileHover={{ scale: 1.05 }}
                           whileTap={{ scale: 0.95 }}
                           onClick={() => handleAddToCart(hotel)}
-                          className="flex-1 px-4 py-2 border-2 border-ailydian-primary text-ailydian-primary rounded-lg font-medium hover:bg-ailydian-primary/10 transition-colors flex items-center justify-center gap-2"
+                          className="flex-1 px-4 py-2 border-2 border-lydian-primary text-lydian-primary rounded-lg font-medium hover:bg-lydian-primary/10 transition-colors flex items-center justify-center gap-2"
                         >
                           <ShoppingCart className="w-4 h-4" />
                           Sepete Ekle
@@ -570,7 +570,7 @@ const HotelsPage: React.FC = () => {
                           whileHover={{ scale: 1.05 }}
                           whileTap={{ scale: 0.95 }}
                           onClick={() => handleReserve(hotel)}
-                          className="flex-1 px-4 py-2 bg-ailydian-primary text-white rounded-lg font-medium hover:bg-ailydian-dark transition-colors"
+                          className="flex-1 px-4 py-2 bg-lydian-primary text-white rounded-lg font-medium hover:bg-lydian-dark transition-colors"
                         >
                           Rezerve Et
                         </motion.button>
@@ -593,7 +593,7 @@ const HotelsPage: React.FC = () => {
                     </p>
                     <button
                       onClick={resetFilters}
-                      className="bg-ailydian-primary text-white px-6 py-3 rounded-lg hover:bg-ailydian-dark transition-colors font-semibold"
+                      className="bg-lydian-primary text-white px-6 py-3 rounded-lg hover:bg-lydian-dark transition-colors font-semibold"
                     >
                       Filtreleri Temizle
                     </button>
@@ -606,7 +606,7 @@ const HotelsPage: React.FC = () => {
                     <motion.button
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
-                      className="px-8 py-3 border-2 border-ailydian-primary text-ailydian-primary rounded-xl font-semibold hover:bg-ailydian-primary hover:text-white transition-colors"
+                      className="px-8 py-3 border-2 border-lydian-primary text-lydian-primary rounded-xl font-semibold hover:bg-lydian-primary hover:text-white transition-colors"
                     >
                       Daha Fazla Otel Yükle
                     </motion.button>

@@ -121,7 +121,7 @@ const SignUp: React.FC = () => {
     return (
       <>
         <Head>
-          <title>Kayıt Başarılı - Ailydian Travel</title>
+          <title>Kayıt Başarılı - LyDian Travel</title>
         </Head>
         <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 flex items-center justify-center p-4">
           <motion.div
@@ -146,8 +146,8 @@ const SignUp: React.FC = () => {
   return (
     <>
       <Head>
-        <title>Kayıt Ol - Ailydian Travel</title>
-        <meta name="description" content="Ailydian Travel'a üye olun ve seyahat deneyiminizi kişiselleştirin." />
+        <title>Kayıt Ol - LyDian Travel</title>
+        <meta name="description" content="LyDian Travel'a üye olun ve seyahat deneyiminizi kişiselleştirin." />
         <meta name="robots" content="noindex, nofollow" />
       </Head>
 
@@ -155,7 +155,7 @@ const SignUp: React.FC = () => {
         {/* Return to Home Button */}
         <Link
           href="/"
-          className="fixed top-6 left-6 z-10 flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200 text-gray-700 hover:bg-white hover:text-ailydian-primary transition-all duration-200"
+          className="fixed top-6 left-6 z-10 flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200 text-gray-700 hover:bg-white hover:text-lydian-primary transition-all duration-200"
         >
           <ArrowLeft className="w-4 h-4" />
           <span className="font-medium">Ana Sayfaya Dön</span>
@@ -170,11 +170,11 @@ const SignUp: React.FC = () => {
           >
             <Link href="/" className="inline-block mb-6">
               <div className="flex items-center justify-center space-x-3">
-                <div className="w-12 h-12 bg-gradient-to-r from-ailydian-primary to-ailydian-secondary rounded-xl flex items-center justify-center">
+                <div className="w-12 h-12 bg-gradient-to-r from-lydian-primary to-lydian-secondary rounded-xl flex items-center justify-center">
                   <span className="text-white font-bold text-xl">A</span>
                 </div>
                 <div>
-                  <h1 className="text-2xl font-bold text-gray-900">Ailydian Travel</h1>
+                  <h1 className="text-2xl font-bold text-gray-900">LyDian Travel</h1>
                   <p className="text-xs text-gray-500">AI-Powered Enterprise</p>
                 </div>
               </div>
@@ -350,7 +350,7 @@ const SignUp: React.FC = () => {
                 disabled={isLoading}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="w-full bg-gradient-to-r from-ailydian-primary to-ailydian-secondary text-white py-3 px-4 rounded-xl font-semibold hover:opacity-90 transition-opacity disabled:opacity-50 flex items-center justify-center gap-2"
+                className="w-full bg-gradient-to-r from-lydian-primary to-lydian-secondary text-white py-3 px-4 rounded-xl font-semibold hover:opacity-90 transition-opacity disabled:opacity-50 flex items-center justify-center gap-2"
               >
                 {isLoading ? (
                   <>
@@ -400,7 +400,7 @@ const SignUp: React.FC = () => {
 
           {/* Footer */}
           <div className="mt-8 text-center text-xs text-gray-500">
-            © 2025 Ailydian Travel. Tüm hakları saklıdır.
+            © 2025 LyDian Travel. Tüm hakları saklıdır.
           </div>
         </div>
       </div>

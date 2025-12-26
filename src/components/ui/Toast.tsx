@@ -105,8 +105,8 @@ const ToastItem: React.FC<ToastItemProps> = ({ toast, onClose }) => {
     error: {
       icon: XCircle,
       bgColor: 'bg-red-50',
-      borderColor: 'border-ailydian-primary',
-      iconColor: 'text-ailydian-primary',
+      borderColor: 'border-lydian-primary',
+      iconColor: 'text-lydian-primary',
       textColor: 'text-red-900',
       descColor: 'text-red-700'
     },

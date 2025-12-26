@@ -66,7 +66,7 @@ export default function HotelDetailPage({ hotel }: { hotel: Hotel }) {
   return (
     <>
       <Head>
-        <title>{hotel.name} - {hotel.city} Otel Rezervasyonu | Travel Ailydian</title>
+        <title>{hotel.name} - {hotel.city} Otel Rezervasyonu | Travel LyDian</title>
         <meta name="description" content={hotel.description} />
         <meta name="keywords" content={`${hotel.name}, ${hotel.city} otel, ${hotel.district} otel, ${hotel.tags.join(', ')}`} />
       </Head>

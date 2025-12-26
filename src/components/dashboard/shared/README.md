@@ -333,4 +333,4 @@ Components are designed mobile-first:
 
 ## License
 
-Part of the Travel Ailydian Enterprise project.
+Part of the Travel LyDian Enterprise project.

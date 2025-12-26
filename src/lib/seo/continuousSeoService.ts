@@ -204,14 +204,14 @@ class ContinuousSeoService {
   // Kritik sayfaları getir
   private async getCriticalPages(): Promise<PageSeoData[]> {
     const pages: PageSeoData[] = [];
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://travel.ailydian.com';
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://travel.lydian.com';
 
     // Ana sayfa
     pages.push({
       url: `${baseUrl}`,
-      title: 'Travel Ailydian - AI-Powered Premium Seyahat Platformu',
+      title: 'Travel LyDian - AI-Powered Premium Seyahat Platformu',
       description: 'AI destekli kişiselleştirilmiş seyahat önerileri, VR önizlemeler ve blockchain güvenliği ile dünya çapında benzersiz seyahat deneyimleri keşfedin.',
-      content: 'Travel Ailydian premium seyahat platformu AI teknolojisi ile kişiselleştirilmiş tatil önerileri sunar. Otel rezervasyonu, uçak bileti, transfer hizmetleri, turlar ve daha fazlası için en iyi fırsatları keşfedin.',
+      content: 'Travel LyDian premium seyahat platformu AI teknolojisi ile kişiselleştirilmiş tatil önerileri sunar. Otel rezervasyonu, uçak bileti, transfer hizmetleri, turlar ve daha fazlası için en iyi fırsatları keşfedin.',
       language: 'tr',
       lastModified: new Date()
     });
@@ -219,7 +219,7 @@ class ContinuousSeoService {
     // Otel sayfası
     pages.push({
       url: `${baseUrl}/hotels`,
-      title: 'Otel Rezervasyonu - En İyi Otel Fiyatları | Travel Ailydian',
+      title: 'Otel Rezervasyonu - En İyi Otel Fiyatları | Travel LyDian',
       description: 'Dünya çapında 1 milyon+ otel seçeneği. AI destekli otel önerileri, VR tur, en uygun fiyat garantisi. Hemen rezervasyon yapın!',
       content: 'Otel rezervasyonu için en iyi platform. İstanbul otelleri, Antalya otelleri, Bodrum otelleri ve dünya çapında her destinasyonda uygun fiyatlı konaklama seçenekleri.',
       language: 'tr',
@@ -229,7 +229,7 @@ class ContinuousSeoService {
     // Uçak bileti sayfası
     pages.push({
       url: `${baseUrl}/flights`,
-      title: 'Ucuz Uçak Bileti - En Uygun Fiyatlarla Uçuş Ara | Travel Ailydian',
+      title: 'Ucuz Uçak Bileti - En Uygun Fiyatlarla Uçuş Ara | Travel LyDian',
       description: 'Dünya çapında 500+ havayolu firmasından ucuz uçak bileti. AI ile en uygun uçuş seçenekleri. Hemen ara ve rezervasyon yap!',
       content: 'Uçak bileti için en iyi fiyatlar. İstanbul uçak bileti, Ankara uçak bileti, yurt içi ve yurt dışı tüm uçuşlar için karşılaştırmalı fiyat arama.',
       language: 'tr',
@@ -239,7 +239,7 @@ class ContinuousSeoService {
     // Transfer sayfası
     pages.push({
       url: `${baseUrl}/transfers`,
-      title: 'Havalimanı Transfer - VIP Transfer Hizmetleri | Travel Ailydian',
+      title: 'Havalimanı Transfer - VIP Transfer Hizmetleri | Travel LyDian',
       description: 'Güvenli ve konforlu havalimanı transfer hizmetleri. VIP araç kiralama, şoförlü araç, grup transferleri için en iyi fiyatlar.',
       content: 'Havalimanı transfer hizmetleri, araç kiralama, VIP transfer, grup transferi ve şoförlü araç kiralama için güvenilir platform.',
       language: 'tr',
@@ -249,7 +249,7 @@ class ContinuousSeoService {
     // Turlar sayfası
     pages.push({
       url: `${baseUrl}/tours`,
-      title: 'Turlar ve Aktiviteler - En İyi Tur Fırsatları | Travel Ailydian',
+      title: 'Turlar ve Aktiviteler - En İyi Tur Fırsatları | Travel LyDian',
       description: 'Dünya çapında 10,000+ tur ve aktivite. Rehberli turlar, günübirlik geziler, macera aktiviteleri. VR önizleme ile keşfet!',
       content: 'Tur ve aktivite rezervasyonu. İstanbul turları, Kapadokya turları, Antalya aktiviteleri ve daha fazlası için en iyi fırsatlar.',
       language: 'tr',
@@ -272,7 +272,7 @@ class ContinuousSeoService {
     antalyaTourismDistricts.forEach(district => {
       pages.push({
         url: `${baseUrl}/hotels/${district.slug}`,
-        title: `${district.name} Otelleri - ${district.popularFor.slice(0, 2).join(', ')} | Travel Ailydian`,
+        title: `${district.name} Otelleri - ${district.popularFor.slice(0, 2).join(', ')} | Travel LyDian`,
         description: `${district.name}'da en iyi oteller! ${district.hotelTypes.slice(0, 3).join(', ')}. ${district.mainKeywords.slice(0, 2).join(', ')}. Hemen rezervasyon yapın!`,
         content: `${district.name} otelleri için en iyi fiyatlar. ${district.mainKeywords.slice(0, 5).join(', ')}. ${district.localAttractions.slice(0, 3).join(', ')} yakını konaklama seçenekleri. ${district.activities.slice(0, 3).join(', ')} aktiviteleri.`,
         language: 'tr',
@@ -284,7 +284,7 @@ class ContinuousSeoService {
       if (seasonalKw.length > 0) {
         pages.push({
           url: `${baseUrl}/tours/${district.slug}`,
-          title: `${district.name} Turları - ${seasonalKw[0]} | Travel Ailydian`,
+          title: `${district.name} Turları - ${seasonalKw[0]} | Travel LyDian`,
           description: `${district.name} turları ve aktiviteleri! ${district.activities.slice(0, 3).join(', ')}. ${seasonalKw.slice(0, 2).join(', ')}. En iyi fiyatlarla rezervasyon!`,
           content: `${district.name} turları için en iyi seçenekler. ${district.activities.join(', ')}. ${district.localAttractions.slice(0, 5).join(', ')} gezisi.`,
           language: 'tr',
@@ -312,7 +312,7 @@ class ContinuousSeoService {
 
   // Sitemap doğrulama
   private async validateSitemap(): Promise<void> {
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://travel.ailydian.com';
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://travel.lydian.com';
     try {
       const response = await fetch(`${baseUrl}/sitemap.xml`);
       if (!response.ok) {
@@ -327,7 +327,7 @@ class ContinuousSeoService {
 
   // Robots.txt doğrulama
   private async validateRobotsTxt(): Promise<void> {
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://travel.ailydian.com';
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://travel.lydian.com';
     try {
       const response = await fetch(`${baseUrl}/robots.txt`);
       if (!response.ok) {
@@ -342,7 +342,7 @@ class ContinuousSeoService {
 
   // Ana sayfa kontrolü
   private async checkHomepage(): Promise<void> {
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://travel.ailydian.com';
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://travel.lydian.com';
     try {
       const response = await fetch(baseUrl);
       if (!response.ok) {
@@ -407,7 +407,7 @@ let seoServiceInstance: ContinuousSeoService | null = null;
 
 export function getContinuousSeoService(): ContinuousSeoService {
   if (!seoServiceInstance) {
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://travel.ailydian.com';
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://travel.lydian.com';
     const apiKey = process.env.SEO_API_KEY;
     seoServiceInstance = new ContinuousSeoService(baseUrl, apiKey);
   }

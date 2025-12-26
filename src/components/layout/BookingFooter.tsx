@@ -94,9 +94,9 @@ export const BookingFooter: React.FC = () => {
               <input
                 type="email"
                 placeholder="E-posta adresiniz"
-                className="flex-1 px-4 py-3 rounded-md bg-white text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-ailydian-primary"
+                className="flex-1 px-4 py-3 rounded-md bg-white text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-lydian-primary"
               />
-              <button className="px-6 py-3 bg-ailydian-primary text-white rounded-md font-semibold hover:bg-ailydian-dark transition-colors whitespace-nowrap">
+              <button className="px-6 py-3 bg-lydian-primary text-white rounded-md font-semibold hover:bg-lydian-dark transition-colors whitespace-nowrap">
                 Abone Ol
               </button>
             </div>
@@ -189,7 +189,7 @@ export const BookingFooter: React.FC = () => {
                     href={destination.href}
                     className="text-sm hover:text-white transition-colors flex items-center gap-1 group"
                   >
-                    <MapPin className="w-3 h-3 text-ailydian-primary" />
+                    <MapPin className="w-3 h-3 text-lydian-primary" />
                     <span>{destination.name}</span>
                   </Link>
                 </li>
@@ -247,7 +247,7 @@ export const BookingFooter: React.FC = () => {
         <div className="border-t border-gray-800 pt-8 mb-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="flex items-center gap-3">
-              <Phone className="w-5 h-5 text-ailydian-primary" />
+              <Phone className="w-5 h-5 text-lydian-primary" />
               <div>
                 <div className="text-sm text-gray-400">Müşteri Hizmetleri</div>
                 <div className="text-white font-semibold">+90 850 XXX XX XX</div>
@@ -255,15 +255,15 @@ export const BookingFooter: React.FC = () => {
             </div>
 
             <div className="flex items-center gap-3">
-              <Mail className="w-5 h-5 text-ailydian-primary" />
+              <Mail className="w-5 h-5 text-lydian-primary" />
               <div>
                 <div className="text-sm text-gray-400">E-posta</div>
-                <div className="text-white font-semibold">info@travel.ailydian.com</div>
+                <div className="text-white font-semibold">info@travel.lydian.com</div>
               </div>
             </div>
 
             <div className="flex items-center gap-3">
-              <Globe className="w-5 h-5 text-ailydian-primary" />
+              <Globe className="w-5 h-5 text-lydian-primary" />
               <div>
                 <div className="text-sm text-gray-400">Dil & Para Birimi</div>
                 <div className="text-white font-semibold">Türkçe • ₺ TRY</div>
@@ -281,35 +281,35 @@ export const BookingFooter: React.FC = () => {
               <div className="flex gap-3">
                 <a
                   href="#"
-                  className="w-10 h-10 rounded-full bg-gray-800 hover:bg-ailydian-primary flex items-center justify-center transition-colors"
+                  className="w-10 h-10 rounded-full bg-gray-800 hover:bg-lydian-primary flex items-center justify-center transition-colors"
                   aria-label="Facebook"
                 >
                   <Facebook className="w-5 h-5" />
                 </a>
                 <a
                   href="#"
-                  className="w-10 h-10 rounded-full bg-gray-800 hover:bg-ailydian-primary flex items-center justify-center transition-colors"
+                  className="w-10 h-10 rounded-full bg-gray-800 hover:bg-lydian-primary flex items-center justify-center transition-colors"
                   aria-label="Twitter"
                 >
                   <Twitter className="w-5 h-5" />
                 </a>
                 <a
                   href="#"
-                  className="w-10 h-10 rounded-full bg-gray-800 hover:bg-ailydian-primary flex items-center justify-center transition-colors"
+                  className="w-10 h-10 rounded-full bg-gray-800 hover:bg-lydian-primary flex items-center justify-center transition-colors"
                   aria-label="Instagram"
                 >
                   <Instagram className="w-5 h-5" />
                 </a>
                 <a
                   href="#"
-                  className="w-10 h-10 rounded-full bg-gray-800 hover:bg-ailydian-primary flex items-center justify-center transition-colors"
+                  className="w-10 h-10 rounded-full bg-gray-800 hover:bg-lydian-primary flex items-center justify-center transition-colors"
                   aria-label="LinkedIn"
                 >
                   <Linkedin className="w-5 h-5" />
                 </a>
                 <a
                   href="#"
-                  className="w-10 h-10 rounded-full bg-gray-800 hover:bg-ailydian-primary flex items-center justify-center transition-colors"
+                  className="w-10 h-10 rounded-full bg-gray-800 hover:bg-lydian-primary flex items-center justify-center transition-colors"
                   aria-label="YouTube"
                 >
                   <Youtube className="w-5 h-5" />
@@ -344,13 +344,13 @@ export const BookingFooter: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 py-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-400">
             <div className="flex items-center gap-2">
-              <span className="text-ailydian-primary font-bold text-lg">Travel.com</span>
+              <span className="text-lydian-primary font-bold text-lg">Travel.com</span>
               <span>•</span>
               <span>© {currentYear} Tüm hakları saklıdır.</span>
             </div>
             <div className="flex items-center gap-1">
               <span>Powered by</span>
-              <span className="text-white font-semibold">Ailydian AI</span>
+              <span className="text-white font-semibold">LyDian AI</span>
             </div>
           </div>
         </div>

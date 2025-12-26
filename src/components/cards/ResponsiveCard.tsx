@@ -217,7 +217,7 @@ const ResponsiveCard: React.FC<ResponsiveCardProps> = ({
         {/* Location */}
         {location && (
           <div className="flex items-center gap-1.5 text-gray-600 mb-3">
-            <MapPin className="w-4 h-4 text-ailydian-primary" />
+            <MapPin className="w-4 h-4 text-lydian-primary" />
             <span className="text-sm line-clamp-1">{location}</span>
           </div>
         )}
@@ -253,7 +253,7 @@ const ResponsiveCard: React.FC<ResponsiveCardProps> = ({
               </p>
             )}
             <div className="flex items-baseline gap-1">
-              <span className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-ailydian-primary to-ailydian-secondary bg-clip-text text-transparent">
+              <span className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-lydian-primary to-lydian-secondary bg-clip-text text-transparent">
                 {price.toLocaleString('tr-TR')}
               </span>
               <span className="text-sm text-gray-600 font-medium">{currency}</span>
@@ -268,7 +268,7 @@ const ResponsiveCard: React.FC<ResponsiveCardProps> = ({
             className={`button-responsive flex items-center gap-2 transition-all ${
               isInCart
                 ? 'bg-green-100 text-green-700 cursor-default'
-                : 'bg-gradient-to-r from-ailydian-primary to-ailydian-secondary text-white hover:shadow-xl active:scale-95'
+                : 'bg-gradient-to-r from-lydian-primary to-lydian-secondary text-white hover:shadow-xl active:scale-95'
             }`}
           >
             {isInCart ? (

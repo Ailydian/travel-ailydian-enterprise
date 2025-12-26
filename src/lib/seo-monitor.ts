@@ -82,10 +82,10 @@ export class SEOMonitor {
     const imagesWithoutAlt = (html.match(/<img(?![^>]*alt=)[^>]*>/gi) || []).length;
     
     const internalLinks = (html.match(/<a[^>]*href=["\'][^"']*[^"']*["\'][^>]*>/gi) || [])
-      .filter(link => !link.includes('http') || link.includes('travel.ailydian.com')).length;
+      .filter(link => !link.includes('http') || link.includes('travel.lydian.com')).length;
     
     const externalLinks = (html.match(/<a[^>]*href=["\']https?:\/\/[^"']*["\'][^>]*>/gi) || [])
-      .filter(link => !link.includes('travel.ailydian.com')).length;
+      .filter(link => !link.includes('travel.lydian.com')).length;
 
     // Check for important elements
     const hasCanonical = html.includes('rel="canonical"');
@@ -295,7 +295,7 @@ export class SEOMonitor {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SEO Report - Travel Ailydian</title>
+    <title>SEO Report - Travel LyDian</title>
     <style>
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; margin: 0; padding: 20px; background: #f5f5f5; }
         .container { max-width: 1200px; margin: 0 auto; background: white; border-radius: 8px; padding: 30px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
@@ -326,7 +326,7 @@ export class SEOMonitor {
     <div class="container">
         <div class="header">
             <h1>SEO Performance Report</h1>
-            <p>Travel Ailydian - ${new Date().toLocaleDateString('tr-TR', { 
+            <p>Travel LyDian - ${new Date().toLocaleDateString('tr-TR', { 
               day: 'numeric', month: 'long', year: 'numeric' 
             })}</p>
         </div>

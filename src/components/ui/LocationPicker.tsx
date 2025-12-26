@@ -372,7 +372,7 @@ export const LocationPicker: React.FC<LocationPickerProps> = ({
   return (
     <div className="bg-white rounded-xl border border-gray-200 overflow-hidden">
       {/* Header */}
-      <div className="bg-gradient-to-r from-ailydian-primary to-ailydian-secondary p-4">
+      <div className="bg-gradient-to-r from-lydian-primary to-lydian-secondary p-4">
         <div className="flex items-center gap-3 text-white">
           <MapPin className="w-6 h-6" />
           <div>
@@ -392,7 +392,7 @@ export const LocationPicker: React.FC<LocationPickerProps> = ({
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Adres, şehir veya nokta arayın... (örn: İstanbul, Ankara, İzmir)"
-              className="w-full pl-10 pr-10 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ailydian-primary focus:border-transparent outline-none"
+              className="w-full pl-10 pr-10 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-lydian-primary focus:border-transparent outline-none"
             />
             {isSearching && (
               <Loader2 className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5 animate-spin" />
@@ -421,7 +421,7 @@ export const LocationPicker: React.FC<LocationPickerProps> = ({
                   className="w-full px-4 py-3 text-left hover:bg-gray-50 border-b border-gray-100 last:border-0 transition-colors"
                 >
                   <div className="flex items-start gap-2">
-                    <MapPin className="w-4 h-4 text-ailydian-primary mt-1 flex-shrink-0" />
+                    <MapPin className="w-4 h-4 text-lydian-primary mt-1 flex-shrink-0" />
                     <div className="flex-1 min-w-0">
                       <p className="font-medium text-gray-900 text-sm">
                         {result.display_name}

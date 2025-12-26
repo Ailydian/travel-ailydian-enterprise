@@ -21,7 +21,7 @@ export default async function handler(
     console.log('🏥 SEO Health Check Cron Job başlatıldı...');
     const startTime = Date.now();
 
-    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://travel.ailydian.com';
+    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://travel.lydian.com';
 
     // Auto SEO Monitor başlat
     const monitor = getAutoSeoMonitor({

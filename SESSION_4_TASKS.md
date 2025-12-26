@@ -1,7 +1,7 @@
 # 🚀 SESSION 4 - GÖREV LİSTESİ
 
-**Proje:** Travel Ailydian Enterprise
-**Konum:** `/Users/sardag/Desktop/travel-ailydian-enterprise`
+**Proje:** Travel LyDian Enterprise
+**Konum:** `/Users/sardag/Desktop/travel-lydian-enterprise`
 **Başlangıç Durumu:** %80 Complete (Session 1+2+3)
 **Tarih:** 22 Aralık 2025
 
@@ -699,4 +699,4 @@ Hedef Session 4 sonu: **%100 Complete** 🎉
 **Session:** 3 → 4 geçiş
 **Status:** ✅ HAZIR
 
-**Not:** Bu session ile Travel Ailydian Enterprise projesi production-ready hale gelecek! 🚀
+**Not:** Bu session ile Travel LyDian Enterprise projesi production-ready hale gelecek! 🚀

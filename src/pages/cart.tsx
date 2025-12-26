@@ -88,7 +88,7 @@ const Cart: React.FC = () => {
   };
 
   const applyPromoCode = () => {
-    if (promoCode.toLowerCase() === 'ailydian10') {
+    if (promoCode.toLowerCase() === 'lydian10') {
       setAppliedPromo(promoCode);
       setDiscount(subtotal * 0.1); // %10 indirim
       setPromoCode('');
@@ -111,7 +111,7 @@ const Cart: React.FC = () => {
   return (
     <>
       <Head>
-        <title>Sepetim - Ailydian Travel | Güvenli Rezervasyon</title>
+        <title>Sepetim - LyDian Travel | Güvenli Rezervasyon</title>
         <meta name="description" content="Sepetinizdeki rezervasyonları inceleyin ve güvenli ödeme ile rezervasyonunuzu tamamlayın." />
       </Head>
 
@@ -141,7 +141,7 @@ const Cart: React.FC = () => {
               <p className="text-sm sm:text-base text-gray-600 mb-6 sm:mb-8 px-4">Harika deneyimler keşfetmek için alışverişe başlayın!</p>
               <Link
                 href="/"
-                className="inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base bg-ailydian-primary text-white rounded-lg sm:rounded-xl font-semibold hover:bg-ailydian-dark transition-colors"
+                className="inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base bg-lydian-primary text-white rounded-lg sm:rounded-xl font-semibold hover:bg-lydian-dark transition-colors"
               >
                 Alışverişe Başla
               </Link>
@@ -166,7 +166,7 @@ const Cart: React.FC = () => {
                           alt={item.title}
                           className="w-full h-32 sm:h-20 md:h-22 lg:h-24 object-cover rounded-lg sm:rounded-xl"
                         />
-                        <div className="absolute -top-2 -left-2 w-7 h-7 sm:w-8 sm:h-8 bg-ailydian-primary rounded-full flex items-center justify-center text-white text-base sm:text-lg">
+                        <div className="absolute -top-2 -left-2 w-7 h-7 sm:w-8 sm:h-8 bg-lydian-primary rounded-full flex items-center justify-center text-white text-base sm:text-lg">
                           {getTypeIcon(item.type)}
                         </div>
                       </div>
@@ -275,11 +275,11 @@ const Cart: React.FC = () => {
                         value={promoCode}
                         onChange={(e) => setPromoCode(e.target.value)}
                         placeholder="Promosyon kodu"
-                        className="flex-1 px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-ailydian-primary focus:border-transparent outline-none"
+                        className="flex-1 px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-lydian-primary focus:border-transparent outline-none"
                       />
                       <button
                         onClick={applyPromoCode}
-                        className="px-4 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base bg-ailydian-primary text-white rounded-lg font-semibold hover:bg-ailydian-dark transition-colors whitespace-nowrap"
+                        className="px-4 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base bg-lydian-primary text-white rounded-lg font-semibold hover:bg-lydian-dark transition-colors whitespace-nowrap"
                       >
                         Uygula
                       </button>
@@ -287,8 +287,8 @@ const Cart: React.FC = () => {
                   )}
                   <div className="mt-3 sm:mt-4 space-y-1 sm:space-y-2 text-xs sm:text-sm">
                     <p className="text-gray-600 font-medium">Mevcut kodlar:</p>
-                    <p className="text-ailydian-primary">• AILYDIAN10 (%10 indirim)</p>
-                    <p className="text-ailydian-primary">• BLOCKCHAIN20 (%20 indirim)</p>
+                    <p className="text-lydian-primary">• AILYDIAN10 (%10 indirim)</p>
+                    <p className="text-lydian-primary">• BLOCKCHAIN20 (%20 indirim)</p>
                   </div>
                 </motion.div>
 
@@ -319,7 +319,7 @@ const Cart: React.FC = () => {
                     <div className="border-t border-gray-200 pt-3 sm:pt-4">
                       <div className="flex justify-between items-center">
                         <span className="text-base sm:text-lg font-bold text-gray-900">Toplam</span>
-                        <span className="text-xl sm:text-2xl font-bold text-ailydian-primary">₺{total.toFixed(2)}</span>
+                        <span className="text-xl sm:text-2xl font-bold text-lydian-primary">₺{total.toFixed(2)}</span>
                       </div>
                     </div>
                   </div>
@@ -342,7 +342,7 @@ const Cart: React.FC = () => {
 
                   <Link
                     href="/checkout"
-                    className="w-full bg-gradient-to-r from-ailydian-primary to-ailydian-secondary text-white py-3 sm:py-4 px-4 sm:px-6 text-sm sm:text-base rounded-lg sm:rounded-xl font-bold hover:opacity-90 transition-opacity flex items-center justify-center gap-2"
+                    className="w-full bg-gradient-to-r from-lydian-primary to-lydian-secondary text-white py-3 sm:py-4 px-4 sm:px-6 text-sm sm:text-base rounded-lg sm:rounded-xl font-bold hover:opacity-90 transition-opacity flex items-center justify-center gap-2"
                   >
                     <CreditCard className="w-4 h-4 sm:w-5 sm:h-5" />
                     Ödemeye Geç

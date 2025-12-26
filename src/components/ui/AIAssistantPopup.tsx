@@ -30,7 +30,7 @@ const AIAssistantPopup: React.FC<AIAssistantPopupProps> = ({ isOpen, onClose }) 
     {
       id: '1',
       type: 'ai',
-      content: `🤖 **Travel.Ailydian AI Asistanı** (Gerçek Veriler)\n\nMerhaba! Ben sizin kişisel seyahat uzmanınızım. 🌟\n\n📊 **Gerçek Zamanlı Veri ile Hizmetlerim:**\n• 🏨 Otel rezervasyonları ve fiyat karşılaştırması\n• ✈️ Uçak bileti arama ve rezervasyon\n• 🍽️ Restoran önerileri ve rezervasyon\n• 🎯 Tur ve aktivite planlaması\n\n🗺️ **${Object.keys(COMPLETE_TURKEY_TOURISM_DATABASE).length}+ Türk şehri** hakkında detaylı bilgi verebilirim!\n\n💡 Hangi konuda yardım istiyorsunuz?`,
+      content: `🤖 **Travel.LyDian AI Asistanı** (Gerçek Veriler)\n\nMerhaba! Ben sizin kişisel seyahat uzmanınızım. 🌟\n\n📊 **Gerçek Zamanlı Veri ile Hizmetlerim:**\n• 🏨 Otel rezervasyonları ve fiyat karşılaştırması\n• ✈️ Uçak bileti arama ve rezervasyon\n• 🍽️ Restoran önerileri ve rezervasyon\n• 🎯 Tur ve aktivite planlaması\n\n🗺️ **${Object.keys(COMPLETE_TURKEY_TOURISM_DATABASE).length}+ Türk şehri** hakkında detaylı bilgi verebilirim!\n\n💡 Hangi konuda yardım istiyorsunuz?`,
       timestamp: new Date(),
       suggestions: [
         'İstanbul otelleri göster',
@@ -363,7 +363,7 @@ const AIAssistantPopup: React.FC<AIAssistantPopupProps> = ({ isOpen, onClose }) 
   const getDefaultResponse = (): string => {
     const topCities = Object.keys(COMPLETE_TURKEY_TOURISM_DATABASE).slice(0, 8);
     
-    return `🤖 **Travel.Ailydian AI Asistanı** (Gerçek Veriler)\n\n` +
+    return `🤖 **Travel.LyDian AI Asistanı** (Gerçek Veriler)\n\n` +
            `Size şu konularda yardımcı olabilirim:\n\n` +
            `🏨 **Otel Rezervasyonu:** "İstanbul otelleri" yazın\n` +
            `✈️ **Uçak Bileti:** "İstanbul Antalya uçuşu" yazın\n` +

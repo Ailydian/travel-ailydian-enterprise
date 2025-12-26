@@ -25,7 +25,7 @@ export interface MockVehicleOwner {
 export const MOCK_VEHICLE_OWNERS: MockVehicleOwner[] = [
   {
     id: 'vehicle-owner-001',
-    email: 'demo@carowner.ailydian.com',
+    email: 'demo@carowner.lydian.com',
     password: 'Demo123!',
     fullName: 'Ahmet Yılmaz',
     phone: '+90 532 111 2233',
@@ -43,7 +43,7 @@ export const MOCK_VEHICLE_OWNERS: MockVehicleOwner[] = [
   },
   {
     id: 'vehicle-owner-002',
-    email: 'mehmet@carowner.ailydian.com',
+    email: 'mehmet@carowner.lydian.com',
     password: 'Mehmet123!',
     fullName: 'Mehmet Demir',
     phone: '+90 533 222 3344',
@@ -61,7 +61,7 @@ export const MOCK_VEHICLE_OWNERS: MockVehicleOwner[] = [
   },
   {
     id: 'vehicle-owner-003',
-    email: 'ayse@carowner.ailydian.com',
+    email: 'ayse@carowner.lydian.com',
     password: 'Ayse123!',
     fullName: 'Ayşe Kaya',
     phone: '+90 534 333 4455',
@@ -78,7 +78,7 @@ export const MOCK_VEHICLE_OWNERS: MockVehicleOwner[] = [
   },
   {
     id: 'vehicle-owner-004',
-    email: 'test@carowner.ailydian.com',
+    email: 'test@carowner.lydian.com',
     password: 'Test123!',
     fullName: 'Test Kullanıcı',
     phone: '+90 535 444 5566',

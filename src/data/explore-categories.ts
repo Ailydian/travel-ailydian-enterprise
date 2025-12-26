@@ -1,0 +1,470 @@
+/**
+ * Explore Categories Data
+ * Multi-language support for TripAdvisor-style Explore menu
+ */
+
+export interface ExploreCategory {
+  id: string;
+  icon: string;
+  translations: {
+    tr: { name: string; description: string };
+    en: { name: string; description: string };
+    de: { name: string; description: string };
+    ru: { name: string; description: string };
+    ar: { name: string; description: string };
+    fa: { name: string; description: string };
+    fr: { name: string; description: string };
+    el: { name: string; description: string };
+  };
+  subcategories: ExploreSubcategory[];
+  color: string;
+  image: string;
+}
+
+export interface ExploreSubcategory {
+  id: string;
+  slug: string;
+  icon: string;
+  translations: {
+    tr: { name: string; description: string };
+    en: { name: string; description: string };
+    de: { name: string; description: string };
+    ru: { name: string; description: string };
+    ar: { name: string; description: string };
+    fa: { name: string; description: string };
+    fr: { name: string; description: string };
+    el: { name: string; description: string };
+  };
+}
+
+export const exploreCategories: ExploreCategory[] = [
+  {
+    id: 'things-to-do',
+    icon: 'Compass',
+    color: 'from-blue-500 to-indigo-600',
+    image: 'https://images.unsplash.com/photo-1530789253388-582c481c54b0?auto=format&fit=crop&w=800&q=80',
+    translations: {
+      tr: {
+        name: 'Yapılacak Şeyler',
+        description: 'Turlar, aktiviteler ve deneyimler keşfedin'
+      },
+      en: {
+        name: 'Things to Do',
+        description: 'Discover tours, activities and experiences'
+      },
+      de: {
+        name: 'Unternehmungen',
+        description: 'Entdecken Sie Touren, Aktivitäten und Erlebnisse'
+      },
+      ru: {
+        name: 'Чем заняться',
+        description: 'Откройте для себя туры, мероприятия и впечатления'
+      },
+      ar: {
+        name: 'أشياء يمكن القيام بها',
+        description: 'اكتشف الجولات والأنشطة والتجارب'
+      },
+      fa: {
+        name: 'کارهایی برای انجام',
+        description: 'تورها، فعالیت‌ها و تجربیات را کشف کنید'
+      },
+      fr: {
+        name: 'Choses à faire',
+        description: 'Découvrez des circuits, activités et expériences'
+      },
+      el: {
+        name: 'Πράγματα που Μπορείτε να Κάνετε',
+        description: 'Ανακαλύψτε περιηγήσεις, δραστηριότητες και εμπειρίες'
+      }
+    },
+    subcategories: [
+      {
+        id: 'tours-activities',
+        slug: 'tours-activities',
+        icon: 'Map',
+        translations: {
+          tr: { name: 'Turlar ve Aktiviteler', description: 'Rehberli turlar ve günlük aktiviteler' },
+          en: { name: 'Tours & Activities', description: 'Guided tours and daily activities' },
+          de: { name: 'Touren & Aktivitäten', description: 'Geführte Touren und tägliche Aktivitäten' },
+          ru: { name: 'Туры и мероприятия', description: 'Экскурсии и ежедневные мероприятия' },
+          ar: { name: 'الجولات والأنشطة', description: 'جولات إرشادية وأنشطة يومية' },
+          fa: { name: 'تورها و فعالیت‌ها', description: 'تورهای راهنمایی شده و فعالیت‌های روزانه' },
+          fr: { name: 'Circuits et activités', description: 'Visites guidées et activités quotidiennes' },
+          el: { name: 'Circuits et activités', description: 'Visites guidées et activités quotidiennes' }
+        }
+      },
+      {
+        id: 'food-drink',
+        slug: 'food-drink',
+        icon: 'Utensils',
+        translations: {
+          tr: { name: 'Yiyecek ve İçecek', description: 'Gastronomi turları ve lezzet deneyimleri' },
+          en: { name: 'Food & Drink', description: 'Gastronomy tours and culinary experiences' },
+          de: { name: 'Essen & Trinken', description: 'Gastronomie-Touren und kulinarische Erlebnisse' },
+          ru: { name: 'Еда и напитки', description: 'Гастрономические туры и кулинарные впечатления' },
+          ar: { name: 'الطعام والشراب', description: 'جولات طعام وتجارب طهي' },
+          fa: { name: 'غذا و نوشیدنی', description: 'تورهای غذا و تجربیات آشپزی' },
+          fr: { name: 'Nourriture et boissons', description: 'Circuits gastronomiques et expériences culinaires' },
+          el: { name: 'Nourriture et boissons', description: 'Circuits gastronomiques et expériences culinaires' }
+        }
+      },
+      {
+        id: 'outdoor-adventures',
+        slug: 'outdoor-adventures',
+        icon: 'Mountain',
+        translations: {
+          tr: { name: 'Açık Hava Maceraları', description: 'Rafting, trekking ve doğa sporları' },
+          en: { name: 'Outdoor Adventures', description: 'Rafting, trekking and nature sports' },
+          de: { name: 'Outdoor-Abenteuer', description: 'Rafting, Trekking und Natursportarten' },
+          ru: { name: 'Приключения на свежем воздухе', description: 'Рафтинг, треккинг и природные виды спорта' },
+          ar: { name: 'مغامرات في الهواء الطلق', description: 'التجديف والمشي لمسافات طويلة والرياضات الطبيعية' },
+          fa: { name: 'ماجراجویی‌های فضای باز', description: 'رفتینگ، کوهنوردی و ورزش‌های طبیعی' },
+          fr: { name: 'Aventures en plein air', description: 'Rafting, trekking et sports nature' },
+          el: { name: 'Aventures en plein air', description: 'Rafting, trekking et sports nature' }
+        }
+      },
+      {
+        id: 'cultural-experiences',
+        slug: 'cultural-experiences',
+        icon: 'Landmark',
+        translations: {
+          tr: { name: 'Kültürel Deneyimler', description: 'Antik kentler, müzeler ve tarihi mekanlar' },
+          en: { name: 'Cultural Experiences', description: 'Ancient cities, museums and historical sites' },
+          de: { name: 'Kulturelle Erlebnisse', description: 'Antike Städte, Museen und historische Stätten' },
+          ru: { name: 'Культурные впечатления', description: 'Древние города, музеи и исторические места' },
+          ar: { name: 'تجارب ثقافية', description: 'المدن القديمة والمتاحف والمواقع التاريخية' },
+          fa: { name: 'تجربیات فرهنگی', description: 'شهرهای باستانی، موزه‌ها و مکان‌های تاریخی' },
+          fr: { name: 'Expériences culturelles', description: 'Villes anciennes, musées et sites historiques' },
+          el: { name: 'Expériences culturelles', description: 'Villes anciennes, musées et sites historiques' }
+        }
+      },
+      {
+        id: 'water-sports',
+        slug: 'water-sports',
+        icon: 'Waves',
+        translations: {
+          tr: { name: 'Su Sporları', description: 'Dalış, snorkeling ve deniz aktiviteleri' },
+          en: { name: 'Water Sports', description: 'Diving, snorkeling and sea activities' },
+          de: { name: 'Wassersport', description: 'Tauchen, Schnorcheln und Meeresaktivitäten' },
+          ru: { name: 'Водные виды спорта', description: 'Дайвинг, сноркелинг и морские мероприятия' },
+          ar: { name: 'الرياضات المائية', description: 'الغوص والغطس وأنشطة البحر' },
+          fa: { name: 'ورزش‌های آبی', description: 'غواصی، اسنورکلینگ و فعالیت‌های دریایی' },
+          fr: { name: 'Sports nautiques', description: 'Plongée, snorkeling et activités marines' },
+          el: { name: 'Sports nautiques', description: 'Plongée, snorkeling et activités marines' }
+        }
+      },
+      {
+        id: 'family-activities',
+        slug: 'family-activities',
+        icon: 'Users',
+        translations: {
+          tr: { name: 'Aile Aktiviteleri', description: 'Çocuklar için eğlenceli deneyimler' },
+          en: { name: 'Family Activities', description: 'Fun experiences for children' },
+          de: { name: 'Familienaktivitäten', description: 'Spaßerlebnisse für Kinder' },
+          ru: { name: 'Семейные мероприятия', description: 'Веселые впечатления для детей' },
+          ar: { name: 'أنشطة عائلية', description: 'تجارب ممتعة للأطفال' },
+          fa: { name: 'فعالیت‌های خانوادگی', description: 'تجربیات سرگرم‌کننده برای کودکان' },
+          fr: { name: 'Activités familiales', description: 'Expériences amusantes pour les enfants' },
+          el: { name: 'Activités familiales', description: 'Expériences amusantes pour les enfants' }
+        }
+      }
+    ]
+  },
+  {
+    id: 'places-to-stay',
+    icon: 'Home',
+    color: 'from-purple-500 to-pink-600',
+    image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80',
+    translations: {
+      tr: {
+        name: 'Konaklama',
+        description: 'Oteller, villalar ve kiralık evler'
+      },
+      en: {
+        name: 'Places to Stay',
+        description: 'Hotels, villas and rental homes'
+      },
+      de: {
+        name: 'Unterkünfte',
+        description: 'Hotels, Villen und Mietwohnungen'
+      },
+      ru: {
+        name: 'Где остановиться',
+        description: 'Отели, виллы и арендуемые дома'
+      },
+      ar: {
+        name: 'أماكن الإقامة',
+        description: 'الفنادق والفيلات والمنازل المستأجرة'
+      },
+      fa: {
+        name: 'مکان‌های اقامت',
+        description: 'هتل‌ها، ویلاها و خانه‌های اجاره‌ای'
+      },
+      fr: {
+        name: 'Hébergements',
+        description: 'Hôtels, villas et maisons de location'
+      },
+      el: {
+        name: 'Καταλύματα',
+        description: 'Ξενοδοχεία, βίλες και ενοικιαζόμενα σπίτια'
+      }
+    },
+    subcategories: [
+      {
+        id: 'hotels',
+        slug: 'hotels',
+        icon: 'Building',
+        translations: {
+          tr: { name: 'Oteller', description: 'Lüks oteller ve resortlar' },
+          en: { name: 'Hotels', description: 'Luxury hotels and resorts' },
+          de: { name: 'Hotels', description: 'Luxushotels und Resorts' },
+          ru: { name: 'Отели', description: 'Роскошные отели и курорты' },
+          ar: { name: 'الفنادق', description: 'الفنادق والمنتجعات الفاخرة' },
+          fa: { name: 'هتل‌ها', description: 'هتل‌ها و ریزورت‌های لوکس' },
+          fr: { name: 'Hôtels', description: 'Hôtels de luxe et stations' },
+          el: { name: 'Hôtels', description: 'Hôtels de luxe et stations' }
+        }
+      },
+      {
+        id: 'villas',
+        slug: 'villas',
+        icon: 'Home',
+        translations: {
+          tr: { name: 'Villalar', description: 'Özel havuzlu lüks villalar' },
+          en: { name: 'Villas', description: 'Luxury villas with private pools' },
+          de: { name: 'Villen', description: 'Luxusvillen mit privaten Pools' },
+          ru: { name: 'Виллы', description: 'Роскошные виллы с частными бассейнами' },
+          ar: { name: 'الفيلات', description: 'فيلات فاخرة مع مسابح خاصة' },
+          fa: { name: 'ویلاها', description: 'ویلاهای لوکس با استخر خصوصی' },
+          fr: { name: 'Villas', description: 'Villas de luxe avec piscines privées' },
+          el: { name: 'Villas', description: 'Villas de luxe avec piscines privées' }
+        }
+      },
+      {
+        id: 'apartments',
+        slug: 'apartments',
+        icon: 'Building2',
+        translations: {
+          tr: { name: 'Apartmanlar', description: 'Deniz manzaralı daireler' },
+          en: { name: 'Apartments', description: 'Sea view apartments' },
+          de: { name: 'Apartments', description: 'Apartments mit Meerblick' },
+          ru: { name: 'Апартаменты', description: 'Апартаменты с видом на море' },
+          ar: { name: 'الشقق', description: 'شقق بإطلالة على البحر' },
+          fa: { name: 'آپارتمان‌ها', description: 'آپارتمان‌های دارای نمای دریا' },
+          fr: { name: 'Appartements', description: 'Appartements avec vue sur mer' },
+          el: { name: 'Appartements', description: 'Appartements avec vue sur mer' }
+        }
+      },
+      {
+        id: 'boutique-hotels',
+        slug: 'boutique-hotels',
+        icon: 'Star',
+        translations: {
+          tr: { name: 'Butik Oteller', description: 'Karakteristik butik oteller' },
+          en: { name: 'Boutique Hotels', description: 'Characteristic boutique hotels' },
+          de: { name: 'Boutique-Hotels', description: 'Charakteristische Boutique-Hotels' },
+          ru: { name: 'Бутик-отели', description: 'Характерные бутик-отели' },
+          ar: { name: 'الفنادق البوتيكية', description: 'فنادق بوتيكية مميزة' },
+          fa: { name: 'هتل‌های بوتیک', description: 'هتل‌های بوتیک منحصر به فرد' },
+          fr: { name: 'Hôtels boutique', description: 'Hôtels boutique caractéristiques' },
+          el: { name: 'Hôtels boutique', description: 'Hôtels boutique caractéristiques' }
+        }
+      }
+    ]
+  },
+  {
+    id: 'transportation',
+    icon: 'Car',
+    color: 'from-green-500 to-emerald-600',
+    image: 'https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=800&q=80',
+    translations: {
+      tr: {
+        name: 'Ulaşım',
+        description: 'Transfer, araç kiralama ve ulaşım hizmetleri'
+      },
+      en: {
+        name: 'Transportation',
+        description: 'Transfers, car rentals and transport services'
+      },
+      de: {
+        name: 'Transport',
+        description: 'Transfers, Mietwagen und Transportdienste'
+      },
+      ru: {
+        name: 'Транспорт',
+        description: 'Трансферы, аренда автомобилей и транспортные услуги'
+      },
+      ar: {
+        name: 'المواصلات',
+        description: 'النقل وتأجير السيارات وخدمات النقل'
+      },
+      fa: {
+        name: 'حمل و نقل',
+        description: 'ترانسفر، اجاره خودرو و خدمات حمل و نقل'
+      },
+      fr: {
+        name: 'Transport',
+        description: 'Transferts, locations de voitures et services de transport'
+      },
+      el: {
+        name: 'Μεταφορές',
+        description: 'Μεταφορές, ενοικιάσεις αυτοκινήτων και υπηρεσίες μεταφοράς'
+      }
+    },
+    subcategories: [
+      {
+        id: 'airport-transfers',
+        slug: 'airport-transfers',
+        icon: 'Plane',
+        translations: {
+          tr: { name: 'Havalimanı Transferleri', description: 'Özel havalimanı transfer hizmetleri' },
+          en: { name: 'Airport Transfers', description: 'Private airport transfer services' },
+          de: { name: 'Flughafen-Transfers', description: 'Private Flughafen-Transferdienste' },
+          ru: { name: 'Трансферы из аэропорта', description: 'Частные трансферы из аэропорта' },
+          ar: { name: 'النقل من المطار', description: 'خدمات النقل الخاصة من المطار' },
+          fa: { name: 'ترانسفر فرودگاه', description: 'خدمات ترانسفر خصوصی فرودگاه' },
+          fr: { name: 'Transferts aéroport', description: 'Services de transfert privé depuis l\'aéroport' },
+          el: { name: 'Transferts aéroport', description: 'Services de transfert privé depuis l\'aéroport' }
+        }
+      },
+      {
+        id: 'car-rentals',
+        slug: 'car-rentals',
+        icon: 'Car',
+        translations: {
+          tr: { name: 'Araç Kiralama', description: 'Ekonomik ve lüks araç kiralama' },
+          en: { name: 'Car Rentals', description: 'Economy and luxury car rentals' },
+          de: { name: 'Mietwagen', description: 'Wirtschaftliche und Luxus-Mietwagen' },
+          ru: { name: 'Аренда автомобилей', description: 'Экономичная и роскошная аренда автомобилей' },
+          ar: { name: 'تأجير السيارات', description: 'تأجير سيارات اقتصادية وفاخرة' },
+          fa: { name: 'اجاره خودرو', description: 'اجاره خودروهای اقتصادی و لوکس' },
+          fr: { name: 'Location de voitures', description: 'Location de voitures économiques et de luxe' },
+          el: { name: 'Location de voitures', description: 'Location de voitures économiques et de luxe' }
+        }
+      },
+      {
+        id: 'city-transfers',
+        slug: 'city-transfers',
+        icon: 'Bus',
+        translations: {
+          tr: { name: 'Şehir Transferleri', description: 'Şehir içi ve şehirlerarası transfer' },
+          en: { name: 'City Transfers', description: 'Intra-city and inter-city transfers' },
+          de: { name: 'Stadt-Transfers', description: 'Innerstadt- und Intercity-Transfers' },
+          ru: { name: 'Городские трансферы', description: 'Внутригородские и междугородние трансферы' },
+          ar: { name: 'النقل داخل المدينة', description: 'النقل داخل المدينة وبين المدن' },
+          fa: { name: 'ترانسفر شهری', description: 'ترانسفر درون شهری و بین شهری' },
+          fr: { name: 'Transferts en ville', description: 'Transferts intra-urbains et inter-urbains' },
+          el: { name: 'Transferts en ville', description: 'Transferts intra-urbains et inter-urbains' }
+        }
+      },
+      {
+        id: 'vip-transport',
+        slug: 'vip-transport',
+        icon: 'Crown',
+        translations: {
+          tr: { name: 'VIP Ulaşım', description: 'Lüks araç ve şoförlü hizmetler' },
+          en: { name: 'VIP Transport', description: 'Luxury vehicles and chauffeur services' },
+          de: { name: 'VIP-Transport', description: 'Luxusfahrzeuge und Chauffeurservice' },
+          ru: { name: 'VIP транспорт', description: 'Роскошные автомобили и услуги водителя' },
+          ar: { name: 'النقل الفاخر', description: 'السيارات الفاخرة وخدمات السائق' },
+          fa: { name: 'حمل و نقل VIP', description: 'خودروهای لوکس و خدمات راننده' },
+          fr: { name: 'Transport VIP', description: 'Véhicules de luxe et services de chauffeur' },
+          el: { name: 'Transport VIP', description: 'Véhicules de luxe et services de chauffeur' }
+        }
+      }
+    ]
+  }
+];
+
+export const popularDestinations = [
+  {
+    id: 'antalya',
+    slug: 'antalya',
+    image: 'https://images.unsplash.com/photo-1605640840605-14ac1855827b?auto=format&fit=crop&w=800&q=80',
+    translations: {
+      tr: { name: 'Antalya', description: 'Türk Rivierası\'nın incisi' },
+      en: { name: 'Antalya', description: 'Pearl of the Turkish Riviera' },
+      de: { name: 'Antalya', description: 'Perle der türkischen Riviera' },
+      ru: { name: 'Анталья', description: 'Жемчужина турецкой Ривьеры' },
+      ar: { name: 'أنطاليا', description: 'لؤلؤة الريفيرا التركية' },
+      fa: { name: 'آنتالیا', description: 'مروارید ریویرای ترکیه' },
+      fr: { name: 'Antalya', description: 'Perle de la Riviera turque' },
+      el: { name: 'Αντάλια', description: 'Το Μαργαριτάρι της Τουρκικής Ριβιέρας' }
+    }
+  },
+  {
+    id: 'lara',
+    slug: 'lara',
+    image: 'https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=800&q=80',
+    translations: {
+      tr: { name: 'Lara', description: 'Altın kumlu plajlar' },
+      en: { name: 'Lara', description: 'Golden sandy beaches' },
+      de: { name: 'Lara', description: 'Goldene Sandstrände' },
+      ru: { name: 'Лара', description: 'Золотые песчаные пляжи' },
+      ar: { name: 'لارا', description: 'شواطئ رملية ذهبية' },
+      fa: { name: 'لارا', description: 'سواحل شنی طلایی' },
+      fr: { name: 'Lara', description: 'Plages de sable doré' },
+      el: { name: 'Λάρα', description: 'Χρυσές αμμουδιές' }
+    }
+  },
+  {
+    id: 'belek',
+    slug: 'belek',
+    image: 'https://images.unsplash.com/photo-1587974928442-77dc3e0dba72?auto=format&fit=crop&w=800&q=80',
+    translations: {
+      tr: { name: 'Belek', description: 'Golf ve lüks tatil' },
+      en: { name: 'Belek', description: 'Golf and luxury vacation' },
+      de: { name: 'Belek', description: 'Golf und Luxusurlaub' },
+      ru: { name: 'Белек', description: 'Гольф и роскошный отдых' },
+      ar: { name: 'بيليك', description: 'الجولف والعطلة الفاخرة' },
+      fa: { name: 'بلک', description: 'گلف و تعطیلات لوکس' },
+      fr: { name: 'Belek', description: 'Golf et vacances de luxe' },
+      el: { name: 'Μπέλεκ', description: 'Γκολφ και πολυτελείς διακοπές' }
+    }
+  },
+  {
+    id: 'side',
+    slug: 'side',
+    image: 'https://images.unsplash.com/photo-1609137144813-7d9921338f24?auto=format&fit=crop&w=800&q=80',
+    translations: {
+      tr: { name: 'Side', description: 'Antik liman kenti' },
+      en: { name: 'Side', description: 'Ancient harbor city' },
+      de: { name: 'Side', description: 'Antike Hafenstadt' },
+      ru: { name: 'Сиде', description: 'Древний портовый город' },
+      ar: { name: 'سايد', description: 'مدينة الميناء القديمة' },
+      fa: { name: 'سیده', description: 'شهر بندری باستانی' },
+      fr: { name: 'Side', description: 'Ville portuaire antique' },
+      el: { name: 'Σίδη', description: 'Αρχαία λιμενική πόλη' }
+    }
+  },
+  {
+    id: 'alanya',
+    slug: 'alanya',
+    image: 'https://images.unsplash.com/photo-1605640840605-14ac1855827b?auto=format&fit=crop&w=800&q=80',
+    translations: {
+      tr: { name: 'Alanya', description: 'Kale ve plajlar' },
+      en: { name: 'Alanya', description: 'Castle and beaches' },
+      de: { name: 'Alanya', description: 'Burg und Strände' },
+      ru: { name: 'Алания', description: 'Замок и пляжи' },
+      ar: { name: 'ألانيا', description: 'القلعة والشواطئ' },
+      fa: { name: 'آلانیا', description: 'قلعه و سواحل' },
+      fr: { name: 'Alanya', description: 'Château et plages' },
+      el: { name: 'Αλάνυα', description: 'Κάστρο και παραλίες' }
+    }
+  },
+  {
+    id: 'kemer',
+    slug: 'kemer',
+    image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=800&q=80',
+    translations: {
+      tr: { name: 'Kemer', description: 'Dağlar ve deniz buluşması' },
+      en: { name: 'Kemer', description: 'Where mountains meet the sea' },
+      de: { name: 'Kemer', description: 'Wo Berge auf das Meer treffen' },
+      ru: { name: 'Кемер', description: 'Где горы встречаются с морем' },
+      ar: { name: 'كيمر', description: 'حيث تلتقي الجبال بالبحر' },
+      fa: { name: 'کمر', description: 'جایی که کوه‌ها با دریا ملاقات می‌کنند' },
+      fr: { name: 'Kemer', description: 'Où les montagnes rencontrent la mer' },
+      el: { name: 'Κέμερ', description: 'Όπου τα βουνά συναντούν τη θάλασσα' }
+    }
+  }
+];

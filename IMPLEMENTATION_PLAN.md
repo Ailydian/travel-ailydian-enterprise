@@ -45,7 +45,7 @@
 
 ### Rota Yapısı
 ```
-travel.ailydian.com/
+travel.lydian.com/
 │
 ├── /owner/properties/*           ✅ [MEVCUT] Ev Kiralama Dashboard
 │   ├── /owner/properties/new     → 8 Step Property Wizard
@@ -562,7 +562,7 @@ http://localhost:3000/admin/dashboard
 ### 3. Production Deployment
 ```bash
 # Main branch merge sonrası otomatik deploy
-# vercel.com → travel.ailydian.com
+# vercel.com → travel.lydian.com
 ```
 
 ---

@@ -1123,7 +1123,7 @@ export default function VehicleDetailPage({ vehicleId }: { vehicleId: string }) 
                 <div className="flex gap-2">
                   <input
                     type="text"
-                    value={`https://ailydian.com/vehicles/${vehicleId}`}
+                    value={`https://lydian.com/vehicles/${vehicleId}`}
                     readOnly
                     className="flex-1 px-4 py-2 rounded-lg border-2"
                     style={{
@@ -1133,7 +1133,7 @@ export default function VehicleDetailPage({ vehicleId }: { vehicleId: string }) 
                     }}
                   />
                   <button
-                    onClick={() => copyToClipboard(`https://ailydian.com/vehicles/${vehicleId}`)}
+                    onClick={() => copyToClipboard(`https://lydian.com/vehicles/${vehicleId}`)}
                     className="px-4 py-2 rounded-lg transition-all hover:scale-105"
                     style={{
                       background: 'linear-gradient(135deg, #16A34A, #14B8A6)',

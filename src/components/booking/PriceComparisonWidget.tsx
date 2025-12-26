@@ -153,7 +153,7 @@ export const PriceComparisonWidget: React.FC<PriceComparisonWidgetProps> = ({
                       <Award className="w-5 h-5" />
                     </div>
                     <div>
-                      <div className="font-bold text-lg">Travel Ailydian</div>
+                      <div className="font-bold text-lg">Travel LyDian</div>
                       <div className="text-xs text-green-100 flex items-center gap-1">
                         <Star className="w-3 h-3 fill-current" />
                         <span>4.9/5 (1,247 değerlendirme)</span>

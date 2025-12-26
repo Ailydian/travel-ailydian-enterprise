@@ -39,7 +39,7 @@ const MaintenancePage: React.FC = () => {
   return (
     <>
       <Head>
-        <title>Bakım Modu | Travel.Ailydian</title>
+        <title>Bakım Modu | Travel.LyDian</title>
         <meta name="description" content="Sistemlerimiz şu anda bakım altındadır. Kısa süre sonra tekrar hizmetinizdeyiz." />
         <meta name="robots" content="noindex, nofollow" />
       </Head>
@@ -75,7 +75,7 @@ const MaintenancePage: React.FC = () => {
                     color: 'var(--tx-1)',
                     textShadow: '0 0 15px var(--ac-1), 0 0 30px var(--ac-1)'
                   }}>
-                    Travel.Ailydian
+                    Travel.LyDian
                   </span>
                 </div>
               </div>
@@ -142,7 +142,7 @@ const MaintenancePage: React.FC = () => {
                   Sistemlerimizi Geliştiriyoruz
                 </h2>
                 <p className="text-xl mb-8 max-w-3xl mx-auto" style={{color: 'var(--tx-2)'}}>
-                  Travel.Ailydian&apos;ı daha da iyi hale getirmek için kısa bir bakım çalışması yapıyoruz.
+                  Travel.LyDian&apos;ı daha da iyi hale getirmek için kısa bir bakım çalışması yapıyoruz.
                   Size daha iyi hizmet verebilmek için sistemlerimizi güncelliyor ve optimize ediyoruz.
                 </p>
                 
@@ -250,7 +250,7 @@ const MaintenancePage: React.FC = () => {
                 </h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <a
-                    href="mailto:support@travel.ailydian.com"
+                    href="mailto:support@travel.lydian.com"
                     className="flex items-center p-3 rounded-xl transition-all duration-300 border"
                     style={{
                       backgroundColor: 'rgba(255, 33, 77, 0.1)',
@@ -302,7 +302,7 @@ const MaintenancePage: React.FC = () => {
           }}>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="text-center">
-                <p style={{color: 'var(--tx-2)'}}>&copy; 2025 Travel.Ailydian. Tüm hakları saklıdır.</p>
+                <p style={{color: 'var(--tx-2)'}}>&copy; 2025 Travel.LyDian. Tüm hakları saklıdır.</p>
                 <p className="mt-1 text-sm" style={{
                   color: 'var(--ac-2)',
                   textShadow: '0 0 10px var(--ac-2)'

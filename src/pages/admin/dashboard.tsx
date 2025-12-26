@@ -312,7 +312,7 @@ export default function AdminDashboard() {
     }
   };
 
-  // Ailydian tema renkleri
+  // LyDian tema renkleri
   const AILYDIAN_COLORS = {
     primary: '#FF214D',
     secondary: '#FF6A45', 
@@ -366,9 +366,9 @@ export default function AdminDashboard() {
   return (
     <>
       <Head>
-        <title>Yönetici Paneli - Travel Ailydian</title>
+        <title>Yönetici Paneli - Travel LyDian</title>
         <meta name="robots" content="noindex, nofollow" />
-        <meta name="description" content="Travel Ailydian yönetici kontrol paneli" />
+        <meta name="description" content="Travel LyDian yönetici kontrol paneli" />
       </Head>
 
       <div className="min-h-screen" style={{background: `linear-gradient(135deg, ${AILYDIAN_COLORS.dark} 0%, #1f1f23 50%, #2d2d35 100%)`}}>
@@ -381,7 +381,7 @@ export default function AdminDashboard() {
                   <Sparkles className="w-5 h-5 text-white m-1.5" />
                 </div>
                 <h1 className="text-lg font-bold bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent">
-                  Travel Ailydian Yönetici Paneli
+                  Travel LyDian Yönetici Paneli
                 </h1>
               </div>
               <div className="flex items-center space-x-4">
@@ -445,7 +445,7 @@ export default function AdminDashboard() {
               {/* Sidebar Footer */}
               <div className="mt-8 pt-4 border-t border-gray-700">
                 <div className="text-xs text-gray-400 text-center">
-                  <p>Travel Ailydian</p>
+                  <p>Travel LyDian</p>
                   <p className="mt-1">Versiyon 2.0</p>
                 </div>
               </div>
@@ -462,7 +462,7 @@ export default function AdminDashboard() {
                     Kontrol Paneli
                   </h1>
                   <p className="text-gray-400 text-sm">
-                    Ailydian Admin Panelinize Hoş Geldiniz
+                    LyDian Admin Panelinize Hoş Geldiniz
                   </p>
                 </div>
 

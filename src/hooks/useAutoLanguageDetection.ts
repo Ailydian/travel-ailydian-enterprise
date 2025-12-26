@@ -96,7 +96,7 @@ export const useAutoLanguageDetection = () => {
     if (typeof localStorage === 'undefined') return null;
     
     try {
-      return localStorage.getItem('ailydian-preferred-language');
+      return localStorage.getItem('lydian-preferred-language');
     } catch {
       return null;
     }
@@ -107,7 +107,7 @@ export const useAutoLanguageDetection = () => {
     if (typeof localStorage === 'undefined') return;
     
     try {
-      localStorage.setItem('ailydian-preferred-language', language);
+      localStorage.setItem('lydian-preferred-language', language);
     } catch (error) {
       console.warn('Dil tercihi kaydedilemedi:', error);
     }

@@ -1,14 +1,14 @@
 # 🎉 Testing, Email & Mobile Implementation - COMPLETE
 
 **Tarih:** 22 Aralık 2025
-**Proje:** Travel Ailydian Enterprise
+**Proje:** Travel LyDian Enterprise
 **Durum:** ✅ %100 Tamamlandı (0 Hata ile)
 
 ---
 
 ## 📊 EXECUTIVE SUMMARY
 
-Travel Ailydian Enterprise projesi için **4 major feature** başarıyla implemente edildi:
+Travel LyDian Enterprise projesi için **4 major feature** başarıyla implemente edildi:
 
 1. ✅ **Automated Testing** (Jest + Cypress)
 2. ✅ **Email Notifications** (Resend + Templates)
@@ -162,7 +162,7 @@ import { welcomeVehicleOwnerTemplate } from '@/lib/email/templates/welcome-vehic
 
 await sendEmail({
   to: 'user@example.com',
-  subject: 'Hoş Geldiniz - Travel Ailydian',
+  subject: 'Hoş Geldiniz - Travel LyDian',
   html: welcomeVehicleOwnerTemplate('Ahmet', 'Yılmaz Rent A Car')
 })
 ```
@@ -200,11 +200,11 @@ RESEND_API_KEY="re_your_api_key_here"
 - 💼 Partner models (VehicleOwner, TransferOwner, PropertyOwner)
 - 💰 Payment & Booking models
 - 📧 Notification models
-- 🎯 Loyalty program (Ailydian Miles)
+- 🎯 Loyalty program (LyDian Miles)
 
 **Environment Setup:**
 ```env
-DATABASE_URL="postgresql://user:password@localhost:5432/travel_ailydian"
+DATABASE_URL="postgresql://user:password@localhost:5432/travel_lydian"
 NEXTAUTH_URL="http://localhost:3100"
 NEXTAUTH_SECRET="your-secret-here"
 ```
@@ -245,7 +245,7 @@ const vehicles = await prisma.carRental.findMany({
 
 ```
 mobile-app/
-└── TravelAilydian/
+└── TravelLyDian/
     ├── package.json
     ├── src/
     │   ├── screens/
@@ -305,7 +305,7 @@ npm run build:android
 
 **API Integration:**
 ```typescript
-const API_BASE_URL = 'https://travel.ailydian.com/api'
+const API_BASE_URL = 'https://travel.lydian.com/api'
 ```
 
 **README.md:**
@@ -338,7 +338,7 @@ const API_BASE_URL = 'https://travel.ailydian.com/api'
 ✅ src/lib/prisma.ts (created)
 ✅ .env.example (updated)
 ✅ mobile-app/README.md (created)
-✅ mobile-app/TravelAilydian/package.json (created)
+✅ mobile-app/TravelLyDian/package.json (created)
 ✅ package.json (updated - added 16 new scripts)
 ```
 
@@ -404,10 +404,10 @@ const html = welcomeVehicleOwnerTemplate('Ahmet Yılmaz', 'Yılmaz Rent A Car')
 
 await sendEmail({
   to: 'ahmet@example.com',
-  subject: 'Hoş Geldiniz - Travel Ailydian',
+  subject: 'Hoş Geldiniz - Travel LyDian',
   html,
-  from: 'Travel Ailydian <noreply@ailydian.com>',
-  replyTo: 'support@ailydian.com'
+  from: 'Travel LyDian <noreply@lydian.com>',
+  replyTo: 'support@lydian.com'
 })
 ```
 
@@ -415,7 +415,7 @@ await sendEmail({
 
 ```typescript
 // 1. Set DATABASE_URL
-DATABASE_URL="postgresql://user:pass@localhost:5432/travel_ailydian"
+DATABASE_URL="postgresql://user:pass@localhost:5432/travel_lydian"
 
 // 2. Generate Prisma Client
 npm run db:generate
@@ -433,7 +433,7 @@ const vehicles = await prisma.carRental.findMany()
 
 ```bash
 # 1. Navigate to mobile app
-cd mobile-app/TravelAilydian
+cd mobile-app/TravelLyDian
 
 # 2. Install dependencies
 npm install
@@ -556,7 +556,7 @@ RESEND_API_KEY="re_your_actual_key"
 
 ### Required for Database
 ```env
-DATABASE_URL="postgresql://user:password@localhost:5432/travel_ailydian"
+DATABASE_URL="postgresql://user:password@localhost:5432/travel_lydian"
 NEXTAUTH_URL="http://localhost:3100"
 NEXTAUTH_SECRET="your-secret-key-minimum-32-characters"
 ```

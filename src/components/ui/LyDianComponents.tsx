@@ -2,14 +2,14 @@ import React, { ReactNode, HTMLAttributes } from 'react';
 import { motion, HTMLMotionProps } from 'framer-motion';
 import { LucideIcon } from 'lucide-react';
 
-// Base interface for Ailydian components
-interface AilydianBaseProps {
+// Base interface for LyDian components
+interface LyDianBaseProps {
   className?: string;
   children?: ReactNode;
 }
 
 // ===== NEON TEXT COMPONENT =====
-interface NeonTextProps extends AilydianBaseProps {
+interface NeonTextProps extends LyDianBaseProps {
   variant?: 'pulse' | 'flicker' | 'static';
   color?: 'primary' | 'secondary' | 'white';
   size?: 'sm' | 'md' | 'lg' | 'xl' | '2xl';
@@ -27,14 +27,14 @@ export const NeonText: React.FC<NeonTextProps> = ({
 }) => {
   const baseClasses = 'font-bold';
   const variantClasses = {
-    pulse: 'ailydian-neon-text',
-    flicker: 'ailydian-neon-text-flicker',
-    static: 'text-ailydian-text',
+    pulse: 'lydian-neon-text',
+    flicker: 'lydian-neon-text-flicker',
+    static: 'text-lydian-text',
   };
   const colorClasses = {
-    primary: 'text-ailydian-primary',
-    secondary: 'text-ailydian-secondary',
-    white: 'text-ailydian-text',
+    primary: 'text-lydian-primary',
+    secondary: 'text-lydian-secondary',
+    white: 'text-lydian-text',
   };
   const sizeClasses = {
     sm: 'text-sm',

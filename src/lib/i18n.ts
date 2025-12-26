@@ -40,7 +40,7 @@ i18n
     load: 'languageOnly', // en-US yerine sadece en yükle
     preload: ['tr', 'en'], // Varsayılan dilleri önceden yükle
     
-    // Ailydian özelleştirmeleri
+    // LyDian özelleştirmeleri
     returnObjects: true,
     returnEmptyString: false,
     

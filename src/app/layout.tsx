@@ -1,16 +1,16 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
-import AilydianEcosystemFooter from '@/components/AilydianEcosystemFooter'
+import LyDianEcosystemFooter from '@/components/LyDianEcosystemFooter'
 import { QueryProvider } from '@/components/providers/QueryProvider'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Travel Ailydian - AI-Powered Global Tourism Platform',
+  title: 'Travel LyDian - AI-Powered Global Tourism Platform',
   description: 'Enterprise-grade AI-powered global tourism platform with interactive maps, dynamic pricing, and smart booking system.',
   keywords: 'travel, tourism, AI, booking, hotels, tours, Turkey, Istanbul, Cappadocia',
-  authors: [{ name: 'Travel Ailydian' }],
+  authors: [{ name: 'Travel LyDian' }],
   viewport: 'width=device-width, initial-scale=1',
   robots: 'index, follow',
   icons: {
@@ -25,16 +25,16 @@ export const metadata: Metadata = {
   },
   manifest: '/site.webmanifest',
   openGraph: {
-    title: 'Travel Ailydian - AI-Powered Global Tourism Platform',
+    title: 'Travel LyDian - AI-Powered Global Tourism Platform',
     description: 'Enterprise-grade AI-powered global tourism platform with interactive maps, dynamic pricing, and smart booking system.',
-    url: 'https://travel-ailydian-enterprise.vercel.app',
-    siteName: 'Travel Ailydian',
+    url: 'https://travel-lydian-enterprise.vercel.app',
+    siteName: 'Travel LyDian',
     images: [
       {
         url: '/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Travel Ailydian',
+        alt: 'Travel LyDian',
       },
     ],
     locale: 'tr_TR',
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Travel Ailydian - AI-Powered Tourism',
+    title: 'Travel LyDian - AI-Powered Tourism',
     description: 'Enterprise-grade AI-powered global tourism platform',
     images: ['/og-image.jpg'],
   },
@@ -61,9 +61,9 @@ export default function RootLayout({
             {children}
           </div>
 
-          {/* Ailydian Ecosystem Cross-Links - Güvenli ekleme, mevcut footer'a zarar vermez */}
-          <AilydianEcosystemFooter
-            currentDomain="travel.ailydian.com"
+          {/* LyDian Ecosystem Cross-Links - Güvenli ekleme, mevcut footer'a zarar vermez */}
+          <LyDianEcosystemFooter
+            currentDomain="travel.lydian.com"
             theme="light"
             position="above-footer"
           />

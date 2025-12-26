@@ -1,266 +1,181 @@
 {
-  "welcome": "مرحباً بكم",
-  "title": "ترافل أيليديان إنتربرايز",
-  "subtitle": "تجارب سفر استثنائية",
-  "search": "بحث",
-  "destinations": "الوجهات",
-  "hotels": "الفنادق",
-  "flights": "الطيران",
-  "activities": "الأنشطة",
-  "blockchain": "البلوك تشين",
-  "ai_assistant": "مساعد الذكاء الاصطناعي",
-  "virtual_tours": "الجولات الافتراضية",
-  "social_hub": "المركز الاجتماعي",
-  "voice_commands": "الأوامر الصوتية",
-  
-  "meta": {
-    "title": "ترافل أيليديان - منصة السفر المدعومة بالذكاء الاصطناعي",
-    "description": "خطط لعطلة أحلامك مع منصة السفر الذكية المدعومة بالذكاء الاصطناعي. احصل على أفضل الأسعار للفنادق وتذاكر الطيران والجولات في تركيا وحول العالم.",
-    "keywords": "سفر، عطلة، حجز فنادق، تذاكر طيران، جولات، أنشطة، سفر بالذكاء الاصطناعي، سياحة تركيا"
+  "_note": "[NEEDS_PROFESSIONAL_TRANSLATION] هذه الترجمات تم إنشاؤها آليًا وتحتاج إلى مراجعة من قبل مترجم محترف - RTL Enabled",
+  "_rtl": true,
+  "seo": {
+    "title": "Travel.LyDian - منصة سياحية مدعومة بالذكاء الاصطناعي",
+    "description": "اكتشف العالم مع توصيات السفر المدعومة بالذكاء الاصطناعي. اقتراحات مخصصة وحجوزات آمنة.",
+    "keywords": "سفر، سياحة، فندق، جولة، تأجير سيارات، نقل، عطلة، حجز، ذكاء اصطناعي"
   },
   "navigation": {
     "home": "الرئيسية",
-    "destinations": "الوجهات", 
     "hotels": "الفنادق",
-    "flights": "الطيران",
-    "activities": "الأنشطة",
     "tours": "الجولات",
-    "cars": "تأجير السيارات",
-    "restaurants": "المطاعم",
-    "myTrips": "رحلاتي",
+    "carRentals": "تأجير السيارات",
+    "transfers": "النقل",
+    "rentals": "الإيجارات",
     "favorites": "المفضلة",
-    "support": "الدعم",
-    "about": "من نحن",
-    "contact": "اتصل بنا",
+    "cart": "السلة",
+    "profile": "حسابي",
     "help": "المساعدة",
     "login": "تسجيل الدخول",
-    "register": "إنشاء حساب",
-    "profile": "الملف الشخصي",
+    "register": "التسجيل",
     "logout": "تسجيل الخروج"
   },
-  "hero": {
-    "title": "اكتشف العالم",
-    "subtitle": "خطط لعطلة أحلامك مع منصة السفر الذكية المدعومة بالذكاء الاصطناعي",
-    "description": "توصيات مخصصة، أفضل الأسعار، حجوزات آمنة.",
-    "searchPlaceholder": "أين تريد أن تذهب؟",
-    "searchButton": "بحث",
-    "discoverMore": "اكتشف المزيد"
+  "header": {
+    "currency": "USD",
+    "language": "العربية",
+    "help": "المساعدة",
+    "signIn": "تسجيل الدخول",
+    "signUp": "التسجيل",
+    "myAccount": "حسابي"
   },
   "search": {
-    "tabs": {
-      "flights": "الطيران",
-      "hotels": "الفنادق", 
-      "cars": "تأجير السيارات",
-      "restaurants": "المطاعم",
-      "activities": "الأنشطة"
-    },
-    "placeholders": {
-      "destination": "اختر الوجهة",
-      "checkIn": "تاريخ الوصول",
-      "checkOut": "تاريخ المغادرة",
-      "guests": "عدد الضيوف",
-      "departure": "تاريخ الذهاب",
-      "return": "تاريخ العودة"
-    },
-    "tripTypes": {
-      "roundTrip": "ذهاب وعودة",
-      "oneWay": "اتجاه واحد"
-    },
-    "guestOptions": {
-      "1": "شخص واحد",
-      "2": "شخصان", 
-      "3": "3 أشخاص",
-      "4": "4+ أشخاص"
-    },
-    "advancedFilters": "تصفية متقدمة",
-    "searchButtons": {
-      "searchFlights": "البحث عن رحلات",
-      "searchHotels": "البحث عن فنادق",
-      "searchCars": "البحث عن سيارات",
-      "searchRestaurants": "البحث عن مطاعم",
-      "searchActivities": "البحث عن أنشطة"
-    }
-  },
-  "destinations": {
-    "popular": "الوجهات الشعبية",
-    "featured": "الأماكن المميزة",
-    "experiences": "تجربة",
-    "reviews": "تقييم",
-    "startingFrom": "ابتداءً من",
-    "viewMore": "عرض المزيد",
-    "bookNow": "احجز الآن"
-  },
-  "hotels": {
-    "recommended": "الفنادق الموصى بها",
-    "luxury": "فنادق فاخرة",
-    "perNight": "لكل ليلة",
-    "amenities": "المرافق",
-    "starRating": "{{count}} نجمة",
-    "guestRating": "تقييم الضيوف",
-    "bookNow": "احجز الآن",
-    "viewDetails": "عرض التفاصيل"
-  },
-  "features": {
-    "title": "لماذا ترافل أيليديان؟",
-    "aiPowered": {
-      "title": "مدعوم بالذكاء الاصطناعي",
-      "description": "توصيات سفر مخصصة بواسطة الذكاء الاصطناعي"
-    },
-    "securePayment": {
-      "title": "دفع آمن", 
-      "description": "نظام دفع آمن محمي بشهادة SSL"
-    },
-    "support247": {
-      "title": "دعم 24/7",
-      "description": "نحن هنا دائماً من أجلك، تواصل معنا في أي وقت"
-    },
-    "bestPrice": {
-      "title": "أفضل سعر",
-      "description": "أفضل الأسعار المضمونة لحجوزاتك"
-    },
-    "blockchainVerified": {
-      "title": "تحقق البلوك تشين",
-      "description": "جميع الحجوزات مؤمنة بتقنية البلوك تشين"
-    },
-    "vrPreview": {
-      "title": "معاينة الواقع الافتراضي", 
-      "description": "تجربة الواقع الافتراضي قبل الحجز"
-    }
-  },
-  "auth": {
-    "signIn": "تسجيل الدخول",
-    "signUp": "إنشاء حساب",
-    "email": "البريد الإلكتروني",
-    "password": "كلمة المرور", 
-    "confirmPassword": "تأكيد كلمة المرور",
-    "firstName": "الاسم الأول",
-    "lastName": "اسم العائلة",
-    "phone": "الهاتف",
-    "rememberMe": "تذكرني",
-    "forgotPassword": "نسيت كلمة المرور",
-    "noAccount": "لا تملك حساب؟",
-    "hasAccount": "لديك حساب بالفعل؟",
-    "signInWith": "سجل الدخول باستخدام:",
-    "or": "أو"
-  },
-  "footer": {
-    "company": {
-      "title": "الشركة",
-      "about": "من نحن",
-      "careers": "الوظائف", 
-      "press": "الصحافة",
-      "partnerships": "الشراكات",
-      "sustainability": "الاستدامة"
-    },
-    "support": {
-      "title": "الدعم",
-      "helpCenter": "مركز المساعدة",
-      "contact": "اتصل بنا",
-      "liveSupport": "الدعم المباشر",
-      "faq": "الأسئلة الشائعة",
-      "travelGuide": "دليل السفر"
-    },
-    "discover": {
-      "title": "اكتشف",
-      "destinations": "الوجهات",
-      "hotels": "الفنادق", 
-      "flights": "الطيران",
-      "activities": "الأنشطة",
-      "tours": "الجولات"
-    },
-    "legal": {
-      "privacy": "سياسة الخصوصية",
-      "terms": "شروط الخدمة",
-      "cookies": "سياسة ملفات تعريف الارتباط"
-    },
-    "newsletter": {
-      "title": "ابق على اطلاع بالعروض الخاصة",
-      "description": "احصل على أفضل عروض السفر والخصومات الحصرية وتوصيات الوجهات مباشرة في صندوق البريد الخاص بك",
-      "placeholder": "عنوان بريدك الإلكتروني...",
-      "subscribe": "اشترك"
-    },
-    "copyright": "© 2025 ترافل أيليديان. جميع الحقوق محفوظة.",
-    "poweredBy": "منصة سفر مدعومة بالذكاء الاصطناعي",
-    "features": {
-      "sslSecure": "آمن بـ SSL",
-      "aiPowered": "مدعوم بالذكاء الاصطناعي", 
-      "countries": "190+ دولة"
-    }
-  },
-  "common": {
-    "loading": "جارٍ التحميل...",
+    "placeholder": "إلى أين تريد الذهاب؟",
+    "searchButton": "بحث",
+    "destination": "الوجهة",
+    "checkIn": "تاريخ الوصول",
+    "checkOut": "تاريخ المغادرة",
+    "guests": "الضيوف",
+    "rooms": "الغرف",
+    "adults": "البالغون",
+    "children": "الأطفال",
     "search": "بحث",
-    "filter": "تصفية",
-    "sort": "ترتيب",
+    "clear": "مسح",
+    "filters": "الفلاتر",
+    "sortBy": "ترتيب حسب",
     "price": "السعر",
     "rating": "التقييم",
-    "reviews": "التقييمات",
-    "showMore": "عرض المزيد",
-    "showLess": "عرض أقل",
-    "viewAll": "عرض الكل",
-    "book": "احجز",
-    "select": "اختر",
+    "distance": "المسافة"
+  },
+  "booking": {
+    "bookNow": "احجز الآن",
+    "checkAvailability": "تحقق من التوفر",
+    "reserve": "احجز",
     "cancel": "إلغاء",
-    "confirm": "تأكيد",
+    "modify": "تعديل",
+    "confirmBooking": "تأكيد الحجز",
+    "bookingDetails": "تفاصيل الحجز",
+    "totalPrice": "السعر الإجمالي",
+    "perNight": "لكل ليلة",
+    "perPerson": "للشخص الواحد",
+    "includes": "يشمل",
+    "excludes": "لا يشمل"
+  },
+  "common": {
+    "yes": "نعم",
+    "no": "لا",
+    "ok": "موافق",
+    "cancel": "إلغاء",
     "save": "حفظ",
-    "edit": "تعديل",
     "delete": "حذف",
-    "share": "مشاركة",
-    "favorite": "إضافة للمفضلة",
-    "unfavorite": "إزالة من المفضلة",
-    "readMore": "اقرأ المزيد",
+    "edit": "تعديل",
+    "view": "عرض",
+    "more": "المزيد",
+    "less": "أقل",
+    "loading": "جاري التحميل...",
+    "error": "خطأ",
+    "success": "نجح",
+    "warning": "تحذير",
+    "info": "معلومات",
     "close": "إغلاق",
     "back": "رجوع",
     "next": "التالي",
     "previous": "السابق",
+    "submit": "إرسال",
+    "reset": "إعادة تعيين",
+    "required": "مطلوب",
+    "optional": "اختياري"
+  },
+  "tours": {
+    "title": "الجولات",
+    "description": "اكتشف أشهر الجولات",
+    "duration": "المدة",
+    "groupSize": "حجم المجموعة",
+    "languages": "اللغات",
+    "includes": "يشمل",
+    "meeting": "نقطة اللقاء",
+    "fromPrice": "من",
+    "perPerson": "للشخص الواحد",
+    "bookTour": "احجز الجولة",
+    "viewDetails": "عرض التفاصيل"
+  },
+  "hotels": {
+    "title": "الفنادق",
+    "description": "ابحث عن أفضل الفنادق",
+    "stars": "النجوم",
+    "amenities": "المرافق",
+    "location": "الموقع",
+    "reviews": "التقييمات",
+    "availability": "التوفر",
+    "checkIn": "الوصول",
+    "checkOut": "المغادرة",
+    "nights": "ليالي",
+    "rooms": "الغرف",
+    "viewHotel": "عرض الفندق"
+  },
+  "cars": {
+    "title": "تأجير السيارات",
+    "description": "استأجر سيارتك المثالية",
+    "pickUp": "موقع الاستلام",
+    "dropOff": "موقع التسليم",
+    "pickUpDate": "تاريخ الاستلام",
+    "dropOffDate": "تاريخ التسليم",
+    "carType": "نوع السيارة",
+    "transmission": "ناقل الحركة",
+    "passengers": "الركاب",
+    "luggage": "الأمتعة",
+    "rentCar": "استأجر سيارة"
+  },
+  "transfers": {
+    "title": "النقل",
+    "description": "خدمات نقل مريحة",
+    "from": "من",
+    "to": "إلى",
     "date": "التاريخ",
     "time": "الوقت",
-    "duration": "المدة",
-    "location": "الموقع",
-    "address": "العنوان",
-    "phone": "الهاتف",
-    "email": "البريد الإلكتروني",
-    "website": "الموقع الإلكتروني",
-    "available": "متوفر",
-    "unavailable": "غير متوفر",
-    "soldOut": "نفدت الكمية",
-    "popular": "شعبي",
-    "recommended": "موصى به",
-    "new": "جديد",
-    "hot": "رائج",
-    "sale": "تخفيض"
+    "passengers": "الركاب",
+    "vehicleType": "نوع المركبة",
+    "bookTransfer": "احجز النقل"
   },
-  "currency": {
-    "try": "₺",
-    "usd": "$",
-    "eur": "€",
-    "gbp": "£"
+  "footer": {
+    "about": "من نحن",
+    "contact": "اتصل بنا",
+    "terms": "شروط الاستخدام",
+    "privacy": "سياسة الخصوصية",
+    "faq": "الأسئلة الشائعة",
+    "support": "الدعم",
+    "careers": "الوظائف",
+    "partners": "الشركاء",
+    "press": "الصحافة",
+    "copyright": "© 2025 Travel.LyDian. جميع الحقوق محفوظة."
+  },
+  "validation": {
+    "required": "هذا الحقل مطلوب",
+    "email": "يرجى إدخال عنوان بريد إلكتروني صالح",
+    "phone": "يرجى إدخال رقم هاتف صالح",
+    "minLength": "يجب أن يكون {{min}} أحرف على الأقل",
+    "maxLength": "يجب أن يكون {{max}} حرفًا على الأكثر",
+    "invalidDate": "تاريخ غير صالح",
+    "passwordMismatch": "كلمات المرور غير متطابقة",
+    "invalidCard": "رقم بطاقة غير صالح"
   },
   "errors": {
-    "404": {
-      "title": "الصفحة غير موجودة",
-      "subtitle": "الصفحة التي تبحث عنها غير موجودة",
-      "description": "عذراً، الصفحة التي تبحث عنها قد تم نقلها أو حذفها أو غير موجودة.",
-      "backHome": "العودة للرئيسية",
-      "search": "بحث"
-    },
-    "500": {
-      "title": "خطأ في الخادم",
-      "subtitle": "حدث خطأ ما",
-      "description": "نواجه مشكلة تقنية مؤقتة. يرجى المحاولة مرة أخرى لاحقاً.",
-      "retry": "حاول مرة أخرى",
-      "contact": "اتصل بالدعم"
-    },
-    "offline": {
-      "title": "غير متصل",
-      "description": "يرجى التحقق من اتصالك بالإنترنت"
-    },
-    "validation": {
-      "required": "هذا الحقل مطلوب",
-      "email": "يرجى إدخال عنوان بريد إلكتروني صحيح",
-      "phone": "يرجى إدخال رقم هاتف صحيح",
-      "minLength": "يجب أن يكون {{min}} أحرف على الأقل",
-      "maxLength": "يجب ألا يزيد عن {{max}} حرف"
-    }
+    "404": "الصفحة غير موجودة",
+    "500": "خطأ في الخادم",
+    "networkError": "خطأ في اتصال الشبكة",
+    "unknownError": "حدث خطأ غير معروف",
+    "tryAgain": "يرجى المحاولة مرة أخرى"
+  },
+  "payment": {
+    "title": "الدفع",
+    "cardNumber": "رقم البطاقة",
+    "cardHolder": "حامل البطاقة",
+    "expiryDate": "تاريخ الانتهاء",
+    "cvv": "CVV",
+    "payNow": "ادفع الآن",
+    "paymentMethod": "طريقة الدفع",
+    "creditCard": "بطاقة ائتمان",
+    "paypal": "PayPal",
+    "crypto": "عملة مشفرة"
   }
 }

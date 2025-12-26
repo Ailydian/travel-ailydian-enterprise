@@ -1,5 +1,5 @@
-// Ailydian Miles Loyalty Program
-// ₺1 harcama = 1 Ailydian Mile
+// LyDian Miles Loyalty Program
+// ₺1 harcama = 1 LyDian Mile
 // Miles ile rezervasyon yapılabilir, indirim kazanılır
 
 export interface UserMilesAccount {

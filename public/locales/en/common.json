@@ -1,47 +1,254 @@
 {
-  "nav": {
+  "seo": {
+    "title": "Travel.LyDian - AI-Powered Tourism Platform",
+    "description": "Discover the world with AI-powered travel recommendations. Personalized suggestions and secure bookings.",
+    "keywords": "travel, tourism, hotel, tour, car rental, transfer, vacation, booking, artificial intelligence"
+  },
+  "navigation": {
     "home": "Home",
+    "hotels": "Hotels",
+    "tours": "Tours",
     "carRentals": "Car Rentals",
     "transfers": "Transfers",
-    "tours": "Tours",
-    "experiences": "Experiences",
-    "rentals": "Accommodations"
+    "rentals": "Rentals",
+    "favorites": "Favorites",
+    "cart": "Cart",
+    "profile": "My Account",
+    "help": "Help",
+    "login": "Sign In",
+    "register": "Sign Up",
+    "logout": "Sign Out"
   },
-  "dashboard": {
-    "title": "System Management",
-    "search": "Search...",
-    "totalRevenue": "Total Revenue",
-    "activeBookings": "Active Bookings",
-    "totalUsers": "Total Users",
-    "satisfaction": "Customer Satisfaction",
-    "productPerformance": "Product Performance",
-    "recentActivity": "Recent Activity",
-    "revenueTrend": "Revenue Trend",
-    "quickStats": "Quick Stats",
-    "downloadReport": "Download Report",
-    "viewAll": "View All",
-    "details": "Details"
+  "header": {
+    "currency": "USD",
+    "language": "English",
+    "help": "Help",
+    "signIn": "Sign In",
+    "signUp": "Sign Up",
+    "myAccount": "My Account"
   },
-  "filters": {
-    "last24h": "Last 24 Hours",
-    "last7d": "Last 7 Days",
-    "last30d": "Last 30 Days",
-    "last90d": "Last 90 Days",
-    "allProducts": "All Products"
+  "search": {
+    "placeholder": "Where do you want to go?",
+    "searchButton": "Search",
+    "destination": "Destination",
+    "checkIn": "Check-in Date",
+    "checkOut": "Check-out Date",
+    "guests": "Guests",
+    "rooms": "Rooms",
+    "adults": "Adults",
+    "children": "Children",
+    "search": "Search",
+    "clear": "Clear",
+    "filters": "Filters",
+    "sortBy": {
+      "popular": "Popularity",
+      "rating": "Rating",
+      "priceLow": "Price: Low to High",
+      "priceHigh": "Price: High to Low"
+    },
+    "price": "Price",
+    "rating": "Rating",
+    "distance": "Distance",
+    "guest": "Guest",
+    "dates": "Dates",
+    "priceRange": "Price Range",
+    "categories": "Categories",
+    "duration": "Duration",
+    "applyFilters": "Apply Filters"
   },
-  "products": {
-    "carRental": "Car Rentals",
-    "transfer": "Transfer Services",
-    "accommodation": "Accommodation",
-    "tours": "Tours"
+  "booking": {
+    "bookNow": "Book Now",
+    "checkAvailability": "Check Availability",
+    "reserve": "Reserve",
+    "cancel": "Cancel",
+    "modify": "Modify",
+    "confirmBooking": "Confirm Booking",
+    "bookingDetails": "Booking Details",
+    "totalPrice": "Total Price",
+    "perNight": "per night",
+    "perPerson": "per person",
+    "includes": "Includes",
+    "excludes": "Excludes"
   },
   "common": {
-    "revenue": "Revenue",
-    "bookings": "Bookings",
-    "active": "Active",
+    "yes": "Yes",
+    "no": "No",
+    "ok": "OK",
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "view": "View",
+    "more": "More",
+    "less": "Less",
+    "loading": "Loading...",
+    "error": "Error",
     "success": "Success",
     "warning": "Warning",
-    "error": "Error",
-    "info": "Info"
+    "info": "Info",
+    "close": "Close",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "submit": "Submit",
+    "reset": "Reset",
+    "required": "Required",
+    "optional": "Optional"
+  },
+  "tours": {
+    "title": "Tours",
+    "description": "Discover the most popular tours",
+    "duration": "Duration",
+    "groupSize": "Group Size",
+    "languages": "Languages",
+    "includes": "Includes",
+    "meeting": "Meeting Point",
+    "fromPrice": "from",
+    "perPerson": "per person",
+    "bookTour": "Book Tour",
+    "viewDetails": "View Details"
+  },
+  "hotels": {
+    "title": "Hotels",
+    "description": "Find the best hotels",
+    "stars": "Stars",
+    "amenities": "Amenities",
+    "location": "Location",
+    "reviews": "Reviews",
+    "availability": "Availability",
+    "checkIn": "Check-in",
+    "checkOut": "Check-out",
+    "nights": "Nights",
+    "rooms": "Rooms",
+    "viewHotel": "View Hotel"
+  },
+  "cars": {
+    "title": "Car Rentals",
+    "description": "Rent your ideal car",
+    "pickUp": "Pick-up Location",
+    "dropOff": "Drop-off Location",
+    "pickUpDate": "Pick-up Date",
+    "dropOffDate": "Drop-off Date",
+    "carType": "Car Type",
+    "transmission": "Transmission",
+    "passengers": "Passengers",
+    "luggage": "Luggage",
+    "rentCar": "Rent Car"
+  },
+  "transfers": {
+    "title": "Transfers",
+    "description": "Comfortable transfer services",
+    "from": "From",
+    "to": "To",
+    "date": "Date",
+    "time": "Time",
+    "passengers": "Passengers",
+    "vehicleType": "Vehicle Type",
+    "bookTransfer": "Book Transfer"
+  },
+  "footer": {
+    "about": "About Us",
+    "contact": "Contact",
+    "terms": "Terms of Service",
+    "privacy": "Privacy Policy",
+    "faq": "FAQ",
+    "support": "Support",
+    "careers": "Careers",
+    "partners": "Partners",
+    "press": "Press",
+    "copyright": "© 2025 Travel.LyDian. All rights reserved."
+  },
+  "validation": {
+    "required": "This field is required",
+    "email": "Please enter a valid email address",
+    "phone": "Please enter a valid phone number",
+    "minLength": "Must be at least {{min}} characters",
+    "maxLength": "Must be at most {{max}} characters",
+    "invalidDate": "Invalid date",
+    "passwordMismatch": "Passwords do not match",
+    "invalidCard": "Invalid card number"
+  },
+  "errors": {
+    "404": "Page not found",
+    "500": "Server error",
+    "networkError": "Network connection error",
+    "unknownError": "An unknown error occurred",
+    "tryAgain": "Please try again"
+  },
+  "payment": {
+    "title": "Payment",
+    "cardNumber": "Card Number",
+    "cardHolder": "Card Holder",
+    "expiryDate": "Expiry Date",
+    "cvv": "CVV",
+    "payNow": "Pay Now",
+    "paymentMethod": "Payment Method",
+    "creditCard": "Credit Card",
+    "paypal": "PayPal",
+    "crypto": "Cryptocurrency"
+  },
+  "explore": {
+    "title": "Explore",
+    "viewAll": "View All",
+    "exploreMore": "Explore More",
+    "viewCollection": "View Collection",
+    "items": "items",
+    "experiencesFound": "experiences found",
+    "trending": "Trending",
+    "trendingDescription": "Most popular experiences",
+    "exploreTrending": "Explore Trending",
+    "popularDestinations": "Popular Destinations",
+    "destinationsSubtitle": "Most visited places",
+    "seo": {
+      "title": "Explore - Tours, Activities and Experiences",
+      "description": "Discover the best things to do in Antalya and surrounding areas. Tours, activities, accommodation and more.",
+      "keywords": "explore, antalya tours, activities, experiences, things to do"
+    },
+    "hero": {
+      "title": "Discover Your Adventure",
+      "subtitle": "Find your perfect experience among thousands",
+      "searchPlaceholder": "Where do you want to go?",
+      "selectDates": "Select dates",
+      "stats": {
+        "experiences": "Experiences",
+        "reviews": "Reviews",
+        "destinations": "Destinations"
+      }
+    },
+    "categories": {
+      "title": "What Do You Want To Do?",
+      "subtitle": "Explore categories based on your interests"
+    },
+    "collections": {
+      "title": "Curated Collections",
+      "subtitle": "Experiences specially prepared for you"
+    },
+    "newsletter": {
+      "title": "Don't Miss Special Offers",
+      "subtitle": "Subscribe to our newsletter and be the first to learn about the best deals",
+      "placeholder": "Your email address",
+      "subscribe": "Subscribe"
+    },
+    "thingsToDo": {
+      "title": "Things to Do",
+      "subtitle": "Best tours and activities",
+      "seo": {
+        "title": "Things to Do - Tours and Activities",
+        "description": "Best things to do in Antalya, tours and activities. Discover and book now!"
+      }
+    },
+    "destination": {
+      "overview": "Overview",
+      "bestFor": "Best For",
+      "tours": "Tours",
+      "hotels": "Hotels",
+      "attractions": "Attractions",
+      "weather": "Weather",
+      "summer": "Summer",
+      "winter": "Winter",
+      "bestMonths": "Best Months",
+      "topAttractions": "Top Attractions",
+      "topExperiences": "Top Experiences"
+    }
   }
 }

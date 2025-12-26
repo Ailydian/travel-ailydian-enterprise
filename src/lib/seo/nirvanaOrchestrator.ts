@@ -2,7 +2,7 @@
  * NIRVANA SEO ORCHESTRATOR
  * Tüm SEO sistemlerini orkestrasyonu eden ana motor
  *
- * Amaç: travel.ailydian.com'u Google'da 1. sayfa 1. sıraya çıkarmak
+ * Amaç: travel.lydian.com'u Google'da 1. sayfa 1. sıraya çıkarmak
  *
  * Stratejiler:
  * ✅ Nirvana SEO - Keyword Intelligence & Content Optimization
@@ -241,32 +241,32 @@ export class NirvanaSEOOrchestrator {
       travel: {
         keywords: this.nirvanaSEO.getTotalKeywords(),
         searchVolume: this.nirvanaSEO.getTotalSearchVolume(),
-        domain: 'travel.ailydian.com'
+        domain: 'travel.lydian.com'
       },
       voice: {
         keywords: this.voiceSEO.getTotalKeywords(),
         searchVolume: this.voiceSEO.getTotalSearchVolume(),
-        domain: 'voice.ailydian.com'
+        domain: 'voice.lydian.com'
       },
       otoai: {
         keywords: this.otoaiSEO.getTotalKeywords(),
         searchVolume: this.otoaiSEO.getTotalSearchVolume(),
-        domain: 'otoai.ailydian.com'
+        domain: 'otoai.lydian.com'
       },
       blockchain: {
         keywords: this.blockchainSEO.getTotalKeywords(),
         searchVolume: this.blockchainSEO.getTotalSearchVolume(),
-        domain: 'blockchain.ailydian.com'
+        domain: 'blockchain.lydian.com'
       },
       os: {
         keywords: this.osSEO.getTotalKeywords(),
         searchVolume: this.osSEO.getTotalSearchVolume(),
-        domain: 'os.ailydian.com'
+        domain: 'os.lydian.com'
       },
       video: {
         keywords: this.videoSEO.getTotalKeywords(),
         searchVolume: this.videoSEO.getTotalSearchVolume(),
-        domain: 'video.ailydian.com'
+        domain: 'video.lydian.com'
       },
       total: {
         keywords: this.nirvanaSEO.getTotalKeywords() +
@@ -289,8 +289,8 @@ export class NirvanaSEOOrchestrator {
    * Submit all URLs to search engines
    */
   async submitToSearchEngines(urls: string[]): Promise<any> {
-    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://travel.ailydian.com';
-    const indexNowKey = process.env.INDEXNOW_KEY || 'travel-ailydian-indexnow-key-2025-production';
+    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://travel.lydian.com';
+    const indexNowKey = process.env.INDEXNOW_KEY || 'travel-lydian-indexnow-key-2025-production';
 
     console.log(`📤 Submitting ${urls.length} URLs to 5 search engines...`);
 
@@ -319,7 +319,7 @@ export class NirvanaSEOOrchestrator {
    * Generate complete orchestration report
    */
   async generateOrchestrationReport(): Promise<OrchestrationReport> {
-    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://travel.ailydian.com';
+    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://travel.lydian.com';
 
     console.log(`\n🎼 NIRVANA SEO ORCHESTRATION STARTING...\n`);
 

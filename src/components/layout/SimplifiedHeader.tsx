@@ -61,11 +61,11 @@ const SimplifiedHeader = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-gradient-to-br from-ailydian-primary to-ailydian-secondary rounded-lg flex items-center justify-center">
+            <div className="w-8 h-8 bg-gradient-to-br from-lydian-primary to-lydian-secondary rounded-lg flex items-center justify-center">
               <span className="text-white font-bold text-lg">T</span>
             </div>
-            <span className="font-bold text-xl bg-gradient-to-r from-ailydian-primary to-ailydian-secondary bg-clip-text text-transparent">
-              Travel Ailydian
+            <span className="font-bold text-xl bg-gradient-to-r from-lydian-primary to-lydian-secondary bg-clip-text text-transparent">
+              Travel LyDian
             </span>
           </Link>
 

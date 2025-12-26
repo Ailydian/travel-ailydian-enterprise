@@ -1,4 +1,4 @@
-# 🌍 Travel.Ailydian Global Scale Transformation Roadmap
+# 🌍 Travel.LyDian Global Scale Transformation Roadmap
 
 **Vision**: Dünyanın en gelişmiş AI-powered travel platformu
 **Mission**: Her traveler için kişiselleştirilmiş, güvenli ve unutulmaz seyahat deneyimleri
@@ -97,7 +97,7 @@ GET    /api/collaboration/consensus
 ```
 
 #### 1.3 Social Travel Network
-**Goal**: Travel.Ailydian'ı social platform haline getirmek
+**Goal**: Travel.LyDian'ı social platform haline getirmek
 
 **Features**:
 - **Travel Stories & Moments**
@@ -519,7 +519,7 @@ GET    /api/offline/data/:userId
 
 #### Microservices Structure
 ```
-travel-ailydian-platform/
+travel-lydian-platform/
 ├── api-gateway/                 # Kong/Nginx
 ├── services/
 │   ├── auth-service/           # JWT, OAuth
@@ -718,4 +718,4 @@ travel-ailydian-platform/
 
 *Last Updated*: 2024-12-19
 *Version*: 1.0.0
-*Author*: Travel.Ailydian Core Team
+*Author*: Travel.LyDian Core Team

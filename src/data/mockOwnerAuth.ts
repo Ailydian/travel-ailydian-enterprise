@@ -52,7 +52,7 @@ export const MOCK_OWNERS: MockOwner[] = [
   },
   {
     id: 'owner-004',
-    email: 'demo@ailydian.com',
+    email: 'demo@lydian.com',
     password: 'Demo123!',
     fullName: 'Demo Kullanıcı',
     phone: '+90 555 123 4567',
@@ -63,7 +63,7 @@ export const MOCK_OWNERS: MockOwner[] = [
   },
   {
     id: 'owner-005',
-    email: 'test@ailydian.com',
+    email: 'test@lydian.com',
     password: 'Test123!',
     fullName: 'Test Kullanıcı',
     phone: '+90 555 987 6543',

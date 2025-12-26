@@ -1,6 +1,6 @@
 # 📊 SESSION 3 - TAMAMLANMA RAPORU
 
-**Proje:** Travel Ailydian Enterprise
+**Proje:** Travel LyDian Enterprise
 **Tarih:** 22 Aralık 2025
 **Durum:** ✅ **BAŞARIYLA TAMAMLANDI**
 **İlerleme:** %60 → %80 (+20%)
@@ -604,7 +604,7 @@ Session 3 mükemmel geçti!
 
 ### Run Server
 ```bash
-cd /Users/sardag/Desktop/travel-ailydian-enterprise
+cd /Users/sardag/Desktop/travel-lydian-enterprise
 npm run dev
 ```
 
@@ -642,5 +642,5 @@ npx prisma studio
 **Prepared By:** Claude (AI Assistant)
 **Date:** 22 Aralık 2025, 14:30
 **Session:** 3 of 4
-**Project:** Travel Ailydian Enterprise
+**Project:** Travel LyDian Enterprise
 **Status:** 🚀 **EXCELLENT**

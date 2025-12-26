@@ -1,7 +1,7 @@
 # 📋 SESSION 2 - ÖZET RAPOR
 
-**Proje:** Travel Ailydian Enterprise
-**Konum:** `/Users/sardag/Desktop/travel-ailydian-enterprise`
+**Proje:** Travel LyDian Enterprise
+**Konum:** `/Users/sardag/Desktop/travel-lydian-enterprise`
 **Tarih:** 22 Aralık 2025
 **Session Durumu:** BAŞARIYLA TAMAMLANDI ✅
 
@@ -523,7 +523,7 @@ Public APIs:
 
 ### Proje Konumu
 ```
-/Users/sardag/Desktop/travel-ailydian-enterprise
+/Users/sardag/Desktop/travel-lydian-enterprise
 ```
 
 ### Önemli Dosyalar (Session 2)

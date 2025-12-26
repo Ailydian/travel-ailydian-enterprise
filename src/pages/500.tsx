@@ -51,7 +51,7 @@ const Custom500Page: React.FC = () => {
   return (
     <>
       <Head>
-        <title>{t('errors.500.title')} | Travel.Ailydian</title>
+        <title>{t('errors.500.title')} | Travel.LyDian</title>
         <meta name="description" content={t('errors.500.description')} />
         <meta name="robots" content="noindex, nofollow" />
       </Head>
@@ -87,7 +87,7 @@ const Custom500Page: React.FC = () => {
                     color: 'var(--tx-1)',
                     textShadow: '0 0 15px var(--ac-1), 0 0 30px var(--ac-1)'
                   }}>
-                    Travel.Ailydian
+                    Travel.LyDian
                   </span>
                 </Link>
 
@@ -242,10 +242,10 @@ const Custom500Page: React.FC = () => {
                       </div>
                     </div>
                     <a 
-                      href="mailto:support@travel.ailydian.com"
+                      href="mailto:support@travel.lydian.com"
                       className="text-red-600 hover:text-red-700 font-medium text-sm"
                     >
-                      support@travel.ailydian.com
+                      support@travel.lydian.com
                     </a>
                   </div>
 
@@ -309,7 +309,7 @@ const Custom500Page: React.FC = () => {
           <footer className="bg-white/80 backdrop-blur-md border-t border-gray-200/50 py-6">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="text-center text-gray-600">
-                <p>&copy; 2025 Travel.Ailydian. Tüm hakları saklıdır.</p>
+                <p>&copy; 2025 Travel.LyDian. Tüm hakları saklıdır.</p>
                 <p className="mt-1 text-sm">AI Destekli Seyahat Platformu</p>
               </div>
             </div>

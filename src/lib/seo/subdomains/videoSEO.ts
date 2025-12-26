@@ -3,8 +3,8 @@
  * ❌ No author names/photos ✅ URL-specific images & short intros
  */
 
-export class VideoAilydianSEO {
-  private readonly baseUrl = 'https://video.ailydian.com';
+export class VideoLyDianSEO {
+  private readonly baseUrl = 'https://video.lydian.com';
 
   private readonly platformIntros = {
     homepage: 'Create professional videos in seconds with AI. Text-to-video, auto-editing, and 200+ templates. 4K resolution support. Perfect for social media, marketing, and education.',
@@ -82,11 +82,11 @@ export class VideoAilydianSEO {
   }
 }
 
-let videoSEOInstance: VideoAilydianSEO | null = null;
+let videoSEOInstance: VideoLyDianSEO | null = null;
 
-export function getVideoSEO(): VideoAilydianSEO {
+export function getVideoSEO(): VideoLyDianSEO {
   if (!videoSEOInstance) {
-    videoSEOInstance = new VideoAilydianSEO();
+    videoSEOInstance = new VideoLyDianSEO();
   }
   return videoSEOInstance;
 }

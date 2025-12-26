@@ -1,5 +1,5 @@
 /**
- * Comprehensive Help Center Page - Travel.Ailydian.com
+ * Comprehensive Help Center Page - Travel.LyDian.com
  * Inspired by GetYourGuide, Viator, Booking.com, TripAdvisor
  *
  * Features:
@@ -89,7 +89,7 @@ const faqs: FAQ[] = [
     id: 6,
     category: 'rezervasyon',
     question: 'Grup rezervasyonu için indirim var mı?',
-    answer: 'Evet! 10 kişi ve üzeri grup rezervasyonlarında %15\'e varan indirimler sunuyoruz. Grup rezervasyonu için info@ailydian.com adresine grup büyüklüğü, tarih ve destinasyon bilgilerini gönderin. Özel grup fiyatı teklifi 24 saat içinde tarafınıza iletilecektir.'
+    answer: 'Evet! 10 kişi ve üzeri grup rezervasyonlarında %15\'e varan indirimler sunuyoruz. Grup rezervasyonu için info@lydian.com adresine grup büyüklüğü, tarih ve destinasyon bilgilerini gönderin. Özel grup fiyatı teklifi 24 saat içinde tarafınıza iletilecektir.'
   },
   {
     id: 7,
@@ -319,7 +319,7 @@ const faqs: FAQ[] = [
     id: 43,
     category: 'iptal',
     question: 'Rezervasyonumu nasıl iptal edebilirim?',
-    answer: 'İptal için 3 yöntem: 1) Web: Hesabınıza giriş yapın > "Seyahatlerim" > Rezervasyon seçin > "İptal Et" butonuna tıklayın. 2) Telefon: 0850 123 45 67 numaralı çağrı merkezini arayın. 3) E-posta: info@ailydian.com adresine rezervasyon numaranızla iptal talebi gönderin. İptal onayı e-posta ile gelir.'
+    answer: 'İptal için 3 yöntem: 1) Web: Hesabınıza giriş yapın > "Seyahatlerim" > Rezervasyon seçin > "İptal Et" butonuna tıklayın. 2) Telefon: 0850 123 45 67 numaralı çağrı merkezini arayın. 3) E-posta: info@lydian.com adresine rezervasyon numaranızla iptal talebi gönderin. İptal onayı e-posta ile gelir.'
   },
   {
     id: 44,
@@ -367,7 +367,7 @@ const faqs: FAQ[] = [
     id: 51,
     category: 'iptal',
     question: 'İade ücretim eksik geldi, ne yapmalıyım?',
-    answer: 'İade tutarı, iptal ücretleri ve muafiyetler çıkarıldıktan sonraki net tutar olarak yapılır. Hesabınızın "İşlem Detayları" bölümünde kesintilerin dökümünü görebilirsiniz. Eksiklik olduğunu düşünüyorsanız, finansal işlemler ekibimize (finans@ailydian.com) başvurun, 48 saat içinde inceleme yapılır.'
+    answer: 'İade tutarı, iptal ücretleri ve muafiyetler çıkarıldıktan sonraki net tutar olarak yapılır. Hesabınızın "İşlem Detayları" bölümünde kesintilerin dökümünü görebilirsiniz. Eksiklik olduğunu düşünüyorsanız, finansal işlemler ekibimize (finans@lydian.com) başvurun, 48 saat içinde inceleme yapılır.'
   },
 
   // HESAP VE PROFİL (Account & Profile) - 7 questions
@@ -437,13 +437,13 @@ const faqs: FAQ[] = [
     id: 62,
     category: 'guvenlik',
     question: 'Phishing (dolandırıcılık) e-postalarından nasıl korunurum?',
-    answer: 'Ailydian Travel asla e-posta ile şifre, kredi kartı bilgisi istemez! Şüpheli e-postalar için kontrol: 1) Gönderen adresi @ailydian.com mi? 2) Kişisel bilgi isteniyor mu? 3) Acil eylem (hesabınız kapatılacak vb.) tehdidi var mı? Şüpheli e-posta aldıysanız açmayın, security@ailydian.com adresine iletin.'
+    answer: 'LyDian Travel asla e-posta ile şifre, kredi kartı bilgisi istemez! Şüpheli e-postalar için kontrol: 1) Gönderen adresi @lydian.com mi? 2) Kişisel bilgi isteniyor mu? 3) Acil eylem (hesabınız kapatılacak vb.) tehdidi var mı? Şüpheli e-posta aldıysanız açmayın, security@lydian.com adresine iletin.'
   },
   {
     id: 63,
     category: 'guvenlik',
     question: 'Hesabım hacklendi, ne yapmalıyım?',
-    answer: 'Acil durum adımları: 1) Hemen şifrenizi değiştirin (şifre sıfırlama). 2) Yetkisiz rezervasyon varsa anında iptal edin ve bizi arayın (0850 123 45 67). 3) Kredi kartınızı bloke ettirin. 4) security@ailydian.com adresine bildirin. Ekibimiz hesabınızı inceleyecek, güvenlik önlemleri alacak ve yetkisiz işlemleri iptal edecektir.'
+    answer: 'Acil durum adımları: 1) Hemen şifrenizi değiştirin (şifre sıfırlama). 2) Yetkisiz rezervasyon varsa anında iptal edin ve bizi arayın (0850 123 45 67). 3) Kredi kartınızı bloke ettirin. 4) security@lydian.com adresine bildirin. Ekibimiz hesabınızı inceleyecek, güvenlik önlemleri alacak ve yetkisiz işlemleri iptal edecektir.'
   },
   {
     id: 64,
@@ -463,7 +463,7 @@ const faqs: FAQ[] = [
     id: 66,
     category: 'teknik',
     question: 'Web sitesine giriş yapamıyorum, ne yapmalıyım?',
-    answer: 'Giriş sorunları için kontrol: 1) E-posta ve şifre doğru mu? (büyük/küçük harf duyarlı). 2) Hesabınızı aktivasyon e-postasından aktif ettiniz mi? 3) Tarayıcı çerezleri (cookies) aktif mi? 4) Şifre sıfırlama deneyin. 5) Farklı tarayıcı (Chrome, Firefox, Safari) deneyin. Sorun devam ederse support@ailydian.com adresine yazın.'
+    answer: 'Giriş sorunları için kontrol: 1) E-posta ve şifre doğru mu? (büyük/küçük harf duyarlı). 2) Hesabınızı aktivasyon e-postasından aktif ettiniz mi? 3) Tarayıcı çerezleri (cookies) aktif mi? 4) Şifre sıfırlama deneyin. 5) Farklı tarayıcı (Chrome, Firefox, Safari) deneyin. Sorun devam ederse support@lydian.com adresine yazın.'
   },
   {
     id: 67,
@@ -475,13 +475,13 @@ const faqs: FAQ[] = [
     id: 68,
     category: 'teknik',
     question: 'Rezervasyon onay e-postası gelmiyor.',
-    answer: 'E-posta gelmiyorsa: 1) Spam/gereksiz/reklam klasörlerini kontrol edin. 2) E-posta adresinizi doğru girdiğinizden emin olun ("Profilim" > kontrol). 3) 15 dakika bekleyin (sistem gecikmesi olabilir). 4) "Seyahatlerim" bölümünden voucher\'ı manuel indirin. 5) Gelmediyse info@ailydian.com adresine rezervasyon numaranızla yazın, tekrar göndeririz.'
+    answer: 'E-posta gelmiyorsa: 1) Spam/gereksiz/reklam klasörlerini kontrol edin. 2) E-posta adresinizi doğru girdiğinizden emin olun ("Profilim" > kontrol). 3) 15 dakika bekleyin (sistem gecikmesi olabilir). 4) "Seyahatlerim" bölümünden voucher\'ı manuel indirin. 5) Gelmediyse info@lydian.com adresine rezervasyon numaranızla yazın, tekrar göndeririz.'
   },
   {
     id: 69,
     category: 'teknik',
     question: 'Mobil sitede görüntü sorunu yaşıyorum.',
-    answer: 'Mobil sorunlar için: 1) Tarayıcı önbelleğini (cache) temizleyin. 2) Sayfayı yenileyin (swipe down). 3) Tarayıcınızı güncelleyin (eski sürümler desteklenmez). 4) WiFi yerine mobil veri deneyin (ağ sorunu). 5) Ekran görüntüsü alıp support@ailydian.com adresine gönderin, teknik ekibimiz çözüm sağlar.'
+    answer: 'Mobil sorunlar için: 1) Tarayıcı önbelleğini (cache) temizleyin. 2) Sayfayı yenileyin (swipe down). 3) Tarayıcınızı güncelleyin (eski sürümler desteklenmez). 4) WiFi yerine mobil veri deneyin (ağ sorunu). 5) Ekran görüntüsü alıp support@lydian.com adresine gönderin, teknik ekibimiz çözüm sağlar.'
   },
   {
     id: 70,
@@ -650,10 +650,10 @@ const HelpPage: React.FC = () => {
   return (
     <>
       <Head>
-        <title>Yardım Merkezi | Travel Ailydian - Tüm Sorularınızın Yanıtları</title>
+        <title>Yardım Merkezi | Travel LyDian - Tüm Sorularınızın Yanıtları</title>
         <meta
           name="description"
-          content="Travel Ailydian yardım merkezi. Rezervasyon, ödeme, turlar, transferler, araç kiralama, iptal ve iade hakkında 70+ soru-cevap. 7/24 destek."
+          content="Travel LyDian yardım merkezi. Rezervasyon, ödeme, turlar, transferler, araç kiralama, iptal ve iade hakkında 70+ soru-cevap. 7/24 destek."
         />
         <meta name="keywords" content="yardım merkezi, sıkça sorulan sorular, rezervasyon yardım, ödeme destek, tur bilgileri, transfer rehberi, müşteri hizmetleri" />
       </Head>
@@ -665,7 +665,7 @@ const HelpPage: React.FC = () => {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          className="relative bg-gradient-to-br from-ailydian-primary via-red-600 to-ailydian-secondary text-white py-20 overflow-hidden"
+          className="relative bg-gradient-to-br from-lydian-primary via-red-600 to-lydian-secondary text-white py-20 overflow-hidden"
         >
           {/* Animated background elements */}
           <div className="absolute inset-0 overflow-hidden">
@@ -780,7 +780,7 @@ const HelpPage: React.FC = () => {
                 <div className={`inline-flex p-3 rounded-xl bg-gradient-to-br ${topic.color} mb-4`}>
                   <topic.icon className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-ailydian-primary transition-colors">
+                <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-lydian-primary transition-colors">
                   {topic.title}
                 </h3>
                 <p className="text-gray-600">
@@ -866,10 +866,10 @@ const HelpPage: React.FC = () => {
                       className="w-full px-6 py-5 text-left flex items-start justify-between hover:bg-gray-50 transition-colors group"
                     >
                       <div className="flex items-start gap-4 flex-1 pr-4">
-                        <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-br from-ailydian-primary to-ailydian-secondary flex items-center justify-center text-white font-bold text-sm">
+                        <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-br from-lydian-primary to-lydian-secondary flex items-center justify-center text-white font-bold text-sm">
                           {index + 1}
                         </div>
-                        <span className="text-lg font-semibold text-gray-900 group-hover:text-ailydian-primary transition-colors">
+                        <span className="text-lg font-semibold text-gray-900 group-hover:text-lydian-primary transition-colors">
                           {faq.question}
                         </span>
                       </div>
@@ -891,7 +891,7 @@ const HelpPage: React.FC = () => {
                           className="overflow-hidden"
                         >
                           <div className="px-6 pb-6 pl-[72px]">
-                            <div className="bg-gray-50 rounded-lg p-4 border-l-4 border-ailydian-primary">
+                            <div className="bg-gray-50 rounded-lg p-4 border-l-4 border-lydian-primary">
                               <p className="text-gray-700 leading-relaxed whitespace-pre-line">
                                 {faq.answer}
                               </p>
@@ -922,7 +922,7 @@ const HelpPage: React.FC = () => {
                       setSearchQuery('');
                       setSelectedCategory('all');
                     }}
-                    className="px-6 py-3 bg-ailydian-primary text-white rounded-lg hover:bg-ailydian-dark transition-colors font-semibold"
+                    className="px-6 py-3 bg-lydian-primary text-white rounded-lg hover:bg-lydian-dark transition-colors font-semibold"
                   >
                     Tüm Soruları Göster
                   </button>
@@ -935,7 +935,7 @@ const HelpPage: React.FC = () => {
           <motion.div
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            className="bg-gradient-to-br from-ailydian-primary via-red-600 to-ailydian-secondary rounded-3xl p-10 text-white shadow-2xl"
+            className="bg-gradient-to-br from-lydian-primary via-red-600 to-lydian-secondary rounded-3xl p-10 text-white shadow-2xl"
           >
             <div className="text-center mb-10">
               <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full mb-4">
@@ -968,7 +968,7 @@ const HelpPage: React.FC = () => {
 
               {/* Email Support */}
               <motion.a
-                href="mailto:info@ailydian.com"
+                href="mailto:info@lydian.com"
                 whileHover={{ scale: 1.05, y: -5 }}
                 whileTap={{ scale: 0.95 }}
                 className="bg-white/10 backdrop-blur-md border-2 border-white/20 rounded-2xl p-6 hover:bg-white/20 transition-all group text-center"
@@ -978,7 +978,7 @@ const HelpPage: React.FC = () => {
                 </div>
                 <h3 className="text-xl font-bold mb-2">E-posta Desteği</h3>
                 <p className="text-blue-100 mb-3">2-12 saat yanıt süresi</p>
-                <p className="text-lg font-bold">info@ailydian.com</p>
+                <p className="text-lg font-bold">info@lydian.com</p>
               </motion.a>
 
               {/* WhatsApp Support */}
@@ -1028,8 +1028,8 @@ const HelpPage: React.FC = () => {
               href="/cancellation-policy"
               className="bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-all group"
             >
-              <FileText className="w-10 h-10 text-ailydian-primary mb-3 group-hover:scale-110 transition-transform" />
-              <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-ailydian-primary transition-colors">
+              <FileText className="w-10 h-10 text-lydian-primary mb-3 group-hover:scale-110 transition-transform" />
+              <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-lydian-primary transition-colors">
                 İptal Politikası
               </h3>
               <p className="text-gray-600">
@@ -1041,8 +1041,8 @@ const HelpPage: React.FC = () => {
               href="/privacy"
               className="bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-all group"
             >
-              <Shield className="w-10 h-10 text-ailydian-primary mb-3 group-hover:scale-110 transition-transform" />
-              <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-ailydian-primary transition-colors">
+              <Shield className="w-10 h-10 text-lydian-primary mb-3 group-hover:scale-110 transition-transform" />
+              <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-lydian-primary transition-colors">
                 Gizlilik Politikası
               </h3>
               <p className="text-gray-600">
@@ -1054,8 +1054,8 @@ const HelpPage: React.FC = () => {
               href="/terms"
               className="bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-all group"
             >
-              <FileText className="w-10 h-10 text-ailydian-primary mb-3 group-hover:scale-110 transition-transform" />
-              <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-ailydian-primary transition-colors">
+              <FileText className="w-10 h-10 text-lydian-primary mb-3 group-hover:scale-110 transition-transform" />
+              <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-lydian-primary transition-colors">
                 Kullanım Koşulları
               </h3>
               <p className="text-gray-600">

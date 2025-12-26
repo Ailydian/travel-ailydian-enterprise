@@ -106,7 +106,7 @@ const TripPlannerPage: React.FC = () => {
   return (
     <>
       <Head>
-        <title>AI Trip Planner - Collaborative Travel Planning | Ailydian</title>
+        <title>AI Trip Planner - Collaborative Travel Planning | LyDian</title>
         <meta
           name="description"
           content="Plan your perfect trip with AI-powered itinerary generation. Collaborate with friends, vote on activities, and book everything in one place."

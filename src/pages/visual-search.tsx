@@ -93,7 +93,7 @@ const VisualSearchPage: React.FC = () => {
   return (
     <>
       <Head>
-        <title>Visual Search - AI-Powered Image Search | Travel Ailydian</title>
+        <title>Visual Search - AI-Powered Image Search | Travel LyDian</title>
         <meta
           name="description"
           content="Search for destinations, hotels, and experiences using images. Upload a photo and discover similar travel opportunities with AI-powered visual search."

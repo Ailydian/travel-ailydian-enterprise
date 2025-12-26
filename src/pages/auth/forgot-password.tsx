@@ -37,13 +37,13 @@ export default function ForgotPassword() {
   return (
     <>
       <Head>
-        <title>Şifremi Unuttum | Ailydian Travel - Güvenli Şifre Sıfırlama</title>
-        <meta name="description" content="Ailydian Travel hesabınızın şifresini güvenli bir şekilde sıfırlayın. E-posta adresinize gönderilen link ile yeni şifre oluşturun." />
-        <meta name="keywords" content="şifremi unuttum, şifre sıfırlama, ailydian travel, hesap kurtarma, güvenli giriş" />
+        <title>Şifremi Unuttum | LyDian Travel - Güvenli Şifre Sıfırlama</title>
+        <meta name="description" content="LyDian Travel hesabınızın şifresini güvenli bir şekilde sıfırlayın. E-posta adresinize gönderilen link ile yeni şifre oluşturun." />
+        <meta name="keywords" content="şifremi unuttum, şifre sıfırlama, lydian travel, hesap kurtarma, güvenli giriş" />
         <meta name="robots" content="noindex, nofollow" />
 
         {/* Open Graph */}
-        <meta property="og:title" content="Şifremi Unuttum | Ailydian Travel" />
+        <meta property="og:title" content="Şifremi Unuttum | LyDian Travel" />
         <meta property="og:description" content="Hesabınızın şifresini güvenli bir şekilde sıfırlayın." />
         <meta property="og:type" content="website" />
       </Head>
@@ -69,7 +69,7 @@ export default function ForgotPassword() {
               <>
                 {/* Header */}
                 <div className="text-center mb-8">
-                  <div className="w-16 h-16 bg-gradient-to-r from-ailydian-primary to-ailydian-secondary rounded-full flex items-center justify-center mx-auto mb-4">
+                  <div className="w-16 h-16 bg-gradient-to-r from-lydian-primary to-lydian-secondary rounded-full flex items-center justify-center mx-auto mb-4">
                     <Mail className="w-8 h-8 text-white" />
                   </div>
                   <h1 className="text-3xl font-bold text-gray-900 mb-2">
@@ -107,7 +107,7 @@ export default function ForgotPassword() {
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         placeholder="ornek@email.com"
-                        className="w-full pl-11 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ailydian-primary focus:border-transparent outline-none transition-all"
+                        className="w-full pl-11 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-lydian-primary focus:border-transparent outline-none transition-all"
                         required
                       />
                     </div>
@@ -119,7 +119,7 @@ export default function ForgotPassword() {
                     disabled={isLoading}
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    className="w-full py-3 bg-gradient-to-r from-ailydian-primary to-ailydian-secondary text-white rounded-lg font-semibold hover:shadow-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-full py-3 bg-gradient-to-r from-lydian-primary to-lydian-secondary text-white rounded-lg font-semibold hover:shadow-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {isLoading ? (
                       <span className="flex items-center justify-center gap-2">
@@ -140,13 +140,13 @@ export default function ForgotPassword() {
                 <div className="mt-6 text-center">
                   <p className="text-sm text-gray-600">
                     Şifrenizi hatırladınız mı?{' '}
-                    <Link href="/auth/signin" className="text-ailydian-primary font-semibold hover:underline">
+                    <Link href="/auth/signin" className="text-lydian-primary font-semibold hover:underline">
                       Giriş Yap
                     </Link>
                   </p>
                   <p className="text-sm text-gray-600 mt-2">
                     Hesabınız yok mu?{' '}
-                    <Link href="/auth/signup" className="text-ailydian-primary font-semibold hover:underline">
+                    <Link href="/auth/signup" className="text-lydian-primary font-semibold hover:underline">
                       Kayıt Ol
                     </Link>
                   </p>
@@ -180,7 +180,7 @@ export default function ForgotPassword() {
                   <div className="flex flex-col gap-3">
                     <button
                       onClick={() => setIsSubmitted(false)}
-                      className="w-full px-6 py-3 bg-gradient-to-r from-ailydian-primary to-ailydian-secondary text-white rounded-lg font-semibold hover:shadow-lg transition-all"
+                      className="w-full px-6 py-3 bg-gradient-to-r from-lydian-primary to-lydian-secondary text-white rounded-lg font-semibold hover:shadow-lg transition-all"
                     >
                       Yeni E-posta Gönder
                     </button>

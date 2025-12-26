@@ -3,8 +3,8 @@
  * ❌ No author names/photos ✅ URL-specific images & short intros
  */
 
-export class OSAilydianSEO {
-  private readonly baseUrl = 'https://os.ailydian.com';
+export class OSLyDianSEO {
+  private readonly baseUrl = 'https://os.lydian.com';
 
   private readonly platformIntros = {
     homepage: 'Lightweight AI-powered operating system. 50% faster than Windows, runs on 1GB RAM. Open-source, customizable, and enterprise-ready with 24/7 support.',
@@ -16,8 +16,8 @@ export class OSAilydianSEO {
   private readonly pageImages = {
     homepage: [
       {
-        url: '/images/os/ailydian-os-desktop-interface-1200x675.webp',
-        alt: 'Ailydian OS Desktop - Modern Lightweight Interface',
+        url: '/images/os/lydian-os-desktop-interface-1200x675.webp',
+        alt: 'LyDian OS Desktop - Modern Lightweight Interface',
         caption: 'Clean, fast desktop environment with AI-powered productivity tools',
         width: 1200,
         height: 675
@@ -74,11 +74,11 @@ export class OSAilydianSEO {
   }
 }
 
-let osSEOInstance: OSAilydianSEO | null = null;
+let osSEOInstance: OSLyDianSEO | null = null;
 
-export function getOSSEO(): OSAilydianSEO {
+export function getOSSEO(): OSLyDianSEO {
   if (!osSEOInstance) {
-    osSEOInstance = new OSAilydianSEO();
+    osSEOInstance = new OSLyDianSEO();
   }
   return osSEOInstance;
 }

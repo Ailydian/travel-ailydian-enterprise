@@ -179,10 +179,10 @@ export const turkeyHotels: Hotel[] = [
     ],
     seoData: {
       metaTitle: {
-        tr: 'Istanbul Luxury Palace Hotel | 5 Yıldızlı Sultanahmet Oteli | Travel Ailydian',
-        en: 'Istanbul Luxury Palace Hotel | 5-Star Sultanahmet Hotel | Travel Ailydian',
-        de: 'Istanbul Luxury Palace Hotel | 5-Sterne Sultanahmet Hotel | Travel Ailydian',
-        ru: 'Istanbul Luxury Palace Hotel | 5-звездочный отель в Султанахмете | Travel Ailydian'
+        tr: 'Istanbul Luxury Palace Hotel | 5 Yıldızlı Sultanahmet Oteli | Travel LyDian',
+        en: 'Istanbul Luxury Palace Hotel | 5-Star Sultanahmet Hotel | Travel LyDian',
+        de: 'Istanbul Luxury Palace Hotel | 5-Sterne Sultanahmet Hotel | Travel LyDian',
+        ru: 'Istanbul Luxury Palace Hotel | 5-звездочный отель в Султанахмете | Travel LyDian'
       },
       metaDescription: {
         tr: 'Sultanahmet\'te 5 yıldızlı lüks otel! Ayasofya manzarası, spa, havuz. İstanbul\'un kalbinde unutulmaz konaklama deneyimi. Rezervasyon yapın! 🏨',
@@ -371,10 +371,10 @@ export const turkeyHotels: Hotel[] = [
     },
     seoData: {
       metaTitle: {
-        tr: 'Galata Boutique Hotel | Galata Kulesi Manzaralı Otel | Travel Ailydian',
-        en: 'Galata Boutique Hotel | Galata Tower View Hotel | Travel Ailydian',
-        de: 'Galata Boutique Hotel | Hotel mit Galata-Turm-Blick | Travel Ailydian',
-        ru: 'Galata Boutique Hotel | Отель с видом на башню Галата | Travel Ailydian'
+        tr: 'Galata Boutique Hotel | Galata Kulesi Manzaralı Otel | Travel LyDian',
+        en: 'Galata Boutique Hotel | Galata Tower View Hotel | Travel LyDian',
+        de: 'Galata Boutique Hotel | Hotel mit Galata-Turm-Blick | Travel LyDian',
+        ru: 'Galata Boutique Hotel | Отель с видом на башню Галата | Travel LyDian'
       },
       metaDescription: {
         tr: 'Galata\'da butik otel! Galata Kulesi manzarası, sanat galerisi, rooftop terrace. Modern tasarım ile İstanbul ruhunu yaşayın! 🎨',
@@ -591,10 +591,10 @@ export const turkeyHotels: Hotel[] = [
     ],
     seoData: {
       metaTitle: {
-        tr: 'Cappadocia Cave Resort & Spa | 5 Yıldızlı Mağara Oteli | Travel Ailydian',
-        en: 'Cappadocia Cave Resort & Spa | 5-Star Cave Hotel | Travel Ailydian',
-        de: 'Cappadocia Cave Resort & Spa | 5-Sterne Höhlenhotel | Travel Ailydian',
-        ru: 'Cappadocia Cave Resort & Spa | 5-звездочный пещерный отель | Travel Ailydian'
+        tr: 'Cappadocia Cave Resort & Spa | 5 Yıldızlı Mağara Oteli | Travel LyDian',
+        en: 'Cappadocia Cave Resort & Spa | 5-Star Cave Hotel | Travel LyDian',
+        de: 'Cappadocia Cave Resort & Spa | 5-Sterne Höhlenhotel | Travel LyDian',
+        ru: 'Cappadocia Cave Resort & Spa | 5-звездочный пещерный отель | Travel LyDian'
       },
       metaDescription: {
         tr: 'Kapadokya\'da 5 yıldızlı mağara resort! Balon manzarası, spa, lüks konaklama. Peri bacaları arasında unutulmaz deneyim. Rezervasyon! 🏨🎈',

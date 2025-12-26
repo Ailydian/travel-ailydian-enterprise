@@ -58,7 +58,7 @@ export default function DestinationDetail({ destination, relatedDestinations, ex
     "name": destination.name,
     "description": destination.description,
     "image": destination.images.hero,
-    "url": `https://travel.ailydian.com/destinations/${destination.slug}`,
+    "url": `https://travel.lydian.com/destinations/${destination.slug}`,
     "geo": {
       "@type": "GeoCoordinates",
       "latitude": destination.coordinates.lat,
@@ -76,7 +76,7 @@ export default function DestinationDetail({ destination, relatedDestinations, ex
       "bestRating": 5,
       "worstRating": 1
     },
-    "tourBookingPage": `https://travel.ailydian.com/destinations/${destination.slug}`
+    "tourBookingPage": `https://travel.lydian.com/destinations/${destination.slug}`
   };
 
   const handleShare = async () => {
@@ -106,20 +106,20 @@ export default function DestinationDetail({ destination, relatedDestinations, ex
 
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
-        <meta property="og:url" content={`https://travel.ailydian.com/destinations/${destination.slug}`} />
+        <meta property="og:url" content={`https://travel.lydian.com/destinations/${destination.slug}`} />
         <meta property="og:title" content={destination.seo.title} />
         <meta property="og:description" content={destination.seo.description} />
         <meta property="og:image" content={destination.seo.ogImage} />
 
         {/* Twitter */}
         <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content={`https://travel.ailydian.com/destinations/${destination.slug}`} />
+        <meta property="twitter:url" content={`https://travel.lydian.com/destinations/${destination.slug}`} />
         <meta property="twitter:title" content={destination.seo.title} />
         <meta property="twitter:description" content={destination.seo.description} />
         <meta property="twitter:image" content={destination.seo.ogImage} />
 
         {/* Canonical URL */}
-        <link rel="canonical" href={`https://travel.ailydian.com/destinations/${destination.slug}`} />
+        <link rel="canonical" href={`https://travel.lydian.com/destinations/${destination.slug}`} />
 
         {/* Structured Data */}
         <script
@@ -212,15 +212,15 @@ export default function DestinationDetail({ destination, relatedDestinations, ex
                   onClick={() => setActiveTab('overview')}
                   className={`relative px-6 py-3 rounded-xl font-bold transition-all duration-300 ${
                     activeTab === 'overview'
-                      ? 'bg-gradient-to-r from-ailydian-primary to-ailydian-secondary text-white shadow-lg shadow-red-500/30'
-                      : 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-200 hover:border-ailydian-primary/50'
+                      ? 'bg-gradient-to-r from-lydian-primary to-lydian-secondary text-white shadow-lg shadow-red-500/30'
+                      : 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-200 hover:border-lydian-primary/50'
                   }`}
                 >
                   <span className="relative z-10">Genel Bakış</span>
                   {activeTab === 'overview' && (
                     <motion.div
                       layoutId="activeTabIndicator"
-                      className="absolute inset-0 bg-gradient-to-r from-ailydian-primary to-ailydian-secondary rounded-xl"
+                      className="absolute inset-0 bg-gradient-to-r from-lydian-primary to-lydian-secondary rounded-xl"
                       transition={{ type: "spring", stiffness: 500, damping: 30 }}
                     />
                   )}
@@ -231,15 +231,15 @@ export default function DestinationDetail({ destination, relatedDestinations, ex
                   onClick={() => setActiveTab('places')}
                   className={`relative px-6 py-3 rounded-xl font-bold transition-all duration-300 ${
                     activeTab === 'places'
-                      ? 'bg-gradient-to-r from-ailydian-primary to-ailydian-secondary text-white shadow-lg shadow-red-500/30'
-                      : 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-200 hover:border-ailydian-primary/50'
+                      ? 'bg-gradient-to-r from-lydian-primary to-lydian-secondary text-white shadow-lg shadow-red-500/30'
+                      : 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-200 hover:border-lydian-primary/50'
                   }`}
                 >
                   <span className="relative z-10">Gezilecek Yerler</span>
                   {activeTab === 'places' && (
                     <motion.div
                       layoutId="activeTabIndicator"
-                      className="absolute inset-0 bg-gradient-to-r from-ailydian-primary to-ailydian-secondary rounded-xl"
+                      className="absolute inset-0 bg-gradient-to-r from-lydian-primary to-lydian-secondary rounded-xl"
                       transition={{ type: "spring", stiffness: 500, damping: 30 }}
                     />
                   )}
@@ -250,15 +250,15 @@ export default function DestinationDetail({ destination, relatedDestinations, ex
                   onClick={() => setActiveTab('activities')}
                   className={`relative px-6 py-3 rounded-xl font-bold transition-all duration-300 ${
                     activeTab === 'activities'
-                      ? 'bg-gradient-to-r from-ailydian-primary to-ailydian-secondary text-white shadow-lg shadow-red-500/30'
-                      : 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-200 hover:border-ailydian-primary/50'
+                      ? 'bg-gradient-to-r from-lydian-primary to-lydian-secondary text-white shadow-lg shadow-red-500/30'
+                      : 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-200 hover:border-lydian-primary/50'
                   }`}
                 >
                   <span className="relative z-10">Aktiviteler</span>
                   {activeTab === 'activities' && (
                     <motion.div
                       layoutId="activeTabIndicator"
-                      className="absolute inset-0 bg-gradient-to-r from-ailydian-primary to-ailydian-secondary rounded-xl"
+                      className="absolute inset-0 bg-gradient-to-r from-lydian-primary to-lydian-secondary rounded-xl"
                       transition={{ type: "spring", stiffness: 500, damping: 30 }}
                     />
                   )}
@@ -269,15 +269,15 @@ export default function DestinationDetail({ destination, relatedDestinations, ex
                   onClick={() => setActiveTab('tips')}
                   className={`relative px-6 py-3 rounded-xl font-bold transition-all duration-300 ${
                     activeTab === 'tips'
-                      ? 'bg-gradient-to-r from-ailydian-primary to-ailydian-secondary text-white shadow-lg shadow-red-500/30'
-                      : 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-200 hover:border-ailydian-primary/50'
+                      ? 'bg-gradient-to-r from-lydian-primary to-lydian-secondary text-white shadow-lg shadow-red-500/30'
+                      : 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-200 hover:border-lydian-primary/50'
                   }`}
                 >
                   <span className="relative z-10">İpuçları</span>
                   {activeTab === 'tips' && (
                     <motion.div
                       layoutId="activeTabIndicator"
-                      className="absolute inset-0 bg-gradient-to-r from-ailydian-primary to-ailydian-secondary rounded-xl"
+                      className="absolute inset-0 bg-gradient-to-r from-lydian-primary to-lydian-secondary rounded-xl"
                       transition={{ type: "spring", stiffness: 500, damping: 30 }}
                     />
                   )}
@@ -287,11 +287,11 @@ export default function DestinationDetail({ destination, relatedDestinations, ex
               <div className="flex items-center gap-3">
                 <div className="text-right">
                   <div className="text-sm text-gray-600">Ortalama Bütçe</div>
-                  <div className="text-xl font-bold text-ailydian-primary">{destination.pricing.budgetRange}</div>
+                  <div className="text-xl font-bold text-lydian-primary">{destination.pricing.budgetRange}</div>
                 </div>
                 <Link
                   href={`/tours?destination=${destination.id}`}
-                  className="px-6 py-3 bg-ailydian-primary text-white rounded-lg font-semibold hover:bg-ailydian-dark transition-colors"
+                  className="px-6 py-3 bg-lydian-primary text-white rounded-lg font-semibold hover:bg-lydian-dark transition-colors"
                 >
                   Turları İncele
                 </Link>
@@ -348,7 +348,7 @@ export default function DestinationDetail({ destination, relatedDestinations, ex
                   {/* Food & Drink */}
                   <div className="bg-white rounded-2xl shadow-sm p-6">
                     <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-                      <Utensils className="w-6 h-6 text-ailydian-primary" />
+                      <Utensils className="w-6 h-6 text-lydian-primary" />
                       Yerel Lezzetler
                     </h2>
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
@@ -377,7 +377,7 @@ export default function DestinationDetail({ destination, relatedDestinations, ex
                         </div>
                         <div className="text-right ml-4">
                           <div className="text-sm text-gray-600">Giriş</div>
-                          <div className="font-semibold text-ailydian-primary">{place.entrance}</div>
+                          <div className="font-semibold text-lydian-primary">{place.entrance}</div>
                         </div>
                       </div>
                       <div className="flex items-center gap-4 text-sm text-gray-600">
@@ -410,7 +410,7 @@ export default function DestinationDetail({ destination, relatedDestinations, ex
                         <h3 className="font-bold text-gray-900 mb-2 line-clamp-2">{exp.title}</h3>
                         <div className="flex items-center justify-between text-sm">
                           <span className="text-gray-600">{exp.duration}</span>
-                          <span className="font-bold text-ailydian-primary">₺{exp.pricing.adult}</span>
+                          <span className="font-bold text-lydian-primary">₺{exp.pricing.adult}</span>
                         </div>
                       </div>
                     </Link>
@@ -425,7 +425,7 @@ export default function DestinationDetail({ destination, relatedDestinations, ex
                   className="bg-white rounded-2xl shadow-sm p-6"
                 >
                   <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
-                    <AlertCircle className="w-6 h-6 text-ailydian-primary" />
+                    <AlertCircle className="w-6 h-6 text-lydian-primary" />
                     Seyahat İpuçları
                   </h2>
                   <div className="space-y-4">
@@ -445,7 +445,7 @@ export default function DestinationDetail({ destination, relatedDestinations, ex
               {/* Weather Info */}
               <div className="bg-white rounded-2xl shadow-sm p-6">
                 <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
-                  <Thermometer className="w-5 h-5 text-ailydian-primary" />
+                  <Thermometer className="w-5 h-5 text-lydian-primary" />
                   İklim Bilgisi
                 </h3>
                 <div className="space-y-3">
@@ -471,7 +471,7 @@ export default function DestinationDetail({ destination, relatedDestinations, ex
               {/* Best Time to Visit */}
               <div className="bg-white rounded-2xl shadow-sm p-6">
                 <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
-                  <Calendar className="w-5 h-5 text-ailydian-primary" />
+                  <Calendar className="w-5 h-5 text-lydian-primary" />
                   En İyi Ziyaret Zamanı
                 </h3>
                 <div className="flex flex-wrap gap-2">
@@ -486,7 +486,7 @@ export default function DestinationDetail({ destination, relatedDestinations, ex
               {/* Transportation */}
               <div className="bg-white rounded-2xl shadow-sm p-6">
                 <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
-                  <Car className="w-5 h-5 text-ailydian-primary" />
+                  <Car className="w-5 h-5 text-lydian-primary" />
                   Ulaşım
                 </h3>
                 <div className="space-y-3">
@@ -512,7 +512,7 @@ export default function DestinationDetail({ destination, relatedDestinations, ex
               {/* Budget Info */}
               <div className="bg-white rounded-2xl shadow-sm p-6">
                 <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
-                  <Hotel className="w-5 h-5 text-ailydian-primary" />
+                  <Hotel className="w-5 h-5 text-lydian-primary" />
                   Konaklama Fiyatları
                 </h3>
                 <div className="space-y-3">
@@ -594,7 +594,7 @@ export default function DestinationDetail({ destination, relatedDestinations, ex
                           <Star className="w-4 h-4 text-yellow-400 fill-current" />
                           <span className="font-semibold">{dest.rating}</span>
                         </div>
-                        <span className="text-ailydian-primary font-semibold flex items-center gap-1">
+                        <span className="text-lydian-primary font-semibold flex items-center gap-1">
                           İncele <ChevronRight className="w-4 h-4" />
                         </span>
                       </div>

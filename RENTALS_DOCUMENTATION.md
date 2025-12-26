@@ -162,7 +162,7 @@ Added:
 - Responsive marker sizing
 
 ### Theme Integration
-- Uses Travel.Ailydian brand colors (red-600, orange-500)
+- Uses Travel.LyDian brand colors (red-600, orange-500)
 - Gradient backgrounds
 - Shadow effects
 - Rounded corners (2xl)

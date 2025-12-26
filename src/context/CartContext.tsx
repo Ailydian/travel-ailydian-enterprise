@@ -232,7 +232,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
   useEffect(() => {
     if (typeof window === 'undefined') return;
 
-    const savedCart = localStorage.getItem('ailydian_cart');
+    const savedCart = localStorage.getItem('lydian_cart');
     if (savedCart) {
       try {
         const cartData = JSON.parse(savedCart);
@@ -245,7 +245,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   // Save cart to localStorage whenever state changes
   useEffect(() => {
-    localStorage.setItem('ailydian_cart', JSON.stringify(state));
+    localStorage.setItem('lydian_cart', JSON.stringify(state));
   }, [state]);
 
   const addItem = (item: CartItem) => {

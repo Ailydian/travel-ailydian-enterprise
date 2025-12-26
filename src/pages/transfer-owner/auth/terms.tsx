@@ -43,15 +43,15 @@ export default function TransferOwnerTermsPage() {
       content: [
         {
           subtitle: '1.1 Sözleşmenin Tarafları',
-          text: 'Bu sözleşme, Ailydian platformunu işleten şirket ile platform üzerinden transfer hizmeti sağlamak isteyen transfer firmaları arasında akdedilmiştir.'
+          text: 'Bu sözleşme, LyDian platformunu işleten şirket ile platform üzerinden transfer hizmeti sağlamak isteyen transfer firmaları arasında akdedilmiştir.'
         },
         {
           subtitle: '1.2 Sözleşmenin Konusu',
-          text: 'İşbu sözleşme, transfer hizmeti sağlayıcılarının Ailydian platformu üzerinden transfer hizmetlerini listelemesi, rezervasyon yönetimi, ödeme işlemleri ve tarafların hak ve yükümlülüklerini düzenlemektedir.'
+          text: 'İşbu sözleşme, transfer hizmeti sağlayıcılarının LyDian platformu üzerinden transfer hizmetlerini listelemesi, rezervasyon yönetimi, ödeme işlemleri ve tarafların hak ve yükümlülüklerini düzenlemektedir.'
         },
         {
           subtitle: '1.3 Tanımlar',
-          text: 'Platform: Ailydian internet sitesi ve mobil uygulamalarını ifade eder. Transfer Hizmeti Sağlayıcı/Transfer Firması: Platformda transfer hizmeti ilanı veren ve hizmet sunan gerçek veya tüzel kişiyi ifade eder. Yolcu/Müşteri: Platform üzerinden transfer hizmeti satın alan kişiyi ifade eder. İlan: Transfer firması tarafından platforma eklenen transfer hizmetinin detaylı açıklamasını ifade eder. Transfer Hizmeti: Havalimanı transferi, şehirlerarası transfer, özel araç kiralama ve benzeri ulaşım hizmetlerini ifade eder.'
+          text: 'Platform: LyDian internet sitesi ve mobil uygulamalarını ifade eder. Transfer Hizmeti Sağlayıcı/Transfer Firması: Platformda transfer hizmeti ilanı veren ve hizmet sunan gerçek veya tüzel kişiyi ifade eder. Yolcu/Müşteri: Platform üzerinden transfer hizmeti satın alan kişiyi ifade eder. İlan: Transfer firması tarafından platforma eklenen transfer hizmetinin detaylı açıklamasını ifade eder. Transfer Hizmeti: Havalimanı transferi, şehirlerarası transfer, özel araç kiralama ve benzeri ulaşım hizmetlerini ifade eder.'
         },
         {
           subtitle: '1.4 Kabullenme',
@@ -66,7 +66,7 @@ export default function TransferOwnerTermsPage() {
       content: [
         {
           subtitle: '2.1 Komisyon Oranları',
-          text: 'Ailydian, her başarılı transfer hizmeti için transfer firmasından %10-12 arasında değişen komisyon ücreti alır. Komisyon oranı, hizmet tipi (havalimanı transferi, VIP transfer, grup transferi), mesafe, sezon ve özel kampanyalara göre değişiklik gösterebilir.'
+          text: 'LyDian, her başarılı transfer hizmeti için transfer firmasından %10-12 arasında değişen komisyon ücreti alır. Komisyon oranı, hizmet tipi (havalimanı transferi, VIP transfer, grup transferi), mesafe, sezon ve özel kampanyalara göre değişiklik gösterebilir.'
         },
         {
           subtitle: '2.2 Ödeme Zamanlaması',
@@ -78,11 +78,11 @@ export default function TransferOwnerTermsPage() {
         },
         {
           subtitle: '2.4 Vergi ve Yasal Yükümlülükler',
-          text: 'Transfer hizmeti sağlayıcı, elde ettiği gelirle ilgili tüm vergi ve yasal yükümlülüklerden sorumludur. Ailydian gerekli hallerde stopaj kesintisi yapabilir. Transfer hizmeti gelirlerinin beyan edilmesi ve KDV, gelir vergisi gibi tüm vergi ödemelerinin yapılması hizmet sağlayıcının sorumluluğundadır.'
+          text: 'Transfer hizmeti sağlayıcı, elde ettiği gelirle ilgili tüm vergi ve yasal yükümlülüklerden sorumludur. LyDian gerekli hallerde stopaj kesintisi yapabilir. Transfer hizmeti gelirlerinin beyan edilmesi ve KDV, gelir vergisi gibi tüm vergi ödemelerinin yapılması hizmet sağlayıcının sorumluluğundadır.'
         },
         {
           subtitle: '2.5 Ödeme Güvencesi',
-          text: 'Tüm ödemeler Ailydian güvencesi altındadır. Yolcu ödemesini yaptıktan sonra, transfer firması ödemeyi garanti altında alır. Transfer hizmeti tamamlandıktan sonra ödeme kesin olarak yapılır.'
+          text: 'Tüm ödemeler LyDian güvencesi altındadır. Yolcu ödemesini yaptıktan sonra, transfer firması ödemeyi garanti altında alır. Transfer hizmeti tamamlandıktan sonra ödeme kesin olarak yapılır.'
         }
       ]
     },
@@ -113,7 +113,7 @@ export default function TransferOwnerTermsPage() {
         },
         {
           subtitle: '3.6 Force Majeure',
-          text: 'Doğal afet, salgın, savaş, yol kapanması gibi mücbir sebep hallerinde, Ailydian özel iptal koşulları uygulayabilir ve taraflar arası adil bir çözüm bulunur.'
+          text: 'Doğal afet, salgın, savaş, yol kapanması gibi mücbir sebep hallerinde, LyDian özel iptal koşulları uygulayabilir ve taraflar arası adil bir çözüm bulunur.'
         }
       ]
     },
@@ -155,7 +155,7 @@ export default function TransferOwnerTermsPage() {
         },
         {
           subtitle: '4.6.2 D2 Belgesi Zorunluluğu',
-          text: 'Ailydian platformunda turizm amaçlı transfer hizmeti vermek isteyen tüm firmalar için D2 Turizm Belgesi ZORUNLUDUR. Bu belge olmadan:\n\n• Platformda hizmet verilemez\n• Havalimanı transferi yapılamaz\n• Otel transferi yapılamaz\n• Turistik tur transferi yapılamaz\n• Yabancı turistlere hizmet verilemez\n\nBelgesiz turizm taşımacılığı yapmak YASAL DEĞİLDİR ve ağır cezai yaptırımlar içerir.'
+          text: 'LyDian platformunda turizm amaçlı transfer hizmeti vermek isteyen tüm firmalar için D2 Turizm Belgesi ZORUNLUDUR. Bu belge olmadan:\n\n• Platformda hizmet verilemez\n• Havalimanı transferi yapılamaz\n• Otel transferi yapılamaz\n• Turistik tur transferi yapılamaz\n• Yabancı turistlere hizmet verilemez\n\nBelgesiz turizm taşımacılığı yapmak YASAL DEĞİLDİR ve ağır cezai yaptırımlar içerir.'
         },
         {
           subtitle: '4.6.3 D2 Belgesi Nasıl Alınır?',
@@ -163,15 +163,15 @@ export default function TransferOwnerTermsPage() {
         },
         {
           subtitle: '4.6.4 D2 Belgesi Olmadan Çalışmanın Cezaları',
-          text: 'D2 Turizm Belgesi olmadan turizm taşımacılığı yapmanın cezaları çok ağırdır:\n\n• İdari Para Cezası: 50.000 TL - 100.000 TL arası (2025 yılı tarifesi)\n• Araç Trafikten Men: Araç trafikten men edilir, çekilir\n• Plaka İptali: Ticari plaka iptal edilebilir\n• Ruhsat İptali: İşletme ruhsatı iptal edilir\n• Hapis Cezası: Hileli işlemlerde hapis cezası\n• Platform Yasağı: Ailydian platformundan kalıcı olarak yasaklanma\n• İtibar Kaybı: Sektörde itibar kaybı\n\nDenetimler düzenli olarak yapılmaktadır. Havalimanlarında özel denetim ekipleri bulunmaktadır.'
+          text: 'D2 Turizm Belgesi olmadan turizm taşımacılığı yapmanın cezaları çok ağırdır:\n\n• İdari Para Cezası: 50.000 TL - 100.000 TL arası (2025 yılı tarifesi)\n• Araç Trafikten Men: Araç trafikten men edilir, çekilir\n• Plaka İptali: Ticari plaka iptal edilebilir\n• Ruhsat İptali: İşletme ruhsatı iptal edilir\n• Hapis Cezası: Hileli işlemlerde hapis cezası\n• Platform Yasağı: LyDian platformundan kalıcı olarak yasaklanma\n• İtibar Kaybı: Sektörde itibar kaybı\n\nDenetimler düzenli olarak yapılmaktadır. Havalimanlarında özel denetim ekipleri bulunmaktadır.'
         },
         {
           subtitle: '4.6.5 Belge Kontrolü ve Platform Politikası',
-          text: 'Ailydian platformu D2 belgesi kontrolünü çok ciddiye almaktadır:\n\n• Kayıt Sırasında: D2 belgesi fotokopisi veya belge numarası talep edilir\n• Belge Doğrulama: Bakanlık sisteminden belge geçerliliği kontrol edilir\n• Periyodik Kontrol: Yılda 2 kez belge geçerliliği kontrol edilir\n• Belge Süresi: Belge süresinin dolması durumunda hizmet verilmesi durdurulur\n• Sahte Belge: Sahte belge kullanımı durumunda hesap kalıcı olarak kapatılır ve yasal işlem başlatılır\n\nTransfer firması, D2 belgesinin her zaman güncel ve geçerli olmasından sorumludur.'
+          text: 'LyDian platformu D2 belgesi kontrolünü çok ciddiye almaktadır:\n\n• Kayıt Sırasında: D2 belgesi fotokopisi veya belge numarası talep edilir\n• Belge Doğrulama: Bakanlık sisteminden belge geçerliliği kontrol edilir\n• Periyodik Kontrol: Yılda 2 kez belge geçerliliği kontrol edilir\n• Belge Süresi: Belge süresinin dolması durumunda hizmet verilmesi durdurulur\n• Sahte Belge: Sahte belge kullanımı durumunda hesap kalıcı olarak kapatılır ve yasal işlem başlatılır\n\nTransfer firması, D2 belgesinin her zaman güncel ve geçerli olmasından sorumludur.'
         },
         {
           subtitle: '4.6.6 Resmi Kaynaklar ve İletişim',
-          text: 'D2 Turizm Belgesi hakkında detaylı bilgi için:\n\n• Kültür ve Turizm Bakanlığı: www.ktb.gov.tr\n• TURSAB (Türkiye Seyahat Acentaları Birliği): www.tursab.org.tr\n• İl Kültür ve Turizm Müdürlükleri: İlgili il müdürlüğüne başvuru\n• Belge Sorgulama: Bakanlık e-belge sisteminden belge sorgulaması yapılabilir\n• Yardım Hattı: Ailydian destek ekibi belge alma sürecinde rehberlik sağlar\n\nÖNEMLİ NOT: D2 Turizm Belgesi olmadan turizm taşımacılığı yapmak yasadışıdır. Ailydian platformu, yasal gereksinimlere tam uyum sağlamayı taahhüt eder.'
+          text: 'D2 Turizm Belgesi hakkında detaylı bilgi için:\n\n• Kültür ve Turizm Bakanlığı: www.ktb.gov.tr\n• TURSAB (Türkiye Seyahat Acentaları Birliği): www.tursab.org.tr\n• İl Kültür ve Turizm Müdürlükleri: İlgili il müdürlüğüne başvuru\n• Belge Sorgulama: Bakanlık e-belge sisteminden belge sorgulaması yapılabilir\n• Yardım Hattı: LyDian destek ekibi belge alma sürecinde rehberlik sağlar\n\nÖNEMLİ NOT: D2 Turizm Belgesi olmadan turizm taşımacılığı yapmak yasadışıdır. LyDian platformu, yasal gereksinimlere tam uyum sağlamayı taahhüt eder.'
         }
       ]
     },
@@ -182,7 +182,7 @@ export default function TransferOwnerTermsPage() {
       content: [
         {
           subtitle: '5.1 Kişisel Verilerin Korunması',
-          text: 'Ailydian, 6698 sayılı Kişisel Verilerin Korunması Kanunu (KVKK) kapsamında transfer hizmeti sağlayıcı ve yolcuların kişisel verilerini korumayı taahhüt eder.'
+          text: 'LyDian, 6698 sayılı Kişisel Verilerin Korunması Kanunu (KVKK) kapsamında transfer hizmeti sağlayıcı ve yolcuların kişisel verilerini korumayı taahhüt eder.'
         },
         {
           subtitle: '5.2 Toplanan Veriler',
@@ -194,7 +194,7 @@ export default function TransferOwnerTermsPage() {
         },
         {
           subtitle: '5.4 Veri Güvenliği',
-          text: 'Ailydian, kişisel verilerin güvenliği için şu önlemleri almaktadır:\n\n• Tüm veriler şifrelenmiş (encrypted) olarak saklanır\n• SSL sertifikası ile güvenli veri iletimi sağlanır\n• Düzenli güvenlik denetimleri yapılır\n• Yetkisiz erişime karşı çok katmanlı güvenlik önlemleri\n• Güvenli sunucu altyapısı\n• Düzenli yedekleme sistemleri\n• Veri erişim logları tutulur\n• Personel gizlilik sözleşmeleri'
+          text: 'LyDian, kişisel verilerin güvenliği için şu önlemleri almaktadır:\n\n• Tüm veriler şifrelenmiş (encrypted) olarak saklanır\n• SSL sertifikası ile güvenli veri iletimi sağlanır\n• Düzenli güvenlik denetimleri yapılır\n• Yetkisiz erişime karşı çok katmanlı güvenlik önlemleri\n• Güvenli sunucu altyapısı\n• Düzenli yedekleme sistemleri\n• Veri erişim logları tutulur\n• Personel gizlilik sözleşmeleri'
         },
         {
           subtitle: '5.5 Veri Saklama Süresi',
@@ -202,7 +202,7 @@ export default function TransferOwnerTermsPage() {
         },
         {
           subtitle: '5.6 Veri Sahibinin Hakları (KVKK Hakları)',
-          text: 'Transfer firması ve yolcular, KVKK kapsamında şu haklara sahiptir:\n\n• Kişisel verilerinin işlenip işlenmediğini öğrenme\n• Kişisel verileri işlenmişse buna ilişkin bilgi talep etme\n• Kişisel verilerin işlenme amacını ve bunların amacına uygun kullanılıp kullanılmadığını öğrenme\n• Kişisel verilerin düzeltilmesini talep etme\n• Kişisel verilerin silinmesini veya yok edilmesini talep etme\n• İşleme faaliyetlerine itiraz etme\n• Otomatik sistemler ile yapılan analiz sonuçlarına itiraz etme\n• Kişisel verilerin mevzuata aykırı işlenmesi nedeniyle zararın giderilmesini talep etme\n\nBu hakları kullanmak için kvkk@ailydian.com adresine başvurulabilir.'
+          text: 'Transfer firması ve yolcular, KVKK kapsamında şu haklara sahiptir:\n\n• Kişisel verilerinin işlenip işlenmediğini öğrenme\n• Kişisel verileri işlenmişse buna ilişkin bilgi talep etme\n• Kişisel verilerin işlenme amacını ve bunların amacına uygun kullanılıp kullanılmadığını öğrenme\n• Kişisel verilerin düzeltilmesini talep etme\n• Kişisel verilerin silinmesini veya yok edilmesini talep etme\n• İşleme faaliyetlerine itiraz etme\n• Otomatik sistemler ile yapılan analiz sonuçlarına itiraz etme\n• Kişisel verilerin mevzuata aykırı işlenmesi nedeniyle zararın giderilmesini talep etme\n\nBu hakları kullanmak için kvkk@lydian.com adresine başvurulabilir.'
         }
       ]
     },
@@ -213,7 +213,7 @@ export default function TransferOwnerTermsPage() {
       content: [
         {
           subtitle: '6.1 Destek Kanalları',
-          text: 'Transfer firmaları için özel destek kanalları:\n\n• 7/24 Acil Destek Hattı: Transfer sırasında acil durumlar için (araç arızası, kaza vb.)\n• Canlı Destek: Platform üzerinden anlık destek (09:00 - 22:00)\n• E-posta Desteği: transfer-support@ailydian.com\n• WhatsApp Destek: 0850 XXX XX XX\n• Telefon Desteği: 0850 XXX XX XX (09:00 - 22:00)\n• Yardım Merkezi: Detaylı makaleler, videolar ve SSS'
+          text: 'Transfer firmaları için özel destek kanalları:\n\n• 7/24 Acil Destek Hattı: Transfer sırasında acil durumlar için (araç arızası, kaza vb.)\n• Canlı Destek: Platform üzerinden anlık destek (09:00 - 22:00)\n• E-posta Desteği: transfer-support@lydian.com\n• WhatsApp Destek: 0850 XXX XX XX\n• Telefon Desteği: 0850 XXX XX XX (09:00 - 22:00)\n• Yardım Merkezi: Detaylı makaleler, videolar ve SSS'
         },
         {
           subtitle: '6.2 Destek Konuları',
@@ -221,11 +221,11 @@ export default function TransferOwnerTermsPage() {
         },
         {
           subtitle: '6.3 Yanıt Süreleri',
-          text: 'Ailydian destek ekibi şu yanıt sürelerini hedefler:\n\n• Acil Durumlar (transfer sırasında sorun): Anında - 15 dakika içinde\n• Kritik Sorunlar (rezervasyon, iptal): 1 saat içinde\n• Normal Talepler: 4-6 saat içinde\n• Genel Sorular: 24 saat içinde\n• Yasal/Finansal Konular: 48 saat içinde\n\nHafta sonları ve resmi tatillerde destek hizmetleri sınırlı olabilir, ancak acil durumlar için 7/24 destek sağlanır.'
+          text: 'LyDian destek ekibi şu yanıt sürelerini hedefler:\n\n• Acil Durumlar (transfer sırasında sorun): Anında - 15 dakika içinde\n• Kritik Sorunlar (rezervasyon, iptal): 1 saat içinde\n• Normal Talepler: 4-6 saat içinde\n• Genel Sorular: 24 saat içinde\n• Yasal/Finansal Konular: 48 saat içinde\n\nHafta sonları ve resmi tatillerde destek hizmetleri sınırlı olabilir, ancak acil durumlar için 7/24 destek sağlanır.'
         },
         {
           subtitle: '6.4 Transfer Firması Eğitimi',
-          text: 'Ailydian, transfer firmalarına ücretsiz eğitim ve kaynak sağlar:\n\n• Platform Kullanım Eğitimi: Video eğitimler ve canlı webinarlar\n• Müşteri Hizmetleri Eğitimi: İyi hizmet verme teknikleri\n• Fotoğraf ve İlan Oluşturma: Çekici ilan hazırlama ipuçları\n• Yasal Uyumluluk Rehberi: D2 belgesi, sigorta, vergi konuları\n• Sürücü Eğitimi: Profesyonel sürücülük standartları\n• Kriz Yönetimi: Acil durumlar için hazırlık\n• Dijital Pazarlama: Daha fazla rezervasyon alma teknikleri'
+          text: 'LyDian, transfer firmalarına ücretsiz eğitim ve kaynak sağlar:\n\n• Platform Kullanım Eğitimi: Video eğitimler ve canlı webinarlar\n• Müşteri Hizmetleri Eğitimi: İyi hizmet verme teknikleri\n• Fotoğraf ve İlan Oluşturma: Çekici ilan hazırlama ipuçları\n• Yasal Uyumluluk Rehberi: D2 belgesi, sigorta, vergi konuları\n• Sürücü Eğitimi: Profesyonel sürücülük standartları\n• Kriz Yönetimi: Acil durumlar için hazırlık\n• Dijital Pazarlama: Daha fazla rezervasyon alma teknikleri'
         }
       ]
     },
@@ -236,19 +236,19 @@ export default function TransferOwnerTermsPage() {
       content: [
         {
           subtitle: '7.1 Sözleşme Değişiklikleri',
-          text: 'Ailydian, bu sözleşme şartlarını değiştirme hakkını saklı tutar. Değişiklikler, transfer firmalarına e-posta yoluyla bildirilir ve 15 gün sonra yürürlüğe girer. Önemli değişiklikler için daha uzun bildirim süreleri uygulanabilir.'
+          text: 'LyDian, bu sözleşme şartlarını değiştirme hakkını saklı tutar. Değişiklikler, transfer firmalarına e-posta yoluyla bildirilir ve 15 gün sonra yürürlüğe girer. Önemli değişiklikler için daha uzun bildirim süreleri uygulanabilir.'
         },
         {
           subtitle: '7.2 Hesap Askıya Alma ve Sonlandırma',
-          text: 'Ailydian, şu durumlarda transfer firmasının hesabını askıya alabilir veya sonlandırabilir:\n\n• Sözleşme şartlarını ihlal etme\n• Yanıltıcı bilgi verme (sahte araç fotoğrafları, yanlış fiyatlandırma)\n• Platformu kötüye kullanma\n• D2 belgesi olmadan hizmet verme veya belge sahteliği\n• Müşteri şikayetlerinde tekrarlayan sorunlar\n• Güvenlik kurallarını ihlal etme\n• Zamanında ödeme yapmama\n• Kötü müşteri hizmeti ve sürekli geç kalma\n\nHesap kapatılmadan önce, hafif ihlallerde uyarı yapılır ve düzeltme için süre tanınır.'
+          text: 'LyDian, şu durumlarda transfer firmasının hesabını askıya alabilir veya sonlandırabilir:\n\n• Sözleşme şartlarını ihlal etme\n• Yanıltıcı bilgi verme (sahte araç fotoğrafları, yanlış fiyatlandırma)\n• Platformu kötüye kullanma\n• D2 belgesi olmadan hizmet verme veya belge sahteliği\n• Müşteri şikayetlerinde tekrarlayan sorunlar\n• Güvenlik kurallarını ihlal etme\n• Zamanında ödeme yapmama\n• Kötü müşteri hizmeti ve sürekli geç kalma\n\nHesap kapatılmadan önce, hafif ihlallerde uyarı yapılır ve düzeltme için süre tanınır.'
         },
         {
           subtitle: '7.3 Uyuşmazlık Çözümü',
-          text: 'Taraflar arasında doğabilecek uyuşmazlıklarda öncelikle dostane çözüm aranır. Ailydian arabulucu olarak taraflar arası çözüm üretmeye çalışır. Çözülemeyen durumlar için Türkiye Cumhuriyeti mahkemeleri ve icra daireleri yetkilidir. Ankara mahkemeleri ve icra daireleri özel yetkilidir.'
+          text: 'Taraflar arasında doğabilecek uyuşmazlıklarda öncelikle dostane çözüm aranır. LyDian arabulucu olarak taraflar arası çözüm üretmeye çalışır. Çözülemeyen durumlar için Türkiye Cumhuriyeti mahkemeleri ve icra daireleri yetkilidir. Ankara mahkemeleri ve icra daireleri özel yetkilidir.'
         },
         {
           subtitle: '7.4 Sorumluluk Sınırlamaları',
-          text: 'Ailydian bir platformdur ve transfer hizmetini doğrudan sunmamaktadır. Transfer hizmetinin kalitesi, güvenliği ve yasal uyumluluğu tamamen transfer firmasının sorumluluğundadır. Ailydian, transfer sırasında oluşabilecek kaza, hasar, yaralanma veya kayıplardan sorumlu tutulamaz. Transfer firması yeterli sigorta yapmakla yükümlüdür.'
+          text: 'LyDian bir platformdur ve transfer hizmetini doğrudan sunmamaktadır. Transfer hizmetinin kalitesi, güvenliği ve yasal uyumluluğu tamamen transfer firmasının sorumluluğundadır. LyDian, transfer sırasında oluşabilecek kaza, hasar, yaralanma veya kayıplardan sorumlu tutulamaz. Transfer firması yeterli sigorta yapmakla yükümlüdür.'
         },
         {
           subtitle: '7.5 Mücbir Sebepler',
@@ -256,7 +256,7 @@ export default function TransferOwnerTermsPage() {
         },
         {
           subtitle: '7.6 Yürürlük',
-          text: 'İşbu sözleşme, transfer firmasının Ailydian platformuna kayıt olmasıyla birlikte yürürlüğe girer ve taraflardan biri sözleşmeyi sonlandırana kadar geçerlidir. Sözleşme elektronik ortamda imzalanmış sayılır ve yasal geçerliliğe sahiptir.'
+          text: 'İşbu sözleşme, transfer firmasının LyDian platformuna kayıt olmasıyla birlikte yürürlüğe girer ve taraflardan biri sözleşmeyi sonlandırana kadar geçerlidir. Sözleşme elektronik ortamda imzalanmış sayılır ve yasal geçerliliğe sahiptir.'
         },
         {
           subtitle: '7.7 Bölünebilirlik',
@@ -281,7 +281,7 @@ export default function TransferOwnerTermsPage() {
               <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-lg flex items-center justify-center">
                 <Bus className="w-6 h-6 text-white" />
               </div>
-              <span className="text-xl font-bold text-gray-900">Ailydian</span>
+              <span className="text-xl font-bold text-gray-900">LyDian</span>
             </Link>
 
             {/* Actions */}
@@ -343,7 +343,7 @@ export default function TransferOwnerTermsPage() {
           </div>
           <div className="mt-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
             <p className="text-sm text-gray-700">
-              <strong>Önemli Not:</strong> Lütfen bu sözleşmeyi dikkatlice okuyunuz. Ailydian platformuna transfer hizmeti sağlayıcı olarak kayıt olmadan önce tüm maddeleri anladığınızdan emin olun. Bu sözleşme sizinle Ailydian arasındaki yasal ilişkiyi düzenlemektedir. Özellikle D2 Turizm Belgesi gereksinimleri ve yasal yükümlülükler konusunda dikkatli olunuz.
+              <strong>Önemli Not:</strong> Lütfen bu sözleşmeyi dikkatlice okuyunuz. LyDian platformuna transfer hizmeti sağlayıcı olarak kayıt olmadan önce tüm maddeleri anladığınızdan emin olun. Bu sözleşme sizinle LyDian arasındaki yasal ilişkiyi düzenlemektedir. Özellikle D2 Turizm Belgesi gereksinimleri ve yasal yükümlülükler konusunda dikkatli olunuz.
             </p>
           </div>
         </motion.div>
@@ -418,7 +418,7 @@ export default function TransferOwnerTermsPage() {
             <div>
               <h3 className="font-semibold text-gray-900 mb-2">Transfer Hizmetleri Destek</h3>
               <div className="space-y-2 text-gray-700">
-                <p>E-posta: transfer-support@ailydian.com</p>
+                <p>E-posta: transfer-support@lydian.com</p>
                 <p>7/24 Acil Hat: 0850 XXX XX XX</p>
                 <p>WhatsApp: 0850 XXX XX XX</p>
                 <p>Adres: Örnek Mahallesi, Teknoloji Caddesi No:123</p>
@@ -427,10 +427,10 @@ export default function TransferOwnerTermsPage() {
             <div>
               <h3 className="font-semibold text-gray-900 mb-2">Yasal İşlemler</h3>
               <div className="space-y-2 text-gray-700">
-                <p>E-posta: legal@ailydian.com</p>
-                <p>KVKK İletişim: kvkk@ailydian.com</p>
-                <p>Şikayet: complaints@ailydian.com</p>
-                <p>D2 Belgesi Destek: d2-support@ailydian.com</p>
+                <p>E-posta: legal@lydian.com</p>
+                <p>KVKK İletişim: kvkk@lydian.com</p>
+                <p>Şikayet: complaints@lydian.com</p>
+                <p>D2 Belgesi Destek: d2-support@lydian.com</p>
               </div>
             </div>
           </div>

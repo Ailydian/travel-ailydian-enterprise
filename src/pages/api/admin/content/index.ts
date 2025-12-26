@@ -27,7 +27,7 @@ export default async function handler(
           {
             id: '1',
             type: 'features',
-            title: 'Neden Travel Ailydian?',
+            title: 'Neden Travel LyDian?',
             items: [
               { icon: 'shield', title: 'Güvenli Ödeme', description: 'SSL sertifikalı güvenli ödeme' },
               { icon: 'star', title: '7/24 Destek', description: 'Her zaman yanınızdayız' },

@@ -1,6 +1,6 @@
 # Integration Guide - Animated Components
 
-Quick guide to integrate the new animated components into your existing Travel.Ailydian homepage.
+Quick guide to integrate the new animated components into your existing Travel.LyDian homepage.
 
 ## 🚀 Quick Start
 
@@ -48,7 +48,7 @@ Replace or enhance the destinations section (around line 800):
   }))}
   title="Öne Çıkan Destinasyonlar"
   subtitle="Dünyanın en güzel yerlerini keşfedin"
-  className="bg-ailydian-bg"
+  className="bg-lydian-bg"
 />
 ```
 
@@ -63,7 +63,7 @@ Replace the experiences/tours section:
   title="Popüler Deneyimler"
   subtitle="AI destekli ve VR özellikli eşsiz turlar"
   onAddToCart={handleAddToCart}
-  className="bg-ailydian-bg-card/50"
+  className="bg-lydian-bg-card/50"
 />
 ```
 
@@ -74,10 +74,10 @@ Replace existing loading indicators with animated versions:
 ```tsx
 {/* When searching */}
 {isSearching && (
-  <div className="fixed inset-0 bg-ailydian-bg/80 backdrop-blur-sm z-50 flex items-center justify-center">
+  <div className="fixed inset-0 bg-lydian-bg/80 backdrop-blur-sm z-50 flex items-center justify-center">
     <div className="text-center">
       <LoadingPlane size={60} />
-      <p className="text-ailydian-text mt-4 text-lg">Arama yapılıyor...</p>
+      <p className="text-lydian-text mt-4 text-lg">Arama yapılıyor...</p>
     </div>
   </div>
 )}
@@ -161,7 +161,7 @@ const HomePage: React.FC = () => {
   return (
     <>
       <Head>
-        <title>Travel.Ailydian - AI Destekli Seyahat Platformu</title>
+        <title>Travel.LyDian - AI Destekli Seyahat Platformu</title>
         <meta name="description" content="Yapay zeka destekli seyahat platformu" />
       </Head>
 
@@ -176,7 +176,7 @@ const HomePage: React.FC = () => {
           destinations={featuredDestinations}
           title="Öne Çıkan Destinasyonlar"
           subtitle="Dünyanın en güzel yerlerini keşfedin"
-          className="bg-ailydian-bg"
+          className="bg-lydian-bg"
         />
 
         {/* Top Experiences */}
@@ -185,7 +185,7 @@ const HomePage: React.FC = () => {
           title="Popüler Deneyimler"
           subtitle="AI destekli ve VR özellikli eşsiz turlar"
           onAddToCart={handleAddToCart}
-          className="bg-ailydian-bg-card/50"
+          className="bg-lydian-bg-card/50"
         />
 
         {/* Your other sections... */}
@@ -194,14 +194,14 @@ const HomePage: React.FC = () => {
       {/* Loading Overlay */}
       {isSearching && (
         <motion.div
-          className="fixed inset-0 bg-ailydian-bg/90 backdrop-blur-md z-50 flex items-center justify-center"
+          className="fixed inset-0 bg-lydian-bg/90 backdrop-blur-md z-50 flex items-center justify-center"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
         >
           <div className="text-center">
             <LoadingPlane size={80} />
-            <p className="text-ailydian-text mt-6 text-xl">Arama yapılıyor...</p>
+            <p className="text-lydian-text mt-6 text-xl">Arama yapılıyor...</p>
           </div>
         </motion.div>
       )}
@@ -209,7 +209,7 @@ const HomePage: React.FC = () => {
       {/* Success Toast */}
       {showSuccess && (
         <motion.div
-          className="fixed bottom-8 right-8 bg-glass-dark backdrop-blur-xl border border-ailydian-primary/30 rounded-2xl p-6 shadow-neon-lg z-50"
+          className="fixed bottom-8 right-8 bg-glass-dark backdrop-blur-xl border border-lydian-primary/30 rounded-2xl p-6 shadow-neon-lg z-50"
           initial={{ opacity: 0, y: 50, scale: 0.8 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: 50, scale: 0.8 }}
@@ -217,8 +217,8 @@ const HomePage: React.FC = () => {
           <div className="flex items-center gap-4">
             <StatusIcon type="success" size={50} showAnimation={false} />
             <div>
-              <h3 className="text-ailydian-text font-bold">Sepete Eklendi!</h3>
-              <p className="text-ailydian-text-muted text-sm">Ürün başarıyla sepete eklendi</p>
+              <h3 className="text-lydian-text font-bold">Sepete Eklendi!</h3>
+              <p className="text-lydian-text-muted text-sm">Ürün başarıyla sepete eklendi</p>
             </div>
           </div>
         </motion.div>
@@ -238,17 +238,17 @@ Use different backgrounds for visual hierarchy:
 
 ```tsx
 {/* Dark background */}
-<section className="bg-ailydian-bg py-20">
+<section className="bg-lydian-bg py-20">
   <DestinationsSlider ... />
 </section>
 
 {/* Card background */}
-<section className="bg-ailydian-bg-card/50 py-20">
+<section className="bg-lydian-bg-card/50 py-20">
   <ExperiencesSlider ... />
 </section>
 
 {/* Gradient background */}
-<section className="bg-gradient-to-b from-ailydian-bg via-ailydian-bg-card to-ailydian-bg py-20">
+<section className="bg-gradient-to-b from-lydian-bg via-lydian-bg-card to-lydian-bg py-20">
   <YourContent />
 </section>
 ```

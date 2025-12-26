@@ -232,7 +232,7 @@ const TransferProviderDashboard: React.FC = () => {
   return (
     <>
       <Head>
-        <title>Transfer Partner Dashboard | Travel Ailydian</title>
+        <title>Transfer Partner Dashboard | Travel LyDian</title>
         <meta name="description" content="Transfer provider dashboard with route optimization" />
       </Head>
 

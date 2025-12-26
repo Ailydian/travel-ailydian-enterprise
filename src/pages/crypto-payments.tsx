@@ -19,8 +19,8 @@ const CryptoPayments: React.FC = () => {
   return (
     <>
       <Head>
-        <title>Kripto Ödemeler - Travel.Ailydian | Bitcoin, Ethereum, USDT ile Ödeme</title>
-        <meta name="description" content="Travel.Ailydian'da Bitcoin, Ethereum, USDT ve diğer kripto paralarla güvenli ödeme yapın. Blockchain teknolojisi ile güvenli seyahat rezervasyonları." />
+        <title>Kripto Ödemeler - Travel.LyDian | Bitcoin, Ethereum, USDT ile Ödeme</title>
+        <meta name="description" content="Travel.LyDian'da Bitcoin, Ethereum, USDT ve diğer kripto paralarla güvenli ödeme yapın. Blockchain teknolojisi ile güvenli seyahat rezervasyonları." />
         <meta name="keywords" content="kripto ödeme, bitcoin ödeme, ethereum, USDT, blockchain ödeme, kripto para seyahat" />
       </Head>
 

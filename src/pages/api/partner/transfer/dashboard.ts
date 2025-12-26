@@ -92,7 +92,7 @@ interface Alert {
  * - Fleet management
  * - Revenue analytics with forecast
  *
- * This endpoint syncs with the main Travel Ailydian admin dashboard
+ * This endpoint syncs with the main Travel LyDian admin dashboard
  * Real-time updates every 30 seconds
  */
 export default async function handler(

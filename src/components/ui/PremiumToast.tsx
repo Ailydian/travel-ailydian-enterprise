@@ -93,7 +93,7 @@ const typeConfig = {
   },
   cart: {
     icon: ShoppingCart,
-    gradient: 'from-ailydian-primary to-ailydian-secondary',
+    gradient: 'from-lydian-primary to-lydian-secondary',
     bg: 'bg-blue-50',
     border: 'border-blue-200',
     text: 'text-blue-900',
@@ -231,7 +231,7 @@ const PremiumToast: React.FC<PremiumToastProps> = ({ toast, onClose, position = 
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     onClick={handleViewCart}
-                    className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-ailydian-primary to-ailydian-secondary text-white rounded-lg font-medium text-sm shadow-lg hover:shadow-xl transition-all"
+                    className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-lydian-primary to-lydian-secondary text-white rounded-lg font-medium text-sm shadow-lg hover:shadow-xl transition-all"
                   >
                     <ShoppingCart className="w-4 h-4" />
                     Sepete Git

@@ -614,7 +614,7 @@ const ResponsiveHeaderBar: React.FC = () => {
                 {/* Logo */}
                 <Link href="/" className="flex items-center gap-2 group">
                   <motion.div
-                    className="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-br from-ailydian-primary to-ailydian-secondary rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all"
+                    className="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-br from-lydian-primary to-lydian-secondary rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all"
                     whileHover={{ scale: 1.05, rotate: 5 }}
                     whileTap={{ scale: 0.95 }}
                   >
@@ -633,8 +633,8 @@ const ResponsiveHeaderBar: React.FC = () => {
                     </motion.div>
                   </motion.div>
                   <div className="hidden sm:block">
-                    <h1 className="text-lg md:text-xl font-bold bg-gradient-to-r from-ailydian-primary to-ailydian-secondary bg-clip-text text-transparent">
-                      Ailydian
+                    <h1 className="text-lg md:text-xl font-bold bg-gradient-to-r from-lydian-primary to-lydian-secondary bg-clip-text text-transparent">
+                      LyDian
                     </h1>
                     <p className="text-xs text-gray-500 -mt-1">Travel AI</p>
                   </div>
@@ -804,15 +804,15 @@ const ResponsiveHeaderBar: React.FC = () => {
                 {session ? (
                   <Link
                     href="/profile/dashboard"
-                    className="w-9 h-9 sm:w-9 sm:h-9 rounded-lg bg-gradient-to-br from-ailydian-primary/10 to-ailydian-secondary/10 hover:from-ailydian-primary/20 hover:to-ailydian-secondary/20 flex items-center justify-center transition-all active:scale-95 touch-target"
+                    className="w-9 h-9 sm:w-9 sm:h-9 rounded-lg bg-gradient-to-br from-lydian-primary/10 to-lydian-secondary/10 hover:from-lydian-primary/20 hover:to-lydian-secondary/20 flex items-center justify-center transition-all active:scale-95 touch-target"
                     aria-label="Profil"
                   >
-                    <User className="w-4 h-4 sm:w-4 sm:h-4 text-ailydian-primary" />
+                    <User className="w-4 h-4 sm:w-4 sm:h-4 text-lydian-primary" />
                   </Link>
                 ) : (
                   <Link
                     href="/auth/signin"
-                    className="flex items-center justify-center px-2 py-1.5 sm:px-3 sm:py-1.5 md:px-4 md:py-2 bg-gradient-to-r from-ailydian-primary to-ailydian-secondary text-white rounded-lg font-medium hover:shadow-lg active:scale-95 transition-all touch-target text-[11px] sm:text-xs md:text-sm whitespace-nowrap"
+                    className="flex items-center justify-center px-2 py-1.5 sm:px-3 sm:py-1.5 md:px-4 md:py-2 bg-gradient-to-r from-lydian-primary to-lydian-secondary text-white rounded-lg font-medium hover:shadow-lg active:scale-95 transition-all touch-target text-[11px] sm:text-xs md:text-sm whitespace-nowrap"
                   >
                     Giriş
                   </Link>
@@ -873,11 +873,11 @@ const NavLinkWithSubmenu: React.FC<{
         onClick={handleClick}
         className={`relative flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg font-medium transition-all hover:bg-gray-50 group ${
           isActive
-            ? 'bg-gradient-to-r from-ailydian-primary/10 to-ailydian-secondary/10 text-ailydian-primary'
+            ? 'bg-gradient-to-r from-lydian-primary/10 to-lydian-secondary/10 text-lydian-primary'
             : 'text-gray-700'
         }`}
       >
-        <Icon className={`w-4 h-4 ${isActive ? 'text-ailydian-primary' : 'text-gray-600'}`} />
+        <Icon className={`w-4 h-4 ${isActive ? 'text-lydian-primary' : 'text-gray-600'}`} />
         <span className="text-sm font-semibold">{label}</span>
         <ChevronDown
           className={`w-3 h-3 transition-transform ${isSubmenuOpen ? 'rotate-180' : ''}`}
@@ -917,11 +917,11 @@ const NavLinkWithSubmenu: React.FC<{
                             className="flex items-center gap-2.5 px-2 py-2 rounded-xl hover:bg-blue-50 transition-all duration-200 group"
                           >
                             <div className="w-8 h-8 rounded-lg bg-blue-50 flex items-center justify-center flex-shrink-0 group-hover:bg-blue-100 transition-colors">
-                              <item.icon className="w-4 h-4 text-ailydian-primary" />
+                              <item.icon className="w-4 h-4 text-lydian-primary" />
                             </div>
                             <div className="flex-1 min-w-0">
                               <div className="flex items-center gap-1.5">
-                                <span className="font-medium text-gray-700 text-sm group-hover:text-ailydian-primary transition-colors truncate">
+                                <span className="font-medium text-gray-700 text-sm group-hover:text-lydian-primary transition-colors truncate">
                                   {item.title}
                                 </span>
                                 {item.popular && (
@@ -947,7 +947,7 @@ const NavLinkWithSubmenu: React.FC<{
                 <Link
                   href={href}
                   onClick={() => setActiveSubmenu(null)}
-                  className="text-xs font-semibold text-ailydian-primary hover:text-ailydian-secondary transition-colors flex items-center justify-center gap-1"
+                  className="text-xs font-semibold text-lydian-primary hover:text-lydian-secondary transition-colors flex items-center justify-center gap-1"
                 >
                   Tümünü Gör
                   <ChevronDown className="w-3.5 h-3.5 -rotate-90" />

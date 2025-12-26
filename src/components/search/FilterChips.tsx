@@ -45,12 +45,12 @@ const FilterChips: React.FC<FilterChipsProps> = ({
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.8 }}
             transition={{ duration: 0.2, delay: index * 0.02 }}
-            className="flex items-center gap-1.5 px-3 py-1.5 bg-ailydian-primary/10 text-ailydian-primary rounded-full text-sm font-medium border border-ailydian-primary/20 group hover:bg-ailydian-primary/20 transition-colors"
+            className="flex items-center gap-1.5 px-3 py-1.5 bg-lydian-primary/10 text-lydian-primary rounded-full text-sm font-medium border border-lydian-primary/20 group hover:bg-lydian-primary/20 transition-colors"
           >
             <span>{chip.label}</span>
             <button
               onClick={() => onRemoveFilter(chip.key, chip.value)}
-              className="p-0.5 hover:bg-ailydian-primary/20 rounded-full transition-colors"
+              className="p-0.5 hover:bg-lydian-primary/20 rounded-full transition-colors"
               aria-label={`Remove ${chip.label} filter`}
             >
               <X className="w-3 h-3" />

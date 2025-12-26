@@ -1,4 +1,4 @@
-# 🚀 Travel.Ailydian Enterprise - API Entegrasyon Rehberi
+# 🚀 Travel.LyDian Enterprise - API Entegrasyon Rehberi
 
 ## 📋 Genel Bakış
 
@@ -255,7 +255,7 @@ DEBUG=amadeus* npm run dev
 
 ## 🎯 Sonuç
 
-Artık Travel.Ailydian Enterprise projesi gerçek seyahat verilerine erişebiliyor:
+Artık Travel.LyDian Enterprise projesi gerçek seyahat verilerine erişebiliyor:
 
 - ✅ **Gerçek uçak biletleri** - Amadeus API
 - ✅ **Gerçek otel bilgileri** - Amadeus API  

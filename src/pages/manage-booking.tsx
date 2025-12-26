@@ -33,7 +33,7 @@ export default function ManageBooking() {
 
       <main className="min-h-screen bg-gray-50">
         {/* Hero Section */}
-        <div className="bg-gradient-to-r from-ailydian-primary to-ailydian-dark text-white py-16">
+        <div className="bg-gradient-to-r from-lydian-primary to-lydian-dark text-white py-16">
           <div className="max-w-7xl mx-auto px-4">
             <div className="text-center">
               <h1 className="text-4xl md:text-5xl font-bold mb-4">
@@ -55,26 +55,26 @@ export default function ManageBooking() {
                 onClick={() => setSearchType('booking')}
                 className={`pb-4 px-4 font-semibold transition-colors relative ${
                   searchType === 'booking'
-                    ? 'text-ailydian-primary'
+                    ? 'text-lydian-primary'
                     : 'text-gray-500 hover:text-gray-700'
                 }`}
               >
                 Rezervasyon Numarası ile
                 {searchType === 'booking' && (
-                  <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-ailydian-primary" />
+                  <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-lydian-primary" />
                 )}
               </button>
               <button
                 onClick={() => setSearchType('email')}
                 className={`pb-4 px-4 font-semibold transition-colors relative ${
                   searchType === 'email'
-                    ? 'text-ailydian-primary'
+                    ? 'text-lydian-primary'
                     : 'text-gray-500 hover:text-gray-700'
                 }`}
               >
                 E-posta ile
                 {searchType === 'email' && (
-                  <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-ailydian-primary" />
+                  <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-lydian-primary" />
                 )}
               </button>
             </div>
@@ -93,7 +93,7 @@ export default function ManageBooking() {
                         value={bookingNumber}
                         onChange={(e) => setBookingNumber(e.target.value)}
                         placeholder="Örn: TRV-2025-123456"
-                        className="w-full pl-11 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ailydian-primary focus:border-transparent"
+                        className="w-full pl-11 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-lydian-primary focus:border-transparent"
                         required
                       />
                     </div>
@@ -113,7 +113,7 @@ export default function ManageBooking() {
                         value={lastName}
                         onChange={(e) => setLastName(e.target.value)}
                         placeholder="Rezervasyonda belirtilen soyadı"
-                        className="w-full pl-11 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ailydian-primary focus:border-transparent"
+                        className="w-full pl-11 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-lydian-primary focus:border-transparent"
                         required
                       />
                     </div>
@@ -132,7 +132,7 @@ export default function ManageBooking() {
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         placeholder="rezervasyon@ornek.com"
-                        className="w-full pl-11 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ailydian-primary focus:border-transparent"
+                        className="w-full pl-11 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-lydian-primary focus:border-transparent"
                         required
                       />
                     </div>
@@ -152,7 +152,7 @@ export default function ManageBooking() {
                         value={lastName}
                         onChange={(e) => setLastName(e.target.value)}
                         placeholder="Rezervasyonda belirtilen soyadı"
-                        className="w-full pl-11 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ailydian-primary focus:border-transparent"
+                        className="w-full pl-11 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-lydian-primary focus:border-transparent"
                         required
                       />
                     </div>
@@ -163,7 +163,7 @@ export default function ManageBooking() {
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full mt-8 bg-ailydian-primary text-white py-4 rounded-lg font-semibold hover:bg-ailydian-dark transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                className="w-full mt-8 bg-lydian-primary text-white py-4 rounded-lg font-semibold hover:bg-lydian-dark transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
               >
                 {loading ? (
                   <>
@@ -190,7 +190,7 @@ export default function ManageBooking() {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow">
               <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4">
-                <Calendar className="w-6 h-6 text-ailydian-primary" />
+                <Calendar className="w-6 h-6 text-lydian-primary" />
               </div>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">
                 Tarih Değiştirme
@@ -243,8 +243,8 @@ export default function ManageBooking() {
           <div className="max-w-7xl mx-auto px-4">
             <div className="grid md:grid-cols-3 gap-8">
               <div className="text-center">
-                <div className="w-16 h-16 bg-ailydian-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Phone className="w-8 h-8 text-ailydian-primary" />
+                <div className="w-16 h-16 bg-lydian-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Phone className="w-8 h-8 text-lydian-primary" />
                 </div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-2">
                   7/24 Müşteri Desteği
@@ -252,14 +252,14 @@ export default function ManageBooking() {
                 <p className="text-gray-600 mb-3">
                   Her türlü sorunuz için ekibimiz yanınızda
                 </p>
-                <a href="tel:+908505551234" className="text-ailydian-primary font-semibold hover:underline">
+                <a href="tel:+908505551234" className="text-lydian-primary font-semibold hover:underline">
                   0850 555 12 34
                 </a>
               </div>
 
               <div className="text-center">
-                <div className="w-16 h-16 bg-ailydian-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Mail className="w-8 h-8 text-ailydian-primary" />
+                <div className="w-16 h-16 bg-lydian-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Mail className="w-8 h-8 text-lydian-primary" />
                 </div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-2">
                   E-posta Desteği
@@ -267,14 +267,14 @@ export default function ManageBooking() {
                 <p className="text-gray-600 mb-3">
                   Detaylı sorularınız için e-posta gönderin
                 </p>
-                <a href="mailto:destek@travel.ailydian.com" className="text-ailydian-primary font-semibold hover:underline">
-                  destek@travel.ailydian.com
+                <a href="mailto:destek@travel.lydian.com" className="text-lydian-primary font-semibold hover:underline">
+                  destek@travel.lydian.com
                 </a>
               </div>
 
               <div className="text-center">
-                <div className="w-16 h-16 bg-ailydian-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Clock className="w-8 h-8 text-ailydian-primary" />
+                <div className="w-16 h-16 bg-lydian-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Clock className="w-8 h-8 text-lydian-primary" />
                 </div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-2">
                   Hızlı Çözüm
@@ -282,7 +282,7 @@ export default function ManageBooking() {
                 <p className="text-gray-600 mb-3">
                   Sık sorulan sorular için yardım merkezini ziyaret edin
                 </p>
-                <a href="/faq" className="text-ailydian-primary font-semibold hover:underline">
+                <a href="/faq" className="text-lydian-primary font-semibold hover:underline">
                   Yardım Merkezi
                 </a>
               </div>
@@ -294,7 +294,7 @@ export default function ManageBooking() {
         <div className="max-w-4xl mx-auto px-4 py-12">
           <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
             <div className="flex items-start gap-3">
-              <AlertCircle className="w-6 h-6 text-ailydian-primary flex-shrink-0 mt-0.5" />
+              <AlertCircle className="w-6 h-6 text-lydian-primary flex-shrink-0 mt-0.5" />
               <div>
                 <h3 className="font-semibold text-gray-900 mb-2">Önemli Bilgiler</h3>
                 <ul className="space-y-2 text-sm text-gray-700">

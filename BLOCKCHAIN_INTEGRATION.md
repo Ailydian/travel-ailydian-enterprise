@@ -1,6 +1,6 @@
-# 🔗 Blockchain Integration - Travel Ailydian Enterprise
+# 🔗 Blockchain Integration - Travel LyDian Enterprise
 
-Bu dokümanda Travel Ailydian platformunun blockchain entegrasyonu hakkında detaylı bilgileri bulabilirsiniz.
+Bu dokümanda Travel LyDian platformunun blockchain entegrasyonu hakkında detaylı bilgileri bulabilirsiniz.
 
 ## 🚀 Özellikler
 
@@ -153,7 +153,7 @@ Blockchain özelliklerine `/blockchain` rotasından erişilebilir.
 
 ## 📞 Destek ve İletişim
 
-Bu blockchain entegrasyonu Travel Ailydian Enterprise'ın faz 2 geliştirme sürecinin bir parçasıdır. Herhangi bir sorun veya öneri için:
+Bu blockchain entegrasyonu Travel LyDian Enterprise'ın faz 2 geliştirme sürecinin bir parçasıdır. Herhangi bir sorun veya öneri için:
 
 - **GitHub Issues**: Teknik problemler için
 - **Documentation**: Bu dosyayı güncel tutma

@@ -356,7 +356,7 @@ body {
 
 .input-responsive:focus {
   outline: none;
-  border-color: var(--ailydian-primary, #0066FF);
+  border-color: var(--lydian-primary, #0066FF);
   box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.1);
 }
 

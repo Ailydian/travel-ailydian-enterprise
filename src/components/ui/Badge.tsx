@@ -18,12 +18,12 @@ export const Badge: React.FC<BadgeProps> = ({
   className = '',
 }) => {
   const variantStyles = {
-    default: 'bg-ailydian-primary text-white',
+    default: 'bg-lydian-primary text-white',
     success: 'bg-success-600 text-white',
     warning: 'bg-amber-500 text-white',
     error: 'bg-red-600 text-white',
     info: 'bg-blue-600 text-white',
-    outline: 'border-2 border-ailydian-primary text-ailydian-primary bg-white',
+    outline: 'border-2 border-lydian-primary text-lydian-primary bg-white',
   };
 
   const sizeStyles = {

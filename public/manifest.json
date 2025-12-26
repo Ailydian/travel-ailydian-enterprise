@@ -1,6 +1,6 @@
 {
-  "name": "Travel.Ailydian Enterprise",
-  "short_name": "Travel.Ailydian",
+  "name": "Travel.LyDian Enterprise",
+  "short_name": "Travel.LyDian",
   "description": "Enterprise-grade AI-powered global tourism platform",
   "start_url": "/",
   "display": "standalone",

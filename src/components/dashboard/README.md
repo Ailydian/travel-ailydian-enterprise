@@ -1,6 +1,6 @@
 # Dashboard Layout System
 
-A complete, production-ready dashboard layout system for the Ailydian travel platform. Built with modern React patterns, TypeScript, and Tailwind CSS.
+A complete, production-ready dashboard layout system for the LyDian travel platform. Built with modern React patterns, TypeScript, and Tailwind CSS.
 
 ## Components
 
@@ -278,7 +278,7 @@ Potential improvements:
 
 ## License
 
-Part of the Ailydian Enterprise Platform.
+Part of the LyDian Enterprise Platform.
 
 ## Support
 

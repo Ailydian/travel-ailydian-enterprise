@@ -12,7 +12,7 @@ interface SeoState {
 
 export const useSeoBot = () => {
   const router = useRouter();
-  const [seoBot] = useState(() => new AutoSeoBot('https://travel.ailydian.com'));
+  const [seoBot] = useState(() => new AutoSeoBot('https://travel.lydian.com'));
   const [seoState, setSeoState] = useState<SeoState>({
     isAnalyzing: false,
     analysis: null,
@@ -26,8 +26,8 @@ export const useSeoBot = () => {
 
     try {
       const fullPageData: PageSeoData = {
-        url: `https://travel.ailydian.com${router.asPath}`,
-        title: pageData.title || 'Travel Ailydian',
+        url: `https://travel.lydian.com${router.asPath}`,
+        title: pageData.title || 'Travel LyDian',
         description: pageData.description || '',
         content: pageData.content || '',
         language: router.locale || 'tr',

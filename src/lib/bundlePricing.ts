@@ -22,7 +22,7 @@ export interface BundlePricing {
   totalDiscount: number;
   finalTotal: number;
   savingsPercentage: number;
-  ailydianMiles: number; // Loyalty points earned
+  lydianMiles: number; // Loyalty points earned
 }
 
 /**
@@ -197,27 +197,27 @@ export function calculateSeasonalDiscount(travelDate: Date, location: string): B
 }
 
 /**
- * Calculate loyalty discount based on Ailydian Miles
+ * Calculate loyalty discount based on LyDian Miles
  * 1,000+ miles = %2
  * 5,000+ miles = %5
  * 10,000+ miles = %10 (VIP)
  */
-export function calculateLoyaltyDiscount(ailydianMiles: number): BundleDiscount | null {
-  if (ailydianMiles >= 10000) {
+export function calculateLoyaltyDiscount(lydianMiles: number): BundleDiscount | null {
+  if (lydianMiles >= 10000) {
     return {
       percentage: 10,
       amount: 0,
       reason: 'VIP üye indirimi (10,000+ miles)',
       badge: '👑 VIP Üye'
     };
-  } else if (ailydianMiles >= 5000) {
+  } else if (lydianMiles >= 5000) {
     return {
       percentage: 5,
       amount: 0,
       reason: 'Gold üye indirimi (5,000+ miles)',
       badge: '🥇 Gold Üye'
     };
-  } else if (ailydianMiles >= 1000) {
+  } else if (lydianMiles >= 1000) {
     return {
       percentage: 2,
       amount: 0,
@@ -311,7 +311,7 @@ export function calculateBundlePricing(
   const finalTotal = Math.max(0, subtotal - totalDiscount);
   const savingsPercentage = subtotal > 0 ? Math.round((totalDiscount / subtotal) * 100) : 0;
 
-  // Calculate Ailydian Miles earned (1 mile per ₺1 spent)
+  // Calculate LyDian Miles earned (1 mile per ₺1 spent)
   const milesEarned = Math.floor(finalTotal);
 
   return {
@@ -321,7 +321,7 @@ export function calculateBundlePricing(
     totalDiscount,
     finalTotal,
     savingsPercentage,
-    ailydianMiles: milesEarned
+    lydianMiles: milesEarned
   };
 }
 

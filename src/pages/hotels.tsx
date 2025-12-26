@@ -246,7 +246,7 @@ const HotelsNewPage: React.FC = () => {
 
       <Link
         href="/"
-        className="fixed top-24 left-6 z-50 flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200 text-gray-700 hover:bg-white hover:text-ailydian-primary transition-all duration-200"
+        className="fixed top-24 left-6 z-50 flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200 text-gray-700 hover:bg-white hover:text-lydian-primary transition-all duration-200"
       >
         <ArrowLeft className="w-4 h-4" />
         <span className="font-medium">Ana Sayfaya Dön</span>
@@ -254,7 +254,7 @@ const HotelsNewPage: React.FC = () => {
 
       <main className="min-h-screen bg-white">
         {/* Hero Section */}
-        <section className="bg-gradient-to-r from-ailydian-primary to-ailydian-secondary py-16">
+        <section className="bg-gradient-to-r from-lydian-primary to-lydian-secondary py-16">
           <div className="max-w-7xl mx-auto px-4">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -324,7 +324,7 @@ const HotelsNewPage: React.FC = () => {
                     whileTap={{ scale: 0.95 }}
                     onClick={searchHotels}
                     disabled={loading}
-                    className="flex items-center gap-2 px-8 py-3 bg-white text-ailydian-primary rounded-xl font-medium hover:bg-gray-100 transition-colors disabled:opacity-50"
+                    className="flex items-center gap-2 px-8 py-3 bg-white text-lydian-primary rounded-xl font-medium hover:bg-gray-100 transition-colors disabled:opacity-50"
                   >
                     {loading ? <Loader2 className="w-5 h-5 animate-spin" /> : <Search className="w-5 h-5" />}
                     {loading ? 'Aranıyor...' : 'Otel Ara'}
@@ -350,7 +350,7 @@ const HotelsNewPage: React.FC = () => {
                   <SlidersHorizontal className="w-4 h-4" />
                   Filtreler
                   {activeFilterCount > 0 && (
-                    <span className="absolute -top-2 -right-2 px-2 py-0.5 bg-ailydian-primary text-white rounded-full text-xs font-bold">
+                    <span className="absolute -top-2 -right-2 px-2 py-0.5 bg-lydian-primary text-white rounded-full text-xs font-bold">
                       {activeFilterCount}
                     </span>
                   )}
@@ -375,7 +375,7 @@ const HotelsNewPage: React.FC = () => {
           <div className="max-w-7xl mx-auto px-4">
             {loading ? (
               <div className="flex justify-center items-center py-20">
-                <Loader2 className="w-12 h-12 animate-spin text-ailydian-primary" />
+                <Loader2 className="w-12 h-12 animate-spin text-lydian-primary" />
               </div>
             ) : (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -394,7 +394,7 @@ const HotelsNewPage: React.FC = () => {
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                       />
                       <div className="absolute top-4 left-4">
-                        <span className="px-3 py-1 bg-ailydian-primary text-white rounded-full text-sm font-medium">
+                        <span className="px-3 py-1 bg-lydian-primary text-white rounded-full text-sm font-medium">
                           {hotel.stars} Yıldız
                         </span>
                       </div>
@@ -432,7 +432,7 @@ const HotelsNewPage: React.FC = () => {
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                             onClick={() => handleAddToCart(hotel)}
-                            className="flex-1 px-4 py-2 border-2 border-ailydian-primary text-ailydian-primary rounded-lg font-medium hover:bg-ailydian-primary/10 transition-colors flex items-center justify-center gap-2"
+                            className="flex-1 px-4 py-2 border-2 border-lydian-primary text-lydian-primary rounded-lg font-medium hover:bg-lydian-primary/10 transition-colors flex items-center justify-center gap-2"
                           >
                             <ShoppingCart className="w-4 h-4" />
                             Sepete Ekle
@@ -583,7 +583,7 @@ const HotelsNewPage: React.FC = () => {
                  borderColor: '#E5E7EB'
                }}>
             <p className="text-sm text-gray-600 text-center">
-              <strong className="font-bold text-gray-900">Önemli Bilgi:</strong> Travel Ailydian,
+              <strong className="font-bold text-gray-900">Önemli Bilgi:</strong> Travel LyDian,
               AI destekli blockchain tabanlı güvenli rezervasyon sistemi ile seyahatinizi güvence altına alır.
               Tüm rezervasyonlarınız anında onaylanır ve blockchain ağında kayıt altına alınır.
               Detaylı bilgi için{' '}

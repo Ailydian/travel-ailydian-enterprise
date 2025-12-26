@@ -151,8 +151,8 @@ const DashboardPage: React.FC = () => {
   return (
     <>
       <Head>
-        <title>Dashboard | Travel.Ailydian - Seyahat Hesabım</title>
-        <meta name="description" content="Travel.Ailydian hesap dashboard'unuz. Rezervasyonlarınızı görün, seyahat geçmişinizi inceleyin ve AI önerilerini keşfedin." />
+        <title>Dashboard | Travel.LyDian - Seyahat Hesabım</title>
+        <meta name="description" content="Travel.LyDian hesap dashboard'unuz. Rezervasyonlarınızı görün, seyahat geçmişinizi inceleyin ve AI önerilerini keşfedin." />
       </Head>
 
       <SimplifiedHeader />

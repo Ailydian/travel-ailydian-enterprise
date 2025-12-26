@@ -1,5 +1,5 @@
 /**
- * Ailydian Ecosystem Footer Component - UPDATED
+ * LyDian Ecosystem Footer Component - UPDATED
  *
  * KULLANIM TALİMATLARI:
  * 1. Bu component'i subdomain projesine kopyalayın
@@ -30,7 +30,7 @@ interface SubdomainInfo {
 const ALL_AILYDIAN_SUBDOMAINS: SubdomainInfo[] = [
   {
     name: "Travel AI",
-    url: "https://travel.ailydian.com",
+    url: "https://travel.lydian.com",
     svgIcon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg>',
     description: "Akıllı Seyahat & Transfer Platformu",
     shortDesc: "AI Transfer",
@@ -39,7 +39,7 @@ const ALL_AILYDIAN_SUBDOMAINS: SubdomainInfo[] = [
   },
   {
     name: "Voice AI",
-    url: "https://voice.ailydian.com",
+    url: "https://voice.lydian.com",
     svgIcon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg>',
     description: "Ses Teknolojisi - TTS & STT",
     shortDesc: "Türkçe Ses",
@@ -48,7 +48,7 @@ const ALL_AILYDIAN_SUBDOMAINS: SubdomainInfo[] = [
   },
   {
     name: "Oto AI",
-    url: "https://otoai.ailydian.com",
+    url: "https://otoai.lydian.com",
     svgIcon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg>',
     description: "Otonom Araç AI Sistemleri",
     shortDesc: "Otonom Araç",
@@ -57,7 +57,7 @@ const ALL_AILYDIAN_SUBDOMAINS: SubdomainInfo[] = [
   },
   {
     name: "Mimar AI",
-    url: "https://mimar.ailydian.com",
+    url: "https://mimar.lydian.com",
     svgIcon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="20" x="4" y="2" rx="2" ry="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M12 6h.01"/><path d="M12 10h.01"/><path d="M12 14h.01"/><path d="M16 10h.01"/><path d="M16 14h.01"/><path d="M8 10h.01"/><path d="M8 14h.01"/></svg>',
     description: "AI Destekli Mimari Tasarım",
     shortDesc: "Akıllı Mimari",
@@ -66,7 +66,7 @@ const ALL_AILYDIAN_SUBDOMAINS: SubdomainInfo[] = [
   },
   {
     name: "Tarım AI",
-    url: "https://tarim.ailydian.com",
+    url: "https://tarim.lydian.com",
     svgIcon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>',
     description: "Akıllı Tarım Çözümleri",
     shortDesc: "Precision Ag",
@@ -75,7 +75,7 @@ const ALL_AILYDIAN_SUBDOMAINS: SubdomainInfo[] = [
   },
   {
     name: "Turkey AI",
-    url: "https://turkey.ailydian.com",
+    url: "https://turkey.lydian.com",
     svgIcon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8"/><path d="M15 18h-5"/><path d="M10 6h8v4h-8V6Z"/></svg>',
     description: "Seyahat Deneyiminin Geleceği - Sadece Konuşun",
     shortDesc: "Sadece Konuşun",
@@ -84,7 +84,7 @@ const ALL_AILYDIAN_SUBDOMAINS: SubdomainInfo[] = [
   },
   {
     name: "Borsa AI",
-    url: "https://borsa.ailydian.com",
+    url: "https://borsa.lydian.com",
     svgIcon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>',
     description: "Borsa AI",
     shortDesc: "Borsa AI",
@@ -93,17 +93,17 @@ const ALL_AILYDIAN_SUBDOMAINS: SubdomainInfo[] = [
   }
 ];
 
-interface AilydianEcosystemFooterProps {
+interface LyDianEcosystemFooterProps {
   currentDomain: string;
   position?: 'above-footer' | 'below-footer';
   theme?: 'dark' | 'light';
 }
 
-export default function AilydianEcosystemFooter({
+export default function LyDianEcosystemFooter({
   currentDomain,
   position = 'above-footer',
   theme = 'light'
-}: AilydianEcosystemFooterProps) {
+}: LyDianEcosystemFooterProps) {
   const [isClient, setIsClient] = useState(false);
   const [hasError, setHasError] = useState(false);
 
@@ -111,7 +111,7 @@ export default function AilydianEcosystemFooter({
     try {
       setIsClient(true);
     } catch (error) {
-      console.error('[Ailydian Ecosystem] Init error:', error);
+      console.error('[LyDian Ecosystem] Init error:', error);
       setHasError(true);
     }
   }, []);
@@ -144,7 +144,7 @@ export default function AilydianEcosystemFooter({
         {/* Header */}
         <div className="text-center mb-8">
           <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-            Ailydian Ecosystem
+            LyDian Ecosystem
           </h3>
           <p className={`mt-2 text-sm ${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'}`}>
             AI-Powered Solutions Across Industries
@@ -216,7 +216,7 @@ export default function AilydianEcosystemFooter({
         {/* Main Site Link */}
         <div className="text-center">
           <a
-            href="https://ailydian.com"
+            href="https://lydian.com"
             target="_blank"
             rel="noopener noreferrer"
             className={`
@@ -229,7 +229,7 @@ export default function AilydianEcosystemFooter({
               <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
               <polyline points="9 22 9 12 15 12 15 22"/>
             </svg>
-            <span>Ailydian Ana Site</span>
+            <span>LyDian Ana Site</span>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
               <polyline points="15 3 21 3 21 9"/>
@@ -240,7 +240,7 @@ export default function AilydianEcosystemFooter({
 
         {/* Footer Text */}
         <div className={`text-center mt-6 text-xs ${theme === 'dark' ? 'text-gray-500' : 'text-gray-400'}`}>
-          <p>Powered by Ailydian - AI-Driven Innovation</p>
+          <p>Powered by LyDian - AI-Driven Innovation</p>
         </div>
       </div>
     </div>

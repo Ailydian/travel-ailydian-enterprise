@@ -42,7 +42,7 @@ const CategoriesPage: React.FC = () => {
   return (
     <>
       <Head>
-        <title>Türkiye'ye Özel Tatil Kategorileri | Travel Ailydian</title>
+        <title>Türkiye'ye Özel Tatil Kategorileri | Travel LyDian</title>
         <meta
           name="description"
           content="Termal oteller, kış sporları, butik oteller, koy otelleri, tarihi konaklar ve daha fazlası. Türkiye'nin benzersiz tatil deneyimleri."
@@ -235,7 +235,7 @@ const CategoriesPage: React.FC = () => {
             className="mt-16 bg-white rounded-xl shadow-md p-8"
           >
             <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">
-              Neden Travel Ailydian Kategorileri?
+              Neden Travel LyDian Kategorileri?
             </h2>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -286,7 +286,7 @@ const CategoriesPage: React.FC = () => {
 
             <div className="prose max-w-none text-gray-700">
               <p>
-                Travel Ailydian olarak, Türkiye'nin zengin kültürel mirası ve doğal güzelliklerini
+                Travel LyDian olarak, Türkiye'nin zengin kültürel mirası ve doğal güzelliklerini
                 yansıtan özel kategoriler oluşturduk. Termal oteller, kış sporları tesisleri,
                 butik oteller, koy otelleri, tarihi konaklar, yayla evleri, mağara oteller ve
                 bağ evleri gibi benzersiz konaklama seçenekleriyle unutulmaz tatiller yapabilirsiniz.
@@ -300,7 +300,7 @@ const CategoriesPage: React.FC = () => {
 
               <p className="mt-4">
                 Bundle pricing sistemimizle paket rezervasyonlar yaparak %20'ye varan
-                indirimlerden yararlanabilir, Ailydian Miles programıyla her rezervasyonunuzda
+                indirimlerden yararlanabilir, LyDian Miles programıyla her rezervasyonunuzda
                 puan kazanabilirsiniz.
               </p>
             </div>

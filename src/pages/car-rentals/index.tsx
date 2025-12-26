@@ -315,7 +315,7 @@ const CarRentalsPage: React.FC = () => {
                 viewport={{ once: true }}
                 className="text-4xl font-black text-gray-900 mb-4"
               >
-                Neden Ailydian Car Rental?
+                Neden LyDian Car Rental?
               </motion.h2>
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
@@ -639,7 +639,7 @@ const CarRentalsPage: React.FC = () => {
                 </h2>
 
                 <p className="text-lg text-green-50 mb-8 max-w-2xl mx-auto">
-                  Binlerce araç sahibi Ailydian ile pasif gelir elde ediyor.
+                  Binlerce araç sahibi LyDian ile pasif gelir elde ediyor.
                   Siz de aracınızı listeleyerek aylık ortalama ₺8,500 kazanabilirsiniz.
                 </p>
 

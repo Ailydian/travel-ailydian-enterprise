@@ -1,29 +1,29 @@
 {
-  "defaultTitle": "Travel Ailydian - Yapay Zeka Destekli Seyahat Platformu",
+  "defaultTitle": "Travel LyDian - Yapay Zeka Destekli Seyahat Platformu",
   "defaultDescription": "Yapay zeka önerilerini, VR önizlemelerini ve blockchain doğrulamalı rezervasyonları ile dünya çapında eşsiz seyahat deneyimleri keşfedin.",
   "defaultKeywords": "seyahat, yapay zeka seyahat, blockchain seyahat, vr turlar, türkiye turizm, global seyahat platformu",
   "homepage": {
-    "title": "Travel Ailydian - Dünyayı Keşfedin",
-    "description": "Travel Ailydian ile hayallerinizdeki seyahat deneyimlerini yaşayın. Yapay zeka destekli öneriler, güvenli ödemeler ve benzersiz deneyimler.",
+    "title": "Travel LyDian - Dünyayı Keşfedin",
+    "description": "Travel LyDian ile hayallerinizdeki seyahat deneyimlerini yaşayın. Yapay zeka destekli öneriler, güvenli ödemeler ve benzersiz deneyimler.",
     "keywords": "türkiye seyahat, istanbul otelleri, kapadokya turları, antalya tatili, seyahat önerileri"
   },
   "destinations": {
-    "title": "Destinasyonlar - Travel Ailydian",
+    "title": "Destinasyonlar - Travel LyDian",
     "description": "Türkiye ve dünya çapında en güzel destinasyonları keşfedin. Kişiselleştirilmiş seyahat önerileri ve benzersiz deneyimler.",
     "keywords": "seyahat destinasyonları, türkiye gezilecek yerler, yurt dışı turlar, seyahat rehberi"
   },
   "hotels": {
-    "title": "Oteller - Travel Ailydian",
+    "title": "Oteller - Travel LyDian",
     "description": "Lüks otellerden butik konaklama seçeneklerine kadar, mükemmel konaklama deneyimi için binlerce otel seçeneği.",
     "keywords": "otel rezervasyonu, istanbul otelleri, antalya otelleri, kapadokya otelleri, butik otel"
   },
   "experiences": {
-    "title": "Deneyimler - Travel Ailydian",
+    "title": "Deneyimler - Travel LyDian",
     "description": "Unutulmaz anılar oluşturacak benzersiz seyahat deneyimleri. Yerel turlardan macera sporlarına kadar.",
     "keywords": "seyahat deneyimleri, yerel turlar, macera turizmi, kültür turları, gastronomi turları"
   },
   "flights": {
-    "title": "Uçuşlar - Travel Ailydian",
+    "title": "Uçuşlar - Travel LyDian",
     "description": "En uygun uçuş fiyatları ile dünyaya açılın. Güvenilir havayolu şirketleri ile konforlu uçuş deneyimi.",
     "keywords": "uçak bileti, ucuz uçuş, istanbul uçuşları, yurt dışı uçuş, havayolu rezervasyonu"
   }

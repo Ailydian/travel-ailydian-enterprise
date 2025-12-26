@@ -385,7 +385,7 @@ export default function Activities() {
   return (
     <>
       <Head>
-        <title>Aktiviteler - Ailydian Travel</title>
+        <title>Aktiviteler - LyDian Travel</title>
         <meta name="description" content="Heyecan verici aktiviteler ve deneyimler. Maceradan wellness&apos;a kadar." />
       </Head>
 

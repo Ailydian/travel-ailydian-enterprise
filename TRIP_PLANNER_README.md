@@ -385,14 +385,14 @@ client.sendChatMessage('Let\'s add this to the itinerary!');
 
 ## License
 
-This feature is part of the Ailydian Travel Enterprise platform.
+This feature is part of the LyDian Travel Enterprise platform.
 
 ## Support
 
 For questions or issues:
-- Email: support@ailydian.com
-- Documentation: https://docs.ailydian.com
-- GitHub: https://github.com/ailydian/travel-enterprise
+- Email: support@lydian.com
+- Documentation: https://docs.lydian.com
+- GitHub: https://github.com/lydian/travel-enterprise
 
 ---
 

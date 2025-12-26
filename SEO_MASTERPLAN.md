@@ -2,7 +2,7 @@
 ## Derinlemesine Anahtar Kelime Analizi ve White-Hat SEO Stratejisi
 
 ### 📋 EXECUTIVE SUMMARY
-Bu plan, Travel Ailydian'ı Türkiye turizm sektöründe arama motorlarında 1. sayfanın ilk 3 sıralarına taşıyacak comprehensive white-hat SEO stratejisidir.
+Bu plan, Travel LyDian'ı Türkiye turizm sektöründe arama motorlarında 1. sayfanın ilk 3 sıralarına taşıyacak comprehensive white-hat SEO stratejisidir.
 
 ---
 
@@ -141,15 +141,15 @@ October-December:
 
 #### **Title Tag Templates**
 ```
-1. City Tours: "{City} Turu | En İyi {City} Rehberi 2024 | Travel Ailydian"
-2. Activities: "{Activity} | {Location} {Activity} Turları | Travel Ailydian"
-3. Guides: "{Destination} Rehberi: {Year} Güncel Bilgiler | Travel Ailydian"
+1. City Tours: "{City} Turu | En İyi {City} Rehberi 2024 | Travel LyDian"
+2. Activities: "{Activity} | {Location} {Activity} Turları | Travel LyDian"
+3. Guides: "{Destination} Rehberi: {Year} Güncel Bilgiler | Travel LyDian"
 ```
 
 #### **Meta Description Templates**
 ```
 1. "{City} turları için en kapsamlı rehber! ✈️ Uygun fiyatlar, uzman rehberler, %100 güvenli rezervasyon. Hemen keşfedin ve rezervasyon yapın! 🎯"
-2. "{Activity} deneyimi için Travel Ailydian'ı seçin! Profesyonel rehberlik, güvenli turlar, unutulmaz anılar. {Location}'da {activity} turları!"
+2. "{Activity} deneyimi için Travel LyDian'ı seçin! Profesyonel rehberlik, güvenli turlar, unutulmaz anılar. {Location}'da {activity} turları!"
 ```
 
 ### **URL Structure Optimization**
@@ -170,7 +170,7 @@ October-December:
   "@type": "TouristAttraction",
   "name": "Kapadokya Balon Turları",
   "description": "Kapadokya'nın büyüleyici manzarasını sıcak hava balonuyla keşfedin",
-  "image": "https://travel.ailydian.com/images/kapadokya-balon.jpg",
+  "image": "https://travel.lydian.com/images/kapadokya-balon.jpg",
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "Göreme",
@@ -246,7 +246,7 @@ October-December:
 
 ### **Image Optimization**
 ```
-- Alt text: "{Destination} {Activity} - Travel Ailydian"
+- Alt text: "{Destination} {Activity} - Travel LyDian"
 - File names: "kapadokya-balon-turu-2024.jpg"
 - WebP format for faster loading
 - Lazy loading implementation
@@ -420,4 +420,4 @@ Bu SEO masterplan'ını uygulamak için:
 
 ---
 
-*Bu plan, Travel Ailydian'ı Türkiye turizm sektöründe dijital lider konuma taşıyacak comprehensive white-hat SEO stratejisidir. Tüm teknikler Google'ın en son algoritma güncellemeleri ve best practices doğrultusunda hazırlanmıştır.*
+*Bu plan, Travel LyDian'ı Türkiye turizm sektöründe dijital lider konuma taşıyacak comprehensive white-hat SEO stratejisidir. Tüm teknikler Google'ın en son algoritma güncellemeleri ve best practices doğrultusunda hazırlanmıştır.*

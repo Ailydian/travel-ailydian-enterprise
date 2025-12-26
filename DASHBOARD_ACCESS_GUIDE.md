@@ -34,7 +34,7 @@ rm /Users/sardag/pnpm-lock.yaml
 // next.config.js içine ekle:
 module.exports = {
   ...
-  outputFileTracingRoot: '/Users/sardag/Desktop/travel-ailydian-enterprise',
+  outputFileTracingRoot: '/Users/sardag/Desktop/travel-lydian-enterprise',
 }
 ```
 

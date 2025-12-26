@@ -19,19 +19,19 @@ export const metadata: Metadata = {
     'antalya transfer rezervasyon'
   ],
   alternates: {
-    canonical: 'https://travel.ailydian.com/tr/antalya-havalimani-transfer',
+    canonical: 'https://travel.lydian.com/tr/antalya-havalimani-transfer',
     languages: {
-      'en': 'https://travel.ailydian.com/en/antalya-airport-transfer',
-      'ru': 'https://travel.ailydian.com/ru/transfer-antalya',
-      'de': 'https://travel.ailydian.com/de/antalya-flughafentransfer',
-      'fr': 'https://travel.ailydian.com/fr/transfert-aeroport-antalya'
+      'en': 'https://travel.lydian.com/en/antalya-airport-transfer',
+      'ru': 'https://travel.lydian.com/ru/transfer-antalya',
+      'de': 'https://travel.lydian.com/de/antalya-flughafentransfer',
+      'fr': 'https://travel.lydian.com/fr/transfert-aeroport-antalya'
     }
   },
   openGraph: {
     title: 'Antalya Havalimanı Transfer - En Güvenilir Transfer Hizmeti',
     description: 'Antalya Havalimanından tüm bölgelere 7/24 güvenli ve konforlu transfer hizmeti. VIP araçlar, profesyonel sürücüler, %30 indirim!',
-    url: 'https://travel.ailydian.com/tr/antalya-havalimani-transfer',
-    siteName: 'Ailydian Travel',
+    url: 'https://travel.lydian.com/tr/antalya-havalimani-transfer',
+    siteName: 'LyDian Travel',
     locale: 'tr_TR',
     type: 'website',
   }
@@ -129,9 +129,9 @@ export default function AntalyaHavalimanıTransferPage() {
           __html: JSON.stringify({
             '@context': 'https://schema.org',
             '@type': 'LocalBusiness',
-            name: 'Ailydian Transfer - Antalya Havalimanı Transfer',
+            name: 'LyDian Transfer - Antalya Havalimanı Transfer',
             description: 'Antalya Havalimanı Transfer Hizmeti - Alanya, Belek, Side, Kemer',
-            url: 'https://travel.ailydian.com/tr/antalya-havalimani-transfer',
+            url: 'https://travel.lydian.com/tr/antalya-havalimani-transfer',
             telephone: '+90-242-123-4567',
             priceRange: '€€',
             address: {
@@ -225,7 +225,7 @@ export default function AntalyaHavalimanıTransferPage() {
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-gray-900">
-            Neden Ailydian Transfer?
+            Neden LyDian Transfer?
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
             {features.map((feature, index) => (

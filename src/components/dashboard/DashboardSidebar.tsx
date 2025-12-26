@@ -101,7 +101,7 @@ const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
           {!isCollapsed && (
             <Link href="/" className="flex items-center space-x-2">
               <Building2 className="h-8 w-8 text-blue-600" />
-              <span className="text-xl font-bold text-gray-900">Ailydian</span>
+              <span className="text-xl font-bold text-gray-900">LyDian</span>
             </Link>
           )}
           {isCollapsed && (

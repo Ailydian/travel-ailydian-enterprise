@@ -1,6 +1,6 @@
 # Property Submission Validation Schemas
 
-Comprehensive Zod validation schemas for the 8-step property submission wizard in the Travel Ailydian Enterprise dashboard.
+Comprehensive Zod validation schemas for the 8-step property submission wizard in the Travel LyDian Enterprise dashboard.
 
 ## Overview
 

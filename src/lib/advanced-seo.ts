@@ -1,40 +1,40 @@
 import { NextSeoProps } from 'next-seo';
 
-// Ailydian SEO konfigürasyonu
+// LyDian SEO konfigürasyonu
 export const AILYDIAN_SEO_CONFIG = {
-  defaultTitle: 'Travel.Ailydian - AI Destekli Global Turizm Platformu',
-  titleTemplate: '%s | Travel.Ailydian',
+  defaultTitle: 'Travel.LyDian - AI Destekli Global Turizm Platformu',
+  titleTemplate: '%s | Travel.LyDian',
   description: 'Yapay zeka destekli seyahat önerileri, blockchain ödemeler ve VR deneyimleri ile dünyayı keşfedin.',
-  canonical: 'https://travel.ailydian.com',
+  canonical: 'https://travel.lydian.com',
   
   openGraph: {
     type: 'website',
     locale: 'tr_TR',
-    url: 'https://travel.ailydian.com',
-    siteName: 'Travel.Ailydian',
-    title: 'Travel.Ailydian - AI Destekli Global Turizm Platformu',
+    url: 'https://travel.lydian.com',
+    siteName: 'Travel.LyDian',
+    title: 'Travel.LyDian - AI Destekli Global Turizm Platformu',
     description: 'Enterprise-grade AI turizm platformu. Blockchain ödemeler, VR turlar ve akıllı seyahat planlama.',
     images: [
       {
-        url: 'https://travel.ailydian.com/images/og-banner.jpg',
+        url: 'https://travel.lydian.com/images/og-banner.jpg',
         width: 1200,
         height: 630,
-        alt: 'Travel.Ailydian - AI Tourism Platform',
+        alt: 'Travel.LyDian - AI Tourism Platform',
         type: 'image/jpeg',
       },
       {
-        url: 'https://travel.ailydian.com/images/og-logo.jpg',
+        url: 'https://travel.lydian.com/images/og-logo.jpg',
         width: 800,
         height: 800,
-        alt: 'Travel.Ailydian Logo',
+        alt: 'Travel.LyDian Logo',
         type: 'image/jpeg',
       },
     ],
   },
   
   twitter: {
-    handle: '@ailydian',
-    site: '@ailydian',
+    handle: '@lydian',
+    site: '@lydian',
     cardType: 'summary_large_image',
   },
 
@@ -45,7 +45,7 @@ export const AILYDIAN_SEO_CONFIG = {
     },
     {
       name: 'theme-color',
-      content: '#FF214D', // Ailydian primary color
+      content: '#FF214D', // LyDian primary color
     },
     {
       name: 'apple-mobile-web-app-capable',
@@ -57,11 +57,11 @@ export const AILYDIAN_SEO_CONFIG = {
     },
     {
       name: 'apple-mobile-web-app-title',
-      content: 'Travel.Ailydian',
+      content: 'Travel.LyDian',
     },
     {
       name: 'application-name',
-      content: 'Travel.Ailydian',
+      content: 'Travel.LyDian',
     },
     {
       name: 'msapplication-TileColor',
@@ -133,7 +133,7 @@ export class SEOManager {
       schema?: any;
     }
   ): NextSeoProps {
-    const canonical = `https://travel.ailydian.com${path}`;
+    const canonical = `https://travel.lydian.com${path}`;
     
     return {
       title,
@@ -170,7 +170,7 @@ export class SEOManager {
     image?: string;
     keywords?: string[];
   }, lang: string = 'tr'): NextSeoProps {
-    const title = `${destination.name}, ${destination.country} - Seyahat Rehberi | Travel.Ailydian`;
+    const title = `${destination.name}, ${destination.country} - Seyahat Rehberi | Travel.LyDian`;
     const description = `${destination.name} için AI destekli seyahat rehberi. ${destination.description}`;
     
     return this.generatePageSEO(
@@ -181,7 +181,7 @@ export class SEOManager {
         type: 'article',
         images: destination.image ? [{
           url: destination.image,
-          alt: `${destination.name} - Travel.Ailydian`,
+          alt: `${destination.name} - Travel.LyDian`,
         }] : undefined,
         keywords: [
           destination.name,
@@ -204,7 +204,7 @@ export class SEOManager {
     price?: string;
     image?: string;
   }): NextSeoProps {
-    const title = `${hotel.name} - ${hotel.city} ${hotel.rating ? `⭐${hotel.rating}` : ''} | Travel.Ailydian`;
+    const title = `${hotel.name} - ${hotel.city} ${hotel.rating ? `⭐${hotel.rating}` : ''} | Travel.LyDian`;
     const description = `${hotel.name} oteli için rezervasyon, fiyatlar ve detaylar. AI destekli otel önerileri ile en uygun seçeneği bulun.`;
     
     return this.generatePageSEO(
@@ -230,22 +230,22 @@ export class SEOManager {
     return {
       '@context': 'https://schema.org',
       '@type': 'WebSite',
-      name: 'Travel.Ailydian',
-      url: 'https://travel.ailydian.com',
+      name: 'Travel.LyDian',
+      url: 'https://travel.lydian.com',
       description: 'Enterprise-grade AI turizm platformu',
       publisher: {
         '@type': 'Organization',
-        name: 'Ailydian AI Ecosystem',
+        name: 'LyDian AI Ecosystem',
         logo: {
           '@type': 'ImageObject',
-          url: 'https://travel.ailydian.com/images/logo.png',
+          url: 'https://travel.lydian.com/images/logo.png',
         },
       },
       potentialAction: {
         '@type': 'SearchAction',
         target: {
           '@type': 'EntryPoint',
-          urlTemplate: 'https://travel.ailydian.com/search?q={search_term_string}',
+          urlTemplate: 'https://travel.lydian.com/search?q={search_term_string}',
         },
         'query-input': 'required name=search_term_string',
       },
@@ -256,9 +256,9 @@ export class SEOManager {
     return {
       '@context': 'https://schema.org',
       '@type': 'TravelAgency',
-      name: 'Travel.Ailydian',
-      url: 'https://travel.ailydian.com',
-      logo: 'https://travel.ailydian.com/images/logo.png',
+      name: 'Travel.LyDian',
+      url: 'https://travel.lydian.com',
+      logo: 'https://travel.lydian.com/images/logo.png',
       description: 'AI destekli global turizm platformu',
       contactPoint: {
         '@type': 'ContactPoint',
@@ -267,10 +267,10 @@ export class SEOManager {
         availableLanguage: ['Turkish', 'English', 'Arabic'],
       },
       sameAs: [
-        'https://facebook.com/ailydian',
-        'https://twitter.com/ailydian',
-        'https://instagram.com/ailydian',
-        'https://linkedin.com/company/ailydian',
+        'https://facebook.com/lydian',
+        'https://twitter.com/lydian',
+        'https://instagram.com/lydian',
+        'https://linkedin.com/company/lydian',
       ],
     };
   }

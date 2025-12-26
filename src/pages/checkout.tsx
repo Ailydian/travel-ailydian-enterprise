@@ -525,7 +525,7 @@ const Checkout: React.FC = () => {
     return (
       <>
         <Head>
-          <title>Ödeme Başarılı - Ailydian Travel</title>
+          <title>Ödeme Başarılı - LyDian Travel</title>
         </Head>
         <BookingHeader />
         <main className="pt-8 min-h-screen bg-gray-50 flex items-center justify-center px-3 sm:px-4">
@@ -539,7 +539,7 @@ const Checkout: React.FC = () => {
             </div>
             <h1 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">Ödeme Başarılı!</h1>
             <p className="text-sm sm:text-base text-gray-600 mb-6 sm:mb-8">Rezervasyonunuz onaylandı. E-posta ile detayları gönderdik.</p>
-            <div className="animate-pulse text-ailydian-primary font-medium text-sm sm:text-base">
+            <div className="animate-pulse text-lydian-primary font-medium text-sm sm:text-base">
               Başarı sayfasına yönlendiriliyorsunuz...
             </div>
           </motion.div>
@@ -552,7 +552,7 @@ const Checkout: React.FC = () => {
     return (
       <>
         <Head>
-          <title>Ödeme İşleniyor - Ailydian Travel</title>
+          <title>Ödeme İşleniyor - LyDian Travel</title>
         </Head>
         <BookingHeader />
         <main className="pt-8 min-h-screen bg-gray-50 flex items-center justify-center px-3 sm:px-4">
@@ -562,7 +562,7 @@ const Checkout: React.FC = () => {
             className="text-center bg-white rounded-2xl shadow-lg p-6 sm:p-8 lg:p-12 max-w-md w-full"
           >
             <div className="w-16 h-16 sm:w-20 sm:h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6 animate-pulse">
-              <Zap className="w-10 h-10 sm:w-12 sm:h-12 text-ailydian-primary" />
+              <Zap className="w-10 h-10 sm:w-12 sm:h-12 text-lydian-primary" />
             </div>
             <h1 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">Ödeme İşleniyor</h1>
             <p className="text-sm sm:text-base text-gray-600 mb-6 sm:mb-8">Lütfen bekleyin, ödemeniz güvenli şekilde işleniyor...</p>
@@ -579,7 +579,7 @@ const Checkout: React.FC = () => {
   return (
     <>
       <Head>
-        <title>Güvenli Ödeme - Ailydian Travel | Blockchain Doğrulamalı</title>
+        <title>Güvenli Ödeme - LyDian Travel | Blockchain Doğrulamalı</title>
         <meta name="description" content="Güvenli SSL ödeme sayfası. Blockchain teknologisi ile doğrulanmış rezervasyon sistemi." />
       </Head>
 
@@ -630,7 +630,7 @@ const Checkout: React.FC = () => {
                 className="bg-white rounded-2xl shadow-sm border border-gray-200 p-4 sm:p-6"
               >
                 <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
-                  <div className="w-7 h-7 sm:w-8 sm:h-8 bg-ailydian-primary text-white rounded-full flex items-center justify-center font-bold text-xs sm:text-sm">
+                  <div className="w-7 h-7 sm:w-8 sm:h-8 bg-lydian-primary text-white rounded-full flex items-center justify-center font-bold text-xs sm:text-sm">
                     1
                   </div>
                   <h2 className="text-lg sm:text-xl font-bold text-gray-900">Kişisel Bilgiler</h2>
@@ -646,7 +646,7 @@ const Checkout: React.FC = () => {
                       type="text"
                       value={formData.firstName}
                       onChange={(e) => handleInputChange('firstName', e.target.value)}
-                      className={`w-full px-3 sm:px-4 py-2.5 sm:py-3 border rounded-lg text-sm sm:text-base focus:ring-2 focus:ring-ailydian-primary focus:border-transparent outline-none transition-colors ${
+                      className={`w-full px-3 sm:px-4 py-2.5 sm:py-3 border rounded-lg text-sm sm:text-base focus:ring-2 focus:ring-lydian-primary focus:border-transparent outline-none transition-colors ${
                         errors.firstName ? 'border-red-500' : 'border-gray-300'
                       }`}
                       placeholder="Adınız"
@@ -668,7 +668,7 @@ const Checkout: React.FC = () => {
                       type="text"
                       value={formData.lastName}
                       onChange={(e) => handleInputChange('lastName', e.target.value)}
-                      className={`w-full px-3 sm:px-4 py-2.5 sm:py-3 border rounded-lg text-sm sm:text-base focus:ring-2 focus:ring-ailydian-primary focus:border-transparent outline-none transition-colors ${
+                      className={`w-full px-3 sm:px-4 py-2.5 sm:py-3 border rounded-lg text-sm sm:text-base focus:ring-2 focus:ring-lydian-primary focus:border-transparent outline-none transition-colors ${
                         errors.lastName ? 'border-red-500' : 'border-gray-300'
                       }`}
                       placeholder="Soyadınız"
@@ -690,7 +690,7 @@ const Checkout: React.FC = () => {
                       type="email"
                       value={formData.email}
                       onChange={(e) => handleInputChange('email', e.target.value)}
-                      className={`w-full px-3 sm:px-4 py-2.5 sm:py-3 border rounded-lg text-sm sm:text-base focus:ring-2 focus:ring-ailydian-primary focus:border-transparent outline-none transition-colors ${
+                      className={`w-full px-3 sm:px-4 py-2.5 sm:py-3 border rounded-lg text-sm sm:text-base focus:ring-2 focus:ring-lydian-primary focus:border-transparent outline-none transition-colors ${
                         errors.email ? 'border-red-500' : 'border-gray-300'
                       }`}
                       placeholder="ornek@email.com"
@@ -712,7 +712,7 @@ const Checkout: React.FC = () => {
                       type="tel"
                       value={formData.phone}
                       onChange={(e) => handleInputChange('phone', e.target.value)}
-                      className={`w-full px-3 sm:px-4 py-2.5 sm:py-3 border rounded-lg text-sm sm:text-base focus:ring-2 focus:ring-ailydian-primary focus:border-transparent outline-none transition-colors ${
+                      className={`w-full px-3 sm:px-4 py-2.5 sm:py-3 border rounded-lg text-sm sm:text-base focus:ring-2 focus:ring-lydian-primary focus:border-transparent outline-none transition-colors ${
                         errors.phone ? 'border-red-500' : 'border-gray-300'
                       }`}
                       placeholder="+90 5XX XXX XX XX"
@@ -736,7 +736,7 @@ const Checkout: React.FC = () => {
               >
                 <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
                   <div className="flex items-center gap-2 sm:gap-3">
-                    <div className="w-7 h-7 sm:w-8 sm:h-8 bg-ailydian-primary text-white rounded-full flex items-center justify-center font-bold text-xs sm:text-sm">
+                    <div className="w-7 h-7 sm:w-8 sm:h-8 bg-lydian-primary text-white rounded-full flex items-center justify-center font-bold text-xs sm:text-sm">
                       2
                     </div>
                     <h2 className="text-lg sm:text-xl font-bold text-gray-900">Kart Bilgileri</h2>
@@ -758,7 +758,7 @@ const Checkout: React.FC = () => {
                       value={formatCardNumber(formData.cardNumber)}
                       onChange={(e) => handleInputChange('cardNumber', e.target.value.replace(/\s/g, ''))}
                       maxLength={19}
-                      className={`w-full px-3 sm:px-4 py-2.5 sm:py-3 border rounded-lg text-sm sm:text-base focus:ring-2 focus:ring-ailydian-primary focus:border-transparent outline-none transition-colors font-mono ${
+                      className={`w-full px-3 sm:px-4 py-2.5 sm:py-3 border rounded-lg text-sm sm:text-base focus:ring-2 focus:ring-lydian-primary focus:border-transparent outline-none transition-colors font-mono ${
                         errors.cardNumber ? 'border-red-500' : 'border-gray-300'
                       }`}
                       placeholder="1234 5678 9012 3456"
@@ -780,7 +780,7 @@ const Checkout: React.FC = () => {
                       <select
                         value={formData.expiryMonth}
                         onChange={(e) => handleInputChange('expiryMonth', e.target.value)}
-                        className={`w-full px-3 sm:px-4 py-2.5 sm:py-3 border rounded-lg text-sm sm:text-base focus:ring-2 focus:ring-ailydian-primary focus:border-transparent outline-none transition-colors ${
+                        className={`w-full px-3 sm:px-4 py-2.5 sm:py-3 border rounded-lg text-sm sm:text-base focus:ring-2 focus:ring-lydian-primary focus:border-transparent outline-none transition-colors ${
                           errors.expiryMonth ? 'border-red-500' : 'border-gray-300'
                         }`}
                       >
@@ -801,7 +801,7 @@ const Checkout: React.FC = () => {
                       <select
                         value={formData.expiryYear}
                         onChange={(e) => handleInputChange('expiryYear', e.target.value)}
-                        className={`w-full px-3 sm:px-4 py-2.5 sm:py-3 border rounded-lg text-sm sm:text-base focus:ring-2 focus:ring-ailydian-primary focus:border-transparent outline-none transition-colors ${
+                        className={`w-full px-3 sm:px-4 py-2.5 sm:py-3 border rounded-lg text-sm sm:text-base focus:ring-2 focus:ring-lydian-primary focus:border-transparent outline-none transition-colors ${
                           errors.expiryYear ? 'border-red-500' : 'border-gray-300'
                         }`}
                       >
@@ -825,7 +825,7 @@ const Checkout: React.FC = () => {
                           value={formData.cvv}
                           onChange={(e) => handleInputChange('cvv', e.target.value.replace(/\D/g, ''))}
                           maxLength={3}
-                          className={`w-full px-3 sm:px-4 py-2.5 sm:py-3 border rounded-lg text-sm sm:text-base focus:ring-2 focus:ring-ailydian-primary focus:border-transparent outline-none transition-colors font-mono text-center ${
+                          className={`w-full px-3 sm:px-4 py-2.5 sm:py-3 border rounded-lg text-sm sm:text-base focus:ring-2 focus:ring-lydian-primary focus:border-transparent outline-none transition-colors font-mono text-center ${
                             errors.cvv ? 'border-red-500' : 'border-gray-300'
                           }`}
                           placeholder="123"
@@ -850,7 +850,7 @@ const Checkout: React.FC = () => {
                       type="text"
                       value={formData.cardName}
                       onChange={(e) => handleInputChange('cardName', e.target.value.toUpperCase())}
-                      className={`w-full px-3 sm:px-4 py-2.5 sm:py-3 border rounded-lg text-sm sm:text-base focus:ring-2 focus:ring-ailydian-primary focus:border-transparent outline-none transition-colors ${
+                      className={`w-full px-3 sm:px-4 py-2.5 sm:py-3 border rounded-lg text-sm sm:text-base focus:ring-2 focus:ring-lydian-primary focus:border-transparent outline-none transition-colors ${
                         errors.cardName ? 'border-red-500' : 'border-gray-300'
                       }`}
                       placeholder="AHMET YILMAZ"
@@ -873,7 +873,7 @@ const Checkout: React.FC = () => {
                 className="bg-white rounded-2xl shadow-sm border border-gray-200 p-4 sm:p-6"
               >
                 <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
-                  <div className="w-7 h-7 sm:w-8 sm:h-8 bg-ailydian-primary text-white rounded-full flex items-center justify-center font-bold text-xs sm:text-sm">
+                  <div className="w-7 h-7 sm:w-8 sm:h-8 bg-lydian-primary text-white rounded-full flex items-center justify-center font-bold text-xs sm:text-sm">
                     3
                   </div>
                   <h2 className="text-lg sm:text-xl font-bold text-gray-900">Fatura Adresi</h2>
@@ -889,7 +889,7 @@ const Checkout: React.FC = () => {
                       type="text"
                       value={formData.billingAddress}
                       onChange={(e) => handleInputChange('billingAddress', e.target.value)}
-                      className={`w-full px-3 sm:px-4 py-2.5 sm:py-3 border rounded-lg text-sm sm:text-base focus:ring-2 focus:ring-ailydian-primary focus:border-transparent outline-none transition-colors ${
+                      className={`w-full px-3 sm:px-4 py-2.5 sm:py-3 border rounded-lg text-sm sm:text-base focus:ring-2 focus:ring-lydian-primary focus:border-transparent outline-none transition-colors ${
                         errors.billingAddress ? 'border-red-500' : 'border-gray-300'
                       }`}
                       placeholder="Tam adresinizi girin"
@@ -911,7 +911,7 @@ const Checkout: React.FC = () => {
                       type="text"
                       value={formData.city}
                       onChange={(e) => handleInputChange('city', e.target.value)}
-                      className={`w-full px-3 sm:px-4 py-2.5 sm:py-3 border rounded-lg text-sm sm:text-base focus:ring-2 focus:ring-ailydian-primary focus:border-transparent outline-none transition-colors ${
+                      className={`w-full px-3 sm:px-4 py-2.5 sm:py-3 border rounded-lg text-sm sm:text-base focus:ring-2 focus:ring-lydian-primary focus:border-transparent outline-none transition-colors ${
                         errors.city ? 'border-red-500' : 'border-gray-300'
                       }`}
                       placeholder="İstanbul"
@@ -934,7 +934,7 @@ const Checkout: React.FC = () => {
                       value={formData.postalCode}
                       onChange={(e) => handleInputChange('postalCode', e.target.value.replace(/\D/g, ''))}
                       maxLength={5}
-                      className={`w-full px-3 sm:px-4 py-2.5 sm:py-3 border rounded-lg text-sm sm:text-base focus:ring-2 focus:ring-ailydian-primary focus:border-transparent outline-none transition-colors ${
+                      className={`w-full px-3 sm:px-4 py-2.5 sm:py-3 border rounded-lg text-sm sm:text-base focus:ring-2 focus:ring-lydian-primary focus:border-transparent outline-none transition-colors ${
                         errors.postalCode ? 'border-red-500' : 'border-gray-300'
                       }`}
                       placeholder="34000"
@@ -955,7 +955,7 @@ const Checkout: React.FC = () => {
                     <select
                       value={formData.country}
                       onChange={(e) => handleInputChange('country', e.target.value)}
-                      className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg text-sm sm:text-base focus:ring-2 focus:ring-ailydian-primary focus:border-transparent outline-none transition-colors"
+                      className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg text-sm sm:text-base focus:ring-2 focus:ring-lydian-primary focus:border-transparent outline-none transition-colors"
                     >
                       <option value="TR">Türkiye</option>
                       <option value="US">Amerika Birleşik Devletleri</option>
@@ -975,7 +975,7 @@ const Checkout: React.FC = () => {
                 className="bg-white rounded-2xl shadow-sm border border-gray-200 p-4 sm:p-6"
               >
                 <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
-                  <div className="w-7 h-7 sm:w-8 sm:h-8 bg-ailydian-primary text-white rounded-full flex items-center justify-center font-bold text-xs sm:text-sm">
+                  <div className="w-7 h-7 sm:w-8 sm:h-8 bg-lydian-primary text-white rounded-full flex items-center justify-center font-bold text-xs sm:text-sm">
                     4
                   </div>
                   <h2 className="text-lg sm:text-xl font-bold text-gray-900">Teslim Alma Noktası</h2>
@@ -1063,7 +1063,7 @@ const Checkout: React.FC = () => {
                   <div className="border-t border-gray-200 pt-2 sm:pt-3">
                     <div className="flex justify-between items-center">
                       <span className="text-base sm:text-lg font-bold text-gray-900">Toplam</span>
-                      <span className="text-xl sm:text-2xl font-bold text-ailydian-primary">₺{orderSummary.total.toLocaleString('tr-TR')}</span>
+                      <span className="text-xl sm:text-2xl font-bold text-lydian-primary">₺{orderSummary.total.toLocaleString('tr-TR')}</span>
                     </div>
                   </div>
                 </div>
@@ -1086,7 +1086,7 @@ const Checkout: React.FC = () => {
 
                 <button
                   onClick={handleSubmit}
-                  className="w-full bg-gradient-to-r from-ailydian-primary to-ailydian-secondary text-white py-3 sm:py-4 px-4 sm:px-6 rounded-xl text-sm sm:text-base font-bold hover:opacity-90 transition-opacity flex items-center justify-center gap-2"
+                  className="w-full bg-gradient-to-r from-lydian-primary to-lydian-secondary text-white py-3 sm:py-4 px-4 sm:px-6 rounded-xl text-sm sm:text-base font-bold hover:opacity-90 transition-opacity flex items-center justify-center gap-2"
                 >
                   <Lock className="w-4 h-4 sm:w-5 sm:h-5" />
                   Güvenli Ödeme Yap

@@ -143,7 +143,7 @@ const ExperiencesPage: React.FC = () => {
   return (
     <>
       <Head>
-        <title>Deneyimler - Ailydian Travel | AI Destekli Seyahat Deneyimleri</title>
+        <title>Deneyimler - LyDian Travel | AI Destekli Seyahat Deneyimleri</title>
         <meta name="description" content="Türkiye'nin en unutulmaz deneyimlerini yaşayın. AI rehberli turlar, VR önizleme ve blockchain doğrulaması ile güvenli rezervasyon." />
         <meta name="keywords" content="deneyim, tur, aktivite, AI rehber, VR önizleme, blockchain, Türkiye" />
       </Head>
@@ -153,7 +153,7 @@ const ExperiencesPage: React.FC = () => {
       {/* Return to Home Button */}
       <Link 
         href="/" 
-        className="fixed top-24 left-6 z-10 flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200 text-gray-700 hover:bg-white hover:text-ailydian-primary transition-all duration-200"
+        className="fixed top-24 left-6 z-10 flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200 text-gray-700 hover:bg-white hover:text-lydian-primary transition-all duration-200"
       >
         <ArrowLeft className="w-4 h-4" />
         <span className="font-medium">Ana Sayfaya Dön</span>
@@ -161,7 +161,7 @@ const ExperiencesPage: React.FC = () => {
 
       <main className="pt-8">
         {/* Hero Section */}
-        <section className="bg-gradient-to-r from-ailydian-primary to-ailydian-secondary py-12 sm:py-16">
+        <section className="bg-gradient-to-r from-lydian-primary to-lydian-secondary py-12 sm:py-16">
           <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -186,7 +186,7 @@ const ExperiencesPage: React.FC = () => {
                     placeholder="Deneyim ara..."
                     className="w-full pl-10 sm:pl-12 pr-14 sm:pr-16 py-3 sm:py-4 rounded-xl text-sm sm:text-base text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-white/30"
                   />
-                  <button className="absolute right-2 top-1/2 transform -translate-y-1/2 p-2 bg-ailydian-primary text-white rounded-lg hover:bg-ailydian-dark transition-colors">
+                  <button className="absolute right-2 top-1/2 transform -translate-y-1/2 p-2 bg-lydian-primary text-white rounded-lg hover:bg-lydian-dark transition-colors">
                     <Filter className="w-4 h-4 sm:w-5 sm:h-5" />
                   </button>
                 </div>
@@ -210,7 +210,7 @@ const ExperiencesPage: React.FC = () => {
                       onClick={() => setSelectedCategory(category.id)}
                       className={`flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium transition-colors ${
                         selectedCategory === category.id
-                          ? 'bg-ailydian-primary text-white'
+                          ? 'bg-lydian-primary text-white'
                           : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                       }`}
                     >
@@ -233,7 +233,7 @@ const ExperiencesPage: React.FC = () => {
                       onClick={() => setSelectedDuration(duration.id)}
                       className={`px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm font-medium transition-colors ${
                         selectedDuration === duration.id
-                          ? 'bg-ailydian-primary text-white'
+                          ? 'bg-lydian-primary text-white'
                           : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                       }`}
                     >
@@ -252,7 +252,7 @@ const ExperiencesPage: React.FC = () => {
                       onClick={() => setPriceRange(range.id)}
                       className={`px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm font-medium transition-colors ${
                         priceRange === range.id
-                          ? 'bg-ailydian-primary text-white'
+                          ? 'bg-lydian-primary text-white'
                           : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                       }`}
                     >
@@ -272,7 +272,7 @@ const ExperiencesPage: React.FC = () => {
               <h2 className="text-2xl font-bold text-gray-900">
                 {filteredExperiences.length} Deneyim Bulundu
               </h2>
-              <select className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ailydian-primary focus:border-transparent">
+              <select className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-lydian-primary focus:border-transparent">
                 <option>Popülerlik</option>
                 <option>Fiyat (Düşük-Yüksek)</option>
                 <option>Fiyat (Yüksek-Düşük)</option>
@@ -393,7 +393,7 @@ const ExperiencesPage: React.FC = () => {
                       </div>
                       <div className="flex items-center justify-between">
                         <span className="text-sm text-gray-600">Detayları Gör</span>
-                        <span className="text-ailydian-primary font-semibold group-hover:translate-x-1 transition-transform">→</span>
+                        <span className="text-lydian-primary font-semibold group-hover:translate-x-1 transition-transform">→</span>
                       </div>
                     </div>
                   </div>
@@ -407,7 +407,7 @@ const ExperiencesPage: React.FC = () => {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-8 py-3 border-2 border-ailydian-primary text-ailydian-primary rounded-xl font-semibold hover:bg-ailydian-primary hover:text-white transition-colors"
+                className="px-8 py-3 border-2 border-lydian-primary text-lydian-primary rounded-xl font-semibold hover:bg-lydian-primary hover:text-white transition-colors"
               >
                 Daha Fazla Deneyim Yükle
               </motion.button>

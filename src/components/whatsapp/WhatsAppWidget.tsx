@@ -13,10 +13,10 @@ interface WhatsAppWidgetProps {
 }
 
 const WhatsAppWidget: React.FC<WhatsAppWidgetProps> = ({
-  phoneNumber = '+905551234567', // Travel Ailydian support number
-  defaultMessage = 'Merhaba! Travel Ailydian hakkında bilgi almak istiyorum.',
+  phoneNumber = '+905551234567', // Travel LyDian support number
+  defaultMessage = 'Merhaba! Travel LyDian hakkında bilgi almak istiyorum.',
   position = 'bottom-right',
-  agentName = 'Travel Ailydian Destek',
+  agentName = 'Travel LyDian Destek',
   agentTitle = '7/24 Müşteri Hizmetleri',
   responseTime = 'Genellikle 5 dakika içinde yanıt verir'
 }) => {
@@ -74,7 +74,7 @@ const WhatsAppWidget: React.FC<WhatsAppWidgetProps> = ({
               <div className="mb-4">
                 <div className="bg-white rounded-lg p-3 shadow-sm">
                   <p className="text-sm text-gray-800 mb-2">
-                    👋 Merhaba! Travel Ailydian\'a hoş geldiniz.
+                    👋 Merhaba! Travel LyDian\'a hoş geldiniz.
                   </p>
                   <p className="text-xs text-gray-600">
                     {responseTime}

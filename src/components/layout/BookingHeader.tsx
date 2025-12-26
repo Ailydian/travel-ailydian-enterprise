@@ -19,9 +19,13 @@ import {
   Menu,
   X,
   HelpCircle,
-  Globe
+  Globe,
+  Users
 } from 'lucide-react';
 import { useCart } from '../../context/CartContext';
+import LanguageSwitcher from '../LanguageSwitcher';
+import { ExploreMenu } from '../explore/ExploreMenu';
+import { LyDianLogo } from '../branding/LyDianLogo';
 
 export const BookingHeader: React.FC = () => {
   const router = useRouter();
@@ -43,7 +47,7 @@ export const BookingHeader: React.FC = () => {
       {/* Top Bar - Ultra Modern Animated Gradient Design */}
       <div className="relative overflow-hidden">
         {/* Animated Multi-Layer Gradient Background */}
-        <div className="absolute inset-0 bg-gradient-to-r from-ailydian-primary via-red-600 to-ailydian-secondary opacity-90" />
+        <div className="absolute inset-0 bg-gradient-to-r from-lydian-primary via-red-600 to-lydian-secondary opacity-90" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(255,255,255,0.15),transparent_50%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,rgba(220,38,38,0.3),transparent_50%)]" />
 
@@ -63,22 +67,17 @@ export const BookingHeader: React.FC = () => {
         {/* Content */}
         <div className="relative max-w-7xl mx-auto px-4">
           <div className="flex items-center justify-end gap-6 py-2.5">
-            <motion.button
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-              className="flex items-center gap-2 px-4 py-2 bg-white/15 hover:bg-white/25 backdrop-blur-md rounded-lg transition-all font-bold text-sm border border-white/30 shadow-lg hover:shadow-white/20 !text-white"
-            >
-              <Globe className="w-4 h-4 !text-white" />
-              <span className="!text-white font-bold">₺ TRY</span>
-            </motion.button>
-            <motion.button
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-              className="flex items-center gap-2 px-4 py-2 bg-white/15 hover:bg-white/25 backdrop-blur-md rounded-lg transition-all font-bold text-sm border border-white/30 shadow-lg hover:shadow-white/20 !text-white"
-            >
-              <Globe className="w-4 h-4 !text-white" />
-              <span className="!text-white font-bold">Türkçe</span>
-            </motion.button>
+            <LanguageSwitcher />
+            <Link href="/partners">
+              <motion.button
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                className="flex items-center gap-2 px-4 py-2 bg-white/15 hover:bg-white/25 backdrop-blur-md rounded-lg transition-all font-bold text-sm border border-white/30 shadow-lg hover:shadow-white/20 !text-white"
+              >
+                <Users className="w-4 h-4 !text-white" />
+                <span className="!text-white font-bold">Partnerler</span>
+              </motion.button>
+            </Link>
             <Link href="/help">
               <motion.button
                 whileHover={{ scale: 1.05, y: -2 }}
@@ -96,47 +95,16 @@ export const BookingHeader: React.FC = () => {
       {/* Main Navigation */}
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          {/* Logo - Premium Design */}
-          <Link href="/" className="flex items-center gap-3 group">
-            {/* Logo Icon */}
-            <motion.div
-              whileHover={{ rotate: 360, scale: 1.1 }}
-              transition={{ duration: 0.6, type: "spring" }}
-              className="relative w-12 h-12 bg-gradient-to-br from-ailydian-primary via-red-500 to-ailydian-secondary rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all"
-            >
-              <motion.div
-                animate={{
-                  y: [0, -3, 0],
-                }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
-              >
-                <Plane className="w-6 h-6 text-white" />
-              </motion.div>
-              {/* Glow effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-ailydian-primary to-ailydian-secondary rounded-xl blur-md opacity-50 group-hover:opacity-75 transition-opacity -z-10" />
-            </motion.div>
-
-            {/* Logo Text */}
-            <div className="flex flex-col -space-y-1">
-              <div className="flex items-baseline">
-                <span className="text-2xl font-black bg-gradient-to-r from-ailydian-primary to-ailydian-secondary bg-clip-text text-transparent">
-                  Travel
-                </span>
-              </div>
-              <div className="flex items-baseline">
-                <span className="text-lg font-bold text-gray-700">
-                  Ailydian
-                </span>
-              </div>
-            </div>
+          {/* Logo - Premium Design with LyDianLogo Component */}
+          <Link href="/">
+            <LyDianLogo variant="full" size="md" animated={true} />
           </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-1">
+            {/* Explore Menu */}
+            <ExploreMenu />
+
             {navigation.map((item) => {
               const Icon = item.icon;
               const active = isActive(item.href);
@@ -148,8 +116,8 @@ export const BookingHeader: React.FC = () => {
                   className={`
                     relative flex items-center gap-2 px-4 py-2 rounded-md font-medium text-sm transition-colors
                     ${active
-                      ? 'text-ailydian-primary bg-red-50'
-                      : 'text-gray-700 hover:text-ailydian-primary hover:bg-gray-50'
+                      ? 'text-lydian-primary bg-red-50'
+                      : 'text-gray-700 hover:text-lydian-primary hover:bg-gray-50'
                     }
                   `}
                 >
@@ -158,7 +126,7 @@ export const BookingHeader: React.FC = () => {
                   {active && (
                     <motion.div
                       layoutId="activeTab"
-                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-ailydian-primary"
+                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-lydian-primary"
                       transition={{ type: 'spring', stiffness: 500, damping: 30 }}
                     />
                   )}
@@ -172,7 +140,7 @@ export const BookingHeader: React.FC = () => {
             {/* Favorites */}
             <Link
               href="/favorites"
-              className="hidden sm:flex items-center gap-2 px-3 py-2 text-gray-700 hover:text-ailydian-primary hover:bg-gray-50 rounded-md transition-colors"
+              className="hidden sm:flex items-center gap-2 px-3 py-2 text-gray-700 hover:text-lydian-primary hover:bg-gray-50 rounded-md transition-colors"
             >
               <Heart className="w-5 h-5" />
               <span className="text-sm font-medium">Favoriler</span>
@@ -181,11 +149,11 @@ export const BookingHeader: React.FC = () => {
             {/* Cart */}
             <Link
               href="/cart"
-              className="relative flex items-center gap-2 px-3 py-2 text-gray-700 hover:text-ailydian-primary hover:bg-gray-50 rounded-md transition-colors"
+              className="relative flex items-center gap-2 px-3 py-2 text-gray-700 hover:text-lydian-primary hover:bg-gray-50 rounded-md transition-colors"
             >
               <ShoppingCart className="w-5 h-5" />
               {getItemCount() > 0 && (
-                <span className="absolute -top-1 -right-1 bg-ailydian-primary text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
+                <span className="absolute -top-1 -right-1 bg-lydian-primary text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
                   {getItemCount()}
                 </span>
               )}
@@ -194,7 +162,7 @@ export const BookingHeader: React.FC = () => {
             {/* User Account */}
             <Link
               href="/profile/dashboard"
-              className="hidden sm:flex items-center gap-2 px-4 py-2 bg-ailydian-primary text-white rounded-md hover:bg-ailydian-dark transition-colors font-medium text-sm"
+              className="hidden sm:flex items-center gap-2 px-4 py-2 bg-lydian-primary text-white rounded-md hover:bg-lydian-dark transition-colors font-medium text-sm"
             >
               <User className="w-4 h-4" />
               <span>Hesabım</span>
@@ -203,7 +171,7 @@ export const BookingHeader: React.FC = () => {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden p-2 text-gray-700 hover:text-ailydian-primary hover:bg-gray-50 rounded-md"
+              className="md:hidden p-2 text-gray-700 hover:text-lydian-primary hover:bg-gray-50 rounded-md"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -233,8 +201,8 @@ export const BookingHeader: React.FC = () => {
                     className={`
                       flex items-center gap-3 px-4 py-3 rounded-lg font-medium transition-colors
                       ${active
-                        ? 'text-ailydian-primary bg-red-50'
-                        : 'text-gray-700 hover:text-ailydian-primary hover:bg-gray-50'
+                        ? 'text-lydian-primary bg-red-50'
+                        : 'text-gray-700 hover:text-lydian-primary hover:bg-gray-50'
                       }
                     `}
                   >
@@ -248,7 +216,7 @@ export const BookingHeader: React.FC = () => {
                 <Link
                   href="/favorites"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="flex items-center gap-3 px-4 py-3 rounded-lg font-medium text-gray-700 hover:text-ailydian-primary hover:bg-gray-50 transition-colors"
+                  className="flex items-center gap-3 px-4 py-3 rounded-lg font-medium text-gray-700 hover:text-lydian-primary hover:bg-gray-50 transition-colors"
                 >
                   <Heart className="w-5 h-5" />
                   <span>Favoriler</span>
@@ -257,7 +225,7 @@ export const BookingHeader: React.FC = () => {
                 <Link
                   href="/profile/dashboard"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="flex items-center gap-3 px-4 py-3 bg-ailydian-primary text-white rounded-lg font-medium hover:bg-ailydian-dark transition-colors"
+                  className="flex items-center gap-3 px-4 py-3 bg-lydian-primary text-white rounded-lg font-medium hover:bg-lydian-dark transition-colors"
                 >
                   <User className="w-5 h-5" />
                   <span>Hesabım</span>

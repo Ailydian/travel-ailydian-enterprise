@@ -164,8 +164,8 @@ Edit in `EnhancedTripPlanner.tsx`:
 ```bash
 DATABASE_URL="postgresql://..."
 OPENAI_API_KEY="sk-..."
-NEXT_PUBLIC_APP_URL="https://travel.ailydian.com"
-NEXT_PUBLIC_WS_URL="wss://travel.ailydian.com"
+NEXT_PUBLIC_APP_URL="https://travel.lydian.com"
+NEXT_PUBLIC_WS_URL="wss://travel.lydian.com"
 ```
 
 ## 📚 Documentation

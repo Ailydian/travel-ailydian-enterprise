@@ -119,14 +119,14 @@ export const antalyaTourismDistricts: TourismDistrict[] = [
       'Kültür Turları'
     ],
     coordinates: { lat: 36.8969, lng: 30.7133 },
-    metaTitle: 'Antalya Otelleri - En İyi Otel Fiyatları ve Tatil Fırsatları | Travel Ailydian',
+    metaTitle: 'Antalya Otelleri - En İyi Otel Fiyatları ve Tatil Fırsatları | Travel LyDian',
     metaDescription: 'Antalya\'da en iyi otel seçenekleri! Kaleiçi, Lara, Konyaaltı\'nda lüks ve butik oteller. All inclusive tatil paketleri, denize sıfır oteller. Hemen rezervasyon yapın!',
     structuredData: {
       '@context': 'https://schema.org',
       '@type': 'TouristDestination',
       'name': 'Antalya',
       'description': 'Türkiye\'nin turizm başkenti Antalya',
-      'image': 'https://travel.ailydian.com/images/destinations/antalya.jpg'
+      'image': 'https://travel.lydian.com/images/destinations/antalya.jpg'
     }
   },
 
@@ -222,7 +222,7 @@ export const antalyaTourismDistricts: TourismDistrict[] = [
       'Gece Kulüpleri'
     ],
     coordinates: { lat: 36.5437, lng: 31.9989 },
-    metaTitle: 'Alanya Otelleri - All Inclusive Ultra Her Şey Dahil Tatil | Travel Ailydian',
+    metaTitle: 'Alanya Otelleri - All Inclusive Ultra Her Şey Dahil Tatil | Travel LyDian',
     metaDescription: 'Alanya\'da en iyi all inclusive oteller! Ultra lüks her şey dahil, denize sıfır 5 yıldızlı oteller. Kleopatra, Mahmutlar, Okurcalar\'da tatil fırsatları. Hemen rezerve edin!',
     structuredData: {
       '@context': 'https://schema.org',
@@ -285,7 +285,7 @@ export const antalyaTourismDistricts: TourismDistrict[] = [
     ],
     activities: ['Golf', 'Spa', 'Aquapark', 'Plaj', 'Tekne Turu', 'At Binme'],
     coordinates: { lat: 36.8625, lng: 31.0556 },
-    metaTitle: 'Belek Otelleri - Ultra Lüks Golf ve Spa Tatili | Travel Ailydian',
+    metaTitle: 'Belek Otelleri - Ultra Lüks Golf ve Spa Tatili | Travel LyDian',
     metaDescription: 'Belek\'te ultra lüks 5 yıldızlı oteller! Golf resort, spa & wellness, aquapark otelleri. The Land of Legends yakını premium tatil. En iyi fiyatlarla rezervasyon!',
     structuredData: {
       '@context': 'https://schema.org',
@@ -342,7 +342,7 @@ export const antalyaTourismDistricts: TourismDistrict[] = [
     ],
     activities: ['Antik Kent Turu', 'Plaj', 'Tekne Turu', 'Alışveriş', 'Dalış'],
     coordinates: { lat: 36.7674, lng: 31.3887 },
-    metaTitle: 'Side Otelleri - Antik Kent ve Plaj Tatili | Travel Ailydian',
+    metaTitle: 'Side Otelleri - Antik Kent ve Plaj Tatili | Travel LyDian',
     metaDescription: 'Side\'de tarihi dokuda tatil! Antik kent yakını all inclusive oteller, aile otelleri, denize sıfır tesisler. Sorgun, Kumköy, Titreyengöl otelleri. Hemen rezerve edin!',
     structuredData: {
       '@context': 'https://schema.org',
@@ -398,7 +398,7 @@ export const antalyaTourismDistricts: TourismDistrict[] = [
     ],
     activities: ['Dalış', 'Trekking', 'Teleferik', 'Tekne Turu', 'Dağ Bisikleti'],
     coordinates: { lat: 36.6025, lng: 30.5597 },
-    metaTitle: 'Kemer Otelleri - Doğa ve Denizin Buluştuğu Tatil | Travel Ailydian',
+    metaTitle: 'Kemer Otelleri - Doğa ve Denizin Buluştuğu Tatil | Travel LyDian',
     metaDescription: 'Kemer\'de dağ ve deniz manzaralı oteller! All inclusive resort, marina otelleri, Çamyuva, Beldibi, Göynük\'te tatil. Dalış ve doğa turları. Hemen rezervasyon!',
     structuredData: {
       '@context': 'https://schema.org',
@@ -454,7 +454,7 @@ export const antalyaTourismDistricts: TourismDistrict[] = [
     ],
     activities: ['Dalış', 'Kano', 'Trekking', 'Tekne Turu', 'Kültür Turları'],
     coordinates: { lat: 36.2019, lng: 29.6414 },
-    metaTitle: 'Kaş Otelleri - Butik ve Sakin Tatil Cenneti | Travel Ailydian',
+    metaTitle: 'Kaş Otelleri - Butik ve Sakin Tatil Cenneti | Travel LyDian',
     metaDescription: 'Kaş\'ta butik oteller ve pansiyonlar! Deniz manzaralı, balkonlu odalar. Kaputaş, Kekova yakını konaklama. Dalış ve doğa turları. Romantik tatil için ideal!',
     structuredData: {
       '@context': 'https://schema.org',
@@ -507,7 +507,7 @@ export const antalyaTourismDistricts: TourismDistrict[] = [
     ],
     activities: ['Tekne Turu', 'Dalış', 'Alışveriş', 'Yemek Turları'],
     coordinates: { lat: 36.2666, lng: 29.4089 },
-    metaTitle: 'Kalkan Otelleri - Lüks Butik ve Villa Tatili | Travel Ailydian',
+    metaTitle: 'Kalkan Otelleri - Lüks Butik ve Villa Tatili | Travel LyDian',
     metaDescription: 'Kalkan\'da lüks butik oteller ve villalar! Deniz manzaralı, özel havuzlu konaklama. Romantik balayı tatili için ideal. Kalkan marina yakını premium oteller!',
     structuredData: {
       '@context': 'https://schema.org',
@@ -551,7 +551,7 @@ ${district.localAttractions.slice(0, 5).map(attr => `- ${attr}`).join('\n')}
 Aktiviteler
 ${district.activities.slice(0, 5).map(act => `- ${act}`).join('\n')}
 
-${district.name} için en iyi rezervasyon fırsatları Travel Ailydian'da!
+${district.name} için en iyi rezervasyon fırsatları Travel LyDian'da!
   `.trim();
 }
 

@@ -86,8 +86,8 @@ export async function uploadVideoReview(
     await new Promise(resolve => setTimeout(resolve, 1000));
 
     // Generate mock URLs (in production, these would be actual cloud URLs)
-    const videoUrl = `https://cdn.ailydian.com/videos/${Date.now()}-${videoFile.name}`;
-    const thumbnailUrl = `https://cdn.ailydian.com/thumbnails/${Date.now()}-thumbnail.jpg`;
+    const videoUrl = `https://cdn.lydian.com/videos/${Date.now()}-${videoFile.name}`;
+    const thumbnailUrl = `https://cdn.lydian.com/thumbnails/${Date.now()}-thumbnail.jpg`;
 
     const review: VideoReview = {
       ...metadata,
@@ -169,8 +169,8 @@ export async function getVideoReviews(
       userName: 'Ayşe Yılmaz',
       listingId,
       listingType: 'hotel',
-      videoUrl: 'https://cdn.ailydian.com/videos/sample-hotel-review.mp4',
-      thumbnailUrl: 'https://cdn.ailydian.com/thumbnails/hotel-thumb.jpg',
+      videoUrl: 'https://cdn.lydian.com/videos/sample-hotel-review.mp4',
+      thumbnailUrl: 'https://cdn.lydian.com/thumbnails/hotel-thumb.jpg',
       duration: 120,
       title: 'Harika bir deneyimdi!',
       description: 'Otel çok temizdi, personel çok ilgiliydi. Kesinlikle tavsiye ederim.',
@@ -234,7 +234,7 @@ export async function upload360Image(
     }
 
     // In production, upload to cloud storage
-    const url = `https://cdn.ailydian.com/360/${Date.now()}-${imageFile.name}`;
+    const url = `https://cdn.lydian.com/360/${Date.now()}-${imageFile.name}`;
 
     return { success: true, url };
   } catch (error) {
@@ -269,7 +269,7 @@ export async function getVirtualTour(tourId: string): Promise<VirtualTour | null
     listingType: 'hotel',
     title: 'Grand Hilton Istanbul - 360° Sanal Tur',
     description: 'Otelimizin tüm alanlarını 360° panoramik görüntülerle keşfedin',
-    coverImage: 'https://cdn.ailydian.com/360/hotel-cover.jpg',
+    coverImage: 'https://cdn.lydian.com/360/hotel-cover.jpg',
     views: 5420,
     featured: true,
     createdAt: new Date('2024-12-01'),
@@ -277,7 +277,7 @@ export async function getVirtualTour(tourId: string): Promise<VirtualTour | null
       {
         id: 'SCENE-001',
         title: 'Lobby',
-        panoramaUrl: 'https://cdn.ailydian.com/360/lobby.jpg',
+        panoramaUrl: 'https://cdn.lydian.com/360/lobby.jpg',
         type: 'equirectangular',
         initialView: { pitch: 0, yaw: 0, fov: 90 },
         hotspots: [
@@ -302,7 +302,7 @@ export async function getVirtualTour(tourId: string): Promise<VirtualTour | null
       {
         id: 'SCENE-002',
         title: 'Deluxe Room',
-        panoramaUrl: 'https://cdn.ailydian.com/360/deluxe-room.jpg',
+        panoramaUrl: 'https://cdn.lydian.com/360/deluxe-room.jpg',
         type: 'equirectangular',
         initialView: { pitch: 0, yaw: 180, fov: 90 },
         hotspots: [
@@ -311,7 +311,7 @@ export async function getVirtualTour(tourId: string): Promise<VirtualTour | null
             type: 'video',
             position: { pitch: 0, yaw: -90 },
             title: 'Oda Tanıtım Videosu',
-            videoUrl: 'https://cdn.ailydian.com/videos/room-tour.mp4',
+            videoUrl: 'https://cdn.lydian.com/videos/room-tour.mp4',
             icon: 'play'
           }
         ]

@@ -129,7 +129,7 @@ export const BookingSearchForm: React.FC<SearchFormProps> = ({
                 className={`
                   relative flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 px-3 sm:px-6 py-2 sm:py-3 rounded-t-md font-bold transition-all whitespace-nowrap min-w-[70px] sm:min-w-0
                   ${isActive
-                    ? 'bg-white text-ailydian-primary shadow-lg'
+                    ? 'bg-white text-lydian-primary shadow-lg'
                     : 'bg-white/90 text-gray-700 hover:bg-white hover:text-gray-900'
                   }
                 `}
@@ -181,7 +181,7 @@ export const BookingSearchForm: React.FC<SearchFormProps> = ({
                 value={destination}
                 onChange={(e) => setDestination(e.target.value)}
                 placeholder="Şehir, otel, bölge..."
-                className="w-full pl-11 pr-4 py-3 border-2 border-gray-200 rounded-lg focus:border-ailydian-primary focus:ring-2 focus:ring-ailydian-primary/20 outline-none transition-all text-gray-900 font-medium"
+                className="w-full pl-11 pr-4 py-3 border-2 border-gray-200 rounded-lg focus:border-lydian-primary focus:ring-2 focus:ring-lydian-primary/20 outline-none transition-all text-gray-900 font-medium"
               />
             </div>
           </div>
@@ -197,7 +197,7 @@ export const BookingSearchForm: React.FC<SearchFormProps> = ({
                 type="date"
                 value={checkIn}
                 onChange={(e) => setCheckIn(e.target.value)}
-                className="w-full pl-11 pr-4 py-3 border-2 border-gray-200 rounded-lg focus:border-ailydian-primary focus:ring-2 focus:ring-ailydian-primary/20 outline-none transition-all text-gray-900 font-medium"
+                className="w-full pl-11 pr-4 py-3 border-2 border-gray-200 rounded-lg focus:border-lydian-primary focus:ring-2 focus:ring-lydian-primary/20 outline-none transition-all text-gray-900 font-medium"
               />
             </div>
           </div>
@@ -213,7 +213,7 @@ export const BookingSearchForm: React.FC<SearchFormProps> = ({
                 type="date"
                 value={checkOut}
                 onChange={(e) => setCheckOut(e.target.value)}
-                className="w-full pl-11 pr-4 py-3 border-2 border-gray-200 rounded-lg focus:border-ailydian-primary focus:ring-2 focus:ring-ailydian-primary/20 outline-none transition-all text-gray-900 font-medium"
+                className="w-full pl-11 pr-4 py-3 border-2 border-gray-200 rounded-lg focus:border-lydian-primary focus:ring-2 focus:ring-lydian-primary/20 outline-none transition-all text-gray-900 font-medium"
               />
             </div>
           </div>
@@ -225,7 +225,7 @@ export const BookingSearchForm: React.FC<SearchFormProps> = ({
             </label>
             <button
               onClick={() => setShowGuestPicker(!showGuestPicker)}
-              className="w-full flex items-center justify-between px-4 py-3 border-2 border-gray-200 rounded-lg hover:border-ailydian-primary focus:border-ailydian-primary focus:ring-2 focus:ring-ailydian-primary/20 outline-none transition-all text-gray-900 font-medium"
+              className="w-full flex items-center justify-between px-4 py-3 border-2 border-gray-200 rounded-lg hover:border-lydian-primary focus:border-lydian-primary focus:ring-2 focus:ring-lydian-primary/20 outline-none transition-all text-gray-900 font-medium"
             >
               <div className="flex items-center gap-2">
                 <Users className="w-5 h-5 text-gray-400" />
@@ -252,14 +252,14 @@ export const BookingSearchForm: React.FC<SearchFormProps> = ({
                     <div className="flex items-center gap-3">
                       <button
                         onClick={() => setGuests({ ...guests, adults: Math.max(1, guests.adults - 1) })}
-                        className="w-8 h-8 flex items-center justify-center border-2 border-ailydian-primary text-ailydian-primary rounded-full hover:bg-ailydian-primary hover:text-white transition-all"
+                        className="w-8 h-8 flex items-center justify-center border-2 border-lydian-primary text-lydian-primary rounded-full hover:bg-lydian-primary hover:text-white transition-all"
                       >
                         <Minus className="w-4 h-4" />
                       </button>
                       <span className="w-8 text-center font-semibold">{guests.adults}</span>
                       <button
                         onClick={() => setGuests({ ...guests, adults: guests.adults + 1 })}
-                        className="w-8 h-8 flex items-center justify-center border-2 border-ailydian-primary text-ailydian-primary rounded-full hover:bg-ailydian-primary hover:text-white transition-all"
+                        className="w-8 h-8 flex items-center justify-center border-2 border-lydian-primary text-lydian-primary rounded-full hover:bg-lydian-primary hover:text-white transition-all"
                       >
                         <Plus className="w-4 h-4" />
                       </button>
@@ -275,14 +275,14 @@ export const BookingSearchForm: React.FC<SearchFormProps> = ({
                     <div className="flex items-center gap-3">
                       <button
                         onClick={() => setGuests({ ...guests, children: Math.max(0, guests.children - 1) })}
-                        className="w-8 h-8 flex items-center justify-center border-2 border-ailydian-primary text-ailydian-primary rounded-full hover:bg-ailydian-primary hover:text-white transition-all"
+                        className="w-8 h-8 flex items-center justify-center border-2 border-lydian-primary text-lydian-primary rounded-full hover:bg-lydian-primary hover:text-white transition-all"
                       >
                         <Minus className="w-4 h-4" />
                       </button>
                       <span className="w-8 text-center font-semibold">{guests.children}</span>
                       <button
                         onClick={() => setGuests({ ...guests, children: guests.children + 1 })}
-                        className="w-8 h-8 flex items-center justify-center border-2 border-ailydian-primary text-ailydian-primary rounded-full hover:bg-ailydian-primary hover:text-white transition-all"
+                        className="w-8 h-8 flex items-center justify-center border-2 border-lydian-primary text-lydian-primary rounded-full hover:bg-lydian-primary hover:text-white transition-all"
                       >
                         <Plus className="w-4 h-4" />
                       </button>
@@ -298,14 +298,14 @@ export const BookingSearchForm: React.FC<SearchFormProps> = ({
                     <div className="flex items-center gap-3">
                       <button
                         onClick={() => setGuests({ ...guests, rooms: Math.max(1, guests.rooms - 1) })}
-                        className="w-8 h-8 flex items-center justify-center border-2 border-ailydian-primary text-ailydian-primary rounded-full hover:bg-ailydian-primary hover:text-white transition-all"
+                        className="w-8 h-8 flex items-center justify-center border-2 border-lydian-primary text-lydian-primary rounded-full hover:bg-lydian-primary hover:text-white transition-all"
                       >
                         <Minus className="w-4 h-4" />
                       </button>
                       <span className="w-8 text-center font-semibold">{guests.rooms}</span>
                       <button
                         onClick={() => setGuests({ ...guests, rooms: guests.rooms + 1 })}
-                        className="w-8 h-8 flex items-center justify-center border-2 border-ailydian-primary text-ailydian-primary rounded-full hover:bg-ailydian-primary hover:text-white transition-all"
+                        className="w-8 h-8 flex items-center justify-center border-2 border-lydian-primary text-lydian-primary rounded-full hover:bg-lydian-primary hover:text-white transition-all"
                       >
                         <Plus className="w-4 h-4" />
                       </button>
@@ -314,7 +314,7 @@ export const BookingSearchForm: React.FC<SearchFormProps> = ({
 
                   <button
                     onClick={() => setShowGuestPicker(false)}
-                    className="w-full mt-2 px-4 py-2 bg-ailydian-primary text-white rounded-lg font-semibold hover:bg-ailydian-dark transition-all"
+                    className="w-full mt-2 px-4 py-2 bg-lydian-primary text-white rounded-lg font-semibold hover:bg-lydian-dark transition-all"
                   >
                     Tamam
                   </button>
@@ -330,7 +330,7 @@ export const BookingSearchForm: React.FC<SearchFormProps> = ({
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             onClick={handleSearch}
-            className="w-full md:w-auto px-12 py-4 bg-gradient-to-r from-ailydian-primary to-ailydian-secondary text-white rounded-lg font-bold text-lg shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-3"
+            className="w-full md:w-auto px-12 py-4 bg-gradient-to-r from-lydian-primary to-lydian-secondary text-white rounded-lg font-bold text-lg shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-3"
           >
             <Search className="w-6 h-6" />
             <span>Ara</span>

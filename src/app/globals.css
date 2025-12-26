@@ -8,9 +8,9 @@
 /* Booking.com Style CSS Variables - Red Theme & White Background */
 :root {
   /* Primary Red Colors */
-  --ailydian-primary: #DC2626;      /* red-600 - Main CTA color */
-  --ailydian-secondary: #EF4444;    /* red-500 - Secondary */
-  --ailydian-dark: #991B1B;         /* red-800 - Dark variant */
+  --lydian-primary: #DC2626;      /* red-600 - Main CTA color */
+  --lydian-secondary: #EF4444;    /* red-500 - Secondary */
+  --lydian-dark: #991B1B;         /* red-800 - Dark variant */
   --ailydian-light: #FCA5A5;        /* red-300 - Light variant */
 
   /* Background Colors - White & Clean */
@@ -101,7 +101,7 @@ a {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--ailydian-primary);
+  background: var(--lydian-primary);
 }
 
 /* Utility Classes */
@@ -125,9 +125,9 @@ a {
     0 0 5px currentColor,
     0 0 10px currentColor,
     0 0 15px currentColor,
-    0 0 20px var(--ailydian-primary),
-    0 0 35px var(--ailydian-primary),
-    0 0 40px var(--ailydian-primary);
+    0 0 20px var(--lydian-primary),
+    0 0 35px var(--lydian-primary),
+    0 0 40px var(--lydian-primary);
   animation: neon-flicker 2s infinite alternate;
 }
 
@@ -138,7 +138,7 @@ a {
 
 /* Gradient Text */
 .gradient-text {
-  background: linear-gradient(135deg, var(--ailydian-primary), var(--ailydian-secondary));
+  background: linear-gradient(135deg, var(--lydian-primary), var(--lydian-secondary));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -176,7 +176,7 @@ a {
 /* Loading Animation */
 .loading-spinner {
   border: 2px solid #f3f3f3;
-  border-top: 2px solid var(--ailydian-primary);
+  border-top: 2px solid var(--lydian-primary);
   border-radius: 50%;
   width: 20px;
   height: 20px;
@@ -190,7 +190,7 @@ a {
 
 /* Button Styles */
 .btn-primary {
-  @apply bg-gradient-to-r from-ailydian-primary to-ailydian-secondary text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:shadow-lg hover:scale-105;
+  @apply bg-gradient-to-r from-lydian-primary to-lydian-secondary text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:shadow-lg hover:scale-105;
 }
 
 .btn-secondary {
@@ -222,7 +222,7 @@ a {
 
 /* Custom marker styles */
 .pickup-marker {
-  background-color: var(--ailydian-primary);
+  background-color: var(--lydian-primary);
   border: 3px solid white;
   border-radius: 50%;
   box-shadow: 0 4px 12px rgba(255, 33, 77, 0.4);
@@ -244,7 +244,7 @@ a {
 
 /* Focus Styles */
 .focus-ring {
-  @apply focus:ring-2 focus:ring-ailydian-primary focus:ring-offset-2 focus:outline-none;
+  @apply focus:ring-2 focus:ring-lydian-primary focus:ring-offset-2 focus:outline-none;
 }
 
 /* Responsive Text */
@@ -293,17 +293,17 @@ a {
 }
 
 .nav-link:hover {
-  color: var(--ailydian-primary);
+  color: var(--lydian-primary);
 }
 
 .nav-link-active {
-  color: var(--ailydian-primary);
+  color: var(--lydian-primary);
   font-weight: 600;
 }
 
 /* CTA Button in Header */
 .header-cta-button {
-  background-color: var(--ailydian-primary);
+  background-color: var(--lydian-primary);
   color: white;
   padding: 0.625rem 1.25rem;
   border-radius: 0.375rem;
@@ -313,7 +313,7 @@ a {
 }
 
 .header-cta-button:hover {
-  background-color: var(--ailydian-dark);
+  background-color: var(--lydian-dark);
   box-shadow: 0 4px 8px rgba(220, 38, 38, 0.3);
   transform: translateY(-1px);
 }
@@ -327,7 +327,7 @@ a {
 }
 
 .header-search:focus-within {
-  border-color: var(--ailydian-primary);
+  border-color: var(--lydian-primary);
   box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
 }
 
@@ -347,7 +347,7 @@ a {
 
 .user-menu-item:hover {
   background-color: var(--bg-hover);
-  color: var(--ailydian-primary);
+  color: var(--lydian-primary);
 }
 
 /* Language Selector */
@@ -367,8 +367,8 @@ a {
 }
 
 .language-selector:hover {
-  border-color: var(--ailydian-primary);
-  color: var(--ailydian-primary);
+  border-color: var(--lydian-primary);
+  color: var(--lydian-primary);
 }
 
 /* Mobile Menu */
@@ -387,7 +387,7 @@ a {
 .mobile-menu-link:hover,
 .mobile-menu-link-active {
   background: var(--bg-selected);
-  color: var(--ailydian-primary);
+  color: var(--lydian-primary);
 }
 
 /* ========================================
@@ -444,14 +444,14 @@ a {
 
 .search-input-field:focus {
   outline: none;
-  border-color: var(--ailydian-primary);
+  border-color: var(--lydian-primary);
   box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
 }
 
 .search-button {
   height: 3rem;
   padding: 0 2rem;
-  background: var(--ailydian-primary);
+  background: var(--lydian-primary);
   color: white;
   border: none;
   border-radius: 0.375rem;
@@ -462,7 +462,7 @@ a {
 }
 
 .search-button:hover {
-  background: var(--ailydian-dark);
+  background: var(--lydian-dark);
   box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
   transform: translateY(-2px);
 }
@@ -482,7 +482,7 @@ a {
 
 .product-card:hover {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-  border-color: var(--ailydian-primary);
+  border-color: var(--lydian-primary);
   transform: translateY(-4px);
 }
 
@@ -514,7 +514,7 @@ a {
 .product-card-price {
   font-size: 1.5rem;
   font-weight: 700;
-  color: var(--ailydian-primary);
+  color: var(--lydian-primary);
 }
 
 .product-card-footer {

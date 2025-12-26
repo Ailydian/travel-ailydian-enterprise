@@ -157,7 +157,7 @@ export const LocationAutocomplete: React.FC<LocationAutocompleteProps> = ({
     <div ref={wrapperRef} className={`relative ${className}`}>
       <div className="relative group">
         <div className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10 pointer-events-none">
-          {icon || <MapPin className="text-gray-400 w-5 h-5 group-hover:scale-110 group-focus-within:scale-110 group-focus-within:text-ailydian-primary transition-all" />}
+          {icon || <MapPin className="text-gray-400 w-5 h-5 group-hover:scale-110 group-focus-within:scale-110 group-focus-within:text-lydian-primary transition-all" />}
         </div>
         <input
           type="text"
@@ -166,11 +166,11 @@ export const LocationAutocomplete: React.FC<LocationAutocompleteProps> = ({
           onKeyDown={handleKeyDown}
           onFocus={() => value.length >= 2 && setShowSuggestions(true)}
           placeholder={placeholder}
-          className="w-full pl-12 pr-10 py-4 text-base bg-white border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-ailydian-primary focus:border-ailydian-primary outline-none text-gray-900 placeholder-gray-500 font-medium shadow-sm hover:shadow-lg hover:border-ailydian-primary/50 transition-all duration-200"
+          className="w-full pl-12 pr-10 py-4 text-base bg-white border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-lydian-primary focus:border-lydian-primary outline-none text-gray-900 placeholder-gray-500 font-medium shadow-sm hover:shadow-lg hover:border-lydian-primary/50 transition-all duration-200"
           autoComplete="off"
         />
         {isLoading && (
-          <Loader2 className="absolute right-4 top-1/2 transform -translate-y-1/2 text-ailydian-primary w-5 h-5 animate-spin" />
+          <Loader2 className="absolute right-4 top-1/2 transform -translate-y-1/2 text-lydian-primary w-5 h-5 animate-spin" />
         )}
       </div>
 
@@ -182,7 +182,7 @@ export const LocationAutocomplete: React.FC<LocationAutocompleteProps> = ({
               key={suggestion.id}
               onClick={() => handleSelectSuggestion(suggestion)}
               className={`w-full px-5 py-4 flex items-start gap-3 hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 transition-all duration-200 text-left border-b border-gray-100 last:border-b-0 ${
-                index === selectedIndex ? 'bg-gradient-to-r from-ailydian-primary/10 to-ailydian-secondary/10' : ''
+                index === selectedIndex ? 'bg-gradient-to-r from-lydian-primary/10 to-lydian-secondary/10' : ''
               }`}
             >
               <span className="text-2xl mt-0.5 transform hover:scale-125 transition-transform">{getLocationIcon(suggestion.type)}</span>

@@ -230,7 +230,7 @@ const Bookings: React.FC = () => {
   return (
     <>
       <Head>
-        <title>Rezervasyonlarım - Travel.Ailydian</title>
+        <title>Rezervasyonlarım - Travel.LyDian</title>
         <meta name="description" content="Rezervasyonlarınızı yönetin ve takip edin" />
       </Head>
 

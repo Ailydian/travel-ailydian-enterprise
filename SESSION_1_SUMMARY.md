@@ -1,7 +1,7 @@
 # 📋 SESSION 1 - ÖZET RAPOR
 
-**Proje:** Travel Ailydian Enterprise
-**Konum:** `/Users/sardag/Desktop/travel-ailydian-enterprise`
+**Proje:** Travel LyDian Enterprise
+**Konum:** `/Users/sardag/Desktop/travel-lydian-enterprise`
 **Tarih:** 22 Aralık 2025
 **Session Durumu:** BAŞARIYLA TAMAMLANDI ✅
 
@@ -9,7 +9,7 @@
 
 ## 🎯 ANA HEDEF
 
-Admin/v2 sistemini A'dan Z'ye güncellemek ve tüm travel.ailydian.com özelliklerini yönetilebilir hale getirmek.
+Admin/v2 sistemini A'dan Z'ye güncellemek ve tüm travel.lydian.com özelliklerini yönetilebilir hale getirmek.
 
 **Yaklaşım:** Modüler iterasyon (Seçenek A)
 **Hedef:** 0 hata, gerçek data, production-ready kod
@@ -404,7 +404,7 @@ GET    /api/car-rentals/[slug]            - Car details
 
 ### Proje Konumu
 ```
-/Users/sardag/Desktop/travel-ailydian-enterprise
+/Users/sardag/Desktop/travel-lydian-enterprise
 ```
 
 ### Önemli Dosyalar

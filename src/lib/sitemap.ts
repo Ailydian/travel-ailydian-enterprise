@@ -17,7 +17,7 @@ export class SitemapGenerator {
   private baseUrl: string;
   private locales: string[];
 
-  constructor(baseUrl: string = 'https://travel.ailydian.com', locales: string[] = SUPPORTED_LOCALES) {
+  constructor(baseUrl: string = 'https://travel.lydian.com', locales: string[] = SUPPORTED_LOCALES) {
     this.baseUrl = baseUrl;
     this.locales = locales;
   }

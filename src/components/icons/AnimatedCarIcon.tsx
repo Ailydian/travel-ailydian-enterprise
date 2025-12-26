@@ -207,7 +207,7 @@ export const AnimatedCarIcon: React.FC<AnimatedCarIconProps> = ({
           ))}
         </motion.svg>
 
-        {/* Travel Ailydian Text */}
+        {/* Travel LyDian Text */}
         <motion.div
           className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-full"
           initial={{ opacity: 0, y: -10 }}
@@ -216,7 +216,7 @@ export const AnimatedCarIcon: React.FC<AnimatedCarIconProps> = ({
         >
           <div className="text-center">
             <div className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-xl">
-              Travel Ailydian
+              Travel LyDian
             </div>
             <motion.div
               className="h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full mt-1"

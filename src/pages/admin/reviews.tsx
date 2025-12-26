@@ -151,7 +151,7 @@ export default function AdminReviews() {
             status: 'flagged',
             createdAt: '2024-01-19T16:45:00Z',
             moderatedAt: '2024-01-20T09:15:00Z',
-            moderatedBy: 'admin@ailydian.com',
+            moderatedBy: 'admin@lydian.com',
             moderationReason: 'Olumsuz ton, potansiyel spam',
             aiScore: 0.23,
             sentimentScore: -0.67,
@@ -180,7 +180,7 @@ export default function AdminReviews() {
             status: 'approved',
             createdAt: '2024-01-18T07:20:00Z',
             moderatedAt: '2024-01-18T10:30:00Z',
-            moderatedBy: 'moderator@ailydian.com',
+            moderatedBy: 'moderator@lydian.com',
             aiScore: 0.96,
             sentimentScore: 0.94,
             flagCount: 0,
@@ -337,7 +337,7 @@ export default function AdminReviews() {
   return (
     <>
       <Head>
-        <title>Değerlendirme Yönetimi - Travel Ailydian</title>
+        <title>Değerlendirme Yönetimi - Travel LyDian</title>
         <meta name="robots" content="noindex, nofollow" />
       </Head>
 

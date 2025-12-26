@@ -460,7 +460,7 @@ http://localhost:3100/dashboard/properties/new
 
 All files are located in:
 ```
-/Users/sardag/Desktop/travel-ailydian-enterprise/src/app/dashboard/properties/new/
+/Users/sardag/Desktop/travel-lydian-enterprise/src/app/dashboard/properties/new/
 ```
 
 Files created:

@@ -2,7 +2,7 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "version": 2,
   "framework": "nextjs",
-  "alias": ["travel.ailydian.com", "dashboard.travel.ailydian.com"],
+  "alias": ["travel.lydian.com", "dashboard.travel.lydian.com"],
   
   "build": {
     "env": {
@@ -57,7 +57,7 @@
         },
         {
           "key": "X-Enterprise-Grade",
-          "value": "Ailydian-AI-Tourism"
+          "value": "LyDian-AI-Tourism"
         }
       ]
     }
@@ -65,6 +65,6 @@
   
   
   "env": {
-    "NEXT_PUBLIC_SITE_URL": "https://dashboard.travel.ailydian.com"
+    "NEXT_PUBLIC_SITE_URL": "https://dashboard.travel.lydian.com"
   }
 }

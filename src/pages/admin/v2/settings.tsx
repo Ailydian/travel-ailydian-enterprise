@@ -156,9 +156,9 @@ const SystemSettings = () => {
 // General Settings
 const GeneralSettings = ({ onSave, saving }: any) => {
   const [formData, setFormData] = useState({
-    siteName: 'Travel Ailydian',
-    siteUrl: 'https://travel.ailydian.com',
-    supportEmail: 'support@ailydian.com',
+    siteName: 'Travel LyDian',
+    siteUrl: 'https://travel.lydian.com',
+    supportEmail: 'support@lydian.com',
     defaultLanguage: 'tr',
     defaultCurrency: 'TRY',
     timezone: 'Europe/Istanbul',

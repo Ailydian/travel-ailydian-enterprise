@@ -60,7 +60,7 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
   const getThemeColors = (themeType: NavigationTheme) => {
     const themes = {
       default: {
-        logo: 'from-ailydian-primary to-ailydian-secondary',
+        logo: 'from-lydian-primary to-lydian-secondary',
         aiButton: 'from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700',
         activeLink: 'bg-blue-50 text-blue-600',
       },
@@ -529,7 +529,7 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
                   Travel
                 </span>
                 <span className="text-xl md:text-2xl font-black text-gray-900">
-                  Ailydian
+                  LyDian
                 </span>
               </div>
               <p className="text-xs font-medium text-gray-500 -mt-1 tracking-wide hidden sm:block">
@@ -773,13 +773,13 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
               onClick={() => setIsSliderSearchOpen(true)}
               className="lg:hidden p-2 text-gray-700 hover:bg-gray-50 rounded-lg transition-colors group"
             >
-              <Search className="w-5 h-5 group-hover:text-ailydian-primary transition-colors" />
+              <Search className="w-5 h-5 group-hover:text-lydian-primary transition-colors" />
             </button>
 
             {/* Partner Button */}
             <Link href="/partner">
               <button
-                className="relative flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-ailydian-primary to-ailydian-secondary hover:from-ailydian-dark hover:to-ailydian-primary text-white rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl"
+                className="relative flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-lydian-primary to-lydian-secondary hover:from-lydian-dark hover:to-lydian-primary text-white rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl"
               >
                 <Building2 className="w-4 h-4" />
                 <span className="hidden lg:inline font-semibold">Partner</span>
@@ -830,7 +830,7 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
                           onClick={() => handleLanguageChange(language.code)}
                           className={`w-full flex items-center space-x-3 px-4 py-2 text-left transition-colors ${
                             currentLanguage.code === language.code
-                              ? 'bg-red-50 text-ailydian-primary'
+                              ? 'bg-red-50 text-lydian-primary'
                               : 'text-gray-700 hover:bg-gray-50'
                           }`}
                         >
@@ -846,9 +846,9 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
 
             {/* Cart */}
             <Link href="/cart-new" className="relative p-2 text-gray-700 hover:bg-gray-50 rounded-lg transition-colors group">
-              <ShoppingCart className="w-5 h-5 group-hover:text-ailydian-primary transition-colors" />
+              <ShoppingCart className="w-5 h-5 group-hover:text-lydian-primary transition-colors" />
               {getItemCount() > 0 && (
-                <span className="absolute -top-1 -right-1 bg-ailydian-primary text-white text-xs rounded-full min-w-5 h-5 flex items-center justify-center px-1 font-medium animate-pulse">
+                <span className="absolute -top-1 -right-1 bg-lydian-primary text-white text-xs rounded-full min-w-5 h-5 flex items-center justify-center px-1 font-medium animate-pulse">
                   {getItemCount()}
                 </span>
               )}
@@ -863,7 +863,7 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
                 onClick={() => setIsUserMenuOpen(!isUserMenuOpen)}
                 className="flex items-center space-x-2 p-2 text-gray-700 hover:bg-gray-50 rounded-lg transition-colors"
               >
-                <div className="w-8 h-8 bg-gradient-to-r from-ailydian-primary to-ailydian-secondary rounded-full flex items-center justify-center">
+                <div className="w-8 h-8 bg-gradient-to-r from-lydian-primary to-lydian-secondary rounded-full flex items-center justify-center">
                   <User className="w-4 h-4 text-white" />
                 </div>
               </button>

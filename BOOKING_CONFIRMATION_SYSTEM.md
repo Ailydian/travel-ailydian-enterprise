@@ -1,7 +1,7 @@
 # Booking Confirmation System - Implementation Documentation
 
 ## Overview
-Complete booking confirmation system implementation for Travel.Ailydian platform with email notifications, beautiful confirmation pages, and booking management features.
+Complete booking confirmation system implementation for Travel.LyDian platform with email notifications, beautiful confirmation pages, and booking management features.
 
 ## Implementation Date
 December 10, 2025
@@ -379,11 +379,11 @@ DATABASE_URL="postgresql://..."
 
 # Email Service (Resend)
 RESEND_API_KEY="re_..."
-EMAIL_FROM="noreply@travel.ailydian.com"
+EMAIL_FROM="noreply@travel.lydian.com"
 
 # NextAuth
 NEXTAUTH_SECRET="..."
-NEXTAUTH_URL="https://travel.ailydian.com"
+NEXTAUTH_URL="https://travel.lydian.com"
 ```
 
 ---

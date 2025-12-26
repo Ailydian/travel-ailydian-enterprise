@@ -7,8 +7,8 @@ const Cookies: React.FC = () => {
   return (
     <>
       <Head>
-        <title>Çerez Politikası - Travel.Ailydian | Cookie Kullanımı</title>
-        <meta name="description" content="Travel.Ailydian çerez kullanım politikası ve web sitesinde kullanılan çerez türleri hakkında bilgi." />
+        <title>Çerez Politikası - Travel.LyDian | Cookie Kullanımı</title>
+        <meta name="description" content="Travel.LyDian çerez kullanım politikası ve web sitesinde kullanılan çerez türleri hakkında bilgi." />
       </Head>
 
       <BookingHeader />
@@ -22,7 +22,7 @@ const Cookies: React.FC = () => {
               <h2 className="text-2xl font-bold text-gray-900 mb-4">1. Çerez Nedir?</h2>
               <p className="text-gray-700 leading-relaxed">
                 Çerezler, web sitelerini ziyaret ettiğinizde tarayıcınıza kaydedilen küçük metin dosyalarıdır. 
-                Travel.Ailydian&apos;da çerezler, AI öneri sistemi, kişiselleştirme ve site performansını iyileştirmek için kullanılır.
+                Travel.LyDian&apos;da çerezler, AI öneri sistemi, kişiselleştirme ve site performansını iyileştirmek için kullanılır.
               </p>
             </section>
 
@@ -94,7 +94,7 @@ const Cookies: React.FC = () => {
             <section>
               <h2 className="text-2xl font-bold text-gray-900 mb-4">7. İletişim</h2>
               <p className="text-gray-700 leading-relaxed">
-                Çerezler hakkında sorularınız için: <strong>cookies@ailydian.com</strong>
+                Çerezler hakkında sorularınız için: <strong>cookies@lydian.com</strong>
               </p>
             </section>
 

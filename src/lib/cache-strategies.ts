@@ -171,7 +171,7 @@ export class BrowserCache {
   // IndexedDB for large data
   static async setIndexedDB(storeName: string, key: string, data: any): Promise<void> {
     return new Promise((resolve, reject) => {
-      const request = indexedDB.open('AilydianCache', 1);
+      const request = indexedDB.open('LyDianCache', 1);
       
       request.onerror = () => reject(request.error);
       

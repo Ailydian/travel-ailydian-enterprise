@@ -73,8 +73,8 @@ const Premium: React.FC = () => {
   return (
     <>
       <Head>
-        <title>Premium Üyelik - Travel.Ailydian | AI Destekli Premium Seyahat</title>
-        <meta name="description" content="Travel.Ailydian Premium ile AI destekli seyahat planlama, VR önizlemeler, blockchain güvenlik ve özel avantajlara sahip olun." />
+        <title>Premium Üyelik - Travel.LyDian | AI Destekli Premium Seyahat</title>
+        <meta name="description" content="Travel.LyDian Premium ile AI destekli seyahat planlama, VR önizlemeler, blockchain güvenlik ve özel avantajlara sahip olun." />
         <meta name="keywords" content="premium üyelik, VIP seyahat, AI planlama, VR turlar, blockchain güvenlik" />
       </Head>
 

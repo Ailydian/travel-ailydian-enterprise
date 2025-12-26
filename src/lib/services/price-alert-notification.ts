@@ -174,7 +174,7 @@ export class PriceAlertNotificationService {
       const emailHtml = this.generatePriceDropEmailHtml(notification);
 
       await this.transporter.sendMail({
-        from: `"Ailydian Travel" <${process.env.SMTP_FROM || 'noreply@ailydian.com'}>`,
+        from: `"LyDian Travel" <${process.env.SMTP_FROM || 'noreply@lydian.com'}>`,
         to: user.email,
         subject: `Price Drop Alert: ${notification.entityName}`,
         html: emailHtml,
@@ -243,7 +243,7 @@ export class PriceAlertNotificationService {
     <div class="footer">
       <p>You're receiving this email because you set up a price alert for this ${entityTypeLabel}.</p>
       <p>To manage your alerts, visit your dashboard.</p>
-      <p>&copy; ${new Date().getFullYear()} Ailydian Travel. All rights reserved.</p>
+      <p>&copy; ${new Date().getFullYear()} LyDian Travel. All rights reserved.</p>
     </div>
   </div>
 </body>
@@ -255,7 +255,7 @@ export class PriceAlertNotificationService {
    * Build entity URL based on type
    */
   private buildEntityUrl(entityType: string, entityId: string): string {
-    const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://travel.ailydian.com';
+    const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://travel.lydian.com';
 
     switch (entityType) {
       case 'HOTEL':
@@ -287,7 +287,7 @@ export class PriceAlertNotificationService {
   async sendTestEmail(email: string): Promise<boolean> {
     try {
       await this.transporter.sendMail({
-        from: `"Ailydian Travel" <${process.env.SMTP_FROM || 'noreply@ailydian.com'}>`,
+        from: `"LyDian Travel" <${process.env.SMTP_FROM || 'noreply@lydian.com'}>`,
         to: email,
         subject: 'Test Email - Price Alert System',
         html: '<h1>Test Email</h1><p>Your price alert notification system is working correctly!</p>',

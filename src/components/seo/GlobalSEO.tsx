@@ -36,7 +36,7 @@ const GlobalSEO: React.FC<SEOProps> = ({
   canonicalUrl,
   alternateUrls,
   structuredData,
-  author = 'Travel Ailydian',
+  author = 'Travel LyDian',
   publishedTime,
   modifiedTime,
   section,
@@ -46,19 +46,19 @@ const GlobalSEO: React.FC<SEOProps> = ({
   const { t } = useTranslation(['common', 'seo']);
   
   const currentLocale = locale || router.locale || 'tr';
-  const currentUrl = url || `https://travel.ailydian.com${router.asPath}`;
-  const fullImageUrl = image.startsWith('http') ? image : `https://travel.ailydian.com${image}`;
+  const currentUrl = url || `https://travel.lydian.com${router.asPath}`;
+  const fullImageUrl = image.startsWith('http') ? image : `https://travel.lydian.com${image}`;
   
   // Dynamic SEO content based on locale
   const getSEOContent = () => {
-    const baseTitle = title || t('seo:defaultTitle', 'Travel Ailydian - AI-Powered Travel Platform');
+    const baseTitle = title || t('seo:defaultTitle', 'Travel LyDian - AI-Powered Travel Platform');
     const baseDescription = description || t('seo:defaultDescription', 
       'Discover unique travel experiences with AI-powered recommendations, VR previews, and blockchain-verified bookings worldwide.');
     const baseKeywords = keywords || t('seo:defaultKeywords', 
       'travel, ai travel, blockchain travel, vr tours, turkey tourism, global travel platform');
     
     return {
-      title: `${baseTitle} | Travel Ailydian`,
+      title: `${baseTitle} | Travel LyDian`,
       description: baseDescription,
       keywords: baseKeywords
     };
@@ -68,7 +68,7 @@ const GlobalSEO: React.FC<SEOProps> = ({
 
   // Generate hreflang URLs
   const generateHreflangUrls = () => {
-    const baseUrl = 'https://travel.ailydian.com';
+    const baseUrl = 'https://travel.lydian.com';
     const locales = [
       'en', 'tr', 'ar', 'de', 'fr', 'es', 'it', 'pt', 'ru', 'zh', 
       'ja', 'ko', 'nl', 'sv', 'da', 'no', 'fi', 'pl', 'cs', 'hu'
@@ -89,20 +89,20 @@ const GlobalSEO: React.FC<SEOProps> = ({
     const baseStructuredData = {
       "@context": "https://schema.org",
       "@type": type === 'website' ? 'TravelAgency' : 'WebPage',
-      "name": "Travel Ailydian",
+      "name": "Travel LyDian",
       "description": seoDescription,
       "url": currentUrl,
       "logo": {
         "@type": "ImageObject",
-        "url": "https://travel.ailydian.com/images/logo.png",
+        "url": "https://travel.lydian.com/images/logo.png",
         "width": 400,
         "height": 400
       },
       "sameAs": [
-        "https://twitter.com/travelailydian",
-        "https://facebook.com/travelailydian",
-        "https://instagram.com/travelailydian",
-        "https://linkedin.com/company/travel-ailydian"
+        "https://twitter.com/travellydian",
+        "https://facebook.com/travellydian",
+        "https://instagram.com/travellydian",
+        "https://linkedin.com/company/travel-lydian"
       ],
       "contactPoint": {
         "@type": "ContactPoint",
@@ -143,10 +143,10 @@ const GlobalSEO: React.FC<SEOProps> = ({
         },
         "publisher": {
           "@type": "Organization",
-          "name": "Travel Ailydian",
+          "name": "Travel LyDian",
           "logo": {
             "@type": "ImageObject",
-            "url": "https://travel.ailydian.com/images/logo.png"
+            "url": "https://travel.lydian.com/images/logo.png"
           }
         },
         "datePublished": publishedTime,
@@ -195,12 +195,12 @@ const GlobalSEO: React.FC<SEOProps> = ({
       <meta property="og:image:height" content="630" />
       <meta property="og:image:type" content="image/jpeg" />
       <meta property="og:locale" content={currentLocale.replace('-', '_')} />
-      <meta property="og:site_name" content="Travel Ailydian" />
+      <meta property="og:site_name" content="Travel LyDian" />
       
       {/* Twitter Card Tags */}
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:site" content="@travelailydian" />
-      <meta name="twitter:creator" content="@travelailydian" />
+      <meta name="twitter:site" content="@travellydian" />
+      <meta name="twitter:creator" content="@travellydian" />
       <meta name="twitter:title" content={seoTitle} />
       <meta name="twitter:description" content={seoDescription} />
       <meta name="twitter:image" content={fullImageUrl} />
@@ -230,8 +230,8 @@ const GlobalSEO: React.FC<SEOProps> = ({
       {/* DNS Prefetch for Performance */}
       <link rel="dns-prefetch" href="//fonts.googleapis.com" />
       <link rel="dns-prefetch" href="//images.unsplash.com" />
-      <link rel="dns-prefetch" href="//api.travel.ailydian.com" />
-      <link rel="dns-prefetch" href="//cdn.ailydian.com" />
+      <link rel="dns-prefetch" href="//api.travel.lydian.com" />
+      <link rel="dns-prefetch" href="//cdn.lydian.com" />
       
       {/* Preload Critical Resources */}
       <link rel="preload" href="/fonts/inter-var.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
@@ -251,11 +251,11 @@ const GlobalSEO: React.FC<SEOProps> = ({
       <meta name="ICBM" content="39.925533, 32.866287" />
       
       {/* Travel Industry Specific */}
-      <meta name="booking.com-site-verification" content="travel-ailydian-verification" />
-      <meta name="google-site-verification" content="travel-ailydian-google-verification" />
-      <meta name="bing-site-verification" content="travel-ailydian-bing-verification" />
-      <meta name="yandex-verification" content="travel-ailydian-yandex-verification" />
-      <meta name="baidu-site-verification" content="travel-ailydian-baidu-verification" />
+      <meta name="booking.com-site-verification" content="travel-lydian-verification" />
+      <meta name="google-site-verification" content="travel-lydian-google-verification" />
+      <meta name="bing-site-verification" content="travel-lydian-bing-verification" />
+      <meta name="yandex-verification" content="travel-lydian-yandex-verification" />
+      <meta name="baidu-site-verification" content="travel-lydian-baidu-verification" />
       
       {/* Security Headers */}
       <meta httpEquiv="X-Content-Type-Options" content="nosniff" />

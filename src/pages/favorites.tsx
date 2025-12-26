@@ -22,7 +22,7 @@ import {
 import { BookingHeader } from '../components/layout/BookingHeader';
 import { useCart } from '../context/CartContext';
 
-// Premium Ailydian themed favorites with REAL data and complete images
+// Premium LyDian themed favorites with REAL data and complete images
 const savedItems = [
   {
     id: 1,
@@ -243,8 +243,8 @@ export default function Favorites() {
 
   const getBadgeColor = (badge: string) => {
     const colors: any = {
-      'Popüler': 'from-ailydian-primary to-ailydian-secondary',
-      'Trend': 'from-ailydian-neon-purple to-ailydian-neon-blue',
+      'Popüler': 'from-lydian-primary to-lydian-secondary',
+      'Trend': 'from-lydian-neon-purple to-lydian-neon-blue',
       'Lüks': 'from-yellow-500 to-yellow-600',
       'Premium': 'from-purple-500 to-pink-500',
       'Özel': 'from-green-500 to-emerald-600',
@@ -258,7 +258,7 @@ export default function Favorites() {
   return (
     <>
       <Head>
-        <title>Favorilerim - Ailydian Travel Premium</title>
+        <title>Favorilerim - LyDian Travel Premium</title>
         <meta name="description" content="Beğendiğiniz seyahat deneyimlerini kaydedin ve kolayca erişin" />
       </Head>
 
@@ -267,15 +267,15 @@ export default function Favorites() {
       {/* Back Button */}
       <Link
         href="/"
-        className="fixed top-24 left-6 z-[60] flex items-center gap-2 px-4 py-2.5 bg-white/95 backdrop-blur-md rounded-xl shadow-lg border border-gray-200 text-gray-700 hover:bg-gradient-to-r hover:from-ailydian-primary hover:to-ailydian-secondary hover:text-white hover:border-transparent transition-all duration-300 group"
+        className="fixed top-24 left-6 z-[60] flex items-center gap-2 px-4 py-2.5 bg-white/95 backdrop-blur-md rounded-xl shadow-lg border border-gray-200 text-gray-700 hover:bg-gradient-to-r hover:from-lydian-primary hover:to-lydian-secondary hover:text-white hover:border-transparent transition-all duration-300 group"
       >
         <ArrowLeft className="w-4 h-4 group-hover:animate-pulse" />
         <span className="font-semibold">Ana Sayfa</span>
       </Link>
 
       <main className="pt-8 min-h-screen bg-gradient-to-b from-gray-50 via-white to-gray-50">
-        {/* Hero Section - Premium Ailydian Design */}
-        <section className="relative bg-gradient-to-br from-ailydian-primary via-ailydian-secondary to-pink-600 py-20 overflow-hidden">
+        {/* Hero Section - Premium LyDian Design */}
+        <section className="relative bg-gradient-to-br from-lydian-primary via-lydian-secondary to-pink-600 py-20 overflow-hidden">
           {/* Animated Background Pattern */}
           <div className="absolute inset-0 opacity-10">
             <div className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl animate-pulse" />
@@ -354,7 +354,7 @@ export default function Favorites() {
                     whileTap={{ scale: 0.95 }}
                     className={`flex items-center gap-2 px-6 py-3 rounded-xl font-semibold transition-all shadow-lg ${
                       isActive
-                        ? 'bg-gradient-to-r from-ailydian-primary to-ailydian-secondary text-white shadow-neon'
+                        ? 'bg-gradient-to-r from-lydian-primary to-lydian-secondary text-white shadow-neon'
                         : 'bg-white text-gray-700 hover:shadow-xl border border-gray-200'
                     }`}
                   >
@@ -376,7 +376,7 @@ export default function Favorites() {
               <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value)}
-                className="px-4 py-3 bg-white border-2 border-gray-200 rounded-xl text-sm font-medium focus:ring-2 focus:ring-ailydian-primary focus:border-transparent shadow-sm hover:shadow-md transition-all"
+                className="px-4 py-3 bg-white border-2 border-gray-200 rounded-xl text-sm font-medium focus:ring-2 focus:ring-lydian-primary focus:border-transparent shadow-sm hover:shadow-md transition-all"
               >
                 <option value="date">Eklenme Tarihi</option>
                 <option value="name">İsim</option>
@@ -452,7 +452,7 @@ export default function Favorites() {
                               {item.originalPrice.toLocaleString('tr-TR')} ₺
                             </span>
                           )}
-                          <span className="text-sm font-bold text-ailydian-primary">
+                          <span className="text-sm font-bold text-lydian-primary">
                             {item.price.toLocaleString('tr-TR')} ₺
                           </span>
                         </div>
@@ -512,7 +512,7 @@ export default function Favorites() {
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                         onClick={() => handleAddToCart(item)}
-                        className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-ailydian-primary to-ailydian-secondary text-white rounded-lg font-semibold hover:shadow-lg transition-all text-sm"
+                        className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-lydian-primary to-lydian-secondary text-white rounded-lg font-semibold hover:shadow-lg transition-all text-sm"
                       >
                         <ShoppingCart className="w-4 h-4" />
                         Sepete Ekle
@@ -538,7 +538,7 @@ export default function Favorites() {
               </p>
               <Link
                 href="/"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-ailydian-primary to-ailydian-secondary text-white rounded-xl font-bold hover:shadow-xl transition-all text-lg"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-lydian-primary to-lydian-secondary text-white rounded-xl font-bold hover:shadow-xl transition-all text-lg"
               >
                 Keşfetmeye Başla
                 <ArrowRight className="w-5 h-5" />

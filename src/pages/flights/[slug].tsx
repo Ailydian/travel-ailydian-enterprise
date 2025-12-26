@@ -160,7 +160,7 @@ export default function FlightDetail() {
         <div className="text-center">
           <Plane className="w-24 h-24 text-gray-300 mx-auto mb-6" />
           <h1 className="text-2xl font-bold text-gray-900 mb-4">Uçuş Bulunamadı</h1>
-          <Link href="/flights" className="text-ailydian-primary hover:underline">
+          <Link href="/flights" className="text-lydian-primary hover:underline">
             Uçuş listesine dön
           </Link>
         </div>
@@ -200,7 +200,7 @@ export default function FlightDetail() {
         <div className="max-w-7xl mx-auto px-4 py-3">
           <Link
             href="/flights"
-            className="inline-flex items-center gap-2 text-gray-700 hover:text-ailydian-primary transition-colors"
+            className="inline-flex items-center gap-2 text-gray-700 hover:text-lydian-primary transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />
             <span className="font-medium">Uçuşlara Dön</span>
@@ -243,7 +243,7 @@ export default function FlightDetail() {
                 {/* Departure */}
                 <div className="text-left">
                   <div className="flex items-center gap-2 mb-2">
-                    <PlaneTakeoff className="w-5 h-5 text-ailydian-primary" />
+                    <PlaneTakeoff className="w-5 h-5 text-lydian-primary" />
                     <span className="text-sm font-medium text-gray-600">Kalkış</span>
                   </div>
                   <div className="text-4xl font-bold text-gray-900 mb-1">{flight.departure.time}</div>
@@ -260,15 +260,15 @@ export default function FlightDetail() {
                 {/* Duration & Flight Path */}
                 <div className="text-center relative">
                   <div className="flex items-center justify-center mb-2">
-                    <div className="flex-1 h-0.5 bg-gradient-to-r from-ailydian-primary to-blue-400"></div>
+                    <div className="flex-1 h-0.5 bg-gradient-to-r from-lydian-primary to-blue-400"></div>
                     <motion.div
                       animate={{ x: [0, 20, 0] }}
                       transition={{ duration: 2, repeat: Infinity }}
                       className="mx-2"
                     >
-                      <Plane className="w-6 h-6 text-ailydian-primary transform rotate-90" />
+                      <Plane className="w-6 h-6 text-lydian-primary transform rotate-90" />
                     </motion.div>
-                    <div className="flex-1 h-0.5 bg-gradient-to-r from-blue-400 to-ailydian-primary"></div>
+                    <div className="flex-1 h-0.5 bg-gradient-to-r from-blue-400 to-lydian-primary"></div>
                   </div>
                   <div className="flex items-center justify-center gap-2 text-gray-600">
                     <Clock className="w-4 h-4" />
@@ -281,7 +281,7 @@ export default function FlightDetail() {
                 <div className="text-right">
                   <div className="flex items-center gap-2 mb-2 justify-end">
                     <span className="text-sm font-medium text-gray-600">Varış</span>
-                    <PlaneLanding className="w-5 h-5 text-ailydian-primary" />
+                    <PlaneLanding className="w-5 h-5 text-lydian-primary" />
                   </div>
                   <div className="text-4xl font-bold text-gray-900 mb-1">{flight.arrival.time}</div>
                   <div className="text-lg font-semibold text-gray-700">{flight.to.code}</div>
@@ -333,13 +333,13 @@ export default function FlightDetail() {
                       whileTap={{ scale: 0.98 }}
                       className={`relative p-6 rounded-xl border-2 transition-all ${
                         selectedFareClass === fare.type
-                          ? 'border-ailydian-primary bg-blue-50'
+                          ? 'border-lydian-primary bg-blue-50'
                           : 'border-gray-200 hover:border-gray-300'
                       }`}
                     >
                       {selectedFareClass === fare.type && (
                         <div className="absolute top-3 right-3">
-                          <div className="w-6 h-6 bg-ailydian-primary rounded-full flex items-center justify-center">
+                          <div className="w-6 h-6 bg-lydian-primary rounded-full flex items-center justify-center">
                             <Check className="w-4 h-4 text-white" />
                           </div>
                         </div>
@@ -348,7 +348,7 @@ export default function FlightDetail() {
                       {fare.originalPrice && (
                         <div className="text-sm text-gray-500 line-through mb-1">₺{fare.originalPrice}</div>
                       )}
-                      <div className="text-3xl font-bold text-ailydian-primary mb-1">₺{fare.price}</div>
+                      <div className="text-3xl font-bold text-lydian-primary mb-1">₺{fare.price}</div>
                       <div className="text-xs text-gray-500">kişi başına</div>
                       <div className="mt-4 text-xs text-gray-600">
                         <div className="flex items-center gap-1 mb-1">
@@ -415,13 +415,13 @@ export default function FlightDetail() {
                 className="bg-white rounded-2xl shadow-lg p-6"
               >
                 <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-                  <Luggage className="w-6 h-6 text-ailydian-primary" />
+                  <Luggage className="w-6 h-6 text-lydian-primary" />
                   Bagaj Bilgileri
                 </h2>
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="bg-gradient-to-br from-blue-50 to-indigo-50 p-4 rounded-xl">
                     <h3 className="font-semibold text-gray-900 mb-2">Kabin Bagajı</h3>
-                    <p className="text-2xl font-bold text-ailydian-primary mb-1">{flight.baggage.cabin}</p>
+                    <p className="text-2xl font-bold text-lydian-primary mb-1">{flight.baggage.cabin}</p>
                     <p className="text-sm text-gray-600">Dahil</p>
                   </div>
                   <div className="bg-gradient-to-br from-green-50 to-emerald-50 p-4 rounded-xl">
@@ -581,7 +581,7 @@ export default function FlightDetail() {
                   <div className="border-t border-gray-200 mt-4 pt-4">
                     <div className="flex justify-between items-center">
                       <span className="font-bold text-gray-900">Toplam</span>
-                      <span className="text-2xl font-bold text-ailydian-primary">₺{totalPrice}</span>
+                      <span className="text-2xl font-bold text-lydian-primary">₺{totalPrice}</span>
                     </div>
                   </div>
                 </div>
@@ -591,7 +591,7 @@ export default function FlightDetail() {
                   onClick={handleBooking}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="w-full bg-gradient-to-r from-ailydian-primary to-ailydian-secondary text-white py-4 rounded-xl font-bold text-lg hover:shadow-lg transition-all flex items-center justify-center gap-2"
+                  className="w-full bg-gradient-to-r from-lydian-primary to-lydian-secondary text-white py-4 rounded-xl font-bold text-lg hover:shadow-lg transition-all flex items-center justify-center gap-2"
                 >
                   Rezervasyon Yap
                   <ChevronRight className="w-5 h-5" />

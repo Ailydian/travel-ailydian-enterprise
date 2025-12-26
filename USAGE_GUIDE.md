@@ -147,7 +147,7 @@ const predictions = await predictPrices(historicalData, 7);
    SMTP_PORT=587
    SMTP_USER=your-email@gmail.com
    SMTP_PASSWORD=your-app-password
-   SMTP_FROM=noreply@ailydian.com
+   SMTP_FROM=noreply@lydian.com
    ```
 
 3. **Test Email**:
@@ -166,7 +166,7 @@ const predictions = await predictPrices(historicalData, 7);
 
 #### External Service (Alternative)
 1. Use cron-job.org or similar
-2. URL: `https://travel.ailydian.com/api/cron/check-price-alerts`
+2. URL: `https://travel.lydian.com/api/cron/check-price-alerts`
 3. Schedule: `0 */6 * * *` (every 6 hours)
 4. Add header: `x-cron-secret: YOUR_SECRET`
 
@@ -174,7 +174,7 @@ const predictions = await predictPrices(historicalData, 7);
 
 #### Check Cron Job Status
 ```bash
-curl https://travel.ailydian.com/api/cron/check-price-alerts \
+curl https://travel.lydian.com/api/cron/check-price-alerts \
   -H "x-cron-secret: YOUR_SECRET"
 ```
 

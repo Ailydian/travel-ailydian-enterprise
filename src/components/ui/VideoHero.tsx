@@ -60,7 +60,7 @@ export const VideoHero: React.FC = () => {
             <motion.button
               whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(220, 38, 38, 0.3)" }}
               whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 bg-gradient-to-r from-red-600 via-ailydian-primary to-ailydian-secondary text-white rounded-full font-bold text-lg shadow-2xl hover:shadow-red-500/50 transition-all duration-300 flex items-center gap-2 min-w-[200px] justify-center"
+              className="px-8 py-4 bg-gradient-to-r from-red-600 via-lydian-primary to-lydian-secondary text-white rounded-full font-bold text-lg shadow-2xl hover:shadow-red-500/50 transition-all duration-300 flex items-center gap-2 min-w-[200px] justify-center"
             >
               Turları Keşfet
               <ArrowRight className="w-5 h-5" />
@@ -87,9 +87,9 @@ export const VideoHero: React.FC = () => {
           className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto"
         >
           {[
-            { icon: MapPin, label: 'Turlar', value: '500+', gradient: 'from-red-500 to-ailydian-primary' },
-            { icon: TrendingUp, label: 'Destinasyonlar', value: '50+', gradient: 'from-ailydian-primary to-ailydian-secondary' },
-            { icon: Users, label: 'Mutlu Müşteri', value: '100K+', gradient: 'from-ailydian-secondary to-red-600' },
+            { icon: MapPin, label: 'Turlar', value: '500+', gradient: 'from-red-500 to-lydian-primary' },
+            { icon: TrendingUp, label: 'Destinasyonlar', value: '50+', gradient: 'from-lydian-primary to-lydian-secondary' },
+            { icon: Users, label: 'Mutlu Müşteri', value: '100K+', gradient: 'from-lydian-secondary to-red-600' },
             { icon: Star, label: 'Değerlendirme', value: '4.9/5', gradient: 'from-yellow-400 to-red-500' }
           ].map((stat, index) => (
             <motion.div

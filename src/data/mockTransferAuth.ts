@@ -26,7 +26,7 @@ export interface MockTransferOwner {
 export const MOCK_TRANSFER_OWNERS: MockTransferOwner[] = [
   {
     id: 'transfer-owner-001',
-    email: 'demo@transfer.ailydian.com',
+    email: 'demo@transfer.lydian.com',
     password: 'Demo123!',
     fullName: 'Mustafa Özdemir',
     phone: '+90 532 777 8899',
@@ -45,7 +45,7 @@ export const MOCK_TRANSFER_OWNERS: MockTransferOwner[] = [
   },
   {
     id: 'transfer-owner-002',
-    email: 'fatma@transfer.ailydian.com',
+    email: 'fatma@transfer.lydian.com',
     password: 'Fatma123!',
     fullName: 'Fatma Şahin',
     phone: '+90 533 888 9900',
@@ -64,7 +64,7 @@ export const MOCK_TRANSFER_OWNERS: MockTransferOwner[] = [
   },
   {
     id: 'transfer-owner-003',
-    email: 'can@transfer.ailydian.com',
+    email: 'can@transfer.lydian.com',
     password: 'Can123!',
     fullName: 'Can Arslan',
     phone: '+90 534 999 0011',
@@ -83,7 +83,7 @@ export const MOCK_TRANSFER_OWNERS: MockTransferOwner[] = [
   },
   {
     id: 'transfer-owner-004',
-    email: 'test@transfer.ailydian.com',
+    email: 'test@transfer.lydian.com',
     password: 'Test123!',
     fullName: 'Test Transfer',
     phone: '+90 535 000 1122',

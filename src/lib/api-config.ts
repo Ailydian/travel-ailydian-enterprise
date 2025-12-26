@@ -15,7 +15,7 @@ export const API_CONFIG = {
   
   // Mock API for development
   MOCK_API: {
-    BASE_URL: process.env.NEXT_PUBLIC_API_URL || 'https://api.travel.ailydian.com',
+    BASE_URL: process.env.NEXT_PUBLIC_API_URL || 'https://api.travel.lydian.com',
     endpoints: {
       flights: '/api/flights',
       hotels: '/api/hotels',

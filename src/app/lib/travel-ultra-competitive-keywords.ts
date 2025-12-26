@@ -2,7 +2,7 @@
  * TRAVEL ULTRA-COMPETITIVE KEYWORD STRATEGY
  *
  * Target: Top 3 rankings for airport transfer & car rental keywords
- * Domains: travel.ailydian.com
+ * Domains: travel.lydian.com
  * Strategy: Multi-language, high-volume, competitive keywords
  * Goal: First page, position 1-3 in all search engines
  */

@@ -320,7 +320,7 @@ GROQ_API_KEY="gsk_..."
 
 # Resend Email
 RESEND_API_KEY="re_..."
-EMAIL_FROM="noreply@travel.ailydian.com"
+EMAIL_FROM="noreply@travel.lydian.com"
 
 # Stripe
 STRIPE_SECRET_KEY="sk_live_..."

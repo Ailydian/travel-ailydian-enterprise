@@ -46,7 +46,7 @@ const AIAssistantPage: NextPage = () => {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: 1,
-      text: "Merhaba! Ben Travel Ailydian AI asistanınızım. Size mükemmel bir seyahat planı hazırlamak için buradayım. Nereye gitmek istiyorsunuz ve hangi tür deneyimler arıyorsunuz?",
+      text: "Merhaba! Ben Travel LyDian AI asistanınızım. Size mükemmel bir seyahat planı hazırlamak için buradayım. Nereye gitmek istiyorsunuz ve hangi tür deneyimler arıyorsunuz?",
       sender: 'ai',
       timestamp: new Date(),
       suggestions: [
@@ -193,7 +193,7 @@ const AIAssistantPage: NextPage = () => {
   return (
     <>
       <Head>
-        <title>AI Asistan - Travel Ailydian</title>
+        <title>AI Asistan - Travel LyDian</title>
         <meta name="description" content="Yapay zeka destekli seyahat asistanı ile mükemmel tatil planları oluşturun. Kişiselleştirilmiş öneriler ve akıllı planlama." />
       </Head>
 

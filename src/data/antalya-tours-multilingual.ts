@@ -18,7 +18,7 @@ interface MultiLangText {
 
 // Tour price structure
 interface TourPrice {
-  travelAilydian: number;
+  travelLyDian: number;
   competitors: {
     getYourGuide: number;
     viator: number;
@@ -101,7 +101,7 @@ const calculateBestPrice = (competitorPrices: number[]): TourPrice => {
   const savingsPercentage = Math.round((savings / avgCompetitorPrice) * 100);
 
   return {
-    travelAilydian: ourPrice,
+    travelLyDian: ourPrice,
     competitors: {
       getYourGuide: competitorPrices[0],
       viator: competitorPrices[1],

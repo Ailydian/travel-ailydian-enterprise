@@ -10,9 +10,9 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // Travel Ailydian - Booking.com Style Red Theme
+        // Travel LyDian - Booking.com Style Red Theme
         // Professional, Modern, Trust-Building Color Palette
-        ailydian: {
+        lydian: {
           // Primary Red (Main CTA, Links, Active States)
           primary: '#DC2626',      // red-600 - Main Red
           secondary: '#EF4444',    // red-500 - Secondary Red

@@ -2,7 +2,7 @@
 
 **Implementation Date:** December 10, 2025
 **Status:** Complete and Production-Ready
-**Project:** Travel.Ailydian Enterprise Platform
+**Project:** Travel.LyDian Enterprise Platform
 
 ---
 
@@ -84,7 +84,7 @@ All required packages are already in package.json:
 ```env
 DATABASE_URL="postgresql://..."
 RESEND_API_KEY="re_..."
-EMAIL_FROM="noreply@travel.ailydian.com"
+EMAIL_FROM="noreply@travel.lydian.com"
 NEXTAUTH_SECRET="..."
 ```
 

@@ -17,7 +17,7 @@ export default function KVKK() {
 
       <main className="min-h-screen bg-gray-50">
         {/* Hero Section */}
-        <div className="bg-gradient-to-r from-ailydian-primary to-ailydian-dark text-white py-16">
+        <div className="bg-gradient-to-r from-lydian-primary to-lydian-dark text-white py-16">
           <div className="max-w-7xl mx-auto px-4">
             <div className="flex items-center gap-4 mb-6">
               <Shield className="w-16 h-16" />
@@ -39,7 +39,7 @@ export default function KVKK() {
             <div className="grid md:grid-cols-3 gap-6">
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Lock className="w-6 h-6 text-ailydian-primary" />
+                  <Lock className="w-6 h-6 text-lydian-primary" />
                 </div>
                 <div>
                   <h3 className="font-semibold text-gray-900 mb-1">Güvenli Veri İşleme</h3>
@@ -90,15 +90,15 @@ export default function KVKK() {
           {/* Data Controller */}
           <section className="bg-white rounded-lg shadow-md p-8 mb-8">
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 bg-ailydian-primary/10 rounded-lg flex items-center justify-center">
-                <FileText className="w-6 h-6 text-ailydian-primary" />
+              <div className="w-12 h-12 bg-lydian-primary/10 rounded-lg flex items-center justify-center">
+                <FileText className="w-6 h-6 text-lydian-primary" />
               </div>
               <h2 className="text-2xl font-bold text-gray-900">Veri Sorumlusu</h2>
             </div>
             <div className="space-y-3 text-gray-700">
               <p><strong>Şirket Ünvanı:</strong> Travel.com Seyahat ve Turizm A.Ş.</p>
               <p><strong>Adres:</strong> Atatürk Bulvarı No: 456, Alanya Merkez, 07400 Alanya/Antalya</p>
-              <p><strong>E-posta:</strong> kvkk@travel.ailydian.com</p>
+              <p><strong>E-posta:</strong> kvkk@travel.lydian.com</p>
               <p><strong>Telefon:</strong> +90 (850) 555 12 34</p>
             </div>
           </section>
@@ -110,7 +110,7 @@ export default function KVKK() {
             </h2>
 
             <div className="space-y-6">
-              <div className="border-l-4 border-ailydian-primary pl-4">
+              <div className="border-l-4 border-lydian-primary pl-4">
                 <h3 className="text-lg font-semibold text-gray-900 mb-3">Kimlik Bilgileri</h3>
                 <ul className="space-y-2 text-gray-700">
                   <li className="flex items-start gap-2">
@@ -192,35 +192,35 @@ export default function KVKK() {
 
             <div className="space-y-4 text-gray-700">
               <div className="flex items-start gap-3">
-                <span className="flex-shrink-0 w-6 h-6 bg-ailydian-primary text-white rounded-full flex items-center justify-center text-sm font-bold">1</span>
+                <span className="flex-shrink-0 w-6 h-6 bg-lydian-primary text-white rounded-full flex items-center justify-center text-sm font-bold">1</span>
                 <p>Seyahat ve konaklama rezervasyonlarınızın alınması, işlenmesi ve yerine getirilmesi</p>
               </div>
               <div className="flex items-start gap-3">
-                <span className="flex-shrink-0 w-6 h-6 bg-ailydian-primary text-white rounded-full flex items-center justify-center text-sm font-bold">2</span>
+                <span className="flex-shrink-0 w-6 h-6 bg-lydian-primary text-white rounded-full flex items-center justify-center text-sm font-bold">2</span>
                 <p>Müşteri hizmetleri ve destek süreçlerinin yürütülmesi</p>
               </div>
               <div className="flex items-start gap-3">
-                <span className="flex-shrink-0 w-6 h-6 bg-ailydian-primary text-white rounded-full flex items-center justify-center text-sm font-bold">3</span>
+                <span className="flex-shrink-0 w-6 h-6 bg-lydian-primary text-white rounded-full flex items-center justify-center text-sm font-bold">3</span>
                 <p>Ödeme ve fatura işlemlerinin gerçekleştirilmesi</p>
               </div>
               <div className="flex items-start gap-3">
-                <span className="flex-shrink-0 w-6 h-6 bg-ailydian-primary text-white rounded-full flex items-center justify-center text-sm font-bold">4</span>
+                <span className="flex-shrink-0 w-6 h-6 bg-lydian-primary text-white rounded-full flex items-center justify-center text-sm font-bold">4</span>
                 <p>Yasal yükümlülüklerin yerine getirilmesi (vergi, ticaret kanunları vb.)</p>
               </div>
               <div className="flex items-start gap-3">
-                <span className="flex-shrink-0 w-6 h-6 bg-ailydian-primary text-white rounded-full flex items-center justify-center text-sm font-bold">5</span>
+                <span className="flex-shrink-0 w-6 h-6 bg-lydian-primary text-white rounded-full flex items-center justify-center text-sm font-bold">5</span>
                 <p>Kullanıcı deneyiminin iyileştirilmesi ve kişiselleştirilmiş hizmet sunulması</p>
               </div>
               <div className="flex items-start gap-3">
-                <span className="flex-shrink-0 w-6 h-6 bg-ailydian-primary text-white rounded-full flex items-center justify-center text-sm font-bold">6</span>
+                <span className="flex-shrink-0 w-6 h-6 bg-lydian-primary text-white rounded-full flex items-center justify-center text-sm font-bold">6</span>
                 <p>Pazarlama ve reklam faaliyetlerinin yürütülmesi (onayınız dahilinde)</p>
               </div>
               <div className="flex items-start gap-3">
-                <span className="flex-shrink-0 w-6 h-6 bg-ailydian-primary text-white rounded-full flex items-center justify-center text-sm font-bold">7</span>
+                <span className="flex-shrink-0 w-6 h-6 bg-lydian-primary text-white rounded-full flex items-center justify-center text-sm font-bold">7</span>
                 <p>Platform güvenliğinin sağlanması ve dolandırıcılığın önlenmesi</p>
               </div>
               <div className="flex items-start gap-3">
-                <span className="flex-shrink-0 w-6 h-6 bg-ailydian-primary text-white rounded-full flex items-center justify-center text-sm font-bold">8</span>
+                <span className="flex-shrink-0 w-6 h-6 bg-lydian-primary text-white rounded-full flex items-center justify-center text-sm font-bold">8</span>
                 <p>İstatistiksel analiz ve raporlama faaliyetlerinin gerçekleştirilmesi</p>
               </div>
             </div>
@@ -265,34 +265,34 @@ export default function KVKK() {
 
             <div className="space-y-3 text-gray-700">
               <p className="flex items-start gap-2">
-                <span className="text-ailydian-primary mt-1">•</span>
+                <span className="text-lydian-primary mt-1">•</span>
                 <span>Otel, havayolu, araç kiralama şirketleri gibi hizmet sağlayıcılar</span>
               </p>
               <p className="flex items-start gap-2">
-                <span className="text-ailydian-primary mt-1">•</span>
+                <span className="text-lydian-primary mt-1">•</span>
                 <span>Ödeme kuruluşları ve finansal kuruluşlar</span>
               </p>
               <p className="flex items-start gap-2">
-                <span className="text-ailydian-primary mt-1">•</span>
+                <span className="text-lydian-primary mt-1">•</span>
                 <span>Teknoloji altyapı ve veri depolama hizmet sağlayıcıları</span>
               </p>
               <p className="flex items-start gap-2">
-                <span className="text-ailydian-primary mt-1">•</span>
+                <span className="text-lydian-primary mt-1">•</span>
                 <span>Yasal yükümlülükler gereği kamu kurum ve kuruluşları</span>
               </p>
               <p className="flex items-start gap-2">
-                <span className="text-ailydian-primary mt-1">•</span>
+                <span className="text-lydian-primary mt-1">•</span>
                 <span>İş ortaklarımız ve tedarikçilerimiz (gizlilik sözleşmeleri çerçevesinde)</span>
               </p>
               <p className="flex items-start gap-2">
-                <span className="text-ailydian-primary mt-1">•</span>
+                <span className="text-lydian-primary mt-1">•</span>
                 <span>Hukuk, vergi ve mali müşavirlik hizmeti sağlayan danışmanlar</span>
               </p>
             </div>
 
             <div className="mt-6 bg-blue-50 border border-blue-200 rounded-lg p-4">
               <div className="flex items-start gap-3">
-                <AlertCircle className="w-5 h-5 text-ailydian-primary flex-shrink-0 mt-0.5" />
+                <AlertCircle className="w-5 h-5 text-lydian-primary flex-shrink-0 mt-0.5" />
                 <p className="text-sm text-gray-700">
                   Yurt dışına veri aktarımı yapılması durumunda, KVKK&apos;nın 9. maddesinde öngörülen şartlara uyulmakta ve
                   yeterli güvenlik önlemleri alınmaktadır.
@@ -304,8 +304,8 @@ export default function KVKK() {
           {/* Data Security */}
           <section className="bg-white rounded-lg shadow-md p-8 mb-8">
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 bg-ailydian-primary/10 rounded-lg flex items-center justify-center">
-                <Lock className="w-6 h-6 text-ailydian-primary" />
+              <div className="w-12 h-12 bg-lydian-primary/10 rounded-lg flex items-center justify-center">
+                <Lock className="w-6 h-6 text-lydian-primary" />
               </div>
               <h2 className="text-2xl font-bold text-gray-900">Veri Güvenliği</h2>
             </div>
@@ -364,8 +364,8 @@ export default function KVKK() {
           {/* Your Rights */}
           <section className="bg-white rounded-lg shadow-md p-8 mb-8">
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 bg-ailydian-primary/10 rounded-lg flex items-center justify-center">
-                <UserCheck className="w-6 h-6 text-ailydian-primary" />
+              <div className="w-12 h-12 bg-lydian-primary/10 rounded-lg flex items-center justify-center">
+                <UserCheck className="w-6 h-6 text-lydian-primary" />
               </div>
               <h2 className="text-2xl font-bold text-gray-900">Kişisel Veri Sahibi Olarak Haklarınız</h2>
             </div>
@@ -376,7 +376,7 @@ export default function KVKK() {
 
             <div className="space-y-4">
               <div className="flex items-start gap-3 p-4 bg-gray-50 rounded-lg">
-                <Eye className="w-5 h-5 text-ailydian-primary flex-shrink-0 mt-0.5" />
+                <Eye className="w-5 h-5 text-lydian-primary flex-shrink-0 mt-0.5" />
                 <div>
                   <h3 className="font-semibold text-gray-900 mb-1">Bilgi Alma Hakkı</h3>
                   <p className="text-sm text-gray-700">Kişisel verilerinizin işlenip işlenmediğini öğrenme ve işlenmişse buna ilişkin bilgi talep etme</p>
@@ -384,7 +384,7 @@ export default function KVKK() {
               </div>
 
               <div className="flex items-start gap-3 p-4 bg-gray-50 rounded-lg">
-                <FileText className="w-5 h-5 text-ailydian-primary flex-shrink-0 mt-0.5" />
+                <FileText className="w-5 h-5 text-lydian-primary flex-shrink-0 mt-0.5" />
                 <div>
                   <h3 className="font-semibold text-gray-900 mb-1">Amaç ve Aktarım Bilgisi</h3>
                   <p className="text-sm text-gray-700">İşlenme amacını ve bunların amacına uygun kullanılıp kullanılmadığını öğrenme, yurt içi/yurt dışı aktarım bilgilerini talep etme</p>
@@ -392,7 +392,7 @@ export default function KVKK() {
               </div>
 
               <div className="flex items-start gap-3 p-4 bg-gray-50 rounded-lg">
-                <CheckCircle2 className="w-5 h-5 text-ailydian-primary flex-shrink-0 mt-0.5" />
+                <CheckCircle2 className="w-5 h-5 text-lydian-primary flex-shrink-0 mt-0.5" />
                 <div>
                   <h3 className="font-semibold text-gray-900 mb-1">Düzeltme ve Güncelleme</h3>
                   <p className="text-sm text-gray-700">Eksik veya yanlış işlenmiş kişisel verilerinizin düzeltilmesini talep etme</p>
@@ -400,7 +400,7 @@ export default function KVKK() {
               </div>
 
               <div className="flex items-start gap-3 p-4 bg-gray-50 rounded-lg">
-                <AlertCircle className="w-5 h-5 text-ailydian-primary flex-shrink-0 mt-0.5" />
+                <AlertCircle className="w-5 h-5 text-lydian-primary flex-shrink-0 mt-0.5" />
                 <div>
                   <h3 className="font-semibold text-gray-900 mb-1">Silme ve Yok Etme</h3>
                   <p className="text-sm text-gray-700">Kişisel verilerinizin silinmesini veya yok edilmesini talep etme (yasal saklama yükümlülükleri saklı kalmak kaydıyla)</p>
@@ -408,7 +408,7 @@ export default function KVKK() {
               </div>
 
               <div className="flex items-start gap-3 p-4 bg-gray-50 rounded-lg">
-                <Shield className="w-5 h-5 text-ailydian-primary flex-shrink-0 mt-0.5" />
+                <Shield className="w-5 h-5 text-lydian-primary flex-shrink-0 mt-0.5" />
                 <div>
                   <h3 className="font-semibold text-gray-900 mb-1">İtiraz Etme</h3>
                   <p className="text-sm text-gray-700">Otomatik sistemler ile analiz edilmesi sonucunda aleyhinize bir sonuç doğması halinde itiraz etme</p>
@@ -416,7 +416,7 @@ export default function KVKK() {
               </div>
 
               <div className="flex items-start gap-3 p-4 bg-gray-50 rounded-lg">
-                <Mail className="w-5 h-5 text-ailydian-primary flex-shrink-0 mt-0.5" />
+                <Mail className="w-5 h-5 text-lydian-primary flex-shrink-0 mt-0.5" />
                 <div>
                   <h3 className="font-semibold text-gray-900 mb-1">Şikayete Başvurma</h3>
                   <p className="text-sm text-gray-700">KVKK&apos;ya aykırılık halinde Kişisel Verileri Koruma Kurulu&apos;na şikayette bulunma</p>
@@ -426,7 +426,7 @@ export default function KVKK() {
           </section>
 
           {/* Contact for Rights */}
-          <section className="bg-gradient-to-r from-ailydian-primary to-ailydian-dark text-white rounded-lg p-8">
+          <section className="bg-gradient-to-r from-lydian-primary to-lydian-dark text-white rounded-lg p-8">
             <h2 className="text-2xl font-bold mb-4">Haklarınızı Nasıl Kullanabilirsiniz?</h2>
             <p className="text-blue-100 mb-6">
               Yukarıda belirtilen haklarınızı kullanmak için aşağıdaki yollardan bize başvurabilirsiniz:
@@ -437,8 +437,8 @@ export default function KVKK() {
                 <Mail className="w-5 h-5 flex-shrink-0 mt-0.5" />
                 <div>
                   <p className="font-semibold mb-1">E-posta</p>
-                  <a href="mailto:kvkk@travel.ailydian.com" className="text-blue-100 hover:text-white">
-                    kvkk@travel.ailydian.com
+                  <a href="mailto:kvkk@travel.lydian.com" className="text-blue-100 hover:text-white">
+                    kvkk@travel.lydian.com
                   </a>
                 </div>
               </div>

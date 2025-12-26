@@ -1,7 +1,7 @@
 # 🚀 TRAVEL AILYDIAN ENTERPRISE - SESSION 2 GÖREV LİSTESİ
 
 ## 📍 Proje Konumu
-**Path:** `/Users/sardag/Desktop/travel-ailydian-enterprise`
+**Path:** `/Users/sardag/Desktop/travel-lydian-enterprise`
 
 ## ✅ SESSION 1'DE TAMAMLANANLAR
 
@@ -360,7 +360,7 @@ model RentalProperty {
 ## 🛠️ TEKNIK NOTLAR
 
 ### Database Schema Location
-`/Users/sardag/Desktop/travel-ailydian-enterprise/prisma/schema.prisma`
+`/Users/sardag/Desktop/travel-lydian-enterprise/prisma/schema.prisma`
 
 **Önemli Modeller:**
 - Lines 1194-1280: CarRental model
@@ -424,7 +424,7 @@ PORT=3100 npm run dev
 ## 🎨 UI/UX Standartları
 
 ### Design System
-- **Renk Paleti:** Tailwind CSS default + custom (ailydian-primary, ailydian-secondary)
+- **Renk Paleti:** Tailwind CSS default + custom (lydian-primary, lydian-secondary)
 - **Typography:** System fonts, clear hierarchy
 - **Icons:** Lucide React
 - **Animations:** Framer Motion
@@ -492,7 +492,7 @@ NEXTAUTH_URL="http://localhost:3000"
 
 Bu görev listesi, Session 1'de başladığımız işin devamı için hazırlanmıştır.
 
-**Önemli:** Tüm değişiklikler `/Users/sardag/Desktop/travel-ailydian-enterprise` konumunda yapılmalıdır.
+**Önemli:** Tüm değişiklikler `/Users/sardag/Desktop/travel-lydian-enterprise` konumunda yapılmalıdır.
 
 **Mevcut Durum:**
 - ✅ Navigation System: %100 Complete

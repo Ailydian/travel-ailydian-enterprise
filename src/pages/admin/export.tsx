@@ -41,7 +41,7 @@ export default function AdminExport() {
       const element = document.createElement('a');
       const file = new Blob(['Export data here...'], { type: 'text/plain' });
       element.href = URL.createObjectURL(file);
-      element.download = `ailydian-export-${selectedType}-${Date.now()}.${selectedFormat}`;
+      element.download = `lydian-export-${selectedType}-${Date.now()}.${selectedFormat}`;
       document.body.appendChild(element);
       element.click();
       document.body.removeChild(element);
@@ -60,7 +60,7 @@ export default function AdminExport() {
   return (
     <>
       <Head>
-        <title>Veri Dışa Aktarma | Ailydian Admin</title>
+        <title>Veri Dışa Aktarma | LyDian Admin</title>
         <meta name="robots" content="noindex, nofollow" />
       </Head>
 
@@ -69,7 +69,7 @@ export default function AdminExport() {
           {/* Sidebar */}
           <aside className="w-64 bg-gray-800 border-r border-gray-700 min-h-screen p-6">
             <div className="mb-8">
-              <h2 className="text-2xl font-bold text-white mb-2">Ailydian Admin</h2>
+              <h2 className="text-2xl font-bold text-white mb-2">LyDian Admin</h2>
               <p className="text-sm text-gray-400">{adminData?.email}</p>
             </div>
             <nav className="space-y-2">

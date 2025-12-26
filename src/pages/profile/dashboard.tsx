@@ -160,7 +160,7 @@ const Dashboard: React.FC = () => {
   return (
     <>
       <Head>
-        <title>Dashboard - Ailydian Travel</title>
+        <title>Dashboard - LyDian Travel</title>
         <meta name="description" content="Kişisel travel dashboard'unuz. Rezervasyonlarınız, favorileriniz ve seyahat istatistikleriniz." />
         <meta name="robots" content="noindex, nofollow" />
       </Head>
@@ -171,11 +171,11 @@ const Dashboard: React.FC = () => {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex justify-between items-center py-4">
               <Link href="/" className="flex items-center space-x-3">
-                <div className="w-10 h-10 bg-gradient-to-r from-ailydian-primary to-ailydian-secondary rounded-xl flex items-center justify-center">
+                <div className="w-10 h-10 bg-gradient-to-r from-lydian-primary to-lydian-secondary rounded-xl flex items-center justify-center">
                   <span className="text-white font-bold text-lg">A</span>
                 </div>
                 <div className="hidden sm:block">
-                  <h1 className="text-xl font-bold text-gray-900">Ailydian Travel</h1>
+                  <h1 className="text-xl font-bold text-gray-900">LyDian Travel</h1>
                   <p className="text-xs text-gray-500 -mt-1">Dashboard</p>
                 </div>
               </Link>
@@ -190,7 +190,7 @@ const Dashboard: React.FC = () => {
                     <p className="text-sm font-medium text-gray-900">{user.name}</p>
                     <p className="text-xs text-gray-500">{user.email}</p>
                   </div>
-                  <div className="w-10 h-10 bg-gradient-to-r from-ailydian-primary to-ailydian-secondary rounded-full flex items-center justify-center">
+                  <div className="w-10 h-10 bg-gradient-to-r from-lydian-primary to-lydian-secondary rounded-full flex items-center justify-center">
                     <User className="w-5 h-5 text-white" />
                   </div>
                 </div>
@@ -206,7 +206,7 @@ const Dashboard: React.FC = () => {
               <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
                 {/* User Profile Card */}
                 <div className="text-center mb-6">
-                  <div className="w-20 h-20 bg-gradient-to-r from-ailydian-primary to-ailydian-secondary rounded-full flex items-center justify-center mx-auto mb-4">
+                  <div className="w-20 h-20 bg-gradient-to-r from-lydian-primary to-lydian-secondary rounded-full flex items-center justify-center mx-auto mb-4">
                     <User className="w-10 h-10 text-white" />
                   </div>
                   <h3 className="font-bold text-lg text-gray-900">{user.name}</h3>
@@ -255,7 +255,7 @@ const Dashboard: React.FC = () => {
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="bg-gradient-to-r from-ailydian-primary to-ailydian-secondary rounded-2xl p-8 text-white"
+                className="bg-gradient-to-r from-lydian-primary to-lydian-secondary rounded-2xl p-8 text-white"
               >
                 <div className="flex items-center justify-between">
                   <div>

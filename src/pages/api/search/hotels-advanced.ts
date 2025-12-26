@@ -247,7 +247,7 @@ function generateSEO(destination?: string, district?: string) {
 
   if (!city) {
     return {
-      title: 'Otel Rezervasyonu - En Uygun Otel Fiyatları | Travel Ailydian',
+      title: 'Otel Rezervasyonu - En Uygun Otel Fiyatları | Travel LyDian',
       description: 'Türkiye\'nin her yerinde otel rezervasyonu yapın. En uygun fiyatlar ve fırsatlar.',
       keywords: 'otel rezervasyonu, otel fiyatları, tatil, konaklama'
     };
@@ -256,7 +256,7 @@ function generateSEO(destination?: string, district?: string) {
   const districtName = district ? ` - ${district}` : '';
 
   return {
-    title: `${city.name}${districtName} Otelleri - En Uygun Fiyatlar | Travel Ailydian`,
+    title: `${city.name}${districtName} Otelleri - En Uygun Fiyatlar | Travel LyDian`,
     description: `${city.name}${districtName} için en iyi otelleri karşılaştırın. ${city.highlights.slice(0, 3).join(', ')}. Rezervasyon yapın, tasarruf edin!`,
     keywords: `${city.name.toLowerCase()} otelleri${district ? `, ${district} otelleri` : ''}, ${city.tags.join(', ')}, ${city.name.toLowerCase()} tatil`,
     h1: `${city.name}${districtName} Otelleri`,

@@ -119,7 +119,7 @@ import { ExperiencesSlider } from '@/components/homepage/ExperiencesSlider';
 
 ---
 
-## 🎨 Ailydian Colors
+## 🎨 LyDian Colors
 
 ```tsx
 // Use in components
@@ -131,9 +131,9 @@ color="#39FF14"  // Neon Green
 color="#FFFF33"  // Neon Yellow
 
 // Tailwind classes
-className="text-ailydian-primary"
-className="bg-ailydian-secondary"
-className="border-ailydian-neon-blue"
+className="text-lydian-primary"
+className="bg-lydian-secondary"
+className="border-lydian-neon-blue"
 className="shadow-neon"
 className="bg-glass-dark"
 ```

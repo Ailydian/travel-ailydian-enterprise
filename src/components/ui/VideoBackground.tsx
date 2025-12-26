@@ -150,7 +150,7 @@ export const VideoBackground: React.FC<VideoBackgroundProps> = ({
         transition={{ duration: changeInterval / 1000, ease: 'linear' }}
         style={{ transformOrigin: 'left' }}
       >
-        <div className="h-full bg-gradient-to-r from-ailydian-primary to-ailydian-secondary" />
+        <div className="h-full bg-gradient-to-r from-lydian-primary to-lydian-secondary" />
       </motion.div>
 
       {/* Animated Particles for Premium Effect */}

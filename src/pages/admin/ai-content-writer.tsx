@@ -96,7 +96,7 @@ const AIContentWriterPage: React.FC = () => {
   return (
     <>
       <Head>
-        <title>AI Content Writer | Travel Ailydian Admin</title>
+        <title>AI Content Writer | Travel LyDian Admin</title>
         <meta name="description" content="AI-powered content generation for listings" />
       </Head>
 

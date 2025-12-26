@@ -187,7 +187,7 @@ const SocialPage: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Sosyal Ağ - Travel Ailydian</title>
+        <title>Sosyal Ağ - Travel LyDian</title>
         <meta name="description" content="Seyahat topluluğumuza katılın, deneyimlerinizi paylaşın ve yeni seyahat arkadaşları bulun. Türkiye'nin en büyük travel topluluğu." />
       </Head>
 

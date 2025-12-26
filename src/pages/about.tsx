@@ -37,8 +37,8 @@ export default function About() {
   return (
     <>
       <Head>
-        <title>Hakkımızda - Ailydian Travel</title>
-        <meta name="description" content="Ailydian Travel olarak 15 yıldır seyahat tutkusunu teknoloji ile buluşturuyoruz." />
+        <title>Hakkımızda - LyDian Travel</title>
+        <meta name="description" content="LyDian Travel olarak 15 yıldır seyahat tutkusunu teknoloji ile buluşturuyoruz." />
       </Head>
 
       <BookingHeader />
@@ -48,7 +48,7 @@ export default function About() {
         {/* Hero Section */}
         <div className="bg-gradient-to-br from-blue-600 via-purple-600 to-pink-600 text-white py-20">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 className="text-5xl font-bold mb-6">Ailydian Travel</h1>
+            <h1 className="text-5xl font-bold mb-6">LyDian Travel</h1>
             <p className="text-2xl mb-8 text-blue-100">
               Seyahati Teknoloji ile Buluşturan Lider
             </p>

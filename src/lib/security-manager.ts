@@ -27,12 +27,12 @@ export const SECURITY_HEADERS = {
   'Strict-Transport-Security': 'max-age=63072000; includeSubDomains; preload',
   'Content-Security-Policy': [
     "default-src 'self'",
-    "script-src 'self' 'unsafe-inline' 'unsafe-eval' *.ailydian.com *.vercel.app *.google.com *.googleapis.com",
+    "script-src 'self' 'unsafe-inline' 'unsafe-eval' *.lydian.com *.vercel.app *.google.com *.googleapis.com",
     "style-src 'self' 'unsafe-inline' *.google.com *.googleapis.com",
-    "img-src 'self' data: blob: https: *.ailydian.com *.unsplash.com *.googleapis.com",
+    "img-src 'self' data: blob: https: *.lydian.com *.unsplash.com *.googleapis.com",
     "font-src 'self' *.google.com *.googleapis.com *.gstatic.com",
-    "connect-src 'self' *.ailydian.com *.vercel.app *.google.com *.googleapis.com wss:",
-    "media-src 'self' *.ailydian.com",
+    "connect-src 'self' *.lydian.com *.vercel.app *.google.com *.googleapis.com wss:",
+    "media-src 'self' *.lydian.com",
     "object-src 'none'",
     "base-uri 'self'",
     "form-action 'self'",
@@ -108,7 +108,7 @@ export class SecurityManager {
     }
     
     // Suspicious referer patterns
-    if (referer && !referer.includes('ailydian.com') && !referer.includes('google.com')) {
+    if (referer && !referer.includes('lydian.com') && !referer.includes('google.com')) {
       const suspiciousReferers = [
         'baidu.com', 'yandex.com', '.tk', '.ml', '.ga'
       ];
@@ -241,7 +241,7 @@ export class ErrorMonitor {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            text: `🚨 CRITICAL ERROR in Travel.Ailydian`,
+            text: `🚨 CRITICAL ERROR in Travel.LyDian`,
             attachments: [{
               color: 'danger',
               fields: [

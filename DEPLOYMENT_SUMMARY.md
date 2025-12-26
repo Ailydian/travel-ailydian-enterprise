@@ -3,8 +3,8 @@
 ## Deployment Status: SUCCESS
 
 **Date:** 21 Aralık 2025, 18:37
-**Vercel Production URL:** https://travel-ailydian-enterprise-j9baxpsx9.vercel.app
-**Target Custom Domain:** dashboard.travel.ailydian.com
+**Vercel Production URL:** https://travel-lydian-enterprise-j9baxpsx9.vercel.app
+**Target Custom Domain:** dashboard.travel.lydian.com
 
 ---
 
@@ -36,7 +36,7 @@ Gelişmiş Property Owner Dashboard başarıyla Vercel'e deploy edildi! Bu dashb
   - Ayarlar (`/dashboard/settings`)
 
 ### Tasarım:
-- Neon/futuristik tasarım (travel.ailydian.com ile uyumlu)
+- Neon/futuristik tasarım (travel.lydian.com ile uyumlu)
 - Karanlık tema (#0A0A0B)
 - Kırmızı-turuncu gradientler (#FF214D → #FF6A45)
 - Glassmorphism efektleri
@@ -47,10 +47,10 @@ Gelişmiş Property Owner Dashboard başarıyla Vercel'e deploy edildi! Bu dashb
 ## Önemli Bilgi: Domain Yapılandırması
 
 ### Durum
-`travel.ailydian.com` domaini şu anda **ana travel booking platformu** tarafından kullanılıyor. Property Owner Dashboard için **farklı bir subdomain** yapılandırıldı.
+`travel.lydian.com` domaini şu anda **ana travel booking platformu** tarafından kullanılıyor. Property Owner Dashboard için **farklı bir subdomain** yapılandırıldı.
 
 ### Yapılandırılmış Domain
-**Target Domain:** `dashboard.travel.ailydian.com`
+**Target Domain:** `dashboard.travel.lydian.com`
 
 ### DNS Yapılandırması Gerekli
 
@@ -75,15 +75,15 @@ TTL: 3600
 ### DNS Yapılandırma Adımları
 
 1. **Domain Yönetim Paneline Girin**
-   - ailydian.com domain'ini yönettiğiniz panel (ör: GoDaddy, Namecheap, Cloudflare)
+   - lydian.com domain'ini yönettiğiniz panel (ör: GoDaddy, Namecheap, Cloudflare)
 
 2. **DNS Kayıtlarını Ekleyin**
    - Yukarıdaki CNAME kaydını ekleyin
    - Alternatif olarak A kaydını kullanabilirsiniz
 
 3. **Vercel Dashboard'da Doğrulama**
-   - https://vercel.com/emrahsardag-yandexcoms-projects/travel-ailydian-enterprise/settings/domains
-   - `dashboard.travel.ailydian.com` domain'ini ekleyin ve doğrulayın
+   - https://vercel.com/emrahsardag-yandexcoms-projects/travel-lydian-enterprise/settings/domains
+   - `dashboard.travel.lydian.com` domain'ini ekleyin ve doğrulayın
 
 4. **Propagation Bekleme**
    - DNS değişikliklerinin yayılması 5-48 saat sürebilir
@@ -94,11 +94,11 @@ TTL: 3600
 ## Vercel Dashboard Üzerinden Yapılandırma
 
 ### 1. Vercel Dashboard'a Girin
-https://vercel.com/emrahsardag-yandexcoms-projects/travel-ailydian-enterprise
+https://vercel.com/emrahsardag-yandexcoms-projects/travel-lydian-enterprise
 
 ### 2. Settings > Domains
 - "Add Domain" butonuna tıklayın
-- `dashboard.travel.ailydian.com` yazın
+- `dashboard.travel.lydian.com` yazın
 - "Add" butonuna tıklayın
 
 ### 3. DNS Kayıtlarını Kopyalayın
@@ -135,15 +135,15 @@ Birkaç dakika sonra Vercel otomatik olarak doğrulayacak ve domain aktif olacak
 ## Test Linkleri
 
 ### Şu Anda Aktif
-**Vercel Production URL:** https://travel-ailydian-enterprise-j9baxpsx9.vercel.app
+**Vercel Production URL:** https://travel-lydian-enterprise-j9baxpsx9.vercel.app
 
 Test için bu URL'i kullanabilirsiniz:
-- https://travel-ailydian-enterprise-j9baxpsx9.vercel.app/dashboard
-- https://travel-ailydian-enterprise-j9baxpsx9.vercel.app/dashboard/properties
-- https://travel-ailydian-enterprise-j9baxpsx9.vercel.app/dashboard/bookings
+- https://travel-lydian-enterprise-j9baxpsx9.vercel.app/dashboard
+- https://travel-lydian-enterprise-j9baxpsx9.vercel.app/dashboard/properties
+- https://travel-lydian-enterprise-j9baxpsx9.vercel.app/dashboard/bookings
 
 ### DNS Yapılandırmasından Sonra
-**Custom Domain:** https://dashboard.travel.ailydian.com
+**Custom Domain:** https://dashboard.travel.lydian.com
 
 ---
 
@@ -160,21 +160,21 @@ Test için bu URL'i kullanabilirsiniz:
 ## Önemli Notlar
 
 ### 1. Domain Çakışması Çözüldü
-İlk yapılandırmada `travel.ailydian.com` kullanılıyordu ama bu domain zaten ana travel booking platformu tarafından kullanılıyordu. Bu durum `dashboard.travel.ailydian.com` subdomain'ine geçilerek çözüldü.
+İlk yapılandırmada `travel.lydian.com` kullanılıyordu ama bu domain zaten ana travel booking platformu tarafından kullanılıyordu. Bu durum `dashboard.travel.lydian.com` subdomain'ine geçilerek çözüldü.
 
 ### 2. Vercel.json Güncellemesi
 ```json
 {
-  "alias": ["dashboard.travel.ailydian.com"],
+  "alias": ["dashboard.travel.lydian.com"],
   "env": {
-    "NEXT_PUBLIC_SITE_URL": "https://dashboard.travel.ailydian.com"
+    "NEXT_PUBLIC_SITE_URL": "https://dashboard.travel.lydian.com"
   }
 }
 ```
 
 ### 3. İki Farklı Uygulama
-- `travel.ailydian.com` → Müşteri tarafı travel booking platformu
-- `dashboard.travel.ailydian.com` → Property Owner Dashboard (yeni)
+- `travel.lydian.com` → Müşteri tarafı travel booking platformu
+- `dashboard.travel.lydian.com` → Property Owner Dashboard (yeni)
 
 ---
 
@@ -206,13 +206,13 @@ Test için bu URL'i kullanabilirsiniz:
 - DNS setup: https://vercel.com/docs/concepts/projects/domains/add-a-domain
 
 ### Project Repository
-https://github.com/Ailydian/travel-ailydian-enterprise
+https://github.com/LyDian/travel-lydian-enterprise
 
 ### Latest Commit
 ```
-fix: Update domain alias to dashboard.travel.ailydian.com
+fix: Update domain alias to dashboard.travel.lydian.com
 
-- Changed alias from travel.ailydian.com to dashboard.travel.ailydian.com
+- Changed alias from travel.lydian.com to dashboard.travel.lydian.com
 - Updated NEXT_PUBLIC_SITE_URL to match new subdomain
 - Resolves domain conflict with main travel booking platform
 ```
@@ -221,10 +221,10 @@ fix: Update domain alias to dashboard.travel.ailydian.com
 
 ## Özet
 
-Property Owner Dashboard başarıyla deploy edildi ve production'da çalışıyor! DNS yapılandırması tamamlandıktan sonra `dashboard.travel.ailydian.com` adresinden erişilebilir olacak.
+Property Owner Dashboard başarıyla deploy edildi ve production'da çalışıyor! DNS yapılandırması tamamlandıktan sonra `dashboard.travel.lydian.com` adresinden erişilebilir olacak.
 
 **Şu anda test için kullanılabilir:**
-https://travel-ailydian-enterprise-j9baxpsx9.vercel.app
+https://travel-lydian-enterprise-j9baxpsx9.vercel.app
 
 ---
 

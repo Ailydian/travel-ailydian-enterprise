@@ -1,5 +1,5 @@
 /**
- * Multilingual SEO Utilities for Travel Ailydian
+ * Multilingual SEO Utilities for Travel LyDian
  * Supports 6 languages: TR, EN, RU, DE, AR, FR
  */
 
@@ -115,14 +115,14 @@ export const generateTourSchemaOrg = (tour: {
       price: tour.price,
       priceCurrency: tour.currency,
       availability: 'https://schema.org/InStock',
-      url: `https://travel.ailydian.com/${lang}/tours/${getLocalizedText(tour.slug, lang)}`,
+      url: `https://travel.lydian.com/${lang}/tours/${getLocalizedText(tour.slug, lang)}`,
       validFrom: new Date().toISOString(),
     },
     provider: {
       '@type': 'Organization',
-      name: 'Ailydian Travel',
-      url: 'https://travel.ailydian.com',
-      logo: 'https://travel.ailydian.com/logo.png'
+      name: 'LyDian Travel',
+      url: 'https://travel.lydian.com',
+      logo: 'https://travel.lydian.com/logo.png'
     },
     touristType: 'tourist',
     duration: tour.duration,
@@ -165,8 +165,8 @@ export const generateTransferSchemaOrg = (transfer: {
     description: `Professional transfer service from ${getLocalizedText(transfer.from, lang)} to ${getLocalizedText(transfer.to, lang)}`,
     provider: {
       '@type': 'Organization',
-      name: 'Ailydian Travel',
-      url: 'https://travel.ailydian.com',
+      name: 'LyDian Travel',
+      url: 'https://travel.lydian.com',
     },
     areaServed: {
       '@type': 'City',
@@ -178,7 +178,7 @@ export const generateTransferSchemaOrg = (transfer: {
       price: transfer.price,
       priceCurrency: transfer.currency,
       availability: 'https://schema.org/InStock',
-      url: `https://travel.ailydian.com/${lang}/transfers/${getLocalizedText(transfer.slug, lang)}`,
+      url: `https://travel.lydian.com/${lang}/transfers/${getLocalizedText(transfer.slug, lang)}`,
     },
     aggregateRating: {
       '@type': 'AggregateRating',
@@ -255,7 +255,7 @@ export const generateOpenGraphTags = (content: {
     images: content.images.map(url => ({ url, alt: getLocalizedText(content.title, lang) })),
     url: content.url,
     type: content.type || 'website',
-    siteName: 'Ailydian Travel',
+    siteName: 'LyDian Travel',
     locale: HREFLANG_CODES[lang],
   };
 };
@@ -271,8 +271,8 @@ export const generateTwitterCardTags = (content: {
     title: getLocalizedText(content.title, lang),
     description: getLocalizedText(content.description, lang),
     images: content.images,
-    site: '@ailydian',
-    creator: '@ailydian'
+    site: '@lydian',
+    creator: '@lydian'
   };
 };
 

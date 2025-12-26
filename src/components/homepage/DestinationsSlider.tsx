@@ -40,10 +40,10 @@ export const DestinationsSlider: React.FC<DestinationsSliderProps> = ({
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-ailydian-text mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-lydian-text mb-4">
             {title}
           </h2>
-          <p className="text-xl text-ailydian-text-muted max-w-2xl mx-auto">
+          <p className="text-xl text-lydian-text-muted max-w-2xl mx-auto">
             {subtitle}
           </p>
         </motion.div>
@@ -81,7 +81,7 @@ export const DestinationsSlider: React.FC<DestinationsSliderProps> = ({
         >
           <Link href="/destinations">
             <motion.button
-              className="bg-gradient-to-r from-ailydian-primary to-ailydian-secondary text-white px-8 py-4 rounded-xl font-semibold shadow-neon hover:shadow-neon-lg transition-all inline-flex items-center gap-2"
+              className="bg-gradient-to-r from-lydian-primary to-lydian-secondary text-white px-8 py-4 rounded-xl font-semibold shadow-neon hover:shadow-neon-lg transition-all inline-flex items-center gap-2"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -107,7 +107,7 @@ const DestinationCard: React.FC<{ destination: Destination }> = ({ destination }
       whileHover={{ y: -8 }}
       transition={{ duration: 0.3 }}
     >
-      <div className="bg-glass-dark backdrop-blur-xl rounded-2xl overflow-hidden border border-ailydian-primary/20 shadow-lg hover:shadow-neon transition-all h-full flex flex-col">
+      <div className="bg-glass-dark backdrop-blur-xl rounded-2xl overflow-hidden border border-lydian-primary/20 shadow-lg hover:shadow-neon transition-all h-full flex flex-col">
         {/* Image Container */}
         <div className="relative h-64 overflow-hidden">
           {/* Image */}
@@ -122,12 +122,12 @@ const DestinationCard: React.FC<{ destination: Destination }> = ({ destination }
           />
 
           {/* Gradient Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-ailydian-bg via-transparent to-transparent opacity-60" />
+          <div className="absolute inset-0 bg-gradient-to-t from-lydian-bg via-transparent to-transparent opacity-60" />
 
           {/* Badge */}
           {destination.badge && (
             <motion.div
-              className="absolute top-4 left-4 bg-ailydian-primary/90 backdrop-blur-md text-white px-4 py-2 rounded-full text-sm font-semibold shadow-neon"
+              className="absolute top-4 left-4 bg-lydian-primary/90 backdrop-blur-md text-white px-4 py-2 rounded-full text-sm font-semibold shadow-neon"
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.2 }}
@@ -138,7 +138,7 @@ const DestinationCard: React.FC<{ destination: Destination }> = ({ destination }
 
           {/* Favorite Button */}
           <motion.button
-            className="absolute top-4 right-4 bg-ailydian-bg-card/80 backdrop-blur-md p-2 rounded-full border border-ailydian-primary/30 hover:bg-ailydian-primary/20 transition-colors"
+            className="absolute top-4 right-4 bg-lydian-bg-card/80 backdrop-blur-md p-2 rounded-full border border-lydian-primary/30 hover:bg-lydian-primary/20 transition-colors"
             onClick={(e) => {
               e.preventDefault();
               setIsFavorite(!isFavorite);
@@ -148,21 +148,21 @@ const DestinationCard: React.FC<{ destination: Destination }> = ({ destination }
           >
             <Heart
               className={`w-5 h-5 transition-colors ${
-                isFavorite ? 'fill-ailydian-primary text-ailydian-primary' : 'text-ailydian-text-muted'
+                isFavorite ? 'fill-lydian-primary text-lydian-primary' : 'text-lydian-text-muted'
               }`}
             />
           </motion.button>
 
           {/* Hover Overlay */}
           <motion.div
-            className="absolute inset-0 bg-ailydian-primary/20 backdrop-blur-sm flex items-center justify-center"
+            className="absolute inset-0 bg-lydian-primary/20 backdrop-blur-sm flex items-center justify-center"
             initial={{ opacity: 0 }}
             animate={{ opacity: isHovered ? 1 : 0 }}
             transition={{ duration: 0.3 }}
           >
             <Link href={`/destinations/${destination.name.toLowerCase()}`}>
               <motion.button
-                className="bg-white text-ailydian-primary px-6 py-3 rounded-xl font-semibold shadow-lg"
+                className="bg-white text-lydian-primary px-6 py-3 rounded-xl font-semibold shadow-lg"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -175,37 +175,37 @@ const DestinationCard: React.FC<{ destination: Destination }> = ({ destination }
         {/* Content */}
         <div className="p-6 flex-grow flex flex-col">
           {/* Location */}
-          <div className="flex items-center gap-2 text-ailydian-text-muted mb-3">
-            <MapPin className="w-4 h-4 text-ailydian-primary" />
+          <div className="flex items-center gap-2 text-lydian-text-muted mb-3">
+            <MapPin className="w-4 h-4 text-lydian-primary" />
             <span className="text-sm">{destination.country}</span>
           </div>
 
           {/* Title */}
-          <h3 className="text-2xl font-bold text-ailydian-text mb-2">
+          <h3 className="text-2xl font-bold text-lydian-text mb-2">
             {destination.name}
           </h3>
 
           {/* Description */}
-          <p className="text-ailydian-text-muted mb-4 line-clamp-2 flex-grow">
+          <p className="text-lydian-text-muted mb-4 line-clamp-2 flex-grow">
             {destination.description}
           </p>
 
           {/* Stats Row */}
-          <div className="flex items-center justify-between pt-4 border-t border-ailydian-primary/10">
+          <div className="flex items-center justify-between pt-4 border-t border-lydian-primary/10">
             <div className="flex items-center gap-2">
               <div className="flex items-center gap-1">
-                <Star className="w-4 h-4 fill-ailydian-neon-yellow text-ailydian-neon-yellow" />
-                <span className="text-ailydian-text font-semibold">{destination.rating}</span>
+                <Star className="w-4 h-4 fill-lydian-neon-yellow text-lydian-neon-yellow" />
+                <span className="text-lydian-text font-semibold">{destination.rating}</span>
               </div>
-              <span className="text-ailydian-text-muted text-sm">
+              <span className="text-lydian-text-muted text-sm">
                 {destination.experiences} experiences
               </span>
             </div>
 
             {destination.price && (
               <div className="text-right">
-                <div className="text-sm text-ailydian-text-muted">From</div>
-                <div className="text-lg font-bold text-ailydian-primary">{destination.price}</div>
+                <div className="text-sm text-lydian-text-muted">From</div>
+                <div className="text-lg font-bold text-lydian-primary">{destination.price}</div>
               </div>
             )}
           </div>

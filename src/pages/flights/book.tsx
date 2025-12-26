@@ -311,7 +311,7 @@ export default function FlightBooking() {
   return (
     <>
       <SEOHead
-        title="Uçuş Rezervasyonu - Ailydian Travel"
+        title="Uçuş Rezervasyonu - LyDian Travel"
         description="Güvenli ve hızlı uçuş rezervasyonu yapın."
         type="website"
       />
@@ -323,7 +323,7 @@ export default function FlightBooking() {
         <div className="max-w-7xl mx-auto px-4 py-3">
           <button
             onClick={() => router.back()}
-            className="inline-flex items-center gap-2 text-gray-700 hover:text-ailydian-primary transition-colors"
+            className="inline-flex items-center gap-2 text-gray-700 hover:text-lydian-primary transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />
             <span className="font-medium">Geri Dön</span>
@@ -353,14 +353,14 @@ export default function FlightBooking() {
                           isCompleted
                             ? 'bg-green-500 text-white'
                             : isActive
-                            ? 'bg-ailydian-primary text-white'
+                            ? 'bg-lydian-primary text-white'
                             : 'bg-gray-200 text-gray-500'
                         }`}
                       >
                         {isCompleted ? <Check className="w-6 h-6" /> : <Icon className="w-6 h-6" />}
                       </div>
                       <div className="text-xs mt-2 text-center max-w-[80px]">
-                        <div className={`font-medium ${isActive ? 'text-ailydian-primary' : 'text-gray-600'}`}>
+                        <div className={`font-medium ${isActive ? 'text-lydian-primary' : 'text-gray-600'}`}>
                           {step.title}
                         </div>
                       </div>
@@ -415,7 +415,7 @@ export default function FlightBooking() {
                         <div className="text-center">
                           <div className="flex items-center justify-center mb-2">
                             <div className="flex-1 h-0.5 bg-gray-300"></div>
-                            <Plane className="w-6 h-6 text-ailydian-primary mx-2 transform rotate-90" />
+                            <Plane className="w-6 h-6 text-lydian-primary mx-2 transform rotate-90" />
                             <div className="flex-1 h-0.5 bg-gray-300"></div>
                           </div>
                           <div className="flex items-center justify-center gap-1 text-sm text-gray-600">
@@ -482,7 +482,7 @@ export default function FlightBooking() {
                               <select
                                 value={passenger.title}
                                 onChange={(e) => updatePassenger(idx, 'title', e.target.value)}
-                                className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-ailydian-primary ${
+                                className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-lydian-primary ${
                                   errors[`passenger-${idx}-title`] ? 'border-red-500' : 'border-gray-300'
                                 }`}
                               >
@@ -504,7 +504,7 @@ export default function FlightBooking() {
                                 type="text"
                                 value={passenger.firstName}
                                 onChange={(e) => updatePassenger(idx, 'firstName', e.target.value)}
-                                className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-ailydian-primary ${
+                                className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-lydian-primary ${
                                   errors[`passenger-${idx}-firstName`] ? 'border-red-500' : 'border-gray-300'
                                 }`}
                                 placeholder="Adınız"
@@ -522,7 +522,7 @@ export default function FlightBooking() {
                                 type="text"
                                 value={passenger.lastName}
                                 onChange={(e) => updatePassenger(idx, 'lastName', e.target.value)}
-                                className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-ailydian-primary ${
+                                className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-lydian-primary ${
                                   errors[`passenger-${idx}-lastName`] ? 'border-red-500' : 'border-gray-300'
                                 }`}
                                 placeholder="Soyadınız"
@@ -540,7 +540,7 @@ export default function FlightBooking() {
                                 type="date"
                                 value={passenger.dateOfBirth}
                                 onChange={(e) => updatePassenger(idx, 'dateOfBirth', e.target.value)}
-                                className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-ailydian-primary ${
+                                className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-lydian-primary ${
                                   errors[`passenger-${idx}-dateOfBirth`] ? 'border-red-500' : 'border-gray-300'
                                 }`}
                               />
@@ -556,7 +556,7 @@ export default function FlightBooking() {
                               <select
                                 value={passenger.nationality}
                                 onChange={(e) => updatePassenger(idx, 'nationality', e.target.value)}
-                                className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-ailydian-primary ${
+                                className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-lydian-primary ${
                                   errors[`passenger-${idx}-nationality`] ? 'border-red-500' : 'border-gray-300'
                                 }`}
                               >
@@ -575,7 +575,7 @@ export default function FlightBooking() {
                                 type="text"
                                 value={passenger.frequentFlyerNumber || ''}
                                 onChange={(e) => updatePassenger(idx, 'frequentFlyerNumber', e.target.value)}
-                                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ailydian-primary"
+                                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-lydian-primary"
                                 placeholder="FF1234567"
                               />
                             </div>
@@ -597,7 +597,7 @@ export default function FlightBooking() {
                               type="email"
                               value={leadPassenger.email}
                               onChange={(e) => setLeadPassenger(prev => ({ ...prev, email: e.target.value }))}
-                              className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-ailydian-primary ${
+                              className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-lydian-primary ${
                                 errors['leadPassenger-email'] ? 'border-red-500' : 'border-gray-300'
                               }`}
                               placeholder="ornek@email.com"
@@ -616,7 +616,7 @@ export default function FlightBooking() {
                               type="tel"
                               value={leadPassenger.phone}
                               onChange={(e) => setLeadPassenger(prev => ({ ...prev, phone: e.target.value }))}
-                              className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-ailydian-primary ${
+                              className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-lydian-primary ${
                                 errors['leadPassenger-phone'] ? 'border-red-500' : 'border-gray-300'
                               }`}
                               placeholder="+90 5XX XXX XX XX"
@@ -644,7 +644,7 @@ export default function FlightBooking() {
                       <h2 className="text-2xl font-bold text-gray-900">Koltuk Seçimi</h2>
                       <button
                         onClick={handleNext}
-                        className="text-sm text-ailydian-primary hover:underline"
+                        className="text-sm text-lydian-primary hover:underline"
                       >
                         Atla (Otomatik Atama)
                       </button>
@@ -657,7 +657,7 @@ export default function FlightBooking() {
                           <span>Müsait</span>
                         </div>
                         <div className="flex items-center gap-2">
-                          <div className="w-8 h-8 bg-ailydian-primary rounded"></div>
+                          <div className="w-8 h-8 bg-lydian-primary rounded"></div>
                           <span>Seçildi</span>
                         </div>
                         <div className="flex items-center gap-2">
@@ -708,7 +708,7 @@ export default function FlightBooking() {
                                     isTaken
                                       ? 'bg-gray-400 text-white cursor-not-allowed'
                                       : isSelected
-                                      ? 'bg-ailydian-primary text-white'
+                                      ? 'bg-lydian-primary text-white'
                                       : isExtraLegroom
                                       ? 'bg-green-200 border-2 border-green-500 hover:bg-green-300'
                                       : 'bg-gray-200 hover:bg-gray-300'
@@ -778,7 +778,7 @@ export default function FlightBooking() {
                                 onClick={() => updatePassenger(idx, 'baggage', { checked: option.weight })}
                                 className={`w-full p-4 rounded-lg border-2 text-left transition-all ${
                                   passenger.baggage.checked === option.weight
-                                    ? 'border-ailydian-primary bg-blue-50'
+                                    ? 'border-lydian-primary bg-blue-50'
                                     : 'border-gray-200 hover:border-gray-300'
                                 }`}
                               >
@@ -791,7 +791,7 @@ export default function FlightBooking() {
                                   </div>
                                   <div className="text-right">
                                     {option.price > 0 ? (
-                                      <p className="text-lg font-bold text-ailydian-primary">+₺{option.price}</p>
+                                      <p className="text-lg font-bold text-lydian-primary">+₺{option.price}</p>
                                     ) : (
                                       <p className="text-sm font-semibold text-green-600">Dahil</p>
                                     )}
@@ -830,19 +830,19 @@ export default function FlightBooking() {
                       <button
                         onClick={() => setExtras(prev => ({ ...prev, insurance: !prev.insurance }))}
                         className={`w-full p-6 rounded-xl border-2 text-left transition-all ${
-                          extras.insurance ? 'border-ailydian-primary bg-blue-50' : 'border-gray-200 hover:border-gray-300'
+                          extras.insurance ? 'border-lydian-primary bg-blue-50' : 'border-gray-200 hover:border-gray-300'
                         }`}
                       >
                         <div className="flex items-start justify-between">
                           <div className="flex-1">
                             <div className="flex items-center gap-3 mb-2">
-                              <Shield className="w-6 h-6 text-ailydian-primary" />
+                              <Shield className="w-6 h-6 text-lydian-primary" />
                               <h3 className="font-bold text-lg">Seyahat Sigortası</h3>
                             </div>
                             <p className="text-sm text-gray-600">Uçuş iptali, bagaj kaybı ve tıbbi acil durumlar için kapsamlı koruma.</p>
                           </div>
                           <div className="text-right ml-4">
-                            <p className="text-xl font-bold text-ailydian-primary">₺75</p>
+                            <p className="text-xl font-bold text-lydian-primary">₺75</p>
                             <p className="text-xs text-gray-500">kişi başı</p>
                           </div>
                         </div>
@@ -852,19 +852,19 @@ export default function FlightBooking() {
                       <button
                         onClick={() => setExtras(prev => ({ ...prev, priorityBoarding: !prev.priorityBoarding }))}
                         className={`w-full p-6 rounded-xl border-2 text-left transition-all ${
-                          extras.priorityBoarding ? 'border-ailydian-primary bg-blue-50' : 'border-gray-200 hover:border-gray-300'
+                          extras.priorityBoarding ? 'border-lydian-primary bg-blue-50' : 'border-gray-200 hover:border-gray-300'
                         }`}
                       >
                         <div className="flex items-start justify-between">
                           <div className="flex-1">
                             <div className="flex items-center gap-3 mb-2">
-                              <Users className="w-6 h-6 text-ailydian-primary" />
+                              <Users className="w-6 h-6 text-lydian-primary" />
                               <h3 className="font-bold text-lg">Öncelikli Boarding</h3>
                             </div>
                             <p className="text-sm text-gray-600">Uçağa ilk binen yolcular arasında olun.</p>
                           </div>
                           <div className="text-right ml-4">
-                            <p className="text-xl font-bold text-ailydian-primary">₺100</p>
+                            <p className="text-xl font-bold text-lydian-primary">₺100</p>
                             <p className="text-xs text-gray-500">tüm yolcular</p>
                           </div>
                         </div>
@@ -874,19 +874,19 @@ export default function FlightBooking() {
                       <button
                         onClick={() => setExtras(prev => ({ ...prev, loungeAccess: !prev.loungeAccess }))}
                         className={`w-full p-6 rounded-xl border-2 text-left transition-all ${
-                          extras.loungeAccess ? 'border-ailydian-primary bg-blue-50' : 'border-gray-200 hover:border-gray-300'
+                          extras.loungeAccess ? 'border-lydian-primary bg-blue-50' : 'border-gray-200 hover:border-gray-300'
                         }`}
                       >
                         <div className="flex items-start justify-between">
                           <div className="flex-1">
                             <div className="flex items-center gap-3 mb-2">
-                              <Coffee className="w-6 h-6 text-ailydian-primary" />
+                              <Coffee className="w-6 h-6 text-lydian-primary" />
                               <h3 className="font-bold text-lg">Lounge Erişimi</h3>
                             </div>
                             <p className="text-sm text-gray-600">Premium lounge'da uçuşunuzu bekleyin. Ücretsiz yiyecek ve içecek dahil.</p>
                           </div>
                           <div className="text-right ml-4">
-                            <p className="text-xl font-bold text-ailydian-primary">₺250</p>
+                            <p className="text-xl font-bold text-lydian-primary">₺250</p>
                             <p className="text-xs text-gray-500">tüm yolcular</p>
                           </div>
                         </div>
@@ -909,13 +909,13 @@ export default function FlightBooking() {
                               }}
                               className={`p-4 rounded-lg border-2 transition-all ${
                                 extras.meals.includes(meal.id)
-                                  ? 'border-ailydian-primary bg-blue-50'
+                                  ? 'border-lydian-primary bg-blue-50'
                                   : 'border-gray-200 hover:border-gray-300'
                               }`}
                             >
                               <div className="flex items-center justify-between">
                                 <span className="font-medium text-gray-900">{meal.label}</span>
-                                <span className="font-bold text-ailydian-primary">₺{meal.price}</span>
+                                <span className="font-bold text-lydian-primary">₺{meal.price}</span>
                               </div>
                             </button>
                           ))}
@@ -1014,11 +1014,11 @@ export default function FlightBooking() {
                             setTermsAccepted(e.target.checked);
                             setErrors(prev => ({ ...prev, terms: '' }));
                           }}
-                          className="mt-1 w-5 h-5 text-ailydian-primary rounded focus:ring-ailydian-primary"
+                          className="mt-1 w-5 h-5 text-lydian-primary rounded focus:ring-lydian-primary"
                         />
                         <span className="text-sm text-gray-700">
-                          <Link href="/terms" className="text-ailydian-primary hover:underline">Kullanım Şartlarını</Link> ve{' '}
-                          <Link href="/privacy" className="text-ailydian-primary hover:underline">Gizlilik Politikasını</Link>{' '}
+                          <Link href="/terms" className="text-lydian-primary hover:underline">Kullanım Şartlarını</Link> ve{' '}
+                          <Link href="/privacy" className="text-lydian-primary hover:underline">Gizlilik Politikasını</Link>{' '}
                           okudum ve kabul ediyorum.
                         </span>
                       </label>
@@ -1059,7 +1059,7 @@ export default function FlightBooking() {
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     onClick={handleNext}
-                    className="ml-auto flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-ailydian-primary to-ailydian-secondary text-white rounded-xl font-semibold"
+                    className="ml-auto flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-lydian-primary to-lydian-secondary text-white rounded-xl font-semibold"
                   >
                     Devam Et
                     <ChevronRight className="w-5 h-5" />
@@ -1119,7 +1119,7 @@ export default function FlightBooking() {
                 <div className="border-t border-gray-200 pt-4 mb-6">
                   <div className="flex justify-between items-center">
                     <span className="font-bold text-lg text-gray-900">Toplam</span>
-                    <span className="text-3xl font-bold text-ailydian-primary">₺{prices.total}</span>
+                    <span className="text-3xl font-bold text-lydian-primary">₺{prices.total}</span>
                   </div>
                 </div>
 

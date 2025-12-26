@@ -85,7 +85,7 @@ export const PremiumLogo: React.FC<PremiumLogoProps> = ({
     <div className={`font-bold ${textSizeClasses[size]} ${className}`} style={{ color: '#1e293b' }}>
       <span className="relative">
         Travel.
-        <span style={{ color: 'var(--ac-1)', fontWeight: '700' }}>Ailydian</span>
+        <span style={{ color: 'var(--ac-1)', fontWeight: '700' }}>LyDian</span>
       </span>
     </div>
   );

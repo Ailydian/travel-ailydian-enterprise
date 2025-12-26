@@ -37,8 +37,8 @@ interface VoicePageSEO {
   reviewCount: number;
 }
 
-export class VoiceAilydianSEO {
-  private readonly baseUrl = 'https://voice.ailydian.com';
+export class VoiceLyDianSEO {
+  private readonly baseUrl = 'https://voice.lydian.com';
 
   /**
    * Platform Introduction - Kısa Tanıtımlar (Arama Motorları İçin)
@@ -165,7 +165,7 @@ export class VoiceAilydianSEO {
     homepage: [
       {
         url: '/images/voice/voice-ai-dashboard-professional-1200x675.webp',
-        alt: 'Ailydian Voice AI Platform - Professional Voice Generation Dashboard',
+        alt: 'LyDian Voice AI Platform - Professional Voice Generation Dashboard',
         caption: 'Advanced voice synthesis interface with real-time waveform visualization',
         width: 1200,
         height: 675
@@ -336,7 +336,7 @@ export class VoiceAilydianSEO {
    */
   getHomepageSEO(): VoicePageSEO {
     return {
-      title: 'Ailydian Voice AI - Professional Text-to-Speech & Voice Generation Platform',
+      title: 'LyDian Voice AI - Professional Text-to-Speech & Voice Generation Platform',
       description: 'Create natural-sounding voices in 50+ languages. Professional text-to-speech, voice cloning, and AI voice generation. Trusted by content creators, businesses, and educators worldwide. Free tier available.',
       shortIntro: this.platformIntros.homepage,
       keywords: [
@@ -377,7 +377,7 @@ export class VoiceAilydianSEO {
    */
   getVoiceCloningPageSEO(): VoicePageSEO {
     return {
-      title: 'Voice Cloning Technology - Clone Any Voice in 10 Seconds | Ailydian Voice AI',
+      title: 'Voice Cloning Technology - Clone Any Voice in 10 Seconds | LyDian Voice AI',
       description: 'Advanced neural voice cloning technology. Clone any voice with just 10 seconds of audio. Enterprise-grade security, 98% similarity rate. Perfect for content creation, dubbing, and personalization.',
       shortIntro: this.platformIntros.voiceCloning,
       keywords: [
@@ -433,11 +433,11 @@ export class VoiceAilydianSEO {
 }
 
 // Singleton
-let voiceSEOInstance: VoiceAilydianSEO | null = null;
+let voiceSEOInstance: VoiceLyDianSEO | null = null;
 
-export function getVoiceSEO(): VoiceAilydianSEO {
+export function getVoiceSEO(): VoiceLyDianSEO {
   if (!voiceSEOInstance) {
-    voiceSEOInstance = new VoiceAilydianSEO();
+    voiceSEOInstance = new VoiceLyDianSEO();
   }
   return voiceSEOInstance;
 }

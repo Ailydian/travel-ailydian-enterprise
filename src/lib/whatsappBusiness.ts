@@ -230,7 +230,7 @@ export async function sendListMessage(
 }
 
 /**
- * Pre-built message templates for Travel Ailydian
+ * Pre-built message templates for Travel LyDian
  */
 export const WHATSAPP_TEMPLATES = {
   /**
@@ -314,7 +314,7 @@ export function generateAutomatedResponse(message: string): {
   // Greetings
   if (lowerMessage.match(/merhaba|selam|hey|hi|hello/)) {
     return {
-      response: '👋 Merhaba! Travel Ailydian\'a hoş geldiniz.\n\nSize nasıl yardımcı olabilirim?\n\n1️⃣ Rezervasyon yapmak\n2️⃣ Mevcut rezervasyonumu görüntüle\n3️⃣ Destek\n4️⃣ Bilgi almak\n\nLütfen numara ile seçim yapın.',
+      response: '👋 Merhaba! Travel LyDian\'a hoş geldiniz.\n\nSize nasıl yardımcı olabilirim?\n\n1️⃣ Rezervasyon yapmak\n2️⃣ Mevcut rezervasyonumu görüntüle\n3️⃣ Destek\n4️⃣ Bilgi almak\n\nLütfen numara ile seçim yapın.',
       actionType: 'menu',
       buttons: [
         { id: 'booking', title: '🎫 Rezervasyon' },
@@ -327,7 +327,7 @@ export function generateAutomatedResponse(message: string): {
   // Booking related
   if (lowerMessage.match(/rezervasyon|booking|otel|araç|tur|transfer/)) {
     return {
-      response: '🎫 Rezervasyon yapmak için hangi hizmeti arıyorsunuz?\n\n🏨 Oteller\n🚗 Araç Kiralama\n🎭 Turlar\n🚕 Transferler\n🚙 Şoförlü Araç\n\nLütfen seçiminizi yapın veya daha fazla bilgi için travel.ailydian.com adresini ziyaret edin.',
+      response: '🎫 Rezervasyon yapmak için hangi hizmeti arıyorsunuz?\n\n🏨 Oteller\n🚗 Araç Kiralama\n🎭 Turlar\n🚕 Transferler\n🚙 Şoförlü Araç\n\nLütfen seçiminizi yapın veya daha fazla bilgi için travel.lydian.com adresini ziyaret edin.',
       actionType: 'booking',
       buttons: [
         { id: 'hotel', title: '🏨 Otel' },
@@ -353,15 +353,15 @@ export function generateAutomatedResponse(message: string): {
   // Price/Fiyat
   if (lowerMessage.match(/fiyat|price|ücret|cost|ne kadar/)) {
     return {
-      response: '💰 Fiyat bilgisi almak için:\n\n1. travel.ailydian.com adresini ziyaret edin\n2. İlgilendiğiniz hizmeti seçin\n3. Tarih ve detayları girin\n4. Anlık fiyatları görün\n\n✨ Bundle pricing ile %20\'ye varan indirim!\n\nYardımcı olmamı istediğiniz başka bir konu var mı?',
+      response: '💰 Fiyat bilgisi almak için:\n\n1. travel.lydian.com adresini ziyaret edin\n2. İlgilendiğiniz hizmeti seçin\n3. Tarih ve detayları girin\n4. Anlık fiyatları görün\n\n✨ Bundle pricing ile %20\'ye varan indirim!\n\nYardımcı olmamı istediğiniz başka bir konu var mı?',
       actionType: 'info'
     };
   }
 
-  // Ailydian Miles
+  // LyDian Miles
   if (lowerMessage.match(/miles|puan|point|loyalty/)) {
     return {
-      response: '🌟 Ailydian Miles Loyalty Program!\n\nHer ₺1 harcamada 1 Miles kazanın.\n\n🥈 Silver (1,000+): %2 indirim\n🥇 Gold (5,000+): %5 indirim\n👑 VIP (10,000+): %10 indirim\n\nMiles\'larınızı rezervasyonlarınızda kullanabilirsiniz!\n\nDaha fazla bilgi: travel.ailydian.com/miles',
+      response: '🌟 LyDian Miles Loyalty Program!\n\nHer ₺1 harcamada 1 Miles kazanın.\n\n🥈 Silver (1,000+): %2 indirim\n🥇 Gold (5,000+): %5 indirim\n👑 VIP (10,000+): %10 indirim\n\nMiles\'larınızı rezervasyonlarınızda kullanabilirsiniz!\n\nDaha fazla bilgi: travel.lydian.com/miles',
       actionType: 'info'
     };
   }

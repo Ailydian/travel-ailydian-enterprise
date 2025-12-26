@@ -175,8 +175,8 @@ export const useTheme = () => {
     document.body.classList.add(`theme-${themeKey}`);
     
     // Store theme preference
-    localStorage.setItem('travel-ailydian-theme', themeKey);
-    localStorage.setItem('travel-ailydian-theme-auto', autoMode.toString());
+    localStorage.setItem('travel-lydian-theme', themeKey);
+    localStorage.setItem('travel-lydian-theme-auto', autoMode.toString());
   }, [autoMode]);
 
   // Change theme with smooth transition
@@ -226,7 +226,7 @@ export const useTheme = () => {
     }
     
     changeTheme(selectedTheme);
-    localStorage.setItem('travel-ailydian-auto-mode', mode);
+    localStorage.setItem('travel-lydian-auto-mode', mode);
   }, [changeTheme]);
 
   // Generate theme from image colors
@@ -261,9 +261,9 @@ export const useTheme = () => {
   useEffect(() => {
     if (typeof window === 'undefined') return;
 
-    const savedTheme = localStorage.getItem('travel-ailydian-theme');
-    const savedAutoMode = localStorage.getItem('travel-ailydian-theme-auto') === 'true';
-    const savedAutoModeType = localStorage.getItem('travel-ailydian-auto-mode');
+    const savedTheme = localStorage.getItem('travel-lydian-theme');
+    const savedAutoMode = localStorage.getItem('travel-lydian-theme-auto') === 'true';
+    const savedAutoModeType = localStorage.getItem('travel-lydian-auto-mode');
 
     setAutoMode(savedAutoMode);
 
@@ -283,7 +283,7 @@ export const useTheme = () => {
 
     const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
     const handleChange = () => {
-      const autoModeType = localStorage.getItem('travel-ailydian-auto-mode');
+      const autoModeType = localStorage.getItem('travel-lydian-auto-mode');
       if (autoModeType === 'system') {
         changeTheme(mediaQuery.matches ? 'dark' : 'premium');
       }

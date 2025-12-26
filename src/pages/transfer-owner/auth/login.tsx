@@ -131,7 +131,7 @@ export default function TransferOwnerLoginPage() {
               <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center">
                 <Bus className="w-6 h-6 text-blue-600" />
               </div>
-              <span className="text-2xl font-bold text-white">Ailydian Transfer</span>
+              <span className="text-2xl font-bold text-white">LyDian Transfer</span>
             </Link>
 
             {/* Main Content */}
@@ -197,7 +197,7 @@ export default function TransferOwnerLoginPage() {
               <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-lg flex items-center justify-center">
                 <Bus className="w-6 h-6 text-white" />
               </div>
-              <span className="text-2xl font-bold text-gray-900">Ailydian Transfer</span>
+              <span className="text-2xl font-bold text-gray-900">LyDian Transfer</span>
             </div>
 
             {/* Header */}

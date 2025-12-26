@@ -129,12 +129,12 @@ export const bookingConfirmationTemplate = (data: BookingConfirmationData) => {
                     <table cellpadding="0" cellspacing="0">
                       <tr>
                         <td style="padding: 0 10px;">
-                          <a href="https://travel.ailydian.com/bookings/${data.bookingRef}" style="display: inline-block; background-color: #3b82f6; color: #ffffff; text-decoration: none; padding: 14px 28px; border-radius: 8px; font-size: 14px; font-weight: 600;">
+                          <a href="https://travel.lydian.com/bookings/${data.bookingRef}" style="display: inline-block; background-color: #3b82f6; color: #ffffff; text-decoration: none; padding: 14px 28px; border-radius: 8px; font-size: 14px; font-weight: 600;">
                             Rezervasyonu Görüntüle
                           </a>
                         </td>
                         <td style="padding: 0 10px;">
-                          <a href="https://travel.ailydian.com/support" style="display: inline-block; background-color: #ffffff; color: #374151; text-decoration: none; padding: 14px 28px; border-radius: 8px; font-size: 14px; font-weight: 600; border: 1px solid #d1d5db;">
+                          <a href="https://travel.lydian.com/support" style="display: inline-block; background-color: #ffffff; color: #374151; text-decoration: none; padding: 14px 28px; border-radius: 8px; font-size: 14px; font-weight: 600; border: 1px solid #d1d5db;">
                             Destek Al
                           </a>
                         </td>
@@ -153,7 +153,7 @@ export const bookingConfirmationTemplate = (data: BookingConfirmationData) => {
                 İyi yolculuklar dileriz! 🚗💨
               </p>
               <p style="margin: 0; color: #9ca3af; font-size: 12px;">
-                © 2025 Travel Ailydian. Tüm hakları saklıdır.
+                © 2025 Travel LyDian. Tüm hakları saklıdır.
               </p>
             </td>
           </tr>

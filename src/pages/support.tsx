@@ -159,7 +159,7 @@ export default function Support() {
   return (
     <>
       <Head>
-        <title>Destek Merkezi - Ailydian Travel</title>
+        <title>Destek Merkezi - LyDian Travel</title>
         <meta name="description" content="7/24 müşteri desteği, teknik yardım ve seyahat danışmanlığı." />
       </Head>
 
@@ -446,7 +446,7 @@ export default function Support() {
               <button className="bg-gray-900 border-2 border-white rounded-lg p-6 hover:bg-gray-800 transition-colors group">
                 <Mail className="h-8 w-8 mx-auto mb-3 group-hover:scale-110 transition-transform" />
                 <h3 className="text-lg font-semibold mb-2">E-posta</h3>
-                <p className="text-blue-100">destek@ailydian.com</p>
+                <p className="text-blue-100">destek@lydian.com</p>
               </button>
             </div>
           </div>

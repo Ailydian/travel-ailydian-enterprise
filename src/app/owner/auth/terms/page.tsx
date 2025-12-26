@@ -44,15 +44,15 @@ export default function OwnerTermsPage() {
       content: [
         {
           subtitle: '1.1 Sözleşmenin Tarafları',
-          text: 'Bu sözleşme, Ailydian platformunu işleten şirket ile platform üzerinden mülk kiralaması yapmak isteyen mülk sahipleri arasında akdedilmiştir.'
+          text: 'Bu sözleşme, LyDian platformunu işleten şirket ile platform üzerinden mülk kiralaması yapmak isteyen mülk sahipleri arasında akdedilmiştir.'
         },
         {
           subtitle: '1.2 Sözleşmenin Konusu',
-          text: 'İşbu sözleşme, mülk sahiplerinin Ailydian platformu üzerinden mülklerini kiralamak üzere listelemesi, rezervasyon yönetimi, ödeme işlemleri ve tarafların hak ve yükümlülüklerini düzenlemektedir.'
+          text: 'İşbu sözleşme, mülk sahiplerinin LyDian platformu üzerinden mülklerini kiralamak üzere listelemesi, rezervasyon yönetimi, ödeme işlemleri ve tarafların hak ve yükümlülüklerini düzenlemektedir.'
         },
         {
           subtitle: '1.3 Tanımlar',
-          text: 'Platform: Ailydian internet sitesi ve mobil uygulamalarını ifade eder. Mülk Sahibi: Platformda mülk ilanı veren ve kiralama işlemi gerçekleştiren gerçek veya tüzel kişiyi ifade eder. Misafir: Platform üzerinden mülk kiralayan kişiyi ifade eder. İlan: Mülk sahibi tarafından platforma eklenen konaklama biriminin detaylı açıklamasını ifade eder.'
+          text: 'Platform: LyDian internet sitesi ve mobil uygulamalarını ifade eder. Mülk Sahibi: Platformda mülk ilanı veren ve kiralama işlemi gerçekleştiren gerçek veya tüzel kişiyi ifade eder. Misafir: Platform üzerinden mülk kiralayan kişiyi ifade eder. İlan: Mülk sahibi tarafından platforma eklenen konaklama biriminin detaylı açıklamasını ifade eder.'
         },
         {
           subtitle: '1.4 Kabullenme',
@@ -67,7 +67,7 @@ export default function OwnerTermsPage() {
       content: [
         {
           subtitle: '2.1 Komisyon Oranları',
-          text: 'Ailydian, her başarılı rezervasyon için mülk sahibinden %12-15 arasında değişen komisyon ücreti alır. Komisyon oranı, mülk tipi, sezon ve özel kampanyalara göre değişiklik gösterebilir.'
+          text: 'LyDian, her başarılı rezervasyon için mülk sahibinden %12-15 arasında değişen komisyon ücreti alır. Komisyon oranı, mülk tipi, sezon ve özel kampanyalara göre değişiklik gösterebilir.'
         },
         {
           subtitle: '2.2 Ödeme Zamanlaması',
@@ -79,11 +79,11 @@ export default function OwnerTermsPage() {
         },
         {
           subtitle: '2.4 Vergi ve Yasal Yükümlülükler',
-          text: 'Mülk sahibi, elde ettiği gelirle ilgili tüm vergi ve yasal yükümlülüklerden sorumludur. Ailydian gerekli hallerde stopaj kesintisi yapabilir.'
+          text: 'Mülk sahibi, elde ettiği gelirle ilgili tüm vergi ve yasal yükümlülüklerden sorumludur. LyDian gerekli hallerde stopaj kesintisi yapabilir.'
         },
         {
           subtitle: '2.5 Ödeme Güvencesi',
-          text: 'Tüm ödemeler Ailydian güvencesi altındadır. Misafir ödemesini yaptıktan sonra, mülk sahibi ödemeyi garanti altında alır.'
+          text: 'Tüm ödemeler LyDian güvencesi altındadır. Misafir ödemesini yaptıktan sonra, mülk sahibi ödemeyi garanti altında alır.'
         }
       ]
     },
@@ -106,7 +106,7 @@ export default function OwnerTermsPage() {
         },
         {
           subtitle: '3.4 Force Majeure',
-          text: 'Doğal afet, salgın, savaş gibi mücbir sebep hallerinde, Ailydian özel iptal koşulları uygulayabilir ve taraflar arası adil bir çözüm bulunur.'
+          text: 'Doğal afet, salgın, savaş gibi mücbir sebep hallerinde, LyDian özel iptal koşulları uygulayabilir ve taraflar arası adil bir çözüm bulunur.'
         }
       ]
     },
@@ -129,7 +129,7 @@ export default function OwnerTermsPage() {
         },
         {
           subtitle: '4.4 Bakım ve Temizlik',
-          text: 'Her konaklamadan önce mülk profesyonel temizlik yapılmalıdır. Tüm ekipman ve cihazlar çalışır durumda olmalıdır. Mülkte herhangi bir hasar veya sorun durumunda derhal Ailydian\'a bildirilmelidir.'
+          text: 'Her konaklamadan önce mülk profesyonel temizlik yapılmalıdır. Tüm ekipman ve cihazlar çalışır durumda olmalıdır. Mülkte herhangi bir hasar veya sorun durumunda derhal LyDian\'a bildirilmelidir.'
         },
         {
           subtitle: '4.5 Yasal Uyumluluk',
@@ -144,7 +144,7 @@ export default function OwnerTermsPage() {
       content: [
         {
           subtitle: '5.1 Kişisel Verilerin Korunması',
-          text: 'Ailydian, 6698 sayılı Kişisel Verilerin Korunması Kanunu (KVKK) kapsamında mülk sahibi ve misafirlerin kişisel verilerini korumayı taahhüt eder.'
+          text: 'LyDian, 6698 sayılı Kişisel Verilerin Korunması Kanunu (KVKK) kapsamında mülk sahibi ve misafirlerin kişisel verilerini korumayı taahhüt eder.'
         },
         {
           subtitle: '5.2 Toplanan Veriler',
@@ -175,7 +175,7 @@ export default function OwnerTermsPage() {
       content: [
         {
           subtitle: '6.1 Destek Kanalları',
-          text: '7/24 Canlı Destek: Platform üzerinden anlık destek. E-posta Desteği: support@ailydian.com. Telefon Desteği: 0850 XXX XX XX (09:00 - 22:00). Yardım Merkezi: Detaylı makaleler ve SSS.'
+          text: '7/24 Canlı Destek: Platform üzerinden anlık destek. E-posta Desteği: support@lydian.com. Telefon Desteği: 0850 XXX XX XX (09:00 - 22:00). Yardım Merkezi: Detaylı makaleler ve SSS.'
         },
         {
           subtitle: '6.2 Destek Konuları',
@@ -187,7 +187,7 @@ export default function OwnerTermsPage() {
         },
         {
           subtitle: '6.4 Mülk Sahibi Eğitimi',
-          text: 'Ailydian, mülk sahiplerine ücretsiz eğitim ve kaynak sağlar: Platform kullanım rehberleri, İyi ev sahibi olma ipuçları, Pazarlama ve fotoğrafçılık önerileri, Yasal uyumluluk bilgilendirmeleri.'
+          text: 'LyDian, mülk sahiplerine ücretsiz eğitim ve kaynak sağlar: Platform kullanım rehberleri, İyi ev sahibi olma ipuçları, Pazarlama ve fotoğrafçılık önerileri, Yasal uyumluluk bilgilendirmeleri.'
         }
       ]
     },
@@ -198,11 +198,11 @@ export default function OwnerTermsPage() {
       content: [
         {
           subtitle: '7.1 Sözleşme Değişiklikleri',
-          text: 'Ailydian, bu sözleşme şartlarını değiştirme hakkını saklı tutar. Değişiklikler, mülk sahiplerine e-posta yoluyla bildirilir ve 15 gün sonra yürürlüğe girer.'
+          text: 'LyDian, bu sözleşme şartlarını değiştirme hakkını saklı tutar. Değişiklikler, mülk sahiplerine e-posta yoluyla bildirilir ve 15 gün sonra yürürlüğe girer.'
         },
         {
           subtitle: '7.2 Hesap Askıya Alma ve Sonlandırma',
-          text: 'Ailydian, sözleşme şartlarını ihlal eden, yanıltıcı bilgi veren veya platformu kötüye kullanan mülk sahiplerinin hesaplarını askıya alabilir veya sonlandırabilir.'
+          text: 'LyDian, sözleşme şartlarını ihlal eden, yanıltıcı bilgi veren veya platformu kötüye kullanan mülk sahiplerinin hesaplarını askıya alabilir veya sonlandırabilir.'
         },
         {
           subtitle: '7.3 Uyuşmazlık Çözümü',
@@ -227,7 +227,7 @@ export default function OwnerTermsPage() {
               <div className="w-10 h-10 bg-gradient-to-r from-[#FF214D] to-[#FF6A45] rounded-lg flex items-center justify-center">
                 <Home className="w-6 h-6 text-white" />
               </div>
-              <span className="text-xl font-bold text-gray-900">Ailydian</span>
+              <span className="text-xl font-bold text-gray-900">LyDian</span>
             </Link>
 
             {/* Actions */}
@@ -289,7 +289,7 @@ export default function OwnerTermsPage() {
           </div>
           <div className="mt-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
             <p className="text-sm text-gray-700">
-              <strong>Önemli Not:</strong> Lütfen bu sözleşmeyi dikkatlice okuyunuz. Ailydian platformuna mülk sahibi olarak kayıt olmadan önce tüm maddeleri anladığınızdan emin olun. Bu sözleşme sizinle Ailydian arasındaki yasal ilişkiyi düzenlemektedir.
+              <strong>Önemli Not:</strong> Lütfen bu sözleşmeyi dikkatlice okuyunuz. LyDian platformuna mülk sahibi olarak kayıt olmadan önce tüm maddeleri anladığınızdan emin olun. Bu sözleşme sizinle LyDian arasındaki yasal ilişkiyi düzenlemektedir.
             </p>
           </div>
         </motion.div>
@@ -364,7 +364,7 @@ export default function OwnerTermsPage() {
             <div>
               <h3 className="font-semibold text-gray-900 mb-2">Genel İletişim</h3>
               <div className="space-y-2 text-gray-700">
-                <p>E-posta: info@ailydian.com</p>
+                <p>E-posta: info@lydian.com</p>
                 <p>Telefon: 0850 XXX XX XX</p>
                 <p>Adres: Örnek Mahallesi, Teknoloji Caddesi No:123</p>
               </div>
@@ -372,9 +372,9 @@ export default function OwnerTermsPage() {
             <div>
               <h3 className="font-semibold text-gray-900 mb-2">Yasal İşlemler</h3>
               <div className="space-y-2 text-gray-700">
-                <p>E-posta: legal@ailydian.com</p>
-                <p>KVKK İletişim: kvkk@ailydian.com</p>
-                <p>Şikayet: complaints@ailydian.com</p>
+                <p>E-posta: legal@lydian.com</p>
+                <p>KVKK İletişim: kvkk@lydian.com</p>
+                <p>Şikayet: complaints@lydian.com</p>
               </div>
             </div>
           </div>

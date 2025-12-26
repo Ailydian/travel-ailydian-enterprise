@@ -4,14 +4,14 @@
 **Analiz Eden:** Claude Code AI
 **Proje Versiyonu:** 2.0.0
 **Localhost Durum:** ✅ Başarıyla Çalışıyor (http://localhost:3000)
-**Canlı Site:** ✅ Aktif (https://travel.ailydian.com)
+**Canlı Site:** ✅ Aktif (https://travel.lydian.com)
 
 ---
 
 ## 📊 GENEL DEĞERLENDIRME
 
 ### Proje Özeti
-Travel.Ailydian Enterprise, **Next.js 15.5.4** ve **React 19.1.1** ile geliştirilmiş modern bir seyahat rezervasyon platformudur. Proje toplamda **150+ TypeScript/TSX dosyası** ve **2.3MB kaynak kod** içermektedir.
+Travel.LyDian Enterprise, **Next.js 15.5.4** ve **React 19.1.1** ile geliştirilmiş modern bir seyahat rezervasyon platformudur. Proje toplamda **150+ TypeScript/TSX dosyası** ve **2.3MB kaynak kod** içermektedir.
 
 ### Teknoloji Yığını
 - **Frontend:** Next.js 15, React 19, TypeScript 5.9.2
@@ -1016,7 +1016,7 @@ npm update
 export function middleware(request: NextRequest) {
   const response = NextResponse.next();
 
-  response.headers.set('Access-Control-Allow-Origin', 'https://travel.ailydian.com');
+  response.headers.set('Access-Control-Allow-Origin', 'https://travel.lydian.com');
   response.headers.set('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
 
   return response;
@@ -1062,7 +1062,7 @@ export function middleware(request: NextRequest) {
 - ⚠️ Email servisi yok
 - 🚀 Daha hızlı (local server)
 
-#### Canlı Site (https://travel.ailydian.com)
+#### Canlı Site (https://travel.lydian.com)
 - ✅ Production build
 - ✅ SSL sertifikası
 - ✅ CDN entegrasyonu

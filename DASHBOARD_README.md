@@ -583,7 +583,7 @@ GET    /api/properties/check-name?name=   # Check availability
 ## 📁 Dosya Yapısı
 
 ```
-/Users/sardag/Desktop/travel-ailydian-enterprise/
+/Users/sardag/Desktop/travel-lydian-enterprise/
 ├── DASHBOARD_README.md (Bu dosya)
 ├── DASHBOARD_DELIVERY_SUMMARY.md (Teslim özeti)
 ├── PROPERTY_OWNER_DASHBOARD_SPEC.md (Tam spesifikasyon)

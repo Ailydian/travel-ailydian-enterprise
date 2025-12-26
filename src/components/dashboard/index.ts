@@ -1,7 +1,7 @@
 /**
  * Dashboard Layout Components
  *
- * This module exports the main dashboard layout components for the Ailydian platform.
+ * This module exports the main dashboard layout components for the LyDian platform.
  * These components work together to create a professional, responsive dashboard experience.
  *
  * @example

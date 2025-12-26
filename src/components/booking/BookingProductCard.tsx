@@ -115,7 +115,7 @@ export const BookingProductCard: React.FC<ProductCardProps> = ({
     <Link href={href} className="block">
       <motion.div
         whileHover={{ y: -4 }}
-        className="bg-white rounded-lg border border-gray-200 hover:border-ailydian-primary hover:shadow-xl transition-all duration-200 overflow-hidden group"
+        className="bg-white rounded-lg border border-gray-200 hover:border-lydian-primary hover:shadow-xl transition-all duration-200 overflow-hidden group"
       >
         <div className="flex flex-col md:flex-row">
           {/* Image Section - Left Side */}
@@ -175,14 +175,14 @@ export const BookingProductCard: React.FC<ProductCardProps> = ({
             >
               <Heart
                 className={`w-5 h-5 transition-all ${
-                  isFavorited ? 'fill-ailydian-primary text-ailydian-primary' : 'text-gray-700'
+                  isFavorited ? 'fill-lydian-primary text-lydian-primary' : 'text-gray-700'
                 }`}
               />
             </button>
 
             {/* Discount Badge */}
             {discountPercentage > 0 && (
-              <div className="absolute top-3 left-3 bg-ailydian-primary text-white px-3 py-1 rounded-md font-bold text-sm shadow-lg z-10">
+              <div className="absolute top-3 left-3 bg-lydian-primary text-white px-3 py-1 rounded-md font-bold text-sm shadow-lg z-10">
                 -{discountPercentage}%
               </div>
             )}
@@ -206,7 +206,7 @@ export const BookingProductCard: React.FC<ProductCardProps> = ({
           <div className="flex-1 p-4 md:p-5 flex flex-col">
             {/* Title & Location */}
             <div className="mb-3">
-              <h3 className="text-xl font-bold text-gray-900 mb-1 line-clamp-2 group-hover:text-ailydian-primary transition-colors">
+              <h3 className="text-xl font-bold text-gray-900 mb-1 line-clamp-2 group-hover:text-lydian-primary transition-colors">
                 {title}
               </h3>
               <div className="flex items-center gap-1 text-sm text-gray-600">
@@ -316,7 +316,7 @@ export const BookingProductCard: React.FC<ProductCardProps> = ({
                   transition={{ delay: 0.3 }}
                   className="flex items-center gap-2 text-xs"
                 >
-                  <div className="flex items-center gap-1 px-2 py-1 bg-red-50 text-ailydian-primary rounded-md">
+                  <div className="flex items-center gap-1 px-2 py-1 bg-red-50 text-lydian-primary rounded-md">
                     <Flame className="w-3 h-3" />
                     <span className="font-semibold">Yüksek Talep - Sadece {Math.floor(Math.random() * 5) + 2} koltuk kaldı!</span>
                   </div>
@@ -360,7 +360,7 @@ export const BookingProductCard: React.FC<ProductCardProps> = ({
                     e.preventDefault();
                     window.location.href = href;
                   }}
-                  className="px-6 py-2.5 bg-ailydian-primary text-white rounded-md font-semibold hover:bg-ailydian-dark transition-all shadow-sm hover:shadow-md"
+                  className="px-6 py-2.5 bg-lydian-primary text-white rounded-md font-semibold hover:bg-lydian-dark transition-all shadow-sm hover:shadow-md"
                 >
                   Müsaitliği Gör
                 </motion.button>

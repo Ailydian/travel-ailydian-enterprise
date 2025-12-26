@@ -1,4 +1,4 @@
-# Travel Ailydian Admin V2 - Quick Reference Summary
+# Travel LyDian Admin V2 - Quick Reference Summary
 
 ## System Status Overview
 - **Total Features:** 12

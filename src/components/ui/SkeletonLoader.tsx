@@ -218,7 +218,7 @@ export const PageLoader: React.FC = () => {
         {/* Spinner */}
         <div className="relative w-16 h-16 mx-auto mb-4">
           <div className="absolute inset-0 border-4 border-gray-200 rounded-full"></div>
-          <div className="absolute inset-0 border-4 border-ailydian-primary border-t-transparent rounded-full animate-spin"></div>
+          <div className="absolute inset-0 border-4 border-lydian-primary border-t-transparent rounded-full animate-spin"></div>
         </div>
 
         {/* Loading text */}
@@ -242,7 +242,7 @@ export const Spinner: React.FC<{ size?: 'sm' | 'md' | 'lg'; className?: string }
   return (
     <div className={`relative ${sizeClasses[size]} ${className}`}>
       <div className="absolute inset-0 border-gray-200 rounded-full"></div>
-      <div className="absolute inset-0 border-ailydian-primary border-t-transparent rounded-full animate-spin"></div>
+      <div className="absolute inset-0 border-lydian-primary border-t-transparent rounded-full animate-spin"></div>
     </div>
   );
 };

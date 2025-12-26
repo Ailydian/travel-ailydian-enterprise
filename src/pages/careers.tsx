@@ -131,7 +131,7 @@ export default function Careers() {
 
       <main className="min-h-screen bg-gray-50">
         {/* Hero Section */}
-        <div className="bg-gradient-to-r from-ailydian-primary to-ailydian-dark text-white py-20">
+        <div className="bg-gradient-to-r from-lydian-primary to-lydian-dark text-white py-20">
           <div className="max-w-7xl mx-auto px-4">
             <div className="max-w-3xl">
               <h1 className="text-5xl md:text-6xl font-bold mb-6">
@@ -143,7 +143,7 @@ export default function Careers() {
               </p>
               <a
                 href="#open-positions"
-                className="inline-flex items-center gap-2 bg-white text-ailydian-primary px-8 py-4 rounded-lg font-semibold hover:bg-blue-50 transition-colors"
+                className="inline-flex items-center gap-2 bg-white text-lydian-primary px-8 py-4 rounded-lg font-semibold hover:bg-blue-50 transition-colors"
               >
                 Açık Pozisyonları Gör
                 <ChevronRight className="w-5 h-5" />
@@ -157,19 +157,19 @@ export default function Careers() {
           <div className="max-w-7xl mx-auto px-4">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
               <div>
-                <div className="text-4xl font-bold text-ailydian-primary mb-2">200+</div>
+                <div className="text-4xl font-bold text-lydian-primary mb-2">200+</div>
                 <div className="text-gray-600">Çalışan</div>
               </div>
               <div>
-                <div className="text-4xl font-bold text-ailydian-primary mb-2">15+</div>
+                <div className="text-4xl font-bold text-lydian-primary mb-2">15+</div>
                 <div className="text-gray-600">Ülkede Ofis</div>
               </div>
               <div>
-                <div className="text-4xl font-bold text-ailydian-primary mb-2">4.8/5</div>
+                <div className="text-4xl font-bold text-lydian-primary mb-2">4.8/5</div>
                 <div className="text-gray-600">Çalışan Memnuniyeti</div>
               </div>
               <div>
-                <div className="text-4xl font-bold text-ailydian-primary mb-2">%85</div>
+                <div className="text-4xl font-bold text-lydian-primary mb-2">%85</div>
                 <div className="text-gray-600">İç Terfi Oranı</div>
               </div>
             </div>
@@ -193,8 +193,8 @@ export default function Careers() {
                 const Icon = benefit.icon;
                 return (
                   <div key={index} className="bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow">
-                    <div className="w-12 h-12 bg-ailydian-primary/10 rounded-lg flex items-center justify-center mb-4">
-                      <Icon className="w-6 h-6 text-ailydian-primary" />
+                    <div className="w-12 h-12 bg-lydian-primary/10 rounded-lg flex items-center justify-center mb-4">
+                      <Icon className="w-6 h-6 text-lydian-primary" />
                     </div>
                     <h3 className="text-lg font-semibold text-gray-900 mb-2">
                       {benefit.title}
@@ -221,7 +221,7 @@ export default function Careers() {
             <div className="grid md:grid-cols-3 gap-8">
               <div className="text-center p-6">
                 <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Users className="w-8 h-8 text-ailydian-primary" />
+                  <Users className="w-8 h-8 text-lydian-primary" />
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-3">
                   Takım Ruhu
@@ -281,7 +281,7 @@ export default function Careers() {
                   onClick={() => setSelectedDepartment(dept)}
                   className={`px-6 py-2 rounded-full font-medium transition-colors ${
                     selectedDepartment === dept
-                      ? 'bg-ailydian-primary text-white'
+                      ? 'bg-lydian-primary text-white'
                       : 'bg-white text-gray-700 hover:bg-gray-100'
                   }`}
                 >
@@ -322,7 +322,7 @@ export default function Careers() {
                       </div>
                     </div>
                     <div className="flex-shrink-0">
-                      <button className="w-full md:w-auto bg-ailydian-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-ailydian-dark transition-colors flex items-center gap-2 justify-center">
+                      <button className="w-full md:w-auto bg-lydian-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-lydian-dark transition-colors flex items-center gap-2 justify-center">
                         Başvur
                         <ChevronRight className="w-5 h-5" />
                       </button>
@@ -345,7 +345,7 @@ export default function Careers() {
         {/* Spontaneous Application */}
         <div className="py-16 bg-white">
           <div className="max-w-4xl mx-auto px-4">
-            <div className="bg-gradient-to-r from-ailydian-primary to-ailydian-dark text-white rounded-2xl p-8 md:p-12">
+            <div className="bg-gradient-to-r from-lydian-primary to-lydian-dark text-white rounded-2xl p-8 md:p-12">
               <div className="text-center">
                 <Send className="w-16 h-16 mx-auto mb-6" />
                 <h2 className="text-3xl font-bold mb-4">
@@ -356,8 +356,8 @@ export default function Careers() {
                   açıldığında sizi bilgilendirmekten mutluluk duyarız.
                 </p>
                 <a
-                  href="mailto:kariyer@travel.ailydian.com"
-                  className="inline-flex items-center gap-2 bg-white text-ailydian-primary px-8 py-4 rounded-lg font-semibold hover:bg-blue-50 transition-colors"
+                  href="mailto:kariyer@travel.lydian.com"
+                  className="inline-flex items-center gap-2 bg-white text-lydian-primary px-8 py-4 rounded-lg font-semibold hover:bg-blue-50 transition-colors"
                 >
                   <Send className="w-5 h-5" />
                   CV Gönder

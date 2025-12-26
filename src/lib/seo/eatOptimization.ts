@@ -2,7 +2,7 @@
  * E-A-T Optimization System
  * Expertise, Authority, Trust - Google'ın en önemli ranking faktörleri
  *
- * Amaç: Travel.Ailydian.com'u güvenilir, uzman ve otorite bir kaynak haline getirmek
+ * Amaç: Travel.LyDian.com'u güvenilir, uzman ve otorite bir kaynak haline getirmek
  */
 
 interface EATSignals {
@@ -60,8 +60,8 @@ export class EATOptimization {
     const month = new Date().toLocaleDateString('tr-TR', { month: 'long', year: 'numeric' });
 
     return {
-      headline: `${topic} - Uzman Rehberi ${year} | Travel Ailydian`,
-      introduction: `Travel Ailydian uzmanları tarafından hazırlanan bu rehber, ${topic.toLowerCase()} hakkında bilmeniz gereken her şeyi içerir. ${location ? `${location}'da` : 'Türkiye\'de'} 15+ yıllık deneyimimizle size en doğru bilgiyi sunuyoruz.`,
+      headline: `${topic} - Uzman Rehberi ${year} | Travel LyDian`,
+      introduction: `Travel LyDian uzmanları tarafından hazırlanan bu rehber, ${topic.toLowerCase()} hakkında bilmeniz gereken her şeyi içerir. ${location ? `${location}'da` : 'Türkiye\'de'} 15+ yıllık deneyimimizle size en doğru bilgiyi sunuyoruz.`,
       expertTips: [
         '✓ Uzman seyahat danışmanlarımızın önerileri',
         '✓ Gerçek müşteri deneyimleri ve yorumları',
@@ -69,7 +69,7 @@ export class EATOptimization {
         '✓ Gizli ipuçları ve püf noktaları',
         '✓ En iyi sezon ve zaman önerileri'
       ],
-      authorBio: `Travel Ailydian Uzman Ekibi - 15+ yıllık turizm deneyimi, 50,000+ mutlu müşteri, Türkiye'nin önde gelen seyahat platformu. Tüm içeriklerimiz turizm profesyonelleri tarafından oluşturulur ve düzenli olarak güncellenir.`,
+      authorBio: `Travel LyDian Uzman Ekibi - 15+ yıllık turizm deneyimi, 50,000+ mutlu müşteri, Türkiye'nin önde gelen seyahat platformu. Tüm içeriklerimiz turizm profesyonelleri tarafından oluşturulur ve düzenli olarak güncellenir.`,
       lastUpdated: `Son Güncelleme: ${month}`,
       sources: [
         'Türkiye Turizm Bakanlığı resmi verileri',
@@ -143,11 +143,11 @@ export class EATOptimization {
     return {
       '@context': 'https://schema.org',
       '@type': 'Person',
-      'name': author || 'Travel Ailydian Uzman Ekibi',
+      'name': author || 'Travel LyDian Uzman Ekibi',
       'jobTitle': 'Turizm ve Seyahat Uzmanı',
       'affiliation': {
         '@type': 'Organization',
-        'name': 'Travel Ailydian'
+        'name': 'Travel LyDian'
       },
       'description': '15+ yıllık turizm sektörü deneyimi, TÜRSAB sertifikalı seyahat danışmanı',
       'knowsAbout': [
@@ -271,7 +271,7 @@ export class EATOptimization {
   } {
     return {
       testimonials: [
-        '"Travel Ailydian sayesinde hayalimizde kalitede bir tatil deneyimledik. Kesinlikle tavsiye ediyorum!" - Ayşe K., İstanbul',
+        '"Travel LyDian sayesinde hayalimizde kalitede bir tatil deneyimledik. Kesinlikle tavsiye ediyorum!" - Ayşe K., İstanbul',
         '"AI destekli öneriler harika! Tam istediğim oteli buldum ve fiyat farkı da iade edildi." - Mehmet T., Ankara',
         '"15 yıldır tatillerimizi buradan organize ediyoruz. Güven ve kalite bir arada." - Zeynep Y., İzmir',
         '"7/24 müşteri desteği gerçekten çalışıyor. Geceyarısı sorunumu 10 dakikada çözdüler!" - Can S., Bursa'

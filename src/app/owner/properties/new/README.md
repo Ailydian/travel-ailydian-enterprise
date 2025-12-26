@@ -395,4 +395,4 @@ For issues or questions:
 
 ## License
 
-Part of the Travel Ailydian Enterprise platform.
+Part of the Travel LyDian Enterprise platform.

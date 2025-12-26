@@ -31,6 +31,9 @@ import { useCart } from '../context/CartContext';
 import { BookingHeader } from '../components/layout/BookingHeader';
 import { allComprehensiveTours as importedComprehensiveTours } from '../data/marmaris-bodrum-cesme-tours';
 import { antalyaTours } from '../data/antalya-tours';
+import { greeceTours } from '../data/greece-tours';
+import { cyprusTours } from '../data/cyprus-tours';
+import CountryFilterWidget from '../components/filters/CountryFilterWidget';
 
 // Antalya Tours (16 tours with competitive pricing)
 const antalyaToursFormatted = antalyaTours.map(tour => ({
@@ -39,8 +42,8 @@ const antalyaToursFormatted = antalyaTours.map(tour => ({
   slug: tour.slug,
   location: `${tour.region}, Türkiye`,
   image: tour.images[0],
-  price: tour.pricing.travelAilydian,
-  originalPrice: Math.round(tour.pricing.travelAilydian / (1 - tour.pricing.savingsPercentage / 100)),
+  price: tour.pricing.travelLyDian,
+  originalPrice: Math.round(tour.pricing.travelLyDian / (1 - tour.pricing.savingsPercentage / 100)),
   rating: tour.rating,
   reviews: tour.reviewCount,
   duration: tour.duration,
@@ -53,18 +56,66 @@ const antalyaToursFormatted = antalyaTours.map(tour => ({
   difficulty: tour.difficulty,
   languages: ['Türkçe', 'İngilizce', 'Rusça', 'Almanca', 'Arapça', 'Fransızca'],
   badge: tour.pricing.savingsPercentage >= 15 ? 'İndirim' : undefined,
-  region: { city: tour.region, country: 'Türkiye' }
+  region: { city: tour.region, country: 'turkey' }
 }));
 
-// Premium Ailydian Tours - Now with 45+ comprehensive tours from Marmaris, Bodrum, and Çeşme
+// Greece Tours (2+ tours with competitive pricing, 8-language support)
+const greeceToursFormatted = greeceTours.map(tour => ({
+  id: tour.id,
+  name: tour.name.tr, // Default to Turkish, will be handled by i18n later
+  slug: tour.slug,
+  location: `${tour.city}, Yunanistan`,
+  image: tour.images?.hero || tour.images?.gallery?.[0] || 'https://images.unsplash.com/photo-1503152394-c571994fd383?w=800',
+  price: Math.round(tour.pricing.travelLyDian * 35), // Convert EUR to TRY (approx €1 = 35 TRY)
+  originalPrice: Math.round((tour.pricing.travelLyDian / (1 - tour.pricing.savingsPercentage / 100)) * 35),
+  rating: tour.rating,
+  reviews: tour.reviewCount,
+  duration: tour.duration,
+  groupSize: `${tour.groupSize.max} kişi`,
+  category: tour.category,
+  type: 'Günlük Tur',
+  highlights: (tour.highlights?.tr || []).slice(0, 4),
+  includes: tour.included?.tr || [],
+  description: tour.shortDescription?.tr || tour.name.tr,
+  difficulty: tour.difficulty?.tr || 'Orta',
+  languages: ['Türkçe', 'İngilizce', 'Almanca', 'Rusça', 'Arapça', 'Yunanca', 'Fransızca', 'Farsça'],
+  badge: tour.pricing.savingsPercentage >= 10 ? 'İndirim' : undefined,
+  region: { city: tour.city, country: 'greece' }
+}));
+
+// Cyprus Tours (2+ tours with competitive pricing, 8-language support)
+const cyprusToursFormatted = cyprusTours.map(tour => ({
+  id: tour.id,
+  name: tour.name.tr,
+  slug: tour.slug,
+  location: `${tour.city}, Kıbrıs`,
+  image: tour.images?.hero || tour.images?.gallery?.[0] || 'https://images.unsplash.com/photo-1534008897995-27a23e859048?w=800',
+  price: Math.round(tour.pricing.travelLyDian * 35), // Convert EUR to TRY
+  originalPrice: Math.round((tour.pricing.travelLyDian / (1 - tour.pricing.savingsPercentage / 100)) * 35),
+  rating: tour.rating,
+  reviews: tour.reviewCount,
+  duration: tour.duration,
+  groupSize: `${tour.groupSize.max} kişi`,
+  category: tour.category === 'historical' ? 'cultural' : tour.category === 'beach-water' ? 'nature' : tour.category,
+  type: 'Günlük Tur',
+  highlights: (tour.highlights?.tr || []).slice(0, 4),
+  includes: tour.included?.tr || [],
+  description: tour.shortDescription?.tr || tour.name.tr,
+  difficulty: tour.difficulty?.tr || 'Kolay',
+  languages: ['Türkçe', 'İngilizce', 'Almanca', 'Rusça', 'Arapça', 'Yunanca', 'Fransızca', 'Farsça'],
+  badge: tour.pricing.savingsPercentage >= 10 ? 'İndirim' : undefined,
+  region: { city: tour.city, country: 'cyprus' }
+}));
+
+// Premium LyDian Tours - Now with 45+ comprehensive tours from Marmaris, Bodrum, and Çeşme
 const otherRegionTours = importedComprehensiveTours.map(tour => ({
   id: tour.id,
   name: tour.name,
   slug: tour.slug,
   location: `${tour.region}, Türkiye`,
   image: tour.images[0],
-  price: tour.pricing.travelAilydian,
-  originalPrice: Math.round(tour.pricing.travelAilydian / (1 - tour.pricing.savingsPercentage / 100)),
+  price: tour.pricing.travelLyDian,
+  originalPrice: Math.round(tour.pricing.travelLyDian / (1 - tour.pricing.savingsPercentage / 100)),
   rating: tour.rating,
   reviews: tour.reviewCount,
   duration: tour.duration,
@@ -77,11 +128,16 @@ const otherRegionTours = importedComprehensiveTours.map(tour => ({
   difficulty: tour.difficulty,
   languages: ['Türkçe', 'İngilizce'],
   badge: tour.pricing.savingsPercentage >= 15 ? 'İndirim' : undefined,
-  region: { city: tour.region, country: 'Türkiye' }
+  region: { city: tour.region, country: 'turkey' }
 }));
 
-// Combine all tours: Antalya first, then other regions
-const allComprehensiveTours = [...antalyaToursFormatted, ...otherRegionTours];
+// Combine all tours: Turkey first, then Greece, then Cyprus
+const allComprehensiveTours = [
+  ...antalyaToursFormatted,
+  ...otherRegionTours,
+  ...greeceToursFormatted,
+  ...cyprusToursFormatted
+];
 
 // Legacy tours for backward compatibility
 const legacyTours = [
@@ -473,7 +529,7 @@ const tours = [...legacyTours, ...allComprehensiveTours];
 export { legacyTours };
 
 const categories = [
-  { id: 'all', name: 'Tümü', icon: Globe, color: 'from-ailydian-primary to-ailydian-secondary' },
+  { id: 'all', name: 'Tümü', icon: Globe, color: 'from-lydian-primary to-lydian-secondary' },
   { id: 'cultural', name: 'Kültürel', icon: Camera, color: 'from-blue-500 to-cyan-500' },
   { id: 'adventure', name: 'Macera', icon: Zap, color: 'from-orange-500 to-red-600' },
   { id: 'nature', name: 'Doğa', icon: MapPin, color: 'from-green-500 to-emerald-600' },
@@ -490,10 +546,60 @@ export default function Tours() {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [selectedDifficulty, setSelectedDifficulty] = useState('Tümü');
   const [selectedDuration, setSelectedDuration] = useState('Tümü');
+  const [selectedCountry, setSelectedCountry] = useState<string | null>(null);
   const [favorites, setFavorites] = useState<Set<number>>(new Set());
   const [sortBy, setSortBy] = useState('popularity');
   const [showToast, setShowToast] = useState(false);
   const [toastMessage, setToastMessage] = useState('');
+
+  // Country data for filter widget
+  const countries = [
+    {
+      code: 'turkey',
+      name: {
+        tr: 'Türkiye',
+        en: 'Turkey',
+        de: 'Türkei',
+        ru: 'Турция',
+        ar: 'تركيا',
+        fa: 'ترکیه',
+        fr: 'Turquie',
+        el: 'Τουρκία'
+      },
+      flag: '🇹🇷',
+      tourCount: tours.filter(t => t.region?.country === 'turkey').length
+    },
+    {
+      code: 'greece',
+      name: {
+        tr: 'Yunanistan',
+        en: 'Greece',
+        de: 'Griechenland',
+        ru: 'Греция',
+        ar: 'اليونان',
+        fa: 'یونان',
+        fr: 'Grèce',
+        el: 'Ελλάδα'
+      },
+      flag: '🇬🇷',
+      tourCount: tours.filter(t => t.region?.country === 'greece').length
+    },
+    {
+      code: 'cyprus',
+      name: {
+        tr: 'Kıbrıs',
+        en: 'Cyprus',
+        de: 'Zypern',
+        ru: 'Кипр',
+        ar: 'قبرص',
+        fa: 'قبرس',
+        fr: 'Chypre',
+        el: 'Κύπρος'
+      },
+      flag: '🇨🇾',
+      tourCount: tours.filter(t => t.region?.country === 'cyprus').length
+    }
+  ];
 
   const filteredTours = tours.filter(tour => {
     const matchesSearch = tour.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -506,11 +612,14 @@ export default function Tours() {
       (selectedDuration === '1 gün' && tour.duration === '1 gün') ||
       (selectedDuration === '2+ gün' && (tour.duration.includes('2') || tour.duration.includes('3')));
 
+    // Country filter
+    const matchesCountry = !selectedCountry || (tour.region && tour.region.country === selectedCountry);
+
     // URL query parametresine göre type filtrelemesi
     const typeParam = router.query.type as string;
     const matchesType = !typeParam || tour.type === typeParam;
 
-    return matchesSearch && matchesCategory && matchesDifficulty && matchesDuration && matchesType;
+    return matchesSearch && matchesCategory && matchesDifficulty && matchesDuration && matchesCountry && matchesType;
   });
 
   const sortedTours = [...filteredTours].sort((a, b) => {
@@ -578,7 +687,7 @@ export default function Tours() {
 
   const getBadgeColor = (badge: string) => {
     const colors: any = {
-      'Popüler': 'from-ailydian-primary to-ailydian-secondary',
+      'Popüler': 'from-lydian-primary to-lydian-secondary',
       'En Çok Satan': 'from-yellow-500 to-orange-500',
       'Kültür': 'from-blue-500 to-cyan-500',
       'Macera': 'from-orange-500 to-red-600',
@@ -593,20 +702,21 @@ export default function Tours() {
   const activeFilterCount =
     (selectedCategory !== 'all' ? 1 : 0) +
     (selectedDifficulty !== 'Tümü' ? 1 : 0) +
-    (selectedDuration !== 'Tümü' ? 1 : 0);
+    (selectedDuration !== 'Tümü' ? 1 : 0) +
+    (selectedCountry ? 1 : 0);
 
   return (
     <>
       <Head>
-        <title>Turlar ve Aktiviteler - Ailydian Travel Premium</title>
+        <title>Turlar ve Aktiviteler - LyDian Travel Premium</title>
         <meta name="description" content="Türkiye'nin en özel turları ve unutulmaz deneyimleri keşfedin" />
       </Head>
 
       <BookingHeader />
 
       <main className="min-h-screen bg-gradient-to-b from-gray-50 via-white to-gray-50">
-        {/* Hero Section - Premium Ailydian Design */}
-        <section className="relative bg-gradient-to-br from-ailydian-primary via-ailydian-secondary to-pink-600 py-20 overflow-hidden">
+        {/* Hero Section - Premium LyDian Design */}
+        <section className="relative bg-gradient-to-br from-lydian-primary via-lydian-secondary to-pink-600 py-20 overflow-hidden">
           {/* Animated Background */}
           <div className="absolute inset-0 opacity-10">
             <div className="absolute top-10 left-10 w-96 h-96 bg-white rounded-full blur-3xl animate-pulse" />
@@ -684,9 +794,18 @@ export default function Tours() {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Tur, destinasyon veya aktivite ara..."
-                className="w-full pl-14 pr-4 py-4 border-2 border-gray-200 rounded-2xl text-lg focus:ring-2 focus:ring-ailydian-primary focus:border-transparent shadow-lg hover:shadow-xl transition-all"
+                className="w-full pl-14 pr-4 py-4 border-2 border-gray-200 rounded-2xl text-lg focus:ring-2 focus:ring-lydian-primary focus:border-transparent shadow-lg hover:shadow-xl transition-all"
               />
             </div>
+          </div>
+
+          {/* Country Filter Widget */}
+          <div className="mb-8">
+            <CountryFilterWidget
+              countries={countries}
+              selectedCountry={selectedCountry}
+              onCountrySelect={setSelectedCountry}
+            />
           </div>
 
           {/* Category Filters */}
@@ -720,7 +839,7 @@ export default function Tours() {
               <select
                 value={selectedDifficulty}
                 onChange={(e) => setSelectedDifficulty(e.target.value)}
-                className="px-4 py-2.5 bg-white border-2 border-gray-200 rounded-xl text-sm font-medium focus:ring-2 focus:ring-ailydian-primary focus:border-transparent shadow-sm hover:shadow-md transition-all"
+                className="px-4 py-2.5 bg-white border-2 border-gray-200 rounded-xl text-sm font-medium focus:ring-2 focus:ring-lydian-primary focus:border-transparent shadow-sm hover:shadow-md transition-all"
               >
                 {difficulties.map(diff => (
                   <option key={diff} value={diff}>Zorluk: {diff}</option>
@@ -731,7 +850,7 @@ export default function Tours() {
               <select
                 value={selectedDuration}
                 onChange={(e) => setSelectedDuration(e.target.value)}
-                className="px-4 py-2.5 bg-white border-2 border-gray-200 rounded-xl text-sm font-medium focus:ring-2 focus:ring-ailydian-primary focus:border-transparent shadow-sm hover:shadow-md transition-all"
+                className="px-4 py-2.5 bg-white border-2 border-gray-200 rounded-xl text-sm font-medium focus:ring-2 focus:ring-lydian-primary focus:border-transparent shadow-sm hover:shadow-md transition-all"
               >
                 {durations.map(dur => (
                   <option key={dur} value={dur}>Süre: {dur}</option>
@@ -740,7 +859,7 @@ export default function Tours() {
 
               {/* Active Filter Count */}
               {activeFilterCount > 0 && (
-                <div className="flex items-center gap-2 px-4 py-2.5 bg-ailydian-primary/10 text-ailydian-primary rounded-xl font-semibold">
+                <div className="flex items-center gap-2 px-4 py-2.5 bg-lydian-primary/10 text-lydian-primary rounded-xl font-semibold">
                   <Filter className="w-4 h-4" />
                   <span>{activeFilterCount} Filtre Aktif</span>
                 </div>
@@ -753,7 +872,7 @@ export default function Tours() {
               <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value)}
-                className="px-4 py-2.5 bg-white border-2 border-gray-200 rounded-xl text-sm font-medium focus:ring-2 focus:ring-ailydian-primary focus:border-transparent shadow-sm hover:shadow-md transition-all"
+                className="px-4 py-2.5 bg-white border-2 border-gray-200 rounded-xl text-sm font-medium focus:ring-2 focus:ring-lydian-primary focus:border-transparent shadow-sm hover:shadow-md transition-all"
               >
                 <option value="popularity">Popülerlik</option>
                 <option value="rating">Puan (Yüksek-Düşük)</option>
@@ -767,7 +886,7 @@ export default function Tours() {
           {/* Results Count */}
           <div className="text-center mb-8">
             <p className="text-lg text-gray-600">
-              <span className="font-bold text-ailydian-primary">{sortedTours.length}</span> tur bulundu
+              <span className="font-bold text-lydian-primary">{sortedTours.length}</span> tur bulundu
             </p>
           </div>
 
@@ -824,7 +943,7 @@ export default function Tours() {
                               {tour.originalPrice.toLocaleString('tr-TR')} ₺
                             </span>
                           )}
-                          <span className="text-sm font-bold text-ailydian-primary">
+                          <span className="text-sm font-bold text-lydian-primary">
                             {tour.price.toLocaleString('tr-TR')} ₺
                           </span>
                         </div>
@@ -913,7 +1032,7 @@ export default function Tours() {
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
                         onClick={() => handleAddToCart(tour)}
-                        className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-ailydian-primary to-ailydian-secondary text-white rounded-xl font-semibold hover:shadow-lg transition-all"
+                        className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-lydian-primary to-lydian-secondary text-white rounded-xl font-semibold hover:shadow-lg transition-all"
                       >
                         <ShoppingCart className="w-5 h-5" />
                         Sepete Ekle
@@ -942,8 +1061,9 @@ export default function Tours() {
                   setSelectedCategory('all');
                   setSelectedDifficulty('Tümü');
                   setSelectedDuration('Tümü');
+                  setSelectedCountry(null);
                 }}
-                className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-ailydian-primary to-ailydian-secondary text-white rounded-xl font-bold hover:shadow-xl transition-all text-lg"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-lydian-primary to-lydian-secondary text-white rounded-xl font-bold hover:shadow-xl transition-all text-lg"
               >
                 Filtreleri Temizle
                 <ArrowRight className="w-5 h-5" />

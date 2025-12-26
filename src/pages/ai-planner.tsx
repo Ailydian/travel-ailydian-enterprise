@@ -61,7 +61,7 @@ const AITravelPlanner: React.FC = () => {
   return (
     <>
       <Head>
-        <title>AI Seyahat Planlama - Travel.Ailydian | Akıllı Seyahat Planı</title>
+        <title>AI Seyahat Planlama - Travel.LyDian | Akıllı Seyahat Planı</title>
         <meta name="description" content="Yapay zeka destekli kişiselleştirilmiş seyahat planı oluşturun. AI algoritmaları ile size özel itineraryler ve öneriler." />
         <meta name="keywords" content="AI seyahat planlama, akıllı seyahat, yapay zeka turizm, otomatik itinerary, seyahat planlayıcı" />
       </Head>

@@ -587,10 +587,10 @@ export const turkeyDestinations: TourismDestination[] = [
     },
     seoData: {
       metaTitle: {
-        tr: 'İstanbul Turları | En İyi İstanbul Rehberi 2024 | Travel Ailydian',
-        en: 'Istanbul Tours | Best Istanbul Guide 2024 | Travel Ailydian',
-        de: 'Istanbul Touren | Bester Istanbul Reiseführer 2024 | Travel Ailydian',
-        ru: 'Туры в Стамбул | Лучший гид по Стамбулу 2024 | Travel Ailydian'
+        tr: 'İstanbul Turları | En İyi İstanbul Rehberi 2024 | Travel LyDian',
+        en: 'Istanbul Tours | Best Istanbul Guide 2024 | Travel LyDian',
+        de: 'Istanbul Touren | Bester Istanbul Reiseführer 2024 | Travel LyDian',
+        ru: 'Туры в Стамбул | Лучший гид по Стамбулу 2024 | Travel LyDian'
       },
       metaDescription: {
         tr: 'İstanbul turları için en kapsamlı rehber! ✈️ Ayasofya, Sultanahmet, Boğaz turları. Uygun fiyatlar, uzman rehberler. Hemen keşfedin! 🎯',
@@ -748,10 +748,10 @@ export const turkeyDestinations: TourismDestination[] = [
     },
     seoData: {
       metaTitle: {
-        tr: 'Kapadokya Balon Turları | En İyi Kapadokya Rehberi 2024 | Travel Ailydian',
-        en: 'Cappadocia Balloon Tours | Best Cappadocia Guide 2024 | Travel Ailydian',
-        de: 'Kappadokien Ballonfahrten | Bester Kappadokien Reiseführer 2024 | Travel Ailydian',
-        ru: 'Туры на воздушных шарах в Каппадокии | Лучший гид по Каппадокии 2024 | Travel Ailydian'
+        tr: 'Kapadokya Balon Turları | En İyi Kapadokya Rehberi 2024 | Travel LyDian',
+        en: 'Cappadocia Balloon Tours | Best Cappadocia Guide 2024 | Travel LyDian',
+        de: 'Kappadokien Ballonfahrten | Bester Kappadokien Reiseführer 2024 | Travel LyDian',
+        ru: 'Туры на воздушных шарах в Каппадокии | Лучший гид по Каппадокии 2024 | Travel LyDian'
       },
       metaDescription: {
         tr: 'Kapadokya balon turları için en kapsamlı rehber! ✈️ Peri bacaları, yeraltı şehirleri, Göreme. Unutulmaz deneyimler! 🎈',
@@ -920,10 +920,10 @@ export const turkeyTours: Tour[] = [
     },
     seoData: {
       metaTitle: {
-        tr: 'İstanbul Klasik Şehir Turu | Ayasofya & Sultanahmet Gezisi | Travel Ailydian',
-        en: 'Istanbul Classic City Tour | Hagia Sophia & Sultanahmet Visit | Travel Ailydian',
-        de: 'Istanbul Klassische Stadttour | Hagia Sophia & Sultanahmet Besuch | Travel Ailydian',
-        ru: 'Классический городской тур по Стамбулу | Посещение Айя-Софии и Султанахмет | Travel Ailydian'
+        tr: 'İstanbul Klasik Şehir Turu | Ayasofya & Sultanahmet Gezisi | Travel LyDian',
+        en: 'Istanbul Classic City Tour | Hagia Sophia & Sultanahmet Visit | Travel LyDian',
+        de: 'Istanbul Klassische Stadttour | Hagia Sophia & Sultanahmet Besuch | Travel LyDian',
+        ru: 'Классический городской тур по Стамбулу | Посещение Айя-Софии и Султанахмет | Travel LyDian'
       },
       metaDescription: {
         tr: 'İstanbul\'un kalbi Sultanahmet\'te tarihi keşif! Ayasofya, Mavi Camii, Topkapı Sarayı gezisi. Uzman rehber eşliğinde 1 günde İstanbul. 🏛️',
@@ -1092,10 +1092,10 @@ export const turkeyTours: Tour[] = [
     },
     seoData: {
       metaTitle: {
-        tr: 'Kapadokya Balon Turu | Sıcak Hava Balonu Uçuşu 2024 | Travel Ailydian',
-        en: 'Cappadocia Balloon Tour | Hot Air Balloon Flight 2024 | Travel Ailydian',
-        de: 'Kappadokien Ballontour | Heißluftballonflug 2024 | Travel Ailydian',
-        ru: 'Тур на воздушном шаре в Каппадокии | Полет на воздушном шаре 2024 | Travel Ailydian'
+        tr: 'Kapadokya Balon Turu | Sıcak Hava Balonu Uçuşu 2024 | Travel LyDian',
+        en: 'Cappadocia Balloon Tour | Hot Air Balloon Flight 2024 | Travel LyDian',
+        de: 'Kappadokien Ballontour | Heißluftballonflug 2024 | Travel LyDian',
+        ru: 'Тур на воздушном шаре в Каппадокии | Полет на воздушном шаре 2024 | Travel LyDian'
       },
       metaDescription: {
         tr: 'Kapadokya\'da sıcak hava balonu turu! Peri bacalarını gökyüzünden izleyin. Güvenli uçuş, şampanya servisi, sertifika dahil. Hemen rezervasyon yapın! 🎈',

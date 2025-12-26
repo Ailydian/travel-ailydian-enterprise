@@ -1,6 +1,6 @@
 # Animated SVG Components & Interactive Sliders
 
-Beautiful, performant, and accessible animated components for Travel.Ailydian platform built with **Framer Motion** and **React**.
+Beautiful, performant, and accessible animated components for Travel.LyDian platform built with **Framer Motion** and **React**.
 
 ## 📦 Components Overview
 
@@ -358,11 +358,11 @@ import { ExperiencesSlider } from '@/components/homepage/ExperiencesSlider';
 
 ## 🎨 Design System Integration
 
-All components use the **Ailydian color palette** from `tailwind.config.js`:
+All components use the **LyDian color palette** from `tailwind.config.js`:
 
 ```javascript
 colors: {
-  ailydian: {
+  lydian: {
     primary: '#FF214D',      // Neon Red
     secondary: '#FF6A45',    // Neon Orange
     'neon-blue': '#00D4FF',  // Neon Blue
@@ -491,7 +491,7 @@ function MyComponent() {
     return (
       <div className="flex flex-col items-center justify-center min-h-screen">
         <LoadingPlane size={60} />
-        <p className="mt-4 text-ailydian-text">Searching flights...</p>
+        <p className="mt-4 text-lydian-text">Searching flights...</p>
         <LoadingDots size={8} className="mt-2" />
       </div>
     );
@@ -510,10 +510,10 @@ function BookingConfirmation() {
   return (
     <div className="text-center">
       <StatusIcon type="success" size={120} showAnimation={true} />
-      <h2 className="text-2xl font-bold text-ailydian-text mt-6">
+      <h2 className="text-2xl font-bold text-lydian-text mt-6">
         Booking Confirmed!
       </h2>
-      <p className="text-ailydian-text-muted mt-2">
+      <p className="text-lydian-text-muted mt-2">
         Your adventure awaits
       </p>
     </div>
@@ -565,7 +565,7 @@ test('renders animated plane', () => {
 
 ## 📝 License
 
-These components are part of the Travel.Ailydian platform.
+These components are part of the Travel.LyDian platform.
 
 ---
 
@@ -574,7 +574,7 @@ These components are part of the Travel.Ailydian platform.
 When adding new animations:
 
 1. Follow naming convention: `AnimatedX` for SVG components
-2. Use Ailydian color palette
+2. Use LyDian color palette
 3. Ensure 60 FPS performance
 4. Add accessibility features
 5. Test on mobile devices

@@ -183,7 +183,7 @@ export default function MyTrips() {
   return (
     <>
       <Head>
-        <title>Seyahatlerim - Ailydian Travel</title>
+        <title>Seyahatlerim - LyDian Travel</title>
         <meta name="description" content="Geçmiş ve gelecek seyahatlerinizi yönetin, rezervasyon detaylarını görüntüleyin." />
       </Head>
 
@@ -194,7 +194,7 @@ export default function MyTrips() {
             <div className="flex items-center justify-between">
               <div>
                 <Link href="/" className="text-2xl font-bold" style={{ color: '#0ea5e9' }}>
-                  Ailydian Travel
+                  LyDian Travel
                 </Link>
               </div>
               <Link

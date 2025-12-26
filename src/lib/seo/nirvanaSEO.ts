@@ -1,7 +1,7 @@
 /**
  * NIRVANA SEO SYSTEM - Ultimate Premium SEO Engine
  *
- * Amaç: travel.ailydian.com'u TÜM arama motorlarında 1. sayfa 1. sıralara çıkarmak
+ * Amaç: travel.lydian.com'u TÜM arama motorlarında 1. sayfa 1. sıralara çıkarmak
  *
  * Stratejiler:
  * 1. AI-Powered Content Optimization
@@ -246,23 +246,23 @@ export class NirvanaSEO {
       data: {
         '@context': 'https://schema.org',
         '@type': 'TravelAgency',
-        'name': 'Travel Ailydian',
+        'name': 'Travel LyDian',
         'description': 'AI Destekli Premium Seyahat Platformu - Türkiye\'nin En Gelişmiş Tatil Rezervasyon Sistemi',
-        'url': 'https://travel.ailydian.com',
-        'logo': 'https://travel.ailydian.com/logo.png',
-        'image': 'https://travel.ailydian.com/og-image.jpg',
+        'url': 'https://travel.lydian.com',
+        'logo': 'https://travel.lydian.com/logo.png',
+        'image': 'https://travel.lydian.com/og-image.jpg',
         'telephone': '+90-850-XXX-XXXX',
-        'email': 'info@ailydian.com',
+        'email': 'info@lydian.com',
         'address': {
           '@type': 'PostalAddress',
           'addressCountry': 'TR',
           'addressLocality': 'Antalya'
         },
         'sameAs': [
-          'https://www.facebook.com/ailydian',
-          'https://www.instagram.com/ailydian',
-          'https://twitter.com/ailydian',
-          'https://www.linkedin.com/company/ailydian'
+          'https://www.facebook.com/lydian',
+          'https://www.instagram.com/lydian',
+          'https://twitter.com/lydian',
+          'https://www.linkedin.com/company/lydian'
         ],
         'aggregateRating': {
           '@type': 'AggregateRating',
@@ -283,13 +283,13 @@ export class NirvanaSEO {
         data: {
           '@context': 'https://schema.org',
           '@type': 'WebSite',
-          'name': 'Travel Ailydian',
-          'url': 'https://travel.ailydian.com',
+          'name': 'Travel LyDian',
+          'url': 'https://travel.lydian.com',
           'potentialAction': {
             '@type': 'SearchAction',
             'target': {
               '@type': 'EntryPoint',
-              'urlTemplate': 'https://travel.ailydian.com/search?q={search_term_string}'
+              'urlTemplate': 'https://travel.lydian.com/search?q={search_term_string}'
             },
             'query-input': 'required name=search_term_string'
           }
@@ -308,7 +308,7 @@ export class NirvanaSEO {
               '@type': 'ListItem',
               'position': 1,
               'name': 'Ana Sayfa',
-              'item': 'https://travel.ailydian.com'
+              'item': 'https://travel.lydian.com'
             }
           ]
         }
@@ -428,14 +428,14 @@ export class NirvanaSEO {
           'image': data.image,
           'author': {
             '@type': 'Organization',
-            'name': 'Travel Ailydian'
+            'name': 'Travel LyDian'
           },
           'publisher': {
             '@type': 'Organization',
-            'name': 'Travel Ailydian',
+            'name': 'Travel LyDian',
             'logo': {
               '@type': 'ImageObject',
-              'url': 'https://travel.ailydian.com/logo.png'
+              'url': 'https://travel.lydian.com/logo.png'
             }
           },
           'datePublished': data.datePublished,
@@ -451,8 +451,8 @@ export class NirvanaSEO {
       data: {
         '@context': 'https://schema.org',
         '@type': 'TravelAgency',
-        'name': 'Travel Ailydian',
-        'image': 'https://travel.ailydian.com/logo.png',
+        'name': 'Travel LyDian',
+        'image': 'https://travel.lydian.com/logo.png',
         'address': {
           '@type': 'PostalAddress',
           'addressLocality': 'Antalya',
@@ -497,7 +497,7 @@ export class NirvanaSEO {
     ogTags: Record<string, string>;
     twitterTags: Record<string, string>;
   } {
-    const baseTitle = 'Travel Ailydian';
+    const baseTitle = 'Travel LyDian';
     const year = new Date().getFullYear();
 
     // Dynamic title generation with power words
@@ -528,21 +528,21 @@ export class NirvanaSEO {
         'og:type': 'website',
         'og:title': title,
         'og:description': description,
-        'og:url': `https://travel.ailydian.com/${page}`,
-        'og:image': 'https://travel.ailydian.com/og-image.jpg',
+        'og:url': `https://travel.lydian.com/${page}`,
+        'og:image': 'https://travel.lydian.com/og-image.jpg',
         'og:image:width': '1200',
         'og:image:height': '630',
-        'og:site_name': 'Travel Ailydian',
+        'og:site_name': 'Travel LyDian',
         'og:locale': 'tr_TR',
         'og:locale:alternate': 'en_US'
       },
       twitterTags: {
         'twitter:card': 'summary_large_image',
-        'twitter:site': '@ailydian',
+        'twitter:site': '@lydian',
         'twitter:title': title,
         'twitter:description': description,
-        'twitter:image': 'https://travel.ailydian.com/twitter-image.jpg',
-        'twitter:creator': '@ailydian'
+        'twitter:image': 'https://travel.lydian.com/twitter-image.jpg',
+        'twitter:creator': '@lydian'
       }
     };
   }
@@ -580,7 +580,7 @@ export class NirvanaSEO {
 
     // Internal/External links
     const internalLinks = (html.match(/href="\/[^"]*"/g) || []).length;
-    const externalLinks = (html.match(/href="https?:\/\/(?!travel\.ailydian\.com)[^"]*"/g) || []).length;
+    const externalLinks = (html.match(/href="https?:\/\/(?!travel\.lydian\.com)[^"]*"/g) || []).length;
 
     // Recommendations
     if (h1Matches.length === 0) {

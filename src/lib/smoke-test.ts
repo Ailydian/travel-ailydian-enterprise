@@ -38,7 +38,7 @@ export class SmokeTestRunner {
   private results: TestResult[] = [];
   private testStartTime: number = 0;
 
-  constructor(baseUrl: string = 'https://travel.ailydian.com') {
+  constructor(baseUrl: string = 'https://travel.lydian.com') {
     this.baseUrl = baseUrl;
   }
 
@@ -105,7 +105,7 @@ export class SmokeTestRunner {
 
       this.page = await this.browser.newPage();
       await this.page.setViewport({ width: 1920, height: 1080 });
-      await this.page.setUserAgent('Mozilla/5.0 (compatible; Travel-Ailydian-SmokeTest/1.0)');
+      await this.page.setUserAgent('Mozilla/5.0 (compatible; Travel-LyDian-SmokeTest/1.0)');
       
       console.log('🚀 Browser initialized for testing');
     } catch (error) {
@@ -633,7 +633,7 @@ export class SmokeTestRunner {
       results: this.results,
       environment: {
         baseUrl: this.baseUrl,
-        userAgent: 'Mozilla/5.0 (compatible; Travel-Ailydian-SmokeTest/1.0)',
+        userAgent: 'Mozilla/5.0 (compatible; Travel-LyDian-SmokeTest/1.0)',
         viewport: { width: 1920, height: 1080 }
       }
     };
@@ -672,7 +672,7 @@ export class SmokeTestRunner {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smoke Test Report - Travel Ailydian</title>
+    <title>Smoke Test Report - Travel LyDian</title>
     <style>
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; margin: 0; padding: 20px; background: #f8f9fa; }
         .container { max-width: 1400px; margin: 0 auto; }
@@ -711,7 +711,7 @@ export class SmokeTestRunner {
     <div class="container">
         <div class="header">
             <h1>🧪 Smoke Test Report</h1>
-            <p>Travel Ailydian Platform Health Check</p>
+            <p>Travel LyDian Platform Health Check</p>
             <p>${new Date(report.timestamp).toLocaleDateString('tr-TR', { 
               weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', 
               hour: '2-digit', minute: '2-digit' 

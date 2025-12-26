@@ -11,8 +11,8 @@ import {
   FilterPreset,
 } from '../types/filters';
 
-const STORAGE_KEY_PREFIX = 'ailydian_filters_';
-const PRESETS_KEY = 'ailydian_filter_presets';
+const STORAGE_KEY_PREFIX = 'lydian_filters_';
+const PRESETS_KEY = 'lydian_filter_presets';
 
 interface UseFiltersOptions {
   type: FilterType;

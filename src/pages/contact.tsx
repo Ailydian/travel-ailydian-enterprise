@@ -22,7 +22,7 @@ export default function Contact() {
   return (
     <>
       <Head>
-        <title>İletişim - Ailydian Travel</title>
+        <title>İletişim - LyDian Travel</title>
         <meta name="description" content="Bize ulaşın. Tüm sorularınız için 7/24 müşteri hizmetleri." />
       </Head>
 
@@ -129,8 +129,8 @@ export default function Contact() {
                     <Phone className="h-6 w-6 text-blue-600 mr-4 mt-1" />
                     <div>
                       <h3 className="font-semibold text-gray-900 dark:text-white">E-posta</h3>
-                      <p className="text-gray-600 dark:text-gray-400">info@ailydian.com</p>
-                      <p className="text-gray-600 dark:text-gray-400">destek@ailydian.com</p>
+                      <p className="text-gray-600 dark:text-gray-400">info@lydian.com</p>
+                      <p className="text-gray-600 dark:text-gray-400">destek@lydian.com</p>
                     </div>
                   </div>
                   
@@ -138,8 +138,8 @@ export default function Contact() {
                     <Mail className="h-6 w-6 text-blue-600 mr-4 mt-1" />
                     <div>
                       <h3 className="font-semibold text-gray-900 dark:text-white">E-posta</h3>
-                      <p className="text-gray-600 dark:text-gray-400">info@ailydian.com</p>
-                      <p className="text-gray-600 dark:text-gray-400">destek@ailydian.com</p>
+                      <p className="text-gray-600 dark:text-gray-400">info@lydian.com</p>
+                      <p className="text-gray-600 dark:text-gray-400">destek@lydian.com</p>
                     </div>
                   </div>
                   

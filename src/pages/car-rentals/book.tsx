@@ -429,7 +429,7 @@ const CarRentalBookingPage: React.FC = () => {
   return (
     <>
       <Head>
-        <title>Araç Kiralama Rezervasyonu - {bookingData.carName || 'Ailydian Travel'}</title>
+        <title>Araç Kiralama Rezervasyonu - {bookingData.carName || 'LyDian Travel'}</title>
         <meta name="description" content="Güvenli ve hızlı araç kiralama rezervasyonu" />
       </Head>
 

@@ -1,4 +1,4 @@
-# 🚀 Travel Ailydian Enterprise - Production Deployment Guide
+# 🚀 Travel LyDian Enterprise - Production Deployment Guide
 
 ## Table of Contents
 1. [Prerequisites](#prerequisites)
@@ -41,7 +41,7 @@ You'll need to obtain API keys from each service during setup.
 1. Go to https://supabase.com and sign in
 2. Click "New Project"
 3. Fill in project details:
-   - **Name:** travel-ailydian-enterprise
+   - **Name:** travel-lydian-enterprise
    - **Database Password:** Generate a strong password (save it!)
    - **Region:** Choose closest to your users (eu-central-1 recommended)
    - **Pricing Plan:** Pro Plan recommended for production
@@ -108,8 +108,8 @@ DIRECT_URL="postgresql://postgres:YOUR_PASSWORD@db.YOUR_PROJECT.supabase.co:5432
 
 ```bash
 NODE_ENV=production
-NEXT_PUBLIC_SITE_URL=https://travel.ailydian.com
-NEXT_PUBLIC_API_URL=https://travel.ailydian.com/api
+NEXT_PUBLIC_SITE_URL=https://travel.lydian.com
+NEXT_PUBLIC_API_URL=https://travel.lydian.com/api
 ```
 
 ### Step 4: NextAuth Configuration
@@ -126,7 +126,7 @@ openssl rand -base64 32
 
 ```bash
 NEXTAUTH_SECRET=your_generated_secret_here
-NEXTAUTH_URL=https://travel.ailydian.com
+NEXTAUTH_URL=https://travel.lydian.com
 JWT_SECRET=your_jwt_secret_here
 ```
 
@@ -168,7 +168,7 @@ npx prisma studio
 You should see all 50+ tables created including:
 - Users, Accounts, Sessions
 - Bookings, Reviews, Favorites
-- AilydianMilesAccount, MilesTransaction
+- LyDianMilesAccount, MilesTransaction
 - WhatsAppConversation, WhatsAppMessage
 - VideoReview, VirtualTour
 - SEOLandingPage
@@ -201,8 +201,8 @@ You should see all 50+ tables created including:
 
 #### Step 4: Setup Webhook
 1. In WhatsApp settings, go to **Configuration** → **Webhook**
-2. Set callback URL: `https://travel.ailydian.com/api/whatsapp/webhook`
-3. Set verify token: `travel_ailydian_verify_token_2024`
+2. Set callback URL: `https://travel.lydian.com/api/whatsapp/webhook`
+3. Set verify token: `travel_lydian_verify_token_2024`
 4. Subscribe to fields: `messages`, `message_status`
 
 #### Environment Variables:
@@ -210,7 +210,7 @@ You should see all 50+ tables created including:
 WHATSAPP_PHONE_NUMBER_ID=your_phone_number_id
 WHATSAPP_ACCESS_TOKEN=your_permanent_access_token
 WHATSAPP_BUSINESS_ACCOUNT_ID=your_business_account_id
-WHATSAPP_WEBHOOK_VERIFY_TOKEN=travel_ailydian_verify_token_2024
+WHATSAPP_WEBHOOK_VERIFY_TOKEN=travel_lydian_verify_token_2024
 WHATSAPP_APP_SECRET=your_app_secret
 ```
 
@@ -229,16 +229,16 @@ WHATSAPP_APP_SECRET=your_app_secret
 #### Step 3: Create Upload Preset
 1. Go to **Settings** → **Upload**
 2. Click **Add upload preset**
-3. Name: `ailydian_preset`
+3. Name: `lydian_preset`
 4. Signing Mode: **Unsigned**
-5. Folder: `ailydian`
+5. Folder: `lydian`
 
 #### Environment Variables:
 ```bash
 CLOUDINARY_CLOUD_NAME=your_cloud_name
 CLOUDINARY_API_KEY=your_api_key
 CLOUDINARY_API_SECRET=your_api_secret
-CLOUDINARY_UPLOAD_PRESET=ailydian_preset
+CLOUDINARY_UPLOAD_PRESET=lydian_preset
 ```
 
 ---
@@ -247,13 +247,13 @@ CLOUDINARY_UPLOAD_PRESET=ailydian_preset
 
 #### Step 1: Create IAM User
 1. Go to AWS Console → **IAM**
-2. Create new user: `ailydian-video-uploader`
+2. Create new user: `lydian-video-uploader`
 3. Attach policy: `AmazonS3FullAccess`
 4. Save Access Key ID and Secret Access Key
 
 #### Step 2: Create S3 Bucket
 1. Go to **S3** → Create bucket
-2. Name: `ailydian-videos`
+2. Name: `lydian-videos`
 3. Region: `eu-central-1`
 4. Uncheck "Block all public access" (for video delivery)
 5. Enable versioning
@@ -266,7 +266,7 @@ Add this CORS configuration to your bucket:
   {
     "AllowedHeaders": ["*"],
     "AllowedMethods": ["GET", "PUT", "POST", "DELETE"],
-    "AllowedOrigins": ["https://travel.ailydian.com"],
+    "AllowedOrigins": ["https://travel.lydian.com"],
     "ExposeHeaders": ["ETag"]
   }
 ]
@@ -276,9 +276,9 @@ Add this CORS configuration to your bucket:
 ```bash
 AWS_ACCESS_KEY_ID=your_access_key
 AWS_SECRET_ACCESS_KEY=your_secret_key
-AWS_S3_BUCKET_NAME=ailydian-videos
+AWS_S3_BUCKET_NAME=lydian-videos
 AWS_S3_REGION=eu-central-1
-AWS_S3_BUCKET_URL=https://ailydian-videos.s3.eu-central-1.amazonaws.com
+AWS_S3_BUCKET_URL=https://lydian-videos.s3.eu-central-1.amazonaws.com
 ```
 
 ---
@@ -295,7 +295,7 @@ AWS_S3_BUCKET_URL=https://ailydian-videos.s3.eu-central-1.amazonaws.com
 
 #### Step 3: Setup Webhook
 1. Go to **Developers** → **Webhooks**
-2. Add endpoint: `https://travel.ailydian.com/api/webhooks/stripe`
+2. Add endpoint: `https://travel.lydian.com/api/webhooks/stripe`
 3. Select events:
    - `payment_intent.succeeded`
    - `payment_intent.payment_failed`
@@ -345,18 +345,18 @@ PAYTR_MERCHANT_SALT=your_merchant_salt
 
 #### Step 3: Verify Sender Email
 1. Go to **Settings** → **Sender Authentication**
-2. Add sender: `noreply@travel.ailydian.com`
+2. Add sender: `noreply@travel.lydian.com`
 3. Verify via email link
 
 #### Step 4: Setup Domain Authentication (Optional but recommended)
 1. Go to **Settings** → **Sender Authentication** → **Authenticate Your Domain**
-2. Follow DNS setup instructions for `travel.ailydian.com`
+2. Follow DNS setup instructions for `travel.lydian.com`
 
 #### Environment Variables:
 ```bash
 SENDGRID_API_KEY=SG.your_api_key
-EMAIL_FROM=noreply@travel.ailydian.com
-EMAIL_FROM_NAME=Travel Ailydian
+EMAIL_FROM=noreply@travel.lydian.com
+EMAIL_FROM_NAME=Travel LyDian
 ```
 
 ---
@@ -389,7 +389,7 @@ TWILIO_PHONE_NUMBER=+905551234567
 
 #### Step 1: Create Project
 1. Go to https://console.cloud.google.com
-2. Create new project: `travel-ailydian`
+2. Create new project: `travel-lydian`
 
 #### Step 2: Enable APIs
 Enable these APIs:
@@ -400,12 +400,12 @@ Enable these APIs:
 #### Step 3: Create API Key
 1. Go to **APIs & Services** → **Credentials**
 2. Create credentials → **API Key**
-3. Restrict key to your domain: `travel.ailydian.com`
+3. Restrict key to your domain: `travel.lydian.com`
 4. Restrict to: Maps, Places, Geocoding APIs
 
 #### Step 4: Google Analytics
 1. Go to https://analytics.google.com
-2. Create property for `travel.ailydian.com`
+2. Create property for `travel.lydian.com`
 3. Copy Measurement ID (G-XXXXXXXXXX)
 
 #### Environment Variables:
@@ -464,12 +464,12 @@ In Vercel dashboard → **Settings** → **Environment Variables**, add all vari
 
 1. Click **Deploy**
 2. Wait 3-5 minutes for build to complete
-3. Note your deployment URL: `travel-ailydian-enterprise.vercel.app`
+3. Note your deployment URL: `travel-lydian-enterprise.vercel.app`
 
 ### Step 5: Add Custom Domain
 
 1. Go to **Settings** → **Domains**
-2. Add domain: `travel.ailydian.com`
+2. Add domain: `travel.lydian.com`
 3. Follow DNS configuration instructions:
 
 ```
@@ -500,7 +500,7 @@ async function main() {
   const admin = await prisma.user.create({
     data: {
       name: 'Admin User',
-      email: 'admin@ailydian.com',
+      email: 'admin@lydian.com',
       password: adminPassword,
       role: 'ADMIN',
       emailVerified: new Date(),
@@ -613,7 +613,7 @@ In Vercel, add these cron jobs (`vercel.json`):
 - [ ] SMS notifications work
 
 ### Advanced Features
-- [ ] Ailydian Miles are earned on bookings
+- [ ] LyDian Miles are earned on bookings
 - [ ] Miles can be redeemed for discounts
 - [ ] Tier upgrades work correctly
 - [ ] WhatsApp messages are received and replied
@@ -764,11 +764,11 @@ Before going live:
 ## Contact & Support
 
 For deployment issues:
-- Email: support@ailydian.com
-- GitHub Issues: https://github.com/ailydian/travel-enterprise/issues
+- Email: support@lydian.com
+- GitHub Issues: https://github.com/lydian/travel-enterprise/issues
 
 ---
 
 **Last Updated:** December 22, 2024
 **Version:** 1.0.0
-**Author:** Travel Ailydian Team
+**Author:** Travel LyDian Team

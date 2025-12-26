@@ -148,7 +148,7 @@ END:VCALENDAR`;
   return (
     <>
       <Head>
-        <title>Booking Confirmed - Travel.Ailydian</title>
+        <title>Booking Confirmed - Travel.LyDian</title>
         <meta name="description" content="Your booking has been confirmed successfully" />
       </Head>
 
@@ -442,7 +442,7 @@ END:VCALENDAR`;
             transition={{ delay: 1.2 }}
             className="text-center mt-8 text-sm text-gray-600"
           >
-            <p>Need help? Contact our 24/7 support team at support@travel.ailydian.com</p>
+            <p>Need help? Contact our 24/7 support team at support@travel.lydian.com</p>
           </motion.div>
         </div>
       </div>

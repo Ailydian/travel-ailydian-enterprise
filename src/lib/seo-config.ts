@@ -5,29 +5,29 @@
  */
 
 export const DEFAULT_SEO = {
-  titleTemplate: '%s | Ailydian - Türkiye\'nin Güvenilir Seyahat Platformu',
-  defaultTitle: 'Ailydian - Türkiye\'nin En Güvenilir Seyahat Platformu',
-  description: 'Ailydian ile Türkiye\'nin her yerinde güvenli ve ekonomik seyahat çözümleri. Villa kiralama, araç kiralama, transfer hizmeti ve daha fazlası.',
-  canonical: 'https://travel.ailydian.com',
+  titleTemplate: '%s | LyDian - Türkiye\'nin Güvenilir Seyahat Platformu',
+  defaultTitle: 'LyDian - Türkiye\'nin En Güvenilir Seyahat Platformu',
+  description: 'LyDian ile Türkiye\'nin her yerinde güvenli ve ekonomik seyahat çözümleri. Villa kiralama, araç kiralama, transfer hizmeti ve daha fazlası.',
+  canonical: 'https://travel.lydian.com',
   openGraph: {
     type: 'website',
     locale: 'tr_TR',
-    url: 'https://travel.ailydian.com',
-    site_name: 'Ailydian',
-    title: 'Ailydian - Türkiye\'nin En Güvenilir Seyahat Platformu',
+    url: 'https://travel.lydian.com',
+    site_name: 'LyDian',
+    title: 'LyDian - Türkiye\'nin En Güvenilir Seyahat Platformu',
     description: 'Türkiye\'nin en kapsamlı seyahat platformu. Villa kiralama, araç kiralama, transfer hizmeti ve daha fazlası.',
     images: [
       {
-        url: 'https://travel.ailydian.com/og-image.jpg',
+        url: 'https://travel.lydian.com/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Ailydian Travel Platform',
+        alt: 'LyDian Travel Platform',
       },
     ],
   },
   twitter: {
-    handle: '@ailydian',
-    site: '@ailydian',
+    handle: '@lydian',
+    site: '@lydian',
     cardType: 'summary_large_image',
   },
   additionalMetaTags: [
@@ -37,7 +37,7 @@ export const DEFAULT_SEO = {
     },
     {
       name: 'application-name',
-      content: 'Ailydian',
+      content: 'LyDian',
     },
     {
       name: 'apple-mobile-web-app-capable',
@@ -49,7 +49,7 @@ export const DEFAULT_SEO = {
     },
     {
       name: 'apple-mobile-web-app-title',
-      content: 'Ailydian',
+      content: 'LyDian',
     },
     {
       name: 'format-detection',
@@ -85,14 +85,14 @@ export const DEFAULT_SEO = {
 export const CAR_RENTALS_SEO = {
   title: 'Araç Kiralama Türkiye - Ekonomik ve Güvenli Oto Kiralama',
   description: 'Türkiye\'nin en uygun fiyatlı araç kiralama platformu. Ekonomik, lüks ve SUV araç seçenekleri. Havalimanı teslim, tam kasko, 7/24 destek. Hemen rezervasyon yap!',
-  canonical: 'https://travel.ailydian.com/car-rentals',
+  canonical: 'https://travel.lydian.com/car-rentals',
   openGraph: {
-    title: 'Araç Kiralama Türkiye - Ekonomik Oto Kiralama | Ailydian',
+    title: 'Araç Kiralama Türkiye - Ekonomik Oto Kiralama | LyDian',
     description: 'En uygun fiyatlı araç kiralama hizmeti. Ekonomik, konforlu ve lüks araç seçenekleri ile Türkiye\'nin her yerinde güvenli seyahat.',
-    url: 'https://travel.ailydian.com/car-rentals',
+    url: 'https://travel.lydian.com/car-rentals',
     images: [
       {
-        url: 'https://travel.ailydian.com/og-car-rentals.jpg',
+        url: 'https://travel.lydian.com/og-car-rentals.jpg',
         width: 1200,
         height: 630,
         alt: 'Araç Kiralama Türkiye',
@@ -115,14 +115,14 @@ export const CAR_RENTALS_SEO = {
 export const TRANSFERS_SEO = {
   title: 'Havalimanı Transfer - VIP Transfer ve Şehir İçi Transfer Hizmeti',
   description: 'Türkiye\'nin en güvenilir transfer hizmeti. Havalimanı transferi, VIP transfer, şehir içi ve şehirlerarası transfer. D2 belgeli profesyonel sürücüler. 7/24 hizmet.',
-  canonical: 'https://travel.ailydian.com/transfers',
+  canonical: 'https://travel.lydian.com/transfers',
   openGraph: {
-    title: 'Havalimanı Transfer ve VIP Transfer Hizmeti | Ailydian',
+    title: 'Havalimanı Transfer ve VIP Transfer Hizmeti | LyDian',
     description: 'Güvenli ve konforlu transfer hizmeti. Havalimanı transfer, VIP transfer, şehir içi transfer. D2 belgeli profesyonel sürücüler ile 7/24 hizmet.',
-    url: 'https://travel.ailydian.com/transfers',
+    url: 'https://travel.lydian.com/transfers',
     images: [
       {
-        url: 'https://travel.ailydian.com/og-transfers.jpg',
+        url: 'https://travel.lydian.com/og-transfers.jpg',
         width: 1200,
         height: 630,
         alt: 'Transfer Hizmeti Türkiye',
@@ -145,14 +145,14 @@ export const TRANSFERS_SEO = {
 export const RENTALS_SEO = {
   title: 'Villa Kiralama ve Tatil Evi Kiralama - Günlük Kiralık Villa',
   description: 'Türkiye\'nin en güzel tatil villalarını kirala. Özel havuzlu villalar, denize sıfır yazlıklar, dağ evleri. Güvenli rezervasyon, 7/24 destek.',
-  canonical: 'https://travel.ailydian.com/rentals',
+  canonical: 'https://travel.lydian.com/rentals',
   openGraph: {
-    title: 'Villa Kiralama - Tatil Evi Kiralama | Ailydian',
+    title: 'Villa Kiralama - Tatil Evi Kiralama | LyDian',
     description: 'Türkiye\'nin en güzel tatil evleri. Havuzlu villa, denize sıfır yazlık, dağ evi kiralama. Güvenli rezervasyon sistemi.',
-    url: 'https://travel.ailydian.com/rentals',
+    url: 'https://travel.lydian.com/rentals',
     images: [
       {
-        url: 'https://travel.ailydian.com/og-rentals.jpg',
+        url: 'https://travel.lydian.com/og-rentals.jpg',
         width: 1200,
         height: 630,
         alt: 'Villa Kiralama Türkiye',
@@ -171,13 +171,13 @@ export const RENTALS_SEO = {
 export const ORGANIZATION_SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'TravelAgency',
-  name: 'Ailydian',
+  name: 'LyDian',
   description: 'Türkiye\'nin en güvenilir seyahat ve tatil platformu',
-  url: 'https://travel.ailydian.com',
-  logo: 'https://travel.ailydian.com/logo.png',
-  image: 'https://travel.ailydian.com/og-image.jpg',
+  url: 'https://travel.lydian.com',
+  logo: 'https://travel.lydian.com/logo.png',
+  image: 'https://travel.lydian.com/og-image.jpg',
   telephone: '+90-XXX-XXX-XXXX',
-  email: 'info@ailydian.com',
+  email: 'info@lydian.com',
   address: {
     '@type': 'PostalAddress',
     addressCountry: 'TR',
@@ -185,10 +185,10 @@ export const ORGANIZATION_SCHEMA = {
     addressRegion: 'İstanbul',
   },
   sameAs: [
-    'https://www.facebook.com/ailydian',
-    'https://www.twitter.com/ailydian',
-    'https://www.instagram.com/ailydian',
-    'https://www.linkedin.com/company/ailydian',
+    'https://www.facebook.com/lydian',
+    'https://www.twitter.com/lydian',
+    'https://www.instagram.com/lydian',
+    'https://www.linkedin.com/company/lydian',
   ],
   aggregateRating: {
     '@type': 'AggregateRating',
@@ -205,8 +205,8 @@ export const CAR_RENTAL_SERVICE_SCHEMA = {
   serviceType: 'Araç Kiralama',
   provider: {
     '@type': 'Organization',
-    name: 'Ailydian',
-    url: 'https://travel.ailydian.com',
+    name: 'LyDian',
+    url: 'https://travel.lydian.com',
   },
   areaServed: {
     '@type': 'Country',
@@ -242,8 +242,8 @@ export const TRANSFER_SERVICE_SCHEMA = {
   serviceType: 'Transfer Hizmeti',
   provider: {
     '@type': 'Organization',
-    name: 'Ailydian',
-    url: 'https://travel.ailydian.com',
+    name: 'LyDian',
+    url: 'https://travel.lydian.com',
   },
   areaServed: {
     '@type': 'Country',
@@ -281,7 +281,7 @@ export const generateBreadcrumbSchema = (items: { name: string; url: string }[])
     '@type': 'ListItem',
     position: index + 1,
     name: item.name,
-    item: `https://travel.ailydian.com${item.url}`,
+    item: `https://travel.lydian.com${item.url}`,
   })),
 });
 

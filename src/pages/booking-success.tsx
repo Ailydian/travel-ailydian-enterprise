@@ -79,8 +79,8 @@ const BookingSuccess: React.FC = () => {
   const handleShare = () => {
     if (navigator.share) {
       navigator.share({
-        title: 'Ailydian Travel - Rezervasyonum Onaylandı!',
-        text: `Ailydian Travel ile harika bir seyahat rezervasyonu yaptım! Onay numarası: ${bookingDetails.confirmationNumber}`,
+        title: 'LyDian Travel - Rezervasyonum Onaylandı!',
+        text: `LyDian Travel ile harika bir seyahat rezervasyonu yaptım! Onay numarası: ${bookingDetails.confirmationNumber}`,
         url: window.location.href,
       });
     } else {
@@ -92,7 +92,7 @@ const BookingSuccess: React.FC = () => {
   return (
     <>
       <Head>
-        <title>Rezervasyon Onaylandı - Ailydian Travel | Başarılı Ödeme</title>
+        <title>Rezervasyon Onaylandı - LyDian Travel | Başarılı Ödeme</title>
         <meta name="description" content="Rezervasyonunuz başarıyla onaylandı. Blockchain teknologisi ile güvenceye alınmış seyahat deneyiminiz sizi bekliyor!" />
       </Head>
 
@@ -115,7 +115,7 @@ const BookingSuccess: React.FC = () => {
             <p className="text-base sm:text-lg lg:text-xl text-gray-600 mb-2">
               Harika bir seçim yaptınız! Seyahatiniz blockchain teknologisi ile güvenceye alındı.
             </p>
-            <p className="text-sm sm:text-base lg:text-lg text-ailydian-primary font-semibold">
+            <p className="text-sm sm:text-base lg:text-lg text-lydian-primary font-semibold">
               Onay Numaranız: <span className="font-bold">{bookingDetails.confirmationNumber}</span>
             </p>
           </motion.div>
@@ -129,14 +129,14 @@ const BookingSuccess: React.FC = () => {
           >
             <button
               onClick={handleDownloadTicket}
-              className="flex items-center justify-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 bg-ailydian-primary text-white rounded-xl text-sm sm:text-base font-semibold hover:bg-ailydian-dark transition-colors"
+              className="flex items-center justify-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 bg-lydian-primary text-white rounded-xl text-sm sm:text-base font-semibold hover:bg-lydian-dark transition-colors"
             >
               <Download className="w-4 h-4 sm:w-5 sm:h-5" />
               Biletimi İndir
             </button>
             <button
               onClick={handleShare}
-              className="flex items-center justify-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 bg-white border-2 border-gray-200 text-gray-700 rounded-xl text-sm sm:text-base font-semibold hover:border-ailydian-primary hover:text-ailydian-primary transition-colors"
+              className="flex items-center justify-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 bg-white border-2 border-gray-200 text-gray-700 rounded-xl text-sm sm:text-base font-semibold hover:border-lydian-primary hover:text-lydian-primary transition-colors"
             >
               <Share2 className="w-4 h-4 sm:w-5 sm:h-5" />
               Paylaş
@@ -171,7 +171,7 @@ const BookingSuccess: React.FC = () => {
                           alt={item.title}
                           className="w-full sm:w-32 h-32 sm:h-24 object-cover rounded-xl"
                         />
-                        <div className="absolute -top-2 -left-2 w-8 h-8 sm:w-10 sm:h-10 bg-ailydian-primary rounded-full flex items-center justify-center text-white text-lg sm:text-xl">
+                        <div className="absolute -top-2 -left-2 w-8 h-8 sm:w-10 sm:h-10 bg-lydian-primary rounded-full flex items-center justify-center text-white text-lg sm:text-xl">
                           {getTypeIcon(item.type)}
                         </div>
                         <div className="absolute -bottom-2 -right-2 bg-green-500 text-white rounded-full p-1">
@@ -277,7 +277,7 @@ const BookingSuccess: React.FC = () => {
                 <div className="space-y-3 sm:space-y-4">
                   <div className="flex justify-between gap-2">
                     <span className="text-xs sm:text-sm text-gray-600">Onay Numarası</span>
-                    <span className="font-semibold text-xs sm:text-sm text-ailydian-primary text-right">{bookingDetails.confirmationNumber}</span>
+                    <span className="font-semibold text-xs sm:text-sm text-lydian-primary text-right">{bookingDetails.confirmationNumber}</span>
                   </div>
                   <div className="flex justify-between gap-2">
                     <span className="text-xs sm:text-sm text-gray-600">Rezervasyon Tarihi</span>
@@ -345,7 +345,7 @@ const BookingSuccess: React.FC = () => {
                   </div>
                   <div className="flex items-center gap-2 text-sm">
                     <Mail className="w-4 h-4 text-gray-400" />
-                    <span>destek@ailydian.com</span>
+                    <span>destek@lydian.com</span>
                   </div>
                 </div>
               </motion.div>
@@ -355,13 +355,13 @@ const BookingSuccess: React.FC = () => {
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.6 }}
-                className="bg-gradient-to-r from-ailydian-primary to-ailydian-secondary text-white rounded-2xl p-6"
+                className="bg-gradient-to-r from-lydian-primary to-lydian-secondary text-white rounded-2xl p-6"
               >
                 <h3 className="font-bold text-lg mb-4">Deneyiminizi Değerlendirin</h3>
                 <p className="text-white/90 text-sm mb-6">
                   Seyahatiniz tamamlandıktan sonra deneyiminizi paylaşmayı unutmayın!
                 </p>
-                <button className="w-full bg-white text-ailydian-primary py-3 px-4 rounded-xl font-semibold hover:bg-gray-100 transition-colors flex items-center justify-center gap-2">
+                <button className="w-full bg-white text-lydian-primary py-3 px-4 rounded-xl font-semibold hover:bg-gray-100 transition-colors flex items-center justify-center gap-2">
                   <Star className="w-5 h-5" />
                   Değerlendirme Yap
                 </button>
@@ -381,7 +381,7 @@ const BookingSuccess: React.FC = () => {
             </p>
             <Link
               href="/"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-ailydian-primary to-ailydian-secondary text-white rounded-xl font-bold hover:opacity-90 transition-opacity"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-lydian-primary to-lydian-secondary text-white rounded-xl font-bold hover:opacity-90 transition-opacity"
             >
               Yeni Seyahat Keşfet
               <ArrowRight className="w-5 h-5" />

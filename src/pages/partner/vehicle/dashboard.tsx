@@ -252,7 +252,7 @@ const VehicleOwnerDashboard: React.FC = () => {
   return (
     <>
       <Head>
-        <title>Şoförlü Araç Partner Dashboard | Travel Ailydian</title>
+        <title>Şoförlü Araç Partner Dashboard | Travel LyDian</title>
         <meta name="description" content="Vehicle owner dashboard with driver management" />
       </Head>
 

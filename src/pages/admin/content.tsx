@@ -49,7 +49,7 @@ export default function AdminContent() {
   return (
     <>
       <Head>
-        <title>İçerik Yönetimi | Ailydian Admin</title>
+        <title>İçerik Yönetimi | LyDian Admin</title>
         <meta name="robots" content="noindex, nofollow" />
       </Head>
 
@@ -58,7 +58,7 @@ export default function AdminContent() {
           {/* Sidebar */}
           <aside className="w-64 bg-gray-800 border-r border-gray-700 min-h-screen p-6">
             <div className="mb-8">
-              <h2 className="text-2xl font-bold text-white mb-2">Ailydian Admin</h2>
+              <h2 className="text-2xl font-bold text-white mb-2">LyDian Admin</h2>
               <p className="text-sm text-gray-400">{adminData?.email}</p>
             </div>
             <nav className="space-y-2">

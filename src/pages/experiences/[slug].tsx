@@ -62,10 +62,10 @@ export default function ExperienceDetail({ experience, relatedExperiences }: Exp
     "name": experience.title,
     "description": experience.description,
     "image": experience.images.hero,
-    "url": `https://travel.ailydian.com/experiences/${experience.slug}`,
+    "url": `https://travel.lydian.com/experiences/${experience.slug}`,
     "provider": {
       "@type": "Organization",
-      "name": "Ailydian Travel"
+      "name": "LyDian Travel"
     },
     "offers": {
       "@type": "Offer",
@@ -125,7 +125,7 @@ export default function ExperienceDetail({ experience, relatedExperiences }: Exp
 
         {/* Open Graph */}
         <meta property="og:type" content="website" />
-        <meta property="og:url" content={`https://travel.ailydian.com/experiences/${experience.slug}`} />
+        <meta property="og:url" content={`https://travel.lydian.com/experiences/${experience.slug}`} />
         <meta property="og:title" content={experience.seo.title} />
         <meta property="og:description" content={experience.seo.description} />
         <meta property="og:image" content={experience.seo.ogImage} />
@@ -136,7 +136,7 @@ export default function ExperienceDetail({ experience, relatedExperiences }: Exp
         <meta property="twitter:description" content={experience.seo.description} />
         <meta property="twitter:image" content={experience.seo.ogImage} />
 
-        <link rel="canonical" href={`https://travel.ailydian.com/experiences/${experience.slug}`} />
+        <link rel="canonical" href={`https://travel.lydian.com/experiences/${experience.slug}`} />
 
         <script
           type="application/ld+json"
@@ -259,8 +259,8 @@ export default function ExperienceDetail({ experience, relatedExperiences }: Exp
                     {experience.itinerary.map((item, idx) => (
                       <div key={idx} className="flex gap-4">
                         <div className="flex-shrink-0">
-                          <div className="w-16 h-16 rounded-full bg-ailydian-primary/10 flex items-center justify-center">
-                            <span className="text-ailydian-primary font-bold">{item.time}</span>
+                          <div className="w-16 h-16 rounded-full bg-lydian-primary/10 flex items-center justify-center">
+                            <span className="text-lydian-primary font-bold">{item.time}</span>
                           </div>
                         </div>
                         <div className="flex-1">
@@ -324,7 +324,7 @@ export default function ExperienceDetail({ experience, relatedExperiences }: Exp
               <div className="bg-white rounded-2xl shadow-lg p-6 sticky top-24">
                 <div className="mb-6">
                   <div className="flex items-baseline gap-2 mb-2">
-                    <span className="text-3xl font-bold text-ailydian-primary">₺{experience.pricing.adult}</span>
+                    <span className="text-3xl font-bold text-lydian-primary">₺{experience.pricing.adult}</span>
                     {experience.originalPrice && (
                       <span className="text-lg text-gray-500 line-through">₺{experience.originalPrice}</span>
                     )}
@@ -342,7 +342,7 @@ export default function ExperienceDetail({ experience, relatedExperiences }: Exp
                     value={selectedDate}
                     onChange={(e) => setSelectedDate(e.target.value)}
                     min={new Date().toISOString().split('T')[0]}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ailydian-primary focus:border-transparent"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-lydian-primary focus:border-transparent"
                   />
                 </div>
 
@@ -406,7 +406,7 @@ export default function ExperienceDetail({ experience, relatedExperiences }: Exp
                 <button
                   onClick={handleBooking}
                   disabled={!selectedDate}
-                  className="w-full py-4 bg-ailydian-primary text-white rounded-lg font-semibold hover:bg-ailydian-dark transition-colors disabled:bg-gray-300 disabled:cursor-not-allowed"
+                  className="w-full py-4 bg-lydian-primary text-white rounded-lg font-semibold hover:bg-lydian-dark transition-colors disabled:bg-gray-300 disabled:cursor-not-allowed"
                 >
                   Rezervasyon Yap
                 </button>
@@ -459,7 +459,7 @@ export default function ExperienceDetail({ experience, relatedExperiences }: Exp
                       </div>
                       <div className="flex items-center justify-between">
                         <span className="text-sm text-gray-600">{exp.duration}</span>
-                        <span className="text-lg font-bold text-ailydian-primary">₺{exp.pricing.adult}</span>
+                        <span className="text-lg font-bold text-lydian-primary">₺{exp.pricing.adult}</span>
                       </div>
                     </div>
                   </Link>

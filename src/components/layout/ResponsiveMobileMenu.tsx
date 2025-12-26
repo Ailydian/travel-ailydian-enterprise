@@ -211,7 +211,7 @@ const ResponsiveMobileMenu: React.FC<ResponsiveMobileMenuProps> = ({
             className="fixed top-0 left-0 bottom-0 w-[85%] max-w-sm bg-white z-[99999] overflow-y-auto shadow-2xl overscroll-contain"
           >
             {/* Header */}
-            <div className="sticky top-0 bg-gradient-to-r from-ailydian-primary to-ailydian-secondary p-6 mobile-nav-safe">
+            <div className="sticky top-0 bg-gradient-to-r from-lydian-primary to-lydian-secondary p-6 mobile-nav-safe">
               <div className="flex items-center justify-between mb-4">
                 <Link href="/" onClick={onClose}>
                   <div className="flex items-center gap-2">
@@ -219,7 +219,7 @@ const ResponsiveMobileMenu: React.FC<ResponsiveMobileMenuProps> = ({
                       <span className="text-2xl">✈️</span>
                     </div>
                     <div>
-                      <h2 className="text-white font-bold text-lg">Ailydian</h2>
+                      <h2 className="text-white font-bold text-lg">LyDian</h2>
                       <p className="text-blue-100 text-xs">Travel Platform</p>
                     </div>
                   </div>
@@ -278,7 +278,7 @@ const ResponsiveMobileMenu: React.FC<ResponsiveMobileMenuProps> = ({
                       {item.badge}
                     </span>
                   )}
-                  <ChevronRight className="w-5 h-5 text-gray-400 group-hover:text-ailydian-primary group-hover:translate-x-1 transition-all" />
+                  <ChevronRight className="w-5 h-5 text-gray-400 group-hover:text-lydian-primary group-hover:translate-x-1 transition-all" />
                 </motion.button>
               ))}
             </div>
@@ -309,11 +309,11 @@ const ResponsiveMobileMenu: React.FC<ResponsiveMobileMenuProps> = ({
                     <p className="font-medium text-gray-900">{item.label}</p>
                   </div>
                   {item.badge && item.badge !== '0' && (
-                    <span className="px-2 py-1 bg-ailydian-primary text-white text-xs font-bold rounded-full min-w-[24px] text-center">
+                    <span className="px-2 py-1 bg-lydian-primary text-white text-xs font-bold rounded-full min-w-[24px] text-center">
                       {item.badge}
                     </span>
                   )}
-                  <ChevronRight className="w-5 h-5 text-gray-400 group-hover:text-ailydian-primary group-hover:translate-x-1 transition-all" />
+                  <ChevronRight className="w-5 h-5 text-gray-400 group-hover:text-lydian-primary group-hover:translate-x-1 transition-all" />
                 </motion.button>
               ))}
 
@@ -341,7 +341,7 @@ const ResponsiveMobileMenu: React.FC<ResponsiveMobileMenuProps> = ({
             <div className="p-6 pb-8 mobile-nav-safe">
               <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl p-4 border border-blue-100">
                 <div className="flex items-center gap-3 mb-3">
-                  <Headphones className="w-5 h-5 text-ailydian-primary" />
+                  <Headphones className="w-5 h-5 text-lydian-primary" />
                   <p className="font-semibold text-gray-900">Müşteri Desteği</p>
                 </div>
                 <p className="text-sm text-gray-600 mb-3">
@@ -350,7 +350,7 @@ const ResponsiveMobileMenu: React.FC<ResponsiveMobileMenuProps> = ({
                 <Link
                   href="/support"
                   onClick={onClose}
-                  className="w-full bg-gradient-to-r from-ailydian-primary to-ailydian-secondary text-white py-3 px-4 rounded-xl font-medium flex items-center justify-center gap-2 hover:shadow-lg active:scale-95 transition-all touch-target"
+                  className="w-full bg-gradient-to-r from-lydian-primary to-lydian-secondary text-white py-3 px-4 rounded-xl font-medium flex items-center justify-center gap-2 hover:shadow-lg active:scale-95 transition-all touch-target"
                 >
                   <Headphones className="w-4 h-4" />
                   Destek Al
@@ -358,7 +358,7 @@ const ResponsiveMobileMenu: React.FC<ResponsiveMobileMenuProps> = ({
               </div>
 
               <p className="text-center text-xs text-gray-500 mt-6">
-                © 2025 Ailydian Travel. Tüm hakları saklıdır.
+                © 2025 LyDian Travel. Tüm hakları saklıdır.
               </p>
             </div>
           </motion.div>

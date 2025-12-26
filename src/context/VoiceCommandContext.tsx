@@ -415,7 +415,7 @@ export const VoiceCommandProvider: React.FC<{ children: React.ReactNode }> = ({ 
       patterns: ['kayıt ol', 'üye ol', 'register', 'sign up', 'hesap aç'],
       action: () => {
         router.push('/auth/signup');
-        speak('Kayıt sayfasına götürüyorum. Ailydian ailesine hoş geldiniz!');
+        speak('Kayıt sayfasına götürüyorum. LyDian ailesine hoş geldiniz!');
       },
       description: 'Kayıt ol',
       category: 'Hesap'
@@ -581,7 +581,7 @@ export const VoiceCommandProvider: React.FC<{ children: React.ReactNode }> = ({ 
       patterns: ['hakkımızda', 'about', 'about us', 'bilgi'],
       action: () => {
         router.push('/about');
-        speak('Travel Ailydian hakkında bilgi sayfasına götürüyorum.');
+        speak('Travel LyDian hakkında bilgi sayfasına götürüyorum.');
       },
       description: 'Hakkımızda',
       category: 'Bilgi'

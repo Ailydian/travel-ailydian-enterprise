@@ -1,44 +1,44 @@
 import { DefaultSeoProps } from 'next-seo';
 
 const config: DefaultSeoProps = {
-  defaultTitle: 'Ailydian Travel - AI-Powered Enterprise Travel Platform | Hotels, Flights & Transfers',
-  titleTemplate: '%s | Ailydian Travel',
-  description: 'Discover the future of travel with Ailydian AI. Book hotels, flights, and airport transfers worldwide. Blockchain-secured bookings, VR previews, and personalized AI travel planning.',
+  defaultTitle: 'LyDian Travel - AI-Powered Enterprise Travel Platform | Hotels, Flights & Transfers',
+  titleTemplate: '%s | LyDian Travel',
+  description: 'Discover the future of travel with LyDian AI. Book hotels, flights, and airport transfers worldwide. Blockchain-secured bookings, VR previews, and personalized AI travel planning.',
 
-  canonical: 'https://travel.ailydian.com',
+  canonical: 'https://travel.lydian.com',
 
   openGraph: {
     type: 'website',
     locale: 'tr_TR',
-    url: 'https://travel.ailydian.com',
-    siteName: 'Ailydian Travel',
-    title: 'Ailydian Travel - AI-Powered Enterprise Travel Platform',
+    url: 'https://travel.lydian.com',
+    siteName: 'LyDian Travel',
+    title: 'LyDian Travel - AI-Powered Enterprise Travel Platform',
     description: 'Türkiye\'nin en gelişmiş AI destekli seyahat platformu. Oteller, uçuş biletleri ve havalimanı transferleri.',
     images: [
       {
-        url: 'https://travel.ailydian.com/images/og-image.jpg',
+        url: 'https://travel.lydian.com/images/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Ailydian Travel Platform',
+        alt: 'LyDian Travel Platform',
         type: 'image/jpeg',
       },
     ],
   },
 
   twitter: {
-    handle: '@ailydiantravel',
-    site: '@ailydiantravel',
+    handle: '@lydiantravel',
+    site: '@lydiantravel',
     cardType: 'summary_large_image',
   },
 
   additionalMetaTags: [
     {
       name: 'keywords',
-      content: 'otel rezervasyon, ucuz otel, ucuz uçak bileti, havalimanı transfer, tatil paketleri, antalya otelleri, istanbul otelleri, all inclusive otel, hotel booking, flight booking, airport transfer, turkey hotels, ailydian ai',
+      content: 'otel rezervasyon, ucuz otel, ucuz uçak bileti, havalimanı transfer, tatil paketleri, antalya otelleri, istanbul otelleri, all inclusive otel, hotel booking, flight booking, airport transfer, turkey hotels, lydian ai',
     },
     {
       name: 'author',
-      content: 'Ailydian Travel',
+      content: 'LyDian Travel',
     },
     {
       name: 'viewport',
@@ -50,7 +50,7 @@ const config: DefaultSeoProps = {
     },
     {
       name: 'application-name',
-      content: 'Ailydian Travel',
+      content: 'LyDian Travel',
     },
     {
       name: 'apple-mobile-web-app-capable',

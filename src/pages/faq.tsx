@@ -12,7 +12,7 @@ const FAQ_CATEGORIES = [
     questions: [
       {
         question: 'Nasıl rezervasyon yapabilirim?',
-        answer: 'Ailydian Travel ile rezervasyon yapmak çok kolay! İstediğiniz oteli, turu veya aktiviteyi seçin, tarihlerinizi belirleyin ve ödeme işlemini tamamlayın. Rezervasyon onayınız e-posta ve SMS ile gönderilecektir.'
+        answer: 'LyDian Travel ile rezervasyon yapmak çok kolay! İstediğiniz oteli, turu veya aktiviteyi seçin, tarihlerinizi belirleyin ve ödeme işlemini tamamlayın. Rezervasyon onayınız e-posta ve SMS ile gönderilecektir.'
       },
       {
         question: 'Rezervasyonumu nasıl iptal edebilirim?',
@@ -112,7 +112,7 @@ const FAQ_CATEGORIES = [
       },
       {
         question: 'Yurt dışı seyahatlerinde roaming ücreti var mı?',
-        answer: 'Roaming ücretleri telekomünikasyon operatörünüze bağlıdır. Ailydian Travel mobil uygulamamız offline çalışabilir ve Wi-Fi bağlantısı olmadan da rezervasyonlarınıza erişebilirsiniz.'
+        answer: 'Roaming ücretleri telekomünikasyon operatörünüze bağlıdır. LyDian Travel mobil uygulamamız offline çalışabilir ve Wi-Fi bağlantısı olmadan da rezervasyonlarınıza erişebilirsiniz.'
       }
     ]
   },
@@ -130,7 +130,7 @@ const FAQ_CATEGORIES = [
       },
       {
         question: 'Şikayet ve önerilerimi nasıl iletebilirim?',
-        answer: 'İletişim sayfamızdaki formu doldurarak veya info@ailydian.com adresine e-posta göndererek şikayet ve önerilerinizi iletebilirsiniz.'
+        answer: 'İletişim sayfamızdaki formu doldurarak veya info@lydian.com adresine e-posta göndererek şikayet ve önerilerinizi iletebilirsiniz.'
       },
       {
         question: 'Hangi dillerde destek veriyorsunuz?',
@@ -169,19 +169,19 @@ export default function FAQ() {
   return (
     <>
       <Head>
-        <title>Sık Sorulan Sorular | Ailydian Travel - Türkiye'nin AI Destekli Seyahat Platformu</title>
-        <meta name="description" content="Ailydian Travel hakkında merak ettikleriniz: Rezervasyon, ödeme, iptal, AI asistan, VR önizleme, blockchain doğrulama ve daha fazlası." />
-        <meta name="keywords" content="sık sorulan sorular, faq, ailydian travel, rezervasyon iptal, ödeme, müşteri hizmetleri, ai asistan, vr önizleme" />
+        <title>Sık Sorulan Sorular | LyDian Travel - Türkiye'nin AI Destekli Seyahat Platformu</title>
+        <meta name="description" content="LyDian Travel hakkında merak ettikleriniz: Rezervasyon, ödeme, iptal, AI asistan, VR önizleme, blockchain doğrulama ve daha fazlası." />
+        <meta name="keywords" content="sık sorulan sorular, faq, lydian travel, rezervasyon iptal, ödeme, müşteri hizmetleri, ai asistan, vr önizleme" />
 
         {/* Open Graph */}
-        <meta property="og:title" content="Sık Sorulan Sorular | Ailydian Travel" />
+        <meta property="og:title" content="Sık Sorulan Sorular | LyDian Travel" />
         <meta property="og:description" content="Rezervasyon, ödeme, iptal ve tüm hizmetlerimiz hakkında merak ettikleriniz." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://travel.ailydian.com/faq" />
+        <meta property="og:url" content="https://travel.lydian.com/faq" />
 
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Sık Sorulan Sorular | Ailydian Travel" />
+        <meta name="twitter:title" content="Sık Sorulan Sorular | LyDian Travel" />
         <meta name="twitter:description" content="Rezervasyon, ödeme, iptal ve tüm hizmetlerimiz hakkında merak ettikleriniz." />
 
         {/* Structured Data */}
@@ -208,7 +208,7 @@ export default function FAQ() {
       {/* Return to Home Button */}
       <Link
         href="/"
-        className="fixed top-24 left-6 z-10 flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200 text-gray-700 hover:bg-white hover:text-ailydian-primary transition-all duration-200"
+        className="fixed top-24 left-6 z-10 flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200 text-gray-700 hover:bg-white hover:text-lydian-primary transition-all duration-200"
       >
         <ArrowLeft className="w-4 h-4" />
         <span className="font-medium">Ana Sayfaya Dön</span>
@@ -273,7 +273,7 @@ export default function FAQ() {
             {filteredCategories.map((category) => (
               <div key={category.id} className="bg-white rounded-xl shadow-lg p-6">
                 <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
-                  <div className="w-1 h-8 bg-gradient-to-b from-ailydian-primary to-ailydian-secondary rounded-full"></div>
+                  <div className="w-1 h-8 bg-gradient-to-b from-lydian-primary to-lydian-secondary rounded-full"></div>
                   {category.name}
                 </h2>
 
@@ -285,7 +285,7 @@ export default function FAQ() {
                     return (
                       <div
                         key={index}
-                        className="border border-gray-200 rounded-lg overflow-hidden hover:border-ailydian-primary transition-colors"
+                        className="border border-gray-200 rounded-lg overflow-hidden hover:border-lydian-primary transition-colors"
                       >
                         <button
                           onClick={() => toggleQuestion(category.id, index)}
@@ -293,7 +293,7 @@ export default function FAQ() {
                         >
                           <span className="font-semibold text-gray-900 pr-4">{q.question}</span>
                           <ChevronDown
-                            className={`w-5 h-5 text-ailydian-primary transition-transform flex-shrink-0 ${
+                            className={`w-5 h-5 text-lydian-primary transition-transform flex-shrink-0 ${
                               isExpanded ? 'rotate-180' : ''
                             }`}
                           />
@@ -333,7 +333,7 @@ export default function FAQ() {
                 </button>
                 <Link
                   href="/contact"
-                  className="px-6 py-3 bg-gradient-to-r from-ailydian-primary to-ailydian-secondary text-white rounded-lg hover:shadow-lg transition-all font-semibold"
+                  className="px-6 py-3 bg-gradient-to-r from-lydian-primary to-lydian-secondary text-white rounded-lg hover:shadow-lg transition-all font-semibold"
                 >
                   İletişime Geç
                 </Link>

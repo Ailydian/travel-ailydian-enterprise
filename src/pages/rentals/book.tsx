@@ -390,7 +390,7 @@ const RentalBookingPage = () => {
   return (
     <>
       <Head>
-        <title>Rezervasyon: {property.title} | Travel Ailydian</title>
+        <title>Rezervasyon: {property.title} | Travel LyDian</title>
       </Head>
 
       <ResponsiveHeaderBar />

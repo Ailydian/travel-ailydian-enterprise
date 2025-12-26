@@ -133,7 +133,7 @@ export default function VehicleOwnerLoginPage() {
               <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center">
                 <Car className="w-6 h-6 text-green-600" />
               </div>
-              <span className="text-2xl font-bold text-white">Ailydian</span>
+              <span className="text-2xl font-bold text-white">LyDian</span>
             </Link>
 
             {/* Main Content */}
@@ -199,7 +199,7 @@ export default function VehicleOwnerLoginPage() {
               <div className="w-10 h-10 bg-gradient-to-r from-green-600 to-emerald-600 rounded-lg flex items-center justify-center">
                 <Car className="w-6 h-6 text-white" />
               </div>
-              <span className="text-2xl font-bold text-gray-900">Ailydian</span>
+              <span className="text-2xl font-bold text-gray-900">LyDian</span>
             </div>
 
             {/* Header */}

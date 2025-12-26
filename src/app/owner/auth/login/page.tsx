@@ -101,7 +101,7 @@ export default function OwnerLoginPage() {
               <div className="w-10 h-10 bg-gradient-to-r from-[#FF214D] to-[#FF6A45] rounded-lg flex items-center justify-center">
                 <Home className="w-6 h-6 text-white" />
               </div>
-              <span className="text-2xl font-bold text-gray-900">Ailydian</span>
+              <span className="text-2xl font-bold text-gray-900">LyDian</span>
             </Link>
 
             {/* Main Content */}
@@ -167,7 +167,7 @@ export default function OwnerLoginPage() {
               <div className="w-10 h-10 bg-gradient-to-r from-[#FF214D] to-[#FF6A45] rounded-lg flex items-center justify-center">
                 <Home className="w-6 h-6 text-white" />
               </div>
-              <span className="text-2xl font-bold text-gray-900">Ailydian</span>
+              <span className="text-2xl font-bold text-gray-900">LyDian</span>
             </div>
 
             {/* Header */}

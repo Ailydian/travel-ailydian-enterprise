@@ -268,7 +268,7 @@ export default function AdminUsers() {
   return (
     <>
       <Head>
-        <title>Kullanıcı Yönetimi - Travel Ailydian</title>
+        <title>Kullanıcı Yönetimi - Travel LyDian</title>
         <meta name="robots" content="noindex, nofollow" />
       </Head>
 

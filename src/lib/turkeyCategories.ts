@@ -441,10 +441,10 @@ export function getAllCategories(): TurkeyCategory[] {
  */
 export function generateCategorySEO(category: TurkeyCategory) {
   return {
-    title: `${category.name} - Travel Ailydian`,
+    title: `${category.name} - Travel LyDian`,
     description: `${category.description}. ${category.popularDestinations.slice(0, 3).join(', ')} ve daha fazla destinasyonda en iyi ${category.name.toLowerCase()} seçenekleri.`,
     keywords: category.seoKeywords.join(', '),
     ogImage: category.image,
-    canonical: `https://travel.ailydian.com/kategoriler/${category.slug}`
+    canonical: `https://travel.lydian.com/kategoriler/${category.slug}`
   };
 }

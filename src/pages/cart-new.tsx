@@ -43,7 +43,7 @@ const CartPage: React.FC = () => {
 
   // Load saved items from localStorage
   useEffect(() => {
-    const saved = localStorage.getItem('ailydian_saved_for_later');
+    const saved = localStorage.getItem('lydian_saved_for_later');
     if (saved) {
       setSavedForLater(JSON.parse(saved));
     }
@@ -97,7 +97,7 @@ const CartPage: React.FC = () => {
   const handleSaveForLater = (itemId: string) => {
     const newSaved = [...savedForLater, itemId];
     setSavedForLater(newSaved);
-    localStorage.setItem('ailydian_saved_for_later', JSON.stringify(newSaved));
+    localStorage.setItem('lydian_saved_for_later', JSON.stringify(newSaved));
     removeItem(itemId);
   };
 
@@ -136,7 +136,7 @@ const CartPage: React.FC = () => {
   return (
     <>
       <Head>
-        <title>Sepetim - Ailydian Travel | AI Destekli Rezervasyon</title>
+        <title>Sepetim - LyDian Travel | AI Destekli Rezervasyon</title>
         <meta name="description" content="Sepetinizdeki rezervasyonları inceleyin ve güvenli ödeme ile rezervasyonunuzu tamamlayın." />
         <meta name="keywords" content="sepet, rezervasyon, ödeme, travel, Türkiye" />
       </Head>
@@ -149,7 +149,7 @@ const CartPage: React.FC = () => {
       {/* Back Button */}
       <Link 
         href="/" 
-        className="fixed top-24 left-6 z-40 flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200 text-gray-700 hover:bg-white hover:text-ailydian-primary transition-all duration-200"
+        className="fixed top-24 left-6 z-40 flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200 text-gray-700 hover:bg-white hover:text-lydian-primary transition-all duration-200"
       >
         <ArrowLeft className="w-4 h-4" />
         <span className="font-medium">Ana Sayfaya Dön</span>
@@ -164,13 +164,13 @@ const CartPage: React.FC = () => {
             className="text-center mb-8"
           >
             <div className="flex items-center justify-center gap-3 mb-4">
-              <div className="w-12 h-12 bg-gradient-to-r from-ailydian-primary to-ailydian-secondary rounded-2xl flex items-center justify-center">
+              <div className="w-12 h-12 bg-gradient-to-r from-lydian-primary to-lydian-secondary rounded-2xl flex items-center justify-center">
                 <ShoppingCart className="w-6 h-6 text-white" />
               </div>
-              <h1 className="text-4xl font-bold bg-gradient-to-r from-ailydian-primary to-ailydian-secondary bg-clip-text text-transparent">
+              <h1 className="text-4xl font-bold bg-gradient-to-r from-lydian-primary to-lydian-secondary bg-clip-text text-transparent">
                 Sepetim
               </h1>
-              <div className="px-3 py-1 bg-ailydian-primary text-white rounded-full text-sm font-medium">
+              <div className="px-3 py-1 bg-lydian-primary text-white rounded-full text-sm font-medium">
                 {state.totalItems} ürün
               </div>
             </div>
@@ -194,7 +194,7 @@ const CartPage: React.FC = () => {
                   </div>
                   <button
                     onClick={handleUndoRemove}
-                    className="px-3 py-1 bg-ailydian-primary text-white rounded-lg text-sm font-medium hover:bg-ailydian-dark transition-colors"
+                    className="px-3 py-1 bg-lydian-primary text-white rounded-lg text-sm font-medium hover:bg-lydian-dark transition-colors"
                   >
                     Geri Al
                   </button>
@@ -220,14 +220,14 @@ Türkiye&apos;nin en güzel destinasyonlarını ve benzersiz deneyimlerini keşf
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Link 
                   href="/" 
-                  className="px-8 py-4 bg-gradient-to-r from-ailydian-primary to-ailydian-secondary text-white rounded-2xl font-semibold hover:shadow-lg transition-all duration-200 flex items-center gap-2"
+                  className="px-8 py-4 bg-gradient-to-r from-lydian-primary to-lydian-secondary text-white rounded-2xl font-semibold hover:shadow-lg transition-all duration-200 flex items-center gap-2"
                 >
                   <Sparkles className="w-5 h-5" />
                   Keşfetmeye Başla
                 </Link>
                 <Link 
                   href="/tours" 
-                  className="px-8 py-4 border-2 border-ailydian-primary text-ailydian-primary rounded-2xl font-semibold hover:bg-ailydian-primary hover:text-white transition-all duration-200"
+                  className="px-8 py-4 border-2 border-lydian-primary text-lydian-primary rounded-2xl font-semibold hover:bg-lydian-primary hover:text-white transition-all duration-200"
                 >
                   Popüler Turlar
                 </Link>
@@ -373,7 +373,7 @@ Türkiye&apos;nin en güzel destinasyonlarını ve benzersiz deneyimlerini keşf
                                     {item.currency === 'TRY' ? '₺' : item.currency}{item.originalPrice}
                                   </span>
                                 )}
-                                <span className="text-2xl font-bold text-ailydian-primary">
+                                <span className="text-2xl font-bold text-lydian-primary">
                                   {item.currency === 'TRY' ? '₺' : item.currency}{(item.price * item.quantity).toLocaleString()}
                                 </span>
                               </div>
@@ -429,14 +429,14 @@ Türkiye&apos;nin en güzel destinasyonlarını ve benzersiz deneyimlerini keşf
                           value={discountCode}
                           onChange={(e) => setDiscountCode(e.target.value)}
                           placeholder="Kod girin"
-                          className="flex-1 px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-ailydian-primary focus:border-ailydian-primary outline-none"
+                          className="flex-1 px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-lydian-primary focus:border-lydian-primary outline-none"
                           onKeyPress={(e) => e.key === 'Enter' && handleApplyDiscount()}
                         />
                         <motion.button
                           whileTap={{ scale: 0.95 }}
                           onClick={handleApplyDiscount}
                           disabled={isApplyingDiscount || !discountCode.trim()}
-                          className="px-6 py-3 bg-ailydian-primary text-white rounded-xl font-medium disabled:opacity-50 disabled:cursor-not-allowed hover:bg-ailydian-dark transition-colors flex items-center gap-2"
+                          className="px-6 py-3 bg-lydian-primary text-white rounded-xl font-medium disabled:opacity-50 disabled:cursor-not-allowed hover:bg-lydian-dark transition-colors flex items-center gap-2"
                         >
                           {isApplyingDiscount ? (
                             <RefreshCw className="w-4 h-4 animate-spin" />
@@ -504,7 +504,7 @@ Türkiye&apos;nin en güzel destinasyonlarını ve benzersiz deneyimlerini keşf
                       <div className="pt-3 border-t border-gray-200">
                         <div className="flex justify-between items-center">
                           <span className="text-xl font-bold text-gray-900">Toplam</span>
-                          <span className="text-2xl font-bold text-ailydian-primary">
+                          <span className="text-2xl font-bold text-lydian-primary">
                             ₺{state.finalTotal.toLocaleString()}
                           </span>
                         </div>
@@ -533,7 +533,7 @@ Türkiye&apos;nin en güzel destinasyonlarını ve benzersiz deneyimlerini keşf
                       <motion.button
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
-                        className="w-full py-4 bg-gradient-to-r from-ailydian-primary to-ailydian-secondary text-white rounded-2xl font-bold text-lg hover:shadow-lg transition-all duration-200 flex items-center justify-center gap-3"
+                        className="w-full py-4 bg-gradient-to-r from-lydian-primary to-lydian-secondary text-white rounded-2xl font-bold text-lg hover:shadow-lg transition-all duration-200 flex items-center justify-center gap-3"
                       >
                         <Lock className="w-5 h-5" />
                         Güvenli Ödemeye Geç

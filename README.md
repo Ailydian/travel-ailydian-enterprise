@@ -1,8 +1,8 @@
-# 🚀 Travel.Ailydian Enterprise - Global AI Tourism Platform
+# 🚀 Travel.LyDian Enterprise - Global AI Tourism Platform
 
-[![Enterprise Grade](https://img.shields.io/badge/Enterprise-Grade-gold.svg)](https://travel.ailydian.com)
-[![AI Powered](https://img.shields.io/badge/AI-Powered-blue.svg)](https://ai.ailydian.com)
-[![Blockchain Secured](https://img.shields.io/badge/Blockchain-Secured-green.svg)](https://blockchain.ailydian.com)
+[![Enterprise Grade](https://img.shields.io/badge/Enterprise-Grade-gold.svg)](https://travel.lydian.com)
+[![AI Powered](https://img.shields.io/badge/AI-Powered-blue.svg)](https://ai.lydian.com)
+[![Blockchain Secured](https://img.shields.io/badge/Blockchain-Secured-green.svg)](https://blockchain.lydian.com)
 
 ## 🌟 Enterprise Features
 
@@ -41,8 +41,8 @@
 ### Installation
 ```bash
 # Clone repository
-git clone https://github.com/ailydian/travel-ailydian-enterprise.git
-cd travel-ailydian-enterprise
+git clone https://github.com/lydian/travel-lydian-enterprise.git
+cd travel-lydian-enterprise
 
 # Install dependencies
 npm install
@@ -90,10 +90,10 @@ vercel --prod
 
 ## 📄 License
 
-MIT License - Ailydian AI Ecosystem
+MIT License - LyDian AI Ecosystem
 
 ---
 
-**Built with ❤️ by the Ailydian AI Ecosystem Team**
-# travel-ailydian-enterprise
+**Built with ❤️ by the LyDian AI Ecosystem Team**
+# travel-lydian-enterprise
 # Force redeploy

@@ -145,7 +145,7 @@ export default function Blog() {
 
       <main className="min-h-screen bg-gray-50">
         {/* Hero Section */}
-        <div className="bg-gradient-to-r from-ailydian-primary to-ailydian-dark text-white py-20">
+        <div className="bg-gradient-to-r from-lydian-primary to-lydian-dark text-white py-20">
           <div className="max-w-7xl mx-auto px-4">
             <div className="text-center max-w-3xl mx-auto">
               <h1 className="text-5xl md:text-6xl font-bold mb-6">
@@ -178,7 +178,7 @@ export default function Blog() {
           <div className="max-w-7xl mx-auto px-4 -mt-16 relative z-10 mb-16">
             <div className="bg-white rounded-xl shadow-xl p-8">
               <div className="flex items-center gap-2 mb-6">
-                <TrendingUp className="w-6 h-6 text-ailydian-primary" />
+                <TrendingUp className="w-6 h-6 text-lydian-primary" />
                 <h2 className="text-2xl font-bold text-gray-900">Öne Çıkan Yazılar</h2>
               </div>
 
@@ -193,12 +193,12 @@ export default function Blog() {
                         className="object-cover group-hover:scale-105 transition-transform duration-300"
                       />
                       <div className="absolute top-4 left-4">
-                        <span className="px-3 py-1 bg-ailydian-primary text-white text-sm font-semibold rounded-full">
+                        <span className="px-3 py-1 bg-lydian-primary text-white text-sm font-semibold rounded-full">
                           {post.category}
                         </span>
                       </div>
                     </div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-ailydian-primary transition-colors">
+                    <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-lydian-primary transition-colors">
                       {post.title}
                     </h3>
                     <p className="text-gray-600 mb-4 line-clamp-2">
@@ -234,7 +234,7 @@ export default function Blog() {
                 onClick={() => setSelectedCategory(category)}
                 className={`px-6 py-2 rounded-full font-medium transition-colors ${
                   selectedCategory === category
-                    ? 'bg-ailydian-primary text-white'
+                    ? 'bg-lydian-primary text-white'
                     : 'bg-white text-gray-700 hover:bg-gray-100'
                 }`}
               >
@@ -257,14 +257,14 @@ export default function Blog() {
                     className="object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                   <div className="absolute top-4 left-4">
-                    <span className="px-3 py-1 bg-white/90 backdrop-blur text-ailydian-primary text-sm font-semibold rounded-full">
+                    <span className="px-3 py-1 bg-white/90 backdrop-blur text-lydian-primary text-sm font-semibold rounded-full">
                       {post.category}
                     </span>
                   </div>
                 </div>
 
                 <div className="p-6">
-                  <h3 className="text-lg font-bold text-gray-900 mb-3 group-hover:text-ailydian-primary transition-colors line-clamp-2">
+                  <h3 className="text-lg font-bold text-gray-900 mb-3 group-hover:text-lydian-primary transition-colors line-clamp-2">
                     {post.title}
                   </h3>
                   <p className="text-gray-600 mb-4 line-clamp-3 text-sm">
@@ -288,7 +288,7 @@ export default function Blog() {
                     </div>
                   </div>
 
-                  <button className="inline-flex items-center gap-2 text-ailydian-primary font-semibold hover:gap-3 transition-all">
+                  <button className="inline-flex items-center gap-2 text-lydian-primary font-semibold hover:gap-3 transition-all">
                     Devamını Oku
                     <ArrowRight className="w-4 h-4" />
                   </button>
@@ -309,7 +309,7 @@ export default function Blog() {
         {/* Newsletter Section */}
         <div className="bg-white py-16 border-t border-gray-200">
           <div className="max-w-4xl mx-auto px-4">
-            <div className="bg-gradient-to-r from-ailydian-primary to-ailydian-dark text-white rounded-2xl p-8 md:p-12 text-center">
+            <div className="bg-gradient-to-r from-lydian-primary to-lydian-dark text-white rounded-2xl p-8 md:p-12 text-center">
               <h2 className="text-3xl font-bold mb-4">
                 Blog Yazılarımızı Kaçırmayın
               </h2>
@@ -322,7 +322,7 @@ export default function Blog() {
                   placeholder="E-posta adresiniz"
                   className="flex-1 px-4 py-3 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-white"
                 />
-                <button className="bg-white text-ailydian-primary px-6 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors whitespace-nowrap">
+                <button className="bg-white text-lydian-primary px-6 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors whitespace-nowrap">
                   Abone Ol
                 </button>
               </div>
@@ -355,7 +355,7 @@ export default function Blog() {
               ].map((tag, index) => (
                 <button
                   key={index}
-                  className="px-4 py-2 bg-white rounded-full text-sm text-gray-700 hover:bg-ailydian-primary hover:text-white transition-colors flex items-center gap-2"
+                  className="px-4 py-2 bg-white rounded-full text-sm text-gray-700 hover:bg-lydian-primary hover:text-white transition-colors flex items-center gap-2"
                 >
                   <Tag className="w-4 h-4" />
                   {tag}

@@ -444,5 +444,5 @@ Food: https://images.unsplash.com/photo-1517248135467-4c7edcad34c4
 
 ## License
 
-Part of Travel Ailydian Enterprise Platform
-© 2024 Ailydian. All rights reserved.
+Part of Travel LyDian Enterprise Platform
+© 2024 LyDian. All rights reserved.

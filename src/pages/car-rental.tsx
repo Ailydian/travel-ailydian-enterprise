@@ -148,8 +148,8 @@ const CarRental: React.FC = () => {
   return (
     <>
       <Head>
-        <title>Araç Kiralama - Travel.Ailydian | Ekonomik ve Lüks Araç Kiralama</title>
-        <meta name="description" content="Travel.Ailydian ile güvenilir araç kiralama hizmeti. Ekonomik, konfor ve lüks araç seçenekleri ile seyahatinizi özgürce planlayın." />
+        <title>Araç Kiralama - Travel.LyDian | Ekonomik ve Lüks Araç Kiralama</title>
+        <meta name="description" content="Travel.LyDian ile güvenilir araç kiralama hizmeti. Ekonomik, konfor ve lüks araç seçenekleri ile seyahatinizi özgürce planlayın." />
       </Head>
 
       <BookingHeader />

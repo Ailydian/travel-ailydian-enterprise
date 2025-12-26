@@ -247,19 +247,19 @@ export default function LocationPage({
       <NextSeo
         title={seoTitle}
         description={seoDescription}
-        canonical={`https://travel.ailydian.com/location/${location.slug}`}
+        canonical={`https://travel.lydian.com/location/${location.slug}`}
         openGraph={{
           type: 'business.business',
           title: seoTitle,
           description: seoDescription,
-          url: `https://travel.ailydian.com/location/${location.slug}`,
+          url: `https://travel.lydian.com/location/${location.slug}`,
           images: photos.slice(0, 4).map(photo => ({
             url: photo.url,
             width: photo.width || 800,
             height: photo.height || 600,
             alt: getLocalizedContent(photo.alt_text, locationName)
           })),
-          site_name: 'Travel.Ailydian'
+          site_name: 'Travel.LyDian'
         }}
         twitter={{
           cardType: 'summary_large_image',
@@ -294,22 +294,22 @@ export default function LocationPage({
           {
             rel: 'alternate',
             hrefLang: 'x-default',
-            href: `https://travel.ailydian.com/location/${location.slug}`
+            href: `https://travel.lydian.com/location/${location.slug}`
           },
           ...['en', 'tr', 'de', 'fr', 'es'].map(lang => ({
             rel: 'alternate',
             hrefLang: lang,
-            href: `https://travel.ailydian.com/${lang}/location/${location.slug}`
+            href: `https://travel.lydian.com/${lang}/location/${location.slug}`
           }))
         ]}
       />
 
       <LocalBusinessJsonLd
         type={location.category?.slug === 'restaurants' ? 'Restaurant' : 'LocalBusiness'}
-        id={`https://travel.ailydian.com/location/${location.slug}`}
+        id={`https://travel.lydian.com/location/${location.slug}`}
         name={locationName}
         description={locationDescription}
-        url={`https://travel.ailydian.com/location/${location.slug}`}
+        url={`https://travel.lydian.com/location/${location.slug}`}
         telephone={location.phone}
         address={{
           streetAddress: locationAddress,
@@ -358,31 +358,31 @@ export default function LocationPage({
                   "@type": "ListItem",
                   "position": 1,
                   "name": "Home",
-                  "item": "https://travel.ailydian.com"
+                  "item": "https://travel.lydian.com"
                 },
                 {
                   "@type": "ListItem",
                   "position": 2,
                   "name": countryName,
-                  "item": `https://travel.ailydian.com/country/${location.city?.country?.code?.toLowerCase()}`
+                  "item": `https://travel.lydian.com/country/${location.city?.country?.code?.toLowerCase()}`
                 },
                 {
                   "@type": "ListItem",
                   "position": 3,
                   "name": cityName,
-                  "item": `https://travel.ailydian.com/city/${location.city?.slug}`
+                  "item": `https://travel.lydian.com/city/${location.city?.slug}`
                 },
                 {
                   "@type": "ListItem",
                   "position": 4,
                   "name": categoryName,
-                  "item": `https://travel.ailydian.com/${location.category?.slug}`
+                  "item": `https://travel.lydian.com/${location.category?.slug}`
                 },
                 {
                   "@type": "ListItem",
                   "position": 5,
                   "name": locationName,
-                  "item": `https://travel.ailydian.com/location/${location.slug}`
+                  "item": `https://travel.lydian.com/location/${location.slug}`
                 }
               ]
             })

@@ -1,5 +1,5 @@
 /**
- * Travel Ailydian - Admin Index
+ * Travel LyDian - Admin Index
  * Redirects to new V2 Ultra Premium Admin Dashboard
  */
 

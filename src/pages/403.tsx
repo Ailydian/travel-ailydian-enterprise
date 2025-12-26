@@ -41,7 +41,7 @@ const Custom403Page: React.FC = () => {
   return (
     <>
       <Head>
-        <title>403 - Erişim Yasak | Travel.Ailydian</title>
+        <title>403 - Erişim Yasak | Travel.LyDian</title>
         <meta name="description" content="Bu sayfaya erişim yetkiniz bulunmamaktadır." />
         <meta name="robots" content="noindex, nofollow" />
       </Head>
@@ -76,7 +76,7 @@ const Custom403Page: React.FC = () => {
                     color: 'var(--tx-1)',
                     textShadow: '0 0 10px var(--ac-1), 0 0 20px var(--ac-1)'
                   }}>
-                    Travel.Ailydian
+                    Travel.LyDian
                   </span>
                 </Link>
               </div>
@@ -250,7 +250,7 @@ const Custom403Page: React.FC = () => {
           }}>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="text-center">
-                <p style={{color: 'var(--tx-2)'}}>&copy; 2025 Travel.Ailydian. Tüm hakları saklıdır.</p>
+                <p style={{color: 'var(--tx-2)'}}>&copy; 2025 Travel.LyDian. Tüm hakları saklıdır.</p>
                 <p className="mt-1 text-sm" style={{
                   color: 'var(--ac-2)',
                   textShadow: '0 0 10px var(--ac-2)'

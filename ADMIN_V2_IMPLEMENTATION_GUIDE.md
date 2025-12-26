@@ -1,4 +1,4 @@
-# Travel Ailydian Admin V2 - Implementation Guide
+# Travel LyDian Admin V2 - Implementation Guide
 
 ## Complete Navigation Links Analysis
 

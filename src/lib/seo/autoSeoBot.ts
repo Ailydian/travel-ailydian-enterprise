@@ -173,7 +173,7 @@ class AutoSeoBot {
 
   // Başlık optimizasyonu
   private optimizeTitle(title: string, keywords: string[]): string {
-    if (!title) return 'Travel Ailydian - Premium Seyahat Deneyimi';
+    if (!title) return 'Travel LyDian - Premium Seyahat Deneyimi';
 
     let optimizedTitle = title;
 
@@ -193,7 +193,7 @@ class AutoSeoBot {
   // Açıklama optimizasyonu
   private optimizeDescription(description: string, keywords: string[]): string {
     if (!description) {
-      return `Ailydian ile premium seyahat deneyimi yaşayın. ${keywords.slice(0, 3).join(', ')} ve daha fazlası için en iyi fırsatları keşfedin.`;
+      return `LyDian ile premium seyahat deneyimi yaşayın. ${keywords.slice(0, 3).join(', ')} ve daha fazlası için en iyi fırsatları keşfedin.`;
     }
 
     let optimizedDesc = description;
@@ -231,7 +231,7 @@ class AutoSeoBot {
         url: pageData.url,
         title: analysis.meta.title,
         description: analysis.meta.description,
-        siteName: 'Travel Ailydian',
+        siteName: 'Travel LyDian',
         images: [
           {
             url: `${this.baseUrl}/images/og-travel-default.jpg`,
@@ -242,8 +242,8 @@ class AutoSeoBot {
         ]
       },
       twitter: {
-        handle: '@travelailydian',
-        site: '@travelailydian',
+        handle: '@travellydian',
+        site: '@travellydian',
         cardType: 'summary_large_image',
       },
       additionalMetaTags: [
@@ -253,7 +253,7 @@ class AutoSeoBot {
         },
         {
           name: 'author',
-          content: 'Travel Ailydian'
+          content: 'Travel LyDian'
         },
         {
           name: 'robots',
@@ -278,14 +278,14 @@ class AutoSeoBot {
     return {
       '@context': 'https://schema.org',
       '@type': 'TravelAgency',
-      name: 'Travel Ailydian',
+      name: 'Travel LyDian',
       url: this.baseUrl,
       logo: `${this.baseUrl}/images/logo.png`,
       description: 'Premium AI-powered global tourism platform',
       sameAs: [
-        'https://www.facebook.com/travelailydian',
-        'https://www.twitter.com/travelailydian',
-        'https://www.instagram.com/travelailydian'
+        'https://www.facebook.com/travellydian',
+        'https://www.twitter.com/travellydian',
+        'https://www.instagram.com/travellydian'
       ]
     };
   }

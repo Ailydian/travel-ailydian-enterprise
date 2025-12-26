@@ -1,5 +1,5 @@
 /**
- * B2B Partners Management - Travel Ailydian Admin V2
+ * B2B Partners Management - Travel LyDian Admin V2
  * Manage all B2B partnerships, commissions, and partner performance
  *
  * Features:

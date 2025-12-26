@@ -116,7 +116,7 @@ export default function Press() {
 
       <main className="min-h-screen bg-gray-50">
         {/* Hero Section */}
-        <div className="bg-gradient-to-r from-ailydian-primary to-ailydian-dark text-white py-20">
+        <div className="bg-gradient-to-r from-lydian-primary to-lydian-dark text-white py-20">
           <div className="max-w-7xl mx-auto px-4">
             <div className="flex items-center gap-4 mb-6">
               <Newspaper className="w-16 h-16" />
@@ -140,8 +140,8 @@ export default function Press() {
                 const Icon = stat.icon;
                 return (
                   <div key={index} className="text-center">
-                    <div className="w-16 h-16 bg-ailydian-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <Icon className="w-8 h-8 text-ailydian-primary" />
+                    <div className="w-16 h-16 bg-lydian-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <Icon className="w-8 h-8 text-lydian-primary" />
                     </div>
                     <div className="text-3xl font-bold text-gray-900 mb-1">
                       {stat.value}
@@ -158,7 +158,7 @@ export default function Press() {
 
         {/* Press Contact */}
         <div className="max-w-7xl mx-auto px-4 -mt-8 relative z-10 mb-16">
-          <div className="bg-gradient-to-r from-ailydian-primary to-ailydian-dark text-white rounded-xl shadow-xl p-8">
+          <div className="bg-gradient-to-r from-lydian-primary to-lydian-dark text-white rounded-xl shadow-xl p-8">
             <div className="grid md:grid-cols-2 gap-8">
               <div>
                 <h2 className="text-2xl font-bold mb-4">Basın İletişim</h2>
@@ -166,9 +166,9 @@ export default function Press() {
                   Basın sorguları ve röportaj talepleri için bizimle iletişime geçin
                 </p>
                 <div className="space-y-3">
-                  <a href="mailto:basin@travel.ailydian.com" className="flex items-center gap-3 text-white hover:text-blue-100 transition-colors">
+                  <a href="mailto:basin@travel.lydian.com" className="flex items-center gap-3 text-white hover:text-blue-100 transition-colors">
                     <Mail className="w-5 h-5" />
-                    <span>basin@travel.ailydian.com</span>
+                    <span>basin@travel.lydian.com</span>
                   </a>
                   <a href="tel:+902121234567" className="flex items-center gap-3 text-white hover:text-blue-100 transition-colors">
                     <Phone className="w-5 h-5" />
@@ -181,7 +181,7 @@ export default function Press() {
                 <p className="text-blue-100 mb-6">
                   Logo, görseller ve kurumsal kimlik materyallerini indirin
                 </p>
-                <button className="inline-flex items-center gap-2 bg-white text-ailydian-primary px-6 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors">
+                <button className="inline-flex items-center gap-2 bg-white text-lydian-primary px-6 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors">
                   <Download className="w-5 h-5" />
                   Medya Kitini İndir
                 </button>
@@ -210,17 +210,17 @@ export default function Press() {
                       <Calendar className="w-4 h-4" />
                       {release.date}
                     </span>
-                    <span className="px-3 py-1 bg-ailydian-primary/10 text-ailydian-primary text-sm font-medium rounded-full">
+                    <span className="px-3 py-1 bg-lydian-primary/10 text-lydian-primary text-sm font-medium rounded-full">
                       {release.category}
                     </span>
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-3 hover:text-ailydian-primary transition-colors">
+                  <h3 className="text-xl font-semibold text-gray-900 mb-3 hover:text-lydian-primary transition-colors">
                     {release.title}
                   </h3>
                   <p className="text-gray-600 mb-4 line-clamp-3">
                     {release.excerpt}
                   </p>
-                  <button className="inline-flex items-center gap-2 text-ailydian-primary font-semibold hover:gap-3 transition-all">
+                  <button className="inline-flex items-center gap-2 text-lydian-primary font-semibold hover:gap-3 transition-all">
                     Devamını Oku
                     <ExternalLink className="w-4 h-4" />
                   </button>
@@ -246,11 +246,11 @@ export default function Press() {
               {awards.map((award) => (
                 <div key={award.id} className="bg-gradient-to-br from-gray-50 to-blue-50 rounded-lg p-6 border border-gray-200">
                   <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-ailydian-primary to-ailydian-dark text-white rounded-lg flex items-center justify-center flex-shrink-0">
+                    <div className="w-12 h-12 bg-gradient-to-br from-lydian-primary to-lydian-dark text-white rounded-lg flex items-center justify-center flex-shrink-0">
                       <Award className="w-6 h-6" />
                     </div>
                     <div className="flex-1">
-                      <div className="text-sm font-semibold text-ailydian-primary mb-1">
+                      <div className="text-sm font-semibold text-lydian-primary mb-1">
                         {award.year}
                       </div>
                       <h3 className="text-lg font-bold text-gray-900 mb-2">
@@ -304,7 +304,7 @@ export default function Press() {
                 <div className="space-y-4">
                   <div className="bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow">
                     <div className="flex items-center gap-3 mb-3">
-                      <ImageIcon className="w-6 h-6 text-ailydian-primary" />
+                      <ImageIcon className="w-6 h-6 text-lydian-primary" />
                       <h3 className="text-lg font-semibold text-gray-900">
                         Logolar ve Görseller
                       </h3>
@@ -312,7 +312,7 @@ export default function Press() {
                     <p className="text-gray-600 mb-4">
                       Yüksek çözünürlüklü logo dosyaları ve kurumsal görseller
                     </p>
-                    <button className="text-ailydian-primary font-semibold hover:underline flex items-center gap-2">
+                    <button className="text-lydian-primary font-semibold hover:underline flex items-center gap-2">
                       <Download className="w-4 h-4" />
                       İndir
                     </button>
@@ -320,7 +320,7 @@ export default function Press() {
 
                   <div className="bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow">
                     <div className="flex items-center gap-3 mb-3">
-                      <Users className="w-6 h-6 text-ailydian-primary" />
+                      <Users className="w-6 h-6 text-lydian-primary" />
                       <h3 className="text-lg font-semibold text-gray-900">
                         Yönetim Ekibi Fotoğrafları
                       </h3>
@@ -328,7 +328,7 @@ export default function Press() {
                     <p className="text-gray-600 mb-4">
                       Üst düzey yöneticilerin biyografileri ve profesyonel fotoğrafları
                     </p>
-                    <button className="text-ailydian-primary font-semibold hover:underline flex items-center gap-2">
+                    <button className="text-lydian-primary font-semibold hover:underline flex items-center gap-2">
                       <Download className="w-4 h-4" />
                       İndir
                     </button>
@@ -336,7 +336,7 @@ export default function Press() {
 
                   <div className="bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow">
                     <div className="flex items-center gap-3 mb-3">
-                      <Newspaper className="w-6 h-6 text-ailydian-primary" />
+                      <Newspaper className="w-6 h-6 text-lydian-primary" />
                       <h3 className="text-lg font-semibold text-gray-900">
                         Kurumsal Sunum
                       </h3>
@@ -344,7 +344,7 @@ export default function Press() {
                     <p className="text-gray-600 mb-4">
                       Şirket hakkında detaylı bilgi içeren kurumsal sunumumuz
                     </p>
-                    <button className="text-ailydian-primary font-semibold hover:underline flex items-center gap-2">
+                    <button className="text-lydian-primary font-semibold hover:underline flex items-center gap-2">
                       <Download className="w-4 h-4" />
                       İndir
                     </button>
@@ -358,7 +358,7 @@ export default function Press() {
         {/* Newsletter Signup */}
         <div className="py-16 bg-white">
           <div className="max-w-4xl mx-auto px-4">
-            <div className="bg-gradient-to-r from-ailydian-primary to-ailydian-dark text-white rounded-2xl p-8 md:p-12 text-center">
+            <div className="bg-gradient-to-r from-lydian-primary to-lydian-dark text-white rounded-2xl p-8 md:p-12 text-center">
               <h2 className="text-3xl font-bold mb-4">
                 Basın Bültenlerimizi Takip Edin
               </h2>
@@ -371,7 +371,7 @@ export default function Press() {
                   placeholder="E-posta adresiniz"
                   className="flex-1 px-4 py-3 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-white"
                 />
-                <button className="bg-white text-ailydian-primary px-6 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors whitespace-nowrap">
+                <button className="bg-white text-lydian-primary px-6 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors whitespace-nowrap">
                   Abone Ol
                 </button>
               </div>

@@ -23,7 +23,7 @@ import type { NavigationItem } from './types';
  * Brand Configuration
  */
 export const BRAND_CONFIG = {
-  name: 'Ailydian',
+  name: 'LyDian',
   logo: '/logo.png', // Update with your logo path
   tagline: 'Enterprise Travel Platform',
 };

@@ -211,7 +211,7 @@ export default function Flights() {
       {/* Return to Home Button - FIXED: Increased z-index to be above all overlays */}
       <Link
         href="/"
-        className="fixed top-24 left-6 z-[60] flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200 text-gray-700 hover:bg-white hover:text-ailydian-primary transition-all duration-200"
+        className="fixed top-24 left-6 z-[60] flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200 text-gray-700 hover:bg-white hover:text-lydian-primary transition-all duration-200"
       >
         <ArrowLeft className="w-4 h-4" />
         <span className="font-medium">Ana Sayfaya Dön</span>
@@ -219,7 +219,7 @@ export default function Flights() {
 
       <main className="pt-8">
         {/* Hero Section */}
-        <section className="bg-gradient-to-r from-ailydian-primary to-ailydian-secondary py-16">
+        <section className="bg-gradient-to-r from-lydian-primary to-lydian-secondary py-16">
           <div className="max-w-7xl mx-auto px-4">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -284,7 +284,7 @@ export default function Flights() {
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="flex items-center gap-2 px-8 py-3 bg-white text-ailydian-primary rounded-xl font-medium hover:bg-gray-100 transition-colors"
+                    className="flex items-center gap-2 px-8 py-3 bg-white text-lydian-primary rounded-xl font-medium hover:bg-gray-100 transition-colors"
                   >
                     <Search className="w-5 h-5" />
                     Uçak Bileti Ara
@@ -310,7 +310,7 @@ export default function Flights() {
                   <SlidersHorizontal className="w-4 h-4" />
                   Gelişmiş Filtreler
                   {activeFilterCount > 0 && (
-                    <span className="absolute -top-2 -right-2 px-2 py-0.5 bg-ailydian-primary text-white rounded-full text-xs font-bold">
+                    <span className="absolute -top-2 -right-2 px-2 py-0.5 bg-lydian-primary text-white rounded-full text-xs font-bold">
                       {activeFilterCount}
                     </span>
                   )}
@@ -318,7 +318,7 @@ export default function Flights() {
                 <select
                   value={sortBy}
                   onChange={(e) => setSortBy(e.target.value)}
-                  className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ailydian-primary focus:border-transparent"
+                  className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-lydian-primary focus:border-transparent"
                 >
                   <option value="price">Fiyata Göre</option>
                   <option value="duration">Süreye Göre</option>
@@ -347,8 +347,8 @@ export default function Flights() {
                   onClick={() => setSelectedAirline(airline)}
                   className={`px-4 py-2 rounded-full font-medium transition-colors text-sm ${
                     selectedAirline === airline
-                      ? 'bg-ailydian-primary text-white'
-                      : 'bg-gray-100 text-gray-700 hover:bg-ailydian-primary hover:text-white'
+                      ? 'bg-lydian-primary text-white'
+                      : 'bg-gray-100 text-gray-700 hover:bg-lydian-primary hover:text-white'
                   }`}
                 >
                   {airline}
@@ -423,7 +423,7 @@ export default function Flights() {
                         <div className="text-center">
                           <div className="flex items-center justify-center mb-2">
                             <div className="w-4 h-0.5 bg-gray-300"></div>
-                            <Plane className="h-5 w-5 text-ailydian-primary mx-2" />
+                            <Plane className="h-5 w-5 text-lydian-primary mx-2" />
                             <div className="w-4 h-0.5 bg-gray-300"></div>
                           </div>
                           <div className="text-sm text-gray-500 flex items-center justify-center font-medium">
@@ -470,7 +470,7 @@ export default function Flights() {
                         <motion.button
                           whileHover={{ scale: 1.05 }}
                           whileTap={{ scale: 0.95 }}
-                          className="w-full lg:w-auto px-8 py-3 bg-ailydian-primary text-white rounded-xl font-semibold hover:bg-ailydian-dark transition-colors"
+                          className="w-full lg:w-auto px-8 py-3 bg-lydian-primary text-white rounded-xl font-semibold hover:bg-lydian-dark transition-colors"
                         >
                           Bileti Seç
                         </motion.button>
@@ -497,7 +497,7 @@ export default function Flights() {
                     </p>
                     <button
                       onClick={resetFilters}
-                      className="bg-ailydian-primary text-white px-6 py-3 rounded-lg hover:bg-ailydian-dark transition-colors font-semibold"
+                      className="bg-lydian-primary text-white px-6 py-3 rounded-lg hover:bg-lydian-dark transition-colors font-semibold"
                     >
                       Filtreleri Temizle
                     </button>
@@ -510,7 +510,7 @@ export default function Flights() {
                     <motion.button
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
-                      className="px-8 py-3 border-2 border-ailydian-primary text-ailydian-primary rounded-xl font-semibold hover:bg-ailydian-primary hover:text-white transition-colors"
+                      className="px-8 py-3 border-2 border-lydian-primary text-lydian-primary rounded-xl font-semibold hover:bg-lydian-primary hover:text-white transition-colors"
                     >
                       Daha Fazla Uçuş Yükle
                     </motion.button>

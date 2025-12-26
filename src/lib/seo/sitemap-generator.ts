@@ -13,7 +13,7 @@ interface SitemapUrl {
 }
 
 export class SitemapGenerator {
-  private baseUrl = 'https://travel.ailydian.com';
+  private baseUrl = 'https://travel.lydian.com';
   private supportedLanguages = ['en', 'tr', 'de', 'fr', 'es', 'it', 'pt', 'ru', 'zh', 'ja', 'ko', 'ar', 'hi'];
 
   /**
@@ -442,7 +442,7 @@ Clean-param: utm_source&utm_medium&utm_campaign&fbclid&gclid`;
     return {
       "@context": "https://schema.org",
       "@type": "WebSite",
-      "name": "Travel.Ailydian",
+      "name": "Travel.LyDian",
       "description": "Global AI-powered travel platform with reviews, recommendations, and bookings for restaurants, hotels, attractions worldwide.",
       "url": this.baseUrl,
       "potentialAction": {
@@ -454,14 +454,14 @@ Clean-param: utm_source&utm_medium&utm_campaign&fbclid&gclid`;
         "query-input": "required name=search_term_string"
       },
       "sameAs": [
-        "https://www.facebook.com/travelailydian",
-        "https://www.twitter.com/travelailydian",
-        "https://www.instagram.com/travelailydian",
-        "https://www.linkedin.com/company/travelailydian"
+        "https://www.facebook.com/travellydian",
+        "https://www.twitter.com/travellydian",
+        "https://www.instagram.com/travellydian",
+        "https://www.linkedin.com/company/travellydian"
       ],
       "publisher": {
         "@type": "Organization",
-        "name": "Ailydian AI Ecosystem",
+        "name": "LyDian AI Ecosystem",
         "logo": {
           "@type": "ImageObject",
           "url": `${this.baseUrl}/logo.png`
@@ -477,7 +477,7 @@ Clean-param: utm_source&utm_medium&utm_campaign&fbclid&gclid`;
     return {
       "@context": "https://schema.org",
       "@type": "Organization",
-      "name": "Travel.Ailydian",
+      "name": "Travel.LyDian",
       "description": "AI-powered global travel platform connecting travelers with authentic experiences worldwide.",
       "url": this.baseUrl,
       "logo": `${this.baseUrl}/logo.png`,
@@ -488,9 +488,9 @@ Clean-param: utm_source&utm_medium&utm_campaign&fbclid&gclid`;
         "availableLanguage": this.supportedLanguages
       },
       "sameAs": [
-        "https://www.facebook.com/travelailydian",
-        "https://www.twitter.com/travelailydian",
-        "https://www.instagram.com/travelailydian"
+        "https://www.facebook.com/travellydian",
+        "https://www.twitter.com/travellydian",
+        "https://www.instagram.com/travellydian"
       ],
       "address": {
         "@type": "PostalAddress",

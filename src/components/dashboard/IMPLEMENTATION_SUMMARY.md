@@ -2,9 +2,9 @@
 
 ## ✅ Completed Implementation
 
-A complete, production-ready dashboard layout system has been created for the Ailydian Enterprise Travel Platform.
+A complete, production-ready dashboard layout system has been created for the LyDian Enterprise Travel Platform.
 
-**Location**: `/Users/sardag/Desktop/travel-ailydian-enterprise/src/components/dashboard/`
+**Location**: `/Users/sardag/Desktop/travel-lydian-enterprise/src/components/dashboard/`
 
 **Total Code**: 1,621 lines across 10 files
 
@@ -386,8 +386,8 @@ For issues or questions:
 
 ## 📝 License
 
-Part of the Ailydian Enterprise Travel Platform.
-Copyright © 2025 Ailydian. All rights reserved.
+Part of the LyDian Enterprise Travel Platform.
+Copyright © 2025 LyDian. All rights reserved.
 
 ---
 
@@ -433,7 +433,7 @@ The dashboard layout system is **production-ready** and includes:
 
 ```bash
 # Navigate to your project
-cd /Users/sardag/Desktop/travel-ailydian-enterprise
+cd /Users/sardag/Desktop/travel-lydian-enterprise
 
 # Create a dashboard page using the example
 cp src/components/dashboard/DashboardExample.tsx src/app/dashboard/page.tsx

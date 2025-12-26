@@ -514,4 +514,4 @@ For questions or issues:
 **Version:** 1.0.0
 **Created:** December 21, 2024
 **Author:** Claude (Anthropic AI)
-**Platform:** Travel.Ailydian Enterprise
+**Platform:** Travel.LyDian Enterprise

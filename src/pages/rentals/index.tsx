@@ -343,27 +343,27 @@ const RentalsPage: React.FC = () => {
   return (
     <>
       <NextSeo
-        title="Kiralık Tatil Evleri ve Villalar | Travel.Ailydian"
+        title="Kiralık Tatil Evleri ve Villalar | Travel.LyDian"
         description="Alanya, Antalya, Marmaris, Bodrum ve Çeşme'de lüks kiralık villa ve tatil evleri. En uygun fiyatlar, anında rezervasyon garantisi."
-        canonical="https://travel.ailydian.com/rentals"
+        canonical="https://travel.lydian.com/rentals"
         openGraph={{
-          url: 'https://travel.ailydian.com/rentals',
-          title: 'Kiralık Tatil Evleri ve Villalar | Travel.Ailydian',
+          url: 'https://travel.lydian.com/rentals',
+          title: 'Kiralık Tatil Evleri ve Villalar | Travel.LyDian',
           description: 'Alanya, Antalya, Marmaris, Bodrum ve Çeşme\'de lüks kiralık villa ve tatil evleri.',
           images: [
             {
-              url: 'https://travel.ailydian.com/og-rentals.jpg',
+              url: 'https://travel.lydian.com/og-rentals.jpg',
               width: 1200,
               height: 630,
-              alt: 'Travel.Ailydian Rentals',
+              alt: 'Travel.LyDian Rentals',
             },
           ],
-          site_name: 'Travel.Ailydian',
+          site_name: 'Travel.LyDian',
         }}
       />
 
       <Head>
-        <title>Kiralık Tatil Evleri | Travel.Ailydian</title>
+        <title>Kiralık Tatil Evleri | Travel.LyDian</title>
         <meta name="description" content="Türkiye'nin en popüler tatil bölgelerinde kiralık villa ve tatil evleri." />
         <meta name="keywords" content="kiralık villa, tatil evi, alanya villa, bodrum villa, marmaris villa, antalya kiralık daire" />
       </Head>
@@ -1022,7 +1022,7 @@ const RentalsPage: React.FC = () => {
                  borderColor: '#E5E7EB'
                }}>
             <p className="text-sm text-gray-600 text-center">
-              <strong className="font-bold text-gray-900">Önemli Bilgi:</strong> Travel Ailydian,
+              <strong className="font-bold text-gray-900">Önemli Bilgi:</strong> Travel LyDian,
               AI destekli blockchain tabanlı güvenli rezervasyon sistemi ile kiralık mülklerinizi güvence altına alır.
               Tüm rezervasyonlarınız anında onaylanır ve blockchain ağında kayıt altına alınır.
               Detaylı bilgi için{' '}

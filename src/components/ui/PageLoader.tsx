@@ -36,7 +36,7 @@ export const PageLoader: React.FC<PageLoaderProps> = ({ isLoading }) => {
               }}
               className="relative z-10"
             >
-              <Plane className="w-16 h-16 text-ailydian-primary" />
+              <Plane className="w-16 h-16 text-lydian-primary" />
             </motion.div>
 
             {/* Sparkles */}
@@ -52,7 +52,7 @@ export const PageLoader: React.FC<PageLoaderProps> = ({ isLoading }) => {
               }}
               className="absolute -top-2 -right-2"
             >
-              <Sparkles className="w-6 h-6 text-ailydian-secondary" />
+              <Sparkles className="w-6 h-6 text-lydian-secondary" />
             </motion.div>
 
             {/* Loading Bar */}
@@ -67,7 +67,7 @@ export const PageLoader: React.FC<PageLoaderProps> = ({ isLoading }) => {
                     repeat: Infinity,
                     ease: 'linear',
                   }}
-                  className="h-full w-1/2 bg-gradient-to-r from-ailydian-primary to-ailydian-secondary rounded-full"
+                  className="h-full w-1/2 bg-gradient-to-r from-lydian-primary to-lydian-secondary rounded-full"
                 />
               </div>
             </div>

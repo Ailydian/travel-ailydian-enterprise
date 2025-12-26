@@ -32,16 +32,16 @@ export default function TransfersPage() {
   return (
     <>
       <Head>
-        <title>Antalya Transfer Hizmetleri | En Uygun Fiyat Garantisi | Ailydian Travel</title>
+        <title>Antalya Transfer Hizmetleri | En Uygun Fiyat Garantisi | LyDian Travel</title>
         <meta name="description" content="Antalya havalimanı ve şehir içi transfer hizmetleri. 6 dilde hizmet, 8 araç seçeneği, %12 daha ucuz garantili fiyat. 7/24 profesyonel transfer!" />
         <meta name="keywords" content="antalya transfer, havalimanı transfer, antalya airport transfer, özel transfer, vip transfer" />
-        <link rel="canonical" href="https://travel.ailydian.com/transfers" />
+        <link rel="canonical" href="https://travel.lydian.com/transfers" />
 
         {/* Open Graph */}
         <meta property="og:title" content="Antalya Transfer Hizmetleri | Best Price Guarantee" />
         <meta property="og:description" content="Professional transfer services in 6 languages. 8 vehicle options, 12% cheaper guaranteed!" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://travel.ailydian.com/transfers" />
+        <meta property="og:url" content="https://travel.lydian.com/transfers" />
         <meta property="og:image" content="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=1200" />
 
         {/* Twitter Card */}
@@ -50,13 +50,13 @@ export default function TransfersPage() {
         <meta name="twitter:description" content="Professional transfers in 6 languages. Best price guaranteed!" />
 
         {/* Hreflang */}
-        <link rel="alternate" hrefLang="tr-TR" href="https://travel.ailydian.com/tr/transfers" />
-        <link rel="alternate" hrefLang="en-US" href="https://travel.ailydian.com/en/transfers" />
-        <link rel="alternate" hrefLang="ru-RU" href="https://travel.ailydian.com/ru/transfers" />
-        <link rel="alternate" hrefLang="de-DE" href="https://travel.ailydian.com/de/transfers" />
-        <link rel="alternate" hrefLang="ar-SA" href="https://travel.ailydian.com/ar/transfers" />
-        <link rel="alternate" hrefLang="fr-FR" href="https://travel.ailydian.com/fr/transfers" />
-        <link rel="alternate" hrefLang="x-default" href="https://travel.ailydian.com/en/transfers" />
+        <link rel="alternate" hrefLang="tr-TR" href="https://travel.lydian.com/tr/transfers" />
+        <link rel="alternate" hrefLang="en-US" href="https://travel.lydian.com/en/transfers" />
+        <link rel="alternate" hrefLang="ru-RU" href="https://travel.lydian.com/ru/transfers" />
+        <link rel="alternate" hrefLang="de-DE" href="https://travel.lydian.com/de/transfers" />
+        <link rel="alternate" hrefLang="ar-SA" href="https://travel.lydian.com/ar/transfers" />
+        <link rel="alternate" hrefLang="fr-FR" href="https://travel.lydian.com/fr/transfers" />
+        <link rel="alternate" hrefLang="x-default" href="https://travel.lydian.com/en/transfers" />
       </Head>
 
       <BookingHeader />

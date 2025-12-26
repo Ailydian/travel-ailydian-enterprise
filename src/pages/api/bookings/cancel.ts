@@ -159,7 +159,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             ${reason ? `<p><strong>Cancellation Reason:</strong> ${reason}</p>` : ''}
           </div>
           <div class="footer">
-            <p>&copy; 2025 Travel.Ailydian</p>
+            <p>&copy; 2025 Travel.LyDian</p>
           </div>
         </div>
       </body>

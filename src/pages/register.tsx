@@ -94,8 +94,8 @@ export default function Register() {
   return (
     <>
       <Head>
-        <title>Kayıt Ol - Ailydian Travel</title>
-        <meta name="description" content="Ailydian Travel&apos;a üye olun ve özel avantajlardan yararlanın." />
+        <title>Kayıt Ol - LyDian Travel</title>
+        <meta name="description" content="LyDian Travel&apos;a üye olun ve özel avantajlardan yararlanın." />
       </Head>
 
       <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
@@ -105,7 +105,7 @@ export default function Register() {
             <div className="flex items-center justify-between">
               <div>
                 <Link href="/" className="text-2xl font-bold text-blue-600">
-                  Ailydian Travel
+                  LyDian Travel
                 </Link>
               </div>
               <div className="flex items-center space-x-4">
@@ -134,7 +134,7 @@ export default function Register() {
             <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8">
               <div className="text-center mb-8">
                 <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
-                  Ailydian Travel&apos;a Katılın
+                  LyDian Travel&apos;a Katılın
                 </h1>
                 <p className="text-gray-600 dark:text-gray-400">
                   Ücretsiz hesap oluşturun ve avantajlardan yararlanın
@@ -400,7 +400,7 @@ export default function Register() {
                   <Shield className="h-16 w-16 mx-auto mb-4 opacity-90" />
                   <h2 className="text-3xl font-bold mb-2">Üye Avantajları</h2>
                   <p className="text-blue-100">
-                    Ailydian Travel üyeliğiyle özel ayrıcalıklardan yararlanın
+                    LyDian Travel üyeliğiyle özel ayrıcalıklardan yararlanın
                   </p>
                 </div>
 

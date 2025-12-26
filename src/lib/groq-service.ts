@@ -79,7 +79,7 @@ export async function travelAssistant(userMessage: string): Promise<string> {
   const messages: NeuralXMessage[] = [
     {
       role: 'system',
-      content: `Sen Travel.Ailydian'ın AI seyahat asistanısın. Türkiye ve dünya genelinde seyahat, tur, otel, uçak bileti ve havalimanı transferi konularında uzman bir asistansın.
+      content: `Sen Travel.LyDian'ın AI seyahat asistanısın. Türkiye ve dünya genelinde seyahat, tur, otel, uçak bileti ve havalimanı transferi konularında uzman bir asistansın.
 
 Görevlerin:
 - Destinasyon önerileri sunmak

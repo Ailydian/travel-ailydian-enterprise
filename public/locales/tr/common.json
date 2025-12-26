@@ -1,47 +1,262 @@
 {
-  "nav": {
+  "seo": {
+    "title": "Travel.LyDian - AI Destekli Turizm Platformu",
+    "description": "Yapay zeka destekli seyahat önerileri ile dünyayı keşfedin. Kişiselleştirilmiş öneriler ve güvenli rezervasyonlar.",
+    "keywords": "seyahat, turizm, otel, tur, araç kiralama, transfer, tatil, rezervasyon, yapay zeka"
+  },
+  "navigation": {
     "home": "Ana Sayfa",
-    "carRentals": "Araç Kiralama",
-    "transfers": "Transfer",
+    "hotels": "Oteller",
     "tours": "Turlar",
-    "experiences": "Deneyimler",
-    "rentals": "Konaklama"
+    "carRentals": "Araç Kiralama",
+    "transfers": "Transferler",
+    "rentals": "Konaklama",
+    "favorites": "Favoriler",
+    "cart": "Sepet",
+    "profile": "Hesabım",
+    "help": "Yardım",
+    "login": "Giriş Yap",
+    "register": "Kayıt Ol",
+    "logout": "Çıkış Yap"
   },
-  "dashboard": {
-    "title": "Sistem Yönetimi",
-    "search": "Ara...",
-    "totalRevenue": "Toplam Gelir",
-    "activeBookings": "Aktif Rezervasyonlar",
-    "totalUsers": "Toplam Kullanıcılar",
-    "satisfaction": "Müşteri Memnuniyeti",
-    "productPerformance": "Ürün Performansı",
-    "recentActivity": "Son Aktiviteler",
-    "revenueTrend": "Gelir Trendi",
-    "quickStats": "Hızlı İstatistikler",
-    "downloadReport": "Rapor İndir",
-    "viewAll": "Tümünü Gör",
-    "details": "Detaylar"
+  "header": {
+    "currency": "TRY",
+    "language": "Türkçe",
+    "help": "Yardım",
+    "signIn": "Giriş Yap",
+    "signUp": "Kayıt Ol",
+    "myAccount": "Hesabım"
   },
-  "filters": {
-    "last24h": "Son 24 Saat",
-    "last7d": "Son 7 Gün",
-    "last30d": "Son 30 Gün",
-    "last90d": "Son 90 Gün",
-    "allProducts": "Tüm Ürünler"
+  "search": {
+    "placeholder": "Nereye gitmek istersiniz?",
+    "searchButton": "Ara",
+    "destination": "Hedef",
+    "checkIn": "Giriş Tarihi",
+    "checkOut": "Çıkış Tarihi",
+    "guests": "Misafir Sayısı",
+    "guest": "Misafir",
+    "rooms": "Oda Sayısı",
+    "adults": "Yetişkin",
+    "children": "Çocuk",
+    "search": "Ara",
+    "clear": "Temizle",
+    "filters": "Filtreler",
+    "sortBy": "Sırala",
+    "price": "Fiyat",
+    "rating": "Değerlendirme",
+    "distance": "Mesafe",
+    "dates": "Tarihler",
+    "priceRange": "Fiyat Aralığı",
+    "categories": "Kategoriler",
+    "duration": "Süre",
+    "applyFilters": "Filtreleri Uygula",
+    "sortBy": {
+      "popular": "Popülerlik",
+      "rating": "Puana Göre",
+      "priceLow": "Düşük Fiyat",
+      "priceHigh": "Yüksek Fiyat"
+    }
   },
-  "products": {
-    "carRental": "Araç Kiralama",
-    "transfer": "Transfer Hizmetleri",
-    "accommodation": "Konaklama",
-    "tours": "Turlar"
+  "booking": {
+    "bookNow": "Şimdi Rezervasyon Yap",
+    "checkAvailability": "Müsaitliği Kontrol Et",
+    "reserve": "Rezervasyon Yap",
+    "cancel": "İptal Et",
+    "modify": "Düzenle",
+    "confirmBooking": "Rezervasyonu Onayla",
+    "bookingDetails": "Rezervasyon Detayları",
+    "totalPrice": "Toplam Fiyat",
+    "perNight": "gece başına",
+    "perPerson": "kişi başına",
+    "includes": "Dahil Olanlar",
+    "excludes": "Dahil Olmayanlar"
   },
   "common": {
-    "revenue": "Gelir",
-    "bookings": "Rezervasyon",
-    "active": "Aktif",
+    "yes": "Evet",
+    "no": "Hayır",
+    "ok": "Tamam",
+    "cancel": "İptal",
+    "save": "Kaydet",
+    "delete": "Sil",
+    "edit": "Düzenle",
+    "view": "Görüntüle",
+    "more": "Daha Fazla",
+    "less": "Daha Az",
+    "loading": "Yükleniyor...",
+    "error": "Hata",
     "success": "Başarılı",
     "warning": "Uyarı",
-    "error": "Hata",
-    "info": "Bilgi"
+    "info": "Bilgi",
+    "close": "Kapat",
+    "back": "Geri",
+    "next": "İleri",
+    "previous": "Önceki",
+    "submit": "Gönder",
+    "reset": "Sıfırla",
+    "required": "Zorunlu",
+    "optional": "Opsiyonel"
+  },
+  "tours": {
+    "title": "Turlar",
+    "description": "En popüler turları keşfedin",
+    "duration": "Süre",
+    "groupSize": "Grup Büyüklüğü",
+    "languages": "Diller",
+    "includes": "Dahil Olanlar",
+    "meeting": "Buluşma Noktası",
+    "fromPrice": "başlangıç fiyatı",
+    "perPerson": "kişi başı",
+    "bookTour": "Turu Rezerve Et",
+    "viewDetails": "Detayları Gör",
+    "filterByCountry": "Ülkeye Göre Filtrele",
+    "selectDestination": "Keşfetmek istediğiniz ülkeyi seçin",
+    "allCountries": "Tüm Ülkeler",
+    "tours": "tur",
+    "toursAvailable": "tur mevcut",
+    "totalTours": "toplam tur",
+    "clearFilter": "Filtreyi Temizle"
+  },
+  "hotels": {
+    "title": "Oteller",
+    "description": "En iyi otelleri bulun",
+    "stars": "Yıldız",
+    "amenities": "Olanaklar",
+    "location": "Konum",
+    "reviews": "Yorumlar",
+    "availability": "Müsaitlik",
+    "checkIn": "Giriş",
+    "checkOut": "Çıkış",
+    "nights": "Gece",
+    "rooms": "Odalar",
+    "viewHotel": "Oteli Görüntüle"
+  },
+  "cars": {
+    "title": "Araç Kiralama",
+    "description": "İdeal aracı kiralayın",
+    "pickUp": "Alış Yeri",
+    "dropOff": "Bırakış Yeri",
+    "pickUpDate": "Alış Tarihi",
+    "dropOffDate": "Bırakış Tarihi",
+    "carType": "Araç Tipi",
+    "transmission": "Vites",
+    "passengers": "Yolcu Sayısı",
+    "luggage": "Bagaj",
+    "rentCar": "Araç Kirala"
+  },
+  "transfers": {
+    "title": "Transferler",
+    "description": "Konforlu transfer hizmetleri",
+    "from": "Nereden",
+    "to": "Nereye",
+    "date": "Tarih",
+    "time": "Saat",
+    "passengers": "Yolcu Sayısı",
+    "vehicleType": "Araç Tipi",
+    "bookTransfer": "Transfer Rezerve Et"
+  },
+  "footer": {
+    "about": "Hakkımızda",
+    "contact": "İletişim",
+    "terms": "Kullanım Koşulları",
+    "privacy": "Gizlilik Politikası",
+    "faq": "Sıkça Sorulan Sorular",
+    "support": "Destek",
+    "careers": "Kariyer",
+    "partners": "Partnerler",
+    "press": "Basın",
+    "copyright": "© 2025 Travel.LyDian. Tüm hakları saklıdır."
+  },
+  "validation": {
+    "required": "Bu alan zorunludur",
+    "email": "Geçerli bir e-posta adresi girin",
+    "phone": "Geçerli bir telefon numarası girin",
+    "minLength": "En az {{min}} karakter olmalıdır",
+    "maxLength": "En fazla {{max}} karakter olmalıdır",
+    "invalidDate": "Geçersiz tarih",
+    "passwordMismatch": "Şifreler eşleşmiyor",
+    "invalidCard": "Geçersiz kart numarası"
+  },
+  "errors": {
+    "404": "Sayfa bulunamadı",
+    "500": "Sunucu hatası",
+    "networkError": "Ağ bağlantısı hatası",
+    "unknownError": "Bilinmeyen bir hata oluştu",
+    "tryAgain": "Lütfen tekrar deneyin"
+  },
+  "payment": {
+    "title": "Ödeme",
+    "cardNumber": "Kart Numarası",
+    "cardHolder": "Kart Sahibi",
+    "expiryDate": "Son Kullanma Tarihi",
+    "cvv": "CVV",
+    "payNow": "Şimdi Öde",
+    "paymentMethod": "Ödeme Yöntemi",
+    "creditCard": "Kredi Kartı",
+    "paypal": "PayPal",
+    "crypto": "Kripto Para"
+  },
+  "explore": {
+    "title": "Keşfet",
+    "viewAll": "Tümünü Gör",
+    "exploreMore": "Daha Fazla Keşfet",
+    "viewCollection": "Koleksiyonu Görüntüle",
+    "items": "öğe",
+    "experiencesFound": "deneyim bulundu",
+    "trending": "Trend Olanlar",
+    "trendingDescription": "En popüler deneyimler",
+    "exploreTrending": "Trend Olanları Keşfet",
+    "popularDestinations": "Popüler Destinasyonlar",
+    "destinationsSubtitle": "En çok ziyaret edilen yerler",
+    "seo": {
+      "title": "Keşfet - Turlar, Aktiviteler ve Deneyimler",
+      "description": "Antalya ve çevresinde yapılacak en iyi şeyleri keşfedin. Turlar, aktiviteler, konaklama ve daha fazlası.",
+      "keywords": "keşfet, antalya turları, aktiviteler, deneyimler, yapılacak şeyler"
+    },
+    "hero": {
+      "title": "Maceranı Keşfet",
+      "subtitle": "Binlerce deneyim arasından sana özel olanı bul",
+      "searchPlaceholder": "Nereye gitmek istersin?",
+      "selectDates": "Tarih seç",
+      "stats": {
+        "experiences": "Deneyim",
+        "reviews": "Değerlendirme",
+        "destinations": "Destinasyon"
+      }
+    },
+    "categories": {
+      "title": "Ne Yapmak İstersin?",
+      "subtitle": "İlgi alanına göre kategorileri keşfet"
+    },
+    "collections": {
+      "title": "Özenle Seçilmiş Koleksiyonlar",
+      "subtitle": "Sana özel hazırlanmış deneyimler"
+    },
+    "newsletter": {
+      "title": "Özel Fırsatları Kaçırma",
+      "subtitle": "E-bültenimize abone ol, en iyi fırsatları ilk sen öğren",
+      "placeholder": "E-posta adresiniz",
+      "subscribe": "Abone Ol"
+    },
+    "thingsToDo": {
+      "title": "Yapılacak Şeyler",
+      "subtitle": "En iyi turlar ve aktiviteler",
+      "seo": {
+        "title": "Yapılacak Şeyler - Turlar ve Aktiviteler",
+        "description": "Antalya'da yapılacak en iyi şeyler, turlar ve aktiviteler. Hemen keşfet ve rezervasyon yap!"
+      }
+    },
+    "destination": {
+      "overview": "Genel Bakış",
+      "bestFor": "En İyi",
+      "tours": "Turlar",
+      "hotels": "Oteller",
+      "attractions": "Mekanlar",
+      "weather": "Hava Durumu",
+      "summer": "Yaz",
+      "winter": "Kış",
+      "bestMonths": "En İyi Aylar",
+      "topAttractions": "Öne Çıkan Yerler",
+      "topExperiences": "En İyi Deneyimler"
+    }
   }
 }

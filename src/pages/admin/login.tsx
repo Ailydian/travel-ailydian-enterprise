@@ -48,8 +48,8 @@ export default function AdminLogin() {
   return (
     <>
       <Head>
-        <title>Admin Login - Travel Ailydian</title>
-        <meta name="description" content="Admin panel login for Travel Ailydian platform" />
+        <title>Admin Login - Travel LyDian</title>
+        <meta name="description" content="Admin panel login for Travel LyDian platform" />
         <meta name="robots" content="noindex, nofollow" />
       </Head>
 
@@ -66,7 +66,7 @@ export default function AdminLogin() {
               Admin Portal
             </h1>
             <p className="mt-2 text-gray-400">
-              Travel Ailydian Management System
+              Travel LyDian Management System
             </p>
           </div>
 
@@ -95,7 +95,7 @@ export default function AdminLogin() {
                   value={formData.email}
                   onChange={handleChange}
                   className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
-                  placeholder="admin@ailydian.com"
+                  placeholder="admin@lydian.com"
                 />
               </div>
 
@@ -151,12 +151,12 @@ export default function AdminLogin() {
                 <div className="space-y-2 text-xs text-gray-400">
                   <div className="bg-gray-900/50 rounded p-2">
                     <div><strong>Super Admin:</strong></div>
-                    <div>Email: admin@ailydian.com</div>
+                    <div>Email: admin@lydian.com</div>
                     <div>Password: admin123</div>
                   </div>
                   <div className="bg-gray-900/50 rounded p-2">
                     <div><strong>Moderator:</strong></div>
-                    <div>Email: moderator@ailydian.com</div>
+                    <div>Email: moderator@lydian.com</div>
                     <div>Password: mod123</div>
                   </div>
                 </div>

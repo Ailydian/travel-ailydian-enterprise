@@ -1,6 +1,6 @@
 # ML-Based Price Tracking & Alert System
 
-Complete implementation of an intelligent price tracking and alert system for travel.ailydian.com
+Complete implementation of an intelligent price tracking and alert system for travel.lydian.com
 
 ## Features Implemented
 
@@ -193,8 +193,8 @@ SMTP_HOST=smtp.gmail.com
 SMTP_PORT=587
 SMTP_USER=your-email@gmail.com
 SMTP_PASSWORD=your-app-password
-SMTP_FROM=noreply@ailydian.com
-NEXT_PUBLIC_APP_URL=https://travel.ailydian.com
+SMTP_FROM=noreply@lydian.com
+NEXT_PUBLIC_APP_URL=https://travel.lydian.com
 ```
 
 **Functions:**
@@ -313,7 +313,7 @@ Create `vercel.json` in project root:
 #### Option 2: External Cron Service
 
 Use services like cron-job.org or EasyCron:
-- URL: `https://travel.ailydian.com/api/cron/check-price-alerts`
+- URL: `https://travel.lydian.com/api/cron/check-price-alerts`
 - Schedule: Every 6 hours
 - Add header: `x-cron-secret: YOUR_SECRET`
 
@@ -342,17 +342,17 @@ npx prisma migrate dev --name add_price_tracking
 Add to `.env`:
 ```env
 # Database
-DATABASE_URL="postgresql://user:pass@localhost:5432/ailydian"
+DATABASE_URL="postgresql://user:pass@localhost:5432/lydian"
 
 # Email (SMTP)
 SMTP_HOST=smtp.gmail.com
 SMTP_PORT=587
 SMTP_USER=your-email@gmail.com
 SMTP_PASSWORD=your-app-password
-SMTP_FROM=noreply@ailydian.com
+SMTP_FROM=noreply@lydian.com
 
 # App
-NEXT_PUBLIC_APP_URL=https://travel.ailydian.com
+NEXT_PUBLIC_APP_URL=https://travel.lydian.com
 
 # Cron Security
 CRON_SECRET=your-secure-random-string
@@ -629,4 +629,4 @@ For issues or questions:
 
 ## License
 
-Part of travel.ailydian.com - All rights reserved
+Part of travel.lydian.com - All rights reserved

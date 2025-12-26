@@ -18,7 +18,7 @@ export async function sendEmail({
   to,
   subject,
   html,
-  from = 'Travel Ailydian <noreply@ailydian.com>',
+  from = 'Travel LyDian <noreply@lydian.com>',
   replyTo,
 }: EmailOptions) {
   try {

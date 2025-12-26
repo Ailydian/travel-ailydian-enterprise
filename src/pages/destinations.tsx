@@ -43,7 +43,7 @@ export default function Destinations() {
   return (
     <>
       <Head>
-        <title>Türkiye Destinasyonları | Ailydian Travel - AI Destekli Seyahat Rehberi</title>
+        <title>Türkiye Destinasyonları | LyDian Travel - AI Destekli Seyahat Rehberi</title>
         <meta name="description" content="Türkiye'nin en güzel destinasyonlarını keşfedin. İstanbul, Kapadokya, Antalya ve daha fazlası. Detaylı rehberler, en iyi oteller ve turlar." />
         <meta name="keywords" content="türkiye destinasyonları, gezi rehberi, istanbul, kapadokya, antalya, seyahat, tatil" />
       </Head>
@@ -53,7 +53,7 @@ export default function Destinations() {
       {/* Return to Home Button */}
       <Link
         href="/"
-        className="fixed top-24 left-6 z-10 flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200 text-gray-700 hover:bg-white hover:text-ailydian-primary transition-all duration-200"
+        className="fixed top-24 left-6 z-10 flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200 text-gray-700 hover:bg-white hover:text-lydian-primary transition-all duration-200"
       >
         <ArrowLeft className="w-4 h-4" />
         <span className="font-medium">Ana Sayfaya Dön</span>
@@ -147,7 +147,7 @@ export default function Destinations() {
                   <div className="absolute bottom-3 left-3 bg-white/90 px-3 py-1 rounded-full">
                     <span className="text-sm font-semibold text-gray-800">{destination.pricing.budgetRange}</span>
                   </div>
-                  <div className="absolute top-3 left-3 bg-ailydian-primary/90 px-3 py-1 rounded-full">
+                  <div className="absolute top-3 left-3 bg-lydian-primary/90 px-3 py-1 rounded-full">
                     <span className="text-sm font-semibold text-white">{destination.region}</span>
                   </div>
                 </div>

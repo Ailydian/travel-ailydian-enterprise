@@ -110,7 +110,7 @@ export default function TransferDetailPage({ transfer, relatedTransfers }: Trans
 
   // Get current slug for this language
   const currentSlug = transfer.seo.slug[selectedLanguage];
-  const baseUrl = 'https://travel.ailydian.com';
+  const baseUrl = 'https://travel.lydian.com';
   const currentUrl = `${baseUrl}/transfers/${currentSlug}`;
 
   // Generate hreflang tags
@@ -562,9 +562,9 @@ export default function TransferDetailPage({ transfer, relatedTransfers }: Trans
                       <Phone className="w-4 h-4" />
                       +90 555 123 45 67
                     </a>
-                    <a href="mailto:transfer@ailydian.com" className="flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium">
+                    <a href="mailto:transfer@lydian.com" className="flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium">
                       <Mail className="w-4 h-4" />
-                      transfer@ailydian.com
+                      transfer@lydian.com
                     </a>
                   </div>
                 </div>

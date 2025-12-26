@@ -26,7 +26,7 @@ export default async function handler(
   try {
     console.log('🔔 Sitemap ping cron job başlatıldı...');
 
-    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://travel.ailydian.com';
+    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://travel.lydian.com';
     const sitemapUrl = `${baseUrl}/sitemap.xml`;
 
     const results: PingResult = {
@@ -85,7 +85,7 @@ export default async function handler(
         `${baseUrl}/location/kalkan`
       ];
 
-      const indexNowKey = process.env.INDEXNOW_KEY || 'travel-ailydian-indexnow-key-2025-production';
+      const indexNowKey = process.env.INDEXNOW_KEY || 'travel-lydian-indexnow-key-2025-production';
 
       const indexNow = getAdvancedIndexNow({
         maxRetries: 3,

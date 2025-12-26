@@ -42,15 +42,15 @@ export default function VehicleOwnerTermsPage() {
       content: [
         {
           subtitle: '1.1 Sözleşmenin Tarafları',
-          text: 'Bu sözleşme, Ailydian platformunu işleten şirket ile platform üzerinden araç kiralama hizmeti vermek isteyen araç sahipleri arasında akdedilmiştir.'
+          text: 'Bu sözleşme, LyDian platformunu işleten şirket ile platform üzerinden araç kiralama hizmeti vermek isteyen araç sahipleri arasında akdedilmiştir.'
         },
         {
           subtitle: '1.2 Sözleşmenin Konusu',
-          text: 'İşbu sözleşme, araç sahiplerinin Ailydian platformu üzerinden araçlarını kiralamak üzere listelemesi, rezervasyon yönetimi, ödeme işlemleri ve tarafların hak ve yükümlülüklerini düzenlemektedir.'
+          text: 'İşbu sözleşme, araç sahiplerinin LyDian platformu üzerinden araçlarını kiralamak üzere listelemesi, rezervasyon yönetimi, ödeme işlemleri ve tarafların hak ve yükümlülüklerini düzenlemektedir.'
         },
         {
           subtitle: '1.3 Tanımlar',
-          text: 'Platform: Ailydian internet sitesi ve mobil uygulamalarını ifade eder. Araç Sahibi: Platformda araç ilanı veren ve kiralama işlemi gerçekleştiren gerçek veya tüzel kişiyi ifade eder. Kiracı: Platform üzerinden araç kiralayan kişiyi ifade eder. İlan: Araç sahibi tarafından platforma eklenen aracın detaylı açıklamasını ifade eder.'
+          text: 'Platform: LyDian internet sitesi ve mobil uygulamalarını ifade eder. Araç Sahibi: Platformda araç ilanı veren ve kiralama işlemi gerçekleştiren gerçek veya tüzel kişiyi ifade eder. Kiracı: Platform üzerinden araç kiralayan kişiyi ifade eder. İlan: Araç sahibi tarafından platforma eklenen aracın detaylı açıklamasını ifade eder.'
         },
         {
           subtitle: '1.4 Kabullenme',
@@ -65,7 +65,7 @@ export default function VehicleOwnerTermsPage() {
       content: [
         {
           subtitle: '2.1 Komisyon Oranları',
-          text: 'Ailydian, her başarılı rezervasyon için araç sahibinden %12-15 arasında değişen komisyon ücreti alır. Komisyon oranı, araç tipi, kiralama süresi ve özel kampanyalara göre değişiklik gösterebilir.'
+          text: 'LyDian, her başarılı rezervasyon için araç sahibinden %12-15 arasında değişen komisyon ücreti alır. Komisyon oranı, araç tipi, kiralama süresi ve özel kampanyalara göre değişiklik gösterebilir.'
         },
         {
           subtitle: '2.2 Ödeme Zamanlaması',
@@ -77,11 +77,11 @@ export default function VehicleOwnerTermsPage() {
         },
         {
           subtitle: '2.4 Vergi ve Yasal Yükümlülükler',
-          text: 'Araç sahibi, elde ettiği gelirle ilgili tüm vergi ve yasal yükümlülüklerden sorumludur. Araç kiralama geliri, yıllık gelir vergisi beyannamesi kapsamında beyan edilmelidir. Ailydian gerekli hallerde stopaj kesintisi yapabilir.'
+          text: 'Araç sahibi, elde ettiği gelirle ilgili tüm vergi ve yasal yükümlülüklerden sorumludur. Araç kiralama geliri, yıllık gelir vergisi beyannamesi kapsamında beyan edilmelidir. LyDian gerekli hallerde stopaj kesintisi yapabilir.'
         },
         {
           subtitle: '2.5 Ödeme Güvencesi',
-          text: 'Tüm ödemeler Ailydian güvencesi altındadır. Kiracı ödemesini yaptıktan sonra, araç sahibi ödemeyi garanti altında alır.'
+          text: 'Tüm ödemeler LyDian güvencesi altındadır. Kiracı ödemesini yaptıktan sonra, araç sahibi ödemeyi garanti altında alır.'
         }
       ]
     },
@@ -104,7 +104,7 @@ export default function VehicleOwnerTermsPage() {
         },
         {
           subtitle: '3.4 Force Majeure',
-          text: 'Doğal afet, salgın, savaş gibi mücbir sebep hallerinde, Ailydian özel iptal koşulları uygulayabilir ve taraflar arası adil bir çözüm bulunur.'
+          text: 'Doğal afet, salgın, savaş gibi mücbir sebep hallerinde, LyDian özel iptal koşulları uygulayabilir ve taraflar arası adil bir çözüm bulunur.'
         }
       ]
     },
@@ -127,7 +127,7 @@ export default function VehicleOwnerTermsPage() {
         },
         {
           subtitle: '4.4 Bakım ve Güvenlik',
-          text: 'Her kiralama öncesinde araç profesyonel temizlik yapılmalıdır. Düzenli servis bakımları zamanında yaptırılmalıdır. Tüm güvenlik ekipmanları (airbag, ABS, lastikler vb.) çalışır durumda olmalıdır. Aracın muayenesi güncel olmalıdır. Herhangi bir arıza veya sorun durumunda derhal Ailydian\'a ve kiracıya bildirilmelidir. Yedek araç temin etme veya alternatif çözüm sunma yükümlülüğü araç sahibine aittir.'
+          text: 'Her kiralama öncesinde araç profesyonel temizlik yapılmalıdır. Düzenli servis bakımları zamanında yaptırılmalıdır. Tüm güvenlik ekipmanları (airbag, ABS, lastikler vb.) çalışır durumda olmalıdır. Aracın muayenesi güncel olmalıdır. Herhangi bir arıza veya sorun durumunda derhal LyDian\'a ve kiracıya bildirilmelidir. Yedek araç temin etme veya alternatif çözüm sunma yükümlülüğü araç sahibine aittir.'
         },
         {
           subtitle: '4.5 Yasal Uyumluluk - Türkiye Araç Kiralama Gereksinimleri',
@@ -142,7 +142,7 @@ export default function VehicleOwnerTermsPage() {
       content: [
         {
           subtitle: '5.1 Kişisel Verilerin Korunması',
-          text: 'Ailydian, 6698 sayılı Kişisel Verilerin Korunması Kanunu (KVKK) kapsamında araç sahibi ve kiracıların kişisel verilerini korumayı taahhüt eder.'
+          text: 'LyDian, 6698 sayılı Kişisel Verilerin Korunması Kanunu (KVKK) kapsamında araç sahibi ve kiracıların kişisel verilerini korumayı taahhüt eder.'
         },
         {
           subtitle: '5.2 Toplanan Veriler',
@@ -173,7 +173,7 @@ export default function VehicleOwnerTermsPage() {
       content: [
         {
           subtitle: '6.1 Destek Kanalları',
-          text: '7/24 Canlı Destek: Platform üzerinden anlık destek. E-posta Desteği: support@ailydian.com. Telefon Desteği: 0850 XXX XX XX (09:00 - 22:00). Yardım Merkezi: Detaylı makaleler ve SSS.'
+          text: '7/24 Canlı Destek: Platform üzerinden anlık destek. E-posta Desteği: support@lydian.com. Telefon Desteği: 0850 XXX XX XX (09:00 - 22:00). Yardım Merkezi: Detaylı makaleler ve SSS.'
         },
         {
           subtitle: '6.2 Destek Konuları',
@@ -185,7 +185,7 @@ export default function VehicleOwnerTermsPage() {
         },
         {
           subtitle: '6.4 Araç Sahibi Eğitimi',
-          text: 'Ailydian, araç sahiplerine ücretsiz eğitim ve kaynak sağlar: Platform kullanım rehberleri, İyi araç sahibi olma ipuçları, Pazarlama ve fotoğrafçılık önerileri, Yasal uyumluluk bilgilendirmeleri.'
+          text: 'LyDian, araç sahiplerine ücretsiz eğitim ve kaynak sağlar: Platform kullanım rehberleri, İyi araç sahibi olma ipuçları, Pazarlama ve fotoğrafçılık önerileri, Yasal uyumluluk bilgilendirmeleri.'
         }
       ]
     },
@@ -196,11 +196,11 @@ export default function VehicleOwnerTermsPage() {
       content: [
         {
           subtitle: '7.1 Sözleşme Değişiklikleri',
-          text: 'Ailydian, bu sözleşme şartlarını değiştirme hakkını saklı tutar. Değişiklikler, araç sahiplerine e-posta yoluyla bildirilir ve 15 gün sonra yürürlüğe girer.'
+          text: 'LyDian, bu sözleşme şartlarını değiştirme hakkını saklı tutar. Değişiklikler, araç sahiplerine e-posta yoluyla bildirilir ve 15 gün sonra yürürlüğe girer.'
         },
         {
           subtitle: '7.2 Hesap Askıya Alma ve Sonlandırma',
-          text: 'Ailydian, sözleşme şartlarını ihlal eden, yanıltıcı bilgi veren veya platformu kötüye kullanan araç sahiplerinin hesaplarını askıya alabilir veya sonlandırabilir.'
+          text: 'LyDian, sözleşme şartlarını ihlal eden, yanıltıcı bilgi veren veya platformu kötüye kullanan araç sahiplerinin hesaplarını askıya alabilir veya sonlandırabilir.'
         },
         {
           subtitle: '7.3 Uyuşmazlık Çözümü',
@@ -225,7 +225,7 @@ export default function VehicleOwnerTermsPage() {
               <div className="w-10 h-10 bg-gradient-to-r from-green-600 to-emerald-600 rounded-lg flex items-center justify-center">
                 <Car className="w-6 h-6 text-white" />
               </div>
-              <span className="text-xl font-bold text-gray-900">Ailydian</span>
+              <span className="text-xl font-bold text-gray-900">LyDian</span>
             </Link>
 
             {/* Actions */}
@@ -287,7 +287,7 @@ export default function VehicleOwnerTermsPage() {
           </div>
           <div className="mt-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
             <p className="text-sm text-gray-700">
-              <strong>Önemli Not:</strong> Lütfen bu sözleşmeyi dikkatlice okuyunuz. Ailydian platformuna araç sahibi olarak kayıt olmadan önce tüm maddeleri anladığınızdan emin olun. Bu sözleşme sizinle Ailydian arasındaki yasal ilişkiyi düzenlemektedir.
+              <strong>Önemli Not:</strong> Lütfen bu sözleşmeyi dikkatlice okuyunuz. LyDian platformuna araç sahibi olarak kayıt olmadan önce tüm maddeleri anladığınızdan emin olun. Bu sözleşme sizinle LyDian arasındaki yasal ilişkiyi düzenlemektedir.
             </p>
           </div>
         </motion.div>
@@ -362,7 +362,7 @@ export default function VehicleOwnerTermsPage() {
             <div>
               <h3 className="font-semibold text-gray-900 mb-2">Genel İletişim</h3>
               <div className="space-y-2 text-gray-700">
-                <p>E-posta: info@ailydian.com</p>
+                <p>E-posta: info@lydian.com</p>
                 <p>Telefon: 0850 XXX XX XX</p>
                 <p>Adres: Örnek Mahallesi, Teknoloji Caddesi No:123</p>
               </div>
@@ -370,9 +370,9 @@ export default function VehicleOwnerTermsPage() {
             <div>
               <h3 className="font-semibold text-gray-900 mb-2">Yasal İşlemler</h3>
               <div className="space-y-2 text-gray-700">
-                <p>E-posta: legal@ailydian.com</p>
-                <p>KVKK İletişim: kvkk@ailydian.com</p>
-                <p>Şikayet: complaints@ailydian.com</p>
+                <p>E-posta: legal@lydian.com</p>
+                <p>KVKK İletişim: kvkk@lydian.com</p>
+                <p>Şikayet: complaints@lydian.com</p>
               </div>
             </div>
           </div>

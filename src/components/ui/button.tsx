@@ -27,15 +27,15 @@ export const Button: React.FC<ButtonProps> = ({
   ...props
 }) => {
   // Base styles - Booking.com professional button
-  const baseStyles = 'inline-flex items-center justify-center rounded-md font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ailydian-primary focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 whitespace-nowrap';
+  const baseStyles = 'inline-flex items-center justify-center rounded-md font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lydian-primary focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 whitespace-nowrap';
 
   // Variant styles - Red theme
   const variantStyles = {
-    primary: 'bg-ailydian-primary text-white hover:bg-ailydian-dark active:bg-ailydian-dark shadow-sm hover:shadow-md',
-    secondary: 'border-2 border-ailydian-primary text-ailydian-primary bg-white hover:bg-red-50 active:bg-red-100',
-    ghost: 'text-ailydian-primary hover:bg-red-50 active:bg-red-100',
-    white: 'bg-white text-ailydian-primary border border-neutral-200 hover:border-ailydian-primary hover:shadow-sm',
-    link: 'text-ailydian-primary underline-offset-4 hover:underline px-0',
+    primary: 'bg-lydian-primary text-white hover:bg-lydian-dark active:bg-lydian-dark shadow-sm hover:shadow-md',
+    secondary: 'border-2 border-lydian-primary text-lydian-primary bg-white hover:bg-red-50 active:bg-red-100',
+    ghost: 'text-lydian-primary hover:bg-red-50 active:bg-red-100',
+    white: 'bg-white text-lydian-primary border border-neutral-200 hover:border-lydian-primary hover:shadow-sm',
+    link: 'text-lydian-primary underline-offset-4 hover:underline px-0',
   };
 
   // Size styles - Booking.com standard sizes

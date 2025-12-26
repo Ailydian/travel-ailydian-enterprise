@@ -26,8 +26,8 @@ export default async function handler(
       return res.status(400).json({ error: 'URLs array is required' });
     }
 
-    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://travel.ailydian.com';
-    const indexNowKey = process.env.INDEXNOW_KEY || 'travel-ailydian-indexnow-key-2025-production';
+    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://travel.lydian.com';
+    const indexNowKey = process.env.INDEXNOW_KEY || 'travel-lydian-indexnow-key-2025-production';
 
     console.log(`📤 IndexNow: Submitting ${urls.length} URLs to all search engines...`);
 

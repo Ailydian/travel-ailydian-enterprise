@@ -256,7 +256,7 @@ export class ErrorMonitor {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Error Report - Travel Ailydian</title>
+    <title>Error Report - Travel LyDian</title>
     <style>
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; margin: 0; padding: 20px; background: #f8f9fa; }
         .container { max-width: 1400px; margin: 0 auto; }
@@ -296,7 +296,7 @@ export class ErrorMonitor {
     <div class="container">
         <div class="header">
             <h1>Error Monitoring Report</h1>
-            <p>Travel Ailydian - Last ${days} Days</p>
+            <p>Travel LyDian - Last ${days} Days</p>
             <p>${new Date().toLocaleDateString('tr-TR', { 
               weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' 
             })}</p>
@@ -411,7 +411,7 @@ export class ErrorMonitor {
   }
 
   // Scan site for broken links (basic implementation)
-  async scanForBrokenLinks(baseUrl: string = 'https://travel.ailydian.com'): Promise<string[]> {
+  async scanForBrokenLinks(baseUrl: string = 'https://travel.lydian.com'): Promise<string[]> {
     const brokenLinks: string[] = [];
     
     // This is a placeholder - in a real implementation, you would:

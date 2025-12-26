@@ -387,7 +387,7 @@ const PropertyDetailsPage = ({ slug: initialSlug }: PropertyDetailsPageProps) =>
   return (
     <>
       <Head>
-        <title>{property.title} | Travel Ailydian</title>
+        <title>{property.title} | Travel LyDian</title>
         <meta name="description" content={property.description} />
       </Head>
 

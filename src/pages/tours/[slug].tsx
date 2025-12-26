@@ -1,6 +1,6 @@
 /**
  * Tour Detail Page - Viator/GetYourGuide Style Premium Design
- * Ultra-premium design with all competitor features + unique Ailydian innovations
+ * Ultra-premium design with all competitor features + unique LyDian innovations
  */
 
 import React, { useState } from 'react';
@@ -99,8 +99,8 @@ const getTourBySlug = (slug: string) => {
       tour.difficulty === 'Kolay' ? 'Herkese Uygun' : '',
       tour.rating >= 4.7 ? '2024 Excellence Award' : ''
     ].filter(Boolean),
-    price: isLegacyTour ? tour.price : tour.pricing.travelAilydian,
-    originalPrice: isLegacyTour ? tour.originalPrice : (tour.pricing.competitors.getYourGuide || tour.pricing.travelAilydian + tour.pricing.savings),
+    price: isLegacyTour ? tour.price : tour.pricing.travelLyDian,
+    originalPrice: isLegacyTour ? tour.originalPrice : (tour.pricing.competitors.getYourGuide || tour.pricing.travelLyDian + tour.pricing.savings),
     discount: isLegacyTour ? Math.round(((tour.originalPrice - tour.price) / tour.originalPrice) * 100) : tour.pricing.savingsPercentage,
     duration: tour.duration,
     language: isLegacyTour ? tour.languages : ['Türkçe', 'İngilizce'],
@@ -124,7 +124,7 @@ const getTourBySlug = (slug: string) => {
     description: isLegacyTour ? tour.description : (tour.longDescription || tour.description),
     included: isLegacyTour ? (tour.includes || []) : (tour.included || []),
     excluded: isLegacyTour ? ['Kişisel harcamalar', 'Bahşiş'] : (tour.excluded || []),
-    seoTitle: isLegacyTour ? `${tour.name} | Ailydian Travel` : tour.seo?.metaTitle,
+    seoTitle: isLegacyTour ? `${tour.name} | LyDian Travel` : tour.seo?.metaTitle,
     seoDescription: isLegacyTour ? tour.description : tour.seo?.metaDescription,
     seoKeywords: isLegacyTour ? [tour.name, tour.location, 'tur'] : tour.seo?.keywords,
     requirements: [
@@ -278,22 +278,22 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
   return (
     <>
       <NextSeo
-        title={tour.seoTitle || `${tour.title} | En Uygun Fiyat Garantisi | Ailydian Travel`}
+        title={tour.seoTitle || `${tour.title} | En Uygun Fiyat Garantisi | LyDian Travel`}
         description={tour.seoDescription || `${tour.subtitle} - ${tour.location}. Online rezervasyon, anında onay, ücretsiz iptal. En iyi fiyat garantisi ile şimdi rezervasyon yapın!`}
-        canonical={`https://travel.ailydian.com/tours/${slug}`}
+        canonical={`https://travel.lydian.com/tours/${slug}`}
         openGraph={{
           title: tour.seoTitle || tour.title,
           description: tour.seoDescription || tour.subtitle,
           images: tour.images.map(img => ({ url: img, alt: tour.title })),
           type: 'website',
-          url: `https://travel.ailydian.com/tours/${slug}`,
-          siteName: 'Ailydian Travel',
+          url: `https://travel.lydian.com/tours/${slug}`,
+          siteName: 'LyDian Travel',
           locale: 'tr_TR',
         }}
         twitter={{
           cardType: 'summary_large_image',
-          handle: '@ailydian',
-          site: '@ailydian',
+          handle: '@lydian',
+          site: '@lydian',
         }}
         additionalMetaTags={[
           {
@@ -302,7 +302,7 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
           },
           {
             name: 'author',
-            content: 'Ailydian Travel',
+            content: 'LyDian Travel',
           },
           {
             name: 'robots',
@@ -325,43 +325,43 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
           {
             rel: 'alternate',
             hrefLang: 'tr-TR',
-            href: `https://travel.ailydian.com/tours/${slug}`,
+            href: `https://travel.lydian.com/tours/${slug}`,
           },
           {
             rel: 'alternate',
             hrefLang: 'en-US',
-            href: `https://travel.ailydian.com/en/tours/${slug}`,
+            href: `https://travel.lydian.com/en/tours/${slug}`,
           },
           {
             rel: 'alternate',
             hrefLang: 'ru-RU',
-            href: `https://travel.ailydian.com/ru/tours/${slug}`,
+            href: `https://travel.lydian.com/ru/tours/${slug}`,
           },
           {
             rel: 'alternate',
             hrefLang: 'de-DE',
-            href: `https://travel.ailydian.com/de/tours/${slug}`,
+            href: `https://travel.lydian.com/de/tours/${slug}`,
           },
           {
             rel: 'alternate',
             hrefLang: 'ar-SA',
-            href: `https://travel.ailydian.com/ar/tours/${slug}`,
+            href: `https://travel.lydian.com/ar/tours/${slug}`,
           },
           {
             rel: 'alternate',
             hrefLang: 'fr-FR',
-            href: `https://travel.ailydian.com/fr/tours/${slug}`,
+            href: `https://travel.lydian.com/fr/tours/${slug}`,
           },
           {
             rel: 'alternate',
             hrefLang: 'x-default',
-            href: `https://travel.ailydian.com/en/tours/${slug}`,
+            href: `https://travel.lydian.com/en/tours/${slug}`,
           },
         ]}
       />
 
       <Head>
-        <link rel="canonical" href={`https://travel.ailydian.com/tours/${slug}`} />
+        <link rel="canonical" href={`https://travel.lydian.com/tours/${slug}`} />
         {/* Structured Data - Tour Schema */}
         <script
           type="application/ld+json"
@@ -377,13 +377,13 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
                 price: tour.price,
                 priceCurrency: 'TRY',
                 availability: 'https://schema.org/InStock',
-                url: `https://travel.ailydian.com/tours/${slug}`,
+                url: `https://travel.lydian.com/tours/${slug}`,
                 validFrom: new Date().toISOString(),
               },
               provider: {
                 '@type': 'Organization',
-                name: 'Ailydian Travel',
-                url: 'https://travel.ailydian.com',
+                name: 'LyDian Travel',
+                url: 'https://travel.lydian.com',
               },
               touristType: tour.category,
               duration: tour.duration,
@@ -418,19 +418,19 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
                   '@type': 'ListItem',
                   position: 1,
                   name: 'Ana Sayfa',
-                  item: 'https://travel.ailydian.com',
+                  item: 'https://travel.lydian.com',
                 },
                 {
                   '@type': 'ListItem',
                   position: 2,
                   name: 'Turlar',
-                  item: 'https://travel.ailydian.com/tours',
+                  item: 'https://travel.lydian.com/tours',
                 },
                 {
                   '@type': 'ListItem',
                   position: 3,
                   name: tour.title,
-                  item: `https://travel.ailydian.com/tours/${slug}`,
+                  item: `https://travel.lydian.com/tours/${slug}`,
                 },
               ],
             }),

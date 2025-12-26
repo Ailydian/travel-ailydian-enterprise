@@ -1,8 +1,8 @@
-# 🚗🚐 Travel Ailydian - Araç Kiralama & Transfer Sistemi
+# 🚗🚐 Travel LyDian - Araç Kiralama & Transfer Sistemi
 
 ## 📊 PROJE ÖZETİ
 
-**Proje Adı:** Travel Ailydian Enterprise - Araç Kiralama & Transfer Servisi Entegrasyonu
+**Proje Adı:** Travel LyDian Enterprise - Araç Kiralama & Transfer Servisi Entegrasyonu
 **Tarih:** 22 Aralık 2025
 **Versiyon:** 2.0.0
 **Geliştirici:** Claude Code + Emrah Sardag
@@ -12,7 +12,7 @@
 
 ## 🎯 PROJE KAPSAMI
 
-Bu proje, mevcut **Travel Ailydian** platformuna **2 yeni iş kolu** eklemektedir:
+Bu proje, mevcut **Travel LyDian** platformuna **2 yeni iş kolu** eklemektedir:
 
 ### Mevcut Sistem
 ✅ **Property Owner Dashboard** - Ev/Villa kiralama yönetim sistemi
@@ -273,12 +273,12 @@ Ana yönetim paneli artık **3 iş kolunu** tek yerden yönetebilmektedir:
 
 ### Vehicle Owner Test Hesapları
 ```
-Email: demo@carowner.ailydian.com
+Email: demo@carowner.lydian.com
 Password: Demo123!
 İşletme: Yılmaz Rent A Car
 Araçlar: 8 | Aktif Kiralama: 5 | Gelir: ₺45,000/ay
 
-Email: mehmet@carowner.ailydian.com
+Email: mehmet@carowner.lydian.com
 Password: Mehmet123!
 İşletme: Demir Araç Kiralama
 Araçlar: 15 | Aktif Kiralama: 12 | Gelir: ₺89,000/ay
@@ -286,13 +286,13 @@ Araçlar: 15 | Aktif Kiralama: 12 | Gelir: ₺89,000/ay
 
 ### Transfer Owner Test Hesapları
 ```
-Email: demo@transfer.ailydian.com
+Email: demo@transfer.lydian.com
 Password: Demo123!
 Firma: Özdemir VIP Transfer
 D2 Belgesi: D2-IST-2023-1234
 Filo: 12 | Aktif Transfer: 8 | Gelir: ₺125,000/ay
 
-Email: fatma@transfer.ailydian.com
+Email: fatma@transfer.lydian.com
 Password: Fatma123!
 Firma: Şahin Turizm Transfer
 D2 Belgesi: D2-ANT-2023-5678
@@ -347,7 +347,7 @@ Filo: 20 | Aktif Transfer: 15 | Gelir: ₺210,000/ay
 
 ### Production URLs
 ```
-Ana Site: https://travel.ailydian.com
+Ana Site: https://travel.lydian.com
 
 Property Owner: /owner/*
 Vehicle Owner:  /vehicle-owner/*
@@ -471,9 +471,9 @@ git push origin main  # Auto-deploys to Vercel
 ## 📞 DESTEK VE İLETİŞİM
 
 ### Test Credentials Summary
-**Property Owner:** demo@ailydian.com / Demo123!
-**Vehicle Owner:** demo@carowner.ailydian.com / Demo123!
-**Transfer Owner:** demo@transfer.ailydian.com / Demo123!
+**Property Owner:** demo@lydian.com / Demo123!
+**Vehicle Owner:** demo@carowner.lydian.com / Demo123!
+**Transfer Owner:** demo@transfer.lydian.com / Demo123!
 **Admin:** (Use existing admin credentials)
 
 ### Documentation Links
@@ -486,7 +486,7 @@ git push origin main  # Auto-deploys to Vercel
 
 ## 🎉 SONUÇ
 
-Bu proje, Travel Ailydian platformuna **2 yeni iş kolu** ekleyerek:
+Bu proje, Travel LyDian platformuna **2 yeni iş kolu** ekleyerek:
 
 ✅ **Property Owner Dashboard** (Mevcut)
 ✅ **Vehicle Owner Dashboard** (YENİ)
@@ -510,4 +510,4 @@ Bu proje, Travel Ailydian platformuna **2 yeni iş kolu** ekleyerek:
 **Hazırlayan:** Claude Code + Emrah Sardag
 **Tarih:** 22 Aralık 2025
 **Versiyon:** 2.0.0
-**Lisans:** Proprietary - Travel Ailydian
+**Lisans:** Proprietary - Travel LyDian

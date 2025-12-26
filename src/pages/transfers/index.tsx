@@ -217,7 +217,7 @@ const TransfersPage: React.FC = () => {
   const allTransfers = useMemo(() => {
     return antalyaTransfers.map((transfer, index) => ({
       id: transfer.id,
-      company: `Ailydian Transfer ${index + 1}`,
+      company: `LyDian Transfer ${index + 1}`,
       vehicleType: index % 3 === 0 ? 'vip-sedan' : index % 3 === 1 ? 'minivan' : 'vip-minivan',
       vehicle: transfer.vehicleOptions?.[0]?.tr || 'Transfer Aracı',
       capacity: 7,
@@ -611,7 +611,7 @@ const TransfersPage: React.FC = () => {
                 transition={{ delay: 0.2 }}
                 className="text-xl text-white/90 max-w-3xl mx-auto"
               >
-                Ailydian ile dünyanın dört bir yanından müşterilere ulaşın. %0 komisyon ile başlayın,
+                LyDian ile dünyanın dört bir yanından müşterilere ulaşın. %0 komisyon ile başlayın,
                 kazancınızı maksimuma çıkarın.
               </motion.p>
             </div>
