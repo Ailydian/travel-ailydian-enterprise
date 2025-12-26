@@ -156,7 +156,7 @@ export default function ExperienceDetail({ experience, relatedExperiences }: Exp
             className="object-cover opacity-80"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20" />
 
           {/* Gallery Thumbnails */}
           <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2 px-4">

@@ -456,6 +456,9 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
                 sizes="100vw"
               />
 
+              {/* Hero Overlay for better text visibility */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20" />
+
               {/* Navigation Arrows */}
               <button
                 onClick={() => setSelectedImage(prev => (prev === 0 ? tour.images.length - 1 : prev - 1))}

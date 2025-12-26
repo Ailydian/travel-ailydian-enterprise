@@ -82,7 +82,7 @@ export default function HotelDetailPage({ hotel }: { hotel: Hotel }) {
               className="object-cover opacity-80"
             />
           )}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20" />
 
           {/* Hotel Title Overlay */}
           <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
