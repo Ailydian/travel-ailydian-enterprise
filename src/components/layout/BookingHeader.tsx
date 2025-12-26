@@ -68,7 +68,7 @@ export const BookingHeader: React.FC = () => {
         <div className="relative max-w-7xl mx-auto px-4">
           <div className="flex items-center justify-end gap-6 py-2.5">
             <LanguageSwitcher />
-            <Link href="/partners">
+            <Link href="/partner">
               <motion.button
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
@@ -213,6 +213,11 @@ export const BookingHeader: React.FC = () => {
               })}
 
               <div className="pt-4 mt-4 border-t border-gray-200 space-y-2">
+                {/* Language Switcher in Mobile Menu */}
+                <div className="px-4 py-3">
+                  <LanguageSwitcher />
+                </div>
+
                 <Link
                   href="/favorites"
                   onClick={() => setMobileMenuOpen(false)}
