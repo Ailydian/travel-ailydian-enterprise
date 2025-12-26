@@ -365,7 +365,7 @@ const GetYourGuideStyleHome: React.FC = () => {
 
                     {/* Content */}
                     <div className="p-6">
-                      <div className="flex items-center gap-2 text-sm text-gray-500 mb-2">
+                      <div className="flex items-center gap-2 text-sm text-gray-400 mb-2">
                         <MapPin className="w-4 h-4" />
                         <span>{result.location || 'Türkiye'}</span>
                         {result.duration && (
@@ -388,7 +388,7 @@ const GetYourGuideStyleHome: React.FC = () => {
                             <span className="font-medium">{result.rating}</span>
                           </div>
                           {result.reviews && (
-                            <span className="text-gray-500 text-sm">({result.reviews} değerlendirme)</span>
+                            <span className="text-gray-400 text-sm">({result.reviews} değerlendirme)</span>
                           )}
                         </div>
                       )}
@@ -408,7 +408,7 @@ const GetYourGuideStyleHome: React.FC = () => {
                               {typeof result.price === 'string' ? result.price : `₺${result.price}`}
                             </span>
                           ) : (
-                            <span className="text-sm text-gray-500">Fiyat bilgisi yok</span>
+                            <span className="text-sm text-gray-400">Fiyat bilgisi yok</span>
                           )}
                         </div>
                         <div className="flex flex-col gap-2">
@@ -745,7 +745,7 @@ const GetYourGuideStyleHome: React.FC = () => {
 
                       <div className="mt-6 pt-6 border-t border-gray-100">
                         <div className="flex items-center justify-between text-sm">
-                          <div className="text-gray-500">Ortalama Gelir</div>
+                          <div className="text-gray-400">Ortalama Gelir</div>
                           <div className="font-bold text-white">₺15,000/ay</div>
                         </div>
                       </div>
@@ -792,7 +792,7 @@ const GetYourGuideStyleHome: React.FC = () => {
 
                       <div className="mt-6 pt-6 border-t border-gray-100">
                         <div className="flex items-center justify-between text-sm">
-                          <div className="text-gray-500">Ortalama Gelir</div>
+                          <div className="text-gray-400">Ortalama Gelir</div>
                           <div className="font-bold text-white">₺8,500/ay</div>
                         </div>
                       </div>
@@ -839,7 +839,7 @@ const GetYourGuideStyleHome: React.FC = () => {
 
                       <div className="mt-6 pt-6 border-t border-gray-100">
                         <div className="flex items-center justify-between text-sm">
-                          <div className="text-gray-500">Ortalama Gelir</div>
+                          <div className="text-gray-400">Ortalama Gelir</div>
                           <div className="font-bold text-white">₺12,000/ay</div>
                         </div>
                       </div>

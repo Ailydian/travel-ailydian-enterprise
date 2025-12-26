@@ -345,7 +345,7 @@ const HotelsNewPage: React.FC = () => {
               <div className="flex items-center gap-4">
                 <button
                   onClick={() => setShowFilters(!showFilters)}
-                  className="flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors relative"
+                  className="flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-lg hover:bg-white/5 transition-colors relative"
                 >
                   <SlidersHorizontal className="w-4 h-4" />
                   Filtreler
@@ -371,7 +371,7 @@ const HotelsNewPage: React.FC = () => {
         </section>
 
         {/* Hotels Grid */}
-        <section className="py-12 bg-gray-50">
+        <section className="py-12 bg-white/5">
           <div className="max-w-7xl mx-auto px-4">
             {loading ? (
               <div className="flex justify-center items-center py-20">
@@ -404,7 +404,7 @@ const HotelsNewPage: React.FC = () => {
                     </div>
 
                     <div className="p-6">
-                      <div className="flex items-center gap-2 text-sm text-gray-500 mb-2">
+                      <div className="flex items-center gap-2 text-sm text-gray-400 mb-2">
                         <MapPin className="w-4 h-4" />
                         <span>{hotel.location}</span>
                       </div>
@@ -415,7 +415,7 @@ const HotelsNewPage: React.FC = () => {
                       <div className="flex items-center gap-2 mb-4">
                         <Star className="w-4 h-4 text-yellow-500 fill-current" />
                         <span className="font-medium">{hotel.rating}</span>
-                        <span className="text-gray-500 text-sm">({hotel.reviewCount} değerlendirme)</span>
+                        <span className="text-gray-400 text-sm">({hotel.reviewCount} değerlendirme)</span>
                       </div>
 
                       <div className="space-y-3">

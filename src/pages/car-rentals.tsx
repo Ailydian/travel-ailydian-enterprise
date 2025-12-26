@@ -273,7 +273,7 @@ const CarRental: React.FC = () => {
 
                     <div className="flex items-baseline gap-2 mt-4">
                       <span className="text-2xl font-bold text-white">{category.price}</span>
-                      <span className="text-sm text-gray-500">/ gün başlayan fiyatlarla</span>
+                      <span className="text-sm text-gray-400">/ gün başlayan fiyatlarla</span>
                     </div>
                   </div>
                 </motion.div>
