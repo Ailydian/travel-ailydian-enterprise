@@ -2,6 +2,7 @@ import React, { useState, useCallback, useEffect } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { useTranslation } from 'next-i18next';
 import { SEOHead } from '../components/seo/SEOHead';
 import { PAGE_SEO } from '../config/seo';
 import { motion } from 'framer-motion';
@@ -56,8 +57,13 @@ import { BookingProductCard } from '../components/booking/BookingProductCard';
 import { FilterSidebar } from '../components/booking/FilterSidebar';
 import { VideoHero } from '../components/ui/VideoHero';
 import { AnimatedCarSVG } from '../components/icons/AnimatedCarSVG';
+import { ImmersiveHero, GlassmorphismCard, GradientBackground } from '../components/immersive';
+import { immersiveAnimations } from '../utils/immersiveAnimations';
 
 const GetYourGuideStyleHome: React.FC = () => {
+  // Translation
+  const { t } = useTranslation('common');
+
   // Router
   const router = useRouter();
 
@@ -84,7 +90,7 @@ const GetYourGuideStyleHome: React.FC = () => {
     const cartItem = {
       id: item.id || `item_${Date.now()}_${Math.random()}`,
       type: item.type || 'tour',
-      title: item.title || item.name || 'Ürün',
+      title: item.title || item.name || t('home.cart.product'),
       description: item.description || '',
       image: item.image || item.photos?.[0]?.url || 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop',
       price: typeof item.price === 'string' ?
@@ -94,7 +100,7 @@ const GetYourGuideStyleHome: React.FC = () => {
       currency: 'TRY',
       quantity: 1,
       date: defaultCheckIn,
-      location: item.location || item.address?.cityName || 'Türkiye',
+      location: item.location || item.address?.cityName || t('home.destinations.turkey'),
       duration: item.duration,
       rating: item.rating || item.reviewScoreWord,
       provider: item.provider || 'LyDian',
@@ -154,14 +160,14 @@ const GetYourGuideStyleHome: React.FC = () => {
     }
   ];
 
-  // Popüler deneyimler - Gerçek Turlar (antalya-tours.ts'den)
+  // Popüler deneyimler - Gerçek Turlar (GERÇEK ŞEHİR GÖRSELLERİ)
   const topExperiences = [
     {
       id: 1,
       slug: 'atv-quad-safari-antalya',
       title: 'ATV & Quad Safari - Antalya',
       location: 'Antalya, Türkiye',
-      image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&q=90',
+      image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&q=90', // ATV/Quad safari in mountains
       price: '₺299',
       originalPrice: '₺380',
       rating: 4.8,
@@ -177,7 +183,7 @@ const GetYourGuideStyleHome: React.FC = () => {
       slug: 'duden-kursunlu-waterfalls-tour',
       title: 'Düden & Kurşunlu Şelaleleri Turu',
       location: 'Antalya, Türkiye',
-      image: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400&h=300&q=90',
+      image: 'https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?w=800&h=600&q=90', // Waterfall in nature
       price: '₺189',
       originalPrice: '₺250',
       rating: 4.7,
@@ -193,7 +199,7 @@ const GetYourGuideStyleHome: React.FC = () => {
       slug: 'kemer-pirate-boat-tour',
       title: 'Kemer Korsan Teknesi Turu',
       location: 'Kemer, Türkiye',
-      image: 'https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?w=400&h=300&q=90',
+      image: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&h=600&q=90', // Pirate ship/boat tour
       price: '₺249',
       originalPrice: '₺320',
       rating: 4.9,
@@ -209,7 +215,7 @@ const GetYourGuideStyleHome: React.FC = () => {
       slug: 'kopru-canyon-rafting-tour',
       title: 'Köprülü Kanyon Rafting Turu',
       location: 'Belek, Türkiye',
-      image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&q=90',
+      image: 'https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=800&h=600&q=90', // Rafting in canyon
       price: '₺449',
       originalPrice: '₺600',
       rating: 4.8,
@@ -225,7 +231,7 @@ const GetYourGuideStyleHome: React.FC = () => {
       slug: 'perge-aspendos-side-ancient-cities-tour',
       title: 'Perge, Aspendos, Side - Antik Kentler',
       location: 'Side, Türkiye',
-      image: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400&h=300&q=90',
+      image: 'https://images.unsplash.com/photo-1592409939946-e1a5e53e0dcf?w=800&h=600&q=90', // Ancient ruins/amphitheater
       price: '₺219',
       originalPrice: '₺280',
       rating: 4.7,
@@ -241,7 +247,7 @@ const GetYourGuideStyleHome: React.FC = () => {
       slug: 'kas-scuba-diving-padi-certified',
       title: 'Kaş Tüplü Dalış - PADI Sertifikalı',
       location: 'Kaş, Türkiye',
-      image: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400&h=300&q=90',
+      image: 'https://images.unsplash.com/photo-1544551763-92673a27d785?w=800&h=600&q=90', // Scuba diving underwater
       price: '₺399',
       originalPrice: '₺500',
       rating: 4.9,
@@ -267,8 +273,38 @@ const GetYourGuideStyleHome: React.FC = () => {
       <BookingHeader />
 
       <main>
-        {/* Video Hero Section */}
-        <VideoHero />
+        {/* 🌟 IMMERSIVE HERO SECTION - Full-screen gradient magic */}
+        <ImmersiveHero
+          gradient="ocean"
+          title={t('Dünyanızı Keşfedin')}
+          subtitle={t('AI destekli kişiselleştirilmiş seyahat deneyimleri ile hayalinizdeki tatili yaşayın')}
+          searchComponent={
+            <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex-1">
+                <input
+                  type="text"
+                  placeholder="Nereye gitmek istersiniz?"
+                  className="w-full px-6 py-4 bg-white/20 backdrop-blur-md border border-white/30 rounded-2xl text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                />
+              </div>
+              <motion.button
+                className="px-8 py-4 rounded-2xl font-semibold text-white whitespace-nowrap"
+                style={{
+                  background: 'linear-gradient(135deg, rgba(86, 204, 242, 0.9) 0%, rgba(59, 159, 217, 0.9) 100%)',
+                  boxShadow: '0 8px 24px rgba(86, 204, 242, 0.4)'
+                }}
+                whileHover={{
+                  scale: 1.05,
+                  boxShadow: '0 12px 32px rgba(86, 204, 242, 0.6)'
+                }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Search className="w-5 h-5 inline mr-2" />
+                Keşfet
+              </motion.button>
+            </div>
+          }
+        />
 
         {/* Search Results */}
         {searchResults.length > 0 && (
@@ -402,7 +438,7 @@ const GetYourGuideStyleHome: React.FC = () => {
                               whileTap={{ scale: 0.95 }}
                               onClick={() => handleAddToCart(result)}
                               className="p-2 bg-lydian-primary hover:bg-lydian-dark text-white rounded-lg transition-all duration-200 flex-shrink-0"
-                              title="Sepete Ekle"
+                              title={t('home.cart.addToCart')}
                             >
                               <ShoppingCart className="w-4 h-4" />
                             </motion.button>
@@ -415,10 +451,10 @@ const GetYourGuideStyleHome: React.FC = () => {
                               }}
                               className="flex-1 px-4 py-2 bg-gradient-to-r from-lydian-primary to-lydian-secondary text-white rounded-lg font-medium hover:shadow-lg transition-all duration-200 text-sm"
                             >
-                              {result.type === 'hotel' ? 'Rezervasyon' :
-                               result.type === 'flight' ? 'Bilet Al' :
-                               result.type === 'transfer' ? 'Transfer Rezerve Et' :
-                               result.type === 'restaurant' ? 'Rezerve Et' : 'Rezervasyon'}
+                              {result.type === 'hotel' ? t('home.bookingTypes.hotel') :
+                               result.type === 'flight' ? t('home.bookingTypes.flight') :
+                               result.type === 'transfer' ? t('home.bookingTypes.transfer') :
+                               result.type === 'restaurant' ? t('home.bookingTypes.restaurant') : t('home.bookingTypes.default')}
                             </motion.button>
                           </div>
                         </div>
@@ -436,7 +472,7 @@ const GetYourGuideStyleHome: React.FC = () => {
                     whileTap={{ scale: 0.95 }}
                     className="px-8 py-3 bg-white border-2 border-lydian-primary text-lydian-primary rounded-2xl font-medium hover:bg-lydian-primary hover:text-white transition-all duration-200"
                   >
-                    Daha Fazla Sonuç Yükle
+                    {t('home.experiences.loadMore')}
                   </motion.button>
                 </div>
               )}
@@ -445,125 +481,107 @@ const GetYourGuideStyleHome: React.FC = () => {
         )}
 
 
-        {/* Top Experiences - Premium Style Horizontal Listing with Sidebar */}
-        <section className="py-16 bg-gray-50">
+        {/* 💎 IMMERSIVE EXPERIENCES SECTION - Glassmorphism Cards */}
+        <GradientBackground type="twilight" animated={true} className="py-24 relative">
           <div className="max-w-7xl mx-auto px-4">
-            {/* Header */}
-            <div className="mb-8">
-              <div className="flex items-center justify-between mb-4">
-                <div>
-                  <h2 className="text-3xl font-bold text-gray-900 mb-2">Türkiye: {topExperiences.length} özellik bulundu</h2>
-                  <p className="text-gray-600">En popüler turlar ve aktiviteler</p>
-                </div>
-                <Link href="/tours" className="hidden md:flex items-center gap-2 text-lydian-primary hover:text-lydian-dark font-medium">
-                  Tüm Turları Gör
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-              </div>
-
-              {/* Sorting & View Options */}
-              <div className="flex items-center justify-between flex-wrap gap-4">
-                <div className="flex items-center gap-2">
-                  {/* Mobile Filter Button */}
-                  <button
-                    onClick={() => setShowMobileFilters(true)}
-                    className="md:hidden px-4 py-2 bg-white border border-gray-300 rounded-lg text-sm font-medium hover:border-lydian-primary transition-colors"
-                  >
-                    <Filter className="w-4 h-4 inline mr-2" />
-                    Filtreler
-                  </button>
-                  <select className="px-4 py-2 bg-white border border-gray-300 rounded-lg text-sm font-medium hover:border-lydian-primary transition-colors">
-                    <option>Önerilenler</option>
-                    <option>En Düşük Fiyat</option>
-                    <option>En Yüksek Puan</option>
-                    <option>En Çok Değerlendirilen</option>
-                  </select>
-                </div>
-                <div className="text-sm text-gray-600">
-                  <span className="font-medium">{topExperiences.length}</span> sonuçtan <span className="font-medium">1-{Math.min(6, topExperiences.length)}</span> arası gösteriliyor
-                </div>
-              </div>
-            </div>
-
-            {/* Sidebar + Main Content Layout */}
-            <div className="flex flex-col md:flex-row gap-6">
-              {/* Left Sidebar - Desktop Only */}
-              <aside className="hidden md:block w-80 flex-shrink-0">
-                <FilterSidebar
-                  isMobile={false}
-                  onFilterChange={(filters) => {
-                    console.log('Filters applied:', filters);
-                    // TODO: Apply filters to products
-                  }}
-                />
-              </aside>
-
-              {/* Mobile Filter Sidebar */}
-              <FilterSidebar
-                isMobile={true}
-                isOpen={showMobileFilters}
-                onClose={() => setShowMobileFilters(false)}
-                onFilterChange={(filters) => {
-                  console.log('Filters applied:', filters);
-                  // TODO: Apply filters to products
+            {/* Header with Glow Effect */}
+            <motion.div
+              className="text-center mb-16"
+              {...immersiveAnimations.fadeInUp}
+            >
+              <motion.h2
+                className="text-5xl md:text-6xl font-black text-white mb-4"
+                style={{
+                  letterSpacing: '0.02em',
+                  textShadow: '0 0 30px rgba(86, 204, 242, 0.6)'
                 }}
-              />
+                {...immersiveAnimations.glow}
+              >
+                {t('home.experiences.title', { count: topExperiences.length })}
+              </motion.h2>
+              <motion.p
+                className="text-xl text-white/80 max-w-2xl mx-auto"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3, duration: 0.6 }}
+              >
+                {t('home.experiences.subtitle')}
+              </motion.p>
+              <Link href="/tours">
+                <motion.div
+                  className="inline-flex items-center gap-2 mt-6 text-cyan-300 hover:text-cyan-200 font-semibold text-lg"
+                  whileHover={{ x: 5 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  {t('home.experiences.viewAllTours')}
+                  <ArrowRight className="w-5 h-5" />
+                </motion.div>
+              </Link>
+            </motion.div>
 
-              {/* Main Content - Product Listing */}
-              <div className="flex-1">
-                <div className="space-y-4">
-                  {topExperiences.slice(0, 6).map((experience, index) => (
-                    <BookingProductCard
-                      key={experience.id}
-                      id={experience.id}
-                      title={experience.title}
-                      location={experience.location}
-                      rating={experience.rating}
-                      reviewCount={experience.reviews}
-                      images={[experience.image]}
-                      price={typeof experience.price === 'string' ? parseFloat(experience.price.replace(/[^0-9]/g, '')) : experience.price}
-                      originalPrice={experience.originalPrice ? (typeof experience.originalPrice === 'string' ? parseFloat(experience.originalPrice.replace(/[^0-9]/g, '')) : experience.originalPrice) : undefined}
-                      currency="₺"
-                      features={experience.highlights}
-                      badges={experience.badges}
-                      description={`${experience.duration} · ${experience.category}`}
-                      href={`/tours/${experience.slug}`}
-                      type="tour"
-                      onAddToCart={() => handleAddToCart({
-                        ...experience,
-                        type: 'tour',
-                        price: typeof experience.price === 'string' ?
-                          parseFloat(experience.price.replace(/[^0-9]/g, '')) : experience.price
-                      })}
-                    />
-                  ))}
-                </div>
-
-                {/* Pagination */}
-                <div className="mt-8 flex justify-center">
-                  <div className="flex items-center gap-2">
-                    <button className="px-4 py-2 border border-gray-300 rounded-lg text-sm font-medium hover:bg-gray-50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed" disabled>
-                      Önceki
-                    </button>
-                    <button className="px-4 py-2 bg-lydian-primary text-white rounded-lg text-sm font-medium">
-                      1
-                    </button>
-                    <button className="px-4 py-2 border border-gray-300 rounded-lg text-sm font-medium hover:bg-gray-50 transition-colors">
-                      2
-                    </button>
-                    <button className="px-4 py-2 border border-gray-300 rounded-lg text-sm font-medium hover:bg-gray-50 transition-colors">
-                      3
-                    </button>
-                    <span className="px-2 text-gray-500">...</span>
-                    <button className="px-4 py-2 border border-gray-300 rounded-lg text-sm font-medium hover:bg-gray-50 transition-colors">
-                      Sonraki
-                    </button>
-                  </div>
-                </div>
-              </div>
+            {/* ✨ GLASSMORPHISM CARD GRID */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {topExperiences.map((experience, index) => (
+                <GlassmorphismCard
+                  key={experience.id}
+                  image={experience.image}
+                  title={experience.title}
+                  description={experience.highlights[0]}
+                  location={experience.location}
+                  price={typeof experience.price === 'string' ? parseFloat(experience.price.replace(/[^0-9]/g, '')) : experience.price}
+                  originalPrice={experience.originalPrice ? (typeof experience.originalPrice === 'string' ? parseFloat(experience.originalPrice.replace(/[^0-9]/g, '')) : experience.originalPrice) : undefined}
+                  rating={experience.rating}
+                  reviews={experience.reviews}
+                  duration={experience.duration}
+                  category={experience.category}
+                  badge={experience.badges[0]}
+                  onAddToCart={() => handleAddToCart({
+                    ...experience,
+                    type: 'tour',
+                    price: typeof experience.price === 'string' ?
+                      parseFloat(experience.price.replace(/[^0-9]/g, '')) : experience.price
+                  })}
+                  onClick={() => router.push(`/tours/${experience.slug}`)}
+                  glowOnHover={true}
+                  perspective={true}
+                  index={index}
+                />
+              ))}
             </div>
+
+            {/* View All Button */}
+            <motion.div
+              className="text-center mt-16"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.6 }}
+            >
+              <Link href="/tours">
+                <motion.button
+                  className="px-10 py-5 rounded-2xl font-bold text-white text-lg"
+                  style={{
+                    background: 'linear-gradient(135deg, rgba(86, 204, 242, 0.2) 0%, rgba(59, 159, 217, 0.2) 100%)',
+                    backdropFilter: 'blur(20px)',
+                    border: '2px solid rgba(86, 204, 242, 0.5)',
+                    boxShadow: '0 8px 32px rgba(86, 204, 242, 0.3)'
+                  }}
+                  whileHover={{
+                    scale: 1.05,
+                    boxShadow: '0 12px 48px rgba(86, 204, 242, 0.5)',
+                    borderColor: 'rgba(86, 204, 242, 0.8)'
+                  }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <span className="flex items-center gap-3">
+                    {t('home.experiences.viewAllTours')}
+                    <ArrowRight className="w-6 h-6" />
+                  </span>
+                </motion.button>
+              </Link>
+            </motion.div>
           </div>
-        </section>
+        </GradientBackground>
 
         {/* Popular Transfers - Antalya Routes */}
         <section className="py-16 bg-gradient-to-br from-blue-50 to-indigo-50">
