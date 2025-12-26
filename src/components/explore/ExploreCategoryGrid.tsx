@@ -32,9 +32,9 @@ export const ExploreCategoryGrid: React.FC = () => {
                   <div className={`w-14 h-14 bg-gradient-to-br ${category.color} rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
                     <Icon className="w-7 h-7 text-white" />
                   </div>
-                  <h3 className="text-2xl font-bold text-white mb-2">{categoryData.name}</h3>
-                  <p className="text-white/80 text-sm mb-4">{categoryData.description}</p>
-                  <div className="flex items-center gap-2 text-white font-semibold">
+                  <h3 className="text-2xl font-bold text-white mb-2 drop-shadow-lg">{categoryData.name}</h3>
+                  <p className="text-white text-sm mb-4 drop-shadow-md">{categoryData.description}</p>
+                  <div className="flex items-center gap-2 text-white font-semibold drop-shadow-md">
                     <span>{t('explore.exploreMore')}</span>
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
                   </div>
