@@ -9,7 +9,7 @@ import {
   TrendingDown,
   Plane
 } from 'lucide-react';
-import { BookingHeader } from '../components/layout/BookingHeader';
+import { FuturisticHeader } from '../components/layout/FuturisticHeader';
 import antalyaAirportTransfers from '../data/antalya-transfers';
 import { AnimatedCarIcon } from '../components/icons/AnimatedCarIcon';
 import { TransferCarCard } from '../components/cards/TransferCarCard';
@@ -60,7 +60,7 @@ export default function TransfersPage() {
         <link rel="alternate" hrefLang="x-default" href="https://travel.lydian.com/en/transfers" />
       </Head>
 
-      <BookingHeader />
+      <FuturisticHeader />
 
       {/* 🎨 NEO-GLASS HERO */}
       <NeoHero

@@ -28,7 +28,7 @@ import {
   Eye
 } from 'lucide-react';
 import { useCart } from '../context/CartContext';
-import { BookingHeader } from '../components/layout/BookingHeader';
+import { FuturisticHeader } from '../components/layout/FuturisticHeader';
 import { allComprehensiveTours as importedComprehensiveTours } from '../data/marmaris-bodrum-cesme-tours';
 import { antalyaTours } from '../data/antalya-tours';
 import { greeceTours } from '../data/greece-tours';
@@ -713,7 +713,7 @@ export default function Tours() {
         <meta name="description" content="Türkiye'nin en özel turları ve unutulmaz deneyimleri keşfedin" />
       </Head>
 
-      <BookingHeader />
+      <FuturisticHeader />
 
       <main className="min-h-screen">
         {/* 🎬 NEO-GLASS TOURS HERO */}

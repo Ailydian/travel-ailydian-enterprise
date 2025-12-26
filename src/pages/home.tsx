@@ -49,7 +49,7 @@ import {
   Home,
   Bus
 } from 'lucide-react';
-import { BookingHeader } from '../components/layout/BookingHeader';
+import { FuturisticHeader } from '../components/layout/FuturisticHeader';
 import { BookingFooter } from '../components/layout/BookingFooter';
 import antalyaTransfers from '@/data/antalya-transfers';
 import antalyaCarRentals from '@/data/antalya-car-rentals';
@@ -270,7 +270,7 @@ const GetYourGuideStyleHome: React.FC = () => {
         type="website"
       />
 
-      <BookingHeader />
+      <FuturisticHeader />
 
       <main>
         {/* 🎬 NEO-GLASS HERO - Neomorphism + Glassmorphism */}
