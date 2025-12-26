@@ -38,11 +38,12 @@ export const BookingFooter: React.FC = () => {
     support: {
       title: 'Destek',
       links: [
-        { label: 'Müşteri Hizmetleri', href: '/support' },
-        { label: 'SSS', href: '/faq' },
-        { label: 'İletişim', href: '/contact' },
-        { label: 'Rezervasyon Yönetimi', href: '/manage-booking' },
-        { label: 'İptal ve İade', href: '/cancellation-policy' },
+        { label: 'Yardım Merkezi', href: '/help' },
+        { label: 'Müşteri Hizmetleri', href: '/help#contact' },
+        { label: 'SSS', href: '/help#faq' },
+        { label: 'İletişim', href: '/help#contact' },
+        { label: 'Rezervasyon Yönetimi', href: '/help#booking' },
+        { label: 'İptal ve İade', href: '/help#cancellation' },
       ]
     },
     company: {

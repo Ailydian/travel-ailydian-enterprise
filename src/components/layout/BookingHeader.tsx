@@ -60,14 +60,16 @@ export const BookingHeader: React.FC = () => {
               <Globe className="w-4 h-4 !text-white" />
               <span className="!text-white font-bold">Türkçe</span>
             </motion.button>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="flex items-center gap-2 px-3 py-1.5 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-md transition-all font-bold text-sm border border-white/20 !text-white"
-            >
-              <HelpCircle className="w-4 h-4 !text-white" />
-              <span className="!text-white font-bold">Yardım</span>
-            </motion.button>
+            <Link href="/help">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="flex items-center gap-2 px-3 py-1.5 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-md transition-all font-bold text-sm border border-white/20 !text-white"
+              >
+                <HelpCircle className="w-4 h-4 !text-white" />
+                <span className="!text-white font-bold">Yardım</span>
+              </motion.button>
+            </Link>
           </div>
         </div>
       </div>

@@ -5,13 +5,6 @@ import { useRouter } from 'next/router';
 import { SEOHead } from '../components/seo/SEOHead';
 import { PAGE_SEO } from '../config/seo';
 import { motion } from 'framer-motion';
-import dynamic from 'next/dynamic';
-
-// Dynamic import for VideoBackground to avoid SSR issues
-const VideoBackground = dynamic(() => import('../components/ui/VideoBackground'), {
-  ssr: false,
-  loading: () => <div className="absolute inset-0 bg-gradient-to-br from-ailydian-primary/20 to-ailydian-secondary/20" />
-});
 import { useCart } from '../context/CartContext';
 import {
   Search,
@@ -59,9 +52,9 @@ import { BookingHeader } from '../components/layout/BookingHeader';
 import { BookingFooter } from '../components/layout/BookingFooter';
 import antalyaTransfers from '@/data/antalya-transfers';
 import antalyaCarRentals from '@/data/antalya-car-rentals';
-import { BookingSearchForm } from '../components/booking/BookingSearchForm';
 import { BookingProductCard } from '../components/booking/BookingProductCard';
 import { FilterSidebar } from '../components/booking/FilterSidebar';
+import { VideoHero } from '../components/ui/VideoHero';
 
 const GetYourGuideStyleHome: React.FC = () => {
   // Router
@@ -267,63 +260,8 @@ const GetYourGuideStyleHome: React.FC = () => {
       <BookingHeader />
 
       <main>
-        {/* Hero Section - Booking.com SEARCH-FIRST Design */}
-        <section className="relative min-h-[75vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-ailydian-primary via-ailydian-secondary to-ailydian-dark">
-          {/* Background Pattern */}
-          <div className="absolute inset-0 opacity-10">
-            <div className="absolute inset-0" style={{
-              backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)',
-              backgroundSize: '40px 40px'
-            }} />
-          </div>
-
-          {/* Hero Content */}
-          <div className="relative z-10 w-full max-w-7xl mx-auto px-4 py-16">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="text-center mb-8"
-            >
-              <h1 className="text-4xl md:text-6xl font-black text-white mb-4 leading-tight">
-                Bir Sonraki Maceranızı Bulun
-              </h1>
-              <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto">
-                Türkiye'nin dört bir yanında oteller, turlar, arabalar ve daha fazlası
-              </p>
-            </motion.div>
-
-            {/* Booking Search Form */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              <BookingSearchForm />
-            </motion.div>
-
-            {/* Trust Badges */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="mt-8 flex flex-wrap items-center justify-center gap-8 text-white/80"
-            >
-              <div className="flex items-center gap-2">
-                <Shield className="w-5 h-5" />
-                <span className="text-sm font-medium">Güvenli Ödeme</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Award className="w-5 h-5" />
-                <span className="text-sm font-medium">En İyi Fiyat Garantisi</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle className="w-5 h-5" />
-                <span className="text-sm font-medium">Ücretsiz İptal</span>
-              </div>
-            </motion.div>
-          </div>
-        </section>
+        {/* Video Hero Section */}
+        <VideoHero />
 
         {/* Search Results */}
         {searchResults.length > 0 && (
