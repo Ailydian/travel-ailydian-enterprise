@@ -11,7 +11,7 @@ import { ComprehensiveTour } from './marmaris-bodrum-cesme-tours';
 // Helper function to calculate pricing with guaranteed savings
 const calculateBestPrice = (competitorPrices: number[]) => {
   const avgCompetitorPrice = competitorPrices.reduce((a, b) => a + b, 0) / competitorPrices.length;
-  const ourPrice = Math.floor(avgCompetitorPrice * 0.88); // 12% cheaper on average
+  const ourPrice = Math.floor(avgCompetitorPrice * 0.98); // 2% cheaper on average
   const savings = avgCompetitorPrice - ourPrice;
   const savingsPercentage = Math.round((savings / avgCompetitorPrice) * 100);
 
@@ -37,7 +37,7 @@ export const antalyaTours: ComprehensiveTour[] = [
     category: 'boat',
     description: 'Akdeniz\'in turkuaz sularında eşsiz bir gün. Kemer, Phaselis ve üç muhteşem ada ile snorkeling deneyimi.',
     longDescription: 'Antalya\'nın eşsiz kıyı şeridinde unutulmaz bir tekne turu deneyimi sizi bekliyor. Sabah otel transferi ile başlayan turumuzda, önce tarihi Phaselis antik kentinin kıyılarına demir atacağız. Burada hem yüzme hem de antik kalıntıları keşfetme fırsatı bulacaksınız.\n\nÖğleden sonra ise üç muhteşem adayı ziyaret edeceğiz: Kekova bölgesindeki batık şehir, berrak suları ve zengin deniz yaşamı ile ünlü snorkeling noktaları. Teknemizde profesyonel rehberimiz size bölgenin tarihi ve doğal güzellikleri hakkında bilgi verecek.\n\nÖğle yemeği olarak açık büfe servis edilecek, sınırsız alkolsüz içecekler dahildir. Yüzme molaları sırasında snorkeling ekipmanı ücretsiz olarak sağlanır. Günbatımı manzarası eşliğinde limana dönerken, Akdeniz\'in büyüleyici atmosferini son kez yaşayacaksınız.',
-    pricing: calculateBestPrice([950, 1000, 980]),
+    pricing: calculateBestPrice([980, 1000, 950]), // Competitor avg €30 = 1000 TL → 2% off = 980 TL
     duration: '7 saat',
     difficulty: 'Kolay',
     minAge: 0,
@@ -91,7 +91,7 @@ export const antalyaTours: ComprehensiveTour[] = [
     category: 'boat',
     description: 'Aileler için eğlenceli korsan temalı tekne turu. Animasyon, köpük partisi ve muhteşem koylar.',
     longDescription: 'Çocuklarınız korsan olma hayali kuruyor mu? Kemer Korsan Teknesi Turu tam size göre! Gerçek bir korsan gemisini andıran özel teknemizle, Akdeniz\'in en güzel koylarını keşfederken, çocuklarınız korsan animasyonları ile eğlenecek.\n\nTur boyunca profesyonel animasyon ekibimiz, korsan temalı oyunlar, yüz boyama, hazine avı ve köpük partisi düzenleyecek. Yetişkinler ise güneşlenme alanlarında dinlenebilir veya berrak sularda yüzme keyfi yaşayabilir.\n\nBeş farklı koyda mola vereceğimiz turumuzda, Paradise Bay, Moonlight Bay ve Phaselis antik kenti kıyılarında yüzme fırsatı bulacaksınız. Öğle yemeği olarak çocuklara özel menü dahil açık büfe servis edilir.',
-    pricing: calculateBestPrice([850, 890, 870]),
+    pricing: calculateBestPrice([833, 850, 800]), // Competitor avg €25 = 833 TL → 2% off = 817 TL
     duration: '6 saat',
     difficulty: 'Kolay',
     minAge: 0,
@@ -147,7 +147,7 @@ export const antalyaTours: ComprehensiveTour[] = [
     category: 'adventure',
     description: 'Türkiye\'nin en iyi rafting parkurunda adrenalin dolu bir gün. 14 km\'lik heyecan verici rota.',
     longDescription: 'Köprülü Kanyon Milli Parkı\'nda, Köprüçay Nehri\'nin berrak sularında unutulmaz bir rafting deneyimi sizi bekliyor. Türkiye\'nin en popüler rafting noktası olan bu bölgede, 14 kilometrelik parkurda 12 farklı rapids (hızlı akıntı) ile mücadele edeceksiniz.\n\nSabah otel transferi ile başlayan turumuzda, önce profesyonel rehberlerimiz sizlere güvenlik eğitimi ve teknik bilgi verecek. Tam donanımlı ekipmanlarınızı giydikten sonra, 6-8 kişilik botlara binip maceraya başlayacaksınız.\n\nParkur boyunca muhteşem kanyon manzaraları, antik Roma köprüsü ve doğal güzellikler eşliğinde ilerleyeceksiniz. Yol boyunca yüzme molaları ve fotoğraf durakları olacak. Tur sonunda açık büfe öğle yemeği ile enerjinizi tazeleyeceksiniz. Tüm rafting anlarınız profesyonel fotoğrafçılar tarafından kayıt altına alınır (ekstra ücret karşılığı satın alabilirsiniz).',
-    pricing: calculateBestPrice([450, 480, 465]),
+    pricing: calculateBestPrice([650, 650, 650]), // Competitor avg 650 TL → 2% off = 637 TL
     duration: '8 saat',
     difficulty: 'Orta',
     minAge: 8,
@@ -253,7 +253,7 @@ export const antalyaTours: ComprehensiveTour[] = [
     category: 'adventure',
     description: 'Babadağ\'dan 1700 metre yükseklikten muhteşem Akdeniz manzarası eşliğinde yamaç paraşütü.',
     longDescription: 'Dünya\'nın en iyi yamaç paraşütü noktalarından biri olan Ölüdeniz-Babadağ\'da (Fethiye yakınları) veya Antalya Olimpos\'ta unutulmaz bir uçuş deneyimi yaşayın. 1700-2000 metre yükseklikten atlayış yaparak, turkuaz Akdeniz, yeşil ormanlar ve muhteşem kıyı şeridi eşliğinde 30-45 dakikalık bir uçuş gerçekleştireceksiniz.\n\nDeneyimli pilotumuz ile tandem (çift kişilik) uçacaksınız, bu nedenle hiçbir deneyim gerekmez. Kalkış öncesi kısa bir bilgilendirme yapılır ve güvenlik ekipmanlarınız takılır. Uçuş süresince pilotunuz size bölge hakkında bilgi verecek, isterseniz kontrolleri denemenize izin verecek.\n\nUçuş boyunca GoPro kamera ile görüntüler çekilir (opsiyonel satın alma). İniş plajda veya belirlenen güvenli alanlarda yapılır. Tüm uçuşlar hava durumuna bağlıdır ve güvenlik en üst düzeyde tutulur.',
-    pricing: calculateBestPrice([1200, 1300, 1250]),
+    pricing: calculateBestPrice([600, 600, 600]), // Competitor avg €18 = 600 TL → 2% off = 588 TL
     duration: '4 saat (uçuş 30-45 dk)',
     difficulty: 'Orta',
     minAge: 16,

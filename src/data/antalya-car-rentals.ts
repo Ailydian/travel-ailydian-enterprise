@@ -115,9 +115,9 @@ export const antalyaCarRentals: AntalyaCarRental[] = [
     doors: 4,
     luggage: 2,
     pricing: {
-      daily: calculateBestPrice([675, 700, 690]), // Competitor avg: 688 TRY
-      weekly: calculateBestPrice([4200, 4400, 4300]), // 680 TRY/day avg
-      monthly: calculateBestPrice([15000, 15500, 15200]), // 507 TRY/day avg
+      daily: calculateBestPrice([500, 500, 500]), // Competitor avg $15/day = 500 TL → 2% off = 490 TL
+      weekly: calculateBestPrice([3200, 3200, 3200]), // 490 TRY/day avg
+      monthly: calculateBestPrice([13500, 13500, 13500]), // 450 TRY/day avg (volume discount)
       deposit: 1500
     },
     features: {
@@ -227,9 +227,9 @@ export const antalyaCarRentals: AntalyaCarRental[] = [
     doors: 4,
     luggage: 2,
     pricing: {
-      daily: calculateBestPrice([680, 710, 695]),
-      weekly: calculateBestPrice([4300, 4500, 4400]),
-      monthly: calculateBestPrice([15300, 15800, 15500]),
+      daily: calculateBestPrice([500, 500, 500]), // Competitor avg $15/day = 500 TL → 2% off = 490 TL
+      weekly: calculateBestPrice([3200, 3200, 3200]),
+      monthly: calculateBestPrice([13500, 13500, 13500]),
       deposit: 1500
     },
     features: {
@@ -1452,7 +1452,7 @@ export const antalyaCarRentals: AntalyaCarRental[] = [
     seats: 5,
     doors: 5,
     luggage: 3,
-    pricing: { daily: calculateBestPrice([1350, 1395, 1372]), weekly: calculateBestPrice([8600, 8920, 8760]), monthly: calculateBestPrice([30800, 31900, 31350]), deposit: 3200 },
+    pricing: { daily: calculateBestPrice([2067, 2067, 2067]), weekly: calculateBestPrice([13500, 13500, 13500]), monthly: calculateBestPrice([55000, 55000, 55000]), deposit: 3200 }, // Competitor avg $62/day = 2067 TL → 2% off = 2025 TL
     features: { tr: ['4x4', 'Arazi Modu', 'Hill Assist', 'LED', 'Kamera 360', 'Çekiş Kontrolü'], en: ['4x4', 'Arazi Modu', 'Hill Assist', 'LED', 'Kamera 360', 'Çekiş Kontrolü'], ru: ['4x4', 'Arazi Modu', 'Hill Assist', 'LED', 'Kamera 360', 'Çekiş Kontrolü'], de: ['4x4', 'Arazi Modu', 'Hill Assist', 'LED', 'Kamera 360', 'Çekiş Kontrolü'], ar: ['4x4', 'Arazi Modu', 'Hill Assist', 'LED', 'Kamera 360', 'Çekiş Kontrolü'], fr: ['4x4', 'Arazi Modu', 'Hill Assist', 'LED', 'Kamera 360', 'Çekiş Kontrolü'] },
     insurance: { included: { tr: 'Trafik Sigortası, Kasko, Ferdi Kaza', en: 'Traffic Insurance, Comprehensive, Personal Accident', ru: 'Страхование, КАСКО, Личное страхование', de: 'Haftpflicht, Vollkasko, Unfallversicherung', ar: 'تأمين مروري، شامل، حوادث', fr: 'Assurance RC, Tous risques, Accident' }, optional: { tr: 'Full Kasko, İlave Sürücü, GPS', en: 'Full Coverage, Additional Driver, GPS', ru: 'Полное КАСКО, Доп. водитель, GPS', de: 'Vollkasko, Zusatzfahrer, GPS', ar: 'تأمين كامل، سائق إضافي، GPS', fr: 'Couverture complète, Conducteur additionnel, GPS' } },
     pickupLocations: ['antalya-airport', 'antalya-city', 'kemer', 'belek', 'side', 'lara'],
@@ -1486,7 +1486,7 @@ export const antalyaCarRentals: AntalyaCarRental[] = [
     seats: 5,
     doors: 5,
     luggage: 3,
-    pricing: { daily: calculateBestPrice([1380, 1425, 1402]), weekly: calculateBestPrice([8800, 9120, 8960]), monthly: calculateBestPrice([31500, 32600, 32050]), deposit: 3300 },
+    pricing: { daily: calculateBestPrice([2067, 2067, 2067]), weekly: calculateBestPrice([13500, 13500, 13500]), monthly: calculateBestPrice([55000, 55000, 55000]), deposit: 3300 }, // Competitor avg $62/day = 2067 TL → 2% off = 2025 TL
     features: { tr: ['4x4', 'Arazi Modu', 'Hill Assist', 'LED', 'Kamera 360', 'Çekiş Kontrolü'], en: ['4x4', 'Arazi Modu', 'Hill Assist', 'LED', 'Kamera 360', 'Çekiş Kontrolü'], ru: ['4x4', 'Arazi Modu', 'Hill Assist', 'LED', 'Kamera 360', 'Çekiş Kontrolü'], de: ['4x4', 'Arazi Modu', 'Hill Assist', 'LED', 'Kamera 360', 'Çekiş Kontrolü'], ar: ['4x4', 'Arazi Modu', 'Hill Assist', 'LED', 'Kamera 360', 'Çekiş Kontrolü'], fr: ['4x4', 'Arazi Modu', 'Hill Assist', 'LED', 'Kamera 360', 'Çekiş Kontrolü'] },
     insurance: { included: { tr: 'Trafik Sigortası, Kasko, Ferdi Kaza', en: 'Traffic Insurance, Comprehensive, Personal Accident', ru: 'Страхование, КАСКО, Личное страхование', de: 'Haftpflicht, Vollkasko, Unfallversicherung', ar: 'تأمين مروري، شامل، حوادث', fr: 'Assurance RC, Tous risques, Accident' }, optional: { tr: 'Full Kasko, İlave Sürücü, GPS', en: 'Full Coverage, Additional Driver, GPS', ru: 'Полное КАСКО, Доп. водитель, GPS', de: 'Vollkasko, Zusatzfahrer, GPS', ar: 'تأمين كامل، سائق إضافي، GPS', fr: 'Couverture complète, Conducteur additionnel, GPS' } },
     pickupLocations: ['antalya-airport', 'antalya-city', 'kemer', 'belek', 'side', 'lara'],
@@ -1520,7 +1520,7 @@ export const antalyaCarRentals: AntalyaCarRental[] = [
     seats: 5,
     doors: 5,
     luggage: 3,
-    pricing: { daily: calculateBestPrice([1320, 1365, 1342]), weekly: calculateBestPrice([8400, 8720, 8560]), monthly: calculateBestPrice([30100, 31200, 30650]), deposit: 3100 },
+    pricing: { daily: calculateBestPrice([2067, 2067, 2067]), weekly: calculateBestPrice([13500, 13500, 13500]), monthly: calculateBestPrice([55000, 55000, 55000]), deposit: 3100 }, // Competitor avg $62/day = 2067 TL → 2% off = 2025 TL
     features: { tr: ['4x4', 'Arazi Modu', 'Hill Assist', 'LED', 'Kamera 360', 'Çekiş Kontrolü'], en: ['4x4', 'Arazi Modu', 'Hill Assist', 'LED', 'Kamera 360', 'Çekiş Kontrolü'], ru: ['4x4', 'Arazi Modu', 'Hill Assist', 'LED', 'Kamera 360', 'Çekiş Kontrolü'], de: ['4x4', 'Arazi Modu', 'Hill Assist', 'LED', 'Kamera 360', 'Çekiş Kontrolü'], ar: ['4x4', 'Arazi Modu', 'Hill Assist', 'LED', 'Kamera 360', 'Çekiş Kontrolü'], fr: ['4x4', 'Arazi Modu', 'Hill Assist', 'LED', 'Kamera 360', 'Çekiş Kontrolü'] },
     insurance: { included: { tr: 'Trafik Sigortası, Kasko, Ferdi Kaza', en: 'Traffic Insurance, Comprehensive, Personal Accident', ru: 'Страхование, КАСКО, Личное страхование', de: 'Haftpflicht, Vollkasko, Unfallversicherung', ar: 'تأمين مروري، شامل، حوادث', fr: 'Assurance RC, Tous risques, Accident' }, optional: { tr: 'Full Kasko, İlave Sürücü, GPS', en: 'Full Coverage, Additional Driver, GPS', ru: 'Полное КАСКО, Доп. водитель, GPS', de: 'Vollkasko, Zusatzfahrer, GPS', ar: 'تأمين كامل، سائق إضافي، GPS', fr: 'Couverture complète, Conducteur additionnel, GPS' } },
     pickupLocations: ['antalya-airport', 'antalya-city', 'kemer', 'belek', 'side', 'lara'],
@@ -1554,7 +1554,7 @@ export const antalyaCarRentals: AntalyaCarRental[] = [
     seats: 7,
     doors: 5,
     luggage: 4,
-    pricing: { daily: calculateBestPrice([1400, 1445, 1422]), weekly: calculateBestPrice([8950, 9270, 9110]), monthly: calculateBestPrice([32000, 33100, 32550]), deposit: 3400 },
+    pricing: { daily: calculateBestPrice([2067, 2067, 2067]), weekly: calculateBestPrice([13500, 13500, 13500]), monthly: calculateBestPrice([55000, 55000, 55000]), deposit: 3400 }, // Competitor avg $62/day = 2067 TL → 2% off = 2025 TL
     features: { tr: ['4x4', 'Arazi Modu', 'Hill Assist', 'LED', 'Kamera 360', 'Çekiş Kontrolü'], en: ['4x4', 'Arazi Modu', 'Hill Assist', 'LED', 'Kamera 360', 'Çekiş Kontrolü'], ru: ['4x4', 'Arazi Modu', 'Hill Assist', 'LED', 'Kamera 360', 'Çekiş Kontrolü'], de: ['4x4', 'Arazi Modu', 'Hill Assist', 'LED', 'Kamera 360', 'Çekiş Kontrolü'], ar: ['4x4', 'Arazi Modu', 'Hill Assist', 'LED', 'Kamera 360', 'Çekiş Kontrolü'], fr: ['4x4', 'Arazi Modu', 'Hill Assist', 'LED', 'Kamera 360', 'Çekiş Kontrolü'] },
     insurance: { included: { tr: 'Trafik Sigortası, Kasko, Ferdi Kaza', en: 'Traffic Insurance, Comprehensive, Personal Accident', ru: 'Страхование, КАСКО, Личное страхование', de: 'Haftpflicht, Vollkasko, Unfallversicherung', ar: 'تأمين مروري، شامل، حوادث', fr: 'Assurance RC, Tous risques, Accident' }, optional: { tr: 'Full Kasko, İlave Sürücü, GPS', en: 'Full Coverage, Additional Driver, GPS', ru: 'Полное КАСКО, Доп. водитель, GPS', de: 'Vollkasko, Zusatzfahrer, GPS', ar: 'تأمين كامل، سائق إضافي، GPS', fr: 'Couverture complète, Conducteur additionnel, GPS' } },
     pickupLocations: ['antalya-airport', 'antalya-city', 'kemer', 'belek', 'side', 'lara'],

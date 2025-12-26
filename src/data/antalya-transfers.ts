@@ -4,10 +4,10 @@
  * Languages: Turkish, English, Russian, German, Arabic, French
  */
 
-// Helper function for competitive pricing (12% cheaper than competitors)
+// Helper function for competitive pricing (2% cheaper than competitors)
 const calculateBestPrice = (competitorPrices: number[]): number => {
   const averagePrice = competitorPrices.reduce((sum, price) => sum + price, 0) / competitorPrices.length;
-  return Math.round(averagePrice * 0.88); // 12% cheaper
+  return Math.round(averagePrice * 0.98); // 2% cheaper
 };
 
 // Multi-language content interface
@@ -98,14 +98,14 @@ export const antalyaAirportTransfers: AntalyaTransferRoute[] = [
     distance: 13,
     duration: 20,
     pricing: {
-      economySedan: calculateBestPrice([250, 280, 270]), // GetYourGuide, Viator, TripAdvisor
-      comfortSedan: calculateBestPrice([320, 350, 340]),
-      vipSedan: calculateBestPrice([450, 480, 470]),
-      minivan: calculateBestPrice([380, 410, 400]),
-      vipMinivan: calculateBestPrice([550, 580, 570]),
-      minibus14: calculateBestPrice([650, 680, 670]),
-      minibus17: calculateBestPrice([750, 780, 770]),
-      vipSprinter: calculateBestPrice([950, 980, 970])
+      economySedan: calculateBestPrice([275, 275, 275]), // Competitor avg 275 TL → 2% off = 270 TL
+      comfortSedan: calculateBestPrice([350, 350, 350]),
+      vipSedan: calculateBestPrice([500, 500, 500]),
+      minivan: calculateBestPrice([420, 420, 420]),
+      vipMinivan: calculateBestPrice([600, 600, 600]),
+      minibus14: calculateBestPrice([750, 750, 750]),
+      minibus17: calculateBestPrice([900, 900, 900]),
+      vipSprinter: calculateBestPrice([1100, 1100, 1100])
     },
     description: {
       tr: 'Antalya Havalimanı\'ndan şehir merkezine konforlu ve hızlı transfer hizmeti. 7/24 profesyonel sürücü garantisi.',
@@ -388,14 +388,14 @@ export const antalyaAirportTransfers: AntalyaTransferRoute[] = [
     distance: 35,
     duration: 40,
     pricing: {
-      economySedan: calculateBestPrice([450, 480, 470]),
-      comfortSedan: calculateBestPrice([600, 630, 620]),
-      vipSedan: calculateBestPrice([900, 930, 920]),
-      minivan: calculateBestPrice([700, 730, 720]),
-      vipMinivan: calculateBestPrice([1100, 1130, 1120]),
-      minibus14: calculateBestPrice([1350, 1380, 1370]),
-      minibus17: calculateBestPrice([1600, 1630, 1620]),
-      vipSprinter: calculateBestPrice([2100, 2130, 2120])
+      economySedan: calculateBestPrice([1333, 1333, 1333]), // Competitor avg €40 = 1333 TL → 2% off = 1307 TL
+      comfortSedan: calculateBestPrice([1600, 1600, 1600]),
+      vipSedan: calculateBestPrice([2200, 2200, 2200]),
+      minivan: calculateBestPrice([1800, 1800, 1800]),
+      vipMinivan: calculateBestPrice([2600, 2600, 2600]),
+      minibus14: calculateBestPrice([3000, 3000, 3000]),
+      minibus17: calculateBestPrice([3500, 3500, 3500]),
+      vipSprinter: calculateBestPrice([4300, 4300, 4300])
     },
     description: {
       tr: 'Antalya Havalimanı\'ndan Belek\'e lüks golf ve spa bölgesine transfer.',
@@ -586,14 +586,14 @@ export const antalyaAirportTransfers: AntalyaTransferRoute[] = [
     distance: 18,
     duration: 25,
     pricing: {
-      economySedan: calculateBestPrice([280, 310, 300]),
-      comfortSedan: calculateBestPrice([370, 400, 390]),
-      vipSedan: calculateBestPrice([520, 550, 540]),
-      minivan: calculateBestPrice([440, 470, 460]),
-      vipMinivan: calculateBestPrice([640, 670, 660]),
-      minibus14: calculateBestPrice([750, 780, 770]),
-      minibus17: calculateBestPrice([880, 910, 900]),
-      vipSprinter: calculateBestPrice([1100, 1130, 1120])
+      economySedan: calculateBestPrice([1000, 1000, 1000]), // Competitor avg €30 = 1000 TL → 2% off = 980 TL
+      comfortSedan: calculateBestPrice([1200, 1200, 1200]),
+      vipSedan: calculateBestPrice([1600, 1600, 1600]),
+      minivan: calculateBestPrice([1400, 1400, 1400]),
+      vipMinivan: calculateBestPrice([1900, 1900, 1900]),
+      minibus14: calculateBestPrice([2200, 2200, 2200]),
+      minibus17: calculateBestPrice([2600, 2600, 2600]),
+      vipSprinter: calculateBestPrice([3200, 3200, 3200])
     },
     description: {
       tr: 'Antalya Havalimanı\'ndan Lara bölgesine lüks otel transferi.',
