@@ -57,8 +57,7 @@ import { BookingProductCard } from '../components/booking/BookingProductCard';
 import { FilterSidebar } from '../components/booking/FilterSidebar';
 import { VideoHero } from '../components/ui/VideoHero';
 import { AnimatedCarSVG } from '../components/icons/AnimatedCarSVG';
-import { ImmersiveHero, GlassmorphismCard, GradientBackground } from '../components/immersive';
-import { immersiveAnimations } from '../utils/immersiveAnimations';
+import { MinimalistHero, MinimalistCard, MinimalistButton, ScrollReveal } from '../components/minimalist';
 
 const GetYourGuideStyleHome: React.FC = () => {
   // Translation
@@ -273,38 +272,22 @@ const GetYourGuideStyleHome: React.FC = () => {
       <BookingHeader />
 
       <main>
-        {/* 🌟 IMMERSIVE HERO SECTION - Full-screen gradient magic */}
-        <ImmersiveHero
-          gradient="ocean"
+        {/* 🎨 MINIMALIST HERO - Option5.studio inspired */}
+        <MinimalistHero
           title={t('Dünyanızı Keşfedin')}
-          subtitle={t('AI destekli kişiselleştirilmiş seyahat deneyimleri ile hayalinizdeki tatili yaşayın')}
-          searchComponent={
-            <div className="flex flex-col sm:flex-row gap-4">
-              <div className="flex-1">
-                <input
-                  type="text"
-                  placeholder="Nereye gitmek istersiniz?"
-                  className="w-full px-6 py-4 bg-white/20 backdrop-blur-md border border-white/30 rounded-2xl text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-cyan-400"
-                />
-              </div>
-              <motion.button
-                className="px-8 py-4 rounded-2xl font-semibold text-white whitespace-nowrap"
-                style={{
-                  background: 'linear-gradient(135deg, rgba(86, 204, 242, 0.9) 0%, rgba(59, 159, 217, 0.9) 100%)',
-                  boxShadow: '0 8px 24px rgba(86, 204, 242, 0.4)'
-                }}
-                whileHover={{
-                  scale: 1.05,
-                  boxShadow: '0 12px 32px rgba(86, 204, 242, 0.6)'
-                }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Search className="w-5 h-5 inline mr-2" />
-                Keşfet
-              </motion.button>
-            </div>
-          }
-        />
+          subtitle="Thoughtfully curated journeys for the modern traveler"
+          image="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&h=1080&fit=crop&q=85"
+          height="70vh"
+          overlayOpacity={0.3}
+        >
+          <MinimalistButton
+            variant="primary"
+            size="lg"
+            onClick={() => router.push('/tours')}
+          >
+            {t('Explore Destinations')}
+          </MinimalistButton>
+        </MinimalistHero>
 
         {/* Search Results */}
         {searchResults.length > 0 && (
@@ -481,107 +464,43 @@ const GetYourGuideStyleHome: React.FC = () => {
         )}
 
 
-        {/* 💎 IMMERSIVE EXPERIENCES SECTION - Glassmorphism Cards */}
-        <GradientBackground type="twilight" animated={true} className="py-24 relative">
+        {/* 💎 MINIMALIST EXPERIENCES - Option5.studio inspired */}
+        <section className="py-20 md:py-32 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4">
-            {/* Header with Glow Effect */}
-            <motion.div
-              className="text-center mb-16"
-              {...immersiveAnimations.fadeInUp}
-            >
-              <motion.h2
-                className="text-5xl md:text-6xl font-black text-white mb-4"
-                style={{
-                  letterSpacing: '0.02em',
-                  textShadow: '0 0 30px rgba(86, 204, 242, 0.6)'
-                }}
-                {...immersiveAnimations.glow}
-              >
-                {t('home.experiences.title', { count: topExperiences.length })}
-              </motion.h2>
-              <motion.p
-                className="text-xl text-white/80 max-w-2xl mx-auto"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3, duration: 0.6 }}
-              >
-                {t('home.experiences.subtitle')}
-              </motion.p>
-              <Link href="/tours">
-                <motion.div
-                  className="inline-flex items-center gap-2 mt-6 text-cyan-300 hover:text-cyan-200 font-semibold text-lg"
-                  whileHover={{ x: 5 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  {t('home.experiences.viewAllTours')}
-                  <ArrowRight className="w-5 h-5" />
-                </motion.div>
-              </Link>
-            </motion.div>
+            <ScrollReveal animation="fadeInUp">
+              <h2 className="text-3xl md:text-5xl font-light text-center mb-4 text-gray-900">
+                Curated Experiences
+              </h2>
+              <p className="text-lg md:text-xl text-gray-600 text-center mb-16 max-w-2xl mx-auto">
+                Thoughtfully selected journeys for memorable adventures
+              </p>
+            </ScrollReveal>
 
-            {/* ✨ GLASSMORPHISM CARD GRID */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
               {topExperiences.map((experience, index) => (
-                <GlassmorphismCard
+                <MinimalistCard
                   key={experience.id}
                   image={experience.image}
                   title={experience.title}
                   description={experience.highlights[0]}
-                  location={experience.location}
-                  price={typeof experience.price === 'string' ? parseFloat(experience.price.replace(/[^0-9]/g, '')) : experience.price}
-                  originalPrice={experience.originalPrice ? (typeof experience.originalPrice === 'string' ? parseFloat(experience.originalPrice.replace(/[^0-9]/g, '')) : experience.originalPrice) : undefined}
-                  rating={experience.rating}
-                  reviews={experience.reviews}
-                  duration={experience.duration}
-                  category={experience.category}
-                  badge={experience.badges[0]}
-                  onAddToCart={() => handleAddToCart({
-                    ...experience,
-                    type: 'tour',
-                    price: typeof experience.price === 'string' ?
-                      parseFloat(experience.price.replace(/[^0-9]/g, '')) : experience.price
-                  })}
+                  metadata={[experience.location, experience.duration]}
                   onClick={() => router.push(`/tours/${experience.slug}`)}
-                  glowOnHover={true}
-                  perspective={true}
-                  index={index}
+                  imageRatio="4/3"
                 />
               ))}
             </div>
 
-            {/* View All Button */}
-            <motion.div
-              className="text-center mt-16"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.6 }}
-            >
-              <Link href="/tours">
-                <motion.button
-                  className="px-10 py-5 rounded-2xl font-bold text-white text-lg"
-                  style={{
-                    background: 'linear-gradient(135deg, rgba(86, 204, 242, 0.2) 0%, rgba(59, 159, 217, 0.2) 100%)',
-                    backdropFilter: 'blur(20px)',
-                    border: '2px solid rgba(86, 204, 242, 0.5)',
-                    boxShadow: '0 8px 32px rgba(86, 204, 242, 0.3)'
-                  }}
-                  whileHover={{
-                    scale: 1.05,
-                    boxShadow: '0 12px 48px rgba(86, 204, 242, 0.5)',
-                    borderColor: 'rgba(86, 204, 242, 0.8)'
-                  }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <span className="flex items-center gap-3">
-                    {t('home.experiences.viewAllTours')}
-                    <ArrowRight className="w-6 h-6" />
-                  </span>
-                </motion.button>
-              </Link>
-            </motion.div>
+            <div className="text-center mt-16">
+              <MinimalistButton
+                variant="primary"
+                size="lg"
+                onClick={() => router.push('/tours')}
+              >
+                View All Experiences
+              </MinimalistButton>
+            </div>
           </div>
-        </GradientBackground>
+        </section>
 
         {/* Popular Transfers - Antalya Routes */}
         <section className="py-16 bg-gradient-to-br from-blue-50 to-indigo-50">
