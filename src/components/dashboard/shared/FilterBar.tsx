@@ -161,7 +161,7 @@ export const FilterBar: React.FC<FilterBarProps> = ({
   };
 
   return (
-    <div className={`bg-white rounded-lg border border-gray-200 p-4 ${className}`}>
+    <div className={`bg-white/5 rounded-lg border border-gray-200 p-4 ${className}`}>
       <div className="flex flex-col lg:flex-row gap-4">
         {/* Search Input */}
         {showSearch && (
@@ -178,7 +178,7 @@ export const FilterBar: React.FC<FilterBarProps> = ({
               {filters.search && (
                 <button
                   onClick={() => handleFilterChange('search', '')}
-                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-300"
                   aria-label="Clear search"
                 >
                   <X className="h-4 w-4" />
@@ -223,7 +223,7 @@ export const FilterBar: React.FC<FilterBarProps> = ({
               className={`w-full sm:w-auto px-4 py-2 border rounded-lg text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 flex items-center justify-between gap-2 min-w-[140px] ${
                 filters.status
                   ? 'border-blue-500 bg-blue-50 text-blue-700'
-                  : 'border-gray-300 bg-white text-gray-700 hover:bg-gray-50'
+                  : 'border-gray-300 bg-white/5 text-gray-200 hover:bg-white/5'
               }`}
             >
               <div className="flex items-center gap-2">
@@ -236,7 +236,7 @@ export const FilterBar: React.FC<FilterBarProps> = ({
             </button>
 
             {isStatusOpen && (
-              <div className="absolute top-full left-0 mt-2 w-full sm:w-56 bg-white rounded-lg shadow-lg border border-gray-200 py-1 z-20 max-h-64 overflow-y-auto">
+              <div className="absolute top-full left-0 mt-2 w-full sm:w-56 bg-white/5 rounded-lg shadow-lg border border-gray-200 py-1 z-20 max-h-64 overflow-y-auto">
                 {statusOptions.map((option) => (
                   <button
                     key={option.value}
@@ -244,10 +244,10 @@ export const FilterBar: React.FC<FilterBarProps> = ({
                       handleFilterChange('status', option.value);
                       setIsStatusOpen(false);
                     }}
-                    className={`w-full px-4 py-2 text-left text-sm hover:bg-gray-100 transition-colors ${
+                    className={`w-full px-4 py-2 text-left text-sm hover:bg-white/10 transition-colors ${
                       filters.status === option.value
                         ? 'bg-blue-50 text-blue-700 font-medium'
-                        : 'text-gray-700'
+                        : 'text-gray-200'
                     }`}
                   >
                     {option.label}
@@ -266,7 +266,7 @@ export const FilterBar: React.FC<FilterBarProps> = ({
               className={`w-full sm:w-auto px-4 py-2 border rounded-lg text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 flex items-center justify-between gap-2 min-w-[140px] ${
                 filters.propertyId
                   ? 'border-blue-500 bg-blue-50 text-blue-700'
-                  : 'border-gray-300 bg-white text-gray-700 hover:bg-gray-50'
+                  : 'border-gray-300 bg-white/5 text-gray-200 hover:bg-white/5'
               }`}
             >
               <div className="flex items-center gap-2">
@@ -279,7 +279,7 @@ export const FilterBar: React.FC<FilterBarProps> = ({
             </button>
 
             {isPropertyOpen && (
-              <div className="absolute top-full left-0 mt-2 w-full sm:w-64 bg-white rounded-lg shadow-lg border border-gray-200 py-1 z-20 max-h-64 overflow-y-auto">
+              <div className="absolute top-full left-0 mt-2 w-full sm:w-64 bg-white/5 rounded-lg shadow-lg border border-gray-200 py-1 z-20 max-h-64 overflow-y-auto">
                 {propertyOptions.map((option) => (
                   <button
                     key={option.value}
@@ -287,10 +287,10 @@ export const FilterBar: React.FC<FilterBarProps> = ({
                       handleFilterChange('propertyId', option.value);
                       setIsPropertyOpen(false);
                     }}
-                    className={`w-full px-4 py-2 text-left text-sm hover:bg-gray-100 transition-colors ${
+                    className={`w-full px-4 py-2 text-left text-sm hover:bg-white/10 transition-colors ${
                       filters.propertyId === option.value
                         ? 'bg-blue-50 text-blue-700 font-medium'
-                        : 'text-gray-700'
+                        : 'text-gray-200'
                     }`}
                   >
                     <span className="truncate block">{option.label}</span>
@@ -309,7 +309,7 @@ export const FilterBar: React.FC<FilterBarProps> = ({
           <button
             onClick={handleClearFilters}
             disabled={activeFilterCount === 0}
-            className="px-4 py-2 border border-gray-300 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 flex items-center gap-2 whitespace-nowrap"
+            className="px-4 py-2 border border-gray-300 rounded-lg text-sm font-medium text-gray-200 hover:bg-white/5 disabled:opacity-50 disabled:cursor-not-allowed transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 flex items-center gap-2 whitespace-nowrap"
           >
             <X className="h-4 w-4" />
             <span>Clear {activeFilterCount > 0 && `(${activeFilterCount})`}</span>
@@ -321,7 +321,7 @@ export const FilterBar: React.FC<FilterBarProps> = ({
       {activeFilterCount > 0 && (
         <div className="mt-4 pt-4 border-t border-gray-200">
           <div className="flex items-center gap-2 flex-wrap">
-            <span className="text-xs font-medium text-gray-500">
+            <span className="text-xs font-medium text-gray-400">
               Active filters:
             </span>
 

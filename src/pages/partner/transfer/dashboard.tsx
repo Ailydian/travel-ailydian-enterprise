@@ -177,10 +177,10 @@ const TransferProviderDashboard: React.FC = () => {
 
   if (loading || !stats) {
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+      <div className="min-h-screen bg-white/5 flex items-center justify-center">
         <div className="text-center">
           <RefreshCw className="h-12 w-12 text-purple-600 animate-spin mx-auto mb-4" />
-          <p className="text-gray-600">Dashboard yükleniyor...</p>
+          <p className="text-gray-300">Dashboard yükleniyor...</p>
         </div>
       </div>
     );
@@ -236,17 +236,17 @@ const TransferProviderDashboard: React.FC = () => {
         <meta name="description" content="Transfer provider dashboard with route optimization" />
       </Head>
 
-      <div className="min-h-screen bg-gray-50">
+      <div className="min-h-screen bg-white/5">
         {/* Header */}
-        <div className="bg-white border-b border-gray-200">
+        <div className="bg-white/5 border-b border-gray-200">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
             <div className="flex items-center justify-between">
               <div>
-                <h1 className="text-3xl font-bold text-gray-900 flex items-center gap-3">
+                <h1 className="text-3xl font-bold text-white flex items-center gap-3">
                   <Car className="h-8 w-8 text-purple-600" />
                   Transfer Partner Dashboard
                 </h1>
-                <p className="text-sm text-gray-600 mt-1">
+                <p className="text-sm text-gray-300 mt-1">
                   Rota optimizasyonu, sürücü yönetimi ve gerçek zamanlı takip
                 </p>
               </div>
@@ -304,7 +304,7 @@ const TransferProviderDashboard: React.FC = () => {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="bg-white rounded-xl shadow-md p-6"
+              className="bg-white/5 rounded-xl shadow-md p-6"
             >
               <div className="flex items-center justify-between mb-4">
                 <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
@@ -316,8 +316,8 @@ const TransferProviderDashboard: React.FC = () => {
                   <TrendingDown className="h-5 w-5 text-red-600" />
                 )}
               </div>
-              <p className="text-sm text-gray-600 mb-1">Bugünkü Gelir</p>
-              <p className="text-2xl font-bold text-gray-900">
+              <p className="text-sm text-gray-300 mb-1">Bugünkü Gelir</p>
+              <p className="text-2xl font-bold text-white">
                 ₺{stats.revenue.today.toLocaleString()}
               </p>
               <p className={`text-xs mt-2 ${stats.revenue.growth > 0 ? 'text-green-600' : 'text-red-600'}`}>
@@ -330,7 +330,7 @@ const TransferProviderDashboard: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="bg-white rounded-xl shadow-md p-6"
+              className="bg-white/5 rounded-xl shadow-md p-6"
             >
               <div className="flex items-center justify-between mb-4">
                 <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
@@ -340,9 +340,9 @@ const TransferProviderDashboard: React.FC = () => {
                   Aktif
                 </span>
               </div>
-              <p className="text-sm text-gray-600 mb-1">Devam Eden Transferler</p>
-              <p className="text-2xl font-bold text-gray-900">{stats.transfers.active}</p>
-              <p className="text-xs text-gray-500 mt-2">
+              <p className="text-sm text-gray-300 mb-1">Devam Eden Transferler</p>
+              <p className="text-2xl font-bold text-white">{stats.transfers.active}</p>
+              <p className="text-xs text-gray-400 mt-2">
                 {stats.transfers.upcoming} yaklaşan rezervasyon
               </p>
             </motion.div>
@@ -352,7 +352,7 @@ const TransferProviderDashboard: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="bg-white rounded-xl shadow-md p-6"
+              className="bg-white/5 rounded-xl shadow-md p-6"
             >
               <div className="flex items-center justify-between mb-4">
                 <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
@@ -360,8 +360,8 @@ const TransferProviderDashboard: React.FC = () => {
                 </div>
                 <CheckCircle className="h-5 w-5 text-green-600" />
               </div>
-              <p className="text-sm text-gray-600 mb-1">Zamanında Varış Oranı</p>
-              <p className="text-2xl font-bold text-gray-900">{stats.performance.onTimeRate}%</p>
+              <p className="text-sm text-gray-300 mb-1">Zamanında Varış Oranı</p>
+              <p className="text-2xl font-bold text-white">{stats.performance.onTimeRate}%</p>
               <div className="mt-2 bg-gray-200 rounded-full h-2">
                 <div
                   className="bg-green-600 h-2 rounded-full"
@@ -375,7 +375,7 @@ const TransferProviderDashboard: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="bg-white rounded-xl shadow-md p-6"
+              className="bg-white/5 rounded-xl shadow-md p-6"
             >
               <div className="flex items-center justify-between mb-4">
                 <div className="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center">
@@ -394,11 +394,11 @@ const TransferProviderDashboard: React.FC = () => {
                   ))}
                 </div>
               </div>
-              <p className="text-sm text-gray-600 mb-1">Müşteri Memnuniyeti</p>
-              <p className="text-2xl font-bold text-gray-900">
+              <p className="text-sm text-gray-300 mb-1">Müşteri Memnuniyeti</p>
+              <p className="text-2xl font-bold text-white">
                 {stats.performance.customerRating.toFixed(1)}/5.0
               </p>
-              <p className="text-xs text-gray-500 mt-2">
+              <p className="text-xs text-gray-400 mt-2">
                 {stats.transfers.completed} tamamlanmış transfer
               </p>
             </motion.div>
@@ -410,10 +410,10 @@ const TransferProviderDashboard: React.FC = () => {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="bg-white rounded-xl shadow-md p-6"
+              className="bg-white/5 rounded-xl shadow-md p-6"
             >
               <div className="flex items-center justify-between mb-6">
-                <h2 className="text-xl font-bold text-gray-900 flex items-center gap-2">
+                <h2 className="text-xl font-bold text-white flex items-center gap-2">
                   <Navigation className="h-5 w-5 text-purple-600" />
                   Aktif Transferler
                 </h2>
@@ -430,8 +430,8 @@ const TransferProviderDashboard: React.FC = () => {
                   >
                     <div className="flex items-start justify-between mb-3">
                       <div>
-                        <p className="font-bold text-gray-900">{transfer.customer}</p>
-                        <p className="text-sm text-gray-600">Sürücü: {transfer.driver}</p>
+                        <p className="font-bold text-white">{transfer.customer}</p>
+                        <p className="text-sm text-gray-300">Sürücü: {transfer.driver}</p>
                       </div>
                       <span
                         className={`px-3 py-1 text-xs font-bold rounded-full ${
@@ -450,7 +450,7 @@ const TransferProviderDashboard: React.FC = () => {
                       </span>
                     </div>
 
-                    <div className="flex items-center gap-2 text-sm text-gray-700 mb-2">
+                    <div className="flex items-center gap-2 text-sm text-gray-200 mb-2">
                       <MapPin className="h-4 w-4 text-gray-400" />
                       <span>{transfer.from}</span>
                       <ArrowRight className="h-4 w-4" />
@@ -459,11 +459,11 @@ const TransferProviderDashboard: React.FC = () => {
 
                     <div className="flex items-center justify-between text-sm">
                       <div className="flex items-center gap-4">
-                        <div className="flex items-center gap-1 text-gray-600">
+                        <div className="flex items-center gap-1 text-gray-300">
                           <Clock className="h-4 w-4" />
                           <span>ETA: {transfer.eta}</span>
                         </div>
-                        <div className="flex items-center gap-1 text-gray-600">
+                        <div className="flex items-center gap-1 text-gray-300">
                           <Car className="h-4 w-4" />
                           <span>{transfer.vehicle}</span>
                         </div>
@@ -485,10 +485,10 @@ const TransferProviderDashboard: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="bg-white rounded-xl shadow-md p-6"
+              className="bg-white/5 rounded-xl shadow-md p-6"
             >
               <div className="flex items-center justify-between mb-6">
-                <h2 className="text-xl font-bold text-gray-900 flex items-center gap-2">
+                <h2 className="text-xl font-bold text-white flex items-center gap-2">
                   <Zap className="h-5 w-5 text-yellow-600" />
                   AI Rota Optimizasyonu
                 </h2>
@@ -507,11 +507,11 @@ const TransferProviderDashboard: React.FC = () => {
                       <div className="flex-1">
                         <div className="flex items-center gap-2 mb-2">
                           <Route className="h-4 w-4 text-gray-400" />
-                          <span className="text-sm font-medium text-gray-700">
+                          <span className="text-sm font-medium text-gray-200">
                             {route.from} → {route.to}
                           </span>
                         </div>
-                        <p className="text-xs text-gray-600">
+                        <p className="text-xs text-gray-300">
                           Önerilen: {route.suggestedRoute}
                         </p>
                       </div>
@@ -530,18 +530,18 @@ const TransferProviderDashboard: React.FC = () => {
 
                     <div className="grid grid-cols-2 gap-4 mb-3">
                       <div>
-                        <p className="text-xs text-gray-600">Mevcut Süre</p>
-                        <p className="text-lg font-bold text-gray-900">{route.currentDuration} dk</p>
+                        <p className="text-xs text-gray-300">Mevcut Süre</p>
+                        <p className="text-lg font-bold text-white">{route.currentDuration} dk</p>
                       </div>
                       <div>
-                        <p className="text-xs text-gray-600">Optimize Süre</p>
+                        <p className="text-xs text-gray-300">Optimize Süre</p>
                         <p className="text-lg font-bold text-green-600">{route.optimizedDuration} dk</p>
                       </div>
                     </div>
 
                     <div className="flex items-center justify-between bg-green-50 rounded-lg p-3">
                       <div>
-                        <p className="text-xs text-gray-600">Kazanç</p>
+                        <p className="text-xs text-gray-300">Kazanç</p>
                         <p className="text-sm font-bold text-green-600">
                           {route.savings} dk (%{route.savingsPercentage})
                         </p>
@@ -575,15 +575,15 @@ const TransferProviderDashboard: React.FC = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="bg-white rounded-xl shadow-md p-6 mb-8"
+            className="bg-white/5 rounded-xl shadow-md p-6 mb-8"
           >
             <div className="flex items-center justify-between mb-6">
-              <h2 className="text-xl font-bold text-gray-900 flex items-center gap-2">
+              <h2 className="text-xl font-bold text-white flex items-center gap-2">
                 <Users className="h-5 w-5 text-purple-600" />
                 Sürücü Performansı
               </h2>
               <div className="flex items-center gap-2">
-                <span className="text-sm text-gray-600">
+                <span className="text-sm text-gray-300">
                   {stats.drivers.active}/{stats.drivers.total} aktif
                 </span>
               </div>
@@ -591,40 +591,40 @@ const TransferProviderDashboard: React.FC = () => {
 
             <div className="overflow-x-auto">
               <table className="w-full">
-                <thead className="bg-gray-50">
+                <thead className="bg-white/5">
                   <tr>
-                    <th className="px-4 py-3 text-left text-xs font-bold text-gray-700 uppercase">
+                    <th className="px-4 py-3 text-left text-xs font-bold text-gray-200 uppercase">
                       Sürücü
                     </th>
-                    <th className="px-4 py-3 text-left text-xs font-bold text-gray-700 uppercase">
+                    <th className="px-4 py-3 text-left text-xs font-bold text-gray-200 uppercase">
                       Durum
                     </th>
-                    <th className="px-4 py-3 text-left text-xs font-bold text-gray-700 uppercase">
+                    <th className="px-4 py-3 text-left text-xs font-bold text-gray-200 uppercase">
                       Bugün
                     </th>
-                    <th className="px-4 py-3 text-left text-xs font-bold text-gray-700 uppercase">
+                    <th className="px-4 py-3 text-left text-xs font-bold text-gray-200 uppercase">
                       Puan
                     </th>
-                    <th className="px-4 py-3 text-left text-xs font-bold text-gray-700 uppercase">
+                    <th className="px-4 py-3 text-left text-xs font-bold text-gray-200 uppercase">
                       Zamanında
                     </th>
-                    <th className="px-4 py-3 text-left text-xs font-bold text-gray-700 uppercase">
+                    <th className="px-4 py-3 text-left text-xs font-bold text-gray-200 uppercase">
                       Gelir
                     </th>
-                    <th className="px-4 py-3 text-left text-xs font-bold text-gray-700 uppercase">
+                    <th className="px-4 py-3 text-left text-xs font-bold text-gray-200 uppercase">
                       İletişim
                     </th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-200">
                   {driverPerformance.map((driver) => (
-                    <tr key={driver.id} className="hover:bg-gray-50">
+                    <tr key={driver.id} className="hover:bg-white/5">
                       <td className="px-4 py-4">
                         <div className="flex items-center gap-3">
                           <div className="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center font-bold text-purple-600">
                             {driver.name.charAt(0)}
                           </div>
-                          <span className="font-medium text-gray-900">{driver.name}</span>
+                          <span className="font-medium text-white">{driver.name}</span>
                         </div>
                       </td>
                       <td className="px-4 py-4">
@@ -634,7 +634,7 @@ const TransferProviderDashboard: React.FC = () => {
                               ? 'bg-green-100 text-green-800'
                               : driver.status === 'available'
                               ? 'bg-blue-100 text-blue-800'
-                              : 'bg-gray-100 text-gray-800'
+                              : 'bg-white/10 text-white'
                           }`}
                         >
                           {driver.status === 'active'
@@ -645,13 +645,13 @@ const TransferProviderDashboard: React.FC = () => {
                         </span>
                       </td>
                       <td className="px-4 py-4">
-                        <span className="font-bold text-gray-900">{driver.completedToday}</span>
-                        <span className="text-xs text-gray-600 ml-1">transfer</span>
+                        <span className="font-bold text-white">{driver.completedToday}</span>
+                        <span className="text-xs text-gray-300 ml-1">transfer</span>
                       </td>
                       <td className="px-4 py-4">
                         <div className="flex items-center gap-1">
                           <Star className="h-4 w-4 text-yellow-400 fill-yellow-400" />
-                          <span className="font-bold text-gray-900">{driver.rating.toFixed(1)}</span>
+                          <span className="font-bold text-white">{driver.rating.toFixed(1)}</span>
                         </div>
                       </td>
                       <td className="px-4 py-4">
@@ -662,7 +662,7 @@ const TransferProviderDashboard: React.FC = () => {
                               style={{ width: `${driver.onTimeRate}%` }}
                             ></div>
                           </div>
-                          <span className="text-sm font-medium text-gray-700">
+                          <span className="text-sm font-medium text-gray-200">
                             {driver.onTimeRate}%
                           </span>
                         </div>
@@ -695,9 +695,9 @@ const TransferProviderDashboard: React.FC = () => {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="bg-white rounded-xl shadow-md p-6"
+              className="bg-white/5 rounded-xl shadow-md p-6"
             >
-              <h2 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+              <h2 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
                 <BarChart3 className="h-5 w-5 text-purple-600" />
                 Haftalık Gelir Trendi
               </h2>
@@ -709,9 +709,9 @@ const TransferProviderDashboard: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="bg-white rounded-xl shadow-md p-6"
+              className="bg-white/5 rounded-xl shadow-md p-6"
             >
-              <h2 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+              <h2 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
                 <PieChart className="h-5 w-5 text-purple-600" />
                 Popüler Rotalar
               </h2>
@@ -723,9 +723,9 @@ const TransferProviderDashboard: React.FC = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="bg-white rounded-xl shadow-md p-6"
+            className="bg-white/5 rounded-xl shadow-md p-6"
           >
-            <h2 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+            <h2 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
               <Car className="h-5 w-5 text-purple-600" />
               Filo Durumu
             </h2>
@@ -739,7 +739,7 @@ const TransferProviderDashboard: React.FC = () => {
                 <div className="flex items-center justify-between p-4 bg-green-50 rounded-lg">
                   <div className="flex items-center gap-3">
                     <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                    <span className="font-medium text-gray-700">Aktif Araçlar</span>
+                    <span className="font-medium text-gray-200">Aktif Araçlar</span>
                   </div>
                   <span className="text-2xl font-bold text-green-600">{stats.fleet.active}</span>
                 </div>
@@ -747,7 +747,7 @@ const TransferProviderDashboard: React.FC = () => {
                 <div className="flex items-center justify-between p-4 bg-blue-50 rounded-lg">
                   <div className="flex items-center gap-3">
                     <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
-                    <span className="font-medium text-gray-700">Müsait Araçlar</span>
+                    <span className="font-medium text-gray-200">Müsait Araçlar</span>
                   </div>
                   <span className="text-2xl font-bold text-blue-600">{stats.fleet.available}</span>
                 </div>
@@ -755,7 +755,7 @@ const TransferProviderDashboard: React.FC = () => {
                 <div className="flex items-center justify-between p-4 bg-red-50 rounded-lg">
                   <div className="flex items-center gap-3">
                     <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-                    <span className="font-medium text-gray-700">Bakımda</span>
+                    <span className="font-medium text-gray-200">Bakımda</span>
                   </div>
                   <span className="text-2xl font-bold text-red-600">{stats.fleet.maintenance}</span>
                 </div>

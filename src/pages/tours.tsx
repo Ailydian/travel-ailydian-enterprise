@@ -957,7 +957,7 @@ export default function Tours() {
             {toastMessage.includes('sepete eklendi') && (
               <button
                 onClick={() => router.push('/cart')}
-                className="flex items-center gap-2 px-4 py-2 bg-transparent text-emerald-600 rounded-lg font-semibold hover:bg-gray-100 transition-colors ml-2"
+                className="flex items-center gap-2 px-4 py-2 bg-transparent text-emerald-600 rounded-lg font-semibold hover:bg-white/10 transition-colors ml-2"
               >
                 <Eye className="w-4 h-4" />
                 Sepeti Gör

@@ -147,7 +147,7 @@ export default function Step1PropertyType({ data }: Step1Props) {
                 className={`relative p-4 border-2 rounded-xl text-left transition-all ${
                   isSelected
                     ? 'border-blue-500 bg-blue-50 shadow-md'
-                    : 'border-slate-200 bg-white hover:border-slate-300 hover:shadow-sm'
+                    : 'border-slate-200 bg-white/5 hover:border-slate-300 hover:shadow-sm'
                 }`}
               >
                 <div className="flex items-start gap-3">

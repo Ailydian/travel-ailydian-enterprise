@@ -636,7 +636,7 @@ const ResponsiveHeaderBar: React.FC = () => {
                     <h1 className="text-lg md:text-xl font-bold bg-gradient-to-r from-lydian-primary to-lydian-secondary bg-clip-text text-transparent">
                       LyDian
                     </h1>
-                    <p className="text-xs text-gray-500 -mt-1">Travel AI</p>
+                    <p className="text-xs text-gray-400 -mt-1">Travel AI</p>
                   </div>
                 </Link>
               </div>
@@ -771,19 +771,19 @@ const ResponsiveHeaderBar: React.FC = () => {
                 {/* Favorites (Desktop) */}
                 <Link
                   href="/favorites"
-                  className="hidden md:flex w-9 h-9 rounded-lg bg-gray-100 hover:bg-red-50 items-center justify-center transition-all active:scale-95 touch-target group"
+                  className="hidden md:flex w-9 h-9 rounded-lg bg-white/10 hover:bg-red-50 items-center justify-center transition-all active:scale-95 touch-target group"
                   aria-label="Favoriler"
                 >
-                  <Heart className="w-4 h-4 text-gray-700 group-hover:text-red-500 group-hover:scale-110 transition-all" />
+                  <Heart className="w-4 h-4 text-gray-200 group-hover:text-red-500 group-hover:scale-110 transition-all" />
                 </Link>
 
                 {/* Cart */}
                 <Link
                   href="/cart"
-                  className="relative w-9 h-9 sm:w-9 sm:h-9 md:w-9 md:h-9 rounded-lg bg-gray-100 hover:bg-green-50 flex items-center justify-center transition-all active:scale-95 touch-target group"
+                  className="relative w-9 h-9 sm:w-9 sm:h-9 md:w-9 md:h-9 rounded-lg bg-white/10 hover:bg-green-50 flex items-center justify-center transition-all active:scale-95 touch-target group"
                   aria-label="Sepet"
                 >
-                  <ShoppingCart className="w-4 h-4 sm:w-4 sm:h-4 text-gray-700 group-hover:text-green-600 group-hover:scale-110 transition-all" />
+                  <ShoppingCart className="w-4 h-4 sm:w-4 sm:h-4 text-gray-200 group-hover:text-green-600 group-hover:scale-110 transition-all" />
                   {cartItemCount > 0 && (
                     <motion.span
                       initial={{ scale: 0 }}
@@ -871,13 +871,13 @@ const NavLinkWithSubmenu: React.FC<{
     <div className="relative">
       <button
         onClick={handleClick}
-        className={`relative flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg font-medium transition-all hover:bg-gray-50 group ${
+        className={`relative flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg font-medium transition-all hover:bg-white/5 group ${
           isActive
             ? 'bg-gradient-to-r from-lydian-primary/10 to-lydian-secondary/10 text-lydian-primary'
-            : 'text-gray-700'
+            : 'text-gray-200'
         }`}
       >
-        <Icon className={`w-4 h-4 ${isActive ? 'text-lydian-primary' : 'text-gray-600'}`} />
+        <Icon className={`w-4 h-4 ${isActive ? 'text-lydian-primary' : 'text-gray-300'}`} />
         <span className="text-sm font-semibold">{label}</span>
         <ChevronDown
           className={`w-3 h-3 transition-transform ${isSubmenuOpen ? 'rotate-180' : ''}`}
@@ -905,7 +905,7 @@ const NavLinkWithSubmenu: React.FC<{
                 <div className="space-y-3">
                   {submenuContent.map((category, idx) => (
                     <div key={idx} className={idx > 0 ? 'pt-3 mt-3 border-t border-gray-100' : ''}>
-                      <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2 px-1">
+                      <h3 className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-2 px-1">
                         {category.title}
                       </h3>
                       <div className="space-y-0.5">
@@ -921,7 +921,7 @@ const NavLinkWithSubmenu: React.FC<{
                             </div>
                             <div className="flex-1 min-w-0">
                               <div className="flex items-center gap-1.5">
-                                <span className="font-medium text-gray-700 text-sm group-hover:text-lydian-primary transition-colors truncate">
+                                <span className="font-medium text-gray-200 text-sm group-hover:text-lydian-primary transition-colors truncate">
                                   {item.title}
                                 </span>
                                 {item.popular && (
@@ -943,7 +943,7 @@ const NavLinkWithSubmenu: React.FC<{
               </div>
 
               {/* Compact Footer */}
-              <div className="px-4 py-3 border-t border-gray-100 bg-gray-50">
+              <div className="px-4 py-3 border-t border-gray-100 bg-white/5">
                 <Link
                   href={href}
                   onClick={() => setActiveSubmenu(null)}

@@ -326,7 +326,7 @@ export default function ExperienceDetail({ experience, relatedExperiences }: Exp
                   <div className="flex items-baseline gap-2 mb-2">
                     <span className="text-3xl font-bold text-lydian-primary">₺{experience.pricing.adult}</span>
                     {experience.originalPrice && (
-                      <span className="text-lg text-gray-500 line-through">₺{experience.originalPrice}</span>
+                      <span className="text-lg text-gray-400 line-through">₺{experience.originalPrice}</span>
                     )}
                   </div>
                   <span className="text-gray-300">kişi başı</span>
@@ -356,14 +356,14 @@ export default function ExperienceDetail({ experience, relatedExperiences }: Exp
                     <div className="flex items-center gap-3">
                       <button
                         onClick={() => setAdults(Math.max(1, adults - 1))}
-                        className="w-8 h-8 rounded-full border border-white/20 hover:bg-gray-100"
+                        className="w-8 h-8 rounded-full border border-white/20 hover:bg-white/10"
                       >
                         -
                       </button>
                       <span className="w-8 text-center font-semibold">{adults}</span>
                       <button
                         onClick={() => setAdults(Math.min(experience.groupSize.max, adults + 1))}
-                        className="w-8 h-8 rounded-full border border-white/20 hover:bg-gray-100"
+                        className="w-8 h-8 rounded-full border border-white/20 hover:bg-white/10"
                       >
                         +
                       </button>
@@ -378,14 +378,14 @@ export default function ExperienceDetail({ experience, relatedExperiences }: Exp
                     <div className="flex items-center gap-3">
                       <button
                         onClick={() => setChildren(Math.max(0, children - 1))}
-                        className="w-8 h-8 rounded-full border border-white/20 hover:bg-gray-100"
+                        className="w-8 h-8 rounded-full border border-white/20 hover:bg-white/10"
                       >
                         -
                       </button>
                       <span className="w-8 text-center font-semibold">{children}</span>
                       <button
                         onClick={() => setChildren(Math.min(experience.groupSize.max - adults, children + 1))}
-                        className="w-8 h-8 rounded-full border border-white/20 hover:bg-gray-100"
+                        className="w-8 h-8 rounded-full border border-white/20 hover:bg-white/10"
                       >
                         +
                       </button>
@@ -399,7 +399,7 @@ export default function ExperienceDetail({ experience, relatedExperiences }: Exp
                     <span className="text-gray-300">Toplam</span>
                     <span className="text-2xl font-bold text-white">₺{totalPrice.toLocaleString()}</span>
                   </div>
-                  <p className="text-xs text-gray-500">Vergi ve hizmet bedeli dahil</p>
+                  <p className="text-xs text-gray-400">Vergi ve hizmet bedeli dahil</p>
                 </div>
 
                 {/* Book Button */}

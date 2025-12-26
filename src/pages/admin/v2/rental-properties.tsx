@@ -170,7 +170,7 @@ export default function RentalPropertiesManagement() {
       PENTHOUSE: 'bg-amber-100 text-amber-800',
       COTTAGE: 'bg-emerald-100 text-emerald-800',
     };
-    return colors[type] || 'bg-gray-100 text-gray-800';
+    return colors[type] || 'bg-white/10 text-white';
   };
 
   const formatType = (type: string) => {
@@ -186,9 +186,9 @@ export default function RentalPropertiesManagement() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-white/5">
       {/* Header */}
-      <div className="bg-white border-b border-gray-200">
+      <div className="bg-white/5 border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
@@ -196,8 +196,8 @@ export default function RentalPropertiesManagement() {
                 <Home className="w-6 h-6 text-purple-600" />
               </div>
               <div>
-                <h1 className="text-2xl font-bold text-gray-900">Konaklama Yönetimi</h1>
-                <p className="text-sm text-gray-600">Tüm mülkleri yönetin ve düzenleyin</p>
+                <h1 className="text-2xl font-bold text-white">Konaklama Yönetimi</h1>
+                <p className="text-sm text-gray-300">Tüm mülkleri yönetin ve düzenleyin</p>
               </div>
             </div>
             <button className="flex items-center space-x-2 px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors">
@@ -240,7 +240,7 @@ export default function RentalPropertiesManagement() {
 
       {/* Filters & Search */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-        <div className="bg-white rounded-lg shadow-sm p-4 mb-6">
+        <div className="bg-white/5 rounded-lg shadow-sm p-4 mb-6">
           <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
             {/* Search */}
             <div className="relative">
@@ -306,7 +306,7 @@ export default function RentalPropertiesManagement() {
                 setFilterStatus('');
                 setPage(1);
               }}
-              className="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors"
+              className="px-4 py-2 border border-gray-300 text-gray-200 rounded-lg hover:bg-white/5 transition-colors"
             >
               Filtreleri Temizle
             </button>
@@ -314,51 +314,51 @@ export default function RentalPropertiesManagement() {
         </div>
 
         {/* Properties Table */}
-        <div className="bg-white rounded-lg shadow-sm overflow-hidden">
+        <div className="bg-white/5 rounded-lg shadow-sm overflow-hidden">
           {loading ? (
             <div className="p-12 text-center">
               <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-purple-600"></div>
-              <p className="mt-4 text-gray-600">Yükleniyor...</p>
+              <p className="mt-4 text-gray-300">Yükleniyor...</p>
             </div>
           ) : properties.length === 0 ? (
             <div className="p-12 text-center">
               <Home className="w-16 h-16 text-gray-400 mx-auto mb-4" />
-              <p className="text-gray-600">Mülk bulunamadı</p>
+              <p className="text-gray-300">Mülk bulunamadı</p>
             </div>
           ) : (
             <div className="overflow-x-auto">
               <table className="min-w-full divide-y divide-gray-200">
-                <thead className="bg-gray-50">
+                <thead className="bg-white/5">
                   <tr>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
                       Mülk
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
                       Tip & Konum
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
                       Kapasite
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
                       Özellikler
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
                       Fiyat
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
                       Durum
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
                       Rezervasyon
                     </th>
-                    <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-right text-xs font-medium text-gray-400 uppercase tracking-wider">
                       İşlemler
                     </th>
                   </tr>
                 </thead>
-                <tbody className="bg-white divide-y divide-gray-200">
+                <tbody className="bg-white/5 divide-y divide-gray-200">
                   {properties.map((property) => (
-                    <tr key={property.id} className="hover:bg-gray-50 transition-colors">
+                    <tr key={property.id} className="hover:bg-white/5 transition-colors">
                       <td className="px-6 py-4 whitespace-nowrap">
                         <div className="flex items-center space-x-3">
                           <img
@@ -370,7 +370,7 @@ export default function RentalPropertiesManagement() {
                             }}
                           />
                           <div className="max-w-xs">
-                            <p className="font-medium text-gray-900 truncate">{property.title}</p>
+                            <p className="font-medium text-white truncate">{property.title}</p>
                             {property.hostSuperhost && (
                               <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-rose-100 text-rose-800 mt-1">
                                 ⭐ Superhost
@@ -383,13 +383,13 @@ export default function RentalPropertiesManagement() {
                         <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${getTypeColor(property.type)}`}>
                           {formatType(property.type)}
                         </span>
-                        <div className="flex items-center text-sm text-gray-500 mt-1">
+                        <div className="flex items-center text-sm text-gray-400 mt-1">
                           <MapPin className="w-3 h-3 mr-1" />
                           {property.city}, {property.district}
                         </div>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap">
-                        <div className="flex items-center space-x-3 text-sm text-gray-900">
+                        <div className="flex items-center space-x-3 text-sm text-white">
                           <div className="flex items-center">
                             <Users className="w-4 h-4 text-gray-400 mr-1" />
                             {property.guests}
@@ -425,10 +425,10 @@ export default function RentalPropertiesManagement() {
                         </div>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap">
-                        <div className="text-sm font-medium text-gray-900">
+                        <div className="text-sm font-medium text-white">
                           {property.basePrice} {property.currency}/gece
                         </div>
-                        <div className="flex items-center text-sm text-gray-500">
+                        <div className="flex items-center text-sm text-gray-400">
                           <Star className="w-3 h-3 text-yellow-400 fill-current mr-1" />
                           {property.overall.toFixed(1)} ({property.reviewCount})
                         </div>
@@ -436,7 +436,7 @@ export default function RentalPropertiesManagement() {
                       <td className="px-6 py-4 whitespace-nowrap">
                         <div className="flex flex-col space-y-1">
                           <span className={`inline-flex items-center px-2 py-0.5 rounded text-xs font-medium ${
-                            property.isActive ? 'bg-green-100 text-green-800' : 'bg-gray-100 text-gray-800'
+                            property.isActive ? 'bg-green-100 text-green-800' : 'bg-white/10 text-white'
                           }`}>
                             {property.isActive ? 'Aktif' : 'Pasif'}
                           </span>
@@ -453,7 +453,7 @@ export default function RentalPropertiesManagement() {
                         </div>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap">
-                        <div className="text-sm text-gray-900 font-medium">
+                        <div className="text-sm text-white font-medium">
                           {property._count?.bookings || 0} rezervasyon
                         </div>
                       </td>
@@ -464,7 +464,7 @@ export default function RentalPropertiesManagement() {
                             className={`p-2 rounded-lg transition-colors ${
                               property.isActive
                                 ? 'text-green-600 hover:bg-green-50'
-                                : 'text-gray-600 hover:bg-gray-50'
+                                : 'text-gray-300 hover:bg-white/5'
                             }`}
                             title={property.isActive ? 'Pasif yap' : 'Aktif yap'}
                           >
@@ -475,7 +475,7 @@ export default function RentalPropertiesManagement() {
                             className={`p-2 rounded-lg transition-colors ${
                               property.isFeatured
                                 ? 'text-amber-600 hover:bg-amber-50'
-                                : 'text-gray-600 hover:bg-gray-50'
+                                : 'text-gray-300 hover:bg-white/5'
                             }`}
                             title={property.isFeatured ? 'Öne çıkarma' : 'Öne çıkar'}
                           >
@@ -507,23 +507,23 @@ export default function RentalPropertiesManagement() {
 
           {/* Pagination */}
           {totalPages > 1 && (
-            <div className="px-6 py-4 bg-gray-50 border-t border-gray-200">
+            <div className="px-6 py-4 bg-white/5 border-t border-gray-200">
               <div className="flex items-center justify-between">
-                <div className="text-sm text-gray-700">
+                <div className="text-sm text-gray-200">
                   Sayfa <span className="font-medium">{page}</span> / <span className="font-medium">{totalPages}</span>
                 </div>
                 <div className="flex space-x-2">
                   <button
                     onClick={() => setPage(p => Math.max(1, p - 1))}
                     disabled={page === 1}
-                    className="px-4 py-2 border border-gray-300 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                    className="px-4 py-2 border border-gray-300 rounded-lg text-sm font-medium text-gray-200 hover:bg-white/5 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                   >
                     Önceki
                   </button>
                   <button
                     onClick={() => setPage(p => Math.min(totalPages, p + 1))}
                     disabled={page === totalPages}
-                    className="px-4 py-2 border border-gray-300 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                    className="px-4 py-2 border border-gray-300 rounded-lg text-sm font-medium text-gray-200 hover:bg-white/5 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                   >
                     Sonraki
                   </button>

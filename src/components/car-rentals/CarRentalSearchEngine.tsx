@@ -81,7 +81,7 @@ const CarRentalSearchEngine: React.FC<CarRentalSearchEngineProps> = ({ onSearch 
       {/* Pickup Location */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
         <div className="relative">
-          <label className="block text-sm font-semibold text-gray-700 mb-2">
+          <label className="block text-sm font-semibold text-gray-200 mb-2">
             <MapPin className="w-4 h-4 inline mr-1" />
             Alış Yeri
           </label>
@@ -120,7 +120,7 @@ const CarRentalSearchEngine: React.FC<CarRentalSearchEngineProps> = ({ onSearch 
         {/* Dropoff Location (only if different location) */}
         {!sameLocation && (
           <div className="relative">
-            <label className="block text-sm font-semibold text-gray-700 mb-2">
+            <label className="block text-sm font-semibold text-gray-200 mb-2">
               <MapPin className="w-4 h-4 inline mr-1" />
               Teslim Yeri
             </label>
@@ -161,7 +161,7 @@ const CarRentalSearchEngine: React.FC<CarRentalSearchEngineProps> = ({ onSearch 
           <div className="flex items-end">
             <button
               onClick={() => setSameLocation(false)}
-              className="w-full px-4 py-3 border-2 border-dashed border-white/20 rounded-xl hover:border-green-500 hover:bg-green-50 transition-all text-gray-600 hover:text-green-700 font-medium"
+              className="w-full px-4 py-3 border-2 border-dashed border-white/20 rounded-xl hover:border-green-500 hover:bg-green-50 transition-all text-gray-300 hover:text-green-700 font-medium"
             >
               + Farklı Teslim Yeri
             </button>
@@ -185,7 +185,7 @@ const CarRentalSearchEngine: React.FC<CarRentalSearchEngineProps> = ({ onSearch 
       {/* Date and Time */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-4">
         <div>
-          <label className="block text-sm font-semibold text-gray-700 mb-2">
+          <label className="block text-sm font-semibold text-gray-200 mb-2">
             <Calendar className="w-4 h-4 inline mr-1" />
             Alış Tarihi
           </label>
@@ -198,7 +198,7 @@ const CarRentalSearchEngine: React.FC<CarRentalSearchEngineProps> = ({ onSearch 
         </div>
 
         <div>
-          <label className="block text-sm font-semibold text-gray-700 mb-2">
+          <label className="block text-sm font-semibold text-gray-200 mb-2">
             <Clock className="w-4 h-4 inline mr-1" />
             Alış Saati
           </label>
@@ -220,7 +220,7 @@ const CarRentalSearchEngine: React.FC<CarRentalSearchEngineProps> = ({ onSearch 
         </div>
 
         <div>
-          <label className="block text-sm font-semibold text-gray-700 mb-2">
+          <label className="block text-sm font-semibold text-gray-200 mb-2">
             <Calendar className="w-4 h-4 inline mr-1" />
             Teslim Tarihi
           </label>
@@ -233,7 +233,7 @@ const CarRentalSearchEngine: React.FC<CarRentalSearchEngineProps> = ({ onSearch 
         </div>
 
         <div>
-          <label className="block text-sm font-semibold text-gray-700 mb-2">
+          <label className="block text-sm font-semibold text-gray-200 mb-2">
             <Clock className="w-4 h-4 inline mr-1" />
             Teslim Saati
           </label>
@@ -257,7 +257,7 @@ const CarRentalSearchEngine: React.FC<CarRentalSearchEngineProps> = ({ onSearch 
 
       {/* Vehicle Category */}
       <div className="mb-6">
-        <label className="block text-sm font-semibold text-gray-700 mb-2">
+        <label className="block text-sm font-semibold text-gray-200 mb-2">
           <Car className="w-4 h-4 inline mr-1" />
           Araç Kategorisi
         </label>
@@ -288,15 +288,15 @@ const CarRentalSearchEngine: React.FC<CarRentalSearchEngineProps> = ({ onSearch 
       <div className="mt-6 grid grid-cols-3 gap-4 pt-6 border-t border-white/10">
         <div className="text-center">
           <div className="text-2xl font-bold text-green-600">1,200+</div>
-          <div className="text-xs text-gray-600">Aktif Araç</div>
+          <div className="text-xs text-gray-300">Aktif Araç</div>
         </div>
         <div className="text-center">
           <div className="text-2xl font-bold text-green-600">4.9/5</div>
-          <div className="text-xs text-gray-600">Memnuniyet</div>
+          <div className="text-xs text-gray-300">Memnuniyet</div>
         </div>
         <div className="text-center">
           <div className="text-2xl font-bold text-green-600">₺350</div>
-          <div className="text-xs text-gray-600">En Düşük Fiyat</div>
+          <div className="text-xs text-gray-300">En Düşük Fiyat</div>
         </div>
       </div>
     </div>

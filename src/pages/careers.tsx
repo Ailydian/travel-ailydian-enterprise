@@ -129,7 +129,7 @@ export default function Careers() {
 
       <FuturisticHeader />
 
-      <main className="min-h-screen bg-gray-50">
+      <main className="min-h-screen bg-white/5">
         {/* Hero Section */}
         <div className="bg-gradient-to-r from-lydian-primary to-lydian-dark text-white py-20">
           <div className="max-w-7xl mx-auto px-4">
@@ -177,7 +177,7 @@ export default function Careers() {
         </div>
 
         {/* Why Join Us */}
-        <div className="py-16 bg-gray-50">
+        <div className="py-16 bg-white/5">
           <div className="max-w-7xl mx-auto px-4">
             <div className="text-center mb-12">
               <h2 className="text-4xl font-bold text-white mb-4">
@@ -262,7 +262,7 @@ export default function Careers() {
         </div>
 
         {/* Open Positions */}
-        <div id="open-positions" className="py-16 bg-gray-50">
+        <div id="open-positions" className="py-16 bg-white/5">
           <div className="max-w-7xl mx-auto px-4">
             <div className="text-center mb-12">
               <h2 className="text-4xl font-bold text-white mb-4">
@@ -282,7 +282,7 @@ export default function Careers() {
                   className={`px-6 py-2 rounded-full font-medium transition-colors ${
                     selectedDepartment === dept
                       ? 'bg-lydian-primary text-white'
-                      : 'bg-white/5 text-gray-200 hover:bg-gray-100'
+                      : 'bg-white/5 text-gray-200 hover:bg-white/10'
                   }`}
                 >
                   {dept === 'all' ? 'Tümü' : dept}
@@ -334,7 +334,7 @@ export default function Careers() {
 
             {filteredJobs.length === 0 && (
               <div className="text-center py-12">
-                <p className="text-gray-500 text-lg">
+                <p className="text-gray-400 text-lg">
                   Bu departmanda şu anda açık pozisyon bulunmamaktadır.
                 </p>
               </div>
@@ -368,7 +368,7 @@ export default function Careers() {
         </div>
 
         {/* Culture Section */}
-        <div className="py-16 bg-gray-50">
+        <div className="py-16 bg-white/5">
           <div className="max-w-7xl mx-auto px-4">
             <div className="text-center mb-12">
               <h2 className="text-4xl font-bold text-white mb-4">

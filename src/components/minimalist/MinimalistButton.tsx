@@ -37,8 +37,8 @@ export const MinimalistButton: React.FC<MinimalistButtonProps> = ({
   // Variant classes
   const variants = {
     primary: 'bg-black text-white hover:bg-gray-800',
-    secondary: 'bg-transparent border border-black text-black hover:bg-black hover:text-white',
-    ghost: 'bg-transparent text-black hover:opacity-70'
+    secondary: 'bg-transparent border border-black text-white hover:bg-black hover:text-white',
+    ghost: 'bg-transparent text-white hover:opacity-70'
   };
 
   const baseClasses = 'font-normal transition-all duration-300 rounded-sm';

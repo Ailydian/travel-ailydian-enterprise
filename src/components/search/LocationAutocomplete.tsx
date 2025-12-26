@@ -188,7 +188,7 @@ export const LocationAutocomplete: React.FC<LocationAutocompleteProps> = ({
               <span className="text-2xl mt-0.5 transform hover:scale-125 transition-transform">{getLocationIcon(suggestion.type)}</span>
               <div className="flex-1 min-w-0">
                 <div className="font-semibold text-white truncate">{suggestion.name}</div>
-                <div className="text-sm text-gray-600 flex items-center gap-1 mt-1">
+                <div className="text-sm text-gray-300 flex items-center gap-1 mt-1">
                   <MapPin className="w-3 h-3 flex-shrink-0" />
                   <span className="truncate">
                     {suggestion.city}
@@ -218,7 +218,7 @@ export const LocationAutocomplete: React.FC<LocationAutocompleteProps> = ({
             <Search className="w-8 h-8 text-gray-400" />
           </div>
           <div className="font-semibold text-white mb-1">Sonuç bulunamadı</div>
-          <div className="text-sm text-gray-500">Farklı bir arama terimi deneyin</div>
+          <div className="text-sm text-gray-400">Farklı bir arama terimi deneyin</div>
         </div>
       )}
     </div>

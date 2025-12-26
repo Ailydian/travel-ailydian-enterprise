@@ -106,7 +106,7 @@ export const FuturisticInput: React.FC<FuturisticInputProps> = ({
 
       {/* Icon */}
       {icon && (
-        <div className="absolute left-4 top-1/2 -translate-y-1/2 z-10 text-gray-500">
+        <div className="absolute left-4 top-1/2 -translate-y-1/2 z-10 text-gray-400">
           {icon}
         </div>
       )}

@@ -25,29 +25,29 @@ export interface StatCardProps {
 
 const variantStyles = {
   default: {
-    container: 'bg-white border-gray-200',
-    icon: 'bg-gray-100 text-gray-600',
-    text: 'text-gray-900',
+    container: 'bg-white/5 border-gray-200',
+    icon: 'bg-white/10 text-gray-300',
+    text: 'text-white',
   },
   primary: {
-    container: 'bg-white border-blue-200',
+    container: 'bg-white/5 border-blue-200',
     icon: 'bg-blue-100 text-blue-600',
-    text: 'text-gray-900',
+    text: 'text-white',
   },
   success: {
-    container: 'bg-white border-green-200',
+    container: 'bg-white/5 border-green-200',
     icon: 'bg-green-100 text-green-600',
-    text: 'text-gray-900',
+    text: 'text-white',
   },
   warning: {
-    container: 'bg-white border-yellow-200',
+    container: 'bg-white/5 border-yellow-200',
     icon: 'bg-yellow-100 text-yellow-600',
-    text: 'text-gray-900',
+    text: 'text-white',
   },
   danger: {
-    container: 'bg-white border-red-200',
+    container: 'bg-white/5 border-red-200',
     icon: 'bg-red-100 text-red-600',
-    text: 'text-gray-900',
+    text: 'text-white',
   },
 };
 
@@ -116,7 +116,7 @@ export const StatCard: React.FC<StatCardProps> = ({
     >
       <div className="flex items-center justify-between space-x-4">
         <div className="flex-1 space-y-1">
-          <p className="text-sm font-medium text-gray-600">{title}</p>
+          <p className="text-sm font-medium text-gray-300">{title}</p>
           <p className={`text-3xl font-bold ${styles.text}`}>{value}</p>
           <div className="flex items-center space-x-2">
             {trend !== undefined && (
@@ -130,7 +130,7 @@ export const StatCard: React.FC<StatCardProps> = ({
               </div>
             )}
             {description && (
-              <p className="text-xs text-gray-500">{description}</p>
+              <p className="text-xs text-gray-400">{description}</p>
             )}
           </div>
         </div>

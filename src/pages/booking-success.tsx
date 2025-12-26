@@ -190,7 +190,7 @@ const BookingSuccess: React.FC = () => {
                           </div>
                           <div className="text-left sm:text-right flex-shrink-0">
                             <div className="text-xl sm:text-2xl font-bold text-green-600 mb-1">₺{item.price}</div>
-                            <div className="text-xs sm:text-sm text-gray-500">{item.guests} kişi</div>
+                            <div className="text-xs sm:text-sm text-gray-400">{item.guests} kişi</div>
                           </div>
                         </div>
 
@@ -361,7 +361,7 @@ const BookingSuccess: React.FC = () => {
                 <p className="text-white/90 text-sm mb-6">
                   Seyahatiniz tamamlandıktan sonra deneyiminizi paylaşmayı unutmayın!
                 </p>
-                <button className="w-full bg-transparent text-lydian-primary py-3 px-4 rounded-xl font-semibold hover:bg-gray-100 transition-colors flex items-center justify-center gap-2">
+                <button className="w-full bg-transparent text-lydian-primary py-3 px-4 rounded-xl font-semibold hover:bg-white/10 transition-colors flex items-center justify-center gap-2">
                   <Star className="w-5 h-5" />
                   Değerlendirme Yap
                 </button>

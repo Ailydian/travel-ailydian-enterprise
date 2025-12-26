@@ -167,7 +167,7 @@ const UnifiedSearch: React.FC = () => {
                 className={`flex items-center gap-2 px-4 py-2 rounded-full transition-all ${
                   isSelected
                     ? category.color
-                    : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                    : 'bg-white/10 text-gray-300 hover:bg-gray-200'
                 }`}
               >
                 <Icon className="h-4 w-4" />
@@ -181,7 +181,7 @@ const UnifiedSearch: React.FC = () => {
       {/* Popular Searches */}
       {!showResults && (
         <div className="mt-8">
-          <h3 className="text-sm font-semibold text-gray-500 mb-3">Popüler Aramalar</h3>
+          <h3 className="text-sm font-semibold text-gray-400 mb-3">Popüler Aramalar</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             {popularSearches.map((search, index) => {
               const Icon = search.icon;
@@ -192,7 +192,7 @@ const UnifiedSearch: React.FC = () => {
                   className="flex items-center gap-3 p-4 bg-white/5 border border-white/10 rounded-xl hover:border-purple-300 hover:shadow-md transition-all text-left"
                 >
                   <Icon className={`h-5 w-5 ${search.color}`} />
-                  <span className="text-sm text-gray-700">{search.text}</span>
+                  <span className="text-sm text-gray-200">{search.text}</span>
                   <ChevronRight className="h-4 w-4 text-gray-400 ml-auto" />
                 </button>
               );
@@ -242,11 +242,11 @@ const UnifiedSearch: React.FC = () => {
                     )}
                   </div>
 
-                  <p className="text-sm text-gray-600 mb-3">{suggestion.description}</p>
+                  <p className="text-sm text-gray-300 mb-3">{suggestion.description}</p>
 
                   <div className="space-y-1 mb-4">
                     {suggestion.items.map((item, idx) => (
-                      <div key={idx} className="flex items-center gap-2 text-xs text-gray-700">
+                      <div key={idx} className="flex items-center gap-2 text-xs text-gray-200">
                         <div className="w-1.5 h-1.5 bg-purple-400 rounded-full"></div>
                         <span>{item}</span>
                       </div>
@@ -319,13 +319,13 @@ const UnifiedSearch: React.FC = () => {
                     </h4>
 
                     {result.location && (
-                      <p className="text-xs text-gray-500 mb-2 flex items-center gap-1">
+                      <p className="text-xs text-gray-400 mb-2 flex items-center gap-1">
                         <MapPin className="h-3 w-3" />
                         {result.location}
                       </p>
                     )}
 
-                    <p className="text-sm text-gray-600 mb-3 line-clamp-2">
+                    <p className="text-sm text-gray-300 mb-3 line-clamp-2">
                       {result.description}
                     </p>
 
@@ -334,7 +334,7 @@ const UnifiedSearch: React.FC = () => {
                         <span className="text-2xl font-bold text-purple-600">
                           ₺{result.price.toLocaleString()}
                         </span>
-                        <span className="text-xs text-gray-500 ml-1">/ gecelik</span>
+                        <span className="text-xs text-gray-400 ml-1">/ gecelik</span>
                       </div>
 
                       <button className="bg-purple-600 hover:bg-purple-700 text-white font-medium py-2 px-4 rounded-lg transition-colors text-sm">
@@ -352,13 +352,13 @@ const UnifiedSearch: React.FC = () => {
       {/* No Results */}
       {showResults && !isSearching && results.length === 0 && (
         <div className="mt-12 text-center">
-          <div className="inline-block p-6 bg-gray-100 rounded-full mb-4">
+          <div className="inline-block p-6 bg-white/10 rounded-full mb-4">
             <Search className="h-12 w-12 text-gray-400" />
           </div>
           <h3 className="text-xl font-bold text-white mb-2">
             Sonuç Bulunamadı
           </h3>
-          <p className="text-gray-600 mb-6">
+          <p className="text-gray-300 mb-6">
             Aramanız için sonuç bulunamadı. Farklı kelimeler deneyin.
           </p>
           <button

@@ -40,7 +40,7 @@ export default function CommercialVehicleOwnerRegisterPage() {
       <Link href="/" className="fixed top-6 left-6 z-50">
         <motion.button
           whileHover={{ scale: 1.05 }}
-          className="flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-lg"
+          className="flex items-center gap-2 px-4 py-2 bg-white/5 rounded-full shadow-lg"
         >
           <Home className="w-5 h-5" />
           <span className="font-semibold">Anasayfa</span>
@@ -52,16 +52,16 @@ export default function CommercialVehicleOwnerRegisterPage() {
         animate={{ opacity: 1, y: 0 }}
         className="w-full max-w-2xl"
       >
-        <div className="bg-white rounded-3xl shadow-2xl p-8">
+        <div className="bg-white/5 rounded-3xl shadow-2xl p-8">
           {/* Header */}
           <div className="text-center mb-8">
             <div className="inline-flex p-4 bg-gradient-to-br from-orange-600 to-yellow-600 rounded-2xl mb-4">
               <Truck className="w-12 h-12 text-white" />
             </div>
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">
+            <h1 className="text-3xl font-bold text-white mb-2">
               Ticari Araç Ortağı Kaydı
             </h1>
-            <p className="text-gray-600">
+            <p className="text-gray-300">
               Minibüs, kamyonet ve grup araçlarınızı kaydedin
             </p>
           </div>
@@ -70,7 +70,7 @@ export default function CommercialVehicleOwnerRegisterPage() {
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-200 mb-2">
                   Firma Adı
                 </label>
                 <div className="relative">
@@ -87,7 +87,7 @@ export default function CommercialVehicleOwnerRegisterPage() {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-200 mb-2">
                   Yetkili Adı Soyadı
                 </label>
                 <div className="relative">
@@ -104,7 +104,7 @@ export default function CommercialVehicleOwnerRegisterPage() {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-200 mb-2">
                   E-posta
                 </label>
                 <div className="relative">
@@ -121,7 +121,7 @@ export default function CommercialVehicleOwnerRegisterPage() {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-200 mb-2">
                   Telefon
                 </label>
                 <div className="relative">
@@ -138,7 +138,7 @@ export default function CommercialVehicleOwnerRegisterPage() {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-200 mb-2">
                   Şifre
                 </label>
                 <div className="relative">
@@ -166,7 +166,7 @@ export default function CommercialVehicleOwnerRegisterPage() {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-200 mb-2">
                   Şifre Tekrar
                 </label>
                 <div className="relative">
@@ -191,7 +191,7 @@ export default function CommercialVehicleOwnerRegisterPage() {
                 className="w-4 h-4 mt-1 text-orange-600 border-gray-300 rounded focus:ring-orange-600"
                 required
               />
-              <span className="ml-2 text-sm text-gray-600">
+              <span className="ml-2 text-sm text-gray-300">
                 <Link href="/commercial-vehicle-owner/auth/terms" className="text-orange-600 hover:text-orange-700">
                   Kullanım Koşulları
                 </Link>
@@ -216,7 +216,7 @@ export default function CommercialVehicleOwnerRegisterPage() {
 
           {/* Footer */}
           <div className="mt-6 text-center">
-            <p className="text-gray-600">
+            <p className="text-gray-300">
               Zaten hesabınız var mı?{' '}
               <Link href="/commercial-vehicle-owner/auth/login" className="text-orange-600 font-semibold hover:text-orange-700">
                 Giriş Yapın

@@ -197,7 +197,7 @@ export default function VehicleOwnerRegisterPage() {
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white/5">
       <div className="flex min-h-screen">
         {/* Left Column - Benefits & Info */}
         <motion.div
@@ -216,7 +216,7 @@ export default function VehicleOwnerRegisterPage() {
           <div className="relative z-10">
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2 mb-12">
-              <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center">
+              <div className="w-10 h-10 bg-white/5 rounded-lg flex items-center justify-center">
                 <Car className="w-6 h-6 text-green-600" />
               </div>
               <span className="text-2xl font-bold text-white">LyDian</span>
@@ -246,7 +246,7 @@ export default function VehicleOwnerRegisterPage() {
                   transition={{ delay: 0.3 + index * 0.1 }}
                   className="flex gap-4"
                 >
-                  <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center flex-shrink-0">
+                  <div className="w-12 h-12 bg-white/5 rounded-lg flex items-center justify-center flex-shrink-0">
                     <benefit.icon className="w-6 h-6 text-green-600" />
                   </div>
                   <div>
@@ -291,7 +291,7 @@ export default function VehicleOwnerRegisterPage() {
               <div className="w-10 h-10 bg-gradient-to-r from-green-600 to-emerald-600 rounded-lg flex items-center justify-center">
                 <Car className="w-6 h-6 text-white" />
               </div>
-              <span className="text-2xl font-bold text-gray-900">LyDian</span>
+              <span className="text-2xl font-bold text-white">LyDian</span>
             </div>
 
             {/* Progress Steps */}
@@ -304,7 +304,7 @@ export default function VehicleOwnerRegisterPage() {
                         className={`w-10 h-10 rounded-full flex items-center justify-center font-semibold transition-all ${
                           currentStep >= step
                             ? 'bg-gradient-to-r from-green-600 to-emerald-600 text-white'
-                            : 'bg-gray-200 text-gray-500'
+                            : 'bg-gray-200 text-gray-400'
                         }`}
                       >
                         {currentStep > step ? (
@@ -326,13 +326,13 @@ export default function VehicleOwnerRegisterPage() {
                 ))}
               </div>
               <div className="flex justify-between text-sm">
-                <span className={currentStep >= 1 ? 'text-gray-900 font-medium' : 'text-gray-500'}>
+                <span className={currentStep >= 1 ? 'text-white font-medium' : 'text-gray-400'}>
                   Kişisel Bilgiler
                 </span>
-                <span className={currentStep >= 2 ? 'text-gray-900 font-medium' : 'text-gray-500'}>
+                <span className={currentStep >= 2 ? 'text-white font-medium' : 'text-gray-400'}>
                   İşletme Bilgileri
                 </span>
-                <span className={currentStep >= 3 ? 'text-gray-900 font-medium' : 'text-gray-500'}>
+                <span className={currentStep >= 3 ? 'text-white font-medium' : 'text-gray-400'}>
                   Onay
                 </span>
               </div>
@@ -340,12 +340,12 @@ export default function VehicleOwnerRegisterPage() {
 
             {/* Header */}
             <div className="mb-6">
-              <h2 className="text-3xl font-bold text-gray-900 mb-2">
+              <h2 className="text-3xl font-bold text-white mb-2">
                 {currentStep === 1 && 'Hesap Oluştur'}
                 {currentStep === 2 && 'İşletme Bilgileriniz'}
                 {currentStep === 3 && 'Son Adım'}
               </h2>
-              <p className="text-gray-600">
+              <p className="text-gray-300">
                 {currentStep === 1 && 'Kişisel bilgilerinizi girerek başlayın'}
                 {currentStep === 2 && 'İşletmeniz hakkında bilgi verin'}
                 {currentStep === 3 && 'Koşulları onaylayarak kaydı tamamlayın'}
@@ -366,7 +366,7 @@ export default function VehicleOwnerRegisterPage() {
                   >
                     {/* Full Name */}
                     <div>
-                      <label htmlFor="fullName" className="block text-sm font-medium text-gray-900 mb-2">
+                      <label htmlFor="fullName" className="block text-sm font-medium text-white mb-2">
                         Ad Soyad
                       </label>
                       <div className="relative">
@@ -381,7 +381,7 @@ export default function VehicleOwnerRegisterPage() {
                           onChange={handleInputChange}
                           className={`block w-full pl-10 pr-3 py-3 border ${
                             errors.fullName ? 'border-red-500' : 'border-gray-300'
-                          } rounded-lg focus:ring-2 focus:ring-green-600 focus:border-transparent outline-none transition-all bg-white text-gray-900`}
+                          } rounded-lg focus:ring-2 focus:ring-green-600 focus:border-transparent outline-none transition-all bg-white/5 text-white`}
                           placeholder="Ahmet Yılmaz"
                         />
                       </div>
@@ -392,7 +392,7 @@ export default function VehicleOwnerRegisterPage() {
 
                     {/* Email */}
                     <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-gray-900 mb-2">
+                      <label htmlFor="email" className="block text-sm font-medium text-white mb-2">
                         E-posta Adresi
                       </label>
                       <div className="relative">
@@ -407,7 +407,7 @@ export default function VehicleOwnerRegisterPage() {
                           onChange={handleInputChange}
                           className={`block w-full pl-10 pr-3 py-3 border ${
                             errors.email ? 'border-red-500' : 'border-gray-300'
-                          } rounded-lg focus:ring-2 focus:ring-green-600 focus:border-transparent outline-none transition-all bg-white text-gray-900`}
+                          } rounded-lg focus:ring-2 focus:ring-green-600 focus:border-transparent outline-none transition-all bg-white/5 text-white`}
                           placeholder="ornek@email.com"
                         />
                       </div>
@@ -418,7 +418,7 @@ export default function VehicleOwnerRegisterPage() {
 
                     {/* Phone */}
                     <div>
-                      <label htmlFor="phone" className="block text-sm font-medium text-gray-900 mb-2">
+                      <label htmlFor="phone" className="block text-sm font-medium text-white mb-2">
                         Telefon Numarası
                       </label>
                       <div className="relative">
@@ -433,7 +433,7 @@ export default function VehicleOwnerRegisterPage() {
                           onChange={handleInputChange}
                           className={`block w-full pl-10 pr-3 py-3 border ${
                             errors.phone ? 'border-red-500' : 'border-gray-300'
-                          } rounded-lg focus:ring-2 focus:ring-green-600 focus:border-transparent outline-none transition-all bg-white text-gray-900`}
+                          } rounded-lg focus:ring-2 focus:ring-green-600 focus:border-transparent outline-none transition-all bg-white/5 text-white`}
                           placeholder="0555 123 4567"
                         />
                       </div>
@@ -466,7 +466,7 @@ export default function VehicleOwnerRegisterPage() {
                   >
                     {/* Password */}
                     <div>
-                      <label htmlFor="password" className="block text-sm font-medium text-gray-900 mb-2">
+                      <label htmlFor="password" className="block text-sm font-medium text-white mb-2">
                         Şifre
                       </label>
                       <div className="relative">
@@ -481,7 +481,7 @@ export default function VehicleOwnerRegisterPage() {
                           onChange={handleInputChange}
                           className={`block w-full pl-10 pr-10 py-3 border ${
                             errors.password ? 'border-red-500' : 'border-gray-300'
-                          } rounded-lg focus:ring-2 focus:ring-green-600 focus:border-transparent outline-none transition-all bg-white text-gray-900`}
+                          } rounded-lg focus:ring-2 focus:ring-green-600 focus:border-transparent outline-none transition-all bg-white/5 text-white`}
                           placeholder="••••••••"
                         />
                         <button
@@ -490,23 +490,23 @@ export default function VehicleOwnerRegisterPage() {
                           className="absolute inset-y-0 right-0 pr-3 flex items-center"
                         >
                           {showPassword ? (
-                            <EyeOff className="h-5 w-5 text-gray-400 hover:text-gray-600" />
+                            <EyeOff className="h-5 w-5 text-gray-400 hover:text-gray-300" />
                           ) : (
-                            <Eye className="h-5 w-5 text-gray-400 hover:text-gray-600" />
+                            <Eye className="h-5 w-5 text-gray-400 hover:text-gray-300" />
                           )}
                         </button>
                       </div>
                       {errors.password && (
                         <p className="mt-1 text-sm text-red-500">{errors.password}</p>
                       )}
-                      <p className="mt-1 text-xs text-gray-500">
+                      <p className="mt-1 text-xs text-gray-400">
                         En az 8 karakter, bir büyük harf, bir küçük harf ve bir rakam içermelidir
                       </p>
                     </div>
 
                     {/* Confirm Password */}
                     <div>
-                      <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-900 mb-2">
+                      <label htmlFor="confirmPassword" className="block text-sm font-medium text-white mb-2">
                         Şifre Tekrar
                       </label>
                       <div className="relative">
@@ -521,7 +521,7 @@ export default function VehicleOwnerRegisterPage() {
                           onChange={handleInputChange}
                           className={`block w-full pl-10 pr-10 py-3 border ${
                             errors.confirmPassword ? 'border-red-500' : 'border-gray-300'
-                          } rounded-lg focus:ring-2 focus:ring-green-600 focus:border-transparent outline-none transition-all bg-white text-gray-900`}
+                          } rounded-lg focus:ring-2 focus:ring-green-600 focus:border-transparent outline-none transition-all bg-white/5 text-white`}
                           placeholder="••••••••"
                         />
                         <button
@@ -530,9 +530,9 @@ export default function VehicleOwnerRegisterPage() {
                           className="absolute inset-y-0 right-0 pr-3 flex items-center"
                         >
                           {showConfirmPassword ? (
-                            <EyeOff className="h-5 w-5 text-gray-400 hover:text-gray-600" />
+                            <EyeOff className="h-5 w-5 text-gray-400 hover:text-gray-300" />
                           ) : (
-                            <Eye className="h-5 w-5 text-gray-400 hover:text-gray-600" />
+                            <Eye className="h-5 w-5 text-gray-400 hover:text-gray-300" />
                           )}
                         </button>
                       </div>
@@ -543,7 +543,7 @@ export default function VehicleOwnerRegisterPage() {
 
                     {/* Business Type */}
                     <div>
-                      <label className="block text-sm font-medium text-gray-900 mb-3">
+                      <label className="block text-sm font-medium text-white mb-3">
                         İşletme Tipi
                       </label>
                       <div className="grid grid-cols-2 gap-4">
@@ -560,11 +560,11 @@ export default function VehicleOwnerRegisterPage() {
                             formData.businessType === 'individual' ? 'text-green-600' : 'text-gray-400'
                           }`} />
                           <span className={`text-sm font-medium ${
-                            formData.businessType === 'individual' ? 'text-green-600' : 'text-gray-700'
+                            formData.businessType === 'individual' ? 'text-green-600' : 'text-gray-200'
                           }`}>
                             Bireysel
                           </span>
-                          <span className="text-xs text-gray-500 text-center">
+                          <span className="text-xs text-gray-400 text-center">
                             Kişisel araç sahibi
                           </span>
                         </button>
@@ -581,11 +581,11 @@ export default function VehicleOwnerRegisterPage() {
                             formData.businessType === 'company' ? 'text-green-600' : 'text-gray-400'
                           }`} />
                           <span className={`text-sm font-medium ${
-                            formData.businessType === 'company' ? 'text-green-600' : 'text-gray-700'
+                            formData.businessType === 'company' ? 'text-green-600' : 'text-gray-200'
                           }`}>
                             Şirket
                           </span>
-                          <span className="text-xs text-gray-500 text-center">
+                          <span className="text-xs text-gray-400 text-center">
                             Kurumsal işletme
                           </span>
                         </button>
@@ -597,7 +597,7 @@ export default function VehicleOwnerRegisterPage() {
 
                     {/* Business Name (Optional) */}
                     <div>
-                      <label htmlFor="businessName" className="block text-sm font-medium text-gray-900 mb-2">
+                      <label htmlFor="businessName" className="block text-sm font-medium text-white mb-2">
                         İşletme Adı (Opsiyonel)
                       </label>
                       <div className="relative">
@@ -610,11 +610,11 @@ export default function VehicleOwnerRegisterPage() {
                           name="businessName"
                           value={formData.businessName}
                           onChange={handleInputChange}
-                          className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-600 focus:border-transparent outline-none transition-all bg-white text-gray-900"
+                          className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-600 focus:border-transparent outline-none transition-all bg-white/5 text-white"
                           placeholder="Örn: Yılmaz Rent A Car"
                         />
                       </div>
-                      <p className="mt-1 text-xs text-gray-500">
+                      <p className="mt-1 text-xs text-gray-400">
                         İşletme adınız varsa girebilirsiniz
                       </p>
                     </div>
@@ -624,7 +624,7 @@ export default function VehicleOwnerRegisterPage() {
                       <button
                         type="button"
                         onClick={handleBack}
-                        className="flex-1 border-2 border-gray-300 text-gray-700 py-3 px-4 rounded-lg font-semibold hover:bg-gray-50 transition-all duration-200 flex items-center justify-center gap-2"
+                        className="flex-1 border-2 border-gray-300 text-gray-200 py-3 px-4 rounded-lg font-semibold hover:bg-white/5 transition-all duration-200 flex items-center justify-center gap-2"
                       >
                         <ArrowLeft className="w-5 h-5" />
                         <span>Geri</span>
@@ -652,30 +652,30 @@ export default function VehicleOwnerRegisterPage() {
                     className="space-y-5"
                   >
                     {/* Summary */}
-                    <div className="bg-gray-50 rounded-lg p-6 space-y-3">
-                      <h3 className="font-semibold text-gray-900 mb-4">Kayıt Özeti</h3>
+                    <div className="bg-white/5 rounded-lg p-6 space-y-3">
+                      <h3 className="font-semibold text-white mb-4">Kayıt Özeti</h3>
                       <div className="flex justify-between text-sm">
-                        <span className="text-gray-600">Ad Soyad:</span>
-                        <span className="font-medium text-gray-900">{formData.fullName}</span>
+                        <span className="text-gray-300">Ad Soyad:</span>
+                        <span className="font-medium text-white">{formData.fullName}</span>
                       </div>
                       <div className="flex justify-between text-sm">
-                        <span className="text-gray-600">E-posta:</span>
-                        <span className="font-medium text-gray-900">{formData.email}</span>
+                        <span className="text-gray-300">E-posta:</span>
+                        <span className="font-medium text-white">{formData.email}</span>
                       </div>
                       <div className="flex justify-between text-sm">
-                        <span className="text-gray-600">Telefon:</span>
-                        <span className="font-medium text-gray-900">{formData.phone}</span>
+                        <span className="text-gray-300">Telefon:</span>
+                        <span className="font-medium text-white">{formData.phone}</span>
                       </div>
                       <div className="flex justify-between text-sm">
-                        <span className="text-gray-600">İşletme Tipi:</span>
-                        <span className="font-medium text-gray-900">
+                        <span className="text-gray-300">İşletme Tipi:</span>
+                        <span className="font-medium text-white">
                           {formData.businessType === 'individual' ? 'Bireysel' : 'Şirket'}
                         </span>
                       </div>
                       {formData.businessName && (
                         <div className="flex justify-between text-sm">
-                          <span className="text-gray-600">İşletme Adı:</span>
-                          <span className="font-medium text-gray-900">{formData.businessName}</span>
+                          <span className="text-gray-300">İşletme Adı:</span>
+                          <span className="font-medium text-white">{formData.businessName}</span>
                         </div>
                       )}
                     </div>
@@ -694,7 +694,7 @@ export default function VehicleOwnerRegisterPage() {
                             className="mt-1 h-5 w-5 text-green-600 focus:ring-green-600 border-gray-300 rounded cursor-pointer"
                           />
                           <div className="flex-1">
-                            <span className="text-gray-900">
+                            <span className="text-white">
                               <Link
                                 href="/vehicle-owner/auth/terms"
                                 target="_blank"
@@ -731,7 +731,7 @@ export default function VehicleOwnerRegisterPage() {
                             className="mt-1 h-5 w-5 text-green-600 focus:ring-green-600 border-gray-300 rounded cursor-pointer"
                           />
                           <div className="flex-1">
-                            <span className="text-gray-900">
+                            <span className="text-white">
                               Kişisel verilerimin işlenmesine ilişkin{' '}
                               <Link
                                 href="/vehicle-owner/auth/terms#privacy"
@@ -761,7 +761,7 @@ export default function VehicleOwnerRegisterPage() {
                             className="mt-1 h-5 w-5 text-green-600 focus:ring-green-600 border-gray-300 rounded cursor-pointer"
                           />
                           <div className="flex-1">
-                            <span className="text-gray-900">
+                            <span className="text-white">
                               <Link
                                 href="/vehicle-owner/auth/terms#rental-agreement"
                                 target="_blank"
@@ -784,7 +784,7 @@ export default function VehicleOwnerRegisterPage() {
                       <button
                         type="button"
                         onClick={handleBack}
-                        className="flex-1 border-2 border-gray-300 text-gray-700 py-3 px-4 rounded-lg font-semibold hover:bg-gray-50 transition-all duration-200 flex items-center justify-center gap-2"
+                        className="flex-1 border-2 border-gray-300 text-gray-200 py-3 px-4 rounded-lg font-semibold hover:bg-white/5 transition-all duration-200 flex items-center justify-center gap-2"
                       >
                         <ArrowLeft className="w-5 h-5" />
                         <span>Geri</span>
@@ -814,7 +814,7 @@ export default function VehicleOwnerRegisterPage() {
 
             {/* Login Link */}
             <div className="mt-8 text-center">
-              <p className="text-gray-600">
+              <p className="text-gray-300">
                 Zaten hesabınız var mı?{' '}
                 <Link
                   href="/vehicle-owner/auth/login"
@@ -829,7 +829,7 @@ export default function VehicleOwnerRegisterPage() {
             <div className="mt-4 text-center">
               <Link
                 href="/"
-                className="text-sm text-gray-600 hover:text-gray-900 transition-colors"
+                className="text-sm text-gray-300 hover:text-white transition-colors"
               >
                 ← Ana sayfaya dön
               </Link>

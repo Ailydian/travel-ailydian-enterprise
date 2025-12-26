@@ -224,14 +224,14 @@ END:VCALENDAR`;
             className="bg-transparent rounded-2xl shadow-xl p-8 mb-6"
           >
             <div className="text-center mb-6">
-              <p className="text-sm text-gray-500 mb-2">Your Booking Reference</p>
+              <p className="text-sm text-gray-400 mb-2">Your Booking Reference</p>
               <div className="flex items-center justify-center gap-3">
                 <h2 className="text-3xl font-bold text-blue-600 font-mono">
                   {booking.bookingReference}
                 </h2>
                 <button
                   onClick={copyBookingReference}
-                  className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+                  className="p-2 hover:bg-white/10 rounded-lg transition-colors"
                   title="Copy to clipboard"
                 >
                   {copied ? (
@@ -241,7 +241,7 @@ END:VCALENDAR`;
                   )}
                 </button>
               </div>
-              <p className="text-xs text-gray-500 mt-2">
+              <p className="text-xs text-gray-400 mt-2">
                 Please save this reference number for your records
               </p>
             </div>
@@ -428,7 +428,7 @@ END:VCALENDAR`;
 
             <Link
               href="/"
-              className="flex items-center justify-center gap-2 px-8 py-4 bg-transparent text-gray-200 border-2 border-gray-300 rounded-xl hover:bg-gray-50 transition-all shadow-md hover:shadow-lg font-semibold"
+              className="flex items-center justify-center gap-2 px-8 py-4 bg-transparent text-gray-200 border-2 border-gray-300 rounded-xl hover:bg-white/5 transition-all shadow-md hover:shadow-lg font-semibold"
             >
               <Home className="w-5 h-5" />
               Back to Home

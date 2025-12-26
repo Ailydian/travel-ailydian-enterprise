@@ -329,7 +329,7 @@ const VoiceController: React.FC<VoiceControllerProps> = ({
             className={`p-4 rounded-full shadow-lg transition-all duration-300 ${
               isEnabled
                 ? 'bg-gradient-to-r from-blue-500 to-purple-600 text-white'
-                : 'bg-white/5 text-gray-600 hover:bg-gray-50'
+                : 'bg-white/5 text-gray-300 hover:bg-white/5'
             }`}
           >
             {isEnabled ? (
@@ -424,7 +424,7 @@ const VoiceController: React.FC<VoiceControllerProps> = ({
                           className={`p-2 rounded-lg text-sm font-medium transition-colors ${
                             currentLanguage === lang.code
                               ? 'bg-blue-100 text-blue-700'
-                              : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                              : 'bg-white/10 text-gray-200 hover:bg-gray-200'
                           }`}
                         >
                           {lang.flag} {lang.name}
@@ -440,7 +440,7 @@ const VoiceController: React.FC<VoiceControllerProps> = ({
             {/* Status */}
             <div className="p-4 border-b border-white/10">
               <div className="flex items-center justify-between mb-3">
-                <span className="text-sm font-medium text-gray-700">Durum</span>
+                <span className="text-sm font-medium text-gray-200">Durum</span>
                 <div className="flex items-center gap-2">
                   {isListening && (
                     <span className="flex items-center gap-1 text-xs text-red-600">
@@ -465,7 +465,7 @@ const VoiceController: React.FC<VoiceControllerProps> = ({
 
               {/* Transcript */}
               {transcript && (
-                <div className="bg-gray-50 p-3 rounded-lg mb-3">
+                <div className="bg-white/5 p-3 rounded-lg mb-3">
                   <p className="text-sm text-white">{transcript}</p>
                   {confidence > 0 && (
                     <div className="flex items-center gap-2 mt-2">
@@ -475,7 +475,7 @@ const VoiceController: React.FC<VoiceControllerProps> = ({
                           style={{ width: `${confidence * 100}%` }}
                         />
                       </div>
-                      <span className="text-xs text-gray-500">
+                      <span className="text-xs text-gray-400">
                         %{Math.round(confidence * 100)}
                       </span>
                     </div>
@@ -538,10 +538,10 @@ const VoiceController: React.FC<VoiceControllerProps> = ({
                   { text: '"Yardım"', action: 'Yardım menüsü' }
                 ].map((cmd, index) => (
                   <div key={index} className="flex items-center justify-between text-sm">
-                    <code className="bg-gray-100 px-2 py-1 rounded text-gray-100">
+                    <code className="bg-white/10 px-2 py-1 rounded text-gray-100">
                       {cmd.text}
                     </code>
-                    <span className="text-gray-500 text-xs">{cmd.action}</span>
+                    <span className="text-gray-400 text-xs">{cmd.action}</span>
                   </div>
                 ))}
               </div>

@@ -246,11 +246,11 @@ const AIAssistantPage: NextPage = () => {
                       <div className={`max-w-xs lg:max-w-md px-4 py-3 rounded-2xl ${
                         message.sender === 'user' 
                           ? 'bg-blue-600 text-white' 
-                          : 'bg-gray-100 text-white'
+                          : 'bg-white/10 text-white'
                       }`}>
                         <p className="text-sm">{message.text}</p>
                         <p className={`text-xs mt-2 ${
-                          message.sender === 'user' ? 'text-blue-100' : 'text-gray-500'
+                          message.sender === 'user' ? 'text-blue-100' : 'text-gray-400'
                         }`}>
                           {message.timestamp.toLocaleTimeString('tr-TR', { 
                             hour: '2-digit', 
@@ -321,7 +321,7 @@ const AIAssistantPage: NextPage = () => {
                     className={`p-3 rounded-xl transition-colors ${
                       isListening 
                         ? 'bg-red-500 text-white' 
-                        : 'bg-gray-100 hover:bg-gray-200 text-gray-300'
+                        : 'bg-white/10 hover:bg-gray-200 text-gray-300'
                     }`}
                   >
                     <Mic className="w-5 h-5" />
@@ -345,7 +345,7 @@ const AIAssistantPage: NextPage = () => {
                         <button
                           key={index}
                           onClick={() => handleSuggestionClick(action.query)}
-                          className="flex items-center gap-2 px-3 py-2 bg-white/5 hover:bg-gray-100 rounded-lg text-sm transition-colors"
+                          className="flex items-center gap-2 px-3 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-sm transition-colors"
                         >
                           <Icon className="w-4 h-4" />
                           {action.label}

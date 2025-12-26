@@ -72,13 +72,13 @@ export default function CommercialVehicleOwnerDashboard() {
 
             <div className="flex items-center gap-4">
               <Link href="/">
-                <button className="flex items-center gap-2 px-4 py-2 text-gray-200 hover:bg-gray-100 rounded-lg transition-colors">
+                <button className="flex items-center gap-2 px-4 py-2 text-gray-200 hover:bg-white/10 rounded-lg transition-colors">
                   <Home className="w-5 h-5" />
                   <span className="hidden sm:inline">Anasayfa</span>
                 </button>
               </Link>
               <Link href="/commercial-vehicle-owner/auth/login">
-                <button className="flex items-center gap-2 px-4 py-2 text-gray-200 hover:bg-gray-100 rounded-lg transition-colors">
+                <button className="flex items-center gap-2 px-4 py-2 text-gray-200 hover:bg-white/10 rounded-lg transition-colors">
                   <LogOut className="w-5 h-5" />
                   <span className="hidden sm:inline">Çıkış</span>
                 </button>
@@ -164,7 +164,7 @@ export default function CommercialVehicleOwnerDashboard() {
               </thead>
               <tbody>
                 {recentBookings.map((booking) => (
-                  <tr key={booking.id} className="border-b border-gray-100 hover:bg-gray-50">
+                  <tr key={booking.id} className="border-b border-gray-100 hover:bg-white/5">
                     <td className="py-4 px-4 text-sm text-white">{booking.customer}</td>
                     <td className="py-4 px-4 text-sm text-gray-300">{booking.vehicle}</td>
                     <td className="py-4 px-4 text-sm text-gray-300">{booking.date}</td>

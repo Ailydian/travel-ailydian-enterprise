@@ -391,7 +391,7 @@ const AITravelAssistant: React.FC = () => {
                     className={`max-w-[80%] p-3 rounded-2xl ${
                       message.type === 'user'
                         ? 'bg-gradient-to-r from-purple-600 to-blue-600 text-white'
-                        : 'bg-gray-100 text-white'
+                        : 'bg-white/10 text-white'
                     }`}
                   >
                     <p className="text-sm whitespace-pre-line">{message.content}</p>
@@ -402,7 +402,7 @@ const AITravelAssistant: React.FC = () => {
                         {message.metadata.confidence && (
                           <div className="flex items-center gap-2">
                             <Brain className="w-3 h-3 text-purple-600" />
-                            <div className="text-xs text-gray-600">
+                            <div className="text-xs text-gray-300">
                               Güven: %{Math.round(message.metadata.confidence * 100)}
                             </div>
                           </div>
@@ -426,12 +426,12 @@ const AITravelAssistant: React.FC = () => {
                         {/* Suggestions */}
                         {message.metadata.suggestions && (
                           <div className="space-y-1">
-                            <p className="text-xs text-gray-500">Öneriler:</p>
+                            <p className="text-xs text-gray-400">Öneriler:</p>
                             {message.metadata.suggestions.map((suggestion, index) => (
                               <button
                                 key={index}
                                 onClick={() => handleSendMessage(suggestion)}
-                                className="block w-full text-left px-2 py-1 text-xs text-gray-600 hover:bg-gray-200 rounded transition-colors"
+                                className="block w-full text-left px-2 py-1 text-xs text-gray-300 hover:bg-gray-200 rounded transition-colors"
                               >
                                 💡 {suggestion}
                               </button>
@@ -451,7 +451,7 @@ const AITravelAssistant: React.FC = () => {
                   animate={{ opacity: 1 }}
                   style={{ display: 'flex', justifyContent: 'flex-start' }}
                 >
-                  <div className="bg-gray-100 p-3 rounded-2xl">
+                  <div className="bg-white/10 p-3 rounded-2xl">
                     <div className="flex space-x-1">
                       {[0, 1, 2].map((i) => (
                         <motion.div
@@ -509,7 +509,7 @@ const AITravelAssistant: React.FC = () => {
             )}
 
             {/* Input Area */}
-            <div className="p-4 border-t border-white/10 bg-gray-50">
+            <div className="p-4 border-t border-white/10 bg-white/5">
               <div className="flex items-center gap-2">
                 {conversationMode === 'voice' ? (
                   <button

@@ -274,7 +274,7 @@ export default function Step5Photos({ data }: Step5Props) {
                       setDraggedIndex(index);
                     }
                   }}
-                  className="relative border-2 border-slate-200 rounded-xl overflow-hidden bg-white hover:shadow-lg transition-all cursor-move"
+                  className="relative border-2 border-slate-200 rounded-xl overflow-hidden bg-white/5 hover:shadow-lg transition-all cursor-move"
                 >
                   {/* Cover Photo Badge */}
                   {index === coverPhotoIndex && (
@@ -308,7 +308,7 @@ export default function Step5Photos({ data }: Step5Props) {
                       <select
                         value={photo.room}
                         onChange={(e) => updateRoomType(photo.id, e.target.value)}
-                        className="w-full px-3 py-2 text-sm border border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none bg-white"
+                        className="w-full px-3 py-2 text-sm border border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none bg-white/5"
                       >
                         {roomTypes.map((type) => (
                           <option key={type.value} value={type.value}>

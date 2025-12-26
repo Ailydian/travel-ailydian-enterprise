@@ -44,7 +44,7 @@ const MetricCard: React.FC<MetricCardProps> = ({ title, value, change, icon, suf
   const isPositive = change >= 0;
 
   return (
-    <div className="bg-white rounded-xl border border-gray-200 p-6 hover:shadow-lg transition-shadow duration-200">
+    <div className="bg-white/5 rounded-xl border border-gray-200 p-6 hover:shadow-lg transition-shadow duration-200">
       <div className="flex items-center justify-between mb-4">
         <div className="p-3 bg-gradient-to-br from-purple-500 to-purple-600 rounded-lg text-white shadow-md">
           {icon}
@@ -55,10 +55,10 @@ const MetricCard: React.FC<MetricCardProps> = ({ title, value, change, icon, suf
         </div>
       </div>
       <div>
-        <p className="text-sm text-gray-600 font-medium mb-1">{title}</p>
-        <p className="text-2xl font-bold text-gray-900">
+        <p className="text-sm text-gray-300 font-medium mb-1">{title}</p>
+        <p className="text-2xl font-bold text-white">
           {value}
-          {suffix && <span className="text-lg text-gray-500 ml-1">{suffix}</span>}
+          {suffix && <span className="text-lg text-gray-400 ml-1">{suffix}</span>}
         </p>
       </div>
     </div>
@@ -68,24 +68,24 @@ const MetricCard: React.FC<MetricCardProps> = ({ title, value, change, icon, suf
 // Date Range Picker Component
 const DateRangePicker: React.FC = () => {
   return (
-    <div className="bg-white border border-gray-200 rounded-xl p-4 mb-6">
+    <div className="bg-white/5 border border-gray-200 rounded-xl p-4 mb-6">
       <div className="flex flex-col sm:flex-row gap-4 items-stretch sm:items-center justify-between">
         <div className="flex gap-2 flex-wrap">
           <button className="px-4 py-2 bg-blue-600 text-white rounded-lg font-medium text-sm hover:bg-blue-700 transition-colors">
             Last 30 Days
           </button>
-          <button className="px-4 py-2 bg-white border border-gray-300 text-gray-700 rounded-lg font-medium text-sm hover:bg-gray-50 transition-colors">
+          <button className="px-4 py-2 bg-white/5 border border-gray-300 text-gray-200 rounded-lg font-medium text-sm hover:bg-white/5 transition-colors">
             Last 7 Days
           </button>
-          <button className="px-4 py-2 bg-white border border-gray-300 text-gray-700 rounded-lg font-medium text-sm hover:bg-gray-50 transition-colors">
+          <button className="px-4 py-2 bg-white/5 border border-gray-300 text-gray-200 rounded-lg font-medium text-sm hover:bg-white/5 transition-colors">
             This Month
           </button>
-          <button className="px-4 py-2 bg-white border border-gray-300 text-gray-700 rounded-lg font-medium text-sm hover:bg-gray-50 transition-colors">
+          <button className="px-4 py-2 bg-white/5 border border-gray-300 text-gray-200 rounded-lg font-medium text-sm hover:bg-white/5 transition-colors">
             This Year
           </button>
         </div>
         <div className="flex gap-2">
-          <button className="flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors font-medium text-sm">
+          <button className="flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-lg hover:bg-white/5 transition-colors font-medium text-sm">
             <Calendar className="w-4 h-4" />
             Custom Range
             <ChevronDown className="w-4 h-4" />
@@ -114,51 +114,51 @@ interface PropertyPerformanceProps {
 
 const PropertyPerformanceTable: React.FC<PropertyPerformanceProps> = ({ properties }) => {
   return (
-    <div className="bg-white border border-gray-200 rounded-xl overflow-hidden">
+    <div className="bg-white/5 border border-gray-200 rounded-xl overflow-hidden">
       <div className="p-6 border-b border-gray-200">
-        <h3 className="text-lg font-semibold text-gray-900">Property Performance Comparison</h3>
-        <p className="text-sm text-gray-500 mt-1">Compare metrics across all your properties</p>
+        <h3 className="text-lg font-semibold text-white">Property Performance Comparison</h3>
+        <p className="text-sm text-gray-400 mt-1">Compare metrics across all your properties</p>
       </div>
       <div className="overflow-x-auto">
         <table className="w-full">
-          <thead className="bg-gray-50 border-b border-gray-200">
+          <thead className="bg-white/5 border-b border-gray-200">
             <tr>
-              <th className="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider">
                 Property
               </th>
-              <th className="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider">
                 Views
               </th>
-              <th className="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider">
                 Bookings
               </th>
-              <th className="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider">
                 Conversion
               </th>
-              <th className="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider">
                 Revenue
               </th>
-              <th className="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider">
                 Rating
               </th>
             </tr>
           </thead>
-          <tbody className="bg-white divide-y divide-gray-100">
+          <tbody className="bg-white/5 divide-y divide-gray-100">
             {properties.map((property, index) => (
-              <tr key={index} className="hover:bg-gray-50 transition-colors">
+              <tr key={index} className="hover:bg-white/5 transition-colors">
                 <td className="px-6 py-4">
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center text-white font-semibold">
                       {property.name.charAt(0)}
                     </div>
-                    <span className="font-medium text-gray-900">{property.name}</span>
+                    <span className="font-medium text-white">{property.name}</span>
                   </div>
                 </td>
                 <td className="px-6 py-4">
-                  <span className="text-gray-900">{property.views.toLocaleString()}</span>
+                  <span className="text-white">{property.views.toLocaleString()}</span>
                 </td>
                 <td className="px-6 py-4">
-                  <span className="text-gray-900">{property.bookings}</span>
+                  <span className="text-white">{property.bookings}</span>
                 </td>
                 <td className="px-6 py-4">
                   <div className="flex items-center gap-2">
@@ -168,16 +168,16 @@ const PropertyPerformanceTable: React.FC<PropertyPerformanceProps> = ({ properti
                         style={{ width: `${property.conversionRate}%` }}
                       ></div>
                     </div>
-                    <span className="text-sm font-medium text-gray-900">{property.conversionRate}%</span>
+                    <span className="text-sm font-medium text-white">{property.conversionRate}%</span>
                   </div>
                 </td>
                 <td className="px-6 py-4">
-                  <span className="font-semibold text-gray-900">${property.revenue.toLocaleString()}</span>
+                  <span className="font-semibold text-white">${property.revenue.toLocaleString()}</span>
                 </td>
                 <td className="px-6 py-4">
                   <div className="flex items-center gap-1">
                     <Star className="w-4 h-4 text-yellow-500 fill-yellow-500" />
-                    <span className="font-medium text-gray-900">{property.rating}</span>
+                    <span className="font-medium text-white">{property.rating}</span>
                   </div>
                 </td>
               </tr>
@@ -200,8 +200,8 @@ const BookingSourceChart: React.FC = () => {
   ];
 
   return (
-    <div className="bg-white border border-gray-200 rounded-xl p-6">
-      <h3 className="text-lg font-semibold text-gray-900 mb-4">Booking Sources</h3>
+    <div className="bg-white/5 border border-gray-200 rounded-xl p-6">
+      <h3 className="text-lg font-semibold text-white mb-4">Booking Sources</h3>
       <ResponsiveContainer width="100%" height={300}>
         <PieChart>
           <Pie
@@ -225,8 +225,8 @@ const BookingSourceChart: React.FC = () => {
         {data.map((source, index) => (
           <div key={index} className="flex items-center gap-2">
             <div className="w-3 h-3 rounded-full" style={{ backgroundColor: source.color }}></div>
-            <span className="text-sm text-gray-700">{source.name}</span>
-            <span className="text-sm font-semibold text-gray-900 ml-auto">{source.value}%</span>
+            <span className="text-sm text-gray-200">{source.name}</span>
+            <span className="text-sm font-semibold text-white ml-auto">{source.value}%</span>
           </div>
         ))}
       </div>
@@ -296,7 +296,7 @@ const AnalyticsPage: React.FC = () => {
   if (isLoading) {
     return (
       <div className="space-y-6">
-        <h1 className="text-3xl font-black mb-6 text-black">
+        <h1 className="text-3xl font-black mb-6 text-white">
           Analytics
         </h1>
         <div className="animate-pulse space-y-4">
@@ -313,7 +313,7 @@ const AnalyticsPage: React.FC = () => {
 
   return (
     <div className="space-y-6">
-      <h1 className="text-3xl font-black mb-6 text-black">
+      <h1 className="text-3xl font-black mb-6 text-white">
         Analytics
       </h1>
       <DateRangePicker />
@@ -349,15 +349,15 @@ const AnalyticsPage: React.FC = () => {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
         {/* Views Chart */}
-        <div className="bg-white border border-gray-200 rounded-xl p-6">
+        <div className="bg-white/5 border border-gray-200 rounded-xl p-6">
           <div className="flex items-center justify-between mb-6">
             <div>
-              <h3 className="text-lg font-semibold text-gray-900">Property Views</h3>
-              <p className="text-sm text-gray-500 mt-1">Views over the last 30 days</p>
+              <h3 className="text-lg font-semibold text-white">Property Views</h3>
+              <p className="text-sm text-gray-400 mt-1">Views over the last 30 days</p>
             </div>
             <div className="flex items-center gap-2 text-sm">
-              <span className="text-gray-500">Total:</span>
-              <span className="font-bold text-gray-900">15,740</span>
+              <span className="text-gray-400">Total:</span>
+              <span className="font-bold text-white">15,740</span>
             </div>
           </div>
           <ResponsiveContainer width="100%" height={300}>
@@ -386,15 +386,15 @@ const AnalyticsPage: React.FC = () => {
         </div>
 
         {/* Bookings Chart */}
-        <div className="bg-white border border-gray-200 rounded-xl p-6">
+        <div className="bg-white/5 border border-gray-200 rounded-xl p-6">
           <div className="flex items-center justify-between mb-6">
             <div>
-              <h3 className="text-lg font-semibold text-gray-900">Bookings Trend</h3>
-              <p className="text-sm text-gray-500 mt-1">Monthly bookings over 6 months</p>
+              <h3 className="text-lg font-semibold text-white">Bookings Trend</h3>
+              <p className="text-sm text-gray-400 mt-1">Monthly bookings over 6 months</p>
             </div>
             <div className="flex items-center gap-2 text-sm">
-              <span className="text-gray-500">Total:</span>
-              <span className="font-bold text-gray-900">130</span>
+              <span className="text-gray-400">Total:</span>
+              <span className="font-bold text-white">130</span>
             </div>
           </div>
           <ResponsiveContainer width="100%" height={300}>

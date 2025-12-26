@@ -135,8 +135,8 @@ const ProductManagement = () => {
     switch (status) {
       case 'active': return 'bg-green-100 text-green-700';
       case 'inactive': return 'bg-red-100 text-red-700';
-      case 'draft': return 'bg-gray-100 text-gray-700';
-      default: return 'bg-gray-100 text-gray-700';
+      case 'draft': return 'bg-white/10 text-gray-200';
+      default: return 'bg-white/10 text-gray-200';
     }
   };
 
@@ -145,7 +145,7 @@ const ProductManagement = () => {
       case 'available': return 'bg-green-100 text-green-700';
       case 'booked': return 'bg-amber-100 text-amber-700';
       case 'maintenance': return 'bg-red-100 text-red-700';
-      default: return 'bg-gray-100 text-gray-700';
+      default: return 'bg-white/10 text-gray-200';
     }
   };
 
@@ -169,7 +169,7 @@ const ProductManagement = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
       {/* Header */}
-      <header className="bg-white border-b border-slate-200 sticky top-0 z-40 shadow-sm">
+      <header className="bg-white/5 border-b border-slate-200 sticky top-0 z-40 shadow-sm">
         <div className="max-w-[1920px] mx-auto px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
@@ -185,11 +185,11 @@ const ProductManagement = () => {
             </div>
 
             <div className="flex items-center gap-3">
-              <button className="flex items-center gap-2 px-4 py-2 bg-white border border-slate-200 rounded-lg hover:bg-slate-50 transition-colors text-sm font-medium">
+              <button className="flex items-center gap-2 px-4 py-2 bg-white/5 border border-slate-200 rounded-lg hover:bg-slate-50 transition-colors text-sm font-medium">
                 <Upload className="w-4 h-4" />
                 İçe Aktar
               </button>
-              <button className="flex items-center gap-2 px-4 py-2 bg-white border border-slate-200 rounded-lg hover:bg-slate-50 transition-colors text-sm font-medium">
+              <button className="flex items-center gap-2 px-4 py-2 bg-white/5 border border-slate-200 rounded-lg hover:bg-slate-50 transition-colors text-sm font-medium">
                 <Download className="w-4 h-4" />
                 Dışa Aktar
               </button>
@@ -219,7 +219,7 @@ const ProductManagement = () => {
                   className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium text-sm transition-all whitespace-nowrap ${
                     selectedCategory === cat.id
                       ? 'bg-blue-600 text-white shadow-lg'
-                      : 'bg-white text-slate-700 hover:bg-slate-50'
+                      : 'bg-white/5 text-slate-700 hover:bg-slate-50'
                   }`}
                 >
                   <Icon className="w-4 h-4" />
@@ -251,14 +251,14 @@ const ProductManagement = () => {
 
             <button
               onClick={() => setShowFilters(!showFilters)}
-              className="flex items-center gap-2 px-4 py-2 bg-white border border-slate-200 rounded-lg hover:bg-slate-50 transition-colors text-sm font-medium"
+              className="flex items-center gap-2 px-4 py-2 bg-white/5 border border-slate-200 rounded-lg hover:bg-slate-50 transition-colors text-sm font-medium"
             >
               <Filter className="w-4 h-4" />
               Filtreler
               {showFilters ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
             </button>
 
-            <div className="flex items-center gap-1 bg-white border border-slate-200 rounded-lg p-1">
+            <div className="flex items-center gap-1 bg-white/5 border border-slate-200 rounded-lg p-1">
               <button
                 onClick={() => setViewMode('grid')}
                 className={`p-2 rounded ${viewMode === 'grid' ? 'bg-blue-600 text-white' : 'text-slate-600 hover:bg-slate-50'}`}
@@ -281,7 +281,7 @@ const ProductManagement = () => {
                 initial={{ opacity: 0, height: 0 }}
                 animate={{ opacity: 1, height: 'auto' }}
                 exit={{ opacity: 0, height: 0 }}
-                className="bg-white rounded-xl p-6 border border-slate-200"
+                className="bg-white/5 rounded-xl p-6 border border-slate-200"
               >
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
                   <div>
@@ -324,7 +324,7 @@ const ProductManagement = () => {
                   <button className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm font-medium">
                     Filtrele
                   </button>
-                  <button className="px-4 py-2 bg-white border border-slate-200 rounded-lg hover:bg-slate-50 transition-colors text-sm font-medium">
+                  <button className="px-4 py-2 bg-white/5 border border-slate-200 rounded-lg hover:bg-slate-50 transition-colors text-sm font-medium">
                     Sıfırla
                   </button>
                 </div>
@@ -344,7 +344,7 @@ const ProductManagement = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.05 }}
-              className={`bg-white rounded-xl border border-slate-200 overflow-hidden hover:shadow-xl transition-all group ${
+              className={`bg-white/5 rounded-xl border border-slate-200 overflow-hidden hover:shadow-xl transition-all group ${
                 viewMode === 'list' ? 'flex' : ''
               }`}
             >
@@ -356,7 +356,7 @@ const ProductManagement = () => {
                   </span>
                 </div>
                 <div className="absolute top-2 right-2 z-10">
-                  <div className="p-2 bg-white rounded-lg shadow-sm">
+                  <div className="p-2 bg-white/5 rounded-lg shadow-sm">
                     {getCategoryIcon(product.category)}
                   </div>
                 </div>
@@ -443,14 +443,14 @@ const ProductManagement = () => {
 
         {/* Stats Summary */}
         <div className="mt-8 grid grid-cols-1 md:grid-cols-4 gap-4">
-          <div className="bg-white rounded-xl p-4 border border-slate-200">
+          <div className="bg-white/5 rounded-xl p-4 border border-slate-200">
             <div className="flex items-center justify-between mb-2">
               <span className="text-sm text-slate-600">Toplam Ürün</span>
               <Package className="w-4 h-4 text-blue-600" />
             </div>
             <div className="text-2xl font-bold text-slate-900">{products.length}</div>
           </div>
-          <div className="bg-white rounded-xl p-4 border border-slate-200">
+          <div className="bg-white/5 rounded-xl p-4 border border-slate-200">
             <div className="flex items-center justify-between mb-2">
               <span className="text-sm text-slate-600">Aktif Ürün</span>
               <Check className="w-4 h-4 text-green-600" />
@@ -459,7 +459,7 @@ const ProductManagement = () => {
               {products.filter(p => p.status === 'active').length}
             </div>
           </div>
-          <div className="bg-white rounded-xl p-4 border border-slate-200">
+          <div className="bg-white/5 rounded-xl p-4 border border-slate-200">
             <div className="flex items-center justify-between mb-2">
               <span className="text-sm text-slate-600">Müsait</span>
               <AlertCircle className="w-4 h-4 text-amber-600" />
@@ -468,7 +468,7 @@ const ProductManagement = () => {
               {products.filter(p => p.availability === 'available').length}
             </div>
           </div>
-          <div className="bg-white rounded-xl p-4 border border-slate-200">
+          <div className="bg-white/5 rounded-xl p-4 border border-slate-200">
             <div className="flex items-center justify-between mb-2">
               <span className="text-sm text-slate-600">Ortalama Puan</span>
               <Star className="w-4 h-4 text-amber-500" />

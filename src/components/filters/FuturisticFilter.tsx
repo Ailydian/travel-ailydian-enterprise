@@ -134,7 +134,7 @@ export const FuturisticFilter: React.FC<FuturisticFilterProps> = ({
                       </div>
                       <div>
                         <h3 className="text-2xl font-black text-white">Filtreler</h3>
-                        <p className="text-sm text-gray-600">
+                        <p className="text-sm text-gray-300">
                           {activeFilterCount > 0 ? `${activeFilterCount} aktif filtre` : 'Sonuçları daralt'}
                         </p>
                       </div>
@@ -146,7 +146,7 @@ export const FuturisticFilter: React.FC<FuturisticFilterProps> = ({
                       whileTap={{ scale: 0.9 }}
                       className="w-10 h-10 bg-white/60 backdrop-blur-xl border border-white/40 rounded-xl flex items-center justify-center hover:bg-red-50 transition-colors"
                     >
-                      <X className="w-5 h-5 text-gray-700" />
+                      <X className="w-5 h-5 text-gray-200" />
                     </motion.button>
                   </div>
 
@@ -191,7 +191,7 @@ export const FuturisticFilter: React.FC<FuturisticFilterProps> = ({
                           animate={{ rotate: expandedGroups.has(group.id) ? 180 : 0 }}
                           transition={{ duration: 0.3 }}
                         >
-                          <ChevronDown className="w-5 h-5 text-gray-600" />
+                          <ChevronDown className="w-5 h-5 text-gray-300" />
                         </motion.div>
                       </button>
 
@@ -230,7 +230,7 @@ export const FuturisticFilter: React.FC<FuturisticFilterProps> = ({
                                       >
                                         <div className="flex items-center gap-3">
                                           {option.icon}
-                                          <span className={`font-medium ${isSelected ? 'text-[#667EEA]' : 'text-gray-700'}`}>
+                                          <span className={`font-medium ${isSelected ? 'text-[#667EEA]' : 'text-gray-200'}`}>
                                             {option.label}
                                           </span>
                                         </div>
@@ -260,7 +260,7 @@ export const FuturisticFilter: React.FC<FuturisticFilterProps> = ({
                                     onChange={(e) => handleFilterChange(group.id, Number(e.target.value))}
                                     className="w-full h-2 bg-gradient-to-r from-[#667EEA] to-[#764BA2] rounded-full appearance-none cursor-pointer"
                                   />
-                                  <div className="flex justify-between text-sm text-gray-600">
+                                  <div className="flex justify-between text-sm text-gray-300">
                                     <span>{group.min}</span>
                                     <span className="font-bold text-[#667EEA]">{filters[group.id] || group.min}</span>
                                     <span>{group.max}</span>

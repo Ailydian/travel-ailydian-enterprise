@@ -504,14 +504,14 @@ const AIAssistantPopup: React.FC<AIAssistantPopupProps> = ({ isOpen, onClose }) 
             </div>
 
             {/* Messages */}
-            <div ref={messagesContainerRef} className="flex-1 overflow-y-auto p-6 space-y-4 bg-gray-50 scroll-smooth">
+            <div ref={messagesContainerRef} className="flex-1 overflow-y-auto p-6 space-y-4 bg-white/5 scroll-smooth">
               {messages.map((message) => (
                 <div key={message.id} className={`flex ${message.type === 'user' ? 'justify-end' : 'justify-start'}`}>
-                  <div className={`max-w-[80%] ${message.type === 'user' ? 'bg-blue-600 text-white' : 'bg-gray-100 border border-white/20 text-gray-100'} rounded-2xl p-4 shadow-sm`}>
+                  <div className={`max-w-[80%] ${message.type === 'user' ? 'bg-blue-600 text-white' : 'bg-white/10 border border-white/20 text-gray-100'} rounded-2xl p-4 shadow-sm`}>
                     {message.type === 'ai' && (
                       <div className="flex items-center gap-2 mb-2">
                         <Bot className="w-4 h-4 text-blue-600" />
-                        <span className="text-xs text-gray-500 font-medium">AI Asistan</span>
+                        <span className="text-xs text-gray-400 font-medium">AI Asistan</span>
                       </div>
                     )}
                     <div className="whitespace-pre-line text-sm leading-relaxed">
@@ -542,7 +542,7 @@ const AIAssistantPopup: React.FC<AIAssistantPopupProps> = ({ isOpen, onClose }) 
                   <div className="bg-white/5 border border-white/10 rounded-2xl p-4 shadow-sm">
                     <div className="flex items-center gap-2">
                       <Bot className="w-4 h-4 text-blue-600" />
-                      <span className="text-xs text-gray-500 font-medium">AI Asistan yazıyor...</span>
+                      <span className="text-xs text-gray-400 font-medium">AI Asistan yazıyor...</span>
                     </div>
                     <div className="flex items-center gap-1 mt-2">
                       <div className="w-2 h-2 bg-blue-600 rounded-full animate-bounce"></div>
@@ -572,7 +572,7 @@ const AIAssistantPopup: React.FC<AIAssistantPopupProps> = ({ isOpen, onClose }) 
                   <button
                     onClick={toggleListening}
                     className={`absolute right-4 top-1/2 transform -translate-y-1/2 p-2 rounded-lg transition-colors ${
-                      isListening ? 'bg-red-100 text-red-600' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                      isListening ? 'bg-red-100 text-red-600' : 'bg-white/10 text-gray-300 hover:bg-gray-200'
                     }`}
                   >
                     {isListening ? <MicOff className="w-4 h-4" /> : <Mic className="w-4 h-4" />}
@@ -595,12 +595,12 @@ const AIAssistantPopup: React.FC<AIAssistantPopupProps> = ({ isOpen, onClose }) 
               
               {/* Quick Actions */}
               <div className="flex flex-wrap gap-2 mt-4">
-                <span className="text-xs text-gray-500 font-medium">Hızlı sorular:</span>
+                <span className="text-xs text-gray-400 font-medium">Hızlı sorular:</span>
                 {['İstanbul planı', 'Kapadokya fiyatları', 'Bodrum otelleri', 'Antalya aktiviteleri'].map((quick, index) => (
                   <button
                     key={index}
                     onClick={() => handleSuggestionClick(quick)}
-                    className="px-3 py-1 bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs rounded-full transition-colors"
+                    className="px-3 py-1 bg-white/10 hover:bg-gray-200 text-gray-200 text-xs rounded-full transition-colors"
                   >
                     {quick}
                   </button>

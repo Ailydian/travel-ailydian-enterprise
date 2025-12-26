@@ -213,7 +213,7 @@ export default function DestinationDetail({ destination, relatedDestinations, ex
                   className={`relative px-6 py-3 rounded-xl font-bold transition-all duration-300 ${
                     activeTab === 'overview'
                       ? 'bg-gradient-to-r from-lydian-primary to-lydian-secondary text-white shadow-lg shadow-red-500/30'
-                      : 'bg-white/5 text-gray-200 hover:bg-gray-50 border border-white/10 hover:border-lydian-primary/50'
+                      : 'bg-white/5 text-gray-200 hover:bg-white/5 border border-white/10 hover:border-lydian-primary/50'
                   }`}
                 >
                   <span className="relative z-10">Genel Bakış</span>
@@ -232,7 +232,7 @@ export default function DestinationDetail({ destination, relatedDestinations, ex
                   className={`relative px-6 py-3 rounded-xl font-bold transition-all duration-300 ${
                     activeTab === 'places'
                       ? 'bg-gradient-to-r from-lydian-primary to-lydian-secondary text-white shadow-lg shadow-red-500/30'
-                      : 'bg-white/5 text-gray-200 hover:bg-gray-50 border border-white/10 hover:border-lydian-primary/50'
+                      : 'bg-white/5 text-gray-200 hover:bg-white/5 border border-white/10 hover:border-lydian-primary/50'
                   }`}
                 >
                   <span className="relative z-10">Gezilecek Yerler</span>
@@ -251,7 +251,7 @@ export default function DestinationDetail({ destination, relatedDestinations, ex
                   className={`relative px-6 py-3 rounded-xl font-bold transition-all duration-300 ${
                     activeTab === 'activities'
                       ? 'bg-gradient-to-r from-lydian-primary to-lydian-secondary text-white shadow-lg shadow-red-500/30'
-                      : 'bg-white/5 text-gray-200 hover:bg-gray-50 border border-white/10 hover:border-lydian-primary/50'
+                      : 'bg-white/5 text-gray-200 hover:bg-white/5 border border-white/10 hover:border-lydian-primary/50'
                   }`}
                 >
                   <span className="relative z-10">Aktiviteler</span>
@@ -270,7 +270,7 @@ export default function DestinationDetail({ destination, relatedDestinations, ex
                   className={`relative px-6 py-3 rounded-xl font-bold transition-all duration-300 ${
                     activeTab === 'tips'
                       ? 'bg-gradient-to-r from-lydian-primary to-lydian-secondary text-white shadow-lg shadow-red-500/30'
-                      : 'bg-white/5 text-gray-200 hover:bg-gray-50 border border-white/10 hover:border-lydian-primary/50'
+                      : 'bg-white/5 text-gray-200 hover:bg-white/5 border border-white/10 hover:border-lydian-primary/50'
                   }`}
                 >
                   <span className="relative z-10">İpuçları</span>
@@ -502,7 +502,7 @@ export default function DestinationDetail({ destination, relatedDestinations, ex
                     <div className="text-sm text-gray-300 mb-1">Şehir içi:</div>
                     <div className="flex flex-wrap gap-1">
                       {destination.transportation.local.map((transport, idx) => (
-                        <span key={idx} className="px-2 py-1 bg-gray-100 rounded text-sm">{transport}</span>
+                        <span key={idx} className="px-2 py-1 bg-white/10 rounded text-sm">{transport}</span>
                       ))}
                     </div>
                   </div>

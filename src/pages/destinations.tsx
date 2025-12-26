@@ -203,7 +203,7 @@ export default function Destinations() {
                         </span>
                       ))}
                       {destination.highlights.length > 2 && (
-                        <span className="text-xs text-gray-500 px-2 py-1">
+                        <span className="text-xs text-gray-400 px-2 py-1">
                           +{destination.highlights.length - 2} daha
                         </span>
                       )}
@@ -211,7 +211,7 @@ export default function Destinations() {
                   </div>
 
                   <div className="flex items-center justify-between">
-                    <span className="text-sm text-gray-500 dark:text-gray-400">
+                    <span className="text-sm text-gray-400 dark:text-gray-400">
                       {destination.reviews.toLocaleString()} değerlendirme
                     </span>
                     <span className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors font-semibold">

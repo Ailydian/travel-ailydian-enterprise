@@ -253,7 +253,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
             {/* Tarih seçimi */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-200 mb-2">
                   {itemType === 'tour' ? 'Tur Tarihi' : 'Giriş Tarihi'}
                 </label>
                 <input
@@ -268,7 +268,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
 
               {itemType === 'hotel' && (
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-gray-200 mb-2">
                     Çıkış Tarihi
                   </label>
                   <input
@@ -286,7 +286,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
             {/* Kişi sayısı */}
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-200 mb-2">
                   Yetişkin Sayısı
                 </label>
                 <select
@@ -301,7 +301,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-200 mb-2">
                   Çocuk Sayısı
                 </label>
                 <select
@@ -319,7 +319,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
             {/* Oda tipi seçimi (Sadece otel için) */}
             {itemType === 'hotel' && 'roomTypes' in item && (
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-200 mb-2">
                   Oda Tipi
                 </label>
                 <div className="space-y-3">
@@ -336,7 +336,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
                       <div className="flex justify-between items-center">
                         <div>
                           <h3 className="font-semibold">{room.name.tr}</h3>
-                          <p className="text-sm text-gray-600">
+                          <p className="text-sm text-gray-300">
                             {room.size}m² • {room.capacity} kişi • {room.amenities.join(', ')}
                           </p>
                         </div>
@@ -344,7 +344,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
                           <span className="text-lg font-bold text-blue-600">
                             {room.price} TL
                           </span>
-                          <p className="text-xs text-gray-500">gecelik</p>
+                          <p className="text-xs text-gray-400">gecelik</p>
                         </div>
                       </div>
                     </div>
@@ -357,7 +357,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
             {itemType === 'tour' && (
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <label className="block text-sm font-medium text-gray-700">
+                  <label className="block text-sm font-medium text-gray-200">
                     Alınacak Nokta (İsteğe Bağlı)
                   </label>
                   <button
@@ -405,7 +405,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
 
             {/* Kupon kodu */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-gray-200 mb-2">
                 İndirim Kuponu (İsteğe Bağlı)
               </label>
               <div className="flex gap-2">
@@ -426,7 +426,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
 
             {/* Fiyat özeti */}
             {pricing && (
-              <div className="bg-gray-50 p-4 rounded-lg">
+              <div className="bg-white/5 p-4 rounded-lg">
                 <h3 className="font-semibold mb-3">Fiyat Detayları</h3>
                 <div className="space-y-2 text-sm">
                   <div className="flex justify-between">
@@ -482,7 +482,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-200 mb-2">
                   Ad *
                 </label>
                 <input
@@ -495,7 +495,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-200 mb-2">
                   Soyad *
                 </label>
                 <input
@@ -509,7 +509,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-gray-200 mb-2">
                 E-posta Adresi *
               </label>
               <input
@@ -522,7 +522,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-gray-200 mb-2">
                 Telefon Numarası *
               </label>
               <input
@@ -536,7 +536,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-gray-200 mb-2">
                 Uyruğunuz
               </label>
               <select
@@ -556,7 +556,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
 
             {formData.customerInfo.nationality !== 'TR' && (
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-200 mb-2">
                   Pasaport Numarası
                 </label>
                 <input
@@ -569,7 +569,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
             )}
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-gray-200 mb-2">
                 Özel İstekleriniz
               </label>
               <textarea
@@ -595,7 +595,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
 
             {/* Ödeme yöntemi seçimi */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-3">
+              <label className="block text-sm font-medium text-gray-200 mb-3">
                 Ödeme Yöntemi
               </label>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
@@ -615,7 +615,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
                   >
                     <div className="text-center">
                       <div className="font-semibold">{method.label}</div>
-                      <div className="text-xs text-gray-500 mt-1">{method.desc}</div>
+                      <div className="text-xs text-gray-400 mt-1">{method.desc}</div>
                     </div>
                   </div>
                 ))}
@@ -626,7 +626,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
             {paymentMethod === 'credit_card' && (
               <div className="space-y-4">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-gray-200 mb-2">
                     Kart Üzerindeki İsim
                   </label>
                   <input
@@ -638,7 +638,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-gray-200 mb-2">
                     Kart Numarası
                   </label>
                   <input
@@ -652,7 +652,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
 
                 <div className="grid grid-cols-3 gap-4">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium text-gray-200 mb-2">
                       Ay
                     </label>
                     <select
@@ -670,7 +670,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium text-gray-200 mb-2">
                       Yıl
                     </label>
                     <select
@@ -691,7 +691,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium text-gray-200 mb-2">
                       CVV
                     </label>
                     <input
@@ -712,7 +712,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
               <h3 className="text-lg font-semibold">Fatura Adresi</h3>
               
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-200 mb-2">
                   Ad Soyad
                 </label>
                 <input
@@ -724,7 +724,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-200 mb-2">
                   Adres
                 </label>
                 <input
@@ -737,7 +737,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-gray-200 mb-2">
                     Şehir
                   </label>
                   <input
@@ -749,7 +749,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-gray-200 mb-2">
                     İl/Eyalet
                   </label>
                   <input
@@ -761,7 +761,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-gray-200 mb-2">
                     Posta Kodu
                   </label>
                   <input
@@ -775,13 +775,13 @@ const BookingForm: React.FC<BookingFormProps> = ({
             </div>
 
             {/* Sipariş özeti */}
-            <div className="bg-gray-50 p-6 rounded-lg">
+            <div className="bg-white/5 p-6 rounded-lg">
               <h3 className="text-lg font-semibold mb-4">Sipariş Özeti</h3>
               <div className="space-y-3">
                 <div className="flex justify-between">
                   <span className="font-medium">{typeof item.name === 'string' ? item.name : item.name.tr}</span>
                 </div>
-                <div className="flex justify-between text-sm text-gray-600">
+                <div className="flex justify-between text-sm text-gray-300">
                   <span>
                     {formData.adultsCount} yetişkin
                     {formData.childrenCount > 0 && `, ${formData.childrenCount} çocuk`}
@@ -789,7 +789,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
                   <span>{formData.checkInDate.toLocaleDateString('tr-TR')}</span>
                 </div>
                 {selectedPickupLocation && (
-                  <div className="flex justify-between text-sm text-gray-600">
+                  <div className="flex justify-between text-sm text-gray-300">
                     <span>📍 Alınacak Nokta:</span>
                     <span>{selectedPickupLocation.name}</span>
                   </div>
@@ -822,7 +822,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
               <h2 className="text-3xl font-bold text-white mb-2">
                 Rezervasyon Tamamlandı!
               </h2>
-              <p className="text-gray-600 mb-6">
+              <p className="text-gray-300 mb-6">
                 Rezervasyonunuz başarıyla oluşturuldu. Onay e-postası gönderildi.
               </p>
             </div>
@@ -914,11 +914,11 @@ const BookingForm: React.FC<BookingFormProps> = ({
             <div className="flex items-center justify-between p-6 border-b border-white/10">
               <div>
                 <h1 className="text-xl font-bold">Rezervasyon</h1>
-                <p className="text-sm text-gray-500">{typeof item.name === 'string' ? item.name : item.name.tr}</p>
+                <p className="text-sm text-gray-400">{typeof item.name === 'string' ? item.name : item.name.tr}</p>
               </div>
               <button
                 onClick={onClose}
-                className="w-10 h-10 rounded-full hover:bg-gray-100 flex items-center justify-center"
+                className="w-10 h-10 rounded-full hover:bg-white/10 flex items-center justify-center"
               >
                 ✕
               </button>
@@ -926,7 +926,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
 
             {/* Progress steps */}
             {currentStep < 4 && (
-              <div className="px-6 py-4 bg-gray-50 border-b border-white/10">
+              <div className="px-6 py-4 bg-white/5 border-b border-white/10">
                 <div className="flex items-center justify-between">
                   {[
                     { step: 1, label: 'Detaylar' },
@@ -943,14 +943,14 @@ const BookingForm: React.FC<BookingFormProps> = ({
                         className={`w-10 h-10 rounded-full flex items-center justify-center text-sm font-medium ${
                           currentStep >= step
                             ? 'bg-blue-600 text-white'
-                            : 'bg-gray-200 text-gray-500'
+                            : 'bg-gray-200 text-gray-400'
                         }`}
                       >
                         {step}
                       </div>
                       <div className="ml-3">
                         <p className={`text-sm font-medium ${
-                          currentStep >= step ? 'text-blue-600' : 'text-gray-500'
+                          currentStep >= step ? 'text-blue-600' : 'text-gray-400'
                         }`}>
                           {label}
                         </p>
@@ -977,7 +977,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
                 <button
                   onClick={handlePrevStep}
                   disabled={currentStep === 1}
-                  className="px-6 py-2 border border-white/20 rounded-lg hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="px-6 py-2 border border-white/20 rounded-lg hover:bg-white/5 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   ← Geri
                 </button>

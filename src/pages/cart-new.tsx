@@ -129,7 +129,7 @@ const CartPage: React.FC = () => {
       case 'tour': return 'bg-green-500';
       case 'restaurant': return 'bg-orange-500';
       case 'activity': return 'bg-pink-500';
-      default: return 'bg-gray-500';
+      default: return 'bg-white/50';
     }
   };
 
@@ -210,7 +210,7 @@ const CartPage: React.FC = () => {
               animate={{ opacity: 1, scale: 1 }}
               className="text-center py-16"
             >
-              <div className="w-32 h-32 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-8">
+              <div className="w-32 h-32 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-8">
                 <ShoppingCart className="w-16 h-16 text-gray-400" />
               </div>
               <h2 className="text-3xl font-bold text-white mb-4">Sepetiniz Boş</h2>
@@ -335,14 +335,14 @@ Türkiye&apos;nin en güzel destinasyonlarını ve benzersiz deneyimlerini keşf
                                 <button
                                   onClick={() => updateQuantity(item.id, item.quantity - 1)}
                                   disabled={item.quantity <= 1}
-                                  className="w-10 h-10 flex items-center justify-center rounded-xl bg-transparent shadow-sm disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50 transition-colors"
+                                  className="w-10 h-10 flex items-center justify-center rounded-xl bg-transparent shadow-sm disabled:opacity-50 disabled:cursor-not-allowed hover:bg-white/5 transition-colors"
                                 >
                                   <Minus className="w-4 h-4" />
                                 </button>
                                 <span className="w-8 text-center font-semibold">{item.quantity}</span>
                                 <button
                                   onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                                  className="w-10 h-10 flex items-center justify-center rounded-xl bg-transparent shadow-sm hover:bg-gray-50 transition-colors"
+                                  className="w-10 h-10 flex items-center justify-center rounded-xl bg-transparent shadow-sm hover:bg-white/5 transition-colors"
                                 >
                                   <Plus className="w-4 h-4" />
                                 </button>
@@ -377,7 +377,7 @@ Türkiye&apos;nin en güzel destinasyonlarını ve benzersiz deneyimlerini keşf
                                   {item.currency === 'TRY' ? '₺' : item.currency}{(item.price * item.quantity).toLocaleString()}
                                 </span>
                               </div>
-                              <p className="text-sm text-gray-500">Toplam Fiyat</p>
+                              <p className="text-sm text-gray-400">Toplam Fiyat</p>
                             </div>
                           </div>
                         </div>
@@ -395,7 +395,7 @@ Türkiye&apos;nin en güzel destinasyonlarını ve benzersiz deneyimlerini keşf
                             </div>
                           )}
                           {item.provider && (
-                            <div className="text-gray-500">
+                            <div className="text-gray-400">
                               Sağlayıcı: {item.provider}
                             </div>
                           )}
@@ -465,13 +465,13 @@ Türkiye&apos;nin en güzel destinasyonlarını ve benzersiz deneyimlerini keşf
 
                       {/* Available Discount Codes */}
                       <div className="mt-3">
-                        <p className="text-xs text-gray-500 mb-2">Mevcut kodlar:</p>
+                        <p className="text-xs text-gray-400 mb-2">Mevcut kodlar:</p>
                         <div className="flex flex-wrap gap-2">
                           {['WELCOME10', 'TURKEY15', 'HOLIDAY30'].map((code) => (
                             <button
                               key={code}
                               onClick={() => setDiscountCode(code)}
-                              className="px-2 py-1 bg-gray-100 text-gray-300 rounded text-xs hover:bg-gray-200 transition-colors"
+                              className="px-2 py-1 bg-white/10 text-gray-300 rounded text-xs hover:bg-gray-200 transition-colors"
                             >
                               {code}
                             </button>
@@ -508,7 +508,7 @@ Türkiye&apos;nin en güzel destinasyonlarını ve benzersiz deneyimlerini keşf
                             ₺{state.finalTotal.toLocaleString()}
                           </span>
                         </div>
-                        <p className="text-xs text-gray-500 mt-1">KDV dahil</p>
+                        <p className="text-xs text-gray-400 mt-1">KDV dahil</p>
                       </div>
                     </div>
 
@@ -543,13 +543,13 @@ Türkiye&apos;nin en güzel destinasyonlarını ve benzersiz deneyimlerini keşf
 
                     {/* Payment Methods */}
                     <div>
-                      <p className="text-xs text-gray-500 mb-2">Kabul edilen ödeme yöntemleri:</p>
+                      <p className="text-xs text-gray-400 mb-2">Kabul edilen ödeme yöntemleri:</p>
                       <div className="flex items-center gap-2">
-                        <div className="flex items-center gap-1 px-2 py-1 bg-gray-100 rounded">
+                        <div className="flex items-center gap-1 px-2 py-1 bg-white/10 rounded">
                           <CreditCard className="w-4 h-4" />
                           <span className="text-xs">Kredi Kartı</span>
                         </div>
-                        <div className="flex items-center gap-1 px-2 py-1 bg-gray-100 rounded">
+                        <div className="flex items-center gap-1 px-2 py-1 bg-white/10 rounded">
                           <Sparkles className="w-4 h-4" />
                           <span className="text-xs">Kripto</span>
                         </div>
@@ -590,7 +590,7 @@ Türkiye&apos;nin en güzel destinasyonlarını ve benzersiz deneyimlerini keşf
                 <div className="flex gap-3">
                   <button
                     onClick={() => setShowClearConfirm(false)}
-                    className="flex-1 px-4 py-3 border border-gray-200 text-gray-200 rounded-xl font-medium hover:bg-gray-50 transition-colors"
+                    className="flex-1 px-4 py-3 border border-gray-200 text-gray-200 rounded-xl font-medium hover:bg-white/5 transition-colors"
                   >
                     İptal
                   </button>

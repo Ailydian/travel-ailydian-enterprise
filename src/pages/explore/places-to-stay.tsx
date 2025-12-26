@@ -93,7 +93,7 @@ const PlacesToStayPage: NextPage = () => {
 
       <FuturisticHeader />
 
-      <main className="min-h-screen bg-gray-50">
+      <main className="min-h-screen bg-white/5">
         {/* Page Header */}
         <div className="bg-gradient-to-r from-purple-600 to-pink-600 py-12">
           <div className="max-w-7xl mx-auto px-4">
@@ -140,7 +140,7 @@ const PlacesToStayPage: NextPage = () => {
                     className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium whitespace-nowrap transition-all ${
                       selectedCategory === category.id
                         ? 'bg-lydian-primary text-white'
-                        : 'bg-gray-100 text-gray-200 hover:bg-gray-200'
+                        : 'bg-white/10 text-gray-200 hover:bg-gray-200'
                     }`}
                   >
                     <Icon className="w-4 h-4" />
@@ -228,7 +228,7 @@ const PlacesToStayPage: NextPage = () => {
                       {accommodation.features.map((feature, idx) => (
                         <span
                           key={idx}
-                          className="text-xs bg-gray-100 text-gray-200 px-2 py-1 rounded"
+                          className="text-xs bg-white/10 text-gray-200 px-2 py-1 rounded"
                         >
                           {feature}
                         </span>
@@ -239,7 +239,7 @@ const PlacesToStayPage: NextPage = () => {
                         {accommodation.reviews} {currentLang === 'tr' ? 'değerlendirme' : 'reviews'}
                       </div>
                       <div className="text-right">
-                        <div className="text-xs text-gray-500">
+                        <div className="text-xs text-gray-400">
                           {currentLang === 'tr' ? 'Gecelik' : 'Per night'}
                         </div>
                         <div className="text-2xl font-black text-lydian-primary">

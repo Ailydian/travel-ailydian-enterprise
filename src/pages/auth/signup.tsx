@@ -175,7 +175,7 @@ const SignUp: React.FC = () => {
                 </div>
                 <div>
                   <h1 className="text-2xl font-bold text-white">LyDian Travel</h1>
-                  <p className="text-xs text-gray-500">AI-Powered Enterprise</p>
+                  <p className="text-xs text-gray-400">AI-Powered Enterprise</p>
                 </div>
               </div>
             </Link>
@@ -399,7 +399,7 @@ const SignUp: React.FC = () => {
           </motion.div>
 
           {/* Footer */}
-          <div className="mt-8 text-center text-xs text-gray-500">
+          <div className="mt-8 text-center text-xs text-gray-400">
             © 2025 LyDian Travel. Tüm hakları saklıdır.
           </div>
         </div>

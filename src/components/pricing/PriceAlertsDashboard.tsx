@@ -102,7 +102,7 @@ export default function PriceAlertsDashboard() {
     const styles = {
       ACTIVE: 'bg-green-100 text-green-800 border-green-300',
       TRIGGERED: 'bg-blue-100 text-blue-800 border-blue-300',
-      EXPIRED: 'bg-gray-100 text-gray-100 border-white/20',
+      EXPIRED: 'bg-white/10 text-gray-100 border-white/20',
       DISABLED: 'bg-yellow-100 text-yellow-800 border-yellow-300',
     };
 
@@ -182,7 +182,7 @@ export default function PriceAlertsDashboard() {
             d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
           />
         </svg>
-        <p className="text-gray-600 dark:text-gray-400">Please sign in to view your price alerts</p>
+        <p className="text-gray-300 dark:text-gray-400">Please sign in to view your price alerts</p>
       </div>
     );
   }
@@ -193,7 +193,7 @@ export default function PriceAlertsDashboard() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-3xl font-bold text-white dark:text-white">Price Alerts</h1>
-          <p className="text-gray-600 dark:text-gray-400 mt-1">
+          <p className="text-gray-300 dark:text-gray-400 mt-1">
             Manage your travel price tracking alerts
           </p>
         </div>
@@ -208,7 +208,7 @@ export default function PriceAlertsDashboard() {
             className={`px-4 py-2 font-medium transition-colors ${
               filter === status
                 ? 'text-blue-600 dark:text-blue-400 border-b-2 border-blue-600'
-                : 'text-gray-600 dark:text-gray-400 hover:text-white dark:hover:text-gray-200'
+                : 'text-gray-300 dark:text-gray-400 hover:text-white dark:hover:text-gray-200'
             }`}
           >
             {status}
@@ -222,7 +222,7 @@ export default function PriceAlertsDashboard() {
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
         </div>
       ) : alerts.length === 0 ? (
-        <div className="text-center py-12 bg-gray-50 dark:bg-gray-900 rounded-lg">
+        <div className="text-center py-12 bg-white/5 dark:bg-gray-900 rounded-lg">
           <svg
             className="w-16 h-16 text-gray-400 mx-auto mb-4"
             fill="none"
@@ -236,8 +236,8 @@ export default function PriceAlertsDashboard() {
               d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
             />
           </svg>
-          <p className="text-gray-600 dark:text-gray-400 text-lg">No price alerts found</p>
-          <p className="text-gray-500 dark:text-gray-500 text-sm mt-2">
+          <p className="text-gray-300 dark:text-gray-400 text-lg">No price alerts found</p>
+          <p className="text-gray-400 dark:text-gray-400 text-sm mt-2">
             Start tracking prices to get notified when they drop
           </p>
         </div>
@@ -270,50 +270,50 @@ export default function PriceAlertsDashboard() {
 
                       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
                         <div>
-                          <p className="text-xs text-gray-600 dark:text-gray-400">Current Price</p>
+                          <p className="text-xs text-gray-300 dark:text-gray-400">Current Price</p>
                           <p className="text-lg font-bold text-white dark:text-white">
                             {alert.currency} {parseFloat(alert.currentPrice.toString()).toFixed(2)}
                           </p>
                         </div>
 
                         <div>
-                          <p className="text-xs text-gray-600 dark:text-gray-400">Target Price</p>
+                          <p className="text-xs text-gray-300 dark:text-gray-400">Target Price</p>
                           <p className="text-lg font-bold text-green-600">
                             {alert.currency} {parseFloat(alert.targetPrice.toString()).toFixed(2)}
                           </p>
                         </div>
 
                         <div>
-                          <p className="text-xs text-gray-600 dark:text-gray-400">
+                          <p className="text-xs text-gray-300 dark:text-gray-400">
                             Potential Savings
                           </p>
                           <p
                             className={`text-lg font-bold ${
-                              isGoodDeal ? 'text-green-600' : 'text-gray-500'
+                              isGoodDeal ? 'text-green-600' : 'text-gray-400'
                             }`}
                           >
                             {isGoodDeal ? '-' : ''}
                             {alert.currency} {Math.abs(savings).toFixed(2)}
                           </p>
-                          <p className="text-xs text-gray-500">
+                          <p className="text-xs text-gray-400">
                             {isGoodDeal ? percentage.toFixed(1) : '0'}% off
                           </p>
                         </div>
 
                         <div>
-                          <p className="text-xs text-gray-600 dark:text-gray-400">Notifications</p>
+                          <p className="text-xs text-gray-300 dark:text-gray-400">Notifications</p>
                           <p className="text-lg font-bold text-blue-600">
                             {alert.notificationCount}
                           </p>
                           {alert.lastNotifiedAt && (
-                            <p className="text-xs text-gray-500">
+                            <p className="text-xs text-gray-400">
                               Last: {format(new Date(alert.lastNotifiedAt), 'MMM dd')}
                             </p>
                           )}
                         </div>
                       </div>
 
-                      <div className="flex items-center gap-6 mt-4 text-sm text-gray-600 dark:text-gray-400">
+                      <div className="flex items-center gap-6 mt-4 text-sm text-gray-300 dark:text-gray-400">
                         <div className="flex items-center gap-1">
                           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path
@@ -346,7 +346,7 @@ export default function PriceAlertsDashboard() {
                   <div className="flex gap-2">
                     <button
                       onClick={() => handleToggleStatus(alert.id, alert.status)}
-                      className="p-2 text-gray-600 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400 transition-colors"
+                      className="p-2 text-gray-300 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400 transition-colors"
                       title={alert.status === 'ACTIVE' ? 'Disable alert' : 'Enable alert'}
                     >
                       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -369,7 +369,7 @@ export default function PriceAlertsDashboard() {
                     </button>
                     <button
                       onClick={() => handleDeleteAlert(alert.id)}
-                      className="p-2 text-gray-600 hover:text-red-600 dark:text-gray-400 dark:hover:text-red-400 transition-colors"
+                      className="p-2 text-gray-300 hover:text-red-600 dark:text-gray-400 dark:hover:text-red-400 transition-colors"
                       title="Delete alert"
                     >
                       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

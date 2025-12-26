@@ -294,7 +294,7 @@ const TransfersPage: React.FC = () => {
 
       <FuturisticHeader />
 
-      <main className="min-h-screen bg-gray-50">
+      <main className="min-h-screen bg-white/5">
         {/* Hero Section - Full Width Search */}
         <section className="relative bg-gradient-to-br from-blue-600 via-cyan-600 to-blue-700 text-white py-24">
           <div className="max-w-7xl mx-auto px-4">
@@ -360,7 +360,7 @@ const TransfersPage: React.FC = () => {
                 >
                   <div className="flex items-start justify-between mb-4">
                     <div className="flex-1">
-                      <div className="flex items-center gap-2 text-gray-500 text-sm mb-2">
+                      <div className="flex items-center gap-2 text-gray-400 text-sm mb-2">
                         <Plane className="w-4 h-4" />
                         <span>{route.from}</span>
                       </div>
@@ -369,7 +369,7 @@ const TransfersPage: React.FC = () => {
                         <ArrowRight className="w-5 h-5 text-blue-600 group-hover:translate-x-1 transition-transform" />
                         <div className="h-px flex-1 bg-gradient-to-r from-cyan-400 to-blue-400"></div>
                       </div>
-                      <div className="flex items-center gap-2 text-gray-500 text-sm">
+                      <div className="flex items-center gap-2 text-gray-400 text-sm">
                         <Hotel className="w-4 h-4" />
                         <span>{route.to}</span>
                       </div>
@@ -386,7 +386,7 @@ const TransfersPage: React.FC = () => {
 
                   <div className="flex items-center justify-between pt-4 border-t border-white/10">
                     <div>
-                      <div className="text-sm text-gray-500">Başlangıç</div>
+                      <div className="text-sm text-gray-400">Başlangıç</div>
                       <div className="text-2xl font-bold text-white">₺{route.price}</div>
                     </div>
                     <button className="px-4 py-2 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors">
@@ -404,7 +404,7 @@ const TransfersPage: React.FC = () => {
           <div className="max-w-7xl mx-auto px-4">
             <button
               onClick={() => setShowFilters(!showFilters)}
-              className="flex items-center gap-2 px-4 py-2 border border-white/20 rounded-lg hover:bg-gray-50 transition-colors"
+              className="flex items-center gap-2 px-4 py-2 border border-white/20 rounded-lg hover:bg-white/5 transition-colors"
             >
               <Filter className="w-5 h-5" />
               Filtrele
@@ -467,7 +467,7 @@ const TransfersPage: React.FC = () => {
                         <ArrowRight className="w-4 h-4 text-gray-400" />
                         <span className="text-sm text-gray-300">{transfer.transferData.to.tr}</span>
                       </div>
-                      <div className="flex items-center gap-3 mt-2 text-xs text-gray-500 ml-6">
+                      <div className="flex items-center gap-3 mt-2 text-xs text-gray-400 ml-6">
                         <span className="flex items-center gap-1">
                           <Clock className="w-3 h-3" />
                           {transfer.transferData.duration} dk
@@ -485,7 +485,7 @@ const TransfersPage: React.FC = () => {
                       <div className="flex items-center gap-1">
                         <Star className="w-5 h-5 fill-yellow-400 text-yellow-400" />
                         <span className="font-semibold text-white">{transfer.rating}</span>
-                        <span className="text-sm text-gray-500">({transfer.reviews})</span>
+                        <span className="text-sm text-gray-400">({transfer.reviews})</span>
                       </div>
                     </div>
 
@@ -504,7 +504,7 @@ const TransfersPage: React.FC = () => {
                       {transfer.features.slice(0, 3).map((feature, index) => (
                         <span
                           key={index}
-                          className="px-2 py-1 bg-gray-100 text-gray-200 text-xs rounded-full"
+                          className="px-2 py-1 bg-white/10 text-gray-200 text-xs rounded-full"
                         >
                           {feature}
                         </span>
@@ -514,11 +514,11 @@ const TransfersPage: React.FC = () => {
                     <div className="pt-4 border-t border-white/10">
                       <div className="flex items-center justify-between mb-3">
                         <div>
-                          <div className="text-sm text-gray-500">Başlangıç</div>
+                          <div className="text-sm text-gray-400">Başlangıç</div>
                           <div className="text-2xl font-bold text-white">₺{transfer.price}</div>
                         </div>
                         <div className="text-right">
-                          <div className="text-xs text-gray-500">Zamanında Gelme</div>
+                          <div className="text-xs text-gray-400">Zamanında Gelme</div>
                           <div className="text-sm font-semibold text-green-600">%{transfer.onTimeRate}</div>
                         </div>
                       </div>
@@ -546,7 +546,7 @@ const TransfersPage: React.FC = () => {
 
             {filteredTransfers.length === 0 && (
               <div className="text-center py-12">
-                <p className="text-gray-500 text-lg">Aradığınız kriterlere uygun transfer bulunamadı.</p>
+                <p className="text-gray-400 text-lg">Aradığınız kriterlere uygun transfer bulunamadı.</p>
                 <button
                   onClick={() => {
                     setFilters({
@@ -663,7 +663,7 @@ const TransfersPage: React.FC = () => {
             >
               <Link
                 href="/transfer-owner/dashboard"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-transparent text-blue-600 rounded-xl font-bold text-lg hover:bg-gray-50 transition-all hover:scale-105 shadow-2xl group"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-transparent text-blue-600 rounded-xl font-bold text-lg hover:bg-white/5 transition-all hover:scale-105 shadow-2xl group"
               >
                 <span>Partner Paneline Git</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />

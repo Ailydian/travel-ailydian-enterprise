@@ -143,7 +143,7 @@ export default function Blog() {
 
       <FuturisticHeader />
 
-      <main className="min-h-screen bg-gray-50">
+      <main className="min-h-screen bg-white/5">
         {/* Hero Section */}
         <div className="bg-gradient-to-r from-lydian-primary to-lydian-dark text-white py-20">
           <div className="max-w-7xl mx-auto px-4">
@@ -204,7 +204,7 @@ export default function Blog() {
                     <p className="text-gray-300 mb-4 line-clamp-2">
                       {post.excerpt}
                     </p>
-                    <div className="flex items-center gap-4 text-sm text-gray-500">
+                    <div className="flex items-center gap-4 text-sm text-gray-400">
                       <span className="flex items-center gap-1">
                         <User className="w-4 h-4" />
                         {post.author}
@@ -235,7 +235,7 @@ export default function Blog() {
                 className={`px-6 py-2 rounded-full font-medium transition-colors ${
                   selectedCategory === category
                     ? 'bg-lydian-primary text-white'
-                    : 'bg-white/5 text-gray-200 hover:bg-gray-100'
+                    : 'bg-white/5 text-gray-200 hover:bg-white/10'
                 }`}
               >
                 {category === 'all' ? 'Tümü' : category}
@@ -271,7 +271,7 @@ export default function Blog() {
                     {post.excerpt}
                   </p>
 
-                  <div className="space-y-2 text-sm text-gray-500 mb-4">
+                  <div className="space-y-2 text-sm text-gray-400 mb-4">
                     <div className="flex items-center gap-1">
                       <User className="w-4 h-4" />
                       {post.author}
@@ -299,7 +299,7 @@ export default function Blog() {
 
           {filteredPosts.length === 0 && (
             <div className="text-center py-12">
-              <p className="text-gray-500 text-lg">
+              <p className="text-gray-400 text-lg">
                 Aradığınız kriterlere uygun blog yazısı bulunamadı.
               </p>
             </div>

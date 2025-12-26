@@ -255,7 +255,7 @@ const ResponsiveMobileMenu: React.FC<ResponsiveMobileMenuProps> = ({
 
             {/* Main Menu Items */}
             <div className="p-4 space-y-1">
-              <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider px-4 mb-2">
+              <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider px-4 mb-2">
                 Ana Menü
               </p>
               {mainMenuItems.map((item, index) => (
@@ -265,7 +265,7 @@ const ResponsiveMobileMenu: React.FC<ResponsiveMobileMenuProps> = ({
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.05 }}
                   onClick={() => handleMenuItemClick(item.href)}
-                  className="w-full flex items-center gap-4 p-4 rounded-2xl hover:bg-gray-50 active:bg-gray-100 transition-all group touch-target"
+                  className="w-full flex items-center gap-4 p-4 rounded-2xl hover:bg-white/5 active:bg-white/10 transition-all group touch-target"
                 >
                   <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${item.color} flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform`}>
                     <item.icon className="w-6 h-6 text-white" />
@@ -290,7 +290,7 @@ const ResponsiveMobileMenu: React.FC<ResponsiveMobileMenuProps> = ({
 
             {/* User Menu Items */}
             <div className="p-4 space-y-1">
-              <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider px-4 mb-2">
+              <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider px-4 mb-2">
                 {session ? 'Hesabım' : 'Hesap'}
               </p>
               {userMenuItems.map((item, index) => (
@@ -300,7 +300,7 @@ const ResponsiveMobileMenu: React.FC<ResponsiveMobileMenuProps> = ({
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: (mainMenuItems.length + index) * 0.05 }}
                   onClick={() => handleMenuItemClick(item.href)}
-                  className="w-full flex items-center gap-4 p-4 rounded-2xl hover:bg-gray-50 active:bg-gray-100 transition-all group touch-target"
+                  className="w-full flex items-center gap-4 p-4 rounded-2xl hover:bg-white/5 active:bg-white/10 transition-all group touch-target"
                 >
                   <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${item.color} flex items-center justify-center shadow-md group-hover:scale-110 transition-transform`}>
                     <item.icon className="w-5 h-5 text-white" />
@@ -344,7 +344,7 @@ const ResponsiveMobileMenu: React.FC<ResponsiveMobileMenuProps> = ({
                   <Headphones className="w-5 h-5 text-lydian-primary" />
                   <p className="font-semibold text-white">Müşteri Desteği</p>
                 </div>
-                <p className="text-sm text-gray-600 mb-3">
+                <p className="text-sm text-gray-300 mb-3">
                   7/24 size yardımcı olmaya hazırız
                 </p>
                 <Link
@@ -357,7 +357,7 @@ const ResponsiveMobileMenu: React.FC<ResponsiveMobileMenuProps> = ({
                 </Link>
               </div>
 
-              <p className="text-center text-xs text-gray-500 mt-6">
+              <p className="text-center text-xs text-gray-400 mt-6">
                 © 2025 LyDian Travel. Tüm hakları saklıdır.
               </p>
             </div>

@@ -539,7 +539,7 @@ export default function AdminReviews() {
                         <Filter className="w-4 h-4 mr-2 inline" />
                         Filtrele
                       </button>
-                      <button className="px-4 py-2 border border-white/20 rounded-lg hover:bg-gray-50">
+                      <button className="px-4 py-2 border border-white/20 rounded-lg hover:bg-white/5">
                         <Download className="w-4 h-4" />
                       </button>
                     </div>
@@ -562,7 +562,7 @@ export default function AdminReviews() {
                               {review.user.isVerified && (
                                 <CheckCircle className="w-4 h-4 text-blue-500" />
                               )}
-                              <span className="text-gray-500 text-sm">@{review.user.email}</span>
+                              <span className="text-gray-400 text-sm">@{review.user.email}</span>
                             </div>
                             <div className="flex items-center space-x-2 mt-1">
                               <MapPin className="w-4 h-4 text-gray-400" />
@@ -602,7 +602,7 @@ export default function AdminReviews() {
                               </div>
                             ))}
                             {review.photos.length > 3 && (
-                              <div className="w-16 h-16 bg-gray-100 rounded-lg flex items-center justify-center text-sm font-medium text-gray-300">
+                              <div className="w-16 h-16 bg-white/10 rounded-lg flex items-center justify-center text-sm font-medium text-gray-300">
                                 +{review.photos.length - 3}
                               </div>
                             )}
@@ -659,13 +659,13 @@ export default function AdminReviews() {
                         <div className="mt-4 p-3 bg-white/5 rounded-lg">
                           <div className="flex items-center justify-between text-sm">
                             <div className="flex items-center space-x-2">
-                              <Zap className="w-4 h-4 text-gray-500" />
+                              <Zap className="w-4 h-4 text-gray-400" />
                               <span className="text-gray-300">
                                 Modere edildi: {formatDate(review.moderatedAt)} - {review.moderatedBy}
                               </span>
                             </div>
                             {review.moderationReason && (
-                              <span className="text-gray-500">Sebep: {review.moderationReason}</span>
+                              <span className="text-gray-400">Sebep: {review.moderationReason}</span>
                             )}
                           </div>
                         </div>

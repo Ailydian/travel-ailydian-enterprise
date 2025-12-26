@@ -421,7 +421,7 @@ const RentalBookingPage = () => {
                         {isCompleted ? (
                           <Check className="w-6 h-6 text-white" />
                         ) : (
-                          <Icon className={`w-6 h-6 ${isActive ? 'text-white' : 'text-gray-500'}`} />
+                          <Icon className={`w-6 h-6 ${isActive ? 'text-white' : 'text-gray-400'}`} />
                         )}
                       </motion.div>
                       <p className={`text-xs mt-2 font-medium ${isActive ? 'text-purple-600' : 'text-gray-300'}`}>
@@ -542,7 +542,7 @@ const RentalBookingPage = () => {
                         <div className="flex items-center justify-between p-4 bg-white/5 rounded-xl">
                           <div>
                             <p className="font-semibold text-white">Yetişkinler</p>
-                            <p className="text-sm text-gray-500">13 yaş ve üzeri</p>
+                            <p className="text-sm text-gray-400">13 yaş ve üzeri</p>
                           </div>
                           <div className="flex items-center gap-4">
                             <button
@@ -565,7 +565,7 @@ const RentalBookingPage = () => {
                         <div className="flex items-center justify-between p-4 bg-white/5 rounded-xl">
                           <div>
                             <p className="font-semibold text-white">Çocuklar</p>
-                            <p className="text-sm text-gray-500">2-12 yaş</p>
+                            <p className="text-sm text-gray-400">2-12 yaş</p>
                           </div>
                           <div className="flex items-center gap-4">
                             <button
@@ -588,7 +588,7 @@ const RentalBookingPage = () => {
                         <div className="flex items-center justify-between p-4 bg-white/5 rounded-xl">
                           <div>
                             <p className="font-semibold text-white">Bebekler</p>
-                            <p className="text-sm text-gray-500">2 yaş altı</p>
+                            <p className="text-sm text-gray-400">2 yaş altı</p>
                           </div>
                           <div className="flex items-center gap-4">
                             <button
@@ -907,7 +907,7 @@ const RentalBookingPage = () => {
                             rows={4}
                             className="w-full px-4 py-3 border border-white/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500"
                           />
-                          <p className="text-xs text-gray-500 mt-1">
+                          <p className="text-xs text-gray-400 mt-1">
                             Özel istekleriniz ev sahibine iletilecektir, ancak garanti edilmez.
                           </p>
                         </div>
@@ -1017,7 +1017,7 @@ const RentalBookingPage = () => {
                     {currentStep > 1 && (
                       <button
                         onClick={handlePrevious}
-                        className="flex items-center gap-2 px-6 py-3 bg-gray-100 hover:bg-gray-200 rounded-xl font-semibold transition-all"
+                        className="flex items-center gap-2 px-6 py-3 bg-white/10 hover:bg-gray-200 rounded-xl font-semibold transition-all"
                       >
                         <ChevronLeft className="w-5 h-5" />
                         Geri

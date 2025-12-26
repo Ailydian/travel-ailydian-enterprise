@@ -85,7 +85,7 @@ export const TransferCarCard: React.FC<TransferCarCardProps> = ({
 
         {/* Route Info */}
         {(from || to || route) && (
-          <div className="flex items-start gap-2 mb-4 text-sm text-gray-600">
+          <div className="flex items-start gap-2 mb-4 text-sm text-gray-300">
             <MapPin className="w-4 h-4 mt-0.5 text-blue-500 flex-shrink-0" />
             <div className="flex-1">
               {route || (
@@ -106,13 +106,13 @@ export const TransferCarCard: React.FC<TransferCarCardProps> = ({
         {/* Features Grid */}
         <div className="grid grid-cols-2 gap-3 mb-4">
           {duration && (
-            <div className="flex items-center gap-2 text-sm text-gray-600">
+            <div className="flex items-center gap-2 text-sm text-gray-300">
               <Clock className="w-4 h-4 text-blue-500" />
               <span>{duration}</span>
             </div>
           )}
           {capacity && (
-            <div className="flex items-center gap-2 text-sm text-gray-600">
+            <div className="flex items-center gap-2 text-sm text-gray-300">
               <Users className="w-4 h-4 text-blue-500" />
               <span>{capacity} Kişi</span>
             </div>
@@ -127,7 +127,7 @@ export const TransferCarCard: React.FC<TransferCarCardProps> = ({
               <span className="font-semibold text-white">{rating.toFixed(1)}</span>
             </div>
             {reviews > 0 && (
-              <span className="text-sm text-gray-500">({reviews} değerlendirme)</span>
+              <span className="text-sm text-gray-400">({reviews} değerlendirme)</span>
             )}
           </div>
         )}
@@ -135,7 +135,7 @@ export const TransferCarCard: React.FC<TransferCarCardProps> = ({
         {/* Price & CTA */}
         <div className="flex items-center justify-between pt-4 border-t border-gray-100">
           <div>
-            <div className="text-sm text-gray-500">Başlangıç fiyatı</div>
+            <div className="text-sm text-gray-400">Başlangıç fiyatı</div>
             <div className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
               {price}
             </div>

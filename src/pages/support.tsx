@@ -135,7 +135,7 @@ export default function Support() {
       case 'open': return 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200';
       case 'in-progress': return 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200';
       case 'resolved': return 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200';
-      default: return 'bg-gray-100 text-gray-100 dark:bg-gray-900 dark:text-gray-200';
+      default: return 'bg-white/10 text-gray-100 dark:bg-gray-900 dark:text-gray-200';
     }
   };
 
@@ -310,7 +310,7 @@ export default function Support() {
                   <button
                     type="button"
                     onClick={() => setShowNewTicketForm(false)}
-                    className="bg-gray-300 dark:bg-gray-600 text-gray-200 dark:text-gray-300 px-6 py-2 rounded-lg hover:bg-gray-400 dark:hover:bg-gray-500 transition-colors"
+                    className="bg-gray-300 dark:bg-gray-600 text-gray-200 dark:text-gray-300 px-6 py-2 rounded-lg hover:bg-gray-400 dark:hover:bg-white/50 transition-colors"
                   >
                     İptal
                   </button>
@@ -358,7 +358,7 @@ export default function Support() {
               {filteredTickets.map((ticket) => (
                 <div key={ticket.id} className={`bg-white/5 dark:bg-gray-800 rounded-lg shadow-md ${getPriorityColor(ticket.priority)}`}>
                   <div 
-                    className="p-6 cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+                    className="p-6 cursor-pointer hover:bg-white/5 dark:hover:bg-gray-700 transition-colors"
                     onClick={() => setSelectedTicket(selectedTicket === ticket.id ? null : ticket.id)}
                   >
                     <div className="flex items-center justify-between">
@@ -392,8 +392,8 @@ export default function Support() {
                         </div>
                       </div>
                       {selectedTicket === ticket.id ? 
-                        <ChevronUp className="h-5 w-5 text-gray-500" /> : 
-                        <ChevronDown className="h-5 w-5 text-gray-500" />
+                        <ChevronUp className="h-5 w-5 text-gray-400" /> : 
+                        <ChevronDown className="h-5 w-5 text-gray-400" />
                       }
                     </div>
                   </div>
@@ -410,7 +410,7 @@ export default function Support() {
                         <button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors text-sm">
                           Mesaj Gönder
                         </button>
-                        <button className="bg-gray-300 dark:bg-gray-600 text-gray-200 dark:text-gray-300 px-4 py-2 rounded-lg hover:bg-gray-400 dark:hover:bg-gray-500 transition-colors text-sm">
+                        <button className="bg-gray-300 dark:bg-gray-600 text-gray-200 dark:text-gray-300 px-4 py-2 rounded-lg hover:bg-gray-400 dark:hover:bg-white/50 transition-colors text-sm">
                           Dosya Ekle
                         </button>
                       </div>

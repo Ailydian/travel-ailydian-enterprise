@@ -361,7 +361,7 @@ export default function Favorites() {
                     <Icon className="w-5 h-5" />
                     <span>{filter.name}</span>
                     <span className={`px-2 py-0.5 rounded-full text-xs font-bold ${
-                      isActive ? 'bg-white/30' : 'bg-gray-100'
+                      isActive ? 'bg-white/30' : 'bg-white/10'
                     }`}>
                       {filter.count}
                     </span>
@@ -448,7 +448,7 @@ export default function Favorites() {
                       <div className="bg-white/95 backdrop-blur-sm px-3 py-1.5 rounded-full shadow-lg">
                         <div className="flex items-center gap-2">
                           {item.originalPrice && (
-                            <span className="text-xs text-gray-500 line-through">
+                            <span className="text-xs text-gray-400 line-through">
                               {item.originalPrice.toLocaleString('tr-TR')} ₺
                             </span>
                           )}
@@ -503,7 +503,7 @@ export default function Favorites() {
 
                     {/* Bottom Actions */}
                     <div className="flex items-center justify-between pt-4 border-t border-gray-100">
-                      <div className="flex items-center gap-1 text-xs text-gray-500">
+                      <div className="flex items-center gap-1 text-xs text-gray-400">
                         <Calendar className="w-3 h-3" />
                         {new Date(item.savedDate).toLocaleDateString('tr-TR')}
                       </div>

@@ -539,13 +539,13 @@ const VirtualTourViewer: React.FC = () => {
                 <h3 className="text-xl font-bold text-white">{selectedHotspot.title}</h3>
                 <button
                   onClick={() => setSelectedHotspot(null)}
-                  className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+                  className="p-2 hover:bg-white/10 rounded-lg transition-colors"
                 >
-                  <X className="w-5 h-5 text-gray-500" />
+                  <X className="w-5 h-5 text-gray-400" />
                 </button>
               </div>
               
-              <p className="text-gray-700 mb-6">{selectedHotspot.description}</p>
+              <p className="text-gray-200 mb-6">{selectedHotspot.description}</p>
               
               {selectedHotspot.action && (
                 <motion.button

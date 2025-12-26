@@ -17,7 +17,7 @@ export const Checkbox: React.FC<CheckboxProps> = ({
         {...props}
       />
       {label && (
-        <label className="ml-2 text-sm text-gray-700">
+        <label className="ml-2 text-sm text-gray-200">
           {label}
         </label>
       )}

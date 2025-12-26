@@ -79,7 +79,7 @@ export default function OwnerLoginPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white/5">
       <div className="flex min-h-screen">
         {/* Left Column - Branding & Image */}
         <motion.div
@@ -101,19 +101,19 @@ export default function OwnerLoginPage() {
               <div className="w-10 h-10 bg-gradient-to-r from-[#FF214D] to-[#FF6A45] rounded-lg flex items-center justify-center">
                 <Home className="w-6 h-6 text-white" />
               </div>
-              <span className="text-2xl font-bold text-gray-900">LyDian</span>
+              <span className="text-2xl font-bold text-white">LyDian</span>
             </Link>
 
             {/* Main Content */}
             <div>
-              <h1 className="text-4xl font-bold text-gray-900 mb-4">
+              <h1 className="text-4xl font-bold text-white mb-4">
                 Mülk Yönetiminizi
                 <br />
                 <span className="bg-gradient-to-r from-[#FF214D] to-[#FF6A45] bg-clip-text text-transparent">
                   Dijitalleştirin
                 </span>
               </h1>
-              <p className="text-gray-600 text-lg mb-8">
+              <p className="text-gray-300 text-lg mb-8">
                 Binlerce mülk sahibinin tercih ettiği platform ile rezervasyonlarınızı yönetin, gelirinizi artırın.
               </p>
 
@@ -130,7 +130,7 @@ export default function OwnerLoginPage() {
                     <div className="w-6 h-6 bg-gradient-to-r from-[#FF214D] to-[#FF6A45] rounded-full flex items-center justify-center flex-shrink-0">
                       <CheckCircle2 className="w-4 h-4 text-white" />
                     </div>
-                    <span className="text-gray-700 font-medium">{benefit}</span>
+                    <span className="text-gray-200 font-medium">{benefit}</span>
                   </motion.div>
                 ))}
               </div>
@@ -140,16 +140,16 @@ export default function OwnerLoginPage() {
           {/* Bottom Stats */}
           <div className="relative z-10 grid grid-cols-3 gap-6">
             <div>
-              <div className="text-3xl font-bold text-gray-900">5000+</div>
-              <div className="text-gray-600 text-sm">Mülk Sahibi</div>
+              <div className="text-3xl font-bold text-white">5000+</div>
+              <div className="text-gray-300 text-sm">Mülk Sahibi</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-gray-900">50K+</div>
-              <div className="text-gray-600 text-sm">Rezervasyon</div>
+              <div className="text-3xl font-bold text-white">50K+</div>
+              <div className="text-gray-300 text-sm">Rezervasyon</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-gray-900">98%</div>
-              <div className="text-gray-600 text-sm">Memnuniyet</div>
+              <div className="text-3xl font-bold text-white">98%</div>
+              <div className="text-gray-300 text-sm">Memnuniyet</div>
             </div>
           </div>
         </motion.div>
@@ -167,15 +167,15 @@ export default function OwnerLoginPage() {
               <div className="w-10 h-10 bg-gradient-to-r from-[#FF214D] to-[#FF6A45] rounded-lg flex items-center justify-center">
                 <Home className="w-6 h-6 text-white" />
               </div>
-              <span className="text-2xl font-bold text-gray-900">LyDian</span>
+              <span className="text-2xl font-bold text-white">LyDian</span>
             </div>
 
             {/* Header */}
             <div className="mb-8">
-              <h2 className="text-3xl font-bold text-gray-900 mb-2">
+              <h2 className="text-3xl font-bold text-white mb-2">
                 Mülk Sahibi Girişi
               </h2>
-              <p className="text-gray-600">
+              <p className="text-gray-300">
                 Hesabınıza giriş yaparak mülklerinizi yönetin
               </p>
             </div>
@@ -184,7 +184,7 @@ export default function OwnerLoginPage() {
             <form onSubmit={handleSubmit} className="space-y-6">
               {/* Email Field */}
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-900 mb-2">
+                <label htmlFor="email" className="block text-sm font-medium text-white mb-2">
                   E-posta Adresi
                 </label>
                 <div className="relative">
@@ -199,7 +199,7 @@ export default function OwnerLoginPage() {
                     onChange={handleInputChange}
                     className={`block w-full pl-10 pr-3 py-3 border ${
                       errors.email ? 'border-red-500' : 'border-gray-300'
-                    } rounded-lg focus:ring-2 focus:ring-[#FF214D] focus:border-transparent outline-none transition-all bg-white text-gray-900`}
+                    } rounded-lg focus:ring-2 focus:ring-[#FF214D] focus:border-transparent outline-none transition-all bg-white/5 text-white`}
                     placeholder="ornek@email.com"
                   />
                 </div>
@@ -210,7 +210,7 @@ export default function OwnerLoginPage() {
 
               {/* Password Field */}
               <div>
-                <label htmlFor="password" className="block text-sm font-medium text-gray-900 mb-2">
+                <label htmlFor="password" className="block text-sm font-medium text-white mb-2">
                   Şifre
                 </label>
                 <div className="relative">
@@ -225,7 +225,7 @@ export default function OwnerLoginPage() {
                     onChange={handleInputChange}
                     className={`block w-full pl-10 pr-10 py-3 border ${
                       errors.password ? 'border-red-500' : 'border-gray-300'
-                    } rounded-lg focus:ring-2 focus:ring-[#FF214D] focus:border-transparent outline-none transition-all bg-white text-gray-900`}
+                    } rounded-lg focus:ring-2 focus:ring-[#FF214D] focus:border-transparent outline-none transition-all bg-white/5 text-white`}
                     placeholder="••••••••"
                   />
                   <button
@@ -234,9 +234,9 @@ export default function OwnerLoginPage() {
                     className="absolute inset-y-0 right-0 pr-3 flex items-center"
                   >
                     {showPassword ? (
-                      <EyeOff className="h-5 w-5 text-gray-400 hover:text-gray-600" />
+                      <EyeOff className="h-5 w-5 text-gray-400 hover:text-gray-300" />
                     ) : (
-                      <Eye className="h-5 w-5 text-gray-400 hover:text-gray-600" />
+                      <Eye className="h-5 w-5 text-gray-400 hover:text-gray-300" />
                     )}
                   </button>
                 </div>
@@ -256,7 +256,7 @@ export default function OwnerLoginPage() {
                     onChange={handleInputChange}
                     className="h-4 w-4 text-[#FF214D] focus:ring-[#FF214D] border-gray-300 rounded cursor-pointer"
                   />
-                  <label htmlFor="rememberMe" className="ml-2 block text-sm text-gray-700 cursor-pointer">
+                  <label htmlFor="rememberMe" className="ml-2 block text-sm text-gray-200 cursor-pointer">
                     Beni hatırla
                   </label>
                 </div>
@@ -294,14 +294,14 @@ export default function OwnerLoginPage() {
                 <div className="w-full border-t border-gray-200"></div>
               </div>
               <div className="relative flex justify-center text-sm">
-                <span className="px-4 bg-white text-gray-500">Hesabınız yok mu?</span>
+                <span className="px-4 bg-white/5 text-gray-400">Hesabınız yok mu?</span>
               </div>
             </div>
 
             {/* Register Link */}
             <Link
               href="/owner/auth/register"
-              className="block w-full text-center py-3 px-4 border-2 border-gray-300 rounded-lg font-semibold text-gray-900 hover:bg-gray-50 hover:border-gray-400 transition-all duration-200"
+              className="block w-full text-center py-3 px-4 border-2 border-gray-300 rounded-lg font-semibold text-white hover:bg-white/5 hover:border-gray-400 transition-all duration-200"
             >
               Mülk Sahibi Olarak Kayıt Ol
             </Link>
@@ -310,7 +310,7 @@ export default function OwnerLoginPage() {
             <div className="mt-6 text-center">
               <Link
                 href="/"
-                className="text-sm text-gray-600 hover:text-gray-900 transition-colors"
+                className="text-sm text-gray-300 hover:text-white transition-colors"
               >
                 ← Ana sayfaya dön
               </Link>

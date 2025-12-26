@@ -127,7 +127,7 @@ export default function LyDianEcosystemFooter({
   );
 
   const bgColor = theme === 'dark' ? 'bg-gradient-to-b from-black/50 to-black' : 'bg-white';
-  const textColor = theme === 'dark' ? 'text-white' : 'text-gray-900';
+  const textColor = theme === 'dark' ? 'text-white' : 'text-white';
   const borderColor = theme === 'dark' ? 'border-white/10' : 'border-gray-200';
 
   return (
@@ -146,7 +146,7 @@ export default function LyDianEcosystemFooter({
           <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
             LyDian Ecosystem
           </h3>
-          <p className={`mt-2 text-sm ${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'}`}>
+          <p className={`mt-2 text-sm ${theme === 'dark' ? 'text-gray-400' : 'text-gray-300'}`}>
             AI-Powered Solutions Across Industries
           </p>
         </div>
@@ -191,7 +191,7 @@ export default function LyDianEcosystemFooter({
                 </h4>
 
                 {/* Short Description */}
-                <p className={`text-xs text-center ${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'}`}>
+                <p className={`text-xs text-center ${theme === 'dark' ? 'text-gray-400' : 'text-gray-300'}`}>
                   {domain.shortDesc}
                 </p>
               </div>
@@ -204,7 +204,7 @@ export default function LyDianEcosystemFooter({
                   viewBox="0 0 16 16"
                   fill="none"
                   stroke="currentColor"
-                  className={theme === 'dark' ? 'text-white/60' : 'text-black/60'}
+                  className={theme === 'dark' ? 'text-white/60' : 'text-white/60'}
                 >
                   <path d="M5 3l6 6-6 6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
@@ -239,7 +239,7 @@ export default function LyDianEcosystemFooter({
         </div>
 
         {/* Footer Text */}
-        <div className={`text-center mt-6 text-xs ${theme === 'dark' ? 'text-gray-500' : 'text-gray-400'}`}>
+        <div className={`text-center mt-6 text-xs ${theme === 'dark' ? 'text-gray-400' : 'text-gray-400'}`}>
           <p>Powered by LyDian - AI-Driven Innovation</p>
         </div>
       </div>

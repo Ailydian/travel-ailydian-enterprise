@@ -178,7 +178,7 @@ const VisualSearchPage: React.FC = () => {
                     {searchHistory.slice(0, 5).map((item) => (
                       <button
                         key={item.id}
-                        className="w-full flex items-center space-x-3 p-3 rounded-xl hover:bg-gray-50 transition-colors duration-200"
+                        className="w-full flex items-center space-x-3 p-3 rounded-xl hover:bg-white/5 transition-colors duration-200"
                       >
                         <img
                           src={item.thumbnailUrl}
@@ -189,7 +189,7 @@ const VisualSearchPage: React.FC = () => {
                           <p className="text-sm font-medium text-white">
                             {item.resultCount} results
                           </p>
-                          <p className="text-xs text-gray-500">
+                          <p className="text-xs text-gray-400">
                             {new Date(item.timestamp).toLocaleDateString()}
                           </p>
                         </div>
@@ -268,7 +268,7 @@ const VisualSearchPage: React.FC = () => {
                           </h3>
                           <button
                             onClick={() => setShowAnalysis(false)}
-                            className="text-gray-500 hover:text-gray-200"
+                            className="text-gray-400 hover:text-gray-200"
                           >
                             Hide
                           </button>
@@ -359,7 +359,7 @@ const VisualSearchPage: React.FC = () => {
                                 className={`px-4 py-2 rounded-lg font-medium text-sm transition-colors duration-200 ${
                                   selectedFilter === filter
                                     ? 'bg-blue-600 text-white'
-                                    : 'bg-gray-100 text-gray-200 hover:bg-gray-200'
+                                    : 'bg-white/10 text-gray-200 hover:bg-gray-200'
                                 }`}
                               >
                                 {filter.charAt(0).toUpperCase() + filter.slice(1)}
@@ -439,7 +439,7 @@ const VisualSearchPage: React.FC = () => {
                           </div>
 
                           <div className="flex items-center space-x-2 mb-3">
-                            <MapPinIcon className="w-4 h-4 text-gray-500" />
+                            <MapPinIcon className="w-4 h-4 text-gray-400" />
                             <span className="text-sm text-gray-300">{result.location}</span>
                           </div>
 
@@ -460,7 +460,7 @@ const VisualSearchPage: React.FC = () => {
                               <span className="text-sm font-semibold text-white">
                                 {result.rating}
                               </span>
-                              <span className="text-sm text-gray-500">
+                              <span className="text-sm text-gray-400">
                                 ({result.reviewCount} reviews)
                               </span>
                             </div>
@@ -494,12 +494,12 @@ const VisualSearchPage: React.FC = () => {
                                 <p className="text-2xl font-bold text-blue-600">
                                   {result.price.amount} {result.price.currency}
                                 </p>
-                                <p className="text-xs text-gray-500">per night</p>
+                                <p className="text-xs text-gray-400">per night</p>
                               </div>
                             )}
 
                             <div className="flex space-x-2">
-                              <button className="p-2 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors">
+                              <button className="p-2 bg-white/10 hover:bg-gray-200 rounded-lg transition-colors">
                                 <ShareIcon className="w-5 h-5 text-gray-200" />
                               </button>
                               <button className="px-6 py-2 bg-gradient-to-r from-[#667EEA] via-[#764BA2] to-[#667EEA] hover:from-blue-700 hover:to-purple-700 text-white rounded-lg font-semibold transition-all duration-200">

@@ -156,7 +156,7 @@ export default function FlightDetail() {
 
   if (!flight) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-50">
+      <div className="min-h-screen flex items-center justify-center bg-white/5">
         <div className="text-center">
           <Plane className="w-24 h-24 text-gray-300 mx-auto mb-6" />
           <h1 className="text-2xl font-bold text-white mb-4">Uçuş Bulunamadı</h1>
@@ -218,7 +218,7 @@ export default function FlightDetail() {
           >
             <div className="flex items-center justify-between mb-6">
               <div className="flex items-center gap-4">
-                <div className="w-16 h-16 rounded-xl overflow-hidden bg-gray-100 flex items-center justify-center">
+                <div className="w-16 h-16 rounded-xl overflow-hidden bg-white/10 flex items-center justify-center">
                   <img src={flight.logo} alt={flight.airline} className="w-full h-full object-cover" />
                 </div>
                 <div>
@@ -249,9 +249,9 @@ export default function FlightDetail() {
                   <div className="text-4xl font-bold text-white mb-1">{flight.departure.time}</div>
                   <div className="text-lg font-semibold text-gray-200">{flight.from.code}</div>
                   <div className="text-sm text-gray-300">{flight.from.city}</div>
-                  <div className="text-xs text-gray-500 mt-1">{flight.from.airport}</div>
-                  <div className="text-xs text-gray-500">{flight.from.terminal}</div>
-                  <div className="text-xs text-gray-500 mt-1">
+                  <div className="text-xs text-gray-400 mt-1">{flight.from.airport}</div>
+                  <div className="text-xs text-gray-400">{flight.from.terminal}</div>
+                  <div className="text-xs text-gray-400 mt-1">
                     <Calendar className="w-3 h-3 inline mr-1" />
                     {flight.departure.date}
                   </div>
@@ -274,7 +274,7 @@ export default function FlightDetail() {
                     <Clock className="w-4 h-4" />
                     <span className="font-semibold">{flight.duration}</span>
                   </div>
-                  <div className="text-xs text-gray-500 mt-1">{flight.type} Uçuş</div>
+                  <div className="text-xs text-gray-400 mt-1">{flight.type} Uçuş</div>
                 </div>
 
                 {/* Arrival */}
@@ -286,9 +286,9 @@ export default function FlightDetail() {
                   <div className="text-4xl font-bold text-white mb-1">{flight.arrival.time}</div>
                   <div className="text-lg font-semibold text-gray-200">{flight.to.code}</div>
                   <div className="text-sm text-gray-300">{flight.to.city}</div>
-                  <div className="text-xs text-gray-500 mt-1">{flight.to.airport}</div>
-                  <div className="text-xs text-gray-500">{flight.to.terminal}</div>
-                  <div className="text-xs text-gray-500 mt-1">
+                  <div className="text-xs text-gray-400 mt-1">{flight.to.airport}</div>
+                  <div className="text-xs text-gray-400">{flight.to.terminal}</div>
+                  <div className="text-xs text-gray-400 mt-1">
                     <Calendar className="w-3 h-3 inline mr-1" />
                     {flight.arrival.date}
                   </div>
@@ -346,10 +346,10 @@ export default function FlightDetail() {
                       )}
                       <h3 className="font-bold text-lg text-white mb-2">{fare.name}</h3>
                       {fare.originalPrice && (
-                        <div className="text-sm text-gray-500 line-through mb-1">₺{fare.originalPrice}</div>
+                        <div className="text-sm text-gray-400 line-through mb-1">₺{fare.originalPrice}</div>
                       )}
                       <div className="text-3xl font-bold text-lydian-primary mb-1">₺{fare.price}</div>
-                      <div className="text-xs text-gray-500">kişi başına</div>
+                      <div className="text-xs text-gray-400">kişi başına</div>
                       <div className="mt-4 text-xs text-gray-300">
                         <div className="flex items-center gap-1 mb-1">
                           <Luggage className="w-3 h-3" />
@@ -503,14 +503,14 @@ export default function FlightDetail() {
                       <div className="flex items-center gap-3">
                         <button
                           onClick={() => setPassengers(p => ({ ...p, adults: Math.max(1, p.adults - 1) }))}
-                          className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center hover:bg-gray-100"
+                          className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10"
                         >
                           -
                         </button>
                         <span className="w-8 text-center font-semibold">{passengers.adults}</span>
                         <button
                           onClick={() => setPassengers(p => ({ ...p, adults: Math.min(9, p.adults + 1) }))}
-                          className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center hover:bg-gray-100"
+                          className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10"
                         >
                           +
                         </button>
@@ -521,14 +521,14 @@ export default function FlightDetail() {
                       <div className="flex items-center gap-3">
                         <button
                           onClick={() => setPassengers(p => ({ ...p, children: Math.max(0, p.children - 1) }))}
-                          className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center hover:bg-gray-100"
+                          className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10"
                         >
                           -
                         </button>
                         <span className="w-8 text-center font-semibold">{passengers.children}</span>
                         <button
                           onClick={() => setPassengers(p => ({ ...p, children: Math.min(9, p.children + 1) }))}
-                          className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center hover:bg-gray-100"
+                          className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10"
                         >
                           +
                         </button>
@@ -539,14 +539,14 @@ export default function FlightDetail() {
                       <div className="flex items-center gap-3">
                         <button
                           onClick={() => setPassengers(p => ({ ...p, infants: Math.max(0, p.infants - 1) }))}
-                          className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center hover:bg-gray-100"
+                          className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10"
                         >
                           -
                         </button>
                         <span className="w-8 text-center font-semibold">{passengers.infants}</span>
                         <button
                           onClick={() => setPassengers(p => ({ ...p, infants: Math.min(passengers.adults, p.infants + 1) }))}
-                          className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center hover:bg-gray-100"
+                          className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10"
                         >
                           +
                         </button>
@@ -598,7 +598,7 @@ export default function FlightDetail() {
                 </motion.button>
 
                 <div className="mt-4 text-center">
-                  <div className="flex items-center justify-center gap-2 text-xs text-gray-500">
+                  <div className="flex items-center justify-center gap-2 text-xs text-gray-400">
                     <Shield className="w-4 h-4" />
                     Blockchain ile güvenli rezervasyon
                   </div>

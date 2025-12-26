@@ -86,12 +86,12 @@ const BundlePricingCard: React.FC<BundlePricingCardProps> = ({
         {items.map((item, index) => (
           <div
             key={index}
-            className="flex items-start gap-3 p-3 bg-gray-50 rounded-lg"
+            className="flex items-start gap-3 p-3 bg-white/5 rounded-lg"
           >
             <span className="text-2xl">{categoryIcons[item.category]}</span>
             <div className="flex-1">
               <p className="text-sm font-semibold text-white">{item.name}</p>
-              <p className="text-xs text-gray-500">{categoryNames[item.category]}</p>
+              <p className="text-xs text-gray-400">{categoryNames[item.category]}</p>
               {item.quantity && item.quantity > 1 && (
                 <p className="text-xs text-purple-600 mt-1">
                   {item.quantity} {item.category === 'hotel' ? 'gece' : 'gün'}
@@ -107,7 +107,7 @@ const BundlePricingCard: React.FC<BundlePricingCardProps> = ({
 
       {/* Price Breakdown */}
       <div className="border-t border-white/10 pt-4 mb-4">
-        <div className="flex justify-between text-sm text-gray-600 mb-2">
+        <div className="flex justify-between text-sm text-gray-300 mb-2">
           <span>Ara Toplam</span>
           <span className="font-semibold">{formatCurrency(pricing.subtotal)}</span>
         </div>
@@ -183,7 +183,7 @@ const BundlePricingCard: React.FC<BundlePricingCardProps> = ({
           <p className="text-2xl font-bold text-purple-600">
             {pricing.ailydiانMiles.toLocaleString()} Miles
           </p>
-          <p className="text-xs text-gray-600 mt-1">
+          <p className="text-xs text-gray-300 mt-1">
             Sonraki rezervasyonunuzda kullanabilirsiniz
           </p>
         </div>
@@ -218,7 +218,7 @@ const BundlePricingCard: React.FC<BundlePricingCardProps> = ({
       </button>
 
       {/* Info Text */}
-      <div className="mt-4 flex items-start gap-2 text-xs text-gray-500">
+      <div className="mt-4 flex items-start gap-2 text-xs text-gray-400">
         <Info className="h-4 w-4 flex-shrink-0 mt-0.5" />
         <p>
           Ödeme sonrası rezervasyon onayınız email ve SMS ile gönderilecektir.
@@ -231,15 +231,15 @@ const BundlePricingCard: React.FC<BundlePricingCardProps> = ({
         <div className="grid grid-cols-3 gap-4 text-center">
           <div>
             <div className="text-2xl mb-1">🔒</div>
-            <p className="text-xs text-gray-600">Güvenli Ödeme</p>
+            <p className="text-xs text-gray-300">Güvenli Ödeme</p>
           </div>
           <div>
             <div className="text-2xl mb-1">✅</div>
-            <p className="text-xs text-gray-600">Anında Onay</p>
+            <p className="text-xs text-gray-300">Anında Onay</p>
           </div>
           <div>
             <div className="text-2xl mb-1">💳</div>
-            <p className="text-xs text-gray-600">3D Secure</p>
+            <p className="text-xs text-gray-300">3D Secure</p>
           </div>
         </div>
       </div>

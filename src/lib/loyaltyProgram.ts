@@ -388,13 +388,13 @@ export function getTierColorClasses(tier: 'standard' | 'silver' | 'gold' | 'vip'
 } {
   const colorMap = {
     standard: {
-      bg: 'bg-gray-100',
-      text: 'text-gray-800',
+      bg: 'bg-white/10',
+      text: 'text-white',
       border: 'border-gray-300'
     },
     silver: {
       bg: 'bg-gray-200',
-      text: 'text-gray-900',
+      text: 'text-white',
       border: 'border-gray-400'
     },
     gold: {

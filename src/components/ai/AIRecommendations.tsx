@@ -240,7 +240,7 @@ export const AIRecommendations: React.FC<AIRecommendationsProps> = ({
                     <h4 className="font-semibold text-sm text-white line-clamp-1 group-hover:text-purple-600 transition-colors">
                       {tour.title}
                     </h4>
-                    <div className="flex items-center gap-1 text-xs text-gray-600 mt-1">
+                    <div className="flex items-center gap-1 text-xs text-gray-300 mt-1">
                       <MapPin className="w-3 h-3" />
                       <span className="truncate">{tour.location}</span>
                     </div>
@@ -271,7 +271,7 @@ export const AIRecommendations: React.FC<AIRecommendationsProps> = ({
             <Zap className="w-3 h-3" />
             <span className="font-medium">Anlık AI Önerileri</span>
           </div>
-          <div className="flex items-center gap-1 text-gray-600">
+          <div className="flex items-center gap-1 text-gray-300">
             <TrendingUp className="w-3 h-3" />
             <span>{recommendations.length} öneri</span>
           </div>

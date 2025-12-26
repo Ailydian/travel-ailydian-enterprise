@@ -163,7 +163,7 @@ const ResponsiveCard: React.FC<ResponsiveCardProps> = ({
               className={`w-5 h-5 transition-all ${
                 isFavorited
                   ? 'fill-red-500 text-red-500 scale-110'
-                  : 'text-gray-700'
+                  : 'text-gray-200'
               }`}
             />
           </button>
@@ -199,7 +199,7 @@ const ResponsiveCard: React.FC<ResponsiveCardProps> = ({
               <span className="text-white text-sm font-bold">{rating.toFixed(1)}</span>
             </div>
             {reviewCount && (
-              <span className="text-xs text-gray-500">
+              <span className="text-xs text-gray-400">
                 ({reviewCount.toLocaleString('tr-TR')} değerlendirme)
               </span>
             )}
@@ -211,12 +211,12 @@ const ResponsiveCard: React.FC<ResponsiveCardProps> = ({
           {title}
         </h3>
         {subtitle && (
-          <p className="text-sm text-gray-600 mb-2 line-clamp-1">{subtitle}</p>
+          <p className="text-sm text-gray-300 mb-2 line-clamp-1">{subtitle}</p>
         )}
 
         {/* Location */}
         {location && (
-          <div className="flex items-center gap-1.5 text-gray-600 mb-3">
+          <div className="flex items-center gap-1.5 text-gray-300 mb-3">
             <MapPin className="w-4 h-4 text-lydian-primary" />
             <span className="text-sm line-clamp-1">{location}</span>
           </div>
@@ -228,13 +228,13 @@ const ResponsiveCard: React.FC<ResponsiveCardProps> = ({
             {features.slice(0, 3).map((feature, index) => (
               <span
                 key={index}
-                className="px-2 py-1 bg-gray-100 rounded-lg text-xs text-gray-700 font-medium"
+                className="px-2 py-1 bg-white/10 rounded-lg text-xs text-gray-200 font-medium"
               >
                 {feature}
               </span>
             ))}
             {features.length > 3 && (
-              <span className="px-2 py-1 bg-gray-100 rounded-lg text-xs text-gray-500">
+              <span className="px-2 py-1 bg-white/10 rounded-lg text-xs text-gray-400">
                 +{features.length - 3}
               </span>
             )}
@@ -256,9 +256,9 @@ const ResponsiveCard: React.FC<ResponsiveCardProps> = ({
               <span className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-lydian-primary to-lydian-secondary bg-clip-text text-transparent">
                 {price.toLocaleString('tr-TR')}
               </span>
-              <span className="text-sm text-gray-600 font-medium">{currency}</span>
+              <span className="text-sm text-gray-300 font-medium">{currency}</span>
             </div>
-            <p className="text-xs text-gray-500">kişi başı</p>
+            <p className="text-xs text-gray-400">kişi başı</p>
           </div>
 
           {/* Add to Cart Button */}

@@ -68,7 +68,7 @@ const AITravelPlanner: React.FC = () => {
 
       <SimplifiedHeader />
 
-      <main className="min-h-screen bg-gray-50">
+      <main className="min-h-screen bg-white/5">
         {/* Hero Section */}
         <section className="bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-700 py-20">
           <div className="max-w-7xl mx-auto px-4 text-center">
@@ -179,14 +179,14 @@ const AITravelPlanner: React.FC = () => {
                         <div className="flex items-center gap-4">
                           <button
                             onClick={() => setFormData({...formData, travelers: Math.max(1, formData.travelers - 1)})}
-                            className="p-2 border border-gray-300 rounded-lg hover:bg-gray-50"
+                            className="p-2 border border-gray-300 rounded-lg hover:bg-white/5"
                           >
                             <Minus className="w-4 h-4" />
                           </button>
                           <span className="text-xl font-semibold w-12 text-center">{formData.travelers}</span>
                           <button
                             onClick={() => setFormData({...formData, travelers: formData.travelers + 1})}
-                            className="p-2 border border-gray-300 rounded-lg hover:bg-gray-50"
+                            className="p-2 border border-gray-300 rounded-lg hover:bg-white/5"
                           >
                             <Plus className="w-4 h-4" />
                           </button>
@@ -319,7 +319,7 @@ const AITravelPlanner: React.FC = () => {
                   <button
                     onClick={() => setStep(Math.max(1, step - 1))}
                     disabled={step === 1}
-                    className="px-6 py-3 border border-gray-300 rounded-xl text-gray-200 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="px-6 py-3 border border-gray-300 rounded-xl text-gray-200 hover:bg-white/5 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     Geri
                   </button>

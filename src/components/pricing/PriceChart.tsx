@@ -135,7 +135,7 @@ export default function PriceChart({
             {currency} {(data.price || data.predictedPrice)?.toFixed(2)}
           </p>
           {isPredicted && data.confidence && (
-            <p className="text-xs text-gray-500 mt-1">
+            <p className="text-xs text-gray-400 mt-1">
               Confidence: {data.confidence}%
             </p>
           )}
@@ -155,7 +155,7 @@ export default function PriceChart({
 
   if (chartData.length === 0) {
     return (
-      <div className="flex flex-col items-center justify-center bg-gray-50 dark:bg-gray-900 rounded-lg p-8" style={{ height }}>
+      <div className="flex flex-col items-center justify-center bg-white/5 dark:bg-gray-900 rounded-lg p-8" style={{ height }}>
         <svg
           className="w-16 h-16 text-gray-400 mb-4"
           fill="none"
@@ -169,7 +169,7 @@ export default function PriceChart({
             d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
           />
         </svg>
-        <p className="text-gray-600 dark:text-gray-400 text-center">
+        <p className="text-gray-300 dark:text-gray-400 text-center">
           No price history available yet.
           <br />
           Start tracking to see price trends!
@@ -188,7 +188,7 @@ export default function PriceChart({
       {stats && (
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           <div className="bg-white/5 dark:bg-gray-800 p-4 rounded-lg shadow">
-            <p className="text-sm text-gray-600 dark:text-gray-400">Current Price</p>
+            <p className="text-sm text-gray-300 dark:text-gray-400">Current Price</p>
             <p className="text-2xl font-bold text-white dark:text-white">
               {currency} {currentPrice?.toFixed(2)}
             </p>
@@ -196,7 +196,7 @@ export default function PriceChart({
               <p className={`text-xs mt-1 ${
                 stats.trend === 'decreasing' ? 'text-green-600' :
                 stats.trend === 'increasing' ? 'text-red-600' :
-                'text-gray-600'
+                'text-gray-300'
               }`}>
                 {stats.trend === 'decreasing' ? '↓ Decreasing' :
                  stats.trend === 'increasing' ? '↑ Increasing' :
@@ -206,31 +206,31 @@ export default function PriceChart({
           </div>
 
           <div className="bg-white/5 dark:bg-gray-800 p-4 rounded-lg shadow">
-            <p className="text-sm text-gray-600 dark:text-gray-400">Lowest Price</p>
+            <p className="text-sm text-gray-300 dark:text-gray-400">Lowest Price</p>
             <p className="text-2xl font-bold text-green-600">
               {currency} {minPrice?.toFixed(2)}
             </p>
-            <p className="text-xs text-gray-500 mt-1">
+            <p className="text-xs text-gray-400 mt-1">
               Best deal recorded
             </p>
           </div>
 
           <div className="bg-white/5 dark:bg-gray-800 p-4 rounded-lg shadow">
-            <p className="text-sm text-gray-600 dark:text-gray-400">Highest Price</p>
+            <p className="text-sm text-gray-300 dark:text-gray-400">Highest Price</p>
             <p className="text-2xl font-bold text-red-600">
               {currency} {maxPrice?.toFixed(2)}
             </p>
-            <p className="text-xs text-gray-500 mt-1">
+            <p className="text-xs text-gray-400 mt-1">
               Peak price recorded
             </p>
           </div>
 
           <div className="bg-white/5 dark:bg-gray-800 p-4 rounded-lg shadow">
-            <p className="text-sm text-gray-600 dark:text-gray-400">Average Price</p>
+            <p className="text-sm text-gray-300 dark:text-gray-400">Average Price</p>
             <p className="text-2xl font-bold text-blue-600">
               {currency} {stats.avg}
             </p>
-            <p className="text-xs text-gray-500 mt-1">
+            <p className="text-xs text-gray-400 mt-1">
               {days}-day average
             </p>
           </div>
@@ -370,12 +370,12 @@ export default function PriceChart({
       <div className="flex items-center justify-center gap-6 text-sm">
         <div className="flex items-center gap-2">
           <div className="w-4 h-1 bg-green-500"></div>
-          <span className="text-gray-600 dark:text-gray-400">Actual Price</span>
+          <span className="text-gray-300 dark:text-gray-400">Actual Price</span>
         </div>
         {showPredictions && (
           <div className="flex items-center gap-2">
             <div className="w-4 h-1 bg-blue-500 border-dashed border-t-2 border-blue-500"></div>
-            <span className="text-gray-600 dark:text-gray-400">ML Prediction</span>
+            <span className="text-gray-300 dark:text-gray-400">ML Prediction</span>
           </div>
         )}
       </div>

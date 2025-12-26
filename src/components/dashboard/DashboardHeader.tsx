@@ -94,7 +94,7 @@ const DashboardHeader: React.FC<DashboardHeaderProps> = ({
             {/* Mobile menu toggle */}
             <button
               onClick={onMenuClick}
-              className="lg:hidden p-2 rounded-md text-gray-500 hover:bg-gray-100 hover:text-white transition-colors"
+              className="lg:hidden p-2 rounded-md text-gray-400 hover:bg-white/10 hover:text-white transition-colors"
               aria-label="Open menu"
             >
               <Menu className="h-6 w-6" />
@@ -110,7 +110,7 @@ const DashboardHeader: React.FC<DashboardHeaderProps> = ({
                   {crumb.href ? (
                     <Link
                       href={crumb.href}
-                      className="text-gray-500 hover:text-gray-700 transition-colors truncate"
+                      className="text-gray-400 hover:text-gray-200 transition-colors truncate"
                     >
                       {crumb.label}
                     </Link>
@@ -148,7 +148,7 @@ const DashboardHeader: React.FC<DashboardHeaderProps> = ({
             <div className="relative" ref={notificationsRef}>
               <button
                 onClick={() => setNotificationsOpen(!notificationsOpen)}
-                className="relative p-2 text-gray-500 hover:bg-gray-100 rounded-lg transition-colors"
+                className="relative p-2 text-gray-400 hover:bg-white/10 rounded-lg transition-colors"
                 aria-label="Notifications"
                 aria-expanded={notificationsOpen}
               >
@@ -170,17 +170,17 @@ const DashboardHeader: React.FC<DashboardHeaderProps> = ({
                     {notifications.map((notification) => (
                       <button
                         key={notification.id}
-                        className="w-full px-4 py-3 text-left hover:bg-gray-50 transition-colors border-b border-gray-100 last:border-b-0"
+                        className="w-full px-4 py-3 text-left hover:bg-white/5 transition-colors border-b border-gray-100 last:border-b-0"
                       >
                         <div className="flex items-start space-x-3">
                           {notification.unread && (
                             <span className="mt-1.5 h-2 w-2 bg-blue-600 rounded-full flex-shrink-0" />
                           )}
                           <div className="flex-1 min-w-0">
-                            <p className={`text-sm ${notification.unread ? 'font-medium text-white' : 'text-gray-700'}`}>
+                            <p className={`text-sm ${notification.unread ? 'font-medium text-white' : 'text-gray-200'}`}>
                               {notification.title}
                             </p>
-                            <p className="text-xs text-gray-500 mt-1">{notification.time}</p>
+                            <p className="text-xs text-gray-400 mt-1">{notification.time}</p>
                           </div>
                         </div>
                       </button>
@@ -202,7 +202,7 @@ const DashboardHeader: React.FC<DashboardHeaderProps> = ({
             <div className="relative" ref={userMenuRef}>
               <button
                 onClick={() => setUserMenuOpen(!userMenuOpen)}
-                className="flex items-center space-x-3 p-1.5 rounded-lg hover:bg-gray-100 transition-colors"
+                className="flex items-center space-x-3 p-1.5 rounded-lg hover:bg-white/10 transition-colors"
                 aria-label="User menu"
                 aria-expanded={userMenuOpen}
               >
@@ -221,7 +221,7 @@ const DashboardHeader: React.FC<DashboardHeaderProps> = ({
                 )}
                 <div className="hidden md:block text-left">
                   <p className="text-sm font-medium text-white">{userName}</p>
-                  <p className="text-xs text-gray-500">Host</p>
+                  <p className="text-xs text-gray-400">Host</p>
                 </div>
               </button>
 
@@ -230,32 +230,32 @@ const DashboardHeader: React.FC<DashboardHeaderProps> = ({
                 <div className="absolute right-0 mt-2 w-56 bg-white/5 rounded-lg shadow-lg border border-white/10 py-1">
                   <div className="px-4 py-3 border-b border-white/10">
                     <p className="text-sm font-medium text-white">{userName}</p>
-                    <p className="text-xs text-gray-500 truncate">{userEmail}</p>
+                    <p className="text-xs text-gray-400 truncate">{userEmail}</p>
                   </div>
 
                   <div className="py-1">
                     <Link
                       href="/dashboard/profile"
-                      className="flex items-center space-x-3 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors"
+                      className="flex items-center space-x-3 px-4 py-2 text-sm text-gray-200 hover:bg-white/5 transition-colors"
                       onClick={() => setUserMenuOpen(false)}
                     >
-                      <User className="h-4 w-4 text-gray-500" />
+                      <User className="h-4 w-4 text-gray-400" />
                       <span>Profile</span>
                     </Link>
                     <Link
                       href="/dashboard/settings"
-                      className="flex items-center space-x-3 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors"
+                      className="flex items-center space-x-3 px-4 py-2 text-sm text-gray-200 hover:bg-white/5 transition-colors"
                       onClick={() => setUserMenuOpen(false)}
                     >
-                      <Settings className="h-4 w-4 text-gray-500" />
+                      <Settings className="h-4 w-4 text-gray-400" />
                       <span>Settings</span>
                     </Link>
                     <Link
                       href="/help"
-                      className="flex items-center space-x-3 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors"
+                      className="flex items-center space-x-3 px-4 py-2 text-sm text-gray-200 hover:bg-white/5 transition-colors"
                       onClick={() => setUserMenuOpen(false)}
                     >
-                      <HelpCircle className="h-4 w-4 text-gray-500" />
+                      <HelpCircle className="h-4 w-4 text-gray-400" />
                       <span>Help & Support</span>
                     </Link>
                   </div>

@@ -51,9 +51,9 @@ const LocationMap: React.FC<LocationMapProps> = ({
             <MapPin className="w-12 h-12 text-red-500 mx-auto mb-4" />
             <h3 className="text-lg font-semibold text-gray-100 mb-2">{locationName}</h3>
             {address && (
-              <p className="text-sm text-gray-600 mb-2">{address}</p>
+              <p className="text-sm text-gray-300 mb-2">{address}</p>
             )}
-            <div className="text-xs text-gray-500">
+            <div className="text-xs text-gray-400">
               <p>Lat: {coordinates.lat.toFixed(6)}</p>
               <p>Lng: {coordinates.lng.toFixed(6)}</p>
             </div>
@@ -62,10 +62,10 @@ const LocationMap: React.FC<LocationMapProps> = ({
 
         {/* Map Controls */}
         <div className="absolute top-4 right-4 flex flex-col space-y-2">
-          <button className="bg-white/5 shadow-md rounded p-2 hover:bg-gray-50 transition-colors">
+          <button className="bg-white/5 shadow-md rounded p-2 hover:bg-white/5 transition-colors">
             <span className="text-lg font-bold">+</span>
           </button>
-          <button className="bg-white/5 shadow-md rounded p-2 hover:bg-gray-50 transition-colors">
+          <button className="bg-white/5 shadow-md rounded p-2 hover:bg-white/5 transition-colors">
             <span className="text-lg font-bold">-</span>
           </button>
         </div>

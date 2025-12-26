@@ -186,7 +186,7 @@ export default function ForgotPassword() {
                     </button>
                     <Link
                       href="/auth/signin"
-                      className="w-full px-6 py-3 bg-gray-100 text-gray-200 rounded-lg font-semibold hover:bg-gray-200 transition-all text-center"
+                      className="w-full px-6 py-3 bg-white/10 text-gray-200 rounded-lg font-semibold hover:bg-gray-200 transition-all text-center"
                     >
                       Giriş Sayfasına Dön
                     </Link>

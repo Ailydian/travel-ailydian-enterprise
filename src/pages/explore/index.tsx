@@ -63,7 +63,7 @@ const ExplorePage: NextPage = () => {
 
       <FuturisticHeader />
 
-      <main className="min-h-screen bg-gray-50">
+      <main className="min-h-screen bg-white/5">
         {/* Hero Section */}
         <ExploreHero />
 

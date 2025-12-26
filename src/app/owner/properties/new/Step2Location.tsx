@@ -100,7 +100,7 @@ export default function Step2Location({ data }: Step2Props) {
         </label>
         <select
           {...register('country')}
-          className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all bg-white"
+          className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all bg-white/5"
         >
           <option value="">Ülke seçin</option>
           {countries.map((country) => (
@@ -215,7 +215,7 @@ export default function Step2Location({ data }: Step2Props) {
           <Globe className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
           <select
             {...register('timezone')}
-            className="w-full pl-12 pr-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all bg-white"
+            className="w-full pl-12 pr-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all bg-white/5"
           >
             <option value="">Saat dilimi seçin</option>
             {timezones.map((tz) => (
@@ -405,7 +405,7 @@ export default function Step2Location({ data }: Step2Props) {
               </label>
               <select
                 {...register('livingAreas.kitchenType')}
-                className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all bg-white"
+                className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all bg-white/5"
               >
                 <option value="full">Tam Mutfak</option>
                 <option value="kitchenette">Mini Mutfak</option>

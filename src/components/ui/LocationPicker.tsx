@@ -362,7 +362,7 @@ export const LocationPicker: React.FC<LocationPickerProps> = ({
   if (!isClient) {
     return (
       <div className="bg-white/5 rounded-xl border border-white/10 p-6">
-        <div className="h-96 bg-gray-100 rounded-lg animate-pulse flex items-center justify-center">
+        <div className="h-96 bg-white/10 rounded-lg animate-pulse flex items-center justify-center">
           <MapPin className="w-12 h-12 text-gray-400" />
         </div>
       </div>
@@ -404,7 +404,7 @@ export const LocationPicker: React.FC<LocationPickerProps> = ({
                   setSearchResults([]);
                   setLocationError('');
                 }}
-                className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-300"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -418,7 +418,7 @@ export const LocationPicker: React.FC<LocationPickerProps> = ({
                 <button
                   key={index}
                   onClick={() => selectSearchResult(result)}
-                  className="w-full px-4 py-3 text-left hover:bg-gray-50 border-b border-gray-100 last:border-0 transition-colors"
+                  className="w-full px-4 py-3 text-left hover:bg-white/5 border-b border-gray-100 last:border-0 transition-colors"
                 >
                   <div className="flex items-start gap-2">
                     <MapPin className="w-4 h-4 text-lydian-primary mt-1 flex-shrink-0" />
@@ -427,7 +427,7 @@ export const LocationPicker: React.FC<LocationPickerProps> = ({
                         {result.display_name}
                       </p>
                       {result.address && (
-                        <p className="text-xs text-gray-500 mt-1">
+                        <p className="text-xs text-gray-400 mt-1">
                           {[
                             result.address.city || result.address.town || result.address.village,
                             result.address.state,
@@ -474,13 +474,13 @@ export const LocationPicker: React.FC<LocationPickerProps> = ({
         )}
 
         {/* Map */}
-        <div className="relative h-96 rounded-lg overflow-hidden border border-white/10 bg-gray-100">
+        <div className="relative h-96 rounded-lg overflow-hidden border border-white/10 bg-white/10">
           <div id="location-map" className="w-full h-full"></div>
           {!isMapReady && (
-            <div className="absolute inset-0 flex items-center justify-center bg-gray-100">
+            <div className="absolute inset-0 flex items-center justify-center bg-white/10">
               <div className="text-center">
                 <Loader2 className="w-8 h-8 text-gray-400 animate-spin mx-auto mb-2" />
-                <p className="text-sm text-gray-600">Harita yükleniyor...</p>
+                <p className="text-sm text-gray-300">Harita yükleniyor...</p>
               </div>
             </div>
           )}

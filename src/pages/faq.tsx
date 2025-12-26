@@ -289,7 +289,7 @@ export default function FAQ() {
                       >
                         <button
                           onClick={() => toggleQuestion(category.id, index)}
-                          className="w-full px-6 py-4 flex items-center justify-between text-left hover:bg-gray-50 transition-colors"
+                          className="w-full px-6 py-4 flex items-center justify-between text-left hover:bg-white/5 transition-colors"
                         >
                           <span className="font-semibold text-white pr-4">{q.question}</span>
                           <ChevronDown

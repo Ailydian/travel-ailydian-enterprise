@@ -373,7 +373,7 @@ export default function Activities() {
       case 'Kolay': return 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200';
       case 'Orta': return 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200';
       case 'Zor': return 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200';
-      default: return 'bg-gray-100 text-gray-100 dark:bg-gray-700 dark:text-gray-200';
+      default: return 'bg-white/10 text-gray-100 dark:bg-gray-700 dark:text-gray-200';
     }
   };
 
@@ -427,7 +427,7 @@ export default function Activities() {
               </h2>
               <button
                 onClick={() => setShowFilters(!showFilters)}
-                className="flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors relative"
+                className="flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-lg hover:bg-white/5 transition-colors relative"
               >
                 <SlidersHorizontal className="w-4 h-4" />
                 Gelişmiş Filtreler
@@ -664,7 +664,7 @@ export default function Activities() {
                           </span>
                         ))}
                         {activity.highlights.length > 2 && (
-                          <span className="text-xs text-gray-500 px-2 py-1">
+                          <span className="text-xs text-gray-400 px-2 py-1">
                             +{activity.highlights.length - 2} daha
                           </span>
                         )}
@@ -684,7 +684,7 @@ export default function Activities() {
                           </span>
                         ))}
                         {activity.includes.length > 3 && (
-                          <span className="text-xs text-gray-500 px-2 py-1">
+                          <span className="text-xs text-gray-400 px-2 py-1">
                             +{activity.includes.length - 3} daha
                           </span>
                         )}
@@ -696,7 +696,7 @@ export default function Activities() {
                         <div>
                           <div className="flex items-center space-x-2">
                             {activity.originalPrice && (
-                              <span className="text-sm text-gray-500 line-through">
+                              <span className="text-sm text-gray-400 line-through">
                                 {activity.originalPrice}
                               </span>
                             )}
@@ -704,7 +704,7 @@ export default function Activities() {
                               {activity.price}
                             </span>
                           </div>
-                          <span className="text-xs text-gray-500">
+                          <span className="text-xs text-gray-400">
                             {activity.reviews.toLocaleString()} değerlendirme
                           </span>
                         </div>

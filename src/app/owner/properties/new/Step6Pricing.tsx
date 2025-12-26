@@ -187,7 +187,7 @@ export default function Step6Pricing({ data }: Step6Props) {
 
           {/* Pet Types (conditional) */}
           {watch('policies.petsAllowed') && (
-            <div className="ml-14 p-4 bg-white border border-slate-200 rounded-lg">
+            <div className="ml-14 p-4 bg-white/5 border border-slate-200 rounded-lg">
               <label className="block text-sm font-medium text-slate-700 mb-2">
                 İzin Verilen Evcil Hayvan Türleri
               </label>
@@ -382,7 +382,7 @@ export default function Step6Pricing({ data }: Step6Props) {
                 className={`w-full p-4 border-2 rounded-lg text-left transition-all ${
                   isSelected
                     ? 'border-blue-500 bg-blue-50'
-                    : 'border-slate-200 bg-white hover:border-slate-300'
+                    : 'border-slate-200 bg-white/5 hover:border-slate-300'
                 }`}
               >
                 <div className="flex items-start justify-between">
@@ -396,7 +396,7 @@ export default function Step6Pricing({ data }: Step6Props) {
                         }`}
                       >
                         {isSelected && (
-                          <div className="w-2 h-2 bg-white rounded-full" />
+                          <div className="w-2 h-2 bg-white/5 rounded-full" />
                         )}
                       </div>
                       <h4

@@ -536,7 +536,7 @@ export default function AdminDashboard() {
                         <p className="text-2xl font-bold text-white mb-0.5">
                           {formatNumber(dashboardData.overview.totalPhotos)}
                         </p>
-                        <p className="text-xs text-gray-500">Toplam medya içeriği</p>
+                        <p className="text-xs text-gray-400">Toplam medya içeriği</p>
                       </div>
                     </div>
                   </div>
@@ -567,7 +567,7 @@ export default function AdminDashboard() {
                               }}
                             />
                           ))}
-                          <span className="ml-1 text-xs text-gray-500">5 üzerinden</span>
+                          <span className="ml-1 text-xs text-gray-400">5 üzerinden</span>
                         </div>
                       </div>
                     </div>
@@ -589,7 +589,7 @@ export default function AdminDashboard() {
                         <p className="text-2xl font-bold text-white mb-0.5">
                           {formatNumber(dashboardData.vehicleRental.totalVehicles)}
                         </p>
-                        <p className="text-xs text-gray-500">Filo büyüklüğü</p>
+                        <p className="text-xs text-gray-400">Filo büyüklüğü</p>
                       </div>
                     </div>
                   </div>
@@ -604,7 +604,7 @@ export default function AdminDashboard() {
                         <p className="text-2xl font-bold text-white mb-0.5">
                           {formatNumber(dashboardData.vehicleRental.activeRentals)}
                         </p>
-                        <p className="text-xs text-gray-500">Devam eden kiralama</p>
+                        <p className="text-xs text-gray-400">Devam eden kiralama</p>
                       </div>
                     </div>
                   </div>
@@ -619,7 +619,7 @@ export default function AdminDashboard() {
                         <p className="text-2xl font-bold text-white mb-0.5">
                           ₺{formatNumber(dashboardData.vehicleRental.monthlyRevenue)}
                         </p>
-                        <p className="text-xs text-gray-500">Aylık gelir</p>
+                        <p className="text-xs text-gray-400">Aylık gelir</p>
                       </div>
                     </div>
                   </div>
@@ -658,7 +658,7 @@ export default function AdminDashboard() {
                         <p className="text-2xl font-bold text-white mb-0.5">
                           {formatNumber(dashboardData.transferService.totalFleet)}
                         </p>
-                        <p className="text-xs text-gray-500">Transfer araçları</p>
+                        <p className="text-xs text-gray-400">Transfer araçları</p>
                       </div>
                     </div>
                   </div>
@@ -673,7 +673,7 @@ export default function AdminDashboard() {
                         <p className="text-2xl font-bold text-white mb-0.5">
                           {formatNumber(dashboardData.transferService.activeTransfers)}
                         </p>
-                        <p className="text-xs text-gray-500">Devam eden transfer</p>
+                        <p className="text-xs text-gray-400">Devam eden transfer</p>
                       </div>
                     </div>
                   </div>
@@ -688,7 +688,7 @@ export default function AdminDashboard() {
                         <p className="text-2xl font-bold text-white mb-0.5">
                           ₺{formatNumber(dashboardData.transferService.monthlyRevenue)}
                         </p>
-                        <p className="text-xs text-gray-500">Aylık gelir</p>
+                        <p className="text-xs text-gray-400">Aylık gelir</p>
                       </div>
                     </div>
                   </div>
@@ -725,8 +725,8 @@ export default function AdminDashboard() {
                       </div>
                       <div className="flex space-x-1">
                         <button className="px-3 py-1 text-xs text-white rounded-lg transition-colors" style={{background: AILYDIAN_COLORS.primary}}>30G</button>
-                        <button className="px-3 py-1 text-xs text-gray-300 hover:bg-gray-100 rounded-lg transition-colors">7G</button>
-                        <button className="px-3 py-1 text-xs text-gray-300 hover:bg-gray-100 rounded-lg transition-colors">24S</button>
+                        <button className="px-3 py-1 text-xs text-gray-300 hover:bg-white/10 rounded-lg transition-colors">7G</button>
+                        <button className="px-3 py-1 text-xs text-gray-300 hover:bg-white/10 rounded-lg transition-colors">24S</button>
                       </div>
                     </div>
                     <div className="h-80">
@@ -856,7 +856,7 @@ export default function AdminDashboard() {
                     </div>
                     <div className="space-y-3">
                       {dashboardData.recentActivity.map((activity, index) => (
-                        <div key={index} className="flex items-start space-x-4 p-4 border border-gray-100 rounded-xl hover:shadow-md transition-all hover:bg-gray-50/50">
+                        <div key={index} className="flex items-start space-x-4 p-4 border border-gray-100 rounded-xl hover:shadow-md transition-all hover:bg-white/5/50">
                           <div
                             className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center text-white"
                             style={{
@@ -879,7 +879,7 @@ export default function AdminDashboard() {
                             <div className="flex items-start justify-between">
                               <div>
                                 <p className="text-sm font-medium text-white">{activity.description}</p>
-                                <div className="flex items-center space-x-3 text-xs text-gray-500 mt-1">
+                                <div className="flex items-center space-x-3 text-xs text-gray-400 mt-1">
                                   <div className="flex items-center">
                                     <Clock className="w-3 h-3 mr-1" />
                                     <span>{formatDateTurkish(activity.timestamp)}</span>
@@ -938,7 +938,7 @@ export default function AdminDashboard() {
                           <span className="font-bold text-red-600">{dashboardData.platformStats.syncErrors}</span>
                         </div>
                         <div className="pt-3 border-t border-white/10">
-                          <p className="text-xs text-gray-500 flex items-center">
+                          <p className="text-xs text-gray-400 flex items-center">
                             <Zap className="w-3 h-3 mr-1" />
                             Son senkronizasyon: {formatDateTurkish(dashboardData.platformStats.lastSync)}
                           </p>

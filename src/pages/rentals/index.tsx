@@ -428,7 +428,7 @@ const RentalsPage: React.FC = () => {
               </div>
 
               {/* View Toggle */}
-              <div className="flex items-center gap-2 bg-gray-100 p-1 rounded-xl">
+              <div className="flex items-center gap-2 bg-white/10 p-1 rounded-xl">
                 <button
                   onClick={() => setViewMode('grid')}
                   className={`px-4 py-2 rounded-lg font-medium transition-all ${
@@ -522,7 +522,7 @@ const RentalsPage: React.FC = () => {
                             className={`px-3 py-2 rounded-lg text-sm font-medium transition-all ${
                               filters.propertyType === type.value
                                 ? 'bg-gradient-to-r from-red-600 to-orange-500 text-white shadow-md'
-                                : 'bg-gray-50 text-gray-200 hover:bg-gray-100'
+                                : 'bg-white/5 text-gray-200 hover:bg-white/10'
                             }`}
                           >
                             {type.label}
@@ -584,7 +584,7 @@ const RentalsPage: React.FC = () => {
                           onClick={() =>
                             setFilters({ ...filters, guests: Math.max(0, filters.guests - 1) })
                           }
-                          className="w-10 h-10 bg-gray-100 rounded-lg font-bold text-gray-200 hover:bg-gray-200 transition-all"
+                          className="w-10 h-10 bg-white/10 rounded-lg font-bold text-gray-200 hover:bg-gray-200 transition-all"
                         >
                           -
                         </button>
@@ -593,7 +593,7 @@ const RentalsPage: React.FC = () => {
                         </div>
                         <button
                           onClick={() => setFilters({ ...filters, guests: filters.guests + 1 })}
-                          className="w-10 h-10 bg-gray-100 rounded-lg font-bold text-gray-200 hover:bg-gray-200 transition-all"
+                          className="w-10 h-10 bg-white/10 rounded-lg font-bold text-gray-200 hover:bg-gray-200 transition-all"
                         >
                           +
                         </button>
@@ -610,7 +610,7 @@ const RentalsPage: React.FC = () => {
                           onClick={() =>
                             setFilters({ ...filters, bedrooms: Math.max(0, filters.bedrooms - 1) })
                           }
-                          className="w-10 h-10 bg-gray-100 rounded-lg font-bold text-gray-200 hover:bg-gray-200 transition-all"
+                          className="w-10 h-10 bg-white/10 rounded-lg font-bold text-gray-200 hover:bg-gray-200 transition-all"
                         >
                           -
                         </button>
@@ -619,7 +619,7 @@ const RentalsPage: React.FC = () => {
                         </div>
                         <button
                           onClick={() => setFilters({ ...filters, bedrooms: filters.bedrooms + 1 })}
-                          className="w-10 h-10 bg-gray-100 rounded-lg font-bold text-gray-200 hover:bg-gray-200 transition-all"
+                          className="w-10 h-10 bg-white/10 rounded-lg font-bold text-gray-200 hover:bg-gray-200 transition-all"
                         >
                           +
                         </button>
@@ -636,7 +636,7 @@ const RentalsPage: React.FC = () => {
                         {AMENITIES.map((amenity) => (
                           <label
                             key={amenity.id}
-                            className="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 cursor-pointer transition-all"
+                            className="flex items-center gap-3 p-2 rounded-lg hover:bg-white/5 cursor-pointer transition-all"
                           >
                             <input
                               type="checkbox"
@@ -709,7 +709,7 @@ const RentalsPage: React.FC = () => {
                             className={`flex-1 px-3 py-2 rounded-lg text-sm font-medium transition-all ${
                               filters.rating === rating
                                 ? 'bg-gradient-to-r from-red-600 to-orange-500 text-white shadow-md'
-                                : 'bg-gray-50 text-gray-200 hover:bg-gray-100'
+                                : 'bg-white/5 text-gray-200 hover:bg-white/10'
                             }`}
                           >
                             {rating === 0 ? 'Tümü' : `${rating}+`}
@@ -1183,7 +1183,7 @@ const PropertyCard: React.FC<PropertyCardProps> = ({
                 <span className="text-sm font-normal text-gray-300"> / gece</span>
               </p>
             </div>
-            <span className="text-xs text-gray-500 uppercase font-semibold">{property.type}</span>
+            <span className="text-xs text-gray-400 uppercase font-semibold">{property.type}</span>
           </div>
         </div>
       </Link>

@@ -15,7 +15,7 @@ export default function CancellationPolicy() {
 
       <FuturisticHeader />
 
-      <main className="min-h-screen bg-gray-50">
+      <main className="min-h-screen bg-white/5">
         {/* Hero Section */}
         <div className="bg-gradient-to-r from-lydian-primary to-lydian-dark text-white py-16">
           <div className="max-w-7xl mx-auto px-4">
@@ -310,7 +310,7 @@ export default function CancellationPolicy() {
 
         {/* Last Updated */}
         <div className="max-w-4xl mx-auto px-4 pb-12">
-          <p className="text-center text-gray-500 text-sm">
+          <p className="text-center text-gray-400 text-sm">
             Son güncelleme: 26 Aralık 2025 | Bu politika önceden haber verilmeksizin değiştirilebilir.
           </p>
         </div>

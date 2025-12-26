@@ -146,7 +146,7 @@ const NavigationManager = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50">
       {/* Header */}
-      <div className="bg-white border-b border-slate-200 sticky top-0 z-40 backdrop-blur-xl bg-white/80">
+      <div className="bg-white/5 border-b border-slate-200 sticky top-0 z-40 backdrop-blur-xl bg-white/80">
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
@@ -185,7 +185,7 @@ const NavigationManager = () => {
         <div className="grid grid-cols-12 gap-6">
           {/* Menu Type Selector */}
           <div className="col-span-3">
-            <div className="bg-white rounded-xl shadow-sm p-4 sticky top-24">
+            <div className="bg-white/5 rounded-xl shadow-sm p-4 sticky top-24">
               <h3 className="text-sm font-semibold text-slate-700 mb-3">Menü Tipi</h3>
               <div className="space-y-2">
                 {menuTypes.map((type) => {
@@ -215,7 +215,7 @@ const NavigationManager = () => {
 
           {/* Menu List */}
           <div className="col-span-9">
-            <div className="bg-white rounded-xl shadow-sm overflow-hidden">
+            <div className="bg-white/5 rounded-xl shadow-sm overflow-hidden">
               <div className="p-6 border-b border-slate-200">
                 <div className="flex items-center justify-between">
                   <div>
@@ -412,10 +412,10 @@ const MenuModal = ({ menu, onClose, onSave, saving, parentMenus }: any) => {
         initial={{ scale: 0.95, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         exit={{ scale: 0.95, opacity: 0 }}
-        className="bg-white rounded-xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto"
+        className="bg-white/5 rounded-xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="sticky top-0 bg-white border-b border-slate-200 px-6 py-4 flex items-center justify-between z-10">
+        <div className="sticky top-0 bg-white/5 border-b border-slate-200 px-6 py-4 flex items-center justify-between z-10">
           <h2 className="text-xl font-bold text-slate-900">
             {menu ? 'Menüyü Düzenle' : 'Yeni Menü Ekle'}
           </h2>

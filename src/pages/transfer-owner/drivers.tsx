@@ -432,7 +432,7 @@ export default function DriversPage() {
                 </div>
                 <button
                   onClick={() => removeToast(toast.id)}
-                  className="p-1 hover:bg-gray-100 rounded"
+                  className="p-1 hover:bg-white/10 rounded"
                 >
                   <X className="w-4 h-4 text-gray-400" />
                 </button>
@@ -817,7 +817,7 @@ export default function DriversPage() {
                   const licenseExpiringSoon = isLicenseExpiringSoon(driver.licenseExpiry);
 
                   return (
-                    <tr key={driver.id} className="hover:bg-gray-50 transition-colors">
+                    <tr key={driver.id} className="hover:bg-white/5 transition-colors">
                       <td className="px-6 py-4">
                         <div className="flex items-center gap-3">
                           {driver.photo ? (
@@ -960,7 +960,7 @@ export default function DriversPage() {
                 </h2>
                 <button
                   onClick={() => setShowAddModal(false)}
-                  className="p-2 hover:bg-gray-100 rounded-lg"
+                  className="p-2 hover:bg-white/10 rounded-lg"
                 >
                   <X className="w-5 h-5" />
                 </button>
@@ -1170,7 +1170,7 @@ export default function DriversPage() {
                 </h2>
                 <button
                   onClick={() => setShowEditModal(false)}
-                  className="p-2 hover:bg-gray-100 rounded-lg"
+                  className="p-2 hover:bg-white/10 rounded-lg"
                 >
                   <X className="w-5 h-5" />
                 </button>

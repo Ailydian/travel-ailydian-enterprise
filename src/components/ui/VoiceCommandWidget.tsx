@@ -278,7 +278,7 @@ export const VoiceCommandWidget: React.FC = () => {
                 <div className="mb-8">
                   <h3 className="text-2xl font-bold text-white mb-4 flex items-center gap-2">
                     ⚡ Popüler Komutlar
-                    <span className="text-sm font-normal text-gray-500">(En çok kullanılanlar)</span>
+                    <span className="text-sm font-normal text-gray-400">(En çok kullanılanlar)</span>
                   </h3>
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
                     {[
@@ -300,7 +300,7 @@ export const VoiceCommandWidget: React.FC = () => {
                       >
                         <div className="text-3xl mb-2">{item.icon}</div>
                         <div className="font-bold text-white text-sm mb-1">"{item.cmd}"</div>
-                        <div className="text-xs text-gray-600">{item.desc}</div>
+                        <div className="text-xs text-gray-300">{item.desc}</div>
                       </motion.button>
                     ))}
                   </div>
@@ -336,12 +336,12 @@ export const VoiceCommandWidget: React.FC = () => {
                                 <h4 className="font-semibold text-white mb-1">
                                   "{cmd.command}"
                                 </h4>
-                                <p className="text-sm text-gray-600 mb-2">{cmd.description}</p>
+                                <p className="text-sm text-gray-300 mb-2">{cmd.description}</p>
                                 <div className="flex flex-wrap gap-2">
                                   {cmd.patterns.map((pattern, i) => (
                                     <span
                                       key={i}
-                                      className="text-xs px-2 py-1 bg-white/5 rounded-lg text-gray-700 border border-purple-200"
+                                      className="text-xs px-2 py-1 bg-white/5 rounded-lg text-gray-200 border border-purple-200"
                                     >
                                       💬 {pattern}
                                     </span>
@@ -408,7 +408,7 @@ export const VoiceCommandWidget: React.FC = () => {
 
                 {/* Footer Message */}
                 <div className="mt-6 text-center p-6 bg-gradient-to-r from-purple-100 via-blue-100 to-cyan-100 rounded-xl border-2 border-purple-200">
-                  <p className="text-gray-700 text-lg">
+                  <p className="text-gray-200 text-lg">
                     🌟 <strong>İpucu:</strong> "Komutlar" diyerek bu paneli istediğiniz zaman açabilirsiniz!
                   </p>
                 </div>

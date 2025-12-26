@@ -113,7 +113,7 @@ const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
           {/* Desktop collapse toggle */}
           <button
             onClick={onToggleCollapse}
-            className="hidden lg:block p-1.5 rounded-md hover:bg-gray-100 text-gray-500"
+            className="hidden lg:block p-1.5 rounded-md hover:bg-white/10 text-gray-400"
             aria-label={isCollapsed ? 'Expand sidebar' : 'Collapse sidebar'}
           >
             {isCollapsed ? (
@@ -130,16 +130,16 @@ const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
             <div className="relative">
               <button
                 onClick={() => setPropertyDropdownOpen(!propertyDropdownOpen)}
-                className="w-full flex items-center justify-between px-3 py-2 text-sm font-medium text-white bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
+                className="w-full flex items-center justify-between px-3 py-2 text-sm font-medium text-white bg-white/5 rounded-lg hover:bg-white/10 transition-colors"
                 aria-expanded={propertyDropdownOpen}
                 aria-haspopup="true"
               >
                 <div className="flex items-center space-x-2 flex-1 min-w-0">
-                  <Building2 className="h-5 w-5 text-gray-500 flex-shrink-0" />
+                  <Building2 className="h-5 w-5 text-gray-400 flex-shrink-0" />
                   <span className="truncate">{selectedProperty}</span>
                 </div>
                 <ChevronDown
-                  className={`h-4 w-4 text-gray-500 transition-transform flex-shrink-0 ${
+                  className={`h-4 w-4 text-gray-400 transition-transform flex-shrink-0 ${
                     propertyDropdownOpen ? 'rotate-180' : ''
                   }`}
                 />
@@ -155,10 +155,10 @@ const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
                         setSelectedProperty(property);
                         setPropertyDropdownOpen(false);
                       }}
-                      className={`w-full text-left px-4 py-2 text-sm hover:bg-gray-50 transition-colors ${
+                      className={`w-full text-left px-4 py-2 text-sm hover:bg-white/5 transition-colors ${
                         selectedProperty === property
                           ? 'text-blue-600 font-medium bg-blue-50'
-                          : 'text-gray-700'
+                          : 'text-gray-200'
                       }`}
                     >
                       {property}
@@ -193,13 +193,13 @@ const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
                       ${
                         active
                           ? 'bg-blue-50 text-blue-700'
-                          : 'text-gray-700 hover:bg-gray-100 hover:text-white'
+                          : 'text-gray-200 hover:bg-white/10 hover:text-white'
                       }
                     `}
                     aria-current={active ? 'page' : undefined}
                     title={isCollapsed ? item.name : undefined}
                   >
-                    <Icon className={`h-5 w-5 flex-shrink-0 ${active ? 'text-blue-700' : 'text-gray-500'}`} />
+                    <Icon className={`h-5 w-5 flex-shrink-0 ${active ? 'text-blue-700' : 'text-gray-400'}`} />
                     {!isCollapsed && <span>{item.name}</span>}
                   </Link>
                 </li>

@@ -130,7 +130,7 @@ export const BookingSearchForm: React.FC<SearchFormProps> = ({
                   relative flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 px-3 sm:px-6 py-2 sm:py-3 rounded-t-md font-bold transition-all whitespace-nowrap min-w-[70px] sm:min-w-0
                   ${isActive
                     ? 'bg-white/5 text-lydian-primary shadow-lg'
-                    : 'bg-white/90 text-gray-700 hover:bg-white/5 hover:text-white'
+                    : 'bg-white/90 text-gray-200 hover:bg-white/5 hover:text-white'
                   }
                 `}
               >
@@ -168,7 +168,7 @@ export const BookingSearchForm: React.FC<SearchFormProps> = ({
         <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
           {/* Destination */}
           <div className="md:col-span-4">
-            <label className="block text-sm font-semibold text-gray-700 mb-2">
+            <label className="block text-sm font-semibold text-gray-200 mb-2">
               {activeTab === 'hotels' ? 'Nereye gidiyorsunuz?' :
                activeTab === 'tours' ? 'Hangi şehir?' :
                activeTab === 'cars' ? 'Nereden alacaksınız?' :
@@ -188,7 +188,7 @@ export const BookingSearchForm: React.FC<SearchFormProps> = ({
 
           {/* Check-in Date */}
           <div className="md:col-span-3">
-            <label className="block text-sm font-semibold text-gray-700 mb-2">
+            <label className="block text-sm font-semibold text-gray-200 mb-2">
               Giriş Tarihi
             </label>
             <div className="relative">
@@ -204,7 +204,7 @@ export const BookingSearchForm: React.FC<SearchFormProps> = ({
 
           {/* Check-out Date */}
           <div className="md:col-span-3">
-            <label className="block text-sm font-semibold text-gray-700 mb-2">
+            <label className="block text-sm font-semibold text-gray-200 mb-2">
               Çıkış Tarihi
             </label>
             <div className="relative">
@@ -220,7 +220,7 @@ export const BookingSearchForm: React.FC<SearchFormProps> = ({
 
           {/* Guests Selector */}
           <div className="md:col-span-2 relative">
-            <label className="block text-sm font-semibold text-gray-700 mb-2">
+            <label className="block text-sm font-semibold text-gray-200 mb-2">
               Misafirler
             </label>
             <button
@@ -247,7 +247,7 @@ export const BookingSearchForm: React.FC<SearchFormProps> = ({
                   <div className="flex items-center justify-between py-3 border-b">
                     <div>
                       <div className="font-semibold text-white">Yetişkinler</div>
-                      <div className="text-xs text-gray-500">18 yaş ve üzeri</div>
+                      <div className="text-xs text-gray-400">18 yaş ve üzeri</div>
                     </div>
                     <div className="flex items-center gap-3">
                       <button
@@ -270,7 +270,7 @@ export const BookingSearchForm: React.FC<SearchFormProps> = ({
                   <div className="flex items-center justify-between py-3 border-b">
                     <div>
                       <div className="font-semibold text-white">Çocuklar</div>
-                      <div className="text-xs text-gray-500">0-17 yaş</div>
+                      <div className="text-xs text-gray-400">0-17 yaş</div>
                     </div>
                     <div className="flex items-center gap-3">
                       <button
@@ -293,7 +293,7 @@ export const BookingSearchForm: React.FC<SearchFormProps> = ({
                   <div className="flex items-center justify-between py-3">
                     <div>
                       <div className="font-semibold text-white">Odalar</div>
-                      <div className="text-xs text-gray-500">Kaç oda?</div>
+                      <div className="text-xs text-gray-400">Kaç oda?</div>
                     </div>
                     <div className="flex items-center gap-3">
                       <button
@@ -339,12 +339,12 @@ export const BookingSearchForm: React.FC<SearchFormProps> = ({
 
         {/* Quick Tips */}
         <div className="mt-4 flex flex-wrap gap-2">
-          <span className="text-xs text-gray-500">Popüler aramalar:</span>
+          <span className="text-xs text-gray-400">Popüler aramalar:</span>
           {['İstanbul', 'Antalya', 'Kapadokya', 'Bodrum'].map((city) => (
             <button
               key={city}
               onClick={() => setDestination(city)}
-              className="text-xs px-3 py-1 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-full transition-colors"
+              className="text-xs px-3 py-1 bg-white/10 hover:bg-gray-200 text-gray-200 rounded-full transition-colors"
             >
               {city}
             </button>

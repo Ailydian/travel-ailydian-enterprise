@@ -36,7 +36,7 @@ const DestinationPage: NextPage = () => {
 
       <FuturisticHeader />
 
-      <main className="min-h-screen bg-gray-50">
+      <main className="min-h-screen bg-white/5">
         {/* Hero Section */}
         <div className="relative h-[500px]">
           <img src={destination.images.hero} alt={destData.name} className="absolute inset-0 w-full h-full object-cover" />
@@ -72,12 +72,12 @@ const DestinationPage: NextPage = () => {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             <div className="lg:col-span-2 space-y-6">
               <div>
-                <h2 className="text-3xl font-black text-gray-900 mb-4">{t('explore.destination.overview')}</h2>
-                <p className="text-lg text-gray-700 leading-relaxed">{destData.overview}</p>
+                <h2 className="text-3xl font-black text-white mb-4">{t('explore.destination.overview')}</h2>
+                <p className="text-lg text-gray-200 leading-relaxed">{destData.overview}</p>
               </div>
 
-              <div className="bg-white rounded-xl p-6 shadow-md">
-                <h3 className="text-xl font-bold text-gray-900 mb-4">{t('explore.destination.bestFor')}</h3>
+              <div className="bg-white/5 rounded-xl p-6 shadow-md">
+                <h3 className="text-xl font-bold text-white mb-4">{t('explore.destination.bestFor')}</h3>
                 <div className="flex flex-wrap gap-2">
                   {destData.bestFor.map((item, index) => (
                     <span key={index} className="px-4 py-2 bg-lydian-primary/10 text-lydian-primary rounded-full font-semibold">
@@ -89,12 +89,12 @@ const DestinationPage: NextPage = () => {
 
               {/* Things to Do */}
               <div>
-                <h3 className="text-2xl font-black text-gray-900 mb-4">{destData.thingsToDo.title}</h3>
+                <h3 className="text-2xl font-black text-white mb-4">{destData.thingsToDo.title}</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {destData.thingsToDo.items.map((item, index) => (
-                    <div key={index} className="bg-white rounded-lg p-4 shadow-md">
-                      <h4 className="font-bold text-gray-900 mb-2">{item.name}</h4>
-                      <p className="text-sm text-gray-600">{item.description}</p>
+                    <div key={index} className="bg-white/5 rounded-lg p-4 shadow-md">
+                      <h4 className="font-bold text-white mb-2">{item.name}</h4>
+                      <p className="text-sm text-gray-300">{item.description}</p>
                     </div>
                   ))}
                 </div>
@@ -104,28 +104,28 @@ const DestinationPage: NextPage = () => {
             {/* Sidebar */}
             <div className="space-y-6">
               {/* Weather */}
-              <div className="bg-white rounded-xl p-6 shadow-md">
+              <div className="bg-white/5 rounded-xl p-6 shadow-md">
                 <div className="flex items-center gap-2 mb-4">
                   <ThermometerSun className="w-6 h-6 text-lydian-primary" />
-                  <h3 className="text-lg font-bold text-gray-900">{t('explore.destination.weather')}</h3>
+                  <h3 className="text-lg font-bold text-white">{t('explore.destination.weather')}</h3>
                 </div>
                 <div className="space-y-3">
                   <div className="flex justify-between items-center">
-                    <span className="text-gray-600">{t('explore.destination.summer')}</span>
+                    <span className="text-gray-300">{t('explore.destination.summer')}</span>
                     <span className="font-bold text-2xl text-orange-500">{destination.weather.avgTemp.summer}°C</span>
                   </div>
                   <div className="flex justify-between items-center">
-                    <span className="text-gray-600">{t('explore.destination.winter')}</span>
+                    <span className="text-gray-300">{t('explore.destination.winter')}</span>
                     <span className="font-bold text-2xl text-blue-500">{destination.weather.avgTemp.winter}°C</span>
                   </div>
                 </div>
               </div>
 
               {/* Best Months */}
-              <div className="bg-white rounded-xl p-6 shadow-md">
+              <div className="bg-white/5 rounded-xl p-6 shadow-md">
                 <div className="flex items-center gap-2 mb-4">
                   <Calendar className="w-6 h-6 text-lydian-primary" />
-                  <h3 className="text-lg font-bold text-gray-900">{t('explore.destination.bestMonths')}</h3>
+                  <h3 className="text-lg font-bold text-white">{t('explore.destination.bestMonths')}</h3>
                 </div>
                 <div className="flex flex-wrap gap-2">
                   {destination.weather.bestMonths.map((month, index) => (
@@ -137,16 +137,16 @@ const DestinationPage: NextPage = () => {
               </div>
 
               {/* Top Attractions */}
-              <div className="bg-white rounded-xl p-6 shadow-md">
+              <div className="bg-white/5 rounded-xl p-6 shadow-md">
                 <div className="flex items-center gap-2 mb-4">
                   <Star className="w-6 h-6 text-lydian-primary" />
-                  <h3 className="text-lg font-bold text-gray-900">{t('explore.destination.topAttractions')}</h3>
+                  <h3 className="text-lg font-bold text-white">{t('explore.destination.topAttractions')}</h3>
                 </div>
                 <ul className="space-y-2">
                   {destination.topAttractions.map((attr, index) => (
                     <li key={index} className="flex items-start gap-2">
                       <span className="text-lydian-primary mt-1">•</span>
-                      <span className="text-gray-700">{attr}</span>
+                      <span className="text-gray-200">{attr}</span>
                     </li>
                   ))}
                 </ul>
@@ -156,11 +156,11 @@ const DestinationPage: NextPage = () => {
         </section>
 
         {/* Top Experiences */}
-        <section className="bg-white py-16">
+        <section className="bg-white/5 py-16">
           <div className="max-w-7xl mx-auto px-4">
             <div className="flex items-center gap-3 mb-8">
               <TrendingUp className="w-8 h-8 text-lydian-primary" />
-              <h2 className="text-3xl font-black text-gray-900">{t('explore.destination.topExperiences')}</h2>
+              <h2 className="text-3xl font-black text-white">{t('explore.destination.topExperiences')}</h2>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {topTours.map((tour) => (

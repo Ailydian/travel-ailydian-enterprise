@@ -31,7 +31,7 @@ const ThingsToDoPage: NextPage = () => {
 
       <FuturisticHeader />
 
-      <main className="min-h-screen bg-gray-50">
+      <main className="min-h-screen bg-white/5">
         {/* Page Header */}
         <div className="bg-gradient-to-r from-blue-600 to-indigo-700 py-12">
           <div className="max-w-7xl mx-auto px-4">

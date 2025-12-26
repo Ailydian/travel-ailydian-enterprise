@@ -198,10 +198,10 @@ const VehicleOwnerDashboard: React.FC = () => {
 
   if (loading || !stats) {
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+      <div className="min-h-screen bg-white/5 flex items-center justify-center">
         <div className="text-center">
           <RefreshCw className="h-12 w-12 text-purple-600 animate-spin mx-auto mb-4" />
-          <p className="text-gray-600">Dashboard yükleniyor...</p>
+          <p className="text-gray-300">Dashboard yükleniyor...</p>
         </div>
       </div>
     );
@@ -256,17 +256,17 @@ const VehicleOwnerDashboard: React.FC = () => {
         <meta name="description" content="Vehicle owner dashboard with driver management" />
       </Head>
 
-      <div className="min-h-screen bg-gray-50">
+      <div className="min-h-screen bg-white/5">
         {/* Header */}
-        <div className="bg-white border-b border-gray-200">
+        <div className="bg-white/5 border-b border-gray-200">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
             <div className="flex items-center justify-between">
               <div>
-                <h1 className="text-3xl font-bold text-gray-900 flex items-center gap-3">
+                <h1 className="text-3xl font-bold text-white flex items-center gap-3">
                   <Car className="h-8 w-8 text-purple-600" />
                   Şoförlü Araç Partner Dashboard
                 </h1>
-                <p className="text-sm text-gray-600 mt-1">
+                <p className="text-sm text-gray-300 mt-1">
                   Araç filosu, sürücü yönetimi ve rezervasyon takibi
                 </p>
               </div>
@@ -303,7 +303,7 @@ const VehicleOwnerDashboard: React.FC = () => {
                   className={`px-4 py-2 font-medium border-b-2 transition-colors ${
                     selectedTab === tab
                       ? 'border-purple-600 text-purple-600'
-                      : 'border-transparent text-gray-600 hover:text-gray-900'
+                      : 'border-transparent text-gray-300 hover:text-white'
                   }`}
                 >
                   {tab === 'overview' && 'Genel Bakış'}
@@ -347,7 +347,7 @@ const VehicleOwnerDashboard: React.FC = () => {
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="bg-white rounded-xl shadow-md p-6"
+                  className="bg-white/5 rounded-xl shadow-md p-6"
                 >
                   <div className="flex items-center justify-between mb-4">
                     <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
@@ -359,8 +359,8 @@ const VehicleOwnerDashboard: React.FC = () => {
                       <TrendingDown className="h-5 w-5 text-red-600" />
                     )}
                   </div>
-                  <p className="text-sm text-gray-600 mb-1">Aylık Gelir</p>
-                  <p className="text-2xl font-bold text-gray-900">
+                  <p className="text-sm text-gray-300 mb-1">Aylık Gelir</p>
+                  <p className="text-2xl font-bold text-white">
                     ₺{stats.revenue.thisMonth.toLocaleString()}
                   </p>
                   <p className={`text-xs mt-2 ${stats.revenue.growth > 0 ? 'text-green-600' : 'text-red-600'}`}>
@@ -373,7 +373,7 @@ const VehicleOwnerDashboard: React.FC = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1 }}
-                  className="bg-white rounded-xl shadow-md p-6"
+                  className="bg-white/5 rounded-xl shadow-md p-6"
                 >
                   <div className="flex items-center justify-between mb-4">
                     <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
@@ -383,9 +383,9 @@ const VehicleOwnerDashboard: React.FC = () => {
                       Aktif
                     </span>
                   </div>
-                  <p className="text-sm text-gray-600 mb-1">Aktif Rezervasyonlar</p>
-                  <p className="text-2xl font-bold text-gray-900">{stats.bookings.active}</p>
-                  <p className="text-xs text-gray-500 mt-2">
+                  <p className="text-sm text-gray-300 mb-1">Aktif Rezervasyonlar</p>
+                  <p className="text-2xl font-bold text-white">{stats.bookings.active}</p>
+                  <p className="text-xs text-gray-400 mt-2">
                     {stats.bookings.upcoming} yaklaşan rezervasyon
                   </p>
                 </motion.div>
@@ -395,7 +395,7 @@ const VehicleOwnerDashboard: React.FC = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2 }}
-                  className="bg-white rounded-xl shadow-md p-6"
+                  className="bg-white/5 rounded-xl shadow-md p-6"
                 >
                   <div className="flex items-center justify-between mb-4">
                     <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
@@ -403,8 +403,8 @@ const VehicleOwnerDashboard: React.FC = () => {
                     </div>
                     <CheckCircle className="h-5 w-5 text-green-600" />
                   </div>
-                  <p className="text-sm text-gray-600 mb-1">Müsait Araçlar</p>
-                  <p className="text-2xl font-bold text-gray-900">
+                  <p className="text-sm text-gray-300 mb-1">Müsait Araçlar</p>
+                  <p className="text-2xl font-bold text-white">
                     {stats.vehicles.available}/{stats.vehicles.total}
                   </p>
                   <div className="mt-2 bg-gray-200 rounded-full h-2">
@@ -420,7 +420,7 @@ const VehicleOwnerDashboard: React.FC = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3 }}
-                  className="bg-white rounded-xl shadow-md p-6"
+                  className="bg-white/5 rounded-xl shadow-md p-6"
                 >
                   <div className="flex items-center justify-between mb-4">
                     <div className="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center">
@@ -439,11 +439,11 @@ const VehicleOwnerDashboard: React.FC = () => {
                       ))}
                     </div>
                   </div>
-                  <p className="text-sm text-gray-600 mb-1">Müşteri Memnuniyeti</p>
-                  <p className="text-2xl font-bold text-gray-900">
+                  <p className="text-sm text-gray-300 mb-1">Müşteri Memnuniyeti</p>
+                  <p className="text-2xl font-bold text-white">
                     {stats.performance.customerRating.toFixed(1)}/5.0
                   </p>
-                  <p className="text-xs text-gray-500 mt-2">
+                  <p className="text-xs text-gray-400 mt-2">
                     {stats.bookings.completed} tamamlanmış rezervasyon
                   </p>
                 </motion.div>
@@ -455,9 +455,9 @@ const VehicleOwnerDashboard: React.FC = () => {
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="bg-white rounded-xl shadow-md p-6"
+                  className="bg-white/5 rounded-xl shadow-md p-6"
                 >
-                  <h2 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+                  <h2 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
                     <BarChart3 className="h-5 w-5 text-purple-600" />
                     Gelir Trendi (6 Ay)
                   </h2>
@@ -469,9 +469,9 @@ const VehicleOwnerDashboard: React.FC = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1 }}
-                  className="bg-white rounded-xl shadow-md p-6"
+                  className="bg-white/5 rounded-xl shadow-md p-6"
                 >
-                  <h2 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+                  <h2 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
                     <PieChart className="h-5 w-5 text-purple-600" />
                     Araç Tipi Dağılımı
                   </h2>
@@ -483,9 +483,9 @@ const VehicleOwnerDashboard: React.FC = () => {
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="bg-white rounded-xl shadow-md p-6"
+                className="bg-white/5 rounded-xl shadow-md p-6"
               >
-                <h2 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+                <h2 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
                   <Calendar className="h-5 w-5 text-purple-600" />
                   Rezervasyon Durumu
                 </h2>
@@ -499,9 +499,9 @@ const VehicleOwnerDashboard: React.FC = () => {
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="bg-white rounded-xl shadow-md p-6"
+              className="bg-white/5 rounded-xl shadow-md p-6"
             >
-              <h2 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+              <h2 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
                 <Car className="h-5 w-5 text-purple-600" />
                 Araç Filosu ({vehicles.length})
               </h2>
@@ -514,8 +514,8 @@ const VehicleOwnerDashboard: React.FC = () => {
                   >
                     <div className="flex items-start justify-between mb-3">
                       <div>
-                        <p className="font-bold text-gray-900">{vehicle.brand} {vehicle.model}</p>
-                        <p className="text-sm text-gray-600">{vehicle.year} • {vehicle.plateNumber}</p>
+                        <p className="font-bold text-white">{vehicle.brand} {vehicle.model}</p>
+                        <p className="text-sm text-gray-300">{vehicle.year} • {vehicle.plateNumber}</p>
                       </div>
                       <span
                         className={`px-3 py-1 text-xs font-bold rounded-full ${
@@ -533,19 +533,19 @@ const VehicleOwnerDashboard: React.FC = () => {
                     </div>
 
                     <div className="grid grid-cols-2 gap-2 mb-3 text-sm">
-                      <div className="flex items-center gap-2 text-gray-700">
+                      <div className="flex items-center gap-2 text-gray-200">
                         <Users className="h-4 w-4 text-gray-400" />
                         <span>{vehicle.capacity} kişi</span>
                       </div>
-                      <div className="flex items-center gap-2 text-gray-700">
+                      <div className="flex items-center gap-2 text-gray-200">
                         <Gauge className="h-4 w-4 text-gray-400" />
                         <span>{vehicle.totalKm.toLocaleString()} km</span>
                       </div>
-                      <div className="flex items-center gap-2 text-gray-700">
+                      <div className="flex items-center gap-2 text-gray-200">
                         <Fuel className="h-4 w-4 text-gray-400" />
                         <span>{vehicle.fuelLevel}%</span>
                       </div>
-                      <div className="flex items-center gap-2 text-gray-700">
+                      <div className="flex items-center gap-2 text-gray-200">
                         <DollarSign className="h-4 w-4 text-gray-400" />
                         <span>₺{vehicle.dailyRate}/gün</span>
                       </div>
@@ -553,11 +553,11 @@ const VehicleOwnerDashboard: React.FC = () => {
 
                     <div className="border-t border-gray-200 pt-3 mt-3">
                       <div className="flex items-center justify-between text-sm mb-2">
-                        <span className="text-gray-600">Sürücü:</span>
-                        <span className="font-medium text-gray-900">{vehicle.driver}</span>
+                        <span className="text-gray-300">Sürücü:</span>
+                        <span className="font-medium text-white">{vehicle.driver}</span>
                       </div>
                       <div className="flex items-center justify-between text-sm mb-2">
-                        <span className="text-gray-600">Doluluk:</span>
+                        <span className="text-gray-300">Doluluk:</span>
                         <span className="font-medium text-purple-600">{vehicle.utilization}%</span>
                       </div>
                       <div className="bg-gray-200 rounded-full h-2 mb-3">
@@ -581,38 +581,38 @@ const VehicleOwnerDashboard: React.FC = () => {
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="bg-white rounded-xl shadow-md p-6"
+              className="bg-white/5 rounded-xl shadow-md p-6"
             >
-              <h2 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+              <h2 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
                 <Users className="h-5 w-5 text-purple-600" />
                 Sürücü Kadrosu ({drivers.length})
               </h2>
 
               <div className="overflow-x-auto">
                 <table className="w-full">
-                  <thead className="bg-gray-50">
+                  <thead className="bg-white/5">
                     <tr>
-                      <th className="px-4 py-3 text-left text-xs font-bold text-gray-700 uppercase">Sürücü</th>
-                      <th className="px-4 py-3 text-left text-xs font-bold text-gray-700 uppercase">Durum</th>
-                      <th className="px-4 py-3 text-left text-xs font-bold text-gray-700 uppercase">Deneyim</th>
-                      <th className="px-4 py-3 text-left text-xs font-bold text-gray-700 uppercase">Puan</th>
-                      <th className="px-4 py-3 text-left text-xs font-bold text-gray-700 uppercase">Sefer</th>
-                      <th className="px-4 py-3 text-left text-xs font-bold text-gray-700 uppercase">Gelir</th>
-                      <th className="px-4 py-3 text-left text-xs font-bold text-gray-700 uppercase">Araç</th>
-                      <th className="px-4 py-3 text-left text-xs font-bold text-gray-700 uppercase">İletişim</th>
+                      <th className="px-4 py-3 text-left text-xs font-bold text-gray-200 uppercase">Sürücü</th>
+                      <th className="px-4 py-3 text-left text-xs font-bold text-gray-200 uppercase">Durum</th>
+                      <th className="px-4 py-3 text-left text-xs font-bold text-gray-200 uppercase">Deneyim</th>
+                      <th className="px-4 py-3 text-left text-xs font-bold text-gray-200 uppercase">Puan</th>
+                      <th className="px-4 py-3 text-left text-xs font-bold text-gray-200 uppercase">Sefer</th>
+                      <th className="px-4 py-3 text-left text-xs font-bold text-gray-200 uppercase">Gelir</th>
+                      <th className="px-4 py-3 text-left text-xs font-bold text-gray-200 uppercase">Araç</th>
+                      <th className="px-4 py-3 text-left text-xs font-bold text-gray-200 uppercase">İletişim</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-gray-200">
                     {drivers.map((driver) => (
-                      <tr key={driver.id} className="hover:bg-gray-50">
+                      <tr key={driver.id} className="hover:bg-white/5">
                         <td className="px-4 py-4">
                           <div className="flex items-center gap-3">
                             <div className="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center font-bold text-purple-600">
                               {driver.name.charAt(0)}
                             </div>
                             <div>
-                              <p className="font-medium text-gray-900">{driver.name}</p>
-                              <p className="text-xs text-gray-500">{driver.licenseType} Ehliyet</p>
+                              <p className="font-medium text-white">{driver.name}</p>
+                              <p className="text-xs text-gray-400">{driver.licenseType} Ehliyet</p>
                             </div>
                           </div>
                         </td>
@@ -623,29 +623,29 @@ const VehicleOwnerDashboard: React.FC = () => {
                                 ? 'bg-green-100 text-green-800'
                                 : driver.status === 'available'
                                 ? 'bg-blue-100 text-blue-800'
-                                : 'bg-gray-100 text-gray-800'
+                                : 'bg-white/10 text-white'
                             }`}
                           >
                             {driver.status === 'active' ? 'Aktif' : driver.status === 'available' ? 'Müsait' : 'İzinli'}
                           </span>
                         </td>
                         <td className="px-4 py-4">
-                          <span className="text-sm font-medium text-gray-900">{driver.experienceYears} yıl</span>
+                          <span className="text-sm font-medium text-white">{driver.experienceYears} yıl</span>
                         </td>
                         <td className="px-4 py-4">
                           <div className="flex items-center gap-1">
                             <Star className="h-4 w-4 text-yellow-400 fill-yellow-400" />
-                            <span className="font-bold text-gray-900">{driver.rating.toFixed(1)}</span>
+                            <span className="font-bold text-white">{driver.rating.toFixed(1)}</span>
                           </div>
                         </td>
                         <td className="px-4 py-4">
-                          <span className="text-sm font-medium text-gray-900">{driver.completedTrips}</span>
+                          <span className="text-sm font-medium text-white">{driver.completedTrips}</span>
                         </td>
                         <td className="px-4 py-4">
                           <span className="font-bold text-purple-600">₺{driver.earnings.toLocaleString()}</span>
                         </td>
                         <td className="px-4 py-4">
-                          <span className="text-sm text-gray-700">{driver.currentVehicle || '-'}</span>
+                          <span className="text-sm text-gray-200">{driver.currentVehicle || '-'}</span>
                         </td>
                         <td className="px-4 py-4">
                           <div className="flex items-center gap-2">
@@ -670,9 +670,9 @@ const VehicleOwnerDashboard: React.FC = () => {
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="bg-white rounded-xl shadow-md p-6"
+              className="bg-white/5 rounded-xl shadow-md p-6"
             >
-              <h2 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+              <h2 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
                 <Calendar className="h-5 w-5 text-purple-600" />
                 Rezervasyonlar ({bookings.length})
               </h2>
@@ -685,8 +685,8 @@ const VehicleOwnerDashboard: React.FC = () => {
                   >
                     <div className="flex items-start justify-between mb-3">
                       <div>
-                        <p className="font-bold text-gray-900">{booking.customer}</p>
-                        <p className="text-sm text-gray-600">{booking.vehicle} • {booking.driver}</p>
+                        <p className="font-bold text-white">{booking.customer}</p>
+                        <p className="text-sm text-gray-300">{booking.vehicle} • {booking.driver}</p>
                       </div>
                       <span
                         className={`px-3 py-1 text-xs font-bold rounded-full ${
@@ -695,7 +695,7 @@ const VehicleOwnerDashboard: React.FC = () => {
                             : booking.status === 'confirmed'
                             ? 'bg-green-100 text-green-800'
                             : booking.status === 'completed'
-                            ? 'bg-gray-100 text-gray-800'
+                            ? 'bg-white/10 text-white'
                             : 'bg-red-100 text-red-800'
                         }`}
                       >
@@ -705,31 +705,31 @@ const VehicleOwnerDashboard: React.FC = () => {
 
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-3">
                       <div>
-                        <p className="text-xs text-gray-600">Başlangıç</p>
-                        <p className="text-sm font-medium text-gray-900">{booking.startDate}</p>
+                        <p className="text-xs text-gray-300">Başlangıç</p>
+                        <p className="text-sm font-medium text-white">{booking.startDate}</p>
                       </div>
                       <div>
-                        <p className="text-xs text-gray-600">Bitiş</p>
-                        <p className="text-sm font-medium text-gray-900">{booking.endDate}</p>
+                        <p className="text-xs text-gray-300">Bitiş</p>
+                        <p className="text-sm font-medium text-white">{booking.endDate}</p>
                       </div>
                       <div>
-                        <p className="text-xs text-gray-600">Süre</p>
-                        <p className="text-sm font-medium text-gray-900">{booking.days} gün</p>
+                        <p className="text-xs text-gray-300">Süre</p>
+                        <p className="text-sm font-medium text-white">{booking.days} gün</p>
                       </div>
                       <div>
-                        <p className="text-xs text-gray-600">Ücret</p>
+                        <p className="text-xs text-gray-300">Ücret</p>
                         <p className="text-sm font-bold text-purple-600">₺{booking.price.toLocaleString()}</p>
                       </div>
                     </div>
 
                     <div className="flex items-center gap-2 mb-3">
                       <MapPin className="h-4 w-4 text-gray-400" />
-                      <span className="text-sm text-gray-700">{booking.pickupLocation} → {booking.destination}</span>
+                      <span className="text-sm text-gray-200">{booking.pickupLocation} → {booking.destination}</span>
                     </div>
 
                     <div className="flex flex-wrap gap-2">
                       {booking.services.map((service, idx) => (
-                        <span key={idx} className="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded">
+                        <span key={idx} className="px-2 py-1 bg-white/10 text-gray-200 text-xs rounded">
                           {service}
                         </span>
                       ))}

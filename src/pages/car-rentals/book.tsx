@@ -451,7 +451,7 @@ const CarRentalBookingPage: React.FC = () => {
                       className={`w-12 h-12 rounded-full flex items-center justify-center font-bold transition-all ${
                         currentStep >= step.number
                           ? 'bg-gradient-to-r from-blue-600 to-cyan-600 text-white shadow-lg'
-                          : 'bg-gray-200 text-gray-500'
+                          : 'bg-gray-200 text-gray-400'
                       }`}
                     >
                       {currentStep > step.number ? (
@@ -688,7 +688,7 @@ const CarRentalBookingPage: React.FC = () => {
                             >
                               <div className="flex items-start gap-4">
                                 <div className={`w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 ${
-                                  isSelected ? 'bg-purple-600 text-white' : 'bg-gray-100 text-gray-300'
+                                  isSelected ? 'bg-purple-600 text-white' : 'bg-white/10 text-gray-300'
                                 }`}>
                                   <extra.icon className="w-6 h-6" />
                                 </div>
@@ -939,7 +939,7 @@ const CarRentalBookingPage: React.FC = () => {
                             ) : null;
                           })
                         ) : (
-                          <p className="text-sm text-gray-500">Ekstra hizmet seçilmedi</p>
+                          <p className="text-sm text-gray-400">Ekstra hizmet seçilmedi</p>
                         )}
                       </div>
                     </div>
@@ -983,14 +983,14 @@ const CarRentalBookingPage: React.FC = () => {
                 {currentStep > 1 ? (
                   <button
                     onClick={handleBack}
-                    className="flex items-center gap-2 px-6 py-3 border border-white/20 text-gray-200 rounded-lg hover:bg-gray-50 transition-colors"
+                    className="flex items-center gap-2 px-6 py-3 border border-white/20 text-gray-200 rounded-lg hover:bg-white/5 transition-colors"
                   >
                     <ChevronLeft className="w-5 h-5" />
                     Geri
                   </button>
                 ) : (
                   <Link href={`/car-rentals/${slug}`}>
-                    <button className="flex items-center gap-2 px-6 py-3 border border-white/20 text-gray-200 rounded-lg hover:bg-gray-50 transition-colors">
+                    <button className="flex items-center gap-2 px-6 py-3 border border-white/20 text-gray-200 rounded-lg hover:bg-white/5 transition-colors">
                       <ChevronLeft className="w-5 h-5" />
                       Araç Detayı
                     </button>
@@ -1083,7 +1083,7 @@ const CarRentalBookingPage: React.FC = () => {
                   </button>
                 )}
 
-                <p className="text-xs text-gray-500 text-center mt-4">
+                <p className="text-xs text-gray-400 text-center mt-4">
                   256-bit SSL ile güvenli rezervasyon
                 </p>
               </div>

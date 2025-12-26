@@ -244,7 +244,7 @@ const CarRentalBookingForm: React.FC<BookingFormProps> = ({
                 className={`w-10 h-10 rounded-full flex items-center justify-center font-bold transition-all ${
                   step >= s
                     ? 'bg-blue-600 text-white'
-                    : 'bg-gray-200 text-gray-500'
+                    : 'bg-gray-200 text-gray-400'
                 }`}
               >
                 {step > s ? <Check className="w-6 h-6" /> : s}
@@ -260,13 +260,13 @@ const CarRentalBookingForm: React.FC<BookingFormProps> = ({
           ))}
         </div>
         <div className="flex justify-between text-sm">
-          <span className={step >= 1 ? 'text-blue-600 font-semibold' : 'text-gray-500'}>
+          <span className={step >= 1 ? 'text-blue-600 font-semibold' : 'text-gray-400'}>
             Kiralama Detayları
           </span>
-          <span className={step >= 2 ? 'text-blue-600 font-semibold' : 'text-gray-500'}>
+          <span className={step >= 2 ? 'text-blue-600 font-semibold' : 'text-gray-400'}>
             Müşteri Bilgileri
           </span>
-          <span className={step >= 3 ? 'text-blue-600 font-semibold' : 'text-gray-500'}>
+          <span className={step >= 3 ? 'text-blue-600 font-semibold' : 'text-gray-400'}>
             Ödeme Bilgileri
           </span>
         </div>
@@ -294,7 +294,7 @@ const CarRentalBookingForm: React.FC<BookingFormProps> = ({
                   {/* Pickup Date & Time */}
                   <div className="grid grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-gray-200 mb-2">
                         <Calendar className="w-4 h-4 inline mr-1" />
                         Alış Tarihi *
                       </label>
@@ -314,7 +314,7 @@ const CarRentalBookingForm: React.FC<BookingFormProps> = ({
                       )}
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-gray-200 mb-2">
                         Alış Saati *
                       </label>
                       <input
@@ -334,7 +334,7 @@ const CarRentalBookingForm: React.FC<BookingFormProps> = ({
                   {/* Return Date & Time */}
                   <div className="grid grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-gray-200 mb-2">
                         <Calendar className="w-4 h-4 inline mr-1" />
                         İade Tarihi *
                       </label>
@@ -354,7 +354,7 @@ const CarRentalBookingForm: React.FC<BookingFormProps> = ({
                       )}
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-gray-200 mb-2">
                         İade Saati *
                       </label>
                       <input
@@ -373,7 +373,7 @@ const CarRentalBookingForm: React.FC<BookingFormProps> = ({
 
                   {/* Pickup Location */}
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium text-gray-200 mb-2">
                       <MapPin className="w-4 h-4 inline mr-1" />
                       Alış Lokasyonu *
                     </label>
@@ -398,7 +398,7 @@ const CarRentalBookingForm: React.FC<BookingFormProps> = ({
 
                   {/* Return Location */}
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium text-gray-200 mb-2">
                       <MapPin className="w-4 h-4 inline mr-1" />
                       İade Lokasyonu *
                     </label>
@@ -425,7 +425,7 @@ const CarRentalBookingForm: React.FC<BookingFormProps> = ({
                   <div className="border-t border-white/10 pt-6">
                     <h3 className="font-semibold text-white mb-4">Ekstra Hizmetler</h3>
                     <div className="space-y-3">
-                      <label className="flex items-center justify-between p-3 bg-gray-50 rounded-lg cursor-pointer hover:bg-gray-100">
+                      <label className="flex items-center justify-between p-3 bg-white/5 rounded-lg cursor-pointer hover:bg-white/10">
                         <div className="flex items-center gap-3">
                           <input
                             type="checkbox"
@@ -435,13 +435,13 @@ const CarRentalBookingForm: React.FC<BookingFormProps> = ({
                           />
                           <div>
                             <p className="font-medium text-white">Ek Sürücü</p>
-                            <p className="text-xs text-gray-500">İkinci bir sürücü ekleyin</p>
+                            <p className="text-xs text-gray-400">İkinci bir sürücü ekleyin</p>
                           </div>
                         </div>
                         <span className="text-sm font-bold text-white">+₺100/gün</span>
                       </label>
 
-                      <label className="flex items-center justify-between p-3 bg-gray-50 rounded-lg cursor-pointer hover:bg-gray-100">
+                      <label className="flex items-center justify-between p-3 bg-white/5 rounded-lg cursor-pointer hover:bg-white/10">
                         <div className="flex items-center gap-3">
                           <input
                             type="checkbox"
@@ -454,13 +454,13 @@ const CarRentalBookingForm: React.FC<BookingFormProps> = ({
                               <Shield className="w-4 h-4 text-blue-600" />
                               Tam Kasko Sigortası
                             </p>
-                            <p className="text-xs text-gray-500">Muafiyetsiz tam koruma</p>
+                            <p className="text-xs text-gray-400">Muafiyetsiz tam koruma</p>
                           </div>
                         </div>
                         <span className="text-sm font-bold text-white">+₺100/gün</span>
                       </label>
 
-                      <label className="flex items-center justify-between p-3 bg-gray-50 rounded-lg cursor-pointer hover:bg-gray-100">
+                      <label className="flex items-center justify-between p-3 bg-white/5 rounded-lg cursor-pointer hover:bg-white/10">
                         <div className="flex items-center gap-3">
                           <input
                             type="checkbox"
@@ -473,13 +473,13 @@ const CarRentalBookingForm: React.FC<BookingFormProps> = ({
                               <Navigation className="w-4 h-4 text-blue-600" />
                               GPS Navigasyon
                             </p>
-                            <p className="text-xs text-gray-500">Kolay yol bulma</p>
+                            <p className="text-xs text-gray-400">Kolay yol bulma</p>
                           </div>
                         </div>
                         <span className="text-sm font-bold text-white">+₺50/gün</span>
                       </label>
 
-                      <label className="flex items-center justify-between p-3 bg-gray-50 rounded-lg cursor-pointer hover:bg-gray-100">
+                      <label className="flex items-center justify-between p-3 bg-white/5 rounded-lg cursor-pointer hover:bg-white/10">
                         <div className="flex items-center gap-3">
                           <input
                             type="checkbox"
@@ -492,7 +492,7 @@ const CarRentalBookingForm: React.FC<BookingFormProps> = ({
                               <Baby className="w-4 h-4 text-blue-600" />
                               Çocuk Koltuğu
                             </p>
-                            <p className="text-xs text-gray-500">0-4 yaş arası çocuklar için</p>
+                            <p className="text-xs text-gray-400">0-4 yaş arası çocuklar için</p>
                           </div>
                         </div>
                         <span className="text-sm font-bold text-white">+₺30/gün</span>
@@ -519,7 +519,7 @@ const CarRentalBookingForm: React.FC<BookingFormProps> = ({
 
                 <div className="space-y-6">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium text-gray-200 mb-2">
                       <User className="w-4 h-4 inline mr-1" />
                       Ad Soyad *
                     </label>
@@ -539,7 +539,7 @@ const CarRentalBookingForm: React.FC<BookingFormProps> = ({
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-gray-200 mb-2">
                         <Mail className="w-4 h-4 inline mr-1" />
                         E-posta *
                       </label>
@@ -558,7 +558,7 @@ const CarRentalBookingForm: React.FC<BookingFormProps> = ({
                     </div>
 
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-gray-200 mb-2">
                         <Phone className="w-4 h-4 inline mr-1" />
                         Telefon *
                       </label>
@@ -581,7 +581,7 @@ const CarRentalBookingForm: React.FC<BookingFormProps> = ({
                     <h3 className="font-semibold text-white mb-4">Ehliyet Bilgileri</h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                        <label className="block text-sm font-medium text-gray-200 mb-2">
                           Ehliyet Numarası *
                         </label>
                         <input
@@ -599,7 +599,7 @@ const CarRentalBookingForm: React.FC<BookingFormProps> = ({
                       </div>
 
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                        <label className="block text-sm font-medium text-gray-200 mb-2">
                           Ehliyet Veriliş Tarihi *
                         </label>
                         <input
@@ -660,7 +660,7 @@ const CarRentalBookingForm: React.FC<BookingFormProps> = ({
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium text-gray-200 mb-2">
                       <CreditCard className="w-4 h-4 inline mr-1" />
                       Kart Numarası *
                     </label>
@@ -681,7 +681,7 @@ const CarRentalBookingForm: React.FC<BookingFormProps> = ({
 
                   <div className="grid grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-gray-200 mb-2">
                         Son Kullanma Tarihi *
                       </label>
                       <input
@@ -700,7 +700,7 @@ const CarRentalBookingForm: React.FC<BookingFormProps> = ({
                     </div>
 
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-gray-200 mb-2">
                         CVV *
                       </label>
                       <input
@@ -720,7 +720,7 @@ const CarRentalBookingForm: React.FC<BookingFormProps> = ({
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium text-gray-200 mb-2">
                       Fatura Adresi *
                     </label>
                     <textarea
@@ -747,7 +747,7 @@ const CarRentalBookingForm: React.FC<BookingFormProps> = ({
                           errors.termsAccepted ? 'border-red-500' : ''
                         }`}
                       />
-                      <span className="text-sm text-gray-700">
+                      <span className="text-sm text-gray-200">
                         <a href="#" className="text-blue-600 hover:underline">
                           Kiralama şartlarını
                         </a>
@@ -775,7 +775,7 @@ const CarRentalBookingForm: React.FC<BookingFormProps> = ({
           <div className="flex items-center justify-between mt-6">
             <button
               onClick={step === 1 ? onCancel : handlePrevious}
-              className="flex items-center gap-2 px-6 py-3 border border-white/20 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors"
+              className="flex items-center gap-2 px-6 py-3 border border-white/20 text-gray-200 rounded-lg hover:bg-white/5 transition-colors"
             >
               <ChevronLeft className="w-5 h-5" />
               {step === 1 ? 'İptal' : 'Geri'}
@@ -799,13 +799,13 @@ const CarRentalBookingForm: React.FC<BookingFormProps> = ({
             {/* Car Info */}
             <div className="mb-4 pb-4 border-b border-white/10">
               <p className="font-semibold text-white">{car.name}</p>
-              <p className="text-sm text-gray-600">
+              <p className="text-sm text-gray-300">
                 {car.brand} {car.model}
               </p>
-              <div className="flex items-center gap-2 mt-2 text-xs text-gray-500">
-                <span className="px-2 py-1 bg-gray-100 rounded">{car.transmission}</span>
-                <span className="px-2 py-1 bg-gray-100 rounded">{car.fuelType}</span>
-                <span className="px-2 py-1 bg-gray-100 rounded">{car.seats} koltuk</span>
+              <div className="flex items-center gap-2 mt-2 text-xs text-gray-400">
+                <span className="px-2 py-1 bg-white/10 rounded">{car.transmission}</span>
+                <span className="px-2 py-1 bg-white/10 rounded">{car.fuelType}</span>
+                <span className="px-2 py-1 bg-white/10 rounded">{car.seats} koltuk</span>
               </div>
             </div>
 
@@ -814,14 +814,14 @@ const CarRentalBookingForm: React.FC<BookingFormProps> = ({
               <div className="mb-4 pb-4 border-b border-white/10 text-sm">
                 <div className="flex items-center gap-2 mb-2">
                   <Calendar className="w-4 h-4 text-gray-400" />
-                  <span className="text-gray-600">Alış:</span>
+                  <span className="text-gray-300">Alış:</span>
                   <span className="font-semibold">
                     {new Date(formData.pickupDate).toLocaleDateString('tr-TR')} {formData.pickupTime}
                   </span>
                 </div>
                 <div className="flex items-center gap-2">
                   <Calendar className="w-4 h-4 text-gray-400" />
-                  <span className="text-gray-600">İade:</span>
+                  <span className="text-gray-300">İade:</span>
                   <span className="font-semibold">
                     {new Date(formData.returnDate).toLocaleDateString('tr-TR')} {formData.returnTime}
                   </span>
@@ -833,12 +833,12 @@ const CarRentalBookingForm: React.FC<BookingFormProps> = ({
             {/* Price Breakdown */}
             <div className="space-y-2 text-sm mb-4">
               <div className="flex justify-between">
-                <span className="text-gray-600">Günlük ücret × {days} gün</span>
+                <span className="text-gray-300">Günlük ücret × {days} gün</span>
                 <span className="font-semibold">₺{pricing.base.toLocaleString('tr-TR')}</span>
               </div>
               {pricing.addons > 0 && (
                 <div className="flex justify-between">
-                  <span className="text-gray-600">Ekstra hizmetler</span>
+                  <span className="text-gray-300">Ekstra hizmetler</span>
                   <span className="font-semibold">₺{pricing.addons.toLocaleString('tr-TR')}</span>
                 </div>
               )}

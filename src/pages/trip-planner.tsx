@@ -136,7 +136,7 @@ const TripPlannerPage: React.FC = () => {
                 <div className="flex items-center gap-2">
                   <button
                     onClick={handleSaveTrip}
-                    className="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-200 rounded-lg flex items-center gap-2 transition-colors"
+                    className="px-4 py-2 bg-white/10 hover:bg-gray-200 text-gray-200 rounded-lg flex items-center gap-2 transition-colors"
                   >
                     <Save className="w-4 h-4" />
                     Save
@@ -169,7 +169,7 @@ const TripPlannerPage: React.FC = () => {
                       className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-all ${
                         activeView === view.key
                           ? 'bg-purple-600 text-white shadow-lg'
-                          : 'bg-gray-100 text-gray-200 hover:bg-gray-200'
+                          : 'bg-white/10 text-gray-200 hover:bg-gray-200'
                       }`}
                     >
                       <Icon className="w-4 h-4" />
@@ -231,7 +231,7 @@ const TripPlannerPage: React.FC = () => {
                     </div>
 
                     <div className="flex gap-2">
-                      <button className="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg flex items-center gap-2 transition-colors">
+                      <button className="px-4 py-2 bg-white/10 hover:bg-gray-200 rounded-lg flex items-center gap-2 transition-colors">
                         <Download className="w-4 h-4" />
                         Export
                       </button>
@@ -243,7 +243,7 @@ const TripPlannerPage: React.FC = () => {
                   </div>
 
                   {/* Timeline view of itinerary would go here */}
-                  <div className="text-center py-12 text-gray-500">
+                  <div className="text-center py-12 text-gray-400">
                     <List className="w-16 h-16 mx-auto mb-4 opacity-50" />
                     <p>Detailed itinerary view</p>
                     <p className="text-sm">Timeline with activities, meals, and accommodations</p>
@@ -263,11 +263,11 @@ const TripPlannerPage: React.FC = () => {
                 <div className="bg-transparent rounded-2xl shadow-xl overflow-hidden">
                   <div className="h-[600px] relative">
                     {/* Map component would be rendered here */}
-                    <div className="absolute inset-0 flex items-center justify-center bg-gray-100">
+                    <div className="absolute inset-0 flex items-center justify-center bg-white/10">
                       <div className="text-center">
                         <MapIcon className="w-16 h-16 mx-auto mb-4 text-gray-400" />
                         <p className="text-gray-300">Interactive map showing all locations</p>
-                        <p className="text-sm text-gray-500 mt-2">
+                        <p className="text-sm text-gray-400 mt-2">
                           Markers for hotels, attractions, restaurants, and activities
                         </p>
                       </div>
@@ -275,16 +275,16 @@ const TripPlannerPage: React.FC = () => {
 
                     {/* Map Controls */}
                     <div className="absolute top-4 right-4 bg-transparent rounded-lg shadow-lg p-2 space-y-2">
-                      <button className="w-full px-3 py-2 text-sm text-left hover:bg-gray-100 rounded transition-colors">
+                      <button className="w-full px-3 py-2 text-sm text-left hover:bg-white/10 rounded transition-colors">
                         Show All
                       </button>
-                      <button className="w-full px-3 py-2 text-sm text-left hover:bg-gray-100 rounded transition-colors">
+                      <button className="w-full px-3 py-2 text-sm text-left hover:bg-white/10 rounded transition-colors">
                         Hotels Only
                       </button>
-                      <button className="w-full px-3 py-2 text-sm text-left hover:bg-gray-100 rounded transition-colors">
+                      <button className="w-full px-3 py-2 text-sm text-left hover:bg-white/10 rounded transition-colors">
                         Attractions
                       </button>
-                      <button className="w-full px-3 py-2 text-sm text-left hover:bg-gray-100 rounded transition-colors">
+                      <button className="w-full px-3 py-2 text-sm text-left hover:bg-white/10 rounded transition-colors">
                         Restaurants
                       </button>
                     </div>
@@ -295,7 +295,7 @@ const TripPlannerPage: React.FC = () => {
                       <div className="space-y-2">
                         {/* Mock locations */}
                         {[1, 2, 3].map((i) => (
-                          <div key={i} className="flex items-center justify-between p-2 hover:bg-gray-50 rounded cursor-pointer">
+                          <div key={i} className="flex items-center justify-between p-2 hover:bg-white/5 rounded cursor-pointer">
                             <div className="flex items-center gap-2">
                               <MapPin className="w-4 h-4 text-purple-600" />
                               <span className="text-sm text-white">Location {i}</span>

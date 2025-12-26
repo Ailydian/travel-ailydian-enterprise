@@ -133,15 +133,15 @@ export default function WriteReviewModal({ locationId, locationName, onClose, on
   }) => (
     <div className="mb-4">
       <div className="flex items-center justify-between mb-2">
-        <label className="block text-sm font-medium text-gray-700">
+        <label className="block text-sm font-medium text-gray-200">
           {label} {required && <span className="text-red-500">*</span>}
         </label>
         {value > 0 && (
-          <span className="text-sm text-gray-500">{value}/5</span>
+          <span className="text-sm text-gray-400">{value}/5</span>
         )}
       </div>
       {description && (
-        <p className="text-xs text-gray-500 mb-2">{description}</p>
+        <p className="text-xs text-gray-400 mb-2">{description}</p>
       )}
       <div className="flex space-x-1">
         {[1, 2, 3, 4, 5].map((rating) => (
@@ -311,7 +311,7 @@ export default function WriteReviewModal({ locationId, locationName, onClose, on
             {/* Visit details */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-200 mb-2">
                   <Calendar className="inline h-4 w-4 mr-1" />
                   {t('review.visitDate')}
                 </label>
@@ -326,7 +326,7 @@ export default function WriteReviewModal({ locationId, locationName, onClose, on
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-200 mb-2">
                   <Users className="inline h-4 w-4 mr-1" />
                   {t('review.visitType')}
                 </label>
@@ -346,8 +346,8 @@ export default function WriteReviewModal({ locationId, locationName, onClose, on
 
             {/* Review title */}
             <div className="mb-4">
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                {t('review.title')} <span className="text-gray-500">({t('optional')})</span>
+              <label className="block text-sm font-medium text-gray-200 mb-2">
+                {t('review.title')} <span className="text-gray-400">({t('optional')})</span>
               </label>
               <input
                 type="text"
@@ -361,7 +361,7 @@ export default function WriteReviewModal({ locationId, locationName, onClose, on
 
             {/* Review content */}
             <div className="mb-4">
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-gray-200 mb-2">
                 {t('review.content')} <span className="text-red-500">*</span>
               </label>
               <textarea
@@ -374,7 +374,7 @@ export default function WriteReviewModal({ locationId, locationName, onClose, on
                 maxLength={5000}
                 required
               />
-              <div className="flex justify-between text-xs text-gray-500 mt-1">
+              <div className="flex justify-between text-xs text-gray-400 mt-1">
                 <span>
                   {reviewData.content.length < 50 
                     ? t('review.minimumLength', { count: 50 - reviewData.content.length })
@@ -409,7 +409,7 @@ export default function WriteReviewModal({ locationId, locationName, onClose, on
         return (
           <div>
             <h3 className="text-lg font-medium text-white mb-4">
-              {t('review.addPhotos')} <span className="text-gray-500">({t('optional')})</span>
+              {t('review.addPhotos')} <span className="text-gray-400">({t('optional')})</span>
             </h3>
 
             {/* Photo upload area */}
@@ -419,19 +419,19 @@ export default function WriteReviewModal({ locationId, locationName, onClose, on
                 isDragActive
                   ? 'border-blue-400 bg-blue-50'
                   : photos.length >= MAX_PHOTOS
-                  ? 'border-white/10 bg-gray-50'
+                  ? 'border-white/10 bg-white/5'
                   : 'border-white/20 hover:border-blue-400 hover:bg-blue-50'
               } ${photos.length >= MAX_PHOTOS ? 'cursor-not-allowed' : 'cursor-pointer'}`}
             >
               <input {...getInputProps()} ref={fileInputRef} />
               
               {photos.length >= MAX_PHOTOS ? (
-                <div className="text-gray-500">
+                <div className="text-gray-400">
                   <Camera className="mx-auto h-8 w-8 mb-2" />
                   <p>{t('review.maxPhotosReached', { max: MAX_PHOTOS })}</p>
                 </div>
               ) : (
-                <div className="text-gray-600">
+                <div className="text-gray-300">
                   <Upload className="mx-auto h-8 w-8 mb-2" />
                   <p>
                     {isDragActive
@@ -439,7 +439,7 @@ export default function WriteReviewModal({ locationId, locationName, onClose, on
                       : t('review.dragDropPhotos')
                     }
                   </p>
-                  <p className="text-sm text-gray-500 mt-1">
+                  <p className="text-sm text-gray-400 mt-1">
                     {t('review.photoRequirements')}
                   </p>
                 </div>
@@ -456,7 +456,7 @@ export default function WriteReviewModal({ locationId, locationName, onClose, on
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                   {photos.map((photo) => (
                     <div key={photo.id} className="relative group">
-                      <div className="aspect-square bg-gray-100 rounded-lg overflow-hidden">
+                      <div className="aspect-square bg-white/10 rounded-lg overflow-hidden">
                         <Image
                           src={photo.preview}
                           alt="Preview"
@@ -544,7 +544,7 @@ export default function WriteReviewModal({ locationId, locationName, onClose, on
   return (
     <div className="fixed inset-0 z-50 overflow-y-auto">
       <div className="flex items-center justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0">
-        <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" onClick={onClose} />
+        <div className="fixed inset-0 bg-white/50 bg-opacity-75 transition-opacity" onClick={onClose} />
 
         <div className="inline-block align-bottom bg-white/5 rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-2xl sm:w-full sm:p-6">
           {/* Header */}
@@ -553,14 +553,14 @@ export default function WriteReviewModal({ locationId, locationName, onClose, on
               <h2 className="text-xl font-semibold text-white">
                 {t('review.writeReviewFor')}
               </h2>
-              <p className="text-sm text-gray-600 flex items-center mt-1">
+              <p className="text-sm text-gray-300 flex items-center mt-1">
                 <MapPin className="h-4 w-4 mr-1" />
                 {locationName}
               </p>
             </div>
             <button
               onClick={onClose}
-              className="p-2 hover:bg-gray-100 rounded-full"
+              className="p-2 hover:bg-white/10 rounded-full"
               disabled={isSubmitting}
             >
               <X className="h-5 w-5" />
@@ -576,7 +576,7 @@ export default function WriteReviewModal({ locationId, locationName, onClose, on
                     ? 'bg-blue-600 text-white'
                     : step < currentStep
                     ? 'bg-green-600 text-white'
-                    : 'bg-gray-200 text-gray-600'
+                    : 'bg-gray-200 text-gray-300'
                 }`}>
                   {step < currentStep ? (
                     <CheckCircle className="h-4 w-4" />
@@ -619,7 +619,7 @@ export default function WriteReviewModal({ locationId, locationName, onClose, on
                   setCurrentStep(currentStep - 1);
                 }
               }}
-              className="px-4 py-2 text-gray-600 hover:text-gray-100 font-medium"
+              className="px-4 py-2 text-gray-300 hover:text-gray-100 font-medium"
               disabled={isSubmitting}
             >
               {currentStep === 1 ? t('cancel') : t('back')}

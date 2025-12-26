@@ -271,7 +271,7 @@ const CarDetailsPage = ({ slug: initialSlug, car: carProp }: CarDetailsPageProps
       MINIVAN: 'bg-teal-100 text-teal-800',
       COMPACT: 'bg-slate-100 text-slate-800',
     };
-    return colors[category] || 'bg-gray-100 text-gray-100';
+    return colors[category] || 'bg-white/10 text-gray-100';
   };
 
   if (!car) {
@@ -295,7 +295,7 @@ const CarDetailsPage = ({ slug: initialSlug, car: carProp }: CarDetailsPageProps
   const total = calculateTotal();
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-white/5">
       {/* Header */}
       <div className="bg-transparent border-b border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
@@ -353,7 +353,7 @@ const CarDetailsPage = ({ slug: initialSlug, car: carProp }: CarDetailsPageProps
                 <div className="flex items-center gap-2">
                   <Star className="w-5 h-5 text-amber-500 fill-amber-500" />
                   <span className="font-semibold text-white">{car.rating}</span>
-                  <span className="text-gray-500">({car.reviewCount} değerlendirme)</span>
+                  <span className="text-gray-400">({car.reviewCount} değerlendirme)</span>
                 </div>
                 {car.availableCount > 0 && (
                   <div className="flex items-center gap-2 text-green-600">
@@ -615,7 +615,7 @@ const CarDetailsPage = ({ slug: initialSlug, car: carProp }: CarDetailsPageProps
                 <ArrowRight className="w-5 h-5" />
               </button>
 
-              <p className="text-xs text-gray-500 text-center mt-4">
+              <p className="text-xs text-gray-400 text-center mt-4">
                 Depozito: ₺{parseInt(car.deposit).toLocaleString('tr-TR')}
               </p>
             </div>

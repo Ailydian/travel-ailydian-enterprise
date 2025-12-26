@@ -84,7 +84,7 @@ const SimplifiedHeader = () => {
                     flex items-center space-x-2
                     ${isActive
                       ? 'bg-blue-50 text-blue-600 font-medium'
-                      : 'text-gray-700 hover:bg-gray-100'
+                      : 'text-gray-200 hover:bg-white/10'
                     }
                   `}
                 >
@@ -112,17 +112,17 @@ const SimplifiedHeader = () => {
             {/* Favorites */}
             <Link
               href="/favorites"
-              className="p-2 rounded-lg hover:bg-gray-100 transition-colors relative"
+              className="p-2 rounded-lg hover:bg-white/10 transition-colors relative"
             >
-              <Heart className="w-5 h-5 text-gray-600" />
+              <Heart className="w-5 h-5 text-gray-300" />
             </Link>
 
             {/* Cart */}
             <Link
               href="/cart"
-              className="p-2 rounded-lg hover:bg-gray-100 transition-colors relative"
+              className="p-2 rounded-lg hover:bg-white/10 transition-colors relative"
             >
-              <ShoppingCart className="w-5 h-5 text-gray-600" />
+              <ShoppingCart className="w-5 h-5 text-gray-300" />
               {getItemCount() > 0 && (
                 <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-medium">
                   {getItemCount()}
@@ -142,12 +142,12 @@ const SimplifiedHeader = () => {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden p-2 rounded-lg hover:bg-gray-100"
+              className="md:hidden p-2 rounded-lg hover:bg-white/10"
             >
               {mobileMenuOpen ? (
-                <X className="w-6 h-6 text-gray-600" />
+                <X className="w-6 h-6 text-gray-300" />
               ) : (
-                <Menu className="w-6 h-6 text-gray-600" />
+                <Menu className="w-6 h-6 text-gray-300" />
               )}
             </button>
           </div>
@@ -176,7 +176,7 @@ const SimplifiedHeader = () => {
                     flex items-center space-x-3 px-4 py-3 rounded-lg
                     ${isActive
                       ? 'bg-blue-50 text-blue-600 font-medium'
-                      : 'text-gray-700 hover:bg-gray-100'
+                      : 'text-gray-200 hover:bg-white/10'
                     }
                   `}
                 >

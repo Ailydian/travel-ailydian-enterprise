@@ -243,7 +243,7 @@ export default function AdminPlatforms() {
       case 'tripadvisor':
         return <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center text-white font-bold text-sm">T</div>;
       default:
-        return <Globe className="w-8 h-8 text-gray-500" />;
+        return <Globe className="w-8 h-8 text-gray-400" />;
     }
   };
 
@@ -526,7 +526,7 @@ export default function AdminPlatforms() {
                           <Star className="w-4 h-4 mr-2 inline" />
                           Yorumları Senkronize Et
                         </button>
-                        <button className="px-4 py-2 border border-white/20 rounded-lg hover:bg-gray-50">
+                        <button className="px-4 py-2 border border-white/20 rounded-lg hover:bg-white/5">
                           <Settings className="w-4 h-4" />
                         </button>
                       </div>
@@ -535,7 +535,7 @@ export default function AdminPlatforms() {
                       <div className="mt-4 p-3 bg-white/5 rounded-lg">
                         <div className="flex items-center justify-between text-sm">
                           <div className="flex items-center space-x-2">
-                            <Key className="w-4 h-4 text-gray-500" />
+                            <Key className="w-4 h-4 text-gray-400" />
                             <span className="text-gray-300">API Anahtarı: {platform.apiKey}</span>
                           </div>
                           <button className="text-blue-600 hover:text-blue-800 font-medium">
@@ -563,7 +563,7 @@ export default function AdminPlatforms() {
 
                   <div className="space-y-4">
                     {platformsData.syncJobs.map((job) => (
-                      <div key={job.id} className="flex items-center justify-between p-4 border border-white/10 rounded-lg hover:bg-gray-50">
+                      <div key={job.id} className="flex items-center justify-between p-4 border border-white/10 rounded-lg hover:bg-white/5">
                         <div className="flex items-center space-x-4">
                           <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg flex items-center justify-center">
                             <Activity className="w-6 h-6 text-white" />

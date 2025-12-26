@@ -13,7 +13,7 @@ const Cookies: React.FC = () => {
 
       <FuturisticHeader />
 
-      <main className="min-h-screen bg-gray-50">
+      <main className="min-h-screen bg-white/5">
         <div className="max-w-4xl mx-auto px-4 py-16">
           <h1 className="text-4xl font-bold text-white mb-8">Çerez Politikası</h1>
           <div className="bg-transparent rounded-2xl shadow-lg p-8 space-y-8">
@@ -99,7 +99,7 @@ const Cookies: React.FC = () => {
             </section>
 
             <div className="border-t pt-8">
-              <p className="text-sm text-gray-500">
+              <p className="text-sm text-gray-400">
                 Son güncelleme: 26 Eylül 2025 | KVKK ve GDPR uyumlu çerez politikası.
               </p>
             </div>

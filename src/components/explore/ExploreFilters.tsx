@@ -44,7 +44,7 @@ export const ExploreFilters: React.FC = () => {
             onChange={(e) => setPriceRange([priceRange[0], parseInt(e.target.value)])}
             className="w-full"
           />
-          <div className="flex justify-between text-sm text-gray-600 mt-2">
+          <div className="flex justify-between text-sm text-gray-300 mt-2">
             <span>₺{priceRange[0]}</span>
             <span>₺{priceRange[1]}</span>
           </div>
@@ -68,7 +68,7 @@ export const ExploreFilters: React.FC = () => {
                   }}
                   className="w-4 h-4 text-lydian-primary rounded focus:ring-lydian-primary"
                 />
-                <span className="text-sm text-gray-700">{cat}</span>
+                <span className="text-sm text-gray-200">{cat}</span>
               </label>
             ))}
           </div>

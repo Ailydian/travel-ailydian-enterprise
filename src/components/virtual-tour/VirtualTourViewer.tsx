@@ -261,14 +261,14 @@ const VirtualTourViewer: React.FC<VirtualTourViewerProps> = ({
                   </h3>
                   <button
                     onClick={() => setSelectedHotspot(null)}
-                    className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+                    className="p-2 hover:bg-white/10 rounded-lg transition-colors"
                   >
-                    <X className="h-6 w-6 text-gray-600" />
+                    <X className="h-6 w-6 text-gray-300" />
                   </button>
                 </div>
 
                 {selectedHotspot.type === 'info' && selectedHotspot.content && (
-                  <p className="text-gray-700">{selectedHotspot.content}</p>
+                  <p className="text-gray-200">{selectedHotspot.content}</p>
                 )}
 
                 {selectedHotspot.type === 'image' && selectedHotspot.imageUrl && (

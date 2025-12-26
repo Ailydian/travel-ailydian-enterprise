@@ -79,7 +79,7 @@ const AdvancedAnalytics = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50">
       {/* Header */}
-      <div className="bg-white border-b border-slate-200 sticky top-0 z-40 backdrop-blur-xl bg-white/80">
+      <div className="bg-white/5 border-b border-slate-200 sticky top-0 z-40 backdrop-blur-xl bg-white/80">
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
@@ -110,7 +110,7 @@ const AdvancedAnalytics = () => {
                       px-4 py-2 rounded-md text-sm font-medium transition-all
                       ${
                         timeRange === range.value
-                          ? 'bg-white text-blue-600 shadow-sm'
+                          ? 'bg-white/5 text-blue-600 shadow-sm'
                           : 'text-slate-600 hover:text-slate-900'
                       }
                     `}
@@ -171,7 +171,7 @@ const AdvancedAnalytics = () => {
 
         {/* Revenue by Category */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
-          <div className="bg-white rounded-xl shadow-sm p-6">
+          <div className="bg-white/5 rounded-xl shadow-sm p-6">
             <h3 className="text-lg font-bold text-slate-900 mb-4">
               Kategoriye Göre Gelir
             </h3>
@@ -201,7 +201,7 @@ const AdvancedAnalytics = () => {
           </div>
 
           {/* Booking Status */}
-          <div className="bg-white rounded-xl shadow-sm p-6">
+          <div className="bg-white/5 rounded-xl shadow-sm p-6">
             <h3 className="text-lg font-bold text-slate-900 mb-4">
               Rezervasyon Durumu
             </h3>
@@ -229,7 +229,7 @@ const AdvancedAnalytics = () => {
         </div>
 
         {/* Top Products */}
-        <div className="bg-white rounded-xl shadow-sm p-6">
+        <div className="bg-white/5 rounded-xl shadow-sm p-6">
           <h3 className="text-lg font-bold text-slate-900 mb-4">
             En Çok Satan Ürünler
           </h3>
@@ -293,7 +293,7 @@ const MetricCard = ({ title, value, change, icon: Icon, color }: any) => {
   };
 
   return (
-    <div className="bg-white rounded-xl shadow-sm p-6 border border-slate-200">
+    <div className="bg-white/5 rounded-xl shadow-sm p-6 border border-slate-200">
       <div className="flex items-center justify-between mb-4">
         <span className="text-sm text-slate-600">{title}</span>
         <div className={`p-2 rounded-lg ${colorClasses[color as keyof typeof colorClasses]}`}>

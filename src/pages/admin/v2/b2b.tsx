@@ -197,9 +197,9 @@ const B2BPartnersPage = () => {
     switch (status) {
       case 'active': return 'text-green-600 bg-green-50 border-green-200';
       case 'pending': return 'text-amber-600 bg-amber-50 border-amber-200';
-      case 'inactive': return 'text-gray-600 bg-gray-50 border-gray-200';
+      case 'inactive': return 'text-gray-300 bg-white/5 border-gray-200';
       case 'suspended': return 'text-red-600 bg-red-50 border-red-200';
-      default: return 'text-gray-600 bg-gray-50 border-gray-200';
+      default: return 'text-gray-300 bg-white/5 border-gray-200';
     }
   };
 
@@ -216,7 +216,7 @@ const B2BPartnersPage = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
       {/* Header */}
-      <header className="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-sm">
+      <header className="bg-white/5 border-b border-slate-200 sticky top-0 z-50 shadow-sm">
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
@@ -250,7 +250,7 @@ const B2BPartnersPage = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="bg-white rounded-xl p-6 border border-slate-200"
+            className="bg-white/5 rounded-xl p-6 border border-slate-200"
           >
             <div className="flex items-center justify-between mb-2">
               <p className="text-sm font-medium text-slate-600">Toplam Gelir</p>
@@ -266,7 +266,7 @@ const B2BPartnersPage = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="bg-white rounded-xl p-6 border border-slate-200"
+            className="bg-white/5 rounded-xl p-6 border border-slate-200"
           >
             <div className="flex items-center justify-between mb-2">
               <p className="text-sm font-medium text-slate-600">Toplam Rezervasyon</p>
@@ -280,7 +280,7 @@ const B2BPartnersPage = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="bg-white rounded-xl p-6 border border-slate-200"
+            className="bg-white/5 rounded-xl p-6 border border-slate-200"
           >
             <div className="flex items-center justify-between mb-2">
               <p className="text-sm font-medium text-slate-600">Aktif Partnerler</p>
@@ -294,7 +294,7 @@ const B2BPartnersPage = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="bg-white rounded-xl p-6 border border-slate-200"
+            className="bg-white/5 rounded-xl p-6 border border-slate-200"
           >
             <div className="flex items-center justify-between mb-2">
               <p className="text-sm font-medium text-slate-600">Ort. Komisyon</p>
@@ -306,7 +306,7 @@ const B2BPartnersPage = () => {
         </div>
 
         {/* Filters */}
-        <div className="bg-white rounded-xl p-6 border border-slate-200 mb-6">
+        <div className="bg-white/5 rounded-xl p-6 border border-slate-200 mb-6">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             <div className="relative">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
@@ -351,7 +351,7 @@ const B2BPartnersPage = () => {
         </div>
 
         {/* Partners Table */}
-        <div className="bg-white rounded-xl border border-slate-200 overflow-hidden">
+        <div className="bg-white/5 rounded-xl border border-slate-200 overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full">
               <thead className="bg-slate-50 border-b border-slate-200">

@@ -155,7 +155,7 @@ export default function MyTrips() {
       case 'upcoming': return 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200';
       case 'cancelled': return 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200';
       case 'in-progress': return 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200';
-      default: return 'bg-gray-100 text-gray-100 dark:bg-gray-900 dark:text-gray-200';
+      default: return 'bg-white/10 text-gray-100 dark:bg-gray-900 dark:text-gray-200';
     }
   };
 
@@ -249,7 +249,7 @@ export default function MyTrips() {
                     className={`px-4 py-2 rounded-lg font-medium transition-colors ${
                       selectedTab === tab.key
                         ? 'bg-blue-600 text-white'
-                        : 'bg-gray-100 dark:bg-gray-700 text-gray-200 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-600'
+                        : 'bg-white/10 dark:bg-gray-700 text-gray-200 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-600'
                     }`}
                   >
                     {tab.label}

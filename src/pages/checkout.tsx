@@ -36,7 +36,7 @@ const LocationPicker = dynamic(
     ssr: false,
     loading: () => (
       <div className="bg-transparent rounded-xl border border-gray-200 p-6">
-        <div className="h-96 bg-gray-100 rounded-lg animate-pulse flex items-center justify-center">
+        <div className="h-96 bg-white/10 rounded-lg animate-pulse flex items-center justify-center">
           <MapPin className="w-12 h-12 text-gray-400" />
         </div>
       </div>
@@ -566,7 +566,7 @@ const Checkout: React.FC = () => {
             </div>
             <h1 className="text-xl sm:text-2xl font-bold text-white mb-3 sm:mb-4">Ödeme İşleniyor</h1>
             <p className="text-sm sm:text-base text-gray-300 mb-6 sm:mb-8">Lütfen bekleyin, ödemeniz güvenli şekilde işleniyor...</p>
-            <div className="flex items-center gap-2 justify-center text-xs sm:text-sm text-gray-500">
+            <div className="flex items-center gap-2 justify-center text-xs sm:text-sm text-gray-400">
               <Lock className="w-3 h-3 sm:w-4 sm:h-4" />
               256-bit SSL ile korumalı
             </div>
@@ -585,7 +585,7 @@ const Checkout: React.FC = () => {
 
       <FuturisticHeader />
 
-      <main className="min-h-screen bg-gray-50">
+      <main className="min-h-screen bg-white/5">
         <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6 py-4 sm:py-6 lg:py-8">
           {/* Header */}
           <motion.div
@@ -1030,16 +1030,16 @@ const Checkout: React.FC = () => {
                     <div key={index} className="flex justify-between items-start">
                       <div className="min-w-0 pr-2">
                         <p className="font-medium text-white text-xs sm:text-sm line-clamp-2">{item.title}</p>
-                        {item.guests && <p className="text-[10px] sm:text-xs text-gray-500">{item.guests} misafir</p>}
-                        {item.passengers && <p className="text-[10px] sm:text-xs text-gray-500">{item.passengers} yolcu</p>}
+                        {item.guests && <p className="text-[10px] sm:text-xs text-gray-400">{item.guests} misafir</p>}
+                        {item.passengers && <p className="text-[10px] sm:text-xs text-gray-400">{item.passengers} yolcu</p>}
                         {bookingData && bookingData.type === 'hotel' && bookingData.productSpecific.nights && (
-                          <p className="text-[10px] sm:text-xs text-gray-500">{bookingData.productSpecific.nights} gece</p>
+                          <p className="text-[10px] sm:text-xs text-gray-400">{bookingData.productSpecific.nights} gece</p>
                         )}
                         {bookingData && bookingData.type === 'transfer' && bookingData.productSpecific.date && (
-                          <p className="text-[10px] sm:text-xs text-gray-500">{bookingData.productSpecific.date}</p>
+                          <p className="text-[10px] sm:text-xs text-gray-400">{bookingData.productSpecific.date}</p>
                         )}
                         {bookingData && bookingData.type === 'tour' && bookingData.productSpecific.date && (
-                          <p className="text-[10px] sm:text-xs text-gray-500">{bookingData.productSpecific.date}</p>
+                          <p className="text-[10px] sm:text-xs text-gray-400">{bookingData.productSpecific.date}</p>
                         )}
                       </div>
                       <span className="font-semibold text-sm sm:text-base whitespace-nowrap">₺{item.price.toLocaleString('tr-TR')}</span>
@@ -1092,7 +1092,7 @@ const Checkout: React.FC = () => {
                   Güvenli Ödeme Yap
                 </button>
 
-                <p className="text-[10px] sm:text-xs text-gray-500 text-center mt-3 sm:mt-4">
+                <p className="text-[10px] sm:text-xs text-gray-400 text-center mt-3 sm:mt-4">
                   Tüm kart bilgileriniz 256-bit SSL ile şifrelenir ve güvenli şekilde işlenir.
                 </p>
               </motion.div>

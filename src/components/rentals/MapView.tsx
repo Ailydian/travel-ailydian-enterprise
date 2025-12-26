@@ -119,7 +119,7 @@ const MapView: React.FC<MapViewProps> = ({ properties }) => {
                 </h3>
 
                 {/* Location */}
-                <div className="flex items-center gap-2 text-sm text-gray-600 mb-2">
+                <div className="flex items-center gap-2 text-sm text-gray-300 mb-2">
                   <MapPinIcon className="w-4 h-4" />
                   <span>
                     {property.location.district}, {property.location.city}
@@ -127,7 +127,7 @@ const MapView: React.FC<MapViewProps> = ({ properties }) => {
                 </div>
 
                 {/* Info */}
-                <div className="flex items-center gap-3 text-sm text-gray-600 mb-3">
+                <div className="flex items-center gap-3 text-sm text-gray-300 mb-3">
                   <div className="flex items-center gap-1">
                     <UserGroupIcon className="w-4 h-4" />
                     <span>{property.capacity.guests}</span>
@@ -142,7 +142,7 @@ const MapView: React.FC<MapViewProps> = ({ properties }) => {
                     <StarIcon className="w-3 h-3" />
                     <span className="font-bold text-xs">{property.rating.overall.toFixed(1)}</span>
                   </div>
-                  <span className="text-xs text-gray-600">
+                  <span className="text-xs text-gray-300">
                     ({property.rating.reviewCount} değerlendirme)
                   </span>
                 </div>
@@ -153,7 +153,7 @@ const MapView: React.FC<MapViewProps> = ({ properties }) => {
                     <p className="text-xl font-bold text-white">
                       {property.pricing.basePrice.toLocaleString('tr-TR')} ₺
                     </p>
-                    <p className="text-xs text-gray-600">/ gece</p>
+                    <p className="text-xs text-gray-300">/ gece</p>
                   </div>
                 </div>
 
@@ -176,14 +176,14 @@ const MapView: React.FC<MapViewProps> = ({ properties }) => {
         <div className="space-y-2 text-sm">
           <div className="flex items-center gap-2">
             <div className="w-8 h-8 bg-gradient-to-r from-red-600 to-orange-500 rounded-full"></div>
-            <span className="text-gray-700">Öne Çıkan</span>
+            <span className="text-gray-200">Öne Çıkan</span>
           </div>
           <div className="flex items-center gap-2">
             <div className="w-8 h-8 bg-white/5 border-2 border-red-600 rounded-full"></div>
-            <span className="text-gray-700">Standart</span>
+            <span className="text-gray-200">Standart</span>
           </div>
         </div>
-        <p className="text-xs text-gray-600 mt-3">
+        <p className="text-xs text-gray-300 mt-3">
           Toplam {properties.length} özellik gösteriliyor
         </p>
       </div>

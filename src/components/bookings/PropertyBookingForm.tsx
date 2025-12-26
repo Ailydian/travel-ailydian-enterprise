@@ -261,7 +261,7 @@ const PropertyBookingForm: React.FC<BookingFormProps> = ({
                 className={`w-10 h-10 rounded-full flex items-center justify-center font-bold transition-all ${
                   step >= s
                     ? 'bg-blue-600 text-white'
-                    : 'bg-gray-200 text-gray-500'
+                    : 'bg-gray-200 text-gray-400'
                 }`}
               >
                 {step > s ? <Check className="w-6 h-6" /> : s}
@@ -277,13 +277,13 @@ const PropertyBookingForm: React.FC<BookingFormProps> = ({
           ))}
         </div>
         <div className="flex justify-between text-sm">
-          <span className={step >= 1 ? 'text-blue-600 font-semibold' : 'text-gray-500'}>
+          <span className={step >= 1 ? 'text-blue-600 font-semibold' : 'text-gray-400'}>
             Konaklama Detayları
           </span>
-          <span className={step >= 2 ? 'text-blue-600 font-semibold' : 'text-gray-500'}>
+          <span className={step >= 2 ? 'text-blue-600 font-semibold' : 'text-gray-400'}>
             Misafir Bilgileri
           </span>
-          <span className={step >= 3 ? 'text-blue-600 font-semibold' : 'text-gray-500'}>
+          <span className={step >= 3 ? 'text-blue-600 font-semibold' : 'text-gray-400'}>
             Ödeme & Onay
           </span>
         </div>
@@ -311,7 +311,7 @@ const PropertyBookingForm: React.FC<BookingFormProps> = ({
                   {/* Check-in & Check-out Dates */}
                   <div className="grid grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-gray-200 mb-2">
                         <Calendar className="w-4 h-4 inline mr-1" />
                         Giriş Tarihi *
                       </label>
@@ -332,7 +332,7 @@ const PropertyBookingForm: React.FC<BookingFormProps> = ({
                     </div>
 
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-gray-200 mb-2">
                         <Calendar className="w-4 h-4 inline mr-1" />
                         Çıkış Tarihi *
                       </label>
@@ -362,10 +362,10 @@ const PropertyBookingForm: React.FC<BookingFormProps> = ({
 
                     <div className="space-y-4">
                       {/* Adults */}
-                      <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                      <div className="flex items-center justify-between p-3 bg-white/5 rounded-lg">
                         <div>
                           <p className="font-medium text-white">Yetişkinler</p>
-                          <p className="text-xs text-gray-500">13 yaş ve üzeri</p>
+                          <p className="text-xs text-gray-400">13 yaş ve üzeri</p>
                         </div>
                         <div className="flex items-center gap-3">
                           <button
@@ -387,10 +387,10 @@ const PropertyBookingForm: React.FC<BookingFormProps> = ({
                       </div>
 
                       {/* Children */}
-                      <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                      <div className="flex items-center justify-between p-3 bg-white/5 rounded-lg">
                         <div>
                           <p className="font-medium text-white">Çocuklar</p>
-                          <p className="text-xs text-gray-500">2-12 yaş</p>
+                          <p className="text-xs text-gray-400">2-12 yaş</p>
                         </div>
                         <div className="flex items-center gap-3">
                           <button
@@ -414,11 +414,11 @@ const PropertyBookingForm: React.FC<BookingFormProps> = ({
                       </div>
 
                       {/* Infants */}
-                      <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                      <div className="flex items-center justify-between p-3 bg-white/5 rounded-lg">
                         <div className="flex items-center gap-2">
                           <div>
                             <p className="font-medium text-white">Bebekler</p>
-                            <p className="text-xs text-gray-500">2 yaş altı</p>
+                            <p className="text-xs text-gray-400">2 yaş altı</p>
                           </div>
                         </div>
                         <div className="flex items-center gap-3">
@@ -448,7 +448,7 @@ const PropertyBookingForm: React.FC<BookingFormProps> = ({
                       </p>
                     )}
 
-                    <div className="mt-3 text-sm text-gray-600">
+                    <div className="mt-3 text-sm text-gray-300">
                       Toplam: <span className="font-semibold">{totalGuests} misafir</span>
                       {' • '}Maksimum: <span className="font-semibold">{property.guests} misafir</span>
                     </div>
@@ -456,7 +456,7 @@ const PropertyBookingForm: React.FC<BookingFormProps> = ({
 
                   {/* Special Requests */}
                   <div className="border-t border-white/10 pt-6">
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium text-gray-200 mb-2">
                       <MessageSquare className="w-4 h-4 inline mr-1" />
                       Özel İstekler (Opsiyonel)
                     </label>
@@ -501,7 +501,7 @@ const PropertyBookingForm: React.FC<BookingFormProps> = ({
 
                 <div className="space-y-6">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium text-gray-200 mb-2">
                       <User className="w-4 h-4 inline mr-1" />
                       Ad Soyad *
                     </label>
@@ -521,7 +521,7 @@ const PropertyBookingForm: React.FC<BookingFormProps> = ({
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-gray-200 mb-2">
                         <Mail className="w-4 h-4 inline mr-1" />
                         E-posta *
                       </label>
@@ -540,7 +540,7 @@ const PropertyBookingForm: React.FC<BookingFormProps> = ({
                     </div>
 
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-gray-200 mb-2">
                         <Phone className="w-4 h-4 inline mr-1" />
                         Telefon *
                       </label>
@@ -560,7 +560,7 @@ const PropertyBookingForm: React.FC<BookingFormProps> = ({
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium text-gray-200 mb-2">
                       <Home className="w-4 h-4 inline mr-1" />
                       Adres *
                     </label>
@@ -619,7 +619,7 @@ const PropertyBookingForm: React.FC<BookingFormProps> = ({
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium text-gray-200 mb-2">
                       <CreditCard className="w-4 h-4 inline mr-1" />
                       Kart Numarası *
                     </label>
@@ -640,7 +640,7 @@ const PropertyBookingForm: React.FC<BookingFormProps> = ({
 
                   <div className="grid grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-gray-200 mb-2">
                         Son Kullanma Tarihi *
                       </label>
                       <input
@@ -659,7 +659,7 @@ const PropertyBookingForm: React.FC<BookingFormProps> = ({
                     </div>
 
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">CVV *</label>
+                      <label className="block text-sm font-medium text-gray-200 mb-2">CVV *</label>
                       <input
                         type="text"
                         value={formData.cvv}
@@ -675,7 +675,7 @@ const PropertyBookingForm: React.FC<BookingFormProps> = ({
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium text-gray-200 mb-2">
                       Fatura Adresi *
                     </label>
                     <textarea
@@ -718,7 +718,7 @@ const PropertyBookingForm: React.FC<BookingFormProps> = ({
                           errors.termsAccepted ? 'border-red-500' : ''
                         }`}
                       />
-                      <span className="text-sm text-gray-700">
+                      <span className="text-sm text-gray-200">
                         <a href="#" className="text-blue-600 hover:underline">
                           Kullanım şartlarını
                         </a>
@@ -742,7 +742,7 @@ const PropertyBookingForm: React.FC<BookingFormProps> = ({
                           errors.cancellationPolicyAccepted ? 'border-red-500' : ''
                         }`}
                       />
-                      <span className="text-sm text-gray-700">
+                      <span className="text-sm text-gray-200">
                         <a href="#" className="text-blue-600 hover:underline">
                           İptal politikasını
                         </a>{' '}
@@ -762,7 +762,7 @@ const PropertyBookingForm: React.FC<BookingFormProps> = ({
           <div className="flex items-center justify-between mt-6">
             <button
               onClick={step === 1 ? onCancel : handlePrevious}
-              className="flex items-center gap-2 px-6 py-3 border border-white/20 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors"
+              className="flex items-center gap-2 px-6 py-3 border border-white/20 text-gray-200 rounded-lg hover:bg-white/5 transition-colors"
             >
               <ChevronLeft className="w-5 h-5" />
               {step === 1 ? 'İptal' : 'Geri'}
@@ -786,7 +786,7 @@ const PropertyBookingForm: React.FC<BookingFormProps> = ({
             {/* Property Info */}
             <div className="mb-4 pb-4 border-b border-white/10">
               <p className="font-semibold text-white">{property.title}</p>
-              <p className="text-sm text-gray-600">
+              <p className="text-sm text-gray-300">
                 {property.type === 'VILLA' ? 'Villa' : property.type === 'APARTMENT' ? 'Apartman' : 'Ev'} - {property.city}
               </p>
               {property.instantBook && (
@@ -804,14 +804,14 @@ const PropertyBookingForm: React.FC<BookingFormProps> = ({
               <div className="mb-4 pb-4 border-b border-white/10 text-sm">
                 <div className="flex items-center gap-2 mb-2">
                   <Calendar className="w-4 h-4 text-gray-400" />
-                  <span className="text-gray-600">Giriş:</span>
+                  <span className="text-gray-300">Giriş:</span>
                   <span className="font-semibold">
                     {new Date(formData.checkInDate).toLocaleDateString('tr-TR')}
                   </span>
                 </div>
                 <div className="flex items-center gap-2 mb-2">
                   <Calendar className="w-4 h-4 text-gray-400" />
-                  <span className="text-gray-600">Çıkış:</span>
+                  <span className="text-gray-300">Çıkış:</span>
                   <span className="font-semibold">
                     {new Date(formData.checkOutDate).toLocaleDateString('tr-TR')}
                   </span>
@@ -825,7 +825,7 @@ const PropertyBookingForm: React.FC<BookingFormProps> = ({
               <div className="mb-4 pb-4 border-b border-white/10 text-sm">
                 <div className="flex items-center gap-2">
                   <Users className="w-4 h-4 text-gray-400" />
-                  <span className="text-gray-600">Misafirler:</span>
+                  <span className="text-gray-300">Misafirler:</span>
                   <span className="font-semibold">{totalGuests} kişi</span>
                 </div>
               </div>
@@ -836,17 +836,17 @@ const PropertyBookingForm: React.FC<BookingFormProps> = ({
               <>
                 <div className="space-y-2 text-sm mb-4">
                   <div className="flex justify-between">
-                    <span className="text-gray-600">
+                    <span className="text-gray-300">
                       ₺{parseInt(property.basePrice).toLocaleString('tr-TR')} × {nights} gece
                     </span>
                     <span className="font-semibold">₺{pricing.subtotal.toLocaleString('tr-TR')}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-gray-600">Temizlik ücreti</span>
+                    <span className="text-gray-300">Temizlik ücreti</span>
                     <span className="font-semibold">₺{pricing.cleaning.toLocaleString('tr-TR')}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-gray-600">Hizmet bedeli</span>
+                    <span className="text-gray-300">Hizmet bedeli</span>
                     <span className="font-semibold">₺{pricing.service.toLocaleString('tr-TR')}</span>
                   </div>
                   {pricing.discount > 0 && (

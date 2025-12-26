@@ -166,7 +166,7 @@ export default function AdminLogin() {
 
           {/* Footer */}
           <div className="text-center">
-            <p className="text-gray-500 text-sm">
+            <p className="text-gray-400 text-sm">
               Secure admin access for authorized personnel only
             </p>
           </div>

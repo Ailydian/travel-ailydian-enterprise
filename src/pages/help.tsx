@@ -660,7 +660,7 @@ const HelpPage: React.FC = () => {
 
       <FuturisticHeader />
 
-      <div className="min-h-screen bg-gray-50">
+      <div className="min-h-screen bg-white/5">
         {/* Hero Section with Gradient */}
         <motion.div
           initial={{ opacity: 0 }}
@@ -817,7 +817,7 @@ const HelpPage: React.FC = () => {
                       relative flex items-center gap-3 px-6 py-3 rounded-xl font-semibold transition-all
                       ${isActive
                         ? `bg-gradient-to-r ${category.color} text-white shadow-lg`
-                        : 'bg-white/5 text-gray-200 hover:bg-gray-50 shadow-md hover:shadow-lg'
+                        : 'bg-white/5 text-gray-200 hover:bg-white/5 shadow-md hover:shadow-lg'
                       }
                     `}
                   >
@@ -825,7 +825,7 @@ const HelpPage: React.FC = () => {
                     <span>{category.name}</span>
                     <span className={`
                       px-2 py-0.5 rounded-full text-xs font-bold
-                      ${isActive ? 'bg-white/20' : 'bg-gray-100'}
+                      ${isActive ? 'bg-white/20' : 'bg-white/10'}
                     `}>
                       {category.count}
                     </span>
@@ -863,7 +863,7 @@ const HelpPage: React.FC = () => {
                   >
                     <button
                       onClick={() => toggleFaq(faq.id)}
-                      className="w-full px-6 py-5 text-left flex items-start justify-between hover:bg-gray-50 transition-colors group"
+                      className="w-full px-6 py-5 text-left flex items-start justify-between hover:bg-white/5 transition-colors group"
                     >
                       <div className="flex items-start gap-4 flex-1 pr-4">
                         <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-br from-lydian-primary to-lydian-secondary flex items-center justify-center text-white font-bold text-sm">

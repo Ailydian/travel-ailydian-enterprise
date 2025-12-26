@@ -211,7 +211,7 @@ const ExperiencesPage: React.FC = () => {
                       className={`flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium transition-colors ${
                         selectedCategory === category.id
                           ? 'bg-lydian-primary text-white'
-                          : 'bg-gray-100 text-gray-200 hover:bg-gray-200'
+                          : 'bg-white/10 text-gray-200 hover:bg-gray-200'
                       }`}
                     >
                       <Icon className="w-3 h-3 sm:w-4 sm:h-4" />
@@ -234,7 +234,7 @@ const ExperiencesPage: React.FC = () => {
                       className={`px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm font-medium transition-colors ${
                         selectedDuration === duration.id
                           ? 'bg-lydian-primary text-white'
-                          : 'bg-gray-100 text-gray-200 hover:bg-gray-200'
+                          : 'bg-white/10 text-gray-200 hover:bg-gray-200'
                       }`}
                     >
                       {duration.name}
@@ -253,7 +253,7 @@ const ExperiencesPage: React.FC = () => {
                       className={`px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm font-medium transition-colors ${
                         priceRange === range.id
                           ? 'bg-lydian-primary text-white'
-                          : 'bg-gray-100 text-gray-200 hover:bg-gray-200'
+                          : 'bg-white/10 text-gray-200 hover:bg-gray-200'
                       }`}
                     >
                       {range.name}
@@ -266,7 +266,7 @@ const ExperiencesPage: React.FC = () => {
         </section>
 
         {/* Experiences Grid */}
-        <section className="py-12 bg-gray-50">
+        <section className="py-12 bg-white/5">
           <div className="max-w-7xl mx-auto px-4">
             <div className="flex items-center justify-between mb-8">
               <h2 className="text-2xl font-bold text-white">
@@ -330,7 +330,7 @@ const ExperiencesPage: React.FC = () => {
 
                   {/* Content */}
                   <div className="p-6">
-                    <div className="flex items-center gap-2 text-sm text-gray-500 mb-2">
+                    <div className="flex items-center gap-2 text-sm text-gray-400 mb-2">
                       <MapPin className="w-4 h-4" />
                       <span>{experience.location}</span>
                     </div>
@@ -385,7 +385,7 @@ const ExperiencesPage: React.FC = () => {
                           <div className="flex items-center gap-2">
                             <span className="text-2xl font-bold text-white">{experience.price}</span>
                             {experience.originalPrice && (
-                              <span className="text-sm text-gray-500 line-through">{experience.originalPrice}</span>
+                              <span className="text-sm text-gray-400 line-through">{experience.originalPrice}</span>
                             )}
                           </div>
                           <span className="text-sm text-gray-300">kişi başı</span>

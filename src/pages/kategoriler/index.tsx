@@ -53,7 +53,7 @@ const CategoriesPage: React.FC = () => {
         />
       </Head>
 
-      <div className="min-h-screen bg-gray-50">
+      <div className="min-h-screen bg-white/5">
         {/* Hero Section */}
         <div className="relative bg-gradient-to-br from-purple-600 via-purple-700 to-indigo-800 text-white">
           <div className="absolute inset-0 opacity-20">
@@ -92,7 +92,7 @@ const CategoriesPage: React.FC = () => {
               className={`px-4 py-2 rounded-full font-medium transition-colors ${
                 selectedFilter === 'all'
                   ? 'bg-purple-600 text-white'
-                  : 'bg-white/5 text-gray-200 hover:bg-gray-100'
+                  : 'bg-white/5 text-gray-200 hover:bg-white/10'
               }`}
             >
               Tüm Kategoriler ({categories.length})
@@ -102,7 +102,7 @@ const CategoriesPage: React.FC = () => {
               className={`px-4 py-2 rounded-full font-medium transition-colors ${
                 selectedFilter === 'seasonal'
                   ? 'bg-purple-600 text-white'
-                  : 'bg-white/5 text-gray-200 hover:bg-gray-100'
+                  : 'bg-white/5 text-gray-200 hover:bg-white/10'
               }`}
             >
               <span className="flex items-center gap-2">
@@ -185,13 +185,13 @@ const CategoriesPage: React.FC = () => {
                       {category.popularDestinations.slice(0, 4).map((dest) => (
                         <span
                           key={dest}
-                          className="text-xs bg-gray-100 text-gray-200 px-2 py-1 rounded-full"
+                          className="text-xs bg-white/10 text-gray-200 px-2 py-1 rounded-full"
                         >
                           {dest}
                         </span>
                       ))}
                       {category.popularDestinations.length > 4 && (
-                        <span className="text-xs text-gray-500 px-2 py-1">
+                        <span className="text-xs text-gray-400 px-2 py-1">
                           +{category.popularDestinations.length - 4} daha
                         </span>
                       )}
@@ -279,7 +279,7 @@ const CategoriesPage: React.FC = () => {
           </motion.div>
 
           {/* SEO Content */}
-          <div className="mt-12 bg-gray-100 rounded-xl p-8">
+          <div className="mt-12 bg-white/10 rounded-xl p-8">
             <h2 className="text-2xl font-bold text-white mb-4">
               Türkiye'nin Benzersiz Tatil Deneyimleri
             </h2>

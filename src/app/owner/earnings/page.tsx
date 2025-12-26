@@ -32,7 +32,7 @@ const EarningStatCard: React.FC<EarningStatCardProps> = ({ title, amount, change
   const isPositive = change && change >= 0;
 
   return (
-    <div className="bg-white rounded-xl border border-gray-200 p-4 md:p-6 hover:shadow-lg transition-shadow duration-200">
+    <div className="bg-white/5 rounded-xl border border-gray-200 p-4 md:p-6 hover:shadow-lg transition-shadow duration-200">
       <div className="flex items-center justify-between mb-3 md:mb-4">
         <div className="p-2 md:p-3 bg-gradient-to-br from-green-500 to-green-600 rounded-lg text-white shadow-md">
           {icon}
@@ -45,9 +45,9 @@ const EarningStatCard: React.FC<EarningStatCardProps> = ({ title, amount, change
         )}
       </div>
       <div>
-        <p className="text-xs md:text-sm text-gray-600 font-medium mb-1">{title}</p>
-        <p className="text-xl md:text-2xl font-bold text-gray-900 mb-1">₺{amount}</p>
-        <p className="text-xs text-gray-500">{period}</p>
+        <p className="text-xs md:text-sm text-gray-300 font-medium mb-1">{title}</p>
+        <p className="text-xl md:text-2xl font-bold text-white mb-1">₺{amount}</p>
+        <p className="text-xs text-gray-400">{period}</p>
       </div>
     </div>
   );
@@ -77,22 +77,22 @@ const TransactionRow: React.FC<TransactionRowProps> = ({ transaction }) => {
   const StatusIcon = config.icon;
 
   return (
-    <tr className="border-b border-gray-100 hover:bg-gray-50 transition-colors">
+    <tr className="border-b border-gray-100 hover:bg-white/5 transition-colors">
       <td className="px-4 md:px-6 py-3 md:py-4">
         <div className="text-sm">
-          <p className="font-medium text-gray-900">{transaction.date.toLocaleDateString('tr-TR')}</p>
-          <p className="text-gray-500 text-xs md:text-sm">{transaction.date.toLocaleTimeString('tr-TR')}</p>
+          <p className="font-medium text-white">{transaction.date.toLocaleDateString('tr-TR')}</p>
+          <p className="text-gray-400 text-xs md:text-sm">{transaction.date.toLocaleTimeString('tr-TR')}</p>
         </div>
       </td>
       <td className="px-4 md:px-6 py-3 md:py-4">
-        <p className="text-sm font-medium text-gray-900 mb-1">{transaction.propertyName}</p>
-        <p className="text-xs md:text-sm text-gray-500">{transaction.guestName}</p>
+        <p className="text-sm font-medium text-white mb-1">{transaction.propertyName}</p>
+        <p className="text-xs md:text-sm text-gray-400">{transaction.guestName}</p>
       </td>
       <td className="px-4 md:px-6 py-3 md:py-4">
-        <p className="text-xs md:text-sm text-gray-500">#{transaction.bookingId}</p>
+        <p className="text-xs md:text-sm text-gray-400">#{transaction.bookingId}</p>
       </td>
       <td className="px-4 md:px-6 py-3 md:py-4">
-        <p className="text-base md:text-lg font-bold text-gray-900">₺{transaction.amount.toLocaleString('tr-TR')}</p>
+        <p className="text-base md:text-lg font-bold text-white">₺{transaction.amount.toLocaleString('tr-TR')}</p>
       </td>
       <td className="px-4 md:px-6 py-3 md:py-4">
         <span className={`inline-flex items-center gap-1.5 px-2 md:px-3 py-1 rounded-full text-xs font-semibold border ${config.bg} ${config.text} ${config.border}`}>
@@ -122,11 +122,11 @@ const TransactionCard: React.FC<{ transaction: TransactionRowProps['transaction'
   const StatusIcon = config.icon;
 
   return (
-    <div className="bg-white border border-gray-200 rounded-xl p-4 hover:shadow-md transition-shadow">
+    <div className="bg-white/5 border border-gray-200 rounded-xl p-4 hover:shadow-md transition-shadow">
       <div className="flex items-start justify-between mb-3 gap-2">
         <div className="flex-1 min-w-0">
-          <p className="font-semibold text-gray-900 mb-1 truncate">{transaction.propertyName}</p>
-          <p className="text-sm text-gray-500 truncate">{transaction.guestName}</p>
+          <p className="font-semibold text-white mb-1 truncate">{transaction.propertyName}</p>
+          <p className="text-sm text-gray-400 truncate">{transaction.guestName}</p>
           <p className="text-xs text-gray-400 mt-1">
             {transaction.date.toLocaleDateString('tr-TR')} • #{transaction.bookingId}
           </p>
@@ -138,8 +138,8 @@ const TransactionCard: React.FC<{ transaction: TransactionRowProps['transaction'
       </div>
       <div className="flex items-center justify-between pt-3 border-t border-gray-200">
         <div>
-          <p className="text-sm text-gray-500 mb-1">Tutar</p>
-          <p className="text-xl font-bold text-gray-900">₺{transaction.amount.toLocaleString('tr-TR')}</p>
+          <p className="text-sm text-gray-400 mb-1">Tutar</p>
+          <p className="text-xl font-bold text-white">₺{transaction.amount.toLocaleString('tr-TR')}</p>
         </div>
         <button className="text-blue-600 hover:text-blue-700 font-medium text-sm flex items-center gap-1 whitespace-nowrap">
           Detaylar
@@ -165,10 +165,10 @@ const PayoutStatus: React.FC<PayoutStatusProps> = ({ nextPayout, onRequestPayout
     <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-100 rounded-xl p-4 md:p-6">
       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
         <div className="flex-1">
-          <h3 className="text-base md:text-lg font-semibold text-gray-900 mb-2">Sonraki Ödeme</h3>
+          <h3 className="text-base md:text-lg font-semibold text-white mb-2">Sonraki Ödeme</h3>
           <div className="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-2 mb-2">
-            <span className="text-2xl md:text-3xl font-bold text-gray-900">₺{nextPayout.amount.toLocaleString('tr-TR')}</span>
-            <span className="text-xs md:text-sm text-gray-600">{nextPayout.date.toLocaleDateString('tr-TR')} tarihinde planlandı</span>
+            <span className="text-2xl md:text-3xl font-bold text-white">₺{nextPayout.amount.toLocaleString('tr-TR')}</span>
+            <span className="text-xs md:text-sm text-gray-300">{nextPayout.date.toLocaleDateString('tr-TR')} tarihinde planlandı</span>
           </div>
           <div className="flex items-center gap-2">
             <div className="flex items-center gap-1.5 px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs font-semibold">
@@ -185,7 +185,7 @@ const PayoutStatus: React.FC<PayoutStatusProps> = ({ nextPayout, onRequestPayout
             <DollarSign className="w-4 md:w-5 h-4 md:h-5" />
             Para Çek
           </button>
-          <button className="px-4 md:px-6 py-3 bg-white border-2 border-gray-200 rounded-lg hover:border-blue-500 hover:text-blue-600 transition-colors font-medium text-sm md:text-base touch-manipulation">
+          <button className="px-4 md:px-6 py-3 bg-white/5 border-2 border-gray-200 rounded-lg hover:border-blue-500 hover:text-blue-600 transition-colors font-medium text-sm md:text-base touch-manipulation">
             Ödeme Ayarları
           </button>
         </div>
@@ -199,26 +199,26 @@ const EarningsFilterBar: React.FC = () => {
   const [showFilters, setShowFilters] = useState(false);
 
   return (
-    <div className="bg-white border border-gray-200 rounded-xl p-3 md:p-4 mb-6">
+    <div className="bg-white/5 border border-gray-200 rounded-xl p-3 md:p-4 mb-6">
       <div className="flex flex-col sm:flex-row gap-3 md:gap-4 items-stretch sm:items-center justify-between">
         <div className="flex gap-2 flex-wrap">
           <button className="px-3 md:px-4 py-2 bg-blue-600 text-white rounded-lg font-medium text-xs md:text-sm hover:bg-blue-700 transition-colors touch-manipulation">
             Tüm Zamanlar
           </button>
-          <button className="px-3 md:px-4 py-2 bg-white border border-gray-300 text-gray-700 rounded-lg font-medium text-xs md:text-sm hover:bg-gray-50 transition-colors touch-manipulation">
+          <button className="px-3 md:px-4 py-2 bg-white/5 border border-gray-300 text-gray-200 rounded-lg font-medium text-xs md:text-sm hover:bg-white/5 transition-colors touch-manipulation">
             Bu Yıl
           </button>
-          <button className="px-3 md:px-4 py-2 bg-white border border-gray-300 text-gray-700 rounded-lg font-medium text-xs md:text-sm hover:bg-gray-50 transition-colors touch-manipulation">
+          <button className="px-3 md:px-4 py-2 bg-white/5 border border-gray-300 text-gray-200 rounded-lg font-medium text-xs md:text-sm hover:bg-white/5 transition-colors touch-manipulation">
             Bu Ay
           </button>
-          <button className="px-3 md:px-4 py-2 bg-white border border-gray-300 text-gray-700 rounded-lg font-medium text-xs md:text-sm hover:bg-gray-50 transition-colors touch-manipulation">
+          <button className="px-3 md:px-4 py-2 bg-white/5 border border-gray-300 text-gray-200 rounded-lg font-medium text-xs md:text-sm hover:bg-white/5 transition-colors touch-manipulation">
             Özel
           </button>
         </div>
         <div className="flex gap-2 overflow-x-auto pb-1">
           <button
             onClick={() => setShowFilters(!showFilters)}
-            className="flex items-center gap-2 px-3 md:px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors font-medium text-xs md:text-sm whitespace-nowrap touch-manipulation"
+            className="flex items-center gap-2 px-3 md:px-4 py-2 border border-gray-300 rounded-lg hover:bg-white/5 transition-colors font-medium text-xs md:text-sm whitespace-nowrap touch-manipulation"
           >
             <Filter className="w-4 h-4" />
             Filtreler
@@ -240,7 +240,7 @@ const EarningsFilterBar: React.FC = () => {
       {showFilters && (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4 pt-4 border-t border-gray-200">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Mülk</label>
+            <label className="block text-sm font-medium text-gray-200 mb-2">Mülk</label>
             <select className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm touch-manipulation">
               <option value="">Tüm Mülkler</option>
               <option value="1">Sahil Villası</option>
@@ -249,7 +249,7 @@ const EarningsFilterBar: React.FC = () => {
             </select>
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Durum</label>
+            <label className="block text-sm font-medium text-gray-200 mb-2">Durum</label>
             <select className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm touch-manipulation">
               <option value="">Tüm Durumlar</option>
               <option value="completed">Tamamlanan</option>
@@ -258,7 +258,7 @@ const EarningsFilterBar: React.FC = () => {
             </select>
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Tutar Aralığı</label>
+            <label className="block text-sm font-medium text-gray-200 mb-2">Tutar Aralığı</label>
             <select className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm touch-manipulation">
               <option value="">Tüm Tutarlar</option>
               <option value="0-500">₺0 - ₺500</option>
@@ -349,7 +349,7 @@ const EarningsPage: React.FC = () => {
   if (isLoading) {
     return (
       <div className="space-y-4 md:space-y-6">
-        <h1 className="text-2xl md:text-3xl font-black mb-4 md:mb-6 text-black">
+        <h1 className="text-2xl md:text-3xl font-black mb-4 md:mb-6 text-white">
           Kazançlar
         </h1>
         <div className="animate-pulse space-y-4">
@@ -366,7 +366,7 @@ const EarningsPage: React.FC = () => {
 
   return (
     <div className="space-y-4 md:space-y-6">
-      <h1 className="text-2xl md:text-3xl font-black mb-4 md:mb-6 text-black">
+      <h1 className="text-2xl md:text-3xl font-black mb-4 md:mb-6 text-white">
         Kazançlar
       </h1>
       {/* Stats Grid */}
@@ -404,15 +404,15 @@ const EarningsPage: React.FC = () => {
       <PayoutStatus nextPayout={nextPayout} onRequestPayout={handleRequestPayout} />
 
       {/* Earnings Chart */}
-      <div className="bg-white border border-gray-200 rounded-xl p-4 md:p-6 my-6 md:my-8">
+      <div className="bg-white/5 border border-gray-200 rounded-xl p-4 md:p-6 my-6 md:my-8">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4 md:mb-6">
           <div>
-            <h3 className="text-base md:text-lg font-semibold text-gray-900">Kazanç Özeti</h3>
-            <p className="text-xs md:text-sm text-gray-500 mt-1">Geçtiğimiz yılın aylık kazançları</p>
+            <h3 className="text-base md:text-lg font-semibold text-white">Kazanç Özeti</h3>
+            <p className="text-xs md:text-sm text-gray-400 mt-1">Geçtiğimiz yılın aylık kazançları</p>
           </div>
           <div className="flex items-center gap-2 text-xs md:text-sm">
-            <span className="text-gray-500">Toplam:</span>
-            <span className="font-bold text-gray-900">₺76.450</span>
+            <span className="text-gray-400">Toplam:</span>
+            <span className="font-bold text-white">₺76.450</span>
           </div>
         </div>
         <div className="overflow-x-auto -mx-4 md:mx-0">
@@ -449,36 +449,36 @@ const EarningsPage: React.FC = () => {
       <EarningsFilterBar />
 
       {/* Transactions Table - Desktop */}
-      <div className="hidden md:block bg-white border border-gray-200 rounded-xl overflow-hidden">
+      <div className="hidden md:block bg-white/5 border border-gray-200 rounded-xl overflow-hidden">
         <div className="p-4 md:p-6 border-b border-gray-200">
-          <h3 className="text-base md:text-lg font-semibold text-gray-900">İşlem Geçmişi</h3>
-          <p className="text-xs md:text-sm text-gray-500 mt-1">Tüm kazançlarınız ve ödemeleriniz</p>
+          <h3 className="text-base md:text-lg font-semibold text-white">İşlem Geçmişi</h3>
+          <p className="text-xs md:text-sm text-gray-400 mt-1">Tüm kazançlarınız ve ödemeleriniz</p>
         </div>
         <div className="overflow-x-auto">
           <table className="w-full min-w-[800px]">
-            <thead className="bg-gray-50 border-b border-gray-200">
+            <thead className="bg-white/5 border-b border-gray-200">
               <tr>
-                <th className="px-4 md:px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                <th className="px-4 md:px-6 py-3 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider">
                   Tarih
                 </th>
-                <th className="px-4 md:px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                <th className="px-4 md:px-6 py-3 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider">
                   Mülk / Misafir
                 </th>
-                <th className="px-4 md:px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                <th className="px-4 md:px-6 py-3 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider">
                   Rezervasyon ID
                 </th>
-                <th className="px-4 md:px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                <th className="px-4 md:px-6 py-3 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider">
                   Tutar
                 </th>
-                <th className="px-4 md:px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                <th className="px-4 md:px-6 py-3 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider">
                   Durum
                 </th>
-                <th className="px-4 md:px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                <th className="px-4 md:px-6 py-3 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider">
                   İşlemler
                 </th>
               </tr>
             </thead>
-            <tbody className="bg-white divide-y divide-gray-100">
+            <tbody className="bg-white/5 divide-y divide-gray-100">
               {mockTransactions.map((transaction) => (
                 <TransactionRow key={transaction.id} transaction={transaction} />
               ))}
@@ -489,8 +489,8 @@ const EarningsPage: React.FC = () => {
 
       {/* Transactions Cards - Mobile */}
       <div className="md:hidden space-y-3">
-        <h3 className="text-base font-semibold text-gray-900 px-1">İşlem Geçmişi</h3>
-        <p className="text-xs text-gray-500 px-1 -mt-2">Tüm kazançlarınız ve ödemeleriniz</p>
+        <h3 className="text-base font-semibold text-white px-1">İşlem Geçmişi</h3>
+        <p className="text-xs text-gray-400 px-1 -mt-2">Tüm kazançlarınız ve ödemeleriniz</p>
         {mockTransactions.map((transaction) => (
           <TransactionCard key={transaction.id} transaction={transaction} />
         ))}

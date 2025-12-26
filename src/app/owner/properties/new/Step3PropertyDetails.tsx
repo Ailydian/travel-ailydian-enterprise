@@ -228,7 +228,7 @@ export default function Step3PropertyDetails({ data }: Step3Props) {
                       className={`p-3 border-2 rounded-lg text-left transition-all ${
                         isSelected
                           ? 'border-blue-500 bg-blue-50 text-blue-900'
-                          : 'border-slate-200 bg-white text-slate-700 hover:border-slate-300'
+                          : 'border-slate-200 bg-white/5 text-slate-700 hover:border-slate-300'
                       }`}
                     >
                       <div className="flex items-center gap-2">
@@ -383,7 +383,7 @@ export default function Step3PropertyDetails({ data }: Step3Props) {
                 </label>
                 <select
                   {...register('features.parkingType')}
-                  className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all bg-white"
+                  className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all bg-white/5"
                 >
                   <option value="free">Ücretsiz Otopark</option>
                   <option value="paid">Ücretli Otopark</option>

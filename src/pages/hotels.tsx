@@ -324,7 +324,7 @@ const HotelsNewPage: React.FC = () => {
                     whileTap={{ scale: 0.95 }}
                     onClick={searchHotels}
                     disabled={loading}
-                    className="flex items-center gap-2 px-8 py-3 bg-transparent text-lydian-primary rounded-xl font-medium hover:bg-gray-100 transition-colors disabled:opacity-50"
+                    className="flex items-center gap-2 px-8 py-3 bg-transparent text-lydian-primary rounded-xl font-medium hover:bg-white/10 transition-colors disabled:opacity-50"
                   >
                     {loading ? <Loader2 className="w-5 h-5 animate-spin" /> : <Search className="w-5 h-5" />}
                     {loading ? 'Aranıyor...' : 'Otel Ara'}

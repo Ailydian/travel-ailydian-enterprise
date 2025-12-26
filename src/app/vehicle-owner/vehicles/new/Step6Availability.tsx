@@ -142,7 +142,7 @@ export default function Step6Availability({ data }: Step6Props) {
           </label>
           <select
             {...register('advanceNoticeHours')}
-            className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-200 outline-none transition-all bg-white"
+            className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-200 outline-none transition-all bg-white/5"
           >
             <option value="0">Anında (0 saat)</option>
             <option value="3">3 saat önce</option>
@@ -289,7 +289,7 @@ export default function Step6Availability({ data }: Step6Props) {
         )}
 
         {/* Add New Blocked Date */}
-        <div className="space-y-4 p-4 bg-white border-2 border-slate-200 rounded-lg">
+        <div className="space-y-4 p-4 bg-white/5 border-2 border-slate-200 rounded-lg">
           <h4 className="font-semibold text-slate-900">Yeni Tarih Aralığı Ekle</h4>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -333,7 +333,7 @@ export default function Step6Availability({ data }: Step6Props) {
                     type: e.target.value as 'maintenance' | 'personal-use' | 'other',
                   })
                 }
-                className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-200 outline-none bg-white"
+                className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-200 outline-none bg-white/5"
               >
                 <option value="maintenance">Bakım</option>
                 <option value="personal-use">Kişisel Kullanım</option>

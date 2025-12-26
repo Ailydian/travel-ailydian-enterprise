@@ -73,7 +73,7 @@ const HotelDetailPage: NextPage<HotelDetailPageProps> = ({ hotel }) => {
 
       <FuturisticHeader />
 
-      <main className="min-h-screen bg-gray-50">
+      <main className="min-h-screen bg-white/5">
         {/* Breadcrumbs */}
         <div className="bg-transparent border-b border-white/10">
           <div className="max-w-7xl mx-auto px-4 py-3">
@@ -153,10 +153,10 @@ const HotelDetailPage: NextPage<HotelDetailPageProps> = ({ hotel }) => {
                     </div>
                   </div>
                   <div className="flex gap-2">
-                    <button className="p-3 rounded-full hover:bg-gray-100 transition">
+                    <button className="p-3 rounded-full hover:bg-white/10 transition">
                       <Share2 className="w-5 h-5" />
                     </button>
-                    <button className="p-3 rounded-full hover:bg-gray-100 transition">
+                    <button className="p-3 rounded-full hover:bg-white/10 transition">
                       <Heart className="w-5 h-5" />
                     </button>
                   </div>

@@ -33,7 +33,7 @@ const StatusBadge: React.FC<StatusBadgeProps> = ({ status }) => {
     pending: { bg: 'bg-yellow-100', text: 'text-yellow-800', border: 'border-yellow-200', label: 'Beklemede' },
     cancelled: { bg: 'bg-red-100', text: 'text-red-800', border: 'border-red-200', label: 'İptal Edildi' },
     'checked-in': { bg: 'bg-blue-100', text: 'text-blue-800', border: 'border-blue-200', label: 'Giriş Yapıldı' },
-    'checked-out': { bg: 'bg-gray-100', text: 'text-gray-800', border: 'border-gray-200', label: 'Çıkış Yapıldı' },
+    'checked-out': { bg: 'bg-white/10', text: 'text-white', border: 'border-gray-200', label: 'Çıkış Yapıldı' },
     rejected: { bg: 'bg-red-100', text: 'text-red-800', border: 'border-red-200', label: 'Reddedildi' },
   };
 
@@ -52,7 +52,7 @@ const FilterBar: React.FC = () => {
   const [showFilters, setShowFilters] = useState(false);
 
   return (
-    <div className="bg-white border border-gray-200 rounded-xl p-4 mb-6">
+    <div className="bg-white/5 border border-gray-200 rounded-xl p-4 mb-6">
       <div className="flex flex-col lg:flex-row gap-4">
         {/* Search */}
         <div className="flex-1">
@@ -71,7 +71,7 @@ const FilterBar: React.FC = () => {
         {/* Filter Toggle */}
         <button
           onClick={() => setShowFilters(!showFilters)}
-          className="flex items-center gap-2 px-4 py-2.5 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors font-medium text-gray-700"
+          className="flex items-center gap-2 px-4 py-2.5 border border-gray-300 rounded-lg hover:bg-white/5 transition-colors font-medium text-gray-200"
         >
           <Filter className="w-5 h-5" />
           Filters
@@ -89,7 +89,7 @@ const FilterBar: React.FC = () => {
       {showFilters && (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4 pt-4 border-t border-gray-200">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Status</label>
+            <label className="block text-sm font-medium text-gray-200 mb-2">Status</label>
             <select className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
               <option value="">All Statuses</option>
               <option value="confirmed">Confirmed</option>
@@ -101,7 +101,7 @@ const FilterBar: React.FC = () => {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Property</label>
+            <label className="block text-sm font-medium text-gray-200 mb-2">Property</label>
             <select className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
               <option value="">All Properties</option>
               <option value="1">Beachfront Villa</option>
@@ -111,7 +111,7 @@ const FilterBar: React.FC = () => {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Date Range</label>
+            <label className="block text-sm font-medium text-gray-200 mb-2">Date Range</label>
             <select className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
               <option value="">All Time</option>
               <option value="today">Today</option>
@@ -137,15 +137,15 @@ interface BookingCardProps {
 
 const BookingCard: React.FC<BookingCardProps> = ({ booking, onApprove, onReject, onMessage, onViewDetails }) => {
   return (
-    <div className="bg-white border border-gray-200 rounded-xl p-4 hover:shadow-md transition-shadow">
+    <div className="bg-white/5 border border-gray-200 rounded-xl p-4 hover:shadow-md transition-shadow">
       <div className="flex items-start justify-between mb-3">
         <div className="flex items-center gap-3">
           <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white font-semibold text-lg">
             {booking.guestName.charAt(0)}
           </div>
           <div>
-            <h4 className="font-semibold text-gray-900">{booking.guestName}</h4>
-            <p className="text-sm text-gray-500">{booking.guestEmail}</p>
+            <h4 className="font-semibold text-white">{booking.guestName}</h4>
+            <p className="text-sm text-gray-400">{booking.guestEmail}</p>
           </div>
         </div>
         <StatusBadge status={booking.status} />
@@ -154,17 +154,17 @@ const BookingCard: React.FC<BookingCardProps> = ({ booking, onApprove, onReject,
       <div className="space-y-2 mb-4">
         <div className="flex items-center gap-2 text-sm">
           <Home className="w-4 h-4 text-gray-400" />
-          <span className="text-gray-700">{booking.propertyName}</span>
+          <span className="text-gray-200">{booking.propertyName}</span>
         </div>
         <div className="flex items-center gap-2 text-sm">
           <Calendar className="w-4 h-4 text-gray-400" />
-          <span className="text-gray-700">
+          <span className="text-gray-200">
             {new Date(booking.checkIn).toLocaleDateString()} - {new Date(booking.checkOut).toLocaleDateString()}
           </span>
         </div>
         <div className="flex items-center gap-2 text-sm">
           <User className="w-4 h-4 text-gray-400" />
-          <span className="text-gray-700">
+          <span className="text-gray-200">
             {booking.guests.adults} adults, {booking.guests.children} children
           </span>
         </div>
@@ -172,8 +172,8 @@ const BookingCard: React.FC<BookingCardProps> = ({ booking, onApprove, onReject,
 
       <div className="flex items-center justify-between pt-4 border-t border-gray-200">
         <div>
-          <p className="text-sm text-gray-500">Total Amount</p>
-          <p className="text-xl font-bold text-gray-900">${booking.pricing.totalPrice.toLocaleString()}</p>
+          <p className="text-sm text-gray-400">Total Amount</p>
+          <p className="text-xl font-bold text-white">${booking.pricing.totalPrice.toLocaleString()}</p>
         </div>
         <div className="flex gap-2">
           {booking.status === 'pending' && (
@@ -203,7 +203,7 @@ const BookingCard: React.FC<BookingCardProps> = ({ booking, onApprove, onReject,
           </button>
           <button
             onClick={() => onViewDetails(booking.id)}
-            className="p-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors"
+            className="p-2 bg-white/10 text-gray-200 rounded-lg hover:bg-gray-200 transition-colors"
             title="View Details"
           >
             <Eye className="w-5 h-5" />
@@ -225,34 +225,34 @@ interface BookingRowProps {
 
 const BookingRow: React.FC<BookingRowProps> = ({ booking, onApprove, onReject, onMessage, onViewDetails }) => {
   return (
-    <tr className="border-b border-gray-100 hover:bg-gray-50 transition-colors">
+    <tr className="border-b border-gray-100 hover:bg-white/5 transition-colors">
       <td className="px-6 py-4">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white font-semibold">
             {booking.guestName.charAt(0)}
           </div>
           <div>
-            <p className="font-medium text-gray-900">{booking.guestName}</p>
-            <p className="text-sm text-gray-500">{booking.guestEmail}</p>
+            <p className="font-medium text-white">{booking.guestName}</p>
+            <p className="text-sm text-gray-400">{booking.guestEmail}</p>
           </div>
         </div>
       </td>
       <td className="px-6 py-4">
-        <p className="text-sm text-gray-900 font-medium">{booking.propertyName}</p>
+        <p className="text-sm text-white font-medium">{booking.propertyName}</p>
       </td>
       <td className="px-6 py-4">
         <div className="text-sm">
-          <p className="text-gray-900 font-medium">{new Date(booking.checkIn).toLocaleDateString()}</p>
-          <p className="text-gray-500">{new Date(booking.checkOut).toLocaleDateString()}</p>
+          <p className="text-white font-medium">{new Date(booking.checkIn).toLocaleDateString()}</p>
+          <p className="text-gray-400">{new Date(booking.checkOut).toLocaleDateString()}</p>
         </div>
       </td>
       <td className="px-6 py-4">
-        <p className="text-sm text-gray-700">
+        <p className="text-sm text-gray-200">
           {booking.guests.adults}A, {booking.guests.children}C
         </p>
       </td>
       <td className="px-6 py-4">
-        <p className="font-semibold text-gray-900">${booking.pricing.totalPrice.toLocaleString()}</p>
+        <p className="font-semibold text-white">${booking.pricing.totalPrice.toLocaleString()}</p>
       </td>
       <td className="px-6 py-4">
         <StatusBadge status={booking.status} />
@@ -286,7 +286,7 @@ const BookingRow: React.FC<BookingRowProps> = ({ booking, onApprove, onReject, o
           </button>
           <button
             onClick={() => onViewDetails(booking.id)}
-            className="p-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors"
+            className="p-2 bg-white/10 text-gray-200 rounded-lg hover:bg-gray-200 transition-colors"
             title="View Details"
           >
             <Eye className="w-4 h-4" />
@@ -305,7 +305,7 @@ const Pagination: React.FC<{ currentPage: number; totalPages: number; onPageChan
 }) => {
   return (
     <div className="flex items-center justify-between px-6 py-4 border-t border-gray-200">
-      <div className="text-sm text-gray-600">
+      <div className="text-sm text-gray-300">
         Showing page <span className="font-semibold">{currentPage}</span> of{' '}
         <span className="font-semibold">{totalPages}</span>
       </div>
@@ -313,14 +313,14 @@ const Pagination: React.FC<{ currentPage: number; totalPages: number; onPageChan
         <button
           onClick={() => onPageChange(currentPage - 1)}
           disabled={currentPage === 1}
-          className="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+          className="px-4 py-2 border border-gray-300 rounded-lg hover:bg-white/5 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
         >
           <ChevronLeft className="w-5 h-5" />
         </button>
         <button
           onClick={() => onPageChange(currentPage + 1)}
           disabled={currentPage === totalPages}
-          className="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+          className="px-4 py-2 border border-gray-300 rounded-lg hover:bg-white/5 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
         >
           <ChevronRight className="w-5 h-5" />
         </button>
@@ -414,7 +414,7 @@ const BookingsPage: React.FC = () => {
   if (error) {
     return (
       <div className="space-y-6">
-        <h1 className="text-3xl font-black mb-6 text-black">
+        <h1 className="text-3xl font-black mb-6 text-white">
           Bookings
         </h1>
         <div className="bg-red-50 border border-red-200 rounded-xl p-8 text-center">
@@ -435,7 +435,7 @@ const BookingsPage: React.FC = () => {
   if (isLoading) {
     return (
       <div className="space-y-6">
-        <h1 className="text-3xl font-black mb-6 text-black">
+        <h1 className="text-3xl font-black mb-6 text-white">
           Bookings
         </h1>
         <div className="animate-pulse space-y-4">
@@ -448,7 +448,7 @@ const BookingsPage: React.FC = () => {
 
   return (
     <div className="space-y-6">
-      <h1 className="text-3xl font-black mb-6 text-black">
+      <h1 className="text-3xl font-black mb-6 text-white">
         Bookings
       </h1>
       <FilterBar />
@@ -467,44 +467,44 @@ const BookingsPage: React.FC = () => {
             />
           ))
         ) : (
-          <div className="bg-white border border-gray-200 rounded-xl p-12 text-center">
+          <div className="bg-white/5 border border-gray-200 rounded-xl p-12 text-center">
             <Calendar className="w-16 h-16 text-gray-300 mx-auto mb-4" />
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">No Bookings Found</h3>
-            <p className="text-gray-500">Try adjusting your filters or check back later.</p>
+            <h3 className="text-lg font-semibold text-white mb-2">No Bookings Found</h3>
+            <p className="text-gray-400">Try adjusting your filters or check back later.</p>
           </div>
         )}
       </div>
 
       {/* Desktop View - Table */}
-      <div className="hidden lg:block bg-white border border-gray-200 rounded-xl overflow-hidden">
+      <div className="hidden lg:block bg-white/5 border border-gray-200 rounded-xl overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full">
-            <thead className="bg-gray-50 border-b border-gray-200">
+            <thead className="bg-white/5 border-b border-gray-200">
               <tr>
-                <th className="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider">
                   Guest
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider">
                   Property
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider">
                   Dates
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider">
                   Guests
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider">
                   Amount
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider">
                   Status
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider">
                   Actions
                 </th>
               </tr>
             </thead>
-            <tbody className="bg-white divide-y divide-gray-100">
+            <tbody className="bg-white/5 divide-y divide-gray-100">
               {paginatedBookings.length > 0 ? (
                 paginatedBookings.map((booking) => (
                   <BookingRow
@@ -520,8 +520,8 @@ const BookingsPage: React.FC = () => {
                 <tr>
                   <td colSpan={7} className="px-6 py-12 text-center">
                     <Calendar className="w-16 h-16 text-gray-300 mx-auto mb-4" />
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2">No Bookings Found</h3>
-                    <p className="text-gray-500">Try adjusting your filters or check back later.</p>
+                    <h3 className="text-lg font-semibold text-white mb-2">No Bookings Found</h3>
+                    <p className="text-gray-400">Try adjusting your filters or check back later.</p>
                   </td>
                 </tr>
               )}

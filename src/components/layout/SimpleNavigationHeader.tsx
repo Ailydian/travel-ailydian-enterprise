@@ -28,7 +28,7 @@ const SimpleNavigationHeader: React.FC<SimpleNavigationHeaderProps> = ({ current
           {/* Home Button */}
           <Link
             href="/"
-            className="flex items-center gap-2 px-4 py-2 rounded-lg text-gray-700 hover:bg-gray-50 transition-colors duration-200"
+            className="flex items-center gap-2 px-4 py-2 rounded-lg text-gray-200 hover:bg-white/5 transition-colors duration-200"
           >
             <Home className="w-5 h-5" />
             <span className="font-medium">Ana Sayfa</span>
@@ -42,7 +42,7 @@ const SimpleNavigationHeader: React.FC<SimpleNavigationHeaderProps> = ({ current
               className={`flex items-center space-x-2 px-4 py-2 rounded-lg transition-colors duration-200 ${
                 currentPage === 'rentals'
                   ? 'bg-purple-50 text-purple-600'
-                  : 'text-gray-700 hover:bg-gray-50'
+                  : 'text-gray-200 hover:bg-white/5'
               }`}
             >
               <Building2 className="w-4 h-4" />
@@ -55,7 +55,7 @@ const SimpleNavigationHeader: React.FC<SimpleNavigationHeaderProps> = ({ current
               className={`flex items-center space-x-2 px-4 py-2 rounded-lg transition-colors duration-200 ${
                 currentPage === 'car-rentals'
                   ? 'bg-green-50 text-green-600'
-                  : 'text-gray-700 hover:bg-gray-50'
+                  : 'text-gray-200 hover:bg-white/5'
               }`}
             >
               <CarIcon className="w-4 h-4" />
@@ -68,7 +68,7 @@ const SimpleNavigationHeader: React.FC<SimpleNavigationHeaderProps> = ({ current
               className={`flex items-center space-x-2 px-4 py-2 rounded-lg transition-colors duration-200 ${
                 currentPage === 'transfers'
                   ? 'bg-blue-50 text-blue-600'
-                  : 'text-gray-700 hover:bg-gray-50'
+                  : 'text-gray-200 hover:bg-white/5'
               }`}
             >
               <Bus className="w-4 h-4" />

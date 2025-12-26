@@ -199,7 +199,7 @@ export default function Step3Photos({ data }: Step3Props) {
                 className={`p-4 border-2 rounded-xl text-left transition-all ${
                   isSelected
                     ? 'border-cyan-500 bg-cyan-50 shadow-md'
-                    : 'border-slate-200 bg-white hover:border-slate-300'
+                    : 'border-slate-200 bg-white/5 hover:border-slate-300'
                 }`}
               >
                 <div className="flex items-start gap-3">

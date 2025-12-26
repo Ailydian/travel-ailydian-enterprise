@@ -243,7 +243,7 @@ const VisualSearch: React.FC<VisualSearchProps> = ({
             <h3 className="text-2xl font-bold text-white mb-2">
               {isDragActive ? 'Drop your image here' : 'Upload an image to search'}
             </h3>
-            <p className="text-gray-600 mb-6">
+            <p className="text-gray-300 mb-6">
               Drag & drop or click to browse • Max {maxFileSize}MB
             </p>
 
@@ -279,7 +279,7 @@ const VisualSearch: React.FC<VisualSearchProps> = ({
                   e.stopPropagation();
                   setShowUrlInput(true);
                 }}
-                className="px-6 py-3 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-xl font-semibold transition-colors duration-200 flex items-center space-x-2"
+                className="px-6 py-3 bg-white/10 hover:bg-gray-200 text-gray-200 rounded-xl font-semibold transition-colors duration-200 flex items-center space-x-2"
               >
                 <SparklesIcon className="w-5 h-5" />
                 <span>Paste URL</span>
@@ -287,7 +287,7 @@ const VisualSearch: React.FC<VisualSearchProps> = ({
             </div>
 
             {/* Supported Formats */}
-            <p className="text-sm text-gray-500 mt-6">
+            <p className="text-sm text-gray-400 mt-6">
               Supported formats: JPG, PNG, WebP
             </p>
           </div>
@@ -329,7 +329,7 @@ const VisualSearch: React.FC<VisualSearchProps> = ({
                     </button>
                     <button
                       onClick={() => setShowUrlInput(false)}
-                      className="px-6 py-3 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-xl font-semibold transition-colors duration-200"
+                      className="px-6 py-3 bg-white/10 hover:bg-gray-200 text-gray-200 rounded-xl font-semibold transition-colors duration-200"
                     >
                       Cancel
                     </button>
@@ -398,7 +398,7 @@ const VisualSearch: React.FC<VisualSearchProps> = ({
               onClick={clearImage}
               className="absolute top-4 right-4 p-2 bg-white/90 hover:bg-white/5 rounded-full transition-colors duration-200 shadow-lg"
             >
-              <XMarkIcon className="w-5 h-5 text-gray-700" />
+              <XMarkIcon className="w-5 h-5 text-gray-200" />
             </button>
 
             {/* Progress Bar */}

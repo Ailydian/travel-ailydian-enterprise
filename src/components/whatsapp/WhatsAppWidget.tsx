@@ -69,14 +69,14 @@ const WhatsAppWidget: React.FC<WhatsAppWidgetProps> = ({
             </div>
 
             {/* Content */}
-            <div className="p-4 bg-gray-50">
+            <div className="p-4 bg-white/5">
               {/* Welcome Message */}
               <div className="mb-4">
                 <div className="bg-white/5 rounded-lg p-3 shadow-sm">
                   <p className="text-sm text-gray-100 mb-2">
                     👋 Merhaba! Travel LyDian\'a hoş geldiniz.
                   </p>
-                  <p className="text-xs text-gray-600">
+                  <p className="text-xs text-gray-300">
                     {responseTime}
                   </p>
                 </div>
@@ -84,24 +84,24 @@ const WhatsAppWidget: React.FC<WhatsAppWidgetProps> = ({
 
               {/* Quick Actions */}
               <div className="mb-4 space-y-2">
-                <p className="text-xs font-semibold text-gray-600 mb-2">
+                <p className="text-xs font-semibold text-gray-300 mb-2">
                   Hızlı Seçenekler:
                 </p>
                 <button
                   onClick={() => setMessage('Otel rezervasyonu hakkında bilgi almak istiyorum')}
-                  className="w-full text-left text-sm bg-white/5 hover:bg-gray-50 px-3 py-2 rounded-lg border border-white/10 transition-colors"
+                  className="w-full text-left text-sm bg-white/5 hover:bg-white/5 px-3 py-2 rounded-lg border border-white/10 transition-colors"
                 >
                   🏨 Otel Rezervasyonu
                 </button>
                 <button
                   onClick={() => setMessage('Araç kiralama için fiyat bilgisi alabilir miyim?')}
-                  className="w-full text-left text-sm bg-white/5 hover:bg-gray-50 px-3 py-2 rounded-lg border border-white/10 transition-colors"
+                  className="w-full text-left text-sm bg-white/5 hover:bg-white/5 px-3 py-2 rounded-lg border border-white/10 transition-colors"
                 >
                   🚗 Araç Kiralama
                 </button>
                 <button
                   onClick={() => setMessage('Tur seçenekleri hakkında bilgi istiyorum')}
-                  className="w-full text-left text-sm bg-white/5 hover:bg-gray-50 px-3 py-2 rounded-lg border border-white/10 transition-colors"
+                  className="w-full text-left text-sm bg-white/5 hover:bg-white/5 px-3 py-2 rounded-lg border border-white/10 transition-colors"
                 >
                   🎭 Turlar
                 </button>
@@ -130,14 +130,14 @@ const WhatsAppWidget: React.FC<WhatsAppWidgetProps> = ({
               {/* Direct Call Option */}
               <button
                 onClick={() => window.open(`tel:${phoneNumber}`, '_self')}
-                className="w-full flex items-center justify-center gap-2 bg-white/5 hover:bg-gray-50 text-gray-700 font-medium py-2 px-4 rounded-lg border border-white/20 transition-colors mt-2"
+                className="w-full flex items-center justify-center gap-2 bg-white/5 hover:bg-white/5 text-gray-200 font-medium py-2 px-4 rounded-lg border border-white/20 transition-colors mt-2"
               >
                 <Phone className="h-4 w-4" />
                 Hemen Ara
               </button>
 
               {/* Privacy Note */}
-              <p className="text-xs text-gray-500 text-center mt-3">
+              <p className="text-xs text-gray-400 text-center mt-3">
                 WhatsApp üzerinden güvenli iletişim
               </p>
             </div>

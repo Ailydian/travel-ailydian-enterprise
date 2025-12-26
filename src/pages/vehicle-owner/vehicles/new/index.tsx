@@ -390,7 +390,7 @@ export default function VehicleSubmissionWizard() {
 
           {/* Step Content */}
           <form onSubmit={handleSubmit(handleNext)}>
-            <div className="bg-white rounded-xl shadow-lg p-8 mb-6">
+            <div className="bg-white/5 rounded-xl shadow-lg p-8 mb-6">
               <div className="mb-6">
                 <h2 className="text-2xl font-bold text-slate-900 mb-2">
                   {stepTitles[currentStep - 1]}
@@ -440,7 +440,7 @@ export default function VehicleSubmissionWizard() {
                   type="button"
                   onClick={handleBack}
                   disabled={currentStep === 1}
-                  className="px-6 py-3 bg-white border-2 border-slate-300 rounded-lg font-semibold text-slate-700 hover:bg-slate-50 disabled:opacity-50 disabled:cursor-not-allowed transition-all flex items-center gap-2"
+                  className="px-6 py-3 bg-white/5 border-2 border-slate-300 rounded-lg font-semibold text-slate-700 hover:bg-slate-50 disabled:opacity-50 disabled:cursor-not-allowed transition-all flex items-center gap-2"
                 >
                   <ChevronLeft className="w-5 h-5" />
                   Geri
@@ -449,7 +449,7 @@ export default function VehicleSubmissionWizard() {
                 <button
                   type="button"
                   onClick={handleSaveDraft}
-                  className="px-6 py-3 bg-white border-2 border-slate-300 rounded-lg font-semibold text-slate-700 hover:bg-slate-50 transition-all flex items-center gap-2"
+                  className="px-6 py-3 bg-white/5 border-2 border-slate-300 rounded-lg font-semibold text-slate-700 hover:bg-slate-50 transition-all flex items-center gap-2"
                 >
                   <Save className="w-5 h-5" />
                   Taslak Kaydet
@@ -496,7 +496,7 @@ export default function VehicleSubmissionWizard() {
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
-              className="bg-white rounded-2xl p-8 max-w-md w-full text-center"
+              className="bg-white/5 rounded-2xl p-8 max-w-md w-full text-center"
             >
               <motion.div
                 initial={{ scale: 0 }}

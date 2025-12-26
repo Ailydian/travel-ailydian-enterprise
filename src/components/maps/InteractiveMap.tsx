@@ -275,7 +275,7 @@ const InteractiveMap: React.FC<InteractiveMapProps> = ({
     return (
       <div className={`bg-gray-200 animate-pulse ${className}`} style={{ height }}>
         <div className="flex items-center justify-center h-full">
-          <div className="text-gray-500">Harita yükleniyor...</div>
+          <div className="text-gray-400">Harita yükleniyor...</div>
         </div>
       </div>
     );
@@ -312,10 +312,10 @@ const InteractiveMap: React.FC<InteractiveMapProps> = ({
                   <button
                     key={index}
                     onClick={() => handleSearchResultClick(result)}
-                    className="w-full px-4 py-3 text-left hover:bg-gray-50 border-b border-gray-100 last:border-b-0"
+                    className="w-full px-4 py-3 text-left hover:bg-white/5 border-b border-gray-100 last:border-b-0"
                   >
                     <div className="font-medium text-sm">{result.name}</div>
-                    <div className="text-xs text-gray-500 mt-1">{result.address}</div>
+                    <div className="text-xs text-gray-400 mt-1">{result.address}</div>
                   </button>
                 ))}
               </div>
@@ -344,7 +344,7 @@ const InteractiveMap: React.FC<InteractiveMapProps> = ({
 
           {/* Klavye kısayolları */}
           {showPickupOption && (
-            <div className="text-xs text-gray-500">
+            <div className="text-xs text-gray-400">
               💡 <strong>P</strong> tuşu ile alınacak nokta seçim modunu aktifleştirin
             </div>
           )}
@@ -385,11 +385,11 @@ const InteractiveMap: React.FC<InteractiveMapProps> = ({
                   {location.name || 'Konum'}
                 </h3>
                 {location.address && (
-                  <p className="text-xs text-gray-600 mb-2">
+                  <p className="text-xs text-gray-300 mb-2">
                     {location.address}
                   </p>
                 )}
-                <div className="text-xs text-gray-500">
+                <div className="text-xs text-gray-400">
                   {location.lat.toFixed(6)}, {location.lng.toFixed(6)}
                 </div>
                 {location.type && (
@@ -420,11 +420,11 @@ const InteractiveMap: React.FC<InteractiveMapProps> = ({
                   🚐 Alınacak Nokta
                 </h3>
                 {customPickupLocation.address && (
-                  <p className="text-xs text-gray-600 mb-2">
+                  <p className="text-xs text-gray-300 mb-2">
                     {customPickupLocation.address}
                   </p>
                 )}
-                <div className="text-xs text-gray-500">
+                <div className="text-xs text-gray-400">
                   {customPickupLocation.lat.toFixed(6)}, {customPickupLocation.lng.toFixed(6)}
                 </div>
                 <button
@@ -462,7 +462,7 @@ const InteractiveMap: React.FC<InteractiveMapProps> = ({
               </div>
             )}
           </div>
-          <div className="text-xs text-gray-500">
+          <div className="text-xs text-gray-400">
             Toplam: {locations.length + (customPickupLocation ? 1 : 0)} konum
           </div>
         </div>
@@ -471,7 +471,7 @@ const InteractiveMap: React.FC<InteractiveMapProps> = ({
       {/* Harita kapatma butonu */}
       <button
         onClick={() => setShowSearchResults(false)}
-        className="absolute top-4 right-4 z-[1001] w-8 h-8 bg-white/5 rounded-full shadow-lg flex items-center justify-center hover:bg-gray-50"
+        className="absolute top-4 right-4 z-[1001] w-8 h-8 bg-white/5 rounded-full shadow-lg flex items-center justify-center hover:bg-white/5"
         style={{ display: showSearchResults ? 'flex' : 'none' }}
       >
         ✕

@@ -185,7 +185,7 @@ const QuickSearchModal: React.FC<QuickSearchModalProps> = ({
                   className={`flex items-center gap-2 px-4 py-2.5 rounded-xl font-medium transition-all ${
                     selectedCategory === cat.id
                       ? 'bg-gradient-to-r from-lydian-primary to-lydian-secondary text-white shadow-lg'
-                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                      : 'bg-white/10 text-gray-200 hover:bg-gray-200'
                   }`}
                 >
                   <cat.icon className="w-4 h-4" />
@@ -198,7 +198,7 @@ const QuickSearchModal: React.FC<QuickSearchModalProps> = ({
             <div className="space-y-4">
               {/* Location Input */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-200 mb-2">
                   Destinasyon
                 </label>
                 <LocationAutocomplete
@@ -220,7 +220,7 @@ const QuickSearchModal: React.FC<QuickSearchModalProps> = ({
               {/* Date Inputs */}
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-gray-200 mb-2">
                     Giriş Tarihi
                   </label>
                   <div className="relative">
@@ -234,7 +234,7 @@ const QuickSearchModal: React.FC<QuickSearchModalProps> = ({
                   </div>
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-gray-200 mb-2">
                     Çıkış Tarihi
                   </label>
                   <div className="relative">
@@ -251,7 +251,7 @@ const QuickSearchModal: React.FC<QuickSearchModalProps> = ({
 
               {/* Travelers Input */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-200 mb-2">
                   Misafir Sayısı
                 </label>
                 <div className="relative">

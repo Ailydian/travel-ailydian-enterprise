@@ -242,17 +242,17 @@ export default function AntalyaAirportTransferPage() {
       </section>
 
       {/* Features Section */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-white/5">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-12 text-gray-900">
+          <h2 className="text-4xl font-bold text-center mb-12 text-white">
             Why Choose LyDian Transfer?
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
             {features.map((feature, index) => (
               <div key={index} className="text-center p-6 rounded-xl bg-blue-50 hover:bg-blue-100 transition-all">
                 <feature.icon className="w-12 h-12 text-blue-600 mx-auto mb-4" />
-                <h3 className="text-xl font-bold mb-2 text-gray-900">{feature.title}</h3>
-                <p className="text-gray-600">{feature.description}</p>
+                <h3 className="text-xl font-bold mb-2 text-white">{feature.title}</h3>
+                <p className="text-gray-300">{feature.description}</p>
               </div>
             ))}
           </div>
@@ -260,23 +260,23 @@ export default function AntalyaAirportTransferPage() {
       </section>
 
       {/* Destinations & Pricing */}
-      <section id="prices" className="py-16 bg-gray-50">
+      <section id="prices" className="py-16 bg-white/5">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-4 text-gray-900">
+          <h2 className="text-4xl font-bold text-center mb-4 text-white">
             Antalya Airport Transfer Prices 2025
           </h2>
-          <p className="text-center text-gray-600 mb-12 text-lg">
+          <p className="text-center text-gray-300 mb-12 text-lg">
             Fixed prices for all destinations • No hidden fees
           </p>
           <div className="grid md:grid-cols-3 gap-6">
             {destinations.map((dest, index) => (
-              <div key={index} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all">
+              <div key={index} className="bg-white/5 rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all">
                 <div className="p-6">
                   <div className="flex items-center justify-between mb-4">
-                    <h3 className="text-2xl font-bold text-gray-900">{dest.name}</h3>
+                    <h3 className="text-2xl font-bold text-white">{dest.name}</h3>
                     <div className="text-3xl font-bold text-blue-600">{dest.price}</div>
                   </div>
-                  <div className="space-y-2 text-gray-600">
+                  <div className="space-y-2 text-gray-300">
                     <div className="flex items-center gap-2">
                       <MapPin className="w-5 h-5 text-gray-400" />
                       <span>Distance: {dest.distance}</span>
@@ -300,23 +300,23 @@ export default function AntalyaAirportTransferPage() {
       </section>
 
       {/* Customer Reviews */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-white/5">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-12 text-gray-900">
+          <h2 className="text-4xl font-bold text-center mb-12 text-white">
             Customer Reviews & Testimonials
           </h2>
           <div className="grid md:grid-cols-3 gap-6">
             {reviews.map((review, index) => (
-              <div key={index} className="bg-gray-50 rounded-xl p-6">
+              <div key={index} className="bg-white/5 rounded-xl p-6">
                 <div className="flex items-center gap-1 mb-3">
                   {[...Array(review.rating)].map((_, i) => (
                     <Star key={i} className="w-5 h-5 text-yellow-400" fill="currentColor" />
                   ))}
                 </div>
-                <p className="text-gray-700 mb-4 italic">"{review.comment}"</p>
+                <p className="text-gray-200 mb-4 italic">"{review.comment}"</p>
                 <div className="flex items-center justify-between text-sm">
-                  <span className="font-bold text-gray-900">{review.name}</span>
-                  <span className="text-gray-500">{review.date}</span>
+                  <span className="font-bold text-white">{review.name}</span>
+                  <span className="text-gray-400">{review.date}</span>
                 </div>
               </div>
             ))}
@@ -325,19 +325,19 @@ export default function AntalyaAirportTransferPage() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-white/5">
         <div className="container mx-auto px-4 max-w-4xl">
-          <h2 className="text-4xl font-bold text-center mb-12 text-gray-900">
+          <h2 className="text-4xl font-bold text-center mb-12 text-white">
             Frequently Asked Questions
           </h2>
           <div className="space-y-4">
             {faqs.map((faq, index) => (
-              <details key={index} className="bg-white rounded-xl p-6 shadow-sm">
-                <summary className="font-bold text-lg cursor-pointer text-gray-900 flex items-center gap-2">
+              <details key={index} className="bg-white/5 rounded-xl p-6 shadow-sm">
+                <summary className="font-bold text-lg cursor-pointer text-white flex items-center gap-2">
                   <MessageCircle className="w-5 h-5 text-blue-600" />
                   {faq.question}
                 </summary>
-                <p className="mt-4 text-gray-600 pl-7">{faq.answer}</p>
+                <p className="mt-4 text-gray-300 pl-7">{faq.answer}</p>
               </details>
             ))}
           </div>

@@ -284,7 +284,7 @@ export default function Flights() {
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="flex items-center gap-2 px-8 py-3 bg-transparent text-lydian-primary rounded-xl font-medium hover:bg-gray-100 transition-colors"
+                    className="flex items-center gap-2 px-8 py-3 bg-transparent text-lydian-primary rounded-xl font-medium hover:bg-white/10 transition-colors"
                   >
                     <Search className="w-5 h-5" />
                     Uçak Bileti Ara
@@ -305,7 +305,7 @@ export default function Flights() {
               <div className="flex items-center gap-4">
                 <button
                   onClick={() => setShowFilters(!showFilters)}
-                  className="flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors relative"
+                  className="flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-lg hover:bg-white/5 transition-colors relative"
                 >
                   <SlidersHorizontal className="w-4 h-4" />
                   Gelişmiş Filtreler
@@ -348,7 +348,7 @@ export default function Flights() {
                   className={`px-4 py-2 rounded-full font-medium transition-colors text-sm ${
                     selectedAirline === airline
                       ? 'bg-lydian-primary text-white'
-                      : 'bg-gray-100 text-gray-200 hover:bg-lydian-primary hover:text-white'
+                      : 'bg-white/10 text-gray-200 hover:bg-lydian-primary hover:text-white'
                   }`}
                 >
                   {airline}
@@ -359,7 +359,7 @@ export default function Flights() {
         </section>
 
         {/* Results Section with Filters */}
-        <section className="py-12 bg-gray-50">
+        <section className="py-12 bg-white/5">
           <div className="max-w-7xl mx-auto px-4">
             <div className="flex gap-6">
               {/* Advanced Filters Sidebar */}
@@ -389,7 +389,7 @@ export default function Flights() {
                     <div className="flex-1">
                       <div className="flex items-center justify-between mb-4">
                         <div className="flex items-center">
-                          <div className="w-12 h-12 mr-4 rounded-full overflow-hidden bg-gray-100 flex items-center justify-center">
+                          <div className="w-12 h-12 mr-4 rounded-full overflow-hidden bg-white/10 flex items-center justify-center">
                             <Image
                               src={flight.logo}
                               alt={flight.airline}
@@ -400,7 +400,7 @@ export default function Flights() {
                           </div>
                           <div>
                             <h3 className="font-bold text-lg text-white">{flight.airline}</h3>
-                            <p className="text-sm text-gray-500">{flight.aircraft}</p>
+                            <p className="text-sm text-gray-400">{flight.aircraft}</p>
                           </div>
                         </div>
                         <div className="flex items-center gap-2">
@@ -417,7 +417,7 @@ export default function Flights() {
                       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-center mb-4">
                         <div className="text-center md:text-left">
                           <div className="font-bold text-2xl text-white">{flight.departure}</div>
-                          <div className="text-sm text-gray-500 font-medium">{flight.from}</div>
+                          <div className="text-sm text-gray-400 font-medium">{flight.from}</div>
                         </div>
                         
                         <div className="text-center">
@@ -426,7 +426,7 @@ export default function Flights() {
                             <Plane className="h-5 w-5 text-lydian-primary mx-2" />
                             <div className="w-4 h-0.5 bg-gray-300"></div>
                           </div>
-                          <div className="text-sm text-gray-500 flex items-center justify-center font-medium">
+                          <div className="text-sm text-gray-400 flex items-center justify-center font-medium">
                             <Clock className="h-4 w-4 mr-1" />
                             {flight.duration}
                           </div>
@@ -434,7 +434,7 @@ export default function Flights() {
                         
                         <div className="text-center md:text-right">
                           <div className="font-bold text-2xl text-white">{flight.arrival}</div>
-                          <div className="text-sm text-gray-500 font-medium">{flight.to}</div>
+                          <div className="text-sm text-gray-400 font-medium">{flight.to}</div>
                         </div>
                       </div>
                       
@@ -456,7 +456,7 @@ export default function Flights() {
                     <div className="mt-6 lg:mt-0 lg:ml-8 text-center lg:text-right">
                       <div className="mb-4">
                         {flight.originalPrice && (
-                          <div className="text-sm text-gray-500 line-through mb-1">
+                          <div className="text-sm text-gray-400 line-through mb-1">
                             ₺{flight.originalPrice}
                           </div>
                         )}
@@ -476,7 +476,7 @@ export default function Flights() {
                         </motion.button>
                       </Link>
                       
-                      <div className="mt-2 text-xs text-gray-500">
+                      <div className="mt-2 text-xs text-gray-400">
                         ✓ Blockchain Güvenli Rezervasyon
                       </div>
                     </div>

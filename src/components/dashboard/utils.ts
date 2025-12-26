@@ -214,10 +214,10 @@ export const getStatusColor = (
     cancelled: 'bg-red-100 text-red-800',
     completed: 'bg-blue-100 text-blue-800',
     active: 'bg-green-100 text-green-800',
-    inactive: 'bg-gray-100 text-gray-800',
+    inactive: 'bg-white/10 text-white',
   };
 
-  return statusMap[status.toLowerCase()] || 'bg-gray-100 text-gray-800';
+  return statusMap[status.toLowerCase()] || 'bg-white/10 text-white';
 };
 
 /**

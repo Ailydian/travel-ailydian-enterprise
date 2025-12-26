@@ -141,7 +141,7 @@ const ToastItem: React.FC<ToastItemProps> = ({ toast, onClose }) => {
       {/* Close Button */}
       <button
         onClick={onClose}
-        className="absolute top-3 right-3 text-gray-400 hover:text-gray-600 transition-colors"
+        className="absolute top-3 right-3 text-gray-400 hover:text-gray-300 transition-colors"
       >
         <X className="w-4 h-4" />
       </button>

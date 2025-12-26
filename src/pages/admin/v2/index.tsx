@@ -705,7 +705,7 @@ const AdminDashboardV2 = () => {
       case 'cancelled':
         return 'text-red-600 bg-red-50';
       default:
-        return 'text-gray-600 bg-gray-50';
+        return 'text-gray-300 bg-white/5';
     }
   };
 
@@ -733,7 +733,7 @@ const AdminDashboardV2 = () => {
       />
 
       {/* Premium Header */}
-      <header className="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-sm backdrop-blur-lg bg-white/95">
+      <header className="bg-white/5 border-b border-slate-200 sticky top-0 z-50 shadow-sm backdrop-blur-lg bg-white/95">
         <div className="max-w-[1920px] mx-auto px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             {/* Logo & Title */}
@@ -869,7 +869,7 @@ const AdminDashboardV2 = () => {
                 className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium text-sm transition-all whitespace-nowrap ${
                   activeTab === tab.id
                     ? 'bg-blue-600 text-white shadow-lg shadow-blue-600/30'
-                    : 'bg-white text-slate-700 hover:bg-slate-50'
+                    : 'bg-white/5 text-slate-700 hover:bg-slate-50'
                 }`}
               >
                 <Icon className="w-4 h-4" />
@@ -892,7 +892,7 @@ const AdminDashboardV2 = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: index * 0.1 }}
-                    className="bg-white rounded-2xl p-6 border border-slate-200 hover:shadow-xl transition-all relative overflow-hidden group"
+                    className="bg-white/5 rounded-2xl p-6 border border-slate-200 hover:shadow-xl transition-all relative overflow-hidden group"
                   >
                     {metric.realtime && (
                       <div className="absolute top-2 right-2">
@@ -957,7 +957,7 @@ const AdminDashboardV2 = () => {
                 </div>
 
                 <div className="grid grid-cols-2 gap-4 mb-4">
-                  <div className="bg-white rounded-xl p-4">
+                  <div className="bg-white/5 rounded-xl p-4">
                     <p className="text-xs text-slate-600 mb-1">Toplam Araç</p>
                     <p className="text-2xl font-bold text-slate-900">{productCategories.find(p => p.id === 'car-rental')?.active || 0}</p>
                     <div className="flex items-center gap-1 mt-1">
@@ -965,12 +965,12 @@ const AdminDashboardV2 = () => {
                       <span className="text-xs font-semibold text-green-600">+{productCategories.find(p => p.id === 'car-rental')?.growth || 0}%</span>
                     </div>
                   </div>
-                  <div className="bg-white rounded-xl p-4">
+                  <div className="bg-white/5 rounded-xl p-4">
                     <p className="text-xs text-slate-600 mb-1">Aktif</p>
                     <p className="text-2xl font-bold text-green-700">{Math.floor((productCategories.find(p => p.id === 'car-rental')?.active || 0) * 0.85)}</p>
                     <p className="text-xs text-slate-500 mt-1">Müsait</p>
                   </div>
-                  <div className="bg-white rounded-xl p-4">
+                  <div className="bg-white/5 rounded-xl p-4">
                     <p className="text-xs text-slate-600 mb-1">Bu Ay Gelir</p>
                     <p className="text-xl font-bold text-blue-700">
                       {formatCurrency(productCategories.find(p => p.id === 'car-rental')?.revenue || 0)}
@@ -980,14 +980,14 @@ const AdminDashboardV2 = () => {
                       <span className="text-xs text-slate-500">Aylık</span>
                     </div>
                   </div>
-                  <div className="bg-white rounded-xl p-4">
+                  <div className="bg-white/5 rounded-xl p-4">
                     <p className="text-xs text-slate-600 mb-1">Rezervasyonlar</p>
                     <p className="text-xl font-bold text-purple-700">{productCategories.find(p => p.id === 'car-rental')?.bookings || 0}</p>
                     <p className="text-xs text-slate-500 mt-1">Bu ay</p>
                   </div>
                 </div>
 
-                <div className="bg-white rounded-xl p-4">
+                <div className="bg-white/5 rounded-xl p-4">
                   <div className="flex items-center justify-between mb-2">
                     <p className="text-xs font-semibold text-slate-600">EN POPÜLER</p>
                     <Star className="w-4 h-4 text-amber-500 fill-amber-500" />
@@ -1032,7 +1032,7 @@ const AdminDashboardV2 = () => {
                 </div>
 
                 <div className="grid grid-cols-2 gap-4 mb-4">
-                  <div className="bg-white rounded-xl p-4">
+                  <div className="bg-white/5 rounded-xl p-4">
                     <p className="text-xs text-slate-600 mb-1">Toplam Mülk</p>
                     <p className="text-2xl font-bold text-slate-900">{productCategories.find(p => p.id === 'rental')?.active || 0}</p>
                     <div className="flex items-center gap-1 mt-1">
@@ -1040,12 +1040,12 @@ const AdminDashboardV2 = () => {
                       <span className="text-xs font-semibold text-green-600">+{productCategories.find(p => p.id === 'rental')?.growth || 0}%</span>
                     </div>
                   </div>
-                  <div className="bg-white rounded-xl p-4">
+                  <div className="bg-white/5 rounded-xl p-4">
                     <p className="text-xs text-slate-600 mb-1">Doluluk Oranı</p>
                     <p className="text-2xl font-bold text-green-700">78%</p>
                     <p className="text-xs text-slate-500 mt-1">Ortalama</p>
                   </div>
-                  <div className="bg-white rounded-xl p-4">
+                  <div className="bg-white/5 rounded-xl p-4">
                     <p className="text-xs text-slate-600 mb-1">Bu Ay Gelir</p>
                     <p className="text-xl font-bold text-purple-700">
                       {formatCurrency(productCategories.find(p => p.id === 'rental')?.revenue || 0)}
@@ -1055,14 +1055,14 @@ const AdminDashboardV2 = () => {
                       <span className="text-xs text-slate-500">Aylık</span>
                     </div>
                   </div>
-                  <div className="bg-white rounded-xl p-4">
+                  <div className="bg-white/5 rounded-xl p-4">
                     <p className="text-xs text-slate-600 mb-1">Superhost</p>
                     <p className="text-xl font-bold text-amber-600">2</p>
                     <p className="text-xs text-slate-500 mt-1">Aktif</p>
                   </div>
                 </div>
 
-                <div className="bg-white rounded-xl p-4">
+                <div className="bg-white/5 rounded-xl p-4">
                   <div className="flex items-center justify-between mb-2">
                     <p className="text-xs font-semibold text-slate-600">EN İYİ PERFORMANS</p>
                     <div className="flex items-center gap-1">
@@ -1088,7 +1088,7 @@ const AdminDashboardV2 = () => {
             {/* Product Categories & Live Bookings */}
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
               {/* Product Categories */}
-              <div className="lg:col-span-2 bg-white rounded-2xl p-6 border border-slate-200">
+              <div className="lg:col-span-2 bg-white/5 rounded-2xl p-6 border border-slate-200">
                 <div className="flex items-center justify-between mb-6">
                   <div>
                     <h2 className="text-lg font-bold text-slate-900">Ürün Kategorileri</h2>
@@ -1164,7 +1164,7 @@ const AdminDashboardV2 = () => {
               </div>
 
               {/* Live Bookings */}
-              <div className="bg-white rounded-2xl p-6 border border-slate-200">
+              <div className="bg-white/5 rounded-2xl p-6 border border-slate-200">
                 <div className="flex items-center justify-between mb-6">
                   <div>
                     <h2 className="text-lg font-bold text-slate-900">Canlı Rezervasyonlar</h2>
@@ -1189,7 +1189,7 @@ const AdminDashboardV2 = () => {
                         transition={{ delay: index * 0.05 }}
                         className="flex items-start gap-3 p-3 rounded-xl bg-gradient-to-r from-slate-50 to-blue-50 hover:from-blue-50 hover:to-purple-50 transition-all cursor-pointer group border border-slate-100"
                       >
-                        <div className="mt-1 p-2 bg-white rounded-lg shadow-sm group-hover:shadow-md transition-shadow">
+                        <div className="mt-1 p-2 bg-white/5 rounded-lg shadow-sm group-hover:shadow-md transition-shadow">
                           {getProductIcon(booking.type)}
                         </div>
                         <div className="flex-1 min-w-0">
@@ -1220,7 +1220,7 @@ const AdminDashboardV2 = () => {
             {/* B2B Partners & System Health */}
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
               {/* B2B Partners Summary */}
-              <div className="lg:col-span-2 bg-white rounded-2xl p-6 border border-slate-200">
+              <div className="lg:col-span-2 bg-white/5 rounded-2xl p-6 border border-slate-200">
                 <div className="flex items-center justify-between mb-6">
                   <div>
                     <h2 className="text-lg font-bold text-slate-900">B2B Partnerler</h2>
@@ -1275,7 +1275,7 @@ const AdminDashboardV2 = () => {
               </div>
 
               {/* System Health */}
-              <div className="bg-white rounded-2xl p-6 border border-slate-200">
+              <div className="bg-white/5 rounded-2xl p-6 border border-slate-200">
                 <div className="mb-6">
                   <h2 className="text-lg font-bold text-slate-900">Sistem Sağlığı</h2>
                   <p className="text-sm text-slate-500">Son kontrol: {systemHealth.lastCheck}</p>
@@ -1363,7 +1363,7 @@ const AdminDashboardV2 = () => {
                       initial={{ opacity: 0, scale: 0.9 }}
                       animate={{ opacity: 1, scale: 1 }}
                       transition={{ delay: index * 0.1 }}
-                      className="bg-white rounded-2xl p-6 border border-slate-200 hover:shadow-xl transition-all cursor-pointer group"
+                      className="bg-white/5 rounded-2xl p-6 border border-slate-200 hover:shadow-xl transition-all cursor-pointer group"
                     >
                     <div className="flex items-center gap-4 mb-4">
                       <div className="p-4 bg-blue-50 rounded-xl group-hover:bg-blue-100 transition-colors">
@@ -1429,7 +1429,7 @@ const AdminDashboardV2 = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
-                  className="bg-white rounded-2xl p-6 border border-slate-200 hover:shadow-xl transition-all"
+                  className="bg-white/5 rounded-2xl p-6 border border-slate-200 hover:shadow-xl transition-all"
                 >
                   <div className="flex items-start justify-between mb-4">
                     <div className="flex items-center gap-3">
@@ -1477,14 +1477,14 @@ const AdminDashboardV2 = () => {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="bg-white rounded-xl p-6 border border-slate-200">
+              <div className="bg-white/5 rounded-xl p-6 border border-slate-200">
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-sm text-slate-600">Toplam Partner</span>
                   <Briefcase className="w-5 h-5 text-purple-600" />
                 </div>
                 <div className="text-3xl font-bold text-slate-900">{b2bPartners.length}</div>
               </div>
-              <div className="bg-white rounded-xl p-6 border border-slate-200">
+              <div className="bg-white/5 rounded-xl p-6 border border-slate-200">
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-sm text-slate-600">Toplam Gelir</span>
                   <DollarSign className="w-5 h-5 text-green-600" />
@@ -1493,7 +1493,7 @@ const AdminDashboardV2 = () => {
                   {formatCurrency(b2bPartners.reduce((acc, p) => acc + p.revenue, 0))}
                 </div>
               </div>
-              <div className="bg-white rounded-xl p-6 border border-slate-200">
+              <div className="bg-white/5 rounded-xl p-6 border border-slate-200">
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-sm text-slate-600">Ort. Komisyon</span>
                   <Target className="w-5 h-5 text-amber-600" />

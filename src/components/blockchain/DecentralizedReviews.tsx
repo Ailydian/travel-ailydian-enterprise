@@ -235,7 +235,7 @@ const DecentralizedReviews: React.FC = () => {
       case 'restaurant': return 'bg-orange-100 text-orange-700';
       case 'attraction': return 'bg-purple-100 text-purple-700';
       case 'transport': return 'bg-green-100 text-green-700';
-      default: return 'bg-gray-100 text-gray-700';
+      default: return 'bg-white/10 text-gray-200';
     }
   };
 
@@ -273,7 +273,7 @@ const DecentralizedReviews: React.FC = () => {
                 <Award className="w-4 h-4 text-purple-500" />
               )}
             </div>
-            <div className="flex items-center gap-2 text-xs text-gray-500">
+            <div className="flex items-center gap-2 text-xs text-gray-400">
               <span>{review.reviewer.totalReviews} yorum</span>
               <span>•</span>
               <div className="flex items-center gap-1">
@@ -299,7 +299,7 @@ const DecentralizedReviews: React.FC = () => {
       {/* Business Info */}
       <div className="mb-3">
         <h3 className="font-semibold text-white mb-1">{review.businessName}</h3>
-        <div className="flex items-center gap-2 text-sm text-gray-600">
+        <div className="flex items-center gap-2 text-sm text-gray-300">
           <MapPin className="w-4 h-4" />
           <span>{review.location.city}, {review.location.country}</span>
         </div>
@@ -311,13 +311,13 @@ const DecentralizedReviews: React.FC = () => {
           <div className="flex items-center gap-1">
             {renderStars(review.rating)}
           </div>
-          <span className="text-sm font-medium text-gray-700">{review.rating}/5</span>
+          <span className="text-sm font-medium text-gray-200">{review.rating}/5</span>
         </div>
         <h4 className="font-medium text-white">{review.title}</h4>
       </div>
 
       {/* Content Preview */}
-      <p className="text-gray-700 text-sm line-clamp-3 mb-4">
+      <p className="text-gray-200 text-sm line-clamp-3 mb-4">
         {review.content}
       </p>
 
@@ -333,7 +333,7 @@ const DecentralizedReviews: React.FC = () => {
             />
           ))}
           {review.images.length > 3 && (
-            <div className="w-16 h-16 bg-gray-100 rounded-lg flex items-center justify-center text-xs text-gray-500 flex-shrink-0">
+            <div className="w-16 h-16 bg-white/10 rounded-lg flex items-center justify-center text-xs text-gray-400 flex-shrink-0">
               +{review.images.length - 3}
             </div>
           )}
@@ -342,7 +342,7 @@ const DecentralizedReviews: React.FC = () => {
 
       {/* Footer */}
       <div className="flex items-center justify-between pt-4 border-t">
-        <div className="flex items-center gap-4 text-sm text-gray-500">
+        <div className="flex items-center gap-4 text-sm text-gray-400">
           <div className="flex items-center gap-1">
             <ThumbsUp className="w-4 h-4" />
             <span>{review.votes.helpful}</span>
@@ -377,7 +377,7 @@ const DecentralizedReviews: React.FC = () => {
             </div>
             Merkezi Olmayan Yorumlar
           </h1>
-          <p className="text-gray-600 mt-2">
+          <p className="text-gray-300 mt-2">
             Blockchain ile doğrulanmış, değiştirilemez seyahat deneyimleri
           </p>
         </div>
@@ -395,23 +395,23 @@ const DecentralizedReviews: React.FC = () => {
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
         <div className="bg-white/5 rounded-2xl p-6 text-center shadow-lg">
           <div className="text-3xl font-bold text-white mb-2">{reviews.length}</div>
-          <div className="text-sm text-gray-600">Toplam Yorum</div>
+          <div className="text-sm text-gray-300">Toplam Yorum</div>
         </div>
         <div className="bg-white/5 rounded-2xl p-6 text-center shadow-lg">
           <div className="text-3xl font-bold text-green-600 mb-2">
             {reviews.filter(r => r.isVerified).length}
           </div>
-          <div className="text-sm text-gray-600">Doğrulanmış</div>
+          <div className="text-sm text-gray-300">Doğrulanmış</div>
         </div>
         <div className="bg-white/5 rounded-2xl p-6 text-center shadow-lg">
           <div className="text-3xl font-bold text-purple-600 mb-2">
             {reviews.filter(r => r.nftProof).length}
           </div>
-          <div className="text-sm text-gray-600">NFT Kanıtlı</div>
+          <div className="text-sm text-gray-300">NFT Kanıtlı</div>
         </div>
         <div className="bg-white/5 rounded-2xl p-6 text-center shadow-lg">
           <div className="text-3xl font-bold text-blue-600 mb-2">4.7</div>
-          <div className="text-sm text-gray-600">Ortalama Puan</div>
+          <div className="text-sm text-gray-300">Ortalama Puan</div>
         </div>
       </div>
 
@@ -487,14 +487,14 @@ const DecentralizedReviews: React.FC = () => {
                   <h3 className="text-2xl font-bold text-white">Yorum Detayı</h3>
                   <button
                     onClick={() => setSelectedReview(null)}
-                    className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+                    className="p-2 hover:bg-white/10 rounded-lg transition-colors"
                   >
-                    <X className="w-6 h-6 text-gray-500" />
+                    <X className="w-6 h-6 text-gray-400" />
                   </button>
                 </div>
                 
                 {/* Full review content would be implemented here */}
-                <div className="text-center py-8 text-gray-500">
+                <div className="text-center py-8 text-gray-400">
                   Detaylı yorum görünümü burada yer alacak...
                 </div>
                 </div>
@@ -525,13 +525,13 @@ const DecentralizedReviews: React.FC = () => {
                 <h3 className="text-2xl font-bold text-white">Yeni Yorum Yaz</h3>
                 <button
                   onClick={() => setShowWriteReview(false)}
-                  className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+                  className="p-2 hover:bg-white/10 rounded-lg transition-colors"
                 >
-                  <X className="w-6 h-6 text-gray-500" />
+                  <X className="w-6 h-6 text-gray-400" />
                 </button>
               </div>
               
-              <div className="text-center py-8 text-gray-500">
+              <div className="text-center py-8 text-gray-400">
                 Yorum yazma formu burada yer alacak...
               </div>
                 </motion.div>

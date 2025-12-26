@@ -215,17 +215,17 @@ export function DataTable<T>({
   return (
     <div className={className}>
       {/* Desktop Table View */}
-      <div className="hidden md:block bg-white rounded-lg border border-gray-200 overflow-hidden">
+      <div className="hidden md:block bg-white/5 rounded-lg border border-gray-200 overflow-hidden">
         <div className="overflow-x-auto">
           <table className="min-w-full divide-y divide-gray-200">
-            <thead className="bg-gray-50">
+            <thead className="bg-white/5">
               <tr>
                 {columns.map((column) => (
                   <th
                     key={column.key}
-                    className={`px-6 py-3 text-${column.align || 'left'} text-xs font-medium text-gray-500 uppercase tracking-wider ${
+                    className={`px-6 py-3 text-${column.align || 'left'} text-xs font-medium text-gray-400 uppercase tracking-wider ${
                       column.width || ''
-                    } ${column.sortable ? 'cursor-pointer select-none hover:bg-gray-100' : ''}`}
+                    } ${column.sortable ? 'cursor-pointer select-none hover:bg-white/10' : ''}`}
                     onClick={() => column.sortable && handleSort(column.key)}
                   >
                     <div className="flex items-center space-x-1">
@@ -247,21 +247,21 @@ export function DataTable<T>({
                   </th>
                 ))}
                 {rowActions && rowActions.length > 0 && (
-                  <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-right text-xs font-medium text-gray-400 uppercase tracking-wider">
                     Actions
                   </th>
                 )}
               </tr>
             </thead>
-            <tbody className="bg-white divide-y divide-gray-200">
+            <tbody className="bg-white/5 divide-y divide-gray-200">
               {paginatedData.map((row) => {
                 const rowKey = keyExtractor(row);
                 return (
-                  <tr key={rowKey} className="hover:bg-gray-50">
+                  <tr key={rowKey} className="hover:bg-white/5">
                     {columns.map((column) => (
                       <td
                         key={column.key}
-                        className={`px-6 py-4 whitespace-nowrap text-sm text-gray-900 text-${column.align || 'left'}`}
+                        className={`px-6 py-4 whitespace-nowrap text-sm text-white text-${column.align || 'left'}`}
                       >
                         {column.render
                           ? column.render(row)
@@ -277,7 +277,7 @@ export function DataTable<T>({
                                 openActionMenu === rowKey ? null : rowKey
                               )
                             }
-                            className="text-gray-400 hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded p-1"
+                            className="text-gray-400 hover:text-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded p-1"
                             aria-label="Row actions"
                           >
                             <MoreVertical className="h-5 w-5" />
@@ -289,7 +289,7 @@ export function DataTable<T>({
                                 className="fixed inset-0 z-10"
                                 onClick={() => setOpenActionMenu(null)}
                               />
-                              <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 py-1 z-20">
+                              <div className="absolute right-0 mt-2 w-48 bg-white/5 rounded-lg shadow-lg border border-gray-200 py-1 z-20">
                                 {rowActions
                                   .filter(
                                     (action) =>
@@ -304,10 +304,10 @@ export function DataTable<T>({
                                           action.onClick(row);
                                           setOpenActionMenu(null);
                                         }}
-                                        className={`w-full px-4 py-2 text-left text-sm hover:bg-gray-100 flex items-center space-x-2 ${
+                                        className={`w-full px-4 py-2 text-left text-sm hover:bg-white/10 flex items-center space-x-2 ${
                                           action.danger
                                             ? 'text-red-600'
-                                            : 'text-gray-700'
+                                            : 'text-gray-200'
                                         }`}
                                       >
                                         {Icon && <Icon className="h-4 w-4" />}
@@ -336,16 +336,16 @@ export function DataTable<T>({
           return (
             <div
               key={rowKey}
-              className="bg-white rounded-lg border border-gray-200 p-4"
+              className="bg-white/5 rounded-lg border border-gray-200 p-4"
             >
               {columns
                 .filter((col) => !col.hideOnMobile)
                 .map((column) => (
                   <div key={column.key} className="mb-3 last:mb-0">
-                    <div className="text-xs font-medium text-gray-500 mb-1">
+                    <div className="text-xs font-medium text-gray-400 mb-1">
                       {column.label}
                     </div>
-                    <div className="text-sm text-gray-900">
+                    <div className="text-sm text-white">
                       {column.render
                         ? column.render(row)
                         : (row as any)[column.key]}
@@ -365,7 +365,7 @@ export function DataTable<T>({
                           className={`flex items-center space-x-1 px-3 py-1.5 rounded-lg text-sm font-medium ${
                             action.danger
                               ? 'bg-red-100 text-red-700 hover:bg-red-200'
-                              : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                              : 'bg-white/10 text-gray-200 hover:bg-gray-200'
                           }`}
                         >
                           {Icon && <Icon className="h-4 w-4" />}
@@ -383,7 +383,7 @@ export function DataTable<T>({
       {/* Pagination */}
       {pagination && totalPages > 1 && (
         <div className="mt-6 flex items-center justify-between">
-          <div className="text-sm text-gray-600">
+          <div className="text-sm text-gray-300">
             Showing {(currentPage - 1) * itemsPerPage + 1} to{' '}
             {Math.min(currentPage * itemsPerPage, sortedData.length)} of{' '}
             {sortedData.length} results
@@ -392,7 +392,7 @@ export function DataTable<T>({
             <button
               onClick={() => handlePageChange(currentPage - 1)}
               disabled={currentPage === 1}
-              className="p-2 rounded-lg border border-gray-300 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="p-2 rounded-lg border border-gray-300 hover:bg-white/5 disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-blue-500"
               aria-label="Previous page"
             >
               <ChevronLeft className="h-5 w-5" />
@@ -418,7 +418,7 @@ export function DataTable<T>({
                     className={`px-3 py-1.5 rounded-lg text-sm font-medium focus:outline-none focus:ring-2 focus:ring-blue-500 ${
                       currentPage === pageNum
                         ? 'bg-blue-600 text-white'
-                        : 'bg-white border border-gray-300 text-gray-700 hover:bg-gray-50'
+                        : 'bg-white/5 border border-gray-300 text-gray-200 hover:bg-white/5'
                     }`}
                   >
                     {pageNum}
@@ -430,7 +430,7 @@ export function DataTable<T>({
             <button
               onClick={() => handlePageChange(currentPage + 1)}
               disabled={currentPage === totalPages}
-              className="p-2 rounded-lg border border-gray-300 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="p-2 rounded-lg border border-gray-300 hover:bg-white/5 disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-blue-500"
               aria-label="Next page"
             >
               <ChevronRight className="h-5 w-5" />

@@ -86,7 +86,7 @@ export default function Step5Legal({ data }: Step5Props) {
         className={`p-5 border-2 rounded-xl transition-all ${
           isUploaded
             ? 'border-green-500 bg-green-50'
-            : 'border-slate-200 bg-white hover:border-cyan-300'
+            : 'border-slate-200 bg-white/5 hover:border-cyan-300'
         }`}
       >
         <div className="flex items-start gap-4">
@@ -114,7 +114,7 @@ export default function Step5Legal({ data }: Step5Props) {
             </div>
 
             {isUploaded ? (
-              <div className="flex items-center justify-between mt-3 p-3 bg-white rounded-lg border border-green-200">
+              <div className="flex items-center justify-between mt-3 p-3 bg-white/5 rounded-lg border border-green-200">
                 <div className="flex items-center gap-2">
                   <FileText className="w-4 h-4 text-green-600" />
                   <span className="text-sm font-medium text-slate-900">{doc.fileName}</span>

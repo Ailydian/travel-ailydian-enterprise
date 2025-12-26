@@ -114,7 +114,7 @@ export default function Press() {
 
       <FuturisticHeader />
 
-      <main className="min-h-screen bg-gray-50">
+      <main className="min-h-screen bg-white/5">
         {/* Hero Section */}
         <div className="bg-gradient-to-r from-lydian-primary to-lydian-dark text-white py-20">
           <div className="max-w-7xl mx-auto px-4">
@@ -206,7 +206,7 @@ export default function Press() {
               <article key={release.id} className="bg-transparent rounded-lg shadow-md hover:shadow-lg transition-shadow overflow-hidden">
                 <div className="p-6">
                   <div className="flex items-center gap-3 mb-4">
-                    <span className="inline-flex items-center gap-1 text-sm text-gray-500">
+                    <span className="inline-flex items-center gap-1 text-sm text-gray-400">
                       <Calendar className="w-4 h-4" />
                       {release.date}
                     </span>
@@ -271,7 +271,7 @@ export default function Press() {
         </div>
 
         {/* Company Overview */}
-        <div className="py-16 bg-gray-50">
+        <div className="py-16 bg-white/5">
           <div className="max-w-7xl mx-auto px-4">
             <div className="grid md:grid-cols-2 gap-12">
               <div>

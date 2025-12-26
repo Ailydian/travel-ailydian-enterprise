@@ -90,7 +90,7 @@ export default function Step5Pricing({ data }: Step5Props) {
               className={`p-4 border-2 rounded-lg font-semibold transition-all ${
                 currency === curr.value
                   ? 'border-green-500 bg-green-50 text-green-900'
-                  : 'border-slate-200 bg-white text-slate-700 hover:border-slate-300'
+                  : 'border-slate-200 bg-white/5 text-slate-700 hover:border-slate-300'
               }`}
             >
               {curr.label}
@@ -263,7 +263,7 @@ export default function Step5Pricing({ data }: Step5Props) {
               className={`flex-1 p-4 border-2 rounded-lg transition-all ${
                 mileageType === 'unlimited'
                   ? 'border-green-500 bg-green-50'
-                  : 'border-slate-200 bg-white hover:border-slate-300'
+                  : 'border-slate-200 bg-white/5 hover:border-slate-300'
               }`}
             >
               <h4 className="font-semibold text-slate-900 mb-1">Sınırsız</h4>
@@ -275,7 +275,7 @@ export default function Step5Pricing({ data }: Step5Props) {
               className={`flex-1 p-4 border-2 rounded-lg transition-all ${
                 mileageType === 'limited'
                   ? 'border-green-500 bg-green-50'
-                  : 'border-slate-200 bg-white hover:border-slate-300'
+                  : 'border-slate-200 bg-white/5 hover:border-slate-300'
               }`}
             >
               <h4 className="font-semibold text-slate-900 mb-1">Limitli</h4>
@@ -340,7 +340,7 @@ export default function Step5Pricing({ data }: Step5Props) {
                 className={`w-full p-4 border-2 rounded-lg text-left transition-all ${
                   isSelected
                     ? 'border-green-500 bg-green-50'
-                    : 'border-slate-200 bg-white hover:border-slate-300'
+                    : 'border-slate-200 bg-white/5 hover:border-slate-300'
                 }`}
               >
                 <div className="flex items-start gap-3">
@@ -352,7 +352,7 @@ export default function Step5Pricing({ data }: Step5Props) {
                     }`}
                   >
                     {isSelected && (
-                      <div className="w-2 h-2 bg-white rounded-full" />
+                      <div className="w-2 h-2 bg-white/5 rounded-full" />
                     )}
                   </div>
                   <div>
@@ -477,14 +477,14 @@ export default function Step5Pricing({ data }: Step5Props) {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div className="p-4 bg-white rounded-lg border border-green-200">
+          <div className="p-4 bg-white/5 rounded-lg border border-green-200">
             <p className="text-xs text-slate-600 mb-1">Günlük</p>
             <p className="text-2xl font-bold text-slate-900">
               {getCurrencySymbol()}{pricePreview.daily.toFixed(2)}
             </p>
           </div>
 
-          <div className="p-4 bg-white rounded-lg border border-green-200">
+          <div className="p-4 bg-white/5 rounded-lg border border-green-200">
             <p className="text-xs text-slate-600 mb-1">Haftalık (7 gün)</p>
             <div>
               <p className="text-2xl font-bold text-slate-900">
@@ -498,7 +498,7 @@ export default function Step5Pricing({ data }: Step5Props) {
             </div>
           </div>
 
-          <div className="p-4 bg-white rounded-lg border border-green-200">
+          <div className="p-4 bg-white/5 rounded-lg border border-green-200">
             <p className="text-xs text-slate-600 mb-1">Aylık (30 gün)</p>
             <div>
               <p className="text-2xl font-bold text-slate-900">

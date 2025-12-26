@@ -191,7 +191,7 @@ const SocialPage: NextPage = () => {
         <meta name="description" content="Seyahat topluluğumuza katılın, deneyimlerinizi paylaşın ve yeni seyahat arkadaşları bulun. Türkiye'nin en büyük travel topluluğu." />
       </Head>
 
-      <div className="min-h-screen bg-gray-50">
+      <div className="min-h-screen bg-white/5">
         {/* Header */}
         <div className="bg-transparent shadow-sm border-b sticky top-0 z-40">
           <div className="max-w-7xl mx-auto px-4">
@@ -220,7 +220,7 @@ const SocialPage: NextPage = () => {
                         className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-colors ${
                           activeTab === tab.id
                             ? 'bg-blue-50 text-blue-600'
-                            : 'text-gray-300 hover:bg-gray-100'
+                            : 'text-gray-300 hover:bg-white/10'
                         }`}
                       >
                         <Icon className="w-4 h-4" />
@@ -232,10 +232,10 @@ const SocialPage: NextPage = () => {
               </div>
 
               <div className="flex items-center gap-3">
-                <button className="p-2 text-gray-300 hover:bg-gray-100 rounded-lg">
+                <button className="p-2 text-gray-300 hover:bg-white/10 rounded-lg">
                   <Search className="w-5 h-5" />
                 </button>
-                <button className="p-2 text-gray-300 hover:bg-gray-100 rounded-lg">
+                <button className="p-2 text-gray-300 hover:bg-white/10 rounded-lg">
                   <Bell className="w-5 h-5" />
                 </button>
                 <button
@@ -266,7 +266,7 @@ const SocialPage: NextPage = () => {
                       <span className="text-blue-600 font-medium cursor-pointer hover:underline">
                         {topic.tag}
                       </span>
-                      <span className="text-sm text-gray-500">{topic.posts}</span>
+                      <span className="text-sm text-gray-400">{topic.posts}</span>
                     </div>
                   ))}
                 </div>
@@ -349,7 +349,7 @@ const SocialPage: NextPage = () => {
                                   </div>
                                 )}
                               </div>
-                              <p className="text-sm text-gray-500">@{post.user.username} • {post.timestamp}</p>
+                              <p className="text-sm text-gray-400">@{post.user.username} • {post.timestamp}</p>
                             </div>
                           </div>
                           <button className="p-2 text-gray-400 hover:text-gray-300">
@@ -391,17 +391,17 @@ const SocialPage: NextPage = () => {
                             <button
                               onClick={() => handleLike(post.id)}
                               className={`flex items-center gap-2 transition-colors ${
-                                post.liked ? 'text-red-500' : 'text-gray-500 hover:text-red-500'
+                                post.liked ? 'text-red-500' : 'text-gray-400 hover:text-red-500'
                               }`}
                             >
                               <Heart className={`w-5 h-5 ${post.liked ? 'fill-current' : ''}`} />
                               <span className="text-sm">{post.likes}</span>
                             </button>
-                            <button className="flex items-center gap-2 text-gray-500 hover:text-blue-500 transition-colors">
+                            <button className="flex items-center gap-2 text-gray-400 hover:text-blue-500 transition-colors">
                               <MessageCircle className="w-5 h-5" />
                               <span className="text-sm">{post.comments}</span>
                             </button>
-                            <button className="flex items-center gap-2 text-gray-500 hover:text-green-500 transition-colors">
+                            <button className="flex items-center gap-2 text-gray-400 hover:text-green-500 transition-colors">
                               <Share2 className="w-5 h-5" />
                               <span className="text-sm">{post.shares}</span>
                             </button>
@@ -409,7 +409,7 @@ const SocialPage: NextPage = () => {
                           <button
                             onClick={() => handleBookmark(post.id)}
                             className={`p-2 transition-colors ${
-                              post.bookmarked ? 'text-blue-500' : 'text-gray-500 hover:text-blue-500'
+                              post.bookmarked ? 'text-blue-500' : 'text-gray-400 hover:text-blue-500'
                             }`}
                           >
                             <Bookmark className={`w-5 h-5 ${post.bookmarked ? 'fill-current' : ''}`} />
@@ -448,11 +448,11 @@ const SocialPage: NextPage = () => {
                                     </div>
                                   )}
                                 </div>
-                                <p className="text-sm text-gray-500">{buddy.location}</p>
+                                <p className="text-sm text-gray-400">{buddy.location}</p>
                                 <div className="flex items-center gap-1 mt-1">
                                   <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
                                   <span className="text-sm font-medium">{buddy.rating}</span>
-                                  <span className="text-sm text-gray-500">({buddy.reviews} değerlendirme)</span>
+                                  <span className="text-sm text-gray-400">({buddy.reviews} değerlendirme)</span>
                                 </div>
                               </div>
                             </div>
@@ -508,8 +508,8 @@ const SocialPage: NextPage = () => {
                         <div className="w-10 h-10 bg-gradient-to-r from-purple-400 to-pink-500 rounded-full"></div>
                         <div>
                           <h4 className="font-medium text-white text-sm">{suggestion.name}</h4>
-                          <p className="text-xs text-gray-500">@{suggestion.username}</p>
-                          <p className="text-xs text-gray-500">{suggestion.followers} takipçi</p>
+                          <p className="text-xs text-gray-400">@{suggestion.username}</p>
+                          <p className="text-xs text-gray-400">{suggestion.followers} takipçi</p>
                         </div>
                       </div>
                       <button className="text-blue-600 hover:text-blue-700 font-medium text-sm">
@@ -543,7 +543,7 @@ const SocialPage: NextPage = () => {
                   ].map((event, index) => (
                     <div key={index} className="border border-gray-200 rounded-lg p-3">
                       <h4 className="font-medium text-white text-sm mb-1">{event.title}</h4>
-                      <div className="flex items-center gap-4 text-xs text-gray-500">
+                      <div className="flex items-center gap-4 text-xs text-gray-400">
                         <div className="flex items-center gap-1">
                           <Calendar className="w-3 h-3" />
                           {event.date}

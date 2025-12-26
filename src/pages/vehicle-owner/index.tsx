@@ -525,7 +525,7 @@ export default function VehicleOwnerDashboard() {
             </thead>
             <tbody>
               {recentRentals.map((rental) => (
-                <tr key={rental.id} style={{ borderBottom: '1px solid #E5E7EB' }} className="hover:bg-gray-50 transition-colors">
+                <tr key={rental.id} style={{ borderBottom: '1px solid #E5E7EB' }} className="hover:bg-white/5 transition-colors">
                   <td className="py-3 px-4">
                     <p className="font-medium" style={{ color: '#000000' }}>{rental.renter}</p>
                   </td>

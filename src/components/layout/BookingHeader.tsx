@@ -115,7 +115,7 @@ export const BookingHeader: React.FC = () => {
                     relative flex items-center gap-2 px-4 py-2 rounded-md font-medium text-sm transition-colors
                     ${active
                       ? 'text-lydian-primary bg-red-50'
-                      : 'text-gray-700 hover:text-lydian-primary hover:bg-gray-50'
+                      : 'text-gray-200 hover:text-lydian-primary hover:bg-white/5'
                     }
                   `}
                 >
@@ -138,7 +138,7 @@ export const BookingHeader: React.FC = () => {
             {/* Favorites */}
             <Link
               href="/favorites"
-              className="hidden sm:flex items-center gap-2 px-3 py-2 text-gray-700 hover:text-lydian-primary hover:bg-gray-50 rounded-md transition-colors"
+              className="hidden sm:flex items-center gap-2 px-3 py-2 text-gray-200 hover:text-lydian-primary hover:bg-white/5 rounded-md transition-colors"
             >
               <Heart className="w-5 h-5" />
               <span className="text-sm font-medium">Favoriler</span>
@@ -147,7 +147,7 @@ export const BookingHeader: React.FC = () => {
             {/* Cart */}
             <Link
               href="/cart"
-              className="relative flex items-center gap-2 px-3 py-2 text-gray-700 hover:text-lydian-primary hover:bg-gray-50 rounded-md transition-colors"
+              className="relative flex items-center gap-2 px-3 py-2 text-gray-200 hover:text-lydian-primary hover:bg-white/5 rounded-md transition-colors"
             >
               <ShoppingCart className="w-5 h-5" />
               {getItemCount() > 0 && (
@@ -169,7 +169,7 @@ export const BookingHeader: React.FC = () => {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden p-2 text-gray-700 hover:text-lydian-primary hover:bg-gray-50 rounded-md"
+              className="md:hidden p-2 text-gray-200 hover:text-lydian-primary hover:bg-white/5 rounded-md"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -200,7 +200,7 @@ export const BookingHeader: React.FC = () => {
                       flex items-center gap-3 px-4 py-3 rounded-lg font-medium transition-colors
                       ${active
                         ? 'text-lydian-primary bg-red-50'
-                        : 'text-gray-700 hover:text-lydian-primary hover:bg-gray-50'
+                        : 'text-gray-200 hover:text-lydian-primary hover:bg-white/5'
                       }
                     `}
                   >
@@ -219,7 +219,7 @@ export const BookingHeader: React.FC = () => {
                 <Link
                   href="/favorites"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="flex items-center gap-3 px-4 py-3 rounded-lg font-medium text-gray-700 hover:text-lydian-primary hover:bg-gray-50 transition-colors"
+                  className="flex items-center gap-3 px-4 py-3 rounded-lg font-medium text-gray-200 hover:text-lydian-primary hover:bg-white/5 transition-colors"
                 >
                   <Heart className="w-5 h-5" />
                   <span>Favoriler</span>

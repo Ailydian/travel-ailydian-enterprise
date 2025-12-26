@@ -241,7 +241,7 @@ export default function Step7Insurance({ data }: Step7Props) {
             </label>
             <select
               {...register('insurance.coverageType')}
-              className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-200 outline-none transition-all bg-white"
+              className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-200 outline-none transition-all bg-white/5"
             >
               <option value="">Seçiniz</option>
               {coverageTypes.map((type) => (

@@ -15,7 +15,7 @@ export default function KVKK() {
 
       <FuturisticHeader />
 
-      <main className="min-h-screen bg-gray-50">
+      <main className="min-h-screen bg-white/5">
         {/* Hero Section */}
         <div className="bg-gradient-to-r from-lydian-primary to-lydian-dark text-white py-16">
           <div className="max-w-7xl mx-auto px-4">
@@ -474,7 +474,7 @@ export default function KVKK() {
             <p className="text-gray-300">
               <strong>Son Güncelleme:</strong> 26 Aralık 2025
             </p>
-            <p className="text-sm text-gray-500 mt-2">
+            <p className="text-sm text-gray-400 mt-2">
               Bu aydınlatma metni, yasal düzenlemelerdeki değişiklikler veya şirketimizin
               uygulamalarındaki güncellemeler doğrultusunda revize edilebilir.
             </p>

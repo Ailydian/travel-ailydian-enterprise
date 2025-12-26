@@ -134,7 +134,7 @@ const ResponsiveSearchBar: React.FC<ResponsiveSearchBarProps> = ({
           </div>
           <div className="flex-1 text-left">
             <p className="font-semibold text-white">Nereye gidiyorsun?</p>
-            <p className="text-sm text-gray-500">Otel, uçuş veya transfer ara</p>
+            <p className="text-sm text-gray-400">Otel, uçuş veya transfer ara</p>
           </div>
           <ChevronRight className="w-5 h-5 text-gray-400" />
         </motion.button>
@@ -156,10 +156,10 @@ const ResponsiveSearchBar: React.FC<ResponsiveSearchBarProps> = ({
                 <h3 className="text-lg font-bold text-white">Ara</h3>
                 <button
                   onClick={() => setIsExpanded(false)}
-                  className="w-10 h-10 rounded-xl bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors touch-target"
+                  className="w-10 h-10 rounded-xl bg-white/10 hover:bg-gray-200 flex items-center justify-center transition-colors touch-target"
                   aria-label="Kapat"
                 >
-                  <X className="w-5 h-5 text-gray-600" />
+                  <X className="w-5 h-5 text-gray-300" />
                 </button>
               </div>
             )}
@@ -174,7 +174,7 @@ const ResponsiveSearchBar: React.FC<ResponsiveSearchBarProps> = ({
                     className={`flex items-center gap-2 px-4 py-2.5 rounded-xl font-medium transition-all touch-target ${
                       selectedCategory === cat.id
                         ? `bg-gradient-to-r ${cat.color} text-white shadow-lg scale-105`
-                        : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                        : 'bg-white/10 text-gray-200 hover:bg-gray-200'
                     }`}
                   >
                     <cat.icon className="w-4 h-4" />
@@ -188,7 +188,7 @@ const ResponsiveSearchBar: React.FC<ResponsiveSearchBarProps> = ({
             <div className="grid grid-cols-1 md:grid-cols-12 gap-3">
               {/* Location Search */}
               <div className="md:col-span-4">
-                <label className="block text-xs font-semibold text-gray-700 mb-2 ml-1">
+                <label className="block text-xs font-semibold text-gray-200 mb-2 ml-1">
                   <MapPin className="w-3 h-3 inline mr-1" />
                   Destinasyon
                 </label>
@@ -204,7 +204,7 @@ const ResponsiveSearchBar: React.FC<ResponsiveSearchBarProps> = ({
 
               {/* Check-in Date */}
               <div className="md:col-span-3">
-                <label className="block text-xs font-semibold text-gray-700 mb-2 ml-1">
+                <label className="block text-xs font-semibold text-gray-200 mb-2 ml-1">
                   <Calendar className="w-3 h-3 inline mr-1" />
                   Giriş Tarihi
                 </label>
@@ -219,7 +219,7 @@ const ResponsiveSearchBar: React.FC<ResponsiveSearchBarProps> = ({
 
               {/* Check-out Date */}
               <div className="md:col-span-3">
-                <label className="block text-xs font-semibold text-gray-700 mb-2 ml-1">
+                <label className="block text-xs font-semibold text-gray-200 mb-2 ml-1">
                   <Calendar className="w-3 h-3 inline mr-1" />
                   Çıkış Tarihi
                 </label>
@@ -234,7 +234,7 @@ const ResponsiveSearchBar: React.FC<ResponsiveSearchBarProps> = ({
 
               {/* Travelers */}
               <div className="md:col-span-2">
-                <label className="block text-xs font-semibold text-gray-700 mb-2 ml-1">
+                <label className="block text-xs font-semibold text-gray-200 mb-2 ml-1">
                   <Users className="w-3 h-3 inline mr-1" />
                   Kişi
                 </label>
@@ -262,7 +262,7 @@ const ResponsiveSearchBar: React.FC<ResponsiveSearchBarProps> = ({
             {/* Popular Searches (Mobile) */}
             {isMobile && (
               <div className="mt-6 pt-6 border-t border-white/10">
-                <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">
+                <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">
                   Popüler Aramalar
                 </p>
                 <div className="space-y-2">
@@ -273,7 +273,7 @@ const ResponsiveSearchBar: React.FC<ResponsiveSearchBarProps> = ({
                         setSearchQuery(query);
                         setIsExpanded(false);
                       }}
-                      className="w-full flex items-center gap-3 p-3 rounded-xl bg-gray-50 hover:bg-gray-100 active:bg-gray-200 transition-colors touch-target text-left"
+                      className="w-full flex items-center gap-3 p-3 rounded-xl bg-white/5 hover:bg-white/10 active:bg-gray-200 transition-colors touch-target text-left"
                     >
                       <TrendingUp className="w-4 h-4 text-lydian-primary" />
                       <span className="text-sm font-medium text-white">{query}</span>

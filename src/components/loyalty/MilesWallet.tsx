@@ -156,7 +156,7 @@ const MilesWallet: React.FC<MilesWalletProps> = ({ userId }) => {
               <h3 className="text-lg font-bold text-white">
                 {tierProgress.nextTier.name}'e Yükseltin!
               </h3>
-              <p className="text-sm text-gray-600">
+              <p className="text-sm text-gray-300">
                 {tierProgress.milesNeeded.toLocaleString()} Miles daha kazanın
               </p>
             </div>
@@ -173,7 +173,7 @@ const MilesWallet: React.FC<MilesWalletProps> = ({ userId }) => {
                 className="bg-gradient-to-r from-purple-500 to-indigo-600 h-4 rounded-full"
               ></motion.div>
             </div>
-            <p className="text-center text-sm font-semibold text-gray-700 mt-2">
+            <p className="text-center text-sm font-semibold text-gray-200 mt-2">
               %{tierProgress.progress.toFixed(0)} tamamlandı
             </p>
           </div>
@@ -215,7 +215,7 @@ const MilesWallet: React.FC<MilesWalletProps> = ({ userId }) => {
                 <div className="w-5 h-5 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0 mt-0.5">
                   <div className="w-2 h-2 rounded-full bg-green-600"></div>
                 </div>
-                <span className="text-sm text-gray-700">{benefit}</span>
+                <span className="text-sm text-gray-200">{benefit}</span>
               </li>
             ))}
           </ul>
@@ -247,25 +247,25 @@ const MilesWallet: React.FC<MilesWalletProps> = ({ userId }) => {
             </div>
 
             <div className="space-y-3">
-              <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
-                <span className="text-sm text-gray-700">Rezervasyon</span>
+              <div className="flex items-center justify-between p-3 bg-white/5 rounded-lg">
+                <span className="text-sm text-gray-200">Rezervasyon</span>
                 <span className="text-sm font-bold text-white">₺1 = 1 Mile</span>
               </div>
 
-              <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
-                <span className="text-sm text-gray-700">İlk rezervasyon bonusu</span>
+              <div className="flex items-center justify-between p-3 bg-white/5 rounded-lg">
+                <span className="text-sm text-gray-200">İlk rezervasyon bonusu</span>
                 <span className="text-sm font-bold text-green-600">+500 Miles</span>
               </div>
 
-              <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
-                <span className="text-sm text-gray-700">Doğum günü bonusu</span>
+              <div className="flex items-center justify-between p-3 bg-white/5 rounded-lg">
+                <span className="text-sm text-gray-200">Doğum günü bonusu</span>
                 <span className="text-sm font-bold text-purple-600">
                   +{currentTierBenefits.birthdayBonus} Miles
                 </span>
               </div>
 
-              <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
-                <span className="text-sm text-gray-700">Arkadaş davet</span>
+              <div className="flex items-center justify-between p-3 bg-white/5 rounded-lg">
+                <span className="text-sm text-gray-200">Arkadaş davet</span>
                 <span className="text-sm font-bold text-blue-600">
                   +{currentTierBenefits.referralBonus} Miles
                 </span>
@@ -291,13 +291,13 @@ const MilesWallet: React.FC<MilesWalletProps> = ({ userId }) => {
               </div>
 
               <div className="grid grid-cols-2 gap-2 text-xs">
-                <div className="p-2 bg-gray-50 rounded text-center">
+                <div className="p-2 bg-white/5 rounded text-center">
                   <p className="font-bold text-white">5,000 Miles</p>
-                  <p className="text-gray-600">₺250</p>
+                  <p className="text-gray-300">₺250</p>
                 </div>
-                <div className="p-2 bg-gray-50 rounded text-center">
+                <div className="p-2 bg-white/5 rounded text-center">
                   <p className="font-bold text-white">10,000 Miles</p>
-                  <p className="text-gray-600">₺500</p>
+                  <p className="text-gray-300">₺500</p>
                 </div>
               </div>
             </div>
@@ -321,7 +321,7 @@ const MilesWallet: React.FC<MilesWalletProps> = ({ userId }) => {
             <h3 className="text-lg font-bold text-white mb-2">
               Arkadaşınızı Davet Edin, Miles Kazanın!
             </h3>
-            <p className="text-sm text-gray-600 mb-4">
+            <p className="text-sm text-gray-300 mb-4">
               Her davetiniz için siz {currentTierBenefits.referralBonus} Miles, arkadaşınız 500 Miles kazanır.
             </p>
 
@@ -375,12 +375,12 @@ const MilesWallet: React.FC<MilesWalletProps> = ({ userId }) => {
       >
         <button
           onClick={() => setShowHistory(!showHistory)}
-          className="w-full flex items-center justify-between p-6 hover:bg-gray-50 transition-colors"
+          className="w-full flex items-center justify-between p-6 hover:bg-white/5 transition-colors"
         >
           <div className="flex items-center gap-3">
-            <History className="h-5 w-5 text-gray-600" />
+            <History className="h-5 w-5 text-gray-300" />
             <h3 className="text-lg font-bold text-white">İşlem Geçmişi</h3>
-            <span className="text-sm text-gray-500">({transactions.length})</span>
+            <span className="text-sm text-gray-400">({transactions.length})</span>
           </div>
           <ChevronRight
             className={`h-5 w-5 text-gray-400 transition-transform ${
@@ -394,13 +394,13 @@ const MilesWallet: React.FC<MilesWalletProps> = ({ userId }) => {
             {transactions.slice(0, 10).map((transaction) => (
               <div
                 key={transaction.id}
-                className="flex items-center justify-between p-3 bg-gray-50 rounded-lg"
+                className="flex items-center justify-between p-3 bg-white/5 rounded-lg"
               >
                 <div className="flex-1">
                   <p className="text-sm font-semibold text-white">
                     {transaction.description}
                   </p>
-                  <p className="text-xs text-gray-500">
+                  <p className="text-xs text-gray-400">
                     {new Date(transaction.createdAt).toLocaleDateString('tr-TR')}
                   </p>
                 </div>
@@ -418,7 +418,7 @@ const MilesWallet: React.FC<MilesWalletProps> = ({ userId }) => {
                     {transaction.type === 'earn' || transaction.type === 'bonus' ? '+' : '-'}
                     {transaction.amount.toLocaleString()} Miles
                   </p>
-                  <p className="text-xs text-gray-500">
+                  <p className="text-xs text-gray-400">
                     Bakiye: {transaction.balanceAfter.toLocaleString()}
                   </p>
                 </div>

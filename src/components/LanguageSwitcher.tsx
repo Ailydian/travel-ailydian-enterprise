@@ -134,7 +134,7 @@ export const LanguageSwitcher: React.FC = () => {
         leaveFrom="transform opacity-100 scale-100"
         leaveTo="transform opacity-0 scale-95"
       >
-        <Menu.Items className="absolute right-0 mt-2 w-64 origin-top-right divide-y divide-gray-100 rounded-xl bg-white shadow-2xl ring-1 ring-black ring-opacity-5 focus:outline-none z-50 overflow-hidden">
+        <Menu.Items className="absolute right-0 mt-2 w-64 origin-top-right divide-y divide-gray-100 rounded-xl bg-white/5 shadow-2xl ring-1 ring-black ring-opacity-5 focus:outline-none z-50 overflow-hidden">
           <div className="bg-gradient-to-r from-lydian-primary to-lydian-secondary px-4 py-3">
             <p className="text-sm font-bold text-white">Select Language</p>
           </div>
@@ -151,16 +151,16 @@ export const LanguageSwitcher: React.FC = () => {
                       className={
                         'group flex w-full items-center justify-between rounded-lg px-3 py-2.5 text-sm transition-all ' +
                         (active ? 'bg-red-50' : '') + ' ' +
-                        (isActive ? 'bg-red-50 text-lydian-primary font-bold' : 'text-gray-900')
+                        (isActive ? 'bg-red-50 text-lydian-primary font-bold' : 'text-white')
                       }
                     >
                       <div className="flex items-center gap-3">
                         <span className="text-2xl">{language.flag}</span>
                         <div className="text-left">
-                          <p className={'font-medium ' + (isActive ? 'text-lydian-primary' : 'text-gray-900')}>
+                          <p className={'font-medium ' + (isActive ? 'text-lydian-primary' : 'text-white')}>
                             {language.nativeName}
                           </p>
-                          <p className="text-xs text-gray-500">
+                          <p className="text-xs text-gray-400">
                             {language.name} · {language.currency}
                           </p>
                         </div>
@@ -188,8 +188,8 @@ export const LanguageSwitcher: React.FC = () => {
             })}
           </div>
           
-          <div className="p-3 bg-gray-50">
-            <p className="text-xs text-gray-500 text-center">
+          <div className="p-3 bg-white/5">
+            <p className="text-xs text-gray-400 text-center">
               Language preferences are saved automatically
             </p>
           </div>

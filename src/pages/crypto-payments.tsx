@@ -26,7 +26,7 @@ const CryptoPayments: React.FC = () => {
 
       <SimplifiedHeader />
 
-      <main className="min-h-screen bg-gray-50">
+      <main className="min-h-screen bg-white/5">
         {/* Hero Section */}
         <section className="bg-gradient-to-br from-orange-500 via-yellow-500 to-amber-600 py-20">
           <div className="max-w-7xl mx-auto px-4 text-center">
@@ -92,7 +92,7 @@ const CryptoPayments: React.FC = () => {
                     <span className="font-bold text-lg">{crypto.symbol}</span>
                   </div>
                   <h3 className="font-bold text-sm">{crypto.name}</h3>
-                  <p className="text-xs text-gray-500">{crypto.symbol}</p>
+                  <p className="text-xs text-gray-400">{crypto.symbol}</p>
                 </motion.div>
               ))}
             </div>
@@ -100,7 +100,7 @@ const CryptoPayments: React.FC = () => {
         </section>
 
         {/* How it Works */}
-        <section className="py-16 bg-gray-50">
+        <section className="py-16 bg-white/5">
           <div className="max-w-7xl mx-auto px-4">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-white mb-4">Nasıl Çalışır?</h2>
@@ -220,7 +220,7 @@ const CryptoPayments: React.FC = () => {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 bg-transparent text-orange-600 rounded-xl font-bold text-lg hover:bg-gray-50 transition-colors inline-flex items-center gap-2"
+                className="px-8 py-4 bg-transparent text-orange-600 rounded-xl font-bold text-lg hover:bg-white/5 transition-colors inline-flex items-center gap-2"
               >
                 Şimdi Rezervasyon Yap
                 <ArrowRight className="w-5 h-5" />

@@ -50,7 +50,7 @@ const variantConfig: Record<
   'no-data': {
     icon: Inbox,
     iconColor: 'text-gray-400',
-    bgColor: 'bg-gray-100',
+    bgColor: 'bg-white/10',
   },
   search: {
     icon: SearchX,
@@ -65,7 +65,7 @@ const variantConfig: Record<
   'not-found': {
     icon: FileQuestion,
     iconColor: 'text-gray-400',
-    bgColor: 'bg-gray-100',
+    bgColor: 'bg-white/10',
   },
 };
 
@@ -154,13 +154,13 @@ export const EmptyState: React.FC<EmptyStateProps> = ({
       </div>
 
       {/* Title */}
-      <h3 className={`font-semibold text-gray-900 mb-2 ${sizeStyle.title}`}>
+      <h3 className={`font-semibold text-white mb-2 ${sizeStyle.title}`}>
         {title}
       </h3>
 
       {/* Description */}
       {description && (
-        <p className={`text-gray-600 mb-6 max-w-md ${sizeStyle.description}`}>
+        <p className={`text-gray-300 mb-6 max-w-md ${sizeStyle.description}`}>
           {description}
         </p>
       )}
@@ -184,7 +184,7 @@ export const EmptyState: React.FC<EmptyStateProps> = ({
           {secondaryActionLabel && onSecondaryAction && (
             <button
               onClick={onSecondaryAction}
-              className="inline-flex items-center justify-center px-6 py-3 bg-white border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors font-medium focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+              className="inline-flex items-center justify-center px-6 py-3 bg-white/5 border border-gray-300 text-gray-200 rounded-lg hover:bg-white/5 transition-colors font-medium focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
             >
               {secondaryActionLabel}
             </button>

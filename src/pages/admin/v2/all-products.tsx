@@ -174,7 +174,7 @@ const AllProductsManagement = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50">
       {/* Header */}
-      <div className="bg-white border-b border-slate-200 sticky top-0 z-40 backdrop-blur-xl bg-white/80">
+      <div className="bg-white/5 border-b border-slate-200 sticky top-0 z-40 backdrop-blur-xl bg-white/80">
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
@@ -232,7 +232,7 @@ const AllProductsManagement = () => {
                   ${
                     isActive
                       ? `bg-gradient-to-r from-${cat.color}-500 to-${cat.color}-600 text-white shadow-lg scale-105`
-                      : 'bg-white text-slate-700 hover:bg-slate-50'
+                      : 'bg-white/5 text-slate-700 hover:bg-slate-50'
                   }
                 `}
               >
@@ -244,7 +244,7 @@ const AllProductsManagement = () => {
         </div>
 
         {/* Search Bar */}
-        <div className="bg-white rounded-xl shadow-sm p-4 mb-6">
+        <div className="bg-white/5 rounded-xl shadow-sm p-4 mb-6">
           <div className="flex items-center gap-3">
             <Search className="w-5 h-5 text-slate-400" />
             <input
@@ -276,7 +276,7 @@ const AllProductsManagement = () => {
                 layout
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="bg-white rounded-xl shadow-sm hover:shadow-md transition-all overflow-hidden group"
+                className="bg-white/5 rounded-xl shadow-sm hover:shadow-md transition-all overflow-hidden group"
               >
                 {/* Card Content */}
                 <div className="p-5">
@@ -385,7 +385,7 @@ const AllProductsManagement = () => {
 
         {/* Empty State */}
         {!loading && data.length === 0 && (
-          <div className="bg-white rounded-xl p-12 text-center">
+          <div className="bg-white/5 rounded-xl p-12 text-center">
             <Package className="w-16 h-16 text-slate-300 mx-auto mb-4" />
             <h3 className="text-xl font-bold text-slate-900 mb-2">
               Henüz ürün bulunmuyor
@@ -409,7 +409,7 @@ const AllProductsManagement = () => {
             <button
               onClick={() => setPage((p) => Math.max(1, p - 1))}
               disabled={page === 1}
-              className="px-4 py-2 bg-white rounded-lg text-slate-700 hover:bg-slate-50 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="px-4 py-2 bg-white/5 rounded-lg text-slate-700 hover:bg-slate-50 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               Önceki
             </button>
@@ -419,7 +419,7 @@ const AllProductsManagement = () => {
             <button
               onClick={() => setPage((p) => p + 1)}
               disabled={data.length < 20}
-              className="px-4 py-2 bg-white rounded-lg text-slate-700 hover:bg-slate-50 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="px-4 py-2 bg-white/5 rounded-lg text-slate-700 hover:bg-slate-50 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               Sonraki
             </button>
@@ -494,8 +494,8 @@ const AddProductModal = ({
 
   return (
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-      <div className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
-        <div className="p-6 border-b border-slate-200 flex items-center justify-between sticky top-0 bg-white">
+      <div className="bg-white/5 rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+        <div className="p-6 border-b border-slate-200 flex items-center justify-between sticky top-0 bg-white/5">
           <h2 className="text-2xl font-bold text-slate-900">Yeni Ürün Ekle</h2>
           <button
             onClick={onClose}
@@ -571,8 +571,8 @@ const ViewProductModal = ({
 }) => {
   return (
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-      <div className="bg-white rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto">
-        <div className="p-6 border-b border-slate-200 flex items-center justify-between sticky top-0 bg-white">
+      <div className="bg-white/5 rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto">
+        <div className="p-6 border-b border-slate-200 flex items-center justify-between sticky top-0 bg-white/5">
           <h2 className="text-2xl font-bold text-slate-900">Ürün Detayları</h2>
           <button
             onClick={onClose}

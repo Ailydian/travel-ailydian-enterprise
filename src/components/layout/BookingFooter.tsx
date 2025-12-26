@@ -323,16 +323,16 @@ export const BookingFooter: React.FC = () => {
             <div className="flex items-center gap-4">
               <span className="text-sm text-gray-400">Ödeme Yöntemleri:</span>
               <div className="flex gap-2">
-                <div className="w-12 h-8 bg-white/5 rounded flex items-center justify-center text-xs font-bold text-gray-700">
+                <div className="w-12 h-8 bg-white/5 rounded flex items-center justify-center text-xs font-bold text-gray-200">
                   VISA
                 </div>
-                <div className="w-12 h-8 bg-white/5 rounded flex items-center justify-center text-xs font-bold text-gray-700">
+                <div className="w-12 h-8 bg-white/5 rounded flex items-center justify-center text-xs font-bold text-gray-200">
                   MC
                 </div>
-                <div className="w-12 h-8 bg-white/5 rounded flex items-center justify-center text-xs font-bold text-gray-700">
+                <div className="w-12 h-8 bg-white/5 rounded flex items-center justify-center text-xs font-bold text-gray-200">
                   AMEX
                 </div>
-                <div className="w-12 h-8 bg-white/5 rounded flex items-center justify-center text-xs font-bold text-gray-700">
+                <div className="w-12 h-8 bg-white/5 rounded flex items-center justify-center text-xs font-bold text-gray-200">
                   TROY
                 </div>
               </div>

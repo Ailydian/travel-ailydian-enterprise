@@ -79,7 +79,7 @@ export default function ExternalPlatformReviews({
             <span className="ml-2">{config.name}</span>
           </div>
           {totalReviews && (
-            <span className="ml-2 text-sm text-gray-500">
+            <span className="ml-2 text-sm text-gray-400">
               ({totalReviews} reviews)
             </span>
           )}
@@ -121,14 +121,14 @@ export default function ExternalPlatformReviews({
                   />
                 ) : (
                   <div className="h-8 w-8 bg-gray-200 rounded-full flex items-center justify-center">
-                    <User className="h-4 w-4 text-gray-500" />
+                    <User className="h-4 w-4 text-gray-400" />
                   </div>
                 )}
                 <div className="ml-3">
                   <p className="font-medium text-white text-sm">
                     {review.author_name}
                   </p>
-                  <div className="flex items-center text-xs text-gray-500">
+                  <div className="flex items-center text-xs text-gray-400">
                     <span>{formatDate(review.publish_date)}</span>
                     {review.trip_type && (
                       <>
@@ -154,7 +154,7 @@ export default function ExternalPlatformReviews({
                     />
                   ))}
                 </div>
-                <span className="ml-1 text-xs text-gray-600">
+                <span className="ml-1 text-xs text-gray-300">
                   {review.rating}/5
                 </span>
               </div>
@@ -168,13 +168,13 @@ export default function ExternalPlatformReviews({
             )}
 
             {/* Review Content */}
-            <p className="text-gray-700 text-sm leading-relaxed mb-3">
+            <p className="text-gray-200 text-sm leading-relaxed mb-3">
               {review.content}
             </p>
 
             {/* Review Footer */}
             <div className="flex items-center justify-between text-xs">
-              <div className="flex items-center text-gray-500">
+              <div className="flex items-center text-gray-400">
                 {review.helpful_votes && review.helpful_votes > 0 && (
                   <span>{review.helpful_votes} found this helpful</span>
                 )}
@@ -230,7 +230,7 @@ export default function ExternalPlatformReviews({
 
       {/* Source Attribution */}
       <div className="mt-4 pt-3 border-t border-white/10">
-        <p className="text-xs text-gray-500 flex items-center justify-center">
+        <p className="text-xs text-gray-400 flex items-center justify-center">
           Reviews synced from {config.name}
           {config.logo}
         </p>

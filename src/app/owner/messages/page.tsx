@@ -53,7 +53,7 @@ const ConversationItem: React.FC<ConversationItemProps> = ({ conversation, isAct
   return (
     <button
       onClick={onClick}
-      className={`w-full text-left p-4 border-b border-gray-200 hover:bg-gray-50 transition-colors ${
+      className={`w-full text-left p-4 border-b border-gray-200 hover:bg-white/5 transition-colors ${
         isActive ? 'bg-blue-50 border-l-4 border-l-blue-600' : ''
       }`}
     >
@@ -70,14 +70,14 @@ const ConversationItem: React.FC<ConversationItemProps> = ({ conversation, isAct
         </div>
         <div className="flex-1 min-w-0">
           <div className="flex items-center justify-between mb-1">
-            <h4 className="font-semibold text-gray-900 truncate">{conversation.guestName}</h4>
+            <h4 className="font-semibold text-white truncate">{conversation.guestName}</h4>
             <div className="flex items-center gap-1">
               {conversation.isPinned && <Pin className="w-3.5 h-3.5 text-blue-600" />}
-              <span className="text-xs text-gray-500">{timeAgo(conversation.lastMessageTime)}</span>
+              <span className="text-xs text-gray-400">{timeAgo(conversation.lastMessageTime)}</span>
             </div>
           </div>
-          <p className="text-sm text-gray-500 mb-1">{conversation.propertyName}</p>
-          <p className="text-sm text-gray-700 truncate">{conversation.lastMessage}</p>
+          <p className="text-sm text-gray-400 mb-1">{conversation.propertyName}</p>
+          <p className="text-sm text-gray-200 truncate">{conversation.lastMessage}</p>
         </div>
       </div>
     </button>
@@ -102,19 +102,19 @@ const MessageBubble: React.FC<MessageBubbleProps> = ({ message, isOwnMessage }) 
     <div className={`flex ${isOwnMessage ? 'justify-end' : 'justify-start'} mb-4`}>
       <div className={`max-w-[70%] ${isOwnMessage ? 'order-2' : 'order-1'}`}>
         {!isOwnMessage && (
-          <p className="text-xs text-gray-500 mb-1 ml-1">{message.senderName}</p>
+          <p className="text-xs text-gray-400 mb-1 ml-1">{message.senderName}</p>
         )}
         <div
           className={`rounded-2xl px-4 py-2.5 ${
             isOwnMessage
               ? 'bg-blue-600 text-white rounded-br-sm'
-              : 'bg-gray-100 text-gray-900 rounded-bl-sm'
+              : 'bg-white/10 text-white rounded-bl-sm'
           }`}
         >
           <p className="text-sm leading-relaxed">{message.content}</p>
         </div>
         <div className={`flex items-center gap-1 mt-1 ${isOwnMessage ? 'justify-end' : 'justify-start'}`}>
-          <span className="text-xs text-gray-500">
+          <span className="text-xs text-gray-400">
             {message.createdAt.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
           </span>
           {isOwnMessage && (
@@ -170,18 +170,18 @@ const MessageComposer: React.FC<MessageComposerProps> = ({ onSendMessage, disabl
   };
 
   return (
-    <form onSubmit={handleSubmit} className="border-t border-gray-200 bg-white p-4">
+    <form onSubmit={handleSubmit} className="border-t border-gray-200 bg-white/5 p-4">
       <div className="flex items-end gap-2">
         <button
           type="button"
-          className="p-2.5 text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded-lg transition-colors"
+          className="p-2.5 text-gray-400 hover:text-gray-200 hover:bg-white/10 rounded-lg transition-colors"
           title="Add emoji"
         >
           <Smile className="w-5 h-5" />
         </button>
         <button
           type="button"
-          className="p-2.5 text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded-lg transition-colors"
+          className="p-2.5 text-gray-400 hover:text-gray-200 hover:bg-white/10 rounded-lg transition-colors"
           title="Attach file"
         >
           <Paperclip className="w-5 h-5" />
@@ -195,7 +195,7 @@ const MessageComposer: React.FC<MessageComposerProps> = ({ onSendMessage, disabl
             placeholder="Type your message..."
             disabled={disabled}
             rows={1}
-            className="w-full px-4 py-2.5 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none max-h-32 disabled:bg-gray-50 disabled:cursor-not-allowed"
+            className="w-full px-4 py-2.5 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none max-h-32 disabled:bg-white/5 disabled:cursor-not-allowed"
           />
         </div>
         <button
@@ -210,13 +210,13 @@ const MessageComposer: React.FC<MessageComposerProps> = ({ onSendMessage, disabl
       <div className="flex items-center gap-4 mt-2">
         <button
           type="button"
-          className="text-sm text-gray-500 hover:text-gray-700 transition-colors"
+          className="text-sm text-gray-400 hover:text-gray-200 transition-colors"
         >
           Quick Replies
         </button>
         <button
           type="button"
-          className="text-sm text-gray-500 hover:text-gray-700 transition-colors"
+          className="text-sm text-gray-400 hover:text-gray-200 transition-colors"
         >
           Templates
         </button>
@@ -239,46 +239,46 @@ const ConversationHeader: React.FC<ConversationHeaderProps> = ({ conversation, o
   if (!conversation) return null;
 
   return (
-    <div className="border-b border-gray-200 bg-white p-4">
+    <div className="border-b border-gray-200 bg-white/5 p-4">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white font-semibold">
             {conversation.guestName.charAt(0)}
           </div>
           <div>
-            <h3 className="font-semibold text-gray-900">{conversation.guestName}</h3>
-            <p className="text-sm text-gray-500">{conversation.propertyName}</p>
+            <h3 className="font-semibold text-white">{conversation.guestName}</h3>
+            <p className="text-sm text-gray-400">{conversation.propertyName}</p>
           </div>
         </div>
         <div className="flex items-center gap-2">
           <button
-            className="p-2 text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded-lg transition-colors"
+            className="p-2 text-gray-400 hover:text-gray-200 hover:bg-white/10 rounded-lg transition-colors"
             title="Voice call"
           >
             <Phone className="w-5 h-5" />
           </button>
           <button
-            className="p-2 text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded-lg transition-colors"
+            className="p-2 text-gray-400 hover:text-gray-200 hover:bg-white/10 rounded-lg transition-colors"
             title="Video call"
           >
             <Video className="w-5 h-5" />
           </button>
           <button
             onClick={onPin}
-            className="p-2 text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded-lg transition-colors"
+            className="p-2 text-gray-400 hover:text-gray-200 hover:bg-white/10 rounded-lg transition-colors"
             title="Pin conversation"
           >
             <Pin className="w-5 h-5" />
           </button>
           <button
             onClick={onArchive}
-            className="p-2 text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded-lg transition-colors"
+            className="p-2 text-gray-400 hover:text-gray-200 hover:bg-white/10 rounded-lg transition-colors"
             title="Archive"
           >
             <Archive className="w-5 h-5" />
           </button>
           <button
-            className="p-2 text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded-lg transition-colors"
+            className="p-2 text-gray-400 hover:text-gray-200 hover:bg-white/10 rounded-lg transition-colors"
             title="More options"
           >
             <MoreVertical className="w-5 h-5" />
@@ -291,11 +291,11 @@ const ConversationHeader: React.FC<ConversationHeaderProps> = ({ conversation, o
 
 // Empty State Component
 const EmptyState: React.FC = () => (
-  <div className="flex-1 flex items-center justify-center bg-gray-50">
+  <div className="flex-1 flex items-center justify-center bg-white/5">
     <div className="text-center p-8">
       <MessageSquare className="w-16 h-16 text-gray-300 mx-auto mb-4" />
-      <h3 className="text-xl font-semibold text-gray-900 mb-2">No Conversation Selected</h3>
-      <p className="text-gray-500">Select a conversation from the list to start messaging</p>
+      <h3 className="text-xl font-semibold text-white mb-2">No Conversation Selected</h3>
+      <p className="text-gray-400">Select a conversation from the list to start messaging</p>
     </div>
   </div>
 );
@@ -453,12 +453,12 @@ const MessagesPage: React.FC = () => {
   if (isLoading) {
     return (
       <div className="space-y-6">
-        <h1 className="text-3xl font-black mb-6 text-black">
+        <h1 className="text-3xl font-black mb-6 text-white">
           Messages
         </h1>
         <div className="animate-pulse flex h-[calc(100vh-200px)]">
           <div className="w-1/3 border-r border-gray-200 bg-gray-200"></div>
-          <div className="flex-1 bg-gray-100"></div>
+          <div className="flex-1 bg-white/10"></div>
         </div>
       </div>
     );
@@ -466,10 +466,10 @@ const MessagesPage: React.FC = () => {
 
   return (
     <div className="space-y-6">
-      <h1 className="text-3xl font-black mb-6 text-black">
+      <h1 className="text-3xl font-black mb-6 text-white">
         Messages
       </h1>
-      <div className="bg-white border border-gray-200 rounded-xl overflow-hidden" style={{ height: 'calc(100vh - 200px)' }}>
+      <div className="bg-white/5 border border-gray-200 rounded-xl overflow-hidden" style={{ height: 'calc(100vh - 200px)' }}>
         <div className="flex h-full">
           {/* Conversations Sidebar */}
           <div className="w-full md:w-96 border-r border-gray-200 flex flex-col">
@@ -501,7 +501,7 @@ const MessagesPage: React.FC = () => {
               ) : (
                 <div className="p-8 text-center">
                   <MessageSquare className="w-12 h-12 text-gray-300 mx-auto mb-3" />
-                  <p className="text-gray-500">No conversations found</p>
+                  <p className="text-gray-400">No conversations found</p>
                 </div>
               )}
             </div>
@@ -517,7 +517,7 @@ const MessagesPage: React.FC = () => {
               />
 
               {/* Messages */}
-              <div className="flex-1 overflow-y-auto p-4 bg-gray-50">
+              <div className="flex-1 overflow-y-auto p-4 bg-white/5">
                 {messages.length > 0 ? (
                   <>
                     {messages.map((message) => (
@@ -533,7 +533,7 @@ const MessagesPage: React.FC = () => {
                   <div className="flex items-center justify-center h-full">
                     <div className="text-center">
                       <MessageSquare className="w-12 h-12 text-gray-300 mx-auto mb-3" />
-                      <p className="text-gray-500">No messages yet</p>
+                      <p className="text-gray-400">No messages yet</p>
                       <p className="text-sm text-gray-400 mt-1">Start the conversation!</p>
                     </div>
                   </div>

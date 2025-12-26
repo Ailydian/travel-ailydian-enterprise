@@ -115,7 +115,7 @@ const BookingDetailPage: React.FC = () => {
       case 'COMPLETED':
         return 'bg-blue-100 text-blue-800 border-blue-200';
       default:
-        return 'bg-gray-100 text-gray-100 border-white/10';
+        return 'bg-white/10 text-gray-100 border-white/10';
     }
   };
 
@@ -137,7 +137,7 @@ const BookingDetailPage: React.FC = () => {
 
   if (loading || status === 'loading') {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-50">
+      <div className="min-h-screen flex items-center justify-center bg-white/5">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
           <p className="mt-4 text-gray-300">Loading booking details...</p>
@@ -148,7 +148,7 @@ const BookingDetailPage: React.FC = () => {
 
   if (!booking) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-50">
+      <div className="min-h-screen flex items-center justify-center bg-white/5">
         <div className="text-center">
           <p className="text-gray-300">Booking not found</p>
           <Link href="/bookings" className="text-blue-600 hover:underline mt-4 inline-block">
@@ -217,7 +217,7 @@ const BookingDetailPage: React.FC = () => {
                   </button>
                 </>
               )}
-              <button className="flex items-center gap-2 px-4 py-2 bg-gray-100 text-gray-200 rounded-lg hover:bg-gray-200 transition-colors">
+              <button className="flex items-center gap-2 px-4 py-2 bg-white/10 text-gray-200 rounded-lg hover:bg-gray-200 transition-colors">
                 <Share2 className="w-4 h-4" />
                 Share
               </button>
@@ -327,7 +327,7 @@ const BookingDetailPage: React.FC = () => {
                     <p className="font-bold text-2xl text-green-600">
                       {booking.totalAmount} {booking.currency}
                     </p>
-                    <p className="text-xs text-gray-500 mt-1">
+                    <p className="text-xs text-gray-400 mt-1">
                       Payment Status: {booking.paymentStatus}
                     </p>
                   </div>

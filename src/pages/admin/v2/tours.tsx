@@ -210,9 +210,9 @@ const ToursManagementPage = () => {
   const getStatusColor = (status: string) => {
     switch (status) {
       case 'active': return 'text-green-600 bg-green-50 border-green-200';
-      case 'inactive': return 'text-gray-600 bg-gray-50 border-gray-200';
+      case 'inactive': return 'text-gray-300 bg-white/5 border-gray-200';
       case 'seasonal': return 'text-amber-600 bg-amber-50 border-amber-200';
-      default: return 'text-gray-600 bg-gray-50 border-gray-200';
+      default: return 'text-gray-300 bg-white/5 border-gray-200';
     }
   };
 
@@ -234,13 +234,13 @@ const ToursManagementPage = () => {
       food: 'bg-amber-50 text-amber-700 border-amber-200',
       historical: 'bg-indigo-50 text-indigo-700 border-indigo-200',
     };
-    return colors[category] || 'bg-gray-50 text-gray-700 border-gray-200';
+    return colors[category] || 'bg-white/5 text-gray-200 border-gray-200';
   };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
       {/* Header */}
-      <header className="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-sm">
+      <header className="bg-white/5 border-b border-slate-200 sticky top-0 z-50 shadow-sm">
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
@@ -270,7 +270,7 @@ const ToursManagementPage = () => {
 
       <main className="max-w-7xl mx-auto px-6 py-8">
         {/* View Tabs */}
-        <div className="mb-8 flex items-center gap-2 bg-white rounded-lg p-2 border border-slate-200">
+        <div className="mb-8 flex items-center gap-2 bg-white/5 rounded-lg p-2 border border-slate-200">
           {[
             { id: 'tours', label: 'Turlar', icon: Compass },
             { id: 'guides', label: 'Rehberler', icon: User },
@@ -299,7 +299,7 @@ const ToursManagementPage = () => {
           <>
             {/* Summary Cards */}
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-              <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="bg-white rounded-xl p-6 border border-slate-200">
+              <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="bg-white/5 rounded-xl p-6 border border-slate-200">
                 <div className="flex items-center justify-between mb-2">
                   <p className="text-sm font-medium text-slate-600">Toplam Gelir</p>
                   <DollarSign className="w-5 h-5 text-green-600" />
@@ -308,7 +308,7 @@ const ToursManagementPage = () => {
                 <p className="text-xs text-green-600 mt-1">+18.5% bu ay</p>
               </motion.div>
 
-              <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="bg-white rounded-xl p-6 border border-slate-200">
+              <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="bg-white/5 rounded-xl p-6 border border-slate-200">
                 <div className="flex items-center justify-between mb-2">
                   <p className="text-sm font-medium text-slate-600">Rezervasyon</p>
                   <Calendar className="w-5 h-5 text-blue-600" />
@@ -317,7 +317,7 @@ const ToursManagementPage = () => {
                 <p className="text-xs text-blue-600 mt-1">Son 30 gün</p>
               </motion.div>
 
-              <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="bg-white rounded-xl p-6 border border-slate-200">
+              <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="bg-white/5 rounded-xl p-6 border border-slate-200">
                 <div className="flex items-center justify-between mb-2">
                   <p className="text-sm font-medium text-slate-600">Aktif Turlar</p>
                   <Compass className="w-5 h-5 text-purple-600" />
@@ -326,7 +326,7 @@ const ToursManagementPage = () => {
                 <p className="text-xs text-purple-600 mt-1">{tours.length} toplam</p>
               </motion.div>
 
-              <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} className="bg-white rounded-xl p-6 border border-slate-200">
+              <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} className="bg-white/5 rounded-xl p-6 border border-slate-200">
                 <div className="flex items-center justify-between mb-2">
                   <p className="text-sm font-medium text-slate-600">Ortalama Puan</p>
                   <Star className="w-5 h-5 text-amber-600" />
@@ -337,7 +337,7 @@ const ToursManagementPage = () => {
             </div>
 
             {/* Filters */}
-            <div className="bg-white rounded-xl p-6 border border-slate-200 mb-6">
+            <div className="bg-white/5 rounded-xl p-6 border border-slate-200 mb-6">
               <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
                 <div className="relative">
                   <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
@@ -379,7 +379,7 @@ const ToursManagementPage = () => {
               ) : (
                 filteredTours.map((tour, index) => (
                   <motion.div key={tour.id} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: index * 0.05 }}
-                    className="bg-white rounded-xl border border-slate-200 overflow-hidden hover:shadow-xl transition-all">
+                    className="bg-white/5 rounded-xl border border-slate-200 overflow-hidden hover:shadow-xl transition-all">
                     <div className="p-6">
                       <div className="flex items-start justify-between mb-4">
                         <div className="flex-1">
@@ -463,7 +463,7 @@ const ToursManagementPage = () => {
 
         {/* Guides View */}
         {activeView === 'guides' && (
-          <div className="bg-white rounded-xl border border-slate-200 p-6">
+          <div className="bg-white/5 rounded-xl border border-slate-200 p-6">
             <h2 className="text-xl font-bold text-slate-900 mb-6">Rehberler ({guides.length})</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {guides.map((guide) => (
@@ -501,7 +501,7 @@ const ToursManagementPage = () => {
 
         {/* Categories View */}
         {activeView === 'categories' && (
-          <div className="bg-white rounded-xl border border-slate-200 p-6">
+          <div className="bg-white/5 rounded-xl border border-slate-200 p-6">
             <h2 className="text-xl font-bold text-slate-900 mb-6">Tur Kategorileri</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {['adventure', 'cultural', 'nature', 'water', 'food', 'historical'].map((cat) => {

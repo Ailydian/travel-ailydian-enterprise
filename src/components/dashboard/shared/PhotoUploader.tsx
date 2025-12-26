@@ -527,7 +527,7 @@ export const PhotoUploader: React.FC<PhotoUploaderProps> = ({
           className={`border-2 border-dashed rounded-lg p-8 text-center transition-colors ${
             isDragging
               ? 'border-blue-500 bg-blue-50'
-              : 'border-gray-300 bg-gray-50'
+              : 'border-gray-300 bg-white/5'
           } ${disabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer hover:border-blue-400 hover:bg-blue-50'}`}
           onDragOver={handleDragOver}
           onDragLeave={handleDragLeave}
@@ -537,12 +537,12 @@ export const PhotoUploader: React.FC<PhotoUploaderProps> = ({
           <Upload
             className={`h-12 w-12 mx-auto mb-4 ${isDragging ? 'text-blue-500' : 'text-gray-400'}`}
           />
-          <p className="text-sm font-medium text-gray-900 mb-1">
+          <p className="text-sm font-medium text-white mb-1">
             {isDragging
               ? 'Drop your images here'
               : 'Drag & drop images here, or click to browse'}
           </p>
-          <p className="text-xs text-gray-500">
+          <p className="text-xs text-gray-400">
             {reqs.allowedTypes?.join(', ').replace(/image\//g, '').toUpperCase()}{' '}
             up to {(reqs.maxFileSize || 0) / 1024 / 1024}MB each
           </p>
@@ -563,11 +563,11 @@ export const PhotoUploader: React.FC<PhotoUploaderProps> = ({
       {images.length > 0 && (
         <div className="mt-6">
           <div className="flex items-center justify-between mb-4">
-            <h4 className="text-sm font-semibold text-gray-900">
+            <h4 className="text-sm font-semibold text-white">
               Uploaded Photos ({images.length}
               {reqs.maxPhotos && `/${reqs.maxPhotos}`})
             </h4>
-            <p className="text-xs text-gray-500">
+            <p className="text-xs text-gray-400">
               Drag to reorder • Click star to set cover photo
             </p>
           </div>
@@ -587,7 +587,7 @@ export const PhotoUploader: React.FC<PhotoUploaderProps> = ({
                 } ${draggedIndex === index ? 'opacity-50' : ''}`}
               >
                 {/* Image */}
-                <div className="aspect-square bg-gray-100">
+                <div className="aspect-square bg-white/10">
                   <img
                     src={image.preview}
                     alt={`Upload ${index + 1}`}
@@ -604,7 +604,7 @@ export const PhotoUploader: React.FC<PhotoUploaderProps> = ({
                       className={`p-2 rounded-full transition-colors ${
                         image.isCover
                           ? 'bg-blue-600 text-white'
-                          : 'bg-white text-gray-700 hover:bg-blue-600 hover:text-white'
+                          : 'bg-white/5 text-gray-200 hover:bg-blue-600 hover:text-white'
                       }`}
                       title={image.isCover ? 'Cover photo' : 'Set as cover'}
                     >
@@ -634,8 +634,8 @@ export const PhotoUploader: React.FC<PhotoUploaderProps> = ({
 
                 {/* Drag Handle */}
                 <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                  <div className="p-1 bg-white rounded cursor-move">
-                    <GripVertical className="h-4 w-4 text-gray-600" />
+                  <div className="p-1 bg-white/5 rounded cursor-move">
+                    <GripVertical className="h-4 w-4 text-gray-300" />
                   </div>
                 </div>
 

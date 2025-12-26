@@ -198,7 +198,7 @@ const VirtualToursPage: NextPage = () => {
         <meta name="description" content="Türkiye'nin en güzel destinasyonlarını VR ve 360° sanal turlarla keşfedin. 4K-8K kalitede immersive deneyimler." />
       </Head>
 
-      <div className="min-h-screen bg-gray-50">
+      <div className="min-h-screen bg-white/5">
         {/* Hero Section */}
         <section className="relative bg-gradient-to-r from-purple-600 via-blue-600 to-indigo-800 text-white py-20">
           <div className="absolute inset-0 bg-black/30"></div>
@@ -348,7 +348,7 @@ const VirtualToursPage: NextPage = () => {
                       <div className="flex items-center gap-1">
                         <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
                         <span className="font-medium">{tour.rating}</span>
-                        <span className="text-gray-500">({tour.reviews})</span>
+                        <span className="text-gray-400">({tour.reviews})</span>
                       </div>
                     </div>
 
@@ -377,7 +377,7 @@ const VirtualToursPage: NextPage = () => {
                       </div>
                       
                       <div className="flex items-center gap-2">
-                        <button className="p-2 text-gray-500 hover:text-blue-600 transition-colors">
+                        <button className="p-2 text-gray-400 hover:text-blue-600 transition-colors">
                           <Share2 className="w-4 h-4" />
                         </button>
                         <motion.button

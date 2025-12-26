@@ -251,7 +251,7 @@ export default function Step3Features({ data }: Step3Props) {
                 .map((feature) => (
                   <span
                     key={feature.id}
-                    className="px-3 py-1 bg-white border border-green-200 rounded-full text-sm font-medium text-green-900"
+                    className="px-3 py-1 bg-white/5 border border-green-200 rounded-full text-sm font-medium text-green-900"
                   >
                     {feature.label}
                   </span>

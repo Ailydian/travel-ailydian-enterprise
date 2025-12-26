@@ -71,7 +71,7 @@ export default function HotelDetailPage({ hotel }: { hotel: Hotel }) {
         <meta name="keywords" content={`${hotel.name}, ${hotel.city} otel, ${hotel.district} otel, ${hotel.tags.join(', ')}`} />
       </Head>
 
-      <div className="min-h-screen bg-gray-50">
+      <div className="min-h-screen bg-white/5">
         {/* Hero Gallery */}
         <div className="relative h-96 bg-gray-900">
           {hotel.images.length > 0 && (
@@ -173,7 +173,7 @@ export default function HotelDetailPage({ hotel }: { hotel: Hotel }) {
                           <div className="text-2xl font-bold text-blue-600">
                             {room.price.toLocaleString('tr-TR')} ₺
                           </div>
-                          <div className="text-sm text-gray-500">/ gece</div>
+                          <div className="text-sm text-gray-400">/ gece</div>
                         </div>
                       </div>
                     </div>
@@ -213,7 +213,7 @@ export default function HotelDetailPage({ hotel }: { hotel: Hotel }) {
                   <div className="text-3xl font-bold text-blue-600">
                     {selectedRoom.price.toLocaleString('tr-TR')} ₺
                   </div>
-                  <div className="text-sm text-gray-500">gece başına</div>
+                  <div className="text-sm text-gray-400">gece başına</div>
                 </div>
 
                 <div className="space-y-4">
@@ -310,7 +310,7 @@ export default function HotelDetailPage({ hotel }: { hotel: Hotel }) {
                     </div>
                   </button>
 
-                  <p className="text-xs text-gray-500 text-center">
+                  <p className="text-xs text-gray-400 text-center">
                     Ücretsiz iptal · Anında onay
                   </p>
                 </div>

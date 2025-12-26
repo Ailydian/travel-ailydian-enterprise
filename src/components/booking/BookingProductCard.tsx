@@ -175,7 +175,7 @@ export const BookingProductCard: React.FC<ProductCardProps> = ({
             >
               <Heart
                 className={`w-5 h-5 transition-all ${
-                  isFavorited ? 'fill-lydian-primary text-lydian-primary' : 'text-gray-700'
+                  isFavorited ? 'fill-lydian-primary text-lydian-primary' : 'text-gray-200'
                 }`}
               />
             </button>
@@ -209,7 +209,7 @@ export const BookingProductCard: React.FC<ProductCardProps> = ({
               <h3 className="text-xl font-bold text-white mb-1 line-clamp-2 group-hover:text-lydian-primary transition-colors">
                 {title}
               </h3>
-              <div className="flex items-center gap-1 text-sm text-gray-600">
+              <div className="flex items-center gap-1 text-sm text-gray-300">
                 <MapPin className="w-4 h-4" />
                 <span>{location}</span>
               </div>
@@ -224,7 +224,7 @@ export const BookingProductCard: React.FC<ProductCardProps> = ({
                 <div>
                   <div className="text-sm font-semibold text-white">{getRatingText(rating)}</div>
                   {reviewCount > 0 && (
-                    <div className="text-xs text-gray-600">{reviewCount.toLocaleString()} değerlendirme</div>
+                    <div className="text-xs text-gray-300">{reviewCount.toLocaleString()} değerlendirme</div>
                   )}
                 </div>
                 {reviewScore && (
@@ -238,7 +238,7 @@ export const BookingProductCard: React.FC<ProductCardProps> = ({
 
             {/* Description */}
             {description && (
-              <p className="text-sm text-gray-600 mb-3 line-clamp-2">
+              <p className="text-sm text-gray-300 mb-3 line-clamp-2">
                 {description}
               </p>
             )}
@@ -247,7 +247,7 @@ export const BookingProductCard: React.FC<ProductCardProps> = ({
             {features.length > 0 && (
               <div className="flex flex-wrap gap-3 mb-3">
                 {features.slice(0, 4).map((feature, index) => (
-                  <div key={index} className="flex items-center gap-1 text-xs text-gray-700">
+                  <div key={index} className="flex items-center gap-1 text-xs text-gray-200">
                     <Check className="w-3 h-3 text-green-600" />
                     <span>{feature}</span>
                   </div>
@@ -268,7 +268,7 @@ export const BookingProductCard: React.FC<ProductCardProps> = ({
                     <TrendingDown className="w-3 h-3" />
                     <span className="font-semibold">Fiyat Düştü</span>
                   </div>
-                  <span className="text-gray-600">Son 24 saatte %{Math.round(((Number(originalPrice) - Number(price)) / Number(originalPrice)) * 100)} indirim</span>
+                  <span className="text-gray-300">Son 24 saatte %{Math.round(((Number(originalPrice) - Number(price)) / Number(originalPrice)) * 100)} indirim</span>
                 </motion.div>
               )}
 
@@ -278,7 +278,7 @@ export const BookingProductCard: React.FC<ProductCardProps> = ({
                   initial={{ opacity: 0, x: -10 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.1 }}
-                  className="flex items-center gap-2 text-xs text-gray-700"
+                  className="flex items-center gap-2 text-xs text-gray-200"
                 >
                   <div className="flex items-center gap-1">
                     <Eye className="w-3 h-3 text-blue-600" />
@@ -296,7 +296,7 @@ export const BookingProductCard: React.FC<ProductCardProps> = ({
                   initial={{ opacity: 0, x: -10 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.2 }}
-                  className="flex items-center gap-2 text-xs text-gray-700"
+                  className="flex items-center gap-2 text-xs text-gray-200"
                 >
                   <div className="flex items-center gap-1">
                     <Clock className="w-3 h-3 text-orange-600" />
@@ -339,7 +339,7 @@ export const BookingProductCard: React.FC<ProductCardProps> = ({
             <div className="flex items-end justify-between mt-4 pt-4 border-t border-gray-100">
               <div>
                 {originalPrice && (
-                  <div className="text-sm text-gray-500 line-through">
+                  <div className="text-sm text-gray-400 line-through">
                     {currency}{typeof originalPrice === 'number' ? originalPrice.toLocaleString() : originalPrice}
                   </div>
                 )}
@@ -347,9 +347,9 @@ export const BookingProductCard: React.FC<ProductCardProps> = ({
                   <span className="text-2xl font-bold text-white">
                     {currency}{typeof price === 'number' ? price.toLocaleString() : price}
                   </span>
-                  <span className="text-sm text-gray-600">/ gece</span>
+                  <span className="text-sm text-gray-300">/ gece</span>
                 </div>
-                <div className="text-xs text-gray-500 mt-1">Vergiler dahil</div>
+                <div className="text-xs text-gray-400 mt-1">Vergiler dahil</div>
               </div>
 
               <div className="flex gap-2">

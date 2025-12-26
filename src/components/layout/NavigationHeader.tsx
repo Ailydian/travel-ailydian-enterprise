@@ -532,7 +532,7 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
                   LyDian
                 </span>
               </div>
-              <p className="text-xs font-medium text-gray-500 -mt-1 tracking-wide hidden sm:block">
+              <p className="text-xs font-medium text-gray-400 -mt-1 tracking-wide hidden sm:block">
                 AI-Powered Enterprise
               </p>
             </div>
@@ -571,7 +571,7 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
                     {/* Search Results */}
                     {searchResults.length > 0 && (
                       <div className="py-2">
-                        <div className="px-4 py-2 text-xs font-semibold text-gray-500 uppercase tracking-wider border-b border-gray-100">
+                        <div className="px-4 py-2 text-xs font-semibold text-gray-400 uppercase tracking-wider border-b border-gray-100">
                           Arama Sonuçları
                         </div>
                         {searchResults.map((result, index) => {
@@ -580,7 +580,7 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
                             <button
                               key={result.id}
                               onClick={() => handleSearchSelect(result)}
-                              className={`w-full px-4 py-3 text-left hover:bg-gray-50 transition-colors flex items-center gap-3 ${
+                              className={`w-full px-4 py-3 text-left hover:bg-white/5 transition-colors flex items-center gap-3 ${
                                 selectedResultIndex === index ? 'bg-blue-50' : ''
                               }`}
                             >
@@ -602,11 +602,11 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
                                   {result.rating && (
                                     <div className="flex items-center gap-1 text-xs">
                                       <Star className="w-3 h-3 text-yellow-500 fill-current" />
-                                      <span className="text-gray-600">{result.rating}</span>
+                                      <span className="text-gray-300">{result.rating}</span>
                                     </div>
                                   )}
                                 </div>
-                                <p className="text-sm text-gray-500 truncate">{result.subtitle}</p>
+                                <p className="text-sm text-gray-400 truncate">{result.subtitle}</p>
                               </div>
                               {result.price && (
                                 <span className="text-sm font-semibold text-blue-600">{result.price}</span>
@@ -623,17 +623,17 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
                         {/* Recent Searches */}
                         {searchHistory.length > 0 && (
                           <div className="mb-4">
-                            <div className="px-4 py-2 text-xs font-semibold text-gray-500 uppercase tracking-wider border-b border-gray-100">
+                            <div className="px-4 py-2 text-xs font-semibold text-gray-400 uppercase tracking-wider border-b border-gray-100">
                               Son Aramalar
                             </div>
                             {searchHistory.map((query, index) => (
                               <button
                                 key={index}
                                 onClick={() => handlePopularSearchClick(query)}
-                                className="w-full px-4 py-2 text-left hover:bg-gray-50 transition-colors flex items-center gap-3"
+                                className="w-full px-4 py-2 text-left hover:bg-white/5 transition-colors flex items-center gap-3"
                               >
                                 <Clock className="w-4 h-4 text-gray-400" />
-                                <span className="text-gray-700">{query}</span>
+                                <span className="text-gray-200">{query}</span>
                               </button>
                             ))}
                           </div>
@@ -641,17 +641,17 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
                         
                         {/* Popular Searches */}
                         <div>
-                          <div className="px-4 py-2 text-xs font-semibold text-gray-500 uppercase tracking-wider border-b border-gray-100">
+                          <div className="px-4 py-2 text-xs font-semibold text-gray-400 uppercase tracking-wider border-b border-gray-100">
                             Popüler Aramalar
                           </div>
                           {popularSearches.slice(0, 6).map((query, index) => (
                             <button
                               key={index}
                               onClick={() => handlePopularSearchClick(query)}
-                              className="w-full px-4 py-2 text-left hover:bg-gray-50 transition-colors flex items-center gap-3"
+                              className="w-full px-4 py-2 text-left hover:bg-white/5 transition-colors flex items-center gap-3"
                             >
                               <TrendingUp className="w-4 h-4 text-gray-400" />
-                              <span className="text-gray-700">{query}</span>
+                              <span className="text-gray-200">{query}</span>
                             </button>
                           ))}
                         </div>
@@ -662,7 +662,7 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
                     {searchQuery.trim() !== '' && searchResults.length === 0 && (
                       <div className="px-4 py-8 text-center">
                         <Search className="w-8 h-8 text-gray-300 mx-auto mb-2" />
-                        <p className="text-gray-500">Arama sonucu bulunamadı</p>
+                        <p className="text-gray-400">Arama sonucu bulunamadı</p>
                         <button
                           onClick={handleSearchSubmit}
                           className="mt-2 text-blue-600 hover:text-blue-700 text-sm flex items-center gap-1 mx-auto"
@@ -720,7 +720,7 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
                               <Link
                                 key={tour.href}
                                 href={tour.href}
-                                className="flex items-start gap-3 p-3 rounded-lg hover:bg-gray-50 transition-colors group"
+                                className="flex items-start gap-3 p-3 rounded-lg hover:bg-white/5 transition-colors group"
                               >
                                 <span className="text-2xl">{tour.icon}</span>
                                 <div className="flex-1">
@@ -732,7 +732,7 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
                                       {tour.badge}
                                     </span>
                                   </div>
-                                  <p className="text-xs text-gray-600">{tour.description}</p>
+                                  <p className="text-xs text-gray-300">{tour.description}</p>
                                 </div>
                               </Link>
                             ))}
@@ -771,7 +771,7 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
             {/* Search Icon - Mobile & Tablet */}
             <button
               onClick={() => setIsSliderSearchOpen(true)}
-              className="lg:hidden p-2 text-gray-700 hover:bg-gray-50 rounded-lg transition-colors group"
+              className="lg:hidden p-2 text-gray-200 hover:bg-white/5 rounded-lg transition-colors group"
             >
               <Search className="w-5 h-5 group-hover:text-lydian-primary transition-colors" />
             </button>
@@ -831,7 +831,7 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
                           className={`w-full flex items-center space-x-3 px-4 py-2 text-left transition-colors ${
                             currentLanguage.code === language.code
                               ? 'bg-red-50 text-lydian-primary'
-                              : 'text-gray-700 hover:bg-gray-50'
+                              : 'text-gray-200 hover:bg-white/5'
                           }`}
                         >
                           <span className="text-xl">{language.flag}</span>
@@ -845,7 +845,7 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
             </div>
 
             {/* Cart */}
-            <Link href="/cart-new" className="relative p-2 text-gray-700 hover:bg-gray-50 rounded-lg transition-colors group">
+            <Link href="/cart-new" className="relative p-2 text-gray-200 hover:bg-white/5 rounded-lg transition-colors group">
               <ShoppingCart className="w-5 h-5 group-hover:text-lydian-primary transition-colors" />
               {getItemCount() > 0 && (
                 <span className="absolute -top-1 -right-1 bg-lydian-primary text-white text-xs rounded-full min-w-5 h-5 flex items-center justify-center px-1 font-medium animate-pulse">
@@ -861,7 +861,7 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
             <div className="relative">
               <button
                 onClick={() => setIsUserMenuOpen(!isUserMenuOpen)}
-                className="flex items-center space-x-2 p-2 text-gray-700 hover:bg-gray-50 rounded-lg transition-colors"
+                className="flex items-center space-x-2 p-2 text-gray-200 hover:bg-white/5 rounded-lg transition-colors"
               >
                 <div className="w-8 h-8 bg-gradient-to-r from-lydian-primary to-lydian-secondary rounded-full flex items-center justify-center">
                   <User className="w-4 h-4 text-white" />
@@ -880,7 +880,7 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
                       <>
                         <div className="px-4 py-3 border-b border-gray-100">
                           <p className="text-sm font-medium text-white">{session.user?.name || 'Kullanıcı'}</p>
-                          <p className="text-xs text-gray-500">{session.user?.email}</p>
+                          <p className="text-xs text-gray-400">{session.user?.email}</p>
                           <span className="inline-flex items-center px-2 py-1 mt-2 rounded-full text-xs bg-blue-100 text-blue-700">
                             {(session.user as any)?.membershipType || 'BASIC'} Üye
                           </span>
@@ -888,7 +888,7 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
                         
                         <Link
                           href="/profile/dashboard"
-                          className="flex items-center space-x-3 px-4 py-2 text-gray-700 hover:bg-gray-50 transition-colors"
+                          className="flex items-center space-x-3 px-4 py-2 text-gray-200 hover:bg-white/5 transition-colors"
                           onClick={() => setIsUserMenuOpen(false)}
                         >
                           <TrendingUp className="w-4 h-4" />
@@ -900,7 +900,7 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
                           if ((item as any).isHeader) {
                             return (
                               <div key={index} className="px-4 py-2 mt-2 border-t border-gray-100">
-                                <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider flex items-center gap-2">
+                                <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider flex items-center gap-2">
                                   <Icon className="w-3 h-3" />
                                   {item.title}
                                 </p>
@@ -911,7 +911,7 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
                             <Link
                               key={item.href}
                               href={item.href}
-                              className="flex items-center space-x-3 px-4 py-2 text-gray-700 hover:bg-gray-50 transition-colors"
+                              className="flex items-center space-x-3 px-4 py-2 text-gray-200 hover:bg-white/5 transition-colors"
                               onClick={() => setIsUserMenuOpen(false)}
                             >
                               <Icon className="w-4 h-4" />
@@ -934,7 +934,7 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
                       <>
                         <div className="px-4 py-3 border-b border-gray-100">
                           <p className="text-sm font-medium text-white">Merhaba! 👋</p>
-                          <p className="text-xs text-gray-500">Seyahat maceranıza başlayın</p>
+                          <p className="text-xs text-gray-400">Seyahat maceranıza başlayın</p>
                         </div>
                         
                         <Link
@@ -965,7 +965,7 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
             {/* Mobile menu button */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="lg:hidden p-2 text-gray-700 hover:bg-gray-50 rounded-lg transition-colors"
+              className="lg:hidden p-2 text-gray-200 hover:bg-white/5 rounded-lg transition-colors"
             >
               {isMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
@@ -1017,7 +1017,7 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
                               {item.title}
                               <ChevronDown className={`w-4 h-4 transition-transform ${isMobileToursOpen ? 'rotate-180' : ''}`} />
                             </div>
-                            <div className="text-xs text-gray-500">{item.description}</div>
+                            <div className="text-xs text-gray-400">{item.description}</div>
                           </div>
                         </button>
 
@@ -1034,7 +1034,7 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
                                 <Link
                                   key={tour.href}
                                   href={tour.href}
-                                  className="flex items-start gap-2 p-2 rounded-lg hover:bg-gray-50 transition-colors"
+                                  className="flex items-start gap-2 p-2 rounded-lg hover:bg-white/5 transition-colors"
                                   onClick={() => {
                                     setIsMenuOpen(false);
                                     setIsMobileToursOpen(false);
@@ -1048,7 +1048,7 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
                                         {tour.badge}
                                       </span>
                                     </div>
-                                    <p className="text-xs text-gray-600 mt-0.5">{tour.description}</p>
+                                    <p className="text-xs text-gray-300 mt-0.5">{tour.description}</p>
                                   </div>
                                 </Link>
                               ))}
@@ -1076,7 +1076,7 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
                             </span>
                           )}
                         </div>
-                        <div className="text-xs text-gray-500">{item.description}</div>
+                        <div className="text-xs text-gray-400">{item.description}</div>
                       </div>
                     </Link>
                   );
@@ -1119,9 +1119,9 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
                 </h3>
                 <button
                   onClick={() => setIsSliderSearchOpen(false)}
-                  className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+                  className="p-2 hover:bg-white/10 rounded-lg transition-colors"
                 >
-                  <X className="w-5 h-5 text-gray-500" />
+                  <X className="w-5 h-5 text-gray-400" />
                 </button>
               </div>
 
@@ -1150,7 +1150,7 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
 
                 {/* Quick Search Categories */}
                 <div className="mb-6">
-                  <h4 className="text-sm font-semibold text-gray-700 mb-3">Hızlı Arama</h4>
+                  <h4 className="text-sm font-semibold text-gray-200 mb-3">Hızlı Arama</h4>
                   <div className="grid grid-cols-2 gap-3">
                     {[
                       { title: 'İstanbul Turları', icon: '🏛️', query: 'istanbul' },
@@ -1169,7 +1169,7 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
                         className="flex items-center gap-3 p-3 rounded-lg border border-white/10 hover:border-blue-300 hover:bg-blue-50 transition-all"
                       >
                         <span className="text-xl">{item.icon}</span>
-                        <span className="font-medium text-gray-700">{item.title}</span>
+                        <span className="font-medium text-gray-200">{item.title}</span>
                       </button>
                     ))}
                   </div>
@@ -1178,7 +1178,7 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
                 {/* Search Results in Slider */}
                 {searchResults.length > 0 && (
                   <div className="mb-4">
-                    <h4 className="text-sm font-semibold text-gray-700 mb-3">Arama Sonuçları</h4>
+                    <h4 className="text-sm font-semibold text-gray-200 mb-3">Arama Sonuçları</h4>
                     <div className="max-h-60 overflow-y-auto space-y-2">
                       {searchResults.map((result, index) => {
                         const categoryInfo = categoryConfig[result.category];
@@ -1189,7 +1189,7 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
                               handleSearchSelect(result);
                               setIsSliderSearchOpen(false);
                             }}
-                            className={`w-full p-3 rounded-lg hover:bg-gray-50 transition-colors flex items-center gap-3 text-left ${
+                            className={`w-full p-3 rounded-lg hover:bg-white/5 transition-colors flex items-center gap-3 text-left ${
                               selectedResultIndex === index ? 'bg-blue-50 border border-blue-200' : 'border border-gray-100'
                             }`}
                           >
@@ -1210,11 +1210,11 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
                                 {result.rating && (
                                   <div className="flex items-center gap-1 text-xs">
                                     <Star className="w-3 h-3 text-yellow-500 fill-current" />
-                                    <span className="text-gray-600">{result.rating}</span>
+                                    <span className="text-gray-300">{result.rating}</span>
                                   </div>
                                 )}
                               </div>
-                              <p className="text-sm text-gray-500 truncate">{result.subtitle}</p>
+                              <p className="text-sm text-gray-400 truncate">{result.subtitle}</p>
                             </div>
                             {result.price && (
                               <span className="text-sm font-semibold text-blue-600">{result.price}</span>
@@ -1229,7 +1229,7 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
                 {/* Recent Searches in Slider */}
                 {searchHistory.length > 0 && searchQuery.trim() === '' && (
                   <div className="mb-4">
-                    <h4 className="text-sm font-semibold text-gray-700 mb-3">Son Aramalar</h4>
+                    <h4 className="text-sm font-semibold text-gray-200 mb-3">Son Aramalar</h4>
                     <div className="flex flex-wrap gap-2">
                       {searchHistory.map((query, index) => (
                         <button
@@ -1240,7 +1240,7 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
                             setSearchResults(results);
                             setIsSearchFocused(true);
                           }}
-                          className="px-3 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg text-sm font-medium text-gray-700 transition-colors"
+                          className="px-3 py-2 bg-white/10 hover:bg-gray-200 rounded-lg text-sm font-medium text-gray-200 transition-colors"
                         >
                           {query}
                         </button>
@@ -1252,7 +1252,7 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
                 {/* Popular Searches in Slider */}
                 {searchQuery.trim() === '' && (
                   <div>
-                    <h4 className="text-sm font-semibold text-gray-700 mb-3">Popüler Aramalar</h4>
+                    <h4 className="text-sm font-semibold text-gray-200 mb-3">Popüler Aramalar</h4>
                     <div className="flex flex-wrap gap-2">
                       {popularSearches.slice(0, 8).map((query, index) => (
                         <button

@@ -57,7 +57,7 @@ export default function RootLayout({
     <html lang="tr">
       <body className={inter.className}>
         <QueryProvider>
-          <div className="min-h-screen bg-white">
+          <div className="min-h-screen bg-white/5">
             {children}
           </div>
 

@@ -45,26 +45,26 @@ export default function Step7Documents() {
       {/* Header */}
       <div className="text-center">
         <Shield className="w-16 h-16 text-green-600 mx-auto mb-4" />
-        <h2 className="text-3xl font-bold text-gray-900">
+        <h2 className="text-3xl font-bold text-white">
           {t('vehicleSubmission.step7.title')}
         </h2>
-        <p className="text-gray-600 mt-2">
+        <p className="text-gray-300 mt-2">
           {t('vehicleSubmission.step7.description')}
         </p>
       </div>
 
       {/* Insurance Section */}
-      <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+      <div className="bg-white/5 rounded-xl shadow-sm border border-gray-200 p-6">
         <div className="flex items-center gap-3 mb-6">
           <Shield className="w-6 h-6 text-green-600" />
-          <h3 className="text-xl font-semibold text-gray-900">
+          <h3 className="text-xl font-semibold text-white">
             {t('vehicleSubmission.step7.insurance.title')}
           </h3>
         </div>
 
         {/* Traffic Insurance */}
         <div className="space-y-4 mb-6 pb-6 border-b border-gray-200">
-          <h4 className="font-medium text-gray-900 flex items-center gap-2">
+          <h4 className="font-medium text-white flex items-center gap-2">
             <Shield className="w-5 h-5 text-blue-600" />
             {t('vehicleSubmission.step7.insurance.traffic.title')}
             <span className="text-red-500">*</span>
@@ -72,7 +72,7 @@ export default function Step7Documents() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-gray-200 mb-2">
                 {t('vehicleSubmission.step7.insurance.policyNumber')}
               </label>
               <input
@@ -89,7 +89,7 @@ export default function Step7Documents() {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-gray-200 mb-2">
                 {t('vehicleSubmission.step7.insurance.company')}
               </label>
               <div className="relative">
@@ -104,7 +104,7 @@ export default function Step7Documents() {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-gray-200 mb-2">
                 {t('vehicleSubmission.step7.insurance.expiryDate')}
               </label>
               <div className="relative">
@@ -118,7 +118,7 @@ export default function Step7Documents() {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-gray-200 mb-2">
                 {t('vehicleSubmission.step7.insurance.document')}
               </label>
               <label className="relative cursor-pointer group">
@@ -143,7 +143,7 @@ export default function Step7Documents() {
                   ) : (
                     <>
                       <Upload className="w-5 h-5 text-gray-400 group-hover:text-green-600" />
-                      <span className="text-sm text-gray-600 group-hover:text-green-600">
+                      <span className="text-sm text-gray-300 group-hover:text-green-600">
                         {t('vehicleSubmission.step7.uploadFile')}
                       </span>
                     </>
@@ -156,10 +156,10 @@ export default function Step7Documents() {
 
         {/* Comprehensive Insurance (Optional) */}
         <div className="space-y-4">
-          <h4 className="font-medium text-gray-900 flex items-center gap-2">
+          <h4 className="font-medium text-white flex items-center gap-2">
             <Shield className="w-5 h-5 text-green-600" />
             {t('vehicleSubmission.step7.insurance.comprehensive.title')}
-            <span className="text-sm text-gray-500">({t('common.optional')})</span>
+            <span className="text-sm text-gray-400">({t('common.optional')})</span>
           </h4>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -218,7 +218,7 @@ export default function Step7Documents() {
                   ) : (
                     <>
                       <Upload className="w-5 h-5 text-gray-400 group-hover:text-green-600" />
-                      <span className="text-sm text-gray-600 group-hover:text-green-600">
+                      <span className="text-sm text-gray-300 group-hover:text-green-600">
                         {t('vehicleSubmission.step7.uploadFile')}
                       </span>
                     </>
@@ -231,10 +231,10 @@ export default function Step7Documents() {
       </div>
 
       {/* Vehicle Documents */}
-      <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+      <div className="bg-white/5 rounded-xl shadow-sm border border-gray-200 p-6">
         <div className="flex items-center gap-3 mb-6">
           <FileText className="w-6 h-6 text-green-600" />
-          <h3 className="text-xl font-semibold text-gray-900">
+          <h3 className="text-xl font-semibold text-white">
             {t('vehicleSubmission.step7.documents.title')}
           </h3>
         </div>
@@ -242,7 +242,7 @@ export default function Step7Documents() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {/* Registration Document */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-medium text-gray-200 mb-2">
               {t('vehicleSubmission.step7.documents.registration')}
               <span className="text-red-500 ml-1">*</span>
             </label>
@@ -268,7 +268,7 @@ export default function Step7Documents() {
                 ) : (
                   <>
                     <Upload className="w-8 h-8 text-gray-400 group-hover:text-green-600" />
-                    <span className="text-sm text-gray-600 group-hover:text-green-600 text-center">
+                    <span className="text-sm text-gray-300 group-hover:text-green-600 text-center">
                       {t('vehicleSubmission.step7.uploadFile')}
                     </span>
                   </>
@@ -279,9 +279,9 @@ export default function Step7Documents() {
 
           {/* Inspection Report */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-medium text-gray-200 mb-2">
               {t('vehicleSubmission.step7.documents.inspection')}
-              <span className="text-sm text-gray-500 ml-1">({t('common.optional')})</span>
+              <span className="text-sm text-gray-400 ml-1">({t('common.optional')})</span>
             </label>
             <label className="relative cursor-pointer group">
               <input
@@ -305,7 +305,7 @@ export default function Step7Documents() {
                 ) : (
                   <>
                     <Upload className="w-8 h-8 text-gray-400 group-hover:text-green-600" />
-                    <span className="text-sm text-gray-600 group-hover:text-green-600 text-center">
+                    <span className="text-sm text-gray-300 group-hover:text-green-600 text-center">
                       {t('vehicleSubmission.step7.uploadFile')}
                     </span>
                   </>
@@ -316,7 +316,7 @@ export default function Step7Documents() {
 
           {/* Ownership Proof */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-medium text-gray-200 mb-2">
               {t('vehicleSubmission.step7.documents.ownership')}
               <span className="text-red-500 ml-1">*</span>
             </label>
@@ -342,7 +342,7 @@ export default function Step7Documents() {
                 ) : (
                   <>
                     <Upload className="w-8 h-8 text-gray-400 group-hover:text-green-600" />
-                    <span className="text-sm text-gray-600 group-hover:text-green-600 text-center">
+                    <span className="text-sm text-gray-300 group-hover:text-green-600 text-center">
                       {t('vehicleSubmission.step7.uploadFile')}
                     </span>
                   </>
@@ -354,17 +354,17 @@ export default function Step7Documents() {
       </div>
 
       {/* Driver Requirements */}
-      <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+      <div className="bg-white/5 rounded-xl shadow-sm border border-gray-200 p-6">
         <div className="flex items-center gap-3 mb-6">
           <User className="w-6 h-6 text-green-600" />
-          <h3 className="text-xl font-semibold text-gray-900">
+          <h3 className="text-xl font-semibold text-white">
             {t('vehicleSubmission.step7.driverRequirements.title')}
           </h3>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-medium text-gray-200 mb-2">
               {t('vehicleSubmission.step7.driverRequirements.minAge')}
             </label>
             <input
@@ -378,7 +378,7 @@ export default function Step7Documents() {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-medium text-gray-200 mb-2">
               {t('vehicleSubmission.step7.driverRequirements.minLicenseYears')}
             </label>
             <input
@@ -392,7 +392,7 @@ export default function Step7Documents() {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-medium text-gray-200 mb-2">
               {t('vehicleSubmission.step7.driverRequirements.internationalLicense')}
             </label>
             <div className="flex items-center gap-4 h-[48px]">
@@ -403,7 +403,7 @@ export default function Step7Documents() {
                   value="true"
                   className="w-4 h-4 text-green-600"
                 />
-                <span className="text-sm text-gray-700">{t('common.required')}</span>
+                <span className="text-sm text-gray-200">{t('common.required')}</span>
               </label>
               <label className="flex items-center gap-2 cursor-pointer">
                 <input
@@ -413,7 +413,7 @@ export default function Step7Documents() {
                   defaultChecked
                   className="w-4 h-4 text-green-600"
                 />
-                <span className="text-sm text-gray-700">{t('common.notRequired')}</span>
+                <span className="text-sm text-gray-200">{t('common.notRequired')}</span>
               </label>
             </div>
           </div>

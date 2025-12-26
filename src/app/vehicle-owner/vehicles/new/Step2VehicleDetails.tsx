@@ -350,7 +350,7 @@ export default function Step2VehicleDetails({ data }: Step2Props) {
             </label>
             <select
               {...register('city')}
-              className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-200 outline-none transition-all bg-white"
+              className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-200 outline-none transition-all bg-white/5"
             >
               <option value="">Şehir seçin</option>
               {turkishCities.map((city) => (

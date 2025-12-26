@@ -190,7 +190,7 @@ const CarRentalEditPage = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
       {/* Header */}
-      <header className="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-sm">
+      <header className="bg-white/5 border-b border-slate-200 sticky top-0 z-50 shadow-sm">
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
@@ -247,7 +247,7 @@ const CarRentalEditPage = () => {
       <main className="max-w-7xl mx-auto px-6 py-8">
         <form onSubmit={handleSubmit} className="space-y-6">
           {/* Basic Info */}
-          <div className="bg-white rounded-xl border border-slate-200 p-6">
+          <div className="bg-white/5 rounded-xl border border-slate-200 p-6">
             <h2 className="text-lg font-bold text-slate-900 mb-6 flex items-center gap-2">
               <Car className="w-5 h-5 text-blue-600" />
               Temel Bilgiler
@@ -421,7 +421,7 @@ const CarRentalEditPage = () => {
           </div>
 
           {/* Pricing */}
-          <div className="bg-white rounded-xl border border-slate-200 p-6">
+          <div className="bg-white/5 rounded-xl border border-slate-200 p-6">
             <h2 className="text-lg font-bold text-slate-900 mb-6 flex items-center gap-2">
               <DollarSign className="w-5 h-5 text-green-600" />
               Fiyatlandırma
@@ -459,7 +459,7 @@ const CarRentalEditPage = () => {
           </div>
 
           {/* Features */}
-          <div className="bg-white rounded-xl border border-slate-200 p-6">
+          <div className="bg-white/5 rounded-xl border border-slate-200 p-6">
             <h2 className="text-lg font-bold text-slate-900 mb-6 flex items-center gap-2">
               <Star className="w-5 h-5 text-amber-600" />
               Özellikler
@@ -503,7 +503,7 @@ const CarRentalEditPage = () => {
           </div>
 
           {/* Images */}
-          <div className="bg-white rounded-xl border border-slate-200 p-6">
+          <div className="bg-white/5 rounded-xl border border-slate-200 p-6">
             <h2 className="text-lg font-bold text-slate-900 mb-6 flex items-center gap-2">
               <ImageIcon className="w-5 h-5 text-purple-600" />
               Görseller
@@ -566,7 +566,7 @@ const CarRentalEditPage = () => {
           </div>
 
           {/* Status */}
-          <div className="bg-white rounded-xl border border-slate-200 p-6">
+          <div className="bg-white/5 rounded-xl border border-slate-200 p-6">
             <h2 className="text-lg font-bold text-slate-900 mb-6 flex items-center gap-2">
               <Settings className="w-5 h-5 text-slate-600" />
               Durum Ayarları

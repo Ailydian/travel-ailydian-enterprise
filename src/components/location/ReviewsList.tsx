@@ -36,9 +36,9 @@ const ReviewsList: React.FC<ReviewsListProps> = ({ reviews, language = 'en' }) =
 
   if (!reviews || reviews.length === 0) {
     return (
-      <div className="bg-gray-50 rounded-lg p-8 text-center">
+      <div className="bg-white/5 rounded-lg p-8 text-center">
         <User className="w-12 h-12 text-gray-400 mx-auto mb-4" />
-        <p className="text-gray-600">No reviews yet. Be the first to review!</p>
+        <p className="text-gray-300">No reviews yet. Be the first to review!</p>
       </div>
     );
   }
@@ -63,7 +63,7 @@ const ReviewsList: React.FC<ReviewsListProps> = ({ reviews, language = 'en' }) =
                     : review.user?.username || 'Anonymous'
                   }
                 </h4>
-                <div className="flex items-center space-x-2 text-sm text-gray-500">
+                <div className="flex items-center space-x-2 text-sm text-gray-400">
                   <Calendar className="w-3 h-3" />
                   <span>{formatDate(review.created_at)}</span>
                   {review.visit_date && (
@@ -81,7 +81,7 @@ const ReviewsList: React.FC<ReviewsListProps> = ({ reviews, language = 'en' }) =
               <div className="flex items-center space-x-1 mb-1">
                 {renderStars(review.overall_rating)}
               </div>
-              <span className="text-sm text-gray-600">{review.overall_rating}/5</span>
+              <span className="text-sm text-gray-300">{review.overall_rating}/5</span>
             </div>
           </div>
 
@@ -93,16 +93,16 @@ const ReviewsList: React.FC<ReviewsListProps> = ({ reviews, language = 'en' }) =
           )}
 
           {/* Review Content */}
-          <div className="prose prose-sm max-w-none text-gray-700 mb-4">
+          <div className="prose prose-sm max-w-none text-gray-200 mb-4">
             <p>{getLocalizedContent(review.content)}</p>
           </div>
 
           {/* Sub-ratings */}
           {(review.service_rating || review.food_rating || review.atmosphere_rating || review.value_rating) && (
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4 p-4 bg-gray-50 rounded-lg">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4 p-4 bg-white/5 rounded-lg">
               {review.service_rating && (
                 <div className="text-center">
-                  <p className="text-xs text-gray-500 mb-1">Service</p>
+                  <p className="text-xs text-gray-400 mb-1">Service</p>
                   <div className="flex justify-center">
                     {renderStars(review.service_rating)}
                   </div>
@@ -110,7 +110,7 @@ const ReviewsList: React.FC<ReviewsListProps> = ({ reviews, language = 'en' }) =
               )}
               {review.food_rating && (
                 <div className="text-center">
-                  <p className="text-xs text-gray-500 mb-1">Food</p>
+                  <p className="text-xs text-gray-400 mb-1">Food</p>
                   <div className="flex justify-center">
                     {renderStars(review.food_rating)}
                   </div>
@@ -118,7 +118,7 @@ const ReviewsList: React.FC<ReviewsListProps> = ({ reviews, language = 'en' }) =
               )}
               {review.atmosphere_rating && (
                 <div className="text-center">
-                  <p className="text-xs text-gray-500 mb-1">Atmosphere</p>
+                  <p className="text-xs text-gray-400 mb-1">Atmosphere</p>
                   <div className="flex justify-center">
                     {renderStars(review.atmosphere_rating)}
                   </div>
@@ -126,7 +126,7 @@ const ReviewsList: React.FC<ReviewsListProps> = ({ reviews, language = 'en' }) =
               )}
               {review.value_rating && (
                 <div className="text-center">
-                  <p className="text-xs text-gray-500 mb-1">Value</p>
+                  <p className="text-xs text-gray-400 mb-1">Value</p>
                   <div className="flex justify-center">
                     {renderStars(review.value_rating)}
                   </div>
@@ -143,12 +143,12 @@ const ReviewsList: React.FC<ReviewsListProps> = ({ reviews, language = 'en' }) =
                   {review.visit_type}
                 </span>
               )}
-              <span className="text-xs text-gray-500">
+              <span className="text-xs text-gray-400">
                 Review #{review.id}
               </span>
             </div>
             
-            <button className="flex items-center space-x-1 text-sm text-gray-500 hover:text-blue-600 transition-colors">
+            <button className="flex items-center space-x-1 text-sm text-gray-400 hover:text-blue-600 transition-colors">
               <ThumbsUp className="w-4 h-4" />
               <span>Helpful ({review.helpful_count || 0})</span>
             </button>

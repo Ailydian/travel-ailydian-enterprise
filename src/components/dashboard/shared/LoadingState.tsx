@@ -21,7 +21,7 @@ export interface LoadingStateProps {
  * Card skeleton component
  */
 const CardSkeleton: React.FC = () => (
-  <div className="bg-white rounded-lg border border-gray-200 overflow-hidden animate-pulse">
+  <div className="bg-white/5 rounded-lg border border-gray-200 overflow-hidden animate-pulse">
     <div className="h-48 bg-gray-200" />
     <div className="p-4 space-y-3">
       <div className="h-6 bg-gray-200 rounded w-3/4" />
@@ -60,7 +60,7 @@ const TableRowSkeleton: React.FC = () => (
  * List item skeleton component
  */
 const ListSkeleton: React.FC = () => (
-  <div className="bg-white rounded-lg border border-gray-200 p-4 animate-pulse">
+  <div className="bg-white/5 rounded-lg border border-gray-200 p-4 animate-pulse">
     <div className="flex items-center space-x-4">
       <div className="h-12 w-12 bg-gray-200 rounded-full flex-shrink-0" />
       <div className="flex-1 space-y-2">
@@ -88,7 +88,7 @@ const TextSkeleton: React.FC = () => (
  * Stat card skeleton component
  */
 const StatSkeleton: React.FC = () => (
-  <div className="bg-white rounded-lg border border-gray-200 p-6 animate-pulse">
+  <div className="bg-white/5 rounded-lg border border-gray-200 p-6 animate-pulse">
     <div className="flex items-center justify-between space-x-4">
       <div className="flex-1 space-y-3">
         <div className="h-4 bg-gray-200 rounded w-24" />
@@ -148,7 +148,7 @@ export const LoadingState: React.FC<LoadingStateProps> = ({
       case 'card':
         return 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6';
       case 'table':
-        return 'bg-white rounded-lg border border-gray-200 overflow-hidden';
+        return 'bg-white/5 rounded-lg border border-gray-200 overflow-hidden';
       case 'list':
         return 'space-y-4';
       case 'text':

@@ -134,7 +134,7 @@ export default function ReviewsPage() {
                   <div className="flex items-center space-x-2">
                     {renderStars(Math.floor(destination.rating))}
                     <span className="text-sm font-medium">{destination.rating}</span>
-                    <span className="text-sm text-gray-500">({destination.reviewCount.toLocaleString()} reviews)</span>
+                    <span className="text-sm text-gray-400">({destination.reviewCount.toLocaleString()} reviews)</span>
                   </div>
                 </div>
               </div>

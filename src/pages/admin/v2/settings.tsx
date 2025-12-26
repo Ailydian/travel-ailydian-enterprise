@@ -72,7 +72,7 @@ const SystemSettings = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-purple-50 to-blue-50">
       {/* Header */}
-      <div className="bg-white border-b border-slate-200 sticky top-0 z-40 backdrop-blur-xl bg-white/80">
+      <div className="bg-white/5 border-b border-slate-200 sticky top-0 z-40 backdrop-blur-xl bg-white/80">
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
@@ -111,7 +111,7 @@ const SystemSettings = () => {
         <div className="grid grid-cols-12 gap-6">
           {/* Sidebar */}
           <div className="col-span-3">
-            <div className="bg-white rounded-xl shadow-sm p-4 sticky top-24">
+            <div className="bg-white/5 rounded-xl shadow-sm p-4 sticky top-24">
               <div className="space-y-2">
                 {sections.map((section) => {
                   const Icon = section.icon;
@@ -165,7 +165,7 @@ const GeneralSettings = ({ onSave, saving }: any) => {
   });
 
   return (
-    <div className="bg-white rounded-xl shadow-sm p-6">
+    <div className="bg-white/5 rounded-xl shadow-sm p-6">
       <div className="flex items-center justify-between mb-6">
         <h2 className="text-xl font-bold text-slate-900">Genel Ayarlar</h2>
         <button
@@ -272,7 +272,7 @@ const GeneralSettings = ({ onSave, saving }: any) => {
 // Payment Settings
 const PaymentSettings = ({ onSave, saving }: any) => {
   return (
-    <div className="bg-white rounded-xl shadow-sm p-6">
+    <div className="bg-white/5 rounded-xl shadow-sm p-6">
       <h2 className="text-xl font-bold text-slate-900 mb-6">Ödeme Ayarları</h2>
       <div className="space-y-4">
         <div className="p-4 bg-blue-50 border border-blue-200 rounded-lg">
@@ -303,7 +303,7 @@ const NotificationSettings = ({ onSave, saving }: any) => {
   });
 
   return (
-    <div className="bg-white rounded-xl shadow-sm p-6">
+    <div className="bg-white/5 rounded-xl shadow-sm p-6">
       <div className="flex items-center justify-between mb-6">
         <h2 className="text-xl font-bold text-slate-900">Bildirim Ayarları</h2>
         <button
@@ -338,7 +338,7 @@ const NotificationSettings = ({ onSave, saving }: any) => {
 // Security Settings
 const SecuritySettings = ({ onSave, saving }: any) => {
   return (
-    <div className="bg-white rounded-xl shadow-sm p-6">
+    <div className="bg-white/5 rounded-xl shadow-sm p-6">
       <h2 className="text-xl font-bold text-slate-900 mb-6">Güvenlik Ayarları</h2>
       <div className="space-y-4">
         <div className="p-4 bg-red-50 border border-red-200 rounded-lg">
@@ -360,7 +360,7 @@ const SecuritySettings = ({ onSave, saving }: any) => {
 // API Settings
 const APISettings = ({ onSave, saving }: any) => {
   return (
-    <div className="bg-white rounded-xl shadow-sm p-6">
+    <div className="bg-white/5 rounded-xl shadow-sm p-6">
       <h2 className="text-xl font-bold text-slate-900 mb-6">API Anahtarları</h2>
       <div className="space-y-4">
         <div className="p-4 bg-orange-50 border border-orange-200 rounded-lg">
@@ -382,7 +382,7 @@ const APISettings = ({ onSave, saving }: any) => {
 // Integration Settings
 const IntegrationSettings = ({ onSave, saving }: any) => {
   return (
-    <div className="bg-white rounded-xl shadow-sm p-6">
+    <div className="bg-white/5 rounded-xl shadow-sm p-6">
       <h2 className="text-xl font-bold text-slate-900 mb-6">Entegrasyonlar</h2>
       <div className="space-y-4">
         <div className="p-4 bg-purple-50 border border-purple-200 rounded-lg">

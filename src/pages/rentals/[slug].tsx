@@ -391,7 +391,7 @@ const PropertyDetailsPage = ({ slug: initialSlug }: PropertyDetailsPageProps) =>
         <meta name="description" content={property.description} />
       </Head>
 
-      <div className="min-h-screen bg-gray-50">
+      <div className="min-h-screen bg-white/5">
         {/* Gallery Modal */}
         <AnimatePresence>
           {showGallery && (
@@ -475,14 +475,14 @@ const PropertyDetailsPage = ({ slug: initialSlug }: PropertyDetailsPageProps) =>
               <div className="flex items-center gap-3">
                 <button
                   onClick={handleShare}
-                  className="flex items-center gap-2 px-4 py-2 hover:bg-gray-100 rounded-xl transition-all"
+                  className="flex items-center gap-2 px-4 py-2 hover:bg-white/10 rounded-xl transition-all"
                 >
                   <Share2 className="w-5 h-5" />
                   <span className="hidden sm:inline">Paylaş</span>
                 </button>
                 <button
                   onClick={handleFavorite}
-                  className="flex items-center gap-2 px-4 py-2 hover:bg-gray-100 rounded-xl transition-all"
+                  className="flex items-center gap-2 px-4 py-2 hover:bg-white/10 rounded-xl transition-all"
                 >
                   <Heart className={`w-5 h-5 ${isFavorite ? 'fill-red-500 text-red-500' : ''}`} />
                   <span className="hidden sm:inline">Kaydet</span>
@@ -569,7 +569,7 @@ const PropertyDetailsPage = ({ slug: initialSlug }: PropertyDetailsPageProps) =>
 
                   <div className="flex flex-wrap gap-2 mb-4">
                     {property.hostLanguages.map((lang, i) => (
-                      <span key={i} className="px-3 py-1 bg-gray-100 text-gray-200 rounded-full text-sm">
+                      <span key={i} className="px-3 py-1 bg-white/10 text-gray-200 rounded-full text-sm">
                         {lang}
                       </span>
                     ))}
@@ -662,11 +662,11 @@ const PropertyDetailsPage = ({ slug: initialSlug }: PropertyDetailsPageProps) =>
                         <div
                           key={index}
                           className={`flex items-center gap-3 p-3 rounded-xl ${
-                            amenity.available ? 'bg-green-50' : 'bg-gray-50 opacity-50'
+                            amenity.available ? 'bg-green-50' : 'bg-white/5 opacity-50'
                           }`}
                         >
                           <Icon className={`w-5 h-5 ${amenity.available ? 'text-green-600' : 'text-gray-400'}`} />
-                          <span className={amenity.available ? 'text-white' : 'text-gray-500'}>
+                          <span className={amenity.available ? 'text-white' : 'text-gray-400'}>
                             {amenity.name}
                           </span>
                           {amenity.available && <Check className="w-4 h-4 text-green-600 ml-auto" />}
@@ -686,11 +686,11 @@ const PropertyDetailsPage = ({ slug: initialSlug }: PropertyDetailsPageProps) =>
                         <div
                           key={index}
                           className={`flex items-center gap-3 p-3 rounded-xl ${
-                            amenity.available ? 'bg-blue-50' : 'bg-gray-50 opacity-50'
+                            amenity.available ? 'bg-blue-50' : 'bg-white/5 opacity-50'
                           }`}
                         >
                           <Icon className={`w-5 h-5 ${amenity.available ? 'text-blue-600' : 'text-gray-400'}`} />
-                          <span className={amenity.available ? 'text-white' : 'text-gray-500'}>
+                          <span className={amenity.available ? 'text-white' : 'text-gray-400'}>
                             {amenity.name}
                           </span>
                           {amenity.available && <Check className="w-4 h-4 text-blue-600 ml-auto" />}
@@ -710,11 +710,11 @@ const PropertyDetailsPage = ({ slug: initialSlug }: PropertyDetailsPageProps) =>
                         <div
                           key={index}
                           className={`flex items-center gap-3 p-3 rounded-xl ${
-                            amenity.available ? 'bg-purple-50' : 'bg-gray-50 opacity-50'
+                            amenity.available ? 'bg-purple-50' : 'bg-white/5 opacity-50'
                           }`}
                         >
                           <Icon className={`w-5 h-5 ${amenity.available ? 'text-purple-600' : 'text-gray-400'}`} />
-                          <span className={amenity.available ? 'text-white' : 'text-gray-500'}>
+                          <span className={amenity.available ? 'text-white' : 'text-gray-400'}>
                             {amenity.name}
                           </span>
                           {amenity.available && <Check className="w-4 h-4 text-purple-600 ml-auto" />}
@@ -818,7 +818,7 @@ const PropertyDetailsPage = ({ slug: initialSlug }: PropertyDetailsPageProps) =>
                   </div>
                 </div>
                 <div className="h-96 bg-gray-200 rounded-xl flex items-center justify-center">
-                  <p className="text-gray-500">Harita buraya gelecek (Google Maps/Mapbox)</p>
+                  <p className="text-gray-400">Harita buraya gelecek (Google Maps/Mapbox)</p>
                 </div>
               </motion.div>
             </div>
@@ -904,7 +904,7 @@ const PropertyDetailsPage = ({ slug: initialSlug }: PropertyDetailsPageProps) =>
                       <div className="flex items-center justify-between p-3 bg-white/5 rounded-lg">
                         <div>
                           <p className="text-sm font-medium text-white">Yetişkinler</p>
-                          <p className="text-xs text-gray-500">13 yaş ve üzeri</p>
+                          <p className="text-xs text-gray-400">13 yaş ve üzeri</p>
                         </div>
                         <div className="flex items-center gap-3">
                           <button
@@ -926,7 +926,7 @@ const PropertyDetailsPage = ({ slug: initialSlug }: PropertyDetailsPageProps) =>
                       <div className="flex items-center justify-between p-3 bg-white/5 rounded-lg">
                         <div>
                           <p className="text-sm font-medium text-white">Çocuklar</p>
-                          <p className="text-xs text-gray-500">2-12 yaş</p>
+                          <p className="text-xs text-gray-400">2-12 yaş</p>
                         </div>
                         <div className="flex items-center gap-3">
                           <button
@@ -950,7 +950,7 @@ const PropertyDetailsPage = ({ slug: initialSlug }: PropertyDetailsPageProps) =>
                       <div className="flex items-center justify-between p-3 bg-white/5 rounded-lg">
                         <div>
                           <p className="text-sm font-medium text-white">Bebekler</p>
-                          <p className="text-xs text-gray-500">2 yaş altı</p>
+                          <p className="text-xs text-gray-400">2 yaş altı</p>
                         </div>
                         <div className="flex items-center gap-3">
                           <button
@@ -1015,14 +1015,14 @@ const PropertyDetailsPage = ({ slug: initialSlug }: PropertyDetailsPageProps) =>
                   disabled={!checkInDate || !checkOutDate || nights <= 0}
                   className={`w-full py-4 rounded-xl font-bold shadow-lg transition-all transform ${
                     !checkInDate || !checkOutDate || nights <= 0
-                      ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                      ? 'bg-gray-300 text-gray-400 cursor-not-allowed'
                       : 'bg-gradient-to-r from-[#667EEA] via-[#764BA2] to-[#667EEA] text-white hover:shadow-xl hover:-translate-y-1'
                   }`}
                 >
                   {property.instantBook ? 'Rezervasyon Yap' : 'Rezervasyon Talebi Gönder'}
                 </button>
 
-                <p className="text-center text-xs text-gray-500 mt-4">
+                <p className="text-center text-xs text-gray-400 mt-4">
                   Şimdi ödeme yapılmayacak
                 </p>
 
@@ -1066,7 +1066,7 @@ const PropertyDetailsPage = ({ slug: initialSlug }: PropertyDetailsPageProps) =>
                       <a
                         key={similar.id}
                         href={`/rentals/${similar.slug}`}
-                        className="block p-3 bg-white/5 rounded-xl hover:bg-gray-100 transition-colors"
+                        className="block p-3 bg-white/5 rounded-xl hover:bg-white/10 transition-colors"
                       >
                         <div className="flex gap-3">
                           <img
@@ -1084,7 +1084,7 @@ const PropertyDetailsPage = ({ slug: initialSlug }: PropertyDetailsPageProps) =>
                                 <Star className="w-3 h-3 text-yellow-400 fill-yellow-400" />
                                 <span className="text-xs font-semibold">{parseFloat(similar.overall).toFixed(1)}</span>
                               </div>
-                              <span className="text-xs text-gray-500">·</span>
+                              <span className="text-xs text-gray-400">·</span>
                               <span className="text-xs font-bold text-white">
                                 ₺{parseInt(similar.basePrice).toLocaleString('tr-TR')}/gece
                               </span>

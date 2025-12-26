@@ -31,7 +31,7 @@ export default function ManageBooking() {
 
       <FuturisticHeader />
 
-      <main className="min-h-screen bg-gray-50">
+      <main className="min-h-screen bg-white/5">
         {/* Hero Section */}
         <div className="bg-gradient-to-r from-lydian-primary to-lydian-dark text-white py-16">
           <div className="max-w-7xl mx-auto px-4">
@@ -56,7 +56,7 @@ export default function ManageBooking() {
                 className={`pb-4 px-4 font-semibold transition-colors relative ${
                   searchType === 'booking'
                     ? 'text-lydian-primary'
-                    : 'text-gray-500 hover:text-gray-200'
+                    : 'text-gray-400 hover:text-gray-200'
                 }`}
               >
                 Rezervasyon Numarası ile
@@ -69,7 +69,7 @@ export default function ManageBooking() {
                 className={`pb-4 px-4 font-semibold transition-colors relative ${
                   searchType === 'email'
                     ? 'text-lydian-primary'
-                    : 'text-gray-500 hover:text-gray-200'
+                    : 'text-gray-400 hover:text-gray-200'
                 }`}
               >
                 E-posta ile
@@ -97,7 +97,7 @@ export default function ManageBooking() {
                         required
                       />
                     </div>
-                    <p className="mt-2 text-sm text-gray-500">
+                    <p className="mt-2 text-sm text-gray-400">
                       Rezervasyon numaranız onay e-postanızda bulunmaktadır
                     </p>
                   </div>
@@ -136,7 +136,7 @@ export default function ManageBooking() {
                         required
                       />
                     </div>
-                    <p className="mt-2 text-sm text-gray-500">
+                    <p className="mt-2 text-sm text-gray-400">
                       Rezervasyon yaparken kullandığınız e-posta adresi
                     </p>
                   </div>

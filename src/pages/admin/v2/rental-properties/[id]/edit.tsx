@@ -156,7 +156,7 @@ const RentalPropertyEditPage = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
-      <header className="bg-white border-b sticky top-0 z-50">
+      <header className="bg-white/5 border-b sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <div className="flex items-center gap-4">
             <Link href="/admin/v2/rental-properties">
@@ -184,7 +184,7 @@ const RentalPropertyEditPage = () => {
       <main className="max-w-7xl mx-auto px-6 py-8">
         <form onSubmit={handleSubmit} className="space-y-6">
           {/* Basic Info */}
-          <div className="bg-white rounded-xl p-6">
+          <div className="bg-white/5 rounded-xl p-6">
             <h2 className="text-lg font-bold mb-6 flex items-center gap-2"><Home className="w-5 h-5 text-blue-600" />Temel Bilgiler</h2>
             <div className="grid md:grid-cols-2 gap-6">
               <div><label className="block text-sm font-medium mb-2">Başlık *</label><input type="text" name="title" value={formData.title} onChange={handleInputChange} required className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500" placeholder="Lüks Villa - Bodrum" /></div>
@@ -201,7 +201,7 @@ const RentalPropertyEditPage = () => {
           </div>
 
           {/* Pricing */}
-          <div className="bg-white rounded-xl p-6">
+          <div className="bg-white/5 rounded-xl p-6">
             <h2 className="text-lg font-bold mb-6 flex items-center gap-2"><DollarSign className="w-5 h-5 text-green-600" />Fiyatlandırma</h2>
             <div className="grid md:grid-cols-2 gap-6">
               <div><label className="block text-sm font-medium mb-2">Gecelik Fiyat *</label><input type="number" name="basePrice" value={formData.basePrice} onChange={handleInputChange} required min="0" step="0.01" className="w-full px-4 py-2 border rounded-lg" /></div>
@@ -210,7 +210,7 @@ const RentalPropertyEditPage = () => {
           </div>
 
           {/* Amenities */}
-          <div className="bg-white rounded-xl p-6">
+          <div className="bg-white/5 rounded-xl p-6">
             <h2 className="text-lg font-bold mb-6 flex items-center gap-2"><Star className="w-5 h-5 text-amber-600" />Olanaklar</h2>
             <div className="flex gap-2 mb-4">
               <input type="text" value={newAmenity} onChange={(e) => setNewAmenity(e.target.value)} onKeyPress={(e) => e.key === 'Enter' && (e.preventDefault(), addAmenity())} className="flex-1 px-4 py-2 border rounded-lg" placeholder="Havuz, WiFi, Klima..." />
@@ -226,7 +226,7 @@ const RentalPropertyEditPage = () => {
           </div>
 
           {/* Images */}
-          <div className="bg-white rounded-xl p-6">
+          <div className="bg-white/5 rounded-xl p-6">
             <h2 className="text-lg font-bold mb-6">Görseller</h2>
             <div className="flex gap-2 mb-4">
               <input type="text" value={newImage} onChange={(e) => setNewImage(e.target.value)} onKeyPress={(e) => e.key === 'Enter' && (e.preventDefault(), addImage())} className="flex-1 px-4 py-2 border rounded-lg" placeholder="Görsel URL ekle" />
@@ -243,7 +243,7 @@ const RentalPropertyEditPage = () => {
           </div>
 
           {/* Status */}
-          <div className="bg-white rounded-xl p-6">
+          <div className="bg-white/5 rounded-xl p-6">
             <h2 className="text-lg font-bold mb-6">Durum</h2>
             <div className="space-y-4">
               <label className="flex items-center gap-3"><input type="checkbox" name="isActive" checked={formData.isActive} onChange={handleInputChange} className="w-5 h-5 text-blue-600 rounded" /><span>Aktif</span></label>

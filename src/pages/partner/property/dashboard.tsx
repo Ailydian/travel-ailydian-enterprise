@@ -186,24 +186,24 @@ const PropertyOwnerDashboard: React.FC = () => {
 
   if (loading || !stats) {
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+      <div className="min-h-screen bg-white/5 flex items-center justify-center">
         <div className="text-center">
           <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-purple-600 mx-auto mb-4"></div>
-          <p className="text-gray-600">Yükleniyor...</p>
+          <p className="text-gray-300">Yükleniyor...</p>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-white/5">
       {/* Header */}
-      <div className="bg-white border-b border-gray-200 sticky top-0 z-50">
+      <div className="bg-white/5 border-b border-gray-200 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center gap-4">
               <Home className="h-6 w-6 text-purple-600" />
-              <h1 className="text-xl font-bold text-gray-900">
+              <h1 className="text-xl font-bold text-white">
                 Property Dashboard
               </h1>
 
@@ -229,7 +229,7 @@ const PropertyOwnerDashboard: React.FC = () => {
 
             <div className="flex items-center gap-4">
               {/* Notifications */}
-              <button className="relative p-2 text-gray-600 hover:bg-gray-100 rounded-lg">
+              <button className="relative p-2 text-gray-300 hover:bg-white/10 rounded-lg">
                 <Bell className="h-5 w-5" />
                 {notifications.filter(n => !n.read).length > 0 && (
                   <span className="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full"></span>
@@ -239,7 +239,7 @@ const PropertyOwnerDashboard: React.FC = () => {
               {/* Settings */}
               <button
                 onClick={() => router.push('/partner/property/settings')}
-                className="p-2 text-gray-600 hover:bg-gray-100 rounded-lg"
+                className="p-2 text-gray-300 hover:bg-white/10 rounded-lg"
               >
                 <Settings className="h-5 w-5" />
               </button>
@@ -284,7 +284,7 @@ const PropertyOwnerDashboard: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="bg-white rounded-xl p-6 shadow-md"
+            className="bg-white/5 rounded-xl p-6 shadow-md"
           >
             <div className="flex items-center justify-between mb-4">
               <Calendar className="h-8 w-8 text-blue-600" />
@@ -292,11 +292,11 @@ const PropertyOwnerDashboard: React.FC = () => {
                 Yeni
               </span>
             </div>
-            <p className="text-gray-600 text-sm mb-1">Yaklaşan Rezervasyonlar</p>
-            <p className="text-3xl font-bold text-gray-900 mb-2">
+            <p className="text-gray-300 text-sm mb-1">Yaklaşan Rezervasyonlar</p>
+            <p className="text-3xl font-bold text-white mb-2">
               {stats.bookings.upcoming}
             </p>
-            <p className="text-xs text-gray-500">
+            <p className="text-xs text-gray-400">
               {stats.bookings.pending} beklemede
             </p>
           </motion.div>
@@ -306,19 +306,19 @@ const PropertyOwnerDashboard: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="bg-white rounded-xl p-6 shadow-md"
+            className="bg-white/5 rounded-xl p-6 shadow-md"
           >
             <div className="flex items-center justify-between mb-4">
               <Users className="h-8 w-8 text-green-600" />
               <div className="text-right">
-                <p className="text-xs text-gray-500">Hedef</p>
-                <p className="text-sm font-bold text-gray-900">
+                <p className="text-xs text-gray-400">Hedef</p>
+                <p className="text-sm font-bold text-white">
                   %{stats.occupancy.target}
                 </p>
               </div>
             </div>
-            <p className="text-gray-600 text-sm mb-1">Doluluk Oranı</p>
-            <p className="text-3xl font-bold text-gray-900 mb-2">
+            <p className="text-gray-300 text-sm mb-1">Doluluk Oranı</p>
+            <p className="text-3xl font-bold text-white mb-2">
               %{stats.occupancy.current}
             </p>
             <div className="w-full bg-gray-200 rounded-full h-2">
@@ -334,17 +334,17 @@ const PropertyOwnerDashboard: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="bg-white rounded-xl p-6 shadow-md"
+            className="bg-white/5 rounded-xl p-6 shadow-md"
           >
             <div className="flex items-center justify-between mb-4">
               <MousePointer className="h-8 w-8 text-orange-600" />
               <Star className="h-5 w-5 text-yellow-500 fill-yellow-500" />
             </div>
-            <p className="text-gray-600 text-sm mb-1">Dönüşüm Oranı</p>
-            <p className="text-3xl font-bold text-gray-900 mb-2">
+            <p className="text-gray-300 text-sm mb-1">Dönüşüm Oranı</p>
+            <p className="text-3xl font-bold text-white mb-2">
               %{stats.analytics.conversionRate.toFixed(1)}
             </p>
-            <p className="text-xs text-gray-500">
+            <p className="text-xs text-gray-400">
               {stats.analytics.views.toLocaleString()} görüntüleme
             </p>
           </motion.div>
@@ -353,11 +353,11 @@ const PropertyOwnerDashboard: React.FC = () => {
         {/* Revenue Chart & AI Pricing */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
           {/* Revenue Chart */}
-          <div className="lg:col-span-2 bg-white rounded-xl p-6 shadow-md">
+          <div className="lg:col-span-2 bg-white/5 rounded-xl p-6 shadow-md">
             <div className="flex items-center justify-between mb-6">
               <div>
-                <h3 className="text-lg font-bold text-gray-900">Gelir Trendi</h3>
-                <p className="text-sm text-gray-500">Son 30 gün</p>
+                <h3 className="text-lg font-bold text-white">Gelir Trendi</h3>
+                <p className="text-sm text-gray-400">Son 30 gün</p>
               </div>
               <BarChart3 className="h-5 w-5 text-purple-600" />
             </div>
@@ -368,7 +368,7 @@ const PropertyOwnerDashboard: React.FC = () => {
             <div className="mt-6 pt-6 border-t border-gray-200">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm text-gray-600 mb-1">
+                  <p className="text-sm text-gray-300 mb-1">
                     AI Tahmini (Sonraki 3 Ay)
                   </p>
                   <p className="text-2xl font-bold text-purple-600">
@@ -384,7 +384,7 @@ const PropertyOwnerDashboard: React.FC = () => {
           <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-xl p-6 shadow-md border border-purple-200">
             <div className="flex items-center gap-2 mb-4">
               <Sparkles className="h-5 w-5 text-purple-600" />
-              <h3 className="text-lg font-bold text-gray-900">
+              <h3 className="text-lg font-bold text-white">
                 AI Fiyat Önerisi
               </h3>
             </div>
@@ -392,8 +392,8 @@ const PropertyOwnerDashboard: React.FC = () => {
             {/* Current vs Suggested */}
             <div className="space-y-4 mb-6">
               <div>
-                <p className="text-xs text-gray-600 mb-1">Mevcut Fiyat</p>
-                <p className="text-2xl font-bold text-gray-900">
+                <p className="text-xs text-gray-300 mb-1">Mevcut Fiyat</p>
+                <p className="text-2xl font-bold text-white">
                   ₺{stats.pricing.currentPrice.toLocaleString()}
                 </p>
               </div>
@@ -405,7 +405,7 @@ const PropertyOwnerDashboard: React.FC = () => {
               </div>
 
               <div>
-                <p className="text-xs text-gray-600 mb-1">Önerilen Fiyat</p>
+                <p className="text-xs text-gray-300 mb-1">Önerilen Fiyat</p>
                 <p className="text-3xl font-bold text-green-600">
                   ₺{stats.pricing.suggestedPrice.toLocaleString()}
                 </p>
@@ -416,9 +416,9 @@ const PropertyOwnerDashboard: React.FC = () => {
             </div>
 
             {/* Competitor Comparison */}
-            <div className="bg-white rounded-lg p-4 mb-4">
-              <p className="text-xs text-gray-600 mb-2">Rakip Ortalaması</p>
-              <p className="text-xl font-bold text-gray-900">
+            <div className="bg-white/5 rounded-lg p-4 mb-4">
+              <p className="text-xs text-gray-300 mb-2">Rakip Ortalaması</p>
+              <p className="text-xl font-bold text-white">
                 ₺{stats.pricing.competitorAverage.toLocaleString()}
               </p>
             </div>
@@ -428,7 +428,7 @@ const PropertyOwnerDashboard: React.FC = () => {
               Önerilen Fiyatı Uygula
             </button>
 
-            <p className="text-xs text-gray-500 mt-3 text-center">
+            <p className="text-xs text-gray-400 mt-3 text-center">
               AI, rakip fiyatları ve talep trendlerini analiz eder
             </p>
           </div>
@@ -437,72 +437,72 @@ const PropertyOwnerDashboard: React.FC = () => {
         {/* Analytics & Notifications */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {/* Detailed Analytics */}
-          <div className="bg-white rounded-xl p-6 shadow-md">
-            <h3 className="text-lg font-bold text-gray-900 mb-4">
+          <div className="bg-white/5 rounded-xl p-6 shadow-md">
+            <h3 className="text-lg font-bold text-white mb-4">
               Detaylı Analitik
             </h3>
 
             <div className="space-y-4">
               {/* Views */}
-              <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+              <div className="flex items-center justify-between p-3 bg-white/5 rounded-lg">
                 <div className="flex items-center gap-3">
                   <Eye className="h-5 w-5 text-blue-600" />
                   <div>
-                    <p className="text-sm font-semibold text-gray-900">
+                    <p className="text-sm font-semibold text-white">
                       Görüntüleme
                     </p>
-                    <p className="text-xs text-gray-500">Bu ay</p>
+                    <p className="text-xs text-gray-400">Bu ay</p>
                   </div>
                 </div>
-                <p className="text-xl font-bold text-gray-900">
+                <p className="text-xl font-bold text-white">
                   {stats.analytics.views.toLocaleString()}
                 </p>
               </div>
 
               {/* Clicks */}
-              <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+              <div className="flex items-center justify-between p-3 bg-white/5 rounded-lg">
                 <div className="flex items-center gap-3">
                   <MousePointer className="h-5 w-5 text-green-600" />
                   <div>
-                    <p className="text-sm font-semibold text-gray-900">
+                    <p className="text-sm font-semibold text-white">
                       Tıklama
                     </p>
-                    <p className="text-xs text-gray-500">Rezervasyon sayfası</p>
+                    <p className="text-xs text-gray-400">Rezervasyon sayfası</p>
                   </div>
                 </div>
-                <p className="text-xl font-bold text-gray-900">
+                <p className="text-xl font-bold text-white">
                   {stats.analytics.clicks.toLocaleString()}
                 </p>
               </div>
 
               {/* Average Stay */}
-              <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+              <div className="flex items-center justify-between p-3 bg-white/5 rounded-lg">
                 <div className="flex items-center gap-3">
                   <Clock className="h-5 w-5 text-orange-600" />
                   <div>
-                    <p className="text-sm font-semibold text-gray-900">
+                    <p className="text-sm font-semibold text-white">
                       Ortalama Konaklama
                     </p>
-                    <p className="text-xs text-gray-500">Gece sayısı</p>
+                    <p className="text-xs text-gray-400">Gece sayısı</p>
                   </div>
                 </div>
-                <p className="text-xl font-bold text-gray-900">
+                <p className="text-xl font-bold text-white">
                   {stats.analytics.averageStayLength.toFixed(1)}
                 </p>
               </div>
 
               {/* Repeat Guests */}
-              <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+              <div className="flex items-center justify-between p-3 bg-white/5 rounded-lg">
                 <div className="flex items-center gap-3">
                   <Star className="h-5 w-5 text-purple-600" />
                   <div>
-                    <p className="text-sm font-semibold text-gray-900">
+                    <p className="text-sm font-semibold text-white">
                       Tekrar Gelen Misafir
                     </p>
-                    <p className="text-xs text-gray-500">Sadakat oranı</p>
+                    <p className="text-xs text-gray-400">Sadakat oranı</p>
                   </div>
                 </div>
-                <p className="text-xl font-bold text-gray-900">
+                <p className="text-xl font-bold text-white">
                   %{stats.analytics.repeatGuestRate}
                 </p>
               </div>
@@ -510,9 +510,9 @@ const PropertyOwnerDashboard: React.FC = () => {
           </div>
 
           {/* Recent Notifications */}
-          <div className="bg-white rounded-xl p-6 shadow-md">
+          <div className="bg-white/5 rounded-xl p-6 shadow-md">
             <div className="flex items-center justify-between mb-4">
-              <h3 className="text-lg font-bold text-gray-900">Bildirimler</h3>
+              <h3 className="text-lg font-bold text-white">Bildirimler</h3>
               <button className="text-sm text-purple-600 font-medium hover:text-purple-700">
                 Tümünü Gör
               </button>
@@ -526,7 +526,7 @@ const PropertyOwnerDashboard: React.FC = () => {
                     notification.urgent
                       ? 'bg-red-50 border-red-500'
                       : notification.read
-                      ? 'bg-gray-50 border-gray-300'
+                      ? 'bg-white/5 border-gray-300'
                       : 'bg-blue-50 border-blue-500'
                   }`}
                 >
@@ -545,10 +545,10 @@ const PropertyOwnerDashboard: React.FC = () => {
                     )}
 
                     <div className="flex-1">
-                      <p className="text-sm font-semibold text-gray-900">
+                      <p className="text-sm font-semibold text-white">
                         {notification.title}
                       </p>
-                      <p className="text-xs text-gray-600 mt-1">
+                      <p className="text-xs text-gray-300 mt-1">
                         {notification.description}
                       </p>
                       <p className="text-xs text-gray-400 mt-2">

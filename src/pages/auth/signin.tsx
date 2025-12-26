@@ -154,7 +154,7 @@ const SignIn: React.FC = () => {
                 </div>
                 <div>
                   <h1 className="text-2xl font-bold text-white">LyDian Travel</h1>
-                  <p className="text-xs text-gray-500">AI-Powered Enterprise</p>
+                  <p className="text-xs text-gray-400">AI-Powered Enterprise</p>
                 </div>
               </div>
             </Link>
@@ -187,7 +187,7 @@ const SignIn: React.FC = () => {
               <button
                 onClick={() => handleSocialSignIn('google')}
                 disabled={isLoading}
-                className="w-full flex items-center justify-center gap-3 px-4 py-3 border border-white/20 rounded-xl hover:bg-gray-50 transition-colors disabled:opacity-50"
+                className="w-full flex items-center justify-center gap-3 px-4 py-3 border border-white/20 rounded-xl hover:bg-white/5 transition-colors disabled:opacity-50"
               >
                 <GoogleIcon />
                 <span className="text-gray-200 font-medium">Google ile Giriş Yap</span>
@@ -195,7 +195,7 @@ const SignIn: React.FC = () => {
               <button
                 onClick={() => handleSocialSignIn('facebook')}
                 disabled={isLoading}
-                className="w-full flex items-center justify-center gap-3 px-4 py-3 border border-white/20 rounded-xl hover:bg-gray-50 transition-colors disabled:opacity-50"
+                className="w-full flex items-center justify-center gap-3 px-4 py-3 border border-white/20 rounded-xl hover:bg-white/5 transition-colors disabled:opacity-50"
               >
                 <FacebookIcon />
                 <span className="text-gray-200 font-medium">Facebook ile Giriş Yap</span>
@@ -335,7 +335,7 @@ const SignIn: React.FC = () => {
           </motion.div>
 
           {/* Footer */}
-          <div className="mt-8 text-center text-xs text-gray-500">
+          <div className="mt-8 text-center text-xs text-gray-400">
             © 2025 LyDian Travel. Tüm hakları saklıdır.
           </div>
         </div>

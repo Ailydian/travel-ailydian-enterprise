@@ -354,7 +354,7 @@ export default function FlightBooking() {
                             ? 'bg-green-500 text-white'
                             : isActive
                             ? 'bg-lydian-primary text-white'
-                            : 'bg-gray-200 text-gray-500'
+                            : 'bg-gray-200 text-gray-400'
                         }`}
                       >
                         {isCompleted ? <Check className="w-6 h-6" /> : <Icon className="w-6 h-6" />}
@@ -409,7 +409,7 @@ export default function FlightBooking() {
                           <div className="text-3xl font-bold text-white mb-1">{flightData.departure.time}</div>
                           <div className="text-lg font-semibold">{flightData.from.code}</div>
                           <div className="text-sm text-gray-300">{flightData.from.city}</div>
-                          <div className="text-xs text-gray-500 mt-1">{flightData.departure.date}</div>
+                          <div className="text-xs text-gray-400 mt-1">{flightData.departure.date}</div>
                         </div>
 
                         <div className="text-center">
@@ -428,7 +428,7 @@ export default function FlightBooking() {
                           <div className="text-3xl font-bold text-white mb-1">{flightData.arrival.time}</div>
                           <div className="text-lg font-semibold">{flightData.to.code}</div>
                           <div className="text-sm text-gray-300">{flightData.to.city}</div>
-                          <div className="text-xs text-gray-500 mt-1">{flightData.arrival.date}</div>
+                          <div className="text-xs text-gray-400 mt-1">{flightData.arrival.date}</div>
                         </div>
                       </div>
 
@@ -843,7 +843,7 @@ export default function FlightBooking() {
                           </div>
                           <div className="text-right ml-4">
                             <p className="text-xl font-bold text-lydian-primary">₺75</p>
-                            <p className="text-xs text-gray-500">kişi başı</p>
+                            <p className="text-xs text-gray-400">kişi başı</p>
                           </div>
                         </div>
                       </button>
@@ -865,7 +865,7 @@ export default function FlightBooking() {
                           </div>
                           <div className="text-right ml-4">
                             <p className="text-xl font-bold text-lydian-primary">₺100</p>
-                            <p className="text-xs text-gray-500">tüm yolcular</p>
+                            <p className="text-xs text-gray-400">tüm yolcular</p>
                           </div>
                         </div>
                       </button>
@@ -887,7 +887,7 @@ export default function FlightBooking() {
                           </div>
                           <div className="text-right ml-4">
                             <p className="text-xl font-bold text-lydian-primary">₺250</p>
-                            <p className="text-xs text-gray-500">tüm yolcular</p>
+                            <p className="text-xs text-gray-400">tüm yolcular</p>
                           </div>
                         </div>
                       </button>

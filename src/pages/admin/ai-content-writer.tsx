@@ -100,7 +100,7 @@ const AIContentWriterPage: React.FC = () => {
         <meta name="description" content="AI-powered content generation for listings" />
       </Head>
 
-      <div className="min-h-screen bg-gray-50">
+      <div className="min-h-screen bg-white/5">
         {/* Header */}
         <div className="bg-gradient-to-r from-[#667EEA] via-[#764BA2] to-[#667EEA] text-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -361,14 +361,14 @@ const AIContentWriterPage: React.FC = () => {
                   <div className="flex items-center gap-2">
                     <button
                       onClick={() => handleCopy(JSON.stringify(generatedContent, null, 2))}
-                      className="p-2 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors"
+                      className="p-2 bg-white/10 hover:bg-gray-200 rounded-lg transition-colors"
                       title="JSON Kopyala"
                     >
                       <Copy className="h-5 w-5 text-gray-200" />
                     </button>
                     <button
                       onClick={handleDownloadJSON}
-                      className="p-2 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors"
+                      className="p-2 bg-white/10 hover:bg-gray-200 rounded-lg transition-colors"
                       title="JSON İndir"
                     >
                       <Download className="h-5 w-5 text-gray-200" />
@@ -448,37 +448,37 @@ const AIContentWriterPage: React.FC = () => {
                       <div className="space-y-6">
                         {/* Title */}
                         <div>
-                          <h3 className="text-sm font-semibold text-gray-500 mb-2">BAŞLIK</h3>
+                          <h3 className="text-sm font-semibold text-gray-400 mb-2">BAŞLIK</h3>
                           <p className="text-xl font-bold text-white">{generatedContent.title}</p>
                         </div>
 
                         {/* SEO */}
                         <div>
-                          <h3 className="text-sm font-semibold text-gray-500 mb-2">SEO BAŞLIK</h3>
+                          <h3 className="text-sm font-semibold text-gray-400 mb-2">SEO BAŞLIK</h3>
                           <p className="text-sm text-gray-200">{generatedContent.seoTitle}</p>
                         </div>
 
                         {/* Meta Description */}
                         <div>
-                          <h3 className="text-sm font-semibold text-gray-500 mb-2">META AÇIKLAMA</h3>
+                          <h3 className="text-sm font-semibold text-gray-400 mb-2">META AÇIKLAMA</h3>
                           <p className="text-sm text-gray-200">{generatedContent.metaDescription}</p>
                         </div>
 
                         {/* Short Description */}
                         <div>
-                          <h3 className="text-sm font-semibold text-gray-500 mb-2">KISA AÇIKLAMA</h3>
+                          <h3 className="text-sm font-semibold text-gray-400 mb-2">KISA AÇIKLAMA</h3>
                           <p className="text-sm text-gray-200">{generatedContent.shortDescription}</p>
                         </div>
 
                         {/* Long Description */}
                         <div>
-                          <h3 className="text-sm font-semibold text-gray-500 mb-2">DETAYLI AÇIKLAMA</h3>
+                          <h3 className="text-sm font-semibold text-gray-400 mb-2">DETAYLI AÇIKLAMA</h3>
                           <p className="text-sm text-gray-200 whitespace-pre-line">{generatedContent.longDescription}</p>
                         </div>
 
                         {/* Highlights */}
                         <div>
-                          <h3 className="text-sm font-semibold text-gray-500 mb-2">ÖZELLİKLER</h3>
+                          <h3 className="text-sm font-semibold text-gray-400 mb-2">ÖZELLİKLER</h3>
                           <ul className="space-y-1">
                             {generatedContent.highlights.map((highlight, idx) => (
                               <li key={idx} className="text-sm text-gray-200 flex items-start gap-2">
@@ -491,7 +491,7 @@ const AIContentWriterPage: React.FC = () => {
 
                         {/* Keywords */}
                         <div>
-                          <h3 className="text-sm font-semibold text-gray-500 mb-2">ANAHTAR KELİMELER</h3>
+                          <h3 className="text-sm font-semibold text-gray-400 mb-2">ANAHTAR KELİMELER</h3>
                           <div className="flex flex-wrap gap-2">
                             {generatedContent.keywords.map((keyword, idx) => (
                               <span
@@ -506,7 +506,7 @@ const AIContentWriterPage: React.FC = () => {
 
                         {/* FAQ */}
                         <div>
-                          <h3 className="text-sm font-semibold text-gray-500 mb-2">SSS</h3>
+                          <h3 className="text-sm font-semibold text-gray-400 mb-2">SSS</h3>
                           <div className="space-y-3">
                             {generatedContent.faq.map((item, idx) => (
                               <div key={idx} className="border-l-4 border-purple-600 pl-4">
@@ -523,18 +523,18 @@ const AIContentWriterPage: React.FC = () => {
 
                         {/* CTA */}
                         <div>
-                          <h3 className="text-sm font-semibold text-gray-500 mb-2">CALL TO ACTION</h3>
+                          <h3 className="text-sm font-semibold text-gray-400 mb-2">CALL TO ACTION</h3>
                           <p className="text-sm font-semibold text-purple-600">{generatedContent.callToAction}</p>
                         </div>
 
                         {/* Tags */}
                         <div>
-                          <h3 className="text-sm font-semibold text-gray-500 mb-2">ETİKETLER</h3>
+                          <h3 className="text-sm font-semibold text-gray-400 mb-2">ETİKETLER</h3>
                           <div className="flex flex-wrap gap-2">
                             {generatedContent.tags.map((tag, idx) => (
                               <span
                                 key={idx}
-                                className="px-2 py-1 bg-gray-100 text-gray-200 text-xs rounded"
+                                className="px-2 py-1 bg-white/10 text-gray-200 text-xs rounded"
                               >
                                 #{tag}
                               </span>

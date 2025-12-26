@@ -123,7 +123,7 @@ export const BookingCard: React.FC<BookingCardProps> = ({
 
   if (loading) {
     return (
-      <div className="bg-white rounded-lg border border-gray-200 p-6">
+      <div className="bg-white/5 rounded-lg border border-gray-200 p-6">
         <div className="flex items-start space-x-4">
           <div className="h-12 w-12 rounded-full bg-gray-200 animate-pulse" />
           <div className="flex-1 space-y-3">
@@ -146,7 +146,7 @@ export const BookingCard: React.FC<BookingCardProps> = ({
     );
 
   return (
-    <div className="bg-white rounded-lg border border-gray-200 hover:shadow-md transition-shadow duration-200">
+    <div className="bg-white/5 rounded-lg border border-gray-200 hover:shadow-md transition-shadow duration-200">
       <div className="p-6">
         {/* Header Section */}
         <div className="flex items-start justify-between mb-4">
@@ -170,15 +170,15 @@ export const BookingCard: React.FC<BookingCardProps> = ({
 
             {/* Guest and Property Info */}
             <div className="flex-1 min-w-0">
-              <h3 className="text-lg font-semibold text-gray-900 mb-1">
+              <h3 className="text-lg font-semibold text-white mb-1">
                 {guestName}
               </h3>
-              <div className="flex items-center text-sm text-gray-600 mb-2">
+              <div className="flex items-center text-sm text-gray-300 mb-2">
                 <MapPin className="h-4 w-4 mr-1 flex-shrink-0" />
                 <span className="line-clamp-1">{propertyName}</span>
               </div>
               {guests && (
-                <div className="flex items-center text-xs text-gray-500">
+                <div className="flex items-center text-xs text-gray-400">
                   <User className="h-3 w-3 mr-1" />
                   <span>{guests} guest{guests !== 1 ? 's' : ''}</span>
                 </div>
@@ -203,30 +203,30 @@ export const BookingCard: React.FC<BookingCardProps> = ({
         )}
 
         {/* Dates Section */}
-        <div className="bg-gray-50 rounded-lg p-4 mb-4">
+        <div className="bg-white/5 rounded-lg p-4 mb-4">
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <div className="flex items-center text-xs text-gray-500 mb-1">
+              <div className="flex items-center text-xs text-gray-400 mb-1">
                 <Calendar className="h-3 w-3 mr-1" />
                 <span>Check-in</span>
               </div>
-              <div className="text-sm font-semibold text-gray-900">
+              <div className="text-sm font-semibold text-white">
                 {formatDate(checkIn)}
               </div>
             </div>
             <div>
-              <div className="flex items-center text-xs text-gray-500 mb-1">
+              <div className="flex items-center text-xs text-gray-400 mb-1">
                 <Calendar className="h-3 w-3 mr-1" />
                 <span>Check-out</span>
               </div>
-              <div className="text-sm font-semibold text-gray-900">
+              <div className="text-sm font-semibold text-white">
                 {formatDate(checkOut)}
               </div>
             </div>
           </div>
           {calculatedNights > 0 && (
             <div className="mt-2 pt-2 border-t border-gray-200">
-              <span className="text-xs text-gray-600">
+              <span className="text-xs text-gray-300">
                 {calculatedNights} night{calculatedNights !== 1 ? 's' : ''}
               </span>
             </div>
@@ -235,11 +235,11 @@ export const BookingCard: React.FC<BookingCardProps> = ({
 
         {/* Price Section */}
         <div className="flex items-center justify-between mb-4 pb-4 border-b border-gray-200">
-          <div className="flex items-center text-gray-600">
+          <div className="flex items-center text-gray-300">
             <DollarSign className="h-4 w-4 mr-1" />
             <span className="text-sm">Total Price</span>
           </div>
-          <div className="text-xl font-bold text-gray-900">
+          <div className="text-xl font-bold text-white">
             {currency}
             {price.toLocaleString()}
           </div>
@@ -250,7 +250,7 @@ export const BookingCard: React.FC<BookingCardProps> = ({
           {onViewDetails && (
             <button
               onClick={() => onViewDetails(id)}
-              className="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors text-sm font-medium focus:outline-none focus:ring-2 focus:ring-blue-500 col-span-2"
+              className="px-4 py-2 bg-white/10 text-gray-200 rounded-lg hover:bg-gray-200 transition-colors text-sm font-medium focus:outline-none focus:ring-2 focus:ring-blue-500 col-span-2"
             >
               View Details
             </button>

@@ -14,7 +14,7 @@ const GroupTravel: React.FC = () => {
 
       <SimplifiedHeader />
 
-      <main className="min-h-screen bg-gray-50">
+      <main className="min-h-screen bg-white/5">
         <section className="bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600 py-20">
           <div className="max-w-7xl mx-auto px-4 text-center">
             <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }}>

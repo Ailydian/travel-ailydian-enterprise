@@ -183,7 +183,7 @@ const MapSelector: React.FC<MapSelectorProps> = ({
 
         {/* Instructions Overlay */}
         <div className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-sm px-4 py-2 rounded-lg shadow-md z-[1000]">
-          <p className="text-sm text-gray-700">
+          <p className="text-sm text-gray-200">
             <strong>💡 İpucu:</strong> Haritada bir noktaya tıklayarak konumunuzu seçin veya üstteki arama kutusunu kullanın.
           </p>
         </div>

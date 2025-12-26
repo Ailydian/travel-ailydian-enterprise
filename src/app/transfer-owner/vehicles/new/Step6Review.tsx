@@ -54,7 +54,7 @@ export default function Step6Review({ data, allData }: Step6Props) {
     icon: React.ElementType;
     children: React.ReactNode;
   }) => (
-    <div className="p-5 bg-white border-2 border-slate-200 rounded-xl">
+    <div className="p-5 bg-white/5 border-2 border-slate-200 rounded-xl">
       <div className="flex items-center gap-3 mb-4 pb-3 border-b border-slate-200">
         <div className="p-2 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-lg">
           <Icon className="w-5 h-5 text-white" />
@@ -316,7 +316,7 @@ export default function Step6Review({ data, allData }: Step6Props) {
         <h3 className="text-lg font-bold text-blue-900 mb-4">Yayınlama Seçenekleri</h3>
 
         <div className="space-y-3">
-          <label className="flex items-start gap-3 p-4 border-2 border-blue-200 rounded-lg cursor-pointer hover:bg-white transition-all">
+          <label className="flex items-start gap-3 p-4 border-2 border-blue-200 rounded-lg cursor-pointer hover:bg-white/5 transition-all">
             <input
               type="radio"
               {...register('publishStatus')}

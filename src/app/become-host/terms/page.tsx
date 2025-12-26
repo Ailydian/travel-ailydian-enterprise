@@ -211,15 +211,15 @@ export default function HostTermsPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
       {/* Header */}
-      <div className="bg-white border-b shadow-sm">
+      <div className="bg-white/5 border-b shadow-sm">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="flex items-center gap-3 mb-4">
             <div className="p-3 bg-blue-600 rounded-xl">
               <Home className="h-8 w-8 text-white" />
             </div>
             <div>
-              <h1 className="text-3xl font-bold text-gray-900">Become a Host</h1>
-              <p className="text-gray-600 mt-1">Review and accept our hosting terms to get started</p>
+              <h1 className="text-3xl font-bold text-white">Become a Host</h1>
+              <p className="text-gray-300 mt-1">Review and accept our hosting terms to get started</p>
             </div>
           </div>
 
@@ -233,17 +233,17 @@ export default function HostTermsPage() {
             </div>
             <div className="flex-1 h-0.5 bg-gray-300" />
             <div className="flex items-center gap-2">
-              <div className="flex items-center justify-center w-8 h-8 rounded-full bg-gray-300 text-gray-600 font-semibold">
+              <div className="flex items-center justify-center w-8 h-8 rounded-full bg-gray-300 text-gray-300 font-semibold">
                 2
               </div>
-              <span className="text-sm font-medium text-gray-600">Add Property</span>
+              <span className="text-sm font-medium text-gray-300">Add Property</span>
             </div>
             <div className="flex-1 h-0.5 bg-gray-300" />
             <div className="flex items-center gap-2">
-              <div className="flex items-center justify-center w-8 h-8 rounded-full bg-gray-300 text-gray-600 font-semibold">
+              <div className="flex items-center justify-center w-8 h-8 rounded-full bg-gray-300 text-gray-300 font-semibold">
                 3
               </div>
-              <span className="text-sm font-medium text-gray-600">Start Hosting</span>
+              <span className="text-sm font-medium text-gray-300">Start Hosting</span>
             </div>
           </div>
         </div>
@@ -273,7 +273,7 @@ export default function HostTermsPage() {
             return (
               <div
                 key={category.id}
-                className={`bg-white rounded-2xl shadow-lg border-2 transition-all ${
+                className={`bg-white/5 rounded-2xl shadow-lg border-2 transition-all ${
                   isAccepted
                     ? 'border-green-500'
                     : showError
@@ -289,8 +289,8 @@ export default function HostTermsPage() {
                         <Icon className={`h-6 w-6 ${category.color}`} />
                       </div>
                       <div>
-                        <h2 className="text-xl font-bold text-gray-900">{category.title}</h2>
-                        <p className="text-sm text-gray-600 mt-1">{category.description}</p>
+                        <h2 className="text-xl font-bold text-white">{category.title}</h2>
+                        <p className="text-sm text-gray-300 mt-1">{category.description}</p>
                       </div>
                     </div>
                     {isAccepted && (
@@ -303,10 +303,10 @@ export default function HostTermsPage() {
                 <div className="p-6 space-y-6">
                   {category.sections.map((section, sectionIdx) => (
                     <div key={sectionIdx}>
-                      <h3 className="font-semibold text-gray-900 mb-3">{section.title}</h3>
+                      <h3 className="font-semibold text-white mb-3">{section.title}</h3>
                       <ul className="space-y-2">
                         {section.items.map((item, itemIdx) => (
-                          <li key={itemIdx} className="flex items-start gap-3 text-sm text-gray-700">
+                          <li key={itemIdx} className="flex items-start gap-3 text-sm text-gray-200">
                             <CheckCircle2 className="h-4 w-4 text-blue-600 flex-shrink-0 mt-0.5" />
                             <span>{item}</span>
                           </li>
@@ -317,7 +317,7 @@ export default function HostTermsPage() {
                 </div>
 
                 {/* Acceptance Checkbox */}
-                <div className="p-6 bg-gray-50 border-t border-gray-200 rounded-b-2xl">
+                <div className="p-6 bg-white/5 border-t border-gray-200 rounded-b-2xl">
                   <label className="flex items-start gap-3 cursor-pointer group">
                     <Checkbox
                       checked={isAccepted}
@@ -331,10 +331,10 @@ export default function HostTermsPage() {
                       className="mt-1"
                     />
                     <div className="flex-1">
-                      <span className="text-sm font-medium text-gray-900 group-hover:text-blue-600">
+                      <span className="text-sm font-medium text-white group-hover:text-blue-600">
                         I have read and agree to the {category.title}
                       </span>
-                      <p className="text-xs text-gray-600 mt-1">
+                      <p className="text-xs text-gray-300 mt-1">
                         By checking this box, you acknowledge that you have read, understood, and agree to be bound by these terms.
                       </p>
                     </div>
@@ -350,12 +350,12 @@ export default function HostTermsPage() {
           <div className="flex items-start gap-3">
             <Star className="h-6 w-6 text-blue-600 flex-shrink-0" />
             <div>
-              <h3 className="font-semibold text-gray-900 mb-2">Why These Terms Matter</h3>
-              <p className="text-sm text-gray-700 mb-4">
+              <h3 className="font-semibold text-white mb-2">Why These Terms Matter</h3>
+              <p className="text-sm text-gray-200 mb-4">
                 Our hosting terms are designed to create a safe, fair, and trustworthy platform for both hosts and guests.
                 They are based on industry best practices from platforms like Airbnb, Booking.com, and Agoda, and ensure:
               </p>
-              <ul className="space-y-2 text-sm text-gray-700">
+              <ul className="space-y-2 text-sm text-gray-200">
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="h-4 w-4 text-green-600 flex-shrink-0 mt-0.5" />
                   <span>Clear expectations for both hosts and guests</span>
@@ -378,10 +378,10 @@ export default function HostTermsPage() {
         </div>
 
         {/* Action Buttons */}
-        <div className="mt-8 flex items-center justify-between gap-4 p-6 bg-white rounded-2xl shadow-lg border border-gray-200">
+        <div className="mt-8 flex items-center justify-between gap-4 p-6 bg-white/5 rounded-2xl shadow-lg border border-gray-200">
           <div className="flex items-center gap-3">
             <div className={`flex items-center justify-center w-12 h-12 rounded-full ${
-              allTermsAccepted ? 'bg-green-100' : 'bg-gray-100'
+              allTermsAccepted ? 'bg-green-100' : 'bg-white/10'
             }`}>
               {allTermsAccepted ? (
                 <CheckCircle2 className="h-6 w-6 text-green-600" />
@@ -390,10 +390,10 @@ export default function HostTermsPage() {
               )}
             </div>
             <div>
-              <p className="font-semibold text-gray-900">
+              <p className="font-semibold text-white">
                 {allTermsAccepted ? 'All Terms Accepted' : 'Acceptance Required'}
               </p>
-              <p className="text-sm text-gray-600">
+              <p className="text-sm text-gray-300">
                 {allTermsAccepted
                   ? 'You can now proceed to add your property'
                   : `${Object.values(acceptedTerms).filter(Boolean).length} of ${Object.keys(acceptedTerms).length} accepted`
@@ -420,7 +420,7 @@ export default function HostTermsPage() {
         </div>
 
         {/* Footer Note */}
-        <p className="text-center text-sm text-gray-500 mt-6">
+        <p className="text-center text-sm text-gray-400 mt-6">
           These terms were last updated on {new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
         </p>
       </div>

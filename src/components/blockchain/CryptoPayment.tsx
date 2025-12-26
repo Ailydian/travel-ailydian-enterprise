@@ -215,7 +215,7 @@ const CryptoPayment: React.FC<CryptoPaymentProps> = ({
           <CreditCard className="w-10 h-10 text-white" />
         </div>
         <h1 className="text-3xl font-bold text-white mb-2">Kripto Ödeme</h1>
-        <p className="text-gray-600">
+        <p className="text-gray-300">
           Güvenli blockchain ile ödemenizi tamamlayın
         </p>
       </div>
@@ -234,7 +234,7 @@ const CryptoPayment: React.FC<CryptoPaymentProps> = ({
                   <div className={`text-sm font-medium ${step.status === 'active' ? 'text-blue-600' : step.status === 'completed' ? 'text-green-600' : 'text-gray-400'}`}>
                     {step.title}
                   </div>
-                  <div className="text-xs text-gray-500">
+                  <div className="text-xs text-gray-400">
                     {step.description}
                   </div>
                 </div>
@@ -257,7 +257,7 @@ const CryptoPayment: React.FC<CryptoPaymentProps> = ({
           >
           <Wallet className="w-16 h-16 text-gray-400 mx-auto mb-6" />
           <h2 className="text-2xl font-bold text-white mb-4">Cüzdanınızı Bağlayın</h2>
-          <p className="text-gray-600 mb-8">
+          <p className="text-gray-300 mb-8">
             Kripto ödeme yapabilmek için MetaMask veya uyumlu bir cüzdan bağlamanız gerekiyor.
           </p>
           
@@ -272,17 +272,17 @@ const CryptoPayment: React.FC<CryptoPaymentProps> = ({
             <div className="text-center p-4">
               <Shield className="w-8 h-8 text-blue-500 mx-auto mb-2" />
               <div className="text-sm font-medium text-white mb-1">Güvenli</div>
-              <div className="text-xs text-gray-600">End-to-end şifreli</div>
+              <div className="text-xs text-gray-300">End-to-end şifreli</div>
             </div>
             <div className="text-center p-4">
               <Zap className="w-8 h-8 text-yellow-500 mx-auto mb-2" />
               <div className="text-sm font-medium text-white mb-1">Hızlı</div>
-              <div className="text-xs text-gray-600">Anında işlem</div>
+              <div className="text-xs text-gray-300">Anında işlem</div>
             </div>
             <div className="text-center p-4">
               <Coins className="w-8 h-8 text-green-500 mx-auto mb-2" />
               <div className="text-sm font-medium text-white mb-1">Düşük Ücret</div>
-              <div className="text-xs text-gray-600">Minimum network fee</div>
+              <div className="text-xs text-gray-300">Minimum network fee</div>
             </div>
           </div>
           </motion.div>
@@ -298,7 +298,7 @@ const CryptoPayment: React.FC<CryptoPaymentProps> = ({
           <div className="bg-gradient-to-r from-green-50 to-blue-50 p-6 border-b">
             <div className="flex items-center justify-between">
               <div>
-                <div className="text-sm text-gray-600 mb-1">Bağlı Cüzdan</div>
+                <div className="text-sm text-gray-300 mb-1">Bağlı Cüzdan</div>
                 <div className="font-medium text-white">{formatAddress(walletAddress)}</div>
               </div>
               <div className="flex items-center gap-2">
@@ -312,17 +312,17 @@ const CryptoPayment: React.FC<CryptoPaymentProps> = ({
             {/* Payment Details */}
             <div className="mb-6">
               <h3 className="text-lg font-semibold text-white mb-4">Ödeme Detayları</h3>
-              <div className="bg-gray-50 rounded-xl p-4">
+              <div className="bg-white/5 rounded-xl p-4">
                 <div className="flex items-center justify-between mb-2">
-                  <span className="text-gray-600">Açıklama</span>
+                  <span className="text-gray-300">Açıklama</span>
                   <span className="font-medium">{description}</span>
                 </div>
                 <div className="flex items-center justify-between mb-2">
-                  <span className="text-gray-600">Tutar</span>
+                  <span className="text-gray-300">Tutar</span>
                   <span className="font-medium">${amount.toFixed(2)}</span>
                 </div>
                 <div className="flex items-center justify-between mb-2">
-                  <span className="text-gray-600">Network Ücreti (tahmini)</span>
+                  <span className="text-gray-300">Network Ücreti (tahmini)</span>
                   <span className="font-medium">{networkFee.toFixed(4)} ETH</span>
                 </div>
                 <hr className="my-3" />
@@ -354,14 +354,14 @@ const CryptoPayment: React.FC<CryptoPaymentProps> = ({
                         </div>
                         <div className="text-left">
                           <div className="font-medium text-white">{option.name}</div>
-                          <div className="text-sm text-gray-600">{option.symbol}</div>
+                          <div className="text-sm text-gray-300">{option.symbol}</div>
                         </div>
                       </div>
                       <div className="text-right">
                         <div className="font-medium text-white">
                           {formatBalance(option.balance)} {option.symbol}
                         </div>
-                        <div className="text-sm text-gray-600">
+                        <div className="text-sm text-gray-300">
                           ${formatBalance(option.usdValue, 2)}
                         </div>
                       </div>
@@ -393,7 +393,7 @@ const CryptoPayment: React.FC<CryptoPaymentProps> = ({
 
               <button
                 onClick={() => setShowQRCode(true)}
-                className="w-full py-3 border border-white/20 rounded-xl font-medium hover:bg-gray-50 transition-colors flex items-center justify-center gap-2"
+                className="w-full py-3 border border-white/20 rounded-xl font-medium hover:bg-white/5 transition-colors flex items-center justify-center gap-2"
               >
                 <QrCode className="w-5 h-5" />
                 QR Kod ile Öde
@@ -414,34 +414,34 @@ const CryptoPayment: React.FC<CryptoPaymentProps> = ({
           </div>
           
           <h2 className="text-2xl font-bold text-white mb-2">Ödeme Başarılı!</h2>
-          <p className="text-gray-600 mb-8">
+          <p className="text-gray-300 mb-8">
             İşleminiz başarıyla blockchain&apos;e kaydedildi.
           </p>
 
-          <div className="bg-gray-50 rounded-xl p-6 mb-6">
+          <div className="bg-white/5 rounded-xl p-6 mb-6">
             <div className="space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-gray-600">İşlem Hash</span>
+                <span className="text-gray-300">İşlem Hash</span>
                 <div className="flex items-center gap-2">
                   <span className="font-mono text-sm">{formatAddress(transactionHash)}</span>
                   <button
                     onClick={() => copyToClipboard(transactionHash)}
                     className="p-1 hover:bg-gray-200 rounded transition-colors"
                   >
-                    <Copy className="w-4 h-4 text-gray-500" />
+                    <Copy className="w-4 h-4 text-gray-400" />
                   </button>
                 </div>
               </div>
               <div className="flex items-center justify-between">
-                <span className="text-gray-600">Tutar</span>
+                <span className="text-gray-300">Tutar</span>
                 <span className="font-medium">${amount.toFixed(2)}</span>
               </div>
               <div className="flex items-center justify-between">
-                <span className="text-gray-600">Ödeme Yöntemi</span>
+                <span className="text-gray-300">Ödeme Yöntemi</span>
                 <span className="font-medium">{selectedCrypto}</span>
               </div>
               <div className="flex items-center justify-between">
-                <span className="text-gray-600">Durum</span>
+                <span className="text-gray-300">Durum</span>
                 <span className="text-green-600 font-medium">Tamamlandı</span>
               </div>
             </div>
@@ -450,7 +450,7 @@ const CryptoPayment: React.FC<CryptoPaymentProps> = ({
           <div className="flex gap-3">
             <button
               onClick={() => window.open(getExplorerUrl(transactionHash, 1), '_blank')}
-              className="flex-1 py-3 border border-white/20 rounded-xl font-medium hover:bg-gray-50 transition-colors flex items-center justify-center gap-2"
+              className="flex-1 py-3 border border-white/20 rounded-xl font-medium hover:bg-white/5 transition-colors flex items-center justify-center gap-2"
             >
               <ExternalLink className="w-4 h-4" />
               Explorer&apos;da Görüntüle
@@ -486,30 +486,30 @@ const CryptoPayment: React.FC<CryptoPaymentProps> = ({
                 <h3 className="text-xl font-bold text-white">QR Kod ile Ödeme</h3>
                 <button
                   onClick={() => setShowQRCode(false)}
-                  className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+                  className="p-2 hover:bg-white/10 rounded-lg transition-colors"
                 >
-                  <X className="w-5 h-5 text-gray-500" />
+                  <X className="w-5 h-5 text-gray-400" />
                 </button>
               </div>
 
               <div className="text-center">
-                <div className="w-48 h-48 bg-gray-100 rounded-2xl mx-auto mb-6 flex items-center justify-center">
+                <div className="w-48 h-48 bg-white/10 rounded-2xl mx-auto mb-6 flex items-center justify-center">
                   <QrCode className="w-20 h-20 text-gray-400" />
-                  <div className="absolute text-xs text-gray-500">QR Kodu burada görünecek</div>
+                  <div className="absolute text-xs text-gray-400">QR Kodu burada görünecek</div>
                 </div>
                 
-                <p className="text-gray-600 mb-4">
+                <p className="text-gray-300 mb-4">
                   Mobil cüzdanınızla QR kodu tarayarak ödeme yapabilirsiniz
                 </p>
                 
-                <div className="bg-gray-50 rounded-lg p-3 mb-4">
-                  <div className="text-sm text-gray-600 mb-1">Ödeme Adresi</div>
+                <div className="bg-white/5 rounded-lg p-3 mb-4">
+                  <div className="text-sm text-gray-300 mb-1">Ödeme Adresi</div>
                   <div className="font-mono text-xs break-all">{recipient}</div>
                 </div>
                 
                 <button
                   onClick={() => copyToClipboard(recipient)}
-                  className="w-full py-3 bg-gray-100 hover:bg-gray-200 rounded-lg font-medium transition-colors flex items-center justify-center gap-2"
+                  className="w-full py-3 bg-white/10 hover:bg-gray-200 rounded-lg font-medium transition-colors flex items-center justify-center gap-2"
                 >
                   <Copy className="w-4 h-4" />
                   Adresi Kopyala

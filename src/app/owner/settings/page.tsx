@@ -43,7 +43,7 @@ const TabButton: React.FC<TabButtonProps> = ({ label, icon, isActive, onClick })
       className={`flex items-center gap-3 px-4 py-3 rounded-lg font-medium transition-all ${
         isActive
           ? 'bg-blue-50 text-blue-700 border-2 border-blue-200'
-          : 'text-gray-600 hover:bg-gray-50 border-2 border-transparent'
+          : 'text-gray-300 hover:bg-white/5 border-2 border-transparent'
       }`}
     >
       {icon}
@@ -73,11 +73,11 @@ const ProfileTab: React.FC = () => {
   };
 
   return (
-    <div className="bg-white border border-gray-200 rounded-xl p-6">
+    <div className="bg-white/5 border border-gray-200 rounded-xl p-6">
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h2 className="text-xl font-semibold text-gray-900">Profile Settings</h2>
-          <p className="text-sm text-gray-500 mt-1">Manage your personal information</p>
+          <h2 className="text-xl font-semibold text-white">Profile Settings</h2>
+          <p className="text-sm text-gray-400 mt-1">Manage your personal information</p>
         </div>
         {!isEditing && (
           <button
@@ -99,69 +99,69 @@ const ProfileTab: React.FC = () => {
           <div>
             <button
               type="button"
-              className="flex items-center gap-2 px-4 py-2 bg-white border-2 border-gray-200 rounded-lg hover:border-blue-500 hover:text-blue-600 transition-colors font-medium mb-2"
+              className="flex items-center gap-2 px-4 py-2 bg-white/5 border-2 border-gray-200 rounded-lg hover:border-blue-500 hover:text-blue-600 transition-colors font-medium mb-2"
             >
               <Upload className="w-4 h-4" />
               Upload Photo
             </button>
-            <p className="text-xs text-gray-500">JPG, PNG or GIF. Max size 5MB.</p>
+            <p className="text-xs text-gray-400">JPG, PNG or GIF. Max size 5MB.</p>
           </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
+            <label className="block text-sm font-medium text-gray-200 mb-2">Full Name</label>
             <input
               type="text"
               value={formData.name}
               onChange={(e) => setFormData({ ...formData, name: e.target.value })}
               disabled={!isEditing}
-              className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent disabled:bg-gray-50 disabled:cursor-not-allowed"
+              className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent disabled:bg-white/5 disabled:cursor-not-allowed"
             />
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
+            <label className="block text-sm font-medium text-gray-200 mb-2">Email Address</label>
             <input
               type="email"
               value={formData.email}
               onChange={(e) => setFormData({ ...formData, email: e.target.value })}
               disabled={!isEditing}
-              className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent disabled:bg-gray-50 disabled:cursor-not-allowed"
+              className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent disabled:bg-white/5 disabled:cursor-not-allowed"
             />
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
+            <label className="block text-sm font-medium text-gray-200 mb-2">Phone Number</label>
             <input
               type="tel"
               value={formData.phone}
               onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
               disabled={!isEditing}
-              className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent disabled:bg-gray-50 disabled:cursor-not-allowed"
+              className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent disabled:bg-white/5 disabled:cursor-not-allowed"
             />
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Location</label>
+            <label className="block text-sm font-medium text-gray-200 mb-2">Location</label>
             <input
               type="text"
               value={formData.location}
               onChange={(e) => setFormData({ ...formData, location: e.target.value })}
               disabled={!isEditing}
-              className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent disabled:bg-gray-50 disabled:cursor-not-allowed"
+              className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent disabled:bg-white/5 disabled:cursor-not-allowed"
             />
           </div>
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">Bio</label>
+          <label className="block text-sm font-medium text-gray-200 mb-2">Bio</label>
           <textarea
             value={formData.bio}
             onChange={(e) => setFormData({ ...formData, bio: e.target.value })}
             disabled={!isEditing}
             rows={4}
-            className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent disabled:bg-gray-50 disabled:cursor-not-allowed"
+            className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent disabled:bg-white/5 disabled:cursor-not-allowed"
           />
         </div>
 
@@ -170,7 +170,7 @@ const ProfileTab: React.FC = () => {
             <button
               type="button"
               onClick={() => setIsEditing(false)}
-              className="flex-1 px-4 py-2.5 border-2 border-gray-300 rounded-lg hover:bg-gray-50 font-medium transition-colors"
+              className="flex-1 px-4 py-2.5 border-2 border-gray-300 rounded-lg hover:bg-white/5 font-medium transition-colors"
             >
               Cancel
             </button>
@@ -197,11 +197,11 @@ const PropertiesTab: React.FC = () => {
   ];
 
   return (
-    <div className="bg-white border border-gray-200 rounded-xl p-6">
+    <div className="bg-white/5 border border-gray-200 rounded-xl p-6">
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h2 className="text-xl font-semibold text-gray-900">My Properties</h2>
-          <p className="text-sm text-gray-500 mt-1">Manage your property listings</p>
+          <h2 className="text-xl font-semibold text-white">My Properties</h2>
+          <p className="text-sm text-gray-400 mt-1">Manage your property listings</p>
         </div>
         <button className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium">
           <Plus className="w-4 h-4" />
@@ -220,8 +220,8 @@ const PropertiesTab: React.FC = () => {
                 {property.name.charAt(0)}
               </div>
               <div>
-                <h4 className="font-semibold text-gray-900">{property.name}</h4>
-                <p className="text-sm text-gray-500">{property.location}</p>
+                <h4 className="font-semibold text-white">{property.name}</h4>
+                <p className="text-sm text-gray-400">{property.location}</p>
               </div>
             </div>
             <div className="flex items-center gap-2">
@@ -259,16 +259,16 @@ const NotificationsTab: React.FC = () => {
   };
 
   return (
-    <div className="bg-white border border-gray-200 rounded-xl p-6">
+    <div className="bg-white/5 border border-gray-200 rounded-xl p-6">
       <div className="mb-6">
-        <h2 className="text-xl font-semibold text-gray-900">Notification Settings</h2>
-        <p className="text-sm text-gray-500 mt-1">Manage how you receive notifications</p>
+        <h2 className="text-xl font-semibold text-white">Notification Settings</h2>
+        <p className="text-sm text-gray-400 mt-1">Manage how you receive notifications</p>
       </div>
 
       <div className="space-y-6">
         {/* Email Notifications */}
         <div>
-          <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
+          <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
             <Mail className="w-5 h-5" />
             Email Notifications
           </h3>
@@ -281,8 +281,8 @@ const NotificationsTab: React.FC = () => {
             ].map((item) => (
               <div key={item.key} className="flex items-center justify-between p-4 border border-gray-200 rounded-lg">
                 <div>
-                  <p className="font-medium text-gray-900">{item.label}</p>
-                  <p className="text-sm text-gray-500">{item.desc}</p>
+                  <p className="font-medium text-white">{item.label}</p>
+                  <p className="text-sm text-gray-400">{item.desc}</p>
                 </div>
                 <button
                   onClick={() => handleToggle(item.key)}
@@ -291,7 +291,7 @@ const NotificationsTab: React.FC = () => {
                   }`}
                 >
                   <div
-                    className={`absolute w-5 h-5 bg-white rounded-full top-0.5 transition-transform ${
+                    className={`absolute w-5 h-5 bg-white/5 rounded-full top-0.5 transition-transform ${
                       settings[item.key] ? 'translate-x-6' : 'translate-x-0.5'
                     }`}
                   />
@@ -303,7 +303,7 @@ const NotificationsTab: React.FC = () => {
 
         {/* Push Notifications */}
         <div>
-          <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
+          <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
             <Bell className="w-5 h-5" />
             Push Notifications
           </h3>
@@ -314,8 +314,8 @@ const NotificationsTab: React.FC = () => {
             ].map((item) => (
               <div key={item.key} className="flex items-center justify-between p-4 border border-gray-200 rounded-lg">
                 <div>
-                  <p className="font-medium text-gray-900">{item.label}</p>
-                  <p className="text-sm text-gray-500">{item.desc}</p>
+                  <p className="font-medium text-white">{item.label}</p>
+                  <p className="text-sm text-gray-400">{item.desc}</p>
                 </div>
                 <button
                   onClick={() => handleToggle(item.key)}
@@ -324,7 +324,7 @@ const NotificationsTab: React.FC = () => {
                   }`}
                 >
                   <div
-                    className={`absolute w-5 h-5 bg-white rounded-full top-0.5 transition-transform ${
+                    className={`absolute w-5 h-5 bg-white/5 rounded-full top-0.5 transition-transform ${
                       settings[item.key] ? 'translate-x-6' : 'translate-x-0.5'
                     }`}
                   />
@@ -349,19 +349,19 @@ const PaymentsTab: React.FC = () => {
   const { mutate: updatePaymentSettings } = useUpdatePaymentSettings();
 
   return (
-    <div className="bg-white border border-gray-200 rounded-xl p-6">
+    <div className="bg-white/5 border border-gray-200 rounded-xl p-6">
       <div className="mb-6">
-        <h2 className="text-xl font-semibold text-gray-900">Payment Settings</h2>
-        <p className="text-sm text-gray-500 mt-1">Manage your payout methods and schedule</p>
+        <h2 className="text-xl font-semibold text-white">Payment Settings</h2>
+        <p className="text-sm text-gray-400 mt-1">Manage your payout methods and schedule</p>
       </div>
 
       <div className="space-y-6">
         {/* Bank Account */}
         <div>
-          <h3 className="text-lg font-semibold text-gray-900 mb-4">Bank Account</h3>
+          <h3 className="text-lg font-semibold text-white mb-4">Bank Account</h3>
           <div className="p-4 border-2 border-dashed border-gray-300 rounded-lg text-center">
             <CreditCard className="w-12 h-12 text-gray-400 mx-auto mb-3" />
-            <p className="text-gray-600 mb-4">No bank account connected</p>
+            <p className="text-gray-300 mb-4">No bank account connected</p>
             <button className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium">
               Add Bank Account
             </button>
@@ -370,7 +370,7 @@ const PaymentsTab: React.FC = () => {
 
         {/* Payout Schedule */}
         <div>
-          <h3 className="text-lg font-semibold text-gray-900 mb-4">Payout Schedule</h3>
+          <h3 className="text-lg font-semibold text-white mb-4">Payout Schedule</h3>
           <select className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
             <option value="weekly">Weekly</option>
             <option value="biweekly">Bi-weekly</option>
@@ -380,7 +380,7 @@ const PaymentsTab: React.FC = () => {
 
         {/* Payment Methods */}
         <div>
-          <h3 className="text-lg font-semibold text-gray-900 mb-4">Connected Accounts</h3>
+          <h3 className="text-lg font-semibold text-white mb-4">Connected Accounts</h3>
           <div className="space-y-3">
             <div className="flex items-center justify-between p-4 border border-gray-200 rounded-lg">
               <div className="flex items-center gap-3">
@@ -388,11 +388,11 @@ const PaymentsTab: React.FC = () => {
                   <CreditCard className="w-5 h-5 text-blue-600" />
                 </div>
                 <div>
-                  <p className="font-medium text-gray-900">PayPal</p>
-                  <p className="text-sm text-gray-500">Not connected</p>
+                  <p className="font-medium text-white">PayPal</p>
+                  <p className="text-sm text-gray-400">Not connected</p>
                 </div>
               </div>
-              <button className="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors font-medium text-sm">
+              <button className="px-4 py-2 border border-gray-300 rounded-lg hover:bg-white/5 transition-colors font-medium text-sm">
                 Connect
               </button>
             </div>
@@ -402,11 +402,11 @@ const PaymentsTab: React.FC = () => {
                   <CreditCard className="w-5 h-5 text-purple-600" />
                 </div>
                 <div>
-                  <p className="font-medium text-gray-900">Stripe</p>
-                  <p className="text-sm text-gray-500">Not connected</p>
+                  <p className="font-medium text-white">Stripe</p>
+                  <p className="text-sm text-gray-400">Not connected</p>
                 </div>
               </div>
-              <button className="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors font-medium text-sm">
+              <button className="px-4 py-2 border border-gray-300 rounded-lg hover:bg-white/5 transition-colors font-medium text-sm">
                 Connect
               </button>
             </div>
@@ -423,19 +423,19 @@ const SecurityTab: React.FC = () => {
   const [twoFactorEnabled, setTwoFactorEnabled] = useState(false);
 
   return (
-    <div className="bg-white border border-gray-200 rounded-xl p-6">
+    <div className="bg-white/5 border border-gray-200 rounded-xl p-6">
       <div className="mb-6">
-        <h2 className="text-xl font-semibold text-gray-900">Security Settings</h2>
-        <p className="text-sm text-gray-500 mt-1">Manage your account security</p>
+        <h2 className="text-xl font-semibold text-white">Security Settings</h2>
+        <p className="text-sm text-gray-400 mt-1">Manage your account security</p>
       </div>
 
       <div className="space-y-6">
         {/* Change Password */}
         <div>
-          <h3 className="text-lg font-semibold text-gray-900 mb-4">Change Password</h3>
+          <h3 className="text-lg font-semibold text-white mb-4">Change Password</h3>
           <div className="space-y-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Current Password</label>
+              <label className="block text-sm font-medium text-gray-200 mb-2">Current Password</label>
               <div className="relative">
                 <input
                   type={showPassword ? 'text' : 'password'}
@@ -444,21 +444,21 @@ const SecurityTab: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-300"
                 >
                   {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
                 </button>
               </div>
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">New Password</label>
+              <label className="block text-sm font-medium text-gray-200 mb-2">New Password</label>
               <input
                 type="password"
                 className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Confirm New Password</label>
+              <label className="block text-sm font-medium text-gray-200 mb-2">Confirm New Password</label>
               <input
                 type="password"
                 className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
@@ -474,11 +474,11 @@ const SecurityTab: React.FC = () => {
         <div className="pt-6 border-t border-gray-200">
           <div className="flex items-center justify-between mb-4">
             <div>
-              <h3 className="text-lg font-semibold text-gray-900 flex items-center gap-2">
+              <h3 className="text-lg font-semibold text-white flex items-center gap-2">
                 <Shield className="w-5 h-5" />
                 Two-Factor Authentication
               </h3>
-              <p className="text-sm text-gray-500 mt-1">Add an extra layer of security to your account</p>
+              <p className="text-sm text-gray-400 mt-1">Add an extra layer of security to your account</p>
             </div>
             <button
               onClick={() => setTwoFactorEnabled(!twoFactorEnabled)}
@@ -487,7 +487,7 @@ const SecurityTab: React.FC = () => {
               }`}
             >
               <div
-                className={`absolute w-5 h-5 bg-white rounded-full top-0.5 transition-transform ${
+                className={`absolute w-5 h-5 bg-white/5 rounded-full top-0.5 transition-transform ${
                   twoFactorEnabled ? 'translate-x-6' : 'translate-x-0.5'
                 }`}
               />
@@ -498,7 +498,7 @@ const SecurityTab: React.FC = () => {
               <p className="text-sm text-blue-900 mb-3">
                 Scan this QR code with your authenticator app to enable 2FA
               </p>
-              <div className="w-48 h-48 bg-white border-2 border-blue-300 rounded-lg mx-auto flex items-center justify-center">
+              <div className="w-48 h-48 bg-white/5 border-2 border-blue-300 rounded-lg mx-auto flex items-center justify-center">
                 <Smartphone className="w-12 h-12 text-gray-400" />
               </div>
             </div>
@@ -507,12 +507,12 @@ const SecurityTab: React.FC = () => {
 
         {/* Active Sessions */}
         <div className="pt-6 border-t border-gray-200">
-          <h3 className="text-lg font-semibold text-gray-900 mb-4">Active Sessions</h3>
+          <h3 className="text-lg font-semibold text-white mb-4">Active Sessions</h3>
           <div className="space-y-3">
             <div className="flex items-center justify-between p-4 border border-gray-200 rounded-lg">
               <div>
-                <p className="font-medium text-gray-900">Chrome on MacBook Pro</p>
-                <p className="text-sm text-gray-500">San Francisco, CA • Last active: Just now</p>
+                <p className="font-medium text-white">Chrome on MacBook Pro</p>
+                <p className="text-sm text-gray-400">San Francisco, CA • Last active: Just now</p>
               </div>
               <span className="px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs font-semibold">
                 Current
@@ -539,13 +539,13 @@ const SettingsPage: React.FC = () => {
 
   return (
     <div className="space-y-6">
-      <h1 className="text-3xl font-black mb-6 text-black">
+      <h1 className="text-3xl font-black mb-6 text-white">
         Settings
       </h1>
       <div className="flex flex-col lg:flex-row gap-6">
         {/* Tabs Sidebar */}
         <div className="lg:w-64 flex-shrink-0">
-          <div className="bg-white border border-gray-200 rounded-xl p-3">
+          <div className="bg-white/5 border border-gray-200 rounded-xl p-3">
             <div className="space-y-2">
               {tabs.map((tab) => (
                 <TabButton

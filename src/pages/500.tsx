@@ -202,7 +202,7 @@ const Custom500Page: React.FC = () => {
 
                 <Link
                   href="/"
-                  className="inline-flex items-center px-8 py-4 bg-transparent text-gray-200 border border-gray-300 rounded-2xl hover:bg-gray-50 hover:shadow-lg hover:scale-105 transition-all duration-300 font-semibold"
+                  className="inline-flex items-center px-8 py-4 bg-transparent text-gray-200 border border-gray-300 rounded-2xl hover:bg-white/5 hover:shadow-lg hover:scale-105 transition-all duration-300 font-semibold"
                 >
                   <Home className="w-5 h-5 mr-2" />
                   Ana Sayfaya Dön
@@ -210,7 +210,7 @@ const Custom500Page: React.FC = () => {
 
                 <button
                   onClick={handleGoBack}
-                  className="inline-flex items-center px-8 py-4 bg-transparent text-gray-200 border border-gray-300 rounded-2xl hover:bg-gray-50 hover:shadow-lg hover:scale-105 transition-all duration-300 font-semibold"
+                  className="inline-flex items-center px-8 py-4 bg-transparent text-gray-200 border border-gray-300 rounded-2xl hover:bg-white/5 hover:shadow-lg hover:scale-105 transition-all duration-300 font-semibold"
                 >
                   <ArrowLeft className="w-5 h-5 mr-2" />
                   Geri Dön
@@ -296,7 +296,7 @@ const Custom500Page: React.FC = () => {
                   </div>
                 </div>
 
-                <p className="text-sm text-gray-500 mt-6">
+                <p className="text-sm text-gray-400 mt-6">
                   Tahmini çözüm süresi: 15-30 dakika<br />
                   Son güncelleme: {new Date().toLocaleString('tr-TR')}
                 </p>

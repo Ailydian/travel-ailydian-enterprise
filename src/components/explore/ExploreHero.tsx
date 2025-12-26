@@ -71,7 +71,7 @@ export const ExploreHero: React.FC = () => {
               <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
                 {/* Destination */}
                 <div className="relative">
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">
+                  <label className="block text-sm font-semibold text-gray-200 mb-2">
                     {t('search.destination')}
                   </label>
                   <div className="relative">
@@ -86,7 +86,7 @@ export const ExploreHero: React.FC = () => {
 
                 {/* Dates */}
                 <div className="relative">
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">
+                  <label className="block text-sm font-semibold text-gray-200 mb-2">
                     {t('search.dates')}
                   </label>
                   <div className="relative">
@@ -101,7 +101,7 @@ export const ExploreHero: React.FC = () => {
 
                 {/* Guests */}
                 <div className="relative">
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">
+                  <label className="block text-sm font-semibold text-gray-200 mb-2">
                     {t('search.guests')}
                   </label>
                   <div className="relative">

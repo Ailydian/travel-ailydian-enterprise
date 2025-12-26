@@ -159,12 +159,12 @@ export default function CarRentalsManagement() {
       PREMIUM_SUV: 'bg-emerald-100 text-emerald-800',
       LUXURY: 'bg-amber-100 text-amber-800',
       SPORTS: 'bg-red-100 text-red-800',
-      VAN: 'bg-gray-100 text-gray-800',
+      VAN: 'bg-white/10 text-white',
       MINIVAN: 'bg-slate-100 text-slate-800',
       COMPACT: 'bg-cyan-100 text-cyan-800',
       FULLSIZE: 'bg-indigo-100 text-indigo-800',
     };
-    return colors[category] || 'bg-gray-100 text-gray-800';
+    return colors[category] || 'bg-white/10 text-white';
   };
 
   const formatCategory = (category: string) => {
@@ -174,9 +174,9 @@ export default function CarRentalsManagement() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-white/5">
       {/* Header */}
-      <div className="bg-white border-b border-gray-200">
+      <div className="bg-white/5 border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
@@ -184,8 +184,8 @@ export default function CarRentalsManagement() {
                 <Car className="w-6 h-6 text-blue-600" />
               </div>
               <div>
-                <h1 className="text-2xl font-bold text-gray-900">Araç Kiralama Yönetimi</h1>
-                <p className="text-sm text-gray-600">Tüm araçları yönetin ve düzenleyin</p>
+                <h1 className="text-2xl font-bold text-white">Araç Kiralama Yönetimi</h1>
+                <p className="text-sm text-gray-300">Tüm araçları yönetin ve düzenleyin</p>
               </div>
             </div>
             <button className="flex items-center space-x-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
@@ -224,7 +224,7 @@ export default function CarRentalsManagement() {
 
       {/* Filters & Search */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-        <div className="bg-white rounded-lg shadow-sm p-4 mb-6">
+        <div className="bg-white/5 rounded-lg shadow-sm p-4 mb-6">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             {/* Search */}
             <div className="relative">
@@ -277,7 +277,7 @@ export default function CarRentalsManagement() {
                 setFilterStatus('');
                 setPage(1);
               }}
-              className="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors"
+              className="px-4 py-2 border border-gray-300 text-gray-200 rounded-lg hover:bg-white/5 transition-colors"
             >
               Filtreleri Temizle
             </button>
@@ -285,48 +285,48 @@ export default function CarRentalsManagement() {
         </div>
 
         {/* Cars Table */}
-        <div className="bg-white rounded-lg shadow-sm overflow-hidden">
+        <div className="bg-white/5 rounded-lg shadow-sm overflow-hidden">
           {loading ? (
             <div className="p-12 text-center">
               <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
-              <p className="mt-4 text-gray-600">Yükleniyor...</p>
+              <p className="mt-4 text-gray-300">Yükleniyor...</p>
             </div>
           ) : cars.length === 0 ? (
             <div className="p-12 text-center">
               <Car className="w-16 h-16 text-gray-400 mx-auto mb-4" />
-              <p className="text-gray-600">Araç bulunamadı</p>
+              <p className="text-gray-300">Araç bulunamadı</p>
             </div>
           ) : (
             <div className="overflow-x-auto">
               <table className="min-w-full divide-y divide-gray-200">
-                <thead className="bg-gray-50">
+                <thead className="bg-white/5">
                   <tr>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
                       Araç
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
                       Kategori
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
                       Özellikler
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
                       Fiyat
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
                       Durum
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
                       Rezervasyon
                     </th>
-                    <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-right text-xs font-medium text-gray-400 uppercase tracking-wider">
                       İşlemler
                     </th>
                   </tr>
                 </thead>
-                <tbody className="bg-white divide-y divide-gray-200">
+                <tbody className="bg-white/5 divide-y divide-gray-200">
                   {cars.map((car) => (
-                    <tr key={car.id} className="hover:bg-gray-50 transition-colors">
+                    <tr key={car.id} className="hover:bg-white/5 transition-colors">
                       <td className="px-6 py-4 whitespace-nowrap">
                         <div className="flex items-center space-x-3">
                           <img
@@ -338,8 +338,8 @@ export default function CarRentalsManagement() {
                             }}
                           />
                           <div>
-                            <p className="font-medium text-gray-900">{car.name}</p>
-                            <p className="text-sm text-gray-500">
+                            <p className="font-medium text-white">{car.name}</p>
+                            <p className="text-sm text-gray-400">
                               {car.brand} {car.model} ({car.year})
                             </p>
                           </div>
@@ -351,18 +351,18 @@ export default function CarRentalsManagement() {
                         </span>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap">
-                        <div className="text-sm text-gray-900">
+                        <div className="text-sm text-white">
                           {car.seats} koltuk • {car.transmission === 'AUTOMATIC' ? 'Otomatik' : 'Manuel'}
                         </div>
-                        <div className="text-sm text-gray-500">
+                        <div className="text-sm text-gray-400">
                           {car.fuelType}
                         </div>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap">
-                        <div className="text-sm font-medium text-gray-900">
+                        <div className="text-sm font-medium text-white">
                           {car.pricePerDay} {car.currency}/gün
                         </div>
-                        <div className="flex items-center text-sm text-gray-500">
+                        <div className="flex items-center text-sm text-gray-400">
                           <Star className="w-3 h-3 text-yellow-400 fill-current mr-1" />
                           {car.rating.toFixed(1)} ({car.reviewCount})
                         </div>
@@ -370,7 +370,7 @@ export default function CarRentalsManagement() {
                       <td className="px-6 py-4 whitespace-nowrap">
                         <div className="flex flex-col space-y-1">
                           <span className={`inline-flex items-center px-2 py-0.5 rounded text-xs font-medium ${
-                            car.isActive ? 'bg-green-100 text-green-800' : 'bg-gray-100 text-gray-800'
+                            car.isActive ? 'bg-green-100 text-green-800' : 'bg-white/10 text-white'
                           }`}>
                             {car.isActive ? 'Aktif' : 'Pasif'}
                           </span>
@@ -387,7 +387,7 @@ export default function CarRentalsManagement() {
                         </div>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap">
-                        <div className="text-sm text-gray-900 font-medium">
+                        <div className="text-sm text-white font-medium">
                           {car._count?.bookings || 0} rezervasyon
                         </div>
                       </td>
@@ -398,7 +398,7 @@ export default function CarRentalsManagement() {
                             className={`p-2 rounded-lg transition-colors ${
                               car.isActive
                                 ? 'text-green-600 hover:bg-green-50'
-                                : 'text-gray-600 hover:bg-gray-50'
+                                : 'text-gray-300 hover:bg-white/5'
                             }`}
                             title={car.isActive ? 'Pasif yap' : 'Aktif yap'}
                           >
@@ -409,7 +409,7 @@ export default function CarRentalsManagement() {
                             className={`p-2 rounded-lg transition-colors ${
                               car.isFeatured
                                 ? 'text-amber-600 hover:bg-amber-50'
-                                : 'text-gray-600 hover:bg-gray-50'
+                                : 'text-gray-300 hover:bg-white/5'
                             }`}
                             title={car.isFeatured ? 'Öne çıkarma' : 'Öne çıkar'}
                           >
@@ -441,23 +441,23 @@ export default function CarRentalsManagement() {
 
           {/* Pagination */}
           {totalPages > 1 && (
-            <div className="px-6 py-4 bg-gray-50 border-t border-gray-200">
+            <div className="px-6 py-4 bg-white/5 border-t border-gray-200">
               <div className="flex items-center justify-between">
-                <div className="text-sm text-gray-700">
+                <div className="text-sm text-gray-200">
                   Sayfa <span className="font-medium">{page}</span> / <span className="font-medium">{totalPages}</span>
                 </div>
                 <div className="flex space-x-2">
                   <button
                     onClick={() => setPage(p => Math.max(1, p - 1))}
                     disabled={page === 1}
-                    className="px-4 py-2 border border-gray-300 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                    className="px-4 py-2 border border-gray-300 rounded-lg text-sm font-medium text-gray-200 hover:bg-white/5 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                   >
                     Önceki
                   </button>
                   <button
                     onClick={() => setPage(p => Math.min(totalPages, p + 1))}
                     disabled={page === totalPages}
-                    className="px-4 py-2 border border-gray-300 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                    className="px-4 py-2 border border-gray-300 rounded-lg text-sm font-medium text-gray-200 hover:bg-white/5 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                   >
                     Sonraki
                   </button>

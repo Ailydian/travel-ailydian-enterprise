@@ -121,8 +121,8 @@ export const VoiceMenu: React.FC<VoiceMenuProps> = ({ className = '' }) => {
 
     return {
       status: 'Hazır',
-      color: 'text-gray-500',
-      bgColor: 'bg-gray-100',
+      color: 'text-gray-400',
+      bgColor: 'bg-white/10',
       icon: Mic
     };
   };
@@ -142,8 +142,8 @@ export const VoiceMenu: React.FC<VoiceMenuProps> = ({ className = '' }) => {
               isListening
                 ? 'bg-gradient-to-r from-green-500 to-blue-500 text-white shadow-lg animate-pulse'
                 : isSupported
-                  ? 'bg-gray-100 hover:bg-gray-200 text-gray-700'
-                  : 'bg-gray-50 text-gray-400 cursor-not-allowed'
+                  ? 'bg-white/10 hover:bg-gray-200 text-gray-200'
+                  : 'bg-white/5 text-gray-400 cursor-not-allowed'
             }`}
             title={isSupported ? 'Sesli komutları başlat/durdur' : 'Tarayıcı desteklemiyor'}
           >
@@ -177,7 +177,7 @@ export const VoiceMenu: React.FC<VoiceMenuProps> = ({ className = '' }) => {
           className={`p-2 rounded-lg transition-colors ${
             isSpeechEnabled
               ? 'text-blue-600 hover:bg-blue-100'
-              : 'text-gray-400 hover:bg-gray-100'
+              : 'text-gray-400 hover:bg-white/10'
           }`}
           title="Sesli geri bildirimi aç/kapat"
         >
@@ -187,7 +187,7 @@ export const VoiceMenu: React.FC<VoiceMenuProps> = ({ className = '' }) => {
         {/* Help/Commands Button */}
         <button
           onClick={() => setShowModal(true)}
-          className="p-2 rounded-lg text-gray-600 hover:bg-gray-100 transition-colors"
+          className="p-2 rounded-lg text-gray-300 hover:bg-white/10 transition-colors"
           title="Sesli komutları görüntüle"
         >
           <Command className="w-4 h-4" />
@@ -250,9 +250,9 @@ export const VoiceMenu: React.FC<VoiceMenuProps> = ({ className = '' }) => {
               </h4>
               <button
                 onClick={() => setShowSuggestions(false)}
-                className="p-1 hover:bg-gray-100 rounded"
+                className="p-1 hover:bg-white/10 rounded"
               >
-                <X className="w-4 h-4 text-gray-500" />
+                <X className="w-4 h-4 text-gray-400" />
               </button>
             </div>
 
@@ -264,7 +264,7 @@ export const VoiceMenu: React.FC<VoiceMenuProps> = ({ className = '' }) => {
                     speak(suggestion);
                     setShowSuggestions(false);
                   }}
-                  className="w-full text-left px-3 py-2 rounded-lg bg-gradient-to-r from-blue-50 to-purple-50 hover:from-blue-100 hover:to-purple-100 transition-colors text-sm font-medium text-gray-700 border border-blue-100"
+                  className="w-full text-left px-3 py-2 rounded-lg bg-gradient-to-r from-blue-50 to-purple-50 hover:from-blue-100 hover:to-purple-100 transition-colors text-sm font-medium text-gray-200 border border-blue-100"
                 >
                   💡 {suggestion}
                 </button>
@@ -306,7 +306,7 @@ export const VoiceMenu: React.FC<VoiceMenuProps> = ({ className = '' }) => {
                       </div>
                       Sesli Komutlar Rehberi
                     </h2>
-                    <p className="text-gray-600 mt-1">
+                    <p className="text-gray-300 mt-1">
                       {isSupported 
                         ? 'Aşağıdaki komutları söyleyerek siteyi kontrol edebilirsiniz'
                         : 'Bu tarayıcı sesli komutları desteklemiyor'
@@ -315,9 +315,9 @@ export const VoiceMenu: React.FC<VoiceMenuProps> = ({ className = '' }) => {
                   </div>
                   <button
                     onClick={() => setShowModal(false)}
-                    className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+                    className="p-2 hover:bg-white/10 rounded-lg transition-colors"
                   >
-                    <X className="w-6 h-6 text-gray-500" />
+                    <X className="w-6 h-6 text-gray-400" />
                   </button>
                 </div>
               </div>
@@ -330,7 +330,7 @@ export const VoiceMenu: React.FC<VoiceMenuProps> = ({ className = '' }) => {
                     <h3 className="text-xl font-semibold text-white mb-2">
                       Tarayıcı Desteklemiyor
                     </h3>
-                    <p className="text-gray-600">
+                    <p className="text-gray-300">
                       Bu tarayıcı Web Speech API&apos;sini desteklemiyor.
                       Chrome, Edge veya Safari kullanmayı deneyin.
                     </p>
@@ -344,7 +344,7 @@ export const VoiceMenu: React.FC<VoiceMenuProps> = ({ className = '' }) => {
                         <div>
                           <div className="font-medium text-white">Durum: {statusInfo.status}</div>
                           {lastCommand && (
-                            <div className="text-sm text-gray-600">
+                            <div className="text-sm text-gray-300">
                               Son komut: {lastCommand}
                             </div>
                           )}
@@ -374,13 +374,13 @@ export const VoiceMenu: React.FC<VoiceMenuProps> = ({ className = '' }) => {
                                 {command.patterns.slice(0, 3).map((pattern, pIndex) => (
                                   <span
                                     key={pIndex}
-                                    className="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded-lg"
+                                    className="px-2 py-1 bg-white/10 text-gray-200 text-xs rounded-lg"
                                   >
                                     &quot;{pattern}&quot;
                                   </span>
                                 ))}
                                 {command.patterns.length > 3 && (
-                                  <span className="px-2 py-1 bg-gray-50 text-gray-500 text-xs rounded-lg">
+                                  <span className="px-2 py-1 bg-white/5 text-gray-400 text-xs rounded-lg">
                                     +{command.patterns.length - 3} daha
                                   </span>
                                 )}

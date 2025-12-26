@@ -117,7 +117,7 @@ const Cart: React.FC = () => {
 
       <FuturisticHeader />
 
-      <main className="min-h-screen bg-gray-50">
+      <main className="min-h-screen bg-white/5">
         <div className="max-w-7xl mx-auto px-3 sm:px-4 py-4 sm:py-8">
           {/* Header */}
           <motion.div
@@ -221,14 +221,14 @@ const Cart: React.FC = () => {
                             <div className="flex items-center gap-1.5 sm:gap-2">
                               <button
                                 onClick={() => updateGuestCount(item.id, item.guests - 1)}
-                                className="w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
+                                className="w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center border border-gray-300 rounded-lg hover:bg-white/5 transition-colors"
                               >
                                 <Minus className="w-3 h-3 sm:w-4 sm:h-4" />
                               </button>
                               <span className="w-7 sm:w-8 text-center text-sm sm:text-base font-semibold">{item.guests}</span>
                               <button
                                 onClick={() => updateGuestCount(item.id, item.guests + 1)}
-                                className="w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
+                                className="w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center border border-gray-300 rounded-lg hover:bg-white/5 transition-colors"
                               >
                                 <Plus className="w-3 h-3 sm:w-4 sm:h-4" />
                               </button>
@@ -239,7 +239,7 @@ const Cart: React.FC = () => {
                             <div className="flex items-center gap-2">
                               <span className="text-xl sm:text-2xl font-bold text-white">₺{item.price * item.guests}</span>
                               {item.originalPrice && (
-                                <span className="text-xs sm:text-sm text-gray-500 line-through">₺{item.originalPrice * item.guests}</span>
+                                <span className="text-xs sm:text-sm text-gray-400 line-through">₺{item.originalPrice * item.guests}</span>
                               )}
                             </div>
                             <p className="text-xs sm:text-sm text-gray-300">₺{item.price} x {item.guests} kişi</p>

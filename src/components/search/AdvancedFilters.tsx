@@ -95,7 +95,7 @@ const AdvancedFilters: React.FC<AdvancedFiltersProps> = ({
           }
         >
           <div className="space-y-4">
-            <div className="flex items-center justify-between text-sm text-gray-600">
+            <div className="flex items-center justify-between text-sm text-gray-300">
               <span>₺{hotelFilters.priceRange.min}</span>
               <span>₺{hotelFilters.priceRange.max}+</span>
             </div>
@@ -151,7 +151,7 @@ const AdvancedFilters: React.FC<AdvancedFiltersProps> = ({
                 className={`flex items-center gap-1 px-3 py-2 rounded-lg border-2 transition-all ${
                   hotelFilters.starRating.includes(rating)
                     ? 'bg-lydian-primary text-white border-lydian-primary'
-                    : 'bg-white/5 text-gray-700 border-white/10 hover:border-lydian-primary'
+                    : 'bg-white/5 text-gray-200 border-white/10 hover:border-lydian-primary'
                 }`}
               >
                 {Array.from({ length: rating }).map((_, i) => (
@@ -171,7 +171,7 @@ const AdvancedFilters: React.FC<AdvancedFiltersProps> = ({
           count={hotelFilters.guestRating.min > 0 ? 1 : 0}
         >
           <div className="space-y-4">
-            <div className="flex items-center justify-between text-sm text-gray-600">
+            <div className="flex items-center justify-between text-sm text-gray-300">
               <span>{hotelFilters.guestRating.min.toFixed(1)}</span>
               <span>{hotelFilters.guestRating.max.toFixed(1)}</span>
             </div>
@@ -213,7 +213,7 @@ const AdvancedFilters: React.FC<AdvancedFiltersProps> = ({
                 className={`px-3 py-2 rounded-lg border-2 text-sm transition-all ${
                   hotelFilters.propertyTypes.includes(type.value)
                     ? 'bg-lydian-primary text-white border-lydian-primary'
-                    : 'bg-white/5 text-gray-700 border-white/10 hover:border-lydian-primary'
+                    : 'bg-white/5 text-gray-200 border-white/10 hover:border-lydian-primary'
                 }`}
               >
                 {type.label}
@@ -247,7 +247,7 @@ const AdvancedFilters: React.FC<AdvancedFiltersProps> = ({
               ).map(amenity => (
                 <label
                   key={amenity.id}
-                  className="flex items-center gap-2 p-2 hover:bg-gray-50 rounded-lg cursor-pointer"
+                  className="flex items-center gap-2 p-2 hover:bg-white/5 rounded-lg cursor-pointer"
                 >
                   <input
                     type="checkbox"
@@ -260,7 +260,7 @@ const AdvancedFilters: React.FC<AdvancedFiltersProps> = ({
                     }}
                     className="w-4 h-4 text-lydian-primary rounded focus:ring-lydian-primary"
                   />
-                  <span className="text-sm text-gray-700">{amenity.label}</span>
+                  <span className="text-sm text-gray-200">{amenity.label}</span>
                   <span className="ml-auto text-xs text-gray-400 capitalize">
                     {amenity.category}
                   </span>
@@ -282,7 +282,7 @@ const AdvancedFilters: React.FC<AdvancedFiltersProps> = ({
             {MEAL_PLANS.map(plan => (
               <label
                 key={plan.value}
-                className="flex items-center gap-2 p-2 hover:bg-gray-50 rounded-lg cursor-pointer"
+                className="flex items-center gap-2 p-2 hover:bg-white/5 rounded-lg cursor-pointer"
               >
                 <input
                   type="checkbox"
@@ -295,7 +295,7 @@ const AdvancedFilters: React.FC<AdvancedFiltersProps> = ({
                   }}
                   className="w-4 h-4 text-lydian-primary rounded focus:ring-lydian-primary"
                 />
-                <span className="text-sm text-gray-700">{plan.label}</span>
+                <span className="text-sm text-gray-200">{plan.label}</span>
               </label>
             ))}
           </div>
@@ -310,7 +310,7 @@ const AdvancedFilters: React.FC<AdvancedFiltersProps> = ({
           count={hotelFilters.distanceFromCenter < 10 ? 1 : 0}
         >
           <div className="space-y-4">
-            <div className="flex items-center justify-between text-sm text-gray-600">
+            <div className="flex items-center justify-between text-sm text-gray-300">
               <span>0 km</span>
               <span className="font-medium text-lydian-primary">
                 {hotelFilters.distanceFromCenter} km
@@ -349,7 +349,7 @@ const AdvancedFilters: React.FC<AdvancedFiltersProps> = ({
             ].map(policy => (
               <label
                 key={policy.value}
-                className="flex items-center gap-2 p-2 hover:bg-gray-50 rounded-lg cursor-pointer"
+                className="flex items-center gap-2 p-2 hover:bg-white/5 rounded-lg cursor-pointer"
               >
                 <input
                   type="checkbox"
@@ -362,7 +362,7 @@ const AdvancedFilters: React.FC<AdvancedFiltersProps> = ({
                   }}
                   className="w-4 h-4 text-lydian-primary rounded focus:ring-lydian-primary"
                 />
-                <span className="text-sm text-gray-700">{policy.label}</span>
+                <span className="text-sm text-gray-200">{policy.label}</span>
               </label>
             ))}
           </div>
@@ -390,7 +390,7 @@ const AdvancedFilters: React.FC<AdvancedFiltersProps> = ({
           }
         >
           <div className="space-y-4">
-            <div className="flex items-center justify-between text-sm text-gray-600">
+            <div className="flex items-center justify-between text-sm text-gray-300">
               <span>₺{flightFilters.priceRange.min}</span>
               <span>₺{flightFilters.priceRange.max}+</span>
             </div>
@@ -441,7 +441,7 @@ const AdvancedFilters: React.FC<AdvancedFiltersProps> = ({
             ].map(stop => (
               <label
                 key={stop.value}
-                className="flex items-center gap-2 p-2 hover:bg-gray-50 rounded-lg cursor-pointer"
+                className="flex items-center gap-2 p-2 hover:bg-white/5 rounded-lg cursor-pointer"
               >
                 <input
                   type="checkbox"
@@ -454,7 +454,7 @@ const AdvancedFilters: React.FC<AdvancedFiltersProps> = ({
                   }}
                   className="w-4 h-4 text-lydian-primary rounded focus:ring-lydian-primary"
                 />
-                <span className="text-sm text-gray-700">{stop.label}</span>
+                <span className="text-sm text-gray-200">{stop.label}</span>
               </label>
             ))}
           </div>
@@ -481,7 +481,7 @@ const AdvancedFilters: React.FC<AdvancedFiltersProps> = ({
                 className={`px-3 py-2 rounded-lg border-2 text-sm transition-all ${
                   flightFilters.departureTime.includes(slot.value)
                     ? 'bg-lydian-primary text-white border-lydian-primary'
-                    : 'bg-white/5 text-gray-700 border-white/10 hover:border-lydian-primary'
+                    : 'bg-white/5 text-gray-200 border-white/10 hover:border-lydian-primary'
                 }`}
               >
                 <div className="font-medium">{slot.label}</div>
@@ -512,7 +512,7 @@ const AdvancedFilters: React.FC<AdvancedFiltersProps> = ({
                 className={`px-3 py-2 rounded-lg border-2 text-sm transition-all ${
                   flightFilters.arrivalTime.includes(slot.value)
                     ? 'bg-lydian-primary text-white border-lydian-primary'
-                    : 'bg-white/5 text-gray-700 border-white/10 hover:border-lydian-primary'
+                    : 'bg-white/5 text-gray-200 border-white/10 hover:border-lydian-primary'
                 }`}
               >
                 <div className="font-medium">{slot.label}</div>
@@ -531,7 +531,7 @@ const AdvancedFilters: React.FC<AdvancedFiltersProps> = ({
           count={flightFilters.maxDuration < 24 ? 1 : 0}
         >
           <div className="space-y-4">
-            <div className="flex items-center justify-between text-sm text-gray-600">
+            <div className="flex items-center justify-between text-sm text-gray-300">
               <span>Any</span>
               <span className="font-medium text-lydian-primary">
                 Max {flightFilters.maxDuration}h
@@ -571,7 +571,7 @@ const AdvancedFilters: React.FC<AdvancedFiltersProps> = ({
             ].map(cabin => (
               <label
                 key={cabin.value}
-                className="flex items-center gap-2 p-2 hover:bg-gray-50 rounded-lg cursor-pointer"
+                className="flex items-center gap-2 p-2 hover:bg-white/5 rounded-lg cursor-pointer"
               >
                 <input
                   type="checkbox"
@@ -584,7 +584,7 @@ const AdvancedFilters: React.FC<AdvancedFiltersProps> = ({
                   }}
                   className="w-4 h-4 text-lydian-primary rounded focus:ring-lydian-primary"
                 />
-                <span className="text-sm text-gray-700">{cabin.label}</span>
+                <span className="text-sm text-gray-200">{cabin.label}</span>
               </label>
             ))}
           </div>
@@ -612,7 +612,7 @@ const AdvancedFilters: React.FC<AdvancedFiltersProps> = ({
           }
         >
           <div className="space-y-4">
-            <div className="flex items-center justify-between text-sm text-gray-600">
+            <div className="flex items-center justify-between text-sm text-gray-300">
               <span>₺{activityFilters.priceRange.min}</span>
               <span>₺{activityFilters.priceRange.max}+</span>
             </div>
@@ -674,7 +674,7 @@ const AdvancedFilters: React.FC<AdvancedFiltersProps> = ({
                 className={`px-3 py-2 rounded-lg border-2 text-sm transition-all flex items-center gap-2 ${
                   activityFilters.categories.includes(category.value)
                     ? 'bg-lydian-primary text-white border-lydian-primary'
-                    : 'bg-white/5 text-gray-700 border-white/10 hover:border-lydian-primary'
+                    : 'bg-white/5 text-gray-200 border-white/10 hover:border-lydian-primary'
                 }`}
               >
                 <span>{category.icon}</span>
@@ -696,7 +696,7 @@ const AdvancedFilters: React.FC<AdvancedFiltersProps> = ({
             {DIFFICULTY_LEVELS.map(level => (
               <label
                 key={level.value}
-                className="flex items-start gap-2 p-2 hover:bg-gray-50 rounded-lg cursor-pointer"
+                className="flex items-start gap-2 p-2 hover:bg-white/5 rounded-lg cursor-pointer"
               >
                 <input
                   type="checkbox"
@@ -710,8 +710,8 @@ const AdvancedFilters: React.FC<AdvancedFiltersProps> = ({
                   className="w-4 h-4 text-lydian-primary rounded focus:ring-lydian-primary mt-0.5"
                 />
                 <div className="flex-1">
-                  <div className="text-sm font-medium text-gray-700">{level.label}</div>
-                  <div className="text-xs text-gray-500">{level.description}</div>
+                  <div className="text-sm font-medium text-gray-200">{level.label}</div>
+                  <div className="text-xs text-gray-400">{level.description}</div>
                 </div>
               </label>
             ))}
@@ -738,7 +738,7 @@ const AdvancedFilters: React.FC<AdvancedFiltersProps> = ({
                 className={`flex-1 py-2 px-3 rounded-lg text-sm font-medium transition-all ${
                   activityFilters.duration.unit === 'hours'
                     ? 'bg-lydian-primary text-white'
-                    : 'bg-gray-100 text-gray-700'
+                    : 'bg-white/10 text-gray-200'
                 }`}
               >
                 Hours
@@ -753,13 +753,13 @@ const AdvancedFilters: React.FC<AdvancedFiltersProps> = ({
                 className={`flex-1 py-2 px-3 rounded-lg text-sm font-medium transition-all ${
                   activityFilters.duration.unit === 'days'
                     ? 'bg-lydian-primary text-white'
-                    : 'bg-gray-100 text-gray-700'
+                    : 'bg-white/10 text-gray-200'
                 }`}
               >
                 Days
               </button>
             </div>
-            <div className="flex items-center justify-between text-sm text-gray-600">
+            <div className="flex items-center justify-between text-sm text-gray-300">
               <span>
                 {activityFilters.duration.min} {activityFilters.duration.unit}
               </span>
@@ -801,7 +801,7 @@ const AdvancedFilters: React.FC<AdvancedFiltersProps> = ({
             ].map(size => (
               <label
                 key={size.value}
-                className="flex items-center gap-2 p-2 hover:bg-gray-50 rounded-lg cursor-pointer"
+                className="flex items-center gap-2 p-2 hover:bg-white/5 rounded-lg cursor-pointer"
               >
                 <input
                   type="checkbox"
@@ -814,7 +814,7 @@ const AdvancedFilters: React.FC<AdvancedFiltersProps> = ({
                   }}
                   className="w-4 h-4 text-lydian-primary rounded focus:ring-lydian-primary"
                 />
-                <span className="text-sm text-gray-700">{size.label}</span>
+                <span className="text-sm text-gray-200">{size.label}</span>
               </label>
             ))}
           </div>
@@ -871,10 +871,10 @@ const AdvancedFilters: React.FC<AdvancedFiltersProps> = ({
             </div>
 
             {/* Footer Actions */}
-            <div className="p-4 border-t border-white/10 bg-gray-50 space-y-2">
+            <div className="p-4 border-t border-white/10 bg-white/5 space-y-2">
               <button
                 onClick={onReset}
-                className="w-full py-2.5 px-4 border-2 border-white/20 text-gray-700 rounded-lg font-medium hover:bg-gray-100 transition-colors flex items-center justify-center gap-2"
+                className="w-full py-2.5 px-4 border-2 border-white/20 text-gray-200 rounded-lg font-medium hover:bg-white/10 transition-colors flex items-center justify-center gap-2"
               >
                 <RotateCcw className="w-4 h-4" />
                 Reset All Filters
@@ -915,7 +915,7 @@ const FilterSection: React.FC<FilterSectionProps> = ({
     <div className="border border-white/10 rounded-lg overflow-hidden">
       <button
         onClick={onToggle}
-        className="w-full p-3 flex items-center justify-between hover:bg-gray-50 transition-colors"
+        className="w-full p-3 flex items-center justify-between hover:bg-white/5 transition-colors"
       >
         <div className="flex items-center gap-2">
           <div className="text-lydian-primary">{icon}</div>
@@ -927,9 +927,9 @@ const FilterSection: React.FC<FilterSectionProps> = ({
           )}
         </div>
         {isExpanded ? (
-          <ChevronUp className="w-4 h-4 text-gray-500" />
+          <ChevronUp className="w-4 h-4 text-gray-400" />
         ) : (
-          <ChevronDown className="w-4 h-4 text-gray-500" />
+          <ChevronDown className="w-4 h-4 text-gray-400" />
         )}
       </button>
       <AnimatePresence>
@@ -941,7 +941,7 @@ const FilterSection: React.FC<FilterSectionProps> = ({
             transition={{ duration: 0.2 }}
             className="overflow-hidden"
           >
-            <div className="p-3 border-t border-gray-100 bg-gray-50">{children}</div>
+            <div className="p-3 border-t border-gray-100 bg-white/5">{children}</div>
           </motion.div>
         )}
       </AnimatePresence>

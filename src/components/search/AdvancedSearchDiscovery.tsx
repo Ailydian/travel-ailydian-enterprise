@@ -271,17 +271,17 @@ const AdvancedSearchDiscovery: React.FC<AdvancedSearchDiscoveryProps> = ({
         
         <div className="flex items-center space-x-2 mb-2">
           {renderRating(location.average_rating)}
-          <span className="text-sm text-gray-600">
+          <span className="text-sm text-gray-300">
             ({location.total_reviews} {t('reviews')})
           </span>
         </div>
         
-        <p className="text-gray-600 text-sm line-clamp-2 mb-3">
+        <p className="text-gray-300 text-sm line-clamp-2 mb-3">
           {getLocalizedContent(location.description)}
         </p>
         
         <div className="flex items-center justify-between">
-          <div className="flex items-center text-gray-500 text-sm">
+          <div className="flex items-center text-gray-400 text-sm">
             <MapPinIcon className="w-4 h-4 mr-1" />
             <span>{getLocalizedContent(location.address)}</span>
           </div>
@@ -303,7 +303,7 @@ const AdvancedSearchDiscovery: React.FC<AdvancedSearchDiscoveryProps> = ({
               </span>
             ))}
             {location.features.length > 3 && (
-              <span className="text-xs text-gray-500">
+              <span className="text-xs text-gray-400">
                 +{location.features.length - 3} {t('more')}
               </span>
             )}
@@ -338,14 +338,14 @@ const AdvancedSearchDiscovery: React.FC<AdvancedSearchDiscoveryProps> = ({
       
       <div className="flex items-center space-x-2 mb-2">
         {renderRating(recommendation.average_rating, 'w-3 h-3')}
-        <span className="text-xs text-gray-600">
+        <span className="text-xs text-gray-300">
           {recommendation.total_reviews} {t('reviews')}
         </span>
       </div>
       
       <div className="space-y-1">
         {recommendation.reasons.slice(0, 2).map((reason, idx) => (
-          <div key={idx} className="flex items-center text-xs text-gray-600">
+          <div key={idx} className="flex items-center text-xs text-gray-300">
             <div className="w-1 h-1 bg-purple-400 rounded-full mr-2"></div>
             {reason.description}
           </div>
@@ -378,7 +378,7 @@ const AdvancedSearchDiscovery: React.FC<AdvancedSearchDiscoveryProps> = ({
             />
             <button
               onClick={() => setShowFilters(!showFilters)}
-              className="absolute right-3 top-1/2 transform -translate-y-1/2 p-1 hover:bg-gray-100 rounded-full"
+              className="absolute right-3 top-1/2 transform -translate-y-1/2 p-1 hover:bg-white/10 rounded-full"
             >
               <FunnelIcon className="w-5 h-5 text-gray-400" />
             </button>
@@ -391,14 +391,14 @@ const AdvancedSearchDiscovery: React.FC<AdvancedSearchDiscoveryProps> = ({
                 <button
                   key={idx}
                   onClick={() => handleSuggestionSelect(suggestion)}
-                  className="w-full flex items-center space-x-3 px-4 py-3 hover:bg-gray-50 text-left"
+                  className="w-full flex items-center space-x-3 px-4 py-3 hover:bg-white/5 text-left"
                 >
                   {suggestion.icon === 'map-pin' && <MapPinIcon className="w-4 h-4 text-gray-400" />}
                   {suggestion.icon === 'tag' && <TagIcon className="w-4 h-4 text-gray-400" />}
                   {suggestion.icon === 'star' && <StarIcon className="w-4 h-4 text-gray-400" />}
                   {suggestion.icon === 'clock' && <ClockIcon className="w-4 h-4 text-gray-400" />}
                   <span className="text-white">{suggestion.text}</span>
-                  <span className="text-xs text-gray-500 capitalize">{suggestion.type}</span>
+                  <span className="text-xs text-gray-400 capitalize">{suggestion.type}</span>
                 </button>
               ))}
             </div>
@@ -452,7 +452,7 @@ const AdvancedSearchDiscovery: React.FC<AdvancedSearchDiscoveryProps> = ({
             
             <button
               onClick={clearAllFilters}
-              className="text-gray-600 hover:text-gray-100 text-sm underline"
+              className="text-gray-300 hover:text-gray-100 text-sm underline"
             >
               {t('search.clear_all')}
             </button>
@@ -476,7 +476,7 @@ const AdvancedSearchDiscovery: React.FC<AdvancedSearchDiscoveryProps> = ({
             
             {/* Categories Filter */}
             <div className="mb-6">
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-gray-200 mb-2">
                 {t('search.category')}
               </label>
               <select
@@ -495,7 +495,7 @@ const AdvancedSearchDiscovery: React.FC<AdvancedSearchDiscoveryProps> = ({
 
             {/* Rating Filter */}
             <div className="mb-6">
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-gray-200 mb-2">
                 {t('search.minimum_rating')}
               </label>
               <div className="space-y-2">
@@ -511,7 +511,7 @@ const AdvancedSearchDiscovery: React.FC<AdvancedSearchDiscoveryProps> = ({
                     />
                     <div className="flex items-center space-x-1">
                       {renderRating(rating, 'w-3 h-3')}
-                      <span className="text-sm text-gray-700">{rating}+</span>
+                      <span className="text-sm text-gray-200">{rating}+</span>
                     </div>
                   </label>
                 ))}
@@ -520,7 +520,7 @@ const AdvancedSearchDiscovery: React.FC<AdvancedSearchDiscoveryProps> = ({
 
             {/* Price Range Filter */}
             <div className="mb-6">
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-gray-200 mb-2">
                 {t('search.price_range')}
               </label>
               <div className="space-y-2">
@@ -542,7 +542,7 @@ const AdvancedSearchDiscovery: React.FC<AdvancedSearchDiscoveryProps> = ({
                       className="mr-2"
                     />
                     <span className="font-semibold mr-2">{price.label}</span>
-                    <span className="text-sm text-gray-600">{price.description}</span>
+                    <span className="text-sm text-gray-300">{price.description}</span>
                   </label>
                 ))}
               </div>
@@ -550,7 +550,7 @@ const AdvancedSearchDiscovery: React.FC<AdvancedSearchDiscoveryProps> = ({
 
             {/* Features Filter */}
             <div className="mb-6">
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-gray-200 mb-2">
                 {t('search.features')}
               </label>
               <div className="space-y-2 max-h-32 overflow-y-auto">
@@ -579,7 +579,7 @@ const AdvancedSearchDiscovery: React.FC<AdvancedSearchDiscoveryProps> = ({
 
             {/* Sort Filter */}
             <div className="mb-4">
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-gray-200 mb-2">
                 {t('search.sort_by')}
               </label>
               <select
@@ -656,7 +656,7 @@ const AdvancedSearchDiscovery: React.FC<AdvancedSearchDiscoveryProps> = ({
               {!showFilters && (
                 <button
                   onClick={() => setShowFilters(true)}
-                  className="lg:hidden flex items-center space-x-2 text-gray-600 hover:text-white"
+                  className="lg:hidden flex items-center space-x-2 text-gray-300 hover:text-white"
                 >
                   <AdjustmentsHorizontalIcon className="w-5 h-5" />
                   <span>{t('search.filters')}</span>
@@ -685,17 +685,17 @@ const AdvancedSearchDiscovery: React.FC<AdvancedSearchDiscoveryProps> = ({
                   <button
                     onClick={() => setCurrentPage(prev => Math.max(1, prev - 1))}
                     disabled={currentPage === 1}
-                    className="px-4 py-2 border border-white/20 rounded-md disabled:opacity-50 hover:bg-gray-50"
+                    className="px-4 py-2 border border-white/20 rounded-md disabled:opacity-50 hover:bg-white/5"
                   >
                     {t('pagination.previous')}
                   </button>
-                  <span className="px-4 py-2 text-gray-700">
+                  <span className="px-4 py-2 text-gray-200">
                     {t('pagination.page_of', { current: currentPage, total: Math.ceil(totalResults / 20) })}
                   </span>
                   <button
                     onClick={() => setCurrentPage(prev => prev + 1)}
                     disabled={currentPage >= Math.ceil(totalResults / 20)}
-                    className="px-4 py-2 border border-white/20 rounded-md disabled:opacity-50 hover:bg-gray-50"
+                    className="px-4 py-2 border border-white/20 rounded-md disabled:opacity-50 hover:bg-white/5"
                   >
                     {t('pagination.next')}
                   </button>

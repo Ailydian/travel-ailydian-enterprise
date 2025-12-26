@@ -66,13 +66,13 @@ export const PriceComparisonWidget: React.FC<PriceComparisonWidgetProps> = ({
               <h3 className="text-xl font-bold text-white">
                 En İyi Fiyat Garantisi
               </h3>
-              <p className="text-sm text-gray-600">
+              <p className="text-sm text-gray-300">
                 Rakiplerimizden %{savingsPercent} daha ucuz
               </p>
             </div>
           </div>
           <div className="text-right">
-            <div className="text-sm text-gray-600 line-through">
+            <div className="text-sm text-gray-300 line-through">
               {currency}{avgCompetitorPrice.toFixed(0)}
             </div>
             <div className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-emerald-600">
@@ -102,15 +102,15 @@ export const PriceComparisonWidget: React.FC<PriceComparisonWidgetProps> = ({
         <div className="grid grid-cols-3 gap-3 mb-4">
           <div className="bg-white/80 backdrop-blur-sm rounded-lg p-3 text-center">
             <Shield className="w-5 h-5 text-green-600 mx-auto mb-1" />
-            <div className="text-xs font-semibold text-gray-700">Ücretsiz İptal</div>
+            <div className="text-xs font-semibold text-gray-200">Ücretsiz İptal</div>
           </div>
           <div className="bg-white/80 backdrop-blur-sm rounded-lg p-3 text-center">
             <Zap className="w-5 h-5 text-green-600 mx-auto mb-1" />
-            <div className="text-xs font-semibold text-gray-700">Anında Onay</div>
+            <div className="text-xs font-semibold text-gray-200">Anında Onay</div>
           </div>
           <div className="bg-white/80 backdrop-blur-sm rounded-lg p-3 text-center">
             <Star className="w-5 h-5 text-green-600 mx-auto mb-1" />
-            <div className="text-xs font-semibold text-gray-700">4.9★ Puan</div>
+            <div className="text-xs font-semibold text-gray-200">4.9★ Puan</div>
           </div>
         </div>
 
@@ -119,13 +119,13 @@ export const PriceComparisonWidget: React.FC<PriceComparisonWidgetProps> = ({
           onClick={() => setIsExpanded(!isExpanded)}
           className="w-full bg-white/60 hover:bg-white/80 backdrop-blur-sm rounded-lg px-4 py-3 flex items-center justify-between transition-all group"
         >
-          <span className="text-sm font-semibold text-gray-700">
+          <span className="text-sm font-semibold text-gray-200">
             Tüm Rakipleri Karşılaştır ({competitors.length} firma)
           </span>
           {isExpanded ? (
-            <ChevronUp className="w-5 h-5 text-gray-600 group-hover:text-green-600 transition-colors" />
+            <ChevronUp className="w-5 h-5 text-gray-300 group-hover:text-green-600 transition-colors" />
           ) : (
-            <ChevronDown className="w-5 h-5 text-gray-600 group-hover:text-green-600 transition-colors" />
+            <ChevronDown className="w-5 h-5 text-gray-300 group-hover:text-green-600 transition-colors" />
           )}
         </button>
       </div>
@@ -178,11 +178,11 @@ export const PriceComparisonWidget: React.FC<PriceComparisonWidgetProps> = ({
                 >
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-3">
-                      <div className="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center">
+                      <div className="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center">
                         {competitor.logo ? (
                           <img src={competitor.logo} alt={competitor.provider} className="w-8 h-8 object-contain" />
                         ) : (
-                          <span className="text-xs font-bold text-gray-500">
+                          <span className="text-xs font-bold text-gray-400">
                             {competitor.provider.substring(0, 2).toUpperCase()}
                           </span>
                         )}
@@ -190,7 +190,7 @@ export const PriceComparisonWidget: React.FC<PriceComparisonWidgetProps> = ({
                       <div>
                         <div className="font-semibold text-white">{competitor.provider}</div>
                         {competitor.rating && (
-                          <div className="text-xs text-gray-500 flex items-center gap-1">
+                          <div className="text-xs text-gray-400 flex items-center gap-1">
                             <Star className="w-3 h-3 fill-yellow-400 text-yellow-400" />
                             <span>{competitor.rating}/5</span>
                           </div>
@@ -213,7 +213,7 @@ export const PriceComparisonWidget: React.FC<PriceComparisonWidgetProps> = ({
                       {competitor.features.map((feature, idx) => (
                         <div key={idx} className="flex items-center gap-1 text-xs">
                           <Check className="w-3 h-3 text-green-500 flex-shrink-0" />
-                          <span className="text-gray-600">{feature}</span>
+                          <span className="text-gray-300">{feature}</span>
                         </div>
                       ))}
                     </div>
@@ -225,7 +225,7 @@ export const PriceComparisonWidget: React.FC<PriceComparisonWidgetProps> = ({
                       href={competitor.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="mt-3 flex items-center justify-center gap-2 text-xs text-gray-500 hover:text-blue-600 transition-colors"
+                      className="mt-3 flex items-center justify-center gap-2 text-xs text-gray-400 hover:text-blue-600 transition-colors"
                     >
                       <span>Siteyi Ziyaret Et</span>
                       <ExternalLink className="w-3 h-3" />
@@ -238,7 +238,7 @@ export const PriceComparisonWidget: React.FC<PriceComparisonWidgetProps> = ({
             {/* Footer Note */}
             <div className="px-6 pb-6">
               <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-                <p className="text-xs text-gray-600 text-center">
+                <p className="text-xs text-gray-300 text-center">
                   <span className="font-semibold text-blue-600">💡 Fiyat Garantisi:</span>
                   {' '}Aynı tur için daha ucuz fiyat bulursanız, farkı iade ediyoruz!
                   <br />

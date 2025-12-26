@@ -519,7 +519,7 @@ export default function Partners() {
                   Başvuruyu Gönder
                 </motion.button>
 
-                <p className="text-center text-sm text-gray-500">
+                <p className="text-center text-sm text-gray-400">
                   Başvurunuz alındıktan sonra 24 saat içinde tarafınıza dönüş yapılacaktır.
                 </p>
               </form>

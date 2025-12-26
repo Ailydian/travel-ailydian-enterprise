@@ -302,7 +302,7 @@ const TravelSocialHub: React.FC = () => {
           </div>
           <div>
             <h4 className="font-semibold text-white">{post.user.name}</h4>
-            <div className="flex items-center gap-2 text-sm text-gray-500">
+            <div className="flex items-center gap-2 text-sm text-gray-400">
               {post.location && (
                 <div className="flex items-center gap-1">
                   <MapPin className="w-3 h-3" />
@@ -315,7 +315,7 @@ const TravelSocialHub: React.FC = () => {
           </div>
         </div>
         
-        <button className="p-2 hover:bg-gray-100 rounded-full transition-colors">
+        <button className="p-2 hover:bg-white/10 rounded-full transition-colors">
           <MoreHorizontal className="w-5 h-5 text-gray-400" />
         </button>
       </div>
@@ -360,7 +360,7 @@ const TravelSocialHub: React.FC = () => {
             >
               <button
                 onClick={() => handleLikePost(post.id)}
-                className="flex items-center gap-2 text-gray-600 hover:text-red-500 transition-colors"
+                className="flex items-center gap-2 text-gray-300 hover:text-red-500 transition-colors"
               >
               <Heart 
                 className={`w-5 h-5 ${post.isLiked ? 'fill-red-500 text-red-500' : ''}`}
@@ -369,12 +369,12 @@ const TravelSocialHub: React.FC = () => {
               </button>
             </motion.div>
             
-            <button className="flex items-center gap-2 text-gray-600 hover:text-blue-500 transition-colors">
+            <button className="flex items-center gap-2 text-gray-300 hover:text-blue-500 transition-colors">
               <MessageCircle className="w-5 h-5" />
               <span className="text-sm font-medium">{post.comments.length}</span>
             </button>
             
-            <button className="flex items-center gap-2 text-gray-600 hover:text-green-500 transition-colors">
+            <button className="flex items-center gap-2 text-gray-300 hover:text-green-500 transition-colors">
               <Share2 className="w-5 h-5" />
               <span className="text-sm font-medium">{post.shares}</span>
             </button>
@@ -386,7 +386,7 @@ const TravelSocialHub: React.FC = () => {
           >
             <button
               onClick={() => handleBookmarkPost(post.id)}
-              className="text-gray-600 hover:text-yellow-500 transition-colors"
+              className="text-gray-300 hover:text-yellow-500 transition-colors"
             >
             <Bookmark 
               className={`w-5 h-5 ${post.isBookmarked ? 'fill-yellow-500 text-yellow-500' : ''}`}
@@ -407,15 +407,15 @@ const TravelSocialHub: React.FC = () => {
                 />
                 <div className="flex-1">
                   <span className="font-medium text-sm text-white">{comment.user.name}</span>
-                  <span className="text-gray-700 text-sm ml-2">{comment.content}</span>
+                  <span className="text-gray-200 text-sm ml-2">{comment.content}</span>
                   <div className="flex items-center gap-3 mt-1">
-                    <span className="text-xs text-gray-500">
+                    <span className="text-xs text-gray-400">
                       {new Date(comment.timestamp).toLocaleDateString()}
                     </span>
-                    <button className="text-xs text-gray-500 hover:text-gray-700">
+                    <button className="text-xs text-gray-400 hover:text-gray-200">
                       Beğen
                     </button>
-                    <button className="text-xs text-gray-500 hover:text-gray-700">
+                    <button className="text-xs text-gray-400 hover:text-gray-200">
                       Yanıtla
                     </button>
                   </div>
@@ -449,14 +449,14 @@ const TravelSocialHub: React.FC = () => {
           </div>
           <div>
             <h3 className="font-bold text-white text-lg">{user.name}</h3>
-            <div className="flex items-center gap-1 text-gray-600 mb-1">
+            <div className="flex items-center gap-1 text-gray-300 mb-1">
               <MapPin className="w-4 h-4" />
               <span className="text-sm">{user.location}</span>
             </div>
             <div className="flex items-center gap-2">
               <div className="flex items-center gap-1">
                 <Star className="w-4 h-4 text-yellow-500" />
-                <span className="text-sm font-medium text-gray-700">{user.compatibility}% uyumlu</span>
+                <span className="text-sm font-medium text-gray-200">{user.compatibility}% uyumlu</span>
               </div>
             </div>
           </div>
@@ -476,7 +476,7 @@ const TravelSocialHub: React.FC = () => {
         </motion.div>
       </div>
 
-      <p className="text-gray-700 mb-4">{user.bio}</p>
+      <p className="text-gray-200 mb-4">{user.bio}</p>
 
       {/* Travel Interests */}
       <div className="mb-4">
@@ -514,8 +514,8 @@ const TravelSocialHub: React.FC = () => {
       <div>
         <h4 className="font-medium text-white mb-2">Ziyaret Ettiği Ülkeler</h4>
         <div className="flex items-center gap-2">
-          <Globe className="w-4 h-4 text-gray-500" />
-          <span className="text-sm text-gray-600">{user.countries.length} ülke</span>
+          <Globe className="w-4 h-4 text-gray-400" />
+          <span className="text-sm text-gray-300">{user.countries.length} ülke</span>
         </div>
       </div>
       </div>
@@ -529,8 +529,8 @@ const TravelSocialHub: React.FC = () => {
         <h1 className="text-3xl font-bold text-white">Sosyal Seyahat</h1>
         
         <div className="flex items-center gap-4">
-          <button className="relative p-2 hover:bg-gray-100 rounded-lg transition-colors">
-            <Bell className="w-6 h-6 text-gray-600" />
+          <button className="relative p-2 hover:bg-white/10 rounded-lg transition-colors">
+            <Bell className="w-6 h-6 text-gray-300" />
             <div className="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full" />
           </button>
           
@@ -550,7 +550,7 @@ const TravelSocialHub: React.FC = () => {
       </div>
 
       {/* Navigation Tabs */}
-      <div className="flex items-center gap-1 mb-8 bg-gray-100 p-1 rounded-xl">
+      <div className="flex items-center gap-1 mb-8 bg-white/10 p-1 rounded-xl">
         {[
           { key: 'feed', label: 'Ana Sayfa', icon: Users },
           { key: 'discover', label: 'Keşfet', icon: Compass },
@@ -569,7 +569,7 @@ const TravelSocialHub: React.FC = () => {
                 className={`flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-lg font-medium transition-colors ${
                   activeTab === tab.key
                     ? 'bg-white/5 text-blue-600 shadow-sm'
-                    : 'text-gray-600 hover:text-white'
+                    : 'text-gray-300 hover:text-white'
                 }`}
               >
               <Icon className="w-5 h-5" />
@@ -604,7 +604,7 @@ const TravelSocialHub: React.FC = () => {
           {activeTab === 'plans' && (
             <div>
               <h2 className="text-2xl font-bold text-white mb-6">Grup Seyahat Planları</h2>
-              <div className="text-center text-gray-500 py-12">
+              <div className="text-center text-gray-400 py-12">
                 <Calendar className="w-12 h-12 mx-auto mb-4 text-gray-400" />
                 <p>Henüz aktif seyahat planı yok</p>
                 <button className="mt-4 px-6 py-3 bg-blue-600 text-white rounded-xl font-medium">
@@ -617,7 +617,7 @@ const TravelSocialHub: React.FC = () => {
           {activeTab === 'chat' && (
             <div>
               <h2 className="text-2xl font-bold text-white mb-6">Mesajlar</h2>
-              <div className="text-center text-gray-500 py-12">
+              <div className="text-center text-gray-400 py-12">
                 <MessageCircle className="w-12 h-12 mx-auto mb-4 text-gray-400" />
                 <p>Henüz mesaj yok</p>
               </div>
@@ -643,7 +643,7 @@ const TravelSocialHub: React.FC = () => {
                   </div>
                   <div className="flex-1">
                     <p className="font-medium text-white text-sm">{user.name}</p>
-                    <p className="text-xs text-gray-500">{user.location}</p>
+                    <p className="text-xs text-gray-400">{user.location}</p>
                   </div>
                 </div>
               ))}
@@ -663,7 +663,7 @@ const TravelSocialHub: React.FC = () => {
                 <div key={index} className="flex items-center justify-between">
                   <div>
                     <p className="font-medium text-white">{destination.name}</p>
-                    <p className="text-sm text-gray-500">{destination.count} gönderi</p>
+                    <p className="text-sm text-gray-400">{destination.count} gönderi</p>
                   </div>
                   <span className="text-sm font-medium text-green-600">{destination.trend}</span>
                 </div>
@@ -698,9 +698,9 @@ const TravelSocialHub: React.FC = () => {
                 <h3 className="text-xl font-bold text-white">Yeni Gönderi</h3>
                 <button
                   onClick={() => setShowNewPostModal(false)}
-                  className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+                  className="p-2 hover:bg-white/10 rounded-lg transition-colors"
                 >
-                  <X className="w-5 h-5 text-gray-500" />
+                  <X className="w-5 h-5 text-gray-400" />
                 </button>
               </div>
 
@@ -714,11 +714,11 @@ const TravelSocialHub: React.FC = () => {
 
               <div className="flex items-center justify-between mt-6">
                 <div className="flex items-center gap-4">
-                  <button className="p-2 hover:bg-gray-100 rounded-lg transition-colors">
-                    <Camera className="w-5 h-5 text-gray-600" />
+                  <button className="p-2 hover:bg-white/10 rounded-lg transition-colors">
+                    <Camera className="w-5 h-5 text-gray-300" />
                   </button>
-                  <button className="p-2 hover:bg-gray-100 rounded-lg transition-colors">
-                    <MapPin className="w-5 h-5 text-gray-600" />
+                  <button className="p-2 hover:bg-white/10 rounded-lg transition-colors">
+                    <MapPin className="w-5 h-5 text-gray-300" />
                   </button>
                 </div>
 

@@ -64,7 +64,7 @@ export const ExploreMenu: React.FC = () => {
           flex items-center gap-2 px-4 py-2 rounded-md font-medium text-sm transition-colors
           ${isOpen
             ? 'text-lydian-primary bg-red-50'
-            : 'text-gray-700 hover:text-lydian-primary hover:bg-gray-50'
+            : 'text-gray-200 hover:text-lydian-primary hover:bg-white/5'
           }
         `}
       >
@@ -107,7 +107,7 @@ export const ExploreMenu: React.FC = () => {
                           <h3 className="font-bold text-white group-hover:text-lydian-primary transition-colors">
                             {categoryData.name}
                           </h3>
-                          <p className="text-xs text-gray-500">{categoryData.description}</p>
+                          <p className="text-xs text-gray-400">{categoryData.description}</p>
                         </div>
                       </Link>
 
@@ -122,10 +122,10 @@ export const ExploreMenu: React.FC = () => {
                               key={sub.id}
                               href={`/explore/${category.id}/${sub.slug}`}
                               onClick={() => setIsOpen(false)}
-                              className="flex items-center gap-2 py-1.5 px-2 rounded-md hover:bg-gray-50 transition-colors group"
+                              className="flex items-center gap-2 py-1.5 px-2 rounded-md hover:bg-white/5 transition-colors group"
                             >
                               <SubIcon className="w-3.5 h-3.5 text-gray-400 group-hover:text-lydian-primary" />
-                              <span className="text-sm text-gray-700 group-hover:text-lydian-primary">
+                              <span className="text-sm text-gray-200 group-hover:text-lydian-primary">
                                 {subData.name}
                               </span>
                             </Link>
@@ -153,7 +153,7 @@ export const ExploreMenu: React.FC = () => {
                         key={destination.id}
                         href={`/explore/destinations/${destination.slug}`}
                         onClick={() => setIsOpen(false)}
-                        className="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 transition-colors group"
+                        className="flex items-center gap-3 p-2 rounded-lg hover:bg-white/5 transition-colors group"
                       >
                         <div className="w-12 h-12 rounded-lg overflow-hidden flex-shrink-0">
                           <img
@@ -166,7 +166,7 @@ export const ExploreMenu: React.FC = () => {
                           <h4 className="font-semibold text-sm text-white group-hover:text-lydian-primary truncate">
                             {destData.name}
                           </h4>
-                          <p className="text-xs text-gray-500 truncate">{destData.description}</p>
+                          <p className="text-xs text-gray-400 truncate">{destData.description}</p>
                         </div>
                       </Link>
                     );
@@ -194,7 +194,7 @@ export const ExploreMenu: React.FC = () => {
                   </div>
                   <div>
                     <h4 className="font-bold text-white">{t('explore.trending')}</h4>
-                    <p className="text-xs text-gray-600">{t('explore.trendingDescription')}</p>
+                    <p className="text-xs text-gray-300">{t('explore.trendingDescription')}</p>
                   </div>
                 </div>
                 <Link

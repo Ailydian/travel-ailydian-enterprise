@@ -307,7 +307,7 @@ const GetYourGuideStyleHome: React.FC = () => {
 
         {/* Search Results */}
         {searchResults.length > 0 && (
-          <section className="py-16 bg-gray-50">
+          <section className="py-16 bg-white/5">
             <div className="max-w-7xl mx-auto px-4">
               <div className="flex items-center justify-between mb-8">
                 <div>
@@ -317,7 +317,7 @@ const GetYourGuideStyleHome: React.FC = () => {
                   <p className="text-gray-300">En iyi seçenekler AI tarafından sıralandı</p>
                 </div>
                 <div className="flex items-center gap-2">
-                  <button className="flex items-center gap-2 px-4 py-2 bg-transparent border border-gray-200 rounded-lg text-sm font-medium hover:bg-gray-50">
+                  <button className="flex items-center gap-2 px-4 py-2 bg-transparent border border-gray-200 rounded-lg text-sm font-medium hover:bg-white/5">
                     <Filter className="w-4 h-4" />
                     Filtrele
                   </button>

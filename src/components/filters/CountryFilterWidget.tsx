@@ -60,7 +60,7 @@ export const CountryFilterWidget: React.FC<CountryFilterWidgetProps> = ({
           className={`w-full flex items-center justify-between p-4 rounded-xl transition-all duration-300 ${
             selectedCountry === null
               ? 'bg-gradient-to-r from-lydian-primary to-lydian-secondary text-white shadow-lg shadow-red-500/30'
-              : 'bg-gray-50 hover:bg-gray-100 text-gray-700'
+              : 'bg-white/5 hover:bg-white/10 text-gray-200'
           }`}
         >
           <div className="flex items-center gap-3">
@@ -71,7 +71,7 @@ export const CountryFilterWidget: React.FC<CountryFilterWidgetProps> = ({
             </div>
             <div className="text-left">
               <p className="font-bold">{t('tours.allCountries') || 'Tüm Ülkeler'}</p>
-              <p className={`text-sm ${selectedCountry === null ? 'text-white/80' : 'text-gray-500'}`}>
+              <p className={`text-sm ${selectedCountry === null ? 'text-white/80' : 'text-gray-400'}`}>
                 {countries.reduce((sum, c) => sum + c.tourCount, 0)} {t('tours.tours') || 'tur'}
               </p>
             </div>
@@ -100,14 +100,14 @@ export const CountryFilterWidget: React.FC<CountryFilterWidgetProps> = ({
             className={`w-full flex items-center justify-between p-4 rounded-xl transition-all duration-300 ${
               selectedCountry === country.code
                 ? 'bg-gradient-to-r from-lydian-primary to-lydian-secondary text-white shadow-lg shadow-red-500/30'
-                : 'bg-gray-50 hover:bg-gray-100 text-gray-700'
+                : 'bg-white/5 hover:bg-white/10 text-gray-200'
             }`}
           >
             <div className="flex items-center gap-3">
               <div className="text-3xl">{country.flag}</div>
               <div className="text-left">
                 <p className="font-bold">{country.name[currentLang]}</p>
-                <p className={`text-sm ${selectedCountry === country.code ? 'text-white/80' : 'text-gray-500'}`}>
+                <p className={`text-sm ${selectedCountry === country.code ? 'text-white/80' : 'text-gray-400'}`}>
                   {country.tourCount} {t('tours.tours') || 'tur'}
                 </p>
               </div>
@@ -126,9 +126,9 @@ export const CountryFilterWidget: React.FC<CountryFilterWidgetProps> = ({
       </div>
 
       {/* Footer Stats */}
-      <div className="bg-gray-50 p-4 border-t border-gray-100">
+      <div className="bg-white/5 p-4 border-t border-gray-100">
         <div className="flex items-center justify-between text-sm">
-          <div className="flex items-center gap-2 text-gray-600">
+          <div className="flex items-center gap-2 text-gray-300">
             <MapPin className="w-4 h-4" />
             <span>
               {selectedCountry

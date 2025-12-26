@@ -96,7 +96,7 @@ export const PropertyCard: React.FC<PropertyCardProps> = ({
 
   if (loading) {
     return (
-      <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
+      <div className="bg-white/5 rounded-lg border border-gray-200 overflow-hidden">
         <div className="h-48 bg-gray-200 animate-pulse" />
         <div className="p-4 space-y-3">
           <div className="h-6 bg-gray-200 rounded animate-pulse w-3/4" />
@@ -111,9 +111,9 @@ export const PropertyCard: React.FC<PropertyCardProps> = ({
   }
 
   return (
-    <div className="bg-white rounded-lg border border-gray-200 overflow-hidden hover:shadow-lg transition-all duration-200 group">
+    <div className="bg-white/5 rounded-lg border border-gray-200 overflow-hidden hover:shadow-lg transition-all duration-200 group">
       {/* Image Section */}
-      <div className="relative h-48 overflow-hidden bg-gray-100">
+      <div className="relative h-48 overflow-hidden bg-white/10">
         {!imageError ? (
           <img
             src={image}
@@ -138,10 +138,10 @@ export const PropertyCard: React.FC<PropertyCardProps> = ({
           <div className="relative">
             <button
               onClick={() => setShowActions(!showActions)}
-              className="bg-white rounded-full p-2 shadow-md hover:bg-gray-100 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="bg-white/5 rounded-full p-2 shadow-md hover:bg-white/10 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500"
               aria-label="Property actions"
             >
-              <MoreVertical className="h-4 w-4 text-gray-700" />
+              <MoreVertical className="h-4 w-4 text-gray-200" />
             </button>
 
             {showActions && (
@@ -150,14 +150,14 @@ export const PropertyCard: React.FC<PropertyCardProps> = ({
                   className="fixed inset-0 z-10"
                   onClick={() => setShowActions(false)}
                 />
-                <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 py-1 z-20">
+                <div className="absolute right-0 mt-2 w-48 bg-white/5 rounded-lg shadow-lg border border-gray-200 py-1 z-20">
                   {onView && (
                     <button
                       onClick={() => {
                         onView(id);
                         setShowActions(false);
                       }}
-                      className="w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-100 flex items-center space-x-2"
+                      className="w-full px-4 py-2 text-left text-sm text-gray-200 hover:bg-white/10 flex items-center space-x-2"
                     >
                       <Eye className="h-4 w-4" />
                       <span>View Details</span>
@@ -169,7 +169,7 @@ export const PropertyCard: React.FC<PropertyCardProps> = ({
                         onEdit(id);
                         setShowActions(false);
                       }}
-                      className="w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-100 flex items-center space-x-2"
+                      className="w-full px-4 py-2 text-left text-sm text-gray-200 hover:bg-white/10 flex items-center space-x-2"
                     >
                       <Edit className="h-4 w-4" />
                       <span>Edit Property</span>
@@ -181,7 +181,7 @@ export const PropertyCard: React.FC<PropertyCardProps> = ({
                         onToggleStatus(id);
                         setShowActions(false);
                       }}
-                      className="w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-100 flex items-center space-x-2"
+                      className="w-full px-4 py-2 text-left text-sm text-gray-200 hover:bg-white/10 flex items-center space-x-2"
                     >
                       <Power className="h-4 w-4" />
                       <span>
@@ -199,19 +199,19 @@ export const PropertyCard: React.FC<PropertyCardProps> = ({
       {/* Content Section */}
       <div className="p-4">
         {/* Title */}
-        <h3 className="text-lg font-semibold text-gray-900 mb-1 line-clamp-1">
+        <h3 className="text-lg font-semibold text-white mb-1 line-clamp-1">
           {title}
         </h3>
 
         {/* Location */}
-        <div className="flex items-center text-sm text-gray-600 mb-3">
+        <div className="flex items-center text-sm text-gray-300 mb-3">
           <MapPin className="h-4 w-4 mr-1 flex-shrink-0" />
           <span className="line-clamp-1">{location}</span>
         </div>
 
         {/* Property Details */}
         {(bedrooms || maxGuests) && (
-          <div className="flex items-center space-x-4 mb-3 text-sm text-gray-600">
+          <div className="flex items-center space-x-4 mb-3 text-sm text-gray-300">
             {bedrooms && (
               <div className="flex items-center">
                 <Bed className="h-4 w-4 mr-1" />
@@ -230,20 +230,20 @@ export const PropertyCard: React.FC<PropertyCardProps> = ({
         {/* Rating and Price */}
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-2">
-            <div className="text-2xl font-bold text-gray-900">
+            <div className="text-2xl font-bold text-white">
               {currency}{price.toLocaleString()}
             </div>
-            <span className="text-sm text-gray-500">/night</span>
+            <span className="text-sm text-gray-400">/night</span>
           </div>
 
           {rating !== undefined && (
             <div className="flex items-center space-x-1">
               <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-              <span className="text-sm font-semibold text-gray-900">
+              <span className="text-sm font-semibold text-white">
                 {rating.toFixed(1)}
               </span>
               {reviewCount !== undefined && (
-                <span className="text-xs text-gray-500">({reviewCount})</span>
+                <span className="text-xs text-gray-400">({reviewCount})</span>
               )}
             </div>
           )}
@@ -254,7 +254,7 @@ export const PropertyCard: React.FC<PropertyCardProps> = ({
           {onView && (
             <button
               onClick={() => onView(id)}
-              className="flex-1 px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors text-sm font-medium focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="flex-1 px-4 py-2 bg-white/10 text-gray-200 rounded-lg hover:bg-gray-200 transition-colors text-sm font-medium focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
               View
             </button>

@@ -223,7 +223,7 @@ const EnhancedTripPlanner: React.FC = () => {
               <h1 className="text-4xl font-bold text-white">
                 AI-Powered Trip Planner
               </h1>
-              <p className="text-xl text-gray-600">
+              <p className="text-xl text-gray-300">
                 Tell us what you want, and we&apos;ll create the perfect itinerary
               </p>
             </div>
@@ -231,7 +231,7 @@ const EnhancedTripPlanner: React.FC = () => {
             {/* Natural Language Input */}
             <div className="bg-white/5 rounded-2xl shadow-xl p-8 space-y-6">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-200 mb-2">
                   Describe Your Dream Trip
                 </label>
                 <textarea
@@ -257,7 +257,7 @@ const EnhancedTripPlanner: React.FC = () => {
               {/* Destination */}
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-gray-200 mb-2">
                     <MapPin className="inline w-4 h-4 mr-1" />
                     Destination
                   </label>
@@ -271,7 +271,7 @@ const EnhancedTripPlanner: React.FC = () => {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-gray-200 mb-2">
                     <Users className="inline w-4 h-4 mr-1" />
                     Travelers
                   </label>
@@ -288,7 +288,7 @@ const EnhancedTripPlanner: React.FC = () => {
               {/* Dates */}
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-gray-200 mb-2">
                     <Calendar className="inline w-4 h-4 mr-1" />
                     Start Date
                   </label>
@@ -301,7 +301,7 @@ const EnhancedTripPlanner: React.FC = () => {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-gray-200 mb-2">
                     <Calendar className="inline w-4 h-4 mr-1" />
                     End Date
                   </label>
@@ -316,7 +316,7 @@ const EnhancedTripPlanner: React.FC = () => {
 
               {/* Budget */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-200 mb-2">
                   <DollarSign className="inline w-4 h-4 mr-1" />
                   Total Budget: ${preferences.budget}
                 </label>
@@ -329,7 +329,7 @@ const EnhancedTripPlanner: React.FC = () => {
                   value={preferences.budget}
                   onChange={(e) => setPreferences({ ...preferences, budget: parseInt(e.target.value) })}
                 />
-                <div className="flex justify-between text-xs text-gray-500 mt-1">
+                <div className="flex justify-between text-xs text-gray-400 mt-1">
                   <span>$500</span>
                   <span>$10,000</span>
                 </div>
@@ -337,7 +337,7 @@ const EnhancedTripPlanner: React.FC = () => {
 
               {/* Travel Style */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-3">
+                <label className="block text-sm font-medium text-gray-200 mb-3">
                   Travel Style
                 </label>
                 <div className="grid grid-cols-3 gap-4">
@@ -365,7 +365,7 @@ const EnhancedTripPlanner: React.FC = () => {
 
               {/* Interests */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-3">
+                <label className="block text-sm font-medium text-gray-200 mb-3">
                   What interests you?
                 </label>
                 <div className="flex flex-wrap gap-2">
@@ -376,7 +376,7 @@ const EnhancedTripPlanner: React.FC = () => {
                       className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
                         preferences.interests.includes(interest)
                           ? 'bg-purple-600 text-white'
-                          : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                          : 'bg-white/10 text-gray-200 hover:bg-gray-200'
                       }`}
                     >
                       {interest}
@@ -422,10 +422,10 @@ const EnhancedTripPlanner: React.FC = () => {
             </motion.div>
             <h2 className="text-2xl font-bold text-white">Creating Your Perfect Itinerary</h2>
             <div className="space-y-2 text-center">
-              <p className="text-gray-600">Analyzing {preferences.destination}...</p>
-              <p className="text-gray-600">Finding best attractions and activities...</p>
-              <p className="text-gray-600">Optimizing routes and timing...</p>
-              <p className="text-gray-600">Checking weather and availability...</p>
+              <p className="text-gray-300">Analyzing {preferences.destination}...</p>
+              <p className="text-gray-300">Finding best attractions and activities...</p>
+              <p className="text-gray-300">Optimizing routes and timing...</p>
+              <p className="text-gray-300">Checking weather and availability...</p>
             </div>
             <div className="w-64 h-2 bg-gray-200 rounded-full overflow-hidden">
               <motion.div
@@ -451,7 +451,7 @@ const EnhancedTripPlanner: React.FC = () => {
                   <h1 className="text-3xl font-bold text-white mb-2">
                     {preferences.destination} Trip Itinerary
                   </h1>
-                  <div className="flex items-center gap-4 text-gray-600">
+                  <div className="flex items-center gap-4 text-gray-300">
                     <div className="flex items-center gap-1">
                       <Calendar className="w-4 h-4" />
                       <span>{itinerary.length} days</span>
@@ -470,14 +470,14 @@ const EnhancedTripPlanner: React.FC = () => {
                 <div className="flex gap-2">
                   <button
                     onClick={exportToPDF}
-                    className="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg flex items-center gap-2 transition-colors"
+                    className="px-4 py-2 bg-white/10 hover:bg-gray-200 rounded-lg flex items-center gap-2 transition-colors"
                   >
                     <Download className="w-4 h-4" />
                     PDF
                   </button>
                   <button
                     onClick={exportToCalendar}
-                    className="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg flex items-center gap-2 transition-colors"
+                    className="px-4 py-2 bg-white/10 hover:bg-gray-200 rounded-lg flex items-center gap-2 transition-colors"
                   >
                     <Calendar className="w-4 h-4" />
                     Calendar
@@ -500,9 +500,9 @@ const EnhancedTripPlanner: React.FC = () => {
                 <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
                   {Object.entries(budgetBreakdown).map(([key, value]) => (
                     key !== 'total' && (
-                      <div key={key} className="text-center p-4 bg-gray-50 rounded-lg">
+                      <div key={key} className="text-center p-4 bg-white/5 rounded-lg">
                         <div className="text-2xl font-bold text-purple-600">${value}</div>
-                        <div className="text-sm text-gray-600 capitalize">{key}</div>
+                        <div className="text-sm text-gray-300 capitalize">{key}</div>
                       </div>
                     )
                   ))}
@@ -528,7 +528,7 @@ const EnhancedTripPlanner: React.FC = () => {
                     className={`px-6 py-3 rounded-lg whitespace-nowrap transition-all ${
                       selectedDay === index
                         ? 'bg-purple-600 text-white shadow-lg'
-                        : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                        : 'bg-white/10 text-gray-200 hover:bg-gray-200'
                     }`}
                   >
                     <div className="font-semibold">Day {day.day}</div>
@@ -553,7 +553,7 @@ const EnhancedTripPlanner: React.FC = () => {
                       <h3 className="text-2xl font-bold text-white">
                         {itinerary[selectedDay].title}
                       </h3>
-                      <p className="text-gray-600 mt-1">
+                      <p className="text-gray-300 mt-1">
                         {format(itinerary[selectedDay].date, 'EEEE, MMMM dd, yyyy')}
                       </p>
                     </div>
@@ -562,7 +562,7 @@ const EnhancedTripPlanner: React.FC = () => {
                         <Sun className="w-5 h-5 text-blue-600" />
                         <div>
                           <div className="font-semibold">{itinerary[selectedDay].weather.temp}°C</div>
-                          <div className="text-xs text-gray-600">{itinerary[selectedDay].weather.condition}</div>
+                          <div className="text-xs text-gray-300">{itinerary[selectedDay].weather.condition}</div>
                         </div>
                       </div>
                     )}
@@ -581,14 +581,14 @@ const EnhancedTripPlanner: React.FC = () => {
                             <Icon className="w-3 h-3 text-white" />
                           </div>
 
-                          <div className="bg-gray-50 rounded-lg p-4 hover:shadow-md transition-shadow">
+                          <div className="bg-white/5 rounded-lg p-4 hover:shadow-md transition-shadow">
                             <div className="flex items-start justify-between mb-2">
                               <div>
                                 <div className="flex items-center gap-2">
                                   <span className="text-sm font-medium text-purple-600">
                                     {activity.time}
                                   </span>
-                                  <span className="text-xs text-gray-500">
+                                  <span className="text-xs text-gray-400">
                                     {activity.duration} min
                                   </span>
                                 </div>
@@ -601,7 +601,7 @@ const EnhancedTripPlanner: React.FC = () => {
                                   ${activity.cost}
                                 </div>
                                 {activity.rating && (
-                                  <div className="flex items-center gap-1 text-xs text-gray-600">
+                                  <div className="flex items-center gap-1 text-xs text-gray-300">
                                     <ThumbsUp className="w-3 h-3" />
                                     {activity.rating}/5
                                   </div>
@@ -609,10 +609,10 @@ const EnhancedTripPlanner: React.FC = () => {
                               </div>
                             </div>
 
-                            <p className="text-sm text-gray-600 mb-2">{activity.description}</p>
+                            <p className="text-sm text-gray-300 mb-2">{activity.description}</p>
 
                             <div className="flex items-center justify-between">
-                              <div className="flex items-center gap-2 text-xs text-gray-500">
+                              <div className="flex items-center gap-2 text-xs text-gray-400">
                                 <MapPin className="w-3 h-3" />
                                 {activity.location}
                               </div>
@@ -645,7 +645,7 @@ const EnhancedTripPlanner: React.FC = () => {
 
                             {activity.aiConfidence < 0.8 && (
                               <div className="mt-2 pt-2 border-t border-white/10">
-                                <button className="text-xs text-gray-600 hover:text-white flex items-center gap-1">
+                                <button className="text-xs text-gray-300 hover:text-white flex items-center gap-1">
                                   <RefreshCw className="w-3 h-3" />
                                   View alternatives
                                 </button>
@@ -685,12 +685,12 @@ const EnhancedTripPlanner: React.FC = () => {
                 <button className="flex-1 py-3 bg-purple-600 hover:bg-purple-700 text-white rounded-lg font-semibold transition-colors">
                   Book All Activities
                 </button>
-                <button className="flex-1 py-3 bg-white/5 hover:bg-gray-50 text-purple-600 border-2 border-purple-600 rounded-lg font-semibold transition-colors">
+                <button className="flex-1 py-3 bg-white/5 hover:bg-white/5 text-purple-600 border-2 border-purple-600 rounded-lg font-semibold transition-colors">
                   Invite Collaborators
                 </button>
                 <button
                   onClick={() => setStep('input')}
-                  className="flex-1 py-3 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-lg font-semibold transition-colors"
+                  className="flex-1 py-3 bg-white/10 hover:bg-gray-200 text-gray-200 rounded-lg font-semibold transition-colors"
                 >
                   Create New Trip
                 </button>

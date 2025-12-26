@@ -33,7 +33,7 @@ export default function CommercialVehicleOwnerLoginPage() {
       <Link href="/" className="fixed top-6 left-6 z-50">
         <motion.button
           whileHover={{ scale: 1.05 }}
-          className="flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-lg"
+          className="flex items-center gap-2 px-4 py-2 bg-white/5 rounded-full shadow-lg"
         >
           <Home className="w-5 h-5" />
           <span className="font-semibold">Anasayfa</span>
@@ -45,16 +45,16 @@ export default function CommercialVehicleOwnerLoginPage() {
         animate={{ opacity: 1, y: 0 }}
         className="w-full max-w-md"
       >
-        <div className="bg-white rounded-3xl shadow-2xl p-8">
+        <div className="bg-white/5 rounded-3xl shadow-2xl p-8">
           {/* Header */}
           <div className="text-center mb-8">
             <div className="inline-flex p-4 bg-gradient-to-br from-orange-600 to-yellow-600 rounded-2xl mb-4">
               <Truck className="w-12 h-12 text-white" />
             </div>
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">
+            <h1 className="text-3xl font-bold text-white mb-2">
               Ticari Araç Ortağı Girişi
             </h1>
-            <p className="text-gray-600">
+            <p className="text-gray-300">
               Minibüs, kamyonet ve özel araç yönetimi
             </p>
           </div>
@@ -62,7 +62,7 @@ export default function CommercialVehicleOwnerLoginPage() {
           {/* Form */}
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-gray-200 mb-2">
                 E-posta
               </label>
               <div className="relative">
@@ -80,7 +80,7 @@ export default function CommercialVehicleOwnerLoginPage() {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-gray-200 mb-2">
                 Şifre
               </label>
               <div className="relative">
@@ -116,7 +116,7 @@ export default function CommercialVehicleOwnerLoginPage() {
                   onChange={(e) => setFormData({ ...formData, rememberMe: e.target.checked })}
                   className="w-4 h-4 text-orange-600 border-gray-300 rounded focus:ring-orange-600"
                 />
-                <span className="ml-2 text-sm text-gray-600">Beni hatırla</span>
+                <span className="ml-2 text-sm text-gray-300">Beni hatırla</span>
               </label>
               <Link href="/forgot-password" className="text-sm text-orange-600 hover:text-orange-700">
                 Şifremi unuttum
@@ -136,7 +136,7 @@ export default function CommercialVehicleOwnerLoginPage() {
 
           {/* Footer */}
           <div className="mt-6 text-center">
-            <p className="text-gray-600">
+            <p className="text-gray-300">
               Hesabınız yok mu?{' '}
               <Link href="/commercial-vehicle-owner/auth/register" className="text-orange-600 font-semibold hover:text-orange-700">
                 Kayıt Olun

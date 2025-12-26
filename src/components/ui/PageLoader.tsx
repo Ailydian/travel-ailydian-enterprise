@@ -82,7 +82,7 @@ export const PageLoader: React.FC<PageLoaderProps> = ({ isLoading }) => {
                 repeat: Infinity,
                 ease: 'easeInOut',
               }}
-              className="absolute -bottom-16 left-1/2 -translate-x-1/2 whitespace-nowrap text-sm font-medium text-gray-600"
+              className="absolute -bottom-16 left-1/2 -translate-x-1/2 whitespace-nowrap text-sm font-medium text-gray-300"
             >
               Yükleniyor...
             </motion.p>

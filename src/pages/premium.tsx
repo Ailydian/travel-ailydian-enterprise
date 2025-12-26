@@ -80,7 +80,7 @@ const Premium: React.FC = () => {
 
       <SimplifiedHeader />
 
-      <main className="min-h-screen bg-gray-50">
+      <main className="min-h-screen bg-white/5">
         {/* Hero Section */}
         <section className="bg-gradient-to-br from-purple-600 via-blue-600 to-indigo-700 py-20">
           <div className="max-w-7xl mx-auto px-4 text-center">
@@ -253,7 +253,7 @@ const Premium: React.FC = () => {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 bg-transparent text-purple-600 rounded-xl font-bold text-lg hover:bg-gray-50 transition-colors inline-flex items-center gap-2"
+                className="px-8 py-4 bg-transparent text-purple-600 rounded-xl font-bold text-lg hover:bg-white/5 transition-colors inline-flex items-center gap-2"
               >
                 30 Gün Ücretsiz Dene
                 <ArrowRight className="w-5 h-5" />

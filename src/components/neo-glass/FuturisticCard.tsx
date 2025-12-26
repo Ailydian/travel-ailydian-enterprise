@@ -288,7 +288,7 @@ export const FuturisticCard: React.FC<FuturisticCardProps> = ({
           <div className="flex items-center justify-between pt-4 border-t border-white/10">
             <div className="relative">
               {oldPrice && (
-                <span className="text-sm text-gray-500 line-through block mb-1">
+                <span className="text-sm text-gray-400 line-through block mb-1">
                   {oldPrice}
                 </span>
               )}

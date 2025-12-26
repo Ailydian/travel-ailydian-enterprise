@@ -366,7 +366,7 @@ const HotelsPage: React.FC = () => {
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="flex items-center gap-2 px-8 py-3 bg-transparent text-lydian-primary rounded-xl font-medium hover:bg-gray-100 transition-colors"
+                    className="flex items-center gap-2 px-8 py-3 bg-transparent text-lydian-primary rounded-xl font-medium hover:bg-white/10 transition-colors"
                   >
                     <Search className="w-5 h-5" />
                     Otel Ara
@@ -387,7 +387,7 @@ const HotelsPage: React.FC = () => {
               <div className="flex items-center gap-4">
                 <button
                   onClick={() => setShowFilters(!showFilters)}
-                  className="flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors relative"
+                  className="flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-lg hover:bg-white/5 transition-colors relative"
                 >
                   <SlidersHorizontal className="w-4 h-4" />
                   Gelişmiş Filtreler
@@ -425,7 +425,7 @@ const HotelsPage: React.FC = () => {
         </section>
 
         {/* Hotels Grid with Filters */}
-        <section className="py-12 bg-gray-50">
+        <section className="py-12 bg-white/5">
           <div className="max-w-7xl mx-auto px-4">
             <div className="flex gap-6">
               {/* Advanced Filters Sidebar */}
@@ -493,7 +493,7 @@ const HotelsPage: React.FC = () => {
 
                   {/* Content */}
                   <div className="p-6">
-                    <div className="flex items-center gap-2 text-sm text-gray-500 mb-2">
+                    <div className="flex items-center gap-2 text-sm text-gray-400 mb-2">
                       <MapPin className="w-4 h-4" />
                       <span>{hotel.location}</span>
                     </div>
@@ -528,20 +528,20 @@ const HotelsPage: React.FC = () => {
                       {hotel.amenities.slice(0, 4).map((amenity) => {
                         const Icon = amenityIcons[amenity] || Wifi;
                         return (
-                          <div key={amenity} className="flex items-center gap-1 text-gray-500" title={amenity}>
+                          <div key={amenity} className="flex items-center gap-1 text-gray-400" title={amenity}>
                             <Icon className="w-4 h-4" />
                           </div>
                         );
                       })}
                       {hotel.amenities.length > 4 && (
-                        <span className="text-sm text-gray-500">+{hotel.amenities.length - 4} daha</span>
+                        <span className="text-sm text-gray-400">+{hotel.amenities.length - 4} daha</span>
                       )}
                     </div>
 
                     <div className="flex items-center gap-2 mb-4">
                       <Star className="w-4 h-4 text-yellow-500 fill-current" />
                       <span className="font-medium">{hotel.rating}</span>
-                      <span className="text-gray-500 text-sm">({hotel.reviews} değerlendirme)</span>
+                      <span className="text-gray-400 text-sm">({hotel.reviews} değerlendirme)</span>
                     </div>
 
                     <div className="space-y-3">
@@ -550,7 +550,7 @@ const HotelsPage: React.FC = () => {
                           <div className="flex items-center gap-2">
                             <span className="text-2xl font-bold text-white">{hotel.price}</span>
                             {hotel.originalPrice && (
-                              <span className="text-sm text-gray-500 line-through">{hotel.originalPrice}</span>
+                              <span className="text-sm text-gray-400 line-through">{hotel.originalPrice}</span>
                             )}
                           </div>
                           <span className="text-sm text-gray-300">gecelik</span>

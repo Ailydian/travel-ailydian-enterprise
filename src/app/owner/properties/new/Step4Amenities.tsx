@@ -55,7 +55,7 @@ export default function Step4Amenities({ data }: Step4Props) {
             </label>
             <select
               {...register('currency')}
-              className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all bg-white"
+              className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all bg-white/5"
             >
               <option value="">Para birimi seçin</option>
               {currencies.map((curr) => (

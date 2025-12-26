@@ -59,7 +59,7 @@ const StatCard: React.FC<StatCardProps> = ({
       </div>
     </div>
     <h3 className="text-2xl font-bold text-white mb-1">{value}</h3>
-    <p className="text-sm text-gray-500">{title}</p>
+    <p className="text-sm text-gray-400">{title}</p>
   </div>
 );
 
@@ -83,15 +83,15 @@ const BookingRow: React.FC<{ booking: Booking }> = ({ booking }) => {
   };
 
   return (
-    <tr className="hover:bg-gray-50">
+    <tr className="hover:bg-white/5">
       <td className="px-6 py-4 whitespace-nowrap">
         <div className="text-sm font-medium text-white">{booking.guestName}</div>
       </td>
       <td className="px-6 py-4 whitespace-nowrap">
-        <div className="text-sm text-gray-500">{booking.property}</div>
+        <div className="text-sm text-gray-400">{booking.property}</div>
       </td>
       <td className="px-6 py-4 whitespace-nowrap">
-        <div className="text-sm text-gray-500">{booking.checkIn}</div>
+        <div className="text-sm text-gray-400">{booking.checkIn}</div>
       </td>
       <td className="px-6 py-4 whitespace-nowrap">
         <div className="text-sm font-medium text-white">{booking.amount}</div>
@@ -190,7 +190,7 @@ export default function DashboardPage() {
         <h1 className="text-3xl font-bold text-white mb-2">
           Welcome back, John!
         </h1>
-        <p className="text-gray-500">
+        <p className="text-gray-400">
           Here's what's happening with your properties today.
         </p>
       </div>
@@ -209,21 +209,21 @@ export default function DashboardPage() {
         </div>
         <div className="overflow-x-auto">
           <table className="min-w-full divide-y divide-gray-200">
-            <thead className="bg-gray-50">
+            <thead className="bg-white/5">
               <tr>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
                   Guest
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
                   Property
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
                   Check-in
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
                   Amount
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
                   Status
                 </th>
               </tr>
@@ -235,7 +235,7 @@ export default function DashboardPage() {
             </tbody>
           </table>
         </div>
-        <div className="px-6 py-4 border-t border-white/10 bg-gray-50">
+        <div className="px-6 py-4 border-t border-white/10 bg-white/5">
           <a
             href="/dashboard/bookings"
             className="text-sm font-medium text-blue-600 hover:text-blue-700"
@@ -250,7 +250,7 @@ export default function DashboardPage() {
         <button className="p-6 bg-white/5 border border-white/10 rounded-lg hover:shadow-lg transition-shadow text-left">
           <Calendar className="h-8 w-8 text-blue-600 mb-3" />
           <h3 className="font-semibold text-white mb-1">Manage Calendar</h3>
-          <p className="text-sm text-gray-500">
+          <p className="text-sm text-gray-400">
             Update availability and pricing
           </p>
         </button>
@@ -258,7 +258,7 @@ export default function DashboardPage() {
         <button className="p-6 bg-white/5 border border-white/10 rounded-lg hover:shadow-lg transition-shadow text-left">
           <Users className="h-8 w-8 text-blue-600 mb-3" />
           <h3 className="font-semibold text-white mb-1">Guest Messages</h3>
-          <p className="text-sm text-gray-500">
+          <p className="text-sm text-gray-400">
             Respond to guest inquiries
           </p>
         </button>
@@ -266,7 +266,7 @@ export default function DashboardPage() {
         <button className="p-6 bg-white/5 border border-white/10 rounded-lg hover:shadow-lg transition-shadow text-left">
           <DollarSign className="h-8 w-8 text-blue-600 mb-3" />
           <h3 className="font-semibold text-white mb-1">View Earnings</h3>
-          <p className="text-sm text-gray-500">
+          <p className="text-sm text-gray-400">
             Check your financial reports
           </p>
         </button>

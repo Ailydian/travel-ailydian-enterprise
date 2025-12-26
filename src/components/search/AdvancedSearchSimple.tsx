@@ -112,7 +112,7 @@ const AdvancedSearch: React.FC<AdvancedSearchProps> = ({
             {query && (
               <button
                 onClick={clearSearch}
-                className="p-1 hover:bg-gray-100 rounded-full transition-colors duration-200"
+                className="p-1 hover:bg-white/10 rounded-full transition-colors duration-200"
               >
                 <XMarkIcon className="w-5 h-5 text-gray-400" />
               </button>
@@ -148,7 +148,7 @@ const AdvancedSearch: React.FC<AdvancedSearchProps> = ({
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {/* Konum Filtresi */}
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">
+                <label className="block text-sm font-semibold text-gray-200 mb-2">
                   <MapPinIcon className="w-4 h-4 inline-block mr-1" />
                   Konum
                 </label>
@@ -163,7 +163,7 @@ const AdvancedSearch: React.FC<AdvancedSearchProps> = ({
 
               {/* Misafir Sayısı */}
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">
+                <label className="block text-sm font-semibold text-gray-200 mb-2">
                   <UserGroupIcon className="w-4 h-4 inline-block mr-1" />
                   Misafir Sayısı
                 </label>
@@ -180,7 +180,7 @@ const AdvancedSearch: React.FC<AdvancedSearchProps> = ({
 
               {/* Derecelendirme */}
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">
+                <label className="block text-sm font-semibold text-gray-200 mb-2">
                   Minimum Puan
                 </label>
                 <select
@@ -198,7 +198,7 @@ const AdvancedSearch: React.FC<AdvancedSearchProps> = ({
 
             {/* Tür Filtreleri */}
             <div className="mt-6">
-              <label className="block text-sm font-semibold text-gray-700 mb-3">
+              <label className="block text-sm font-semibold text-gray-200 mb-3">
                 Arama Türü
               </label>
               <div className="flex flex-wrap gap-3">
@@ -220,7 +220,7 @@ const AdvancedSearch: React.FC<AdvancedSearchProps> = ({
                     className={`px-4 py-2 rounded-lg border transition-all duration-200 ${
                       filters.type.includes(type.key)
                         ? 'bg-blue-500 text-white border-blue-500'
-                        : 'bg-white/5 text-gray-700 border-white/20 hover:border-blue-300'
+                        : 'bg-white/5 text-gray-200 border-white/20 hover:border-blue-300'
                     }`}
                   >
                     {type.label}
@@ -247,16 +247,16 @@ const AdvancedSearch: React.FC<AdvancedSearchProps> = ({
             {filteredSuggestions.length > 0 && (
               <div className="p-2">
                 <div className="px-4 py-2">
-                  <span className="text-sm font-semibold text-gray-500">Öneriler</span>
+                  <span className="text-sm font-semibold text-gray-400">Öneriler</span>
                 </div>
                 {filteredSuggestions.map((suggestion) => (
                   <button
                     key={suggestion}
                     onClick={() => handleSuggestionClick(suggestion)}
-                    className="w-full text-left px-4 py-3 hover:bg-gray-50 rounded-lg transition-colors duration-200 flex items-center space-x-3"
+                    className="w-full text-left px-4 py-3 hover:bg-white/5 rounded-lg transition-colors duration-200 flex items-center space-x-3"
                   >
                     <MapPinIcon className="w-5 h-5 text-blue-500 flex-shrink-0" />
-                    <span className="text-gray-700">{suggestion}</span>
+                    <span className="text-gray-200">{suggestion}</span>
                   </button>
                 ))}
               </div>
@@ -271,7 +271,7 @@ const AdvancedSearch: React.FC<AdvancedSearchProps> = ({
                 {results.slice(0, 5).map((result) => (
                   <div
                     key={result.id}
-                    className="px-4 py-3 hover:bg-gray-50 rounded-lg transition-colors duration-200 cursor-pointer"
+                    className="px-4 py-3 hover:bg-white/5 rounded-lg transition-colors duration-200 cursor-pointer"
                   >
                     <div className="flex items-center space-x-4">
                       {result.image && (
@@ -285,12 +285,12 @@ const AdvancedSearch: React.FC<AdvancedSearchProps> = ({
                         <h3 className="text-white font-semibold truncate">
                           {result.title}
                         </h3>
-                        <p className="text-gray-500 text-sm truncate">
+                        <p className="text-gray-400 text-sm truncate">
                           {result.description}
                         </p>
                         <div className="flex items-center space-x-2 mt-1">
                           <MapPinIcon className="w-3 h-3 text-blue-500" />
-                          <span className="text-xs text-gray-500">
+                          <span className="text-xs text-gray-400">
                             {result.location}
                           </span>
                           {result.price && (

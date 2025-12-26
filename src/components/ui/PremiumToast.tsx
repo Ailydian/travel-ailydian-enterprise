@@ -197,7 +197,7 @@ const PremiumToast: React.FC<PremiumToastProps> = ({ toast, onClose, position = 
 
               {/* Message */}
               {toast.message && (
-                <p className="text-sm text-gray-600 mb-3 line-clamp-2">
+                <p className="text-sm text-gray-300 mb-3 line-clamp-2">
                   {toast.message}
                 </p>
               )}
@@ -216,8 +216,8 @@ const PremiumToast: React.FC<PremiumToastProps> = ({ toast, onClose, position = 
               {/* Price Display */}
               {toast.price && (
                 <div className="mb-3 flex items-center gap-2">
-                  <Package className="w-4 h-4 text-gray-500" />
-                  <span className="text-sm font-semibold text-gray-700">
+                  <Package className="w-4 h-4 text-gray-400" />
+                  <span className="text-sm font-semibold text-gray-200">
                     {toast.price}
                   </span>
                 </div>
@@ -248,7 +248,7 @@ const PremiumToast: React.FC<PremiumToastProps> = ({ toast, onClose, position = 
                     className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium text-sm transition-all ${
                       toast.action.variant === 'primary'
                         ? `bg-gradient-to-r ${config.gradient} text-white shadow-lg hover:shadow-xl`
-                        : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                        : 'bg-white/10 text-gray-200 hover:bg-gray-200'
                     }`}
                   >
                     {toast.action.label}
@@ -261,7 +261,7 @@ const PremiumToast: React.FC<PremiumToastProps> = ({ toast, onClose, position = 
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     onClick={handleUndo}
-                    className="flex items-center gap-1.5 px-3 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-lg font-medium text-sm transition-all"
+                    className="flex items-center gap-1.5 px-3 py-2 bg-white/10 hover:bg-gray-200 text-gray-200 rounded-lg font-medium text-sm transition-all"
                   >
                     <RotateCcw className="w-3.5 h-3.5" />
                     Geri Al
@@ -273,15 +273,15 @@ const PremiumToast: React.FC<PremiumToastProps> = ({ toast, onClose, position = 
             {/* Close Button */}
             <button
               onClick={() => onClose(toast.id)}
-              className="flex-shrink-0 w-8 h-8 rounded-lg hover:bg-gray-100 flex items-center justify-center transition-colors group"
+              className="flex-shrink-0 w-8 h-8 rounded-lg hover:bg-white/10 flex items-center justify-center transition-colors group"
             >
-              <X className="w-4 h-4 text-gray-400 group-hover:text-gray-600" />
+              <X className="w-4 h-4 text-gray-400 group-hover:text-gray-300" />
             </button>
           </div>
         </div>
 
         {/* Progress Bar */}
-        <div className="absolute bottom-0 left-0 right-0 h-1 bg-gray-100">
+        <div className="absolute bottom-0 left-0 right-0 h-1 bg-white/10">
           <motion.div
             className={`h-full bg-gradient-to-r ${config.gradient}`}
             initial={{ width: '100%' }}

@@ -25,7 +25,7 @@ import {
 const MapWithNoSSR = dynamic(() => import('@/components/booking/MapSelector'), {
   ssr: false,
   loading: () => (
-    <div className="w-full h-[400px] bg-gray-100 rounded-lg flex items-center justify-center">
+    <div className="w-full h-[400px] bg-white/10 rounded-lg flex items-center justify-center">
       <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
     </div>
   ),
@@ -278,7 +278,7 @@ export default function ReservationPage() {
                         <Star className="w-4 h-4 fill-current" />
                         <span className="text-sm font-medium">{selectedProduct.rating}</span>
                         {selectedProduct.reviews && (
-                          <span className="text-sm text-gray-500">({selectedProduct.reviews})</span>
+                          <span className="text-sm text-gray-400">({selectedProduct.reviews})</span>
                         )}
                       </div>
                     )}
@@ -323,7 +323,7 @@ export default function ReservationPage() {
                       className={`w-12 h-12 rounded-full flex items-center justify-center font-bold transition-all ${
                         currentStep >= step
                           ? 'bg-blue-600 text-white'
-                          : 'bg-gray-200 text-gray-500'
+                          : 'bg-gray-200 text-gray-400'
                       }`}
                     >
                       {step}
@@ -807,7 +807,7 @@ export default function ReservationPage() {
                 disabled={currentStep === 1}
                 className={`px-6 py-3 rounded-lg font-medium transition-all ${
                   currentStep === 1
-                    ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
+                    ? 'bg-white/10 text-gray-400 cursor-not-allowed'
                     : 'bg-gray-200 text-gray-200 hover:bg-gray-300'
                 }`}
               >

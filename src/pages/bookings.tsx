@@ -142,7 +142,7 @@ const Bookings: React.FC = () => {
         };
       default:
         return {
-          color: 'bg-gray-100 text-gray-100 border-gray-200',
+          color: 'bg-white/10 text-gray-100 border-gray-200',
           icon: <AlertTriangle className="w-4 h-4" />,
           text: status
         };
@@ -214,7 +214,7 @@ const Bookings: React.FC = () => {
 
   if (status === 'loading' || loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-50">
+      <div className="min-h-screen flex items-center justify-center bg-white/5">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
           <p className="mt-4 text-gray-300">Yükleniyor...</p>
@@ -396,10 +396,10 @@ const Bookings: React.FC = () => {
                         {/* Price */}
                         <div className="text-left sm:text-right flex-shrink-0">
                           <div className="flex items-center gap-1 text-xl sm:text-2xl font-bold text-white">
-                            <DollarSign className="w-4 h-4 sm:w-5 sm:h-5 text-gray-500" />
+                            <DollarSign className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400" />
                             {booking.totalAmount.toString()} {booking.currency}
                           </div>
-                          <p className="text-[10px] sm:text-xs text-gray-500 mt-1">
+                          <p className="text-[10px] sm:text-xs text-gray-400 mt-1">
                             Ödeme: <span className={`font-medium ${booking.paymentStatus === 'COMPLETED' ? 'text-green-600' : 'text-yellow-600'}`}>
                               {booking.paymentStatus === 'COMPLETED' ? 'Tamamlandı' : booking.paymentStatus === 'PENDING' ? 'Beklemede' : booking.paymentStatus}
                             </span>
@@ -428,7 +428,7 @@ const Bookings: React.FC = () => {
                           </button>
 
                           <button
-                            className="flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 text-gray-300 hover:bg-gray-50 rounded-lg transition-colors text-xs sm:text-sm"
+                            className="flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 text-gray-300 hover:bg-white/5 rounded-lg transition-colors text-xs sm:text-sm"
                           >
                             <Download className="w-3 h-3 sm:w-4 sm:h-4" />
                             <span className="hidden sm:inline">Download Invoice</span>
@@ -456,7 +456,7 @@ const Bookings: React.FC = () => {
                           )}
                         </div>
 
-                        <div className="text-[10px] sm:text-xs text-gray-500 sm:ml-auto">
+                        <div className="text-[10px] sm:text-xs text-gray-400 sm:ml-auto">
                           Created: {new Date(booking.createdAt).toLocaleDateString('en-US')}
                         </div>
                       </div>
@@ -519,7 +519,7 @@ const Bookings: React.FC = () => {
                   setBookingToCancel(null);
                   setCancelReason('');
                 }}
-                className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+                className="p-2 hover:bg-white/10 rounded-lg transition-colors"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -563,7 +563,7 @@ const Bookings: React.FC = () => {
                   setCancelReason('');
                 }}
                 disabled={cancelling}
-                className="flex-1 px-4 py-3 bg-gray-100 text-gray-200 rounded-lg hover:bg-gray-200 transition-colors font-medium"
+                className="flex-1 px-4 py-3 bg-white/10 text-gray-200 rounded-lg hover:bg-gray-200 transition-colors font-medium"
               >
                 Keep Booking
               </button>

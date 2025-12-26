@@ -15,7 +15,7 @@ const PhotoGallery: React.FC<PhotoGalleryProps> = ({ photos, locationName }) => 
   if (!photos || photos.length === 0) {
     return (
       <div className="bg-gray-200 h-64 rounded-lg flex items-center justify-center">
-        <p className="text-gray-500">No photos available</p>
+        <p className="text-gray-400">No photos available</p>
       </div>
     );
   }

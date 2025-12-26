@@ -425,7 +425,7 @@ export default function Register() {
                   ile güvence altına alınır. KVKK uyumlu veri politikamız gereği 
                   verileriniz asla üçüncü taraflarla paylaşılmaz.
                 </p>
-                <div className="flex items-center space-x-4 text-sm text-gray-500 dark:text-gray-400">
+                <div className="flex items-center space-x-4 text-sm text-gray-400 dark:text-gray-400">
                   <span>✓ SSL Şifreleme</span>
                   <span>✓ KVKK Uyumlu</span>
                   <span>✓ Blockchain Güvenlik</span>

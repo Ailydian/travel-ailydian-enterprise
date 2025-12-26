@@ -48,7 +48,7 @@ export default function Step1VehicleType({ data }: Step1Props) {
                 className={`relative p-4 border-2 rounded-xl text-left transition-all ${
                   isSelected
                     ? 'border-green-500 bg-green-50 shadow-md'
-                    : 'border-slate-200 bg-white hover:border-slate-300 hover:shadow-sm'
+                    : 'border-slate-200 bg-white/5 hover:border-slate-300 hover:shadow-sm'
                 }`}
               >
                 <div className="flex items-start gap-3">

@@ -79,7 +79,7 @@ const Dashboard: React.FC = () => {
 
   if (status === 'loading' || loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-50">
+      <div className="min-h-screen flex items-center justify-center bg-white/5">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
           <p className="mt-4 text-gray-300">Yükleniyor...</p>
@@ -124,7 +124,7 @@ const Dashboard: React.FC = () => {
 
   const getMembershipBadge = (type: string) => {
     const badges = {
-      BASIC: { color: 'bg-gray-100 text-gray-200', text: 'Temel Üye' },
+      BASIC: { color: 'bg-white/10 text-gray-200', text: 'Temel Üye' },
       PREMIUM: { color: 'bg-blue-100 text-blue-700', text: 'Premium Üye' },
       VIP: { color: 'bg-purple-100 text-purple-700', text: 'VIP Üye' },
       ENTERPRISE: { color: 'bg-yellow-100 text-yellow-700', text: 'Kurumsal Üye' }
@@ -141,7 +141,7 @@ const Dashboard: React.FC = () => {
       case 'completed':
         return <Award className="w-4 h-4 text-blue-500" />;
       default:
-        return <AlertTriangle className="w-4 h-4 text-gray-500" />;
+        return <AlertTriangle className="w-4 h-4 text-gray-400" />;
     }
   };
 
@@ -165,7 +165,7 @@ const Dashboard: React.FC = () => {
         <meta name="robots" content="noindex, nofollow" />
       </Head>
 
-      <div className="min-h-screen bg-gray-50">
+      <div className="min-h-screen bg-white/5">
         {/* Navigation Header */}
         <header className="bg-transparent shadow-sm border-b border-gray-100">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -176,7 +176,7 @@ const Dashboard: React.FC = () => {
                 </div>
                 <div className="hidden sm:block">
                   <h1 className="text-xl font-bold text-white">LyDian Travel</h1>
-                  <p className="text-xs text-gray-500 -mt-1">Dashboard</p>
+                  <p className="text-xs text-gray-400 -mt-1">Dashboard</p>
                 </div>
               </Link>
 
@@ -188,7 +188,7 @@ const Dashboard: React.FC = () => {
                 <div className="flex items-center space-x-3">
                   <div className="text-right hidden sm:block">
                     <p className="text-sm font-medium text-white">{user.name}</p>
-                    <p className="text-xs text-gray-500">{user.email}</p>
+                    <p className="text-xs text-gray-400">{user.email}</p>
                   </div>
                   <div className="w-10 h-10 bg-gradient-to-r from-lydian-primary to-lydian-secondary rounded-full flex items-center justify-center">
                     <User className="w-5 h-5 text-white" />
@@ -210,7 +210,7 @@ const Dashboard: React.FC = () => {
                     <User className="w-10 h-10 text-white" />
                   </div>
                   <h3 className="font-bold text-lg text-white">{user.name}</h3>
-                  <p className="text-gray-500 text-sm mb-3">{user.email}</p>
+                  <p className="text-gray-400 text-sm mb-3">{user.email}</p>
                   <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-medium ${membershipBadge.color}`}>
                     <Award className="w-3 h-3 mr-1" />
                     {membershipBadge.text}
@@ -228,7 +228,7 @@ const Dashboard: React.FC = () => {
                         className={`flex items-center space-x-3 px-4 py-3 rounded-xl transition-colors duration-200 ${
                           item.active
                             ? 'bg-blue-50 text-blue-600 border border-blue-200'
-                            : 'text-gray-200 hover:bg-gray-50'
+                            : 'text-gray-200 hover:bg-white/5'
                         }`}
                       >
                         <Icon className="w-5 h-5" />
@@ -296,7 +296,7 @@ const Dashboard: React.FC = () => {
                     >
                       <div className="flex items-center justify-between">
                         <div>
-                          <p className="text-gray-500 text-sm font-medium">{stat.title}</p>
+                          <p className="text-gray-400 text-sm font-medium">{stat.title}</p>
                           <p className="text-2xl font-bold text-white mt-1">{stat.value}</p>
                         </div>
                         <div className={`p-3 rounded-xl ${stat.bg}`}>
@@ -354,7 +354,7 @@ const Dashboard: React.FC = () => {
                         </div>
                         <div className="flex-1 min-w-0">
                           <h4 className="font-medium text-white truncate">{booking.title}</h4>
-                          <p className="text-sm text-gray-500">{booking.location}</p>
+                          <p className="text-sm text-gray-400">{booking.location}</p>
                           <div className="flex items-center space-x-2 mt-1">
                             {getStatusIcon(booking.status)}
                             <span className="text-xs text-gray-300">{getStatusText(booking.status)}</span>
@@ -362,7 +362,7 @@ const Dashboard: React.FC = () => {
                         </div>
                         <div className="text-right">
                           <p className="font-bold text-white">₺{booking.amount}</p>
-                          <p className="text-xs text-gray-500">{booking.date}</p>
+                          <p className="text-xs text-gray-400">{booking.date}</p>
                         </div>
                       </div>
                     ))}
@@ -387,7 +387,7 @@ const Dashboard: React.FC = () => {
                           <div className="flex-1">
                             <h4 className="font-bold text-white mb-1">{trip.destination}</h4>
                             <p className="text-sm text-blue-600 font-medium">{trip.type}</p>
-                            <div className="flex items-center space-x-4 mt-2 text-sm text-gray-500">
+                            <div className="flex items-center space-x-4 mt-2 text-sm text-gray-400">
                               <div className="flex items-center space-x-1">
                                 <Calendar className="w-4 h-4" />
                                 <span>{trip.date}</span>

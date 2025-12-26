@@ -405,12 +405,12 @@ export const CompleteDashboardExample = () => {
   const [activeTab, setActiveTab] = useState('overview');
 
   return (
-    <div className="min-h-screen bg-gray-50 p-6">
+    <div className="min-h-screen bg-white/5 p-6">
       <div className="max-w-7xl mx-auto space-y-6">
         {/* Header */}
-        <div className="bg-white rounded-lg shadow p-6">
-          <h1 className="text-3xl font-bold text-gray-900">Dashboard</h1>
-          <p className="text-gray-600 mt-1">
+        <div className="bg-white/5 rounded-lg shadow p-6">
+          <h1 className="text-3xl font-bold text-white">Dashboard</h1>
+          <p className="text-gray-300 mt-1">
             Welcome back! Here's what's happening with your properties.
           </p>
         </div>
@@ -419,7 +419,7 @@ export const CompleteDashboardExample = () => {
         <DashboardStatsExample />
 
         {/* Tabs */}
-        <div className="bg-white rounded-lg shadow">
+        <div className="bg-white/5 rounded-lg shadow">
           <div className="border-b border-gray-200">
             <nav className="flex space-x-8 px-6" aria-label="Tabs">
               {['overview', 'properties', 'bookings'].map((tab) => (
@@ -429,7 +429,7 @@ export const CompleteDashboardExample = () => {
                   className={`py-4 px-1 border-b-2 font-medium text-sm capitalize ${
                     activeTab === tab
                       ? 'border-blue-500 text-blue-600'
-                      : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                      : 'border-transparent text-gray-400 hover:text-gray-200 hover:border-gray-300'
                   }`}
                 >
                   {tab}

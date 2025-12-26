@@ -120,11 +120,11 @@ export default function WatchPriceButton({
       <>
         <button
           onClick={handleWatchPrice}
-          className={`p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors ${className}`}
+          className={`p-2 rounded-full hover:bg-white/10 dark:hover:bg-gray-800 transition-colors ${className}`}
           title={isWatching ? 'Watching price' : 'Watch price'}
         >
           <svg
-            className={`w-6 h-6 ${isWatching ? 'text-yellow-500 fill-current' : 'text-gray-600'}`}
+            className={`w-6 h-6 ${isWatching ? 'text-yellow-500 fill-current' : 'text-gray-300'}`}
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -157,7 +157,7 @@ export default function WatchPriceButton({
           className={`flex items-center gap-2 px-3 py-1.5 rounded-lg border ${
             isWatching
               ? 'bg-yellow-50 border-yellow-300 text-yellow-700'
-              : 'bg-white/5 border-white/20 text-gray-700 hover:bg-gray-50'
+              : 'bg-white/5 border-white/20 text-gray-200 hover:bg-white/5'
           } transition-colors ${className}`}
         >
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -193,7 +193,7 @@ export default function WatchPriceButton({
           </h2>
           <button
             onClick={() => setShowModal(false)}
-            className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300"
+            className="text-gray-400 hover:text-gray-300 dark:hover:text-gray-300"
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path
@@ -208,17 +208,17 @@ export default function WatchPriceButton({
 
         <div className="space-y-4">
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+            <label className="block text-sm font-medium text-gray-200 dark:text-gray-300 mb-2">
               Item
             </label>
             <p className="text-white dark:text-white font-semibold">{entityName}</p>
-            <p className="text-sm text-gray-600 dark:text-gray-400">
+            <p className="text-sm text-gray-300 dark:text-gray-400">
               Current Price: {currency} {currentPrice.toFixed(2)}
             </p>
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+            <label className="block text-sm font-medium text-gray-200 dark:text-gray-300 mb-2">
               Target Price
             </label>
             <div className="relative">
@@ -232,16 +232,16 @@ export default function WatchPriceButton({
                 step="0.01"
                 min="0"
               />
-              <span className="absolute right-3 top-2.5 text-gray-500">{currency}</span>
+              <span className="absolute right-3 top-2.5 text-gray-400">{currency}</span>
             </div>
-            <p className="text-xs text-gray-500 mt-1">
+            <p className="text-xs text-gray-400 mt-1">
               {(((currentPrice - alertSettings.targetPrice) / currentPrice) * 100).toFixed(1)}%
               discount from current price
             </p>
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+            <label className="block text-sm font-medium text-gray-200 dark:text-gray-300 mb-2">
               Or notify when price drops by
             </label>
             <div className="relative">
@@ -259,12 +259,12 @@ export default function WatchPriceButton({
                 min="1"
                 max="50"
               />
-              <span className="absolute right-3 top-2.5 text-gray-500">%</span>
+              <span className="absolute right-3 top-2.5 text-gray-400">%</span>
             </div>
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+            <label className="block text-sm font-medium text-gray-200 dark:text-gray-300 mb-2">
               Alert Duration
             </label>
             <select
@@ -312,7 +312,7 @@ export default function WatchPriceButton({
         <div className="flex gap-3 mt-6">
           <button
             onClick={() => setShowModal(false)}
-            className="flex-1 px-4 py-2 border border-white/20 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+            className="flex-1 px-4 py-2 border border-white/20 dark:border-gray-600 text-gray-200 dark:text-gray-300 rounded-lg hover:bg-white/5 dark:hover:bg-gray-700 transition-colors"
           >
             Cancel
           </button>

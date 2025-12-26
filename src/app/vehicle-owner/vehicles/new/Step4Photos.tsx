@@ -307,7 +307,7 @@ export default function Step4Photos({ data }: Step4Props) {
                       setDraggedIndex(index);
                     }
                   }}
-                  className="relative border-2 border-slate-200 rounded-xl overflow-hidden bg-white hover:shadow-lg transition-all cursor-move"
+                  className="relative border-2 border-slate-200 rounded-xl overflow-hidden bg-white/5 hover:shadow-lg transition-all cursor-move"
                 >
                   {/* Cover Photo Badge */}
                   {index === coverPhotoIndex && (
@@ -341,7 +341,7 @@ export default function Step4Photos({ data }: Step4Props) {
                       <select
                         value={photo.category}
                         onChange={(e) => updateCategory(photo.id, e.target.value)}
-                        className="w-full px-3 py-2 text-sm border border-slate-200 rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-200 outline-none bg-white"
+                        className="w-full px-3 py-2 text-sm border border-slate-200 rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-200 outline-none bg-white/5"
                       >
                         {photoCategories.map((cat) => (
                           <option key={cat.value} value={cat.value}>

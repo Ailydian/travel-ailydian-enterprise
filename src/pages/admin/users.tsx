@@ -455,7 +455,7 @@ export default function AdminUsers() {
                         <Filter className="w-4 h-4 mr-2 inline" />
                         Filtrele
                       </button>
-                      <button className="px-4 py-2 border border-white/20 rounded-lg hover:bg-gray-50">
+                      <button className="px-4 py-2 border border-white/20 rounded-lg hover:bg-white/5">
                         <Download className="w-4 h-4" />
                       </button>
                     </div>
@@ -470,34 +470,34 @@ export default function AdminUsers() {
                   
                   <div className="overflow-x-auto">
                     <table className="w-full">
-                      <thead className="bg-gray-50">
+                      <thead className="bg-white/5">
                         <tr>
-                          <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                          <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
                             <input type="checkbox" className="rounded" />
                           </th>
-                          <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                          <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
                             Kullanıcı
                           </th>
-                          <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                          <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
                             Durum
                           </th>
-                          <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                          <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
                             Rol
                           </th>
-                          <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                          <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
                             Katılım
                           </th>
-                          <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                          <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
                             İstatistikler
                           </th>
-                          <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                          <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
                             İşlemler
                           </th>
                         </tr>
                       </thead>
                       <tbody className="bg-transparent divide-y divide-gray-200">
                         {usersData.users.map((user) => (
-                          <tr key={user.id} className="hover:bg-gray-50 transition-colors">
+                          <tr key={user.id} className="hover:bg-white/5 transition-colors">
                             <td className="px-6 py-4 whitespace-nowrap">
                               <input 
                                 type="checkbox" 
@@ -522,8 +522,8 @@ export default function AdminUsers() {
                                     <div className="text-sm font-medium text-white">{user.fullName}</div>
                                     {user.isVerified && <CheckCircle className="w-4 h-4 text-blue-500 ml-1" />}
                                   </div>
-                                  <div className="text-sm text-gray-500">@{user.username}</div>
-                                  <div className="text-sm text-gray-500">{user.email}</div>
+                                  <div className="text-sm text-gray-400">@{user.username}</div>
+                                  <div className="text-sm text-gray-400">{user.email}</div>
                                 </div>
                               </div>
                             </td>
@@ -535,9 +535,9 @@ export default function AdminUsers() {
                             </td>
                             <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
                               <div>{formatDate(user.joinDate)}</div>
-                              <div className="text-gray-500 text-xs">Son giriş: {formatDate(user.lastLogin)}</div>
+                              <div className="text-gray-400 text-xs">Son giriş: {formatDate(user.lastLogin)}</div>
                             </td>
-                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-400">
                               <div className="space-y-1">
                                 <div className="flex items-center">
                                   <MapPin className="w-3 h-3 mr-1" />
@@ -564,7 +564,7 @@ export default function AdminUsers() {
                                 <button className="text-red-600 hover:text-red-900 p-1 rounded hover:bg-red-50">
                                   <Trash2 className="w-4 h-4" />
                                 </button>
-                                <button className="text-gray-400 hover:text-gray-300 p-1 rounded hover:bg-gray-50">
+                                <button className="text-gray-400 hover:text-gray-300 p-1 rounded hover:bg-white/5">
                                   <MoreHorizontal className="w-4 h-4" />
                                 </button>
                               </div>
@@ -585,13 +585,13 @@ export default function AdminUsers() {
                     <div className="flex items-center space-x-2">
                       <button 
                         disabled={!usersData.pagination.hasPrevious}
-                        className="px-3 py-1 border border-white/20 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50"
+                        className="px-3 py-1 border border-white/20 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed hover:bg-white/5"
                       >
                         <ChevronLeft className="w-4 h-4" />
                       </button>
                       <button 
                         disabled={!usersData.pagination.hasNext}
-                        className="px-3 py-1 border border-white/20 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50"
+                        className="px-3 py-1 border border-white/20 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed hover:bg-white/5"
                       >
                         <ChevronRight className="w-4 h-4" />
                       </button>

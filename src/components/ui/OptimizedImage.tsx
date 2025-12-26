@@ -70,7 +70,7 @@ const OptimizedImage: React.FC<OptimizedImageProps> = ({
 
       {/* Error State */}
       {hasError && imageSrc === fallbackSrc && (
-        <div className="absolute inset-0 flex items-center justify-center bg-gray-100">
+        <div className="absolute inset-0 flex items-center justify-center bg-white/10">
           <div className="text-center text-gray-400">
             <svg
               className="w-12 h-12 mx-auto mb-2"

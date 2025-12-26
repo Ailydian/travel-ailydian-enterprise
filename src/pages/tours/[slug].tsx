@@ -440,7 +440,7 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
 
       <SimplifiedHeader />
 
-      <main className="min-h-screen bg-gray-50">
+      <main className="min-h-screen bg-white/5">
         {/* Image Gallery */}
         <section className="relative bg-black">
           <div className="max-w-7xl mx-auto">
@@ -499,7 +499,7 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
               {/* View All Photos Button */}
               <button
                 onClick={() => setShowAllImages(true)}
-                className="absolute bottom-4 right-4 px-4 py-2 bg-transparent rounded-lg font-semibold flex items-center gap-2 hover:bg-gray-50 transition-all z-10"
+                className="absolute bottom-4 right-4 px-4 py-2 bg-transparent rounded-lg font-semibold flex items-center gap-2 hover:bg-white/5 transition-all z-10"
               >
                 <ImageIcon className="w-5 h-5" />
                 Tüm Fotoğrafları Gör
@@ -576,7 +576,7 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
                   <div className="flex items-center gap-1">
                     <Star className="w-5 h-5 fill-yellow-400 text-yellow-400" />
                     <span className="font-bold text-white">{tour.rating}</span>
-                    <span className="text-gray-500">({tour.reviewCount.toLocaleString()} yorum)</span>
+                    <span className="text-gray-400">({tour.reviewCount.toLocaleString()} yorum)</span>
                   </div>
                   <div className="flex items-center gap-1 text-gray-300">
                     <TrendingUp className="w-5 h-5" />
@@ -597,7 +597,7 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
                       <Clock className="w-6 h-6 text-blue-600" />
                     </div>
                     <div>
-                      <p className="text-sm text-gray-500">Süre</p>
+                      <p className="text-sm text-gray-400">Süre</p>
                       <p className="font-semibold text-white">{tour.duration}</p>
                     </div>
                   </div>
@@ -607,7 +607,7 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
                       <Users className="w-6 h-6 text-purple-600" />
                     </div>
                     <div>
-                      <p className="text-sm text-gray-500">Grup Boyutu</p>
+                      <p className="text-sm text-gray-400">Grup Boyutu</p>
                       <p className="font-semibold text-white">{tour.groupSize}</p>
                     </div>
                   </div>
@@ -617,7 +617,7 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
                       <Globe className="w-6 h-6 text-green-600" />
                     </div>
                     <div>
-                      <p className="text-sm text-gray-500">Dil</p>
+                      <p className="text-sm text-gray-400">Dil</p>
                       <p className="font-semibold text-white">{tour.language.join(', ')}</p>
                     </div>
                   </div>
@@ -627,7 +627,7 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
                       <Shield className="w-6 h-6 text-orange-600" />
                     </div>
                     <div>
-                      <p className="text-sm text-gray-500">İptal</p>
+                      <p className="text-sm text-gray-400">İptal</p>
                       <p className="font-semibold text-white">{tour.cancellationPolicy}</p>
                     </div>
                   </div>
@@ -693,7 +693,7 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
                           <span className="px-2 py-1 bg-blue-100 text-blue-700 rounded text-xs font-semibold">
                             {item.time}
                           </span>
-                          <span className="text-xs text-gray-500">{item.duration}</span>
+                          <span className="text-xs text-gray-400">{item.duration}</span>
                         </div>
                         <h3 className="text-lg font-bold text-white mb-1">{item.title}</h3>
                         <p className="text-gray-300">{item.description}</p>
@@ -777,7 +777,7 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
                 <p className="text-gray-200 mb-4">{tour.meetingPoint}</p>
 
                 {/* Interactive Map */}
-                <div className="aspect-video bg-gray-100 rounded-lg overflow-hidden border border-white/10">
+                <div className="aspect-video bg-white/10 rounded-lg overflow-hidden border border-white/10">
                   <iframe
                     src={`https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3009.8!2d${tour.meetingPointCoords.lng}!3d${tour.meetingPointCoords.lat}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDHCsDAyJzE4LjAiTiAyOcKwMDAnMjYuNiJF!5e0!3m2!1str!2str!4v1234567890123!5m2!1str!2str`}
                     width="100%"
@@ -804,7 +804,7 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
                     href={`https://www.google.com/maps/search/?api=1&query=${tour.meetingPointCoords.lat},${tour.meetingPointCoords.lng}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-4 py-2 bg-gray-100 text-gray-200 rounded-lg font-semibold hover:bg-gray-200 transition-colors"
+                    className="px-4 py-2 bg-white/10 text-gray-200 rounded-lg font-semibold hover:bg-gray-200 transition-colors"
                   >
                     <MapPin className="w-5 h-5" />
                   </a>
@@ -839,7 +839,7 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
                       {tour.guide.languages.map((lang, index) => (
                         <span
                           key={index}
-                          className="px-2 py-1 bg-gray-100 text-gray-200 rounded text-xs"
+                          className="px-2 py-1 bg-white/10 text-gray-200 rounded text-xs"
                         >
                           {lang}
                         </span>
@@ -857,7 +857,7 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
                   <div className="flex items-center gap-2">
                     <Star className="w-6 h-6 fill-yellow-400 text-yellow-400" />
                     <span className="text-2xl font-bold text-white">{tour.rating}</span>
-                    <span className="text-gray-500">({tour.reviewCount.toLocaleString()})</span>
+                    <span className="text-gray-400">({tour.reviewCount.toLocaleString()})</span>
                   </div>
                 </div>
 
@@ -884,7 +884,7 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
                               </span>
                             )}
                           </div>
-                          <div className="flex items-center gap-2 text-sm text-gray-500 mb-2">
+                          <div className="flex items-center gap-2 text-sm text-gray-400 mb-2">
                             <div className="flex">
                               {[...Array(5)].map((_, i) => (
                                 <Star
@@ -904,7 +904,7 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
                             <h4 className="font-semibold text-white mb-1">{review.title}</h4>
                           )}
                           <p className="text-gray-200 text-sm mb-2">{review.text}</p>
-                          <button className="text-sm text-gray-500 hover:text-gray-200 transition-colors">
+                          <button className="text-sm text-gray-400 hover:text-gray-200 transition-colors">
                             Yararlı ({review.helpful})
                           </button>
                         </div>
@@ -913,7 +913,7 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
                   ))}
                 </div>
 
-                <button className="w-full mt-6 py-3 border-2 border-white/10 rounded-lg font-semibold text-gray-200 hover:border-white/20 hover:bg-gray-50 transition-all">
+                <button className="w-full mt-6 py-3 border-2 border-white/10 rounded-lg font-semibold text-gray-200 hover:border-white/20 hover:bg-white/5 transition-all">
                   Tüm Yorumları Göster ({tour.reviewCount.toLocaleString()})
                 </button>
               </div>
@@ -926,13 +926,13 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
                     <div key={index} className="border border-white/10 rounded-lg overflow-hidden">
                       <button
                         onClick={() => setExpandedFAQ(expandedFAQ === faq.question ? null : faq.question)}
-                        className="w-full px-4 py-3 flex items-center justify-between text-left hover:bg-gray-50 transition-colors"
+                        className="w-full px-4 py-3 flex items-center justify-between text-left hover:bg-white/5 transition-colors"
                       >
                         <span className="font-semibold text-white">{faq.question}</span>
                         {expandedFAQ === faq.question ? (
-                          <ChevronUp className="w-5 h-5 text-gray-500" />
+                          <ChevronUp className="w-5 h-5 text-gray-400" />
                         ) : (
-                          <ChevronDown className="w-5 h-5 text-gray-500" />
+                          <ChevronDown className="w-5 h-5 text-gray-400" />
                         )}
                       </button>
                       <AnimatePresence>
@@ -1001,7 +1001,7 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
                     <div className="flex items-center gap-3">
                       <button
                         onClick={() => setSelectedGuests(Math.max(1, selectedGuests - 1))}
-                        className="p-2 border border-white/20 rounded-lg hover:bg-gray-50 transition-colors"
+                        className="p-2 border border-white/20 rounded-lg hover:bg-white/5 transition-colors"
                         disabled={selectedGuests <= 1}
                       >
                         <ChevronLeft className="w-5 h-5" />
@@ -1012,7 +1012,7 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
                       </div>
                       <button
                         onClick={() => setSelectedGuests(selectedGuests + 1)}
-                        className="p-2 border border-white/20 rounded-lg hover:bg-gray-50 transition-colors"
+                        className="p-2 border border-white/20 rounded-lg hover:bg-white/5 transition-colors"
                       >
                         <ChevronRight className="w-5 h-5" />
                       </button>
@@ -1027,7 +1027,7 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
                         ₺{(tour.price * selectedGuests).toLocaleString()}
                       </span>
                     </div>
-                    <p className="text-xs text-gray-500">
+                    <p className="text-xs text-gray-400">
                       {selectedGuests} kişi × ₺{tour.price} = ₺{(tour.price * selectedGuests).toLocaleString()}
                     </p>
                   </div>
@@ -1041,7 +1041,7 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
                     Rezervasyon Yap
                   </button>
 
-                  <p className="text-xs text-center text-gray-500 mt-3">
+                  <p className="text-xs text-center text-gray-400 mt-3">
                     Şimdi ödeme yapılmaz. {tour.cancellationPolicy}
                   </p>
 
@@ -1051,11 +1051,11 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
                       Sorularınız mı var?
                     </p>
                     <div className="space-y-2">
-                      <button className="w-full px-4 py-2 border border-white/10 rounded-lg font-semibold text-gray-200 hover:bg-gray-50 transition-colors flex items-center justify-center gap-2">
+                      <button className="w-full px-4 py-2 border border-white/10 rounded-lg font-semibold text-gray-200 hover:bg-white/5 transition-colors flex items-center justify-center gap-2">
                         <MessageCircle className="w-5 h-5" />
                         Canlı Destek
                       </button>
-                      <button className="w-full px-4 py-2 border border-white/10 rounded-lg font-semibold text-gray-200 hover:bg-gray-50 transition-colors flex items-center justify-center gap-2">
+                      <button className="w-full px-4 py-2 border border-white/10 rounded-lg font-semibold text-gray-200 hover:bg-white/5 transition-colors flex items-center justify-center gap-2">
                         <Phone className="w-5 h-5" />
                         Bizi Arayın
                       </button>

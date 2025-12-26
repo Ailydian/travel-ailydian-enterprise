@@ -135,7 +135,7 @@ export default function BusinessPage() {
                   <div className="flex items-center space-x-2">
                     {renderStars(Math.floor(business.rating))}
                     <span className="text-sm font-medium">{business.rating}</span>
-                    <span className="text-xs text-gray-500">({business.reviewCount})</span>
+                    <span className="text-xs text-gray-400">({business.reviewCount})</span>
                   </div>
                 </div>
               </div>

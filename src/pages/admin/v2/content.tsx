@@ -76,7 +76,7 @@ const ContentManagement = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-purple-50 to-blue-50">
       {/* Header */}
-      <div className="bg-white border-b border-slate-200 sticky top-0 z-40 backdrop-blur-xl bg-white/80">
+      <div className="bg-white/5 border-b border-slate-200 sticky top-0 z-40 backdrop-blur-xl bg-white/80">
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
@@ -133,7 +133,7 @@ const ContentManagement = () => {
         <div className="grid grid-cols-12 gap-6">
           {/* Sidebar */}
           <div className="col-span-3">
-            <div className="bg-white rounded-xl shadow-sm p-4 sticky top-24">
+            <div className="bg-white/5 rounded-xl shadow-sm p-4 sticky top-24">
               <h3 className="font-bold text-slate-900 mb-4 px-2">İçerik Bölümleri</h3>
               <div className="space-y-2">
                 {sections.map((section) => {
@@ -231,7 +231,7 @@ const HeroEditor = ({ data, onSave, saving }: any) => {
   }, [data]);
 
   return (
-    <div className="bg-white rounded-xl shadow-sm p-6">
+    <div className="bg-white/5 rounded-xl shadow-sm p-6">
       <div className="flex items-center justify-between mb-6">
         <h2 className="text-xl font-bold text-slate-900">Hero Section</h2>
         <button
@@ -314,7 +314,7 @@ const HeroEditor = ({ data, onSave, saving }: any) => {
 // Menu Editor Component
 const MenuEditor = ({ data, onSave, saving }: any) => {
   return (
-    <div className="bg-white rounded-xl shadow-sm p-6">
+    <div className="bg-white/5 rounded-xl shadow-sm p-6">
       <div className="flex items-center justify-between mb-6">
         <h2 className="text-xl font-bold text-slate-900">Menü Yönetimi</h2>
         <button
@@ -353,7 +353,7 @@ const MenuEditor = ({ data, onSave, saving }: any) => {
 // Sections Editor
 const SectionsEditor = ({ data, onSave, saving }: any) => {
   return (
-    <div className="bg-white rounded-xl shadow-sm p-6">
+    <div className="bg-white/5 rounded-xl shadow-sm p-6">
       <div className="flex items-center justify-between mb-6">
         <h2 className="text-xl font-bold text-slate-900">Sayfa Bölümleri</h2>
         <button className="flex items-center gap-2 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-all">
@@ -387,7 +387,7 @@ const SectionsEditor = ({ data, onSave, saving }: any) => {
 // Footer Editor
 const FooterEditor = ({ data, onSave, saving }: any) => {
   return (
-    <div className="bg-white rounded-xl shadow-sm p-6">
+    <div className="bg-white/5 rounded-xl shadow-sm p-6">
       <div className="flex items-center justify-between mb-6">
         <h2 className="text-xl font-bold text-slate-900">Footer İçeriği</h2>
         <button
@@ -410,7 +410,7 @@ const FooterEditor = ({ data, onSave, saving }: any) => {
 // SEO Editor
 const SEOEditor = ({ data, onSave, saving }: any) => {
   return (
-    <div className="bg-white rounded-xl shadow-sm p-6">
+    <div className="bg-white/5 rounded-xl shadow-sm p-6">
       <div className="flex items-center justify-between mb-6">
         <h2 className="text-xl font-bold text-slate-900">SEO Ayarları</h2>
         <button

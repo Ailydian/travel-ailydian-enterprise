@@ -202,7 +202,7 @@ export const NeoCard: React.FC<NeoCardProps> = ({
         {/* Description */}
         {description && (
           <motion.p
-            className="text-gray-600 leading-relaxed line-clamp-2"
+            className="text-gray-300 leading-relaxed line-clamp-2"
             style={hover3D ? { transform: 'translateZ(20px)' } : undefined}
           >
             {description}
@@ -216,7 +216,7 @@ export const NeoCard: React.FC<NeoCardProps> = ({
             style={hover3D ? { transform: 'translateZ(15px)' } : undefined}
           >
             {metadata.map((item, index) => (
-              <div key={index} className="flex items-center gap-1.5 text-sm text-gray-500">
+              <div key={index} className="flex items-center gap-1.5 text-sm text-gray-400">
                 {item.icon && <span className="text-[#00BAFF]">{item.icon}</span>}
                 <span>{item.label}</span>
               </div>

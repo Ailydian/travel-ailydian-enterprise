@@ -227,7 +227,7 @@ const CarRentalsPage: React.FC = () => {
 
       <FuturisticHeader />
 
-      <main className="min-h-screen bg-gray-50">
+      <main className="min-h-screen bg-white/5">
         {/* Hero Section - Full Width Search Engine */}
         <section className="relative bg-gradient-to-br from-green-600 via-emerald-600 to-teal-600 text-white py-24">
           <div className="max-w-7xl mx-auto px-4">
@@ -291,7 +291,7 @@ const CarRentalsPage: React.FC = () => {
 
               <div className="flex items-center gap-4">
                 <div className="text-right">
-                  <div className="text-sm text-gray-500">Ortalama Aylık Gelir</div>
+                  <div className="text-sm text-gray-400">Ortalama Aylık Gelir</div>
                   <div className="text-2xl font-bold text-green-600">₺8,500</div>
                 </div>
                 <Link href="/vehicle-owner">
@@ -477,7 +477,7 @@ const CarRentalsPage: React.FC = () => {
                     className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
                       filters.vehicleType === cat.value
                         ? 'bg-green-600 text-white'
-                        : 'bg-gray-100 text-gray-200 hover:bg-gray-200'
+                        : 'bg-white/10 text-gray-200 hover:bg-gray-200'
                     }`}
                   >
                     {cat.label}
@@ -487,7 +487,7 @@ const CarRentalsPage: React.FC = () => {
 
               <button
                 onClick={() => setShowFilters(!showFilters)}
-                className="flex items-center gap-2 px-4 py-2 border border-white/20 rounded-lg hover:bg-gray-50"
+                className="flex items-center gap-2 px-4 py-2 border border-white/20 rounded-lg hover:bg-white/5"
               >
                 <Filter className="w-5 h-5" />
                 <span className="text-sm font-medium">Filtreler</span>
@@ -560,14 +560,14 @@ const CarRentalsPage: React.FC = () => {
                       <h3 className="font-bold text-lg text-white line-clamp-1">
                         {vehicle.name}
                       </h3>
-                      <p className="text-sm text-gray-500">{vehicle.brand} • {vehicle.year}</p>
+                      <p className="text-sm text-gray-400">{vehicle.brand} • {vehicle.year}</p>
                     </div>
                     {vehicle.insuranceIncluded && (
                       <Shield className="w-5 h-5 text-green-600" title="Sigorta Dahil" />
                     )}
                   </div>
 
-                  <div className="flex items-center gap-2 text-sm text-gray-500 mb-4">
+                  <div className="flex items-center gap-2 text-sm text-gray-400 mb-4">
                     <MapPin className="w-4 h-4" />
                     <span>{vehicle.pickupLocations[0]}</span>
                     <span>•</span>
@@ -577,15 +577,15 @@ const CarRentalsPage: React.FC = () => {
                   </div>
 
                   <div className="flex flex-wrap gap-2 mb-4">
-                    <span className="px-2 py-1 bg-gray-100 text-gray-200 rounded text-xs flex items-center gap-1">
+                    <span className="px-2 py-1 bg-white/10 text-gray-200 rounded text-xs flex items-center gap-1">
                       <Users className="w-3 h-3" />
                       {vehicle.seats} Koltuk
                     </span>
-                    <span className="px-2 py-1 bg-gray-100 text-gray-200 rounded text-xs flex items-center gap-1">
+                    <span className="px-2 py-1 bg-white/10 text-gray-200 rounded text-xs flex items-center gap-1">
                       <Settings className="w-3 h-3" />
                       {vehicle.transmission === 'AUTOMATIC' ? 'Otomatik' : 'Manuel'}
                     </span>
-                    <span className="px-2 py-1 bg-gray-100 text-gray-200 rounded text-xs flex items-center gap-1">
+                    <span className="px-2 py-1 bg-white/10 text-gray-200 rounded text-xs flex items-center gap-1">
                       <Fuel className="w-3 h-3" />
                       {vehicle.fuelType}
                     </span>
@@ -604,7 +604,7 @@ const CarRentalsPage: React.FC = () => {
                   <div className="flex items-center justify-between pt-4 border-t border-gray-100">
                     <div>
                       <div className="text-2xl font-bold text-white">₺{parseInt(vehicle.pricePerDay).toLocaleString('tr-TR')}</div>
-                      <div className="text-sm text-gray-500">/ gün</div>
+                      <div className="text-sm text-gray-400">/ gün</div>
                     </div>
                     <Link
                       href={`/car-rentals/${vehicle.slug}`}

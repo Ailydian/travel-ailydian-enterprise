@@ -104,8 +104,8 @@ const NotificationItem: React.FC<{
             <div className="flex-1 min-w-0">
               {/* Header */}
               <div className="flex items-center gap-2 mb-1">
-                <StatusIcon className="w-4 h-4 text-gray-500" />
-                <span className="text-xs font-semibold text-gray-500 uppercase tracking-wide">
+                <StatusIcon className="w-4 h-4 text-gray-400" />
+                <span className="text-xs font-semibold text-gray-400 uppercase tracking-wide">
                   {getStatusText(notification.status)}
                 </span>
               </div>
@@ -116,7 +116,7 @@ const NotificationItem: React.FC<{
               </h4>
 
               {/* Customer */}
-              <p className="text-xs text-gray-600 dark:text-gray-400 mb-2">
+              <p className="text-xs text-gray-300 dark:text-gray-400 mb-2">
                 <span className="font-medium">{notification.customerName}</span>
               </p>
 
@@ -125,7 +125,7 @@ const NotificationItem: React.FC<{
                 <span className="text-sm font-bold text-white dark:text-white">
                   {notification.amount.toLocaleString('tr-TR')} {notification.currency}
                 </span>
-                <span className="text-xs text-gray-500">
+                <span className="text-xs text-gray-400">
                   {new Date(notification.timestamp).toLocaleTimeString('tr-TR', {
                     hour: '2-digit',
                     minute: '2-digit',
@@ -137,7 +137,7 @@ const NotificationItem: React.FC<{
             {/* Close button */}
             <button
               onClick={() => onDismiss(notification.id)}
-              className="flex-shrink-0 w-6 h-6 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 flex items-center justify-center transition-colors"
+              className="flex-shrink-0 w-6 h-6 rounded-lg hover:bg-white/10 dark:hover:bg-gray-800 flex items-center justify-center transition-colors"
             >
               <X className="w-4 h-4 text-gray-400" />
             </button>
