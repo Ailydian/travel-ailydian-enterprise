@@ -40,22 +40,34 @@ export const BookingHeader: React.FC = () => {
 
   return (
     <header className="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm">
-      {/* Top Bar - Currency & Language */}
-      <div className="bg-[#003580] text-white">
+      {/* Top Bar - Premium Gradient Design */}
+      <div className="bg-gradient-to-r from-ailydian-primary via-red-600 to-ailydian-secondary text-white shadow-md">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="flex items-center justify-end gap-4 py-2 text-sm">
-            <button className="flex items-center gap-1 text-white hover:text-white/80 transition-colors font-medium">
+          <div className="flex items-center justify-end gap-6 py-2.5">
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="flex items-center gap-2 px-3 py-1.5 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-md transition-all font-semibold text-sm border border-white/20"
+            >
               <Globe className="w-4 h-4" />
-              <span className="text-white">₺ TRY</span>
-            </button>
-            <button className="flex items-center gap-1 text-white hover:text-white/80 transition-colors font-medium">
+              <span>₺ TRY</span>
+            </motion.button>
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="flex items-center gap-2 px-3 py-1.5 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-md transition-all font-semibold text-sm border border-white/20"
+            >
               <Globe className="w-4 h-4" />
-              <span className="text-white">Türkçe</span>
-            </button>
-            <button className="flex items-center gap-1 text-white hover:text-white/80 transition-colors font-medium">
+              <span>Türkçe</span>
+            </motion.button>
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="flex items-center gap-2 px-3 py-1.5 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-md transition-all font-semibold text-sm border border-white/20"
+            >
               <HelpCircle className="w-4 h-4" />
-              <span className="text-white">Yardım</span>
-            </button>
+              <span>Yardım</span>
+            </motion.button>
           </div>
         </div>
       </div>

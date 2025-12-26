@@ -282,8 +282,10 @@ export const BookingProductCard: React.FC<ProductCardProps> = ({
                 >
                   <div className="flex items-center gap-1">
                     <Eye className="w-3 h-3 text-blue-600" />
-                    <span className="font-semibold text-blue-600">{Math.floor(Math.random() * 20) + 10}</span>
-                    <span> kişi şu anda bakıyor</span>
+                    <div className="flex items-center">
+                      <span className="font-semibold text-blue-600">{Math.floor(Math.random() * 20) + 10}</span>
+                      <span className="ml-1">kişi şu anda bakıyor</span>
+                    </div>
                   </div>
                 </motion.div>
               )}
@@ -298,8 +300,10 @@ export const BookingProductCard: React.FC<ProductCardProps> = ({
                 >
                   <div className="flex items-center gap-1">
                     <Clock className="w-3 h-3 text-orange-600" />
-                    <span>Son rezervasyon </span>
-                    <span className="font-semibold text-orange-600">{Math.floor(Math.random() * 60) + 5} dakika önce</span>
+                    <div className="flex items-center">
+                      <span>Son rezervasyon</span>
+                      <span className="font-semibold text-orange-600 ml-1">{Math.floor(Math.random() * 60) + 5} dakika önce</span>
+                    </div>
                   </div>
                 </motion.div>
               )}
