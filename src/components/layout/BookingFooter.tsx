@@ -77,10 +77,12 @@ export const BookingFooter: React.FC = () => {
   ];
 
   return (
-    <footer className="bg-gray-900 text-gray-300">
+    <footer className="relative bg-gradient-to-br from-gray-900 via-[#1a1a2e] to-gray-900 text-gray-300">
+      {/* 🎨 NEO-GLASS Gradient Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-r from-[#00BAFF]/10 via-[#667EEA]/10 to-[#FF9500]/10 opacity-30" />
       {/* Newsletter Section */}
-      <div className="border-b border-gray-800">
-        <div className="max-w-7xl mx-auto px-4 py-12">
+      <div className="relative border-b border-gray-800">
+        <div className="relative max-w-7xl mx-auto px-4 py-12">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="text-center md:text-left">
               <h3 className="text-2xl font-bold text-white mb-2">
@@ -105,7 +107,7 @@ export const BookingFooter: React.FC = () => {
       </div>
 
       {/* Main Footer Content */}
-      <div className="max-w-7xl mx-auto px-4 py-12">
+      <div className="relative max-w-7xl mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
           {/* Services */}
           <div>

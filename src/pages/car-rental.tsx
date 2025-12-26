@@ -7,6 +7,7 @@ import { BookingHeader } from '../components/layout/BookingHeader';
 import { getBrandLogo } from '../components/icons/CarBrandLogos';
 import { AnimatedCarIcon } from '../components/icons/AnimatedCarIcon';
 import { TransferCarCard } from '../components/cards/TransferCarCard';
+import { NeoHero, NeoCard, NeoButton } from '../components/neo-glass';
 
 const CarRental: React.FC = () => {
   const router = useRouter();
@@ -154,66 +155,59 @@ const CarRental: React.FC = () => {
 
       <BookingHeader />
 
-      <main className="min-h-screen bg-gray-50">
-        {/* Hero Section */}
-        <section className="bg-gradient-to-br from-green-600 via-teal-600 to-cyan-600 py-20">
-          <div className="max-w-7xl mx-auto px-4">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="text-center mb-12"
-            >
-              <h1 className="text-4xl md:text-6xl font-black text-white mb-6">
-                Araç Kiralama
-              </h1>
-              <p className="text-xl text-green-100 mb-8 max-w-3xl mx-auto">
-                Ekonomik fiyatlarla güvenilir araç kiralama. Şehir içi, şehirlerarası ve tatil için ideal araç seçenekleri.
-              </p>
-            </motion.div>
-
-            {/* Search Form */}
-            <div className="max-w-4xl mx-auto">
-              <div className="bg-white rounded-2xl shadow-2xl p-6">
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Alış Yeri</label>
-                    <input
-                      type="text"
-                      placeholder="Şehir veya havaalanı"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 outline-none text-gray-900 placeholder-gray-400"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Alış Tarihi</label>
-                    <input
-                      type="date"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 outline-none text-gray-900 [color-scheme:light]"
-                      style={{ colorScheme: 'light' }}
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">İade Tarihi</label>
-                    <input
-                      type="date"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 outline-none text-gray-900 [color-scheme:light]"
-                      style={{ colorScheme: 'light' }}
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">&nbsp;</label>
-                    <motion.button
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.98 }}
-                      className="w-full py-3 bg-gradient-to-r from-green-600 to-teal-600 text-white rounded-xl font-bold hover:from-green-700 hover:to-teal-700 transition-all shadow-lg hover:shadow-xl"
-                    >
-                      Ara
-                    </motion.button>
-                  </div>
+      <main className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
+        {/* 🎨 NEO-GLASS HERO */}
+        <NeoHero
+          title="Araç Kiralama"
+          subtitle="Ekonomik fiyatlarla güvenilir araç kiralama. Şehir içi, şehirlerarası ve tatil için ideal araç seçenekleri."
+          gradient="sunset"
+          height="80vh"
+          overlayOpacity={0.2}
+          showFloatingElements={true}
+        >
+          {/* Search Form */}
+          <div className="max-w-4xl mx-auto mt-8">
+            <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl shadow-2xl p-8">
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+                <div>
+                  <label className="block text-sm font-semibold text-white mb-2">Alış Yeri</label>
+                  <input
+                    type="text"
+                    placeholder="Şehir veya havaalanı"
+                    className="w-full px-4 py-3 bg-white/90 backdrop-blur-sm border border-white/30 rounded-xl focus:ring-2 focus:ring-[#FF9500] outline-none text-gray-900 placeholder-gray-500"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-semibold text-white mb-2">Alış Tarihi</label>
+                  <input
+                    type="date"
+                    className="w-full px-4 py-3 bg-white/90 backdrop-blur-sm border border-white/30 rounded-xl focus:ring-2 focus:ring-[#FF9500] outline-none text-gray-900 [color-scheme:light]"
+                    style={{ colorScheme: 'light' }}
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-semibold text-white mb-2">İade Tarihi</label>
+                  <input
+                    type="date"
+                    className="w-full px-4 py-3 bg-white/90 backdrop-blur-sm border border-white/30 rounded-xl focus:ring-2 focus:ring-[#FF9500] outline-none text-gray-900 [color-scheme:light]"
+                    style={{ colorScheme: 'light' }}
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-semibold text-white mb-2">&nbsp;</label>
+                  <NeoButton
+                    variant="gradient"
+                    size="lg"
+                    fullWidth
+                    icon={<ArrowRight className="w-5 h-5" />}
+                  >
+                    Ara
+                  </NeoButton>
                 </div>
               </div>
             </div>
           </div>
-        </section>
+        </NeoHero>
 
         {/* Car Categories */}
         <section className="py-16 bg-white">
@@ -287,28 +281,73 @@ const CarRental: React.FC = () => {
           </div>
         </section>
 
-        {/* Car Results */}
-        <section className="py-16 bg-gray-50">
+        {/* 🎨 NEO-GLASS CAR RESULTS */}
+        <section className="py-16 bg-gradient-to-b from-white to-gray-50">
           <div className="max-w-7xl mx-auto px-4">
-            <h2 className="text-3xl font-bold text-gray-900 mb-8">Tüm Araçlar</h2>
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#FF9500] to-[#FF6B00] mb-12 text-center"
+            >
+              Tüm Araçlar
+            </motion.h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-              {cars.map((car) => (
-                <TransferCarCard
+              {cars.map((car, idx) => (
+                <motion.div
                   key={car.id}
-                  id={car.id}
-                  slug={car.brand.toLowerCase() + '-' + car.name.toLowerCase().replace(/\s+/g, '-')}
-                  title={`${car.brand} ${car.name}`}
-                  category={car.category}
-                  price={car.price}
-                  capacity={car.seats}
-                  rating={car.rating}
-                  reviews={Math.floor(Math.random() * 150) + 30}
-                  popular={car.popular}
-                  href={`/car-rentals/${car.brand.toLowerCase()}-${car.name.toLowerCase().replace(/\s+/g, '-')}`}
-                  from={car.transmission}
-                  to={car.fuel}
-                />
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: idx * 0.05 }}
+                >
+                  <NeoCard
+                    title={`${car.brand} ${car.name}`}
+                    description={car.category}
+                    price={`${car.price}/gün`}
+                    badge={car.popular ? '⭐ POPÜLER' : undefined}
+                    metadata={[
+                      { icon: <Settings className="w-4 h-4" />, label: car.transmission },
+                      { icon: <Fuel className="w-4 h-4" />, label: car.fuel },
+                      { icon: <Users className="w-4 h-4" />, label: `${car.seats} Kişi` },
+                      { icon: <Star className="w-4 h-4 fill-current text-yellow-400" />, label: `${car.rating} (${Math.floor(Math.random() * 150) + 30})` },
+                    ]}
+                    onClick={() => handleReserve(car)}
+                    variant="glass"
+                    hover3D={true}
+                  >
+                    {/* Brand Logo */}
+                    <div className="mb-4">
+                      {getBrandLogo(car.brand, 'w-16 h-16 mx-auto')}
+                    </div>
+
+                    {/* Features */}
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {car.features.slice(0, 3).map((feature, idx) => (
+                        <span key={idx} className="px-2 py-1 bg-gradient-to-r from-orange-50 to-amber-50 text-orange-700 text-xs font-medium rounded-lg">
+                          {feature}
+                        </span>
+                      ))}
+                    </div>
+
+                    {/* Action Button */}
+                    <div className="mt-4">
+                      <NeoButton
+                        variant="gradient"
+                        size="md"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleReserve(car);
+                        }}
+                        icon={<Car className="w-4 h-4" />}
+                        fullWidth
+                      >
+                        Kirala
+                      </NeoButton>
+                    </div>
+                  </NeoCard>
+                </motion.div>
               ))}
             </div>
           </div>

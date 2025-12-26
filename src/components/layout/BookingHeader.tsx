@@ -43,17 +43,15 @@ export const BookingHeader: React.FC = () => {
   const isActive = (href: string) => router.pathname === href || router.pathname.startsWith(href + '/');
 
   return (
-    <header className="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm">
-      {/* Top Bar - Ultra Modern Animated Gradient Design */}
+    <header className="sticky top-0 z-50 bg-white/70 backdrop-blur-xl border-b border-white/30 shadow-lg">
+      {/* 🎨 NEO-GLASS Top Bar */}
       <div className="relative overflow-hidden">
-        {/* Animated Multi-Layer Gradient Background */}
-        <div className="absolute inset-0 bg-gradient-to-r from-lydian-primary via-red-600 to-lydian-secondary opacity-90" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(255,255,255,0.15),transparent_50%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,rgba(220,38,38,0.3),transparent_50%)]" />
+        {/* Ocean Gradient Background */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#00BAFF] via-[#0088BD] to-[#005580]" />
 
         {/* Animated Shimmer Effect */}
         <motion.div
-          className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
+          className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
           animate={{
             x: ['-100%', '100%'],
           }}
@@ -72,20 +70,20 @@ export const BookingHeader: React.FC = () => {
               <motion.button
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
-                className="flex items-center gap-2 px-4 py-2 bg-white/15 hover:bg-white/25 backdrop-blur-md rounded-lg transition-all font-bold text-sm border border-white/30 shadow-lg hover:shadow-white/20 !text-white"
+                className="flex items-center gap-2 px-4 py-2 bg-white/10 hover:bg-white/20 backdrop-blur-xl rounded-xl transition-all font-semibold text-sm border border-white/20 shadow-lg !text-white"
               >
                 <Users className="w-4 h-4 !text-white" />
-                <span className="!text-white font-bold">Partnerler</span>
+                <span className="!text-white">Partnerler</span>
               </motion.button>
             </Link>
             <Link href="/help">
               <motion.button
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
-                className="flex items-center gap-2 px-4 py-2 bg-white/15 hover:bg-white/25 backdrop-blur-md rounded-lg transition-all font-bold text-sm border border-white/30 shadow-lg hover:shadow-white/20 !text-white"
+                className="flex items-center gap-2 px-4 py-2 bg-white/10 hover:bg-white/20 backdrop-blur-xl rounded-xl transition-all font-semibold text-sm border border-white/20 shadow-lg !text-white"
               >
                 <HelpCircle className="w-4 h-4 !text-white" />
-                <span className="!text-white font-bold">Yardım</span>
+                <span className="!text-white">Yardım</span>
               </motion.button>
             </Link>
           </div>

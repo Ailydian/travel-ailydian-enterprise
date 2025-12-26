@@ -13,6 +13,7 @@ import { BookingHeader } from '../components/layout/BookingHeader';
 import antalyaAirportTransfers from '../data/antalya-transfers';
 import { AnimatedCarIcon } from '../components/icons/AnimatedCarIcon';
 import { TransferCarCard } from '../components/cards/TransferCarCard';
+import { NeoHero, NeoCard, NeoButton } from '../components/neo-glass';
 
 export default function TransfersPage() {
   const [selectedLanguage, setSelectedLanguage] = useState<'tr' | 'en' | 'ru' | 'de' | 'ar' | 'fr'>('tr');
@@ -61,115 +62,116 @@ export default function TransfersPage() {
 
       <BookingHeader />
 
-      {/* Hero Section */}
-      <div className="relative bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-700 text-white py-20">
-        <div className="absolute inset-0 bg-black/20"></div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full mb-6">
-              <Plane className="w-5 h-5" />
-              <span className="text-sm font-semibold">
-                {selectedLanguage === 'tr' && '6 Dilde Profesyonel Transfer Hizmeti'}
-                {selectedLanguage === 'en' && 'Professional Transfer Service in 6 Languages'}
-                {selectedLanguage === 'ru' && 'Профессиональный трансфер на 6 языках'}
-                {selectedLanguage === 'de' && 'Professioneller Transfer in 6 Sprachen'}
-                {selectedLanguage === 'ar' && 'خدمة نقل احترافية ب 6 لغات'}
-                {selectedLanguage === 'fr' && 'Service de transfert professionnel en 6 langues'}
-              </span>
-            </div>
-
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">
-              {selectedLanguage === 'tr' && 'Antalya Transfer'}
-              {selectedLanguage === 'en' && 'Antalya Transfers'}
-              {selectedLanguage === 'ru' && 'Трансфер в Анталии'}
-              {selectedLanguage === 'de' && 'Antalya Transfers'}
-              {selectedLanguage === 'ar' && 'نقل أنطاليا'}
-              {selectedLanguage === 'fr' && 'Transferts à Antalya'}
-            </h1>
-
-            <p className="text-xl md:text-2xl text-blue-100 mb-8 max-w-3xl mx-auto">
-              {selectedLanguage === 'tr' && 'Havalimanı ve şehir içi transferleriniz için %12 daha ucuz garantili fiyat!'}
-              {selectedLanguage === 'en' && '12% cheaper guaranteed price for airport and city transfers!'}
-              {selectedLanguage === 'ru' && 'На 12% дешевле гарантированная цена для трансферов!'}
-              {selectedLanguage === 'de' && '12% günstigerer Garantiepreis für Transfers!'}
-              {selectedLanguage === 'ar' && 'سعر مضمون أرخص بنسبة 12٪ للنقل!'}
-              {selectedLanguage === 'fr' && 'Prix garanti 12% moins cher pour les transferts!'}
-            </p>
-
-            {/* Language Selector */}
-            <div className="flex flex-wrap justify-center gap-3 mb-8">
-              {['tr', 'en', 'ru', 'de', 'ar', 'fr'].map((lang) => (
-                <button
-                  key={lang}
-                  onClick={() => setSelectedLanguage(lang as any)}
-                  className={`px-4 py-2 rounded-lg font-semibold transition-all ${
-                    selectedLanguage === lang
-                      ? 'bg-white text-blue-600 shadow-lg scale-105'
-                      : 'bg-white/20 hover:bg-white/30'
-                  }`}
-                >
-                  {lang === 'tr' && '🇹🇷 TR'}
-                  {lang === 'en' && '🇬🇧 EN'}
-                  {lang === 'ru' && '🇷🇺 RU'}
-                  {lang === 'de' && '🇩🇪 DE'}
-                  {lang === 'ar' && '🇸🇦 AR'}
-                  {lang === 'fr' && '🇫🇷 FR'}
-                </button>
-              ))}
-            </div>
-
-            {/* Stats */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
-              {[
-                { icon: Car, value: '8', label: { tr: 'Araç Seçeneği', en: 'Vehicle Options', ru: 'Варианты транспорта', de: 'Fahrzeugoptionen', ar: 'خيارات المركبات', fr: 'Options de véhicules' } },
-                { icon: Star, value: '4.9', label: { tr: 'Ortalama Puan', en: 'Average Rating', ru: 'Средний рейтинг', de: 'Durchschnittsbewertung', ar: 'متوسط ​​التقييم', fr: 'Note moyenne' } },
-                { icon: Users, value: '50K+', label: { tr: 'Mutlu Müşteri', en: 'Happy Customers', ru: 'Довольные клиенты', de: 'Zufriedene Kunden', ar: 'عملاء سعداء', fr: 'Clients satisfaits' } },
-                { icon: TrendingDown, value: '%12', label: { tr: 'Daha Ucuz', en: 'Cheaper', ru: 'Дешевле', de: 'Günstiger', ar: 'أرخص', fr: 'Moins cher' } }
-              ].map((stat, idx) => (
-                <motion.div
-                  key={idx}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: idx * 0.1 }}
-                  className="bg-white/10 backdrop-blur-sm rounded-xl p-4"
-                >
-                  <stat.icon className="w-8 h-8 mx-auto mb-2" />
-                  <div className="text-3xl font-bold mb-1">{stat.value}</div>
-                  <div className="text-sm text-blue-100">{stat.label[selectedLanguage]}</div>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
+      {/* 🎨 NEO-GLASS HERO */}
+      <NeoHero
+        title={
+          selectedLanguage === 'tr' ? 'Antalya Transfer' :
+          selectedLanguage === 'en' ? 'Antalya Transfers' :
+          selectedLanguage === 'ru' ? 'Трансфер в Анталии' :
+          selectedLanguage === 'de' ? 'Antalya Transfers' :
+          selectedLanguage === 'ar' ? 'نقل أنطاليا' :
+          'Transferts à Antalya'
+        }
+        subtitle={
+          selectedLanguage === 'tr' ? 'Havalimanı ve şehir içi transferleriniz için %12 daha ucuz garantili fiyat!' :
+          selectedLanguage === 'en' ? '12% cheaper guaranteed price for airport and city transfers!' :
+          selectedLanguage === 'ru' ? 'На 12% дешевле гарантированная цена для трансферов!' :
+          selectedLanguage === 'de' ? '12% günstigerer Garantiepreis für Transfers!' :
+          selectedLanguage === 'ar' ? 'سعر مضمون أرخص بنسبة 12٪ للنقل!' :
+          'Prix garanti 12% moins cher pour les transferts!'
+        }
+        gradient="ocean"
+        height="75vh"
+        overlayOpacity={0.15}
+        showFloatingElements={true}
+      >
+        {/* Badge */}
+        <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-xl border border-white/20 px-5 py-2.5 rounded-full mb-8">
+          <Plane className="w-5 h-5" />
+          <span className="text-sm font-semibold">
+            {selectedLanguage === 'tr' && '6 Dilde Profesyonel Transfer Hizmeti'}
+            {selectedLanguage === 'en' && 'Professional Transfer Service in 6 Languages'}
+            {selectedLanguage === 'ru' && 'Профессиональный трансфер на 6 языках'}
+            {selectedLanguage === 'de' && 'Professioneller Transfer in 6 Sprachen'}
+            {selectedLanguage === 'ar' && 'خدمة نقل احترافية ب 6 لغات'}
+            {selectedLanguage === 'fr' && 'Service de transfert professionnel en 6 langues'}
+          </span>
         </div>
-      </div>
 
-      {/* Category Filter */}
-      <div className="bg-white border-b sticky top-0 z-10 shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+        {/* Language Selector */}
+        <div className="flex flex-wrap justify-center gap-3 mb-12">
+          {['tr', 'en', 'ru', 'de', 'ar', 'fr'].map((lang) => (
+            <motion.button
+              key={lang}
+              onClick={() => setSelectedLanguage(lang as any)}
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+              className={`px-5 py-2.5 rounded-xl font-semibold transition-all ${
+                selectedLanguage === lang
+                  ? 'bg-white text-[#00BAFF] shadow-lg'
+                  : 'bg-white/10 backdrop-blur-xl border border-white/20 text-white hover:bg-white/20'
+              }`}
+            >
+              {lang === 'tr' && '🇹🇷 TR'}
+              {lang === 'en' && '🇬🇧 EN'}
+              {lang === 'ru' && '🇷🇺 RU'}
+              {lang === 'de' && '🇩🇪 DE'}
+              {lang === 'ar' && '🇸🇦 AR'}
+              {lang === 'fr' && '🇫🇷 FR'}
+            </motion.button>
+          ))}
+        </div>
+
+        {/* Stats Cards */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+          {[
+            { icon: Car, value: '8', label: { tr: 'Araç Seçeneği', en: 'Vehicle Options', ru: 'Варианты транспорта', de: 'Fahrzeugoptionen', ar: 'خيارات المركبات', fr: 'Options de véhicules' } },
+            { icon: Star, value: '4.9', label: { tr: 'Ortalama Puan', en: 'Average Rating', ru: 'Средний рейтинг', de: 'Durchschnittsbewertung', ar: 'متوسط ​​التقييم', fr: 'Note moyenne' } },
+            { icon: Users, value: '50K+', label: { tr: 'Mutlu Müşteri', en: 'Happy Customers', ru: 'Довольные клиенты', de: 'Zufriedene Kunden', ar: 'عملاء سعداء', fr: 'Clients satisfaits' } },
+            { icon: TrendingDown, value: '%12', label: { tr: 'Daha Ucuz', en: 'Cheaper', ru: 'Дешевле', de: 'Günstiger', ar: 'أرخص', fr: 'Moins cher' } }
+          ].map((stat, idx) => (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: idx * 0.1 }}
+              whileHover={{ scale: 1.05, y: -5 }}
+              className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-6 cursor-default"
+            >
+              <stat.icon className="w-10 h-10 mx-auto mb-3 text-white" />
+              <div className="text-4xl font-black text-white mb-2">{stat.value}</div>
+              <div className="text-sm uppercase tracking-widest text-white/80">{stat.label[selectedLanguage]}</div>
+            </motion.div>
+          ))}
+        </div>
+      </NeoHero>
+
+      {/* 🎨 NEO-GLASS CATEGORY FILTER */}
+      <div className="bg-white/70 backdrop-blur-xl border-b border-white/30 sticky top-0 z-10 shadow-lg">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
           <div className="flex flex-wrap gap-3 justify-center">
             {categories.map((cat) => (
-              <button
+              <motion.button
                 key={cat.id}
                 onClick={() => setSelectedCategory(cat.id)}
-                className={`px-6 py-2.5 rounded-lg font-semibold transition-all ${
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                className={`px-6 py-3 rounded-xl font-semibold transition-all ${
                   selectedCategory === cat.id
-                    ? 'bg-blue-600 text-white shadow-lg scale-105'
-                    : 'bg-gray-100 hover:bg-gray-200 text-gray-700'
+                    ? 'bg-gradient-to-br from-[#00BAFF] to-[#0088BD] text-white shadow-[0_10px_30px_-5px_rgba(0,186,255,0.4)]'
+                    : 'bg-white/60 backdrop-blur-sm border border-gray-200 hover:bg-white/80 text-gray-700 shadow-sm'
                 }`}
               >
                 {cat.label[selectedLanguage]}
-              </button>
+              </motion.button>
             ))}
           </div>
         </div>
       </div>
 
-      {/* Transfers Grid */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      {/* 🎨 NEO-GLASS TRANSFERS GRID */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredTransfers.map((transfer, idx) => {
             const minPrice = Math.min(
@@ -190,24 +192,53 @@ export default function TransfersPage() {
 
             // Get duration text
             const durationText = `${transfer.duration} ${selectedLanguage === 'tr' ? 'dk' : 'min'}`;
+            const routeText = `${transfer.from[selectedLanguage]} → ${transfer.to[selectedLanguage]}`;
 
             return (
-              <TransferCarCard
+              <motion.div
                 key={transfer.id}
-                id={transfer.id}
-                slug={transfer.slug}
-                title={transfer.seo.title[selectedLanguage]}
-                from={transfer.from[selectedLanguage]}
-                to={transfer.to[selectedLanguage]}
-                price={`₺${minPrice}`}
-                duration={durationText}
-                capacity={transfer.maxPassengers}
-                rating={4.8}
-                reviews={Math.floor(Math.random() * 200) + 50}
-                category={categoryLabel}
-                popular={idx < 3}
-                href={`/transfers/${transfer.slug}`}
-              />
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.05 }}
+              >
+                <NeoCard
+                  title={transfer.seo.title[selectedLanguage]}
+                  description={routeText}
+                  price={`₺${minPrice}`}
+                  badge={idx < 3 ? '⭐ POPÜLER' : undefined}
+                  badges={categoryLabel ? [categoryLabel] : undefined}
+                  metadata={[
+                    { icon: <Clock className="w-4 h-4" />, label: durationText },
+                    { icon: <Users className="w-4 h-4" />, label: `${transfer.maxPassengers} Kişi` },
+                    { icon: <Star className="w-4 h-4 fill-current text-yellow-400" />, label: `4.8 (${Math.floor(Math.random() * 200) + 50})` },
+                  ]}
+                  onClick={() => window.location.href = `/transfers/${transfer.slug}`}
+                  variant="glass"
+                  hover3D={true}
+                >
+                  {/* Animated Car Icon */}
+                  <div className="relative bg-gradient-to-br from-blue-50/50 via-purple-50/50 to-pink-50/50 rounded-2xl p-8 mb-4 -mx-6 -mt-6">
+                    <AnimatedCarIcon size="lg" className="w-full max-w-xs mx-auto" />
+                  </div>
+
+                  {/* Action Button */}
+                  <div className="mt-4">
+                    <NeoButton
+                      variant="primary"
+                      size="md"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        window.location.href = `/transfers/${transfer.slug}`;
+                      }}
+                      icon={<Car className="w-4 h-4" />}
+                      fullWidth
+                    >
+                      {selectedLanguage === 'tr' ? 'Detay Gör' : 'View Details'}
+                    </NeoButton>
+                  </div>
+                </NeoCard>
+              </motion.div>
             );
           })}
         </div>
