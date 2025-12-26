@@ -40,31 +40,50 @@ export const BookingHeader: React.FC = () => {
 
   return (
     <header className="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm">
-      {/* Top Bar - Premium Gradient Design */}
-      <div className="bg-gradient-to-r from-ailydian-primary via-red-600 to-ailydian-secondary text-white shadow-md">
-        <div className="max-w-7xl mx-auto px-4">
+      {/* Top Bar - Ultra Modern Animated Gradient Design */}
+      <div className="relative overflow-hidden">
+        {/* Animated Multi-Layer Gradient Background */}
+        <div className="absolute inset-0 bg-gradient-to-r from-ailydian-primary via-red-600 to-ailydian-secondary opacity-90" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(255,255,255,0.15),transparent_50%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,rgba(220,38,38,0.3),transparent_50%)]" />
+
+        {/* Animated Shimmer Effect */}
+        <motion.div
+          className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
+          animate={{
+            x: ['-100%', '100%'],
+          }}
+          transition={{
+            duration: 3,
+            repeat: Infinity,
+            ease: 'linear',
+          }}
+        />
+
+        {/* Content */}
+        <div className="relative max-w-7xl mx-auto px-4">
           <div className="flex items-center justify-end gap-6 py-2.5">
             <motion.button
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
-              className="flex items-center gap-2 px-3 py-1.5 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-md transition-all font-bold text-sm border border-white/20 !text-white"
+              className="flex items-center gap-2 px-4 py-2 bg-white/15 hover:bg-white/25 backdrop-blur-md rounded-lg transition-all font-bold text-sm border border-white/30 shadow-lg hover:shadow-white/20 !text-white"
             >
               <Globe className="w-4 h-4 !text-white" />
               <span className="!text-white font-bold">₺ TRY</span>
             </motion.button>
             <motion.button
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
-              className="flex items-center gap-2 px-3 py-1.5 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-md transition-all font-bold text-sm border border-white/20 !text-white"
+              className="flex items-center gap-2 px-4 py-2 bg-white/15 hover:bg-white/25 backdrop-blur-md rounded-lg transition-all font-bold text-sm border border-white/30 shadow-lg hover:shadow-white/20 !text-white"
             >
               <Globe className="w-4 h-4 !text-white" />
               <span className="!text-white font-bold">Türkçe</span>
             </motion.button>
             <Link href="/help">
               <motion.button
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
-                className="flex items-center gap-2 px-3 py-1.5 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-md transition-all font-bold text-sm border border-white/20 !text-white"
+                className="flex items-center gap-2 px-4 py-2 bg-white/15 hover:bg-white/25 backdrop-blur-md rounded-lg transition-all font-bold text-sm border border-white/30 shadow-lg hover:shadow-white/20 !text-white"
               >
                 <HelpCircle className="w-4 h-4 !text-white" />
                 <span className="!text-white font-bold">Yardım</span>
