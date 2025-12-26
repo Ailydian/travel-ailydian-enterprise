@@ -64,7 +64,44 @@
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
-  
+
+  <!-- Explore Pages - High Priority Content -->
+  <url>
+    <loc>https://travel.ailydian.com/explore</loc>
+    <lastmod>2025-12-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://travel.ailydian.com/explore/things-to-do</loc>
+    <lastmod>2025-12-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://travel.ailydian.com/explore/places-to-stay</loc>
+    <lastmod>2025-12-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://travel.ailydian.com/explore/transportation</loc>
+    <lastmod>2025-12-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Partner Page -->
+  <url>
+    <loc>https://travel.ailydian.com/partner</loc>
+    <lastmod>2025-12-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <!-- Owner/Partner Registration Pages - Public -->
   <url>
     <loc>https://travel.ailydian.com/owner/auth/register</loc>
