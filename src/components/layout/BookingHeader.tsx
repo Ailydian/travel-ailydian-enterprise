@@ -63,11 +63,42 @@ export const BookingHeader: React.FC = () => {
       {/* Main Navigation */}
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <Link href="/" className="flex items-center gap-2">
-            <div className="text-2xl font-black">
-              <span className="text-ailydian-primary">Travel</span>
-              <span className="text-gray-900">.com</span>
+          {/* Logo - Premium Design */}
+          <Link href="/" className="flex items-center gap-3 group">
+            {/* Logo Icon */}
+            <motion.div
+              whileHover={{ rotate: 360, scale: 1.1 }}
+              transition={{ duration: 0.6, type: "spring" }}
+              className="relative w-12 h-12 bg-gradient-to-br from-ailydian-primary via-red-500 to-ailydian-secondary rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all"
+            >
+              <motion.div
+                animate={{
+                  y: [0, -3, 0],
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+              >
+                <Plane className="w-6 h-6 text-white" />
+              </motion.div>
+              {/* Glow effect */}
+              <div className="absolute inset-0 bg-gradient-to-r from-ailydian-primary to-ailydian-secondary rounded-xl blur-md opacity-50 group-hover:opacity-75 transition-opacity -z-10" />
+            </motion.div>
+
+            {/* Logo Text */}
+            <div className="flex flex-col -space-y-1">
+              <div className="flex items-baseline">
+                <span className="text-2xl font-black bg-gradient-to-r from-ailydian-primary to-ailydian-secondary bg-clip-text text-transparent">
+                  Travel
+                </span>
+              </div>
+              <div className="flex items-baseline">
+                <span className="text-lg font-bold text-gray-700">
+                  Ailydian
+                </span>
+              </div>
             </div>
           </Link>
 

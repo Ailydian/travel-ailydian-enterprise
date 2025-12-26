@@ -16,6 +16,7 @@ import {
 } from 'lucide-react';
 import SimplifiedHeader from '../components/layout/SimplifiedHeader';
 import antalyaAirportTransfers from '../data/antalya-transfers';
+import { VehicleTypeIcon } from '../components/icons/CarBrandLogos';
 
 export default function TransfersPage() {
   const [selectedLanguage, setSelectedLanguage] = useState<'tr' | 'en' | 'ru' | 'de' | 'ar' | 'fr'>('tr');
@@ -174,110 +175,127 @@ export default function TransfersPage() {
       {/* Transfers Grid */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredTransfers.map((transfer, idx) => (
-            <motion.div
-              key={transfer.id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: idx * 0.1 }}
-              className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all overflow-hidden group"
-            >
-              {/* Image */}
-              <div className="relative h-48 overflow-hidden">
-                <img
-                  src={transfer.images[0]}
-                  alt={transfer.from[selectedLanguage]}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-                <div className="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-bold flex items-center gap-1">
-                  <TrendingDown className="w-4 h-4" />
-                  %12 {selectedLanguage === 'tr' ? 'İndirim' : 'OFF'}
-                </div>
-                <div className="absolute bottom-4 left-4 bg-black/60 backdrop-blur-sm text-white px-3 py-1 rounded-lg text-sm flex items-center gap-1">
-                  <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                  <span className="font-semibold">{transfer.rating}</span>
-                  <span className="text-gray-300">({transfer.totalTransfers.toLocaleString()})</span>
-                </div>
-              </div>
+          {filteredTransfers.map((transfer, idx) => {
+            // Determine vehicle type based on pricing - cheapest available option indicates vehicle type
+            const vehicleType = transfer.pricing.economySedan < 200 ? 'sedan' :
+                               transfer.pricing.minivan < 400 ? 'minivan' :
+                               transfer.pricing.vipSedan > 300 ? 'vip' : 'sedan';
 
-              {/* Content */}
-              <div className="p-6">
-                <div className="flex items-start justify-between mb-4">
-                  <div className="flex-1">
-                    <div className="flex items-center gap-2 text-blue-600 text-sm font-semibold mb-2">
-                      <MapPin className="w-4 h-4" />
-                      {transfer.from[selectedLanguage]}
+            return (
+              <motion.div
+                key={transfer.id}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: idx * 0.1 }}
+                className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all overflow-hidden group"
+              >
+                {/* Vehicle Icon Section - Replaces transfer image */}
+                <div className="relative bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 p-8 flex flex-col items-center justify-center min-h-[200px]">
+                  {/* Discount Badge */}
+                  <div className="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-bold flex items-center gap-1 shadow-lg">
+                    <TrendingDown className="w-4 h-4" />
+                    %12 {selectedLanguage === 'tr' ? 'İndirim' : 'OFF'}
+                  </div>
+
+                  {/* Category Badge */}
+                  <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-gray-700 shadow-md">
+                    {transfer.category === 'airport' && (selectedLanguage === 'tr' ? 'Havalimanı' : 'Airport')}
+                    {transfer.category === 'city' && (selectedLanguage === 'tr' ? 'Şehir İçi' : 'City')}
+                    {transfer.category === 'district' && (selectedLanguage === 'tr' ? 'İlçeler' : 'Districts')}
+                  </div>
+
+                  {/* Vehicle Type Icon */}
+                  <div className="mb-4 transform group-hover:scale-110 transition-transform duration-300">
+                    <VehicleTypeIcon type={vehicleType} size={120} />
+                  </div>
+
+                  {/* Rating */}
+                  <div className="flex items-center gap-2 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full shadow-md">
+                    <Star className="w-5 h-5 fill-yellow-400 text-yellow-400" />
+                    <span className="font-bold text-gray-900">{transfer.rating}</span>
+                    <span className="text-sm text-gray-500">({transfer.totalTransfers.toLocaleString()})</span>
+                  </div>
+                </div>
+
+                {/* Content */}
+                <div className="p-6">
+                  <div className="flex items-start justify-between mb-4">
+                    <div className="flex-1">
+                      <div className="flex items-center gap-2 text-blue-600 text-sm font-semibold mb-2">
+                        <MapPin className="w-4 h-4" />
+                        {transfer.from[selectedLanguage]}
+                      </div>
+                      <ArrowRight className="w-5 h-5 text-gray-400 my-1" />
+                      <div className="flex items-center gap-2 text-indigo-600 text-sm font-semibold">
+                        <MapPin className="w-4 h-4" />
+                        {transfer.to[selectedLanguage]}
+                      </div>
                     </div>
-                    <ArrowRight className="w-5 h-5 text-gray-400 my-1" />
-                    <div className="flex items-center gap-2 text-indigo-600 text-sm font-semibold">
-                      <MapPin className="w-4 h-4" />
-                      {transfer.to[selectedLanguage]}
+                  </div>
+
+                  <p className="text-gray-600 text-sm mb-4 line-clamp-2">
+                    {transfer.description[selectedLanguage]}
+                  </p>
+
+                  {/* Details */}
+                  <div className="grid grid-cols-2 gap-3 mb-4 text-sm bg-gray-50 p-3 rounded-lg">
+                    <div className="flex items-center gap-2 text-gray-600">
+                      <Clock className="w-4 h-4 text-blue-500" />
+                      <span>{transfer.duration} {selectedLanguage === 'tr' ? 'dk' : 'min'}</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-gray-600">
+                      <MapPin className="w-4 h-4 text-purple-500" />
+                      <span>{transfer.distance} km</span>
                     </div>
                   </div>
-                </div>
 
-                <p className="text-gray-600 text-sm mb-4 line-clamp-2">
-                  {transfer.description[selectedLanguage]}
-                </p>
-
-                {/* Details */}
-                <div className="grid grid-cols-2 gap-3 mb-4 text-sm">
-                  <div className="flex items-center gap-2 text-gray-600">
-                    <Clock className="w-4 h-4" />
-                    <span>{transfer.duration} {selectedLanguage === 'tr' ? 'dk' : 'min'}</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-gray-600">
-                    <MapPin className="w-4 h-4" />
-                    <span>{transfer.distance} km</span>
-                  </div>
-                </div>
-
-                {/* Pricing */}
-                <div className="border-t pt-4 mb-4">
-                  <div className="text-xs text-gray-500 mb-1">
-                    {selectedLanguage === 'tr' && 'Başlangıç fiyatı'}
-                    {selectedLanguage === 'en' && 'Starting from'}
-                    {selectedLanguage === 'ru' && 'Начиная с'}
-                    {selectedLanguage === 'de' && 'Ab'}
-                    {selectedLanguage === 'ar' && 'ابتداء من'}
-                    {selectedLanguage === 'fr' && 'À partir de'}
-                  </div>
-                  <div className="flex items-baseline gap-2">
-                    <span className="text-3xl font-bold text-blue-600">
-                      ₺{transfer.pricing.economySedan}
-                    </span>
-                    <span className="text-sm text-gray-500 line-through">
-                      ₺{Math.round(transfer.pricing.economySedan / 0.88)}
-                    </span>
-                  </div>
-                </div>
-
-                {/* Highlights */}
-                <div className="space-y-2 mb-4">
-                  {transfer.highlights[selectedLanguage].slice(0, 3).map((highlight, i) => (
-                    <div key={i} className="flex items-center gap-2 text-sm text-gray-600">
-                      <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
-                      <span className="line-clamp-1">{highlight}</span>
+                  {/* Pricing */}
+                  <div className="border-t pt-4 mb-4">
+                    <div className="text-xs text-gray-500 mb-1">
+                      {selectedLanguage === 'tr' && 'Başlangıç fiyatı'}
+                      {selectedLanguage === 'en' && 'Starting from'}
+                      {selectedLanguage === 'ru' && 'Начиная с'}
+                      {selectedLanguage === 'de' && 'Ab'}
+                      {selectedLanguage === 'ar' && 'ابتداء من'}
+                      {selectedLanguage === 'fr' && 'À partir de'}
                     </div>
-                  ))}
-                </div>
+                    <div className="flex items-baseline gap-2">
+                      <span className="text-3xl font-bold text-blue-600">
+                        ₺{transfer.pricing.economySedan}
+                      </span>
+                      <span className="text-sm text-gray-500 line-through">
+                        ₺{Math.round(transfer.pricing.economySedan / 0.88)}
+                      </span>
+                    </div>
+                  </div>
 
-                {/* CTA */}
-                <Link
-                  href={`/transfers/${transfer.seo.slug[selectedLanguage]}`}
-                  className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-3 rounded-lg font-semibold hover:shadow-lg transition-all flex items-center justify-center gap-2 group"
-                >
-                  {selectedLanguage === 'tr' && 'Detayları Gör'}
-                  {selectedLanguage === 'en' && 'View Details'}
-                  {selectedLanguage === 'ru' && 'Подробнее'}
-                  {selectedLanguage === 'de' && 'Details ansehen'}
-                  {selectedLanguage === 'ar' && 'عرض التفاصيل'}
-                  {selectedLanguage === 'fr' && 'Voir les détails'}
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </div>
-            </motion.div>
-          ))}
+                  {/* Highlights */}
+                  <div className="space-y-2 mb-4">
+                    {transfer.highlights[selectedLanguage].slice(0, 3).map((highlight, i) => (
+                      <div key={i} className="flex items-center gap-2 text-sm text-gray-600">
+                        <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
+                        <span className="line-clamp-1">{highlight}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* CTA */}
+                  <Link
+                    href={`/transfers/${transfer.seo.slug[selectedLanguage]}`}
+                    className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-3 rounded-lg font-semibold hover:shadow-lg transition-all flex items-center justify-center gap-2 group"
+                  >
+                    {selectedLanguage === 'tr' && 'Detayları Gör'}
+                    {selectedLanguage === 'en' && 'View Details'}
+                    {selectedLanguage === 'ru' && 'Подробнее'}
+                    {selectedLanguage === 'de' && 'Details ansehen'}
+                    {selectedLanguage === 'ar' && 'عرض التفاصيل'}
+                    {selectedLanguage === 'fr' && 'Voir les détails'}
+                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  </Link>
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
 

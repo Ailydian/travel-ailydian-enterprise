@@ -87,33 +87,53 @@ export const BookingSearchForm: React.FC<SearchFormProps> = ({
 
   return (
     <div className="w-full max-w-6xl mx-auto">
-      {/* Tabs */}
-      <div className="flex gap-1 bg-gray-800/30 backdrop-blur-sm p-1 rounded-t-lg overflow-x-auto">
-        {tabs.map((tab) => {
+      {/* Tabs - Premium Animated */}
+      <div className="flex gap-1 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 backdrop-blur-sm p-1 rounded-t-lg overflow-x-auto scrollbar-hide">
+        {tabs.map((tab, index) => {
           const Icon = tab.icon;
           const isActive = activeTab === tab.id;
           return (
-            <button
+            <motion.button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.1, type: "spring" }}
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.95 }}
               className={`
-                relative flex items-center gap-2 px-6 py-3 rounded-t-md font-semibold transition-all whitespace-nowrap
+                relative flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 px-3 sm:px-6 py-2 sm:py-3 rounded-t-md font-bold transition-all whitespace-nowrap min-w-[70px] sm:min-w-0
                 ${isActive
-                  ? 'bg-white text-gray-900'
-                  : 'bg-white text-gray-700 border-2 border-white'
+                  ? 'bg-white text-ailydian-primary shadow-lg'
+                  : 'bg-white/90 text-gray-600 hover:bg-white hover:text-gray-900'
                 }
               `}
             >
-              <Icon className="w-5 h-5" />
-              <span>{tab.label}</span>
+              <motion.div
+                animate={isActive ? {
+                  rotate: [0, -10, 10, 0],
+                  scale: [1, 1.1, 1.1, 1]
+                } : {}}
+                transition={{ duration: 0.5, repeat: isActive ? Infinity : 0, repeatDelay: 3 }}
+              >
+                <Icon className="w-5 h-5 sm:w-6 sm:h-6" />
+              </motion.div>
+              <span className="text-xs sm:text-sm font-semibold">{tab.label}</span>
               {isActive && (
                 <motion.div
-                  layoutId="activeTab"
-                  className="absolute inset-0 bg-white rounded-t-md -z-10"
-                  transition={{ type: "spring", duration: 0.5 }}
+                  layoutId="activeTabBg"
+                  className="absolute inset-0 bg-gradient-to-r from-red-50 to-pink-50 rounded-t-md -z-10"
+                  transition={{ type: "spring", stiffness: 300, damping: 30 }}
                 />
               )}
-            </button>
+              {isActive && (
+                <motion.div
+                  className="absolute -bottom-1 left-0 right-0 h-1 bg-gradient-to-r from-ailydian-primary via-ailydian-secondary to-ailydian-primary"
+                  layoutId="activeTabUnderline"
+                  transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                />
+              )}
+            </motion.button>
           );
         })}
       </div>
