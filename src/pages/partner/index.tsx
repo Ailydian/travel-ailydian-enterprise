@@ -305,7 +305,7 @@ const PartnerIndexPage = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full text-sm font-semibold mb-6"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#667EEA] via-[#764BA2] to-[#667EEA] text-white rounded-full text-sm font-semibold mb-6"
             >
               <Sparkles className="w-4 h-4" />
               <span>Türkiye'nin En Yenilikçi Partner Platformu</span>
@@ -345,7 +345,7 @@ const PartnerIndexPage = () => {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="group flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full font-bold text-lg shadow-2xl hover:shadow-blue-500/50 transition-all"
+                  className="group flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-[#667EEA] via-[#764BA2] to-[#667EEA] text-white rounded-full font-bold text-lg shadow-2xl hover:shadow-blue-500/50 transition-all"
                 >
                   <span>Hemen Başla</span>
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -400,7 +400,7 @@ const PartnerIndexPage = () => {
                 viewport={{ once: true }}
                 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4"
               >
-                Hangi Kategoride <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Partner</span> Olmak İstersiniz?
+                Hangi Kategoride <span className="bg-gradient-to-r from-[#667EEA] via-[#764BA2] to-[#667EEA] bg-clip-text text-transparent">Partner</span> Olmak İstersiniz?
               </motion.h2>
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
@@ -583,7 +583,7 @@ const PartnerIndexPage = () => {
                 viewport={{ once: true }}
                 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4"
               >
-                Neden <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">LyDian</span>?
+                Neden <span className="bg-gradient-to-r from-[#667EEA] via-[#764BA2] to-[#667EEA] bg-clip-text text-transparent">LyDian</span>?
               </motion.h2>
             </div>
 

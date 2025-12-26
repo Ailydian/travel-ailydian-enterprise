@@ -204,7 +204,7 @@ const AllProductsManagement = () => {
               </button>
               <button
                 onClick={() => setShowAddModal(true)}
-                className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:shadow-lg transition-all"
+                className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#667EEA] via-[#764BA2] to-[#667EEA] text-white rounded-lg hover:shadow-lg transition-all"
               >
                 <Plus className="w-5 h-5" />
                 Yeni Ürün Ekle
@@ -395,7 +395,7 @@ const AllProductsManagement = () => {
             </p>
             <button
               onClick={() => setShowAddModal(true)}
-              className="px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:shadow-lg transition-all"
+              className="px-6 py-3 bg-gradient-to-r from-[#667EEA] via-[#764BA2] to-[#667EEA] text-white rounded-lg hover:shadow-lg transition-all"
             >
               <Plus className="w-5 h-5 inline-block mr-2" />
               Yeni Ürün Ekle
@@ -547,7 +547,7 @@ const AddProductModal = ({
               <button
                 type="submit"
                 disabled={submitting}
-                className="flex-1 px-4 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:shadow-lg transition-all font-medium disabled:opacity-50"
+                className="flex-1 px-4 py-3 bg-gradient-to-r from-[#667EEA] via-[#764BA2] to-[#667EEA] text-white rounded-lg hover:shadow-lg transition-all font-medium disabled:opacity-50"
               >
                 {submitting ? 'Ekleniyor...' : 'Ürün Ekle'}
               </button>

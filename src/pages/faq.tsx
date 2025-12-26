@@ -342,7 +342,7 @@ export default function FAQ() {
           )}
 
           {/* Contact CTA */}
-          <div className="mt-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-white text-center">
+          <div className="mt-16 bg-gradient-to-r from-[#667EEA] via-[#764BA2] to-[#667EEA] rounded-2xl p-8 text-white text-center">
             <h3 className="text-2xl font-bold mb-4">Sorunuza cevap bulamadınız mı?</h3>
             <p className="mb-6 text-blue-100">
               7/24 müşteri hizmetlerimiz size yardımcı olmak için burada!

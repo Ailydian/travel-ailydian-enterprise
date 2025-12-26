@@ -203,7 +203,7 @@ const AIAssistantPage: NextPage = () => {
           <div className="max-w-7xl mx-auto px-4 py-6">
             <div className="text-center">
               <div className="flex items-center justify-center gap-3 mb-4">
-                <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center">
+                <div className="w-12 h-12 bg-gradient-to-r from-[#667EEA] via-[#764BA2] to-[#667EEA] rounded-full flex items-center justify-center">
                   <Brain className="w-6 h-6 text-white" />
                 </div>
                 <h1 className="text-3xl font-bold text-gray-900">AI Seyahat Asistanı</h1>
@@ -220,7 +220,7 @@ const AIAssistantPage: NextPage = () => {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Chat Interface */}
             <div className="lg:col-span-2 bg-white rounded-2xl shadow-lg overflow-hidden">
-              <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-4">
+              <div className="bg-gradient-to-r from-[#667EEA] via-[#764BA2] to-[#667EEA] text-white p-4">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
                     <Sparkles className="w-5 h-5" />

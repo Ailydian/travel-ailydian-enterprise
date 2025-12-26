@@ -120,7 +120,7 @@ const AITravelPlanner: React.FC = () => {
                 </div>
                 <div className="w-full bg-gray-200 rounded-full h-2">
                   <div 
-                    className="bg-gradient-to-r from-blue-600 to-purple-600 h-2 rounded-full transition-all duration-300"
+                    className="bg-gradient-to-r from-[#667EEA] via-[#764BA2] to-[#667EEA] h-2 rounded-full transition-all duration-300"
                     style={{ width: `${(step / 4) * 100}%` }}
                   ></div>
                 </div>

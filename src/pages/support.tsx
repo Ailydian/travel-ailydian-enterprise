@@ -221,7 +221,7 @@ export default function Support() {
           <div className="text-center mb-8">
             <button
               onClick={() => setShowNewTicketForm(!showNewTicketForm)}
-              className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-3 rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all font-semibold flex items-center mx-auto"
+              className="bg-gradient-to-r from-[#667EEA] via-[#764BA2] to-[#667EEA] text-white px-8 py-3 rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all font-semibold flex items-center mx-auto"
             >
               <MessageCircle className="h-5 w-5 mr-2" />
               Yeni Destek Talebi Oluştur

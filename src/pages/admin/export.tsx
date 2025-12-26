@@ -150,7 +150,7 @@ export default function AdminExport() {
                   <button
                     onClick={handleExport}
                     disabled={isExporting}
-                    className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:shadow-lg transition-all disabled:opacity-50"
+                    className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#667EEA] via-[#764BA2] to-[#667EEA] text-white rounded-lg hover:shadow-lg transition-all disabled:opacity-50"
                   >
                     <Download className={`w-5 h-5 ${isExporting ? 'animate-bounce' : ''}`} />
                     {isExporting ? 'Dışa Aktarılıyor...' : 'Dışa Aktar'}

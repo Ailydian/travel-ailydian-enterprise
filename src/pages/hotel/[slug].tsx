@@ -302,7 +302,7 @@ export default function HotelDetailPage({ hotel }: { hotel: Hotel }) {
                   <button
                     onClick={handleReservation}
                     disabled={!checkInDate || !checkOutDate}
-                    className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 rounded-lg font-bold hover:from-blue-700 hover:to-purple-700 disabled:opacity-50 disabled:cursor-not-allowed transition"
+                    className="w-full bg-gradient-to-r from-[#667EEA] via-[#764BA2] to-[#667EEA] text-white py-3 rounded-lg font-bold hover:from-blue-700 hover:to-purple-700 disabled:opacity-50 disabled:cursor-not-allowed transition"
                   >
                     <div className="flex items-center justify-center gap-2">
                       <CreditCard className="w-5 h-5" />

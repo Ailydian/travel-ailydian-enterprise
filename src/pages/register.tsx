@@ -374,7 +374,7 @@ export default function Register() {
 
                 <button
                   type="submit"
-                  className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all font-semibold transform hover:scale-105 active:scale-95"
+                  className="w-full bg-gradient-to-r from-[#667EEA] via-[#764BA2] to-[#667EEA] text-white py-3 rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all font-semibold transform hover:scale-105 active:scale-95"
                 >
                   Hesap Oluştur
                 </button>

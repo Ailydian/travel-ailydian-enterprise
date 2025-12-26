@@ -427,7 +427,7 @@ export default function MyTrips() {
           )}
 
           {/* Quick Actions */}
-          <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-white text-center mt-12">
+          <div className="bg-gradient-to-r from-[#667EEA] via-[#764BA2] to-[#667EEA] rounded-2xl p-8 text-white text-center mt-12">
             <h2 className="text-3xl font-bold mb-4">
               Yeni Bir Maceraya Hazır mısınız?
             </h2>

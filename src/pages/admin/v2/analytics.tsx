@@ -127,7 +127,7 @@ const AdvancedAnalytics = () => {
                 <RefreshCw className="w-5 h-5" />
               </button>
 
-              <button className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:shadow-lg transition-all">
+              <button className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#667EEA] via-[#764BA2] to-[#667EEA] text-white rounded-lg hover:shadow-lg transition-all">
                 <Download className="w-4 h-4" />
                 Rapor İndir
               </button>

@@ -1016,7 +1016,7 @@ const PropertyDetailsPage = ({ slug: initialSlug }: PropertyDetailsPageProps) =>
                   className={`w-full py-4 rounded-xl font-bold shadow-lg transition-all transform ${
                     !checkInDate || !checkOutDate || nights <= 0
                       ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
-                      : 'bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:shadow-xl hover:-translate-y-1'
+                      : 'bg-gradient-to-r from-[#667EEA] via-[#764BA2] to-[#667EEA] text-white hover:shadow-xl hover:-translate-y-1'
                   }`}
                 >
                   {property.instantBook ? 'Rezervasyon Yap' : 'Rezervasyon Talebi Gönder'}

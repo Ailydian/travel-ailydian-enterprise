@@ -743,7 +743,7 @@ const AdminDashboardV2 = () => {
                   <Shield className="w-6 h-6 text-white" />
                 </div>
                 <div>
-                  <h1 className="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                  <h1 className="text-xl font-bold bg-gradient-to-r from-[#667EEA] via-[#764BA2] to-[#667EEA] bg-clip-text text-transparent">
                     Travel LyDian
                   </h1>
                   <p className="text-xs text-slate-500 font-medium">Admin Control Center v2</p>
@@ -1510,7 +1510,7 @@ const AdminDashboardV2 = () => {
         {activeTab === 'analytics' && (
           <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl p-12 text-center border-2 border-dashed border-blue-300">
             <div className="max-w-md mx-auto">
-              <div className="w-16 h-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-gradient-to-r from-[#667EEA] via-[#764BA2] to-[#667EEA] rounded-full flex items-center justify-center mx-auto mb-4">
                 <BarChart3 className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-2xl font-bold text-slate-900 mb-2">
@@ -1520,7 +1520,7 @@ const AdminDashboardV2 = () => {
                 Gelişmiş analitik raporları ve grafikler için özel sayfaya gidin
               </p>
               <Link href="/admin/v2/analytics">
-                <button className="px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:shadow-xl transition-all font-medium">
+                <button className="px-8 py-3 bg-gradient-to-r from-[#667EEA] via-[#764BA2] to-[#667EEA] text-white rounded-lg hover:shadow-xl transition-all font-medium">
                   Analytics Sayfasına Git
                 </button>
               </Link>
