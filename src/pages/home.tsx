@@ -58,6 +58,7 @@ import { FilterSidebar } from '../components/booking/FilterSidebar';
 import { VideoHero } from '../components/ui/VideoHero';
 import { AnimatedCarSVG } from '../components/icons/AnimatedCarSVG';
 import { MinimalistHero, MinimalistCard, MinimalistButton, ScrollReveal } from '../components/minimalist';
+import { NeoHero, NeoCard, NeoButton, NeoSection } from '../components/neo-glass';
 
 const GetYourGuideStyleHome: React.FC = () => {
   // Translation
@@ -272,22 +273,37 @@ const GetYourGuideStyleHome: React.FC = () => {
       <BookingHeader />
 
       <main>
-        {/* 🎨 MINIMALIST HERO - Option5.studio inspired */}
-        <MinimalistHero
+        {/* 🎬 NEO-GLASS HERO - Neomorphism + Glassmorphism */}
+        <NeoHero
           title={t('Dünyanızı Keşfedin')}
           subtitle="Modern gezgin için özenle seçilmiş unutulmaz yolculuklar"
           image="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&h=1080&fit=crop&q=85"
-          height="70vh"
+          gradient="aurora"
+          height="90vh"
           overlayOpacity={0.3}
+          showFloatingElements={true}
         >
-          <MinimalistButton
-            variant="primary"
-            size="lg"
-            onClick={() => router.push('/tours')}
-          >
-            Destinasyonları Keşfet
-          </MinimalistButton>
-        </MinimalistHero>
+          <div className="flex flex-wrap gap-4">
+            <NeoButton
+              variant="primary"
+              size="xl"
+              onClick={() => router.push('/tours')}
+              icon={<Compass className="w-6 h-6" />}
+              iconPosition="left"
+            >
+              Destinasyonları Keşfet
+            </NeoButton>
+            <NeoButton
+              variant="glass"
+              size="xl"
+              onClick={() => router.push('/ai-planner')}
+              icon={<Sparkles className="w-6 h-6" />}
+              iconPosition="left"
+            >
+              AI Planlayıcı
+            </NeoButton>
+          </div>
+        </NeoHero>
 
         {/* Search Results */}
         {searchResults.length > 0 && (
@@ -464,159 +480,126 @@ const GetYourGuideStyleHome: React.FC = () => {
         )}
 
 
-        {/* 💎 MINIMALIST EXPERIENCES - Option5.studio inspired */}
-        <section className="py-24 md:py-32 bg-white relative overflow-hidden">
-          {/* Subtle background decoration */}
-          <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-gray-50 to-transparent opacity-50" />
-
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <ScrollReveal animation="fadeInUp">
-              <div className="text-center mb-16 md:mb-20">
-                <h2 className="text-4xl md:text-6xl font-light text-gray-900 mb-6 tracking-tight">
-                  Özenle Seçilmiş Deneyimler
-                </h2>
-                <p className="text-lg md:text-2xl text-gray-600 leading-relaxed max-w-3xl mx-auto font-light">
-                  Unutulmaz maceralar için düşünceli bir şekilde hazırlanmış yolculuklar
-                </p>
-              </div>
-            </ScrollReveal>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12 mb-16">
-              {topExperiences.map((experience, index) => (
-                <ScrollReveal
-                  key={experience.id}
-                  animation="fadeInUp"
-                  delay={index * 100}
-                >
-                  <MinimalistCard
-                    image={experience.image}
-                    title={experience.title}
-                    description={experience.highlights[0]}
-                    metadata={[experience.location, experience.duration]}
-                    onClick={() => router.push(`/tours/${experience.slug}`)}
-                    imageRatio="4/3"
-                  />
-                </ScrollReveal>
-              ))}
-            </div>
-
-            <ScrollReveal animation="fadeInUp" delay={300}>
-              <div className="text-center">
-                <MinimalistButton
-                  variant="primary"
-                  size="lg"
-                  onClick={() => router.push('/tours')}
-                  className="min-w-[240px]"
-                >
-                  Tüm Deneyimleri Gör
-                </MinimalistButton>
-              </div>
-            </ScrollReveal>
+        {/* 💎 NEO-GLASS EXPERIENCES - 3D Cards with Glassmorphism */}
+        <NeoSection
+          title="Özenle Seçilmiş Deneyimler"
+          subtitle="Unutulmaz maceralar için düşünceli bir şekilde hazırlanmış yolculuklar"
+          background="gradient"
+          padding="xl"
+        >
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {topExperiences.map((experience, index) => (
+              <motion.div
+                key={experience.id}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-100px' }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+              >
+                <NeoCard
+                  image={experience.image}
+                  title={experience.title}
+                  description={experience.highlights[0]}
+                  price={experience.price}
+                  badge={experience.category}
+                  metadata={[
+                    { icon: <MapPin className="w-4 h-4" />, label: experience.location },
+                    { icon: <Clock className="w-4 h-4" />, label: experience.duration },
+                    { icon: <Star className="w-4 h-4 fill-current text-yellow-400" />, label: `${experience.rating} ⭐` },
+                  ]}
+                  onClick={() => router.push(`/tours/${experience.slug}`)}
+                  variant="glass"
+                  hover3D={true}
+                />
+              </motion.div>
+            ))}
           </div>
-        </section>
 
-        {/* Popular Transfers - Antalya Routes */}
-        <section className="py-16 bg-gradient-to-br from-blue-50 to-indigo-50">
-          <div className="max-w-7xl mx-auto px-4">
-            <div className="flex items-center justify-between mb-12">
-              <div>
-                <h2 className="text-3xl font-bold text-gray-900 mb-2">Popüler Transfer Rotaları</h2>
-                <p className="text-gray-600">Antalya bölgesi 19 transfer rotası - D2 belgeli araçlar</p>
-              </div>
-              <Link href="/transfers" className="flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium">
-                Tümünü Gör
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {antalyaTransfers.slice(0, 8).map((transfer) => (
-                <motion.div
-                  key={transfer.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group"
-                >
-                  {/* Image */}
-                  <div className="relative h-40 bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center overflow-hidden">
-                    <AnimatedCarSVG className="w-32 h-24" />
-
-                    {/* D2 License Badge */}
-                    <div className="absolute top-3 left-3">
-                      <span className="px-2 py-1 bg-lydian-primary text-white rounded-full text-xs font-bold">
-                        D2 Belgeli
-                      </span>
-                    </div>
-
-                    {/* Instant Booking Badge */}
-                    <div className="absolute top-3 right-3">
-                      <span className="px-2 py-1 bg-blue-600 text-white rounded-full text-xs font-medium">
-                        Anlık Rezervasyon
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Content */}
-                  <div className="p-5">
-                    {/* Route Information */}
-                    <div className="mb-4">
-                      <div className="flex items-center gap-2 mb-2">
-                        <MapPin className="w-4 h-4 text-blue-600 flex-shrink-0" />
-                        <span className="font-bold text-gray-900 text-sm">{transfer.from.tr}</span>
-                      </div>
-                      <div className="flex items-center gap-2 ml-6">
-                        <ArrowRight className="w-4 h-4 text-gray-400" />
-                        <span className="text-sm text-gray-700">{transfer.to.tr}</span>
-                      </div>
-                      <div className="flex items-center gap-3 mt-2 ml-6 text-xs text-gray-500">
-                        <span className="flex items-center gap-1">
-                          <Clock className="w-3 h-3" />
-                          {transfer.duration} dk
-                        </span>
-                        <span>•</span>
-                        <span>{transfer.distance} km</span>
-                      </div>
-                    </div>
-
-                    {/* Rating */}
-                    <div className="flex items-center gap-2 mb-3">
-                      <div className="flex items-center gap-1">
-                        <Star className="w-4 h-4 text-yellow-500 fill-current" />
-                        <span className="font-medium text-sm">{transfer.rating}</span>
-                      </div>
-                      <span className="text-gray-500 text-xs">({transfer.totalTransfers} transfer)</span>
-                    </div>
-
-                    {/* Price */}
-                    <div className="mb-4 pb-4 border-b border-gray-100">
-                      <div className="flex items-baseline gap-2">
-                        <span className="text-xl font-bold text-gray-900">₺{transfer.pricing.economySedan}</span>
-                        <span className="text-xs text-gray-500">başlangıç</span>
-                      </div>
-                    </div>
-
-                    {/* Action Buttons */}
-                    <div className="grid grid-cols-2 gap-2">
-                      <Link
-                        href={`/transfers/${transfer.seo.slug.tr}`}
-                        className="px-3 py-2 border border-blue-600 text-blue-600 rounded-lg font-semibold hover:bg-blue-50 transition-colors text-center text-xs"
-                      >
-                        Detaylar
-                      </Link>
-                      <Link
-                        href={`/transfers/${transfer.seo.slug.tr}?book=true`}
-                        className="px-3 py-2 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors text-center text-xs"
-                      >
-                        Rezervasyon
-                      </Link>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
+          <div className="text-center mt-16">
+            <NeoButton
+              variant="gradient"
+              size="xl"
+              onClick={() => router.push('/tours')}
+              icon={<ArrowRight className="w-6 h-6" />}
+              iconPosition="right"
+            >
+              Tüm Deneyimleri Gör
+            </NeoButton>
           </div>
-        </section>
+        </NeoSection>
+
+        {/* 🚗 NEO-GLASS TRANSFERS - Neomorphism Cards */}
+        <NeoSection
+          title="Popüler Transfer Rotaları"
+          subtitle="Antalya bölgesi 19 transfer rotası - D2 belgeli araçlar"
+          background="neo"
+          padding="lg"
+        >
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {antalyaTransfers.slice(0, 8).map((transfer, index) => (
+              <motion.div
+                key={transfer.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.05 }}
+              >
+                <NeoCard
+                  title={`${transfer.from.tr} → ${transfer.to.tr}`}
+                  description={`${transfer.distance} km • ${transfer.duration} dk`}
+                  price={`₺${transfer.pricing.economySedan}+`}
+                  badges={['D2 Belgeli', 'Anlık Rezervasyon']}
+                  metadata={[
+                    { icon: <Star className="w-4 h-4 fill-current text-yellow-400" />, label: `${transfer.rating} (${transfer.totalTransfers} transfer)` },
+                  ]}
+                  variant="neo"
+                  hover3D={false}
+                  onClick={() => router.push(`/transfers/${transfer.seo.slug.tr}`)}
+                >
+                  <div className="relative h-32 -mx-6 -mt-6 mb-4 bg-gradient-to-br from-gray-100 to-gray-50 flex items-center justify-center">
+                    <AnimatedCarSVG className="w-24 h-20" />
+                  </div>
+                  <div className="flex gap-2 mt-4">
+                    <NeoButton
+                      variant="secondary"
+                      size="sm"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        router.push(`/transfers/${transfer.seo.slug.tr}`);
+                      }}
+                      fullWidth
+                    >
+                      Detaylar
+                    </NeoButton>
+                    <NeoButton
+                      variant="primary"
+                      size="sm"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        router.push(`/transfers/${transfer.seo.slug.tr}?book=true`);
+                      }}
+                      fullWidth
+                    >
+                      Rezerve Et
+                    </NeoButton>
+                  </div>
+                </NeoCard>
+              </motion.div>
+            ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <NeoButton
+              variant="neo"
+              size="lg"
+              onClick={() => router.push('/transfers')}
+              icon={<Bus className="w-5 h-5" />}
+              iconPosition="left"
+            >
+              Tüm Transferleri Gör
+            </NeoButton>
+          </div>
+        </NeoSection>
 
         {/* Car Rentals Showcase */}
         <section className="py-16 bg-white">
