@@ -246,13 +246,13 @@ const HotelsNewPage: React.FC = () => {
 
       <Link
         href="/"
-        className="fixed top-24 left-6 z-10 flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200 text-gray-700 hover:bg-white hover:text-ailydian-primary transition-all duration-200"
+        className="fixed top-24 left-6 z-50 flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200 text-gray-700 hover:bg-white hover:text-ailydian-primary transition-all duration-200"
       >
         <ArrowLeft className="w-4 h-4" />
         <span className="font-medium">Ana Sayfaya Dön</span>
       </Link>
 
-      <main className="pt-8">
+      <main className="min-h-screen bg-white">
         {/* Hero Section */}
         <section className="bg-gradient-to-r from-ailydian-primary to-ailydian-secondary py-16">
           <div className="max-w-7xl mx-auto px-4">
