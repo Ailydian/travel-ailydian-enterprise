@@ -692,12 +692,8 @@ const GetYourGuideStyleHome: React.FC = () => {
                   className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group border border-gray-100"
                 >
                   {/* Image */}
-                  <div className="relative h-40 overflow-hidden bg-gray-100">
-                    <img
-                      src={car.images[0]}
-                      alt={`${car.brand} ${car.model.tr}`}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                    />
+                  <div className="relative h-40 bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center overflow-hidden">
+                    <AnimatedCarSVG className="w-32 h-24" />
 
                     {/* Category Badge */}
                     <div className="absolute top-3 left-3">
