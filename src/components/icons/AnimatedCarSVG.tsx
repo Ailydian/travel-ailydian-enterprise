@@ -29,7 +29,7 @@ export const AnimatedCarSVG: React.FC<AnimatedCarSVGProps> = ({
             <stop offset="100%" stopColor="#4b5563" />
           </linearGradient>
 
-          <radial Gradient id="windowGradient" cx="50%" cy="50%" r="50%">
+          <radialGradient id="windowGradient" cx="50%" cy="50%" r="50%">
             <stop offset="0%" stopColor="#60a5fa" stopOpacity="0.3" />
             <stop offset="100%" stopColor="#3b82f6" stopOpacity="0.6" />
           </radialGradient>

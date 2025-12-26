@@ -36,6 +36,7 @@ import {
 import { BookingHeader } from '@/components/layout/BookingHeader';
 import TransferRouteSelector from '@/components/transfers/TransferRouteSelector';
 import type { AdvancedLocationSuggestion } from '@/lib/location-service-advanced';
+import { AnimatedCarSVG } from '@/components/icons/AnimatedCarSVG';
 import {
   TRANSFERS_SEO,
   TRANSFER_SERVICE_SCHEMA,
@@ -433,12 +434,8 @@ const TransfersPage: React.FC = () => {
                   animate={{ opacity: 1, y: 0 }}
                   className="bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-xl transition-all group"
                 >
-                  <div className="relative h-48">
-                    <img
-                      src={transfer.image}
-                      alt={transfer.vehicle}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                    />
+                  <div className="relative h-48 bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center">
+                    <AnimatedCarSVG className="w-48 h-32" />
                     <button
                       onClick={() => toggleFavorite(transfer.id)}
                       className="absolute top-3 right-3 w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white transition-colors"

@@ -35,6 +35,7 @@ import {
 import { VEHICLE_CATEGORIES } from '@/data/vehicleCategories';
 import { BookingHeader } from '@/components/layout/BookingHeader';
 import CarRentalSearchEngine, { type CarRentalSearchData } from '@/components/car-rentals/CarRentalSearchEngine';
+import { AnimatedCarSVG } from '@/components/icons/AnimatedCarSVG';
 import {
   CAR_RENTALS_SEO,
   CAR_RENTAL_SERVICE_SCHEMA,
@@ -514,8 +515,8 @@ const CarRentalsPage: React.FC = () => {
                 className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all overflow-hidden group cursor-pointer"
               >
                 {/* Image */}
-                <div className="relative h-56 overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
-                  <Car className="w-20 h-20 text-gray-300" />
+                <div className="relative h-56 overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center">
+                  <AnimatedCarSVG className="w-48 h-32" />
 
                   {vehicle.isFeatured && (
                     <div className="absolute top-4 left-4 px-3 py-1 bg-gradient-to-r from-amber-500 to-orange-500 text-white rounded-full text-xs font-medium flex items-center gap-1">

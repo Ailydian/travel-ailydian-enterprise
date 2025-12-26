@@ -55,6 +55,7 @@ import antalyaCarRentals from '@/data/antalya-car-rentals';
 import { BookingProductCard } from '../components/booking/BookingProductCard';
 import { FilterSidebar } from '../components/booking/FilterSidebar';
 import { VideoHero } from '../components/ui/VideoHero';
+import { AnimatedCarSVG } from '../components/icons/AnimatedCarSVG';
 
 const GetYourGuideStyleHome: React.FC = () => {
   // Router
@@ -588,12 +589,8 @@ const GetYourGuideStyleHome: React.FC = () => {
                   className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group"
                 >
                   {/* Image */}
-                  <div className="relative h-40 overflow-hidden">
-                    <img
-                      src={transfer.images[0]}
-                      alt={`${transfer.from.tr} - ${transfer.to.tr}`}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                    />
+                  <div className="relative h-40 bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center overflow-hidden">
+                    <AnimatedCarSVG className="w-32 h-24" />
 
                     {/* D2 License Badge */}
                     <div className="absolute top-3 left-3">
