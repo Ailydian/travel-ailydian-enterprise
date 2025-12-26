@@ -10,7 +10,8 @@ import {
   Unlock,
   X,
   Check,
-  AlertCircle
+  AlertCircle,
+  Menu
 } from 'lucide-react';
 
 // Calendar Day Component
@@ -46,7 +47,7 @@ const CalendarDay: React.FC<CalendarDayProps> = ({
   return (
     <button
       onClick={onClick}
-      className={`aspect-square p-2 border transition-all hover:shadow-md ${
+      className={`aspect-square p-1 sm:p-2 border transition-all hover:shadow-md touch-manipulation ${
         !isCurrentMonth
           ? 'bg-gray-50 text-gray-400 border-gray-100'
           : isBlocked
@@ -60,18 +61,18 @@ const CalendarDay: React.FC<CalendarDayProps> = ({
     >
       <div className="flex flex-col h-full">
         <div className="flex items-start justify-between mb-1">
-          <span className={`text-sm ${isToday ? 'font-bold' : ''}`}>{dayNumber}</span>
-          {isBlocked && <Lock className="w-3 h-3" />}
+          <span className={`text-xs sm:text-sm ${isToday ? 'font-bold' : ''}`}>{dayNumber}</span>
+          {isBlocked && <Lock className="w-2 h-2 sm:w-3 sm:h-3" />}
         </div>
         {bookingInfo && (
           <div className="flex-1 flex flex-col justify-end">
-            <div className="text-xs truncate bg-blue-600 text-white px-1 py-0.5 rounded">
+            <div className="text-[10px] sm:text-xs truncate bg-blue-600 text-white px-0.5 sm:px-1 py-0.5 rounded">
               {bookingInfo.guestName}
             </div>
             {(bookingInfo.checkIn || bookingInfo.checkOut) && (
-              <div className="text-[10px] text-blue-600 mt-0.5">
-                {bookingInfo.checkIn && 'Check-in'}
-                {bookingInfo.checkOut && 'Check-out'}
+              <div className="text-[8px] sm:text-[10px] text-blue-600 mt-0.5">
+                {bookingInfo.checkIn && 'Giriş'}
+                {bookingInfo.checkOut && 'Çıkış'}
               </div>
             )}
           </div>
@@ -94,14 +95,14 @@ const PropertySelector: React.FC<PropertySelectorProps> = ({
   onPropertyChange,
 }) => {
   return (
-    <div className="bg-white border border-gray-200 rounded-xl p-4 mb-6">
-      <label className="block text-sm font-medium text-gray-700 mb-2">Select Property</label>
+    <div className="bg-white border border-gray-200 rounded-xl p-3 sm:p-4 mb-4 sm:mb-6">
+      <label className="block text-sm font-medium text-gray-700 mb-2">Mülk Seçin</label>
       <select
         value={selectedPropertyId}
         onChange={(e) => onPropertyChange(e.target.value)}
-        className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+        className="w-full px-3 sm:px-4 py-2.5 text-sm sm:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all touch-manipulation"
       >
-        <option value="">All Properties</option>
+        <option value="">Tüm Mülkler</option>
         {properties.map((property) => (
           <option key={property.id} value={property.id}>
             {property.name}
@@ -148,22 +149,22 @@ const QuickEditModal: React.FC<QuickEditModalProps> = ({ isOpen, date, onClose, 
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-      <div className="bg-white rounded-xl shadow-2xl max-w-md w-full mx-4">
-        <div className="flex items-center justify-between p-6 border-b border-gray-200">
-          <h3 className="text-xl font-semibold text-gray-900">Edit Availability</h3>
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 p-4">
+      <div className="bg-white rounded-xl shadow-2xl max-w-md w-full max-h-[90vh] overflow-y-auto">
+        <div className="flex items-center justify-between p-4 sm:p-6 border-b border-gray-200 sticky top-0 bg-white z-10">
+          <h3 className="text-lg sm:text-xl font-semibold text-gray-900">Müsaitlik Düzenle</h3>
           <button
             onClick={onClose}
-            className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+            className="p-2 hover:bg-gray-100 rounded-lg transition-colors touch-manipulation"
           >
             <X className="w-5 h-5" />
           </button>
         </div>
 
-        <form onSubmit={handleSubmit} className="p-6 space-y-4">
+        <form onSubmit={handleSubmit} className="p-4 sm:p-6 space-y-4">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Action</label>
-            <div className="flex gap-4">
+            <label className="block text-sm font-medium text-gray-700 mb-2">İşlem</label>
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
               <label className="flex-1 cursor-pointer">
                 <input
                   type="radio"
@@ -174,14 +175,14 @@ const QuickEditModal: React.FC<QuickEditModalProps> = ({ isOpen, date, onClose, 
                   className="sr-only"
                 />
                 <div
-                  className={`p-4 border-2 rounded-lg text-center transition-all ${
+                  className={`p-3 sm:p-4 border-2 rounded-lg text-center transition-all touch-manipulation ${
                     action === 'block'
                       ? 'border-red-500 bg-red-50 text-red-700'
                       : 'border-gray-200 hover:border-gray-300'
                   }`}
                 >
-                  <Lock className="w-6 h-6 mx-auto mb-2" />
-                  <div className="font-medium">Block Dates</div>
+                  <Lock className="w-5 h-5 sm:w-6 sm:h-6 mx-auto mb-2" />
+                  <div className="font-medium text-sm sm:text-base">Tarihleri Blokla</div>
                 </div>
               </label>
               <label className="flex-1 cursor-pointer">
@@ -194,38 +195,38 @@ const QuickEditModal: React.FC<QuickEditModalProps> = ({ isOpen, date, onClose, 
                   className="sr-only"
                 />
                 <div
-                  className={`p-4 border-2 rounded-lg text-center transition-all ${
+                  className={`p-3 sm:p-4 border-2 rounded-lg text-center transition-all touch-manipulation ${
                     action === 'unblock'
                       ? 'border-green-500 bg-green-50 text-green-700'
                       : 'border-gray-200 hover:border-gray-300'
                   }`}
                 >
-                  <Unlock className="w-6 h-6 mx-auto mb-2" />
-                  <div className="font-medium">Unblock Dates</div>
+                  <Unlock className="w-5 h-5 sm:w-6 sm:h-6 mx-auto mb-2" />
+                  <div className="font-medium text-sm sm:text-base">Blokajı Kaldır</div>
                 </div>
               </label>
             </div>
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Start Date</label>
+            <label className="block text-sm font-medium text-gray-700 mb-2">Başlangıç Tarihi</label>
             <input
               type="date"
               value={startDate}
               onChange={(e) => setStartDate(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-3 sm:px-4 py-2.5 text-sm sm:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent touch-manipulation"
               required
             />
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">End Date</label>
+            <label className="block text-sm font-medium text-gray-700 mb-2">Bitiş Tarihi</label>
             <input
               type="date"
               value={endDate}
               onChange={(e) => setEndDate(e.target.value)}
               min={startDate}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-3 sm:px-4 py-2.5 text-sm sm:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent touch-manipulation"
               required
             />
           </div>
@@ -233,31 +234,31 @@ const QuickEditModal: React.FC<QuickEditModalProps> = ({ isOpen, date, onClose, 
           {action === 'block' && (
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Reason (Optional)
+                Sebep (İsteğe Bağlı)
               </label>
               <textarea
                 value={reason}
                 onChange={(e) => setReason(e.target.value)}
                 rows={3}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                placeholder="e.g., Maintenance, Personal use"
+                className="w-full px-3 sm:px-4 py-2 text-sm sm:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent touch-manipulation resize-none"
+                placeholder="Örn: Bakım, Kişisel kullanım"
               />
             </div>
           )}
 
-          <div className="flex gap-3 pt-4">
+          <div className="flex flex-col sm:flex-row gap-3 pt-4">
             <button
               type="button"
               onClick={onClose}
-              className="flex-1 px-4 py-2.5 border border-gray-300 rounded-lg hover:bg-gray-50 font-medium transition-colors"
+              className="flex-1 px-4 py-2.5 text-sm sm:text-base border border-gray-300 rounded-lg hover:bg-gray-50 font-medium transition-colors touch-manipulation"
             >
-              Cancel
+              İptal
             </button>
             <button
               type="submit"
-              className="flex-1 px-4 py-2.5 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-medium transition-colors"
+              className="flex-1 px-4 py-2.5 text-sm sm:text-base bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-medium transition-colors touch-manipulation"
             >
-              Save Changes
+              Değişiklikleri Kaydet
             </button>
           </div>
         </form>
@@ -269,24 +270,24 @@ const QuickEditModal: React.FC<QuickEditModalProps> = ({ isOpen, date, onClose, 
 // Legend Component
 const CalendarLegend: React.FC = () => {
   return (
-    <div className="bg-white border border-gray-200 rounded-xl p-4 mb-6">
-      <h4 className="text-sm font-semibold text-gray-900 mb-3">Legend</h4>
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+    <div className="bg-white border border-gray-200 rounded-xl p-3 sm:p-4 mb-4 sm:mb-6">
+      <h4 className="text-sm font-semibold text-gray-900 mb-3">Açıklama</h4>
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-3">
         <div className="flex items-center gap-2">
-          <div className="w-6 h-6 bg-blue-50 border-2 border-blue-200 rounded"></div>
-          <span className="text-sm text-gray-700">Booked</span>
+          <div className="w-5 h-5 sm:w-6 sm:h-6 bg-blue-50 border-2 border-blue-200 rounded flex-shrink-0"></div>
+          <span className="text-xs sm:text-sm text-gray-700">Rezerve</span>
         </div>
         <div className="flex items-center gap-2">
-          <div className="w-6 h-6 bg-red-50 border-2 border-red-200 rounded"></div>
-          <span className="text-sm text-gray-700">Blocked</span>
+          <div className="w-5 h-5 sm:w-6 sm:h-6 bg-red-50 border-2 border-red-200 rounded flex-shrink-0"></div>
+          <span className="text-xs sm:text-sm text-gray-700">Blokeli</span>
         </div>
         <div className="flex items-center gap-2">
-          <div className="w-6 h-6 bg-green-50 border-2 border-green-400 rounded"></div>
-          <span className="text-sm text-gray-700">Today</span>
+          <div className="w-5 h-5 sm:w-6 sm:h-6 bg-green-50 border-2 border-green-400 rounded flex-shrink-0"></div>
+          <span className="text-xs sm:text-sm text-gray-700">Bugün</span>
         </div>
         <div className="flex items-center gap-2">
-          <div className="w-6 h-6 bg-white border-2 border-gray-200 rounded"></div>
-          <span className="text-sm text-gray-700">Available</span>
+          <div className="w-5 h-5 sm:w-6 sm:h-6 bg-white border-2 border-gray-200 rounded flex-shrink-0"></div>
+          <span className="text-xs sm:text-sm text-gray-700">Müsait</span>
         </div>
       </div>
     </div>
@@ -345,7 +346,14 @@ const CalendarPage: React.FC = () => {
   };
 
   const days = getDaysInMonth(currentDate);
-  const monthName = currentDate.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+
+  // Turkish month names
+  const monthNames = [
+    'Ocak', 'Şubat', 'Mart', 'Nisan', 'Mayıs', 'Haziran',
+    'Temmuz', 'Ağustos', 'Eylül', 'Ekim', 'Kasım', 'Aralık'
+  ];
+
+  const monthName = `${monthNames[currentDate.getMonth()]} ${currentDate.getFullYear()}`;
 
   const goToPreviousMonth = () => {
     setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth() - 1));
@@ -397,9 +405,9 @@ const CalendarPage: React.FC = () => {
 
   if (propertiesLoading) {
     return (
-      <div className="space-y-6">
-        <h1 className="text-3xl font-black mb-6 text-black">
-          Calendar
+      <div className="space-y-4 sm:space-y-6 px-4 sm:px-0">
+        <h1 className="text-2xl sm:text-3xl font-black mb-4 sm:mb-6 text-black">
+          Takvim
         </h1>
         <div className="animate-pulse space-y-4">
           <div className="h-20 bg-gray-200 rounded-xl"></div>
@@ -410,9 +418,9 @@ const CalendarPage: React.FC = () => {
   }
 
   return (
-    <div className="space-y-6">
-      <h1 className="text-3xl font-black mb-6 text-black">
-        Calendar
+    <div className="space-y-4 sm:space-y-6 px-4 sm:px-0">
+      <h1 className="text-2xl sm:text-3xl font-black mb-4 sm:mb-6 text-black">
+        Takvim
       </h1>
       <PropertySelector
         properties={displayProperties}
@@ -424,46 +432,48 @@ const CalendarPage: React.FC = () => {
 
       <div className="bg-white border border-gray-200 rounded-xl overflow-hidden">
         {/* Calendar Header */}
-        <div className="flex items-center justify-between p-6 border-b border-gray-200 bg-gradient-to-r from-blue-50 to-indigo-50">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between p-4 sm:p-6 border-b border-gray-200 bg-gradient-to-r from-blue-50 to-indigo-50 gap-4">
           <div>
-            <h2 className="text-2xl font-bold text-gray-900">{monthName}</h2>
-            <p className="text-sm text-gray-600 mt-1">Manage your property availability</p>
+            <h2 className="text-xl sm:text-2xl font-bold text-gray-900">{monthName}</h2>
+            <p className="text-xs sm:text-sm text-gray-600 mt-1">Mülk müsaitliğinizi yönetin</p>
           </div>
-          <div className="flex gap-2">
+          <div className="flex gap-2 justify-end">
             <button
               onClick={goToPreviousMonth}
-              className="p-2 border border-gray-300 rounded-lg hover:bg-white transition-colors"
+              className="p-2 border border-gray-300 rounded-lg hover:bg-white transition-colors touch-manipulation"
+              aria-label="Önceki ay"
             >
-              <ChevronLeft className="w-5 h-5" />
+              <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
             <button
               onClick={goToToday}
-              className="px-4 py-2 border border-gray-300 rounded-lg hover:bg-white transition-colors font-medium text-sm"
+              className="px-3 sm:px-4 py-2 border border-gray-300 rounded-lg hover:bg-white transition-colors font-medium text-xs sm:text-sm touch-manipulation"
             >
-              Today
+              Bugün
             </button>
             <button
               onClick={goToNextMonth}
-              className="p-2 border border-gray-300 rounded-lg hover:bg-white transition-colors"
+              className="p-2 border border-gray-300 rounded-lg hover:bg-white transition-colors touch-manipulation"
+              aria-label="Sonraki ay"
             >
-              <ChevronRight className="w-5 h-5" />
+              <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
           </div>
         </div>
 
         {/* Calendar Grid */}
-        <div className="p-6">
+        <div className="p-3 sm:p-6 overflow-x-auto">
           {/* Day Labels */}
-          <div className="grid grid-cols-7 gap-2 mb-2">
-            {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map((day) => (
-              <div key={day} className="text-center text-sm font-semibold text-gray-600 py-2">
+          <div className="grid grid-cols-7 gap-1 sm:gap-2 mb-2 min-w-[280px]">
+            {['Paz', 'Pzt', 'Sal', 'Çar', 'Per', 'Cum', 'Cmt'].map((day) => (
+              <div key={day} className="text-center text-xs sm:text-sm font-semibold text-gray-600 py-2">
                 {day}
               </div>
             ))}
           </div>
 
           {/* Calendar Days */}
-          <div className="grid grid-cols-7 gap-2">
+          <div className="grid grid-cols-7 gap-1 sm:gap-2 min-w-[280px]">
             {days.map((day, index) => (
               <CalendarDay
                 key={index}

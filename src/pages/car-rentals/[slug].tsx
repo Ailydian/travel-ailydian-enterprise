@@ -16,6 +16,7 @@ import {
   Gauge, DollarSign, TrendingUp
 } from 'lucide-react';
 import antalyaCarRentals from '@/data/antalya-car-rentals';
+import AnimatedCarIcon from '@/components/icons/AnimatedCarIcon';
 
 // Types
 interface CarRental {
@@ -204,7 +205,6 @@ const CarDetailsPage = ({ slug: initialSlug, car: carProp }: CarDetailsPageProps
   const { slug: routerSlug } = router.query;
   const slug = initialSlug || routerSlug;
 
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isFavorite, setIsFavorite] = useState(false);
 
   // Booking calculator state
@@ -312,19 +312,10 @@ const CarDetailsPage = ({ slug: initialSlug, car: carProp }: CarDetailsPageProps
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Left Column - Main Content */}
           <div className="lg:col-span-2 space-y-6">
-            {/* Image Gallery */}
+            {/* Car Display */}
             <div className="bg-white rounded-2xl overflow-hidden shadow-sm">
-              <div className="relative aspect-video bg-gradient-to-br from-gray-100 to-gray-200">
-                {car.images && car.images.length > 0 && (
-                  <Image
-                    src={car.images[currentImageIndex]}
-                    alt={car.name}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 66vw, 50vw"
-                    priority
-                  />
-                )}
+              <div className="relative bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 p-12 flex items-center justify-center min-h-[400px] rounded-2xl">
+                <AnimatedCarIcon size="xl" />
                 {car.isFeatured && (
                   <div className="absolute top-4 left-4 bg-gradient-to-r from-amber-500 to-orange-500 text-white px-4 py-2 rounded-full text-sm font-bold flex items-center gap-2 z-10">
                     <Sparkles className="w-4 h-4" />
@@ -343,35 +334,6 @@ const CarDetailsPage = ({ slug: initialSlug, car: carProp }: CarDetailsPageProps
                 >
                   <Heart className={`w-6 h-6 ${isFavorite ? 'fill-red-500 text-red-500' : 'text-gray-700'}`} />
                 </button>
-                {/* Image Navigation */}
-                {car.images && car.images.length > 1 && (
-                  <>
-                    <button
-                      onClick={() => setCurrentImageIndex((prev) => (prev === 0 ? car.images.length - 1 : prev - 1))}
-                      className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/90 rounded-full flex items-center justify-center shadow-lg hover:bg-white transition-all z-10"
-                    >
-                      <ChevronLeft className="w-5 h-5 text-gray-900" />
-                    </button>
-                    <button
-                      onClick={() => setCurrentImageIndex((prev) => (prev === car.images.length - 1 ? 0 : prev + 1))}
-                      className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/90 rounded-full flex items-center justify-center shadow-lg hover:bg-white transition-all z-10"
-                    >
-                      <ChevronRight className="w-5 h-5 text-gray-900" />
-                    </button>
-                    {/* Image Indicators */}
-                    <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
-                      {car.images?.map((_, idx) => (
-                        <button
-                          key={idx}
-                          onClick={() => setCurrentImageIndex(idx)}
-                          className={`w-2 h-2 rounded-full transition-all ${
-                            idx === currentImageIndex ? 'bg-white w-8' : 'bg-white/50'
-                          }`}
-                        />
-                      ))}
-                    </div>
-                  </>
-                )}
               </div>
             </div>
 

@@ -5,6 +5,8 @@ import { motion } from 'framer-motion';
 import { Car, MapPin, Calendar, Users, Star, CheckCircle, ArrowRight, Shield, Zap, Clock, Fuel, Settings, Droplet } from 'lucide-react';
 import SimplifiedHeader from '../components/layout/SimplifiedHeader';
 import { getBrandLogo } from '../components/icons/CarBrandLogos';
+import { AnimatedCarIcon } from '../components/icons/AnimatedCarIcon';
+import { TransferCarCard } from '../components/cards/TransferCarCard';
 
 const CarRental: React.FC = () => {
   const router = useRouter();
@@ -291,101 +293,23 @@ const CarRental: React.FC = () => {
             <h2 className="text-3xl font-bold text-gray-900 mb-8">Tüm Araçlar</h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-              {cars.map((car, index) => {
-                const BrandLogo = getBrandLogo(car.brand);
-
-                return (
-                  <motion.div
-                    key={car.id}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ delay: index * 0.1 }}
-                    className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all group"
-                  >
-                    {car.popular && (
-                      <div className="bg-gradient-to-r from-green-500 to-teal-500 text-white text-center py-2 text-sm font-medium">
-                        ⭐ En Popüler Seçim
-                      </div>
-                    )}
-
-                    {/* Brand Logo Section - Replaces car image */}
-                    <div className="relative bg-gradient-to-br from-gray-50 to-gray-100 p-8 flex flex-col items-center justify-center min-h-[220px]">
-                      {/* Brand Logo */}
-                      <div className="mb-4 transform group-hover:scale-110 transition-transform duration-300">
-                        <BrandLogo size={100} />
-                      </div>
-
-                      {/* Category Badge */}
-                      <div className="absolute top-4 right-4 bg-white px-3 py-1 rounded-full text-xs font-bold text-gray-700 shadow-md">
-                        {car.category}
-                      </div>
-
-                      {/* Car Icon */}
-                      <div className="mt-2 flex items-center gap-2 text-gray-600">
-                        <Car className="w-8 h-8 text-gray-400" />
-                      </div>
-                    </div>
-
-                    <div className="p-6">
-                      {/* Title and Rating */}
-                      <div className="mb-4">
-                        <div className="flex items-start justify-between mb-2">
-                          <div>
-                            <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1">
-                              {car.brand}
-                            </p>
-                            <h3 className="text-lg font-bold text-gray-900">{car.name}</h3>
-                          </div>
-                          <div className="flex items-center gap-1 bg-yellow-50 px-2 py-1 rounded-lg">
-                            <Star className="w-4 h-4 text-yellow-500 fill-current" />
-                            <span className="text-sm font-bold text-gray-900">{car.rating}</span>
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Car Specs */}
-                      <div className="grid grid-cols-2 gap-3 mb-6 pb-6 border-b border-gray-100">
-                        <div className="flex items-center gap-2 text-sm text-gray-600">
-                          <Settings className="w-4 h-4 text-green-500" />
-                          <span>{car.transmission}</span>
-                        </div>
-                        <div className="flex items-center gap-2 text-sm text-gray-600">
-                          <Users className="w-4 h-4 text-blue-500" />
-                          <span>{car.seats} Kişi</span>
-                        </div>
-                        <div className="flex items-center gap-2 text-sm text-gray-600">
-                          <Droplet className="w-4 h-4 text-purple-500" />
-                          <span>{car.fuel}</span>
-                        </div>
-                        <div className="flex items-center gap-2 text-sm text-gray-600">
-                          <CheckCircle className="w-4 h-4 text-green-500" />
-                          <span>Klima</span>
-                        </div>
-                      </div>
-
-                      {/* Price and CTA */}
-                      <div className="flex items-center justify-between">
-                        <div>
-                          <p className="text-xs text-gray-500 mb-1">Günlük Fiyat</p>
-                          <div className="flex items-baseline gap-1">
-                            <span className="text-2xl font-bold text-gray-900">{car.price}</span>
-                            <span className="text-sm text-gray-600">/gün</span>
-                          </div>
-                        </div>
-                        <motion.button
-                          whileHover={{ scale: 1.05 }}
-                          whileTap={{ scale: 0.95 }}
-                          onClick={() => handleReserve(car)}
-                          className="px-5 py-2.5 bg-gradient-to-r from-green-600 to-teal-600 text-white rounded-lg font-semibold hover:from-green-700 hover:to-teal-700 transition-all shadow-md hover:shadow-lg flex items-center gap-2"
-                        >
-                          Kirala
-                          <ArrowRight className="w-4 h-4" />
-                        </motion.button>
-                      </div>
-                    </div>
-                  </motion.div>
-                );
-              })}
+              {cars.map((car) => (
+                <TransferCarCard
+                  key={car.id}
+                  id={car.id}
+                  slug={car.brand.toLowerCase() + '-' + car.name.toLowerCase().replace(/\s+/g, '-')}
+                  title={`${car.brand} ${car.name}`}
+                  category={car.category}
+                  price={car.price}
+                  capacity={car.seats}
+                  rating={car.rating}
+                  reviews={Math.floor(Math.random() * 150) + 30}
+                  popular={car.popular}
+                  href={`/car-rentals/${car.brand.toLowerCase()}-${car.name.toLowerCase().replace(/\s+/g, '-')}`}
+                  from={car.transmission}
+                  to={car.fuel}
+                />
+              ))}
             </div>
           </div>
         </section>

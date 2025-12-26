@@ -133,11 +133,11 @@ export default function PropertiesPage() {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
       {/* Header */}
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-3xl font-black neon-text-strong mb-2" style={{ color: '#000000' }}>
+          <h1 className="text-2xl sm:text-3xl font-black neon-text-strong mb-2" style={{ color: '#000000' }}>
             Mülklerim
           </h1>
           <p className="text-sm" style={{ color: '#666666' }}>
@@ -146,7 +146,7 @@ export default function PropertiesPage() {
         </div>
         <Link
           href="/owner/properties/new"
-          className="flex items-center gap-2 px-6 py-3 rounded-xl font-bold transition-all hover:scale-105 neon-glow"
+          className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-bold transition-all hover:scale-105 neon-glow"
           style={{
             background: 'linear-gradient(135deg, var(--ac-1), var(--ac-2))',
             color: 'white',
@@ -159,7 +159,7 @@ export default function PropertiesPage() {
       </div>
 
       {/* Stats Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {[
           { label: 'Toplam Mülk', value: stats.total, icon: Building2, color: 'var(--ac-1)' },
           { label: 'Aktif', value: stats.active, icon: Power, color: '#10B981' },
@@ -168,7 +168,7 @@ export default function PropertiesPage() {
         ].map((stat, index) => (
           <div
             key={index}
-            className="rounded-xl p-4 border-2 transition-all hover:scale-105"
+            className="rounded-xl p-4 sm:p-5 border-2 transition-all hover:scale-105"
             style={{
               backgroundColor: '#FFFFFF',
               borderColor: '#E5E7EB',
@@ -178,13 +178,13 @@ export default function PropertiesPage() {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm font-medium mb-1" style={{ color: '#666666' }}>{stat.label}</p>
-                <p className="text-2xl font-black" style={{ color: stat.color }}>{stat.value}</p>
+                <p className="text-2xl sm:text-3xl font-black" style={{ color: stat.color }}>{stat.value}</p>
               </div>
               <div
                 className="p-3 rounded-lg"
                 style={{ backgroundColor: `${stat.color}20`, color: stat.color }}
               >
-                <stat.icon className="w-5 h-5" />
+                <stat.icon className="w-5 h-5 sm:w-6 sm:h-6" />
               </div>
             </div>
           </div>
@@ -212,7 +212,7 @@ export default function PropertiesPage() {
         <select
           value={filterStatus}
           onChange={(e) => setFilterStatus(e.target.value)}
-          className="px-4 py-3 rounded-xl border-2 transition-all"
+          className="w-full sm:w-auto px-4 py-3 rounded-xl border-2 transition-all"
           style={{
             backgroundColor: '#FFFFFF',
             borderColor: '#E5E7EB',
@@ -227,7 +227,7 @@ export default function PropertiesPage() {
       </div>
 
       {/* Properties Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
         {properties
           .filter(p => filterStatus === 'all' || p.status === filterStatus)
           .filter(p =>
@@ -242,7 +242,7 @@ export default function PropertiesPage() {
             return (
               <div
                 key={property.id}
-                className="rounded-2xl overflow-hidden border-2 transition-all hover:scale-[1.02]"
+                className="rounded-2xl overflow-hidden border-2 transition-all hover:scale-[1.02] touch-manipulation"
                 style={{
                   backgroundColor: '#FFFFFF',
                   borderColor: '#E5E7EB',
@@ -250,7 +250,7 @@ export default function PropertiesPage() {
                 }}
               >
                 {/* Image */}
-                <div className="relative h-48 overflow-hidden">
+                <div className="relative h-48 sm:h-56 overflow-hidden">
                   <img
                     src={property.image}
                     alt={property.name}
@@ -278,8 +278,8 @@ export default function PropertiesPage() {
                 </div>
 
                 {/* Content */}
-                <div className="p-5">
-                  <h3 className="text-lg font-bold mb-2 neon-text-strong" style={{ color: '#000000' }}>
+                <div className="p-4 sm:p-5">
+                  <h3 className="text-base sm:text-lg font-bold mb-2 neon-text-strong" style={{ color: '#000000' }}>
                     {property.name}
                   </h3>
 
@@ -329,16 +329,16 @@ export default function PropertiesPage() {
 
                   <div className="flex items-center justify-between text-sm mb-4">
                     <span style={{ color: '#666666' }}>Toplam Gelir</span>
-                    <span className="font-bold text-lg" style={{ color: 'var(--ac-1)' }}>
+                    <span className="font-bold text-base sm:text-lg" style={{ color: 'var(--ac-1)' }}>
                       ₺{property.revenue.toLocaleString('tr-TR')}
                     </span>
                   </div>
 
                   {/* Actions */}
-                  <div className="flex gap-2">
+                  <div className="flex flex-col sm:flex-row gap-2">
                     <Link
                       href={`/owner/properties/${property.id}`}
-                      className="flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-lg font-medium transition-all hover:scale-105"
+                      className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 sm:py-2 rounded-lg font-medium transition-all hover:scale-105 touch-manipulation"
                       style={{
                         backgroundColor: 'rgba(255, 33, 77, 0.1)',
                         color: 'var(--ac-1)',
@@ -349,7 +349,7 @@ export default function PropertiesPage() {
                       <span>Görüntüle</span>
                     </Link>
                     <button
-                      className="flex items-center justify-center px-4 py-2 rounded-lg transition-all hover:scale-105"
+                      className="flex items-center justify-center px-4 py-2.5 sm:py-2 rounded-lg transition-all hover:scale-105 touch-manipulation"
                       style={{
                         backgroundColor: 'rgba(255, 33, 77, 0.1)',
                         color: 'var(--ac-1)',
@@ -359,7 +359,7 @@ export default function PropertiesPage() {
                       <Edit className="w-4 h-4" />
                     </button>
                     <button
-                      className="flex items-center justify-center px-4 py-2 rounded-lg transition-all hover:scale-105"
+                      className="flex items-center justify-center px-4 py-2.5 sm:py-2 rounded-lg transition-all hover:scale-105 touch-manipulation"
                       style={{
                         backgroundColor: 'rgba(239, 68, 68, 0.1)',
                         color: '#EF4444',

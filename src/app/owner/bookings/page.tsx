@@ -29,12 +29,12 @@ interface StatusBadgeProps {
 
 const StatusBadge: React.FC<StatusBadgeProps> = ({ status }) => {
   const statusConfig = {
-    confirmed: { bg: 'bg-green-100', text: 'text-green-800', border: 'border-green-200', label: 'Confirmed' },
-    pending: { bg: 'bg-yellow-100', text: 'text-yellow-800', border: 'border-yellow-200', label: 'Pending' },
-    cancelled: { bg: 'bg-red-100', text: 'text-red-800', border: 'border-red-200', label: 'Cancelled' },
-    'checked-in': { bg: 'bg-blue-100', text: 'text-blue-800', border: 'border-blue-200', label: 'Checked In' },
-    'checked-out': { bg: 'bg-gray-100', text: 'text-gray-800', border: 'border-gray-200', label: 'Checked Out' },
-    rejected: { bg: 'bg-red-100', text: 'text-red-800', border: 'border-red-200', label: 'Rejected' },
+    confirmed: { bg: 'bg-green-100', text: 'text-green-800', border: 'border-green-200', label: 'Onaylandı' },
+    pending: { bg: 'bg-yellow-100', text: 'text-yellow-800', border: 'border-yellow-200', label: 'Beklemede' },
+    cancelled: { bg: 'bg-red-100', text: 'text-red-800', border: 'border-red-200', label: 'İptal Edildi' },
+    'checked-in': { bg: 'bg-blue-100', text: 'text-blue-800', border: 'border-blue-200', label: 'Giriş Yapıldı' },
+    'checked-out': { bg: 'bg-gray-100', text: 'text-gray-800', border: 'border-gray-200', label: 'Çıkış Yapıldı' },
+    rejected: { bg: 'bg-red-100', text: 'text-red-800', border: 'border-red-200', label: 'Reddedildi' },
   };
 
   const config = statusConfig[status] || statusConfig.pending;

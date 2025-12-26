@@ -10,6 +10,7 @@ import {
   Car, ChevronRight, Home, TrendingDown, Globe
 } from 'lucide-react';
 import SimplifiedHeader from '@/components/layout/SimplifiedHeader';
+import AnimatedCarIcon from '@/components/icons/AnimatedCarIcon';
 import { antalyaAirportTransfers, AntalyaTransferRoute } from '@/data/antalya-transfers';
 import {
   generateTransferSchemaOrg,
@@ -321,23 +322,15 @@ export default function TransferDetailPage({ transfer, relatedTransfers }: Trans
           <div className="grid lg:grid-cols-3 gap-8">
             {/* Left Column - Details */}
             <div className="lg:col-span-2 space-y-8">
-              {/* Image Gallery */}
+              {/* Animated Car Icon */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
-                className="grid grid-cols-2 gap-4"
               >
-                {transfer.images.map((image, idx) => (
-                  <div key={idx} className="relative h-64 rounded-2xl overflow-hidden shadow-lg">
-                    <Image
-                      src={image}
-                      alt={`${getLocalizedText(transfer.from, selectedLanguage)} - ${getLocalizedText(transfer.to, selectedLanguage)}`}
-                      fill
-                      className="object-cover hover:scale-110 transition-transform duration-500"
-                    />
-                  </div>
-                ))}
+                <div className="relative bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 p-12 flex items-center justify-center min-h-[400px] rounded-2xl shadow-lg">
+                  <AnimatedCarIcon size="xl" />
+                </div>
               </motion.div>
 
               {/* Description */}
