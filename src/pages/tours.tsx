@@ -34,7 +34,7 @@ import { antalyaTours } from '../data/antalya-tours';
 import { greeceTours } from '../data/greece-tours';
 import { cyprusTours } from '../data/cyprus-tours';
 import CountryFilterWidget from '../components/filters/CountryFilterWidget';
-import { NeoHero, FuturisticCard, NeoButton, NeoSection } from '../components/neo-glass';
+import { NeoHero, FuturisticCard, FuturisticButton, NeoSection } from '../components/neo-glass';
 
 // Antalya Tours (16 tours with competitive pricing)
 const antalyaToursFormatted = antalyaTours.map(tour => ({

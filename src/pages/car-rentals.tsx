@@ -7,7 +7,7 @@ import { FuturisticHeader } from '../components/layout/FuturisticHeader';
 import { getBrandLogo } from '../components/icons/CarBrandLogos';
 import { AnimatedCarIcon } from '../components/icons/AnimatedCarIcon';
 import { TransferCarCard } from '../components/cards/TransferCarCard';
-import { NeoHero, FuturisticCard, NeoButton } from '../components/neo-glass';
+import { NeoHero, FuturisticCard, FuturisticButton } from '../components/neo-glass';
 
 const CarRental: React.FC = () => {
   const router = useRouter();
@@ -195,14 +195,14 @@ const CarRental: React.FC = () => {
                 </div>
                 <div>
                   <label className="block text-sm font-semibold text-white mb-2">&nbsp;</label>
-                  <NeoButton
+                  <FuturisticButton
                     variant="gradient"
                     size="lg"
                     fullWidth
                     icon={<ArrowRight className="w-5 h-5" />}
                   >
                     Ara
-                  </NeoButton>
+                  </FuturisticButton>
                 </div>
               </div>
             </div>
