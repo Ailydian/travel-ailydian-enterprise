@@ -7,13 +7,16 @@ import {
   Users,
   Star,
   TrendingDown,
-  Plane
+  Plane,
+  MapPin,
+  DollarSign
 } from 'lucide-react';
 import { FuturisticHeader } from '../components/layout/FuturisticHeader';
 import antalyaAirportTransfers from '../data/antalya-transfers';
 import { AnimatedCarIcon } from '../components/icons/AnimatedCarIcon';
 import { TransferCarCard } from '../components/cards/TransferCarCard';
 import { NeoHero, FuturisticCard, FuturisticButton } from '../components/neo-glass';
+import { FuturisticFilter } from '../components/filters/FuturisticFilter';
 
 export default function TransfersPage() {
   const [selectedLanguage, setSelectedLanguage] = useState<'tr' | 'en' | 'ru' | 'de' | 'ar' | 'fr'>('tr');

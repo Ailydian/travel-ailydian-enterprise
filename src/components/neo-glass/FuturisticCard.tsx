@@ -104,8 +104,8 @@ export const FuturisticCard: React.FC<FuturisticCardProps> = ({
       whileHover={{ scale: 1.02 }}
       className="relative group cursor-pointer"
     >
-      {/* Main Card Container - Glassmorphism */}
-      <div className="relative bg-white/60 backdrop-blur-3xl rounded-3xl overflow-hidden border border-white/40 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.3)]">
+      {/* Main Card Container - Dark Glassmorphism for Vision Pro */}
+      <div className="relative bg-white/5 backdrop-blur-3xl rounded-3xl overflow-hidden border border-white/10 shadow-[0_20px_60px_-15px_rgba(102,126,234,0.3)]">
 
         {/* Animated Shine Effect */}
         <motion.div
@@ -157,7 +157,7 @@ export const FuturisticCard: React.FC<FuturisticCardProps> = ({
 
         {/* Image Container with Depth */}
         {image && (
-          <div className="relative h-64 overflow-hidden">
+          <div className="relative h-64 overflow-hidden group/image">
             <motion.div
               style={{
                 transform: 'translateZ(40px)',
@@ -175,21 +175,50 @@ export const FuturisticCard: React.FC<FuturisticCardProps> = ({
               />
             </motion.div>
 
-            {/* Gradient Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+            {/* Enhanced Gradient Overlay - Better text visibility */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+
+            {/* Image Title Overlay */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="absolute bottom-0 left-0 right-0 p-6 z-10"
+            >
+              <h3 className="text-2xl font-bold text-white mb-2 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)] line-clamp-2">
+                {title}
+              </h3>
+              {description && (
+                <p className="text-sm text-white/90 drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)] line-clamp-1">
+                  {description}
+                </p>
+              )}
+            </motion.div>
+
+            {/* View Icon - Floating Button */}
+            <motion.button
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 opacity-0 group-hover/image:opacity-100 transition-opacity duration-300"
+            >
+              <div className="w-16 h-16 rounded-2xl bg-white/90 backdrop-blur-xl border border-white/40 shadow-2xl flex items-center justify-center">
+                <Eye className="w-8 h-8 text-purple-600" />
+              </div>
+            </motion.button>
           </div>
         )}
 
         {/* Content */}
         <div className="relative p-6" style={{ transform: 'translateZ(20px)' }}>
-          {/* Title */}
-          <h3 className="text-xl font-bold text-gray-900 mb-2 line-clamp-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-purple-600 group-hover:to-pink-600 transition-all">
-            {title}
-          </h3>
+          {/* Title - Only show if no image */}
+          {!image && (
+            <h3 className="text-xl font-bold text-white mb-2 line-clamp-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-pink-400 transition-all">
+              {title}
+            </h3>
+          )}
 
-          {/* Description */}
-          {description && (
-            <p className="text-sm text-gray-600 mb-4 line-clamp-2">
+          {/* Description - Only show if no image */}
+          {!image && description && (
+            <p className="text-sm text-gray-300 mb-4 line-clamp-2">
               {description}
             </p>
           )}
@@ -203,9 +232,9 @@ export const FuturisticCard: React.FC<FuturisticCardProps> = ({
                   initial={{ opacity: 0, x: -10 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.1 }}
-                  className="flex items-center gap-2 text-sm text-gray-600"
+                  className="flex items-center gap-2 text-sm text-gray-300"
                 >
-                  <div className="text-purple-500">{item.icon}</div>
+                  <div className="text-purple-400">{item.icon}</div>
                   <span className="truncate">{item.label}</span>
                 </motion.div>
               ))}
@@ -219,13 +248,13 @@ export const FuturisticCard: React.FC<FuturisticCardProps> = ({
                 {[...Array(5)].map((_, i) => (
                   <Star
                     key={i}
-                    className={`w-4 h-4 ${i < Math.floor(rating) ? 'fill-yellow-400 text-yellow-400' : 'text-gray-300'}`}
+                    className={`w-4 h-4 ${i < Math.floor(rating) ? 'fill-yellow-400 text-yellow-400' : 'text-gray-600'}`}
                   />
                 ))}
               </div>
-              <span className="text-sm font-semibold text-gray-700">{rating.toFixed(1)}</span>
+              <span className="text-sm font-semibold text-white">{rating.toFixed(1)}</span>
               {reviews && (
-                <span className="text-sm text-gray-500">({reviews})</span>
+                <span className="text-sm text-gray-400">({reviews})</span>
               )}
             </div>
           )}
@@ -236,7 +265,7 @@ export const FuturisticCard: React.FC<FuturisticCardProps> = ({
               {badges.map((badgeText, index) => (
                 <span
                   key={index}
-                  className="px-3 py-1 text-xs font-medium rounded-full bg-gradient-to-r from-blue-50 to-cyan-50 text-blue-700 border border-blue-200"
+                  className="px-3 py-1 text-xs font-medium rounded-full bg-gradient-to-r from-blue-500/20 to-cyan-500/20 text-cyan-300 border border-blue-400/30"
                 >
                   {badgeText}
                 </span>
@@ -248,10 +277,10 @@ export const FuturisticCard: React.FC<FuturisticCardProps> = ({
           {children}
 
           {/* Price Section with Dynamic Glow */}
-          <div className="flex items-center justify-between pt-4 border-t border-gray-200/60">
+          <div className="flex items-center justify-between pt-4 border-t border-white/10">
             <div className="relative">
               {oldPrice && (
-                <span className="text-sm text-gray-400 line-through block mb-1">
+                <span className="text-sm text-gray-500 line-through block mb-1">
                   {oldPrice}
                 </span>
               )}
@@ -259,7 +288,7 @@ export const FuturisticCard: React.FC<FuturisticCardProps> = ({
                 whileHover={{ scale: 1.05 }}
                 className="relative inline-block"
               >
-                <span className="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-pink-600 to-orange-600">
+                <span className="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-orange-400">
                   {price}
                 </span>
                 {/* Glow Effect */}
