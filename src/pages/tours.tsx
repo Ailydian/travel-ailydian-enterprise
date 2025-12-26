@@ -34,7 +34,7 @@ import { antalyaTours } from '../data/antalya-tours';
 import { greeceTours } from '../data/greece-tours';
 import { cyprusTours } from '../data/cyprus-tours';
 import CountryFilterWidget from '../components/filters/CountryFilterWidget';
-import { NeoHero, NeoCard, NeoButton, NeoSection } from '../components/neo-glass';
+import { NeoHero, FuturisticCard, NeoButton, NeoSection } from '../components/neo-glass';
 
 // Antalya Tours (16 tours with competitive pricing)
 const antalyaToursFormatted = antalyaTours.map(tour => ({
@@ -875,79 +875,39 @@ export default function Tours() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.05 }}
                 >
-                  <NeoCard
+                  <FuturisticCard
                     image={tour.image}
                     title={tour.name}
                     description={tour.description}
                     price={`${tour.price.toLocaleString('tr-TR')} ₺`}
                     badge={tour.badge}
+                    badges={tour.highlights.slice(0, 2)}
                     metadata={[
                       { icon: <MapPin className="w-4 h-4" />, label: tour.location },
                       { icon: <Clock className="w-4 h-4" />, label: tour.duration },
                       { icon: <Users className="w-4 h-4" />, label: tour.groupSize },
-                      { icon: <Star className="w-4 h-4 fill-current text-yellow-400" />, label: `${tour.rating} (${tour.reviews.toLocaleString('tr-TR')})` },
                     ]}
+                    rating={tour.rating}
+                    reviews={tour.reviews}
                     onClick={() => router.push(`/tours/${tour.slug || tour.name.toLowerCase().replace(/[^a-z0-9ğüşıöçĞÜŞİÖÇ\s]/g, '').replace(/\s+/g, '-')}`)}
-                    variant="glass"
-                    hover3D={true}
-                  >
-                    {/* Highlights */}
-                    <div className="flex flex-wrap gap-1.5 mt-4 mb-4">
-                      {tour.highlights.slice(0, 2).map((highlight, idx) => (
-                        <span
-                          key={idx}
-                          className="px-2 py-1 bg-gradient-to-r from-blue-50 to-cyan-50 text-blue-700 text-xs font-medium rounded-lg"
-                        >
-                          {highlight}
-                        </span>
-                      ))}
-                    </div>
-
-                    {/* Action Buttons */}
-                    <div className="flex gap-2 mt-4">
-                      <NeoButton
-                        variant="primary"
-                        size="sm"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          router.push(`/tours/${tour.slug || tour.name.toLowerCase().replace(/[^a-z0-9ğüşıöçĞÜŞİÖÇ\s]/g, '').replace(/\s+/g, '-')}`);
-                        }}
-                        icon={<Eye className="w-4 h-4" />}
-                        fullWidth
-                      >
-                        Detaylar
-                      </NeoButton>
-                      <NeoButton
-                        variant="secondary"
-                        size="sm"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          handleAddToCart(tour);
-                        }}
-                        icon={<ShoppingCart className="w-4 h-4" />}
-                        fullWidth
-                      >
-                        Sepet
-                      </NeoButton>
-                    </div>
-
-                    {/* Favorite Button */}
-                    <motion.button
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.9 }}
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        toggleFavorite(tour.id);
-                      }}
-                      className="absolute top-4 right-4 z-20 p-2 bg-white/90 backdrop-blur-sm rounded-full hover:bg-white transition-colors shadow-lg"
-                    >
-                      <Heart
-                        className={`w-5 h-5 ${
-                          favorites.has(tour.id) ? 'fill-red-500 text-red-500' : 'text-gray-600'
-                        }`}
-                      />
-                    </motion.button>
-                  </NeoCard>
+                    onFavorite={(e) => {
+                      e.stopPropagation();
+                      toggleFavorite(tour.id);
+                    }}
+                    onAddToCart={(e) => {
+                      e.stopPropagation();
+                      handleAddToCart(tour);
+                    }}
+                    isFavorite={favorites.has(tour.id)}
+                    category={tour.category}
+                    categoryColor={
+                      tour.category === 'cultural' ? '#667EEA' :
+                      tour.category === 'adventure' ? '#FF9500' :
+                      tour.category === 'nature' ? '#10B981' :
+                      tour.category === 'culinary' ? '#EC4899' :
+                      '#667EEA'
+                    }
+                  />
                 </motion.div>
               ))}
             </div>

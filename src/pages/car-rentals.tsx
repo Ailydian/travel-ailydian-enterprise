@@ -7,7 +7,7 @@ import { FuturisticHeader } from '../components/layout/FuturisticHeader';
 import { getBrandLogo } from '../components/icons/CarBrandLogos';
 import { AnimatedCarIcon } from '../components/icons/AnimatedCarIcon';
 import { TransferCarCard } from '../components/cards/TransferCarCard';
-import { NeoHero, NeoCard, NeoButton } from '../components/neo-glass';
+import { NeoHero, FuturisticCard, NeoButton } from '../components/neo-glass';
 
 const CarRental: React.FC = () => {
   const router = useRouter();
@@ -302,51 +302,28 @@ const CarRental: React.FC = () => {
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: idx * 0.05 }}
                 >
-                  <NeoCard
-                    title={`${car.brand} ${car.name}`}
+                  <FuturisticCard
+                    title={car.name}
                     description={car.category}
                     price={`${car.price}/gün`}
                     badge={car.popular ? '⭐ POPÜLER' : undefined}
+                    badges={[car.brand, car.transmission, car.fuel]}
                     metadata={[
                       { icon: <Settings className="w-4 h-4" />, label: car.transmission },
                       { icon: <Fuel className="w-4 h-4" />, label: car.fuel },
                       { icon: <Users className="w-4 h-4" />, label: `${car.seats} Kişi` },
-                      { icon: <Star className="w-4 h-4 fill-current text-yellow-400" />, label: `${car.rating} (${Math.floor(Math.random() * 150) + 30})` },
                     ]}
+                    rating={car.rating}
+                    reviews={Math.floor(Math.random() * 150) + 30}
                     onClick={() => handleReserve(car)}
-                    variant="glass"
-                    hover3D={true}
+                    category="car-rental"
+                    categoryColor="#FF9500"
                   >
                     {/* Brand Logo */}
-                    <div className="mb-4">
-                      {getBrandLogo(car.brand, 'w-16 h-16 mx-auto')}
+                    <div className="mb-4 bg-gradient-to-br from-orange-50/50 via-amber-50/50 to-yellow-50/50 rounded-2xl p-6">
+                      {getBrandLogo(car.brand, 'w-20 h-20 mx-auto')}
                     </div>
-
-                    {/* Features */}
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {car.features.slice(0, 3).map((feature, idx) => (
-                        <span key={idx} className="px-2 py-1 bg-gradient-to-r from-orange-50 to-amber-50 text-orange-700 text-xs font-medium rounded-lg">
-                          {feature}
-                        </span>
-                      ))}
-                    </div>
-
-                    {/* Action Button */}
-                    <div className="mt-4">
-                      <NeoButton
-                        variant="gradient"
-                        size="md"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          handleReserve(car);
-                        }}
-                        icon={<Car className="w-4 h-4" />}
-                        fullWidth
-                      >
-                        Kirala
-                      </NeoButton>
-                    </div>
-                  </NeoCard>
+                  </FuturisticCard>
                 </motion.div>
               ))}
             </div>

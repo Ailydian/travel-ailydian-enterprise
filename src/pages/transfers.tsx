@@ -13,7 +13,7 @@ import { FuturisticHeader } from '../components/layout/FuturisticHeader';
 import antalyaAirportTransfers from '../data/antalya-transfers';
 import { AnimatedCarIcon } from '../components/icons/AnimatedCarIcon';
 import { TransferCarCard } from '../components/cards/TransferCarCard';
-import { NeoHero, NeoCard, NeoButton } from '../components/neo-glass';
+import { NeoHero, FuturisticCard, NeoButton } from '../components/neo-glass';
 
 export default function TransfersPage() {
   const [selectedLanguage, setSelectedLanguage] = useState<'tr' | 'en' | 'ru' | 'de' | 'ar' | 'fr'>('tr');
@@ -202,7 +202,7 @@ export default function TransfersPage() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.05 }}
               >
-                <NeoCard
+                <FuturisticCard
                   title={transfer.seo.title[selectedLanguage]}
                   description={routeText}
                   price={`₺${minPrice}`}
@@ -211,33 +211,18 @@ export default function TransfersPage() {
                   metadata={[
                     { icon: <Clock className="w-4 h-4" />, label: durationText },
                     { icon: <Users className="w-4 h-4" />, label: `${transfer.maxPassengers} Kişi` },
-                    { icon: <Star className="w-4 h-4 fill-current text-yellow-400" />, label: `4.8 (${Math.floor(Math.random() * 200) + 50})` },
                   ]}
+                  rating={4.8}
+                  reviews={Math.floor(Math.random() * 200) + 50}
                   onClick={() => window.location.href = `/transfers/${transfer.slug}`}
-                  variant="glass"
-                  hover3D={true}
+                  category="transfer"
+                  categoryColor="#00BAFF"
                 >
                   {/* Animated Car Icon */}
-                  <div className="relative bg-gradient-to-br from-blue-50/50 via-purple-50/50 to-pink-50/50 rounded-2xl p-8 mb-4 -mx-6 -mt-6">
+                  <div className="relative bg-gradient-to-br from-blue-50/50 via-purple-50/50 to-pink-50/50 rounded-2xl p-8 mb-4">
                     <AnimatedCarIcon size="lg" className="w-full max-w-xs mx-auto" />
                   </div>
-
-                  {/* Action Button */}
-                  <div className="mt-4">
-                    <NeoButton
-                      variant="primary"
-                      size="md"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        window.location.href = `/transfers/${transfer.slug}`;
-                      }}
-                      icon={<Car className="w-4 h-4" />}
-                      fullWidth
-                    >
-                      {selectedLanguage === 'tr' ? 'Detay Gör' : 'View Details'}
-                    </NeoButton>
-                  </div>
-                </NeoCard>
+                </FuturisticCard>
               </motion.div>
             );
           })}
