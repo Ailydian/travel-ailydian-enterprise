@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Head from 'next/head';
-import { BookingHeader } from '../components/layout/BookingHeader';
+import { FuturisticHeader } from '../components/layout/FuturisticHeader';
 import { BookingFooter } from '../components/layout/BookingFooter';
 import { Search, Calendar, User, Mail, Phone, MapPin, CreditCard, Download, Printer, AlertCircle, CheckCircle2, Clock, XCircle } from 'lucide-react';
 
@@ -29,7 +29,7 @@ export default function ManageBooking() {
         <meta name="keywords" content="rezervasyon yönetimi, rezervasyon sorgulama, rezervasyon iptali, rezervasyon değiştirme" />
       </Head>
 
-      <BookingHeader />
+      <FuturisticHeader />
 
       <main className="min-h-screen bg-gray-50">
         {/* Hero Section */}

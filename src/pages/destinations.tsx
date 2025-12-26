@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Search, MapPin, Star, Heart, Filter, Calendar, Users, ArrowLeft, Camera, Mountain, Waves, Building, TreePine, Sparkles, Thermometer, DollarSign } from 'lucide-react';
 import { DESTINATIONS_TURKEY } from '../data/destinations-turkey';
-import { BookingHeader } from '../components/layout/BookingHeader';
+import { FuturisticHeader } from '../components/layout/FuturisticHeader';
 import { BookingFooter } from '../components/layout/BookingFooter';
 
 const categories = [
@@ -48,7 +48,7 @@ export default function Destinations() {
         <meta name="keywords" content="türkiye destinasyonları, gezi rehberi, istanbul, kapadokya, antalya, seyahat, tatil" />
       </Head>
 
-      <BookingHeader />
+      <FuturisticHeader />
 
       {/* Return to Home Button */}
       <Link

@@ -33,7 +33,7 @@ import {
   UserCheck
 } from 'lucide-react';
 import { useCart } from '../context/CartContext';
-import { BookingHeader } from '../components/layout/BookingHeader';
+import { FuturisticHeader } from '../components/layout/FuturisticHeader';
 import { BookingFooter } from '../components/layout/BookingFooter';
 
 const HotelsNewPage: React.FC = () => {
@@ -242,7 +242,7 @@ const HotelsNewPage: React.FC = () => {
         type="website"
       />
 
-      <BookingHeader />
+      <FuturisticHeader />
 
       <Link
         href="/"

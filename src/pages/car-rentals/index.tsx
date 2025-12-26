@@ -33,7 +33,7 @@ import {
   Clock,
 } from 'lucide-react';
 import { VEHICLE_CATEGORIES } from '@/data/vehicleCategories';
-import { BookingHeader } from '@/components/layout/BookingHeader';
+import { FuturisticHeader } from '@/components/layout/FuturisticHeader';
 import CarRentalSearchEngine, { type CarRentalSearchData } from '@/components/car-rentals/CarRentalSearchEngine';
 import { AnimatedCarSVG } from '@/components/icons/AnimatedCarSVG';
 import {
@@ -225,7 +225,7 @@ const CarRentalsPage: React.FC = () => {
         />
       </Head>
 
-      <BookingHeader />
+      <FuturisticHeader />
 
       <main className="min-h-screen bg-gray-50">
         {/* Hero Section - Full Width Search Engine */}

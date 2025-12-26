@@ -1,6 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
-import { BookingHeader } from '../components/layout/BookingHeader';
+import { FuturisticHeader } from '../components/layout/FuturisticHeader';
 import { BookingFooter } from '../components/layout/BookingFooter';
 import { Shield, Lock, Eye, UserCheck, FileText, AlertCircle, CheckCircle2, Mail, Phone } from 'lucide-react';
 
@@ -13,7 +13,7 @@ export default function KVKK() {
         <meta name="keywords" content="KVKK, kişisel verilerin korunması, veri güvenliği, gizlilik, aydınlatma metni" />
       </Head>
 
-      <BookingHeader />
+      <FuturisticHeader />
 
       <main className="min-h-screen bg-gray-50">
         {/* Hero Section */}

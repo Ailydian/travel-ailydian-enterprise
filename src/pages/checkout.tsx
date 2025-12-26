@@ -26,7 +26,7 @@ import {
   Home,
   Ticket
 } from 'lucide-react';
-import { BookingHeader } from '../components/layout/BookingHeader';
+import { FuturisticHeader } from '../components/layout/FuturisticHeader';
 import type { LocationData } from '../components/ui/LocationPicker';
 
 // Dynamically import LocationPicker to avoid SSR issues
@@ -527,7 +527,7 @@ const Checkout: React.FC = () => {
         <Head>
           <title>Ödeme Başarılı - LyDian Travel</title>
         </Head>
-        <BookingHeader />
+        <FuturisticHeader />
         <main className="pt-8 min-h-screen bg-gray-50 flex items-center justify-center px-3 sm:px-4">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
@@ -554,7 +554,7 @@ const Checkout: React.FC = () => {
         <Head>
           <title>Ödeme İşleniyor - LyDian Travel</title>
         </Head>
-        <BookingHeader />
+        <FuturisticHeader />
         <main className="pt-8 min-h-screen bg-gray-50 flex items-center justify-center px-3 sm:px-4">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
@@ -583,7 +583,7 @@ const Checkout: React.FC = () => {
         <meta name="description" content="Güvenli SSL ödeme sayfası. Blockchain teknologisi ile doğrulanmış rezervasyon sistemi." />
       </Head>
 
-      <BookingHeader />
+      <FuturisticHeader />
 
       <main className="min-h-screen bg-gray-50">
         <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6 py-4 sm:py-6 lg:py-8">

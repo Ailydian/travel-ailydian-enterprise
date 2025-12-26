@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import { motion } from 'framer-motion';
-import { BookingHeader } from '../components/layout/BookingHeader';
+import { FuturisticHeader } from '../components/layout/FuturisticHeader';
 import { logInfo, logError } from '../lib/logger';
 import {
   Calendar,
@@ -234,7 +234,7 @@ const Bookings: React.FC = () => {
         <meta name="description" content="Rezervasyonlarınızı yönetin ve takip edin" />
       </Head>
 
-      <BookingHeader />
+      <FuturisticHeader />
 
       <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 py-6 sm:py-8 lg:py-12">
         <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6">

@@ -1,6 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
-import { BookingHeader } from '../components/layout/BookingHeader';
+import { FuturisticHeader } from '../components/layout/FuturisticHeader';
 import { BookingFooter } from '../components/layout/BookingFooter';
 
 const Terms: React.FC = () => {
@@ -11,7 +11,7 @@ const Terms: React.FC = () => {
         <meta name="description" content="Travel.LyDian hizmet kullanım şartları ve koşulları hakkında detaylı bilgilendirme." />
       </Head>
 
-      <BookingHeader />
+      <FuturisticHeader />
 
       <main className="min-h-screen bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 py-16">

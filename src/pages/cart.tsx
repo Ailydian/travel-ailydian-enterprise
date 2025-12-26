@@ -17,7 +17,7 @@ import {
   Tag,
   CheckCircle
 } from 'lucide-react';
-import { BookingHeader } from '../components/layout/BookingHeader';
+import { FuturisticHeader } from '../components/layout/FuturisticHeader';
 
 interface CartItem {
   id: string;
@@ -115,7 +115,7 @@ const Cart: React.FC = () => {
         <meta name="description" content="Sepetinizdeki rezervasyonları inceleyin ve güvenli ödeme ile rezervasyonunuzu tamamlayın." />
       </Head>
 
-      <BookingHeader />
+      <FuturisticHeader />
 
       <main className="min-h-screen bg-gray-50">
         <div className="max-w-7xl mx-auto px-3 sm:px-4 py-4 sm:py-8">

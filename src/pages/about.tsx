@@ -2,7 +2,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRight, Users, Globe, Shield, Award, Zap, Heart } from 'lucide-react';
-import { BookingHeader } from '../components/layout/BookingHeader';
+import { FuturisticHeader } from '../components/layout/FuturisticHeader';
 import { BookingFooter } from '../components/layout/BookingFooter';
 
 export default function About() {
@@ -41,7 +41,7 @@ export default function About() {
         <meta name="description" content="LyDian Travel olarak 15 yıldır seyahat tutkusunu teknoloji ile buluşturuyoruz." />
       </Head>
 
-      <BookingHeader />
+      <FuturisticHeader />
 
       <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
 

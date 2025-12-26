@@ -19,7 +19,7 @@ import {
   ShoppingCart,
   CheckCircle
 } from 'lucide-react';
-import { BookingHeader } from '../components/layout/BookingHeader';
+import { FuturisticHeader } from '../components/layout/FuturisticHeader';
 import { useCart } from '../context/CartContext';
 
 // Premium LyDian themed favorites with REAL data and complete images
@@ -262,7 +262,7 @@ export default function Favorites() {
         <meta name="description" content="Beğendiğiniz seyahat deneyimlerini kaydedin ve kolayca erişin" />
       </Head>
 
-      <BookingHeader />
+      <FuturisticHeader />
 
       {/* Back Button */}
       <Link

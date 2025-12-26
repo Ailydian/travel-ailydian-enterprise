@@ -2,7 +2,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { Phone, Mail, MapPin, Clock, ArrowRight, Send } from 'lucide-react';
 import { useState } from 'react';
-import { BookingHeader } from '../components/layout/BookingHeader';
+import { FuturisticHeader } from '../components/layout/FuturisticHeader';
 import { BookingFooter } from '../components/layout/BookingFooter';
 
 export default function Contact() {
@@ -26,7 +26,7 @@ export default function Contact() {
         <meta name="description" content="Bize ulaşın. Tüm sorularınız için 7/24 müşteri hizmetleri." />
       </Head>
 
-      <BookingHeader />
+      <FuturisticHeader />
 
       <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
 

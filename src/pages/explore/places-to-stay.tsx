@@ -8,7 +8,7 @@ import Head from 'next/head';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
-import BookingHeader from '../../components/layout/BookingHeader';
+import FuturisticHeader from '../../components/layout/FuturisticHeader';
 import BookingFooter from '../../components/layout/BookingFooter';
 import { motion } from 'framer-motion';
 import {
@@ -91,7 +91,7 @@ const PlacesToStayPage: NextPage = () => {
         />
       </Head>
 
-      <BookingHeader />
+      <FuturisticHeader />
 
       <main className="min-h-screen bg-gray-50">
         {/* Page Header */}

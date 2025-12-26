@@ -1,6 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
-import { BookingHeader } from '../components/layout/BookingHeader';
+import { FuturisticHeader } from '../components/layout/FuturisticHeader';
 import { BookingFooter } from '../components/layout/BookingFooter';
 import { Shield, Clock, CreditCard, AlertTriangle, CheckCircle2, XCircle, Calendar, RefreshCw, Info } from 'lucide-react';
 
@@ -13,7 +13,7 @@ export default function CancellationPolicy() {
         <meta name="keywords" content="iptal politikası, iade politikası, rezervasyon iptali, ücretsiz iptal, iptal koşulları" />
       </Head>
 
-      <BookingHeader />
+      <FuturisticHeader />
 
       <main className="min-h-screen bg-gray-50">
         {/* Hero Section */}

@@ -7,7 +7,7 @@ import {
   Shield, CreditCard, MapPin, Plane, Hotel, Car, Star, User,
   ChevronDown, ChevronUp, Send, Zap, Globe, Calendar, Settings, Compass
 } from 'lucide-react';
-import { BookingHeader } from '../components/layout/BookingHeader';
+import { FuturisticHeader } from '../components/layout/FuturisticHeader';
 import { BookingFooter } from '../components/layout/BookingFooter';
 
 const supportCategories = [
@@ -163,7 +163,7 @@ export default function Support() {
         <meta name="description" content="7/24 müşteri desteği, teknik yardım ve seyahat danışmanlığı." />
       </Head>
 
-      <BookingHeader />
+      <FuturisticHeader />
 
       <div className="min-h-screen" style={{ backgroundColor: 'white' }}>
 

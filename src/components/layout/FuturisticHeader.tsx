@@ -388,3 +388,7 @@ const FloatingOrb: React.FC<FloatingOrbProps> = ({ icon: Icon, href, color, badg
     </Link>
   );
 };
+
+
+// Default export for compatibility
+export default FuturisticHeader;

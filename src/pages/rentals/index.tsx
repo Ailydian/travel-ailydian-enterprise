@@ -32,7 +32,7 @@ import {
 } from '@heroicons/react/24/outline';
 import { HeartIcon as HeartSolidIcon, StarIcon as StarSolidIcon } from '@heroicons/react/24/solid';
 import { useToast } from '../../context/ToastContext';
-import { BookingHeader } from '../../components/layout/BookingHeader';
+import { FuturisticHeader } from '../../components/layout/FuturisticHeader';
 import antalyaRentals, { getRentalPriceSavings, type AntalyaRentalProperty } from '../../data/antalya-rentals';
 
 // Real property interface from API
@@ -368,7 +368,7 @@ const RentalsPage: React.FC = () => {
         <meta name="keywords" content="kiralık villa, tatil evi, alanya villa, bodrum villa, marmaris villa, antalya kiralık daire" />
       </Head>
 
-      <BookingHeader />
+      <FuturisticHeader />
 
       <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100">
         {/* Header */}
