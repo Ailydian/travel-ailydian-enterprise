@@ -3,7 +3,7 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { motion } from 'framer-motion';
 import { Car, MapPin, Calendar, Users, Star, CheckCircle, ArrowRight, Shield, Zap, Clock, Fuel, Settings, Droplet } from 'lucide-react';
-import SimplifiedHeader from '../components/layout/SimplifiedHeader';
+import { BookingHeader } from '../components/layout/BookingHeader';
 import { getBrandLogo } from '../components/icons/CarBrandLogos';
 import { AnimatedCarIcon } from '../components/icons/AnimatedCarIcon';
 import { TransferCarCard } from '../components/cards/TransferCarCard';
@@ -152,7 +152,7 @@ const CarRental: React.FC = () => {
         <meta name="description" content="Travel.Ailydian ile güvenilir araç kiralama hizmeti. Ekonomik, konfor ve lüks araç seçenekleri ile seyahatinizi özgürce planlayın." />
       </Head>
 
-      <SimplifiedHeader />
+      <BookingHeader />
 
       <main className="min-h-screen bg-gray-50">
         {/* Hero Section */}

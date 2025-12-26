@@ -47,26 +47,26 @@ export const BookingHeader: React.FC = () => {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="flex items-center gap-2 px-3 py-1.5 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-md transition-all font-semibold text-sm border border-white/20 text-white"
+              className="flex items-center gap-2 px-3 py-1.5 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-md transition-all font-bold text-sm border border-white/20 !text-white"
             >
-              <Globe className="w-4 h-4 text-white" />
-              <span className="text-white">₺ TRY</span>
+              <Globe className="w-4 h-4 !text-white" />
+              <span className="!text-white font-bold">₺ TRY</span>
             </motion.button>
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="flex items-center gap-2 px-3 py-1.5 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-md transition-all font-semibold text-sm border border-white/20 text-white"
+              className="flex items-center gap-2 px-3 py-1.5 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-md transition-all font-bold text-sm border border-white/20 !text-white"
             >
-              <Globe className="w-4 h-4 text-white" />
-              <span className="text-white">Türkçe</span>
+              <Globe className="w-4 h-4 !text-white" />
+              <span className="!text-white font-bold">Türkçe</span>
             </motion.button>
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="flex items-center gap-2 px-3 py-1.5 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-md transition-all font-semibold text-sm border border-white/20 text-white"
+              className="flex items-center gap-2 px-3 py-1.5 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-md transition-all font-bold text-sm border border-white/20 !text-white"
             >
-              <HelpCircle className="w-4 h-4 text-white" />
-              <span className="text-white">Yardım</span>
+              <HelpCircle className="w-4 h-4 !text-white" />
+              <span className="!text-white font-bold">Yardım</span>
             </motion.button>
           </div>
         </div>

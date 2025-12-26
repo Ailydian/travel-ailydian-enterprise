@@ -9,7 +9,7 @@ import {
   TrendingDown,
   Plane
 } from 'lucide-react';
-import SimplifiedHeader from '../components/layout/SimplifiedHeader';
+import { BookingHeader } from '../components/layout/BookingHeader';
 import antalyaAirportTransfers from '../data/antalya-transfers';
 import { AnimatedCarIcon } from '../components/icons/AnimatedCarIcon';
 import { TransferCarCard } from '../components/cards/TransferCarCard';
@@ -59,7 +59,7 @@ export default function TransfersPage() {
         <link rel="alternate" hrefLang="x-default" href="https://travel.ailydian.com/en/transfers" />
       </Head>
 
-      <SimplifiedHeader />
+      <BookingHeader />
 
       {/* Hero Section */}
       <div className="relative bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-700 text-white py-20">

@@ -110,7 +110,7 @@ export const AIRecommendations: React.FC<AIRecommendationsProps> = ({
       <motion.div
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
-        className={`fixed bottom-24 right-4 z-40 ${className}`}
+        className={`fixed top-20 right-4 z-40 hidden lg:block ${className}`}
       >
         <button
           onClick={() => setIsMinimized(false)}
@@ -134,10 +134,10 @@ export const AIRecommendations: React.FC<AIRecommendationsProps> = ({
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 50 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: 50 }}
-      className={`fixed bottom-24 right-4 w-96 bg-white rounded-2xl shadow-2xl border border-purple-100 z-40 overflow-hidden ${className}`}
+      initial={{ opacity: 0, x: 50 }}
+      animate={{ opacity: 1, x: 0 }}
+      exit={{ opacity: 0, x: 50 }}
+      className={`fixed top-20 right-4 w-96 max-h-[calc(100vh-6rem)] bg-white rounded-2xl shadow-2xl border border-purple-100 z-40 overflow-hidden hidden lg:block ${className}`}
     >
       {/* Header */}
       <div className="bg-gradient-to-r from-purple-600 to-pink-600 p-4 text-white">

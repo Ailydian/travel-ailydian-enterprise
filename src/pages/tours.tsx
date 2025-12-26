@@ -28,7 +28,7 @@ import {
   Eye
 } from 'lucide-react';
 import { useCart } from '../context/CartContext';
-import SimplifiedHeader from '../components/layout/SimplifiedHeader';
+import { BookingHeader } from '../components/layout/BookingHeader';
 import { allComprehensiveTours as importedComprehensiveTours } from '../data/marmaris-bodrum-cesme-tours';
 import { antalyaTours } from '../data/antalya-tours';
 
@@ -602,18 +602,9 @@ export default function Tours() {
         <meta name="description" content="Türkiye'nin en özel turları ve unutulmaz deneyimleri keşfedin" />
       </Head>
 
-      <SimplifiedHeader />
+      <BookingHeader />
 
-      {/* Back Button */}
-      <Link
-        href="/"
-        className="fixed top-24 left-6 z-[60] flex items-center gap-2 px-4 py-2.5 bg-white/95 backdrop-blur-md rounded-xl shadow-lg border border-gray-200 text-gray-700 hover:bg-gradient-to-r hover:from-ailydian-primary hover:to-ailydian-secondary hover:text-white hover:border-transparent transition-all duration-300 group"
-      >
-        <ArrowLeft className="w-4 h-4 group-hover:animate-pulse" />
-        <span className="font-semibold">Ana Sayfa</span>
-      </Link>
-
-      <main className="pt-8 min-h-screen bg-gradient-to-b from-gray-50 via-white to-gray-50">
+      <main className="min-h-screen bg-gradient-to-b from-gray-50 via-white to-gray-50">
         {/* Hero Section - Premium Ailydian Design */}
         <section className="relative bg-gradient-to-br from-ailydian-primary via-ailydian-secondary to-pink-600 py-20 overflow-hidden">
           {/* Animated Background */}
