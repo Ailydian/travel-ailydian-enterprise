@@ -1,5 +1,6 @@
 // Enhanced Amadeus API Service for Real Travel Data
 import NodeCache from 'node-cache';
+import logger from '@/lib/logger';
 
 // Cache instance for API responses
 const cache = new NodeCache({ 
@@ -60,7 +61,10 @@ class AmadeusService {
     this.clientSecret = process.env.AMADEUS_CLIENT_SECRET || '';
     
     if (!this.clientId || !this.clientSecret) {
-      console.warn('Amadeus API credentials not found. Using mock data.');
+      logger.warn('Amadeus API credentials not found. Using mock data', {
+        component: 'AmadeusService',
+        action: 'initialization'
+      });
     }
   }
 
@@ -99,7 +103,10 @@ class AmadeusService {
 
       return this.accessToken;
     } catch (error) {
-      console.error('Failed to get Amadeus access token:', error);
+      logger.error('Failed to get Amadeus access token', error as Error, {
+        component: 'AmadeusService',
+        action: 'get_access_token'
+      });
       throw error;
     }
   }
@@ -154,7 +161,7 @@ class AmadeusService {
 
       return data;
     } catch (error) {
-      console.error(`Amadeus API error for ${endpoint}:`, error);
+      logger.error(`Amadeus API error for ${endpoint}`, error as Error, { component: 'AmadeusService', action: 'make_request', metadata: { endpoint } });
       throw error;
     }
   }
@@ -176,7 +183,7 @@ class AmadeusService {
         max: params.max || 20,
       });
     } catch (error) {
-      console.error('Flight search error:', error);
+      logger.error('Flight search error', error as Error, { component: 'AmadeusService', action: 'search_flights' });
       // Return mock data if API fails
       return this.getMockFlightData(params);
     }
@@ -195,7 +202,7 @@ class AmadeusService {
         radiusUnit: params.radiusUnit || 'KM',
       });
     } catch (error) {
-      console.error('Hotel search error:', error);
+      logger.error('Hotel search error', error as Error, { component: 'AmadeusService', action: 'search_hotels' });
       return this.getMockHotelData(params);
     }
   }
@@ -212,7 +219,7 @@ class AmadeusService {
         dropOffTime: params.dropOffTime || '10:00',
       });
     } catch (error) {
-      console.error('Car rental search error:', error);
+      logger.error('Car rental search error', error as Error, { component: 'AmadeusService', action: 'search_car_rentals' });
       return this.getMockCarRentalData(params);
     }
   }
@@ -226,7 +233,7 @@ class AmadeusService {
         'page[limit]': 10,
       });
     } catch (error) {
-      console.error('Location search error:', error);
+      logger.error('Location search error', error as Error, { component: 'AmadeusService', action: 'search_locations' });
       return { data: [] };
     }
   }
@@ -244,7 +251,7 @@ class AmadeusService {
         'page[limit]': 10,
       });
     } catch (error) {
-      console.error('City search error:', error);
+      logger.error('City search error', error as Error, { component: 'AmadeusService', action: 'search_city' });
       return { data: [] };
     }
   }
@@ -259,7 +266,7 @@ class AmadeusService {
         'page[limit]': 20,
       });
     } catch (error) {
-      console.error('POI search error:', error);
+      logger.error('POI search error', error as Error, { component: 'AmadeusService', action: 'search_poi' });
       return { data: [] };
     }
   }
@@ -445,7 +452,7 @@ export const transformFlightData = (amadeusFlightOffer: any) => {
       amenities: ['WiFi', 'Yemek', 'Eğlence'] // Default amenities
     };
   } catch (error) {
-    console.error('Flight data transformation error:', error);
+    logger.error('Flight data transformation error', error as Error, { component: 'AmadeusService', action: 'transform_flight_data' });
     return null;
   }
 };
@@ -471,7 +478,7 @@ export const transformHotelData = (amadeusHotelOffer: any) => {
       stars: hotel.rating || 4
     };
   } catch (error) {
-    console.error('Hotel data transformation error:', error);
+    logger.error('Hotel data transformation error', error as Error, { component: 'AmadeusService', action: 'transform_hotel_data' });
     return null;
   }
 };
@@ -498,7 +505,7 @@ export const transformCarRentalData = (amadeusCarOffer: any) => {
       mileage: 'Unlimited'
     };
   } catch (error) {
-    console.error('Car rental data transformation error:', error);
+    logger.error('Car rental data transformation error', error as Error, { component: 'AmadeusService', action: 'transform_car_data' });
     return null;
   }
 };

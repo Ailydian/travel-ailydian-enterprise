@@ -5,6 +5,7 @@
  */
 
 import Groq from 'groq-sdk';
+import logger from '@/lib/logger';
 
 // Model mapping for obfuscation
 const MODEL_MAP = {
@@ -55,16 +56,26 @@ export async function neuralxChat(
     });
 
     return completion.choices[0]?.message?.content || '';
-  } catch (error: any) {
-    console.error('NeuralX AI Error:', error);
+  } catch (error) {
+    const errorObj = error as { status?: number; message?: string };
+
+    logger.error('NeuralX AI Error', error as Error, {
+      component: 'GroqService',
+      action: 'neuralx_chat',
+      metadata: {
+        model: actualModel,
+        status: errorObj.status,
+        messageCount: messages.length
+      }
+    });
 
     // Handle rate limit errors specifically
-    if (error?.status === 429 || error?.message?.includes('rate limit')) {
+    if (errorObj?.status === 429 || errorObj?.message?.includes('rate limit')) {
       throw new Error('AI servisi meşgul. Lütfen birkaç saniye bekleyip tekrar deneyin.');
     }
 
     // Handle API key errors
-    if (error?.status === 401) {
+    if (errorObj?.status === 401) {
       throw new Error('AI servisi yapılandırma hatası');
     }
 
@@ -294,11 +305,21 @@ export async function* neuralxChatStream(
         yield content;
       }
     }
-  } catch (error: any) {
-    console.error('NeuralX Streaming Error:', error);
+  } catch (error) {
+    const errorObj = error as { status?: number; message?: string };
+
+    logger.error('NeuralX Streaming Error', error as Error, {
+      component: 'GroqService',
+      action: 'neuralx_chat_stream',
+      metadata: {
+        model: options.model,
+        messageCount: messages.length,
+        status: errorObj.status
+      }
+    });
 
     // Handle rate limit errors specifically
-    if (error?.status === 429 || error?.message?.includes('rate limit')) {
+    if (errorObj?.status === 429 || errorObj?.message?.includes('rate limit')) {
       throw new Error('AI servisi meşgul. Lütfen birkaç saniye bekleyip tekrar deneyin.');
     }
 
