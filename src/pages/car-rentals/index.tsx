@@ -44,6 +44,9 @@ import {
 '@/lib/seo-config';
 import antalyaCarRentals from '@/data/antalya-car-rentals';
 import logger from '../../lib/logger';
+import { NeoHero } from '@/components/neo-glass/NeoHero';
+import { FuturisticCard } from '@/components/neo-glass/FuturisticCard';
+import { FuturisticButton } from '@/components/neo-glass/FuturisticButton';
 
 // Real vehicle data interface
 interface Vehicle {
@@ -229,57 +232,38 @@ const CarRentalsPage: React.FC = () => {
       <FuturisticHeader />
 
       <main className="min-h-screen bg-lydian-glass-dark">
-        {/* Hero Section - Full Width Search Engine */}
-        <section className="relative bg-gradient-to-br from-lydian-success via-emerald-600 to-teal-600 text-lydian-text-inverse py-24">
-          <div className="max-w-7xl mx-auto px-4">
-            <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="text-center mb-12">
+        {/* NeoHero Section */}
+        <NeoHero
+          title="Hayalinizdeki Arabayı Şimdi Kiralayın"
+          subtitle="14+ araç kategorisi, binlerce doğrulanmış araç sahibi. Ekonomik sedan'dan lüks spor arabalara kadar."
+          gradient="sunset"
+          height="70vh"
+          overlayOpacity={0.3}
+          showFloatingElements={true}>
 
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-lydian-glass-dark-heavy rounded-full mb-6">
-                <Car className="w-5 h-5" />
-                <span className="text-sm font-medium">Araç Kiralama</span>
-              </div>
+          {/* Advanced Search Engine */}
+          <div className="max-w-6xl mx-auto w-full mt-8">
+            <CarRentalSearchEngine
+              onSearch={(searchData: CarRentalSearchData) => {
+                logger.debug('Search data:', { component: 'Index', metadata: { searchData } });
+                setShowFilters(true);
+              }} />
 
-              <h1 className="text-5xl md:text-6xl font-black mb-6 leading-tight">
-                Hayalinizdeki Arabayı
-                <br />
-                <span className="text-green-200">Şimdi Kiralayın</span>
-              </h1>
-
-              <p className="text-xl text-green-50 mb-2 leading-relaxed max-w-3xl mx-auto">
-                14+ araç kategorisi, binlerce doğrulanmış araç sahibi. Ekonomik sedan'dan lüks spor arabalara kadar.
-              </p>
-            </motion.div>
-
-            {/* Advanced Search Engine */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="max-w-6xl mx-auto">
-
-              <CarRentalSearchEngine
-                onSearch={(searchData: CarRentalSearchData) => {
-                  logger.debug('Search data:', { component: 'Index', metadata: { searchData } });
-                  // Filter logic will be implemented
-                  setShowFilters(true);
-                }} />
-
-            </motion.div>
           </div>
-        </section>
+        </NeoHero>
 
-        {/* Owner CTA Banner - Similar to rentals */}
-        <section className="bg-gradient-to-r from-green-50 to-emerald-50 border-y border-green-100">
+        {/* Owner CTA Banner */}
+        <section className="bg-gradient-to-r from-orange-50/50 to-amber-50/50 border-y border-[#FF9500]/20 backdrop-blur-xl">
           <div className="max-w-7xl mx-auto px-4 py-8">
             <div className="flex flex-col md:flex-row items-center justify-between gap-6">
               <div className="flex items-center gap-4">
-                <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center">
+                <motion.div
+                  whileHover={{ rotate: 360, scale: 1.1 }}
+                  transition={{ duration: 0.6 }}
+                  className="w-16 h-16 bg-gradient-to-br from-[#FF9500] to-[#FF6B00] rounded-2xl flex items-center justify-center shadow-lg shadow-[#FF9500]/30">
+
                   <Car className="w-8 h-8 text-lydian-text-inverse" />
-                </div>
+                </motion.div>
                 <div>
                   <h3 className="text-2xl font-bold text-lydian-text-inverse mb-1">
                     Aracınızı Kiraya Verin
@@ -293,13 +277,12 @@ const CarRentalsPage: React.FC = () => {
               <div className="flex items-center gap-4">
                 <div className="text-right">
                   <div className="text-sm text-lydian-text-muted">Ortalama Aylık Gelir</div>
-                  <div className="text-2xl font-bold text-lydian-success">₺8,500</div>
+                  <div className="text-2xl font-bold text-[#FF9500]">₺8,500</div>
                 </div>
                 <Link href="/vehicle-owner">
-                  <button className="px-6 py-3 bg-gradient-to-r from-lydian-success to-lydian-success text-lydian-text-inverse rounded-xl font-semibold hover:shadow-lg transition-all flex items-center gap-2">
+                  <FuturisticButton variant="secondary" size="md" icon={<ArrowRight className="w-5 h-5" />} iconPosition="right">
                     Kayıt Ol
-                    <ArrowRight className="w-5 h-5" />
-                  </button>
+                  </FuturisticButton>
                 </Link>
               </div>
             </div>
@@ -336,15 +319,15 @@ const CarRentalsPage: React.FC = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.2 }}
-                className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-green-50 to-emerald-100 p-8">
+                className="relative overflow-hidden rounded-2xl bg-lydian-glass-dark backdrop-blur-xl border border-lydian-border-light/20 p-8">
 
                 <motion.div
                   animate={{ y: [0, -10, 0] }}
                   transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute top-4 right-4 w-24 h-24 bg-green-200 rounded-full opacity-50 blur-2xl" />
+                  className="absolute top-4 right-4 w-24 h-24 bg-[#FF9500]/20 rounded-full opacity-50 blur-2xl" />
 
                 <div className="relative z-10">
-                  <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-lydian-success rounded-2xl flex items-center justify-center mb-6">
+                  <div className="w-16 h-16 bg-gradient-to-br from-[#FF9500] to-[#FF6B00] rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-[#FF9500]/30">
                     <CheckCircle className="w-8 h-8 text-lydian-text-inverse" />
                   </div>
                   <h3 className="text-2xl font-bold text-lydian-text-inverse mb-3">
@@ -353,7 +336,7 @@ const CarRentalsPage: React.FC = () => {
                   <p className="text-lydian-text-dim leading-relaxed">
                     Tüm araç sahiplerimiz kimlik doğrulamasından geçer. Sigortasız, ruhsatsız araç yok. %100 güvenilir platform.
                   </p>
-                  <div className="mt-6 flex items-center gap-2 text-sm text-lydian-success font-semibold">
+                  <div className="mt-6 flex items-center gap-2 text-sm text-[#FF9500] font-semibold">
                     <Shield className="w-5 h-5" />
                     <span>1,200+ Doğrulanmış Araç</span>
                   </div>
@@ -366,15 +349,15 @@ const CarRentalsPage: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.3 }}
-                className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-blue-50 to-cyan-100 p-8">
+                className="relative overflow-hidden rounded-2xl bg-lydian-glass-dark backdrop-blur-xl border border-lydian-border-light/20 p-8">
 
                 <motion.div
                   animate={{ scale: [1, 1.2, 1] }}
                   transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute bottom-4 left-4 w-32 h-32 bg-blue-200 rounded-full opacity-40 blur-3xl" />
+                  className="absolute bottom-4 left-4 w-32 h-32 bg-[#00BAFF]/20 rounded-full opacity-40 blur-3xl" />
 
                 <div className="relative z-10">
-                  <div className="w-16 h-16 bg-gradient-to-br from-lydian-primary to-cyan-600 rounded-2xl flex items-center justify-center mb-6">
+                  <div className="w-16 h-16 bg-gradient-to-br from-[#00BAFF] to-[#0088BD] rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-[#00BAFF]/30">
                     <Zap className="w-8 h-8 text-lydian-text-inverse" />
                   </div>
                   <h3 className="text-2xl font-bold text-lydian-text-inverse mb-3">
@@ -383,7 +366,7 @@ const CarRentalsPage: React.FC = () => {
                   <p className="text-lydian-text-dim leading-relaxed">
                     Beklemeden, onay süreçleri olmadan anında kiralayın. Araç sahibiyle görüşmeye gerek yok. Dijital anahtarla hemen yola çıkın.
                   </p>
-                  <div className="mt-6 flex items-center gap-2 text-sm text-lydian-primary font-semibold">
+                  <div className="mt-6 flex items-center gap-2 text-sm text-[#00BAFF] font-semibold">
                     <Clock className="w-5 h-5" />
                     <span>2 Dakikada Kiralama</span>
                   </div>
@@ -396,15 +379,15 @@ const CarRentalsPage: React.FC = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.4 }}
-                className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-purple-50 to-pink-100 p-8">
+                className="relative overflow-hidden rounded-2xl bg-lydian-glass-dark backdrop-blur-xl border border-lydian-border-light/20 p-8">
 
                 <motion.div
                   animate={{ rotate: [0, 360] }}
                   transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                  className="absolute top-1/2 right-1/2 w-40 h-40 bg-purple-200 rounded-full opacity-30 blur-3xl" />
+                  className="absolute top-1/2 right-1/2 w-40 h-40 bg-[#667EEA]/20 rounded-full opacity-30 blur-3xl" />
 
                 <div className="relative z-10">
-                  <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center mb-6">
+                  <div className="w-16 h-16 bg-gradient-to-br from-[#667EEA] to-[#764BA2] rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-[#667EEA]/30">
                     <DollarSign className="w-8 h-8 text-lydian-text-inverse" />
                   </div>
                   <h3 className="text-2xl font-bold text-lydian-text-inverse mb-3">
@@ -413,7 +396,7 @@ const CarRentalsPage: React.FC = () => {
                   <p className="text-lydian-text-dim leading-relaxed">
                     Aracılık komisyonu yok. Doğrudan araç sahibinden kiralayın. Ekonomik sedan ₺350/gün, lüks araçlar ₺1,200/gün.
                   </p>
-                  <div className="mt-6 flex items-center gap-2 text-sm text-purple-600 font-semibold">
+                  <div className="mt-6 flex items-center gap-2 text-sm text-[#667EEA] font-semibold">
                     <TrendingUp className="w-5 h-5" />
                     <span>%40 Daha Ekonomik</span>
                   </div>
@@ -427,37 +410,53 @@ const CarRentalsPage: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.5 }}
-              className="mt-16 bg-gradient-to-r from-gray-50 to-gray-100 rounded-3xl p-12">
+              className="mt-16 bg-lydian-glass-dark backdrop-blur-xl border border-lydian-border-light/20 rounded-3xl p-12">
 
               <h3 className="text-3xl font-black text-lydian-text-inverse mb-8 text-center">
                 Nasıl Çalışır?
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
                 <div className="text-center">
-                  <div className="w-16 h-16 bg-lydian-success rounded-full flex items-center justify-center mx-auto mb-4 text-lydian-text-inverse text-2xl font-bold">
+                  <motion.div
+                    whileHover={{ scale: 1.1, rotate: 360 }}
+                    transition={{ duration: 0.6 }}
+                    className="w-16 h-16 bg-gradient-to-br from-[#FF9500] to-[#FF6B00] rounded-full flex items-center justify-center mx-auto mb-4 text-lydian-text-inverse text-2xl font-bold shadow-lg shadow-[#FF9500]/30">
+
                     1
-                  </div>
+                  </motion.div>
                   <h4 className="font-bold text-lydian-text-inverse mb-2">Araç Seçin</h4>
                   <p className="text-sm text-lydian-text-dim">14+ kategoriden istediğiniz aracı bulun</p>
                 </div>
                 <div className="text-center">
-                  <div className="w-16 h-16 bg-lydian-success rounded-full flex items-center justify-center mx-auto mb-4 text-lydian-text-inverse text-2xl font-bold">
+                  <motion.div
+                    whileHover={{ scale: 1.1, rotate: 360 }}
+                    transition={{ duration: 0.6 }}
+                    className="w-16 h-16 bg-gradient-to-br from-[#FF9500] to-[#FF6B00] rounded-full flex items-center justify-center mx-auto mb-4 text-lydian-text-inverse text-2xl font-bold shadow-lg shadow-[#FF9500]/30">
+
                     2
-                  </div>
+                  </motion.div>
                   <h4 className="font-bold text-lydian-text-inverse mb-2">Rezervasyon</h4>
                   <p className="text-sm text-lydian-text-dim">Anında onay, ödeme güvenli</p>
                 </div>
                 <div className="text-center">
-                  <div className="w-16 h-16 bg-lydian-success rounded-full flex items-center justify-center mx-auto mb-4 text-lydian-text-inverse text-2xl font-bold">
+                  <motion.div
+                    whileHover={{ scale: 1.1, rotate: 360 }}
+                    transition={{ duration: 0.6 }}
+                    className="w-16 h-16 bg-gradient-to-br from-[#FF9500] to-[#FF6B00] rounded-full flex items-center justify-center mx-auto mb-4 text-lydian-text-inverse text-2xl font-bold shadow-lg shadow-[#FF9500]/30">
+
                     3
-                  </div>
+                  </motion.div>
                   <h4 className="font-bold text-lydian-text-inverse mb-2">Dijital Anahtar</h4>
                   <p className="text-sm text-lydian-text-dim">Mobil uygulama ile kilidi açın</p>
                 </div>
                 <div className="text-center">
-                  <div className="w-16 h-16 bg-lydian-success rounded-full flex items-center justify-center mx-auto mb-4 text-lydian-text-inverse text-2xl font-bold">
+                  <motion.div
+                    whileHover={{ scale: 1.1, rotate: 360 }}
+                    transition={{ duration: 0.6 }}
+                    className="w-16 h-16 bg-gradient-to-br from-[#FF9500] to-[#FF6B00] rounded-full flex items-center justify-center mx-auto mb-4 text-lydian-text-inverse text-2xl font-bold shadow-lg shadow-[#FF9500]/30">
+
                     4
-                  </div>
+                  </motion.div>
                   <h4 className="font-bold text-lydian-text-inverse mb-2">Yola Çıkın</h4>
                   <p className="text-sm text-lydian-text-dim">Maceranızı başlatın!</p>
                 </div>
@@ -466,33 +465,37 @@ const CarRentalsPage: React.FC = () => {
           </div>
         </section>
 
-        {/* Filters Bar */}
-        <section className="bg-lydian-bg-hover border-b border-lydian-border-light/10 sticky top-20 z-40">
+        {/* Filters Bar - Glassmorphism */}
+        <section className="bg-lydian-glass-dark backdrop-blur-xl border-b border-lydian-border-light/20 sticky top-20 z-40">
           <div className="max-w-7xl mx-auto px-4 py-4">
             <div className="flex items-center justify-between gap-4">
               <div className="flex items-center gap-2 flex-wrap">
                 {VEHICLE_CATEGORIES.slice(0, 6).map((cat) =>
-                <button
+                <motion.button
                   key={cat.value}
                   onClick={() => setFilters((prev) => ({ ...prev, vehicleType: cat.value }))}
-                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className={`px-4 py-2 rounded-xl text-sm font-medium transition-all backdrop-blur-xl ${
                   filters.vehicleType === cat.value ?
-                  'bg-green-600 text-white' :
-                  'bg-white/10 text-gray-200 hover:bg-gray-200'}`
+                  'bg-gradient-to-r from-[#FF9500] to-[#FF6B00] text-white shadow-lg shadow-[#FF9500]/30' :
+                  'bg-lydian-glass-dark-medium border border-lydian-border-light/30 text-lydian-text-inverse hover:border-[#FF9500]/50'}`
                   }>
 
                     {cat.label}
-                  </button>
+                  </motion.button>
                 )}
               </div>
 
-              <button
+              <motion.button
                 onClick={() => setShowFilters(!showFilters)}
-                className="flex items-center gap-2 px-4 py-2 border border-lydian-border-light rounded-lg hover:bg-lydian-glass-dark">
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="flex items-center gap-2 px-4 py-2 bg-lydian-glass-dark-medium backdrop-blur-xl border border-lydian-border-light/30 rounded-xl hover:border-[#FF9500]/50 transition-all">
 
-                <Filter className="w-5 h-5" />
-                <span className="text-sm font-medium">Filtreler</span>
-              </button>
+                <Filter className="w-5 h-5 text-lydian-text-inverse" />
+                <span className="text-sm font-medium text-lydian-text-inverse">Filtreler</span>
+              </motion.button>
             </div>
           </div>
         </section>
@@ -500,9 +503,13 @@ const CarRentalsPage: React.FC = () => {
         {/* Results Section */}
         <section className="max-w-7xl mx-auto px-4 py-12">
           <div className="mb-6">
-            <h2 className="text-2xl font-bold text-lydian-text-inverse">
+            <motion.h2
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              className="text-2xl font-bold text-lydian-text-inverse">
+
               {filteredVehicles.length} Araç Bulundu
-            </h2>
+            </motion.h2>
             <p className="text-lydian-text-dim">En iyi seçenekler sizin için</p>
           </div>
 
@@ -512,110 +519,90 @@ const CarRentalsPage: React.FC = () => {
               key={vehicle.id}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
-              className="bg-lydian-bg-hover rounded-2xl shadow-lg hover:shadow-xl transition-all overflow-hidden group cursor-pointer">
+              transition={{ delay: index * 0.05, duration: 0.4 }}>
 
-                {/* Image */}
-                <div className="relative h-56 overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center">
-                  <AnimatedCarSVG className="w-48 h-32" />
-
-                  {vehicle.isFeatured &&
-                <div className="absolute top-4 left-4 px-3 py-1 bg-gradient-to-r from-amber-500 to-orange-500 text-lydian-text-inverse rounded-full text-xs font-medium flex items-center gap-1">
-                      <Sparkles className="w-3 h-3" />
-                      Öne Çıkan
-                    </div>
-                }
-
-                  {vehicle.isPopular &&
-                <div className="absolute top-4 left-4 px-3 py-1 bg-lydian-success text-lydian-text-inverse rounded-full text-xs font-medium flex items-center gap-1">
-                      <TrendingUp className="w-3 h-3" />
-                      Popüler
-                    </div>
-                }
-
-                  {vehicle.availableCount > 0 &&
-                <div className="absolute top-4 right-4 px-3 py-1 bg-lydian-primary text-lydian-text-inverse rounded-full text-xs font-medium">
-                      {vehicle.availableCount} Müsait
-                    </div>
-                }
-
-                  <button
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    toggleFavorite(vehicle.id);
-                  }}
-                  className="absolute bottom-4 right-4 w-10 h-10 bg-lydian-bg/90 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-lydian-glass-dark transition-all">
-
-                    <Heart
-                    className={`w-5 h-5 ${
-                    favorites.has(vehicle.id) ? 'fill-red-500 text-red-500' : 'text-gray-200'}`
-                    } />
-
-                  </button>
-                </div>
-
-                {/* Content */}
-                <div className="p-6">
-                  <div className="flex items-center justify-between mb-3">
-                    <div className="flex-1">
-                      <h3 className="font-bold text-lg text-lydian-text-inverse line-clamp-1">
-                        {vehicle.name}
-                      </h3>
-                      <p className="text-sm text-lydian-text-muted">{vehicle.brand} • {vehicle.year}</p>
-                    </div>
-                    {vehicle.insuranceIncluded &&
-                  <Shield className="w-5 h-5 text-lydian-success" title="Sigorta Dahil" />
+                <FuturisticCard
+                image={vehicle.mainImage}
+                title={vehicle.name}
+                description={`${vehicle.brand} • ${vehicle.year}`}
+                price={`₺${parseInt(vehicle.pricePerDay).toLocaleString('tr-TR')}/gün`}
+                badge={vehicle.isFeatured ? 'Öne Çıkan' : vehicle.isPopular ? 'Popüler' : undefined}
+                badges={[
+                  vehicle.availableCount > 0 ? `${vehicle.availableCount} Müsait` : ''
+                ].filter(Boolean)}
+                category={vehicle.category}
+                categoryColor="#FF9500"
+                rating={parseFloat(vehicle.rating)}
+                reviews={vehicle.reviewCount}
+                metadata={[
+                  {
+                    icon: <MapPin className="w-4 h-4" />,
+                    label: vehicle.pickupLocations[0] || 'Antalya'
+                  },
+                  {
+                    icon: <Users className="w-4 h-4" />,
+                    label: `${vehicle.seats} Koltuk`
+                  },
+                  {
+                    icon: <Settings className="w-4 h-4" />,
+                    label: vehicle.transmission === 'AUTOMATIC' ? 'Otomatik' : 'Manuel'
+                  },
+                  {
+                    icon: <Fuel className="w-4 h-4" />,
+                    label: vehicle.fuelType
                   }
-                  </div>
+                ]}
+                onClick={() => router.push(`/car-rentals/${vehicle.slug}`)}
+                onFavorite={(e) => {
+                  e.stopPropagation();
+                  toggleFavorite(vehicle.id);
+                }}
+                isFavorite={favorites.has(vehicle.id)}>
 
-                  <div className="flex items-center gap-2 text-sm text-lydian-text-muted mb-4">
-                    <MapPin className="w-4 h-4" />
-                    <span>{vehicle.pickupLocations[0]}</span>
-                    <span>•</span>
-                    <Star className="w-4 h-4 text-yellow-500 fill-current" />
-                    <span className="font-medium text-lydian-text-inverse">{vehicle.rating}</span>
-                    <span>({vehicle.reviewCount})</span>
-                  </div>
+                  {/* Custom CTA Button */}
+                  <div className="mt-4">
+                    <Link href={`/car-rentals/${vehicle.slug}`}>
+                      <FuturisticButton
+                      variant="secondary"
+                      size="md"
+                      fullWidth
+                      icon={<ArrowRight className="w-4 h-4" />}
+                      iconPosition="right">
 
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    <span className="px-2 py-1 bg-lydian-glass-dark-medium text-lydian-text-muted rounded text-xs flex items-center gap-1">
-                      <Users className="w-3 h-3" />
-                      {vehicle.seats} Koltuk
-                    </span>
-                    <span className="px-2 py-1 bg-lydian-glass-dark-medium text-lydian-text-muted rounded text-xs flex items-center gap-1">
-                      <Settings className="w-3 h-3" />
-                      {vehicle.transmission === 'AUTOMATIC' ? 'Otomatik' : 'Manuel'}
-                    </span>
-                    <span className="px-2 py-1 bg-lydian-glass-dark-medium text-lydian-text-muted rounded text-xs flex items-center gap-1">
-                      <Fuel className="w-3 h-3" />
-                      {vehicle.fuelType}
-                    </span>
-                    {vehicle.airConditioning &&
-                  <span className="px-2 py-1 bg-lydian-primary-lighter text-lydian-primary-dark rounded text-xs" title="Klima">
-                        ❄️
-                      </span>
-                  }
-                    {vehicle.gps &&
-                  <span className="px-2 py-1 bg-lydian-success-lighter text-lydian-success-text rounded text-xs" title="GPS">
-                        🗺️
-                      </span>
-                  }
-                  </div>
-
-                  <div className="flex items-center justify-between pt-4 border-t border-lydian-border-light">
-                    <div>
-                      <div className="text-2xl font-bold text-lydian-text-inverse">₺{parseInt(vehicle.pricePerDay).toLocaleString('tr-TR')}</div>
-                      <div className="text-sm text-lydian-text-muted">/ gün</div>
-                    </div>
-                    <Link
-                    href={`/car-rentals/${vehicle.slug}`}
-                    className="px-6 py-2.5 bg-gradient-to-r from-lydian-success to-lydian-success text-lydian-text-inverse rounded-lg font-semibold hover:shadow-lg hover:scale-105 transition-all flex items-center gap-2">
-
-                      Kirala
-                      <ArrowRight className="w-4 h-4" />
+                        Kirala
+                      </FuturisticButton>
                     </Link>
                   </div>
-                </div>
+
+                  {/* Vehicle Features Badges */}
+                  <div className="flex flex-wrap gap-2 mt-3">
+                    {vehicle.insuranceIncluded &&
+                    <motion.span
+                      whileHover={{ scale: 1.05 }}
+                      className="px-3 py-1 bg-gradient-to-r from-green-500/20 to-emerald-500/20 border border-green-500/30 text-green-300 rounded-xl text-xs font-medium flex items-center gap-1 backdrop-blur-xl">
+
+                        <Shield className="w-3 h-3" />
+                        Sigorta Dahil
+                      </motion.span>
+                    }
+                    {vehicle.gps &&
+                    <motion.span
+                      whileHover={{ scale: 1.05 }}
+                      className="px-3 py-1 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 border border-blue-500/30 text-blue-300 rounded-xl text-xs font-medium flex items-center gap-1 backdrop-blur-xl">
+
+                        🗺️ GPS
+                      </motion.span>
+                    }
+                    {vehicle.airConditioning &&
+                    <motion.span
+                      whileHover={{ scale: 1.05 }}
+                      className="px-3 py-1 bg-gradient-to-r from-purple-500/20 to-pink-500/20 border border-purple-500/30 text-purple-300 rounded-xl text-xs font-medium flex items-center gap-1 backdrop-blur-xl">
+
+                        ❄️ Klima
+                      </motion.span>
+                    }
+                  </div>
+                </FuturisticCard>
               </motion.div>
             )}
           </div>
@@ -623,60 +610,95 @@ const CarRentalsPage: React.FC = () => {
 
         {/* Owner CTA Banner */}
         <section className="max-w-7xl mx-auto px-4 py-16">
-          <div className="bg-gradient-to-r from-lydian-success to-lydian-success rounded-2xl overflow-hidden">
-            <div className="px-6 py-12 sm:px-12 text-center">
+          <div className="relative bg-gradient-to-r from-[#FF9500] to-[#FF6B00] rounded-3xl overflow-hidden">
+            {/* Animated background orbs */}
+            <motion.div
+              animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
+              transition={{ duration: 4, repeat: Infinity }}
+              className="absolute top-0 right-0 w-96 h-96 bg-white/20 rounded-full blur-3xl" />
+
+            <motion.div
+              animate={{ scale: [1.2, 1, 1.2], opacity: [0.2, 0.4, 0.2] }}
+              transition={{ duration: 5, repeat: Infinity }}
+              className="absolute bottom-0 left-0 w-96 h-96 bg-black/10 rounded-full blur-3xl" />
+
+            <div className="relative px-6 py-12 sm:px-12 text-center">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}>
 
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-lydian-bg-hover rounded-full mb-6">
-                  <Car className="w-8 h-8 text-lydian-success" />
-                </div>
+                <motion.div
+                  whileHover={{ rotate: 360, scale: 1.1 }}
+                  transition={{ duration: 0.8 }}
+                  className="inline-flex items-center justify-center w-20 h-20 bg-white/20 backdrop-blur-xl rounded-2xl mb-6 shadow-lg">
 
-                <h2 className="text-3xl md:text-4xl font-bold text-lydian-text-inverse mb-4">
+                  <Car className="w-10 h-10 text-white" />
+                </motion.div>
+
+                <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
                   Aracınızı Kiraya Vererek Para Kazanın
                 </h2>
 
-                <p className="text-lg text-green-50 mb-8 max-w-2xl mx-auto">
+                <p className="text-lg text-white/90 mb-8 max-w-2xl mx-auto">
                   Binlerce araç sahibi LyDian ile pasif gelir elde ediyor.
                   Siz de aracınızı listeleyerek aylık ortalama ₺8,500 kazanabilirsiniz.
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
-                  <div className="flex items-center gap-2 text-lydian-text-inverse">
+                  <motion.div
+                    whileHover={{ scale: 1.05 }}
+                    className="flex items-center gap-2 text-white bg-white/10 backdrop-blur-xl px-4 py-2 rounded-xl">
+
                     <CheckCircle className="w-5 h-5" />
-                    <span>%12-15 Komisyon</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-lydian-text-inverse">
+                    <span className="font-medium">%12-15 Komisyon</span>
+                  </motion.div>
+                  <motion.div
+                    whileHover={{ scale: 1.05 }}
+                    className="flex items-center gap-2 text-white bg-white/10 backdrop-blur-xl px-4 py-2 rounded-xl">
+
                     <CheckCircle className="w-5 h-5" />
-                    <span>Güvenli Ödeme</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-lydian-text-inverse">
+                    <span className="font-medium">Güvenli Ödeme</span>
+                  </motion.div>
+                  <motion.div
+                    whileHover={{ scale: 1.05 }}
+                    className="flex items-center gap-2 text-white bg-white/10 backdrop-blur-xl px-4 py-2 rounded-xl">
+
                     <CheckCircle className="w-5 h-5" />
-                    <span>7/24 Destek</span>
-                  </div>
+                    <span className="font-medium">7/24 Destek</span>
+                  </motion.div>
                 </div>
 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <Link href="/vehicle-owner/auth/register">
-                    <button className="px-8 py-4 bg-lydian-bg-hover text-lydian-success rounded-lg font-semibold hover:bg-lydian-success-lighter transition-all transform hover:scale-105 flex items-center justify-center gap-2 shadow-lg">
-                      <span>Ücretsiz Kayıt Ol</span>
-                      <ArrowRight className="w-5 h-5" />
-                    </button>
+                    <FuturisticButton
+                      variant="glass"
+                      size="lg"
+                      icon={<ArrowRight className="w-5 h-5" />}
+                      iconPosition="right">
+
+                      Ücretsiz Kayıt Ol
+                    </FuturisticButton>
                   </Link>
 
                   <Link href="/vehicle-owner/auth/login">
-                    <button className="px-8 py-4 bg-lydian-bg-hover border-2 border-lydian-border-light text-lydian-text-inverse rounded-lg font-semibold hover:bg-lydian-glass-dark-medium transition-all flex items-center justify-center gap-2">
-                      <span>Giriş Yap</span>
-                    </button>
+                    <FuturisticButton
+                      variant="outline"
+                      size="lg">
+
+                      Giriş Yap
+                    </FuturisticButton>
                   </Link>
                 </div>
 
-                <p className="text-sm text-green-100 mt-6">
+                <motion.p
+                  animate={{ opacity: [0.7, 1, 0.7] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                  className="text-sm text-white/90 mt-6 font-medium">
+
                   2000+ araç sahibi bize güveniyor
-                </p>
+                </motion.p>
               </motion.div>
             </div>
           </div>

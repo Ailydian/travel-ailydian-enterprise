@@ -5,6 +5,7 @@ import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import { motion } from 'framer-motion';
 import { FuturisticHeader } from '../components/layout/FuturisticHeader';
+import { FuturisticButton } from '../components/neo-glass/FuturisticButton';
 import logger from '../lib/logger';
 import {
   Calendar,
@@ -113,36 +114,41 @@ const Bookings: React.FC = () => {
     }
   };
 
-  // Get status color and icon
+  // Get status color and icon (Neo-Glass theme)
   const getStatusDisplay = (status: string) => {
     switch (status.toUpperCase()) {
       case 'CONFIRMED':
         return {
-          color: 'bg-green-100 text-green-800 border-green-200',
+          color: 'bg-gradient-to-r from-green-500/20 to-emerald-500/20 text-green-400 border-green-500/30',
+          bgGlow: 'shadow-[0_0_20px_rgba(16,185,129,0.3)]',
           icon: <CheckCircle className="w-4 h-4" />,
           text: 'Onaylandı'
         };
       case 'PENDING':
         return {
-          color: 'bg-yellow-100 text-yellow-800 border-yellow-200',
+          color: 'bg-gradient-to-r from-yellow-500/20 to-amber-500/20 text-yellow-400 border-yellow-500/30',
+          bgGlow: 'shadow-[0_0_20px_rgba(245,158,11,0.3)]',
           icon: <Clock className="w-4 h-4" />,
           text: 'Beklemede'
         };
       case 'CANCELLED':
         return {
-          color: 'bg-red-100 text-red-800 border-red-200',
+          color: 'bg-gradient-to-r from-red-500/20 to-rose-500/20 text-red-400 border-red-500/30',
+          bgGlow: 'shadow-[0_0_20px_rgba(239,68,68,0.3)]',
           icon: <XCircle className="w-4 h-4" />,
           text: 'İptal Edildi'
         };
       case 'COMPLETED':
         return {
-          color: 'bg-blue-100 text-blue-800 border-blue-200',
+          color: 'bg-gradient-to-r from-blue-500/20 to-cyan-500/20 text-blue-400 border-blue-500/30',
+          bgGlow: 'shadow-[0_0_20px_rgba(59,130,246,0.3)]',
           icon: <CheckCircle className="w-4 h-4" />,
           text: 'Tamamlandı'
         };
       default:
         return {
-          color: 'bg-white/10 text-gray-100 border-gray-200',
+          color: 'bg-white/10 text-gray-100 border-white/20',
+          bgGlow: '',
           icon: <AlertTriangle className="w-4 h-4" />,
           text: status
         };
@@ -214,10 +220,13 @@ const Bookings: React.FC = () => {
 
   if (status === 'loading' || loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-lydian-glass-dark">
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#0A0118] via-[#1a0b2e] to-[#16213e]">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-lydian-primary mx-auto"></div>
-          <p className="mt-4 text-lydian-text-dim">Yükleniyor...</p>
+          <div className="relative">
+            <div className="animate-spin rounded-full h-16 w-16 border-4 border-white/10 border-t-[#667EEA] mx-auto"></div>
+            <div className="absolute inset-0 rounded-full blur-xl bg-[#667EEA]/30 animate-pulse"></div>
+          </div>
+          <p className="mt-6 text-white/60 font-medium">Yükleniyor...</p>
         </div>
       </div>);
 
@@ -236,7 +245,7 @@ const Bookings: React.FC = () => {
 
       <FuturisticHeader />
 
-      <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 py-6 sm:py-8 lg:py-12">
+      <div className="min-h-screen bg-gradient-to-br from-[#0A0118] via-[#1a0b2e] to-[#16213e] py-6 sm:py-8 lg:py-12">
         <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6">
           {/* Header */}
           <motion.div
@@ -246,68 +255,71 @@ const Bookings: React.FC = () => {
 
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-4 mb-3 sm:mb-4">
               <div>
-                <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-lydian-text-inverse mb-1 sm:mb-2">Rezervasyonlarım</h1>
-                <p className="text-sm sm:text-base text-lydian-text-dim">Tüm rezervasyonlarınızı tek yerden yönetin</p>
+                <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-white via-blue-100 to-purple-200 bg-clip-text text-transparent mb-1 sm:mb-2">
+                  Rezervasyonlarım
+                </h1>
+                <p className="text-sm sm:text-base text-white/60">Tüm rezervasyonlarınızı tek yerden yönetin</p>
               </div>
-              <button
+              <FuturisticButton
                 onClick={fetchBookings}
-                className="flex items-center justify-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 bg-lydian-primary text-lydian-text-inverse rounded-lg hover:bg-lydian-primary-dark transition-colors text-sm sm:text-base">
-
-                <RefreshCw className="w-3 h-3 sm:w-4 sm:h-4" />
+                variant="primary"
+                size="md"
+                icon={<RefreshCw className="w-4 h-4" />}
+                iconPosition="left">
                 Yenile
-              </button>
+              </FuturisticButton>
             </div>
           </motion.div>
 
-          {/* Filters */}
+          {/* Filters - Neo-Glass Design */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="bg-lydian-bg-hover rounded-xl shadow-sm p-4 sm:p-6 mb-4 sm:mb-6">
+            className="bg-lydian-glass-dark backdrop-blur-xl border border-lydian-border-light rounded-2xl p-4 sm:p-6 mb-4 sm:mb-6 shadow-[0_8px_32px_0_rgba(102,126,234,0.15)]">
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-4">
               {/* Search */}
-              <div className="relative">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-lydian-text-muted w-4 h-4 sm:w-5 sm:h-5" />
+              <div className="relative group">
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-white/40 w-4 h-4 sm:w-5 sm:h-5 group-focus-within:text-[#00BAFF] transition-colors" />
                 <input
                   type="text"
                   placeholder="Rezervasyon kodu ile ara..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-9 sm:pl-10 pr-3 sm:pr-4 py-2 sm:py-2.5 border border-lydian-border-medium rounded-lg text-sm sm:text-base focus:ring-2 focus:ring-lydian-border-focus focus:border-lydian-border" />
+                  className="w-full pl-9 sm:pl-10 pr-3 sm:pr-4 py-2 sm:py-3 bg-white/5 border border-white/10 rounded-xl text-sm sm:text-base text-white placeholder:text-white/40 focus:ring-2 focus:ring-[#00BAFF]/50 focus:border-[#00BAFF]/50 transition-all duration-300 hover:bg-white/10" />
 
               </div>
 
               {/* Status Filter */}
-              <div className="relative">
-                <Filter className="absolute left-3 top-1/2 transform -translate-y-1/2 text-lydian-text-muted w-4 h-4 sm:w-5 sm:h-5" />
+              <div className="relative group">
+                <Filter className="absolute left-3 top-1/2 transform -translate-y-1/2 text-white/40 w-4 h-4 sm:w-5 sm:h-5 group-focus-within:text-[#667EEA] transition-colors" />
                 <select
                   value={filterStatus}
                   onChange={(e) => setFilterStatus(e.target.value)}
-                  className="w-full pl-9 sm:pl-10 pr-3 sm:pr-4 py-2 sm:py-2.5 border border-lydian-border-medium rounded-lg text-sm sm:text-base focus:ring-2 focus:ring-lydian-border-focus focus:border-lydian-border appearance-none bg-lydian-glass-dark">
+                  className="w-full pl-9 sm:pl-10 pr-3 sm:pr-4 py-2 sm:py-3 bg-white/5 border border-white/10 rounded-xl text-sm sm:text-base text-white focus:ring-2 focus:ring-[#667EEA]/50 focus:border-[#667EEA]/50 appearance-none transition-all duration-300 hover:bg-white/10 cursor-pointer">
 
-                  <option value="all">Tüm Durumlar</option>
-                  <option value="confirmed">Onaylandı</option>
-                  <option value="pending">Beklemede</option>
-                  <option value="completed">Tamamlandı</option>
-                  <option value="cancelled">İptal Edildi</option>
+                  <option value="all" className="bg-[#1a0b2e]">Tüm Durumlar</option>
+                  <option value="confirmed" className="bg-[#1a0b2e]">Onaylandı</option>
+                  <option value="pending" className="bg-[#1a0b2e]">Beklemede</option>
+                  <option value="completed" className="bg-[#1a0b2e]">Tamamlandı</option>
+                  <option value="cancelled" className="bg-[#1a0b2e]">İptal Edildi</option>
                 </select>
               </div>
 
               {/* Type Filter */}
-              <div className="relative">
-                <Filter className="absolute left-3 top-1/2 transform -translate-y-1/2 text-lydian-text-muted w-4 h-4 sm:w-5 sm:h-5" />
+              <div className="relative group">
+                <Filter className="absolute left-3 top-1/2 transform -translate-y-1/2 text-white/40 w-4 h-4 sm:w-5 sm:h-5 group-focus-within:text-[#667EEA] transition-colors" />
                 <select
                   value={filterType}
                   onChange={(e) => setFilterType(e.target.value)}
-                  className="w-full pl-9 sm:pl-10 pr-3 sm:pr-4 py-2 sm:py-2.5 border border-lydian-border-medium rounded-lg text-sm sm:text-base focus:ring-2 focus:ring-lydian-border-focus focus:border-lydian-border appearance-none bg-lydian-glass-dark">
+                  className="w-full pl-9 sm:pl-10 pr-3 sm:pr-4 py-2 sm:py-3 bg-white/5 border border-white/10 rounded-xl text-sm sm:text-base text-white focus:ring-2 focus:ring-[#667EEA]/50 focus:border-[#667EEA]/50 appearance-none transition-all duration-300 hover:bg-white/10 cursor-pointer">
 
-                  <option value="all">Tüm Tipler</option>
-                  <option value="hotel">Otel</option>
-                  <option value="flight">Uçuş</option>
-                  <option value="activity">Aktivite</option>
-                  <option value="tour">Tur</option>
-                  <option value="transfer">Transfer</option>
+                  <option value="all" className="bg-[#1a0b2e]">Tüm Tipler</option>
+                  <option value="hotel" className="bg-[#1a0b2e]">Otel</option>
+                  <option value="flight" className="bg-[#1a0b2e]">Uçuş</option>
+                  <option value="activity" className="bg-[#1a0b2e]">Aktivite</option>
+                  <option value="tour" className="bg-[#1a0b2e]">Tur</option>
+                  <option value="transfer" className="bg-[#1a0b2e]">Transfer</option>
                 </select>
               </div>
             </div>
@@ -318,21 +330,27 @@ const Bookings: React.FC = () => {
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="bg-lydian-bg-hover rounded-xl shadow-sm p-12 text-center">
+            className="bg-lydian-glass-dark backdrop-blur-xl border border-lydian-border-light rounded-2xl shadow-[0_8px_32px_0_rgba(102,126,234,0.15)] p-12 text-center">
 
-              <Package className="w-16 h-16 text-lydian-text-dim mx-auto mb-4" />
-              <h3 className="text-xl font-semibold text-lydian-text-inverse mb-2">Henüz Rezervasyon Yok</h3>
-              <p className="text-lydian-text-dim mb-6">
+              <div className="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-[#667EEA]/20 to-[#00BAFF]/20 flex items-center justify-center">
+                <Package className="w-10 h-10 text-white/60" />
+              </div>
+              <h3 className="text-xl font-semibold bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent mb-2">
+                Henüz Rezervasyon Yok
+              </h3>
+              <p className="text-white/60 mb-8 max-w-md mx-auto">
                 {searchQuery || filterStatus !== 'all' || filterType !== 'all' ?
               'Arama kriterlerine uygun rezervasyon bulunamadı.' :
               'Henüz hiç rezervasyon yapmadınız. Hemen keşfetmeye başlayın!'}
               </p>
-              <Link
-              href="/"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-lydian-primary text-lydian-text-inverse rounded-lg hover:bg-lydian-primary-dark transition-colors">
-
-                Destinasyonları Keşfet
-                <ChevronRight className="w-4 h-4" />
+              <Link href="/">
+                <FuturisticButton
+                  variant="primary"
+                  size="lg"
+                  icon={<ChevronRight className="w-5 h-5" />}
+                  iconPosition="right">
+                  Destinasyonları Keşfet
+                </FuturisticButton>
               </Link>
             </motion.div> :
 
@@ -346,37 +364,44 @@ const Bookings: React.FC = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.05 }}
-                  className="bg-lydian-bg-hover rounded-xl shadow-sm hover:shadow-md transition-shadow overflow-hidden">
+                  whileHover={{ scale: 1.01, y: -4 }}
+                  className="bg-lydian-glass-dark backdrop-blur-xl border border-lydian-border-light rounded-2xl shadow-[0_8px_32px_0_rgba(102,126,234,0.15)] hover:shadow-[0_12px_48px_0_rgba(102,126,234,0.25)] transition-all duration-300 overflow-hidden group">
 
-                    <div className="p-4 sm:p-6">
+                    {/* Gradient Border Glow on Hover */}
+                    <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none bg-gradient-to-r from-[#667EEA]/20 via-[#00BAFF]/20 to-[#667EEA]/20" />
+
+                    <div className="relative p-4 sm:p-6">
                       <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-4">
                         <div className="flex items-start gap-3 sm:gap-4 min-w-0">
-                          {/* Icon */}
-                          <div className="p-2 sm:p-3 bg-lydian-primary-light text-lydian-primary rounded-lg flex-shrink-0">
+                          {/* Icon with Gradient */}
+                          <motion.div
+                            whileHover={{ rotate: 360 }}
+                            transition={{ duration: 0.6 }}
+                            className="p-2 sm:p-3 bg-gradient-to-br from-[#667EEA] to-[#00BAFF] text-white rounded-xl flex-shrink-0 shadow-lg">
                             {getBookingIcon(booking.bookingType)}
-                          </div>
+                          </motion.div>
 
                           {/* Details */}
                           <div className="min-w-0 flex-1">
                             <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 mb-2">
-                              <h3 className="text-base sm:text-lg font-semibold text-lydian-text-inverse line-clamp-1">
+                              <h3 className="text-base sm:text-lg font-semibold text-white line-clamp-1">
                                 {booking.bookingType.charAt(0).toUpperCase() + booking.bookingType.slice(1)} Rezervasyonu
                               </h3>
-                              <span className={`inline-flex items-center gap-1 px-2 sm:px-3 py-1 rounded-full text-[10px] sm:text-xs font-medium border ${statusDisplay.color} w-fit`}>
+                              <span className={`inline-flex items-center gap-1 px-2 sm:px-3 py-1 rounded-full text-[10px] sm:text-xs font-medium border backdrop-blur-sm ${statusDisplay.color} ${statusDisplay.bgGlow} w-fit`}>
                                 {statusDisplay.icon}
                                 {statusDisplay.text}
                               </span>
                             </div>
 
-                            <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-xs sm:text-sm text-lydian-text-dim">
+                            <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-xs sm:text-sm text-white/60">
                               <div className="flex items-center gap-1">
                                 <span className="font-medium">Rezervasyon No:</span>
-                                <span className="font-mono text-lydian-primary text-xs sm:text-sm">{booking.bookingReference}</span>
+                                <span className="font-mono text-[#00BAFF] text-xs sm:text-sm font-semibold">{booking.bookingReference}</span>
                               </div>
 
                               {booking.checkInDate &&
                             <div className="flex items-center gap-1">
-                                  <Calendar className="w-3 h-3 sm:w-4 sm:h-4" />
+                                  <Calendar className="w-3 h-3 sm:w-4 sm:h-4 text-[#667EEA]" />
                                   <span className="text-xs sm:text-sm">{new Date(booking.checkInDate).toLocaleDateString('tr-TR')}</span>
                                   {booking.checkOutDate &&
                               <span className="text-xs sm:text-sm">- {new Date(booking.checkOutDate).toLocaleDateString('tr-TR')}</span>
@@ -393,14 +418,14 @@ const Bookings: React.FC = () => {
                           </div>
                         </div>
 
-                        {/* Price */}
+                        {/* Price with Gradient */}
                         <div className="text-left sm:text-right flex-shrink-0">
-                          <div className="flex items-center gap-1 text-xl sm:text-2xl font-bold text-lydian-text-inverse">
-                            <DollarSign className="w-4 h-4 sm:w-5 sm:h-5 text-lydian-text-muted" />
+                          <div className="flex items-center gap-1 text-xl sm:text-2xl font-bold bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">
+                            <DollarSign className="w-4 h-4 sm:w-5 sm:h-5 text-[#00BAFF]" />
                             {booking.totalAmount.toString()} {booking.currency}
                           </div>
-                          <p className="text-[10px] sm:text-xs text-lydian-text-muted mt-1">
-                            Ödeme: <span className={`font-medium ${booking.paymentStatus === 'COMPLETED' ? 'text-green-600' : 'text-yellow-600'}`}>
+                          <p className="text-[10px] sm:text-xs text-white/40 mt-1">
+                            Ödeme: <span className={`font-medium ${booking.paymentStatus === 'COMPLETED' ? 'text-green-400' : 'text-yellow-400'}`}>
                               {booking.paymentStatus === 'COMPLETED' ? 'Tamamlandı' : booking.paymentStatus === 'PENDING' ? 'Beklemede' : booking.paymentStatus}
                             </span>
                           </p>
@@ -409,46 +434,48 @@ const Bookings: React.FC = () => {
 
                       {/* Special Requests */}
                       {booking.specialRequests &&
-                    <div className="mb-4 p-3 bg-lydian-glass-dark rounded-lg">
-                          <p className="text-sm text-lydian-text-muted">
-                            <span className="font-medium">Özel İstekler:</span> {booking.specialRequests}
+                    <div className="mb-4 p-3 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl">
+                          <p className="text-sm text-white/80">
+                            <span className="font-medium text-[#667EEA]">Özel İstekler:</span> {booking.specialRequests}
                           </p>
                         </div>
                     }
 
                       {/* Actions */}
-                      <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 pt-3 sm:pt-4 border-t border-lydian-border-light">
+                      <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 pt-3 sm:pt-4 border-t border-white/10">
                         <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
-                          <button
-                          onClick={() => handleViewDetails(booking.id)}
-                          className="flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 text-lydian-primary hover:bg-lydian-primary-lighter rounded-lg transition-colors text-xs sm:text-sm">
-
-                            <Eye className="w-3 h-3 sm:w-4 sm:h-4" />
+                          <FuturisticButton
+                            onClick={() => handleViewDetails(booking.id)}
+                            variant="glass"
+                            size="sm"
+                            icon={<Eye className="w-3 h-3 sm:w-4 sm:h-4" />}
+                            iconPosition="left">
                             View Details
-                          </button>
+                          </FuturisticButton>
 
-                          <button
-                          className="flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 text-lydian-text-dim hover:bg-lydian-glass-dark rounded-lg transition-colors text-xs sm:text-sm">
-
-                            <Download className="w-3 h-3 sm:w-4 sm:h-4" />
+                          <FuturisticButton
+                            variant="outline"
+                            size="sm"
+                            icon={<Download className="w-3 h-3 sm:w-4 sm:h-4" />}
+                            iconPosition="left">
                             <span className="hidden sm:inline">Download Invoice</span>
                             <span className="sm:hidden">Invoice</span>
-                          </button>
+                          </FuturisticButton>
 
                           {booking.status.toUpperCase() === 'CONFIRMED' &&
                         <>
-                              <button
-                            onClick={() => handleModifyBooking(booking.id)}
-                            className="flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 text-purple-600 hover:bg-purple-50 rounded-lg transition-colors text-xs sm:text-sm">
-
-                                <Edit className="w-3 h-3 sm:w-4 sm:h-4" />
+                              <FuturisticButton
+                                onClick={() => handleModifyBooking(booking.id)}
+                                variant="secondary"
+                                size="sm"
+                                icon={<Edit className="w-3 h-3 sm:w-4 sm:h-4" />}
+                                iconPosition="left">
                                 Modify
-                              </button>
+                              </FuturisticButton>
 
                               <button
-                            onClick={() => openCancelModal(booking)}
-                            className="flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 text-lydian-primary hover:bg-lydian-error-lighter rounded-lg transition-colors text-xs sm:text-sm">
-
+                                onClick={() => openCancelModal(booking)}
+                                className="flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 text-red-400 hover:bg-red-500/10 border border-red-500/30 rounded-xl transition-all duration-300 text-xs sm:text-sm font-medium backdrop-blur-sm">
                                 <Trash2 className="w-3 h-3 sm:w-4 sm:h-4" />
                                 Cancel
                               </button>
@@ -456,7 +483,7 @@ const Bookings: React.FC = () => {
                         }
                         </div>
 
-                        <div className="text-[10px] sm:text-xs text-lydian-text-muted sm:ml-auto">
+                        <div className="text-[10px] sm:text-xs text-white/40 sm:ml-auto">
                           Created: {new Date(booking.createdAt).toLocaleDateString('en-US')}
                         </div>
                       </div>
@@ -467,113 +494,128 @@ const Bookings: React.FC = () => {
             </div>
           }
 
-          {/* Summary Stats */}
+          {/* Summary Stats - Neo-Glass */}
           {bookings.length > 0 &&
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="mt-6 sm:mt-8 bg-lydian-bg-hover rounded-xl shadow-sm p-4 sm:p-6">
+            className="mt-6 sm:mt-8 bg-lydian-glass-dark backdrop-blur-xl border border-lydian-border-light rounded-2xl shadow-[0_8px_32px_0_rgba(102,126,234,0.15)] p-4 sm:p-6">
 
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
-                <div className="text-center p-3 sm:p-4 bg-lydian-primary-lighter rounded-lg">
-                  <p className="text-2xl sm:text-3xl font-bold text-lydian-primary">{bookings.length}</p>
-                  <p className="text-xs sm:text-sm text-lydian-text-dim mt-1">Toplam Rezervasyon</p>
-                </div>
-                <div className="text-center p-3 sm:p-4 bg-lydian-success-lighter rounded-lg">
-                  <p className="text-2xl sm:text-3xl font-bold text-lydian-success">
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  className="text-center p-3 sm:p-4 bg-gradient-to-br from-[#667EEA]/20 to-[#00BAFF]/20 border border-[#667EEA]/30 rounded-xl backdrop-blur-sm">
+                  <p className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-[#667EEA] to-[#00BAFF] bg-clip-text text-transparent">
+                    {bookings.length}
+                  </p>
+                  <p className="text-xs sm:text-sm text-white/60 mt-1">Toplam Rezervasyon</p>
+                </motion.div>
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  className="text-center p-3 sm:p-4 bg-gradient-to-br from-green-500/20 to-emerald-500/20 border border-green-500/30 rounded-xl backdrop-blur-sm">
+                  <p className="text-2xl sm:text-3xl font-bold text-green-400">
                     {bookings.filter((b) => b.status.toUpperCase() === 'CONFIRMED').length}
                   </p>
-                  <p className="text-xs sm:text-sm text-lydian-text-dim mt-1">Onaylı</p>
-                </div>
-                <div className="text-center p-3 sm:p-4 bg-lydian-warning-lighter rounded-lg">
-                  <p className="text-2xl sm:text-3xl font-bold text-lydian-warning">
+                  <p className="text-xs sm:text-sm text-white/60 mt-1">Onaylı</p>
+                </motion.div>
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  className="text-center p-3 sm:p-4 bg-gradient-to-br from-yellow-500/20 to-amber-500/20 border border-yellow-500/30 rounded-xl backdrop-blur-sm">
+                  <p className="text-2xl sm:text-3xl font-bold text-yellow-400">
                     {bookings.filter((b) => b.status.toUpperCase() === 'PENDING').length}
                   </p>
-                  <p className="text-xs sm:text-sm text-lydian-text-dim mt-1">Beklemede</p>
-                </div>
-                <div className="text-center p-3 sm:p-4 bg-purple-50 rounded-lg">
-                  <p className="text-2xl sm:text-3xl font-bold text-purple-600">
+                  <p className="text-xs sm:text-sm text-white/60 mt-1">Beklemede</p>
+                </motion.div>
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  className="text-center p-3 sm:p-4 bg-gradient-to-br from-purple-500/20 to-pink-500/20 border border-purple-500/30 rounded-xl backdrop-blur-sm">
+                  <p className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
                     {bookings.reduce((sum, b) => sum + Number(b.totalAmount), 0).toFixed(2)} TRY
                   </p>
-                  <p className="text-xs sm:text-sm text-lydian-text-dim mt-1">Toplam Harcama</p>
-                </div>
+                  <p className="text-xs sm:text-sm text-white/60 mt-1">Toplam Harcama</p>
+                </motion.div>
               </div>
             </motion.div>
           }
         </div>
       </div>
 
-      {/* Cancel Booking Modal */}
+      {/* Cancel Booking Modal - Neo-Glass */}
       {cancelModalOpen && bookingToCancel &&
-      <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+      <div className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-50 p-4">
           <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
-          className="bg-lydian-bg-hover rounded-2xl shadow-2xl max-w-md w-full p-6">
+          className="bg-lydian-glass-dark backdrop-blur-xl border border-lydian-border-light rounded-2xl shadow-[0_8px_32px_0_rgba(102,126,234,0.2)] max-w-md w-full p-6">
 
             <div className="flex items-center justify-between mb-4">
-              <h3 className="text-xl font-bold text-lydian-text-inverse">Cancel Booking</h3>
+              <h3 className="text-xl font-bold bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">
+                Cancel Booking
+              </h3>
               <button
               onClick={() => {
                 setCancelModalOpen(false);
                 setBookingToCancel(null);
                 setCancelReason('');
               }}
-              className="p-2 hover:bg-lydian-glass-dark-medium rounded-lg transition-colors">
+              className="p-2 hover:bg-white/10 rounded-lg transition-colors text-white/60 hover:text-white">
 
                 <X className="w-5 h-5" />
               </button>
             </div>
 
             <div className="mb-6">
-              <div className="bg-lydian-error-lighter border border-red-200 rounded-lg p-4 mb-4">
-                <p className="text-sm text-red-800">
+              <div className="bg-red-500/10 border border-red-500/30 rounded-xl p-4 mb-4 backdrop-blur-sm">
+                <p className="text-sm text-red-300">
                   Are you sure you want to cancel this booking?
                 </p>
-                <p className="text-xs text-lydian-primary mt-2">
-                  Booking Reference: <strong>{bookingToCancel.bookingReference}</strong>
+                <p className="text-xs text-[#00BAFF] mt-2">
+                  Booking Reference: <strong className="font-mono">{bookingToCancel.bookingReference}</strong>
                 </p>
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-lydian-text-muted mb-2">
+                <label className="block text-sm font-medium text-white/80 mb-2">
                   Cancellation Reason (Optional)
                 </label>
                 <textarea
                 value={cancelReason}
                 onChange={(e) => setCancelReason(e.target.value)}
-                className="w-full px-4 py-3 border border-lydian-border-medium rounded-lg focus:ring-2 focus:ring-lydian-border-focus focus:border-lydian-border resize-none"
+                className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder:text-white/40 focus:ring-2 focus:ring-[#667EEA]/50 focus:border-[#667EEA]/50 resize-none transition-all duration-300"
                 rows={4}
                 placeholder="Please let us know why you're cancelling..." />
 
               </div>
             </div>
 
-            <div className="bg-lydian-primary-lighter border border-blue-200 rounded-lg p-4 mb-6">
-              <p className="text-sm text-blue-800">
-                <strong>Refund Policy:</strong> Full refund of {bookingToCancel.totalAmount} {bookingToCancel.currency} will be processed within 5-7 business days to your original payment method.
+            <div className="bg-[#667EEA]/10 border border-[#667EEA]/30 rounded-xl p-4 mb-6 backdrop-blur-sm">
+              <p className="text-sm text-white/80">
+                <strong className="text-[#00BAFF]">Refund Policy:</strong> Full refund of {bookingToCancel.totalAmount} {bookingToCancel.currency} will be processed within 5-7 business days to your original payment method.
               </p>
             </div>
 
             <div className="flex gap-3">
-              <button
-              onClick={() => {
-                setCancelModalOpen(false);
-                setBookingToCancel(null);
-                setCancelReason('');
-              }}
-              disabled={cancelling}
-              className="flex-1 px-4 py-3 bg-lydian-glass-dark-medium text-lydian-text-muted rounded-lg hover:bg-lydian-bg-active transition-colors font-medium">
-
+              <FuturisticButton
+                onClick={() => {
+                  setCancelModalOpen(false);
+                  setBookingToCancel(null);
+                  setCancelReason('');
+                }}
+                disabled={cancelling}
+                variant="glass"
+                size="md"
+                className="flex-1">
                 Keep Booking
-              </button>
-              <button
-              onClick={handleCancelBooking}
-              disabled={cancelling}
-              className="flex-1 px-4 py-3 bg-lydian-primary text-lydian-text-inverse rounded-lg hover:bg-lydian-primary-dark transition-colors font-medium disabled:opacity-50 disabled:cursor-not-allowed">
-
+              </FuturisticButton>
+              <FuturisticButton
+                onClick={handleCancelBooking}
+                disabled={cancelling}
+                loading={cancelling}
+                variant="ai"
+                size="md"
+                className="flex-1">
                 {cancelling ? 'Cancelling...' : 'Confirm Cancellation'}
-              </button>
+              </FuturisticButton>
             </div>
           </motion.div>
         </div>

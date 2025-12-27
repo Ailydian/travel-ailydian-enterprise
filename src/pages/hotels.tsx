@@ -30,11 +30,15 @@ import {
   Loader2,
   ArrowRight,
   FileText,
-  UserCheck } from
+  UserCheck,
+  Sparkles } from
 'lucide-react';
 import { useCart } from '../context/CartContext';
 import { FuturisticHeader } from '../components/layout/FuturisticHeader';
 import { BookingFooter } from '../components/layout/BookingFooter';
+import { NeoHero } from '../components/neo-glass/NeoHero';
+import { FuturisticCard } from '../components/neo-glass/FuturisticCard';
+import { FuturisticButton } from '../components/neo-glass/FuturisticButton';
 import logger from '../lib/logger';
 
 const HotelsNewPage: React.FC = () => {
@@ -254,130 +258,159 @@ const HotelsNewPage: React.FC = () => {
       </Link>
 
       <main className="min-h-screen bg-lydian-glass-dark">
-        {/* Hero Section */}
-        <section className="bg-gradient-to-r from-lydian-primary to-lydian-secondary py-16">
-          <div className="max-w-7xl mx-auto px-4">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="text-center text-lydian-text-inverse">
+        {/* Hero Section with NeoHero */}
+        <NeoHero
+          title="Hayalinizdeki Oteli Bulun"
+          subtitle="Binlerce gerçek otel, anlık fiyatlar ve güvenli rezervasyon ile kusursuz konaklama deneyimi"
+          gradient="twilight"
+          height="60vh"
+          overlayOpacity={0.3}
+          showFloatingElements={true}>
 
-              <h1 className="text-4xl md:text-5xl font-bold mb-4">
-                Hayalinizdeki Oteli Bulun
-              </h1>
-              <p className="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
-                {hotels.length} gerçek otel, anlık fiyatlar, güvenli rezervasyon
-              </p>
+          {/* Search Form in Hero */}
+          <div className="w-full max-w-6xl mx-auto mt-12">
+            <div className="bg-lydian-glass-dark-medium backdrop-blur-xl border border-lydian-border-light rounded-3xl p-6 sm:p-8 shadow-[0_20px_60px_-15px_rgba(236,72,153,0.3)]">
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+                <div className="relative group">
+                  <MapPin className="absolute left-3 top-1/2 transform -translate-y-1/2 text-pink-400 w-5 h-5 transition-all group-hover:scale-110" />
+                  <input
+                    type="text"
+                    value={destination}
+                    onChange={(e) => setDestination(e.target.value)}
+                    placeholder="Nereye gidiyorsunuz?"
+                    className="w-full pl-10 pr-4 py-3 bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl text-lydian-text-inverse placeholder-lydian-text-muted focus:outline-none focus:ring-2 focus:ring-pink-500/50 focus:border-pink-500/50 transition-all hover:bg-white/10" />
 
-              {/* Search Form */}
-              <div className="max-w-6xl mx-auto bg-lydian-glass-dark-medium backdrop-blur-sm rounded-2xl p-6">
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-                  <div className="relative">
-                    <MapPin className="absolute left-3 top-1/2 transform -translate-y-1/2 text-lydian-text-muted w-5 h-5" />
-                    <input
-                      type="text"
-                      value={destination}
-                      onChange={(e) => setDestination(e.target.value)}
-                      placeholder="Nereye gidiyorsunuz?"
-                      className="w-full pl-10 pr-4 py-3 rounded-xl text-lydian-text-inverse placeholder-lydian-text-tertiary focus:outline-none focus:ring-2 focus:ring-white/30" />
-
-                  </div>
-
-                  <div className="relative">
-                    <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 text-lydian-text-muted w-5 h-5" />
-                    <input
-                      type="date"
-                      value={checkIn}
-                      onChange={(e) => setCheckIn(e.target.value)}
-                      className="w-full pl-10 pr-4 py-3 rounded-xl text-lydian-text-inverse focus:outline-none focus:ring-2 focus:ring-white/30" />
-
-                  </div>
-
-                  <div className="relative">
-                    <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 text-lydian-text-muted w-5 h-5" />
-                    <input
-                      type="date"
-                      value={checkOut}
-                      onChange={(e) => setCheckOut(e.target.value)}
-                      className="w-full pl-10 pr-4 py-3 rounded-xl text-lydian-text-inverse focus:outline-none focus:ring-2 focus:ring-white/30" />
-
-                  </div>
-
-                  <div className="relative">
-                    <Users className="absolute left-3 top-1/2 transform -translate-y-1/2 text-lydian-text-muted w-5 h-5" />
-                    <select
-                      value={guests}
-                      onChange={(e) => setGuests(Number(e.target.value))}
-                      className="w-full pl-10 pr-4 py-3 rounded-xl text-lydian-text-inverse focus:outline-none focus:ring-2 focus:ring-white/30">
-
-                      <option value={1}>1 Misafir</option>
-                      <option value={2}>2 Misafir</option>
-                      <option value={3}>3 Misafir</option>
-                      <option value={4}>4 Misafir</option>
-                      <option value={5}>5+ Misafir</option>
-                    </select>
-                  </div>
                 </div>
 
-                <div className="mt-6 flex justify-center">
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    onClick={searchHotels}
-                    disabled={loading}
-                    className="flex items-center gap-2 px-8 py-3 bg-lydian-bg-hover text-lydian-primary rounded-xl font-medium hover:bg-lydian-glass-dark-medium transition-colors disabled:opacity-50">
+                <div className="relative group">
+                  <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 text-pink-400 w-5 h-5 transition-all group-hover:scale-110" />
+                  <input
+                    type="date"
+                    value={checkIn}
+                    onChange={(e) => setCheckIn(e.target.value)}
+                    className="w-full pl-10 pr-4 py-3 bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl text-lydian-text-inverse focus:outline-none focus:ring-2 focus:ring-pink-500/50 focus:border-pink-500/50 transition-all hover:bg-white/10" />
 
-                    {loading ? <Loader2 className="w-5 h-5 animate-spin" /> : <Search className="w-5 h-5" />}
-                    {loading ? 'Aranıyor...' : 'Otel Ara'}
-                  </motion.button>
+                </div>
+
+                <div className="relative group">
+                  <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 text-pink-400 w-5 h-5 transition-all group-hover:scale-110" />
+                  <input
+                    type="date"
+                    value={checkOut}
+                    onChange={(e) => setCheckOut(e.target.value)}
+                    className="w-full pl-10 pr-4 py-3 bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl text-lydian-text-inverse focus:outline-none focus:ring-2 focus:ring-pink-500/50 focus:border-pink-500/50 transition-all hover:bg-white/10" />
+
+                </div>
+
+                <div className="relative group">
+                  <Users className="absolute left-3 top-1/2 transform -translate-y-1/2 text-pink-400 w-5 h-5 transition-all group-hover:scale-110" />
+                  <select
+                    value={guests}
+                    onChange={(e) => setGuests(Number(e.target.value))}
+                    className="w-full pl-10 pr-4 py-3 bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl text-lydian-text-inverse focus:outline-none focus:ring-2 focus:ring-pink-500/50 focus:border-pink-500/50 transition-all hover:bg-white/10 appearance-none cursor-pointer">
+
+                    <option value={1} className="bg-lydian-bg text-lydian-text-inverse">1 Misafir</option>
+                    <option value={2} className="bg-lydian-bg text-lydian-text-inverse">2 Misafir</option>
+                    <option value={3} className="bg-lydian-bg text-lydian-text-inverse">3 Misafir</option>
+                    <option value={4} className="bg-lydian-bg text-lydian-text-inverse">4 Misafir</option>
+                    <option value={5} className="bg-lydian-bg text-lydian-text-inverse">5+ Misafir</option>
+                  </select>
                 </div>
               </div>
-            </motion.div>
+
+              <div className="mt-6 flex justify-center">
+                <FuturisticButton
+                  onClick={searchHotels}
+                  disabled={loading}
+                  loading={loading}
+                  variant="primary"
+                  size="lg"
+                  icon={<Search className="w-5 h-5" />}
+                  iconPosition="left"
+                  glow={true}>
+
+                  {loading ? 'Aranıyor...' : 'Otel Ara'}
+                </FuturisticButton>
+              </div>
+            </div>
           </div>
-        </section>
+        </NeoHero>
 
-        {/* Filter Section */}
-        <section className="bg-lydian-bg-hover border-b border-lydian-border">
-          <div className="max-w-7xl mx-auto px-4 py-6">
-            <div className="flex items-center justify-between mb-4">
-              <h2 className="text-2xl font-bold text-lydian-text-inverse">
-                {filteredHotels.length} Otel Bulundu
-              </h2>
-              <div className="flex items-center gap-4">
-                <button
-                  onClick={() => setShowFilters(!showFilters)}
-                  className="flex items-center gap-2 px-4 py-2 border border-lydian-border-medium rounded-lg hover:bg-lydian-glass-dark transition-colors relative">
+        {/* Filter Section - Neo-Glass Design */}
+        <section className="bg-lydian-glass-dark backdrop-blur-xl border-b border-lydian-border-light/10">
+          <div className="max-w-7xl mx-auto px-4 py-8">
+            <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-6">
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                className="flex items-center gap-3">
 
-                  <SlidersHorizontal className="w-4 h-4" />
-                  Filtreler
-                  {activeFilterCount > 0 &&
-                  <span className="absolute -top-2 -right-2 px-2 py-0.5 bg-lydian-primary text-lydian-text-inverse rounded-full text-xs font-bold">
-                      {activeFilterCount}
-                    </span>
-                  }
-                </button>
-                <select
-                  value={sortBy}
-                  onChange={(e) => setSortBy(e.target.value)}
-                  className="px-4 py-2 border border-lydian-border-medium rounded-lg">
+                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-pink-500/20 to-purple-500/20 backdrop-blur-xl border border-pink-500/30 flex items-center justify-center">
+                  <Building2 className="w-6 h-6 text-pink-400" />
+                </div>
+                <div>
+                  <h2 className="text-3xl font-black text-lydian-text-inverse">
+                    {filteredHotels.length} Otel
+                  </h2>
+                  <p className="text-sm text-lydian-text-muted">Seçiminize uygun sonuçlar</p>
+                </div>
+              </motion.div>
 
-                  <option value="popularity">Popülerlik</option>
-                  <option value="price-low">Fiyat (Düşük-Yüksek)</option>
-                  <option value="price-high">Fiyat (Yüksek-Düşük)</option>
-                  <option value="rating">Puan</option>
-                </select>
+              <div className="flex flex-wrap items-center gap-3">
+                <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                  <button
+                    onClick={() => setShowFilters(!showFilters)}
+                    className="flex items-center gap-2 px-5 py-3 bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl hover:bg-white/10 hover:border-pink-500/50 transition-all relative group">
+
+                    <SlidersHorizontal className="w-4 h-4 text-pink-400 group-hover:rotate-90 transition-transform" />
+                    <span className="text-lydian-text-inverse font-medium">Filtreler</span>
+                    {activeFilterCount > 0 &&
+                    <motion.span
+                      initial={{ scale: 0 }}
+                      animate={{ scale: 1 }}
+                      className="absolute -top-2 -right-2 px-2 py-0.5 bg-gradient-to-r from-pink-500 to-purple-500 text-lydian-text-inverse rounded-full text-xs font-bold shadow-lg shadow-pink-500/50">
+
+                        {activeFilterCount}
+                      </motion.span>
+                    }
+                  </button>
+                </motion.div>
+
+                <div className="relative group">
+                  <SlidersHorizontal className="absolute left-3 top-1/2 transform -translate-y-1/2 text-pink-400 w-4 h-4 transition-all group-hover:scale-110" />
+                  <select
+                    value={sortBy}
+                    onChange={(e) => setSortBy(e.target.value)}
+                    className="pl-10 pr-4 py-3 bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl text-lydian-text-inverse hover:bg-white/10 hover:border-pink-500/50 transition-all appearance-none cursor-pointer focus:outline-none focus:ring-2 focus:ring-pink-500/50">
+
+                    <option value="popularity" className="bg-lydian-bg text-lydian-text-inverse">Popülerlik</option>
+                    <option value="price-low" className="bg-lydian-bg text-lydian-text-inverse">Fiyat (Düşük-Yüksek)</option>
+                    <option value="price-high" className="bg-lydian-bg text-lydian-text-inverse">Fiyat (Yüksek-Düşük)</option>
+                    <option value="rating" className="bg-lydian-bg text-lydian-text-inverse">Puan</option>
+                  </select>
+                </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Hotels Grid */}
-        <section className="py-12 bg-lydian-glass-dark">
+        {/* Hotels Grid - FuturisticCard Implementation */}
+        <section className="py-16 bg-lydian-glass-dark backdrop-blur-xl">
           <div className="max-w-7xl mx-auto px-4">
             {loading ?
-            <div className="flex justify-center items-center py-20">
-                <Loader2 className="w-12 h-12 animate-spin text-lydian-primary" />
-              </div> :
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className="flex flex-col justify-center items-center py-20">
+
+                <motion.div
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
+                  className="w-20 h-20 rounded-full border-4 border-pink-500/20 border-t-pink-500 mb-6" />
+
+                <p className="text-lydian-text-inverse text-xl font-medium">Oteller yükleniyor...</p>
+                <p className="text-lydian-text-muted text-sm mt-2">Sizin için en iyi seçenekleri buluyoruz</p>
+              </motion.div> :
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {filteredHotels.map((hotel, index) =>
@@ -385,117 +418,138 @@ const HotelsNewPage: React.FC = () => {
                 key={hotel.id}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                className="bg-lydian-bg-hover rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group">
+                transition={{ delay: index * 0.05, duration: 0.4 }}>
 
-                    <div className="relative h-56 overflow-hidden">
-                      <img
-                    src={hotel.mainImage}
-                    alt={hotel.name}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                  <FuturisticCard
+                    image={hotel.mainImage}
+                    title={hotel.name}
+                    description={hotel.description}
+                    price={`${hotel.price.toLocaleString('tr-TR')} ${hotel.currency}`}
+                    oldPrice={hotel.priceMax > hotel.price ? `${hotel.priceMax.toLocaleString('tr-TR')} ${hotel.currency}` : undefined}
+                    badge={hotel.stars === 5 ? 'Lüks' : undefined}
+                    category={`${hotel.stars} Yıldız`}
+                    categoryColor="#EC4899"
+                    rating={hotel.rating}
+                    reviews={hotel.reviewCount}
+                    metadata={[
+                    {
+                      icon: <MapPin className="w-4 h-4" />,
+                      label: hotel.location
+                    },
+                    {
+                      icon: <Building2 className="w-4 h-4" />,
+                      label: hotel.hotelType || 'Otel'
+                    },
+                    {
+                      icon: <Users className="w-4 h-4" />,
+                      label: `${guests} Misafir`
+                    },
+                    {
+                      icon: <Calendar className="w-4 h-4" />,
+                      label: checkIn && checkOut ? `${checkIn} - ${checkOut}` : 'Tarih Seçin'
+                    }]}
 
-                      <div className="absolute top-4 left-4">
-                        <span className="px-3 py-1 bg-lydian-primary text-lydian-text-inverse rounded-full text-sm font-medium">
-                          {hotel.stars} Yıldız
-                        </span>
-                      </div>
-                      <button className="absolute top-4 right-4 p-2 bg-lydian-bg/80 hover:bg-lydian-glass-dark rounded-full">
-                        <Heart className="w-4 h-4 text-lydian-text-dim" />
-                      </button>
-                    </div>
+                    badges={hotel.amenities?.slice(0, 3) || []}
+                    onAddToCart={() => handleAddToCart(hotel)}
+                    onFavorite={() => {
+                      // TODO: Implement favorite functionality
+                      setToastMessage(`${hotel.name} favorilere eklendi!`);
+                      setShowToast(true);
+                      setTimeout(() => setShowToast(false), 3000);
+                    }}
+                    onClick={() => {
+                      // TODO: Navigate to hotel details
+                      router.push(`/hotels/${hotel.id}`);
+                    }} />
 
-                    <div className="p-6">
-                      <div className="flex items-center gap-2 text-sm text-lydian-text-muted mb-2">
-                        <MapPin className="w-4 h-4" />
-                        <span>{hotel.location}</span>
-                      </div>
-
-                      <h3 className="font-bold text-xl text-lydian-text-inverse mb-2">{hotel.name}</h3>
-                      <p className="text-lydian-text-dim text-sm mb-4 line-clamp-2">{hotel.description}</p>
-
-                      <div className="flex items-center gap-2 mb-4">
-                        <Star className="w-4 h-4 text-yellow-500 fill-current" />
-                        <span className="font-medium">{hotel.rating}</span>
-                        <span className="text-lydian-text-muted text-sm">({hotel.reviewCount} değerlendirme)</span>
-                      </div>
-
-                      <div className="space-y-3">
-                        <div className="flex items-center justify-between">
-                          <div>
-                            <div className="text-2xl font-bold text-lydian-text-inverse">
-                              {hotel.price.toLocaleString('tr-TR')} {hotel.currency}
-                            </div>
-                            <span className="text-sm text-lydian-text-dim">gecelik</span>
-                          </div>
-                        </div>
-                        <div className="flex gap-2">
-                          <motion.button
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        onClick={() => handleAddToCart(hotel)}
-                        className="flex-1 px-4 py-2 border-2 border-lydian-primary text-lydian-primary rounded-lg font-medium hover:bg-lydian-primary/10 transition-colors flex items-center justify-center gap-2">
-
-                            <ShoppingCart className="w-4 h-4" />
-                            Sepete Ekle
-                          </motion.button>
-                        </div>
-                      </div>
-                    </div>
-                  </motion.div>
+                </motion.div>
               )}
               </div>
             }
 
             {!loading && filteredHotels.length === 0 &&
-            <div className="text-center py-16">
-                <Building className="w-24 h-24 text-lydian-text-dim mx-auto mb-6" />
-                <h2 className="text-2xl font-bold text-lydian-text-inverse mb-4">
-                  Aradığınız kriterlerde otel bulunamadı
-                </h2>
-                <p className="text-lydian-text-dim mb-8">
-                  Filtrelerinizi değiştirerek tekrar deneyin
-                </p>
-              </div>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              className="text-center py-20">
+
+                <div className="bg-lydian-glass-dark-medium backdrop-blur-xl border border-lydian-border-light rounded-3xl p-12 max-w-2xl mx-auto">
+                  <div className="w-24 h-24 mx-auto mb-6 rounded-3xl bg-gradient-to-br from-pink-500/20 to-purple-500/20 border border-pink-500/30 flex items-center justify-center">
+                    <Building className="w-12 h-12 text-pink-400" />
+                  </div>
+                  <h2 className="text-3xl font-black text-lydian-text-inverse mb-4">
+                    Aradığınız kriterlerde otel bulunamadı
+                  </h2>
+                  <p className="text-lydian-text-muted mb-8 text-lg">
+                    Filtrelerinizi değiştirerek tekrar deneyin veya farklı bir destinasyon seçin
+                  </p>
+                  <FuturisticButton
+                    onClick={() => {
+                      setPriceRange([0, 50000]);
+                      setStarRating([]);
+                      setGuestRating([0, 10]);
+                      setPropertyTypes([]);
+                      setSelectedAmenities([]);
+                    }}
+                    variant="primary"
+                    size="lg"
+                    icon={<ArrowLeft className="w-5 h-5" />}
+                    iconPosition="left">
+
+                    Filtreleri Temizle
+                  </FuturisticButton>
+                </div>
+              </motion.div>
             }
           </div>
         </section>
 
-        {/* Terms & Conditions Section */}
-        <section className="max-w-7xl mx-auto px-4 py-16 border-t" style={{ borderColor: '#E5E7EB' }}>
+        {/* Terms & Conditions Section - Neo-Glass Design */}
+        <section className="max-w-7xl mx-auto px-4 py-20 border-t border-lydian-border-light/10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12">
+
+            <h2 className="text-4xl font-black text-lydian-text-inverse mb-4">
+              Güvenli Rezervasyon Garantisi
+            </h2>
+            <p className="text-lydian-text-muted text-lg max-w-2xl mx-auto">
+              AI destekli blockchain teknolojisi ile korunan, şeffaf ve güvenli rezervasyon deneyimi
+            </p>
+          </motion.div>
+
           <div className="grid md:grid-cols-3 gap-8">
             {/* Booking Conditions */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="space-y-4">
+              className="bg-lydian-glass-dark-medium backdrop-blur-xl border border-lydian-border-light rounded-3xl p-8 hover:border-blue-500/50 transition-all group">
 
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 rounded-lg flex items-center justify-center"
-                style={{
-                  background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(37, 99, 235, 0.1))',
-                  border: '1px solid rgba(59, 130, 246, 0.2)'
-                }}>
-                  <FileText className="w-6 h-6 text-lydian-primary" />
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500/20 to-blue-600/20 border border-blue-500/30 flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <FileText className="w-7 h-7 text-blue-400" />
                 </div>
-                <h3 className="text-xl font-bold text-lydian-text-inverse">Rezervasyon Koşulları</h3>
+                <h3 className="text-2xl font-bold text-lydian-text-inverse">Rezervasyon Koşulları</h3>
               </div>
-              <ul className="space-y-2 text-sm text-lydian-text-dim">
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 mt-0.5 text-green-500 flex-shrink-0" />
-                  <span>Ücretsiz iptal: Check-in'den 48 saat öncesine kadar</span>
+              <ul className="space-y-4">
+                <li className="flex items-start gap-3 group/item">
+                  <CheckCircle className="w-5 h-5 mt-0.5 text-green-400 flex-shrink-0 group-hover/item:scale-110 transition-transform" />
+                  <span className="text-lydian-text-dim">Ücretsiz iptal: Check-in'den 48 saat öncesine kadar</span>
                 </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 mt-0.5 text-green-500 flex-shrink-0" />
-                  <span>Rezervasyon onayı: Anlık e-posta ve SMS bildirimi</span>
+                <li className="flex items-start gap-3 group/item">
+                  <CheckCircle className="w-5 h-5 mt-0.5 text-green-400 flex-shrink-0 group-hover/item:scale-110 transition-transform" />
+                  <span className="text-lydian-text-dim">Rezervasyon onayı: Anlık e-posta ve SMS bildirimi</span>
                 </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 mt-0.5 text-green-500 flex-shrink-0" />
-                  <span>Fiyat garantisi: Rezervasyon anındaki fiyat geçerlidir</span>
+                <li className="flex items-start gap-3 group/item">
+                  <CheckCircle className="w-5 h-5 mt-0.5 text-green-400 flex-shrink-0 group-hover/item:scale-110 transition-transform" />
+                  <span className="text-lydian-text-dim">Fiyat garantisi: Rezervasyon anındaki fiyat geçerlidir</span>
                 </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 mt-0.5 text-green-500 flex-shrink-0" />
-                  <span>Değişiklik: Rezervasyon tarihlerini değiştirme hakkı</span>
+                <li className="flex items-start gap-3 group/item">
+                  <CheckCircle className="w-5 h-5 mt-0.5 text-green-400 flex-shrink-0 group-hover/item:scale-110 transition-transform" />
+                  <span className="text-lydian-text-dim">Değişiklik: Rezervasyon tarihlerini değiştirme hakkı</span>
                 </li>
               </ul>
             </motion.div>
@@ -506,34 +560,30 @@ const HotelsNewPage: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
               viewport={{ once: true }}
-              className="space-y-4">
+              className="bg-lydian-glass-dark-medium backdrop-blur-xl border border-lydian-border-light rounded-3xl p-8 hover:border-green-500/50 transition-all group">
 
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 rounded-lg flex items-center justify-center"
-                style={{
-                  background: 'linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(22, 163, 74, 0.1))',
-                  border: '1px solid rgba(34, 197, 94, 0.2)'
-                }}>
-                  <Shield className="w-6 h-6 text-lydian-success" />
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-green-500/20 to-green-600/20 border border-green-500/30 flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <Shield className="w-7 h-7 text-green-400" />
                 </div>
-                <h3 className="text-xl font-bold text-lydian-text-inverse">Ödeme & Güvenlik</h3>
+                <h3 className="text-2xl font-bold text-lydian-text-inverse">Ödeme & Güvenlik</h3>
               </div>
-              <ul className="space-y-2 text-sm text-lydian-text-dim">
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 mt-0.5 text-green-500 flex-shrink-0" />
-                  <span>SSL sertifikalı güvenli ödeme altyapısı</span>
+              <ul className="space-y-4">
+                <li className="flex items-start gap-3 group/item">
+                  <CheckCircle className="w-5 h-5 mt-0.5 text-green-400 flex-shrink-0 group-hover/item:scale-110 transition-transform" />
+                  <span className="text-lydian-text-dim">SSL sertifikalı güvenli ödeme altyapısı</span>
                 </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 mt-0.5 text-green-500 flex-shrink-0" />
-                  <span>Tüm kredi kartları ve kripto para kabul edilir</span>
+                <li className="flex items-start gap-3 group/item">
+                  <CheckCircle className="w-5 h-5 mt-0.5 text-green-400 flex-shrink-0 group-hover/item:scale-110 transition-transform" />
+                  <span className="text-lydian-text-dim">Tüm kredi kartları ve kripto para kabul edilir</span>
                 </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 mt-0.5 text-green-500 flex-shrink-0" />
-                  <span>3D Secure doğrulama ile ekstra güvenlik</span>
+                <li className="flex items-start gap-3 group/item">
+                  <CheckCircle className="w-5 h-5 mt-0.5 text-green-400 flex-shrink-0 group-hover/item:scale-110 transition-transform" />
+                  <span className="text-lydian-text-dim">3D Secure doğrulama ile ekstra güvenlik</span>
                 </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 mt-0.5 text-green-500 flex-shrink-0" />
-                  <span>Kişisel verileriniz KVKK kapsamında korunur</span>
+                <li className="flex items-start gap-3 group/item">
+                  <CheckCircle className="w-5 h-5 mt-0.5 text-green-400 flex-shrink-0 group-hover/item:scale-110 transition-transform" />
+                  <span className="text-lydian-text-dim">Kişisel verileriniz KVKK kapsamında korunur</span>
                 </li>
               </ul>
             </motion.div>
@@ -544,69 +594,90 @@ const HotelsNewPage: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
               viewport={{ once: true }}
-              className="space-y-4">
+              className="bg-lydian-glass-dark-medium backdrop-blur-xl border border-lydian-border-light rounded-3xl p-8 hover:border-pink-500/50 transition-all group">
 
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 rounded-lg flex items-center justify-center"
-                style={{
-                  background: 'linear-gradient(135deg, rgba(255, 33, 77, 0.1), rgba(255, 106, 69, 0.1))',
-                  border: '1px solid rgba(255, 33, 77, 0.2)'
-                }}>
-                  <UserCheck className="w-6 h-6" style={{ color: '#FF214D' }} />
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-pink-500/20 to-pink-600/20 border border-pink-500/30 flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <UserCheck className="w-7 h-7 text-pink-400" />
                 </div>
-                <h3 className="text-xl font-bold text-lydian-text-inverse">Destek & Yardım</h3>
+                <h3 className="text-2xl font-bold text-lydian-text-inverse">Destek & Yardım</h3>
               </div>
-              <ul className="space-y-2 text-sm text-lydian-text-dim">
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 mt-0.5 text-green-500 flex-shrink-0" />
-                  <span>7/24 Türkçe canlı destek hizmeti</span>
+              <ul className="space-y-4">
+                <li className="flex items-start gap-3 group/item">
+                  <CheckCircle className="w-5 h-5 mt-0.5 text-green-400 flex-shrink-0 group-hover/item:scale-110 transition-transform" />
+                  <span className="text-lydian-text-dim">7/24 Türkçe canlı destek hizmeti</span>
                 </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 mt-0.5 text-green-500 flex-shrink-0" />
-                  <span>AI destekli seyahat danışmanlığı</span>
+                <li className="flex items-start gap-3 group/item">
+                  <CheckCircle className="w-5 h-5 mt-0.5 text-green-400 flex-shrink-0 group-hover/item:scale-110 transition-transform" />
+                  <span className="text-lydian-text-dim">AI destekli seyahat danışmanlığı</span>
                 </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 mt-0.5 text-green-500 flex-shrink-0" />
-                  <span>Sorun çözümünde %100 memnuniyet garantisi</span>
+                <li className="flex items-start gap-3 group/item">
+                  <CheckCircle className="w-5 h-5 mt-0.5 text-green-400 flex-shrink-0 group-hover/item:scale-110 transition-transform" />
+                  <span className="text-lydian-text-dim">Sorun çözümünde %100 memnuniyet garantisi</span>
                 </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 mt-0.5 text-green-500 flex-shrink-0" />
-                  <span>WhatsApp ve e-posta ile hızlı iletişim</span>
+                <li className="flex items-start gap-3 group/item">
+                  <CheckCircle className="w-5 h-5 mt-0.5 text-green-400 flex-shrink-0 group-hover/item:scale-110 transition-transform" />
+                  <span className="text-lydian-text-dim">WhatsApp ve e-posta ile hızlı iletişim</span>
                 </li>
               </ul>
             </motion.div>
           </div>
 
           {/* Additional Info */}
-          <div className="mt-12 p-6 rounded-xl border-2"
-          style={{
-            backgroundColor: 'rgba(249, 250, 251, 0.5)',
-            borderColor: '#E5E7EB'
-          }}>
-            <p className="text-sm text-lydian-text-dim text-center">
-              <strong className="font-bold text-lydian-text-inverse">Önemli Bilgi:</strong> Travel LyDian,
-              AI destekli blockchain tabanlı güvenli rezervasyon sistemi ile seyahatinizi güvence altına alır.
-              Tüm rezervasyonlarınız anında onaylanır ve blockchain ağında kayıt altına alınır.
-              Detaylı bilgi için{' '}
-              <Link href="/support" className="font-semibold hover:underline" style={{ color: '#FF214D' }}>
-                destek merkezimize
-              </Link>
-              {' '}başvurabilirsiniz.
-            </p>
-          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mt-12 bg-gradient-to-br from-lydian-glass-dark-medium to-lydian-glass-dark backdrop-blur-xl border border-lydian-border-light rounded-3xl p-8 relative overflow-hidden group">
+
+            {/* Animated background gradient */}
+            <motion.div
+              className="absolute inset-0 opacity-30"
+              animate={{
+                background: [
+                'radial-gradient(circle at 20% 50%, rgba(236, 72, 153, 0.3) 0%, transparent 50%)',
+                'radial-gradient(circle at 80% 50%, rgba(59, 130, 246, 0.3) 0%, transparent 50%)',
+                'radial-gradient(circle at 20% 50%, rgba(236, 72, 153, 0.3) 0%, transparent 50%)']
+
+              }}
+              transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }} />
+
+
+            <div className="relative flex items-center gap-4">
+              <Sparkles className="w-8 h-8 text-pink-400 flex-shrink-0" />
+              <p className="text-lydian-text-dim text-base">
+                <strong className="font-bold text-lydian-text-inverse">Önemli Bilgi:</strong> Travel LyDian,
+                AI destekli blockchain tabanlı güvenli rezervasyon sistemi ile seyahatinizi güvence altına alır.
+                Tüm rezervasyonlarınız anında onaylanır ve blockchain ağında kayıt altına alınır.
+                Detaylı bilgi için{' '}
+                <Link
+                  href="/support"
+                  className="font-semibold text-pink-400 hover:text-pink-300 underline decoration-pink-400/50 hover:decoration-pink-300 transition-all">
+
+                  destek merkezimize
+                </Link>
+                {' '}başvurabilirsiniz.
+              </p>
+            </div>
+          </motion.div>
         </section>
       </main>
 
       <AnimatePresence>
         {showToast &&
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: 50 }}
-          className="fixed bottom-8 right-8 z-50 bg-green-500 text-lydian-text-inverse px-6 py-4 rounded-xl shadow-2xl flex items-center gap-3">
+          initial={{ opacity: 0, y: 50, scale: 0.9 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          exit={{ opacity: 0, y: 50, scale: 0.9 }}
+          className="fixed bottom-8 right-8 z-50 bg-gradient-to-br from-green-500/90 to-emerald-500/90 backdrop-blur-xl border border-green-400/30 text-lydian-text-inverse px-6 py-4 rounded-2xl shadow-[0_20px_60px_-15px_rgba(34,197,94,0.5)] flex items-center gap-3">
 
-            <CheckCircle className="w-6 h-6" />
-            <span className="font-medium">{toastMessage}</span>
+            <motion.div
+              animate={{ scale: [1, 1.2, 1] }}
+              transition={{ duration: 0.5, repeat: Infinity, repeatDelay: 1 }}>
+
+              <CheckCircle className="w-6 h-6" />
+            </motion.div>
+            <span className="font-semibold">{toastMessage}</span>
           </motion.div>
         }
       </AnimatePresence>

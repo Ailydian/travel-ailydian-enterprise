@@ -2,11 +2,12 @@ import React, { useState, useMemo } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { SEOHead } from '../components/seo/SEOHead';
 import { PAGE_SEO } from '../config/seo';
-import { Search, Plane, Calendar, Users, ArrowLeft, ArrowRight, Clock, Zap, Star, Filter, Shield, Wifi, SlidersHorizontal } from 'lucide-react';
+import { Search, Plane, Calendar, Users, ArrowLeft, ArrowRight, Clock, Zap, Star, Filter, Shield, Wifi, SlidersHorizontal, TrendingDown, Award, Sparkles, MapPin } from 'lucide-react';
 import { FuturisticHeader } from '../components/layout/FuturisticHeader';
+import { NeoHero, FuturisticCard, FuturisticButton, NeoSection } from '../components/neo-glass';
 import AdvancedFilters from '../components/search/AdvancedFilters';
 import FilterChips from '../components/search/FilterChips';
 import { useFilters } from '../hooks/useFilters';
@@ -208,159 +209,176 @@ export default function Flights() {
 
       <FuturisticHeader />
 
-      {/* Return to Home Button - FIXED: Increased z-index to be above all overlays */}
-      <Link
-        href="/"
-        className="fixed top-24 left-6 z-[60] flex items-center gap-2 px-4 py-2 bg-lydian-bg/90 backdrop-blur-sm rounded-xl shadow-lg border border-lydian-border text-lydian-text-muted hover:bg-lydian-glass-dark hover:text-lydian-primary transition-all duration-200">
+      <main className="min-h-screen">
+        {/* 🎬 NEO-GLASS HERO - COSMIC GRADIENT */}
+        <NeoHero
+          title="En Uygun Uçak Biletleri"
+          subtitle="AI destekli fiyat karşılaştırması ve blockchain güvenli rezervasyon ile hızlı ve güvenli bilet alın"
+          gradient="twilight"
+          height="80vh"
+          overlayOpacity={0.2}
+          showFloatingElements={true}>
 
-        <ArrowLeft className="w-4 h-4" />
-        <span className="font-medium">Ana Sayfaya Dön</span>
-      </Link>
+          {/* Badge with Plane Icon */}
+          <div className="inline-flex items-center gap-2 bg-lydian-glass-dark-medium backdrop-blur-xl border border-lydian-border-light px-6 py-3 rounded-full mb-8 shadow-lg">
+            <Plane className="w-5 h-5 text-[#00BAFF]" />
+            <span className="text-sm font-semibold text-lydian-text-inverse">
+              7/24 Dünya Çapında Uçuş Arama
+            </span>
+          </div>
 
-      <main className="pt-8">
-        {/* Hero Section */}
-        <section className="bg-gradient-to-r from-lydian-primary to-lydian-secondary py-16">
-          <div className="max-w-7xl mx-auto px-4">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="text-center text-lydian-text-inverse">
+          {/* Stats Cards with Glassmorphism */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-5xl mx-auto mt-8">
+            {[
+              { icon: Award, value: '500+', label: 'Havayolu', color: '#667EEA' },
+              { icon: TrendingDown, value: '%30', label: 'Daha Ucuz', color: '#10B981' },
+              { icon: Star, value: '4.9', label: 'Müşteri Puanı', color: '#FF9500' },
+              { icon: Shield, value: '100%', label: 'Güvenli', color: '#00BAFF' }
+            ].map((stat, idx) => (
+              <motion.div
+                key={idx}
+                className="bg-lydian-glass-dark-medium backdrop-blur-xl border border-lydian-border-light rounded-2xl p-4 md:p-6 shadow-[0_8px_32px_0_rgba(31,38,135,0.2)] cursor-default"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: idx * 0.1, duration: 0.5 }}
+                whileHover={{ scale: 1.05, y: -5 }}>
 
-              <h1 className="text-4xl md:text-5xl font-bold mb-4">
-                En Uygun Uçak Biletleri
-              </h1>
-              <p className="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
-                AI destekli fiyat karşılaştırması ve blockchain güvenli rezervasyon ile hızlı ve güvenli bilet alın
-              </p>
-              
-              {/* Search Form */}
-              <div className="max-w-6xl mx-auto bg-lydian-glass-dark-medium backdrop-blur-sm rounded-2xl p-6">
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-                  <div>
-                    <label className="block text-sm font-medium mb-2 text-lydian-text-inverse">Nereden</label>
-                    <input
-                      type="text"
-                      placeholder="İstanbul, Ankara..."
-                      className="w-full px-3 py-3 rounded-xl text-lydian-text-inverse placeholder-lydian-text-tertiary focus:outline-none focus:ring-2 focus:ring-white/30"
-                      value={searchData.from}
-                      onChange={(e) => setSearchData({ ...searchData, from: e.target.value })} />
+                <stat.icon className="w-8 h-8 md:w-10 md:h-10 mx-auto mb-2 md:mb-3" style={{ color: stat.color }} />
+                <div className="text-3xl md:text-5xl font-black text-lydian-text-inverse mb-1 md:mb-2">{stat.value}</div>
+                <div className="text-xs md:text-sm uppercase tracking-widest text-lydian-text-inverse/80">{stat.label}</div>
+              </motion.div>
+            ))}
+          </div>
 
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium mb-2 text-lydian-text-inverse">Nereye</label>
-                    <input
-                      type="text"
-                      placeholder="Antalya, İzmir..."
-                      className="w-full px-3 py-3 rounded-xl text-lydian-text-inverse placeholder-lydian-text-tertiary focus:outline-none focus:ring-2 focus:ring-white/30"
-                      value={searchData.to}
-                      onChange={(e) => setSearchData({ ...searchData, to: e.target.value })} />
-
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium mb-2 text-lydian-text-inverse">Gidiş Tarihi</label>
-                    <input
-                      type="date"
-                      className="w-full px-3 py-3 rounded-xl text-lydian-text-inverse focus:outline-none focus:ring-2 focus:ring-white/30 [color-scheme:light]"
-                      style={{ colorScheme: 'light' }}
-                      value={searchData.departure}
-                      onChange={(e) => setSearchData({ ...searchData, departure: e.target.value })} />
-
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium mb-2 text-lydian-text-inverse">Yolcu Sayısı</label>
+          {/* Glassmorphism Search Form */}
+          <div className="max-w-6xl mx-auto mt-12 bg-lydian-glass-dark backdrop-blur-3xl border-2 border-lydian-border-light/20 rounded-3xl p-6 md:p-8 shadow-[0_20px_60px_-15px_rgba(102,126,234,0.4)]">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+              {[
+                { label: 'Nereden', type: 'text', placeholder: 'İstanbul, Ankara...', icon: MapPin, value: searchData.from, key: 'from' },
+                { label: 'Nereye', type: 'text', placeholder: 'Antalya, İzmir...', icon: Plane, value: searchData.to, key: 'to' },
+                { label: 'Gidiş Tarihi', type: 'date', icon: Calendar, value: searchData.departure, key: 'departure' },
+                { label: 'Yolcu Sayısı', type: 'select', icon: Users, value: searchData.passengers, key: 'passengers' }
+              ].map((field, idx) => (
+                <div key={idx} className="relative group">
+                  <label className="block text-sm font-semibold mb-2 text-lydian-text-inverse/90 flex items-center gap-2">
+                    <field.icon className="w-4 h-4 text-[#667EEA]" />
+                    {field.label}
+                  </label>
+                  {field.type === 'select' ? (
                     <select
-                      className="w-full px-3 py-3 rounded-xl text-lydian-text-inverse focus:outline-none focus:ring-2 focus:ring-white/30"
+                      className="w-full px-4 py-3 bg-white/10 backdrop-blur-xl border-2 border-lydian-border-light/30 rounded-xl text-lydian-text-inverse focus:outline-none focus:ring-2 focus:ring-[#667EEA] focus:border-[#667EEA] transition-all hover:border-lydian-border-light/50"
                       value={searchData.passengers}
                       onChange={(e) => setSearchData({ ...searchData, passengers: e.target.value })}>
-
-                      <option value="1">1 Yolcu</option>
-                      <option value="2">2 Yolcu</option>
-                      <option value="3">3 Yolcu</option>
-                      <option value="4">4+ Yolcu</option>
+                      <option value="1" className="bg-lydian-bg text-lydian-text-inverse">1 Yolcu</option>
+                      <option value="2" className="bg-lydian-bg text-lydian-text-inverse">2 Yolcu</option>
+                      <option value="3" className="bg-lydian-bg text-lydian-text-inverse">3 Yolcu</option>
+                      <option value="4" className="bg-lydian-bg text-lydian-text-inverse">4+ Yolcu</option>
                     </select>
-                  </div>
+                  ) : (
+                    <input
+                      type={field.type}
+                      placeholder={field.placeholder}
+                      className="w-full px-4 py-3 bg-white/10 backdrop-blur-xl border-2 border-lydian-border-light/30 rounded-xl text-lydian-text-inverse placeholder-lydian-text-inverse/50 focus:outline-none focus:ring-2 focus:ring-[#667EEA] focus:border-[#667EEA] transition-all hover:border-lydian-border-light/50"
+                      value={field.value}
+                      onChange={(e) => setSearchData({ ...searchData, [field.key]: e.target.value })} />
+                  )}
                 </div>
-                <div className="mt-6 flex justify-center">
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="flex items-center gap-2 px-8 py-3 bg-lydian-bg-hover text-lydian-primary rounded-xl font-medium hover:bg-lydian-glass-dark-medium transition-colors">
-
-                    <Search className="w-5 h-5" />
-                    Uçak Bileti Ara
-                  </motion.button>
-                </div>
-              </div>
-            </motion.div>
+              ))}
+            </div>
+            <div className="mt-6 flex justify-center">
+              <FuturisticButton
+                variant="primary"
+                size="lg"
+                icon={<Search className="w-5 h-5" />}
+                iconPosition="left"
+                glow={true}>
+                Uçak Bileti Ara
+              </FuturisticButton>
+            </div>
           </div>
-        </section>
+        </NeoHero>
 
-        {/* Filter Section */}
-        <section className="bg-lydian-bg-hover border-b border-lydian-border">
-          <div className="max-w-7xl mx-auto px-4 py-6">
-            <div className="flex items-center justify-between mb-4">
-              <h2 className="text-2xl font-bold text-lydian-text-inverse">
+        {/* 🎨 GLASSMORPHISM FILTER SECTION */}
+        <section className="bg-lydian-bg/70 backdrop-blur-xl border-b border-lydian-border-light/30 sticky top-0 z-40 shadow-lg">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-6">
+              <motion.h2
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                className="text-2xl md:text-3xl font-black text-lydian-text-inverse flex items-center gap-3">
+                <Sparkles className="w-7 h-7 text-[#667EEA]" />
                 {filteredAndSortedFlights.length} Uçuş Bulundu
-              </h2>
-              <div className="flex items-center gap-4">
-                <button
-                  onClick={() => setShowFilters(!showFilters)}
-                  className="flex items-center gap-2 px-4 py-2 border border-lydian-border-medium rounded-lg hover:bg-lydian-glass-dark transition-colors relative">
+              </motion.h2>
 
-                  <SlidersHorizontal className="w-4 h-4" />
-                  Gelişmiş Filtreler
-                  {activeFilterCount > 0 &&
-                  <span className="absolute -top-2 -right-2 px-2 py-0.5 bg-lydian-primary text-lydian-text-inverse rounded-full text-xs font-bold">
+              <div className="flex flex-wrap items-center gap-3">
+                <motion.button
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={() => setShowFilters(!showFilters)}
+                  className="flex items-center gap-2 px-5 py-2.5 bg-lydian-glass-dark backdrop-blur-xl border-2 border-lydian-border-light/40 rounded-xl hover:border-[#667EEA] transition-all relative shadow-lg">
+                  <SlidersHorizontal className="w-5 h-5 text-[#667EEA]" />
+                  <span className="font-semibold text-lydian-text-inverse">Gelişmiş Filtreler</span>
+                  {activeFilterCount > 0 && (
+                    <motion.span
+                      initial={{ scale: 0 }}
+                      animate={{ scale: 1 }}
+                      className="absolute -top-2 -right-2 px-2.5 py-0.5 bg-gradient-to-r from-[#667EEA] to-[#764BA2] text-lydian-text-inverse rounded-full text-xs font-bold shadow-lg">
                       {activeFilterCount}
-                    </span>
-                  }
-                </button>
+                    </motion.span>
+                  )}
+                </motion.button>
+
                 <select
                   value={sortBy}
                   onChange={(e) => setSortBy(e.target.value)}
-                  className="px-4 py-2 border border-lydian-border-medium rounded-lg focus:ring-2 focus:ring-lydian-primary focus:border-lydian-border">
-
-                  <option value="price">Fiyata Göre</option>
-                  <option value="duration">Süreye Göre</option>
-                  <option value="departure">Kalkış Saatine Göre</option>
+                  className="px-5 py-2.5 bg-lydian-glass-dark backdrop-blur-xl border-2 border-lydian-border-light/40 rounded-xl text-lydian-text-inverse font-semibold focus:ring-2 focus:ring-[#667EEA] focus:border-[#667EEA] transition-all shadow-lg cursor-pointer">
+                  <option value="price" className="bg-lydian-bg text-lydian-text-inverse">Fiyata Göre</option>
+                  <option value="duration" className="bg-lydian-bg text-lydian-text-inverse">Süreye Göre</option>
+                  <option value="departure" className="bg-lydian-bg text-lydian-text-inverse">Kalkış Saatine Göre</option>
                 </select>
               </div>
             </div>
 
             {/* Active Filter Chips */}
-            {activeFilterCount > 0 &&
-            <div className="mb-4">
+            {activeFilterCount > 0 && (
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="mb-6">
                 <FilterChips
-                type="flight"
-                filters={filters}
-                onRemoveFilter={handleRemoveFilter}
-                onClearAll={resetFilters} />
+                  type="flight"
+                  filters={filters}
+                  onRemoveFilter={handleRemoveFilter}
+                  onClearAll={resetFilters} />
+              </motion.div>
+            )}
 
-              </div>
-            }
-
-            {/* Airline Filters (Quick Filters) */}
+            {/* 🎯 AIRLINE QUICK FILTERS - Glassmorphism Pills */}
             <div className="flex flex-wrap gap-3">
-              {airlines.map((airline) =>
-              <button
-                key={airline}
-                onClick={() => setSelectedAirline(airline)}
-                className={`px-4 py-2 rounded-full font-medium transition-colors text-sm ${
-                selectedAirline === airline ?
-                'bg-lydian-primary text-white' :
-                'bg-white/10 text-gray-200 hover:bg-lydian-primary hover:text-white'}`
-                }>
-
+              {airlines.map((airline, idx) => (
+                <motion.button
+                  key={airline}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: idx * 0.05 }}
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={() => setSelectedAirline(airline)}
+                  className={`px-6 py-2.5 rounded-xl font-semibold transition-all shadow-lg ${
+                    selectedAirline === airline
+                      ? 'bg-gradient-to-r from-[#667EEA] to-[#764BA2] text-lydian-text-inverse shadow-[0_10px_30px_-5px_rgba(102,126,234,0.5)]'
+                      : 'bg-white/10 backdrop-blur-xl border-2 border-lydian-border-light/30 text-lydian-text-inverse hover:border-[#667EEA] hover:bg-white/20'
+                  }`}>
                   {airline}
-                </button>
-              )}
+                </motion.button>
+              ))}
             </div>
           </div>
         </section>
 
-        {/* Results Section with Filters */}
-        <section className="py-12 bg-lydian-glass-dark">
-          <div className="max-w-7xl mx-auto px-4">
+        {/* 🎨 NEO-GLASS RESULTS SECTION */}
+        <NeoSection background="gradient" padding="xl">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex gap-6">
               {/* Advanced Filters Sidebar */}
               <AdvancedFilters
@@ -372,155 +390,346 @@ export default function Flights() {
                 isOpen={showFilters}
                 activeFilterCount={activeFilterCount} />
 
-
-              {/* Flights List */}
+              {/* 🎴 FUTURISTIC FLIGHT CARDS GRID */}
               <div className="flex-1">
-                <div className="space-y-6">
-                  {filteredAndSortedFlights.map((flight) =>
-                  <motion.div
-                    key={flight.id}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: flight.id * 0.1 }}
-                    className="bg-lydian-bg-hover rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 p-6 group">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                  {filteredAndSortedFlights.map((flight, index) => {
+                    // Airline color coding
+                    const airlineColors: Record<string, string> = {
+                      'Turkish Airlines': '#E30A17',
+                      'Pegasus Airlines': '#FFD800',
+                      'SunExpress': '#FFCC00',
+                      'Anadolu Jet': '#0066B2'
+                    };
+                    const airlineColor = airlineColors[flight.airline] || '#667EEA';
 
-                  <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between">
-                    {/* Flight Info */}
-                    <div className="flex-1">
-                      <div className="flex items-center justify-between mb-4">
-                        <div className="flex items-center">
-                          <div className="w-12 h-12 mr-4 rounded-full overflow-hidden bg-lydian-glass-dark-medium flex items-center justify-center">
-                            <Image
-                                src={flight.logo}
-                                alt={flight.airline}
-                                width={48}
-                                height={48}
-                                className="object-cover" />
+                    // Calculate savings percentage
+                    const savingsPercent = flight.originalPrice
+                      ? Math.round(((flight.originalPrice - flight.price) / flight.originalPrice) * 100)
+                      : 0;
 
-                          </div>
-                          <div>
-                            <h3 className="font-bold text-lg text-lydian-text-inverse">{flight.airline}</h3>
-                            <p className="text-sm text-lydian-text-muted">{flight.aircraft}</p>
-                          </div>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <span className="bg-lydian-success-light text-green-800 px-3 py-1 rounded-full text-sm font-medium">
-                            {flight.type}
-                          </span>
-                          <button className="p-2 bg-lydian-primary-light text-lydian-primary rounded-full hover:bg-blue-200 transition-colors">
-                            <Shield className="w-4 h-4" />
-                          </button>
-                        </div>
-                      </div>
-                      
-                      {/* Flight Route */}
-                      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-center mb-4">
-                        <div className="text-center md:text-left">
-                          <div className="font-bold text-2xl text-lydian-text-inverse">{flight.departure}</div>
-                          <div className="text-sm text-lydian-text-muted font-medium">{flight.from}</div>
-                        </div>
-                        
-                        <div className="text-center">
-                          <div className="flex items-center justify-center mb-2">
-                            <div className="w-4 h-0.5 bg-gray-300"></div>
-                            <Plane className="h-5 w-5 text-lydian-primary mx-2" />
-                            <div className="w-4 h-0.5 bg-gray-300"></div>
-                          </div>
-                          <div className="text-sm text-lydian-text-muted flex items-center justify-center font-medium">
-                            <Clock className="h-4 w-4 mr-1" />
-                            {flight.duration}
-                          </div>
-                        </div>
-                        
-                        <div className="text-center md:text-right">
-                          <div className="font-bold text-2xl text-lydian-text-inverse">{flight.arrival}</div>
-                          <div className="text-sm text-lydian-text-muted font-medium">{flight.to}</div>
-                        </div>
-                      </div>
-                      
-                      {/* Amenities */}
-                      <div className="flex flex-wrap gap-2">
-                        {flight.amenities.map((amenity) =>
-                          <span
-                            key={amenity}
-                            className="inline-flex items-center px-3 py-1 bg-lydian-primary-lighter text-lydian-primary-dark text-sm rounded-full font-medium">
+                    return (
+                      <motion.div
+                        key={flight.id}
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: index * 0.1 }}>
 
-                            {amenity === 'WiFi' && <Wifi className="w-3 h-3 mr-1" />}
-                            {amenity}
-                          </span>
-                          )}
-                      </div>
-                    </div>
-                    
-                    {/* Price and Action */}
-                    <div className="mt-6 lg:mt-0 lg:ml-8 text-center lg:text-right">
-                      <div className="mb-4">
-                        {flight.originalPrice &&
-                          <div className="text-sm text-lydian-text-muted line-through mb-1">
-                            ₺{flight.originalPrice}
-                          </div>
+                        <FuturisticCard
+                          image={flight.logo}
+                          title={`${flight.from} → ${flight.to}`}
+                          description={
+                            <div className="space-y-4">
+                              {/* Airline Header with Logo */}
+                              <div className="flex items-center gap-3 pb-3 border-b border-lydian-border-light/20">
+                                <div className="w-12 h-12 rounded-xl overflow-hidden bg-white/10 backdrop-blur-xl flex items-center justify-center ring-2 ring-white/20">
+                                  <Image
+                                    src={flight.logo}
+                                    alt={flight.airline}
+                                    width={48}
+                                    height={48}
+                                    className="object-cover" />
+                                </div>
+                                <div className="flex-1">
+                                  <h3 className="font-bold text-lg text-lydian-text-inverse">{flight.airline}</h3>
+                                  <p className="text-sm text-lydian-text-muted">{flight.aircraft}</p>
+                                </div>
+                                <span className="px-3 py-1.5 bg-gradient-to-r from-[#10B981] to-[#059669] text-lydian-text-inverse rounded-xl text-xs font-bold shadow-lg">
+                                  {flight.type}
+                                </span>
+                              </div>
+
+                              {/* Animated Flight Route Timeline */}
+                              <div className="relative py-6">
+                                {/* Timeline Line */}
+                                <div className="absolute left-0 right-0 top-1/2 h-0.5 bg-gradient-to-r from-[#667EEA] via-[#00BAFF] to-[#667EEA]"></div>
+
+                                <div className="relative grid grid-cols-3 gap-4 items-center">
+                                  {/* Departure */}
+                                  <div className="text-left">
+                                    <div className="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#667EEA] to-[#00BAFF] mb-1">
+                                      {flight.departure}
+                                    </div>
+                                    <div className="text-sm text-lydian-text-muted font-semibold">{flight.from}</div>
+                                  </div>
+
+                                  {/* Duration with Animated Plane */}
+                                  <div className="text-center">
+                                    <motion.div
+                                      animate={{ x: [0, 10, 0] }}
+                                      transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+                                      className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-[#00BAFF] to-[#667EEA] shadow-lg mb-2">
+                                      <Plane className="w-6 h-6 text-lydian-text-inverse" />
+                                    </motion.div>
+                                    <div className="text-xs text-lydian-text-muted flex items-center justify-center gap-1 font-semibold">
+                                      <Clock className="w-3 h-3" />
+                                      {flight.duration}
+                                    </div>
+                                  </div>
+
+                                  {/* Arrival */}
+                                  <div className="text-right">
+                                    <div className="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#00BAFF] to-[#667EEA] mb-1">
+                                      {flight.arrival}
+                                    </div>
+                                    <div className="text-sm text-lydian-text-muted font-semibold">{flight.to}</div>
+                                  </div>
+                                </div>
+                              </div>
+
+                              {/* Amenities with Icons */}
+                              <div className="flex flex-wrap gap-2">
+                                {flight.amenities.map((amenity) => (
+                                  <motion.span
+                                    key={amenity}
+                                    whileHover={{ scale: 1.05, y: -2 }}
+                                    className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-gradient-to-r from-[#667EEA]/20 to-[#00BAFF]/20 border border-lydian-border-light/30 text-lydian-text-inverse text-xs rounded-xl font-semibold backdrop-blur-xl">
+                                    {amenity === 'WiFi' && <Wifi className="w-3 h-3" />}
+                                    {amenity === 'Yemek' && <span>🍽️</span>}
+                                    {amenity === 'Eğlence' && <span>🎬</span>}
+                                    {amenity === 'İkram' && <span>☕</span>}
+                                    {amenity}
+                                  </motion.span>
+                                ))}
+                              </div>
+                            </div>
                           }
-                        <div className="text-3xl font-bold text-lydian-text-inverse">
-                          ₺{flight.price}
-                        </div>
-                        <div className="text-sm text-lydian-text-dim">kişi başına</div>
-                      </div>
-                      
-                      <Link href={`/flights/${flight.slug}`}>
-                        <motion.button
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                            className="w-full lg:w-auto px-8 py-3 bg-lydian-primary text-lydian-text-inverse rounded-xl font-semibold hover:bg-lydian-dark transition-colors">
+                          price={`₺${flight.price.toLocaleString('tr-TR')}`}
+                          oldPrice={flight.originalPrice ? `₺${flight.originalPrice.toLocaleString('tr-TR')}` : undefined}
+                          badge={savingsPercent > 15 ? `${savingsPercent}% İNDİRİM` : undefined}
+                          badges={['Blockchain Güvenli', 'Anında Onay']}
+                          metadata={[
+                            { icon: <Shield className="w-4 h-4" />, label: 'Güvenli Ödeme' },
+                            { icon: <Zap className="w-4 h-4" />, label: 'Hızlı Rezervasyon' }
+                          ]}
+                          rating={4.8}
+                          reviews={Math.floor(Math.random() * 500) + 100}
+                          onClick={() => window.location.href = `/flights/${flight.slug}`}
+                          category={flight.airline}
+                          categoryColor={airlineColor}>
 
-                          Bileti Seç
-                        </motion.button>
-                      </Link>
-                      
-                      <div className="mt-2 text-xs text-lydian-text-muted">
-                        ✓ Blockchain Güvenli Rezervasyon
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-                  )}
+                          {/* Custom CTA Button */}
+                          <div className="mt-4 pt-4 border-t border-lydian-border-light/20">
+                            <FuturisticButton
+                              variant="primary"
+                              size="md"
+                              fullWidth
+                              icon={<Plane className="w-4 h-4" />}
+                              iconPosition="left"
+                              glow={true}>
+                              Bileti Seç ve Rezerve Et
+                            </FuturisticButton>
+                            <p className="text-center text-xs text-lydian-text-muted mt-2">
+                              💎 Blockchain ile güvenli ödeme
+                            </p>
+                          </div>
+                        </FuturisticCard>
+                      </motion.div>
+                    );
+                  })}
                 </div>
 
-                {/* No Results Message */}
-                {filteredAndSortedFlights.length === 0 &&
-                <div className="text-center py-16">
-                    <Plane className="w-24 h-24 text-lydian-text-dim mx-auto mb-6" />
-                    <h2 className="text-2xl font-bold text-lydian-text-inverse mb-4">
-                      Aradığınız kriterlerde uçuş bulunamadı
-                    </h2>
-                    <p className="text-lydian-text-dim mb-8">
-                      Filtrelerinizi değiştirerek tekrar deneyin
-                    </p>
-                    <button
-                    onClick={resetFilters}
-                    className="bg-lydian-primary text-lydian-text-inverse px-6 py-3 rounded-lg hover:bg-lydian-dark transition-colors font-semibold">
+                {/* 🎨 NO RESULTS - GLASSMORPHISM */}
+                {filteredAndSortedFlights.length === 0 && (
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    className="text-center py-20">
 
-                      Filtreleri Temizle
-                    </button>
-                  </div>
-                }
+                    <div className="max-w-md mx-auto bg-lydian-glass-dark backdrop-blur-3xl border-2 border-lydian-border-light/30 rounded-3xl p-12 shadow-[0_20px_60px_-15px_rgba(102,126,234,0.4)]">
+                      <motion.div
+                        animate={{ y: [0, -10, 0] }}
+                        transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+                        className="mb-8">
+                        <Plane className="w-24 h-24 text-[#667EEA] mx-auto" />
+                      </motion.div>
 
-                {/* Load More */}
-                {filteredAndSortedFlights.length > 0 &&
-                <div className="text-center mt-12">
-                    <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="px-8 py-3 border-2 border-lydian-primary text-lydian-primary rounded-xl font-semibold hover:bg-lydian-primary hover:text-lydian-text-inverse transition-colors">
+                      <h2 className="text-3xl font-black text-lydian-text-inverse mb-4">
+                        Uçuş Bulunamadı
+                      </h2>
+                      <p className="text-lydian-text-muted mb-8 text-lg">
+                        Aradığınız kriterlerde uçuş bulunamadı. Filtrelerinizi değiştirerek tekrar deneyin.
+                      </p>
 
+                      <FuturisticButton
+                        variant="primary"
+                        size="lg"
+                        onClick={resetFilters}
+                        icon={<ArrowRight className="w-5 h-5" />}
+                        iconPosition="right"
+                        glow={true}>
+                        Filtreleri Temizle
+                      </FuturisticButton>
+                    </div>
+                  </motion.div>
+                )}
+
+                {/* 🚀 LOAD MORE - FUTURISTIC BUTTON */}
+                {filteredAndSortedFlights.length > 0 && (
+                  <div className="text-center mt-12">
+                    <FuturisticButton
+                      variant="outline"
+                      size="lg"
+                      icon={<ArrowRight className="w-5 h-5" />}
+                      iconPosition="right"
+                      glow={false}>
                       Daha Fazla Uçuş Yükle
-                    </motion.button>
+                    </FuturisticButton>
+
+                    <p className="text-lydian-text-muted mt-4 text-sm">
+                      🌍 500+ havayolu ile dünya çapında uçuş seçenekleri
+                    </p>
                   </div>
-                }
+                )}
               </div>
             </div>
           </div>
+        </NeoSection>
+
+        {/* 🎯 FEATURES SECTION - GLASSMORPHISM */}
+        <section className="py-16 bg-gradient-to-b from-lydian-bg to-lydian-bg-hover">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-center mb-12">
+              <h2 className="text-4xl md:text-5xl font-black text-lydian-text-inverse mb-4">
+                Neden LyDian Travel?
+              </h2>
+              <p className="text-xl text-lydian-text-muted max-w-3xl mx-auto">
+                AI destekli akıllı fiyat karşılaştırması ve blockchain güvenli rezervasyon
+              </p>
+            </motion.div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {[
+                {
+                  icon: Zap,
+                  title: 'AI Fiyat Karşılaştırması',
+                  description: '500+ havayolu arasında en uygun fiyatları anında buluyoruz',
+                  color: '#FF9500',
+                  gradient: 'from-[#FF9500] to-[#FF6B00]'
+                },
+                {
+                  icon: Shield,
+                  title: 'Blockchain Güvenli',
+                  description: 'Tüm rezervasyonlarınız blockchain teknolojisi ile güvence altında',
+                  color: '#00BAFF',
+                  gradient: 'from-[#00BAFF] to-[#0088BD]'
+                },
+                {
+                  icon: Award,
+                  title: '%30 Daha Ucuz',
+                  description: 'Rakiplerimize göre ortalama %30 daha uygun fiyat garantisi',
+                  color: '#10B981',
+                  gradient: 'from-[#10B981] to-[#059669]'
+                }
+              ].map((feature, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: idx * 0.2 }}
+                  whileHover={{ scale: 1.05, y: -10 }}
+                  className="relative group cursor-pointer">
+
+                  <div className="bg-lydian-glass-dark backdrop-blur-3xl border-2 border-lydian-border-light/30 rounded-3xl p-8 shadow-[0_20px_60px_-15px_rgba(102,126,234,0.3)] h-full">
+                    {/* Icon with Glow */}
+                    <div className="relative mb-6">
+                      <motion.div
+                        animate={{
+                          scale: [1, 1.1, 1],
+                          opacity: [0.5, 0.8, 0.5]
+                        }}
+                        transition={{
+                          duration: 3,
+                          repeat: Infinity,
+                          ease: 'easeInOut'
+                        }}
+                        className="absolute inset-0 blur-2xl"
+                        style={{ background: `radial-gradient(circle, ${feature.color}40, transparent)` }} />
+
+                      <div className={`relative inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br ${feature.gradient} shadow-xl`}>
+                        <feature.icon className="w-8 h-8 text-lydian-text-inverse" />
+                      </div>
+                    </div>
+
+                    <h3 className="text-2xl font-bold text-lydian-text-inverse mb-3 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-pink-400 transition-all">
+                      {feature.title}
+                    </h3>
+                    <p className="text-lydian-text-muted leading-relaxed">
+                      {feature.description}
+                    </p>
+                  </div>
+
+                  {/* Glow effect on hover */}
+                  <motion.div
+                    className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10 blur-2xl"
+                    style={{ background: `radial-gradient(circle at 50% 50%, ${feature.color}30, transparent)` }} />
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* 🎬 CTA SECTION - COSMIC GRADIENT */}
+        <section className="py-20 bg-gradient-to-r from-[#667EEA] via-[#764BA2] to-[#667EEA] text-lydian-text-inverse relative overflow-hidden">
+          {/* Animated Background Orbs */}
+          <motion.div
+            className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-gradient-to-br from-[#00BAFF]/30 to-transparent backdrop-blur-3xl"
+            animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
+            transition={{ duration: 5, repeat: Infinity }}
+            style={{ filter: 'blur(60px)' }} />
+
+          <motion.div
+            className="absolute bottom-1/3 right-1/4 w-80 h-80 rounded-full bg-gradient-to-br from-[#FF9500]/30 to-transparent backdrop-blur-3xl"
+            animate={{ scale: [1.2, 1, 1.2], opacity: [0.5, 0.3, 0.5] }}
+            transition={{ duration: 4, repeat: Infinity, delay: 1 }}
+            style={{ filter: 'blur(50px)' }} />
+
+          <div className="relative max-w-4xl mx-auto px-4 text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}>
+
+              <h2 className="text-4xl md:text-5xl font-black mb-6">
+                Hayalinizdeki Seyahat Bir Tık Uzağınızda
+              </h2>
+              <p className="text-xl md:text-2xl text-blue-100 mb-10 max-w-2xl mx-auto">
+                AI destekli akıllı rezervasyon ile dünya çapında en uygun uçak biletlerini keşfedin
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <FuturisticButton
+                  variant="glass"
+                  size="xl"
+                  icon={<Search className="w-6 h-6" />}
+                  iconPosition="left"
+                  glow={true}>
+                  Uçuş Ara
+                </FuturisticButton>
+
+                <FuturisticButton
+                  variant="outline"
+                  size="xl"
+                  icon={<ArrowRight className="w-6 h-6" />}
+                  iconPosition="right"
+                  glow={false}>
+                  Tüm Destinasyonlar
+                </FuturisticButton>
+              </div>
+
+              <p className="mt-8 text-sm text-blue-100/80">
+                ✓ Anında Onay  •  ✓ Ücretsiz İptal  •  ✓ En İyi Fiyat Garantisi  •  ✓ 7/24 Destek
+              </p>
+            </motion.div>
+          </div>
         </section>
       </main>
-    </>);
-
+    </>
+  );
 }

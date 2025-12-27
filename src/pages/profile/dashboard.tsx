@@ -4,6 +4,8 @@ import Link from 'next/link';
 import { useSession, signOut } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import { motion } from 'framer-motion';
+import { FuturisticHeader } from '../../components/layout/FuturisticHeader';
+import { FuturisticButton } from '../../components/neo-glass/FuturisticButton';
 import logger from '../../lib/logger';
 import {
   User,
@@ -79,10 +81,13 @@ const Dashboard: React.FC = () => {
 
   if (status === 'loading' || loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-lydian-glass-dark">
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#0A0118] via-[#1a0b2e] to-[#16213e]">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-lydian-primary mx-auto"></div>
-          <p className="mt-4 text-lydian-text-dim">Yükleniyor...</p>
+          <div className="relative">
+            <div className="animate-spin rounded-full h-16 w-16 border-4 border-white/10 border-t-[#667EEA] mx-auto"></div>
+            <div className="absolute inset-0 rounded-full blur-xl bg-[#667EEA]/30 animate-pulse"></div>
+          </div>
+          <p className="mt-6 text-white/60 font-medium">Yükleniyor...</p>
         </div>
       </div>);
 
@@ -165,39 +170,9 @@ const Dashboard: React.FC = () => {
         <meta name="robots" content="noindex, nofollow" />
       </Head>
 
-      <div className="min-h-screen bg-lydian-glass-dark">
-        {/* Navigation Header */}
-        <header className="bg-lydian-bg-hover shadow-sm border-b border-lydian-border-light">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex justify-between items-center py-4">
-              <Link href="/" className="flex items-center space-x-3">
-                <div className="w-10 h-10 bg-gradient-to-r from-lydian-primary to-lydian-secondary rounded-xl flex items-center justify-center">
-                  <span className="text-lydian-text-inverse font-bold text-lg">A</span>
-                </div>
-                <div className="hidden sm:block">
-                  <h1 className="text-xl font-bold text-lydian-text-inverse">LyDian Travel</h1>
-                  <p className="text-xs text-lydian-text-muted -mt-1">Dashboard</p>
-                </div>
-              </Link>
+      <FuturisticHeader />
 
-              <div className="flex items-center space-x-4">
-                <button className="p-2 text-lydian-text-muted hover:text-lydian-text-dim relative">
-                  <Bell className="w-6 h-6" />
-                  <span className="absolute top-1 right-1 w-2 h-2 bg-lydian-error rounded-full"></span>
-                </button>
-                <div className="flex items-center space-x-3">
-                  <div className="text-right hidden sm:block">
-                    <p className="text-sm font-medium text-lydian-text-inverse">{user.name}</p>
-                    <p className="text-xs text-lydian-text-muted">{user.email}</p>
-                  </div>
-                  <div className="w-10 h-10 bg-gradient-to-r from-lydian-primary to-lydian-secondary rounded-full flex items-center justify-center">
-                    <User className="w-5 h-5 text-lydian-text-inverse" />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </header>
+      <div className="min-h-screen bg-gradient-to-br from-[#0A0118] via-[#1a0b2e] to-[#16213e]">
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">

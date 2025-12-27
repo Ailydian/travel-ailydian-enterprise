@@ -151,8 +151,8 @@ export const FuturisticHeader: React.FC = () => {
                 <Sparkles className="absolute -top-1 -right-1 w-4 h-4 text-yellow-400" />
               </motion.button>
 
-              {/* Theme Toggle */}
-              <ThemeToggle variant="icon" className="hidden sm:block" />
+              {/* Theme Toggle - Always Visible */}
+              <ThemeToggle variant="icon" />
 
               {/* Partner Button - Prominent */}
               <Link href="/partner">
