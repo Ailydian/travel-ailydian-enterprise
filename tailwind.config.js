@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+const { flattenColorTokens, typographyTokens, spacingTokens, borderRadiusTokens, shadowTokens } = require('./src/design-system/tokens.ts');
+
 module.exports = {
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
@@ -9,41 +11,12 @@ module.exports = {
   darkMode: 'class',
   theme: {
     extend: {
+      // Import design tokens as single source of truth
       colors: {
-        // Travel LyDian - Booking.com Style Red Theme
-        // Professional, Modern, Trust-Building Color Palette
-        lydian: {
-          // Primary Red (Main CTA, Links, Active States)
-          primary: '#DC2626',      // red-600 - Main Red
-          secondary: '#EF4444',    // red-500 - Secondary Red
-          dark: '#991B1B',         // red-800 - Dark Red
-          light: '#FCA5A5',        // red-300 - Light Red
+        ...flattenColorTokens(),
 
-          // Backgrounds (White & Clean)
-          bg: '#FFFFFF',           // Pure White Background
-          'bg-card': '#FFFFFF',    // Card Background (white)
-          'bg-surface': '#F9FAFB', // Surface Background (very light gray)
-          'bg-hover': '#F3F4F6',   // Hover Background
-          'bg-selected': '#FEF2F2',// Selected Background (red tint)
-
-          // Text Colors (High Contrast for Readability)
-          text: '#111827',         // Primary Text (gray-900)
-          'text-secondary': '#374151', // Secondary Text (gray-700)
-          'text-muted': '#6B7280', // Muted Text (gray-500)
-          'text-dim': '#9CA3AF',   // Dim Text (gray-400)
-
-          // Accent & Highlights
-          accent: '#DC2626',       // Accent Red
-          success: '#059669',      // Success Green (booking confirmations)
-          warning: '#F59E0B',      // Warning Orange
-          error: '#DC2626',        // Error Red
-          info: '#3B82F6',         // Info Blue
-
-          // Borders
-          border: '#E5E7EB',       // Default Border (gray-200)
-          'border-light': '#F3F4F6', // Light Border
-          'border-dark': '#D1D5DB', // Dark Border
-        },
+        // Legacy tokens (DEPRECATED - will be removed in Phase 6)
+        // Keep temporarily for backward compatibility during migration
 
         // Extended Red Palette (Booking.com style)
         primary: {
@@ -87,11 +60,12 @@ module.exports = {
           900: '#064E3B',
         }
       },
-      fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-        mono: ['JetBrains Mono', 'monospace'],
-        display: ['Orbitron', 'monospace'] // Futuristik display font
-      },
+      // Import typography tokens
+      fontFamily: typographyTokens.fontFamily,
+      fontSize: typographyTokens.fontSize,
+      fontWeight: typographyTokens.fontWeight,
+      letterSpacing: typographyTokens.letterSpacing,
+      lineHeight: typographyTokens.lineHeight,
       fontSize: {
         'xs': ['0.75rem', { lineHeight: '1rem' }],
         'sm': ['0.875rem', { lineHeight: '1.25rem' }],
@@ -107,32 +81,16 @@ module.exports = {
         '8xl': ['6rem', { lineHeight: '1' }],
         '9xl': ['8rem', { lineHeight: '1' }]
       },
+      // Import shadow tokens
       boxShadow: {
-        // Booking.com Style Shadows - Subtle & Professional
-        'xs': '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
-        'sm': '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)',
-        'DEFAULT': '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
-        'md': '0 6px 12px -2px rgba(0, 0, 0, 0.1), 0 3px 7px -3px rgba(0, 0, 0, 0.1)',
-        'lg': '0 10px 25px -3px rgba(0, 0, 0, 0.1), 0 6px 10px -4px rgba(0, 0, 0, 0.1)',
-        'xl': '0 20px 40px -4px rgba(0, 0, 0, 0.1), 0 8px 16px -6px rgba(0, 0, 0, 0.1)',
-        '2xl': '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
-
-        // Card & Component Shadows
+        ...shadowTokens,
+        // Legacy shadows (DEPRECATED)
         'card': '0 2px 8px rgba(0, 0, 0, 0.08)',
         'card-hover': '0 4px 16px rgba(0, 0, 0, 0.12)',
         'header': '0 2px 4px rgba(0, 0, 0, 0.06)',
         'dropdown': '0 10px 25px rgba(0, 0, 0, 0.15)',
-
-        // Red Accent Shadows (for buttons, badges)
         'red': '0 4px 12px rgba(220, 38, 38, 0.2)',
         'red-lg': '0 8px 24px rgba(220, 38, 38, 0.25)',
-
-        // Inner shadows
-        'inner': 'inset 0 2px 4px 0 rgba(0, 0, 0, 0.06)',
-        'inner-lg': 'inset 0 4px 8px 0 rgba(0, 0, 0, 0.1)',
-
-        // No shadow
-        'none': 'none',
       },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-in-out',
@@ -231,18 +189,8 @@ module.exports = {
         '128': '32rem',
         '144': '36rem'
       },
-      borderRadius: {
-        'none': '0px',
-        'sm': '0.25rem',    // 4px - Small elements
-        'DEFAULT': '0.375rem', // 6px - Booking.com standard
-        'md': '0.5rem',     // 8px - Cards, buttons
-        'lg': '0.75rem',    // 12px - Large cards
-        'xl': '1rem',       // 16px - Modals
-        '2xl': '1.25rem',   // 20px
-        '3xl': '1.5rem',    // 24px
-        '4xl': '2rem',      // 32px
-        'full': '9999px',   // Pills, badges
-      },
+      // Import border radius tokens
+      borderRadius: borderRadiusTokens,
       zIndex: {
         '60': '60',
         '70': '70',
