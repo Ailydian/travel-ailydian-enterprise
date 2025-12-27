@@ -1,3 +1,5 @@
+import logger from '../../../../../lib/logger';
+
 import type { NextApiRequest, NextApiResponse } from 'next'
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
@@ -26,7 +28,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     })
 
   } catch (error) {
-    console.error('Blockchain transaction error:', error)
+    logger.error('Blockchain transaction error:', error as Error, {component:'SmartContract'})
     res.status(500).json({ error: 'Transaction failed' })
   }
 }

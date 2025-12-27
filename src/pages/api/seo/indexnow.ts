@@ -7,6 +7,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { getAdvancedIndexNow } from '@/lib/seo/advancedIndexNow';
 
+import logger from '../lib/logger';
 interface IndexNowRequest {
   urls: string[];
 }
@@ -29,7 +30,7 @@ export default async function handler(
     const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://travel.lydian.com';
     const indexNowKey = process.env.INDEXNOW_KEY || 'travel-lydian-indexnow-key-2025-production';
 
-    console.log(`📤 IndexNow: Submitting ${urls.length} URLs to all search engines...`);
+    logger.debug(`📤 IndexNow: Submitting ${urls.length} URLs to all search engines...`, { component: 'Indexnow' });
 
     // Advanced IndexNow kullan
     const indexNow = getAdvancedIndexNow({
@@ -46,10 +47,10 @@ export default async function handler(
     // Rapor oluştur
     const report = indexNow.generateReport(results);
 
-    console.log(`✅ IndexNow completed: ${report.successfulSubmissions}/${report.totalSubmissions} successful`);
-    console.log(`📊 Total URLs submitted: ${report.totalUrls}`);
-    console.log(`⏱️  Average response time: ${report.averageResponseTime}ms`);
-    console.log(`📈 Success rate: ${report.successRate.toFixed(1)}%`);
+    logger.debug(`✅ IndexNow completed: ${report.successfulSubmissions}/${report.totalSubmissions} successful`, { component: 'Indexnow' });
+    logger.debug(`📊 Total URLs submitted: ${report.totalUrls}`, { component: 'Indexnow' });
+    logger.debug(`⏱️  Average response time: ${report.averageResponseTime}ms`, { component: 'Indexnow' });
+    logger.debug(`📈 Success rate: ${report.successRate.toFixed(1)}%`, { component: 'Indexnow' });
 
     return res.status(200).json({
       success: report.successfulSubmissions > 0,
@@ -60,7 +61,7 @@ export default async function handler(
     });
 
   } catch (error: any) {
-    console.error('❌ IndexNow submission error:', error);
+    logger.error('❌ IndexNow submission error:', error as Error, { component: 'Indexnow' });
     return res.status(500).json({
       error: error.message,
       timestamp: new Date().toISOString()

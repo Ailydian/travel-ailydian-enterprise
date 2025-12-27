@@ -1,3 +1,5 @@
+import logger from './logger';
+
 // Amadeus API Integration Service  
 // Real flight data integration with comprehensive search and booking
 
@@ -144,7 +146,7 @@ class AmadeusService {
 
       return this.accessToken!;
     } catch (error) {
-      console.error('Failed to get Amadeus access token:', error);
+      logger.error('Failed to get Amadeus access token:', error as Error, { component: 'AmadeusService' });
       throw error;
     }
   }
@@ -163,7 +165,7 @@ class AmadeusService {
     const cacheKey = `${endpoint}_${JSON.stringify(params)}`;
     const cachedData = this.cache.get(cacheKey);
     if (cachedData && (Date.now() - cachedData.timestamp < this.cacheExpiryMs)) {
-      console.log('Returning cached Amadeus data for:', endpoint);
+      logger.debug('Returning cached Amadeus data for:', { component: 'AmadeusService', metadata: endpoint });
       return cachedData.data;
     }
 
@@ -205,7 +207,7 @@ class AmadeusService {
       
       return data;
     } catch (error) {
-      console.error('Amadeus API request failed:', error);
+      logger.error('Amadeus API request failed:', error as Error, { component: 'AmadeusService' });
       throw error;
     }
   }
@@ -227,7 +229,7 @@ class AmadeusService {
         type: location.subType
       }));
     } catch (error) {
-      console.error('Location search failed:', error);
+      logger.error('Location search failed:', error as Error, { component: 'AmadeusService' });
       return [];
     }
   }
@@ -250,7 +252,7 @@ class AmadeusService {
         type: location.subType
       };
     } catch (error) {
-      console.error('Location details fetch failed:', error);
+      logger.error('Location details fetch failed:', error as Error, { component: 'AmadeusService' });
       return null;
     }
   }
@@ -359,7 +361,7 @@ class AmadeusService {
         }
       };
     } catch (error) {
-      console.error('Flight search failed:', error);
+      logger.error('Flight search failed:', error as Error, { component: 'AmadeusService' });
       throw error;
     }
   }
@@ -375,7 +377,7 @@ class AmadeusService {
 
       return response.data;
     } catch (error) {
-      console.error('Flight price analysis failed:', error);
+      logger.error('Flight price analysis failed:', error as Error, { component: 'AmadeusService' });
       return null;
     }
   }
@@ -389,7 +391,7 @@ class AmadeusService {
 
       return response.data?.[0] || null;
     } catch (error) {
-      console.error('Airline info fetch failed:', error);
+      logger.error('Airline info fetch failed:', error as Error, { component: 'AmadeusService' });
       return null;
     }
   }
@@ -404,7 +406,7 @@ class AmadeusService {
 
       return response.data || [];
     } catch (error) {
-      console.error('Popular destinations fetch failed:', error);
+      logger.error('Popular destinations fetch failed:', error as Error, { component: 'AmadeusService' });
       return [];
     }
   }
@@ -436,7 +438,7 @@ class AmadeusService {
 
       return response.data;
     } catch (error) {
-      console.error('Flight delay prediction failed:', error);
+      logger.error('Flight delay prediction failed:', error as Error, { component: 'AmadeusService' });
       return null;
     }
   }

@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
+import logger from '../../../../lib/logger';
   Mic, 
   MicOff, 
   Volume2, 
@@ -265,7 +266,7 @@ const VoiceController: React.FC<VoiceControllerProps> = ({
       try {
         recognitionRef.current.start();
       } catch (error) {
-        console.error('Speech recognition error:', error);
+        logger.error('Speech recognition error:', error as Error, {component:'Voicecontroller'});
       }
     }
   };

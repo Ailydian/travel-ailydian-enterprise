@@ -35,6 +35,7 @@ import {
 import { useCart } from '../context/CartContext';
 import { FuturisticHeader } from '../components/layout/FuturisticHeader';
 import { BookingFooter } from '../components/layout/BookingFooter';
+import logger from '../../../lib/logger';
 
 const HotelsNewPage: React.FC = () => {
   const router = useRouter();
@@ -132,7 +133,7 @@ const HotelsNewPage: React.FC = () => {
         setFilteredHotels(data.data.hotels || []);
       }
     } catch (error) {
-      console.error('Search error:', error);
+      logger.error('Search error:', error as Error, {component:'Hotels'});
       setToastMessage('Arama sırasında hata oluştu');
       setShowToast(true);
     } finally {

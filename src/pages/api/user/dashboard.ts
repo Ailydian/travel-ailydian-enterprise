@@ -2,7 +2,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import { getServerSession } from 'next-auth/next';
 import { authOptions } from '../../../lib/auth';
 import { prisma } from '../../../lib/prisma';
-import { logInfo, logError } from '../../../lib/logger';
+import logger from '../../../lib/logger';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== 'GET') {
@@ -13,11 +13,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const session = await getServerSession(req, res, authOptions);
 
     if (!session || !session.user?.email) {
-      logError('Unauthorized dashboard access attempt', new Error('No session'));
+      logger.error('Unauthorized dashboard access attempt', new Error('No session'));
       return res.status(401).json({ message: 'Yetkisiz erişim' });
     }
 
-    logInfo('Fetching dashboard data', { email: session.user.email });
+    logger.info('Fetching dashboard data', { email: session.user.email });
 
     // Get user with their data
     const user = await prisma.user.findUnique({
@@ -33,7 +33,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     });
 
     if (!user) {
-      logError('User not found', new Error('User not found'), { email: session.user.email });
+      logger.error('User not found', new Error('User not found'), { email: session.user.email });
       return res.status(404).json({ message: 'Kullanıcı bulunamadı' });
     }
 
@@ -129,7 +129,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       favoriteDestinations: favoritesCount
     };
 
-    logInfo('Dashboard data fetched successfully', { userId: user.id });
+    logger.info('Dashboard data fetched successfully', { userId: user.id });
 
     res.status(200).json({
       success: true,
@@ -145,7 +145,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     });
 
   } catch (error) {
-    logError('Dashboard data fetch error', error);
+    logger.error('Dashboard data fetch error', error);
     res.status(500).json({
       success: false,
       message: 'Dashboard verileri alınırken bir hata oluştu'

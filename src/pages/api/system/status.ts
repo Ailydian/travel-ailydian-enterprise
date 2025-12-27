@@ -1,5 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { prisma } from '../../../lib/prisma';
+import logger from '../../../../../lib/logger';
 
 interface SystemStatus {
   status: 'healthy' | 'degraded' | 'down';
@@ -67,7 +68,7 @@ export default async function handler(
 
         dbCounts = { users, hotels, flights, airports, transfers };
       } catch (error) {
-        console.error('Error fetching database counts:', error);
+        logger.error('Error fetching database counts:', error as Error, { component: 'Status' });
       }
     }
 
@@ -114,7 +115,7 @@ export default async function handler(
 
     res.status(200).json(status);
   } catch (error) {
-    console.error('System status error:', error);
+    logger.error('System status error:', error as Error, { component: 'Status' });
     res.status(500).json({
       error: 'Failed to fetch system status',
     });

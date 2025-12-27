@@ -2,6 +2,7 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 import { getServerSession } from 'next-auth';
 import { prisma } from '@/lib/prisma';
 import { authOptions } from '../auth/[...nextauth]';
+import logger from '../../../../../lib/logger';
 
 export default async function handler(
   req: NextApiRequest,
@@ -119,7 +120,7 @@ export default async function handler(
       message: 'Price tracking started successfully',
     });
   } catch (error) {
-    console.error('Error creating price alert:', error);
+    logger.error('Error creating price alert:', error as Error, {component:'Track'});
     return res.status(500).json({ error: 'Internal server error' });
   }
 }

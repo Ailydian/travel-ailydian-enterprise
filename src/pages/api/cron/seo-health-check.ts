@@ -7,6 +7,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { getAutoSeoMonitor } from '@/lib/seo/autoSeoMonitor';
 
+import logger from '../lib/logger';
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
@@ -18,7 +19,7 @@ export default async function handler(
   }
 
   try {
-    console.log('🏥 SEO Health Check Cron Job başlatıldı...');
+    logger.debug('🏥 SEO Health Check Cron Job başlatıldı...', { component: 'SeoHealthCheck' });
     const startTime = Date.now();
 
     const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://travel.lydian.com';
@@ -36,10 +37,10 @@ export default async function handler(
 
     const duration = Date.now() - startTime;
 
-    console.log(`✅ SEO Health Check tamamlandı (${duration}ms)`);
-    console.log(`📊 Overall Score: ${report.overallScore}/100 (${report.status})`);
-    console.log(`⚠️  Issues: ${report.issues.length}`);
-    console.log(`💡 Recommendations: ${report.recommendations.length}`);
+    logger.debug(`✅ SEO Health Check tamamlandı (${duration}ms)`, { component: 'SeoHealthCheck' });
+    logger.debug(`📊 Overall Score: ${report.overallScore}/100 (${report.status})`, { component: 'SeoHealthCheck' });
+    logger.debug(`⚠️  Issues: ${report.issues.length}`, { component: 'SeoHealthCheck' });
+    logger.debug(`💡 Recommendations: ${report.recommendations.length}`, { component: 'SeoHealthCheck' });
 
     return res.status(200).json({
       success: true,
@@ -61,7 +62,7 @@ export default async function handler(
     });
 
   } catch (error: any) {
-    console.error('❌ SEO Health Check hatası:', error);
+    logger.error('❌ SEO Health Check hatası:', error as Error, { component: 'SeoHealthCheck' });
 
     return res.status(500).json({
       error: 'SEO Health Check failed',

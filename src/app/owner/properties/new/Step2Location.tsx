@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { useFormContext } from 'react-hook-form';
 import { MapPin, Navigation, Globe } from 'lucide-react';
+import logger from '../../../../../../lib/logger';
 
 interface Step2Props {
   data?: any;
@@ -80,7 +81,7 @@ export default function Step2Location({ data }: Step2Props) {
           setIsLocating(false);
         },
         (error) => {
-          console.error('Error getting location:', error);
+          logger.error('Error getting location:', error as Error, {component:'Step2location'});
           alert('Konumunuz alınamadı. Lütfen koordinatları manuel olarak girin.');
           setIsLocating(false);
         }

@@ -1,3 +1,5 @@
+import logger from './logger';
+
 // Analytics configuration
 const ANALYTICS_CONFIG = {
   providers: {
@@ -79,9 +81,9 @@ class AnalyticsMonitor {
       }
 
       this.isInitialized = true;
-      console.log('Analytics system initialized');
+      logger.debug('Analytics system initialized', { component: 'AnalyticsMonitor' });
     } catch (error) {
-      console.error('Analytics initialization failed:', error);
+      logger.error('Analytics initialization failed:', error as Error, { component: 'AnalyticsMonitor' });
     }
   }
 
@@ -180,7 +182,7 @@ class AnalyticsMonitor {
       (window as any).gtag('js', new Date());
       (window as any).gtag('config', ANALYTICS_CONFIG.providers.googleAnalytics.measurementId);
     } catch (error) {
-      console.error('Google Analytics initialization failed:', error);
+      logger.error('Google Analytics initialization failed:', error as Error, { component: 'AnalyticsMonitor' });
     }
   }
 }

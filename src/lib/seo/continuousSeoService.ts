@@ -94,12 +94,12 @@ class ContinuousSeoService {
   // Sürekli SEO optimizasyonunu başlat
   async startContinuousOptimization(): Promise<void> {
     if (this.isRunning) {
-      console.log('⚠️ SEO servisi zaten çalışıyor');
+      logger.debug('⚠️ SEO servisi zaten çalışıyor', { component: 'Continuousseoservice' });
       return;
     }
 
     this.isRunning = true;
-    console.log('🚀 Premium Sürekli SEO Servisi başlatıldı');
+    logger.debug('🚀 Premium Sürekli SEO Servisi başlatıldı', { component: 'Continuousseoservice' });
 
     // İlk optimizasyon
     await this.performFullSeoAudit();
@@ -127,12 +127,12 @@ class ContinuousSeoService {
       this.interval = null;
     }
     this.isRunning = false;
-    console.log('⏹️ SEO servisi durduruldu');
+    logger.debug('⏹️ SEO servisi durduruldu', { component: 'Continuousseoservice' });
   }
 
   // Tam SEO denetimi
   private async performFullSeoAudit(): Promise<void> {
-    console.log('🔍 Tam SEO denetimi başlatıldı...');
+    logger.debug('🔍 Tam SEO denetimi başlatıldı...', { component: 'Continuousseoservice' });
 
     try {
       // Tüm önemli sayfaları al
@@ -150,7 +150,7 @@ class ContinuousSeoService {
       // Performans metrikleri kaydet
       await this.logMetrics();
 
-      console.log('✅ Tam SEO denetimi tamamlandı');
+      logger.debug('✅ Tam SEO denetimi tamamlandı', { component: 'Continuousseoservice' });
     } catch (error) {
       logger.error('❌ SEO denetimi hatası:', error as Error, { component: 'SEO' });
     }
@@ -158,7 +158,7 @@ class ContinuousSeoService {
 
   // Hızlı kontrol (sadece kritik metrikler)
   private async performQuickCheck(): Promise<void> {
-    console.log('⚡ Hızlı SEO kontrolü...');
+    logger.debug('⚡ Hızlı SEO kontrolü...', { component: 'Continuousseoservice' });
 
     try {
       // Sitemap kontrolü
@@ -170,7 +170,7 @@ class ContinuousSeoService {
       // Ana sayfa kontrolü
       await this.checkHomepage();
 
-      console.log('✅ Hızlı kontrol tamamlandı');
+      logger.debug('✅ Hızlı kontrol tamamlandı', { component: 'Continuousseoservice' });
     } catch (error) {
       logger.error('❌ Hızlı kontrol hatası:', error as Error, { component: 'SEO' });
     }
@@ -302,10 +302,10 @@ class ContinuousSeoService {
 
   // Sitemap güncelle
   private async updateSitemap(): Promise<void> {
-    console.log('📋 Sitemap güncelleniyor...');
+    logger.debug('📋 Sitemap güncelleniyor...', { component: 'Continuousseoservice' });
     try {
       // Sitemap generation logic buraya eklenecek
-      console.log('✅ Sitemap güncellendi');
+      logger.debug('✅ Sitemap güncellendi', { component: 'Continuousseoservice' });
     } catch (error) {
       logger.error('❌ Sitemap güncelleme hatası:', error as Error, { component: 'SEO' });
     }
@@ -317,9 +317,9 @@ class ContinuousSeoService {
     try {
       const response = await fetch(`${baseUrl}/sitemap.xml`);
       if (!response.ok) {
-        console.warn('⚠️ Sitemap erişilemez');
+        logger.warn('⚠️ Sitemap erişilemez', { component: 'Continuousseoservice' });
       } else {
-        console.log('✅ Sitemap erişilebilir');
+        logger.debug('✅ Sitemap erişilebilir', { component: 'Continuousseoservice' });
       }
     } catch (error) {
       logger.warn('⚠️ Sitemap kontrolü başarısız:', { component: 'SEO', metadata: { data: error } });
@@ -332,9 +332,9 @@ class ContinuousSeoService {
     try {
       const response = await fetch(`${baseUrl}/robots.txt`);
       if (!response.ok) {
-        console.warn('⚠️ Robots.txt erişilemez');
+        logger.warn('⚠️ Robots.txt erişilemez', { component: 'Continuousseoservice' });
       } else {
-        console.log('✅ Robots.txt erişilebilir');
+        logger.debug('✅ Robots.txt erişilebilir', { component: 'Continuousseoservice' });
       }
     } catch (error) {
       logger.warn('⚠️ Robots.txt kontrolü başarısız:', { component: 'SEO', metadata: { data: error } });
@@ -347,9 +347,9 @@ class ContinuousSeoService {
     try {
       const response = await fetch(baseUrl);
       if (!response.ok) {
-        console.warn('⚠️ Ana sayfa erişilemez');
+        logger.warn('⚠️ Ana sayfa erişilemez', { component: 'Continuousseoservice' });
       } else {
-        console.log('✅ Ana sayfa erişilebilir');
+        logger.debug('✅ Ana sayfa erişilebilir', { component: 'Continuousseoservice' });
       }
     } catch (error) {
       logger.warn('⚠️ Ana sayfa kontrolü başarısız:', { component: 'SEO', metadata: { data: error } });
@@ -358,11 +358,11 @@ class ContinuousSeoService {
 
   // Arama motorlarına bildirim
   private async notifySearchEngines(): Promise<void> {
-    console.log('📢 Arama motorlarına güncelleme bildiriliyor...');
+    logger.debug('📢 Arama motorlarına güncelleme bildiriliyor...', { component: 'Continuousseoservice' });
     try {
       // Google, Bing, Yandex'e ping gönder
       await this.seoBot.registerToAlexaAndOthers();
-      console.log('✅ Arama motorlarına bildirildi');
+      logger.debug('✅ Arama motorlarına bildirildi', { component: 'Continuousseoservice' });
     } catch (error) {
       logger.error('❌ Bildirim hatası:', error as Error, { component: 'SEO' });
     }

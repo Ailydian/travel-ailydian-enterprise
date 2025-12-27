@@ -24,6 +24,7 @@ declare module '@react-three/fiber' {
 import * as ThreeTypes from 'three';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
+import logger from '../../../../lib/logger';
   Play, 
   Pause, 
   VolumeX, 
@@ -341,7 +342,7 @@ const VirtualTourViewer: React.FC = () => {
           break;
         case 'showMedia':
           // Handle media display
-          console.log('Show media:', hotspot.action.data);
+          logger.debug('Show media:', {component:'Virtualtourviewer',metadata:{hotspot.action.data}});
           break;
         case 'showInfo':
           // Info is already shown in selectedHotspot

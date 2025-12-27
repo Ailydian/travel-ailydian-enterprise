@@ -4,7 +4,7 @@
  */
 
 import { Resend } from 'resend';
-import { logInfo, logError } from './logger';
+import logger from './logger';
 
 const resend = new Resend(process.env.RESEND_API_KEY || '');
 
@@ -33,10 +33,10 @@ export async function sendEmail(options: EmailOptions): Promise<boolean> {
       replyTo: replyTo,
     });
 
-    logInfo('Email sent successfully', { to, subject, data });
+    logger.info('Email sent successfully', { to, subject, data });
     return true;
   } catch (error) {
-    logError('Failed to send email', error, { to: options.to, subject: options.subject });
+    logger.error('Failed to send email', error, { to: options.to, subject: options.subject });
     return false;
   }
 }

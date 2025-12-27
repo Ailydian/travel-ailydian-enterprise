@@ -1,5 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { prisma } from '@/lib/prisma';
+import logger from '../../../../../../lib/logger';
 
 export default async function handler(
   req: NextApiRequest,
@@ -94,7 +95,7 @@ export default async function handler(
 
     return res.status(405).json({ error: 'Method not allowed' });
   } catch (error: any) {
-    console.error('Hotel API Error:', error);
+    logger.error('Hotel API Error:', error as Error, {component:'Index'});
     return res.status(500).json({
       success: false,
       error: error.message || 'Internal server error',

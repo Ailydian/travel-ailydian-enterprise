@@ -1,3 +1,5 @@
+import logger from '../logger';
+
 /**
  * Weather data service for trip planning
  */
@@ -52,7 +54,7 @@ export async function getWeatherForecast(
     // return parseWeatherData(data);
 
   } catch (error) {
-    console.error('Error fetching weather:', error);
+    logger.error('Error fetching weather:', error as Error, {component:'WeatherService'});
     throw error;
   }
 }

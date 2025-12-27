@@ -1,3 +1,5 @@
+import logger from 'lib/logger';
+
 /**
  * Mock Property Owner Authentication Data
  * Test kullanıcıları ve şifreleri
@@ -128,18 +130,18 @@ export function registerOwner(data: {
 
 // Test kullanıcı bilgilerini konsola yazdırma
 export function printTestCredentials() {
-  console.log('\n=== MÜLK SAHİBİ TEST KULLANICI BİLGİLERİ ===\n');
+  logger.debug('\n=== MÜLK SAHİBİ TEST KULLANICI BİLGİLERİ ===\n', { component: 'Mockownerauth' });
 
   MOCK_OWNERS.forEach((owner, index) => {
-    console.log(`${index + 1}. Kullanıcı:`);
-    console.log(`   E-posta: ${owner.email}`);
-    console.log(`   Şifre: ${owner.password}`);
-    console.log(`   Ad Soyad: ${owner.fullName}`);
-    console.log(`   Telefon: ${owner.phone}`);
-    console.log(`   Mülk Tipi: ${owner.propertyType}`);
-    console.log(`   Mülk Sayısı: ${owner.propertyCount}`);
+    logger.debug(`${index + 1}. Kullanıcı:`, { component: 'Mockownerauth' });
+    logger.debug(`   E-posta: ${owner.email}`, { component: 'Mockownerauth' });
+    logger.debug(`   Şifre: ${owner.password}`, { component: 'Mockownerauth' });
+    logger.debug(`   Ad Soyad: ${owner.fullName}`, { component: 'Mockownerauth' });
+    logger.debug(`   Telefon: ${owner.phone}`, { component: 'Mockownerauth' });
+    logger.debug(`   Mülk Tipi: ${owner.propertyType}`, { component: 'Mockownerauth' });
+    logger.debug(`   Mülk Sayısı: ${owner.propertyCount}`, { component: 'Mockownerauth' });
     console.log('');
   });
 
-  console.log('==========================================\n');
+  logger.debug('==========================================\n', { component: 'Mockownerauth' });
 }

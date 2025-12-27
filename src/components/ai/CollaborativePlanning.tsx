@@ -26,6 +26,7 @@ import {
   CheckCircle2
 } from 'lucide-react';
 import { format } from 'date-fns';
+import logger from '../../../../lib/logger';
 
 interface Collaborator {
   id: string;
@@ -251,7 +252,7 @@ const CollaborativePlanning: React.FC<CollaborativePlanningProps> = ({ tripId, c
         loadCollaborators();
       }
     } catch (error) {
-      console.error('Failed to invite collaborator:', error);
+      logger.error('Failed to invite collaborator:', error as Error, { component: 'Collaborativeplanning' });
     }
   };
 
@@ -314,7 +315,7 @@ const CollaborativePlanning: React.FC<CollaborativePlanningProps> = ({ tripId, c
         body: JSON.stringify({ tripId, ...vote })
       });
     } catch (error) {
-      console.error('Failed to vote:', error);
+      logger.error('Failed to vote:', error as Error, { component: 'Collaborativeplanning' });
     }
   };
 

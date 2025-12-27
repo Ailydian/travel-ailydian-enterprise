@@ -1,5 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { PrismaClient } from '@prisma/client';
+import logger from '../../../../../lib/logger';
 
 const prisma = new PrismaClient();
 
@@ -78,7 +79,7 @@ export default async function handler(
     });
 
   } catch (error: any) {
-    console.error('Error sharing trip:', error);
+    logger.error('Error sharing trip:', error as Error, {component:'Share'});
     return res.status(500).json({
       error: 'Failed to share trip',
       details: error.message

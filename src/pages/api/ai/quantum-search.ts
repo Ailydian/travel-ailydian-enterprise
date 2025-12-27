@@ -1,3 +1,5 @@
+import logger from '../../../../../lib/logger';
+
 import type { NextApiRequest, NextApiResponse } from 'next'
 
 interface QuantumSearchRequest {
@@ -63,7 +65,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     })
 
   } catch (error) {
-    console.error('Quantum search error:', error)
+    logger.error('Quantum search error:', error as Error, {component:'QuantumSearch'})
     res.status(500).json({ error: 'Internal server error' })
   }
 }

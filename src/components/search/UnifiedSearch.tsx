@@ -13,6 +13,7 @@ import {
   ChevronRight
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import logger from '../../../../lib/logger';
 
 // AI-Powered Unified Search - Tüm kategorilerde tek aramada sonuç
 // Örnek: "İstanbul'da 3 gece otel + Kapadokya turu + araç kiralama"
@@ -102,7 +103,7 @@ const UnifiedSearch: React.FC = () => {
         setAiSuggestions(data.aiSuggestions || []);
       }
     } catch (error) {
-      console.error('Search error:', error);
+      logger.error('Search error:', error as Error, {component:'Unifiedsearch'});
     } finally {
       setIsSearching(false);
     }

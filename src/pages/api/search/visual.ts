@@ -9,6 +9,7 @@ import {
   ImageAnalysis,
 } from '@/types/visualSearch';
 import { withRateLimit, groqRateLimiter } from '@/lib/middleware/rate-limiter';
+import logger from '../../../../../lib/logger';
 
 // Disable body parser to handle file uploads
 export const config = {
@@ -47,7 +48,7 @@ const analyzeImageWithAI = async (imageUrl: string): Promise<ImageAnalysis> => {
   try {
     // Advanced vision analysis via neural processing
     // Production-ready integration with enterprise vision APIs
-    console.log('Analyzing image (neural vision mode):', imageUrl);
+    logger.debug('Analyzing image (neural vision mode):', { component: 'Visual', metadata: { data: imageUrl } });
 
     const analysis: ImageAnalysis = {
       landmarks: ['Popular Tourist Destination'],
@@ -64,7 +65,7 @@ const analyzeImageWithAI = async (imageUrl: string): Promise<ImageAnalysis> => {
 
     return analysis;
   } catch (error) {
-    console.error('Image analysis error:', error);
+    logger.error('Image analysis error:', error as Error, { component: 'Visual' });
     throw new Error('Failed to analyze image');
   }
 };
@@ -273,7 +274,7 @@ async function handler(
 
     return res.status(200).json(response);
   } catch (error) {
-    console.error('Visual search error:', error);
+    logger.error('Visual search error:', error as Error, { component: 'Visual' });
     return res.status(500).json({
       error: error instanceof Error ? error.message : 'Failed to process visual search',
     });

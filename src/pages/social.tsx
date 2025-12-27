@@ -3,6 +3,7 @@ import { NextPage } from 'next';
 import Head from 'next/head';
 import { motion } from 'framer-motion';
 import {
+import logger from '../../../lib/logger';
   Users,
   MessageCircle,
   Share2,
@@ -176,12 +177,12 @@ const SocialPage: NextPage = () => {
 
   const handleLike = (postId: number) => {
     // Like functionality
-    console.log('Liked post:', postId);
+    logger.debug('Liked post:', {component:'Social', metadata:{postId}});
   };
 
   const handleBookmark = (postId: number) => {
     // Bookmark functionality  
-    console.log('Bookmarked post:', postId);
+    logger.debug('Bookmarked post:', {component:'Social', metadata:{postId}});
   };
 
   return (

@@ -1,3 +1,5 @@
+import logger from './logger';
+
 // Video Reviews & 360° Virtual Tours System
 // Advanced visualization for properties and vehicles
 
@@ -104,7 +106,7 @@ export async function uploadVideoReview(
 
     return { success: true, review };
   } catch (error) {
-    console.error('Video upload error:', error);
+    logger.error('Video upload error:', error as Error, { component: 'Videoreviews' });
     return { success: false, error: 'Upload failed' };
   }
 }
@@ -206,7 +208,7 @@ export async function createVirtualTour(
 
     return { success: true, tour: virtualTour };
   } catch (error) {
-    console.error('Virtual tour creation error:', error);
+    logger.error('Virtual tour creation error:', error as Error, { component: 'Videoreviews' });
     return { success: false, error: 'Tour creation failed' };
   }
 }
@@ -238,7 +240,7 @@ export async function upload360Image(
 
     return { success: true, url };
   } catch (error) {
-    console.error('360° image upload error:', error);
+    logger.error('360° image upload error:', error as Error, { component: 'Videoreviews' });
     return { success: false, error: 'Upload failed' };
   }
 }
@@ -336,7 +338,7 @@ export async function incrementViewCount(
   //   await prisma.virtualTour.update({ where: { id }, data: { views: { increment: 1 } } });
   // }
 
-  console.log(`Incremented ${type} view count for ${id}`);
+  logger.debug(`Incremented ${type} view count for ${id}`, {component:'Videoreviews'});
 }
 
 /**

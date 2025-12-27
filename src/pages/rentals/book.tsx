@@ -39,6 +39,7 @@ import {
   Building2,
 } from 'lucide-react';
 import ResponsiveHeaderBar from '../../components/layout/ResponsiveHeaderBar';
+import logger from '../../../../lib/logger';
 
 // TypeScript interfaces
 interface RentalProperty {
@@ -151,7 +152,7 @@ const RentalBookingPage = () => {
           router.push('/rentals');
         }
       } catch (err) {
-        console.error('Error fetching property:', err);
+        logger.error('Error fetching property:', err as Error, {component:'Book'});
         router.push('/rentals');
       } finally {
         setLoading(false);
@@ -183,7 +184,7 @@ const RentalBookingPage = () => {
         setEmergencyContactName(data.emergencyContact?.name || '');
         setEmergencyContactPhone(data.emergencyContact?.phone || '');
       } catch (err) {
-        console.error('Error loading saved booking:', err);
+        logger.error('Error loading saved booking:', err as Error, {component:'Book'});
       }
     }
   }, [slug]);

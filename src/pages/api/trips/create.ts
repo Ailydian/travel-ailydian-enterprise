@@ -1,6 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { PrismaClient } from '@prisma/client';
 import { nanoid } from 'nanoid';
+import logger from '../../../../../lib/logger';
 
 const prisma = new PrismaClient();
 
@@ -100,7 +101,7 @@ export default async function handler(
     });
 
   } catch (error: any) {
-    console.error('Error creating trip:', error);
+    logger.error('Error creating trip:', error as Error, {component:'Create'});
     return res.status(500).json({
       error: 'Failed to create trip',
       details: error.message

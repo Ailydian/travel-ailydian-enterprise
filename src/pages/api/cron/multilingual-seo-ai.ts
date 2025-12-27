@@ -7,6 +7,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { getMultilingualSeoAI } from '@/lib/seo/multilingualSeoAI';
 import { getContinuousSeoService } from '@/lib/seo/continuousSeoService';
+import logger from '../../../../../lib/logger';
 
 export default async function handler(
   req: NextApiRequest,
@@ -19,7 +20,7 @@ export default async function handler(
   }
 
   try {
-    console.log('🤖 Multilingual SEO AI Cron Job başlatıldı...');
+    logger.debug('🤖 Multilingual SEO AI Cron Job başlatıldı...', { component: 'MultilingualSeoAi' });
     const startTime = Date.now();
 
     // Multilingual SEO AI
@@ -35,7 +36,7 @@ export default async function handler(
 
     const duration = Date.now() - startTime;
 
-    console.log(`✅ Multilingual SEO AI tamamlandı (${duration}ms)`);
+    logger.debug('✅ Multilingual SEO AI tamamlandı (${duration}ms)', { component: 'MultilingualSeoAi' });
 
     return res.status(200).json({
       success: true,
@@ -48,7 +49,7 @@ export default async function handler(
     });
 
   } catch (error: any) {
-    console.error('❌ Multilingual SEO AI hatası:', error);
+    logger.error('❌ Multilingual SEO AI hatası:', error as Error, { component: 'MultilingualSeoAi' });
 
     return res.status(500).json({
       error: 'Multilingual SEO AI failed',

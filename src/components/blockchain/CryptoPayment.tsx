@@ -18,6 +18,7 @@ import {
   X
 } from 'lucide-react';
 import { web3Utils, formatAddress, formatBalance, getExplorerUrl } from '../../utils/web3Utils';
+import logger from '../../../../lib/logger';
 
 interface CryptoPaymentProps {
   amount: number;
@@ -110,7 +111,7 @@ const CryptoPayment: React.FC<CryptoPaymentProps> = ({
         }
       }
     } catch (error) {
-      console.error('Error checking wallet connection:', error);
+      logger.error('Error checking wallet connection:', error as Error, { component: 'Cryptopayment' });
     }
   };
 
@@ -123,7 +124,7 @@ const CryptoPayment: React.FC<CryptoPaymentProps> = ({
         setBalance(walletInfo.balance);
       }
     } catch (error) {
-      console.error('Error connecting wallet:', error);
+      logger.error('Error connecting wallet:', error as Error, { component: 'Cryptopayment' });
       onError?.('Cüzdan bağlantısı başarısız');
     }
   };
@@ -177,7 +178,7 @@ const CryptoPayment: React.FC<CryptoPaymentProps> = ({
       
       onSuccess?.(mockTxHash);
     } catch (error: any) {
-      console.error('Payment error:', error);
+      logger.error('Payment error:', error as Error, { component: 'Cryptopayment' });
       onError?.(error.message || 'Ödeme işlemi başarısız');
       
       // Update step status to show error

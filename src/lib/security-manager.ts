@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { LRUCache } from 'lru-cache';
 import crypto from 'crypto';
+import logger from './logger';
 
 // Rate limiting configuration
 const rateLimitConfig = {
@@ -255,7 +256,7 @@ export class ErrorMonitor {
         });
       }
     } catch (alertError) {
-      console.error('Failed to send critical alert:', alertError);
+      logger.error('Failed to send critical alert:', alertError as Error, { component: 'SecurityManager' });
     }
   }
 

@@ -1,7 +1,8 @@
 import { Resend } from 'resend'
+import logger from '../logger';
 
 if (!process.env.RESEND_API_KEY) {
-  console.warn('⚠️  RESEND_API_KEY is not set. Email functionality will be disabled.')
+  logger.warn('⚠️  RESEND_API_KEY is not set. Email functionality will be disabled.', { component: 'Resend' })
 }
 
 export const resend = new Resend(process.env.RESEND_API_KEY || 'dummy-key-for-dev')
@@ -23,7 +24,7 @@ export async function sendEmail({
 }: EmailOptions) {
   try {
     if (!process.env.RESEND_API_KEY) {
-      console.log('📧 [DEV MODE] Email would be sent:', { to, subject })
+      logger.debug('📧 [DEV MODE] Email would be sent:', { component: 'Resend', metadata: { data: { to, subject } } })
       return { success: true, messageId: 'dev-mode-' + Date.now() }
     }
 
@@ -36,14 +37,14 @@ export async function sendEmail({
     })
 
     if (error) {
-      console.error('❌ Email send error:', error)
+      logger.error('❌ Email send error:', error as Error, { component: 'Resend' })
       throw new Error(`Failed to send email: ${error.message}`)
     }
 
-    console.log('✅ Email sent successfully:', data?.id)
+    logger.debug('✅ Email sent successfully:', { component: 'Resend', metadata: { data: data?.id } })
     return { success: true, messageId: data?.id }
   } catch (error) {
-    console.error('❌ Email send failed:', error)
+    logger.error('❌ Email send failed:', error as Error, { component: 'Resend' })
     throw error
   }
 }

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { Home, Search, Filter, Plus, Edit2, Copy, Star, Power, Trash2, MapPin, Users, Bed, Wifi, Waves } from 'lucide-react';
+import logger from '../../../../lib/logger';
 
 interface RentalProperty {
   id: string;
@@ -101,7 +102,7 @@ export default function RentalPropertiesManagement() {
         setStats(statsData);
       }
     } catch (error) {
-      console.error('Error fetching properties:', error);
+      logger.error('Error fetching properties:', error as Error, { component: 'RentalProperties' });
     } finally {
       setLoading(false);
     }
@@ -119,7 +120,7 @@ export default function RentalPropertiesManagement() {
         fetchProperties();
       }
     } catch (error) {
-      console.error('Error toggling active status:', error);
+      logger.error('Error toggling active status:', error as Error, { component: 'RentalProperties' });
     }
   };
 
@@ -135,7 +136,7 @@ export default function RentalPropertiesManagement() {
         fetchProperties();
       }
     } catch (error) {
-      console.error('Error toggling featured status:', error);
+      logger.error('Error toggling featured status:', error as Error, { component: 'RentalProperties' });
     }
   };
 
@@ -156,7 +157,7 @@ export default function RentalPropertiesManagement() {
         alert(data.error || 'Mülk silinemedi');
       }
     } catch (error) {
-      console.error('Error deleting property:', error);
+      logger.error('Error deleting property:', error as Error, { component: 'RentalProperties' });
       alert('Bir hata oluştu');
     }
   };

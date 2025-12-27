@@ -1,5 +1,6 @@
 import React, { useState, useRef, useCallback } from 'react';
 import {
+import logger from '../../../../../lib/logger';
   Upload,
   X,
   Image as ImageIcon,
@@ -315,7 +316,7 @@ export const PhotoUploader: React.FC<PhotoUploaderProps> = ({
             uploadedImage.compressedFile = compressedFile;
           })
           .catch((err) => {
-            console.error('Compression failed:', err);
+            logger.error('Compression failed:', err as Error, {component:'Photouploader'});
           });
 
         // Upload if handler provided

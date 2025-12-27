@@ -12,6 +12,7 @@ import axios, {
   InternalAxiosRequestConfig,
 } from 'axios';
 import {
+import logger from '../lib/logger';
   Property,
   Booking,
   Conversation,
@@ -118,7 +119,7 @@ class AxiosClientFactory {
           return config;
         },
         (error: AxiosError) => {
-          console.error('Request interceptor error:', error);
+          logger.error('Request interceptor error:', error as Error, { component: 'Dashboardapi' });
           return Promise.reject(error);
         }
       );
@@ -1681,7 +1682,7 @@ class PropertySubmissionAPI {
 
       await this.client.post(url, data);
     } catch (error) {
-      console.error('Auto-save failed:', error);
+      logger.error('Auto-save failed:', error as Error, { component: 'Dashboardapi' });
       // Don't throw on auto-save failures to not interrupt user
     }
   }

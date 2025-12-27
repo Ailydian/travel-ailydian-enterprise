@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback, useMemo } from 'react';
 import { useRouter } from 'next/router';
 import {
+import logger from '../lib/logger';
   FilterType,
   HotelFilters,
   FlightFilters,
@@ -170,7 +171,7 @@ export function useFilters<T extends HotelFilters | FlightFilters | ActivityFilt
         presets.push(preset);
         localStorage.setItem(PRESETS_KEY, JSON.stringify(presets));
       } catch (error) {
-        console.error('Failed to save preset:', error);
+        logger.error('Failed to save preset:', error as Error, { component: 'Usefilters' });
       }
     }
 
@@ -191,7 +192,7 @@ export function useFilters<T extends HotelFilters | FlightFilters | ActivityFilt
         setFilters(preset.filters as T);
       }
     } catch (error) {
-      console.error('Failed to load preset:', error);
+      logger.error('Failed to load preset:', error as Error, { component: 'Usefilters' });
     }
   }, [type]);
 
@@ -220,7 +221,7 @@ export function useFilters<T extends HotelFilters | FlightFilters | ActivityFilt
       const filtered = presets.filter(p => p.id !== presetId);
       localStorage.setItem(PRESETS_KEY, JSON.stringify(filtered));
     } catch (error) {
-      console.error('Failed to delete preset:', error);
+      logger.error('Failed to delete preset:', error as Error, { component: 'Usefilters' });
     }
   }, []);
 

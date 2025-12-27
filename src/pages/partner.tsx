@@ -17,6 +17,7 @@ import { motion } from 'framer-motion';
 import { FuturisticHeader } from '../components/layout/FuturisticHeader';
 import { BookingFooter } from '../components/layout/BookingFooter';
 import {
+import logger from '../../../lib/logger';
   UserPlus,
   TrendingUp,
   Users,
@@ -167,7 +168,7 @@ export default function Partners() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Form gönderimi - backend entegrasyonu yapılacak
-    console.log('Partner başvurusu:', formData);
+    logger.debug('Partner başvurusu:', {component:'Partner', metadata:{formData}});
     alert('Başvurunuz alındı! En kısa sürede size dönüş yapacağız.');
   };
 

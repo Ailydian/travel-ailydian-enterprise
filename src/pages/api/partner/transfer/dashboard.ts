@@ -1,3 +1,5 @@
+import logger from '../../../../../../lib/logger';
+
 import type { NextApiRequest, NextApiResponse } from 'next';
 
 interface TransferStats {
@@ -131,7 +133,7 @@ export default async function handler(
       syncTime: new Date().toISOString()
     });
   } catch (error) {
-    console.error('Transfer dashboard API error:', error);
+    logger.error('Transfer dashboard API error:', error as Error, {component:'Dashboard'});
     return res.status(500).json({ error: 'Internal server error' });
   }
 }

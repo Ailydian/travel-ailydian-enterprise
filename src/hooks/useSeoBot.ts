@@ -2,6 +2,7 @@ import { useEffect, useState, useCallback } from 'react';
 import { useRouter } from 'next/router';
 import AutoSeoBot, { PageSeoData, SeoAnalysis } from '../lib/seo/autoSeoBot';
 import { NextSeoProps } from 'next-seo';
+import logger from '../lib/logger';
 
 interface SeoState {
   isAnalyzing: boolean;
@@ -58,9 +59,9 @@ export const useSeoBot = () => {
   const registerToExternalPlatforms = useCallback(async () => {
     try {
       await seoBot.registerToAlexaAndOthers();
-      console.log('External platforms registration completed');
+      logger.debug('External platforms registration completed', { component: 'Useseobot' });
     } catch (error) {
-      console.error('External platforms registration failed:', error);
+      logger.error('External platforms registration failed:', error as Error, { component: 'Useseobot' });
     }
   }, [seoBot]);
 
@@ -68,9 +69,9 @@ export const useSeoBot = () => {
   const startSeoMonitoring = useCallback(async () => {
     try {
       await seoBot.startContinuousMonitoring();
-      console.log('SEO monitoring started');
+      logger.debug('SEO monitoring started', { component: 'Useseobot' });
     } catch (error) {
-      console.error('SEO monitoring failed to start:', error);
+      logger.error('SEO monitoring failed to start:', error as Error, { component: 'Useseobot' });
     }
   }, [seoBot]);
 

@@ -9,6 +9,7 @@ import Head from 'next/head';
 import { motion, AnimatePresence } from 'framer-motion';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import {
+import logger from '../../../../lib/logger';
   Heart,
   Share2,
   Star,
@@ -322,7 +323,7 @@ const PropertyDetailsPage = ({ slug: initialSlug }: PropertyDetailsPageProps) =>
           url: window.location.href,
         });
       } catch (err) {
-        console.log('Share cancelled');
+        logger.debug('Share cancelled', {component:'Slug'});
       }
     } else {
       navigator.clipboard.writeText(window.location.href);

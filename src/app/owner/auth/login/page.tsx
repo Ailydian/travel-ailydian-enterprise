@@ -13,6 +13,7 @@ import {
 } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
+import logger from '../../../../../../lib/logger';
 
 export default function OwnerLoginPage() {
   const [formData, setFormData] = useState({
@@ -64,7 +65,7 @@ export default function OwnerLoginPage() {
 
     // Simulate API call
     setTimeout(() => {
-      console.log('Login data:', formData);
+      logger.debug('Login data:', {component:'Page',metadata:{formData}});
       setIsLoading(false);
       // Redirect to owner dashboard
       window.location.href = '/owner/dashboard';

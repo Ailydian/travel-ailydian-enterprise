@@ -23,6 +23,7 @@ import {
 import { motion } from 'framer-motion';
 import { Line, Bar } from 'react-chartjs-2';
 import {
+import logger from '../../../../../lib/logger';
   Chart as ChartJS,
   CategoryScale,
   LinearScale,
@@ -125,7 +126,7 @@ const PropertyOwnerDashboard: React.FC = () => {
           setLastSyncTime(new Date(data.lastSync));
         }
       } catch (error) {
-        console.error('Failed to fetch dashboard data:', error);
+        logger.error('Failed to fetch dashboard data:', error as Error, {component:'Dashboard'});
       } finally {
         setLoading(false);
       }

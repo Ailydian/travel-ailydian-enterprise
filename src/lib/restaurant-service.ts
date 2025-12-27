@@ -1,5 +1,6 @@
 // Restaurant Service with Google Places and Foursquare API Integration
 import NodeCache from 'node-cache';
+import logger from './logger';
 
 // Cache instance for API responses
 const cache = new NodeCache({ 
@@ -48,7 +49,7 @@ class RestaurantService {
     this.foursquareApiKey = process.env.FOURSQUARE_API_KEY || '';
     
     if (!this.googleApiKey && !this.foursquareApiKey) {
-      console.warn('No restaurant API keys found. Using mock data.');
+      logger.warn('No restaurant API keys found. Using mock data.', { component: 'RestaurantService' });
     }
   }
 
@@ -85,7 +86,7 @@ class RestaurantService {
       
       return limitedResults;
     } catch (error) {
-      console.error('Restaurant search error:', error);
+      logger.error('Restaurant search error:', error as Error, { component: 'RestaurantService' });
       return this.getMockRestaurantData(params);
     }
   }
@@ -161,7 +162,7 @@ class RestaurantService {
 
       return restaurants.filter(r => r.name); // Filter out invalid entries
     } catch (error) {
-      console.error('Google Places search error:', error);
+      logger.error('Google Places search error:', error as Error, { component: 'RestaurantService' });
       throw error;
     }
   }
@@ -217,7 +218,7 @@ class RestaurantService {
 
       return restaurants.filter(r => r.name);
     } catch (error) {
-      console.error('Foursquare search error:', error);
+      logger.error('Foursquare search error:', error as Error, { component: 'RestaurantService' });
       throw error;
     }
   }
@@ -242,7 +243,7 @@ class RestaurantService {
         };
       }
     } catch (error) {
-      console.error('Place details error:', error);
+      logger.error('Place details error:', error as Error, { component: 'RestaurantService' });
     }
     
     return null;

@@ -1,5 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import advancedSearchEngine, { AdvancedSearchFilters, PersonalizationData } from '../../../lib/search/advanced-search';
+import logger from '../../../../../lib/logger';
 
 interface AdvancedSearchRequest {
   filters: AdvancedSearchFilters;
@@ -100,7 +101,7 @@ export default async function handler(
         });
     }
   } catch (error) {
-    console.error('Advanced search API error:', error);
+    logger.error('Advanced search API error:', error as Error, {component:'Advanced'});
     return res.status(500).json({ 
       error: 'Internal server error',
       message: error instanceof Error ? error.message : 'Unknown error'

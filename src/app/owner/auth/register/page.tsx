@@ -20,6 +20,7 @@ import {
   Award
 } from 'lucide-react';
 import Link from 'next/link';
+import logger from '../../../../../../lib/logger';
 
 interface FormData {
   fullName: string;
@@ -194,7 +195,7 @@ export default function OwnerRegisterPage() {
 
     // Simulate API call
     setTimeout(() => {
-      console.log('Register data:', formData);
+      logger.debug('Register data:', {component:'Page',metadata:{formData}});
       setIsLoading(false);
       // Redirect to success page or login
       window.location.href = '/owner/auth/login?registered=true';

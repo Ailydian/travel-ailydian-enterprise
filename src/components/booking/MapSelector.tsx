@@ -4,6 +4,7 @@ import React, { useState, useCallback, useEffect } from 'react';
 import { MapContainer, TileLayer, Marker, useMapEvents } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
+import logger from '../../../../lib/logger';
 
 // Fix for default marker icon in Next.js
 delete (L.Icon.Default.prototype as any)._getIconUrl;
@@ -51,7 +52,7 @@ function LocationMarker({
           address = data.display_name;
         }
       } catch (error) {
-        console.error('Geocoding error:', error);
+        logger.error('Geocoding error:', error as Error, { component: 'Mapselector' });
       }
 
       onPositionChange({ lat, lng, address });
@@ -101,7 +102,7 @@ const MapSelector: React.FC<MapSelectorProps> = ({
       const data = await response.json();
       setSearchResults(data);
     } catch (error) {
-      console.error('Search error:', error);
+      logger.error('Search error:', error as Error, { component: 'Mapselector' });
     } finally {
       setIsSearching(false);
     }
@@ -203,7 +204,7 @@ const MapSelector: React.FC<MapSelectorProps> = ({
                 handlePositionChange(location);
               },
               (error) => {
-                console.error('Geolocation error:', error);
+                logger.error('Geolocation error:', error as Error, { component: 'Mapselector' });
                 alert('Konum bilgisi alınamadı. Lütfen tarayıcı izinlerini kontrol edin.');
               }
             );

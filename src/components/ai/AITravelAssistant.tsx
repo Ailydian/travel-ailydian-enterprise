@@ -27,6 +27,7 @@ import {
 } from 'lucide-react';
 import { useSpeechSynthesis, useSpeechRecognition } from 'react-speech-kit';
 import Webcam from 'react-webcam';
+import logger from '../../../../lib/logger';
 
 interface Message {
   id: string;
@@ -209,7 +210,7 @@ const AITravelAssistant: React.FC = () => {
       }
       
     } catch (error) {
-      console.error('AI Response Error:', error);
+      logger.error('AI Response Error:', error as Error, { component: 'Aitravelassistant' });
       const errorMessage: Message = {
         id: (Date.now() + 1).toString(),
         type: 'ai',
@@ -252,15 +253,15 @@ const AITravelAssistant: React.FC = () => {
   const handleActionClick = (action: any) => {
     switch (action.type) {
       case 'search':
-        console.log('Navigating to search:', action.data);
+        logger.debug('Navigating to search:', { component: 'Aitravelassistant', metadata: { data: action.data } });
         // Navigate to search results
         break;
       case 'book':
-        console.log('Opening booking:', action.data);
+        logger.debug('Opening booking:', { component: 'Aitravelassistant', metadata: { data: action.data } });
         // Open booking modal
         break;
       case 'navigate':
-        console.log('Navigating to:', action.data);
+        logger.debug('Navigating to:', { component: 'Aitravelassistant', metadata: { data: action.data } });
         // Navigate to specified page/location
         break;
     }

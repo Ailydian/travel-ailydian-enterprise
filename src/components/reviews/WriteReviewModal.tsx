@@ -5,6 +5,7 @@ import { X, Star, Upload, Camera, MapPin, Calendar, Users, AlertTriangle, CheckC
 import { useDropzone } from 'react-dropzone';
 import { CreateReviewRequest } from '../../lib/types/review-system';
 import reviewService from '../../lib/services/review-service';
+import logger from '../../../../lib/logger';
 
 interface WriteReviewModalProps {
   locationId: number;
@@ -238,7 +239,7 @@ export default function WriteReviewModal({ locationId, locationName, onClose, on
       await reviewService.createReview(reviewRequest);
       onSuccess();
     } catch (error: any) {
-      console.error('Error submitting review:', error);
+      logger.error('Error submitting review:', error as Error, {component:'Writereviewmodal'});
       setSubmitError(error.message || t('errors.genericSubmissionError'));
     } finally {
       setIsSubmitting(false);

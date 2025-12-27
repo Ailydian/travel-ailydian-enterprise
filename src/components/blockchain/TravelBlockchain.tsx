@@ -31,6 +31,7 @@ import {
 import { ethers } from 'ethers';
 import CryptoPayment from './CryptoPayment';
 import DecentralizedReviews from './DecentralizedReviews';
+import logger from '../../../../lib/logger';
 
 interface TravelNFT {
   id: string;
@@ -159,7 +160,7 @@ const TravelBlockchain: React.FC = () => {
         setIsConnected(true);
         setMyNFTs(sampleNFTs);
       } catch (error) {
-        console.error('Wallet connection failed:', error);
+        logger.error('Wallet connection failed:', error as Error, { component: 'Travelblockchain' });
       } finally {
         setIsLoading(false);
       }
@@ -788,12 +789,12 @@ const TravelBlockchain: React.FC = () => {
                 currency="USD"
                 description={paymentData.description}
                 onSuccess={(txHash) => {
-                  console.log('Payment successful:', txHash);
+                  logger.debug('Payment successful:', { component: 'Travelblockchain', metadata: { txHash } });
                   setShowPaymentModal(false);
                   // Could show a success toast here
                 }}
                 onError={(error) => {
-                  console.error('Payment error:', error);
+                  logger.error('Payment error:', error as Error, { component: 'Travelblockchain' });
                   // Could show an error toast here
                 }}
               />

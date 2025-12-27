@@ -5,7 +5,7 @@ import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import { motion } from 'framer-motion';
 import { FuturisticHeader } from '../components/layout/FuturisticHeader';
-import { logInfo, logError } from '../lib/logger';
+import logger from '../lib/logger';
 import {
   Calendar,
   MapPin,
@@ -76,7 +76,7 @@ const Bookings: React.FC = () => {
   const fetchBookings = async () => {
     try {
       setLoading(true);
-      logInfo('Fetching user bookings');
+      logger.info('Fetching user bookings');
 
       const response = await fetch('/api/bookings/list');
       const data = await response.json();
@@ -85,11 +85,11 @@ const Bookings: React.FC = () => {
         throw new Error(data.message || 'Rezervasyonlar alınamadı');
       }
 
-      logInfo('Bookings loaded successfully', { count: data.bookings?.length || 0 });
+      logger.info('Bookings loaded successfully', { count: data.bookings?.length || 0 });
       setBookings(data.bookings || []);
     } catch (error) {
-      logError('Bookings fetch failed', error);
-      console.error('Bookings error:', error);
+      logger.error('Bookings fetch failed', error);
+      logger.error('Bookings error:', error as Error, {component:'Bookings'});
       setBookings([]);
     } finally {
       setLoading(false);
@@ -169,7 +169,7 @@ const Bookings: React.FC = () => {
       const data = await response.json();
 
       if (response.ok) {
-        logInfo('Booking cancelled successfully', { bookingId: bookingToCancel.id });
+        logger.info('Booking cancelled successfully', { bookingId: bookingToCancel.id });
         alert('Booking cancelled successfully. Refund will be processed within 5-7 business days.');
         setCancelModalOpen(false);
         setBookingToCancel(null);
@@ -179,7 +179,7 @@ const Bookings: React.FC = () => {
         throw new Error(data.message || 'Cancellation failed');
       }
     } catch (error) {
-      logError('Booking cancellation failed', error);
+      logger.error('Booking cancellation failed', error);
       alert('Failed to cancel booking. Please try again.');
     } finally {
       setCancelling(false);

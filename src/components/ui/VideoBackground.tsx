@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import logger from '../../../../lib/logger';
 
 interface VideoBackgroundProps {
   autoPlay?: boolean;
@@ -77,7 +78,7 @@ export const VideoBackground: React.FC<VideoBackgroundProps> = ({
 
   // Video yüklenme
   const handleVideoLoad = () => {
-    console.log('Video yüklendi:', currentVideo.title);
+    logger.debug('Video yüklendi:', {component:'Videobackground',metadata:{currentVideo.title}});
     setIsLoading(false);
     setVideoError(false);
   };

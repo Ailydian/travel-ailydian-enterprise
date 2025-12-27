@@ -3,6 +3,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import {
+import logger from '../../../../lib/logger';
   Search,
   Bell,
   Menu,
@@ -82,7 +83,7 @@ const DashboardHeader: React.FC<DashboardHeaderProps> = ({
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     // Implement search functionality
-    console.log('Search query:', searchQuery);
+    logger.debug('Search query:', { component: 'Dashboardheader', metadata: { searchQuery } });
   };
 
   return (
@@ -265,7 +266,7 @@ const DashboardHeader: React.FC<DashboardHeaderProps> = ({
                       onClick={() => {
                         setUserMenuOpen(false);
                         // Implement logout functionality
-                        console.log('Logout');
+                        logger.debug('Logout', { component: 'Dashboardheader' });
                       }}
                       className="flex items-center space-x-3 w-full px-4 py-2 text-sm text-red-600 hover:bg-red-50 transition-colors"
                     >

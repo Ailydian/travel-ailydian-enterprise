@@ -98,7 +98,7 @@ export class AutoSeoMonitor {
    * SEO health check başlat
    */
   async performHealthCheck(baseUrl: string): Promise<SEOHealthReport> {
-    console.log('🏥 SEO Health Check başlatılıyor...');
+    logger.debug('🏥 SEO Health Check başlatılıyor...', { component: 'Autoseomonitor' });
 
     const metrics = await this.collectMetrics(baseUrl);
     const searchEngines = await this.checkSearchEngines(baseUrl);

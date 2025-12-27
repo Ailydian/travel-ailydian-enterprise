@@ -37,6 +37,7 @@ import {
   Lock,
 } from 'lucide-react';
 import ResponsiveHeaderBar from '../../components/layout/ResponsiveHeaderBar';
+import logger from '../../../../lib/logger';
 
 // Types
 interface BookingData {
@@ -249,7 +250,7 @@ const CarRentalBookingPage: React.FC = () => {
           }));
         }
       } catch (error) {
-        console.error('Error fetching car:', error);
+        logger.error('Error fetching car:', error as Error, {component:'Book'});
       } finally {
         setIsLoading(false);
       }

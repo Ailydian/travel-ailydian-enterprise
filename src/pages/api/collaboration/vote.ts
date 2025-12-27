@@ -9,6 +9,7 @@ import { getServerSession } from 'next-auth/next';
 import { authOptions } from '../auth/[...nextauth]';
 import { withRateLimit, publicRateLimiter } from '@/lib/middleware/rate-limiter';
 import { prisma } from '@/lib/prisma';
+import logger from '../../../../../lib/logger';
 
 interface VoteRequest {
   roomId: string;
@@ -204,7 +205,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
     });
 
   } catch (error: any) {
-    console.error('Voting API Error:', error);
+    logger.error('Voting API Error:', error as Error, {component:'Vote'});
 
     return res.status(500).json({
       error: 'Failed to process vote',

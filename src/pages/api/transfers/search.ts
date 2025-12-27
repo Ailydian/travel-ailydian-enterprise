@@ -6,7 +6,7 @@
 
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { PrismaClient } from '@prisma/client';
-import { logInfo, logError } from '../../../lib/logger';
+import logger from '../../../lib/logger';
 
 const prisma = new PrismaClient();
 
@@ -307,7 +307,7 @@ export default async function handler(
   try {
     const { from, to, passengers, isVIP, region } = req.query as any;
 
-    logInfo('Transfer search request', { from, to, passengers, isVIP, region });
+    logger.info('Transfer search request', { from, to, passengers, isVIP, region });
 
     // Try to fetch from database first
     let results = [];
@@ -369,7 +369,7 @@ export default async function handler(
         }));
 
     } catch (dbError) {
-      console.error('Database query failed, using mock data:', dbError);
+      logger.error('Database query failed, using mock data:', dbError as Error, {component:'Search'});
       // Fall back to mock data
       results = [...mockTransfers];
 
@@ -420,7 +420,7 @@ export default async function handler(
       return a.distance - b.distance;
     });
 
-    logInfo('Transfer search completed', {
+    logger.info('Transfer search completed', {
       resultsCount: results.length,
       query: { from, to, passengers, isVIP, region },
     });
@@ -431,7 +431,7 @@ export default async function handler(
       transfers: results,
     });
   } catch (error) {
-    logError('Transfer search error', error);
+    logger.error('Transfer search error', error);
     return res.status(500).json({
       error: 'Transfer search failed',
       message: error instanceof Error ? error.message : 'Unknown error',

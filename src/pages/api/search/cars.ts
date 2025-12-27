@@ -1,5 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { amadeusService, transformCarRentalData } from '@/lib/amadeus-service';
+import logger from '../../../../../lib/logger';
 
 interface CarRentalSearchRequest {
   pickUpLocationCode: string;
@@ -90,7 +91,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       dropOffTime: searchParams.dropOffTime || '10:00',
     };
 
-    console.log('Car rental search request:', searchRequest);
+    logger.debug('Car rental search request:', { component: 'Cars', metadata: { searchRequest } });
 
     // Search car rentals using Amadeus service
     const response = await amadeusService.searchCarRentals(searchRequest);
@@ -155,7 +156,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     });
 
   } catch (error) {
-    console.error('Car rental search API error:', error);
+    logger.error('Car rental search API error:', error as Error, { component: 'Cars' });
 
     // Return error response
     const errorMessage = error instanceof Error ? error.message : 'An unknown error occurred';

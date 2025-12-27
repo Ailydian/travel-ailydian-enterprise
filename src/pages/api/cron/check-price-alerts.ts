@@ -1,5 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { checkPriceAlertsCron } from '@/lib/services/price-alert-notification';
+import logger from '../../../../../lib/logger';
 
 /**
  * Cron job endpoint to check price alerts
@@ -28,7 +29,7 @@ export default async function handler(
   }
 
   try {
-    console.log('Starting price alert check cron job...');
+    logger.debug('Starting price alert check cron job...', { component: 'CheckPriceAlerts' });
 
     await checkPriceAlertsCron();
 
@@ -38,7 +39,7 @@ export default async function handler(
       timestamp: new Date().toISOString(),
     });
   } catch (error) {
-    console.error('Error in price alert cron job:', error);
+    logger.error('Error in price alert cron job:', error as Error, { component: 'CheckPriceAlerts' });
     return res.status(500).json({
       success: false,
       error: 'Failed to check price alerts',

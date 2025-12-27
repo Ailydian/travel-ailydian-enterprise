@@ -1,6 +1,7 @@
 import { NextApiResponse } from 'next';
 import { withAdminAuth, AuthenticatedRequest } from '../../../../lib/middleware/admin-auth';
 import { PrismaClient } from '@prisma/client';
+import logger from '../../../../../../lib/logger';
 
 const prisma = new PrismaClient();
 
@@ -324,7 +325,7 @@ async function handler(req: AuthenticatedRequest, res: NextApiResponse) {
       data: stats
     });
   } catch (error) {
-    console.error('Dashboard stats error:', error);
+    logger.error('Dashboard stats error:', error as Error, {component:'Stats'});
     res.status(500).json({
       success: false,
       error: 'Failed to fetch dashboard statistics',

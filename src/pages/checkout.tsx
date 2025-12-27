@@ -27,6 +27,7 @@ import {
   Ticket
 } from 'lucide-react';
 import { FuturisticHeader } from '../components/layout/FuturisticHeader';
+import logger from '../../../lib/logger';
 import type { LocationData } from '../components/ui/LocationPicker';
 
 // Dynamically import LocationPicker to avoid SSR issues
@@ -299,13 +300,13 @@ const Checkout: React.FC = () => {
           // Clear after loading
           localStorage.removeItem('rental-checkout-data');
         } catch (e) {
-          console.error('Failed to parse rental checkout data:', e);
+          logger.error('Failed to parse rental checkout data:', e as Error, { component: 'Checkout' });
         }
       } else if (genericBooking) {
         try {
           data = JSON.parse(genericBooking);
         } catch (e) {
-          console.error('Failed to parse stored booking data:', e);
+          logger.error('Failed to parse stored booking data:', e as Error, { component: 'Checkout' });
         }
       }
     }
@@ -508,7 +509,7 @@ const Checkout: React.FC = () => {
         router.push(`/booking-confirmed?ref=${data.booking.bookingReference}`);
       }, 2000);
     } catch (error) {
-      console.error('Payment error:', error);
+      logger.error('Payment error:', error as Error, { component: 'Checkout' });
       setIsProcessing(false);
       alert('Payment failed. Please try again.');
     }

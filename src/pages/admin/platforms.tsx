@@ -9,6 +9,7 @@ import {
   Database, Link2, Activity, Award, Target
 } from 'lucide-react';
 import adminService from '../../lib/services/admin-service';
+import logger from '../../../../lib/logger';
 
 interface PlatformConnection {
   id: string;
@@ -249,7 +250,7 @@ export default function AdminPlatforms() {
 
   const triggerSync = async (platformId: string, syncType: string) => {
     // Mock sync trigger
-    console.log(`Starting ${syncType} sync for platform ${platformId}`);
+    logger.debug(`Starting ${syncType} sync for platform ${platformId}`, {component:'Platforms'});
     // Refresh data to show new sync job
     fetchPlatformsData();
   };

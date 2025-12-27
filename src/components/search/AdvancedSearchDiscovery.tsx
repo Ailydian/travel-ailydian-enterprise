@@ -33,6 +33,7 @@ import advancedSearchEngine, {
 } from '../../lib/search/advanced-search';
 import { Location, LocationCategory, City } from '../../lib/types/review-system';
 import reviewService from '../../lib/services/review-service';
+import logger from '../../../../lib/logger';
 
 interface AdvancedSearchDiscoveryProps {
   initialQuery?: string;
@@ -135,7 +136,7 @@ const AdvancedSearchDiscovery: React.FC<AdvancedSearchDiscoveryProps> = ({
       }
 
     } catch (error) {
-      console.error('Search error:', error);
+      logger.error('Search error:', error as Error, { component: 'Advancedsearchdiscovery' });
     } finally {
       setIsLoading(false);
     }
@@ -165,7 +166,7 @@ const AdvancedSearchDiscovery: React.FC<AdvancedSearchDiscoveryProps> = ({
           });
         }
       } catch (error) {
-        console.error('Error initializing search data:', error);
+        logger.error('Error initializing search data:', error as Error, { component: 'Advancedsearchdiscovery' });
       }
     };
 

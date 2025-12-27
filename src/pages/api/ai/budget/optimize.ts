@@ -9,6 +9,7 @@ import { getServerSession } from 'next-auth/next';
 import { authOptions } from '../../auth/[...nextauth]';
 import { withRateLimit, publicRateLimiter } from '@/lib/middleware/rate-limiter';
 import { neuralxChat } from '@/lib/groq-service';
+import logger from '../../../../../../lib/logger';
 
 interface BudgetOptimizationRequest {
   totalBudget: number;
@@ -222,7 +223,7 @@ Return ONLY valid JSON with this structure:
     return res.status(200).json(response);
 
   } catch (error: any) {
-    console.error('Budget Optimization Error:', error);
+    logger.error('Budget Optimization Error:', error as Error, {component:'Optimize'});
 
     return res.status(500).json({
       error: 'Failed to optimize budget',

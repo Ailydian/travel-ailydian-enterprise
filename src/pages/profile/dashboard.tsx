@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useSession, signOut } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import { motion } from 'framer-motion';
-import { logInfo, logError } from '../../lib/logger';
+import logger from '../../lib/logger';
 import {
   User,
   MapPin,
@@ -58,7 +58,7 @@ const Dashboard: React.FC = () => {
   const fetchDashboardData = async () => {
     try {
       setLoading(true);
-      logInfo('Fetching dashboard data');
+      logger.info('Fetching dashboard data');
 
       const response = await fetch('/api/user/dashboard');
       const data = await response.json();
@@ -67,11 +67,11 @@ const Dashboard: React.FC = () => {
         throw new Error(data.message || 'Dashboard verileri alınamadı');
       }
 
-      logInfo('Dashboard data loaded successfully');
+      logger.info('Dashboard data loaded successfully');
       setDashboardData(data);
     } catch (error) {
-      logError('Dashboard data fetch failed', error);
-      console.error('Dashboard error:', error);
+      logger.error('Dashboard data fetch failed', error);
+      logger.error('Dashboard error:', error as Error, {component:'Dashboard'});
     } finally {
       setLoading(false);
     }

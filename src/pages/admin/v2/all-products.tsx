@@ -8,6 +8,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import {
+import logger from '../../../../lib/logger';
   ArrowLeft, Plus, Search, Filter, Download, Upload,
   Eye, Edit, Trash2, Check, X, AlertCircle, Package,
   Car, Bus, Home, MapPin, Calendar, DollarSign,
@@ -118,7 +119,7 @@ const AllProductsManagement = () => {
         setTotal(result.pagination?.total || 0);
       }
     } catch (error) {
-      console.error('Error fetching data:', error);
+      logger.error('Error fetching data:', error as Error, { component: 'AllProducts' });
     } finally {
       setLoading(false);
     }
@@ -142,7 +143,7 @@ const AllProductsManagement = () => {
         alert('Ürün başarıyla silindi');
       }
     } catch (error) {
-      console.error('Error deleting:', error);
+      logger.error('Error deleting:', error as Error, { component: 'AllProducts' });
       alert('Silme işlemi başarısız');
     }
   };
@@ -160,7 +161,7 @@ const AllProductsManagement = () => {
         fetchData();
       }
     } catch (error) {
-      console.error('Error updating status:', error);
+      logger.error('Error updating status:', error as Error, { component: 'AllProducts' });
     }
   };
 
@@ -485,7 +486,7 @@ const AddProductModal = ({
         alert('Ekleme başarısız');
       }
     } catch (error) {
-      console.error('Error adding product:', error);
+      logger.error('Error adding product:', error as Error, { component: 'AllProducts' });
       alert('Bir hata oluştu');
     } finally {
       setSubmitting(false);

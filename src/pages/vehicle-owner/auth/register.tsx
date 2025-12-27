@@ -19,6 +19,7 @@ import {
 } from 'lucide-react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import logger from '../../../../../lib/logger';
 
 interface FormData {
   fullName: string;
@@ -189,7 +190,7 @@ export default function VehicleOwnerRegisterPage() {
 
     // Simulate API call
     setTimeout(() => {
-      console.log('Register data:', formData);
+      logger.debug('Register data:', {component:'Register', metadata:{formData}});
       setIsLoading(false);
       // Redirect to success page or login
       router.push('/vehicle-owner');

@@ -16,6 +16,7 @@ import {
   Scatter,
 } from 'recharts';
 import { format } from 'date-fns';
+import logger from '../../../../lib/logger';
 
 interface PriceDataPoint {
   date: Date;
@@ -115,7 +116,7 @@ export default function PriceChart({
         setChartData(formattedHistory);
       }
     } catch (error) {
-      console.error('Error fetching price data:', error);
+      logger.error('Error fetching price data:', error as Error, {component:'Pricechart'});
       setChartData([]);
     } finally {
       setLoading(false);

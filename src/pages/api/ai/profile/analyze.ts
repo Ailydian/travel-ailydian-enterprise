@@ -10,6 +10,7 @@ import { authOptions } from '../../auth/[...nextauth]';
 import { withRateLimit, publicRateLimiter } from '@/lib/middleware/rate-limiter';
 import { neuralxChat } from '@/lib/groq-service';
 import { prisma } from '@/lib/prisma';
+import logger from '../../../../../../lib/logger';
 
 interface UserBehaviorData {
   pastBookings?: Array<{
@@ -190,7 +191,7 @@ Return ONLY valid JSON matching this structure:
     });
 
   } catch (error: any) {
-    console.error('AI Profile Analysis Error:', error);
+    logger.error('AI Profile Analysis Error:', error as Error, {component:'Analyze'});
 
     return res.status(500).json({
       error: 'Failed to analyze travel profile',

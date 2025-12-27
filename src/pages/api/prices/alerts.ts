@@ -2,6 +2,7 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 import { getServerSession } from 'next-auth';
 import { prisma } from '@/lib/prisma';
 import { authOptions } from '../auth/[...nextauth]';
+import logger from '../../../../../lib/logger';
 
 export default async function handler(
   req: NextApiRequest,
@@ -106,7 +107,7 @@ export default async function handler(
 
     return res.status(405).json({ error: 'Method not allowed' });
   } catch (error) {
-    console.error('Error managing price alerts:', error);
+    logger.error('Error managing price alerts:', error as Error, {component:'Alerts'});
     return res.status(500).json({ error: 'Internal server error' });
   }
 }

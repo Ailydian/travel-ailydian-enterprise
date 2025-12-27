@@ -6,6 +6,7 @@
 
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { getContinuousSeoService } from '@/lib/seo/continuousSeoService';
+import logger from '../../../../../lib/logger';
 
 export default async function handler(
   req: NextApiRequest,
@@ -18,7 +19,7 @@ export default async function handler(
   }
 
   try {
-    console.log('🚀 SEO güncelleme cron job başlatıldı...');
+    logger.debug('🚀 SEO güncelleme cron job başlatıldı...', { component: 'UpdateSeo' });
 
     const seoService = getContinuousSeoService();
 
@@ -28,7 +29,7 @@ export default async function handler(
     // Rapor oluştur
     const report = await seoService.generateSeoReport();
 
-    console.log('✅ SEO güncelleme tamamlandı');
+    logger.debug('✅ SEO güncelleme tamamlandı', { component: 'UpdateSeo' });
 
     return res.status(200).json({
       success: true,
@@ -38,7 +39,7 @@ export default async function handler(
     });
 
   } catch (error: any) {
-    console.error('❌ SEO güncelleme hatası:', error);
+    logger.error('❌ SEO güncelleme hatası:', error as Error, { component: 'UpdateSeo' });
 
     return res.status(500).json({
       error: 'SEO update failed',

@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSession } from 'next-auth/react';
 import { format } from 'date-fns';
+import logger from '../../../../lib/logger';
 
 interface PriceAlert {
   id: string;
@@ -44,7 +45,7 @@ export default function PriceAlertsDashboard() {
         setAlerts(data.alerts);
       }
     } catch (error) {
-      console.error('Error fetching alerts:', error);
+      logger.error('Error fetching alerts:', error as Error, { component: 'Pricealertsdashboard' });
     } finally {
       setLoading(false);
     }
@@ -66,7 +67,7 @@ export default function PriceAlertsDashboard() {
         alert('Failed to delete alert');
       }
     } catch (error) {
-      console.error('Error deleting alert:', error);
+      logger.error('Error deleting alert:', error as Error, { component: 'Pricealertsdashboard' });
       alert('Failed to delete alert');
     }
   };
@@ -93,7 +94,7 @@ export default function PriceAlertsDashboard() {
         alert('Failed to update alert');
       }
     } catch (error) {
-      console.error('Error updating alert:', error);
+      logger.error('Error updating alert:', error as Error, { component: 'Pricealertsdashboard' });
       alert('Failed to update alert');
     }
   };

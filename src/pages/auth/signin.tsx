@@ -19,7 +19,7 @@ import {
   Home,
   ArrowLeft
 } from 'lucide-react';
-import { logInfo, logError } from '../../lib/logger';
+import logger from '../../lib/logger';
 
 // Custom icons for social providers
 const GoogleIcon = () => (
@@ -84,7 +84,7 @@ const SignIn: React.FC = () => {
     }
 
     try {
-      logInfo('User attempting sign in', { email: formData.email });
+      logger.info('User attempting sign in', { email: formData.email });
 
       const result = await signIn('credentials', {
         redirect: false,
@@ -93,17 +93,17 @@ const SignIn: React.FC = () => {
       });
 
       if (result?.error) {
-        logError('Sign in failed', new Error(result.error));
+        logger.error('Sign in failed', new Error(result.error));
         setError(result.error);
         return;
       }
 
       if (result?.ok) {
-        logInfo('User signed in successfully', { email: formData.email });
+        logger.info('User signed in successfully', { email: formData.email });
         router.push('/dashboard');
       }
     } catch (err) {
-      logError('Sign in error', err);
+      logger.error('Sign in error', err);
       setError('Giriş yaparken bir hata oluştu');
     } finally {
       setIsLoading(false);
@@ -113,10 +113,10 @@ const SignIn: React.FC = () => {
   const handleSocialSignIn = async (provider: 'google' | 'facebook') => {
     setIsLoading(true);
     try {
-      logInfo(`User attempting ${provider} sign in`);
+      logger.info(`User attempting ${provider} sign in`);
       await signIn(provider, { callbackUrl: '/dashboard' });
     } catch (err) {
-      logError(`${provider} sign in error`, err);
+      logger.error(`${provider} sign in error`, err);
       setError('Sosyal medya girişi başarısız oldu');
       setIsLoading(false);
     }

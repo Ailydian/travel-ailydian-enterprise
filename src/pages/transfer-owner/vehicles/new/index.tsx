@@ -17,6 +17,7 @@ import Step3Photos from '@/app/transfer-owner/vehicles/new/Step3Photos';
 import Step4Routes from '@/app/transfer-owner/vehicles/new/Step4Routes';
 import Step5Legal from '@/app/transfer-owner/vehicles/new/Step5Legal';
 import Step6Review from '@/app/transfer-owner/vehicles/new/Step6Review';
+import logger from '../../../../../lib/logger';
 
 const TOTAL_STEPS = 6;
 const LOCAL_STORAGE_KEY = 'transfer-vehicle-submission-draft';
@@ -91,7 +92,7 @@ export default function TransferVehicleSubmissionWizard() {
           }
         }
       } catch (error) {
-        console.error('Taslak yüklenemedi:', error);
+        logger.error('Taslak yüklenemedi:', error as Error, { component: 'Index' });
       }
     };
 
@@ -112,7 +113,7 @@ export default function TransferVehicleSubmissionWizard() {
         localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(draftData));
         setLastSavedAt(new Date());
       } catch (error) {
-        console.error('Otomatik kayıt başarısız:', error);
+        logger.error('Otomatik kayıt başarısız:', error as Error, { component: 'Index' });
       }
     };
 
@@ -140,7 +141,7 @@ export default function TransferVehicleSubmissionWizard() {
       setLastSavedAt(new Date());
       alert('Taslak başarıyla kaydedildi!');
     } catch (error) {
-      console.error('Taslak kaydedilemedi:', error);
+      logger.error('Taslak kaydedilemedi:', error as Error, { component: 'Index' });
       alert('Taslak kaydedilemedi. Lütfen tekrar deneyin.');
     }
   }, [allFormData, currentStep, completedSteps]);
@@ -206,7 +207,7 @@ export default function TransferVehicleSubmissionWizard() {
         window.location.href = '/transfer-owner/dashboard/vehicles';
       }, 3000);
     } catch (error) {
-      console.error('Gönderim hatası:', error);
+      logger.error('Gönderim hatası:', error as Error, { component: 'Index' });
       alert('Araç eklenemedi. Lütfen tekrar deneyin.');
     } finally {
       setIsSubmitting(false);

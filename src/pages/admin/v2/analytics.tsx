@@ -7,6 +7,7 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import {
+import logger from '../../../../../lib/logger';
   ArrowLeft, TrendingUp, TrendingDown, DollarSign, Users,
   Calendar, Download, RefreshCw, Filter, BarChart3,
   PieChart, Activity, Target, Globe, MapPin, Star,
@@ -28,7 +29,7 @@ const AdvancedAnalytics = () => {
         setStats(result.data);
       }
     } catch (error) {
-      console.error('Error fetching analytics:', error);
+      logger.error('Error fetching analytics:', error as Error, {component:'Analytics'});
     } finally {
       setLoading(false);
     }

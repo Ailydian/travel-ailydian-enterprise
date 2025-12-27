@@ -20,6 +20,7 @@ import {
   Globe
 } from 'lucide-react';
 import { LocationAutocomplete } from './LocationAutocomplete';
+import logger from '../../../../lib/logger';
 
 interface QuickSearchModalProps {
   isOpen: boolean;
@@ -122,7 +123,7 @@ const QuickSearchModal: React.FC<QuickSearchModalProps> = ({
       // Close modal after navigation
       onClose();
     } catch (error) {
-      console.error('❌ Arama hatası:', error);
+      logger.error('❌ Arama hatası:', error as Error, {component:'Quicksearchmodal'});
       alert('⚠️ Arama sırasında bir hata oluştu. Lütfen tekrar deneyin.');
     } finally {
       setIsSearching(false);

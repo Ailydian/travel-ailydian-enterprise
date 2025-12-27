@@ -1,3 +1,5 @@
+import logger from '../logger';
+
 /**
  * Multilingual SEO AI System
  * 7/24 çalışan, çok dilli, otomatik SEO optimizasyon sistemi
@@ -236,7 +238,7 @@ export class MultilingualSeoAI {
    * Otomatik SEO optimizasyonu
    */
   async optimizeAllPages(): Promise<void> {
-    console.log('🤖 Multilingual SEO AI başlatıldı...');
+    logger.debug('🤖 Multilingual SEO AI başlatıldı...', { component: 'Multilingualseoai' });
 
     // Tüm diller için optimizasyon
     for (const lang of this.languages) {
@@ -248,14 +250,14 @@ export class MultilingualSeoAI {
       await this.optimizeForSearchEngine(engine);
     }
 
-    console.log('✅ Multilingual SEO optimizasyonu tamamlandı');
+    logger.debug('✅ Multilingual SEO optimizasyonu tamamlandı', { component: 'Multilingualseoai' });
   }
 
   /**
    * Belirli bir dil için optimizasyon
    */
   private async optimizeForLanguage(lang: string): Promise<void> {
-    console.log(`🌍 ${lang.toUpperCase()} dili için SEO optimizasyonu...`);
+    logger.debug(`🌍 ${lang.toUpperCase()} dili için SEO optimizasyonu...`, { component: 'Multilingualseoai' });
 
     // Ana sayfa
     await this.generateLanguageMetadata(this.homePageSEO, lang);
@@ -270,7 +272,7 @@ export class MultilingualSeoAI {
    * Belirli bir arama motoru için optimizasyon
    */
   private async optimizeForSearchEngine(engine: string): Promise<void> {
-    console.log(`🔍 ${engine} için SEO optimizasyonu...`);
+    logger.debug(`🔍 ${engine} için SEO optimizasyonu...`, { component: 'Multilingualseoai' });
 
     switch (engine) {
       case 'google':

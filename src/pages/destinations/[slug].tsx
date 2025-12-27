@@ -36,6 +36,7 @@ import {
   getDestinationById
 } from '../../data/destinations-turkey';
 import { EXPERIENCES_TURKEY, getExperiencesByDestination } from '../../data/experiences-turkey';
+import logger from '../../../../lib/logger';
 
 interface DestinationDetailProps {
   destination: Destination;
@@ -88,7 +89,7 @@ export default function DestinationDetail({ destination, relatedDestinations, ex
           url: window.location.href
         });
       } catch (err) {
-        console.log('Share cancelled');
+        logger.debug('Share cancelled', {component:'Slug'});
       }
     } else {
       // Fallback: copy to clipboard

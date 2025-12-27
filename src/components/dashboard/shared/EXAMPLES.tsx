@@ -1,3 +1,5 @@
+import logger from '../../lib/logger';
+
 /**
  * Usage Examples for Shared Dashboard Components
  *
@@ -117,15 +119,15 @@ export const PropertyGridExample = () => {
   ];
 
   const handleEdit = (id: string) => {
-    console.log('Edit property:', id);
+    logger.debug('Edit property:', { component: 'Examples', metadata: id });
   };
 
   const handleView = (id: string) => {
-    console.log('View property:', id);
+    logger.debug('View property:', { component: 'Examples', metadata: id });
   };
 
   const handleToggleStatus = (id: string) => {
-    console.log('Toggle status:', id);
+    logger.debug('Toggle status:', { component: 'Examples', metadata: id });
   };
 
   if (loading) {
@@ -219,10 +221,10 @@ export const BookingsWithFiltersExample = () => {
             <BookingCard
               key={booking.id}
               {...booking}
-              onConfirm={(id) => console.log('Confirm:', id)}
-              onCancel={(id) => console.log('Cancel:', id)}
-              onViewDetails={(id) => console.log('View:', id)}
-              onMessage={(id) => console.log('Message:', id)}
+              onConfirm={(id) => logger.debug('Confirm:', { component: 'Examples', metadata: id })}
+              onCancel={(id) => logger.debug('Cancel:', { component: 'Examples', metadata: id })}
+              onViewDetails={(id) => logger.debug('View:', { component: 'Examples', metadata: id })}
+              onMessage={(id) => logger.debug('Message:', { component: 'Examples', metadata: id })}
             />
           ))}
         </div>
@@ -311,17 +313,17 @@ export const UsersDataTableExample = () => {
     {
       label: 'View Profile',
       icon: Eye,
-      onClick: (user) => console.log('View:', user),
+      onClick: (user) => logger.debug('View:', { component: 'Examples', metadata: user }),
     },
     {
       label: 'Edit',
       icon: Edit,
-      onClick: (user) => console.log('Edit:', user),
+      onClick: (user) => logger.debug('Edit:', { component: 'Examples', metadata: user }),
     },
     {
       label: 'Delete',
       icon: Trash,
-      onClick: (user) => console.log('Delete:', user),
+      onClick: (user) => logger.debug('Delete:', { component: 'Examples', metadata: user }),
       danger: true,
       show: (user) => user.role !== 'Admin',
     },
@@ -340,7 +342,7 @@ export const UsersDataTableExample = () => {
         title: 'No users found',
         description: 'Start by inviting team members',
         actionLabel: 'Invite User',
-        onAction: () => console.log('Invite user'),
+        onAction: () => logger.debug('Invite user', { component: 'Examples' }),
       }}
     />
   );

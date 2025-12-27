@@ -1,5 +1,6 @@
 import { Location, Review, SearchLocationsRequest, SearchLocationsResponse, City, Country, LocationCategory } from '../types/review-system';
 import reviewService from '../services/review-service';
+import logger from '../logger';
 
 // Advanced search types
 export interface AdvancedSearchFilters {
@@ -200,7 +201,7 @@ class AdvancedSearchEngine {
       };
 
     } catch (error) {
-      console.error('Advanced search error:', error);
+      logger.error('Advanced search error:', error as Error, { component: 'AdvancedSearch' });
       throw error;
     }
   }
@@ -398,7 +399,7 @@ class AdvancedSearchEngine {
       suggestions.push(...historySuggestions);
 
     } catch (error) {
-      console.error('Error generating suggestions:', error);
+      logger.error('Error generating suggestions:', error as Error, { component: 'AdvancedSearch' });
     }
 
     return suggestions.sort((a, b) => b.score - a.score).slice(0, 8);
@@ -447,7 +448,7 @@ class AdvancedSearchEngine {
         generated_at: new Date().toISOString()
       };
     } catch (error) {
-      console.error('Error refreshing trending data:', error);
+      logger.error('Error refreshing trending data:', error as Error, { component: 'AdvancedSearch' });
     }
   }
 
@@ -692,7 +693,7 @@ class AdvancedSearchEngine {
       // Remove the original location from results
       return results.locations.filter(loc => loc.id !== locationId).slice(0, limit);
     } catch (error) {
-      console.error('Error getting similar locations:', error);
+      logger.error('Error getting similar locations:', error as Error, { component: 'AdvancedSearch' });
       return [];
     }
   }

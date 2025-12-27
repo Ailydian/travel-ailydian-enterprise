@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Head from 'next/head';
 import { motion } from 'framer-motion';
 import {
+import logger from '../../../../lib/logger';
   Sparkles,
   FileText,
   Download,
@@ -50,7 +51,7 @@ const AIContentWriterPage: React.FC = () => {
         setActiveTab('preview');
       }
     } catch (error) {
-      console.error('Generation failed:', error);
+      logger.error('Generation failed:', error as Error, {component:'AiContentWriter'});
       alert('İçerik oluşturma başarısız oldu');
     } finally {
       setLoading(false);

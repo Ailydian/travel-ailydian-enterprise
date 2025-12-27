@@ -9,6 +9,7 @@ import { getServerSession } from 'next-auth/next';
 import { authOptions } from '../../auth/[...nextauth]';
 import { withRateLimit, publicRateLimiter } from '@/lib/middleware/rate-limiter';
 import { prisma } from '@/lib/prisma';
+import logger from '../../../../../../lib/logger';
 
 async function handler(req: NextApiRequest, res: NextApiResponse) {
   const { id } = req.query;
@@ -237,7 +238,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
     }
 
   } catch (error: any) {
-    console.error('Collaboration Room API Error:', error);
+    logger.error('Collaboration Room API Error:', error as Error, {component:'Id'});
 
     return res.status(500).json({
       error: 'Internal server error',

@@ -15,6 +15,7 @@ import {
   ChevronRight
 } from 'lucide-react';
 import {
+import logger from '../../../../lib/logger';
   calculateTierProgress,
   formatMiles,
   getTierColorClasses,
@@ -44,7 +45,7 @@ const MilesWallet: React.FC<MilesWalletProps> = ({ userId }) => {
           setTransactions(data.transactions);
         }
       } catch (error) {
-        console.error('Failed to fetch miles data:', error);
+        logger.error('Failed to fetch miles data:', error as Error, {component:'Mileswallet'});
       } finally {
         setLoading(false);
       }

@@ -8,6 +8,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import {
+import logger from '../../../../lib/logger';
   ArrowLeft, Plus, Edit2, Trash2, Save, X, Menu as MenuIcon,
   GripVertical, Eye, EyeOff, ChevronRight, Languages, Shield,
   ExternalLink, Smartphone, Monitor, LayoutGrid, Globe
@@ -66,7 +67,7 @@ const NavigationManager = () => {
         setMenus(result.data || []);
       }
     } catch (error) {
-      console.error('Error fetching menus:', error);
+      logger.error('Error fetching menus:', error as Error, { component: 'Navigation' });
     } finally {
       setLoading(false);
     }
@@ -98,7 +99,7 @@ const NavigationManager = () => {
         alert('Hata: ' + result.error);
       }
     } catch (error) {
-      console.error('Error saving menu:', error);
+      logger.error('Error saving menu:', error as Error, { component: 'Navigation' });
       alert('Kaydetme başarısız');
     } finally {
       setSaving(false);
@@ -122,7 +123,7 @@ const NavigationManager = () => {
         alert('Hata: ' + result.error);
       }
     } catch (error) {
-      console.error('Error deleting menu:', error);
+      logger.error('Error deleting menu:', error as Error, { component: 'Navigation' });
       alert('Silme başarısız');
     }
   };
@@ -139,7 +140,7 @@ const NavigationManager = () => {
         fetchMenus();
       }
     } catch (error) {
-      console.error('Error toggling active:', error);
+      logger.error('Error toggling active:', error as Error, { component: 'Navigation' });
     }
   };
 

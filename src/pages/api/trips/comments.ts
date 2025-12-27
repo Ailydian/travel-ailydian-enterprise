@@ -1,5 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { PrismaClient } from '@prisma/client';
+import logger from '../../../../../lib/logger';
 
 const prisma = new PrismaClient();
 
@@ -29,7 +30,7 @@ export default async function handler(
       return res.status(200).json({ comments });
 
     } catch (error: any) {
-      console.error('Error fetching comments:', error);
+      logger.error('Error fetching comments:', error as Error, { component: 'Comments' });
       return res.status(500).json({
         error: 'Failed to fetch comments',
         details: error.message
@@ -88,7 +89,7 @@ export default async function handler(
       });
 
     } catch (error: any) {
-      console.error('Error creating comment:', error);
+      logger.error('Error creating comment:', error as Error, { component: 'Comments' });
       return res.status(500).json({
         error: 'Failed to create comment',
         details: error.message
@@ -129,7 +130,7 @@ export default async function handler(
       });
 
     } catch (error: any) {
-      console.error('Error deleting comment:', error);
+      logger.error('Error deleting comment:', error as Error, { component: 'Comments' });
       return res.status(500).json({
         error: 'Failed to delete comment',
         details: error.message

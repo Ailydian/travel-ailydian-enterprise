@@ -7,6 +7,7 @@
 
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { getNirvanaOrchestrator } from '@/lib/seo/nirvanaOrchestrator';
+import logger from '../../../../../lib/logger';
 
 export default async function handler(
   req: NextApiRequest,
@@ -19,7 +20,7 @@ export default async function handler(
   }
 
   try {
-    console.log('🎼 NIRVANA SEO ORCHESTRATION başlatıldı...');
+    logger.debug('🎼 NIRVANA SEO ORCHESTRATION başlatıldı...', { component: 'NirvanaSeoOrchestration' });
     const startTime = Date.now();
 
     // Nirvana Orchestrator'ı başlat
@@ -30,7 +31,7 @@ export default async function handler(
 
     const duration = Date.now() - startTime;
 
-    console.log(`✅ Nirvana SEO Orchestration tamamlandı (${duration}ms)`);
+    logger.debug('✅ Nirvana SEO Orchestration tamamlandı (${duration}ms)', { component: 'NirvanaSeoOrchestration' });
 
     return res.status(200).json({
       success: true,
@@ -53,7 +54,7 @@ export default async function handler(
     });
 
   } catch (error: any) {
-    console.error('❌ Nirvana SEO Orchestration hatası:', error);
+    logger.error('❌ Nirvana SEO Orchestration hatası:', error as Error, { component: 'NirvanaSeoOrchestration' });
 
     return res.status(500).json({
       error: 'Nirvana SEO Orchestration failed',

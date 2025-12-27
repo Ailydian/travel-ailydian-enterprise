@@ -1,3 +1,5 @@
+import logger from './logger';
+
 // WhatsApp Business API Integration
 // 7/24 customer support and booking via WhatsApp
 
@@ -83,7 +85,7 @@ export async function sendTextMessage(
 
     return { success: false, error: data.error?.message || 'Unknown error' };
   } catch (error) {
-    console.error('WhatsApp send message error:', error);
+    logger.error('WhatsApp send message error:', error as Error, { component: 'Whatsappbusiness' });
     return { success: false, error: error instanceof Error ? error.message : 'Unknown error' };
   }
 }
@@ -122,7 +124,7 @@ export async function sendTemplateMessage(
 
     return { success: false, error: data.error?.message || 'Unknown error' };
   } catch (error) {
-    console.error('WhatsApp send template error:', error);
+    logger.error('WhatsApp send template error:', error as Error, { component: 'Whatsappbusiness' });
     return { success: false, error: error instanceof Error ? error.message : 'Unknown error' };
   }
 }
@@ -172,7 +174,7 @@ export async function sendButtonMessage(
 
     return { success: false, error: data.error?.message || 'Unknown error' };
   } catch (error) {
-    console.error('WhatsApp send button message error:', error);
+    logger.error('WhatsApp send button message error:', error as Error, { component: 'Whatsappbusiness' });
     return { success: false, error: error instanceof Error ? error.message : 'Unknown error' };
   }
 }
@@ -224,7 +226,7 @@ export async function sendListMessage(
 
     return { success: false, error: data.error?.message || 'Unknown error' };
   } catch (error) {
-    console.error('WhatsApp send list message error:', error);
+    logger.error('WhatsApp send list message error:', error as Error, { component: 'Whatsappbusiness' });
     return { success: false, error: error instanceof Error ? error.message : 'Unknown error' };
   }
 }
@@ -470,7 +472,7 @@ export class WhatsAppMessageQueue {
       }
 
       // Send message (implement actual sending logic)
-      console.log(`Sending WhatsApp message to ${item.to}: ${item.message}`);
+      logger.debug(`Sending WhatsApp message to ${item.to}: ${item.message}`, {component:'Whatsappbusiness'});
     }
 
     this.processing = false;

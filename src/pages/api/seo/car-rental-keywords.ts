@@ -1,3 +1,5 @@
+import logger from '../../../../../lib/logger';
+
 /**
  * Advanced SEO Keyword Generator for Car Rentals
  * Integrates with Transfer SEO system for maximum search engine visibility
@@ -268,7 +270,7 @@ export default async function handler(
       }
     });
   } catch (error) {
-    console.error('Error generating SEO keywords:', error);
+    logger.error('Error generating SEO keywords:', error as Error, {component:'CarRentalKeywords'});
     res.status(500).json({
       success: false,
       message: 'Internal server error'

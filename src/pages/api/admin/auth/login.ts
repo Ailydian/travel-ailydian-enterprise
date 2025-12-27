@@ -2,7 +2,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
 import { prisma } from '../../../../lib/prisma';
-import { logInfo, logError } from '../../../../lib/logger';
+import logger from '../../../../lib/logger';
 
 const JWT_SECRET = process.env.JWT_SECRET;
 
@@ -19,14 +19,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const { email, password } = req.body;
 
     if (!email || !password) {
-      logError('Admin login failed - missing credentials', new Error('Missing email or password'));
+      logger.error('Admin login failed - missing credentials', new Error('Missing email or password'));
       return res.status(400).json({
         success: false,
         error: 'Email and password are required'
       });
     }
 
-    logInfo('Admin login attempt', { email });
+    logger.info('Admin login attempt', { email });
 
     // Find admin user in database
     const adminUser = await prisma.admin.findUnique({
@@ -34,7 +34,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     });
 
     if (!adminUser) {
-      logError('Admin login failed - user not found', new Error('Invalid credentials'), { email });
+      logger.error('Admin login failed - user not found', new Error('Invalid credentials'), { email });
       return res.status(401).json({
         success: false,
         error: 'Invalid credentials'
@@ -42,7 +42,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     }
 
     if (!adminUser.isActive) {
-      logError('Admin login failed - account deactivated', new Error('Account inactive'), { email });
+      logger.error('Admin login failed - account deactivated', new Error('Account inactive'), { email });
       return res.status(401).json({
         success: false,
         error: 'Account is deactivated'
@@ -53,7 +53,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const isValidPassword = await bcrypt.compare(password, adminUser.passwordHash);
 
     if (!isValidPassword) {
-      logError('Admin login failed - invalid password', new Error('Invalid credentials'), { email });
+      logger.error('Admin login failed - invalid password', new Error('Invalid credentials'), { email });
       return res.status(401).json({
         success: false,
         error: 'Invalid credentials'
@@ -78,7 +78,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       data: { lastLogin: new Date() }
     });
 
-    logInfo('Admin login successful', { email, role: adminUser.role });
+    logger.info('Admin login successful', { email, role: adminUser.role });
 
     res.status(200).json({
       success: true,
@@ -94,7 +94,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       }
     });
   } catch (error) {
-    logError('Admin login error', error);
+    logger.error('Admin login error', error);
     res.status(500).json({
       success: false,
       error: 'Internal server error'

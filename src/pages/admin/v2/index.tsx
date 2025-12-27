@@ -37,6 +37,7 @@ import autoTable from 'jspdf-autotable';
 import { useDashboardWebSocket, BookingNotification, MetricUpdate } from '@/lib/websocket/dashboard';
 import { LiveNotifications, useNotificationSound } from '@/components/admin/LiveNotifications';
 
+import logger from '../lib/logger';
 // Types
 interface RealtimeMetric {
   id: string;
@@ -318,11 +319,11 @@ const AdminDashboardV2 = () => {
     // Connect to WebSocket
     dashboardWS.connect()
       .then(() => {
-        console.log('✅ Dashboard WebSocket connected successfully');
+        logger.debug('✅ Dashboard WebSocket connected successfully', { component: 'Index' });
         setWsConnected(true);
       })
       .catch((error) => {
-        console.error('Failed to connect to WebSocket:', error);
+        logger.error('Failed to connect to WebSocket:', error as Error, { component: 'Index' });
         setWsConnected(false);
       });
 
@@ -332,7 +333,7 @@ const AdminDashboardV2 = () => {
     // New booking event
     unsubscribers.push(
       dashboardWS.on('booking:new', (booking: BookingNotification) => {
-        console.log('📨 New booking:', booking);
+        logger.debug('📨 New booking:', { component: 'Index', metadata: booking });
         setNotifications((prev) => [booking, ...prev].slice(0, 5)); // Keep last 5
         playSound('info');
 
@@ -350,7 +351,7 @@ const AdminDashboardV2 = () => {
     // Confirmed booking event
     unsubscribers.push(
       dashboardWS.on('booking:confirmed', (booking: BookingNotification) => {
-        console.log('✅ Booking confirmed:', booking);
+        logger.debug('✅ Booking confirmed:', { component: 'Index', metadata: booking });
         setNotifications((prev) => [booking, ...prev].slice(0, 5));
         playSound('success');
       })
@@ -359,7 +360,7 @@ const AdminDashboardV2 = () => {
     // Cancelled booking event
     unsubscribers.push(
       dashboardWS.on('booking:cancelled', (booking: BookingNotification) => {
-        console.log('❌ Booking cancelled:', booking);
+        logger.debug('❌ Booking cancelled:', { component: 'Index', metadata: booking });
         setNotifications((prev) => [booking, ...prev].slice(0, 5));
         playSound('error');
       })
@@ -368,7 +369,7 @@ const AdminDashboardV2 = () => {
     // Real-time metrics update
     unsubscribers.push(
       dashboardWS.on('metrics:update', (update: MetricUpdate) => {
-        console.log('📊 Metrics update:', update);
+        logger.debug('📊 Metrics update:', { component: 'Index', metadata: update });
         setMetrics((prev) =>
           prev.map((m) => {
             if (m.id === 'revenue') {
@@ -561,7 +562,7 @@ const AdminDashboardV2 = () => {
           }
         }
       } catch (error) {
-        console.error('Error fetching dashboard data:', error);
+        logger.error('Error fetching dashboard data:', error as Error, { component: 'Index' });
       }
     };
 

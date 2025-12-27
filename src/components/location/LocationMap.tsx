@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { MapPin } from 'lucide-react';
 import { Coordinates } from '../../lib/types/review-system';
+import logger from '../../../../lib/logger';
 
 interface LocationMapProps {
   coordinates: Coordinates;
@@ -25,7 +26,7 @@ const LocationMap: React.FC<LocationMapProps> = ({
 
       // For now, we'll show a placeholder map
       // In a real implementation, you would integrate with Google Maps, Mapbox, or OpenStreetMap
-      console.log('Map would be initialized here with coordinates:', coordinates);
+      logger.debug('Map would be initialized here with coordinates:', {component:'Locationmap',metadata:{coordinates}});
     };
 
     initializeMap();

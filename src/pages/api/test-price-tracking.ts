@@ -2,6 +2,7 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 import { prisma } from '@/lib/prisma';
 import { savePriceData } from '@/lib/services/price-data-collector';
 import { predictPrices } from '@/lib/services/ml-price-predictor';
+import logger from '../../../../lib/logger';
 
 /**
  * Test endpoint for price tracking system
@@ -57,7 +58,7 @@ export default async function handler(
         });
     }
   } catch (error) {
-    console.error('Error in test endpoint:', error);
+    logger.error('Error in test endpoint:', error as Error, { component: 'TestPriceTracking' });
     return res.status(500).json({
       error: 'Test failed',
       message: error instanceof Error ? error.message : 'Unknown error',
@@ -111,7 +112,7 @@ async function seedTestPriceData() {
     });
   }
 
-  console.log('Seeded 30 days of test price data');
+  logger.debug('Seeded 30 days of test price data', { component: 'TestPriceTracking' });
 }
 
 async function testPredictions() {
@@ -204,5 +205,5 @@ async function cleanTestData() {
     },
   });
 
-  console.log(`Cleaned ${result.count} test price records`);
+  logger.debug('Cleaned ${result.count} test price records', { component: 'TestPriceTracking' });
 }

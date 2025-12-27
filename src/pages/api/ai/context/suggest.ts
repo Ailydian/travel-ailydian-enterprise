@@ -7,6 +7,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { withRateLimit, publicRateLimiter } from '@/lib/middleware/rate-limiter';
 import { neuralxChat } from '@/lib/groq-service';
+import logger from '../../../../../../lib/logger';
 
 interface ContextualRequest {
   destination: string;
@@ -280,7 +281,7 @@ Return ONLY valid JSON with this structure:
     });
 
   } catch (error: any) {
-    console.error('Contextual Suggestions Error:', error);
+    logger.error('Contextual Suggestions Error:', error as Error, {component:'Suggest'});
 
     return res.status(500).json({
       error: 'Failed to generate contextual suggestions',

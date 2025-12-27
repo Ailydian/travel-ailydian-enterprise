@@ -1,5 +1,6 @@
 import { ethers } from 'ethers';
 
+import logger from 'lib/logger';
 // Types
 export interface WalletInfo {
   address: string;
@@ -99,7 +100,7 @@ class Web3Utils {
 
       return walletInfo;
     } catch (error) {
-      console.error('Error connecting wallet:', error);
+      logger.error('Error connecting wallet:', error as Error, { component: 'Web3utils' });
       throw error;
     }
   }
@@ -112,7 +113,7 @@ class Web3Utils {
       // Mock implementation for demo
       return Math.random() * 1000;
     } catch (error) {
-      console.error('Error getting token balance:', error);
+      logger.error('Error getting token balance:', error as Error, { component: 'Web3utils' });
       return null;
     }
   }
@@ -151,7 +152,7 @@ class Web3Utils {
         transactionHash: mockTxHash
       };
     } catch (error) {
-      console.error('Error minting NFT:', error);
+      logger.error('Error minting NFT:', error as Error, { component: 'Web3utils' });
       throw error;
     }
   }
@@ -164,7 +165,7 @@ class Web3Utils {
       // Mock implementation for demo
       return [];
     } catch (error) {
-      console.error('Error getting user NFTs:', error);
+      logger.error('Error getting user NFTs:', error as Error, { component: 'Web3utils' });
       return [];
     }
   }
@@ -195,7 +196,7 @@ class Web3Utils {
         timestamp: new Date()
       };
     } catch (error) {
-      console.error('Error processing payment:', error);
+      logger.error('Error processing payment:', error as Error, { component: 'Web3utils' });
       throw error;
     }
   }
@@ -265,7 +266,7 @@ class Web3Utils {
         }]
       });
     } catch (error) {
-      console.error('Error adding network:', error);
+      logger.error('Error adding network:', error as Error, { component: 'Web3utils' });
     }
   }
 

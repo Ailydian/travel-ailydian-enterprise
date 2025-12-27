@@ -2,6 +2,7 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 import Groq from 'groq-sdk';
 import { addDays, differenceInDays, format } from 'date-fns';
 import { withRateLimit, groqRateLimiter } from '@/lib/middleware/rate-limiter';
+import logger from '../../../../../lib/logger';
 
 const groq = new Groq({
   apiKey: process.env.GROQ_API_KEY
@@ -170,7 +171,7 @@ Return the itinerary as a structured JSON with the following format:
     try {
       itineraryData = JSON.parse(aiResponse);
     } catch (parseError) {
-      console.error('Failed to parse Groq response:', aiResponse);
+      logger.error('Failed to parse Groq response:', aiResponse as Error, { component: 'GenerateItinerary' });
       // Fallback to mock data if parsing fails
       itineraryData = generateMockItinerary(preferences, numberOfDays);
     }
@@ -195,7 +196,7 @@ Return the itinerary as a structured JSON with the following format:
     });
 
   } catch (error: any) {
-    console.error('Error generating itinerary:', error);
+    logger.error('Error generating itinerary:', error as Error, { component: 'GenerateItinerary' });
 
     // If Groq fails, return mock data
     const preferences: TripPreferences = req.body;

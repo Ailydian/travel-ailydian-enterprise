@@ -42,6 +42,7 @@ import {
   ArcElement
 } from 'chart.js';
 import { Line, Bar, Doughnut } from 'react-chartjs-2';
+import logger from '../../../../../lib/logger';
 
 // Register ChartJS components
 ChartJS.register(
@@ -177,7 +178,7 @@ const VehicleOwnerDashboard: React.FC = () => {
       setBookings(data.bookings);
       setLoading(false);
     } catch (error) {
-      console.error('Failed to fetch dashboard data:', error);
+      logger.error('Failed to fetch dashboard data:', error as Error, {component:'Dashboard'});
       setSyncStatus('error');
       setLoading(false);
     }

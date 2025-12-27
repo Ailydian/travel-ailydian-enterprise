@@ -28,6 +28,7 @@ import {
   Globe
 } from 'lucide-react';
 import { format, addDays, differenceInDays } from 'date-fns';
+import logger from '../../../../lib/logger';
 
 interface TripPreferences {
   destination: string;
@@ -169,17 +170,17 @@ const EnhancedTripPlanner: React.FC = () => {
 
   const exportToPDF = async () => {
     // Implement PDF export
-    console.log('Exporting to PDF...');
+    logger.debug('Exporting to PDF...', { component: 'Enhancedtripplanner' });
   };
 
   const exportToCalendar = async () => {
     // Implement calendar export (ICS format)
-    console.log('Exporting to calendar...');
+    logger.debug('Exporting to calendar...', { component: 'Enhancedtripplanner' });
   };
 
   const shareItinerary = async () => {
     // Implement sharing functionality
-    console.log('Sharing itinerary...');
+    logger.debug('Sharing itinerary...', { component: 'Enhancedtripplanner' });
   };
 
   const toggleInterest = (interest: string) => {

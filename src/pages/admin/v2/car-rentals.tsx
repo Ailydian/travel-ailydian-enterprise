@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { Car, Search, Filter, Plus, Edit2, Copy, Star, Power, Trash2, ChevronDown } from 'lucide-react';
+import logger from '../../../../lib/logger';
 
 interface CarRental {
   id: string;
@@ -91,7 +92,7 @@ export default function CarRentalsManagement() {
         setStats(statsData);
       }
     } catch (error) {
-      console.error('Error fetching cars:', error);
+      logger.error('Error fetching cars:', error as Error, { component: 'CarRentals' });
     } finally {
       setLoading(false);
     }
@@ -109,7 +110,7 @@ export default function CarRentalsManagement() {
         fetchCars();
       }
     } catch (error) {
-      console.error('Error toggling active status:', error);
+      logger.error('Error toggling active status:', error as Error, { component: 'CarRentals' });
     }
   };
 
@@ -125,7 +126,7 @@ export default function CarRentalsManagement() {
         fetchCars();
       }
     } catch (error) {
-      console.error('Error toggling featured status:', error);
+      logger.error('Error toggling featured status:', error as Error, { component: 'CarRentals' });
     }
   };
 
@@ -146,7 +147,7 @@ export default function CarRentalsManagement() {
         alert(data.error || 'Araç silinemedi');
       }
     } catch (error) {
-      console.error('Error deleting car:', error);
+      logger.error('Error deleting car:', error as Error, { component: 'CarRentals' });
       alert('Bir hata oluştu');
     }
   };

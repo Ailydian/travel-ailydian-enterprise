@@ -1,5 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { restaurantService, type RestaurantSearchParams } from '@/lib/restaurant-service';
+import logger from '../../../../../lib/logger';
 
 interface RestaurantSearchRequest extends RestaurantSearchParams {
   sortBy?: 'rating' | 'distance' | 'price' | 'reviews';
@@ -67,7 +68,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       limit: Math.min(50, Math.max(1, searchParams.limit || 20))
     };
 
-    console.log('Restaurant search request:', searchRequest);
+    logger.debug('Restaurant search request:', { component: 'Restaurants', metadata: { searchRequest } });
 
     // Search restaurants using restaurant service
     const restaurants = await restaurantService.searchRestaurants(searchRequest);
@@ -169,7 +170,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     });
 
   } catch (error) {
-    console.error('Restaurant search API error:', error);
+    logger.error('Restaurant search API error:', error as Error, { component: 'Restaurants' });
 
     // Return error response
     const errorMessage = error instanceof Error ? error.message : 'An unknown error occurred';

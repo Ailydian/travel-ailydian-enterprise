@@ -40,6 +40,7 @@ import Step7Documents from '@/app/vehicle-owner/vehicles/new/Step7Documents';
 import Step8Review from '@/app/vehicle-owner/vehicles/new/Step8Review';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import logger from '../../../../../lib/logger';
 
 export async function getStaticProps({ locale }: any) {
   return {
@@ -143,7 +144,7 @@ export default function VehicleSubmissionWizard() {
           }
         }
       } catch (error) {
-        console.error('Failed to load draft:', error);
+        logger.error('Failed to load draft:', error as Error, { component: 'Index' });
       }
     };
 
@@ -164,7 +165,7 @@ export default function VehicleSubmissionWizard() {
         localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(draftData));
         setLastSavedAt(new Date());
       } catch (error) {
-        console.error('Failed to auto-save:', error);
+        logger.error('Failed to auto-save:', error as Error, { component: 'Index' });
       }
     };
 
@@ -192,7 +193,7 @@ export default function VehicleSubmissionWizard() {
       setLastSavedAt(new Date());
       alert('Taslak başarıyla kaydedildi!');
     } catch (error) {
-      console.error('Failed to save draft:', error);
+      logger.error('Failed to save draft:', error as Error, { component: 'Index' });
       alert('Taslak kaydedilemedi. Lütfen tekrar deneyin.');
     }
   }, [allFormData, currentStep, completedSteps]);
@@ -259,7 +260,7 @@ export default function VehicleSubmissionWizard() {
         window.location.href = '/vehicle-owner/dashboard/vehicles';
       }, 3000);
     } catch (error) {
-      console.error('Submission error:', error);
+      logger.error('Submission error:', error as Error, { component: 'Index' });
       alert('Araç gönderilemedi. Lütfen tekrar deneyin.');
     } finally {
       setIsSubmitting(false);

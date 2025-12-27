@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { useSession } from 'next-auth/react';
+import logger from '../../../../lib/logger';
 
 interface WatchPriceButtonProps {
   entityType: 'HOTEL' | 'FLIGHT' | 'TOUR';
@@ -53,7 +54,7 @@ export default function WatchPriceButton({
         setIsWatching(true);
       }
     } catch (error) {
-      console.error('Error checking watch status:', error);
+      logger.error('Error checking watch status:', error as Error, { component: 'Watchpricebutton' });
     }
   };
 
@@ -107,7 +108,7 @@ export default function WatchPriceButton({
         alert('Failed to set price alert: ' + data.error);
       }
     } catch (error) {
-      console.error('Error setting price alert:', error);
+      logger.error('Error setting price alert:', error as Error, { component: 'Watchpricebutton' });
       alert('Failed to set price alert');
     } finally {
       setLoading(false);

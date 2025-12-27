@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
+import logger from '../lib/logger';
 
 export interface ThemeColors {
   'ac-1': string;    // Primary accent
@@ -252,7 +253,7 @@ export const useTheme = () => {
       
       return generatedTheme;
     } catch (error) {
-      console.error('Theme generation failed:', error);
+      logger.error('Theme generation failed:', error as Error, {component:'Usetheme'});
       return null;
     }
   }, []);

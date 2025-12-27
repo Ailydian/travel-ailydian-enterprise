@@ -1,5 +1,6 @@
 import { Location, City, Country } from '../types/review-system';
 import reviewService from '../services/review-service';
+import logger from '../logger';
 
 interface SitemapUrl {
   loc: string;
@@ -140,7 +141,7 @@ export class SitemapGenerator {
 
       return this.generateSitemapXml(urls);
     } catch (error) {
-      console.error('Error generating locations sitemap:', error);
+      logger.error('Error generating locations sitemap:', error as Error, { component: 'SitemapGenerator' });
       return this.generateSitemapXml([]);
     }
   }
@@ -191,7 +192,7 @@ export class SitemapGenerator {
 
       return this.generateSitemapXml(urls);
     } catch (error) {
-      console.error('Error generating cities sitemap:', error);
+      logger.error('Error generating cities sitemap:', error as Error, { component: 'SitemapGenerator' });
       return this.generateSitemapXml([]);
     }
   }
@@ -242,7 +243,7 @@ export class SitemapGenerator {
 
       return this.generateSitemapXml(urls);
     } catch (error) {
-      console.error('Error generating countries sitemap:', error);
+      logger.error('Error generating countries sitemap:', error as Error, { component: 'SitemapGenerator' });
       return this.generateSitemapXml([]);
     }
   }
@@ -293,7 +294,7 @@ export class SitemapGenerator {
 
       return this.generateSitemapXml(urls);
     } catch (error) {
-      console.error('Error generating categories sitemap:', error);
+      logger.error('Error generating categories sitemap:', error as Error, { component: 'SitemapGenerator' });
       return this.generateSitemapXml([]);
     }
   }

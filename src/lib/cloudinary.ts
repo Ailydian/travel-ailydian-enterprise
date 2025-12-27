@@ -1,6 +1,7 @@
 // Cloudinary Configuration and Utilities
 
 import { v2 as cloudinary } from 'cloudinary';
+import logger from './logger';
 
 // Initialize Cloudinary
 if (process.env.CLOUDINARY_CLOUD_NAME) {
@@ -49,7 +50,7 @@ export const uploadToCloudinary = async (
       format: result.format,
     };
   } catch (error) {
-    console.error('Cloudinary upload error:', error);
+    logger.error('Cloudinary upload error:', error as Error, { component: 'Cloudinary' });
     throw new Error('Failed to upload image to Cloudinary');
   }
 };
@@ -61,7 +62,7 @@ export const deleteFromCloudinary = async (publicId: string): Promise<void> => {
   try {
     await cloudinary.uploader.destroy(publicId);
   } catch (error) {
-    console.error('Cloudinary delete error:', error);
+    logger.error('Cloudinary delete error:', error as Error, { component: 'Cloudinary' });
     throw new Error('Failed to delete image from Cloudinary');
   }
 };
@@ -145,7 +146,7 @@ export const uploadFromUrl = async (
       publicId: result.public_id,
     };
   } catch (error) {
-    console.error('Cloudinary URL upload error:', error);
+    logger.error('Cloudinary URL upload error:', error as Error, { component: 'Cloudinary' });
     throw new Error('Failed to upload image from URL');
   }
 };

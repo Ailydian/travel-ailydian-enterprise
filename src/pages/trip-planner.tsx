@@ -23,6 +23,7 @@ import Head from 'next/head';
 import { format } from 'date-fns';
 import EnhancedTripPlanner from '@/components/ai/EnhancedTripPlanner';
 import CollaborativePlanning from '@/components/ai/CollaborativePlanning';
+import logger from '../../../lib/logger';
 
 // Dynamically import map component (client-side only)
 const InteractiveMap = dynamic(
@@ -85,11 +86,11 @@ const TripPlannerPage: React.FC = () => {
 
       if (response.ok) {
         const data = await response.json();
-        console.log('Trip saved:', data);
+        logger.debug('Trip saved:', {component:'TripPlanner', metadata:{data}});
         // Show success notification
       }
     } catch (error) {
-      console.error('Failed to save trip:', error);
+      logger.error('Failed to save trip:', error as Error, {component:'TripPlanner'});
     }
   };
 

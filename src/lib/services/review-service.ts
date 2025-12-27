@@ -1,5 +1,6 @@
 import axios from 'axios';
 import {
+import logger from '../logger';
   Location,
   Review,
   Photo,
@@ -310,7 +311,7 @@ class ReviewService {
 
       return response.data.result || null;
     } catch (error) {
-      console.error('Error fetching Google Place details:', error);
+      logger.error('Error fetching Google Place details:', error as Error, { component: 'ReviewService' });
       return null;
     }
   }
@@ -348,7 +349,7 @@ class ReviewService {
 
       return response.data.data || [];
     } catch (error) {
-      console.error('Error searching TripAdvisor locations:', error);
+      logger.error('Error searching TripAdvisor locations:', error as Error, { component: 'ReviewService' });
       return [];
     }
   }

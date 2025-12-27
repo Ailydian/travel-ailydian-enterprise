@@ -6,6 +6,7 @@ import {
   SearchSuggestion
 } from '../search/advanced-search';
 import { Location, SearchLocationsResponse } from '../types/review-system';
+import logger from '../logger';
 
 export interface AdvancedSearchResponse extends SearchLocationsResponse {
   suggestions?: SearchSuggestion[];
@@ -175,7 +176,7 @@ class AdvancedSearchService {
 
       return result.recommendations;
     } catch (error) {
-      console.error('Error getting homepage recommendations:', error);
+      logger.error('Error getting homepage recommendations:', error as Error, { component: 'AdvancedSearchService' });
       return [];
     }
   }

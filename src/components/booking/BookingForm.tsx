@@ -14,6 +14,7 @@ import {
   PaymentRequest
 } from '../../lib/pricingEngine';
 import { Tour, Hotel } from '../../data/turkeyTourismData';
+import logger from '../../../../lib/logger';
 
 interface BookingFormProps {
   item: Tour | Hotel;
@@ -209,7 +210,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
         alert(`Ödeme hatası: ${paymentResult.errorMessage}`);
       }
     } catch (error) {
-      console.error('Ödeme işlemi hatası:', error);
+      logger.error('Ödeme işlemi hatası:', error as Error, {component:'Bookingform'});
       alert('Ödeme işlemi sırasında bir hata oluştu.');
     } finally {
       setIsProcessingPayment(false);

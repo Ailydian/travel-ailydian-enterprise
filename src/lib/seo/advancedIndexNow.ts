@@ -11,6 +11,7 @@
  */
 
 import crypto from 'crypto';
+import logger from '../logger';
 
 interface IndexNowPayload {
   host: string;
@@ -127,7 +128,7 @@ export class AdvancedIndexNow {
       const responseTime = Date.now() - startTime;
 
       if (response.ok) {
-        console.log(`✅ ${engineName}: ${urls.length} URLs submitted successfully (${responseTime}ms)`);
+        logger.debug(`✅ ${engineName}: ${urls.length} URLs submitted successfully (${responseTime}ms)`, { component: 'Advancedindexnow' });
         return {
           success: true,
           statusCode: response.status,
@@ -257,7 +258,7 @@ export class AdvancedIndexNow {
 
     if (timeSinceLastRequest < minInterval) {
       const waitTime = minInterval - timeSinceLastRequest;
-      console.log(`⏳ Rate limiting: Waiting ${waitTime}ms for ${engineName}`);
+      logger.debug(`⏳ Rate limiting: Waiting ${waitTime}ms for ${engineName}`, { component: 'Advancedindexnow' });
       await this.delay(waitTime);
     }
 

@@ -15,6 +15,7 @@ import ReviewsList from '../../components/location/ReviewsList';
 import WriteReviewModal from '../../components/reviews/WriteReviewModal';
 import LocationMap from '../../components/location/LocationMap';
 import ExternalPlatformReviews from '../../components/reviews/ExternalPlatformReviews';
+import logger from '../../../lib/logger';
 
 interface LocationPageProps {
   location: Location;
@@ -166,7 +167,7 @@ export default function LocationPage({
         setIsFavorited(true);
       }
     } catch (error) {
-      console.error('Error toggling favorite:', error);
+      logger.error('Error toggling favorite:', error as Error, { component: 'Slug' });
     }
   };
 
@@ -180,7 +181,7 @@ export default function LocationPage({
           url: window.location.href,
         });
       } catch (error) {
-        console.log('Error sharing:', error);
+        logger.debug('Error sharing:', { component: 'Slug', metadata: { data: error } });
       }
     } else {
       // Fallback to clipboard
@@ -204,7 +205,7 @@ export default function LocationPage({
       }));
       alert('Successfully synced with Google My Business!');
     } catch (error) {
-      console.error('Google sync error:', error);
+      logger.error('Google sync error:', error as Error, { component: 'Slug' });
       setSyncStatus(prev => ({
         ...prev,
         google: { success: false, error: 'Sync failed. Please try again.' }
@@ -231,7 +232,7 @@ export default function LocationPage({
       }));
       alert('Successfully synced with TripAdvisor!');
     } catch (error) {
-      console.error('TripAdvisor sync error:', error);
+      logger.error('TripAdvisor sync error:', error as Error, { component: 'Slug' });
       setSyncStatus(prev => ({
         ...prev,
         tripAdvisor: { success: false, error: 'Sync failed. Please try again.' }
@@ -875,7 +876,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
       }
     };
   } catch (error) {
-    console.error('Error fetching location data:', error);
+    logger.error('Error fetching location data:', error as Error, { component: 'Slug' });
     return { notFound: true };
   }
 };

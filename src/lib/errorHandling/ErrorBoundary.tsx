@@ -1,6 +1,7 @@
 import React, { Component, ErrorInfo } from 'react';
 import { motion } from 'framer-motion';
 import { ExclamationTriangleIcon, ArrowPathIcon } from '@heroicons/react/24/outline';
+import logger from '../logger';
 
 interface ErrorBoundaryState {
   hasError: boolean;
@@ -87,7 +88,7 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
     };
 
     // Console'a log
-    console.error('Error Boundary caught an error:', errorData);
+    logger.error('Error Boundary caught an error:', errorData as Error, { component: 'Errorboundary' });
 
     // Hata tracking servisine gönder (örn. Sentry)
     this.sendToErrorTracking(errorData);
@@ -287,7 +288,7 @@ export const useErrorHandler = () => {
     setError(error);
     
     // Log error
-    console.error('Handled error:', error);
+    logger.error('Handled error:', error as Error, { component: 'Errorboundary' });
     
     // Send to tracking
     fetch('/api/errors/track', {

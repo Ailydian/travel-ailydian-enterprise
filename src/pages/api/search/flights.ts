@@ -1,5 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { PrismaClient } from '@prisma/client';
+import logger from '../../../../../lib/logger';
 
 const prisma = new PrismaClient();
 
@@ -71,7 +72,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       max: Math.min(50, Math.max(1, searchParams.max || 20))
     };
 
-    console.log('Flight search request:', searchRequest);
+    logger.debug('Flight search request:', { component: 'Flights', metadata: { searchRequest } });
 
     // Build database query
     const where: any = {
@@ -169,7 +170,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     });
 
   } catch (error) {
-    console.error('Flight search API error:', error);
+    logger.error('Flight search API error:', error as Error, { component: 'Flights' });
 
     // Return error response
     const errorMessage = error instanceof Error ? error.message : 'An unknown error occurred';

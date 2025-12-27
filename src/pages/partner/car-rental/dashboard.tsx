@@ -19,6 +19,7 @@ import {
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Doughnut, Line } from 'react-chartjs-2';
+import logger from '../../../../../lib/logger';
 
 // Car Rental Owner Dashboard
 // Fleet management, revenue tracking, maintenance alerts
@@ -91,7 +92,7 @@ const CarRentalDashboard: React.FC = () => {
           setRevenueHistory(data.revenueHistory);
         }
       } catch (error) {
-        console.error('Failed to fetch dashboard data:', error);
+        logger.error('Failed to fetch dashboard data:', error as Error, {component:'Dashboard'});
       } finally {
         setLoading(false);
       }

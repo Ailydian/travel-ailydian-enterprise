@@ -31,6 +31,7 @@ import {
   getExperiencesByCategory
 } from '../../data/experiences-turkey';
 import { getDestinationById } from '../../data/destinations-turkey';
+import logger from '../../../../lib/logger';
 
 interface ExperienceDetailProps {
   experience: Experience;
@@ -93,7 +94,7 @@ export default function ExperienceDetail({ experience, relatedExperiences }: Exp
           url: window.location.href
         });
       } catch (err) {
-        console.log('Share cancelled');
+        logger.debug('Share cancelled', {component:'Slug'});
       }
     } else {
       navigator.clipboard.writeText(window.location.href);

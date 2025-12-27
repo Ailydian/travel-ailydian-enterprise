@@ -1,5 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { PrismaClient } from '@prisma/client';
+import logger from '../../../../../lib/logger';
 
 const prisma = new PrismaClient();
 
@@ -85,7 +86,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       ratings: searchParams.ratings || []
     };
 
-    console.log('Hotel search request:', searchRequest);
+    logger.debug('Hotel search request:', { component: 'Hotels', metadata: { searchRequest } });
 
     // Build database query
     const where: any = {
@@ -192,7 +193,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     });
 
   } catch (error) {
-    console.error('Hotel search API error:', error);
+    logger.error('Hotel search API error:', error as Error, { component: 'Hotels' });
 
     // Return error response
     const errorMessage = error instanceof Error ? error.message : 'An unknown error occurred';

@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { getSession } from 'next-auth/react';
 import { PrismaClient } from '@prisma/client';
-import { logInfo, logError } from '../../../lib/logger';
+import logger from '../../../lib/logger';
 
 const prisma = new PrismaClient();
 
@@ -25,7 +25,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       });
     }
 
-    logInfo('Fetching bookings for user', { email: session.user.email });
+    logger.info('Fetching bookings for user', { email: session.user.email });
 
     // Find user
     const user = await prisma.user.findUnique({
@@ -60,7 +60,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       }
     });
 
-    logInfo('Bookings fetched successfully', {
+    logger.info('Bookings fetched successfully', {
       userId: user.id,
       count: bookings.length
     });
@@ -72,8 +72,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     });
 
   } catch (error) {
-    logError('Bookings fetch failed', error);
-    console.error('Bookings list error:', error);
+    logger.error('Bookings fetch failed', error);
+    logger.error('Bookings list error:', error as Error, {component:'List'});
 
     return res.status(500).json({
       success: false,

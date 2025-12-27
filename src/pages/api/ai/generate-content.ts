@@ -1,5 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import {
+import logger from '../../../../../lib/logger';
   generateAIContent,
   generateBatchContent,
   calculateContentQuality,
@@ -100,7 +101,7 @@ export default async function handler(
       generatedAt: new Date().toISOString()
     });
   } catch (error) {
-    console.error('AI Content Generation error:', error);
+    logger.error('AI Content Generation error:', error as Error, {component:'GenerateContent'});
     return res.status(500).json({
       error: 'Content generation failed',
       message: error instanceof Error ? error.message : 'Unknown error'

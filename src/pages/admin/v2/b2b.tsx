@@ -15,6 +15,7 @@ import { motion } from 'framer-motion';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import {
+import logger from '../../../../../lib/logger';
   Briefcase, Building2, TrendingUp, DollarSign, Users,
   Search, Filter, Download, Plus, Edit, Trash2, Eye,
   ArrowLeft, Star, Clock, CheckCircle, XCircle, AlertCircle,
@@ -163,7 +164,7 @@ const B2BPartnersPage = () => {
 
         setPartners(mockPartners);
       } catch (error) {
-        console.error('Error fetching partners:', error);
+        logger.error('Error fetching partners:', error as Error, {component:'B2b'});
       } finally {
         setLoading(false);
       }

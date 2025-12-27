@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { getSession } from 'next-auth/react';
 import { PrismaClient } from '@prisma/client';
-import { logInfo, logError } from '../../../lib/logger';
+import logger from '../../../lib/logger';
 import { sendEmail } from '../../../lib/email-service';
 
 const prisma = new PrismaClient();
@@ -34,7 +34,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       });
     }
 
-    logInfo('Processing booking cancellation', {
+    logger.info('Processing booking cancellation', {
       email: session.user.email,
       bookingId
     });
@@ -172,7 +172,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       html: emailHtml
     });
 
-    logInfo('Booking cancelled successfully', {
+    logger.info('Booking cancelled successfully', {
       bookingId: booking.id,
       bookingReference: booking.bookingReference
     });
@@ -185,8 +185,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     });
 
   } catch (error) {
-    logError('Booking cancellation failed', error);
-    console.error('Booking cancellation error:', error);
+    logger.error('Booking cancellation failed', error);
+    logger.error('Booking cancellation error:', error as Error, {component:'Cancel'});
 
     return res.status(500).json({
       success: false,

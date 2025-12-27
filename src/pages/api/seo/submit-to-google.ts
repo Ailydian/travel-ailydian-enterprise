@@ -1,3 +1,5 @@
+import logger from '../../../../../lib/logger';
+
 /**
  * Google Indexing API Endpoint
  * Google'a URL submit eder (manuel indexing için)
@@ -48,7 +50,7 @@ export default async function handler(
     });
 
   } catch (error: any) {
-    console.error('Google submit error:', error);
+    logger.error('Google submit error:', error as Error, { component: 'SubmitToGoogle' });
     return res.status(500).json({ error: error.message });
   }
 }
@@ -61,7 +63,7 @@ async function pingGoogleSitemap(baseUrl: string): Promise<boolean> {
     const response = await fetch(pingUrl);
     return response.ok;
   } catch (error) {
-    console.error('Google sitemap ping error:', error);
+    logger.error('Google sitemap ping error:', error as Error, { component: 'SubmitToGoogle' });
     return false;
   }
 }

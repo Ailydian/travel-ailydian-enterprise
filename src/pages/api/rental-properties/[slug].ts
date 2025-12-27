@@ -1,5 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { PrismaClient } from '@prisma/client';
+import logger from '../../../../../lib/logger';
 
 const prisma = new PrismaClient();
 
@@ -148,7 +149,7 @@ export default async function handler(
 
     return res.status(405).json({ error: 'Method not allowed' });
   } catch (error: any) {
-    console.error('Rental Property Detail API Error:', error);
+    logger.error('Rental Property Detail API Error:', error as Error, {component:'Slug'});
     return res.status(500).json({
       success: false,
       error: error.message || 'Internal server error',

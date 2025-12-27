@@ -1,5 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import antalyaHotels from '@/data/antalya-hotels';
+import logger from '../../../../../../lib/logger';
 
 /**
  * ADMIN RENTAL PROPERTIES API - REAL DATA VERSION
@@ -233,7 +234,7 @@ export default async function handler(
 
     return res.status(405).json({ error: 'Method not allowed' });
   } catch (error: any) {
-    console.error('Rental Properties Admin API Error:', error);
+    logger.error('Rental Properties Admin API Error:', error as Error, {component:'Index'});
     return res.status(500).json({
       success: false,
       error: error.message || 'Internal server error',

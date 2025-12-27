@@ -11,6 +11,7 @@ import {
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
+import logger from '../../../../lib/logger';
   searchAdvancedLocations,
   getPopularLocations,
   getUserLocation,
@@ -66,7 +67,7 @@ export const LocationAutocompleteAdvanced: React.FC<LocationAutocompleteAdvanced
       try {
         setRecentSearches(JSON.parse(stored));
       } catch (e) {
-        console.error('Failed to parse recent searches:', e);
+        logger.error('Failed to parse recent searches:', e as Error, {component:'Locationautocompleteadvanced'});
       }
     }
   }, []);

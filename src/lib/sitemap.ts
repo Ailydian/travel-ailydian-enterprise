@@ -1,4 +1,5 @@
 import { GetServerSidePropsContext } from 'next';
+import logger from './logger';
 
 export interface SitemapUrl {
   loc: string;
@@ -85,7 +86,7 @@ export class SitemapGenerator {
         };
       });
     } catch (error) {
-      console.error('Error generating destination pages for sitemap:', error);
+      logger.error('Error generating destination pages for sitemap:', error as Error, { component: 'Sitemap' });
       return [];
     }
   }
@@ -115,7 +116,7 @@ export class SitemapGenerator {
         };
       });
     } catch (error) {
-      console.error('Error generating experience pages for sitemap:', error);
+      logger.error('Error generating experience pages for sitemap:', error as Error, { component: 'Sitemap' });
       return [];
     }
   }
@@ -145,7 +146,7 @@ export class SitemapGenerator {
         };
       });
     } catch (error) {
-      console.error('Error generating hotel pages for sitemap:', error);
+      logger.error('Error generating hotel pages for sitemap:', error as Error, { component: 'Sitemap' });
       return [];
     }
   }
@@ -175,7 +176,7 @@ export class SitemapGenerator {
         };
       });
     } catch (error) {
-      console.error('Error generating blog pages for sitemap:', error);
+      logger.error('Error generating blog pages for sitemap:', error as Error, { component: 'Sitemap' });
       return [];
     }
   }

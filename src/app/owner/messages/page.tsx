@@ -4,6 +4,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { useConversations, useMessages, useSendMessage, useMarkAsRead } from '@/hooks/useDashboardHooks';
 import { useMessageStore } from '@/stores/dashboardStore';
 import {
+import logger from '../../../../../lib/logger';
   Search,
   Send,
   Paperclip,
@@ -512,8 +513,8 @@ const MessagesPage: React.FC = () => {
             <div className="flex-1 flex flex-col">
               <ConversationHeader
                 conversation={activeConversation}
-                onArchive={() => console.log('Archive')}
-                onPin={() => console.log('Pin')}
+                onArchive={() => logger.debug('Archive', { component: 'Page' })}
+                onPin={() => logger.debug('Pin', { component: 'Page' })}
               />
 
               {/* Messages */}

@@ -5,6 +5,7 @@
  */
 
 import { z } from 'zod';
+import logger from '../logger';
 import type {
   PropertyType,
   CancellationPolicy,
@@ -759,7 +760,7 @@ export async function validatePropertyNameUniqueness(
     // For now, always return true (implement server-side validation)
     return true;
   } catch (error) {
-    console.error('Error validating property name:', error);
+    logger.error('Error validating property name:', error as Error, {component:'Propertysubmissionschemas'});
     return false;
   }
 }

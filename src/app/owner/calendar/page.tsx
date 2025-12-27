@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { useProperties, usePropertyCalendar, useBlockDates } from '@/hooks/useDashboardHooks';
 import {
+import logger from '../../../../../lib/logger';
   ChevronLeft,
   ChevronRight,
   Calendar as CalendarIcon,
@@ -373,7 +374,7 @@ const CalendarPage: React.FC = () => {
   };
 
   const handleSaveEdit = (data: any) => {
-    console.log('Save edit:', data);
+    logger.debug('Save edit:', {component:'Page',metadata:{data}});
     // In a real app, call the blockDates mutation here
   };
 

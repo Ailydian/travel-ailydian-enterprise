@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useReducer, useEffect } from 'react';
 import { useToast } from './ToastContext';
+import logger from '@/lib/logger';
 
 export interface CartItem {
   id: string;
@@ -238,7 +239,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
         const cartData = JSON.parse(savedCart);
         dispatch({ type: 'SET_CART', payload: cartData });
       } catch (error) {
-        console.error('Error loading cart from localStorage:', error);
+        logger.error('Error loading cart from localStorage:', error as Error, {component:'Cartcontext'});
       }
     }
   }, []);

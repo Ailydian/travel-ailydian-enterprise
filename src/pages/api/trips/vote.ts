@@ -1,5 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { PrismaClient } from '@prisma/client';
+import logger from '../../../../../lib/logger';
 
 const prisma = new PrismaClient();
 
@@ -95,7 +96,7 @@ export default async function handler(
     });
 
   } catch (error: any) {
-    console.error('Error voting:', error);
+    logger.error('Error voting:', error as Error, {component:'Vote'});
     return res.status(500).json({
       error: 'Failed to register vote',
       details: error.message

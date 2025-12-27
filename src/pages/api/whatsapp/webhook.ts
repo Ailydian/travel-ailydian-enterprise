@@ -1,5 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import {
+import logger from '../../../../lib/logger';
   generateAutomatedResponse,
   sendTextMessage,
   sendButtonMessage,
@@ -36,7 +37,7 @@ export default async function handler(
     const challenge = req.query['hub.challenge'];
 
     if (mode === 'subscribe' && token === WHATSAPP_CONFIG.webhookVerifyToken) {
-      console.log('Webhook verified successfully!');
+      logger.debug('Webhook verified successfully!', { component: 'Webhook' });
       return res.status(200).send(challenge);
     }
 
@@ -67,11 +68,11 @@ export default async function handler(
       const customerPhone = message.from;
 
       // Log incoming message
-      console.log('Received WhatsApp message:', {
+      logger.debug('Received WhatsApp message:', { component: 'Webhook', metadata: { data: {
         from: customerPhone,
         type: message.type,
         text: message.text?.body
-      });
+      } } });
 
       // Save message to database (implement based on your schema)
       await saveMessageToDatabase({
@@ -123,7 +124,7 @@ export default async function handler(
 
       return res.status(200).json({ success: true });
     } catch (error) {
-      console.error('WhatsApp webhook error:', error);
+      logger.error('WhatsApp webhook error:', error as Error, { component: 'Webhook' });
       return res.status(500).json({
         error: 'Internal server error',
         message: error instanceof Error ? error.message : 'Unknown error'
@@ -146,7 +147,7 @@ async function saveMessageToDatabase(data: {
   // In production, save to Prisma database
   // await prisma.whatsAppMessage.create({ data });
 
-  console.log('Message saved:', data);
+  logger.debug('Message saved:', { component: 'Webhook', metadata: { data: data } });
 }
 
 /**
@@ -177,10 +178,10 @@ function shouldNotifySupport(message: string): boolean {
  */
 async function notifySupportTeam(customerPhone: string, message: string): Promise<void> {
   // In production, send notification to support dashboard/email/Slack
-  console.log('Support notification:', {
+  logger.debug('Support notification:', { component: 'Webhook', metadata: { data: {
     customer: customerPhone,
     message,
-    timestamp: new Date()
+    timestamp: new Date( } })
   });
 
   // Could also create a ticket in support system

@@ -35,6 +35,7 @@ import { searchInData, popularSearches, categoryConfig, type SearchResult } from
 import { useCart } from '../../context/CartContext';
 import AIAssistantPopup from '../ui/AIAssistantPopup';
 import LanguageSwitcher from '../LanguageSwitcher';
+import logger from '../../../../lib/logger';
 
 interface NavItem {
   title: string;
@@ -162,7 +163,7 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
           }
         }
       } catch (error) {
-        console.error('Error fetching navigation menus:', error);
+        logger.error('Error fetching navigation menus:', error as Error, {component:'Navigationheader'});
         // Fallback to static menus on error - handled below
       }
     };

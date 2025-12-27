@@ -1,5 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import jwt from 'jsonwebtoken';
+import logger from '../logger';
 
 const JWT_SECRET = process.env.JWT_SECRET || 'your-super-secret-jwt-key-change-in-production';
 
@@ -59,7 +60,7 @@ export function withAdminAuth(
       
       return handler(req as AuthenticatedRequest, res);
     } catch (error) {
-      console.error('Admin auth middleware error:', error);
+      logger.error('Admin auth middleware error:', error as Error, {component:'AdminAuth'});
       return res.status(500).json({
         success: false,
         error: 'Internal server error'

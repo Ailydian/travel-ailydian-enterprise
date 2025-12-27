@@ -21,6 +21,7 @@ import {
   formatFileSize,
 } from '@/utils/imageProcessing';
 import { UploadedImage, VisualSearchResult, ImageAnalysis } from '@/types/visualSearch';
+import logger from '../../../../lib/logger';
 
 interface VisualSearchProps {
   onSearch?: (results: VisualSearchResult[], analysis: ImageAnalysis) => void;
@@ -92,7 +93,7 @@ const VisualSearch: React.FC<VisualSearchProps> = ({
       setSuccess(true);
     } catch (err) {
       setError('Failed to process image. Please try again.');
-      console.error('Image processing error:', err);
+      logger.error('Image processing error:', err as Error, { component: 'Visualsearch' });
     } finally {
       setIsProcessing(false);
       setTimeout(() => setProgress(0), 1000);
@@ -187,7 +188,7 @@ const VisualSearch: React.FC<VisualSearchProps> = ({
       }
     } catch (err) {
       setError('Failed to search. Please try again.');
-      console.error('Search error:', err);
+      logger.error('Search error:', err as Error, { component: 'Visualsearch' });
     } finally {
       setIsProcessing(false);
     }

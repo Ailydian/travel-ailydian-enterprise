@@ -1,5 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { prisma } from '@/lib/prisma';
+import logger from '../../../../../../../lib/logger';
 
 /**
  * NAVIGATION MENUS API
@@ -134,7 +135,7 @@ export default async function handler(
 
     return res.status(405).json({ error: 'Method not allowed' });
   } catch (error: any) {
-    console.error('Navigation Menus API Error:', error);
+    logger.error('Navigation Menus API Error:', error as Error, {component:'Index'});
     return res.status(500).json({
       success: false,
       error: error.message || 'Internal server error',

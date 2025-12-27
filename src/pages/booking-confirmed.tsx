@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { motion } from 'framer-motion';
 import {
+import logger from '../../../lib/logger';
   CheckCircle,
   Download,
   Calendar,
@@ -71,7 +72,7 @@ const BookingConfirmed: React.FC = () => {
         setLoading(false);
       }, 500);
     } catch (error) {
-      console.error('Error fetching booking:', error);
+      logger.error('Error fetching booking:', error as Error, {component:'BookingConfirmed'});
       setLoading(false);
     }
   };

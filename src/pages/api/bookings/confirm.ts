@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { getSession } from 'next-auth/react';
 import { PrismaClient } from '@prisma/client';
-import { logInfo, logError } from '../../../lib/logger';
+import logger from '../../../lib/logger';
 import { sendBookingConfirmation } from '../../../lib/email-service';
 
 const prisma = new PrismaClient();
@@ -46,7 +46,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       });
     }
 
-    logInfo('Processing booking confirmation', {
+    logger.info('Processing booking confirmation', {
       email: session.user.email,
       bookingType,
       totalAmount
@@ -86,7 +86,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       }
     });
 
-    logInfo('Booking created successfully', {
+    logger.info('Booking created successfully', {
       bookingId: booking.id,
       bookingReference: booking.bookingReference
     });
@@ -105,7 +105,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     );
 
     if (!emailSent) {
-      logError('Failed to send confirmation email', new Error('Email service error'), {
+      logger.error('Failed to send confirmation email', new Error('Email service error'), {
         bookingId: booking.id,
         userEmail: user.email
       });
@@ -136,7 +136,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       }
     });
 
-    logInfo('Booking confirmation completed', {
+    logger.info('Booking confirmation completed', {
       bookingId: booking.id,
       emailSent,
       loyaltyPointsEarned
@@ -160,8 +160,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     });
 
   } catch (error) {
-    logError('Booking confirmation failed', error);
-    console.error('Booking confirmation error:', error);
+    logger.error('Booking confirmation failed', error);
+    logger.error('Booking confirmation error:', error as Error, {component:'Confirm'});
 
     return res.status(500).json({
       success: false,

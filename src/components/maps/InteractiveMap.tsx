@@ -4,6 +4,7 @@ import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, useMapEvents } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
+import logger from '../../../../lib/logger';
 
 // Leaflet marker ikonları için
 delete (L.Icon.Default.prototype as any)._getIconUrl;
@@ -178,7 +179,7 @@ async function reverseGeocode(lat: number, lng: number): Promise<string> {
     
     return `Enlem: ${lat.toFixed(6)}, Boylam: ${lng.toFixed(6)}`;
   } catch (error) {
-    console.error('Reverse geocoding hatası:', error);
+    logger.error('Reverse geocoding hatası:', error as Error, { component: 'Interactivemap' });
     return `Enlem: ${lat.toFixed(6)}, Boylam: ${lng.toFixed(6)}`;
   }
 }
@@ -211,7 +212,7 @@ function useAddressSearch() {
       
       setSearchResults(results);
     } catch (error) {
-      console.error('Adres arama hatası:', error);
+      logger.error('Adres arama hatası:', error as Error, { component: 'Interactivemap' });
       setSearchResults([]);
     } finally {
       setIsSearching(false);

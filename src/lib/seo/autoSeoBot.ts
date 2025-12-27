@@ -399,7 +399,7 @@ class AutoSeoBot {
       // Archive.org'a kayıt
       await this.submitToArchiveOrg();
       
-      console.log('Alexa ve diğer platformlara başarıyla kaydedildi');
+      logger.debug('Alexa ve diğer platformlara başarıyla kaydedildi', { component: 'Autoseobot' });
     } catch (error) {
       logger.error('Platform kayıt işlemi başarısız:', error as Error, { component: 'SEO' });
     }
@@ -444,7 +444,7 @@ class AutoSeoBot {
       await this.performSeoHealthCheck();
     }, 6 * 60 * 60 * 1000);
 
-    console.log('Sürekli SEO izleme başlatıldı');
+    logger.debug('Sürekli SEO izleme başlatıldı', { component: 'Autoseobot' });
   }
 
   private async performSeoHealthCheck(): Promise<void> {
@@ -458,7 +458,7 @@ class AutoSeoBot {
       // Meta etiketleri kontrol et
       await this.validateMetaTags();
       
-      console.log('SEO health check tamamlandı');
+      logger.debug('SEO health check tamamlandı', { component: 'Autoseobot' });
     } catch (error) {
       logger.error('SEO health check başarısız:', error as Error, { component: 'SEO' });
     }
@@ -468,7 +468,7 @@ class AutoSeoBot {
     try {
       const response = await fetch(`${this.baseUrl}/sitemap.xml`);
       if (!response.ok) {
-        console.warn('Sitemap bulunamadı veya erişilemez');
+        logger.warn('Sitemap bulunamadı veya erişilemez', { component: 'Autoseobot' });
       }
     } catch (error) {
       logger.warn('Sitemap kontrolü başarısız:', { component: 'SEO', metadata: { data: error } });
@@ -479,7 +479,7 @@ class AutoSeoBot {
     try {
       const response = await fetch(`${this.baseUrl}/robots.txt`);
       if (!response.ok) {
-        console.warn('Robots.txt bulunamadı');
+        logger.warn('Robots.txt bulunamadı', { component: 'Autoseobot' });
       }
     } catch (error) {
       logger.warn('Robots.txt kontrolü başarısız:', { component: 'SEO', metadata: { data: error } });
@@ -488,7 +488,7 @@ class AutoSeoBot {
 
   private async validateMetaTags(): Promise<void> {
     // Meta etiketleri doğrulaması için puppeteer kullanılabilir
-    console.log('Meta etiketleri kontrol edildi');
+    logger.debug('Meta etiketleri kontrol edildi', { component: 'Autoseobot' });
   }
 }
 

@@ -16,6 +16,7 @@ import { motion } from 'framer-motion';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import {
+import logger from '../../../../../lib/logger';
   Bus, Car, Users, MapPin, Calendar, Clock, DollarSign,
   Search, Filter, Download, Plus, Edit, Trash2, Eye,
   ArrowLeft, Star, CheckCircle, XCircle, AlertCircle,
@@ -189,7 +190,7 @@ const TransfersManagementPage = () => {
 
         setTransfers(mockTransfers);
       } catch (error) {
-        console.error('Error fetching transfers:', error);
+        logger.error('Error fetching transfers:', error as Error, {component:'Transfers'});
       } finally {
         setLoading(false);
       }

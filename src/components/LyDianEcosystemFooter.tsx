@@ -16,6 +16,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import logger from '../../../lib/logger';
 
 interface SubdomainInfo {
   name: string;
@@ -111,7 +112,7 @@ export default function LyDianEcosystemFooter({
     try {
       setIsClient(true);
     } catch (error) {
-      console.error('[LyDian Ecosystem] Init error:', error);
+      logger.error('[LyDian Ecosystem] Init error:', error as Error, {component:'Lydianecosystemfooter'});
       setHasError(true);
     }
   }, []);

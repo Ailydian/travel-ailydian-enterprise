@@ -1,5 +1,6 @@
 import { NextApiResponse } from 'next';
 import { withAdminAuth, AuthenticatedRequest } from '../../../../lib/middleware/admin-auth';
+import logger from '../../../../../../lib/logger';
 
 interface AdminLocation {
   id: number;
@@ -120,7 +121,7 @@ async function handler(req: AuthenticatedRequest, res: NextApiResponse) {
         return res.status(405).json({ success: false, error: 'Method not allowed' });
     }
   } catch (error) {
-    console.error('Admin locations API error:', error);
+    logger.error('Admin locations API error:', error as Error, {component:'Index'});
     res.status(500).json({
       success: false,
       error: 'Internal server error'

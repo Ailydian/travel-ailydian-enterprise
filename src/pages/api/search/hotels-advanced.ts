@@ -1,5 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { HOTELS_DATA, TURKEY_CITIES } from '../../../../prisma/seeds/turkey-tourism-data';
+import logger from '../../../../../lib/logger';
 
 /**
  * ADVANCED HOTEL SEARCH API
@@ -205,7 +206,7 @@ export default async function handler(
     return res.status(200).json(response);
 
   } catch (error) {
-    console.error('Hotel search error:', error);
+    logger.error('Hotel search error:', error as Error, {component:'HotelsAdvanced'});
     return res.status(500).json({
       success: false,
       error: 'Internal server error'

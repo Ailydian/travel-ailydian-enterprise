@@ -10,6 +10,7 @@ import { authOptions } from '../../auth/[...nextauth]';
 import { withRateLimit, publicRateLimiter } from '@/lib/middleware/rate-limiter';
 import { neuralxChat } from '@/lib/groq-service';
 import { prisma } from '@/lib/prisma';
+import logger from '../../../../../../lib/logger';
 
 interface RecommendationRequest {
   mood?: 'relaxing' | 'adventurous' | 'cultural' | 'romantic';
@@ -186,7 +187,7 @@ Return ONLY valid JSON array with this structure:
       // Handle both array and object with recommendations key
       recommendations = Array.isArray(parsed) ? parsed : (parsed.recommendations || []);
     } catch (parseError) {
-      console.error('Failed to parse recommendations:', parseError);
+      logger.error('Failed to parse recommendations:', parseError as Error, { component: 'Recommendations' });
       return res.status(500).json({ error: 'Failed to parse AI response' });
     }
 
@@ -204,7 +205,7 @@ Return ONLY valid JSON array with this structure:
     });
 
   } catch (error: any) {
-    console.error('AI Recommendations Error:', error);
+    logger.error('AI Recommendations Error:', error as Error, { component: 'Recommendations' });
 
     return res.status(500).json({
       error: 'Failed to generate recommendations',

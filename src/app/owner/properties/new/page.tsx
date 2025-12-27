@@ -39,6 +39,7 @@ import Step5Photos from './Step5Photos';
 import Step6Pricing from './Step6Pricing';
 import Step7HouseRules from './Step7HouseRules';
 import Step8Review from './Step8Review';
+import logger from '../../../../../../lib/logger';
 
 const TOTAL_STEPS = 8;
 const LOCAL_STORAGE_KEY = 'property-submission-draft';
@@ -133,7 +134,7 @@ export default function PropertySubmissionWizard() {
           }
         }
       } catch (error) {
-        console.error('Failed to load draft:', error);
+        logger.error('Failed to load draft:', error as Error, { component: 'Page' });
       }
     };
 
@@ -154,7 +155,7 @@ export default function PropertySubmissionWizard() {
         localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(draftData));
         setLastSavedAt(new Date());
       } catch (error) {
-        console.error('Failed to auto-save:', error);
+        logger.error('Failed to auto-save:', error as Error, { component: 'Page' });
       }
     };
 
@@ -182,7 +183,7 @@ export default function PropertySubmissionWizard() {
       setLastSavedAt(new Date());
       alert('Draft saved successfully!');
     } catch (error) {
-      console.error('Failed to save draft:', error);
+      logger.error('Failed to save draft:', error as Error, { component: 'Page' });
       alert('Failed to save draft. Please try again.');
     }
   }, [allFormData, currentStep, completedSteps]);
@@ -249,7 +250,7 @@ export default function PropertySubmissionWizard() {
         window.location.href = '/dashboard/properties';
       }, 3000);
     } catch (error) {
-      console.error('Submission error:', error);
+      logger.error('Submission error:', error as Error, { component: 'Page' });
       alert('Failed to submit property. Please try again.');
     } finally {
       setIsSubmitting(false);

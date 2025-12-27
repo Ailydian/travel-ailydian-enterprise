@@ -1,3 +1,5 @@
+import logger from '../../../../../lib/logger';
+
 import type { NextApiRequest, NextApiResponse } from 'next'
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
@@ -31,7 +33,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     })
 
   } catch (error) {
-    console.error('NFT minting error:', error)
+    logger.error('NFT minting error:', error as Error, {component:'MintTravelMemory'})
     res.status(500).json({ error: 'Failed to mint NFT' })
   }
 }

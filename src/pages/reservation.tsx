@@ -6,6 +6,7 @@ import { useRouter } from 'next/router';
 import { motion } from 'framer-motion';
 import { PremiumTravelBackground } from '@/components/ui/PremiumTravelBackground';
 import {
+import logger from '../../../lib/logger';
   MapPin,
   Clock,
   Users,
@@ -99,7 +100,7 @@ export default function ReservationPage() {
         const product = JSON.parse(productData);
         setSelectedProduct(product);
       } catch (error) {
-        console.error('Error parsing product data:', error);
+        logger.error('Error parsing product data:', error as Error, {component:'Reservation'});
       }
     }
   }, []);

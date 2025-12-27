@@ -1,5 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { prisma } from '@/lib/prisma';
+import logger from '../../../../../lib/logger';
 
 // AI-Powered Unified Search API
 // Tüm kategorilerde (otel, araç, uçuş, tur, transfer) arama yapar
@@ -310,7 +311,7 @@ export default async function handler(
     });
 
   } catch (error) {
-    console.error('Unified search error:', error);
+    logger.error('Unified search error:', error as Error, {component:'Unified'});
     return res.status(500).json({
       success: false,
       message: 'Search failed',

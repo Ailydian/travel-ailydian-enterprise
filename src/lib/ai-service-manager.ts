@@ -1,4 +1,5 @@
 import OpenAI from 'openai';
+import logger from './logger';
 
 // AI service configuration
 const AI_CONFIG = {
@@ -74,7 +75,7 @@ class AIServiceManager {
       const response = JSON.parse(completion.choices[0].message.content || '{}');
       return response;
     } catch (error) {
-      console.error('AI recommendation generation failed:', error);
+      logger.error('AI recommendation generation failed:', error as Error, { component: 'AiServiceManager' });
       throw new Error('AI recommendation generation failed');
     }
   }
@@ -118,7 +119,7 @@ Provide 5 destination recommendations with detailed reasons, cost estimates, and
       health.openai = true;
       health.overallHealth = 'healthy';
     } catch (error) {
-      console.error('OpenAI health check failed:', error);
+      logger.error('OpenAI health check failed:', error as Error, { component: 'AiServiceManager' });
     }
 
     return health;
