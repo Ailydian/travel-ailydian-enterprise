@@ -11,6 +11,7 @@
  */
 
 import { getAdvancedIndexNow } from './advancedIndexNow';
+import logger from '@/lib/logger';
 
 interface SEOMetrics {
   pageSpeed: number;
@@ -242,7 +243,7 @@ export class AutoSeoMonitor {
       }
 
     } catch (error) {
-      console.error('Meta tag kontrol hatası:', error);
+      logger.error('Meta tag kontrol hatası:', error as Error, { component: 'SEO' });
     }
 
     return issues;
@@ -350,7 +351,7 @@ export class AutoSeoMonitor {
       }
 
     } catch (error) {
-      console.error('İçerik kontrol hatası:', error);
+      logger.error('İçerik kontrol hatası:', error as Error, { component: 'SEO' });
     }
 
     return issues;
@@ -479,25 +480,25 @@ export class AutoSeoMonitor {
    * Raporu işle ve aksiyonları gerçekleştir
    */
   private async handleReport(report: SEOHealthReport): Promise<void> {
-    console.log(`\n📊 SEO Health Report - ${report.timestamp}`);
-    console.log(`Overall Score: ${report.overallScore}/100 (${report.status.toUpperCase()})`);
-    console.log(`\nMetrics:`);
-    console.log(`  Page Speed: ${report.metrics.pageSpeed}/100`);
-    console.log(`  Mobile: ${report.metrics.mobileScore}/100`);
-    console.log(`  SEO: ${report.metrics.seo}/100`);
-    console.log(`  Accessibility: ${report.metrics.accessibility}/100`);
+    logger.info(`\n📊 SEO Health Report - ${report.timestamp}`, { component: 'SEO' });
+    logger.info(`Overall Score: ${report.overallScore}/100 (${report.status.toUpperCase()})`, { component: 'SEO' });
+    logger.info(`\nMetrics:`, { component: 'SEO' });
+    logger.info(`  Page Speed: ${report.metrics.pageSpeed}/100`, { component: 'SEO' });
+    logger.info(`  Mobile: ${report.metrics.mobileScore}/100`, { component: 'SEO' });
+    logger.info(`  SEO: ${report.metrics.seo}/100`, { component: 'SEO' });
+    logger.info(`  Accessibility: ${report.metrics.accessibility}/100`, { component: 'SEO' });
 
     if (report.issues.length > 0) {
-      console.log(`\n⚠️  Issues (${report.issues.length}):`);
+      logger.info(`\n⚠️  Issues (${report.issues.length}):`, { component: 'SEO' });
       report.issues.forEach(issue => {
-        console.log(`  [${issue.severity.toUpperCase()}] ${issue.description}`);
+        logger.info(`  [${issue.severity.toUpperCase()}] ${issue.description}`, { component: 'SEO' });
       });
     }
 
     if (report.recommendations.length > 0) {
-      console.log(`\n💡 Recommendations (${report.recommendations.length}):`);
+      logger.info(`\n💡 Recommendations (${report.recommendations.length}):`, { component: 'SEO' });
       report.recommendations.forEach(rec => {
-        console.log(`  [${rec.priority.toUpperCase()}] ${rec.title}`);
+        logger.info(`  [${rec.priority.toUpperCase()}] ${rec.title}`, { component: 'SEO' });
       });
     }
 
@@ -519,13 +520,13 @@ export class AutoSeoMonitor {
     const fixableIssues = issues.filter(i => i.autoFixable);
 
     if (fixableIssues.length > 0) {
-      console.log(`\n🔧 Auto-fixing ${fixableIssues.length} issues...`);
+      logger.info(`\n🔧 Auto-fixing ${fixableIssues.length} issues...`, { component: 'SEO' });
 
       for (const issue of fixableIssues) {
         try {
           // Sorun tipine göre düzeltme
           // Bu kısım gerçek implementasyonda genişletilmeli
-          console.log(`  ✓ Fixed: ${issue.description}`);
+          logger.info(`  ✓ Fixed: ${issue.description}`, { component: 'SEO' });
         } catch (error) {
           console.error(`  ✗ Failed to fix: ${issue.description}`);
         }
@@ -537,8 +538,8 @@ export class AutoSeoMonitor {
    * Alert gönder
    */
   private async sendAlert(report: SEOHealthReport): Promise<void> {
-    console.log(`\n🚨 ALERT: SEO score dropped below threshold!`);
-    console.log(`   Current score: ${report.overallScore}/${this.config.alertThreshold}`);
+    logger.info(`\n🚨 ALERT: SEO score dropped below threshold!`, { component: 'SEO' });
+    logger.info(`   Current score: ${report.overallScore}/${this.config.alertThreshold}`, { component: 'SEO' });
 
     // Gerçek implementasyonda email, Slack, webhook vs. gönderilebilir
   }

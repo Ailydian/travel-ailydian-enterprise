@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState, useEffect, useCallback, useRef } from 'react';
+import logger from '@/lib/logger';
 import { useRouter } from 'next/router';
 
 interface VoiceCommand {
@@ -60,18 +61,18 @@ export const VoiceCommandProvider: React.FC<{ children: React.ReactNode }> = ({ 
         recognition.maxAlternatives = 3;
 
         recognition.onstart = () => {
-          console.log('Voice recognition started');
+          logger.debug('Voice recognition started', { component: 'VoiceCommand', action: 'start_recognition' });
           setIsListening(true);
           speak('Merhaba arkadaşım! Ben Lydian. Sizi dinliyorum, buyurun söyleyin.');
         };
 
         recognition.onend = () => {
-          console.log('Voice recognition ended');
+          logger.debug('Voice recognition ended', { component: 'VoiceCommand', action: 'end_recognition' });
           setIsListening(false);
         };
 
         recognition.onerror = (event: any) => {
-          console.error('Speech recognition error:', event.error);
+          logger.error('Speech recognition error:', event.error as Error, { component: 'VoiceCommand' });
           setIsListening(false);
 
           if (event.error === 'no-speech') {
@@ -90,7 +91,7 @@ export const VoiceCommandProvider: React.FC<{ children: React.ReactNode }> = ({ 
           const transcriptText = event.results[current][0].transcript;
 
           setTranscript(transcriptText);
-          console.log('Transcript:', transcriptText);
+          logger.debug('Transcript:', { component: 'VoiceCommand', metadata: { data: transcriptText } });
 
           if (event.results[current].isFinal) {
             processCommand(transcriptText);
@@ -129,11 +130,11 @@ export const VoiceCommandProvider: React.FC<{ children: React.ReactNode }> = ({ 
       }
 
       const selectAndSpeak = (availableVoices: SpeechSynthesisVoice[]) => {
-        console.log('🔍 SCANNING', availableVoices.length, 'VOICES FOR ULTIMATE MALE VOICE...');
+        logger.debug('🔍 SCANNING', { component: 'VoiceCommand', metadata: { data: availableVoices.length, 'VOICES FOR ULTIMATE MALE VOICE...' } });
 
         // Log ALL voices for debugging
         availableVoices.forEach((v, i) => {
-          console.log(`Voice ${i}: ${v.name} | Lang: ${v.lang} | Local: ${v.localService}`);
+          logger.debug(`Voice ${i}: ${v.name}`, { component: 'VoiceCommand', metadata: { lang: v.lang, localService: v.localService } });
         });
 
         // 🏆 ULTIMATE VOICE SELECTION ALGORITHM
@@ -206,8 +207,8 @@ export const VoiceCommandProvider: React.FC<{ children: React.ReactNode }> = ({ 
           utterance.voice = selectedVoice;
           utterance.lang = selectedVoice.lang.startsWith('tr') ? selectedVoice.lang : 'tr-TR';
 
-          console.log('✅ SELECTED VOICE:', selectedVoice.name);
-          console.log('🌍 Language:', utterance.lang);
+          logger.debug('✅ SELECTED VOICE:', { component: 'VoiceCommand', metadata: { data: selectedVoice.name } });
+          logger.debug('🌍 Language:', { component: 'VoiceCommand', metadata: { data: utterance.lang } });
         } else {
           utterance.lang = 'tr-TR';
         }
@@ -218,11 +219,8 @@ export const VoiceCommandProvider: React.FC<{ children: React.ReactNode }> = ({ 
         utterance.rate = 0.95;  // Near-normal speed for fluid Turkish
         utterance.volume = 1.0; // Full volume
 
-        console.log('🎚️ VOICE PARAMETERS:');
-        console.log('   Pitch: 0.1 (EXTREME DEEP - Maximum Masculine)');
-        console.log('   Rate: 0.75 (Slower, Authoritative)');
-        console.log('   Volume: 1.0 (Full)');
-
+        logger.debug('Voice parameters configured', { component: 'VoiceCommand', metadata: { pitch: 0.1, rate: 0.75, volume: 1.0 } });
+                        
         // Add natural Turkish speech patterns with pauses
         const naturalText = text
           .replace(/\./g, '... ')     // Longer pause after periods
@@ -236,7 +234,7 @@ export const VoiceCommandProvider: React.FC<{ children: React.ReactNode }> = ({ 
         // Start speaking
         synthRef.current.speak(utterance);
 
-        console.log('🗣️ Speaking:', text.substring(0, 50) + '...');
+        logger.debug('Speaking text', { component: 'VoiceCommand', metadata: { preview: text.substring(0, 50) } });
       };
 
       selectAndSpeak(voices);
@@ -715,8 +713,8 @@ export const VoiceCommandProvider: React.FC<{ children: React.ReactNode }> = ({ 
     const lowerText = text.toLowerCase().trim();
     const normalizedText = normalizeTurkish(lowerText);
 
-    console.log('Processing command:', lowerText);
-    console.log('Normalized:', normalizedText);
+    logger.debug('Processing command:', { component: 'VoiceCommand', metadata: { data: lowerText } });
+    logger.debug('Normalized:', { component: 'VoiceCommand', metadata: { data: normalizedText } });
 
     // Find matching command with exact match first
     let matchedCommand = commands.find(cmd =>
@@ -744,7 +742,7 @@ export const VoiceCommandProvider: React.FC<{ children: React.ReactNode }> = ({ 
 
       if (bestMatch) {
         matchedCommand = bestMatch.cmd;
-        console.log('Fuzzy match found with score:', bestMatch.score);
+        logger.debug('Fuzzy match found with score:', { component: 'VoiceCommand', metadata: { data: bestMatch.score } });
       }
     }
 
@@ -777,7 +775,7 @@ export const VoiceCommandProvider: React.FC<{ children: React.ReactNode }> = ({ 
         setLastCommand('');
         setFeedback('Dinleniyor...');
       } catch (error) {
-        console.error('Error starting recognition:', error);
+        logger.error('Error starting recognition:', error as Error, { component: 'VoiceCommand' });
       }
     }
   }, [isSupported]);

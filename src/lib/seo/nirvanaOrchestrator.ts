@@ -13,6 +13,7 @@
  */
 
 import { getNirvanaSEO } from './nirvanaSEO';
+import logger from '@/lib/logger';
 import { getEATOptimization } from './eatOptimization';
 import { getAdvancedIndexNow } from './advancedIndexNow';
 import { getAutoSeoMonitor } from './autoSeoMonitor';
@@ -87,15 +88,15 @@ export class NirvanaSEOOrchestrator {
     pageType: string,
     location?: string
   ): Promise<PageOptimizationResult> {
-    console.log(`🎯 Optimizing ${url} to Nirvana level...`);
+    logger.info(`🎯 Optimizing ${url} to Nirvana level...`, { component: 'SEO' });
 
     // 1. Get keywords for this page
     const keywords = this.nirvanaSEO.getPageKeywords(pageType, location);
-    console.log(`📝 Target keywords: ${keywords.length}`);
+    logger.info(`📝 Target keywords: ${keywords.length}`, { component: 'SEO' });
 
     // 2. Generate Nirvana meta tags
     const metaTags = this.nirvanaSEO.generateNirvanaMetaTags(pageType, keywords, location);
-    console.log(`✅ Meta tags generated`);
+    logger.info(`✅ Meta tags generated`, { component: 'SEO' });
 
     // 3. Generate advanced schemas
     const schemas = this.nirvanaSEO.generateAdvancedSchemas(pageType, {
@@ -104,18 +105,18 @@ export class NirvanaSEOOrchestrator {
       rating: 4.8,
       reviewCount: 5247
     });
-    console.log(`✅ ${schemas.length} schema markups generated`);
+    logger.info(`✅ ${schemas.length} schema markups generated`, { component: 'SEO' });
 
     // 4. Add E-A-T elements
     const eatContent = this.eatOptimization.generateEATContent(
       metaTags.title,
       location
     );
-    console.log(`✅ E-A-T content generated`);
+    logger.info(`✅ E-A-T content generated`, { component: 'SEO' });
 
     // 5. Generate trust signals
     const trustSignals = this.eatOptimization.generateTrustSignals();
-    console.log(`✅ Trust signals: ${trustSignals.badges.length} badges`);
+    logger.info(`✅ Trust signals: ${trustSignals.badges.length} badges`, { component: 'SEO' });
 
     // 6. Calculate E-A-T score
     const eatScore = this.eatOptimization.calculateEATScore({
@@ -292,12 +293,12 @@ export class NirvanaSEOOrchestrator {
     const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://travel.lydian.com';
     const indexNowKey = process.env.INDEXNOW_KEY || 'travel-lydian-indexnow-key-2025-production';
 
-    console.log(`📤 Submitting ${urls.length} URLs to 5 search engines...`);
+    logger.info(`📤 Submitting ${urls.length} URLs to 5 search engines...`, { component: 'SEO' });
 
     const results = await this.indexNow.submitToAllEngines(urls, baseUrl, indexNowKey);
     const report = this.indexNow.generateReport(results);
 
-    console.log(`✅ Submission complete: ${report.successRate.toFixed(1)}% success rate`);
+    logger.info(`✅ Submission complete: ${report.successRate.toFixed(1)}% success rate`, { component: 'SEO' });
 
     return report;
   }
@@ -306,11 +307,11 @@ export class NirvanaSEOOrchestrator {
    * Perform complete SEO health check
    */
   async performHealthCheck(baseUrl: string): Promise<any> {
-    console.log(`🏥 Performing comprehensive health check...`);
+    logger.info(`🏥 Performing comprehensive health check...`, { component: 'SEO' });
 
     const report = await this.seoMonitor.performHealthCheck(baseUrl);
 
-    console.log(`📊 Health Score: ${report.overallScore}/100 (${report.status})`);
+    logger.info(`📊 Health Score: ${report.overallScore}/100 (${report.status})`, { component: 'SEO' });
 
     return report;
   }
@@ -321,7 +322,7 @@ export class NirvanaSEOOrchestrator {
   async generateOrchestrationReport(): Promise<OrchestrationReport> {
     const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://travel.lydian.com';
 
-    console.log(`\n🎼 NIRVANA SEO ORCHESTRATION STARTING...\n`);
+    logger.info(`\n🎼 NIRVANA SEO ORCHESTRATION STARTING...\n`, { component: 'SEO' });
 
     // 1. Optimize all pages
     const pageResults = await this.optimizeAllPages();
@@ -417,53 +418,53 @@ export class NirvanaSEOOrchestrator {
    * Print beautiful orchestration report
    */
   private printReport(report: OrchestrationReport): void {
-    console.log(`\n╔════════════════════════════════════════════════════════════╗`);
-    console.log(`║        NIRVANA SEO ORCHESTRATION REPORT                    ║`);
-    console.log(`╚════════════════════════════════════════════════════════════╝\n`);
+    logger.info(`\n╔════════════════════════════════════════════════════════════╗`, { component: 'SEO' });
+    logger.info(`║        NIRVANA SEO ORCHESTRATION REPORT                    ║`, { component: 'SEO' });
+    logger.info(`╚════════════════════════════════════════════════════════════╝\n`, { component: 'SEO' });
 
-    console.log(`📅 Timestamp: ${report.timestamp}\n`);
+    logger.info(`📅 Timestamp: ${report.timestamp}\n`, { component: 'SEO' });
 
-    console.log(`📊 PAGE OPTIMIZATION STATISTICS`);
-    console.log(`   Total Pages Optimized: ${report.totalPages}`);
-    console.log(`   Average Score: ${report.averageScore}/100`);
-    console.log(`   ├─ Excellent (90-100): ${report.excellentPages} pages`);
-    console.log(`   ├─ Good (75-89): ${report.goodPages} pages`);
-    console.log(`   ├─ Needs Improvement (50-74): ${report.needsImprovementPages} pages`);
-    console.log(`   └─ Poor (0-49): ${report.poorPages} pages\n`);
+    logger.info(`📊 PAGE OPTIMIZATION STATISTICS`, { component: 'SEO' });
+    logger.info(`   Total Pages Optimized: ${report.totalPages}`, { component: 'SEO' });
+    logger.info(`   Average Score: ${report.averageScore}/100`, { component: 'SEO' });
+    logger.info(`   ├─ Excellent (90-100): ${report.excellentPages} pages`, { component: 'SEO' });
+    logger.info(`   ├─ Good (75-89): ${report.goodPages} pages`, { component: 'SEO' });
+    logger.info(`   ├─ Needs Improvement (50-74): ${report.needsImprovementPages} pages`, { component: 'SEO' });
+    logger.info(`   └─ Poor (0-49): ${report.poorPages} pages\n`, { component: 'SEO' });
 
-    console.log(`🏆 TOP PERFORMING PAGES`);
+    logger.info(`🏆 TOP PERFORMING PAGES`, { component: 'SEO' });
     report.topPerformingPages.forEach((page, i) => {
-      console.log(`   ${i + 1}. ${page}`);
+      logger.info(`   ${i + 1}. ${page}`, { component: 'SEO' });
     });
     console.log(``);
 
-    console.log(`📤 INDEXING STATUS`);
-    console.log(`   Submitted to Search Engines: ${report.indexingStatus.submitted} URLs`);
-    console.log(`   Indexed: ${report.indexingStatus.indexed} URLs`);
-    console.log(`   Pending: ${report.indexingStatus.pending} URLs\n`);
+    logger.info(`📤 INDEXING STATUS`, { component: 'SEO' });
+    logger.info(`   Submitted to Search Engines: ${report.indexingStatus.submitted} URLs`, { component: 'SEO' });
+    logger.info(`   Indexed: ${report.indexingStatus.indexed} URLs`, { component: 'SEO' });
+    logger.info(`   Pending: ${report.indexingStatus.pending} URLs\n`, { component: 'SEO' });
 
-    console.log(`🎯 E-A-T SCORE: ${report.eatScore}/100\n`);
+    logger.info(`🎯 E-A-T SCORE: ${report.eatScore}/100\n`, { component: 'SEO' });
 
-    console.log(`📈 ESTIMATED GOOGLE RANKINGS`);
+    logger.info(`📈 ESTIMATED GOOGLE RANKINGS`, { component: 'SEO' });
     Object.entries(report.estimatedRanking.keywords).forEach(([keyword, data]) => {
       const emoji = data.estimatedPosition <= 3 ? '🥇' :
                     data.estimatedPosition <= 10 ? '🥈' : '📊';
-      console.log(`   ${emoji} "${keyword}"`);
-      console.log(`      Estimated Position: #${data.estimatedPosition}`);
-      console.log(`      Competition: ${data.competitorStrength}`);
+      logger.info(`   ${emoji} "${keyword}"`, { component: 'SEO' });
+      logger.info(`      Estimated Position: #${data.estimatedPosition}`, { component: 'SEO' });
+      logger.info(`      Competition: ${data.competitorStrength}`, { component: 'SEO' });
     });
 
     if (report.criticalIssues.length > 0) {
-      console.log(`\n⚠️  CRITICAL IMPROVEMENTS NEEDED`);
+      logger.info(`\n⚠️  CRITICAL IMPROVEMENTS NEEDED`, { component: 'SEO' });
       report.criticalIssues.slice(0, 5).forEach((issue, i) => {
-        console.log(`   ${i + 1}. ${issue}`);
+        logger.info(`   ${i + 1}. ${issue}`, { component: 'SEO' });
       });
     }
 
-    console.log(`\n╔════════════════════════════════════════════════════════════╗`);
-    console.log(`║  🎯 TARGET: First Page, Position #1-3 in Google            ║`);
-    console.log(`║  ⏱️  ESTIMATED TIME: 30-90 days with continuous optimization║`);
-    console.log(`╚════════════════════════════════════════════════════════════╝\n`);
+    logger.info(`\n╔════════════════════════════════════════════════════════════╗`, { component: 'SEO' });
+    logger.info(`║  🎯 TARGET: First Page, Position #1-3 in Google            ║`, { component: 'SEO' });
+    logger.info(`║  ⏱️  ESTIMATED TIME: 30-90 days with continuous optimization║`, { component: 'SEO' });
+    logger.info(`╚════════════════════════════════════════════════════════════╝\n`, { component: 'SEO' });
   }
 
   /**

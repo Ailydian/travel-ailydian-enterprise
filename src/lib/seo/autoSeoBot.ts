@@ -1,4 +1,5 @@
 import { NextSeoProps } from 'next-seo';
+import logger from '@/lib/logger';
 
 interface SeoAnalysis {
   score: number;
@@ -311,9 +312,9 @@ class AutoSeoBot {
       // Yandex Webmaster API
       await this.submitToYandex(url);
       
-      console.log(`URL başarıyla arama motorlarına gönderildi: ${url}`);
+      logger.info(`URL başarıyla arama motorlarına gönderildi: ${url}`, { component: 'SEO' });
     } catch (error) {
-      console.error('Arama motoru gönderimi başarısız:', error);
+      logger.error('Arama motoru gönderimi başarısız:', error as Error, { component: 'SEO' });
     }
   }
 
@@ -335,10 +336,10 @@ class AutoSeoBot {
       });
 
       if (response.ok) {
-        console.log(`Google'a başarıyla gönderildi: ${url}`);
+        logger.info(`Google'a başarıyla gönderildi: ${url}`, { component: 'SEO' });
       }
     } catch (error) {
-      console.warn('Google gönderimi başarısız:', error);
+      logger.warn('Google gönderimi başarısız:', { component: 'SEO', metadata: { data: error } });
     }
   }
 
@@ -357,10 +358,10 @@ class AutoSeoBot {
       });
 
       if (response.ok) {
-        console.log(`Bing'e başarıyla gönderildi: ${url}`);
+        logger.info(`Bing'e başarıyla gönderildi: ${url}`, { component: 'SEO' });
       }
     } catch (error) {
-      console.warn('Bing gönderimi başarısız:', error);
+      logger.warn('Bing gönderimi başarısız:', { component: 'SEO', metadata: { data: error } });
     }
   }
 
@@ -379,10 +380,10 @@ class AutoSeoBot {
       });
 
       if (response.ok) {
-        console.log(`Yandex'e başarıyla gönderildi: ${url}`);
+        logger.info(`Yandex'e başarıyla gönderildi: ${url}`, { component: 'SEO' });
       }
     } catch (error) {
-      console.warn('Yandex gönderimi başarısız:', error);
+      logger.warn('Yandex gönderimi başarısız:', { component: 'SEO', metadata: { data: error } });
     }
   }
 
@@ -400,7 +401,7 @@ class AutoSeoBot {
       
       console.log('Alexa ve diğer platformlara başarıyla kaydedildi');
     } catch (error) {
-      console.error('Platform kayıt işlemi başarısız:', error);
+      logger.error('Platform kayıt işlemi başarısız:', error as Error, { component: 'SEO' });
     }
   }
 
@@ -410,7 +411,7 @@ class AutoSeoBot {
       await fetch(`http://data.alexa.com/data?cli=10&dat=s&url=${this.baseUrl}`);
       console.log('Alexa\'ya başarıyla gönderildi');
     } catch (error) {
-      console.warn('Alexa gönderimi başarısız:', error);
+      logger.warn('Alexa gönderimi başarısız:', { component: 'SEO', metadata: { data: error } });
     }
   }
 
@@ -420,7 +421,7 @@ class AutoSeoBot {
       await fetch(`https://www.similarweb.com/website/${this.baseUrl.replace('https://', '')}/`);
       console.log('SimilarWeb\'e başarıyla gönderildi');
     } catch (error) {
-      console.warn('SimilarWeb gönderimi başarısız:', error);
+      logger.warn('SimilarWeb gönderimi başarısız:', { component: 'SEO', metadata: { data: error } });
     }
   }
 
@@ -430,7 +431,7 @@ class AutoSeoBot {
       await fetch(`https://web.archive.org/save/${this.baseUrl}`);
       console.log('Archive.org\'a başarıyla gönderildi');
     } catch (error) {
-      console.warn('Archive.org gönderimi başarısız:', error);
+      logger.warn('Archive.org gönderimi başarısız:', { component: 'SEO', metadata: { data: error } });
     }
   }
 
@@ -459,7 +460,7 @@ class AutoSeoBot {
       
       console.log('SEO health check tamamlandı');
     } catch (error) {
-      console.error('SEO health check başarısız:', error);
+      logger.error('SEO health check başarısız:', error as Error, { component: 'SEO' });
     }
   }
 
@@ -470,7 +471,7 @@ class AutoSeoBot {
         console.warn('Sitemap bulunamadı veya erişilemez');
       }
     } catch (error) {
-      console.warn('Sitemap kontrolü başarısız:', error);
+      logger.warn('Sitemap kontrolü başarısız:', { component: 'SEO', metadata: { data: error } });
     }
   }
 
@@ -481,7 +482,7 @@ class AutoSeoBot {
         console.warn('Robots.txt bulunamadı');
       }
     } catch (error) {
-      console.warn('Robots.txt kontrolü başarısız:', error);
+      logger.warn('Robots.txt kontrolü başarısız:', { component: 'SEO', metadata: { data: error } });
     }
   }
 

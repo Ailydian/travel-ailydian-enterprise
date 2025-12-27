@@ -5,6 +5,7 @@
  */
 
 import AutoSeoBot, { type PageSeoData } from './autoSeoBot';
+import logger from '@/lib/logger';
 import { prisma } from '../prisma';
 import { antalyaTourismDistricts, generateDistrictSeoPages, getSeasonalKeywords } from './antalyaRegionSeo';
 
@@ -151,7 +152,7 @@ class ContinuousSeoService {
 
       console.log('✅ Tam SEO denetimi tamamlandı');
     } catch (error) {
-      console.error('❌ SEO denetimi hatası:', error);
+      logger.error('❌ SEO denetimi hatası:', error as Error, { component: 'SEO' });
     }
   }
 
@@ -171,7 +172,7 @@ class ContinuousSeoService {
 
       console.log('✅ Hızlı kontrol tamamlandı');
     } catch (error) {
-      console.error('❌ Hızlı kontrol hatası:', error);
+      logger.error('❌ Hızlı kontrol hatası:', error as Error, { component: 'SEO' });
     }
   }
 
@@ -195,7 +196,7 @@ class ContinuousSeoService {
 
       this.metricsCache.set(pageData.url, metrics);
 
-      console.log(`✅ Sayfa optimize edildi: ${pageData.url}`);
+      logger.info(`✅ Sayfa optimize edildi: ${pageData.url}`, { component: 'SEO' });
     } catch (error) {
       console.error(`❌ Sayfa optimizasyon hatası: ${pageData.url}`, error);
     }
@@ -293,8 +294,8 @@ class ContinuousSeoService {
       }
     });
 
-    console.log(`✅ Toplam ${pages.length} sayfa için SEO çalışması yapılacak`);
-    console.log(`📍 Antalya bölgesi: ${antalyaTourismDistricts.length} ilçe dahil`);
+    logger.info(`✅ Toplam ${pages.length} sayfa için SEO çalışması yapılacak`, { component: 'SEO' });
+    logger.info(`📍 Antalya bölgesi: ${antalyaTourismDistricts.length} ilçe dahil`, { component: 'SEO' });
 
     return pages;
   }
@@ -306,7 +307,7 @@ class ContinuousSeoService {
       // Sitemap generation logic buraya eklenecek
       console.log('✅ Sitemap güncellendi');
     } catch (error) {
-      console.error('❌ Sitemap güncelleme hatası:', error);
+      logger.error('❌ Sitemap güncelleme hatası:', error as Error, { component: 'SEO' });
     }
   }
 
@@ -321,7 +322,7 @@ class ContinuousSeoService {
         console.log('✅ Sitemap erişilebilir');
       }
     } catch (error) {
-      console.warn('⚠️ Sitemap kontrolü başarısız:', error);
+      logger.warn('⚠️ Sitemap kontrolü başarısız:', { component: 'SEO', metadata: { data: error } });
     }
   }
 
@@ -336,7 +337,7 @@ class ContinuousSeoService {
         console.log('✅ Robots.txt erişilebilir');
       }
     } catch (error) {
-      console.warn('⚠️ Robots.txt kontrolü başarısız:', error);
+      logger.warn('⚠️ Robots.txt kontrolü başarısız:', { component: 'SEO', metadata: { data: error } });
     }
   }
 
@@ -351,7 +352,7 @@ class ContinuousSeoService {
         console.log('✅ Ana sayfa erişilebilir');
       }
     } catch (error) {
-      console.warn('⚠️ Ana sayfa kontrolü başarısız:', error);
+      logger.warn('⚠️ Ana sayfa kontrolü başarısız:', { component: 'SEO', metadata: { data: error } });
     }
   }
 
@@ -363,18 +364,18 @@ class ContinuousSeoService {
       await this.seoBot.registerToAlexaAndOthers();
       console.log('✅ Arama motorlarına bildirildi');
     } catch (error) {
-      console.error('❌ Bildirim hatası:', error);
+      logger.error('❌ Bildirim hatası:', error as Error, { component: 'SEO' });
     }
   }
 
   // Metrikleri kaydet
   private async logMetrics(): Promise<void> {
     const metrics = Array.from(this.metricsCache.values());
-    console.log(`📊 SEO Metrikleri: ${metrics.length} sayfa optimize edildi`);
+    logger.info(`📊 SEO Metrikleri: ${metrics.length} sayfa optimize edildi`, { component: 'SEO' });
 
     // Her sayfa için ortalama skor
     const avgScore = metrics.reduce((sum, m) => sum + m.score, 0) / metrics.length;
-    console.log(`📈 Ortalama SEO Skoru: ${avgScore.toFixed(1)}/100`);
+    logger.info(`📈 Ortalama SEO Skoru: ${avgScore.toFixed(1)}/100`, { component: 'SEO' });
   }
 
   // Yardımcı: Sleep
