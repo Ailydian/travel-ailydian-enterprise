@@ -337,7 +337,7 @@ const AIAssistantPage: NextPage = () => {
 
                 {/* Quick Actions */}
                 <div className="mt-4">
-                  <p className="text-sm text-gray-300 mb-2">Hızlı Eylemler:</p>
+                  <p className="text-sm text-gray-100 mb-2">Hızlı Eylemler:</p>
                   <div className="flex flex-wrap gap-2">
                     {quickActions.map((action, index) => {
                       const Icon = action.icon;
@@ -375,7 +375,7 @@ const AIAssistantPage: NextPage = () => {
                         </div>
                         <div>
                           <h4 className="font-medium text-white">{feature.title}</h4>
-                          <p className="text-sm text-gray-300">{feature.description}</p>
+                          <p className="text-sm text-gray-100">{feature.description}</p>
                         </div>
                       </div>
                     );
@@ -400,7 +400,7 @@ const AIAssistantPage: NextPage = () => {
                             </div>
                           )}
                         </div>
-                        <p className="text-xs text-gray-300 mb-2">{suggestion.subtitle}</p>
+                        <p className="text-xs text-gray-100 mb-2">{suggestion.subtitle}</p>
                         {suggestion.price && (
                           <p className="font-bold text-blue-600 text-sm">{suggestion.price}</p>
                         )}

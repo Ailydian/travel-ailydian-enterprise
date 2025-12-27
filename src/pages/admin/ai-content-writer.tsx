@@ -126,7 +126,7 @@ const AIContentWriterPage: React.FC = () => {
             >
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm text-gray-300">Desteklenen Tipler</p>
+                  <p className="text-sm text-gray-100">Desteklenen Tipler</p>
                   <p className="text-2xl font-bold text-white">6</p>
                 </div>
                 <FileText className="h-8 w-8 text-purple-600" />
@@ -141,7 +141,7 @@ const AIContentWriterPage: React.FC = () => {
             >
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm text-gray-300">Ortalama Kalite Skoru</p>
+                  <p className="text-sm text-gray-100">Ortalama Kalite Skoru</p>
                   <p className="text-2xl font-bold text-white">
                     {quality ? quality.score : '95'}%
                   </p>
@@ -158,7 +158,7 @@ const AIContentWriterPage: React.FC = () => {
             >
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm text-gray-300">Üretim Süresi</p>
+                  <p className="text-sm text-gray-100">Üretim Süresi</p>
                   <p className="text-2xl font-bold text-white">&lt;1s</p>
                 </div>
                 <Zap className="h-8 w-8 text-yellow-600" />
@@ -173,7 +173,7 @@ const AIContentWriterPage: React.FC = () => {
             >
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm text-gray-300">SEO Optimized</p>
+                  <p className="text-sm text-gray-100">SEO Optimized</p>
                   <p className="text-2xl font-bold text-green-600">✓</p>
                 </div>
                 <Check className="h-8 w-8 text-green-600" />
@@ -408,7 +408,7 @@ const AIContentWriterPage: React.FC = () => {
                       </div>
                       <div className="space-y-1">
                         {quality.feedback.map((item, idx) => (
-                          <p key={idx} className="text-xs text-gray-300">
+                          <p key={idx} className="text-xs text-gray-100">
                             {item}
                           </p>
                         ))}

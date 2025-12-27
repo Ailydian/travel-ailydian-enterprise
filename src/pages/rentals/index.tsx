@@ -385,7 +385,7 @@ const RentalsPage: React.FC = () => {
                   <h1 className="text-2xl lg:text-3xl font-bold bg-gradient-to-r from-red-600 via-orange-500 to-red-700 bg-clip-text text-transparent">
                     Tatil Evleri & Villalar
                   </h1>
-                  <p className="text-sm text-gray-300 mt-1">
+                  <p className="text-sm text-gray-100 mt-1">
                     {filteredProperties.length} özellik bulundu
                   </p>
                 </div>
@@ -548,7 +548,7 @@ const RentalsPage: React.FC = () => {
                             placeholder="Min"
                             className="w-full px-3 py-2 bg-white/5 border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
                           />
-                          <span className="text-gray-400">-</span>
+                          <span className="text-gray-200">-</span>
                           <input
                             type="number"
                             value={filters.priceMax}
@@ -918,7 +918,7 @@ const RentalsPage: React.FC = () => {
                 </div>
                 <h3 className="text-xl font-bold text-white">Rezervasyon Koşulları</h3>
               </div>
-              <ul className="space-y-2 text-sm text-gray-300">
+              <ul className="space-y-2 text-sm text-gray-100">
                 <li className="flex items-start gap-2">
                   <CheckBadgeIcon className="w-4 h-4 mt-0.5 text-green-500 flex-shrink-0" />
                   <span>Ücretsiz iptal: Check-in'den 48 saat öncesine kadar</span>
@@ -956,7 +956,7 @@ const RentalsPage: React.FC = () => {
                 </div>
                 <h3 className="text-xl font-bold text-white">Ödeme & Güvenlik</h3>
               </div>
-              <ul className="space-y-2 text-sm text-gray-300">
+              <ul className="space-y-2 text-sm text-gray-100">
                 <li className="flex items-start gap-2">
                   <CheckBadgeIcon className="w-4 h-4 mt-0.5 text-green-500 flex-shrink-0" />
                   <span>SSL sertifikalı güvenli ödeme altyapısı</span>
@@ -994,7 +994,7 @@ const RentalsPage: React.FC = () => {
                 </div>
                 <h3 className="text-xl font-bold text-white">Destek & Yardım</h3>
               </div>
-              <ul className="space-y-2 text-sm text-gray-300">
+              <ul className="space-y-2 text-sm text-gray-100">
                 <li className="flex items-start gap-2">
                   <CheckBadgeIcon className="w-4 h-4 mt-0.5 text-green-500 flex-shrink-0" />
                   <span>7/24 Türkçe canlı destek hizmeti</span>
@@ -1021,7 +1021,7 @@ const RentalsPage: React.FC = () => {
                  backgroundColor: 'rgba(249, 250, 251, 0.5)',
                  borderColor: '#E5E7EB'
                }}>
-            <p className="text-sm text-gray-300 text-center">
+            <p className="text-sm text-gray-100 text-center">
               <strong className="font-bold text-white">Önemli Bilgi:</strong> Travel LyDian,
               AI destekli blockchain tabanlı güvenli rezervasyon sistemi ile kiralık mülklerinizi güvence altına alır.
               Tüm rezervasyonlarınız anında onaylanır ve blockchain ağında kayıt altına alınır.
@@ -1120,7 +1120,7 @@ const PropertyCard: React.FC<PropertyCardProps> = ({
         {/* Content */}
         <div className="p-5">
           {/* Location */}
-          <div className="flex items-center gap-2 text-sm text-gray-300 mb-2">
+          <div className="flex items-center gap-2 text-sm text-gray-100 mb-2">
             <MapPinIcon className="w-4 h-4" />
             <span>
               {property.district}, {property.city}
@@ -1133,7 +1133,7 @@ const PropertyCard: React.FC<PropertyCardProps> = ({
           </h3>
 
           {/* Property Info */}
-          <div className="flex items-center gap-4 text-sm text-gray-300 mb-4">
+          <div className="flex items-center gap-4 text-sm text-gray-100 mb-4">
             <span>{property.guests} misafir</span>
             <span>•</span>
             <span>{property.bedrooms} yatak odası</span>
@@ -1164,7 +1164,7 @@ const PropertyCard: React.FC<PropertyCardProps> = ({
                 <StarSolidIcon className="w-4 h-4" />
                 <span className="font-bold text-sm">{property.overall.toFixed(1)}</span>
               </div>
-              <span className="text-sm text-gray-300">
+              <span className="text-sm text-gray-100">
                 ({property.reviewCount} değerlendirme)
               </span>
             </div>
@@ -1174,7 +1174,7 @@ const PropertyCard: React.FC<PropertyCardProps> = ({
           <div className="flex items-end justify-between pt-4 border-t border-gray-100">
             <div>
               {savings > 0 && (
-                <p className="text-xs text-gray-400 line-through">
+                <p className="text-xs text-gray-200 line-through">
                   {(property.basePrice + savings).toLocaleString('tr-TR')} ₺
                 </p>
               )}
@@ -1183,7 +1183,7 @@ const PropertyCard: React.FC<PropertyCardProps> = ({
                 <span className="text-sm font-normal text-gray-300"> / gece</span>
               </p>
             </div>
-            <span className="text-xs text-gray-400 uppercase font-semibold">{property.type}</span>
+            <span className="text-xs text-gray-200 uppercase font-semibold">{property.type}</span>
           </div>
         </div>
       </Link>

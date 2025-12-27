@@ -563,7 +563,7 @@ const PropertyDetailsPage = ({ slug: initialSlug }: PropertyDetailsPageProps) =>
                     </div>
                     <div>
                       <h3 className="font-bold text-white">Ev sahibi: {property.hostName}</h3>
-                      <p className="text-sm text-gray-300">{property.hostResponseTime} yanıt verir</p>
+                      <p className="text-sm text-gray-100">{property.hostResponseTime} yanıt verir</p>
                     </div>
                   </div>
 
@@ -814,11 +814,11 @@ const PropertyDetailsPage = ({ slug: initialSlug }: PropertyDetailsPageProps) =>
                   <MapPin className="w-5 h-5 text-gray-400 mt-0.5" />
                   <div>
                     <p className="font-semibold text-white">{property.district}, {property.city}</p>
-                    <p className="text-sm text-gray-300">{property.address}</p>
+                    <p className="text-sm text-gray-100">{property.address}</p>
                   </div>
                 </div>
                 <div className="h-96 bg-gray-200 rounded-xl flex items-center justify-center">
-                  <p className="text-gray-400">Harita buraya gelecek (Google Maps/Mapbox)</p>
+                  <p className="text-gray-200">Harita buraya gelecek (Google Maps/Mapbox)</p>
                 </div>
               </motion.div>
             </div>
@@ -834,7 +834,7 @@ const PropertyDetailsPage = ({ slug: initialSlug }: PropertyDetailsPageProps) =>
                 <div className="mb-6">
                   {competitorAvg && savings > 0 && (
                     <div className="flex items-center justify-between mb-2">
-                      <p className="text-sm text-gray-400 line-through">
+                      <p className="text-sm text-gray-200 line-through">
                         ₺{competitorAvg.toLocaleString('tr-TR')}
                       </p>
                       <span className="px-3 py-1 bg-red-100 text-red-600 text-xs font-bold rounded-full">
@@ -904,7 +904,7 @@ const PropertyDetailsPage = ({ slug: initialSlug }: PropertyDetailsPageProps) =>
                       <div className="flex items-center justify-between p-3 bg-white/5 rounded-lg">
                         <div>
                           <p className="text-sm font-medium text-white">Yetişkinler</p>
-                          <p className="text-xs text-gray-400">13 yaş ve üzeri</p>
+                          <p className="text-xs text-gray-200">13 yaş ve üzeri</p>
                         </div>
                         <div className="flex items-center gap-3">
                           <button
@@ -926,7 +926,7 @@ const PropertyDetailsPage = ({ slug: initialSlug }: PropertyDetailsPageProps) =>
                       <div className="flex items-center justify-between p-3 bg-white/5 rounded-lg">
                         <div>
                           <p className="text-sm font-medium text-white">Çocuklar</p>
-                          <p className="text-xs text-gray-400">2-12 yaş</p>
+                          <p className="text-xs text-gray-200">2-12 yaş</p>
                         </div>
                         <div className="flex items-center gap-3">
                           <button
@@ -950,7 +950,7 @@ const PropertyDetailsPage = ({ slug: initialSlug }: PropertyDetailsPageProps) =>
                       <div className="flex items-center justify-between p-3 bg-white/5 rounded-lg">
                         <div>
                           <p className="text-sm font-medium text-white">Bebekler</p>
-                          <p className="text-xs text-gray-400">2 yaş altı</p>
+                          <p className="text-xs text-gray-200">2 yaş altı</p>
                         </div>
                         <div className="flex items-center gap-3">
                           <button
@@ -1022,14 +1022,14 @@ const PropertyDetailsPage = ({ slug: initialSlug }: PropertyDetailsPageProps) =>
                   {property.instantBook ? 'Rezervasyon Yap' : 'Rezervasyon Talebi Gönder'}
                 </button>
 
-                <p className="text-center text-xs text-gray-400 mt-4">
+                <p className="text-center text-xs text-gray-200 mt-4">
                   Şimdi ödeme yapılmayacak
                 </p>
 
                 {/* Security Deposit */}
                 {property.securityDeposit && parseInt(property.securityDeposit) > 0 && (
                   <div className="mt-6 pt-6 border-t border-white/10">
-                    <div className="flex items-start gap-2 text-sm text-gray-300">
+                    <div className="flex items-start gap-2 text-sm text-gray-100">
                       <Shield className="w-4 h-4 mt-0.5" />
                       <div>
                         <p className="font-semibold text-white">Güvenlik Depozitosu</p>
@@ -1041,11 +1041,11 @@ const PropertyDetailsPage = ({ slug: initialSlug }: PropertyDetailsPageProps) =>
 
                 {/* Host Response Info */}
                 <div className="mt-6 pt-6 border-t border-white/10 space-y-2">
-                  <div className="flex items-center gap-2 text-sm text-gray-300">
+                  <div className="flex items-center gap-2 text-sm text-gray-100">
                     <Clock className="w-4 h-4" />
                     <span>Yanıt süresi: {property.hostResponseTime}</span>
                   </div>
-                  <div className="flex items-center gap-2 text-sm text-gray-300">
+                  <div className="flex items-center gap-2 text-sm text-gray-100">
                     <MessageCircle className="w-4 h-4" />
                     <span>Dil: {property.hostLanguages.join(', ')}</span>
                   </div>
@@ -1078,13 +1078,13 @@ const PropertyDetailsPage = ({ slug: initialSlug }: PropertyDetailsPageProps) =>
                             <h4 className="font-semibold text-sm text-white line-clamp-1">
                               {similar.title}
                             </h4>
-                            <p className="text-xs text-gray-300">{similar.city}</p>
+                            <p className="text-xs text-gray-100">{similar.city}</p>
                             <div className="flex items-center gap-2 mt-1">
                               <div className="flex items-center gap-1">
                                 <Star className="w-3 h-3 text-yellow-400 fill-yellow-400" />
                                 <span className="text-xs font-semibold">{parseFloat(similar.overall).toFixed(1)}</span>
                               </div>
-                              <span className="text-xs text-gray-400">·</span>
+                              <span className="text-xs text-gray-200">·</span>
                               <span className="text-xs font-bold text-white">
                                 ₺{parseInt(similar.basePrice).toLocaleString('tr-TR')}/gece
                               </span>

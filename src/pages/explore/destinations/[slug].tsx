@@ -94,7 +94,7 @@ const DestinationPage: NextPage = () => {
                   {destData.thingsToDo.items.map((item, index) => (
                     <div key={index} className="bg-white/5 rounded-lg p-4 shadow-md">
                       <h4 className="font-bold text-white mb-2">{item.name}</h4>
-                      <p className="text-sm text-gray-300">{item.description}</p>
+                      <p className="text-sm text-gray-100">{item.description}</p>
                     </div>
                   ))}
                 </div>

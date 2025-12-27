@@ -627,7 +627,7 @@ export default function Activities() {
                       {activity.location}
                     </p>
 
-                    <p className="text-sm text-gray-300 dark:text-gray-400 mb-4">
+                    <p className="text-sm text-gray-100 dark:text-gray-400 mb-4">
                       {activity.description}
                     </p>
 
@@ -664,7 +664,7 @@ export default function Activities() {
                           </span>
                         ))}
                         {activity.highlights.length > 2 && (
-                          <span className="text-xs text-gray-400 px-2 py-1">
+                          <span className="text-xs text-gray-200 px-2 py-1">
                             +{activity.highlights.length - 2} daha
                           </span>
                         )}
@@ -684,7 +684,7 @@ export default function Activities() {
                           </span>
                         ))}
                         {activity.includes.length > 3 && (
-                          <span className="text-xs text-gray-400 px-2 py-1">
+                          <span className="text-xs text-gray-200 px-2 py-1">
                             +{activity.includes.length - 3} daha
                           </span>
                         )}
@@ -696,7 +696,7 @@ export default function Activities() {
                         <div>
                           <div className="flex items-center space-x-2">
                             {activity.originalPrice && (
-                              <span className="text-sm text-gray-400 line-through">
+                              <span className="text-sm text-gray-200 line-through">
                                 {activity.originalPrice}
                               </span>
                             )}
@@ -704,7 +704,7 @@ export default function Activities() {
                               {activity.price}
                             </span>
                           </div>
-                          <span className="text-xs text-gray-400">
+                          <span className="text-xs text-gray-200">
                             {activity.reviews.toLocaleString()} değerlendirme
                           </span>
                         </div>

@@ -566,7 +566,7 @@ const Checkout: React.FC = () => {
             </div>
             <h1 className="text-xl sm:text-2xl font-bold text-white mb-3 sm:mb-4">Ödeme İşleniyor</h1>
             <p className="text-sm sm:text-base text-gray-300 mb-6 sm:mb-8">Lütfen bekleyin, ödemeniz güvenli şekilde işleniyor...</p>
-            <div className="flex items-center gap-2 justify-center text-xs sm:text-sm text-gray-400">
+            <div className="flex items-center gap-2 justify-center text-xs sm:text-sm text-gray-200">
               <Lock className="w-3 h-3 sm:w-4 sm:h-4" />
               256-bit SSL ile korumalı
             </div>
@@ -1030,16 +1030,16 @@ const Checkout: React.FC = () => {
                     <div key={index} className="flex justify-between items-start">
                       <div className="min-w-0 pr-2">
                         <p className="font-medium text-white text-xs sm:text-sm line-clamp-2">{item.title}</p>
-                        {item.guests && <p className="text-[10px] sm:text-xs text-gray-400">{item.guests} misafir</p>}
-                        {item.passengers && <p className="text-[10px] sm:text-xs text-gray-400">{item.passengers} yolcu</p>}
+                        {item.guests && <p className="text-[10px] sm:text-xs text-gray-200">{item.guests} misafir</p>}
+                        {item.passengers && <p className="text-[10px] sm:text-xs text-gray-200">{item.passengers} yolcu</p>}
                         {bookingData && bookingData.type === 'hotel' && bookingData.productSpecific.nights && (
-                          <p className="text-[10px] sm:text-xs text-gray-400">{bookingData.productSpecific.nights} gece</p>
+                          <p className="text-[10px] sm:text-xs text-gray-200">{bookingData.productSpecific.nights} gece</p>
                         )}
                         {bookingData && bookingData.type === 'transfer' && bookingData.productSpecific.date && (
-                          <p className="text-[10px] sm:text-xs text-gray-400">{bookingData.productSpecific.date}</p>
+                          <p className="text-[10px] sm:text-xs text-gray-200">{bookingData.productSpecific.date}</p>
                         )}
                         {bookingData && bookingData.type === 'tour' && bookingData.productSpecific.date && (
-                          <p className="text-[10px] sm:text-xs text-gray-400">{bookingData.productSpecific.date}</p>
+                          <p className="text-[10px] sm:text-xs text-gray-200">{bookingData.productSpecific.date}</p>
                         )}
                       </div>
                       <span className="font-semibold text-sm sm:text-base whitespace-nowrap">₺{item.price.toLocaleString('tr-TR')}</span>
@@ -1092,7 +1092,7 @@ const Checkout: React.FC = () => {
                   Güvenli Ödeme Yap
                 </button>
 
-                <p className="text-[10px] sm:text-xs text-gray-400 text-center mt-3 sm:mt-4">
+                <p className="text-[10px] sm:text-xs text-gray-200 text-center mt-3 sm:mt-4">
                   Tüm kart bilgileriniz 256-bit SSL ile şifrelenir ve güvenli şekilde işlenir.
                 </p>
               </motion.div>

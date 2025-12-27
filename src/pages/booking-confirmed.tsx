@@ -224,7 +224,7 @@ END:VCALENDAR`;
             className="bg-transparent rounded-2xl shadow-xl p-8 mb-6"
           >
             <div className="text-center mb-6">
-              <p className="text-sm text-gray-400 mb-2">Your Booking Reference</p>
+              <p className="text-sm text-gray-200 mb-2">Your Booking Reference</p>
               <div className="flex items-center justify-center gap-3">
                 <h2 className="text-3xl font-bold text-blue-600 font-mono">
                   {booking.bookingReference}
@@ -241,7 +241,7 @@ END:VCALENDAR`;
                   )}
                 </button>
               </div>
-              <p className="text-xs text-gray-400 mt-2">
+              <p className="text-xs text-gray-200 mt-2">
                 Please save this reference number for your records
               </p>
             </div>
@@ -288,7 +288,7 @@ END:VCALENDAR`;
                 <div key={index} className="flex justify-between items-start p-4 bg-white/5 rounded-xl">
                   <div>
                     <p className="font-semibold text-white">{item.title}</p>
-                    <p className="text-sm text-gray-300">{item.guests} guests</p>
+                    <p className="text-sm text-gray-100">{item.guests} guests</p>
                   </div>
                   <span className="font-bold text-white">{item.price} TRY</span>
                 </div>
@@ -384,7 +384,7 @@ END:VCALENDAR`;
                 </div>
                 <div>
                   <p className="font-semibold text-white">Check Your Email</p>
-                  <p className="text-sm text-gray-300">Review your booking details and save important documents</p>
+                  <p className="text-sm text-gray-100">Review your booking details and save important documents</p>
                 </div>
               </div>
 
@@ -394,7 +394,7 @@ END:VCALENDAR`;
                 </div>
                 <div>
                   <p className="font-semibold text-white">Prepare for Your Trip</p>
-                  <p className="text-sm text-gray-300">Check travel requirements, weather, and pack accordingly</p>
+                  <p className="text-sm text-gray-100">Check travel requirements, weather, and pack accordingly</p>
                 </div>
               </div>
 
@@ -404,7 +404,7 @@ END:VCALENDAR`;
                 </div>
                 <div>
                   <p className="font-semibold text-white">Arrive and Enjoy</p>
-                  <p className="text-sm text-gray-300">Present your booking reference at check-in and enjoy your experience</p>
+                  <p className="text-sm text-gray-100">Present your booking reference at check-in and enjoy your experience</p>
                 </div>
               </div>
             </div>
@@ -440,7 +440,7 @@ END:VCALENDAR`;
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.2 }}
-            className="text-center mt-8 text-sm text-gray-300"
+            className="text-center mt-8 text-sm text-gray-100"
           >
             <p>Need help? Contact our 24/7 support team at support@travel.lydian.com</p>
           </motion.div>

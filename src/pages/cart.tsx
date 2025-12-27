@@ -176,7 +176,7 @@ const Cart: React.FC = () => {
                         <div className="flex justify-between items-start mb-2 sm:mb-3">
                           <div className="flex-1 min-w-0 pr-2">
                             <h3 className="font-bold text-base sm:text-lg text-white mb-1 line-clamp-2">{item.title}</h3>
-                            <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4 text-xs sm:text-sm text-gray-300">
+                            <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4 text-xs sm:text-sm text-gray-100">
                               <div className="flex items-center gap-1">
                                 <MapPin className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" />
                                 <span className="truncate">{item.location}</span>
@@ -217,7 +217,7 @@ const Cart: React.FC = () => {
                         {/* Quantity & Price */}
                         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
                           <div className="flex items-center gap-2 sm:gap-3">
-                            <span className="text-xs sm:text-sm text-gray-300">Kişi:</span>
+                            <span className="text-xs sm:text-sm text-gray-100">Kişi:</span>
                             <div className="flex items-center gap-1.5 sm:gap-2">
                               <button
                                 onClick={() => updateGuestCount(item.id, item.guests - 1)}
@@ -239,10 +239,10 @@ const Cart: React.FC = () => {
                             <div className="flex items-center gap-2">
                               <span className="text-xl sm:text-2xl font-bold text-white">₺{item.price * item.guests}</span>
                               {item.originalPrice && (
-                                <span className="text-xs sm:text-sm text-gray-400 line-through">₺{item.originalPrice * item.guests}</span>
+                                <span className="text-xs sm:text-sm text-gray-200 line-through">₺{item.originalPrice * item.guests}</span>
                               )}
                             </div>
-                            <p className="text-xs sm:text-sm text-gray-300">₺{item.price} x {item.guests} kişi</p>
+                            <p className="text-xs sm:text-sm text-gray-100">₺{item.price} x {item.guests} kişi</p>
                           </div>
                         </div>
                       </div>

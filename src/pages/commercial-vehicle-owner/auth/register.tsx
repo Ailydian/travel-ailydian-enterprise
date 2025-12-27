@@ -191,7 +191,7 @@ export default function CommercialVehicleOwnerRegisterPage() {
                 className="w-4 h-4 mt-1 text-orange-600 border-gray-300 rounded focus:ring-orange-600"
                 required
               />
-              <span className="ml-2 text-sm text-gray-300">
+              <span className="ml-2 text-sm text-gray-100">
                 <Link href="/commercial-vehicle-owner/auth/terms" className="text-orange-600 hover:text-orange-700">
                   Kullanım Koşulları
                 </Link>

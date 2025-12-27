@@ -109,9 +109,9 @@ const ExplorePage: NextPage = () => {
                   </div>
                   <div className="p-4">
                     <h3 className="font-bold text-lg mb-2 line-clamp-2">{tour.name}</h3>
-                    <p className="text-sm text-gray-300 mb-3 line-clamp-2">{tour.description}</p>
+                    <p className="text-sm text-gray-100 mb-3 line-clamp-2">{tour.description}</p>
                     <div className="flex items-end justify-between">
-                      <div className="text-sm text-gray-300">{tour.duration}</div>
+                      <div className="text-sm text-gray-100">{tour.duration}</div>
                       <div className="text-right">
                         <span className="text-2xl font-black text-lydian-primary">
                           ₺{tour.pricing.travelLyDian}

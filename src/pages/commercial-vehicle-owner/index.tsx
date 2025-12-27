@@ -66,7 +66,7 @@ export default function CommercialVehicleOwnerDashboard() {
               </div>
               <div>
                 <h1 className="text-xl font-bold text-white">Ticari Araç Yönetimi</h1>
-                <p className="text-sm text-gray-300">Minibüs & Kamyonet Dashboard</p>
+                <p className="text-sm text-gray-100">Minibüs & Kamyonet Dashboard</p>
               </div>
             </div>
 
@@ -130,7 +130,7 @@ export default function CommercialVehicleOwnerDashboard() {
                 <span className="text-sm font-semibold text-emerald-600">{stat.change}</span>
               </div>
               <div>
-                <p className="text-sm text-gray-300 mb-1">{stat.label}</p>
+                <p className="text-sm text-gray-100 mb-1">{stat.label}</p>
                 <p className="text-2xl font-bold text-white">{stat.value}</p>
               </div>
             </motion.div>
@@ -166,8 +166,8 @@ export default function CommercialVehicleOwnerDashboard() {
                 {recentBookings.map((booking) => (
                   <tr key={booking.id} className="border-b border-gray-100 hover:bg-white/5">
                     <td className="py-4 px-4 text-sm text-white">{booking.customer}</td>
-                    <td className="py-4 px-4 text-sm text-gray-300">{booking.vehicle}</td>
-                    <td className="py-4 px-4 text-sm text-gray-300">{booking.date}</td>
+                    <td className="py-4 px-4 text-sm text-gray-100">{booking.vehicle}</td>
+                    <td className="py-4 px-4 text-sm text-gray-100">{booking.date}</td>
                     <td className="py-4 px-4 text-sm font-semibold text-white">{booking.amount}</td>
                     <td className="py-4 px-4">
                       <span className={`inline-flex px-3 py-1 rounded-full text-xs font-semibold ${
@@ -194,7 +194,7 @@ export default function CommercialVehicleOwnerDashboard() {
             >
               <Package className="w-12 h-12 text-orange-600 mb-4" />
               <h4 className="text-lg font-bold text-white mb-2">Araçlarım</h4>
-              <p className="text-sm text-gray-300">Tüm araçlarınızı görüntüleyin ve yönetin</p>
+              <p className="text-sm text-gray-100">Tüm araçlarınızı görüntüleyin ve yönetin</p>
             </motion.div>
           </Link>
 
@@ -205,7 +205,7 @@ export default function CommercialVehicleOwnerDashboard() {
             >
               <BarChart3 className="w-12 h-12 text-orange-600 mb-4" />
               <h4 className="text-lg font-bold text-white mb-2">Analizler</h4>
-              <p className="text-sm text-gray-300">Gelir ve performans raporları</p>
+              <p className="text-sm text-gray-100">Gelir ve performans raporları</p>
             </motion.div>
           </Link>
 
@@ -216,7 +216,7 @@ export default function CommercialVehicleOwnerDashboard() {
             >
               <Settings className="w-12 h-12 text-orange-600 mb-4" />
               <h4 className="text-lg font-bold text-white mb-2">Ayarlar</h4>
-              <p className="text-sm text-gray-300">Hesap ve bildirim ayarları</p>
+              <p className="text-sm text-gray-100">Hesap ve bildirim ayarları</p>
             </motion.div>
           </Link>
         </div>

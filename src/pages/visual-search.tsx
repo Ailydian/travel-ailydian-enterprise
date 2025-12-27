@@ -189,7 +189,7 @@ const VisualSearchPage: React.FC = () => {
                           <p className="text-sm font-medium text-white">
                             {item.resultCount} results
                           </p>
-                          <p className="text-xs text-gray-400">
+                          <p className="text-xs text-gray-200">
                             {new Date(item.timestamp).toLocaleDateString()}
                           </p>
                         </div>
@@ -223,7 +223,7 @@ const VisualSearchPage: React.FC = () => {
                       <h4 className="font-semibold text-white mb-1">
                         AI-Powered Analysis
                       </h4>
-                      <p className="text-sm text-gray-300">
+                      <p className="text-sm text-gray-100">
                         Advanced computer vision detects landmarks, scenery, and more
                       </p>
                     </div>
@@ -234,7 +234,7 @@ const VisualSearchPage: React.FC = () => {
                       <h4 className="font-semibold text-white mb-1">
                         Smart Matching
                       </h4>
-                      <p className="text-sm text-gray-300">
+                      <p className="text-sm text-gray-100">
                         Find destinations with similar features and atmosphere
                       </p>
                     </div>
@@ -245,7 +245,7 @@ const VisualSearchPage: React.FC = () => {
                       <h4 className="font-semibold text-white mb-1">
                         Ranked Results
                       </h4>
-                      <p className="text-sm text-gray-300">
+                      <p className="text-sm text-gray-100">
                         Results sorted by similarity score and confidence
                       </p>
                     </div>
@@ -386,7 +386,7 @@ const VisualSearchPage: React.FC = () => {
                       </div>
                     </div>
 
-                    <p className="text-sm text-gray-300 mt-4">
+                    <p className="text-sm text-gray-100 mt-4">
                       Found {filteredResults.length} results
                     </p>
                   </div>
@@ -440,7 +440,7 @@ const VisualSearchPage: React.FC = () => {
 
                           <div className="flex items-center space-x-2 mb-3">
                             <MapPinIcon className="w-4 h-4 text-gray-400" />
-                            <span className="text-sm text-gray-300">{result.location}</span>
+                            <span className="text-sm text-gray-100">{result.location}</span>
                           </div>
 
                           {result.rating && (
@@ -460,7 +460,7 @@ const VisualSearchPage: React.FC = () => {
                               <span className="text-sm font-semibold text-white">
                                 {result.rating}
                               </span>
-                              <span className="text-sm text-gray-400">
+                              <span className="text-sm text-gray-200">
                                 ({result.reviewCount} reviews)
                               </span>
                             </div>
@@ -494,7 +494,7 @@ const VisualSearchPage: React.FC = () => {
                                 <p className="text-2xl font-bold text-blue-600">
                                   {result.price.amount} {result.price.currency}
                                 </p>
-                                <p className="text-xs text-gray-400">per night</p>
+                                <p className="text-xs text-gray-200">per night</p>
                               </div>
                             )}
 

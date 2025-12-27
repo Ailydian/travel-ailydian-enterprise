@@ -387,7 +387,7 @@ export default function AdminDashboard() {
               <div className="flex items-center space-x-4">
                 <div className="flex items-center space-x-2">
                   <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                  <span className="text-sm text-gray-300">
+                  <span className="text-sm text-gray-100">
                     Hoşgeldin, {adminData?.email}
                   </span>
                 </div>
@@ -444,7 +444,7 @@ export default function AdminDashboard() {
 
               {/* Sidebar Footer */}
               <div className="mt-8 pt-4 border-t border-gray-700">
-                <div className="text-xs text-gray-400 text-center">
+                <div className="text-xs text-gray-200 text-center">
                   <p>Travel LyDian</p>
                   <p className="mt-1">Versiyon 2.0</p>
                 </div>
@@ -536,7 +536,7 @@ export default function AdminDashboard() {
                         <p className="text-2xl font-bold text-white mb-0.5">
                           {formatNumber(dashboardData.overview.totalPhotos)}
                         </p>
-                        <p className="text-xs text-gray-400">Toplam medya içeriği</p>
+                        <p className="text-xs text-gray-200">Toplam medya içeriği</p>
                       </div>
                     </div>
                   </div>
@@ -567,7 +567,7 @@ export default function AdminDashboard() {
                               }}
                             />
                           ))}
-                          <span className="ml-1 text-xs text-gray-400">5 üzerinden</span>
+                          <span className="ml-1 text-xs text-gray-200">5 üzerinden</span>
                         </div>
                       </div>
                     </div>
@@ -589,7 +589,7 @@ export default function AdminDashboard() {
                         <p className="text-2xl font-bold text-white mb-0.5">
                           {formatNumber(dashboardData.vehicleRental.totalVehicles)}
                         </p>
-                        <p className="text-xs text-gray-400">Filo büyüklüğü</p>
+                        <p className="text-xs text-gray-200">Filo büyüklüğü</p>
                       </div>
                     </div>
                   </div>
@@ -604,7 +604,7 @@ export default function AdminDashboard() {
                         <p className="text-2xl font-bold text-white mb-0.5">
                           {formatNumber(dashboardData.vehicleRental.activeRentals)}
                         </p>
-                        <p className="text-xs text-gray-400">Devam eden kiralama</p>
+                        <p className="text-xs text-gray-200">Devam eden kiralama</p>
                       </div>
                     </div>
                   </div>
@@ -619,7 +619,7 @@ export default function AdminDashboard() {
                         <p className="text-2xl font-bold text-white mb-0.5">
                           ₺{formatNumber(dashboardData.vehicleRental.monthlyRevenue)}
                         </p>
-                        <p className="text-xs text-gray-400">Aylık gelir</p>
+                        <p className="text-xs text-gray-200">Aylık gelir</p>
                       </div>
                     </div>
                   </div>
@@ -658,7 +658,7 @@ export default function AdminDashboard() {
                         <p className="text-2xl font-bold text-white mb-0.5">
                           {formatNumber(dashboardData.transferService.totalFleet)}
                         </p>
-                        <p className="text-xs text-gray-400">Transfer araçları</p>
+                        <p className="text-xs text-gray-200">Transfer araçları</p>
                       </div>
                     </div>
                   </div>
@@ -673,7 +673,7 @@ export default function AdminDashboard() {
                         <p className="text-2xl font-bold text-white mb-0.5">
                           {formatNumber(dashboardData.transferService.activeTransfers)}
                         </p>
-                        <p className="text-xs text-gray-400">Devam eden transfer</p>
+                        <p className="text-xs text-gray-200">Devam eden transfer</p>
                       </div>
                     </div>
                   </div>
@@ -688,7 +688,7 @@ export default function AdminDashboard() {
                         <p className="text-2xl font-bold text-white mb-0.5">
                           ₺{formatNumber(dashboardData.transferService.monthlyRevenue)}
                         </p>
-                        <p className="text-xs text-gray-400">Aylık gelir</p>
+                        <p className="text-xs text-gray-200">Aylık gelir</p>
                       </div>
                     </div>
                   </div>
@@ -725,8 +725,8 @@ export default function AdminDashboard() {
                       </div>
                       <div className="flex space-x-1">
                         <button className="px-3 py-1 text-xs text-white rounded-lg transition-colors" style={{background: AILYDIAN_COLORS.primary}}>30G</button>
-                        <button className="px-3 py-1 text-xs text-gray-300 hover:bg-white/10 rounded-lg transition-colors">7G</button>
-                        <button className="px-3 py-1 text-xs text-gray-300 hover:bg-white/10 rounded-lg transition-colors">24S</button>
+                        <button className="px-3 py-1 text-xs text-gray-100 hover:bg-white/10 rounded-lg transition-colors">7G</button>
+                        <button className="px-3 py-1 text-xs text-gray-100 hover:bg-white/10 rounded-lg transition-colors">24S</button>
                       </div>
                     </div>
                     <div className="h-80">
@@ -808,7 +808,7 @@ export default function AdminDashboard() {
                             </div>
                             <div className="ml-4">
                               <p className="font-semibold text-white">{location.name}</p>
-                              <div className="flex items-center space-x-4 text-sm text-gray-300">
+                              <div className="flex items-center space-x-4 text-sm text-gray-100">
                                 <span className="flex items-center">
                                   <Star className="w-3 h-3 mr-1 fill-current" style={{color: AILYDIAN_COLORS.warning}} />
                                   {location.rating}
@@ -845,7 +845,7 @@ export default function AdminDashboard() {
                       </div>
                       <button 
                         onClick={fetchDashboardData}
-                        className="flex items-center space-x-1 px-3 py-2 text-sm text-gray-300 hover:text-white rounded-lg transition-all" 
+                        className="flex items-center space-x-1 px-3 py-2 text-sm text-gray-100 hover:text-white rounded-lg transition-all" 
                         style={{background: `${AILYDIAN_COLORS.primary}10`}}
                         onMouseEnter={(e) => e.currentTarget.style.background = AILYDIAN_COLORS.primary}
                         onMouseLeave={(e) => e.currentTarget.style.background = `${AILYDIAN_COLORS.primary}10`}
@@ -879,7 +879,7 @@ export default function AdminDashboard() {
                             <div className="flex items-start justify-between">
                               <div>
                                 <p className="text-sm font-medium text-white">{activity.description}</p>
-                                <div className="flex items-center space-x-3 text-xs text-gray-400 mt-1">
+                                <div className="flex items-center space-x-3 text-xs text-gray-200 mt-1">
                                   <div className="flex items-center">
                                     <Clock className="w-3 h-3 mr-1" />
                                     <span>{formatDateTurkish(activity.timestamp)}</span>
@@ -938,7 +938,7 @@ export default function AdminDashboard() {
                           <span className="font-bold text-red-600">{dashboardData.platformStats.syncErrors}</span>
                         </div>
                         <div className="pt-3 border-t border-white/10">
-                          <p className="text-xs text-gray-400 flex items-center">
+                          <p className="text-xs text-gray-200 flex items-center">
                             <Zap className="w-3 h-3 mr-1" />
                             Son senkronizasyon: {formatDateTurkish(dashboardData.platformStats.lastSync)}
                           </p>

@@ -499,7 +499,7 @@ export default function VehicleOwnerRegisterPage() {
                       {errors.password && (
                         <p className="mt-1 text-sm text-red-500">{errors.password}</p>
                       )}
-                      <p className="mt-1 text-xs text-gray-400">
+                      <p className="mt-1 text-xs text-gray-200">
                         En az 8 karakter, bir büyük harf, bir küçük harf ve bir rakam içermelidir
                       </p>
                     </div>
@@ -564,7 +564,7 @@ export default function VehicleOwnerRegisterPage() {
                           }`}>
                             Bireysel
                           </span>
-                          <span className="text-xs text-gray-400 text-center">
+                          <span className="text-xs text-gray-200 text-center">
                             Kişisel araç sahibi
                           </span>
                         </button>
@@ -585,7 +585,7 @@ export default function VehicleOwnerRegisterPage() {
                           }`}>
                             Şirket
                           </span>
-                          <span className="text-xs text-gray-400 text-center">
+                          <span className="text-xs text-gray-200 text-center">
                             Kurumsal işletme
                           </span>
                         </button>
@@ -614,7 +614,7 @@ export default function VehicleOwnerRegisterPage() {
                           placeholder="Örn: Yılmaz Rent A Car"
                         />
                       </div>
-                      <p className="mt-1 text-xs text-gray-400">
+                      <p className="mt-1 text-xs text-gray-200">
                         İşletme adınız varsa girebilirsiniz
                       </p>
                     </div>
@@ -829,7 +829,7 @@ export default function VehicleOwnerRegisterPage() {
             <div className="mt-4 text-center">
               <Link
                 href="/"
-                className="text-sm text-gray-300 hover:text-white transition-colors"
+                className="text-sm text-gray-100 hover:text-white transition-colors"
               >
                 ← Ana sayfaya dön
               </Link>

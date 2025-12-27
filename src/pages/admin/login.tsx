@@ -148,7 +148,7 @@ export default function AdminLogin() {
             {process.env.NODE_ENV === 'development' && (
               <div className="mt-8 pt-6 border-t border-gray-700">
                 <h3 className="text-sm font-medium text-gray-300 mb-3">Demo Credentials (Development Only):</h3>
-                <div className="space-y-2 text-xs text-gray-400">
+                <div className="space-y-2 text-xs text-gray-200">
                   <div className="bg-gray-900/50 rounded p-2">
                     <div><strong>Super Admin:</strong></div>
                     <div>Email: admin@lydian.com</div>

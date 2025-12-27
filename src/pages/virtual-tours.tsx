@@ -333,7 +333,7 @@ const VirtualToursPage: NextPage = () => {
 
                     <h3 className="text-xl font-bold text-white mb-2">{tour.title}</h3>
                     
-                    <div className="flex items-center gap-4 text-sm text-gray-300 mb-4">
+                    <div className="flex items-center gap-4 text-sm text-gray-100 mb-4">
                       <div className="flex items-center gap-1">
                         <MapPin className="w-4 h-4" />
                         {tour.location}
@@ -348,7 +348,7 @@ const VirtualToursPage: NextPage = () => {
                       <div className="flex items-center gap-1">
                         <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
                         <span className="font-medium">{tour.rating}</span>
-                        <span className="text-gray-400">({tour.reviews})</span>
+                        <span className="text-gray-200">({tour.reviews})</span>
                       </div>
                     </div>
 

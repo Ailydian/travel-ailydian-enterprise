@@ -190,7 +190,7 @@ const CartPage: React.FC = () => {
                   <AlertCircle className="w-5 h-5 text-orange-500" />
                   <div className="flex-1">
                     <p className="font-medium text-white">Ürün kaldırıldı</p>
-                    <p className="text-sm text-gray-300">{recentlyRemoved.title}</p>
+                    <p className="text-sm text-gray-100">{recentlyRemoved.title}</p>
                   </div>
                   <button
                     onClick={handleUndoRemove}
@@ -282,7 +282,7 @@ Türkiye&apos;nin en güzel destinasyonlarını ve benzersiz deneyimlerini keşf
                           <div className="flex justify-between items-start mb-4">
                             <div className="flex-1">
                               <h3 className="font-bold text-xl text-white mb-2 line-clamp-2">{item.title}</h3>
-                              <div className="flex flex-wrap items-center gap-4 text-sm text-gray-300 mb-3">
+                              <div className="flex flex-wrap items-center gap-4 text-sm text-gray-100 mb-3">
                                 {item.location && (
                                   <div className="flex items-center gap-1">
                                     <MapPin className="w-4 h-4" />
@@ -377,7 +377,7 @@ Türkiye&apos;nin en güzel destinasyonlarını ve benzersiz deneyimlerini keşf
                                   {item.currency === 'TRY' ? '₺' : item.currency}{(item.price * item.quantity).toLocaleString()}
                                 </span>
                               </div>
-                              <p className="text-sm text-gray-400">Toplam Fiyat</p>
+                              <p className="text-sm text-gray-200">Toplam Fiyat</p>
                             </div>
                           </div>
                         </div>
@@ -395,7 +395,7 @@ Türkiye&apos;nin en güzel destinasyonlarını ve benzersiz deneyimlerini keşf
                             </div>
                           )}
                           {item.provider && (
-                            <div className="text-gray-400">
+                            <div className="text-gray-200">
                               Sağlayıcı: {item.provider}
                             </div>
                           )}
@@ -465,7 +465,7 @@ Türkiye&apos;nin en güzel destinasyonlarını ve benzersiz deneyimlerini keşf
 
                       {/* Available Discount Codes */}
                       <div className="mt-3">
-                        <p className="text-xs text-gray-400 mb-2">Mevcut kodlar:</p>
+                        <p className="text-xs text-gray-200 mb-2">Mevcut kodlar:</p>
                         <div className="flex flex-wrap gap-2">
                           {['WELCOME10', 'TURKEY15', 'HOLIDAY30'].map((code) => (
                             <button
@@ -508,21 +508,21 @@ Türkiye&apos;nin en güzel destinasyonlarını ve benzersiz deneyimlerini keşf
                             ₺{state.finalTotal.toLocaleString()}
                           </span>
                         </div>
-                        <p className="text-xs text-gray-400 mt-1">KDV dahil</p>
+                        <p className="text-xs text-gray-200 mt-1">KDV dahil</p>
                       </div>
                     </div>
 
                     {/* Security Features */}
                     <div className="space-y-3 pt-4 border-t border-gray-100">
-                      <div className="flex items-center gap-2 text-sm text-gray-300">
+                      <div className="flex items-center gap-2 text-sm text-gray-100">
                         <Shield className="w-4 h-4 text-green-500" />
                         SSL ile güvenli ödeme
                       </div>
-                      <div className="flex items-center gap-2 text-sm text-gray-300">
+                      <div className="flex items-center gap-2 text-sm text-gray-100">
                         <CheckCircle className="w-4 h-4 text-green-500" />
                         24/7 müşteri desteği
                       </div>
-                      <div className="flex items-center gap-2 text-sm text-gray-300">
+                      <div className="flex items-center gap-2 text-sm text-gray-100">
                         <Truck className="w-4 h-4 text-blue-500" />
                         Ücretsiz rezervasyon iptali
                       </div>
@@ -543,7 +543,7 @@ Türkiye&apos;nin en güzel destinasyonlarını ve benzersiz deneyimlerini keşf
 
                     {/* Payment Methods */}
                     <div>
-                      <p className="text-xs text-gray-400 mb-2">Kabul edilen ödeme yöntemleri:</p>
+                      <p className="text-xs text-gray-200 mb-2">Kabul edilen ödeme yöntemleri:</p>
                       <div className="flex items-center gap-2">
                         <div className="flex items-center gap-1 px-2 py-1 bg-white/10 rounded">
                           <CreditCard className="w-4 h-4" />

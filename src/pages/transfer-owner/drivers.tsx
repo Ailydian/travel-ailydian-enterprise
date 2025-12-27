@@ -427,7 +427,7 @@ export default function DriversPage() {
                 <div className="flex-1">
                   <h4 className="font-bold text-white">{toast.title}</h4>
                   {toast.message && (
-                    <p className="text-sm text-gray-300 mt-1">{toast.message}</p>
+                    <p className="text-sm text-gray-100 mt-1">{toast.message}</p>
                   )}
                 </div>
                 <button

@@ -111,7 +111,7 @@ const PlacesToStayPage: NextPage = () => {
         {/* Breadcrumbs */}
         <div className="bg-transparent border-b border-white/10">
           <div className="max-w-7xl mx-auto px-4 py-3">
-            <div className="flex items-center gap-2 text-sm text-gray-300">
+            <div className="flex items-center gap-2 text-sm text-gray-100">
               <Link href="/" className="hover:text-lydian-primary">
                 {currentLang === 'tr' ? 'Ana Sayfa' : 'Home'}
               </Link>
@@ -221,7 +221,7 @@ const PlacesToStayPage: NextPage = () => {
                       <MapPin className="w-4 h-4" />
                       <span>{accommodation.location}</span>
                     </div>
-                    <p className="text-sm text-gray-300 mb-3 line-clamp-2">
+                    <p className="text-sm text-gray-100 mb-3 line-clamp-2">
                       {accommodation.description}
                     </p>
                     <div className="flex flex-wrap gap-2 mb-4">
@@ -235,11 +235,11 @@ const PlacesToStayPage: NextPage = () => {
                       ))}
                     </div>
                     <div className="flex items-end justify-between border-t border-gray-100 pt-3">
-                      <div className="text-sm text-gray-300">
+                      <div className="text-sm text-gray-100">
                         {accommodation.reviews} {currentLang === 'tr' ? 'değerlendirme' : 'reviews'}
                       </div>
                       <div className="text-right">
-                        <div className="text-xs text-gray-400">
+                        <div className="text-xs text-gray-200">
                           {currentLang === 'tr' ? 'Gecelik' : 'Per night'}
                         </div>
                         <div className="text-2xl font-black text-lydian-primary">

@@ -128,14 +128,14 @@ export default function BusinessPage() {
                 <div className="p-4">
                   <h3 className="font-semibold text-lg mb-1">{business.name}</h3>
                   <p className="text-gray-300 text-sm mb-2">{business.category}</p>
-                  <div className="flex items-center text-sm text-gray-300 mb-2">
+                  <div className="flex items-center text-sm text-gray-100 mb-2">
                     <MapPin className="h-4 w-4 mr-1" />
                     {business.location}
                   </div>
                   <div className="flex items-center space-x-2">
                     {renderStars(Math.floor(business.rating))}
                     <span className="text-sm font-medium">{business.rating}</span>
-                    <span className="text-xs text-gray-400">({business.reviewCount})</span>
+                    <span className="text-xs text-gray-200">({business.reviewCount})</span>
                   </div>
                 </div>
               </div>

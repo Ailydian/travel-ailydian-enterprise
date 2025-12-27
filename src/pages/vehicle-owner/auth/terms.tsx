@@ -280,7 +280,7 @@ export default function VehicleOwnerTermsPage() {
               </h1>
             </div>
           </div>
-          <div className="flex items-center gap-4 text-sm text-gray-300 mt-4">
+          <div className="flex items-center gap-4 text-sm text-gray-100 mt-4">
             <span>Son Güncelleme: {lastUpdated}</span>
             <span>•</span>
             <span>Yürürlük Tarihi: 1 Ocak 2024</span>
@@ -410,7 +410,7 @@ export default function VehicleOwnerTermsPage() {
               </div>
             )}
 
-            <p className="text-center text-sm text-gray-400 mt-4">
+            <p className="text-center text-sm text-gray-200 mt-4">
               Bu sözleşmeyi kabul ederek, yukarıda belirtilen tüm şartları okuduğunuzu ve kabul ettiğinizi beyan edersiniz.
             </p>
           </div>

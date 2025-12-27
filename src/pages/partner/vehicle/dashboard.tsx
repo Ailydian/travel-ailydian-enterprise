@@ -266,7 +266,7 @@ const VehicleOwnerDashboard: React.FC = () => {
                   <Car className="h-8 w-8 text-purple-600" />
                   Şoförlü Araç Partner Dashboard
                 </h1>
-                <p className="text-sm text-gray-300 mt-1">
+                <p className="text-sm text-gray-100 mt-1">
                   Araç filosu, sürücü yönetimi ve rezervasyon takibi
                 </p>
               </div>
@@ -359,7 +359,7 @@ const VehicleOwnerDashboard: React.FC = () => {
                       <TrendingDown className="h-5 w-5 text-red-600" />
                     )}
                   </div>
-                  <p className="text-sm text-gray-300 mb-1">Aylık Gelir</p>
+                  <p className="text-sm text-gray-100 mb-1">Aylık Gelir</p>
                   <p className="text-2xl font-bold text-white">
                     ₺{stats.revenue.thisMonth.toLocaleString()}
                   </p>
@@ -383,9 +383,9 @@ const VehicleOwnerDashboard: React.FC = () => {
                       Aktif
                     </span>
                   </div>
-                  <p className="text-sm text-gray-300 mb-1">Aktif Rezervasyonlar</p>
+                  <p className="text-sm text-gray-100 mb-1">Aktif Rezervasyonlar</p>
                   <p className="text-2xl font-bold text-white">{stats.bookings.active}</p>
-                  <p className="text-xs text-gray-400 mt-2">
+                  <p className="text-xs text-gray-200 mt-2">
                     {stats.bookings.upcoming} yaklaşan rezervasyon
                   </p>
                 </motion.div>
@@ -403,7 +403,7 @@ const VehicleOwnerDashboard: React.FC = () => {
                     </div>
                     <CheckCircle className="h-5 w-5 text-green-600" />
                   </div>
-                  <p className="text-sm text-gray-300 mb-1">Müsait Araçlar</p>
+                  <p className="text-sm text-gray-100 mb-1">Müsait Araçlar</p>
                   <p className="text-2xl font-bold text-white">
                     {stats.vehicles.available}/{stats.vehicles.total}
                   </p>
@@ -439,11 +439,11 @@ const VehicleOwnerDashboard: React.FC = () => {
                       ))}
                     </div>
                   </div>
-                  <p className="text-sm text-gray-300 mb-1">Müşteri Memnuniyeti</p>
+                  <p className="text-sm text-gray-100 mb-1">Müşteri Memnuniyeti</p>
                   <p className="text-2xl font-bold text-white">
                     {stats.performance.customerRating.toFixed(1)}/5.0
                   </p>
-                  <p className="text-xs text-gray-400 mt-2">
+                  <p className="text-xs text-gray-200 mt-2">
                     {stats.bookings.completed} tamamlanmış rezervasyon
                   </p>
                 </motion.div>
@@ -515,7 +515,7 @@ const VehicleOwnerDashboard: React.FC = () => {
                     <div className="flex items-start justify-between mb-3">
                       <div>
                         <p className="font-bold text-white">{vehicle.brand} {vehicle.model}</p>
-                        <p className="text-sm text-gray-300">{vehicle.year} • {vehicle.plateNumber}</p>
+                        <p className="text-sm text-gray-100">{vehicle.year} • {vehicle.plateNumber}</p>
                       </div>
                       <span
                         className={`px-3 py-1 text-xs font-bold rounded-full ${
@@ -612,7 +612,7 @@ const VehicleOwnerDashboard: React.FC = () => {
                             </div>
                             <div>
                               <p className="font-medium text-white">{driver.name}</p>
-                              <p className="text-xs text-gray-400">{driver.licenseType} Ehliyet</p>
+                              <p className="text-xs text-gray-200">{driver.licenseType} Ehliyet</p>
                             </div>
                           </div>
                         </td>
@@ -686,7 +686,7 @@ const VehicleOwnerDashboard: React.FC = () => {
                     <div className="flex items-start justify-between mb-3">
                       <div>
                         <p className="font-bold text-white">{booking.customer}</p>
-                        <p className="text-sm text-gray-300">{booking.vehicle} • {booking.driver}</p>
+                        <p className="text-sm text-gray-100">{booking.vehicle} • {booking.driver}</p>
                       </div>
                       <span
                         className={`px-3 py-1 text-xs font-bold rounded-full ${
@@ -705,19 +705,19 @@ const VehicleOwnerDashboard: React.FC = () => {
 
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-3">
                       <div>
-                        <p className="text-xs text-gray-300">Başlangıç</p>
+                        <p className="text-xs text-gray-100">Başlangıç</p>
                         <p className="text-sm font-medium text-white">{booking.startDate}</p>
                       </div>
                       <div>
-                        <p className="text-xs text-gray-300">Bitiş</p>
+                        <p className="text-xs text-gray-100">Bitiş</p>
                         <p className="text-sm font-medium text-white">{booking.endDate}</p>
                       </div>
                       <div>
-                        <p className="text-xs text-gray-300">Süre</p>
+                        <p className="text-xs text-gray-100">Süre</p>
                         <p className="text-sm font-medium text-white">{booking.days} gün</p>
                       </div>
                       <div>
-                        <p className="text-xs text-gray-300">Ücret</p>
+                        <p className="text-xs text-gray-100">Ücret</p>
                         <p className="text-sm font-bold text-purple-600">₺{booking.price.toLocaleString()}</p>
                       </div>
                     </div>

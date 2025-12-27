@@ -404,7 +404,7 @@ const HotelsNewPage: React.FC = () => {
                     </div>
 
                     <div className="p-6">
-                      <div className="flex items-center gap-2 text-sm text-gray-400 mb-2">
+                      <div className="flex items-center gap-2 text-sm text-gray-200 mb-2">
                         <MapPin className="w-4 h-4" />
                         <span>{hotel.location}</span>
                       </div>
@@ -424,7 +424,7 @@ const HotelsNewPage: React.FC = () => {
                             <div className="text-2xl font-bold text-white">
                               {hotel.price.toLocaleString('tr-TR')} {hotel.currency}
                             </div>
-                            <span className="text-sm text-gray-300">gecelik</span>
+                            <span className="text-sm text-gray-100">gecelik</span>
                           </div>
                         </div>
                         <div className="flex gap-2">
@@ -479,7 +479,7 @@ const HotelsNewPage: React.FC = () => {
                 </div>
                 <h3 className="text-xl font-bold text-white">Rezervasyon Koşulları</h3>
               </div>
-              <ul className="space-y-2 text-sm text-gray-300">
+              <ul className="space-y-2 text-sm text-gray-100">
                 <li className="flex items-start gap-2">
                   <CheckCircle className="w-4 h-4 mt-0.5 text-green-500 flex-shrink-0" />
                   <span>Ücretsiz iptal: Check-in'den 48 saat öncesine kadar</span>
@@ -517,7 +517,7 @@ const HotelsNewPage: React.FC = () => {
                 </div>
                 <h3 className="text-xl font-bold text-white">Ödeme & Güvenlik</h3>
               </div>
-              <ul className="space-y-2 text-sm text-gray-300">
+              <ul className="space-y-2 text-sm text-gray-100">
                 <li className="flex items-start gap-2">
                   <CheckCircle className="w-4 h-4 mt-0.5 text-green-500 flex-shrink-0" />
                   <span>SSL sertifikalı güvenli ödeme altyapısı</span>
@@ -555,7 +555,7 @@ const HotelsNewPage: React.FC = () => {
                 </div>
                 <h3 className="text-xl font-bold text-white">Destek & Yardım</h3>
               </div>
-              <ul className="space-y-2 text-sm text-gray-300">
+              <ul className="space-y-2 text-sm text-gray-100">
                 <li className="flex items-start gap-2">
                   <CheckCircle className="w-4 h-4 mt-0.5 text-green-500 flex-shrink-0" />
                   <span>7/24 Türkçe canlı destek hizmeti</span>
@@ -582,7 +582,7 @@ const HotelsNewPage: React.FC = () => {
                  backgroundColor: 'rgba(249, 250, 251, 0.5)',
                  borderColor: '#E5E7EB'
                }}>
-            <p className="text-sm text-gray-300 text-center">
+            <p className="text-sm text-gray-100 text-center">
               <strong className="font-bold text-white">Önemli Bilgi:</strong> Travel LyDian,
               AI destekli blockchain tabanlı güvenli rezervasyon sistemi ile seyahatinizi güvence altına alır.
               Tüm rezervasyonlarınız anında onaylanır ve blockchain ağında kayıt altına alınır.

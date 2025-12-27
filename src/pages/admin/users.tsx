@@ -288,7 +288,7 @@ export default function AdminUsers() {
               <div className="flex items-center space-x-4">
                 <div className="flex items-center space-x-2">
                   <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                  <span className="text-sm text-gray-300">
+                  <span className="text-sm text-gray-100">
                     {adminData?.email}
                   </span>
                 </div>
@@ -522,8 +522,8 @@ export default function AdminUsers() {
                                     <div className="text-sm font-medium text-white">{user.fullName}</div>
                                     {user.isVerified && <CheckCircle className="w-4 h-4 text-blue-500 ml-1" />}
                                   </div>
-                                  <div className="text-sm text-gray-400">@{user.username}</div>
-                                  <div className="text-sm text-gray-400">{user.email}</div>
+                                  <div className="text-sm text-gray-200">@{user.username}</div>
+                                  <div className="text-sm text-gray-200">{user.email}</div>
                                 </div>
                               </div>
                             </td>
@@ -537,7 +537,7 @@ export default function AdminUsers() {
                               <div>{formatDate(user.joinDate)}</div>
                               <div className="text-gray-400 text-xs">Son giriş: {formatDate(user.lastLogin)}</div>
                             </td>
-                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-400">
+                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-200">
                               <div className="space-y-1">
                                 <div className="flex items-center">
                                   <MapPin className="w-3 h-3 mr-1" />

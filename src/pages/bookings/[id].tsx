@@ -237,7 +237,7 @@ const BookingDetailPage: React.FC = () => {
                 <div key={index} className="flex justify-between items-start p-4 bg-white/5 rounded-xl">
                   <div>
                     <p className="font-semibold text-white mb-1">{item.title}</p>
-                    <p className="text-sm text-gray-300">{item.guests} guests</p>
+                    <p className="text-sm text-gray-100">{item.guests} guests</p>
                   </div>
                   <span className="font-bold text-white">{item.price} TRY</span>
                 </div>
@@ -259,7 +259,7 @@ const BookingDetailPage: React.FC = () => {
                   <div className="flex items-start gap-3">
                     <Calendar className="w-5 h-5 text-blue-600 mt-1" />
                     <div>
-                      <p className="text-sm text-gray-300">Check-in</p>
+                      <p className="text-sm text-gray-100">Check-in</p>
                       <p className="font-semibold text-white">
                         {new Date(booking.checkInDate).toLocaleDateString('en-US', {
                           weekday: 'long',
@@ -276,7 +276,7 @@ const BookingDetailPage: React.FC = () => {
                   <div className="flex items-start gap-3">
                     <Calendar className="w-5 h-5 text-blue-600 mt-1" />
                     <div>
-                      <p className="text-sm text-gray-300">Check-out</p>
+                      <p className="text-sm text-gray-100">Check-out</p>
                       <p className="font-semibold text-white">
                         {new Date(booking.checkOutDate).toLocaleDateString('en-US', {
                           weekday: 'long',
@@ -293,7 +293,7 @@ const BookingDetailPage: React.FC = () => {
                   <div className="flex items-start gap-3">
                     <Users className="w-5 h-5 text-purple-600 mt-1" />
                     <div>
-                      <p className="text-sm text-gray-300">Guests</p>
+                      <p className="text-sm text-gray-100">Guests</p>
                       <p className="font-semibold text-white">{booking.guestCount} people</p>
                     </div>
                   </div>
@@ -303,7 +303,7 @@ const BookingDetailPage: React.FC = () => {
                   <div className="flex items-start gap-3">
                     <FileText className="w-5 h-5 text-orange-600 mt-1" />
                     <div>
-                      <p className="text-sm text-gray-300">Special Requests</p>
+                      <p className="text-sm text-gray-100">Special Requests</p>
                       <p className="font-semibold text-white">{booking.specialRequests}</p>
                     </div>
                   </div>
@@ -323,11 +323,11 @@ const BookingDetailPage: React.FC = () => {
                 <div className="flex items-start gap-3">
                   <CreditCard className="w-5 h-5 text-green-600 mt-1" />
                   <div>
-                    <p className="text-sm text-gray-300">Total Amount</p>
+                    <p className="text-sm text-gray-100">Total Amount</p>
                     <p className="font-bold text-2xl text-green-600">
                       {booking.totalAmount} {booking.currency}
                     </p>
-                    <p className="text-xs text-gray-400 mt-1">
+                    <p className="text-xs text-gray-200 mt-1">
                       Payment Status: {booking.paymentStatus}
                     </p>
                   </div>
@@ -338,7 +338,7 @@ const BookingDetailPage: React.FC = () => {
                     <div className="flex items-start gap-3">
                       <Mail className="w-5 h-5 text-blue-600 mt-1" />
                       <div>
-                        <p className="text-sm text-gray-300">Email</p>
+                        <p className="text-sm text-gray-100">Email</p>
                         <p className="font-semibold text-white">{booking.metaData.customerInfo.email}</p>
                       </div>
                     </div>
@@ -346,7 +346,7 @@ const BookingDetailPage: React.FC = () => {
                     <div className="flex items-start gap-3">
                       <Phone className="w-5 h-5 text-purple-600 mt-1" />
                       <div>
-                        <p className="text-sm text-gray-300">Phone</p>
+                        <p className="text-sm text-gray-100">Phone</p>
                         <p className="font-semibold text-white">{booking.metaData.customerInfo.phone}</p>
                       </div>
                     </div>
@@ -356,7 +356,7 @@ const BookingDetailPage: React.FC = () => {
                 <div className="flex items-start gap-3">
                   <Clock className="w-5 h-5 text-gray-300 mt-1" />
                   <div>
-                    <p className="text-sm text-gray-300">Booked on</p>
+                    <p className="text-sm text-gray-100">Booked on</p>
                     <p className="font-semibold text-white">
                       {new Date(booking.createdAt).toLocaleDateString('en-US', {
                         year: 'numeric',

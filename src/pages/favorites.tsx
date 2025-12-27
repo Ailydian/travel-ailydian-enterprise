@@ -448,7 +448,7 @@ export default function Favorites() {
                       <div className="bg-white/95 backdrop-blur-sm px-3 py-1.5 rounded-full shadow-lg">
                         <div className="flex items-center gap-2">
                           {item.originalPrice && (
-                            <span className="text-xs text-gray-400 line-through">
+                            <span className="text-xs text-gray-200 line-through">
                               {item.originalPrice.toLocaleString('tr-TR')} ₺
                             </span>
                           )}
@@ -482,7 +482,7 @@ export default function Favorites() {
 
                     {/* Description */}
                     {item.description && (
-                      <p className="text-sm text-gray-300 mb-4 line-clamp-2">
+                      <p className="text-sm text-gray-100 mb-4 line-clamp-2">
                         {item.description}
                       </p>
                     )}
@@ -503,7 +503,7 @@ export default function Favorites() {
 
                     {/* Bottom Actions */}
                     <div className="flex items-center justify-between pt-4 border-t border-gray-100">
-                      <div className="flex items-center gap-1 text-xs text-gray-400">
+                      <div className="flex items-center gap-1 text-xs text-gray-200">
                         <Calendar className="w-3 h-3" />
                         {new Date(item.savedDate).toLocaleDateString('tr-TR')}
                       </div>

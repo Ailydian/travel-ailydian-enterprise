@@ -227,7 +227,7 @@ export default function MyTrips() {
               <div key={index} className="bg-transparent dark:bg-gray-800 rounded-lg shadow-lg p-4 sm:p-6 text-center">
                 <stat.icon className={`h-6 w-6 sm:h-8 sm:w-8 mx-auto mb-2 sm:mb-3 ${stat.color}`} />
                 <div className="text-xl sm:text-2xl font-bold text-white dark:text-white mb-1">{stat.value}</div>
-                <div className="text-xs sm:text-sm text-gray-300 dark:text-gray-400">{stat.title}</div>
+                <div className="text-xs sm:text-sm text-gray-100 dark:text-gray-400">{stat.title}</div>
               </div>
             ))}
           </div>
@@ -325,7 +325,7 @@ export default function MyTrips() {
                           <div className="text-2xl font-bold text-white dark:text-white mb-2">
                             {trip.totalPrice}
                           </div>
-                          <div className="text-sm text-gray-300 dark:text-gray-400">
+                          <div className="text-sm text-gray-100 dark:text-gray-400">
                             {trip.confirmationCode}
                           </div>
                         </div>
@@ -386,7 +386,7 @@ export default function MyTrips() {
                         {/* Rating Display */}
                         {trip.rating && (
                           <div className="flex items-center mt-3">
-                            <span className="text-sm text-gray-300 dark:text-gray-400 mr-2">Değerlendirmeniz:</span>
+                            <span className="text-sm text-gray-100 dark:text-gray-400 mr-2">Değerlendirmeniz:</span>
                             <div className="flex">
                               {[...Array(5)].map((_, i) => (
                                 <Star

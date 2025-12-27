@@ -278,7 +278,7 @@ export default function ReservationPage() {
                         <Star className="w-4 h-4 fill-current" />
                         <span className="text-sm font-medium">{selectedProduct.rating}</span>
                         {selectedProduct.reviews && (
-                          <span className="text-sm text-gray-400">({selectedProduct.reviews})</span>
+                          <span className="text-sm text-gray-200">({selectedProduct.reviews})</span>
                         )}
                       </div>
                     )}

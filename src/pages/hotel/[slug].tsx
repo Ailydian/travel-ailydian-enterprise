@@ -164,7 +164,7 @@ export default function HotelDetailPage({ hotel }: { hotel: Hotel }) {
                       <div className="flex justify-between items-start">
                         <div>
                           <h3 className="font-bold text-lg">{room.name}</h3>
-                          <div className="flex gap-4 text-sm text-gray-300 mt-2">
+                          <div className="flex gap-4 text-sm text-gray-100 mt-2">
                             <span>{room.size} m²</span>
                             <span>• {room.capacity} Kişi</span>
                           </div>
@@ -173,7 +173,7 @@ export default function HotelDetailPage({ hotel }: { hotel: Hotel }) {
                           <div className="text-2xl font-bold text-blue-600">
                             {room.price.toLocaleString('tr-TR')} ₺
                           </div>
-                          <div className="text-sm text-gray-400">/ gece</div>
+                          <div className="text-sm text-gray-200">/ gece</div>
                         </div>
                       </div>
                     </div>
@@ -193,7 +193,7 @@ export default function HotelDetailPage({ hotel }: { hotel: Hotel }) {
                   {hotel.nearbyAttractions.map((attraction, i) => (
                     <div key={i} className="flex items-center justify-between py-2 border-b last:border-0">
                       <span className="font-medium">{attraction.name}</span>
-                      <span className="text-sm text-gray-300">
+                      <span className="text-sm text-gray-100">
                         {attraction.distance} {attraction.unit}
                       </span>
                     </div>
@@ -213,7 +213,7 @@ export default function HotelDetailPage({ hotel }: { hotel: Hotel }) {
                   <div className="text-3xl font-bold text-blue-600">
                     {selectedRoom.price.toLocaleString('tr-TR')} ₺
                   </div>
-                  <div className="text-sm text-gray-400">gece başına</div>
+                  <div className="text-sm text-gray-200">gece başına</div>
                 </div>
 
                 <div className="space-y-4">
@@ -287,7 +287,7 @@ export default function HotelDetailPage({ hotel }: { hotel: Hotel }) {
                   {/* Total Price */}
                   {calculateNights() > 0 && (
                     <div className="border-t pt-4">
-                      <div className="flex justify-between text-sm text-gray-300 mb-2">
+                      <div className="flex justify-between text-sm text-gray-100 mb-2">
                         <span>{selectedRoom.price.toLocaleString('tr-TR')} ₺ x {calculateNights()} gece x {rooms} oda</span>
                         <span>{totalPrice.toLocaleString('tr-TR')} ₺</span>
                       </div>
@@ -310,20 +310,20 @@ export default function HotelDetailPage({ hotel }: { hotel: Hotel }) {
                     </div>
                   </button>
 
-                  <p className="text-xs text-gray-400 text-center">
+                  <p className="text-xs text-gray-200 text-center">
                     Ücretsiz iptal · Anında onay
                   </p>
                 </div>
 
                 {/* Contact Info */}
                 <div className="mt-6 pt-6 border-t space-y-3">
-                  <div className="flex items-center gap-2 text-sm text-gray-300">
+                  <div className="flex items-center gap-2 text-sm text-gray-100">
                     <Phone className="w-4 h-4" />
                     <a href={`tel:${hotel.phone}`} className="hover:text-blue-600">
                       {hotel.phone}
                     </a>
                   </div>
-                  <div className="flex items-center gap-2 text-sm text-gray-300">
+                  <div className="flex items-center gap-2 text-sm text-gray-100">
                     <Mail className="w-4 h-4" />
                     <a href={`mailto:${hotel.email}`} className="hover:text-blue-600">
                       {hotel.email}

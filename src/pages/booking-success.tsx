@@ -190,7 +190,7 @@ const BookingSuccess: React.FC = () => {
                           </div>
                           <div className="text-left sm:text-right flex-shrink-0">
                             <div className="text-xl sm:text-2xl font-bold text-green-600 mb-1">₺{item.price}</div>
-                            <div className="text-xs sm:text-sm text-gray-400">{item.guests} kişi</div>
+                            <div className="text-xs sm:text-sm text-gray-200">{item.guests} kişi</div>
                           </div>
                         </div>
 
@@ -242,21 +242,21 @@ const BookingSuccess: React.FC = () => {
                     <div className="w-6 h-6 bg-blue-500 text-white rounded-full flex items-center justify-center text-sm font-bold">1</div>
                     <div>
                       <p className="font-medium text-white">Biletlerinizi İndirin</p>
-                      <p className="text-sm text-gray-300">QR kodlu biletlerinizi mobil cihazınıza kaydedin</p>
+                      <p className="text-sm text-gray-100">QR kodlu biletlerinizi mobil cihazınıza kaydedin</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
                     <div className="w-6 h-6 bg-purple-500 text-white rounded-full flex items-center justify-center text-sm font-bold">2</div>
                     <div>
                       <p className="font-medium text-white">VR Önizleme Yapın</p>
-                      <p className="text-sm text-gray-300">Seyahatinizden önce sanal gerçeklik deneyimi yaşayın</p>
+                      <p className="text-sm text-gray-100">Seyahatinizden önce sanal gerçeklik deneyimi yaşayın</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
                     <div className="w-6 h-6 bg-green-500 text-white rounded-full flex items-center justify-center text-sm font-bold">3</div>
                     <div>
                       <p className="font-medium text-white">Seyahat Günü</p>
-                      <p className="text-sm text-gray-300">QR kodunuzu göstererek check-in yapın</p>
+                      <p className="text-sm text-gray-100">QR kodunuzu göstererek check-in yapın</p>
                     </div>
                   </div>
                 </div>
@@ -276,23 +276,23 @@ const BookingSuccess: React.FC = () => {
 
                 <div className="space-y-3 sm:space-y-4">
                   <div className="flex justify-between gap-2">
-                    <span className="text-xs sm:text-sm text-gray-300">Onay Numarası</span>
+                    <span className="text-xs sm:text-sm text-gray-100">Onay Numarası</span>
                     <span className="font-semibold text-xs sm:text-sm text-lydian-primary text-right">{bookingDetails.confirmationNumber}</span>
                   </div>
                   <div className="flex justify-between gap-2">
-                    <span className="text-xs sm:text-sm text-gray-300">Rezervasyon Tarihi</span>
+                    <span className="text-xs sm:text-sm text-gray-100">Rezervasyon Tarihi</span>
                     <span className="font-semibold text-xs sm:text-sm">{bookingDetails.bookingDate}</span>
                   </div>
                   <div className="flex justify-between gap-2">
-                    <span className="text-xs sm:text-sm text-gray-300">Müşteri</span>
+                    <span className="text-xs sm:text-sm text-gray-100">Müşteri</span>
                     <span className="font-semibold text-xs sm:text-sm text-right">{bookingDetails.customerName}</span>
                   </div>
                   <div className="flex items-center justify-between gap-2">
-                    <span className="text-xs sm:text-sm text-gray-300">E-posta</span>
+                    <span className="text-xs sm:text-sm text-gray-100">E-posta</span>
                     <span className="font-semibold text-[10px] sm:text-xs text-right break-all">{bookingDetails.customerEmail}</span>
                   </div>
                   <div className="flex justify-between gap-2">
-                    <span className="text-xs sm:text-sm text-gray-300">Telefon</span>
+                    <span className="text-xs sm:text-sm text-gray-100">Telefon</span>
                     <span className="font-semibold text-xs sm:text-sm">{bookingDetails.customerPhone}</span>
                   </div>
                 </div>
@@ -302,7 +302,7 @@ const BookingSuccess: React.FC = () => {
                     <span className="text-base sm:text-lg font-bold text-white">Toplam Ödenen</span>
                     <span className="text-xl sm:text-2xl font-bold text-green-600">₺{bookingDetails.total}</span>
                   </div>
-                  <div className="flex justify-between text-xs sm:text-sm text-gray-300 mt-2">
+                  <div className="flex justify-between text-xs sm:text-sm text-gray-100 mt-2">
                     <span>Ödeme Yöntemi</span>
                     <span>{bookingDetails.paymentMethod}</span>
                   </div>

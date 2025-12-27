@@ -138,13 +138,13 @@ export default function ForgotPassword() {
 
                 {/* Footer */}
                 <div className="mt-6 text-center">
-                  <p className="text-sm text-gray-300">
+                  <p className="text-sm text-gray-100">
                     Şifrenizi hatırladınız mı?{' '}
                     <Link href="/auth/signin" className="text-lydian-primary font-semibold hover:underline">
                       Giriş Yap
                     </Link>
                   </p>
-                  <p className="text-sm text-gray-300 mt-2">
+                  <p className="text-sm text-gray-100 mt-2">
                     Hesabınız yok mu?{' '}
                     <Link href="/auth/signup" className="text-lydian-primary font-semibold hover:underline">
                       Kayıt Ol

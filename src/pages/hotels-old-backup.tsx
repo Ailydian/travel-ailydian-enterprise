@@ -493,7 +493,7 @@ const HotelsPage: React.FC = () => {
 
                   {/* Content */}
                   <div className="p-6">
-                    <div className="flex items-center gap-2 text-sm text-gray-400 mb-2">
+                    <div className="flex items-center gap-2 text-sm text-gray-200 mb-2">
                       <MapPin className="w-4 h-4" />
                       <span>{hotel.location}</span>
                     </div>
@@ -513,7 +513,7 @@ const HotelsPage: React.FC = () => {
                     {/* Highlights */}
                     <div className="mb-4">
                       <h4 className="font-semibold text-sm text-white mb-2">Öne Çıkanlar:</h4>
-                      <ul className="text-sm text-gray-300 space-y-1">
+                      <ul className="text-sm text-gray-100 space-y-1">
                         {hotel.highlights.slice(0, 2).map((highlight, index) => (
                           <li key={index} className="flex items-center gap-2">
                             <div className="w-1.5 h-1.5 bg-green-500 rounded-full"></div>
@@ -534,7 +534,7 @@ const HotelsPage: React.FC = () => {
                         );
                       })}
                       {hotel.amenities.length > 4 && (
-                        <span className="text-sm text-gray-400">+{hotel.amenities.length - 4} daha</span>
+                        <span className="text-sm text-gray-200">+{hotel.amenities.length - 4} daha</span>
                       )}
                     </div>
 
@@ -550,10 +550,10 @@ const HotelsPage: React.FC = () => {
                           <div className="flex items-center gap-2">
                             <span className="text-2xl font-bold text-white">{hotel.price}</span>
                             {hotel.originalPrice && (
-                              <span className="text-sm text-gray-400 line-through">{hotel.originalPrice}</span>
+                              <span className="text-sm text-gray-200 line-through">{hotel.originalPrice}</span>
                             )}
                           </div>
-                          <span className="text-sm text-gray-300">gecelik</span>
+                          <span className="text-sm text-gray-100">gecelik</span>
                         </div>
                       </div>
                       <div className="flex gap-2">

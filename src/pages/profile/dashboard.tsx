@@ -176,7 +176,7 @@ const Dashboard: React.FC = () => {
                 </div>
                 <div className="hidden sm:block">
                   <h1 className="text-xl font-bold text-white">LyDian Travel</h1>
-                  <p className="text-xs text-gray-400 -mt-1">Dashboard</p>
+                  <p className="text-xs text-gray-200 -mt-1">Dashboard</p>
                 </div>
               </Link>
 
@@ -188,7 +188,7 @@ const Dashboard: React.FC = () => {
                 <div className="flex items-center space-x-3">
                   <div className="text-right hidden sm:block">
                     <p className="text-sm font-medium text-white">{user.name}</p>
-                    <p className="text-xs text-gray-400">{user.email}</p>
+                    <p className="text-xs text-gray-200">{user.email}</p>
                   </div>
                   <div className="w-10 h-10 bg-gradient-to-r from-lydian-primary to-lydian-secondary rounded-full flex items-center justify-center">
                     <User className="w-5 h-5 text-white" />
@@ -354,15 +354,15 @@ const Dashboard: React.FC = () => {
                         </div>
                         <div className="flex-1 min-w-0">
                           <h4 className="font-medium text-white truncate">{booking.title}</h4>
-                          <p className="text-sm text-gray-400">{booking.location}</p>
+                          <p className="text-sm text-gray-200">{booking.location}</p>
                           <div className="flex items-center space-x-2 mt-1">
                             {getStatusIcon(booking.status)}
-                            <span className="text-xs text-gray-300">{getStatusText(booking.status)}</span>
+                            <span className="text-xs text-gray-100">{getStatusText(booking.status)}</span>
                           </div>
                         </div>
                         <div className="text-right">
                           <p className="font-bold text-white">₺{booking.amount}</p>
-                          <p className="text-xs text-gray-400">{booking.date}</p>
+                          <p className="text-xs text-gray-200">{booking.date}</p>
                         </div>
                       </div>
                     ))}
@@ -387,7 +387,7 @@ const Dashboard: React.FC = () => {
                           <div className="flex-1">
                             <h4 className="font-bold text-white mb-1">{trip.destination}</h4>
                             <p className="text-sm text-blue-600 font-medium">{trip.type}</p>
-                            <div className="flex items-center space-x-4 mt-2 text-sm text-gray-400">
+                            <div className="flex items-center space-x-4 mt-2 text-sm text-gray-200">
                               <div className="flex items-center space-x-1">
                                 <Calendar className="w-4 h-4" />
                                 <span>{trip.date}</span>

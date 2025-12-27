@@ -357,7 +357,7 @@ export default function AdminReviews() {
               <div className="flex items-center space-x-4">
                 <div className="flex items-center space-x-2">
                   <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                  <span className="text-sm text-gray-300">
+                  <span className="text-sm text-gray-100">
                     {adminData?.email}
                   </span>
                 </div>
@@ -566,11 +566,11 @@ export default function AdminReviews() {
                             </div>
                             <div className="flex items-center space-x-2 mt-1">
                               <MapPin className="w-4 h-4 text-gray-400" />
-                              <span className="text-sm text-gray-300">{review.location.name}, {review.location.city}</span>
+                              <span className="text-sm text-gray-100">{review.location.name}, {review.location.city}</span>
                             </div>
                             <div className="flex items-center space-x-2 mt-1">
                               <Calendar className="w-4 h-4 text-gray-400" />
-                              <span className="text-sm text-gray-300">{formatDate(review.createdAt)}</span>
+                              <span className="text-sm text-gray-100">{formatDate(review.createdAt)}</span>
                             </div>
                           </div>
                         </div>
@@ -612,7 +612,7 @@ export default function AdminReviews() {
 
                       {/* Review Stats and Actions */}
                       <div className="flex items-center justify-between pt-4 border-t border-white/10">
-                        <div className="flex items-center space-x-6 text-sm text-gray-300">
+                        <div className="flex items-center space-x-6 text-sm text-gray-100">
                           <div className="flex items-center space-x-1">
                             <ThumbsUp className="w-4 h-4" />
                             <span>{review.helpfulVotes}/{review.totalVotes} faydalı</span>
@@ -665,7 +665,7 @@ export default function AdminReviews() {
                               </span>
                             </div>
                             {review.moderationReason && (
-                              <span className="text-gray-400">Sebep: {review.moderationReason}</span>
+                              <span className="text-gray-200">Sebep: {review.moderationReason}</span>
                             )}
                           </div>
                         </div>

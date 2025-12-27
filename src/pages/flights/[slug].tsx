@@ -248,10 +248,10 @@ export default function FlightDetail() {
                   </div>
                   <div className="text-4xl font-bold text-white mb-1">{flight.departure.time}</div>
                   <div className="text-lg font-semibold text-gray-200">{flight.from.code}</div>
-                  <div className="text-sm text-gray-300">{flight.from.city}</div>
-                  <div className="text-xs text-gray-400 mt-1">{flight.from.airport}</div>
-                  <div className="text-xs text-gray-400">{flight.from.terminal}</div>
-                  <div className="text-xs text-gray-400 mt-1">
+                  <div className="text-sm text-gray-100">{flight.from.city}</div>
+                  <div className="text-xs text-gray-200 mt-1">{flight.from.airport}</div>
+                  <div className="text-xs text-gray-200">{flight.from.terminal}</div>
+                  <div className="text-xs text-gray-200 mt-1">
                     <Calendar className="w-3 h-3 inline mr-1" />
                     {flight.departure.date}
                   </div>
@@ -274,7 +274,7 @@ export default function FlightDetail() {
                     <Clock className="w-4 h-4" />
                     <span className="font-semibold">{flight.duration}</span>
                   </div>
-                  <div className="text-xs text-gray-400 mt-1">{flight.type} Uçuş</div>
+                  <div className="text-xs text-gray-200 mt-1">{flight.type} Uçuş</div>
                 </div>
 
                 {/* Arrival */}
@@ -285,10 +285,10 @@ export default function FlightDetail() {
                   </div>
                   <div className="text-4xl font-bold text-white mb-1">{flight.arrival.time}</div>
                   <div className="text-lg font-semibold text-gray-200">{flight.to.code}</div>
-                  <div className="text-sm text-gray-300">{flight.to.city}</div>
-                  <div className="text-xs text-gray-400 mt-1">{flight.to.airport}</div>
-                  <div className="text-xs text-gray-400">{flight.to.terminal}</div>
-                  <div className="text-xs text-gray-400 mt-1">
+                  <div className="text-sm text-gray-100">{flight.to.city}</div>
+                  <div className="text-xs text-gray-200 mt-1">{flight.to.airport}</div>
+                  <div className="text-xs text-gray-200">{flight.to.terminal}</div>
+                  <div className="text-xs text-gray-200 mt-1">
                     <Calendar className="w-3 h-3 inline mr-1" />
                     {flight.arrival.date}
                   </div>
@@ -346,11 +346,11 @@ export default function FlightDetail() {
                       )}
                       <h3 className="font-bold text-lg text-white mb-2">{fare.name}</h3>
                       {fare.originalPrice && (
-                        <div className="text-sm text-gray-400 line-through mb-1">₺{fare.originalPrice}</div>
+                        <div className="text-sm text-gray-200 line-through mb-1">₺{fare.originalPrice}</div>
                       )}
                       <div className="text-3xl font-bold text-lydian-primary mb-1">₺{fare.price}</div>
-                      <div className="text-xs text-gray-400">kişi başına</div>
-                      <div className="mt-4 text-xs text-gray-300">
+                      <div className="text-xs text-gray-200">kişi başına</div>
+                      <div className="mt-4 text-xs text-gray-100">
                         <div className="flex items-center gap-1 mb-1">
                           <Luggage className="w-3 h-3" />
                           <span>{fare.features[0]}</span>
@@ -422,12 +422,12 @@ export default function FlightDetail() {
                   <div className="bg-gradient-to-br from-blue-50 to-indigo-50 p-4 rounded-xl">
                     <h3 className="font-semibold text-white mb-2">Kabin Bagajı</h3>
                     <p className="text-2xl font-bold text-lydian-primary mb-1">{flight.baggage.cabin}</p>
-                    <p className="text-sm text-gray-300">Dahil</p>
+                    <p className="text-sm text-gray-100">Dahil</p>
                   </div>
                   <div className="bg-gradient-to-br from-green-50 to-emerald-50 p-4 rounded-xl">
                     <h3 className="font-semibold text-white mb-2">Kontrol Edilen Bagaj</h3>
                     <p className="text-2xl font-bold text-green-600 mb-1">{flight.baggage.checked}</p>
-                    <p className="text-sm text-gray-300">Ücret sınıfına göre değişir</p>
+                    <p className="text-sm text-gray-100">Ücret sınıfına göre değişir</p>
                   </div>
                 </div>
                 <div className="mt-4 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
@@ -460,7 +460,7 @@ export default function FlightDetail() {
                       <p className="font-medium text-white">
                         {flight.cancellationPolicy.refundable ? 'İade Edilebilir' : 'İade Edilemez'}
                       </p>
-                      <p className="text-sm text-gray-300 mt-1">
+                      <p className="text-sm text-gray-100 mt-1">
                         {flight.cancellationPolicy.refundable
                           ? 'Bu bilet iptal edilebilir ve iade alınabilir.'
                           : 'Bu bilet iptal edilemez ve iade alınamaz.'}
@@ -468,11 +468,11 @@ export default function FlightDetail() {
                     </div>
                   </div>
                   <div className="pt-3 border-t border-white/10">
-                    <p className="text-sm text-gray-300">
+                    <p className="text-sm text-gray-100">
                       İptal süresi: <span className="font-semibold">{flight.cancellationPolicy.deadline}</span>
                     </p>
                     {flight.cancellationPolicy.cancellationFee > 0 && (
-                      <p className="text-sm text-gray-300 mt-1">
+                      <p className="text-sm text-gray-100 mt-1">
                         İptal ücreti: <span className="font-semibold">₺{flight.cancellationPolicy.cancellationFee}</span>
                       </p>
                     )}
@@ -598,7 +598,7 @@ export default function FlightDetail() {
                 </motion.button>
 
                 <div className="mt-4 text-center">
-                  <div className="flex items-center justify-center gap-2 text-xs text-gray-400">
+                  <div className="flex items-center justify-center gap-2 text-xs text-gray-200">
                     <Shield className="w-4 h-4" />
                     Blockchain ile güvenli rezervasyon
                   </div>

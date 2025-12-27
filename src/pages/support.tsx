@@ -186,7 +186,7 @@ export default function Support() {
               <div key={index} className="bg-transparent dark:bg-gray-800 rounded-lg shadow-lg p-6 text-center">
                 <stat.icon className={`h-8 w-8 mx-auto mb-3 ${stat.color}`} />
                 <div className="text-2xl font-bold text-white dark:text-white mb-1">{stat.value}</div>
-                <div className="text-sm text-gray-300 dark:text-gray-400">{stat.title}</div>
+                <div className="text-sm text-gray-100 dark:text-gray-400">{stat.title}</div>
               </div>
             ))}
           </div>
@@ -372,7 +372,7 @@ export default function Support() {
                              ticket.status === 'in-progress' ? 'İnceleniyor' : 'Çözüldü'}
                           </span>
                         </div>
-                        <div className="flex items-center gap-6 text-sm text-gray-300 dark:text-gray-400">
+                        <div className="flex items-center gap-6 text-sm text-gray-100 dark:text-gray-400">
                           <span className="flex items-center">
                             <FileText className="h-4 w-4 mr-1" />
                             {ticket.id}

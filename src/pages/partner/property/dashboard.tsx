@@ -221,7 +221,7 @@ const PropertyOwnerDashboard: React.FC = () => {
                     <span className="text-yellow-600 font-medium">Güncelleniyor...</span>
                   </>
                 )}
-                <span className="text-gray-400">
+                <span className="text-gray-200">
                   {lastSyncTime.toLocaleTimeString('tr-TR')}
                 </span>
               </div>
@@ -296,7 +296,7 @@ const PropertyOwnerDashboard: React.FC = () => {
             <p className="text-3xl font-bold text-white mb-2">
               {stats.bookings.upcoming}
             </p>
-            <p className="text-xs text-gray-400">
+            <p className="text-xs text-gray-200">
               {stats.bookings.pending} beklemede
             </p>
           </motion.div>
@@ -311,7 +311,7 @@ const PropertyOwnerDashboard: React.FC = () => {
             <div className="flex items-center justify-between mb-4">
               <Users className="h-8 w-8 text-green-600" />
               <div className="text-right">
-                <p className="text-xs text-gray-400">Hedef</p>
+                <p className="text-xs text-gray-200">Hedef</p>
                 <p className="text-sm font-bold text-white">
                   %{stats.occupancy.target}
                 </p>
@@ -344,7 +344,7 @@ const PropertyOwnerDashboard: React.FC = () => {
             <p className="text-3xl font-bold text-white mb-2">
               %{stats.analytics.conversionRate.toFixed(1)}
             </p>
-            <p className="text-xs text-gray-400">
+            <p className="text-xs text-gray-200">
               {stats.analytics.views.toLocaleString()} görüntüleme
             </p>
           </motion.div>
@@ -357,7 +357,7 @@ const PropertyOwnerDashboard: React.FC = () => {
             <div className="flex items-center justify-between mb-6">
               <div>
                 <h3 className="text-lg font-bold text-white">Gelir Trendi</h3>
-                <p className="text-sm text-gray-400">Son 30 gün</p>
+                <p className="text-sm text-gray-200">Son 30 gün</p>
               </div>
               <BarChart3 className="h-5 w-5 text-purple-600" />
             </div>
@@ -368,7 +368,7 @@ const PropertyOwnerDashboard: React.FC = () => {
             <div className="mt-6 pt-6 border-t border-gray-200">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm text-gray-300 mb-1">
+                  <p className="text-sm text-gray-100 mb-1">
                     AI Tahmini (Sonraki 3 Ay)
                   </p>
                   <p className="text-2xl font-bold text-purple-600">
@@ -392,7 +392,7 @@ const PropertyOwnerDashboard: React.FC = () => {
             {/* Current vs Suggested */}
             <div className="space-y-4 mb-6">
               <div>
-                <p className="text-xs text-gray-300 mb-1">Mevcut Fiyat</p>
+                <p className="text-xs text-gray-100 mb-1">Mevcut Fiyat</p>
                 <p className="text-2xl font-bold text-white">
                   ₺{stats.pricing.currentPrice.toLocaleString()}
                 </p>
@@ -405,7 +405,7 @@ const PropertyOwnerDashboard: React.FC = () => {
               </div>
 
               <div>
-                <p className="text-xs text-gray-300 mb-1">Önerilen Fiyat</p>
+                <p className="text-xs text-gray-100 mb-1">Önerilen Fiyat</p>
                 <p className="text-3xl font-bold text-green-600">
                   ₺{stats.pricing.suggestedPrice.toLocaleString()}
                 </p>
@@ -417,7 +417,7 @@ const PropertyOwnerDashboard: React.FC = () => {
 
             {/* Competitor Comparison */}
             <div className="bg-white/5 rounded-lg p-4 mb-4">
-              <p className="text-xs text-gray-300 mb-2">Rakip Ortalaması</p>
+              <p className="text-xs text-gray-100 mb-2">Rakip Ortalaması</p>
               <p className="text-xl font-bold text-white">
                 ₺{stats.pricing.competitorAverage.toLocaleString()}
               </p>
@@ -428,7 +428,7 @@ const PropertyOwnerDashboard: React.FC = () => {
               Önerilen Fiyatı Uygula
             </button>
 
-            <p className="text-xs text-gray-400 mt-3 text-center">
+            <p className="text-xs text-gray-200 mt-3 text-center">
               AI, rakip fiyatları ve talep trendlerini analiz eder
             </p>
           </div>
@@ -451,7 +451,7 @@ const PropertyOwnerDashboard: React.FC = () => {
                     <p className="text-sm font-semibold text-white">
                       Görüntüleme
                     </p>
-                    <p className="text-xs text-gray-400">Bu ay</p>
+                    <p className="text-xs text-gray-200">Bu ay</p>
                   </div>
                 </div>
                 <p className="text-xl font-bold text-white">
@@ -467,7 +467,7 @@ const PropertyOwnerDashboard: React.FC = () => {
                     <p className="text-sm font-semibold text-white">
                       Tıklama
                     </p>
-                    <p className="text-xs text-gray-400">Rezervasyon sayfası</p>
+                    <p className="text-xs text-gray-200">Rezervasyon sayfası</p>
                   </div>
                 </div>
                 <p className="text-xl font-bold text-white">
@@ -483,7 +483,7 @@ const PropertyOwnerDashboard: React.FC = () => {
                     <p className="text-sm font-semibold text-white">
                       Ortalama Konaklama
                     </p>
-                    <p className="text-xs text-gray-400">Gece sayısı</p>
+                    <p className="text-xs text-gray-200">Gece sayısı</p>
                   </div>
                 </div>
                 <p className="text-xl font-bold text-white">
@@ -499,7 +499,7 @@ const PropertyOwnerDashboard: React.FC = () => {
                     <p className="text-sm font-semibold text-white">
                       Tekrar Gelen Misafir
                     </p>
-                    <p className="text-xs text-gray-400">Sadakat oranı</p>
+                    <p className="text-xs text-gray-200">Sadakat oranı</p>
                   </div>
                 </div>
                 <p className="text-xl font-bold text-white">
@@ -548,10 +548,10 @@ const PropertyOwnerDashboard: React.FC = () => {
                       <p className="text-sm font-semibold text-white">
                         {notification.title}
                       </p>
-                      <p className="text-xs text-gray-300 mt-1">
+                      <p className="text-xs text-gray-100 mt-1">
                         {notification.description}
                       </p>
-                      <p className="text-xs text-gray-400 mt-2">
+                      <p className="text-xs text-gray-200 mt-2">
                         {notification.time}
                       </p>
                     </div>

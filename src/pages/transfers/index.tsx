@@ -376,7 +376,7 @@ const TransfersPage: React.FC = () => {
                     </div>
                   </div>
 
-                  <div className="flex items-center justify-between text-sm text-gray-300 mb-4">
+                  <div className="flex items-center justify-between text-sm text-gray-100 mb-4">
                     <span>{route.distance}</span>
                     <span>•</span>
                     <span>{route.duration}</span>
@@ -386,7 +386,7 @@ const TransfersPage: React.FC = () => {
 
                   <div className="flex items-center justify-between pt-4 border-t border-white/10">
                     <div>
-                      <div className="text-sm text-gray-400">Başlangıç</div>
+                      <div className="text-sm text-gray-200">Başlangıç</div>
                       <div className="text-2xl font-bold text-white">₺{route.price}</div>
                     </div>
                     <button className="px-4 py-2 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors">
@@ -459,15 +459,15 @@ const TransfersPage: React.FC = () => {
                   <div className="p-5">
                     {/* Route Info */}
                     <div className="mb-3 pb-3 border-b border-gray-100">
-                      <div className="flex items-center gap-2 text-sm text-gray-300 mb-1">
+                      <div className="flex items-center gap-2 text-sm text-gray-100 mb-1">
                         <MapPin className="w-4 h-4 text-blue-600" />
                         <span className="font-medium">{transfer.transferData.from.tr}</span>
                       </div>
                       <div className="flex items-center gap-2 ml-6">
                         <ArrowRight className="w-4 h-4 text-gray-400" />
-                        <span className="text-sm text-gray-300">{transfer.transferData.to.tr}</span>
+                        <span className="text-sm text-gray-100">{transfer.transferData.to.tr}</span>
                       </div>
-                      <div className="flex items-center gap-3 mt-2 text-xs text-gray-400 ml-6">
+                      <div className="flex items-center gap-3 mt-2 text-xs text-gray-200 ml-6">
                         <span className="flex items-center gap-1">
                           <Clock className="w-3 h-3" />
                           {transfer.transferData.duration} dk
@@ -480,16 +480,16 @@ const TransfersPage: React.FC = () => {
                     <div className="flex items-center justify-between mb-3">
                       <div>
                         <h3 className="font-bold text-lg text-white">{transfer.company}</h3>
-                        <p className="text-sm text-gray-300">{transfer.vehicle}</p>
+                        <p className="text-sm text-gray-100">{transfer.vehicle}</p>
                       </div>
                       <div className="flex items-center gap-1">
                         <Star className="w-5 h-5 fill-yellow-400 text-yellow-400" />
                         <span className="font-semibold text-white">{transfer.rating}</span>
-                        <span className="text-sm text-gray-400">({transfer.reviews})</span>
+                        <span className="text-sm text-gray-200">({transfer.reviews})</span>
                       </div>
                     </div>
 
-                    <div className="flex items-center gap-4 text-sm text-gray-300 mb-4">
+                    <div className="flex items-center gap-4 text-sm text-gray-100 mb-4">
                       <div className="flex items-center gap-1">
                         <Users className="w-4 h-4" />
                         <span>{transfer.capacity} kişi</span>
@@ -514,11 +514,11 @@ const TransfersPage: React.FC = () => {
                     <div className="pt-4 border-t border-white/10">
                       <div className="flex items-center justify-between mb-3">
                         <div>
-                          <div className="text-sm text-gray-400">Başlangıç</div>
+                          <div className="text-sm text-gray-200">Başlangıç</div>
                           <div className="text-2xl font-bold text-white">₺{transfer.price}</div>
                         </div>
                         <div className="text-right">
-                          <div className="text-xs text-gray-400">Zamanında Gelme</div>
+                          <div className="text-xs text-gray-200">Zamanında Gelme</div>
                           <div className="text-sm font-semibold text-green-600">%{transfer.onTimeRate}</div>
                         </div>
                       </div>

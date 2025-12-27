@@ -43,7 +43,7 @@ export default function KVKK() {
                 </div>
                 <div>
                   <h3 className="font-semibold text-white mb-1">Güvenli Veri İşleme</h3>
-                  <p className="text-sm text-gray-300">Verileriniz 256-bit SSL ile korunur</p>
+                  <p className="text-sm text-gray-100">Verileriniz 256-bit SSL ile korunur</p>
                 </div>
               </div>
 
@@ -53,7 +53,7 @@ export default function KVKK() {
                 </div>
                 <div>
                   <h3 className="font-semibold text-white mb-1">Şeffaf Süreç</h3>
-                  <p className="text-sm text-gray-300">Ne, neden, nasıl işlendiğini bilirsiniz</p>
+                  <p className="text-sm text-gray-100">Ne, neden, nasıl işlendiğini bilirsiniz</p>
                 </div>
               </div>
 
@@ -63,7 +63,7 @@ export default function KVKK() {
                 </div>
                 <div>
                   <h3 className="font-semibold text-white mb-1">Haklar Saklı</h3>
-                  <p className="text-sm text-gray-300">Verileriniz üzerinde tam kontrole sahipsiniz</p>
+                  <p className="text-sm text-gray-100">Verileriniz üzerinde tam kontrole sahipsiniz</p>
                 </div>
               </div>
             </div>
@@ -474,7 +474,7 @@ export default function KVKK() {
             <p className="text-gray-300">
               <strong>Son Güncelleme:</strong> 26 Aralık 2025
             </p>
-            <p className="text-sm text-gray-400 mt-2">
+            <p className="text-sm text-gray-200 mt-2">
               Bu aydınlatma metni, yasal düzenlemelerdeki değişiklikler veya şirketimizin
               uygulamalarındaki güncellemeler doğrultusunda revize edilebilir.
             </p>

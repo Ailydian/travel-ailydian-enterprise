@@ -175,7 +175,7 @@ const SignUp: React.FC = () => {
                 </div>
                 <div>
                   <h1 className="text-2xl font-bold text-white">LyDian Travel</h1>
-                  <p className="text-xs text-gray-400">AI-Powered Enterprise</p>
+                  <p className="text-xs text-gray-200">AI-Powered Enterprise</p>
                 </div>
               </div>
             </Link>
@@ -332,7 +332,7 @@ const SignUp: React.FC = () => {
                   onChange={(e) => setFormData({ ...formData, termsAccepted: e.target.checked })}
                   className="mt-1 rounded border-white/20 text-blue-600 focus:ring-blue-500"
                 />
-                <label htmlFor="terms" className="ml-2 text-sm text-gray-300">
+                <label htmlFor="terms" className="ml-2 text-sm text-gray-100">
                   <Link href="/terms" className="text-blue-600 hover:text-blue-700">
                     Kullanım şartlarını
                   </Link>{' '}
@@ -386,20 +386,20 @@ const SignUp: React.FC = () => {
           >
             <div className="flex flex-col items-center gap-2">
               <Shield className="w-8 h-8 text-green-500" />
-              <p className="text-xs text-gray-300">Güvenli</p>
+              <p className="text-xs text-gray-100">Güvenli</p>
             </div>
             <div className="flex flex-col items-center gap-2">
               <Sparkles className="w-8 h-8 text-purple-500" />
-              <p className="text-xs text-gray-300">100 Puan Hediye</p>
+              <p className="text-xs text-gray-100">100 Puan Hediye</p>
             </div>
             <div className="flex flex-col items-center gap-2">
               <Globe className="w-8 h-8 text-blue-500" />
-              <p className="text-xs text-gray-300">Global</p>
+              <p className="text-xs text-gray-100">Global</p>
             </div>
           </motion.div>
 
           {/* Footer */}
-          <div className="mt-8 text-center text-xs text-gray-400">
+          <div className="mt-8 text-center text-xs text-gray-200">
             © 2025 LyDian Travel. Tüm hakları saklıdır.
           </div>
         </div>

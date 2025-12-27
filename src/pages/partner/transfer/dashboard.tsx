@@ -246,7 +246,7 @@ const TransferProviderDashboard: React.FC = () => {
                   <Car className="h-8 w-8 text-purple-600" />
                   Transfer Partner Dashboard
                 </h1>
-                <p className="text-sm text-gray-300 mt-1">
+                <p className="text-sm text-gray-100 mt-1">
                   Rota optimizasyonu, sürücü yönetimi ve gerçek zamanlı takip
                 </p>
               </div>
@@ -316,7 +316,7 @@ const TransferProviderDashboard: React.FC = () => {
                   <TrendingDown className="h-5 w-5 text-red-600" />
                 )}
               </div>
-              <p className="text-sm text-gray-300 mb-1">Bugünkü Gelir</p>
+              <p className="text-sm text-gray-100 mb-1">Bugünkü Gelir</p>
               <p className="text-2xl font-bold text-white">
                 ₺{stats.revenue.today.toLocaleString()}
               </p>
@@ -340,9 +340,9 @@ const TransferProviderDashboard: React.FC = () => {
                   Aktif
                 </span>
               </div>
-              <p className="text-sm text-gray-300 mb-1">Devam Eden Transferler</p>
+              <p className="text-sm text-gray-100 mb-1">Devam Eden Transferler</p>
               <p className="text-2xl font-bold text-white">{stats.transfers.active}</p>
-              <p className="text-xs text-gray-400 mt-2">
+              <p className="text-xs text-gray-200 mt-2">
                 {stats.transfers.upcoming} yaklaşan rezervasyon
               </p>
             </motion.div>
@@ -360,7 +360,7 @@ const TransferProviderDashboard: React.FC = () => {
                 </div>
                 <CheckCircle className="h-5 w-5 text-green-600" />
               </div>
-              <p className="text-sm text-gray-300 mb-1">Zamanında Varış Oranı</p>
+              <p className="text-sm text-gray-100 mb-1">Zamanında Varış Oranı</p>
               <p className="text-2xl font-bold text-white">{stats.performance.onTimeRate}%</p>
               <div className="mt-2 bg-gray-200 rounded-full h-2">
                 <div
@@ -394,11 +394,11 @@ const TransferProviderDashboard: React.FC = () => {
                   ))}
                 </div>
               </div>
-              <p className="text-sm text-gray-300 mb-1">Müşteri Memnuniyeti</p>
+              <p className="text-sm text-gray-100 mb-1">Müşteri Memnuniyeti</p>
               <p className="text-2xl font-bold text-white">
                 {stats.performance.customerRating.toFixed(1)}/5.0
               </p>
-              <p className="text-xs text-gray-400 mt-2">
+              <p className="text-xs text-gray-200 mt-2">
                 {stats.transfers.completed} tamamlanmış transfer
               </p>
             </motion.div>
@@ -431,7 +431,7 @@ const TransferProviderDashboard: React.FC = () => {
                     <div className="flex items-start justify-between mb-3">
                       <div>
                         <p className="font-bold text-white">{transfer.customer}</p>
-                        <p className="text-sm text-gray-300">Sürücü: {transfer.driver}</p>
+                        <p className="text-sm text-gray-100">Sürücü: {transfer.driver}</p>
                       </div>
                       <span
                         className={`px-3 py-1 text-xs font-bold rounded-full ${
@@ -511,7 +511,7 @@ const TransferProviderDashboard: React.FC = () => {
                             {route.from} → {route.to}
                           </span>
                         </div>
-                        <p className="text-xs text-gray-300">
+                        <p className="text-xs text-gray-100">
                           Önerilen: {route.suggestedRoute}
                         </p>
                       </div>
@@ -530,18 +530,18 @@ const TransferProviderDashboard: React.FC = () => {
 
                     <div className="grid grid-cols-2 gap-4 mb-3">
                       <div>
-                        <p className="text-xs text-gray-300">Mevcut Süre</p>
+                        <p className="text-xs text-gray-100">Mevcut Süre</p>
                         <p className="text-lg font-bold text-white">{route.currentDuration} dk</p>
                       </div>
                       <div>
-                        <p className="text-xs text-gray-300">Optimize Süre</p>
+                        <p className="text-xs text-gray-100">Optimize Süre</p>
                         <p className="text-lg font-bold text-green-600">{route.optimizedDuration} dk</p>
                       </div>
                     </div>
 
                     <div className="flex items-center justify-between bg-green-50 rounded-lg p-3">
                       <div>
-                        <p className="text-xs text-gray-300">Kazanç</p>
+                        <p className="text-xs text-gray-100">Kazanç</p>
                         <p className="text-sm font-bold text-green-600">
                           {route.savings} dk (%{route.savingsPercentage})
                         </p>
@@ -583,7 +583,7 @@ const TransferProviderDashboard: React.FC = () => {
                 Sürücü Performansı
               </h2>
               <div className="flex items-center gap-2">
-                <span className="text-sm text-gray-300">
+                <span className="text-sm text-gray-100">
                   {stats.drivers.active}/{stats.drivers.total} aktif
                 </span>
               </div>
@@ -646,7 +646,7 @@ const TransferProviderDashboard: React.FC = () => {
                       </td>
                       <td className="px-4 py-4">
                         <span className="font-bold text-white">{driver.completedToday}</span>
-                        <span className="text-xs text-gray-300 ml-1">transfer</span>
+                        <span className="text-xs text-gray-100 ml-1">transfer</span>
                       </td>
                       <td className="px-4 py-4">
                         <div className="flex items-center gap-1">

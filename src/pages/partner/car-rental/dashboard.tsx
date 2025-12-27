@@ -220,7 +220,7 @@ const CarRentalDashboard: React.FC = () => {
             </div>
             <p className="text-gray-300 text-sm mb-1">Toplam Araç</p>
             <p className="text-3xl font-bold text-white">{fleetStats.total}</p>
-            <p className="text-xs text-gray-400 mt-2">
+            <p className="text-xs text-gray-200 mt-2">
               {fleetStats.available} müsait · {fleetStats.booked} kiralanmış
             </p>
           </motion.div>
@@ -295,7 +295,7 @@ const CarRentalDashboard: React.FC = () => {
             }`}>
               {maintenanceAlerts.length}
             </p>
-            <p className="text-xs text-gray-400 mt-2">
+            <p className="text-xs text-gray-200 mt-2">
               {maintenanceAlerts.length === 0 ? 'Tüm araçlar sağlıklı' : 'Dikkat gerekiyor'}
             </p>
           </motion.div>
@@ -314,7 +314,7 @@ const CarRentalDashboard: React.FC = () => {
             <div className="flex items-center justify-between mb-4">
               <div>
                 <h3 className="text-lg font-bold text-white">Gelir Trendi</h3>
-                <p className="text-sm text-gray-400">Son 30 gün</p>
+                <p className="text-sm text-gray-200">Son 30 gün</p>
               </div>
               <BarChart3 className="h-5 w-5 text-blue-600" />
             </div>
@@ -343,7 +343,7 @@ const CarRentalDashboard: React.FC = () => {
                     >
                       <div>
                         <p className="font-semibold text-white">{alert.vehicleName}</p>
-                        <p className="text-sm text-gray-300">{alert.description}</p>
+                        <p className="text-sm text-gray-100">{alert.description}</p>
                       </div>
                       <div className="text-right">
                         <span
@@ -361,7 +361,7 @@ const CarRentalDashboard: React.FC = () => {
                             ? 'ACİL'
                             : 'PLANLI'}
                         </span>
-                        <p className="text-xs text-gray-400 mt-1">{alert.dueDate}</p>
+                        <p className="text-xs text-gray-200 mt-1">{alert.dueDate}</p>
                       </div>
                     </div>
                   ))}
@@ -375,7 +375,7 @@ const CarRentalDashboard: React.FC = () => {
         <div className="bg-white/5 rounded-xl shadow-md overflow-hidden">
           <div className="p-6 border-b border-gray-200">
             <h3 className="text-lg font-bold text-white">Araç Filosu</h3>
-            <p className="text-sm text-gray-400">Tüm araçlarınızın detaylı durumu</p>
+            <p className="text-sm text-gray-200">Tüm araçlarınızın detaylı durumu</p>
           </div>
 
           <div className="overflow-x-auto">
@@ -412,7 +412,7 @@ const CarRentalDashboard: React.FC = () => {
                           <p className="font-semibold text-white">
                             {vehicle.make} {vehicle.model}
                           </p>
-                          <p className="text-xs text-gray-400">
+                          <p className="text-xs text-gray-200">
                             {vehicle.year} · {vehicle.plateNumber}
                           </p>
                         </div>
@@ -446,13 +446,13 @@ const CarRentalDashboard: React.FC = () => {
                           <p className="font-medium text-white">
                             {vehicle.currentBooking.guestName}
                           </p>
-                          <p className="text-xs text-gray-400">
+                          <p className="text-xs text-gray-200">
                             {new Date(vehicle.currentBooking.startDate).toLocaleDateString('tr-TR')} -{' '}
                             {new Date(vehicle.currentBooking.endDate).toLocaleDateString('tr-TR')}
                           </p>
                         </div>
                       ) : (
-                        <span className="text-sm text-gray-400">-</span>
+                        <span className="text-sm text-gray-200">-</span>
                       )}
                     </td>
 

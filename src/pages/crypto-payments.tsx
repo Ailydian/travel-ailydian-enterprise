@@ -92,7 +92,7 @@ const CryptoPayments: React.FC = () => {
                     <span className="font-bold text-lg">{crypto.symbol}</span>
                   </div>
                   <h3 className="font-bold text-sm">{crypto.name}</h3>
-                  <p className="text-xs text-gray-400">{crypto.symbol}</p>
+                  <p className="text-xs text-gray-200">{crypto.symbol}</p>
                 </motion.div>
               ))}
             </div>

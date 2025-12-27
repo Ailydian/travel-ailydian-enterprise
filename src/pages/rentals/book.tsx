@@ -542,7 +542,7 @@ const RentalBookingPage = () => {
                         <div className="flex items-center justify-between p-4 bg-white/5 rounded-xl">
                           <div>
                             <p className="font-semibold text-white">Yetişkinler</p>
-                            <p className="text-sm text-gray-400">13 yaş ve üzeri</p>
+                            <p className="text-sm text-gray-200">13 yaş ve üzeri</p>
                           </div>
                           <div className="flex items-center gap-4">
                             <button
@@ -565,7 +565,7 @@ const RentalBookingPage = () => {
                         <div className="flex items-center justify-between p-4 bg-white/5 rounded-xl">
                           <div>
                             <p className="font-semibold text-white">Çocuklar</p>
-                            <p className="text-sm text-gray-400">2-12 yaş</p>
+                            <p className="text-sm text-gray-200">2-12 yaş</p>
                           </div>
                           <div className="flex items-center gap-4">
                             <button
@@ -588,7 +588,7 @@ const RentalBookingPage = () => {
                         <div className="flex items-center justify-between p-4 bg-white/5 rounded-xl">
                           <div>
                             <p className="font-semibold text-white">Bebekler</p>
-                            <p className="text-sm text-gray-400">2 yaş altı</p>
+                            <p className="text-sm text-gray-200">2 yaş altı</p>
                           </div>
                           <div className="flex items-center gap-4">
                             <button
@@ -728,21 +728,21 @@ const RentalBookingPage = () => {
                               <Clock className="w-5 h-5 text-gray-300 mt-0.5" />
                               <div>
                                 <p className="text-sm font-semibold text-white">Giriş Saati</p>
-                                <p className="text-sm text-gray-300">{property.checkInTime}</p>
+                                <p className="text-sm text-gray-100">{property.checkInTime}</p>
                               </div>
                             </div>
                             <div className="flex items-start gap-2">
                               <Clock className="w-5 h-5 text-gray-300 mt-0.5" />
                               <div>
                                 <p className="text-sm font-semibold text-white">Çıkış Saati</p>
-                                <p className="text-sm text-gray-300">{property.checkOutTime}</p>
+                                <p className="text-sm text-gray-100">{property.checkOutTime}</p>
                               </div>
                             </div>
                             <div className="flex items-start gap-2">
                               <Calendar className="w-5 h-5 text-gray-300 mt-0.5" />
                               <div>
                                 <p className="text-sm font-semibold text-white">Minimum Konaklama</p>
-                                <p className="text-sm text-gray-300">{property.minimumStay} gece</p>
+                                <p className="text-sm text-gray-100">{property.minimumStay} gece</p>
                               </div>
                             </div>
                           </div>
@@ -769,7 +769,7 @@ const RentalBookingPage = () => {
                           />
                           <div>
                             <p className="font-semibold text-white">Ev kurallarını okudum ve kabul ediyorum</p>
-                            <p className="text-sm text-gray-300 mt-1">
+                            <p className="text-sm text-gray-100 mt-1">
                               Yukarıda belirtilen tüm kurallara uyacağımı taahhüt ediyorum.
                             </p>
                           </div>
@@ -907,7 +907,7 @@ const RentalBookingPage = () => {
                             rows={4}
                             className="w-full px-4 py-3 border border-white/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500"
                           />
-                          <p className="text-xs text-gray-400 mt-1">
+                          <p className="text-xs text-gray-200 mt-1">
                             Özel istekleriniz ev sahibine iletilecektir, ancak garanti edilmez.
                           </p>
                         </div>
@@ -932,13 +932,13 @@ const RentalBookingPage = () => {
                             />
                             <div>
                               <p className="font-bold text-white">{property.title}</p>
-                              <p className="text-sm text-gray-300">
+                              <p className="text-sm text-gray-100">
                                 {property.district}, {property.city}
                               </p>
                               <div className="flex items-center gap-2 mt-2">
                                 <Star className="w-4 h-4 text-yellow-400 fill-yellow-400" />
                                 <span className="text-sm font-semibold">{parseFloat(property.overall).toFixed(1)}</span>
-                                <span className="text-sm text-gray-300">({property.reviewCount} değerlendirme)</span>
+                                <span className="text-sm text-gray-100">({property.reviewCount} değerlendirme)</span>
                               </div>
                             </div>
                           </div>
@@ -1057,7 +1057,7 @@ const RentalBookingPage = () => {
                     className="w-full h-48 object-cover rounded-xl mb-4"
                   />
                   <h3 className="font-bold text-lg text-white mb-2">{property.title}</h3>
-                  <p className="text-sm text-gray-300 mb-4">
+                  <p className="text-sm text-gray-100 mb-4">
                     <MapPin className="w-4 h-4 inline mr-1" />
                     {property.district}, {property.city}
                   </p>
@@ -1065,10 +1065,10 @@ const RentalBookingPage = () => {
                   <div className="flex items-center gap-2 mb-4">
                     <Star className="w-5 h-5 text-yellow-400 fill-yellow-400" />
                     <span className="font-semibold">{parseFloat(property.overall).toFixed(1)}</span>
-                    <span className="text-sm text-gray-300">({property.reviewCount} değerlendirme)</span>
+                    <span className="text-sm text-gray-100">({property.reviewCount} değerlendirme)</span>
                   </div>
 
-                  <div className="flex items-center gap-4 text-sm text-gray-300">
+                  <div className="flex items-center gap-4 text-sm text-gray-100">
                     <div className="flex items-center gap-1">
                       <Users className="w-4 h-4" />
                       {property.guests}
@@ -1084,7 +1084,7 @@ const RentalBookingPage = () => {
                   </div>
 
                   <div className="mt-4 pt-4 border-t border-white/10">
-                    <p className="text-xs text-gray-300 mb-2">Özellikler:</p>
+                    <p className="text-xs text-gray-100 mb-2">Özellikler:</p>
                     <div className="flex flex-wrap gap-2">
                       {property.wifi && (
                         <div className="px-2 py-1 bg-blue-50 rounded-lg text-xs flex items-center gap-1">
@@ -1153,7 +1153,7 @@ const RentalBookingPage = () => {
                     </div>
 
                     <div className="mt-4 pt-4 border-t border-white/10">
-                      <div className="flex items-start gap-2 text-xs text-gray-300">
+                      <div className="flex items-start gap-2 text-xs text-gray-100">
                         <Shield className="w-4 h-4 text-green-600 mt-0.5" />
                         <p>Rezervasyonunuz güvenli ödeme sistemi ile korunmaktadır.</p>
                       </div>
@@ -1169,10 +1169,10 @@ const RentalBookingPage = () => {
                     </div>
                     <div>
                       <p className="font-bold text-white">{property.hostName}</p>
-                      <p className="text-sm text-gray-300">Ev Sahibi</p>
+                      <p className="text-sm text-gray-100">Ev Sahibi</p>
                     </div>
                   </div>
-                  <p className="text-xs text-gray-300">
+                  <p className="text-xs text-gray-100">
                     Sorularınız için rezervasyon sonrası ev sahibi ile iletişime geçebilirsiniz.
                   </p>
                 </div>

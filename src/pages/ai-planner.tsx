@@ -116,7 +116,7 @@ const AITravelPlanner: React.FC = () => {
                   <h2 className="text-2xl font-bold text-white">
                     AI ile Kişisel Seyahat Planı Oluştur
                   </h2>
-                  <span className="text-sm text-gray-300">Adım {step}/4</span>
+                  <span className="text-sm text-gray-100">Adım {step}/4</span>
                 </div>
                 <div className="w-full bg-gray-200 rounded-full h-2">
                   <div 

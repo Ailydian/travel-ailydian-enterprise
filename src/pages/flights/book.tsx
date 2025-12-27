@@ -408,8 +408,8 @@ export default function FlightBooking() {
                         <div>
                           <div className="text-3xl font-bold text-white mb-1">{flightData.departure.time}</div>
                           <div className="text-lg font-semibold">{flightData.from.code}</div>
-                          <div className="text-sm text-gray-300">{flightData.from.city}</div>
-                          <div className="text-xs text-gray-400 mt-1">{flightData.departure.date}</div>
+                          <div className="text-sm text-gray-100">{flightData.from.city}</div>
+                          <div className="text-xs text-gray-200 mt-1">{flightData.departure.date}</div>
                         </div>
 
                         <div className="text-center">
@@ -418,7 +418,7 @@ export default function FlightBooking() {
                             <Plane className="w-6 h-6 text-lydian-primary mx-2 transform rotate-90" />
                             <div className="flex-1 h-0.5 bg-gray-300"></div>
                           </div>
-                          <div className="flex items-center justify-center gap-1 text-sm text-gray-300">
+                          <div className="flex items-center justify-center gap-1 text-sm text-gray-100">
                             <Clock className="w-4 h-4" />
                             {flightData.duration}
                           </div>
@@ -427,19 +427,19 @@ export default function FlightBooking() {
                         <div className="text-right">
                           <div className="text-3xl font-bold text-white mb-1">{flightData.arrival.time}</div>
                           <div className="text-lg font-semibold">{flightData.to.code}</div>
-                          <div className="text-sm text-gray-300">{flightData.to.city}</div>
-                          <div className="text-xs text-gray-400 mt-1">{flightData.arrival.date}</div>
+                          <div className="text-sm text-gray-100">{flightData.to.city}</div>
+                          <div className="text-xs text-gray-200 mt-1">{flightData.arrival.date}</div>
                         </div>
                       </div>
 
                       <div className="mt-6 pt-6 border-t border-blue-200">
                         <div className="grid grid-cols-2 gap-4">
                           <div>
-                            <p className="text-sm text-gray-300 mb-1">Ücret Sınıfı</p>
+                            <p className="text-sm text-gray-100 mb-1">Ücret Sınıfı</p>
                             <p className="font-semibold text-white capitalize">{flightData.fareClass}</p>
                           </div>
                           <div>
-                            <p className="text-sm text-gray-300 mb-1">Yolcu Sayısı</p>
+                            <p className="text-sm text-gray-100 mb-1">Yolcu Sayısı</p>
                             <p className="font-semibold text-white">{passengers.length} Kişi</p>
                           </div>
                         </div>
@@ -786,7 +786,7 @@ export default function FlightBooking() {
                                   <div>
                                     <p className="font-semibold text-white">{option.label}</p>
                                     {option.weight > 0 && (
-                                      <p className="text-sm text-gray-300 mt-1">{option.weight} kg bagaj hakkı</p>
+                                      <p className="text-sm text-gray-100 mt-1">{option.weight} kg bagaj hakkı</p>
                                     )}
                                   </div>
                                   <div className="text-right">
@@ -839,11 +839,11 @@ export default function FlightBooking() {
                               <Shield className="w-6 h-6 text-lydian-primary" />
                               <h3 className="font-bold text-lg">Seyahat Sigortası</h3>
                             </div>
-                            <p className="text-sm text-gray-300">Uçuş iptali, bagaj kaybı ve tıbbi acil durumlar için kapsamlı koruma.</p>
+                            <p className="text-sm text-gray-100">Uçuş iptali, bagaj kaybı ve tıbbi acil durumlar için kapsamlı koruma.</p>
                           </div>
                           <div className="text-right ml-4">
                             <p className="text-xl font-bold text-lydian-primary">₺75</p>
-                            <p className="text-xs text-gray-400">kişi başı</p>
+                            <p className="text-xs text-gray-200">kişi başı</p>
                           </div>
                         </div>
                       </button>
@@ -861,11 +861,11 @@ export default function FlightBooking() {
                               <Users className="w-6 h-6 text-lydian-primary" />
                               <h3 className="font-bold text-lg">Öncelikli Boarding</h3>
                             </div>
-                            <p className="text-sm text-gray-300">Uçağa ilk binen yolcular arasında olun.</p>
+                            <p className="text-sm text-gray-100">Uçağa ilk binen yolcular arasında olun.</p>
                           </div>
                           <div className="text-right ml-4">
                             <p className="text-xl font-bold text-lydian-primary">₺100</p>
-                            <p className="text-xs text-gray-400">tüm yolcular</p>
+                            <p className="text-xs text-gray-200">tüm yolcular</p>
                           </div>
                         </div>
                       </button>
@@ -883,11 +883,11 @@ export default function FlightBooking() {
                               <Coffee className="w-6 h-6 text-lydian-primary" />
                               <h3 className="font-bold text-lg">Lounge Erişimi</h3>
                             </div>
-                            <p className="text-sm text-gray-300">Premium lounge'da uçuşunuzu bekleyin. Ücretsiz yiyecek ve içecek dahil.</p>
+                            <p className="text-sm text-gray-100">Premium lounge'da uçuşunuzu bekleyin. Ücretsiz yiyecek ve içecek dahil.</p>
                           </div>
                           <div className="text-right ml-4">
                             <p className="text-xl font-bold text-lydian-primary">₺250</p>
-                            <p className="text-xs text-gray-400">tüm yolcular</p>
+                            <p className="text-xs text-gray-200">tüm yolcular</p>
                           </div>
                         </div>
                       </button>
@@ -970,7 +970,7 @@ export default function FlightBooking() {
                                 <p className="font-semibold">
                                   {passenger.title} {passenger.firstName} {passenger.lastName}
                                 </p>
-                                <p className="text-sm text-gray-300">
+                                <p className="text-sm text-gray-100">
                                   {passenger.type === 'adult' ? 'Yetişkin' : passenger.type === 'child' ? 'Çocuk' : 'Bebek'}
                                   {selectedSeats[idx] && ` • Koltuk: ${selectedSeats[idx]}`}
                                   {passenger.baggage.checked > 0 && ` • Bagaj: ${passenger.baggage.checked}kg`}
@@ -1123,7 +1123,7 @@ export default function FlightBooking() {
                   </div>
                 </div>
 
-                <div className="space-y-2 text-xs text-gray-300">
+                <div className="space-y-2 text-xs text-gray-100">
                   <div className="flex items-center gap-2">
                     <Check className="w-4 h-4 text-green-600" />
                     <span>Blockchain güvenli</span>

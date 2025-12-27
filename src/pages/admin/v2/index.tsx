@@ -759,7 +759,7 @@ const AdminDashboardV2 = () => {
                       <span className="absolute -top-1 -right-1 w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
                     </div>
                     <span className="text-xs font-semibold text-green-600">LIVE</span>
-                    <span className="text-xs text-gray-400">• WebSocket</span>
+                    <span className="text-xs text-gray-200">• WebSocket</span>
                   </>
                 ) : isRealtimeEnabled && !wsConnected ? (
                   <>

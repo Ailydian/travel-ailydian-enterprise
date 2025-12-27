@@ -43,7 +43,7 @@ const ThingsToDoPage: NextPage = () => {
         {/* Breadcrumbs */}
         <div className="bg-transparent border-b border-white/10">
           <div className="max-w-7xl mx-auto px-4 py-3">
-            <div className="flex items-center gap-2 text-sm text-gray-300">
+            <div className="flex items-center gap-2 text-sm text-gray-100">
               <a href="/" className="hover:text-lydian-primary">{t('navigation.home')}</a>
               <span>/</span>
               <a href="/explore" className="hover:text-lydian-primary">{t('explore.title')}</a>

@@ -642,7 +642,7 @@ const CarRentalBookingPage: React.FC = () => {
                             )}
                             <div className="mb-4">
                               <h3 className="font-bold text-lg text-white">{option.name}</h3>
-                              <p className="text-sm text-gray-300 mb-2">{option.description}</p>
+                              <p className="text-sm text-gray-100 mb-2">{option.description}</p>
                               <p className="text-2xl font-bold text-blue-600">
                                 {option.price === 0 ? 'Ücretsiz' : `₺${option.price}/gün`}
                               </p>
@@ -694,7 +694,7 @@ const CarRentalBookingPage: React.FC = () => {
                                 </div>
                                 <div className="flex-1">
                                   <h3 className="font-semibold text-white mb-1">{extra.name}</h3>
-                                  <p className="text-sm text-gray-300 mb-2">{extra.description}</p>
+                                  <p className="text-sm text-gray-100 mb-2">{extra.description}</p>
                                   <p className="font-bold text-purple-600">₺{extra.price}/gün</p>
                                 </div>
                                 <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center flex-shrink-0 ${
@@ -892,16 +892,16 @@ const CarRentalBookingPage: React.FC = () => {
                       </div>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
-                          <p className="text-sm text-gray-300 mb-1">Teslim Alma</p>
+                          <p className="text-sm text-gray-100 mb-1">Teslim Alma</p>
                           <p className="font-medium text-white">{bookingData.pickupLocation}</p>
-                          <p className="text-sm text-gray-300">
+                          <p className="text-sm text-gray-100">
                             {bookingData.pickupDate} • {bookingData.pickupTime}
                           </p>
                         </div>
                         <div>
-                          <p className="text-sm text-gray-300 mb-1">İade</p>
+                          <p className="text-sm text-gray-100 mb-1">İade</p>
                           <p className="font-medium text-white">{bookingData.returnLocation}</p>
-                          <p className="text-sm text-gray-300">
+                          <p className="text-sm text-gray-100">
                             {bookingData.returnDate} • {bookingData.returnTime}
                           </p>
                         </div>
@@ -939,7 +939,7 @@ const CarRentalBookingPage: React.FC = () => {
                             ) : null;
                           })
                         ) : (
-                          <p className="text-sm text-gray-400">Ekstra hizmet seçilmedi</p>
+                          <p className="text-sm text-gray-200">Ekstra hizmet seçilmedi</p>
                         )}
                       </div>
                     </div>
@@ -957,19 +957,19 @@ const CarRentalBookingPage: React.FC = () => {
                       </div>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
-                          <p className="text-sm text-gray-300">Ad Soyad</p>
+                          <p className="text-sm text-gray-100">Ad Soyad</p>
                           <p className="font-medium text-white">{bookingData.driver.name}</p>
                         </div>
                         <div>
-                          <p className="text-sm text-gray-300">E-posta</p>
+                          <p className="text-sm text-gray-100">E-posta</p>
                           <p className="font-medium text-white">{bookingData.driver.email}</p>
                         </div>
                         <div>
-                          <p className="text-sm text-gray-300">Telefon</p>
+                          <p className="text-sm text-gray-100">Telefon</p>
                           <p className="font-medium text-white">{bookingData.driver.phone}</p>
                         </div>
                         <div>
-                          <p className="text-sm text-gray-300">Yaş</p>
+                          <p className="text-sm text-gray-100">Yaş</p>
                           <p className="font-medium text-white">{bookingData.driver.age}</p>
                         </div>
                       </div>
@@ -1083,7 +1083,7 @@ const CarRentalBookingPage: React.FC = () => {
                   </button>
                 )}
 
-                <p className="text-xs text-gray-400 text-center mt-4">
+                <p className="text-xs text-gray-200 text-center mt-4">
                   256-bit SSL ile güvenli rezervasyon
                 </p>
               </div>

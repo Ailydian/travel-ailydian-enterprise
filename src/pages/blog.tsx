@@ -204,7 +204,7 @@ export default function Blog() {
                     <p className="text-gray-300 mb-4 line-clamp-2">
                       {post.excerpt}
                     </p>
-                    <div className="flex items-center gap-4 text-sm text-gray-400">
+                    <div className="flex items-center gap-4 text-sm text-gray-200">
                       <span className="flex items-center gap-1">
                         <User className="w-4 h-4" />
                         {post.author}
@@ -271,7 +271,7 @@ export default function Blog() {
                     {post.excerpt}
                   </p>
 
-                  <div className="space-y-2 text-sm text-gray-400 mb-4">
+                  <div className="space-y-2 text-sm text-gray-200 mb-4">
                     <div className="flex items-center gap-1">
                       <User className="w-4 h-4" />
                       {post.author}

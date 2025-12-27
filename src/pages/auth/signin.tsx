@@ -154,7 +154,7 @@ const SignIn: React.FC = () => {
                 </div>
                 <div>
                   <h1 className="text-2xl font-bold text-white">LyDian Travel</h1>
-                  <p className="text-xs text-gray-400">AI-Powered Enterprise</p>
+                  <p className="text-xs text-gray-200">AI-Powered Enterprise</p>
                 </div>
               </div>
             </Link>
@@ -273,7 +273,7 @@ const SignIn: React.FC = () => {
               <div className="flex items-center justify-between">
                 <label className="flex items-center">
                   <input type="checkbox" className="rounded border-white/20 text-blue-600 focus:ring-blue-500" />
-                  <span className="ml-2 text-sm text-gray-300">Beni hatırla</span>
+                  <span className="ml-2 text-sm text-gray-100">Beni hatırla</span>
                 </label>
                 <Link href="/auth/forgot-password" className="text-sm text-blue-600 hover:text-blue-700">
                   Şifremi unuttum
@@ -322,20 +322,20 @@ const SignIn: React.FC = () => {
           >
             <div className="flex flex-col items-center gap-2">
               <Shield className="w-8 h-8 text-green-500" />
-              <p className="text-xs text-gray-300">Blockchain Güvenlik</p>
+              <p className="text-xs text-gray-100">Blockchain Güvenlik</p>
             </div>
             <div className="flex flex-col items-center gap-2">
               <Sparkles className="w-8 h-8 text-purple-500" />
-              <p className="text-xs text-gray-300">AI Destekli</p>
+              <p className="text-xs text-gray-100">AI Destekli</p>
             </div>
             <div className="flex flex-col items-center gap-2">
               <Globe className="w-8 h-8 text-blue-500" />
-              <p className="text-xs text-gray-300">190+ Ülke</p>
+              <p className="text-xs text-gray-100">190+ Ülke</p>
             </div>
           </motion.div>
 
           {/* Footer */}
-          <div className="mt-8 text-center text-xs text-gray-400">
+          <div className="mt-8 text-center text-xs text-gray-200">
             © 2025 LyDian Travel. Tüm hakları saklıdır.
           </div>
         </div>

@@ -128,7 +128,7 @@ const TripPlannerPage: React.FC = () => {
                 </div>
                 <div>
                   <h1 className="text-2xl font-bold text-white">AI Trip Planner</h1>
-                  <p className="text-sm text-gray-300">Powered by OpenAI GPT-4</p>
+                  <p className="text-sm text-gray-100">Powered by OpenAI GPT-4</p>
                 </div>
               </div>
 
@@ -267,7 +267,7 @@ const TripPlannerPage: React.FC = () => {
                       <div className="text-center">
                         <MapIcon className="w-16 h-16 mx-auto mb-4 text-gray-400" />
                         <p className="text-gray-300">Interactive map showing all locations</p>
-                        <p className="text-sm text-gray-400 mt-2">
+                        <p className="text-sm text-gray-200 mt-2">
                           Markers for hotels, attractions, restaurants, and activities
                         </p>
                       </div>

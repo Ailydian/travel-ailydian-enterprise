@@ -488,14 +488,14 @@ export default function AdminLocations() {
                                     <Settings className="w-4 h-4 text-blue-500" />
                                   )}
                                 </div>
-                                <span className="text-sm text-gray-400">{location.category}</span>
+                                <span className="text-sm text-gray-200">{location.category}</span>
                               </div>
                             </div>
                           </td>
                           <td className="px-4 py-3">
                             <div className="text-sm">
                               <div className="text-white">{location.city}</div>
-                              <div className="text-gray-400">{location.country}</div>
+                              <div className="text-gray-200">{location.country}</div>
                             </div>
                           </td>
                           <td className="px-4 py-3">
@@ -507,11 +507,11 @@ export default function AdminLocations() {
                             <div className="flex items-center">
                               <Star className="w-4 h-4 text-yellow-400 fill-current mr-1" />
                               <span className="text-sm font-medium">{location.averageRating.toFixed(1)}</span>
-                              <span className="text-xs text-gray-400 ml-1">({location.totalReviews})</span>
+                              <span className="text-xs text-gray-200 ml-1">({location.totalReviews})</span>
                             </div>
                           </td>
                           <td className="px-4 py-3">
-                            <div className="text-xs text-gray-300">
+                            <div className="text-xs text-gray-100">
                               <div>{formatNumber(location.totalViews)} views</div>
                               <div>{location.totalPhotos} photos</div>
                             </div>
@@ -531,7 +531,7 @@ export default function AdminLocations() {
                             </div>
                           </td>
                           <td className="px-4 py-3">
-                            <div className="text-xs text-gray-400">
+                            <div className="text-xs text-gray-200">
                               {new Date(location.updatedAt).toLocaleDateString()}
                             </div>
                           </td>

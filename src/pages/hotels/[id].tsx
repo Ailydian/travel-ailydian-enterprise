@@ -77,7 +77,7 @@ const HotelDetailPage: NextPage<HotelDetailPageProps> = ({ hotel }) => {
         {/* Breadcrumbs */}
         <div className="bg-transparent border-b border-white/10">
           <div className="max-w-7xl mx-auto px-4 py-3">
-            <div className="flex items-center gap-2 text-sm text-gray-300">
+            <div className="flex items-center gap-2 text-sm text-gray-100">
               <Link href="/" className="hover:text-lydian-primary">{currentLang === 'tr' ? 'Ana Sayfa' : 'Home'}</Link>
               <span>/</span>
               <Link href="/explore" className="hover:text-lydian-primary">{currentLang === 'tr' ? 'Keşfet' : 'Explore'}</Link>
@@ -238,7 +238,7 @@ const HotelDetailPage: NextPage<HotelDetailPageProps> = ({ hotel }) => {
                         <MapPin className="w-5 h-5 text-lydian-primary" />
                         <span className="font-medium">{attraction.name}</span>
                       </div>
-                      <span className="text-sm text-gray-300">{attraction.distance}</span>
+                      <span className="text-sm text-gray-100">{attraction.distance}</span>
                     </div>
                   ))}
                 </div>
@@ -250,11 +250,11 @@ const HotelDetailPage: NextPage<HotelDetailPageProps> = ({ hotel }) => {
               <div className="sticky top-24">
                 <div className="bg-transparent rounded-2xl p-6 shadow-lg border-2 border-gray-100">
                   <div className="mb-6">
-                    <div className="text-sm text-gray-300 mb-1">{currentLang === 'tr' ? 'Fiyat' : 'Price'}</div>
+                    <div className="text-sm text-gray-100 mb-1">{currentLang === 'tr' ? 'Fiyat' : 'Price'}</div>
                     <div className="text-4xl font-black text-lydian-primary">
                       ₺{selectedRoomType.price.toLocaleString()}
                     </div>
-                    <div className="text-sm text-gray-300">{currentLang === 'tr' ? 'Gecelik' : 'Per night'}</div>
+                    <div className="text-sm text-gray-100">{currentLang === 'tr' ? 'Gecelik' : 'Per night'}</div>
                   </div>
 
                   {/* Room Type Selection */}

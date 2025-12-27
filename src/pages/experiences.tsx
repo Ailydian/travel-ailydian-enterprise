@@ -330,7 +330,7 @@ const ExperiencesPage: React.FC = () => {
 
                   {/* Content */}
                   <div className="p-6">
-                    <div className="flex items-center gap-2 text-sm text-gray-400 mb-2">
+                    <div className="flex items-center gap-2 text-sm text-gray-200 mb-2">
                       <MapPin className="w-4 h-4" />
                       <span>{experience.location}</span>
                     </div>
@@ -342,7 +342,7 @@ const ExperiencesPage: React.FC = () => {
                     <p className="text-gray-300 text-sm mb-4">{experience.description}</p>
 
                     {/* Stats */}
-                    <div className="flex items-center justify-between text-sm text-gray-300 mb-4">
+                    <div className="flex items-center justify-between text-sm text-gray-100 mb-4">
                       <div className="flex items-center gap-1">
                         <Clock className="w-4 h-4" />
                         <span>{experience.duration}</span>
@@ -360,7 +360,7 @@ const ExperiencesPage: React.FC = () => {
                     {/* Highlights */}
                     <div className="mb-4">
                       <h4 className="font-semibold text-sm text-white mb-2">Öne Çıkanlar:</h4>
-                      <ul className="text-sm text-gray-300 space-y-1">
+                      <ul className="text-sm text-gray-100 space-y-1">
                         {experience.highlights.slice(0, 2).map((highlight, index) => (
                           <li key={index} className="flex items-center gap-2">
                             <div className="w-1.5 h-1.5 bg-green-500 rounded-full"></div>
@@ -372,7 +372,7 @@ const ExperiencesPage: React.FC = () => {
 
                     {/* Languages */}
                     <div className="mb-4">
-                      <span className="text-sm text-gray-300">Diller: </span>
+                      <span className="text-sm text-gray-100">Diller: </span>
                       <span className="text-sm font-medium text-white">
                         {experience.languages.join(', ')}
                       </span>
@@ -385,14 +385,14 @@ const ExperiencesPage: React.FC = () => {
                           <div className="flex items-center gap-2">
                             <span className="text-2xl font-bold text-white">{experience.price}</span>
                             {experience.originalPrice && (
-                              <span className="text-sm text-gray-400 line-through">{experience.originalPrice}</span>
+                              <span className="text-sm text-gray-200 line-through">{experience.originalPrice}</span>
                             )}
                           </div>
-                          <span className="text-sm text-gray-300">kişi başı</span>
+                          <span className="text-sm text-gray-100">kişi başı</span>
                         </div>
                       </div>
                       <div className="flex items-center justify-between">
-                        <span className="text-sm text-gray-300">Detayları Gör</span>
+                        <span className="text-sm text-gray-100">Detayları Gör</span>
                         <span className="text-lydian-primary font-semibold group-hover:translate-x-1 transition-transform">→</span>
                       </div>
                     </div>

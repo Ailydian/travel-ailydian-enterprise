@@ -286,7 +286,7 @@ export default function DestinationDetail({ destination, relatedDestinations, ex
 
               <div className="flex items-center gap-3">
                 <div className="text-right">
-                  <div className="text-sm text-gray-300">Ortalama Bütçe</div>
+                  <div className="text-sm text-gray-100">Ortalama Bütçe</div>
                   <div className="text-xl font-bold text-lydian-primary">{destination.pricing.budgetRange}</div>
                 </div>
                 <Link
@@ -376,11 +376,11 @@ export default function DestinationDetail({ destination, relatedDestinations, ex
                           <p className="text-gray-200">{place.description}</p>
                         </div>
                         <div className="text-right ml-4">
-                          <div className="text-sm text-gray-300">Giriş</div>
+                          <div className="text-sm text-gray-100">Giriş</div>
                           <div className="font-semibold text-lydian-primary">{place.entrance}</div>
                         </div>
                       </div>
-                      <div className="flex items-center gap-4 text-sm text-gray-300">
+                      <div className="flex items-center gap-4 text-sm text-gray-100">
                         <div className="flex items-center gap-1">
                           <Clock className="w-4 h-4" />
                           <span>{place.estimatedTime}</span>
@@ -491,15 +491,15 @@ export default function DestinationDetail({ destination, relatedDestinations, ex
                 </h3>
                 <div className="space-y-3">
                   <div>
-                    <div className="text-sm text-gray-300 mb-1">İstanbul'dan:</div>
+                    <div className="text-sm text-gray-100 mb-1">İstanbul'dan:</div>
                     <div className="font-medium">{destination.transportation.fromIstanbul}</div>
                   </div>
                   <div>
-                    <div className="text-sm text-gray-300 mb-1">Ankara'dan:</div>
+                    <div className="text-sm text-gray-100 mb-1">Ankara'dan:</div>
                     <div className="font-medium">{destination.transportation.fromAnkara}</div>
                   </div>
                   <div>
-                    <div className="text-sm text-gray-300 mb-1">Şehir içi:</div>
+                    <div className="text-sm text-gray-100 mb-1">Şehir içi:</div>
                     <div className="flex flex-wrap gap-1">
                       {destination.transportation.local.map((transport, idx) => (
                         <span key={idx} className="px-2 py-1 bg-white/10 rounded text-sm">{transport}</span>

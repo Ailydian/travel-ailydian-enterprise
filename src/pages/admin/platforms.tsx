@@ -313,7 +313,7 @@ export default function AdminPlatforms() {
               <div className="flex items-center space-x-4">
                 <div className="flex items-center space-x-2">
                   <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                  <span className="text-sm text-gray-300">
+                  <span className="text-sm text-gray-100">
                     {adminData?.email}
                   </span>
                 </div>
@@ -446,14 +446,14 @@ export default function AdminPlatforms() {
                           {getPlatformIcon(platform.platform)}
                           <div>
                             <h3 className="text-lg font-bold text-white">{platform.name}</h3>
-                            <p className="text-sm text-gray-300">Hesap: {platform.accountId}</p>
+                            <p className="text-sm text-gray-100">Hesap: {platform.accountId}</p>
                           </div>
                         </div>
                         <div className="flex items-center space-x-3">
                           {getStatusBadge(platform.status)}
                           <div className="flex items-center space-x-1">
                             <div className={`w-2 h-2 rounded-full ${platform.autoSync ? 'bg-green-500 animate-pulse' : 'bg-gray-400'}`}></div>
-                            <span className="text-xs text-gray-300">{platform.autoSync ? 'Otomatik' : 'Manuel'}</span>
+                            <span className="text-xs text-gray-100">{platform.autoSync ? 'Otomatik' : 'Manuel'}</span>
                           </div>
                         </div>
                       </div>
@@ -494,7 +494,7 @@ export default function AdminPlatforms() {
                       </div>
 
                       {/* Platform Info */}
-                      <div className="flex items-center justify-between text-sm text-gray-300 mb-4">
+                      <div className="flex items-center justify-between text-sm text-gray-100 mb-4">
                         <div className="flex items-center space-x-4">
                           <div className="flex items-center space-x-1">
                             <Award className="w-4 h-4" />
@@ -570,7 +570,7 @@ export default function AdminPlatforms() {
                           </div>
                           <div>
                             <h4 className="font-semibold text-white">{job.platform} - {job.type}</h4>
-                            <div className="flex items-center space-x-3 text-sm text-gray-300">
+                            <div className="flex items-center space-x-3 text-sm text-gray-100">
                               <span>Başlangıç: {formatDate(job.startedAt)}</span>
                               {job.completedAt && <span>Tamamlanma: {formatDate(job.completedAt)}</span>}
                             </div>
@@ -581,7 +581,7 @@ export default function AdminPlatforms() {
                                   style={{width: `${(job.itemsProcessed / job.totalItems) * 100}%`}}
                                 ></div>
                               </div>
-                              <span className="text-sm text-gray-300">{job.itemsProcessed}/{job.totalItems}</span>
+                              <span className="text-sm text-gray-100">{job.itemsProcessed}/{job.totalItems}</span>
                             </div>
                           </div>
                         </div>

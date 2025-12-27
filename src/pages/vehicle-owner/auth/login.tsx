@@ -366,7 +366,7 @@ export default function VehicleOwnerLoginPage() {
             <div className="mt-6 text-center">
               <Link
                 href="/"
-                className="text-sm text-gray-300 hover:text-white transition-colors"
+                className="text-sm text-gray-100 hover:text-white transition-colors"
               >
                 ← Ana sayfaya dön
               </Link>

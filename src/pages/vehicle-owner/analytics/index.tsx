@@ -64,7 +64,7 @@ const MetricCard: React.FC<MetricCardProps> = ({ title, value, change, icon, suf
         </div>
       </div>
       <div>
-        <p className="text-sm text-gray-300 font-medium mb-1">{title}</p>
+        <p className="text-sm text-gray-100 font-medium mb-1">{title}</p>
         <p className="text-2xl font-bold text-white">
           {value}
           {suffix && <span className="text-lg text-gray-400 ml-1">{suffix}</span>}
@@ -126,7 +126,7 @@ const PropertyPerformanceTable: React.FC<PropertyPerformanceProps> = ({ properti
     <div className="bg-white/5 border border-gray-200 rounded-xl overflow-hidden">
       <div className="p-6 border-b border-gray-200">
         <h3 className="text-lg font-semibold text-white">Mülk Performans Karşılaştırması</h3>
-        <p className="text-sm text-gray-400 mt-1">Tüm mülklerinizin metriklerini karşılaştırın</p>
+        <p className="text-sm text-gray-200 mt-1">Tüm mülklerinizin metriklerini karşılaştırın</p>
       </div>
       <div className="overflow-x-auto">
         <table className="w-full">
@@ -362,10 +362,10 @@ const AnalyticsPage: React.FC = () => {
           <div className="flex items-center justify-between mb-6">
             <div>
               <h3 className="text-lg font-semibold text-white">Mülk Görüntülemeleri</h3>
-              <p className="text-sm text-gray-400 mt-1">Son 30 gün içindeki görüntüleme sayısı</p>
+              <p className="text-sm text-gray-200 mt-1">Son 30 gün içindeki görüntüleme sayısı</p>
             </div>
             <div className="flex items-center gap-2 text-sm">
-              <span className="text-gray-400">Toplam:</span>
+              <span className="text-gray-200">Toplam:</span>
               <span className="font-bold text-white">15,740</span>
             </div>
           </div>
@@ -399,10 +399,10 @@ const AnalyticsPage: React.FC = () => {
           <div className="flex items-center justify-between mb-6">
             <div>
               <h3 className="text-lg font-semibold text-white">Rezervasyon Eğilimi</h3>
-              <p className="text-sm text-gray-400 mt-1">6 aylık aylık rezervasyon sayısı</p>
+              <p className="text-sm text-gray-200 mt-1">6 aylık aylık rezervasyon sayısı</p>
             </div>
             <div className="flex items-center gap-2 text-sm">
-              <span className="text-gray-400">Toplam:</span>
+              <span className="text-gray-200">Toplam:</span>
               <span className="font-bold text-white">130</span>
             </div>
           </div>

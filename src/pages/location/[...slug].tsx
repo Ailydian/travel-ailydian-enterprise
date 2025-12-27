@@ -407,11 +407,11 @@ export default function LocationPage({
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <ol className="flex items-center space-x-2 py-4 text-sm">
               <li><Link href="/" className="text-gray-400 hover:text-gray-200">Home</Link></li>
-              <li><span className="text-gray-400">/</span></li>
+              <li><span className="text-gray-200">/</span></li>
               <li><a href={`/country/${location.city?.country?.code?.toLowerCase()}`} className="text-gray-400 hover:text-gray-200">{countryName}</a></li>
-              <li><span className="text-gray-400">/</span></li>
+              <li><span className="text-gray-200">/</span></li>
               <li><a href={`/city/${location.city?.slug}`} className="text-gray-400 hover:text-gray-200">{cityName}</a></li>
-              <li><span className="text-gray-400">/</span></li>
+              <li><span className="text-gray-200">/</span></li>
               <li><span className="text-white font-medium">{locationName}</span></li>
             </ol>
           </div>
@@ -652,7 +652,7 @@ export default function LocationPage({
                       <Clock className="h-4 w-4 mr-2" />
                       {t('openingHours')}
                     </h4>
-                    <div className="space-y-1 text-sm text-gray-300">
+                    <div className="space-y-1 text-sm text-gray-100">
                       {Object.entries(location.opening_hours).map(([day, hours]: [string, any]) => (
                         <div key={day} className="flex justify-between">
                           <span className="capitalize">{t(day)}</span>
@@ -701,7 +701,7 @@ export default function LocationPage({
                           </div>
                           <div>
                             <p className="font-medium text-white">Google My Business</p>
-                            <p className="text-sm text-gray-300">
+                            <p className="text-sm text-gray-100">
                               {syncStatus.google?.success ? (
                                 <span className="flex items-center text-green-600">
                                   <CheckCircle className="h-3 w-3 mr-1" />
@@ -738,7 +738,7 @@ export default function LocationPage({
                           </div>
                           <div>
                             <p className="font-medium text-white">TripAdvisor</p>
-                            <p className="text-sm text-gray-300">
+                            <p className="text-sm text-gray-100">
                               {syncStatus.tripAdvisor?.success ? (
                                 <span className="flex items-center text-green-600">
                                   <CheckCircle className="h-3 w-3 mr-1" />
@@ -766,7 +766,7 @@ export default function LocationPage({
                       </div>
                     )}
                     
-                    <p className="text-xs text-gray-400 mt-2">
+                    <p className="text-xs text-gray-200 mt-2">
                       {t('syncDescription', 'Sync reviews and ratings from external platforms to keep your listing up-to-date.')}
                     </p>
                   </div>
@@ -801,7 +801,7 @@ export default function LocationPage({
                         <h4 className="font-medium text-white truncate">
                           {getLocalizedContent(nearby.name)}
                         </h4>
-                        <div className="flex items-center text-sm text-gray-300 mt-1">
+                        <div className="flex items-center text-sm text-gray-100 mt-1">
                           {nearby.average_rating > 0 && (
                             <div className="flex items-center mr-3">
                               <Star className="h-4 w-4 text-yellow-400 fill-current mr-1" />

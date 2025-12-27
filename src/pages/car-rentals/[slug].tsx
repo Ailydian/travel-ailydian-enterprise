@@ -353,7 +353,7 @@ const CarDetailsPage = ({ slug: initialSlug, car: carProp }: CarDetailsPageProps
                 <div className="flex items-center gap-2">
                   <Star className="w-5 h-5 text-amber-500 fill-amber-500" />
                   <span className="font-semibold text-white">{car.rating}</span>
-                  <span className="text-gray-400">({car.reviewCount} değerlendirme)</span>
+                  <span className="text-gray-200">({car.reviewCount} değerlendirme)</span>
                 </div>
                 {car.availableCount > 0 && (
                   <div className="flex items-center gap-2 text-green-600">
@@ -372,22 +372,22 @@ const CarDetailsPage = ({ slug: initialSlug, car: carProp }: CarDetailsPageProps
               <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
                 <div className="text-center p-4 bg-white/5 rounded-xl">
                   <Users className="w-8 h-8 text-blue-600 mx-auto mb-2" />
-                  <p className="text-sm text-gray-300 mb-1">Yolcu</p>
+                  <p className="text-sm text-gray-100 mb-1">Yolcu</p>
                   <p className="text-lg font-bold text-white">{car.seats}</p>
                 </div>
                 <div className="text-center p-4 bg-white/5 rounded-xl">
                   <Settings className="w-8 h-8 text-purple-600 mx-auto mb-2" />
-                  <p className="text-sm text-gray-300 mb-1">Vites</p>
+                  <p className="text-sm text-gray-100 mb-1">Vites</p>
                   <p className="text-lg font-bold text-white">{car.transmission === 'AUTOMATIC' ? 'Otomatik' : 'Manuel'}</p>
                 </div>
                 <div className="text-center p-4 bg-white/5 rounded-xl">
                   <Fuel className="w-8 h-8 text-green-600 mx-auto mb-2" />
-                  <p className="text-sm text-gray-300 mb-1">Yakıt</p>
+                  <p className="text-sm text-gray-100 mb-1">Yakıt</p>
                   <p className="text-lg font-bold text-white">{car.fuelType}</p>
                 </div>
                 <div className="text-center p-4 bg-white/5 rounded-xl">
                   <Car className="w-8 h-8 text-amber-600 mx-auto mb-2" />
-                  <p className="text-sm text-gray-300 mb-1">Kapı</p>
+                  <p className="text-sm text-gray-100 mb-1">Kapı</p>
                   <p className="text-lg font-bold text-white">{car.doors}</p>
                 </div>
               </div>
@@ -465,7 +465,7 @@ const CarDetailsPage = ({ slug: initialSlug, car: carProp }: CarDetailsPageProps
                         <div className="flex items-center justify-between">
                           <div className="flex items-center gap-1">
                             <Star className="w-4 h-4 text-amber-500 fill-amber-500" />
-                            <span className="text-sm text-gray-300">{similar.rating}</span>
+                            <span className="text-sm text-gray-100">{similar.rating}</span>
                           </div>
                           <p className="font-bold text-blue-600">₺{parseInt(similar.pricePerDay).toLocaleString('tr-TR')}/gün</p>
                         </div>
@@ -485,7 +485,7 @@ const CarDetailsPage = ({ slug: initialSlug, car: carProp }: CarDetailsPageProps
                   <span className="text-4xl font-bold text-white">₺{parseInt(car.pricePerDay).toLocaleString('tr-TR')}</span>
                   <span className="text-gray-300">/gün</span>
                 </div>
-                <div className="flex items-center gap-4 text-sm text-gray-300">
+                <div className="flex items-center gap-4 text-sm text-gray-100">
                   <span>Haftalık: ₺{parseInt(car.pricePerWeek).toLocaleString('tr-TR')}</span>
                   <span>Aylık: ₺{parseInt(car.pricePerMonth).toLocaleString('tr-TR')}</span>
                 </div>
@@ -577,12 +577,12 @@ const CarDetailsPage = ({ slug: initialSlug, car: carProp }: CarDetailsPageProps
               {days > 0 && (
                 <div className="bg-white/5 rounded-lg p-4 mb-6">
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-sm text-gray-300">{days} gün</span>
+                    <span className="text-sm text-gray-100">{days} gün</span>
                     <span className="text-sm text-white">₺{(parseInt(car.pricePerDay) * days).toLocaleString('tr-TR')}</span>
                   </div>
                   {selectedAddons.length > 0 && (
                     <div className="flex items-center justify-between mb-2">
-                      <span className="text-sm text-gray-300">Ekstralar</span>
+                      <span className="text-sm text-gray-100">Ekstralar</span>
                       <span className="text-sm text-white">₺{(total - parseInt(car.pricePerDay) * days).toLocaleString('tr-TR')}</span>
                     </div>
                   )}
@@ -615,7 +615,7 @@ const CarDetailsPage = ({ slug: initialSlug, car: carProp }: CarDetailsPageProps
                 <ArrowRight className="w-5 h-5" />
               </button>
 
-              <p className="text-xs text-gray-400 text-center mt-4">
+              <p className="text-xs text-gray-200 text-center mt-4">
                 Depozito: ₺{parseInt(car.deposit).toLocaleString('tr-TR')}
               </p>
             </div>

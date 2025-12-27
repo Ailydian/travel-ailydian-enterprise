@@ -87,7 +87,7 @@ const Terms: React.FC = () => {
             </section>
 
             <div className="border-t pt-8">
-              <p className="text-sm text-gray-400">
+              <p className="text-sm text-gray-200">
                 Son güncelleme: 26 Eylül 2025 | Bu şartlar Türk Hukuku&apos;na tabidir.
               </p>
             </div>

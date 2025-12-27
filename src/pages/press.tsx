@@ -206,7 +206,7 @@ export default function Press() {
               <article key={release.id} className="bg-transparent rounded-lg shadow-md hover:shadow-lg transition-shadow overflow-hidden">
                 <div className="p-6">
                   <div className="flex items-center gap-3 mb-4">
-                    <span className="inline-flex items-center gap-1 text-sm text-gray-400">
+                    <span className="inline-flex items-center gap-1 text-sm text-gray-200">
                       <Calendar className="w-4 h-4" />
                       {release.date}
                     </span>
@@ -256,7 +256,7 @@ export default function Press() {
                       <h3 className="text-lg font-bold text-white mb-2">
                         {award.title}
                       </h3>
-                      <p className="text-sm text-gray-300 mb-2">
+                      <p className="text-sm text-gray-100 mb-2">
                         {award.organization}
                       </p>
                       <p className="text-sm text-gray-200">

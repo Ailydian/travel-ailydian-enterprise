@@ -116,7 +116,7 @@ export default function CommercialVehicleOwnerLoginPage() {
                   onChange={(e) => setFormData({ ...formData, rememberMe: e.target.checked })}
                   className="w-4 h-4 text-orange-600 border-gray-300 rounded focus:ring-orange-600"
                 />
-                <span className="ml-2 text-sm text-gray-300">Beni hatırla</span>
+                <span className="ml-2 text-sm text-gray-100">Beni hatırla</span>
               </label>
               <Link href="/forgot-password" className="text-sm text-orange-600 hover:text-orange-700">
                 Şifremi unuttum

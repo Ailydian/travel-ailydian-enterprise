@@ -291,7 +291,7 @@ const CarRentalsPage: React.FC = () => {
 
               <div className="flex items-center gap-4">
                 <div className="text-right">
-                  <div className="text-sm text-gray-400">Ortalama Aylık Gelir</div>
+                  <div className="text-sm text-gray-200">Ortalama Aylık Gelir</div>
                   <div className="text-2xl font-bold text-green-600">₺8,500</div>
                 </div>
                 <Link href="/vehicle-owner">
@@ -437,28 +437,28 @@ const CarRentalsPage: React.FC = () => {
                     1
                   </div>
                   <h4 className="font-bold text-white mb-2">Araç Seçin</h4>
-                  <p className="text-sm text-gray-300">14+ kategoriden istediğiniz aracı bulun</p>
+                  <p className="text-sm text-gray-100">14+ kategoriden istediğiniz aracı bulun</p>
                 </div>
                 <div className="text-center">
                   <div className="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-2xl font-bold">
                     2
                   </div>
                   <h4 className="font-bold text-white mb-2">Rezervasyon</h4>
-                  <p className="text-sm text-gray-300">Anında onay, ödeme güvenli</p>
+                  <p className="text-sm text-gray-100">Anında onay, ödeme güvenli</p>
                 </div>
                 <div className="text-center">
                   <div className="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-2xl font-bold">
                     3
                   </div>
                   <h4 className="font-bold text-white mb-2">Dijital Anahtar</h4>
-                  <p className="text-sm text-gray-300">Mobil uygulama ile kilidi açın</p>
+                  <p className="text-sm text-gray-100">Mobil uygulama ile kilidi açın</p>
                 </div>
                 <div className="text-center">
                   <div className="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-2xl font-bold">
                     4
                   </div>
                   <h4 className="font-bold text-white mb-2">Yola Çıkın</h4>
-                  <p className="text-sm text-gray-300">Maceranızı başlatın!</p>
+                  <p className="text-sm text-gray-100">Maceranızı başlatın!</p>
                 </div>
               </div>
             </motion.div>
@@ -560,14 +560,14 @@ const CarRentalsPage: React.FC = () => {
                       <h3 className="font-bold text-lg text-white line-clamp-1">
                         {vehicle.name}
                       </h3>
-                      <p className="text-sm text-gray-400">{vehicle.brand} • {vehicle.year}</p>
+                      <p className="text-sm text-gray-200">{vehicle.brand} • {vehicle.year}</p>
                     </div>
                     {vehicle.insuranceIncluded && (
                       <Shield className="w-5 h-5 text-green-600" title="Sigorta Dahil" />
                     )}
                   </div>
 
-                  <div className="flex items-center gap-2 text-sm text-gray-400 mb-4">
+                  <div className="flex items-center gap-2 text-sm text-gray-200 mb-4">
                     <MapPin className="w-4 h-4" />
                     <span>{vehicle.pickupLocations[0]}</span>
                     <span>•</span>
@@ -604,7 +604,7 @@ const CarRentalsPage: React.FC = () => {
                   <div className="flex items-center justify-between pt-4 border-t border-gray-100">
                     <div>
                       <div className="text-2xl font-bold text-white">₺{parseInt(vehicle.pricePerDay).toLocaleString('tr-TR')}</div>
-                      <div className="text-sm text-gray-400">/ gün</div>
+                      <div className="text-sm text-gray-200">/ gün</div>
                     </div>
                     <Link
                       href={`/car-rentals/${vehicle.slug}`}

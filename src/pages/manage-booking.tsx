@@ -97,7 +97,7 @@ export default function ManageBooking() {
                         required
                       />
                     </div>
-                    <p className="mt-2 text-sm text-gray-400">
+                    <p className="mt-2 text-sm text-gray-200">
                       Rezervasyon numaranız onay e-postanızda bulunmaktadır
                     </p>
                   </div>
@@ -136,7 +136,7 @@ export default function ManageBooking() {
                         required
                       />
                     </div>
-                    <p className="mt-2 text-sm text-gray-400">
+                    <p className="mt-2 text-sm text-gray-200">
                       Rezervasyon yaparken kullandığınız e-posta adresi
                     </p>
                   </div>

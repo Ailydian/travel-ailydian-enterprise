@@ -226,7 +226,7 @@ export const FuturisticCard: React.FC<FuturisticCardProps> = ({
 
           {/* Description - Only show if no image */}
           {!image && description && (
-            <p className="text-sm text-gray-300 mb-4 line-clamp-2">
+            <p className="text-sm text-gray-100 mb-4 line-clamp-2">
               {description}
             </p>
           )}
@@ -240,7 +240,7 @@ export const FuturisticCard: React.FC<FuturisticCardProps> = ({
                   initial={{ opacity: 0, x: -10 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.1 }}
-                  className="flex items-center gap-2 text-sm text-gray-300"
+                  className="flex items-center gap-2 text-sm text-gray-100"
                 >
                   <div className="text-purple-400">{item.icon}</div>
                   <span className="truncate">{item.label}</span>
@@ -256,13 +256,13 @@ export const FuturisticCard: React.FC<FuturisticCardProps> = ({
                 {[...Array(5)].map((_, i) => (
                   <Star
                     key={i}
-                    className={`w-4 h-4 ${i < Math.floor(rating) ? 'fill-yellow-400 text-yellow-400' : 'text-gray-400'}`}
+                    className={`w-4 h-4 ${i < Math.floor(rating) ? 'fill-yellow-400 text-yellow-400' : 'text-gray-200'}`}
                   />
                 ))}
               </div>
               <span className="text-sm font-semibold text-white">{rating.toFixed(1)}</span>
               {reviews && (
-                <span className="text-sm text-gray-400">({reviews})</span>
+                <span className="text-sm text-gray-200">({reviews})</span>
               )}
             </div>
           )}
@@ -288,7 +288,7 @@ export const FuturisticCard: React.FC<FuturisticCardProps> = ({
           <div className="flex items-center justify-between pt-4 border-t border-white/10">
             <div className="relative">
               {oldPrice && (
-                <span className="text-sm text-gray-400 line-through block mb-1">
+                <span className="text-sm text-gray-200 line-through block mb-1">
                   {oldPrice}
                 </span>
               )}

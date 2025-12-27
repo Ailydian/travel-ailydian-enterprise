@@ -296,7 +296,7 @@ const Custom500Page: React.FC = () => {
                   </div>
                 </div>
 
-                <p className="text-sm text-gray-400 mt-6">
+                <p className="text-sm text-gray-200 mt-6">
                   Tahmini çözüm süresi: 15-30 dakika<br />
                   Son güncelleme: {new Date().toLocaleString('tr-TR')}
                 </p>

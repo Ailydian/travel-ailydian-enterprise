@@ -351,7 +351,7 @@ export default function ExperienceDetail({ experience, relatedExperiences }: Exp
                   <div className="flex items-center justify-between">
                     <div>
                       <div className="font-semibold text-white">Yetişkin</div>
-                      <div className="text-sm text-gray-300">₺{experience.pricing.adult}</div>
+                      <div className="text-sm text-gray-100">₺{experience.pricing.adult}</div>
                     </div>
                     <div className="flex items-center gap-3">
                       <button
@@ -373,7 +373,7 @@ export default function ExperienceDetail({ experience, relatedExperiences }: Exp
                   <div className="flex items-center justify-between">
                     <div>
                       <div className="font-semibold text-white">Çocuk</div>
-                      <div className="text-sm text-gray-300">₺{experience.pricing.child}</div>
+                      <div className="text-sm text-gray-100">₺{experience.pricing.child}</div>
                     </div>
                     <div className="flex items-center gap-3">
                       <button
@@ -399,7 +399,7 @@ export default function ExperienceDetail({ experience, relatedExperiences }: Exp
                     <span className="text-gray-300">Toplam</span>
                     <span className="text-2xl font-bold text-white">₺{totalPrice.toLocaleString()}</span>
                   </div>
-                  <p className="text-xs text-gray-400">Vergi ve hizmet bedeli dahil</p>
+                  <p className="text-xs text-gray-200">Vergi ve hizmet bedeli dahil</p>
                 </div>
 
                 {/* Book Button */}
@@ -412,7 +412,7 @@ export default function ExperienceDetail({ experience, relatedExperiences }: Exp
                 </button>
 
                 {/* Additional Info */}
-                <div className="mt-6 space-y-3 text-sm text-gray-300">
+                <div className="mt-6 space-y-3 text-sm text-gray-100">
                   <div className="flex items-center gap-2">
                     <Shield className="w-4 h-4 text-green-600" />
                     <span>%100 Güvenli Ödeme</span>
@@ -455,10 +455,10 @@ export default function ExperienceDetail({ experience, relatedExperiences }: Exp
                       <div className="flex items-center gap-2 mb-3">
                         <Star className="w-4 h-4 text-yellow-400 fill-current" />
                         <span className="text-sm font-semibold">{exp.rating}</span>
-                        <span className="text-sm text-gray-300">({exp.reviewCount})</span>
+                        <span className="text-sm text-gray-100">({exp.reviewCount})</span>
                       </div>
                       <div className="flex items-center justify-between">
-                        <span className="text-sm text-gray-300">{exp.duration}</span>
+                        <span className="text-sm text-gray-100">{exp.duration}</span>
                         <span className="text-lg font-bold text-lydian-primary">₺{exp.pricing.adult}</span>
                       </div>
                     </div>

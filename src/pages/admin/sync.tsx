@@ -62,7 +62,7 @@ export default function AdminSync() {
           <aside className="w-64 bg-gray-800 border-r border-gray-700 min-h-screen p-6">
             <div className="mb-8">
               <h2 className="text-2xl font-bold text-white mb-2">LyDian Admin</h2>
-              <p className="text-sm text-gray-400">{adminData?.email}</p>
+              <p className="text-sm text-gray-200">{adminData?.email}</p>
             </div>
             <nav className="space-y-2">
               <Link href="/admin/dashboard" className="flex items-center space-x-3 text-gray-300 hover:text-white hover:bg-gray-700/80 rounded-lg px-3 py-2">

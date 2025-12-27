@@ -185,7 +185,7 @@ export default function CarRentalsManagement() {
               </div>
               <div>
                 <h1 className="text-2xl font-bold text-white">Araç Kiralama Yönetimi</h1>
-                <p className="text-sm text-gray-300">Tüm araçları yönetin ve düzenleyin</p>
+                <p className="text-sm text-gray-100">Tüm araçları yönetin ve düzenleyin</p>
               </div>
             </div>
             <button className="flex items-center space-x-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
@@ -339,7 +339,7 @@ export default function CarRentalsManagement() {
                           />
                           <div>
                             <p className="font-medium text-white">{car.name}</p>
-                            <p className="text-sm text-gray-400">
+                            <p className="text-sm text-gray-200">
                               {car.brand} {car.model} ({car.year})
                             </p>
                           </div>
@@ -354,7 +354,7 @@ export default function CarRentalsManagement() {
                         <div className="text-sm text-white">
                           {car.seats} koltuk • {car.transmission === 'AUTOMATIC' ? 'Otomatik' : 'Manuel'}
                         </div>
-                        <div className="text-sm text-gray-400">
+                        <div className="text-sm text-gray-200">
                           {car.fuelType}
                         </div>
                       </td>
@@ -362,7 +362,7 @@ export default function CarRentalsManagement() {
                         <div className="text-sm font-medium text-white">
                           {car.pricePerDay} {car.currency}/gün
                         </div>
-                        <div className="flex items-center text-sm text-gray-400">
+                        <div className="flex items-center text-sm text-gray-200">
                           <Star className="w-3 h-3 text-yellow-400 fill-current mr-1" />
                           {car.rating.toFixed(1)} ({car.reviewCount})
                         </div>

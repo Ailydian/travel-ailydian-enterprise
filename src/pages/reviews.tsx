@@ -127,14 +127,14 @@ export default function ReviewsPage() {
                 </div>
                 <div className="p-4">
                   <h3 className="font-semibold text-lg mb-2">{destination.name}</h3>
-                  <div className="flex items-center text-sm text-gray-300 mb-2">
+                  <div className="flex items-center text-sm text-gray-100 mb-2">
                     <MapPin className="h-4 w-4 mr-1" />
                     {destination.location}
                   </div>
                   <div className="flex items-center space-x-2">
                     {renderStars(Math.floor(destination.rating))}
                     <span className="text-sm font-medium">{destination.rating}</span>
-                    <span className="text-sm text-gray-400">({destination.reviewCount.toLocaleString()} reviews)</span>
+                    <span className="text-sm text-gray-200">({destination.reviewCount.toLocaleString()} reviews)</span>
                   </div>
                 </div>
               </div>

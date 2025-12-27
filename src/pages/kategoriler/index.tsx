@@ -169,7 +169,7 @@ const CategoriesPage: React.FC = () => {
                     {category.name}
                   </h3>
 
-                  <p className="text-sm text-gray-300 mb-4 line-clamp-2">
+                  <p className="text-sm text-gray-100 mb-4 line-clamp-2">
                     {category.description}
                   </p>
 
@@ -191,7 +191,7 @@ const CategoriesPage: React.FC = () => {
                         </span>
                       ))}
                       {category.popularDestinations.length > 4 && (
-                        <span className="text-xs text-gray-400 px-2 py-1">
+                        <span className="text-xs text-gray-200 px-2 py-1">
                           +{category.popularDestinations.length - 4} daha
                         </span>
                       )}
@@ -200,7 +200,7 @@ const CategoriesPage: React.FC = () => {
 
                   {/* Price Range */}
                   <div className="flex items-center justify-between mb-4">
-                    <span className="text-xs text-gray-300">Ortalama Fiyat:</span>
+                    <span className="text-xs text-gray-100">Ortalama Fiyat:</span>
                     <span className="text-sm font-bold text-purple-600">
                       ₺{category.averagePrice.min.toLocaleString()} - ₺
                       {category.averagePrice.max.toLocaleString()}
@@ -208,7 +208,7 @@ const CategoriesPage: React.FC = () => {
                   </div>
 
                   {/* Features */}
-                  <div className="flex items-center gap-2 text-xs text-gray-300 mb-4">
+                  <div className="flex items-center gap-2 text-xs text-gray-100 mb-4">
                     {category.features.slice(0, 3).map((feature) => (
                       <span key={feature} className="flex items-center gap-1">
                         <div className="w-1 h-1 bg-purple-600 rounded-full"></div>
@@ -246,7 +246,7 @@ const CategoriesPage: React.FC = () => {
                 <h3 className="font-bold text-white mb-2">
                   Türkiye'ye Özel
                 </h3>
-                <p className="text-sm text-gray-300">
+                <p className="text-sm text-gray-100">
                   Rakip platformlarda bulamayacağınız, Türkiye'nin benzersiz
                   tatil deneyimlerini kategorize ettik.
                 </p>
@@ -257,7 +257,7 @@ const CategoriesPage: React.FC = () => {
                   <MapPin className="h-8 w-8 text-blue-600" />
                 </div>
                 <h3 className="font-bold text-white mb-2">Yerel Uzmanlık</h3>
-                <p className="text-sm text-gray-300">
+                <p className="text-sm text-gray-100">
                   Her kategori için en iyi destinasyonları, zamanlamaları ve
                   aktiviteleri özenle seçtik.
                 </p>
@@ -270,7 +270,7 @@ const CategoriesPage: React.FC = () => {
                 <h3 className="font-bold text-white mb-2">
                   En İyi Fiyat Garantisi
                 </h3>
-                <p className="text-sm text-gray-300">
+                <p className="text-sm text-gray-100">
                   Bundle pricing sistemimizle paket rezervasyonlarda %20'ye
                   varan indirimler kazanın.
                 </p>

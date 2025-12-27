@@ -368,7 +368,7 @@ const Bookings: React.FC = () => {
                               </span>
                             </div>
 
-                            <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-xs sm:text-sm text-gray-300">
+                            <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-xs sm:text-sm text-gray-100">
                               <div className="flex items-center gap-1">
                                 <span className="font-medium">Rezervasyon No:</span>
                                 <span className="font-mono text-blue-600 text-xs sm:text-sm">{booking.bookingReference}</span>
@@ -399,7 +399,7 @@ const Bookings: React.FC = () => {
                             <DollarSign className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400" />
                             {booking.totalAmount.toString()} {booking.currency}
                           </div>
-                          <p className="text-[10px] sm:text-xs text-gray-400 mt-1">
+                          <p className="text-[10px] sm:text-xs text-gray-200 mt-1">
                             Ödeme: <span className={`font-medium ${booking.paymentStatus === 'COMPLETED' ? 'text-green-600' : 'text-yellow-600'}`}>
                               {booking.paymentStatus === 'COMPLETED' ? 'Tamamlandı' : booking.paymentStatus === 'PENDING' ? 'Beklemede' : booking.paymentStatus}
                             </span>
@@ -456,7 +456,7 @@ const Bookings: React.FC = () => {
                           )}
                         </div>
 
-                        <div className="text-[10px] sm:text-xs text-gray-400 sm:ml-auto">
+                        <div className="text-[10px] sm:text-xs text-gray-200 sm:ml-auto">
                           Created: {new Date(booking.createdAt).toLocaleDateString('en-US')}
                         </div>
                       </div>
@@ -477,25 +477,25 @@ const Bookings: React.FC = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
                 <div className="text-center p-3 sm:p-4 bg-blue-50 rounded-lg">
                   <p className="text-2xl sm:text-3xl font-bold text-blue-600">{bookings.length}</p>
-                  <p className="text-xs sm:text-sm text-gray-300 mt-1">Toplam Rezervasyon</p>
+                  <p className="text-xs sm:text-sm text-gray-100 mt-1">Toplam Rezervasyon</p>
                 </div>
                 <div className="text-center p-3 sm:p-4 bg-green-50 rounded-lg">
                   <p className="text-2xl sm:text-3xl font-bold text-green-600">
                     {bookings.filter(b => b.status.toUpperCase() === 'CONFIRMED').length}
                   </p>
-                  <p className="text-xs sm:text-sm text-gray-300 mt-1">Onaylı</p>
+                  <p className="text-xs sm:text-sm text-gray-100 mt-1">Onaylı</p>
                 </div>
                 <div className="text-center p-3 sm:p-4 bg-yellow-50 rounded-lg">
                   <p className="text-2xl sm:text-3xl font-bold text-yellow-600">
                     {bookings.filter(b => b.status.toUpperCase() === 'PENDING').length}
                   </p>
-                  <p className="text-xs sm:text-sm text-gray-300 mt-1">Beklemede</p>
+                  <p className="text-xs sm:text-sm text-gray-100 mt-1">Beklemede</p>
                 </div>
                 <div className="text-center p-3 sm:p-4 bg-purple-50 rounded-lg">
                   <p className="text-2xl sm:text-3xl font-bold text-purple-600">
                     {bookings.reduce((sum, b) => sum + Number(b.totalAmount), 0).toFixed(2)} TRY
                   </p>
-                  <p className="text-xs sm:text-sm text-gray-300 mt-1">Toplam Harcama</p>
+                  <p className="text-xs sm:text-sm text-gray-100 mt-1">Toplam Harcama</p>
                 </div>
               </div>
             </motion.div>

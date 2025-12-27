@@ -576,7 +576,7 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
                   <div className="flex items-center gap-1">
                     <Star className="w-5 h-5 fill-yellow-400 text-yellow-400" />
                     <span className="font-bold text-white">{tour.rating}</span>
-                    <span className="text-gray-400">({tour.reviewCount.toLocaleString()} yorum)</span>
+                    <span className="text-gray-200">({tour.reviewCount.toLocaleString()} yorum)</span>
                   </div>
                   <div className="flex items-center gap-1 text-gray-300">
                     <TrendingUp className="w-5 h-5" />
@@ -597,7 +597,7 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
                       <Clock className="w-6 h-6 text-blue-600" />
                     </div>
                     <div>
-                      <p className="text-sm text-gray-400">Süre</p>
+                      <p className="text-sm text-gray-200">Süre</p>
                       <p className="font-semibold text-white">{tour.duration}</p>
                     </div>
                   </div>
@@ -607,7 +607,7 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
                       <Users className="w-6 h-6 text-purple-600" />
                     </div>
                     <div>
-                      <p className="text-sm text-gray-400">Grup Boyutu</p>
+                      <p className="text-sm text-gray-200">Grup Boyutu</p>
                       <p className="font-semibold text-white">{tour.groupSize}</p>
                     </div>
                   </div>
@@ -617,7 +617,7 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
                       <Globe className="w-6 h-6 text-green-600" />
                     </div>
                     <div>
-                      <p className="text-sm text-gray-400">Dil</p>
+                      <p className="text-sm text-gray-200">Dil</p>
                       <p className="font-semibold text-white">{tour.language.join(', ')}</p>
                     </div>
                   </div>
@@ -627,7 +627,7 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
                       <Shield className="w-6 h-6 text-orange-600" />
                     </div>
                     <div>
-                      <p className="text-sm text-gray-400">İptal</p>
+                      <p className="text-sm text-gray-200">İptal</p>
                       <p className="font-semibold text-white">{tour.cancellationPolicy}</p>
                     </div>
                   </div>
@@ -693,7 +693,7 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
                           <span className="px-2 py-1 bg-blue-100 text-blue-700 rounded text-xs font-semibold">
                             {item.time}
                           </span>
-                          <span className="text-xs text-gray-400">{item.duration}</span>
+                          <span className="text-xs text-gray-200">{item.duration}</span>
                         </div>
                         <h3 className="text-lg font-bold text-white mb-1">{item.title}</h3>
                         <p className="text-gray-300">{item.description}</p>
@@ -826,8 +826,8 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
                   </div>
                   <div className="flex-1">
                     <h4 className="font-bold text-white">{tour.guide.name}</h4>
-                    <p className="text-sm text-gray-300 mb-2">{tour.guide.title}</p>
-                    <div className="flex flex-wrap gap-3 text-sm text-gray-300 mb-2">
+                    <p className="text-sm text-gray-100 mb-2">{tour.guide.title}</p>
+                    <div className="flex flex-wrap gap-3 text-sm text-gray-100 mb-2">
                       <div className="flex items-center gap-1">
                         <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
                         <span className="font-semibold">{tour.guide.rating}</span>
@@ -857,7 +857,7 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
                   <div className="flex items-center gap-2">
                     <Star className="w-6 h-6 fill-yellow-400 text-yellow-400" />
                     <span className="text-2xl font-bold text-white">{tour.rating}</span>
-                    <span className="text-gray-400">({tour.reviewCount.toLocaleString()})</span>
+                    <span className="text-gray-200">({tour.reviewCount.toLocaleString()})</span>
                   </div>
                 </div>
 
@@ -884,7 +884,7 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
                               </span>
                             )}
                           </div>
-                          <div className="flex items-center gap-2 text-sm text-gray-400 mb-2">
+                          <div className="flex items-center gap-2 text-sm text-gray-200 mb-2">
                             <div className="flex">
                               {[...Array(5)].map((_, i) => (
                                 <Star
@@ -904,7 +904,7 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
                             <h4 className="font-semibold text-white mb-1">{review.title}</h4>
                           )}
                           <p className="text-gray-200 text-sm mb-2">{review.text}</p>
-                          <button className="text-sm text-gray-400 hover:text-gray-200 transition-colors">
+                          <button className="text-sm text-gray-200 hover:text-gray-200 transition-colors">
                             Yararlı ({review.helpful})
                           </button>
                         </div>
@@ -967,7 +967,7 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
                       )}
                     </div>
                     <div className="flex items-center gap-2">
-                      <span className="text-sm text-gray-300">kişi başı</span>
+                      <span className="text-sm text-gray-100">kişi başı</span>
                       {tour.discount && (
                         <span className="px-2 py-0.5 bg-red-100 text-red-600 rounded text-xs font-bold">
                           %{tour.discount} İndirim
@@ -1008,7 +1008,7 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
                       </button>
                       <div className="flex-1 text-center">
                         <span className="text-2xl font-bold text-white">{selectedGuests}</span>
-                        <span className="text-sm text-gray-300 ml-1">kişi</span>
+                        <span className="text-sm text-gray-100 ml-1">kişi</span>
                       </div>
                       <button
                         onClick={() => setSelectedGuests(selectedGuests + 1)}
@@ -1027,7 +1027,7 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
                         ₺{(tour.price * selectedGuests).toLocaleString()}
                       </span>
                     </div>
-                    <p className="text-xs text-gray-400">
+                    <p className="text-xs text-gray-200">
                       {selectedGuests} kişi × ₺{tour.price} = ₺{(tour.price * selectedGuests).toLocaleString()}
                     </p>
                   </div>
