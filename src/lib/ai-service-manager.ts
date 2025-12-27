@@ -3,7 +3,7 @@ import OpenAI from 'openai';
 // AI service configuration
 const AI_CONFIG = {
   openai: {
-    model: 'gpt-4-turbo-preview',
+    model: process.env.OPENAI_MODEL || 'gpt-4-turbo-preview',
     maxTokens: 1000,
     temperature: 0.7,
   },
@@ -111,7 +111,7 @@ Provide 5 destination recommendations with detailed reasons, cost estimates, and
     try {
       // Test OpenAI connection
       await openai.chat.completions.create({
-        model: 'gpt-3.5-turbo',
+        model: process.env.OPENAI_FALLBACK_MODEL || 'gpt-3.5-turbo',
         messages: [{ role: 'user', content: 'Hello' }],
         max_tokens: 5
       });

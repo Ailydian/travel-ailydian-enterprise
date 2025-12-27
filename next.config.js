@@ -119,6 +119,25 @@ const nextConfig = {
             key: 'Referrer-Policy',
             value: 'origin-when-cross-origin',
           },
+          // Content Security Policy
+          {
+            key: 'Content-Security-Policy',
+            value: [
+              "default-src 'self'",
+              "script-src 'self' 'unsafe-eval' 'unsafe-inline' https://vercel.live https://va.vercel-scripts.com",
+              "style-src 'self' 'unsafe-inline'",
+              "img-src 'self' data: https: blob:",
+              "font-src 'self' data:",
+              "connect-src 'self' https://vercel.live https://*.vercel.app https://*.vercel-insights.com https://api.groq.com https://api.openai.com",
+              "frame-src 'self' https://vercel.live",
+              "media-src 'self' https:",
+              "worker-src 'self' blob:",
+            ].join('; '),
+          },
+          {
+            key: 'Permissions-Policy',
+            value: 'camera=(), microphone=(), geolocation=(self)',
+          },
           // Performance headers
           {
             key: 'Cache-Control',

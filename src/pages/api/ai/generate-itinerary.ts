@@ -140,8 +140,8 @@ Return the itinerary as a structured JSON with the following format:
 
     // Model mapping for obfuscation
     const modelMap: Record<string, string> = {
-      'nx-primary-v3': 'llama-3.3-70b-versatile',
-      'nx-fast-v1': 'llama-3.1-8b-instant',
+      'nx-primary-v3': process.env.GROQ_PRIMARY_MODEL || 'llama-3.3-70b-versatile',
+      'nx-fast-v1': process.env.GROQ_FAST_MODEL || 'llama-3.1-8b-instant',
     };
 
     const completion = await groq.chat.completions.create({

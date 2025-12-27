@@ -8,8 +8,8 @@ import Groq from 'groq-sdk';
 
 // Model mapping for obfuscation
 const MODEL_MAP = {
-  'nx-primary-v3': 'llama-3.3-70b-versatile',
-  'nx-fast-v1': 'llama-3.1-8b-instant',
+  'nx-primary-v3': process.env.GROQ_PRIMARY_MODEL || 'llama-3.3-70b-versatile',
+  'nx-fast-v1': process.env.GROQ_FAST_MODEL || 'llama-3.1-8b-instant',
   'nx-hybrid-v2': 'mixtral-8x7b-32768',
   'nx-lite-v2': 'gemma2-9b-it',
 };
