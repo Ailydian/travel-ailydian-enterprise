@@ -1,153 +1,206 @@
 /**
- * Universal Logger Configuration
- * Works in both Node.js and Browser environments
+ * Enterprise-Grade Logging System
+ * CLAUDE.md compliant - No console.log allowed
+ *
+ * Features:
+ * - Structured logging with metadata
+ * - Log levels with filtering
+ * - Production-safe (no sensitive data)
+ * - Performance tracking
+ * - Error tracking integration ready
  */
 
-// Type definitions
-interface LogMeta {
-  [key: string]: any;
+export enum LogLevel {
+  DEBUG = 0,
+  INFO = 1,
+  WARN = 2,
+  ERROR = 3,
+  FATAL = 4,
 }
 
-// Check if we're in browser or Node.js
-const isBrowser = typeof window !== 'undefined';
+export interface LogContext {
+  readonly userId?: string;
+  readonly requestId?: string;
+  readonly component?: string;
+  readonly action?: string;
+  readonly duration?: number;
+  readonly metadata?: Readonly<Record<string, unknown>>;
+}
 
-// Simple console logger for browser
-const browserLogger = {
-  info: (message: string, meta?: LogMeta) => {
-    if (process.env.NODE_ENV !== 'production') {
-      console.log(`[INFO] ${message}`, meta || '');
+export interface LogEntry {
+  readonly timestamp: string;
+  readonly level: LogLevel;
+  readonly message: string;
+  readonly context: LogContext;
+  readonly error?: Error;
+  readonly stack?: string;
+}
+
+class Logger {
+  private static instance: Logger;
+  private readonly minLevel: LogLevel;
+  private readonly isDevelopment: boolean;
+  private readonly isProduction: boolean;
+
+  private constructor() {
+    this.isDevelopment = process.env.NODE_ENV === 'development';
+    this.isProduction = process.env.NODE_ENV === 'production';
+    this.minLevel = this.isProduction ? LogLevel.WARN : LogLevel.DEBUG;
+  }
+
+  public static getInstance(): Logger {
+    if (!Logger.instance) {
+      Logger.instance = new Logger();
     }
-  },
-  error: (message: string, meta?: LogMeta) => {
-    console.error(`[ERROR] ${message}`, meta || '');
-  },
-  warn: (message: string, meta?: LogMeta) => {
-    console.warn(`[WARN] ${message}`, meta || '');
-  },
-  debug: (message: string, meta?: LogMeta) => {
-    if (process.env.NODE_ENV !== 'production') {
-      console.debug(`[DEBUG] ${message}`, meta || '');
-    }
-  },
-};
+    return Logger.instance;
+  }
 
-// Winston logger for Node.js (lazy loaded)
-let winstonLogger: any = null;
+  private shouldLog(level: LogLevel): boolean {
+    return level >= this.minLevel;
+  }
 
-const getNodeLogger = () => {
-  if (winstonLogger) return winstonLogger;
+  private sanitizeForProduction(data: unknown): unknown {
+    if (!this.isProduction) return data;
 
-  try {
-    const winston = require('winston');
-    const { combine, timestamp, printf, colorize, errors } = winston.format;
+    if (typeof data === 'object' && data !== null) {
+      const sanitized = { ...data } as Record<string, unknown>;
+      const sensitiveKeys = ['password', 'token', 'apiKey', 'secret', 'creditCard'];
 
-    const logFormat = printf(({ level, message, timestamp, stack, ...metadata }: any) => {
-      let msg = `${timestamp} [${level}]: ${message}`;
-      if (stack) msg += `\n${stack}`;
-      if (Object.keys(metadata).length > 0) {
-        msg += `\n${JSON.stringify(metadata, null, 2)}`;
+      for (const key of sensitiveKeys) {
+        if (key in sanitized) {
+          sanitized[key] = '[REDACTED]';
+        }
       }
-      return msg;
-    });
-
-    winstonLogger = winston.createLogger({
-      level: process.env.NODE_ENV === 'production' ? 'info' : 'debug',
-      format: combine(
-        errors({ stack: true }),
-        timestamp({ format: 'YYYY-MM-DD HH:mm:ss' }),
-        logFormat
-      ),
-      transports: [
-        new winston.transports.Console({
-          format: combine(colorize(), logFormat),
-        }),
-      ],
-      exitOnError: false,
-    });
-
-    return winstonLogger;
-  } catch (error) {
-    // Fallback to console if winston fails
-    return browserLogger;
-  }
-};
-
-// Universal logger that works in both environments
-const logger = isBrowser ? browserLogger : getNodeLogger();
-
-// Helper functions
-export const logInfo = (message: string, meta?: any) => {
-  try {
-    if (isBrowser) {
-      browserLogger.info(message, meta);
-    } else {
-      logger.info(message, meta);
+      return sanitized;
     }
-  } catch (error) {
-    console.log(message, meta);
+    return data;
   }
-};
 
-export const logError = (message: string, error?: Error | any, meta?: any) => {
-  try {
-    const errorMeta = {
-      error: error?.message || error,
+  private formatLogEntry(entry: LogEntry): string {
+    const levelName = LogLevel[entry.level];
+    const { component, action, userId, requestId, duration, metadata } = entry.context;
+
+    const parts = [
+      `[${entry.timestamp}]`,
+      `[${levelName}]`,
+      component && `[${component}]`,
+      action && `{${action}}`,
+      userId && `(user:${userId})`,
+      requestId && `(req:${requestId})`,
+      entry.message,
+      duration !== undefined && `(${duration}ms)`,
+      metadata && JSON.stringify(this.sanitizeForProduction(metadata)),
+    ].filter(Boolean);
+
+    return parts.join(' ');
+  }
+
+  private writeLog(entry: LogEntry): void {
+    if (!this.shouldLog(entry.level)) return;
+
+    const formatted = this.formatLogEntry(entry);
+
+    if (this.isDevelopment) {
+      switch (entry.level) {
+        case LogLevel.DEBUG:
+        case LogLevel.INFO:
+          console.info(formatted);
+          break;
+        case LogLevel.WARN:
+          console.warn(formatted);
+          break;
+        case LogLevel.ERROR:
+        case LogLevel.FATAL:
+          console.error(formatted, entry.error);
+          break;
+      }
+    } else {
+      if (entry.level >= LogLevel.ERROR) {
+        console.error(formatted, entry.error);
+      } else if (entry.level === LogLevel.WARN) {
+        console.warn(formatted);
+      }
+    }
+  }
+
+  public debug(message: string, context: LogContext = {}): void {
+    this.writeLog({
+      timestamp: new Date().toISOString(),
+      level: LogLevel.DEBUG,
+      message,
+      context,
+    });
+  }
+
+  public info(message: string, context: LogContext = {}): void {
+    this.writeLog({
+      timestamp: new Date().toISOString(),
+      level: LogLevel.INFO,
+      message,
+      context,
+    });
+  }
+
+  public warn(message: string, context: LogContext = {}): void {
+    this.writeLog({
+      timestamp: new Date().toISOString(),
+      level: LogLevel.WARN,
+      message,
+      context,
+    });
+  }
+
+  public error(message: string, error?: Error, context: LogContext = {}): void {
+    this.writeLog({
+      timestamp: new Date().toISOString(),
+      level: LogLevel.ERROR,
+      message,
+      context,
+      error,
       stack: error?.stack,
-      ...meta
-    };
-
-    if (isBrowser) {
-      browserLogger.error(message, errorMeta);
-    } else {
-      logger.error(message, errorMeta);
-    }
-  } catch (err) {
-    console.error(message, error, meta);
+    });
   }
-};
 
-export const logWarn = (message: string, meta?: any) => {
-  try {
-    if (isBrowser) {
-      browserLogger.warn(message, meta);
-    } else {
-      logger.warn(message, meta);
-    }
-  } catch (error) {
-    console.warn(message, meta);
+  public fatal(message: string, error?: Error, context: LogContext = {}): void {
+    this.writeLog({
+      timestamp: new Date().toISOString(),
+      level: LogLevel.FATAL,
+      message,
+      context,
+      error,
+      stack: error?.stack,
+    });
   }
-};
 
-export const logDebug = (message: string, meta?: any) => {
-  try {
-    if (isBrowser) {
-      browserLogger.debug(message, meta);
-    } else {
-      logger.debug(message, meta);
-    }
-  } catch (error) {
-    console.debug(message, meta);
+  public startTimer(): () => number {
+    const start = performance.now();
+    return () => Math.round(performance.now() - start);
   }
-};
 
-// API request logger
-export const logRequest = (method: string, url: string, userId?: string) => {
-  logInfo('API Request', { method, url, userId });
-};
+  public async trackAsync<T>(
+    operation: string,
+    fn: () => Promise<T>,
+    context: LogContext = {}
+  ): Promise<T> {
+    const stopTimer = this.startTimer();
+    this.debug(`Starting ${operation}`, context);
 
-// API response logger
-export const logResponse = (method: string, url: string, statusCode: number, duration: number) => {
-  logInfo('API Response', { method, url, statusCode, duration: `${duration}ms` });
-};
+    try {
+      const result = await fn();
+      this.info(`Completed ${operation}`, {
+        ...context,
+        duration: stopTimer(),
+      });
+      return result;
+    } catch (error) {
+      this.error(`Failed ${operation}`, error as Error, {
+        ...context,
+        duration: stopTimer(),
+      });
+      throw error;
+    }
+  }
+}
 
-// Database query logger
-export const logQuery = (query: string, duration: number) => {
-  logDebug('Database Query', { query, duration: `${duration}ms` });
-};
-
-// Payment logger
-export const logPayment = (action: string, amount: number, currency: string, meta?: any) => {
-  logInfo('Payment Action', { action, amount, currency, ...meta });
-};
-
+export const logger = Logger.getInstance();
 export default logger;
