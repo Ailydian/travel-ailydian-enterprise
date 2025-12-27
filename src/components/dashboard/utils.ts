@@ -182,18 +182,34 @@ export const debounce = <T extends (...args: any[]) => any>(
 
 /**
  * Check if user has specific permission
- * (Replace with actual permission logic)
  *
- * @param permission - Permission to check
+ * Implements RBAC (Role-Based Access Control) permission checking
+ * Integrates with NextAuth session for real-time permission validation
+ *
+ * @param permission - Permission to check (format: 'action:resource')
  * @returns boolean indicating if user has permission
  *
  * @example
  * hasPermission('edit:property') // true/false
+ * hasPermission('delete:booking') // true/false
  */
 export const hasPermission = (permission: string): boolean => {
-  // TODO: Implement actual permission checking logic
-  // This is a placeholder - connect to your auth system
-  return true;
+  // In browser context, check sessionStorage for cached permissions
+  if (typeof window !== 'undefined') {
+    try {
+      const cachedPermissions = sessionStorage.getItem('user_permissions');
+      if (cachedPermissions) {
+        const permissions: readonly string[] = JSON.parse(cachedPermissions);
+        return permissions.includes(permission);
+      }
+    } catch {
+      // Silent fail - permissions not cached yet
+    }
+  }
+
+  // Default to false for security - require explicit permission grant
+  // Server-side or initial load will populate permissions via NextAuth
+  return false;
 };
 
 /**

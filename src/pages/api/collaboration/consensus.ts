@@ -10,6 +10,33 @@ import { authOptions } from '../auth/[...nextauth]';
 import { withRateLimit, publicRateLimiter } from '@/lib/middleware/rate-limiter';
 import { prisma } from '@/lib/prisma';
 import { neuralxChat } from '@/lib/groq-service';
+import logger from '@/lib/logger';
+
+interface VoteData {
+  activityId: string;
+  value: number;
+  userId: string;
+  user: { name: string | null };
+}
+
+interface Participant {
+  userId: string;
+  name: string;
+  role: 'owner' | 'editor' | 'viewer';
+  joinedAt: string;
+}
+
+interface CollaborationData {
+  participants?: Participant[];
+}
+
+interface CompromiseSuggestion {
+  type: 'alternative' | 'modification' | 'combination';
+  description: string;
+  affectedActivities: string[];
+  reasoning: string;
+  potentialConsensus: number;
+}
 
 interface ConsensusAnalysis {
   roomId: string;
@@ -91,7 +118,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
       return res.status(404).json({ error: 'Collaboration room not found' });
     }
 
-    const collaborationData = trip.collaborationData as any;
+    const collaborationData = trip.collaborationData as CollaborationData;
 
     // Get user from database
     const user = await prisma.user.findUnique({
@@ -105,7 +132,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
 
     // Check if user is participant
     const isParticipant = collaborationData?.participants?.some(
-      (p: any) => p.userId === user.id
+      (p) => p.userId === user.id
     );
 
     if (!isParticipant) {
@@ -122,7 +149,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
       }
       acc[vote.activityId].push(vote);
       return acc;
-    }, {} as Record<string, any[]>);
+    }, {} as Record<string, VoteData[]>);
 
     // Calculate consensus for each activity
     const activityAnalysis = Object.entries(votesByActivity).map(([activityId, votes]) => {
@@ -222,7 +249,7 @@ Return ONLY valid JSON:
   "recommendations": ["string"]
 }`;
 
-    let compromiseSuggestions: any[] = [];
+    let compromiseSuggestions: CompromiseSuggestion[] = [];
     let recommendations: string[] = [];
 
     try {
@@ -248,7 +275,11 @@ Return ONLY valid JSON:
       compromiseSuggestions = parsed.suggestions || [];
       recommendations = parsed.recommendations || [];
     } catch (aiError) {
-      console.error('AI compromise suggestion error:', aiError);
+      logger.warn('AI compromise suggestion error', {
+        component: 'CollaborationConsensus',
+        action: 'generate_suggestions',
+        metadata: { error: aiError instanceof Error ? aiError.message : 'Unknown error' }
+      });
       // Provide fallback recommendations
       recommendations = [
         'Encourage all participants to vote on pending activities',
@@ -274,18 +305,31 @@ Return ONLY valid JSON:
       recommendations,
     };
 
+    logger.info('Consensus analysis completed', {
+      component: 'CollaborationConsensus',
+      action: 'analyze_consensus',
+      metadata: {
+        roomId,
+        consensusScore: analysis.overallConsensusScore,
+        agreementLevel: analysis.agreementLevel
+      }
+    });
+
     return res.status(200).json({
       success: true,
       analysis,
       generatedAt: new Date().toISOString(),
     });
 
-  } catch (error: any) {
-    console.error('Consensus API Error:', error);
+  } catch (error) {
+    logger.error('Consensus API Error', error as Error, {
+      component: 'CollaborationConsensus',
+      action: 'analyze_consensus'
+    });
 
     return res.status(500).json({
       error: 'Failed to analyze consensus',
-      details: error.message,
+      details: error instanceof Error ? error.message : 'Unknown error',
     });
   }
 }

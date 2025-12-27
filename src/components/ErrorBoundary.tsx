@@ -63,10 +63,23 @@ export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundarySt
     // Call custom error handler if provided
     this.props.onError?.(error, errorInfo);
 
-    // In production, send to error monitoring service (e.g., Sentry)
-    if (process.env.NODE_ENV === 'production') {
-      // TODO: Integrate with Sentry or similar
-      // Sentry.captureException(error, { contexts: { react: { componentStack: errorInfo.componentStack } } });
+    // In production, send to error monitoring service
+    if (process.env.NODE_ENV === 'production' && typeof window !== 'undefined') {
+      // Send to Vercel Analytics for error tracking
+      if ('analytics' in window && typeof (window as any).analytics?.track === 'function') {
+        (window as any).analytics.track('React Error', {
+          error: error.message,
+          stack: error.stack,
+          componentStack: errorInfo.componentStack,
+        });
+      }
+
+      // Future: Sentry integration can be added here
+      // if (window.Sentry) {
+      //   window.Sentry.captureException(error, {
+      //     contexts: { react: { componentStack: errorInfo.componentStack } }
+      //   });
+      // }
     }
   }
 

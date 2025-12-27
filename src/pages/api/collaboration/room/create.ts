@@ -9,7 +9,29 @@ import { getServerSession } from 'next-auth/next';
 import { authOptions } from '../../auth/[...nextauth]';
 import { withRateLimit, publicRateLimiter } from '@/lib/middleware/rate-limiter';
 import { prisma } from '@/lib/prisma';
+import logger from '@/lib/logger';
 import crypto from 'crypto';
+
+interface ItineraryItem {
+  id: string;
+  name: string;
+  type: string;
+  time?: string;
+}
+
+interface Vote {
+  userId: string;
+  activityId: string;
+  value: number;
+  timestamp: string;
+}
+
+interface Comment {
+  id: string;
+  userId: string;
+  content: string;
+  timestamp: string;
+}
 
 interface CreateRoomRequest {
   tripName: string;
@@ -57,9 +79,9 @@ interface CollaborationRoom {
   tags?: string[];
   createdAt: string;
   updatedAt: string;
-  itinerary: any[];
-  votes: any[];
-  comments: any[];
+  itinerary: ItineraryItem[];
+  votes: Vote[];
+  comments: Comment[];
 }
 
 async function handler(req: NextApiRequest, res: NextApiResponse) {
@@ -152,7 +174,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
         budget: roomData.budget?.total || 0,
         status: 'planning',
         isPublaborative: true,
-        collaborationData: room as any, // Store full room data
+        collaborationData: room as unknown as Record<string, unknown>,
         shareCode,
       },
     });
@@ -173,12 +195,25 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
       },
     });
 
-  } catch (error: any) {
-    console.error('Collaboration Room Creation Error:', error);
+    logger.info('Collaboration room created successfully', {
+      component: 'CollaborationRoom',
+      action: 'create_room',
+      metadata: {
+        roomId,
+        creator: user.id,
+        destination: roomData.destination
+      }
+    });
+
+  } catch (error) {
+    logger.error('Collaboration Room Creation Error', error as Error, {
+      component: 'CollaborationRoom',
+      action: 'create_room'
+    });
 
     return res.status(500).json({
       error: 'Failed to create collaboration room',
-      details: error.message,
+      details: error instanceof Error ? error.message : 'Unknown error',
     });
   }
 }

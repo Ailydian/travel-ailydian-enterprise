@@ -1,10 +1,19 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
+import { getServerSession } from 'next-auth';
+import { authOptions } from '@/lib/auth';
 import { prisma } from '@/lib/prisma';
+import logger from '@/lib/logger';
+import { Errors } from '@/lib/types/errors';
 
-// Property Owner Dashboard API
-// Real-time sync with main admin dashboard
-// Returns comprehensive analytics, pricing optimization, and notifications
-
+/**
+ * Property Owner Dashboard API
+ *
+ * Real-time sync with main admin dashboard
+ * Returns comprehensive analytics, pricing optimization, and notifications
+ *
+ * @requires Authentication - User must be logged in
+ * @returns Dashboard data with revenue, bookings, occupancy, and AI insights
+ */
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
@@ -14,8 +23,23 @@ export default async function handler(
   }
 
   try {
-    // TODO: Get owner ID from session/auth
-    const ownerId = 'owner-1'; // Placeholder
+    // Get authenticated user from session
+    const session = await getServerSession(req, res, authOptions);
+
+    if (!session?.user) {
+      logger.warn('Unauthorized dashboard access attempt', {
+        component: 'PropertyDashboard',
+        action: 'fetch_dashboard',
+        metadata: { ip: req.headers['x-forwarded-for'] || 'unknown' }
+      });
+
+      return res.status(401).json({
+        success: false,
+        error: Errors.authentication('Unauthorized', 'User not authenticated')
+      });
+    }
+
+    const ownerId = (session.user as { id: string }).id;
 
     // Get owner's rental properties
     const properties = await prisma.rentalProperty.findMany({
@@ -273,10 +297,28 @@ export default async function handler(
       lastSync: new Date().toISOString()
     };
 
+    logger.info('Dashboard data fetched successfully', {
+      component: 'PropertyDashboard',
+      action: 'fetch_dashboard',
+      metadata: {
+        ownerId,
+        propertiesCount: properties.length,
+        revenue: dashboardData.stats.revenue.thisMonth
+      }
+    });
+
     return res.status(200).json(dashboardData);
 
   } catch (error) {
-    console.error('Dashboard API error:', error);
+    logger.error('Dashboard API error', error as Error, {
+      component: 'PropertyDashboard',
+      action: 'fetch_dashboard',
+      metadata: {
+        method: req.method,
+        url: req.url
+      }
+    });
+
     return res.status(500).json({
       success: false,
       message: 'Failed to fetch dashboard data',

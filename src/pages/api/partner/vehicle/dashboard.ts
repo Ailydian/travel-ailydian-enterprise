@@ -1,4 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
+import logger from '@/lib/logger';
 
 interface VehicleStats {
   revenue: {
@@ -129,6 +130,16 @@ export default async function handler(
     const maintenanceAlerts: MaintenanceAlert[] = await getMaintenanceAlerts();
     const bookings: Booking[] = await getBookings();
 
+    logger.info('Vehicle dashboard data fetched successfully', {
+      component: 'VehicleDashboard',
+      action: 'fetch_dashboard',
+      metadata: {
+        vehiclesCount: vehicles.length,
+        driversCount: drivers.length,
+        revenue: stats.revenue.thisMonth
+      }
+    });
+
     return res.status(200).json({
       stats,
       vehicles,
@@ -138,7 +149,15 @@ export default async function handler(
       syncTime: new Date().toISOString()
     });
   } catch (error) {
-    console.error('Vehicle dashboard API error:', error);
+    logger.error('Vehicle dashboard API error', error as Error, {
+      component: 'VehicleDashboard',
+      action: 'fetch_dashboard',
+      metadata: {
+        method: req.method,
+        url: req.url
+      }
+    });
+
     return res.status(500).json({ error: 'Internal server error' });
   }
 }
