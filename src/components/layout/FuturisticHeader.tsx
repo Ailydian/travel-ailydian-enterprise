@@ -154,6 +154,20 @@ export const FuturisticHeader: React.FC = () => {
               {/* Theme Toggle */}
               <ThemeToggle variant="icon" className="hidden sm:block" />
 
+              {/* Partner Button - Prominent */}
+              <Link href="/partner">
+                <motion.div
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="hidden md:flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#667EEA] to-[#00BAFF] rounded-xl shadow-lg cursor-pointer group relative overflow-hidden"
+                >
+                  <Users className="w-5 h-5 text-white" />
+                  <span className="text-sm font-bold text-white">Partner Ol</span>
+                  {/* Glow effect */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </motion.div>
+              </Link>
+
               {/* Favorites */}
               <FloatingOrb icon={Heart} href="/favorites" color="#EC4899" badge={0} />
 

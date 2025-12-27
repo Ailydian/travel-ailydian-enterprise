@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
-import { ArrowRight, Mail, Lock, User, Phone, Calendar, Eye, EyeOff, Shield, Check } from 'lucide-react';
+import { ArrowRight, Mail, Lock, User, Phone, Calendar, Eye, EyeOff, ArrowLeft } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { NeoHero, FuturisticCard, FuturisticButton, FuturisticInput } from '../components/neo-glass';
 
 export default function Register() {
   const [formData, setFormData] = useState({
@@ -19,10 +21,10 @@ export default function Register() {
 
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-  const [errors, setErrors] = useState<{[key: string]: string;}>({});
+  const [errors, setErrors] = useState<{[key: string]: string}>({});
 
   const validateForm = () => {
-    const newErrors: {[key: string]: string;} = {};
+    const newErrors: {[key: string]: string} = {};
 
     if (!formData.firstName.trim()) {
       newErrors.firstName = 'Ad alanı zorunludur';
@@ -82,359 +84,319 @@ export default function Register() {
     }
   };
 
-  const benefits = [
-  'Özel indirimlerden yararlanın',
-  'Puan kazanın ve hediye çekleri kazanın',
-  'Kişiselleştirilmiş seyahat önerileri alın',
-  'Erken erişim fırsatlarından faydalanın',
-  'VIP müşteri hizmetleri desteği',
-  'Ücretsiz iptal ve değişiklik hakları'];
-
-
   return (
     <>
       <Head>
         <title>Kayıt Ol - LyDian Travel</title>
-        <meta name="description" content="LyDian Travel&apos;a üye olun ve özel avantajlardan yararlanın." />
+        <meta name="description" content="LyDian Travel'a üye olun ve özel avantajlardan yararlanın." />
       </Head>
 
-      <div className="min-h-screen bg-lydian-glass-dark dark:bg-gray-900">
-        {/* Header */}
-        <div className="bg-lydian-bg-hover dark:bg-gray-800 shadow-sm border-b">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-            <div className="flex items-center justify-between">
-              <div>
-                <Link href="/" className="text-2xl font-bold text-lydian-primary">
-                  LyDian Travel
-                </Link>
-              </div>
-              <div className="flex items-center space-x-4">
-                <Link
-                  href="/"
-                  className="text-lydian-text-dim hover:text-lydian-primary flex items-center">
+      {/* NeoHero as full-height background */}
+      <NeoHero
+        title=""
+        gradient="cosmic"
+        height="100vh"
+        showFloatingElements={true}
+        overlayOpacity={0.5}
+      >
+        {/* Return to Home Button */}
+        <Link
+          href="/"
+          className="fixed top-6 left-6 z-50 flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-xl rounded-xl border border-white/20 text-white hover:bg-white/20 transition-all duration-200"
+        >
+          <ArrowLeft className="w-4 h-4" />
+          <span className="font-medium">Ana Sayfaya Dön</span>
+        </Link>
 
-                  <ArrowRight className="h-5 w-5 mr-2 rotate-180" />
-                  Ana Sayfa&apos;ya Dön
-                </Link>
-                <span className="text-lydian-text-dim">|</span>
-                <Link
-                  href="/login"
-                  className="text-lydian-primary hover:text-lydian-primary-dark font-medium">
-
-                  Giriş Yap
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Registration Form */}
-            <div className="bg-lydian-bg-hover dark:bg-gray-800 rounded-2xl shadow-xl p-8">
-              <div className="text-center mb-8">
-                <h1 className="text-3xl font-bold text-lydian-text-inverse dark:text-lydian-text-inverse mb-2">
-                  LyDian Travel&apos;a Katılın
-                </h1>
-                <p className="text-lydian-text-dim dark:text-lydian-text-muted">
-                  Ücretsiz hesap oluşturun ve avantajlardan yararlanın
-                </p>
-              </div>
-
-              <form onSubmit={handleSubmit} className="space-y-6">
-                {/* Name Fields */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {/* Centered Form Container */}
+        <div className="absolute inset-0 flex items-center justify-center px-4 py-12 overflow-y-auto">
+          <div className="max-w-4xl w-full my-12">
+            {/* Header */}
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="text-center mb-8"
+            >
+              <Link href="/" className="inline-block mb-6">
+                <div className="flex items-center justify-center space-x-3">
+                  <div className="w-12 h-12 bg-gradient-to-r from-[#667EEA] to-[#764BA2] rounded-xl flex items-center justify-center">
+                    <span className="text-white font-bold text-xl">A</span>
+                  </div>
                   <div>
-                    <label className="block text-sm font-medium text-lydian-text-muted dark:text-lydian-text-dim mb-2">
-                      Ad *
-                    </label>
-                    <div className="relative">
-                      <User className="absolute left-3 top-3 h-5 w-5 text-lydian-text-muted" />
-                      <input
-                        type="text"
-                        required
-                        className={`w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-2 focus:ring-lydian-border-focus focus:border-lydian-border dark:bg-gray-700 dark:text-lydian-text-inverse ${
-                        errors.firstName ? 'border-red-500' : 'border-gray-300 dark:border-gray-600'}`
-                        }
-                        placeholder="Adınız"
-                        value={formData.firstName}
-                        onChange={(e) => setFormData({ ...formData, firstName: e.target.value })} />
-
-                    </div>
-                    {errors.firstName &&
-                    <p className="text-lydian-error text-sm mt-1">{errors.firstName}</p>
-                    }
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-medium text-lydian-text-muted dark:text-lydian-text-dim mb-2">
-                      Soyad *
-                    </label>
-                    <div className="relative">
-                      <User className="absolute left-3 top-3 h-5 w-5 text-lydian-text-muted" />
-                      <input
-                        type="text"
-                        required
-                        className={`w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-2 focus:ring-lydian-border-focus focus:border-lydian-border dark:bg-gray-700 dark:text-lydian-text-inverse ${
-                        errors.lastName ? 'border-red-500' : 'border-gray-300 dark:border-gray-600'}`
-                        }
-                        placeholder="Soyadınız"
-                        value={formData.lastName}
-                        onChange={(e) => setFormData({ ...formData, lastName: e.target.value })} />
-
-                    </div>
-                    {errors.lastName &&
-                    <p className="text-lydian-error text-sm mt-1">{errors.lastName}</p>
-                    }
+                    <h1 className="text-2xl font-bold text-white">LyDian Travel</h1>
+                    <p className="text-xs text-white/70">AI-Powered Enterprise</p>
                   </div>
                 </div>
+              </Link>
 
-                {/* Email */}
-                <div>
-                  <label className="block text-sm font-medium text-lydian-text-muted dark:text-lydian-text-dim mb-2">
-                    E-posta *
-                  </label>
-                  <div className="relative">
-                    <Mail className="absolute left-3 top-3 h-5 w-5 text-lydian-text-muted" />
-                    <input
-                      type="email"
-                      required
-                      className={`w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-2 focus:ring-lydian-border-focus focus:border-lydian-border dark:bg-gray-700 dark:text-lydian-text-inverse ${
-                      errors.email ? 'border-red-500' : 'border-gray-300 dark:border-gray-600'}`
-                      }
-                      placeholder="ornek@email.com"
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })} />
+              <h2 className="text-3xl font-bold text-white mb-2">LyDian Travel'a Katılın</h2>
+              <p className="text-white/80">Ücretsiz hesap oluşturun ve avantajlardan yararlanın</p>
+            </motion.div>
 
-                  </div>
-                  {errors.email &&
-                  <p className="text-lydian-error text-sm mt-1">{errors.email}</p>
-                  }
-                </div>
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+              {/* Registration Form - Takes 2 columns on large screens */}
+              <div className="lg:col-span-2">
+                <FuturisticCard
+                  title=""
+                  price=""
+                  categoryColor="#667EEA"
+                >
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.1 }}
+                    className="p-8"
+                  >
+                    <form onSubmit={handleSubmit} className="space-y-6">
+                      {/* Name Fields */}
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <FuturisticInput
+                          type="text"
+                          label="Ad"
+                          value={formData.firstName}
+                          onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
+                          icon={<User className="w-5 h-5" />}
+                          error={errors.firstName}
+                          required
+                          glowColor="#667EEA"
+                        />
 
-                {/* Phone */}
-                <div>
-                  <label className="block text-sm font-medium text-lydian-text-muted dark:text-lydian-text-dim mb-2">
-                    Telefon *
-                  </label>
-                  <div className="relative">
-                    <Phone className="absolute left-3 top-3 h-5 w-5 text-lydian-text-muted" />
-                    <input
-                      type="tel"
-                      required
-                      className={`w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-2 focus:ring-lydian-border-focus focus:border-lydian-border dark:bg-gray-700 dark:text-lydian-text-inverse ${
-                      errors.phone ? 'border-red-500' : 'border-gray-300 dark:border-gray-600'}`
-                      }
-                      placeholder="+90 5XX XXX XX XX"
-                      value={formData.phone}
-                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })} />
-
-                  </div>
-                  {errors.phone &&
-                  <p className="text-lydian-error text-sm mt-1">{errors.phone}</p>
-                  }
-                </div>
-
-                {/* Password Fields */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-medium text-lydian-text-muted dark:text-lydian-text-dim mb-2">
-                      Şifre *
-                    </label>
-                    <div className="relative">
-                      <Lock className="absolute left-3 top-3 h-5 w-5 text-lydian-text-muted" />
-                      <input
-                        type={showPassword ? 'text' : 'password'}
-                        required
-                        className={`w-full pl-10 pr-12 py-3 border rounded-lg focus:ring-2 focus:ring-lydian-border-focus focus:border-lydian-border dark:bg-gray-700 dark:text-lydian-text-inverse ${
-                        errors.password ? 'border-red-500' : 'border-gray-300 dark:border-gray-600'}`
-                        }
-                        placeholder="••••••••"
-                        value={formData.password}
-                        onChange={(e) => setFormData({ ...formData, password: e.target.value })} />
-
-                      <button
-                        type="button"
-                        onClick={() => setShowPassword(!showPassword)}
-                        className="absolute right-3 top-3 text-lydian-text-muted hover:text-lydian-text-dim">
-
-                        {showPassword ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
-                      </button>
-                    </div>
-                    {errors.password &&
-                    <p className="text-lydian-error text-sm mt-1">{errors.password}</p>
-                    }
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-medium text-lydian-text-muted dark:text-lydian-text-dim mb-2">
-                      Şifre Tekrar *
-                    </label>
-                    <div className="relative">
-                      <Lock className="absolute left-3 top-3 h-5 w-5 text-lydian-text-muted" />
-                      <input
-                        type={showConfirmPassword ? 'text' : 'password'}
-                        required
-                        className={`w-full pl-10 pr-12 py-3 border rounded-lg focus:ring-2 focus:ring-lydian-border-focus focus:border-lydian-border dark:bg-gray-700 dark:text-lydian-text-inverse ${
-                        errors.confirmPassword ? 'border-red-500' : 'border-gray-300 dark:border-gray-600'}`
-                        }
-                        placeholder="••••••••"
-                        value={formData.confirmPassword}
-                        onChange={(e) => setFormData({ ...formData, confirmPassword: e.target.value })} />
-
-                      <button
-                        type="button"
-                        onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                        className="absolute right-3 top-3 text-lydian-text-muted hover:text-lydian-text-dim">
-
-                        {showConfirmPassword ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
-                      </button>
-                    </div>
-                    {errors.confirmPassword &&
-                    <p className="text-lydian-error text-sm mt-1">{errors.confirmPassword}</p>
-                    }
-                  </div>
-                </div>
-
-                {/* Optional Fields */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-medium text-lydian-text-muted dark:text-lydian-text-dim mb-2">
-                      Doğum Tarihi
-                    </label>
-                    <div className="relative">
-                      <Calendar className="absolute left-3 top-3 h-5 w-5 text-lydian-text-muted" />
-                      <input
-                        type="date"
-                        className="w-full pl-10 pr-4 py-3 border border-lydian-border-medium dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-lydian-border-focus focus:border-lydian-border dark:bg-gray-700 dark:text-lydian-text-inverse"
-                        value={formData.birthDate}
-                        onChange={(e) => setFormData({ ...formData, birthDate: e.target.value })} />
-
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-medium text-lydian-text-muted dark:text-lydian-text-dim mb-2">
-                      Cinsiyet
-                    </label>
-                    <select
-                      className="w-full px-4 py-3 border border-lydian-border-medium dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-lydian-border-focus focus:border-lydian-border dark:bg-gray-700 dark:text-lydian-text-inverse"
-                      value={formData.gender}
-                      onChange={(e) => setFormData({ ...formData, gender: e.target.value })}>
-
-                      <option value="">Seçiniz</option>
-                      <option value="male">Erkek</option>
-                      <option value="female">Kadın</option>
-                      <option value="other">Diğer</option>
-                    </select>
-                  </div>
-                </div>
-
-                {/* Checkboxes */}
-                <div className="space-y-3">
-                  <div className="flex items-start">
-                    <input
-                      id="terms"
-                      name="terms"
-                      type="checkbox"
-                      required
-                      checked={formData.terms}
-                      onChange={(e) => setFormData({ ...formData, terms: e.target.checked })}
-                      className="h-4 w-4 text-lydian-primary focus:ring-lydian-border-focus border-lydian-border-medium rounded mt-1" />
-
-                    <label htmlFor="terms" className="ml-3 text-sm text-lydian-text-muted dark:text-lydian-text-dim">
-                      <Link href="/terms" className="text-lydian-primary hover:text-lydian-primary">
-                        Kullanım Şartları
-                      </Link>
-                      {' '}ve{' '}
-                      <Link href="/privacy" className="text-lydian-primary hover:text-lydian-primary">
-                        Gizlilik Politikası
-                      </Link>
-                      &apos;nı okudum ve kabul ediyorum *
-                    </label>
-                  </div>
-                  {errors.terms &&
-                  <p className="text-lydian-error text-sm">{errors.terms}</p>
-                  }
-
-                  <div className="flex items-start">
-                    <input
-                      id="newsletter"
-                      name="newsletter"
-                      type="checkbox"
-                      checked={formData.newsletter}
-                      onChange={(e) => setFormData({ ...formData, newsletter: e.target.checked })}
-                      className="h-4 w-4 text-lydian-primary focus:ring-lydian-border-focus border-lydian-border-medium rounded mt-1" />
-
-                    <label htmlFor="newsletter" className="ml-3 text-sm text-lydian-text-muted dark:text-lydian-text-dim">
-                      Özel kampanya ve fırsatlardan haberdar olmak istiyorum
-                    </label>
-                  </div>
-                </div>
-
-                <button
-                  type="submit"
-                  className="w-full bg-gradient-to-r from-[#667EEA] via-[#764BA2] to-[#667EEA] text-lydian-text-inverse py-3 rounded-lg hover:from-lydian-primary-dark hover:to-purple-700 transition-all font-semibold transform hover:scale-105 active:scale-95">
-
-                  Hesap Oluştur
-                </button>
-              </form>
-
-              <div className="mt-6 text-center">
-                <p className="text-lydian-text-dim dark:text-lydian-text-muted">
-                  Zaten hesabınız var mı?{' '}
-                  <button
-                    onClick={() => window.history.back()}
-                    className="text-lydian-primary hover:text-lydian-primary font-semibold">
-
-                    Giriş yapın
-                  </button>
-                </p>
-              </div>
-            </div>
-
-            {/* Benefits Section */}
-            <div className="space-y-8">
-              <div className="bg-gradient-to-br from-lydian-primary via-lydian-secondary to-pink-600 rounded-2xl p-8 text-lydian-text-inverse">
-                <div className="text-center mb-6">
-                  <Shield className="h-16 w-16 mx-auto mb-4 opacity-90" />
-                  <h2 className="text-3xl font-bold mb-2">Üye Avantajları</h2>
-                  <p className="text-blue-100">
-                    LyDian Travel üyeliğiyle özel ayrıcalıklardan yararlanın
-                  </p>
-                </div>
-
-                <div className="space-y-4">
-                  {benefits.map((benefit, index) =>
-                  <div key={index} className="flex items-center space-x-3">
-                      <div className="bg-lydian-glass-dark-heavy rounded-full p-1">
-                        <Check className="h-4 w-4" />
+                        <FuturisticInput
+                          type="text"
+                          label="Soyad"
+                          value={formData.lastName}
+                          onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
+                          icon={<User className="w-5 h-5" />}
+                          error={errors.lastName}
+                          required
+                          glowColor="#667EEA"
+                        />
                       </div>
-                      <span className="text-blue-100">{benefit}</span>
+
+                      {/* Email */}
+                      <FuturisticInput
+                        type="email"
+                        label="E-posta"
+                        value={formData.email}
+                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                        icon={<Mail className="w-5 h-5" />}
+                        error={errors.email}
+                        required
+                        glowColor="#667EEA"
+                      />
+
+                      {/* Phone */}
+                      <FuturisticInput
+                        type="tel"
+                        label="Telefon"
+                        placeholder="+90 5XX XXX XX XX"
+                        value={formData.phone}
+                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                        icon={<Phone className="w-5 h-5" />}
+                        error={errors.phone}
+                        required
+                        glowColor="#667EEA"
+                      />
+
+                      {/* Password Fields */}
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div className="relative">
+                          <FuturisticInput
+                            type={showPassword ? 'text' : 'password'}
+                            label="Şifre"
+                            value={formData.password}
+                            onChange={(e) => setFormData({ ...formData, password: e.target.value })}
+                            icon={<Lock className="w-5 h-5" />}
+                            error={errors.password}
+                            required
+                            glowColor="#667EEA"
+                          />
+                          <button
+                            type="button"
+                            onClick={() => setShowPassword(!showPassword)}
+                            className="absolute right-3 top-10 text-white/60 hover:text-white transition-colors"
+                          >
+                            {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
+                          </button>
+                        </div>
+
+                        <div className="relative">
+                          <FuturisticInput
+                            type={showConfirmPassword ? 'text' : 'password'}
+                            label="Şifre Tekrar"
+                            value={formData.confirmPassword}
+                            onChange={(e) => setFormData({ ...formData, confirmPassword: e.target.value })}
+                            icon={<Lock className="w-5 h-5" />}
+                            error={errors.confirmPassword}
+                            required
+                            glowColor="#667EEA"
+                          />
+                          <button
+                            type="button"
+                            onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                            className="absolute right-3 top-10 text-white/60 hover:text-white transition-colors"
+                          >
+                            {showConfirmPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
+                          </button>
+                        </div>
+                      </div>
+
+                      {/* Optional Fields */}
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <FuturisticInput
+                          type="date"
+                          label="Doğum Tarihi"
+                          value={formData.birthDate}
+                          onChange={(e) => setFormData({ ...formData, birthDate: e.target.value })}
+                          icon={<Calendar className="w-5 h-5" />}
+                          glowColor="#667EEA"
+                        />
+
+                        <div className="w-full">
+                          <label className="block text-sm font-semibold text-white/70 mb-2 px-4">Cinsiyet</label>
+                          <select
+                            className="w-full px-4 py-3 bg-white/10 backdrop-blur-xl border-2 border-white/30 rounded-2xl text-white outline-none transition-all duration-300 focus:border-[#667EEA] focus:ring-4 focus:ring-[#667EEA]/20"
+                            value={formData.gender}
+                            onChange={(e) => setFormData({ ...formData, gender: e.target.value })}
+                          >
+                            <option value="" className="bg-gray-900">Seçiniz</option>
+                            <option value="male" className="bg-gray-900">Erkek</option>
+                            <option value="female" className="bg-gray-900">Kadın</option>
+                            <option value="other" className="bg-gray-900">Diğer</option>
+                          </select>
+                        </div>
+                      </div>
+
+                      {/* Checkboxes */}
+                      <div className="space-y-3">
+                        <div className="flex items-start">
+                          <input
+                            id="terms"
+                            name="terms"
+                            type="checkbox"
+                            checked={formData.terms}
+                            onChange={(e) => setFormData({ ...formData, terms: e.target.checked })}
+                            className="mt-1 rounded border-white/30 bg-white/10 text-[#667EEA] focus:ring-[#667EEA] focus:ring-offset-0"
+                          />
+                          <label htmlFor="terms" className="ml-3 text-sm text-white/70">
+                            <Link href="/terms" className="text-transparent bg-clip-text bg-gradient-to-r from-[#00BAFF] to-[#667EEA] hover:from-[#667EEA] hover:to-[#764BA2]">
+                              Kullanım Şartları
+                            </Link>
+                            {' '}ve{' '}
+                            <Link href="/privacy" className="text-transparent bg-clip-text bg-gradient-to-r from-[#00BAFF] to-[#667EEA] hover:from-[#667EEA] hover:to-[#764BA2]">
+                              Gizlilik Politikası
+                            </Link>
+                            'nı okudum ve kabul ediyorum *
+                          </label>
+                        </div>
+                        {errors.terms && (
+                          <p className="text-red-400 text-sm ml-7">{errors.terms}</p>
+                        )}
+
+                        <div className="flex items-start">
+                          <input
+                            id="newsletter"
+                            name="newsletter"
+                            type="checkbox"
+                            checked={formData.newsletter}
+                            onChange={(e) => setFormData({ ...formData, newsletter: e.target.checked })}
+                            className="mt-1 rounded border-white/30 bg-white/10 text-[#667EEA] focus:ring-[#667EEA] focus:ring-offset-0"
+                          />
+                          <label htmlFor="newsletter" className="ml-3 text-sm text-white/70">
+                            Özel kampanya ve fırsatlardan haberdar olmak istiyorum
+                          </label>
+                        </div>
+                      </div>
+
+                      <FuturisticButton
+                        type="submit"
+                        variant="ai"
+                        fullWidth
+                        icon={<ArrowRight className="w-5 h-5" />}
+                        iconPosition="right"
+                      >
+                        Hesap Oluştur
+                      </FuturisticButton>
+                    </form>
+
+                    <div className="mt-6 text-center">
+                      <p className="text-white/70">
+                        Zaten hesabınız var mı?{' '}
+                        <Link
+                          href="/login"
+                          className="font-semibold text-transparent bg-clip-text bg-gradient-to-r from-[#00BAFF] to-[#667EEA] hover:from-[#667EEA] hover:to-[#764BA2] transition-all"
+                        >
+                          Giriş yapın
+                        </Link>
+                      </p>
                     </div>
-                  )}
-                </div>
+                  </motion.div>
+                </FuturisticCard>
               </div>
 
-              <div className="bg-lydian-bg-hover dark:bg-gray-800 rounded-2xl shadow-lg p-8">
-                <h3 className="text-2xl font-bold text-lydian-text-inverse dark:text-lydian-text-inverse mb-4">
-                  🔒 Güvenliğiniz Önceliğimiz
-                </h3>
-                <p className="text-lydian-text-dim dark:text-lydian-text-muted mb-4">
-                  Kişisel bilgileriniz SSL şifreleme ile korunur ve blockchain teknolojisi 
-                  ile güvence altına alınır. KVKK uyumlu veri politikamız gereği 
-                  verileriniz asla üçüncü taraflarla paylaşılmaz.
-                </p>
-                <div className="flex items-center space-x-4 text-sm text-lydian-text-muted dark:text-lydian-text-muted">
-                  <span>✓ SSL Şifreleme</span>
-                  <span>✓ KVKK Uyumlu</span>
-                  <span>✓ Blockchain Güvenlik</span>
-                </div>
+              {/* Benefits Section */}
+              <div className="lg:col-span-1 space-y-6">
+                {/* Benefits Card */}
+                <FuturisticCard
+                  title=""
+                  price=""
+                  categoryColor="#10B981"
+                >
+                  <div className="p-6 text-center">
+                    <h3 className="text-xl font-bold text-white mb-4">Üye Avantajları</h3>
+                    <div className="space-y-3 text-left">
+                      {[
+                        'Özel indirimlerden yararlanın',
+                        'Puan kazanın ve hediye çekleri kazanın',
+                        'Kişiselleştirilmiş seyahat önerileri alın',
+                        'Erken erişim fırsatlarından faydalanın',
+                        'VIP müşteri hizmetleri desteği',
+                        'Ücretsiz iptal ve değişiklik hakları'
+                      ].map((benefit, index) => (
+                        <motion.div
+                          key={index}
+                          initial={{ opacity: 0, x: -20 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ delay: 0.1 * index }}
+                          className="flex items-center space-x-3"
+                        >
+                          <div className="w-6 h-6 rounded-full bg-green-500/20 flex items-center justify-center flex-shrink-0">
+                            <svg className="w-4 h-4 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                              <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                            </svg>
+                          </div>
+                          <span className="text-sm text-white/80">{benefit}</span>
+                        </motion.div>
+                      ))}
+                    </div>
+                  </div>
+                </FuturisticCard>
+
+                {/* Security Card */}
+                <FuturisticCard
+                  title=""
+                  price=""
+                  categoryColor="#667EEA"
+                >
+                  <div className="p-6">
+                    <h3 className="text-lg font-bold text-white mb-2">Güvenliğiniz Önceliğimiz</h3>
+                    <p className="text-sm text-white/70 mb-4">
+                      Kişisel bilgileriniz SSL şifreleme ile korunur ve blockchain teknolojisi
+                      ile güvence altına alınır. KVKK uyumlu veri politikamız gereği
+                      verileriniz asla üçüncü taraflarla paylaşılmaz.
+                    </p>
+                    <div className="flex flex-wrap gap-2 text-xs text-white/60">
+                      <span className="bg-white/10 px-2 py-1 rounded-lg">SSL Şifreleme</span>
+                      <span className="bg-white/10 px-2 py-1 rounded-lg">KVKK Uyumlu</span>
+                      <span className="bg-white/10 px-2 py-1 rounded-lg">Blockchain Güvenlik</span>
+                    </div>
+                  </div>
+                </FuturisticCard>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </>);
-
+      </NeoHero>
+    </>
+  );
 }
