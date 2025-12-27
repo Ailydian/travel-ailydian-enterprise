@@ -6,6 +6,7 @@
  */
 
 import { prisma } from '@/lib/prisma';
+import logger from '@/lib/logger';
 
 export interface PriceDataSource {
   entityType: 'HOTEL' | 'FLIGHT' | 'TOUR';
@@ -38,9 +39,9 @@ export async function savePriceData(data: PriceDataSource): Promise<void> {
       },
     });
 
-    console.log(`Price data saved: ${data.entityType} ${data.entityId} - ${data.price}`);
+    logger.debug(`Price data saved: ${data.entityType} ${data.entityId} - ${data.price}`);
   } catch (error) {
-    console.error('Error saving price data:', error);
+    logger.error('Error saving price data:', error);
   }
 }
 
@@ -64,9 +65,9 @@ export async function batchSavePriceData(dataArray: PriceDataSource[]): Promise<
       skipDuplicates: true,
     });
 
-    console.log(`Batch saved ${dataArray.length} price records`);
+    logger.debug(`Batch saved ${dataArray.length} price records`);
   } catch (error) {
-    console.error('Error batch saving price data:', error);
+    logger.error('Error batch saving price data:', error);
   }
 }
 
@@ -152,9 +153,9 @@ export async function cleanOldPriceHistory(): Promise<void> {
       },
     });
 
-    console.log(`Cleaned ${result.count} old price records`);
+    logger.debug(`Cleaned ${result.count} old price records`);
   } catch (error) {
-    console.error('Error cleaning old price history:', error);
+    logger.error('Error cleaning old price history:', error);
   }
 }
 

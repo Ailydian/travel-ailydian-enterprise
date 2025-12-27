@@ -161,7 +161,7 @@ class GooglePlacesService {
     const cacheKey = `${endpoint}_${JSON.stringify(params)}`;
     const cachedData = this.cache.get(cacheKey);
     if (cachedData && (Date.now() - cachedData.timestamp < this.cacheExpiryMs)) {
-      console.log('Returning cached Google Places data for:', endpoint);
+      logger.debug('Returning cached Google Places data for:', { component: 'google-places-service', metadata: { data: endpoint } });
       return cachedData.data;
     }
 
@@ -192,7 +192,7 @@ class GooglePlacesService {
       
       return data;
     } catch (error) {
-      console.error('Google Places API request failed:', error);
+      logger.error('Google Places API request failed:', error as Error, { component: 'google-places-service' });
       throw error;
     }
   }
@@ -229,7 +229,7 @@ class GooglePlacesService {
       const response = await this.makeRequest('/textsearch/json', params);
       return response.results || [];
     } catch (error) {
-      console.error('Places search failed:', error);
+      logger.error('Places search failed:', error as Error, { component: 'google-places-service' });
       return [];
     }
   }
@@ -256,7 +256,7 @@ class GooglePlacesService {
       const response = await this.makeRequest('/nearbysearch/json', params);
       return response.results || [];
     } catch (error) {
-      console.error('Nearby search failed:', error);
+      logger.error('Nearby search failed:', error as Error, { component: 'google-places-service' });
       return [];
     }
   }
@@ -273,7 +273,7 @@ class GooglePlacesService {
       const response = await this.makeRequest('/details/json', params);
       return response.result || null;
     } catch (error) {
-      console.error('Place details fetch failed:', error);
+      logger.error('Place details fetch failed:', error as Error, { component: 'google-places-service' });
       return null;
     }
   }
@@ -350,14 +350,14 @@ class GooglePlacesService {
 
           restaurants.push(restaurant);
         } catch (error) {
-          console.error(`Failed to process restaurant ${place.name}:`, error);
+          logger.error(`Failed to process restaurant ${place.name}:`, error as Error, { component: 'google-places-service' });
           continue;
         }
       }
 
       return restaurants.sort((a, b) => b.rating - a.rating);
     } catch (error) {
-      console.error('Restaurant search failed:', error);
+      logger.error('Restaurant search failed:', error as Error, { component: 'google-places-service' });
       return [];
     }
   }
@@ -418,14 +418,14 @@ class GooglePlacesService {
 
           attractions.push(attraction);
         } catch (error) {
-          console.error(`Failed to process attraction ${place.name}:`, error);
+          logger.error(`Failed to process attraction ${place.name}:`, error as Error, { component: 'google-places-service' });
           continue;
         }
       }
 
       return attractions.sort((a, b) => b.rating - a.rating);
     } catch (error) {
-      console.error('Attraction search failed:', error);
+      logger.error('Attraction search failed:', error as Error, { component: 'google-places-service' });
       return [];
     }
   }
@@ -444,7 +444,7 @@ class GooglePlacesService {
 
       return null;
     } catch (error) {
-      console.error('Geocoding failed:', error);
+      logger.error('Geocoding failed:', error as Error, { component: 'google-places-service' });
       return null;
     }
   }

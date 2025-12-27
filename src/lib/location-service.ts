@@ -47,7 +47,7 @@ export async function getUserLocation(): Promise<LocationData | null> {
 
   return new Promise((resolve) => {
     const timeoutId = setTimeout(() => {
-      console.warn('⏱️ Geolocation timeout');
+      logger.warn('⏱️ Geolocation timeout');
       resolve(null);
     }, 5000);
 
@@ -70,13 +70,13 @@ export async function getUserLocation(): Promise<LocationData | null> {
             source: 'geolocation'
           });
         } catch (error) {
-          console.error('Reverse geocoding error:', error);
+          logger.error('Reverse geocoding error:', error);
           resolve(null);
         }
       },
       (error) => {
         clearTimeout(timeoutId);
-        console.warn('Geolocation error:', error.message);
+        logger.warn('Geolocation error:', error.message);
         resolve(null);
       },
       {
@@ -126,7 +126,7 @@ async function reverseGeocode(lat: number, lng: number): Promise<{
       countryCode: data.address?.country_code?.toUpperCase() || 'XX'
     };
   } catch (error) {
-    console.error('Nominatim geocoding error:', error);
+    logger.error('Nominatim geocoding error:', error);
     return {
       city: 'İstanbul',
       country: 'Türkiye',
@@ -153,7 +153,7 @@ export async function getLocationFromIP(): Promise<LocationData | null> {
       source: 'ip'
     };
   } catch (error) {
-    console.error('IP geolocation error:', error);
+    logger.error('IP geolocation error:', error);
     return null;
   }
 }
@@ -239,19 +239,19 @@ export async function detectUserLocation(): Promise<LocationData> {
   // Try Geolocation API first
   const geoLocation = await getUserLocation();
   if (geoLocation) {
-    console.log('📍 Location detected via Geolocation:', geoLocation.city);
+    logger.debug('📍 Location detected via Geolocation:', geoLocation.city);
     return geoLocation;
   }
 
   // Fallback to IP-based location
   const ipLocation = await getLocationFromIP();
   if (ipLocation) {
-    console.log('📍 Location detected via IP:', ipLocation.city);
+    logger.debug('📍 Location detected via IP:', ipLocation.city);
     return ipLocation;
   }
 
   // Ultimate fallback: Istanbul
-  console.log('📍 Using default location: Istanbul');
+  logger.debug('📍 Using default location: Istanbul');
   return {
     city: 'İstanbul',
     country: 'Türkiye',

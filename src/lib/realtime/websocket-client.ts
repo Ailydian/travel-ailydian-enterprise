@@ -3,6 +3,7 @@
  */
 
 import { io, Socket } from 'socket.io-client';
+import logger from '@/lib/logger';
 
 interface WebSocketMessage {
   type: 'join' | 'leave' | 'update' | 'comment' | 'vote' | 'chat' | 'presence';
@@ -53,7 +54,7 @@ export class TripCollaborationClient {
         });
 
         this.socket.on('connect', () => {
-          console.log('WebSocket connected');
+          logger.debug('WebSocket connected');
           this.reconnectAttempts = 0;
           this.startPresenceHeartbeat();
           this.joinTrip();
@@ -61,22 +62,22 @@ export class TripCollaborationClient {
         });
 
         this.socket.on('disconnect', (reason) => {
-          console.log('WebSocket disconnected:', reason);
+          logger.debug('WebSocket disconnected:', reason);
           this.stopPresenceHeartbeat();
         });
 
         this.socket.on('error', (error) => {
-          console.error('WebSocket error:', error);
+          logger.error('WebSocket error:', error);
           reject(error);
         });
 
         this.socket.on('reconnect', (attemptNumber) => {
-          console.log('Reconnected after', attemptNumber, 'attempts');
+          logger.debug('Reconnected after', attemptNumber, 'attempts');
           this.joinTrip();
         });
 
         this.socket.on('reconnect_failed', () => {
-          console.error('Failed to reconnect after maximum attempts');
+          logger.error('Failed to reconnect after maximum attempts');
         });
 
       } catch (error) {
@@ -252,7 +253,7 @@ export class TripCollaborationClient {
    */
   private emit(event: string, data: any): void {
     if (!this.socket) {
-      console.warn('WebSocket not connected, cannot emit:', event);
+      logger.warn('WebSocket not connected, cannot emit:', event);
       return;
     }
 
@@ -319,7 +320,7 @@ export function useTripCollaboration(
         });
       })
       .catch((error) => {
-        console.error('Failed to connect to collaboration server:', error);
+        logger.error('Failed to connect to collaboration server:', error);
       });
 
     return () => {

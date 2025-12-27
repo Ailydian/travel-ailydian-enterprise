@@ -57,6 +57,7 @@ interface TourData {
 
 // İmport the complete database from the dedicated file
 import { COMPLETE_TURKEY_TOURISM_DATABASE } from '../data/turkey-tourism-database';
+import logger from '@/lib/logger';
 
 // Türkiye'nin turizm bölgeleri ve şehirleri (legacy support)
 export const TURKEY_TOURISM_REGIONS = {
@@ -138,10 +139,10 @@ class TourismAPIService {
       try {
         return await apiCall();
       } catch (error) {
-        console.warn(`${operation} attempt ${attempt} failed:`, error);
+        logger.warn(`${operation} attempt ${attempt} failed:`, error);
         
         if (attempt === this.retryCount) {
-          console.error(`${operation} failed after ${this.retryCount} attempts, using fallback`);
+          logger.error(`${operation} failed after ${this.retryCount} attempts, using fallback`);
           this.isOfflineMode = true;
           return fallback();
         }
@@ -164,7 +165,7 @@ class TourismAPIService {
       },
       () => {
         // Fallback: Enhanced mock data
-        console.log('Using fallback hotel data for:', location);
+        logger.debug('Using fallback hotel data for:', location);
         return this.getFallbackHotelData(location);
       },
       'Hotel Search'
@@ -178,7 +179,7 @@ class TourismAPIService {
         return await this.getRealFlightData(from, to, departureDate);
       },
       () => {
-        console.log('Using fallback flight data for:', from, 'to', to);
+        logger.debug('Using fallback flight data for:', from, 'to', to);
         return this.getFallbackFlightData(from, to, departureDate);
       },
       'Flight Search'
@@ -192,7 +193,7 @@ class TourismAPIService {
         return await this.getRealRestaurantData(location, cuisine);
       },
       () => {
-        console.log('Using fallback restaurant data for:', location);
+        logger.debug('Using fallback restaurant data for:', location);
         return this.getFallbackRestaurantData(location, cuisine);
       },
       'Restaurant Search'
@@ -206,7 +207,7 @@ class TourismAPIService {
         return await this.getRealTourData(location, category);
       },
       () => {
-        console.log('Using fallback tour data for:', location);
+        logger.debug('Using fallback tour data for:', location);
         return this.getFallbackTourData(location, category);
       },
       'Tour Search'

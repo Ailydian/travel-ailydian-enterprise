@@ -1,4 +1,5 @@
 import axios from 'axios';
+import logger from '@/lib/logger';
 import puppeteer, { Browser, Page } from 'puppeteer';
 
 export interface TestResult {
@@ -49,7 +50,7 @@ export class SmokeTestRunner {
   private async startTest(name: string, category: TestResult['category']): Promise<{ startTime: number; testId: string }> {
     const testId = this.generateTestId();
     const startTime = Date.now();
-    console.log(`🧪 Starting ${category} test: ${name}`);
+    logger.debug(`🧪 Starting ${category} test: ${name}`, { component: 'smoke-test' });
     return { startTime, testId };
   }
 
@@ -85,7 +86,7 @@ export class SmokeTestRunner {
       'skip': '⏭️'
     }[status];
 
-    console.log(`${statusIcon} ${name}: ${message} (${duration}ms)`);
+    logger.debug(`${statusIcon} ${name}: ${message} (${duration}ms)`, { component: 'smoke-test' });
   }
 
   async initializeBrowser(): Promise<void> {
@@ -107,9 +108,9 @@ export class SmokeTestRunner {
       await this.page.setViewport({ width: 1920, height: 1080 });
       await this.page.setUserAgent('Mozilla/5.0 (compatible; Travel-LyDian-SmokeTest/1.0)');
       
-      console.log('🚀 Browser initialized for testing');
+      logger.debug('Log', { component: 'smoke-test', metadata: { data: '🚀 Browser initialized for testing' } });
     } catch (error) {
-      console.error('Failed to initialize browser:', error);
+      logger.error('Failed to initialize browser:', error as Error, { component: 'smoke-test' });
       throw error;
     }
   }
@@ -117,7 +118,7 @@ export class SmokeTestRunner {
   async closeBrowser(): Promise<void> {
     if (this.browser) {
       await this.browser.close();
-      console.log('🔒 Browser closed');
+      logger.debug('Log', { component: 'smoke-test', metadata: { data: '🔒 Browser closed' } });
     }
   }
 
@@ -595,7 +596,7 @@ export class SmokeTestRunner {
     this.testStartTime = Date.now();
     this.results = [];
 
-    console.log('🚀 Starting comprehensive smoke tests...');
+    logger.debug('Log', { component: 'smoke-test', metadata: { data: '🚀 Starting comprehensive smoke tests...' } });
     
     try {
       await this.initializeBrowser();
@@ -607,7 +608,7 @@ export class SmokeTestRunner {
       await this.runAccessibilityTests();
       
     } catch (error) {
-      console.error('Error during tests:', error);
+      logger.error('Error during tests:', error as Error, { component: 'smoke-test' });
     } finally {
       await this.closeBrowser();
     }
@@ -638,13 +639,13 @@ export class SmokeTestRunner {
       }
     };
 
-    console.log(`\n📊 Smoke Test Results:`);
-    console.log(`✅ Passed: ${passed}`);
-    console.log(`❌ Failed: ${failed}`);
-    console.log(`⚠️  Warnings: ${warnings}`);
-    console.log(`⏭️  Skipped: ${skipped}`);
-    console.log(`📈 Overall Score: ${score}%`);
-    console.log(`⏱️  Total Duration: ${duration}ms`);
+    logger.debug(`\n📊 Smoke Test Results:`, { component: 'smoke-test' });
+    logger.debug(`✅ Passed: ${passed}`, { component: 'smoke-test' });
+    logger.debug(`❌ Failed: ${failed}`, { component: 'smoke-test' });
+    logger.debug(`⚠️  Warnings: ${warnings}`, { component: 'smoke-test' });
+    logger.debug(`⏭️  Skipped: ${skipped}`, { component: 'smoke-test' });
+    logger.debug(`📈 Overall Score: ${score}%`, { component: 'smoke-test' });
+    logger.debug(`⏱️  Total Duration: ${duration}ms`, { component: 'smoke-test' });
 
     return report;
   }

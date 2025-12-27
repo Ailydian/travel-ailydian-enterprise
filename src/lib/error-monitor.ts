@@ -1,4 +1,5 @@
 import fs from 'fs';
+import logger from '@/lib/logger';
 import path from 'path';
 
 export interface ErrorLog {
@@ -101,7 +102,7 @@ export class ErrorMonitor {
 
       fs.writeFileSync(this.errorLogFile, JSON.stringify(existingErrors, null, 2));
     } catch (error) {
-      console.error('Error saving error log:', error);
+      logger.error('Error saving error log:', error);
     }
   }
 
@@ -129,7 +130,7 @@ export class ErrorMonitor {
 
       return true;
     } catch (error) {
-      console.error('Error marking error as fixed:', error);
+      logger.error('Error marking error as fixed:', error);
       return false;
     }
   }
@@ -147,7 +148,7 @@ export class ErrorMonitor {
       redirects[from] = to;
       fs.writeFileSync(this.redirectsFile, JSON.stringify(redirects, null, 2));
     } catch (error) {
-      console.error('Error saving redirect:', error);
+      logger.error('Error saving redirect:', error);
     }
   }
 
@@ -159,7 +160,7 @@ export class ErrorMonitor {
         return JSON.parse(data);
       }
     } catch (error) {
-      console.error('Error reading error logs:', error);
+      logger.error('Error reading error logs:', error);
     }
     return [];
   }
@@ -172,7 +173,7 @@ export class ErrorMonitor {
         return JSON.parse(data);
       }
     } catch (error) {
-      console.error('Error reading redirects:', error);
+      logger.error('Error reading redirects:', error);
     }
     return {};
   }
@@ -235,7 +236,7 @@ export class ErrorMonitor {
       fs.writeFileSync(this.reportFile, report);
       return this.reportFile;
     } catch (error) {
-      console.error('Error generating error report:', error);
+      logger.error('Error generating error report:', error);
       return '';
     }
   }
@@ -420,7 +421,7 @@ export class ErrorMonitor {
     // 3. Test each link
     // 4. Report broken ones
     
-    console.log(`Scanning ${baseUrl} for broken links...`);
+    logger.debug(`Scanning ${baseUrl} for broken links...`);
     
     // For now, return some example broken links
     const commonBrokenPaths = [
@@ -444,9 +445,9 @@ export class ErrorMonitor {
       const errors = this.getErrors().filter(e => e.timestamp > cutoffTime);
       fs.writeFileSync(this.errorLogFile, JSON.stringify(errors, null, 2));
 
-      console.log(`Cleaned error logs older than ${daysToKeep} days`);
+      logger.debug(`Cleaned error logs older than ${daysToKeep} days`);
     } catch (error) {
-      console.error('Error cleaning old error logs:', error);
+      logger.error('Error cleaning old error logs:', error);
     }
   }
 

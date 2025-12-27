@@ -1,4 +1,5 @@
 import fs from 'fs';
+import logger from '@/lib/logger';
 import path from 'path';
 
 export interface SEOMetrics {
@@ -199,7 +200,7 @@ export class SEOMonitor {
 
       fs.writeFileSync(this.metricsFile, JSON.stringify(existingMetrics, null, 2));
     } catch (error) {
-      console.error('Error saving SEO metrics:', error);
+      logger.error('Error saving SEO metrics:', error);
     }
   }
 
@@ -247,7 +248,7 @@ export class SEOMonitor {
         fs.writeFileSync(this.errorsFile, JSON.stringify(existingErrors, null, 2));
       }
     } catch (error) {
-      console.error('Error logging SEO errors:', error);
+      logger.error('Error logging SEO errors:', error);
     }
   }
 
@@ -272,7 +273,7 @@ export class SEOMonitor {
       
       return this.reportFile;
     } catch (error) {
-      console.error('Error generating SEO report:', error);
+      logger.error('Error generating SEO report:', error);
       return '';
     }
   }
@@ -429,7 +430,7 @@ export class SEOMonitor {
         return JSON.parse(data);
       }
     } catch (error) {
-      console.error('Error reading metrics:', error);
+      logger.error('Error reading metrics:', error);
     }
     return [];
   }
@@ -442,7 +443,7 @@ export class SEOMonitor {
         return JSON.parse(data);
       }
     } catch (error) {
-      console.error('Error reading errors:', error);
+      logger.error('Error reading errors:', error);
     }
     return [];
   }
@@ -462,9 +463,9 @@ export class SEOMonitor {
       const errors = this.getErrors().filter(e => e.timestamp > cutoffTime);
       fs.writeFileSync(this.errorsFile, JSON.stringify(errors, null, 2));
 
-      console.log(`Cleaned SEO data older than ${daysToKeep} days`);
+      logger.debug(`Cleaned SEO data older than ${daysToKeep} days`);
     } catch (error) {
-      console.error('Error cleaning old SEO data:', error);
+      logger.error('Error cleaning old SEO data:', error);
     }
   }
 }

@@ -92,7 +92,7 @@ class BookingComService {
     const cacheKey = `${endpoint}_${JSON.stringify(params)}`;
     const cachedData = this.cache.get(cacheKey);
     if (cachedData && (Date.now() - cachedData.timestamp < this.cacheExpiryMs)) {
-      console.log('Returning cached data for:', endpoint);
+      logger.debug('Returning cached data for:', endpoint);
       return cachedData.data;
     }
 
@@ -126,7 +126,7 @@ class BookingComService {
       
       return data;
     } catch (error) {
-      console.error('Booking.com API request failed:', error);
+      logger.error('Booking.com API request failed:', error);
       throw error;
     }
   }
@@ -141,7 +141,7 @@ class BookingComService {
 
       return response.result || [];
     } catch (error) {
-      console.error('Destination search failed:', error);
+      logger.error('Destination search failed:', error);
       return [];
     }
   }
@@ -228,7 +228,7 @@ class BookingComService {
         }
       };
     } catch (error) {
-      console.error('Hotel search failed:', error);
+      logger.error('Hotel search failed:', error);
       throw error;
     }
   }
@@ -278,7 +278,7 @@ class BookingComService {
         lastUpdated: new Date()
       };
     } catch (error) {
-      console.error('Hotel details fetch failed:', error);
+      logger.error('Hotel details fetch failed:', error);
       return null;
     }
   }
@@ -293,7 +293,7 @@ class BookingComService {
 
       return (response.result || []).slice(0, 10);
     } catch (error) {
-      console.error('Popular destinations fetch failed:', error);
+      logger.error('Popular destinations fetch failed:', error);
       return [];
     }
   }

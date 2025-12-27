@@ -1,4 +1,5 @@
 import nodemailer from 'nodemailer';
+import logger from '@/lib/logger';
 import { prisma } from '@/lib/prisma';
 
 interface PriceDropNotification {
@@ -51,7 +52,7 @@ export class PriceAlertNotificationService {
         },
       });
 
-      console.log(`Checking ${activeAlerts.length} active price alerts...`);
+      logger.debug(`Checking ${activeAlerts.length} active price alerts...`, { component: 'price-alert-notification' });
 
       for (const alert of activeAlerts) {
         // Fetch latest price from history
@@ -87,7 +88,7 @@ export class PriceAlertNotificationService {
             : 24;
 
           if (hoursSinceLastNotification < 6) {
-            console.log(`Skipping notification for alert ${alert.id} - too soon`);
+            logger.debug(`Skipping notification for alert ${alert.id} - too soon`, { component: 'price-alert-notification' });
             continue;
           }
 
@@ -133,7 +134,7 @@ export class PriceAlertNotificationService {
             },
           });
 
-          console.log(`Notification sent for alert ${alert.id}`);
+          logger.debug(`Notification sent for alert ${alert.id}`, { component: 'price-alert-notification' });
         }
       }
 
@@ -150,9 +151,9 @@ export class PriceAlertNotificationService {
         },
       });
 
-      console.log('Price alert check completed');
+      logger.debug('Log', { component: 'price-alert-notification', metadata: { data: 'Price alert check completed' } });
     } catch (error) {
-      console.error('Error checking price alerts:', error);
+      logger.error('Error checking price alerts:', error as Error, { component: 'price-alert-notification' });
       throw error;
     }
   }
@@ -167,22 +168,21 @@ export class PriceAlertNotificationService {
       });
 
       if (!user || !user.email) {
-        console.error(`User ${notification.userId} not found or has no email`);
+        logger.error(`User ${notification.userId} not found or has no email`);
         return;
       }
 
       const emailHtml = this.generatePriceDropEmailHtml(notification);
 
       await this.transporter.sendMail({
-        from: `"LyDian Travel" <${process.env.SMTP_FROM || 'noreply@lydian.com'}>`,
-        to: user.email,
+        from: `"LyDian Travel" <${process.env.SMTP_FROM || 'noreply@lydian.com'}>`, to: user.email,
         subject: `Price Drop Alert: ${notification.entityName}`,
         html: emailHtml,
-      });
+      } as Error, { component: 'price-alert-notification' });
 
-      console.log(`Email sent to ${user.email}`);
+      logger.debug(`Email sent to ${user.email}`, { component: 'price-alert-notification' });
     } catch (error) {
-      console.error('Error sending email:', error);
+      logger.error('Error sending email:', error as Error, { component: 'price-alert-notification' });
       throw error;
     }
   }
@@ -294,7 +294,7 @@ export class PriceAlertNotificationService {
       });
       return true;
     } catch (error) {
-      console.error('Error sending test email:', error);
+      logger.error('Error sending test email:', error as Error, { component: 'price-alert-notification' });
       return false;
     }
   }
@@ -308,7 +308,7 @@ export const priceAlertNotificationService = new PriceAlertNotificationService()
  * Run this every 6 hours or as needed
  */
 export async function checkPriceAlertsCron(): Promise<void> {
-  console.log('Starting price alert check cron job...');
+  logger.debug('Log', { component: 'price-alert-notification', metadata: { data: 'Starting price alert check cron job...' } });
   await priceAlertNotificationService.checkAndNotify();
-  console.log('Price alert check cron job completed');
+  logger.debug('Log', { component: 'price-alert-notification', metadata: { data: 'Price alert check cron job completed' } });
 }

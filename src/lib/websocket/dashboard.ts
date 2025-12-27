@@ -69,7 +69,7 @@ export class DashboardWebSocket {
         this.ws = new WebSocket(this.url);
 
         this.ws.onopen = () => {
-          console.log('✅ Dashboard WebSocket connected');
+          logger.debug('Log', { component: 'dashboard', metadata: { data: '✅ Dashboard WebSocket connected' } });
           this.isConnecting = false;
           this.reconnectAttempts = 0;
           this.emit('connected', { timestamp: new Date() });
@@ -81,18 +81,18 @@ export class DashboardWebSocket {
             const data = JSON.parse(event.data);
             this.handleMessage(data);
           } catch (error) {
-            console.error('Failed to parse WebSocket message:', error);
+            logger.error('Failed to parse WebSocket message:', error as Error, { component: 'dashboard' });
           }
         };
 
         this.ws.onerror = (error) => {
-          console.error('WebSocket error:', error);
+          logger.error('WebSocket error:', error as Error, { component: 'dashboard' });
           this.isConnecting = false;
           this.emit('error', error);
         };
 
         this.ws.onclose = () => {
-          console.log('WebSocket disconnected');
+          logger.debug('Log', { component: 'dashboard', metadata: { data: 'WebSocket disconnected' } });
           this.isConnecting = false;
           this.emit('disconnected', { timestamp: new Date() });
           this.handleReconnect();
@@ -138,7 +138,7 @@ export class DashboardWebSocket {
         this.emit('stats:update', payload as DashboardStats);
         break;
       default:
-        console.warn('Unknown message type:', type);
+        logger.warn('Unknown message type:', { component: 'dashboard', metadata: { data: type } });
     }
   }
 
@@ -179,19 +179,19 @@ export class DashboardWebSocket {
    */
   private handleReconnect(): void {
     if (this.reconnectAttempts >= this.maxReconnectAttempts) {
-      console.error('Max reconnection attempts reached');
-      this.emit('reconnect:failed', { attempts: this.reconnectAttempts });
+      logger.error('Max reconnection attempts reached');
+      this.emit('reconnect:failed', { attempts: this.reconnectAttempts } as Error, { component: 'dashboard' });
       return;
     }
 
     this.reconnectAttempts++;
     const delay = this.reconnectDelay * this.reconnectAttempts;
 
-    console.log(`Reconnecting in ${delay}ms... (attempt ${this.reconnectAttempts}/${this.maxReconnectAttempts})`);
+    logger.debug(`Reconnecting in ${delay}ms... (attempt ${this.reconnectAttempts}/${this.maxReconnectAttempts})`, { component: 'dashboard' });
 
     setTimeout(() => {
       this.connect().catch((error) => {
-        console.error('Reconnection failed:', error);
+        logger.error('Reconnection failed:', error as Error, { component: 'dashboard' });
       });
     }, delay);
   }
@@ -222,7 +222,7 @@ export class DashboardWebSocket {
         try {
           callback(data);
         } catch (error) {
-          console.error(`Error in ${event} listener:`, error);
+          logger.error(`Error in ${event} listener:`, error as Error, { component: 'dashboard' });
         }
       });
     }
@@ -235,7 +235,7 @@ export class DashboardWebSocket {
     if (this.ws?.readyState === WebSocket.OPEN) {
       this.ws.send(JSON.stringify({ type, payload }));
     } else {
-      console.warn('WebSocket not connected. Message not sent:', type);
+      logger.warn('WebSocket not connected. Message not sent:', { component: 'dashboard', metadata: { data: type } });
     }
   }
 

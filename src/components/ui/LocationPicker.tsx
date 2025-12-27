@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
+import logger from '@/lib/logger';
 import { motion } from 'framer-motion';
 import { MapPin, Search, X, CheckCircle, AlertCircle, Navigation, Loader2 } from 'lucide-react';
 
@@ -64,7 +65,7 @@ export const LocationPicker: React.FC<LocationPickerProps> = ({
         // Wait for map element to be ready
         const mapElement = document.getElementById('location-map');
         if (!mapElement) {
-          console.error('Map element not found');
+          logger.error('Map element not found');
           return;
         }
 
@@ -75,7 +76,7 @@ export const LocationPicker: React.FC<LocationPickerProps> = ({
           zoom: position ? 13 : 6,
           zoomControl: true,
           scrollWheelZoom: true,
-        });
+        } as Error, { component: 'LocationPicker' });
 
         // Add tile layer
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -95,7 +96,7 @@ export const LocationPicker: React.FC<LocationPickerProps> = ({
         // Handle map clicks
         map.on('click', async (e: any) => {
           const { lat, lng } = e.latlng;
-          console.log('Map clicked:', lat, lng);
+          logger.debug('Map clicked:', { component: 'LocationPicker', metadata: { data: lat, lng } });
 
           setPosition([lat, lng]);
 
@@ -118,14 +119,14 @@ export const LocationPicker: React.FC<LocationPickerProps> = ({
         mapInitialized.current = true;
         setIsMapReady(true);
 
-        console.log('Map initialized successfully');
+        logger.debug('Log', { component: 'LocationPicker', metadata: { data: 'Map initialized successfully' } });
 
         // Force map to refresh size
         setTimeout(() => {
           map.invalidateSize();
         }, 100);
       } catch (error) {
-        console.error('Error initializing map:', error);
+        logger.error('Error initializing map:', error as Error, { component: 'LocationPicker' });
         setLocationError('Harita yüklenirken hata oluştu');
       }
     };
@@ -147,7 +148,7 @@ export const LocationPicker: React.FC<LocationPickerProps> = ({
   // Reverse geocoding - get address from coordinates
   const getAddressFromCoords = async (lat: number, lng: number) => {
     try {
-      console.log('Fetching address for:', lat, lng);
+      logger.debug('Fetching address for:', { component: 'LocationPicker', metadata: { data: lat, lng } });
 
       const response = await fetch(
         `https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lng}&format=json&addressdetails=1`,
@@ -163,7 +164,7 @@ export const LocationPicker: React.FC<LocationPickerProps> = ({
       }
 
       const data = await response.json();
-      console.log('Address data:', data);
+      logger.debug('Address data:', { component: 'LocationPicker', metadata: { data: data } });
 
       const locationData: LocationData = {
         lat,
@@ -178,7 +179,7 @@ export const LocationPicker: React.FC<LocationPickerProps> = ({
       onLocationSelect(locationData);
       setLocationError('');
     } catch (error) {
-      console.error('Error getting address:', error);
+      logger.error('Error getting address:', error as Error, { component: 'LocationPicker' });
       setLocationError('Adres bilgisi alınamadı');
     }
   };
@@ -194,7 +195,7 @@ export const LocationPicker: React.FC<LocationPickerProps> = ({
     setLocationError('');
 
     try {
-      console.log('Searching for:', query);
+      logger.debug('Searching for:', { component: 'LocationPicker', metadata: { data: query } });
 
       const response = await fetch(
         `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(query)}&format=json&addressdetails=1&limit=10&countrycodes=tr`,
@@ -210,7 +211,7 @@ export const LocationPicker: React.FC<LocationPickerProps> = ({
       }
 
       const data = await response.json();
-      console.log('Search results:', data);
+      logger.debug('Search results:', { component: 'LocationPicker', metadata: { data: data } });
 
       setSearchResults(data);
 
@@ -218,7 +219,7 @@ export const LocationPicker: React.FC<LocationPickerProps> = ({
         setLocationError('Sonuç bulunamadı');
       }
     } catch (error) {
-      console.error('Error searching location:', error);
+      logger.error('Error searching location:', error as Error, { component: 'LocationPicker' });
       setLocationError('Arama sırasında hata oluştu');
       setSearchResults([]);
     } finally {
@@ -260,11 +261,11 @@ export const LocationPicker: React.FC<LocationPickerProps> = ({
       return;
     }
 
-    console.log('Requesting geolocation...');
+    logger.debug('Log', { component: 'LocationPicker', metadata: { data: 'Requesting geolocation...' } });
 
     navigator.geolocation.getCurrentPosition(
       async (position) => {
-        console.log('Geolocation success:', position);
+        logger.debug('Geolocation success:', { component: 'LocationPicker', metadata: { data: position } });
 
         const lat = position.coords.latitude;
         const lng = position.coords.longitude;
@@ -291,7 +292,7 @@ export const LocationPicker: React.FC<LocationPickerProps> = ({
         setIsGettingLocation(false);
       },
       (error) => {
-        console.error('Geolocation error:', error);
+        logger.error('Geolocation error:', error as Error, { component: 'LocationPicker' });
 
         let errorMessage = 'Konum alınamadı';
 
@@ -320,7 +321,7 @@ export const LocationPicker: React.FC<LocationPickerProps> = ({
 
   // Select search result
   const selectSearchResult = async (result: any) => {
-    console.log('Selected result:', result);
+    logger.debug('Selected result:', { component: 'LocationPicker', metadata: { data: result } });
 
     const lat = parseFloat(result.lat);
     const lng = parseFloat(result.lon);

@@ -178,12 +178,12 @@ export class PriceComparisonBot {
    */
   start(intervalHours: number = 6): void {
     if (this.isRunning) {
-      console.log('Price comparison bot is already running');
+      logger.debug('Price comparison bot is already running');
       return;
     }
 
     this.isRunning = true;
-    console.log(`🤖 Price Comparison Bot started - Checking every ${intervalHours} hours`);
+    logger.debug(`🤖 Price Comparison Bot started - Checking every ${intervalHours} hours`);
 
     // Run immediately on start
     this.runPriceCheck();
@@ -203,14 +203,14 @@ export class PriceComparisonBot {
       this.intervalId = null;
     }
     this.isRunning = false;
-    console.log('🛑 Price Comparison Bot stopped');
+    logger.debug('🛑 Price Comparison Bot stopped');
   }
 
   /**
    * Run a single price check cycle
    */
   private async runPriceCheck(): Promise<void> {
-    console.log('🔍 Running price comparison check...');
+    logger.debug('🔍 Running price comparison check...');
 
     const categories = ['economy', 'comfort', 'premium', 'luxury', 'suv'];
 
@@ -225,7 +225,7 @@ export class PriceComparisonBot {
           const avgCompetitorPrice = competitorPrices.reduce((sum, cp) => sum + cp.dailyPrice, 0) / competitorPrices.length;
           const savingsPercentage = ((avgCompetitorPrice - optimalPrice) / avgCompetitorPrice * 100).toFixed(1);
 
-          console.log(`✅ ${category.toUpperCase()}: Optimal price ${optimalPrice} TRY (${savingsPercentage}% cheaper than avg ${Math.round(avgCompetitorPrice)} TRY)`);
+          logger.debug(`✅ ${category.toUpperCase()}: Optimal price ${optimalPrice} TRY (${savingsPercentage}% cheaper than avg ${Math.round(avgCompetitorPrice)} TRY)`);
 
           // Store adjustment history
           this.adjustmentHistory.push({
@@ -243,7 +243,7 @@ export class PriceComparisonBot {
           }
         }
       } catch (error) {
-        console.error(`❌ Error checking prices for ${category}:`, error);
+        logger.error(`❌ Error checking prices for ${category}:`, error);
       }
     }
   }
@@ -297,7 +297,7 @@ export const priceBot = new PriceComparisonBot();
 if (typeof window === 'undefined' && process.env.NODE_ENV === 'production') {
   // Start checking prices every 6 hours in production
   priceBot.start(6);
-  console.log('🚀 Price Comparison Bot auto-started for production');
+  logger.debug('🚀 Price Comparison Bot auto-started for production');
 }
 
 export default priceBot;

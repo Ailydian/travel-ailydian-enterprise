@@ -5,6 +5,7 @@
  */
 
 import type { NextApiRequest, NextApiResponse } from 'next';
+import logger from '@/lib/logger';
 
 interface PingResult {
   google: boolean;
@@ -24,7 +25,7 @@ export default async function handler(
   }
 
   try {
-    console.log('🔔 Sitemap ping cron job başlatıldı...');
+    logger.debug('Log', { component: 'ping-search-engines', metadata: { data: '🔔 Sitemap ping cron job başlatıldı...' } });
 
     const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://travel.lydian.com';
     const sitemapUrl = `${baseUrl}/sitemap.xml`;
@@ -41,9 +42,9 @@ export default async function handler(
       const googlePingUrl = `https://www.google.com/ping?sitemap=${encodeURIComponent(sitemapUrl)}`;
       const googleResponse = await fetch(googlePingUrl);
       results.google = googleResponse.ok;
-      console.log(`✅ Google sitemap ping: ${results.google ? 'Başarılı' : 'Başarısız'}`);
+      logger.debug(`✅ Google sitemap ping: ${results.google ? 'Başarılı' : 'Başarısız'}`, { component: 'ping-search-engines' });
     } catch (error) {
-      console.error('❌ Google ping hatası:', error);
+      logger.error('❌ Google ping hatası:', error as Error, { component: 'ping-search-engines' });
     }
 
     // Bing'e sitemap ping
@@ -51,9 +52,9 @@ export default async function handler(
       const bingPingUrl = `https://www.bing.com/ping?sitemap=${encodeURIComponent(sitemapUrl)}`;
       const bingResponse = await fetch(bingPingUrl);
       results.bing = bingResponse.ok;
-      console.log(`✅ Bing sitemap ping: ${results.bing ? 'Başarılı' : 'Başarısız'}`);
+      logger.debug(`✅ Bing sitemap ping: ${results.bing ? 'Başarılı' : 'Başarısız'}`, { component: 'ping-search-engines' });
     } catch (error) {
-      console.error('❌ Bing ping hatası:', error);
+      logger.error('❌ Bing ping hatası:', error as Error, { component: 'ping-search-engines' });
     }
 
     // Yandex'e sitemap ping
@@ -61,9 +62,9 @@ export default async function handler(
       const yandexPingUrl = `https://webmaster.yandex.com/ping?sitemap=${encodeURIComponent(sitemapUrl)}`;
       const yandexResponse = await fetch(yandexPingUrl);
       results.yandex = yandexResponse.ok;
-      console.log(`✅ Yandex sitemap ping: ${results.yandex ? 'Başarılı' : 'Başarısız'}`);
+      logger.debug(`✅ Yandex sitemap ping: ${results.yandex ? 'Başarılı' : 'Başarısız'}`, { component: 'ping-search-engines' });
     } catch (error) {
-      console.error('❌ Yandex ping hatası:', error);
+      logger.error('❌ Yandex ping hatası:', error as Error, { component: 'ping-search-engines' });
     }
 
     // Advanced IndexNow ile tüm önemli sayfaları submit et
@@ -104,16 +105,16 @@ export default async function handler(
       const report = indexNow.generateReport(indexNowResults);
 
       results.indexnow = report.successfulSubmissions > 0;
-      console.log(`✅ IndexNow submission: ${results.indexnow ? 'Başarılı' : 'Başarısız'}`);
-      console.log(`📤 ${report.totalUrls} URLs submitted to ${Object.keys(report.engineResults).length} engines`);
-      console.log(`📊 Success rate: ${report.successRate.toFixed(1)}%`);
+      logger.debug(`✅ IndexNow submission: ${results.indexnow ? 'Başarılı' : 'Başarısız'}`, { component: 'ping-search-engines' });
+      logger.debug(`📤 ${report.totalUrls} URLs submitted to ${Object.keys(report.engineResults).length} engines`, { component: 'ping-search-engines' });
+      logger.debug(`📊 Success rate: ${report.successRate.toFixed(1)}%`, { component: 'ping-search-engines' });
 
     } catch (error) {
-      console.error('❌ IndexNow hatası:', error);
+      logger.error('❌ IndexNow hatası:', error as Error, { component: 'ping-search-engines' });
     }
 
     const successCount = Object.values(results).filter(Boolean).length;
-    console.log(`✅ Ping tamamlandı: ${successCount}/4 başarılı`);
+    logger.debug(`✅ Ping tamamlandı: ${successCount}/4 başarılı`, { component: 'ping-search-engines' });
 
     return res.status(200).json({
       success: true,
@@ -124,7 +125,7 @@ export default async function handler(
     });
 
   } catch (error: any) {
-    console.error('❌ Sitemap ping hatası:', error);
+    logger.error('❌ Sitemap ping hatası:', error as Error, { component: 'ping-search-engines' });
 
     return res.status(500).json({
       error: 'Sitemap ping failed',

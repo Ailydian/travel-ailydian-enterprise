@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
+import logger from '@/lib/logger';
 import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
 
@@ -64,12 +65,12 @@ export const useAutoLanguageDetection = () => {
       if (data.country_code) {
         const detectedLang = countryToLanguage[data.country_code];
         if (detectedLang) {
-          console.log(`Location-based language detected: ${detectedLang} (${data.country_code})`);
+          logger.debug(`Location-based language detected: ${detectedLang} (${data.country_code})`, { component: 'useAutoLanguageDetection' });
           return detectedLang;
         }
       }
     } catch (error) {
-      console.warn('Coğrafi dil algılama başarısız:', error);
+      logger.warn('Coğrafi dil algılama başarısız:', { component: 'useAutoLanguageDetection', metadata: { data: error } });
     }
     return null;
   }, []);
@@ -83,7 +84,7 @@ export const useAutoLanguageDetection = () => {
     for (const lang of browserLangs) {
       const mappedLang = browserLanguageMap[lang] || browserLanguageMap[lang.split('-')[0]];
       if (mappedLang) {
-        console.log(`Browser language detected: ${mappedLang} (${lang})`);
+        logger.debug(`Browser language detected: ${mappedLang} (${lang})`, { component: 'useAutoLanguageDetection' });
         return mappedLang;
       }
     }
@@ -109,7 +110,7 @@ export const useAutoLanguageDetection = () => {
     try {
       localStorage.setItem('lydian-preferred-language', language);
     } catch (error) {
-      console.warn('Dil tercihi kaydedilemedi:', error);
+      logger.warn('Dil tercihi kaydedilemedi:', { component: 'useAutoLanguageDetection', metadata: { data: error } });
     }
   }, []);
 
@@ -132,33 +133,33 @@ export const useAutoLanguageDetection = () => {
     // 1. Önce kaydedilmiş kullanıcı tercihini kontrol et
     const storedPreference = getStoredLanguagePreference();
     if (storedPreference) {
-      console.log(`Kullanıcı tercihi bulundu: ${storedPreference}`);
+      logger.debug(`Kullanıcı tercihi bulundu: ${storedPreference}`, { component: 'useAutoLanguageDetection' });
       return storedPreference;
     }
 
     // 2. Cookie'den dil kontrolü
     const cookieLanguage = getLanguageFromCookie();
     if (cookieLanguage) {
-      console.log(`Cookie dilі bulundu: ${cookieLanguage}`);
+      logger.debug(`Cookie dilі bulundu: ${cookieLanguage}`, { component: 'useAutoLanguageDetection' });
       return cookieLanguage;
     }
 
     // 3. Tarayıcı dili kontrolü
     const browserLanguage = detectBrowserLanguage();
     if (browserLanguage) {
-      console.log(`Tarayıcı dili algılandı: ${browserLanguage}`);
+      logger.debug(`Tarayıcı dili algılandı: ${browserLanguage}`, { component: 'useAutoLanguageDetection' });
       return browserLanguage;
     }
 
     // 4. Coğrafi konum bazlı algılama
     const locationLanguage = await detectLanguageByLocation();
     if (locationLanguage) {
-      console.log(`Konum bazlı dil algılandı: ${locationLanguage}`);
+      logger.debug(`Konum bazlı dil algılandı: ${locationLanguage}`, { component: 'useAutoLanguageDetection' });
       return locationLanguage;
     }
 
     // 5. Varsayılan dil
-    console.log('Varsayılan dil kullanılıyor: tr');
+    logger.debug('Log', { component: 'useAutoLanguageDetection', metadata: { data: 'Varsayılan dil kullanılıyor: tr' } });
     return 'tr';
   }, [detectLanguageByLocation, detectBrowserLanguage, getStoredLanguagePreference, getLanguageFromCookie]);
 
@@ -175,9 +176,9 @@ export const useAutoLanguageDetection = () => {
       const { pathname, asPath, query } = router;
       router.push({ pathname, query }, asPath, { locale: newLanguage });
 
-      console.log(`Dil değiştirildi: ${newLanguage}`);
+      logger.debug(`Dil değiştirildi: ${newLanguage}`, { component: 'useAutoLanguageDetection' });
     } catch (error) {
-      console.error('Dil değiştirme hatası:', error);
+      logger.error('Dil değiştirme hatası:', error as Error, { component: 'useAutoLanguageDetection' });
     }
   }, [i18n, router, saveLanguagePreference]);
 

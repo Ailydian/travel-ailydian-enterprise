@@ -1,4 +1,5 @@
 import axios, { AxiosInstance } from 'axios';
+import logger from '@/lib/logger';
 import { Location, Review, Photo } from '../types/review-system';
 
 // TripAdvisor API Types
@@ -350,7 +351,7 @@ class ExternalPlatformIntegration {
       const response = await this.tripAdvisorClient.get('/location/search', { params });
       return response.data.data || [];
     } catch (error) {
-      console.error('TripAdvisor search error:', error);
+      logger.error('TripAdvisor search error:', error);
       return [];
     }
   }
@@ -372,7 +373,7 @@ class ExternalPlatformIntegration {
       const response = await this.tripAdvisorClient.get(`/location/${locationId}/details`, { params });
       return response.data.data || null;
     } catch (error) {
-      console.error('TripAdvisor location details error:', error);
+      logger.error('TripAdvisor location details error:', error);
       return null;
     }
   }
@@ -396,7 +397,7 @@ class ExternalPlatformIntegration {
       const response = await this.tripAdvisorClient.get(`/location/${locationId}/reviews`, { params });
       return response.data.data || [];
     } catch (error) {
-      console.error('TripAdvisor reviews error:', error);
+      logger.error('TripAdvisor reviews error:', error);
       return [];
     }
   }
@@ -414,7 +415,7 @@ class ExternalPlatformIntegration {
       const response = await this.tripAdvisorClient.get(`/location/${locationId}/photos`, { params });
       return response.data.data || [];
     } catch (error) {
-      console.error('TripAdvisor photos error:', error);
+      logger.error('TripAdvisor photos error:', error);
       return [];
     }
   }
@@ -444,7 +445,7 @@ class ExternalPlatformIntegration {
       const response = await this.googleClient.get('/place/textsearch/json', { params });
       return response.data.results || [];
     } catch (error) {
-      console.error('Google Places search error:', error);
+      logger.error('Google Places search error:', error);
       return [];
     }
   }
@@ -470,7 +471,7 @@ class ExternalPlatformIntegration {
       const response = await this.googleClient.get('/place/details/json', { params });
       return response.data.result || null;
     } catch (error) {
-      console.error('Google Place details error:', error);
+      logger.error('Google Place details error:', error);
       return null;
     }
   }
@@ -522,7 +523,7 @@ class ExternalPlatformIntegration {
       const response = await this.googleClient.get('/place/nearbysearch/json', { params });
       return response.data.results || [];
     } catch (error) {
-      console.error('Google nearby search error:', error);
+      logger.error('Google nearby search error:', error);
       return [];
     }
   }
@@ -565,7 +566,7 @@ class ExternalPlatformIntegration {
 
       return { success: true, data: syncData };
     } catch (error) {
-      console.error('TripAdvisor sync error:', error);
+      logger.error('TripAdvisor sync error:', error);
       return { success: false, error: error instanceof Error ? error.message : 'Unknown error' };
     }
   }
@@ -607,7 +608,7 @@ class ExternalPlatformIntegration {
 
       return { success: true, data: syncData };
     } catch (error) {
-      console.error('Google sync error:', error);
+      logger.error('Google sync error:', error);
       return { success: false, error: error instanceof Error ? error.message : 'Unknown error' };
     }
   }
