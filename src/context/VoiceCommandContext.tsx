@@ -130,7 +130,7 @@ export const VoiceCommandProvider: React.FC<{ children: React.ReactNode }> = ({ 
       }
 
       const selectAndSpeak = (availableVoices: SpeechSynthesisVoice[]) => {
-        logger.debug('🔍 SCANNING', { component: 'VoiceCommand', metadata: { data: availableVoices.length, 'VOICES FOR ULTIMATE MALE VOICE...' } });
+        logger.debug('🔍 Scanning voices for ultimate male voice', { component: 'VoiceCommand', metadata: { voiceCount: availableVoices.length } });
 
         // Log ALL voices for debugging
         availableVoices.forEach((v, i) => {
