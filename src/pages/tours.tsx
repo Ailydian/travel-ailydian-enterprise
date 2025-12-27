@@ -880,8 +880,8 @@ export default function Tours() {
                   whileTap={{ scale: 0.95 }}
                   className={`flex items-center gap-2 px-6 py-3 rounded-xl font-semibold transition-all shadow-lg ${
                   isActive ?
-                  `bg-gradient-to-r ${category.color} text-white shadow-neon` :
-                  'bg-white/5 text-gray-200 hover:shadow-xl border border-gray-200'}`
+                  `bg-gradient-to-r ${category.color} text-lydian-text-inverse shadow-neon` :
+                  'bg-lydian-glass-dark text-lydian-text-dim hover:shadow-xl border border-lydian-border'}`
                   }>
 
                   <Icon className="w-5 h-5" />

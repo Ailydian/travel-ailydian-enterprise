@@ -244,8 +244,8 @@ const CarRental: React.FC = () => {
                 title: 'Minibüs',
                 icon: Users,
                 description: 'Grup transferleri ve aile seyahatleri',
-                color: 'from-blue-500 to-cyan-500',
-                bgColor: 'bg-blue-50',
+                color: 'from-lydian-primary to-lydian-secondary',
+                bgColor: 'bg-lydian-primary-lighter',
                 badge: '',
                 price: '₺199'
               }].

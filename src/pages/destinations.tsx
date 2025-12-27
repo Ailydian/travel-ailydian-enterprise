@@ -139,8 +139,8 @@ export default function Destinations() {
                     <Heart
                     className={`h-5 w-5 ${
                     favorites.has(destination.id) ?
-                    'text-red-500 fill-current' :
-                    'text-gray-300'}`
+                    'text-lydian-error fill-current' :
+                    'text-lydian-text-dim'}`
                     } />
 
                   </button>
