@@ -27,7 +27,7 @@ import {
   Ticket
 } from 'lucide-react';
 import { FuturisticHeader } from '../components/layout/FuturisticHeader';
-import logger from '../../../lib/logger';
+import logger from '../lib/logger';
 import type { LocationData } from '../components/ui/LocationPicker';
 
 // Dynamically import LocationPicker to avoid SSR issues

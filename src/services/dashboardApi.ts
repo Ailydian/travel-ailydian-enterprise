@@ -11,8 +11,8 @@ import axios, {
   AxiosResponse,
   InternalAxiosRequestConfig,
 } from 'axios';
-import {
 import logger from '../lib/logger';
+import {
   Property,
   Booking,
   Conversation,

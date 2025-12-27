@@ -8,8 +8,8 @@ import { useRouter } from 'next/router';
 import Head from 'next/head';
 import { motion, AnimatePresence } from 'framer-motion';
 import { GetStaticPaths, GetStaticProps } from 'next';
+import logger from '../../lib/logger';
 import {
-import logger from '../../../../lib/logger';
   Heart,
   Share2,
   Star,

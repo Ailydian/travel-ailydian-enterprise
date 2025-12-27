@@ -14,7 +14,7 @@ import {
   PaymentRequest
 } from '../../lib/pricingEngine';
 import { Tour, Hotel } from '../../data/turkeyTourismData';
-import logger from '../../../../lib/logger';
+import logger from '../../lib/logger';
 
 interface BookingFormProps {
   item: Tour | Hotel;

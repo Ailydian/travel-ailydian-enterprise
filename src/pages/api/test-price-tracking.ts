@@ -2,7 +2,7 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 import { prisma } from '@/lib/prisma';
 import { savePriceData } from '@/lib/services/price-data-collector';
 import { predictPrices } from '@/lib/services/ml-price-predictor';
-import logger from '../../../../lib/logger';
+import logger from '../../lib/logger';
 
 /**
  * Test endpoint for price tracking system

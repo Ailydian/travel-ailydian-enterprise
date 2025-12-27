@@ -39,7 +39,7 @@ import {
   Building2,
 } from 'lucide-react';
 import ResponsiveHeaderBar from '../../components/layout/ResponsiveHeaderBar';
-import logger from '../../../../lib/logger';
+import logger from '../../lib/logger';
 
 // TypeScript interfaces
 interface RentalProperty {

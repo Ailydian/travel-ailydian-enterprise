@@ -20,7 +20,7 @@ import {
   Globe
 } from 'lucide-react';
 import { LocationAutocomplete } from './LocationAutocomplete';
-import logger from '../../../../lib/logger';
+import logger from '../../lib/logger';
 
 interface QuickSearchModalProps {
   isOpen: boolean;

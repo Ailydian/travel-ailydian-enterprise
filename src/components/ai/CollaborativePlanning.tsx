@@ -26,7 +26,7 @@ import {
   CheckCircle2
 } from 'lucide-react';
 import { format } from 'date-fns';
-import logger from '../../../../lib/logger';
+import logger from '../../lib/logger';
 
 interface Collaborator {
   id: string;

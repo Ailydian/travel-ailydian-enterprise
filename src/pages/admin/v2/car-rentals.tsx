@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { Car, Search, Filter, Plus, Edit2, Copy, Star, Power, Trash2, ChevronDown } from 'lucide-react';
-import logger from '../../../../lib/logger';
+import logger from '../../../lib/logger';
 
 interface CarRental {
   id: string;

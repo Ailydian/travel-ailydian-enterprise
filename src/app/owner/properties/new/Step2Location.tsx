@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { useFormContext } from 'react-hook-form';
 import { MapPin, Navigation, Globe } from 'lucide-react';
-import logger from '../../../../../../lib/logger';
+import logger from '../../../../lib/logger';
 
 interface Step2Props {
   data?: any;

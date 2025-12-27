@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { prisma } from '@/lib/prisma';
 import { predictPrices } from '@/lib/services/ml-price-predictor';
-import logger from '../../../../../lib/logger';
+import logger from '../../../lib/logger';
 
 export default async function handler(
   req: NextApiRequest,

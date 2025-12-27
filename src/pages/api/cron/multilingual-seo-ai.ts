@@ -7,7 +7,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { getMultilingualSeoAI } from '@/lib/seo/multilingualSeoAI';
 import { getContinuousSeoService } from '@/lib/seo/continuousSeoService';
-import logger from '../../../../../lib/logger';
+import logger from '../../../lib/logger';
 
 export default async function handler(
   req: NextApiRequest,

@@ -1,6 +1,6 @@
 import axios from 'axios';
-import {
 import logger from '../logger';
+import {
   Location,
   Review,
   Photo,

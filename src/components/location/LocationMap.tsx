@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { MapPin } from 'lucide-react';
 import { Coordinates } from '../../lib/types/review-system';
-import logger from '../../../../lib/logger';
+import logger from '../../lib/logger';
 
 interface LocationMapProps {
   coordinates: Coordinates;

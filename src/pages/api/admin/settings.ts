@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { prisma } from '@/lib/prisma';
-import logger from '../../../../../lib/logger';
+import logger from '../../../lib/logger';
 
 // Settings API - manages system configuration
 export default async function handler(

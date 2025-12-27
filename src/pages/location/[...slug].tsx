@@ -15,7 +15,7 @@ import ReviewsList from '../../components/location/ReviewsList';
 import WriteReviewModal from '../../components/reviews/WriteReviewModal';
 import LocationMap from '../../components/location/LocationMap';
 import ExternalPlatformReviews from '../../components/reviews/ExternalPlatformReviews';
-import logger from '../../../lib/logger';
+import logger from '../../lib/logger';
 
 interface LocationPageProps {
   location: Location;

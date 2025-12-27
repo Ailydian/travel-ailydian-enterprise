@@ -32,7 +32,7 @@ import {
   ChevronDown
 } from 'lucide-react';
 import { io, Socket } from 'socket.io-client';
-import logger from '../../../../lib/logger';
+import logger from '../../lib/logger';
 
 interface User {
   id: string;

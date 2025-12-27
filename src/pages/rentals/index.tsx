@@ -34,7 +34,7 @@ import { HeartIcon as HeartSolidIcon, StarIcon as StarSolidIcon } from '@heroico
 import { useToast } from '../../context/ToastContext';
 import { FuturisticHeader } from '../../components/layout/FuturisticHeader';
 import antalyaRentals, { getRentalPriceSavings, type AntalyaRentalProperty } from '../../data/antalya-rentals';
-import logger from '../../../../lib/logger';
+import logger from '../../lib/logger';
 
 // Real property interface from API
 interface RentalProperty {

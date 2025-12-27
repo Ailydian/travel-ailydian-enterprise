@@ -5,7 +5,7 @@
  */
 
 import type { NextApiRequest, NextApiResponse } from 'next';
-import logger from '@/lib/logger';
+import logger from '../../../lib/logger';
 
 interface PingResult {
   google: boolean;

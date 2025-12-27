@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSession } from 'next-auth/react';
 import { format } from 'date-fns';
-import logger from '../../../../lib/logger';
+import logger from '../../lib/logger';
 
 interface PriceAlert {
   id: string;

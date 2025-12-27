@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import logger from '../../../../lib/logger';
+import logger from '../../lib/logger';
 
 interface VideoBackgroundProps {
   autoPlay?: boolean;

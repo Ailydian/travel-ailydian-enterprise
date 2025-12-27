@@ -40,7 +40,7 @@ import Step7Documents from '@/app/vehicle-owner/vehicles/new/Step7Documents';
 import Step8Review from '@/app/vehicle-owner/vehicles/new/Step8Review';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import logger from '../../../../../lib/logger';
+import logger from '../../../../lib/logger';
 
 export async function getStaticProps({ locale }: any) {
   return {

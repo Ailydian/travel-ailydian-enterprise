@@ -1,7 +1,7 @@
 import { NextApiResponse } from 'next';
 import { withAdminAuth, AuthenticatedRequest } from '../../../../lib/middleware/admin-auth';
 import { PrismaClient } from '@prisma/client';
-import logger from '../../../../../../lib/logger';
+import logger from '../../../../lib/logger';
 
 const prisma = new PrismaClient();
 

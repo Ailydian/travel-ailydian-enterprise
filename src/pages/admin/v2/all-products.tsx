@@ -7,8 +7,8 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
+import logger from '../../../lib/logger';
 import {
-import logger from '../../../../lib/logger';
   ArrowLeft, Plus, Search, Filter, Download, Upload,
   Eye, Edit, Trash2, Check, X, AlertCircle, Package,
   Car, Bus, Home, MapPin, Calendar, DollarSign,

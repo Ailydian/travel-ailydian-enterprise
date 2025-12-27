@@ -1,6 +1,6 @@
 import { ethers } from 'ethers';
 
-import logger from 'lib/logger';
+import logger from '../lib/logger';
 // Types
 export interface WalletInfo {
   address: string;

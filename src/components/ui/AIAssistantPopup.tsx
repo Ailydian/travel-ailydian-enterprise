@@ -11,7 +11,7 @@ import {
 } from 'lucide-react';
 import { tourismApiService, HotelData, FlightData, RestaurantData, TourData } from '../../lib/tourism-api-service';
 import { COMPLETE_TURKEY_TOURISM_DATABASE, getCitiesByActivity, getCitiesByCuisine } from '../../data/turkey-tourism-database';
-import logger from '../../../../lib/logger';
+import logger from '../../lib/logger';
 
 interface AIMessage {
   id: string;

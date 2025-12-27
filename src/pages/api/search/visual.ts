@@ -9,7 +9,7 @@ import {
   ImageAnalysis,
 } from '@/types/visualSearch';
 import { withRateLimit, groqRateLimiter } from '@/lib/middleware/rate-limiter';
-import logger from '../../../../../lib/logger';
+import logger from '../../../lib/logger';
 
 // Disable body parser to handle file uploads
 export const config = {

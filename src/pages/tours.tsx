@@ -36,6 +36,7 @@ import { cyprusTours } from '../data/cyprus-tours';
 import CountryFilterWidget from '../components/filters/CountryFilterWidget';
 import { NeoHero, FuturisticCard, FuturisticButton, NeoSection } from '../components/neo-glass';
 import { HorizontalScrollSection } from '../components/scroll/HorizontalScrollSection';
+import { AntalyaToursAIAnswer } from '../components/seo/AIAnswerBlock';
 
 // Antalya Tours (16 tours with competitive pricing)
 const antalyaToursFormatted = antalyaTours.map(tour => ({
@@ -710,8 +711,86 @@ export default function Tours() {
   return (
     <>
       <Head>
-        <title>Turlar ve Aktiviteler - LyDian Travel Premium</title>
-        <meta name="description" content="Türkiye'nin en özel turları ve unutulmaz deneyimleri keşfedin" />
+        <title>Antalya Turları 2025: En İyi Fiyat Garantili Tekne, Rafting ve Antik Kent Turları | AILydian Travel</title>
+        <meta
+          name="description"
+          content="Antalya'da 16+ tur seçeneği: Tekne turları (3 Adalar, Kemer Korsan), Köprülü Kanyon rafting, Perge-Aspendos-Side antik kentler, jeep safari ve paragliding. Profesyonel rehber, otel transferi dahil. Rakiplerden %15 daha uygun!"
+        />
+        <meta
+          name="keywords"
+          content="antalya turları, antalya tekne turu, köprülü kanyon rafting, perge aspendos side, kemer korsan teknesi, antalya jeep safari, kaş dalış, demre myra kekova, türk hamamı antalya, antalya tour prices"
+        />
+
+        {/* AI Search Engine Optimization */}
+        <meta property="og:title" content="Antalya Turları: En İyi Fiyat Garantili 16+ Tur Seçeneği" />
+        <meta property="og:description" content="Profesyonel rehber eşliğinde Antalya tekne turları, rafting macerası, antik kent gezileri. Otel transferi ve sigorta dahil, %15 daha uygun fiyat!" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://travel.ailydian.com/tours/antalya" />
+        <meta property="og:image" content="https://travel.ailydian.com/images/antalya-tours-hero.jpg" />
+        <meta property="og:locale" content="tr_TR" />
+        <meta property="og:site_name" content="AILydian Travel" />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Antalya Turları: 16+ Tur Seçeneği En İyi Fiyatla" />
+        <meta name="twitter:description" content="Tekne, rafting, antik kentler ve macera turları. Profesyonel rehber, transfer dahil!" />
+        <meta name="twitter:image" content="https://travel.ailydian.com/images/antalya-tours-hero.jpg" />
+
+        {/* AI Citation Optimization */}
+        <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+        <meta name="googlebot" content="index, follow" />
+        <link rel="canonical" href="https://travel.ailydian.com/tours/antalya" />
+
+        {/* Structured Data - TouristTrip */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "ItemList",
+              "name": "Antalya Tours and Activities",
+              "description": "Comprehensive list of tours and activities in Antalya region",
+              "numberOfItems": 16,
+              "itemListElement": [
+                {
+                  "@type": "TouristTrip",
+                  "name": "Antalya 3 Islands Boat Tour",
+                  "description": "Full day boat tour visiting 3 islands with snorkeling",
+                  "touristType": "Family, Couples, Adventure",
+                  "offers": {
+                    "@type": "Offer",
+                    "price": "980",
+                    "priceCurrency": "TRY",
+                    "availability": "https://schema.org/InStock"
+                  }
+                },
+                {
+                  "@type": "TouristTrip",
+                  "name": "Köprülü Canyon Rafting Tour",
+                  "description": "14km rafting adventure in Turkey's best rafting course",
+                  "touristType": "Adventure, Sports Enthusiasts",
+                  "offers": {
+                    "@type": "Offer",
+                    "price": "637",
+                    "priceCurrency": "TRY",
+                    "availability": "https://schema.org/InStock"
+                  }
+                },
+                {
+                  "@type": "TouristTrip",
+                  "name": "Perge Aspendos Side Ancient Cities Tour",
+                  "description": "Full day cultural tour visiting 3 ancient cities with archaeologist guide",
+                  "touristType": "History Lovers, Cultural Travelers",
+                  "offers": {
+                    "@type": "Offer",
+                    "price": "637",
+                    "priceCurrency": "TRY",
+                    "availability": "https://schema.org/InStock"
+                  }
+                }
+              ]
+            })
+          }}
+        />
       </Head>
 
       <FuturisticHeader />
@@ -757,6 +836,11 @@ export default function Tours() {
             </motion.div>
           </div>
         </NeoHero>
+
+        {/* AI Answer Block - Optimized for AI Search Engines */}
+        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          <AntalyaToursAIAnswer />
+        </section>
 
         {/* Search & Filters */}
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">

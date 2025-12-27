@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { NextPage } from 'next';
 import Head from 'next/head';
 import { motion } from 'framer-motion';
+import logger from '../lib/logger';
 import {
-import logger from '../../../lib/logger';
   Users,
   MessageCircle,
   Share2,

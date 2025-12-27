@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
-import logger from '@/lib/logger';
+import logger from '../../lib/logger';
 import { motion } from 'framer-motion';
 import { MapPin, Search, X, CheckCircle, AlertCircle, Navigation, Loader2 } from 'lucide-react';
 

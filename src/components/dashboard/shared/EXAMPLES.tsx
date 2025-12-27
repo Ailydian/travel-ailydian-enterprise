@@ -1,4 +1,4 @@
-import logger from '../../lib/logger';
+import logger from '../../../lib/logger';
 
 /**
  * Usage Examples for Shared Dashboard Components

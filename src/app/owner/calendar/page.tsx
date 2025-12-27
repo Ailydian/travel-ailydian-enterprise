@@ -2,8 +2,8 @@
 
 import React, { useState } from 'react';
 import { useProperties, usePropertyCalendar, useBlockDates } from '@/hooks/useDashboardHooks';
+import logger from '../../../lib/logger';
 import {
-import logger from '../../../../../lib/logger';
   ChevronLeft,
   ChevronRight,
   Calendar as CalendarIcon,

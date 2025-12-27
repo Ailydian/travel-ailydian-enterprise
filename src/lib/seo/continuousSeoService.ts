@@ -5,7 +5,7 @@
  */
 
 import AutoSeoBot, { type PageSeoData } from './autoSeoBot';
-import logger from '@/lib/logger';
+import logger from '../../lib/logger';
 import { prisma } from '../prisma';
 import { antalyaTourismDistricts, generateDistrictSeoPages, getSeasonalKeywords } from './antalyaRegionSeo';
 

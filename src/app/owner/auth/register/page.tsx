@@ -20,7 +20,7 @@ import {
   Award
 } from 'lucide-react';
 import Link from 'next/link';
-import logger from '../../../../../../lib/logger';
+import logger from '../../../../lib/logger';
 
 interface FormData {
   fullName: string;

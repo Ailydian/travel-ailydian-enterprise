@@ -14,8 +14,8 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
+import logger from '../../../lib/logger';
 import {
-import logger from '../../../../../lib/logger';
   Briefcase, Building2, TrendingUp, DollarSign, Users,
   Search, Filter, Download, Plus, Edit, Trash2, Eye,
   ArrowLeft, Star, Clock, CheckCircle, XCircle, AlertCircle,

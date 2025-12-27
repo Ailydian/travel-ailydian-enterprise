@@ -5,8 +5,8 @@ import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 import { motion } from 'framer-motion';
 import { PremiumTravelBackground } from '@/components/ui/PremiumTravelBackground';
+import logger from '../lib/logger';
 import {
-import logger from '../../../lib/logger';
   MapPin,
   Clock,
   Users,

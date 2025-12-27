@@ -1,6 +1,6 @@
 // Enhanced Amadeus API Service for Real Travel Data
 import NodeCache from 'node-cache';
-import logger from '@/lib/logger';
+import logger from '../lib/logger';
 
 // Cache instance for API responses
 const cache = new NodeCache({ 

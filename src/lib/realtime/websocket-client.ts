@@ -3,7 +3,7 @@
  */
 
 import { io, Socket } from 'socket.io-client';
-import logger from '@/lib/logger';
+import logger from '../../lib/logger';
 
 interface WebSocketMessage {
   type: 'join' | 'leave' | 'update' | 'comment' | 'vote' | 'chat' | 'presence';

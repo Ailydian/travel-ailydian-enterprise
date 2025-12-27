@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { PrismaClient } from '@prisma/client';
 import { nanoid } from 'nanoid';
-import logger from '../../../../../lib/logger';
+import logger from '../../../lib/logger';
 
 const prisma = new PrismaClient();
 

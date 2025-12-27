@@ -13,7 +13,7 @@ import {
 } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
-import logger from '../../../../../../lib/logger';
+import logger from '../../../../lib/logger';
 
 export default function OwnerLoginPage() {
   const [formData, setFormData] = useState({

@@ -13,7 +13,7 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 import { z } from 'zod';
 import { Result, Ok, Err } from '@/lib/types/result';
 import { Errors, type AppError } from '@/lib/types/errors';
-import logger from '@/lib/logger';
+import logger from '../../lib/logger';
 
 /**
  * API Handler type with Result return

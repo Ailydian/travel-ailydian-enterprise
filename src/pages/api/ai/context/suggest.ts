@@ -7,7 +7,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { withRateLimit, publicRateLimiter } from '@/lib/middleware/rate-limiter';
 import { neuralxChat } from '@/lib/groq-service';
-import logger from '../../../../../../lib/logger';
+import logger from '../../../../lib/logger';
 
 interface ContextualRequest {
   destination: string;

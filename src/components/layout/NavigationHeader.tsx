@@ -35,7 +35,7 @@ import { searchInData, popularSearches, categoryConfig, type SearchResult } from
 import { useCart } from '../../context/CartContext';
 import AIAssistantPopup from '../ui/AIAssistantPopup';
 import LanguageSwitcher from '../LanguageSwitcher';
-import logger from '../../../../lib/logger';
+import logger from '../../lib/logger';
 
 interface NavItem {
   title: string;

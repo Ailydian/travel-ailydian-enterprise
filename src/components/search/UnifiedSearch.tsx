@@ -13,7 +13,7 @@ import {
   ChevronRight
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import logger from '../../../../lib/logger';
+import logger from '../../lib/logger';
 
 // AI-Powered Unified Search - Tüm kategorilerde tek aramada sonuç
 // Örnek: "İstanbul'da 3 gece otel + Kapadokya turu + araç kiralama"

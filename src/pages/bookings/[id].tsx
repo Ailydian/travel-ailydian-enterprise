@@ -4,8 +4,8 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useSession } from 'next-auth/react';
 import { motion } from 'framer-motion';
+import logger from '../../lib/logger';
 import {
-import logger from '../../../../lib/logger';
   ArrowLeft,
   Calendar,
   MapPin,

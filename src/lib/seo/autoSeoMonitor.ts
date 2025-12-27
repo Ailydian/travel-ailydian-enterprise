@@ -11,7 +11,7 @@
  */
 
 import { getAdvancedIndexNow } from './advancedIndexNow';
-import logger from '@/lib/logger';
+import logger from '../../lib/logger';
 
 interface SEOMetrics {
   pageSpeed: number;

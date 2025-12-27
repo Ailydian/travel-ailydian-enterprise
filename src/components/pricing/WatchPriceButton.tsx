@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { useSession } from 'next-auth/react';
-import logger from '../../../../lib/logger';
+import logger from '../../lib/logger';
 
 interface WatchPriceButtonProps {
   entityType: 'HOTEL' | 'FLIGHT' | 'TOUR';

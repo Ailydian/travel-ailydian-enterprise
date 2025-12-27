@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { restaurantService, type RestaurantSearchParams } from '@/lib/restaurant-service';
-import logger from '../../../../../lib/logger';
+import logger from '../../../lib/logger';
 
 interface RestaurantSearchRequest extends RestaurantSearchParams {
   sortBy?: 'rating' | 'distance' | 'price' | 'reviews';

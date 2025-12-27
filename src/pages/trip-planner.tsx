@@ -23,7 +23,7 @@ import Head from 'next/head';
 import { format } from 'date-fns';
 import EnhancedTripPlanner from '@/components/ai/EnhancedTripPlanner';
 import CollaborativePlanning from '@/components/ai/CollaborativePlanning';
-import logger from '../../../lib/logger';
+import logger from '../lib/logger';
 
 // Dynamically import map component (client-side only)
 const InteractiveMap = dynamic(

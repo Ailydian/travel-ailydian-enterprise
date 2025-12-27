@@ -21,7 +21,7 @@ import {
   formatFileSize,
 } from '@/utils/imageProcessing';
 import { UploadedImage, VisualSearchResult, ImageAnalysis } from '@/types/visualSearch';
-import logger from '../../../../lib/logger';
+import logger from '../../lib/logger';
 
 interface VisualSearchProps {
   onSearch?: (results: VisualSearchResult[], analysis: ImageAnalysis) => void;

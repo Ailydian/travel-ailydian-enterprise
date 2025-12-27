@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { checkPriceAlertsCron } from '@/lib/services/price-alert-notification';
-import logger from '../../../../../lib/logger';
+import logger from '../../../lib/logger';
 
 /**
  * Cron job endpoint to check price alerts

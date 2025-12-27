@@ -15,8 +15,8 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
+import logger from '../../../lib/logger';
 import {
-import logger from '../../../../../lib/logger';
   Bus, Car, Users, MapPin, Calendar, Clock, DollarSign,
   Search, Filter, Download, Plus, Edit, Trash2, Eye,
   ArrowLeft, Star, CheckCircle, XCircle, AlertCircle,

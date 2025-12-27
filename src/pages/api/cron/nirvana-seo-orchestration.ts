@@ -7,7 +7,7 @@
 
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { getNirvanaOrchestrator } from '@/lib/seo/nirvanaOrchestrator';
-import logger from '../../../../../lib/logger';
+import logger from '../../../lib/logger';
 
 export default async function handler(
   req: NextApiRequest,

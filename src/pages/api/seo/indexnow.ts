@@ -7,7 +7,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { getAdvancedIndexNow } from '@/lib/seo/advancedIndexNow';
 
-import logger from '../lib/logger';
+import logger from '../../../lib/logger';
 interface IndexNowRequest {
   urls: string[];
 }

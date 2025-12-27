@@ -35,7 +35,7 @@ import {
 import { useCart } from '../context/CartContext';
 import { FuturisticHeader } from '../components/layout/FuturisticHeader';
 import { BookingFooter } from '../components/layout/BookingFooter';
-import logger from '../../../lib/logger';
+import logger from '../lib/logger';
 
 const HotelsNewPage: React.FC = () => {
   const router = useRouter();

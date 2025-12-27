@@ -9,7 +9,7 @@ import {
   Database, Link2, Activity, Award, Target
 } from 'lucide-react';
 import adminService from '../../lib/services/admin-service';
-import logger from '../../../../lib/logger';
+import logger from '../../lib/logger';
 
 interface PlatformConnection {
   id: string;

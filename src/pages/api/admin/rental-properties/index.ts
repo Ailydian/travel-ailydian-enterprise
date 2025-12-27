@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import antalyaHotels from '@/data/antalya-hotels';
-import logger from '../../../../../../lib/logger';
+import logger from '../../../../lib/logger';
 
 /**
  * ADMIN RENTAL PROPERTIES API - REAL DATA VERSION

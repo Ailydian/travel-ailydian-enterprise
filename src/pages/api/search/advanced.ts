@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import advancedSearchEngine, { AdvancedSearchFilters, PersonalizationData } from '../../../lib/search/advanced-search';
-import logger from '../../../../../lib/logger';
+import logger from '../../../lib/logger';
 
 interface AdvancedSearchRequest {
   filters: AdvancedSearchFilters;

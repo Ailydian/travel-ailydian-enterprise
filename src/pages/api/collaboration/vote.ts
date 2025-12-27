@@ -9,7 +9,7 @@ import { getServerSession } from 'next-auth/next';
 import { authOptions } from '../auth/[...nextauth]';
 import { withRateLimit, publicRateLimiter } from '@/lib/middleware/rate-limiter';
 import { prisma } from '@/lib/prisma';
-import logger from '../../../../../lib/logger';
+import logger from '../../../lib/logger';
 
 interface VoteRequest {
   roomId: string;

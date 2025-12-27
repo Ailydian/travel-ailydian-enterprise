@@ -18,7 +18,7 @@ import {
   X
 } from 'lucide-react';
 import { web3Utils, formatAddress, formatBalance, getExplorerUrl } from '../../utils/web3Utils';
-import logger from '../../../../lib/logger';
+import logger from '../../lib/logger';
 
 interface CryptoPaymentProps {
   amount: number;

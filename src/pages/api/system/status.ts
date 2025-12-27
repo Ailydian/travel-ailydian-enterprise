@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { prisma } from '../../../lib/prisma';
-import logger from '../../../../../lib/logger';
+import logger from '../../../lib/logger';
 
 interface SystemStatus {
   status: 'healthy' | 'degraded' | 'down';

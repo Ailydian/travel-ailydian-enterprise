@@ -16,7 +16,7 @@ import {
   Scatter,
 } from 'recharts';
 import { format } from 'date-fns';
-import logger from '../../../../lib/logger';
+import logger from '../../lib/logger';
 
 interface PriceDataPoint {
   date: Date;

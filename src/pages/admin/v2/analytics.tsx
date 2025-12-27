@@ -6,8 +6,8 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import logger from '../../../lib/logger';
 import {
-import logger from '../../../../../lib/logger';
   ArrowLeft, TrendingUp, TrendingDown, DollarSign, Users,
   Calendar, Download, RefreshCw, Filter, BarChart3,
   PieChart, Activity, Target, Globe, MapPin, Star,

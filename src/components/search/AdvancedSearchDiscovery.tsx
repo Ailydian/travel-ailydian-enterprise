@@ -33,7 +33,7 @@ import advancedSearchEngine, {
 } from '../../lib/search/advanced-search';
 import { Location, LocationCategory, City } from '../../lib/types/review-system';
 import reviewService from '../../lib/services/review-service';
-import logger from '../../../../lib/logger';
+import logger from '../../lib/logger';
 
 interface AdvancedSearchDiscoveryProps {
   initialQuery?: string;

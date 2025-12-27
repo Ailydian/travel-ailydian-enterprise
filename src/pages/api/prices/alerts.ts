@@ -2,7 +2,7 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 import { getServerSession } from 'next-auth';
 import { prisma } from '@/lib/prisma';
 import { authOptions } from '../auth/[...nextauth]';
-import logger from '../../../../../lib/logger';
+import logger from '../../../lib/logger';
 
 export default async function handler(
   req: NextApiRequest,

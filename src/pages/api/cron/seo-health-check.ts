@@ -7,7 +7,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { getAutoSeoMonitor } from '@/lib/seo/autoSeoMonitor';
 
-import logger from '../lib/logger';
+import logger from '../../../lib/logger';
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse

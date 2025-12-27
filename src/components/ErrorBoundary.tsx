@@ -11,7 +11,7 @@
 'use client';
 
 import React, { Component, type ReactNode, type ErrorInfo } from 'react';
-import logger from '@/lib/logger';
+import logger from '../lib/logger';
 
 interface ErrorBoundaryProps {
   readonly children: ReactNode;

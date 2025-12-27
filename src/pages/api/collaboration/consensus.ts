@@ -10,7 +10,7 @@ import { authOptions } from '../auth/[...nextauth]';
 import { withRateLimit, publicRateLimiter } from '@/lib/middleware/rate-limiter';
 import { prisma } from '@/lib/prisma';
 import { neuralxChat } from '@/lib/groq-service';
-import logger from '@/lib/logger';
+import logger from '../../../lib/logger';
 
 interface VoteData {
   activityId: string;

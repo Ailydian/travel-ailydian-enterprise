@@ -36,7 +36,7 @@ import {
   getDestinationById
 } from '../../data/destinations-turkey';
 import { EXPERIENCES_TURKEY, getExperiencesByDestination } from '../../data/experiences-turkey';
-import logger from '../../../../lib/logger';
+import logger from '../../lib/logger';
 
 interface DestinationDetailProps {
   destination: Destination;

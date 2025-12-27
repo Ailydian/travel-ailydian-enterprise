@@ -1,5 +1,5 @@
 import axios, { AxiosInstance } from 'axios';
-import logger from '@/lib/logger';
+import logger from '../../lib/logger';
 import { Location, Review, Photo } from '../types/review-system';
 
 // TripAdvisor API Types

@@ -23,8 +23,8 @@ declare module '@react-three/fiber' {
 }
 import * as ThreeTypes from 'three';
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
-import logger from '../../../../lib/logger';
+import logger from '../../lib/logger';
+import {
   Play, 
   Pause, 
   VolumeX, 

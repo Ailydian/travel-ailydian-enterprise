@@ -13,7 +13,7 @@
  */
 
 import { getNirvanaSEO } from './nirvanaSEO';
-import logger from '@/lib/logger';
+import logger from '../../lib/logger';
 import { getEATOptimization } from './eatOptimization';
 import { getAdvancedIndexNow } from './advancedIndexNow';
 import { getAutoSeoMonitor } from './autoSeoMonitor';

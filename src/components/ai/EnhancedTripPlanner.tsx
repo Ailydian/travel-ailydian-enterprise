@@ -28,7 +28,7 @@ import {
   Globe
 } from 'lucide-react';
 import { format, addDays, differenceInDays } from 'date-fns';
-import logger from '../../../../lib/logger';
+import logger from '../../lib/logger';
 
 interface TripPreferences {
   destination: string;

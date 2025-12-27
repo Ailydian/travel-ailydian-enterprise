@@ -1,5 +1,5 @@
 import { NextSeoProps } from 'next-seo';
-import logger from '@/lib/logger';
+import logger from '../../lib/logger';
 
 interface SeoAnalysis {
   score: number;

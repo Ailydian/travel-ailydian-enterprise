@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useReducer, useEffect } from 'react';
 import { useToast } from './ToastContext';
-import logger from '@/lib/logger';
+import logger from '../lib/logger';
 
 export interface CartItem {
   id: string;

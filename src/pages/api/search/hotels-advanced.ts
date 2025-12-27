@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { HOTELS_DATA, TURKEY_CITIES } from '../../../../prisma/seeds/turkey-tourism-data';
-import logger from '../../../../../lib/logger';
+import logger from '../../../lib/logger';
 
 /**
  * ADVANCED HOTEL SEARCH API

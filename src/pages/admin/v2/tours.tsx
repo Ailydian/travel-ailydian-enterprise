@@ -1,4 +1,4 @@
-import logger from '../lib/logger';
+import logger from '../../../lib/logger';
 
 /**
  * Tours & Activities Management - Admin V2 FULL VERSION
@@ -64,9 +64,9 @@ const ToursManagementPage = () => {
       const toursData = await toursResponse.json();
 
       logger.debug('[Tours Debug] API Response:', { component: 'Tours', metadata: toursData });
-      logger.debug('[Tours Debug] Has success:', {component:'Tours', metadata:{toursData.success}});
-      logger.debug('[Tours Debug] Has data:', {component:'Tours', metadata:{!!toursData.data}});
-      logger.debug('[Tours Debug] Data length:', {component:'Tours', metadata:{toursData.data?.length}});
+      logger.debug('[Tours Debug] Has success:', {component:'Tours', metadata:{ success: toursData.success }});
+      logger.debug('[Tours Debug] Has data:', {component:'Tours', metadata:{ hasData: !!toursData.data }});
+      logger.debug('[Tours Debug] Data length:', {component:'Tours', metadata:{ length: toursData.data?.length }});
 
       // Check if API returned valid data with tours
       if (toursData.success === true && Array.isArray(toursData.data) && toursData.data.length > 0) {
@@ -93,11 +93,11 @@ const ToursManagementPage = () => {
         }));
 
         setTours(transformedTours);
-        logger.debug('[Tours Debug] Successfully loaded real data:', {component:'Tours', metadata:{transformedTours.length, 'tours'}});
+        logger.debug('[Tours Debug] Successfully loaded real data:', {component:'Tours', metadata:{ count: transformedTours.length }});
       } else {
         // Fallback to mock data if API fails or database is empty
         logger.debug('[Tours Debug] Using fallback mock data - API error or empty database', { component: 'Tours' });
-        logger.debug('[Tours Debug] Reason - success:', {component:'Tours', metadata:{toursData.success, 'isArray:', Array.isArray(toursData.data}}), 'length:', toursData.data?.length);
+        logger.debug('[Tours Debug] Reason:', {component:'Tours', metadata:{ success: toursData.success, isArray: Array.isArray(toursData.data), length: toursData.data?.length }});
         const mockTours: Tour[] = [
         {
           id: '1',
@@ -184,7 +184,7 @@ const ToursManagementPage = () => {
 
         setTours(mockTours);
         setGuides(mockGuides);
-        logger.debug('[Tours Debug] Mock data set successfully:', {component:'Tours', metadata:{mockTours.length, 'tours'}});
+        logger.debug('[Tours Debug] Mock data set successfully:', {component:'Tours', metadata:{ tourCount: mockTours.length }});
       }
     } catch (error) {
       logger.error('[Tours Debug] Error fetching data:', error as Error, { component: 'Tours' });

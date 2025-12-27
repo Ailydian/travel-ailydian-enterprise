@@ -17,7 +17,7 @@ import Step3Photos from '@/app/transfer-owner/vehicles/new/Step3Photos';
 import Step4Routes from '@/app/transfer-owner/vehicles/new/Step4Routes';
 import Step5Legal from '@/app/transfer-owner/vehicles/new/Step5Legal';
 import Step6Review from '@/app/transfer-owner/vehicles/new/Step6Review';
-import logger from '../../../../../lib/logger';
+import logger from '../../../../lib/logger';
 
 const TOTAL_STEPS = 6;
 const LOCAL_STORAGE_KEY = 'transfer-vehicle-submission-draft';

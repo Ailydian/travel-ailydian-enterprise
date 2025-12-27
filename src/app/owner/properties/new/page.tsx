@@ -39,7 +39,7 @@ import Step5Photos from './Step5Photos';
 import Step6Pricing from './Step6Pricing';
 import Step7HouseRules from './Step7HouseRules';
 import Step8Review from './Step8Review';
-import logger from '../../../../../../lib/logger';
+import logger from '../../../../lib/logger';
 
 const TOTAL_STEPS = 8;
 const LOCAL_STORAGE_KEY = 'property-submission-draft';

@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
+import logger from '../../../lib/logger';
 import {
-import logger from '../../../../../lib/logger';
   generateAIContent,
   generateBatchContent,
   calculateContentQuality,

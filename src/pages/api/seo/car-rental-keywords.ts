@@ -1,4 +1,4 @@
-import logger from '../../../../../lib/logger';
+import logger from '../../../lib/logger';
 
 /**
  * Advanced SEO Keyword Generator for Car Rentals

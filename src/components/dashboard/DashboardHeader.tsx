@@ -2,8 +2,8 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
+import logger from '../../lib/logger';
 import {
-import logger from '../../../../lib/logger';
   Search,
   Bell,
   Menu,

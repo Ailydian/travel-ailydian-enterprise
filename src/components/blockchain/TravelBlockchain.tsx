@@ -31,7 +31,7 @@ import {
 import { ethers } from 'ethers';
 import CryptoPayment from './CryptoPayment';
 import DecentralizedReviews from './DecentralizedReviews';
-import logger from '../../../../lib/logger';
+import logger from '../../lib/logger';
 
 interface TravelNFT {
   id: string;

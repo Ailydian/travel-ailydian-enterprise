@@ -42,7 +42,7 @@ import {
   ArcElement
 } from 'chart.js';
 import { Line, Bar, Doughnut } from 'react-chartjs-2';
-import logger from '../../../../../lib/logger';
+import logger from '../../../lib/logger';
 
 // Register ChartJS components
 ChartJS.register(

@@ -16,8 +16,8 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { FuturisticHeader } from '../components/layout/FuturisticHeader';
 import { BookingFooter } from '../components/layout/BookingFooter';
+import logger from '../lib/logger';
 import {
-import logger from '../../../lib/logger';
   UserPlus,
   TrendingUp,
   Users,

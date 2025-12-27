@@ -37,7 +37,7 @@ import {
   Lock,
 } from 'lucide-react';
 import ResponsiveHeaderBar from '../../components/layout/ResponsiveHeaderBar';
-import logger from '../../../../lib/logger';
+import logger from '../../lib/logger';
 
 // Types
 interface BookingData {

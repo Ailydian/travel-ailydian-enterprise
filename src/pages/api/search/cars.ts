@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { amadeusService, transformCarRentalData } from '@/lib/amadeus-service';
-import logger from '../../../../../lib/logger';
+import logger from '../../../lib/logger';
 
 interface CarRentalSearchRequest {
   pickUpLocationCode: string;

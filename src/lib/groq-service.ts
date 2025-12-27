@@ -5,7 +5,7 @@
  */
 
 import Groq from 'groq-sdk';
-import logger from '@/lib/logger';
+import logger from '../lib/logger';
 
 // Model mapping for obfuscation
 const MODEL_MAP = {

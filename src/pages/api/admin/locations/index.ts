@@ -1,6 +1,6 @@
 import { NextApiResponse } from 'next';
 import { withAdminAuth, AuthenticatedRequest } from '../../../../lib/middleware/admin-auth';
-import logger from '../../../../../../lib/logger';
+import logger from '../../../../lib/logger';
 
 interface AdminLocation {
   id: number;

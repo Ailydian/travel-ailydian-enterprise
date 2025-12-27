@@ -10,7 +10,7 @@ import { authOptions } from '../../auth/[...nextauth]';
 import { withRateLimit, publicRateLimiter } from '@/lib/middleware/rate-limiter';
 import { neuralxChat } from '@/lib/groq-service';
 import { prisma } from '@/lib/prisma';
-import logger from '../../../../../../lib/logger';
+import logger from '../../../../lib/logger';
 
 interface RecommendationRequest {
   mood?: 'relaxing' | 'adventurous' | 'cultural' | 'romantic';

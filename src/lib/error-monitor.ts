@@ -1,5 +1,5 @@
 import fs from 'fs';
-import logger from '@/lib/logger';
+import logger from '../lib/logger';
 import path from 'path';
 
 export interface ErrorLog {

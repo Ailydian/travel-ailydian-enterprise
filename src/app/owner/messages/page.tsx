@@ -3,8 +3,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useConversations, useMessages, useSendMessage, useMarkAsRead } from '@/hooks/useDashboardHooks';
 import { useMessageStore } from '@/stores/dashboardStore';
+import logger from '../../../lib/logger';
 import {
-import logger from '../../../../../lib/logger';
   Search,
   Send,
   Paperclip,

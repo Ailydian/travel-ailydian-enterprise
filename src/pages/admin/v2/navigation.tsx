@@ -7,8 +7,8 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
+import logger from '../../../lib/logger';
 import {
-import logger from '../../../../lib/logger';
   ArrowLeft, Plus, Edit2, Trash2, Save, X, Menu as MenuIcon,
   GripVertical, Eye, EyeOff, ChevronRight, Languages, Shield,
   ExternalLink, Smartphone, Monitor, LayoutGrid, Globe

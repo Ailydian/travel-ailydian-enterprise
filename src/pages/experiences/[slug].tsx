@@ -31,7 +31,7 @@ import {
   getExperiencesByCategory
 } from '../../data/experiences-turkey';
 import { getDestinationById } from '../../data/destinations-turkey';
-import logger from '../../../../lib/logger';
+import logger from '../../lib/logger';
 
 interface ExperienceDetailProps {
   experience: Experience;

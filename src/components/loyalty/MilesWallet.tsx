@@ -14,8 +14,8 @@ import {
   History,
   ChevronRight
 } from 'lucide-react';
+import logger from '../../lib/logger';
 import {
-import logger from '../../../../lib/logger';
   calculateTierProgress,
   formatMiles,
   getTierColorClasses,

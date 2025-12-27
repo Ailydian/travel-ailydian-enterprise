@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
-import logger from '../../../../lib/logger';
+import logger from '../../lib/logger';
+import {
   Mic, 
   MicOff, 
   Volume2, 

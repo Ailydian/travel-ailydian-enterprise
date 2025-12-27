@@ -5,7 +5,7 @@ import { X, Star, Upload, Camera, MapPin, Calendar, Users, AlertTriangle, CheckC
 import { useDropzone } from 'react-dropzone';
 import { CreateReviewRequest } from '../../lib/types/review-system';
 import reviewService from '../../lib/services/review-service';
-import logger from '../../../../lib/logger';
+import logger from '../../lib/logger';
 
 interface WriteReviewModalProps {
   locationId: number;

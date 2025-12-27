@@ -1,5 +1,5 @@
 import axios from 'axios';
-import logger from '@/lib/logger';
+import logger from '../lib/logger';
 import puppeteer, { Browser, Page } from 'puppeteer';
 
 export interface TestResult {

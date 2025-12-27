@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { prisma } from '@/lib/prisma';
-import logger from '../../../../../lib/logger';
+import logger from '../../../lib/logger';
 
 // AI-Powered Unified Search API
 // Tüm kategorilerde (otel, araç, uçuş, tur, transfer) arama yapar

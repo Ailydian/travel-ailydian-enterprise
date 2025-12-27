@@ -22,8 +22,8 @@ import {
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Line, Bar } from 'react-chartjs-2';
+import logger from '../../../lib/logger';
 import {
-import logger from '../../../../../lib/logger';
   Chart as ChartJS,
   CategoryScale,
   LinearScale,

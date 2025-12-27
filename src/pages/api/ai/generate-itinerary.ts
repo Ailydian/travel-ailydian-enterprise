@@ -2,7 +2,7 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 import Groq from 'groq-sdk';
 import { addDays, differenceInDays, format } from 'date-fns';
 import { withRateLimit, groqRateLimiter } from '@/lib/middleware/rate-limiter';
-import logger from '../../../../../lib/logger';
+import logger from '../../../lib/logger';
 
 const groq = new Groq({
   apiKey: process.env.GROQ_API_KEY

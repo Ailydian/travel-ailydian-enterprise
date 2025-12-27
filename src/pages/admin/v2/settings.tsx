@@ -6,8 +6,8 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import logger from '../../../lib/logger';
 import {
-import logger from '../../../../../lib/logger';
   ArrowLeft, Save, Shield, Globe, Bell, Mail, Key,
   Database, Server, CreditCard, Users, Lock, Eye,
   EyeOff, CheckCircle, AlertCircle, Settings as SettingsIcon,

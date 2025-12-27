@@ -57,7 +57,7 @@ interface TourData {
 
 // İmport the complete database from the dedicated file
 import { COMPLETE_TURKEY_TOURISM_DATABASE } from '../data/turkey-tourism-database';
-import logger from '@/lib/logger';
+import logger from '../lib/logger';
 
 // Türkiye'nin turizm bölgeleri ve şehirleri (legacy support)
 export const TURKEY_TOURISM_REGIONS = {

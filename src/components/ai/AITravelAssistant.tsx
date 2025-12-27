@@ -27,7 +27,7 @@ import {
 } from 'lucide-react';
 import { useSpeechSynthesis, useSpeechRecognition } from 'react-speech-kit';
 import Webcam from 'react-webcam';
-import logger from '../../../../lib/logger';
+import logger from '../../lib/logger';
 
 interface Message {
   id: string;

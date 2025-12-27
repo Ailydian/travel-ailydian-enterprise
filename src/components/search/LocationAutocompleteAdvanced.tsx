@@ -10,8 +10,8 @@ import {
   Map as MapIcon, Plane, Building2, Globe, Target
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import logger from '../../lib/logger';
 import {
-import logger from '../../../../lib/logger';
   searchAdvancedLocations,
   getPopularLocations,
   getUserLocation,

@@ -37,7 +37,7 @@ import autoTable from 'jspdf-autotable';
 import { useDashboardWebSocket, BookingNotification, MetricUpdate } from '@/lib/websocket/dashboard';
 import { LiveNotifications, useNotificationSound } from '@/components/admin/LiveNotifications';
 
-import logger from '../lib/logger';
+import logger from '../../../lib/logger';
 // Types
 interface RealtimeMetric {
   id: string;

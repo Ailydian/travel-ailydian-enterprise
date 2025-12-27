@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
+import logger from '../../../lib/logger';
 import {
-import logger from '../../../../lib/logger';
   generateAutomatedResponse,
   sendTextMessage,
   sendButtonMessage,
@@ -178,11 +178,11 @@ function shouldNotifySupport(message: string): boolean {
  */
 async function notifySupportTeam(customerPhone: string, message: string): Promise<void> {
   // In production, send notification to support dashboard/email/Slack
-  logger.debug('Support notification:', { component: 'Webhook', metadata: { data: {
+  logger.debug('Support notification:', { component: 'Webhook', metadata: {
     customer: customerPhone,
     message,
-    timestamp: new Date( } })
-  });
+    timestamp: new Date().toISOString()
+  }});
 
   // Could also create a ticket in support system
   // await createSupportTicket({ customerPhone, message });

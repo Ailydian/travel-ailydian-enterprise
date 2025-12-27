@@ -43,7 +43,7 @@ import {
   generateBreadcrumbSchema
 } from '@/lib/seo-config';
 import antalyaCarRentals from '@/data/antalya-car-rentals';
-import logger from '../../../../lib/logger';
+import logger from '../../lib/logger';
 
 // Real vehicle data interface
 interface Vehicle {
