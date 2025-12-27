@@ -1,1195 +1,486 @@
 /**
- * Rentals Listing Page - Airbnb Style
- * Premium UI with advanced filters, map view, price comparison
+ * Rentals Listing Page - Neo-Glass Futuristic Design
+ * Redesigned to match travel.ailydian.com design system
+ * Features: FuturisticCard, NeoHero, Glassmorphism, 3D effects
  */
 
-import React, { useState, useMemo, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { NextSeo } from 'next-seo';
+import React, { useState, useMemo } from 'react';
 import Head from 'next/head';
-import Link from 'next/link';
 import { useRouter } from 'next/router';
-import dynamic from 'next/dynamic';
+import { motion } from 'framer-motion';
 import {
-  MapIcon,
-  ListBulletIcon,
-  FunnelIcon,
-  XMarkIcon,
-  MagnifyingGlassIcon,
-  StarIcon,
-  HeartIcon,
-  BoltIcon,
-  CheckBadgeIcon,
-  UserGroupIcon,
-  HomeIcon,
-  CurrencyDollarIcon,
-  MapPinIcon,
-  AdjustmentsHorizontalIcon,
-  ChevronDownIcon,
-  SparklesIcon,
-  FireIcon,
-  ArrowRightIcon } from
-'@heroicons/react/24/outline';
-import { HeartIcon as HeartSolidIcon, StarIcon as StarSolidIcon } from '@heroicons/react/24/solid';
-import { useToast } from '../../context/ToastContext';
+  Home,
+  MapPin,
+  Star,
+  Users,
+  Bed,
+  Bath,
+  Wifi,
+  Car,
+  Waves,
+  Sun,
+  Shield,
+  Heart,
+  Filter,
+  Search,
+  X,
+  TrendingUp,
+  Award,
+  Sparkles,
+} from 'lucide-react';
 import { FuturisticHeader } from '../../components/layout/FuturisticHeader';
-import antalyaRentals, { getRentalPriceSavings, type AntalyaRentalProperty } from '../../data/antalya-rentals';
-import logger from '../../lib/logger';
-
-// Real property interface from API
-interface RentalProperty {
-  id: string;
-  title: string;
-  slug: string;
-  description: string;
-  type: string;
-  city: string;
-  district: string;
-  guests: number;
-  bedrooms: number;
-  bathrooms: number;
-  beds: number;
-  basePrice: number;
-  cleaningFee: number;
-  serviceFee: number;
-  weeklyDiscount: number;
-  monthlyDiscount: number;
-  minimumStay: number;
-  maximumStay: number;
-  checkInTime: string;
-  checkOutTime: string;
-  wifi: boolean;
-  kitchen: boolean;
-  parking: boolean;
-  pool: boolean;
-  airConditioning: boolean;
-  beachfront: boolean;
-  seaview: boolean;
-  balcony: boolean;
-  workspace: boolean;
-  tv: boolean;
-  washingMachine: boolean;
-  heating: boolean;
-  smokingAllowed: boolean;
-  petsAllowed: boolean;
-  partiesAllowed: boolean;
-  childrenAllowed: boolean;
-  instantBook: boolean;
-  hostName: string;
-  hostMemberSince: string;
-  hostResponseTime: string;
-  hostResponseRate: number;
-  hostLanguages: string[];
-  hostSuperhost: boolean;
-  mainImage: string;
-  images: string[];
-  overall: number;
-  reviewCount: number;
-  isActive: boolean;
-  isFeatured: boolean;
-}
-
-// Dynamic imports for performance
-const MapView = dynamic(() => import('../../components/rentals/MapView'), { ssr: false });
-
-// Property type options
-const PROPERTY_TYPES = [
-{ value: 'all', label: 'Tüm Tipler', icon: HomeIcon },
-{ value: 'villa', label: 'Villa', icon: HomeIcon },
-{ value: 'apartment', label: 'Daire', icon: HomeIcon },
-{ value: 'house', label: 'Ev', icon: HomeIcon },
-{ value: 'studio', label: 'Stüdyo', icon: HomeIcon },
-{ value: 'penthouse', label: 'Penthouse', icon: HomeIcon }];
-
-
-// City options
-const CITIES = ['Tümü', 'Alanya', 'Antalya', 'Marmaris', 'Bodrum', 'Çeşme'];
-
-// Amenities filter options
-const AMENITIES = [
-{ id: 'wifi', label: 'WiFi', key: 'wifi' },
-{ id: 'pool', label: 'Havuz', key: 'pool' },
-{ id: 'parking', label: 'Otopark', key: 'parking' },
-{ id: 'kitchen', label: 'Mutfak', key: 'kitchen' },
-{ id: 'airConditioning', label: 'Klima', key: 'airConditioning' },
-{ id: 'beachfront', label: 'Denize Sıfır', key: 'beachfront' },
-{ id: 'seaview', label: 'Deniz Manzarası', key: 'seaview' }];
-
-
-interface Filters {
-  city: string;
-  propertyType: string;
-  priceMin: number;
-  priceMax: number;
-  guests: number;
-  bedrooms: number;
-  instantBook: boolean;
-  superhost: boolean;
-  amenities: string[];
-  rating: number;
-}
+import { NeoHero, FuturisticCard, FuturisticButton, NeoSection } from '../../components/neo-glass';
+import antalyaRentals, { type AntalyaRentalProperty } from '../../data/antalya-rentals';
+import { useToast } from '../../context/ToastContext';
 
 const RentalsPage: React.FC = () => {
   const router = useRouter();
-  const { showToast, showSuccess, showInfo } = useToast();
+  const { addToast } = useToast();
 
-  // View state
-  const [viewMode, setViewMode] = useState<'grid' | 'map'>('grid');
+  // State management
+  const [searchQuery, setSearchQuery] = useState('');
+  const [selectedType, setSelectedType] = useState<string>('all');
+  const [selectedRegion, setSelectedRegion] = useState<string>('all');
+  const [priceRange, setPriceRange] = useState<[number, number]>([0, 10000]);
+  const [minGuests, setMinGuests] = useState<number>(1);
   const [showFilters, setShowFilters] = useState(false);
   const [favorites, setFavorites] = useState<Set<string>>(new Set());
 
-  // Real data from API
-  const [properties, setProperties] = useState<RentalProperty[]>([]);
-  const [featuredProperties, setFeaturedProperties] = useState<RentalProperty[]>([]);
-  const [loading, setLoading] = useState(true);
+  // Property types
+  const propertyTypes = [
+    { value: 'all', label: 'Tümü', icon: Home },
+    { value: 'villa', label: 'Villa', icon: Home },
+    { value: 'apartment', label: 'Daire', icon: Home },
+    { value: 'penthouse', label: 'Penthouse', icon: Home },
+    { value: 'hotel', label: 'Otel', icon: Home },
+  ];
 
-  // Search and filters
-  const [searchQuery, setSearchQuery] = useState('');
-  const [filters, setFilters] = useState<Filters>({
-    city: 'Tümü',
-    propertyType: 'all',
-    priceMin: 0,
-    priceMax: 10000,
-    guests: 0,
-    bedrooms: 0,
-    instantBook: false,
-    superhost: false,
-    amenities: [],
-    rating: 0
-  });
+  // Regions
+  const regions = [
+    { value: 'all', label: 'Tüm Bölgeler' },
+    { value: 'antalya-city', label: 'Antalya Merkez' },
+    { value: 'lara', label: 'Lara' },
+    { value: 'kundu', label: 'Kundu' },
+    { value: 'belek', label: 'Belek' },
+    { value: 'side', label: 'Side' },
+    { value: 'alanya', label: 'Alanya' },
+    { value: 'kemer', label: 'Kemer' },
+    { value: 'konyaalti', label: 'Konyaaltı' },
+  ];
 
-  // Use Antalya rentals data directly
-  useEffect(() => {
-    setLoading(true);
-    try {
-      // Convert AntalyaRentalProperty to RentalProperty interface
-      const convertedProperties = antalyaRentals.map((rental): RentalProperty => ({
-        id: rental.id,
-        title: rental.name.tr,
-        slug: rental.seo.slug.tr,
-        description: rental.shortDescription.tr,
-        type: rental.propertyType,
-        city: rental.region === 'antalya-city' ? 'Antalya' : rental.region === 'lara' ? 'Antalya' : rental.region === 'belek' ? 'Belek' : rental.region === 'side' ? 'Side' : rental.region === 'alanya' ? 'Alanya' : rental.region === 'kemer' ? 'Kemer' : rental.region === 'konyaalti' ? 'Antalya' : 'Antalya',
-        district: rental.location.district.tr,
-        guests: rental.capacity.guests,
-        bedrooms: rental.capacity.bedrooms,
-        bathrooms: rental.capacity.bathrooms,
-        beds: rental.capacity.beds,
-        basePrice: rental.pricing.perNight,
-        cleaningFee: rental.pricing.cleaningFee,
-        serviceFee: 0,
-        weeklyDiscount: 10,
-        monthlyDiscount: 25,
-        minimumStay: rental.rules.minStay,
-        maximumStay: rental.rules.maxStay,
-        checkInTime: rental.rules.checkIn,
-        checkOutTime: rental.rules.checkOut,
-        wifi: rental.features.wifi,
-        kitchen: rental.features.kitchen,
-        parking: rental.features.parking,
-        pool: rental.features.pool,
-        airConditioning: rental.features.airConditioning,
-        beachfront: rental.features.beachfront,
-        seaview: rental.features.seaview,
-        balcony: rental.features.balcony,
-        workspace: false,
-        tv: rental.features.tv,
-        washingMachine: rental.features.washer,
-        heating: rental.features.heating,
-        smokingAllowed: rental.rules.smokingAllowed,
-        petsAllowed: rental.rules.petsAllowed,
-        partiesAllowed: rental.rules.partiesAllowed,
-        childrenAllowed: rental.rules.childrenAllowed,
-        instantBook: rental.instantBook,
-        hostName: rental.host.name,
-        hostMemberSince: rental.host.memberSince,
-        hostResponseTime: rental.host.responseTime,
-        hostResponseRate: rental.host.responseRate,
-        hostLanguages: rental.host.languages,
-        hostSuperhost: rental.host.superhost,
-        mainImage: rental.images[0] || 'https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=1920&h=1080&fit=crop',
-        images: rental.images,
-        overall: rental.rating,
-        reviewCount: rental.reviewCount,
-        isActive: rental.active,
-        isFeatured: rental.featured
-      }));
-
-      setProperties(convertedProperties);
-      setFeaturedProperties(convertedProperties.filter((p) => p.isFeatured));
-    } catch (error) {
-      logger.error('Error loading properties:', error as Error, { component: 'Index' });
-      showToast('Hata', 'Özellikler yüklenirken bir hata oluştu', 'error');
-    } finally {
-      setLoading(false);
-    }
-  }, [showToast]);
-
-  // Filtered and sorted properties
+  // Filter and search properties
   const filteredProperties = useMemo(() => {
-    return properties.filter((property) => {
-      // Only show active properties
-      if (!property.isActive) return false;
-
+    return antalyaRentals.filter((property) => {
       // Search query
-      if (searchQuery) {
-        const query = searchQuery.toLowerCase();
-        const matchesSearch =
-        property.title.toLowerCase().includes(query) ||
-        property.description.toLowerCase().includes(query) ||
-        property.city.toLowerCase().includes(query) ||
-        property.district.toLowerCase().includes(query);
-        if (!matchesSearch) return false;
-      }
-
-      // City filter
-      if (filters.city !== 'Tümü' && property.city !== filters.city) {
+      if (searchQuery && !property.name.tr.toLowerCase().includes(searchQuery.toLowerCase()) &&
+          !property.region.toLowerCase().includes(searchQuery.toLowerCase())) {
         return false;
       }
 
       // Property type
-      if (filters.propertyType !== 'all' && property.type.toLowerCase() !== filters.propertyType) {
+      if (selectedType !== 'all' && property.propertyType !== selectedType) {
+        return false;
+      }
+
+      // Region
+      if (selectedRegion !== 'all' && property.region !== selectedRegion) {
         return false;
       }
 
       // Price range
-      if (property.basePrice < filters.priceMin || property.basePrice > filters.priceMax) {
+      if (property.pricing.perNight < priceRange[0] || property.pricing.perNight > priceRange[1]) {
         return false;
       }
 
-      // Guests
-      if (filters.guests > 0 && property.guests < filters.guests) {
-        return false;
-      }
-
-      // Bedrooms
-      if (filters.bedrooms > 0 && property.bedrooms < filters.bedrooms) {
-        return false;
-      }
-
-      // Instant book
-      if (filters.instantBook && !property.instantBook) {
-        return false;
-      }
-
-      // Superhost
-      if (filters.superhost && !property.hostSuperhost) {
-        return false;
-      }
-
-      // Amenities
-      if (filters.amenities.length > 0) {
-        const hasAllAmenities = filters.amenities.every((amenity) => {
-          return property[amenity as keyof RentalProperty] === true;
-        });
-        if (!hasAllAmenities) return false;
-      }
-
-      // Rating
-      if (filters.rating > 0 && property.overall < filters.rating) {
+      // Min guests
+      if (property.capacity.guests < minGuests) {
         return false;
       }
 
       return true;
     });
-  }, [properties, searchQuery, filters]);
+  }, [antalyaRentals, searchQuery, selectedType, selectedRegion, priceRange, minGuests]);
+
+  // Featured properties (first 6)
+  const featuredProperties = useMemo(() => {
+    return antalyaRentals.slice(0, 6);
+  }, []);
 
   // Toggle favorite
-  const toggleFavorite = (propertyId: string) => {
-    setFavorites((prev) => {
-      const newFavorites = new Set(prev);
-      if (newFavorites.has(propertyId)) {
-        newFavorites.delete(propertyId);
-        showInfo('Favorilerden Çıkarıldı', 'Özellik favorilerinizden kaldırıldı');
-      } else {
-        newFavorites.add(propertyId);
-        showSuccess('Favorilere Eklendi', 'Özellik favorilerinize eklendi');
-      }
-      return newFavorites;
-    });
+  const toggleFavorite = (id: string) => {
+    const newFavorites = new Set(favorites);
+    if (newFavorites.has(id)) {
+      newFavorites.delete(id);
+      addToast('Favorilerden kaldırıldı', 'info');
+    } else {
+      newFavorites.add(id);
+      addToast('Favorilere eklendi', 'success');
+    }
+    setFavorites(newFavorites);
   };
 
-  // Reset filters
-  const resetFilters = () => {
-    setFilters({
-      city: 'Tümü',
-      propertyType: 'all',
-      priceMin: 0,
-      priceMax: 10000,
-      guests: 0,
-      bedrooms: 0,
-      instantBook: false,
-      superhost: false,
-      amenities: [],
-      rating: 0
-    });
-    setSearchQuery('');
+  // Handle reservation
+  const handleReserve = (property: AntalyaRentalProperty) => {
+    router.push(`/rentals/${property.seo.slug.tr}`);
   };
-
-  // Active filter count
-  const activeFilterCount = useMemo(() => {
-    let count = 0;
-    if (filters.city !== 'Tümü') count++;
-    if (filters.propertyType !== 'all') count++;
-    if (filters.priceMin > 0 || filters.priceMax < 10000) count++;
-    if (filters.guests > 0) count++;
-    if (filters.bedrooms > 0) count++;
-    if (filters.instantBook) count++;
-    if (filters.superhost) count++;
-    if (filters.amenities.length > 0) count += filters.amenities.length;
-    if (filters.rating > 0) count++;
-    return count;
-  }, [filters]);
 
   return (
     <>
-      <NextSeo
-        title="Kiralık Tatil Evleri ve Villalar | Travel.LyDian"
-        description="Alanya, Antalya, Marmaris, Bodrum ve Çeşme'de lüks kiralık villa ve tatil evleri. En uygun fiyatlar, anında rezervasyon garantisi."
-        canonical="https://travel.lydian.com/rentals"
-        openGraph={{
-          url: 'https://travel.lydian.com/rentals',
-          title: 'Kiralık Tatil Evleri ve Villalar | Travel.LyDian',
-          description: 'Alanya, Antalya, Marmaris, Bodrum ve Çeşme\'de lüks kiralık villa ve tatil evleri.',
-          images: [
-          {
-            url: 'https://travel.lydian.com/og-rentals.jpg',
-            width: 1200,
-            height: 630,
-            alt: 'Travel.LyDian Rentals'
-          }],
-
-          site_name: 'Travel.LyDian'
-        }} />
-
-
       <Head>
-        <title>Kiralık Tatil Evleri | Travel.LyDian</title>
-        <meta name="description" content="Türkiye'nin en popüler tatil bölgelerinde kiralık villa ve tatil evleri." />
-        <meta name="keywords" content="kiralık villa, tatil evi, alanya villa, bodrum villa, marmaris villa, antalya kiralık daire" />
+        <title>Tatil Evleri & Villalar | Travel.Ailydian.com</title>
+        <meta name="description" content="Antalya'nın en özel tatil evleri, villaları ve lüks konaklama seçenekleri. %2 daha uygun fiyatlarla hemen rezervasyon yapın." />
+        <meta name="keywords" content="antalya villa, tatil evi, lüks konaklama, kiralık villa, penthouse" />
       </Head>
 
       <FuturisticHeader />
 
-      <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100">
-        {/* Header */}
-        <motion.header
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="sticky top-20 z-40 bg-lydian-bg/95 backdrop-blur-md border-b border-lydian-border-light/10 shadow-sm">
-
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-            <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
-              {/* Title & Stats */}
-              <div className="flex items-center justify-between">
-                <div>
-                  <h1 className="text-2xl lg:text-3xl font-bold bg-gradient-to-r from-lydian-primary via-orange-500 to-red-700 bg-clip-text text-transparent">
-                    Tatil Evleri & Villalar
-                  </h1>
-                  <p className="text-sm text-lydian-text-dim mt-1">
-                    {filteredProperties.length} özellik bulundu
-                  </p>
-                </div>
-
-                {/* Mobile Filter Toggle */}
-                <button
-                  onClick={() => setShowFilters(!showFilters)}
-                  className="lg:hidden relative px-4 py-2 bg-gradient-to-r from-lydian-primary to-orange-500 text-lydian-text-inverse rounded-xl font-medium shadow-lg hover:shadow-xl transition-all">
-
-                  <FunnelIcon className="w-5 h-5 inline mr-2" />
-                  Filtreler
-                  {activeFilterCount > 0 &&
-                  <span className="absolute -top-2 -right-2 bg-lydian-error text-lydian-text-inverse text-xs rounded-full w-6 h-6 flex items-center justify-center font-bold">
-                      {activeFilterCount}
-                    </span>
-                  }
-                </button>
-              </div>
-
-              {/* Search Bar */}
-              <div className="flex-1 max-w-2xl">
-                <div className="relative">
-                  <MagnifyingGlassIcon className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-lydian-text-muted" />
-                  <input
-                    type="text"
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                    placeholder="Lokasyon, özellik veya şehir ara..."
-                    className="w-full pl-12 pr-4 py-3 bg-lydian-glass-dark border border-lydian-border-light/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-lydian-border transition-all" />
-
-                  {searchQuery &&
-                  <button
-                    onClick={() => setSearchQuery('')}
-                    className="absolute right-4 top-1/2 -translate-y-1/2 text-lydian-text-muted hover:text-lydian-text-dim">
-
-                      <XMarkIcon className="w-5 h-5" />
-                    </button>
-                  }
-                </div>
-              </div>
-
-              {/* View Toggle */}
-              <div className="flex items-center gap-2 bg-lydian-glass-dark-medium p-1 rounded-xl">
-                <button
-                  onClick={() => setViewMode('grid')}
-                  className={`px-4 py-2 rounded-lg font-medium transition-all ${
-                  viewMode === 'grid' ?
-                  'bg-white/5 text-red-600 shadow-md' :
-                  'text-gray-300 hover:text-white'}`
-                  }>
-
-                  <ListBulletIcon className="w-5 h-5 inline mr-2" />
-                  Liste
-                </button>
-                <button
-                  onClick={() => setViewMode('map')}
-                  className={`px-4 py-2 rounded-lg font-medium transition-all ${
-                  viewMode === 'map' ?
-                  'bg-white/5 text-red-600 shadow-md' :
-                  'text-gray-300 hover:text-white'}`
-                  }>
-
-                  <MapIcon className="w-5 h-5 inline mr-2" />
-                  Harita
-                </button>
-              </div>
-            </div>
+      {/* Hero Section */}
+      <NeoHero
+        title="Tatil Evleri & Villalar"
+        subtitle="Antalya'nın en özel konaklama seçenekleri, %2 daha uygun fiyatlarla"
+        gradient="ocean"
+        height="60vh"
+      >
+        <div className="max-w-4xl mx-auto mt-8">
+          {/* Search Bar */}
+          <div className="relative">
+            <Search className="absolute left-6 top-1/2 -translate-y-1/2 w-6 h-6 text-white/60" />
+            <input
+              type="text"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder="Konum, özellik veya bölge ara..."
+              className="w-full pl-16 pr-16 py-5 bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/30 focus:border-white/30 transition-all text-lg"
+            />
+            {searchQuery && (
+              <button
+                onClick={() => setSearchQuery('')}
+                className="absolute right-6 top-1/2 -translate-y-1/2 text-white/60 hover:text-white transition-colors"
+              >
+                <X className="w-6 h-6" />
+              </button>
+            )}
           </div>
-        </motion.header>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <div className="flex flex-col lg:flex-row gap-8">
-            {/* Filters Sidebar */}
-            <AnimatePresence>
-              {(showFilters || typeof window !== 'undefined' && window.innerWidth >= 1024) &&
-              <motion.aside
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -20 }}
-                className="lg:w-80 bg-lydian-bg-hover rounded-2xl shadow-lg p-6 h-fit sticky top-20 max-h-[calc(100vh-6rem)] overflow-y-auto">
-
-                  {/* Filter Header */}
-                  <div className="flex items-center justify-between mb-6">
-                    <div className="flex items-center gap-2">
-                      <AdjustmentsHorizontalIcon className="w-6 h-6 text-lydian-primary" />
-                      <h2 className="text-xl font-bold text-lydian-text-inverse">Filtreler</h2>
-                      {activeFilterCount > 0 &&
-                    <span className="bg-lydian-error-light text-lydian-primary text-xs px-2 py-1 rounded-full font-semibold">
-                          {activeFilterCount}
-                        </span>
-                    }
-                    </div>
-                    {activeFilterCount > 0 &&
-                  <button
-                    onClick={resetFilters}
-                    className="text-sm text-lydian-primary hover:text-lydian-primary-dark font-medium">
-
-                        Temizle
-                      </button>
-                  }
-                  </div>
-
-                  <div className="space-y-6">
-                    {/* City Filter */}
-                    <div>
-                      <label className="block text-sm font-semibold text-lydian-text-muted mb-3">
-                        <MapPinIcon className="w-4 h-4 inline mr-2" />
-                        Şehir
-                      </label>
-                      <select
-                      value={filters.city}
-                      onChange={(e) => setFilters({ ...filters, city: e.target.value })}
-                      className="w-full px-4 py-2.5 bg-lydian-glass-dark border border-lydian-border-light/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-lydian-border transition-all">
-
-                        {CITIES.map((city) =>
-                      <option key={city} value={city}>
-                            {city}
-                          </option>
-                      )}
-                      </select>
-                    </div>
-
-                    {/* Property Type */}
-                    <div>
-                      <label className="block text-sm font-semibold text-lydian-text-muted mb-3">
-                        <HomeIcon className="w-4 h-4 inline mr-2" />
-                        Özellik Tipi
-                      </label>
-                      <div className="grid grid-cols-2 gap-2">
-                        {PROPERTY_TYPES.map((type) =>
-                      <button
-                        key={type.value}
-                        onClick={() => setFilters({ ...filters, propertyType: type.value })}
-                        className={`px-3 py-2 rounded-lg text-sm font-medium transition-all ${
-                        filters.propertyType === type.value ?
-                        'bg-gradient-to-r from-red-600 to-orange-500 text-white shadow-md' :
-                        'bg-white/5 text-gray-200 hover:bg-white/10'}`
-                        }>
-
-                            {type.label}
-                          </button>
-                      )}
-                      </div>
-                    </div>
-
-                    {/* Price Range */}
-                    <div>
-                      <label className="block text-sm font-semibold text-lydian-text-muted mb-3">
-                        <CurrencyDollarIcon className="w-4 h-4 inline mr-2" />
-                        Fiyat Aralığı (TRY/gece)
-                      </label>
-                      <div className="space-y-3">
-                        <div className="flex items-center gap-3">
-                          <input
-                          type="number"
-                          value={filters.priceMin}
-                          onChange={(e) =>
-                          setFilters({ ...filters, priceMin: parseInt(e.target.value) || 0 })
-                          }
-                          placeholder="Min"
-                          className="w-full px-3 py-2 bg-lydian-glass-dark border border-lydian-border-light/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500" />
-
-                          <span className="text-lydian-text-muted">-</span>
-                          <input
-                          type="number"
-                          value={filters.priceMax}
-                          onChange={(e) =>
-                          setFilters({ ...filters, priceMax: parseInt(e.target.value) || 10000 })
-                          }
-                          placeholder="Max"
-                          className="w-full px-3 py-2 bg-lydian-glass-dark border border-lydian-border-light/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500" />
-
-                        </div>
-                        <input
-                        type="range"
-                        min="0"
-                        max="10000"
-                        step="100"
-                        value={filters.priceMax}
-                        onChange={(e) =>
-                        setFilters({ ...filters, priceMax: parseInt(e.target.value) })
-                        }
-                        className="w-full accent-red-600" />
-
-                      </div>
-                    </div>
-
-                    {/* Guests */}
-                    <div>
-                      <label className="block text-sm font-semibold text-lydian-text-muted mb-3">
-                        <UserGroupIcon className="w-4 h-4 inline mr-2" />
-                        Misafir Sayısı
-                      </label>
-                      <div className="flex items-center gap-3">
-                        <button
-                        onClick={() =>
-                        setFilters({ ...filters, guests: Math.max(0, filters.guests - 1) })
-                        }
-                        className="w-10 h-10 bg-lydian-glass-dark-medium rounded-lg font-bold text-lydian-text-muted hover:bg-lydian-bg-active transition-all">
-
-                          -
-                        </button>
-                        <div className="flex-1 text-center py-2 bg-lydian-glass-dark rounded-lg font-semibold">
-                          {filters.guests === 0 ? 'Tümü' : filters.guests}
-                        </div>
-                        <button
-                        onClick={() => setFilters({ ...filters, guests: filters.guests + 1 })}
-                        className="w-10 h-10 bg-lydian-glass-dark-medium rounded-lg font-bold text-lydian-text-muted hover:bg-lydian-bg-active transition-all">
-
-                          +
-                        </button>
-                      </div>
-                    </div>
-
-                    {/* Bedrooms */}
-                    <div>
-                      <label className="block text-sm font-semibold text-lydian-text-muted mb-3">
-                        Yatak Odası
-                      </label>
-                      <div className="flex items-center gap-3">
-                        <button
-                        onClick={() =>
-                        setFilters({ ...filters, bedrooms: Math.max(0, filters.bedrooms - 1) })
-                        }
-                        className="w-10 h-10 bg-lydian-glass-dark-medium rounded-lg font-bold text-lydian-text-muted hover:bg-lydian-bg-active transition-all">
-
-                          -
-                        </button>
-                        <div className="flex-1 text-center py-2 bg-lydian-glass-dark rounded-lg font-semibold">
-                          {filters.bedrooms === 0 ? 'Tümü' : filters.bedrooms}
-                        </div>
-                        <button
-                        onClick={() => setFilters({ ...filters, bedrooms: filters.bedrooms + 1 })}
-                        className="w-10 h-10 bg-lydian-glass-dark-medium rounded-lg font-bold text-lydian-text-muted hover:bg-lydian-bg-active transition-all">
-
-                          +
-                        </button>
-                      </div>
-                    </div>
-
-                    {/* Amenities */}
-                    <div>
-                      <label className="block text-sm font-semibold text-lydian-text-muted mb-3">
-                        <SparklesIcon className="w-4 h-4 inline mr-2" />
-                        Olanaklar
-                      </label>
-                      <div className="space-y-2">
-                        {AMENITIES.map((amenity) =>
-                      <label
-                        key={amenity.id}
-                        className="flex items-center gap-3 p-2 rounded-lg hover:bg-lydian-glass-dark cursor-pointer transition-all">
-
-                            <input
-                          type="checkbox"
-                          checked={filters.amenities.includes(amenity.key)}
-                          onChange={(e) => {
-                            if (e.target.checked) {
-                              setFilters({
-                                ...filters,
-                                amenities: [...filters.amenities, amenity.key]
-                              });
-                            } else {
-                              setFilters({
-                                ...filters,
-                                amenities: filters.amenities.filter((a) => a !== amenity.key)
-                              });
-                            }
-                          }}
-                          className="w-4 h-4 text-lydian-primary rounded focus:ring-red-500" />
-
-                            <span className="text-sm text-lydian-text-muted">{amenity.label}</span>
-                          </label>
-                      )}
-                      </div>
-                    </div>
-
-                    {/* Quick Filters */}
-                    <div>
-                      <label className="block text-sm font-semibold text-lydian-text-muted mb-3">
-                        <FireIcon className="w-4 h-4 inline mr-2" />
-                        Hızlı Filtreler
-                      </label>
-                      <div className="space-y-2">
-                        <label className="flex items-center gap-3 p-3 rounded-lg bg-gradient-to-r from-yellow-50 to-orange-50 cursor-pointer transition-all hover:shadow-md">
-                          <input
-                          type="checkbox"
-                          checked={filters.instantBook}
-                          onChange={(e) =>
-                          setFilters({ ...filters, instantBook: e.target.checked })
-                          }
-                          className="w-4 h-4 text-lydian-primary rounded focus:ring-red-500" />
-
-                          <BoltIcon className="w-5 h-5 text-lydian-warning" />
-                          <span className="text-sm font-medium text-lydian-text-muted">Anında Rezervasyon</span>
-                        </label>
-
-                        <label className="flex items-center gap-3 p-3 rounded-lg bg-gradient-to-r from-purple-50 to-pink-50 cursor-pointer transition-all hover:shadow-md">
-                          <input
-                          type="checkbox"
-                          checked={filters.superhost}
-                          onChange={(e) => setFilters({ ...filters, superhost: e.target.checked })}
-                          className="w-4 h-4 text-lydian-primary rounded focus:ring-red-500" />
-
-                          <CheckBadgeIcon className="w-5 h-5 text-purple-600" />
-                          <span className="text-sm font-medium text-lydian-text-muted">Superhost</span>
-                        </label>
-                      </div>
-                    </div>
-
-                    {/* Rating Filter */}
-                    <div>
-                      <label className="block text-sm font-semibold text-lydian-text-muted mb-3">
-                        <StarIcon className="w-4 h-4 inline mr-2" />
-                        Minimum Puan
-                      </label>
-                      <div className="flex gap-2">
-                        {[0, 4.0, 4.5, 4.8, 5.0].map((rating) =>
-                      <button
-                        key={rating}
-                        onClick={() => setFilters({ ...filters, rating })}
-                        className={`flex-1 px-3 py-2 rounded-lg text-sm font-medium transition-all ${
-                        filters.rating === rating ?
-                        'bg-gradient-to-r from-red-600 to-orange-500 text-white shadow-md' :
-                        'bg-white/5 text-gray-200 hover:bg-white/10'}`
-                        }>
-
-                            {rating === 0 ? 'Tümü' : `${rating}+`}
-                          </button>
-                      )}
-                      </div>
-                    </div>
-                  </div>
-                </motion.aside>
-              }
-            </AnimatePresence>
-
-            {/* Main Content */}
-            <div className="flex-1">
-              {viewMode === 'grid' ?
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-
-                  {filteredProperties.map((property, index) =>
-                <PropertyCard
-                  key={property.id}
-                  property={property}
-                  isFavorite={favorites.has(property.id)}
-                  onToggleFavorite={() => toggleFavorite(property.id)}
-                  index={index} />
-
-                )}
-                </motion.div> :
-
-              <div className="h-[calc(100vh-12rem)] rounded-2xl overflow-hidden shadow-2xl">
-                  <MapView properties={filteredProperties} />
-                </div>
-              }
-
-              {filteredProperties.length === 0 &&
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                className="text-center py-20">
-
-                  <div className="w-24 h-24 mx-auto mb-6 bg-gradient-to-br from-red-100 to-orange-100 rounded-full flex items-center justify-center">
-                    <HomeIcon className="w-12 h-12 text-lydian-primary" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-lydian-text-inverse mb-3">Özellik Bulunamadı</h3>
-                  <p className="text-lydian-text-dim mb-6">
-                    Aradığınız kriterlere uygun özellik bulunamadı. Lütfen filtreleri değiştirin.
-                  </p>
-                  <button
-                  onClick={resetFilters}
-                  className="px-6 py-3 bg-gradient-to-r from-lydian-primary to-orange-500 text-lydian-text-inverse rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all">
-
-                    Filtreleri Sıfırla
-                  </button>
-                </motion.div>
-              }
-            </div>
+          {/* Quick Filters */}
+          <div className="flex flex-wrap gap-3 mt-6 justify-center">
+            {propertyTypes.map((type) => (
+              <button
+                key={type.value}
+                onClick={() => setSelectedType(type.value)}
+                className={`px-6 py-3 rounded-xl font-medium transition-all backdrop-blur-xl ${
+                  selectedType === type.value
+                    ? 'bg-white text-blue-600 shadow-lg scale-105'
+                    : 'bg-white/10 text-white hover:bg-white/20 border border-white/20'
+                }`}
+              >
+                {type.label}
+              </button>
+            ))}
           </div>
         </div>
+      </NeoHero>
 
-        {/* Property Owner Dashboard CTA Section */}
-        <section className="max-w-7xl mx-auto px-4 py-16">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="relative overflow-hidden rounded-2xl border-2 shadow-2xl"
-            style={{
-              background: 'linear-gradient(135deg, rgba(255, 33, 77, 0.05), rgba(255, 106, 69, 0.05))',
-              borderColor: 'rgba(255, 33, 77, 0.3)'
-            }}>
-
-            {/* Background Pattern */}
-            <div className="absolute inset-0 opacity-5">
-              <div className="absolute inset-0" style={{
-                backgroundImage: 'radial-gradient(circle at 2px 2px, rgba(255, 33, 77, 0.3) 1px, transparent 0)',
-                backgroundSize: '40px 40px'
-              }}></div>
-            </div>
-
-            <div className="relative z-10 grid md:grid-cols-2 gap-8 p-8 md:p-12">
-              {/* Left Side - Info */}
-              <div>
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6"
-                style={{
-                  background: 'linear-gradient(135deg, rgba(255, 33, 77, 0.1), rgba(255, 106, 69, 0.1))',
-                  border: '1px solid rgba(255, 33, 77, 0.3)'
-                }}>
-                  <HomeIcon className="w-4 h-4" style={{ color: '#FF214D' }} />
-                  <span className="text-sm font-bold" style={{ color: '#FF214D' }}>
-                    Mülk Sahipleri İçin
-                  </span>
-                </div>
-
-                <h2 className="text-3xl md:text-4xl font-black mb-4" style={{ color: '#0A0A0B' }}>
-                  Mülkünüzü Yönetmek
-                  <br />
-                  <span style={{ color: '#FF214D' }}>Artık Çok Kolay</span>
-                </h2>
-
-                <p className="text-lg mb-6" style={{ color: '#6B7280' }}>
-                  Profesyonel Property Owner Dashboard ile kiralık mülklerinizi, rezervasyonlarınızı ve
-                  gelirlerinizi tek bir yerden yönetin.
-                </p>
-
-                <div className="space-y-4 mb-8">
-                  {[
-                  { text: 'Gelişmiş Mülk Yönetimi' },
-                  { text: 'Güvenli Rezervasyon Sistemi' },
-                  { text: 'Gerçek Zamanlı Analitik & Raporlama' },
-                  { text: 'Misafir İletişim Merkezi' }].
-                  map((feature, idx) =>
-                  <div key={idx} className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-lg flex items-center justify-center"
-                    style={{
-                      background: 'linear-gradient(135deg, rgba(255, 33, 77, 0.1), rgba(255, 106, 69, 0.1))',
-                      border: '1px solid rgba(255, 33, 77, 0.2)'
-                    }}>
-                        <CheckBadgeIcon className="w-5 h-5" style={{ color: '#FF214D' }} />
-                      </div>
-                      <span className="font-medium" style={{ color: '#374151' }}>{feature.text}</span>
-                    </div>
-                  )}
-                </div>
-
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <Link
-                    href="/owner/auth/register"
-                    className="flex-1 inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold text-lydian-text-inverse transition-all hover:scale-105 group shadow-lg"
-                    style={{
-                      background: 'linear-gradient(135deg, #FF214D, #FF6A45)',
-                      boxShadow: '0 0 30px rgba(255, 33, 77, 0.5)'
-                    }}>
-
-                    Kayıt Ol
-                    <ArrowRightIcon className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                  </Link>
-
-                  <Link
-                    href="/owner/auth/login"
-                    className="flex-1 inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold transition-all hover:scale-105"
-                    style={{
-                      backgroundColor: 'white',
-                      color: '#FF214D',
-                      border: '2px solid #FF214D'
-                    }}>
-
-                    Giriş Yap
-                  </Link>
-                </div>
-              </div>
-
-              {/* Right Side - Stats */}
-              <div className="grid grid-cols-2 gap-4">
-                {[
-                { label: 'Aktif Mülk', value: '1,200+' },
-                { label: 'Aylık Gelir', value: '₺850K+' },
-                { label: 'Doluluk Oranı', value: '87%' },
-                { label: 'Memnuniyet', value: '4.9/5' }].
-                map((stat, idx) =>
-                <motion.div
-                  key={idx}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: idx * 0.1 }}
-                  viewport={{ once: true }}
-                  className="p-6 rounded-xl border-2"
-                  style={{
-                    backgroundColor: 'white',
-                    borderColor: 'rgba(255, 33, 77, 0.2)',
-                    boxShadow: '0 4px 6px rgba(0, 0, 0, 0.05)'
-                  }}>
-
-                    <StarIcon className="w-8 h-8 mb-3" style={{ color: '#FF214D' }} />
-                    <div className="text-3xl font-black mb-1" style={{ color: '#0A0A0B' }}>
-                      {stat.value}
-                    </div>
-                    <div className="text-sm font-medium" style={{ color: '#6B7280' }}>
-                      {stat.label}
-                    </div>
-                  </motion.div>
-                )}
-              </div>
-            </div>
-          </motion.div>
-        </section>
-
-        {/* Terms & Conditions Section */}
-        <section className="max-w-7xl mx-auto px-4 py-16 border-t" style={{ borderColor: '#E5E7EB' }}>
-          <div className="grid md:grid-cols-3 gap-8">
-            {/* Booking Conditions */}
+      {/* Stats Section */}
+      <NeoSection className="py-8 bg-gradient-to-b from-gray-900 to-gray-950">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="space-y-4">
-
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 rounded-lg flex items-center justify-center"
-                style={{
-                  background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(37, 99, 235, 0.1))',
-                  border: '1px solid rgba(59, 130, 246, 0.2)'
-                }}>
-                  <CheckBadgeIcon className="w-6 h-6 text-lydian-primary" />
-                </div>
-                <h3 className="text-xl font-bold text-lydian-text-inverse">Rezervasyon Koşulları</h3>
-              </div>
-              <ul className="space-y-2 text-sm text-lydian-text-dim">
-                <li className="flex items-start gap-2">
-                  <CheckBadgeIcon className="w-4 h-4 mt-0.5 text-green-500 flex-shrink-0" />
-                  <span>Ücretsiz iptal: Check-in'den 48 saat öncesine kadar</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckBadgeIcon className="w-4 h-4 mt-0.5 text-green-500 flex-shrink-0" />
-                  <span>Rezervasyon onayı: Anlık e-posta ve SMS bildirimi</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckBadgeIcon className="w-4 h-4 mt-0.5 text-green-500 flex-shrink-0" />
-                  <span>Fiyat garantisi: Rezervasyon anındaki fiyat geçerlidir</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckBadgeIcon className="w-4 h-4 mt-0.5 text-green-500 flex-shrink-0" />
-                  <span>Değişiklik: Rezervasyon tarihlerini değiştirme hakkı</span>
-                </li>
-              </ul>
+              className="text-center p-6 bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10"
+            >
+              <Home className="w-12 h-12 mx-auto mb-3 text-blue-400" />
+              <div className="text-3xl font-bold text-white mb-1">{antalyaRentals.length}+</div>
+              <div className="text-gray-400">Özellik</div>
             </motion.div>
 
-            {/* Payment & Security */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              viewport={{ once: true }}
-              className="space-y-4">
-
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 rounded-lg flex items-center justify-center"
-                style={{
-                  background: 'linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(22, 163, 74, 0.1))',
-                  border: '1px solid rgba(34, 197, 94, 0.2)'
-                }}>
-                  <CheckBadgeIcon className="w-6 h-6 text-lydian-success" />
-                </div>
-                <h3 className="text-xl font-bold text-lydian-text-inverse">Ödeme & Güvenlik</h3>
-              </div>
-              <ul className="space-y-2 text-sm text-lydian-text-dim">
-                <li className="flex items-start gap-2">
-                  <CheckBadgeIcon className="w-4 h-4 mt-0.5 text-green-500 flex-shrink-0" />
-                  <span>SSL sertifikalı güvenli ödeme altyapısı</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckBadgeIcon className="w-4 h-4 mt-0.5 text-green-500 flex-shrink-0" />
-                  <span>Tüm kredi kartları ve kripto para kabul edilir</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckBadgeIcon className="w-4 h-4 mt-0.5 text-green-500 flex-shrink-0" />
-                  <span>3D Secure doğrulama ile ekstra güvenlik</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckBadgeIcon className="w-4 h-4 mt-0.5 text-green-500 flex-shrink-0" />
-                  <span>Kişisel verileriniz KVKK kapsamında korunur</span>
-                </li>
-              </ul>
+              className="text-center p-6 bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10"
+            >
+              <TrendingUp className="w-12 h-12 mx-auto mb-3 text-green-400" />
+              <div className="text-3xl font-bold text-white mb-1">%2</div>
+              <div className="text-gray-400">Daha Ucuz</div>
             </motion.div>
 
-            {/* Support & Help */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
               viewport={{ once: true }}
-              className="space-y-4">
+              transition={{ delay: 0.2 }}
+              className="text-center p-6 bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10"
+            >
+              <Star className="w-12 h-12 mx-auto mb-3 text-yellow-400" />
+              <div className="text-3xl font-bold text-white mb-1">4.8+</div>
+              <div className="text-gray-400">Ortalama Puan</div>
+            </motion.div>
 
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 rounded-lg flex items-center justify-center"
-                style={{
-                  background: 'linear-gradient(135deg, rgba(255, 33, 77, 0.1), rgba(255, 106, 69, 0.1))',
-                  border: '1px solid rgba(255, 33, 77, 0.2)'
-                }}>
-                  <UserGroupIcon className="w-6 h-6" style={{ color: '#FF214D' }} />
-                </div>
-                <h3 className="text-xl font-bold text-lydian-text-inverse">Destek & Yardım</h3>
-              </div>
-              <ul className="space-y-2 text-sm text-lydian-text-dim">
-                <li className="flex items-start gap-2">
-                  <CheckBadgeIcon className="w-4 h-4 mt-0.5 text-green-500 flex-shrink-0" />
-                  <span>7/24 Türkçe canlı destek hizmeti</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckBadgeIcon className="w-4 h-4 mt-0.5 text-green-500 flex-shrink-0" />
-                  <span>AI destekli seyahat danışmanlığı</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckBadgeIcon className="w-4 h-4 mt-0.5 text-green-500 flex-shrink-0" />
-                  <span>Sorun çözümünde %100 memnuniyet garantisi</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckBadgeIcon className="w-4 h-4 mt-0.5 text-green-500 flex-shrink-0" />
-                  <span>WhatsApp ve e-posta ile hızlı iletişim</span>
-                </li>
-              </ul>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3 }}
+              className="text-center p-6 bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10"
+            >
+              <Shield className="w-12 h-12 mx-auto mb-3 text-purple-400" />
+              <div className="text-3xl font-bold text-white mb-1">100%</div>
+              <div className="text-gray-400">Güvenli Ödeme</div>
             </motion.div>
           </div>
-
-          {/* Additional Info */}
-          <div className="mt-12 p-6 rounded-xl border-2"
-          style={{
-            backgroundColor: 'rgba(249, 250, 251, 0.5)',
-            borderColor: '#E5E7EB'
-          }}>
-            <p className="text-sm text-lydian-text-dim text-center">
-              <strong className="font-bold text-lydian-text-inverse">Önemli Bilgi:</strong> Travel LyDian,
-              AI destekli blockchain tabanlı güvenli rezervasyon sistemi ile kiralık mülklerinizi güvence altına alır.
-              Tüm rezervasyonlarınız anında onaylanır ve blockchain ağında kayıt altına alınır.
-              Detaylı bilgi için{' '}
-              <Link href="/support" className="font-semibold hover:underline" style={{ color: '#FF214D' }}>
-                destek merkezimize
-              </Link>
-              {' '}başvurabilirsiniz.
-            </p>
-          </div>
-        </section>
-      </div>
-    </>);
-
-};
-
-// Property Card Component
-interface PropertyCardProps {
-  property: RentalProperty;
-  isFavorite: boolean;
-  onToggleFavorite: () => void;
-  index: number;
-}
-
-const PropertyCard: React.FC<PropertyCardProps> = ({
-  property,
-  isFavorite,
-  onToggleFavorite,
-  index
-}) => {
-  // Calculate savings using base price comparison
-  const competitorAvgPrice = 0; // We'll calculate this from the original rental data if available
-  const savings = competitorAvgPrice > 0 ? Math.round(competitorAvgPrice - property.basePrice) : 0;
-  const savingsPercentage = savings > 0 && competitorAvgPrice > 0 ? Math.round(savings / competitorAvgPrice * 100) : 0;
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: index * 0.05 }}
-      className="group bg-lydian-bg-hover rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 overflow-hidden">
-
-      <Link href={`/rentals/${property.slug}`}>
-        {/* Image */}
-        <div className="relative h-64 overflow-hidden">
-          <img
-            src={property.images[0] || 'https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=800&h=600&fit=crop'}
-            alt={property.title}
-            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
-
-
-          {/* Primary Badge - Priority System: Featured > Superhost > Instant Book */}
-          <div className="absolute top-3 left-3 z-10">
-            {property.isFeatured ?
-            <span className="px-3 py-1 bg-gradient-to-r from-yellow-400 to-orange-400 text-lydian-text-inverse text-xs font-bold rounded-full shadow-lg flex items-center gap-1 backdrop-blur-sm">
-                <FireIcon className="w-3 h-3" />
-                Öne Çıkan
-              </span> :
-            property.hostSuperhost ?
-            <span className="px-3 py-1 bg-gradient-to-r from-purple-500 to-pink-500 text-lydian-text-inverse text-xs font-bold rounded-full shadow-lg flex items-center gap-1 backdrop-blur-sm">
-                <CheckBadgeIcon className="w-3 h-3" />
-                Superhost
-              </span> :
-            property.instantBook ?
-            <span className="px-3 py-1 bg-gradient-to-r from-green-500 to-emerald-500 text-lydian-text-inverse text-xs font-bold rounded-full shadow-lg flex items-center gap-1 backdrop-blur-sm">
-                <BoltIcon className="w-3 h-3" />
-                Anında Rezervasyon
-              </span> :
-            null}
-          </div>
-
-          {/* Favorite Button */}
-          <button
-            onClick={(e) => {
-              e.preventDefault();
-              onToggleFavorite();
-            }}
-            className="absolute top-3 right-3 w-10 h-10 bg-lydian-bg/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform">
-
-            {isFavorite ?
-            <HeartSolidIcon className="w-5 h-5 text-lydian-error" /> :
-
-            <HeartIcon className="w-5 h-5 text-lydian-text-muted" />
-            }
-          </button>
-
-          {/* Price Savings Badge */}
-          {savings > 0 &&
-          <div className="absolute bottom-3 right-3 bg-lydian-primary text-lydian-text-inverse px-3 py-1.5 rounded-lg shadow-lg">
-              <p className="text-xs font-semibold">%{savingsPercentage} İndirim</p>
-              <p className="text-xs opacity-90">{savings.toLocaleString('tr-TR')} ₺ Tasarruf</p>
-            </div>
-          }
         </div>
+      </NeoSection>
 
-        {/* Content */}
-        <div className="p-5">
-          {/* Location */}
-          <div className="flex items-center gap-2 text-sm text-lydian-text-dim mb-2">
-            <MapPinIcon className="w-4 h-4" />
-            <span>
-              {property.district}, {property.city}
-            </span>
+      {/* Filter Bar */}
+      <div className="sticky top-20 z-30 bg-gray-900/95 backdrop-blur-xl border-b border-white/10 shadow-xl">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-4">
+            <div className="flex items-center gap-3 text-gray-300">
+              <Filter className="w-5 h-5" />
+              <span className="font-medium">{filteredProperties.length} özellik bulundu</span>
+            </div>
+
+            {/* Region Filter */}
+            <div className="flex flex-wrap gap-2">
+              {regions.slice(0, 5).map((region) => (
+                <button
+                  key={region.value}
+                  onClick={() => setSelectedRegion(region.value)}
+                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
+                    selectedRegion === region.value
+                      ? 'bg-gradient-to-r from-blue-500 to-cyan-500 text-white shadow-lg'
+                      : 'bg-white/5 text-gray-300 hover:bg-white/10 border border-white/10'
+                  }`}
+                >
+                  {region.label}
+                </button>
+              ))}
+            </div>
+
+            {/* Advanced Filters Toggle */}
+            <button
+              onClick={() => setShowFilters(!showFilters)}
+              className="px-6 py-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-lg font-medium shadow-lg hover:shadow-xl transition-all"
+            >
+              <Filter className="w-4 h-4 inline mr-2" />
+              Gelişmiş Filtreler
+            </button>
           </div>
 
-          {/* Title */}
-          <h3 className="text-lg font-bold text-lydian-text-inverse mb-3 line-clamp-2 group-hover:text-lydian-primary transition-colors">
-            {property.title}
-          </h3>
+          {/* Advanced Filters Panel */}
+          {showFilters && (
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: 'auto', opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              className="mt-4 p-6 bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10"
+            >
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {/* Price Range */}
+                <div>
+                  <label className="block text-sm font-medium text-gray-300 mb-2">
+                    Fiyat Aralığı (₺/gece)
+                  </label>
+                  <div className="flex items-center gap-3">
+                    <input
+                      type="number"
+                      value={priceRange[0]}
+                      onChange={(e) => setPriceRange([Number(e.target.value), priceRange[1]])}
+                      className="w-full px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      placeholder="Min"
+                    />
+                    <span className="text-gray-400">-</span>
+                    <input
+                      type="number"
+                      value={priceRange[1]}
+                      onChange={(e) => setPriceRange([priceRange[0], Number(e.target.value)])}
+                      className="w-full px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      placeholder="Max"
+                    />
+                  </div>
+                </div>
 
-          {/* Property Info */}
-          <div className="flex items-center gap-4 text-sm text-lydian-text-dim mb-4">
-            <span>{property.guests} misafir</span>
-            <span>•</span>
-            <span>{property.bedrooms} yatak odası</span>
-            <span>•</span>
-            <span>{property.bathrooms} banyo</span>
-          </div>
+                {/* Min Guests */}
+                <div>
+                  <label className="block text-sm font-medium text-gray-300 mb-2">
+                    Minimum Misafir Sayısı
+                  </label>
+                  <select
+                    value={minGuests}
+                    onChange={(e) => setMinGuests(Number(e.target.value))}
+                    className="w-full px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  >
+                    {[1, 2, 4, 6, 8, 10].map((num) => (
+                      <option key={num} value={num}>{num}+ Kişi</option>
+                    ))}
+                  </select>
+                </div>
 
-          {/* Features */}
-          <div className="flex flex-wrap gap-2 mb-4">
-            {property.pool &&
-            <span className="px-2 py-1 bg-lydian-primary-lighter text-lydian-primary-dark text-xs rounded-lg">Havuz</span>
-            }
-            {property.wifi &&
-            <span className="px-2 py-1 bg-purple-50 text-purple-700 text-xs rounded-lg">WiFi</span>
-            }
-            {property.parking &&
-            <span className="px-2 py-1 bg-lydian-success-lighter text-lydian-success-text text-xs rounded-lg">Otopark</span>
-            }
-            {property.seaview &&
-            <span className="px-2 py-1 bg-cyan-50 text-cyan-700 text-xs rounded-lg">Deniz Manzarası</span>
-            }
-          </div>
-
-          {/* Rating & Reviews */}
-          <div className="flex items-center justify-between mb-4">
-            <div className="flex items-center gap-2">
-              <div className="flex items-center gap-1 bg-gradient-to-r from-lydian-primary to-orange-500 text-lydian-text-inverse px-2 py-1 rounded-lg">
-                <StarSolidIcon className="w-4 h-4" />
-                <span className="font-bold text-sm">{property.overall.toFixed(1)}</span>
+                {/* Region Dropdown */}
+                <div>
+                  <label className="block text-sm font-medium text-gray-300 mb-2">
+                    Bölge
+                  </label>
+                  <select
+                    value={selectedRegion}
+                    onChange={(e) => setSelectedRegion(e.target.value)}
+                    className="w-full px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  >
+                    {regions.map((region) => (
+                      <option key={region.value} value={region.value}>
+                        {region.label}
+                      </option>
+                    ))}
+                  </select>
+                </div>
               </div>
-              <span className="text-sm text-lydian-text-dim">
-                ({property.reviewCount} değerlendirme)
-              </span>
-            </div>
+
+              <div className="flex justify-end mt-4">
+                <button
+                  onClick={() => {
+                    setSearchQuery('');
+                    setSelectedType('all');
+                    setSelectedRegion('all');
+                    setPriceRange([0, 10000]);
+                    setMinGuests(1);
+                  }}
+                  className="px-6 py-2 bg-white/5 hover:bg-white/10 text-gray-300 rounded-lg font-medium transition-all border border-white/10"
+                >
+                  Filtreleri Temizle
+                </button>
+              </div>
+            </motion.div>
+          )}
+        </div>
+      </div>
+
+      {/* Properties Grid */}
+      <NeoSection className="py-16 bg-gradient-to-b from-gray-950 to-gray-900">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {filteredProperties.map((property, index) => (
+              <FuturisticCard
+                key={property.id}
+                image={property.images[0]}
+                title={property.name.tr}
+                description={property.shortDescription.tr}
+                price={property.pricing.perNight}
+                badge={property.propertyType === 'villa' ? 'Villa' : property.propertyType === 'penthouse' ? 'Penthouse' : 'Özellik'}
+                badges={[
+                  `${property.capacity.guests} Kişi`,
+                  `${property.capacity.bedrooms} Yatak Odası`,
+                  property.features.pool ? 'Havuz' : '',
+                ].filter(Boolean)}
+                rating={property.rating}
+                reviews={property.reviewCount}
+                metadata={[
+                  { label: 'Bölge', value: regions.find(r => r.value === property.region)?.label || property.region },
+                  { label: 'Tür', value: property.propertyType },
+                ]}
+                onClick={() => handleReserve(property)}
+                onFavorite={() => toggleFavorite(property.id)}
+                categoryColor="from-blue-500 to-cyan-500"
+              />
+            ))}
           </div>
 
-          {/* Price */}
-          <div className="flex items-end justify-between pt-4 border-t border-lydian-border-light">
-            <div>
-              {savings > 0 &&
-              <p className="text-xs text-lydian-text-muted line-through">
-                  {(property.basePrice + savings).toLocaleString('tr-TR')} ₺
-                </p>
-              }
-              <p className="text-2xl font-bold text-lydian-text-inverse">
-                {property.basePrice.toLocaleString('tr-TR')} ₺
-                <span className="text-sm font-normal text-lydian-text-dim"> / gece</span>
+          {filteredProperties.length === 0 && (
+            <div className="text-center py-16">
+              <Home className="w-24 h-24 mx-auto mb-6 text-gray-600" />
+              <h3 className="text-2xl font-bold text-white mb-3">Özellik Bulunamadı</h3>
+              <p className="text-gray-400 mb-6">
+                Arama kriterlerinize uygun özellik bulunamadı. Filtreleri değiştirerek tekrar deneyin.
               </p>
+              <button
+                onClick={() => {
+                  setSearchQuery('');
+                  setSelectedType('all');
+                  setSelectedRegion('all');
+                  setPriceRange([0, 10000]);
+                  setMinGuests(1);
+                }}
+                className="px-8 py-3 bg-gradient-to-r from-blue-500 to-cyan-500 text-white rounded-xl font-medium shadow-lg hover:shadow-xl transition-all"
+              >
+                Filtreleri Temizle
+              </button>
             </div>
-            <span className="text-xs text-lydian-text-muted uppercase font-semibold">{property.type}</span>
+          )}
+        </div>
+      </NeoSection>
+
+      {/* Why Choose Us Section */}
+      <NeoSection className="py-16 bg-gradient-to-b from-gray-900 to-gray-950">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-4xl font-bold mb-4 bg-gradient-to-r from-blue-400 via-cyan-400 to-purple-400 bg-clip-text text-transparent"
+            >
+              Neden Travel.Ailydian.com?
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="text-xl text-gray-400"
+            >
+              Rakiplerimizden daha avantajlı konaklama deneyimi
+            </motion.p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="p-8 bg-gradient-to-br from-blue-500/10 to-cyan-500/10 backdrop-blur-xl rounded-2xl border border-blue-500/20"
+            >
+              <TrendingUp className="w-16 h-16 mb-4 text-blue-400" />
+              <h3 className="text-2xl font-bold text-white mb-3">%2 Daha Ucuz</h3>
+              <p className="text-gray-400">
+                Airbnb, Booking.com ve Vrbo'dan %2 daha uygun fiyatlarla aynı özellikleri sunuyoruz.
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="p-8 bg-gradient-to-br from-purple-500/10 to-pink-500/10 backdrop-blur-xl rounded-2xl border border-purple-500/20"
+            >
+              <Shield className="w-16 h-16 mb-4 text-purple-400" />
+              <h3 className="text-2xl font-bold text-white mb-3">Güvenli Ödeme</h3>
+              <p className="text-gray-400">
+                256-bit SSL şifreleme ile güvenli ödeme. Para iade garantisi.
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="p-8 bg-gradient-to-br from-green-500/10 to-emerald-500/10 backdrop-blur-xl rounded-2xl border border-green-500/20"
+            >
+              <Award className="w-16 h-16 mb-4 text-green-400" />
+              <h3 className="text-2xl font-bold text-white mb-3">Doğrulanmış Özellikler</h3>
+              <p className="text-gray-400">
+                Tüm özellikler ekibimiz tarafından doğrulanmış ve onaylanmıştır.
+              </p>
+            </motion.div>
           </div>
         </div>
-      </Link>
-    </motion.div>);
-
+      </NeoSection>
+    </>
+  );
 };
 
 export default RentalsPage;

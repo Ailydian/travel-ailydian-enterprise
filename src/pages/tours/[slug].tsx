@@ -50,11 +50,10 @@ import {
 import SimplifiedHeader from '@/components/layout/SimplifiedHeader';
 import { allComprehensiveTours, ComprehensiveTour } from '@/data/marmaris-bodrum-cesme-tours';
 import { antalyaTours } from '@/data/antalya-tours';
-import { legacyTours } from '../tours';
 import logger from '../../lib/logger';
 
-// Combine all tours: Antalya + Other regions + Legacy tours
-const allTours = [...antalyaTours, ...allComprehensiveTours, ...legacyTours];
+// Combine all tours: Antalya + Other regions
+const allTours = [...antalyaTours, ...allComprehensiveTours];
 
 // Get tour data by slug from real data
 const getTourBySlug = (slug: string) => {
