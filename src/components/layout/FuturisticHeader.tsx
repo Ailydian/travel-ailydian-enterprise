@@ -30,6 +30,7 @@ import {
 import { useCart } from '../../context/CartContext';
 import LanguageSwitcher from '../LanguageSwitcher';
 import { LyDianLogo } from '../branding/LyDianLogo';
+import { ThemeToggle } from '../theme/ThemeToggle';
 
 export const FuturisticHeader: React.FC = () => {
   const router = useRouter();
@@ -149,6 +150,9 @@ export const FuturisticHeader: React.FC = () => {
 
                 <Sparkles className="absolute -top-1 -right-1 w-4 h-4 text-yellow-400" />
               </motion.button>
+
+              {/* Theme Toggle */}
+              <ThemeToggle variant="icon" className="hidden sm:block" />
 
               {/* Favorites */}
               <FloatingOrb icon={Heart} href="/favorites" color="#EC4899" badge={0} />

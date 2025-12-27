@@ -8,6 +8,7 @@ import { ReactQueryProvider } from '../lib/react-query'
 import { CartProvider } from '../context/CartContext'
 import { VoiceCommandProvider } from '../context/VoiceCommandContext'
 import { ToastProvider } from '../context/ToastContext'
+import { ThemeProvider } from '../context/ThemeContext'
 import { PageLoader } from '../components/ui/PageLoader'
 import LyDianEcosystemFooter from '../components/LyDianEcosystemFooter'
 import RTLWrapper from '../components/RTLWrapper'
@@ -71,10 +72,11 @@ function MyApp({
   return (
     <SessionProvider session={session}>
       <ReactQueryProvider>
-        <ToastProvider position="top-right" maxToasts={3}>
-          <CartProvider>
-            <VoiceCommandProvider>
-              <RTLWrapper>
+        <ThemeProvider defaultTheme="dark">
+          <ToastProvider position="top-right" maxToasts={3}>
+            <CartProvider>
+              <VoiceCommandProvider>
+                <RTLWrapper>
                 <Head>
                   <meta name="google-site-verification" content="TV3lQxcrnOK813q8VrYGAMvVd1kgaPxuRJ5pmWpXrbQ" />
                   <meta name="msvalidate.01" content="2F0B3D24686DAB121DC7BA5429119029" />
@@ -89,10 +91,11 @@ function MyApp({
                   theme="light"
                   position="above-footer"
                 />
-              </RTLWrapper>
-            </VoiceCommandProvider>
-          </CartProvider>
-        </ToastProvider>
+                </RTLWrapper>
+              </VoiceCommandProvider>
+            </CartProvider>
+          </ToastProvider>
+        </ThemeProvider>
       </ReactQueryProvider>
     </SessionProvider>
   )
