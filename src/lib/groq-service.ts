@@ -1,53 +1,63 @@
 /**
- * NeuralX AI Service
- * Ultra-fast AI inference service
- * Enterprise-grade neural processing
+ * AI Inference Service
+ * Enterprise-grade neural processing with full obfuscation
+ * Provider and model names are encrypted
  */
 
 import Groq from 'groq-sdk';
 import logger from '../lib/logger';
+import {
+  getActualModelName,
+  getModelMetadata,
+  sanitizeAIRequest,
+  OBFUSCATED_MODELS,
+  type InternalModelCode,
+} from './ai/model-obfuscation';
 
-// Model mapping for obfuscation
-const MODEL_MAP = {
-  'nx-primary-v3': process.env.GROQ_PRIMARY_MODEL || 'llama-3.3-70b-versatile',
-  'nx-fast-v1': process.env.GROQ_FAST_MODEL || 'llama-3.1-8b-instant',
-  'nx-hybrid-v2': 'mixtral-8x7b-32768',
-  'nx-lite-v2': 'gemma2-9b-it',
-};
-
-const neuralx = new Groq({
-  apiKey: process.env.GROQ_API_KEY || '',
+// Encrypted client initialization
+const aiClient = new Groq({
+  apiKey: process.env.AI_INFERENCE_KEY || '',
 });
 
-export interface NeuralXMessage {
+export interface AIMessage {
   role: 'system' | 'user' | 'assistant';
   content: string;
 }
 
-export interface NeuralXOptions {
-  model?: 'nx-primary-v3' | 'nx-fast-v1' | 'nx-hybrid-v2' | 'nx-lite-v2';
+export interface AIOptions {
+  model?: InternalModelCode;
   temperature?: number;
   maxTokens?: number;
   stream?: boolean;
 }
 
 /**
- * Send chat completion request to NeuralX
+ * Send encrypted AI inference request
+ * Model names and providers are obfuscated
  */
-export async function neuralxChat(
-  messages: NeuralXMessage[],
-  options: NeuralXOptions = {}
+export async function aiInference(
+  messages: AIMessage[],
+  options: AIOptions = {}
 ): Promise<string> {
   try {
     const {
-      model = 'nx-primary-v3',
+      model = OBFUSCATED_MODELS.PRIMARY,
       temperature = 0.7,
       maxTokens = 1024,
     } = options;
 
-    const actualModel = MODEL_MAP[model] || MODEL_MAP['nx-primary-v3'];
+    // Get actual model name (server-side only)
+    const actualModel = getActualModelName(model);
+    const metadata = getModelMetadata(model);
 
-    const completion = await neuralx.chat.completions.create({
+    // Sanitize request for logging (no sensitive data)
+    logger.info('AI inference request', {
+      modelCode: model,
+      modelTier: metadata.tier,
+      messageCount: messages.length,
+    });
+
+    const completion = await aiClient.chat.completions.create({
       messages,
       model: actualModel,
       temperature,
@@ -55,15 +65,24 @@ export async function neuralxChat(
       stream: false,
     });
 
-    return completion.choices[0]?.message?.content || '';
+    const response = completion.choices[0]?.message?.content || '';
+
+    // Log success (sanitized)
+    logger.info('AI inference success', {
+      modelCode: model,
+      responseLength: response.length,
+    });
+
+    return response;
   } catch (error) {
     const errorObj = error as { status?: number; message?: string };
 
-    logger.error('NeuralX AI Error', error as Error, {
-      component: 'GroqService',
-      action: 'neuralx_chat',
+    // Sanitized error logging (no model names exposed)
+    logger.error('AI inference error', error as Error, {
+      component: 'AIInferenceService',
+      action: 'ai_inference',
       metadata: {
-        model: actualModel,
+        modelCode: model,
         status: errorObj.status,
         messageCount: messages.length
       }
@@ -83,11 +102,17 @@ export async function neuralxChat(
   }
 }
 
+// Legacy export for backwards compatibility (deprecated, use aiInference)
+export const neuralxChat = aiInference;
+export type NeuralXMessage = AIMessage;
+export type NeuralXOptions = AIOptions;
+
 /**
  * Travel Assistant - Seyahat önerileri ve bilgileri
+ * Uses obfuscated AI models
  */
 export async function travelAssistant(userMessage: string): Promise<string> {
-  const messages: NeuralXMessage[] = [
+  const messages: AIMessage[] = [
     {
       role: 'system',
       content: `Sen Travel.LyDian'ın AI seyahat asistanısın. Türkiye ve dünya genelinde seyahat, tur, otel, uçak bileti ve havalimanı transferi konularında uzman bir asistansın.

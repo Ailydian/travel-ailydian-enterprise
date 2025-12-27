@@ -1,0 +1,215 @@
+/**
+ * OPTIMIZED PRISMA INDEXES
+ * Additional performance indexes for high-traffic queries
+ * Database Architect Agent Implementation
+ *
+ * USAGE: Copy these @@index directives to your existing schema.prisma models
+ */
+
+// ==========================================
+// USER MODEL OPTIMIZATIONS
+// ==========================================
+
+// Add to User model:
+// @@index([email, isActive]) // Login queries
+// @@index([membershipType, loyaltyPoints]) // Tier filtering
+// @@index([createdAt]) // Analytics queries
+// @@index([lastLoginAt]) // Activity tracking
+// @@index([preferredLanguage, preferredCurrency]) // Localization
+
+// ==========================================
+// BOOKING MODEL OPTIMIZATIONS
+// ==========================================
+
+// Add to Booking model:
+// @@index([userId, status]) // User booking history
+// @@index([bookingType, status]) // Type-specific queries
+// @@index([paymentStatus]) // Payment tracking
+// @@index([checkInDate, checkOutDate]) // Date range queries
+// @@index([createdAt]) // Recent bookings
+// @@index([userId, createdAt]) // User timeline
+
+// ==========================================
+// HOTEL MODEL OPTIMIZATIONS
+// ==========================================
+
+// Add to Hotel model:
+// @@index([city, stars]) // City + star filtering
+// @@index([region, rating]) // Region + rating filtering
+// @@index([priceMin, priceMax]) // Price range queries
+// @@index([isFeatured, rating]) // Featured listings
+// @@index([city, stars, rating]) // Composite filter (most common)
+// @@index([isActive, city, stars]) // Active city hotels by star
+
+// ==========================================
+// TOUR PACKAGE MODEL OPTIMIZATIONS
+// ==========================================
+
+// Add to TourPackage model:
+// @@index([destination, rating]) // Destination + rating
+// @@index([category, rating]) // Category browse
+// @@index([priceAdult]) // Price sorting
+// @@index([destination, priceAdult]) // Destination + price
+// @@index([isActive, isFeatured, rating]) // Featured active tours
+// @@index([difficultyLevel, rating]) // Difficulty filtering
+
+// ==========================================
+// CAR RENTAL MODEL OPTIMIZATIONS
+// ==========================================
+
+// Add to CarRental model:
+// @@index([category, pricePerDay]) // Category + price
+// @@index([brand, model]) // Brand/model search
+// @@index([transmission, fuelType]) // Feature filtering
+// @@index([isActive, isAvailable]) // Availability check
+// @@index([seats, pricePerDay]) // Capacity + price
+
+// ==========================================
+// PRICE HISTORY MODEL OPTIMIZATIONS
+// ==========================================
+
+// Add to PriceHistory model:
+// @@index([entityType, entityId, createdAt(sort: Desc)]) // Latest price
+// @@index([travelDate, entityType]) // Date-based queries
+// @@index([checkInDate, checkOutDate, entityId]) // Hotel availability
+
+// ==========================================
+// PRICE ALERT MODEL OPTIMIZATIONS
+// ==========================================
+
+// Add to PriceAlert model:
+// @@index([userId, status]) // User active alerts
+// @@index([entityType, entityId, status]) // Entity alerts
+// @@index([status, expiresAt]) // Alert processing
+// @@index([lastNotifiedAt]) // Notification scheduling
+
+// ==========================================
+// TRANSFER BOOKING MODEL OPTIMIZATIONS
+// ==========================================
+
+// Add to TransferBooking model:
+// @@index([userId, status]) // User transfer history
+// @@index([pickupDate, status]) // Date + status filtering
+// @@index([transferId, pickupDate]) // Transfer availability
+// @@index([createdAt]) // Recent bookings
+
+// ==========================================
+// REVIEW MODEL OPTIMIZATIONS
+// ==========================================
+
+// Add to Review model:
+// @@index([entityType, entityId, rating]) // Entity reviews by rating
+// @@index([userId, createdAt]) // User review timeline
+// @@index([isVerified, rating]) // Verified reviews
+// @@index([entityType, entityId, createdAt(sort: Desc)]) // Recent reviews
+
+// ==========================================
+// TRIP MODEL OPTIMIZATIONS
+// ==========================================
+
+// Add to Trip model:
+// @@index([userId, status]) // User trips by status
+// @@index([startDate, endDate]) // Date range filtering
+// @@index([destination, startDate]) // Destination trips
+// @@index([isPublic, createdAt]) // Public trip feed
+// @@index([isCollaborative, shareCode]) // Collaborative trips
+
+// ==========================================
+// SEO LANDING PAGE MODEL OPTIMIZATIONS
+// ==========================================
+
+// Add to SEOLandingPage model:
+// @@index([slug]) // Already exists
+// @@index([pageType, category]) // Type filtering
+// @@index([isActive, isIndexed]) // Active indexed pages
+// @@index([category, isActive]) // Category pages
+
+// ==========================================
+// NOTIFICATION MODEL OPTIMIZATIONS
+// ==========================================
+
+// Add to Notification model:
+// @@index([userId, isRead]) // Unread notifications
+// @@index([userId, createdAt(sort: Desc)]) // User notification feed
+// @@index([type, userId]) // Type-specific notifications
+
+// ==========================================
+// PARTNER LISTING MODEL OPTIMIZATIONS
+// ==========================================
+
+// Add to PartnerListing model:
+// @@index([partnerId, status]) // Partner dashboard
+// @@index([listingType, isActive]) // Active listings by type
+// @@index([partnerId, views(sort: Desc)]) // Top performing
+
+// ==========================================
+// COMPOSITE INDEX RECOMMENDATIONS
+// ==========================================
+
+/**
+ * MOST IMPORTANT COMPOSITE INDEXES FOR PERFORMANCE
+ *
+ * 1. Hotel Search (city + stars + price + rating):
+ *    @@index([city, stars, priceMin, rating(sort: Desc)])
+ *
+ * 2. Tour Search (destination + category + rating):
+ *    @@index([destination, category, rating(sort: Desc)])
+ *
+ * 3. User Bookings (userId + status + date):
+ *    @@index([userId, status, createdAt(sort: Desc)])
+ *
+ * 4. Price Tracking (entityType + entityId + date):
+ *    @@index([entityType, entityId, createdAt(sort: Desc)])
+ *
+ * 5. Reviews (entityType + entityId + verified + rating):
+ *    @@index([entityType, entityId, isVerified, rating(sort: Desc)])
+ */
+
+// ==========================================
+// INDEX OPTIMIZATION NOTES
+// ==========================================
+
+/**
+ * POSTGRESQL TIPS:
+ *
+ * 1. B-Tree Indexes (default):
+ *    - Perfect for equality and range queries
+ *    - Used by all the indexes above
+ *
+ * 2. Partial Indexes (for isActive = true):
+ *    - Not directly supported by Prisma
+ *    - Use raw SQL migration:
+ *      CREATE INDEX idx_active_hotels ON hotels(city, stars) WHERE is_active = true;
+ *
+ * 3. Expression Indexes:
+ *    - For case-insensitive search:
+ *      CREATE INDEX idx_hotel_name_lower ON hotels(LOWER(name));
+ *
+ * 4. Full-Text Search:
+ *    - Add tsvector column:
+ *      ALTER TABLE hotels ADD COLUMN search_vector tsvector;
+ *      CREATE INDEX idx_hotel_search ON hotels USING gin(search_vector);
+ *
+ * 5. EXPLAIN ANALYZE:
+ *    - Test query performance:
+ *      EXPLAIN ANALYZE SELECT * FROM hotels WHERE city = 'Istanbul' AND stars = 5;
+ */
+
+// ==========================================
+// CONNECTION POOLING CONFIGURATION
+// ==========================================
+
+/**
+ * DATABASE_URL FORMAT:
+ *
+ * postgresql://USER:PASSWORD@HOST:PORT/DATABASE?schema=public&connection_limit=20&pool_timeout=10
+ *
+ * RECOMMENDED SETTINGS:
+ * - connection_limit: 20 (for serverless: 5-10)
+ * - pool_timeout: 10 (seconds)
+ * - connect_timeout: 5
+ *
+ * VERCEL/SERVERLESS:
+ * - Use Prisma Data Proxy or connection pooling
+ * - Supabase Pooler: connection_limit=10
+ */
