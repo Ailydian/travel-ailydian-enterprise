@@ -2,10 +2,11 @@
  * 🎴 FUTURISTIC PRODUCT CARD 2025
  * 3D Tilt + Liquid Morphing + Shine Effect + Spatial Depth
  * Awwwards Winner Aesthetics + Apple Vision Pro Principles
+ * ⚡ Mobile Optimized: Lazy Loading + Reduced Animations + Performance Boost
  */
 
 import React, { useRef, useState, useEffect } from 'react';
-import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
+import { motion, useMotionValue, useSpring, useTransform, useReducedMotion } from 'framer-motion';
 import Image from 'next/image';
 import { Heart, ShoppingCart, Eye, Sparkles, Star, MapPin, Clock, Users } from 'lucide-react';
 
@@ -53,16 +54,28 @@ export const FuturisticCard: React.FC<FuturisticCardProps> = ({
 }) => {
   const cardRef = useRef<HTMLDivElement>(null);
   const [isHovered, setIsHovered] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const shouldReduceMotion = useReducedMotion();
 
-  // 3D Tilt Effect
+  // Detect mobile on mount
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  // 3D Tilt Effect - Disabled on mobile for performance
   const x = useMotionValue(0);
   const y = useMotionValue(0);
 
   const mouseXSpring = useSpring(x, { stiffness: 300, damping: 30 });
   const mouseYSpring = useSpring(y, { stiffness: 300, damping: 30 });
 
-  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ['12deg', '-12deg']);
-  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ['-12deg', '12deg']);
+  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], isMobile ? ['0deg', '0deg'] : ['12deg', '-12deg']);
+  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], isMobile ? ['0deg', '0deg'] : ['-12deg', '12deg']);
 
   // Shine effect position
   const shineX = useTransform(mouseXSpring, [-0.5, 0.5], ['0%', '100%']);
@@ -101,19 +114,19 @@ export const FuturisticCard: React.FC<FuturisticCardProps> = ({
         rotateY,
         transformStyle: 'preserve-3d',
       }}
-      animate={{
+      animate={!isMobile && !shouldReduceMotion ? {
         scale: [1, 1.01, 1],
-      }}
+      } : {}}
       transition={{
         duration: 4,
         repeat: Infinity,
         ease: 'easeInOut',
       }}
-      whileHover={{ scale: 1.03 }}
+      whileHover={!isMobile ? { scale: 1.03 } : {}}
       className="relative group cursor-pointer"
     >
-      {/* Main Card Container - Dark Glassmorphism for Vision Pro */}
-      <div className="relative bg-white/5 backdrop-blur-3xl rounded-3xl overflow-hidden border border-white/10 shadow-[0_20px_60px_-15px_rgba(102,126,234,0.3)]">
+      {/* Main Card Container - Dark Glassmorphism for Vision Pro - Mobile Optimized */}
+      <div className="relative bg-white/5 backdrop-blur-xl md:backdrop-blur-3xl rounded-2xl md:rounded-3xl overflow-hidden border border-white/10 shadow-[0_8px_24px_-8px_rgba(102,126,234,0.2)] md:shadow-[0_20px_60px_-15px_rgba(102,126,234,0.3)]">
 
         {/* Animated Shine Effect - PERMANENT */}
         <motion.div
@@ -163,9 +176,9 @@ export const FuturisticCard: React.FC<FuturisticCardProps> = ({
           </motion.div>
         )}
 
-        {/* Image Container with Depth */}
+        {/* Image Container with Depth - Mobile Responsive */}
         {image && (
-          <div className="relative h-64 overflow-hidden group/image">
+          <div className="relative h-48 sm:h-56 md:h-64 overflow-hidden group/image">
             <motion.div
               style={{
                 transform: 'translateZ(40px)',
@@ -180,23 +193,27 @@ export const FuturisticCard: React.FC<FuturisticCardProps> = ({
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                loading="lazy"
+                placeholder="blur"
+                blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg=="
+                quality={isMobile ? 75 : 90}
               />
             </motion.div>
 
             {/* Enhanced Gradient Overlay - Better text visibility */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
 
-            {/* Image Title Overlay */}
+            {/* Image Title Overlay - Mobile Responsive */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="absolute bottom-0 left-0 right-0 p-6 z-10"
+              className="absolute bottom-0 left-0 right-0 p-3 sm:p-4 md:p-6 z-10"
             >
-              <h3 className="text-2xl font-bold text-white mb-2 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)] line-clamp-2">
+              <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-1 sm:mb-2 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)] line-clamp-2">
                 {title}
               </h3>
               {description && (
-                <p className="text-sm text-white/90 drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)] line-clamp-1">
+                <p className="text-xs sm:text-sm text-white/90 drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)] line-clamp-1">
                   {description}
                 </p>
               )}
@@ -215,8 +232,8 @@ export const FuturisticCard: React.FC<FuturisticCardProps> = ({
           </div>
         )}
 
-        {/* Content */}
-        <div className="relative p-6" style={{ transform: 'translateZ(20px)' }}>
+        {/* Content - Mobile Responsive Padding */}
+        <div className="relative p-4 sm:p-5 md:p-6" style={{ transform: 'translateZ(20px)' }}>
           {/* Title - Only show if no image */}
           {!image && (
             <h3 className="text-xl font-bold text-white mb-2 line-clamp-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-pink-400 transition-all">
@@ -284,19 +301,19 @@ export const FuturisticCard: React.FC<FuturisticCardProps> = ({
           {/* Children (custom content) */}
           {children}
 
-          {/* Price Section with Dynamic Glow */}
-          <div className="flex items-center justify-between pt-4 border-t border-white/10">
+          {/* Price Section with Dynamic Glow - Mobile Responsive */}
+          <div className="flex items-center justify-between pt-3 sm:pt-4 border-t border-white/10">
             <div className="relative">
               {oldPrice && (
-                <span className="text-sm text-gray-200 line-through block mb-1">
+                <span className="text-xs sm:text-sm text-gray-200 line-through block mb-0.5 sm:mb-1">
                   {oldPrice}
                 </span>
               )}
               <motion.div
-                whileHover={{ scale: 1.05 }}
+                whileHover={!isMobile ? { scale: 1.05 } : {}}
                 className="relative inline-block"
               >
-                <span className="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-orange-400">
+                <span className="text-xl sm:text-2xl md:text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-orange-400">
                   {price}
                 </span>
                 {/* Glow Effect */}
@@ -317,8 +334,8 @@ export const FuturisticCard: React.FC<FuturisticCardProps> = ({
           </div>
         </div>
 
-        {/* Floating Action Buttons - Spatial Ornaments */}
-        <div className="absolute bottom-6 right-6 flex gap-2 z-30">
+        {/* Floating Action Buttons - Spatial Ornaments - Mobile Responsive */}
+        <div className="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 md:bottom-6 md:right-6 flex gap-1.5 sm:gap-2 z-30">
           {/* Favorite */}
           {onFavorite && (
             <FloatingActionButton
@@ -396,6 +413,11 @@ const FloatingActionButton: React.FC<FloatingActionButtonProps> = ({
   tooltip,
 }) => {
   const [showTooltip, setShowTooltip] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    setIsMobile(window.innerWidth < 768);
+  }, []);
 
   const handleClick = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -406,12 +428,12 @@ const FloatingActionButton: React.FC<FloatingActionButtonProps> = ({
     <div className="relative">
       <motion.button
         onClick={handleClick}
-        onHoverStart={() => setShowTooltip(true)}
+        onHoverStart={() => !isMobile && setShowTooltip(true)}
         onHoverEnd={() => setShowTooltip(false)}
-        whileHover={{ scale: 1.15, y: -5 }}
+        whileHover={!isMobile ? { scale: 1.15, y: -5 } : {}}
         whileTap={{ scale: 0.9 }}
         className={`
-          w-12 h-12 rounded-2xl backdrop-blur-xl border-2 flex items-center justify-center shadow-lg
+          w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 rounded-xl sm:rounded-2xl backdrop-blur-xl border-2 flex items-center justify-center shadow-lg
           transition-all duration-300
           ${active
             ? 'bg-gradient-to-br border-white/40'
@@ -423,7 +445,7 @@ const FloatingActionButton: React.FC<FloatingActionButtonProps> = ({
         }}
       >
         <Icon
-          className={`w-5 h-5 ${active ? 'fill-current' : ''}`}
+          className={`w-4 h-4 sm:w-4.5 sm:h-4.5 md:w-5 md:h-5 ${active ? 'fill-current' : ''}`}
           style={{ color: active ? color : '#fff' }}
         />
 

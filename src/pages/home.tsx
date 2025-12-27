@@ -285,15 +285,6 @@ const GetYourGuideStyleHome: React.FC = () => {
         >
           <div className="flex flex-wrap gap-4">
             <FuturisticButton
-              variant="primary"
-              size="xl"
-              onClick={() => router.push('/tours')}
-              icon={<Compass className="w-6 h-6" />}
-              iconPosition="left"
-            >
-              Destinasyonları Keşfet
-            </FuturisticButton>
-            <FuturisticButton
               variant="glass"
               size="xl"
               onClick={() => router.push('/ai-planner')}
