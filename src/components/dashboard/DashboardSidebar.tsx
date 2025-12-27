@@ -14,13 +14,13 @@ import {
   Plus,
   Building2,
   ChevronLeft,
-  ChevronRight,
-} from 'lucide-react';
+  ChevronRight } from
+'lucide-react';
 
 interface NavigationItem {
   name: string;
   href: string;
-  icon: React.ComponentType<{ className?: string }>;
+  icon: React.ComponentType<{className?: string;}>;
 }
 
 interface DashboardSidebarProps {
@@ -31,14 +31,14 @@ interface DashboardSidebarProps {
 }
 
 const navigationItems: NavigationItem[] = [
-  { name: 'Overview', href: '/dashboard', icon: Home },
-  { name: 'Bookings', href: '/dashboard/bookings', icon: Calendar },
-  { name: 'Calendar', href: '/dashboard/calendar', icon: Calendar },
-  { name: 'Earnings', href: '/dashboard/earnings', icon: DollarSign },
-  { name: 'Messages', href: '/dashboard/messages', icon: MessageSquare },
-  { name: 'Analytics', href: '/dashboard/analytics', icon: BarChart3 },
-  { name: 'Settings', href: '/dashboard/settings', icon: Settings },
-];
+{ name: 'Overview', href: '/dashboard', icon: Home },
+{ name: 'Bookings', href: '/dashboard/bookings', icon: Calendar },
+{ name: 'Calendar', href: '/dashboard/calendar', icon: Calendar },
+{ name: 'Earnings', href: '/dashboard/earnings', icon: DollarSign },
+{ name: 'Messages', href: '/dashboard/messages', icon: MessageSquare },
+{ name: 'Analytics', href: '/dashboard/analytics', icon: BarChart3 },
+{ name: 'Settings', href: '/dashboard/settings', icon: Settings }];
+
 
 /**
  * DashboardSidebar - Navigation sidebar component
@@ -62,7 +62,7 @@ const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
   isOpen,
   isCollapsed,
   onClose,
-  onToggleCollapse,
+  onToggleCollapse
 }) => {
   const pathname = usePathname();
   const [propertyDropdownOpen, setPropertyDropdownOpen] = useState(false);
@@ -70,10 +70,10 @@ const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
 
   // Mock properties - replace with actual data
   const properties = [
-    'Sunset Villa',
-    'Ocean View Apartment',
-    'Mountain Retreat',
-  ];
+  'Sunset Villa',
+  'Ocean View Apartment',
+  'Mountain Retreat'];
+
 
   const isActive = (href: string) => {
     if (href === '/dashboard') {
@@ -87,88 +87,88 @@ const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
       {/* Sidebar - mobile (drawer) and desktop */}
       <aside
         className={`
-          fixed inset-y-0 left-0 z-50 flex flex-col bg-white/5 border-r border-white/10
+          fixed inset-y-0 left-0 z-50 flex flex-col bg-lydian-glass-dark border-r border-lydian-border-light/10
           transition-all duration-300 ease-in-out
           ${isOpen ? 'translate-x-0' : '-translate-x-full'}
           lg:translate-x-0 lg:static
           ${isCollapsed ? 'lg:w-20' : 'lg:w-64'}
           w-64
         `}
-        aria-label="Sidebar navigation"
-      >
+        aria-label="Sidebar navigation">
+
         {/* Logo and brand */}
-        <div className="flex h-16 items-center justify-between px-4 border-b border-white/10">
-          {!isCollapsed && (
-            <Link href="/" className="flex items-center space-x-2">
-              <Building2 className="h-8 w-8 text-blue-600" />
-              <span className="text-xl font-bold text-white">LyDian</span>
+        <div className="flex h-16 items-center justify-between px-4 border-b border-lydian-border-light/10">
+          {!isCollapsed &&
+          <Link href="/" className="flex items-center space-x-2">
+              <Building2 className="h-8 w-8 text-lydian-primary" />
+              <span className="text-xl font-bold text-lydian-text-inverse">LyDian</span>
             </Link>
-          )}
-          {isCollapsed && (
-            <Link href="/" className="flex items-center justify-center w-full">
-              <Building2 className="h-8 w-8 text-blue-600" />
+          }
+          {isCollapsed &&
+          <Link href="/" className="flex items-center justify-center w-full">
+              <Building2 className="h-8 w-8 text-lydian-primary" />
             </Link>
-          )}
+          }
 
           {/* Desktop collapse toggle */}
           <button
             onClick={onToggleCollapse}
-            className="hidden lg:block p-1.5 rounded-md hover:bg-white/10 text-gray-400"
-            aria-label={isCollapsed ? 'Expand sidebar' : 'Collapse sidebar'}
-          >
-            {isCollapsed ? (
-              <ChevronRight className="h-5 w-5" />
-            ) : (
-              <ChevronLeft className="h-5 w-5" />
-            )}
+            className="hidden lg:block p-1.5 rounded-md hover:bg-lydian-glass-dark-medium text-lydian-text-muted"
+            aria-label={isCollapsed ? 'Expand sidebar' : 'Collapse sidebar'}>
+
+            {isCollapsed ?
+            <ChevronRight className="h-5 w-5" /> :
+
+            <ChevronLeft className="h-5 w-5" />
+            }
           </button>
         </div>
 
         {/* Property switcher */}
-        {!isCollapsed && (
-          <div className="px-3 py-4 border-b border-white/10">
+        {!isCollapsed &&
+        <div className="px-3 py-4 border-b border-lydian-border-light/10">
             <div className="relative">
               <button
-                onClick={() => setPropertyDropdownOpen(!propertyDropdownOpen)}
-                className="w-full flex items-center justify-between px-3 py-2 text-sm font-medium text-white bg-white/5 rounded-lg hover:bg-white/10 transition-colors"
-                aria-expanded={propertyDropdownOpen}
-                aria-haspopup="true"
-              >
+              onClick={() => setPropertyDropdownOpen(!propertyDropdownOpen)}
+              className="w-full flex items-center justify-between px-3 py-2 text-sm font-medium text-lydian-text-inverse bg-lydian-glass-dark rounded-lg hover:bg-lydian-glass-dark-medium transition-colors"
+              aria-expanded={propertyDropdownOpen}
+              aria-haspopup="true">
+
                 <div className="flex items-center space-x-2 flex-1 min-w-0">
-                  <Building2 className="h-5 w-5 text-gray-400 flex-shrink-0" />
+                  <Building2 className="h-5 w-5 text-lydian-text-muted flex-shrink-0" />
                   <span className="truncate">{selectedProperty}</span>
                 </div>
                 <ChevronDown
-                  className={`h-4 w-4 text-gray-400 transition-transform flex-shrink-0 ${
-                    propertyDropdownOpen ? 'rotate-180' : ''
-                  }`}
-                />
+                className={`h-4 w-4 text-lydian-text-muted transition-transform flex-shrink-0 ${
+                propertyDropdownOpen ? 'rotate-180' : ''}`
+                } />
+
               </button>
 
               {/* Dropdown menu */}
-              {propertyDropdownOpen && (
-                <div className="absolute z-10 mt-2 w-full bg-white/5 rounded-lg shadow-lg border border-white/10 py-1">
-                  {properties.map((property) => (
-                    <button
-                      key={property}
-                      onClick={() => {
-                        setSelectedProperty(property);
-                        setPropertyDropdownOpen(false);
-                      }}
-                      className={`w-full text-left px-4 py-2 text-sm hover:bg-white/5 transition-colors ${
-                        selectedProperty === property
-                          ? 'text-blue-600 font-medium bg-blue-50'
-                          : 'text-gray-200'
-                      }`}
-                    >
+              {propertyDropdownOpen &&
+            <div className="absolute z-10 mt-2 w-full bg-lydian-glass-dark rounded-lg shadow-lg border border-lydian-border-light/10 py-1">
+                  {properties.map((property) =>
+              <button
+                key={property}
+                onClick={() => {
+                  setSelectedProperty(property);
+                  setPropertyDropdownOpen(false);
+                }}
+                className={`w-full text-left px-4 py-2 text-sm hover:bg-lydian-glass-dark transition-colors ${
+                selectedProperty === property ?
+                'text-blue-600 font-medium bg-blue-50' :
+                'text-gray-200'}`
+                }>
+
                       {property}
                     </button>
-                  ))}
-                </div>
               )}
+                </div>
+            }
             </div>
           </div>
-        )}
+        }
 
         {/* Navigation items */}
         <nav className="flex-1 overflow-y-auto px-3 py-4" aria-label="Main navigation">
@@ -191,40 +191,40 @@ const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
                       flex items-center px-3 py-2.5 rounded-lg text-sm font-medium transition-colors
                       ${isCollapsed ? 'justify-center' : 'space-x-3'}
                       ${
-                        active
-                          ? 'bg-blue-50 text-blue-700'
-                          : 'text-gray-200 hover:bg-white/10 hover:text-white'
-                      }
-                    `}
+                    active ?
+                    'bg-blue-50 text-blue-700' :
+                    'text-gray-200 hover:bg-white/10 hover:text-white'}
+                    `
+                    }
                     aria-current={active ? 'page' : undefined}
-                    title={isCollapsed ? item.name : undefined}
-                  >
+                    title={isCollapsed ? item.name : undefined}>
+
                     <Icon className={`h-5 w-5 flex-shrink-0 ${active ? 'text-blue-700' : 'text-gray-400'}`} />
                     {!isCollapsed && <span>{item.name}</span>}
                   </Link>
-                </li>
-              );
+                </li>);
+
             })}
           </ul>
         </nav>
 
         {/* Add Property button */}
-        <div className="px-3 py-4 border-t border-white/10">
+        <div className="px-3 py-4 border-t border-lydian-border-light/10">
           <button
             className={`
-              w-full flex items-center justify-center px-4 py-2.5 bg-blue-600 text-white rounded-lg
-              hover:bg-blue-700 transition-colors font-medium text-sm
+              w-full flex items-center justify-center px-4 py-2.5 bg-lydian-primary text-lydian-text-inverse rounded-lg
+              hover:bg-lydian-primary-dark transition-colors font-medium text-sm
               ${isCollapsed ? 'px-2' : 'space-x-2'}
             `}
-            aria-label="Add new property"
-          >
+            aria-label="Add new property">
+
             <Plus className="h-5 w-5" />
             {!isCollapsed && <span>Add Property</span>}
           </button>
         </div>
       </aside>
-    </>
-  );
+    </>);
+
 };
 
 export default DashboardSidebar;

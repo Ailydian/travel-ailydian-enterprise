@@ -18,8 +18,8 @@ import {
   CheckCircle,
   Clock,
   MapPin,
-  Home
-} from 'lucide-react';
+  Home } from
+'lucide-react';
 import { motion } from 'framer-motion';
 import { Line, Bar } from 'react-chartjs-2';
 import logger from '../../../lib/logger';
@@ -33,8 +33,8 @@ import {
   Title,
   Tooltip,
   Legend,
-  Filler
-} from 'chart.js';
+  Filler } from
+'chart.js';
 
 // Register ChartJS components
 ChartJS.register(
@@ -126,7 +126,7 @@ const PropertyOwnerDashboard: React.FC = () => {
           setLastSyncTime(new Date(data.lastSync));
         }
       } catch (error) {
-        logger.error('Failed to fetch dashboard data:', error as Error, {component:'Dashboard'});
+        logger.error('Failed to fetch dashboard data:', error as Error, { component: 'Dashboard' });
       } finally {
         setLoading(false);
       }
@@ -146,19 +146,19 @@ const PropertyOwnerDashboard: React.FC = () => {
 
   // Revenue chart data
   const revenueChartData = {
-    labels: revenueHistory.map(d => d.date),
+    labels: revenueHistory.map((d) => d.date),
     datasets: [
-      {
-        label: 'Gelir (₺)',
-        data: revenueHistory.map(d => d.revenue),
-        fill: true,
-        backgroundColor: 'rgba(147, 51, 234, 0.1)',
-        borderColor: 'rgba(147, 51, 234, 1)',
-        tension: 0.4,
-        pointRadius: 4,
-        pointBackgroundColor: 'rgba(147, 51, 234, 1)'
-      }
-    ]
+    {
+      label: 'Gelir (₺)',
+      data: revenueHistory.map((d) => d.revenue),
+      fill: true,
+      backgroundColor: 'rgba(147, 51, 234, 0.1)',
+      borderColor: 'rgba(147, 51, 234, 1)',
+      tension: 0.4,
+      pointRadius: 4,
+      pointBackgroundColor: 'rgba(147, 51, 234, 1)'
+    }]
+
   };
 
   const revenueChartOptions = {
@@ -187,42 +187,42 @@ const PropertyOwnerDashboard: React.FC = () => {
 
   if (loading || !stats) {
     return (
-      <div className="min-h-screen bg-white/5 flex items-center justify-center">
+      <div className="min-h-screen bg-lydian-glass-dark flex items-center justify-center">
         <div className="text-center">
           <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-purple-600 mx-auto mb-4"></div>
-          <p className="text-gray-300">Yükleniyor...</p>
+          <p className="text-lydian-text-dim">Yükleniyor...</p>
         </div>
-      </div>
-    );
+      </div>);
+
   }
 
   return (
-    <div className="min-h-screen bg-white/5">
+    <div className="min-h-screen bg-lydian-glass-dark">
       {/* Header */}
-      <div className="bg-white/5 border-b border-gray-200 sticky top-0 z-50">
+      <div className="bg-lydian-glass-dark border-b border-lydian-border sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center gap-4">
               <Home className="h-6 w-6 text-purple-600" />
-              <h1 className="text-xl font-bold text-white">
+              <h1 className="text-xl font-bold text-lydian-text-inverse">
                 Property Dashboard
               </h1>
 
               {/* Sync Status */}
               <div className="flex items-center gap-2 text-sm">
-                {syncStatus === 'synced' && (
-                  <>
+                {syncStatus === 'synced' &&
+                <>
                     <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                    <span className="text-green-600 font-medium">Senkronize</span>
+                    <span className="text-lydian-success font-medium">Senkronize</span>
                   </>
-                )}
-                {syncStatus === 'syncing' && (
-                  <>
+                }
+                {syncStatus === 'syncing' &&
+                <>
                     <div className="w-2 h-2 bg-yellow-500 rounded-full animate-pulse"></div>
-                    <span className="text-yellow-600 font-medium">Güncelleniyor...</span>
+                    <span className="text-lydian-warning font-medium">Güncelleniyor...</span>
                   </>
-                )}
-                <span className="text-gray-200">
+                }
+                <span className="text-lydian-text-muted">
                   {lastSyncTime.toLocaleTimeString('tr-TR')}
                 </span>
               </div>
@@ -230,18 +230,18 @@ const PropertyOwnerDashboard: React.FC = () => {
 
             <div className="flex items-center gap-4">
               {/* Notifications */}
-              <button className="relative p-2 text-gray-300 hover:bg-white/10 rounded-lg">
+              <button className="relative p-2 text-lydian-text-dim hover:bg-lydian-glass-dark-medium rounded-lg">
                 <Bell className="h-5 w-5" />
-                {notifications.filter(n => !n.read).length > 0 && (
-                  <span className="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full"></span>
-                )}
+                {notifications.filter((n) => !n.read).length > 0 &&
+                <span className="absolute top-1 right-1 w-2 h-2 bg-lydian-error rounded-full"></span>
+                }
               </button>
 
               {/* Settings */}
               <button
                 onClick={() => router.push('/partner/property/settings')}
-                className="p-2 text-gray-300 hover:bg-white/10 rounded-lg"
-              >
+                className="p-2 text-lydian-text-dim hover:bg-lydian-glass-dark-medium rounded-lg">
+
                 <Settings className="h-5 w-5" />
               </button>
             </div>
@@ -256,15 +256,15 @@ const PropertyOwnerDashboard: React.FC = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="bg-gradient-to-br from-purple-500 to-purple-700 rounded-xl p-6 text-white shadow-lg"
-          >
+            className="bg-gradient-to-br from-purple-500 to-purple-700 rounded-xl p-6 text-lydian-text-inverse shadow-lg">
+
             <div className="flex items-center justify-between mb-4">
               <DollarSign className="h-8 w-8 opacity-80" />
-              {stats.revenue.growth > 0 ? (
-                <TrendingUp className="h-5 w-5 text-green-300" />
-              ) : (
-                <TrendingDown className="h-5 w-5 text-red-300" />
-              )}
+              {stats.revenue.growth > 0 ?
+              <TrendingUp className="h-5 w-5 text-green-300" /> :
+
+              <TrendingDown className="h-5 w-5 text-red-300" />
+              }
             </div>
             <p className="text-purple-200 text-sm mb-1">Bu Ay Gelir</p>
             <p className="text-3xl font-bold mb-2">
@@ -272,8 +272,8 @@ const PropertyOwnerDashboard: React.FC = () => {
             </p>
             <div className="flex items-center gap-2">
               <span className={`text-sm font-semibold ${
-                stats.revenue.growth > 0 ? 'text-green-300' : 'text-red-300'
-              }`}>
+              stats.revenue.growth > 0 ? 'text-green-300' : 'text-red-300'}`
+              }>
                 {stats.revenue.growth > 0 ? '+' : ''}{stats.revenue.growth}%
               </span>
               <span className="text-xs text-purple-200">geçen aya göre</span>
@@ -285,19 +285,19 @@ const PropertyOwnerDashboard: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="bg-white/5 rounded-xl p-6 shadow-md"
-          >
+            className="bg-lydian-glass-dark rounded-xl p-6 shadow-md">
+
             <div className="flex items-center justify-between mb-4">
-              <Calendar className="h-8 w-8 text-blue-600" />
-              <span className="bg-blue-100 text-blue-600 text-xs font-bold px-2 py-1 rounded-full">
+              <Calendar className="h-8 w-8 text-lydian-primary" />
+              <span className="bg-lydian-primary-light text-lydian-primary text-xs font-bold px-2 py-1 rounded-full">
                 Yeni
               </span>
             </div>
-            <p className="text-gray-300 text-sm mb-1">Yaklaşan Rezervasyonlar</p>
-            <p className="text-3xl font-bold text-white mb-2">
+            <p className="text-lydian-text-dim text-sm mb-1">Yaklaşan Rezervasyonlar</p>
+            <p className="text-3xl font-bold text-lydian-text-inverse mb-2">
               {stats.bookings.upcoming}
             </p>
-            <p className="text-xs text-gray-200">
+            <p className="text-xs text-lydian-text-muted">
               {stats.bookings.pending} beklemede
             </p>
           </motion.div>
@@ -307,26 +307,26 @@ const PropertyOwnerDashboard: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="bg-white/5 rounded-xl p-6 shadow-md"
-          >
+            className="bg-lydian-glass-dark rounded-xl p-6 shadow-md">
+
             <div className="flex items-center justify-between mb-4">
-              <Users className="h-8 w-8 text-green-600" />
+              <Users className="h-8 w-8 text-lydian-success" />
               <div className="text-right">
-                <p className="text-xs text-gray-200">Hedef</p>
-                <p className="text-sm font-bold text-white">
+                <p className="text-xs text-lydian-text-muted">Hedef</p>
+                <p className="text-sm font-bold text-lydian-text-inverse">
                   %{stats.occupancy.target}
                 </p>
               </div>
             </div>
-            <p className="text-gray-300 text-sm mb-1">Doluluk Oranı</p>
-            <p className="text-3xl font-bold text-white mb-2">
+            <p className="text-lydian-text-dim text-sm mb-1">Doluluk Oranı</p>
+            <p className="text-3xl font-bold text-lydian-text-inverse mb-2">
               %{stats.occupancy.current}
             </p>
-            <div className="w-full bg-gray-200 rounded-full h-2">
+            <div className="w-full bg-lydian-bg-active rounded-full h-2">
               <div
-                className="bg-green-600 h-2 rounded-full"
-                style={{ width: `${stats.occupancy.current}%` }}
-              ></div>
+                className="bg-lydian-success h-2 rounded-full"
+                style={{ width: `${stats.occupancy.current}%` }}>
+              </div>
             </div>
           </motion.div>
 
@@ -335,17 +335,17 @@ const PropertyOwnerDashboard: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="bg-white/5 rounded-xl p-6 shadow-md"
-          >
+            className="bg-lydian-glass-dark rounded-xl p-6 shadow-md">
+
             <div className="flex items-center justify-between mb-4">
               <MousePointer className="h-8 w-8 text-orange-600" />
               <Star className="h-5 w-5 text-yellow-500 fill-yellow-500" />
             </div>
-            <p className="text-gray-300 text-sm mb-1">Dönüşüm Oranı</p>
-            <p className="text-3xl font-bold text-white mb-2">
+            <p className="text-lydian-text-dim text-sm mb-1">Dönüşüm Oranı</p>
+            <p className="text-3xl font-bold text-lydian-text-inverse mb-2">
               %{stats.analytics.conversionRate.toFixed(1)}
             </p>
-            <p className="text-xs text-gray-200">
+            <p className="text-xs text-lydian-text-muted">
               {stats.analytics.views.toLocaleString()} görüntüleme
             </p>
           </motion.div>
@@ -354,11 +354,11 @@ const PropertyOwnerDashboard: React.FC = () => {
         {/* Revenue Chart & AI Pricing */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
           {/* Revenue Chart */}
-          <div className="lg:col-span-2 bg-white/5 rounded-xl p-6 shadow-md">
+          <div className="lg:col-span-2 bg-lydian-glass-dark rounded-xl p-6 shadow-md">
             <div className="flex items-center justify-between mb-6">
               <div>
-                <h3 className="text-lg font-bold text-white">Gelir Trendi</h3>
-                <p className="text-sm text-gray-200">Son 30 gün</p>
+                <h3 className="text-lg font-bold text-lydian-text-inverse">Gelir Trendi</h3>
+                <p className="text-sm text-lydian-text-muted">Son 30 gün</p>
               </div>
               <BarChart3 className="h-5 w-5 text-purple-600" />
             </div>
@@ -366,10 +366,10 @@ const PropertyOwnerDashboard: React.FC = () => {
             <Line data={revenueChartData} options={revenueChartOptions} />
 
             {/* Forecast */}
-            <div className="mt-6 pt-6 border-t border-gray-200">
+            <div className="mt-6 pt-6 border-t border-lydian-border">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm text-gray-100 mb-1">
+                  <p className="text-sm text-lydian-text-dim mb-1">
                     AI Tahmini (Sonraki 3 Ay)
                   </p>
                   <p className="text-2xl font-bold text-purple-600">
@@ -385,7 +385,7 @@ const PropertyOwnerDashboard: React.FC = () => {
           <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-xl p-6 shadow-md border border-purple-200">
             <div className="flex items-center gap-2 mb-4">
               <Sparkles className="h-5 w-5 text-purple-600" />
-              <h3 className="text-lg font-bold text-white">
+              <h3 className="text-lg font-bold text-lydian-text-inverse">
                 AI Fiyat Önerisi
               </h3>
             </div>
@@ -393,43 +393,43 @@ const PropertyOwnerDashboard: React.FC = () => {
             {/* Current vs Suggested */}
             <div className="space-y-4 mb-6">
               <div>
-                <p className="text-xs text-gray-100 mb-1">Mevcut Fiyat</p>
-                <p className="text-2xl font-bold text-white">
+                <p className="text-xs text-lydian-text-dim mb-1">Mevcut Fiyat</p>
+                <p className="text-2xl font-bold text-lydian-text-inverse">
                   ₺{stats.pricing.currentPrice.toLocaleString()}
                 </p>
               </div>
 
               <div className="flex items-center gap-2">
                 <div className="flex-1 h-px bg-gray-300"></div>
-                <TrendingUp className="h-4 w-4 text-green-600" />
+                <TrendingUp className="h-4 w-4 text-lydian-success" />
                 <div className="flex-1 h-px bg-gray-300"></div>
               </div>
 
               <div>
-                <p className="text-xs text-gray-100 mb-1">Önerilen Fiyat</p>
-                <p className="text-3xl font-bold text-green-600">
+                <p className="text-xs text-lydian-text-dim mb-1">Önerilen Fiyat</p>
+                <p className="text-3xl font-bold text-lydian-success">
                   ₺{stats.pricing.suggestedPrice.toLocaleString()}
                 </p>
-                <p className="text-xs text-green-600 font-semibold mt-1">
+                <p className="text-xs text-lydian-success font-semibold mt-1">
                   +%{stats.pricing.optimizationOpportunity} potansiyel artış
                 </p>
               </div>
             </div>
 
             {/* Competitor Comparison */}
-            <div className="bg-white/5 rounded-lg p-4 mb-4">
-              <p className="text-xs text-gray-100 mb-2">Rakip Ortalaması</p>
-              <p className="text-xl font-bold text-white">
+            <div className="bg-lydian-glass-dark rounded-lg p-4 mb-4">
+              <p className="text-xs text-lydian-text-dim mb-2">Rakip Ortalaması</p>
+              <p className="text-xl font-bold text-lydian-text-inverse">
                 ₺{stats.pricing.competitorAverage.toLocaleString()}
               </p>
             </div>
 
             {/* Apply Button */}
-            <button className="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-4 rounded-lg transition-colors">
+            <button className="w-full bg-purple-600 hover:bg-purple-700 text-lydian-text-inverse font-bold py-3 px-4 rounded-lg transition-colors">
               Önerilen Fiyatı Uygula
             </button>
 
-            <p className="text-xs text-gray-200 mt-3 text-center">
+            <p className="text-xs text-lydian-text-muted mt-3 text-center">
               AI, rakip fiyatları ve talep trendlerini analiz eder
             </p>
           </div>
@@ -438,72 +438,72 @@ const PropertyOwnerDashboard: React.FC = () => {
         {/* Analytics & Notifications */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {/* Detailed Analytics */}
-          <div className="bg-white/5 rounded-xl p-6 shadow-md">
-            <h3 className="text-lg font-bold text-white mb-4">
+          <div className="bg-lydian-glass-dark rounded-xl p-6 shadow-md">
+            <h3 className="text-lg font-bold text-lydian-text-inverse mb-4">
               Detaylı Analitik
             </h3>
 
             <div className="space-y-4">
               {/* Views */}
-              <div className="flex items-center justify-between p-3 bg-white/5 rounded-lg">
+              <div className="flex items-center justify-between p-3 bg-lydian-glass-dark rounded-lg">
                 <div className="flex items-center gap-3">
-                  <Eye className="h-5 w-5 text-blue-600" />
+                  <Eye className="h-5 w-5 text-lydian-primary" />
                   <div>
-                    <p className="text-sm font-semibold text-white">
+                    <p className="text-sm font-semibold text-lydian-text-inverse">
                       Görüntüleme
                     </p>
-                    <p className="text-xs text-gray-200">Bu ay</p>
+                    <p className="text-xs text-lydian-text-muted">Bu ay</p>
                   </div>
                 </div>
-                <p className="text-xl font-bold text-white">
+                <p className="text-xl font-bold text-lydian-text-inverse">
                   {stats.analytics.views.toLocaleString()}
                 </p>
               </div>
 
               {/* Clicks */}
-              <div className="flex items-center justify-between p-3 bg-white/5 rounded-lg">
+              <div className="flex items-center justify-between p-3 bg-lydian-glass-dark rounded-lg">
                 <div className="flex items-center gap-3">
-                  <MousePointer className="h-5 w-5 text-green-600" />
+                  <MousePointer className="h-5 w-5 text-lydian-success" />
                   <div>
-                    <p className="text-sm font-semibold text-white">
+                    <p className="text-sm font-semibold text-lydian-text-inverse">
                       Tıklama
                     </p>
-                    <p className="text-xs text-gray-200">Rezervasyon sayfası</p>
+                    <p className="text-xs text-lydian-text-muted">Rezervasyon sayfası</p>
                   </div>
                 </div>
-                <p className="text-xl font-bold text-white">
+                <p className="text-xl font-bold text-lydian-text-inverse">
                   {stats.analytics.clicks.toLocaleString()}
                 </p>
               </div>
 
               {/* Average Stay */}
-              <div className="flex items-center justify-between p-3 bg-white/5 rounded-lg">
+              <div className="flex items-center justify-between p-3 bg-lydian-glass-dark rounded-lg">
                 <div className="flex items-center gap-3">
                   <Clock className="h-5 w-5 text-orange-600" />
                   <div>
-                    <p className="text-sm font-semibold text-white">
+                    <p className="text-sm font-semibold text-lydian-text-inverse">
                       Ortalama Konaklama
                     </p>
-                    <p className="text-xs text-gray-200">Gece sayısı</p>
+                    <p className="text-xs text-lydian-text-muted">Gece sayısı</p>
                   </div>
                 </div>
-                <p className="text-xl font-bold text-white">
+                <p className="text-xl font-bold text-lydian-text-inverse">
                   {stats.analytics.averageStayLength.toFixed(1)}
                 </p>
               </div>
 
               {/* Repeat Guests */}
-              <div className="flex items-center justify-between p-3 bg-white/5 rounded-lg">
+              <div className="flex items-center justify-between p-3 bg-lydian-glass-dark rounded-lg">
                 <div className="flex items-center gap-3">
                   <Star className="h-5 w-5 text-purple-600" />
                   <div>
-                    <p className="text-sm font-semibold text-white">
+                    <p className="text-sm font-semibold text-lydian-text-inverse">
                       Tekrar Gelen Misafir
                     </p>
-                    <p className="text-xs text-gray-200">Sadakat oranı</p>
+                    <p className="text-xs text-lydian-text-muted">Sadakat oranı</p>
                   </div>
                 </div>
-                <p className="text-xl font-bold text-white">
+                <p className="text-xl font-bold text-lydian-text-inverse">
                   %{stats.analytics.repeatGuestRate}
                 </p>
               </div>
@@ -511,64 +511,64 @@ const PropertyOwnerDashboard: React.FC = () => {
           </div>
 
           {/* Recent Notifications */}
-          <div className="bg-white/5 rounded-xl p-6 shadow-md">
+          <div className="bg-lydian-glass-dark rounded-xl p-6 shadow-md">
             <div className="flex items-center justify-between mb-4">
-              <h3 className="text-lg font-bold text-white">Bildirimler</h3>
+              <h3 className="text-lg font-bold text-lydian-text-inverse">Bildirimler</h3>
               <button className="text-sm text-purple-600 font-medium hover:text-purple-700">
                 Tümünü Gör
               </button>
             </div>
 
             <div className="space-y-3 max-h-96 overflow-y-auto">
-              {notifications.slice(0, 6).map((notification) => (
-                <div
-                  key={notification.id}
-                  className={`p-4 rounded-lg border-l-4 ${
-                    notification.urgent
-                      ? 'bg-red-50 border-red-500'
-                      : notification.read
-                      ? 'bg-white/5 border-gray-300'
-                      : 'bg-blue-50 border-blue-500'
-                  }`}
-                >
+              {notifications.slice(0, 6).map((notification) =>
+              <div
+                key={notification.id}
+                className={`p-4 rounded-lg border-l-4 ${
+                notification.urgent ?
+                'bg-red-50 border-red-500' :
+                notification.read ?
+                'bg-white/5 border-gray-300' :
+                'bg-blue-50 border-blue-500'}`
+                }>
+
                   <div className="flex items-start gap-3">
-                    {notification.type === 'booking' && (
-                      <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
-                    )}
-                    {notification.type === 'cancellation' && (
-                      <AlertCircle className="h-5 w-5 text-red-600 flex-shrink-0 mt-0.5" />
-                    )}
-                    {notification.type === 'review' && (
-                      <Star className="h-5 w-5 text-yellow-600 flex-shrink-0 mt-0.5" />
-                    )}
-                    {notification.type === 'message' && (
-                      <MessageSquare className="h-5 w-5 text-blue-600 flex-shrink-0 mt-0.5" />
-                    )}
+                    {notification.type === 'booking' &&
+                  <CheckCircle className="h-5 w-5 text-lydian-success flex-shrink-0 mt-0.5" />
+                  }
+                    {notification.type === 'cancellation' &&
+                  <AlertCircle className="h-5 w-5 text-lydian-primary flex-shrink-0 mt-0.5" />
+                  }
+                    {notification.type === 'review' &&
+                  <Star className="h-5 w-5 text-lydian-warning flex-shrink-0 mt-0.5" />
+                  }
+                    {notification.type === 'message' &&
+                  <MessageSquare className="h-5 w-5 text-lydian-primary flex-shrink-0 mt-0.5" />
+                  }
 
                     <div className="flex-1">
-                      <p className="text-sm font-semibold text-white">
+                      <p className="text-sm font-semibold text-lydian-text-inverse">
                         {notification.title}
                       </p>
-                      <p className="text-xs text-gray-100 mt-1">
+                      <p className="text-xs text-lydian-text-dim mt-1">
                         {notification.description}
                       </p>
-                      <p className="text-xs text-gray-200 mt-2">
+                      <p className="text-xs text-lydian-text-muted mt-2">
                         {notification.time}
                       </p>
                     </div>
 
-                    {!notification.read && (
-                      <div className="w-2 h-2 bg-blue-600 rounded-full flex-shrink-0 mt-2"></div>
-                    )}
+                    {!notification.read &&
+                  <div className="w-2 h-2 bg-lydian-primary rounded-full flex-shrink-0 mt-2"></div>
+                  }
                   </div>
                 </div>
-              ))}
+              )}
             </div>
           </div>
         </div>
       </div>
-    </div>
-  );
+    </div>);
+
 };
 
 export default PropertyOwnerDashboard;

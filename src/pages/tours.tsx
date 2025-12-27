@@ -25,8 +25,8 @@ import {
   Globe,
   TrendingUp,
   Zap,
-  Eye
-} from 'lucide-react';
+  Eye } from
+'lucide-react';
 import { useCart } from '../context/CartContext';
 import { FuturisticHeader } from '../components/layout/FuturisticHeader';
 import { allComprehensiveTours as importedComprehensiveTours } from '../data/marmaris-bodrum-cesme-tours';
@@ -39,7 +39,7 @@ import { HorizontalScrollSection } from '../components/scroll/HorizontalScrollSe
 import { AntalyaToursAIAnswer } from '../components/seo/AIAnswerBlock';
 
 // Antalya Tours (16 tours with competitive pricing)
-const antalyaToursFormatted = antalyaTours.map(tour => ({
+const antalyaToursFormatted = antalyaTours.map((tour) => ({
   id: tour.id,
   name: tour.name,
   slug: tour.slug,
@@ -63,14 +63,14 @@ const antalyaToursFormatted = antalyaTours.map(tour => ({
 }));
 
 // Greece Tours (2+ tours with competitive pricing, 8-language support)
-const greeceToursFormatted = greeceTours.map(tour => ({
+const greeceToursFormatted = greeceTours.map((tour) => ({
   id: tour.id,
   name: tour.name.tr, // Default to Turkish, will be handled by i18n later
   slug: tour.slug,
   location: `${tour.city}, Yunanistan`,
   image: tour.images?.hero || tour.images?.gallery?.[0] || 'https://images.unsplash.com/photo-1503152394-c571994fd383?w=800',
   price: Math.round(tour.pricing.travelLyDian * 35), // Convert EUR to TRY (approx €1 = 35 TRY)
-  originalPrice: Math.round((tour.pricing.travelLyDian / (1 - tour.pricing.savingsPercentage / 100)) * 35),
+  originalPrice: Math.round(tour.pricing.travelLyDian / (1 - tour.pricing.savingsPercentage / 100) * 35),
   rating: tour.rating,
   reviews: tour.reviewCount,
   duration: tour.duration,
@@ -87,14 +87,14 @@ const greeceToursFormatted = greeceTours.map(tour => ({
 }));
 
 // Cyprus Tours (2+ tours with competitive pricing, 8-language support)
-const cyprusToursFormatted = cyprusTours.map(tour => ({
+const cyprusToursFormatted = cyprusTours.map((tour) => ({
   id: tour.id,
   name: tour.name.tr,
   slug: tour.slug,
   location: `${tour.city}, Kıbrıs`,
   image: tour.images?.hero || tour.images?.gallery?.[0] || 'https://images.unsplash.com/photo-1534008897995-27a23e859048?w=800',
   price: Math.round(tour.pricing.travelLyDian * 35), // Convert EUR to TRY
-  originalPrice: Math.round((tour.pricing.travelLyDian / (1 - tour.pricing.savingsPercentage / 100)) * 35),
+  originalPrice: Math.round(tour.pricing.travelLyDian / (1 - tour.pricing.savingsPercentage / 100) * 35),
   rating: tour.rating,
   reviews: tour.reviewCount,
   duration: tour.duration,
@@ -111,7 +111,7 @@ const cyprusToursFormatted = cyprusTours.map(tour => ({
 }));
 
 // Premium LyDian Tours - Now with 45+ comprehensive tours from Marmaris, Bodrum, and Çeşme
-const otherRegionTours = importedComprehensiveTours.map(tour => ({
+const otherRegionTours = importedComprehensiveTours.map((tour) => ({
   id: tour.id,
   name: tour.name,
   slug: tour.slug,
@@ -136,394 +136,394 @@ const otherRegionTours = importedComprehensiveTours.map(tour => ({
 
 // Combine all tours: Turkey first, then Greece, then Cyprus
 const allComprehensiveTours = [
-  ...antalyaToursFormatted,
-  ...otherRegionTours,
-  ...greeceToursFormatted,
-  ...cyprusToursFormatted
-];
+...antalyaToursFormatted,
+...otherRegionTours,
+...greeceToursFormatted,
+...cyprusToursFormatted];
+
 
 // Legacy tours for backward compatibility
 const legacyTours = [
-  {
-    id: 1,
-    slug: 'istanbul-buyulu-sehir-turu',
-    name: 'İstanbul Büyülü Şehir Turu',
-    location: 'İstanbul, Türkiye',
-    image: 'https://images.unsplash.com/photo-1541432901042-2d8bd64b4a9b?w=800&h=600&fit=crop',
-    price: 450,
-    originalPrice: 650,
-    rating: 4.8,
-    reviews: 2847,
-    duration: '8 saat',
-    groupSize: '15 kişi',
-    category: 'cultural',
-    type: 'daily',
-    highlights: ['Ayasofya', 'Topkapı Sarayı', 'Kapalıçarşı', 'Sultanahmet'],
-    includes: ['Rehber', 'Ulaşım', 'Müze Biletleri', 'Öğle Yemeği'],
-    description: 'İstanbul\'un tarihi yarımadasında unutulmaz bir gün geçirin. Ayasofya\'nın ihtişamından Topkapı Sarayı\'nın gizlerine kadar.',
-    difficulty: 'Kolay',
-    languages: ['Türkçe', 'İngilizce', 'Almanca'],
-    badge: 'Popüler'
-  },
-  {
-    id: 2,
-    slug: 'kapadokya-balon-ve-doga-turu',
-    name: 'Kapadokya Balon ve Doğa Turu',
-    location: 'Nevşehir, Türkiye',
-    image: 'https://images.unsplash.com/photo-1570939274719-c60ee3bf5cd9?w=800&h=600&fit=crop',
-    price: 1200,
-    originalPrice: 1500,
-    rating: 4.9,
-    reviews: 1856,
-    duration: '2 gün',
-    groupSize: '12 kişi',
-    category: 'adventure',
-    type: 'multi-day',
-    highlights: ['Sıcak Hava Balonu', 'Göreme Açık Hava Müzesi', 'Derinkuyu', 'Avanos'],
-    includes: ['Balon Turu', 'Konaklama', 'Kahvaltı', 'Rehber', 'Ulaşım'],
-    description: 'Peri bacalarının üzerinde unutulmaz balon deneyimi yaşayın. Kapadokya\'nın eşsiz manzaralarını gökyüzünden keşfedin.',
-    difficulty: 'Orta',
-    languages: ['Türkçe', 'İngilizce'],
-    badge: 'En Çok Satan'
-  },
-  {
-    id: 3,
-    slug: 'antalya-antik-kentler-turu',
-    name: 'Antalya Antik Kentler Turu',
-    location: 'Antalya, Türkiye',
-    image: 'https://images.unsplash.com/photo-1568992687947-868a62a9f521?w=800&h=600&fit=crop',
-    price: 320,
-    originalPrice: 420,
-    rating: 4.7,
-    reviews: 1234,
-    duration: '6 saat',
-    groupSize: '20 kişi',
-    category: 'cultural',
-    type: 'daily',
-    highlights: ['Aspendos', 'Perge', 'Side', 'Kaleiçi'],
-    includes: ['Rehber', 'Ulaşım', 'Müze Biletleri'],
-    description: 'Akdeniz\'in antik hazinelerini keşfedin. Aspendos\'un muhteşem tiyatrosundan Side\'nin tarihi limanına.',
-    difficulty: 'Kolay',
-    languages: ['Türkçe', 'İngilizce', 'Rusça'],
-    badge: 'Kültür'
-  },
-  {
-    id: 4,
-    slug: 'fethiye-yamac-parasutu-tekne-turu',
-    name: 'Fethiye Yamaç Paraşütü ve Tekne Turu',
-    location: 'Fethiye, Türkiye',
-    image: 'https://images.unsplash.com/photo-1539650116574-75c0c6d0deeb?w=800&h=600&fit=crop',
-    price: 850,
-    originalPrice: 1000,
-    rating: 4.8,
-    reviews: 967,
-    duration: '1 gün',
-    groupSize: '10 kişi',
-    category: 'adventure',
-    type: 'boat',
-    highlights: ['Babadağ Paraşütü', 'Ölüdeniz', '12 Adalar', 'Butterfly Valley'],
-    includes: ['Paraşüt Uçuşu', 'Tekne Turu', 'Öğle Yemeği', 'Güvenlik Ekipmanları'],
-    description: 'Gökyüzünden ve denizden Fethiye\'nin güzelliklerini görün. Adrenalindolu bir macera sizi bekliyor!',
-    difficulty: 'Zor',
-    languages: ['Türkçe', 'İngilizce'],
-    badge: 'Macera'
-  },
-  {
-    id: 5,
-    slug: 'pamukkale-hierapolis-gunubirlik',
-    name: 'Pamukkale ve Hierapolis Günübirlik',
-    location: 'Denizli, Türkiye',
-    image: 'https://images.unsplash.com/photo-1609137144813-7d9921338f24?w=800&h=600&fit=crop',
-    price: 280,
-    originalPrice: 350,
-    rating: 4.6,
-    reviews: 1567,
-    duration: '8 saat',
-    groupSize: '25 kişi',
-    category: 'nature',
-    type: 'daily',
-    highlights: ['Beyaz Travertenler', 'Hierapolis Antik Kenti', 'Antik Havuz', 'Kleopatra Havuzu'],
-    includes: ['Rehber', 'Ulaşım', 'Giriş Biletleri', 'Öğle Yemeği'],
-    description: 'Doğanın beyaz mucizesi Pamukkale\'yi keşfedin. Termal sularla dolu travertenlerde unutulmaz anlar.',
-    difficulty: 'Kolay',
-    languages: ['Türkçe', 'İngilizce', 'Almanca'],
-    badge: 'Doğa'
-  },
-  {
-    id: 6,
-    slug: 'cesme-alacati-gastronomi-turu',
-    name: 'Çeşme Alaçatı Gastronomi Turu',
-    location: 'İzmir, Türkiye',
-    image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop',
-    price: 580,
-    originalPrice: 750,
-    rating: 4.7,
-    reviews: 876,
-    duration: '1 gün',
-    groupSize: '8 kişi',
-    category: 'culinary',
-    type: 'daily',
-    highlights: ['Alaçatı Çarşısı', 'Şarap Tadımı', 'Geleneksel Lezzetler', 'Rüzgar Çiftlikleri'],
-    includes: ['Gastronomi Rehberi', 'Yemek Tadımları', 'Şarap Tadımı', 'Ulaşım'],
-    description: 'Ege\'nin lezzet durağında eşsiz bir gastronomi deneyimi. Şarap bağlarından Ege mutfağına.',
-    difficulty: 'Kolay',
-    languages: ['Türkçe', 'İngilizce'],
-    badge: 'Gastronomi'
-  },
-  {
-    id: 7,
-    slug: 'trabzon-doga-kultur-turu',
-    name: 'Trabzon Doğa ve Kültür Turu',
-    location: 'Trabzon, Türkiye',
-    image: 'https://images.unsplash.com/photo-1617634667039-8e4cb277ab46?w=800&h=600&fit=crop',
-    price: 650,
-    originalPrice: 800,
-    rating: 4.5,
-    reviews: 654,
-    duration: '2 gün',
-    groupSize: '15 kişi',
-    category: 'nature',
-    type: 'multi-day',
-    highlights: ['Uzungöl', 'Sumela Manastırı', 'Ayder Yaylası', 'Çay Bahçeleri'],
-    includes: ['Konaklama', 'Rehber', 'Ulaşım', 'Kahvaltı'],
-    description: 'Karadeniz\'in yeşil cennetinde doğayla buluşun. Uzungöl\'ün sakin sularından Sumela\'nın gizemine.',
-    difficulty: 'Orta',
-    languages: ['Türkçe'],
-    badge: 'Keşif'
-  },
-  {
-    id: 8,
-    slug: 'bodrum-antik-yolculuk',
-    name: 'Bodrum Antik Yolculuk',
-    location: 'Muğla, Türkiye',
-    image: 'https://images.unsplash.com/photo-1566073771259-6a8506862ae3?w=800&h=600&fit=crop',
-    price: 420,
-    originalPrice: 550,
-    rating: 4.6,
-    reviews: 1098,
-    duration: '6 saat',
-    groupSize: '18 kişi',
-    category: 'cultural',
-    type: 'daily',
-    highlights: ['Bodrum Kalesi', 'Halikarnas Mozolesi', 'Marina', 'Amphitiyatro'],
-    includes: ['Rehber', 'Müze Biletleri', 'Ulaşım'],
-    description: 'Antik Halikarnas\'ın izlerinde tarihi keşif. Dünyanın 7 harikasından Bodrum Kalesi\'ne.',
-    difficulty: 'Kolay',
-    languages: ['Türkçe', 'İngilizce', 'Almanca'],
-    badge: 'Tarih'
-  },
-  // ALANYA & ANTALYA REGION TOURS
-  {
-    id: 9,
-    slug: 'alanya-korsan-tekne-turu',
-    name: 'Alanya Korsan Tekne Turu',
-    location: 'Alanya, Antalya',
-    image: 'https://images.unsplash.com/photo-1569263979104-865ab7cd8d13?w=800&h=600&fit=crop',
-    price: 750,
-    originalPrice: 950,
-    rating: 4.9,
-    reviews: 3421,
-    duration: '7 saat',
-    groupSize: '80 kişi',
-    category: 'adventure',
-    type: 'boat',
-    highlights: ['Korsan Mağarası', 'Aşıklar Mağarası', 'Fosforlu Mağara', 'Köpük Partisi'],
-    includes: ['BBQ Öğle Yemeği', 'Sınırsız İçecek', 'Otel Transfer', 'Animasyon', 'Yüzme Molaları'],
-    description: 'Alanya\'nın turkuaz sularında unutulmaz bir macera! Korsan gemisinde Akdeniz\'in gizli mağaralarını keşfedin, berrak sularda yüzün ve köpük partisinin tadını çıkarın.',
-    difficulty: 'Kolay',
-    languages: ['Türkçe', 'İngilizce', 'Rusça', 'Almanca'],
-    badge: 'En Çok Satan'
-  },
-  {
-    id: 10,
-    slug: 'sapadere-kanyonu-koy-turu',
-    name: 'Sapadere Kanyonu ve Köy Turu',
-    location: 'Alanya, Antalya',
-    image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop',
-    price: 890,
-    originalPrice: 1100,
-    rating: 4.8,
-    reviews: 2156,
-    duration: '8 saat',
-    groupSize: '25 kişi',
-    category: 'nature',
-    type: 'daily',
-    highlights: ['Sapadere Kanyonu', 'Cüceler Mağarası', 'Geleneksel Köy', 'Şelale'],
-    includes: ['Rehber', 'Öğle Yemeği', 'Ulaşım', 'Kanyon Girişi', 'Köy Gezisi'],
-    description: 'Toros Dağları\'nın kalbinde saklı cennet! 400 metre uzunluğundaki Sapadere Kanyonu\'nun büyüleyici şelalelerini keşfedin, geleneksel köy yaşamını deneyimleyin.',
-    difficulty: 'Orta',
-    languages: ['Türkçe', 'İngilizce', 'Rusça'],
-    badge: 'Doğa'
-  },
-  {
-    id: 11,
-    slug: 'koprulu-kanyon-rafting-macerasi',
-    name: 'Köprülü Kanyon Rafting Macerası',
-    location: 'Belek, Antalya',
-    image: 'https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=800&h=600&fit=crop',
-    price: 650,
-    originalPrice: 850,
-    rating: 4.7,
-    reviews: 1987,
-    duration: '7 saat',
-    groupSize: '12 kişi',
-    category: 'adventure',
-    type: 'adventure',
-    highlights: ['14 km Rafting', 'Köprülü Kanyon', 'Profesyonel Rehber', 'Güvenlik Ekipmanları'],
-    includes: ['Rafting Ekipmanları', 'Öğle Yemeği', 'Sigorta', 'Otel Transfer', 'Fotoğraf Çekimi'],
-    description: 'Türkiye\'nin en güzel rafting parkurunda adrenalin dolu bir gün! Köprülü Kanyon\'un berrak sularında 14 km\'lik heyecan verici yolculuk.',
-    difficulty: 'Orta',
-    languages: ['Türkçe', 'İngilizce'],
-    badge: 'Macera'
-  },
-  {
-    id: 12,
-    slug: 'belek-super-kombo-rafting-atv-zipline',
-    name: 'Belek Süper Kombo: Rafting + ATV + Zipline',
-    location: 'Belek, Antalya',
-    image: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&h=600&fit=crop',
-    price: 1250,
-    originalPrice: 1600,
-    rating: 4.9,
-    reviews: 2843,
-    duration: '8 saat',
-    groupSize: '15 kişi',
-    category: 'adventure',
-    type: 'adventure',
-    highlights: ['Rafting', 'ATV Safari', 'Zipline', 'Jeep Safari', 'Tazı Kanyonu'],
-    includes: ['Tüm Aktiviteler', 'Öğle Yemeği', 'Ekipmanlar', 'Sigorta', 'Otel Transfer', 'Video Çekimi'],
-    description: 'Tek günde 4 macera! Köprülü Kanyon\'da rafting yapın, Toros Dağları\'nda ATV sürün, zipline ile uçun ve Tazı Kanyonu\'nu jeep safari ile keşfedin.',
-    difficulty: 'Zor',
-    languages: ['Türkçe', 'İngilizce', 'Rusça'],
-    badge: 'Popüler'
-  },
-  {
-    id: 13,
-    slug: 'perge-aspendos-side-antik-kentler',
-    name: 'Perge, Aspendos ve Side Antik Kentler',
-    location: 'Side, Antalya',
-    image: 'https://images.unsplash.com/photo-1572478219402-e287fa9ae5d0?w=800&h=600&fit=crop',
-    price: 980,
-    originalPrice: 1250,
-    rating: 4.8,
-    reviews: 1654,
-    duration: '9 saat',
-    groupSize: '30 kişi',
-    category: 'cultural',
-    type: 'cultural',
-    highlights: ['Perge Antik Kenti', 'Aspendos Tiyatrosu', 'Side Antik Kenti', 'Manavgat Şelalesi'],
-    includes: ['Profesyonel Rehber', 'Müze Girişleri', 'Öğle Yemeği', 'Klimalı Araç', 'Otel Transfer'],
-    description: 'Akdeniz\'in en etkileyici antik kentlerinde tarihi yolculuk! Dünyanın en iyi korunmuş Roma tiyatrosu Aspendos, antik Perge ve Side\'nin eşsiz güzelliklerini keşfedin.',
-    difficulty: 'Kolay',
-    languages: ['Türkçe', 'İngilizce', 'Almanca', 'Rusça'],
-    badge: 'Kültür'
-  },
-  {
-    id: 14,
-    slug: 'alanya-quad-safari-jeep-safari-turu',
-    name: 'Alanya Quad Safari ve Jeep Safari Turu',
-    location: 'Alanya, Antalya',
-    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop',
-    price: 720,
-    originalPrice: 920,
-    rating: 4.7,
-    reviews: 2234,
-    duration: '6 saat',
-    groupSize: '20 kişi',
-    category: 'adventure',
-    type: 'adventure',
-    highlights: ['Quad Safari', 'Jeep Safari', 'Toros Dağları', 'Köy Gezisi', 'Nehir Yüzme'],
-    includes: ['Quad & Jeep', 'Güvenlik Ekipmanları', 'Öğle Yemeği', 'Rehber', 'Otel Transfer'],
-    description: 'Toros Dağları\'nın tozlu yollarında adrenalin! Quad ve jeep ile dağ köylerini ziyaret edin, muhteşem manzaraların tadını çıkarın ve geleneksel yaşamı keşfedin.',
-    difficulty: 'Orta',
-    languages: ['Türkçe', 'İngilizce', 'Rusça'],
-    badge: 'Macera'
-  },
-  {
-    id: 15,
-    slug: 'antalya-sehir-turu-duden-selaleleri',
-    name: 'Antalya Şehir Turu ve Düden Şelaleleri',
-    location: 'Antalya Merkez',
-    image: 'https://images.unsplash.com/photo-1568592410210-e0e4b24f5684?w=800&h=600&fit=crop',
-    price: 580,
-    originalPrice: 750,
-    rating: 4.6,
-    reviews: 1876,
-    duration: '6 saat',
-    groupSize: '25 kişi',
-    category: 'cultural',
-    type: 'daily',
-    highlights: ['Kaleiçi', 'Düden Şelalesi', 'Hadrian Kapısı', 'Yivli Minare', 'Marina'],
-    includes: ['Profesyonel Rehber', 'Ulaşım', 'Şelale Girişi', 'Serbest Zaman'],
-    description: 'Antalya\'nın tarihi ve doğal güzelliklerini tek günde keşfedin! Kaleiçi\'nin dar sokaklarından Düden Şelalesi\'nin muhteşem manzarasına kadar.',
-    difficulty: 'Kolay',
-    languages: ['Türkçe', 'İngilizce', 'Almanca', 'Rusça'],
-    badge: 'Kültür'
-  },
-  {
-    id: 16,
-    slug: 'kemer-tekne-turu-suluada-adasi',
-    name: 'Kemer Tekne Turu ve Suluada Adası',
-    location: 'Kemer, Antalya',
-    image: 'https://images.unsplash.com/photo-1544551763-92f7d5a0c2c0?w=800&h=600&fit=crop',
-    price: 850,
-    originalPrice: 1050,
-    rating: 4.9,
-    reviews: 2567,
-    duration: '8 saat',
-    groupSize: '40 kişi',
-    category: 'adventure',
-    type: 'boat',
-    highlights: ['Suluada Adası', 'Yüzme Molaları', 'BBQ Öğle Yemeği', 'Snorkeling', 'Adrasan Koyu'],
-    includes: ['Tekne Turu', 'Öğle Yemeği', 'İçecekler', 'Snorkeling Ekipmanı', 'Otel Transfer'],
-    description: 'Türkiye\'nin Maldivleri Suluada Adası! Kristal berraklığındaki sularda yüzün, gizli koyları keşfedin ve muhteşem doğanın tadını çıkarın.',
-    difficulty: 'Kolay',
-    languages: ['Türkçe', 'İngilizce', 'Rusça'],
-    badge: 'Popüler'
-  },
-  {
-    id: 17,
-    slug: 'alanya-tuplu-dalis-deneyimi',
-    name: 'Alanya Tüplü Dalış Deneyimi',
-    location: 'Alanya, Antalya',
-    image: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&h=600&fit=crop',
-    price: 920,
-    originalPrice: 1150,
-    rating: 4.8,
-    reviews: 1432,
-    duration: '5 saat',
-    groupSize: '8 kişi',
-    category: 'adventure',
-    type: 'adventure',
-    highlights: ['2 Dalış', 'Profesyonel Eğitim', 'Sualtı Fotoğrafları', 'Sertifikalı Eğitmen'],
-    includes: ['Tüm Ekipmanlar', 'Sigorta', 'Eğitim', 'Öğle Yemeği', 'Otel Transfer', 'Fotoğraflar'],
-    description: 'Akdeniz\'in büyülü sualtı dünyasını keşfedin! Deneyim gerektirmeyen dalış turumuzda, profesyonel eğitmenler eşliğinde rengarenk balıklar ve mercanlarla tanışın.',
-    difficulty: 'Orta',
-    languages: ['Türkçe', 'İngilizce', 'Rusça'],
-    badge: 'Macera'
-  },
-  {
-    id: 18,
-    slug: 'belek-aquapark-dolphinland',
-    name: 'Belek Aquapark ve Dolphinland',
-    location: 'Belek, Antalya',
-    image: 'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=800&h=600&fit=crop',
-    price: 680,
-    originalPrice: 850,
-    rating: 4.7,
-    reviews: 3128,
-    duration: '6 saat',
-    groupSize: '50 kişi',
-    category: 'nature',
-    type: 'daily',
-    highlights: ['Yunus Şovu', 'Su Kaydırakları', 'Dalga Havuzu', 'Çocuk Havuzu', 'Fok Balığı Şovu'],
-    includes: ['Park Girişi', 'Tüm Şovlar', 'Otel Transfer', 'Serbest Zaman'],
-    description: 'Ailece eğlencenin doruğu! Akdeniz\'in en büyük su parkında onlarca kaydırak, dalga havuzu ve yunusların muhteşem şovunu izleyin.',
-    difficulty: 'Kolay',
-    languages: ['Türkçe', 'İngilizce', 'Rusça', 'Almanca'],
-    badge: 'Popüler'
-  }
-];
+{
+  id: 1,
+  slug: 'istanbul-buyulu-sehir-turu',
+  name: 'İstanbul Büyülü Şehir Turu',
+  location: 'İstanbul, Türkiye',
+  image: 'https://images.unsplash.com/photo-1541432901042-2d8bd64b4a9b?w=800&h=600&fit=crop',
+  price: 450,
+  originalPrice: 650,
+  rating: 4.8,
+  reviews: 2847,
+  duration: '8 saat',
+  groupSize: '15 kişi',
+  category: 'cultural',
+  type: 'daily',
+  highlights: ['Ayasofya', 'Topkapı Sarayı', 'Kapalıçarşı', 'Sultanahmet'],
+  includes: ['Rehber', 'Ulaşım', 'Müze Biletleri', 'Öğle Yemeği'],
+  description: 'İstanbul\'un tarihi yarımadasında unutulmaz bir gün geçirin. Ayasofya\'nın ihtişamından Topkapı Sarayı\'nın gizlerine kadar.',
+  difficulty: 'Kolay',
+  languages: ['Türkçe', 'İngilizce', 'Almanca'],
+  badge: 'Popüler'
+},
+{
+  id: 2,
+  slug: 'kapadokya-balon-ve-doga-turu',
+  name: 'Kapadokya Balon ve Doğa Turu',
+  location: 'Nevşehir, Türkiye',
+  image: 'https://images.unsplash.com/photo-1570939274719-c60ee3bf5cd9?w=800&h=600&fit=crop',
+  price: 1200,
+  originalPrice: 1500,
+  rating: 4.9,
+  reviews: 1856,
+  duration: '2 gün',
+  groupSize: '12 kişi',
+  category: 'adventure',
+  type: 'multi-day',
+  highlights: ['Sıcak Hava Balonu', 'Göreme Açık Hava Müzesi', 'Derinkuyu', 'Avanos'],
+  includes: ['Balon Turu', 'Konaklama', 'Kahvaltı', 'Rehber', 'Ulaşım'],
+  description: 'Peri bacalarının üzerinde unutulmaz balon deneyimi yaşayın. Kapadokya\'nın eşsiz manzaralarını gökyüzünden keşfedin.',
+  difficulty: 'Orta',
+  languages: ['Türkçe', 'İngilizce'],
+  badge: 'En Çok Satan'
+},
+{
+  id: 3,
+  slug: 'antalya-antik-kentler-turu',
+  name: 'Antalya Antik Kentler Turu',
+  location: 'Antalya, Türkiye',
+  image: 'https://images.unsplash.com/photo-1568992687947-868a62a9f521?w=800&h=600&fit=crop',
+  price: 320,
+  originalPrice: 420,
+  rating: 4.7,
+  reviews: 1234,
+  duration: '6 saat',
+  groupSize: '20 kişi',
+  category: 'cultural',
+  type: 'daily',
+  highlights: ['Aspendos', 'Perge', 'Side', 'Kaleiçi'],
+  includes: ['Rehber', 'Ulaşım', 'Müze Biletleri'],
+  description: 'Akdeniz\'in antik hazinelerini keşfedin. Aspendos\'un muhteşem tiyatrosundan Side\'nin tarihi limanına.',
+  difficulty: 'Kolay',
+  languages: ['Türkçe', 'İngilizce', 'Rusça'],
+  badge: 'Kültür'
+},
+{
+  id: 4,
+  slug: 'fethiye-yamac-parasutu-tekne-turu',
+  name: 'Fethiye Yamaç Paraşütü ve Tekne Turu',
+  location: 'Fethiye, Türkiye',
+  image: 'https://images.unsplash.com/photo-1539650116574-75c0c6d0deeb?w=800&h=600&fit=crop',
+  price: 850,
+  originalPrice: 1000,
+  rating: 4.8,
+  reviews: 967,
+  duration: '1 gün',
+  groupSize: '10 kişi',
+  category: 'adventure',
+  type: 'boat',
+  highlights: ['Babadağ Paraşütü', 'Ölüdeniz', '12 Adalar', 'Butterfly Valley'],
+  includes: ['Paraşüt Uçuşu', 'Tekne Turu', 'Öğle Yemeği', 'Güvenlik Ekipmanları'],
+  description: 'Gökyüzünden ve denizden Fethiye\'nin güzelliklerini görün. Adrenalindolu bir macera sizi bekliyor!',
+  difficulty: 'Zor',
+  languages: ['Türkçe', 'İngilizce'],
+  badge: 'Macera'
+},
+{
+  id: 5,
+  slug: 'pamukkale-hierapolis-gunubirlik',
+  name: 'Pamukkale ve Hierapolis Günübirlik',
+  location: 'Denizli, Türkiye',
+  image: 'https://images.unsplash.com/photo-1609137144813-7d9921338f24?w=800&h=600&fit=crop',
+  price: 280,
+  originalPrice: 350,
+  rating: 4.6,
+  reviews: 1567,
+  duration: '8 saat',
+  groupSize: '25 kişi',
+  category: 'nature',
+  type: 'daily',
+  highlights: ['Beyaz Travertenler', 'Hierapolis Antik Kenti', 'Antik Havuz', 'Kleopatra Havuzu'],
+  includes: ['Rehber', 'Ulaşım', 'Giriş Biletleri', 'Öğle Yemeği'],
+  description: 'Doğanın beyaz mucizesi Pamukkale\'yi keşfedin. Termal sularla dolu travertenlerde unutulmaz anlar.',
+  difficulty: 'Kolay',
+  languages: ['Türkçe', 'İngilizce', 'Almanca'],
+  badge: 'Doğa'
+},
+{
+  id: 6,
+  slug: 'cesme-alacati-gastronomi-turu',
+  name: 'Çeşme Alaçatı Gastronomi Turu',
+  location: 'İzmir, Türkiye',
+  image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop',
+  price: 580,
+  originalPrice: 750,
+  rating: 4.7,
+  reviews: 876,
+  duration: '1 gün',
+  groupSize: '8 kişi',
+  category: 'culinary',
+  type: 'daily',
+  highlights: ['Alaçatı Çarşısı', 'Şarap Tadımı', 'Geleneksel Lezzetler', 'Rüzgar Çiftlikleri'],
+  includes: ['Gastronomi Rehberi', 'Yemek Tadımları', 'Şarap Tadımı', 'Ulaşım'],
+  description: 'Ege\'nin lezzet durağında eşsiz bir gastronomi deneyimi. Şarap bağlarından Ege mutfağına.',
+  difficulty: 'Kolay',
+  languages: ['Türkçe', 'İngilizce'],
+  badge: 'Gastronomi'
+},
+{
+  id: 7,
+  slug: 'trabzon-doga-kultur-turu',
+  name: 'Trabzon Doğa ve Kültür Turu',
+  location: 'Trabzon, Türkiye',
+  image: 'https://images.unsplash.com/photo-1617634667039-8e4cb277ab46?w=800&h=600&fit=crop',
+  price: 650,
+  originalPrice: 800,
+  rating: 4.5,
+  reviews: 654,
+  duration: '2 gün',
+  groupSize: '15 kişi',
+  category: 'nature',
+  type: 'multi-day',
+  highlights: ['Uzungöl', 'Sumela Manastırı', 'Ayder Yaylası', 'Çay Bahçeleri'],
+  includes: ['Konaklama', 'Rehber', 'Ulaşım', 'Kahvaltı'],
+  description: 'Karadeniz\'in yeşil cennetinde doğayla buluşun. Uzungöl\'ün sakin sularından Sumela\'nın gizemine.',
+  difficulty: 'Orta',
+  languages: ['Türkçe'],
+  badge: 'Keşif'
+},
+{
+  id: 8,
+  slug: 'bodrum-antik-yolculuk',
+  name: 'Bodrum Antik Yolculuk',
+  location: 'Muğla, Türkiye',
+  image: 'https://images.unsplash.com/photo-1566073771259-6a8506862ae3?w=800&h=600&fit=crop',
+  price: 420,
+  originalPrice: 550,
+  rating: 4.6,
+  reviews: 1098,
+  duration: '6 saat',
+  groupSize: '18 kişi',
+  category: 'cultural',
+  type: 'daily',
+  highlights: ['Bodrum Kalesi', 'Halikarnas Mozolesi', 'Marina', 'Amphitiyatro'],
+  includes: ['Rehber', 'Müze Biletleri', 'Ulaşım'],
+  description: 'Antik Halikarnas\'ın izlerinde tarihi keşif. Dünyanın 7 harikasından Bodrum Kalesi\'ne.',
+  difficulty: 'Kolay',
+  languages: ['Türkçe', 'İngilizce', 'Almanca'],
+  badge: 'Tarih'
+},
+// ALANYA & ANTALYA REGION TOURS
+{
+  id: 9,
+  slug: 'alanya-korsan-tekne-turu',
+  name: 'Alanya Korsan Tekne Turu',
+  location: 'Alanya, Antalya',
+  image: 'https://images.unsplash.com/photo-1569263979104-865ab7cd8d13?w=800&h=600&fit=crop',
+  price: 750,
+  originalPrice: 950,
+  rating: 4.9,
+  reviews: 3421,
+  duration: '7 saat',
+  groupSize: '80 kişi',
+  category: 'adventure',
+  type: 'boat',
+  highlights: ['Korsan Mağarası', 'Aşıklar Mağarası', 'Fosforlu Mağara', 'Köpük Partisi'],
+  includes: ['BBQ Öğle Yemeği', 'Sınırsız İçecek', 'Otel Transfer', 'Animasyon', 'Yüzme Molaları'],
+  description: 'Alanya\'nın turkuaz sularında unutulmaz bir macera! Korsan gemisinde Akdeniz\'in gizli mağaralarını keşfedin, berrak sularda yüzün ve köpük partisinin tadını çıkarın.',
+  difficulty: 'Kolay',
+  languages: ['Türkçe', 'İngilizce', 'Rusça', 'Almanca'],
+  badge: 'En Çok Satan'
+},
+{
+  id: 10,
+  slug: 'sapadere-kanyonu-koy-turu',
+  name: 'Sapadere Kanyonu ve Köy Turu',
+  location: 'Alanya, Antalya',
+  image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop',
+  price: 890,
+  originalPrice: 1100,
+  rating: 4.8,
+  reviews: 2156,
+  duration: '8 saat',
+  groupSize: '25 kişi',
+  category: 'nature',
+  type: 'daily',
+  highlights: ['Sapadere Kanyonu', 'Cüceler Mağarası', 'Geleneksel Köy', 'Şelale'],
+  includes: ['Rehber', 'Öğle Yemeği', 'Ulaşım', 'Kanyon Girişi', 'Köy Gezisi'],
+  description: 'Toros Dağları\'nın kalbinde saklı cennet! 400 metre uzunluğundaki Sapadere Kanyonu\'nun büyüleyici şelalelerini keşfedin, geleneksel köy yaşamını deneyimleyin.',
+  difficulty: 'Orta',
+  languages: ['Türkçe', 'İngilizce', 'Rusça'],
+  badge: 'Doğa'
+},
+{
+  id: 11,
+  slug: 'koprulu-kanyon-rafting-macerasi',
+  name: 'Köprülü Kanyon Rafting Macerası',
+  location: 'Belek, Antalya',
+  image: 'https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=800&h=600&fit=crop',
+  price: 650,
+  originalPrice: 850,
+  rating: 4.7,
+  reviews: 1987,
+  duration: '7 saat',
+  groupSize: '12 kişi',
+  category: 'adventure',
+  type: 'adventure',
+  highlights: ['14 km Rafting', 'Köprülü Kanyon', 'Profesyonel Rehber', 'Güvenlik Ekipmanları'],
+  includes: ['Rafting Ekipmanları', 'Öğle Yemeği', 'Sigorta', 'Otel Transfer', 'Fotoğraf Çekimi'],
+  description: 'Türkiye\'nin en güzel rafting parkurunda adrenalin dolu bir gün! Köprülü Kanyon\'un berrak sularında 14 km\'lik heyecan verici yolculuk.',
+  difficulty: 'Orta',
+  languages: ['Türkçe', 'İngilizce'],
+  badge: 'Macera'
+},
+{
+  id: 12,
+  slug: 'belek-super-kombo-rafting-atv-zipline',
+  name: 'Belek Süper Kombo: Rafting + ATV + Zipline',
+  location: 'Belek, Antalya',
+  image: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&h=600&fit=crop',
+  price: 1250,
+  originalPrice: 1600,
+  rating: 4.9,
+  reviews: 2843,
+  duration: '8 saat',
+  groupSize: '15 kişi',
+  category: 'adventure',
+  type: 'adventure',
+  highlights: ['Rafting', 'ATV Safari', 'Zipline', 'Jeep Safari', 'Tazı Kanyonu'],
+  includes: ['Tüm Aktiviteler', 'Öğle Yemeği', 'Ekipmanlar', 'Sigorta', 'Otel Transfer', 'Video Çekimi'],
+  description: 'Tek günde 4 macera! Köprülü Kanyon\'da rafting yapın, Toros Dağları\'nda ATV sürün, zipline ile uçun ve Tazı Kanyonu\'nu jeep safari ile keşfedin.',
+  difficulty: 'Zor',
+  languages: ['Türkçe', 'İngilizce', 'Rusça'],
+  badge: 'Popüler'
+},
+{
+  id: 13,
+  slug: 'perge-aspendos-side-antik-kentler',
+  name: 'Perge, Aspendos ve Side Antik Kentler',
+  location: 'Side, Antalya',
+  image: 'https://images.unsplash.com/photo-1572478219402-e287fa9ae5d0?w=800&h=600&fit=crop',
+  price: 980,
+  originalPrice: 1250,
+  rating: 4.8,
+  reviews: 1654,
+  duration: '9 saat',
+  groupSize: '30 kişi',
+  category: 'cultural',
+  type: 'cultural',
+  highlights: ['Perge Antik Kenti', 'Aspendos Tiyatrosu', 'Side Antik Kenti', 'Manavgat Şelalesi'],
+  includes: ['Profesyonel Rehber', 'Müze Girişleri', 'Öğle Yemeği', 'Klimalı Araç', 'Otel Transfer'],
+  description: 'Akdeniz\'in en etkileyici antik kentlerinde tarihi yolculuk! Dünyanın en iyi korunmuş Roma tiyatrosu Aspendos, antik Perge ve Side\'nin eşsiz güzelliklerini keşfedin.',
+  difficulty: 'Kolay',
+  languages: ['Türkçe', 'İngilizce', 'Almanca', 'Rusça'],
+  badge: 'Kültür'
+},
+{
+  id: 14,
+  slug: 'alanya-quad-safari-jeep-safari-turu',
+  name: 'Alanya Quad Safari ve Jeep Safari Turu',
+  location: 'Alanya, Antalya',
+  image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop',
+  price: 720,
+  originalPrice: 920,
+  rating: 4.7,
+  reviews: 2234,
+  duration: '6 saat',
+  groupSize: '20 kişi',
+  category: 'adventure',
+  type: 'adventure',
+  highlights: ['Quad Safari', 'Jeep Safari', 'Toros Dağları', 'Köy Gezisi', 'Nehir Yüzme'],
+  includes: ['Quad & Jeep', 'Güvenlik Ekipmanları', 'Öğle Yemeği', 'Rehber', 'Otel Transfer'],
+  description: 'Toros Dağları\'nın tozlu yollarında adrenalin! Quad ve jeep ile dağ köylerini ziyaret edin, muhteşem manzaraların tadını çıkarın ve geleneksel yaşamı keşfedin.',
+  difficulty: 'Orta',
+  languages: ['Türkçe', 'İngilizce', 'Rusça'],
+  badge: 'Macera'
+},
+{
+  id: 15,
+  slug: 'antalya-sehir-turu-duden-selaleleri',
+  name: 'Antalya Şehir Turu ve Düden Şelaleleri',
+  location: 'Antalya Merkez',
+  image: 'https://images.unsplash.com/photo-1568592410210-e0e4b24f5684?w=800&h=600&fit=crop',
+  price: 580,
+  originalPrice: 750,
+  rating: 4.6,
+  reviews: 1876,
+  duration: '6 saat',
+  groupSize: '25 kişi',
+  category: 'cultural',
+  type: 'daily',
+  highlights: ['Kaleiçi', 'Düden Şelalesi', 'Hadrian Kapısı', 'Yivli Minare', 'Marina'],
+  includes: ['Profesyonel Rehber', 'Ulaşım', 'Şelale Girişi', 'Serbest Zaman'],
+  description: 'Antalya\'nın tarihi ve doğal güzelliklerini tek günde keşfedin! Kaleiçi\'nin dar sokaklarından Düden Şelalesi\'nin muhteşem manzarasına kadar.',
+  difficulty: 'Kolay',
+  languages: ['Türkçe', 'İngilizce', 'Almanca', 'Rusça'],
+  badge: 'Kültür'
+},
+{
+  id: 16,
+  slug: 'kemer-tekne-turu-suluada-adasi',
+  name: 'Kemer Tekne Turu ve Suluada Adası',
+  location: 'Kemer, Antalya',
+  image: 'https://images.unsplash.com/photo-1544551763-92f7d5a0c2c0?w=800&h=600&fit=crop',
+  price: 850,
+  originalPrice: 1050,
+  rating: 4.9,
+  reviews: 2567,
+  duration: '8 saat',
+  groupSize: '40 kişi',
+  category: 'adventure',
+  type: 'boat',
+  highlights: ['Suluada Adası', 'Yüzme Molaları', 'BBQ Öğle Yemeği', 'Snorkeling', 'Adrasan Koyu'],
+  includes: ['Tekne Turu', 'Öğle Yemeği', 'İçecekler', 'Snorkeling Ekipmanı', 'Otel Transfer'],
+  description: 'Türkiye\'nin Maldivleri Suluada Adası! Kristal berraklığındaki sularda yüzün, gizli koyları keşfedin ve muhteşem doğanın tadını çıkarın.',
+  difficulty: 'Kolay',
+  languages: ['Türkçe', 'İngilizce', 'Rusça'],
+  badge: 'Popüler'
+},
+{
+  id: 17,
+  slug: 'alanya-tuplu-dalis-deneyimi',
+  name: 'Alanya Tüplü Dalış Deneyimi',
+  location: 'Alanya, Antalya',
+  image: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&h=600&fit=crop',
+  price: 920,
+  originalPrice: 1150,
+  rating: 4.8,
+  reviews: 1432,
+  duration: '5 saat',
+  groupSize: '8 kişi',
+  category: 'adventure',
+  type: 'adventure',
+  highlights: ['2 Dalış', 'Profesyonel Eğitim', 'Sualtı Fotoğrafları', 'Sertifikalı Eğitmen'],
+  includes: ['Tüm Ekipmanlar', 'Sigorta', 'Eğitim', 'Öğle Yemeği', 'Otel Transfer', 'Fotoğraflar'],
+  description: 'Akdeniz\'in büyülü sualtı dünyasını keşfedin! Deneyim gerektirmeyen dalış turumuzda, profesyonel eğitmenler eşliğinde rengarenk balıklar ve mercanlarla tanışın.',
+  difficulty: 'Orta',
+  languages: ['Türkçe', 'İngilizce', 'Rusça'],
+  badge: 'Macera'
+},
+{
+  id: 18,
+  slug: 'belek-aquapark-dolphinland',
+  name: 'Belek Aquapark ve Dolphinland',
+  location: 'Belek, Antalya',
+  image: 'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=800&h=600&fit=crop',
+  price: 680,
+  originalPrice: 850,
+  rating: 4.7,
+  reviews: 3128,
+  duration: '6 saat',
+  groupSize: '50 kişi',
+  category: 'nature',
+  type: 'daily',
+  highlights: ['Yunus Şovu', 'Su Kaydırakları', 'Dalga Havuzu', 'Çocuk Havuzu', 'Fok Balığı Şovu'],
+  includes: ['Park Girişi', 'Tüm Şovlar', 'Otel Transfer', 'Serbest Zaman'],
+  description: 'Ailece eğlencenin doruğu! Akdeniz\'in en büyük su parkında onlarca kaydırak, dalga havuzu ve yunusların muhteşem şovunu izleyin.',
+  difficulty: 'Kolay',
+  languages: ['Türkçe', 'İngilizce', 'Rusça', 'Almanca'],
+  badge: 'Popüler'
+}];
+
 
 // Combine legacy tours with comprehensive tours (45+ tours total)
 const tours = [...legacyTours, ...allComprehensiveTours];
@@ -532,12 +532,12 @@ const tours = [...legacyTours, ...allComprehensiveTours];
 export { legacyTours };
 
 const categories = [
-  { id: 'all', name: 'Tümü', icon: Globe, color: 'from-lydian-primary to-lydian-secondary' },
-  { id: 'cultural', name: 'Kültürel', icon: Camera, color: 'from-blue-500 to-cyan-500' },
-  { id: 'adventure', name: 'Macera', icon: Zap, color: 'from-orange-500 to-red-600' },
-  { id: 'nature', name: 'Doğa', icon: MapPin, color: 'from-green-500 to-emerald-600' },
-  { id: 'culinary', name: 'Gastronomi', icon: Utensils, color: 'from-purple-500 to-pink-500' },
-];
+{ id: 'all', name: 'Tümü', icon: Globe, color: 'from-lydian-primary to-lydian-secondary' },
+{ id: 'cultural', name: 'Kültürel', icon: Camera, color: 'from-blue-500 to-cyan-500' },
+{ id: 'adventure', name: 'Macera', icon: Zap, color: 'from-orange-500 to-red-600' },
+{ id: 'nature', name: 'Doğa', icon: MapPin, color: 'from-green-500 to-emerald-600' },
+{ id: 'culinary', name: 'Gastronomi', icon: Utensils, color: 'from-purple-500 to-pink-500' }];
+
 
 const difficulties = ['Tümü', 'Kolay', 'Orta', 'Zor'];
 const durations = ['Tümü', '1 gün altı', '1 gün', '2+ gün'];
@@ -557,66 +557,66 @@ export default function Tours() {
 
   // Country data for filter widget
   const countries = [
-    {
-      code: 'turkey',
-      name: {
-        tr: 'Türkiye',
-        en: 'Turkey',
-        de: 'Türkei',
-        ru: 'Турция',
-        ar: 'تركيا',
-        fa: 'ترکیه',
-        fr: 'Turquie',
-        el: 'Τουρκία'
-      },
-      flag: '🇹🇷',
-      tourCount: tours.filter(t => t.region?.country === 'turkey').length
+  {
+    code: 'turkey',
+    name: {
+      tr: 'Türkiye',
+      en: 'Turkey',
+      de: 'Türkei',
+      ru: 'Турция',
+      ar: 'تركيا',
+      fa: 'ترکیه',
+      fr: 'Turquie',
+      el: 'Τουρκία'
     },
-    {
-      code: 'greece',
-      name: {
-        tr: 'Yunanistan',
-        en: 'Greece',
-        de: 'Griechenland',
-        ru: 'Греция',
-        ar: 'اليونان',
-        fa: 'یونان',
-        fr: 'Grèce',
-        el: 'Ελλάδα'
-      },
-      flag: '🇬🇷',
-      tourCount: tours.filter(t => t.region?.country === 'greece').length
+    flag: '🇹🇷',
+    tourCount: tours.filter((t) => t.region?.country === 'turkey').length
+  },
+  {
+    code: 'greece',
+    name: {
+      tr: 'Yunanistan',
+      en: 'Greece',
+      de: 'Griechenland',
+      ru: 'Греция',
+      ar: 'اليونان',
+      fa: 'یونان',
+      fr: 'Grèce',
+      el: 'Ελλάδα'
     },
-    {
-      code: 'cyprus',
-      name: {
-        tr: 'Kıbrıs',
-        en: 'Cyprus',
-        de: 'Zypern',
-        ru: 'Кипр',
-        ar: 'قبرص',
-        fa: 'قبرس',
-        fr: 'Chypre',
-        el: 'Κύπρος'
-      },
-      flag: '🇨🇾',
-      tourCount: tours.filter(t => t.region?.country === 'cyprus').length
-    }
-  ];
+    flag: '🇬🇷',
+    tourCount: tours.filter((t) => t.region?.country === 'greece').length
+  },
+  {
+    code: 'cyprus',
+    name: {
+      tr: 'Kıbrıs',
+      en: 'Cyprus',
+      de: 'Zypern',
+      ru: 'Кипр',
+      ar: 'قبرص',
+      fa: 'قبرس',
+      fr: 'Chypre',
+      el: 'Κύπρος'
+    },
+    flag: '🇨🇾',
+    tourCount: tours.filter((t) => t.region?.country === 'cyprus').length
+  }];
 
-  const filteredTours = tours.filter(tour => {
+
+  const filteredTours = tours.filter((tour) => {
     const matchesSearch = tour.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                         tour.location.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                         tour.highlights.some(highlight => highlight.toLowerCase().includes(searchQuery.toLowerCase()));
+    tour.location.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    tour.highlights.some((highlight) => highlight.toLowerCase().includes(searchQuery.toLowerCase()));
     const matchesCategory = selectedCategory === 'all' || tour.category === selectedCategory;
     const matchesDifficulty = selectedDifficulty === 'Tümü' || tour.difficulty === selectedDifficulty;
     const matchesDuration = selectedDuration === 'Tümü' ||
-      (selectedDuration === '1 gün altı' && tour.duration.includes('saat')) ||
-      (selectedDuration === '1 gün' && tour.duration === '1 gün') ||
-      (selectedDuration === '2+ gün' && (tour.duration.includes('2') || tour.duration.includes('3')));
+    selectedDuration === '1 gün altı' && tour.duration.includes('saat') ||
+    selectedDuration === '1 gün' && tour.duration === '1 gün' ||
+    selectedDuration === '2+ gün' && (tour.duration.includes('2') || tour.duration.includes('3'));
 
     // Country filter
-    const matchesCountry = !selectedCountry || (tour.region && tour.region.country === selectedCountry);
+    const matchesCountry = !selectedCountry || tour.region && tour.region.country === selectedCountry;
 
     // URL query parametresine göre type filtrelemesi
     const typeParam = router.query.type as string;
@@ -681,10 +681,10 @@ export default function Tours() {
 
   const getDifficultyColor = (difficulty: string) => {
     switch (difficulty) {
-      case 'Kolay': return 'from-green-500 to-emerald-600';
-      case 'Orta': return 'from-yellow-500 to-orange-500';
-      case 'Zor': return 'from-red-500 to-pink-600';
-      default: return 'from-gray-500 to-gray-600';
+      case 'Kolay':return 'from-green-500 to-emerald-600';
+      case 'Orta':return 'from-yellow-500 to-orange-500';
+      case 'Zor':return 'from-red-500 to-pink-600';
+      default:return 'from-gray-500 to-gray-600';
     }
   };
 
@@ -703,10 +703,10 @@ export default function Tours() {
   };
 
   const activeFilterCount =
-    (selectedCategory !== 'all' ? 1 : 0) +
-    (selectedDifficulty !== 'Tümü' ? 1 : 0) +
-    (selectedDuration !== 'Tümü' ? 1 : 0) +
-    (selectedCountry ? 1 : 0);
+  (selectedCategory !== 'all' ? 1 : 0) + (
+  selectedDifficulty !== 'Tümü' ? 1 : 0) + (
+  selectedDuration !== 'Tümü' ? 1 : 0) + (
+  selectedCountry ? 1 : 0);
 
   return (
     <>
@@ -714,12 +714,12 @@ export default function Tours() {
         <title>Antalya Turları 2025: En İyi Fiyat Garantili Tekne, Rafting ve Antik Kent Turları | AILydian Travel</title>
         <meta
           name="description"
-          content="Antalya'da 16+ tur seçeneği: Tekne turları (3 Adalar, Kemer Korsan), Köprülü Kanyon rafting, Perge-Aspendos-Side antik kentler, jeep safari ve paragliding. Profesyonel rehber, otel transferi dahil. Rakiplerden %15 daha uygun!"
-        />
+          content="Antalya'da 16+ tur seçeneği: Tekne turları (3 Adalar, Kemer Korsan), Köprülü Kanyon rafting, Perge-Aspendos-Side antik kentler, jeep safari ve paragliding. Profesyonel rehber, otel transferi dahil. Rakiplerden %15 daha uygun!" />
+
         <meta
           name="keywords"
-          content="antalya turları, antalya tekne turu, köprülü kanyon rafting, perge aspendos side, kemer korsan teknesi, antalya jeep safari, kaş dalış, demre myra kekova, türk hamamı antalya, antalya tour prices"
-        />
+          content="antalya turları, antalya tekne turu, köprülü kanyon rafting, perge aspendos side, kemer korsan teknesi, antalya jeep safari, kaş dalış, demre myra kekova, türk hamamı antalya, antalya tour prices" />
+
 
         {/* AI Search Engine Optimization */}
         <meta property="og:title" content="Antalya Turları: En İyi Fiyat Garantili 16+ Tur Seçeneği" />
@@ -751,46 +751,46 @@ export default function Tours() {
               "description": "Comprehensive list of tours and activities in Antalya region",
               "numberOfItems": 16,
               "itemListElement": [
-                {
-                  "@type": "TouristTrip",
-                  "name": "Antalya 3 Islands Boat Tour",
-                  "description": "Full day boat tour visiting 3 islands with snorkeling",
-                  "touristType": "Family, Couples, Adventure",
-                  "offers": {
-                    "@type": "Offer",
-                    "price": "980",
-                    "priceCurrency": "TRY",
-                    "availability": "https://schema.org/InStock"
-                  }
-                },
-                {
-                  "@type": "TouristTrip",
-                  "name": "Köprülü Canyon Rafting Tour",
-                  "description": "14km rafting adventure in Turkey's best rafting course",
-                  "touristType": "Adventure, Sports Enthusiasts",
-                  "offers": {
-                    "@type": "Offer",
-                    "price": "637",
-                    "priceCurrency": "TRY",
-                    "availability": "https://schema.org/InStock"
-                  }
-                },
-                {
-                  "@type": "TouristTrip",
-                  "name": "Perge Aspendos Side Ancient Cities Tour",
-                  "description": "Full day cultural tour visiting 3 ancient cities with archaeologist guide",
-                  "touristType": "History Lovers, Cultural Travelers",
-                  "offers": {
-                    "@type": "Offer",
-                    "price": "637",
-                    "priceCurrency": "TRY",
-                    "availability": "https://schema.org/InStock"
-                  }
+              {
+                "@type": "TouristTrip",
+                "name": "Antalya 3 Islands Boat Tour",
+                "description": "Full day boat tour visiting 3 islands with snorkeling",
+                "touristType": "Family, Couples, Adventure",
+                "offers": {
+                  "@type": "Offer",
+                  "price": "980",
+                  "priceCurrency": "TRY",
+                  "availability": "https://schema.org/InStock"
                 }
-              ]
+              },
+              {
+                "@type": "TouristTrip",
+                "name": "Köprülü Canyon Rafting Tour",
+                "description": "14km rafting adventure in Turkey's best rafting course",
+                "touristType": "Adventure, Sports Enthusiasts",
+                "offers": {
+                  "@type": "Offer",
+                  "price": "637",
+                  "priceCurrency": "TRY",
+                  "availability": "https://schema.org/InStock"
+                }
+              },
+              {
+                "@type": "TouristTrip",
+                "name": "Perge Aspendos Side Ancient Cities Tour",
+                "description": "Full day cultural tour visiting 3 ancient cities with archaeologist guide",
+                "touristType": "History Lovers, Cultural Travelers",
+                "offers": {
+                  "@type": "Offer",
+                  "price": "637",
+                  "priceCurrency": "TRY",
+                  "availability": "https://schema.org/InStock"
+                }
+              }]
+
             })
-          }}
-        />
+          }} />
+
       </Head>
 
       <FuturisticHeader />
@@ -803,36 +803,36 @@ export default function Tours() {
           gradient="twilight"
           height="70vh"
           overlayOpacity={0.2}
-          showFloatingElements={true}
-        >
+          showFloatingElements={true}>
+
           {/* Stats Cards with Glassmorphism */}
           <div className="flex flex-wrap justify-center gap-6 mt-12">
             <motion.div
-              className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl px-8 py-6 shadow-[0_8px_32px_0_rgba(31,38,135,0.2)]"
-              whileHover={{ scale: 1.05, y: -5 }}
-            >
-              <div className="text-5xl font-black text-white mb-2">{tours.length}</div>
-              <div className="text-sm uppercase tracking-widest text-white/80">Benzersiz Tur</div>
+              className="bg-lydian-glass-dark-medium backdrop-blur-xl border border-lydian-border-light rounded-3xl px-8 py-6 shadow-[0_8px_32px_0_rgba(31,38,135,0.2)]"
+              whileHover={{ scale: 1.05, y: -5 }}>
+
+              <div className="text-5xl font-black text-lydian-text-inverse mb-2">{tours.length}</div>
+              <div className="text-sm uppercase tracking-widest text-lydian-text-inverse/80">Benzersiz Tur</div>
             </motion.div>
 
             <motion.div
-              className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl px-8 py-6 shadow-[0_8px_32px_0_rgba(31,38,135,0.2)]"
-              whileHover={{ scale: 1.05, y: -5 }}
-            >
-              <div className="text-5xl font-black text-white mb-2">
+              className="bg-lydian-glass-dark-medium backdrop-blur-xl border border-lydian-border-light rounded-3xl px-8 py-6 shadow-[0_8px_32px_0_rgba(31,38,135,0.2)]"
+              whileHover={{ scale: 1.05, y: -5 }}>
+
+              <div className="text-5xl font-black text-lydian-text-inverse mb-2">
                 {(tours.reduce((sum, tour) => sum + tour.rating, 0) / tours.length).toFixed(1)}
               </div>
-              <div className="text-sm uppercase tracking-widest text-white/80">Ortalama Puan</div>
+              <div className="text-sm uppercase tracking-widest text-lydian-text-inverse/80">Ortalama Puan</div>
             </motion.div>
 
             <motion.div
-              className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl px-8 py-6 shadow-[0_8px_32px_0_rgba(31,38,135,0.2)]"
-              whileHover={{ scale: 1.05, y: -5 }}
-            >
-              <div className="text-5xl font-black text-white mb-2">
+              className="bg-lydian-glass-dark-medium backdrop-blur-xl border border-lydian-border-light rounded-3xl px-8 py-6 shadow-[0_8px_32px_0_rgba(31,38,135,0.2)]"
+              whileHover={{ scale: 1.05, y: -5 }}>
+
+              <div className="text-5xl font-black text-lydian-text-inverse mb-2">
                 {tours.reduce((sum, tour) => sum + tour.reviews, 0).toLocaleString('tr-TR')}
               </div>
-              <div className="text-sm uppercase tracking-widest text-white/80">Mutlu Misafir</div>
+              <div className="text-sm uppercase tracking-widest text-lydian-text-inverse/80">Mutlu Misafir</div>
             </motion.div>
           </div>
         </NeoHero>
@@ -847,14 +847,14 @@ export default function Tours() {
           {/* Search Bar */}
           <div className="mb-8">
             <div className="relative max-w-2xl mx-auto">
-              <MapPin className="absolute left-4 top-1/2 -translate-y-1/2 w-6 h-6 text-gray-400" />
+              <MapPin className="absolute left-4 top-1/2 -translate-y-1/2 w-6 h-6 text-lydian-text-muted" />
               <input
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Tur, destinasyon veya aktivite ara..."
-                className="w-full pl-14 pr-4 py-4 border-2 border-gray-200 rounded-2xl text-lg focus:ring-2 focus:ring-lydian-primary focus:border-transparent shadow-lg hover:shadow-xl transition-all"
-              />
+                className="w-full pl-14 pr-4 py-4 border-2 border-lydian-border rounded-2xl text-lg focus:ring-2 focus:ring-lydian-primary focus:border-lydian-border shadow-lg hover:shadow-xl transition-all" />
+
             </div>
           </div>
 
@@ -863,8 +863,8 @@ export default function Tours() {
             <CountryFilterWidget
               countries={countries}
               selectedCountry={selectedCountry}
-              onCountrySelect={setSelectedCountry}
-            />
+              onCountrySelect={setSelectedCountry} />
+
           </div>
 
           {/* Category Filters */}
@@ -879,15 +879,15 @@ export default function Tours() {
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.95 }}
                   className={`flex items-center gap-2 px-6 py-3 rounded-xl font-semibold transition-all shadow-lg ${
-                    isActive
-                      ? `bg-gradient-to-r ${category.color} text-white shadow-neon`
-                      : 'bg-white/5 text-gray-200 hover:shadow-xl border border-gray-200'
-                  }`}
-                >
+                  isActive ?
+                  `bg-gradient-to-r ${category.color} text-white shadow-neon` :
+                  'bg-white/5 text-gray-200 hover:shadow-xl border border-gray-200'}`
+                  }>
+
                   <Icon className="w-5 h-5" />
                   <span>{category.name}</span>
-                </motion.button>
-              );
+                </motion.button>);
+
             })}
           </div>
 
@@ -898,41 +898,41 @@ export default function Tours() {
               <select
                 value={selectedDifficulty}
                 onChange={(e) => setSelectedDifficulty(e.target.value)}
-                className="px-4 py-2.5 bg-transparent border-2 border-gray-200 rounded-xl text-sm font-medium focus:ring-2 focus:ring-lydian-primary focus:border-transparent shadow-sm hover:shadow-md transition-all"
-              >
-                {difficulties.map(diff => (
-                  <option key={diff} value={diff}>Zorluk: {diff}</option>
-                ))}
+                className="px-4 py-2.5 bg-lydian-bg-hover border-2 border-lydian-border rounded-xl text-sm font-medium focus:ring-2 focus:ring-lydian-primary focus:border-lydian-border shadow-sm hover:shadow-md transition-all">
+
+                {difficulties.map((diff) =>
+                <option key={diff} value={diff}>Zorluk: {diff}</option>
+                )}
               </select>
 
               {/* Duration Filter */}
               <select
                 value={selectedDuration}
                 onChange={(e) => setSelectedDuration(e.target.value)}
-                className="px-4 py-2.5 bg-transparent border-2 border-gray-200 rounded-xl text-sm font-medium focus:ring-2 focus:ring-lydian-primary focus:border-transparent shadow-sm hover:shadow-md transition-all"
-              >
-                {durations.map(dur => (
-                  <option key={dur} value={dur}>Süre: {dur}</option>
-                ))}
+                className="px-4 py-2.5 bg-lydian-bg-hover border-2 border-lydian-border rounded-xl text-sm font-medium focus:ring-2 focus:ring-lydian-primary focus:border-lydian-border shadow-sm hover:shadow-md transition-all">
+
+                {durations.map((dur) =>
+                <option key={dur} value={dur}>Süre: {dur}</option>
+                )}
               </select>
 
               {/* Active Filter Count */}
-              {activeFilterCount > 0 && (
-                <div className="flex items-center gap-2 px-4 py-2.5 bg-lydian-primary/10 text-lydian-primary rounded-xl font-semibold">
+              {activeFilterCount > 0 &&
+              <div className="flex items-center gap-2 px-4 py-2.5 bg-lydian-primary/10 text-lydian-primary rounded-xl font-semibold">
                   <Filter className="w-4 h-4" />
                   <span>{activeFilterCount} Filtre Aktif</span>
                 </div>
-              )}
+              }
             </div>
 
             {/* Sort */}
             <div className="flex items-center gap-3">
-              <span className="text-sm font-medium text-gray-300">Sırala:</span>
+              <span className="text-sm font-medium text-lydian-text-dim">Sırala:</span>
               <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value)}
-                className="px-4 py-2.5 bg-transparent border-2 border-gray-200 rounded-xl text-sm font-medium focus:ring-2 focus:ring-lydian-primary focus:border-transparent shadow-sm hover:shadow-md transition-all"
-              >
+                className="px-4 py-2.5 bg-lydian-bg-hover border-2 border-lydian-border rounded-xl text-sm font-medium focus:ring-2 focus:ring-lydian-primary focus:border-lydian-border shadow-sm hover:shadow-md transition-all">
+
                 <option value="popularity">Popülerlik</option>
                 <option value="rating">Puan (Yüksek-Düşük)</option>
                 <option value="price-low">Fiyat (Düşük-Yüksek)</option>
@@ -944,112 +944,112 @@ export default function Tours() {
 
           {/* Results Count */}
           <div className="text-center mb-8">
-            <p className="text-lg text-gray-300">
+            <p className="text-lg text-lydian-text-dim">
               <span className="font-bold text-lydian-primary">{sortedTours.length}</span> tur bulundu
             </p>
           </div>
 
           {/* 🎪 NEO-GLASS TOURS GRID */}
-          {sortedTours.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-              {sortedTours.map((tour, index) => (
-                <motion.div
-                  key={tour.id}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.05 }}
-                >
-                  <FuturisticCard
-                    image={tour.image}
-                    title={tour.name}
-                    description={tour.description}
-                    price={`${tour.price.toLocaleString('tr-TR')} ₺`}
-                    badge={tour.badge}
-                    badges={tour.highlights.slice(0, 2)}
-                    metadata={[
-                      { icon: <MapPin className="w-4 h-4" />, label: tour.location },
-                      { icon: <Clock className="w-4 h-4" />, label: tour.duration },
-                      { icon: <Users className="w-4 h-4" />, label: tour.groupSize },
-                    ]}
-                    rating={tour.rating}
-                    reviews={tour.reviews}
-                    onClick={() => router.push(`/tours/${tour.slug || tour.name.toLowerCase().replace(/[^a-z0-9ğüşıöçĞÜŞİÖÇ\s]/g, '').replace(/\s+/g, '-')}`)}
-                    onFavorite={(e) => {
-                      e.stopPropagation();
-                      toggleFavorite(tour.id);
-                    }}
-                    onAddToCart={(e) => {
-                      e.stopPropagation();
-                      handleAddToCart(tour);
-                    }}
-                    isFavorite={favorites.has(tour.id)}
-                    category={tour.category}
-                    categoryColor={
-                      tour.category === 'cultural' ? '#667EEA' :
-                      tour.category === 'adventure' ? '#FF9500' :
-                      tour.category === 'nature' ? '#10B981' :
-                      tour.category === 'culinary' ? '#EC4899' :
-                      '#667EEA'
-                    }
-                  />
-                </motion.div>
-              ))}
-            </div>
-          ) : (
+          {sortedTours.length > 0 ?
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+              {sortedTours.map((tour, index) =>
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="text-center py-20"
-            >
-              <Camera className="w-32 h-32 text-gray-300 mx-auto mb-6" />
-              <h2 className="text-3xl font-bold text-white mb-4">
+              key={tour.id}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.05 }}>
+
+                  <FuturisticCard
+                image={tour.image}
+                title={tour.name}
+                description={tour.description}
+                price={`${tour.price.toLocaleString('tr-TR')} ₺`}
+                badge={tour.badge}
+                badges={tour.highlights.slice(0, 2)}
+                metadata={[
+                { icon: <MapPin className="w-4 h-4" />, label: tour.location },
+                { icon: <Clock className="w-4 h-4" />, label: tour.duration },
+                { icon: <Users className="w-4 h-4" />, label: tour.groupSize }]
+                }
+                rating={tour.rating}
+                reviews={tour.reviews}
+                onClick={() => router.push(`/tours/${tour.slug || tour.name.toLowerCase().replace(/[^a-z0-9ğüşıöçĞÜŞİÖÇ\s]/g, '').replace(/\s+/g, '-')}`)}
+                onFavorite={(e) => {
+                  e.stopPropagation();
+                  toggleFavorite(tour.id);
+                }}
+                onAddToCart={(e) => {
+                  e.stopPropagation();
+                  handleAddToCart(tour);
+                }}
+                isFavorite={favorites.has(tour.id)}
+                category={tour.category}
+                categoryColor={
+                tour.category === 'cultural' ? '#667EEA' :
+                tour.category === 'adventure' ? '#FF9500' :
+                tour.category === 'nature' ? '#10B981' :
+                tour.category === 'culinary' ? '#EC4899' :
+                '#667EEA'
+                } />
+
+                </motion.div>
+            )}
+            </div> :
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-center py-20">
+
+              <Camera className="w-32 h-32 text-lydian-text-dim mx-auto mb-6" />
+              <h2 className="text-3xl font-bold text-lydian-text-inverse mb-4">
                 Aradığınız kriterlerde tur bulunamadı
               </h2>
-              <p className="text-gray-300 mb-8 max-w-md mx-auto text-lg">
+              <p className="text-lydian-text-dim mb-8 max-w-md mx-auto text-lg">
                 Arama kriterlerinizi değiştirerek tekrar deneyin
               </p>
               <button
-                onClick={() => {
-                  setSearchQuery('');
-                  setSelectedCategory('all');
-                  setSelectedDifficulty('Tümü');
-                  setSelectedDuration('Tümü');
-                  setSelectedCountry(null);
-                }}
-                className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-lydian-primary to-lydian-secondary text-white rounded-xl font-bold hover:shadow-xl transition-all text-lg"
-              >
+              onClick={() => {
+                setSearchQuery('');
+                setSelectedCategory('all');
+                setSelectedDifficulty('Tümü');
+                setSelectedDuration('Tümü');
+                setSelectedCountry(null);
+              }}
+              className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-lydian-primary to-lydian-secondary text-lydian-text-inverse rounded-xl font-bold hover:shadow-xl transition-all text-lg">
+
                 Filtreleri Temizle
                 <ArrowRight className="w-5 h-5" />
               </button>
             </motion.div>
-          )}
+          }
         </section>
       </main>
 
       {/* Toast Notification */}
       <AnimatePresence>
-        {showToast && (
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 50 }}
-            className="fixed bottom-8 right-8 z-[100] bg-gradient-to-r from-emerald-500 to-green-600 text-white px-6 py-4 rounded-xl shadow-2xl flex items-center gap-4"
-          >
+        {showToast &&
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 50 }}
+          className="fixed bottom-8 right-8 z-[100] bg-gradient-to-r from-emerald-500 to-green-600 text-lydian-text-inverse px-6 py-4 rounded-xl shadow-2xl flex items-center gap-4">
+
             <CheckCircle className="w-6 h-6" />
             <span className="font-semibold">{toastMessage}</span>
-            {toastMessage.includes('sepete eklendi') && (
-              <button
-                onClick={() => router.push('/cart')}
-                className="flex items-center gap-2 px-4 py-2 bg-transparent text-emerald-600 rounded-lg font-semibold hover:bg-white/10 transition-colors ml-2"
-              >
+            {toastMessage.includes('sepete eklendi') &&
+          <button
+            onClick={() => router.push('/cart')}
+            className="flex items-center gap-2 px-4 py-2 bg-lydian-bg-hover text-emerald-600 rounded-lg font-semibold hover:bg-lydian-glass-dark-medium transition-colors ml-2">
+
                 <Eye className="w-4 h-4" />
                 Sepeti Gör
               </button>
-            )}
+          }
           </motion.div>
-        )}
+        }
       </AnimatePresence>
-    </>
-  );
+    </>);
+
 }

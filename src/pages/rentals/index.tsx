@@ -28,8 +28,8 @@ import {
   ChevronDownIcon,
   SparklesIcon,
   FireIcon,
-  ArrowRightIcon,
-} from '@heroicons/react/24/outline';
+  ArrowRightIcon } from
+'@heroicons/react/24/outline';
 import { HeartIcon as HeartSolidIcon, StarIcon as StarSolidIcon } from '@heroicons/react/24/solid';
 import { useToast } from '../../context/ToastContext';
 import { FuturisticHeader } from '../../components/layout/FuturisticHeader';
@@ -94,27 +94,27 @@ const MapView = dynamic(() => import('../../components/rentals/MapView'), { ssr:
 
 // Property type options
 const PROPERTY_TYPES = [
-  { value: 'all', label: 'Tüm Tipler', icon: HomeIcon },
-  { value: 'villa', label: 'Villa', icon: HomeIcon },
-  { value: 'apartment', label: 'Daire', icon: HomeIcon },
-  { value: 'house', label: 'Ev', icon: HomeIcon },
-  { value: 'studio', label: 'Stüdyo', icon: HomeIcon },
-  { value: 'penthouse', label: 'Penthouse', icon: HomeIcon },
-];
+{ value: 'all', label: 'Tüm Tipler', icon: HomeIcon },
+{ value: 'villa', label: 'Villa', icon: HomeIcon },
+{ value: 'apartment', label: 'Daire', icon: HomeIcon },
+{ value: 'house', label: 'Ev', icon: HomeIcon },
+{ value: 'studio', label: 'Stüdyo', icon: HomeIcon },
+{ value: 'penthouse', label: 'Penthouse', icon: HomeIcon }];
+
 
 // City options
 const CITIES = ['Tümü', 'Alanya', 'Antalya', 'Marmaris', 'Bodrum', 'Çeşme'];
 
 // Amenities filter options
 const AMENITIES = [
-  { id: 'wifi', label: 'WiFi', key: 'wifi' },
-  { id: 'pool', label: 'Havuz', key: 'pool' },
-  { id: 'parking', label: 'Otopark', key: 'parking' },
-  { id: 'kitchen', label: 'Mutfak', key: 'kitchen' },
-  { id: 'airConditioning', label: 'Klima', key: 'airConditioning' },
-  { id: 'beachfront', label: 'Denize Sıfır', key: 'beachfront' },
-  { id: 'seaview', label: 'Deniz Manzarası', key: 'seaview' },
-];
+{ id: 'wifi', label: 'WiFi', key: 'wifi' },
+{ id: 'pool', label: 'Havuz', key: 'pool' },
+{ id: 'parking', label: 'Otopark', key: 'parking' },
+{ id: 'kitchen', label: 'Mutfak', key: 'kitchen' },
+{ id: 'airConditioning', label: 'Klima', key: 'airConditioning' },
+{ id: 'beachfront', label: 'Denize Sıfır', key: 'beachfront' },
+{ id: 'seaview', label: 'Deniz Manzarası', key: 'seaview' }];
+
 
 interface Filters {
   city: string;
@@ -155,7 +155,7 @@ const RentalsPage: React.FC = () => {
     instantBook: false,
     superhost: false,
     amenities: [],
-    rating: 0,
+    rating: 0
   });
 
   // Use Antalya rentals data directly
@@ -216,9 +216,9 @@ const RentalsPage: React.FC = () => {
       }));
 
       setProperties(convertedProperties);
-      setFeaturedProperties(convertedProperties.filter(p => p.isFeatured));
+      setFeaturedProperties(convertedProperties.filter((p) => p.isFeatured));
     } catch (error) {
-      logger.error('Error loading properties:', error as Error, {component:'Index'});
+      logger.error('Error loading properties:', error as Error, { component: 'Index' });
       showToast('Hata', 'Özellikler yüklenirken bir hata oluştu', 'error');
     } finally {
       setLoading(false);
@@ -235,10 +235,10 @@ const RentalsPage: React.FC = () => {
       if (searchQuery) {
         const query = searchQuery.toLowerCase();
         const matchesSearch =
-          property.title.toLowerCase().includes(query) ||
-          property.description.toLowerCase().includes(query) ||
-          property.city.toLowerCase().includes(query) ||
-          property.district.toLowerCase().includes(query);
+        property.title.toLowerCase().includes(query) ||
+        property.description.toLowerCase().includes(query) ||
+        property.city.toLowerCase().includes(query) ||
+        property.district.toLowerCase().includes(query);
         if (!matchesSearch) return false;
       }
 
@@ -321,7 +321,7 @@ const RentalsPage: React.FC = () => {
       instantBook: false,
       superhost: false,
       amenities: [],
-      rating: 0,
+      rating: 0
     });
     setSearchQuery('');
   };
@@ -352,16 +352,16 @@ const RentalsPage: React.FC = () => {
           title: 'Kiralık Tatil Evleri ve Villalar | Travel.LyDian',
           description: 'Alanya, Antalya, Marmaris, Bodrum ve Çeşme\'de lüks kiralık villa ve tatil evleri.',
           images: [
-            {
-              url: 'https://travel.lydian.com/og-rentals.jpg',
-              width: 1200,
-              height: 630,
-              alt: 'Travel.LyDian Rentals',
-            },
-          ],
-          site_name: 'Travel.LyDian',
-        }}
-      />
+          {
+            url: 'https://travel.lydian.com/og-rentals.jpg',
+            width: 1200,
+            height: 630,
+            alt: 'Travel.LyDian Rentals'
+          }],
+
+          site_name: 'Travel.LyDian'
+        }} />
+
 
       <Head>
         <title>Kiralık Tatil Evleri | Travel.LyDian</title>
@@ -376,17 +376,17 @@ const RentalsPage: React.FC = () => {
         <motion.header
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="sticky top-20 z-40 bg-white/95 backdrop-blur-md border-b border-white/10 shadow-sm"
-        >
+          className="sticky top-20 z-40 bg-lydian-bg/95 backdrop-blur-md border-b border-lydian-border-light/10 shadow-sm">
+
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
             <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
               {/* Title & Stats */}
               <div className="flex items-center justify-between">
                 <div>
-                  <h1 className="text-2xl lg:text-3xl font-bold bg-gradient-to-r from-red-600 via-orange-500 to-red-700 bg-clip-text text-transparent">
+                  <h1 className="text-2xl lg:text-3xl font-bold bg-gradient-to-r from-lydian-primary via-orange-500 to-red-700 bg-clip-text text-transparent">
                     Tatil Evleri & Villalar
                   </h1>
-                  <p className="text-sm text-gray-100 mt-1">
+                  <p className="text-sm text-lydian-text-dim mt-1">
                     {filteredProperties.length} özellik bulundu
                   </p>
                 </div>
@@ -394,61 +394,61 @@ const RentalsPage: React.FC = () => {
                 {/* Mobile Filter Toggle */}
                 <button
                   onClick={() => setShowFilters(!showFilters)}
-                  className="lg:hidden relative px-4 py-2 bg-gradient-to-r from-red-600 to-orange-500 text-white rounded-xl font-medium shadow-lg hover:shadow-xl transition-all"
-                >
+                  className="lg:hidden relative px-4 py-2 bg-gradient-to-r from-lydian-primary to-orange-500 text-lydian-text-inverse rounded-xl font-medium shadow-lg hover:shadow-xl transition-all">
+
                   <FunnelIcon className="w-5 h-5 inline mr-2" />
                   Filtreler
-                  {activeFilterCount > 0 && (
-                    <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-6 h-6 flex items-center justify-center font-bold">
+                  {activeFilterCount > 0 &&
+                  <span className="absolute -top-2 -right-2 bg-lydian-error text-lydian-text-inverse text-xs rounded-full w-6 h-6 flex items-center justify-center font-bold">
                       {activeFilterCount}
                     </span>
-                  )}
+                  }
                 </button>
               </div>
 
               {/* Search Bar */}
               <div className="flex-1 max-w-2xl">
                 <div className="relative">
-                  <MagnifyingGlassIcon className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+                  <MagnifyingGlassIcon className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-lydian-text-muted" />
                   <input
                     type="text"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     placeholder="Lokasyon, özellik veya şehir ara..."
-                    className="w-full pl-12 pr-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all"
-                  />
-                  {searchQuery && (
-                    <button
-                      onClick={() => setSearchQuery('')}
-                      className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-300"
-                    >
+                    className="w-full pl-12 pr-4 py-3 bg-lydian-glass-dark border border-lydian-border-light/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-lydian-border transition-all" />
+
+                  {searchQuery &&
+                  <button
+                    onClick={() => setSearchQuery('')}
+                    className="absolute right-4 top-1/2 -translate-y-1/2 text-lydian-text-muted hover:text-lydian-text-dim">
+
                       <XMarkIcon className="w-5 h-5" />
                     </button>
-                  )}
+                  }
                 </div>
               </div>
 
               {/* View Toggle */}
-              <div className="flex items-center gap-2 bg-white/10 p-1 rounded-xl">
+              <div className="flex items-center gap-2 bg-lydian-glass-dark-medium p-1 rounded-xl">
                 <button
                   onClick={() => setViewMode('grid')}
                   className={`px-4 py-2 rounded-lg font-medium transition-all ${
-                    viewMode === 'grid'
-                      ? 'bg-white/5 text-red-600 shadow-md'
-                      : 'text-gray-300 hover:text-white'
-                  }`}
-                >
+                  viewMode === 'grid' ?
+                  'bg-white/5 text-red-600 shadow-md' :
+                  'text-gray-300 hover:text-white'}`
+                  }>
+
                   <ListBulletIcon className="w-5 h-5 inline mr-2" />
                   Liste
                 </button>
                 <button
                   onClick={() => setViewMode('map')}
                   className={`px-4 py-2 rounded-lg font-medium transition-all ${
-                    viewMode === 'map'
-                      ? 'bg-white/5 text-red-600 shadow-md'
-                      : 'text-gray-300 hover:text-white'
-                  }`}
-                >
+                  viewMode === 'map' ?
+                  'bg-white/5 text-red-600 shadow-md' :
+                  'text-gray-300 hover:text-white'}`
+                  }>
+
                   <MapIcon className="w-5 h-5 inline mr-2" />
                   Harita
                 </button>
@@ -461,141 +461,141 @@ const RentalsPage: React.FC = () => {
           <div className="flex flex-col lg:flex-row gap-8">
             {/* Filters Sidebar */}
             <AnimatePresence>
-              {(showFilters || (typeof window !== 'undefined' && window.innerWidth >= 1024)) && (
-                <motion.aside
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -20 }}
-                  className="lg:w-80 bg-transparent rounded-2xl shadow-lg p-6 h-fit sticky top-20 max-h-[calc(100vh-6rem)] overflow-y-auto"
-                >
+              {(showFilters || typeof window !== 'undefined' && window.innerWidth >= 1024) &&
+              <motion.aside
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -20 }}
+                className="lg:w-80 bg-lydian-bg-hover rounded-2xl shadow-lg p-6 h-fit sticky top-20 max-h-[calc(100vh-6rem)] overflow-y-auto">
+
                   {/* Filter Header */}
                   <div className="flex items-center justify-between mb-6">
                     <div className="flex items-center gap-2">
-                      <AdjustmentsHorizontalIcon className="w-6 h-6 text-red-600" />
-                      <h2 className="text-xl font-bold text-white">Filtreler</h2>
-                      {activeFilterCount > 0 && (
-                        <span className="bg-red-100 text-red-600 text-xs px-2 py-1 rounded-full font-semibold">
+                      <AdjustmentsHorizontalIcon className="w-6 h-6 text-lydian-primary" />
+                      <h2 className="text-xl font-bold text-lydian-text-inverse">Filtreler</h2>
+                      {activeFilterCount > 0 &&
+                    <span className="bg-lydian-error-light text-lydian-primary text-xs px-2 py-1 rounded-full font-semibold">
                           {activeFilterCount}
                         </span>
-                      )}
+                    }
                     </div>
-                    {activeFilterCount > 0 && (
-                      <button
-                        onClick={resetFilters}
-                        className="text-sm text-red-600 hover:text-red-700 font-medium"
-                      >
+                    {activeFilterCount > 0 &&
+                  <button
+                    onClick={resetFilters}
+                    className="text-sm text-lydian-primary hover:text-lydian-primary-dark font-medium">
+
                         Temizle
                       </button>
-                    )}
+                  }
                   </div>
 
                   <div className="space-y-6">
                     {/* City Filter */}
                     <div>
-                      <label className="block text-sm font-semibold text-gray-200 mb-3">
+                      <label className="block text-sm font-semibold text-lydian-text-muted mb-3">
                         <MapPinIcon className="w-4 h-4 inline mr-2" />
                         Şehir
                       </label>
                       <select
-                        value={filters.city}
-                        onChange={(e) => setFilters({ ...filters, city: e.target.value })}
-                        className="w-full px-4 py-2.5 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all"
-                      >
-                        {CITIES.map((city) => (
-                          <option key={city} value={city}>
+                      value={filters.city}
+                      onChange={(e) => setFilters({ ...filters, city: e.target.value })}
+                      className="w-full px-4 py-2.5 bg-lydian-glass-dark border border-lydian-border-light/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-lydian-border transition-all">
+
+                        {CITIES.map((city) =>
+                      <option key={city} value={city}>
                             {city}
                           </option>
-                        ))}
+                      )}
                       </select>
                     </div>
 
                     {/* Property Type */}
                     <div>
-                      <label className="block text-sm font-semibold text-gray-200 mb-3">
+                      <label className="block text-sm font-semibold text-lydian-text-muted mb-3">
                         <HomeIcon className="w-4 h-4 inline mr-2" />
                         Özellik Tipi
                       </label>
                       <div className="grid grid-cols-2 gap-2">
-                        {PROPERTY_TYPES.map((type) => (
-                          <button
-                            key={type.value}
-                            onClick={() => setFilters({ ...filters, propertyType: type.value })}
-                            className={`px-3 py-2 rounded-lg text-sm font-medium transition-all ${
-                              filters.propertyType === type.value
-                                ? 'bg-gradient-to-r from-red-600 to-orange-500 text-white shadow-md'
-                                : 'bg-white/5 text-gray-200 hover:bg-white/10'
-                            }`}
-                          >
+                        {PROPERTY_TYPES.map((type) =>
+                      <button
+                        key={type.value}
+                        onClick={() => setFilters({ ...filters, propertyType: type.value })}
+                        className={`px-3 py-2 rounded-lg text-sm font-medium transition-all ${
+                        filters.propertyType === type.value ?
+                        'bg-gradient-to-r from-red-600 to-orange-500 text-white shadow-md' :
+                        'bg-white/5 text-gray-200 hover:bg-white/10'}`
+                        }>
+
                             {type.label}
                           </button>
-                        ))}
+                      )}
                       </div>
                     </div>
 
                     {/* Price Range */}
                     <div>
-                      <label className="block text-sm font-semibold text-gray-200 mb-3">
+                      <label className="block text-sm font-semibold text-lydian-text-muted mb-3">
                         <CurrencyDollarIcon className="w-4 h-4 inline mr-2" />
                         Fiyat Aralığı (TRY/gece)
                       </label>
                       <div className="space-y-3">
                         <div className="flex items-center gap-3">
                           <input
-                            type="number"
-                            value={filters.priceMin}
-                            onChange={(e) =>
-                              setFilters({ ...filters, priceMin: parseInt(e.target.value) || 0 })
-                            }
-                            placeholder="Min"
-                            className="w-full px-3 py-2 bg-white/5 border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
-                          />
-                          <span className="text-gray-200">-</span>
+                          type="number"
+                          value={filters.priceMin}
+                          onChange={(e) =>
+                          setFilters({ ...filters, priceMin: parseInt(e.target.value) || 0 })
+                          }
+                          placeholder="Min"
+                          className="w-full px-3 py-2 bg-lydian-glass-dark border border-lydian-border-light/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500" />
+
+                          <span className="text-lydian-text-muted">-</span>
                           <input
-                            type="number"
-                            value={filters.priceMax}
-                            onChange={(e) =>
-                              setFilters({ ...filters, priceMax: parseInt(e.target.value) || 10000 })
-                            }
-                            placeholder="Max"
-                            className="w-full px-3 py-2 bg-white/5 border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
-                          />
-                        </div>
-                        <input
-                          type="range"
-                          min="0"
-                          max="10000"
-                          step="100"
+                          type="number"
                           value={filters.priceMax}
                           onChange={(e) =>
-                            setFilters({ ...filters, priceMax: parseInt(e.target.value) })
+                          setFilters({ ...filters, priceMax: parseInt(e.target.value) || 10000 })
                           }
-                          className="w-full accent-red-600"
-                        />
+                          placeholder="Max"
+                          className="w-full px-3 py-2 bg-lydian-glass-dark border border-lydian-border-light/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500" />
+
+                        </div>
+                        <input
+                        type="range"
+                        min="0"
+                        max="10000"
+                        step="100"
+                        value={filters.priceMax}
+                        onChange={(e) =>
+                        setFilters({ ...filters, priceMax: parseInt(e.target.value) })
+                        }
+                        className="w-full accent-red-600" />
+
                       </div>
                     </div>
 
                     {/* Guests */}
                     <div>
-                      <label className="block text-sm font-semibold text-gray-200 mb-3">
+                      <label className="block text-sm font-semibold text-lydian-text-muted mb-3">
                         <UserGroupIcon className="w-4 h-4 inline mr-2" />
                         Misafir Sayısı
                       </label>
                       <div className="flex items-center gap-3">
                         <button
-                          onClick={() =>
-                            setFilters({ ...filters, guests: Math.max(0, filters.guests - 1) })
-                          }
-                          className="w-10 h-10 bg-white/10 rounded-lg font-bold text-gray-200 hover:bg-gray-200 transition-all"
-                        >
+                        onClick={() =>
+                        setFilters({ ...filters, guests: Math.max(0, filters.guests - 1) })
+                        }
+                        className="w-10 h-10 bg-lydian-glass-dark-medium rounded-lg font-bold text-lydian-text-muted hover:bg-lydian-bg-active transition-all">
+
                           -
                         </button>
-                        <div className="flex-1 text-center py-2 bg-white/5 rounded-lg font-semibold">
+                        <div className="flex-1 text-center py-2 bg-lydian-glass-dark rounded-lg font-semibold">
                           {filters.guests === 0 ? 'Tümü' : filters.guests}
                         </div>
                         <button
-                          onClick={() => setFilters({ ...filters, guests: filters.guests + 1 })}
-                          className="w-10 h-10 bg-white/10 rounded-lg font-bold text-gray-200 hover:bg-gray-200 transition-all"
-                        >
+                        onClick={() => setFilters({ ...filters, guests: filters.guests + 1 })}
+                        className="w-10 h-10 bg-lydian-glass-dark-medium rounded-lg font-bold text-lydian-text-muted hover:bg-lydian-bg-active transition-all">
+
                           +
                         </button>
                       </div>
@@ -603,25 +603,25 @@ const RentalsPage: React.FC = () => {
 
                     {/* Bedrooms */}
                     <div>
-                      <label className="block text-sm font-semibold text-gray-200 mb-3">
+                      <label className="block text-sm font-semibold text-lydian-text-muted mb-3">
                         Yatak Odası
                       </label>
                       <div className="flex items-center gap-3">
                         <button
-                          onClick={() =>
-                            setFilters({ ...filters, bedrooms: Math.max(0, filters.bedrooms - 1) })
-                          }
-                          className="w-10 h-10 bg-white/10 rounded-lg font-bold text-gray-200 hover:bg-gray-200 transition-all"
-                        >
+                        onClick={() =>
+                        setFilters({ ...filters, bedrooms: Math.max(0, filters.bedrooms - 1) })
+                        }
+                        className="w-10 h-10 bg-lydian-glass-dark-medium rounded-lg font-bold text-lydian-text-muted hover:bg-lydian-bg-active transition-all">
+
                           -
                         </button>
-                        <div className="flex-1 text-center py-2 bg-white/5 rounded-lg font-semibold">
+                        <div className="flex-1 text-center py-2 bg-lydian-glass-dark rounded-lg font-semibold">
                           {filters.bedrooms === 0 ? 'Tümü' : filters.bedrooms}
                         </div>
                         <button
-                          onClick={() => setFilters({ ...filters, bedrooms: filters.bedrooms + 1 })}
-                          className="w-10 h-10 bg-white/10 rounded-lg font-bold text-gray-200 hover:bg-gray-200 transition-all"
-                        >
+                        onClick={() => setFilters({ ...filters, bedrooms: filters.bedrooms + 1 })}
+                        className="w-10 h-10 bg-lydian-glass-dark-medium rounded-lg font-bold text-lydian-text-muted hover:bg-lydian-bg-active transition-all">
+
                           +
                         </button>
                       </div>
@@ -629,145 +629,145 @@ const RentalsPage: React.FC = () => {
 
                     {/* Amenities */}
                     <div>
-                      <label className="block text-sm font-semibold text-gray-200 mb-3">
+                      <label className="block text-sm font-semibold text-lydian-text-muted mb-3">
                         <SparklesIcon className="w-4 h-4 inline mr-2" />
                         Olanaklar
                       </label>
                       <div className="space-y-2">
-                        {AMENITIES.map((amenity) => (
-                          <label
-                            key={amenity.id}
-                            className="flex items-center gap-3 p-2 rounded-lg hover:bg-white/5 cursor-pointer transition-all"
-                          >
+                        {AMENITIES.map((amenity) =>
+                      <label
+                        key={amenity.id}
+                        className="flex items-center gap-3 p-2 rounded-lg hover:bg-lydian-glass-dark cursor-pointer transition-all">
+
                             <input
-                              type="checkbox"
-                              checked={filters.amenities.includes(amenity.key)}
-                              onChange={(e) => {
-                                if (e.target.checked) {
-                                  setFilters({
-                                    ...filters,
-                                    amenities: [...filters.amenities, amenity.key],
-                                  });
-                                } else {
-                                  setFilters({
-                                    ...filters,
-                                    amenities: filters.amenities.filter((a) => a !== amenity.key),
-                                  });
-                                }
-                              }}
-                              className="w-4 h-4 text-red-600 rounded focus:ring-red-500"
-                            />
-                            <span className="text-sm text-gray-200">{amenity.label}</span>
+                          type="checkbox"
+                          checked={filters.amenities.includes(amenity.key)}
+                          onChange={(e) => {
+                            if (e.target.checked) {
+                              setFilters({
+                                ...filters,
+                                amenities: [...filters.amenities, amenity.key]
+                              });
+                            } else {
+                              setFilters({
+                                ...filters,
+                                amenities: filters.amenities.filter((a) => a !== amenity.key)
+                              });
+                            }
+                          }}
+                          className="w-4 h-4 text-lydian-primary rounded focus:ring-red-500" />
+
+                            <span className="text-sm text-lydian-text-muted">{amenity.label}</span>
                           </label>
-                        ))}
+                      )}
                       </div>
                     </div>
 
                     {/* Quick Filters */}
                     <div>
-                      <label className="block text-sm font-semibold text-gray-200 mb-3">
+                      <label className="block text-sm font-semibold text-lydian-text-muted mb-3">
                         <FireIcon className="w-4 h-4 inline mr-2" />
                         Hızlı Filtreler
                       </label>
                       <div className="space-y-2">
                         <label className="flex items-center gap-3 p-3 rounded-lg bg-gradient-to-r from-yellow-50 to-orange-50 cursor-pointer transition-all hover:shadow-md">
                           <input
-                            type="checkbox"
-                            checked={filters.instantBook}
-                            onChange={(e) =>
-                              setFilters({ ...filters, instantBook: e.target.checked })
-                            }
-                            className="w-4 h-4 text-red-600 rounded focus:ring-red-500"
-                          />
-                          <BoltIcon className="w-5 h-5 text-yellow-600" />
-                          <span className="text-sm font-medium text-gray-200">Anında Rezervasyon</span>
+                          type="checkbox"
+                          checked={filters.instantBook}
+                          onChange={(e) =>
+                          setFilters({ ...filters, instantBook: e.target.checked })
+                          }
+                          className="w-4 h-4 text-lydian-primary rounded focus:ring-red-500" />
+
+                          <BoltIcon className="w-5 h-5 text-lydian-warning" />
+                          <span className="text-sm font-medium text-lydian-text-muted">Anında Rezervasyon</span>
                         </label>
 
                         <label className="flex items-center gap-3 p-3 rounded-lg bg-gradient-to-r from-purple-50 to-pink-50 cursor-pointer transition-all hover:shadow-md">
                           <input
-                            type="checkbox"
-                            checked={filters.superhost}
-                            onChange={(e) => setFilters({ ...filters, superhost: e.target.checked })}
-                            className="w-4 h-4 text-red-600 rounded focus:ring-red-500"
-                          />
+                          type="checkbox"
+                          checked={filters.superhost}
+                          onChange={(e) => setFilters({ ...filters, superhost: e.target.checked })}
+                          className="w-4 h-4 text-lydian-primary rounded focus:ring-red-500" />
+
                           <CheckBadgeIcon className="w-5 h-5 text-purple-600" />
-                          <span className="text-sm font-medium text-gray-200">Superhost</span>
+                          <span className="text-sm font-medium text-lydian-text-muted">Superhost</span>
                         </label>
                       </div>
                     </div>
 
                     {/* Rating Filter */}
                     <div>
-                      <label className="block text-sm font-semibold text-gray-200 mb-3">
+                      <label className="block text-sm font-semibold text-lydian-text-muted mb-3">
                         <StarIcon className="w-4 h-4 inline mr-2" />
                         Minimum Puan
                       </label>
                       <div className="flex gap-2">
-                        {[0, 4.0, 4.5, 4.8, 5.0].map((rating) => (
-                          <button
-                            key={rating}
-                            onClick={() => setFilters({ ...filters, rating })}
-                            className={`flex-1 px-3 py-2 rounded-lg text-sm font-medium transition-all ${
-                              filters.rating === rating
-                                ? 'bg-gradient-to-r from-red-600 to-orange-500 text-white shadow-md'
-                                : 'bg-white/5 text-gray-200 hover:bg-white/10'
-                            }`}
-                          >
+                        {[0, 4.0, 4.5, 4.8, 5.0].map((rating) =>
+                      <button
+                        key={rating}
+                        onClick={() => setFilters({ ...filters, rating })}
+                        className={`flex-1 px-3 py-2 rounded-lg text-sm font-medium transition-all ${
+                        filters.rating === rating ?
+                        'bg-gradient-to-r from-red-600 to-orange-500 text-white shadow-md' :
+                        'bg-white/5 text-gray-200 hover:bg-white/10'}`
+                        }>
+
                             {rating === 0 ? 'Tümü' : `${rating}+`}
                           </button>
-                        ))}
+                      )}
                       </div>
                     </div>
                   </div>
                 </motion.aside>
-              )}
+              }
             </AnimatePresence>
 
             {/* Main Content */}
             <div className="flex-1">
-              {viewMode === 'grid' ? (
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6"
-                >
-                  {filteredProperties.map((property, index) => (
-                    <PropertyCard
-                      key={property.id}
-                      property={property}
-                      isFavorite={favorites.has(property.id)}
-                      onToggleFavorite={() => toggleFavorite(property.id)}
-                      index={index}
-                    />
-                  ))}
-                </motion.div>
-              ) : (
-                <div className="h-[calc(100vh-12rem)] rounded-2xl overflow-hidden shadow-2xl">
+              {viewMode === 'grid' ?
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+
+                  {filteredProperties.map((property, index) =>
+                <PropertyCard
+                  key={property.id}
+                  property={property}
+                  isFavorite={favorites.has(property.id)}
+                  onToggleFavorite={() => toggleFavorite(property.id)}
+                  index={index} />
+
+                )}
+                </motion.div> :
+
+              <div className="h-[calc(100vh-12rem)] rounded-2xl overflow-hidden shadow-2xl">
                   <MapView properties={filteredProperties} />
                 </div>
-              )}
+              }
 
-              {filteredProperties.length === 0 && (
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  className="text-center py-20"
-                >
+              {filteredProperties.length === 0 &&
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                className="text-center py-20">
+
                   <div className="w-24 h-24 mx-auto mb-6 bg-gradient-to-br from-red-100 to-orange-100 rounded-full flex items-center justify-center">
-                    <HomeIcon className="w-12 h-12 text-red-600" />
+                    <HomeIcon className="w-12 h-12 text-lydian-primary" />
                   </div>
-                  <h3 className="text-2xl font-bold text-white mb-3">Özellik Bulunamadı</h3>
-                  <p className="text-gray-300 mb-6">
+                  <h3 className="text-2xl font-bold text-lydian-text-inverse mb-3">Özellik Bulunamadı</h3>
+                  <p className="text-lydian-text-dim mb-6">
                     Aradığınız kriterlere uygun özellik bulunamadı. Lütfen filtreleri değiştirin.
                   </p>
                   <button
-                    onClick={resetFilters}
-                    className="px-6 py-3 bg-gradient-to-r from-red-600 to-orange-500 text-white rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all"
-                  >
+                  onClick={resetFilters}
+                  className="px-6 py-3 bg-gradient-to-r from-lydian-primary to-orange-500 text-lydian-text-inverse rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all">
+
                     Filtreleri Sıfırla
                   </button>
                 </motion.div>
-              )}
+              }
             </div>
           </div>
         </div>
@@ -782,8 +782,8 @@ const RentalsPage: React.FC = () => {
             style={{
               background: 'linear-gradient(135deg, rgba(255, 33, 77, 0.05), rgba(255, 106, 69, 0.05))',
               borderColor: 'rgba(255, 33, 77, 0.3)'
-            }}
-          >
+            }}>
+
             {/* Background Pattern */}
             <div className="absolute inset-0 opacity-5">
               <div className="absolute inset-0" style={{
@@ -796,10 +796,10 @@ const RentalsPage: React.FC = () => {
               {/* Left Side - Info */}
               <div>
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6"
-                     style={{
-                       background: 'linear-gradient(135deg, rgba(255, 33, 77, 0.1), rgba(255, 106, 69, 0.1))',
-                       border: '1px solid rgba(255, 33, 77, 0.3)'
-                     }}>
+                style={{
+                  background: 'linear-gradient(135deg, rgba(255, 33, 77, 0.1), rgba(255, 106, 69, 0.1))',
+                  border: '1px solid rgba(255, 33, 77, 0.3)'
+                }}>
                   <HomeIcon className="w-4 h-4" style={{ color: '#FF214D' }} />
                   <span className="text-sm font-bold" style={{ color: '#FF214D' }}>
                     Mülk Sahipleri İçin
@@ -819,33 +819,33 @@ const RentalsPage: React.FC = () => {
 
                 <div className="space-y-4 mb-8">
                   {[
-                    { text: 'Gelişmiş Mülk Yönetimi' },
-                    { text: 'Güvenli Rezervasyon Sistemi' },
-                    { text: 'Gerçek Zamanlı Analitik & Raporlama' },
-                    { text: 'Misafir İletişim Merkezi' }
-                  ].map((feature, idx) => (
-                    <div key={idx} className="flex items-center gap-3">
+                  { text: 'Gelişmiş Mülk Yönetimi' },
+                  { text: 'Güvenli Rezervasyon Sistemi' },
+                  { text: 'Gerçek Zamanlı Analitik & Raporlama' },
+                  { text: 'Misafir İletişim Merkezi' }].
+                  map((feature, idx) =>
+                  <div key={idx} className="flex items-center gap-3">
                       <div className="w-10 h-10 rounded-lg flex items-center justify-center"
-                           style={{
-                             background: 'linear-gradient(135deg, rgba(255, 33, 77, 0.1), rgba(255, 106, 69, 0.1))',
-                             border: '1px solid rgba(255, 33, 77, 0.2)'
-                           }}>
+                    style={{
+                      background: 'linear-gradient(135deg, rgba(255, 33, 77, 0.1), rgba(255, 106, 69, 0.1))',
+                      border: '1px solid rgba(255, 33, 77, 0.2)'
+                    }}>
                         <CheckBadgeIcon className="w-5 h-5" style={{ color: '#FF214D' }} />
                       </div>
                       <span className="font-medium" style={{ color: '#374151' }}>{feature.text}</span>
                     </div>
-                  ))}
+                  )}
                 </div>
 
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Link
                     href="/owner/auth/register"
-                    className="flex-1 inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold text-white transition-all hover:scale-105 group shadow-lg"
+                    className="flex-1 inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold text-lydian-text-inverse transition-all hover:scale-105 group shadow-lg"
                     style={{
                       background: 'linear-gradient(135deg, #FF214D, #FF6A45)',
                       boxShadow: '0 0 30px rgba(255, 33, 77, 0.5)'
-                    }}
-                  >
+                    }}>
+
                     Kayıt Ol
                     <ArrowRightIcon className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                   </Link>
@@ -857,8 +857,8 @@ const RentalsPage: React.FC = () => {
                       backgroundColor: 'white',
                       color: '#FF214D',
                       border: '2px solid #FF214D'
-                    }}
-                  >
+                    }}>
+
                     Giriş Yap
                   </Link>
                 </div>
@@ -867,24 +867,24 @@ const RentalsPage: React.FC = () => {
               {/* Right Side - Stats */}
               <div className="grid grid-cols-2 gap-4">
                 {[
-                  { label: 'Aktif Mülk', value: '1,200+' },
-                  { label: 'Aylık Gelir', value: '₺850K+' },
-                  { label: 'Doluluk Oranı', value: '87%' },
-                  { label: 'Memnuniyet', value: '4.9/5' }
-                ].map((stat, idx) => (
-                  <motion.div
-                    key={idx}
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: idx * 0.1 }}
-                    viewport={{ once: true }}
-                    className="p-6 rounded-xl border-2"
-                    style={{
-                      backgroundColor: 'white',
-                      borderColor: 'rgba(255, 33, 77, 0.2)',
-                      boxShadow: '0 4px 6px rgba(0, 0, 0, 0.05)'
-                    }}
-                  >
+                { label: 'Aktif Mülk', value: '1,200+' },
+                { label: 'Aylık Gelir', value: '₺850K+' },
+                { label: 'Doluluk Oranı', value: '87%' },
+                { label: 'Memnuniyet', value: '4.9/5' }].
+                map((stat, idx) =>
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: idx * 0.1 }}
+                  viewport={{ once: true }}
+                  className="p-6 rounded-xl border-2"
+                  style={{
+                    backgroundColor: 'white',
+                    borderColor: 'rgba(255, 33, 77, 0.2)',
+                    boxShadow: '0 4px 6px rgba(0, 0, 0, 0.05)'
+                  }}>
+
                     <StarIcon className="w-8 h-8 mb-3" style={{ color: '#FF214D' }} />
                     <div className="text-3xl font-black mb-1" style={{ color: '#0A0A0B' }}>
                       {stat.value}
@@ -893,7 +893,7 @@ const RentalsPage: React.FC = () => {
                       {stat.label}
                     </div>
                   </motion.div>
-                ))}
+                )}
               </div>
             </div>
           </motion.div>
@@ -907,19 +907,19 @@ const RentalsPage: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="space-y-4"
-            >
+              className="space-y-4">
+
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-12 h-12 rounded-lg flex items-center justify-center"
-                     style={{
-                       background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(37, 99, 235, 0.1))',
-                       border: '1px solid rgba(59, 130, 246, 0.2)'
-                     }}>
-                  <CheckBadgeIcon className="w-6 h-6 text-blue-600" />
+                style={{
+                  background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(37, 99, 235, 0.1))',
+                  border: '1px solid rgba(59, 130, 246, 0.2)'
+                }}>
+                  <CheckBadgeIcon className="w-6 h-6 text-lydian-primary" />
                 </div>
-                <h3 className="text-xl font-bold text-white">Rezervasyon Koşulları</h3>
+                <h3 className="text-xl font-bold text-lydian-text-inverse">Rezervasyon Koşulları</h3>
               </div>
-              <ul className="space-y-2 text-sm text-gray-100">
+              <ul className="space-y-2 text-sm text-lydian-text-dim">
                 <li className="flex items-start gap-2">
                   <CheckBadgeIcon className="w-4 h-4 mt-0.5 text-green-500 flex-shrink-0" />
                   <span>Ücretsiz iptal: Check-in'den 48 saat öncesine kadar</span>
@@ -945,19 +945,19 @@ const RentalsPage: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
               viewport={{ once: true }}
-              className="space-y-4"
-            >
+              className="space-y-4">
+
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-12 h-12 rounded-lg flex items-center justify-center"
-                     style={{
-                       background: 'linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(22, 163, 74, 0.1))',
-                       border: '1px solid rgba(34, 197, 94, 0.2)'
-                     }}>
-                  <CheckBadgeIcon className="w-6 h-6 text-green-600" />
+                style={{
+                  background: 'linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(22, 163, 74, 0.1))',
+                  border: '1px solid rgba(34, 197, 94, 0.2)'
+                }}>
+                  <CheckBadgeIcon className="w-6 h-6 text-lydian-success" />
                 </div>
-                <h3 className="text-xl font-bold text-white">Ödeme & Güvenlik</h3>
+                <h3 className="text-xl font-bold text-lydian-text-inverse">Ödeme & Güvenlik</h3>
               </div>
-              <ul className="space-y-2 text-sm text-gray-100">
+              <ul className="space-y-2 text-sm text-lydian-text-dim">
                 <li className="flex items-start gap-2">
                   <CheckBadgeIcon className="w-4 h-4 mt-0.5 text-green-500 flex-shrink-0" />
                   <span>SSL sertifikalı güvenli ödeme altyapısı</span>
@@ -983,19 +983,19 @@ const RentalsPage: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
               viewport={{ once: true }}
-              className="space-y-4"
-            >
+              className="space-y-4">
+
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-12 h-12 rounded-lg flex items-center justify-center"
-                     style={{
-                       background: 'linear-gradient(135deg, rgba(255, 33, 77, 0.1), rgba(255, 106, 69, 0.1))',
-                       border: '1px solid rgba(255, 33, 77, 0.2)'
-                     }}>
+                style={{
+                  background: 'linear-gradient(135deg, rgba(255, 33, 77, 0.1), rgba(255, 106, 69, 0.1))',
+                  border: '1px solid rgba(255, 33, 77, 0.2)'
+                }}>
                   <UserGroupIcon className="w-6 h-6" style={{ color: '#FF214D' }} />
                 </div>
-                <h3 className="text-xl font-bold text-white">Destek & Yardım</h3>
+                <h3 className="text-xl font-bold text-lydian-text-inverse">Destek & Yardım</h3>
               </div>
-              <ul className="space-y-2 text-sm text-gray-100">
+              <ul className="space-y-2 text-sm text-lydian-text-dim">
                 <li className="flex items-start gap-2">
                   <CheckBadgeIcon className="w-4 h-4 mt-0.5 text-green-500 flex-shrink-0" />
                   <span>7/24 Türkçe canlı destek hizmeti</span>
@@ -1018,12 +1018,12 @@ const RentalsPage: React.FC = () => {
 
           {/* Additional Info */}
           <div className="mt-12 p-6 rounded-xl border-2"
-               style={{
-                 backgroundColor: 'rgba(249, 250, 251, 0.5)',
-                 borderColor: '#E5E7EB'
-               }}>
-            <p className="text-sm text-gray-100 text-center">
-              <strong className="font-bold text-white">Önemli Bilgi:</strong> Travel LyDian,
+          style={{
+            backgroundColor: 'rgba(249, 250, 251, 0.5)',
+            borderColor: '#E5E7EB'
+          }}>
+            <p className="text-sm text-lydian-text-dim text-center">
+              <strong className="font-bold text-lydian-text-inverse">Önemli Bilgi:</strong> Travel LyDian,
               AI destekli blockchain tabanlı güvenli rezervasyon sistemi ile kiralık mülklerinizi güvence altına alır.
               Tüm rezervasyonlarınız anında onaylanır ve blockchain ağında kayıt altına alınır.
               Detaylı bilgi için{' '}
@@ -1035,8 +1035,8 @@ const RentalsPage: React.FC = () => {
           </div>
         </section>
       </div>
-    </>
-  );
+    </>);
+
 };
 
 // Property Card Component
@@ -1051,47 +1051,47 @@ const PropertyCard: React.FC<PropertyCardProps> = ({
   property,
   isFavorite,
   onToggleFavorite,
-  index,
+  index
 }) => {
   // Calculate savings using base price comparison
   const competitorAvgPrice = 0; // We'll calculate this from the original rental data if available
   const savings = competitorAvgPrice > 0 ? Math.round(competitorAvgPrice - property.basePrice) : 0;
-  const savingsPercentage = savings > 0 && competitorAvgPrice > 0 ? Math.round((savings / competitorAvgPrice) * 100) : 0;
+  const savingsPercentage = savings > 0 && competitorAvgPrice > 0 ? Math.round(savings / competitorAvgPrice * 100) : 0;
 
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: index * 0.05 }}
-      className="group bg-transparent rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 overflow-hidden"
-    >
+      className="group bg-lydian-bg-hover rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 overflow-hidden">
+
       <Link href={`/rentals/${property.slug}`}>
         {/* Image */}
         <div className="relative h-64 overflow-hidden">
           <img
             src={property.images[0] || 'https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=800&h=600&fit=crop'}
             alt={property.title}
-            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-          />
+            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+
 
           {/* Primary Badge - Priority System: Featured > Superhost > Instant Book */}
           <div className="absolute top-3 left-3 z-10">
-            {property.isFeatured ? (
-              <span className="px-3 py-1 bg-gradient-to-r from-yellow-400 to-orange-400 text-white text-xs font-bold rounded-full shadow-lg flex items-center gap-1 backdrop-blur-sm">
+            {property.isFeatured ?
+            <span className="px-3 py-1 bg-gradient-to-r from-yellow-400 to-orange-400 text-lydian-text-inverse text-xs font-bold rounded-full shadow-lg flex items-center gap-1 backdrop-blur-sm">
                 <FireIcon className="w-3 h-3" />
                 Öne Çıkan
-              </span>
-            ) : property.hostSuperhost ? (
-              <span className="px-3 py-1 bg-gradient-to-r from-purple-500 to-pink-500 text-white text-xs font-bold rounded-full shadow-lg flex items-center gap-1 backdrop-blur-sm">
+              </span> :
+            property.hostSuperhost ?
+            <span className="px-3 py-1 bg-gradient-to-r from-purple-500 to-pink-500 text-lydian-text-inverse text-xs font-bold rounded-full shadow-lg flex items-center gap-1 backdrop-blur-sm">
                 <CheckBadgeIcon className="w-3 h-3" />
                 Superhost
-              </span>
-            ) : property.instantBook ? (
-              <span className="px-3 py-1 bg-gradient-to-r from-green-500 to-emerald-500 text-white text-xs font-bold rounded-full shadow-lg flex items-center gap-1 backdrop-blur-sm">
+              </span> :
+            property.instantBook ?
+            <span className="px-3 py-1 bg-gradient-to-r from-green-500 to-emerald-500 text-lydian-text-inverse text-xs font-bold rounded-full shadow-lg flex items-center gap-1 backdrop-blur-sm">
                 <BoltIcon className="w-3 h-3" />
                 Anında Rezervasyon
-              </span>
-            ) : null}
+              </span> :
+            null}
           </div>
 
           {/* Favorite Button */}
@@ -1100,28 +1100,28 @@ const PropertyCard: React.FC<PropertyCardProps> = ({
               e.preventDefault();
               onToggleFavorite();
             }}
-            className="absolute top-3 right-3 w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform"
-          >
-            {isFavorite ? (
-              <HeartSolidIcon className="w-5 h-5 text-red-500" />
-            ) : (
-              <HeartIcon className="w-5 h-5 text-gray-200" />
-            )}
+            className="absolute top-3 right-3 w-10 h-10 bg-lydian-bg/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform">
+
+            {isFavorite ?
+            <HeartSolidIcon className="w-5 h-5 text-lydian-error" /> :
+
+            <HeartIcon className="w-5 h-5 text-lydian-text-muted" />
+            }
           </button>
 
           {/* Price Savings Badge */}
-          {savings > 0 && (
-            <div className="absolute bottom-3 right-3 bg-red-600 text-white px-3 py-1.5 rounded-lg shadow-lg">
+          {savings > 0 &&
+          <div className="absolute bottom-3 right-3 bg-lydian-primary text-lydian-text-inverse px-3 py-1.5 rounded-lg shadow-lg">
               <p className="text-xs font-semibold">%{savingsPercentage} İndirim</p>
               <p className="text-xs opacity-90">{savings.toLocaleString('tr-TR')} ₺ Tasarruf</p>
             </div>
-          )}
+          }
         </div>
 
         {/* Content */}
         <div className="p-5">
           {/* Location */}
-          <div className="flex items-center gap-2 text-sm text-gray-100 mb-2">
+          <div className="flex items-center gap-2 text-sm text-lydian-text-dim mb-2">
             <MapPinIcon className="w-4 h-4" />
             <span>
               {property.district}, {property.city}
@@ -1129,12 +1129,12 @@ const PropertyCard: React.FC<PropertyCardProps> = ({
           </div>
 
           {/* Title */}
-          <h3 className="text-lg font-bold text-white mb-3 line-clamp-2 group-hover:text-red-600 transition-colors">
+          <h3 className="text-lg font-bold text-lydian-text-inverse mb-3 line-clamp-2 group-hover:text-lydian-primary transition-colors">
             {property.title}
           </h3>
 
           {/* Property Info */}
-          <div className="flex items-center gap-4 text-sm text-gray-100 mb-4">
+          <div className="flex items-center gap-4 text-sm text-lydian-text-dim mb-4">
             <span>{property.guests} misafir</span>
             <span>•</span>
             <span>{property.bedrooms} yatak odası</span>
@@ -1144,52 +1144,52 @@ const PropertyCard: React.FC<PropertyCardProps> = ({
 
           {/* Features */}
           <div className="flex flex-wrap gap-2 mb-4">
-            {property.pool && (
-              <span className="px-2 py-1 bg-blue-50 text-blue-700 text-xs rounded-lg">Havuz</span>
-            )}
-            {property.wifi && (
-              <span className="px-2 py-1 bg-purple-50 text-purple-700 text-xs rounded-lg">WiFi</span>
-            )}
-            {property.parking && (
-              <span className="px-2 py-1 bg-green-50 text-green-700 text-xs rounded-lg">Otopark</span>
-            )}
-            {property.seaview && (
-              <span className="px-2 py-1 bg-cyan-50 text-cyan-700 text-xs rounded-lg">Deniz Manzarası</span>
-            )}
+            {property.pool &&
+            <span className="px-2 py-1 bg-lydian-primary-lighter text-lydian-primary-dark text-xs rounded-lg">Havuz</span>
+            }
+            {property.wifi &&
+            <span className="px-2 py-1 bg-purple-50 text-purple-700 text-xs rounded-lg">WiFi</span>
+            }
+            {property.parking &&
+            <span className="px-2 py-1 bg-lydian-success-lighter text-lydian-success-text text-xs rounded-lg">Otopark</span>
+            }
+            {property.seaview &&
+            <span className="px-2 py-1 bg-cyan-50 text-cyan-700 text-xs rounded-lg">Deniz Manzarası</span>
+            }
           </div>
 
           {/* Rating & Reviews */}
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-2">
-              <div className="flex items-center gap-1 bg-gradient-to-r from-red-600 to-orange-500 text-white px-2 py-1 rounded-lg">
+              <div className="flex items-center gap-1 bg-gradient-to-r from-lydian-primary to-orange-500 text-lydian-text-inverse px-2 py-1 rounded-lg">
                 <StarSolidIcon className="w-4 h-4" />
                 <span className="font-bold text-sm">{property.overall.toFixed(1)}</span>
               </div>
-              <span className="text-sm text-gray-100">
+              <span className="text-sm text-lydian-text-dim">
                 ({property.reviewCount} değerlendirme)
               </span>
             </div>
           </div>
 
           {/* Price */}
-          <div className="flex items-end justify-between pt-4 border-t border-gray-100">
+          <div className="flex items-end justify-between pt-4 border-t border-lydian-border-light">
             <div>
-              {savings > 0 && (
-                <p className="text-xs text-gray-200 line-through">
+              {savings > 0 &&
+              <p className="text-xs text-lydian-text-muted line-through">
                   {(property.basePrice + savings).toLocaleString('tr-TR')} ₺
                 </p>
-              )}
-              <p className="text-2xl font-bold text-white">
+              }
+              <p className="text-2xl font-bold text-lydian-text-inverse">
                 {property.basePrice.toLocaleString('tr-TR')} ₺
-                <span className="text-sm font-normal text-gray-300"> / gece</span>
+                <span className="text-sm font-normal text-lydian-text-dim"> / gece</span>
               </p>
             </div>
-            <span className="text-xs text-gray-200 uppercase font-semibold">{property.type}</span>
+            <span className="text-xs text-lydian-text-muted uppercase font-semibold">{property.type}</span>
           </div>
         </div>
       </Link>
-    </motion.div>
-  );
+    </motion.div>);
+
 };
 
 export default RentalsPage;

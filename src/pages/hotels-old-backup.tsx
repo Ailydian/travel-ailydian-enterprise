@@ -23,8 +23,8 @@ import {
   Building,
   ShoppingCart,
   CheckCircle,
-  SlidersHorizontal
-} from 'lucide-react';
+  SlidersHorizontal } from
+'lucide-react';
 import SimplifiedHeader from '../components/layout/SimplifiedHeader';
 import { useCart } from '../context/CartContext';
 import AdvancedFilters from '../components/search/AdvancedFilters';
@@ -51,102 +51,102 @@ const HotelsPage: React.FC = () => {
     updateFilters,
     resetFilters,
     activeFilterCount,
-    isDefaultFilters,
+    isDefaultFilters
   } = useFilters<HotelFilters>({ type: 'hotel', syncWithUrl: true });
 
   const hotels = [
-    {
-      id: 1,
-      name: 'Boğaziçi Palace Hotel',
-      location: 'Sultanahmet, İstanbul',
-      image: 'https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=400&h=300&q=90',
-      price: '₺2,400',
-      originalPrice: '₺3,000',
-      rating: 4.8,
-      reviews: 2341,
-      amenities: ['WiFi', 'Havuz', 'Spa', 'Restoran', 'Otopark'],
-      badge: 'AI Önerisi',
-      description: 'Boğaziçi manzaralı lüks otel ve AI destekli konsiyerj servisi',
-      features: ['VR Oda Turu', 'Akıllı Oda Kontrolü'],
-      highlights: ['Blockchain güvenli rezervasyon', '24/7 AI destek', 'VR deneyimi']
-    },
-    {
-      id: 2,
-      name: 'Kapadokya Mağara Otel',
-      location: 'Göreme, Kapadokya',
-      image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&q=90',
-      price: '₺1,780',
-      originalPrice: '₺2,200',
-      rating: 4.9,
-      reviews: 1567,
-      amenities: ['WiFi', 'Restoran', 'Teras', 'Spa'],
-      badge: 'VR Önizleme',
-      description: 'Balon manzaralı eşsiz mağara otel ve sanal tur deneyimi',
-      features: ['360° VR Önizleme', 'Drone Görüntüleri'],
-      highlights: ['Otantik mağara odaları', 'Balon turu indirimi', 'Yerel rehber']
-    },
-    {
-      id: 3,
-      name: 'Modern City Suites',
-      location: 'Taksim, İstanbul',
-      image: 'https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=400&h=300&q=90',
-      price: '₺1,900',
-      rating: 4.6,
-      reviews: 892,
-      amenities: ['WiFi', 'Spor Salonu', 'İş Merkezi', 'Bar'],
-      badge: 'Teknoloji Dostu',
-      description: 'Akıllı teknoloji ile donatılmış modern suites ve merkezi konum',
-      features: ['Akıllı Check-in', 'AI Asistan'],
-      highlights: ['Şehir merkezi konumu', 'Akıllı ev teknolojisi', 'İş seyahatleri için ideal']
-    },
-    {
-      id: 4,
-      name: 'Antalya Riviera Resort',
-      location: 'Kemer, Antalya',
-      image: 'https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=400&h=300&q=90',
-      price: '₺3,200',
-      originalPrice: '₺4,000',
-      rating: 4.7,
-      reviews: 1834,
-      amenities: ['WiFi', 'Havuz', 'Spa', 'Restoran', 'Plaj'],
-      badge: 'Her Şey Dahil',
-      description: 'Akdeniz kıyısında lüks resort, AI destekli aktivite önerileri',
-      features: ['AI Aktivite Planı', 'VR Spa Turu'],
-      highlights: ['Özel plaj', 'Suya dayalı sporlar', 'Çocuk kulübü']
-    },
-    {
-      id: 5,
-      name: 'Bodrum Marina Hotel',
-      location: 'Bodrum Marina, Bodrum',
-      image: 'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=400&h=300&q=90',
-      price: '₺2,100',
-      originalPrice: '₺2,600',
-      rating: 4.6,
-      reviews: 967,
-      amenities: ['WiFi', 'Marina Manzarası', 'Restoran', 'Bar'],
-      badge: 'Marina Manzarası',
-      description: 'Marina kenarında boutique otel, tekne turları ve gece hayatı',
-      features: ['Tekne Turu Rezervasyonu', 'Gece Hayatı Rehberi'],
-      highlights: ['Marina manzarası', 'Tekne turları', 'Canlı gece hayatı']
-    },
-    {
-      id: 6,
-      name: 'Pamukkale Termal Spa',
-      location: 'Pamukkale, Denizli',
-      image: 'https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=400&h=300&q=90',
-      price: '₺1,550',
-      originalPrice: '₺1,950',
-      rating: 4.5,
-      reviews: 743,
-      amenities: ['WiFi', 'Termal Havuz', 'Spa', 'Restoran'],
-      badge: 'Wellness Merkezi',
-      description: 'Doğal termal sular ve wellness programları ile şifa bulun',
-      features: ['Termal Tedavi', 'Wellness Programları'],
-      highlights: ['Doğal termal sular', 'Spa tedavileri', 'Hierapolis antik kenti']
-    }
-  ];
+  {
+    id: 1,
+    name: 'Boğaziçi Palace Hotel',
+    location: 'Sultanahmet, İstanbul',
+    image: 'https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=400&h=300&q=90',
+    price: '₺2,400',
+    originalPrice: '₺3,000',
+    rating: 4.8,
+    reviews: 2341,
+    amenities: ['WiFi', 'Havuz', 'Spa', 'Restoran', 'Otopark'],
+    badge: 'AI Önerisi',
+    description: 'Boğaziçi manzaralı lüks otel ve AI destekli konsiyerj servisi',
+    features: ['VR Oda Turu', 'Akıllı Oda Kontrolü'],
+    highlights: ['Blockchain güvenli rezervasyon', '24/7 AI destek', 'VR deneyimi']
+  },
+  {
+    id: 2,
+    name: 'Kapadokya Mağara Otel',
+    location: 'Göreme, Kapadokya',
+    image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&q=90',
+    price: '₺1,780',
+    originalPrice: '₺2,200',
+    rating: 4.9,
+    reviews: 1567,
+    amenities: ['WiFi', 'Restoran', 'Teras', 'Spa'],
+    badge: 'VR Önizleme',
+    description: 'Balon manzaralı eşsiz mağara otel ve sanal tur deneyimi',
+    features: ['360° VR Önizleme', 'Drone Görüntüleri'],
+    highlights: ['Otantik mağara odaları', 'Balon turu indirimi', 'Yerel rehber']
+  },
+  {
+    id: 3,
+    name: 'Modern City Suites',
+    location: 'Taksim, İstanbul',
+    image: 'https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=400&h=300&q=90',
+    price: '₺1,900',
+    rating: 4.6,
+    reviews: 892,
+    amenities: ['WiFi', 'Spor Salonu', 'İş Merkezi', 'Bar'],
+    badge: 'Teknoloji Dostu',
+    description: 'Akıllı teknoloji ile donatılmış modern suites ve merkezi konum',
+    features: ['Akıllı Check-in', 'AI Asistan'],
+    highlights: ['Şehir merkezi konumu', 'Akıllı ev teknolojisi', 'İş seyahatleri için ideal']
+  },
+  {
+    id: 4,
+    name: 'Antalya Riviera Resort',
+    location: 'Kemer, Antalya',
+    image: 'https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=400&h=300&q=90',
+    price: '₺3,200',
+    originalPrice: '₺4,000',
+    rating: 4.7,
+    reviews: 1834,
+    amenities: ['WiFi', 'Havuz', 'Spa', 'Restoran', 'Plaj'],
+    badge: 'Her Şey Dahil',
+    description: 'Akdeniz kıyısında lüks resort, AI destekli aktivite önerileri',
+    features: ['AI Aktivite Planı', 'VR Spa Turu'],
+    highlights: ['Özel plaj', 'Suya dayalı sporlar', 'Çocuk kulübü']
+  },
+  {
+    id: 5,
+    name: 'Bodrum Marina Hotel',
+    location: 'Bodrum Marina, Bodrum',
+    image: 'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=400&h=300&q=90',
+    price: '₺2,100',
+    originalPrice: '₺2,600',
+    rating: 4.6,
+    reviews: 967,
+    amenities: ['WiFi', 'Marina Manzarası', 'Restoran', 'Bar'],
+    badge: 'Marina Manzarası',
+    description: 'Marina kenarında boutique otel, tekne turları ve gece hayatı',
+    features: ['Tekne Turu Rezervasyonu', 'Gece Hayatı Rehberi'],
+    highlights: ['Marina manzarası', 'Tekne turları', 'Canlı gece hayatı']
+  },
+  {
+    id: 6,
+    name: 'Pamukkale Termal Spa',
+    location: 'Pamukkale, Denizli',
+    image: 'https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=400&h=300&q=90',
+    price: '₺1,550',
+    originalPrice: '₺1,950',
+    rating: 4.5,
+    reviews: 743,
+    amenities: ['WiFi', 'Termal Havuz', 'Spa', 'Restoran'],
+    badge: 'Wellness Merkezi',
+    description: 'Doğal termal sular ve wellness programları ile şifa bulun',
+    features: ['Termal Tedavi', 'Wellness Programları'],
+    highlights: ['Doğal termal sular', 'Spa tedavileri', 'Hierapolis antik kenti']
+  }];
 
-  const amenityIcons: { [key: string]: React.ComponentType<any> } = {
+
+  const amenityIcons: {[key: string]: React.ComponentType<any>;} = {
     'WiFi': Wifi,
     'Havuz': Waves,
     'Spa': Heart,
@@ -207,7 +207,7 @@ const HotelsPage: React.FC = () => {
       description: hotel.description,
       checkIn: checkIn,
       checkOut: checkOut,
-      guests: guests,
+      guests: guests
     };
 
     localStorage.setItem('selectedProduct', JSON.stringify(productInfo));
@@ -216,7 +216,7 @@ const HotelsPage: React.FC = () => {
 
   // Filter and sort hotels
   const filteredAndSortedHotels = useMemo(() => {
-    let filtered = hotels.filter(hotel => {
+    let filtered = hotels.filter((hotel) => {
       // Price filter
       const price = parseFloat(hotel.price.replace('₺', '').replace(',', ''));
       if (price < filters.priceRange.min || price > filters.priceRange.max) {
@@ -286,10 +286,10 @@ const HotelsPage: React.FC = () => {
       <SimplifiedHeader />
 
       {/* Return to Home Button */}
-      <Link 
-        href="/" 
-        className="fixed top-24 left-6 z-10 flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200 text-gray-200 hover:bg-white/5 hover:text-lydian-primary transition-all duration-200"
-      >
+      <Link
+        href="/"
+        className="fixed top-24 left-6 z-10 flex items-center gap-2 px-4 py-2 bg-lydian-bg/90 backdrop-blur-sm rounded-xl shadow-lg border border-lydian-border text-lydian-text-muted hover:bg-lydian-glass-dark hover:text-lydian-primary transition-all duration-200">
+
         <ArrowLeft className="w-4 h-4" />
         <span className="font-medium">Ana Sayfaya Dön</span>
       </Link>
@@ -301,8 +301,8 @@ const HotelsPage: React.FC = () => {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="text-center text-white"
-            >
+              className="text-center text-lydian-text-inverse">
+
               <h1 className="text-4xl md:text-5xl font-bold mb-4">
                 Hayalinizdeki Oteli Bulun
               </h1>
@@ -311,48 +311,48 @@ const HotelsPage: React.FC = () => {
               </p>
               
               {/* Search Form */}
-              <div className="max-w-6xl mx-auto bg-white/10 backdrop-blur-sm rounded-2xl p-6">
+              <div className="max-w-6xl mx-auto bg-lydian-glass-dark-medium backdrop-blur-sm rounded-2xl p-6">
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
                   <div className="relative">
-                    <MapPin className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                    <MapPin className="absolute left-3 top-1/2 transform -translate-y-1/2 text-lydian-text-muted w-5 h-5" />
                     <input
                       type="text"
                       value={destination}
                       onChange={(e) => setDestination(e.target.value)}
                       placeholder="Nereye gidiyorsunuz?"
-                      className="w-full pl-10 pr-4 py-3 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-white/30"
-                    />
+                      className="w-full pl-10 pr-4 py-3 rounded-xl text-lydian-text-inverse placeholder-lydian-text-tertiary focus:outline-none focus:ring-2 focus:ring-white/30" />
+
                   </div>
 
                   <div className="relative">
-                    <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                    <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 text-lydian-text-muted w-5 h-5" />
                     <input
                       type="date"
                       value={checkIn}
                       onChange={(e) => setCheckIn(e.target.value)}
-                      className="w-full pl-10 pr-4 py-3 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-white/30 [color-scheme:light]"
-                      style={{ colorScheme: 'light' }}
-                    />
+                      className="w-full pl-10 pr-4 py-3 rounded-xl text-lydian-text-inverse focus:outline-none focus:ring-2 focus:ring-white/30 [color-scheme:light]"
+                      style={{ colorScheme: 'light' }} />
+
                   </div>
 
                   <div className="relative">
-                    <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                    <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 text-lydian-text-muted w-5 h-5" />
                     <input
                       type="date"
                       value={checkOut}
                       onChange={(e) => setCheckOut(e.target.value)}
-                      className="w-full pl-10 pr-4 py-3 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-white/30 [color-scheme:light]"
-                      style={{ colorScheme: 'light' }}
-                    />
+                      className="w-full pl-10 pr-4 py-3 rounded-xl text-lydian-text-inverse focus:outline-none focus:ring-2 focus:ring-white/30 [color-scheme:light]"
+                      style={{ colorScheme: 'light' }} />
+
                   </div>
 
                   <div className="relative">
-                    <Users className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                    <Users className="absolute left-3 top-1/2 transform -translate-y-1/2 text-lydian-text-muted w-5 h-5" />
                     <select
                       value={guests}
                       onChange={(e) => setGuests(Number(e.target.value))}
-                      className="w-full pl-10 pr-4 py-3 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-white/30 appearance-none"
-                    >
+                      className="w-full pl-10 pr-4 py-3 rounded-xl text-lydian-text-inverse focus:outline-none focus:ring-2 focus:ring-white/30 appearance-none">
+
                       <option value={1}>1 Misafir</option>
                       <option value={2}>2 Misafir</option>
                       <option value={3}>3 Misafir</option>
@@ -366,8 +366,8 @@ const HotelsPage: React.FC = () => {
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="flex items-center gap-2 px-8 py-3 bg-transparent text-lydian-primary rounded-xl font-medium hover:bg-white/10 transition-colors"
-                  >
+                    className="flex items-center gap-2 px-8 py-3 bg-lydian-bg-hover text-lydian-primary rounded-xl font-medium hover:bg-lydian-glass-dark-medium transition-colors">
+
                     <Search className="w-5 h-5" />
                     Otel Ara
                   </motion.button>
@@ -378,30 +378,30 @@ const HotelsPage: React.FC = () => {
         </section>
 
         {/* Filter Section */}
-        <section className="bg-transparent border-b border-gray-200">
+        <section className="bg-lydian-bg-hover border-b border-lydian-border">
           <div className="max-w-7xl mx-auto px-4 py-6">
             <div className="flex items-center justify-between mb-4">
-              <h2 className="text-2xl font-bold text-white">
+              <h2 className="text-2xl font-bold text-lydian-text-inverse">
                 {filteredAndSortedHotels.length} Otel Bulundu
               </h2>
               <div className="flex items-center gap-4">
                 <button
                   onClick={() => setShowFilters(!showFilters)}
-                  className="flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-lg hover:bg-white/5 transition-colors relative"
-                >
+                  className="flex items-center gap-2 px-4 py-2 border border-lydian-border-medium rounded-lg hover:bg-lydian-glass-dark transition-colors relative">
+
                   <SlidersHorizontal className="w-4 h-4" />
                   Gelişmiş Filtreler
-                  {activeFilterCount > 0 && (
-                    <span className="absolute -top-2 -right-2 px-2 py-0.5 bg-lydian-primary text-white rounded-full text-xs font-bold">
+                  {activeFilterCount > 0 &&
+                  <span className="absolute -top-2 -right-2 px-2 py-0.5 bg-lydian-primary text-lydian-text-inverse rounded-full text-xs font-bold">
                       {activeFilterCount}
                     </span>
-                  )}
+                  }
                 </button>
                 <select
                   value={sortBy}
                   onChange={(e) => setSortBy(e.target.value)}
-                  className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-lydian-primary focus:border-transparent"
-                >
+                  className="px-4 py-2 border border-lydian-border-medium rounded-lg focus:ring-2 focus:ring-lydian-primary focus:border-lydian-border">
+
                   <option value="popularity">Popülerlik</option>
                   <option value="price-low">Fiyat (Düşük-Yüksek)</option>
                   <option value="price-high">Fiyat (Yüksek-Düşük)</option>
@@ -411,21 +411,21 @@ const HotelsPage: React.FC = () => {
             </div>
 
             {/* Active Filter Chips */}
-            {activeFilterCount > 0 && (
-              <div className="mb-4">
+            {activeFilterCount > 0 &&
+            <div className="mb-4">
                 <FilterChips
-                  type="hotel"
-                  filters={filters}
-                  onRemoveFilter={handleRemoveFilter}
-                  onClearAll={resetFilters}
-                />
+                type="hotel"
+                filters={filters}
+                onRemoveFilter={handleRemoveFilter}
+                onClearAll={resetFilters} />
+
               </div>
-            )}
+            }
           </div>
         </section>
 
         {/* Hotels Grid with Filters */}
-        <section className="py-12 bg-white/5">
+        <section className="py-12 bg-lydian-glass-dark">
           <div className="max-w-7xl mx-auto px-4">
             <div className="flex gap-6">
               {/* Advanced Filters Sidebar */}
@@ -436,56 +436,56 @@ const HotelsPage: React.FC = () => {
                 onReset={resetFilters}
                 onClose={() => setShowFilters(false)}
                 isOpen={showFilters}
-                activeFilterCount={activeFilterCount}
-              />
+                activeFilterCount={activeFilterCount} />
+
 
               {/* Hotels Grid */}
               <div className="flex-1">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                  {filteredAndSortedHotels.map((hotel) => (
-                <motion.div
-                  key={hotel.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: hotel.id * 0.1 }}
-                  className="bg-transparent rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group"
-                >
+                  {filteredAndSortedHotels.map((hotel) =>
+                  <motion.div
+                    key={hotel.id}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: hotel.id * 0.1 }}
+                    className="bg-lydian-bg-hover rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group">
+
                   {/* Image */}
                   <div className="relative h-56 overflow-hidden">
-                    <img 
-                      src={hotel.image} 
-                      alt={hotel.name}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                    />
+                    <img
+                        src={hotel.image}
+                        alt={hotel.name}
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+
                     
                     {/* Overlay */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
                     
                     {/* Badge */}
                     <div className="absolute top-4 left-4">
-                      <span className="px-3 py-1 bg-lydian-primary text-white rounded-full text-sm font-medium">
+                      <span className="px-3 py-1 bg-lydian-primary text-lydian-text-inverse rounded-full text-sm font-medium">
                         {hotel.badge}
                       </span>
                     </div>
 
                     {/* Heart */}
-                    <button className="absolute top-4 right-4 p-2 bg-white/80 hover:bg-white/5 rounded-full transition-colors">
-                      <Heart className="w-4 h-4 text-gray-300" />
+                    <button className="absolute top-4 right-4 p-2 bg-lydian-bg/80 hover:bg-lydian-glass-dark rounded-full transition-colors">
+                      <Heart className="w-4 h-4 text-lydian-text-dim" />
                     </button>
 
                     {/* Feature Buttons */}
                     <div className="absolute bottom-4 right-4 flex gap-2">
-                      {(hotel.features.includes('VR Oda Turu') || hotel.features.includes('360° VR Önizleme')) && (
-                        <button className="p-2 bg-green-600 text-white rounded-full hover:bg-green-700 transition-colors">
+                      {(hotel.features.includes('VR Oda Turu') || hotel.features.includes('360° VR Önizleme')) &&
+                        <button className="p-2 bg-lydian-success text-lydian-text-inverse rounded-full hover:bg-green-700 transition-colors">
                           <Eye className="w-4 h-4" />
                         </button>
-                      )}
-                      {(hotel.features.includes('AI Asistan') || hotel.features.includes('Akıllı Oda Kontrolü')) && (
-                        <button className="p-2 bg-purple-600 text-white rounded-full hover:bg-purple-700 transition-colors">
+                        }
+                      {(hotel.features.includes('AI Asistan') || hotel.features.includes('Akıllı Oda Kontrolü')) &&
+                        <button className="p-2 bg-purple-600 text-lydian-text-inverse rounded-full hover:bg-purple-700 transition-colors">
                           <Bot className="w-4 h-4" />
                         </button>
-                      )}
-                      <button className="p-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors">
+                        }
+                      <button className="p-2 bg-lydian-primary text-lydian-text-inverse rounded-full hover:bg-lydian-primary-dark transition-colors">
                         <Shield className="w-4 h-4" />
                       </button>
                     </div>
@@ -493,125 +493,125 @@ const HotelsPage: React.FC = () => {
 
                   {/* Content */}
                   <div className="p-6">
-                    <div className="flex items-center gap-2 text-sm text-gray-200 mb-2">
+                    <div className="flex items-center gap-2 text-sm text-lydian-text-muted mb-2">
                       <MapPin className="w-4 h-4" />
                       <span>{hotel.location}</span>
                     </div>
 
-                    <h3 className="font-bold text-xl text-white mb-2">{hotel.name}</h3>
-                    <p className="text-gray-300 text-sm mb-4">{hotel.description}</p>
+                    <h3 className="font-bold text-xl text-lydian-text-inverse mb-2">{hotel.name}</h3>
+                    <p className="text-lydian-text-dim text-sm mb-4">{hotel.description}</p>
 
                     {/* Features */}
                     <div className="flex flex-wrap gap-2 mb-4">
-                      {hotel.features.map((feature) => (
-                        <span key={feature} className="px-2 py-1 bg-blue-100 text-blue-800 rounded-full text-xs">
+                      {hotel.features.map((feature) =>
+                        <span key={feature} className="px-2 py-1 bg-lydian-primary-light text-blue-800 rounded-full text-xs">
                           {feature}
                         </span>
-                      ))}
+                        )}
                     </div>
 
                     {/* Highlights */}
                     <div className="mb-4">
-                      <h4 className="font-semibold text-sm text-white mb-2">Öne Çıkanlar:</h4>
-                      <ul className="text-sm text-gray-100 space-y-1">
-                        {hotel.highlights.slice(0, 2).map((highlight, index) => (
+                      <h4 className="font-semibold text-sm text-lydian-text-inverse mb-2">Öne Çıkanlar:</h4>
+                      <ul className="text-sm text-lydian-text-dim space-y-1">
+                        {hotel.highlights.slice(0, 2).map((highlight, index) =>
                           <li key={index} className="flex items-center gap-2">
                             <div className="w-1.5 h-1.5 bg-green-500 rounded-full"></div>
                             {highlight}
                           </li>
-                        ))}
+                          )}
                       </ul>
                     </div>
 
                     {/* Amenities */}
                     <div className="flex items-center gap-3 mb-4">
                       {hotel.amenities.slice(0, 4).map((amenity) => {
-                        const Icon = amenityIcons[amenity] || Wifi;
-                        return (
-                          <div key={amenity} className="flex items-center gap-1 text-gray-400" title={amenity}>
+                          const Icon = amenityIcons[amenity] || Wifi;
+                          return (
+                            <div key={amenity} className="flex items-center gap-1 text-lydian-text-muted" title={amenity}>
                             <Icon className="w-4 h-4" />
-                          </div>
-                        );
-                      })}
-                      {hotel.amenities.length > 4 && (
-                        <span className="text-sm text-gray-200">+{hotel.amenities.length - 4} daha</span>
-                      )}
+                          </div>);
+
+                        })}
+                      {hotel.amenities.length > 4 &&
+                        <span className="text-sm text-lydian-text-muted">+{hotel.amenities.length - 4} daha</span>
+                        }
                     </div>
 
                     <div className="flex items-center gap-2 mb-4">
                       <Star className="w-4 h-4 text-yellow-500 fill-current" />
                       <span className="font-medium">{hotel.rating}</span>
-                      <span className="text-gray-400 text-sm">({hotel.reviews} değerlendirme)</span>
+                      <span className="text-lydian-text-muted text-sm">({hotel.reviews} değerlendirme)</span>
                     </div>
 
                     <div className="space-y-3">
                       <div className="flex items-center justify-between">
                         <div>
                           <div className="flex items-center gap-2">
-                            <span className="text-2xl font-bold text-white">{hotel.price}</span>
-                            {hotel.originalPrice && (
-                              <span className="text-sm text-gray-200 line-through">{hotel.originalPrice}</span>
-                            )}
+                            <span className="text-2xl font-bold text-lydian-text-inverse">{hotel.price}</span>
+                            {hotel.originalPrice &&
+                              <span className="text-sm text-lydian-text-muted line-through">{hotel.originalPrice}</span>
+                              }
                           </div>
-                          <span className="text-sm text-gray-100">gecelik</span>
+                          <span className="text-sm text-lydian-text-dim">gecelik</span>
                         </div>
                       </div>
                       <div className="flex gap-2">
                         <motion.button
-                          whileHover={{ scale: 1.05 }}
-                          whileTap={{ scale: 0.95 }}
-                          onClick={() => handleAddToCart(hotel)}
-                          className="flex-1 px-4 py-2 border-2 border-lydian-primary text-lydian-primary rounded-lg font-medium hover:bg-lydian-primary/10 transition-colors flex items-center justify-center gap-2"
-                        >
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            onClick={() => handleAddToCart(hotel)}
+                            className="flex-1 px-4 py-2 border-2 border-lydian-primary text-lydian-primary rounded-lg font-medium hover:bg-lydian-primary/10 transition-colors flex items-center justify-center gap-2">
+
                           <ShoppingCart className="w-4 h-4" />
                           Sepete Ekle
                         </motion.button>
                         <motion.button
-                          whileHover={{ scale: 1.05 }}
-                          whileTap={{ scale: 0.95 }}
-                          onClick={() => handleReserve(hotel)}
-                          className="flex-1 px-4 py-2 bg-lydian-primary text-white rounded-lg font-medium hover:bg-lydian-dark transition-colors"
-                        >
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            onClick={() => handleReserve(hotel)}
+                            className="flex-1 px-4 py-2 bg-lydian-primary text-lydian-text-inverse rounded-lg font-medium hover:bg-lydian-dark transition-colors">
+
                           Rezerve Et
                         </motion.button>
                       </div>
                     </div>
                   </div>
                 </motion.div>
-              ))}
+                  )}
                 </div>
 
                 {/* No Results Message */}
-                {filteredAndSortedHotels.length === 0 && (
-                  <div className="text-center py-16">
-                    <Building className="w-24 h-24 text-gray-300 mx-auto mb-6" />
-                    <h2 className="text-2xl font-bold text-white mb-4">
+                {filteredAndSortedHotels.length === 0 &&
+                <div className="text-center py-16">
+                    <Building className="w-24 h-24 text-lydian-text-dim mx-auto mb-6" />
+                    <h2 className="text-2xl font-bold text-lydian-text-inverse mb-4">
                       Aradığınız kriterlerde otel bulunamadı
                     </h2>
-                    <p className="text-gray-300 mb-8">
+                    <p className="text-lydian-text-dim mb-8">
                       Filtrelerinizi değiştirerek tekrar deneyin
                     </p>
                     <button
-                      onClick={resetFilters}
-                      className="bg-lydian-primary text-white px-6 py-3 rounded-lg hover:bg-lydian-dark transition-colors font-semibold"
-                    >
+                    onClick={resetFilters}
+                    className="bg-lydian-primary text-lydian-text-inverse px-6 py-3 rounded-lg hover:bg-lydian-dark transition-colors font-semibold">
+
                       Filtreleri Temizle
                     </button>
                   </div>
-                )}
+                }
 
                 {/* Load More */}
-                {filteredAndSortedHotels.length > 0 && (
-                  <div className="text-center mt-12">
+                {filteredAndSortedHotels.length > 0 &&
+                <div className="text-center mt-12">
                     <motion.button
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="px-8 py-3 border-2 border-lydian-primary text-lydian-primary rounded-xl font-semibold hover:bg-lydian-primary hover:text-white transition-colors"
-                    >
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="px-8 py-3 border-2 border-lydian-primary text-lydian-primary rounded-xl font-semibold hover:bg-lydian-primary hover:text-lydian-text-inverse transition-colors">
+
                       Daha Fazla Otel Yükle
                     </motion.button>
                   </div>
-                )}
+                }
               </div>
             </div>
           </div>
@@ -620,20 +620,20 @@ const HotelsPage: React.FC = () => {
 
       {/* Toast Notification */}
       <AnimatePresence>
-        {showToast && (
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 50 }}
-            className="fixed bottom-8 right-8 z-50 bg-green-500 text-white px-6 py-4 rounded-xl shadow-2xl flex items-center gap-3"
-          >
+        {showToast &&
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 50 }}
+          className="fixed bottom-8 right-8 z-50 bg-green-500 text-lydian-text-inverse px-6 py-4 rounded-xl shadow-2xl flex items-center gap-3">
+
             <CheckCircle className="w-6 h-6" />
             <span className="font-medium">{toastMessage}</span>
           </motion.div>
-        )}
+        }
       </AnimatePresence>
-    </>
-  );
+    </>);
+
 };
 
 export default HotelsPage;

@@ -5,29 +5,29 @@ import PremiumLogo from '@/components/ui/PremiumLogo';
 import ParachuteAnimation from '@/components/animations/ParachuteAnimation';
 
 const topDestinations = [
-  {
-    id: 1,
-    name: 'Hagia Sophia',
-    location: 'İstanbul, Türkiye',
-    rating: 4.8,
-    reviewCount: 45821,
-    image: 'https://images.unsplash.com/photo-1541432901042-2d8bd64b4a9b?w=400&h=300&fit=crop',
-    category: 'Historic Sites',
-    verified: true,
-    awards: ['Travellers Choice 2024', 'Certificate of Excellence']
-  },
-  {
-    id: 2,
-    name: 'Cappadocia Hot Air Balloons',
-    location: 'Nevşehir, Türkiye',
-    rating: 4.9,
-    reviewCount: 28416,
-    image: 'https://images.unsplash.com/photo-1570939274719-c60ee3bf5cd9?w=400&h=300&fit=crop',
-    category: 'Outdoor Activities',
-    verified: true,
-    awards: ['Travellers Choice 2024', 'Hall of Fame']
-  }
-];
+{
+  id: 1,
+  name: 'Hagia Sophia',
+  location: 'İstanbul, Türkiye',
+  rating: 4.8,
+  reviewCount: 45821,
+  image: 'https://images.unsplash.com/photo-1541432901042-2d8bd64b4a9b?w=400&h=300&fit=crop',
+  category: 'Historic Sites',
+  verified: true,
+  awards: ['Travellers Choice 2024', 'Certificate of Excellence']
+},
+{
+  id: 2,
+  name: 'Cappadocia Hot Air Balloons',
+  location: 'Nevşehir, Türkiye',
+  rating: 4.9,
+  reviewCount: 28416,
+  image: 'https://images.unsplash.com/photo-1570939274719-c60ee3bf5cd9?w=400&h=300&fit=crop',
+  category: 'Outdoor Activities',
+  verified: true,
+  awards: ['Travellers Choice 2024', 'Hall of Fame']
+}];
+
 
 export default function ReviewsPage() {
   const [searchQuery, setSearchQuery] = useState('');
@@ -35,16 +35,16 @@ export default function ReviewsPage() {
   const renderStars = (rating: number) => {
     return (
       <div className="flex items-center space-x-1">
-        {[1, 2, 3, 4, 5].map((star) => (
-          <Star
-            key={star}
-            className={`h-4 w-4 ${
-              star <= rating ? 'text-yellow-400 fill-yellow-400' : 'text-gray-300'
-            }`}
-          />
-        ))}
-      </div>
-    );
+        {[1, 2, 3, 4, 5].map((star) =>
+        <Star
+          key={star}
+          className={`h-4 w-4 ${
+          star <= rating ? 'text-yellow-400 fill-yellow-400' : 'text-gray-300'}`
+          } />
+
+        )}
+      </div>);
+
   };
 
   return (
@@ -84,17 +84,17 @@ export default function ReviewsPage() {
 
       <section className="relative z-10 py-8">
         <div className="max-w-6xl mx-auto px-4">
-          <div className="bg-white/95 backdrop-blur-20 rounded-2xl p-6 shadow-2xl neon-glow">
+          <div className="bg-lydian-bg/95 backdrop-blur-20 rounded-2xl p-6 shadow-2xl neon-glow">
             <div className="flex flex-col lg:flex-row gap-4 items-center">
               <div className="flex-1 relative">
-                <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
+                <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-lydian-text-muted" />
                 <input
                   type="text"
                   placeholder="Destinasyon, otel, restoran ara..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                />
+                  className="w-full pl-12 pr-4 py-3 border border-lydian-border-medium rounded-xl focus:ring-2 focus:ring-lydian-border-focus focus:border-lydian-border" />
+
               </div>
               <button className="ocean-button px-6 py-3 rounded-xl">
                 Ara
@@ -110,38 +110,38 @@ export default function ReviewsPage() {
             En Çok <span className="premium-neon-accent">İncelenen</span> Yerler
           </h2>
           <div className="grid md:grid-cols-2 gap-6">
-            {topDestinations.map((destination) => (
-              <div key={destination.id} className="bg-white/95 backdrop-blur-20 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all hover:scale-105 neon-glow">
+            {topDestinations.map((destination) =>
+            <div key={destination.id} className="bg-lydian-bg/95 backdrop-blur-20 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all hover:scale-105 neon-glow">
                 <div className="relative">
-                  <img 
-                    src={destination.image} 
-                    alt={destination.name}
-                    className="w-full h-48 object-cover"
-                  />
-                  {destination.verified && (
-                    <div className="absolute top-2 right-2 bg-green-500 text-white px-2 py-1 rounded-full text-xs flex items-center">
+                  <img
+                  src={destination.image}
+                  alt={destination.name}
+                  className="w-full h-48 object-cover" />
+
+                  {destination.verified &&
+                <div className="absolute top-2 right-2 bg-green-500 text-lydian-text-inverse px-2 py-1 rounded-full text-xs flex items-center">
                       <Verified className="h-3 w-3 mr-1" />
                       Verified
                     </div>
-                  )}
+                }
                 </div>
                 <div className="p-4">
                   <h3 className="font-semibold text-lg mb-2">{destination.name}</h3>
-                  <div className="flex items-center text-sm text-gray-100 mb-2">
+                  <div className="flex items-center text-sm text-lydian-text-dim mb-2">
                     <MapPin className="h-4 w-4 mr-1" />
                     {destination.location}
                   </div>
                   <div className="flex items-center space-x-2">
                     {renderStars(Math.floor(destination.rating))}
                     <span className="text-sm font-medium">{destination.rating}</span>
-                    <span className="text-sm text-gray-200">({destination.reviewCount.toLocaleString()} reviews)</span>
+                    <span className="text-sm text-lydian-text-muted">({destination.reviewCount.toLocaleString()} reviews)</span>
                   </div>
                 </div>
               </div>
-            ))}
+            )}
           </div>
         </div>
       </section>
-    </div>
-  );
+    </div>);
+
 }

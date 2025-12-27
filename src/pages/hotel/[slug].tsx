@@ -26,13 +26,13 @@ interface Hotel {
   checkOut: string;
   description: string;
   amenities: string[];
-  roomTypes: Array<{ name: string; size: number; capacity: number; price: number }>;
+  roomTypes: Array<{name: string;size: number;capacity: number;price: number;}>;
   images: string[];
   tags: string[];
-  nearbyAttractions: Array<{ name: string; distance: number; unit: string }>;
+  nearbyAttractions: Array<{name: string;distance: number;unit: string;}>;
 }
 
-export default function HotelDetailPage({ hotel }: { hotel: Hotel }) {
+export default function HotelDetailPage({ hotel }: {hotel: Hotel;}) {
   const router = useRouter();
   const [checkInDate, setCheckInDate] = useState('');
   const [checkOutDate, setCheckOutDate] = useState('');
@@ -71,26 +71,26 @@ export default function HotelDetailPage({ hotel }: { hotel: Hotel }) {
         <meta name="keywords" content={`${hotel.name}, ${hotel.city} otel, ${hotel.district} otel, ${hotel.tags.join(', ')}`} />
       </Head>
 
-      <div className="min-h-screen bg-white/5">
+      <div className="min-h-screen bg-lydian-glass-dark">
         {/* Hero Gallery */}
         <div className="relative h-96 bg-gray-900">
-          {hotel.images.length > 0 && (
-            <Image
-              src={hotel.images[0] || 'https://images.unsplash.com/photo-1566073771259-6a8506862ae3?w=800&h=600&fit=crop'}
-              alt={hotel.name}
-              fill
-              className="object-cover opacity-80"
-            />
-          )}
+          {hotel.images.length > 0 &&
+          <Image
+            src={hotel.images[0] || 'https://images.unsplash.com/photo-1566073771259-6a8506862ae3?w=800&h=600&fit=crop'}
+            alt={hotel.name}
+            fill
+            className="object-cover opacity-80" />
+
+          }
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20" />
 
           {/* Hotel Title Overlay */}
-          <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
+          <div className="absolute bottom-0 left-0 right-0 p-8 text-lydian-text-inverse">
             <div className="max-w-7xl mx-auto">
               <div className="flex items-center gap-2 mb-2">
-                {[...Array(hotel.stars)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
-                ))}
+                {[...Array(hotel.stars)].map((_, i) =>
+                <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
+                )}
               </div>
               <h1 className="text-4xl font-bold mb-2">{hotel.name}</h1>
               <div className="flex items-center gap-4 text-sm">
@@ -116,10 +116,10 @@ export default function HotelDetailPage({ hotel }: { hotel: Hotel }) {
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="bg-transparent rounded-xl p-6 shadow-sm"
-              >
+                className="bg-lydian-bg-hover rounded-xl p-6 shadow-sm">
+
                 <h2 className="text-2xl font-bold mb-4">Otel Hakkında</h2>
-                <p className="text-gray-300 leading-relaxed">{hotel.description}</p>
+                <p className="text-lydian-text-dim leading-relaxed">{hotel.description}</p>
               </motion.div>
 
               {/* Amenities */}
@@ -127,18 +127,18 @@ export default function HotelDetailPage({ hotel }: { hotel: Hotel }) {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 }}
-                className="bg-transparent rounded-xl p-6 shadow-sm"
-              >
+                className="bg-lydian-bg-hover rounded-xl p-6 shadow-sm">
+
                 <h2 className="text-2xl font-bold mb-4">Otel Özellikleri</h2>
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                  {hotel.amenities.map((amenity, i) => (
-                    <div key={i} className="flex items-center gap-2 text-gray-200">
-                      <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center">
-                        <Wifi className="w-4 h-4 text-blue-600" />
+                  {hotel.amenities.map((amenity, i) =>
+                  <div key={i} className="flex items-center gap-2 text-lydian-text-muted">
+                      <div className="w-8 h-8 rounded-full bg-lydian-primary-light flex items-center justify-center">
+                        <Wifi className="w-4 h-4 text-lydian-primary" />
                       </div>
                       <span className="text-sm">{amenity}</span>
                     </div>
-                  ))}
+                  )}
                 </div>
               </motion.div>
 
@@ -147,37 +147,37 @@ export default function HotelDetailPage({ hotel }: { hotel: Hotel }) {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
-                className="bg-transparent rounded-xl p-6 shadow-sm"
-              >
+                className="bg-lydian-bg-hover rounded-xl p-6 shadow-sm">
+
                 <h2 className="text-2xl font-bold mb-4">Oda Tipleri</h2>
                 <div className="space-y-4">
-                  {hotel.roomTypes.map((room, i) => (
-                    <div
-                      key={i}
-                      onClick={() => setSelectedRoom(room)}
-                      className={`border-2 rounded-lg p-4 cursor-pointer transition ${
-                        selectedRoom.name === room.name
-                          ? 'border-blue-600 bg-blue-50'
-                          : 'border-white/10 hover:border-blue-300'
-                      }`}
-                    >
+                  {hotel.roomTypes.map((room, i) =>
+                  <div
+                    key={i}
+                    onClick={() => setSelectedRoom(room)}
+                    className={`border-2 rounded-lg p-4 cursor-pointer transition ${
+                    selectedRoom.name === room.name ?
+                    'border-blue-600 bg-blue-50' :
+                    'border-white/10 hover:border-blue-300'}`
+                    }>
+
                       <div className="flex justify-between items-start">
                         <div>
                           <h3 className="font-bold text-lg">{room.name}</h3>
-                          <div className="flex gap-4 text-sm text-gray-100 mt-2">
+                          <div className="flex gap-4 text-sm text-lydian-text-dim mt-2">
                             <span>{room.size} m²</span>
                             <span>• {room.capacity} Kişi</span>
                           </div>
                         </div>
                         <div className="text-right">
-                          <div className="text-2xl font-bold text-blue-600">
+                          <div className="text-2xl font-bold text-lydian-primary">
                             {room.price.toLocaleString('tr-TR')} ₺
                           </div>
-                          <div className="text-sm text-gray-200">/ gece</div>
+                          <div className="text-sm text-lydian-text-muted">/ gece</div>
                         </div>
                       </div>
                     </div>
-                  ))}
+                  )}
                 </div>
               </motion.div>
 
@@ -186,18 +186,18 @@ export default function HotelDetailPage({ hotel }: { hotel: Hotel }) {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
-                className="bg-transparent rounded-xl p-6 shadow-sm"
-              >
+                className="bg-lydian-bg-hover rounded-xl p-6 shadow-sm">
+
                 <h2 className="text-2xl font-bold mb-4">Yakındaki Yerler</h2>
                 <div className="space-y-3">
-                  {hotel.nearbyAttractions.map((attraction, i) => (
-                    <div key={i} className="flex items-center justify-between py-2 border-b last:border-0">
+                  {hotel.nearbyAttractions.map((attraction, i) =>
+                  <div key={i} className="flex items-center justify-between py-2 border-b last:border-0">
                       <span className="font-medium">{attraction.name}</span>
-                      <span className="text-sm text-gray-100">
+                      <span className="text-sm text-lydian-text-dim">
                         {attraction.distance} {attraction.unit}
                       </span>
                     </div>
-                  ))}
+                  )}
                 </div>
               </motion.div>
             </div>
@@ -207,71 +207,71 @@ export default function HotelDetailPage({ hotel }: { hotel: Hotel }) {
               <motion.div
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
-                className="bg-transparent rounded-xl p-6 shadow-lg sticky top-4"
-              >
+                className="bg-lydian-bg-hover rounded-xl p-6 shadow-lg sticky top-4">
+
                 <div className="text-center mb-6">
-                  <div className="text-3xl font-bold text-blue-600">
+                  <div className="text-3xl font-bold text-lydian-primary">
                     {selectedRoom.price.toLocaleString('tr-TR')} ₺
                   </div>
-                  <div className="text-sm text-gray-200">gece başına</div>
+                  <div className="text-sm text-lydian-text-muted">gece başına</div>
                 </div>
 
                 <div className="space-y-4">
                   {/* Check-in */}
                   <div>
-                    <label className="block text-sm font-medium text-gray-200 mb-1">
+                    <label className="block text-sm font-medium text-lydian-text-muted mb-1">
                       Giriş Tarihi
                     </label>
                     <div className="relative">
-                      <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+                      <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-lydian-text-muted" />
                       <input
                         type="date"
                         value={checkInDate}
                         onChange={(e) => setCheckInDate(e.target.value)}
                         min={new Date().toISOString().split('T')[0]}
-                        className="w-full pl-10 pr-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                      />
+                        className="w-full pl-10 pr-4 py-2 border border-lydian-border-light rounded-lg focus:ring-2 focus:ring-lydian-border-focus focus:border-lydian-border" />
+
                     </div>
                   </div>
 
                   {/* Check-out */}
                   <div>
-                    <label className="block text-sm font-medium text-gray-200 mb-1">
+                    <label className="block text-sm font-medium text-lydian-text-muted mb-1">
                       Çıkış Tarihi
                     </label>
                     <div className="relative">
-                      <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+                      <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-lydian-text-muted" />
                       <input
                         type="date"
                         value={checkOutDate}
                         onChange={(e) => setCheckOutDate(e.target.value)}
                         min={checkInDate || new Date().toISOString().split('T')[0]}
-                        className="w-full pl-10 pr-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                      />
+                        className="w-full pl-10 pr-4 py-2 border border-lydian-border-light rounded-lg focus:ring-2 focus:ring-lydian-border-focus focus:border-lydian-border" />
+
                     </div>
                   </div>
 
                   {/* Guests */}
                   <div>
-                    <label className="block text-sm font-medium text-gray-200 mb-1">
+                    <label className="block text-sm font-medium text-lydian-text-muted mb-1">
                       Misafir Sayısı
                     </label>
                     <div className="relative">
-                      <Users className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+                      <Users className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-lydian-text-muted" />
                       <input
                         type="number"
                         value={guests}
                         onChange={(e) => setGuests(Number(e.target.value))}
                         min="1"
                         max="10"
-                        className="w-full pl-10 pr-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                      />
+                        className="w-full pl-10 pr-4 py-2 border border-lydian-border-light rounded-lg focus:ring-2 focus:ring-lydian-border-focus focus:border-lydian-border" />
+
                     </div>
                   </div>
 
                   {/* Rooms */}
                   <div>
-                    <label className="block text-sm font-medium text-gray-200 mb-1">
+                    <label className="block text-sm font-medium text-lydian-text-muted mb-1">
                       Oda Sayısı
                     </label>
                     <input
@@ -280,52 +280,52 @@ export default function HotelDetailPage({ hotel }: { hotel: Hotel }) {
                       onChange={(e) => setRooms(Number(e.target.value))}
                       min="1"
                       max="5"
-                      className="w-full px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    />
+                      className="w-full px-4 py-2 border border-lydian-border-light rounded-lg focus:ring-2 focus:ring-lydian-border-focus focus:border-lydian-border" />
+
                   </div>
 
                   {/* Total Price */}
-                  {calculateNights() > 0 && (
-                    <div className="border-t pt-4">
-                      <div className="flex justify-between text-sm text-gray-100 mb-2">
+                  {calculateNights() > 0 &&
+                  <div className="border-t pt-4">
+                      <div className="flex justify-between text-sm text-lydian-text-dim mb-2">
                         <span>{selectedRoom.price.toLocaleString('tr-TR')} ₺ x {calculateNights()} gece x {rooms} oda</span>
                         <span>{totalPrice.toLocaleString('tr-TR')} ₺</span>
                       </div>
                       <div className="flex justify-between font-bold text-lg">
                         <span>Toplam</span>
-                        <span className="text-blue-600">{totalPrice.toLocaleString('tr-TR')} ₺</span>
+                        <span className="text-lydian-primary">{totalPrice.toLocaleString('tr-TR')} ₺</span>
                       </div>
                     </div>
-                  )}
+                  }
 
                   {/* Reserve Button */}
                   <button
                     onClick={handleReservation}
                     disabled={!checkInDate || !checkOutDate}
-                    className="w-full bg-gradient-to-r from-[#667EEA] via-[#764BA2] to-[#667EEA] text-white py-3 rounded-lg font-bold hover:from-blue-700 hover:to-purple-700 disabled:opacity-50 disabled:cursor-not-allowed transition"
-                  >
+                    className="w-full bg-gradient-to-r from-[#667EEA] via-[#764BA2] to-[#667EEA] text-lydian-text-inverse py-3 rounded-lg font-bold hover:from-lydian-primary-dark hover:to-purple-700 disabled:opacity-50 disabled:cursor-not-allowed transition">
+
                     <div className="flex items-center justify-center gap-2">
                       <CreditCard className="w-5 h-5" />
                       <span>Rezervasyon Yap</span>
                     </div>
                   </button>
 
-                  <p className="text-xs text-gray-200 text-center">
+                  <p className="text-xs text-lydian-text-muted text-center">
                     Ücretsiz iptal · Anında onay
                   </p>
                 </div>
 
                 {/* Contact Info */}
                 <div className="mt-6 pt-6 border-t space-y-3">
-                  <div className="flex items-center gap-2 text-sm text-gray-100">
+                  <div className="flex items-center gap-2 text-sm text-lydian-text-dim">
                     <Phone className="w-4 h-4" />
-                    <a href={`tel:${hotel.phone}`} className="hover:text-blue-600">
+                    <a href={`tel:${hotel.phone}`} className="hover:text-lydian-primary">
                       {hotel.phone}
                     </a>
                   </div>
-                  <div className="flex items-center gap-2 text-sm text-gray-100">
+                  <div className="flex items-center gap-2 text-sm text-lydian-text-dim">
                     <Mail className="w-4 h-4" />
-                    <a href={`mailto:${hotel.email}`} className="hover:text-blue-600">
+                    <a href={`mailto:${hotel.email}`} className="hover:text-lydian-primary">
                       {hotel.email}
                     </a>
                   </div>
@@ -335,8 +335,8 @@ export default function HotelDetailPage({ hotel }: { hotel: Hotel }) {
           </div>
         </div>
       </div>
-    </>
-  );
+    </>);
+
 }
 
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
@@ -365,16 +365,16 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
     description: 'G7 Liderler Zirvesi\'ne ev sahipliği yapmış 5 yıldızlı ultra lüks resort. PGA standartlarında 18 delikli golf sahası.',
     amenities: ['Ultra All Inclusive', '18 Delikli Golf Sahası', 'Spa & Wellness Center', 'Aquapark', 'Kids Club', 'Özel Plaj', 'WiFi', '8 A La Carte Restoran'],
     roomTypes: [
-      { name: 'Deluxe Room', size: 45, capacity: 3, price: 35000 },
-      { name: 'Executive Suite', size: 70, capacity: 4, price: 55000 },
-      { name: 'Villa', size: 120, capacity: 6, price: 85000 }
-    ],
+    { name: 'Deluxe Room', size: 45, capacity: 3, price: 35000 },
+    { name: 'Executive Suite', size: 70, capacity: 4, price: 55000 },
+    { name: 'Villa', size: 120, capacity: 6, price: 85000 }],
+
     images: ['/hotels/regnum-carya-1.jpg'],
     tags: ['lüks', 'golf', 'spa', 'all-inclusive'],
     nearbyAttractions: [
-      { name: 'Aspendos Antik Tiyatrosu', distance: 15, unit: 'km' },
-      { name: 'Antalya Havalimanı', distance: 30, unit: 'km' }
-    ]
+    { name: 'Aspendos Antik Tiyatrosu', distance: 15, unit: 'km' },
+    { name: 'Antalya Havalimanı', distance: 30, unit: 'km' }]
+
   };
 
   return {

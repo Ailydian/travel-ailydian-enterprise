@@ -7,8 +7,8 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import {
   MapPin, Search, Loader2, Navigation, Clock, Star, TrendingUp,
-  Map as MapIcon, Plane, Building2, Globe, Target
-} from 'lucide-react';
+  Map as MapIcon, Plane, Building2, Globe, Target } from
+'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import logger from '../../lib/logger';
 import {
@@ -16,8 +16,8 @@ import {
   getPopularLocations,
   getUserLocation,
   getNearbyLocations,
-  type AdvancedLocationSuggestion,
-} from '@/lib/location-service-advanced';
+  type AdvancedLocationSuggestion } from
+'@/lib/location-service-advanced';
 
 interface LocationAutocompleteAdvancedProps {
   value: string;
@@ -47,7 +47,7 @@ export const LocationAutocompleteAdvanced: React.FC<LocationAutocompleteAdvanced
   showRecentSearches = true,
   showPopular = true,
   showNearby = true,
-  label,
+  label
 }) => {
   const [suggestions, setSuggestions] = useState<AdvancedLocationSuggestion[]>([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -56,7 +56,7 @@ export const LocationAutocompleteAdvanced: React.FC<LocationAutocompleteAdvanced
   const [recentSearches, setRecentSearches] = useState<AdvancedLocationSuggestion[]>([]);
   const [popularLocations, setPopularLocations] = useState<AdvancedLocationSuggestion[]>([]);
   const [nearbyLocations, setNearbyLocations] = useState<AdvancedLocationSuggestion[]>([]);
-  const [userLocation, setUserLocation] = useState<{ lat: number; lng: number } | null>(null);
+  const [userLocation, setUserLocation] = useState<{lat: number;lng: number;} | null>(null);
   const wrapperRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -67,7 +67,7 @@ export const LocationAutocompleteAdvanced: React.FC<LocationAutocompleteAdvanced
       try {
         setRecentSearches(JSON.parse(stored));
       } catch (e) {
-        logger.error('Failed to parse recent searches:', e as Error, {component:'Locationautocompleteadvanced'});
+        logger.error('Failed to parse recent searches:', e as Error, { component: 'Locationautocompleteadvanced' });
       }
     }
   }, []);
@@ -75,16 +75,16 @@ export const LocationAutocompleteAdvanced: React.FC<LocationAutocompleteAdvanced
   // Get user location
   useEffect(() => {
     if (showNearby) {
-      getUserLocation()
-        .then(location => {
-          setUserLocation(location);
-          const nearby = getNearbyLocations(location.lat, location.lng, 100, 5);
-          setNearbyLocations(nearby);
-        })
-        .catch(() => {
-          // Silently fail - geolocation is optional
-        });
-    }
+      getUserLocation().
+      then((location) => {
+        setUserLocation(location);
+        const nearby = getNearbyLocations(location.lat, location.lng, 100, 5);
+        setNearbyLocations(nearby);
+      }).
+      catch(() => {
+
+        // Silently fail - geolocation is optional
+      });}
   }, [showNearby]);
 
   // Load popular locations
@@ -111,7 +111,7 @@ export const LocationAutocompleteAdvanced: React.FC<LocationAutocompleteAdvanced
         country: countryFilter,
         limit: 12,
         userLocation: userLocation || undefined,
-        popularFirst: true,
+        popularFirst: true
       });
 
       setSuggestions(results);
@@ -147,13 +147,13 @@ export const LocationAutocompleteAdvanced: React.FC<LocationAutocompleteAdvanced
     switch (e.key) {
       case 'ArrowDown':
         e.preventDefault();
-        setSelectedIndex(prev =>
-          prev < totalSuggestions - 1 ? prev + 1 : prev
+        setSelectedIndex((prev) =>
+        prev < totalSuggestions - 1 ? prev + 1 : prev
         );
         break;
       case 'ArrowUp':
         e.preventDefault();
-        setSelectedIndex(prev => prev > 0 ? prev - 1 : -1);
+        setSelectedIndex((prev) => prev > 0 ? prev - 1 : -1);
         break;
       case 'Enter':
         e.preventDefault();
@@ -176,9 +176,9 @@ export const LocationAutocompleteAdvanced: React.FC<LocationAutocompleteAdvanced
     // Save to recent searches
     if (showRecentSearches) {
       const updated = [
-        suggestion,
-        ...recentSearches.filter(s => s.id !== suggestion.id),
-      ].slice(0, MAX_RECENT_SEARCHES);
+      suggestion,
+      ...recentSearches.filter((s) => s.id !== suggestion.id)].
+      slice(0, MAX_RECENT_SEARCHES);
 
       setRecentSearches(updated);
       localStorage.setItem(RECENT_SEARCHES_KEY, JSON.stringify(updated));
@@ -188,7 +188,7 @@ export const LocationAutocompleteAdvanced: React.FC<LocationAutocompleteAdvanced
   const getLocationIcon = (locationType: string) => {
     switch (locationType) {
       case 'airport':
-        return <Plane className="w-4 h-4 text-blue-500" />;
+        return <Plane className="w-4 h-4 text-lydian-primary" />;
       case 'hotel':
       case 'hotel_zone':
         return <Building2 className="w-4 h-4 text-purple-500" />;
@@ -199,7 +199,7 @@ export const LocationAutocompleteAdvanced: React.FC<LocationAutocompleteAdvanced
         return <MapIcon className="w-4 h-4 text-orange-500" />;
       case 'city':
       default:
-        return <MapPin className="w-4 h-4 text-gray-300" />;
+        return <MapPin className="w-4 h-4 text-lydian-text-dim" />;
     }
   };
 
@@ -217,24 +217,24 @@ export const LocationAutocompleteAdvanced: React.FC<LocationAutocompleteAdvanced
       hotel_zone: 'Otel Bölgesi',
       region: 'Bölge',
       district: 'İlçe',
-      town: 'Kasaba',
+      town: 'Kasaba'
     };
     return labels[locationType] || locationType;
   };
 
   return (
     <div ref={wrapperRef} className={`relative ${className}`}>
-      {label && (
-        <label className="block text-sm font-semibold text-gray-200 mb-2">
+      {label &&
+      <label className="block text-sm font-semibold text-lydian-text-muted mb-2">
           {label}
         </label>
-      )}
+      }
 
       <div className="relative group">
         <div className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10 pointer-events-none">
-          {icon || (
-            <MapPin className="text-gray-400 w-5 h-5 group-hover:scale-110 group-focus-within:scale-110 group-focus-within:text-blue-600 transition-all duration-200" />
-          )}
+          {icon ||
+          <MapPin className="text-lydian-text-muted w-5 h-5 group-hover:scale-110 group-focus-within:scale-110 group-focus-within:text-lydian-primary transition-all duration-200" />
+          }
         </div>
 
         <input
@@ -249,179 +249,179 @@ export const LocationAutocompleteAdvanced: React.FC<LocationAutocompleteAdvanced
             }
           }}
           placeholder={placeholder}
-          className="w-full pl-12 pr-12 py-4 text-base bg-white/5 border-2 border-white/10 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-white placeholder-gray-500 font-medium shadow-sm hover:shadow-md hover:border-blue-300 transition-all duration-200"
-          autoComplete="off"
-        />
+          className="w-full pl-12 pr-12 py-4 text-base bg-lydian-glass-dark border-2 border-lydian-border-light/10 rounded-xl focus:ring-2 focus:ring-lydian-border-focus focus:border-lydian-primary outline-none text-lydian-text-inverse placeholder-lydian-text-tertiary font-medium shadow-sm hover:shadow-md hover:border-lydian-border-focus transition-all duration-200"
+          autoComplete="off" />
+
 
         <div className="absolute right-4 top-1/2 transform -translate-y-1/2 flex items-center gap-2">
-          {isLoading && (
-            <Loader2 className="text-blue-600 w-5 h-5 animate-spin" />
-          )}
-          {!isLoading && value.length === 0 && showNearby && (
-            <button
-              type="button"
-              onClick={() => {
-                if (userLocation) {
+          {isLoading &&
+          <Loader2 className="text-lydian-primary w-5 h-5 animate-spin" />
+          }
+          {!isLoading && value.length === 0 && showNearby &&
+          <button
+            type="button"
+            onClick={() => {
+              if (userLocation) {
+                setShowSuggestions(true);
+              } else {
+                getUserLocation().
+                then((location) => {
+                  setUserLocation(location);
+                  const nearby = getNearbyLocations(location.lat, location.lng, 100, 5);
+                  setNearbyLocations(nearby);
                   setShowSuggestions(true);
-                } else {
-                  getUserLocation()
-                    .then(location => {
-                      setUserLocation(location);
-                      const nearby = getNearbyLocations(location.lat, location.lng, 100, 5);
-                      setNearbyLocations(nearby);
-                      setShowSuggestions(true);
-                    })
-                    .catch(() => alert('Konum bilgisi alınamadı'));
-                }
-              }}
-              className="p-1 hover:bg-white/10 rounded-lg transition-colors"
-              title="Yakınımdakiler"
-            >
-              <Target className="w-5 h-5 text-blue-600" />
+                }).
+                catch(() => alert('Konum bilgisi alınamadı'));
+              }
+            }}
+            className="p-1 hover:bg-lydian-glass-dark-medium rounded-lg transition-colors"
+            title="Yakınımdakiler">
+
+              <Target className="w-5 h-5 text-lydian-primary" />
             </button>
-          )}
+          }
         </div>
       </div>
 
       {/* Suggestions Dropdown */}
       <AnimatePresence>
-        {showSuggestions && (
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.2 }}
-            className="absolute z-50 w-full mt-2 bg-white/5 rounded-xl shadow-2xl border border-white/10 overflow-hidden max-h-[500px] overflow-y-auto"
-          >
+        {showSuggestions &&
+        <motion.div
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -10 }}
+          transition={{ duration: 0.2 }}
+          className="absolute z-50 w-full mt-2 bg-lydian-glass-dark rounded-xl shadow-2xl border border-lydian-border-light/10 overflow-hidden max-h-[500px] overflow-y-auto">
+
             {/* Recent Searches */}
-            {value.length < 2 && showRecentSearches && recentSearches.length > 0 && (
-              <div className="border-b border-gray-100">
-                <div className="px-4 py-3 bg-white/5 flex items-center gap-2">
-                  <Clock className="w-4 h-4 text-gray-300" />
-                  <span className="text-sm font-semibold text-gray-200">Son Aramalar</span>
+            {value.length < 2 && showRecentSearches && recentSearches.length > 0 &&
+          <div className="border-b border-lydian-border-light">
+                <div className="px-4 py-3 bg-lydian-glass-dark flex items-center gap-2">
+                  <Clock className="w-4 h-4 text-lydian-text-dim" />
+                  <span className="text-sm font-semibold text-lydian-text-muted">Son Aramalar</span>
                 </div>
-                {recentSearches.map((location, index) => (
-                  <button
-                    key={`recent-${location.id}`}
-                    onClick={() => handleSelectSuggestion(location)}
-                    className="w-full px-4 py-3 flex items-center gap-3 hover:bg-blue-50 transition-colors text-left border-b border-gray-50 last:border-b-0"
-                  >
+                {recentSearches.map((location, index) =>
+            <button
+              key={`recent-${location.id}`}
+              onClick={() => handleSelectSuggestion(location)}
+              className="w-full px-4 py-3 flex items-center gap-3 hover:bg-lydian-primary-lighter transition-colors text-left border-b border-gray-50 last:border-b-0">
+
                     {getLocationIcon(location.type)}
                     <div className="flex-1">
-                      <div className="font-medium text-white">{location.name}</div>
-                      <div className="text-xs text-gray-300">
+                      <div className="font-medium text-lydian-text-inverse">{location.name}</div>
+                      <div className="text-xs text-lydian-text-dim">
                         {location.city} • {location.country}
                       </div>
                     </div>
                   </button>
-                ))}
-              </div>
             )}
+              </div>
+          }
 
             {/* Nearby Locations */}
-            {value.length < 2 && nearbyLocations.length > 0 && (
-              <div className="border-b border-gray-100">
+            {value.length < 2 && nearbyLocations.length > 0 &&
+          <div className="border-b border-lydian-border-light">
                 <div className="px-4 py-3 bg-gradient-to-r from-blue-50 to-purple-50 flex items-center gap-2">
-                  <Target className="w-4 h-4 text-blue-600" />
-                  <span className="text-sm font-semibold text-gray-200">Yakınınızda</span>
+                  <Target className="w-4 h-4 text-lydian-primary" />
+                  <span className="text-sm font-semibold text-lydian-text-muted">Yakınınızda</span>
                 </div>
-                {nearbyLocations.map((location) => (
-                  <button
-                    key={`nearby-${location.id}`}
-                    onClick={() => handleSelectSuggestion(location)}
-                    className="w-full px-4 py-3 flex items-center gap-3 hover:bg-blue-50 transition-colors text-left border-b border-gray-50 last:border-b-0"
-                  >
+                {nearbyLocations.map((location) =>
+            <button
+              key={`nearby-${location.id}`}
+              onClick={() => handleSelectSuggestion(location)}
+              className="w-full px-4 py-3 flex items-center gap-3 hover:bg-lydian-primary-lighter transition-colors text-left border-b border-gray-50 last:border-b-0">
+
                     {getLocationIcon(location.type)}
                     <div className="flex-1">
-                      <div className="font-medium text-white">{location.name}</div>
-                      <div className="text-xs text-gray-300 flex items-center gap-2">
+                      <div className="font-medium text-lydian-text-inverse">{location.name}</div>
+                      <div className="text-xs text-lydian-text-dim flex items-center gap-2">
                         <span>{location.city} • {location.country}</span>
-                        {location.distance && (
-                          <span className="px-2 py-0.5 bg-blue-100 text-blue-700 rounded-full text-xs font-semibold">
+                        {location.distance &&
+                  <span className="px-2 py-0.5 bg-lydian-primary-light text-lydian-primary-dark rounded-full text-xs font-semibold">
                             {formatDistance(location.distance)}
                           </span>
-                        )}
+                  }
                       </div>
                     </div>
                   </button>
-                ))}
-              </div>
             )}
+              </div>
+          }
 
             {/* Popular Locations */}
-            {value.length < 2 && popularLocations.length > 0 && (
-              <div>
+            {value.length < 2 && popularLocations.length > 0 &&
+          <div>
                 <div className="px-4 py-3 bg-gradient-to-r from-yellow-50 to-orange-50 flex items-center gap-2">
                   <TrendingUp className="w-4 h-4 text-orange-600" />
-                  <span className="text-sm font-semibold text-gray-200">Popüler Destinasyonlar</span>
+                  <span className="text-sm font-semibold text-lydian-text-muted">Popüler Destinasyonlar</span>
                 </div>
-                {popularLocations.map((location) => (
-                  <button
-                    key={`popular-${location.id}`}
-                    onClick={() => handleSelectSuggestion(location)}
-                    className="w-full px-4 py-3 flex items-center gap-3 hover:bg-orange-50 transition-colors text-left border-b border-gray-50 last:border-b-0"
-                  >
+                {popularLocations.map((location) =>
+            <button
+              key={`popular-${location.id}`}
+              onClick={() => handleSelectSuggestion(location)}
+              className="w-full px-4 py-3 flex items-center gap-3 hover:bg-orange-50 transition-colors text-left border-b border-gray-50 last:border-b-0">
+
                     {getLocationIcon(location.type)}
                     <div className="flex-1">
                       <div className="flex items-center gap-2">
-                        <span className="font-medium text-white">{location.name}</span>
-                        {location.popular && (
-                          <Star className="w-3 h-3 text-yellow-500 fill-yellow-500" />
-                        )}
+                        <span className="font-medium text-lydian-text-inverse">{location.name}</span>
+                        {location.popular &&
+                  <Star className="w-3 h-3 text-yellow-500 fill-yellow-500" />
+                  }
                       </div>
-                      <div className="text-xs text-gray-300">
+                      <div className="text-xs text-lydian-text-dim">
                         {location.city} • {location.country}
-                        {location.hotelCount && (
-                          <span className="ml-2 text-orange-600 font-semibold">
+                        {location.hotelCount &&
+                  <span className="ml-2 text-orange-600 font-semibold">
                             {location.hotelCount}+ otel
                           </span>
-                        )}
+                  }
                       </div>
                     </div>
                   </button>
-                ))}
-              </div>
             )}
+              </div>
+          }
 
             {/* Search Results */}
-            {value.length >= 2 && suggestions.length > 0 && (
-              <div>
+            {value.length >= 2 && suggestions.length > 0 &&
+          <div>
                 <div className="px-4 py-3 bg-gradient-to-r from-blue-50 to-indigo-50 flex items-center gap-2">
                   <Search className="w-4 h-4 text-indigo-600" />
-                  <span className="text-sm font-semibold text-gray-200">
+                  <span className="text-sm font-semibold text-lydian-text-muted">
                     Arama Sonuçları ({suggestions.length})
                   </span>
                 </div>
-                {suggestions.map((suggestion, index) => (
-                  <motion.button
-                    key={suggestion.id}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: index * 0.03 }}
-                    onClick={() => handleSelectSuggestion(suggestion)}
-                    className={`w-full px-4 py-3 flex items-center gap-3 transition-all text-left border-b border-gray-50 last:border-b-0 ${
-                      index === selectedIndex
-                        ? 'bg-gradient-to-r from-blue-100 to-indigo-100'
-                        : 'hover:bg-blue-50'
-                    }`}
-                  >
+                {suggestions.map((suggestion, index) =>
+            <motion.button
+              key={suggestion.id}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: index * 0.03 }}
+              onClick={() => handleSelectSuggestion(suggestion)}
+              className={`w-full px-4 py-3 flex items-center gap-3 transition-all text-left border-b border-gray-50 last:border-b-0 ${
+              index === selectedIndex ?
+              'bg-gradient-to-r from-blue-100 to-indigo-100' :
+              'hover:bg-blue-50'}`
+              }>
+
                     <div className="flex-shrink-0">
                       {getLocationIcon(suggestion.type)}
                     </div>
 
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-2">
-                        <span className="font-semibold text-white truncate">
+                        <span className="font-semibold text-lydian-text-inverse truncate">
                           {suggestion.name}
                         </span>
-                        {suggestion.code && (
-                          <span className="px-2 py-0.5 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded text-xs font-mono font-bold flex-shrink-0">
+                        {suggestion.code &&
+                  <span className="px-2 py-0.5 bg-gradient-to-r from-lydian-primary to-lydian-primary text-lydian-text-inverse rounded text-xs font-mono font-bold flex-shrink-0">
                             {suggestion.code}
                           </span>
-                        )}
+                  }
                       </div>
 
-                      <div className="text-xs text-gray-300 mt-0.5 flex items-center gap-2 flex-wrap">
+                      <div className="text-xs text-lydian-text-dim mt-0.5 flex items-center gap-2 flex-wrap">
                         <span className="flex items-center gap-1">
                           <Globe className="w-3 h-3 flex-shrink-0" />
                           {suggestion.city}
@@ -430,51 +430,51 @@ export const LocationAutocompleteAdvanced: React.FC<LocationAutocompleteAdvanced
                           {suggestion.country}
                         </span>
 
-                        <span className="px-2 py-0.5 bg-white/10 text-gray-200 rounded-full text-xs">
+                        <span className="px-2 py-0.5 bg-lydian-glass-dark-medium text-lydian-text-muted rounded-full text-xs">
                           {getTypeLabel(suggestion.type)}
                         </span>
 
-                        {suggestion.distance && (
-                          <span className="px-2 py-0.5 bg-blue-100 text-blue-700 rounded-full text-xs font-semibold">
+                        {suggestion.distance &&
+                  <span className="px-2 py-0.5 bg-lydian-primary-light text-lydian-primary-dark rounded-full text-xs font-semibold">
                             {formatDistance(suggestion.distance)}
                           </span>
-                        )}
+                  }
 
-                        {suggestion.hotelCount && (
-                          <span className="text-purple-600 font-semibold">
+                        {suggestion.hotelCount &&
+                  <span className="text-purple-600 font-semibold">
                             {suggestion.hotelCount}+ otel
                           </span>
-                        )}
+                  }
                       </div>
                     </div>
 
-                    {suggestion.type === 'airport' && (
-                      <Navigation className="w-5 h-5 text-blue-500 flex-shrink-0" />
-                    )}
+                    {suggestion.type === 'airport' &&
+              <Navigation className="w-5 h-5 text-lydian-primary flex-shrink-0" />
+              }
                   </motion.button>
-                ))}
-              </div>
             )}
+              </div>
+          }
 
             {/* No results */}
-            {value.length >= 2 && !isLoading && suggestions.length === 0 && (
-              <div className="px-6 py-8 text-center">
+            {value.length >= 2 && !isLoading && suggestions.length === 0 &&
+          <div className="px-6 py-8 text-center">
                 <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-r from-gray-100 to-gray-200 flex items-center justify-center">
-                  <Search className="w-8 h-8 text-gray-400" />
+                  <Search className="w-8 h-8 text-lydian-text-muted" />
                 </div>
-                <div className="font-semibold text-white mb-2">Sonuç bulunamadı</div>
-                <div className="text-sm text-gray-400">
+                <div className="font-semibold text-lydian-text-inverse mb-2">Sonuç bulunamadı</div>
+                <div className="text-sm text-lydian-text-muted">
                   "{value}" için sonuç bulunamadı
                   <br />
                   Farklı bir arama terimi deneyin
                 </div>
               </div>
-            )}
+          }
           </motion.div>
-        )}
+        }
       </AnimatePresence>
-    </div>
-  );
+    </div>);
+
 };
 
 export default LocationAutocompleteAdvanced;

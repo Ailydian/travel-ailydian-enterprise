@@ -20,8 +20,8 @@ import {
   Search, Filter, Download, Plus, Edit, Trash2, Eye,
   ArrowLeft, Star, Clock, CheckCircle, XCircle, AlertCircle,
   Calendar, Mail, Phone, Globe, FileText, BarChart3,
-  Target, Percent, Award, Shield, Activity, RefreshCw
-} from 'lucide-react';
+  Target, Percent, Award, Shield, Activity, RefreshCw } from
+'lucide-react';
 
 // Types
 interface B2BPartner {
@@ -61,110 +61,110 @@ const B2BPartnersPage = () => {
 
         // Mock data - replace with real API call
         const mockPartners: B2BPartner[] = [
-          {
-            id: '1',
-            name: 'John Wilson',
-            companyName: 'TravelTech Global Agency',
-            type: 'agency',
-            status: 'active',
-            revenue: 450000,
-            bookings: 156,
-            commission: 12.5,
-            email: 'john@traveltech.com',
-            phone: '+1 555 0101',
-            website: 'https://traveltech.com',
-            contractStart: '2024-01-15',
-            contractEnd: '2025-01-15',
-            rating: 4.8,
-            lastActivity: '2 saat önce',
-            country: 'USA',
-            city: 'New York',
-            performanceScore: 92,
-          },
-          {
-            id: '2',
-            name: 'Sarah Martinez',
-            companyName: 'Premium Hotels Group',
-            type: 'hotel',
-            status: 'active',
-            revenue: 380000,
-            bookings: 89,
-            commission: 15.0,
-            email: 'sarah@premiumhotels.com',
-            phone: '+44 20 7123 4567',
-            website: 'https://premiumhotels.com',
-            contractStart: '2023-06-01',
-            contractEnd: '2025-06-01',
-            rating: 4.9,
-            lastActivity: '4 saat önce',
-            country: 'UK',
-            city: 'London',
-            performanceScore: 95,
-          },
-          {
-            id: '3',
-            name: 'Michael Chen',
-            companyName: 'Corporate Solutions Ltd',
-            type: 'corporate',
-            status: 'active',
-            revenue: 520000,
-            bookings: 234,
-            commission: 10.0,
-            email: 'michael@corpsolutions.com',
-            phone: '+65 6123 4567',
-            website: 'https://corpsolutions.com',
-            contractStart: '2023-03-01',
-            contractEnd: '2025-03-01',
-            rating: 4.7,
-            lastActivity: '1 gün önce',
-            country: 'Singapore',
-            city: 'Singapore',
-            performanceScore: 88,
-          },
-          {
-            id: '4',
-            name: 'Elena Petrova',
-            companyName: 'Russian Travel Alliance',
-            type: 'agency',
-            status: 'pending',
-            revenue: 0,
-            bookings: 0,
-            commission: 13.0,
-            email: 'elena@russtravel.ru',
-            phone: '+7 495 123 4567',
-            contractStart: '2025-01-01',
-            contractEnd: '2026-01-01',
-            rating: 0,
-            lastActivity: 'Hiç',
-            country: 'Russia',
-            city: 'Moscow',
-            performanceScore: 0,
-          },
-          {
-            id: '5',
-            name: 'Ahmed Al-Rashid',
-            companyName: 'Gulf Airlines Partners',
-            type: 'airline',
-            status: 'active',
-            revenue: 680000,
-            bookings: 412,
-            commission: 8.5,
-            email: 'ahmed@gulfairlines.ae',
-            phone: '+971 4 123 4567',
-            website: 'https://gulfairlines.ae',
-            contractStart: '2022-01-01',
-            contractEnd: '2025-12-31',
-            rating: 4.6,
-            lastActivity: '3 saat önce',
-            country: 'UAE',
-            city: 'Dubai',
-            performanceScore: 90,
-          },
-        ];
+        {
+          id: '1',
+          name: 'John Wilson',
+          companyName: 'TravelTech Global Agency',
+          type: 'agency',
+          status: 'active',
+          revenue: 450000,
+          bookings: 156,
+          commission: 12.5,
+          email: 'john@traveltech.com',
+          phone: '+1 555 0101',
+          website: 'https://traveltech.com',
+          contractStart: '2024-01-15',
+          contractEnd: '2025-01-15',
+          rating: 4.8,
+          lastActivity: '2 saat önce',
+          country: 'USA',
+          city: 'New York',
+          performanceScore: 92
+        },
+        {
+          id: '2',
+          name: 'Sarah Martinez',
+          companyName: 'Premium Hotels Group',
+          type: 'hotel',
+          status: 'active',
+          revenue: 380000,
+          bookings: 89,
+          commission: 15.0,
+          email: 'sarah@premiumhotels.com',
+          phone: '+44 20 7123 4567',
+          website: 'https://premiumhotels.com',
+          contractStart: '2023-06-01',
+          contractEnd: '2025-06-01',
+          rating: 4.9,
+          lastActivity: '4 saat önce',
+          country: 'UK',
+          city: 'London',
+          performanceScore: 95
+        },
+        {
+          id: '3',
+          name: 'Michael Chen',
+          companyName: 'Corporate Solutions Ltd',
+          type: 'corporate',
+          status: 'active',
+          revenue: 520000,
+          bookings: 234,
+          commission: 10.0,
+          email: 'michael@corpsolutions.com',
+          phone: '+65 6123 4567',
+          website: 'https://corpsolutions.com',
+          contractStart: '2023-03-01',
+          contractEnd: '2025-03-01',
+          rating: 4.7,
+          lastActivity: '1 gün önce',
+          country: 'Singapore',
+          city: 'Singapore',
+          performanceScore: 88
+        },
+        {
+          id: '4',
+          name: 'Elena Petrova',
+          companyName: 'Russian Travel Alliance',
+          type: 'agency',
+          status: 'pending',
+          revenue: 0,
+          bookings: 0,
+          commission: 13.0,
+          email: 'elena@russtravel.ru',
+          phone: '+7 495 123 4567',
+          contractStart: '2025-01-01',
+          contractEnd: '2026-01-01',
+          rating: 0,
+          lastActivity: 'Hiç',
+          country: 'Russia',
+          city: 'Moscow',
+          performanceScore: 0
+        },
+        {
+          id: '5',
+          name: 'Ahmed Al-Rashid',
+          companyName: 'Gulf Airlines Partners',
+          type: 'airline',
+          status: 'active',
+          revenue: 680000,
+          bookings: 412,
+          commission: 8.5,
+          email: 'ahmed@gulfairlines.ae',
+          phone: '+971 4 123 4567',
+          website: 'https://gulfairlines.ae',
+          contractStart: '2022-01-01',
+          contractEnd: '2025-12-31',
+          rating: 4.6,
+          lastActivity: '3 saat önce',
+          country: 'UAE',
+          city: 'Dubai',
+          performanceScore: 90
+        }];
+
 
         setPartners(mockPartners);
       } catch (error) {
-        logger.error('Error fetching partners:', error as Error, {component:'B2b'});
+        logger.error('Error fetching partners:', error as Error, { component: 'B2b' });
       } finally {
         setLoading(false);
       }
@@ -174,11 +174,11 @@ const B2BPartnersPage = () => {
   }, []);
 
   // Filter partners
-  const filteredPartners = partners.filter(partner => {
+  const filteredPartners = partners.filter((partner) => {
     const matchesSearch =
-      partner.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      partner.companyName.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      partner.email.toLowerCase().includes(searchQuery.toLowerCase());
+    partner.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    partner.companyName.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    partner.email.toLowerCase().includes(searchQuery.toLowerCase());
 
     const matchesType = filterType === 'all' || partner.type === filterType;
     const matchesStatus = filterStatus === 'all' || partner.status === filterStatus;
@@ -187,56 +187,56 @@ const B2BPartnersPage = () => {
   });
 
   // Calculate summary metrics
-  const totalRevenue = partners.filter(p => p.status === 'active').reduce((sum, p) => sum + p.revenue, 0);
-  const totalBookings = partners.filter(p => p.status === 'active').reduce((sum, p) => sum + p.bookings, 0);
-  const activePartners = partners.filter(p => p.status === 'active').length;
-  const avgCommission = partners.length > 0
-    ? partners.reduce((sum, p) => sum + p.commission, 0) / partners.length
-    : 0;
+  const totalRevenue = partners.filter((p) => p.status === 'active').reduce((sum, p) => sum + p.revenue, 0);
+  const totalBookings = partners.filter((p) => p.status === 'active').reduce((sum, p) => sum + p.bookings, 0);
+  const activePartners = partners.filter((p) => p.status === 'active').length;
+  const avgCommission = partners.length > 0 ?
+  partners.reduce((sum, p) => sum + p.commission, 0) / partners.length :
+  0;
 
   const getStatusColor = (status: string) => {
     switch (status) {
-      case 'active': return 'text-green-600 bg-green-50 border-green-200';
-      case 'pending': return 'text-amber-600 bg-amber-50 border-amber-200';
-      case 'inactive': return 'text-gray-300 bg-white/5 border-gray-200';
-      case 'suspended': return 'text-red-600 bg-red-50 border-red-200';
-      default: return 'text-gray-300 bg-white/5 border-gray-200';
+      case 'active':return 'text-green-600 bg-green-50 border-green-200';
+      case 'pending':return 'text-amber-600 bg-amber-50 border-amber-200';
+      case 'inactive':return 'text-gray-300 bg-white/5 border-gray-200';
+      case 'suspended':return 'text-red-600 bg-red-50 border-red-200';
+      default:return 'text-gray-300 bg-white/5 border-gray-200';
     }
   };
 
   const getTypeIcon = (type: string) => {
     switch (type) {
-      case 'hotel': return <Building2 className="w-4 h-4" />;
-      case 'agency': return <Users className="w-4 h-4" />;
-      case 'corporate': return <Briefcase className="w-4 h-4" />;
-      case 'airline': return <Globe className="w-4 h-4" />;
-      default: return <Building2 className="w-4 h-4" />;
+      case 'hotel':return <Building2 className="w-4 h-4" />;
+      case 'agency':return <Users className="w-4 h-4" />;
+      case 'corporate':return <Briefcase className="w-4 h-4" />;
+      case 'airline':return <Globe className="w-4 h-4" />;
+      default:return <Building2 className="w-4 h-4" />;
     }
   };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
       {/* Header */}
-      <header className="bg-white/5 border-b border-slate-200 sticky top-0 z-50 shadow-sm">
+      <header className="bg-lydian-glass-dark border-b border-lydian-border sticky top-0 z-50 shadow-sm">
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
               <Link href="/admin/v2">
-                <button className="p-2 hover:bg-slate-100 rounded-lg transition-colors">
-                  <ArrowLeft className="w-5 h-5 text-slate-600" />
+                <button className="p-2 hover:bg-lydian-bg-surface-raised rounded-lg transition-colors">
+                  <ArrowLeft className="w-5 h-5 text-lydian-text-secondary" />
                 </button>
               </Link>
               <div>
-                <h1 className="text-2xl font-bold text-slate-900">B2B Partner Yönetimi</h1>
-                <p className="text-sm text-slate-600">Tüm iş ortaklarını yönetin</p>
+                <h1 className="text-2xl font-bold text-lydian-text">B2B Partner Yönetimi</h1>
+                <p className="text-sm text-lydian-text-secondary">Tüm iş ortaklarını yönetin</p>
               </div>
             </div>
             <div className="flex items-center gap-3">
-              <button className="flex items-center gap-2 px-4 py-2 border border-slate-300 rounded-lg hover:bg-slate-50 transition-colors">
+              <button className="flex items-center gap-2 px-4 py-2 border border-lydian-border-medium rounded-lg hover:bg-lydian-bg-surface transition-colors">
                 <Download className="w-4 h-4" />
                 <span className="text-sm font-medium">Export</span>
               </button>
-              <button className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+              <button className="flex items-center gap-2 px-4 py-2 bg-lydian-primary text-lydian-text-inverse rounded-lg hover:bg-lydian-primary-dark transition-colors">
                 <Plus className="w-4 h-4" />
                 <span className="text-sm font-medium">Yeni Partner</span>
               </button>
@@ -251,43 +251,43 @@ const B2BPartnersPage = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="bg-white/5 rounded-xl p-6 border border-slate-200"
-          >
+            className="bg-lydian-glass-dark rounded-xl p-6 border border-lydian-border">
+
             <div className="flex items-center justify-between mb-2">
-              <p className="text-sm font-medium text-slate-600">Toplam Gelir</p>
-              <DollarSign className="w-5 h-5 text-green-600" />
+              <p className="text-sm font-medium text-lydian-text-secondary">Toplam Gelir</p>
+              <DollarSign className="w-5 h-5 text-lydian-success" />
             </div>
-            <p className="text-2xl font-bold text-slate-900">
+            <p className="text-2xl font-bold text-lydian-text">
               ₺{totalRevenue.toLocaleString('tr-TR')}
             </p>
-            <p className="text-xs text-green-600 mt-1">+18.5% bu ay</p>
+            <p className="text-xs text-lydian-success mt-1">+18.5% bu ay</p>
           </motion.div>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="bg-white/5 rounded-xl p-6 border border-slate-200"
-          >
+            className="bg-lydian-glass-dark rounded-xl p-6 border border-lydian-border">
+
             <div className="flex items-center justify-between mb-2">
-              <p className="text-sm font-medium text-slate-600">Toplam Rezervasyon</p>
-              <Calendar className="w-5 h-5 text-blue-600" />
+              <p className="text-sm font-medium text-lydian-text-secondary">Toplam Rezervasyon</p>
+              <Calendar className="w-5 h-5 text-lydian-primary" />
             </div>
-            <p className="text-2xl font-bold text-slate-900">{totalBookings}</p>
-            <p className="text-xs text-blue-600 mt-1">+12.3% bu ay</p>
+            <p className="text-2xl font-bold text-lydian-text">{totalBookings}</p>
+            <p className="text-xs text-lydian-primary mt-1">+12.3% bu ay</p>
           </motion.div>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="bg-white/5 rounded-xl p-6 border border-slate-200"
-          >
+            className="bg-lydian-glass-dark rounded-xl p-6 border border-lydian-border">
+
             <div className="flex items-center justify-between mb-2">
-              <p className="text-sm font-medium text-slate-600">Aktif Partnerler</p>
+              <p className="text-sm font-medium text-lydian-text-secondary">Aktif Partnerler</p>
               <Users className="w-5 h-5 text-purple-600" />
             </div>
-            <p className="text-2xl font-bold text-slate-900">{activePartners}</p>
+            <p className="text-2xl font-bold text-lydian-text">{activePartners}</p>
             <p className="text-xs text-purple-600 mt-1">{partners.length} toplam</p>
           </motion.div>
 
@@ -295,36 +295,36 @@ const B2BPartnersPage = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="bg-white/5 rounded-xl p-6 border border-slate-200"
-          >
+            className="bg-lydian-glass-dark rounded-xl p-6 border border-lydian-border">
+
             <div className="flex items-center justify-between mb-2">
-              <p className="text-sm font-medium text-slate-600">Ort. Komisyon</p>
+              <p className="text-sm font-medium text-lydian-text-secondary">Ort. Komisyon</p>
               <Percent className="w-5 h-5 text-amber-600" />
             </div>
-            <p className="text-2xl font-bold text-slate-900">{avgCommission.toFixed(1)}%</p>
+            <p className="text-2xl font-bold text-lydian-text">{avgCommission.toFixed(1)}%</p>
             <p className="text-xs text-amber-600 mt-1">Ortalama oran</p>
           </motion.div>
         </div>
 
         {/* Filters */}
-        <div className="bg-white/5 rounded-xl p-6 border border-slate-200 mb-6">
+        <div className="bg-lydian-glass-dark rounded-xl p-6 border border-lydian-border mb-6">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             <div className="relative">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-lydian-text-muted" />
               <input
                 type="text"
                 placeholder="Partner ara..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-10 pr-4 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
-              />
+                className="w-full pl-10 pr-4 py-2 border border-lydian-border rounded-lg focus:ring-2 focus:ring-lydian-border-focus focus:border-lydian-primary outline-none" />
+
             </div>
 
             <select
               value={filterType}
               onChange={(e) => setFilterType(e.target.value)}
-              className="px-4 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
-            >
+              className="px-4 py-2 border border-lydian-border rounded-lg focus:ring-2 focus:ring-lydian-border-focus outline-none">
+
               <option value="all">Tüm Tipler</option>
               <option value="hotel">Otel</option>
               <option value="agency">Acenta</option>
@@ -335,8 +335,8 @@ const B2BPartnersPage = () => {
             <select
               value={filterStatus}
               onChange={(e) => setFilterStatus(e.target.value)}
-              className="px-4 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
-            >
+              className="px-4 py-2 border border-lydian-border rounded-lg focus:ring-2 focus:ring-lydian-border-focus outline-none">
+
               <option value="all">Tüm Durumlar</option>
               <option value="active">Aktif</option>
               <option value="pending">Beklemede</option>
@@ -344,7 +344,7 @@ const B2BPartnersPage = () => {
               <option value="suspended">Askıya Alınmış</option>
             </select>
 
-            <button className="flex items-center justify-center gap-2 px-4 py-2 bg-slate-100 hover:bg-slate-200 rounded-lg transition-colors">
+            <button className="flex items-center justify-center gap-2 px-4 py-2 bg-lydian-bg-surface-raised hover:bg-slate-200 rounded-lg transition-colors">
               <RefreshCw className="w-4 h-4" />
               Yenile
             </button>
@@ -352,73 +352,73 @@ const B2BPartnersPage = () => {
         </div>
 
         {/* Partners Table */}
-        <div className="bg-white/5 rounded-xl border border-slate-200 overflow-hidden">
+        <div className="bg-lydian-glass-dark rounded-xl border border-lydian-border overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full">
-              <thead className="bg-slate-50 border-b border-slate-200">
+              <thead className="bg-lydian-bg-surface border-b border-lydian-border">
                 <tr>
-                  <th className="px-6 py-4 text-left text-xs font-semibold text-slate-600 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-left text-xs font-semibold text-lydian-text-secondary uppercase tracking-wider">
                     Partner
                   </th>
-                  <th className="px-6 py-4 text-left text-xs font-semibold text-slate-600 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-left text-xs font-semibold text-lydian-text-secondary uppercase tracking-wider">
                     Tip
                   </th>
-                  <th className="px-6 py-4 text-left text-xs font-semibold text-slate-600 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-left text-xs font-semibold text-lydian-text-secondary uppercase tracking-wider">
                     Durum
                   </th>
-                  <th className="px-6 py-4 text-left text-xs font-semibold text-slate-600 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-left text-xs font-semibold text-lydian-text-secondary uppercase tracking-wider">
                     Gelir
                   </th>
-                  <th className="px-6 py-4 text-left text-xs font-semibold text-slate-600 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-left text-xs font-semibold text-lydian-text-secondary uppercase tracking-wider">
                     Rezervasyon
                   </th>
-                  <th className="px-6 py-4 text-left text-xs font-semibold text-slate-600 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-left text-xs font-semibold text-lydian-text-secondary uppercase tracking-wider">
                     Komisyon
                   </th>
-                  <th className="px-6 py-4 text-left text-xs font-semibold text-slate-600 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-left text-xs font-semibold text-lydian-text-secondary uppercase tracking-wider">
                     Performans
                   </th>
-                  <th className="px-6 py-4 text-left text-xs font-semibold text-slate-600 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-left text-xs font-semibold text-lydian-text-secondary uppercase tracking-wider">
                     İşlemler
                   </th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-200">
-                {loading ? (
-                  <tr>
+                {loading ?
+                <tr>
                     <td colSpan={8} className="px-6 py-12 text-center">
-                      <div className="flex items-center justify-center gap-2 text-slate-500">
+                      <div className="flex items-center justify-center gap-2 text-lydian-text-tertiary">
                         <RefreshCw className="w-5 h-5 animate-spin" />
                         <span>Yükleniyor...</span>
                       </div>
                     </td>
-                  </tr>
-                ) : filteredPartners.length === 0 ? (
-                  <tr>
-                    <td colSpan={8} className="px-6 py-12 text-center text-slate-500">
+                  </tr> :
+                filteredPartners.length === 0 ?
+                <tr>
+                    <td colSpan={8} className="px-6 py-12 text-center text-lydian-text-tertiary">
                       Partner bulunamadı
                     </td>
-                  </tr>
-                ) : (
-                  filteredPartners.map((partner, index) => (
-                    <motion.tr
-                      key={partner.id}
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      transition={{ delay: index * 0.05 }}
-                      className="hover:bg-slate-50 transition-colors"
-                    >
+                  </tr> :
+
+                filteredPartners.map((partner, index) =>
+                <motion.tr
+                  key={partner.id}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: index * 0.05 }}
+                  className="hover:bg-lydian-bg-surface transition-colors">
+
                       <td className="px-6 py-4">
                         <div>
-                          <p className="font-semibold text-slate-900">{partner.companyName}</p>
-                          <p className="text-sm text-slate-500">{partner.name}</p>
-                          <p className="text-xs text-slate-400 mt-1">{partner.email}</p>
+                          <p className="font-semibold text-lydian-text">{partner.companyName}</p>
+                          <p className="text-sm text-lydian-text-tertiary">{partner.name}</p>
+                          <p className="text-xs text-lydian-text-muted mt-1">{partner.email}</p>
                         </div>
                       </td>
                       <td className="px-6 py-4">
                         <div className="flex items-center gap-2">
                           {getTypeIcon(partner.type)}
-                          <span className="text-sm text-slate-700 capitalize">{partner.type}</span>
+                          <span className="text-sm text-lydian-text-secondary capitalize">{partner.type}</span>
                         </div>
                       </td>
                       <td className="px-6 py-4">
@@ -427,45 +427,45 @@ const B2BPartnersPage = () => {
                         </span>
                       </td>
                       <td className="px-6 py-4">
-                        <p className="font-semibold text-slate-900">
+                        <p className="font-semibold text-lydian-text">
                           ₺{partner.revenue.toLocaleString('tr-TR')}
                         </p>
                       </td>
                       <td className="px-6 py-4">
-                        <p className="font-semibold text-slate-900">{partner.bookings}</p>
+                        <p className="font-semibold text-lydian-text">{partner.bookings}</p>
                       </td>
                       <td className="px-6 py-4">
-                        <p className="font-semibold text-blue-600">{partner.commission}%</p>
+                        <p className="font-semibold text-lydian-primary">{partner.commission}%</p>
                       </td>
                       <td className="px-6 py-4">
                         <div className="flex items-center gap-2">
                           <div className="flex-1 bg-slate-200 rounded-full h-2">
                             <div
-                              className="bg-green-500 h-2 rounded-full"
-                              style={{ width: `${partner.performanceScore}%` }}
-                            />
+                          className="bg-green-500 h-2 rounded-full"
+                          style={{ width: `${partner.performanceScore}%` }} />
+
                           </div>
-                          <span className="text-sm font-semibold text-slate-700">
+                          <span className="text-sm font-semibold text-lydian-text-secondary">
                             {partner.performanceScore}
                           </span>
                         </div>
                       </td>
                       <td className="px-6 py-4">
                         <div className="flex items-center gap-2">
-                          <button className="p-2 hover:bg-blue-50 rounded-lg transition-colors group">
-                            <Eye className="w-4 h-4 text-slate-600 group-hover:text-blue-600" />
+                          <button className="p-2 hover:bg-lydian-primary-lighter rounded-lg transition-colors group">
+                            <Eye className="w-4 h-4 text-lydian-text-secondary group-hover:text-lydian-primary" />
                           </button>
-                          <button className="p-2 hover:bg-green-50 rounded-lg transition-colors group">
-                            <Edit className="w-4 h-4 text-slate-600 group-hover:text-green-600" />
+                          <button className="p-2 hover:bg-lydian-success-lighter rounded-lg transition-colors group">
+                            <Edit className="w-4 h-4 text-lydian-text-secondary group-hover:text-lydian-success" />
                           </button>
-                          <button className="p-2 hover:bg-red-50 rounded-lg transition-colors group">
-                            <Trash2 className="w-4 h-4 text-slate-600 group-hover:text-red-600" />
+                          <button className="p-2 hover:bg-lydian-error-lighter rounded-lg transition-colors group">
+                            <Trash2 className="w-4 h-4 text-lydian-text-secondary group-hover:text-lydian-primary" />
                           </button>
                         </div>
                       </td>
                     </motion.tr>
-                  ))
-                )}
+                )
+                }
               </tbody>
             </table>
           </div>
@@ -473,27 +473,27 @@ const B2BPartnersPage = () => {
 
         {/* Pagination */}
         <div className="mt-6 flex items-center justify-between">
-          <p className="text-sm text-slate-600">
+          <p className="text-sm text-lydian-text-secondary">
             {filteredPartners.length} partner gösteriliyor
           </p>
           <div className="flex items-center gap-2">
-            <button className="px-4 py-2 border border-slate-300 rounded-lg hover:bg-slate-50 transition-colors text-sm font-medium">
+            <button className="px-4 py-2 border border-lydian-border-medium rounded-lg hover:bg-lydian-bg-surface transition-colors text-sm font-medium">
               Önceki
             </button>
-            <button className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm font-medium">
+            <button className="px-4 py-2 bg-lydian-primary text-lydian-text-inverse rounded-lg hover:bg-lydian-primary-dark transition-colors text-sm font-medium">
               1
             </button>
-            <button className="px-4 py-2 border border-slate-300 rounded-lg hover:bg-slate-50 transition-colors text-sm font-medium">
+            <button className="px-4 py-2 border border-lydian-border-medium rounded-lg hover:bg-lydian-bg-surface transition-colors text-sm font-medium">
               2
             </button>
-            <button className="px-4 py-2 border border-slate-300 rounded-lg hover:bg-slate-50 transition-colors text-sm font-medium">
+            <button className="px-4 py-2 border border-lydian-border-medium rounded-lg hover:bg-lydian-bg-surface transition-colors text-sm font-medium">
               Sonraki
             </button>
           </div>
         </div>
       </main>
-    </div>
-  );
+    </div>);
+
 };
 
 export default B2BPartnersPage;

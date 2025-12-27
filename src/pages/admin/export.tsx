@@ -4,8 +4,8 @@ import Head from 'next/head';
 import Link from 'next/link';
 import {
   Download, FileText, Database, Calendar, CheckCircle,
-  Users, MapPin, MessageSquare, Image
-} from 'lucide-react';
+  Users, MapPin, MessageSquare, Image } from
+'lucide-react';
 import adminService from '../../lib/services/admin-service';
 
 const AILYDIAN_COLORS = {
@@ -16,7 +16,7 @@ const AILYDIAN_COLORS = {
   warning: '#f59e0b',
   error: '#ef4444',
   purple: '#a855f7',
-  dark: '#0f0f1a',
+  dark: '#0f0f1a'
 };
 
 export default function AdminExport() {
@@ -50,12 +50,12 @@ export default function AdminExport() {
   };
 
   const exportTypes = [
-    { id: 'all', name: 'Tüm Veriler', icon: Database, count: 15234 },
-    { id: 'users', name: 'Kullanıcılar', icon: Users, count: 3456 },
-    { id: 'locations', name: 'Lokasyonlar', icon: MapPin, count: 1247 },
-    { id: 'reviews', name: 'İncelemeler', icon: MessageSquare, count: 8934 },
-    { id: 'photos', name: 'Fotoğraflar', icon: Image, count: 12567 },
-  ];
+  { id: 'all', name: 'Tüm Veriler', icon: Database, count: 15234 },
+  { id: 'users', name: 'Kullanıcılar', icon: Users, count: 3456 },
+  { id: 'locations', name: 'Lokasyonlar', icon: MapPin, count: 1247 },
+  { id: 'reviews', name: 'İncelemeler', icon: MessageSquare, count: 8934 },
+  { id: 'photos', name: 'Fotoğraflar', icon: Image, count: 12567 }];
+
 
   return (
     <>
@@ -69,20 +69,20 @@ export default function AdminExport() {
           {/* Sidebar */}
           <aside className="w-64 bg-gray-800 border-r border-gray-700 min-h-screen p-6">
             <div className="mb-8">
-              <h2 className="text-2xl font-bold text-white mb-2">LyDian Admin</h2>
-              <p className="text-sm text-gray-200">{adminData?.email}</p>
+              <h2 className="text-2xl font-bold text-lydian-text-inverse mb-2">LyDian Admin</h2>
+              <p className="text-sm text-lydian-text-muted">{adminData?.email}</p>
             </div>
             <nav className="space-y-2">
-              <Link href="/admin/dashboard" className="flex items-center space-x-3 text-gray-300 hover:text-white hover:bg-gray-700/80 rounded-lg px-3 py-2">
+              <Link href="/admin/dashboard" className="flex items-center space-x-3 text-lydian-text-dim hover:text-lydian-text-inverse hover:bg-gray-700/80 rounded-lg px-3 py-2">
                 Dashboard
               </Link>
-              <Link href="/admin/locations" className="flex items-center space-x-3 text-gray-300 hover:text-white hover:bg-gray-700/80 rounded-lg px-3 py-2">
+              <Link href="/admin/locations" className="flex items-center space-x-3 text-lydian-text-dim hover:text-lydian-text-inverse hover:bg-gray-700/80 rounded-lg px-3 py-2">
                 Lokasyonlar
               </Link>
-              <Link href="/admin/users" className="flex items-center space-x-3 text-gray-300 hover:text-white hover:bg-gray-700/80 rounded-lg px-3 py-2">
+              <Link href="/admin/users" className="flex items-center space-x-3 text-lydian-text-dim hover:text-lydian-text-inverse hover:bg-gray-700/80 rounded-lg px-3 py-2">
                 Kullanıcılar
               </Link>
-              <Link href="/admin/export" className="flex items-center space-x-3 text-white rounded-lg px-3 py-2" style={{background: `linear-gradient(45deg, ${AILYDIAN_COLORS.primary}40, ${AILYDIAN_COLORS.secondary}40)`, border: `1px solid ${AILYDIAN_COLORS.primary}60`}}>
+              <Link href="/admin/export" className="flex items-center space-x-3 text-lydian-text-inverse rounded-lg px-3 py-2" style={{ background: `linear-gradient(45deg, ${AILYDIAN_COLORS.primary}40, ${AILYDIAN_COLORS.secondary}40)`, border: `1px solid ${AILYDIAN_COLORS.primary}60` }}>
                 Veri Dışa Aktarma
               </Link>
             </nav>
@@ -91,50 +91,50 @@ export default function AdminExport() {
           {/* Main Content */}
           <main className="flex-1 p-8">
             <div className="max-w-5xl mx-auto">
-              <h1 className="text-3xl font-bold text-white mb-8">Veri Dışa Aktarma</h1>
+              <h1 className="text-3xl font-bold text-lydian-text-inverse mb-8">Veri Dışa Aktarma</h1>
 
               {/* Export Type Selection */}
               <div className="bg-gray-800 rounded-lg p-6 mb-6">
-                <h2 className="text-xl font-semibold text-white mb-4">Veri Tipi Seçin</h2>
+                <h2 className="text-xl font-semibold text-lydian-text-inverse mb-4">Veri Tipi Seçin</h2>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  {exportTypes.map(type => {
+                  {exportTypes.map((type) => {
                     const Icon = type.icon;
                     return (
                       <button
                         key={type.id}
                         onClick={() => setSelectedType(type.id)}
                         className={`p-4 rounded-lg border-2 transition-all ${
-                          selectedType === type.id
-                            ? 'border-blue-500 bg-blue-900/30'
-                            : 'border-gray-700 bg-gray-700/30 hover:border-gray-600'
-                        }`}
-                      >
+                        selectedType === type.id ?
+                        'border-blue-500 bg-blue-900/30' :
+                        'border-gray-700 bg-gray-700/30 hover:border-gray-600'}`
+                        }>
+
                         <Icon className="w-8 h-8 text-blue-400 mb-2" />
-                        <h3 className="text-white font-semibold mb-1">{type.name}</h3>
-                        <p className="text-gray-400 text-sm">{type.count.toLocaleString()} kayıt</p>
-                      </button>
-                    );
+                        <h3 className="text-lydian-text-inverse font-semibold mb-1">{type.name}</h3>
+                        <p className="text-lydian-text-muted text-sm">{type.count.toLocaleString()} kayıt</p>
+                      </button>);
+
                   })}
                 </div>
               </div>
 
               {/* Format Selection */}
               <div className="bg-gray-800 rounded-lg p-6 mb-6">
-                <h2 className="text-xl font-semibold text-white mb-4">Format Seçin</h2>
+                <h2 className="text-xl font-semibold text-lydian-text-inverse mb-4">Format Seçin</h2>
                 <div className="flex gap-4">
-                  {['csv', 'json', 'xlsx', 'pdf'].map(format => (
-                    <button
-                      key={format}
-                      onClick={() => setSelectedFormat(format)}
-                      className={`px-6 py-3 rounded-lg font-medium uppercase transition-colors ${
-                        selectedFormat === format
-                          ? 'bg-blue-600 text-white'
-                          : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
-                      }`}
-                    >
+                  {['csv', 'json', 'xlsx', 'pdf'].map((format) =>
+                  <button
+                    key={format}
+                    onClick={() => setSelectedFormat(format)}
+                    className={`px-6 py-3 rounded-lg font-medium uppercase transition-colors ${
+                    selectedFormat === format ?
+                    'bg-blue-600 text-white' :
+                    'bg-gray-700 text-gray-300 hover:bg-gray-600'}`
+                    }>
+
                       {format}
                     </button>
-                  ))}
+                  )}
                 </div>
               </div>
 
@@ -142,16 +142,16 @@ export default function AdminExport() {
               <div className="bg-gray-800 rounded-lg p-6">
                 <div className="flex items-center justify-between mb-4">
                   <div>
-                    <h3 className="text-lg font-semibold text-white">Dışa Aktarma Özeti</h3>
-                    <p className="text-gray-400 text-sm">
-                      {exportTypes.find(t => t.id === selectedType)?.name} - {selectedFormat.toUpperCase()} formatında
+                    <h3 className="text-lg font-semibold text-lydian-text-inverse">Dışa Aktarma Özeti</h3>
+                    <p className="text-lydian-text-muted text-sm">
+                      {exportTypes.find((t) => t.id === selectedType)?.name} - {selectedFormat.toUpperCase()} formatında
                     </p>
                   </div>
                   <button
                     onClick={handleExport}
                     disabled={isExporting}
-                    className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#667EEA] via-[#764BA2] to-[#667EEA] text-white rounded-lg hover:shadow-lg transition-all disabled:opacity-50"
-                  >
+                    className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#667EEA] via-[#764BA2] to-[#667EEA] text-lydian-text-inverse rounded-lg hover:shadow-lg transition-all disabled:opacity-50">
+
                     <Download className={`w-5 h-5 ${isExporting ? 'animate-bounce' : ''}`} />
                     {isExporting ? 'Dışa Aktarılıyor...' : 'Dışa Aktar'}
                   </button>
@@ -160,35 +160,35 @@ export default function AdminExport() {
 
               {/* Recent Exports */}
               <div className="mt-8 bg-gray-800 rounded-lg p-6">
-                <h2 className="text-2xl font-bold text-white mb-4">Son Dışa Aktarımlar</h2>
+                <h2 className="text-2xl font-bold text-lydian-text-inverse mb-4">Son Dışa Aktarımlar</h2>
                 <div className="space-y-3">
                   {[
-                    { type: 'Tüm Veriler', format: 'CSV', date: '2 saat önce', size: '45 MB' },
-                    { type: 'Kullanıcılar', format: 'JSON', date: '1 gün önce', size: '2.3 MB' },
-                    { type: 'Lokasyonlar', format: 'XLSX', date: '3 gün önce', size: '8.7 MB' },
-                  ].map((exp, index) => (
-                    <div key={index} className="flex items-center justify-between p-4 bg-gray-700/50 rounded-lg">
+                  { type: 'Tüm Veriler', format: 'CSV', date: '2 saat önce', size: '45 MB' },
+                  { type: 'Kullanıcılar', format: 'JSON', date: '1 gün önce', size: '2.3 MB' },
+                  { type: 'Lokasyonlar', format: 'XLSX', date: '3 gün önce', size: '8.7 MB' }].
+                  map((exp, index) =>
+                  <div key={index} className="flex items-center justify-between p-4 bg-gray-700/50 rounded-lg">
                       <div className="flex items-center gap-4">
                         <CheckCircle className="w-5 h-5 text-green-500" />
                         <div>
-                          <p className="text-white font-medium">{exp.type}</p>
-                          <p className="text-gray-400 text-sm">{exp.format} - {exp.size}</p>
+                          <p className="text-lydian-text-inverse font-medium">{exp.type}</p>
+                          <p className="text-lydian-text-muted text-sm">{exp.format} - {exp.size}</p>
                         </div>
                       </div>
                       <div className="flex items-center gap-4">
-                        <span className="text-gray-400 text-sm">{exp.date}</span>
-                        <button className="p-2 bg-blue-600 text-white rounded hover:bg-blue-700">
+                        <span className="text-lydian-text-muted text-sm">{exp.date}</span>
+                        <button className="p-2 bg-lydian-primary text-lydian-text-inverse rounded hover:bg-lydian-primary-dark">
                           <Download className="w-4 h-4" />
                         </button>
                       </div>
                     </div>
-                  ))}
+                  )}
                 </div>
               </div>
             </div>
           </main>
         </div>
       </div>
-    </>
-  );
+    </>);
+
 }

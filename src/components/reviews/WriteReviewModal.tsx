@@ -63,27 +63,27 @@ export default function WriteReviewModal({ locationId, locationName, onClose, on
 
   // Photo upload handling
   const onDrop = useCallback((acceptedFiles: File[]) => {
-    const newPhotos = acceptedFiles
-      .filter(file => {
-        if (!ACCEPTED_IMAGE_TYPES.includes(file.type)) {
-          alert(t('errors.invalidFileType'));
-          return false;
-        }
-        if (file.size > MAX_FILE_SIZE) {
-          alert(t('errors.fileTooLarge'));
-          return false;
-        }
-        return true;
-      })
-      .slice(0, MAX_PHOTOS - photos.length)
-      .map(file => ({
-        file,
-        preview: URL.createObjectURL(file),
-        id: Math.random().toString(36).substring(7),
-        type: 'other' as const
-      }));
+    const newPhotos = acceptedFiles.
+    filter((file) => {
+      if (!ACCEPTED_IMAGE_TYPES.includes(file.type)) {
+        alert(t('errors.invalidFileType'));
+        return false;
+      }
+      if (file.size > MAX_FILE_SIZE) {
+        alert(t('errors.fileTooLarge'));
+        return false;
+      }
+      return true;
+    }).
+    slice(0, MAX_PHOTOS - photos.length).
+    map((file) => ({
+      file,
+      preview: URL.createObjectURL(file),
+      id: Math.random().toString(36).substring(7),
+      type: 'other' as const
+    }));
 
-    setPhotos(prev => [...prev, ...newPhotos]);
+    setPhotos((prev) => [...prev, ...newPhotos]);
   }, [photos.length, t]);
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
@@ -97,73 +97,73 @@ export default function WriteReviewModal({ locationId, locationName, onClose, on
   });
 
   const removePhoto = (id: string) => {
-    setPhotos(prev => {
-      const photo = prev.find(p => p.id === id);
+    setPhotos((prev) => {
+      const photo = prev.find((p) => p.id === id);
       if (photo) {
         URL.revokeObjectURL(photo.preview);
       }
-      return prev.filter(p => p.id !== id);
+      return prev.filter((p) => p.id !== id);
     });
   };
 
   const updatePhotoCaption = (id: string, caption: string) => {
-    setPhotos(prev => prev.map(p => 
-      p.id === id ? { ...p, caption } : p
+    setPhotos((prev) => prev.map((p) =>
+    p.id === id ? { ...p, caption } : p
     ));
   };
 
   const updatePhotoType = (id: string, type: PhotoPreview['type']) => {
-    setPhotos(prev => prev.map(p => 
-      p.id === id ? { ...p, type } : p
+    setPhotos((prev) => prev.map((p) =>
+    p.id === id ? { ...p, type } : p
     ));
   };
 
   // Rating component
-  const RatingInput = ({ 
-    label, 
-    value, 
-    onChange, 
+  const RatingInput = ({
+    label,
+    value,
+    onChange,
     required = false,
-    description 
-  }: { 
-    label: string; 
-    value: number; 
-    onChange: (rating: number) => void;
-    required?: boolean;
-    description?: string;
-  }) => (
-    <div className="mb-4">
+    description
+
+
+
+
+
+
+  }: {label: string;value: number;onChange: (rating: number) => void;required?: boolean;description?: string;}) =>
+  <div className="mb-4">
       <div className="flex items-center justify-between mb-2">
-        <label className="block text-sm font-medium text-gray-200">
-          {label} {required && <span className="text-red-500">*</span>}
+        <label className="block text-sm font-medium text-lydian-text-muted">
+          {label} {required && <span className="text-lydian-error">*</span>}
         </label>
-        {value > 0 && (
-          <span className="text-sm text-gray-400">{value}/5</span>
-        )}
+        {value > 0 &&
+      <span className="text-sm text-lydian-text-muted">{value}/5</span>
+      }
       </div>
-      {description && (
-        <p className="text-xs text-gray-400 mb-2">{description}</p>
-      )}
+      {description &&
+    <p className="text-xs text-lydian-text-muted mb-2">{description}</p>
+    }
       <div className="flex space-x-1">
-        {[1, 2, 3, 4, 5].map((rating) => (
-          <button
-            key={rating}
-            type="button"
-            onClick={() => onChange(rating)}
-            className="focus:outline-none focus:ring-2 focus:ring-blue-500 rounded"
-          >
+        {[1, 2, 3, 4, 5].map((rating) =>
+      <button
+        key={rating}
+        type="button"
+        onClick={() => onChange(rating)}
+        className="focus:outline-none focus:ring-2 focus:ring-lydian-border-focus rounded">
+
             <Star
-              className={`h-6 w-6 transition-colors ${
-                rating <= value
-                  ? 'text-yellow-400 fill-current'
-                  : 'text-gray-300 hover:text-yellow-200'
-              }`}
-            />
+          className={`h-6 w-6 transition-colors ${
+          rating <= value ?
+          'text-yellow-400 fill-current' :
+          'text-gray-300 hover:text-yellow-200'}`
+          } />
+
           </button>
-        ))}
+      )}
       </div>
-    </div>
-  );
+    </div>;
+
 
   // Content validation
   const validateContent = (content: string) => {
@@ -173,19 +173,19 @@ export default function WriteReviewModal({ locationId, locationName, onClose, on
     if (content.length > 5000) {
       return t('errors.reviewTooLong');
     }
-    
+
     // Check for spam patterns
     const spamPatterns = [
-      /(.)\1{10,}/, // Repeated characters
-      /https?:\/\/[^\s]+/g, // URLs (not allowed in reviews)
-      /\b\d{10,}\b/, // Phone numbers
-      /@[a-zA-Z0-9._-]+/, // Email addresses
+    /(.)\1{10,}/, // Repeated characters
+    /https?:\/\/[^\s]+/g, // URLs (not allowed in reviews)
+    /\b\d{10,}\b/, // Phone numbers
+    /@[a-zA-Z0-9._-]+/ // Email addresses
     ];
-    
-    if (spamPatterns.some(pattern => pattern.test(content))) {
+
+    if (spamPatterns.some((pattern) => pattern.test(content))) {
       return t('errors.contentNotAllowed');
     }
-    
+
     return null;
   };
 
@@ -225,7 +225,7 @@ export default function WriteReviewModal({ locationId, locationName, onClose, on
         value_rating: reviewData.value_rating,
         visit_date: reviewData.visit_date,
         visit_type: reviewData.visit_type,
-        photos: photos.map(p => p.file)
+        photos: photos.map((p) => p.file)
       };
 
       // Add optional ratings based on location type
@@ -239,7 +239,7 @@ export default function WriteReviewModal({ locationId, locationName, onClose, on
       await reviewService.createReview(reviewRequest);
       onSuccess();
     } catch (error: any) {
-      logger.error('Error submitting review:', error as Error, {component:'Writereviewmodal'});
+      logger.error('Error submitting review:', error as Error, { component: 'Writereviewmodal' });
       setSubmitError(error.message || t('errors.genericSubmissionError'));
     } finally {
       setIsSubmitting(false);
@@ -251,91 +251,91 @@ export default function WriteReviewModal({ locationId, locationName, onClose, on
       case 1:
         return (
           <div>
-            <h3 className="text-lg font-medium text-white mb-4">
+            <h3 className="text-lg font-medium text-lydian-text-inverse mb-4">
               {t('review.rateYourExperience')}
             </h3>
             
             <RatingInput
               label={t('review.overallRating')}
               value={reviewData.overall_rating}
-              onChange={(rating) => setReviewData(prev => ({ ...prev, overall_rating: rating }))}
+              onChange={(rating) => setReviewData((prev) => ({ ...prev, overall_rating: rating }))}
               required
-              description={t('review.overallRatingDescription')}
-            />
+              description={t('review.overallRatingDescription')} />
+
 
             <RatingInput
               label={t('review.serviceRating')}
               value={reviewData.service_rating}
-              onChange={(rating) => setReviewData(prev => ({ ...prev, service_rating: rating }))}
+              onChange={(rating) => setReviewData((prev) => ({ ...prev, service_rating: rating }))}
               required
-              description={t('review.serviceRatingDescription')}
-            />
+              description={t('review.serviceRatingDescription')} />
+
 
             <RatingInput
               label={t('review.atmosphereRating')}
               value={reviewData.atmosphere_rating}
-              onChange={(rating) => setReviewData(prev => ({ ...prev, atmosphere_rating: rating }))}
-              description={t('review.atmosphereRatingDescription')}
-            />
+              onChange={(rating) => setReviewData((prev) => ({ ...prev, atmosphere_rating: rating }))}
+              description={t('review.atmosphereRatingDescription')} />
+
 
             <RatingInput
               label={t('review.valueRating')}
               value={reviewData.value_rating}
-              onChange={(rating) => setReviewData(prev => ({ ...prev, value_rating: rating }))}
-              description={t('review.valueRatingDescription')}
-            />
+              onChange={(rating) => setReviewData((prev) => ({ ...prev, value_rating: rating }))}
+              description={t('review.valueRatingDescription')} />
+
 
             {/* Optional ratings */}
             <RatingInput
               label={t('review.foodRating')}
               value={reviewData.food_rating || 0}
-              onChange={(rating) => setReviewData(prev => ({ ...prev, food_rating: rating }))}
-              description={t('review.foodRatingDescription')}
-            />
+              onChange={(rating) => setReviewData((prev) => ({ ...prev, food_rating: rating }))}
+              description={t('review.foodRatingDescription')} />
+
 
             <RatingInput
               label={t('review.cleanlinessRating')}
               value={reviewData.cleanliness_rating || 0}
-              onChange={(rating) => setReviewData(prev => ({ ...prev, cleanliness_rating: rating }))}
-              description={t('review.cleanlinessRatingDescription')}
-            />
-          </div>
-        );
+              onChange={(rating) => setReviewData((prev) => ({ ...prev, cleanliness_rating: rating }))}
+              description={t('review.cleanlinessRatingDescription')} />
+
+          </div>);
+
 
       case 2:
         return (
           <div>
-            <h3 className="text-lg font-medium text-white mb-4">
+            <h3 className="text-lg font-medium text-lydian-text-inverse mb-4">
               {t('review.tellUsMore')}
             </h3>
 
             {/* Visit details */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
               <div>
-                <label className="block text-sm font-medium text-gray-200 mb-2">
+                <label className="block text-sm font-medium text-lydian-text-muted mb-2">
                   <Calendar className="inline h-4 w-4 mr-1" />
                   {t('review.visitDate')}
                 </label>
                 <input
                   type="date"
                   value={reviewData.visit_date || ''}
-                  onChange={(e) => setReviewData(prev => ({ ...prev, visit_date: e.target.value }))}
-                  className="w-full px-3 py-2 border border-white/20 rounded-md focus:ring-blue-500 focus:border-blue-500 text-white [color-scheme:light]"
+                  onChange={(e) => setReviewData((prev) => ({ ...prev, visit_date: e.target.value }))}
+                  className="w-full px-3 py-2 border border-lydian-border-light rounded-md focus:ring-lydian-border-focus focus:border-lydian-primary text-lydian-text-inverse [color-scheme:light]"
                   style={{ colorScheme: 'light' }}
-                  max={new Date().toISOString().split('T')[0]}
-                />
+                  max={new Date().toISOString().split('T')[0]} />
+
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-200 mb-2">
+                <label className="block text-sm font-medium text-lydian-text-muted mb-2">
                   <Users className="inline h-4 w-4 mr-1" />
                   {t('review.visitType')}
                 </label>
                 <select
                   value={reviewData.visit_type}
-                  onChange={(e) => setReviewData(prev => ({ ...prev, visit_type: e.target.value as any }))}
-                  className="w-full px-3 py-2 border border-white/20 rounded-md focus:ring-blue-500 focus:border-blue-500"
-                >
+                  onChange={(e) => setReviewData((prev) => ({ ...prev, visit_type: e.target.value as any }))}
+                  className="w-full px-3 py-2 border border-lydian-border-light rounded-md focus:ring-lydian-border-focus focus:border-lydian-primary">
+
                   <option value="business">{t('review.visitTypes.business')}</option>
                   <option value="leisure">{t('review.visitTypes.leisure')}</option>
                   <option value="family">{t('review.visitTypes.family')}</option>
@@ -347,39 +347,39 @@ export default function WriteReviewModal({ locationId, locationName, onClose, on
 
             {/* Review title */}
             <div className="mb-4">
-              <label className="block text-sm font-medium text-gray-200 mb-2">
-                {t('review.title')} <span className="text-gray-400">({t('optional')})</span>
+              <label className="block text-sm font-medium text-lydian-text-muted mb-2">
+                {t('review.title')} <span className="text-lydian-text-muted">({t('optional')})</span>
               </label>
               <input
                 type="text"
                 value={reviewData.title}
-                onChange={(e) => setReviewData(prev => ({ ...prev, title: e.target.value }))}
+                onChange={(e) => setReviewData((prev) => ({ ...prev, title: e.target.value }))}
                 placeholder={t('review.titlePlaceholder')}
-                className="w-full px-3 py-2 border border-white/20 rounded-md focus:ring-blue-500 focus:border-blue-500"
-                maxLength={100}
-              />
+                className="w-full px-3 py-2 border border-lydian-border-light rounded-md focus:ring-lydian-border-focus focus:border-lydian-primary"
+                maxLength={100} />
+
             </div>
 
             {/* Review content */}
             <div className="mb-4">
-              <label className="block text-sm font-medium text-gray-200 mb-2">
-                {t('review.content')} <span className="text-red-500">*</span>
+              <label className="block text-sm font-medium text-lydian-text-muted mb-2">
+                {t('review.content')} <span className="text-lydian-error">*</span>
               </label>
               <textarea
                 value={reviewData.content}
-                onChange={(e) => setReviewData(prev => ({ ...prev, content: e.target.value }))}
+                onChange={(e) => setReviewData((prev) => ({ ...prev, content: e.target.value }))}
                 placeholder={t('review.contentPlaceholder')}
                 rows={6}
-                className="w-full px-3 py-2 border border-white/20 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                className="w-full px-3 py-2 border border-lydian-border-light rounded-md focus:ring-lydian-border-focus focus:border-lydian-primary"
                 minLength={50}
                 maxLength={5000}
-                required
-              />
-              <div className="flex justify-between text-xs text-gray-400 mt-1">
+                required />
+
+              <div className="flex justify-between text-xs text-lydian-text-muted mt-1">
                 <span>
-                  {reviewData.content.length < 50 
-                    ? t('review.minimumLength', { count: 50 - reviewData.content.length })
-                    : t('review.goodLength')
+                  {reviewData.content.length < 50 ?
+                  t('review.minimumLength', { count: 50 - reviewData.content.length }) :
+                  t('review.goodLength')
                   }
                 </span>
                 <span>{reviewData.content.length}/5000</span>
@@ -387,14 +387,14 @@ export default function WriteReviewModal({ locationId, locationName, onClose, on
             </div>
 
             {/* Content guidelines */}
-            <div className="bg-blue-50 border border-blue-200 rounded-md p-3 mb-4">
+            <div className="bg-lydian-primary-lighter border border-blue-200 rounded-md p-3 mb-4">
               <div className="flex items-start">
                 <AlertTriangle className="h-5 w-5 text-blue-400 mt-0.5 mr-2 flex-shrink-0" />
                 <div>
                   <h4 className="text-sm font-medium text-blue-800">
                     {t('review.guidelines.title')}
                   </h4>
-                  <ul className="text-sm text-blue-700 mt-1 space-y-1">
+                  <ul className="text-sm text-lydian-primary-dark mt-1 space-y-1">
                     <li>• {t('review.guidelines.beHonest')}</li>
                     <li>• {t('review.guidelines.beSpecific')}</li>
                     <li>• {t('review.guidelines.noPersonalInfo')}</li>
@@ -403,84 +403,84 @@ export default function WriteReviewModal({ locationId, locationName, onClose, on
                 </div>
               </div>
             </div>
-          </div>
-        );
+          </div>);
+
 
       case 3:
         return (
           <div>
-            <h3 className="text-lg font-medium text-white mb-4">
-              {t('review.addPhotos')} <span className="text-gray-400">({t('optional')})</span>
+            <h3 className="text-lg font-medium text-lydian-text-inverse mb-4">
+              {t('review.addPhotos')} <span className="text-lydian-text-muted">({t('optional')})</span>
             </h3>
 
             {/* Photo upload area */}
             <div
               {...getRootProps()}
               className={`border-2 border-dashed rounded-lg p-6 text-center transition-colors ${
-                isDragActive
-                  ? 'border-blue-400 bg-blue-50'
-                  : photos.length >= MAX_PHOTOS
-                  ? 'border-white/10 bg-white/5'
-                  : 'border-white/20 hover:border-blue-400 hover:bg-blue-50'
-              } ${photos.length >= MAX_PHOTOS ? 'cursor-not-allowed' : 'cursor-pointer'}`}
-            >
+              isDragActive ?
+              'border-blue-400 bg-blue-50' :
+              photos.length >= MAX_PHOTOS ?
+              'border-white/10 bg-white/5' :
+              'border-white/20 hover:border-blue-400 hover:bg-blue-50'} ${
+              photos.length >= MAX_PHOTOS ? 'cursor-not-allowed' : 'cursor-pointer'}`}>
+
               <input {...getInputProps()} ref={fileInputRef} />
               
-              {photos.length >= MAX_PHOTOS ? (
-                <div className="text-gray-400">
+              {photos.length >= MAX_PHOTOS ?
+              <div className="text-lydian-text-muted">
                   <Camera className="mx-auto h-8 w-8 mb-2" />
                   <p>{t('review.maxPhotosReached', { max: MAX_PHOTOS })}</p>
-                </div>
-              ) : (
-                <div className="text-gray-300">
+                </div> :
+
+              <div className="text-lydian-text-dim">
                   <Upload className="mx-auto h-8 w-8 mb-2" />
                   <p>
-                    {isDragActive
-                      ? t('review.dropPhotosHere')
-                      : t('review.dragDropPhotos')
-                    }
+                    {isDragActive ?
+                  t('review.dropPhotosHere') :
+                  t('review.dragDropPhotos')
+                  }
                   </p>
-                  <p className="text-sm text-gray-400 mt-1">
+                  <p className="text-sm text-lydian-text-muted mt-1">
                     {t('review.photoRequirements')}
                   </p>
                 </div>
-              )}
+              }
             </div>
 
             {/* Photo previews */}
-            {photos.length > 0 && (
-              <div className="mt-6">
-                <h4 className="text-sm font-medium text-white mb-3">
+            {photos.length > 0 &&
+            <div className="mt-6">
+                <h4 className="text-sm font-medium text-lydian-text-inverse mb-3">
                   {t('review.uploadedPhotos')} ({photos.length}/{MAX_PHOTOS})
                 </h4>
                 
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                  {photos.map((photo) => (
-                    <div key={photo.id} className="relative group">
-                      <div className="aspect-square bg-white/10 rounded-lg overflow-hidden">
+                  {photos.map((photo) =>
+                <div key={photo.id} className="relative group">
+                      <div className="aspect-square bg-lydian-glass-dark-medium rounded-lg overflow-hidden">
                         <Image
-                          src={photo.preview}
-                          alt="Preview"
-                          fill
-                          className="object-cover"
-                        />
+                      src={photo.preview}
+                      alt="Preview"
+                      fill
+                      className="object-cover" />
+
                       </div>
                       
                       {/* Remove button */}
                       <button
-                        type="button"
-                        onClick={() => removePhoto(photo.id)}
-                        className="absolute top-2 right-2 p-1 bg-red-500 text-white rounded-full hover:bg-red-600 opacity-0 group-hover:opacity-100 transition-opacity"
-                      >
+                    type="button"
+                    onClick={() => removePhoto(photo.id)}
+                    className="absolute top-2 right-2 p-1 bg-lydian-error text-lydian-text-inverse rounded-full hover:bg-lydian-primary opacity-0 group-hover:opacity-100 transition-opacity">
+
                         <X className="h-3 w-3" />
                       </button>
 
                       {/* Photo type selector */}
                       <select
-                        value={photo.type || 'other'}
-                        onChange={(e) => updatePhotoType(photo.id, e.target.value as any)}
-                        className="absolute bottom-2 left-2 right-2 px-2 py-1 bg-black bg-opacity-75 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity"
-                      >
+                    value={photo.type || 'other'}
+                    onChange={(e) => updatePhotoType(photo.id, e.target.value as any)}
+                    className="absolute bottom-2 left-2 right-2 px-2 py-1 bg-black bg-opacity-75 text-lydian-text-inverse text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity">
+
                         <option value="exterior">{t('review.photoTypes.exterior')}</option>
                         <option value="interior">{t('review.photoTypes.interior')}</option>
                         <option value="food">{t('review.photoTypes.food')}</option>
@@ -490,20 +490,20 @@ export default function WriteReviewModal({ locationId, locationName, onClose, on
                         <option value="other">{t('review.photoTypes.other')}</option>
                       </select>
                     </div>
-                  ))}
+                )}
                 </div>
               </div>
-            )}
+            }
 
             {/* Photo tips */}
-            <div className="bg-green-50 border border-green-200 rounded-md p-3 mt-4">
+            <div className="bg-lydian-success-lighter border border-green-200 rounded-md p-3 mt-4">
               <div className="flex items-start">
                 <CheckCircle className="h-5 w-5 text-green-400 mt-0.5 mr-2 flex-shrink-0" />
                 <div>
                   <h4 className="text-sm font-medium text-green-800">
                     {t('review.photoTips.title')}
                   </h4>
-                  <ul className="text-sm text-green-700 mt-1 space-y-1">
+                  <ul className="text-sm text-lydian-success-text mt-1 space-y-1">
                     <li>• {t('review.photoTips.goodLighting')}</li>
                     <li>• {t('review.photoTips.clearImages')}</li>
                     <li>• {t('review.photoTips.varietyOfViews')}</li>
@@ -512,8 +512,8 @@ export default function WriteReviewModal({ locationId, locationName, onClose, on
                 </div>
               </div>
             </div>
-          </div>
-        );
+          </div>);
+
 
       default:
         return null;
@@ -536,7 +536,7 @@ export default function WriteReviewModal({ locationId, locationName, onClose, on
   // Cleanup object URLs on unmount
   React.useEffect(() => {
     return () => {
-      photos.forEach(photo => {
+      photos.forEach((photo) => {
         URL.revokeObjectURL(photo.preview);
       });
     };
@@ -545,64 +545,64 @@ export default function WriteReviewModal({ locationId, locationName, onClose, on
   return (
     <div className="fixed inset-0 z-50 overflow-y-auto">
       <div className="flex items-center justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0">
-        <div className="fixed inset-0 bg-white/50 bg-opacity-75 transition-opacity" onClick={onClose} />
+        <div className="fixed inset-0 bg-lydian-bg/50 bg-opacity-75 transition-opacity" onClick={onClose} />
 
-        <div className="inline-block align-bottom bg-white/5 rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-2xl sm:w-full sm:p-6">
+        <div className="inline-block align-bottom bg-lydian-glass-dark rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-2xl sm:w-full sm:p-6">
           {/* Header */}
           <div className="flex items-center justify-between mb-6">
             <div>
-              <h2 className="text-xl font-semibold text-white">
+              <h2 className="text-xl font-semibold text-lydian-text-inverse">
                 {t('review.writeReviewFor')}
               </h2>
-              <p className="text-sm text-gray-300 flex items-center mt-1">
+              <p className="text-sm text-lydian-text-dim flex items-center mt-1">
                 <MapPin className="h-4 w-4 mr-1" />
                 {locationName}
               </p>
             </div>
             <button
               onClick={onClose}
-              className="p-2 hover:bg-white/10 rounded-full"
-              disabled={isSubmitting}
-            >
+              className="p-2 hover:bg-lydian-glass-dark-medium rounded-full"
+              disabled={isSubmitting}>
+
               <X className="h-5 w-5" />
             </button>
           </div>
 
           {/* Progress indicators */}
           <div className="flex items-center mb-6">
-            {[1, 2, 3].map((step) => (
-              <React.Fragment key={step}>
+            {[1, 2, 3].map((step) =>
+            <React.Fragment key={step}>
                 <div className={`flex items-center justify-center w-8 h-8 rounded-full ${
-                  step === currentStep
-                    ? 'bg-blue-600 text-white'
-                    : step < currentStep
-                    ? 'bg-green-600 text-white'
-                    : 'bg-gray-200 text-gray-300'
-                }`}>
-                  {step < currentStep ? (
-                    <CheckCircle className="h-4 w-4" />
-                  ) : (
-                    step
-                  )}
+              step === currentStep ?
+              'bg-blue-600 text-white' :
+              step < currentStep ?
+              'bg-green-600 text-white' :
+              'bg-gray-200 text-gray-300'}`
+              }>
+                  {step < currentStep ?
+                <CheckCircle className="h-4 w-4" /> :
+
+                step
+                }
                 </div>
-                {step < 3 && (
-                  <div className={`flex-1 h-0.5 mx-2 ${
-                    step < currentStep ? 'bg-green-600' : 'bg-gray-200'
-                  }`} />
-                )}
+                {step < 3 &&
+              <div className={`flex-1 h-0.5 mx-2 ${
+              step < currentStep ? 'bg-green-600' : 'bg-gray-200'}`
+              } />
+              }
               </React.Fragment>
-            ))}
+            )}
           </div>
 
           {/* Error message */}
-          {submitError && (
-            <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded-md">
+          {submitError &&
+          <div className="mb-4 p-3 bg-lydian-error-lighter border border-red-200 rounded-md">
               <div className="flex">
-                <AlertTriangle className="h-5 w-5 text-red-400 mr-2 flex-shrink-0 mt-0.5" />
-                <div className="text-sm text-red-700">{submitError}</div>
+                <AlertTriangle className="h-5 w-5 text-lydian-error mr-2 flex-shrink-0 mt-0.5" />
+                <div className="text-sm text-lydian-primary-dark">{submitError}</div>
               </div>
             </div>
-          )}
+          }
 
           {/* Step content */}
           <div className="mb-6 max-h-96 overflow-y-auto">
@@ -620,43 +620,43 @@ export default function WriteReviewModal({ locationId, locationName, onClose, on
                   setCurrentStep(currentStep - 1);
                 }
               }}
-              className="px-4 py-2 text-gray-300 hover:text-gray-100 font-medium"
-              disabled={isSubmitting}
-            >
+              className="px-4 py-2 text-lydian-text-dim hover:text-lydian-text-dim font-medium"
+              disabled={isSubmitting}>
+
               {currentStep === 1 ? t('cancel') : t('back')}
             </button>
 
             <div className="flex space-x-3">
-              {currentStep < 3 ? (
-                <button
-                  type="button"
-                  onClick={() => setCurrentStep(currentStep + 1)}
-                  disabled={!canProceedToNextStep() || isSubmitting}
-                  className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed font-medium"
-                >
+              {currentStep < 3 ?
+              <button
+                type="button"
+                onClick={() => setCurrentStep(currentStep + 1)}
+                disabled={!canProceedToNextStep() || isSubmitting}
+                className="px-6 py-2 bg-lydian-primary text-lydian-text-inverse rounded-lg hover:bg-lydian-primary-dark disabled:bg-gray-300 disabled:cursor-not-allowed font-medium">
+
                   {t('next')}
-                </button>
-              ) : (
-                <button
-                  type="button"
-                  onClick={handleSubmit}
-                  disabled={!canProceedToNextStep() || isSubmitting}
-                  className="px-6 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 disabled:bg-gray-300 disabled:cursor-not-allowed font-medium flex items-center"
-                >
-                  {isSubmitting ? (
-                    <>
+                </button> :
+
+              <button
+                type="button"
+                onClick={handleSubmit}
+                disabled={!canProceedToNextStep() || isSubmitting}
+                className="px-6 py-2 bg-lydian-success text-lydian-text-inverse rounded-lg hover:bg-green-700 disabled:bg-gray-300 disabled:cursor-not-allowed font-medium flex items-center">
+
+                  {isSubmitting ?
+                <>
                       <Loader2 className="animate-spin h-4 w-4 mr-2" />
                       {t('review.submitting')}
-                    </>
-                  ) : (
-                    t('review.submitReview')
-                  )}
+                    </> :
+
+                t('review.submitReview')
+                }
                 </button>
-              )}
+              }
             </div>
           </div>
         </div>
       </div>
-    </div>
-  );
+    </div>);
+
 }

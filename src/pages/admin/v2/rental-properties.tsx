@@ -49,7 +49,7 @@ export default function RentalPropertiesManagement() {
     featured: 0,
     superhosts: 0,
     totalBookings: 0,
-    avgOccupancy: 0,
+    avgOccupancy: 0
   });
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
@@ -71,7 +71,7 @@ export default function RentalPropertiesManagement() {
         page: page.toString(),
         limit: '20',
         sortBy: 'createdAt',
-        sortOrder: 'desc',
+        sortOrder: 'desc'
       });
 
       if (filterType) params.append('type', filterType);
@@ -97,7 +97,7 @@ export default function RentalPropertiesManagement() {
           featured: data.data?.filter((p: RentalProperty) => p.isFeatured).length || 0,
           superhosts: data.data?.filter((p: RentalProperty) => p.hostSuperhost).length || 0,
           totalBookings: data.data?.reduce((sum: number, p: RentalProperty) => sum + (p._count?.bookings || 0), 0) || 0,
-          avgOccupancy: 0, // Would need booking data calculation
+          avgOccupancy: 0 // Would need booking data calculation
         };
         setStats(statsData);
       }
@@ -113,7 +113,7 @@ export default function RentalPropertiesManagement() {
       const response = await fetch(`/api/admin/rental-properties/${id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ isActive: !currentStatus }),
+        body: JSON.stringify({ isActive: !currentStatus })
       });
 
       if (response.ok) {
@@ -129,7 +129,7 @@ export default function RentalPropertiesManagement() {
       const response = await fetch(`/api/admin/rental-properties/${id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ isFeatured: !currentStatus }),
+        body: JSON.stringify({ isFeatured: !currentStatus })
       });
 
       if (response.ok) {
@@ -145,7 +145,7 @@ export default function RentalPropertiesManagement() {
 
     try {
       const response = await fetch(`/api/admin/rental-properties/${id}`, {
-        method: 'DELETE',
+        method: 'DELETE'
       });
 
       const data = await response.json();
@@ -169,7 +169,7 @@ export default function RentalPropertiesManagement() {
       HOUSE: 'bg-green-100 text-green-800',
       STUDIO: 'bg-cyan-100 text-cyan-800',
       PENTHOUSE: 'bg-amber-100 text-amber-800',
-      COTTAGE: 'bg-emerald-100 text-emerald-800',
+      COTTAGE: 'bg-emerald-100 text-emerald-800'
     };
     return colors[type] || 'bg-white/10 text-white';
   };
@@ -181,15 +181,15 @@ export default function RentalPropertiesManagement() {
       HOUSE: 'Ev',
       STUDIO: 'Studio',
       PENTHOUSE: 'Penthouse',
-      COTTAGE: 'Pansiyon',
+      COTTAGE: 'Pansiyon'
     };
     return types[type] || type;
   };
 
   return (
-    <div className="min-h-screen bg-white/5">
+    <div className="min-h-screen bg-lydian-glass-dark">
       {/* Header */}
-      <div className="bg-white/5 border-b border-gray-200">
+      <div className="bg-lydian-glass-dark border-b border-lydian-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
@@ -197,11 +197,11 @@ export default function RentalPropertiesManagement() {
                 <Home className="w-6 h-6 text-purple-600" />
               </div>
               <div>
-                <h1 className="text-2xl font-bold text-white">Konaklama Yönetimi</h1>
-                <p className="text-sm text-gray-100">Tüm mülkleri yönetin ve düzenleyin</p>
+                <h1 className="text-2xl font-bold text-lydian-text-inverse">Konaklama Yönetimi</h1>
+                <p className="text-sm text-lydian-text-dim">Tüm mülkleri yönetin ve düzenleyin</p>
               </div>
             </div>
-            <button className="flex items-center space-x-2 px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors">
+            <button className="flex items-center space-x-2 px-4 py-2 bg-purple-600 text-lydian-text-inverse rounded-lg hover:bg-purple-700 transition-colors">
               <Plus className="w-5 h-5" />
               <span>Yeni Mülk Ekle</span>
             </button>
@@ -214,7 +214,7 @@ export default function RentalPropertiesManagement() {
               <p className="text-2xl font-bold text-purple-900 mt-1">{stats.total}</p>
             </div>
             <div className="bg-gradient-to-br from-green-50 to-green-100 p-4 rounded-lg">
-              <p className="text-sm text-green-600 font-medium">Aktif</p>
+              <p className="text-sm text-lydian-success font-medium">Aktif</p>
               <p className="text-2xl font-bold text-green-900 mt-1">{stats.active}</p>
             </div>
             <div className="bg-gradient-to-br from-amber-50 to-amber-100 p-4 rounded-lg">
@@ -222,7 +222,7 @@ export default function RentalPropertiesManagement() {
               <p className="text-2xl font-bold text-amber-900 mt-1">{stats.featured}</p>
             </div>
             <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-4 rounded-lg">
-              <p className="text-sm text-blue-600 font-medium">Superhost</p>
+              <p className="text-sm text-lydian-primary font-medium">Superhost</p>
               <p className="text-2xl font-bold text-blue-900 mt-1">{stats.superhosts}</p>
             </div>
             <div className="bg-gradient-to-br from-rose-50 to-rose-100 p-4 rounded-lg">
@@ -232,7 +232,7 @@ export default function RentalPropertiesManagement() {
             <div className="bg-gradient-to-br from-emerald-50 to-emerald-100 p-4 rounded-lg">
               <p className="text-sm text-emerald-600 font-medium">Instant Book</p>
               <p className="text-2xl font-bold text-emerald-900 mt-1">
-                {properties.filter(p => p.instantBook).length}
+                {properties.filter((p) => p.instantBook).length}
               </p>
             </div>
           </div>
@@ -241,26 +241,26 @@ export default function RentalPropertiesManagement() {
 
       {/* Filters & Search */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-        <div className="bg-white/5 rounded-lg shadow-sm p-4 mb-6">
+        <div className="bg-lydian-glass-dark rounded-lg shadow-sm p-4 mb-6">
           <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
             {/* Search */}
             <div className="relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-lydian-text-muted w-5 h-5" />
               <input
                 type="text"
                 placeholder="Mülk, şehir veya host ara..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
-              />
+                className="w-full pl-10 pr-4 py-2 border border-lydian-border-medium rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500" />
+
             </div>
 
             {/* Type Filter */}
             <select
               value={filterType}
               onChange={(e) => setFilterType(e.target.value)}
-              className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
-            >
+              className="px-4 py-2 border border-lydian-border-medium rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500">
+
               <option value="">Tüm Tipler</option>
               <option value="VILLA">Villa</option>
               <option value="APARTMENT">Apart</option>
@@ -274,8 +274,8 @@ export default function RentalPropertiesManagement() {
             <select
               value={filterCity}
               onChange={(e) => setFilterCity(e.target.value)}
-              className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
-            >
+              className="px-4 py-2 border border-lydian-border-medium rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500">
+
               <option value="">Tüm Şehirler</option>
               <option value="İstanbul">İstanbul</option>
               <option value="Ankara">Ankara</option>
@@ -290,8 +290,8 @@ export default function RentalPropertiesManagement() {
             <select
               value={filterStatus}
               onChange={(e) => setFilterStatus(e.target.value)}
-              className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
-            >
+              className="px-4 py-2 border border-lydian-border-medium rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500">
+
               <option value="">Tüm Durumlar</option>
               <option value="active">Aktif</option>
               <option value="inactive">Pasif</option>
@@ -307,76 +307,76 @@ export default function RentalPropertiesManagement() {
                 setFilterStatus('');
                 setPage(1);
               }}
-              className="px-4 py-2 border border-gray-300 text-gray-200 rounded-lg hover:bg-white/5 transition-colors"
-            >
+              className="px-4 py-2 border border-lydian-border-medium text-lydian-text-muted rounded-lg hover:bg-lydian-glass-dark transition-colors">
+
               Filtreleri Temizle
             </button>
           </div>
         </div>
 
         {/* Properties Table */}
-        <div className="bg-white/5 rounded-lg shadow-sm overflow-hidden">
-          {loading ? (
-            <div className="p-12 text-center">
+        <div className="bg-lydian-glass-dark rounded-lg shadow-sm overflow-hidden">
+          {loading ?
+          <div className="p-12 text-center">
               <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-purple-600"></div>
-              <p className="mt-4 text-gray-300">Yükleniyor...</p>
-            </div>
-          ) : properties.length === 0 ? (
-            <div className="p-12 text-center">
-              <Home className="w-16 h-16 text-gray-400 mx-auto mb-4" />
-              <p className="text-gray-300">Mülk bulunamadı</p>
-            </div>
-          ) : (
-            <div className="overflow-x-auto">
-              <table className="min-w-full divide-y divide-gray-200">
-                <thead className="bg-white/5">
+              <p className="mt-4 text-lydian-text-dim">Yükleniyor...</p>
+            </div> :
+          properties.length === 0 ?
+          <div className="p-12 text-center">
+              <Home className="w-16 h-16 text-lydian-text-muted mx-auto mb-4" />
+              <p className="text-lydian-text-dim">Mülk bulunamadı</p>
+            </div> :
+
+          <div className="overflow-x-auto">
+              <table className="min-w-full divide-y divide-lydian-border">
+                <thead className="bg-lydian-glass-dark">
                   <tr>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-lydian-text-muted uppercase tracking-wider">
                       Mülk
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-lydian-text-muted uppercase tracking-wider">
                       Tip & Konum
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-lydian-text-muted uppercase tracking-wider">
                       Kapasite
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-lydian-text-muted uppercase tracking-wider">
                       Özellikler
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-lydian-text-muted uppercase tracking-wider">
                       Fiyat
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-lydian-text-muted uppercase tracking-wider">
                       Durum
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-lydian-text-muted uppercase tracking-wider">
                       Rezervasyon
                     </th>
-                    <th className="px-6 py-3 text-right text-xs font-medium text-gray-400 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-right text-xs font-medium text-lydian-text-muted uppercase tracking-wider">
                       İşlemler
                     </th>
                   </tr>
                 </thead>
-                <tbody className="bg-white/5 divide-y divide-gray-200">
-                  {properties.map((property) => (
-                    <tr key={property.id} className="hover:bg-white/5 transition-colors">
+                <tbody className="bg-lydian-glass-dark divide-y divide-lydian-border">
+                  {properties.map((property) =>
+                <tr key={property.id} className="hover:bg-lydian-glass-dark transition-colors">
                       <td className="px-6 py-4 whitespace-nowrap">
                         <div className="flex items-center space-x-3">
                           <img
-                            src={property.mainImage}
-                            alt={property.title}
-                            className="w-20 h-14 rounded object-cover"
-                            onError={(e) => {
-                              (e.target as HTMLImageElement).src = '/images/property-placeholder.png';
-                            }}
-                          />
+                        src={property.mainImage}
+                        alt={property.title}
+                        className="w-20 h-14 rounded object-cover"
+                        onError={(e) => {
+                          (e.target as HTMLImageElement).src = '/images/property-placeholder.png';
+                        }} />
+
                           <div className="max-w-xs">
-                            <p className="font-medium text-white truncate">{property.title}</p>
-                            {property.hostSuperhost && (
-                              <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-rose-100 text-rose-800 mt-1">
+                            <p className="font-medium text-lydian-text-inverse truncate">{property.title}</p>
+                            {property.hostSuperhost &&
+                        <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-rose-100 text-rose-800 mt-1">
                                 ⭐ Superhost
                               </span>
-                            )}
+                        }
                           </div>
                         </div>
                       </td>
@@ -384,52 +384,52 @@ export default function RentalPropertiesManagement() {
                         <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${getTypeColor(property.type)}`}>
                           {formatType(property.type)}
                         </span>
-                        <div className="flex items-center text-sm text-gray-200 mt-1">
+                        <div className="flex items-center text-sm text-lydian-text-muted mt-1">
                           <MapPin className="w-3 h-3 mr-1" />
                           {property.city}, {property.district}
                         </div>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap">
-                        <div className="flex items-center space-x-3 text-sm text-white">
+                        <div className="flex items-center space-x-3 text-sm text-lydian-text-inverse">
                           <div className="flex items-center">
-                            <Users className="w-4 h-4 text-gray-400 mr-1" />
+                            <Users className="w-4 h-4 text-lydian-text-muted mr-1" />
                             {property.guests}
                           </div>
                           <div className="flex items-center">
-                            <Bed className="w-4 h-4 text-gray-400 mr-1" />
+                            <Bed className="w-4 h-4 text-lydian-text-muted mr-1" />
                             {property.bedrooms}/{property.bathrooms}
                           </div>
                         </div>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap">
                         <div className="flex items-center space-x-2">
-                          {property.wifi && (
-                            <div className="p-1 bg-blue-100 rounded" title="WiFi">
-                              <Wifi className="w-3 h-3 text-blue-600" />
+                          {property.wifi &&
+                      <div className="p-1 bg-lydian-primary-light rounded" title="WiFi">
+                              <Wifi className="w-3 h-3 text-lydian-primary" />
                             </div>
-                          )}
-                          {property.pool && (
-                            <div className="p-1 bg-cyan-100 rounded" title="Havuz">
+                      }
+                          {property.pool &&
+                      <div className="p-1 bg-cyan-100 rounded" title="Havuz">
                               <Waves className="w-3 h-3 text-cyan-600" />
                             </div>
-                          )}
-                          {property.beachfront && (
-                            <div className="p-1 bg-amber-100 rounded" title="Sahil">
+                      }
+                          {property.beachfront &&
+                      <div className="p-1 bg-amber-100 rounded" title="Sahil">
                               <span className="text-xs">🏖️</span>
                             </div>
-                          )}
-                          {property.seaview && (
-                            <div className="p-1 bg-blue-100 rounded" title="Deniz Manzarası">
+                      }
+                          {property.seaview &&
+                      <div className="p-1 bg-lydian-primary-light rounded" title="Deniz Manzarası">
                               <span className="text-xs">🌊</span>
                             </div>
-                          )}
+                      }
                         </div>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap">
-                        <div className="text-sm font-medium text-white">
+                        <div className="text-sm font-medium text-lydian-text-inverse">
                           {property.basePrice} {property.currency}/gece
                         </div>
-                        <div className="flex items-center text-sm text-gray-200">
+                        <div className="flex items-center text-sm text-lydian-text-muted">
                           <Star className="w-3 h-3 text-yellow-400 fill-current mr-1" />
                           {property.overall.toFixed(1)} ({property.reviewCount})
                         </div>
@@ -437,103 +437,103 @@ export default function RentalPropertiesManagement() {
                       <td className="px-6 py-4 whitespace-nowrap">
                         <div className="flex flex-col space-y-1">
                           <span className={`inline-flex items-center px-2 py-0.5 rounded text-xs font-medium ${
-                            property.isActive ? 'bg-green-100 text-green-800' : 'bg-white/10 text-white'
-                          }`}>
+                      property.isActive ? 'bg-green-100 text-green-800' : 'bg-white/10 text-white'}`
+                      }>
                             {property.isActive ? 'Aktif' : 'Pasif'}
                           </span>
-                          {property.isFeatured && (
-                            <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-amber-100 text-amber-800">
+                          {property.isFeatured &&
+                      <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-amber-100 text-amber-800">
                               Öne Çıkan
                             </span>
-                          )}
-                          {property.instantBook && (
-                            <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-emerald-100 text-emerald-800">
+                      }
+                          {property.instantBook &&
+                      <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-emerald-100 text-emerald-800">
                               Instant Book
                             </span>
-                          )}
+                      }
                         </div>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap">
-                        <div className="text-sm text-white font-medium">
+                        <div className="text-sm text-lydian-text-inverse font-medium">
                           {property._count?.bookings || 0} rezervasyon
                         </div>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                         <div className="flex items-center justify-end space-x-2">
                           <button
-                            onClick={() => toggleActive(property.id, property.isActive)}
-                            className={`p-2 rounded-lg transition-colors ${
-                              property.isActive
-                                ? 'text-green-600 hover:bg-green-50'
-                                : 'text-gray-300 hover:bg-white/5'
-                            }`}
-                            title={property.isActive ? 'Pasif yap' : 'Aktif yap'}
-                          >
+                        onClick={() => toggleActive(property.id, property.isActive)}
+                        className={`p-2 rounded-lg transition-colors ${
+                        property.isActive ?
+                        'text-green-600 hover:bg-green-50' :
+                        'text-gray-300 hover:bg-white/5'}`
+                        }
+                        title={property.isActive ? 'Pasif yap' : 'Aktif yap'}>
+
                             <Power className="w-4 h-4" />
                           </button>
                           <button
-                            onClick={() => toggleFeatured(property.id, property.isFeatured)}
-                            className={`p-2 rounded-lg transition-colors ${
-                              property.isFeatured
-                                ? 'text-amber-600 hover:bg-amber-50'
-                                : 'text-gray-300 hover:bg-white/5'
-                            }`}
-                            title={property.isFeatured ? 'Öne çıkarma' : 'Öne çıkar'}
-                          >
+                        onClick={() => toggleFeatured(property.id, property.isFeatured)}
+                        className={`p-2 rounded-lg transition-colors ${
+                        property.isFeatured ?
+                        'text-amber-600 hover:bg-amber-50' :
+                        'text-gray-300 hover:bg-white/5'}`
+                        }
+                        title={property.isFeatured ? 'Öne çıkarma' : 'Öne çıkar'}>
+
                             <Star className={property.isFeatured ? 'fill-current' : ''} style={{ width: '1rem', height: '1rem' }} />
                           </button>
                           <Link href={`/admin/v2/rental-properties/${property.id}/edit`}>
                             <button
-                              className="p-2 text-purple-600 hover:bg-purple-50 rounded-lg transition-colors"
-                              title="Düzenle"
-                            >
+                          className="p-2 text-purple-600 hover:bg-purple-50 rounded-lg transition-colors"
+                          title="Düzenle">
+
                               <Edit2 className="w-4 h-4" />
                             </button>
                           </Link>
                           <button
-                            onClick={() => deleteProperty(property.id)}
-                            className="p-2 text-red-600 hover:bg-red-50 rounded-lg transition-colors"
-                            title="Sil"
-                          >
+                        onClick={() => deleteProperty(property.id)}
+                        className="p-2 text-lydian-primary hover:bg-lydian-error-lighter rounded-lg transition-colors"
+                        title="Sil">
+
                             <Trash2 className="w-4 h-4" />
                           </button>
                         </div>
                       </td>
                     </tr>
-                  ))}
+                )}
                 </tbody>
               </table>
             </div>
-          )}
+          }
 
           {/* Pagination */}
-          {totalPages > 1 && (
-            <div className="px-6 py-4 bg-white/5 border-t border-gray-200">
+          {totalPages > 1 &&
+          <div className="px-6 py-4 bg-lydian-glass-dark border-t border-lydian-border">
               <div className="flex items-center justify-between">
-                <div className="text-sm text-gray-200">
+                <div className="text-sm text-lydian-text-muted">
                   Sayfa <span className="font-medium">{page}</span> / <span className="font-medium">{totalPages}</span>
                 </div>
                 <div className="flex space-x-2">
                   <button
-                    onClick={() => setPage(p => Math.max(1, p - 1))}
-                    disabled={page === 1}
-                    className="px-4 py-2 border border-gray-300 rounded-lg text-sm font-medium text-gray-200 hover:bg-white/5 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
-                  >
+                  onClick={() => setPage((p) => Math.max(1, p - 1))}
+                  disabled={page === 1}
+                  className="px-4 py-2 border border-lydian-border-medium rounded-lg text-sm font-medium text-lydian-text-muted hover:bg-lydian-glass-dark disabled:opacity-50 disabled:cursor-not-allowed transition-colors">
+
                     Önceki
                   </button>
                   <button
-                    onClick={() => setPage(p => Math.min(totalPages, p + 1))}
-                    disabled={page === totalPages}
-                    className="px-4 py-2 border border-gray-300 rounded-lg text-sm font-medium text-gray-200 hover:bg-white/5 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
-                  >
+                  onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
+                  disabled={page === totalPages}
+                  className="px-4 py-2 border border-lydian-border-medium rounded-lg text-sm font-medium text-lydian-text-muted hover:bg-lydian-glass-dark disabled:opacity-50 disabled:cursor-not-allowed transition-colors">
+
                     Sonraki
                   </button>
                 </div>
               </div>
             </div>
-          )}
+          }
         </div>
       </div>
-    </div>
-  );
+    </div>);
+
 }

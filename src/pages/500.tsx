@@ -5,18 +5,18 @@ import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { GetStaticProps } from 'next';
-import { 
-  Home, 
-  RefreshCw, 
-  AlertTriangle, 
-  Mail, 
+import {
+  Home,
+  RefreshCw,
+  AlertTriangle,
+  Mail,
   Phone,
   ArrowLeft,
   Globe,
   Settings,
   Wrench,
-  Clock
-} from 'lucide-react';
+  Clock } from
+'lucide-react';
 import { motion } from 'framer-motion';
 
 const Custom500Page: React.FC = () => {
@@ -56,11 +56,11 @@ const Custom500Page: React.FC = () => {
         <meta name="robots" content="noindex, nofollow" />
       </Head>
 
-      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-black to-slate-800" style={{background: 'var(--bg-0)'}}>
+      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-black to-slate-800" style={{ background: 'var(--bg-0)' }}>
         {/* Animated Neon Background Elements */}
         <div className="fixed inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute -top-40 -right-40 w-80 h-80 rounded-full blur-3xl animate-pulse" style={{background: 'radial-gradient(circle, rgba(255, 33, 77, 0.4), rgba(255, 106, 69, 0.4))'}}></div>
-          <div className="absolute -bottom-40 -left-40 w-80 h-80 rounded-full blur-3xl animate-pulse" style={{animationDelay: '1.5s', background: 'radial-gradient(circle, rgba(255, 106, 69, 0.4), rgba(255, 8, 68, 0.4))'}}></div>
+          <div className="absolute -top-40 -right-40 w-80 h-80 rounded-full blur-3xl animate-pulse" style={{ background: 'radial-gradient(circle, rgba(255, 33, 77, 0.4), rgba(255, 106, 69, 0.4))' }}></div>
+          <div className="absolute -bottom-40 -left-40 w-80 h-80 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1.5s', background: 'radial-gradient(circle, rgba(255, 106, 69, 0.4), rgba(255, 8, 68, 0.4))' }}></div>
           {/* Emergency neon grid overlay */}
           <div className="absolute inset-0 opacity-15" style={{
             backgroundImage: 'linear-gradient(rgba(255, 33, 77, 0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 33, 77, 0.15) 1px, transparent 1px)',
@@ -81,7 +81,7 @@ const Custom500Page: React.FC = () => {
                     background: 'linear-gradient(135deg, var(--ac-1), var(--ac-2))',
                     boxShadow: '0 0 15px var(--ac-1)'
                   }}>
-                    <Globe className="w-6 h-6 text-white" />
+                    <Globe className="w-6 h-6 text-lydian-text-inverse" />
                   </div>
                   <span className="text-2xl font-bold neon-text-strong" style={{
                     color: 'var(--tx-1)',
@@ -92,16 +92,16 @@ const Custom500Page: React.FC = () => {
                 </Link>
 
                 <nav className="hidden md:flex items-center space-x-8">
-                  <Link href="/destinations" className="text-gray-200 hover:text-red-600 transition-colors">
+                  <Link href="/destinations" className="text-lydian-text-muted hover:text-lydian-primary transition-colors">
                     Destinasyonlar
                   </Link>
-                  <Link href="/hotels" className="text-gray-200 hover:text-red-600 transition-colors">
+                  <Link href="/hotels" className="text-lydian-text-muted hover:text-lydian-primary transition-colors">
                     Oteller
                   </Link>
-                  <Link href="/flights" className="text-gray-200 hover:text-red-600 transition-colors">
+                  <Link href="/flights" className="text-lydian-text-muted hover:text-lydian-primary transition-colors">
                     Uçak Biletleri
                   </Link>
-                  <Link href="/activities" className="text-gray-200 hover:text-red-600 transition-colors">
+                  <Link href="/activities" className="text-lydian-text-muted hover:text-lydian-primary transition-colors">
                     Aktiviteler
                   </Link>
                 </nav>
@@ -116,8 +116,8 @@ const Custom500Page: React.FC = () => {
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-              >
+                transition={{ duration: 0.6 }}>
+
                 <div className="mb-8">
                   <div className="relative inline-block">
                     <div className="text-9xl font-bold neon-text-strong" style={{
@@ -128,18 +128,18 @@ const Custom500Page: React.FC = () => {
                     </div>
                     <motion.div
                       animate={{ rotate: [-10, 10, -10] }}
-                      transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                    >
+                      transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}>
+
                       <div className="absolute -top-8 -right-8">
-                        <AlertTriangle className="w-12 h-12" style={{color: 'var(--ac-1)', filter: 'drop-shadow(0 0 15px var(--ac-1))'}} />
+                        <AlertTriangle className="w-12 h-12" style={{ color: 'var(--ac-1)', filter: 'drop-shadow(0 0 15px var(--ac-1))' }} />
                       </div>
                     </motion.div>
                     <motion.div
                       animate={{ rotate: 360 }}
-                      transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-                    >
+                      transition={{ duration: 8, repeat: Infinity, ease: "linear" }}>
+
                       <div className="absolute -bottom-4 -left-8">
-                        <Settings className="w-10 h-10" style={{color: 'var(--ac-2)', filter: 'drop-shadow(0 0 10px var(--ac-2))'}} />
+                        <Settings className="w-10 h-10" style={{ color: 'var(--ac-2)', filter: 'drop-shadow(0 0 10px var(--ac-2))' }} />
                       </div>
                     </motion.div>
                   </div>
@@ -150,23 +150,23 @@ const Custom500Page: React.FC = () => {
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-              >
+                transition={{ duration: 0.6, delay: 0.2 }}>
+
                 <div className="mb-8">
-                <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+                <h1 className="text-4xl md:text-5xl font-bold text-lydian-text-inverse mb-4">
                   {t('errors.500.title')}
                 </h1>
-                <p className="text-xl text-gray-300 mb-6 max-w-2xl mx-auto">
+                <p className="text-xl text-lydian-text-dim mb-6 max-w-2xl mx-auto">
                   {t('errors.500.description')}
                 </p>
                 
                 {/* Status Info */}
-                <div className="bg-red-50 border border-red-200 rounded-2xl p-6 max-w-md mx-auto mb-8">
+                <div className="bg-lydian-error-lighter border border-red-200 rounded-2xl p-6 max-w-md mx-auto mb-8">
                   <div className="flex items-center justify-center mb-4">
-                    <Wrench className="w-8 h-8 text-red-600 mr-3" />
+                    <Wrench className="w-8 h-8 text-lydian-primary mr-3" />
                     <span className="text-lg font-semibold text-red-800">Teknik Bakım</span>
                   </div>
-                  <p className="text-red-700 text-sm">
+                  <p className="text-lydian-primary-dark text-sm">
                     Sunucularımız şu anda bakım altında. Lütfen birkaç dakika sonra tekrar deneyin.
                   </p>
                 </div>
@@ -177,41 +177,41 @@ const Custom500Page: React.FC = () => {
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-              >
+                transition={{ duration: 0.6, delay: 0.4 }}>
+
                 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
                 <button
-                  onClick={handleRetry}
-                  disabled={isRetrying}
-                  className={`inline-flex items-center px-8 py-4 bg-gradient-to-r from-red-600 to-orange-600 text-white rounded-2xl hover:shadow-lg hover:scale-105 transition-all duration-300 font-semibold ${
-                    isRetrying ? 'opacity-75 cursor-not-allowed' : ''
-                  }`}
-                >
-                  {isRetrying ? (
+                    onClick={handleRetry}
+                    disabled={isRetrying}
+                    className={`inline-flex items-center px-8 py-4 bg-gradient-to-r from-lydian-primary to-orange-600 text-lydian-text-inverse rounded-2xl hover:shadow-lg hover:scale-105 transition-all duration-300 font-semibold ${
+                    isRetrying ? 'opacity-75 cursor-not-allowed' : ''}`
+                    }>
+
+                  {isRetrying ?
                     <motion.div
                       animate={{ rotate: 360 }}
-                      transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-                    >
+                      transition={{ duration: 1, repeat: Infinity, ease: "linear" }}>
+
                       <RefreshCw className="w-5 h-5 mr-2" />
-                    </motion.div>
-                  ) : (
+                    </motion.div> :
+
                     <RefreshCw className="w-5 h-5 mr-2" />
-                  )}
+                    }
                   {isRetrying ? 'Yenileniyor...' : t('errors.500.retry')}
                 </button>
 
                 <Link
-                  href="/"
-                  className="inline-flex items-center px-8 py-4 bg-transparent text-gray-200 border border-gray-300 rounded-2xl hover:bg-white/5 hover:shadow-lg hover:scale-105 transition-all duration-300 font-semibold"
-                >
+                    href="/"
+                    className="inline-flex items-center px-8 py-4 bg-lydian-bg-hover text-lydian-text-muted border border-lydian-border-medium rounded-2xl hover:bg-lydian-glass-dark hover:shadow-lg hover:scale-105 transition-all duration-300 font-semibold">
+
                   <Home className="w-5 h-5 mr-2" />
                   Ana Sayfaya Dön
                 </Link>
 
                 <button
-                  onClick={handleGoBack}
-                  className="inline-flex items-center px-8 py-4 bg-transparent text-gray-200 border border-gray-300 rounded-2xl hover:bg-white/5 hover:shadow-lg hover:scale-105 transition-all duration-300 font-semibold"
-                >
+                    onClick={handleGoBack}
+                    className="inline-flex items-center px-8 py-4 bg-lydian-bg-hover text-lydian-text-muted border border-lydian-border-medium rounded-2xl hover:bg-lydian-glass-dark hover:shadow-lg hover:scale-105 transition-all duration-300 font-semibold">
+
                   <ArrowLeft className="w-5 h-5 mr-2" />
                   Geri Dön
                 </button>
@@ -222,73 +222,73 @@ const Custom500Page: React.FC = () => {
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.6 }}
-              >
+                transition={{ duration: 0.6, delay: 0.6 }}>
+
                 <div className="max-w-2xl mx-auto">
-                <h2 className="text-2xl font-bold text-white mb-6 flex items-center justify-center">
-                  <Clock className="w-6 h-6 mr-2 text-red-600" />
+                <h2 className="text-2xl font-bold text-lydian-text-inverse mb-6 flex items-center justify-center">
+                  <Clock className="w-6 h-6 mr-2 text-lydian-primary" />
                   Acil Durum İletişim
                 </h2>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="bg-transparent rounded-2xl shadow-lg p-6 border border-gray-200">
+                  <div className="bg-lydian-bg-hover rounded-2xl shadow-lg p-6 border border-lydian-border">
                     <div className="flex items-center mb-4">
                       <div className="w-12 h-12 bg-gradient-to-br from-red-100 to-orange-100 rounded-2xl flex items-center justify-center">
-                        <Mail className="w-6 h-6 text-red-600" />
+                        <Mail className="w-6 h-6 text-lydian-primary" />
                       </div>
                       <div className="ml-4">
-                        <h3 className="font-bold text-white">E-posta Destek</h3>
-                        <p className="text-gray-300 text-sm">Teknik sorunlar için</p>
+                        <h3 className="font-bold text-lydian-text-inverse">E-posta Destek</h3>
+                        <p className="text-lydian-text-dim text-sm">Teknik sorunlar için</p>
                       </div>
                     </div>
-                    <a 
-                      href="mailto:support@travel.lydian.com"
-                      className="text-red-600 hover:text-red-700 font-medium text-sm"
-                    >
+                    <a
+                        href="mailto:support@travel.lydian.com"
+                        className="text-lydian-primary hover:text-lydian-primary-dark font-medium text-sm">
+
                       support@travel.lydian.com
                     </a>
                   </div>
 
-                  <div className="bg-transparent rounded-2xl shadow-lg p-6 border border-gray-200">
+                  <div className="bg-lydian-bg-hover rounded-2xl shadow-lg p-6 border border-lydian-border">
                     <div className="flex items-center mb-4">
                       <div className="w-12 h-12 bg-gradient-to-br from-red-100 to-orange-100 rounded-2xl flex items-center justify-center">
-                        <Phone className="w-6 h-6 text-red-600" />
+                        <Phone className="w-6 h-6 text-lydian-primary" />
                       </div>
                       <div className="ml-4">
-                        <h3 className="font-bold text-white">Telefon Destek</h3>
-                        <p className="text-gray-300 text-sm">7/24 acil destek</p>
+                        <h3 className="font-bold text-lydian-text-inverse">Telefon Destek</h3>
+                        <p className="text-lydian-text-dim text-sm">7/24 acil destek</p>
                       </div>
                     </div>
-                    <a 
-                      href="tel:+902125550123"
-                      className="text-red-600 hover:text-red-700 font-medium text-sm"
-                    >
+                    <a
+                        href="tel:+902125550123"
+                        className="text-lydian-primary hover:text-lydian-primary-dark font-medium text-sm">
+
                       +90 212 555 01 23
                     </a>
                   </div>
                 </div>
 
                 {/* Status Updates */}
-                <div className="mt-8 bg-white/5 rounded-2xl p-6">
-                  <h3 className="text-lg font-bold text-white mb-4">Sistem Durumu</h3>
+                <div className="mt-8 bg-lydian-glass-dark rounded-2xl p-6">
+                  <h3 className="text-lg font-bold text-lydian-text-inverse mb-4">Sistem Durumu</h3>
                   <div className="space-y-3 text-sm">
                     <div className="flex items-center justify-between">
-                      <span className="text-gray-300">Rezervasyon Sistemi</span>
-                      <span className="inline-flex items-center px-2 py-1 rounded-full text-xs bg-yellow-100 text-yellow-800">
+                      <span className="text-lydian-text-dim">Rezervasyon Sistemi</span>
+                      <span className="inline-flex items-center px-2 py-1 rounded-full text-xs bg-lydian-warning-light text-yellow-800">
                         <div className="w-2 h-2 bg-yellow-500 rounded-full mr-1 animate-pulse"></div>
                         Bakım
                       </span>
                     </div>
                     <div className="flex items-center justify-between">
-                      <span className="text-gray-300">Ödeme Sistemi</span>
-                      <span className="inline-flex items-center px-2 py-1 rounded-full text-xs bg-green-100 text-green-800">
+                      <span className="text-lydian-text-dim">Ödeme Sistemi</span>
+                      <span className="inline-flex items-center px-2 py-1 rounded-full text-xs bg-lydian-success-light text-green-800">
                         <div className="w-2 h-2 bg-green-500 rounded-full mr-1"></div>
                         Aktif
                       </span>
                     </div>
                     <div className="flex items-center justify-between">
-                      <span className="text-gray-300">AI Asistan</span>
-                      <span className="inline-flex items-center px-2 py-1 rounded-full text-xs bg-green-100 text-green-800">
+                      <span className="text-lydian-text-dim">AI Asistan</span>
+                      <span className="inline-flex items-center px-2 py-1 rounded-full text-xs bg-lydian-success-light text-green-800">
                         <div className="w-2 h-2 bg-green-500 rounded-full mr-1"></div>
                         Aktif
                       </span>
@@ -296,7 +296,7 @@ const Custom500Page: React.FC = () => {
                   </div>
                 </div>
 
-                <p className="text-sm text-gray-200 mt-6">
+                <p className="text-sm text-lydian-text-muted mt-6">
                   Tahmini çözüm süresi: 15-30 dakika<br />
                   Son güncelleme: {new Date().toLocaleString('tr-TR')}
                 </p>
@@ -306,9 +306,9 @@ const Custom500Page: React.FC = () => {
           </main>
 
           {/* Footer */}
-          <footer className="bg-white/80 backdrop-blur-md border-t border-gray-200/50 py-6">
+          <footer className="bg-lydian-bg/80 backdrop-blur-md border-t border-lydian-border/50 py-6">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="text-center text-gray-300">
+              <div className="text-center text-lydian-text-dim">
                 <p>&copy; 2025 Travel.LyDian. Tüm hakları saklıdır.</p>
                 <p className="mt-1 text-sm">AI Destekli Seyahat Platformu</p>
               </div>
@@ -316,15 +316,15 @@ const Custom500Page: React.FC = () => {
           </footer>
         </div>
       </div>
-    </>
-  );
+    </>);
+
 };
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
   return {
     props: {
-      ...(await serverSideTranslations(locale ?? 'tr', ['common'])),
-    },
+      ...(await serverSideTranslations(locale ?? 'tr', ['common']))
+    }
   };
 };
 

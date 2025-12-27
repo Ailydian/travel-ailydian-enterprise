@@ -20,65 +20,65 @@ interface Language {
 }
 
 const languages: Language[] = [
-  {
-    code: 'tr',
-    name: 'Turkish',
-    nativeName: 'Türkçe',
-    flag: '🇹🇷',
-    currency: 'TRY',
-  },
-  {
-    code: 'en',
-    name: 'English',
-    nativeName: 'English',
-    flag: '🇬🇧',
-    currency: 'USD',
-  },
-  {
-    code: 'de',
-    name: 'German',
-    nativeName: 'Deutsch',
-    flag: '🇩🇪',
-    currency: 'EUR',
-  },
-  {
-    code: 'ru',
-    name: 'Russian',
-    nativeName: 'Русский',
-    flag: '🇷🇺',
-    currency: 'RUB',
-  },
-  {
-    code: 'ar',
-    name: 'Arabic',
-    nativeName: 'العربية',
-    flag: '🇸🇦',
-    currency: 'USD',
-    rtl: true,
-  },
-  {
-    code: 'fa',
-    name: 'Persian',
-    nativeName: 'فارسی',
-    flag: '🇮🇷',
-    currency: 'USD',
-    rtl: true,
-  },
-  {
-    code: 'fr',
-    name: 'French',
-    nativeName: 'Français',
-    flag: '🇫🇷',
-    currency: 'EUR',
-  },
-  {
-    code: 'el',
-    name: 'Greek',
-    nativeName: 'Ελληνικά',
-    flag: '🇬🇷',
-    currency: 'EUR',
-  },
-];
+{
+  code: 'tr',
+  name: 'Turkish',
+  nativeName: 'Türkçe',
+  flag: '🇹🇷',
+  currency: 'TRY'
+},
+{
+  code: 'en',
+  name: 'English',
+  nativeName: 'English',
+  flag: '🇬🇧',
+  currency: 'USD'
+},
+{
+  code: 'de',
+  name: 'German',
+  nativeName: 'Deutsch',
+  flag: '🇩🇪',
+  currency: 'EUR'
+},
+{
+  code: 'ru',
+  name: 'Russian',
+  nativeName: 'Русский',
+  flag: '🇷🇺',
+  currency: 'RUB'
+},
+{
+  code: 'ar',
+  name: 'Arabic',
+  nativeName: 'العربية',
+  flag: '🇸🇦',
+  currency: 'USD',
+  rtl: true
+},
+{
+  code: 'fa',
+  name: 'Persian',
+  nativeName: 'فارسی',
+  flag: '🇮🇷',
+  currency: 'USD',
+  rtl: true
+},
+{
+  code: 'fr',
+  name: 'French',
+  nativeName: 'Français',
+  flag: '🇫🇷',
+  currency: 'EUR'
+},
+{
+  code: 'el',
+  name: 'Greek',
+  nativeName: 'Ελληνικά',
+  flag: '🇬🇷',
+  currency: 'EUR'
+}];
+
 
 export const LanguageSwitcher: React.FC = () => {
   const router = useRouter();
@@ -97,15 +97,15 @@ export const LanguageSwitcher: React.FC = () => {
     const pathName = router.pathname;
     const asPathValue = router.asPath;
     const queryValue = router.query;
-    
+
     // Change route to new locale
     await router.push({ pathname: pathName, query: queryValue }, asPathValue, { locale: langCode });
-    
+
     // Update i18n
     if (i18n.changeLanguage) {
       await i18n.changeLanguage(langCode);
     }
-    
+
     // Store preference in localStorage
     if (typeof window !== 'undefined') {
       localStorage.setItem('preferred-language', langCode);
@@ -118,11 +118,11 @@ export const LanguageSwitcher: React.FC = () => {
         as={motion.button}
         whileHover={{ scale: 1.05, y: -2 }}
         whileTap={{ scale: 0.95 }}
-        className="flex items-center gap-2 px-4 py-2 bg-white/15 hover:bg-white/25 backdrop-blur-md rounded-lg transition-all font-bold text-sm border border-white/30 shadow-lg hover:shadow-white/20 text-white"
-      >
-        <Globe className="w-4 h-4 text-white" />
-        <span className="text-white font-bold text-2xl">{currentLanguage.flag}</span>
-        <span className="text-white font-bold hidden sm:inline">{currentLanguage.nativeName}</span>
+        className="flex items-center gap-2 px-4 py-2 bg-lydian-glass-dark-medium hover:bg-lydian-glass-dark-heavy backdrop-blur-md rounded-lg transition-all font-bold text-sm border border-lydian-border-light shadow-lg hover:shadow-white/20 text-lydian-text-inverse">
+
+        <Globe className="w-4 h-4 text-lydian-text-inverse" />
+        <span className="text-lydian-text-inverse font-bold text-2xl">{currentLanguage.flag}</span>
+        <span className="text-lydian-text-inverse font-bold hidden sm:inline">{currentLanguage.nativeName}</span>
       </Menu.Button>
 
       <Transition
@@ -132,71 +132,71 @@ export const LanguageSwitcher: React.FC = () => {
         enterTo="transform opacity-100 scale-100"
         leave="transition ease-in duration-75"
         leaveFrom="transform opacity-100 scale-100"
-        leaveTo="transform opacity-0 scale-95"
-      >
-        <Menu.Items className="absolute right-0 mt-2 w-64 origin-top-right divide-y divide-gray-100 rounded-xl bg-white/5 shadow-2xl ring-1 ring-black ring-opacity-5 focus:outline-none z-50 overflow-hidden">
+        leaveTo="transform opacity-0 scale-95">
+
+        <Menu.Items className="absolute right-0 mt-2 w-64 origin-top-right divide-y divide-gray-100 rounded-xl bg-lydian-glass-dark shadow-2xl ring-1 ring-black ring-opacity-5 focus:outline-none z-50 overflow-hidden">
           <div className="bg-gradient-to-r from-lydian-primary to-lydian-secondary px-4 py-3">
-            <p className="text-sm font-bold text-white">Select Language</p>
+            <p className="text-sm font-bold text-lydian-text-inverse">Select Language</p>
           </div>
           
           <div className="p-1 max-h-96 overflow-y-auto">
             {languages.map((language) => {
               const isActive = currentLocale === language.code;
-              
+
               return (
                 <Menu.Item key={language.code}>
-                  {({ active }) => (
-                    <button
-                      onClick={() => handleLanguageChange(language.code)}
-                      className={
-                        'group flex w-full items-center justify-between rounded-lg px-3 py-2.5 text-sm transition-all ' +
-                        (active ? 'bg-red-50' : '') + ' ' +
-                        (isActive ? 'bg-red-50 text-lydian-primary font-bold' : 'text-white')
-                      }
-                    >
+                  {({ active }) =>
+                  <button
+                    onClick={() => handleLanguageChange(language.code)}
+                    className={
+                    'group flex w-full items-center justify-between rounded-lg px-3 py-2.5 text-sm transition-all ' + (
+                    active ? 'bg-red-50' : '') + ' ' + (
+                    isActive ? 'bg-red-50 text-lydian-primary font-bold' : 'text-white')
+                    }>
+
                       <div className="flex items-center gap-3">
                         <span className="text-2xl">{language.flag}</span>
                         <div className="text-left">
                           <p className={'font-medium ' + (isActive ? 'text-lydian-primary' : 'text-white')}>
                             {language.nativeName}
                           </p>
-                          <p className="text-xs text-gray-400">
+                          <p className="text-xs text-lydian-text-muted">
                             {language.name} · {language.currency}
                           </p>
                         </div>
                       </div>
                       
-                      {isActive && (
-                        <motion.div
-                          initial={{ scale: 0 }}
-                          animate={{ scale: 1 }}
-                          className="flex items-center justify-center w-6 h-6 bg-lydian-primary rounded-full"
-                        >
-                          <Check className="w-4 h-4 text-white" />
+                      {isActive &&
+                    <motion.div
+                      initial={{ scale: 0 }}
+                      animate={{ scale: 1 }}
+                      className="flex items-center justify-center w-6 h-6 bg-lydian-primary rounded-full">
+
+                          <Check className="w-4 h-4 text-lydian-text-inverse" />
                         </motion.div>
-                      )}
+                    }
                       
-                      {language.rtl && !isActive && (
-                        <span className="text-xs bg-purple-100 text-purple-700 px-2 py-0.5 rounded-full font-medium">
+                      {language.rtl && !isActive &&
+                    <span className="text-xs bg-purple-100 text-purple-700 px-2 py-0.5 rounded-full font-medium">
                           RTL
                         </span>
-                      )}
+                    }
                     </button>
-                  )}
-                </Menu.Item>
-              );
+                  }
+                </Menu.Item>);
+
             })}
           </div>
           
-          <div className="p-3 bg-white/5">
-            <p className="text-xs text-gray-400 text-center">
+          <div className="p-3 bg-lydian-glass-dark">
+            <p className="text-xs text-lydian-text-muted text-center">
               Language preferences are saved automatically
             </p>
           </div>
         </Menu.Items>
       </Transition>
-    </Menu>
-  );
+    </Menu>);
+
 };
 
 export default LanguageSwitcher;

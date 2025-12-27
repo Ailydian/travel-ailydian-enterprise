@@ -20,8 +20,8 @@ import {
   Column,
   RowAction,
   FilterValues,
-  UploadedImage,
-} from './index';
+  UploadedImage } from
+'./index';
 import {
   DollarSign,
   Home,
@@ -29,8 +29,8 @@ import {
   Calendar,
   Edit,
   Trash,
-  Eye,
-} from 'lucide-react';
+  Eye } from
+'lucide-react';
 
 // ============================================================================
 // Example 1: Dashboard Stats Overview
@@ -45,31 +45,31 @@ export const DashboardStatsExample = () => {
         icon={DollarSign}
         trend={12.5}
         variant="success"
-        description="vs last month"
-      />
+        description="vs last month" />
+
       <StatCard
         title="Properties"
         value={24}
         icon={Home}
         trend={8.2}
-        variant="primary"
-      />
+        variant="primary" />
+
       <StatCard
         title="Active Bookings"
         value={156}
         icon={Calendar}
         trend={-3.1}
-        variant="warning"
-      />
+        variant="warning" />
+
       <StatCard
         title="Total Guests"
         value={892}
         icon={Users}
         trend={15.8}
-        variant="default"
-      />
-    </div>
-  );
+        variant="default" />
+
+    </div>);
+
 };
 
 // ============================================================================
@@ -80,43 +80,43 @@ export const PropertyGridExample = () => {
   const [loading, setLoading] = useState(false);
 
   const properties = [
-    {
-      id: '1',
-      title: 'Luxury Beach Villa',
-      location: 'Malibu, California',
-      image: 'https://picsum.photos/400/300?random=1',
-      price: 450,
-      rating: 4.8,
-      reviewCount: 124,
-      status: 'active' as const,
-      bedrooms: 4,
-      maxGuests: 8,
-    },
-    {
-      id: '2',
-      title: 'Mountain Retreat',
-      location: 'Aspen, Colorado',
-      image: 'https://picsum.photos/400/300?random=2',
-      price: 380,
-      rating: 4.9,
-      reviewCount: 89,
-      status: 'active' as const,
-      bedrooms: 3,
-      maxGuests: 6,
-    },
-    {
-      id: '3',
-      title: 'Downtown Loft',
-      location: 'New York, NY',
-      image: 'https://picsum.photos/400/300?random=3',
-      price: 220,
-      rating: 4.6,
-      reviewCount: 156,
-      status: 'pending' as const,
-      bedrooms: 2,
-      maxGuests: 4,
-    },
-  ];
+  {
+    id: '1',
+    title: 'Luxury Beach Villa',
+    location: 'Malibu, California',
+    image: 'https://picsum.photos/400/300?random=1',
+    price: 450,
+    rating: 4.8,
+    reviewCount: 124,
+    status: 'active' as const,
+    bedrooms: 4,
+    maxGuests: 8
+  },
+  {
+    id: '2',
+    title: 'Mountain Retreat',
+    location: 'Aspen, Colorado',
+    image: 'https://picsum.photos/400/300?random=2',
+    price: 380,
+    rating: 4.9,
+    reviewCount: 89,
+    status: 'active' as const,
+    bedrooms: 3,
+    maxGuests: 6
+  },
+  {
+    id: '3',
+    title: 'Downtown Loft',
+    location: 'New York, NY',
+    image: 'https://picsum.photos/400/300?random=3',
+    price: 220,
+    rating: 4.6,
+    reviewCount: 156,
+    status: 'pending' as const,
+    bedrooms: 2,
+    maxGuests: 4
+  }];
+
 
   const handleEdit = (id: string) => {
     logger.debug('Edit property:', { component: 'Examples', metadata: id });
@@ -136,17 +136,17 @@ export const PropertyGridExample = () => {
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {properties.map((property) => (
-        <PropertyCard
-          key={property.id}
-          {...property}
-          onEdit={handleEdit}
-          onView={handleView}
-          onToggleStatus={handleToggleStatus}
-        />
-      ))}
-    </div>
-  );
+      {properties.map((property) =>
+      <PropertyCard
+        key={property.id}
+        {...property}
+        onEdit={handleEdit}
+        onView={handleView}
+        onToggleStatus={handleToggleStatus} />
+
+      )}
+    </div>);
+
 };
 
 // ============================================================================
@@ -158,40 +158,40 @@ export const BookingsWithFiltersExample = () => {
   const [loading, setLoading] = useState(false);
 
   const bookings = [
-    {
-      id: '1',
-      guestName: 'John Doe',
-      guestAvatar: 'https://i.pravatar.cc/150?img=1',
-      propertyName: 'Luxury Beach Villa',
-      propertyImage: 'https://picsum.photos/400/200?random=1',
-      checkIn: '2025-01-15',
-      checkOut: '2025-01-20',
-      price: 2250,
-      status: 'confirmed' as const,
-      guests: 4,
-      nights: 5,
-    },
-    {
-      id: '2',
-      guestName: 'Jane Smith',
-      guestAvatar: 'https://i.pravatar.cc/150?img=2',
-      propertyName: 'Mountain Retreat',
-      checkIn: '2025-01-18',
-      checkOut: '2025-01-22',
-      price: 1520,
-      status: 'pending' as const,
-      guests: 2,
-      nights: 4,
-    },
-  ];
+  {
+    id: '1',
+    guestName: 'John Doe',
+    guestAvatar: 'https://i.pravatar.cc/150?img=1',
+    propertyName: 'Luxury Beach Villa',
+    propertyImage: 'https://picsum.photos/400/200?random=1',
+    checkIn: '2025-01-15',
+    checkOut: '2025-01-20',
+    price: 2250,
+    status: 'confirmed' as const,
+    guests: 4,
+    nights: 5
+  },
+  {
+    id: '2',
+    guestName: 'Jane Smith',
+    guestAvatar: 'https://i.pravatar.cc/150?img=2',
+    propertyName: 'Mountain Retreat',
+    checkIn: '2025-01-18',
+    checkOut: '2025-01-22',
+    price: 1520,
+    status: 'pending' as const,
+    guests: 2,
+    nights: 4
+  }];
+
 
   const statusOptions = [
-    { label: 'All Statuses', value: '' },
-    { label: 'Confirmed', value: 'confirmed' },
-    { label: 'Pending', value: 'pending' },
-    { label: 'Cancelled', value: 'cancelled' },
-    { label: 'Completed', value: 'completed' },
-  ];
+  { label: 'All Statuses', value: '' },
+  { label: 'Confirmed', value: 'confirmed' },
+  { label: 'Pending', value: 'pending' },
+  { label: 'Cancelled', value: 'cancelled' },
+  { label: 'Completed', value: 'completed' }];
+
 
   return (
     <div className="space-y-6">
@@ -202,35 +202,35 @@ export const BookingsWithFiltersExample = () => {
         searchPlaceholder="Search bookings..."
         showDateRange
         showStatus
-        statusOptions={statusOptions}
-      />
+        statusOptions={statusOptions} />
 
-      {loading ? (
-        <LoadingState variant="list" count={3} />
-      ) : bookings.length === 0 ? (
-        <EmptyState
-          variant="search"
-          title="No bookings found"
-          description="Try adjusting your search criteria"
-          actionLabel="Clear Filters"
-          onAction={() => setFilters({})}
-        />
-      ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {bookings.map((booking) => (
-            <BookingCard
-              key={booking.id}
-              {...booking}
-              onConfirm={(id) => logger.debug('Confirm:', { component: 'Examples', metadata: id })}
-              onCancel={(id) => logger.debug('Cancel:', { component: 'Examples', metadata: id })}
-              onViewDetails={(id) => logger.debug('View:', { component: 'Examples', metadata: id })}
-              onMessage={(id) => logger.debug('Message:', { component: 'Examples', metadata: id })}
-            />
-          ))}
+
+      {loading ?
+      <LoadingState variant="list" count={3} /> :
+      bookings.length === 0 ?
+      <EmptyState
+        variant="search"
+        title="No bookings found"
+        description="Try adjusting your search criteria"
+        actionLabel="Clear Filters"
+        onAction={() => setFilters({})} /> :
+
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {bookings.map((booking) =>
+        <BookingCard
+          key={booking.id}
+          {...booking}
+          onConfirm={(id) => logger.debug('Confirm:', { component: 'Examples', metadata: id })}
+          onCancel={(id) => logger.debug('Cancel:', { component: 'Examples', metadata: id })}
+          onViewDetails={(id) => logger.debug('View:', { component: 'Examples', metadata: id })}
+          onMessage={(id) => logger.debug('Message:', { component: 'Examples', metadata: id })} />
+
+        )}
         </div>
-      )}
-    </div>
-  );
+      }
+    </div>);
+
 };
 
 // ============================================================================
@@ -250,84 +250,84 @@ export const UsersDataTableExample = () => {
   const [loading, setLoading] = useState(false);
 
   const users: User[] = [
-    {
-      id: '1',
-      name: 'John Doe',
-      email: 'john@example.com',
-      role: 'Property Owner',
-      status: 'active',
-      joinDate: '2024-01-15',
-    },
-    {
-      id: '2',
-      name: 'Jane Smith',
-      email: 'jane@example.com',
-      role: 'Guest',
-      status: 'active',
-      joinDate: '2024-02-20',
-    },
-    {
-      id: '3',
-      name: 'Bob Johnson',
-      email: 'bob@example.com',
-      role: 'Admin',
-      status: 'inactive',
-      joinDate: '2023-12-10',
-    },
-  ];
+  {
+    id: '1',
+    name: 'John Doe',
+    email: 'john@example.com',
+    role: 'Property Owner',
+    status: 'active',
+    joinDate: '2024-01-15'
+  },
+  {
+    id: '2',
+    name: 'Jane Smith',
+    email: 'jane@example.com',
+    role: 'Guest',
+    status: 'active',
+    joinDate: '2024-02-20'
+  },
+  {
+    id: '3',
+    name: 'Bob Johnson',
+    email: 'bob@example.com',
+    role: 'Admin',
+    status: 'inactive',
+    joinDate: '2023-12-10'
+  }];
+
 
   const columns: Column<User>[] = [
-    {
-      key: 'name',
-      label: 'Name',
-      sortable: true,
-    },
-    {
-      key: 'email',
-      label: 'Email',
-      sortable: true,
-    },
-    {
-      key: 'role',
-      label: 'Role',
-      render: (user) => (
-        <span className="px-2 py-1 bg-blue-100 text-blue-800 rounded-full text-xs font-medium">
+  {
+    key: 'name',
+    label: 'Name',
+    sortable: true
+  },
+  {
+    key: 'email',
+    label: 'Email',
+    sortable: true
+  },
+  {
+    key: 'role',
+    label: 'Role',
+    render: (user) =>
+    <span className="px-2 py-1 bg-lydian-primary-light text-blue-800 rounded-full text-xs font-medium">
           {user.role}
         </span>
-      ),
-    },
-    {
-      key: 'status',
-      label: 'Status',
-      render: (user) => <StatusBadge status={user.status} size="sm" />,
-    },
-    {
-      key: 'joinDate',
-      label: 'Join Date',
-      sortable: true,
-      render: (user) => new Date(user.joinDate).toLocaleDateString(),
-    },
-  ];
+
+  },
+  {
+    key: 'status',
+    label: 'Status',
+    render: (user) => <StatusBadge status={user.status} size="sm" />
+  },
+  {
+    key: 'joinDate',
+    label: 'Join Date',
+    sortable: true,
+    render: (user) => new Date(user.joinDate).toLocaleDateString()
+  }];
+
 
   const actions: RowAction<User>[] = [
-    {
-      label: 'View Profile',
-      icon: Eye,
-      onClick: (user) => logger.debug('View:', { component: 'Examples', metadata: user }),
-    },
-    {
-      label: 'Edit',
-      icon: Edit,
-      onClick: (user) => logger.debug('Edit:', { component: 'Examples', metadata: user }),
-    },
-    {
-      label: 'Delete',
-      icon: Trash,
-      onClick: (user) => logger.debug('Delete:', { component: 'Examples', metadata: user }),
-      danger: true,
-      show: (user) => user.role !== 'Admin',
-    },
-  ];
+  {
+    label: 'View Profile',
+    icon: Eye,
+    onClick: (user) => logger.debug('View:', { component: 'Examples', metadata: user })
+  },
+  {
+    label: 'Edit',
+    icon: Edit,
+    onClick: (user) => logger.debug('Edit:', { component: 'Examples', metadata: user })
+  },
+  {
+    label: 'Delete',
+    icon: Trash,
+    onClick: (user) => logger.debug('Delete:', { component: 'Examples', metadata: user }),
+    danger: true,
+    show: (user) => user.role !== 'Admin'
+  }];
+
 
   return (
     <DataTable
@@ -342,10 +342,10 @@ export const UsersDataTableExample = () => {
         title: 'No users found',
         description: 'Start by inviting team members',
         actionLabel: 'Invite User',
-        onAction: () => logger.debug('Invite user', { component: 'Examples' }),
-      }}
-    />
-  );
+        onAction: () => logger.debug('Invite user', { component: 'Examples' })
+      }} />);
+
+
 };
 
 // ============================================================================
@@ -356,9 +356,9 @@ export const PropertyPhotosExample = () => {
   const [images, setImages] = useState<UploadedImage[]>([]);
 
   const handleUpload = async (
-    file: File,
-    onProgress: (progress: number) => void
-  ): Promise<string> => {
+  file: File,
+  onProgress: (progress: number) => void)
+  : Promise<string> => {
     // Simulate upload progress
     return new Promise((resolve, reject) => {
       let progress = 0;
@@ -391,12 +391,12 @@ export const PropertyPhotosExample = () => {
           allowedTypes: ['image/jpeg', 'image/png', 'image/webp'],
           enableCompression: true,
           compressionQuality: 0.85,
-          maxDimension: 2400,
+          maxDimension: 2400
         }}
-        onUpload={handleUpload}
-      />
-    </div>
-  );
+        onUpload={handleUpload} />
+
+    </div>);
+
 };
 
 // ============================================================================
@@ -407,12 +407,12 @@ export const CompleteDashboardExample = () => {
   const [activeTab, setActiveTab] = useState('overview');
 
   return (
-    <div className="min-h-screen bg-white/5 p-6">
+    <div className="min-h-screen bg-lydian-glass-dark p-6">
       <div className="max-w-7xl mx-auto space-y-6">
         {/* Header */}
-        <div className="bg-white/5 rounded-lg shadow p-6">
-          <h1 className="text-3xl font-bold text-white">Dashboard</h1>
-          <p className="text-gray-300 mt-1">
+        <div className="bg-lydian-glass-dark rounded-lg shadow p-6">
+          <h1 className="text-3xl font-bold text-lydian-text-inverse">Dashboard</h1>
+          <p className="text-lydian-text-dim mt-1">
             Welcome back! Here's what's happening with your properties.
           </p>
         </div>
@@ -421,43 +421,43 @@ export const CompleteDashboardExample = () => {
         <DashboardStatsExample />
 
         {/* Tabs */}
-        <div className="bg-white/5 rounded-lg shadow">
-          <div className="border-b border-gray-200">
+        <div className="bg-lydian-glass-dark rounded-lg shadow">
+          <div className="border-b border-lydian-border">
             <nav className="flex space-x-8 px-6" aria-label="Tabs">
-              {['overview', 'properties', 'bookings'].map((tab) => (
-                <button
-                  key={tab}
-                  onClick={() => setActiveTab(tab)}
-                  className={`py-4 px-1 border-b-2 font-medium text-sm capitalize ${
-                    activeTab === tab
-                      ? 'border-blue-500 text-blue-600'
-                      : 'border-transparent text-gray-400 hover:text-gray-200 hover:border-gray-300'
-                  }`}
-                >
+              {['overview', 'properties', 'bookings'].map((tab) =>
+              <button
+                key={tab}
+                onClick={() => setActiveTab(tab)}
+                className={`py-4 px-1 border-b-2 font-medium text-sm capitalize ${
+                activeTab === tab ?
+                'border-blue-500 text-blue-600' :
+                'border-transparent text-gray-400 hover:text-gray-200 hover:border-gray-300'}`
+                }>
+
                   {tab}
                 </button>
-              ))}
+              )}
             </nav>
           </div>
 
           <div className="p-6">
-            {activeTab === 'overview' && (
-              <div className="text-center py-12">
+            {activeTab === 'overview' &&
+            <div className="text-center py-12">
                 <EmptyState
-                  variant="no-data"
-                  title="Overview coming soon"
-                  description="We're working on analytics and insights for your dashboard"
-                  size="sm"
-                />
+                variant="no-data"
+                title="Overview coming soon"
+                description="We're working on analytics and insights for your dashboard"
+                size="sm" />
+
               </div>
-            )}
+            }
             {activeTab === 'properties' && <PropertyGridExample />}
             {activeTab === 'bookings' && <BookingsWithFiltersExample />}
           </div>
         </div>
       </div>
-    </div>
-  );
+    </div>);
+
 };
 
 // ============================================================================
@@ -505,8 +505,8 @@ export const StatusBadgesExample = () => {
           <StatusBadge status="cancelled" showIcon={false} />
         </div>
       </div>
-    </div>
-  );
+    </div>);
+
 };
 
 // ============================================================================
@@ -520,5 +520,5 @@ export default {
   UsersDataTableExample,
   PropertyPhotosExample,
   CompleteDashboardExample,
-  StatusBadgesExample,
+  StatusBadgesExample
 };

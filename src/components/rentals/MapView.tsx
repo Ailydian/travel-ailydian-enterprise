@@ -15,7 +15,7 @@ delete (L.Icon.Default.prototype as any)._getIconUrl;
 L.Icon.Default.mergeOptions({
   iconRetinaUrl: '/marker-icon-2x.png',
   iconUrl: '/marker-icon.png',
-  shadowUrl: '/marker-shadow.png',
+  shadowUrl: '/marker-shadow.png'
 });
 
 interface MapViewProps {
@@ -31,23 +31,23 @@ const createCustomIcon = (price: number, featured: boolean) => {
     html: `
       <div class="relative">
         <div class="${
-          featured
-            ? 'bg-gradient-to-r from-red-600 to-orange-500'
-            : 'bg-white'
-        } px-3 py-2 rounded-full shadow-lg border-2 ${
-          featured ? 'border-white' : 'border-red-600'
-        } font-bold text-sm ${featured ? 'text-white' : 'text-white'} hover:scale-110 transition-transform cursor-pointer">
+    featured ?
+    'bg-gradient-to-r from-red-600 to-orange-500' :
+    'bg-white'} px-3 py-2 rounded-full shadow-lg border-2 ${
+
+    featured ? 'border-white' : 'border-red-600'} font-bold text-sm ${
+    featured ? 'text-white' : 'text-white'} hover:scale-110 transition-transform cursor-pointer">
           ${priceLabel}
         </div>
       </div>
     `,
     iconSize: [80, 40],
-    iconAnchor: [40, 40],
+    iconAnchor: [40, 40]
   });
 };
 
 // Component to fit map bounds to markers
-const MapBounds: React.FC<{ properties: RentalProperty[] }> = ({ properties }) => {
+const MapBounds: React.FC<{properties: RentalProperty[];}> = ({ properties }) => {
   const map = useMap();
 
   useEffect(() => {
@@ -75,51 +75,51 @@ const MapView: React.FC<MapViewProps> = ({ properties }) => {
         zoom={6}
         scrollWheelZoom={true}
         className="w-full h-full rounded-2xl"
-        zoomControl={true}
-      >
+        zoomControl={true}>
+
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        />
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+
 
         <MapBounds properties={properties} />
 
-        {properties.map((property) => (
-          <Marker
-            key={property.id}
-            position={[property.location.coordinates.lat, property.location.coordinates.lng]}
-            icon={createCustomIcon(property.pricing.basePrice, property.featured)}
-            eventHandlers={{
-              click: () => setSelectedProperty(property),
-            }}
-          >
+        {properties.map((property) =>
+        <Marker
+          key={property.id}
+          position={[property.location.coordinates.lat, property.location.coordinates.lng]}
+          icon={createCustomIcon(property.pricing.basePrice, property.featured)}
+          eventHandlers={{
+            click: () => setSelectedProperty(property)
+          }}>
+
             <Popup
-              className="custom-popup"
-              maxWidth={300}
-              closeButton={true}
-            >
+            className="custom-popup"
+            maxWidth={300}
+            closeButton={true}>
+
               <div className="p-2">
                 {/* Image */}
                 <div className="relative h-40 mb-3 rounded-lg overflow-hidden">
                   <img
-                    src={property.images[0] || 'https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=800&h=600&fit=crop'}
-                    alt={property.title}
-                    className="w-full h-full object-cover"
-                  />
-                  {property.featured && (
-                    <span className="absolute top-2 left-2 px-2 py-1 bg-gradient-to-r from-yellow-400 to-orange-400 text-white text-xs font-bold rounded-full">
+                  src={property.images[0] || 'https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=800&h=600&fit=crop'}
+                  alt={property.title}
+                  className="w-full h-full object-cover" />
+
+                  {property.featured &&
+                <span className="absolute top-2 left-2 px-2 py-1 bg-gradient-to-r from-yellow-400 to-orange-400 text-lydian-text-inverse text-xs font-bold rounded-full">
                       Öne Çıkan
                     </span>
-                  )}
+                }
                 </div>
 
                 {/* Title */}
-                <h3 className="font-bold text-white mb-2 line-clamp-2">
+                <h3 className="font-bold text-lydian-text-inverse mb-2 line-clamp-2">
                   {property.title}
                 </h3>
 
                 {/* Location */}
-                <div className="flex items-center gap-2 text-sm text-gray-300 mb-2">
+                <div className="flex items-center gap-2 text-sm text-lydian-text-dim mb-2">
                   <MapPinIcon className="w-4 h-4" />
                   <span>
                     {property.location.district}, {property.location.city}
@@ -127,7 +127,7 @@ const MapView: React.FC<MapViewProps> = ({ properties }) => {
                 </div>
 
                 {/* Info */}
-                <div className="flex items-center gap-3 text-sm text-gray-300 mb-3">
+                <div className="flex items-center gap-3 text-sm text-lydian-text-dim mb-3">
                   <div className="flex items-center gap-1">
                     <UserGroupIcon className="w-4 h-4" />
                     <span>{property.capacity.guests}</span>
@@ -138,57 +138,57 @@ const MapView: React.FC<MapViewProps> = ({ properties }) => {
 
                 {/* Rating */}
                 <div className="flex items-center gap-2 mb-3">
-                  <div className="flex items-center gap-1 bg-gradient-to-r from-red-600 to-orange-500 text-white px-2 py-1 rounded-lg">
+                  <div className="flex items-center gap-1 bg-gradient-to-r from-lydian-primary to-orange-500 text-lydian-text-inverse px-2 py-1 rounded-lg">
                     <StarIcon className="w-3 h-3" />
                     <span className="font-bold text-xs">{property.rating.overall.toFixed(1)}</span>
                   </div>
-                  <span className="text-xs text-gray-300">
+                  <span className="text-xs text-lydian-text-dim">
                     ({property.rating.reviewCount} değerlendirme)
                   </span>
                 </div>
 
                 {/* Price */}
-                <div className="flex items-center justify-between pt-3 border-t border-gray-100 mb-3">
+                <div className="flex items-center justify-between pt-3 border-t border-lydian-border-light mb-3">
                   <div>
-                    <p className="text-xl font-bold text-white">
+                    <p className="text-xl font-bold text-lydian-text-inverse">
                       {property.pricing.basePrice.toLocaleString('tr-TR')} ₺
                     </p>
-                    <p className="text-xs text-gray-300">/ gece</p>
+                    <p className="text-xs text-lydian-text-dim">/ gece</p>
                   </div>
                 </div>
 
                 {/* View Button */}
                 <Link
-                  href={`/rentals/${property.slug}`}
-                  className="block w-full text-center px-4 py-2 bg-gradient-to-r from-red-600 to-orange-500 text-white rounded-lg font-semibold hover:shadow-lg transition-all"
-                >
+                href={`/rentals/${property.slug}`}
+                className="block w-full text-center px-4 py-2 bg-gradient-to-r from-lydian-primary to-orange-500 text-lydian-text-inverse rounded-lg font-semibold hover:shadow-lg transition-all">
+
                   Detayları Gör
                 </Link>
               </div>
             </Popup>
           </Marker>
-        ))}
+        )}
       </MapContainer>
 
       {/* Map Legend */}
-      <div className="absolute bottom-6 left-6 bg-white/95 backdrop-blur-sm rounded-xl shadow-lg p-4 z-[1000]">
-        <h4 className="font-bold text-white mb-3">Harita Gösterimi</h4>
+      <div className="absolute bottom-6 left-6 bg-lydian-bg/95 backdrop-blur-sm rounded-xl shadow-lg p-4 z-[1000]">
+        <h4 className="font-bold text-lydian-text-inverse mb-3">Harita Gösterimi</h4>
         <div className="space-y-2 text-sm">
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-gradient-to-r from-red-600 to-orange-500 rounded-full"></div>
-            <span className="text-gray-200">Öne Çıkan</span>
+            <div className="w-8 h-8 bg-gradient-to-r from-lydian-primary to-orange-500 rounded-full"></div>
+            <span className="text-lydian-text-muted">Öne Çıkan</span>
           </div>
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-white/5 border-2 border-red-600 rounded-full"></div>
-            <span className="text-gray-200">Standart</span>
+            <div className="w-8 h-8 bg-lydian-glass-dark border-2 border-lydian-primary rounded-full"></div>
+            <span className="text-lydian-text-muted">Standart</span>
           </div>
         </div>
-        <p className="text-xs text-gray-300 mt-3">
+        <p className="text-xs text-lydian-text-dim mt-3">
           Toplam {properties.length} özellik gösteriliyor
         </p>
       </div>
-    </div>
-  );
+    </div>);
+
 };
 
 export default MapView;

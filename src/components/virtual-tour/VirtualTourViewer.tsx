@@ -13,8 +13,8 @@ import {
   Eye,
   X,
   ChevronLeft,
-  ChevronRight
-} from 'lucide-react';
+  ChevronRight } from
+'lucide-react';
 import type { VirtualTour, VirtualTourScene, VirtualTourHotspot } from '@/lib/videoReviews';
 
 interface VirtualTourViewerProps {
@@ -53,7 +53,7 @@ const VirtualTourViewer: React.FC<VirtualTourViewerProps> = ({
   useEffect(() => {
     if (isPlaying) {
       const interval = setInterval(() => {
-        setRotation(prev => ({
+        setRotation((prev) => ({
           ...prev,
           yaw: (prev.yaw + 0.5) % 360
         }));
@@ -82,7 +82,7 @@ const VirtualTourViewer: React.FC<VirtualTourViewerProps> = ({
 
   const handleHotspotClick = (hotspot: VirtualTourHotspot) => {
     if (hotspot.type === 'link' && hotspot.linkToScene) {
-      const sceneIndex = tour.scenes.findIndex(s => s.id === hotspot.linkToScene);
+      const sceneIndex = tour.scenes.findIndex((s) => s.id === hotspot.linkToScene);
       if (sceneIndex !== -1) {
         handleSceneChange(sceneIndex);
       }
@@ -104,8 +104,8 @@ const VirtualTourViewer: React.FC<VirtualTourViewerProps> = ({
   return (
     <div
       ref={containerRef}
-      className="relative w-full h-screen bg-black"
-    >
+      className="relative w-full h-screen bg-black">
+
       {/* 360° Viewer Canvas */}
       <div className="relative w-full h-full overflow-hidden">
         {/* In production, this would be a WebGL/Three.js 360° viewer */}
@@ -115,49 +115,49 @@ const VirtualTourViewer: React.FC<VirtualTourViewerProps> = ({
           style={{
             backgroundImage: `url(${currentScene.panoramaUrl})`,
             transform: `rotateY(${rotation.yaw}deg) rotateX(${rotation.pitch}deg) scale(${zoom / 90})`
-          }}
-        >
+          }}>
+
           {/* Hotspots */}
-          {showHotspots && currentScene.hotspots.map(hotspot => (
-            <button
-              key={hotspot.id}
-              onClick={() => handleHotspotClick(hotspot)}
-              className="absolute w-12 h-12 bg-white/90 hover:bg-white/5 rounded-full shadow-lg flex items-center justify-center transform -translate-x-1/2 -translate-y-1/2 hover:scale-110 transition-all"
-              style={{
-                left: `${50 + (hotspot.position.yaw / 180) * 50}%`,
-                top: `${50 - (hotspot.position.pitch / 90) * 50}%`
-              }}
-            >
-              {hotspot.icon === 'info' && <Info className="h-6 w-6 text-blue-600" />}
+          {showHotspots && currentScene.hotspots.map((hotspot) =>
+          <button
+            key={hotspot.id}
+            onClick={() => handleHotspotClick(hotspot)}
+            className="absolute w-12 h-12 bg-lydian-bg/90 hover:bg-lydian-glass-dark rounded-full shadow-lg flex items-center justify-center transform -translate-x-1/2 -translate-y-1/2 hover:scale-110 transition-all"
+            style={{
+              left: `${50 + hotspot.position.yaw / 180 * 50}%`,
+              top: `${50 - hotspot.position.pitch / 90 * 50}%`
+            }}>
+
+              {hotspot.icon === 'info' && <Info className="h-6 w-6 text-lydian-primary" />}
               {hotspot.icon === 'arrow-right' && <ChevronRight className="h-6 w-6 text-purple-600" />}
-              {hotspot.icon === 'play' && <Play className="h-6 w-6 text-green-600" />}
+              {hotspot.icon === 'play' && <Play className="h-6 w-6 text-lydian-success" />}
             </button>
-          ))}
+          )}
         </div>
       </div>
 
       {/* Top Bar */}
       <div className="absolute top-0 left-0 right-0 p-4 bg-gradient-to-b from-black/70 to-transparent">
         <div className="flex items-center justify-between">
-          <div className="text-white">
+          <div className="text-lydian-text-inverse">
             <h2 className="text-xl font-bold">{tour.title}</h2>
-            <p className="text-sm text-gray-300">{currentScene.title}</p>
+            <p className="text-sm text-lydian-text-dim">{currentScene.title}</p>
           </div>
 
           <div className="flex items-center gap-2">
             <div className="flex items-center gap-1 bg-black/50 backdrop-blur-sm px-3 py-2 rounded-lg">
-              <Eye className="h-4 w-4 text-gray-300" />
-              <span className="text-sm text-white">{tour.views.toLocaleString()}</span>
+              <Eye className="h-4 w-4 text-lydian-text-dim" />
+              <span className="text-sm text-lydian-text-inverse">{tour.views.toLocaleString()}</span>
             </div>
 
-            {onClose && (
-              <button
-                onClick={onClose}
-                className="p-2 bg-black/50 backdrop-blur-sm hover:bg-black/70 text-white rounded-lg transition-colors"
-              >
+            {onClose &&
+            <button
+              onClick={onClose}
+              className="p-2 bg-black/50 backdrop-blur-sm hover:bg-black/70 text-lydian-text-inverse rounded-lg transition-colors">
+
                 <X className="h-6 w-6" />
               </button>
-            )}
+            }
           </div>
         </div>
       </div>
@@ -166,19 +166,19 @@ const VirtualTourViewer: React.FC<VirtualTourViewerProps> = ({
       <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent">
         {/* Scene Navigation */}
         <div className="flex items-center justify-center gap-2 mb-4">
-          {tour.scenes.map((scene, index) => (
-            <button
-              key={scene.id}
-              onClick={() => handleSceneChange(index)}
-              className={`px-4 py-2 rounded-lg font-medium transition-all ${
-                index === currentSceneIndex
-                  ? 'bg-purple-600 text-white'
-                  : 'bg-white/20 backdrop-blur-sm text-white hover:bg-white/30'
-              }`}
-            >
+          {tour.scenes.map((scene, index) =>
+          <button
+            key={scene.id}
+            onClick={() => handleSceneChange(index)}
+            className={`px-4 py-2 rounded-lg font-medium transition-all ${
+            index === currentSceneIndex ?
+            'bg-purple-600 text-white' :
+            'bg-white/20 backdrop-blur-sm text-white hover:bg-white/30'}`
+            }>
+
               {scene.title}
             </button>
-          ))}
+          )}
         </div>
 
         {/* Control Buttons */}
@@ -186,26 +186,26 @@ const VirtualTourViewer: React.FC<VirtualTourViewerProps> = ({
           <div className="flex items-center gap-2">
             <button
               onClick={() => setIsPlaying(!isPlaying)}
-              className="p-3 bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white rounded-lg transition-colors"
-            >
+              className="p-3 bg-lydian-glass-dark-heavy backdrop-blur-sm hover:bg-lydian-bg/30 text-lydian-text-inverse rounded-lg transition-colors">
+
               {isPlaying ? <Pause className="h-5 w-5" /> : <Play className="h-5 w-5" />}
             </button>
 
             <button
               onClick={resetView}
-              className="p-3 bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white rounded-lg transition-colors"
-              title="Reset View"
-            >
+              className="p-3 bg-lydian-glass-dark-heavy backdrop-blur-sm hover:bg-lydian-bg/30 text-lydian-text-inverse rounded-lg transition-colors"
+              title="Reset View">
+
               <RotateCw className="h-5 w-5" />
             </button>
 
             <button
               onClick={() => setShowHotspots(!showHotspots)}
-              className={`p-3 backdrop-blur-sm text-white rounded-lg transition-colors ${
-                showHotspots ? 'bg-purple-600' : 'bg-white/20 hover:bg-white/30'
-              }`}
-              title="Toggle Hotspots"
-            >
+              className={`p-3 backdrop-blur-sm text-lydian-text-inverse rounded-lg transition-colors ${
+              showHotspots ? 'bg-purple-600' : 'bg-white/20 hover:bg-white/30'}`
+              }
+              title="Toggle Hotspots">
+
               <Navigation className="h-5 w-5" />
             </button>
           </div>
@@ -213,8 +213,8 @@ const VirtualTourViewer: React.FC<VirtualTourViewerProps> = ({
           <div className="flex items-center gap-2">
             <button
               onClick={handleFullscreen}
-              className="p-3 bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white rounded-lg transition-colors"
-            >
+              className="p-3 bg-lydian-glass-dark-heavy backdrop-blur-sm hover:bg-lydian-bg/30 text-lydian-text-inverse rounded-lg transition-colors">
+
               {isFullscreen ? <Minimize className="h-5 w-5" /> : <Maximize className="h-5 w-5" />}
             </button>
           </div>
@@ -222,84 +222,84 @@ const VirtualTourViewer: React.FC<VirtualTourViewerProps> = ({
       </div>
 
       {/* Scene Navigation Arrows */}
-      {currentSceneIndex > 0 && (
-        <button
-          onClick={() => handleSceneChange(currentSceneIndex - 1)}
-          className="absolute left-4 top-1/2 -translate-y-1/2 p-3 bg-black/50 backdrop-blur-sm hover:bg-black/70 text-white rounded-lg transition-colors"
-        >
+      {currentSceneIndex > 0 &&
+      <button
+        onClick={() => handleSceneChange(currentSceneIndex - 1)}
+        className="absolute left-4 top-1/2 -translate-y-1/2 p-3 bg-black/50 backdrop-blur-sm hover:bg-black/70 text-lydian-text-inverse rounded-lg transition-colors">
+
           <ChevronLeft className="h-6 w-6" />
         </button>
-      )}
+      }
 
-      {currentSceneIndex < tour.scenes.length - 1 && (
-        <button
-          onClick={() => handleSceneChange(currentSceneIndex + 1)}
-          className="absolute right-4 top-1/2 -translate-y-1/2 p-3 bg-black/50 backdrop-blur-sm hover:bg-black/70 text-white rounded-lg transition-colors"
-        >
+      {currentSceneIndex < tour.scenes.length - 1 &&
+      <button
+        onClick={() => handleSceneChange(currentSceneIndex + 1)}
+        className="absolute right-4 top-1/2 -translate-y-1/2 p-3 bg-black/50 backdrop-blur-sm hover:bg-black/70 text-lydian-text-inverse rounded-lg transition-colors">
+
           <ChevronRight className="h-6 w-6" />
         </button>
-      )}
+      }
 
       {/* Hotspot Info Modal */}
       <AnimatePresence>
-        {selectedHotspot && (
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.9 }}
-            className="absolute inset-0 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm"
-            onClick={() => setSelectedHotspot(null)}
-          >
+        {selectedHotspot &&
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0.9 }}
+          className="absolute inset-0 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm"
+          onClick={() => setSelectedHotspot(null)}>
+
             <motion.div
-              onClick={(e) => e.stopPropagation()}
-              className="bg-white/5 rounded-xl shadow-2xl max-w-2xl w-full max-h-[80vh] overflow-y-auto"
-            >
+            onClick={(e) => e.stopPropagation()}
+            className="bg-lydian-glass-dark rounded-xl shadow-2xl max-w-2xl w-full max-h-[80vh] overflow-y-auto">
+
               <div className="p-6">
                 <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-2xl font-bold text-white">
+                  <h3 className="text-2xl font-bold text-lydian-text-inverse">
                     {selectedHotspot.title}
                   </h3>
                   <button
-                    onClick={() => setSelectedHotspot(null)}
-                    className="p-2 hover:bg-white/10 rounded-lg transition-colors"
-                  >
-                    <X className="h-6 w-6 text-gray-300" />
+                  onClick={() => setSelectedHotspot(null)}
+                  className="p-2 hover:bg-lydian-glass-dark-medium rounded-lg transition-colors">
+
+                    <X className="h-6 w-6 text-lydian-text-dim" />
                   </button>
                 </div>
 
-                {selectedHotspot.type === 'info' && selectedHotspot.content && (
-                  <p className="text-gray-200">{selectedHotspot.content}</p>
-                )}
+                {selectedHotspot.type === 'info' && selectedHotspot.content &&
+              <p className="text-lydian-text-muted">{selectedHotspot.content}</p>
+              }
 
-                {selectedHotspot.type === 'image' && selectedHotspot.imageUrl && (
-                  <img
-                    src={selectedHotspot.imageUrl}
-                    alt={selectedHotspot.title}
-                    className="w-full rounded-lg"
-                  />
-                )}
+                {selectedHotspot.type === 'image' && selectedHotspot.imageUrl &&
+              <img
+                src={selectedHotspot.imageUrl}
+                alt={selectedHotspot.title}
+                className="w-full rounded-lg" />
 
-                {selectedHotspot.type === 'video' && selectedHotspot.videoUrl && (
-                  <video
-                    src={selectedHotspot.videoUrl}
-                    controls
-                    className="w-full rounded-lg"
-                  />
-                )}
+              }
+
+                {selectedHotspot.type === 'video' && selectedHotspot.videoUrl &&
+              <video
+                src={selectedHotspot.videoUrl}
+                controls
+                className="w-full rounded-lg" />
+
+              }
               </div>
             </motion.div>
           </motion.div>
-        )}
+        }
       </AnimatePresence>
 
       {/* Loading Indicator */}
       <div className="absolute bottom-20 left-1/2 -translate-x-1/2">
-        <div className="bg-black/50 backdrop-blur-sm text-white px-4 py-2 rounded-lg text-sm">
+        <div className="bg-black/50 backdrop-blur-sm text-lydian-text-inverse px-4 py-2 rounded-lg text-sm">
           360° Sanal Tur • {currentSceneIndex + 1}/{tour.scenes.length} Sahne
         </div>
       </div>
-    </div>
-  );
+    </div>);
+
 };
 
 export default VirtualTourViewer;

@@ -23,8 +23,8 @@ import {
   Home,
   Castle,
   Hotel as HotelIcon,
-  Mountain,
-} from 'lucide-react';
+  Mountain } from
+'lucide-react';
 import {
   FilterType,
   HotelFilters,
@@ -36,8 +36,8 @@ import {
   HOTEL_AMENITIES,
   TIME_SLOTS,
   DIFFICULTY_LEVELS,
-  ACTIVITY_CATEGORIES,
-} from '../../types/filters';
+  ACTIVITY_CATEGORIES } from
+'../../types/filters';
 
 interface AdvancedFiltersProps {
   type: FilterType;
@@ -56,7 +56,7 @@ const AdvancedFilters: React.FC<AdvancedFiltersProps> = ({
   onReset,
   onClose,
   isOpen,
-  activeFilterCount,
+  activeFilterCount
 }) => {
   const [expandedSections, setExpandedSections] = useState<Set<string>>(
     new Set(['price', 'rating'])
@@ -89,13 +89,13 @@ const AdvancedFilters: React.FC<AdvancedFiltersProps> = ({
           isExpanded={isSectionExpanded('price')}
           onToggle={() => toggleSection('price')}
           count={
-            hotelFilters.priceRange.min > 0 || hotelFilters.priceRange.max < 10000
-              ? 1
-              : 0
-          }
-        >
+          hotelFilters.priceRange.min > 0 || hotelFilters.priceRange.max < 10000 ?
+          1 :
+          0
+          }>
+
           <div className="space-y-4">
-            <div className="flex items-center justify-between text-sm text-gray-300">
+            <div className="flex items-center justify-between text-sm text-lydian-text-dim">
               <span>₺{hotelFilters.priceRange.min}</span>
               <span>₺{hotelFilters.priceRange.max}+</span>
             </div>
@@ -105,28 +105,28 @@ const AdvancedFilters: React.FC<AdvancedFiltersProps> = ({
               max="10000"
               step="100"
               value={hotelFilters.priceRange.min}
-              onChange={e =>
-                onFilterChange({
-                  ...hotelFilters,
-                  priceRange: { ...hotelFilters.priceRange, min: Number(e.target.value) },
-                })
+              onChange={(e) =>
+              onFilterChange({
+                ...hotelFilters,
+                priceRange: { ...hotelFilters.priceRange, min: Number(e.target.value) }
+              })
               }
-              className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-lydian-primary"
-            />
+              className="w-full h-2 bg-lydian-bg-active rounded-lg appearance-none cursor-pointer accent-lydian-primary" />
+
             <input
               type="range"
               min="0"
               max="10000"
               step="100"
               value={hotelFilters.priceRange.max}
-              onChange={e =>
-                onFilterChange({
-                  ...hotelFilters,
-                  priceRange: { ...hotelFilters.priceRange, max: Number(e.target.value) },
-                })
+              onChange={(e) =>
+              onFilterChange({
+                ...hotelFilters,
+                priceRange: { ...hotelFilters.priceRange, max: Number(e.target.value) }
+              })
               }
-              className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-lydian-primary"
-            />
+              className="w-full h-2 bg-lydian-bg-active rounded-lg appearance-none cursor-pointer accent-lydian-primary" />
+
           </div>
         </FilterSection>
 
@@ -136,29 +136,29 @@ const AdvancedFilters: React.FC<AdvancedFiltersProps> = ({
           icon={<Star className="w-4 h-4" />}
           isExpanded={isSectionExpanded('stars')}
           onToggle={() => toggleSection('stars')}
-          count={hotelFilters.starRating.length}
-        >
+          count={hotelFilters.starRating.length}>
+
           <div className="flex flex-wrap gap-2">
-            {STAR_RATINGS.map(rating => (
-              <button
-                key={rating}
-                onClick={() => {
-                  const newRatings = hotelFilters.starRating.includes(rating)
-                    ? hotelFilters.starRating.filter(r => r !== rating)
-                    : [...hotelFilters.starRating, rating];
-                  onFilterChange({ ...hotelFilters, starRating: newRatings });
-                }}
-                className={`flex items-center gap-1 px-3 py-2 rounded-lg border-2 transition-all ${
-                  hotelFilters.starRating.includes(rating)
-                    ? 'bg-lydian-primary text-white border-lydian-primary'
-                    : 'bg-white/5 text-gray-200 border-white/10 hover:border-lydian-primary'
-                }`}
-              >
-                {Array.from({ length: rating }).map((_, i) => (
-                  <Star key={i} className="w-3 h-3 fill-current" />
-                ))}
+            {STAR_RATINGS.map((rating) =>
+            <button
+              key={rating}
+              onClick={() => {
+                const newRatings = hotelFilters.starRating.includes(rating) ?
+                hotelFilters.starRating.filter((r) => r !== rating) :
+                [...hotelFilters.starRating, rating];
+                onFilterChange({ ...hotelFilters, starRating: newRatings });
+              }}
+              className={`flex items-center gap-1 px-3 py-2 rounded-lg border-2 transition-all ${
+              hotelFilters.starRating.includes(rating) ?
+              'bg-lydian-primary text-white border-lydian-primary' :
+              'bg-white/5 text-gray-200 border-white/10 hover:border-lydian-primary'}`
+              }>
+
+                {Array.from({ length: rating }).map((_, i) =>
+              <Star key={i} className="w-3 h-3 fill-current" />
+              )}
               </button>
-            ))}
+            )}
           </div>
         </FilterSection>
 
@@ -168,10 +168,10 @@ const AdvancedFilters: React.FC<AdvancedFiltersProps> = ({
           icon={<Heart className="w-4 h-4" />}
           isExpanded={isSectionExpanded('rating')}
           onToggle={() => toggleSection('rating')}
-          count={hotelFilters.guestRating.min > 0 ? 1 : 0}
-        >
+          count={hotelFilters.guestRating.min > 0 ? 1 : 0}>
+
           <div className="space-y-4">
-            <div className="flex items-center justify-between text-sm text-gray-300">
+            <div className="flex items-center justify-between text-sm text-lydian-text-dim">
               <span>{hotelFilters.guestRating.min.toFixed(1)}</span>
               <span>{hotelFilters.guestRating.max.toFixed(1)}</span>
             </div>
@@ -181,14 +181,14 @@ const AdvancedFilters: React.FC<AdvancedFiltersProps> = ({
               max="10"
               step="0.5"
               value={hotelFilters.guestRating.min}
-              onChange={e =>
-                onFilterChange({
-                  ...hotelFilters,
-                  guestRating: { ...hotelFilters.guestRating, min: Number(e.target.value) },
-                })
+              onChange={(e) =>
+              onFilterChange({
+                ...hotelFilters,
+                guestRating: { ...hotelFilters.guestRating, min: Number(e.target.value) }
+              })
               }
-              className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-lydian-primary"
-            />
+              className="w-full h-2 bg-lydian-bg-active rounded-lg appearance-none cursor-pointer accent-lydian-primary" />
+
           </div>
         </FilterSection>
 
@@ -198,27 +198,27 @@ const AdvancedFilters: React.FC<AdvancedFiltersProps> = ({
           icon={<Building2 className="w-4 h-4" />}
           isExpanded={isSectionExpanded('property')}
           onToggle={() => toggleSection('property')}
-          count={hotelFilters.propertyTypes.length}
-        >
+          count={hotelFilters.propertyTypes.length}>
+
           <div className="grid grid-cols-2 gap-2">
-            {PROPERTY_TYPES.map(type => (
-              <button
-                key={type.value}
-                onClick={() => {
-                  const newTypes = hotelFilters.propertyTypes.includes(type.value)
-                    ? hotelFilters.propertyTypes.filter(t => t !== type.value)
-                    : [...hotelFilters.propertyTypes, type.value];
-                  onFilterChange({ ...hotelFilters, propertyTypes: newTypes });
-                }}
-                className={`px-3 py-2 rounded-lg border-2 text-sm transition-all ${
-                  hotelFilters.propertyTypes.includes(type.value)
-                    ? 'bg-lydian-primary text-white border-lydian-primary'
-                    : 'bg-white/5 text-gray-200 border-white/10 hover:border-lydian-primary'
-                }`}
-              >
+            {PROPERTY_TYPES.map((type) =>
+            <button
+              key={type.value}
+              onClick={() => {
+                const newTypes = hotelFilters.propertyTypes.includes(type.value) ?
+                hotelFilters.propertyTypes.filter((t) => t !== type.value) :
+                [...hotelFilters.propertyTypes, type.value];
+                onFilterChange({ ...hotelFilters, propertyTypes: newTypes });
+              }}
+              className={`px-3 py-2 rounded-lg border-2 text-sm transition-all ${
+              hotelFilters.propertyTypes.includes(type.value) ?
+              'bg-lydian-primary text-white border-lydian-primary' :
+              'bg-white/5 text-gray-200 border-white/10 hover:border-lydian-primary'}`
+              }>
+
                 {type.label}
               </button>
-            ))}
+            )}
           </div>
         </FilterSection>
 
@@ -228,44 +228,44 @@ const AdvancedFilters: React.FC<AdvancedFiltersProps> = ({
           icon={<Wifi className="w-4 h-4" />}
           isExpanded={isSectionExpanded('amenities')}
           onToggle={() => toggleSection('amenities')}
-          count={hotelFilters.amenities.length}
-        >
+          count={hotelFilters.amenities.length}>
+
           <div className="space-y-3">
             <div className="relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-lydian-text-muted" />
               <input
                 type="text"
                 placeholder="Search amenities..."
                 value={amenitySearch}
-                onChange={e => setAmenitySearch(e.target.value)}
-                className="w-full pl-10 pr-4 py-2 border border-white/10 rounded-lg focus:ring-2 focus:ring-lydian-primary focus:border-transparent"
-              />
+                onChange={(e) => setAmenitySearch(e.target.value)}
+                className="w-full pl-10 pr-4 py-2 border border-lydian-border-light/10 rounded-lg focus:ring-2 focus:ring-lydian-primary focus:border-lydian-border" />
+
             </div>
             <div className="max-h-64 overflow-y-auto space-y-2">
-              {HOTEL_AMENITIES.filter(amenity =>
-                amenity.label.toLowerCase().includes(amenitySearch.toLowerCase())
-              ).map(amenity => (
-                <label
-                  key={amenity.id}
-                  className="flex items-center gap-2 p-2 hover:bg-white/5 rounded-lg cursor-pointer"
-                >
+              {HOTEL_AMENITIES.filter((amenity) =>
+              amenity.label.toLowerCase().includes(amenitySearch.toLowerCase())
+              ).map((amenity) =>
+              <label
+                key={amenity.id}
+                className="flex items-center gap-2 p-2 hover:bg-lydian-glass-dark rounded-lg cursor-pointer">
+
                   <input
-                    type="checkbox"
-                    checked={hotelFilters.amenities.includes(amenity.id)}
-                    onChange={e => {
-                      const newAmenities = e.target.checked
-                        ? [...hotelFilters.amenities, amenity.id]
-                        : hotelFilters.amenities.filter(a => a !== amenity.id);
-                      onFilterChange({ ...hotelFilters, amenities: newAmenities });
-                    }}
-                    className="w-4 h-4 text-lydian-primary rounded focus:ring-lydian-primary"
-                  />
-                  <span className="text-sm text-gray-200">{amenity.label}</span>
-                  <span className="ml-auto text-xs text-gray-400 capitalize">
+                  type="checkbox"
+                  checked={hotelFilters.amenities.includes(amenity.id)}
+                  onChange={(e) => {
+                    const newAmenities = e.target.checked ?
+                    [...hotelFilters.amenities, amenity.id] :
+                    hotelFilters.amenities.filter((a) => a !== amenity.id);
+                    onFilterChange({ ...hotelFilters, amenities: newAmenities });
+                  }}
+                  className="w-4 h-4 text-lydian-primary rounded focus:ring-lydian-primary" />
+
+                  <span className="text-sm text-lydian-text-muted">{amenity.label}</span>
+                  <span className="ml-auto text-xs text-lydian-text-muted capitalize">
                     {amenity.category}
                   </span>
                 </label>
-              ))}
+              )}
             </div>
           </div>
         </FilterSection>
@@ -276,28 +276,28 @@ const AdvancedFilters: React.FC<AdvancedFiltersProps> = ({
           icon={<UtensilsCrossed className="w-4 h-4" />}
           isExpanded={isSectionExpanded('meals')}
           onToggle={() => toggleSection('meals')}
-          count={hotelFilters.mealPlans.length}
-        >
+          count={hotelFilters.mealPlans.length}>
+
           <div className="space-y-2">
-            {MEAL_PLANS.map(plan => (
-              <label
-                key={plan.value}
-                className="flex items-center gap-2 p-2 hover:bg-white/5 rounded-lg cursor-pointer"
-              >
+            {MEAL_PLANS.map((plan) =>
+            <label
+              key={plan.value}
+              className="flex items-center gap-2 p-2 hover:bg-lydian-glass-dark rounded-lg cursor-pointer">
+
                 <input
-                  type="checkbox"
-                  checked={hotelFilters.mealPlans.includes(plan.value)}
-                  onChange={e => {
-                    const newPlans = e.target.checked
-                      ? [...hotelFilters.mealPlans, plan.value]
-                      : hotelFilters.mealPlans.filter(p => p !== plan.value);
-                    onFilterChange({ ...hotelFilters, mealPlans: newPlans });
-                  }}
-                  className="w-4 h-4 text-lydian-primary rounded focus:ring-lydian-primary"
-                />
-                <span className="text-sm text-gray-200">{plan.label}</span>
+                type="checkbox"
+                checked={hotelFilters.mealPlans.includes(plan.value)}
+                onChange={(e) => {
+                  const newPlans = e.target.checked ?
+                  [...hotelFilters.mealPlans, plan.value] :
+                  hotelFilters.mealPlans.filter((p) => p !== plan.value);
+                  onFilterChange({ ...hotelFilters, mealPlans: newPlans });
+                }}
+                className="w-4 h-4 text-lydian-primary rounded focus:ring-lydian-primary" />
+
+                <span className="text-sm text-lydian-text-muted">{plan.label}</span>
               </label>
-            ))}
+            )}
           </div>
         </FilterSection>
 
@@ -307,10 +307,10 @@ const AdvancedFilters: React.FC<AdvancedFiltersProps> = ({
           icon={<MapPin className="w-4 h-4" />}
           isExpanded={isSectionExpanded('distance')}
           onToggle={() => toggleSection('distance')}
-          count={hotelFilters.distanceFromCenter < 10 ? 1 : 0}
-        >
+          count={hotelFilters.distanceFromCenter < 10 ? 1 : 0}>
+
           <div className="space-y-4">
-            <div className="flex items-center justify-between text-sm text-gray-300">
+            <div className="flex items-center justify-between text-sm text-lydian-text-dim">
               <span>0 km</span>
               <span className="font-medium text-lydian-primary">
                 {hotelFilters.distanceFromCenter} km
@@ -322,14 +322,14 @@ const AdvancedFilters: React.FC<AdvancedFiltersProps> = ({
               max="10"
               step="0.5"
               value={hotelFilters.distanceFromCenter}
-              onChange={e =>
-                onFilterChange({
-                  ...hotelFilters,
-                  distanceFromCenter: Number(e.target.value),
-                })
+              onChange={(e) =>
+              onFilterChange({
+                ...hotelFilters,
+                distanceFromCenter: Number(e.target.value)
+              })
               }
-              className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-lydian-primary"
-            />
+              className="w-full h-2 bg-lydian-bg-active rounded-lg appearance-none cursor-pointer accent-lydian-primary" />
+
           </div>
         </FilterSection>
 
@@ -339,36 +339,36 @@ const AdvancedFilters: React.FC<AdvancedFiltersProps> = ({
           icon={<RotateCcw className="w-4 h-4" />}
           isExpanded={isSectionExpanded('cancellation')}
           onToggle={() => toggleSection('cancellation')}
-          count={hotelFilters.cancellationPolicy.length}
-        >
+          count={hotelFilters.cancellationPolicy.length}>
+
           <div className="space-y-2">
             {[
-              { value: 'free-cancellation', label: 'Free Cancellation' },
-              { value: 'pay-at-property', label: 'Pay at Property' },
-              { value: 'non-refundable', label: 'Non-Refundable' },
-            ].map(policy => (
-              <label
-                key={policy.value}
-                className="flex items-center gap-2 p-2 hover:bg-white/5 rounded-lg cursor-pointer"
-              >
+            { value: 'free-cancellation', label: 'Free Cancellation' },
+            { value: 'pay-at-property', label: 'Pay at Property' },
+            { value: 'non-refundable', label: 'Non-Refundable' }].
+            map((policy) =>
+            <label
+              key={policy.value}
+              className="flex items-center gap-2 p-2 hover:bg-lydian-glass-dark rounded-lg cursor-pointer">
+
                 <input
-                  type="checkbox"
-                  checked={hotelFilters.cancellationPolicy.includes(policy.value as any)}
-                  onChange={e => {
-                    const newPolicies = e.target.checked
-                      ? [...hotelFilters.cancellationPolicy, policy.value as any]
-                      : hotelFilters.cancellationPolicy.filter(p => p !== policy.value);
-                    onFilterChange({ ...hotelFilters, cancellationPolicy: newPolicies });
-                  }}
-                  className="w-4 h-4 text-lydian-primary rounded focus:ring-lydian-primary"
-                />
-                <span className="text-sm text-gray-200">{policy.label}</span>
+                type="checkbox"
+                checked={hotelFilters.cancellationPolicy.includes(policy.value as any)}
+                onChange={(e) => {
+                  const newPolicies = e.target.checked ?
+                  [...hotelFilters.cancellationPolicy, policy.value as any] :
+                  hotelFilters.cancellationPolicy.filter((p) => p !== policy.value);
+                  onFilterChange({ ...hotelFilters, cancellationPolicy: newPolicies });
+                }}
+                className="w-4 h-4 text-lydian-primary rounded focus:ring-lydian-primary" />
+
+                <span className="text-sm text-lydian-text-muted">{policy.label}</span>
               </label>
-            ))}
+            )}
           </div>
         </FilterSection>
-      </div>
-    );
+      </div>);
+
   };
 
   // Render Flight Filters
@@ -384,13 +384,13 @@ const AdvancedFilters: React.FC<AdvancedFiltersProps> = ({
           isExpanded={isSectionExpanded('price')}
           onToggle={() => toggleSection('price')}
           count={
-            flightFilters.priceRange.min > 0 || flightFilters.priceRange.max < 10000
-              ? 1
-              : 0
-          }
-        >
+          flightFilters.priceRange.min > 0 || flightFilters.priceRange.max < 10000 ?
+          1 :
+          0
+          }>
+
           <div className="space-y-4">
-            <div className="flex items-center justify-between text-sm text-gray-300">
+            <div className="flex items-center justify-between text-sm text-lydian-text-dim">
               <span>₺{flightFilters.priceRange.min}</span>
               <span>₺{flightFilters.priceRange.max}+</span>
             </div>
@@ -400,28 +400,28 @@ const AdvancedFilters: React.FC<AdvancedFiltersProps> = ({
               max="10000"
               step="50"
               value={flightFilters.priceRange.min}
-              onChange={e =>
-                onFilterChange({
-                  ...flightFilters,
-                  priceRange: { ...flightFilters.priceRange, min: Number(e.target.value) },
-                })
+              onChange={(e) =>
+              onFilterChange({
+                ...flightFilters,
+                priceRange: { ...flightFilters.priceRange, min: Number(e.target.value) }
+              })
               }
-              className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-lydian-primary"
-            />
+              className="w-full h-2 bg-lydian-bg-active rounded-lg appearance-none cursor-pointer accent-lydian-primary" />
+
             <input
               type="range"
               min="0"
               max="10000"
               step="50"
               value={flightFilters.priceRange.max}
-              onChange={e =>
-                onFilterChange({
-                  ...flightFilters,
-                  priceRange: { ...flightFilters.priceRange, max: Number(e.target.value) },
-                })
+              onChange={(e) =>
+              onFilterChange({
+                ...flightFilters,
+                priceRange: { ...flightFilters.priceRange, max: Number(e.target.value) }
+              })
               }
-              className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-lydian-primary"
-            />
+              className="w-full h-2 bg-lydian-bg-active rounded-lg appearance-none cursor-pointer accent-lydian-primary" />
+
           </div>
         </FilterSection>
 
@@ -431,32 +431,32 @@ const AdvancedFilters: React.FC<AdvancedFiltersProps> = ({
           icon={<Plane className="w-4 h-4" />}
           isExpanded={isSectionExpanded('stops')}
           onToggle={() => toggleSection('stops')}
-          count={flightFilters.stops.length}
-        >
+          count={flightFilters.stops.length}>
+
           <div className="space-y-2">
             {[
-              { value: 'direct', label: 'Direct Flights' },
-              { value: '1-stop', label: '1 Stop' },
-              { value: '2-plus-stops', label: '2+ Stops' },
-            ].map(stop => (
-              <label
-                key={stop.value}
-                className="flex items-center gap-2 p-2 hover:bg-white/5 rounded-lg cursor-pointer"
-              >
+            { value: 'direct', label: 'Direct Flights' },
+            { value: '1-stop', label: '1 Stop' },
+            { value: '2-plus-stops', label: '2+ Stops' }].
+            map((stop) =>
+            <label
+              key={stop.value}
+              className="flex items-center gap-2 p-2 hover:bg-lydian-glass-dark rounded-lg cursor-pointer">
+
                 <input
-                  type="checkbox"
-                  checked={flightFilters.stops.includes(stop.value as any)}
-                  onChange={e => {
-                    const newStops = e.target.checked
-                      ? [...flightFilters.stops, stop.value as any]
-                      : flightFilters.stops.filter(s => s !== stop.value);
-                    onFilterChange({ ...flightFilters, stops: newStops });
-                  }}
-                  className="w-4 h-4 text-lydian-primary rounded focus:ring-lydian-primary"
-                />
-                <span className="text-sm text-gray-200">{stop.label}</span>
+                type="checkbox"
+                checked={flightFilters.stops.includes(stop.value as any)}
+                onChange={(e) => {
+                  const newStops = e.target.checked ?
+                  [...flightFilters.stops, stop.value as any] :
+                  flightFilters.stops.filter((s) => s !== stop.value);
+                  onFilterChange({ ...flightFilters, stops: newStops });
+                }}
+                className="w-4 h-4 text-lydian-primary rounded focus:ring-lydian-primary" />
+
+                <span className="text-sm text-lydian-text-muted">{stop.label}</span>
               </label>
-            ))}
+            )}
           </div>
         </FilterSection>
 
@@ -466,28 +466,28 @@ const AdvancedFilters: React.FC<AdvancedFiltersProps> = ({
           icon={<Clock className="w-4 h-4" />}
           isExpanded={isSectionExpanded('departure')}
           onToggle={() => toggleSection('departure')}
-          count={flightFilters.departureTime.length}
-        >
+          count={flightFilters.departureTime.length}>
+
           <div className="grid grid-cols-2 gap-2">
-            {TIME_SLOTS.map(slot => (
-              <button
-                key={slot.value}
-                onClick={() => {
-                  const newTimes = flightFilters.departureTime.includes(slot.value)
-                    ? flightFilters.departureTime.filter(t => t !== slot.value)
-                    : [...flightFilters.departureTime, slot.value];
-                  onFilterChange({ ...flightFilters, departureTime: newTimes });
-                }}
-                className={`px-3 py-2 rounded-lg border-2 text-sm transition-all ${
-                  flightFilters.departureTime.includes(slot.value)
-                    ? 'bg-lydian-primary text-white border-lydian-primary'
-                    : 'bg-white/5 text-gray-200 border-white/10 hover:border-lydian-primary'
-                }`}
-              >
+            {TIME_SLOTS.map((slot) =>
+            <button
+              key={slot.value}
+              onClick={() => {
+                const newTimes = flightFilters.departureTime.includes(slot.value) ?
+                flightFilters.departureTime.filter((t) => t !== slot.value) :
+                [...flightFilters.departureTime, slot.value];
+                onFilterChange({ ...flightFilters, departureTime: newTimes });
+              }}
+              className={`px-3 py-2 rounded-lg border-2 text-sm transition-all ${
+              flightFilters.departureTime.includes(slot.value) ?
+              'bg-lydian-primary text-white border-lydian-primary' :
+              'bg-white/5 text-gray-200 border-white/10 hover:border-lydian-primary'}`
+              }>
+
                 <div className="font-medium">{slot.label}</div>
                 <div className="text-xs opacity-75">{slot.hours}</div>
               </button>
-            ))}
+            )}
           </div>
         </FilterSection>
 
@@ -497,28 +497,28 @@ const AdvancedFilters: React.FC<AdvancedFiltersProps> = ({
           icon={<Clock className="w-4 h-4" />}
           isExpanded={isSectionExpanded('arrival')}
           onToggle={() => toggleSection('arrival')}
-          count={flightFilters.arrivalTime.length}
-        >
+          count={flightFilters.arrivalTime.length}>
+
           <div className="grid grid-cols-2 gap-2">
-            {TIME_SLOTS.map(slot => (
-              <button
-                key={slot.value}
-                onClick={() => {
-                  const newTimes = flightFilters.arrivalTime.includes(slot.value)
-                    ? flightFilters.arrivalTime.filter(t => t !== slot.value)
-                    : [...flightFilters.arrivalTime, slot.value];
-                  onFilterChange({ ...flightFilters, arrivalTime: newTimes });
-                }}
-                className={`px-3 py-2 rounded-lg border-2 text-sm transition-all ${
-                  flightFilters.arrivalTime.includes(slot.value)
-                    ? 'bg-lydian-primary text-white border-lydian-primary'
-                    : 'bg-white/5 text-gray-200 border-white/10 hover:border-lydian-primary'
-                }`}
-              >
+            {TIME_SLOTS.map((slot) =>
+            <button
+              key={slot.value}
+              onClick={() => {
+                const newTimes = flightFilters.arrivalTime.includes(slot.value) ?
+                flightFilters.arrivalTime.filter((t) => t !== slot.value) :
+                [...flightFilters.arrivalTime, slot.value];
+                onFilterChange({ ...flightFilters, arrivalTime: newTimes });
+              }}
+              className={`px-3 py-2 rounded-lg border-2 text-sm transition-all ${
+              flightFilters.arrivalTime.includes(slot.value) ?
+              'bg-lydian-primary text-white border-lydian-primary' :
+              'bg-white/5 text-gray-200 border-white/10 hover:border-lydian-primary'}`
+              }>
+
                 <div className="font-medium">{slot.label}</div>
                 <div className="text-xs opacity-75">{slot.hours}</div>
               </button>
-            ))}
+            )}
           </div>
         </FilterSection>
 
@@ -528,10 +528,10 @@ const AdvancedFilters: React.FC<AdvancedFiltersProps> = ({
           icon={<Clock className="w-4 h-4" />}
           isExpanded={isSectionExpanded('duration')}
           onToggle={() => toggleSection('duration')}
-          count={flightFilters.maxDuration < 24 ? 1 : 0}
-        >
+          count={flightFilters.maxDuration < 24 ? 1 : 0}>
+
           <div className="space-y-4">
-            <div className="flex items-center justify-between text-sm text-gray-300">
+            <div className="flex items-center justify-between text-sm text-lydian-text-dim">
               <span>Any</span>
               <span className="font-medium text-lydian-primary">
                 Max {flightFilters.maxDuration}h
@@ -543,14 +543,14 @@ const AdvancedFilters: React.FC<AdvancedFiltersProps> = ({
               max="24"
               step="1"
               value={flightFilters.maxDuration}
-              onChange={e =>
-                onFilterChange({
-                  ...flightFilters,
-                  maxDuration: Number(e.target.value),
-                })
+              onChange={(e) =>
+              onFilterChange({
+                ...flightFilters,
+                maxDuration: Number(e.target.value)
+              })
               }
-              className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-lydian-primary"
-            />
+              className="w-full h-2 bg-lydian-bg-active rounded-lg appearance-none cursor-pointer accent-lydian-primary" />
+
           </div>
         </FilterSection>
 
@@ -560,37 +560,37 @@ const AdvancedFilters: React.FC<AdvancedFiltersProps> = ({
           icon={<Users className="w-4 h-4" />}
           isExpanded={isSectionExpanded('cabin')}
           onToggle={() => toggleSection('cabin')}
-          count={flightFilters.cabinClass.length}
-        >
+          count={flightFilters.cabinClass.length}>
+
           <div className="space-y-2">
             {[
-              { value: 'economy', label: 'Economy' },
-              { value: 'premium-economy', label: 'Premium Economy' },
-              { value: 'business', label: 'Business' },
-              { value: 'first', label: 'First Class' },
-            ].map(cabin => (
-              <label
-                key={cabin.value}
-                className="flex items-center gap-2 p-2 hover:bg-white/5 rounded-lg cursor-pointer"
-              >
+            { value: 'economy', label: 'Economy' },
+            { value: 'premium-economy', label: 'Premium Economy' },
+            { value: 'business', label: 'Business' },
+            { value: 'first', label: 'First Class' }].
+            map((cabin) =>
+            <label
+              key={cabin.value}
+              className="flex items-center gap-2 p-2 hover:bg-lydian-glass-dark rounded-lg cursor-pointer">
+
                 <input
-                  type="checkbox"
-                  checked={flightFilters.cabinClass.includes(cabin.value as any)}
-                  onChange={e => {
-                    const newClasses = e.target.checked
-                      ? [...flightFilters.cabinClass, cabin.value as any]
-                      : flightFilters.cabinClass.filter(c => c !== cabin.value);
-                    onFilterChange({ ...flightFilters, cabinClass: newClasses });
-                  }}
-                  className="w-4 h-4 text-lydian-primary rounded focus:ring-lydian-primary"
-                />
-                <span className="text-sm text-gray-200">{cabin.label}</span>
+                type="checkbox"
+                checked={flightFilters.cabinClass.includes(cabin.value as any)}
+                onChange={(e) => {
+                  const newClasses = e.target.checked ?
+                  [...flightFilters.cabinClass, cabin.value as any] :
+                  flightFilters.cabinClass.filter((c) => c !== cabin.value);
+                  onFilterChange({ ...flightFilters, cabinClass: newClasses });
+                }}
+                className="w-4 h-4 text-lydian-primary rounded focus:ring-lydian-primary" />
+
+                <span className="text-sm text-lydian-text-muted">{cabin.label}</span>
               </label>
-            ))}
+            )}
           </div>
         </FilterSection>
-      </div>
-    );
+      </div>);
+
   };
 
   // Render Activity Filters
@@ -606,13 +606,13 @@ const AdvancedFilters: React.FC<AdvancedFiltersProps> = ({
           isExpanded={isSectionExpanded('price')}
           onToggle={() => toggleSection('price')}
           count={
-            activityFilters.priceRange.min > 0 || activityFilters.priceRange.max < 5000
-              ? 1
-              : 0
-          }
-        >
+          activityFilters.priceRange.min > 0 || activityFilters.priceRange.max < 5000 ?
+          1 :
+          0
+          }>
+
           <div className="space-y-4">
-            <div className="flex items-center justify-between text-sm text-gray-300">
+            <div className="flex items-center justify-between text-sm text-lydian-text-dim">
               <span>₺{activityFilters.priceRange.min}</span>
               <span>₺{activityFilters.priceRange.max}+</span>
             </div>
@@ -622,34 +622,34 @@ const AdvancedFilters: React.FC<AdvancedFiltersProps> = ({
               max="5000"
               step="50"
               value={activityFilters.priceRange.min}
-              onChange={e =>
-                onFilterChange({
-                  ...activityFilters,
-                  priceRange: {
-                    ...activityFilters.priceRange,
-                    min: Number(e.target.value),
-                  },
-                })
+              onChange={(e) =>
+              onFilterChange({
+                ...activityFilters,
+                priceRange: {
+                  ...activityFilters.priceRange,
+                  min: Number(e.target.value)
+                }
+              })
               }
-              className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-lydian-primary"
-            />
+              className="w-full h-2 bg-lydian-bg-active rounded-lg appearance-none cursor-pointer accent-lydian-primary" />
+
             <input
               type="range"
               min="0"
               max="5000"
               step="50"
               value={activityFilters.priceRange.max}
-              onChange={e =>
-                onFilterChange({
-                  ...activityFilters,
-                  priceRange: {
-                    ...activityFilters.priceRange,
-                    max: Number(e.target.value),
-                  },
-                })
+              onChange={(e) =>
+              onFilterChange({
+                ...activityFilters,
+                priceRange: {
+                  ...activityFilters.priceRange,
+                  max: Number(e.target.value)
+                }
+              })
               }
-              className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-lydian-primary"
-            />
+              className="w-full h-2 bg-lydian-bg-active rounded-lg appearance-none cursor-pointer accent-lydian-primary" />
+
           </div>
         </FilterSection>
 
@@ -659,28 +659,28 @@ const AdvancedFilters: React.FC<AdvancedFiltersProps> = ({
           icon={<Mountain className="w-4 h-4" />}
           isExpanded={isSectionExpanded('categories')}
           onToggle={() => toggleSection('categories')}
-          count={activityFilters.categories.length}
-        >
+          count={activityFilters.categories.length}>
+
           <div className="grid grid-cols-2 gap-2">
-            {ACTIVITY_CATEGORIES.map(category => (
-              <button
-                key={category.value}
-                onClick={() => {
-                  const newCategories = activityFilters.categories.includes(category.value)
-                    ? activityFilters.categories.filter(c => c !== category.value)
-                    : [...activityFilters.categories, category.value];
-                  onFilterChange({ ...activityFilters, categories: newCategories });
-                }}
-                className={`px-3 py-2 rounded-lg border-2 text-sm transition-all flex items-center gap-2 ${
-                  activityFilters.categories.includes(category.value)
-                    ? 'bg-lydian-primary text-white border-lydian-primary'
-                    : 'bg-white/5 text-gray-200 border-white/10 hover:border-lydian-primary'
-                }`}
-              >
+            {ACTIVITY_CATEGORIES.map((category) =>
+            <button
+              key={category.value}
+              onClick={() => {
+                const newCategories = activityFilters.categories.includes(category.value) ?
+                activityFilters.categories.filter((c) => c !== category.value) :
+                [...activityFilters.categories, category.value];
+                onFilterChange({ ...activityFilters, categories: newCategories });
+              }}
+              className={`px-3 py-2 rounded-lg border-2 text-sm transition-all flex items-center gap-2 ${
+              activityFilters.categories.includes(category.value) ?
+              'bg-lydian-primary text-white border-lydian-primary' :
+              'bg-white/5 text-gray-200 border-white/10 hover:border-lydian-primary'}`
+              }>
+
                 <span>{category.icon}</span>
                 <span>{category.label}</span>
               </button>
-            ))}
+            )}
           </div>
         </FilterSection>
 
@@ -690,31 +690,31 @@ const AdvancedFilters: React.FC<AdvancedFiltersProps> = ({
           icon={<Mountain className="w-4 h-4" />}
           isExpanded={isSectionExpanded('difficulty')}
           onToggle={() => toggleSection('difficulty')}
-          count={activityFilters.difficultyLevel.length}
-        >
+          count={activityFilters.difficultyLevel.length}>
+
           <div className="space-y-2">
-            {DIFFICULTY_LEVELS.map(level => (
-              <label
-                key={level.value}
-                className="flex items-start gap-2 p-2 hover:bg-white/5 rounded-lg cursor-pointer"
-              >
+            {DIFFICULTY_LEVELS.map((level) =>
+            <label
+              key={level.value}
+              className="flex items-start gap-2 p-2 hover:bg-lydian-glass-dark rounded-lg cursor-pointer">
+
                 <input
-                  type="checkbox"
-                  checked={activityFilters.difficultyLevel.includes(level.value)}
-                  onChange={e => {
-                    const newLevels = e.target.checked
-                      ? [...activityFilters.difficultyLevel, level.value]
-                      : activityFilters.difficultyLevel.filter(l => l !== level.value);
-                    onFilterChange({ ...activityFilters, difficultyLevel: newLevels });
-                  }}
-                  className="w-4 h-4 text-lydian-primary rounded focus:ring-lydian-primary mt-0.5"
-                />
+                type="checkbox"
+                checked={activityFilters.difficultyLevel.includes(level.value)}
+                onChange={(e) => {
+                  const newLevels = e.target.checked ?
+                  [...activityFilters.difficultyLevel, level.value] :
+                  activityFilters.difficultyLevel.filter((l) => l !== level.value);
+                  onFilterChange({ ...activityFilters, difficultyLevel: newLevels });
+                }}
+                className="w-4 h-4 text-lydian-primary rounded focus:ring-lydian-primary mt-0.5" />
+
                 <div className="flex-1">
-                  <div className="text-sm font-medium text-gray-200">{level.label}</div>
-                  <div className="text-xs text-gray-400">{level.description}</div>
+                  <div className="text-sm font-medium text-lydian-text-muted">{level.label}</div>
+                  <div className="text-xs text-lydian-text-muted">{level.description}</div>
                 </div>
               </label>
-            ))}
+            )}
           </div>
         </FilterSection>
 
@@ -724,42 +724,42 @@ const AdvancedFilters: React.FC<AdvancedFiltersProps> = ({
           icon={<Clock className="w-4 h-4" />}
           isExpanded={isSectionExpanded('duration')}
           onToggle={() => toggleSection('duration')}
-          count={activityFilters.duration.min > 0 || activityFilters.duration.max < 24 ? 1 : 0}
-        >
+          count={activityFilters.duration.min > 0 || activityFilters.duration.max < 24 ? 1 : 0}>
+
           <div className="space-y-4">
             <div className="flex gap-2 mb-3">
               <button
                 onClick={() =>
-                  onFilterChange({
-                    ...activityFilters,
-                    duration: { ...activityFilters.duration, unit: 'hours' },
-                  })
+                onFilterChange({
+                  ...activityFilters,
+                  duration: { ...activityFilters.duration, unit: 'hours' }
+                })
                 }
                 className={`flex-1 py-2 px-3 rounded-lg text-sm font-medium transition-all ${
-                  activityFilters.duration.unit === 'hours'
-                    ? 'bg-lydian-primary text-white'
-                    : 'bg-white/10 text-gray-200'
-                }`}
-              >
+                activityFilters.duration.unit === 'hours' ?
+                'bg-lydian-primary text-white' :
+                'bg-white/10 text-gray-200'}`
+                }>
+
                 Hours
               </button>
               <button
                 onClick={() =>
-                  onFilterChange({
-                    ...activityFilters,
-                    duration: { ...activityFilters.duration, unit: 'days' },
-                  })
+                onFilterChange({
+                  ...activityFilters,
+                  duration: { ...activityFilters.duration, unit: 'days' }
+                })
                 }
                 className={`flex-1 py-2 px-3 rounded-lg text-sm font-medium transition-all ${
-                  activityFilters.duration.unit === 'days'
-                    ? 'bg-lydian-primary text-white'
-                    : 'bg-white/10 text-gray-200'
-                }`}
-              >
+                activityFilters.duration.unit === 'days' ?
+                'bg-lydian-primary text-white' :
+                'bg-white/10 text-gray-200'}`
+                }>
+
                 Days
               </button>
             </div>
-            <div className="flex items-center justify-between text-sm text-gray-300">
+            <div className="flex items-center justify-between text-sm text-lydian-text-dim">
               <span>
                 {activityFilters.duration.min} {activityFilters.duration.unit}
               </span>
@@ -773,14 +773,14 @@ const AdvancedFilters: React.FC<AdvancedFiltersProps> = ({
               max={activityFilters.duration.unit === 'hours' ? 24 : 14}
               step="1"
               value={activityFilters.duration.max}
-              onChange={e =>
-                onFilterChange({
-                  ...activityFilters,
-                  duration: { ...activityFilters.duration, max: Number(e.target.value) },
-                })
+              onChange={(e) =>
+              onFilterChange({
+                ...activityFilters,
+                duration: { ...activityFilters.duration, max: Number(e.target.value) }
+              })
               }
-              className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-lydian-primary"
-            />
+              className="w-full h-2 bg-lydian-bg-active rounded-lg appearance-none cursor-pointer accent-lydian-primary" />
+
           </div>
         </FilterSection>
 
@@ -790,75 +790,75 @@ const AdvancedFilters: React.FC<AdvancedFiltersProps> = ({
           icon={<Users className="w-4 h-4" />}
           isExpanded={isSectionExpanded('group')}
           onToggle={() => toggleSection('group')}
-          count={activityFilters.groupSize.length}
-        >
+          count={activityFilters.groupSize.length}>
+
           <div className="space-y-2">
             {[
-              { value: 'private', label: 'Private (1-2 people)' },
-              { value: 'small-group', label: 'Small Group (3-10)' },
-              { value: 'medium-group', label: 'Medium Group (11-20)' },
-              { value: 'large-group', label: 'Large Group (20+)' },
-            ].map(size => (
-              <label
-                key={size.value}
-                className="flex items-center gap-2 p-2 hover:bg-white/5 rounded-lg cursor-pointer"
-              >
+            { value: 'private', label: 'Private (1-2 people)' },
+            { value: 'small-group', label: 'Small Group (3-10)' },
+            { value: 'medium-group', label: 'Medium Group (11-20)' },
+            { value: 'large-group', label: 'Large Group (20+)' }].
+            map((size) =>
+            <label
+              key={size.value}
+              className="flex items-center gap-2 p-2 hover:bg-lydian-glass-dark rounded-lg cursor-pointer">
+
                 <input
-                  type="checkbox"
-                  checked={activityFilters.groupSize.includes(size.value as any)}
-                  onChange={e => {
-                    const newSizes = e.target.checked
-                      ? [...activityFilters.groupSize, size.value as any]
-                      : activityFilters.groupSize.filter(s => s !== size.value);
-                    onFilterChange({ ...activityFilters, groupSize: newSizes });
-                  }}
-                  className="w-4 h-4 text-lydian-primary rounded focus:ring-lydian-primary"
-                />
-                <span className="text-sm text-gray-200">{size.label}</span>
+                type="checkbox"
+                checked={activityFilters.groupSize.includes(size.value as any)}
+                onChange={(e) => {
+                  const newSizes = e.target.checked ?
+                  [...activityFilters.groupSize, size.value as any] :
+                  activityFilters.groupSize.filter((s) => s !== size.value);
+                  onFilterChange({ ...activityFilters, groupSize: newSizes });
+                }}
+                className="w-4 h-4 text-lydian-primary rounded focus:ring-lydian-primary" />
+
+                <span className="text-sm text-lydian-text-muted">{size.label}</span>
               </label>
-            ))}
+            )}
           </div>
         </FilterSection>
-      </div>
-    );
+      </div>);
+
   };
 
   return (
     <AnimatePresence>
-      {isOpen && (
-        <>
+      {isOpen &&
+      <>
           {/* Mobile Overlay */}
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={onClose}
-            className="fixed inset-0 bg-black/50 z-40 lg:hidden"
-          />
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          onClick={onClose}
+          className="fixed inset-0 bg-black/50 z-40 lg:hidden" />
+
 
           {/* Filter Panel */}
           <motion.div
-            initial={{ x: -320 }}
-            animate={{ x: 0 }}
-            exit={{ x: -320 }}
-            transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-            className="fixed top-0 left-0 bottom-0 w-80 bg-white/5 shadow-2xl z-50 lg:static lg:shadow-none overflow-hidden flex flex-col"
-          >
+          initial={{ x: -320 }}
+          animate={{ x: 0 }}
+          exit={{ x: -320 }}
+          transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+          className="fixed top-0 left-0 bottom-0 w-80 bg-lydian-glass-dark shadow-2xl z-50 lg:static lg:shadow-none overflow-hidden flex flex-col">
+
             {/* Header */}
-            <div className="p-4 border-b border-white/10 flex items-center justify-between bg-gradient-to-r from-lydian-primary to-lydian-secondary text-white">
+            <div className="p-4 border-b border-lydian-border-light/10 flex items-center justify-between bg-gradient-to-r from-lydian-primary to-lydian-secondary text-lydian-text-inverse">
               <div className="flex items-center gap-2">
                 <Filter className="w-5 h-5" />
                 <h2 className="font-bold text-lg">Filters</h2>
-                {activeFilterCount > 0 && (
-                  <span className="px-2 py-0.5 bg-white/5 text-lydian-primary rounded-full text-xs font-bold">
+                {activeFilterCount > 0 &&
+              <span className="px-2 py-0.5 bg-lydian-glass-dark text-lydian-primary rounded-full text-xs font-bold">
                     {activeFilterCount}
                   </span>
-                )}
+              }
               </div>
               <button
-                onClick={onClose}
-                className="p-1 hover:bg-white/20 rounded-lg transition-colors lg:hidden"
-              >
+              onClick={onClose}
+              className="p-1 hover:bg-lydian-glass-dark-heavy rounded-lg transition-colors lg:hidden">
+
                 <X className="w-5 h-5" />
               </button>
             </div>
@@ -871,26 +871,26 @@ const AdvancedFilters: React.FC<AdvancedFiltersProps> = ({
             </div>
 
             {/* Footer Actions */}
-            <div className="p-4 border-t border-white/10 bg-white/5 space-y-2">
+            <div className="p-4 border-t border-lydian-border-light/10 bg-lydian-glass-dark space-y-2">
               <button
-                onClick={onReset}
-                className="w-full py-2.5 px-4 border-2 border-white/20 text-gray-200 rounded-lg font-medium hover:bg-white/10 transition-colors flex items-center justify-center gap-2"
-              >
+              onClick={onReset}
+              className="w-full py-2.5 px-4 border-2 border-lydian-border-light text-lydian-text-muted rounded-lg font-medium hover:bg-lydian-glass-dark-medium transition-colors flex items-center justify-center gap-2">
+
                 <RotateCcw className="w-4 h-4" />
                 Reset All Filters
               </button>
               <button
-                onClick={onClose}
-                className="w-full py-2.5 px-4 bg-lydian-primary text-white rounded-lg font-medium hover:bg-lydian-dark transition-colors lg:hidden"
-              >
+              onClick={onClose}
+              className="w-full py-2.5 px-4 bg-lydian-primary text-lydian-text-inverse rounded-lg font-medium hover:bg-lydian-dark transition-colors lg:hidden">
+
                 Show Results
               </button>
             </div>
           </motion.div>
         </>
-      )}
-    </AnimatePresence>
-  );
+      }
+    </AnimatePresence>);
+
 };
 
 // Filter Section Component
@@ -909,44 +909,44 @@ const FilterSection: React.FC<FilterSectionProps> = ({
   isExpanded,
   onToggle,
   count = 0,
-  children,
+  children
 }) => {
   return (
-    <div className="border border-white/10 rounded-lg overflow-hidden">
+    <div className="border border-lydian-border-light/10 rounded-lg overflow-hidden">
       <button
         onClick={onToggle}
-        className="w-full p-3 flex items-center justify-between hover:bg-white/5 transition-colors"
-      >
+        className="w-full p-3 flex items-center justify-between hover:bg-lydian-glass-dark transition-colors">
+
         <div className="flex items-center gap-2">
           <div className="text-lydian-primary">{icon}</div>
-          <span className="font-medium text-white">{title}</span>
-          {count > 0 && (
-            <span className="px-2 py-0.5 bg-lydian-primary text-white rounded-full text-xs font-bold">
+          <span className="font-medium text-lydian-text-inverse">{title}</span>
+          {count > 0 &&
+          <span className="px-2 py-0.5 bg-lydian-primary text-lydian-text-inverse rounded-full text-xs font-bold">
               {count}
             </span>
-          )}
+          }
         </div>
-        {isExpanded ? (
-          <ChevronUp className="w-4 h-4 text-gray-400" />
-        ) : (
-          <ChevronDown className="w-4 h-4 text-gray-400" />
-        )}
+        {isExpanded ?
+        <ChevronUp className="w-4 h-4 text-lydian-text-muted" /> :
+
+        <ChevronDown className="w-4 h-4 text-lydian-text-muted" />
+        }
       </button>
       <AnimatePresence>
-        {isExpanded && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="overflow-hidden"
-          >
-            <div className="p-3 border-t border-gray-100 bg-white/5">{children}</div>
+        {isExpanded &&
+        <motion.div
+          initial={{ height: 0, opacity: 0 }}
+          animate={{ height: 'auto', opacity: 1 }}
+          exit={{ height: 0, opacity: 0 }}
+          transition={{ duration: 0.2 }}
+          className="overflow-hidden">
+
+            <div className="p-3 border-t border-lydian-border-light bg-lydian-glass-dark">{children}</div>
           </motion.div>
-        )}
+        }
       </AnimatePresence>
-    </div>
-  );
+    </div>);
+
 };
 
 export default AdvancedFilters;

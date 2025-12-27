@@ -7,8 +7,8 @@ import { motion } from 'framer-motion';
 import {
   MapPin, Clock, Navigation, Star, Users, Shield,
   CheckCircle2, ArrowRight, Calendar, Phone, Mail,
-  Car, ChevronRight, Home, TrendingDown, Globe
-} from 'lucide-react';
+  Car, ChevronRight, Home, TrendingDown, Globe } from
+'lucide-react';
 import SimplifiedHeader from '@/components/layout/SimplifiedHeader';
 import AnimatedCarIcon from '@/components/icons/AnimatedCarIcon';
 import { antalyaAirportTransfers, AntalyaTransferRoute } from '@/data/antalya-transfers';
@@ -18,8 +18,8 @@ import {
   generateOpenGraphTags,
   generateTwitterCardTags,
   getLocalizedText,
-  type SupportedLanguage
-} from '@/utils/multilingualSEO';
+  type SupportedLanguage } from
+'@/utils/multilingualSEO';
 
 interface TransferDetailPageProps {
   transfer: AntalyaTransferRoute;
@@ -155,9 +155,9 @@ export default function TransferDetailPage({ transfer, relatedTransfers }: Trans
         <link rel="canonical" href={currentUrl} />
 
         {/* Hreflang Tags */}
-        {hreflangTags.map((tag, idx) => (
-          <link key={idx} rel={tag.rel} hrefLang={tag.hrefLang} href={tag.href} />
-        ))}
+        {hreflangTags.map((tag, idx) =>
+        <link key={idx} rel={tag.rel} hrefLang={tag.hrefLang} href={tag.href} />
+        )}
 
         {/* Open Graph */}
         <meta property="og:title" content={ogTags.title} />
@@ -166,9 +166,9 @@ export default function TransferDetailPage({ transfer, relatedTransfers }: Trans
         <meta property="og:type" content={ogTags.type} />
         <meta property="og:site_name" content={ogTags.siteName} />
         <meta property="og:locale" content={ogTags.locale} />
-        {ogTags.images.map((img, idx) => (
-          <meta key={idx} property="og:image" content={img.url} />
-        ))}
+        {ogTags.images.map((img, idx) =>
+        <meta key={idx} property="og:image" content={img.url} />
+        )}
 
         {/* Twitter Card */}
         <meta name="twitter:card" content={twitterTags.cardType} />
@@ -176,27 +176,27 @@ export default function TransferDetailPage({ transfer, relatedTransfers }: Trans
         <meta name="twitter:description" content={twitterTags.description} />
         <meta name="twitter:site" content={twitterTags.site} />
         <meta name="twitter:creator" content={twitterTags.creator} />
-        {twitterTags.images.map((img, idx) => (
-          <meta key={idx} name="twitter:image" content={img} />
-        ))}
+        {twitterTags.images.map((img, idx) =>
+        <meta key={idx} name="twitter:image" content={img} />
+        )}
 
         {/* Schema.org JSON-LD */}
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaOrg) }}
-        />
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaOrg) }} />
+
       </Head>
 
       <SimplifiedHeader />
 
       <div className="min-h-screen bg-gradient-to-b from-slate-50 via-white to-slate-50">
         {/* Language Selector Bar */}
-        <div className="bg-transparent border-b border-slate-200 sticky top-0 z-40 shadow-sm">
+        <div className="bg-lydian-bg-hover border-b border-lydian-border sticky top-0 z-40 shadow-sm">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
             <div className="flex flex-wrap items-center justify-between gap-3">
               {/* Breadcrumb */}
-              <div className="flex items-center gap-2 text-sm text-slate-600">
-                <Link href="/" className="hover:text-blue-600 transition-colors flex items-center gap-1">
+              <div className="flex items-center gap-2 text-sm text-lydian-text-secondary">
+                <Link href="/" className="hover:text-lydian-primary transition-colors flex items-center gap-1">
                   <Home className="w-4 h-4" />
                   {selectedLanguage === 'tr' && 'Ana Sayfa'}
                   {selectedLanguage === 'en' && 'Home'}
@@ -206,7 +206,7 @@ export default function TransferDetailPage({ transfer, relatedTransfers }: Trans
                   {selectedLanguage === 'fr' && 'Accueil'}
                 </Link>
                 <ChevronRight className="w-4 h-4" />
-                <Link href="/transfers" className="hover:text-blue-600 transition-colors">
+                <Link href="/transfers" className="hover:text-lydian-primary transition-colors">
                   {selectedLanguage === 'tr' && 'Transferler'}
                   {selectedLanguage === 'en' && 'Transfers'}
                   {selectedLanguage === 'ru' && 'Трансферы'}
@@ -215,29 +215,29 @@ export default function TransferDetailPage({ transfer, relatedTransfers }: Trans
                   {selectedLanguage === 'fr' && 'Transferts'}
                 </Link>
                 <ChevronRight className="w-4 h-4" />
-                <span className="text-slate-900 font-medium">
+                <span className="text-lydian-text font-medium">
                   {getLocalizedText(transfer.from, selectedLanguage)} → {getLocalizedText(transfer.to, selectedLanguage)}
                 </span>
               </div>
 
               {/* Language Toggle */}
               <div className="flex items-center gap-2">
-                <Globe className="w-4 h-4 text-slate-500" />
+                <Globe className="w-4 h-4 text-lydian-text-tertiary" />
                 <div className="flex flex-wrap gap-2">
-                  {Object.entries(languageLabels).map(([lang, { flag, name }]) => (
-                    <button
-                      key={lang}
-                      onClick={() => setSelectedLanguage(lang as SupportedLanguage)}
-                      className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-all ${
-                        selectedLanguage === lang
-                          ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-lg'
-                          : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
-                      }`}
-                    >
+                  {Object.entries(languageLabels).map(([lang, { flag, name }]) =>
+                  <button
+                    key={lang}
+                    onClick={() => setSelectedLanguage(lang as SupportedLanguage)}
+                    className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-all ${
+                    selectedLanguage === lang ?
+                    'bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-lg' :
+                    'bg-slate-100 text-slate-700 hover:bg-slate-200'}`
+                    }>
+
                       <span className="mr-1">{flag}</span>
                       {name}
                     </button>
-                  ))}
+                  )}
                 </div>
               </div>
             </div>
@@ -245,13 +245,13 @@ export default function TransferDetailPage({ transfer, relatedTransfers }: Trans
         </div>
 
         {/* Hero Section */}
-        <div className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white py-12">
+        <div className="bg-gradient-to-r from-lydian-primary via-indigo-600 to-lydian-secondary text-lydian-text-inverse py-12">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-            >
+              transition={{ duration: 0.6 }}>
+
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
                 {getLocalizedText(transfer.from, selectedLanguage)} → {getLocalizedText(transfer.to, selectedLanguage)}
               </h1>
@@ -261,7 +261,7 @@ export default function TransferDetailPage({ transfer, relatedTransfers }: Trans
 
               {/* Quick Stats */}
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-8">
-                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+                <div className="bg-lydian-glass-dark-medium backdrop-blur-sm rounded-xl p-4 border border-lydian-border-light">
                   <Navigation className="w-8 h-8 mb-2 text-blue-200" />
                   <div className="text-2xl font-bold">{transfer.distance} km</div>
                   <div className="text-sm text-blue-200">
@@ -274,7 +274,7 @@ export default function TransferDetailPage({ transfer, relatedTransfers }: Trans
                   </div>
                 </div>
 
-                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+                <div className="bg-lydian-glass-dark-medium backdrop-blur-sm rounded-xl p-4 border border-lydian-border-light">
                   <Clock className="w-8 h-8 mb-2 text-blue-200" />
                   <div className="text-2xl font-bold">{transfer.duration} dk</div>
                   <div className="text-sm text-blue-200">
@@ -287,7 +287,7 @@ export default function TransferDetailPage({ transfer, relatedTransfers }: Trans
                   </div>
                 </div>
 
-                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+                <div className="bg-lydian-glass-dark-medium backdrop-blur-sm rounded-xl p-4 border border-lydian-border-light">
                   <Star className="w-8 h-8 mb-2 text-yellow-300" />
                   <div className="text-2xl font-bold">{transfer.rating}/5</div>
                   <div className="text-sm text-blue-200">
@@ -300,7 +300,7 @@ export default function TransferDetailPage({ transfer, relatedTransfers }: Trans
                   </div>
                 </div>
 
-                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+                <div className="bg-lydian-glass-dark-medium backdrop-blur-sm rounded-xl p-4 border border-lydian-border-light">
                   <Users className="w-8 h-8 mb-2 text-blue-200" />
                   <div className="text-2xl font-bold">{transfer.totalTransfers.toLocaleString()}+</div>
                   <div className="text-sm text-blue-200">
@@ -326,8 +326,8 @@ export default function TransferDetailPage({ transfer, relatedTransfers }: Trans
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 }}
-              >
+                transition={{ delay: 0.2 }}>
+
                 <div className="relative bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 p-12 flex items-center justify-center min-h-[400px] rounded-2xl shadow-lg">
                   <AnimatedCarIcon size="xl" />
                 </div>
@@ -338,9 +338,9 @@ export default function TransferDetailPage({ transfer, relatedTransfers }: Trans
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
-                className="bg-transparent rounded-2xl shadow-lg p-8"
-              >
-                <h2 className="text-2xl font-bold text-slate-900 mb-4">
+                className="bg-lydian-bg-hover rounded-2xl shadow-lg p-8">
+
+                <h2 className="text-2xl font-bold text-lydian-text mb-4">
                   {selectedLanguage === 'tr' && 'Transfer Hakkında'}
                   {selectedLanguage === 'en' && 'About This Transfer'}
                   {selectedLanguage === 'ru' && 'О трансфере'}
@@ -349,7 +349,7 @@ export default function TransferDetailPage({ transfer, relatedTransfers }: Trans
                   {selectedLanguage === 'fr' && 'À propos de ce transfert'}
                 </h2>
                 <div className="prose prose-slate max-w-none">
-                  <p className="text-slate-600 leading-relaxed whitespace-pre-line">
+                  <p className="text-lydian-text-secondary leading-relaxed whitespace-pre-line">
                     {getLocalizedText(transfer.longDescription, selectedLanguage)}
                   </p>
                 </div>
@@ -360,9 +360,9 @@ export default function TransferDetailPage({ transfer, relatedTransfers }: Trans
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
-                className="bg-transparent rounded-2xl shadow-lg p-8"
-              >
-                <h2 className="text-2xl font-bold text-slate-900 mb-6">
+                className="bg-lydian-bg-hover rounded-2xl shadow-lg p-8">
+
+                <h2 className="text-2xl font-bold text-lydian-text mb-6">
                   {selectedLanguage === 'tr' && 'Öne Çıkan Özellikler'}
                   {selectedLanguage === 'en' && 'Key Features'}
                   {selectedLanguage === 'ru' && 'Основные преимущества'}
@@ -371,12 +371,12 @@ export default function TransferDetailPage({ transfer, relatedTransfers }: Trans
                   {selectedLanguage === 'fr' && 'Caractéristiques principales'}
                 </h2>
                 <div className="grid sm:grid-cols-2 gap-4">
-                  {transfer.highlights[selectedLanguage].map((highlight, idx) => (
-                    <div key={idx} className="flex items-start gap-3">
-                      <CheckCircle2 className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5" />
-                      <span className="text-slate-700">{highlight}</span>
+                  {transfer.highlights[selectedLanguage].map((highlight, idx) =>
+                  <div key={idx} className="flex items-start gap-3">
+                      <CheckCircle2 className="w-6 h-6 text-lydian-success flex-shrink-0 mt-0.5" />
+                      <span className="text-lydian-text-secondary">{highlight}</span>
                     </div>
-                  ))}
+                  )}
                 </div>
               </motion.div>
 
@@ -385,9 +385,9 @@ export default function TransferDetailPage({ transfer, relatedTransfers }: Trans
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 }}
-                className="bg-transparent rounded-2xl shadow-lg p-8"
-              >
-                <h2 className="text-2xl font-bold text-slate-900 mb-6">
+                className="bg-lydian-bg-hover rounded-2xl shadow-lg p-8">
+
+                <h2 className="text-2xl font-bold text-lydian-text mb-6">
                   {selectedLanguage === 'tr' && 'Rota Haritası'}
                   {selectedLanguage === 'en' && 'Route Map'}
                   {selectedLanguage === 'ru' && 'Карта маршрута'}
@@ -395,7 +395,7 @@ export default function TransferDetailPage({ transfer, relatedTransfers }: Trans
                   {selectedLanguage === 'ar' && 'خريطة الطريق'}
                   {selectedLanguage === 'fr' && 'Carte de l\'itinéraire'}
                 </h2>
-                <div className="relative w-full h-96 bg-slate-100 rounded-xl overflow-hidden">
+                <div className="relative w-full h-96 bg-lydian-bg-surface-raised rounded-xl overflow-hidden">
                   <iframe
                     width="100%"
                     height="100%"
@@ -403,16 +403,16 @@ export default function TransferDetailPage({ transfer, relatedTransfers }: Trans
                     loading="lazy"
                     allowFullScreen
                     referrerPolicy="no-referrer-when-downgrade"
-                    src={`https://www.google.com/maps/embed/v1/directions?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&origin=${encodeURIComponent(getLocalizedText(transfer.from, 'en'))}&destination=${encodeURIComponent(getLocalizedText(transfer.to, 'en'))}&mode=driving`}
-                  />
+                    src={`https://www.google.com/maps/embed/v1/directions?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&origin=${encodeURIComponent(getLocalizedText(transfer.from, 'en'))}&destination=${encodeURIComponent(getLocalizedText(transfer.to, 'en'))}&mode=driving`} />
+
                 </div>
                 <div className="mt-4 flex gap-3">
                   <a
                     href={`https://www.google.com/maps/dir/${encodeURIComponent(getLocalizedText(transfer.from, 'en'))}/${encodeURIComponent(getLocalizedText(transfer.to, 'en'))}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-1 bg-blue-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-blue-700 transition-colors flex items-center justify-center gap-2"
-                  >
+                    className="flex-1 bg-lydian-primary text-lydian-text-inverse px-6 py-3 rounded-xl font-semibold hover:bg-lydian-primary-dark transition-colors flex items-center justify-center gap-2">
+
                     <Navigation className="w-5 h-5" />
                     {selectedLanguage === 'tr' && 'Yol Tarifi Al'}
                     {selectedLanguage === 'en' && 'Get Directions'}
@@ -431,10 +431,10 @@ export default function TransferDetailPage({ transfer, relatedTransfers }: Trans
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.3 }}
-                className="bg-transparent rounded-2xl shadow-2xl p-6 sticky top-24"
-              >
+                className="bg-lydian-bg-hover rounded-2xl shadow-2xl p-6 sticky top-24">
+
                 {/* Price Badge */}
-                <div className="bg-gradient-to-r from-green-500 to-emerald-600 text-white px-4 py-2 rounded-xl mb-6 flex items-center justify-center gap-2">
+                <div className="bg-gradient-to-r from-green-500 to-lydian-success text-lydian-text-inverse px-4 py-2 rounded-xl mb-6 flex items-center justify-center gap-2">
                   <TrendingDown className="w-5 h-5" />
                   <span className="font-bold">
                     {selectedLanguage === 'tr' && '%12 Daha Ucuz'}
@@ -446,7 +446,7 @@ export default function TransferDetailPage({ transfer, relatedTransfers }: Trans
                   </span>
                 </div>
 
-                <h3 className="text-xl font-bold text-slate-900 mb-4">
+                <h3 className="text-xl font-bold text-lydian-text mb-4">
                   {selectedLanguage === 'tr' && 'Araç Seçimi'}
                   {selectedLanguage === 'en' && 'Select Vehicle'}
                   {selectedLanguage === 'ru' && 'Выберите автомобиль'}
@@ -457,16 +457,16 @@ export default function TransferDetailPage({ transfer, relatedTransfers }: Trans
 
                 {/* Vehicle Options */}
                 <div className="space-y-3 mb-6">
-                  {Object.entries(transfer.pricing).map(([vehicleType, price]) => (
-                    <button
-                      key={vehicleType}
-                      onClick={() => setSelectedVehicle(vehicleType as keyof AntalyaTransferRoute['pricing'])}
-                      className={`w-full text-left p-4 rounded-xl border-2 transition-all ${
-                        selectedVehicle === vehicleType
-                          ? 'border-blue-600 bg-blue-50 shadow-lg'
-                          : 'border-slate-200 hover:border-blue-300 hover:bg-slate-50'
-                      }`}
-                    >
+                  {Object.entries(transfer.pricing).map(([vehicleType, price]) =>
+                  <button
+                    key={vehicleType}
+                    onClick={() => setSelectedVehicle(vehicleType as keyof AntalyaTransferRoute['pricing'])}
+                    className={`w-full text-left p-4 rounded-xl border-2 transition-all ${
+                    selectedVehicle === vehicleType ?
+                    'border-blue-600 bg-blue-50 shadow-lg' :
+                    'border-slate-200 hover:border-blue-300 hover:bg-slate-50'}`
+                    }>
+
                       <div className="flex items-center justify-between mb-2">
                         <div className="flex items-center gap-2">
                           <Car className={`w-5 h-5 ${selectedVehicle === vehicleType ? 'text-blue-600' : 'text-slate-400'}`} />
@@ -474,21 +474,21 @@ export default function TransferDetailPage({ transfer, relatedTransfers }: Trans
                             {vehicleLabels[vehicleType as keyof typeof vehicleLabels][selectedLanguage]}
                           </span>
                         </div>
-                        {selectedVehicle === vehicleType && (
-                          <CheckCircle2 className="w-5 h-5 text-blue-600" />
-                        )}
+                        {selectedVehicle === vehicleType &&
+                      <CheckCircle2 className="w-5 h-5 text-lydian-primary" />
+                      }
                       </div>
-                      <div className="text-2xl font-bold text-slate-900">
+                      <div className="text-2xl font-bold text-lydian-text">
                         ₺{price.toLocaleString()}
                       </div>
                     </button>
-                  ))}
+                  )}
                 </div>
 
                 {/* Selected Price Display */}
                 <div className="bg-gradient-to-r from-slate-50 to-blue-50 rounded-xl p-6 mb-6">
                   <div className="flex justify-between items-center mb-2">
-                    <span className="text-slate-600">
+                    <span className="text-lydian-text-secondary">
                       {selectedLanguage === 'tr' && 'Toplam Fiyat'}
                       {selectedLanguage === 'en' && 'Total Price'}
                       {selectedLanguage === 'ru' && 'Общая стоимость'}
@@ -497,7 +497,7 @@ export default function TransferDetailPage({ transfer, relatedTransfers }: Trans
                       {selectedLanguage === 'fr' && 'Prix total'}
                     </span>
                     <div className="text-right">
-                      <div className="text-3xl font-bold text-slate-900">
+                      <div className="text-3xl font-bold text-lydian-text">
                         ₺{transfer.pricing[selectedVehicle].toLocaleString()}
                       </div>
                     </div>
@@ -505,7 +505,7 @@ export default function TransferDetailPage({ transfer, relatedTransfers }: Trans
                 </div>
 
                 {/* Book Button */}
-                <button className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-4 rounded-xl font-bold text-lg hover:shadow-xl transition-all flex items-center justify-center gap-2 group">
+                <button className="w-full bg-gradient-to-r from-lydian-primary to-lydian-primary-dark text-lydian-text-inverse py-4 rounded-xl font-bold text-lg hover:shadow-xl transition-all flex items-center justify-center gap-2 group">
                   <Calendar className="w-6 h-6" />
                   {selectedLanguage === 'tr' && 'Hemen Rezervasyon Yap'}
                   {selectedLanguage === 'en' && 'Book Now'}
@@ -517,9 +517,9 @@ export default function TransferDetailPage({ transfer, relatedTransfers }: Trans
                 </button>
 
                 {/* Trust Badges */}
-                <div className="mt-6 pt-6 border-t border-slate-200 space-y-3">
-                  <div className="flex items-center gap-3 text-sm text-slate-600">
-                    <Shield className="w-5 h-5 text-green-600" />
+                <div className="mt-6 pt-6 border-t border-lydian-border space-y-3">
+                  <div className="flex items-center gap-3 text-sm text-lydian-text-secondary">
+                    <Shield className="w-5 h-5 text-lydian-success" />
                     {selectedLanguage === 'tr' && 'Ücretsiz İptal - 24 Saat Öncesine Kadar'}
                     {selectedLanguage === 'en' && 'Free Cancellation - Up to 24 Hours'}
                     {selectedLanguage === 'ru' && 'Бесплатная отмена - До 24 часов'}
@@ -527,8 +527,8 @@ export default function TransferDetailPage({ transfer, relatedTransfers }: Trans
                     {selectedLanguage === 'ar' && 'إلغاء مجاني - حتى 24 ساعة'}
                     {selectedLanguage === 'fr' && 'Annulation gratuite - Jusqu\'à 24 heures'}
                   </div>
-                  <div className="flex items-center gap-3 text-sm text-slate-600">
-                    <CheckCircle2 className="w-5 h-5 text-green-600" />
+                  <div className="flex items-center gap-3 text-sm text-lydian-text-secondary">
+                    <CheckCircle2 className="w-5 h-5 text-lydian-success" />
                     {selectedLanguage === 'tr' && 'Anında Onay - E-posta ile Voucher'}
                     {selectedLanguage === 'en' && 'Instant Confirmation - Email Voucher'}
                     {selectedLanguage === 'ru' && 'Мгновенное подтверждение - Ваучер по email'}
@@ -536,8 +536,8 @@ export default function TransferDetailPage({ transfer, relatedTransfers }: Trans
                     {selectedLanguage === 'ar' && 'تأكيد فوري - قسيمة بالبريد الإلكتروني'}
                     {selectedLanguage === 'fr' && 'Confirmation instantanée - Bon par email'}
                   </div>
-                  <div className="flex items-center gap-3 text-sm text-slate-600">
-                    <Phone className="w-5 h-5 text-green-600" />
+                  <div className="flex items-center gap-3 text-sm text-lydian-text-secondary">
+                    <Phone className="w-5 h-5 text-lydian-success" />
                     {selectedLanguage === 'tr' && '7/24 Müşteri Desteği'}
                     {selectedLanguage === 'en' && '24/7 Customer Support'}
                     {selectedLanguage === 'ru' && 'Поддержка 24/7'}
@@ -548,8 +548,8 @@ export default function TransferDetailPage({ transfer, relatedTransfers }: Trans
                 </div>
 
                 {/* Contact */}
-                <div className="mt-6 pt-6 border-t border-slate-200">
-                  <p className="text-sm text-slate-600 mb-3">
+                <div className="mt-6 pt-6 border-t border-lydian-border">
+                  <p className="text-sm text-lydian-text-secondary mb-3">
                     {selectedLanguage === 'tr' && 'Sorularınız mı var?'}
                     {selectedLanguage === 'en' && 'Have questions?'}
                     {selectedLanguage === 'ru' && 'Есть вопросы?'}
@@ -558,11 +558,11 @@ export default function TransferDetailPage({ transfer, relatedTransfers }: Trans
                     {selectedLanguage === 'fr' && 'Vous avez des questions?'}
                   </p>
                   <div className="space-y-2">
-                    <a href="tel:+905551234567" className="flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium">
+                    <a href="tel:+905551234567" className="flex items-center gap-2 text-lydian-primary hover:text-lydian-primary-dark font-medium">
                       <Phone className="w-4 h-4" />
                       +90 555 123 45 67
                     </a>
-                    <a href="mailto:transfer@lydian.com" className="flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium">
+                    <a href="mailto:transfer@lydian.com" className="flex items-center gap-2 text-lydian-primary hover:text-lydian-primary-dark font-medium">
                       <Mail className="w-4 h-4" />
                       transfer@lydian.com
                     </a>
@@ -573,14 +573,14 @@ export default function TransferDetailPage({ transfer, relatedTransfers }: Trans
           </div>
 
           {/* Related Transfers */}
-          {relatedTransfers.length > 0 && (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6 }}
-              className="mt-16"
-            >
-              <h2 className="text-3xl font-bold text-slate-900 mb-8">
+          {relatedTransfers.length > 0 &&
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6 }}
+            className="mt-16">
+
+              <h2 className="text-3xl font-bold text-lydian-text mb-8">
                 {selectedLanguage === 'tr' && 'Benzer Transferler'}
                 {selectedLanguage === 'en' && 'Related Transfers'}
                 {selectedLanguage === 'ru' && 'Похожие трансферы'}
@@ -589,30 +589,30 @@ export default function TransferDetailPage({ transfer, relatedTransfers }: Trans
                 {selectedLanguage === 'fr' && 'Transferts similaires'}
               </h2>
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {relatedTransfers.map((relatedTransfer) => (
-                  <Link
-                    key={relatedTransfer.id}
-                    href={`/transfers/${relatedTransfer.seo.slug[selectedLanguage]}`}
-                    className="group"
-                  >
-                    <div className="bg-transparent rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all">
+                {relatedTransfers.map((relatedTransfer) =>
+              <Link
+                key={relatedTransfer.id}
+                href={`/transfers/${relatedTransfer.seo.slug[selectedLanguage]}`}
+                className="group">
+
+                    <div className="bg-lydian-bg-hover rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all">
                       <div className="relative h-48">
                         <Image
-                          src={relatedTransfer.images[0]}
-                          alt={`${getLocalizedText(relatedTransfer.from, selectedLanguage)} - ${getLocalizedText(relatedTransfer.to, selectedLanguage)}`}
-                          fill
-                          className="object-cover group-hover:scale-110 transition-transform duration-500"
-                        />
+                      src={relatedTransfer.images[0]}
+                      alt={`${getLocalizedText(relatedTransfer.from, selectedLanguage)} - ${getLocalizedText(relatedTransfer.to, selectedLanguage)}`}
+                      fill
+                      className="object-cover group-hover:scale-110 transition-transform duration-500" />
+
                       </div>
                       <div className="p-6">
-                        <h3 className="text-lg font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition-colors">
+                        <h3 className="text-lg font-bold text-lydian-text mb-2 group-hover:text-lydian-primary transition-colors">
                           {getLocalizedText(relatedTransfer.from, selectedLanguage)} → {getLocalizedText(relatedTransfer.to, selectedLanguage)}
                         </h3>
-                        <p className="text-sm text-slate-600 mb-4 line-clamp-2">
+                        <p className="text-sm text-lydian-text-secondary mb-4 line-clamp-2">
                           {getLocalizedText(relatedTransfer.description, selectedLanguage)}
                         </p>
                         <div className="flex items-center justify-between">
-                          <div className="flex items-center gap-4 text-sm text-slate-500">
+                          <div className="flex items-center gap-4 text-sm text-lydian-text-tertiary">
                             <span className="flex items-center gap-1">
                               <Navigation className="w-4 h-4" />
                               {relatedTransfer.distance} km
@@ -622,25 +622,25 @@ export default function TransferDetailPage({ transfer, relatedTransfers }: Trans
                               {relatedTransfer.duration} dk
                             </span>
                           </div>
-                          <div className="text-xl font-bold text-blue-600">
+                          <div className="text-xl font-bold text-lydian-primary">
                             ₺{relatedTransfer.pricing.economySedan.toLocaleString()}
                           </div>
                         </div>
                       </div>
                     </div>
                   </Link>
-                ))}
+              )}
               </div>
             </motion.div>
-          )}
+          }
         </div>
       </div>
-    </>
-  );
+    </>);
+
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths: Array<{ params: { slug: string } }> = [];
+  const paths: Array<{params: {slug: string;};}> = [];
 
   // Generate paths for all transfers in all 6 languages
   antalyaAirportTransfers.forEach((transfer) => {
@@ -662,7 +662,7 @@ export const getStaticProps: GetStaticProps<TransferDetailPageProps> = async ({ 
 
   // Find transfer by slug in any language
   const transfer = antalyaAirportTransfers.find((t) =>
-    Object.values(t.seo.slug).includes(slug)
+  Object.values(t.seo.slug).includes(slug)
   );
 
   if (!transfer) {
@@ -672,9 +672,9 @@ export const getStaticProps: GetStaticProps<TransferDetailPageProps> = async ({ 
   }
 
   // Get related transfers (same category, different routes)
-  const relatedTransfers = antalyaAirportTransfers
-    .filter((t) => t.id !== transfer.id && t.category === transfer.category)
-    .slice(0, 3);
+  const relatedTransfers = antalyaAirportTransfers.
+  filter((t) => t.id !== transfer.id && t.category === transfer.category).
+  slice(0, 3);
 
   return {
     props: {

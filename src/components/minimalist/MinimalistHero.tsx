@@ -29,8 +29,8 @@ export const MinimalistHero: React.FC<MinimalistHeroProps> = ({
   return (
     <section
       className="relative w-full flex items-center justify-center overflow-hidden"
-      style={{ minHeight: height }}
-    >
+      style={{ minHeight: height }}>
+
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
@@ -39,47 +39,47 @@ export const MinimalistHero: React.FC<MinimalistHeroProps> = ({
           fill
           className="object-cover"
           priority
-          quality={85}
-        />
+          quality={85} />
+
         {/* Dark overlay for text readability */}
         <div
           className="absolute inset-0 bg-black"
-          style={{ opacity: overlayOpacity }}
-        />
+          style={{ opacity: overlayOpacity }} />
+
       </div>
 
       {/* Content */}
       <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
         <motion.div
           initial={minimalistAnimations.fadeInUp.initial}
-          animate={minimalistAnimations.fadeInUp.animate}
-        >
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-light text-white leading-tight mb-6">
+          animate={minimalistAnimations.fadeInUp.animate}>
+
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-light text-lydian-text-inverse leading-tight mb-6">
             {title}
           </h1>
 
-          {subtitle && (
-            <motion.p
-              className="text-lg md:text-xl lg:text-2xl text-white/90 font-light leading-relaxed"
-              initial={minimalistAnimations.textReveal.initial}
-              animate={minimalistAnimations.textReveal.animate}
-            >
+          {subtitle &&
+          <motion.p
+            className="text-lg md:text-xl lg:text-2xl text-lydian-text-inverse/90 font-light leading-relaxed"
+            initial={minimalistAnimations.textReveal.initial}
+            animate={minimalistAnimations.textReveal.animate}>
+
               {subtitle}
             </motion.p>
-          )}
+          }
 
-          {children && (
-            <motion.div
-              className="mt-8"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-            >
+          {children &&
+          <motion.div
+            className="mt-8"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}>
+
               {children}
             </motion.div>
-          )}
+          }
         </motion.div>
       </div>
-    </section>
-  );
+    </section>);
+
 };

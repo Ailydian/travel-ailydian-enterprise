@@ -8,8 +8,8 @@ import {
   CheckCircle2,
   Loader2,
   AlertCircle,
-  Car,
-} from 'lucide-react';
+  Car } from
+'lucide-react';
 
 import Step1VehicleCategory from '@/app/transfer-owner/vehicles/new/Step1VehicleCategory';
 import Step2VehicleInfo from '@/app/transfer-owner/vehicles/new/Step2VehicleInfo';
@@ -33,22 +33,22 @@ interface WizardFormData {
 }
 
 const stepTitles = [
-  'Araç Kategorisi',
-  'Araç Bilgileri',
-  'Fotoğraflar',
-  'Hizmet Bölgeleri & Rotalar',
-  'Yasal Belgeler',
-  'Gözden Geçir & Yayınla',
-];
+'Araç Kategorisi',
+'Araç Bilgileri',
+'Fotoğraflar',
+'Hizmet Bölgeleri & Rotalar',
+'Yasal Belgeler',
+'Gözden Geçir & Yayınla'];
+
 
 const stepDescriptions = [
-  'Transfer aracı tipini ve kategorisini seçin',
-  'Araç detayları, özellikler ve donanımları girin',
-  'Aracınızın fotoğraflarını yükleyin',
-  'Hizmet vereceğiniz bölgeleri ve rotaları belirleyin',
-  'D2 turizm belgesi ve diğer yasal evrakları yükleyin',
-  'Tüm bilgileri gözden geçirin ve yayınlayın',
-];
+'Transfer aracı tipini ve kategorisini seçin',
+'Araç detayları, özellikler ve donanımları girin',
+'Aracınızın fotoğraflarını yükleyin',
+'Hizmet vereceğiniz bölgeleri ve rotaları belirleyin',
+'D2 turizm belgesi ve diğer yasal evrakları yükleyin',
+'Tüm bilgileri gözden geçirin ve yayınlayın'];
+
 
 export default function TransferVehicleSubmissionWizard() {
   const [currentStep, setCurrentStep] = useState(1);
@@ -61,13 +61,13 @@ export default function TransferVehicleSubmissionWizard() {
   // Initialize form
   const methods = useForm({
     mode: 'onBlur',
-    defaultValues: allFormData[`step${currentStep}` as keyof WizardFormData] || {},
+    defaultValues: allFormData[`step${currentStep}` as keyof WizardFormData] || {}
   });
 
   const {
     handleSubmit,
     formState: { errors, isValid },
-    reset,
+    reset
   } = methods;
 
   // Load draft from localStorage on mount
@@ -107,7 +107,7 @@ export default function TransferVehicleSubmissionWizard() {
           formData: allFormData,
           currentStep,
           completedSteps,
-          savedAt: new Date().toISOString(),
+          savedAt: new Date().toISOString()
         };
 
         localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(draftData));
@@ -134,7 +134,7 @@ export default function TransferVehicleSubmissionWizard() {
         formData: allFormData,
         currentStep,
         completedSteps,
-        savedAt: new Date().toISOString(),
+        savedAt: new Date().toISOString()
       };
 
       localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(draftData));
@@ -152,7 +152,7 @@ export default function TransferVehicleSubmissionWizard() {
     const stepKey = `step${currentStep}` as keyof WizardFormData;
     const updatedFormData = {
       ...allFormData,
-      [stepKey]: data,
+      [stepKey]: data
     };
     setAllFormData(updatedFormData);
 
@@ -185,9 +185,9 @@ export default function TransferVehicleSubmissionWizard() {
       const response = await fetch('/api/transfer-vehicles/submit', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type': 'application/json'
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(formData)
       });
 
       if (!response.ok) {
@@ -215,13 +215,13 @@ export default function TransferVehicleSubmissionWizard() {
   };
 
   // Calculate progress percentage
-  const progressPercentage = (completedSteps.length / TOTAL_STEPS) * 100;
+  const progressPercentage = completedSteps.length / TOTAL_STEPS * 100;
 
   // Render current step component
   const renderStepComponent = () => {
     const stepProps = {
       data: allFormData[`step${currentStep}` as keyof WizardFormData],
-      allData: allFormData,
+      allData: allFormData
     };
 
     switch (currentStep) {
@@ -249,14 +249,14 @@ export default function TransferVehicleSubmissionWizard() {
           {/* Header */}
           <div className="mb-8">
             <div className="flex items-center gap-3 mb-4">
-              <div className="p-3 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-xl shadow-lg">
-                <Car className="w-8 h-8 text-white" />
+              <div className="p-3 bg-gradient-to-br from-cyan-500 to-lydian-primary rounded-xl shadow-lg">
+                <Car className="w-8 h-8 text-lydian-text-inverse" />
               </div>
               <div>
-                <h1 className="text-4xl font-bold bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent">
+                <h1 className="text-4xl font-bold bg-gradient-to-r from-cyan-600 to-lydian-primary bg-clip-text text-transparent">
                   Transfer Aracı Ekle
                 </h1>
-                <p className="text-slate-600 mt-1">
+                <p className="text-lydian-text-secondary mt-1">
                   Transfer filosuna yeni araç eklemek için formu doldurun
                 </p>
               </div>
@@ -266,87 +266,87 @@ export default function TransferVehicleSubmissionWizard() {
           {/* Progress Bar */}
           <div className="mb-8">
             <div className="flex justify-between items-center mb-3">
-              <span className="text-sm font-medium text-slate-700">
+              <span className="text-sm font-medium text-lydian-text-secondary">
                 Adım {currentStep} / {TOTAL_STEPS}
               </span>
-              <span className="text-sm text-slate-600">
+              <span className="text-sm text-lydian-text-secondary">
                 {Math.round(progressPercentage)}% Tamamlandı
               </span>
             </div>
             <div className="h-3 bg-slate-200 rounded-full overflow-hidden">
               <motion.div
-                className="h-full bg-gradient-to-r from-cyan-500 to-blue-600"
+                className="h-full bg-gradient-to-r from-cyan-500 to-lydian-primary"
                 initial={{ width: 0 }}
                 animate={{ width: `${progressPercentage}%` }}
-                transition={{ duration: 0.5, ease: 'easeInOut' }}
-              />
+                transition={{ duration: 0.5, ease: 'easeInOut' }} />
+
             </div>
           </div>
 
           {/* Step Indicators */}
           <div className="mb-8 overflow-x-auto">
             <div className="flex gap-2 min-w-max pb-2">
-              {Array.from({ length: TOTAL_STEPS }, (_, i) => i + 1).map((step) => (
-                <div
-                  key={step}
-                  className={`flex-1 min-w-[140px] p-3 rounded-lg border-2 transition-all ${
-                    step === currentStep
-                      ? 'border-cyan-500 bg-cyan-50'
-                      : completedSteps.includes(step)
-                      ? 'border-blue-500 bg-blue-50'
-                      : 'border-slate-200 bg-white'
-                  }`}
-                >
+              {Array.from({ length: TOTAL_STEPS }, (_, i) => i + 1).map((step) =>
+              <div
+                key={step}
+                className={`flex-1 min-w-[140px] p-3 rounded-lg border-2 transition-all ${
+                step === currentStep ?
+                'border-cyan-500 bg-cyan-50' :
+                completedSteps.includes(step) ?
+                'border-blue-500 bg-blue-50' :
+                'border-slate-200 bg-white'}`
+                }>
+
                   <div className="flex items-center gap-2 mb-1">
-                    {completedSteps.includes(step) ? (
-                      <CheckCircle2 className="w-5 h-5 text-blue-600" />
-                    ) : (
-                      <div
-                        className={`w-6 h-6 rounded-full flex items-center justify-center text-sm font-semibold ${
-                          step === currentStep
-                            ? 'bg-gradient-to-br from-cyan-500 to-blue-600 text-white'
-                            : 'bg-slate-200 text-slate-600'
-                        }`}
-                      >
+                    {completedSteps.includes(step) ?
+                  <CheckCircle2 className="w-5 h-5 text-lydian-primary" /> :
+
+                  <div
+                    className={`w-6 h-6 rounded-full flex items-center justify-center text-sm font-semibold ${
+                    step === currentStep ?
+                    'bg-gradient-to-br from-cyan-500 to-blue-600 text-white' :
+                    'bg-slate-200 text-slate-600'}`
+                    }>
+
                         {step}
                       </div>
-                    )}
+                  }
                     <span
-                      className={`text-xs font-medium ${
-                        step === currentStep ? 'text-cyan-700' : 'text-slate-600'
-                      }`}
-                    >
+                    className={`text-xs font-medium ${
+                    step === currentStep ? 'text-cyan-700' : 'text-slate-600'}`
+                    }>
+
                       Adım {step}
                     </span>
                   </div>
                   <p
-                    className={`text-xs leading-tight ${
-                      step === currentStep ? 'text-cyan-600' : 'text-slate-500'
-                    }`}
-                  >
+                  className={`text-xs leading-tight ${
+                  step === currentStep ? 'text-cyan-600' : 'text-slate-500'}`
+                  }>
+
                     {stepTitles[step - 1]}
                   </p>
                 </div>
-              ))}
+              )}
             </div>
           </div>
 
           {/* Auto-save indicator */}
-          {lastSavedAt && (
-            <div className="mb-4 flex items-center gap-2 text-sm text-slate-600">
+          {lastSavedAt &&
+          <div className="mb-4 flex items-center gap-2 text-sm text-lydian-text-secondary">
               <Save className="w-4 h-4 text-cyan-600" />
               <span>Son kayıt: {lastSavedAt.toLocaleTimeString('tr-TR')}</span>
             </div>
-          )}
+          }
 
           {/* Step Content */}
           <form onSubmit={handleSubmit(handleNext)}>
-            <div className="bg-white/5 rounded-xl shadow-lg p-8 mb-6">
+            <div className="bg-lydian-glass-dark rounded-xl shadow-lg p-8 mb-6">
               <div className="mb-6">
-                <h2 className="text-2xl font-bold text-slate-900 mb-2">
+                <h2 className="text-2xl font-bold text-lydian-text mb-2">
                   {stepTitles[currentStep - 1]}
                 </h2>
-                <p className="text-slate-600">{stepDescriptions[currentStep - 1]}</p>
+                <p className="text-lydian-text-secondary">{stepDescriptions[currentStep - 1]}</p>
               </div>
 
               {/* Step Component */}
@@ -356,32 +356,32 @@ export default function TransferVehicleSubmissionWizard() {
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -20 }}
-                  transition={{ duration: 0.3 }}
-                >
+                  transition={{ duration: 0.3 }}>
+
                   {renderStepComponent()}
                 </motion.div>
               </AnimatePresence>
 
               {/* Error Summary */}
-              {Object.keys(errors).length > 0 && (
-                <div className="mt-6 p-4 bg-red-50 border border-red-200 rounded-lg">
+              {Object.keys(errors).length > 0 &&
+              <div className="mt-6 p-4 bg-lydian-error-lighter border border-red-200 rounded-lg">
                   <div className="flex items-start gap-3">
-                    <AlertCircle className="w-5 h-5 text-red-600 mt-0.5" />
+                    <AlertCircle className="w-5 h-5 text-lydian-primary mt-0.5" />
                     <div>
                       <h4 className="font-semibold text-red-900 mb-1">
                         Lütfen aşağıdaki hataları düzeltin:
                       </h4>
-                      <ul className="text-sm text-red-700 space-y-1">
-                        {Object.entries(errors).map(([field, error]) => (
-                          <li key={field}>
+                      <ul className="text-sm text-lydian-primary-dark space-y-1">
+                        {Object.entries(errors).map(([field, error]) =>
+                      <li key={field}>
                             {field}: {error?.message?.toString()}
                           </li>
-                        ))}
+                      )}
                       </ul>
                     </div>
                   </div>
                 </div>
-              )}
+              }
             </div>
 
             {/* Navigation Buttons */}
@@ -391,8 +391,8 @@ export default function TransferVehicleSubmissionWizard() {
                   type="button"
                   onClick={handleBack}
                   disabled={currentStep === 1}
-                  className="px-6 py-3 bg-white/5 border-2 border-slate-300 rounded-lg font-semibold text-slate-700 hover:bg-slate-50 disabled:opacity-50 disabled:cursor-not-allowed transition-all flex items-center gap-2"
-                >
+                  className="px-6 py-3 bg-lydian-glass-dark border-2 border-lydian-border-medium rounded-lg font-semibold text-lydian-text-secondary hover:bg-lydian-bg-surface disabled:opacity-50 disabled:cursor-not-allowed transition-all flex items-center gap-2">
+
                   <ChevronLeft className="w-5 h-5" />
                   Geri
                 </button>
@@ -400,8 +400,8 @@ export default function TransferVehicleSubmissionWizard() {
                 <button
                   type="button"
                   onClick={handleSaveDraft}
-                  className="px-6 py-3 bg-white/5 border-2 border-cyan-300 rounded-lg font-semibold text-cyan-700 hover:bg-cyan-50 transition-all flex items-center gap-2"
-                >
+                  className="px-6 py-3 bg-lydian-glass-dark border-2 border-cyan-300 rounded-lg font-semibold text-cyan-700 hover:bg-cyan-50 transition-all flex items-center gap-2">
+
                   <Save className="w-5 h-5" />
                   Taslak Kaydet
                 </button>
@@ -410,24 +410,24 @@ export default function TransferVehicleSubmissionWizard() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="px-8 py-3 bg-gradient-to-r from-cyan-600 to-blue-600 text-white rounded-lg font-semibold hover:from-cyan-700 hover:to-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all flex items-center gap-2 shadow-lg"
-              >
-                {isSubmitting ? (
-                  <>
+                className="px-8 py-3 bg-gradient-to-r from-cyan-600 to-lydian-primary text-lydian-text-inverse rounded-lg font-semibold hover:from-cyan-700 hover:to-lydian-primary-dark disabled:opacity-50 disabled:cursor-not-allowed transition-all flex items-center gap-2 shadow-lg">
+
+                {isSubmitting ?
+                <>
                     <Loader2 className="w-5 h-5 animate-spin" />
                     Gönderiliyor...
-                  </>
-                ) : currentStep === TOTAL_STEPS ? (
-                  <>
+                  </> :
+                currentStep === TOTAL_STEPS ?
+                <>
                     Aracı Yayınla
                     <CheckCircle2 className="w-5 h-5" />
-                  </>
-                ) : (
-                  <>
+                  </> :
+
+                <>
                     Sonraki Adım
                     <ChevronRight className="w-5 h-5" />
                   </>
-                )}
+                }
               </button>
             </div>
           </form>
@@ -436,44 +436,44 @@ export default function TransferVehicleSubmissionWizard() {
 
       {/* Success Modal */}
       <AnimatePresence>
-        {showSuccessModal && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4"
-          >
+        {showSuccessModal &&
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+
             <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              className="bg-white/5 rounded-2xl p-8 max-w-md w-full text-center"
-            >
+            initial={{ scale: 0.9, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0.9, opacity: 0 }}
+            className="bg-lydian-glass-dark rounded-2xl p-8 max-w-md w-full text-center">
+
               <motion.div
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                transition={{ delay: 0.2, type: 'spring' }}
-                className="w-20 h-20 bg-gradient-to-br from-cyan-100 to-blue-100 rounded-full flex items-center justify-center mx-auto mb-6"
-              >
-                <CheckCircle2 className="w-12 h-12 text-blue-600" />
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              transition={{ delay: 0.2, type: 'spring' }}
+              className="w-20 h-20 bg-gradient-to-br from-cyan-100 to-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+
+                <CheckCircle2 className="w-12 h-12 text-lydian-primary" />
               </motion.div>
 
-              <h3 className="text-2xl font-bold text-slate-900 mb-3">
+              <h3 className="text-2xl font-bold text-lydian-text mb-3">
                 Araç Başarıyla Eklendi!
               </h3>
-              <p className="text-slate-600 mb-6">
+              <p className="text-lydian-text-secondary mb-6">
                 Aracınız inceleme için gönderildi. Onaylandıktan sonra transfer
                 hizmetlerinizde kullanılabilir hale gelecektir.
               </p>
 
-              <div className="flex items-center justify-center gap-2 text-sm text-slate-500">
+              <div className="flex items-center justify-center gap-2 text-sm text-lydian-text-tertiary">
                 <Loader2 className="w-4 h-4 animate-spin" />
                 <span>Panel'e yönlendiriliyorsunuz...</span>
               </div>
             </motion.div>
           </motion.div>
-        )}
+        }
       </AnimatePresence>
-    </div>
-  );
+    </div>);
+
 }

@@ -13,8 +13,8 @@ import {
   Eye, Edit, Trash2, Check, X, AlertCircle, Package,
   Car, Bus, Home, MapPin, Calendar, DollarSign,
   Star, Users, Clock, Globe, Image as ImageIcon, FileText,
-  Settings, RefreshCw, ChevronDown, Plane, Building2
-} from 'lucide-react';
+  Settings, RefreshCw, ChevronDown, Plane, Building2 } from
+'lucide-react';
 
 type ProductType = 'hotels' | 'tours' | 'flights' | 'transfers';
 
@@ -135,7 +135,7 @@ const AllProductsManagement = () => {
 
     try {
       const res = await fetch(`/api/admin/${productType}/${id}`, {
-        method: 'DELETE',
+        method: 'DELETE'
       });
 
       if (res.ok) {
@@ -154,7 +154,7 @@ const AllProductsManagement = () => {
       const res = await fetch(`/api/admin/${productType}/${id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ isActive: !currentStatus }),
+        body: JSON.stringify({ isActive: !currentStatus })
       });
 
       if (res.ok) {
@@ -166,31 +166,31 @@ const AllProductsManagement = () => {
   };
 
   const categories = [
-    { id: 'hotels', name: 'Oteller', icon: Building2, color: 'blue' },
-    { id: 'tours', name: 'Turlar', icon: MapPin, color: 'green' },
-    { id: 'flights', name: 'Uçuşlar', icon: Plane, color: 'purple' },
-    { id: 'transfers', name: 'Transferler', icon: Car, color: 'orange' },
-  ];
+  { id: 'hotels', name: 'Oteller', icon: Building2, color: 'blue' },
+  { id: 'tours', name: 'Turlar', icon: MapPin, color: 'green' },
+  { id: 'flights', name: 'Uçuşlar', icon: Plane, color: 'purple' },
+  { id: 'transfers', name: 'Transferler', icon: Car, color: 'orange' }];
+
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50">
       {/* Header */}
-      <div className="bg-white/5 border-b border-slate-200 sticky top-0 z-40 backdrop-blur-xl bg-white/80">
+      <div className="bg-lydian-glass-dark border-b border-lydian-border sticky top-0 z-40 backdrop-blur-xl bg-lydian-bg/80">
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
               <Link href="/admin/v2">
-                <button className="flex items-center gap-2 px-4 py-2 text-slate-600 hover:text-slate-900 hover:bg-slate-100 rounded-lg transition-all">
+                <button className="flex items-center gap-2 px-4 py-2 text-lydian-text-secondary hover:text-lydian-text hover:bg-lydian-bg-surface-raised rounded-lg transition-all">
                   <ArrowLeft className="w-5 h-5" />
                   <span className="font-medium">Dashboard'a Dön</span>
                 </button>
               </Link>
               <div className="h-8 w-px bg-slate-300" />
               <div>
-                <h1 className="text-2xl font-bold text-slate-900">
+                <h1 className="text-2xl font-bold text-lydian-text">
                   Tüm Ürünler Yönetimi
                 </h1>
-                <p className="text-sm text-slate-600">
+                <p className="text-sm text-lydian-text-secondary">
                   {total} ürün • {productType}
                 </p>
               </div>
@@ -199,14 +199,14 @@ const AllProductsManagement = () => {
             <div className="flex items-center gap-3">
               <button
                 onClick={fetchData}
-                className="p-2 text-slate-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all"
-              >
+                className="p-2 text-lydian-text-secondary hover:text-lydian-primary hover:bg-lydian-primary-lighter rounded-lg transition-all">
+
                 <RefreshCw className="w-5 h-5" />
               </button>
               <button
                 onClick={() => setShowAddModal(true)}
-                className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#667EEA] via-[#764BA2] to-[#667EEA] text-white rounded-lg hover:shadow-lg transition-all"
-              >
+                className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#667EEA] via-[#764BA2] to-[#667EEA] text-lydian-text-inverse rounded-lg hover:shadow-lg transition-all">
+
                 <Plus className="w-5 h-5" />
                 Yeni Ürün Ekle
               </button>
@@ -231,62 +231,62 @@ const AllProductsManagement = () => {
                 className={`
                   relative p-4 rounded-xl transition-all
                   ${
-                    isActive
-                      ? `bg-gradient-to-r from-${cat.color}-500 to-${cat.color}-600 text-white shadow-lg scale-105`
-                      : 'bg-white/5 text-slate-700 hover:bg-slate-50'
-                  }
-                `}
-              >
+                isActive ?
+                `bg-gradient-to-r from-${cat.color}-500 to-${cat.color}-600 text-white shadow-lg scale-105` :
+                'bg-white/5 text-slate-700 hover:bg-slate-50'}
+                `
+                }>
+
                 <Icon className="w-6 h-6 mx-auto mb-2" />
                 <div className="font-semibold">{cat.name}</div>
-              </button>
-            );
+              </button>);
+
           })}
         </div>
 
         {/* Search Bar */}
-        <div className="bg-white/5 rounded-xl shadow-sm p-4 mb-6">
+        <div className="bg-lydian-glass-dark rounded-xl shadow-sm p-4 mb-6">
           <div className="flex items-center gap-3">
-            <Search className="w-5 h-5 text-slate-400" />
+            <Search className="w-5 h-5 text-lydian-text-muted" />
             <input
               type="text"
               placeholder="Ürün ara..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="flex-1 outline-none text-slate-900 placeholder-slate-400"
-            />
-            <button className="px-4 py-2 bg-slate-100 hover:bg-slate-200 rounded-lg text-slate-700 transition-all">
+              className="flex-1 outline-none text-lydian-text placeholder-slate-400" />
+
+            <button className="px-4 py-2 bg-lydian-bg-surface-raised hover:bg-slate-200 rounded-lg text-lydian-text-secondary transition-all">
               <Filter className="w-5 h-5" />
             </button>
           </div>
         </div>
 
         {/* Loading State */}
-        {loading && (
-          <div className="flex items-center justify-center py-12">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600" />
+        {loading &&
+        <div className="flex items-center justify-center py-12">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-lydian-primary" />
           </div>
-        )}
+        }
 
         {/* Data Grid */}
-        {!loading && (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {data.map((item) => (
-              <motion.div
-                key={item.id}
-                layout
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="bg-white/5 rounded-xl shadow-sm hover:shadow-md transition-all overflow-hidden group"
-              >
+        {!loading &&
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {data.map((item) =>
+          <motion.div
+            key={item.id}
+            layout
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="bg-lydian-glass-dark rounded-xl shadow-sm hover:shadow-md transition-all overflow-hidden group">
+
                 {/* Card Content */}
                 <div className="p-5">
                   <div className="flex items-start justify-between mb-3">
                     <div className="flex-1">
-                      <h3 className="font-bold text-lg text-slate-900 mb-1 line-clamp-1">
+                      <h3 className="font-bold text-lg text-lydian-text mb-1 line-clamp-1">
                         {item.name || item.flightNumber}
                       </h3>
-                      <p className="text-sm text-slate-500">
+                      <p className="text-sm text-lydian-text-tertiary">
                         {productType === 'hotels' && `${item.city}, ${item.region}`}
                         {productType === 'tours' && item.destination}
                         {productType === 'flights' && `${item.departureCity} → ${item.arrivalCity}`}
@@ -295,16 +295,16 @@ const AllProductsManagement = () => {
                     </div>
 
                     <button
-                      onClick={() => toggleStatus(item.id, item.isActive)}
-                      className={`
+                  onClick={() => toggleStatus(item.id, item.isActive)}
+                  className={`
                         px-3 py-1 rounded-full text-xs font-medium transition-all
                         ${
-                          item.isActive
-                            ? 'bg-green-100 text-green-700 hover:bg-green-200'
-                            : 'bg-red-100 text-red-700 hover:bg-red-200'
-                        }
-                      `}
-                    >
+                  item.isActive ?
+                  'bg-green-100 text-green-700 hover:bg-green-200' :
+                  'bg-red-100 text-red-700 hover:bg-red-200'}
+                      `
+                  }>
+
                       {item.isActive ? 'Aktif' : 'Pasif'}
                     </button>
                   </div>
@@ -312,8 +312,8 @@ const AllProductsManagement = () => {
                   {/* Stats */}
                   <div className="grid grid-cols-2 gap-3 mb-4">
                     <div className="flex items-center gap-2 text-sm">
-                      <DollarSign className="w-4 h-4 text-green-600" />
-                      <span className="font-semibold text-slate-900">
+                      <DollarSign className="w-4 h-4 text-lydian-success" />
+                      <span className="font-semibold text-lydian-text">
                         {productType === 'hotels' && `₺${item.priceMin}-${item.priceMax}`}
                         {productType === 'tours' && `₺${item.priceAdult}`}
                         {productType === 'flights' && `₺${item.priceAdult}`}
@@ -321,111 +321,111 @@ const AllProductsManagement = () => {
                       </span>
                     </div>
 
-                    {(productType === 'hotels' || productType === 'tours') && (
-                      <div className="flex items-center gap-2 text-sm">
+                    {(productType === 'hotels' || productType === 'tours') &&
+                <div className="flex items-center gap-2 text-sm">
                         <Star className="w-4 h-4 text-yellow-500 fill-yellow-500" />
-                        <span className="font-semibold text-slate-900">
+                        <span className="font-semibold text-lydian-text">
                           {item.rating?.toFixed(1)} ({item.reviewCount})
                         </span>
                       </div>
-                    )}
+                }
 
-                    {productType === 'hotels' && (
-                      <div className="flex items-center gap-2 text-sm">
-                        <Home className="w-4 h-4 text-blue-600" />
-                        <span className="text-slate-600">{item.roomCount} oda</span>
+                    {productType === 'hotels' &&
+                <div className="flex items-center gap-2 text-sm">
+                        <Home className="w-4 h-4 text-lydian-primary" />
+                        <span className="text-lydian-text-secondary">{item.roomCount} oda</span>
                       </div>
-                    )}
+                }
 
-                    {productType === 'tours' && (
-                      <div className="flex items-center gap-2 text-sm">
+                    {productType === 'tours' &&
+                <div className="flex items-center gap-2 text-sm">
                         <Clock className="w-4 h-4 text-purple-600" />
-                        <span className="text-slate-600">{item.duration} gün</span>
+                        <span className="text-lydian-text-secondary">{item.duration} gün</span>
                       </div>
-                    )}
+                }
 
-                    {productType === 'flights' && (
-                      <div className="flex items-center gap-2 text-sm">
-                        <Users className="w-4 h-4 text-blue-600" />
-                        <span className="text-slate-600">{item.availableSeats} koltuk</span>
+                    {productType === 'flights' &&
+                <div className="flex items-center gap-2 text-sm">
+                        <Users className="w-4 h-4 text-lydian-primary" />
+                        <span className="text-lydian-text-secondary">{item.availableSeats} koltuk</span>
                       </div>
-                    )}
+                }
 
-                    {productType === 'transfers' && (
-                      <div className="flex items-center gap-2 text-sm">
+                    {productType === 'transfers' &&
+                <div className="flex items-center gap-2 text-sm">
                         <Car className="w-4 h-4 text-orange-600" />
-                        <span className="text-slate-600">{item.vehicles?.length} araç</span>
+                        <span className="text-lydian-text-secondary">{item.vehicles?.length} araç</span>
                       </div>
-                    )}
+                }
                   </div>
 
                   {/* Actions */}
                   <div className="flex items-center gap-2 pt-3 border-t border-slate-100">
                     <button
-                      onClick={() => setSelectedItem(item)}
-                      className="flex-1 flex items-center justify-center gap-2 px-3 py-2 bg-blue-50 text-blue-600 hover:bg-blue-100 rounded-lg transition-all text-sm font-medium"
-                    >
+                  onClick={() => setSelectedItem(item)}
+                  className="flex-1 flex items-center justify-center gap-2 px-3 py-2 bg-lydian-primary-lighter text-lydian-primary hover:bg-lydian-primary-light rounded-lg transition-all text-sm font-medium">
+
                       <Eye className="w-4 h-4" />
                       Görüntüle
                     </button>
-                    <button className="flex items-center justify-center gap-2 px-3 py-2 bg-green-50 text-green-600 hover:bg-green-100 rounded-lg transition-all text-sm font-medium">
+                    <button className="flex items-center justify-center gap-2 px-3 py-2 bg-lydian-success-lighter text-lydian-success hover:bg-lydian-success-light rounded-lg transition-all text-sm font-medium">
                       <Edit className="w-4 h-4" />
                     </button>
                     <button
-                      onClick={() => handleDelete(item.id)}
-                      className="flex items-center justify-center gap-2 px-3 py-2 bg-red-50 text-red-600 hover:bg-red-100 rounded-lg transition-all text-sm font-medium"
-                    >
+                  onClick={() => handleDelete(item.id)}
+                  className="flex items-center justify-center gap-2 px-3 py-2 bg-lydian-error-lighter text-lydian-primary hover:bg-lydian-error-light rounded-lg transition-all text-sm font-medium">
+
                       <Trash2 className="w-4 h-4" />
                     </button>
                   </div>
                 </div>
               </motion.div>
-            ))}
+          )}
           </div>
-        )}
+        }
 
         {/* Empty State */}
-        {!loading && data.length === 0 && (
-          <div className="bg-white/5 rounded-xl p-12 text-center">
-            <Package className="w-16 h-16 text-slate-300 mx-auto mb-4" />
-            <h3 className="text-xl font-bold text-slate-900 mb-2">
+        {!loading && data.length === 0 &&
+        <div className="bg-lydian-glass-dark rounded-xl p-12 text-center">
+            <Package className="w-16 h-16 text-lydian-text-dim mx-auto mb-4" />
+            <h3 className="text-xl font-bold text-lydian-text mb-2">
               Henüz ürün bulunmuyor
             </h3>
-            <p className="text-slate-600 mb-6">
+            <p className="text-lydian-text-secondary mb-6">
               İlk ürününüzü eklemek için yukarıdaki butonu kullanın
             </p>
             <button
-              onClick={() => setShowAddModal(true)}
-              className="px-6 py-3 bg-gradient-to-r from-[#667EEA] via-[#764BA2] to-[#667EEA] text-white rounded-lg hover:shadow-lg transition-all"
-            >
+            onClick={() => setShowAddModal(true)}
+            className="px-6 py-3 bg-gradient-to-r from-[#667EEA] via-[#764BA2] to-[#667EEA] text-lydian-text-inverse rounded-lg hover:shadow-lg transition-all">
+
               <Plus className="w-5 h-5 inline-block mr-2" />
               Yeni Ürün Ekle
             </button>
           </div>
-        )}
+        }
 
         {/* Pagination */}
-        {!loading && data.length > 0 && (
-          <div className="flex items-center justify-center gap-2 mt-8">
+        {!loading && data.length > 0 &&
+        <div className="flex items-center justify-center gap-2 mt-8">
             <button
-              onClick={() => setPage((p) => Math.max(1, p - 1))}
-              disabled={page === 1}
-              className="px-4 py-2 bg-white/5 rounded-lg text-slate-700 hover:bg-slate-50 disabled:opacity-50 disabled:cursor-not-allowed"
-            >
+            onClick={() => setPage((p) => Math.max(1, p - 1))}
+            disabled={page === 1}
+            className="px-4 py-2 bg-lydian-glass-dark rounded-lg text-lydian-text-secondary hover:bg-lydian-bg-surface disabled:opacity-50 disabled:cursor-not-allowed">
+
               Önceki
             </button>
-            <div className="px-4 py-2 bg-blue-600 text-white rounded-lg">
+            <div className="px-4 py-2 bg-lydian-primary text-lydian-text-inverse rounded-lg">
               {page}
             </div>
             <button
-              onClick={() => setPage((p) => p + 1)}
-              disabled={data.length < 20}
-              className="px-4 py-2 bg-white/5 rounded-lg text-slate-700 hover:bg-slate-50 disabled:opacity-50 disabled:cursor-not-allowed"
-            >
+            onClick={() => setPage((p) => p + 1)}
+            disabled={data.length < 20}
+            className="px-4 py-2 bg-lydian-glass-dark rounded-lg text-lydian-text-secondary hover:bg-lydian-bg-surface disabled:opacity-50 disabled:cursor-not-allowed">
+
               Sonraki
             </button>
           </div>
-        )}
+        }
       </div>
 
       {/* Add/Edit Modal */}
@@ -436,19 +436,19 @@ const AllProductsManagement = () => {
         onSuccess={() => {
           setShowAddModal(false);
           fetchData();
-        }}
-      />
+        }} />
+
 
       {/* View Modal */}
-      {selectedItem && (
-        <ViewProductModal
-          item={selectedItem}
-          productType={productType}
-          onClose={() => setSelectedItem(null)}
-        />
-      )}
-    </div>
-  );
+      {selectedItem &&
+      <ViewProductModal
+        item={selectedItem}
+        productType={productType}
+        onClose={() => setSelectedItem(null)} />
+
+      }
+    </div>);
+
 };
 
 // Add Product Modal Component
@@ -456,13 +456,13 @@ const AddProductModal = ({
   show,
   productType,
   onClose,
-  onSuccess,
-}: {
-  show: boolean;
-  productType: ProductType;
-  onClose: () => void;
-  onSuccess: () => void;
-}) => {
+  onSuccess
+
+
+
+
+
+}: {show: boolean;productType: ProductType;onClose: () => void;onSuccess: () => void;}) => {
   const [formData, setFormData] = useState<any>({});
   const [submitting, setSubmitting] = useState(false);
 
@@ -476,7 +476,7 @@ const AddProductModal = ({
       const res = await fetch(`/api/admin/${productType}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(formData)
       });
 
       if (res.ok) {
@@ -495,13 +495,13 @@ const AddProductModal = ({
 
   return (
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-      <div className="bg-white/5 rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
-        <div className="p-6 border-b border-slate-200 flex items-center justify-between sticky top-0 bg-white/5">
-          <h2 className="text-2xl font-bold text-slate-900">Yeni Ürün Ekle</h2>
+      <div className="bg-lydian-glass-dark rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+        <div className="p-6 border-b border-lydian-border flex items-center justify-between sticky top-0 bg-lydian-glass-dark">
+          <h2 className="text-2xl font-bold text-lydian-text">Yeni Ürün Ekle</h2>
           <button
             onClick={onClose}
-            className="p-2 hover:bg-slate-100 rounded-lg transition-all"
-          >
+            className="p-2 hover:bg-lydian-bg-surface-raised rounded-lg transition-all">
+
             <X className="w-5 h-5" />
           </button>
         </div>
@@ -510,7 +510,7 @@ const AddProductModal = ({
           <div className="space-y-4">
             {/* Common Fields */}
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-2">
+              <label className="block text-sm font-medium text-lydian-text-secondary mb-2">
                 Ürün Adı *
               </label>
               <input
@@ -518,12 +518,12 @@ const AddProductModal = ({
                 required
                 value={formData.name || ''}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
+                className="w-full px-4 py-2 border border-lydian-border-medium rounded-lg focus:outline-none focus:ring-2 focus:ring-lydian-border-focus" />
+
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-2">
+              <label className="block text-sm font-medium text-lydian-text-secondary mb-2">
                 Açıklama *
               </label>
               <textarea
@@ -531,8 +531,8 @@ const AddProductModal = ({
                 rows={4}
                 value={formData.description || ''}
                 onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-                className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
+                className="w-full px-4 py-2 border border-lydian-border-medium rounded-lg focus:outline-none focus:ring-2 focus:ring-lydian-border-focus" />
+
             </div>
 
             {/* Type-specific fields would go here */}
@@ -541,56 +541,56 @@ const AddProductModal = ({
               <button
                 type="button"
                 onClick={onClose}
-                className="flex-1 px-4 py-3 bg-slate-100 text-slate-700 rounded-lg hover:bg-slate-200 transition-all font-medium"
-              >
+                className="flex-1 px-4 py-3 bg-lydian-bg-surface-raised text-lydian-text-secondary rounded-lg hover:bg-slate-200 transition-all font-medium">
+
                 İptal
               </button>
               <button
                 type="submit"
                 disabled={submitting}
-                className="flex-1 px-4 py-3 bg-gradient-to-r from-[#667EEA] via-[#764BA2] to-[#667EEA] text-white rounded-lg hover:shadow-lg transition-all font-medium disabled:opacity-50"
-              >
+                className="flex-1 px-4 py-3 bg-gradient-to-r from-[#667EEA] via-[#764BA2] to-[#667EEA] text-lydian-text-inverse rounded-lg hover:shadow-lg transition-all font-medium disabled:opacity-50">
+
                 {submitting ? 'Ekleniyor...' : 'Ürün Ekle'}
               </button>
             </div>
           </div>
         </form>
       </div>
-    </div>
-  );
+    </div>);
+
 };
 
 // View Product Modal
 const ViewProductModal = ({
   item,
   productType,
-  onClose,
-}: {
-  item: any;
-  productType: ProductType;
-  onClose: () => void;
-}) => {
+  onClose
+
+
+
+
+}: {item: any;productType: ProductType;onClose: () => void;}) => {
   return (
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-      <div className="bg-white/5 rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto">
-        <div className="p-6 border-b border-slate-200 flex items-center justify-between sticky top-0 bg-white/5">
-          <h2 className="text-2xl font-bold text-slate-900">Ürün Detayları</h2>
+      <div className="bg-lydian-glass-dark rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto">
+        <div className="p-6 border-b border-lydian-border flex items-center justify-between sticky top-0 bg-lydian-glass-dark">
+          <h2 className="text-2xl font-bold text-lydian-text">Ürün Detayları</h2>
           <button
             onClick={onClose}
-            className="p-2 hover:bg-slate-100 rounded-lg transition-all"
-          >
+            className="p-2 hover:bg-lydian-bg-surface-raised rounded-lg transition-all">
+
             <X className="w-5 h-5" />
           </button>
         </div>
 
         <div className="p-6">
-          <pre className="bg-slate-100 p-4 rounded-lg overflow-x-auto text-sm">
+          <pre className="bg-lydian-bg-surface-raised p-4 rounded-lg overflow-x-auto text-sm">
             {JSON.stringify(item, null, 2)}
           </pre>
         </div>
       </div>
-    </div>
-  );
+    </div>);
+
 };
 
 export default AllProductsManagement;

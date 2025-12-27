@@ -20,8 +20,8 @@ import {
   Filter,
   X,
   Search,
-  Plus
-} from 'lucide-react';
+  Plus } from
+'lucide-react';
 
 interface DecentralizedReview {
   id: string;
@@ -73,106 +73,106 @@ const DecentralizedReviews: React.FC = () => {
 
   // Mock reviews data
   const mockReviews: DecentralizedReview[] = [
-    {
-      id: '1',
-      reviewer: {
-        address: '0x742d35C4e7b77d3B2E4B19e1a6B0c4b5e6C7d8E9',
-        nickname: 'CryptoTraveler',
-        reputation: 4.8,
-        totalReviews: 23,
-        verifiedTraveler: true
-      },
-      businessId: 'hotel-001',
-      businessName: 'Kapadokya Cave Hotel',
-      businessType: 'hotel',
-      rating: 5,
-      title: 'Muhteşem bir deneyim!',
-      content: 'Bu otel gerçekten benzersizdi. Mağara odaları çok otantik ve temizdi. Personel son derece yardımseverdi. Balon turunu izlemek için mükemmel bir konum. Kesinlikle tavsiye ederim!',
-      images: [
-        'https://images.unsplash.com/photo-1570939274719-c60ee3bf5cd9?w=400&h=300&q=90',
-        'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400&h=300&q=90'
-      ],
-      timestamp: new Date('2024-03-10'),
-      votes: {
-        helpful: 15,
-        notHelpful: 2
-      },
-      isVerified: true,
-      nftProof: {
-        tokenId: 1001,
-        contractAddress: '0x742d35C4e7b77d3B2E4B19e1a6B0c4b5e6C7d8E9',
-        metadata: 'ipfs://QmX4n8m2v...'
-      },
-      location: {
-        city: 'Göreme',
-        country: 'Türkiye'
-      },
-      tags: ['luxury', 'authentic', 'romantic', 'breakfast'],
-      response: {
-        from: 'Otel Yönetimi',
-        content: 'Değerli görüşleriniz için teşekkür ederiz! Sizin gibi misafirleri ağırlamak bizim için büyük bir mutluluk.',
-        timestamp: new Date('2024-03-11')
-      }
+  {
+    id: '1',
+    reviewer: {
+      address: '0x742d35C4e7b77d3B2E4B19e1a6B0c4b5e6C7d8E9',
+      nickname: 'CryptoTraveler',
+      reputation: 4.8,
+      totalReviews: 23,
+      verifiedTraveler: true
     },
-    {
-      id: '2',
-      reviewer: {
-        address: '0xA1b2C3d4E5f6A7b8C9d0E1f2A3b4C5d6E7f8A9b0',
-        nickname: 'BlockchainExplorer',
-        reputation: 4.6,
-        totalReviews: 31,
-        verifiedTraveler: true
-      },
-      businessId: 'restaurant-001',
-      businessName: 'Santorini Sunset Restaurant',
-      businessType: 'restaurant',
-      rating: 4,
-      title: 'Harika manzara, makul fiyat',
-      content: 'Restoran gün batımı manzarası için mükemmel. Yemekler lezzetliydi ama çok pahalı değil. Servis biraz yavaştı ama manzara bunu telafi ediyor.',
-      images: [
-        'https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=400&h=300&q=90'
-      ],
-      timestamp: new Date('2024-02-25'),
-      votes: {
-        helpful: 8,
-        notHelpful: 1
-      },
-      isVerified: true,
-      location: {
-        city: 'Oia',
-        country: 'Yunanistan'
-      },
-      tags: ['sunset', 'seafood', 'expensive', 'view']
+    businessId: 'hotel-001',
+    businessName: 'Kapadokya Cave Hotel',
+    businessType: 'hotel',
+    rating: 5,
+    title: 'Muhteşem bir deneyim!',
+    content: 'Bu otel gerçekten benzersizdi. Mağara odaları çok otantik ve temizdi. Personel son derece yardımseverdi. Balon turunu izlemek için mükemmel bir konum. Kesinlikle tavsiye ederim!',
+    images: [
+    'https://images.unsplash.com/photo-1570939274719-c60ee3bf5cd9?w=400&h=300&q=90',
+    'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400&h=300&q=90'],
+
+    timestamp: new Date('2024-03-10'),
+    votes: {
+      helpful: 15,
+      notHelpful: 2
     },
-    {
-      id: '3',
-      reviewer: {
-        address: '0xC1d2E3f4A5b6C7d8E9f0A1b2C3d4E5f6A7b8C9d0',
-        nickname: 'NFTCollector',
-        reputation: 4.9,
-        totalReviews: 45,
-        verifiedTraveler: true
-      },
-      businessId: 'attraction-001',
-      businessName: 'Ayasofya Müzesi',
-      businessType: 'attraction',
-      rating: 5,
-      title: 'Tarihin derinliklerinde bir yolculuk',
-      content: 'Ayasofya gerçekten nefes kesici. Hem Bizans hem de Osmanlı mimarisini bir arada görmek büyüleyici. Rehberli tur almanızı tavsiye ederim.',
-      images: [],
-      timestamp: new Date('2024-01-15'),
-      votes: {
-        helpful: 12,
-        notHelpful: 0
-      },
-      isVerified: false,
-      location: {
-        city: 'İstanbul',
-        country: 'Türkiye'
-      },
-      tags: ['historic', 'architecture', 'cultural', 'guide-recommended']
+    isVerified: true,
+    nftProof: {
+      tokenId: 1001,
+      contractAddress: '0x742d35C4e7b77d3B2E4B19e1a6B0c4b5e6C7d8E9',
+      metadata: 'ipfs://QmX4n8m2v...'
+    },
+    location: {
+      city: 'Göreme',
+      country: 'Türkiye'
+    },
+    tags: ['luxury', 'authentic', 'romantic', 'breakfast'],
+    response: {
+      from: 'Otel Yönetimi',
+      content: 'Değerli görüşleriniz için teşekkür ederiz! Sizin gibi misafirleri ağırlamak bizim için büyük bir mutluluk.',
+      timestamp: new Date('2024-03-11')
     }
-  ];
+  },
+  {
+    id: '2',
+    reviewer: {
+      address: '0xA1b2C3d4E5f6A7b8C9d0E1f2A3b4C5d6E7f8A9b0',
+      nickname: 'BlockchainExplorer',
+      reputation: 4.6,
+      totalReviews: 31,
+      verifiedTraveler: true
+    },
+    businessId: 'restaurant-001',
+    businessName: 'Santorini Sunset Restaurant',
+    businessType: 'restaurant',
+    rating: 4,
+    title: 'Harika manzara, makul fiyat',
+    content: 'Restoran gün batımı manzarası için mükemmel. Yemekler lezzetliydi ama çok pahalı değil. Servis biraz yavaştı ama manzara bunu telafi ediyor.',
+    images: [
+    'https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=400&h=300&q=90'],
+
+    timestamp: new Date('2024-02-25'),
+    votes: {
+      helpful: 8,
+      notHelpful: 1
+    },
+    isVerified: true,
+    location: {
+      city: 'Oia',
+      country: 'Yunanistan'
+    },
+    tags: ['sunset', 'seafood', 'expensive', 'view']
+  },
+  {
+    id: '3',
+    reviewer: {
+      address: '0xC1d2E3f4A5b6C7d8E9f0A1b2C3d4E5f6A7b8C9d0',
+      nickname: 'NFTCollector',
+      reputation: 4.9,
+      totalReviews: 45,
+      verifiedTraveler: true
+    },
+    businessId: 'attraction-001',
+    businessName: 'Ayasofya Müzesi',
+    businessType: 'attraction',
+    rating: 5,
+    title: 'Tarihin derinliklerinde bir yolculuk',
+    content: 'Ayasofya gerçekten nefes kesici. Hem Bizans hem de Osmanlı mimarisini bir arada görmek büyüleyici. Rehberli tur almanızı tavsiye ederim.',
+    images: [],
+    timestamp: new Date('2024-01-15'),
+    votes: {
+      helpful: 12,
+      notHelpful: 0
+    },
+    isVerified: false,
+    location: {
+      city: 'İstanbul',
+      country: 'Türkiye'
+    },
+    tags: ['historic', 'architecture', 'cultural', 'guide-recommended']
+  }];
+
 
   useEffect(() => {
     // Simulate loading reviews
@@ -188,17 +188,17 @@ const DecentralizedReviews: React.FC = () => {
 
     // Apply filter
     if (filter === 'verified') {
-      filtered = filtered.filter(review => review.isVerified);
+      filtered = filtered.filter((review) => review.isVerified);
     } else if (filter === 'nft-proof') {
-      filtered = filtered.filter(review => review.nftProof);
+      filtered = filtered.filter((review) => review.nftProof);
     }
 
     // Apply search
     if (searchQuery) {
-      filtered = filtered.filter(review =>
-        review.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        review.content.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        review.businessName.toLowerCase().includes(searchQuery.toLowerCase())
+      filtered = filtered.filter((review) =>
+      review.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      review.content.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      review.businessName.toLowerCase().includes(searchQuery.toLowerCase())
       );
     }
 
@@ -221,59 +221,59 @@ const DecentralizedReviews: React.FC = () => {
 
   const getBusinessTypeIcon = (type: string) => {
     switch (type) {
-      case 'hotel': return '🏨';
-      case 'restaurant': return '🍽️';
-      case 'attraction': return '🎯';
-      case 'transport': return '🚗';
-      default: return '📍';
+      case 'hotel':return '🏨';
+      case 'restaurant':return '🍽️';
+      case 'attraction':return '🎯';
+      case 'transport':return '🚗';
+      default:return '📍';
     }
   };
 
   const getBusinessTypeColor = (type: string) => {
     switch (type) {
-      case 'hotel': return 'bg-blue-100 text-blue-700';
-      case 'restaurant': return 'bg-orange-100 text-orange-700';
-      case 'attraction': return 'bg-purple-100 text-purple-700';
-      case 'transport': return 'bg-green-100 text-green-700';
-      default: return 'bg-white/10 text-gray-200';
+      case 'hotel':return 'bg-blue-100 text-blue-700';
+      case 'restaurant':return 'bg-orange-100 text-orange-700';
+      case 'attraction':return 'bg-purple-100 text-purple-700';
+      case 'transport':return 'bg-green-100 text-green-700';
+      default:return 'bg-white/10 text-gray-200';
     }
   };
 
   const renderStars = (rating: number) => {
-    return Array.from({ length: 5 }, (_, i) => (
-      <Star
-        key={i}
-        className={`w-4 h-4 ${
-          i < rating ? 'text-yellow-500 fill-current' : 'text-gray-300'
-        }`}
-      />
-    ));
+    return Array.from({ length: 5 }, (_, i) =>
+    <Star
+      key={i}
+      className={`w-4 h-4 ${
+      i < rating ? 'text-yellow-500 fill-current' : 'text-gray-300'}`
+      } />
+
+    );
   };
 
-  const ReviewCard: React.FC<{ review: DecentralizedReview }> = ({ review }) => (
-    <div className="bg-white/5 rounded-2xl shadow-lg p-6 cursor-pointer hover:shadow-xl transition-all" onClick={() => setSelectedReview(review)}>
+  const ReviewCard: React.FC<{review: DecentralizedReview;}> = ({ review }) =>
+  <div className="bg-lydian-glass-dark rounded-2xl shadow-lg p-6 cursor-pointer hover:shadow-xl transition-all" onClick={() => setSelectedReview(review)}>
       <motion.div
-        layoutId={review.id}
-        whileHover={{ y: -4 }}
-        style={{ width: '100%' }}
-      >
+      layoutId={review.id}
+      whileHover={{ y: -4 }}
+      style={{ width: '100%' }}>
+
       {/* Header */}
       <div className="flex items-start justify-between mb-4">
         <div className="flex items-center gap-3">
-          <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-blue-600 rounded-xl flex items-center justify-center text-white font-bold">
+          <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-lydian-primary rounded-xl flex items-center justify-center text-lydian-text-inverse font-bold">
             {review.reviewer.nickname.charAt(0)}
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <span className="font-semibold text-white">{review.reviewer.nickname}</span>
-              {review.reviewer.verifiedTraveler && (
-                <CheckCircle className="w-4 h-4 text-green-500" />
-              )}
-              {review.nftProof && (
-                <Award className="w-4 h-4 text-purple-500" />
-              )}
+              <span className="font-semibold text-lydian-text-inverse">{review.reviewer.nickname}</span>
+              {review.reviewer.verifiedTraveler &&
+              <CheckCircle className="w-4 h-4 text-green-500" />
+              }
+              {review.nftProof &&
+              <Award className="w-4 h-4 text-purple-500" />
+              }
             </div>
-            <div className="flex items-center gap-2 text-xs text-gray-400">
+            <div className="flex items-center gap-2 text-xs text-lydian-text-muted">
               <span>{review.reviewer.totalReviews} yorum</span>
               <span>•</span>
               <div className="flex items-center gap-1">
@@ -288,18 +288,18 @@ const DecentralizedReviews: React.FC = () => {
           <div className={`px-2 py-1 rounded-full text-xs font-medium ${getBusinessTypeColor(review.businessType)}`}>
             {getBusinessTypeIcon(review.businessType)} {review.businessType}
           </div>
-          {review.isVerified && (
-            <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center">
-              <Shield className="w-3 h-3 text-green-600" />
+          {review.isVerified &&
+          <div className="w-6 h-6 bg-lydian-success-light rounded-full flex items-center justify-center">
+              <Shield className="w-3 h-3 text-lydian-success" />
             </div>
-          )}
+          }
         </div>
       </div>
 
       {/* Business Info */}
       <div className="mb-3">
-        <h3 className="font-semibold text-white mb-1">{review.businessName}</h3>
-        <div className="flex items-center gap-2 text-sm text-gray-300">
+        <h3 className="font-semibold text-lydian-text-inverse mb-1">{review.businessName}</h3>
+        <div className="flex items-center gap-2 text-sm text-lydian-text-dim">
           <MapPin className="w-4 h-4" />
           <span>{review.location.city}, {review.location.country}</span>
         </div>
@@ -311,38 +311,38 @@ const DecentralizedReviews: React.FC = () => {
           <div className="flex items-center gap-1">
             {renderStars(review.rating)}
           </div>
-          <span className="text-sm font-medium text-gray-200">{review.rating}/5</span>
+          <span className="text-sm font-medium text-lydian-text-muted">{review.rating}/5</span>
         </div>
-        <h4 className="font-medium text-white">{review.title}</h4>
+        <h4 className="font-medium text-lydian-text-inverse">{review.title}</h4>
       </div>
 
       {/* Content Preview */}
-      <p className="text-gray-200 text-sm line-clamp-3 mb-4">
+      <p className="text-lydian-text-muted text-sm line-clamp-3 mb-4">
         {review.content}
       </p>
 
       {/* Images */}
-      {review.images.length > 0 && (
-        <div className="flex gap-2 mb-4 overflow-x-auto">
-          {review.images.slice(0, 3).map((image, index) => (
-            <img
-              key={index}
-              src={image}
-              alt=""
-              className="w-16 h-16 object-cover rounded-lg flex-shrink-0"
-            />
-          ))}
-          {review.images.length > 3 && (
-            <div className="w-16 h-16 bg-white/10 rounded-lg flex items-center justify-center text-xs text-gray-400 flex-shrink-0">
+      {review.images.length > 0 &&
+      <div className="flex gap-2 mb-4 overflow-x-auto">
+          {review.images.slice(0, 3).map((image, index) =>
+        <img
+          key={index}
+          src={image}
+          alt=""
+          className="w-16 h-16 object-cover rounded-lg flex-shrink-0" />
+
+        )}
+          {review.images.length > 3 &&
+        <div className="w-16 h-16 bg-lydian-glass-dark-medium rounded-lg flex items-center justify-center text-xs text-lydian-text-muted flex-shrink-0">
               +{review.images.length - 3}
             </div>
-          )}
+        }
         </div>
-      )}
+      }
 
       {/* Footer */}
       <div className="flex items-center justify-between pt-4 border-t">
-        <div className="flex items-center gap-4 text-sm text-gray-400">
+        <div className="flex items-center gap-4 text-sm text-lydian-text-muted">
           <div className="flex items-center gap-1">
             <ThumbsUp className="w-4 h-4" />
             <span>{review.votes.helpful}</span>
@@ -354,38 +354,38 @@ const DecentralizedReviews: React.FC = () => {
         </div>
         
         <div className="flex items-center gap-2">
-          {review.nftProof && (
-            <div className="px-2 py-1 bg-purple-100 text-purple-700 rounded-full text-xs font-medium">
+          {review.nftProof &&
+          <div className="px-2 py-1 bg-purple-100 text-purple-700 rounded-full text-xs font-medium">
               NFT Kanıt
             </div>
-          )}
-          <Eye className="w-4 h-4 text-gray-400" />
+          }
+          <Eye className="w-4 h-4 text-lydian-text-muted" />
         </div>
       </div>
       </motion.div>
-    </div>
-  );
+    </div>;
+
 
   return (
     <div className="max-w-6xl mx-auto p-6">
       {/* Header */}
       <div className="flex items-center justify-between mb-8">
         <div>
-          <h1 className="text-3xl font-bold text-white flex items-center gap-3">
-            <div className="p-3 bg-gradient-to-r from-green-500 to-blue-600 rounded-2xl">
-              <Shield className="w-8 h-8 text-white" />
+          <h1 className="text-3xl font-bold text-lydian-text-inverse flex items-center gap-3">
+            <div className="p-3 bg-gradient-to-r from-green-500 to-lydian-primary rounded-2xl">
+              <Shield className="w-8 h-8 text-lydian-text-inverse" />
             </div>
             Merkezi Olmayan Yorumlar
           </h1>
-          <p className="text-gray-300 mt-2">
+          <p className="text-lydian-text-dim mt-2">
             Blockchain ile doğrulanmış, değiştirilemez seyahat deneyimleri
           </p>
         </div>
 
         <button
           onClick={() => setShowWriteReview(true)}
-          className="flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-green-600 to-blue-600 text-white rounded-xl font-medium hover:shadow-lg transition-all transform hover:scale-105"
-        >
+          className="flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-lydian-success to-lydian-primary text-lydian-text-inverse rounded-xl font-medium hover:shadow-lg transition-all transform hover:scale-105">
+
           <Plus className="w-5 h-5" />
           Yorum Yaz
         </button>
@@ -393,49 +393,49 @@ const DecentralizedReviews: React.FC = () => {
 
       {/* Stats */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-        <div className="bg-white/5 rounded-2xl p-6 text-center shadow-lg">
-          <div className="text-3xl font-bold text-white mb-2">{reviews.length}</div>
-          <div className="text-sm text-gray-300">Toplam Yorum</div>
+        <div className="bg-lydian-glass-dark rounded-2xl p-6 text-center shadow-lg">
+          <div className="text-3xl font-bold text-lydian-text-inverse mb-2">{reviews.length}</div>
+          <div className="text-sm text-lydian-text-dim">Toplam Yorum</div>
         </div>
-        <div className="bg-white/5 rounded-2xl p-6 text-center shadow-lg">
-          <div className="text-3xl font-bold text-green-600 mb-2">
-            {reviews.filter(r => r.isVerified).length}
+        <div className="bg-lydian-glass-dark rounded-2xl p-6 text-center shadow-lg">
+          <div className="text-3xl font-bold text-lydian-success mb-2">
+            {reviews.filter((r) => r.isVerified).length}
           </div>
-          <div className="text-sm text-gray-300">Doğrulanmış</div>
+          <div className="text-sm text-lydian-text-dim">Doğrulanmış</div>
         </div>
-        <div className="bg-white/5 rounded-2xl p-6 text-center shadow-lg">
+        <div className="bg-lydian-glass-dark rounded-2xl p-6 text-center shadow-lg">
           <div className="text-3xl font-bold text-purple-600 mb-2">
-            {reviews.filter(r => r.nftProof).length}
+            {reviews.filter((r) => r.nftProof).length}
           </div>
-          <div className="text-sm text-gray-300">NFT Kanıtlı</div>
+          <div className="text-sm text-lydian-text-dim">NFT Kanıtlı</div>
         </div>
-        <div className="bg-white/5 rounded-2xl p-6 text-center shadow-lg">
-          <div className="text-3xl font-bold text-blue-600 mb-2">4.7</div>
-          <div className="text-sm text-gray-300">Ortalama Puan</div>
+        <div className="bg-lydian-glass-dark rounded-2xl p-6 text-center shadow-lg">
+          <div className="text-3xl font-bold text-lydian-primary mb-2">4.7</div>
+          <div className="text-sm text-lydian-text-dim">Ortalama Puan</div>
         </div>
       </div>
 
       {/* Filters and Search */}
-      <div className="bg-white/5 rounded-2xl shadow-lg p-6 mb-8">
+      <div className="bg-lydian-glass-dark rounded-2xl shadow-lg p-6 mb-8">
         <div className="flex flex-col md:flex-row gap-4">
           {/* Search */}
           <div className="flex-1 relative">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-lydian-text-muted" />
             <input
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Yorum, işletme adı veya içerik ara..."
-              className="w-full pl-10 pr-4 py-3 border border-white/20 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-            />
+              className="w-full pl-10 pr-4 py-3 border border-lydian-border-light rounded-lg focus:ring-2 focus:ring-lydian-border-focus focus:border-lydian-border" />
+
           </div>
 
           {/* Filter */}
           <select
             value={filter}
             onChange={(e) => setFilter(e.target.value as any)}
-            className="px-4 py-3 border border-white/20 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-          >
+            className="px-4 py-3 border border-lydian-border-light rounded-lg focus:ring-2 focus:ring-lydian-border-focus focus:border-lydian-border">
+
             <option value="all">Tüm Yorumlar</option>
             <option value="verified">Doğrulanmış</option>
             <option value="nft-proof">NFT Kanıtlı</option>
@@ -445,8 +445,8 @@ const DecentralizedReviews: React.FC = () => {
           <select
             value={sortBy}
             onChange={(e) => setSortBy(e.target.value as any)}
-            className="px-4 py-3 border border-white/20 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-          >
+            className="px-4 py-3 border border-lydian-border-light rounded-lg focus:ring-2 focus:ring-lydian-border-focus focus:border-lydian-border">
+
             <option value="newest">En Yeni</option>
             <option value="rating">En Yüksek Puan</option>
             <option value="helpful">En Yararlı</option>
@@ -455,46 +455,46 @@ const DecentralizedReviews: React.FC = () => {
       </div>
 
       {/* Reviews Grid */}
-      {isLoading ? (
-        <div className="flex items-center justify-center py-20">
-          <div className="w-12 h-12 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
+      {isLoading ?
+      <div className="flex items-center justify-center py-20">
+          <div className="w-12 h-12 border-4 border-lydian-primary border-t-transparent rounded-full animate-spin"></div>
+        </div> :
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {getFilteredAndSortedReviews().map((review) =>
+        <ReviewCard key={review.id} review={review} />
+        )}
         </div>
-      ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {getFilteredAndSortedReviews().map((review) => (
-            <ReviewCard key={review.id} review={review} />
-          ))}
-        </div>
-      )}
+      }
 
       {/* Review Detail Modal */}
       <AnimatePresence>
-        {selectedReview && (
-          <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50" onClick={() => setSelectedReview(null)}>
+        {selectedReview &&
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50" onClick={() => setSelectedReview(null)}>
             <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-            >
-              <div className="bg-white/5 rounded-2xl overflow-hidden w-full max-w-4xl max-h-[90vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}>
+
+              <div className="bg-lydian-glass-dark rounded-2xl overflow-hidden w-full max-w-4xl max-h-[90vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
                 <motion.div
-                  layoutId={selectedReview.id}
-                  style={{ width: '100%' }}
-                >
+                layoutId={selectedReview.id}
+                style={{ width: '100%' }}>
+
                 {/* Modal content would go here */}
                 <div className="p-6">
                 <div className="flex items-center justify-between mb-6">
-                  <h3 className="text-2xl font-bold text-white">Yorum Detayı</h3>
+                  <h3 className="text-2xl font-bold text-lydian-text-inverse">Yorum Detayı</h3>
                   <button
-                    onClick={() => setSelectedReview(null)}
-                    className="p-2 hover:bg-white/10 rounded-lg transition-colors"
-                  >
-                    <X className="w-6 h-6 text-gray-400" />
+                      onClick={() => setSelectedReview(null)}
+                      className="p-2 hover:bg-lydian-glass-dark-medium rounded-lg transition-colors">
+
+                    <X className="w-6 h-6 text-lydian-text-muted" />
                   </button>
                 </div>
                 
                 {/* Full review content would be implemented here */}
-                <div className="text-center py-8 text-gray-400">
+                <div className="text-center py-8 text-lydian-text-muted">
                   Detaylı yorum görünümü burada yer alacak...
                 </div>
                 </div>
@@ -502,46 +502,46 @@ const DecentralizedReviews: React.FC = () => {
               </div>
             </motion.div>
           </div>
-        )}
+        }
       </AnimatePresence>
 
       {/* Write Review Modal */}
       <AnimatePresence>
-        {showWriteReview && (
-          <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50" onClick={() => setShowWriteReview(false)}>
+        {showWriteReview &&
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50" onClick={() => setShowWriteReview(false)}>
             <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-            >
-              <div className="bg-white/5 rounded-2xl p-6 w-full max-w-2xl" onClick={(e) => e.stopPropagation()}>
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}>
+
+              <div className="bg-lydian-glass-dark rounded-2xl p-6 w-full max-w-2xl" onClick={(e) => e.stopPropagation()}>
                 <motion.div
-                  initial={{ scale: 0.9, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  exit={{ scale: 0.9, opacity: 0 }}
-                  style={{ width: '100%' }}
-                >
+                initial={{ scale: 0.9, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.9, opacity: 0 }}
+                style={{ width: '100%' }}>
+
               <div className="flex items-center justify-between mb-6">
-                <h3 className="text-2xl font-bold text-white">Yeni Yorum Yaz</h3>
+                <h3 className="text-2xl font-bold text-lydian-text-inverse">Yeni Yorum Yaz</h3>
                 <button
-                  onClick={() => setShowWriteReview(false)}
-                  className="p-2 hover:bg-white/10 rounded-lg transition-colors"
-                >
-                  <X className="w-6 h-6 text-gray-400" />
+                    onClick={() => setShowWriteReview(false)}
+                    className="p-2 hover:bg-lydian-glass-dark-medium rounded-lg transition-colors">
+
+                  <X className="w-6 h-6 text-lydian-text-muted" />
                 </button>
               </div>
               
-              <div className="text-center py-8 text-gray-400">
+              <div className="text-center py-8 text-lydian-text-muted">
                 Yorum yazma formu burada yer alacak...
               </div>
                 </motion.div>
               </div>
             </motion.div>
           </div>
-        )}
+        }
       </AnimatePresence>
-    </div>
-  );
+    </div>);
+
 };
 
 export default DecentralizedReviews;

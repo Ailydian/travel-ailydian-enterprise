@@ -31,8 +31,8 @@ import {
   Hotel,
   Calendar,
   Clock,
-  Shield,
-} from 'lucide-react';
+  Shield } from
+'lucide-react';
 import { FuturisticHeader } from '@/components/layout/FuturisticHeader';
 import TransferRouteSelector from '@/components/transfers/TransferRouteSelector';
 import type { AdvancedLocationSuggestion } from '@/lib/location-service-advanced';
@@ -41,106 +41,106 @@ import {
   TRANSFERS_SEO,
   TRANSFER_SERVICE_SCHEMA,
   TRANSFER_FAQ_SCHEMA,
-  generateBreadcrumbSchema
-} from '@/lib/seo-config';
+  generateBreadcrumbSchema } from
+'@/lib/seo-config';
 import antalyaTransfers from '@/data/antalya-transfers';
 
 // Transfer vehicle types
 const TRANSFER_TYPES = [
-  { value: 'all', label: 'Tüm Araçlar', capacity: null },
-  { value: 'economy-sedan', label: 'Ekonomik Sedan', capacity: 3 },
-  { value: 'vip-sedan', label: 'VIP Sedan', capacity: 3 },
-  { value: 'minivan', label: 'Minivan', capacity: 7 },
-  { value: 'vip-minivan', label: 'VIP Minivan', capacity: 7 },
-  { value: 'minibus-14', label: 'Minibüs (14)', capacity: 14 },
-  { value: 'bus-30', label: 'Otobüs (30)', capacity: 30 },
-];
+{ value: 'all', label: 'Tüm Araçlar', capacity: null },
+{ value: 'economy-sedan', label: 'Ekonomik Sedan', capacity: 3 },
+{ value: 'vip-sedan', label: 'VIP Sedan', capacity: 3 },
+{ value: 'minivan', label: 'Minivan', capacity: 7 },
+{ value: 'vip-minivan', label: 'VIP Minivan', capacity: 7 },
+{ value: 'minibus-14', label: 'Minibüs (14)', capacity: 14 },
+{ value: 'bus-30', label: 'Otobüs (30)', capacity: 30 }];
+
 
 // Popular routes
 const POPULAR_ROUTES = [
-  {
-    id: 'r1',
-    from: 'İstanbul Havalimanı',
-    to: 'Taksim',
-    distance: '45 km',
-    duration: '40 dk',
-    price: 250,
-    vehicles: 24,
-  },
-  {
-    id: 'r2',
-    from: 'Antalya Havalimanı',
-    to: 'Lara Oteller',
-    distance: '18 km',
-    duration: '25 dk',
-    price: 180,
-    vehicles: 18,
-  },
-  {
-    id: 'r3',
-    from: 'Sabiha Gökçen',
-    to: 'Kadıköy',
-    distance: '35 km',
-    duration: '35 dk',
-    price: 220,
-    vehicles: 31,
-  },
-];
+{
+  id: 'r1',
+  from: 'İstanbul Havalimanı',
+  to: 'Taksim',
+  distance: '45 km',
+  duration: '40 dk',
+  price: 250,
+  vehicles: 24
+},
+{
+  id: 'r2',
+  from: 'Antalya Havalimanı',
+  to: 'Lara Oteller',
+  distance: '18 km',
+  duration: '25 dk',
+  price: 180,
+  vehicles: 18
+},
+{
+  id: 'r3',
+  from: 'Sabiha Gökçen',
+  to: 'Kadıköy',
+  distance: '35 km',
+  duration: '35 dk',
+  price: 220,
+  vehicles: 31
+}];
+
 
 // Mock transfer data
 const MOCK_TRANSFERS = [
-  {
-    id: 't1',
-    company: 'VIP Transfer İstanbul',
-    vehicleType: 'vip-sedan',
-    vehicle: 'Mercedes E-Class',
-    capacity: 3,
-    luggage: 3,
-    image: 'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=800',
-    price: 280,
-    rating: 4.9,
-    reviews: 234,
-    city: 'İstanbul',
-    features: ['WiFi', 'Su', 'Klima', 'Profesyonel Şoför'],
-    instantBook: true,
-    d2License: true,
-    onTimeRate: 98,
-  },
-  {
-    id: 't2',
-    company: 'Antalya Premium Transfer',
-    vehicleType: 'minivan',
-    vehicle: 'Mercedes Vito',
-    capacity: 7,
-    luggage: 7,
-    image: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=800',
-    price: 350,
-    rating: 4.8,
-    reviews: 189,
-    city: 'Antalya',
-    features: ['WiFi', 'Soğuk İçecek', 'Çocuk Koltuğu', 'Klima'],
-    instantBook: true,
-    d2License: true,
-    onTimeRate: 96,
-  },
-  {
-    id: 't3',
-    company: 'Bodrum Airport Transfer',
-    vehicleType: 'vip-minivan',
-    vehicle: 'Mercedes Vito VIP',
-    capacity: 6,
-    luggage: 6,
-    image: 'https://images.unsplash.com/photo-1600054800747-be294a6a0d26?w=800',
-    price: 450,
-    rating: 5.0,
-    reviews: 156,
-    city: 'Bodrum',
-    features: ['Deri Koltuk', 'WiFi', 'Tablet', 'Premium Su'],
-    instantBook: true,
-    d2License: true,
-    onTimeRate: 99,
-  },
-];
+{
+  id: 't1',
+  company: 'VIP Transfer İstanbul',
+  vehicleType: 'vip-sedan',
+  vehicle: 'Mercedes E-Class',
+  capacity: 3,
+  luggage: 3,
+  image: 'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=800',
+  price: 280,
+  rating: 4.9,
+  reviews: 234,
+  city: 'İstanbul',
+  features: ['WiFi', 'Su', 'Klima', 'Profesyonel Şoför'],
+  instantBook: true,
+  d2License: true,
+  onTimeRate: 98
+},
+{
+  id: 't2',
+  company: 'Antalya Premium Transfer',
+  vehicleType: 'minivan',
+  vehicle: 'Mercedes Vito',
+  capacity: 7,
+  luggage: 7,
+  image: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=800',
+  price: 350,
+  rating: 4.8,
+  reviews: 189,
+  city: 'Antalya',
+  features: ['WiFi', 'Soğuk İçecek', 'Çocuk Koltuğu', 'Klima'],
+  instantBook: true,
+  d2License: true,
+  onTimeRate: 96
+},
+{
+  id: 't3',
+  company: 'Bodrum Airport Transfer',
+  vehicleType: 'vip-minivan',
+  vehicle: 'Mercedes Vito VIP',
+  capacity: 6,
+  luggage: 6,
+  image: 'https://images.unsplash.com/photo-1600054800747-be294a6a0d26?w=800',
+  price: 450,
+  rating: 5.0,
+  reviews: 156,
+  city: 'Bodrum',
+  features: ['Deri Koltuk', 'WiFi', 'Tablet', 'Premium Su'],
+  instantBook: true,
+  d2License: true,
+  onTimeRate: 99
+}];
+
 
 interface Filters {
   city: string;
@@ -172,7 +172,7 @@ const TransfersPage: React.FC = () => {
     priceMin: 0,
     priceMax: 2000,
     instantBook: false,
-    d2License: false,
+    d2License: false
   });
 
   const handleSearch = () => {
@@ -184,7 +184,7 @@ const TransfersPage: React.FC = () => {
     }
 
     // Map passengers to capacity
-    const passengersMap: { [key: string]: number } = {
+    const passengersMap: {[key: string]: number;} = {
       '1': 1,
       '2': 2,
       '3': 3,
@@ -202,7 +202,7 @@ const TransfersPage: React.FC = () => {
   };
 
   const toggleFavorite = (id: string) => {
-    setFavorites(prev => {
+    setFavorites((prev) => {
       const newSet = new Set(prev);
       if (newSet.has(id)) {
         newSet.delete(id);
@@ -240,23 +240,23 @@ const TransfersPage: React.FC = () => {
 
     // Filtreler varsa uygula
     if (filters.city !== 'Tümü') {
-      transfers = transfers.filter(t => t.city === filters.city);
+      transfers = transfers.filter((t) => t.city === filters.city);
     }
     if (filters.vehicleType !== 'all') {
-      transfers = transfers.filter(t => t.vehicleType === filters.vehicleType);
+      transfers = transfers.filter((t) => t.vehicleType === filters.vehicleType);
     }
     if (filters.capacity > 0) {
-      transfers = transfers.filter(t => t.capacity >= filters.capacity);
+      transfers = transfers.filter((t) => t.capacity >= filters.capacity);
     }
     if (filters.priceMin > 0 || filters.priceMax < 2000) {
-      transfers = transfers.filter(t => t.price >= filters.priceMin && t.price <= filters.priceMax);
+      transfers = transfers.filter((t) => t.price >= filters.priceMin && t.price <= filters.priceMax);
     }
     if (searchQuery) {
-      transfers = transfers.filter(t =>
-        t.company.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        t.vehicle.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        t.transferData.from.tr.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        t.transferData.to.tr.toLowerCase().includes(searchQuery.toLowerCase())
+      transfers = transfers.filter((t) =>
+      t.company.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      t.vehicle.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      t.transferData.from.tr.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      t.transferData.to.tr.toLowerCase().includes(searchQuery.toLowerCase())
       );
     }
 
@@ -264,15 +264,15 @@ const TransfersPage: React.FC = () => {
   }, [allTransfers, filters, searchQuery]);
 
   const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: 'Ana Sayfa', url: '/' },
-    { name: 'Transfer Hizmetleri', url: '/transfers' }
-  ]);
+  { name: 'Ana Sayfa', url: '/' },
+  { name: 'Transfer Hizmetleri', url: '/transfers' }]
+  );
 
   return (
     <>
       <NextSeo
-        {...TRANSFERS_SEO}
-      />
+        {...TRANSFERS_SEO} />
+
 
       <Head>
         <title>{TRANSFERS_SEO.title}</title>
@@ -280,31 +280,31 @@ const TransfersPage: React.FC = () => {
         {/* Structured Data - Schema.org */}
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(TRANSFER_SERVICE_SCHEMA) }}
-        />
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(TRANSFER_SERVICE_SCHEMA) }} />
+
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(TRANSFER_FAQ_SCHEMA) }}
-        />
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(TRANSFER_FAQ_SCHEMA) }} />
+
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-        />
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+
       </Head>
 
       <FuturisticHeader />
 
-      <main className="min-h-screen bg-white/5">
+      <main className="min-h-screen bg-lydian-glass-dark">
         {/* Hero Section - Full Width Search */}
-        <section className="relative bg-gradient-to-br from-blue-600 via-cyan-600 to-blue-700 text-white py-24">
+        <section className="relative bg-gradient-to-br from-lydian-primary via-cyan-600 to-lydian-primary-dark text-lydian-text-inverse py-24">
           <div className="max-w-7xl mx-auto px-4">
             <motion.div
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="text-center mb-12"
-            >
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/20 rounded-full mb-6">
+              className="text-center mb-12">
+
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-lydian-glass-dark-heavy rounded-full mb-6">
                 <Bus className="w-5 h-5" />
                 <span className="text-sm font-medium">Transfer Hizmetleri</span>
               </div>
@@ -325,8 +325,8 @@ const TransfersPage: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="max-w-6xl mx-auto"
-            >
+              className="max-w-6xl mx-auto">
+
               <TransferRouteSelector
                 from={searchForm.from}
                 to={searchForm.to}
@@ -342,41 +342,41 @@ const TransfersPage: React.FC = () => {
                 onDateTimeChange={(value) => setSearchForm({ ...searchForm, dateTime: value })}
                 onPassengersChange={(value) => setSearchForm({ ...searchForm, passengers: value })}
                 onVehicleTypeChange={(value) => setSearchForm({ ...searchForm, vehicleType: value })}
-                onSearch={handleSearch}
-              />
+                onSearch={handleSearch} />
+
             </motion.div>
           </div>
         </section>
 
         {/* Popüler Rotalar */}
-        <section className="bg-white/5 py-12">
+        <section className="bg-lydian-glass-dark py-12">
           <div className="max-w-7xl mx-auto px-4">
-            <h2 className="text-3xl font-bold text-white mb-8">Popüler Rotalar</h2>
+            <h2 className="text-3xl font-bold text-lydian-text-inverse mb-8">Popüler Rotalar</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {POPULAR_ROUTES.map((route) => (
-                <div
-                  key={route.id}
-                  className="bg-gradient-to-br from-gray-50 to-white border border-white/10 rounded-2xl p-6 hover:shadow-lg transition-all cursor-pointer group"
-                >
+              {POPULAR_ROUTES.map((route) =>
+              <div
+                key={route.id}
+                className="bg-gradient-to-br from-gray-50 to-white border border-lydian-border-light/10 rounded-2xl p-6 hover:shadow-lg transition-all cursor-pointer group">
+
                   <div className="flex items-start justify-between mb-4">
                     <div className="flex-1">
-                      <div className="flex items-center gap-2 text-gray-400 text-sm mb-2">
+                      <div className="flex items-center gap-2 text-lydian-text-muted text-sm mb-2">
                         <Plane className="w-4 h-4" />
                         <span>{route.from}</span>
                       </div>
                       <div className="flex items-center gap-2 my-3">
                         <div className="h-px flex-1 bg-gradient-to-r from-blue-400 to-cyan-400"></div>
-                        <ArrowRight className="w-5 h-5 text-blue-600 group-hover:translate-x-1 transition-transform" />
+                        <ArrowRight className="w-5 h-5 text-lydian-primary group-hover:translate-x-1 transition-transform" />
                         <div className="h-px flex-1 bg-gradient-to-r from-cyan-400 to-blue-400"></div>
                       </div>
-                      <div className="flex items-center gap-2 text-gray-400 text-sm">
+                      <div className="flex items-center gap-2 text-lydian-text-muted text-sm">
                         <Hotel className="w-4 h-4" />
                         <span>{route.to}</span>
                       </div>
                     </div>
                   </div>
 
-                  <div className="flex items-center justify-between text-sm text-gray-100 mb-4">
+                  <div className="flex items-center justify-between text-sm text-lydian-text-dim mb-4">
                     <span>{route.distance}</span>
                     <span>•</span>
                     <span>{route.duration}</span>
@@ -384,28 +384,28 @@ const TransfersPage: React.FC = () => {
                     <span>{route.vehicles} araç</span>
                   </div>
 
-                  <div className="flex items-center justify-between pt-4 border-t border-white/10">
+                  <div className="flex items-center justify-between pt-4 border-t border-lydian-border-light/10">
                     <div>
-                      <div className="text-sm text-gray-200">Başlangıç</div>
-                      <div className="text-2xl font-bold text-white">₺{route.price}</div>
+                      <div className="text-sm text-lydian-text-muted">Başlangıç</div>
+                      <div className="text-2xl font-bold text-lydian-text-inverse">₺{route.price}</div>
                     </div>
-                    <button className="px-4 py-2 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors">
+                    <button className="px-4 py-2 bg-lydian-primary text-lydian-text-inverse rounded-lg font-medium hover:bg-lydian-primary-dark transition-colors">
                       Ara Bul
                     </button>
                   </div>
                 </div>
-              ))}
+              )}
             </div>
           </div>
         </section>
 
         {/* Filters Bar */}
-        <section className="bg-transparent border-b border-white/10 sticky top-20 z-40 py-4">
+        <section className="bg-lydian-bg-hover border-b border-lydian-border-light/10 sticky top-20 z-40 py-4">
           <div className="max-w-7xl mx-auto px-4">
             <button
               onClick={() => setShowFilters(!showFilters)}
-              className="flex items-center gap-2 px-4 py-2 border border-white/20 rounded-lg hover:bg-white/5 transition-colors"
-            >
+              className="flex items-center gap-2 px-4 py-2 border border-lydian-border-light rounded-lg hover:bg-lydian-glass-dark transition-colors">
+
               <Filter className="w-5 h-5" />
               Filtrele
             </button>
@@ -413,61 +413,61 @@ const TransfersPage: React.FC = () => {
         </section>
 
         {/* Transfer Listings - Always show, not conditional */}
-        <section className="bg-transparent py-12">
+        <section className="bg-lydian-bg-hover py-12">
           <div className="max-w-7xl mx-auto px-4">
             <div className="mb-8">
-              <h2 className="text-3xl font-bold text-white">
+              <h2 className="text-3xl font-bold text-lydian-text-inverse">
                 Mevcut Transferler ({filteredTransfers.length})
               </h2>
-              <p className="text-gray-300 mt-2">
-                {filteredTransfers.length === allTransfers.length
-                  ? 'Tüm transfer seçenekleri gösteriliyor'
-                  : 'Filtrelenmiş transfer seçenekleri'}
+              <p className="text-lydian-text-dim mt-2">
+                {filteredTransfers.length === allTransfers.length ?
+                'Tüm transfer seçenekleri gösteriliyor' :
+                'Filtrelenmiş transfer seçenekleri'}
               </p>
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-              {filteredTransfers.map((transfer) => (
-                <motion.div
-                  key={transfer.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="bg-transparent border border-white/10 rounded-2xl overflow-hidden hover:shadow-xl transition-all group"
-                >
+              {filteredTransfers.map((transfer) =>
+              <motion.div
+                key={transfer.id}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="bg-lydian-bg-hover border border-lydian-border-light/10 rounded-2xl overflow-hidden hover:shadow-xl transition-all group">
+
                   <div className="relative h-48 bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center">
                     <AnimatedCarSVG className="w-48 h-32" />
                     <button
-                      onClick={() => toggleFavorite(transfer.id)}
-                      className="absolute top-3 right-3 w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/5 transition-colors"
-                    >
+                    onClick={() => toggleFavorite(transfer.id)}
+                    className="absolute top-3 right-3 w-10 h-10 bg-lydian-bg/90 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-lydian-glass-dark transition-colors">
+
                       <Heart
-                        className={`w-5 h-5 ${
-                          favorites.has(transfer.id)
-                            ? 'fill-red-500 text-red-500'
-                            : 'text-gray-300'
-                        }`}
-                      />
+                      className={`w-5 h-5 ${
+                      favorites.has(transfer.id) ?
+                      'fill-red-500 text-red-500' :
+                      'text-gray-300'}`
+                      } />
+
                     </button>
-                    {transfer.instantBook && (
-                      <div className="absolute top-3 left-3 px-3 py-1 bg-blue-600 text-white text-sm font-semibold rounded-full flex items-center gap-1">
+                    {transfer.instantBook &&
+                  <div className="absolute top-3 left-3 px-3 py-1 bg-lydian-primary text-lydian-text-inverse text-sm font-semibold rounded-full flex items-center gap-1">
                         <Zap className="w-4 h-4" />
                         Anında Rezervasyon
                       </div>
-                    )}
+                  }
                   </div>
 
                   <div className="p-5">
                     {/* Route Info */}
-                    <div className="mb-3 pb-3 border-b border-gray-100">
-                      <div className="flex items-center gap-2 text-sm text-gray-100 mb-1">
-                        <MapPin className="w-4 h-4 text-blue-600" />
+                    <div className="mb-3 pb-3 border-b border-lydian-border-light">
+                      <div className="flex items-center gap-2 text-sm text-lydian-text-dim mb-1">
+                        <MapPin className="w-4 h-4 text-lydian-primary" />
                         <span className="font-medium">{transfer.transferData.from.tr}</span>
                       </div>
                       <div className="flex items-center gap-2 ml-6">
-                        <ArrowRight className="w-4 h-4 text-gray-400" />
-                        <span className="text-sm text-gray-100">{transfer.transferData.to.tr}</span>
+                        <ArrowRight className="w-4 h-4 text-lydian-text-muted" />
+                        <span className="text-sm text-lydian-text-dim">{transfer.transferData.to.tr}</span>
                       </div>
-                      <div className="flex items-center gap-3 mt-2 text-xs text-gray-200 ml-6">
+                      <div className="flex items-center gap-3 mt-2 text-xs text-lydian-text-muted ml-6">
                         <span className="flex items-center gap-1">
                           <Clock className="w-3 h-3" />
                           {transfer.transferData.duration} dk
@@ -479,17 +479,17 @@ const TransfersPage: React.FC = () => {
 
                     <div className="flex items-center justify-between mb-3">
                       <div>
-                        <h3 className="font-bold text-lg text-white">{transfer.company}</h3>
-                        <p className="text-sm text-gray-100">{transfer.vehicle}</p>
+                        <h3 className="font-bold text-lg text-lydian-text-inverse">{transfer.company}</h3>
+                        <p className="text-sm text-lydian-text-dim">{transfer.vehicle}</p>
                       </div>
                       <div className="flex items-center gap-1">
                         <Star className="w-5 h-5 fill-yellow-400 text-yellow-400" />
-                        <span className="font-semibold text-white">{transfer.rating}</span>
-                        <span className="text-sm text-gray-200">({transfer.reviews})</span>
+                        <span className="font-semibold text-lydian-text-inverse">{transfer.rating}</span>
+                        <span className="text-sm text-lydian-text-muted">({transfer.reviews})</span>
                       </div>
                     </div>
 
-                    <div className="flex items-center gap-4 text-sm text-gray-100 mb-4">
+                    <div className="flex items-center gap-4 text-sm text-lydian-text-dim mb-4">
                       <div className="flex items-center gap-1">
                         <Users className="w-4 h-4" />
                         <span>{transfer.capacity} kişi</span>
@@ -501,80 +501,80 @@ const TransfersPage: React.FC = () => {
                     </div>
 
                     <div className="flex flex-wrap gap-2 mb-4">
-                      {transfer.features.slice(0, 3).map((feature, index) => (
-                        <span
-                          key={index}
-                          className="px-2 py-1 bg-white/10 text-gray-200 text-xs rounded-full"
-                        >
+                      {transfer.features.slice(0, 3).map((feature, index) =>
+                    <span
+                      key={index}
+                      className="px-2 py-1 bg-lydian-glass-dark-medium text-lydian-text-muted text-xs rounded-full">
+
                           {feature}
                         </span>
-                      ))}
+                    )}
                     </div>
 
-                    <div className="pt-4 border-t border-white/10">
+                    <div className="pt-4 border-t border-lydian-border-light/10">
                       <div className="flex items-center justify-between mb-3">
                         <div>
-                          <div className="text-sm text-gray-200">Başlangıç</div>
-                          <div className="text-2xl font-bold text-white">₺{transfer.price}</div>
+                          <div className="text-sm text-lydian-text-muted">Başlangıç</div>
+                          <div className="text-2xl font-bold text-lydian-text-inverse">₺{transfer.price}</div>
                         </div>
                         <div className="text-right">
-                          <div className="text-xs text-gray-200">Zamanında Gelme</div>
-                          <div className="text-sm font-semibold text-green-600">%{transfer.onTimeRate}</div>
+                          <div className="text-xs text-lydian-text-muted">Zamanında Gelme</div>
+                          <div className="text-sm font-semibold text-lydian-success">%{transfer.onTimeRate}</div>
                         </div>
                       </div>
 
                       {/* Buttons */}
                       <div className="grid grid-cols-2 gap-2">
                         <Link
-                          href={`/transfers/${transfer.transferData.seo.slug.tr}`}
-                          className="px-4 py-2 border border-blue-600 text-blue-600 rounded-lg font-semibold hover:bg-blue-50 transition-colors text-center text-sm"
-                        >
+                        href={`/transfers/${transfer.transferData.seo.slug.tr}`}
+                        className="px-4 py-2 border border-lydian-primary text-lydian-primary rounded-lg font-semibold hover:bg-lydian-primary-lighter transition-colors text-center text-sm">
+
                           Detayları Gör
                         </Link>
                         <Link
-                          href={`/transfers/${transfer.transferData.seo.slug.tr}?book=true`}
-                          className="px-4 py-2 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors text-center text-sm"
-                        >
+                        href={`/transfers/${transfer.transferData.seo.slug.tr}?book=true`}
+                        className="px-4 py-2 bg-lydian-primary text-lydian-text-inverse rounded-lg font-semibold hover:bg-lydian-primary-dark transition-colors text-center text-sm">
+
                           Rezervasyon
                         </Link>
                       </div>
                     </div>
                   </div>
                 </motion.div>
-              ))}
+              )}
             </div>
 
-            {filteredTransfers.length === 0 && (
-              <div className="text-center py-12">
-                <p className="text-gray-400 text-lg">Aradığınız kriterlere uygun transfer bulunamadı.</p>
+            {filteredTransfers.length === 0 &&
+            <div className="text-center py-12">
+                <p className="text-lydian-text-muted text-lg">Aradığınız kriterlere uygun transfer bulunamadı.</p>
                 <button
-                  onClick={() => {
-                    setFilters({
-                      city: 'Tümü',
-                      vehicleType: 'all',
-                      capacity: 0,
-                      priceMin: 0,
-                      priceMax: 2000,
-                      instantBook: false,
-                      d2License: false,
-                    });
-                    setSearchQuery('');
-                  }}
-                  className="mt-4 px-6 py-2 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors"
-                >
+                onClick={() => {
+                  setFilters({
+                    city: 'Tümü',
+                    vehicleType: 'all',
+                    capacity: 0,
+                    priceMin: 0,
+                    priceMax: 2000,
+                    instantBook: false,
+                    d2License: false
+                  });
+                  setSearchQuery('');
+                }}
+                className="mt-4 px-6 py-2 bg-lydian-primary text-lydian-text-inverse rounded-lg font-semibold hover:bg-lydian-primary-dark transition-colors">
+
                   Filtreleri Temizle
                 </button>
               </div>
-            )}
+            }
           </div>
         </section>
 
         {/* Partner Program Section */}
-        <section className="py-20 bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-600 relative overflow-hidden">
+        <section className="py-20 bg-gradient-to-br from-lydian-primary via-indigo-600 to-lydian-secondary relative overflow-hidden">
           {/* Background Pattern */}
           <div className="absolute inset-0 opacity-10">
             <div className="absolute inset-0" style={{
-              backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+              backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
             }}></div>
           </div>
 
@@ -584,8 +584,8 @@ const TransfersPage: React.FC = () => {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="inline-flex items-center gap-2 px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-white mb-6"
-              >
+                className="inline-flex items-center gap-2 px-4 py-2 bg-lydian-glass-dark-heavy backdrop-blur-sm rounded-full text-lydian-text-inverse mb-6">
+
                 <Sparkles className="w-5 h-5" />
                 <span className="font-semibold">Transfer Ortağı Olun</span>
               </motion.div>
@@ -595,8 +595,8 @@ const TransfersPage: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.1 }}
-                className="text-4xl md:text-5xl font-bold text-white mb-6"
-              >
+                className="text-4xl md:text-5xl font-bold text-lydian-text-inverse mb-6">
+
                 Transfer Hizmetinizi{' '}
                 <span className="bg-clip-text text-transparent bg-gradient-to-r from-yellow-300 to-orange-300">
                   Global Pazara
@@ -609,8 +609,8 @@ const TransfersPage: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.2 }}
-                className="text-xl text-white/90 max-w-3xl mx-auto"
-              >
+                className="text-xl text-lydian-text-inverse/90 max-w-3xl mx-auto">
+
                 LyDian ile dünyanın dört bir yanından müşterilere ulaşın. %0 komisyon ile başlayın,
                 kazancınızı maksimuma çıkarın.
               </motion.p>
@@ -618,40 +618,40 @@ const TransfersPage: React.FC = () => {
 
             <div className="grid md:grid-cols-3 gap-8 mb-12">
               {[
-                {
-                  icon: <TrendingUp className="w-8 h-8" />,
-                  title: 'Yüksek Gelir',
-                  description: 'Aylık ortalama ₺35,000 - ₺95,000 kazanç fırsatı',
-                  color: 'from-yellow-400 to-orange-400',
-                },
-                {
-                  icon: <Shield className="w-8 h-8" />,
-                  title: 'Güvenli Ödeme',
-                  description: 'Otomatik ödeme sistemi ile garantili kazanç',
-                  color: 'from-green-400 to-emerald-400',
-                },
-                {
-                  icon: <Users className="w-8 h-8" />,
-                  title: 'Geniş Müşteri Ağı',
-                  description: '50+ ülkeden binlerce potansiyel müşteri',
-                  color: 'from-blue-400 to-cyan-400',
-                },
-              ].map((feature, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.1 * index }}
-                  className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 hover:bg-white/15 transition-all group"
-                >
-                  <div className={`inline-flex p-3 rounded-xl bg-gradient-to-r ${feature.color} text-white mb-4 group-hover:scale-110 transition-transform`}>
+              {
+                icon: <TrendingUp className="w-8 h-8" />,
+                title: 'Yüksek Gelir',
+                description: 'Aylık ortalama ₺35,000 - ₺95,000 kazanç fırsatı',
+                color: 'from-yellow-400 to-orange-400'
+              },
+              {
+                icon: <Shield className="w-8 h-8" />,
+                title: 'Güvenli Ödeme',
+                description: 'Otomatik ödeme sistemi ile garantili kazanç',
+                color: 'from-green-400 to-emerald-400'
+              },
+              {
+                icon: <Users className="w-8 h-8" />,
+                title: 'Geniş Müşteri Ağı',
+                description: '50+ ülkeden binlerce potansiyel müşteri',
+                color: 'from-blue-400 to-cyan-400'
+              }].
+              map((feature, index) =>
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 * index }}
+                className="bg-lydian-glass-dark-medium backdrop-blur-md rounded-2xl p-6 border border-lydian-border-light hover:bg-lydian-glass-dark-medium transition-all group">
+
+                  <div className={`inline-flex p-3 rounded-xl bg-gradient-to-r ${feature.color} text-lydian-text-inverse mb-4 group-hover:scale-110 transition-transform`}>
                     {feature.icon}
                   </div>
-                  <h3 className="text-xl font-bold text-white mb-2">{feature.title}</h3>
-                  <p className="text-white/80">{feature.description}</p>
+                  <h3 className="text-xl font-bold text-lydian-text-inverse mb-2">{feature.title}</h3>
+                  <p className="text-lydian-text-inverse/80">{feature.description}</p>
                 </motion.div>
-              ))}
+              )}
             </div>
 
             <motion.div
@@ -659,27 +659,27 @@ const TransfersPage: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.4 }}
-              className="flex flex-col sm:flex-row items-center justify-center gap-4"
-            >
+              className="flex flex-col sm:flex-row items-center justify-center gap-4">
+
               <Link
                 href="/transfer-owner/dashboard"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-transparent text-blue-600 rounded-xl font-bold text-lg hover:bg-white/5 transition-all hover:scale-105 shadow-2xl group"
-              >
+                className="inline-flex items-center gap-2 px-8 py-4 bg-lydian-bg-hover text-lydian-primary rounded-xl font-bold text-lg hover:bg-lydian-glass-dark transition-all hover:scale-105 shadow-2xl group">
+
                 <span>Partner Paneline Git</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
 
               <Link
                 href="/transfer-owner/auth/login"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-sm text-white rounded-xl font-bold text-lg hover:bg-white/20 transition-all border-2 border-white/30"
-              >
+                className="inline-flex items-center gap-2 px-8 py-4 bg-lydian-glass-dark-medium backdrop-blur-sm text-lydian-text-inverse rounded-xl font-bold text-lg hover:bg-lydian-glass-dark-heavy transition-all border-2 border-lydian-border-light">
+
                 Giriş Yap
               </Link>
 
               <Link
                 href="/transfer-owner/auth/register"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-yellow-400 to-orange-400 text-white rounded-xl font-bold text-lg hover:from-yellow-300 hover:to-orange-300 transition-all shadow-2xl"
-              >
+                className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-yellow-400 to-orange-400 text-lydian-text-inverse rounded-xl font-bold text-lg hover:from-yellow-300 hover:to-orange-300 transition-all shadow-2xl">
+
                 Ücretsiz Kayıt Ol
               </Link>
             </motion.div>
@@ -689,17 +689,17 @@ const TransfersPage: React.FC = () => {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.5 }}
-              className="mt-12 text-center"
-            >
-              <p className="text-white/70 text-sm">
+              className="mt-12 text-center">
+
+              <p className="text-lydian-text-inverse/70 text-sm">
                 ✨ İlk 3 ay %0 komisyon | 🎁 Ücretsiz profesyonel fotoğraf | 📱 7/24 destek
               </p>
             </motion.div>
           </div>
         </section>
       </main>
-    </>
-  );
+    </>);
+
 };
 
 export default TransfersPage;

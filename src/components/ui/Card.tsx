@@ -15,66 +15,66 @@ export const Card: React.FC<CardProps> = ({
   children,
   className = '',
   hover = false,
-  onClick,
+  onClick
 }) => {
   return (
     <div
       className={`
-        bg-white/5 rounded-lg border border-neutral-200
+        bg-lydian-glass-dark rounded-lg border border-neutral-200
         ${hover ? 'transition-all duration-200 hover:shadow-card-hover hover:border-neutral-300 cursor-pointer' : 'shadow-card'}
         ${onClick ? 'cursor-pointer' : ''}
         ${className}
       `}
-      onClick={onClick}
-    >
+      onClick={onClick}>
+
       {children}
-    </div>
-  );
+    </div>);
+
 };
 
-export const CardHeader: React.FC<{ children: React.ReactNode; className?: string }> = ({
+export const CardHeader: React.FC<{children: React.ReactNode;className?: string;}> = ({
   children,
-  className = '',
+  className = ''
 }) => {
   return <div className={`p-6 ${className}`}>{children}</div>;
 };
 
-export const CardContent: React.FC<{ children: React.ReactNode; className?: string }> = ({
+export const CardContent: React.FC<{children: React.ReactNode;className?: string;}> = ({
   children,
-  className = '',
+  className = ''
 }) => {
   return <div className={`px-6 pb-6 ${className}`}>{children}</div>;
 };
 
-export const CardFooter: React.FC<{ children: React.ReactNode; className?: string }> = ({
+export const CardFooter: React.FC<{children: React.ReactNode;className?: string;}> = ({
   children,
-  className = '',
+  className = ''
 }) => {
   return (
     <div className={`px-6 py-4 bg-neutral-50 border-t border-neutral-200 rounded-b-lg ${className}`}>
       {children}
-    </div>
-  );
+    </div>);
+
 };
 
-export const CardTitle: React.FC<{ children: React.ReactNode; className?: string }> = ({
+export const CardTitle: React.FC<{children: React.ReactNode;className?: string;}> = ({
   children,
-  className = '',
+  className = ''
 }) => {
   return (
-    <h3 className={`text-lg font-semibold text-neutral-900 ${className}`}>
+    <h3 className={`text-lg font-semibold text-lydian-text ${className}`}>
       {children}
-    </h3>
-  );
+    </h3>);
+
 };
 
-export const CardDescription: React.FC<{ children: React.ReactNode; className?: string }> = ({
+export const CardDescription: React.FC<{children: React.ReactNode;className?: string;}> = ({
   children,
-  className = '',
+  className = ''
 }) => {
   return (
     <p className={`text-sm text-neutral-600 mt-1 ${className}`}>
       {children}
-    </p>
-  );
+    </p>);
+
 };

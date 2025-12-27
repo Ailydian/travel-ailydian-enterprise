@@ -20,8 +20,8 @@ import {
   X,
   HelpCircle,
   Globe,
-  Users
-} from 'lucide-react';
+  Users } from
+'lucide-react';
 import { useCart } from '../../context/CartContext';
 import LanguageSwitcher from '../LanguageSwitcher';
 import { ExploreMenu } from '../explore/ExploreMenu';
@@ -33,17 +33,17 @@ export const BookingHeader: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navigation = [
-    { name: 'Oteller', href: '/hotels', icon: Hotel },
-    { name: 'Turlar', href: '/tours', icon: Compass },
-    { name: 'Araç Kiralama', href: '/car-rentals', icon: Car },
-    { name: 'Transferler', href: '/transfers', icon: Bus },
-    { name: 'Konaklama', href: '/rentals', icon: Home },
-  ];
+  { name: 'Oteller', href: '/hotels', icon: Hotel },
+  { name: 'Turlar', href: '/tours', icon: Compass },
+  { name: 'Araç Kiralama', href: '/car-rentals', icon: Car },
+  { name: 'Transferler', href: '/transfers', icon: Bus },
+  { name: 'Konaklama', href: '/rentals', icon: Home }];
+
 
   const isActive = (href: string) => router.pathname === href || router.pathname.startsWith(href + '/');
 
   return (
-    <header className="sticky top-0 z-50 bg-white/70 backdrop-blur-xl border-b border-white/30 shadow-lg">
+    <header className="sticky top-0 z-50 bg-lydian-bg/70 backdrop-blur-xl border-b border-lydian-border-light shadow-lg">
       {/* 🎨 NEO-GLASS Top Bar */}
       <div className="relative overflow-hidden">
         {/* Ocean Gradient Background */}
@@ -53,14 +53,14 @@ export const BookingHeader: React.FC = () => {
         <motion.div
           className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
           animate={{
-            x: ['-100%', '100%'],
+            x: ['-100%', '100%']
           }}
           transition={{
             duration: 3,
             repeat: Infinity,
-            ease: 'linear',
-          }}
-        />
+            ease: 'linear'
+          }} />
+
 
         {/* Content */}
         <div className="relative max-w-7xl mx-auto px-4">
@@ -70,20 +70,20 @@ export const BookingHeader: React.FC = () => {
               <motion.button
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
-                className="flex items-center gap-2 px-4 py-2 bg-white/10 hover:bg-white/20 backdrop-blur-xl rounded-xl transition-all font-semibold text-sm border border-white/20 shadow-lg !text-white"
-              >
-                <Users className="w-4 h-4 !text-white" />
-                <span className="!text-white">Partnerler</span>
+                className="flex items-center gap-2 px-4 py-2 bg-lydian-glass-dark-medium hover:bg-lydian-glass-dark-heavy backdrop-blur-xl rounded-xl transition-all font-semibold text-sm border border-lydian-border-light shadow-lg !text-lydian-text-inverse">
+
+                <Users className="w-4 h-4 !text-lydian-text-inverse" />
+                <span className="!text-lydian-text-inverse">Partnerler</span>
               </motion.button>
             </Link>
             <Link href="/help">
               <motion.button
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
-                className="flex items-center gap-2 px-4 py-2 bg-white/10 hover:bg-white/20 backdrop-blur-xl rounded-xl transition-all font-semibold text-sm border border-white/20 shadow-lg !text-white"
-              >
-                <HelpCircle className="w-4 h-4 !text-white" />
-                <span className="!text-white">Yardım</span>
+                className="flex items-center gap-2 px-4 py-2 bg-lydian-glass-dark-medium hover:bg-lydian-glass-dark-heavy backdrop-blur-xl rounded-xl transition-all font-semibold text-sm border border-lydian-border-light shadow-lg !text-lydian-text-inverse">
+
+                <HelpCircle className="w-4 h-4 !text-lydian-text-inverse" />
+                <span className="!text-lydian-text-inverse">Yardım</span>
               </motion.button>
             </Link>
           </div>
@@ -113,23 +113,23 @@ export const BookingHeader: React.FC = () => {
                   href={item.href}
                   className={`
                     relative flex items-center gap-2 px-4 py-2 rounded-md font-medium text-sm transition-colors
-                    ${active
-                      ? 'text-lydian-primary bg-red-50'
-                      : 'text-gray-200 hover:text-lydian-primary hover:bg-white/5'
-                    }
-                  `}
-                >
+                    ${active ?
+                  'text-lydian-primary bg-red-50' :
+                  'text-gray-200 hover:text-lydian-primary hover:bg-white/5'}
+                  `
+                  }>
+
                   <Icon className="w-4 h-4" />
                   <span>{item.name}</span>
-                  {active && (
-                    <motion.div
-                      layoutId="activeTab"
-                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-lydian-primary"
-                      transition={{ type: 'spring', stiffness: 500, damping: 30 }}
-                    />
-                  )}
-                </Link>
-              );
+                  {active &&
+                  <motion.div
+                    layoutId="activeTab"
+                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-lydian-primary"
+                    transition={{ type: 'spring', stiffness: 500, damping: 30 }} />
+
+                  }
+                </Link>);
+
             })}
           </nav>
 
@@ -138,8 +138,8 @@ export const BookingHeader: React.FC = () => {
             {/* Favorites */}
             <Link
               href="/favorites"
-              className="hidden sm:flex items-center gap-2 px-3 py-2 text-gray-200 hover:text-lydian-primary hover:bg-white/5 rounded-md transition-colors"
-            >
+              className="hidden sm:flex items-center gap-2 px-3 py-2 text-lydian-text-muted hover:text-lydian-primary hover:bg-lydian-glass-dark rounded-md transition-colors">
+
               <Heart className="w-5 h-5" />
               <span className="text-sm font-medium">Favoriler</span>
             </Link>
@@ -147,21 +147,21 @@ export const BookingHeader: React.FC = () => {
             {/* Cart */}
             <Link
               href="/cart"
-              className="relative flex items-center gap-2 px-3 py-2 text-gray-200 hover:text-lydian-primary hover:bg-white/5 rounded-md transition-colors"
-            >
+              className="relative flex items-center gap-2 px-3 py-2 text-lydian-text-muted hover:text-lydian-primary hover:bg-lydian-glass-dark rounded-md transition-colors">
+
               <ShoppingCart className="w-5 h-5" />
-              {getItemCount() > 0 && (
-                <span className="absolute -top-1 -right-1 bg-lydian-primary text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
+              {getItemCount() > 0 &&
+              <span className="absolute -top-1 -right-1 bg-lydian-primary text-lydian-text-inverse text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
                   {getItemCount()}
                 </span>
-              )}
+              }
             </Link>
 
             {/* User Account */}
             <Link
               href="/profile/dashboard"
-              className="hidden sm:flex items-center gap-2 px-4 py-2 bg-lydian-primary text-white rounded-md hover:bg-lydian-dark transition-colors font-medium text-sm"
-            >
+              className="hidden sm:flex items-center gap-2 px-4 py-2 bg-lydian-primary text-lydian-text-inverse rounded-md hover:bg-lydian-dark transition-colors font-medium text-sm">
+
               <User className="w-4 h-4" />
               <span>Hesabım</span>
             </Link>
@@ -169,8 +169,8 @@ export const BookingHeader: React.FC = () => {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden p-2 text-gray-200 hover:text-lydian-primary hover:bg-white/5 rounded-md"
-            >
+              className="md:hidden p-2 text-lydian-text-muted hover:text-lydian-primary hover:bg-lydian-glass-dark rounded-md">
+
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
           </div>
@@ -179,67 +179,67 @@ export const BookingHeader: React.FC = () => {
 
       {/* Mobile Menu */}
       <AnimatePresence>
-        {mobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden border-t border-white/10 bg-white/5 overflow-hidden"
-          >
+        {mobileMenuOpen &&
+        <motion.div
+          initial={{ opacity: 0, height: 0 }}
+          animate={{ opacity: 1, height: 'auto' }}
+          exit={{ opacity: 0, height: 0 }}
+          className="md:hidden border-t border-lydian-border-light/10 bg-lydian-glass-dark overflow-hidden">
+
             <nav className="px-4 py-4 space-y-2">
               {navigation.map((item) => {
-                const Icon = item.icon;
-                const active = isActive(item.href);
+              const Icon = item.icon;
+              const active = isActive(item.href);
 
-                return (
-                  <Link
-                    key={item.name}
-                    href={item.href}
-                    onClick={() => setMobileMenuOpen(false)}
-                    className={`
+              return (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={`
                       flex items-center gap-3 px-4 py-3 rounded-lg font-medium transition-colors
-                      ${active
-                        ? 'text-lydian-primary bg-red-50'
-                        : 'text-gray-200 hover:text-lydian-primary hover:bg-white/5'
-                      }
-                    `}
-                  >
+                      ${active ?
+                  'text-lydian-primary bg-red-50' :
+                  'text-gray-200 hover:text-lydian-primary hover:bg-white/5'}
+                    `
+                  }>
+
                     <Icon className="w-5 h-5" />
                     <span>{item.name}</span>
-                  </Link>
-                );
-              })}
+                  </Link>);
 
-              <div className="pt-4 mt-4 border-t border-white/10 space-y-2">
+            })}
+
+              <div className="pt-4 mt-4 border-t border-lydian-border-light/10 space-y-2">
                 {/* Language Switcher in Mobile Menu */}
                 <div className="px-4 py-3">
                   <LanguageSwitcher />
                 </div>
 
                 <Link
-                  href="/favorites"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="flex items-center gap-3 px-4 py-3 rounded-lg font-medium text-gray-200 hover:text-lydian-primary hover:bg-white/5 transition-colors"
-                >
+                href="/favorites"
+                onClick={() => setMobileMenuOpen(false)}
+                className="flex items-center gap-3 px-4 py-3 rounded-lg font-medium text-lydian-text-muted hover:text-lydian-primary hover:bg-lydian-glass-dark transition-colors">
+
                   <Heart className="w-5 h-5" />
                   <span>Favoriler</span>
                 </Link>
 
                 <Link
-                  href="/profile/dashboard"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="flex items-center gap-3 px-4 py-3 bg-lydian-primary text-white rounded-lg font-medium hover:bg-lydian-dark transition-colors"
-                >
+                href="/profile/dashboard"
+                onClick={() => setMobileMenuOpen(false)}
+                className="flex items-center gap-3 px-4 py-3 bg-lydian-primary text-lydian-text-inverse rounded-lg font-medium hover:bg-lydian-dark transition-colors">
+
                   <User className="w-5 h-5" />
                   <span>Hesabım</span>
                 </Link>
               </div>
             </nav>
           </motion.div>
-        )}
+        }
       </AnimatePresence>
-    </header>
-  );
+    </header>);
+
 };
 
 export default BookingHeader;

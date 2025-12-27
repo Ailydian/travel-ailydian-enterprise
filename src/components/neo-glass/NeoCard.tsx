@@ -16,7 +16,7 @@ export interface NeoCardProps {
   price?: string;
   badge?: string;
   badges?: string[];
-  metadata?: Array<{ icon?: React.ReactNode; label: string }>;
+  metadata?: Array<{icon?: React.ReactNode;label: string;}>;
   onClick?: () => void;
   variant?: 'neo' | 'glass' | 'gradient' | 'minimal';
   hover3D?: boolean;
@@ -38,7 +38,7 @@ export const NeoCard: React.FC<NeoCardProps> = ({
   hover3D = true,
   className = '',
   imageAspectRatio = 'video',
-  children,
+  children
 }) => {
   const [isHovered, setIsHovered] = useState(false);
 
@@ -97,14 +97,14 @@ export const NeoCard: React.FC<NeoCardProps> = ({
       border border-white/10
       shadow-lg
       hover:shadow-2xl
-    `,
+    `
   };
 
   // Aspect ratios
   const aspectRatios = {
     video: 'aspect-video',
     square: 'aspect-square',
-    portrait: 'aspect-[3/4]',
+    portrait: 'aspect-[3/4]'
   };
 
   const allBadges = badge ? [badge, ...badges] : badges;
@@ -124,114 +124,114 @@ export const NeoCard: React.FC<NeoCardProps> = ({
       style={hover3D ? {
         rotateX,
         rotateY,
-        transformStyle: 'preserve-3d',
+        transformStyle: 'preserve-3d'
       } : undefined}
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={handleMouseLeave}
-      onClick={onClick}
-    >
+      onClick={onClick}>
+
       {/* Image */}
-      {image && (
-        <div className={`relative ${aspectRatios[imageAspectRatio]} overflow-hidden`}>
+      {image &&
+      <div className={`relative ${aspectRatios[imageAspectRatio]} overflow-hidden`}>
           <Image
-            src={image}
-            alt={title}
-            fill
-            className="object-cover group-hover:scale-110 transition-transform duration-700"
-          />
+          src={image}
+          alt={title}
+          fill
+          className="object-cover group-hover:scale-110 transition-transform duration-700" />
+
 
           {/* Overlay gradient */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
           {/* Badges */}
-          {allBadges.length > 0 && (
-            <div className="absolute top-4 left-4 flex flex-wrap gap-2 z-10">
-              {allBadges.map((badgeText, index) => (
-                <motion.span
-                  key={index}
-                  className="px-3 py-1 bg-white/90 backdrop-blur-md rounded-full text-xs font-semibold text-white shadow-lg"
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: index * 0.1 }}
-                >
+          {allBadges.length > 0 &&
+        <div className="absolute top-4 left-4 flex flex-wrap gap-2 z-10">
+              {allBadges.map((badgeText, index) =>
+          <motion.span
+            key={index}
+            className="px-3 py-1 bg-lydian-bg/90 backdrop-blur-md rounded-full text-xs font-semibold text-lydian-text-inverse shadow-lg"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: index * 0.1 }}>
+
                   {badgeText}
                 </motion.span>
-              ))}
-            </div>
           )}
+            </div>
+        }
 
           {/* Price badge */}
-          {price && (
-            <motion.div
-              className="absolute top-4 right-4 z-10"
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-            >
+          {price &&
+        <motion.div
+          className="absolute top-4 right-4 z-10"
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}>
+
               <div className="px-4 py-2 bg-gradient-to-br from-[#00BAFF] to-[#0088BD] rounded-2xl shadow-xl">
-                <p className="text-white font-bold text-lg">{price}</p>
+                <p className="text-lydian-text-inverse font-bold text-lg">{price}</p>
               </div>
             </motion.div>
-          )}
+        }
 
           {/* 3D shine effect on hover */}
-          {hover3D && isHovered && (
-            <motion.div
-              className="absolute inset-0 bg-gradient-to-br from-white/40 via-transparent to-transparent pointer-events-none"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.3 }}
-              style={{
-                transform: 'translateZ(20px)',
-              }}
-            />
-          )}
+          {hover3D && isHovered &&
+        <motion.div
+          className="absolute inset-0 bg-gradient-to-br from-white/40 via-transparent to-transparent pointer-events-none"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.3 }}
+          style={{
+            transform: 'translateZ(20px)'
+          }} />
+
+        }
         </div>
-      )}
+      }
 
       {/* Content */}
       <div className="p-6 space-y-4">
         {/* Title */}
         <motion.h3
-          className="text-xl md:text-2xl font-bold text-white leading-tight"
-          style={hover3D ? { transform: 'translateZ(30px)' } : undefined}
-        >
+          className="text-xl md:text-2xl font-bold text-lydian-text-inverse leading-tight"
+          style={hover3D ? { transform: 'translateZ(30px)' } : undefined}>
+
           {title}
         </motion.h3>
 
         {/* Description */}
-        {description && (
-          <motion.p
-            className="text-gray-300 leading-relaxed line-clamp-2"
-            style={hover3D ? { transform: 'translateZ(20px)' } : undefined}
-          >
+        {description &&
+        <motion.p
+          className="text-lydian-text-dim leading-relaxed line-clamp-2"
+          style={hover3D ? { transform: 'translateZ(20px)' } : undefined}>
+
             {description}
           </motion.p>
-        )}
+        }
 
         {/* Metadata */}
-        {metadata.length > 0 && (
-          <motion.div
-            className="flex flex-wrap gap-3"
-            style={hover3D ? { transform: 'translateZ(15px)' } : undefined}
-          >
-            {metadata.map((item, index) => (
-              <div key={index} className="flex items-center gap-1.5 text-sm text-gray-400">
+        {metadata.length > 0 &&
+        <motion.div
+          className="flex flex-wrap gap-3"
+          style={hover3D ? { transform: 'translateZ(15px)' } : undefined}>
+
+            {metadata.map((item, index) =>
+          <div key={index} className="flex items-center gap-1.5 text-sm text-lydian-text-muted">
                 {item.icon && <span className="text-[#00BAFF]">{item.icon}</span>}
                 <span>{item.label}</span>
               </div>
-            ))}
+          )}
           </motion.div>
-        )}
+        }
 
         {/* Custom children */}
-        {children && (
-          <motion.div
-            style={hover3D ? { transform: 'translateZ(10px)' } : undefined}
-          >
+        {children &&
+        <motion.div
+          style={hover3D ? { transform: 'translateZ(10px)' } : undefined}>
+
             {children}
           </motion.div>
-        )}
+        }
       </div>
 
       {/* Hover border glow */}
@@ -241,11 +241,11 @@ export const NeoCard: React.FC<NeoCardProps> = ({
         animate={{ opacity: isHovered ? 1 : 0 }}
         transition={{ duration: 0.3 }}
         style={{
-          boxShadow: '0 0 0 2px rgba(0, 186, 255, 0.3), 0 0 30px rgba(0, 186, 255, 0.2)',
-        }}
-      />
-    </motion.div>
-  );
+          boxShadow: '0 0 0 2px rgba(0, 186, 255, 0.3), 0 0 30px rgba(0, 186, 255, 0.2)'
+        }} />
+
+    </motion.div>);
+
 };
 
 export default NeoCard;

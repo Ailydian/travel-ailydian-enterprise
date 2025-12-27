@@ -38,7 +38,7 @@ export const FuturisticInput: React.FC<FuturisticInputProps> = ({
   disabled = false,
   rows = 4,
   className = '',
-  glowColor = '#00BAFF',
+  glowColor = '#00BAFF'
 }) => {
   const [isFocused, setIsFocused] = useState(false);
   const [hasValue, setHasValue] = useState(!!value);
@@ -81,119 +81,119 @@ export const FuturisticInput: React.FC<FuturisticInputProps> = ({
   return (
     <div className={`relative ${className}`}>
       {/* Floating Label */}
-      {label && (
-        <motion.label
-          animate={{
-            top: isActive ? '-10px' : '16px',
-            fontSize: isActive ? '12px' : '16px',
-            color: isFocused ? glowColor : error ? '#EF4444' : '#6B7280',
-          }}
-          transition={{ duration: 0.2 }}
-          className={`
+      {label &&
+      <motion.label
+        animate={{
+          top: isActive ? '-10px' : '16px',
+          fontSize: isActive ? '12px' : '16px',
+          color: isFocused ? glowColor : error ? '#EF4444' : '#6B7280'
+        }}
+        transition={{ duration: 0.2 }}
+        className={`
             absolute left-4
             ${icon ? 'left-12' : 'left-4'}
             px-2
-            bg-white/5 rounded-lg
+            bg-lydian-glass-dark rounded-lg
             font-semibold
             pointer-events-none
             z-10
-          `}
-        >
+          `}>
+
           {label}
-          {required && <span className="text-red-500 ml-1">*</span>}
+          {required && <span className="text-lydian-error ml-1">*</span>}
         </motion.label>
-      )}
+      }
 
       {/* Icon */}
-      {icon && (
-        <div className="absolute left-4 top-1/2 -translate-y-1/2 z-10 text-gray-400">
+      {icon &&
+      <div className="absolute left-4 top-1/2 -translate-y-1/2 z-10 text-lydian-text-muted">
           {icon}
         </div>
-      )}
+      }
 
       {/* Input / Textarea */}
       <div className="relative">
-        {type === 'textarea' ? (
-          <textarea
-            ref={inputRef as React.RefObject<HTMLTextAreaElement>}
-            value={value}
-            onChange={handleChange}
-            onFocus={handleFocus}
-            onBlur={handleBlur}
-            placeholder={label ? '' : placeholder}
-            disabled={disabled}
-            required={required}
-            rows={rows}
-            className={inputClasses}
-          />
-        ) : (
-          <input
-            ref={inputRef as React.RefObject<HTMLInputElement>}
-            type={type}
-            value={value}
-            onChange={handleChange}
-            onFocus={handleFocus}
-            onBlur={handleBlur}
-            placeholder={label ? '' : placeholder}
-            disabled={disabled}
-            required={required}
-            className={inputClasses}
-          />
-        )}
+        {type === 'textarea' ?
+        <textarea
+          ref={inputRef as React.RefObject<HTMLTextAreaElement>}
+          value={value}
+          onChange={handleChange}
+          onFocus={handleFocus}
+          onBlur={handleBlur}
+          placeholder={label ? '' : placeholder}
+          disabled={disabled}
+          required={required}
+          rows={rows}
+          className={inputClasses} /> :
+
+
+        <input
+          ref={inputRef as React.RefObject<HTMLInputElement>}
+          type={type}
+          value={value}
+          onChange={handleChange}
+          onFocus={handleFocus}
+          onBlur={handleBlur}
+          placeholder={label ? '' : placeholder}
+          disabled={disabled}
+          required={required}
+          className={inputClasses} />
+
+        }
 
         {/* Aurora Glow on Focus */}
         <AnimatePresence>
-          {isFocused && !error && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="absolute inset-0 -z-10 rounded-2xl blur-xl"
-              style={{
-                background: `radial-gradient(circle at center, ${glowColor}40, transparent)`,
-              }}
-            />
-          )}
+          {isFocused && !error &&
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="absolute inset-0 -z-10 rounded-2xl blur-xl"
+            style={{
+              background: `radial-gradient(circle at center, ${glowColor}40, transparent)`
+            }} />
+
+          }
         </AnimatePresence>
 
         {/* Animated Border */}
-        {isFocused && !error && (
-          <motion.div
-            className="absolute inset-0 rounded-2xl pointer-events-none"
-            animate={{
-              boxShadow: [
-                `0 0 20px ${glowColor}60`,
-                `0 0 40px ${glowColor}80`,
-                `0 0 20px ${glowColor}60`,
-              ],
-            }}
-            transition={{
-              duration: 2,
-              repeat: Infinity,
-              ease: 'easeInOut',
-            }}
-          />
-        )}
+        {isFocused && !error &&
+        <motion.div
+          className="absolute inset-0 rounded-2xl pointer-events-none"
+          animate={{
+            boxShadow: [
+            `0 0 20px ${glowColor}60`,
+            `0 0 40px ${glowColor}80`,
+            `0 0 20px ${glowColor}60`]
+
+          }}
+          transition={{
+            duration: 2,
+            repeat: Infinity,
+            ease: 'easeInOut'
+          }} />
+
+        }
       </div>
 
       {/* Error Message */}
       <AnimatePresence>
-        {error && (
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            className="mt-2 text-sm text-red-500 font-medium flex items-center gap-1"
-          >
+        {error &&
+        <motion.div
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -10 }}
+          className="mt-2 text-sm text-lydian-error font-medium flex items-center gap-1">
+
             <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
               <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
             </svg>
             {error}
           </motion.div>
-        )}
+        }
       </AnimatePresence>
-    </div>
-  );
+    </div>);
+
 };
 
 // Default export

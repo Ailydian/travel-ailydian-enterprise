@@ -9,8 +9,8 @@ import {
   TrendingDown,
   Plane,
   MapPin,
-  DollarSign
-} from 'lucide-react';
+  DollarSign } from
+'lucide-react';
 import { FuturisticHeader } from '../components/layout/FuturisticHeader';
 import antalyaAirportTransfers from '../data/antalya-transfers';
 import { AnimatedCarIcon } from '../components/icons/AnimatedCarIcon';
@@ -24,15 +24,15 @@ export default function TransfersPage() {
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
 
   const categories = [
-    { id: 'all', label: { tr: 'Tümü', en: 'All', ru: 'Все', de: 'Alle', ar: 'الكل', fr: 'Tous' } },
-    { id: 'airport', label: { tr: 'Havalimanı', en: 'Airport', ru: 'Аэропорт', de: 'Flughafen', ar: 'المطار', fr: 'Aéroport' } },
-    { id: 'city', label: { tr: 'Şehir İçi', en: 'City', ru: 'Город', de: 'Stadt', ar: 'المدينة', fr: 'Ville' } },
-    { id: 'district', label: { tr: 'İlçeler Arası', en: 'Districts', ru: 'Районы', de: 'Bezirke', ar: 'المناطق', fr: 'Districts' } }
-  ];
+  { id: 'all', label: { tr: 'Tümü', en: 'All', ru: 'Все', de: 'Alle', ar: 'الكل', fr: 'Tous' } },
+  { id: 'airport', label: { tr: 'Havalimanı', en: 'Airport', ru: 'Аэропорт', de: 'Flughafen', ar: 'المطار', fr: 'Aéroport' } },
+  { id: 'city', label: { tr: 'Şehir İçi', en: 'City', ru: 'Город', de: 'Stadt', ar: 'المدينة', fr: 'Ville' } },
+  { id: 'district', label: { tr: 'İlçeler Arası', en: 'Districts', ru: 'Районы', de: 'Bezirke', ar: 'المناطق', fr: 'Districts' } }];
 
-  const filteredTransfers = selectedCategory === 'all'
-    ? antalyaAirportTransfers
-    : antalyaAirportTransfers.filter(t => t.category === selectedCategory);
+
+  const filteredTransfers = selectedCategory === 'all' ?
+  antalyaAirportTransfers :
+  antalyaAirportTransfers.filter((t) => t.category === selectedCategory);
 
   return (
     <>
@@ -69,28 +69,28 @@ export default function TransfersPage() {
       {/* 🎨 NEO-GLASS HERO */}
       <NeoHero
         title={
-          selectedLanguage === 'tr' ? 'Antalya Transfer' :
-          selectedLanguage === 'en' ? 'Antalya Transfers' :
-          selectedLanguage === 'ru' ? 'Трансфер в Анталии' :
-          selectedLanguage === 'de' ? 'Antalya Transfers' :
-          selectedLanguage === 'ar' ? 'نقل أنطاليا' :
-          'Transferts à Antalya'
+        selectedLanguage === 'tr' ? 'Antalya Transfer' :
+        selectedLanguage === 'en' ? 'Antalya Transfers' :
+        selectedLanguage === 'ru' ? 'Трансфер в Анталии' :
+        selectedLanguage === 'de' ? 'Antalya Transfers' :
+        selectedLanguage === 'ar' ? 'نقل أنطاليا' :
+        'Transferts à Antalya'
         }
         subtitle={
-          selectedLanguage === 'tr' ? 'Havalimanı ve şehir içi transferleriniz için %12 daha ucuz garantili fiyat!' :
-          selectedLanguage === 'en' ? '12% cheaper guaranteed price for airport and city transfers!' :
-          selectedLanguage === 'ru' ? 'На 12% дешевле гарантированная цена для трансферов!' :
-          selectedLanguage === 'de' ? '12% günstigerer Garantiepreis für Transfers!' :
-          selectedLanguage === 'ar' ? 'سعر مضمون أرخص بنسبة 12٪ للنقل!' :
-          'Prix garanti 12% moins cher pour les transferts!'
+        selectedLanguage === 'tr' ? 'Havalimanı ve şehir içi transferleriniz için %12 daha ucuz garantili fiyat!' :
+        selectedLanguage === 'en' ? '12% cheaper guaranteed price for airport and city transfers!' :
+        selectedLanguage === 'ru' ? 'На 12% дешевле гарантированная цена для трансферов!' :
+        selectedLanguage === 'de' ? '12% günstigerer Garantiepreis für Transfers!' :
+        selectedLanguage === 'ar' ? 'سعر مضمون أرخص بنسبة 12٪ للنقل!' :
+        'Prix garanti 12% moins cher pour les transferts!'
         }
         gradient="ocean"
         height="75vh"
         overlayOpacity={0.15}
-        showFloatingElements={true}
-      >
+        showFloatingElements={true}>
+
         {/* Badge */}
-        <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-xl border border-white/20 px-5 py-2.5 rounded-full mb-8">
+        <div className="inline-flex items-center gap-2 bg-lydian-glass-dark-medium backdrop-blur-xl border border-lydian-border-light px-5 py-2.5 rounded-full mb-8">
           <Plane className="w-5 h-5" />
           <span className="text-sm font-semibold">
             {selectedLanguage === 'tr' && '6 Dilde Profesyonel Transfer Hizmeti'}
@@ -104,18 +104,18 @@ export default function TransfersPage() {
 
         {/* Language Selector */}
         <div className="flex flex-wrap justify-center gap-3 mb-12">
-          {['tr', 'en', 'ru', 'de', 'ar', 'fr'].map((lang) => (
-            <motion.button
-              key={lang}
-              onClick={() => setSelectedLanguage(lang as any)}
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-              className={`px-5 py-2.5 rounded-xl font-semibold transition-all ${
-                selectedLanguage === lang
-                  ? 'bg-white/5 text-[#00BAFF] shadow-lg'
-                  : 'bg-white/10 backdrop-blur-xl border border-white/20 text-white hover:bg-white/20'
-              }`}
-            >
+          {['tr', 'en', 'ru', 'de', 'ar', 'fr'].map((lang) =>
+          <motion.button
+            key={lang}
+            onClick={() => setSelectedLanguage(lang as any)}
+            whileHover={{ scale: 1.05, y: -2 }}
+            whileTap={{ scale: 0.95 }}
+            className={`px-5 py-2.5 rounded-xl font-semibold transition-all ${
+            selectedLanguage === lang ?
+            'bg-white/5 text-[#00BAFF] shadow-lg' :
+            'bg-white/10 backdrop-blur-xl border border-white/20 text-white hover:bg-white/20'}`
+            }>
+
               {lang === 'tr' && '🇹🇷 TR'}
               {lang === 'en' && '🇬🇧 EN'}
               {lang === 'ru' && '🇷🇺 RU'}
@@ -123,53 +123,53 @@ export default function TransfersPage() {
               {lang === 'ar' && '🇸🇦 AR'}
               {lang === 'fr' && '🇫🇷 FR'}
             </motion.button>
-          ))}
+          )}
         </div>
 
         {/* Stats Cards */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
           {[
-            { icon: Car, value: '8', label: { tr: 'Araç Seçeneği', en: 'Vehicle Options', ru: 'Варианты транспорта', de: 'Fahrzeugoptionen', ar: 'خيارات المركبات', fr: 'Options de véhicules' } },
-            { icon: Star, value: '4.9', label: { tr: 'Ortalama Puan', en: 'Average Rating', ru: 'Средний рейтинг', de: 'Durchschnittsbewertung', ar: 'متوسط ​​التقييم', fr: 'Note moyenne' } },
-            { icon: Users, value: '50K+', label: { tr: 'Mutlu Müşteri', en: 'Happy Customers', ru: 'Довольные клиенты', de: 'Zufriedene Kunden', ar: 'عملاء سعداء', fr: 'Clients satisfaits' } },
-            { icon: TrendingDown, value: '%12', label: { tr: 'Daha Ucuz', en: 'Cheaper', ru: 'Дешевле', de: 'Günstiger', ar: 'أرخص', fr: 'Moins cher' } }
-          ].map((stat, idx) => (
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.1 }}
-              whileHover={{ scale: 1.05, y: -5 }}
-              className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-6 cursor-default"
-            >
-              <stat.icon className="w-10 h-10 mx-auto mb-3 text-white" />
-              <div className="text-4xl font-black text-white mb-2">{stat.value}</div>
-              <div className="text-sm uppercase tracking-widest text-white/80">{stat.label[selectedLanguage]}</div>
+          { icon: Car, value: '8', label: { tr: 'Araç Seçeneği', en: 'Vehicle Options', ru: 'Варианты транспорта', de: 'Fahrzeugoptionen', ar: 'خيارات المركبات', fr: 'Options de véhicules' } },
+          { icon: Star, value: '4.9', label: { tr: 'Ortalama Puan', en: 'Average Rating', ru: 'Средний рейтинг', de: 'Durchschnittsbewertung', ar: 'متوسط ​​التقييم', fr: 'Note moyenne' } },
+          { icon: Users, value: '50K+', label: { tr: 'Mutlu Müşteri', en: 'Happy Customers', ru: 'Довольные клиенты', de: 'Zufriedene Kunden', ar: 'عملاء سعداء', fr: 'Clients satisfaits' } },
+          { icon: TrendingDown, value: '%12', label: { tr: 'Daha Ucuz', en: 'Cheaper', ru: 'Дешевле', de: 'Günstiger', ar: 'أرخص', fr: 'Moins cher' } }].
+          map((stat, idx) =>
+          <motion.div
+            key={idx}
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: idx * 0.1 }}
+            whileHover={{ scale: 1.05, y: -5 }}
+            className="bg-lydian-glass-dark-medium backdrop-blur-xl border border-lydian-border-light rounded-2xl p-6 cursor-default">
+
+              <stat.icon className="w-10 h-10 mx-auto mb-3 text-lydian-text-inverse" />
+              <div className="text-4xl font-black text-lydian-text-inverse mb-2">{stat.value}</div>
+              <div className="text-sm uppercase tracking-widest text-lydian-text-inverse/80">{stat.label[selectedLanguage]}</div>
             </motion.div>
-          ))}
+          )}
         </div>
       </NeoHero>
 
       {/* 🎨 NEO-GLASS CATEGORY FILTER */}
-      <div className="bg-white/70 backdrop-blur-xl border-b border-white/30 sticky top-0 z-10 shadow-lg">
+      <div className="bg-lydian-bg/70 backdrop-blur-xl border-b border-lydian-border-light sticky top-0 z-10 shadow-lg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
           <div className="flex flex-wrap gap-3 justify-center">
-            {categories.map((cat) => (
-              <motion.button
-                key={cat.id}
-                onClick={() => setSelectedCategory(cat.id)}
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-                className={`px-6 py-3 rounded-xl font-semibold transition-all ${
-                  selectedCategory === cat.id
-                    ? 'bg-gradient-to-br from-[#00BAFF] to-[#0088BD] text-white shadow-[0_10px_30px_-5px_rgba(0,186,255,0.4)]'
-                    : 'bg-white/60 backdrop-blur-sm border border-gray-200 hover:bg-white/80 text-gray-200 shadow-sm'
-                }`}
-              >
+            {categories.map((cat) =>
+            <motion.button
+              key={cat.id}
+              onClick={() => setSelectedCategory(cat.id)}
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+              className={`px-6 py-3 rounded-xl font-semibold transition-all ${
+              selectedCategory === cat.id ?
+              'bg-gradient-to-br from-[#00BAFF] to-[#0088BD] text-white shadow-[0_10px_30px_-5px_rgba(0,186,255,0.4)]' :
+              'bg-white/60 backdrop-blur-sm border border-gray-200 hover:bg-white/80 text-gray-200 shadow-sm'}`
+              }>
+
                 {cat.label[selectedLanguage]}
               </motion.button>
-            ))}
+            )}
           </div>
         </div>
       </div>
@@ -204,8 +204,8 @@ export default function TransfersPage() {
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-100px' }}
-                transition={{ duration: 0.6, delay: idx * 0.1 }}
-              >
+                transition={{ duration: 0.6, delay: idx * 0.1 }}>
+
                 <FuturisticCard
                   image="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=800&h=600&fit=crop"
                   title={transfer.seo.title[selectedLanguage]}
@@ -214,23 +214,23 @@ export default function TransfersPage() {
                   badge={idx < 3 ? '⭐ POPÜLER' : undefined}
                   badges={categoryLabel ? [categoryLabel] : undefined}
                   metadata={[
-                    { icon: <Clock className="w-4 h-4" />, label: durationText },
-                    { icon: <Users className="w-4 h-4" />, label: `${transfer.maxPassengers} Kişi` },
-                  ]}
+                  { icon: <Clock className="w-4 h-4" />, label: durationText },
+                  { icon: <Users className="w-4 h-4" />, label: `${transfer.maxPassengers} Kişi` }]
+                  }
                   rating={4.8}
                   reviews={Math.floor(Math.random() * 200) + 50}
                   onClick={() => window.location.href = `/transfers/${transfer.slug}`}
                   category="transfer"
-                  categoryColor="#00BAFF"
-                />
-              </motion.div>
-            );
+                  categoryColor="#00BAFF" />
+
+              </motion.div>);
+
           })}
         </div>
       </NeoSection>
 
       {/* Footer CTA */}
-      <div className="bg-gradient-to-r from-[#667EEA] via-[#764BA2] to-[#667EEA] text-white py-16">
+      <div className="bg-gradient-to-r from-[#667EEA] via-[#764BA2] to-[#667EEA] text-lydian-text-inverse py-16">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             {selectedLanguage === 'tr' && '7/24 Profesyonel Transfer Hizmeti'}
@@ -250,6 +250,6 @@ export default function TransfersPage() {
           </p>
         </div>
       </div>
-    </>
-  );
+    </>);
+
 }

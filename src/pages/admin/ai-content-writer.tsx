@@ -12,8 +12,8 @@ import {
   Zap,
   BarChart3,
   Copy,
-  RefreshCw
-} from 'lucide-react';
+  RefreshCw } from
+'lucide-react';
 import type { ContentRequest, GeneratedContent } from '@/lib/aiContentWriter';
 
 const AIContentWriterPage: React.FC = () => {
@@ -29,7 +29,7 @@ const AIContentWriterPage: React.FC = () => {
 
   const [featureInput, setFeatureInput] = useState('');
   const [generatedContent, setGeneratedContent] = useState<GeneratedContent | null>(null);
-  const [quality, setQuality] = useState<{ score: number; feedback: string[] } | null>(null);
+  const [quality, setQuality] = useState<{score: number;feedback: string[];} | null>(null);
   const [loading, setLoading] = useState(false);
   const [activeTab, setActiveTab] = useState<'form' | 'preview' | 'json'>('form');
   const [showCopySuccess, setShowCopySuccess] = useState(false);
@@ -51,7 +51,7 @@ const AIContentWriterPage: React.FC = () => {
         setActiveTab('preview');
       }
     } catch (error) {
-      logger.error('Generation failed:', error as Error, {component:'AiContentWriter'});
+      logger.error('Generation failed:', error as Error, { component: 'AiContentWriter' });
       alert('İçerik oluşturma başarısız oldu');
     } finally {
       setLoading(false);
@@ -101,9 +101,9 @@ const AIContentWriterPage: React.FC = () => {
         <meta name="description" content="AI-powered content generation for listings" />
       </Head>
 
-      <div className="min-h-screen bg-white/5">
+      <div className="min-h-screen bg-lydian-glass-dark">
         {/* Header */}
-        <div className="bg-gradient-to-r from-[#667EEA] via-[#764BA2] to-[#667EEA] text-white">
+        <div className="bg-gradient-to-r from-[#667EEA] via-[#764BA2] to-[#667EEA] text-lydian-text-inverse">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
             <div className="flex items-center gap-4">
               <Sparkles className="h-10 w-10" />
@@ -123,12 +123,12 @@ const AIContentWriterPage: React.FC = () => {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="bg-transparent rounded-xl shadow-md p-6"
-            >
+              className="bg-lydian-bg-hover rounded-xl shadow-md p-6">
+
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm text-gray-100">Desteklenen Tipler</p>
-                  <p className="text-2xl font-bold text-white">6</p>
+                  <p className="text-sm text-lydian-text-dim">Desteklenen Tipler</p>
+                  <p className="text-2xl font-bold text-lydian-text-inverse">6</p>
                 </div>
                 <FileText className="h-8 w-8 text-purple-600" />
               </div>
@@ -138,16 +138,16 @@ const AIContentWriterPage: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="bg-transparent rounded-xl shadow-md p-6"
-            >
+              className="bg-lydian-bg-hover rounded-xl shadow-md p-6">
+
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm text-gray-100">Ortalama Kalite Skoru</p>
-                  <p className="text-2xl font-bold text-white">
+                  <p className="text-sm text-lydian-text-dim">Ortalama Kalite Skoru</p>
+                  <p className="text-2xl font-bold text-lydian-text-inverse">
                     {quality ? quality.score : '95'}%
                   </p>
                 </div>
-                <BarChart3 className="h-8 w-8 text-green-600" />
+                <BarChart3 className="h-8 w-8 text-lydian-success" />
               </div>
             </motion.div>
 
@@ -155,14 +155,14 @@ const AIContentWriterPage: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="bg-transparent rounded-xl shadow-md p-6"
-            >
+              className="bg-lydian-bg-hover rounded-xl shadow-md p-6">
+
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm text-gray-100">Üretim Süresi</p>
-                  <p className="text-2xl font-bold text-white">&lt;1s</p>
+                  <p className="text-sm text-lydian-text-dim">Üretim Süresi</p>
+                  <p className="text-2xl font-bold text-lydian-text-inverse">&lt;1s</p>
                 </div>
-                <Zap className="h-8 w-8 text-yellow-600" />
+                <Zap className="h-8 w-8 text-lydian-warning" />
               </div>
             </motion.div>
 
@@ -170,14 +170,14 @@ const AIContentWriterPage: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="bg-transparent rounded-xl shadow-md p-6"
-            >
+              className="bg-lydian-bg-hover rounded-xl shadow-md p-6">
+
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm text-gray-100">SEO Optimized</p>
-                  <p className="text-2xl font-bold text-green-600">✓</p>
+                  <p className="text-sm text-lydian-text-dim">SEO Optimized</p>
+                  <p className="text-2xl font-bold text-lydian-success">✓</p>
                 </div>
-                <Check className="h-8 w-8 text-green-600" />
+                <Check className="h-8 w-8 text-lydian-success" />
               </div>
             </motion.div>
           </div>
@@ -188,23 +188,23 @@ const AIContentWriterPage: React.FC = () => {
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
-              className="bg-transparent rounded-xl shadow-md p-6"
-            >
-              <h2 className="text-xl font-bold text-white mb-6">
+              className="bg-lydian-bg-hover rounded-xl shadow-md p-6">
+
+              <h2 className="text-xl font-bold text-lydian-text-inverse mb-6">
                 İçerik Parametreleri
               </h2>
 
               <div className="space-y-4">
                 {/* Type */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-200 mb-2">
+                  <label className="block text-sm font-medium text-lydian-text-muted mb-2">
                     Tip *
                   </label>
                   <select
                     value={formData.type}
                     onChange={(e) => setFormData({ ...formData, type: e.target.value as any })}
-                    className="w-full px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent"
-                  >
+                    className="w-full px-4 py-2 border border-lydian-border-light rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-lydian-border">
+
                     <option value="hotel">🏨 Otel</option>
                     <option value="car">🚗 Araç Kiralama</option>
                     <option value="tour">🎭 Tur</option>
@@ -216,7 +216,7 @@ const AIContentWriterPage: React.FC = () => {
 
                 {/* Name */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-200 mb-2">
+                  <label className="block text-sm font-medium text-lydian-text-muted mb-2">
                     İsim *
                   </label>
                   <input
@@ -224,13 +224,13 @@ const AIContentWriterPage: React.FC = () => {
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     placeholder="örn: Grand Hilton Istanbul"
-                    className="w-full px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent"
-                  />
+                    className="w-full px-4 py-2 border border-lydian-border-light rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-lydian-border" />
+
                 </div>
 
                 {/* Location */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-200 mb-2">
+                  <label className="block text-sm font-medium text-lydian-text-muted mb-2">
                     Konum *
                   </label>
                   <input
@@ -238,13 +238,13 @@ const AIContentWriterPage: React.FC = () => {
                     value={formData.location}
                     onChange={(e) => setFormData({ ...formData, location: e.target.value })}
                     placeholder="örn: İstanbul Taksim"
-                    className="w-full px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent"
-                  />
+                    className="w-full px-4 py-2 border border-lydian-border-light rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-lydian-border" />
+
                 </div>
 
                 {/* Category */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-200 mb-2">
+                  <label className="block text-sm font-medium text-lydian-text-muted mb-2">
                     Kategori (opsiyonel)
                   </label>
                   <input
@@ -252,13 +252,13 @@ const AIContentWriterPage: React.FC = () => {
                     value={formData.category || ''}
                     onChange={(e) => setFormData({ ...formData, category: e.target.value })}
                     placeholder="örn: Butik Otel, Lüks Sedan"
-                    className="w-full px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent"
-                  />
+                    className="w-full px-4 py-2 border border-lydian-border-light rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-lydian-border" />
+
                 </div>
 
                 {/* Features */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-200 mb-2">
+                  <label className="block text-sm font-medium text-lydian-text-muted mb-2">
                     Özellikler
                   </label>
                   <div className="flex gap-2 mb-2">
@@ -268,36 +268,36 @@ const AIContentWriterPage: React.FC = () => {
                       onChange={(e) => setFeatureInput(e.target.value)}
                       onKeyPress={(e) => e.key === 'Enter' && handleAddFeature()}
                       placeholder="Özellik ekle (Enter)"
-                      className="flex-1 px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent"
-                    />
+                      className="flex-1 px-4 py-2 border border-lydian-border-light rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-lydian-border" />
+
                     <button
                       onClick={handleAddFeature}
-                      className="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700"
-                    >
+                      className="px-4 py-2 bg-purple-600 text-lydian-text-inverse rounded-lg hover:bg-purple-700">
+
                       Ekle
                     </button>
                   </div>
                   <div className="flex flex-wrap gap-2">
-                    {formData.features?.map((feature, index) => (
-                      <span
-                        key={index}
-                        className="inline-flex items-center gap-2 px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm"
-                      >
+                    {formData.features?.map((feature, index) =>
+                    <span
+                      key={index}
+                      className="inline-flex items-center gap-2 px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm">
+
                         {feature}
                         <button
-                          onClick={() => handleRemoveFeature(index)}
-                          className="hover:text-purple-900"
-                        >
+                        onClick={() => handleRemoveFeature(index)}
+                        className="hover:text-purple-900">
+
                           ×
                         </button>
                       </span>
-                    ))}
+                    )}
                   </div>
                 </div>
 
                 {/* Price */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-200 mb-2">
+                  <label className="block text-sm font-medium text-lydian-text-muted mb-2">
                     Fiyat (₺) (opsiyonel)
                   </label>
                   <input
@@ -305,13 +305,13 @@ const AIContentWriterPage: React.FC = () => {
                     value={formData.price || ''}
                     onChange={(e) => setFormData({ ...formData, price: Number(e.target.value) || undefined })}
                     placeholder="örn: 1500"
-                    className="w-full px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent"
-                  />
+                    className="w-full px-4 py-2 border border-lydian-border-light rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-lydian-border" />
+
                 </div>
 
                 {/* Rating */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-200 mb-2">
+                  <label className="block text-sm font-medium text-lydian-text-muted mb-2">
                     Puan (0-5) (opsiyonel)
                   </label>
                   <input
@@ -322,27 +322,27 @@ const AIContentWriterPage: React.FC = () => {
                     value={formData.rating || ''}
                     onChange={(e) => setFormData({ ...formData, rating: Number(e.target.value) || undefined })}
                     placeholder="örn: 4.5"
-                    className="w-full px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent"
-                  />
+                    className="w-full px-4 py-2 border border-lydian-border-light rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-lydian-border" />
+
                 </div>
 
                 {/* Generate Button */}
                 <button
                   onClick={handleGenerate}
                   disabled={loading || !formData.name || !formData.location}
-                  className="w-full flex items-center justify-center gap-2 bg-purple-600 hover:bg-purple-700 disabled:bg-gray-400 text-white font-bold py-3 px-6 rounded-lg transition-colors"
-                >
-                  {loading ? (
-                    <>
+                  className="w-full flex items-center justify-center gap-2 bg-purple-600 hover:bg-purple-700 disabled:bg-gray-400 text-lydian-text-inverse font-bold py-3 px-6 rounded-lg transition-colors">
+
+                  {loading ?
+                  <>
                       <RefreshCw className="h-5 w-5 animate-spin" />
                       Oluşturuluyor...
-                    </>
-                  ) : (
-                    <>
+                    </> :
+
+                  <>
                       <Sparkles className="h-5 w-5" />
                       AI İçerik Oluştur
                     </>
-                  )}
+                  }
                 </button>
               </div>
             </motion.div>
@@ -351,93 +351,93 @@ const AIContentWriterPage: React.FC = () => {
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
-              className="bg-transparent rounded-xl shadow-md p-6"
-            >
+              className="bg-lydian-bg-hover rounded-xl shadow-md p-6">
+
               <div className="flex items-center justify-between mb-6">
-                <h2 className="text-xl font-bold text-white">
+                <h2 className="text-xl font-bold text-lydian-text-inverse">
                   Önizleme
                 </h2>
 
-                {generatedContent && (
-                  <div className="flex items-center gap-2">
+                {generatedContent &&
+                <div className="flex items-center gap-2">
                     <button
-                      onClick={() => handleCopy(JSON.stringify(generatedContent, null, 2))}
-                      className="p-2 bg-white/10 hover:bg-gray-200 rounded-lg transition-colors"
-                      title="JSON Kopyala"
-                    >
-                      <Copy className="h-5 w-5 text-gray-200" />
+                    onClick={() => handleCopy(JSON.stringify(generatedContent, null, 2))}
+                    className="p-2 bg-lydian-glass-dark-medium hover:bg-lydian-bg-active rounded-lg transition-colors"
+                    title="JSON Kopyala">
+
+                      <Copy className="h-5 w-5 text-lydian-text-muted" />
                     </button>
                     <button
-                      onClick={handleDownloadJSON}
-                      className="p-2 bg-white/10 hover:bg-gray-200 rounded-lg transition-colors"
-                      title="JSON İndir"
-                    >
-                      <Download className="h-5 w-5 text-gray-200" />
+                    onClick={handleDownloadJSON}
+                    className="p-2 bg-lydian-glass-dark-medium hover:bg-lydian-bg-active rounded-lg transition-colors"
+                    title="JSON İndir">
+
+                      <Download className="h-5 w-5 text-lydian-text-muted" />
                     </button>
                   </div>
-                )}
+                }
               </div>
 
               {/* Copy Success Message */}
-              {showCopySuccess && (
-                <div className="mb-4 p-3 bg-green-50 border border-green-200 rounded-lg flex items-center gap-2 text-green-800">
+              {showCopySuccess &&
+              <div className="mb-4 p-3 bg-lydian-success-lighter border border-green-200 rounded-lg flex items-center gap-2 text-green-800">
                   <Check className="h-5 w-5" />
                   <span className="text-sm font-medium">Kopyalandı!</span>
                 </div>
-              )}
+              }
 
-              {generatedContent ? (
-                <>
+              {generatedContent ?
+              <>
                   {/* Quality Score */}
-                  {quality && (
-                    <div className={`mb-6 p-4 rounded-lg ${
-                      quality.score >= 90 ? 'bg-green-50 border border-green-200' :
-                      quality.score >= 70 ? 'bg-yellow-50 border border-yellow-200' :
-                      'bg-red-50 border border-red-200'
-                    }`}>
+                  {quality &&
+                <div className={`mb-6 p-4 rounded-lg ${
+                quality.score >= 90 ? 'bg-green-50 border border-green-200' :
+                quality.score >= 70 ? 'bg-yellow-50 border border-yellow-200' :
+                'bg-red-50 border border-red-200'}`
+                }>
                       <div className="flex items-center justify-between mb-2">
-                        <span className="text-sm font-medium text-gray-200">
+                        <span className="text-sm font-medium text-lydian-text-muted">
                           Kalite Skoru
                         </span>
                         <span className={`text-2xl font-bold ${
-                          quality.score >= 90 ? 'text-green-600' :
-                          quality.score >= 70 ? 'text-yellow-600' :
-                          'text-red-600'
-                        }`}>
+                    quality.score >= 90 ? 'text-green-600' :
+                    quality.score >= 70 ? 'text-yellow-600' :
+                    'text-red-600'}`
+                    }>
                           {quality.score}%
                         </span>
                       </div>
                       <div className="space-y-1">
-                        {quality.feedback.map((item, idx) => (
-                          <p key={idx} className="text-xs text-gray-100">
+                        {quality.feedback.map((item, idx) =>
+                    <p key={idx} className="text-xs text-lydian-text-dim">
                             {item}
                           </p>
-                        ))}
+                    )}
                       </div>
                     </div>
-                  )}
+                }
 
                   {/* Tabs */}
-                  <div className="flex items-center gap-2 mb-4 border-b border-white/10">
+                  <div className="flex items-center gap-2 mb-4 border-b border-lydian-border-light/10">
                     <button
-                      onClick={() => setActiveTab('preview')}
-                      className={`px-4 py-2 font-medium border-b-2 transition-colors ${
-                        activeTab === 'preview'
-                          ? 'border-purple-600 text-purple-600'
-                          : 'border-transparent text-gray-300 hover:text-white'
-                      }`}
-                    >
+                    onClick={() => setActiveTab('preview')}
+                    className={`px-4 py-2 font-medium border-b-2 transition-colors ${
+                    activeTab === 'preview' ?
+                    'border-purple-600 text-purple-600' :
+                    'border-transparent text-gray-300 hover:text-white'}`
+                    }>
+
                       <Eye className="h-4 w-4 inline mr-2" />
                       Önizleme
                     </button>
                     <button
-                      onClick={() => setActiveTab('json')}
-                      className={`px-4 py-2 font-medium border-b-2 transition-colors ${
-                        activeTab === 'json'
-                          ? 'border-purple-600 text-purple-600'
-                          : 'border-transparent text-gray-300 hover:text-white'
-                      }`}
-                    >
+                    onClick={() => setActiveTab('json')}
+                    className={`px-4 py-2 font-medium border-b-2 transition-colors ${
+                    activeTab === 'json' ?
+                    'border-purple-600 text-purple-600' :
+                    'border-transparent text-gray-300 hover:text-white'}`
+                    }>
+
                       <FileText className="h-4 w-4 inline mr-2" />
                       JSON
                     </button>
@@ -445,120 +445,120 @@ const AIContentWriterPage: React.FC = () => {
 
                   {/* Content */}
                   <div className="overflow-y-auto max-h-[600px] pr-2">
-                    {activeTab === 'preview' && (
-                      <div className="space-y-6">
+                    {activeTab === 'preview' &&
+                  <div className="space-y-6">
                         {/* Title */}
                         <div>
-                          <h3 className="text-sm font-semibold text-gray-400 mb-2">BAŞLIK</h3>
-                          <p className="text-xl font-bold text-white">{generatedContent.title}</p>
+                          <h3 className="text-sm font-semibold text-lydian-text-muted mb-2">BAŞLIK</h3>
+                          <p className="text-xl font-bold text-lydian-text-inverse">{generatedContent.title}</p>
                         </div>
 
                         {/* SEO */}
                         <div>
-                          <h3 className="text-sm font-semibold text-gray-400 mb-2">SEO BAŞLIK</h3>
-                          <p className="text-sm text-gray-200">{generatedContent.seoTitle}</p>
+                          <h3 className="text-sm font-semibold text-lydian-text-muted mb-2">SEO BAŞLIK</h3>
+                          <p className="text-sm text-lydian-text-muted">{generatedContent.seoTitle}</p>
                         </div>
 
                         {/* Meta Description */}
                         <div>
-                          <h3 className="text-sm font-semibold text-gray-400 mb-2">META AÇIKLAMA</h3>
-                          <p className="text-sm text-gray-200">{generatedContent.metaDescription}</p>
+                          <h3 className="text-sm font-semibold text-lydian-text-muted mb-2">META AÇIKLAMA</h3>
+                          <p className="text-sm text-lydian-text-muted">{generatedContent.metaDescription}</p>
                         </div>
 
                         {/* Short Description */}
                         <div>
-                          <h3 className="text-sm font-semibold text-gray-400 mb-2">KISA AÇIKLAMA</h3>
-                          <p className="text-sm text-gray-200">{generatedContent.shortDescription}</p>
+                          <h3 className="text-sm font-semibold text-lydian-text-muted mb-2">KISA AÇIKLAMA</h3>
+                          <p className="text-sm text-lydian-text-muted">{generatedContent.shortDescription}</p>
                         </div>
 
                         {/* Long Description */}
                         <div>
-                          <h3 className="text-sm font-semibold text-gray-400 mb-2">DETAYLI AÇIKLAMA</h3>
-                          <p className="text-sm text-gray-200 whitespace-pre-line">{generatedContent.longDescription}</p>
+                          <h3 className="text-sm font-semibold text-lydian-text-muted mb-2">DETAYLI AÇIKLAMA</h3>
+                          <p className="text-sm text-lydian-text-muted whitespace-pre-line">{generatedContent.longDescription}</p>
                         </div>
 
                         {/* Highlights */}
                         <div>
-                          <h3 className="text-sm font-semibold text-gray-400 mb-2">ÖZELLİKLER</h3>
+                          <h3 className="text-sm font-semibold text-lydian-text-muted mb-2">ÖZELLİKLER</h3>
                           <ul className="space-y-1">
-                            {generatedContent.highlights.map((highlight, idx) => (
-                              <li key={idx} className="text-sm text-gray-200 flex items-start gap-2">
+                            {generatedContent.highlights.map((highlight, idx) =>
+                        <li key={idx} className="text-sm text-lydian-text-muted flex items-start gap-2">
                                 <span className="text-purple-600">•</span>
                                 {highlight}
                               </li>
-                            ))}
+                        )}
                           </ul>
                         </div>
 
                         {/* Keywords */}
                         <div>
-                          <h3 className="text-sm font-semibold text-gray-400 mb-2">ANAHTAR KELİMELER</h3>
+                          <h3 className="text-sm font-semibold text-lydian-text-muted mb-2">ANAHTAR KELİMELER</h3>
                           <div className="flex flex-wrap gap-2">
-                            {generatedContent.keywords.map((keyword, idx) => (
-                              <span
-                                key={idx}
-                                className="px-2 py-1 bg-purple-100 text-purple-800 text-xs rounded"
-                              >
+                            {generatedContent.keywords.map((keyword, idx) =>
+                        <span
+                          key={idx}
+                          className="px-2 py-1 bg-purple-100 text-purple-800 text-xs rounded">
+
                                 {keyword}
                               </span>
-                            ))}
+                        )}
                           </div>
                         </div>
 
                         {/* FAQ */}
                         <div>
-                          <h3 className="text-sm font-semibold text-gray-400 mb-2">SSS</h3>
+                          <h3 className="text-sm font-semibold text-lydian-text-muted mb-2">SSS</h3>
                           <div className="space-y-3">
-                            {generatedContent.faq.map((item, idx) => (
-                              <div key={idx} className="border-l-4 border-purple-600 pl-4">
-                                <p className="text-sm font-semibold text-white mb-1">
+                            {generatedContent.faq.map((item, idx) =>
+                        <div key={idx} className="border-l-4 border-purple-600 pl-4">
+                                <p className="text-sm font-semibold text-lydian-text-inverse mb-1">
                                   {item.question}
                                 </p>
-                                <p className="text-sm text-gray-200">
+                                <p className="text-sm text-lydian-text-muted">
                                   {item.answer}
                                 </p>
                               </div>
-                            ))}
+                        )}
                           </div>
                         </div>
 
                         {/* CTA */}
                         <div>
-                          <h3 className="text-sm font-semibold text-gray-400 mb-2">CALL TO ACTION</h3>
+                          <h3 className="text-sm font-semibold text-lydian-text-muted mb-2">CALL TO ACTION</h3>
                           <p className="text-sm font-semibold text-purple-600">{generatedContent.callToAction}</p>
                         </div>
 
                         {/* Tags */}
                         <div>
-                          <h3 className="text-sm font-semibold text-gray-400 mb-2">ETİKETLER</h3>
+                          <h3 className="text-sm font-semibold text-lydian-text-muted mb-2">ETİKETLER</h3>
                           <div className="flex flex-wrap gap-2">
-                            {generatedContent.tags.map((tag, idx) => (
-                              <span
-                                key={idx}
-                                className="px-2 py-1 bg-white/10 text-gray-200 text-xs rounded"
-                              >
+                            {generatedContent.tags.map((tag, idx) =>
+                        <span
+                          key={idx}
+                          className="px-2 py-1 bg-lydian-glass-dark-medium text-lydian-text-muted text-xs rounded">
+
                                 #{tag}
                               </span>
-                            ))}
+                        )}
                           </div>
                         </div>
                       </div>
-                    )}
+                  }
 
-                    {activeTab === 'json' && (
-                      <pre className="text-xs bg-gray-900 text-green-400 p-4 rounded-lg overflow-x-auto">
+                    {activeTab === 'json' &&
+                  <pre className="text-xs bg-gray-900 text-green-400 p-4 rounded-lg overflow-x-auto">
                         {JSON.stringify(generatedContent, null, 2)}
                       </pre>
-                    )}
+                  }
                   </div>
-                </>
-              ) : (
-                <div className="flex flex-col items-center justify-center h-96 text-gray-400">
+                </> :
+
+              <div className="flex flex-col items-center justify-center h-96 text-lydian-text-muted">
                   <AlertCircle className="h-16 w-16 mb-4" />
                   <p className="text-lg font-medium">Henüz içerik oluşturulmadı</p>
                   <p className="text-sm mt-2">Formu doldurun ve "AI İçerik Oluştur" butonuna tıklayın</p>
                 </div>
-              )}
+              }
             </motion.div>
           </div>
 
@@ -566,9 +566,9 @@ const AIContentWriterPage: React.FC = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="mt-8 bg-gradient-to-r from-purple-50 to-indigo-50 rounded-xl p-8 border border-purple-200"
-          >
-            <h2 className="text-2xl font-bold text-white mb-6">
+            className="mt-8 bg-gradient-to-r from-purple-50 to-indigo-50 rounded-xl p-8 border border-purple-200">
+
+            <h2 className="text-2xl font-bold text-lydian-text-inverse mb-6">
               AI Content Writer Özellikleri
             </h2>
 
@@ -576,29 +576,29 @@ const AIContentWriterPage: React.FC = () => {
               <div>
                 <div className="flex items-center gap-3 mb-3">
                   <Sparkles className="h-6 w-6 text-purple-600" />
-                  <h3 className="font-bold text-white">SEO-Optimized</h3>
+                  <h3 className="font-bold text-lydian-text-inverse">SEO-Optimized</h3>
                 </div>
-                <p className="text-sm text-gray-200">
+                <p className="text-sm text-lydian-text-muted">
                   Otomatik anahtar kelime, meta açıklama ve başlık optimizasyonu
                 </p>
               </div>
 
               <div>
                 <div className="flex items-center gap-3 mb-3">
-                  <Check className="h-6 w-6 text-green-600" />
-                  <h3 className="font-bold text-white">Kalite Kontrolü</h3>
+                  <Check className="h-6 w-6 text-lydian-success" />
+                  <h3 className="font-bold text-lydian-text-inverse">Kalite Kontrolü</h3>
                 </div>
-                <p className="text-sm text-gray-200">
+                <p className="text-sm text-lydian-text-muted">
                   Otomatik kalite skoru ve iyileştirme önerileri
                 </p>
               </div>
 
               <div>
                 <div className="flex items-center gap-3 mb-3">
-                  <Zap className="h-6 w-6 text-yellow-600" />
-                  <h3 className="font-bold text-white">Hızlı Üretim</h3>
+                  <Zap className="h-6 w-6 text-lydian-warning" />
+                  <h3 className="font-bold text-lydian-text-inverse">Hızlı Üretim</h3>
                 </div>
-                <p className="text-sm text-gray-200">
+                <p className="text-sm text-lydian-text-muted">
                   1 saniyeden kısa sürede tam içerik üretimi
                 </p>
               </div>
@@ -606,8 +606,8 @@ const AIContentWriterPage: React.FC = () => {
           </motion.div>
         </div>
       </div>
-    </>
-  );
+    </>);
+
 };
 
 export default AIContentWriterPage;

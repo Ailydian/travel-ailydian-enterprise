@@ -40,32 +40,32 @@ export const LocationAutocomplete: React.FC<LocationAutocompleteProps> = ({
 
   // Turkish cities and airports database
   const turkishLocations: LocationSuggestion[] = [
-    { id: 'ist-city', name: 'İstanbul', city: 'İstanbul', country: 'Türkiye', type: 'city' },
-    { id: 'ist-airport', name: 'İstanbul Havalimanı', city: 'İstanbul', country: 'Türkiye', type: 'airport', code: 'IST' },
-    { id: 'saw-airport', name: 'Sabiha Gökçen Havalimanı', city: 'İstanbul', country: 'Türkiye', type: 'airport', code: 'SAW' },
-    { id: 'ayt-city', name: 'Antalya', city: 'Antalya', country: 'Türkiye', type: 'city' },
-    { id: 'ayt-airport', name: 'Antalya Havalimanı', city: 'Antalya', country: 'Türkiye', type: 'airport', code: 'AYT' },
-    { id: 'izm-city', name: 'İzmir', city: 'İzmir', country: 'Türkiye', type: 'city' },
-    { id: 'adb-airport', name: 'Adnan Menderes Havalimanı', city: 'İzmir', country: 'Türkiye', type: 'airport', code: 'ADB' },
-    { id: 'ank-city', name: 'Ankara', city: 'Ankara', country: 'Türkiye', type: 'city' },
-    { id: 'esb-airport', name: 'Esenboğa Havalimanı', city: 'Ankara', country: 'Türkiye', type: 'airport', code: 'ESB' },
-    { id: 'bod-city', name: 'Bodrum', city: 'Bodrum', country: 'Türkiye', type: 'city' },
-    { id: 'bjv-airport', name: 'Bodrum Havalimanı', city: 'Bodrum', country: 'Türkiye', type: 'airport', code: 'BJV' },
-    { id: 'dlm-airport', name: 'Dalaman Havalimanı', city: 'Dalaman', country: 'Türkiye', type: 'airport', code: 'DLM' },
-    { id: 'ala-city', name: 'Alanya', city: 'Alanya', region: 'Antalya', country: 'Türkiye', type: 'city' },
-    { id: 'gzp-airport', name: 'Gazipaşa-Alanya Havalimanı', city: 'Alanya', country: 'Türkiye', type: 'airport', code: 'GZP' },
-    { id: 'belek', name: 'Belek', city: 'Belek', region: 'Antalya', country: 'Türkiye', type: 'region' },
-    { id: 'lara', name: 'Lara', city: 'Lara', region: 'Antalya', country: 'Türkiye', type: 'region' },
-    { id: 'side', name: 'Side', city: 'Side', region: 'Antalya', country: 'Türkiye', type: 'region' },
-    { id: 'kemer', name: 'Kemer', city: 'Kemer', region: 'Antalya', country: 'Türkiye', type: 'region' },
-    { id: 'kas', name: 'Kaş', city: 'Kaş', region: 'Antalya', country: 'Türkiye', type: 'city' },
-    { id: 'fethiye', name: 'Fethiye', city: 'Fethiye', region: 'Muğla', country: 'Türkiye', type: 'city' },
-    { id: 'marmaris', name: 'Marmaris', city: 'Marmaris', region: 'Muğla', country: 'Türkiye', type: 'city' },
-    { id: 'cesme', name: 'Çeşme', city: 'Çeşme', region: 'İzmir', country: 'Türkiye', type: 'city' },
-    { id: 'canakkale', name: 'Çanakkale', city: 'Çanakkale', country: 'Türkiye', type: 'city' },
-    { id: 'trabzon', name: 'Trabzon', city: 'Trabzon', country: 'Türkiye', type: 'city' },
-    { id: 'tzx-airport', name: 'Trabzon Havalimanı', city: 'Trabzon', country: 'Türkiye', type: 'airport', code: 'TZX' },
-  ];
+  { id: 'ist-city', name: 'İstanbul', city: 'İstanbul', country: 'Türkiye', type: 'city' },
+  { id: 'ist-airport', name: 'İstanbul Havalimanı', city: 'İstanbul', country: 'Türkiye', type: 'airport', code: 'IST' },
+  { id: 'saw-airport', name: 'Sabiha Gökçen Havalimanı', city: 'İstanbul', country: 'Türkiye', type: 'airport', code: 'SAW' },
+  { id: 'ayt-city', name: 'Antalya', city: 'Antalya', country: 'Türkiye', type: 'city' },
+  { id: 'ayt-airport', name: 'Antalya Havalimanı', city: 'Antalya', country: 'Türkiye', type: 'airport', code: 'AYT' },
+  { id: 'izm-city', name: 'İzmir', city: 'İzmir', country: 'Türkiye', type: 'city' },
+  { id: 'adb-airport', name: 'Adnan Menderes Havalimanı', city: 'İzmir', country: 'Türkiye', type: 'airport', code: 'ADB' },
+  { id: 'ank-city', name: 'Ankara', city: 'Ankara', country: 'Türkiye', type: 'city' },
+  { id: 'esb-airport', name: 'Esenboğa Havalimanı', city: 'Ankara', country: 'Türkiye', type: 'airport', code: 'ESB' },
+  { id: 'bod-city', name: 'Bodrum', city: 'Bodrum', country: 'Türkiye', type: 'city' },
+  { id: 'bjv-airport', name: 'Bodrum Havalimanı', city: 'Bodrum', country: 'Türkiye', type: 'airport', code: 'BJV' },
+  { id: 'dlm-airport', name: 'Dalaman Havalimanı', city: 'Dalaman', country: 'Türkiye', type: 'airport', code: 'DLM' },
+  { id: 'ala-city', name: 'Alanya', city: 'Alanya', region: 'Antalya', country: 'Türkiye', type: 'city' },
+  { id: 'gzp-airport', name: 'Gazipaşa-Alanya Havalimanı', city: 'Alanya', country: 'Türkiye', type: 'airport', code: 'GZP' },
+  { id: 'belek', name: 'Belek', city: 'Belek', region: 'Antalya', country: 'Türkiye', type: 'region' },
+  { id: 'lara', name: 'Lara', city: 'Lara', region: 'Antalya', country: 'Türkiye', type: 'region' },
+  { id: 'side', name: 'Side', city: 'Side', region: 'Antalya', country: 'Türkiye', type: 'region' },
+  { id: 'kemer', name: 'Kemer', city: 'Kemer', region: 'Antalya', country: 'Türkiye', type: 'region' },
+  { id: 'kas', name: 'Kaş', city: 'Kaş', region: 'Antalya', country: 'Türkiye', type: 'city' },
+  { id: 'fethiye', name: 'Fethiye', city: 'Fethiye', region: 'Muğla', country: 'Türkiye', type: 'city' },
+  { id: 'marmaris', name: 'Marmaris', city: 'Marmaris', region: 'Muğla', country: 'Türkiye', type: 'city' },
+  { id: 'cesme', name: 'Çeşme', city: 'Çeşme', region: 'İzmir', country: 'Türkiye', type: 'city' },
+  { id: 'canakkale', name: 'Çanakkale', city: 'Çanakkale', country: 'Türkiye', type: 'city' },
+  { id: 'trabzon', name: 'Trabzon', city: 'Trabzon', country: 'Türkiye', type: 'city' },
+  { id: 'tzx-airport', name: 'Trabzon Havalimanı', city: 'Trabzon', country: 'Türkiye', type: 'airport', code: 'TZX' }];
+
 
   // Search suggestions
   useEffect(() => {
@@ -78,13 +78,13 @@ export const LocationAutocomplete: React.FC<LocationAutocompleteProps> = ({
     setIsLoading(true);
 
     // Filter local suggestions
-    const filtered = turkishLocations.filter(location => {
+    const filtered = turkishLocations.filter((location) => {
       const searchTerm = value.toLowerCase().trim();
       const matchesType = type === 'all' || location.type === type;
       const matchesName = location.name.toLowerCase().includes(searchTerm) ||
-                         location.city.toLowerCase().includes(searchTerm) ||
-                         location.code?.toLowerCase().includes(searchTerm) ||
-                         location.region?.toLowerCase().includes(searchTerm);
+      location.city.toLowerCase().includes(searchTerm) ||
+      location.code?.toLowerCase().includes(searchTerm) ||
+      location.region?.toLowerCase().includes(searchTerm);
 
       return matchesType && matchesName;
     });
@@ -113,13 +113,13 @@ export const LocationAutocomplete: React.FC<LocationAutocompleteProps> = ({
     switch (e.key) {
       case 'ArrowDown':
         e.preventDefault();
-        setSelectedIndex(prev =>
-          prev < suggestions.length - 1 ? prev + 1 : prev
+        setSelectedIndex((prev) =>
+        prev < suggestions.length - 1 ? prev + 1 : prev
         );
         break;
       case 'ArrowUp':
         e.preventDefault();
-        setSelectedIndex(prev => prev > 0 ? prev - 1 : -1);
+        setSelectedIndex((prev) => prev > 0 ? prev - 1 : -1);
         break;
       case 'Enter':
         e.preventDefault();
@@ -157,7 +157,7 @@ export const LocationAutocomplete: React.FC<LocationAutocompleteProps> = ({
     <div ref={wrapperRef} className={`relative ${className}`}>
       <div className="relative group">
         <div className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10 pointer-events-none">
-          {icon || <MapPin className="text-gray-400 w-5 h-5 group-hover:scale-110 group-focus-within:scale-110 group-focus-within:text-lydian-primary transition-all" />}
+          {icon || <MapPin className="text-lydian-text-muted w-5 h-5 group-hover:scale-110 group-focus-within:scale-110 group-focus-within:text-lydian-primary transition-all" />}
         </div>
         <input
           type="text"
@@ -166,29 +166,29 @@ export const LocationAutocomplete: React.FC<LocationAutocompleteProps> = ({
           onKeyDown={handleKeyDown}
           onFocus={() => value.length >= 2 && setShowSuggestions(true)}
           placeholder={placeholder}
-          className="w-full pl-12 pr-10 py-4 text-base bg-white/5 border-2 border-white/10 rounded-2xl focus:ring-2 focus:ring-lydian-primary focus:border-lydian-primary outline-none text-white placeholder-gray-500 font-medium shadow-sm hover:shadow-lg hover:border-lydian-primary/50 transition-all duration-200"
-          autoComplete="off"
-        />
-        {isLoading && (
-          <Loader2 className="absolute right-4 top-1/2 transform -translate-y-1/2 text-lydian-primary w-5 h-5 animate-spin" />
-        )}
+          className="w-full pl-12 pr-10 py-4 text-base bg-lydian-glass-dark border-2 border-lydian-border-light/10 rounded-2xl focus:ring-2 focus:ring-lydian-primary focus:border-lydian-primary outline-none text-lydian-text-inverse placeholder-lydian-text-tertiary font-medium shadow-sm hover:shadow-lg hover:border-lydian-primary/50 transition-all duration-200"
+          autoComplete="off" />
+
+        {isLoading &&
+        <Loader2 className="absolute right-4 top-1/2 transform -translate-y-1/2 text-lydian-primary w-5 h-5 animate-spin" />
+        }
       </div>
 
       {/* Suggestions Dropdown */}
-      {showSuggestions && suggestions.length > 0 && (
-        <div className="absolute z-50 w-full mt-2 bg-white/5 rounded-2xl shadow-2xl border-2 border-gray-100 overflow-hidden max-h-96 overflow-y-auto">
-          {suggestions.map((suggestion, index) => (
-            <button
-              key={suggestion.id}
-              onClick={() => handleSelectSuggestion(suggestion)}
-              className={`w-full px-5 py-4 flex items-start gap-3 hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 transition-all duration-200 text-left border-b border-gray-100 last:border-b-0 ${
-                index === selectedIndex ? 'bg-gradient-to-r from-lydian-primary/10 to-lydian-secondary/10' : ''
-              }`}
-            >
+      {showSuggestions && suggestions.length > 0 &&
+      <div className="absolute z-50 w-full mt-2 bg-lydian-glass-dark rounded-2xl shadow-2xl border-2 border-lydian-border-light overflow-hidden max-h-96 overflow-y-auto">
+          {suggestions.map((suggestion, index) =>
+        <button
+          key={suggestion.id}
+          onClick={() => handleSelectSuggestion(suggestion)}
+          className={`w-full px-5 py-4 flex items-start gap-3 hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 transition-all duration-200 text-left border-b border-lydian-border-light last:border-b-0 ${
+          index === selectedIndex ? 'bg-gradient-to-r from-lydian-primary/10 to-lydian-secondary/10' : ''}`
+          }>
+
               <span className="text-2xl mt-0.5 transform hover:scale-125 transition-transform">{getLocationIcon(suggestion.type)}</span>
               <div className="flex-1 min-w-0">
-                <div className="font-semibold text-white truncate">{suggestion.name}</div>
-                <div className="text-sm text-gray-300 flex items-center gap-1 mt-1">
+                <div className="font-semibold text-lydian-text-inverse truncate">{suggestion.name}</div>
+                <div className="text-sm text-lydian-text-dim flex items-center gap-1 mt-1">
                   <MapPin className="w-3 h-3 flex-shrink-0" />
                   <span className="truncate">
                     {suggestion.city}
@@ -196,33 +196,33 @@ export const LocationAutocomplete: React.FC<LocationAutocompleteProps> = ({
                     {' • '}
                     {suggestion.country}
                   </span>
-                  {suggestion.code && (
-                    <span className="ml-2 px-2 py-0.5 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-md text-xs font-mono font-semibold shadow-sm flex-shrink-0">
+                  {suggestion.code &&
+              <span className="ml-2 px-2 py-0.5 bg-gradient-to-r from-lydian-primary to-lydian-primary text-lydian-text-inverse rounded-md text-xs font-mono font-semibold shadow-sm flex-shrink-0">
                       {suggestion.code}
                     </span>
-                  )}
+              }
                 </div>
               </div>
-              {suggestion.type === 'airport' && (
-                <Navigation className="w-5 h-5 text-blue-500 mt-1 flex-shrink-0" />
-              )}
+              {suggestion.type === 'airport' &&
+          <Navigation className="w-5 h-5 text-lydian-primary mt-1 flex-shrink-0" />
+          }
             </button>
-          ))}
+        )}
         </div>
-      )}
+      }
 
       {/* No results */}
-      {showSuggestions && !isLoading && value.length >= 2 && suggestions.length === 0 && (
-        <div className="absolute z-50 w-full mt-2 bg-white/5 rounded-2xl shadow-2xl border-2 border-gray-100 p-6 text-center">
+      {showSuggestions && !isLoading && value.length >= 2 && suggestions.length === 0 &&
+      <div className="absolute z-50 w-full mt-2 bg-lydian-glass-dark rounded-2xl shadow-2xl border-2 border-lydian-border-light p-6 text-center">
           <div className="w-16 h-16 mx-auto mb-3 rounded-full bg-gradient-to-r from-gray-100 to-gray-200 flex items-center justify-center">
-            <Search className="w-8 h-8 text-gray-400" />
+            <Search className="w-8 h-8 text-lydian-text-muted" />
           </div>
-          <div className="font-semibold text-white mb-1">Sonuç bulunamadı</div>
-          <div className="text-sm text-gray-400">Farklı bir arama terimi deneyin</div>
+          <div className="font-semibold text-lydian-text-inverse mb-1">Sonuç bulunamadı</div>
+          <div className="text-sm text-lydian-text-muted">Farklı bir arama terimi deneyin</div>
         </div>
-      )}
-    </div>
-  );
+      }
+    </div>);
+
 };
 
 export default LocationAutocomplete;

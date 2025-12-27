@@ -29,7 +29,7 @@ const GRADIENT_VARIANTS = {
   secondary: 'bg-gradient-to-r from-[#FF9500] to-[#FF6B00]',
   success: 'bg-gradient-to-r from-[#10B981] to-[#059669]',
   glass: 'bg-white/10 backdrop-blur-xl border-2 border-white/30',
-  outline: 'bg-transparent border-2 border-[#667EEA]',
+  outline: 'bg-transparent border-2 border-[#667EEA]'
 };
 
 const GLOW_COLORS = {
@@ -38,14 +38,14 @@ const GLOW_COLORS = {
   secondary: 'rgba(255, 149, 0, 0.6)',
   success: 'rgba(16, 185, 129, 0.6)',
   glass: 'rgba(255, 255, 255, 0.3)',
-  outline: 'rgba(102, 126, 234, 0.4)',
+  outline: 'rgba(102, 126, 234, 0.4)'
 };
 
 const SIZE_CLASSES = {
   sm: 'px-4 py-2 text-sm',
   md: 'px-6 py-3 text-base',
   lg: 'px-8 py-4 text-lg',
-  xl: 'px-10 py-5 text-xl',
+  xl: 'px-10 py-5 text-xl'
 };
 
 export const FuturisticButton: React.FC<FuturisticButtonProps> = ({
@@ -60,7 +60,7 @@ export const FuturisticButton: React.FC<FuturisticButtonProps> = ({
   loading = false,
   glow = true,
   className = '',
-  type = 'button',
+  type = 'button'
 }) => {
   const [isHovered, setIsHovered] = useState(false);
 
@@ -108,7 +108,7 @@ export const FuturisticButton: React.FC<FuturisticButtonProps> = ({
       style={{
         rotateX,
         rotateY,
-        transformStyle: 'preserve-3d',
+        transformStyle: 'preserve-3d'
       }}
       whileHover={{ scale: disabled ? 1 : 1.05 }}
       whileTap={{ scale: disabled ? 1 : 0.95 }}
@@ -119,82 +119,82 @@ export const FuturisticButton: React.FC<FuturisticButtonProps> = ({
         ${fullWidth ? 'w-full' : ''}
         ${disabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}
         font-bold rounded-2xl
-        text-white
+        text-lydian-text-inverse
         overflow-hidden
         transition-all duration-300
         ${className}
-      `}
-    >
+      `}>
+
       {/* Shimmer Effect for Loading */}
-      {loading && (
-        <motion.div
-          animate={{
-            x: ['-100%', '200%'],
-          }}
-          transition={{
-            duration: 1.5,
-            repeat: Infinity,
-            ease: 'linear',
-          }}
-          className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
-        />
-      )}
+      {loading &&
+      <motion.div
+        animate={{
+          x: ['-100%', '200%']
+        }}
+        transition={{
+          duration: 1.5,
+          repeat: Infinity,
+          ease: 'linear'
+        }}
+        className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent" />
+
+      }
 
       {/* Glow Effect */}
-      {glow && isHovered && !disabled && (
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1.2 }}
-          exit={{ opacity: 0 }}
-          className="absolute inset-0 -z-10 blur-2xl"
-          style={{
-            background: `radial-gradient(circle at center, ${glowColor}, transparent)`,
-          }}
-        />
-      )}
+      {glow && isHovered && !disabled &&
+      <motion.div
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1.2 }}
+        exit={{ opacity: 0 }}
+        className="absolute inset-0 -z-10 blur-2xl"
+        style={{
+          background: `radial-gradient(circle at center, ${glowColor}, transparent)`
+        }} />
+
+      }
 
       {/* Animated Border Glow */}
-      {isHovered && !disabled && variant !== 'glass' && (
-        <motion.div
-          className="absolute inset-0 rounded-2xl"
-          animate={{
-            boxShadow: [
-              `0 0 20px ${glowColor}`,
-              `0 0 40px ${glowColor}`,
-              `0 0 20px ${glowColor}`,
-            ],
-          }}
-          transition={{
-            duration: 2,
-            repeat: Infinity,
-            ease: 'easeInOut',
-          }}
-        />
-      )}
+      {isHovered && !disabled && variant !== 'glass' &&
+      <motion.div
+        className="absolute inset-0 rounded-2xl"
+        animate={{
+          boxShadow: [
+          `0 0 20px ${glowColor}`,
+          `0 0 40px ${glowColor}`,
+          `0 0 20px ${glowColor}`]
+
+        }}
+        transition={{
+          duration: 2,
+          repeat: Infinity,
+          ease: 'easeInOut'
+        }} />
+
+      }
 
       {/* Content */}
       <div className="relative flex items-center justify-center gap-2" style={{ transform: 'translateZ(20px)' }}>
-        {loading ? (
-          <Loader2 className="w-5 h-5 animate-spin" />
-        ) : (
-          <>
+        {loading ?
+        <Loader2 className="w-5 h-5 animate-spin" /> :
+
+        <>
             {icon && iconPosition === 'left' && <span>{icon}</span>}
             <span>{children}</span>
             {icon && iconPosition === 'right' && <span>{icon}</span>}
           </>
-        )}
+        }
       </div>
 
       {/* Gradient Overlay on Hover (for glass/outline) */}
-      {(variant === 'glass' || variant === 'outline') && isHovered && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          className="absolute inset-0 bg-gradient-to-r from-[#00BAFF]/20 to-[#667EEA]/20 rounded-2xl"
-        />
-      )}
-    </motion.button>
-  );
+      {(variant === 'glass' || variant === 'outline') && isHovered &&
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        className="absolute inset-0 bg-gradient-to-r from-[#00BAFF]/20 to-[#667EEA]/20 rounded-2xl" />
+
+      }
+    </motion.button>);
+
 };
 
 // Default export

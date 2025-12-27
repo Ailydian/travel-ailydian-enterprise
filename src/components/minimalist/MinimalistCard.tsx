@@ -42,53 +42,53 @@ export const MinimalistCard: React.FC<MinimalistCardProps> = ({
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-50px' }}
-      transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
-    >
+      transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}>
+
       {/* Image Container */}
-      <div className={`relative w-full ${aspectRatios[imageRatio]} overflow-hidden bg-white/10 mb-4`}>
+      <div className={`relative w-full ${aspectRatios[imageRatio]} overflow-hidden bg-lydian-glass-dark-medium mb-4`}>
         <motion.div
           className="w-full h-full"
-          {...hoverAnimations.imageHover}
-        >
+          {...hoverAnimations.imageHover}>
+
           <Image
             src={image}
             alt={title}
             fill
             className="object-cover"
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          />
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
+
         </motion.div>
       </div>
 
       {/* Content */}
       <div className="space-y-2">
         {/* Title */}
-        <h3 className="text-xl md:text-2xl font-light text-white leading-tight">
+        <h3 className="text-xl md:text-2xl font-light text-lydian-text-inverse leading-tight">
           {title}
         </h3>
 
         {/* Description */}
-        {description && (
-          <p className="text-base text-gray-300 leading-relaxed line-clamp-2">
+        {description &&
+        <p className="text-base text-lydian-text-dim leading-relaxed line-clamp-2">
             {description}
           </p>
-        )}
+        }
 
         {/* Metadata */}
-        {metadata.length > 0 && (
-          <div className="flex flex-wrap gap-2 pt-2">
-            {metadata.map((item, index) => (
-              <span
-                key={index}
-                className="text-sm text-gray-400"
-              >
+        {metadata.length > 0 &&
+        <div className="flex flex-wrap gap-2 pt-2">
+            {metadata.map((item, index) =>
+          <span
+            key={index}
+            className="text-sm text-lydian-text-muted">
+
                 {item}
                 {index < metadata.length - 1 && <span className="mx-2">•</span>}
               </span>
-            ))}
+          )}
           </div>
-        )}
+        }
       </div>
-    </motion.div>
-  );
+    </motion.div>);
+
 };

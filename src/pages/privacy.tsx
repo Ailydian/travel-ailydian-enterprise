@@ -13,22 +13,22 @@ const Privacy: React.FC = () => {
 
       <FuturisticHeader />
 
-      <main className="min-h-screen bg-white/5">
+      <main className="min-h-screen bg-lydian-glass-dark">
         <div className="max-w-4xl mx-auto px-4 py-16">
-          <h1 className="text-4xl font-bold text-white mb-8">Gizlilik Politikası</h1>
-          <div className="bg-transparent rounded-2xl shadow-lg p-8 space-y-8">
+          <h1 className="text-4xl font-bold text-lydian-text-inverse mb-8">Gizlilik Politikası</h1>
+          <div className="bg-lydian-bg-hover rounded-2xl shadow-lg p-8 space-y-8">
             
             <section>
-              <h2 className="text-2xl font-bold text-white mb-4">1. Kişisel Verilerin Toplanması</h2>
-              <p className="text-gray-200 leading-relaxed">
+              <h2 className="text-2xl font-bold text-lydian-text-inverse mb-4">1. Kişisel Verilerin Toplanması</h2>
+              <p className="text-lydian-text-muted leading-relaxed">
                 Travel.LyDian olarak, size daha iyi hizmet verebilmek için gerekli kişisel verilerinizi KVKK uyarınca toplar ve işleriz. 
                 Topladığımız veriler arasında ad-soyad, e-posta adresi, telefon numarası ve seyahat tercihleri yer alır.
               </p>
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-white mb-4">2. Verilerin Kullanım Amacı</h2>
-              <ul className="list-disc list-inside text-gray-200 space-y-2">
+              <h2 className="text-2xl font-bold text-lydian-text-inverse mb-4">2. Verilerin Kullanım Amacı</h2>
+              <ul className="list-disc list-inside text-lydian-text-muted space-y-2">
                 <li>Rezervasyon işlemlerinizi gerçekleştirmek</li>
                 <li>AI destekli kişiselleştirilmiş öneriler sunmak</li>
                 <li>Müşteri hizmetleri desteği sağlamak</li>
@@ -38,24 +38,24 @@ const Privacy: React.FC = () => {
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-white mb-4">3. Veri Güvenliği</h2>
-              <p className="text-gray-200 leading-relaxed">
+              <h2 className="text-2xl font-bold text-lydian-text-inverse mb-4">3. Veri Güvenliği</h2>
+              <p className="text-lydian-text-muted leading-relaxed">
                 Verileriniz blockchain teknolojisi ve SSL şifreleme ile korunmaktadır. 
                 Kripto ödemelerde ek güvenlik katmanları uygulanır ve hiçbir finansal bilgi saklanmaz.
               </p>
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-white mb-4">4. Çerezler (Cookies)</h2>
-              <p className="text-gray-200 leading-relaxed">
+              <h2 className="text-2xl font-bold text-lydian-text-inverse mb-4">4. Çerezler (Cookies)</h2>
+              <p className="text-lydian-text-muted leading-relaxed">
                 Web sitemizde deneyiminizi iyileştirmek için çerezler kullanıyoruz. 
                 AI öneri sistemimiz ve kişiselleştirme özellikleri çerez verilerini kullanabilir.
               </p>
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-white mb-4">5. Haklarınız</h2>
-              <ul className="list-disc list-inside text-gray-200 space-y-2">
+              <h2 className="text-2xl font-bold text-lydian-text-inverse mb-4">5. Haklarınız</h2>
+              <ul className="list-disc list-inside text-lydian-text-muted space-y-2">
                 <li>Verilerinize erişim talep etme</li>
                 <li>Verilerin düzeltilmesini isteme</li>
                 <li>Verilerin silinmesini talep etme</li>
@@ -65,14 +65,14 @@ const Privacy: React.FC = () => {
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-white mb-4">6. İletişim</h2>
-              <p className="text-gray-200 leading-relaxed">
+              <h2 className="text-2xl font-bold text-lydian-text-inverse mb-4">6. İletişim</h2>
+              <p className="text-lydian-text-muted leading-relaxed">
                 Gizlilik ile ilgili sorularınız için: <strong>privacy@lydian.com</strong> adresinden bize ulaşabilirsiniz.
               </p>
             </section>
 
             <div className="border-t pt-8">
-              <p className="text-sm text-gray-200">
+              <p className="text-sm text-lydian-text-muted">
                 Son güncelleme: 26 Eylül 2025 | Bu politika KVKK ve GDPR uyumludur.
               </p>
             </div>
@@ -81,8 +81,8 @@ const Privacy: React.FC = () => {
       </main>
 
       <BookingFooter />
-    </>
-  );
+    </>);
+
 };
 
 export default Privacy;

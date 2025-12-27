@@ -52,8 +52,8 @@ export default function ForgotPassword() {
         {/* Return to Login */}
         <Link
           href="/auth/signin"
-          className="fixed top-6 left-6 z-10 flex items-center gap-2 px-4 py-2 bg-white/20 backdrop-blur-sm rounded-xl text-white hover:bg-white/30 transition-all duration-200"
-        >
+          className="fixed top-6 left-6 z-10 flex items-center gap-2 px-4 py-2 bg-lydian-glass-dark-heavy backdrop-blur-sm rounded-xl text-lydian-text-inverse hover:bg-lydian-bg/30 transition-all duration-200">
+
           <ArrowLeft className="w-4 h-4" />
           <span className="font-medium">Giriş Sayfasına Dön</span>
         </Link>
@@ -62,20 +62,20 @@ export default function ForgotPassword() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="w-full max-w-md"
-        >
-          <div className="bg-transparent rounded-2xl shadow-2xl p-8">
-            {!isSubmitted ? (
-              <>
+          className="w-full max-w-md">
+
+          <div className="bg-lydian-bg-hover rounded-2xl shadow-2xl p-8">
+            {!isSubmitted ?
+            <>
                 {/* Header */}
                 <div className="text-center mb-8">
                   <div className="w-16 h-16 bg-gradient-to-r from-lydian-primary to-lydian-secondary rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Mail className="w-8 h-8 text-white" />
+                    <Mail className="w-8 h-8 text-lydian-text-inverse" />
                   </div>
-                  <h1 className="text-3xl font-bold text-white mb-2">
+                  <h1 className="text-3xl font-bold text-lydian-text-inverse mb-2">
                     Şifremi Unuttum
                   </h1>
-                  <p className="text-gray-300">
+                  <p className="text-lydian-text-dim">
                     E-posta adresinize şifre sıfırlama linki göndereceğiz
                   </p>
                 </div>
@@ -83,95 +83,95 @@ export default function ForgotPassword() {
                 {/* Form */}
                 <form onSubmit={handleSubmit} className="space-y-6">
                   {/* Error Message */}
-                  {error && (
-                    <motion.div
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      className="flex items-center gap-2 p-4 bg-red-50 border border-red-200 rounded-lg text-red-700"
-                    >
+                  {error &&
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  className="flex items-center gap-2 p-4 bg-lydian-error-lighter border border-red-200 rounded-lg text-lydian-primary-dark">
+
                       <AlertCircle className="w-5 h-5 flex-shrink-0" />
                       <span className="text-sm">{error}</span>
                     </motion.div>
-                  )}
+                }
 
                   {/* Email Input */}
                   <div>
-                    <label htmlFor="email" className="block text-sm font-semibold text-gray-200 mb-2">
+                    <label htmlFor="email" className="block text-sm font-semibold text-lydian-text-muted mb-2">
                       E-posta Adresi
                     </label>
                     <div className="relative">
-                      <Mail className="absolute left-3 top-3.5 w-5 h-5 text-gray-400" />
+                      <Mail className="absolute left-3 top-3.5 w-5 h-5 text-lydian-text-muted" />
                       <input
-                        id="email"
-                        type="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        placeholder="ornek@email.com"
-                        className="w-full pl-11 pr-4 py-3 border border-white/20 rounded-lg focus:ring-2 focus:ring-lydian-primary focus:border-transparent outline-none transition-all"
-                        required
-                      />
+                      id="email"
+                      type="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      placeholder="ornek@email.com"
+                      className="w-full pl-11 pr-4 py-3 border border-lydian-border-light rounded-lg focus:ring-2 focus:ring-lydian-primary focus:border-lydian-border outline-none transition-all"
+                      required />
+
                     </div>
                   </div>
 
                   {/* Submit Button */}
                   <motion.button
-                    type="submit"
-                    disabled={isLoading}
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="w-full py-3 bg-gradient-to-r from-lydian-primary to-lydian-secondary text-white rounded-lg font-semibold hover:shadow-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed"
-                  >
-                    {isLoading ? (
-                      <span className="flex items-center justify-center gap-2">
+                  type="submit"
+                  disabled={isLoading}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="w-full py-3 bg-gradient-to-r from-lydian-primary to-lydian-secondary text-lydian-text-inverse rounded-lg font-semibold hover:shadow-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed">
+
+                    {isLoading ?
+                  <span className="flex items-center justify-center gap-2">
                         <motion.div
-                          animate={{ rotate: 360 }}
-                          transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-                          className="w-5 h-5 border-2 border-white border-t-transparent rounded-full"
-                        />
+                      animate={{ rotate: 360 }}
+                      transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                      className="w-5 h-5 border-2 border-lydian-border-light border-t-transparent rounded-full" />
+
                         Gönderiliyor...
-                      </span>
-                    ) : (
-                      'Şifre Sıfırlama Linki Gönder'
-                    )}
+                      </span> :
+
+                  'Şifre Sıfırlama Linki Gönder'
+                  }
                   </motion.button>
                 </form>
 
                 {/* Footer */}
                 <div className="mt-6 text-center">
-                  <p className="text-sm text-gray-100">
+                  <p className="text-sm text-lydian-text-dim">
                     Şifrenizi hatırladınız mı?{' '}
                     <Link href="/auth/signin" className="text-lydian-primary font-semibold hover:underline">
                       Giriş Yap
                     </Link>
                   </p>
-                  <p className="text-sm text-gray-100 mt-2">
+                  <p className="text-sm text-lydian-text-dim mt-2">
                     Hesabınız yok mu?{' '}
                     <Link href="/auth/signup" className="text-lydian-primary font-semibold hover:underline">
                       Kayıt Ol
                     </Link>
                   </p>
                 </div>
-              </>
-            ) : (
-              <>
+              </> :
+
+            <>
                 {/* Success State */}
                 <div className="text-center">
                   <motion.div
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1 }}
-                    transition={{ type: "spring", duration: 0.6 }}
-                    className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6"
-                  >
-                    <CheckCircle className="w-12 h-12 text-green-600" />
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
+                  transition={{ type: "spring", duration: 0.6 }}
+                  className="w-20 h-20 bg-lydian-success-light rounded-full flex items-center justify-center mx-auto mb-6">
+
+                    <CheckCircle className="w-12 h-12 text-lydian-success" />
                   </motion.div>
-                  <h2 className="text-2xl font-bold text-white mb-4">
+                  <h2 className="text-2xl font-bold text-lydian-text-inverse mb-4">
                     E-posta Gönderildi!
                   </h2>
-                  <p className="text-gray-300 mb-6">
+                  <p className="text-lydian-text-dim mb-6">
                     <strong>{email}</strong> adresine şifre sıfırlama linki gönderdik.
                     Lütfen e-postanızı kontrol edin ve linke tıklayarak yeni şifrenizi oluşturun.
                   </p>
-                  <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
+                  <div className="bg-lydian-primary-lighter border border-blue-200 rounded-lg p-4 mb-6">
                     <p className="text-sm text-blue-800">
                       <strong>Not:</strong> E-postayı görmüyorsanız spam/gereksiz klasörünü kontrol edin.
                       Link 24 saat geçerlidir.
@@ -179,35 +179,35 @@ export default function ForgotPassword() {
                   </div>
                   <div className="flex flex-col gap-3">
                     <button
-                      onClick={() => setIsSubmitted(false)}
-                      className="w-full px-6 py-3 bg-gradient-to-r from-lydian-primary to-lydian-secondary text-white rounded-lg font-semibold hover:shadow-lg transition-all"
-                    >
+                    onClick={() => setIsSubmitted(false)}
+                    className="w-full px-6 py-3 bg-gradient-to-r from-lydian-primary to-lydian-secondary text-lydian-text-inverse rounded-lg font-semibold hover:shadow-lg transition-all">
+
                       Yeni E-posta Gönder
                     </button>
                     <Link
-                      href="/auth/signin"
-                      className="w-full px-6 py-3 bg-white/10 text-gray-200 rounded-lg font-semibold hover:bg-gray-200 transition-all text-center"
-                    >
+                    href="/auth/signin"
+                    className="w-full px-6 py-3 bg-lydian-glass-dark-medium text-lydian-text-muted rounded-lg font-semibold hover:bg-lydian-bg-active transition-all text-center">
+
                       Giriş Sayfasına Dön
                     </Link>
                   </div>
                 </div>
               </>
-            )}
+            }
           </div>
 
           {/* Help Section */}
-          <div className="mt-6 text-center text-white">
+          <div className="mt-6 text-center text-lydian-text-inverse">
             <p className="text-sm mb-2">Sorun mu yaşıyorsunuz?</p>
             <Link
               href="/support"
-              className="text-sm font-semibold hover:underline"
-            >
+              className="text-sm font-semibold hover:underline">
+
               7/24 Canlı Destek
             </Link>
           </div>
         </motion.div>
       </div>
-    </>
-  );
+    </>);
+
 }

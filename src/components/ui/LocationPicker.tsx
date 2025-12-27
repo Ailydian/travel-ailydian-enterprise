@@ -59,7 +59,7 @@ export const LocationPicker: React.FC<LocationPickerProps> = ({
         L.Icon.Default.mergeOptions({
           iconRetinaUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-icon-2x.png',
           iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-icon.png',
-          shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-shadow.png',
+          shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-shadow.png'
         });
 
         // Wait for map element to be ready
@@ -75,13 +75,13 @@ export const LocationPicker: React.FC<LocationPickerProps> = ({
           center: initialCenter,
           zoom: position ? 13 : 6,
           zoomControl: true,
-          scrollWheelZoom: true,
+          scrollWheelZoom: true
         } as Error, { component: 'LocationPicker' });
 
         // Add tile layer
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
           attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-          maxZoom: 19,
+          maxZoom: 19
         }).addTo(map);
 
         // Add marker if position exists
@@ -154,7 +154,7 @@ export const LocationPicker: React.FC<LocationPickerProps> = ({
         `https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lng}&format=json&addressdetails=1`,
         {
           headers: {
-            'Accept-Language': 'tr',
+            'Accept-Language': 'tr'
           }
         }
       );
@@ -201,7 +201,7 @@ export const LocationPicker: React.FC<LocationPickerProps> = ({
         `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(query)}&format=json&addressdetails=1&limit=10&countrycodes=tr`,
         {
           headers: {
-            'Accept-Language': 'tr',
+            'Accept-Language': 'tr'
           }
         }
       );
@@ -362,23 +362,23 @@ export const LocationPicker: React.FC<LocationPickerProps> = ({
 
   if (!isClient) {
     return (
-      <div className="bg-white/5 rounded-xl border border-white/10 p-6">
-        <div className="h-96 bg-white/10 rounded-lg animate-pulse flex items-center justify-center">
-          <MapPin className="w-12 h-12 text-gray-400" />
+      <div className="bg-lydian-glass-dark rounded-xl border border-lydian-border-light/10 p-6">
+        <div className="h-96 bg-lydian-glass-dark-medium rounded-lg animate-pulse flex items-center justify-center">
+          <MapPin className="w-12 h-12 text-lydian-text-muted" />
         </div>
-      </div>
-    );
+      </div>);
+
   }
 
   return (
-    <div className="bg-white/5 rounded-xl border border-white/10 overflow-hidden">
+    <div className="bg-lydian-glass-dark rounded-xl border border-lydian-border-light/10 overflow-hidden">
       {/* Header */}
       <div className="bg-gradient-to-r from-lydian-primary to-lydian-secondary p-4">
-        <div className="flex items-center gap-3 text-white">
+        <div className="flex items-center gap-3 text-lydian-text-inverse">
           <MapPin className="w-6 h-6" />
           <div>
             <h3 className="font-bold text-lg">Teslim Alma Noktası {required && '*'}</h3>
-            <p className="text-sm text-white/90">Hizmet alacağınız konumu seçin</p>
+            <p className="text-sm text-lydian-text-inverse/90">Hizmet alacağınız konumu seçin</p>
           </div>
         </div>
       </div>
@@ -387,128 +387,128 @@ export const LocationPicker: React.FC<LocationPickerProps> = ({
         {/* Search Bar */}
         <div className="relative">
           <div className="relative">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-lydian-text-muted w-5 h-5" />
             <input
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Adres, şehir veya nokta arayın... (örn: İstanbul, Ankara, İzmir)"
-              className="w-full pl-10 pr-10 py-3 border border-white/20 rounded-lg focus:ring-2 focus:ring-lydian-primary focus:border-transparent outline-none"
-            />
-            {isSearching && (
-              <Loader2 className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5 animate-spin" />
-            )}
-            {searchQuery && !isSearching && (
-              <button
-                onClick={() => {
-                  setSearchQuery('');
-                  setSearchResults([]);
-                  setLocationError('');
-                }}
-                className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-300"
-              >
+              className="w-full pl-10 pr-10 py-3 border border-lydian-border-light rounded-lg focus:ring-2 focus:ring-lydian-primary focus:border-lydian-border outline-none" />
+
+            {isSearching &&
+            <Loader2 className="absolute right-3 top-1/2 transform -translate-y-1/2 text-lydian-text-muted w-5 h-5 animate-spin" />
+            }
+            {searchQuery && !isSearching &&
+            <button
+              onClick={() => {
+                setSearchQuery('');
+                setSearchResults([]);
+                setLocationError('');
+              }}
+              className="absolute right-3 top-1/2 transform -translate-y-1/2 text-lydian-text-muted hover:text-lydian-text-dim">
+
                 <X className="w-5 h-5" />
               </button>
-            )}
+            }
           </div>
 
           {/* Search Results Dropdown */}
-          {searchResults.length > 0 && (
-            <div className="absolute top-full left-0 right-0 mt-2 bg-white/5 border border-white/10 rounded-lg shadow-lg max-h-80 overflow-y-auto z-10">
-              {searchResults.map((result, index) => (
-                <button
-                  key={index}
-                  onClick={() => selectSearchResult(result)}
-                  className="w-full px-4 py-3 text-left hover:bg-white/5 border-b border-gray-100 last:border-0 transition-colors"
-                >
+          {searchResults.length > 0 &&
+          <div className="absolute top-full left-0 right-0 mt-2 bg-lydian-glass-dark border border-lydian-border-light/10 rounded-lg shadow-lg max-h-80 overflow-y-auto z-10">
+              {searchResults.map((result, index) =>
+            <button
+              key={index}
+              onClick={() => selectSearchResult(result)}
+              className="w-full px-4 py-3 text-left hover:bg-lydian-glass-dark border-b border-lydian-border-light last:border-0 transition-colors">
+
                   <div className="flex items-start gap-2">
                     <MapPin className="w-4 h-4 text-lydian-primary mt-1 flex-shrink-0" />
                     <div className="flex-1 min-w-0">
-                      <p className="font-medium text-white text-sm">
+                      <p className="font-medium text-lydian-text-inverse text-sm">
                         {result.display_name}
                       </p>
-                      {result.address && (
-                        <p className="text-xs text-gray-400 mt-1">
+                      {result.address &&
+                  <p className="text-xs text-lydian-text-muted mt-1">
                           {[
-                            result.address.city || result.address.town || result.address.village,
-                            result.address.state,
-                            result.address.country
-                          ].filter(Boolean).join(', ')}
+                    result.address.city || result.address.town || result.address.village,
+                    result.address.state,
+                    result.address.country].
+                    filter(Boolean).join(', ')}
                         </p>
-                      )}
+                  }
                     </div>
                   </div>
                 </button>
-              ))}
+            )}
             </div>
-          )}
+          }
         </div>
 
         {/* Current Location Button */}
         <button
           onClick={getCurrentLocation}
           disabled={isGettingLocation}
-          className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-blue-50 text-blue-600 rounded-lg hover:bg-blue-100 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-        >
-          {isGettingLocation ? (
-            <Loader2 className="w-4 h-4 animate-spin" />
-          ) : (
-            <Navigation className="w-4 h-4" />
-          )}
+          className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-lydian-primary-lighter text-lydian-primary rounded-lg hover:bg-lydian-primary-light transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
+
+          {isGettingLocation ?
+          <Loader2 className="w-4 h-4 animate-spin" /> :
+
+          <Navigation className="w-4 h-4" />
+          }
           <span className="font-medium">
             {isGettingLocation ? 'Konum alınıyor...' : 'Mevcut Konumumu Kullan'}
           </span>
         </button>
 
         {/* Error Message */}
-        {locationError && (
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="bg-red-50 border border-red-200 rounded-lg p-3"
-          >
+        {locationError &&
+        <motion.div
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="bg-lydian-error-lighter border border-red-200 rounded-lg p-3">
+
             <div className="flex items-start gap-2">
-              <AlertCircle className="w-5 h-5 text-red-500 mt-0.5 flex-shrink-0" />
-              <p className="text-sm text-red-700">{locationError}</p>
+              <AlertCircle className="w-5 h-5 text-lydian-error mt-0.5 flex-shrink-0" />
+              <p className="text-sm text-lydian-primary-dark">{locationError}</p>
             </div>
           </motion.div>
-        )}
+        }
 
         {/* Map */}
-        <div className="relative h-96 rounded-lg overflow-hidden border border-white/10 bg-white/10">
+        <div className="relative h-96 rounded-lg overflow-hidden border border-lydian-border-light/10 bg-lydian-glass-dark-medium">
           <div id="location-map" className="w-full h-full"></div>
-          {!isMapReady && (
-            <div className="absolute inset-0 flex items-center justify-center bg-white/10">
+          {!isMapReady &&
+          <div className="absolute inset-0 flex items-center justify-center bg-lydian-glass-dark-medium">
               <div className="text-center">
-                <Loader2 className="w-8 h-8 text-gray-400 animate-spin mx-auto mb-2" />
-                <p className="text-sm text-gray-300">Harita yükleniyor...</p>
+                <Loader2 className="w-8 h-8 text-lydian-text-muted animate-spin mx-auto mb-2" />
+                <p className="text-sm text-lydian-text-dim">Harita yükleniyor...</p>
               </div>
             </div>
-          )}
+          }
         </div>
 
         {/* Selected Address Display */}
-        {selectedAddress && (
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="bg-green-50 border border-green-200 rounded-lg p-4"
-          >
+        {selectedAddress &&
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="bg-lydian-success-lighter border border-green-200 rounded-lg p-4">
+
             <div className="flex items-start gap-3">
               <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
               <div className="flex-1 min-w-0">
                 <p className="font-medium text-green-900 text-sm mb-1">Seçili Konum:</p>
-                <p className="text-sm text-green-700">{selectedAddress}</p>
+                <p className="text-sm text-lydian-success-text">{selectedAddress}</p>
               </div>
             </div>
           </motion.div>
-        )}
+        }
 
         {/* Instructions */}
-        <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+        <div className="bg-lydian-primary-lighter border border-blue-200 rounded-lg p-4">
           <div className="flex items-start gap-3">
-            <AlertCircle className="w-5 h-5 text-blue-500 mt-0.5 flex-shrink-0" />
-            <div className="text-sm text-blue-700">
+            <AlertCircle className="w-5 h-5 text-lydian-primary mt-0.5 flex-shrink-0" />
+            <div className="text-sm text-lydian-primary-dark">
               <p className="font-medium mb-1">Nasıl kullanılır?</p>
               <ul className="list-disc list-inside space-y-1 text-xs">
                 <li>Haritada istediğiniz noktaya tıklayın</li>
@@ -520,8 +520,8 @@ export const LocationPicker: React.FC<LocationPickerProps> = ({
           </div>
         </div>
       </div>
-    </div>
-  );
+    </div>);
+
 };
 
 export default LocationPicker;

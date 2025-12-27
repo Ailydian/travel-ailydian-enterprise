@@ -9,8 +9,8 @@ import {
   XCircle,
   AlertCircle,
   Info,
-  X
-} from 'lucide-react';
+  X } from
+'lucide-react';
 
 type ToastType = 'success' | 'error' | 'warning' | 'info';
 
@@ -38,7 +38,7 @@ export const useToast = () => {
   return context;
 };
 
-export const ToastProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+export const ToastProvider: React.FC<{children: React.ReactNode;}> = ({ children }) => {
   const [toasts, setToasts] = useState<Toast[]>([]);
 
   const showToast = useCallback(
@@ -66,8 +66,8 @@ export const ToastProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     <ToastContext.Provider value={{ toasts, showToast, removeToast }}>
       {children}
       <ToastContainer toasts={toasts} removeToast={removeToast} />
-    </ToastContext.Provider>
-  );
+    </ToastContext.Provider>);
+
 };
 
 interface ToastContainerProps {
@@ -79,12 +79,12 @@ const ToastContainer: React.FC<ToastContainerProps> = ({ toasts, removeToast }) 
   return (
     <div className="fixed top-4 right-4 z-50 space-y-3 max-w-md">
       <AnimatePresence>
-        {toasts.map((toast) => (
-          <ToastItem key={toast.id} toast={toast} onClose={() => removeToast(toast.id)} />
-        ))}
+        {toasts.map((toast) =>
+        <ToastItem key={toast.id} toast={toast} onClose={() => removeToast(toast.id)} />
+        )}
       </AnimatePresence>
-    </div>
-  );
+    </div>);
+
 };
 
 interface ToastItemProps {
@@ -136,13 +136,13 @@ const ToastItem: React.FC<ToastItemProps> = ({ toast, onClose }) => {
       animate={{ opacity: 1, y: 0, x: 0 }}
       exit={{ opacity: 0, x: 100, scale: 0.95 }}
       transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-      className={`${bgColor} ${borderColor} border-l-4 rounded-lg shadow-lg p-4 pr-10 relative max-w-md`}
-    >
+      className={`${bgColor} ${borderColor} border-l-4 rounded-lg shadow-lg p-4 pr-10 relative max-w-md`}>
+
       {/* Close Button */}
       <button
         onClick={onClose}
-        className="absolute top-3 right-3 text-gray-400 hover:text-gray-300 transition-colors"
-      >
+        className="absolute top-3 right-3 text-lydian-text-muted hover:text-lydian-text-dim transition-colors">
+
         <X className="w-4 h-4" />
       </button>
 
@@ -153,25 +153,25 @@ const ToastItem: React.FC<ToastItemProps> = ({ toast, onClose }) => {
           <p className={`font-semibold ${textColor} leading-tight`}>
             {toast.message}
           </p>
-          {toast.description && (
-            <p className={`text-sm ${descColor} mt-1 leading-snug`}>
+          {toast.description &&
+          <p className={`text-sm ${descColor} mt-1 leading-snug`}>
               {toast.description}
             </p>
-          )}
+          }
         </div>
       </div>
 
       {/* Progress Bar */}
-      {toast.duration && toast.duration > 0 && (
-        <motion.div
-          initial={{ width: '100%' }}
-          animate={{ width: '0%' }}
-          transition={{ duration: toast.duration / 1000, ease: 'linear' }}
-          className={`absolute bottom-0 left-0 h-1 ${borderColor.replace('border-', 'bg-')} rounded-bl`}
-        />
-      )}
-    </motion.div>
-  );
+      {toast.duration && toast.duration > 0 &&
+      <motion.div
+        initial={{ width: '100%' }}
+        animate={{ width: '0%' }}
+        transition={{ duration: toast.duration / 1000, ease: 'linear' }}
+        className={`absolute bottom-0 left-0 h-1 ${borderColor.replace('border-', 'bg-')} rounded-bl`} />
+
+      }
+    </motion.div>);
+
 };
 
 // Convenience Hooks

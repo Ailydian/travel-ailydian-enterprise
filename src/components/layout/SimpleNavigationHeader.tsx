@@ -10,8 +10,8 @@ import {
   Home,
   Car as CarIcon,
   Bus,
-  Building2,
-} from 'lucide-react';
+  Building2 } from
+'lucide-react';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
 
 interface SimpleNavigationHeaderProps {
@@ -22,14 +22,14 @@ const SimpleNavigationHeader: React.FC<SimpleNavigationHeaderProps> = ({ current
   const router = useRouter();
 
   return (
-    <header className="sticky top-0 z-50 bg-white/5 border-b border-white/10 shadow-sm">
+    <header className="sticky top-0 z-50 bg-lydian-glass-dark border-b border-lydian-border-light/10 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Home Button */}
           <Link
             href="/"
-            className="flex items-center gap-2 px-4 py-2 rounded-lg text-gray-200 hover:bg-white/5 transition-colors duration-200"
-          >
+            className="flex items-center gap-2 px-4 py-2 rounded-lg text-lydian-text-muted hover:bg-lydian-glass-dark transition-colors duration-200">
+
             <Home className="w-5 h-5" />
             <span className="font-medium">Ana Sayfa</span>
           </Link>
@@ -40,11 +40,11 @@ const SimpleNavigationHeader: React.FC<SimpleNavigationHeaderProps> = ({ current
             <Link
               href="/rentals"
               className={`flex items-center space-x-2 px-4 py-2 rounded-lg transition-colors duration-200 ${
-                currentPage === 'rentals'
-                  ? 'bg-purple-50 text-purple-600'
-                  : 'text-gray-200 hover:bg-white/5'
-              }`}
-            >
+              currentPage === 'rentals' ?
+              'bg-purple-50 text-purple-600' :
+              'text-gray-200 hover:bg-white/5'}`
+              }>
+
               <Building2 className="w-4 h-4" />
               <span className="font-medium">Konaklama</span>
             </Link>
@@ -53,11 +53,11 @@ const SimpleNavigationHeader: React.FC<SimpleNavigationHeaderProps> = ({ current
             <Link
               href="/car-rentals"
               className={`flex items-center space-x-2 px-4 py-2 rounded-lg transition-colors duration-200 ${
-                currentPage === 'car-rentals'
-                  ? 'bg-green-50 text-green-600'
-                  : 'text-gray-200 hover:bg-white/5'
-              }`}
-            >
+              currentPage === 'car-rentals' ?
+              'bg-green-50 text-green-600' :
+              'text-gray-200 hover:bg-white/5'}`
+              }>
+
               <CarIcon className="w-4 h-4" />
               <span className="font-medium">Araç Kiralama</span>
             </Link>
@@ -66,11 +66,11 @@ const SimpleNavigationHeader: React.FC<SimpleNavigationHeaderProps> = ({ current
             <Link
               href="/transfers"
               className={`flex items-center space-x-2 px-4 py-2 rounded-lg transition-colors duration-200 ${
-                currentPage === 'transfers'
-                  ? 'bg-blue-50 text-blue-600'
-                  : 'text-gray-200 hover:bg-white/5'
-              }`}
-            >
+              currentPage === 'transfers' ?
+              'bg-blue-50 text-blue-600' :
+              'text-gray-200 hover:bg-white/5'}`
+              }>
+
               <Bus className="w-4 h-4" />
               <span className="font-medium">Transfer</span>
             </Link>
@@ -80,8 +80,8 @@ const SimpleNavigationHeader: React.FC<SimpleNavigationHeaderProps> = ({ current
           </nav>
         </div>
       </div>
-    </header>
-  );
+    </header>);
+
 };
 
 export default SimpleNavigationHeader;

@@ -5,8 +5,8 @@ import {
   ChevronsUpDown,
   MoreVertical,
   ChevronLeft,
-  ChevronRight,
-} from 'lucide-react';
+  ChevronRight } from
+'lucide-react';
 import { EmptyState } from './EmptyState';
 import { LoadingState } from './LoadingState';
 
@@ -118,7 +118,7 @@ export function DataTable<T>({
   itemsPerPage = 10,
   currentPage: controlledPage,
   onPageChange,
-  className = '',
+  className = ''
 }: DataTableProps<T>) {
   const [sortKey, setSortKey] = useState<string | null>(null);
   const [sortDirection, setSortDirection] = useState<'asc' | 'desc'>('asc');
@@ -172,7 +172,7 @@ export function DataTable<T>({
 
     return {
       paginatedData: sortedData.slice(start, end),
-      totalPages: total,
+      totalPages: total
     };
   }, [sortedData, pagination, currentPage, itemsPerPage]);
 
@@ -206,123 +206,123 @@ export function DataTable<T>({
           title={emptyState?.title || 'No data available'}
           description={emptyState?.description}
           actionLabel={emptyState?.actionLabel}
-          onAction={emptyState?.onAction}
-        />
-      </div>
-    );
+          onAction={emptyState?.onAction} />
+
+      </div>);
+
   }
 
   return (
     <div className={className}>
       {/* Desktop Table View */}
-      <div className="hidden md:block bg-white/5 rounded-lg border border-gray-200 overflow-hidden">
+      <div className="hidden md:block bg-lydian-glass-dark rounded-lg border border-lydian-border overflow-hidden">
         <div className="overflow-x-auto">
-          <table className="min-w-full divide-y divide-gray-200">
-            <thead className="bg-white/5">
+          <table className="min-w-full divide-y divide-lydian-border">
+            <thead className="bg-lydian-glass-dark">
               <tr>
-                {columns.map((column) => (
-                  <th
-                    key={column.key}
-                    className={`px-6 py-3 text-${column.align || 'left'} text-xs font-medium text-gray-400 uppercase tracking-wider ${
-                      column.width || ''
-                    } ${column.sortable ? 'cursor-pointer select-none hover:bg-white/10' : ''}`}
-                    onClick={() => column.sortable && handleSort(column.key)}
-                  >
+                {columns.map((column) =>
+                <th
+                  key={column.key}
+                  className={`px-6 py-3 text-${column.align || 'left'} text-xs font-medium text-lydian-text-muted uppercase tracking-wider ${
+                  column.width || ''} ${
+                  column.sortable ? 'cursor-pointer select-none hover:bg-white/10' : ''}`}
+                  onClick={() => column.sortable && handleSort(column.key)}>
+
                     <div className="flex items-center space-x-1">
                       <span>{column.label}</span>
-                      {column.sortable && (
-                        <span className="text-gray-400">
-                          {sortKey === column.key ? (
-                            sortDirection === 'asc' ? (
-                              <ChevronUp className="h-4 w-4" />
-                            ) : (
-                              <ChevronDown className="h-4 w-4" />
-                            )
-                          ) : (
-                            <ChevronsUpDown className="h-4 w-4" />
-                          )}
+                      {column.sortable &&
+                    <span className="text-lydian-text-muted">
+                          {sortKey === column.key ?
+                      sortDirection === 'asc' ?
+                      <ChevronUp className="h-4 w-4" /> :
+
+                      <ChevronDown className="h-4 w-4" /> :
+
+
+                      <ChevronsUpDown className="h-4 w-4" />
+                      }
                         </span>
-                      )}
+                    }
                     </div>
                   </th>
-                ))}
-                {rowActions && rowActions.length > 0 && (
-                  <th className="px-6 py-3 text-right text-xs font-medium text-gray-400 uppercase tracking-wider">
+                )}
+                {rowActions && rowActions.length > 0 &&
+                <th className="px-6 py-3 text-right text-xs font-medium text-lydian-text-muted uppercase tracking-wider">
                     Actions
                   </th>
-                )}
+                }
               </tr>
             </thead>
-            <tbody className="bg-white/5 divide-y divide-gray-200">
+            <tbody className="bg-lydian-glass-dark divide-y divide-lydian-border">
               {paginatedData.map((row) => {
                 const rowKey = keyExtractor(row);
                 return (
-                  <tr key={rowKey} className="hover:bg-white/5">
-                    {columns.map((column) => (
-                      <td
-                        key={column.key}
-                        className={`px-6 py-4 whitespace-nowrap text-sm text-white text-${column.align || 'left'}`}
-                      >
-                        {column.render
-                          ? column.render(row)
-                          : (row as any)[column.key]}
+                  <tr key={rowKey} className="hover:bg-lydian-glass-dark">
+                    {columns.map((column) =>
+                    <td
+                      key={column.key}
+                      className={`px-6 py-4 whitespace-nowrap text-sm text-lydian-text-inverse text-${column.align || 'left'}`}>
+
+                        {column.render ?
+                      column.render(row) :
+                      (row as any)[column.key]}
                       </td>
-                    ))}
-                    {rowActions && rowActions.length > 0 && (
-                      <td className="px-6 py-4 whitespace-nowrap text-right text-sm">
+                    )}
+                    {rowActions && rowActions.length > 0 &&
+                    <td className="px-6 py-4 whitespace-nowrap text-right text-sm">
                         <div className="relative inline-block">
                           <button
-                            onClick={() =>
-                              setOpenActionMenu(
-                                openActionMenu === rowKey ? null : rowKey
-                              )
-                            }
-                            className="text-gray-400 hover:text-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded p-1"
-                            aria-label="Row actions"
-                          >
+                          onClick={() =>
+                          setOpenActionMenu(
+                            openActionMenu === rowKey ? null : rowKey
+                          )
+                          }
+                          className="text-lydian-text-muted hover:text-lydian-text-dim focus:outline-none focus:ring-2 focus:ring-lydian-border-focus rounded p-1"
+                          aria-label="Row actions">
+
                             <MoreVertical className="h-5 w-5" />
                           </button>
 
-                          {openActionMenu === rowKey && (
-                            <>
+                          {openActionMenu === rowKey &&
+                        <>
                               <div
-                                className="fixed inset-0 z-10"
-                                onClick={() => setOpenActionMenu(null)}
-                              />
-                              <div className="absolute right-0 mt-2 w-48 bg-white/5 rounded-lg shadow-lg border border-gray-200 py-1 z-20">
-                                {rowActions
-                                  .filter(
-                                    (action) =>
-                                      !action.show || action.show(row)
-                                  )
-                                  .map((action, index) => {
-                                    const Icon = action.icon;
-                                    return (
-                                      <button
-                                        key={index}
-                                        onClick={() => {
-                                          action.onClick(row);
-                                          setOpenActionMenu(null);
-                                        }}
-                                        className={`w-full px-4 py-2 text-left text-sm hover:bg-white/10 flex items-center space-x-2 ${
-                                          action.danger
-                                            ? 'text-red-600'
-                                            : 'text-gray-200'
-                                        }`}
-                                      >
+                            className="fixed inset-0 z-10"
+                            onClick={() => setOpenActionMenu(null)} />
+
+                              <div className="absolute right-0 mt-2 w-48 bg-lydian-glass-dark rounded-lg shadow-lg border border-lydian-border py-1 z-20">
+                                {rowActions.
+                            filter(
+                              (action) =>
+                              !action.show || action.show(row)
+                            ).
+                            map((action, index) => {
+                              const Icon = action.icon;
+                              return (
+                                <button
+                                  key={index}
+                                  onClick={() => {
+                                    action.onClick(row);
+                                    setOpenActionMenu(null);
+                                  }}
+                                  className={`w-full px-4 py-2 text-left text-sm hover:bg-lydian-glass-dark-medium flex items-center space-x-2 ${
+                                  action.danger ?
+                                  'text-red-600' :
+                                  'text-gray-200'}`
+                                  }>
+
                                         {Icon && <Icon className="h-4 w-4" />}
                                         <span>{action.label}</span>
-                                      </button>
-                                    );
-                                  })}
+                                      </button>);
+
+                            })}
                               </div>
                             </>
-                          )}
+                        }
                         </div>
                       </td>
-                    )}
-                  </tr>
-                );
+                    }
+                  </tr>);
+
               })}
             </tbody>
           </table>
@@ -336,110 +336,110 @@ export function DataTable<T>({
           return (
             <div
               key={rowKey}
-              className="bg-white/5 rounded-lg border border-gray-200 p-4"
-            >
-              {columns
-                .filter((col) => !col.hideOnMobile)
-                .map((column) => (
-                  <div key={column.key} className="mb-3 last:mb-0">
-                    <div className="text-xs font-medium text-gray-400 mb-1">
+              className="bg-lydian-glass-dark rounded-lg border border-lydian-border p-4">
+
+              {columns.
+              filter((col) => !col.hideOnMobile).
+              map((column) =>
+              <div key={column.key} className="mb-3 last:mb-0">
+                    <div className="text-xs font-medium text-lydian-text-muted mb-1">
                       {column.label}
                     </div>
-                    <div className="text-sm text-white">
-                      {column.render
-                        ? column.render(row)
-                        : (row as any)[column.key]}
+                    <div className="text-sm text-lydian-text-inverse">
+                      {column.render ?
+                  column.render(row) :
+                  (row as any)[column.key]}
                     </div>
                   </div>
-                ))}
-              {rowActions && rowActions.length > 0 && (
-                <div className="mt-4 pt-4 border-t border-gray-200 flex flex-wrap gap-2">
-                  {rowActions
-                    .filter((action) => !action.show || action.show(row))
-                    .map((action, index) => {
-                      const Icon = action.icon;
-                      return (
-                        <button
-                          key={index}
-                          onClick={() => action.onClick(row)}
-                          className={`flex items-center space-x-1 px-3 py-1.5 rounded-lg text-sm font-medium ${
-                            action.danger
-                              ? 'bg-red-100 text-red-700 hover:bg-red-200'
-                              : 'bg-white/10 text-gray-200 hover:bg-gray-200'
-                          }`}
-                        >
+              )}
+              {rowActions && rowActions.length > 0 &&
+              <div className="mt-4 pt-4 border-t border-lydian-border flex flex-wrap gap-2">
+                  {rowActions.
+                filter((action) => !action.show || action.show(row)).
+                map((action, index) => {
+                  const Icon = action.icon;
+                  return (
+                    <button
+                      key={index}
+                      onClick={() => action.onClick(row)}
+                      className={`flex items-center space-x-1 px-3 py-1.5 rounded-lg text-sm font-medium ${
+                      action.danger ?
+                      'bg-red-100 text-red-700 hover:bg-red-200' :
+                      'bg-white/10 text-gray-200 hover:bg-gray-200'}`
+                      }>
+
                           {Icon && <Icon className="h-4 w-4" />}
                           <span>{action.label}</span>
-                        </button>
-                      );
-                    })}
+                        </button>);
+
+                })}
                 </div>
-              )}
-            </div>
-          );
+              }
+            </div>);
+
         })}
       </div>
 
       {/* Pagination */}
-      {pagination && totalPages > 1 && (
-        <div className="mt-6 flex items-center justify-between">
-          <div className="text-sm text-gray-300">
+      {pagination && totalPages > 1 &&
+      <div className="mt-6 flex items-center justify-between">
+          <div className="text-sm text-lydian-text-dim">
             Showing {(currentPage - 1) * itemsPerPage + 1} to{' '}
             {Math.min(currentPage * itemsPerPage, sortedData.length)} of{' '}
             {sortedData.length} results
           </div>
           <div className="flex items-center space-x-2">
             <button
-              onClick={() => handlePageChange(currentPage - 1)}
-              disabled={currentPage === 1}
-              className="p-2 rounded-lg border border-gray-300 hover:bg-white/5 disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-blue-500"
-              aria-label="Previous page"
-            >
+            onClick={() => handlePageChange(currentPage - 1)}
+            disabled={currentPage === 1}
+            className="p-2 rounded-lg border border-lydian-border-medium hover:bg-lydian-glass-dark disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-lydian-border-focus"
+            aria-label="Previous page">
+
               <ChevronLeft className="h-5 w-5" />
             </button>
 
             <div className="flex items-center space-x-1">
               {Array.from({ length: Math.min(totalPages, 5) }).map((_, i) => {
-                let pageNum;
-                if (totalPages <= 5) {
-                  pageNum = i + 1;
-                } else if (currentPage <= 3) {
-                  pageNum = i + 1;
-                } else if (currentPage >= totalPages - 2) {
-                  pageNum = totalPages - 4 + i;
-                } else {
-                  pageNum = currentPage - 2 + i;
-                }
+              let pageNum;
+              if (totalPages <= 5) {
+                pageNum = i + 1;
+              } else if (currentPage <= 3) {
+                pageNum = i + 1;
+              } else if (currentPage >= totalPages - 2) {
+                pageNum = totalPages - 4 + i;
+              } else {
+                pageNum = currentPage - 2 + i;
+              }
 
-                return (
-                  <button
-                    key={i}
-                    onClick={() => handlePageChange(pageNum)}
-                    className={`px-3 py-1.5 rounded-lg text-sm font-medium focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                      currentPage === pageNum
-                        ? 'bg-blue-600 text-white'
-                        : 'bg-white/5 border border-gray-300 text-gray-200 hover:bg-white/5'
-                    }`}
-                  >
+              return (
+                <button
+                  key={i}
+                  onClick={() => handlePageChange(pageNum)}
+                  className={`px-3 py-1.5 rounded-lg text-sm font-medium focus:outline-none focus:ring-2 focus:ring-lydian-border-focus ${
+                  currentPage === pageNum ?
+                  'bg-blue-600 text-white' :
+                  'bg-white/5 border border-gray-300 text-gray-200 hover:bg-white/5'}`
+                  }>
+
                     {pageNum}
-                  </button>
-                );
-              })}
+                  </button>);
+
+            })}
             </div>
 
             <button
-              onClick={() => handlePageChange(currentPage + 1)}
-              disabled={currentPage === totalPages}
-              className="p-2 rounded-lg border border-gray-300 hover:bg-white/5 disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-blue-500"
-              aria-label="Next page"
-            >
+            onClick={() => handlePageChange(currentPage + 1)}
+            disabled={currentPage === totalPages}
+            className="p-2 rounded-lg border border-lydian-border-medium hover:bg-lydian-glass-dark disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-lydian-border-focus"
+            aria-label="Next page">
+
               <ChevronRight className="h-5 w-5" />
             </button>
           </div>
         </div>
-      )}
-    </div>
-  );
+      }
+    </div>);
+
 }
 
 export default DataTable;

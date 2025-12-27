@@ -10,8 +10,8 @@ import { motion } from 'framer-motion';
 import {
   ArrowLeft, Save, X, Upload, Plus, Trash2, Car, Users,
   Fuel, Settings, DollarSign, Star, CheckCircle, AlertCircle,
-  Image as ImageIcon, Calendar, MapPin, Shield
-} from 'lucide-react';
+  Image as ImageIcon, Calendar, MapPin, Shield } from
+'lucide-react';
 
 interface CarRentalFormData {
   name: string;
@@ -62,7 +62,7 @@ const CarRentalEditPage = () => {
     isActive: true,
     isFeatured: false,
     location: '',
-    availableCount: 1,
+    availableCount: 1
   });
 
   const [newFeature, setNewFeature] = useState('');
@@ -85,7 +85,7 @@ const CarRentalEditPage = () => {
         setFormData({
           ...data.data,
           features: data.data.features || [],
-          images: data.data.images || [],
+          images: data.data.images || []
         });
       } else {
         setError('Araç bulunamadı');
@@ -103,17 +103,17 @@ const CarRentalEditPage = () => {
 
     if (type === 'checkbox') {
       const checked = (e.target as HTMLInputElement).checked;
-      setFormData(prev => ({ ...prev, [name]: checked }));
+      setFormData((prev) => ({ ...prev, [name]: checked }));
     } else if (type === 'number') {
-      setFormData(prev => ({ ...prev, [name]: parseFloat(value) || 0 }));
+      setFormData((prev) => ({ ...prev, [name]: parseFloat(value) || 0 }));
     } else {
-      setFormData(prev => ({ ...prev, [name]: value }));
+      setFormData((prev) => ({ ...prev, [name]: value }));
     }
   };
 
   const addFeature = () => {
     if (newFeature.trim()) {
-      setFormData(prev => ({
+      setFormData((prev) => ({
         ...prev,
         features: [...prev.features, newFeature.trim()]
       }));
@@ -122,7 +122,7 @@ const CarRentalEditPage = () => {
   };
 
   const removeFeature = (index: number) => {
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
       features: prev.features.filter((_, i) => i !== index)
     }));
@@ -130,7 +130,7 @@ const CarRentalEditPage = () => {
 
   const addImage = () => {
     if (newImage.trim()) {
-      setFormData(prev => ({
+      setFormData((prev) => ({
         ...prev,
         images: [...prev.images, newImage.trim()]
       }));
@@ -139,7 +139,7 @@ const CarRentalEditPage = () => {
   };
 
   const removeImage = (index: number) => {
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
       images: prev.images.filter((_, i) => i !== index)
     }));
@@ -155,7 +155,7 @@ const CarRentalEditPage = () => {
       const response = await fetch(`/api/admin/car-rentals/${id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(formData)
       });
 
       const data = await response.json();
@@ -180,33 +180,33 @@ const CarRentalEditPage = () => {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 to-blue-50">
         <div className="text-center">
-          <Car className="w-12 h-12 text-blue-600 animate-spin mx-auto mb-4" />
-          <p className="text-slate-600">Yükleniyor...</p>
+          <Car className="w-12 h-12 text-lydian-primary animate-spin mx-auto mb-4" />
+          <p className="text-lydian-text-secondary">Yükleniyor...</p>
         </div>
-      </div>
-    );
+      </div>);
+
   }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
       {/* Header */}
-      <header className="bg-white/5 border-b border-slate-200 sticky top-0 z-50 shadow-sm">
+      <header className="bg-lydian-glass-dark border-b border-lydian-border sticky top-0 z-50 shadow-sm">
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
               <Link href="/admin/v2/car-rentals">
-                <button className="p-2 hover:bg-slate-100 rounded-lg transition-colors">
-                  <ArrowLeft className="w-5 h-5 text-slate-600" />
+                <button className="p-2 hover:bg-lydian-bg-surface-raised rounded-lg transition-colors">
+                  <ArrowLeft className="w-5 h-5 text-lydian-text-secondary" />
                 </button>
               </Link>
               <div>
-                <h1 className="text-2xl font-bold text-slate-900">Araç Düzenle</h1>
-                <p className="text-sm text-slate-600">ID: {id}</p>
+                <h1 className="text-2xl font-bold text-lydian-text">Araç Düzenle</h1>
+                <p className="text-sm text-lydian-text-secondary">ID: {id}</p>
               </div>
             </div>
             <div className="flex items-center gap-3">
               <Link href="/admin/v2/car-rentals">
-                <button className="flex items-center gap-2 px-4 py-2 border border-slate-300 rounded-lg hover:bg-slate-50 transition-colors">
+                <button className="flex items-center gap-2 px-4 py-2 border border-lydian-border-medium rounded-lg hover:bg-lydian-bg-surface transition-colors">
                   <X className="w-4 h-4" />
                   <span className="text-sm font-medium">İptal</span>
                 </button>
@@ -214,8 +214,8 @@ const CarRentalEditPage = () => {
               <button
                 onClick={handleSubmit}
                 disabled={saving}
-                className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-              >
+                className="flex items-center gap-2 px-4 py-2 bg-lydian-primary text-lydian-text-inverse rounded-lg hover:bg-lydian-primary-dark transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
+
                 <Save className="w-4 h-4" />
                 <span className="text-sm font-medium">{saving ? 'Kaydediliyor...' : 'Kaydet'}</span>
               </button>
@@ -225,87 +225,87 @@ const CarRentalEditPage = () => {
       </header>
 
       {/* Alerts */}
-      {error && (
-        <div className="max-w-7xl mx-auto px-6 py-4">
-          <div className="bg-red-50 border border-red-200 rounded-lg p-4 flex items-center gap-3">
-            <AlertCircle className="w-5 h-5 text-red-600" />
+      {error &&
+      <div className="max-w-7xl mx-auto px-6 py-4">
+          <div className="bg-lydian-error-lighter border border-red-200 rounded-lg p-4 flex items-center gap-3">
+            <AlertCircle className="w-5 h-5 text-lydian-primary" />
             <p className="text-red-800">{error}</p>
           </div>
         </div>
-      )}
+      }
 
-      {success && (
-        <div className="max-w-7xl mx-auto px-6 py-4">
-          <div className="bg-green-50 border border-green-200 rounded-lg p-4 flex items-center gap-3">
-            <CheckCircle className="w-5 h-5 text-green-600" />
+      {success &&
+      <div className="max-w-7xl mx-auto px-6 py-4">
+          <div className="bg-lydian-success-lighter border border-green-200 rounded-lg p-4 flex items-center gap-3">
+            <CheckCircle className="w-5 h-5 text-lydian-success" />
             <p className="text-green-800">Başarıyla kaydedildi! Yönlendiriliyorsunuz...</p>
           </div>
         </div>
-      )}
+      }
 
       {/* Form */}
       <main className="max-w-7xl mx-auto px-6 py-8">
         <form onSubmit={handleSubmit} className="space-y-6">
           {/* Basic Info */}
-          <div className="bg-white/5 rounded-xl border border-slate-200 p-6">
-            <h2 className="text-lg font-bold text-slate-900 mb-6 flex items-center gap-2">
-              <Car className="w-5 h-5 text-blue-600" />
+          <div className="bg-lydian-glass-dark rounded-xl border border-lydian-border p-6">
+            <h2 className="text-lg font-bold text-lydian-text mb-6 flex items-center gap-2">
+              <Car className="w-5 h-5 text-lydian-primary" />
               Temel Bilgiler
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <label className="block text-sm font-medium text-slate-700 mb-2">Araç Adı *</label>
+                <label className="block text-sm font-medium text-lydian-text-secondary mb-2">Araç Adı *</label>
                 <input
                   type="text"
                   name="name"
                   value={formData.name}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
-                  placeholder="Örn: BMW 5 Serisi"
-                />
+                  className="w-full px-4 py-2 border border-lydian-border rounded-lg focus:ring-2 focus:ring-lydian-border-focus focus:border-lydian-primary outline-none"
+                  placeholder="Örn: BMW 5 Serisi" />
+
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-slate-700 mb-2">Slug (URL)</label>
+                <label className="block text-sm font-medium text-lydian-text-secondary mb-2">Slug (URL)</label>
                 <input
                   type="text"
                   name="slug"
                   value={formData.slug}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
-                  placeholder="bmw-5-serisi"
-                />
+                  className="w-full px-4 py-2 border border-lydian-border rounded-lg focus:ring-2 focus:ring-lydian-border-focus focus:border-lydian-primary outline-none"
+                  placeholder="bmw-5-serisi" />
+
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-slate-700 mb-2">Marka *</label>
+                <label className="block text-sm font-medium text-lydian-text-secondary mb-2">Marka *</label>
                 <input
                   type="text"
                   name="brand"
                   value={formData.brand}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
-                  placeholder="BMW"
-                />
+                  className="w-full px-4 py-2 border border-lydian-border rounded-lg focus:ring-2 focus:ring-lydian-border-focus focus:border-lydian-primary outline-none"
+                  placeholder="BMW" />
+
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-slate-700 mb-2">Model *</label>
+                <label className="block text-sm font-medium text-lydian-text-secondary mb-2">Model *</label>
                 <input
                   type="text"
                   name="model"
                   value={formData.model}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
-                  placeholder="5 Serisi"
-                />
+                  className="w-full px-4 py-2 border border-lydian-border rounded-lg focus:ring-2 focus:ring-lydian-border-focus focus:border-lydian-primary outline-none"
+                  placeholder="5 Serisi" />
+
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-slate-700 mb-2">Yıl *</label>
+                <label className="block text-sm font-medium text-lydian-text-secondary mb-2">Yıl *</label>
                 <input
                   type="number"
                   name="year"
@@ -314,19 +314,19 @@ const CarRentalEditPage = () => {
                   required
                   min="1990"
                   max={new Date().getFullYear() + 1}
-                  className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
-                />
+                  className="w-full px-4 py-2 border border-lydian-border rounded-lg focus:ring-2 focus:ring-lydian-border-focus focus:border-lydian-primary outline-none" />
+
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-slate-700 mb-2">Kategori *</label>
+                <label className="block text-sm font-medium text-lydian-text-secondary mb-2">Kategori *</label>
                 <select
                   name="category"
                   value={formData.category}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
-                >
+                  className="w-full px-4 py-2 border border-lydian-border rounded-lg focus:ring-2 focus:ring-lydian-border-focus focus:border-lydian-primary outline-none">
+
                   <option value="sedan">Sedan</option>
                   <option value="suv">SUV</option>
                   <option value="hatchback">Hatchback</option>
@@ -338,28 +338,28 @@ const CarRentalEditPage = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-slate-700 mb-2">Vites *</label>
+                <label className="block text-sm font-medium text-lydian-text-secondary mb-2">Vites *</label>
                 <select
                   name="transmission"
                   value={formData.transmission}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
-                >
+                  className="w-full px-4 py-2 border border-lydian-border rounded-lg focus:ring-2 focus:ring-lydian-border-focus focus:border-lydian-primary outline-none">
+
                   <option value="manual">Manuel</option>
                   <option value="automatic">Otomatik</option>
                 </select>
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-slate-700 mb-2">Yakıt Tipi *</label>
+                <label className="block text-sm font-medium text-lydian-text-secondary mb-2">Yakıt Tipi *</label>
                 <select
                   name="fuelType"
                   value={formData.fuelType}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
-                >
+                  className="w-full px-4 py-2 border border-lydian-border rounded-lg focus:ring-2 focus:ring-lydian-border-focus focus:border-lydian-primary outline-none">
+
                   <option value="gasoline">Benzin</option>
                   <option value="diesel">Dizel</option>
                   <option value="electric">Elektrik</option>
@@ -368,7 +368,7 @@ const CarRentalEditPage = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-slate-700 mb-2">Koltuk Sayısı *</label>
+                <label className="block text-sm font-medium text-lydian-text-secondary mb-2">Koltuk Sayısı *</label>
                 <input
                   type="number"
                   name="seats"
@@ -377,24 +377,24 @@ const CarRentalEditPage = () => {
                   required
                   min="2"
                   max="50"
-                  className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
-                />
+                  className="w-full px-4 py-2 border border-lydian-border rounded-lg focus:ring-2 focus:ring-lydian-border-focus focus:border-lydian-primary outline-none" />
+
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-slate-700 mb-2">Konum</label>
+                <label className="block text-sm font-medium text-lydian-text-secondary mb-2">Konum</label>
                 <input
                   type="text"
                   name="location"
                   value={formData.location}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
-                  placeholder="İstanbul, Türkiye"
-                />
+                  className="w-full px-4 py-2 border border-lydian-border rounded-lg focus:ring-2 focus:ring-lydian-border-focus focus:border-lydian-primary outline-none"
+                  placeholder="İstanbul, Türkiye" />
+
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-slate-700 mb-2">Stok Adedi *</label>
+                <label className="block text-sm font-medium text-lydian-text-secondary mb-2">Stok Adedi *</label>
                 <input
                   type="number"
                   name="availableCount"
@@ -402,33 +402,33 @@ const CarRentalEditPage = () => {
                   onChange={handleInputChange}
                   required
                   min="0"
-                  className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
-                />
+                  className="w-full px-4 py-2 border border-lydian-border rounded-lg focus:ring-2 focus:ring-lydian-border-focus focus:border-lydian-primary outline-none" />
+
               </div>
 
               <div className="md:col-span-2">
-                <label className="block text-sm font-medium text-slate-700 mb-2">Açıklama</label>
+                <label className="block text-sm font-medium text-lydian-text-secondary mb-2">Açıklama</label>
                 <textarea
                   name="description"
                   value={formData.description}
                   onChange={handleInputChange}
                   rows={4}
-                  className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
-                  placeholder="Araç hakkında detaylı bilgi..."
-                />
+                  className="w-full px-4 py-2 border border-lydian-border rounded-lg focus:ring-2 focus:ring-lydian-border-focus focus:border-lydian-primary outline-none"
+                  placeholder="Araç hakkında detaylı bilgi..." />
+
               </div>
             </div>
           </div>
 
           {/* Pricing */}
-          <div className="bg-white/5 rounded-xl border border-slate-200 p-6">
-            <h2 className="text-lg font-bold text-slate-900 mb-6 flex items-center gap-2">
-              <DollarSign className="w-5 h-5 text-green-600" />
+          <div className="bg-lydian-glass-dark rounded-xl border border-lydian-border p-6">
+            <h2 className="text-lg font-bold text-lydian-text mb-6 flex items-center gap-2">
+              <DollarSign className="w-5 h-5 text-lydian-success" />
               Fiyatlandırma
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <label className="block text-sm font-medium text-slate-700 mb-2">Günlük Fiyat *</label>
+                <label className="block text-sm font-medium text-lydian-text-secondary mb-2">Günlük Fiyat *</label>
                 <input
                   type="number"
                   name="pricePerDay"
@@ -437,19 +437,19 @@ const CarRentalEditPage = () => {
                   required
                   min="0"
                   step="0.01"
-                  className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
-                />
+                  className="w-full px-4 py-2 border border-lydian-border rounded-lg focus:ring-2 focus:ring-lydian-border-focus focus:border-lydian-primary outline-none" />
+
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-slate-700 mb-2">Para Birimi *</label>
+                <label className="block text-sm font-medium text-lydian-text-secondary mb-2">Para Birimi *</label>
                 <select
                   name="currency"
                   value={formData.currency}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
-                >
+                  className="w-full px-4 py-2 border border-lydian-border rounded-lg focus:ring-2 focus:ring-lydian-border-focus focus:border-lydian-primary outline-none">
+
                   <option value="TRY">₺ TRY</option>
                   <option value="USD">$ USD</option>
                   <option value="EUR">€ EUR</option>
@@ -459,8 +459,8 @@ const CarRentalEditPage = () => {
           </div>
 
           {/* Features */}
-          <div className="bg-white/5 rounded-xl border border-slate-200 p-6">
-            <h2 className="text-lg font-bold text-slate-900 mb-6 flex items-center gap-2">
+          <div className="bg-lydian-glass-dark rounded-xl border border-lydian-border p-6">
+            <h2 className="text-lg font-bold text-lydian-text mb-6 flex items-center gap-2">
               <Star className="w-5 h-5 text-amber-600" />
               Özellikler
             </h2>
@@ -471,104 +471,104 @@ const CarRentalEditPage = () => {
                 value={newFeature}
                 onChange={(e) => setNewFeature(e.target.value)}
                 onKeyPress={(e) => e.key === 'Enter' && (e.preventDefault(), addFeature())}
-                className="flex-1 px-4 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
-                placeholder="Yeni özellik ekle (örn: Klima, GPS)"
-              />
+                className="flex-1 px-4 py-2 border border-lydian-border rounded-lg focus:ring-2 focus:ring-lydian-border-focus focus:border-lydian-primary outline-none"
+                placeholder="Yeni özellik ekle (örn: Klima, GPS)" />
+
               <button
                 type="button"
                 onClick={addFeature}
-                className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
-              >
+                className="px-4 py-2 bg-lydian-primary text-lydian-text-inverse rounded-lg hover:bg-lydian-primary-dark transition-colors">
+
                 <Plus className="w-5 h-5" />
               </button>
             </div>
 
             <div className="flex flex-wrap gap-2">
-              {formData.features.map((feature, index) => (
-                <span
-                  key={index}
-                  className="inline-flex items-center gap-2 px-3 py-1 bg-blue-50 text-blue-700 rounded-full text-sm"
-                >
+              {formData.features.map((feature, index) =>
+              <span
+                key={index}
+                className="inline-flex items-center gap-2 px-3 py-1 bg-lydian-primary-lighter text-lydian-primary-dark rounded-full text-sm">
+
                   {feature}
                   <button
-                    type="button"
-                    onClick={() => removeFeature(index)}
-                    className="hover:text-red-600 transition-colors"
-                  >
+                  type="button"
+                  onClick={() => removeFeature(index)}
+                  className="hover:text-lydian-primary transition-colors">
+
                     <X className="w-4 h-4" />
                   </button>
                 </span>
-              ))}
+              )}
             </div>
           </div>
 
           {/* Images */}
-          <div className="bg-white/5 rounded-xl border border-slate-200 p-6">
-            <h2 className="text-lg font-bold text-slate-900 mb-6 flex items-center gap-2">
+          <div className="bg-lydian-glass-dark rounded-xl border border-lydian-border p-6">
+            <h2 className="text-lg font-bold text-lydian-text mb-6 flex items-center gap-2">
               <ImageIcon className="w-5 h-5 text-purple-600" />
               Görseller
             </h2>
 
             <div className="mb-6">
-              <label className="block text-sm font-medium text-slate-700 mb-2">Ana Görsel URL</label>
+              <label className="block text-sm font-medium text-lydian-text-secondary mb-2">Ana Görsel URL</label>
               <input
                 type="text"
                 name="mainImage"
                 value={formData.mainImage}
                 onChange={handleInputChange}
-                className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
-                placeholder="https://example.com/image.jpg"
-              />
+                className="w-full px-4 py-2 border border-lydian-border rounded-lg focus:ring-2 focus:ring-lydian-border-focus focus:border-lydian-primary outline-none"
+                placeholder="https://example.com/image.jpg" />
+
             </div>
 
             <div className="mb-4">
-              <label className="block text-sm font-medium text-slate-700 mb-2">Ek Görseller</label>
+              <label className="block text-sm font-medium text-lydian-text-secondary mb-2">Ek Görseller</label>
               <div className="flex gap-2">
                 <input
                   type="text"
                   value={newImage}
                   onChange={(e) => setNewImage(e.target.value)}
                   onKeyPress={(e) => e.key === 'Enter' && (e.preventDefault(), addImage())}
-                  className="flex-1 px-4 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
-                  placeholder="Görsel URL ekle"
-                />
+                  className="flex-1 px-4 py-2 border border-lydian-border rounded-lg focus:ring-2 focus:ring-lydian-border-focus focus:border-lydian-primary outline-none"
+                  placeholder="Görsel URL ekle" />
+
                 <button
                   type="button"
                   onClick={addImage}
-                  className="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
-                >
+                  className="px-4 py-2 bg-purple-600 text-lydian-text-inverse rounded-lg hover:bg-purple-700 transition-colors">
+
                   <Plus className="w-5 h-5" />
                 </button>
               </div>
             </div>
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              {formData.images.map((image, index) => (
-                <div key={index} className="relative group">
+              {formData.images.map((image, index) =>
+              <div key={index} className="relative group">
                   <img
-                    src={image}
-                    alt={`Image ${index + 1}`}
-                    className="w-full h-32 object-cover rounded-lg border border-slate-200"
-                    onError={(e) => {
-                      (e.target as HTMLImageElement).src = '/placeholder-car.jpg';
-                    }}
-                  />
+                  src={image}
+                  alt={`Image ${index + 1}`}
+                  className="w-full h-32 object-cover rounded-lg border border-lydian-border"
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).src = '/placeholder-car.jpg';
+                  }} />
+
                   <button
-                    type="button"
-                    onClick={() => removeImage(index)}
-                    className="absolute top-2 right-2 p-1 bg-red-500 text-white rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
-                  >
+                  type="button"
+                  onClick={() => removeImage(index)}
+                  className="absolute top-2 right-2 p-1 bg-lydian-error text-lydian-text-inverse rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
+
                     <Trash2 className="w-4 h-4" />
                   </button>
                 </div>
-              ))}
+              )}
             </div>
           </div>
 
           {/* Status */}
-          <div className="bg-white/5 rounded-xl border border-slate-200 p-6">
-            <h2 className="text-lg font-bold text-slate-900 mb-6 flex items-center gap-2">
-              <Settings className="w-5 h-5 text-slate-600" />
+          <div className="bg-lydian-glass-dark rounded-xl border border-lydian-border p-6">
+            <h2 className="text-lg font-bold text-lydian-text mb-6 flex items-center gap-2">
+              <Settings className="w-5 h-5 text-lydian-text-secondary" />
               Durum Ayarları
             </h2>
             <div className="space-y-4">
@@ -578,9 +578,9 @@ const CarRentalEditPage = () => {
                   name="isActive"
                   checked={formData.isActive}
                   onChange={handleInputChange}
-                  className="w-5 h-5 text-blue-600 border-slate-300 rounded focus:ring-2 focus:ring-blue-500"
-                />
-                <span className="text-sm font-medium text-slate-700">Aktif (Sitede göster)</span>
+                  className="w-5 h-5 text-lydian-primary border-lydian-border-medium rounded focus:ring-2 focus:ring-lydian-border-focus" />
+
+                <span className="text-sm font-medium text-lydian-text-secondary">Aktif (Sitede göster)</span>
               </label>
 
               <label className="flex items-center gap-3">
@@ -589,16 +589,16 @@ const CarRentalEditPage = () => {
                   name="isFeatured"
                   checked={formData.isFeatured}
                   onChange={handleInputChange}
-                  className="w-5 h-5 text-blue-600 border-slate-300 rounded focus:ring-2 focus:ring-blue-500"
-                />
-                <span className="text-sm font-medium text-slate-700">Öne Çıkan</span>
+                  className="w-5 h-5 text-lydian-primary border-lydian-border-medium rounded focus:ring-2 focus:ring-lydian-border-focus" />
+
+                <span className="text-sm font-medium text-lydian-text-secondary">Öne Çıkan</span>
               </label>
             </div>
           </div>
         </form>
       </main>
-    </div>
-  );
+    </div>);
+
 };
 
 export default CarRentalEditPage;

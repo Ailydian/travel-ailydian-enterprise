@@ -6,8 +6,8 @@ import {
   MessageSquare, Star, User, MapPin, Calendar, Filter, Search,
   CheckCircle, XCircle, AlertTriangle, Flag, Eye, Edit, Trash2,
   ThumbsUp, ThumbsDown, Clock, RefreshCw, Download, BarChart3,
-  Brain, Zap, Award, TrendingUp, Users, Globe
-} from 'lucide-react';
+  Brain, Zap, Award, TrendingUp, Users, Globe } from
+'lucide-react';
 import adminService from '../../lib/services/admin-service';
 
 interface Review {
@@ -64,7 +64,7 @@ interface ReviewsData {
 
 const AILYDIAN_COLORS = {
   primary: '#FF214D',
-  secondary: '#FF6A45', 
+  secondary: '#FF6A45',
   dark: '#0A0A0B',
   light: '#F3F4F6',
   success: '#10b981',
@@ -85,7 +85,7 @@ export default function AdminReviews() {
   const [sortBy, setSortBy] = useState<string>('createdAt');
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedReviews, setSelectedReviews] = useState<number[]>([]);
-  
+
   const router = useRouter();
 
   useEffect(() => {
@@ -104,92 +104,92 @@ export default function AdminReviews() {
       // Mock data for demonstration
       const mockData: ReviewsData = {
         reviews: [
-          {
+        {
+          id: 1,
+          user: {
             id: 1,
-            user: {
-              id: 1,
-              name: 'Ahmet Yılmaz',
-              email: 'ahmet@example.com',
-              isVerified: true
-            },
-            location: {
-              id: 1,
-              name: 'Sultanahmet Camii',
-              city: 'İstanbul',
-              country: 'Türkiye'
-            },
-            rating: 5,
-            title: 'Muhteşem bir deneyim',
-            content: 'Sultanahmet Camii gerçekten büyüleyici. Mimarisi ve tarihi atmosferi etkileyici. Kesinlikle görülmesi gereken bir yer.',
-            status: 'pending',
-            createdAt: '2024-01-20T10:30:00Z',
-            aiScore: 0.92,
-            sentimentScore: 0.85,
-            flagCount: 0,
-            helpfulVotes: 12,
-            totalVotes: 15,
-            language: 'tr',
-            photos: ['/reviews/1-1.jpg', '/reviews/1-2.jpg']
+            name: 'Ahmet Yılmaz',
+            email: 'ahmet@example.com',
+            isVerified: true
           },
-          {
+          location: {
+            id: 1,
+            name: 'Sultanahmet Camii',
+            city: 'İstanbul',
+            country: 'Türkiye'
+          },
+          rating: 5,
+          title: 'Muhteşem bir deneyim',
+          content: 'Sultanahmet Camii gerçekten büyüleyici. Mimarisi ve tarihi atmosferi etkileyici. Kesinlikle görülmesi gereken bir yer.',
+          status: 'pending',
+          createdAt: '2024-01-20T10:30:00Z',
+          aiScore: 0.92,
+          sentimentScore: 0.85,
+          flagCount: 0,
+          helpfulVotes: 12,
+          totalVotes: 15,
+          language: 'tr',
+          photos: ['/reviews/1-1.jpg', '/reviews/1-2.jpg']
+        },
+        {
+          id: 2,
+          user: {
             id: 2,
-            user: {
-              id: 2,
-              name: 'Sarah Johnson',
-              email: 'sarah@example.com',
-              isVerified: false
-            },
-            location: {
-              id: 2,
-              name: 'Galata Kulesi',
-              city: 'İstanbul',
-              country: 'Türkiye'
-            },
-            rating: 1,
-            title: 'Çok kalabalık ve pahalı',
-            content: 'Bu yer çok kalabalık ve bilet fiyatları fahiş. Manzara güzel ama bu kadar para vermeye değmez.',
-            status: 'flagged',
-            createdAt: '2024-01-19T16:45:00Z',
-            moderatedAt: '2024-01-20T09:15:00Z',
-            moderatedBy: 'admin@lydian.com',
-            moderationReason: 'Olumsuz ton, potansiyel spam',
-            aiScore: 0.23,
-            sentimentScore: -0.67,
-            flagCount: 3,
-            helpfulVotes: 2,
-            totalVotes: 18,
-            language: 'en'
+            name: 'Sarah Johnson',
+            email: 'sarah@example.com',
+            isVerified: false
           },
-          {
+          location: {
+            id: 2,
+            name: 'Galata Kulesi',
+            city: 'İstanbul',
+            country: 'Türkiye'
+          },
+          rating: 1,
+          title: 'Çok kalabalık ve pahalı',
+          content: 'Bu yer çok kalabalık ve bilet fiyatları fahiş. Manzara güzel ama bu kadar para vermeye değmez.',
+          status: 'flagged',
+          createdAt: '2024-01-19T16:45:00Z',
+          moderatedAt: '2024-01-20T09:15:00Z',
+          moderatedBy: 'admin@lydian.com',
+          moderationReason: 'Olumsuz ton, potansiyel spam',
+          aiScore: 0.23,
+          sentimentScore: -0.67,
+          flagCount: 3,
+          helpfulVotes: 2,
+          totalVotes: 18,
+          language: 'en'
+        },
+        {
+          id: 3,
+          user: {
             id: 3,
-            user: {
-              id: 3,
-              name: 'Maria García',
-              email: 'maria@example.com',
-              isVerified: true
-            },
-            location: {
-              id: 3,
-              name: 'Kapadokya Balon Turu',
-              city: 'Nevşehir',
-              country: 'Türkiye'
-            },
-            rating: 5,
-            title: 'Unforgettable experience!',
-            content: 'The hot air balloon ride in Cappadocia was absolutely magical. The sunrise views were breathtaking and the pilot was very professional. Highly recommended!',
-            status: 'approved',
-            createdAt: '2024-01-18T07:20:00Z',
-            moderatedAt: '2024-01-18T10:30:00Z',
-            moderatedBy: 'moderator@lydian.com',
-            aiScore: 0.96,
-            sentimentScore: 0.94,
-            flagCount: 0,
-            helpfulVotes: 28,
-            totalVotes: 30,
-            language: 'en',
-            photos: ['/reviews/3-1.jpg', '/reviews/3-2.jpg', '/reviews/3-3.jpg']
-          }
-        ],
+            name: 'Maria García',
+            email: 'maria@example.com',
+            isVerified: true
+          },
+          location: {
+            id: 3,
+            name: 'Kapadokya Balon Turu',
+            city: 'Nevşehir',
+            country: 'Türkiye'
+          },
+          rating: 5,
+          title: 'Unforgettable experience!',
+          content: 'The hot air balloon ride in Cappadocia was absolutely magical. The sunrise views were breathtaking and the pilot was very professional. Highly recommended!',
+          status: 'approved',
+          createdAt: '2024-01-18T07:20:00Z',
+          moderatedAt: '2024-01-18T10:30:00Z',
+          moderatedBy: 'moderator@lydian.com',
+          aiScore: 0.96,
+          sentimentScore: 0.94,
+          flagCount: 0,
+          helpfulVotes: 28,
+          totalVotes: 30,
+          language: 'en',
+          photos: ['/reviews/3-1.jpg', '/reviews/3-2.jpg', '/reviews/3-3.jpg']
+        }],
+
         total: 1247,
         pagination: {
           currentPage: 1,
@@ -242,37 +242,37 @@ export default function AdminReviews() {
       rejected: { bg: `${AILYDIAN_COLORS.error}20`, text: AILYDIAN_COLORS.error, label: 'Reddedildi', icon: XCircle },
       flagged: { bg: `${AILYDIAN_COLORS.primary}20`, text: AILYDIAN_COLORS.primary, label: 'Bayraklı', icon: Flag }
     };
-    
+
     const style = styles[status as keyof typeof styles];
     const IconComponent = style.icon;
-    
+
     return (
-      <span 
+      <span
         className="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold"
-        style={{ background: style.bg, color: style.text }}
-      >
+        style={{ background: style.bg, color: style.text }}>
+
         <IconComponent className="w-3 h-3 mr-1" />
         {style.label}
-      </span>
-    );
+      </span>);
+
   };
 
   const getRatingStars = (rating: number) => {
     return (
       <div className="flex items-center">
-        {[1, 2, 3, 4, 5].map((star) => (
-          <Star
-            key={star}
-            className={`w-4 h-4 ${
-              star <= rating
-                ? 'fill-current text-yellow-400'
-                : 'text-gray-300'
-            }`}
-          />
-        ))}
-        <span className="ml-2 text-sm font-medium text-gray-300">({rating})</span>
-      </div>
-    );
+        {[1, 2, 3, 4, 5].map((star) =>
+        <Star
+          key={star}
+          className={`w-4 h-4 ${
+          star <= rating ?
+          'fill-current text-yellow-400' :
+          'text-gray-300'}`
+          } />
+
+        )}
+        <span className="ml-2 text-sm font-medium text-lydian-text-dim">({rating})</span>
+      </div>);
+
   };
 
   const getSentimentBadge = (score: number) => {
@@ -289,13 +289,13 @@ export default function AdminReviews() {
     }
 
     return (
-      <span 
+      <span
         className="px-2 py-1 rounded text-xs font-medium"
-        style={{ background: `${color}20`, color }}
-      >
+        style={{ background: `${color}20`, color }}>
+
         {label}
-      </span>
-    );
+      </span>);
+
   };
 
   if (isLoading) {
@@ -303,35 +303,35 @@ export default function AdminReviews() {
       <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center">
         <div className="text-center">
           <div className="relative">
-            <div className="w-20 h-20 border-4 border-white/10 border-t-transparent rounded-full animate-spin mx-auto mb-6"></div>
-            <div className="absolute inset-0 w-20 h-20 border-4 border-transparent border-t-red-500 rounded-full animate-spin mx-auto" style={{animationDuration: '1.5s'}}></div>
+            <div className="w-20 h-20 border-4 border-lydian-border-light/10 border-t-transparent rounded-full animate-spin mx-auto mb-6"></div>
+            <div className="absolute inset-0 w-20 h-20 border-4 border-lydian-border border-t-red-500 rounded-full animate-spin mx-auto" style={{ animationDuration: '1.5s' }}></div>
           </div>
-          <h3 className="text-xl font-semibold text-gray-100 mb-2">Değerlendirmeler Yükleniyor</h3>
-          <p className="text-gray-300">Değerlendirme verileri hazırlanıyor...</p>
+          <h3 className="text-xl font-semibold text-lydian-text-dim mb-2">Değerlendirmeler Yükleniyor</h3>
+          <p className="text-lydian-text-dim">Değerlendirme verileri hazırlanıyor...</p>
         </div>
-      </div>
-    );
+      </div>);
+
   }
 
   if (error) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-red-50 to-gray-100 flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-br from-lydian-primary-lighter to-gray-100 flex items-center justify-center">
         <div className="text-center max-w-md mx-auto p-8">
-          <div className="w-20 h-20 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-6">
-            <MessageSquare className="w-10 h-10 text-red-600" />
+          <div className="w-20 h-20 bg-lydian-error-light rounded-full flex items-center justify-center mx-auto mb-6">
+            <MessageSquare className="w-10 h-10 text-lydian-primary" />
           </div>
-          <h3 className="text-xl font-semibold text-gray-100 mb-2">Bir Hata Oluştu</h3>
-          <p className="text-red-600 mb-6">{error}</p>
-          <button 
+          <h3 className="text-xl font-semibold text-lydian-text-dim mb-2">Bir Hata Oluştu</h3>
+          <p className="text-lydian-primary mb-6">{error}</p>
+          <button
             onClick={fetchReviewsData}
-            className="px-6 py-3 bg-gradient-to-r from-red-600 to-pink-600 text-white rounded-lg hover:from-red-700 hover:to-pink-700 transition-all transform hover:scale-105 font-semibold"
-          >
+            className="px-6 py-3 bg-gradient-to-r from-lydian-primary to-pink-600 text-lydian-text-inverse rounded-lg hover:from-red-700 hover:to-pink-700 transition-all transform hover:scale-105 font-semibold">
+
             <RefreshCw className="w-4 h-4 mr-2 inline" />
             Tekrar Dene
           </button>
         </div>
-      </div>
-    );
+      </div>);
+
   }
 
   return (
@@ -341,14 +341,14 @@ export default function AdminReviews() {
         <meta name="robots" content="noindex, nofollow" />
       </Head>
 
-      <div className="min-h-screen" style={{background: `linear-gradient(135deg, ${AILYDIAN_COLORS.dark} 0%, #1f1f23 50%, #2d2d35 100%)`}}>
+      <div className="min-h-screen" style={{ background: `linear-gradient(135deg, ${AILYDIAN_COLORS.dark} 0%, #1f1f23 50%, #2d2d35 100%)` }}>
         {/* Top Navigation */}
-        <nav className="bg-white/95 backdrop-blur-sm shadow-lg border-b border-white/10">
+        <nav className="bg-lydian-bg/95 backdrop-blur-sm shadow-lg border-b border-lydian-border-light/10">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex justify-between items-center h-16">
               <div className="flex items-center space-x-4">
-                <div className="w-8 h-8 rounded-lg" style={{background: `linear-gradient(45deg, ${AILYDIAN_COLORS.primary}, ${AILYDIAN_COLORS.secondary})`}}>
-                  <MessageSquare className="w-5 h-5 text-white m-1.5" />
+                <div className="w-8 h-8 rounded-lg" style={{ background: `linear-gradient(45deg, ${AILYDIAN_COLORS.primary}, ${AILYDIAN_COLORS.secondary})` }}>
+                  <MessageSquare className="w-5 h-5 text-lydian-text-inverse m-1.5" />
                 </div>
                 <h1 className="text-xl font-bold bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent">
                   Değerlendirme Yönetimi
@@ -357,14 +357,14 @@ export default function AdminReviews() {
               <div className="flex items-center space-x-4">
                 <div className="flex items-center space-x-2">
                   <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                  <span className="text-sm text-gray-100">
+                  <span className="text-sm text-lydian-text-dim">
                     {adminData?.email}
                   </span>
                 </div>
                 <button
                   onClick={handleLogout}
-                  className="flex items-center space-x-1 px-3 py-1.5 text-gray-300 hover:text-red-600 rounded-lg hover:bg-red-50 transition-all"
-                >
+                  className="flex items-center space-x-1 px-3 py-1.5 text-lydian-text-dim hover:text-lydian-primary rounded-lg hover:bg-lydian-error-lighter transition-all">
+
                   <span>Çıkış</span>
                 </button>
               </div>
@@ -377,23 +377,23 @@ export default function AdminReviews() {
           <nav className="bg-gray-900/95 backdrop-blur-sm w-64 min-h-screen border-r border-gray-700">
             <div className="p-4">
               <div className="space-y-2">
-                <Link href="/admin/dashboard" className="flex items-center space-x-3 text-gray-300 hover:text-white hover:bg-gray-700/80 rounded-lg px-3 py-2 transition-all hover:translate-x-1">
+                <Link href="/admin/dashboard" className="flex items-center space-x-3 text-lydian-text-dim hover:text-lydian-text-inverse hover:bg-gray-700/80 rounded-lg px-3 py-2 transition-all hover:translate-x-1">
                   <BarChart3 className="w-5 h-5" />
                   <span>Kontrol Paneli</span>
                 </Link>
-                <Link href="/admin/locations" className="flex items-center space-x-3 text-gray-300 hover:text-white hover:bg-gray-700/80 rounded-lg px-3 py-2 transition-all hover:translate-x-1">
+                <Link href="/admin/locations" className="flex items-center space-x-3 text-lydian-text-dim hover:text-lydian-text-inverse hover:bg-gray-700/80 rounded-lg px-3 py-2 transition-all hover:translate-x-1">
                   <MapPin className="w-5 h-5" />
                   <span>Lokasyonlar</span>
                 </Link>
-                <Link href="/admin/users" className="flex items-center space-x-3 text-gray-300 hover:text-white hover:bg-gray-700/80 rounded-lg px-3 py-2 transition-all hover:translate-x-1">
+                <Link href="/admin/users" className="flex items-center space-x-3 text-lydian-text-dim hover:text-lydian-text-inverse hover:bg-gray-700/80 rounded-lg px-3 py-2 transition-all hover:translate-x-1">
                   <Users className="w-5 h-5" />
                   <span>Kullanıcılar</span>
                 </Link>
-                <Link href="/admin/reviews" className="flex items-center space-x-3 text-white rounded-lg px-3 py-2" style={{background: `linear-gradient(45deg, ${AILYDIAN_COLORS.primary}40, ${AILYDIAN_COLORS.secondary}40)`, border: `1px solid ${AILYDIAN_COLORS.primary}60`}}>
+                <Link href="/admin/reviews" className="flex items-center space-x-3 text-lydian-text-inverse rounded-lg px-3 py-2" style={{ background: `linear-gradient(45deg, ${AILYDIAN_COLORS.primary}40, ${AILYDIAN_COLORS.secondary}40)`, border: `1px solid ${AILYDIAN_COLORS.primary}60` }}>
                   <MessageSquare className="w-5 h-5" />
                   <span className="font-medium">Değerlendirmeler</span>
                 </Link>
-                <Link href="/admin/platforms" className="flex items-center space-x-3 text-gray-300 hover:text-white hover:bg-gray-700/80 rounded-lg px-3 py-2 transition-all hover:translate-x-1">
+                <Link href="/admin/platforms" className="flex items-center space-x-3 text-lydian-text-dim hover:text-lydian-text-inverse hover:bg-gray-700/80 rounded-lg px-3 py-2 transition-all hover:translate-x-1">
                   <Globe className="w-5 h-5" />
                   <span>Harici Platformlar</span>
                 </Link>
@@ -403,114 +403,114 @@ export default function AdminReviews() {
 
           {/* Main Content */}
           <main className="flex-1 p-8">
-            {reviewsData && (
-              <>
+            {reviewsData &&
+            <>
                 {/* Stats Cards */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-7 gap-6 mb-8">
-                  <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg p-6 hover:shadow-xl transition-all">
+                  <div className="bg-lydian-bg/90 backdrop-blur-sm rounded-xl shadow-lg p-6 hover:shadow-xl transition-all">
                     <div className="flex items-center">
-                      <div className="p-3 rounded-full" style={{background: `linear-gradient(45deg, ${AILYDIAN_COLORS.blue}20, ${AILYDIAN_COLORS.blue}40)`}}>
-                        <MessageSquare className="w-6 h-6" style={{color: AILYDIAN_COLORS.blue}} />
+                      <div className="p-3 rounded-full" style={{ background: `linear-gradient(45deg, ${AILYDIAN_COLORS.blue}20, ${AILYDIAN_COLORS.blue}40)` }}>
+                        <MessageSquare className="w-6 h-6" style={{ color: AILYDIAN_COLORS.blue }} />
                       </div>
                       <div className="ml-4">
-                        <p className="text-sm font-semibold text-gray-300 uppercase">Toplam</p>
-                        <p className="text-2xl font-bold text-white">{formatNumber(reviewsData.stats.total)}</p>
+                        <p className="text-sm font-semibold text-lydian-text-dim uppercase">Toplam</p>
+                        <p className="text-2xl font-bold text-lydian-text-inverse">{formatNumber(reviewsData.stats.total)}</p>
                       </div>
                     </div>
                   </div>
 
-                  <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg p-6 hover:shadow-xl transition-all">
+                  <div className="bg-lydian-bg/90 backdrop-blur-sm rounded-xl shadow-lg p-6 hover:shadow-xl transition-all">
                     <div className="flex items-center">
-                      <div className="p-3 rounded-full" style={{background: `linear-gradient(45deg, ${AILYDIAN_COLORS.warning}20, ${AILYDIAN_COLORS.warning}40)`}}>
-                        <Clock className="w-6 h-6" style={{color: AILYDIAN_COLORS.warning}} />
+                      <div className="p-3 rounded-full" style={{ background: `linear-gradient(45deg, ${AILYDIAN_COLORS.warning}20, ${AILYDIAN_COLORS.warning}40)` }}>
+                        <Clock className="w-6 h-6" style={{ color: AILYDIAN_COLORS.warning }} />
                       </div>
                       <div className="ml-4">
-                        <p className="text-sm font-semibold text-gray-300 uppercase">Bekliyor</p>
-                        <p className="text-2xl font-bold text-white">{reviewsData.stats.pending}</p>
+                        <p className="text-sm font-semibold text-lydian-text-dim uppercase">Bekliyor</p>
+                        <p className="text-2xl font-bold text-lydian-text-inverse">{reviewsData.stats.pending}</p>
                       </div>
                     </div>
                   </div>
 
-                  <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg p-6 hover:shadow-xl transition-all">
+                  <div className="bg-lydian-bg/90 backdrop-blur-sm rounded-xl shadow-lg p-6 hover:shadow-xl transition-all">
                     <div className="flex items-center">
-                      <div className="p-3 rounded-full" style={{background: `linear-gradient(45deg, ${AILYDIAN_COLORS.success}20, ${AILYDIAN_COLORS.success}40)`}}>
-                        <CheckCircle className="w-6 h-6" style={{color: AILYDIAN_COLORS.success}} />
+                      <div className="p-3 rounded-full" style={{ background: `linear-gradient(45deg, ${AILYDIAN_COLORS.success}20, ${AILYDIAN_COLORS.success}40)` }}>
+                        <CheckCircle className="w-6 h-6" style={{ color: AILYDIAN_COLORS.success }} />
                       </div>
                       <div className="ml-4">
-                        <p className="text-sm font-semibold text-gray-300 uppercase">Onaylı</p>
-                        <p className="text-2xl font-bold text-white">{formatNumber(reviewsData.stats.approved)}</p>
+                        <p className="text-sm font-semibold text-lydian-text-dim uppercase">Onaylı</p>
+                        <p className="text-2xl font-bold text-lydian-text-inverse">{formatNumber(reviewsData.stats.approved)}</p>
                       </div>
                     </div>
                   </div>
 
-                  <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg p-6 hover:shadow-xl transition-all">
+                  <div className="bg-lydian-bg/90 backdrop-blur-sm rounded-xl shadow-lg p-6 hover:shadow-xl transition-all">
                     <div className="flex items-center">
-                      <div className="p-3 rounded-full" style={{background: `linear-gradient(45deg, ${AILYDIAN_COLORS.error}20, ${AILYDIAN_COLORS.error}40)`}}>
-                        <XCircle className="w-6 h-6" style={{color: AILYDIAN_COLORS.error}} />
+                      <div className="p-3 rounded-full" style={{ background: `linear-gradient(45deg, ${AILYDIAN_COLORS.error}20, ${AILYDIAN_COLORS.error}40)` }}>
+                        <XCircle className="w-6 h-6" style={{ color: AILYDIAN_COLORS.error }} />
                       </div>
                       <div className="ml-4">
-                        <p className="text-sm font-semibold text-gray-300 uppercase">Reddedildi</p>
-                        <p className="text-2xl font-bold text-white">{reviewsData.stats.rejected}</p>
+                        <p className="text-sm font-semibold text-lydian-text-dim uppercase">Reddedildi</p>
+                        <p className="text-2xl font-bold text-lydian-text-inverse">{reviewsData.stats.rejected}</p>
                       </div>
                     </div>
                   </div>
 
-                  <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg p-6 hover:shadow-xl transition-all">
+                  <div className="bg-lydian-bg/90 backdrop-blur-sm rounded-xl shadow-lg p-6 hover:shadow-xl transition-all">
                     <div className="flex items-center">
-                      <div className="p-3 rounded-full" style={{background: `linear-gradient(45deg, ${AILYDIAN_COLORS.primary}20, ${AILYDIAN_COLORS.secondary}40)`}}>
-                        <Flag className="w-6 h-6" style={{color: AILYDIAN_COLORS.primary}} />
+                      <div className="p-3 rounded-full" style={{ background: `linear-gradient(45deg, ${AILYDIAN_COLORS.primary}20, ${AILYDIAN_COLORS.secondary}40)` }}>
+                        <Flag className="w-6 h-6" style={{ color: AILYDIAN_COLORS.primary }} />
                       </div>
                       <div className="ml-4">
-                        <p className="text-sm font-semibold text-gray-300 uppercase">Bayraklı</p>
-                        <p className="text-2xl font-bold text-white">{reviewsData.stats.flagged}</p>
+                        <p className="text-sm font-semibold text-lydian-text-dim uppercase">Bayraklı</p>
+                        <p className="text-2xl font-bold text-lydian-text-inverse">{reviewsData.stats.flagged}</p>
                       </div>
                     </div>
                   </div>
 
-                  <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg p-6 hover:shadow-xl transition-all">
+                  <div className="bg-lydian-bg/90 backdrop-blur-sm rounded-xl shadow-lg p-6 hover:shadow-xl transition-all">
                     <div className="flex items-center">
-                      <div className="p-3 rounded-full" style={{background: `linear-gradient(45deg, ${AILYDIAN_COLORS.warning}20, ${AILYDIAN_COLORS.warning}40)`}}>
-                        <Star className="w-6 h-6" style={{color: AILYDIAN_COLORS.warning}} />
+                      <div className="p-3 rounded-full" style={{ background: `linear-gradient(45deg, ${AILYDIAN_COLORS.warning}20, ${AILYDIAN_COLORS.warning}40)` }}>
+                        <Star className="w-6 h-6" style={{ color: AILYDIAN_COLORS.warning }} />
                       </div>
                       <div className="ml-4">
-                        <p className="text-sm font-semibold text-gray-300 uppercase">Ort. Puan</p>
-                        <p className="text-2xl font-bold text-white">{reviewsData.stats.averageRating.toFixed(1)}</p>
+                        <p className="text-sm font-semibold text-lydian-text-dim uppercase">Ort. Puan</p>
+                        <p className="text-2xl font-bold text-lydian-text-inverse">{reviewsData.stats.averageRating.toFixed(1)}</p>
                       </div>
                     </div>
                   </div>
 
-                  <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg p-6 hover:shadow-xl transition-all">
+                  <div className="bg-lydian-bg/90 backdrop-blur-sm rounded-xl shadow-lg p-6 hover:shadow-xl transition-all">
                     <div className="flex items-center">
-                      <div className="p-3 rounded-full" style={{background: `linear-gradient(45deg, ${AILYDIAN_COLORS.purple}20, ${AILYDIAN_COLORS.purple}40)`}}>
-                        <Brain className="w-6 h-6" style={{color: AILYDIAN_COLORS.purple}} />
+                      <div className="p-3 rounded-full" style={{ background: `linear-gradient(45deg, ${AILYDIAN_COLORS.purple}20, ${AILYDIAN_COLORS.purple}40)` }}>
+                        <Brain className="w-6 h-6" style={{ color: AILYDIAN_COLORS.purple }} />
                       </div>
                       <div className="ml-4">
-                        <p className="text-sm font-semibold text-gray-300 uppercase">AI Modereli</p>
-                        <p className="text-2xl font-bold text-white">{formatNumber(reviewsData.stats.aiModerated)}</p>
+                        <p className="text-sm font-semibold text-lydian-text-dim uppercase">AI Modereli</p>
+                        <p className="text-2xl font-bold text-lydian-text-inverse">{formatNumber(reviewsData.stats.aiModerated)}</p>
                       </div>
                     </div>
                   </div>
                 </div>
 
                 {/* Filters and Search */}
-                <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg p-6 mb-8">
+                <div className="bg-lydian-bg/90 backdrop-blur-sm rounded-xl shadow-lg p-6 mb-8">
                   <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
                     <div className="relative">
-                      <Search className="w-5 h-5 absolute left-3 top-3 text-gray-400" />
+                      <Search className="w-5 h-5 absolute left-3 top-3 text-lydian-text-muted" />
                       <input
-                        type="text"
-                        placeholder="Değerlendirme ara..."
-                        value={searchTerm}
-                        onChange={(e) => setSearchTerm(e.target.value)}
-                        className="w-full pl-10 pr-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                      />
+                      type="text"
+                      placeholder="Değerlendirme ara..."
+                      value={searchTerm}
+                      onChange={(e) => setSearchTerm(e.target.value)}
+                      className="w-full pl-10 pr-4 py-2 border border-lydian-border-light rounded-lg focus:ring-2 focus:ring-lydian-border-focus focus:border-lydian-primary" />
+
                     </div>
 
                     <select
-                      value={statusFilter}
-                      onChange={(e) => setStatusFilter(e.target.value)}
-                      className="w-full px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                    >
+                    value={statusFilter}
+                    onChange={(e) => setStatusFilter(e.target.value)}
+                    className="w-full px-4 py-2 border border-lydian-border-light rounded-lg focus:ring-2 focus:ring-lydian-border-focus focus:border-lydian-primary">
+
                       <option value="all">Tüm Durumlar</option>
                       <option value="pending">Bekliyor</option>
                       <option value="approved">Onaylı</option>
@@ -519,10 +519,10 @@ export default function AdminReviews() {
                     </select>
 
                     <select
-                      value={ratingFilter}
-                      onChange={(e) => setRatingFilter(e.target.value)}
-                      className="w-full px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                    >
+                    value={ratingFilter}
+                    onChange={(e) => setRatingFilter(e.target.value)}
+                    className="w-full px-4 py-2 border border-lydian-border-light rounded-lg focus:ring-2 focus:ring-lydian-border-focus focus:border-lydian-primary">
+
                       <option value="all">Tüm Puanlar</option>
                       <option value="5">5 Yıldız</option>
                       <option value="4">4 Yıldız</option>
@@ -532,14 +532,14 @@ export default function AdminReviews() {
                     </select>
 
                     <div className="flex space-x-2">
-                      <button 
-                        className="flex-1 px-4 py-2 text-white rounded-lg font-semibold hover:shadow-lg transition-all"
-                        style={{background: `linear-gradient(45deg, ${AILYDIAN_COLORS.primary}, ${AILYDIAN_COLORS.secondary})`}}
-                      >
+                      <button
+                      className="flex-1 px-4 py-2 text-lydian-text-inverse rounded-lg font-semibold hover:shadow-lg transition-all"
+                      style={{ background: `linear-gradient(45deg, ${AILYDIAN_COLORS.primary}, ${AILYDIAN_COLORS.secondary})` }}>
+
                         <Filter className="w-4 h-4 mr-2 inline" />
                         Filtrele
                       </button>
-                      <button className="px-4 py-2 border border-white/20 rounded-lg hover:bg-white/5">
+                      <button className="px-4 py-2 border border-lydian-border-light rounded-lg hover:bg-lydian-glass-dark">
                         <Download className="w-4 h-4" />
                       </button>
                     </div>
@@ -548,37 +548,37 @@ export default function AdminReviews() {
 
                 {/* Reviews List */}
                 <div className="space-y-6">
-                  {reviewsData.reviews.map((review) => (
-                    <div key={review.id} className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg p-6 hover:shadow-xl transition-all">
+                  {reviewsData.reviews.map((review) =>
+                <div key={review.id} className="bg-lydian-bg/90 backdrop-blur-sm rounded-xl shadow-lg p-6 hover:shadow-xl transition-all">
                       {/* Review Header */}
                       <div className="flex items-start justify-between mb-4">
                         <div className="flex items-start space-x-4">
                           <div className="w-12 h-12 bg-gradient-to-r from-gray-300 to-gray-400 rounded-full flex items-center justify-center">
-                            <User className="w-6 h-6 text-white" />
+                            <User className="w-6 h-6 text-lydian-text-inverse" />
                           </div>
                           <div>
                             <div className="flex items-center space-x-2">
-                              <h4 className="font-semibold text-white">{review.user.name}</h4>
-                              {review.user.isVerified && (
-                                <CheckCircle className="w-4 h-4 text-blue-500" />
-                              )}
-                              <span className="text-gray-400 text-sm">@{review.user.email}</span>
+                              <h4 className="font-semibold text-lydian-text-inverse">{review.user.name}</h4>
+                              {review.user.isVerified &&
+                          <CheckCircle className="w-4 h-4 text-lydian-primary" />
+                          }
+                              <span className="text-lydian-text-muted text-sm">@{review.user.email}</span>
                             </div>
                             <div className="flex items-center space-x-2 mt-1">
-                              <MapPin className="w-4 h-4 text-gray-400" />
-                              <span className="text-sm text-gray-100">{review.location.name}, {review.location.city}</span>
+                              <MapPin className="w-4 h-4 text-lydian-text-muted" />
+                              <span className="text-sm text-lydian-text-dim">{review.location.name}, {review.location.city}</span>
                             </div>
                             <div className="flex items-center space-x-2 mt-1">
-                              <Calendar className="w-4 h-4 text-gray-400" />
-                              <span className="text-sm text-gray-100">{formatDate(review.createdAt)}</span>
+                              <Calendar className="w-4 h-4 text-lydian-text-muted" />
+                              <span className="text-sm text-lydian-text-dim">{formatDate(review.createdAt)}</span>
                             </div>
                           </div>
                         </div>
                         <div className="flex items-center space-x-3">
                           {getStatusBadge(review.status)}
                           <div className="flex items-center space-x-1">
-                            <Brain className="w-4 h-4" style={{color: AILYDIAN_COLORS.purple}} />
-                            <span className="text-sm font-medium" style={{color: AILYDIAN_COLORS.purple}}>
+                            <Brain className="w-4 h-4" style={{ color: AILYDIAN_COLORS.purple }} />
+                            <span className="text-sm font-medium" style={{ color: AILYDIAN_COLORS.purple }}>
                               {Math.round(review.aiScore * 100)}%
                             </span>
                           </div>
@@ -591,38 +591,38 @@ export default function AdminReviews() {
                           {getRatingStars(review.rating)}
                           {getSentimentBadge(review.sentimentScore)}
                         </div>
-                        <h5 className="font-semibold text-white mb-2">{review.title}</h5>
-                        <p className="text-gray-200 leading-relaxed">{review.content}</p>
+                        <h5 className="font-semibold text-lydian-text-inverse mb-2">{review.title}</h5>
+                        <p className="text-lydian-text-muted leading-relaxed">{review.content}</p>
                         
-                        {review.photos && review.photos.length > 0 && (
-                          <div className="flex space-x-2 mt-3">
-                            {review.photos.slice(0, 3).map((photo, index) => (
-                              <div key={index} className="w-16 h-16 bg-gray-200 rounded-lg flex items-center justify-center">
-                                <Eye className="w-6 h-6 text-gray-400" />
+                        {review.photos && review.photos.length > 0 &&
+                    <div className="flex space-x-2 mt-3">
+                            {review.photos.slice(0, 3).map((photo, index) =>
+                      <div key={index} className="w-16 h-16 bg-lydian-bg-active rounded-lg flex items-center justify-center">
+                                <Eye className="w-6 h-6 text-lydian-text-muted" />
                               </div>
-                            ))}
-                            {review.photos.length > 3 && (
-                              <div className="w-16 h-16 bg-white/10 rounded-lg flex items-center justify-center text-sm font-medium text-gray-300">
+                      )}
+                            {review.photos.length > 3 &&
+                      <div className="w-16 h-16 bg-lydian-glass-dark-medium rounded-lg flex items-center justify-center text-sm font-medium text-lydian-text-dim">
                                 +{review.photos.length - 3}
                               </div>
-                            )}
+                      }
                           </div>
-                        )}
+                    }
                       </div>
 
                       {/* Review Stats and Actions */}
-                      <div className="flex items-center justify-between pt-4 border-t border-white/10">
-                        <div className="flex items-center space-x-6 text-sm text-gray-100">
+                      <div className="flex items-center justify-between pt-4 border-t border-lydian-border-light/10">
+                        <div className="flex items-center space-x-6 text-sm text-lydian-text-dim">
                           <div className="flex items-center space-x-1">
                             <ThumbsUp className="w-4 h-4" />
                             <span>{review.helpfulVotes}/{review.totalVotes} faydalı</span>
                           </div>
-                          {review.flagCount > 0 && (
-                            <div className="flex items-center space-x-1">
-                              <Flag className="w-4 h-4 text-red-500" />
+                          {review.flagCount > 0 &&
+                      <div className="flex items-center space-x-1">
+                              <Flag className="w-4 h-4 text-lydian-error" />
                               <span>{review.flagCount} bayrak</span>
                             </div>
-                          )}
+                      }
                           <div className="flex items-center space-x-1">
                             <TrendingUp className="w-4 h-4" />
                             <span>Duygu: {Math.round(review.sentimentScore * 100)}%</span>
@@ -630,54 +630,54 @@ export default function AdminReviews() {
                         </div>
                         
                         <div className="flex items-center space-x-2">
-                          {review.status === 'pending' && (
-                            <>
-                              <button className="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors font-medium">
+                          {review.status === 'pending' &&
+                      <>
+                              <button className="px-4 py-2 bg-green-500 text-lydian-text-inverse rounded-lg hover:bg-lydian-success transition-colors font-medium">
                                 <CheckCircle className="w-4 h-4 mr-2 inline" />
                                 Onayla
                               </button>
-                              <button className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors font-medium">
+                              <button className="px-4 py-2 bg-lydian-error text-lydian-text-inverse rounded-lg hover:bg-lydian-primary transition-colors font-medium">
                                 <XCircle className="w-4 h-4 mr-2 inline" />
                                 Reddet
                               </button>
                             </>
-                          )}
-                          <button className="p-2 text-blue-600 hover:bg-blue-50 rounded-lg">
+                      }
+                          <button className="p-2 text-lydian-primary hover:bg-lydian-primary-lighter rounded-lg">
                             <Eye className="w-4 h-4" />
                           </button>
-                          <button className="p-2 text-green-600 hover:bg-green-50 rounded-lg">
+                          <button className="p-2 text-lydian-success hover:bg-lydian-success-lighter rounded-lg">
                             <Edit className="w-4 h-4" />
                           </button>
-                          <button className="p-2 text-red-600 hover:bg-red-50 rounded-lg">
+                          <button className="p-2 text-lydian-primary hover:bg-lydian-error-lighter rounded-lg">
                             <Trash2 className="w-4 h-4" />
                           </button>
                         </div>
                       </div>
 
                       {/* Moderation Info */}
-                      {review.moderatedAt && (
-                        <div className="mt-4 p-3 bg-white/5 rounded-lg">
+                      {review.moderatedAt &&
+                  <div className="mt-4 p-3 bg-lydian-glass-dark rounded-lg">
                           <div className="flex items-center justify-between text-sm">
                             <div className="flex items-center space-x-2">
-                              <Zap className="w-4 h-4 text-gray-400" />
-                              <span className="text-gray-300">
+                              <Zap className="w-4 h-4 text-lydian-text-muted" />
+                              <span className="text-lydian-text-dim">
                                 Modere edildi: {formatDate(review.moderatedAt)} - {review.moderatedBy}
                               </span>
                             </div>
-                            {review.moderationReason && (
-                              <span className="text-gray-200">Sebep: {review.moderationReason}</span>
-                            )}
+                            {review.moderationReason &&
+                      <span className="text-lydian-text-muted">Sebep: {review.moderationReason}</span>
+                      }
                           </div>
                         </div>
-                      )}
+                  }
                     </div>
-                  ))}
+                )}
                 </div>
               </>
-            )}
+            }
           </main>
         </div>
       </div>
-    </>
-  );
+    </>);
+
 }

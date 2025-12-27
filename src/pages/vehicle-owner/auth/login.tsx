@@ -8,8 +8,8 @@ import {
   Car,
   ArrowRight,
   CheckCircle2,
-  AlertCircle
-} from 'lucide-react';
+  AlertCircle } from
+'lucide-react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { validateVehicleOwnerCredentials } from '@/data/mockVehicleAuth';
@@ -23,23 +23,23 @@ export default function VehicleOwnerLoginPage() {
   });
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const [errors, setErrors] = useState<{ email?: string; password?: string; general?: string }>({});
+  const [errors, setErrors] = useState<{email?: string;password?: string;general?: string;}>({});
   const [successMessage, setSuccessMessage] = useState('');
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value, type, checked } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
       [name]: type === 'checkbox' ? checked : value
     }));
     // Clear error when user starts typing
     if (errors[name as keyof typeof errors]) {
-      setErrors(prev => ({ ...prev, [name]: undefined }));
+      setErrors((prev) => ({ ...prev, [name]: undefined }));
     }
   };
 
   const validateForm = () => {
-    const newErrors: { email?: string; password?: string } = {};
+    const newErrors: {email?: string;password?: string;} = {};
 
     if (!formData.email) {
       newErrors.email = 'E-posta adresi gereklidir';
@@ -104,41 +104,41 @@ export default function VehicleOwnerLoginPage() {
   };
 
   const benefits = [
-    'Kolay araç yönetimi',
-    'Gerçek zamanlı kiralama takibi',
-    'Otomatik ödeme alımı',
-    'Detaylı gelir raporları'
-  ];
+  'Kolay araç yönetimi',
+  'Gerçek zamanlı kiralama takibi',
+  'Otomatik ödeme alımı',
+  'Detaylı gelir raporları'];
+
 
   return (
-    <div className="min-h-screen bg-white/5">
+    <div className="min-h-screen bg-lydian-glass-dark">
       <div className="flex min-h-screen">
         {/* Left Column - Branding & Image */}
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
-          className="hidden lg:flex lg:w-1/2 bg-gradient-to-br from-green-600 to-emerald-600 p-12 flex-col justify-between relative overflow-hidden"
-        >
+          className="hidden lg:flex lg:w-1/2 bg-gradient-to-br from-lydian-success to-lydian-success p-12 flex-col justify-between relative overflow-hidden">
+
           {/* Background Pattern */}
           <div className="absolute inset-0 opacity-10">
             <div className="absolute inset-0" style={{
-              backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+              backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
             }} />
           </div>
 
           <div className="relative z-10">
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2 mb-12">
-              <div className="w-10 h-10 bg-white/5 rounded-lg flex items-center justify-center">
-                <Car className="w-6 h-6 text-green-600" />
+              <div className="w-10 h-10 bg-lydian-glass-dark rounded-lg flex items-center justify-center">
+                <Car className="w-6 h-6 text-lydian-success" />
               </div>
-              <span className="text-2xl font-bold text-white">LyDian</span>
+              <span className="text-2xl font-bold text-lydian-text-inverse">LyDian</span>
             </Link>
 
             {/* Main Content */}
             <div>
-              <h1 className="text-4xl font-bold text-white mb-4">
+              <h1 className="text-4xl font-bold text-lydian-text-inverse mb-4">
                 Araç Kiralama
                 <br />
                 <span className="text-green-100">
@@ -151,20 +151,20 @@ export default function VehicleOwnerLoginPage() {
 
               {/* Benefits */}
               <div className="space-y-4">
-                {benefits.map((benefit, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.3 + index * 0.1 }}
-                    className="flex items-center gap-3"
-                  >
-                    <div className="w-6 h-6 bg-white/5 rounded-full flex items-center justify-center flex-shrink-0">
-                      <CheckCircle2 className="w-4 h-4 text-green-600" />
+                {benefits.map((benefit, index) =>
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.3 + index * 0.1 }}
+                  className="flex items-center gap-3">
+
+                    <div className="w-6 h-6 bg-lydian-glass-dark rounded-full flex items-center justify-center flex-shrink-0">
+                      <CheckCircle2 className="w-4 h-4 text-lydian-success" />
                     </div>
-                    <span className="text-white font-medium">{benefit}</span>
+                    <span className="text-lydian-text-inverse font-medium">{benefit}</span>
                   </motion.div>
-                ))}
+                )}
               </div>
             </div>
           </div>
@@ -172,15 +172,15 @@ export default function VehicleOwnerLoginPage() {
           {/* Bottom Stats */}
           <div className="relative z-10 grid grid-cols-3 gap-6">
             <div>
-              <div className="text-3xl font-bold text-white">2000+</div>
+              <div className="text-3xl font-bold text-lydian-text-inverse">2000+</div>
               <div className="text-green-100 text-sm">Araç Sahibi</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-white">25K+</div>
+              <div className="text-3xl font-bold text-lydian-text-inverse">25K+</div>
               <div className="text-green-100 text-sm">Kiralama</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-white">97%</div>
+              <div className="text-3xl font-bold text-lydian-text-inverse">97%</div>
               <div className="text-green-100 text-sm">Memnuniyet</div>
             </div>
           </div>
@@ -192,22 +192,22 @@ export default function VehicleOwnerLoginPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="w-full max-w-md"
-          >
+            className="w-full max-w-md">
+
             {/* Mobile Logo */}
             <div className="lg:hidden flex items-center gap-2 mb-8">
-              <div className="w-10 h-10 bg-gradient-to-r from-green-600 to-emerald-600 rounded-lg flex items-center justify-center">
-                <Car className="w-6 h-6 text-white" />
+              <div className="w-10 h-10 bg-gradient-to-r from-lydian-success to-lydian-success rounded-lg flex items-center justify-center">
+                <Car className="w-6 h-6 text-lydian-text-inverse" />
               </div>
-              <span className="text-2xl font-bold text-white">LyDian</span>
+              <span className="text-2xl font-bold text-lydian-text-inverse">LyDian</span>
             </div>
 
             {/* Header */}
             <div className="mb-8">
-              <h2 className="text-3xl font-bold text-white mb-2">
+              <h2 className="text-3xl font-bold text-lydian-text-inverse mb-2">
                 Araç Sahibi Girişi
               </h2>
-              <p className="text-gray-300">
+              <p className="text-lydian-text-dim">
                 Hesabınıza giriş yaparak araçlarınızı yönetin
               </p>
             </div>
@@ -215,37 +215,37 @@ export default function VehicleOwnerLoginPage() {
             {/* Login Form */}
             <form onSubmit={handleSubmit} className="space-y-6">
               {/* Error Message */}
-              {errors.general && (
-                <motion.div
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="flex items-center gap-3 p-4 bg-red-50 border border-red-200 rounded-lg"
-                >
-                  <AlertCircle className="w-5 h-5 text-red-500 flex-shrink-0" />
-                  <p className="text-sm text-red-700">{errors.general}</p>
+              {errors.general &&
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="flex items-center gap-3 p-4 bg-lydian-error-lighter border border-red-200 rounded-lg">
+
+                  <AlertCircle className="w-5 h-5 text-lydian-error flex-shrink-0" />
+                  <p className="text-sm text-lydian-primary-dark">{errors.general}</p>
                 </motion.div>
-              )}
+              }
 
               {/* Success Message */}
-              {successMessage && (
-                <motion.div
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="flex items-center gap-3 p-4 bg-green-50 border border-green-200 rounded-lg"
-                >
+              {successMessage &&
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="flex items-center gap-3 p-4 bg-lydian-success-lighter border border-green-200 rounded-lg">
+
                   <CheckCircle2 className="w-5 h-5 text-green-500 flex-shrink-0" />
-                  <p className="text-sm text-green-700">{successMessage}</p>
+                  <p className="text-sm text-lydian-success-text">{successMessage}</p>
                 </motion.div>
-              )}
+              }
 
               {/* Email Field */}
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-white mb-2">
+                <label htmlFor="email" className="block text-sm font-medium text-lydian-text-inverse mb-2">
                   E-posta Adresi
                 </label>
                 <div className="relative">
                   <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                    <Mail className="h-5 w-5 text-gray-400" />
+                    <Mail className="h-5 w-5 text-lydian-text-muted" />
                   </div>
                   <input
                     type="email"
@@ -254,24 +254,24 @@ export default function VehicleOwnerLoginPage() {
                     value={formData.email}
                     onChange={handleInputChange}
                     className={`block w-full pl-10 pr-3 py-3 border ${
-                      errors.email ? 'border-red-500' : 'border-gray-300'
-                    } rounded-lg focus:ring-2 focus:ring-green-600 focus:border-transparent outline-none transition-all bg-white/5 text-white`}
-                    placeholder="ornek@email.com"
-                  />
+                    errors.email ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:ring-2 focus:ring-green-600 focus:border-lydian-border outline-none transition-all bg-lydian-glass-dark text-lydian-text-inverse`
+                    }
+                    placeholder="ornek@email.com" />
+
                 </div>
-                {errors.email && (
-                  <p className="mt-1 text-sm text-red-500">{errors.email}</p>
-                )}
+                {errors.email &&
+                <p className="mt-1 text-sm text-lydian-error">{errors.email}</p>
+                }
               </div>
 
               {/* Password Field */}
               <div>
-                <label htmlFor="password" className="block text-sm font-medium text-white mb-2">
+                <label htmlFor="password" className="block text-sm font-medium text-lydian-text-inverse mb-2">
                   Şifre
                 </label>
                 <div className="relative">
                   <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                    <Lock className="h-5 w-5 text-gray-400" />
+                    <Lock className="h-5 w-5 text-lydian-text-muted" />
                   </div>
                   <input
                     type={showPassword ? 'text' : 'password'}
@@ -280,25 +280,25 @@ export default function VehicleOwnerLoginPage() {
                     value={formData.password}
                     onChange={handleInputChange}
                     className={`block w-full pl-10 pr-10 py-3 border ${
-                      errors.password ? 'border-red-500' : 'border-gray-300'
-                    } rounded-lg focus:ring-2 focus:ring-green-600 focus:border-transparent outline-none transition-all bg-white/5 text-white`}
-                    placeholder="••••••••"
-                  />
+                    errors.password ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:ring-2 focus:ring-green-600 focus:border-lydian-border outline-none transition-all bg-lydian-glass-dark text-lydian-text-inverse`
+                    }
+                    placeholder="••••••••" />
+
                   <button
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
-                    className="absolute inset-y-0 right-0 pr-3 flex items-center"
-                  >
-                    {showPassword ? (
-                      <EyeOff className="h-5 w-5 text-gray-400 hover:text-gray-300" />
-                    ) : (
-                      <Eye className="h-5 w-5 text-gray-400 hover:text-gray-300" />
-                    )}
+                    className="absolute inset-y-0 right-0 pr-3 flex items-center">
+
+                    {showPassword ?
+                    <EyeOff className="h-5 w-5 text-lydian-text-muted hover:text-lydian-text-dim" /> :
+
+                    <Eye className="h-5 w-5 text-lydian-text-muted hover:text-lydian-text-dim" />
+                    }
                   </button>
                 </div>
-                {errors.password && (
-                  <p className="mt-1 text-sm text-red-500">{errors.password}</p>
-                )}
+                {errors.password &&
+                <p className="mt-1 text-sm text-lydian-error">{errors.password}</p>
+                }
               </div>
 
               {/* Remember Me & Forgot Password */}
@@ -310,16 +310,16 @@ export default function VehicleOwnerLoginPage() {
                     name="rememberMe"
                     checked={formData.rememberMe}
                     onChange={handleInputChange}
-                    className="h-4 w-4 text-green-600 focus:ring-green-600 border-gray-300 rounded cursor-pointer"
-                  />
-                  <label htmlFor="rememberMe" className="ml-2 block text-sm text-gray-200 cursor-pointer">
+                    className="h-4 w-4 text-lydian-success focus:ring-green-600 border-lydian-border-medium rounded cursor-pointer" />
+
+                  <label htmlFor="rememberMe" className="ml-2 block text-sm text-lydian-text-muted cursor-pointer">
                     Beni Hatırla
                   </label>
                 </div>
                 <Link
                   href="/vehicle-owner/auth/forgot-password"
-                  className="text-sm font-medium text-green-600 hover:text-emerald-600 transition-colors"
-                >
+                  className="text-sm font-medium text-lydian-success hover:text-emerald-600 transition-colors">
+
                   Şifremi Unuttum
                 </Link>
               </div>
@@ -328,37 +328,37 @@ export default function VehicleOwnerLoginPage() {
               <button
                 type="submit"
                 disabled={isLoading}
-                className="w-full bg-gradient-to-r from-green-600 to-emerald-600 text-white py-3 px-4 rounded-lg font-semibold hover:shadow-lg transform hover:scale-[1.02] transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none flex items-center justify-center gap-2"
-              >
-                {isLoading ? (
-                  <>
-                    <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                className="w-full bg-gradient-to-r from-lydian-success to-lydian-success text-lydian-text-inverse py-3 px-4 rounded-lg font-semibold hover:shadow-lg transform hover:scale-[1.02] transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none flex items-center justify-center gap-2">
+
+                {isLoading ?
+                <>
+                    <div className="w-5 h-5 border-2 border-lydian-border-light border-t-transparent rounded-full animate-spin" />
                     <span>Giriş yapılıyor...</span>
-                  </>
-                ) : (
-                  <>
+                  </> :
+
+                <>
                     <span>Giriş Yap</span>
                     <ArrowRight className="w-5 h-5" />
                   </>
-                )}
+                }
               </button>
             </form>
 
             {/* Divider */}
             <div className="relative my-8">
               <div className="absolute inset-0 flex items-center">
-                <div className="w-full border-t border-gray-200"></div>
+                <div className="w-full border-t border-lydian-border"></div>
               </div>
               <div className="relative flex justify-center text-sm">
-                <span className="px-4 bg-white/5 text-gray-400">Hesabınız yok mu?</span>
+                <span className="px-4 bg-lydian-glass-dark text-lydian-text-muted">Hesabınız yok mu?</span>
               </div>
             </div>
 
             {/* Register Link */}
             <Link
               href="/vehicle-owner/auth/register"
-              className="block w-full text-center py-3 px-4 border-2 border-gray-300 rounded-lg font-semibold text-white hover:bg-white/5 hover:border-gray-400 transition-all duration-200"
-            >
+              className="block w-full text-center py-3 px-4 border-2 border-lydian-border-medium rounded-lg font-semibold text-lydian-text-inverse hover:bg-lydian-glass-dark hover:border-lydian-border-heavy transition-all duration-200">
+
               Araç Sahibi Olarak Kayıt Ol
             </Link>
 
@@ -366,14 +366,14 @@ export default function VehicleOwnerLoginPage() {
             <div className="mt-6 text-center">
               <Link
                 href="/"
-                className="text-sm text-gray-100 hover:text-white transition-colors"
-              >
+                className="text-sm text-lydian-text-dim hover:text-lydian-text-inverse transition-colors">
+
                 ← Ana sayfaya dön
               </Link>
             </div>
           </motion.div>
         </div>
       </div>
-    </div>
-  );
+    </div>);
+
 }

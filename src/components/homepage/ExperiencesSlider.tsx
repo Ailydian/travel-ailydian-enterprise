@@ -44,8 +44,8 @@ export const ExperiencesSlider: React.FC<ExperiencesSliderProps> = ({
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
+          transition={{ duration: 0.6 }}>
+
           <div className="flex items-center justify-center gap-3 mb-4">
             <Sparkles className="w-8 h-8 text-lydian-primary" />
             <h2 className="text-4xl md:text-5xl font-bold text-lydian-text">
@@ -63,8 +63,8 @@ export const ExperiencesSlider: React.FC<ExperiencesSliderProps> = ({
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.2, duration: 0.6 }}
-        >
+          transition={{ delay: 0.2, duration: 0.6 }}>
+
           <InteractiveSlider
             slidesToShow={3}
             gap={24}
@@ -73,15 +73,15 @@ export const ExperiencesSlider: React.FC<ExperiencesSliderProps> = ({
             showArrows={true}
             showDots={true}
             pauseOnHover={true}
-            infinite={true}
-          >
-            {experiences.map((experience) => (
-              <ExperienceCard
-                key={experience.id}
-                experience={experience}
-                onAddToCart={onAddToCart}
-              />
-            ))}
+            infinite={true}>
+
+            {experiences.map((experience) =>
+            <ExperienceCard
+              key={experience.id}
+              experience={experience}
+              onAddToCart={onAddToCart} />
+
+            )}
           </InteractiveSlider>
         </motion.div>
 
@@ -91,22 +91,22 @@ export const ExperiencesSlider: React.FC<ExperiencesSliderProps> = ({
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.4, duration: 0.6 }}
-        >
+          transition={{ delay: 0.4, duration: 0.6 }}>
+
           <Link href="/tours">
             <motion.button
               className="bg-glass-dark backdrop-blur-md border-2 border-lydian-primary text-lydian-primary px-8 py-4 rounded-xl font-semibold hover:bg-lydian-primary/10 transition-all inline-flex items-center gap-2"
               whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
+              whileTap={{ scale: 0.95 }}>
+
               Browse All Experiences
               <Sparkles className="w-5 h-5" />
             </motion.button>
           </Link>
         </motion.div>
       </div>
-    </section>
-  );
+    </section>);
+
 };
 
 const ExperienceCard: React.FC<{
@@ -119,21 +119,21 @@ const ExperienceCard: React.FC<{
   const handleAddToCart = async () => {
     if (onAddToCart) {
       setIsAddingToCart(true);
-      await new Promise(resolve => setTimeout(resolve, 800)); // Simulate API call
+      await new Promise((resolve) => setTimeout(resolve, 800)); // Simulate API call
       onAddToCart(experience);
       setIsAddingToCart(false);
     }
   };
 
   // Calculate discount percentage
-  const discountPercent = experience.originalPrice
-    ? Math.round(
-        ((parseFloat(experience.originalPrice.replace(/[^0-9.]/g, '')) -
-          parseFloat(experience.price.replace(/[^0-9.]/g, ''))) /
-          parseFloat(experience.originalPrice.replace(/[^0-9.]/g, ''))) *
-          100
-      )
-    : 0;
+  const discountPercent = experience.originalPrice ?
+  Math.round(
+    (parseFloat(experience.originalPrice.replace(/[^0-9.]/g, '')) -
+    parseFloat(experience.price.replace(/[^0-9.]/g, ''))) /
+    parseFloat(experience.originalPrice.replace(/[^0-9.]/g, '')) *
+    100
+  ) :
+  0;
 
   return (
     <motion.div
@@ -141,8 +141,8 @@ const ExperienceCard: React.FC<{
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       whileHover={{ y: -8 }}
-      transition={{ duration: 0.3 }}
-    >
+      transition={{ duration: 0.3 }}>
+
       <div className="bg-glass-dark backdrop-blur-xl rounded-2xl overflow-hidden border border-lydian-primary/20 shadow-lg hover:shadow-neon transition-all h-full flex flex-col">
         {/* Image Container */}
         <div className="relative h-56 overflow-hidden">
@@ -154,8 +154,8 @@ const ExperienceCard: React.FC<{
             animate={{
               scale: isHovered ? 1.1 : 1
             }}
-            transition={{ duration: 0.6 }}
-          />
+            transition={{ duration: 0.6 }} />
+
 
           {/* Gradient Overlay */}
           <div className="absolute inset-0 bg-gradient-to-t from-lydian-bg via-lydian-bg/50 to-transparent" />
@@ -166,34 +166,34 @@ const ExperienceCard: React.FC<{
           </div>
 
           {/* Discount Badge */}
-          {discountPercent > 0 && (
-            <motion.div
-              className="absolute top-4 right-4 bg-lydian-neon-green/90 backdrop-blur-md text-lydian-bg px-3 py-1.5 rounded-full text-xs font-bold shadow-lg"
-              initial={{ scale: 0, rotate: -10 }}
-              animate={{ scale: 1, rotate: 0 }}
-              transition={{ delay: 0.2, type: 'spring' }}
-            >
+          {discountPercent > 0 &&
+          <motion.div
+            className="absolute top-4 right-4 bg-lydian-neon-green/90 backdrop-blur-md text-lydian-bg px-3 py-1.5 rounded-full text-xs font-bold shadow-lg"
+            initial={{ scale: 0, rotate: -10 }}
+            animate={{ scale: 1, rotate: 0 }}
+            transition={{ delay: 0.2, type: 'spring' }}>
+
               -{discountPercent}% OFF
             </motion.div>
-          )}
+          }
 
           {/* Badges Row */}
-          {experience.badges && experience.badges.length > 0 && (
-            <div className="absolute bottom-4 left-4 right-4 flex flex-wrap gap-2">
-              {experience.badges.slice(0, 3).map((badge, idx) => (
-                <motion.div
-                  key={idx}
-                  className="bg-lydian-bg-card/80 backdrop-blur-md text-lydian-text-muted px-2 py-1 rounded text-xs border border-lydian-primary/20 flex items-center gap-1"
-                  initial={{ opacity: 0, x: -10 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.1 * idx }}
-                >
+          {experience.badges && experience.badges.length > 0 &&
+          <div className="absolute bottom-4 left-4 right-4 flex flex-wrap gap-2">
+              {experience.badges.slice(0, 3).map((badge, idx) =>
+            <motion.div
+              key={idx}
+              className="bg-lydian-bg-card/80 backdrop-blur-md text-lydian-text-muted px-2 py-1 rounded text-xs border border-lydian-primary/20 flex items-center gap-1"
+              initial={{ opacity: 0, x: -10 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.1 * idx }}>
+
                   <BadgeCheck className="w-3 h-3 text-lydian-neon-blue" />
                   {badge}
                 </motion.div>
-              ))}
+            )}
             </div>
-          )}
+          }
         </div>
 
         {/* Content */}
@@ -229,18 +229,18 @@ const ExperienceCard: React.FC<{
           </div>
 
           {/* Highlights */}
-          {experience.highlights && experience.highlights.length > 0 && (
-            <div className="mb-4 flex-grow">
+          {experience.highlights && experience.highlights.length > 0 &&
+          <div className="mb-4 flex-grow">
               <ul className="space-y-1">
-                {experience.highlights.slice(0, 2).map((highlight, idx) => (
-                  <li key={idx} className="text-xs text-lydian-text-muted flex items-start gap-2">
+                {experience.highlights.slice(0, 2).map((highlight, idx) =>
+              <li key={idx} className="text-xs text-lydian-text-muted flex items-start gap-2">
                     <span className="text-lydian-primary mt-0.5">•</span>
                     <span className="line-clamp-1">{highlight}</span>
                   </li>
-                ))}
+              )}
               </ul>
             </div>
-          )}
+          }
 
           {/* Price & CTA */}
           <div className="mt-auto pt-4 border-t border-lydian-primary/10">
@@ -251,11 +251,11 @@ const ExperienceCard: React.FC<{
                   <span className="text-2xl font-bold text-lydian-primary">
                     {experience.price}
                   </span>
-                  {experience.originalPrice && (
-                    <span className="text-sm text-lydian-text-muted line-through">
+                  {experience.originalPrice &&
+                  <span className="text-sm text-lydian-text-muted line-through">
                       {experience.originalPrice}
                     </span>
-                  )}
+                  }
                 </div>
               </div>
             </div>
@@ -266,29 +266,29 @@ const ExperienceCard: React.FC<{
                 <motion.button
                   className="w-full bg-glass border border-lydian-primary/30 text-lydian-text px-4 py-2.5 rounded-lg font-medium hover:bg-lydian-primary/10 transition-all text-sm"
                   whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
+                  whileTap={{ scale: 0.98 }}>
+
                   View Details
                 </motion.button>
               </Link>
 
               <motion.button
-                className="flex-1 bg-gradient-to-r from-lydian-primary to-lydian-secondary text-white px-4 py-2.5 rounded-lg font-medium shadow-neon hover:shadow-neon-lg transition-all flex items-center justify-center gap-2 text-sm disabled:opacity-50 disabled:cursor-not-allowed"
+                className="flex-1 bg-gradient-to-r from-lydian-primary to-lydian-secondary text-lydian-text-inverse px-4 py-2.5 rounded-lg font-medium shadow-neon hover:shadow-neon-lg transition-all flex items-center justify-center gap-2 text-sm disabled:opacity-50 disabled:cursor-not-allowed"
                 onClick={handleAddToCart}
                 disabled={isAddingToCart}
                 whileHover={!isAddingToCart ? { scale: 1.02 } : {}}
-                whileTap={!isAddingToCart ? { scale: 0.98 } : {}}
-              >
-                {isAddingToCart ? (
-                  <>
+                whileTap={!isAddingToCart ? { scale: 0.98 } : {}}>
+
+                {isAddingToCart ?
+                <>
                     <LoadingDots size={4} color="white" />
-                  </>
-                ) : (
-                  <>
+                  </> :
+
+                <>
                     <ShoppingCart className="w-4 h-4" />
                     Book
                   </>
-                )}
+                }
               </motion.button>
             </div>
           </div>
@@ -299,7 +299,7 @@ const ExperienceCard: React.FC<{
           className="absolute inset-0 rounded-2xl pointer-events-none"
           style={{
             background:
-              'linear-gradient(90deg, transparent, rgba(255, 33, 77, 0.4), transparent)',
+            'linear-gradient(90deg, transparent, rgba(255, 33, 77, 0.4), transparent)',
             backgroundSize: '200% 100%'
           }}
           animate={{
@@ -309,11 +309,11 @@ const ExperienceCard: React.FC<{
             duration: 2,
             repeat: isHovered ? Infinity : 0,
             ease: 'linear'
-          }}
-        />
+          }} />
+
       </div>
-    </motion.div>
-  );
+    </motion.div>);
+
 };
 
 export default ExperiencesSlider;

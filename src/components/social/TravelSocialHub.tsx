@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  Users, 
-  Heart, 
-  MessageCircle, 
-  Share2, 
-  MapPin, 
+import {
+  Users,
+  Heart,
+  MessageCircle,
+  Share2,
+  MapPin,
   Calendar,
   Clock,
   Globe,
@@ -29,8 +29,8 @@ import {
   Bell,
   Plus,
   X,
-  ChevronDown
-} from 'lucide-react';
+  ChevronDown } from
+'lucide-react';
 import { io, Socket } from 'socket.io-client';
 import logger from '../../lib/logger';
 
@@ -124,84 +124,84 @@ const TravelSocialHub: React.FC = () => {
 
   // Sample data
   const sampleUsers: User[] = [
-    {
-      id: '1',
-      name: 'Ayşe Demir',
-      avatar: 'https://images.unsplash.com/photo-1494790108755-2616b2fc32d2?w=100&h=100&q=80',
-      location: 'İstanbul, Türkiye',
-      bio: 'Backpacker & Photographer | 47 ülke gezdi ✈️📸',
-      travelStyle: ['Backpacking', 'Photography', 'Cultural'],
-      languages: ['Turkish', 'English', 'German'],
-      countries: ['Turkey', 'Germany', 'Thailand', 'Nepal'],
-      isOnline: true,
-      lastSeen: new Date(),
-      compatibility: 92,
-      mutualInterests: ['Photography', 'Cultural Tours', 'Street Food']
-    },
-    {
-      id: '2',
-      name: 'Marco Silva',
-      avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&q=80',
-      location: 'São Paulo, Brazil',
-      bio: 'Adventure seeker & Digital nomad 🌍',
-      travelStyle: ['Adventure', 'Solo Travel', 'Digital Nomad'],
-      languages: ['Portuguese', 'English', 'Spanish'],
-      countries: ['Brazil', 'Argentina', 'Peru', 'Colombia'],
-      isOnline: false,
-      lastSeen: new Date(Date.now() - 2 * 60 * 60 * 1000),
-      compatibility: 85,
-      mutualInterests: ['Adventure Sports', 'Remote Work', 'Latin Culture']
-    }
-  ];
+  {
+    id: '1',
+    name: 'Ayşe Demir',
+    avatar: 'https://images.unsplash.com/photo-1494790108755-2616b2fc32d2?w=100&h=100&q=80',
+    location: 'İstanbul, Türkiye',
+    bio: 'Backpacker & Photographer | 47 ülke gezdi ✈️📸',
+    travelStyle: ['Backpacking', 'Photography', 'Cultural'],
+    languages: ['Turkish', 'English', 'German'],
+    countries: ['Turkey', 'Germany', 'Thailand', 'Nepal'],
+    isOnline: true,
+    lastSeen: new Date(),
+    compatibility: 92,
+    mutualInterests: ['Photography', 'Cultural Tours', 'Street Food']
+  },
+  {
+    id: '2',
+    name: 'Marco Silva',
+    avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&q=80',
+    location: 'São Paulo, Brazil',
+    bio: 'Adventure seeker & Digital nomad 🌍',
+    travelStyle: ['Adventure', 'Solo Travel', 'Digital Nomad'],
+    languages: ['Portuguese', 'English', 'Spanish'],
+    countries: ['Brazil', 'Argentina', 'Peru', 'Colombia'],
+    isOnline: false,
+    lastSeen: new Date(Date.now() - 2 * 60 * 60 * 1000),
+    compatibility: 85,
+    mutualInterests: ['Adventure Sports', 'Remote Work', 'Latin Culture']
+  }];
+
 
   const samplePosts: TravelPost[] = [
+  {
+    id: '1',
+    userId: '1',
+    user: sampleUsers[0],
+    type: 'photo',
+    content: 'Kapadokya\'da gün doğumunu izlemek her zaman büyülü! 🎈 Bu sabah 4:30\'da kalkmaya değdi.',
+    media: [{
+      url: 'https://images.unsplash.com/photo-1570939274719-c60ee3bf5cd9?w=600&h=400&q=90',
+      type: 'image',
+      caption: 'Cappadocia sunrise from hot air balloon'
+    }],
+    location: {
+      name: 'Göreme, Kapadokya',
+      coordinates: [38.6431, 34.8287],
+      country: 'Turkey'
+    },
+    timestamp: new Date(Date.now() - 2 * 60 * 60 * 1000),
+    likes: ['2', '3', '4'],
+    comments: [
     {
       id: '1',
-      userId: '1',
-      user: sampleUsers[0],
-      type: 'photo',
-      content: 'Kapadokya\'da gün doğumunu izlemek her zaman büyülü! 🎈 Bu sabah 4:30\'da kalkmaya değdi.',
-      media: [{
-        url: 'https://images.unsplash.com/photo-1570939274719-c60ee3bf5cd9?w=600&h=400&q=90',
-        type: 'image',
-        caption: 'Cappadocia sunrise from hot air balloon'
-      }],
-      location: {
-        name: 'Göreme, Kapadokya',
-        coordinates: [38.6431, 34.8287],
-        country: 'Turkey'
-      },
-      timestamp: new Date(Date.now() - 2 * 60 * 60 * 1000),
-      likes: ['2', '3', '4'],
-      comments: [
-        {
-          id: '1',
-          userId: '2',
-          user: sampleUsers[1],
-          content: 'Harika bir görüntü! Ben de gelecek ay Kapadokya\'ya gitmeyi planlıyorum.',
-          timestamp: new Date(Date.now() - 1 * 60 * 60 * 1000),
-          likes: ['1'],
-          replies: []
-        }
-      ],
-      shares: 12,
-      tags: ['Kapadokya', 'BalonTuru', 'GünDoğumu'],
-      isLiked: false,
-      isBookmarked: true
-    }
-  ];
+      userId: '2',
+      user: sampleUsers[1],
+      content: 'Harika bir görüntü! Ben de gelecek ay Kapadokya\'ya gitmeyi planlıyorum.',
+      timestamp: new Date(Date.now() - 1 * 60 * 60 * 1000),
+      likes: ['1'],
+      replies: []
+    }],
+
+    shares: 12,
+    tags: ['Kapadokya', 'BalonTuru', 'GünDoğumu'],
+    isLiked: false,
+    isBookmarked: true
+  }];
+
 
   // Initialize socket connection
   useEffect(() => {
     socketRef.current = io('wss://travel-social-server.com');
-    
+
     socketRef.current.on('new_post', (post: TravelPost) => {
-      setPosts(prev => [post, ...prev]);
+      setPosts((prev) => [post, ...prev]);
     });
 
     socketRef.current.on('user_online', (userId: string) => {
-      setUsers(prev => prev.map(user => 
-        user.id === userId ? { ...user, isOnline: true } : user
+      setUsers((prev) => prev.map((user) =>
+      user.id === userId ? { ...user, isOnline: true } : user
       ));
     });
 
@@ -217,29 +217,29 @@ const TravelSocialHub: React.FC = () => {
   }, []);
 
   const handleLikePost = (postId: string) => {
-    setPosts(prev => prev.map(post => 
-      post.id === postId 
-        ? { 
-            ...post, 
-            isLiked: !post.isLiked,
-            likes: post.isLiked 
-              ? post.likes.filter(id => id !== 'current-user')
-              : [...post.likes, 'current-user']
-          }
-        : post
+    setPosts((prev) => prev.map((post) =>
+    post.id === postId ?
+    {
+      ...post,
+      isLiked: !post.isLiked,
+      likes: post.isLiked ?
+      post.likes.filter((id) => id !== 'current-user') :
+      [...post.likes, 'current-user']
+    } :
+    post
     ));
   };
 
   const handleBookmarkPost = (postId: string) => {
-    setPosts(prev => prev.map(post => 
-      post.id === postId 
-        ? { ...post, isBookmarked: !post.isBookmarked }
-        : post
+    setPosts((prev) => prev.map((post) =>
+    post.id === postId ?
+    { ...post, isBookmarked: !post.isBookmarked } :
+    post
     ));
   };
 
   const handleFollowUser = (userId: string) => {
-    logger.debug(`Following user ${userId}`, {component:'Travelsocialhub'});
+    logger.debug(`Following user ${userId}`, { component: 'Travelsocialhub' });
     // Implementation for following users
   };
 
@@ -274,7 +274,7 @@ const TravelSocialHub: React.FC = () => {
       isBookmarked: false
     };
 
-    setPosts(prev => [newPost, ...prev]);
+    setPosts((prev) => [newPost, ...prev]);
     setNewPostContent('');
     setShowNewPostModal(false);
 
@@ -282,100 +282,100 @@ const TravelSocialHub: React.FC = () => {
     socketRef.current?.emit('create_post', newPost);
   };
 
-  const PostCard: React.FC<{ post: TravelPost }> = ({ post }) => (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-    >
-      <div className="bg-white/5 rounded-2xl shadow-lg overflow-hidden mb-6">
+  const PostCard: React.FC<{post: TravelPost;}> = ({ post }) =>
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}>
+
+      <div className="bg-lydian-glass-dark rounded-2xl shadow-lg overflow-hidden mb-6">
       {/* Header */}
       <div className="p-4 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <div className="relative">
-            <img 
-              src={post.user.avatar} 
+            <img
+              src={post.user.avatar}
               alt={post.user.name}
-              className="w-10 h-10 rounded-full object-cover"
-            />
-            {post.user.isOnline && (
-              <div className="absolute -bottom-1 -right-1 w-3 h-3 bg-green-400 rounded-full border-2 border-white" />
-            )}
+              className="w-10 h-10 rounded-full object-cover" />
+
+            {post.user.isOnline &&
+            <div className="absolute -bottom-1 -right-1 w-3 h-3 bg-green-400 rounded-full border-2 border-lydian-border-light" />
+            }
           </div>
           <div>
-            <h4 className="font-semibold text-white">{post.user.name}</h4>
-            <div className="flex items-center gap-2 text-sm text-gray-400">
-              {post.location && (
-                <div className="flex items-center gap-1">
+            <h4 className="font-semibold text-lydian-text-inverse">{post.user.name}</h4>
+            <div className="flex items-center gap-2 text-sm text-lydian-text-muted">
+              {post.location &&
+              <div className="flex items-center gap-1">
                   <MapPin className="w-3 h-3" />
                   <span>{post.location.name}</span>
                 </div>
-              )}
+              }
               <span>•</span>
               <span>{new Date(post.timestamp).toLocaleDateString()}</span>
             </div>
           </div>
         </div>
         
-        <button className="p-2 hover:bg-white/10 rounded-full transition-colors">
-          <MoreHorizontal className="w-5 h-5 text-gray-400" />
+        <button className="p-2 hover:bg-lydian-glass-dark-medium rounded-full transition-colors">
+          <MoreHorizontal className="w-5 h-5 text-lydian-text-muted" />
         </button>
       </div>
 
       {/* Content */}
       <div className="px-4 pb-3">
-        <p className="text-white leading-relaxed">{post.content}</p>
+        <p className="text-lydian-text-inverse leading-relaxed">{post.content}</p>
         
         {/* Tags */}
-        {post.tags.length > 0 && (
-          <div className="flex flex-wrap gap-2 mt-3">
-            {post.tags.map((tag, index) => (
-              <span 
-                key={index}
-                className="text-blue-600 text-sm font-medium cursor-pointer hover:text-blue-700"
-              >
+        {post.tags.length > 0 &&
+        <div className="flex flex-wrap gap-2 mt-3">
+            {post.tags.map((tag, index) =>
+          <span
+            key={index}
+            className="text-lydian-primary text-sm font-medium cursor-pointer hover:text-lydian-primary-dark">
+
                 #{tag}
               </span>
-            ))}
+          )}
           </div>
-        )}
+        }
       </div>
 
       {/* Media */}
-      {post.media && post.media.length > 0 && (
-        <div className="relative">
-          <img 
-            src={post.media[0].url}
-            alt={post.media[0].caption || 'Travel photo'}
-            className="w-full h-64 object-cover"
-          />
+      {post.media && post.media.length > 0 &&
+      <div className="relative">
+          <img
+          src={post.media[0].url}
+          alt={post.media[0].caption || 'Travel photo'}
+          className="w-full h-64 object-cover" />
+
         </div>
-      )}
+      }
 
       {/* Actions */}
-      <div className="p-4 border-t border-gray-100">
+      <div className="p-4 border-t border-lydian-border-light">
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center gap-4">
             <motion.div
               whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-            >
+              whileTap={{ scale: 0.9 }}>
+
               <button
                 onClick={() => handleLikePost(post.id)}
-                className="flex items-center gap-2 text-gray-300 hover:text-red-500 transition-colors"
-              >
-              <Heart 
-                className={`w-5 h-5 ${post.isLiked ? 'fill-red-500 text-red-500' : ''}`}
-              />
+                className="flex items-center gap-2 text-lydian-text-dim hover:text-lydian-error transition-colors">
+
+              <Heart
+                  className={`w-5 h-5 ${post.isLiked ? 'fill-red-500 text-red-500' : ''}`} />
+
               <span className="text-sm font-medium">{post.likes.length}</span>
               </button>
             </motion.div>
             
-            <button className="flex items-center gap-2 text-gray-300 hover:text-blue-500 transition-colors">
+            <button className="flex items-center gap-2 text-lydian-text-dim hover:text-lydian-primary transition-colors">
               <MessageCircle className="w-5 h-5" />
               <span className="text-sm font-medium">{post.comments.length}</span>
             </button>
             
-            <button className="flex items-center gap-2 text-gray-300 hover:text-green-500 transition-colors">
+            <button className="flex items-center gap-2 text-lydian-text-dim hover:text-green-500 transition-colors">
               <Share2 className="w-5 h-5" />
               <span className="text-sm font-medium">{post.shares}</span>
             </button>
@@ -383,81 +383,81 @@ const TravelSocialHub: React.FC = () => {
           
           <motion.div
             whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-          >
+            whileTap={{ scale: 0.9 }}>
+
             <button
               onClick={() => handleBookmarkPost(post.id)}
-              className="text-gray-300 hover:text-yellow-500 transition-colors"
-            >
-            <Bookmark 
-              className={`w-5 h-5 ${post.isBookmarked ? 'fill-yellow-500 text-yellow-500' : ''}`}
-            />
+              className="text-lydian-text-dim hover:text-yellow-500 transition-colors">
+
+            <Bookmark
+                className={`w-5 h-5 ${post.isBookmarked ? 'fill-yellow-500 text-yellow-500' : ''}`} />
+
             </button>
           </motion.div>
         </div>
 
         {/* Comments */}
-        {post.comments.length > 0 && (
-          <div className="space-y-3 pt-3 border-t border-gray-100">
-            {post.comments.slice(0, 2).map((comment) => (
-              <div key={comment.id} className="flex gap-3">
-                <img 
-                  src={comment.user.avatar}
-                  alt={comment.user.name}
-                  className="w-6 h-6 rounded-full object-cover"
-                />
+        {post.comments.length > 0 &&
+        <div className="space-y-3 pt-3 border-t border-lydian-border-light">
+            {post.comments.slice(0, 2).map((comment) =>
+          <div key={comment.id} className="flex gap-3">
+                <img
+              src={comment.user.avatar}
+              alt={comment.user.name}
+              className="w-6 h-6 rounded-full object-cover" />
+
                 <div className="flex-1">
-                  <span className="font-medium text-sm text-white">{comment.user.name}</span>
-                  <span className="text-gray-200 text-sm ml-2">{comment.content}</span>
+                  <span className="font-medium text-sm text-lydian-text-inverse">{comment.user.name}</span>
+                  <span className="text-lydian-text-muted text-sm ml-2">{comment.content}</span>
                   <div className="flex items-center gap-3 mt-1">
-                    <span className="text-xs text-gray-400">
+                    <span className="text-xs text-lydian-text-muted">
                       {new Date(comment.timestamp).toLocaleDateString()}
                     </span>
-                    <button className="text-xs text-gray-400 hover:text-gray-200">
+                    <button className="text-xs text-lydian-text-muted hover:text-lydian-text-muted">
                       Beğen
                     </button>
-                    <button className="text-xs text-gray-400 hover:text-gray-200">
+                    <button className="text-xs text-lydian-text-muted hover:text-lydian-text-muted">
                       Yanıtla
                     </button>
                   </div>
                 </div>
               </div>
-            ))}
+          )}
           </div>
-        )}
+        }
       </div>
       </div>
-    </motion.div>
-  );
+    </motion.div>;
 
-  const UserCard: React.FC<{ user: User }> = ({ user }) => (
-    <motion.div
-      initial={{ opacity: 0, scale: 0.9 }}
-      animate={{ opacity: 1, scale: 1 }}
-    >
-      <div className="bg-white/5 rounded-2xl shadow-lg p-6 mb-4">
+
+  const UserCard: React.FC<{user: User;}> = ({ user }) =>
+  <motion.div
+    initial={{ opacity: 0, scale: 0.9 }}
+    animate={{ opacity: 1, scale: 1 }}>
+
+      <div className="bg-lydian-glass-dark rounded-2xl shadow-lg p-6 mb-4">
       <div className="flex items-start justify-between mb-4">
         <div className="flex items-center gap-4">
           <div className="relative">
-            <img 
+            <img
               src={user.avatar}
               alt={user.name}
-              className="w-16 h-16 rounded-full object-cover"
-            />
-            {user.isOnline && (
-              <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-green-400 rounded-full border-2 border-white" />
-            )}
+              className="w-16 h-16 rounded-full object-cover" />
+
+            {user.isOnline &&
+            <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-green-400 rounded-full border-2 border-lydian-border-light" />
+            }
           </div>
           <div>
-            <h3 className="font-bold text-white text-lg">{user.name}</h3>
-            <div className="flex items-center gap-1 text-gray-300 mb-1">
+            <h3 className="font-bold text-lydian-text-inverse text-lg">{user.name}</h3>
+            <div className="flex items-center gap-1 text-lydian-text-dim mb-1">
               <MapPin className="w-4 h-4" />
               <span className="text-sm">{user.location}</span>
             </div>
             <div className="flex items-center gap-2">
               <div className="flex items-center gap-1">
                 <Star className="w-4 h-4 text-yellow-500" />
-                <span className="text-sm font-medium text-gray-200">{user.compatibility}% uyumlu</span>
+                <span className="text-sm font-medium text-lydian-text-muted">{user.compatibility}% uyumlu</span>
               </div>
             </div>
           </div>
@@ -465,84 +465,84 @@ const TravelSocialHub: React.FC = () => {
         
         <motion.div
           whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-        >
+          whileTap={{ scale: 0.95 }}>
+
           <button
             onClick={() => handleFollowUser(user.id)}
-            className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-xl font-medium hover:bg-blue-700 transition-colors"
-          >
+            className="flex items-center gap-2 px-4 py-2 bg-lydian-primary text-lydian-text-inverse rounded-xl font-medium hover:bg-lydian-primary-dark transition-colors">
+
             <UserPlus className="w-4 h-4" />
             Takip Et
           </button>
         </motion.div>
       </div>
 
-      <p className="text-gray-200 mb-4">{user.bio}</p>
+      <p className="text-lydian-text-muted mb-4">{user.bio}</p>
 
       {/* Travel Interests */}
       <div className="mb-4">
-        <h4 className="font-medium text-white mb-2">Seyahat Tarzı</h4>
+        <h4 className="font-medium text-lydian-text-inverse mb-2">Seyahat Tarzı</h4>
         <div className="flex flex-wrap gap-2">
-          {user.travelStyle.map((style, index) => (
-            <span 
-              key={index}
-              className="px-3 py-1 bg-blue-100 text-blue-700 text-sm rounded-full"
-            >
+          {user.travelStyle.map((style, index) =>
+          <span
+            key={index}
+            className="px-3 py-1 bg-lydian-primary-light text-lydian-primary-dark text-sm rounded-full">
+
               {style}
             </span>
-          ))}
+          )}
         </div>
       </div>
 
       {/* Mutual Interests */}
-      {user.mutualInterests.length > 0 && (
-        <div className="mb-4">
-          <h4 className="font-medium text-white mb-2">Ortak İlgi Alanları</h4>
+      {user.mutualInterests.length > 0 &&
+      <div className="mb-4">
+          <h4 className="font-medium text-lydian-text-inverse mb-2">Ortak İlgi Alanları</h4>
           <div className="flex flex-wrap gap-2">
-            {user.mutualInterests.map((interest, index) => (
-              <span 
-                key={index}
-                className="px-3 py-1 bg-green-100 text-green-700 text-sm rounded-full"
-              >
+            {user.mutualInterests.map((interest, index) =>
+          <span
+            key={index}
+            className="px-3 py-1 bg-lydian-success-light text-lydian-success-text text-sm rounded-full">
+
                 {interest}
               </span>
-            ))}
+          )}
           </div>
         </div>
-      )}
+      }
 
       {/* Countries */}
       <div>
-        <h4 className="font-medium text-white mb-2">Ziyaret Ettiği Ülkeler</h4>
+        <h4 className="font-medium text-lydian-text-inverse mb-2">Ziyaret Ettiği Ülkeler</h4>
         <div className="flex items-center gap-2">
-          <Globe className="w-4 h-4 text-gray-400" />
-          <span className="text-sm text-gray-300">{user.countries.length} ülke</span>
+          <Globe className="w-4 h-4 text-lydian-text-muted" />
+          <span className="text-sm text-lydian-text-dim">{user.countries.length} ülke</span>
         </div>
       </div>
       </div>
-    </motion.div>
-  );
+    </motion.div>;
+
 
   return (
     <div className="max-w-6xl mx-auto p-6">
       {/* Header */}
       <div className="flex items-center justify-between mb-8">
-        <h1 className="text-3xl font-bold text-white">Sosyal Seyahat</h1>
+        <h1 className="text-3xl font-bold text-lydian-text-inverse">Sosyal Seyahat</h1>
         
         <div className="flex items-center gap-4">
-          <button className="relative p-2 hover:bg-white/10 rounded-lg transition-colors">
-            <Bell className="w-6 h-6 text-gray-300" />
-            <div className="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full" />
+          <button className="relative p-2 hover:bg-lydian-glass-dark-medium rounded-lg transition-colors">
+            <Bell className="w-6 h-6 text-lydian-text-dim" />
+            <div className="absolute -top-1 -right-1 w-3 h-3 bg-lydian-error rounded-full" />
           </button>
           
           <motion.div
             whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
+            whileTap={{ scale: 0.95 }}>
+
             <button
               onClick={() => setShowNewPostModal(true)}
-              className="flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-xl font-medium hover:bg-blue-700 transition-colors"
-            >
+              className="flex items-center gap-2 px-6 py-3 bg-lydian-primary text-lydian-text-inverse rounded-xl font-medium hover:bg-lydian-primary-dark transition-colors">
+
             <Plus className="w-5 h-5" />
             Paylaş
             </button>
@@ -551,33 +551,33 @@ const TravelSocialHub: React.FC = () => {
       </div>
 
       {/* Navigation Tabs */}
-      <div className="flex items-center gap-1 mb-8 bg-white/10 p-1 rounded-xl">
+      <div className="flex items-center gap-1 mb-8 bg-lydian-glass-dark-medium p-1 rounded-xl">
         {[
-          { key: 'feed', label: 'Ana Sayfa', icon: Users },
-          { key: 'discover', label: 'Keşfet', icon: Compass },
-          { key: 'plans', label: 'Seyahat Planları', icon: Calendar },
-          { key: 'chat', label: 'Mesajlar', icon: MessageCircle }
-        ].map((tab) => {
+        { key: 'feed', label: 'Ana Sayfa', icon: Users },
+        { key: 'discover', label: 'Keşfet', icon: Compass },
+        { key: 'plans', label: 'Seyahat Planları', icon: Calendar },
+        { key: 'chat', label: 'Mesajlar', icon: MessageCircle }].
+        map((tab) => {
           const Icon = tab.icon;
           return (
             <motion.div
               key={tab.key}
               whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-            >
+              whileTap={{ scale: 0.98 }}>
+
               <button
                 onClick={() => setActiveTab(tab.key as any)}
                 className={`flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-lg font-medium transition-colors ${
-                  activeTab === tab.key
-                    ? 'bg-white/5 text-blue-600 shadow-sm'
-                    : 'text-gray-300 hover:text-white'
-                }`}
-              >
+                activeTab === tab.key ?
+                'bg-white/5 text-blue-600 shadow-sm' :
+                'text-gray-300 hover:text-white'}`
+                }>
+
               <Icon className="w-5 h-5" />
               {tab.label}
               </button>
-            </motion.div>
-          );
+            </motion.div>);
+
         })}
       </div>
 
@@ -585,90 +585,90 @@ const TravelSocialHub: React.FC = () => {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* Main Content */}
         <div className="lg:col-span-2">
-          {activeTab === 'feed' && (
-            <div>
-              {posts.map((post) => (
-                <PostCard key={post.id} post={post} />
-              ))}
+          {activeTab === 'feed' &&
+          <div>
+              {posts.map((post) =>
+            <PostCard key={post.id} post={post} />
+            )}
             </div>
-          )}
+          }
 
-          {activeTab === 'discover' && (
-            <div>
-              <h2 className="text-2xl font-bold text-white mb-6">Seyahat Arkadaşları Keşfet</h2>
-              {users.map((user) => (
-                <UserCard key={user.id} user={user} />
-              ))}
+          {activeTab === 'discover' &&
+          <div>
+              <h2 className="text-2xl font-bold text-lydian-text-inverse mb-6">Seyahat Arkadaşları Keşfet</h2>
+              {users.map((user) =>
+            <UserCard key={user.id} user={user} />
+            )}
             </div>
-          )}
+          }
 
-          {activeTab === 'plans' && (
-            <div>
-              <h2 className="text-2xl font-bold text-white mb-6">Grup Seyahat Planları</h2>
-              <div className="text-center text-gray-400 py-12">
-                <Calendar className="w-12 h-12 mx-auto mb-4 text-gray-400" />
+          {activeTab === 'plans' &&
+          <div>
+              <h2 className="text-2xl font-bold text-lydian-text-inverse mb-6">Grup Seyahat Planları</h2>
+              <div className="text-center text-lydian-text-muted py-12">
+                <Calendar className="w-12 h-12 mx-auto mb-4 text-lydian-text-muted" />
                 <p>Henüz aktif seyahat planı yok</p>
-                <button className="mt-4 px-6 py-3 bg-blue-600 text-white rounded-xl font-medium">
+                <button className="mt-4 px-6 py-3 bg-lydian-primary text-lydian-text-inverse rounded-xl font-medium">
                   Yeni Plan Oluştur
                 </button>
               </div>
             </div>
-          )}
+          }
 
-          {activeTab === 'chat' && (
-            <div>
-              <h2 className="text-2xl font-bold text-white mb-6">Mesajlar</h2>
-              <div className="text-center text-gray-400 py-12">
-                <MessageCircle className="w-12 h-12 mx-auto mb-4 text-gray-400" />
+          {activeTab === 'chat' &&
+          <div>
+              <h2 className="text-2xl font-bold text-lydian-text-inverse mb-6">Mesajlar</h2>
+              <div className="text-center text-lydian-text-muted py-12">
+                <MessageCircle className="w-12 h-12 mx-auto mb-4 text-lydian-text-muted" />
                 <p>Henüz mesaj yok</p>
               </div>
             </div>
-          )}
+          }
         </div>
 
         {/* Sidebar */}
         <div className="space-y-6">
           {/* Online Users */}
-          <div className="bg-white/5 rounded-2xl shadow-lg p-6">
-            <h3 className="font-bold text-white mb-4">Online Seyahat Arkadaşları</h3>
+          <div className="bg-lydian-glass-dark rounded-2xl shadow-lg p-6">
+            <h3 className="font-bold text-lydian-text-inverse mb-4">Online Seyahat Arkadaşları</h3>
             <div className="space-y-3">
-              {users.filter(user => user.isOnline).map((user) => (
-                <div key={user.id} className="flex items-center gap-3">
+              {users.filter((user) => user.isOnline).map((user) =>
+              <div key={user.id} className="flex items-center gap-3">
                   <div className="relative">
-                    <img 
-                      src={user.avatar}
-                      alt={user.name}
-                      className="w-8 h-8 rounded-full object-cover"
-                    />
-                    <div className="absolute -bottom-1 -right-1 w-3 h-3 bg-green-400 rounded-full border-2 border-white" />
+                    <img
+                    src={user.avatar}
+                    alt={user.name}
+                    className="w-8 h-8 rounded-full object-cover" />
+
+                    <div className="absolute -bottom-1 -right-1 w-3 h-3 bg-green-400 rounded-full border-2 border-lydian-border-light" />
                   </div>
                   <div className="flex-1">
-                    <p className="font-medium text-white text-sm">{user.name}</p>
-                    <p className="text-xs text-gray-400">{user.location}</p>
+                    <p className="font-medium text-lydian-text-inverse text-sm">{user.name}</p>
+                    <p className="text-xs text-lydian-text-muted">{user.location}</p>
                   </div>
                 </div>
-              ))}
+              )}
             </div>
           </div>
 
           {/* Trending Destinations */}
-          <div className="bg-white/5 rounded-2xl shadow-lg p-6">
-            <h3 className="font-bold text-white mb-4">Trend Destinasyonlar</h3>
+          <div className="bg-lydian-glass-dark rounded-2xl shadow-lg p-6">
+            <h3 className="font-bold text-lydian-text-inverse mb-4">Trend Destinasyonlar</h3>
             <div className="space-y-3">
               {[
-                { name: 'Kapadokya', count: 124, trend: '+12%' },
-                { name: 'Antalya', count: 98, trend: '+8%' },
-                { name: 'İstanbul', count: 87, trend: '+15%' },
-                { name: 'Bodrum', count: 73, trend: '+5%' }
-              ].map((destination, index) => (
-                <div key={index} className="flex items-center justify-between">
+              { name: 'Kapadokya', count: 124, trend: '+12%' },
+              { name: 'Antalya', count: 98, trend: '+8%' },
+              { name: 'İstanbul', count: 87, trend: '+15%' },
+              { name: 'Bodrum', count: 73, trend: '+5%' }].
+              map((destination, index) =>
+              <div key={index} className="flex items-center justify-between">
                   <div>
-                    <p className="font-medium text-white">{destination.name}</p>
-                    <p className="text-sm text-gray-400">{destination.count} gönderi</p>
+                    <p className="font-medium text-lydian-text-inverse">{destination.name}</p>
+                    <p className="text-sm text-lydian-text-muted">{destination.count} gönderi</p>
                   </div>
-                  <span className="text-sm font-medium text-green-600">{destination.trend}</span>
+                  <span className="text-sm font-medium text-lydian-success">{destination.trend}</span>
                 </div>
-              ))}
+              )}
             </div>
           </div>
         </div>
@@ -676,62 +676,62 @@ const TravelSocialHub: React.FC = () => {
 
       {/* New Post Modal */}
       <AnimatePresence>
-        {showNewPostModal && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-          >
-            <div 
-              className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50"
-              onClick={() => setShowNewPostModal(false)}
-            >
+        {showNewPostModal &&
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}>
+
+            <div
+            className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50"
+            onClick={() => setShowNewPostModal(false)}>
+
             <motion.div
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-            >
-              <div 
+              exit={{ scale: 0.9, opacity: 0 }}>
+
+              <div
                 onClick={(e) => e.stopPropagation()}
-                className="bg-white/5 rounded-2xl p-6 w-full max-w-lg"
-              >
+                className="bg-lydian-glass-dark rounded-2xl p-6 w-full max-w-lg">
+
               <div className="flex items-center justify-between mb-6">
-                <h3 className="text-xl font-bold text-white">Yeni Gönderi</h3>
+                <h3 className="text-xl font-bold text-lydian-text-inverse">Yeni Gönderi</h3>
                 <button
-                  onClick={() => setShowNewPostModal(false)}
-                  className="p-2 hover:bg-white/10 rounded-lg transition-colors"
-                >
-                  <X className="w-5 h-5 text-gray-400" />
+                    onClick={() => setShowNewPostModal(false)}
+                    className="p-2 hover:bg-lydian-glass-dark-medium rounded-lg transition-colors">
+
+                  <X className="w-5 h-5 text-lydian-text-muted" />
                 </button>
               </div>
 
               <textarea
-                value={newPostContent}
-                onChange={(e) => setNewPostContent(e.target.value)}
-                placeholder="Seyahat deneyimlerinizi paylaşın..."
-                className="w-full p-4 border border-white/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
-                rows={4}
-              />
+                  value={newPostContent}
+                  onChange={(e) => setNewPostContent(e.target.value)}
+                  placeholder="Seyahat deneyimlerinizi paylaşın..."
+                  className="w-full p-4 border border-lydian-border-light rounded-xl focus:outline-none focus:ring-2 focus:ring-lydian-border-focus focus:border-lydian-border resize-none"
+                  rows={4} />
+
 
               <div className="flex items-center justify-between mt-6">
                 <div className="flex items-center gap-4">
-                  <button className="p-2 hover:bg-white/10 rounded-lg transition-colors">
-                    <Camera className="w-5 h-5 text-gray-300" />
+                  <button className="p-2 hover:bg-lydian-glass-dark-medium rounded-lg transition-colors">
+                    <Camera className="w-5 h-5 text-lydian-text-dim" />
                   </button>
-                  <button className="p-2 hover:bg-white/10 rounded-lg transition-colors">
-                    <MapPin className="w-5 h-5 text-gray-300" />
+                  <button className="p-2 hover:bg-lydian-glass-dark-medium rounded-lg transition-colors">
+                    <MapPin className="w-5 h-5 text-lydian-text-dim" />
                   </button>
                 </div>
 
                 <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}>
+
                   <button
-                    onClick={createNewPost}
-                    disabled={!newPostContent.trim()}
-                    className="px-6 py-2 bg-blue-600 text-white rounded-xl font-medium hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-                  >
+                      onClick={createNewPost}
+                      disabled={!newPostContent.trim()}
+                      className="px-6 py-2 bg-lydian-primary text-lydian-text-inverse rounded-xl font-medium hover:bg-lydian-primary-dark transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
+
                   Paylaş
                   </button>
                 </motion.div>
@@ -740,10 +740,10 @@ const TravelSocialHub: React.FC = () => {
             </motion.div>
             </div>
           </motion.div>
-        )}
+        }
       </AnimatePresence>
-    </div>
-  );
+    </div>);
+
 };
 
 export default TravelSocialHub;

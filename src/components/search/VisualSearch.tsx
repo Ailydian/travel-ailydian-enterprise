@@ -10,16 +10,16 @@ import {
   ArrowUpTrayIcon,
   SparklesIcon,
   CheckCircleIcon,
-  ExclamationCircleIcon,
-} from '@heroicons/react/24/outline';
+  ExclamationCircleIcon } from
+'@heroicons/react/24/outline';
 import Webcam from 'react-webcam';
 import { useDropzone } from 'react-dropzone';
 import {
   validateImageFile,
   compressImage,
   createThumbnail,
-  formatFileSize,
-} from '@/utils/imageProcessing';
+  formatFileSize } from
+'@/utils/imageProcessing';
 import { UploadedImage, VisualSearchResult, ImageAnalysis } from '@/types/visualSearch';
 import logger from '../../lib/logger';
 
@@ -34,7 +34,7 @@ const VisualSearch: React.FC<VisualSearchProps> = ({
   onSearch,
   className = '',
   maxFileSize = 5,
-  autoSearch = true,
+  autoSearch = true
 }) => {
   const [uploadedImage, setUploadedImage] = useState<UploadedImage | null>(null);
   const [imageUrl, setImageUrl] = useState('');
@@ -78,7 +78,7 @@ const VisualSearch: React.FC<VisualSearchProps> = ({
 
       const uploadedImg: UploadedImage = {
         file: compressedFile,
-        preview,
+        preview
       };
 
       setUploadedImage(uploadedImg);
@@ -105,10 +105,10 @@ const VisualSearch: React.FC<VisualSearchProps> = ({
     accept: {
       'image/jpeg': ['.jpg', '.jpeg'],
       'image/png': ['.png'],
-      'image/webp': ['.webp'],
+      'image/webp': ['.webp']
     },
     maxFiles: 1,
-    multiple: false,
+    multiple: false
   });
 
   // Capture from webcam
@@ -119,13 +119,13 @@ const VisualSearch: React.FC<VisualSearchProps> = ({
     if (!imageSrc) return;
 
     // Convert base64 to blob
-    fetch(imageSrc)
-      .then((res) => res.blob())
-      .then((blob) => {
-        const file = new File([blob], 'camera-capture.jpg', { type: 'image/jpeg' });
-        onDrop([file]);
-        setShowCamera(false);
-      });
+    fetch(imageSrc).
+    then((res) => res.blob()).
+    then((blob) => {
+      const file = new File([blob], 'camera-capture.jpg', { type: 'image/jpeg' });
+      onDrop([file]);
+      setShowCamera(false);
+    });
   }, [onDrop]);
 
   // Handle URL input
@@ -139,7 +139,7 @@ const VisualSearch: React.FC<VisualSearchProps> = ({
     const uploadedImg: UploadedImage = {
       file: new File([], 'url-image.jpg'),
       preview: imageUrl,
-      url: imageUrl,
+      url: imageUrl
     };
 
     setUploadedImage(uploadedImg);
@@ -169,7 +169,7 @@ const VisualSearch: React.FC<VisualSearchProps> = ({
 
       const response = await fetch('/api/search/visual', {
         method: 'POST',
-        body: formData,
+        body: formData
       });
 
       if (!response.ok) {
@@ -217,254 +217,254 @@ const VisualSearch: React.FC<VisualSearchProps> = ({
   return (
     <div className={`w-full ${className}`}>
       {/* Upload Area */}
-      {!uploadedImage && !showCamera && (
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -20 }}
-        >
+      {!uploadedImage && !showCamera &&
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -20 }}>
+
           <div
-            {...getRootProps()}
-            className={`relative border-2 border-dashed rounded-2xl p-12 text-center cursor-pointer transition-all duration-300 ${
-              isDragActive
-                ? 'border-blue-500 bg-blue-50'
-                : 'border-white/20 hover:border-blue-400 bg-white'
-            }`}
-          >
+          {...getRootProps()}
+          className={`relative border-2 border-dashed rounded-2xl p-12 text-center cursor-pointer transition-all duration-300 ${
+          isDragActive ?
+          'border-blue-500 bg-blue-50' :
+          'border-white/20 hover:border-blue-400 bg-white'}`
+          }>
+
             <input {...getInputProps()} />
 
             {/* Upload Icon */}
             <div className="mb-6">
-              <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-blue-500 to-purple-600">
-                <PhotoIcon className="w-10 h-10 text-white" />
+              <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-lydian-primary to-lydian-secondary">
+                <PhotoIcon className="w-10 h-10 text-lydian-text-inverse" />
               </div>
             </div>
 
             {/* Upload Text */}
-            <h3 className="text-2xl font-bold text-white mb-2">
+            <h3 className="text-2xl font-bold text-lydian-text-inverse mb-2">
               {isDragActive ? 'Drop your image here' : 'Upload an image to search'}
             </h3>
-            <p className="text-gray-300 mb-6">
+            <p className="text-lydian-text-dim mb-6">
               Drag & drop or click to browse • Max {maxFileSize}MB
             </p>
 
             {/* Upload Options */}
             <div className="flex flex-wrap justify-center gap-4">
               <button
-                type="button"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  fileInputRef.current?.click();
-                }}
-                className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-semibold transition-colors duration-200 flex items-center space-x-2"
-              >
+              type="button"
+              onClick={(e) => {
+                e.stopPropagation();
+                fileInputRef.current?.click();
+              }}
+              className="px-6 py-3 bg-lydian-primary hover:bg-lydian-primary-dark text-lydian-text-inverse rounded-xl font-semibold transition-colors duration-200 flex items-center space-x-2">
+
                 <ArrowUpTrayIcon className="w-5 h-5" />
                 <span>Browse Files</span>
               </button>
 
               <button
-                type="button"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setShowCamera(true);
-                }}
-                className="px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white rounded-xl font-semibold transition-colors duration-200 flex items-center space-x-2"
-              >
+              type="button"
+              onClick={(e) => {
+                e.stopPropagation();
+                setShowCamera(true);
+              }}
+              className="px-6 py-3 bg-purple-600 hover:bg-purple-700 text-lydian-text-inverse rounded-xl font-semibold transition-colors duration-200 flex items-center space-x-2">
+
                 <CameraIcon className="w-5 h-5" />
                 <span>Use Camera</span>
               </button>
 
               <button
-                type="button"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setShowUrlInput(true);
-                }}
-                className="px-6 py-3 bg-white/10 hover:bg-gray-200 text-gray-200 rounded-xl font-semibold transition-colors duration-200 flex items-center space-x-2"
-              >
+              type="button"
+              onClick={(e) => {
+                e.stopPropagation();
+                setShowUrlInput(true);
+              }}
+              className="px-6 py-3 bg-lydian-glass-dark-medium hover:bg-lydian-bg-active text-lydian-text-muted rounded-xl font-semibold transition-colors duration-200 flex items-center space-x-2">
+
                 <SparklesIcon className="w-5 h-5" />
                 <span>Paste URL</span>
               </button>
             </div>
 
             {/* Supported Formats */}
-            <p className="text-sm text-gray-400 mt-6">
+            <p className="text-sm text-lydian-text-muted mt-6">
               Supported formats: JPG, PNG, WebP
             </p>
           </div>
 
           {/* URL Input Modal */}
           <AnimatePresence>
-            {showUrlInput && (
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4"
-                onClick={() => setShowUrlInput(false)}
-              >
+            {showUrlInput &&
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4"
+            onClick={() => setShowUrlInput(false)}>
+
                 <motion.div
-                  initial={{ scale: 0.9, y: 20 }}
-                  animate={{ scale: 1, y: 0 }}
-                  exit={{ scale: 0.9, y: 20 }}
-                  className="bg-white/5 rounded-2xl p-8 max-w-lg w-full"
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  <h3 className="text-2xl font-bold text-white mb-4">
+              initial={{ scale: 0.9, y: 20 }}
+              animate={{ scale: 1, y: 0 }}
+              exit={{ scale: 0.9, y: 20 }}
+              className="bg-lydian-glass-dark rounded-2xl p-8 max-w-lg w-full"
+              onClick={(e) => e.stopPropagation()}>
+
+                  <h3 className="text-2xl font-bold text-lydian-text-inverse mb-4">
                     Enter Image URL
                   </h3>
                   <input
-                    type="url"
-                    value={imageUrl}
-                    onChange={(e) => setImageUrl(e.target.value)}
-                    placeholder="https://example.com/image.jpg"
-                    className="w-full px-4 py-3 border border-white/20 rounded-xl focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 mb-4"
-                    onKeyPress={(e) => e.key === 'Enter' && handleUrlSubmit()}
-                  />
+                type="url"
+                value={imageUrl}
+                onChange={(e) => setImageUrl(e.target.value)}
+                placeholder="https://example.com/image.jpg"
+                className="w-full px-4 py-3 border border-lydian-border-light rounded-xl focus:outline-none focus:border-lydian-primary focus:ring-2 focus:ring-blue-200 mb-4"
+                onKeyPress={(e) => e.key === 'Enter' && handleUrlSubmit()} />
+
                   <div className="flex space-x-3">
                     <button
-                      onClick={handleUrlSubmit}
-                      className="flex-1 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-semibold transition-colors duration-200"
-                    >
+                  onClick={handleUrlSubmit}
+                  className="flex-1 px-6 py-3 bg-lydian-primary hover:bg-lydian-primary-dark text-lydian-text-inverse rounded-xl font-semibold transition-colors duration-200">
+
                       Search
                     </button>
                     <button
-                      onClick={() => setShowUrlInput(false)}
-                      className="px-6 py-3 bg-white/10 hover:bg-gray-200 text-gray-200 rounded-xl font-semibold transition-colors duration-200"
-                    >
+                  onClick={() => setShowUrlInput(false)}
+                  className="px-6 py-3 bg-lydian-glass-dark-medium hover:bg-lydian-bg-active text-lydian-text-muted rounded-xl font-semibold transition-colors duration-200">
+
                       Cancel
                     </button>
                   </div>
                 </motion.div>
               </motion.div>
-            )}
+          }
           </AnimatePresence>
         </motion.div>
-      )}
+      }
 
       {/* Camera View */}
-      {showCamera && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          className="fixed inset-0 bg-black z-50 flex flex-col"
-        >
+      {showCamera &&
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        className="fixed inset-0 bg-black z-50 flex flex-col">
+
           <div className="flex-1 relative">
             <Webcam
-              ref={webcamRef}
-              audio={false}
-              screenshotFormat="image/jpeg"
-              className="w-full h-full object-cover"
-              videoConstraints={{
-                facingMode: 'environment',
-              }}
-            />
+            ref={webcamRef}
+            audio={false}
+            screenshotFormat="image/jpeg"
+            className="w-full h-full object-cover"
+            videoConstraints={{
+              facingMode: 'environment'
+            }} />
+
           </div>
 
           <div className="p-6 bg-black/80 flex items-center justify-center space-x-4">
             <button
-              onClick={() => setShowCamera(false)}
-              className="px-6 py-3 bg-gray-700 hover:bg-gray-600 text-white rounded-xl font-semibold transition-colors duration-200"
-            >
+            onClick={() => setShowCamera(false)}
+            className="px-6 py-3 bg-gray-700 hover:bg-gray-600 text-lydian-text-inverse rounded-xl font-semibold transition-colors duration-200">
+
               Cancel
             </button>
             <button
-              onClick={capturePhoto}
-              className="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-full font-semibold transition-colors duration-200 flex items-center space-x-2"
-            >
+            onClick={capturePhoto}
+            className="px-8 py-4 bg-lydian-primary hover:bg-lydian-primary-dark text-lydian-text-inverse rounded-full font-semibold transition-colors duration-200 flex items-center space-x-2">
+
               <CameraIcon className="w-6 h-6" />
               <span>Capture</span>
             </button>
           </div>
         </motion.div>
-      )}
+      }
 
       {/* Uploaded Image Preview */}
-      {uploadedImage && (
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          className="bg-white/5 rounded-2xl border border-white/10 overflow-hidden"
-        >
+      {uploadedImage &&
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        className="bg-lydian-glass-dark rounded-2xl border border-lydian-border-light/10 overflow-hidden">
+
           <div className="relative">
             <img
-              src={uploadedImage.preview}
-              alt="Uploaded"
-              className="w-full h-64 object-cover"
-            />
+            src={uploadedImage.preview}
+            alt="Uploaded"
+            className="w-full h-64 object-cover" />
+
 
             {/* Clear Button */}
             <button
-              onClick={clearImage}
-              className="absolute top-4 right-4 p-2 bg-white/90 hover:bg-white/5 rounded-full transition-colors duration-200 shadow-lg"
-            >
-              <XMarkIcon className="w-5 h-5 text-gray-200" />
+            onClick={clearImage}
+            className="absolute top-4 right-4 p-2 bg-lydian-bg/90 hover:bg-lydian-glass-dark rounded-full transition-colors duration-200 shadow-lg">
+
+              <XMarkIcon className="w-5 h-5 text-lydian-text-muted" />
             </button>
 
             {/* Progress Bar */}
-            {progress > 0 && progress < 100 && (
-              <div className="absolute bottom-0 left-0 right-0 h-1 bg-gray-200">
+            {progress > 0 && progress < 100 &&
+          <div className="absolute bottom-0 left-0 right-0 h-1 bg-lydian-bg-active">
                 <motion.div
-                  initial={{ width: 0 }}
-                  animate={{ width: `${progress}%` }}
-                  className="h-full bg-gradient-to-r from-blue-500 to-purple-600"
-                />
+              initial={{ width: 0 }}
+              animate={{ width: `${progress}%` }}
+              className="h-full bg-gradient-to-r from-lydian-primary to-lydian-secondary" />
+
               </div>
-            )}
+          }
           </div>
 
           {/* Search Button */}
-          {!autoSearch && (
-            <div className="p-6">
+          {!autoSearch &&
+        <div className="p-6">
               <button
-                onClick={() => handleSearch()}
-                disabled={isProcessing}
-                className="w-full px-6 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white rounded-xl font-semibold transition-all duration-200 flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                {isProcessing ? (
-                  <>
-                    <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
+            onClick={() => handleSearch()}
+            disabled={isProcessing}
+            className="w-full px-6 py-4 bg-gradient-to-r from-lydian-primary to-lydian-secondary hover:from-lydian-primary-dark hover:to-purple-700 text-lydian-text-inverse rounded-xl font-semibold transition-all duration-200 flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed">
+
+                {isProcessing ?
+            <>
+                    <div className="w-5 h-5 border-2 border-lydian-border-light border-t-transparent rounded-full animate-spin" />
                     <span>Searching...</span>
-                  </>
-                ) : (
-                  <>
+                  </> :
+
+            <>
                     <MagnifyingGlassIcon className="w-5 h-5" />
                     <span>Search by Image</span>
                   </>
-                )}
+            }
               </button>
             </div>
-          )}
+        }
 
           {/* Status Messages */}
           <AnimatePresence>
-            {(error || success) && (
-              <motion.div
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: 'auto' }}
-                exit={{ opacity: 0, height: 0 }}
-                className="px-6 pb-6"
-              >
-                {error && (
-                  <div className="flex items-center space-x-2 text-red-600 bg-red-50 px-4 py-3 rounded-xl">
+            {(error || success) &&
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            className="px-6 pb-6">
+
+                {error &&
+            <div className="flex items-center space-x-2 text-lydian-primary bg-lydian-error-lighter px-4 py-3 rounded-xl">
                     <ExclamationCircleIcon className="w-5 h-5 flex-shrink-0" />
                     <span className="text-sm font-medium">{error}</span>
                   </div>
-                )}
-                {success && (
-                  <div className="flex items-center space-x-2 text-green-600 bg-green-50 px-4 py-3 rounded-xl">
+            }
+                {success &&
+            <div className="flex items-center space-x-2 text-lydian-success bg-lydian-success-lighter px-4 py-3 rounded-xl">
                     <CheckCircleIcon className="w-5 h-5 flex-shrink-0" />
                     <span className="text-sm font-medium">Image processed successfully!</span>
                   </div>
-                )}
+            }
               </motion.div>
-            )}
+          }
           </AnimatePresence>
         </motion.div>
-      )}
-    </div>
-  );
+      }
+    </div>);
+
 };
 
 export default VisualSearch;

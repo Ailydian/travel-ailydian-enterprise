@@ -11,8 +11,8 @@ import { motion } from 'framer-motion';
 import {
   Compass, Camera, Users, MapPin, Calendar, Clock, DollarSign,
   Search, Download, Plus, Edit, Trash2, Eye, ArrowLeft,
-  Star, RefreshCw, Mountain, Utensils, User, Tag, Filter
-} from 'lucide-react';
+  Star, RefreshCw, Mountain, Utensils, User, Tag, Filter } from
+'lucide-react';
 
 interface Tour {
   id: string;
@@ -21,16 +21,16 @@ interface Tour {
   region: string;
   duration: string;
   category: 'adventure' | 'cultural' | 'nature' | 'water' | 'food' | 'historical';
-  groupSize: { min: number; max: number };
+  groupSize: {min: number;max: number;};
   price: number;
   status: 'active' | 'inactive' | 'seasonal';
   rating: number;
   totalBookings: number;
   revenue: number;
-  guide?: { id: string; name: string; rating: number };
+  guide?: {id: string;name: string;rating: number;};
   language: string[];
   includes: string[];
-  schedule: { day: string; time: string }[];
+  schedule: {day: string;time: string;}[];
 }
 
 interface Guide {
@@ -64,9 +64,9 @@ const ToursManagementPage = () => {
       const toursData = await toursResponse.json();
 
       logger.debug('[Tours Debug] API Response:', { component: 'Tours', metadata: toursData });
-      logger.debug('[Tours Debug] Has success:', {component:'Tours', metadata:{ success: toursData.success }});
-      logger.debug('[Tours Debug] Has data:', {component:'Tours', metadata:{ hasData: !!toursData.data }});
-      logger.debug('[Tours Debug] Data length:', {component:'Tours', metadata:{ length: toursData.data?.length }});
+      logger.debug('[Tours Debug] Has success:', { component: 'Tours', metadata: { success: toursData.success } });
+      logger.debug('[Tours Debug] Has data:', { component: 'Tours', metadata: { hasData: !!toursData.data } });
+      logger.debug('[Tours Debug] Data length:', { component: 'Tours', metadata: { length: toursData.data?.length } });
 
       // Check if API returned valid data with tours
       if (toursData.success === true && Array.isArray(toursData.data) && toursData.data.length > 0) {
@@ -89,15 +89,15 @@ const ToursManagementPage = () => {
           revenue: (tour.bookingsCount || 0) * (tour.price || 0),
           language: tour.languages || ['Türkçe', 'English'],
           includes: tour.includes || [],
-          schedule: tour.schedule || [{ day: 'Her Gün', time: '09:00' }],
+          schedule: tour.schedule || [{ day: 'Her Gün', time: '09:00' }]
         }));
 
         setTours(transformedTours);
-        logger.debug('[Tours Debug] Successfully loaded real data:', {component:'Tours', metadata:{ count: transformedTours.length }});
+        logger.debug('[Tours Debug] Successfully loaded real data:', { component: 'Tours', metadata: { count: transformedTours.length } });
       } else {
         // Fallback to mock data if API fails or database is empty
         logger.debug('[Tours Debug] Using fallback mock data - API error or empty database', { component: 'Tours' });
-        logger.debug('[Tours Debug] Reason:', {component:'Tours', metadata:{ success: toursData.success, isArray: Array.isArray(toursData.data), length: toursData.data?.length }});
+        logger.debug('[Tours Debug] Reason:', { component: 'Tours', metadata: { success: toursData.success, isArray: Array.isArray(toursData.data), length: toursData.data?.length } });
         const mockTours: Tour[] = [
         {
           id: '1',
@@ -115,7 +115,7 @@ const ToursManagementPage = () => {
           guide: { id: 'g1', name: 'Ali Demir', rating: 4.9 },
           language: ['Türkçe', 'English'],
           includes: ['Otel Transfer', 'Kahvaltı', 'Uçuş Sertifikası', 'Fotoğraf'],
-          schedule: [{ day: 'Her Gün', time: '05:00 - 08:00' }],
+          schedule: [{ day: 'Her Gün', time: '05:00 - 08:00' }]
         },
         {
           id: '2',
@@ -133,7 +133,7 @@ const ToursManagementPage = () => {
           guide: { id: 'g2', name: 'Mehmet Yılmaz', rating: 4.8 },
           language: ['Türkçe', 'English', 'Deutsch'],
           includes: ['Transfer', 'Öğle Yemeği', 'Giriş Ücretleri', 'Rehber'],
-          schedule: [{ day: 'Pazartesi-Cumartesi', time: '08:00 - 18:00' }],
+          schedule: [{ day: 'Pazartesi-Cumartesi', time: '08:00 - 18:00' }]
         },
         {
           id: '3',
@@ -151,18 +151,18 @@ const ToursManagementPage = () => {
           guide: { id: 'g3', name: 'Ahmet Kaya', rating: 4.7 },
           language: ['Türkçe', 'English', 'Русский'],
           includes: ['Tekne', 'Öğle Yemeği', 'Ekipman', 'İçecekler'],
-          schedule: [{ day: 'Mayıs-Ekim', time: '10:00 - 16:00' }],
-        },
-      ];
+          schedule: [{ day: 'Mayıs-Ekim', time: '10:00 - 16:00' }]
+        }];
 
-      const mockGuides: Guide[] = [
+
+        const mockGuides: Guide[] = [
         {
           id: 'g1',
           name: 'Ali Demir',
           rating: 4.9,
           languages: ['Türkçe', 'English'],
           specialties: ['Macera', 'Doğa'],
-          toursCount: 45,
+          toursCount: 45
         },
         {
           id: 'g2',
@@ -170,7 +170,7 @@ const ToursManagementPage = () => {
           rating: 4.8,
           languages: ['Türkçe', 'English', 'Deutsch'],
           specialties: ['Tarihi', 'Kültürel'],
-          toursCount: 38,
+          toursCount: 38
         },
         {
           id: 'g3',
@@ -178,13 +178,13 @@ const ToursManagementPage = () => {
           rating: 4.7,
           languages: ['Türkçe', 'English', 'Русский'],
           specialties: ['Su Sporları', 'Tekne Turları'],
-          toursCount: 32,
-        },
-      ];
+          toursCount: 32
+        }];
+
 
         setTours(mockTours);
         setGuides(mockGuides);
-        logger.debug('[Tours Debug] Mock data set successfully:', {component:'Tours', metadata:{ tourCount: mockTours.length }});
+        logger.debug('[Tours Debug] Mock data set successfully:', { component: 'Tours', metadata: { tourCount: mockTours.length } });
       }
     } catch (error) {
       logger.error('[Tours Debug] Error fetching data:', error as Error, { component: 'Tours' });
@@ -196,9 +196,9 @@ const ToursManagementPage = () => {
     }
   };
 
-  const filteredTours = tours.filter(tour => {
+  const filteredTours = tours.filter((tour) => {
     const matchesSearch = tour.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                          tour.location.toLowerCase().includes(searchQuery.toLowerCase());
+    tour.location.toLowerCase().includes(searchQuery.toLowerCase());
     const matchesCategory = filterCategory === 'all' || tour.category === filterCategory;
     const matchesStatus = filterStatus === 'all' || tour.status === filterStatus;
     return matchesSearch && matchesCategory && matchesStatus;
@@ -206,24 +206,24 @@ const ToursManagementPage = () => {
 
   const totalRevenue = tours.reduce((sum, t) => sum + t.revenue, 0);
   const totalBookings = tours.reduce((sum, t) => sum + t.totalBookings, 0);
-  const activeTours = tours.filter(t => t.status === 'active').length;
+  const activeTours = tours.filter((t) => t.status === 'active').length;
   const avgRating = tours.length > 0 ? tours.reduce((sum, t) => sum + t.rating, 0) / tours.length : 0;
 
   const getStatusColor = (status: string) => {
     switch (status) {
-      case 'active': return 'text-green-600 bg-green-50 border-green-200';
-      case 'inactive': return 'text-gray-300 bg-white/5 border-gray-200';
-      case 'seasonal': return 'text-amber-600 bg-amber-50 border-amber-200';
-      default: return 'text-gray-300 bg-white/5 border-gray-200';
+      case 'active':return 'text-green-600 bg-green-50 border-green-200';
+      case 'inactive':return 'text-gray-300 bg-white/5 border-gray-200';
+      case 'seasonal':return 'text-amber-600 bg-amber-50 border-amber-200';
+      default:return 'text-gray-300 bg-white/5 border-gray-200';
     }
   };
 
   const getCategoryIcon = (category: string) => {
     switch (category) {
-      case 'adventure': return <Mountain className="w-4 h-4" />;
-      case 'food': return <Utensils className="w-4 h-4" />;
-      case 'water': return <Camera className="w-4 h-4" />;
-      default: return <Compass className="w-4 h-4" />;
+      case 'adventure':return <Mountain className="w-4 h-4" />;
+      case 'food':return <Utensils className="w-4 h-4" />;
+      case 'water':return <Camera className="w-4 h-4" />;
+      default:return <Compass className="w-4 h-4" />;
     }
   };
 
@@ -234,7 +234,7 @@ const ToursManagementPage = () => {
       nature: 'bg-green-50 text-green-700 border-green-200',
       water: 'bg-blue-50 text-blue-700 border-blue-200',
       food: 'bg-amber-50 text-amber-700 border-amber-200',
-      historical: 'bg-indigo-50 text-indigo-700 border-indigo-200',
+      historical: 'bg-indigo-50 text-indigo-700 border-indigo-200'
     };
     return colors[category] || 'bg-white/5 text-gray-200 border-gray-200';
   };
@@ -242,26 +242,26 @@ const ToursManagementPage = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
       {/* Header */}
-      <header className="bg-white/5 border-b border-slate-200 sticky top-0 z-50 shadow-sm">
+      <header className="bg-lydian-glass-dark border-b border-lydian-border sticky top-0 z-50 shadow-sm">
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
               <Link href="/admin/v2">
-                <button className="p-2 hover:bg-slate-100 rounded-lg transition-colors">
-                  <ArrowLeft className="w-5 h-5 text-slate-600" />
+                <button className="p-2 hover:bg-lydian-bg-surface-raised rounded-lg transition-colors">
+                  <ArrowLeft className="w-5 h-5 text-lydian-text-secondary" />
                 </button>
               </Link>
               <div>
-                <h1 className="text-2xl font-bold text-slate-900">Tur & Aktivite Yönetimi</h1>
-                <p className="text-sm text-slate-600">Turlar, rehberler ve kategorileri yönetin</p>
+                <h1 className="text-2xl font-bold text-lydian-text">Tur & Aktivite Yönetimi</h1>
+                <p className="text-sm text-lydian-text-secondary">Turlar, rehberler ve kategorileri yönetin</p>
               </div>
             </div>
             <div className="flex items-center gap-3">
-              <button className="flex items-center gap-2 px-4 py-2 border border-slate-300 rounded-lg hover:bg-slate-50 transition-colors">
+              <button className="flex items-center gap-2 px-4 py-2 border border-lydian-border-medium rounded-lg hover:bg-lydian-bg-surface transition-colors">
                 <Download className="w-4 h-4" />
                 <span className="text-sm font-medium">Export</span>
               </button>
-              <button className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+              <button className="flex items-center gap-2 px-4 py-2 bg-lydian-primary text-lydian-text-inverse rounded-lg hover:bg-lydian-primary-dark transition-colors">
                 <Plus className="w-4 h-4" />
                 <span className="text-sm font-medium">Yeni Tur</span>
               </button>
@@ -272,82 +272,82 @@ const ToursManagementPage = () => {
 
       <main className="max-w-7xl mx-auto px-6 py-8">
         {/* View Tabs */}
-        <div className="mb-8 flex items-center gap-2 bg-white/5 rounded-lg p-2 border border-slate-200">
+        <div className="mb-8 flex items-center gap-2 bg-lydian-glass-dark rounded-lg p-2 border border-lydian-border">
           {[
-            { id: 'tours', label: 'Turlar', icon: Compass },
-            { id: 'guides', label: 'Rehberler', icon: User },
-            { id: 'categories', label: 'Kategoriler', icon: Tag },
-          ].map((tab) => {
+          { id: 'tours', label: 'Turlar', icon: Compass },
+          { id: 'guides', label: 'Rehberler', icon: User },
+          { id: 'categories', label: 'Kategoriler', icon: Tag }].
+          map((tab) => {
             const Icon = tab.icon;
             return (
               <button
                 key={tab.id}
                 onClick={() => setActiveView(tab.id as any)}
                 className={`flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-lg font-medium transition-all ${
-                  activeView === tab.id
-                    ? 'bg-blue-600 text-white shadow-lg'
-                    : 'text-slate-700 hover:bg-slate-50'
-                }`}
-              >
+                activeView === tab.id ?
+                'bg-blue-600 text-white shadow-lg' :
+                'text-slate-700 hover:bg-slate-50'}`
+                }>
+
                 <Icon className="w-5 h-5" />
                 <span>{tab.label}</span>
-              </button>
-            );
+              </button>);
+
           })}
         </div>
 
         {/* Tours View */}
-        {activeView === 'tours' && (
-          <>
+        {activeView === 'tours' &&
+        <>
             {/* Summary Cards */}
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-              <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="bg-white/5 rounded-xl p-6 border border-slate-200">
+              <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="bg-lydian-glass-dark rounded-xl p-6 border border-lydian-border">
                 <div className="flex items-center justify-between mb-2">
-                  <p className="text-sm font-medium text-slate-600">Toplam Gelir</p>
-                  <DollarSign className="w-5 h-5 text-green-600" />
+                  <p className="text-sm font-medium text-lydian-text-secondary">Toplam Gelir</p>
+                  <DollarSign className="w-5 h-5 text-lydian-success" />
                 </div>
-                <p className="text-2xl font-bold text-slate-900">₺{totalRevenue.toLocaleString('tr-TR')}</p>
-                <p className="text-xs text-green-600 mt-1">+18.5% bu ay</p>
+                <p className="text-2xl font-bold text-lydian-text">₺{totalRevenue.toLocaleString('tr-TR')}</p>
+                <p className="text-xs text-lydian-success mt-1">+18.5% bu ay</p>
               </motion.div>
 
-              <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="bg-white/5 rounded-xl p-6 border border-slate-200">
+              <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="bg-lydian-glass-dark rounded-xl p-6 border border-lydian-border">
                 <div className="flex items-center justify-between mb-2">
-                  <p className="text-sm font-medium text-slate-600">Rezervasyon</p>
-                  <Calendar className="w-5 h-5 text-blue-600" />
+                  <p className="text-sm font-medium text-lydian-text-secondary">Rezervasyon</p>
+                  <Calendar className="w-5 h-5 text-lydian-primary" />
                 </div>
-                <p className="text-2xl font-bold text-slate-900">{totalBookings}</p>
-                <p className="text-xs text-blue-600 mt-1">Son 30 gün</p>
+                <p className="text-2xl font-bold text-lydian-text">{totalBookings}</p>
+                <p className="text-xs text-lydian-primary mt-1">Son 30 gün</p>
               </motion.div>
 
-              <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="bg-white/5 rounded-xl p-6 border border-slate-200">
+              <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="bg-lydian-glass-dark rounded-xl p-6 border border-lydian-border">
                 <div className="flex items-center justify-between mb-2">
-                  <p className="text-sm font-medium text-slate-600">Aktif Turlar</p>
+                  <p className="text-sm font-medium text-lydian-text-secondary">Aktif Turlar</p>
                   <Compass className="w-5 h-5 text-purple-600" />
                 </div>
-                <p className="text-2xl font-bold text-slate-900">{activeTours}</p>
+                <p className="text-2xl font-bold text-lydian-text">{activeTours}</p>
                 <p className="text-xs text-purple-600 mt-1">{tours.length} toplam</p>
               </motion.div>
 
-              <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} className="bg-white/5 rounded-xl p-6 border border-slate-200">
+              <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} className="bg-lydian-glass-dark rounded-xl p-6 border border-lydian-border">
                 <div className="flex items-center justify-between mb-2">
-                  <p className="text-sm font-medium text-slate-600">Ortalama Puan</p>
+                  <p className="text-sm font-medium text-lydian-text-secondary">Ortalama Puan</p>
                   <Star className="w-5 h-5 text-amber-600" />
                 </div>
-                <p className="text-2xl font-bold text-slate-900">{avgRating.toFixed(1)}</p>
+                <p className="text-2xl font-bold text-lydian-text">{avgRating.toFixed(1)}</p>
                 <p className="text-xs text-amber-600 mt-1">5 üzerinden</p>
               </motion.div>
             </div>
 
             {/* Filters */}
-            <div className="bg-white/5 rounded-xl p-6 border border-slate-200 mb-6">
+            <div className="bg-lydian-glass-dark rounded-xl p-6 border border-lydian-border mb-6">
               <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
                 <div className="relative">
-                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
+                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-lydian-text-muted" />
                   <input type="text" placeholder="Tur ara..." value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)}
-                    className="w-full pl-10 pr-4 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" />
+                className="w-full pl-10 pr-4 py-2 border border-lydian-border rounded-lg focus:ring-2 focus:ring-lydian-border-focus focus:border-lydian-primary outline-none" />
                 </div>
                 <select value={filterCategory} onChange={(e) => setFilterCategory(e.target.value)}
-                  className="px-4 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none">
+              className="px-4 py-2 border border-lydian-border rounded-lg focus:ring-2 focus:ring-lydian-border-focus outline-none">
                   <option value="all">Tüm Kategoriler</option>
                   <option value="adventure">Macera</option>
                   <option value="cultural">Kültürel</option>
@@ -357,13 +357,13 @@ const ToursManagementPage = () => {
                   <option value="nature">Doğa</option>
                 </select>
                 <select value={filterStatus} onChange={(e) => setFilterStatus(e.target.value)}
-                  className="px-4 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none">
+              className="px-4 py-2 border border-lydian-border rounded-lg focus:ring-2 focus:ring-lydian-border-focus outline-none">
                   <option value="all">Tüm Durumlar</option>
                   <option value="active">Aktif</option>
                   <option value="inactive">Pasif</option>
                   <option value="seasonal">Sezonluk</option>
                 </select>
-                <button onClick={fetchData} className="flex items-center justify-center gap-2 px-4 py-2 bg-slate-100 hover:bg-slate-200 rounded-lg transition-colors">
+                <button onClick={fetchData} className="flex items-center justify-center gap-2 px-4 py-2 bg-lydian-bg-surface-raised hover:bg-slate-200 rounded-lg transition-colors">
                   <RefreshCw className="w-4 h-4" />
                   Yenile
                 </button>
@@ -372,23 +372,23 @@ const ToursManagementPage = () => {
 
             {/* Tours Grid */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-              {loading ? (
-                <div className="col-span-2 flex items-center justify-center py-12">
-                  <RefreshCw className="w-8 h-8 animate-spin text-blue-600" />
-                </div>
-              ) : filteredTours.length === 0 ? (
-                <div className="col-span-2 text-center py-12 text-slate-500">Tur bulunamadı</div>
-              ) : (
-                filteredTours.map((tour, index) => (
-                  <motion.div key={tour.id} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: index * 0.05 }}
-                    className="bg-white/5 rounded-xl border border-slate-200 overflow-hidden hover:shadow-xl transition-all">
+              {loading ?
+            <div className="col-span-2 flex items-center justify-center py-12">
+                  <RefreshCw className="w-8 h-8 animate-spin text-lydian-primary" />
+                </div> :
+            filteredTours.length === 0 ?
+            <div className="col-span-2 text-center py-12 text-lydian-text-tertiary">Tur bulunamadı</div> :
+
+            filteredTours.map((tour, index) =>
+            <motion.div key={tour.id} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: index * 0.05 }}
+            className="bg-lydian-glass-dark rounded-xl border border-lydian-border overflow-hidden hover:shadow-xl transition-all">
                     <div className="p-6">
                       <div className="flex items-start justify-between mb-4">
                         <div className="flex-1">
-                          <h3 className="text-lg font-bold text-slate-900 mb-2">{tour.title}</h3>
+                          <h3 className="text-lg font-bold text-lydian-text mb-2">{tour.title}</h3>
                           <div className="flex items-center gap-2 mb-2">
-                            <MapPin className="w-4 h-4 text-slate-600" />
-                            <span className="text-sm text-slate-600">{tour.location}</span>
+                            <MapPin className="w-4 h-4 text-lydian-text-secondary" />
+                            <span className="text-sm text-lydian-text-secondary">{tour.location}</span>
                           </div>
                           <div className="flex items-center gap-2">
                             <span className={`px-2 py-1 rounded-full text-xs font-semibold border flex items-center gap-1 ${getCategoryColor(tour.category)}`}>
@@ -402,80 +402,80 @@ const ToursManagementPage = () => {
                         </div>
                       </div>
 
-                      <div className="bg-blue-50 rounded-lg p-4 mb-4">
+                      <div className="bg-lydian-primary-lighter rounded-lg p-4 mb-4">
                         <div className="grid grid-cols-2 gap-3">
-                          <div className="flex items-center gap-2 text-sm text-slate-700">
+                          <div className="flex items-center gap-2 text-sm text-lydian-text-secondary">
                             <Clock className="w-4 h-4" />
                             <span>{tour.duration}</span>
                           </div>
-                          <div className="flex items-center gap-2 text-sm text-slate-700">
+                          <div className="flex items-center gap-2 text-sm text-lydian-text-secondary">
                             <Users className="w-4 h-4" />
                             <span>{tour.groupSize.min}-{tour.groupSize.max} kişi</span>
                           </div>
-                          {tour.guide && (
-                            <div className="col-span-2 flex items-center gap-2 text-sm text-slate-700">
+                          {tour.guide &&
+                    <div className="col-span-2 flex items-center gap-2 text-sm text-lydian-text-secondary">
                               <User className="w-4 h-4" />
                               <span>{tour.guide.name}</span>
                               <Star className="w-3 h-3 text-amber-500 fill-amber-500" />
                               <span className="font-semibold">{tour.guide.rating}</span>
                             </div>
-                          )}
+                    }
                         </div>
                       </div>
 
                       <div className="grid grid-cols-3 gap-4 mb-4">
                         <div>
-                          <p className="text-xs text-slate-500 mb-1">Fiyat</p>
-                          <p className="font-bold text-green-600">₺{tour.price}</p>
+                          <p className="text-xs text-lydian-text-tertiary mb-1">Fiyat</p>
+                          <p className="font-bold text-lydian-success">₺{tour.price}</p>
                         </div>
                         <div>
-                          <p className="text-xs text-slate-500 mb-1">Rezervasyon</p>
-                          <p className="font-bold text-slate-900">{tour.totalBookings}</p>
+                          <p className="text-xs text-lydian-text-tertiary mb-1">Rezervasyon</p>
+                          <p className="font-bold text-lydian-text">{tour.totalBookings}</p>
                         </div>
                         <div>
-                          <p className="text-xs text-slate-500 mb-1">Gelir</p>
-                          <p className="font-bold text-slate-900">₺{(tour.revenue / 1000).toFixed(0)}K</p>
+                          <p className="text-xs text-lydian-text-tertiary mb-1">Gelir</p>
+                          <p className="font-bold text-lydian-text">₺{(tour.revenue / 1000).toFixed(0)}K</p>
                         </div>
                       </div>
 
                       <div className="flex items-center justify-between pt-4 border-t border-slate-100">
                         <div className="flex items-center gap-2">
                           <Star className="w-4 h-4 text-amber-500 fill-amber-500" />
-                          <span className="font-semibold text-slate-900">{tour.rating}</span>
+                          <span className="font-semibold text-lydian-text">{tour.rating}</span>
                         </div>
                         <div className="flex items-center gap-2">
-                          <button className="p-2 hover:bg-blue-50 rounded-lg transition-colors group">
-                            <Eye className="w-4 h-4 text-slate-600 group-hover:text-blue-600" />
+                          <button className="p-2 hover:bg-lydian-primary-lighter rounded-lg transition-colors group">
+                            <Eye className="w-4 h-4 text-lydian-text-secondary group-hover:text-lydian-primary" />
                           </button>
-                          <button className="p-2 hover:bg-green-50 rounded-lg transition-colors group">
-                            <Edit className="w-4 h-4 text-slate-600 group-hover:text-green-600" />
+                          <button className="p-2 hover:bg-lydian-success-lighter rounded-lg transition-colors group">
+                            <Edit className="w-4 h-4 text-lydian-text-secondary group-hover:text-lydian-success" />
                           </button>
-                          <button className="p-2 hover:bg-red-50 rounded-lg transition-colors group">
-                            <Trash2 className="w-4 h-4 text-slate-600 group-hover:text-red-600" />
+                          <button className="p-2 hover:bg-lydian-error-lighter rounded-lg transition-colors group">
+                            <Trash2 className="w-4 h-4 text-lydian-text-secondary group-hover:text-lydian-primary" />
                           </button>
                         </div>
                       </div>
                     </div>
                   </motion.div>
-                ))
-              )}
+            )
+            }
             </div>
           </>
-        )}
+        }
 
         {/* Guides View */}
-        {activeView === 'guides' && (
-          <div className="bg-white/5 rounded-xl border border-slate-200 p-6">
-            <h2 className="text-xl font-bold text-slate-900 mb-6">Rehberler ({guides.length})</h2>
+        {activeView === 'guides' &&
+        <div className="bg-lydian-glass-dark rounded-xl border border-lydian-border p-6">
+            <h2 className="text-xl font-bold text-lydian-text mb-6">Rehberler ({guides.length})</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {guides.map((guide) => (
-                <div key={guide.id} className="border border-slate-200 rounded-lg p-6 hover:shadow-lg transition-all">
+              {guides.map((guide) =>
+            <div key={guide.id} className="border border-lydian-border rounded-lg p-6 hover:shadow-lg transition-all">
                   <div className="flex items-center gap-4 mb-4">
-                    <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center">
-                      <User className="w-8 h-8 text-white" />
+                    <div className="w-16 h-16 bg-gradient-to-br from-lydian-primary to-purple-500 rounded-full flex items-center justify-center">
+                      <User className="w-8 h-8 text-lydian-text-inverse" />
                     </div>
                     <div className="flex-1">
-                      <h3 className="font-bold text-slate-900">{guide.name}</h3>
+                      <h3 className="font-bold text-lydian-text">{guide.name}</h3>
                       <div className="flex items-center gap-1">
                         <Star className="w-4 h-4 text-amber-500 fill-amber-500" />
                         <span className="font-semibold text-amber-600">{guide.rating}</span>
@@ -484,47 +484,47 @@ const ToursManagementPage = () => {
                   </div>
                   <div className="space-y-2 text-sm">
                     <div>
-                      <p className="text-slate-500 text-xs mb-1">Diller:</p>
-                      <p className="font-medium text-slate-900">{guide.languages.join(', ')}</p>
+                      <p className="text-lydian-text-tertiary text-xs mb-1">Diller:</p>
+                      <p className="font-medium text-lydian-text">{guide.languages.join(', ')}</p>
                     </div>
                     <div>
-                      <p className="text-slate-500 text-xs mb-1">Uzmanlık:</p>
-                      <p className="font-medium text-slate-900">{guide.specialties.join(', ')}</p>
+                      <p className="text-lydian-text-tertiary text-xs mb-1">Uzmanlık:</p>
+                      <p className="font-medium text-lydian-text">{guide.specialties.join(', ')}</p>
                     </div>
                     <div className="pt-2 border-t border-slate-100">
-                      <p className="text-xs text-slate-600">{guide.toursCount} tur yönetiyor</p>
+                      <p className="text-xs text-lydian-text-secondary">{guide.toursCount} tur yönetiyor</p>
                     </div>
                   </div>
                 </div>
-              ))}
+            )}
             </div>
           </div>
-        )}
+        }
 
         {/* Categories View */}
-        {activeView === 'categories' && (
-          <div className="bg-white/5 rounded-xl border border-slate-200 p-6">
-            <h2 className="text-xl font-bold text-slate-900 mb-6">Tur Kategorileri</h2>
+        {activeView === 'categories' &&
+        <div className="bg-lydian-glass-dark rounded-xl border border-lydian-border p-6">
+            <h2 className="text-xl font-bold text-lydian-text mb-6">Tur Kategorileri</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {['adventure', 'cultural', 'nature', 'water', 'food', 'historical'].map((cat) => {
-                const count = tours.filter(t => t.category === cat).length;
-                return (
-                  <div key={cat} className={`border rounded-lg p-6 ${getCategoryColor(cat)}`}>
+              const count = tours.filter((t) => t.category === cat).length;
+              return (
+                <div key={cat} className={`border rounded-lg p-6 ${getCategoryColor(cat)}`}>
                     <div className="flex items-center justify-between mb-3">
                       {getCategoryIcon(cat)}
                       <span className="text-2xl font-bold">{count}</span>
                     </div>
                     <p className="font-semibold capitalize">{cat}</p>
                     <p className="text-xs mt-1 opacity-75">{count} aktif tur</p>
-                  </div>
-                );
-              })}
+                  </div>);
+
+            })}
             </div>
           </div>
-        )}
+        }
       </main>
-    </div>
-  );
+    </div>);
+
 };
 
 export default ToursManagementPage;

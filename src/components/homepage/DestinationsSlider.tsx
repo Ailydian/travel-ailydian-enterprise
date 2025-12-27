@@ -38,8 +38,8 @@ export const DestinationsSlider: React.FC<DestinationsSliderProps> = ({
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
+          transition={{ duration: 0.6 }}>
+
           <h2 className="text-4xl md:text-5xl font-bold text-lydian-text mb-4">
             {title}
           </h2>
@@ -53,8 +53,8 @@ export const DestinationsSlider: React.FC<DestinationsSliderProps> = ({
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.2, duration: 0.6 }}
-        >
+          transition={{ delay: 0.2, duration: 0.6 }}>
+
           <InteractiveSlider
             slidesToShow={3}
             gap={24}
@@ -63,11 +63,11 @@ export const DestinationsSlider: React.FC<DestinationsSliderProps> = ({
             showArrows={true}
             showDots={true}
             pauseOnHover={true}
-            infinite={true}
-          >
-            {destinations.map((destination) => (
-              <DestinationCard key={destination.id} destination={destination} />
-            ))}
+            infinite={true}>
+
+            {destinations.map((destination) =>
+            <DestinationCard key={destination.id} destination={destination} />
+            )}
           </InteractiveSlider>
         </motion.div>
 
@@ -77,25 +77,25 @@ export const DestinationsSlider: React.FC<DestinationsSliderProps> = ({
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.4, duration: 0.6 }}
-        >
+          transition={{ delay: 0.4, duration: 0.6 }}>
+
           <Link href="/destinations">
             <motion.button
-              className="bg-gradient-to-r from-lydian-primary to-lydian-secondary text-white px-8 py-4 rounded-xl font-semibold shadow-neon hover:shadow-neon-lg transition-all inline-flex items-center gap-2"
+              className="bg-gradient-to-r from-lydian-primary to-lydian-secondary text-lydian-text-inverse px-8 py-4 rounded-xl font-semibold shadow-neon hover:shadow-neon-lg transition-all inline-flex items-center gap-2"
               whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
+              whileTap={{ scale: 0.95 }}>
+
               View All Destinations
               <TrendingUp className="w-5 h-5" />
             </motion.button>
           </Link>
         </motion.div>
       </div>
-    </section>
-  );
+    </section>);
+
 };
 
-const DestinationCard: React.FC<{ destination: Destination }> = ({ destination }) => {
+const DestinationCard: React.FC<{destination: Destination;}> = ({ destination }) => {
   const [isFavorite, setIsFavorite] = React.useState(false);
   const [isHovered, setIsHovered] = React.useState(false);
 
@@ -105,8 +105,8 @@ const DestinationCard: React.FC<{ destination: Destination }> = ({ destination }
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       whileHover={{ y: -8 }}
-      transition={{ duration: 0.3 }}
-    >
+      transition={{ duration: 0.3 }}>
+
       <div className="bg-glass-dark backdrop-blur-xl rounded-2xl overflow-hidden border border-lydian-primary/20 shadow-lg hover:shadow-neon transition-all h-full flex flex-col">
         {/* Image Container */}
         <div className="relative h-64 overflow-hidden">
@@ -118,23 +118,23 @@ const DestinationCard: React.FC<{ destination: Destination }> = ({ destination }
             animate={{
               scale: isHovered ? 1.1 : 1
             }}
-            transition={{ duration: 0.6 }}
-          />
+            transition={{ duration: 0.6 }} />
+
 
           {/* Gradient Overlay */}
           <div className="absolute inset-0 bg-gradient-to-t from-lydian-bg via-transparent to-transparent opacity-60" />
 
           {/* Badge */}
-          {destination.badge && (
-            <motion.div
-              className="absolute top-4 left-4 bg-lydian-primary/90 backdrop-blur-md text-white px-4 py-2 rounded-full text-sm font-semibold shadow-neon"
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.2 }}
-            >
+          {destination.badge &&
+          <motion.div
+            className="absolute top-4 left-4 bg-lydian-primary/90 backdrop-blur-md text-lydian-text-inverse px-4 py-2 rounded-full text-sm font-semibold shadow-neon"
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.2 }}>
+
               {destination.badge}
             </motion.div>
-          )}
+          }
 
           {/* Favorite Button */}
           <motion.button
@@ -144,13 +144,13 @@ const DestinationCard: React.FC<{ destination: Destination }> = ({ destination }
               setIsFavorite(!isFavorite);
             }}
             whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-          >
+            whileTap={{ scale: 0.95 }}>
+
             <Heart
               className={`w-5 h-5 transition-colors ${
-                isFavorite ? 'fill-lydian-primary text-lydian-primary' : 'text-lydian-text-muted'
-              }`}
-            />
+              isFavorite ? 'fill-lydian-primary text-lydian-primary' : 'text-lydian-text-muted'}`
+              } />
+
           </motion.button>
 
           {/* Hover Overlay */}
@@ -158,14 +158,14 @@ const DestinationCard: React.FC<{ destination: Destination }> = ({ destination }
             className="absolute inset-0 bg-lydian-primary/20 backdrop-blur-sm flex items-center justify-center"
             initial={{ opacity: 0 }}
             animate={{ opacity: isHovered ? 1 : 0 }}
-            transition={{ duration: 0.3 }}
-          >
+            transition={{ duration: 0.3 }}>
+
             <Link href={`/destinations/${destination.name.toLowerCase()}`}>
               <motion.button
-                className="bg-white/5 text-lydian-primary px-6 py-3 rounded-xl font-semibold shadow-lg"
+                className="bg-lydian-glass-dark text-lydian-primary px-6 py-3 rounded-xl font-semibold shadow-lg"
                 whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-              >
+                whileTap={{ scale: 0.95 }}>
+
                 Explore Now
               </motion.button>
             </Link>
@@ -202,12 +202,12 @@ const DestinationCard: React.FC<{ destination: Destination }> = ({ destination }
               </span>
             </div>
 
-            {destination.price && (
-              <div className="text-right">
+            {destination.price &&
+            <div className="text-right">
                 <div className="text-sm text-lydian-text-muted">From</div>
                 <div className="text-lg font-bold text-lydian-primary">{destination.price}</div>
               </div>
-            )}
+            }
           </div>
         </div>
 
@@ -221,11 +221,11 @@ const DestinationCard: React.FC<{ destination: Destination }> = ({ destination }
           animate={{
             backgroundPosition: isHovered ? ['0% 0%', '100% 100%'] : '0% 0%'
           }}
-          transition={{ duration: 2, repeat: isHovered ? Infinity : 0 }}
-        />
+          transition={{ duration: 2, repeat: isHovered ? Infinity : 0 }} />
+
       </div>
-    </motion.div>
-  );
+    </motion.div>);
+
 };
 
 export default DestinationsSlider;

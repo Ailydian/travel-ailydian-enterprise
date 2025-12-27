@@ -22,7 +22,7 @@ export default function AdminLogin() {
   }, [router]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
       [e.target.name]: e.target.value
     }));
@@ -59,13 +59,13 @@ export default function AdminLogin() {
           <div className="text-center">
             <div className="flex justify-center">
               <div className="w-16 h-16 bg-gradient-to-r from-[#667EEA] via-[#764BA2] to-[#667EEA] rounded-xl flex items-center justify-center">
-                <Shield className="w-8 h-8 text-white" />
+                <Shield className="w-8 h-8 text-lydian-text-inverse" />
               </div>
             </div>
-            <h1 className="mt-6 text-3xl font-bold text-white">
+            <h1 className="mt-6 text-3xl font-bold text-lydian-text-inverse">
               Admin Portal
             </h1>
-            <p className="mt-2 text-gray-400">
+            <p className="mt-2 text-lydian-text-muted">
               Travel LyDian Management System
             </p>
           </div>
@@ -74,16 +74,16 @@ export default function AdminLogin() {
           <div className="bg-gray-800 rounded-xl shadow-2xl border border-gray-700 p-8">
             <form onSubmit={handleSubmit} className="space-y-6">
               {/* Error Message */}
-              {error && (
-                <div className="bg-red-900/50 border border-red-700 rounded-lg p-4 flex items-center space-x-3">
-                  <AlertCircle className="w-5 h-5 text-red-400 flex-shrink-0" />
+              {error &&
+              <div className="bg-red-900/50 border border-red-700 rounded-lg p-4 flex items-center space-x-3">
+                  <AlertCircle className="w-5 h-5 text-lydian-error flex-shrink-0" />
                   <span className="text-red-300 text-sm">{error}</span>
                 </div>
-              )}
+              }
 
               {/* Email Field */}
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
+                <label htmlFor="email" className="block text-sm font-medium text-lydian-text-dim mb-2">
                   Email Address
                 </label>
                 <input
@@ -94,14 +94,14 @@ export default function AdminLogin() {
                   required
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
-                  placeholder="admin@lydian.com"
-                />
+                  className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-lydian-text-inverse placeholder-lydian-text-muted focus:outline-none focus:ring-2 focus:ring-lydian-border-focus focus:border-lydian-primary transition-colors"
+                  placeholder="admin@lydian.com" />
+
               </div>
 
               {/* Password Field */}
               <div>
-                <label htmlFor="password" className="block text-sm font-medium text-gray-300 mb-2">
+                <label htmlFor="password" className="block text-sm font-medium text-lydian-text-dim mb-2">
                   Password
                 </label>
                 <div className="relative">
@@ -113,19 +113,19 @@ export default function AdminLogin() {
                     required
                     value={formData.password}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 pr-12 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
-                    placeholder="Enter your password"
-                  />
+                    className="w-full px-4 py-3 pr-12 bg-gray-700 border border-gray-600 rounded-lg text-lydian-text-inverse placeholder-lydian-text-muted focus:outline-none focus:ring-2 focus:ring-lydian-border-focus focus:border-lydian-primary transition-colors"
+                    placeholder="Enter your password" />
+
                   <button
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
-                    className="absolute inset-y-0 right-0 px-3 flex items-center text-gray-400 hover:text-gray-300"
-                  >
-                    {showPassword ? (
-                      <EyeOff className="w-5 h-5" />
-                    ) : (
-                      <Eye className="w-5 h-5" />
-                    )}
+                    className="absolute inset-y-0 right-0 px-3 flex items-center text-lydian-text-muted hover:text-lydian-text-dim">
+
+                    {showPassword ?
+                    <EyeOff className="w-5 h-5" /> :
+
+                    <Eye className="w-5 h-5" />
+                    }
                   </button>
                 </div>
               </div>
@@ -134,21 +134,21 @@ export default function AdminLogin() {
               <button
                 type="submit"
                 disabled={isLoading}
-                className="w-full bg-gradient-to-r from-[#667EEA] via-[#764BA2] to-[#667EEA] hover:from-blue-700 hover:to-purple-700 disabled:from-gray-600 disabled:to-gray-700 text-white font-semibold py-3 px-4 rounded-lg transition-all duration-200 transform hover:scale-105 disabled:scale-100 disabled:cursor-not-allowed flex items-center justify-center"
-              >
-                {isLoading ? (
-                  <div className="w-6 h-6 border-2 border-white/20 border-t-white rounded-full animate-spin" />
-                ) : (
-                  'Sign In'
-                )}
+                className="w-full bg-gradient-to-r from-[#667EEA] via-[#764BA2] to-[#667EEA] hover:from-lydian-primary-dark hover:to-purple-700 disabled:from-gray-600 disabled:to-gray-700 text-lydian-text-inverse font-semibold py-3 px-4 rounded-lg transition-all duration-200 transform hover:scale-105 disabled:scale-100 disabled:cursor-not-allowed flex items-center justify-center">
+
+                {isLoading ?
+                <div className="w-6 h-6 border-2 border-lydian-border-light border-t-white rounded-full animate-spin" /> :
+
+                'Sign In'
+                }
               </button>
             </form>
 
             {/* Demo Credentials - Only show in development */}
-            {process.env.NODE_ENV === 'development' && (
-              <div className="mt-8 pt-6 border-t border-gray-700">
-                <h3 className="text-sm font-medium text-gray-300 mb-3">Demo Credentials (Development Only):</h3>
-                <div className="space-y-2 text-xs text-gray-200">
+            {process.env.NODE_ENV === 'development' &&
+            <div className="mt-8 pt-6 border-t border-gray-700">
+                <h3 className="text-sm font-medium text-lydian-text-dim mb-3">Demo Credentials (Development Only):</h3>
+                <div className="space-y-2 text-xs text-lydian-text-muted">
                   <div className="bg-gray-900/50 rounded p-2">
                     <div><strong>Super Admin:</strong></div>
                     <div>Email: admin@lydian.com</div>
@@ -161,17 +161,17 @@ export default function AdminLogin() {
                   </div>
                 </div>
               </div>
-            )}
+            }
           </div>
 
           {/* Footer */}
           <div className="text-center">
-            <p className="text-gray-400 text-sm">
+            <p className="text-lydian-text-muted text-sm">
               Secure admin access for authorized personnel only
             </p>
           </div>
         </div>
       </div>
-    </>
-  );
+    </>);
+
 }

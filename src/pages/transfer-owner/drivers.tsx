@@ -27,8 +27,8 @@ import {
   ChevronDown,
   Filter,
   Download,
-  IdCard
-} from 'lucide-react';
+  IdCard } from
+'lucide-react';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -36,8 +36,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 export async function getStaticProps({ locale }: any) {
   return {
     props: {
-      ...(await serverSideTranslations(locale ?? 'tr', ['transfer-owner', 'common'])),
-    },
+      ...(await serverSideTranslations(locale ?? 'tr', ['transfer-owner', 'common']))
+    }
   };
 }
 
@@ -64,121 +64,121 @@ interface Driver {
 
 // Mock Driver Data
 const mockDrivers: Driver[] = [
-  {
-    id: '1',
-    fullName: 'Mehmet Yılmaz',
-    phone: '+90 532 111 2233',
-    email: 'mehmet.yilmaz@example.com',
-    licenseNumber: 'D234567890',
-    licenseClass: 'D2',
-    licenseExpiry: new Date('2026-08-15'),
-    photo: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300',
-    status: 'on-duty',
-    rating: 4.9,
-    completedTrips: 342,
-    onTimeRate: 98,
-    joinedDate: new Date('2022-03-15'),
-    emergencyContact: {
-      name: 'Ayşe Yılmaz',
-      phone: '+90 532 111 2234'
-    }
-  },
-  {
-    id: '2',
-    fullName: 'Ali Demir',
-    phone: '+90 533 444 5566',
-    email: 'ali.demir@example.com',
-    licenseNumber: 'D345678901',
-    licenseClass: 'D2',
-    licenseExpiry: new Date('2027-02-20'),
-    photo: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300',
-    status: 'on-duty',
-    rating: 4.8,
-    completedTrips: 287,
-    onTimeRate: 96,
-    joinedDate: new Date('2022-06-20'),
-    emergencyContact: {
-      name: 'Fatma Demir',
-      phone: '+90 533 444 5567'
-    }
-  },
-  {
-    id: '3',
-    fullName: 'Hasan Kaya',
-    phone: '+90 535 777 8899',
-    email: 'hasan.kaya@example.com',
-    licenseNumber: 'D456789012',
-    licenseClass: 'D2',
-    licenseExpiry: new Date('2025-11-10'),
-    photo: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=300',
-    status: 'active',
-    rating: 4.7,
-    completedTrips: 198,
-    onTimeRate: 94,
-    joinedDate: new Date('2023-01-10'),
-    emergencyContact: {
-      name: 'Zeynep Kaya',
-      phone: '+90 535 777 8800'
-    }
-  },
-  {
-    id: '4',
-    fullName: 'Mustafa Özkan',
-    phone: '+90 536 222 3344',
-    email: 'mustafa.ozkan@example.com',
-    licenseNumber: 'D567890123',
-    licenseClass: 'D2',
-    licenseExpiry: new Date('2026-05-18'),
-    photo: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=300',
-    status: 'off-duty',
-    rating: 4.9,
-    completedTrips: 156,
-    onTimeRate: 97,
-    joinedDate: new Date('2023-04-05'),
-    emergencyContact: {
-      name: 'Elif Özkan',
-      phone: '+90 536 222 3345'
-    }
-  },
-  {
-    id: '5',
-    fullName: 'Ahmet Şahin',
-    phone: '+90 537 555 6677',
-    email: 'ahmet.sahin@example.com',
-    licenseNumber: 'D678901234',
-    licenseClass: 'D2',
-    licenseExpiry: new Date('2025-09-25'),
-    photo: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300',
-    status: 'active',
-    rating: 4.6,
-    completedTrips: 234,
-    onTimeRate: 92,
-    joinedDate: new Date('2022-09-12'),
-    emergencyContact: {
-      name: 'Merve Şahin',
-      phone: '+90 537 555 6678'
-    }
-  },
-  {
-    id: '6',
-    fullName: 'Emre Aydın',
-    phone: '+90 538 999 0011',
-    email: 'emre.aydin@example.com',
-    licenseNumber: 'D789012345',
-    licenseClass: 'D2',
-    licenseExpiry: new Date('2027-12-30'),
-    photo: 'https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?w=300',
-    status: 'active',
-    rating: 5.0,
-    completedTrips: 89,
-    onTimeRate: 99,
-    joinedDate: new Date('2024-01-08'),
-    emergencyContact: {
-      name: 'Selin Aydın',
-      phone: '+90 538 999 0012'
-    }
+{
+  id: '1',
+  fullName: 'Mehmet Yılmaz',
+  phone: '+90 532 111 2233',
+  email: 'mehmet.yilmaz@example.com',
+  licenseNumber: 'D234567890',
+  licenseClass: 'D2',
+  licenseExpiry: new Date('2026-08-15'),
+  photo: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300',
+  status: 'on-duty',
+  rating: 4.9,
+  completedTrips: 342,
+  onTimeRate: 98,
+  joinedDate: new Date('2022-03-15'),
+  emergencyContact: {
+    name: 'Ayşe Yılmaz',
+    phone: '+90 532 111 2234'
   }
-];
+},
+{
+  id: '2',
+  fullName: 'Ali Demir',
+  phone: '+90 533 444 5566',
+  email: 'ali.demir@example.com',
+  licenseNumber: 'D345678901',
+  licenseClass: 'D2',
+  licenseExpiry: new Date('2027-02-20'),
+  photo: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300',
+  status: 'on-duty',
+  rating: 4.8,
+  completedTrips: 287,
+  onTimeRate: 96,
+  joinedDate: new Date('2022-06-20'),
+  emergencyContact: {
+    name: 'Fatma Demir',
+    phone: '+90 533 444 5567'
+  }
+},
+{
+  id: '3',
+  fullName: 'Hasan Kaya',
+  phone: '+90 535 777 8899',
+  email: 'hasan.kaya@example.com',
+  licenseNumber: 'D456789012',
+  licenseClass: 'D2',
+  licenseExpiry: new Date('2025-11-10'),
+  photo: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=300',
+  status: 'active',
+  rating: 4.7,
+  completedTrips: 198,
+  onTimeRate: 94,
+  joinedDate: new Date('2023-01-10'),
+  emergencyContact: {
+    name: 'Zeynep Kaya',
+    phone: '+90 535 777 8800'
+  }
+},
+{
+  id: '4',
+  fullName: 'Mustafa Özkan',
+  phone: '+90 536 222 3344',
+  email: 'mustafa.ozkan@example.com',
+  licenseNumber: 'D567890123',
+  licenseClass: 'D2',
+  licenseExpiry: new Date('2026-05-18'),
+  photo: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=300',
+  status: 'off-duty',
+  rating: 4.9,
+  completedTrips: 156,
+  onTimeRate: 97,
+  joinedDate: new Date('2023-04-05'),
+  emergencyContact: {
+    name: 'Elif Özkan',
+    phone: '+90 536 222 3345'
+  }
+},
+{
+  id: '5',
+  fullName: 'Ahmet Şahin',
+  phone: '+90 537 555 6677',
+  email: 'ahmet.sahin@example.com',
+  licenseNumber: 'D678901234',
+  licenseClass: 'D2',
+  licenseExpiry: new Date('2025-09-25'),
+  photo: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300',
+  status: 'active',
+  rating: 4.6,
+  completedTrips: 234,
+  onTimeRate: 92,
+  joinedDate: new Date('2022-09-12'),
+  emergencyContact: {
+    name: 'Merve Şahin',
+    phone: '+90 537 555 6678'
+  }
+},
+{
+  id: '6',
+  fullName: 'Emre Aydın',
+  phone: '+90 538 999 0011',
+  email: 'emre.aydin@example.com',
+  licenseNumber: 'D789012345',
+  licenseClass: 'D2',
+  licenseExpiry: new Date('2027-12-30'),
+  photo: 'https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?w=300',
+  status: 'active',
+  rating: 5.0,
+  completedTrips: 89,
+  onTimeRate: 99,
+  joinedDate: new Date('2024-01-08'),
+  emergencyContact: {
+    name: 'Selin Aydın',
+    phone: '+90 538 999 0012'
+  }
+}];
+
 
 export default function DriversPage() {
   const { t } = useTranslation('transfer-owner');
@@ -207,10 +207,10 @@ export default function DriversPage() {
   const stats = useMemo(() => {
     return {
       total: drivers.length,
-      active: drivers.filter(d => d.status === 'active').length,
-      onDuty: drivers.filter(d => d.status === 'on-duty').length,
-      offDuty: drivers.filter(d => d.status === 'off-duty').length,
-      inactive: drivers.filter(d => d.status === 'inactive').length,
+      active: drivers.filter((d) => d.status === 'active').length,
+      onDuty: drivers.filter((d) => d.status === 'on-duty').length,
+      offDuty: drivers.filter((d) => d.status === 'off-duty').length,
+      inactive: drivers.filter((d) => d.status === 'inactive').length,
       avgRating: (drivers.reduce((sum, d) => sum + d.rating, 0) / drivers.length).toFixed(1),
       totalTrips: drivers.reduce((sum, d) => sum + d.completedTrips, 0)
     };
@@ -218,15 +218,15 @@ export default function DriversPage() {
 
   // Filter drivers
   const filteredDrivers = useMemo(() => {
-    return drivers
-      .filter(d => filterStatus === 'all' || d.status === filterStatus)
-      .filter(d =>
-        searchQuery === '' ||
-        d.fullName.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        d.phone.includes(searchQuery) ||
-        d.email.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        d.licenseNumber.toLowerCase().includes(searchQuery.toLowerCase())
-      );
+    return drivers.
+    filter((d) => filterStatus === 'all' || d.status === filterStatus).
+    filter((d) =>
+    searchQuery === '' ||
+    d.fullName.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    d.phone.includes(searchQuery) ||
+    d.email.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    d.licenseNumber.toLowerCase().includes(searchQuery.toLowerCase())
+    );
   }, [drivers, filterStatus, searchQuery]);
 
   // Status configuration
@@ -276,11 +276,11 @@ export default function DriversPage() {
       message,
       duration: 3000
     };
-    setToasts(prev => [...prev, newToast]);
+    setToasts((prev) => [...prev, newToast]);
   };
 
   const removeToast = (id: string) => {
-    setToasts(prev => prev.filter(t => t.id !== id));
+    setToasts((prev) => prev.filter((t) => t.id !== id));
   };
 
   // Handle add driver
@@ -305,7 +305,7 @@ export default function DriversPage() {
       }
     };
 
-    setDrivers(prev => [...prev, newDriver]);
+    setDrivers((prev) => [...prev, newDriver]);
     setShowAddModal(false);
     setFormData({
       fullName: '',
@@ -325,24 +325,24 @@ export default function DriversPage() {
     e.preventDefault();
     if (!selectedDriver) return;
 
-    setDrivers(prev =>
-      prev.map(d =>
-        d.id === selectedDriver.id
-          ? {
-              ...d,
-              fullName: formData.fullName,
-              phone: formData.phone,
-              email: formData.email,
-              licenseNumber: formData.licenseNumber,
-              licenseClass: formData.licenseClass,
-              licenseExpiry: new Date(formData.licenseExpiry),
-              emergencyContact: {
-                name: formData.emergencyContactName,
-                phone: formData.emergencyContactPhone
-              }
-            }
-          : d
-      )
+    setDrivers((prev) =>
+    prev.map((d) =>
+    d.id === selectedDriver.id ?
+    {
+      ...d,
+      fullName: formData.fullName,
+      phone: formData.phone,
+      email: formData.email,
+      licenseNumber: formData.licenseNumber,
+      licenseClass: formData.licenseClass,
+      licenseExpiry: new Date(formData.licenseExpiry),
+      emergencyContact: {
+        name: formData.emergencyContactName,
+        phone: formData.emergencyContactPhone
+      }
+    } :
+    d
+    )
     );
 
     setShowEditModal(false);
@@ -353,15 +353,15 @@ export default function DriversPage() {
   // Handle delete driver
   const handleDeleteDriver = (driver: Driver) => {
     if (confirm(`${driver.fullName} adlı sürücüyü silmek istediğinize emin misiniz?`)) {
-      setDrivers(prev => prev.filter(d => d.id !== driver.id));
+      setDrivers((prev) => prev.filter((d) => d.id !== driver.id));
       showToast('success', 'Sürücü Silindi', `${driver.fullName} başarıyla silindi.`);
     }
   };
 
   // Handle status change
   const handleStatusChange = (driver: Driver, newStatus: Driver['status']) => {
-    setDrivers(prev =>
-      prev.map(d => (d.id === driver.id ? { ...d, status: newStatus } : d))
+    setDrivers((prev) =>
+    prev.map((d) => d.id === driver.id ? { ...d, status: newStatus } : d)
     );
     const statusConfig = getStatusConfig(newStatus);
     showToast('success', 'Durum Güncellendi', `${driver.fullName} - ${statusConfig.label}`);
@@ -398,57 +398,57 @@ export default function DriversPage() {
       {/* Toast Container */}
       <div className="fixed top-4 right-4 z-50 space-y-3">
         <AnimatePresence mode="popLayout">
-          {toasts.map((toast) => (
-            <motion.div
-              key={toast.id}
-              initial={{ opacity: 0, y: -50, scale: 0.9 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.9 }}
-              className="bg-transparent rounded-xl shadow-2xl border-2 p-4 min-w-[320px]"
-              style={{
-                borderColor: toast.type === 'success' ? '#10B981' : '#EF4444'
-              }}
-            >
+          {toasts.map((toast) =>
+          <motion.div
+            key={toast.id}
+            initial={{ opacity: 0, y: -50, scale: 0.9 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.9 }}
+            className="bg-lydian-bg-hover rounded-xl shadow-2xl border-2 p-4 min-w-[320px]"
+            style={{
+              borderColor: toast.type === 'success' ? '#10B981' : '#EF4444'
+            }}>
+
               <div className="flex items-start gap-3">
                 <div
-                  className="p-2 rounded-lg"
-                  style={{
-                    background: toast.type === 'success'
-                      ? 'linear-gradient(135deg, #10B981, #059669)'
-                      : 'linear-gradient(135deg, #EF4444, #DC2626)'
-                  }}
-                >
-                  {toast.type === 'success' ? (
-                    <CheckCircle className="w-5 h-5 text-white" />
-                  ) : (
-                    <AlertCircle className="w-5 h-5 text-white" />
-                  )}
+                className="p-2 rounded-lg"
+                style={{
+                  background: toast.type === 'success' ?
+                  'linear-gradient(135deg, #10B981, #059669)' :
+                  'linear-gradient(135deg, #EF4444, #DC2626)'
+                }}>
+
+                  {toast.type === 'success' ?
+                <CheckCircle className="w-5 h-5 text-lydian-text-inverse" /> :
+
+                <AlertCircle className="w-5 h-5 text-lydian-text-inverse" />
+                }
                 </div>
                 <div className="flex-1">
-                  <h4 className="font-bold text-white">{toast.title}</h4>
-                  {toast.message && (
-                    <p className="text-sm text-gray-100 mt-1">{toast.message}</p>
-                  )}
+                  <h4 className="font-bold text-lydian-text-inverse">{toast.title}</h4>
+                  {toast.message &&
+                <p className="text-sm text-lydian-text-dim mt-1">{toast.message}</p>
+                }
                 </div>
                 <button
-                  onClick={() => removeToast(toast.id)}
-                  className="p-1 hover:bg-white/10 rounded"
-                >
-                  <X className="w-4 h-4 text-gray-400" />
+                onClick={() => removeToast(toast.id)}
+                className="p-1 hover:bg-lydian-glass-dark-medium rounded">
+
+                  <X className="w-4 h-4 text-lydian-text-muted" />
                 </button>
               </div>
             </motion.div>
-          ))}
+          )}
         </AnimatePresence>
       </div>
 
       {/* Header */}
       <div className="rounded-2xl p-6 border-2"
-           style={{
-             backgroundColor: '#FFFFFF',
-             borderColor: '#E5E7EB',
-             boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
-           }}>
+      style={{
+        backgroundColor: '#FFFFFF',
+        borderColor: '#E5E7EB',
+        boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
+      }}>
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div>
             <h1 className="text-3xl font-black mb-2 neon-text-strong" style={{ color: '#000000' }}>
@@ -465,8 +465,8 @@ export default function DriversPage() {
               background: 'linear-gradient(135deg, #2563EB, #06B6D4)',
               color: 'white',
               boxShadow: '0 0 30px rgba(37, 99, 235, 0.5)'
-            }}
-          >
+            }}>
+
             <Plus className="w-5 h-5" />
             <span>Yeni Sürücü Ekle</span>
           </button>
@@ -476,23 +476,23 @@ export default function DriversPage() {
       {/* Stats Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         {[
-          { label: 'Toplam Sürücü', value: stats.total, icon: Users, color: '#2563EB' },
-          { label: 'Görevde', value: stats.onDuty, icon: Activity, color: '#2563EB' },
-          { label: 'Ortalama Puan', value: stats.avgRating, icon: Star, color: '#F59E0B', suffix: '★' },
-          { label: 'Toplam Transfer', value: stats.totalTrips, icon: TrendingUp, color: '#10B981' }
-        ].map((stat, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: index * 0.1 }}
-            className="rounded-xl p-5 border-2 transition-all hover:scale-105"
-            style={{
-              backgroundColor: '#FFFFFF',
-              borderColor: '#E5E7EB',
-              boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
-            }}
-          >
+        { label: 'Toplam Sürücü', value: stats.total, icon: Users, color: '#2563EB' },
+        { label: 'Görevde', value: stats.onDuty, icon: Activity, color: '#2563EB' },
+        { label: 'Ortalama Puan', value: stats.avgRating, icon: Star, color: '#F59E0B', suffix: '★' },
+        { label: 'Toplam Transfer', value: stats.totalTrips, icon: TrendingUp, color: '#10B981' }].
+        map((stat, index) =>
+        <motion.div
+          key={index}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: index * 0.1 }}
+          className="rounded-xl p-5 border-2 transition-all hover:scale-105"
+          style={{
+            backgroundColor: '#FFFFFF',
+            borderColor: '#E5E7EB',
+            boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
+          }}>
+
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm font-medium mb-1" style={{ color: '#666666' }}>{stat.label}</p>
@@ -501,14 +501,14 @@ export default function DriversPage() {
                 </p>
               </div>
               <div
-                className="p-3 rounded-lg"
-                style={{ backgroundColor: `${stat.color}20`, color: stat.color }}
-              >
+              className="p-3 rounded-lg"
+              style={{ backgroundColor: `${stat.color}20`, color: stat.color }}>
+
                 <stat.icon className="w-6 h-6" />
               </div>
             </div>
           </motion.div>
-        ))}
+        )}
       </div>
 
       {/* Filters and Search */}
@@ -520,26 +520,26 @@ export default function DriversPage() {
             placeholder="Sürücü ara (isim, telefon, email, ehliyet)..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-12 pr-4 py-3 rounded-xl border-2 transition-all focus:border-blue-500"
+            className="w-full pl-12 pr-4 py-3 rounded-xl border-2 transition-all focus:border-lydian-primary"
             style={{
               backgroundColor: '#FFFFFF',
               borderColor: '#E5E7EB',
               color: '#000000'
-            }}
-          />
+            }} />
+
         </div>
 
         <div className="flex gap-3">
           <select
             value={filterStatus}
             onChange={(e) => setFilterStatus(e.target.value as any)}
-            className="px-4 py-3 rounded-xl border-2 transition-all focus:border-blue-500"
+            className="px-4 py-3 rounded-xl border-2 transition-all focus:border-lydian-primary"
             style={{
               backgroundColor: '#FFFFFF',
               borderColor: '#E5E7EB',
               color: '#000000'
-            }}
-          >
+            }}>
+
             <option value="all">Tüm Durumlar</option>
             <option value="active">Müsait</option>
             <option value="on-duty">Görevde</option>
@@ -554,24 +554,24 @@ export default function DriversPage() {
               backgroundColor: '#FFFFFF',
               borderColor: '#E5E7EB',
               color: '#2563EB'
-            }}
-          >
+            }}>
+
             {viewType === 'grid' ? 'Tablo' : 'Kart'}
           </button>
         </div>
       </div>
 
       {/* Drivers Grid/Table View */}
-      {filteredDrivers.length === 0 ? (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          className="text-center py-16 rounded-2xl border-2"
-          style={{
-            backgroundColor: '#FFFFFF',
-            borderColor: '#E5E7EB'
-          }}
-        >
+      {filteredDrivers.length === 0 ?
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        className="text-center py-16 rounded-2xl border-2"
+        style={{
+          backgroundColor: '#FFFFFF',
+          borderColor: '#E5E7EB'
+        }}>
+
           <Users className="w-16 h-16 mx-auto mb-4" style={{ color: '#666666' }} />
           <h3 className="text-xl font-bold mb-2" style={{ color: '#000000' }}>
             Sürücü Bulunamadı
@@ -580,61 +580,61 @@ export default function DriversPage() {
             Seçtiğiniz filtreye uygun sürücü bulunmamaktadır.
           </p>
           <button
-            onClick={() => setShowAddModal(true)}
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold transition-all hover:scale-105"
-            style={{
-              background: 'linear-gradient(135deg, #2563EB, #06B6D4)',
-              color: 'white'
-            }}
-          >
+          onClick={() => setShowAddModal(true)}
+          className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold transition-all hover:scale-105"
+          style={{
+            background: 'linear-gradient(135deg, #2563EB, #06B6D4)',
+            color: 'white'
+          }}>
+
             <Plus className="w-5 h-5" />
             <span>İlk Sürücünüzü Ekleyin</span>
           </button>
-        </motion.div>
-      ) : viewType === 'grid' ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        </motion.div> :
+      viewType === 'grid' ?
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredDrivers.map((driver, index) => {
-            const statusConfig = getStatusConfig(driver.status);
-            const StatusIcon = statusConfig.icon;
-            const licenseExpiringSoon = isLicenseExpiringSoon(driver.licenseExpiry);
-            const licenseExpired = isLicenseExpired(driver.licenseExpiry);
+          const statusConfig = getStatusConfig(driver.status);
+          const StatusIcon = statusConfig.icon;
+          const licenseExpiringSoon = isLicenseExpiringSoon(driver.licenseExpiry);
+          const licenseExpired = isLicenseExpired(driver.licenseExpiry);
 
-            return (
-              <motion.div
-                key={driver.id}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                className="rounded-2xl border-2 overflow-hidden transition-all hover:scale-[1.02]"
-                style={{
-                  backgroundColor: '#FFFFFF',
-                  borderColor: '#E5E7EB',
-                  boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
-                }}
-              >
+          return (
+            <motion.div
+              key={driver.id}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.1 }}
+              className="rounded-2xl border-2 overflow-hidden transition-all hover:scale-[1.02]"
+              style={{
+                backgroundColor: '#FFFFFF',
+                borderColor: '#E5E7EB',
+                boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
+              }}>
+
                 {/* Header with Photo */}
-                <div className="relative h-32 bg-gradient-to-r from-blue-600 to-cyan-600">
+                <div className="relative h-32 bg-gradient-to-r from-lydian-primary to-cyan-600">
                   <div className="absolute -bottom-12 left-6">
                     <div className="relative">
-                      {driver.photo ? (
-                        <img
-                          src={driver.photo}
-                          alt={driver.fullName}
-                          className="w-24 h-24 rounded-xl border-4 border-white object-cover"
-                        />
-                      ) : (
-                        <div className="w-24 h-24 rounded-xl border-4 border-white bg-gradient-to-br from-blue-600 to-cyan-600 flex items-center justify-center">
-                          <Users className="w-12 h-12 text-white" />
+                      {driver.photo ?
+                    <img
+                      src={driver.photo}
+                      alt={driver.fullName}
+                      className="w-24 h-24 rounded-xl border-4 border-lydian-border-light object-cover" /> :
+
+
+                    <div className="w-24 h-24 rounded-xl border-4 border-lydian-border-light bg-gradient-to-br from-lydian-primary to-cyan-600 flex items-center justify-center">
+                          <Users className="w-12 h-12 text-lydian-text-inverse" />
                         </div>
-                      )}
+                    }
                       <div
-                        className="absolute -bottom-1 -right-1 px-2 py-1 rounded-lg text-xs font-bold flex items-center gap-1"
-                        style={{
-                          backgroundColor: statusConfig.bg,
-                          color: statusConfig.text,
-                          border: `2px solid ${statusConfig.border}`
-                        }}
-                      >
+                      className="absolute -bottom-1 -right-1 px-2 py-1 rounded-lg text-xs font-bold flex items-center gap-1"
+                      style={{
+                        backgroundColor: statusConfig.bg,
+                        color: statusConfig.text,
+                        border: `2px solid ${statusConfig.border}`
+                      }}>
+
                         <StatusIcon className="w-3 h-3" />
                       </div>
                     </div>
@@ -686,9 +686,9 @@ export default function DriversPage() {
                         </span>
                       </div>
                       <span className="text-xs font-bold px-2 py-1 rounded" style={{
-                        backgroundColor: 'rgba(37, 99, 235, 0.1)',
-                        color: '#2563EB'
-                      }}>
+                      backgroundColor: 'rgba(37, 99, 235, 0.1)',
+                      color: '#2563EB'
+                    }}>
                         {driver.licenseClass}
                       </span>
                     </div>
@@ -697,19 +697,19 @@ export default function DriversPage() {
                     </p>
                     <div className="flex items-center gap-1">
                       <Calendar className="w-3 h-3" style={{
-                        color: licenseExpired ? '#EF4444' : licenseExpiringSoon ? '#F59E0B' : '#666666'
-                      }} />
+                      color: licenseExpired ? '#EF4444' : licenseExpiringSoon ? '#F59E0B' : '#666666'
+                    }} />
                       <span className="text-xs" style={{
-                        color: licenseExpired ? '#EF4444' : licenseExpiringSoon ? '#F59E0B' : '#666666'
-                      }}>
+                      color: licenseExpired ? '#EF4444' : licenseExpiringSoon ? '#F59E0B' : '#666666'
+                    }}>
                         {licenseExpired ? 'Süresi dolmuş' : `Geçerli: ${driver.licenseExpiry.toLocaleDateString('tr-TR')}`}
                       </span>
                     </div>
-                    {licenseExpiringSoon && !licenseExpired && (
-                      <p className="text-xs mt-1" style={{ color: '#F59E0B' }}>
+                    {licenseExpiringSoon && !licenseExpired &&
+                  <p className="text-xs mt-1" style={{ color: '#F59E0B' }}>
                         ⚠ Yakında sona erecek
                       </p>
-                    )}
+                  }
                   </div>
 
                   {/* Emergency Contact */}
@@ -731,15 +731,15 @@ export default function DriversPage() {
                       Durum Değiştir
                     </label>
                     <select
-                      value={driver.status}
-                      onChange={(e) => handleStatusChange(driver, e.target.value as Driver['status'])}
-                      className="w-full px-3 py-2 rounded-lg border-2 text-sm transition-all"
-                      style={{
-                        backgroundColor: statusConfig.bg,
-                        borderColor: statusConfig.border,
-                        color: statusConfig.text
-                      }}
-                    >
+                    value={driver.status}
+                    onChange={(e) => handleStatusChange(driver, e.target.value as Driver['status'])}
+                    className="w-full px-3 py-2 rounded-lg border-2 text-sm transition-all"
+                    style={{
+                      backgroundColor: statusConfig.bg,
+                      borderColor: statusConfig.border,
+                      color: statusConfig.text
+                    }}>
+
                       <option value="active">Müsait</option>
                       <option value="on-duty">Görevde</option>
                       <option value="off-duty">Mesai Dışı</option>
@@ -750,41 +750,41 @@ export default function DriversPage() {
                   {/* Actions */}
                   <div className="flex gap-2">
                     <button
-                      onClick={() => openEditModal(driver)}
-                      className="flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-lg font-medium transition-all hover:scale-105"
-                      style={{
-                        backgroundColor: 'rgba(37, 99, 235, 0.1)',
-                        color: '#2563EB',
-                        border: '1px solid rgba(37, 99, 235, 0.3)'
-                      }}
-                    >
+                    onClick={() => openEditModal(driver)}
+                    className="flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-lg font-medium transition-all hover:scale-105"
+                    style={{
+                      backgroundColor: 'rgba(37, 99, 235, 0.1)',
+                      color: '#2563EB',
+                      border: '1px solid rgba(37, 99, 235, 0.3)'
+                    }}>
+
                       <Edit className="w-4 h-4" />
                       <span>Düzenle</span>
                     </button>
                     <button
-                      onClick={() => handleDeleteDriver(driver)}
-                      className="px-4 py-2 rounded-lg transition-all hover:scale-105"
-                      style={{
-                        backgroundColor: 'rgba(239, 68, 68, 0.1)',
-                        color: '#EF4444',
-                        border: '1px solid rgba(239, 68, 68, 0.3)'
-                      }}
-                    >
+                    onClick={() => handleDeleteDriver(driver)}
+                    className="px-4 py-2 rounded-lg transition-all hover:scale-105"
+                    style={{
+                      backgroundColor: 'rgba(239, 68, 68, 0.1)',
+                      color: '#EF4444',
+                      border: '1px solid rgba(239, 68, 68, 0.3)'
+                    }}>
+
                       <Trash2 className="w-4 h-4" />
                     </button>
                   </div>
                 </div>
-              </motion.div>
-            );
-          })}
-        </div>
-      ) : (
-        <div className="rounded-2xl border-2 overflow-hidden"
-             style={{
-               backgroundColor: '#FFFFFF',
-               borderColor: '#E5E7EB',
-               boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
-             }}>
+              </motion.div>);
+
+        })}
+        </div> :
+
+      <div className="rounded-2xl border-2 overflow-hidden"
+      style={{
+        backgroundColor: '#FFFFFF',
+        borderColor: '#E5E7EB',
+        boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
+      }}>
           <div className="overflow-x-auto">
             <table className="w-full">
               <thead style={{ backgroundColor: '#F9FAFB' }}>
@@ -811,26 +811,26 @@ export default function DriversPage() {
               </thead>
               <tbody className="divide-y" style={{ borderColor: '#E5E7EB' }}>
                 {filteredDrivers.map((driver) => {
-                  const statusConfig = getStatusConfig(driver.status);
-                  const StatusIcon = statusConfig.icon;
-                  const licenseExpired = isLicenseExpired(driver.licenseExpiry);
-                  const licenseExpiringSoon = isLicenseExpiringSoon(driver.licenseExpiry);
+                const statusConfig = getStatusConfig(driver.status);
+                const StatusIcon = statusConfig.icon;
+                const licenseExpired = isLicenseExpired(driver.licenseExpiry);
+                const licenseExpiringSoon = isLicenseExpiringSoon(driver.licenseExpiry);
 
-                  return (
-                    <tr key={driver.id} className="hover:bg-white/5 transition-colors">
+                return (
+                  <tr key={driver.id} className="hover:bg-lydian-glass-dark transition-colors">
                       <td className="px-6 py-4">
                         <div className="flex items-center gap-3">
-                          {driver.photo ? (
-                            <img
-                              src={driver.photo}
-                              alt={driver.fullName}
-                              className="w-12 h-12 rounded-lg object-cover"
-                            />
-                          ) : (
-                            <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-blue-600 to-cyan-600 flex items-center justify-center">
-                              <Users className="w-6 h-6 text-white" />
+                          {driver.photo ?
+                        <img
+                          src={driver.photo}
+                          alt={driver.fullName}
+                          className="w-12 h-12 rounded-lg object-cover" /> :
+
+
+                        <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-lydian-primary to-cyan-600 flex items-center justify-center">
+                              <Users className="w-6 h-6 text-lydian-text-inverse" />
                             </div>
-                          )}
+                        }
                           <div>
                             <p className="font-bold" style={{ color: '#000000' }}>
                               {driver.fullName}
@@ -863,9 +863,9 @@ export default function DriversPage() {
                         <div className="text-sm">
                           <div className="flex items-center gap-2 mb-1">
                             <span className="text-xs font-bold px-2 py-1 rounded" style={{
-                              backgroundColor: 'rgba(37, 99, 235, 0.1)',
-                              color: '#2563EB'
-                            }}>
+                            backgroundColor: 'rgba(37, 99, 235, 0.1)',
+                            color: '#2563EB'
+                          }}>
                               {driver.licenseClass}
                             </span>
                             <span className="text-xs" style={{ color: '#666666' }}>
@@ -873,18 +873,18 @@ export default function DriversPage() {
                             </span>
                           </div>
                           <p className="text-xs" style={{
-                            color: licenseExpired ? '#EF4444' : licenseExpiringSoon ? '#F59E0B' : '#666666'
-                          }}>
+                          color: licenseExpired ? '#EF4444' : licenseExpiringSoon ? '#F59E0B' : '#666666'
+                        }}>
                             {licenseExpired ? '⚠ Süresi dolmuş' : driver.licenseExpiry.toLocaleDateString('tr-TR')}
                           </p>
                         </div>
                       </td>
                       <td className="px-6 py-4 text-center">
                         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-lg"
-                             style={{
-                               backgroundColor: 'rgba(16, 185, 129, 0.1)',
-                               color: '#10B981'
-                             }}>
+                      style={{
+                        backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                        color: '#10B981'
+                      }}>
                           <CheckCircle className="w-4 h-4" />
                           <span className="text-sm font-bold">%{driver.onTimeRate}</span>
                         </div>
@@ -892,13 +892,13 @@ export default function DriversPage() {
                       <td className="px-6 py-4">
                         <div className="flex justify-center">
                           <div
-                            className="inline-flex items-center gap-2 px-3 py-1 rounded-lg text-xs font-bold"
-                            style={{
-                              backgroundColor: statusConfig.bg,
-                              color: statusConfig.text,
-                              border: `1px solid ${statusConfig.border}`
-                            }}
-                          >
+                          className="inline-flex items-center gap-2 px-3 py-1 rounded-lg text-xs font-bold"
+                          style={{
+                            backgroundColor: statusConfig.bg,
+                            color: statusConfig.text,
+                            border: `1px solid ${statusConfig.border}`
+                          }}>
+
                             <StatusIcon className="w-3 h-3" />
                             <span>{statusConfig.label}</span>
                           </div>
@@ -907,61 +907,61 @@ export default function DriversPage() {
                       <td className="px-6 py-4">
                         <div className="flex items-center justify-end gap-2">
                           <button
-                            onClick={() => openEditModal(driver)}
-                            className="p-2 rounded-lg transition-all hover:scale-110"
-                            style={{
-                              backgroundColor: 'rgba(37, 99, 235, 0.1)',
-                              color: '#2563EB'
-                            }}
-                          >
+                          onClick={() => openEditModal(driver)}
+                          className="p-2 rounded-lg transition-all hover:scale-110"
+                          style={{
+                            backgroundColor: 'rgba(37, 99, 235, 0.1)',
+                            color: '#2563EB'
+                          }}>
+
                             <Edit className="w-4 h-4" />
                           </button>
                           <button
-                            onClick={() => handleDeleteDriver(driver)}
-                            className="p-2 rounded-lg transition-all hover:scale-110"
-                            style={{
-                              backgroundColor: 'rgba(239, 68, 68, 0.1)',
-                              color: '#EF4444'
-                            }}
-                          >
+                          onClick={() => handleDeleteDriver(driver)}
+                          className="p-2 rounded-lg transition-all hover:scale-110"
+                          style={{
+                            backgroundColor: 'rgba(239, 68, 68, 0.1)',
+                            color: '#EF4444'
+                          }}>
+
                             <Trash2 className="w-4 h-4" />
                           </button>
                         </div>
                       </td>
-                    </tr>
-                  );
-                })}
+                    </tr>);
+
+              })}
               </tbody>
             </table>
           </div>
         </div>
-      )}
+      }
 
       {/* Add Driver Modal */}
       <AnimatePresence>
-        {showAddModal && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4"
-            onClick={() => setShowAddModal(false)}
-          >
+        {showAddModal &&
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4"
+          onClick={() => setShowAddModal(false)}>
+
             <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              onClick={(e) => e.stopPropagation()}
-              className="bg-transparent rounded-2xl p-6 max-w-2xl w-full max-h-[90vh] overflow-y-auto"
-            >
+            initial={{ scale: 0.9, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0.9, opacity: 0 }}
+            onClick={(e) => e.stopPropagation()}
+            className="bg-lydian-bg-hover rounded-2xl p-6 max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+
               <div className="flex items-center justify-between mb-6">
                 <h2 className="text-2xl font-black" style={{ color: '#000000' }}>
                   Yeni Sürücü Ekle
                 </h2>
                 <button
-                  onClick={() => setShowAddModal(false)}
-                  className="p-2 hover:bg-white/10 rounded-lg"
-                >
+                onClick={() => setShowAddModal(false)}
+                className="p-2 hover:bg-lydian-glass-dark-medium rounded-lg">
+
                   <X className="w-5 h-5" />
                 </button>
               </div>
@@ -973,17 +973,17 @@ export default function DriversPage() {
                       Ad Soyad *
                     </label>
                     <input
-                      type="text"
-                      required
-                      value={formData.fullName}
-                      onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                      className="w-full px-4 py-3 rounded-lg border-2"
-                      style={{
-                        backgroundColor: '#FFFFFF',
-                        borderColor: '#E5E7EB',
-                        color: '#000000'
-                      }}
-                    />
+                    type="text"
+                    required
+                    value={formData.fullName}
+                    onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
+                    className="w-full px-4 py-3 rounded-lg border-2"
+                    style={{
+                      backgroundColor: '#FFFFFF',
+                      borderColor: '#E5E7EB',
+                      color: '#000000'
+                    }} />
+
                   </div>
 
                   <div>
@@ -991,18 +991,18 @@ export default function DriversPage() {
                       Telefon *
                     </label>
                     <input
-                      type="tel"
-                      required
-                      value={formData.phone}
-                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className="w-full px-4 py-3 rounded-lg border-2"
-                      style={{
-                        backgroundColor: '#FFFFFF',
-                        borderColor: '#E5E7EB',
-                        color: '#000000'
-                      }}
-                      placeholder="+90 5XX XXX XX XX"
-                    />
+                    type="tel"
+                    required
+                    value={formData.phone}
+                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                    className="w-full px-4 py-3 rounded-lg border-2"
+                    style={{
+                      backgroundColor: '#FFFFFF',
+                      borderColor: '#E5E7EB',
+                      color: '#000000'
+                    }}
+                    placeholder="+90 5XX XXX XX XX" />
+
                   </div>
 
                   <div>
@@ -1010,17 +1010,17 @@ export default function DriversPage() {
                       E-posta *
                     </label>
                     <input
-                      type="email"
-                      required
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full px-4 py-3 rounded-lg border-2"
-                      style={{
-                        backgroundColor: '#FFFFFF',
-                        borderColor: '#E5E7EB',
-                        color: '#000000'
-                      }}
-                    />
+                    type="email"
+                    required
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    className="w-full px-4 py-3 rounded-lg border-2"
+                    style={{
+                      backgroundColor: '#FFFFFF',
+                      borderColor: '#E5E7EB',
+                      color: '#000000'
+                    }} />
+
                   </div>
 
                   <div>
@@ -1028,17 +1028,17 @@ export default function DriversPage() {
                       Ehliyet Numarası *
                     </label>
                     <input
-                      type="text"
-                      required
-                      value={formData.licenseNumber}
-                      onChange={(e) => setFormData({ ...formData, licenseNumber: e.target.value })}
-                      className="w-full px-4 py-3 rounded-lg border-2"
-                      style={{
-                        backgroundColor: '#FFFFFF',
-                        borderColor: '#E5E7EB',
-                        color: '#000000'
-                      }}
-                    />
+                    type="text"
+                    required
+                    value={formData.licenseNumber}
+                    onChange={(e) => setFormData({ ...formData, licenseNumber: e.target.value })}
+                    className="w-full px-4 py-3 rounded-lg border-2"
+                    style={{
+                      backgroundColor: '#FFFFFF',
+                      borderColor: '#E5E7EB',
+                      color: '#000000'
+                    }} />
+
                   </div>
 
                   <div>
@@ -1046,16 +1046,16 @@ export default function DriversPage() {
                       Ehliyet Sınıfı *
                     </label>
                     <select
-                      required
-                      value={formData.licenseClass}
-                      onChange={(e) => setFormData({ ...formData, licenseClass: e.target.value })}
-                      className="w-full px-4 py-3 rounded-lg border-2"
-                      style={{
-                        backgroundColor: '#FFFFFF',
-                        borderColor: '#E5E7EB',
-                        color: '#000000'
-                      }}
-                    >
+                    required
+                    value={formData.licenseClass}
+                    onChange={(e) => setFormData({ ...formData, licenseClass: e.target.value })}
+                    className="w-full px-4 py-3 rounded-lg border-2"
+                    style={{
+                      backgroundColor: '#FFFFFF',
+                      borderColor: '#E5E7EB',
+                      color: '#000000'
+                    }}>
+
                       <option value="D2">D2 - Turizm Taşımacılığı</option>
                       <option value="D1">D1 - Minibüs</option>
                       <option value="D">D - Otobüs</option>
@@ -1067,17 +1067,17 @@ export default function DriversPage() {
                       Ehliyet Bitiş Tarihi *
                     </label>
                     <input
-                      type="date"
-                      required
-                      value={formData.licenseExpiry}
-                      onChange={(e) => setFormData({ ...formData, licenseExpiry: e.target.value })}
-                      className="w-full px-4 py-3 rounded-lg border-2"
-                      style={{
-                        backgroundColor: '#FFFFFF',
-                        borderColor: '#E5E7EB',
-                        color: '#000000'
-                      }}
-                    />
+                    type="date"
+                    required
+                    value={formData.licenseExpiry}
+                    onChange={(e) => setFormData({ ...formData, licenseExpiry: e.target.value })}
+                    className="w-full px-4 py-3 rounded-lg border-2"
+                    style={{
+                      backgroundColor: '#FFFFFF',
+                      borderColor: '#E5E7EB',
+                      color: '#000000'
+                    }} />
+
                   </div>
 
                   <div>
@@ -1085,17 +1085,17 @@ export default function DriversPage() {
                       Acil Durum İletişim - Ad Soyad *
                     </label>
                     <input
-                      type="text"
-                      required
-                      value={formData.emergencyContactName}
-                      onChange={(e) => setFormData({ ...formData, emergencyContactName: e.target.value })}
-                      className="w-full px-4 py-3 rounded-lg border-2"
-                      style={{
-                        backgroundColor: '#FFFFFF',
-                        borderColor: '#E5E7EB',
-                        color: '#000000'
-                      }}
-                    />
+                    type="text"
+                    required
+                    value={formData.emergencyContactName}
+                    onChange={(e) => setFormData({ ...formData, emergencyContactName: e.target.value })}
+                    className="w-full px-4 py-3 rounded-lg border-2"
+                    style={{
+                      backgroundColor: '#FFFFFF',
+                      borderColor: '#E5E7EB',
+                      color: '#000000'
+                    }} />
+
                   </div>
 
                   <div>
@@ -1103,75 +1103,75 @@ export default function DriversPage() {
                       Acil Durum İletişim - Telefon *
                     </label>
                     <input
-                      type="tel"
-                      required
-                      value={formData.emergencyContactPhone}
-                      onChange={(e) => setFormData({ ...formData, emergencyContactPhone: e.target.value })}
-                      className="w-full px-4 py-3 rounded-lg border-2"
-                      style={{
-                        backgroundColor: '#FFFFFF',
-                        borderColor: '#E5E7EB',
-                        color: '#000000'
-                      }}
-                      placeholder="+90 5XX XXX XX XX"
-                    />
+                    type="tel"
+                    required
+                    value={formData.emergencyContactPhone}
+                    onChange={(e) => setFormData({ ...formData, emergencyContactPhone: e.target.value })}
+                    className="w-full px-4 py-3 rounded-lg border-2"
+                    style={{
+                      backgroundColor: '#FFFFFF',
+                      borderColor: '#E5E7EB',
+                      color: '#000000'
+                    }}
+                    placeholder="+90 5XX XXX XX XX" />
+
                   </div>
                 </div>
 
                 <div className="flex gap-3 pt-4">
                   <button
-                    type="button"
-                    onClick={() => setShowAddModal(false)}
-                    className="flex-1 px-6 py-3 rounded-xl font-bold transition-all"
-                    style={{
-                      backgroundColor: 'rgba(107, 114, 128, 0.1)',
-                      color: '#6B7280'
-                    }}
-                  >
+                  type="button"
+                  onClick={() => setShowAddModal(false)}
+                  className="flex-1 px-6 py-3 rounded-xl font-bold transition-all"
+                  style={{
+                    backgroundColor: 'rgba(107, 114, 128, 0.1)',
+                    color: '#6B7280'
+                  }}>
+
                     İptal
                   </button>
                   <button
-                    type="submit"
-                    className="flex-1 px-6 py-3 rounded-xl font-bold transition-all hover:scale-105"
-                    style={{
-                      background: 'linear-gradient(135deg, #2563EB, #06B6D4)',
-                      color: 'white'
-                    }}
-                  >
+                  type="submit"
+                  className="flex-1 px-6 py-3 rounded-xl font-bold transition-all hover:scale-105"
+                  style={{
+                    background: 'linear-gradient(135deg, #2563EB, #06B6D4)',
+                    color: 'white'
+                  }}>
+
                     Sürücü Ekle
                   </button>
                 </div>
               </form>
             </motion.div>
           </motion.div>
-        )}
+        }
       </AnimatePresence>
 
       {/* Edit Driver Modal */}
       <AnimatePresence>
-        {showEditModal && selectedDriver && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4"
-            onClick={() => setShowEditModal(false)}
-          >
+        {showEditModal && selectedDriver &&
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4"
+          onClick={() => setShowEditModal(false)}>
+
             <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              onClick={(e) => e.stopPropagation()}
-              className="bg-transparent rounded-2xl p-6 max-w-2xl w-full max-h-[90vh] overflow-y-auto"
-            >
+            initial={{ scale: 0.9, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0.9, opacity: 0 }}
+            onClick={(e) => e.stopPropagation()}
+            className="bg-lydian-bg-hover rounded-2xl p-6 max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+
               <div className="flex items-center justify-between mb-6">
                 <h2 className="text-2xl font-black" style={{ color: '#000000' }}>
                   Sürücü Düzenle
                 </h2>
                 <button
-                  onClick={() => setShowEditModal(false)}
-                  className="p-2 hover:bg-white/10 rounded-lg"
-                >
+                onClick={() => setShowEditModal(false)}
+                className="p-2 hover:bg-lydian-glass-dark-medium rounded-lg">
+
                   <X className="w-5 h-5" />
                 </button>
               </div>
@@ -1183,17 +1183,17 @@ export default function DriversPage() {
                       Ad Soyad *
                     </label>
                     <input
-                      type="text"
-                      required
-                      value={formData.fullName}
-                      onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                      className="w-full px-4 py-3 rounded-lg border-2"
-                      style={{
-                        backgroundColor: '#FFFFFF',
-                        borderColor: '#E5E7EB',
-                        color: '#000000'
-                      }}
-                    />
+                    type="text"
+                    required
+                    value={formData.fullName}
+                    onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
+                    className="w-full px-4 py-3 rounded-lg border-2"
+                    style={{
+                      backgroundColor: '#FFFFFF',
+                      borderColor: '#E5E7EB',
+                      color: '#000000'
+                    }} />
+
                   </div>
 
                   <div>
@@ -1201,17 +1201,17 @@ export default function DriversPage() {
                       Telefon *
                     </label>
                     <input
-                      type="tel"
-                      required
-                      value={formData.phone}
-                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className="w-full px-4 py-3 rounded-lg border-2"
-                      style={{
-                        backgroundColor: '#FFFFFF',
-                        borderColor: '#E5E7EB',
-                        color: '#000000'
-                      }}
-                    />
+                    type="tel"
+                    required
+                    value={formData.phone}
+                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                    className="w-full px-4 py-3 rounded-lg border-2"
+                    style={{
+                      backgroundColor: '#FFFFFF',
+                      borderColor: '#E5E7EB',
+                      color: '#000000'
+                    }} />
+
                   </div>
 
                   <div>
@@ -1219,17 +1219,17 @@ export default function DriversPage() {
                       E-posta *
                     </label>
                     <input
-                      type="email"
-                      required
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full px-4 py-3 rounded-lg border-2"
-                      style={{
-                        backgroundColor: '#FFFFFF',
-                        borderColor: '#E5E7EB',
-                        color: '#000000'
-                      }}
-                    />
+                    type="email"
+                    required
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    className="w-full px-4 py-3 rounded-lg border-2"
+                    style={{
+                      backgroundColor: '#FFFFFF',
+                      borderColor: '#E5E7EB',
+                      color: '#000000'
+                    }} />
+
                   </div>
 
                   <div>
@@ -1237,17 +1237,17 @@ export default function DriversPage() {
                       Ehliyet Numarası *
                     </label>
                     <input
-                      type="text"
-                      required
-                      value={formData.licenseNumber}
-                      onChange={(e) => setFormData({ ...formData, licenseNumber: e.target.value })}
-                      className="w-full px-4 py-3 rounded-lg border-2"
-                      style={{
-                        backgroundColor: '#FFFFFF',
-                        borderColor: '#E5E7EB',
-                        color: '#000000'
-                      }}
-                    />
+                    type="text"
+                    required
+                    value={formData.licenseNumber}
+                    onChange={(e) => setFormData({ ...formData, licenseNumber: e.target.value })}
+                    className="w-full px-4 py-3 rounded-lg border-2"
+                    style={{
+                      backgroundColor: '#FFFFFF',
+                      borderColor: '#E5E7EB',
+                      color: '#000000'
+                    }} />
+
                   </div>
 
                   <div>
@@ -1255,16 +1255,16 @@ export default function DriversPage() {
                       Ehliyet Sınıfı *
                     </label>
                     <select
-                      required
-                      value={formData.licenseClass}
-                      onChange={(e) => setFormData({ ...formData, licenseClass: e.target.value })}
-                      className="w-full px-4 py-3 rounded-lg border-2"
-                      style={{
-                        backgroundColor: '#FFFFFF',
-                        borderColor: '#E5E7EB',
-                        color: '#000000'
-                      }}
-                    >
+                    required
+                    value={formData.licenseClass}
+                    onChange={(e) => setFormData({ ...formData, licenseClass: e.target.value })}
+                    className="w-full px-4 py-3 rounded-lg border-2"
+                    style={{
+                      backgroundColor: '#FFFFFF',
+                      borderColor: '#E5E7EB',
+                      color: '#000000'
+                    }}>
+
                       <option value="D2">D2 - Turizm Taşımacılığı</option>
                       <option value="D1">D1 - Minibüs</option>
                       <option value="D">D - Otobüs</option>
@@ -1276,17 +1276,17 @@ export default function DriversPage() {
                       Ehliyet Bitiş Tarihi *
                     </label>
                     <input
-                      type="date"
-                      required
-                      value={formData.licenseExpiry}
-                      onChange={(e) => setFormData({ ...formData, licenseExpiry: e.target.value })}
-                      className="w-full px-4 py-3 rounded-lg border-2"
-                      style={{
-                        backgroundColor: '#FFFFFF',
-                        borderColor: '#E5E7EB',
-                        color: '#000000'
-                      }}
-                    />
+                    type="date"
+                    required
+                    value={formData.licenseExpiry}
+                    onChange={(e) => setFormData({ ...formData, licenseExpiry: e.target.value })}
+                    className="w-full px-4 py-3 rounded-lg border-2"
+                    style={{
+                      backgroundColor: '#FFFFFF',
+                      borderColor: '#E5E7EB',
+                      color: '#000000'
+                    }} />
+
                   </div>
 
                   <div>
@@ -1294,17 +1294,17 @@ export default function DriversPage() {
                       Acil Durum İletişim - Ad Soyad *
                     </label>
                     <input
-                      type="text"
-                      required
-                      value={formData.emergencyContactName}
-                      onChange={(e) => setFormData({ ...formData, emergencyContactName: e.target.value })}
-                      className="w-full px-4 py-3 rounded-lg border-2"
-                      style={{
-                        backgroundColor: '#FFFFFF',
-                        borderColor: '#E5E7EB',
-                        color: '#000000'
-                      }}
-                    />
+                    type="text"
+                    required
+                    value={formData.emergencyContactName}
+                    onChange={(e) => setFormData({ ...formData, emergencyContactName: e.target.value })}
+                    className="w-full px-4 py-3 rounded-lg border-2"
+                    style={{
+                      backgroundColor: '#FFFFFF',
+                      borderColor: '#E5E7EB',
+                      color: '#000000'
+                    }} />
+
                   </div>
 
                   <div>
@@ -1312,48 +1312,48 @@ export default function DriversPage() {
                       Acil Durum İletişim - Telefon *
                     </label>
                     <input
-                      type="tel"
-                      required
-                      value={formData.emergencyContactPhone}
-                      onChange={(e) => setFormData({ ...formData, emergencyContactPhone: e.target.value })}
-                      className="w-full px-4 py-3 rounded-lg border-2"
-                      style={{
-                        backgroundColor: '#FFFFFF',
-                        borderColor: '#E5E7EB',
-                        color: '#000000'
-                      }}
-                    />
+                    type="tel"
+                    required
+                    value={formData.emergencyContactPhone}
+                    onChange={(e) => setFormData({ ...formData, emergencyContactPhone: e.target.value })}
+                    className="w-full px-4 py-3 rounded-lg border-2"
+                    style={{
+                      backgroundColor: '#FFFFFF',
+                      borderColor: '#E5E7EB',
+                      color: '#000000'
+                    }} />
+
                   </div>
                 </div>
 
                 <div className="flex gap-3 pt-4">
                   <button
-                    type="button"
-                    onClick={() => setShowEditModal(false)}
-                    className="flex-1 px-6 py-3 rounded-xl font-bold transition-all"
-                    style={{
-                      backgroundColor: 'rgba(107, 114, 128, 0.1)',
-                      color: '#6B7280'
-                    }}
-                  >
+                  type="button"
+                  onClick={() => setShowEditModal(false)}
+                  className="flex-1 px-6 py-3 rounded-xl font-bold transition-all"
+                  style={{
+                    backgroundColor: 'rgba(107, 114, 128, 0.1)',
+                    color: '#6B7280'
+                  }}>
+
                     İptal
                   </button>
                   <button
-                    type="submit"
-                    className="flex-1 px-6 py-3 rounded-xl font-bold transition-all hover:scale-105"
-                    style={{
-                      background: 'linear-gradient(135deg, #2563EB, #06B6D4)',
-                      color: 'white'
-                    }}
-                  >
+                  type="submit"
+                  className="flex-1 px-6 py-3 rounded-xl font-bold transition-all hover:scale-105"
+                  style={{
+                    background: 'linear-gradient(135deg, #2563EB, #06B6D4)',
+                    color: 'white'
+                  }}>
+
                     Değişiklikleri Kaydet
                   </button>
                 </div>
               </form>
             </motion.div>
           </motion.div>
-        )}
+        }
       </AnimatePresence>
-    </div>
-  );
+    </div>);
+
 }

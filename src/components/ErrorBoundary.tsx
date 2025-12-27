@@ -40,14 +40,14 @@ export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundarySt
     super(props);
     this.state = {
       hasError: false,
-      error: null,
+      error: null
     };
   }
 
   static getDerivedStateFromError(error: Error): ErrorBoundaryState {
     return {
       hasError: true,
-      error,
+      error
     };
   }
 
@@ -56,8 +56,8 @@ export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundarySt
     logger.error('React component error caught by Error Boundary', error, {
       component: 'ErrorBoundary',
       metadata: {
-        componentStack: errorInfo.componentStack,
-      },
+        componentStack: errorInfo.componentStack
+      }
     });
 
     // Call custom error handler if provided
@@ -70,7 +70,7 @@ export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundarySt
         (window as any).analytics.track('React Error', {
           error: error.message,
           stack: error.stack,
-          componentStack: errorInfo.componentStack,
+          componentStack: errorInfo.componentStack
         });
       }
 
@@ -86,11 +86,11 @@ export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundarySt
   componentDidUpdate(prevProps: ErrorBoundaryProps): void {
     // Reset error boundary when resetKeys change
     if (
-      this.state.hasError &&
-      this.props.resetKeys &&
-      prevProps.resetKeys &&
-      !this.areResetKeysEqual(prevProps.resetKeys, this.props.resetKeys)
-    ) {
+    this.state.hasError &&
+    this.props.resetKeys &&
+    prevProps.resetKeys &&
+    !this.areResetKeysEqual(prevProps.resetKeys, this.props.resetKeys))
+    {
       this.reset();
     }
   }
@@ -103,7 +103,7 @@ export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundarySt
   private reset = (): void => {
     this.setState({
       hasError: false,
-      error: null,
+      error: null
     });
   };
 
@@ -134,69 +134,69 @@ function DefaultErrorFallback({ error, onReset }: DefaultErrorFallbackProps): JS
   return (
     <div
       role="alert"
-      className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 px-4"
-    >
-      <div className="max-w-md w-full bg-white dark:bg-gray-800 rounded-2xl shadow-2xl p-8 border border-gray-200 dark:border-gray-700">
+      className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 px-4">
+
+      <div className="max-w-md w-full bg-lydian-bg dark:bg-gray-800 rounded-2xl shadow-2xl p-8 border border-lydian-border dark:border-gray-700">
         <div className="text-center mb-6">
-          <div className="w-16 h-16 bg-red-100 dark:bg-red-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
+          <div className="w-16 h-16 bg-lydian-error-light dark:bg-red-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
             <svg
-              className="w-8 h-8 text-red-600 dark:text-red-400"
+              className="w-8 h-8 text-lydian-primary dark:text-lydian-error"
               fill="none"
               stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
+              viewBox="0 0 24 24">
+
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth={2}
-                d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
-              />
+                d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+
             </svg>
           </div>
 
-          <h1 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+          <h1 className="text-2xl font-bold text-lydian-text dark:text-lydian-text-inverse mb-2">
             Oops! Something went wrong
           </h1>
 
-          <p className="text-gray-600 dark:text-gray-400 mb-6">
+          <p className="text-lydian-text-secondary dark:text-lydian-text-muted mb-6">
             We encountered an unexpected error. Please try again.
           </p>
         </div>
 
-        {process.env.NODE_ENV === 'development' && (
-          <div className="mb-6 p-4 bg-gray-50 dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-700">
-            <h2 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+        {process.env.NODE_ENV === 'development' &&
+        <div className="mb-6 p-4 bg-lydian-bg-surface dark:bg-gray-900 rounded-lg border border-lydian-border dark:border-gray-700">
+            <h2 className="text-sm font-semibold text-lydian-text-secondary dark:text-lydian-text-dim mb-2">
               Error Details (Development Only)
             </h2>
-            <p className="text-xs font-mono text-red-600 dark:text-red-400 break-all">
+            <p className="text-xs font-mono text-lydian-primary dark:text-lydian-error break-all">
               {error.message}
             </p>
-            {error.stack && (
-              <pre className="mt-2 text-xs text-gray-600 dark:text-gray-400 overflow-auto max-h-32">
+            {error.stack &&
+          <pre className="mt-2 text-xs text-lydian-text-secondary dark:text-lydian-text-muted overflow-auto max-h-32">
                 {error.stack}
               </pre>
-            )}
+          }
           </div>
-        )}
+        }
 
         <div className="flex gap-3">
           <button
             onClick={onReset}
-            className="flex-1 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-medium py-3 px-6 rounded-lg transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-          >
+            className="flex-1 bg-gradient-to-r from-lydian-primary to-lydian-primary-dark hover:from-lydian-primary-dark hover:to-blue-800 text-lydian-text-inverse font-medium py-3 px-6 rounded-lg transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-lydian-border-focus focus:ring-offset-2">
+
             Try Again
           </button>
 
           <button
-            onClick={() => (window.location.href = '/')}
-            className="flex-1 bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-900 dark:text-white font-medium py-3 px-6 rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
-          >
+            onClick={() => window.location.href = '/'}
+            className="flex-1 bg-lydian-bg-active dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-lydian-text dark:text-lydian-text-inverse font-medium py-3 px-6 rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2">
+
             Go Home
           </button>
         </div>
       </div>
-    </div>
-  );
+    </div>);
+
 }
 
 /**
@@ -221,17 +221,17 @@ export function useErrorBoundary() {
   }, []);
 
   const ErrorBoundaryWithKey = React.useCallback(
-    ({ children, ...props }: Omit<ErrorBoundaryProps, 'resetKeys'>) => (
-      <ErrorBoundary {...props} resetKeys={[resetKey]}>
+    ({ children, ...props }: Omit<ErrorBoundaryProps, 'resetKeys'>) =>
+    <ErrorBoundary {...props} resetKeys={[resetKey]}>
         {children}
-      </ErrorBoundary>
-    ),
+      </ErrorBoundary>,
+
     [resetKey]
   );
 
   return {
     ErrorBoundary: ErrorBoundaryWithKey,
-    resetError,
+    resetError
   };
 }
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 import { motion } from 'framer-motion';
-import { 
+import {
   Crown,
   Check,
   Star,
@@ -11,64 +11,64 @@ import {
   ArrowRight,
   Users,
   Globe,
-  Heart
-} from 'lucide-react';
+  Heart } from
+'lucide-react';
 import SimplifiedHeader from '../components/layout/SimplifiedHeader';
 
 const Premium: React.FC = () => {
   const plans = [
-    {
-      name: 'Basic',
-      price: '₺0',
-      period: '/ay',
-      description: 'Temel özellikleri keşfedin',
-      features: [
-        'Temel arama ve rezervasyon',
-        'E-posta desteği',
-        'Standart iptal koşulları',
-        '3 rezervasyon/ay sınırı'
-      ],
-      color: 'border-gray-200',
-      button: 'bg-gray-600 hover:bg-gray-700',
-      popular: false
-    },
-    {
-      name: 'Premium',
-      price: '₺99',
-      period: '/ay',
-      description: 'En popüler seçim',
-      features: [
-        'AI destekli seyahat planlama',
-        'VR önizlemeler',
-        '7/24 öncelikli destek',
-        'Sınırsız rezervasyon',
-        '%15 indirim tüm rezervasyonlarda',
-        'Kripto ödeme avantajları',
-        'Erken erişim yeni özellikler'
-      ],
-      color: 'border-blue-500 ring-2 ring-blue-500',
-      button: 'bg-blue-600 hover:bg-blue-700',
-      popular: true
-    },
-    {
-      name: 'Enterprise',
-      price: '₺299',
-      period: '/ay',
-      description: 'Şirketler için özel çözümler',
-      features: [
-        'Tüm Premium özellikler',
-        'Blockchain güvenlik',
-        'NFT seyahat anıları',
-        'Özel AI asistan',
-        'Grup rezervasyon yönetimi',
-        'API erişimi',
-        'Özel hesap yöneticisi'
-      ],
-      color: 'border-purple-500',
-      button: 'bg-purple-600 hover:bg-purple-700',
-      popular: false
-    }
-  ];
+  {
+    name: 'Basic',
+    price: '₺0',
+    period: '/ay',
+    description: 'Temel özellikleri keşfedin',
+    features: [
+    'Temel arama ve rezervasyon',
+    'E-posta desteği',
+    'Standart iptal koşulları',
+    '3 rezervasyon/ay sınırı'],
+
+    color: 'border-gray-200',
+    button: 'bg-gray-600 hover:bg-gray-700',
+    popular: false
+  },
+  {
+    name: 'Premium',
+    price: '₺99',
+    period: '/ay',
+    description: 'En popüler seçim',
+    features: [
+    'AI destekli seyahat planlama',
+    'VR önizlemeler',
+    '7/24 öncelikli destek',
+    'Sınırsız rezervasyon',
+    '%15 indirim tüm rezervasyonlarda',
+    'Kripto ödeme avantajları',
+    'Erken erişim yeni özellikler'],
+
+    color: 'border-blue-500 ring-2 ring-blue-500',
+    button: 'bg-blue-600 hover:bg-blue-700',
+    popular: true
+  },
+  {
+    name: 'Enterprise',
+    price: '₺299',
+    period: '/ay',
+    description: 'Şirketler için özel çözümler',
+    features: [
+    'Tüm Premium özellikler',
+    'Blockchain güvenlik',
+    'NFT seyahat anıları',
+    'Özel AI asistan',
+    'Grup rezervasyon yönetimi',
+    'API erişimi',
+    'Özel hesap yöneticisi'],
+
+    color: 'border-purple-500',
+    button: 'bg-purple-600 hover:bg-purple-700',
+    popular: false
+  }];
+
 
   return (
     <>
@@ -80,20 +80,20 @@ const Premium: React.FC = () => {
 
       <SimplifiedHeader />
 
-      <main className="min-h-screen bg-white/5">
+      <main className="min-h-screen bg-lydian-glass-dark">
         {/* Hero Section */}
-        <section className="bg-gradient-to-br from-purple-600 via-blue-600 to-indigo-700 py-20">
+        <section className="bg-gradient-to-br from-lydian-secondary via-lydian-primary to-lydian-primary-darker py-20">
           <div className="max-w-7xl mx-auto px-4 text-center">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-            >
+              transition={{ duration: 0.8 }}>
+
               <div className="flex items-center justify-center gap-3 mb-6">
-                <div className="p-3 bg-white/10 backdrop-blur-sm rounded-2xl">
+                <div className="p-3 bg-lydian-glass-dark-medium backdrop-blur-sm rounded-2xl">
                   <Crown className="w-8 h-8 text-yellow-400" />
                 </div>
-                <h1 className="text-4xl md:text-6xl font-black text-white">
+                <h1 className="text-4xl md:text-6xl font-black text-lydian-text-inverse">
                   Premium Üyelik
                 </h1>
               </div>
@@ -103,16 +103,16 @@ const Premium: React.FC = () => {
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 {[
-                  { icon: Sparkles, text: '50K+ Premium Üye' },
-                  { icon: Star, text: '%98 Memnuniyet' },
-                  { icon: Zap, text: 'Anında Aktivasyon' },
-                  { icon: Shield, text: 'Güvenlik Garantisi' }
-                ].map((stat, index) => (
-                  <div key={index} className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
+                { icon: Sparkles, text: '50K+ Premium Üye' },
+                { icon: Star, text: '%98 Memnuniyet' },
+                { icon: Zap, text: 'Anında Aktivasyon' },
+                { icon: Shield, text: 'Güvenlik Garantisi' }].
+                map((stat, index) =>
+                <div key={index} className="flex items-center gap-2 bg-lydian-glass-dark-medium backdrop-blur-sm rounded-full px-4 py-2">
                     <stat.icon className="w-5 h-5 text-yellow-300" />
-                    <span className="text-white font-medium">{stat.text}</span>
+                    <span className="text-lydian-text-inverse font-medium">{stat.text}</span>
                   </div>
-                ))}
+                )}
               </div>
             </motion.div>
           </div>
@@ -122,129 +122,129 @@ const Premium: React.FC = () => {
         <section className="py-16">
           <div className="max-w-7xl mx-auto px-4">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-white mb-4">Size Uygun Planı Seçin</h2>
-              <p className="text-gray-300">Her ihtiyaca uygun esnek üyelik paketleri</p>
+              <h2 className="text-3xl font-bold text-lydian-text-inverse mb-4">Size Uygun Planı Seçin</h2>
+              <p className="text-lydian-text-dim">Her ihtiyaca uygun esnek üyelik paketleri</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-              {plans.map((plan, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                  className={`relative bg-transparent rounded-3xl shadow-xl p-8 border-2 ${plan.color} ${plan.popular ? 'transform scale-105' : ''}`}
-                >
-                  {plan.popular && (
-                    <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                      <div className="bg-gradient-to-r from-blue-500 to-purple-500 text-white px-6 py-2 rounded-full text-sm font-bold flex items-center gap-2">
+              {plans.map((plan, index) =>
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+                className={`relative bg-lydian-bg-hover rounded-3xl shadow-xl p-8 border-2 ${plan.color} ${plan.popular ? 'transform scale-105' : ''}`}>
+
+                  {plan.popular &&
+                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                      <div className="bg-gradient-to-r from-lydian-primary to-purple-500 text-lydian-text-inverse px-6 py-2 rounded-full text-sm font-bold flex items-center gap-2">
                         <Star className="w-4 h-4" />
                         En Popüler
                       </div>
                     </div>
-                  )}
+                }
 
                   <div className="text-center mb-8">
-                    <h3 className="text-2xl font-bold text-white mb-2">{plan.name}</h3>
-                    <p className="text-gray-300 mb-4">{plan.description}</p>
+                    <h3 className="text-2xl font-bold text-lydian-text-inverse mb-2">{plan.name}</h3>
+                    <p className="text-lydian-text-dim mb-4">{plan.description}</p>
                     <div className="flex items-baseline justify-center gap-1">
-                      <span className="text-5xl font-bold text-white">{plan.price}</span>
-                      <span className="text-gray-300">{plan.period}</span>
+                      <span className="text-5xl font-bold text-lydian-text-inverse">{plan.price}</span>
+                      <span className="text-lydian-text-dim">{plan.period}</span>
                     </div>
                   </div>
 
                   <div className="space-y-4 mb-8">
-                    {plan.features.map((feature, idx) => (
-                      <div key={idx} className="flex items-center gap-3">
+                    {plan.features.map((feature, idx) =>
+                  <div key={idx} className="flex items-center gap-3">
                         <Check className="w-5 h-5 text-green-500 flex-shrink-0" />
-                        <span className="text-gray-200">{feature}</span>
+                        <span className="text-lydian-text-muted">{feature}</span>
                       </div>
-                    ))}
+                  )}
                   </div>
 
                   <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className={`w-full py-4 text-white rounded-xl font-bold text-lg transition-colors flex items-center justify-center gap-2 ${plan.button}`}
-                  >
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className={`w-full py-4 text-lydian-text-inverse rounded-xl font-bold text-lg transition-colors flex items-center justify-center gap-2 ${plan.button}`}>
+
                     {plan.name === 'Basic' ? 'Ücretsiz Başla' : 'Premium Ol'}
                     <ArrowRight className="w-5 h-5" />
                   </motion.button>
                 </motion.div>
-              ))}
+              )}
             </div>
           </div>
         </section>
 
         {/* Premium Features */}
-        <section className="py-16 bg-white/5">
+        <section className="py-16 bg-lydian-glass-dark">
           <div className="max-w-7xl mx-auto px-4">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-white mb-4">Premium Özellikler</h2>
-              <p className="text-gray-300">Neden Premium üyelik tercih etmelisiniz?</p>
+              <h2 className="text-3xl font-bold text-lydian-text-inverse mb-4">Premium Özellikler</h2>
+              <p className="text-lydian-text-dim">Neden Premium üyelik tercih etmelisiniz?</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {[
-                {
-                  icon: Sparkles,
-                  title: 'AI Seyahat Asistanı',
-                  description: '7/24 kişisel AI asistanınız ile akıllı seyahat planlaması ve önerileri.'
-                },
-                {
-                  icon: Star,
-                  title: 'VR Önizlemeler',
-                  description: 'Rezervasyon yapmadan önce destinasyonları 360° sanal gerçeklik ile keşfedin.'
-                },
-                {
-                  icon: Shield,
-                  title: 'Blockchain Güvenlik',
-                  description: 'Tüm rezervasyonlarınız blockchain teknolojisi ile güvence altında.'
-                },
-                {
-                  icon: Heart,
-                  title: '%15 İndirim',
-                  description: 'Tüm rezervasyonlarınızda otomatik %15 premium üye indirimi.'
-                },
-                {
-                  icon: Users,
-                  title: 'Öncelikli Destek',
-                  description: '7/24 premium müşteri hizmetleri ve anında cevap garantisi.'
-                },
-                {
-                  icon: Globe,
-                  title: 'Kripto Avantajları',
-                  description: 'Kripto para ile ödeme yapın ve ek %5 indirim kazanın.'
-                }
-              ].map((feature, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                  className="text-center p-6"
-                >
+              {
+                icon: Sparkles,
+                title: 'AI Seyahat Asistanı',
+                description: '7/24 kişisel AI asistanınız ile akıllı seyahat planlaması ve önerileri.'
+              },
+              {
+                icon: Star,
+                title: 'VR Önizlemeler',
+                description: 'Rezervasyon yapmadan önce destinasyonları 360° sanal gerçeklik ile keşfedin.'
+              },
+              {
+                icon: Shield,
+                title: 'Blockchain Güvenlik',
+                description: 'Tüm rezervasyonlarınız blockchain teknolojisi ile güvence altında.'
+              },
+              {
+                icon: Heart,
+                title: '%15 İndirim',
+                description: 'Tüm rezervasyonlarınızda otomatik %15 premium üye indirimi.'
+              },
+              {
+                icon: Users,
+                title: 'Öncelikli Destek',
+                description: '7/24 premium müşteri hizmetleri ve anında cevap garantisi.'
+              },
+              {
+                icon: Globe,
+                title: 'Kripto Avantajları',
+                description: 'Kripto para ile ödeme yapın ve ek %5 indirim kazanın.'
+              }].
+              map((feature, index) =>
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+                className="text-center p-6">
+
                   <div className="w-16 h-16 bg-gradient-to-br from-purple-100 to-blue-100 text-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
                     <feature.icon className="w-8 h-8" />
                   </div>
                   <h3 className="font-bold text-xl mb-4">{feature.title}</h3>
-                  <p className="text-gray-300 leading-relaxed">{feature.description}</p>
+                  <p className="text-lydian-text-dim leading-relaxed">{feature.description}</p>
                 </motion.div>
-              ))}
+              )}
             </div>
           </div>
         </section>
 
         {/* CTA Section */}
-        <section className="py-16 bg-gradient-to-r from-purple-600 to-blue-600">
+        <section className="py-16 bg-gradient-to-r from-lydian-secondary to-lydian-primary">
           <div className="max-w-7xl mx-auto px-4 text-center">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-            >
+              transition={{ duration: 0.8 }}>
+
               <Crown className="w-16 h-16 text-yellow-400 mx-auto mb-6" />
-              <h2 className="text-3xl font-bold text-white mb-4">
+              <h2 className="text-3xl font-bold text-lydian-text-inverse mb-4">
                 Premium Deneyimi Yaşamaya Hazır mısınız?
               </h2>
               <p className="text-purple-100 mb-8 max-w-2xl mx-auto">
@@ -253,8 +253,8 @@ const Premium: React.FC = () => {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 bg-transparent text-purple-600 rounded-xl font-bold text-lg hover:bg-white/5 transition-colors inline-flex items-center gap-2"
-              >
+                className="px-8 py-4 bg-lydian-bg-hover text-purple-600 rounded-xl font-bold text-lg hover:bg-lydian-glass-dark transition-colors inline-flex items-center gap-2">
+
                 30 Gün Ücretsiz Dene
                 <ArrowRight className="w-5 h-5" />
               </motion.button>
@@ -262,8 +262,8 @@ const Premium: React.FC = () => {
           </div>
         </section>
       </main>
-    </>
-  );
+    </>);
+
 };
 
 export default Premium;

@@ -33,8 +33,8 @@ import {
   Bitcoin,
   Award,
   Users,
-  MessageSquare
-} from 'lucide-react';
+  MessageSquare } from
+'lucide-react';
 
 const Dashboard: React.FC = () => {
   const { data: session, status } = useSession();
@@ -71,7 +71,7 @@ const Dashboard: React.FC = () => {
       setDashboardData(data);
     } catch (error) {
       logger.error('Dashboard data fetch failed', error);
-      logger.error('Dashboard error:', error as Error, {component:'Dashboard'});
+      logger.error('Dashboard error:', error as Error, { component: 'Dashboard' });
     } finally {
       setLoading(false);
     }
@@ -79,13 +79,13 @@ const Dashboard: React.FC = () => {
 
   if (status === 'loading' || loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-white/5">
+      <div className="min-h-screen flex items-center justify-center bg-lydian-glass-dark">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
-          <p className="mt-4 text-gray-300">Yükleniyor...</p>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-lydian-primary mx-auto"></div>
+          <p className="mt-4 text-lydian-text-dim">Yükleniyor...</p>
         </div>
-      </div>
-    );
+      </div>);
+
   }
 
   if (!session || !dashboardData) {
@@ -112,15 +112,15 @@ const Dashboard: React.FC = () => {
   const upcomingTrips = dashboardData.upcomingTrips || [];
 
   const sidebarItems = [
-    { title: 'Dashboard', href: '/profile/dashboard', icon: TrendingUp, active: true },
-    { title: 'Profilim', href: '/profile/settings', icon: User },
-    { title: 'Rezervasyonlarım', href: '/profile/bookings', icon: Calendar },
-    { title: 'Favorilerim', href: '/profile/favorites', icon: Heart },
-    { title: 'Cüzdanım', href: '/profile/wallet', icon: Wallet },
-    { title: 'AI Tercihlerim', href: '/profile/ai-preferences', icon: Sparkles },
-    { title: 'Bildirimler', href: '/profile/notifications', icon: Bell },
-    { title: 'Ayarlar', href: '/profile/settings', icon: Settings },
-  ];
+  { title: 'Dashboard', href: '/profile/dashboard', icon: TrendingUp, active: true },
+  { title: 'Profilim', href: '/profile/settings', icon: User },
+  { title: 'Rezervasyonlarım', href: '/profile/bookings', icon: Calendar },
+  { title: 'Favorilerim', href: '/profile/favorites', icon: Heart },
+  { title: 'Cüzdanım', href: '/profile/wallet', icon: Wallet },
+  { title: 'AI Tercihlerim', href: '/profile/ai-preferences', icon: Sparkles },
+  { title: 'Bildirimler', href: '/profile/notifications', icon: Bell },
+  { title: 'Ayarlar', href: '/profile/settings', icon: Settings }];
+
 
   const getMembershipBadge = (type: string) => {
     const badges = {
@@ -139,9 +139,9 @@ const Dashboard: React.FC = () => {
       case 'pending':
         return <Clock className="w-4 h-4 text-yellow-500" />;
       case 'completed':
-        return <Award className="w-4 h-4 text-blue-500" />;
+        return <Award className="w-4 h-4 text-lydian-primary" />;
       default:
-        return <AlertTriangle className="w-4 h-4 text-gray-400" />;
+        return <AlertTriangle className="w-4 h-4 text-lydian-text-muted" />;
     }
   };
 
@@ -165,33 +165,33 @@ const Dashboard: React.FC = () => {
         <meta name="robots" content="noindex, nofollow" />
       </Head>
 
-      <div className="min-h-screen bg-white/5">
+      <div className="min-h-screen bg-lydian-glass-dark">
         {/* Navigation Header */}
-        <header className="bg-transparent shadow-sm border-b border-gray-100">
+        <header className="bg-lydian-bg-hover shadow-sm border-b border-lydian-border-light">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex justify-between items-center py-4">
               <Link href="/" className="flex items-center space-x-3">
                 <div className="w-10 h-10 bg-gradient-to-r from-lydian-primary to-lydian-secondary rounded-xl flex items-center justify-center">
-                  <span className="text-white font-bold text-lg">A</span>
+                  <span className="text-lydian-text-inverse font-bold text-lg">A</span>
                 </div>
                 <div className="hidden sm:block">
-                  <h1 className="text-xl font-bold text-white">LyDian Travel</h1>
-                  <p className="text-xs text-gray-200 -mt-1">Dashboard</p>
+                  <h1 className="text-xl font-bold text-lydian-text-inverse">LyDian Travel</h1>
+                  <p className="text-xs text-lydian-text-muted -mt-1">Dashboard</p>
                 </div>
               </Link>
 
               <div className="flex items-center space-x-4">
-                <button className="p-2 text-gray-400 hover:text-gray-300 relative">
+                <button className="p-2 text-lydian-text-muted hover:text-lydian-text-dim relative">
                   <Bell className="w-6 h-6" />
-                  <span className="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full"></span>
+                  <span className="absolute top-1 right-1 w-2 h-2 bg-lydian-error rounded-full"></span>
                 </button>
                 <div className="flex items-center space-x-3">
                   <div className="text-right hidden sm:block">
-                    <p className="text-sm font-medium text-white">{user.name}</p>
-                    <p className="text-xs text-gray-200">{user.email}</p>
+                    <p className="text-sm font-medium text-lydian-text-inverse">{user.name}</p>
+                    <p className="text-xs text-lydian-text-muted">{user.email}</p>
                   </div>
                   <div className="w-10 h-10 bg-gradient-to-r from-lydian-primary to-lydian-secondary rounded-full flex items-center justify-center">
-                    <User className="w-5 h-5 text-white" />
+                    <User className="w-5 h-5 text-lydian-text-inverse" />
                   </div>
                 </div>
               </div>
@@ -203,14 +203,14 @@ const Dashboard: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
             {/* Sidebar */}
             <div className="lg:col-span-1">
-              <div className="bg-transparent rounded-2xl shadow-sm border border-gray-100 p-6">
+              <div className="bg-lydian-bg-hover rounded-2xl shadow-sm border border-lydian-border-light p-6">
                 {/* User Profile Card */}
                 <div className="text-center mb-6">
                   <div className="w-20 h-20 bg-gradient-to-r from-lydian-primary to-lydian-secondary rounded-full flex items-center justify-center mx-auto mb-4">
-                    <User className="w-10 h-10 text-white" />
+                    <User className="w-10 h-10 text-lydian-text-inverse" />
                   </div>
-                  <h3 className="font-bold text-lg text-white">{user.name}</h3>
-                  <p className="text-gray-400 text-sm mb-3">{user.email}</p>
+                  <h3 className="font-bold text-lg text-lydian-text-inverse">{user.name}</h3>
+                  <p className="text-lydian-text-muted text-sm mb-3">{user.email}</p>
                   <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-medium ${membershipBadge.color}`}>
                     <Award className="w-3 h-3 mr-1" />
                     {membershipBadge.text}
@@ -226,23 +226,23 @@ const Dashboard: React.FC = () => {
                         key={item.href}
                         href={item.href}
                         className={`flex items-center space-x-3 px-4 py-3 rounded-xl transition-colors duration-200 ${
-                          item.active
-                            ? 'bg-blue-50 text-blue-600 border border-blue-200'
-                            : 'text-gray-200 hover:bg-white/5'
-                        }`}
-                      >
+                        item.active ?
+                        'bg-blue-50 text-blue-600 border border-blue-200' :
+                        'text-gray-200 hover:bg-white/5'}`
+                        }>
+
                         <Icon className="w-5 h-5" />
                         <span className="font-medium">{item.title}</span>
-                      </Link>
-                    );
+                      </Link>);
+
                   })}
                 </nav>
 
                 {/* Logout Button */}
                 <button
                   onClick={() => signOut({ callbackUrl: '/' })}
-                  className="w-full flex items-center space-x-3 px-4 py-3 text-red-600 hover:bg-red-50 rounded-xl transition-colors duration-200 mt-4 border-t border-gray-100 pt-6"
-                >
+                  className="w-full flex items-center space-x-3 px-4 py-3 text-lydian-primary hover:bg-lydian-error-lighter rounded-xl transition-colors duration-200 mt-4 border-t border-lydian-border-light pt-6">
+
                   <LogOut className="w-5 h-5" />
                   <span className="font-medium">Çıkış Yap</span>
                 </button>
@@ -255,8 +255,8 @@ const Dashboard: React.FC = () => {
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="bg-gradient-to-r from-lydian-primary to-lydian-secondary rounded-2xl p-8 text-white"
-              >
+                className="bg-gradient-to-r from-lydian-primary to-lydian-secondary rounded-2xl p-8 text-lydian-text-inverse">
+
                 <div className="flex items-center justify-between">
                   <div>
                     <h2 className="text-2xl font-bold mb-2">Hoş geldiniz, {user.name?.split(' ')[0]}! 👋</h2>
@@ -273,7 +273,7 @@ const Dashboard: React.FC = () => {
                     </div>
                   </div>
                   <div className="hidden sm:block">
-                    <Sparkles className="w-24 h-24 text-white/20" />
+                    <Sparkles className="w-24 h-24 text-lydian-text-inverse/20" />
                   </div>
                 </div>
               </motion.div>
@@ -281,56 +281,56 @@ const Dashboard: React.FC = () => {
               {/* Stats Grid */}
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {[
-                  { title: 'Toplam Rezervasyon', value: stats.totalBookings, icon: Calendar, color: 'text-blue-600', bg: 'bg-blue-50' },
-                  { title: 'Tamamlanan Seyahat', value: stats.completedTrips, icon: CheckCircle, color: 'text-green-600', bg: 'bg-green-50' },
-                  { title: 'Tasarruf Edilen', value: `₺${stats.savedMoney}`, icon: DollarSign, color: 'text-purple-600', bg: 'bg-purple-50' },
-                  { title: 'Loyalty Puanı', value: stats.loyaltyPoints, icon: Star, color: 'text-yellow-600', bg: 'bg-yellow-50' }
-                ].map((stat) => {
+                { title: 'Toplam Rezervasyon', value: stats.totalBookings, icon: Calendar, color: 'text-blue-600', bg: 'bg-blue-50' },
+                { title: 'Tamamlanan Seyahat', value: stats.completedTrips, icon: CheckCircle, color: 'text-green-600', bg: 'bg-green-50' },
+                { title: 'Tasarruf Edilen', value: `₺${stats.savedMoney}`, icon: DollarSign, color: 'text-purple-600', bg: 'bg-purple-50' },
+                { title: 'Loyalty Puanı', value: stats.loyaltyPoints, icon: Star, color: 'text-yellow-600', bg: 'bg-yellow-50' }].
+                map((stat) => {
                   const Icon = stat.icon;
                   return (
                     <motion.div
                       key={stat.title}
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
-                      className="bg-transparent rounded-2xl p-6 shadow-sm border border-gray-100"
-                    >
+                      className="bg-lydian-bg-hover rounded-2xl p-6 shadow-sm border border-lydian-border-light">
+
                       <div className="flex items-center justify-between">
                         <div>
-                          <p className="text-gray-400 text-sm font-medium">{stat.title}</p>
-                          <p className="text-2xl font-bold text-white mt-1">{stat.value}</p>
+                          <p className="text-lydian-text-muted text-sm font-medium">{stat.title}</p>
+                          <p className="text-2xl font-bold text-lydian-text-inverse mt-1">{stat.value}</p>
                         </div>
                         <div className={`p-3 rounded-xl ${stat.bg}`}>
                           <Icon className={`w-6 h-6 ${stat.color}`} />
                         </div>
                       </div>
-                    </motion.div>
-                  );
+                    </motion.div>);
+
                 })}
               </div>
 
               {/* Quick Actions */}
-              <div className="bg-transparent rounded-2xl shadow-sm border border-gray-100 p-6">
-                <h3 className="text-lg font-bold text-white mb-4">Hızlı İşlemler</h3>
+              <div className="bg-lydian-bg-hover rounded-2xl shadow-sm border border-lydian-border-light p-6">
+                <h3 className="text-lg font-bold text-lydian-text-inverse mb-4">Hızlı İşlemler</h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                   {[
-                    { title: 'Yeni Rezervasyon', href: '/', icon: Plus, color: 'bg-blue-500 hover:bg-blue-600' },
-                    { title: 'AI Asistan', href: '/ai-assistant', icon: Sparkles, color: 'bg-purple-500 hover:bg-purple-600' },
-                    { title: 'VR Turlar', href: '/virtual-tours', icon: Globe, color: 'bg-green-500 hover:bg-green-600' },
-                    { title: 'Cüzdanım', href: '/profile/wallet', icon: Bitcoin, color: 'bg-orange-500 hover:bg-orange-600' }
-                  ].map((action) => {
+                  { title: 'Yeni Rezervasyon', href: '/', icon: Plus, color: 'bg-blue-500 hover:bg-blue-600' },
+                  { title: 'AI Asistan', href: '/ai-assistant', icon: Sparkles, color: 'bg-purple-500 hover:bg-purple-600' },
+                  { title: 'VR Turlar', href: '/virtual-tours', icon: Globe, color: 'bg-green-500 hover:bg-green-600' },
+                  { title: 'Cüzdanım', href: '/profile/wallet', icon: Bitcoin, color: 'bg-orange-500 hover:bg-orange-600' }].
+                  map((action) => {
                     const Icon = action.icon;
                     return (
                       <Link key={action.href} href={action.href}>
                         <motion.div
                           whileHover={{ scale: 1.02 }}
                           whileTap={{ scale: 0.98 }}
-                          className={`${action.color} text-white p-4 rounded-xl transition-colors duration-200 text-center`}
-                        >
+                          className={`${action.color} text-lydian-text-inverse p-4 rounded-xl transition-colors duration-200 text-center`}>
+
                           <Icon className="w-8 h-8 mx-auto mb-2" />
                           <span className="text-sm font-medium">{action.title}</span>
                         </motion.div>
-                      </Link>
-                    );
+                      </Link>);
+
                   })}
                 </div>
               </div>
@@ -338,56 +338,56 @@ const Dashboard: React.FC = () => {
               {/* Recent Bookings & Upcoming Trips */}
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 {/* Recent Bookings */}
-                <div className="bg-transparent rounded-2xl shadow-sm border border-gray-100 p-6">
+                <div className="bg-lydian-bg-hover rounded-2xl shadow-sm border border-lydian-border-light p-6">
                   <div className="flex items-center justify-between mb-6">
-                    <h3 className="text-lg font-bold text-white">Son Rezervasyonlar</h3>
-                    <Link href="/profile/bookings" className="text-blue-600 hover:text-blue-700 text-sm font-medium flex items-center gap-1">
+                    <h3 className="text-lg font-bold text-lydian-text-inverse">Son Rezervasyonlar</h3>
+                    <Link href="/profile/bookings" className="text-lydian-primary hover:text-lydian-primary-dark text-sm font-medium flex items-center gap-1">
                       Tümü
                       <ArrowRight className="w-4 h-4" />
                     </Link>
                   </div>
                   <div className="space-y-4">
-                    {recentBookings.map((booking) => (
-                      <div key={booking.id} className="flex items-center space-x-4 p-4 bg-white/5 rounded-xl">
-                        <div className="w-16 h-16 bg-gray-200 rounded-lg overflow-hidden flex-shrink-0">
+                    {recentBookings.map((booking) =>
+                    <div key={booking.id} className="flex items-center space-x-4 p-4 bg-lydian-glass-dark rounded-xl">
+                        <div className="w-16 h-16 bg-lydian-bg-active rounded-lg overflow-hidden flex-shrink-0">
                           <img src={booking.image} alt={booking.title} className="w-full h-full object-cover" />
                         </div>
                         <div className="flex-1 min-w-0">
-                          <h4 className="font-medium text-white truncate">{booking.title}</h4>
-                          <p className="text-sm text-gray-200">{booking.location}</p>
+                          <h4 className="font-medium text-lydian-text-inverse truncate">{booking.title}</h4>
+                          <p className="text-sm text-lydian-text-muted">{booking.location}</p>
                           <div className="flex items-center space-x-2 mt-1">
                             {getStatusIcon(booking.status)}
-                            <span className="text-xs text-gray-100">{getStatusText(booking.status)}</span>
+                            <span className="text-xs text-lydian-text-dim">{getStatusText(booking.status)}</span>
                           </div>
                         </div>
                         <div className="text-right">
-                          <p className="font-bold text-white">₺{booking.amount}</p>
-                          <p className="text-xs text-gray-200">{booking.date}</p>
+                          <p className="font-bold text-lydian-text-inverse">₺{booking.amount}</p>
+                          <p className="text-xs text-lydian-text-muted">{booking.date}</p>
                         </div>
                       </div>
-                    ))}
+                    )}
                   </div>
                 </div>
 
                 {/* Upcoming Trips */}
-                <div className="bg-transparent rounded-2xl shadow-sm border border-gray-100 p-6">
+                <div className="bg-lydian-bg-hover rounded-2xl shadow-sm border border-lydian-border-light p-6">
                   <div className="flex items-center justify-between mb-6">
-                    <h3 className="text-lg font-bold text-white">Yaklaşan Seyahatler</h3>
-                    <span className="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-medium">
+                    <h3 className="text-lg font-bold text-lydian-text-inverse">Yaklaşan Seyahatler</h3>
+                    <span className="bg-lydian-success-light text-lydian-success-text px-3 py-1 rounded-full text-xs font-medium">
                       {upcomingTrips.length} Seyahat
                     </span>
                   </div>
                   <div className="space-y-4">
-                    {upcomingTrips.map((trip) => (
-                      <div key={trip.id} className="border border-white/10 rounded-xl p-4 hover:border-blue-300 transition-colors">
+                    {upcomingTrips.map((trip) =>
+                    <div key={trip.id} className="border border-lydian-border-light/10 rounded-xl p-4 hover:border-lydian-border-focus transition-colors">
                         <div className="flex items-start space-x-4">
-                          <div className="w-20 h-20 bg-gray-200 rounded-lg overflow-hidden flex-shrink-0">
+                          <div className="w-20 h-20 bg-lydian-bg-active rounded-lg overflow-hidden flex-shrink-0">
                             <img src={trip.image} alt={trip.destination} className="w-full h-full object-cover" />
                           </div>
                           <div className="flex-1">
-                            <h4 className="font-bold text-white mb-1">{trip.destination}</h4>
-                            <p className="text-sm text-blue-600 font-medium">{trip.type}</p>
-                            <div className="flex items-center space-x-4 mt-2 text-sm text-gray-200">
+                            <h4 className="font-bold text-lydian-text-inverse mb-1">{trip.destination}</h4>
+                            <p className="text-sm text-lydian-primary font-medium">{trip.type}</p>
+                            <div className="flex items-center space-x-4 mt-2 text-sm text-lydian-text-muted">
                               <div className="flex items-center space-x-1">
                                 <Calendar className="w-4 h-4" />
                                 <span>{trip.date}</span>
@@ -400,7 +400,7 @@ const Dashboard: React.FC = () => {
                           </div>
                         </div>
                       </div>
-                    ))}
+                    )}
                   </div>
                 </div>
               </div>
@@ -408,8 +408,8 @@ const Dashboard: React.FC = () => {
           </div>
         </div>
       </div>
-    </>
-  );
+    </>);
+
 };
 
 export default Dashboard;

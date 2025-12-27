@@ -22,7 +22,7 @@ export const AnimatedCarIcon: React.FC<AnimatedCarIconProps> = ({
   return (
     <div className={`relative ${sizeClasses[size]} ${className}`}>
       {/* Premium Background Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-purple-500/10 to-pink-500/10 rounded-2xl blur-xl" />
+      <div className="absolute inset-0 bg-gradient-to-br from-lydian-primary/10 via-purple-500/10 to-pink-500/10 rounded-2xl blur-xl" />
 
       {/* Main Container */}
       <div className="relative w-full h-full flex items-center justify-center">
@@ -32,8 +32,8 @@ export const AnimatedCarIcon: React.FC<AnimatedCarIconProps> = ({
           className="w-full h-full"
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1, ease: "easeOut" }}
-        >
+          transition={{ duration: 1, ease: "easeOut" }}>
+
           {/* Road Animation */}
           <motion.g
             initial={{ x: 0 }}
@@ -42,8 +42,8 @@ export const AnimatedCarIcon: React.FC<AnimatedCarIconProps> = ({
               duration: 2,
               repeat: Infinity,
               ease: "linear"
-            }}
-          >
+            }}>
+
             <line x1="0" y1="90" x2="200" y2="90" stroke="#E5E7EB" strokeWidth="1" opacity="0.5" />
             <line x1="0" y1="95" x2="200" y2="95" stroke="#E5E7EB" strokeWidth="2" strokeDasharray="10 5" opacity="0.3" />
           </motion.g>
@@ -51,14 +51,14 @@ export const AnimatedCarIcon: React.FC<AnimatedCarIconProps> = ({
           {/* Car Body */}
           <motion.g
             animate={{
-              y: [0, -3, 0],
+              y: [0, -3, 0]
             }}
             transition={{
               duration: 2,
               repeat: Infinity,
               ease: "easeInOut"
-            }}
-          >
+            }}>
+
             {/* Car Shadow */}
             <ellipse cx="100" cy="95" rx="45" ry="8" fill="#000" opacity="0.2" />
 
@@ -80,8 +80,8 @@ export const AnimatedCarIcon: React.FC<AnimatedCarIconProps> = ({
               d="M 40 70 L 50 50 L 80 45 L 120 45 L 150 50 L 160 70 L 40 70 Z"
               fill="url(#carGradient)"
               stroke="#1E40AF"
-              strokeWidth="1.5"
-            />
+              strokeWidth="1.5" />
+
 
             {/* Car Bottom */}
             <rect x="35" y="65" width="130" height="20" rx="3" fill="url(#carGradient)" stroke="#1E40AF" strokeWidth="1.5" />
@@ -99,8 +99,8 @@ export const AnimatedCarIcon: React.FC<AnimatedCarIconProps> = ({
               r="4"
               fill="#FEF3C7"
               animate={{ opacity: [0.6, 1, 0.6] }}
-              transition={{ duration: 1.5, repeat: Infinity }}
-            />
+              transition={{ duration: 1.5, repeat: Infinity }} />
+
             <motion.circle
               cx="155"
               cy="72"
@@ -108,8 +108,8 @@ export const AnimatedCarIcon: React.FC<AnimatedCarIconProps> = ({
               fill="#FEF3C7"
               opacity="0.3"
               animate={{ r: [6, 8, 6], opacity: [0.3, 0.1, 0.3] }}
-              transition={{ duration: 1.5, repeat: Infinity }}
-            />
+              transition={{ duration: 1.5, repeat: Infinity }} />
+
 
             {/* Taillights */}
             <circle cx="40" cy="72" r="3" fill="#DC2626" opacity="0.8" />
@@ -128,44 +128,44 @@ export const AnimatedCarIcon: React.FC<AnimatedCarIconProps> = ({
               <motion.g
                 animate={{ rotate: 360 }}
                 transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-                style={{ originX: '130px', originY: '85px' }}
-              >
+                style={{ originX: '130px', originY: '85px' }}>
+
                 <circle cx="130" cy="85" r="12" fill="#1F2937" stroke="#374151" strokeWidth="2" />
                 <circle cx="130" cy="85" r="8" fill="#6B7280" />
                 <circle cx="130" cy="85" r="4" fill="#9CA3AF" />
-                {[0, 45, 90, 135, 180, 225, 270, 315].map((angle) => (
-                  <line
-                    key={angle}
-                    x1="130"
-                    y1="85"
-                    x2={130 + Math.cos((angle * Math.PI) / 180) * 8}
-                    y2={85 + Math.sin((angle * Math.PI) / 180) * 8}
-                    stroke="#374151"
-                    strokeWidth="1"
-                  />
-                ))}
+                {[0, 45, 90, 135, 180, 225, 270, 315].map((angle) =>
+                <line
+                  key={angle}
+                  x1="130"
+                  y1="85"
+                  x2={130 + Math.cos(angle * Math.PI / 180) * 8}
+                  y2={85 + Math.sin(angle * Math.PI / 180) * 8}
+                  stroke="#374151"
+                  strokeWidth="1" />
+
+                )}
               </motion.g>
 
               {/* Rear Wheel */}
               <motion.g
                 animate={{ rotate: 360 }}
                 transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-                style={{ originX: '70px', originY: '85px' }}
-              >
+                style={{ originX: '70px', originY: '85px' }}>
+
                 <circle cx="70" cy="85" r="12" fill="#1F2937" stroke="#374151" strokeWidth="2" />
                 <circle cx="70" cy="85" r="8" fill="#6B7280" />
                 <circle cx="70" cy="85" r="4" fill="#9CA3AF" />
-                {[0, 45, 90, 135, 180, 225, 270, 315].map((angle) => (
-                  <line
-                    key={angle}
-                    x1="70"
-                    y1="85"
-                    x2={70 + Math.cos((angle * Math.PI) / 180) * 8}
-                    y2={85 + Math.sin((angle * Math.PI) / 180) * 8}
-                    stroke="#374151"
-                    strokeWidth="1"
-                  />
-                ))}
+                {[0, 45, 90, 135, 180, 225, 270, 315].map((angle) =>
+                <line
+                  key={angle}
+                  x1="70"
+                  y1="85"
+                  x2={70 + Math.cos(angle * Math.PI / 180) * 8}
+                  y2={85 + Math.sin(angle * Math.PI / 180) * 8}
+                  stroke="#374151"
+                  strokeWidth="1" />
+
+                )}
               </motion.g>
             </g>
 
@@ -177,34 +177,34 @@ export const AnimatedCarIcon: React.FC<AnimatedCarIconProps> = ({
               fill="none"
               opacity="0.3"
               animate={{ opacity: [0.3, 0.6, 0.3] }}
-              transition={{ duration: 2, repeat: Infinity }}
-            />
+              transition={{ duration: 2, repeat: Infinity }} />
+
           </motion.g>
 
           {/* Animated Sparkles */}
           {[
-            { cx: 30, cy: 40, delay: 0 },
-            { cx: 170, cy: 35, delay: 0.5 },
-            { cx: 100, cy: 25, delay: 1 },
-          ].map((sparkle, index) => (
-            <motion.circle
-              key={index}
-              cx={sparkle.cx}
-              cy={sparkle.cy}
-              r="2"
-              fill="#FCD34D"
-              initial={{ opacity: 0, scale: 0 }}
-              animate={{
-                opacity: [0, 1, 0],
-                scale: [0, 1, 0]
-              }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                delay: sparkle.delay
-              }}
-            />
-          ))}
+          { cx: 30, cy: 40, delay: 0 },
+          { cx: 170, cy: 35, delay: 0.5 },
+          { cx: 100, cy: 25, delay: 1 }].
+          map((sparkle, index) =>
+          <motion.circle
+            key={index}
+            cx={sparkle.cx}
+            cy={sparkle.cy}
+            r="2"
+            fill="#FCD34D"
+            initial={{ opacity: 0, scale: 0 }}
+            animate={{
+              opacity: [0, 1, 0],
+              scale: [0, 1, 0]
+            }}
+            transition={{
+              duration: 2,
+              repeat: Infinity,
+              delay: sparkle.delay
+            }} />
+
+          )}
         </motion.svg>
 
         {/* Travel LyDian Text */}
@@ -212,22 +212,22 @@ export const AnimatedCarIcon: React.FC<AnimatedCarIconProps> = ({
           className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-full"
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-        >
+          transition={{ duration: 0.8, delay: 0.5 }}>
+
           <div className="text-center">
-            <div className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-xl">
+            <div className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-lydian-primary via-lydian-secondary to-pink-600 text-xl">
               Travel LyDian
             </div>
             <motion.div
-              className="h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full mt-1"
+              className="h-1 bg-gradient-to-r from-lydian-primary via-purple-500 to-pink-500 rounded-full mt-1"
               animate={{ scaleX: [0.8, 1, 0.8] }}
-              transition={{ duration: 2, repeat: Infinity }}
-            />
+              transition={{ duration: 2, repeat: Infinity }} />
+
           </div>
         </motion.div>
       </div>
-    </div>
-  );
+    </div>);
+
 };
 
 export default AnimatedCarIcon;

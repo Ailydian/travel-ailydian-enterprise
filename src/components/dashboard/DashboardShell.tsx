@@ -7,7 +7,7 @@ import DashboardHeader from './DashboardHeader';
 interface DashboardShellProps {
   children: ReactNode;
   title?: string;
-  breadcrumbs?: Array<{ label: string; href?: string }>;
+  breadcrumbs?: Array<{label: string;href?: string;}>;
 }
 
 /**
@@ -45,23 +45,23 @@ const DashboardShell: React.FC<DashboardShellProps> = ({
   };
 
   return (
-    <div className="flex h-screen overflow-hidden bg-white/5">
+    <div className="flex h-screen overflow-hidden bg-lydian-glass-dark">
       {/* Sidebar for desktop and mobile */}
       <DashboardSidebar
         isOpen={sidebarOpen}
         isCollapsed={sidebarCollapsed}
         onClose={closeSidebar}
-        onToggleCollapse={toggleCollapse}
-      />
+        onToggleCollapse={toggleCollapse} />
+
 
       {/* Mobile sidebar overlay */}
-      {sidebarOpen && (
-        <div
-          className="fixed inset-0 z-40 bg-gray-900 bg-opacity-50 lg:hidden"
-          onClick={closeSidebar}
-          aria-hidden="true"
-        />
-      )}
+      {sidebarOpen &&
+      <div
+        className="fixed inset-0 z-40 bg-gray-900 bg-opacity-50 lg:hidden"
+        onClick={closeSidebar}
+        aria-hidden="true" />
+
+      }
 
       {/* Main content area */}
       <div className="flex flex-1 flex-col overflow-hidden">
@@ -69,8 +69,8 @@ const DashboardShell: React.FC<DashboardShellProps> = ({
         <DashboardHeader
           title={title}
           breadcrumbs={breadcrumbs}
-          onMenuClick={toggleSidebar}
-        />
+          onMenuClick={toggleSidebar} />
+
 
         {/* Main content */}
         <main className="flex-1 overflow-y-auto overflow-x-hidden">
@@ -79,8 +79,8 @@ const DashboardShell: React.FC<DashboardShellProps> = ({
           </div>
         </main>
       </div>
-    </div>
-  );
+    </div>);
+
 };
 
 export default DashboardShell;

@@ -24,8 +24,8 @@ import {
   Sparkles,
   Package,
   Heart,
-  Star
-} from 'lucide-react';
+  Star } from
+'lucide-react';
 import { useRouter } from 'next/router';
 
 export type ToastType = 'success' | 'error' | 'warning' | 'info' | 'cart';
@@ -65,7 +65,7 @@ const typeConfig = {
     bg: 'bg-green-50',
     border: 'border-green-200',
     text: 'text-green-900',
-    iconColor: 'text-white',
+    iconColor: 'text-white'
   },
   error: {
     icon: XCircle,
@@ -73,7 +73,7 @@ const typeConfig = {
     bg: 'bg-red-50',
     border: 'border-red-200',
     text: 'text-red-900',
-    iconColor: 'text-white',
+    iconColor: 'text-white'
   },
   warning: {
     icon: AlertCircle,
@@ -81,7 +81,7 @@ const typeConfig = {
     bg: 'bg-orange-50',
     border: 'border-orange-200',
     text: 'text-orange-900',
-    iconColor: 'text-white',
+    iconColor: 'text-white'
   },
   info: {
     icon: Info,
@@ -89,7 +89,7 @@ const typeConfig = {
     bg: 'bg-blue-50',
     border: 'border-blue-200',
     text: 'text-blue-900',
-    iconColor: 'text-white',
+    iconColor: 'text-white'
   },
   cart: {
     icon: ShoppingCart,
@@ -97,8 +97,8 @@ const typeConfig = {
     bg: 'bg-blue-50',
     border: 'border-blue-200',
     text: 'text-blue-900',
-    iconColor: 'text-white',
-  },
+    iconColor: 'text-white'
+  }
 };
 
 const PremiumToast: React.FC<PremiumToastProps> = ({ toast, onClose, position = 'top-right' }) => {
@@ -116,7 +116,7 @@ const PremiumToast: React.FC<PremiumToastProps> = ({ toast, onClose, position = 
           onClose(toast.id);
           return 0;
         }
-        return prev - (100 / (duration / 100));
+        return prev - 100 / (duration / 100);
       });
     }, 100);
 
@@ -149,9 +149,9 @@ const PremiumToast: React.FC<PremiumToastProps> = ({ toast, onClose, position = 
       animate={{ opacity: 1, y: 0, scale: 1 }}
       exit={{ opacity: 0, scale: 0.9, transition: { duration: 0.2 } }}
       transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-      className="relative w-full max-w-md"
-    >
-      <div className={`relative bg-white/5 rounded-2xl shadow-2xl border-2 ${config.border} overflow-hidden backdrop-blur-xl`}>
+      className="relative w-full max-w-md">
+
+      <div className={`relative bg-lydian-glass-dark rounded-2xl shadow-2xl border-2 ${config.border} overflow-hidden backdrop-blur-xl`}>
         {/* Background Gradient Glow */}
         <div className={`absolute inset-0 bg-gradient-to-r ${config.gradient} opacity-5`} />
 
@@ -163,22 +163,22 @@ const PremiumToast: React.FC<PremiumToastProps> = ({ toast, onClose, position = 
               initial={{ scale: 0, rotate: -180 }}
               animate={{ scale: 1, rotate: 0 }}
               transition={{ type: 'spring', delay: 0.1, damping: 15 }}
-              className={`flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br ${config.gradient} flex items-center justify-center shadow-lg`}
-            >
-              {toast.type === 'cart' && toast.itemCount ? (
-                <div className="relative">
-                  <ShoppingCart className="w-6 h-6 text-white" />
+              className={`flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br ${config.gradient} flex items-center justify-center shadow-lg`}>
+
+              {toast.type === 'cart' && toast.itemCount ?
+              <div className="relative">
+                  <ShoppingCart className="w-6 h-6 text-lydian-text-inverse" />
                   <motion.div
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1 }}
-                    className="absolute -top-2 -right-2 w-5 h-5 bg-white/5 rounded-full flex items-center justify-center shadow-md"
-                  >
-                    <span className="text-xs font-bold text-blue-600">{toast.itemCount}</span>
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
+                  className="absolute -top-2 -right-2 w-5 h-5 bg-lydian-glass-dark rounded-full flex items-center justify-center shadow-md">
+
+                    <span className="text-xs font-bold text-lydian-primary">{toast.itemCount}</span>
                   </motion.div>
-                </div>
-              ) : (
-                <Icon className={`w-6 h-6 ${config.iconColor}`} />
-              )}
+                </div> :
+
+              <Icon className={`w-6 h-6 ${config.iconColor}`} />
+              }
             </motion.div>
 
             {/* Toast Content */}
@@ -188,144 +188,144 @@ const PremiumToast: React.FC<PremiumToastProps> = ({ toast, onClose, position = 
                 <h3 className={`font-bold text-base ${config.text}`}>
                   {toast.title}
                 </h3>
-                {toast.badge && (
-                  <span className="px-2 py-0.5 bg-gradient-to-r from-yellow-400 to-orange-400 text-white text-xs font-bold rounded-full">
+                {toast.badge &&
+                <span className="px-2 py-0.5 bg-gradient-to-r from-yellow-400 to-orange-400 text-lydian-text-inverse text-xs font-bold rounded-full">
                     {toast.badge}
                   </span>
-                )}
+                }
               </div>
 
               {/* Message */}
-              {toast.message && (
-                <p className="text-sm text-gray-300 mb-3 line-clamp-2">
+              {toast.message &&
+              <p className="text-sm text-lydian-text-dim mb-3 line-clamp-2">
                   {toast.message}
                 </p>
-              )}
+              }
 
               {/* Image Preview (for cart items) */}
-              {toast.image && (
-                <div className="mb-3 rounded-lg overflow-hidden border border-white/10">
+              {toast.image &&
+              <div className="mb-3 rounded-lg overflow-hidden border border-lydian-border-light/10">
                   <img
-                    src={toast.image}
-                    alt={toast.title}
-                    className="w-full h-24 object-cover"
-                  />
+                  src={toast.image}
+                  alt={toast.title}
+                  className="w-full h-24 object-cover" />
+
                 </div>
-              )}
+              }
 
               {/* Price Display */}
-              {toast.price && (
-                <div className="mb-3 flex items-center gap-2">
-                  <Package className="w-4 h-4 text-gray-400" />
-                  <span className="text-sm font-semibold text-gray-200">
+              {toast.price &&
+              <div className="mb-3 flex items-center gap-2">
+                  <Package className="w-4 h-4 text-lydian-text-muted" />
+                  <span className="text-sm font-semibold text-lydian-text-muted">
                     {toast.price}
                   </span>
                 </div>
-              )}
+              }
 
               {/* Action Buttons */}
               <div className="flex items-center gap-2 flex-wrap">
                 {/* Primary Action (View Cart) */}
-                {toast.showCart && (
-                  <motion.button
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    onClick={handleViewCart}
-                    className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-lydian-primary to-lydian-secondary text-white rounded-lg font-medium text-sm shadow-lg hover:shadow-xl transition-all"
-                  >
+                {toast.showCart &&
+                <motion.button
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  onClick={handleViewCart}
+                  className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-lydian-primary to-lydian-secondary text-lydian-text-inverse rounded-lg font-medium text-sm shadow-lg hover:shadow-xl transition-all">
+
                     <ShoppingCart className="w-4 h-4" />
                     Sepete Git
                     <ArrowRight className="w-3.5 h-3.5" />
                   </motion.button>
-                )}
+                }
 
                 {/* Custom Action */}
-                {toast.action && (
-                  <motion.button
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    onClick={handleAction}
-                    className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium text-sm transition-all ${
-                      toast.action.variant === 'primary'
-                        ? `bg-gradient-to-r ${config.gradient} text-white shadow-lg hover:shadow-xl`
-                        : 'bg-white/10 text-gray-200 hover:bg-gray-200'
-                    }`}
-                  >
+                {toast.action &&
+                <motion.button
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  onClick={handleAction}
+                  className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium text-sm transition-all ${
+                  toast.action.variant === 'primary' ?
+                  `bg-gradient-to-r ${config.gradient} text-white shadow-lg hover:shadow-xl` :
+                  'bg-white/10 text-gray-200 hover:bg-gray-200'}`
+                  }>
+
                     {toast.action.label}
                   </motion.button>
-                )}
+                }
 
                 {/* Undo Action */}
-                {toast.undoAction && (
-                  <motion.button
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    onClick={handleUndo}
-                    className="flex items-center gap-1.5 px-3 py-2 bg-white/10 hover:bg-gray-200 text-gray-200 rounded-lg font-medium text-sm transition-all"
-                  >
+                {toast.undoAction &&
+                <motion.button
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  onClick={handleUndo}
+                  className="flex items-center gap-1.5 px-3 py-2 bg-lydian-glass-dark-medium hover:bg-lydian-bg-active text-lydian-text-muted rounded-lg font-medium text-sm transition-all">
+
                     <RotateCcw className="w-3.5 h-3.5" />
                     Geri Al
                   </motion.button>
-                )}
+                }
               </div>
             </div>
 
             {/* Close Button */}
             <button
               onClick={() => onClose(toast.id)}
-              className="flex-shrink-0 w-8 h-8 rounded-lg hover:bg-white/10 flex items-center justify-center transition-colors group"
-            >
-              <X className="w-4 h-4 text-gray-400 group-hover:text-gray-300" />
+              className="flex-shrink-0 w-8 h-8 rounded-lg hover:bg-lydian-glass-dark-medium flex items-center justify-center transition-colors group">
+
+              <X className="w-4 h-4 text-lydian-text-muted group-hover:text-lydian-text-dim" />
             </button>
           </div>
         </div>
 
         {/* Progress Bar */}
-        <div className="absolute bottom-0 left-0 right-0 h-1 bg-white/10">
+        <div className="absolute bottom-0 left-0 right-0 h-1 bg-lydian-glass-dark-medium">
           <motion.div
             className={`h-full bg-gradient-to-r ${config.gradient}`}
             initial={{ width: '100%' }}
             animate={{ width: `${progress}%` }}
-            transition={{ duration: 0.1, ease: 'linear' }}
-          />
+            transition={{ duration: 0.1, ease: 'linear' }} />
+
         </div>
 
         {/* Sparkle Effect for Cart */}
-        {toast.type === 'cart' && (
-          <>
+        {toast.type === 'cart' &&
+        <>
             <motion.div
-              animate={{
-                rotate: [0, 360],
-                scale: [1, 1.2, 1],
-              }}
-              transition={{
-                duration: 3,
-                repeat: Infinity,
-                ease: 'linear',
-              }}
-              className="absolute top-2 right-2"
-            >
+            animate={{
+              rotate: [0, 360],
+              scale: [1, 1.2, 1]
+            }}
+            transition={{
+              duration: 3,
+              repeat: Infinity,
+              ease: 'linear'
+            }}
+            className="absolute top-2 right-2">
+
               <Sparkles className="w-4 h-4 text-yellow-500 opacity-50" />
             </motion.div>
             <motion.div
-              animate={{
-                rotate: [360, 0],
-                scale: [1, 1.3, 1],
-              }}
-              transition={{
-                duration: 4,
-                repeat: Infinity,
-                ease: 'linear',
-              }}
-              className="absolute bottom-2 left-2"
-            >
-              <Sparkles className="w-3 h-3 text-blue-500 opacity-30" />
+            animate={{
+              rotate: [360, 0],
+              scale: [1, 1.3, 1]
+            }}
+            transition={{
+              duration: 4,
+              repeat: Infinity,
+              ease: 'linear'
+            }}
+            className="absolute bottom-2 left-2">
+
+              <Sparkles className="w-3 h-3 text-lydian-primary opacity-30" />
             </motion.div>
           </>
-        )}
+        }
       </div>
-    </motion.div>
-  );
+    </motion.div>);
+
 };
 
 export default PremiumToast;

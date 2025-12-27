@@ -30,22 +30,22 @@ export const Skeleton: React.FC<SkeletonProps> = ({
 
   return (
     <div className={`${baseClasses} ${variantClasses[variant]} ${animationClasses[animation]} ${className}`}>
-      {animation === 'wave' && (
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent animate-shimmer"
-          style={{
-            backgroundSize: '200% 100%',
-            animation: 'shimmer 1.5s infinite'
-          }}
-        />
-      )}
-    </div>
-  );
+      {animation === 'wave' &&
+      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent animate-shimmer"
+      style={{
+        backgroundSize: '200% 100%',
+        animation: 'shimmer 1.5s infinite'
+      }} />
+
+      }
+    </div>);
+
 };
 
 // Horizontal Product Card Skeleton (Premium Style)
 export const ProductCardSkeleton: React.FC = () => {
   return (
-    <div className="bg-white/5 rounded-lg border border-white/10 overflow-hidden">
+    <div className="bg-lydian-glass-dark rounded-lg border border-lydian-border-light/10 overflow-hidden">
       <div className="flex flex-col md:flex-row">
         {/* Image Skeleton */}
         <div className="w-full md:w-80 h-64 md:h-auto flex-shrink-0">
@@ -77,7 +77,7 @@ export const ProductCardSkeleton: React.FC = () => {
           <div className="flex-1" />
 
           {/* Price & CTA */}
-          <div className="flex items-end justify-between mt-4 pt-4 border-t border-gray-100">
+          <div className="flex items-end justify-between mt-4 pt-4 border-t border-lydian-border-light">
             <div>
               <Skeleton className="w-32 h-8 mb-2" />
               <Skeleton className="w-20 h-4" />
@@ -86,14 +86,14 @@ export const ProductCardSkeleton: React.FC = () => {
           </div>
         </div>
       </div>
-    </div>
-  );
+    </div>);
+
 };
 
 // Filter Sidebar Skeleton
 export const FilterSidebarSkeleton: React.FC = () => {
   return (
-    <div className="bg-white/5 rounded-lg border border-white/10 p-6">
+    <div className="bg-lydian-glass-dark rounded-lg border border-lydian-border-light/10 p-6">
       {/* Header */}
       <div className="flex items-center gap-2 mb-6">
         <Skeleton className="w-5 h-5" variant="circular" />
@@ -110,13 +110,13 @@ export const FilterSidebarSkeleton: React.FC = () => {
         </div>
         {/* Price Histogram */}
         <div className="flex items-end gap-1 h-16">
-          {[20, 45, 80, 95, 100, 85, 60, 40, 25, 15].map((height, index) => (
-            <Skeleton
-              key={index}
-              className="flex-1"
-              style={{ height: `${height}%` }}
-            />
-          ))}
+          {[20, 45, 80, 95, 100, 85, 60, 40, 25, 15].map((height, index) =>
+          <Skeleton
+            key={index}
+            className="flex-1"
+            style={{ height: `${height}%` }} />
+
+          )}
         </div>
       </div>
 
@@ -133,9 +133,9 @@ export const FilterSidebarSkeleton: React.FC = () => {
       <div className="mb-6">
         <Skeleton className="w-40 h-5 mb-4" />
         <div className="space-y-2">
-          {[1, 2, 3, 4].map((i) => (
-            <Skeleton key={i} className="w-full h-12" variant="rectangular" />
-          ))}
+          {[1, 2, 3, 4].map((i) =>
+          <Skeleton key={i} className="w-full h-12" variant="rectangular" />
+          )}
         </div>
       </div>
 
@@ -143,13 +143,13 @@ export const FilterSidebarSkeleton: React.FC = () => {
       <div>
         <Skeleton className="w-28 h-5 mb-4" />
         <div className="space-y-2">
-          {[1, 2, 3, 4, 5].map((i) => (
-            <Skeleton key={i} className="w-full h-12" variant="rectangular" />
-          ))}
+          {[1, 2, 3, 4, 5].map((i) =>
+          <Skeleton key={i} className="w-full h-12" variant="rectangular" />
+          )}
         </div>
       </div>
-    </div>
-  );
+    </div>);
+
 };
 
 // Search Form Skeleton
@@ -158,13 +158,13 @@ export const SearchFormSkeleton: React.FC = () => {
     <div className="w-full max-w-6xl mx-auto">
       {/* Tabs */}
       <div className="flex gap-1 bg-gray-800/30 backdrop-blur-sm p-1 rounded-t-lg overflow-x-auto mb-0">
-        {[1, 2, 3, 4, 5].map((i) => (
-          <Skeleton key={i} className="w-32 h-12" variant="rectangular" />
-        ))}
+        {[1, 2, 3, 4, 5].map((i) =>
+        <Skeleton key={i} className="w-32 h-12" variant="rectangular" />
+        )}
       </div>
 
       {/* Form */}
-      <div className="bg-white/5 rounded-b-lg rounded-tr-lg shadow-2xl p-6">
+      <div className="bg-lydian-glass-dark rounded-b-lg rounded-tr-lg shadow-2xl p-6">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-4 mb-6">
           <Skeleton className="md:col-span-4 h-16" variant="rectangular" />
           <Skeleton className="md:col-span-3 h-16" variant="rectangular" />
@@ -173,14 +173,14 @@ export const SearchFormSkeleton: React.FC = () => {
         </div>
         <Skeleton className="w-full md:w-48 h-14" variant="rectangular" />
       </div>
-    </div>
-  );
+    </div>);
+
 };
 
 // Grid Card Skeleton (for vertical cards)
 export const GridCardSkeleton: React.FC = () => {
   return (
-    <div className="bg-white/5 rounded-2xl shadow-lg overflow-hidden">
+    <div className="bg-lydian-glass-dark rounded-2xl shadow-lg overflow-hidden">
       {/* Image */}
       <Skeleton className="w-full h-48" variant="rectangular" />
 
@@ -201,14 +201,14 @@ export const GridCardSkeleton: React.FC = () => {
           <Skeleton className="w-28 h-10" variant="rectangular" />
         </div>
       </div>
-    </div>
-  );
+    </div>);
+
 };
 
 // Page Loader (Full screen)
 export const PageLoader: React.FC = () => {
   return (
-    <div className="fixed inset-0 bg-white/5 z-50 flex items-center justify-center">
+    <div className="fixed inset-0 bg-lydian-glass-dark z-50 flex items-center justify-center">
       <div className="text-center">
         {/* Logo Skeleton */}
         <div className="mb-8">
@@ -217,19 +217,19 @@ export const PageLoader: React.FC = () => {
 
         {/* Spinner */}
         <div className="relative w-16 h-16 mx-auto mb-4">
-          <div className="absolute inset-0 border-4 border-white/10 rounded-full"></div>
+          <div className="absolute inset-0 border-4 border-lydian-border-light/10 rounded-full"></div>
           <div className="absolute inset-0 border-4 border-lydian-primary border-t-transparent rounded-full animate-spin"></div>
         </div>
 
         {/* Loading text */}
         <Skeleton className="w-32 h-4 mx-auto" />
       </div>
-    </div>
-  );
+    </div>);
+
 };
 
 // Inline Spinner
-export const Spinner: React.FC<{ size?: 'sm' | 'md' | 'lg'; className?: string }> = ({
+export const Spinner: React.FC<{size?: 'sm' | 'md' | 'lg';className?: string;}> = ({
   size = 'md',
   className = ''
 }) => {
@@ -241,8 +241,8 @@ export const Spinner: React.FC<{ size?: 'sm' | 'md' | 'lg'; className?: string }
 
   return (
     <div className={`relative ${sizeClasses[size]} ${className}`}>
-      <div className="absolute inset-0 border-white/10 rounded-full"></div>
+      <div className="absolute inset-0 border-lydian-border-light/10 rounded-full"></div>
       <div className="absolute inset-0 border-lydian-primary border-t-transparent rounded-full animate-spin"></div>
-    </div>
-  );
+    </div>);
+
 };

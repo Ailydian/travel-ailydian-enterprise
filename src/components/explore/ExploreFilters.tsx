@@ -17,14 +17,14 @@ export const ExploreFilters: React.FC = () => {
       {/* Filter Button (Mobile) */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="lg:hidden w-full flex items-center justify-center gap-2 bg-lydian-primary text-white py-3 px-4 rounded-lg font-semibold mb-4"
-      >
+        className="lg:hidden w-full flex items-center justify-center gap-2 bg-lydian-primary text-lydian-text-inverse py-3 px-4 rounded-lg font-semibold mb-4">
+
         <SlidersHorizontal className="w-5 h-5" />
         <span>{t('search.filters')}</span>
       </button>
 
       {/* Filters Panel */}
-      <div className={`bg-white/5 rounded-xl shadow-lg p-6 space-y-6 ${isOpen ? 'block' : 'hidden lg:block'}`}>
+      <div className={`bg-lydian-glass-dark rounded-xl shadow-lg p-6 space-y-6 ${isOpen ? 'block' : 'hidden lg:block'}`}>
         <div className="flex items-center justify-between">
           <h3 className="font-bold text-lg">{t('search.filters')}</h3>
           <button onClick={() => setIsOpen(false)} className="lg:hidden">
@@ -34,7 +34,7 @@ export const ExploreFilters: React.FC = () => {
 
         {/* Price Range */}
         <div>
-          <label className="font-semibold text-white mb-3 block">{t('search.priceRange')}</label>
+          <label className="font-semibold text-lydian-text-inverse mb-3 block">{t('search.priceRange')}</label>
           <input
             type="range"
             min="0"
@@ -42,9 +42,9 @@ export const ExploreFilters: React.FC = () => {
             step="100"
             value={priceRange[1]}
             onChange={(e) => setPriceRange([priceRange[0], parseInt(e.target.value)])}
-            className="w-full"
-          />
-          <div className="flex justify-between text-sm text-gray-300 mt-2">
+            className="w-full" />
+
+          <div className="flex justify-between text-sm text-lydian-text-dim mt-2">
             <span>₺{priceRange[0]}</span>
             <span>₺{priceRange[1]}</span>
           </div>
@@ -52,45 +52,45 @@ export const ExploreFilters: React.FC = () => {
 
         {/* Categories */}
         <div>
-          <label className="font-semibold text-white mb-3 block">{t('search.categories')}</label>
+          <label className="font-semibold text-lydian-text-inverse mb-3 block">{t('search.categories')}</label>
           <div className="space-y-2">
-            {categories.map((cat) => (
-              <label key={cat} className="flex items-center gap-2 cursor-pointer">
+            {categories.map((cat) =>
+            <label key={cat} className="flex items-center gap-2 cursor-pointer">
                 <input
-                  type="checkbox"
-                  checked={selectedCategories.includes(cat)}
-                  onChange={(e) => {
-                    if (e.target.checked) {
-                      setSelectedCategories([...selectedCategories, cat]);
-                    } else {
-                      setSelectedCategories(selectedCategories.filter(c => c !== cat));
-                    }
-                  }}
-                  className="w-4 h-4 text-lydian-primary rounded focus:ring-lydian-primary"
-                />
-                <span className="text-sm text-gray-200">{cat}</span>
+                type="checkbox"
+                checked={selectedCategories.includes(cat)}
+                onChange={(e) => {
+                  if (e.target.checked) {
+                    setSelectedCategories([...selectedCategories, cat]);
+                  } else {
+                    setSelectedCategories(selectedCategories.filter((c) => c !== cat));
+                  }
+                }}
+                className="w-4 h-4 text-lydian-primary rounded focus:ring-lydian-primary" />
+
+                <span className="text-sm text-lydian-text-muted">{cat}</span>
               </label>
-            ))}
+            )}
           </div>
         </div>
 
         {/* Duration */}
         <div>
-          <label className="font-semibold text-white mb-3 block">{t('search.duration')}</label>
+          <label className="font-semibold text-lydian-text-inverse mb-3 block">{t('search.duration')}</label>
           <div className="grid grid-cols-2 gap-2">
-            {durations.map((dur) => (
-              <button key={dur} className="py-2 px-3 border border-white/20 rounded-lg text-sm hover:border-lydian-primary hover:text-lydian-primary transition-colors">
+            {durations.map((dur) =>
+            <button key={dur} className="py-2 px-3 border border-lydian-border-light rounded-lg text-sm hover:border-lydian-primary hover:text-lydian-primary transition-colors">
                 {dur}
               </button>
-            ))}
+            )}
           </div>
         </div>
 
         {/* Apply Button */}
-        <button className="w-full bg-gradient-to-r from-lydian-primary to-lydian-secondary text-white py-3 rounded-lg font-bold hover:shadow-lg transition-all">
+        <button className="w-full bg-gradient-to-r from-lydian-primary to-lydian-secondary text-lydian-text-inverse py-3 rounded-lg font-bold hover:shadow-lg transition-all">
           {t('search.applyFilters')}
         </button>
       </div>
-    </div>
-  );
+    </div>);
+
 };

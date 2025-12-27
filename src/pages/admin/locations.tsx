@@ -2,11 +2,11 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 import Link from 'next/link';
-import { 
-  Search, Filter, Plus, Edit, Trash2, Eye, MapPin, Star, 
+import {
+  Search, Filter, Plus, Edit, Trash2, Eye, MapPin, Star,
   Globe, CheckCircle, XCircle, Clock, RefreshCw, Download,
-  MoreHorizontal, ChevronDown, ArrowUpDown, Settings
-} from 'lucide-react';
+  MoreHorizontal, ChevronDown, ArrowUpDown, Settings } from
+'lucide-react';
 import adminService from '../../lib/services/admin-service';
 
 interface Location {
@@ -60,7 +60,7 @@ export default function AdminLocations() {
     total: 0,
     pages: 0
   });
-  
+
   const [filters, setFilters] = useState<Filters>({
     search: '',
     status: '',
@@ -95,9 +95,9 @@ export default function AdminLocations() {
         page: pagination.page,
         limit: pagination.limit
       };
-      
+
       // Remove empty filters
-      Object.keys(params).forEach(key => {
+      Object.keys(params).forEach((key) => {
         if (params[key as keyof typeof params] === '') {
           delete params[key as keyof typeof params];
         }
@@ -105,7 +105,7 @@ export default function AdminLocations() {
 
       const response = await adminService.getLocations(params);
       setLocations(response.locations);
-      setPagination(prev => ({
+      setPagination((prev) => ({
         ...prev,
         total: response.pagination.total,
         pages: response.pagination.pages
@@ -118,13 +118,13 @@ export default function AdminLocations() {
   };
 
   const handleFilterChange = (key: keyof Filters, value: string) => {
-    setFilters(prev => ({ ...prev, [key]: value }));
-    setPagination(prev => ({ ...prev, page: 1 }));
+    setFilters((prev) => ({ ...prev, [key]: value }));
+    setPagination((prev) => ({ ...prev, page: 1 }));
   };
 
   const handleSort = (column: string) => {
     const newSortOrder = filters.sortBy === column && filters.sortOrder === 'asc' ? 'desc' : 'asc';
-    setFilters(prev => ({
+    setFilters((prev) => ({
       ...prev,
       sortBy: column,
       sortOrder: newSortOrder
@@ -132,10 +132,10 @@ export default function AdminLocations() {
   };
 
   const handleSelectLocation = (locationId: number) => {
-    setSelectedLocations(prev => 
-      prev.includes(locationId)
-        ? prev.filter(id => id !== locationId)
-        : [...prev, locationId]
+    setSelectedLocations((prev) =>
+    prev.includes(locationId) ?
+    prev.filter((id) => id !== locationId) :
+    [...prev, locationId]
     );
   };
 
@@ -143,7 +143,7 @@ export default function AdminLocations() {
     if (selectedLocations.length === locations.length) {
       setSelectedLocations([]);
     } else {
-      setSelectedLocations(locations.map(location => location.id));
+      setSelectedLocations(locations.map((location) => location.id));
     }
   };
 
@@ -187,11 +187,11 @@ export default function AdminLocations() {
 
   const getStatusColor = (status: string) => {
     switch (status) {
-      case 'active': return 'bg-green-100 text-green-800';
-      case 'inactive': return 'bg-white/10 text-gray-100';
-      case 'pending': return 'bg-yellow-100 text-yellow-800';
-      case 'blocked': return 'bg-red-100 text-red-800';
-      default: return 'bg-white/10 text-gray-100';
+      case 'active':return 'bg-green-100 text-green-800';
+      case 'inactive':return 'bg-white/10 text-gray-100';
+      case 'pending':return 'bg-yellow-100 text-yellow-800';
+      case 'blocked':return 'bg-red-100 text-red-800';
+      default:return 'bg-white/10 text-gray-100';
     }
   };
 
@@ -208,31 +208,31 @@ export default function AdminLocations() {
         <meta name="robots" content="noindex, nofollow" />
       </Head>
 
-      <div className="min-h-screen bg-white/5">
+      <div className="min-h-screen bg-lydian-glass-dark">
         {/* Header */}
-        <div className="bg-transparent shadow-sm border-b border-white/10">
+        <div className="bg-lydian-bg-hover shadow-sm border-b border-lydian-border-light/10">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex justify-between items-center h-16">
               <div className="flex items-center">
-                <Link href="/admin/dashboard" className="text-gray-300 hover:text-white mr-4">
+                <Link href="/admin/dashboard" className="text-lydian-text-dim hover:text-lydian-text-inverse mr-4">
                   ← Dashboard
                 </Link>
-                <h1 className="text-xl font-semibold text-white">
+                <h1 className="text-xl font-semibold text-lydian-text-inverse">
                   Locations Management
                 </h1>
               </div>
               <div className="flex items-center space-x-4">
                 <Link
                   href="/admin/locations/new"
-                  className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 flex items-center"
-                >
+                  className="bg-lydian-primary text-lydian-text-inverse px-4 py-2 rounded-lg hover:bg-lydian-primary-dark flex items-center">
+
                   <Plus className="w-4 h-4 mr-2" />
                   Add Location
                 </Link>
                 <button
                   onClick={fetchLocations}
-                  className="bg-gray-600 text-white px-4 py-2 rounded-lg hover:bg-gray-700 flex items-center"
-                >
+                  className="bg-gray-600 text-lydian-text-inverse px-4 py-2 rounded-lg hover:bg-gray-700 flex items-center">
+
                   <RefreshCw className="w-4 h-4 mr-2" />
                   Refresh
                 </button>
@@ -243,100 +243,100 @@ export default function AdminLocations() {
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           {/* Search and Filters */}
-          <div className="bg-transparent rounded-lg shadow-sm border border-white/10 p-6 mb-6">
+          <div className="bg-lydian-bg-hover rounded-lg shadow-sm border border-lydian-border-light/10 p-6 mb-6">
             <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between space-y-4 lg:space-y-0">
               <div className="flex-1 max-w-lg">
                 <div className="relative">
-                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
+                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-lydian-text-muted w-4 h-4" />
                   <input
                     type="text"
                     placeholder="Search locations..."
                     value={filters.search}
                     onChange={(e) => handleFilterChange('search', e.target.value)}
-                    className="w-full pl-10 pr-4 py-2 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                  />
+                    className="w-full pl-10 pr-4 py-2 border border-lydian-border-light rounded-lg focus:outline-none focus:ring-2 focus:ring-lydian-border-focus focus:border-lydian-primary" />
+
                 </div>
               </div>
               
               <div className="flex items-center space-x-3">
                 <button
                   onClick={() => setShowFilters(!showFilters)}
-                  className="flex items-center space-x-2 px-4 py-2 border border-white/20 rounded-lg hover:bg-white/5"
-                >
+                  className="flex items-center space-x-2 px-4 py-2 border border-lydian-border-light rounded-lg hover:bg-lydian-glass-dark">
+
                   <Filter className="w-4 h-4" />
                   <span>Filters</span>
                   <ChevronDown className={`w-4 h-4 transition-transform ${showFilters ? 'rotate-180' : ''}`} />
                 </button>
                 
-                {selectedLocations.length > 0 && (
-                  <div className="relative">
+                {selectedLocations.length > 0 &&
+                <div className="relative">
                     <button
-                      onClick={() => setShowBulkActions(!showBulkActions)}
-                      className="flex items-center space-x-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
-                    >
+                    onClick={() => setShowBulkActions(!showBulkActions)}
+                    className="flex items-center space-x-2 px-4 py-2 bg-lydian-primary text-lydian-text-inverse rounded-lg hover:bg-lydian-primary-dark">
+
                       <span>{selectedLocations.length} selected</span>
                       <ChevronDown className="w-4 h-4" />
                     </button>
                     
-                    {showBulkActions && (
-                      <div className="absolute right-0 mt-2 w-48 bg-transparent rounded-lg shadow-lg border border-white/10 z-10">
+                    {showBulkActions &&
+                  <div className="absolute right-0 mt-2 w-48 bg-lydian-bg-hover rounded-lg shadow-lg border border-lydian-border-light/10 z-10">
                         <div className="py-1">
                           <button
-                            onClick={() => handleBulkAction('activate')}
-                            className="w-full text-left px-4 py-2 text-sm text-gray-200 hover:bg-white/10"
-                          >
+                        onClick={() => handleBulkAction('activate')}
+                        className="w-full text-left px-4 py-2 text-sm text-lydian-text-muted hover:bg-lydian-glass-dark-medium">
+
                             Activate
                           </button>
                           <button
-                            onClick={() => handleBulkAction('deactivate')}
-                            className="w-full text-left px-4 py-2 text-sm text-gray-200 hover:bg-white/10"
-                          >
+                        onClick={() => handleBulkAction('deactivate')}
+                        className="w-full text-left px-4 py-2 text-sm text-lydian-text-muted hover:bg-lydian-glass-dark-medium">
+
                             Deactivate
                           </button>
                           <button
-                            onClick={() => handleBulkAction('verify')}
-                            className="w-full text-left px-4 py-2 text-sm text-gray-200 hover:bg-white/10"
-                          >
+                        onClick={() => handleBulkAction('verify')}
+                        className="w-full text-left px-4 py-2 text-sm text-lydian-text-muted hover:bg-lydian-glass-dark-medium">
+
                             Verify
                           </button>
                           <button
-                            onClick={() => handleBulkAction('sync-google')}
-                            className="w-full text-left px-4 py-2 text-sm text-gray-200 hover:bg-white/10"
-                          >
+                        onClick={() => handleBulkAction('sync-google')}
+                        className="w-full text-left px-4 py-2 text-sm text-lydian-text-muted hover:bg-lydian-glass-dark-medium">
+
                             Sync Google
                           </button>
                           <button
-                            onClick={() => handleBulkAction('sync-tripadvisor')}
-                            className="w-full text-left px-4 py-2 text-sm text-gray-200 hover:bg-white/10"
-                          >
+                        onClick={() => handleBulkAction('sync-tripadvisor')}
+                        className="w-full text-left px-4 py-2 text-sm text-lydian-text-muted hover:bg-lydian-glass-dark-medium">
+
                             Sync TripAdvisor
                           </button>
-                          <div className="border-t border-gray-100"></div>
+                          <div className="border-t border-lydian-border-light"></div>
                           <button
-                            onClick={() => handleBulkAction('delete')}
-                            className="w-full text-left px-4 py-2 text-sm text-red-700 hover:bg-red-50"
-                          >
+                        onClick={() => handleBulkAction('delete')}
+                        className="w-full text-left px-4 py-2 text-sm text-lydian-primary-dark hover:bg-lydian-error-lighter">
+
                             Delete
                           </button>
                         </div>
                       </div>
-                    )}
+                  }
                   </div>
-                )}
+                }
               </div>
             </div>
 
             {/* Advanced Filters */}
-            {showFilters && (
-              <div className="mt-6 pt-6 border-t border-white/10">
+            {showFilters &&
+            <div className="mt-6 pt-6 border-t border-lydian-border-light/10">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                   <div>
-                    <label className="block text-sm font-medium text-gray-200 mb-1">Status</label>
+                    <label className="block text-sm font-medium text-lydian-text-muted mb-1">Status</label>
                     <select
-                      value={filters.status}
-                      onChange={(e) => handleFilterChange('status', e.target.value)}
-                      className="w-full border border-white/20 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    >
+                    value={filters.status}
+                    onChange={(e) => handleFilterChange('status', e.target.value)}
+                    className="w-full border border-lydian-border-light rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-lydian-border-focus">
+
                       <option value="">All Status</option>
                       <option value="active">Active</option>
                       <option value="inactive">Inactive</option>
@@ -346,12 +346,12 @@ export default function AdminLocations() {
                   </div>
                   
                   <div>
-                    <label className="block text-sm font-medium text-gray-200 mb-1">Verified</label>
+                    <label className="block text-sm font-medium text-lydian-text-muted mb-1">Verified</label>
                     <select
-                      value={filters.verified}
-                      onChange={(e) => handleFilterChange('verified', e.target.value)}
-                      className="w-full border border-white/20 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    >
+                    value={filters.verified}
+                    onChange={(e) => handleFilterChange('verified', e.target.value)}
+                    className="w-full border border-lydian-border-light rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-lydian-border-focus">
+
                       <option value="">All</option>
                       <option value="true">Verified</option>
                       <option value="false">Not Verified</option>
@@ -359,12 +359,12 @@ export default function AdminLocations() {
                   </div>
                   
                   <div>
-                    <label className="block text-sm font-medium text-gray-200 mb-1">Claimed</label>
+                    <label className="block text-sm font-medium text-lydian-text-muted mb-1">Claimed</label>
                     <select
-                      value={filters.claimed}
-                      onChange={(e) => handleFilterChange('claimed', e.target.value)}
-                      className="w-full border border-white/20 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    >
+                    value={filters.claimed}
+                    onChange={(e) => handleFilterChange('claimed', e.target.value)}
+                    className="w-full border border-lydian-border-light rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-lydian-border-focus">
+
                       <option value="">All</option>
                       <option value="true">Claimed</option>
                       <option value="false">Not Claimed</option>
@@ -372,12 +372,12 @@ export default function AdminLocations() {
                   </div>
                   
                   <div>
-                    <label className="block text-sm font-medium text-gray-200 mb-1">Min Rating</label>
+                    <label className="block text-sm font-medium text-lydian-text-muted mb-1">Min Rating</label>
                     <select
-                      value={filters.minRating}
-                      onChange={(e) => handleFilterChange('minRating', e.target.value)}
-                      className="w-full border border-white/20 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    >
+                    value={filters.minRating}
+                    onChange={(e) => handleFilterChange('minRating', e.target.value)}
+                    className="w-full border border-lydian-border-light rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-lydian-border-focus">
+
                       <option value="">Any Rating</option>
                       <option value="4.5">4.5+ Stars</option>
                       <option value="4.0">4.0+ Stars</option>
@@ -387,115 +387,115 @@ export default function AdminLocations() {
                   </div>
                 </div>
               </div>
-            )}
+            }
           </div>
 
           {/* Locations Table */}
-          <div className="bg-transparent rounded-lg shadow-sm border border-white/10 overflow-hidden">
-            {isLoading ? (
-              <div className="flex items-center justify-center h-64">
-                <div className="w-8 h-8 border-2 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
-                <span className="ml-3 text-gray-300">Loading locations...</span>
-              </div>
-            ) : error ? (
-              <div className="flex items-center justify-center h-64">
+          <div className="bg-lydian-bg-hover rounded-lg shadow-sm border border-lydian-border-light/10 overflow-hidden">
+            {isLoading ?
+            <div className="flex items-center justify-center h-64">
+                <div className="w-8 h-8 border-2 border-lydian-primary border-t-transparent rounded-full animate-spin"></div>
+                <span className="ml-3 text-lydian-text-dim">Loading locations...</span>
+              </div> :
+            error ?
+            <div className="flex items-center justify-center h-64">
                 <div className="text-center">
-                  <p className="text-red-600 mb-4">{error}</p>
-                  <button 
-                    onClick={fetchLocations}
-                    className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
-                  >
+                  <p className="text-lydian-primary mb-4">{error}</p>
+                  <button
+                  onClick={fetchLocations}
+                  className="px-4 py-2 bg-lydian-primary text-lydian-text-inverse rounded-lg hover:bg-lydian-primary-dark">
+
                     Retry
                   </button>
                 </div>
-              </div>
-            ) : (
-              <>
+              </div> :
+
+            <>
                 <div className="overflow-x-auto">
                   <table className="w-full">
-                    <thead className="bg-white/5 border-b border-white/10">
+                    <thead className="bg-lydian-glass-dark border-b border-lydian-border-light/10">
                       <tr>
                         <th className="w-12 px-4 py-3">
                           <input
-                            type="checkbox"
-                            checked={selectedLocations.length === locations.length && locations.length > 0}
-                            onChange={handleSelectAll}
-                            className="rounded border-white/20 text-blue-600 focus:ring-blue-500"
-                          />
+                          type="checkbox"
+                          checked={selectedLocations.length === locations.length && locations.length > 0}
+                          onChange={handleSelectAll}
+                          className="rounded border-lydian-border-light text-lydian-primary focus:ring-lydian-border-focus" />
+
                         </th>
-                        <th className="text-left px-4 py-3 font-medium text-gray-200">
+                        <th className="text-left px-4 py-3 font-medium text-lydian-text-muted">
                           <button
-                            onClick={() => handleSort('name')}
-                            className="flex items-center space-x-1 hover:text-white"
-                          >
+                          onClick={() => handleSort('name')}
+                          className="flex items-center space-x-1 hover:text-lydian-text-inverse">
+
                             <span>Name</span>
                             <ArrowUpDown className="w-3 h-3" />
                           </button>
                         </th>
-                        <th className="text-left px-4 py-3 font-medium text-gray-200">Location</th>
-                        <th className="text-left px-4 py-3 font-medium text-gray-200">
+                        <th className="text-left px-4 py-3 font-medium text-lydian-text-muted">Location</th>
+                        <th className="text-left px-4 py-3 font-medium text-lydian-text-muted">
                           <button
-                            onClick={() => handleSort('status')}
-                            className="flex items-center space-x-1 hover:text-white"
-                          >
+                          onClick={() => handleSort('status')}
+                          className="flex items-center space-x-1 hover:text-lydian-text-inverse">
+
                             <span>Status</span>
                             <ArrowUpDown className="w-3 h-3" />
                           </button>
                         </th>
-                        <th className="text-left px-4 py-3 font-medium text-gray-200">
+                        <th className="text-left px-4 py-3 font-medium text-lydian-text-muted">
                           <button
-                            onClick={() => handleSort('averageRating')}
-                            className="flex items-center space-x-1 hover:text-white"
-                          >
+                          onClick={() => handleSort('averageRating')}
+                          className="flex items-center space-x-1 hover:text-lydian-text-inverse">
+
                             <span>Rating</span>
                             <ArrowUpDown className="w-3 h-3" />
                           </button>
                         </th>
-                        <th className="text-left px-4 py-3 font-medium text-gray-200">Stats</th>
-                        <th className="text-left px-4 py-3 font-medium text-gray-200">External</th>
-                        <th className="text-left px-4 py-3 font-medium text-gray-200">
+                        <th className="text-left px-4 py-3 font-medium text-lydian-text-muted">Stats</th>
+                        <th className="text-left px-4 py-3 font-medium text-lydian-text-muted">External</th>
+                        <th className="text-left px-4 py-3 font-medium text-lydian-text-muted">
                           <button
-                            onClick={() => handleSort('updatedAt')}
-                            className="flex items-center space-x-1 hover:text-white"
-                          >
+                          onClick={() => handleSort('updatedAt')}
+                          className="flex items-center space-x-1 hover:text-lydian-text-inverse">
+
                             <span>Updated</span>
                             <ArrowUpDown className="w-3 h-3" />
                           </button>
                         </th>
-                        <th className="text-center px-4 py-3 font-medium text-gray-200">Actions</th>
+                        <th className="text-center px-4 py-3 font-medium text-lydian-text-muted">Actions</th>
                       </tr>
                     </thead>
-                    <tbody className="divide-y divide-gray-200">
-                      {locations.map((location) => (
-                        <tr key={location.id} className="hover:bg-white/5">
+                    <tbody className="divide-y divide-lydian-border">
+                      {locations.map((location) =>
+                    <tr key={location.id} className="hover:bg-lydian-glass-dark">
                           <td className="px-4 py-3">
                             <input
-                              type="checkbox"
-                              checked={selectedLocations.includes(location.id)}
-                              onChange={() => handleSelectLocation(location.id)}
-                              className="rounded border-white/20 text-blue-600 focus:ring-blue-500"
-                            />
+                          type="checkbox"
+                          checked={selectedLocations.includes(location.id)}
+                          onChange={() => handleSelectLocation(location.id)}
+                          className="rounded border-lydian-border-light text-lydian-primary focus:ring-lydian-border-focus" />
+
                           </td>
                           <td className="px-4 py-3">
                             <div className="flex items-center">
                               <div>
                                 <div className="flex items-center space-x-2">
-                                  <span className="font-medium text-white">{location.name}</span>
-                                  {location.verified && (
-                                    <CheckCircle className="w-4 h-4 text-green-500" />
-                                  )}
-                                  {location.claimed && (
-                                    <Settings className="w-4 h-4 text-blue-500" />
-                                  )}
+                                  <span className="font-medium text-lydian-text-inverse">{location.name}</span>
+                                  {location.verified &&
+                              <CheckCircle className="w-4 h-4 text-green-500" />
+                              }
+                                  {location.claimed &&
+                              <Settings className="w-4 h-4 text-lydian-primary" />
+                              }
                                 </div>
-                                <span className="text-sm text-gray-200">{location.category}</span>
+                                <span className="text-sm text-lydian-text-muted">{location.category}</span>
                               </div>
                             </div>
                           </td>
                           <td className="px-4 py-3">
                             <div className="text-sm">
-                              <div className="text-white">{location.city}</div>
-                              <div className="text-gray-200">{location.country}</div>
+                              <div className="text-lydian-text-inverse">{location.city}</div>
+                              <div className="text-lydian-text-muted">{location.country}</div>
                             </div>
                           </td>
                           <td className="px-4 py-3">
@@ -507,92 +507,92 @@ export default function AdminLocations() {
                             <div className="flex items-center">
                               <Star className="w-4 h-4 text-yellow-400 fill-current mr-1" />
                               <span className="text-sm font-medium">{location.averageRating.toFixed(1)}</span>
-                              <span className="text-xs text-gray-200 ml-1">({location.totalReviews})</span>
+                              <span className="text-xs text-lydian-text-muted ml-1">({location.totalReviews})</span>
                             </div>
                           </td>
                           <td className="px-4 py-3">
-                            <div className="text-xs text-gray-100">
+                            <div className="text-xs text-lydian-text-dim">
                               <div>{formatNumber(location.totalViews)} views</div>
                               <div>{location.totalPhotos} photos</div>
                             </div>
                           </td>
                           <td className="px-4 py-3">
                             <div className="flex items-center space-x-1">
-                              {location.googlePlaceId && (
-                                <div className="w-6 h-6 bg-red-100 text-red-600 rounded-full flex items-center justify-center">
+                              {location.googlePlaceId &&
+                          <div className="w-6 h-6 bg-lydian-error-light text-lydian-primary rounded-full flex items-center justify-center">
                                   <Globe className="w-3 h-3" />
                                 </div>
-                              )}
-                              {location.tripAdvisorId && (
-                                <div className="w-6 h-6 bg-green-100 text-green-600 rounded-full flex items-center justify-center">
+                          }
+                              {location.tripAdvisorId &&
+                          <div className="w-6 h-6 bg-lydian-success-light text-lydian-success rounded-full flex items-center justify-center">
                                   <Globe className="w-3 h-3" />
                                 </div>
-                              )}
+                          }
                             </div>
                           </td>
                           <td className="px-4 py-3">
-                            <div className="text-xs text-gray-200">
+                            <div className="text-xs text-lydian-text-muted">
                               {new Date(location.updatedAt).toLocaleDateString()}
                             </div>
                           </td>
                           <td className="px-4 py-3">
                             <div className="flex items-center justify-center space-x-1">
                               <Link
-                                href={`/location/${location.slug}`}
-                                className="p-1 text-gray-400 hover:text-blue-600"
-                              >
+                            href={`/location/${location.slug}`}
+                            className="p-1 text-lydian-text-muted hover:text-lydian-primary">
+
                                 <Eye className="w-4 h-4" />
                               </Link>
                               <Link
-                                href={`/admin/locations/${location.id}/edit`}
-                                className="p-1 text-gray-400 hover:text-green-600"
-                              >
+                            href={`/admin/locations/${location.id}/edit`}
+                            className="p-1 text-lydian-text-muted hover:text-lydian-success">
+
                                 <Edit className="w-4 h-4" />
                               </Link>
                               <button
-                                onClick={() => {
-                                  if (confirm('Are you sure you want to delete this location?')) {
-                                    adminService.deleteLocation(location.id).then(() => fetchLocations());
-                                  }
-                                }}
-                                className="p-1 text-gray-400 hover:text-red-600"
-                              >
+                            onClick={() => {
+                              if (confirm('Are you sure you want to delete this location?')) {
+                                adminService.deleteLocation(location.id).then(() => fetchLocations());
+                              }
+                            }}
+                            className="p-1 text-lydian-text-muted hover:text-lydian-primary">
+
                                 <Trash2 className="w-4 h-4" />
                               </button>
                             </div>
                           </td>
                         </tr>
-                      ))}
+                    )}
                     </tbody>
                   </table>
                 </div>
 
                 {/* Pagination */}
-                {pagination.pages > 1 && (
-                  <div className="bg-white/5 px-4 py-3 border-t border-white/10 sm:px-6">
+                {pagination.pages > 1 &&
+              <div className="bg-lydian-glass-dark px-4 py-3 border-t border-lydian-border-light/10 sm:px-6">
                     <div className="flex items-center justify-between">
                       <div className="flex justify-between items-center sm:hidden">
                         <button
-                          onClick={() => setPagination(prev => ({ ...prev, page: Math.max(1, prev.page - 1) }))}
-                          disabled={pagination.page === 1}
-                          className="relative inline-flex items-center px-4 py-2 border border-white/20 text-sm font-medium rounded-md text-gray-200 bg-transparent hover:bg-white/5 disabled:bg-white/10 disabled:text-gray-400"
-                        >
+                      onClick={() => setPagination((prev) => ({ ...prev, page: Math.max(1, prev.page - 1) }))}
+                      disabled={pagination.page === 1}
+                      className="relative inline-flex items-center px-4 py-2 border border-lydian-border-light text-sm font-medium rounded-md text-lydian-text-muted bg-lydian-bg-hover hover:bg-lydian-glass-dark disabled:bg-lydian-glass-dark-medium disabled:text-lydian-text-muted">
+
                           Previous
                         </button>
-                        <span className="text-sm text-gray-200">
+                        <span className="text-sm text-lydian-text-muted">
                           Page {pagination.page} of {pagination.pages}
                         </span>
                         <button
-                          onClick={() => setPagination(prev => ({ ...prev, page: Math.min(prev.pages, prev.page + 1) }))}
-                          disabled={pagination.page === pagination.pages}
-                          className="ml-3 relative inline-flex items-center px-4 py-2 border border-white/20 text-sm font-medium rounded-md text-gray-200 bg-transparent hover:bg-white/5 disabled:bg-white/10 disabled:text-gray-400"
-                        >
+                      onClick={() => setPagination((prev) => ({ ...prev, page: Math.min(prev.pages, prev.page + 1) }))}
+                      disabled={pagination.page === pagination.pages}
+                      className="ml-3 relative inline-flex items-center px-4 py-2 border border-lydian-border-light text-sm font-medium rounded-md text-lydian-text-muted bg-lydian-bg-hover hover:bg-lydian-glass-dark disabled:bg-lydian-glass-dark-medium disabled:text-lydian-text-muted">
+
                           Next
                         </button>
                       </div>
                       <div className="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
                         <div>
-                          <p className="text-sm text-gray-200">
+                          <p className="text-sm text-lydian-text-muted">
                             Showing{' '}
                             <span className="font-medium">{(pagination.page - 1) * pagination.limit + 1}</span>
                             {' '} to{' '}
@@ -607,45 +607,45 @@ export default function AdminLocations() {
                         <div>
                           <nav className="relative z-0 inline-flex rounded-md shadow-sm -space-x-px">
                             <button
-                              onClick={() => setPagination(prev => ({ ...prev, page: Math.max(1, prev.page - 1) }))}
-                              disabled={pagination.page === 1}
-                              className="relative inline-flex items-center px-2 py-2 rounded-l-md border border-white/20 bg-transparent text-sm font-medium text-gray-400 hover:bg-white/5 disabled:bg-white/10 disabled:text-gray-400"
-                            >
+                          onClick={() => setPagination((prev) => ({ ...prev, page: Math.max(1, prev.page - 1) }))}
+                          disabled={pagination.page === 1}
+                          className="relative inline-flex items-center px-2 py-2 rounded-l-md border border-lydian-border-light bg-lydian-bg-hover text-sm font-medium text-lydian-text-muted hover:bg-lydian-glass-dark disabled:bg-lydian-glass-dark-medium disabled:text-lydian-text-muted">
+
                               Previous
                             </button>
                             
                             {Array.from({ length: Math.min(5, pagination.pages) }, (_, i) => {
-                              let pageNum;
-                              if (pagination.pages <= 5) {
-                                pageNum = i + 1;
-                              } else if (pagination.page <= 3) {
-                                pageNum = i + 1;
-                              } else if (pagination.page >= pagination.pages - 2) {
-                                pageNum = pagination.pages - 4 + i;
-                              } else {
-                                pageNum = pagination.page - 2 + i;
-                              }
-                              
-                              return (
-                                <button
-                                  key={pageNum}
-                                  onClick={() => setPagination(prev => ({ ...prev, page: pageNum }))}
-                                  className={`relative inline-flex items-center px-4 py-2 border text-sm font-medium ${
-                                    pagination.page === pageNum
-                                      ? 'z-10 bg-blue-50 border-blue-500 text-blue-600'
-                                      : 'bg-white/5 border-white/20 text-gray-400 hover:bg-white/5'
-                                  }`}
-                                >
+                          let pageNum;
+                          if (pagination.pages <= 5) {
+                            pageNum = i + 1;
+                          } else if (pagination.page <= 3) {
+                            pageNum = i + 1;
+                          } else if (pagination.page >= pagination.pages - 2) {
+                            pageNum = pagination.pages - 4 + i;
+                          } else {
+                            pageNum = pagination.page - 2 + i;
+                          }
+
+                          return (
+                            <button
+                              key={pageNum}
+                              onClick={() => setPagination((prev) => ({ ...prev, page: pageNum }))}
+                              className={`relative inline-flex items-center px-4 py-2 border text-sm font-medium ${
+                              pagination.page === pageNum ?
+                              'z-10 bg-blue-50 border-blue-500 text-blue-600' :
+                              'bg-white/5 border-white/20 text-gray-400 hover:bg-white/5'}`
+                              }>
+
                                   {pageNum}
-                                </button>
-                              );
-                            })}
+                                </button>);
+
+                        })}
                             
                             <button
-                              onClick={() => setPagination(prev => ({ ...prev, page: Math.min(prev.pages, prev.page + 1) }))}
-                              disabled={pagination.page === pagination.pages}
-                              className="relative inline-flex items-center px-2 py-2 rounded-r-md border border-white/20 bg-transparent text-sm font-medium text-gray-400 hover:bg-white/5 disabled:bg-white/10 disabled:text-gray-400"
-                            >
+                          onClick={() => setPagination((prev) => ({ ...prev, page: Math.min(prev.pages, prev.page + 1) }))}
+                          disabled={pagination.page === pagination.pages}
+                          className="relative inline-flex items-center px-2 py-2 rounded-r-md border border-lydian-border-light bg-lydian-bg-hover text-sm font-medium text-lydian-text-muted hover:bg-lydian-glass-dark disabled:bg-lydian-glass-dark-medium disabled:text-lydian-text-muted">
+
                               Next
                             </button>
                           </nav>
@@ -653,12 +653,12 @@ export default function AdminLocations() {
                       </div>
                     </div>
                   </div>
-                )}
+              }
               </>
-            )}
+            }
           </div>
         </div>
       </div>
-    </>
-  );
+    </>);
+
 }
