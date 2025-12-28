@@ -291,9 +291,18 @@ nextConfig.poweredByHeader = false;
 
 // Environment variables exposed to client
 nextConfig.env = {
-  NEXT_PUBLIC_APP_URL: process.env.NEXT_PUBLIC_APP_URL || 'https://travel.ailydian.com',
+  NEXT_PUBLIC_APP_URL: process.env.NEXT_PUBLIC_SITE_URL || process.env.NEXT_PUBLIC_APP_URL || 'https://travel.ailydian.com',
   NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL || 'https://travel.ailydian.com/api',
 };
+
+// Production optimizations
+if (process.env.NODE_ENV === 'production') {
+  // Disable source maps in production for better performance
+  nextConfig.productionBrowserSourceMaps = false;
+
+  // Output standalone for better performance on Vercel
+  nextConfig.output = 'standalone';
+}
 
 // Sentry configuration for error tracking and performance monitoring
 const sentryConfig = {

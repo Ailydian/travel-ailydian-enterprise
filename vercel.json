@@ -2,7 +2,7 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "version": 2,
   "framework": "nextjs",
-  "alias": ["travel.lydian.com", "dashboard.travel.lydian.com"],
+  "alias": ["travel.ailydian.com", "www.travel.ailydian.com"],
   
   "build": {
     "env": {
@@ -65,6 +65,6 @@
   
   
   "env": {
-    "NEXT_PUBLIC_SITE_URL": "https://dashboard.travel.lydian.com"
+    "NEXT_PUBLIC_SITE_URL": "https://travel.ailydian.com"
   }
 }
