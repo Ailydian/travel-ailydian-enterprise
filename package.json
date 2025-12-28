@@ -10,9 +10,9 @@
   "scripts": {
     "dev": "next dev -p 3100",
     "build": "prisma generate && prisma migrate deploy && next build",
-    "build:vercel": "prisma generate && next build",
+    "build:vercel": "node scripts/prisma-generate-optional.js && next build",
     "start": "next start -p 3100",
-    "postinstall": "prisma generate",
+    "postinstall": "node scripts/prisma-generate-optional.js",
     "db:generate": "prisma generate",
     "db:push": "prisma db push",
     "db:migrate": "prisma migrate dev",
