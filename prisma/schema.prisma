@@ -10,6 +10,8 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
   directUrl = env("DIRECT_URL") // Optional: for connection pooling (Supabase, etc.)
+
+  // Note: DIRECT_URL is optional for development, but required for Supabase in production
 }
 
 // NextAuth.js Models
