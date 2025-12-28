@@ -1,4 +1,5 @@
 import logger from '../lib/logger';
+import { logger } from '../lib/logger/winston';
 
 /**
  * Mock Property Owner Authentication Data
@@ -140,7 +141,7 @@ export function printTestCredentials() {
     logger.debug(`   Telefon: ${owner.phone}`, { component: 'Mockownerauth' });
     logger.debug(`   Mülk Tipi: ${owner.propertyType}`, { component: 'Mockownerauth' });
     logger.debug(`   Mülk Sayısı: ${owner.propertyCount}`, { component: 'Mockownerauth' });
-    console.log('');
+    logger.info('');
   });
 
   logger.debug('==========================================\n', { component: 'Mockownerauth' });

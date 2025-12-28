@@ -1,3 +1,4 @@
+import { logger } from '../../lib/logger/winston';
 /**
  * Advanced IndexNow Implementation
  * Son teknoloji, güvenli ve etik SEO uyumlu IndexNow sistemi
@@ -11,7 +12,6 @@
  */
 
 import crypto from 'crypto';
-import logger from '../logger';
 
 interface IndexNowPayload {
   host: string;
@@ -140,7 +140,7 @@ export class AdvancedIndexNow {
         };
       } else {
         const errorText = await response.text().catch(() => 'Unknown error');
-        console.warn(`⚠️ ${engineName}: Failed with status ${response.status} - ${errorText}`);
+        logger.warn(`⚠️ ${engineName}: Failed with status ${response.status} - ${errorText}`);
         return {
           success: false,
           statusCode: response.status,
@@ -153,7 +153,7 @@ export class AdvancedIndexNow {
       }
     } catch (error: any) {
       const responseTime = Date.now() - startTime;
-      console.error(`❌ ${engineName}: Submission error -`, error.message);
+      logger.error(`❌ ${engineName}: Submission error -`, error.message);
       return {
         success: false,
         message: `Error: ${error.message}`,

@@ -1,5 +1,5 @@
 import { NextSeoProps } from 'next-seo';
-import logger from '../../lib/logger';
+import { logger } from '../../lib/logger/winston';
 
 interface SeoAnalysis {
   score: number;
@@ -409,7 +409,7 @@ class AutoSeoBot {
     // Alexa Site Info servisine ping gönder
     try {
       await fetch(`http://data.alexa.com/data?cli=10&dat=s&url=${this.baseUrl}`);
-      console.log('Alexa\'ya başarıyla gönderildi');
+      logger.info('Alexa\'ya başarıyla gönderildi');
     } catch (error) {
       logger.warn('Alexa gönderimi başarısız:', { component: 'SEO', metadata: { data: error } });
     }
@@ -419,7 +419,7 @@ class AutoSeoBot {
     // SimilarWeb için site verisi gönderimi
     try {
       await fetch(`https://www.similarweb.com/website/${this.baseUrl.replace('https://', '')}/`);
-      console.log('SimilarWeb\'e başarıyla gönderildi');
+      logger.info('SimilarWeb\'e başarıyla gönderildi');
     } catch (error) {
       logger.warn('SimilarWeb gönderimi başarısız:', { component: 'SEO', metadata: { data: error } });
     }
@@ -429,7 +429,7 @@ class AutoSeoBot {
     // Internet Archive'a kayıt
     try {
       await fetch(`https://web.archive.org/save/${this.baseUrl}`);
-      console.log('Archive.org\'a başarıyla gönderildi');
+      logger.info('Archive.org\'a başarıyla gönderildi');
     } catch (error) {
       logger.warn('Archive.org gönderimi başarısız:', { component: 'SEO', metadata: { data: error } });
     }

@@ -1,3 +1,4 @@
+import { logger } from '../lib/logger/winston';
 /**
  * Performance Optimization Hooks
  * Ultra-fast rendering and optimization utilities
@@ -176,7 +177,7 @@ export function useLocalStorage<T>(key: string, initialValue: T) {
       const item = window.localStorage.getItem(key);
       return item ? JSON.parse(item) : initialValue;
     } catch (error) {
-      console.error(`Error loading localStorage key "${key}":`, error);
+      logger.error(`Error loading localStorage key "${key}":`, error);
       return initialValue;
     }
   });
@@ -191,7 +192,7 @@ export function useLocalStorage<T>(key: string, initialValue: T) {
           window.localStorage.setItem(key, JSON.stringify(valueToStore));
         }
       } catch (error) {
-        console.error(`Error saving localStorage key "${key}":`, error);
+        logger.error(`Error saving localStorage key "${key}":`, error);
       }
     },
     [key, storedValue]

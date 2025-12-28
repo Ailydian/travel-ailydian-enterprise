@@ -1,3 +1,4 @@
+import { logger } from '../../lib/logger/winston';
 /**
  * Sentry Monitoring Configuration
  * Enterprise-grade error tracking and performance monitoring
@@ -12,7 +13,7 @@ import { obfuscateApiKey } from '../ai/model-obfuscation';
  */
 export function initSentry() {
   if (!process.env.NEXT_PUBLIC_SENTRY_DSN) {
-    console.warn('Sentry DSN not configured. Monitoring disabled.');
+    logger.warn('Sentry DSN not configured. Monitoring disabled.');
     return;
   }
 

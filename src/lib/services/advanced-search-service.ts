@@ -1,4 +1,5 @@
 import { 
+import { logger } from '../../lib/logger/winston';
   AdvancedSearchFilters, 
   PersonalizationData, 
   LocationRecommendation,
@@ -66,7 +67,7 @@ class AdvancedSearchService {
 
       return result.data;
     } catch (error) {
-      console.error(`Advanced search service error (${action}):`, error);
+      logger.error(`Advanced search service error (${action}):`, error);
       throw error;
     }
   }

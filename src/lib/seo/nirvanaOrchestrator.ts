@@ -13,7 +13,7 @@
  */
 
 import { getNirvanaSEO } from './nirvanaSEO';
-import logger from '../../lib/logger';
+import { logger } from '../../lib/logger/winston';
 import { getEATOptimization } from './eatOptimization';
 import { getAdvancedIndexNow } from './advancedIndexNow';
 import { getAutoSeoMonitor } from './autoSeoMonitor';
@@ -436,7 +436,7 @@ export class NirvanaSEOOrchestrator {
     report.topPerformingPages.forEach((page, i) => {
       logger.info(`   ${i + 1}. ${page}`, { component: 'SEO' });
     });
-    console.log(``);
+    logger.info(``);
 
     logger.info(`📤 INDEXING STATUS`, { component: 'SEO' });
     logger.info(`   Submitted to Search Engines: ${report.indexingStatus.submitted} URLs`, { component: 'SEO' });

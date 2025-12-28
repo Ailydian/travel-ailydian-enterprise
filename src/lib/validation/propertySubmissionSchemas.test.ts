@@ -1,3 +1,4 @@
+import { logger } from '../../lib/logger/winston';
 /**
  * Property Submission Schemas - Example Usage & Tests
  * Demonstrates how to use all validation schemas
@@ -42,9 +43,9 @@ const step1Example = {
 // Validate Step 1
 try {
   const validatedStep1 = Step1Schema.parse(step1Example);
-  console.log('Step 1 validation passed:', validatedStep1);
+  logger.info('Step 1 validation passed:', validatedStep1);
 } catch (error) {
-  console.error('Step 1 validation failed:', error);
+  logger.error('Step 1 validation failed:', error);
 }
 
 // ============================================================================
@@ -80,14 +81,14 @@ const step2Example = {
 // Validate Step 2
 try {
   const validatedStep2 = Step2Schema.parse(step2Example);
-  console.log('Step 2 validation passed:', validatedStep2);
+  logger.info('Step 2 validation passed:', validatedStep2);
 } catch (error) {
-  console.error('Step 2 validation failed:', error);
+  logger.error('Step 2 validation failed:', error);
 }
 
 // Standalone helper function tests
-console.log('Postal code validation:', validatePostalCode('48800')); // true
-console.log('Coordinate validation:', validateCoordinates(37.2349, 27.4285)); // true
+logger.info('Postal code validation:', validatePostalCode('48800')); // true
+logger.info('Coordinate validation:', validateCoordinates(37.2349, 27.4285)); // true
 
 // ============================================================================
 // EXAMPLE USAGE - STEP 3
@@ -129,9 +130,9 @@ const step3Example = {
 // Validate Step 3
 try {
   const validatedStep3 = Step3Schema.parse(step3Example);
-  console.log('Step 3 validation passed:', validatedStep3);
+  logger.info('Step 3 validation passed:', validatedStep3);
 } catch (error) {
-  console.error('Step 3 validation failed:', error);
+  logger.error('Step 3 validation failed:', error);
 }
 
 // ============================================================================
@@ -175,14 +176,14 @@ const step4Example = {
 // Validate Step 4
 try {
   const validatedStep4 = Step4Schema.parse(step4Example);
-  console.log('Step 4 validation passed:', validatedStep4);
+  logger.info('Step 4 validation passed:', validatedStep4);
 } catch (error) {
-  console.error('Step 4 validation failed:', error);
+  logger.error('Step 4 validation failed:', error);
 }
 
 // Standalone helper function test
 const seasonalValid = validateSeasonalPrices(350, step4Example.seasonalPrices);
-console.log('Seasonal prices validation:', seasonalValid); // true
+logger.info('Seasonal prices validation:', seasonalValid); // true
 
 // ============================================================================
 // EXAMPLE USAGE - STEP 5
@@ -239,9 +240,9 @@ const step5Example = {
 // Validate Step 5
 try {
   const validatedStep5 = Step5Schema.parse(step5Example);
-  console.log('Step 5 validation passed:', validatedStep5);
+  logger.info('Step 5 validation passed:', validatedStep5);
 } catch (error) {
-  console.error('Step 5 validation failed:', error);
+  logger.error('Step 5 validation failed:', error);
 }
 
 // ============================================================================
@@ -270,14 +271,14 @@ const step6Example = {
 // Validate Step 6
 try {
   const validatedStep6 = Step6Schema.parse(step6Example);
-  console.log('Step 6 validation passed:', validatedStep6);
+  logger.info('Step 6 validation passed:', validatedStep6);
 } catch (error) {
-  console.error('Step 6 validation failed:', error);
+  logger.error('Step 6 validation failed:', error);
 }
 
 // Standalone helper function test
-console.log('Time format validation (15:00):', validateTimeFormat('15:00')); // true
-console.log('Time parsing (15:00):', parseTime('15:00')); // { hours: 15, minutes: 0 }
+logger.info('Time format validation (15:00):', validateTimeFormat('15:00')); // true
+logger.info('Time parsing (15:00):', parseTime('15:00')); // { hours: 15, minutes: 0 }
 
 // ============================================================================
 // EXAMPLE USAGE - STEP 7
@@ -306,9 +307,9 @@ const step7Example = {
 // Validate Step 7
 try {
   const validatedStep7 = Step7Schema.parse(step7Example);
-  console.log('Step 7 validation passed:', validatedStep7);
+  logger.info('Step 7 validation passed:', validatedStep7);
 } catch (error) {
-  console.error('Step 7 validation failed:', error);
+  logger.error('Step 7 validation failed:', error);
 }
 
 // ============================================================================
@@ -325,9 +326,9 @@ const step8Example = {
 // Validate Step 8
 try {
   const validatedStep8 = Step8Schema.parse(step8Example);
-  console.log('Step 8 validation passed:', validatedStep8);
+  logger.info('Step 8 validation passed:', validatedStep8);
 } catch (error) {
-  console.error('Step 8 validation failed:', error);
+  logger.error('Step 8 validation failed:', error);
 }
 
 // ============================================================================
@@ -348,9 +349,9 @@ const completeSubmissionExample = {
 // Validate complete submission
 try {
   const validatedComplete = CompleteSubmissionSchema.parse(completeSubmissionExample);
-  console.log('Complete submission validation passed');
+  logger.info('Complete submission validation passed');
 } catch (error) {
-  console.error('Complete submission validation failed:', error);
+  logger.error('Complete submission validation failed:', error);
 }
 
 // ============================================================================
@@ -365,10 +366,10 @@ const mockImageFile = new File(['mock data'], 'test.jpg', {
 
 // Note: In actual browser environment
 // const isValid = validateImageFile(mockImageFile);
-// console.log('Image file validation:', isValid);
+// logger.info('Image file validation:', isValid);
 
 // const dimensions = await validateImageDimensions(mockImageFile);
-// console.log('Image dimensions validation:', dimensions);
+// logger.info('Image dimensions validation:', dimensions);
 
 // ============================================================================
 // PROPERTY NAME UNIQUENESS
@@ -377,7 +378,7 @@ const mockImageFile = new File(['mock data'], 'test.jpg', {
 // Example of async validation
 (async () => {
   const isUnique = await validatePropertyNameUniqueness('Luxury Beach Villa');
-  console.log('Property name uniqueness check:', isUnique);
+  logger.info('Property name uniqueness check:', isUnique);
 })();
 
 // ============================================================================
@@ -397,10 +398,10 @@ const invalidStep1 = {
 try {
   Step1Schema.parse(invalidStep1);
 } catch (error: any) {
-  console.error('Validation errors:');
+  logger.error('Validation errors:');
   if (error.errors) {
     error.errors.forEach((err: any) => {
-      console.error(`- ${err.path.join('.')}: ${err.message}`);
+      logger.error(`- ${err.path.join('.')}: ${err.message}`);
     });
   }
 }
@@ -411,9 +412,9 @@ try {
 
 const result = Step1Schema.safeParse(step1Example);
 if (result.success) {
-  console.log('Safe parse successful:', result.data);
+  logger.info('Safe parse successful:', result.data);
 } else {
-  console.error('Safe parse errors:', result.error);
+  logger.error('Safe parse errors:', result.error);
 }
 
 export {};

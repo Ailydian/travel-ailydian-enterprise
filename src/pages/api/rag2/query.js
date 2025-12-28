@@ -1,5 +1,6 @@
 // AI-powered query endpoint for travel recommendations
 import { NextApiRequest, NextApiResponse } from 'next'
+import { logger } from '../../../lib/logger/winston';
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
@@ -40,7 +41,7 @@ export default async function handler(req, res) {
     res.status(200).json(mockResponse)
 
   } catch (error) {
-    console.error('RAG2 Query Error:', error)
+    logger.error('RAG2 Query Error:', error)
     res.status(500).json({ 
       error: 'Internal server error',
       message: 'AI service temporarily unavailable'

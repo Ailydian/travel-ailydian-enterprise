@@ -1,6 +1,7 @@
 import NodeCache from 'node-cache';
 
 // Cache konfigürasyonları
+import { logger } from '../lib/logger/winston';
 const cacheConfig = {
   // Destinasyon verileri için - 30 dakika
   destinations: new NodeCache({ 
@@ -91,7 +92,7 @@ export class CacheManager {
         const data = await fetcher();
         this.set(cacheType, key, data, ttl);
       } catch (error) {
-        console.error(`Cache warming failed for key: ${key}`, error);
+        logger.error(`Cache warming failed for key: ${key}`, error);
       }
     });
 

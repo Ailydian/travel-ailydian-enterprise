@@ -1,226 +1,372 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowRight, Users, Globe, Shield, Award, Zap, Heart } from 'lucide-react';
+import { motion } from 'framer-motion';
+import {
+  ArrowRight,
+  Users,
+  Globe,
+  Shield,
+  Award,
+  Zap,
+  Heart,
+  Sparkles,
+  Target,
+  TrendingUp,
+  CheckCircle,
+  Star,
+  Rocket
+} from 'lucide-react';
 import { FuturisticHeader } from '../components/layout/FuturisticHeader';
 import { BookingFooter } from '../components/layout/BookingFooter';
+import { NeoHero, FuturisticCard, FuturisticButton, NeoSection } from '../components/neo-glass';
 
 export default function About() {
   const stats = [
-  { label: 'Mutlu Müşteri', value: '2M+', icon: Users },
-  { label: 'Ülke', value: '150+', icon: Globe },
-  { label: 'Yıllık Deneyim', value: '15', icon: Award },
-  { label: 'Rezervasyon', value: '5M+', icon: Heart }];
-
+    { label: 'Mutlu Müşteri', value: '2M+', icon: Users, color: 'from-cyan-500 to-blue-500' },
+    { label: 'Ülke', value: '150+', icon: Globe, color: 'from-purple-500 to-pink-500' },
+    { label: 'Yıllık Deneyim', value: '15', icon: Award, color: 'from-orange-500 to-red-500' },
+    { label: 'Rezervasyon', value: '5M+', icon: Heart, color: 'from-green-500 to-teal-500' },
+  ];
 
   const team = [
-  {
-    name: 'Ahmet Yılmaz',
-    role: 'Genel Müdür',
-    image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop&crop=face',
-    description: '20+ yıl turizm sektörü deneyimi'
-  },
-  {
-    name: 'Elif Kaya',
-    role: 'Operasyon Direktörü',
-    image: 'https://images.unsplash.com/photo-1494790108755-2616c9dde2e0?w=300&h=300&fit=crop&crop=face',
-    description: 'Müşteri memnuniyeti uzmanı'
-  },
-  {
-    name: 'Mehmet Özkan',
-    role: 'Teknoloji Direktörü',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face',
-    description: 'AI ve blockchain teknolojileri lideri'
-  }];
+    {
+      name: 'Ahmet Yılmaz',
+      role: 'Genel Müdür',
+      image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop&crop=face',
+      description: '20+ yıl turizm sektörü deneyimi',
+      linkedin: '#',
+      twitter: '#',
+    },
+    {
+      name: 'Elif Kaya',
+      role: 'Operasyon Direktörü',
+      image: 'https://images.unsplash.com/photo-1494790108755-2616c9dde2e0?w=300&h=300&fit=crop&crop=face',
+      description: 'Müşteri memnuniyeti uzmanı',
+      linkedin: '#',
+      twitter: '#',
+    },
+    {
+      name: 'Mehmet Özkan',
+      role: 'Teknoloji Direktörü',
+      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face',
+      description: 'AI ve blockchain teknolojileri lideri',
+      linkedin: '#',
+      twitter: '#',
+    },
+  ];
 
+  const values = [
+    {
+      icon: Heart,
+      title: 'Müşteri Odaklılık',
+      description: 'Her kararımızda müşteri memnuniyetini ön planda tutarak, beklentileri aşan hizmetler sunmayı hedefliyoruz.',
+      color: 'from-pink-500 to-rose-500',
+    },
+    {
+      icon: Shield,
+      title: 'Güvenlik',
+      description: 'Blockchain teknolojisi ile korunan ödemeler ve kişisel verilerinizin güvenliği bizim önceliğimizdir.',
+      color: 'from-green-500 to-emerald-500',
+    },
+    {
+      icon: Zap,
+      title: 'İnovasyon',
+      description: 'AI teknolojileri ile kişiselleştirilmiş öneriler sunarak, seyahat deneyimini sürekli geliştiriyoruz.',
+      color: 'from-purple-500 to-indigo-500',
+    },
+    {
+      icon: Target,
+      title: 'Şeffaflık',
+      description: 'Tüm süreçlerimizde açık ve net iletişim kurarak, güven tabanlı ilişkiler oluşturuyoruz.',
+      color: 'from-blue-500 to-cyan-500',
+    },
+    {
+      icon: TrendingUp,
+      title: 'Sürekli Gelişim',
+      description: 'Teknoloji ve hizmet kalitesinde sürekli yenilikler yaparak, sektörde öncü olmayı sürdürüyoruz.',
+      color: 'from-orange-500 to-amber-500',
+    },
+    {
+      icon: Sparkles,
+      title: 'Mükemmellik',
+      description: 'Her detayda mükemmelliği hedefleyerek, unutulmaz seyahat deneyimleri yaratıyoruz.',
+      color: 'from-yellow-500 to-orange-500',
+    },
+  ];
 
   return (
     <>
       <Head>
-        <title>Hakkımızda - LyDian Travel</title>
-        <meta name="description" content="LyDian Travel olarak 15 yıldır seyahat tutkusunu teknoloji ile buluşturuyoruz." />
+        <title>Hakkımızda - LyDian Travel | Seyahati Teknoloji ile Buluşturan Lider</title>
+        <meta name="description" content="LyDian Travel olarak 15 yıldır seyahat tutkusunu AI ve blockchain teknolojisi ile buluşturuyoruz. 150+ ülkede 2M+ mutlu müşteri." />
+        <meta name="keywords" content="lydian travel hakkında, seyahat platformu, ai seyahat, blockchain rezervasyon" />
       </Head>
 
       <FuturisticHeader />
 
-      <div className="min-h-screen bg-lydian-glass-dark dark:bg-gray-900">
+      <main className="min-h-screen bg-lydian-glass-dark">
+        {/* Hero Section with NeoHero */}
+        <NeoHero
+          title="LyDian Travel"
+          subtitle="Seyahati Teknoloji ile Buluşturan Lider"
+          image="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=1920&h=1080&fit=crop&q=85"
+          gradient="twilight"
+          height="70vh"
+          overlayOpacity={0.4}
+          showFloatingElements={true}
+        >
+          <p className="text-xl md:text-2xl text-lydian-text-inverse/90 max-w-3xl mx-auto leading-relaxed">
+            2010'dan beri seyahat deneyimlerini daha keyifli, güvenli ve erişilebilir hale getirmek için
+            yapay zeka ve blockchain teknolojilerini kullanıyor, müşterilerimize benzersiz hizmetler sunuyoruz.
+          </p>
 
-        {/* Hero Section */}
-        <div className="bg-gradient-to-br from-lydian-primary via-lydian-secondary to-pink-600 text-lydian-text-inverse py-20">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 className="text-5xl font-bold mb-6">LyDian Travel</h1>
-            <p className="text-2xl mb-8 text-blue-100">
-              Seyahati Teknoloji ile Buluşturan Lider
-            </p>
-            <p className="text-lg max-w-3xl mx-auto text-blue-100">
-              2010&apos;dan beri seyahat deneyimlerini daha keyifli, güvenli ve erişilebilir hale getirmek için 
-              yapay zeka ve blockchain teknolojilerini kullanıyor, müşterilerimize benzersiz hizmetler sunuyoruz.
-            </p>
+          <div className="flex flex-wrap gap-4 justify-center mt-8">
+            <FuturisticButton
+              variant="glass"
+              size="lg"
+              icon={<Rocket className="w-5 h-5" />}
+              iconPosition="left"
+              onClick={() => window.location.href = '/'}
+            >
+              Seyahate Başla
+            </FuturisticButton>
+            <FuturisticButton
+              variant="outline"
+              size="lg"
+              icon={<Users className="w-5 h-5" />}
+              iconPosition="left"
+              onClick={() => window.location.href = '/contact'}
+            >
+              İletişime Geç
+            </FuturisticButton>
           </div>
-        </div>
+        </NeoHero>
 
-        {/* Stats */}
-        <div className="bg-lydian-bg-hover dark:bg-gray-800 py-16">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+        {/* Stats Section */}
+        <section className="py-20 bg-lydian-glass-dark backdrop-blur-xl border-b border-lydian-border-light/10">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
               {stats.map((stat, index) => {
                 const IconComponent = stat.icon;
                 return (
-                  <div key={index} className="text-center">
-                    <div className="inline-flex items-center justify-center w-16 h-16 bg-lydian-primary-light dark:bg-blue-900 rounded-full mb-4">
-                      <IconComponent className="h-8 w-8 text-lydian-primary dark:text-blue-400" />
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 }}
+                    whileHover={{ scale: 1.05, y: -5 }}
+                    className="bg-lydian-glass-dark-medium backdrop-blur-xl border border-lydian-border-light rounded-3xl p-6 md:p-8 text-center group cursor-default"
+                  >
+                    <div className={`w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br ${stat.color} rounded-2xl flex items-center justify-center mx-auto mb-4 md:mb-6 group-hover:scale-110 transition-transform shadow-lg`}>
+                      <IconComponent className="w-8 h-8 md:w-10 md:h-10 text-white" />
                     </div>
-                    <div className="text-3xl font-bold text-lydian-text-inverse dark:text-lydian-text-inverse mb-2">
+                    <div className="text-3xl md:text-4xl font-black text-lydian-text-inverse mb-2">
                       {stat.value}
                     </div>
-                    <div className="text-lydian-text-dim dark:text-lydian-text-muted">
+                    <div className="text-sm md:text-base text-lydian-text-muted font-medium">
                       {stat.label}
                     </div>
-                  </div>);
-
+                  </motion.div>
+                );
               })}
             </div>
           </div>
-        </div>
+        </section>
 
         {/* Mission & Vision */}
-        <div className="py-16">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-              <div className="bg-lydian-bg-hover dark:bg-gray-800 rounded-lg shadow-lg p-8">
-                <div className="flex items-center mb-6">
-                  <Zap className="h-8 w-8 text-lydian-primary mr-3" />
-                  <h2 className="text-3xl font-bold text-lydian-text-inverse dark:text-lydian-text-inverse">
-                    Misyonumuz
-                  </h2>
+        <NeoSection
+          title="Misyon & Vizyon"
+          subtitle="Geleceğin seyahat deneyimini bugünden inşa ediyoruz"
+          background="gradient"
+          padding="xl"
+        >
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="bg-lydian-glass-dark-medium backdrop-blur-xl border border-lydian-border-light rounded-3xl p-8 md:p-10 hover:border-cyan-500/50 transition-all group"
+            >
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-16 h-16 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 backdrop-blur-xl border border-cyan-500/30 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <Zap className="w-8 h-8 text-cyan-400" />
                 </div>
-                <p className="text-lydian-text-dim dark:text-lydian-text-muted text-lg leading-relaxed">
-                  Yapay zeka ve blockchain teknolojilerini kullanarak, her bütçeye uygun, 
-                  güvenli ve kişiselleştirilmiş seyahat deneyimleri sunmak. Müşterilerimizin 
-                  hayallerindeki tatili gerçekleştirmelerine yardımcı olmak.
-                </p>
+                <h3 className="text-3xl font-black text-lydian-text-inverse">
+                  Misyonumuz
+                </h3>
               </div>
-              
-              <div className="bg-lydian-bg-hover dark:bg-gray-800 rounded-lg shadow-lg p-8">
-                <div className="flex items-center mb-6">
-                  <Shield className="h-8 w-8 text-lydian-primary mr-3" />
-                  <h2 className="text-3xl font-bold text-lydian-text-inverse dark:text-lydian-text-inverse">
-                    Vizyonumuz
-                  </h2>
+              <p className="text-lydian-text-dim text-lg leading-relaxed">
+                Yapay zeka ve blockchain teknolojilerini kullanarak, her bütçeye uygun,
+                güvenli ve kişiselleştirilmiş seyahat deneyimleri sunmak. Müşterilerimizin
+                hayallerindeki tatili gerçekleştirmelerine yardımcı olmak.
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="bg-lydian-glass-dark-medium backdrop-blur-xl border border-lydian-border-light rounded-3xl p-8 md:p-10 hover:border-purple-500/50 transition-all group"
+            >
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-16 h-16 bg-gradient-to-br from-purple-500/20 to-pink-500/20 backdrop-blur-xl border border-purple-500/30 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <Shield className="w-8 h-8 text-purple-400" />
                 </div>
-                <p className="text-lydian-text-dim dark:text-lydian-text-muted text-lg leading-relaxed">
-                  Türkiye&apos;nin en güvenilir ve teknolojik seyahat platformu olmak. 
-                  Global pazarda öncü konumda yer alan, sürdürülebilir turizme katkıda bulunan, 
-                  müşteri memnuniyetinde sektör lideri bir şirket olarak tanınmak.
-                </p>
+                <h3 className="text-3xl font-black text-lydian-text-inverse">
+                  Vizyonumuz
+                </h3>
               </div>
-            </div>
+              <p className="text-lydian-text-dim text-lg leading-relaxed">
+                Türkiye'nin en güvenilir ve teknolojik seyahat platformu olmak.
+                Global pazarda öncü konumda yer alan, sürdürülebilir turizme katkıda bulunan,
+                müşteri memnuniyetinde sektör lideri bir şirket olarak tanınmak.
+              </p>
+            </motion.div>
           </div>
-        </div>
+        </NeoSection>
 
         {/* Values */}
-        <div className="bg-lydian-bg-hover dark:bg-gray-800 py-16">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-4xl font-bold text-center text-lydian-text-inverse dark:text-lydian-text-inverse mb-12">
-              Değerlerimiz
-            </h2>
-            
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="text-center p-6">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-lydian-primary-light dark:bg-blue-900 rounded-full mb-4">
-                  <Heart className="h-8 w-8 text-lydian-primary dark:text-blue-400" />
+        <NeoSection
+          title="Değerlerimiz"
+          subtitle="Bizi biz yapan temel ilkeler"
+          background="neo"
+          padding="xl"
+        >
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {values.map((value, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                whileHover={{ scale: 1.05, y: -5 }}
+                className="bg-lydian-glass-dark-medium backdrop-blur-xl border border-lydian-border-light rounded-3xl p-8 group cursor-default"
+              >
+                <div className={`w-16 h-16 bg-gradient-to-br ${value.color} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-lg`}>
+                  <value.icon className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-xl font-semibold text-lydian-text-inverse dark:text-lydian-text-inverse mb-4">
-                  Müşteri Odaklılık
+                <h3 className="text-2xl font-bold text-lydian-text-inverse mb-4">
+                  {value.title}
                 </h3>
-                <p className="text-lydian-text-dim dark:text-lydian-text-muted">
-                  Her kararımızda müşteri memnuniyetini ön planda tutarak, 
-                  beklentileri aşan hizmetler sunmayı hedefliyoruz.
+                <p className="text-lydian-text-dim leading-relaxed">
+                  {value.description}
                 </p>
-              </div>
-              
-              <div className="text-center p-6">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-lydian-success-light dark:bg-green-900 rounded-full mb-4">
-                  <Shield className="h-8 w-8 text-lydian-success dark:text-green-400" />
-                </div>
-                <h3 className="text-xl font-semibold text-lydian-text-inverse dark:text-lydian-text-inverse mb-4">
-                  Güvenlik
-                </h3>
-                <p className="text-lydian-text-dim dark:text-lydian-text-muted">
-                  Blockchain teknolojisi ile korunan ödemeler ve 
-                  kişisel verilerinizin güvenliği bizim önceliğimizdir.
-                </p>
-              </div>
-              
-              <div className="text-center p-6">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-purple-100 dark:bg-purple-900 rounded-full mb-4">
-                  <Zap className="h-8 w-8 text-purple-600 dark:text-purple-400" />
-                </div>
-                <h3 className="text-xl font-semibold text-lydian-text-inverse dark:text-lydian-text-inverse mb-4">
-                  İnovasyon
-                </h3>
-                <p className="text-lydian-text-dim dark:text-lydian-text-muted">
-                  AI teknolojileri ile kişiselleştirilmiş öneriler sunarak, 
-                  seyahat deneyimini sürekli geliştiriyoruz.
-                </p>
-              </div>
-            </div>
+              </motion.div>
+            ))}
           </div>
-        </div>
+        </NeoSection>
 
         {/* Team */}
-        <div className="py-16">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-4xl font-bold text-center text-lydian-text-inverse dark:text-lydian-text-inverse mb-12">
-              Liderlik Ekibimiz
-            </h2>
-            
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {team.map((member, index) =>
-              <div key={index} className="bg-lydian-bg-hover dark:bg-gray-800 rounded-lg shadow-lg p-8 text-center">
+        <NeoSection
+          title="Liderlik Ekibimiz"
+          subtitle="Deneyim ve vizyonla seyahatin geleceğini şekillendiriyoruz"
+          background="gradient"
+          padding="xl"
+        >
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {team.map((member, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.15 }}
+                whileHover={{ scale: 1.05, y: -10 }}
+                className="bg-lydian-glass-dark-medium backdrop-blur-xl border border-lydian-border-light rounded-3xl p-8 text-center group cursor-default"
+              >
+                <div className="relative inline-block mb-6">
+                  <div className="absolute inset-0 bg-gradient-to-br from-cyan-500 to-purple-500 rounded-full blur-xl opacity-50 group-hover:opacity-75 transition-opacity"></div>
                   <Image
-                  src={member.image}
-                  alt={member.name}
-                  width={96}
-                  height={96}
-                  className="w-24 h-24 rounded-full mx-auto mb-6 object-cover" />
-
-                  <h3 className="text-xl font-semibold text-lydian-text-inverse dark:text-lydian-text-inverse mb-2">
-                    {member.name}
-                  </h3>
-                  <p className="text-lydian-primary dark:text-blue-400 font-medium mb-4">
-                    {member.role}
-                  </p>
-                  <p className="text-lydian-text-dim dark:text-lydian-text-muted">
-                    {member.description}
-                  </p>
+                    src={member.image}
+                    alt={member.name}
+                    width={128}
+                    height={128}
+                    className="relative w-32 h-32 rounded-full mx-auto object-cover border-4 border-lydian-border-light"
+                  />
+                  <div className="absolute -bottom-2 -right-2 w-10 h-10 bg-gradient-to-br from-green-500 to-emerald-500 rounded-full border-4 border-lydian-bg flex items-center justify-center">
+                    <CheckCircle className="w-5 h-5 text-white" />
+                  </div>
                 </div>
-              )}
-            </div>
+                <h3 className="text-2xl font-bold text-lydian-text-inverse mb-2">
+                  {member.name}
+                </h3>
+                <p className="text-cyan-400 font-semibold mb-4 text-lg">
+                  {member.role}
+                </p>
+                <p className="text-lydian-text-dim leading-relaxed">
+                  {member.description}
+                </p>
+              </motion.div>
+            ))}
           </div>
-        </div>
+        </NeoSection>
 
-        {/* CTA */}
-        <div className="bg-gradient-to-br from-lydian-primary via-lydian-secondary to-pink-600 py-16">
-          <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-            <h2 className="text-4xl font-bold text-lydian-text-inverse mb-6">
-              Hayalinizdeki Seyahate Başlayın
-            </h2>
-            <p className="text-xl text-blue-100 mb-8">
-              15 yıllık deneyimimiz ve teknolojik altyapımızla sizin için en iyi seyahat deneyimini yaratıyoruz
-            </p>
-            <Link
-              href="/"
-              className="inline-flex items-center bg-lydian-bg-hover text-lydian-primary px-8 py-4 rounded-lg font-semibold hover:bg-lydian-primary-lighter transition-colors">
+        {/* CTA Section */}
+        <section className="relative py-20 md:py-32 overflow-hidden">
+          {/* Animated Background */}
+          <motion.div
+            className="absolute inset-0"
+            animate={{
+              background: [
+                'radial-gradient(circle at 20% 50%, rgba(0, 186, 255, 0.15) 0%, transparent 50%)',
+                'radial-gradient(circle at 80% 50%, rgba(118, 75, 162, 0.15) 0%, transparent 50%)',
+                'radial-gradient(circle at 20% 50%, rgba(0, 186, 255, 0.15) 0%, transparent 50%)',
+              ],
+            }}
+            transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
+          />
 
-              Seyahat Planlamaya Başla
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Link>
+          <div className="relative max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <div className="inline-flex items-center gap-2 px-6 py-3 bg-lydian-glass-dark-medium backdrop-blur-xl border border-lydian-border-light rounded-full mb-8">
+                <Sparkles className="w-5 h-5 text-cyan-400" />
+                <span className="text-lydian-text-inverse font-semibold">15 Yıllık Deneyim</span>
+              </div>
+
+              <h2 className="text-4xl md:text-5xl font-black text-lydian-text-inverse mb-6">
+                Hayalinizdeki Seyahate Başlayın
+              </h2>
+              <p className="text-xl md:text-2xl text-lydian-text-dim mb-10 leading-relaxed">
+                15 yıllık deneyimimiz ve teknolojik altyapımızla sizin için en iyi seyahat deneyimini yaratıyoruz
+              </p>
+
+              <div className="flex flex-wrap gap-4 justify-center">
+                <FuturisticButton
+                  variant="primary"
+                  size="xl"
+                  icon={<Rocket className="w-6 h-6" />}
+                  iconPosition="left"
+                  glow={true}
+                  onClick={() => window.location.href = '/'}
+                >
+                  Seyahat Planlamaya Başla
+                </FuturisticButton>
+                <FuturisticButton
+                  variant="outline"
+                  size="xl"
+                  icon={<Heart className="w-6 h-6" />}
+                  iconPosition="left"
+                  onClick={() => window.location.href = '/contact'}
+                >
+                  Bize Ulaşın
+                </FuturisticButton>
+              </div>
+            </motion.div>
           </div>
-        </div>
-      </div>
+        </section>
+      </main>
 
       <BookingFooter />
-    </>);
-
+    </>
+  );
 }

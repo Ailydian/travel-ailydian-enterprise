@@ -4,12 +4,14 @@ import { appWithTranslation } from 'next-i18next'
 import nextI18NextConfig from '../../next-i18next.config.js'
 import { DefaultSeo } from 'next-seo'
 import { SessionProvider } from 'next-auth/react'
+import * as Sentry from '@sentry/nextjs'
 import { ReactQueryProvider } from '../lib/react-query'
 import { CartProvider } from '../context/CartContext'
 import { VoiceCommandProvider } from '../context/VoiceCommandContext'
 import { ToastProvider } from '../context/ToastContext'
 import { ThemeProvider } from '../context/ThemeContext'
 import { PageLoader } from '../components/ui/PageLoader'
+import { ErrorBoundary } from '../components/ErrorBoundary'
 import LyDianEcosystemFooter from '../components/LyDianEcosystemFooter'
 import RTLWrapper from '../components/RTLWrapper'
 import Head from 'next/head'
@@ -69,6 +71,20 @@ function MyApp({
     }
   }, [router])
 
+  // Track page view performance with Sentry
+  useEffect(() => {
+    // Set user context for Sentry if session exists
+    if (session?.user?.id) {
+      Sentry.setUser({
+        id: session.user.id,
+        email: session.user.email || undefined,
+        username: (session.user as any)?.name || undefined,
+      })
+    } else {
+      Sentry.setUser(null)
+    }
+  }, [session])
+
   return (
     <SessionProvider session={session}>
       <ReactQueryProvider>
@@ -77,20 +93,22 @@ function MyApp({
             <CartProvider>
               <VoiceCommandProvider>
                 <RTLWrapper>
-                <Head>
-                  <meta name="google-site-verification" content="TV3lQxcrnOK813q8VrYGAMvVd1kgaPxuRJ5pmWpXrbQ" />
-                  <meta name="msvalidate.01" content="2F0B3D24686DAB121DC7BA5429119029" />
-                  <meta name="yandex-verification" content="travel-lydian-yandex-verification" />
-                  <meta name="baidu-site-verification" content="travel-lydian-baidu-verification" />
-                </Head>
-                <DefaultSeo {...seoConfig} />
-                <PageLoader isLoading={loading} />
-                <Component {...pageProps} />
-                <LyDianEcosystemFooter
-                  currentDomain="travel.lydian.com"
-                  theme="light"
-                  position="above-footer"
-                />
+                  <ErrorBoundary>
+                    <Head>
+                      <meta name="google-site-verification" content="TV3lQxcrnOK813q8VrYGAMvVd1kgaPxuRJ5pmWpXrbQ" />
+                      <meta name="msvalidate.01" content="2F0B3D24686DAB121DC7BA5429119029" />
+                      <meta name="yandex-verification" content="travel-lydian-yandex-verification" />
+                      <meta name="baidu-site-verification" content="travel-lydian-baidu-verification" />
+                    </Head>
+                    <DefaultSeo {...seoConfig} />
+                    <PageLoader isLoading={loading} />
+                    <Component {...pageProps} />
+                    <LyDianEcosystemFooter
+                      currentDomain="travel.lydian.com"
+                      theme="light"
+                      position="above-footer"
+                    />
+                  </ErrorBoundary>
                 </RTLWrapper>
               </VoiceCommandProvider>
             </CartProvider>

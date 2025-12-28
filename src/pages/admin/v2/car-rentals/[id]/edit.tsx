@@ -1,3 +1,4 @@
+import { logger } from '../../../../../lib/logger/winston';
 /**
  * Car Rental Edit Page - Admin V2
  * Full CRUD edit interface for car rentals
@@ -92,7 +93,7 @@ const CarRentalEditPage = () => {
       }
     } catch (err) {
       setError('Veri yüklenirken hata oluştu');
-      console.error(err);
+      logger.error(err);
     } finally {
       setLoading(false);
     }
@@ -170,7 +171,7 @@ const CarRentalEditPage = () => {
       }
     } catch (err) {
       setError('Bir hata oluştu');
-      console.error(err);
+      logger.error(err);
     } finally {
       setSaving(false);
     }

@@ -1,3 +1,4 @@
+import { logger } from '../../lib/logger/winston';
 /**
  * RICH RESULTS ENGINE - Premium SEO
  * Google Rich Snippets / Rich Results sistemi
@@ -633,7 +634,7 @@ export class RichResultsEngine {
   private optimizeTitle(title: string): string {
     // Ensure title length is optimal
     if (title.length < this.config.contentRequirements.titleMinLength) {
-      console.warn(`Title too short: "${title}" (${title.length} chars, min ${this.config.contentRequirements.titleMinLength})`);
+      logger.warn(`Title too short: "${title}" (${title.length} chars, min ${this.config.contentRequirements.titleMinLength})`);
     }
 
     if (title.length > this.config.contentRequirements.titleMaxLength) {
@@ -649,7 +650,7 @@ export class RichResultsEngine {
   private optimizeDescription(description: string): string {
     // Ensure description length is optimal
     if (description.length < this.config.contentRequirements.descriptionMinLength) {
-      console.warn(`Description too short: ${description.length} chars (min ${this.config.contentRequirements.descriptionMinLength})`);
+      logger.warn(`Description too short: ${description.length} chars (min ${this.config.contentRequirements.descriptionMinLength})`);
     }
 
     if (description.length > this.config.contentRequirements.descriptionMaxLength) {

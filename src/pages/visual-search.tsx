@@ -9,9 +9,11 @@ import {
   FunnelIcon,
   ArrowPathIcon,
   BookmarkIcon,
-  ShareIcon } from
+  ShareIcon,
+  ExclamationTriangleIcon } from
 '@heroicons/react/24/outline';
 import { StarIcon as StarIconSolid } from '@heroicons/react/24/solid';
+import DemoBadge from '../components/ui/DemoBadge';
 import VisualSearch from '@/components/search/VisualSearch';
 import {
   VisualSearchResult,
@@ -100,7 +102,29 @@ const VisualSearchPage: React.FC = () => {
 
       </Head>
 
-      <div className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50">
+      <div className="relative min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50">
+        {/* Demo Badge */}
+        <div className="absolute top-6 right-6 z-50">
+          <DemoBadge
+            variant="beta"
+            size="lg"
+            tooltip="Visual search is in beta. Basic image similarity matching. Advanced AI vision model integration coming soon."
+          />
+        </div>
+
+        {/* Beta Notice Banner */}
+        <div className="bg-indigo-50 border-b border-indigo-200 text-indigo-800 px-4 py-3">
+          <div className="max-w-7xl mx-auto flex items-start gap-3">
+            <ExclamationTriangleIcon className="w-5 h-5 mt-0.5 flex-shrink-0" />
+            <div>
+              <p className="font-semibold">Visual Search - Beta Feature</p>
+              <p className="text-sm mt-1">
+                Our visual search is currently in beta with basic image similarity matching. Advanced AI vision model integration is underway for more accurate destination and property matching.
+              </p>
+            </div>
+          </div>
+        </div>
+
         {/* Header */}
         <div className="bg-lydian-bg-hover border-b border-lydian-border">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">

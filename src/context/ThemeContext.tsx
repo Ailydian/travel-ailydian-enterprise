@@ -1,3 +1,4 @@
+import { logger } from '../lib/logger/winston';
 /**
  * Theme Context - Dark/Light Mode System
  * Enterprise-grade theme management with localStorage persistence
@@ -78,7 +79,7 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({
     try {
       localStorage.setItem(storageKey, newTheme);
     } catch (error) {
-      console.warn('Failed to save theme preference:', error);
+      logger.warn('Failed to save theme preference:', error);
     }
 
     // Resolve and apply
@@ -109,7 +110,7 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({
         savedTheme = stored;
       }
     } catch (error) {
-      console.warn('Failed to read theme preference:', error);
+      logger.warn('Failed to read theme preference:', error);
     }
 
     setThemeState(savedTheme);

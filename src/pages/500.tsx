@@ -5,6 +5,7 @@ import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { GetStaticProps } from 'next';
+import * as Sentry from '@sentry/nextjs';
 import {
   Home,
   RefreshCw,
@@ -27,7 +28,24 @@ const Custom500Page: React.FC = () => {
 
   useEffect(() => {
     setMounted(true);
-  }, []);
+
+    // Report 500 error to Sentry for monitoring
+    if (process.env.NEXT_PUBLIC_SENTRY_DSN) {
+      Sentry.captureMessage('500 Internal Server Error page displayed', {
+        level: 'error',
+        tags: {
+          page: '500',
+          type: 'server-error'
+        },
+        contexts: {
+          page: {
+            url: router.asPath,
+            pathname: router.pathname
+          }
+        }
+      });
+    }
+  }, [router]);
 
   const handleRetry = async () => {
     setIsRetrying(true);

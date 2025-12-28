@@ -21,8 +21,10 @@ import {
   Car,
   Heart,
   TrendingUp,
-  Zap } from
+  Zap,
+  AlertTriangle } from
 'lucide-react';
+import DemoBadge from '../components/ui/DemoBadge';
 
 interface Message {
   id: number;
@@ -197,7 +199,29 @@ const AIAssistantPage: NextPage = () => {
         <meta name="description" content="Yapay zeka destekli seyahat asistanı ile mükemmel tatil planları oluşturun. Kişiselleştirilmiş öneriler ve akıllı planlama." />
       </Head>
 
-      <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
+      <div className="relative min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
+        {/* Demo Badge */}
+        <div className="absolute top-6 right-6 z-50">
+          <DemoBadge
+            variant="ai"
+            size="lg"
+            tooltip="This AI assistant uses simulated responses for demonstration. Real AI integration coming soon."
+          />
+        </div>
+
+        {/* Demo Notice Banner */}
+        <div className="bg-purple-50 border-b border-purple-200 text-purple-800 px-4 py-3">
+          <div className="max-w-7xl mx-auto flex items-start gap-3">
+            <AlertTriangle className="w-5 h-5 mt-0.5 flex-shrink-0" />
+            <div>
+              <p className="font-semibold">AI Assistant Demo</p>
+              <p className="text-sm mt-1">
+                This AI assistant uses simulated responses generated randomly for demonstration purposes. Real responses will be powered by advanced language models once integrated.
+              </p>
+            </div>
+          </div>
+        </div>
+
         {/* Header */}
         <div className="bg-lydian-bg-hover shadow-sm border-b">
           <div className="max-w-7xl mx-auto px-4 py-6">
@@ -209,7 +233,7 @@ const AIAssistantPage: NextPage = () => {
                 <h1 className="text-3xl font-bold text-lydian-text-inverse">AI Seyahat Asistanı</h1>
               </div>
               <p className="text-lg text-lydian-text-dim max-w-2xl mx-auto">
-                Yapay zeka destekli asistanınız ile mükemmel seyahat planları oluşturun. 
+                Yapay zeka destekli asistanınız ile mükemmel seyahat planları oluşturun.
                 Size özel öneriler alın ve hayalinizdeki tatili planlayın.
               </p>
             </div>

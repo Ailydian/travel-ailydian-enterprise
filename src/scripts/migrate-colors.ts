@@ -1,3 +1,4 @@
+import { logger } from '../lib/logger/winston';
 #!/usr/bin/env node
 /**
  * 🤖 Automated Design System Migration Script
@@ -166,7 +167,7 @@ function transformFile(filePath: string, config: MigrationConfig): { code: strin
     }, sourceCode);
 
     if (config.verbose && fileModified) {
-      console.log(`  ✅ ${path.basename(filePath)}: ${replacementsInFile} replacements`);
+      logger.info(`  ✅ ${path.basename(filePath)}: ${replacementsInFile} replacements`);
     }
 
     stats.totalReplacements += replacementsInFile;
@@ -182,7 +183,7 @@ function transformFile(filePath: string, config: MigrationConfig): { code: strin
       error: error instanceof Error ? error.message : String(error),
     });
 
-    console.error(`  ❌ Error processing ${filePath}:`, error);
+    logger.error(`  ❌ Error processing ${filePath}:`, error);
 
     return {
       code: sourceCode,
@@ -202,7 +203,7 @@ function processFile(filePath: string, config: MigrationConfig): void {
   stats.filesProcessed++;
 
   if (config.verbose) {
-    console.log(`\n📄 Processing: ${filePath}`);
+    logger.info(`\n📄 Processing: ${filePath}`);
   }
 
   const { code, modified } = transformFile(filePath, config);
@@ -213,14 +214,14 @@ function processFile(filePath: string, config: MigrationConfig): void {
     if (!config.dryRun) {
       fs.writeFileSync(filePath, code, 'utf-8');
       if (config.verbose) {
-        console.log(`  💾 Saved: ${filePath}`);
+        logger.info(`  💾 Saved: ${filePath}`);
       }
     } else {
-      console.log(`  🔍 [DRY RUN] Would modify: ${filePath}`);
+      logger.info(`  🔍 [DRY RUN] Would modify: ${filePath}`);
     }
   } else {
     if (config.verbose) {
-      console.log(`  ⏭️  No changes needed`);
+      logger.info(`  ⏭️  No changes needed`);
     }
   }
 }
@@ -229,10 +230,10 @@ function processFile(filePath: string, config: MigrationConfig): void {
  * Process files in batch mode
  */
 async function processBatch(config: MigrationConfig): Promise<void> {
-  console.log('🚀 Starting batch migration...\n');
-  console.log('📋 File patterns:', config.filePatterns);
-  console.log('🚫 Exclude patterns:', config.excludePatterns);
-  console.log('');
+  logger.info('🚀 Starting batch migration...\n');
+  logger.info('📋 File patterns:', config.filePatterns);
+  logger.info('🚫 Exclude patterns:', config.excludePatterns);
+  logger.info('');
 
   const files: string[] = [];
 
@@ -245,7 +246,7 @@ async function processBatch(config: MigrationConfig): Promise<void> {
     files.push(...matches);
   }
 
-  console.log(`📊 Found ${files.length} files to process\n`);
+  logger.info(`📊 Found ${files.length} files to process\n`);
 
   // Process each file
   for (const file of files) {
@@ -261,34 +262,34 @@ async function processBatch(config: MigrationConfig): Promise<void> {
  * Print final statistics
  */
 function printStats(config: MigrationConfig): void {
-  console.log('\n' + '='.repeat(60));
-  console.log('📊 MIGRATION STATISTICS');
-  console.log('='.repeat(60) + '\n');
+  logger.info('\n' + '='.repeat(60));
+  logger.info('📊 MIGRATION STATISTICS');
+  logger.info('='.repeat(60) + '\n');
 
-  console.log(`Files Processed:    ${stats.filesProcessed}`);
-  console.log(`Files Modified:     ${stats.filesModified}`);
-  console.log(`Total Replacements: ${stats.totalReplacements}`);
+  logger.info(`Files Processed:    ${stats.filesProcessed}`);
+  logger.info(`Files Modified:     ${stats.filesModified}`);
+  logger.info(`Total Replacements: ${stats.totalReplacements}`);
 
   if (config.dryRun) {
-    console.log('\n⚠️  DRY RUN MODE - No files were actually modified');
+    logger.info('\n⚠️  DRY RUN MODE - No files were actually modified');
   }
 
-  console.log('\n📈 Replacements by Type:');
+  logger.info('\n📈 Replacements by Type:');
   Object.entries(stats.replacementsByType)
     .sort((a, b) => b[1] - a[1])
     .forEach(([type, count]) => {
-      console.log(`  ${type.padEnd(15)} ${count}`);
+      logger.info(`  ${type.padEnd(15)} ${count}`);
     });
 
   if (stats.errors.length > 0) {
-    console.log('\n❌ Errors:');
+    logger.info('\n❌ Errors:');
     stats.errors.forEach(({ file, error }) => {
-      console.log(`  ${file}`);
-      console.log(`    ${error}`);
+      logger.info(`  ${file}`);
+      logger.info(`    ${error}`);
     });
   }
 
-  console.log('\n' + '='.repeat(60));
+  logger.info('\n' + '='.repeat(60));
 }
 
 /**
@@ -297,12 +298,12 @@ function printStats(config: MigrationConfig): void {
 function printMappingStats(): void {
   const mappingStats = getMappingStats();
 
-  console.log('\n📚 Available Mappings:');
-  console.log(`  Total mappings:     ${mappingStats.totalMappings}`);
-  console.log(`  Opacity patterns:   ${mappingStats.opacityPatterns}`);
-  console.log('\n  By category:');
+  logger.info('\n📚 Available Mappings:');
+  logger.info(`  Total mappings:     ${mappingStats.totalMappings}`);
+  logger.info(`  Opacity patterns:   ${mappingStats.opacityPatterns}`);
+  logger.info('\n  By category:');
   Object.entries(mappingStats.categories).forEach(([category, count]) => {
-    console.log(`    ${category.padEnd(15)} ${count}`);
+    logger.info(`    ${category.padEnd(15)} ${count}`);
   });
 }
 
@@ -311,7 +312,7 @@ function printMappingStats(): void {
 // ============================================
 
 function printUsage(): void {
-  console.log(`
+  logger.info(`
 🎨 Lydian Design System - Automated Color Migration Tool
 
 USAGE:
@@ -371,13 +372,13 @@ async function main(): Promise<void> {
   }
 
   // Print header
-  console.log('\n' + '='.repeat(60));
-  console.log('🎨 LYDIAN DESIGN SYSTEM - AUTOMATED MIGRATION');
-  console.log('='.repeat(60));
+  logger.info('\n' + '='.repeat(60));
+  logger.info('🎨 LYDIAN DESIGN SYSTEM - AUTOMATED MIGRATION');
+  logger.info('='.repeat(60));
 
   printMappingStats();
 
-  console.log('\n' + '='.repeat(60) + '\n');
+  logger.info('\n' + '='.repeat(60) + '\n');
 
   // Execute
   if (config.batchMode) {
@@ -387,13 +388,13 @@ async function main(): Promise<void> {
     const filePath = args.find(arg => !arg.startsWith('--'));
 
     if (!filePath) {
-      console.error('❌ Error: No file specified\n');
+      logger.error('❌ Error: No file specified\n');
       printUsage();
       process.exit(1);
     }
 
     if (!fs.existsSync(filePath)) {
-      console.error(`❌ Error: File not found: ${filePath}`);
+      logger.error(`❌ Error: File not found: ${filePath}`);
       process.exit(1);
     }
 
@@ -412,7 +413,7 @@ async function main(): Promise<void> {
 // Run if executed directly
 if (require.main === module) {
   main().catch((error) => {
-    console.error('❌ Fatal error:', error);
+    logger.error('❌ Fatal error:', error);
     process.exit(1);
   });
 }

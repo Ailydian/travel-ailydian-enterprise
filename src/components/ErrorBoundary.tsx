@@ -3,7 +3,7 @@
  *
  * React Error Boundary with enterprise-grade error handling
  * - Catches React component errors
- * - Logs to monitoring service
+ * - Logs to monitoring service (Sentry)
  * - Provides fallback UI
  * - Supports error recovery
  */
@@ -12,6 +12,7 @@
 
 import React, { Component, type ReactNode, type ErrorInfo } from 'react';
 import logger from '../lib/logger';
+import * as Sentry from '@sentry/nextjs';
 
 interface ErrorBoundaryProps {
   readonly children: ReactNode;
@@ -63,9 +64,25 @@ export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundarySt
     // Call custom error handler if provided
     this.props.onError?.(error, errorInfo);
 
-    // In production, send to error monitoring service
+    // Send to Sentry for error tracking and monitoring
+    if (typeof window !== 'undefined' && process.env.NEXT_PUBLIC_SENTRY_DSN) {
+      Sentry.captureException(error, {
+        contexts: {
+          react: {
+            componentStack: errorInfo.componentStack,
+            errorBoundary: true
+          }
+        },
+        tags: {
+          component: 'ErrorBoundary',
+          errorType: 'React Component Error'
+        },
+        level: 'error'
+      });
+    }
+
+    // Also send to Vercel Analytics for error tracking
     if (process.env.NODE_ENV === 'production' && typeof window !== 'undefined') {
-      // Send to Vercel Analytics for error tracking
       if ('analytics' in window && typeof (window as any).analytics?.track === 'function') {
         (window as any).analytics.track('React Error', {
           error: error.message,
@@ -73,13 +90,6 @@ export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundarySt
           componentStack: errorInfo.componentStack
         });
       }
-
-      // Future: Sentry integration can be added here
-      // if (window.Sentry) {
-      //   window.Sentry.captureException(error, {
-      //     contexts: { react: { componentStack: errorInfo.componentStack } }
-      //   });
-      // }
     }
   }
 

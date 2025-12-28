@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import { motion } from 'framer-motion';
 import { Car, MapPin, Calendar, Users, Star, CheckCircle, ArrowRight, Shield, Zap, Clock, Fuel, Settings, Droplet } from 'lucide-react';
 import { FuturisticHeader } from '../components/layout/FuturisticHeader';
+import { BookingFooter } from '../components/layout/BookingFooter';
 import { getBrandLogo } from '../components/icons/CarBrandLogos';
 import { AnimatedCarIcon } from '../components/icons/AnimatedCarIcon';
 import { TransferCarCard } from '../components/cards/TransferCarCard';
@@ -359,6 +360,8 @@ const CarRental: React.FC = () => {
           </div>
         </section>
       </main>
+
+      <BookingFooter />
     </>);
 
 };

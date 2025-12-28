@@ -12,6 +12,7 @@ import {
   DollarSign } from
 'lucide-react';
 import { FuturisticHeader } from '../components/layout/FuturisticHeader';
+import { BookingFooter } from '../components/layout/BookingFooter';
 import antalyaAirportTransfers from '../data/antalya-transfers';
 import { AnimatedCarIcon } from '../components/icons/AnimatedCarIcon';
 import { TransferCarCard } from '../components/cards/TransferCarCard';
@@ -250,6 +251,8 @@ export default function TransfersPage() {
           </p>
         </div>
       </div>
+
+      <BookingFooter />
     </>);
 
 }

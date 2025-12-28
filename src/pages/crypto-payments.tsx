@@ -11,9 +11,11 @@ import {
   ArrowRight,
   Wallet,
   TrendingUp,
-  Lock } from
+  Lock,
+  AlertTriangle } from
 'lucide-react';
 import SimplifiedHeader from '../components/layout/SimplifiedHeader';
+import DemoBadge from '../components/ui/DemoBadge';
 
 const CryptoPayments: React.FC = () => {
   return (
@@ -26,7 +28,29 @@ const CryptoPayments: React.FC = () => {
 
       <SimplifiedHeader />
 
-      <main className="min-h-screen bg-lydian-glass-dark">
+      <main className="relative min-h-screen bg-lydian-glass-dark">
+        {/* Demo Badge */}
+        <div className="absolute top-6 right-6 z-50">
+          <DemoBadge
+            variant="blockchain"
+            size="lg"
+            tooltip="Educational demo only. No real blockchain transactions. For demonstration purposes."
+          />
+        </div>
+
+        {/* Disclaimer Banner */}
+        <div className="bg-yellow-50 border-b-2 border-yellow-300 text-yellow-800 px-4 py-3">
+          <div className="max-w-7xl mx-auto flex items-start gap-3">
+            <AlertTriangle className="w-5 h-5 mt-0.5 flex-shrink-0" />
+            <div>
+              <p className="font-semibold">Educational Demo Notice</p>
+              <p className="text-sm mt-1">
+                This crypto payment interface is a demonstration only. No real blockchain transactions occur. This feature is for educational and UI/UX evaluation purposes.
+              </p>
+            </div>
+          </div>
+        </div>
+
         {/* Hero Section */}
         <section className="bg-gradient-to-br from-orange-500 via-yellow-500 to-amber-600 py-20">
           <div className="max-w-7xl mx-auto px-4 text-center">

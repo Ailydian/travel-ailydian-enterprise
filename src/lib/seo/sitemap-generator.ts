@@ -1,6 +1,6 @@
 import { Location, City, Country } from '../types/review-system';
 import reviewService from '../services/review-service';
-import logger from '../logger';
+import { logger } from '../logger/winston';
 
 interface SitemapUrl {
   loc: string;

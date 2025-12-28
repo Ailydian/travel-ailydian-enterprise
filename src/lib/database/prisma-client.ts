@@ -1,3 +1,4 @@
+import { logger } from '../../lib/logger/winston';
 /**
  * Optimized Prisma Client with Connection Pooling
  * Enterprise-grade database client with monitoring
@@ -32,8 +33,8 @@ export class ExtendedPrismaClient extends PrismaClient {
     // Query logging in development
     if (process.env.NODE_ENV !== 'production') {
       this.$on('query' as any, (e: any) => {
-        console.log(`Query: ${e.query}`);
-        console.log(`Duration: ${e.duration}ms`);
+        logger.info(`Query: ${e.query}`);
+        logger.info(`Duration: ${e.duration}ms`);
       });
     }
 

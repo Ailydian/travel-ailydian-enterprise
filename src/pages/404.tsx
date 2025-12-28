@@ -5,6 +5,7 @@ import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { GetStaticProps } from 'next';
+import * as Sentry from '@sentry/nextjs';
 import {
   Home,
   Search,
@@ -58,7 +59,24 @@ const Custom404Page: React.FC = () => {
 
   useEffect(() => {
     setMounted(true);
-  }, []);
+
+    // Report 404 error to Sentry for monitoring missing pages
+    if (process.env.NEXT_PUBLIC_SENTRY_DSN) {
+      Sentry.captureMessage('404 Page Not Found', {
+        level: 'warning',
+        tags: {
+          page: '404',
+          type: 'not-found'
+        },
+        contexts: {
+          page: {
+            requestedUrl: router.asPath,
+            pathname: router.pathname
+          }
+        }
+      });
+    }
+  }, [router]);
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();

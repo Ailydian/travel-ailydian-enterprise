@@ -4,6 +4,7 @@ import crypto from 'crypto';
 import logger from './logger';
 
 // Rate limiting configuration
+import { logger } from '../lib/logger/winston';
 const rateLimitConfig = {
   api: { windowMs: 15 * 60 * 1000, max: 100 }, // 15 dakikada 100 request
   search: { windowMs: 60 * 1000, max: 30 }, // 1 dakikada 30 arama
@@ -222,7 +223,7 @@ export class ErrorMonitor {
 
     // Log to console in development
     if (process.env.NODE_ENV === 'development') {
-      console.error(`[${severity.toUpperCase()}] ${errorId}:`, error, context);
+      logger.error(`[${severity.toUpperCase()}] ${errorId}:`, error, context);
     }
 
     // In production, you would send to external monitoring service

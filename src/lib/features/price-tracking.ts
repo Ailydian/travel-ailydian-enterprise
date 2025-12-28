@@ -1,3 +1,4 @@
+import { logger } from '../../lib/logger/winston';
 /**
  * Price Tracking & Alert System (Production-Grade)
  * Real-time price monitoring with intelligent notifications
@@ -243,17 +244,17 @@ export class PriceTracker {
       switch (method) {
         case 'EMAIL':
           // TODO: Implement email notification
-          console.log(`Email alert: ${alert.entityName} dropped to ${alert.currentPrice}`);
+          logger.info(`Email alert: ${alert.entityName} dropped to ${alert.currentPrice}`);
           break;
 
         case 'PUSH':
           // TODO: Implement push notification
-          console.log(`Push alert: ${alert.entityName}`);
+          logger.info(`Push alert: ${alert.entityName}`);
           break;
 
         case 'SMS':
           // TODO: Implement SMS notification
-          console.log(`SMS alert: ${alert.entityName}`);
+          logger.info(`SMS alert: ${alert.entityName}`);
           break;
       }
     }

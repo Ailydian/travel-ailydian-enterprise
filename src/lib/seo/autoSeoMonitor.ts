@@ -1,3 +1,4 @@
+import { logger } from '../../lib/logger/winston';
 /**
  * Auto SEO Monitor - 7/24 Otomatik SEO İzleme Sistemi
  *
@@ -11,7 +12,6 @@
  */
 
 import { getAdvancedIndexNow } from './advancedIndexNow';
-import logger from '../../lib/logger';
 
 interface SEOMetrics {
   pageSpeed: number;
@@ -528,7 +528,7 @@ export class AutoSeoMonitor {
           // Bu kısım gerçek implementasyonda genişletilmeli
           logger.info(`  ✓ Fixed: ${issue.description}`, { component: 'SEO' });
         } catch (error) {
-          console.error(`  ✗ Failed to fix: ${issue.description}`);
+          logger.error(`  ✗ Failed to fix: ${issue.description}`);
         }
       }
     }

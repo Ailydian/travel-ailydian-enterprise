@@ -1,6 +1,7 @@
 // SEO Automation System
 // Automatically generates landing pages for every destination + category combination
 // AI-powered content generation with unique descriptions
+import { logger } from '../lib/logger/winston';
 
 export interface SEOLandingPage {
   slug: string;
@@ -302,7 +303,7 @@ export function generateAllLandingPages(): SEOLandingPage[] {
         const page = generateLandingPage(city.slug, categorySlug);
         pages.push(page);
       } catch (error) {
-        console.error(`Failed to generate page for ${city.slug} - ${categorySlug}:`, error);
+        logger.error(`Failed to generate page for ${city.slug} - ${categorySlug}:`, error);
       }
     });
   });

@@ -1,0 +1,332 @@
+import React from 'react';
+import { NextPage } from 'next';
+import Head from 'next/head';
+import { motion } from 'framer-motion';
+import {
+  CheckCircle,
+  Beaker,
+  Clock,
+  Zap,
+  Sparkles,
+  Brain,
+  Gamepad2,
+  Eye,
+  Shield,
+  Coins,
+  Users,
+  TrendingUp,
+} from 'lucide-react';
+import { FEATURE_REGISTRY, FeatureStatus, getFeatureSummary } from '../lib/feature-flags';
+import { FuturisticHeader } from '../components/layout/FuturisticHeader';
+import { BookingFooter } from '../components/layout/BookingFooter';
+
+interface FeatureCardProps {
+  id: string;
+  name: string;
+  description: string;
+  status: FeatureStatus;
+  category: string;
+  notes?: string;
+}
+
+const statusConfig = {
+  [FeatureStatus.PRODUCTION]: {
+    label: '✅ Production Ready',
+    bgColor: 'bg-green-50',
+    borderColor: 'border-green-200',
+    textColor: 'text-green-900',
+    badgeColor: 'bg-green-100 text-green-700',
+    icon: CheckCircle,
+  },
+  [FeatureStatus.BETA]: {
+    label: '🧪 Beta Testing',
+    bgColor: 'bg-blue-50',
+    borderColor: 'border-blue-200',
+    textColor: 'text-blue-900',
+    badgeColor: 'bg-blue-100 text-blue-700',
+    icon: Beaker,
+  },
+  [FeatureStatus.DEMO]: {
+    label: '🎭 Demo / Simulated',
+    bgColor: 'bg-purple-50',
+    borderColor: 'border-purple-200',
+    textColor: 'text-purple-900',
+    badgeColor: 'bg-purple-100 text-purple-700',
+    icon: Sparkles,
+  },
+  [FeatureStatus.COMING_SOON]: {
+    label: '🚧 Coming Soon',
+    bgColor: 'bg-yellow-50',
+    borderColor: 'border-yellow-200',
+    textColor: 'text-yellow-900',
+    badgeColor: 'bg-yellow-100 text-yellow-700',
+    icon: Clock,
+  },
+};
+
+const categoryConfig: Record<string, { icon: any; color: string }> = {
+  blockchain: { icon: Coins, color: 'text-orange-600' },
+  ai: { icon: Brain, color: 'text-purple-600' },
+  vr: { icon: Gamepad2, color: 'text-blue-600' },
+  search: { icon: Eye, color: 'text-indigo-600' },
+  payments: { icon: TrendingUp, color: 'text-green-600' },
+  core: { icon: Shield, color: 'text-red-600' },
+};
+
+const FeatureCard: React.FC<FeatureCardProps> = ({
+  id,
+  name,
+  description,
+  status,
+  category,
+  notes,
+}) => {
+  const config = statusConfig[status];
+  const StatusIcon = config.icon;
+  const CategoryIcon = categoryConfig[category]?.icon || Zap;
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.3 }}
+      className={`
+        rounded-2xl border-2 p-6 transition-all
+        ${config.bgColor} ${config.borderColor}
+        hover:shadow-lg hover:scale-105
+      `}
+    >
+      <div className="flex items-start justify-between mb-4">
+        <div className="flex items-center gap-3">
+          <div className={`p-2 rounded-lg bg-white/50`}>
+            <CategoryIcon className={`w-5 h-5 ${categoryConfig[category]?.color}`} />
+          </div>
+          <div>
+            <h3 className={`text-lg font-bold ${config.textColor}`}>{name}</h3>
+            <p className="text-sm opacity-75">{category}</p>
+          </div>
+        </div>
+        <div className="flex items-center gap-2">
+          <StatusIcon className="w-5 h-5" />
+          <span className={`text-xs font-bold px-3 py-1 rounded-full ${config.badgeColor}`}>
+            {status.toUpperCase()}
+          </span>
+        </div>
+      </div>
+
+      <p className={`text-sm mb-3 ${config.textColor}/80`}>{description}</p>
+
+      {notes && (
+        <div className={`text-xs p-3 rounded-lg bg-white/50 ${config.textColor}/70 italic`}>
+          {notes}
+        </div>
+      )}
+    </motion.div>
+  );
+};
+
+const FeaturesPage: NextPage = () => {
+  const summary = getFeatureSummary();
+  const features = Object.values(FEATURE_REGISTRY);
+  const grouped = {
+    production: features.filter((f) => f.status === FeatureStatus.PRODUCTION),
+    beta: features.filter((f) => f.status === FeatureStatus.BETA),
+    demo: features.filter((f) => f.status === FeatureStatus.DEMO),
+    comingSoon: features.filter((f) => f.status === FeatureStatus.COMING_SOON),
+  };
+
+  return (
+    <>
+      <Head>
+        <title>Feature Status - Travel LyDian</title>
+        <meta
+          name="description"
+          content="Complete feature status overview. See which Travel LyDian features are production-ready, in beta, demo, or coming soon."
+        />
+      </Head>
+
+      <FuturisticHeader />
+
+      <div className="min-h-screen bg-lydian-glass-dark py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Header */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+              Feature Status
+            </h1>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+              Comprehensive overview of Travel LyDian features - what's ready, what's in beta, what's
+              simulated, and what's coming next.
+            </p>
+
+            {/* Summary Stats */}
+            <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mt-8">
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                className="bg-white rounded-xl p-4 shadow-sm"
+              >
+                <p className="text-3xl font-bold text-gray-900">{summary.total}</p>
+                <p className="text-sm text-gray-600">Total Features</p>
+              </motion.div>
+
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                className="bg-green-50 rounded-xl p-4 shadow-sm border border-green-200"
+              >
+                <p className="text-3xl font-bold text-green-900">{summary.production}</p>
+                <p className="text-sm text-green-700">Production</p>
+              </motion.div>
+
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                className="bg-blue-50 rounded-xl p-4 shadow-sm border border-blue-200"
+              >
+                <p className="text-3xl font-bold text-blue-900">{summary.beta}</p>
+                <p className="text-sm text-blue-700">Beta</p>
+              </motion.div>
+
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                className="bg-purple-50 rounded-xl p-4 shadow-sm border border-purple-200"
+              >
+                <p className="text-3xl font-bold text-purple-900">{summary.demo}</p>
+                <p className="text-sm text-purple-700">Demo</p>
+              </motion.div>
+
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                className="bg-yellow-50 rounded-xl p-4 shadow-sm border border-yellow-200"
+              >
+                <p className="text-3xl font-bold text-yellow-900">{summary.comingSoon}</p>
+                <p className="text-sm text-yellow-700">Coming Soon</p>
+              </motion.div>
+            </div>
+          </motion.div>
+
+          {/* Production Features */}
+          {grouped.production.length > 0 && (
+            <section className="mb-16">
+              <motion.h2
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                className="text-3xl font-bold text-gray-900 mb-6 flex items-center gap-3"
+              >
+                <CheckCircle className="w-8 h-8 text-green-600" />
+                Production Ready
+              </motion.h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {grouped.production.map((feature) => (
+                  <FeatureCard key={feature.id} {...feature} />
+                ))}
+              </div>
+            </section>
+          )}
+
+          {/* Beta Features */}
+          {grouped.beta.length > 0 && (
+            <section className="mb-16">
+              <motion.h2
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                className="text-3xl font-bold text-gray-900 mb-6 flex items-center gap-3"
+              >
+                <Beaker className="w-8 h-8 text-blue-600" />
+                Beta Testing
+              </motion.h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {grouped.beta.map((feature) => (
+                  <FeatureCard key={feature.id} {...feature} />
+                ))}
+              </div>
+            </section>
+          )}
+
+          {/* Demo Features */}
+          {grouped.demo.length > 0 && (
+            <section className="mb-16">
+              <motion.h2
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                className="text-3xl font-bold text-gray-900 mb-6 flex items-center gap-3"
+              >
+                <Sparkles className="w-8 h-8 text-purple-600" />
+                Demo / Simulated Features
+              </motion.h2>
+              <div className="bg-purple-50 border-l-4 border-purple-400 p-6 rounded-lg mb-6">
+                <p className="text-purple-900">
+                  These features are simulated with mock data for demonstration and user testing purposes.
+                  They showcase functionality that is planned but not yet connected to real backends or
+                  external services.
+                </p>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {grouped.demo.map((feature) => (
+                  <FeatureCard key={feature.id} {...feature} />
+                ))}
+              </div>
+            </section>
+          )}
+
+          {/* Coming Soon Features */}
+          {grouped.comingSoon.length > 0 && (
+            <section className="mb-16">
+              <motion.h2
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                className="text-3xl font-bold text-gray-900 mb-6 flex items-center gap-3"
+              >
+                <Clock className="w-8 h-8 text-yellow-600" />
+                Coming Soon
+              </motion.h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {grouped.comingSoon.map((feature) => (
+                  <FeatureCard key={feature.id} {...feature} />
+                ))}
+              </div>
+            </section>
+          )}
+
+          {/* Roadmap Section */}
+          <section className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-white">
+            <h2 className="text-3xl font-bold mb-4">Development Roadmap</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div>
+                <h3 className="text-lg font-bold mb-2">Current Quarter</h3>
+                <ul className="space-y-2 text-sm opacity-90">
+                  <li>AR property previews integration</li>
+                  <li>Advanced vision model deployment</li>
+                  <li>Real AI model integration (GPT/Claude)</li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="text-lg font-bold mb-2">Next Quarter</h3>
+                <ul className="space-y-2 text-sm opacity-90">
+                  <li>WebXR VR headset support</li>
+                  <li>Real crypto payment integration</li>
+                  <li>Blockchain testnet deployment</li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="text-lg font-bold mb-2">Future Goals</h3>
+                <ul className="space-y-2 text-sm opacity-90">
+                  <li>Mainnet blockchain launch</li>
+                  <li>Advanced ML recommendations</li>
+                  <li>Multi-chain wallet support</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+
+      <BookingFooter />
+    </>
+  );
+};
+
+export default FeaturesPage;

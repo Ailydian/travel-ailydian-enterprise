@@ -1,3 +1,4 @@
+import { logger } from '../../lib/logger/winston';
 /**
  * Result Type System - CLAUDE.md Compliant
  * 
@@ -15,9 +16,9 @@
  * 
  * const result = divide(10, 2);
  * if (result.success) {
- *   console.log(result.data); // 5
+ *   logger.info(result.data); // 5
  * } else {
- *   console.error(result.error);
+ *   logger.error(result.error);
  * }
  * ```
  */

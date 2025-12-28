@@ -1,190 +1,154 @@
-# Quick Start Guide - AI Trip Planner
+# Travel Ailydian - Quick Start Guide
 
-## 🚀 Get Started in 5 Minutes
+Quick reference for common database operations and commands.
 
-### Step 1: Install Dependencies
-All required packages are already in your `package.json`. Just run:
+## Essential Commands
+
+### Database Operations
 ```bash
-npm install
+# Generate Prisma Client
+npx prisma generate
+
+# Push schema changes to database
+npx prisma db push
+
+# Seed database with test data
+npx prisma db seed
+
+# Open Prisma Studio (visual database browser)
+npx prisma studio
+
+# Create migration
+npx prisma migrate dev --name your_migration_name
 ```
 
-### Step 2: Configure Environment
-Create or update `.env.local`:
-```bash
-# Required
-DATABASE_URL="postgresql://user:password@localhost:5432/travel"
-OPENAI_API_KEY="sk-your-openai-key-here"
+### Test Accounts
 
-# Optional
-WEATHER_API_KEY="your-weather-api-key"
-NEXT_PUBLIC_WS_URL="ws://localhost:3100"
+**Admin Account**:
+- Email: `admin@ailydian.com`
+- Password: `Admin123!`
+
+**Test Users**:
+- Email: `ayse@example.com`, `mehmet@example.com`, `zeynep@example.com`
+- Password: `User123!`
+
+**Partner Account**:
+- Email: `partner@example.com`
+- Password: `Partner123!`
+
+## Database Connection
+
+### Local PostgreSQL
+```env
+DATABASE_URL="postgresql://sardag@localhost:5432/travel_ailydian_dev"
 ```
 
-### Step 3: Setup Database
-```bash
-# Generate Prisma client
-npm run db:generate
-
-# Push schema to database
-npm run db:push
+### Supabase (Cloud)
+```env
+DATABASE_URL="postgresql://postgres:[PASSWORD]@db.[PROJECT-REF].supabase.co:6543/postgres?pgbouncer=true"
 ```
 
-### Step 4: Start Development Server
-```bash
-npm run dev
-```
+## Common Queries
 
-### Step 5: Access Trip Planner
-Open your browser:
-```
-http://localhost:3100/trip-planner
-```
-
-## ✅ What's Included
-
-### Components
-- ✅ `EnhancedTripPlanner.tsx` - Main trip planning interface
-- ✅ `CollaborativePlanning.tsx` - Real-time collaboration
-
-### API Endpoints
-- ✅ `/api/ai/generate-itinerary` - AI itinerary generation
-- ✅ `/api/trips/create` - Create trips
-- ✅ `/api/trips/share` - Share with collaborators
-- ✅ `/api/trips/vote` - Vote on activities
-- ✅ `/api/trips/comments` - Comment system
-
-### Utilities
-- ✅ `itinerary-optimizer.ts` - Smart route optimization
-- ✅ `budget-analyzer.ts` - Budget management
-- ✅ `weather-service.ts` - Weather integration
-- ✅ `websocket-client.ts` - Real-time collaboration
-
-### Database
-- ✅ 6 new tables (Trip, TripItinerary, TripCollaborator, etc.)
-- ✅ 5 new enums
-- ✅ Complete relations and indexes
-
-## 🎯 Try These Features
-
-### 1. Create Your First Trip
-1. Go to `/trip-planner`
-2. Enter: "5-day Istanbul trip for 2, budget $2000, love history and food"
-3. Select dates and interests
-4. Click "Generate AI Itinerary"
-
-### 2. Collaborate with Friends
-1. Click "Share" button on any trip
-2. Copy the share link
-3. Invite friends via email
-4. Vote on activities together
-
-### 3. Optimize Your Budget
-1. View budget breakdown
-2. Get savings suggestions
-3. Split costs with travel companions
-
-### 4. Export Your Trip
-1. Download as PDF
-2. Export to Google Calendar
-3. Share on social media
-
-## 🔧 Troubleshooting
-
-### OpenAI API Not Working?
-- The system automatically falls back to mock data
-- Check your API key in `.env.local`
-- Verify account has credits
-
-### Database Issues?
-```bash
-# Regenerate Prisma client
-npm run db:generate
-
-# Reset database (caution: deletes data)
-npm run db:push -- --force-reset
-```
-
-### WebSocket Not Connecting?
-- Real-time features work without WebSocket
-- Updates will be on page refresh
-- Implement Socket.io server for full functionality
-
-## 📊 Test Data
-
-The system includes mock data generators for:
-- ✅ Itineraries (if OpenAI unavailable)
-- ✅ Weather forecasts
-- ✅ Collaborators
-- ✅ Activities
-
-## 🎨 Customization
-
-### Change Travel Styles
-Edit in `EnhancedTripPlanner.tsx`:
+### Using Prisma Client
 ```typescript
-const travelStyles = [
-  { value: 'budget', label: 'Budget Friendly', icon: DollarSign },
-  { value: 'balanced', label: 'Balanced', icon: TrendingUp },
-  { value: 'luxury', label: 'Luxury', icon: Sparkles }
-];
+import { prisma } from '@/lib/database/client';
+
+// Get all active hotels
+const hotels = await prisma.hotel.findMany({
+  where: { isActive: true },
+  orderBy: { rating: 'desc' },
+  take: 10,
+});
+
+// Get user with relationships
+const user = await prisma.user.findUnique({
+  where: { email: 'admin@ailydian.com' },
+  include: {
+    milesAccount: true,
+    bookings: true,
+  },
+});
+
+// Create new booking
+const booking = await prisma.booking.create({
+  data: {
+    userId: user.id,
+    bookingType: 'HOTEL',
+    totalAmount: 2500,
+    currency: 'TRY',
+    // ... more fields
+  },
+});
 ```
 
-### Add New Interests
-Edit in `EnhancedTripPlanner.tsx`:
+### Using Query Helpers
 ```typescript
-const interests = [
-  'History', 'Food', 'Culture', 'Adventure', 'Relaxation',
-  // Add your custom interests here
-];
+import { paginatedQuery } from '@/lib/database/queries';
+
+// Paginated hotel search
+const { data, pagination } = await paginatedQuery(
+  'hotel',
+  {
+    where: { city: 'Istanbul', isActive: true },
+    orderBy: { rating: 'desc' },
+  },
+  { page: 1, limit: 20 }
+);
 ```
 
-### Modify Budget Ranges
-Edit in `EnhancedTripPlanner.tsx`:
-```typescript
-<input
-  type="range"
-  min="500"    // Change minimum
-  max="10000"  // Change maximum
-  step="100"   // Change increment
-/>
-```
+## Database Stats
 
-## 🌐 Production Deployment
+- **Total Tables**: 48
+- **Seed Users**: 5
+- **Seed Hotels**: 32
+- **Seed Cars**: 18
+- **Seed Tours**: 3
+- **SEO Pages**: 3
 
-### Before Going Live:
-1. ✅ Set up production database
-2. ✅ Configure OpenAI API limits
-3. ✅ Implement WebSocket server
-4. ✅ Add rate limiting
-5. ✅ Set up monitoring
-6. ✅ Enable caching (Redis)
-7. ✅ Test all features
+## Useful Links
 
-### Environment Variables for Production:
+- [Full Setup Guide](./DATABASE_SETUP.md)
+- [Integration Report](./DATABASE_INTEGRATION_REPORT.md)
+- [Prisma Schema](./prisma/schema.prisma)
+- [Seed Script](./prisma/seed.ts)
+
+## Troubleshooting
+
+### Can't connect to database
 ```bash
-DATABASE_URL="postgresql://..."
-OPENAI_API_KEY="sk-..."
-NEXT_PUBLIC_APP_URL="https://travel.lydian.com"
-NEXT_PUBLIC_WS_URL="wss://travel.lydian.com"
+# Check if PostgreSQL is running
+brew services list | grep postgresql
+
+# Test connection
+psql -d travel_ailydian_dev -c "SELECT version();"
 ```
 
-## 📚 Documentation
+### Prisma Client not generated
+```bash
+npx prisma generate
+```
 
-- **Full Documentation**: `TRIP_PLANNER_README.md`
-- **Implementation Details**: `IMPLEMENTATION_SUMMARY.md`
-- **API Reference**: See individual endpoint files
+### Schema out of sync
+```bash
+npx prisma db push
+```
 
-## 🆘 Support
+### Need fresh data
+```bash
+npx prisma migrate reset  # ⚠️ Deletes all data
+npx prisma db seed
+```
 
-Need help?
-- Check `TRIP_PLANNER_README.md` for detailed docs
-- Review `IMPLEMENTATION_SUMMARY.md` for technical details
-- All code is fully commented
+## File Locations
 
-## 🎉 You're Ready!
-
-Your AI Trip Planner is now ready to use. Start planning amazing trips! 🌍✈️
+- **Prisma Schema**: `/prisma/schema.prisma`
+- **Migrations**: `/prisma/migrations/`
+- **Seed File**: `/prisma/seed.ts`
+- **Database Client**: `/src/lib/database/client.ts`
+- **Query Helpers**: `/src/lib/database/queries.ts`
 
 ---
 
-**Built with OpenAI GPT-4, Next.js, and modern web technologies**
+**Status**: ✅ Ready for Development
+**Last Updated**: December 28, 2024

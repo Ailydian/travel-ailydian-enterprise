@@ -21,8 +21,10 @@ import {
   Gamepad2,
   Headphones,
   Smartphone,
-  Monitor } from
+  Monitor,
+  AlertTriangle } from
 'lucide-react';
+import DemoBadge from '../components/ui/DemoBadge';
 
 interface VirtualTour {
   id: number;
@@ -198,7 +200,29 @@ const VirtualToursPage: NextPage = () => {
         <meta name="description" content="Türkiye'nin en güzel destinasyonlarını VR ve 360° sanal turlarla keşfedin. 4K-8K kalitede immersive deneyimler." />
       </Head>
 
-      <div className="min-h-screen bg-lydian-glass-dark">
+      <div className="relative min-h-screen bg-lydian-glass-dark">
+        {/* Demo Badge */}
+        <div className="absolute top-6 right-6 z-50">
+          <DemoBadge
+            variant="beta"
+            size="lg"
+            tooltip="Virtual tours are in beta. 360-degree experience with basic VR support. Full VR headset support coming soon."
+          />
+        </div>
+
+        {/* Beta Notice Banner */}
+        <div className="bg-blue-50 border-b border-blue-200 text-blue-800 px-4 py-3">
+          <div className="max-w-7xl mx-auto flex items-start gap-3">
+            <AlertTriangle className="w-5 h-5 mt-0.5 flex-shrink-0" />
+            <div>
+              <p className="font-semibold">Virtual Tours - Beta Feature</p>
+              <p className="text-sm mt-1">
+                Our 360-degree virtual tours are currently in beta with basic panoramic support. Full VR headset integration (Oculus, Meta Quest) coming soon. AR property previews launching next quarter.
+              </p>
+            </div>
+          </div>
+        </div>
+
         {/* Hero Section */}
         <section className="relative bg-gradient-to-r from-lydian-secondary via-lydian-primary to-indigo-800 text-lydian-text-inverse py-20">
           <div className="absolute inset-0 bg-black/30"></div>

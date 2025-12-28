@@ -2,11 +2,12 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 import Link from 'next/link';
+import { logger } from '../../lib/logger/winston';
 import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
   LineChart, Line, PieChart, Pie, Cell, AreaChart, Area, RadialBarChart, RadialBar,
-  ComposedChart, Legend, ReferenceLine } from
-'recharts';
+  ComposedChart, Legend, ReferenceLine
+} from 'recharts';
 import {
   Users, MapPin, MessageSquare, Camera, Star, TrendingUp, TrendingDown,
   Activity, Clock, Globe, AlertTriangle, CheckCircle, RefreshCw,
@@ -107,7 +108,7 @@ export default function AdminDashboard() {
       try {
         data = await adminService.getDashboardStats();
       } catch (apiError) {
-        console.warn('API fetch failed, using mock data:', apiError);
+        logger.warn('API fetch failed, using mock data:', apiError);
         // Fallback to mock data for demo
         data = {
           overview: {

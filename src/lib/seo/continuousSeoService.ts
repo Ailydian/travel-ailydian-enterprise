@@ -5,7 +5,7 @@
  */
 
 import AutoSeoBot, { type PageSeoData } from './autoSeoBot';
-import logger from '../../lib/logger';
+import { logger } from '../../lib/logger/winston';
 import { prisma } from '../prisma';
 import { antalyaTourismDistricts, generateDistrictSeoPages, getSeasonalKeywords } from './antalyaRegionSeo';
 
@@ -198,7 +198,7 @@ class ContinuousSeoService {
 
       logger.info(`✅ Sayfa optimize edildi: ${pageData.url}`, { component: 'SEO' });
     } catch (error) {
-      console.error(`❌ Sayfa optimizasyon hatası: ${pageData.url}`, error);
+      logger.error(`❌ Sayfa optimizasyon hatası: ${pageData.url}`, error);
     }
   }
 

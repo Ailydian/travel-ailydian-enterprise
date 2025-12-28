@@ -2,6 +2,7 @@ import React, { Component, ErrorInfo } from 'react';
 import { motion } from 'framer-motion';
 import { ExclamationTriangleIcon, ArrowPathIcon } from '@heroicons/react/24/outline';
 import logger from '../logger';
+import { logger } from '../../lib/logger/winston';
 
 interface ErrorBoundaryState {
   hasError: boolean;
@@ -117,7 +118,7 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
         body: JSON.stringify(errorData)
       });
     } catch (error) {
-      console.warn('Error tracking service failed:', error);
+      logger.warn('Error tracking service failed:', error);
     }
   };
 
@@ -135,7 +136,7 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
       
       localStorage.setItem('app-errors', JSON.stringify(errors));
     } catch (error) {
-      console.warn('Error saving to localStorage:', error);
+      logger.warn('Error saving to localStorage:', error);
     }
   };
 

@@ -1,3 +1,4 @@
+import { logger } from '../../lib/logger/winston';
 /**
  * Live Notifications Component
  * Displays real-time booking notifications with toast animations
@@ -216,7 +217,7 @@ export function useNotificationSound() {
       oscillator.start(audioContext.currentTime);
       oscillator.stop(audioContext.currentTime + 0.3);
     } catch (error) {
-      console.warn('Failed to play notification sound:', error);
+      logger.warn('Failed to play notification sound:', error);
     }
   };
 

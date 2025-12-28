@@ -1,3 +1,4 @@
+import { logger } from '../../lib/logger/winston';
 /**
  * Data Compression Utilities (Production-Grade)
  * Brotli compression for cache optimization
@@ -29,7 +30,7 @@ export async function compress(data: string): Promise<string> {
     return compressed.toString('base64');
   } catch (error) {
     // Return original if compression fails
-    console.error('Compression failed:', error);
+    logger.error('Compression failed:', error);
     return data;
   }
 }
@@ -44,7 +45,7 @@ export async function decompress(compressedData: string): Promise<string> {
     return decompressed.toString('utf-8');
   } catch (error) {
     // Return original if decompression fails
-    console.error('Decompression failed:', error);
+    logger.error('Decompression failed:', error);
     return compressedData;
   }
 }

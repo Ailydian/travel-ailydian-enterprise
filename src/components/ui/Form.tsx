@@ -1,10 +1,11 @@
+'use client';
+
+import { logger } from '../../lib/logger/winston';
 /**
  * Form Component - Production-Grade Form Management
  * Features: Validation, error handling, submission states, field-level control
  * Architecture: Controlled components with React Hook Form integration patterns
  */
-
-'use client';
 
 import React, { createContext, useContext, useState, useCallback, FormEvent } from 'react';
 
@@ -280,7 +281,7 @@ export const Form: React.FC<FormProps> = ({
         resetForm();
       }
     } catch (error) {
-      console.error('Form submission error:', error);
+      logger.error('Form submission error:', error);
       onError?.(error);
     } finally {
       setIsSubmitting(false);

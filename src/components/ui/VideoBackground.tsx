@@ -1,3 +1,4 @@
+import { logger } from '../../lib/logger/winston';
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
@@ -85,7 +86,7 @@ export const VideoBackground: React.FC<VideoBackgroundProps> = ({
 
   // Video hatası
   const handleVideoError = (e: any) => {
-    console.error('Video yükleme hatası:', currentVideo.title, e);
+    logger.error('Video yükleme hatası:', currentVideo.title, e);
     setVideoError(true);
     setIsLoading(false);
     // Hata durumunda fallback görseli göster (poster image)

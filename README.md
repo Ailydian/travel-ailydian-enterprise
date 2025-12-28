@@ -4,6 +4,27 @@
 [![AI Powered](https://img.shields.io/badge/AI-Powered-blue.svg)](https://ai.lydian.com)
 [![Blockchain Secured](https://img.shields.io/badge/Blockchain-Secured-green.svg)](https://blockchain.lydian.com)
 
+## ⚡ Feature Status Overview
+
+**📊 Dashboard**: View all feature status at `/features`
+**📄 Documentation**: See [FEATURE_STATUS.md](./FEATURE_STATUS.md) for detailed breakdown
+
+### Status Summary
+- ✅ **11** Production Ready Features
+- 🧪 **2** Beta Features
+- 🎭 **7** Demo/Simulated Features
+- 🚧 **3** Coming Soon Features
+
+### Demo Features Notice
+This project includes simulated features for demonstration and evaluation:
+- **Blockchain/NFT**: Complete UI with mock smart contract interactions
+- **Crypto Payments**: Educational demo - no real transactions
+- **AI Assistant**: Uses simulated responses - real AI integration planned
+- **VR Tours**: Basic 360° support - WebXR integration coming
+- **Visual Search**: Beta image matching - advanced vision model in progress
+
+All demo features are clearly marked with badges and disclaimer banners.
+
 ## 🌟 Enterprise Features
 
 ### 🧠 AI & Machine Learning
