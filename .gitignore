@@ -62,3 +62,6 @@ temp/
 .env.vercel.production
 .env-backups/
 validation-reports/
+
+# AILYDIAN Integration
+.claude/
