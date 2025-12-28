@@ -13,11 +13,8 @@ Sentry.init({
   // Server-side tracing
   tracesSampleRate: process.env.NODE_ENV === 'production' ? 0.1 : 1.0,
 
-  // Integrations
-  integrations: [
-    new Sentry.Integrations.Http({ tracing: true }),
-    new Sentry.Integrations.Prisma(),
-  ],
+  // Integrations - Sentry v10+ auto-instruments Http and Prisma
+  integrations: [],
 
   beforeSend(event) {
     // Remove sensitive server-side data

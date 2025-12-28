@@ -3,7 +3,7 @@
 
 generator client {
   provider = "prisma-client-js"
-  previewFeatures = ["jsonProtocol"]
+  // jsonProtocol is now enabled by default in Prisma 6+
 }
 
 datasource db {

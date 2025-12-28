@@ -317,6 +317,23 @@ const sentryConfig = {
 
   // Suppress telemetry during build
   telemetry: false,
+
+  // Silent mode - suppress warnings during build
+  silent: true,
+
+  // Hide source maps from browser DevTools
+  hideSourceMaps: true,
+
+  // Suppress auth token warnings in development
+  widenClientFileUpload: true,
+
+  // Webpack configuration for Sentry
+  webpack: {
+    treeshake: {
+      // Remove debug logging in production
+      removeDebugLogging: true,
+    },
+  },
 };
 
 module.exports = withBundleAnalyzer(

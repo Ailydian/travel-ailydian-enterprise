@@ -1,4 +1,3 @@
-import { logger } from '../lib/logger/winston';
 /**
  * Enterprise-Grade Logging System
  * CLAUDE.md compliant - No console.log allowed
