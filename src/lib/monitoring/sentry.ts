@@ -28,20 +28,8 @@ export function initSentry() {
     replaysSessionSampleRate: 0.1,
     replaysOnErrorSampleRate: 1.0,
 
-    // Integrations
-    integrations: [
-      new Sentry.BrowserTracing({
-        // Performance monitoring for routes
-        tracePropagationTargets: [
-          'localhost',
-          /^https:\/\/travel\.ailydian\.com/,
-        ],
-      }),
-      new Sentry.Replay({
-        maskAllText: true,
-        blockAllMedia: true,
-      }),
-    ],
+    // Integrations - Sentry v10+ auto-instruments BrowserTracing and Replay
+    integrations: [],
 
     // Filter sensitive data before sending to Sentry
     beforeSend(event, hint) {
@@ -212,24 +200,25 @@ export function clearUserContext() {
 export async function measurePerformance<T>(
   name: string,
   operation: () => Promise<T>,
-  tags?: Record<string, string>
+  tags?: { tags?: Record<string, string> }
 ): Promise<T> {
-  const transaction = Sentry.startTransaction({
-    name,
-    op: 'function',
-    tags,
-  });
-
-  try {
-    const result = await operation();
-    transaction.setStatus('ok');
-    return result;
-  } catch (error) {
-    transaction.setStatus('internal_error');
-    throw error;
-  } finally {
-    transaction.finish();
-  }
+  // Sentry v10+ uses startSpan instead of startTransaction
+  return await Sentry.startSpan(
+    {
+      name,
+      op: 'function',
+      attributes: tags?.tags || {},
+    },
+    async () => {
+      try {
+        const result = await operation();
+        return result;
+      } catch (error) {
+        Sentry.captureException(error);
+        throw error;
+      }
+    }
+  );
 }
 
 /**

@@ -6,12 +6,17 @@ import { QueryProvider } from '@/components/providers/QueryProvider'
 
 const inter = Inter({ subsets: ['latin'] })
 
+// Viewport export (Next.js 15+ requires separate export)
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+};
+
 export const metadata: Metadata = {
   title: 'Travel LyDian - AI-Powered Global Tourism Platform',
   description: 'Enterprise-grade AI-powered global tourism platform with interactive maps, dynamic pricing, and smart booking system.',
   keywords: 'travel, tourism, AI, booking, hotels, tours, Turkey, Istanbul, Cappadocia',
   authors: [{ name: 'Travel LyDian' }],
-  viewport: 'width=device-width, initial-scale=1',
   robots: 'index, follow',
   icons: {
     icon: [

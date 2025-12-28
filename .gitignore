@@ -47,6 +47,8 @@ logs
 # Database
 *.db
 *.sqlite
+.env.supabase
+/backups/database/
 
 # Cache
 .cache/
@@ -57,3 +59,6 @@ tmp/
 temp/
 
 /generated/prisma
+.env.vercel.production
+.env-backups/
+validation-reports/

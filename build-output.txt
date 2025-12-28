@@ -1,0 +1,35 @@
+
+> travel-lydian-enterprise@2.0.0 build
+> prisma generate && prisma migrate deploy && next build
+
+warn The configuration property `package.json#prisma` is deprecated and will be removed in Prisma 7. Please migrate to a Prisma config file (e.g., `prisma.config.ts`).
+For more information, see: https://pris.ly/prisma-config
+
+Environment variables loaded from .env
+Prisma schema loaded from prisma/schema.prisma
+warn Preview feature "jsonProtocol" is deprecated. The functionality can be used without specifying it as a preview feature.
+
+✔ Generated Prisma Client (v6.19.1) to ./node_modules/@prisma/client in 173ms
+
+Start by importing your Prisma Client (See: https://pris.ly/d/importing-client)
+
+Tip: Want to turn off tips and other hints? https://pris.ly/tip-4-nohints
+
+warn The configuration property `package.json#prisma` is deprecated and will be removed in Prisma 7. Please migrate to a Prisma config file (e.g., `prisma.config.ts`).
+For more information, see: https://pris.ly/prisma-config
+
+Environment variables loaded from .env
+Prisma schema loaded from prisma/schema.prisma
+Error: Prisma schema validation - (get-config wasm)
+Error code: P1012
+error: Environment variable not found: DIRECT_URL.
+  -->  prisma/schema.prisma:12
+   | 
+11 |   url      = env("DATABASE_URL")
+12 |   directUrl = env("DIRECT_URL")
+   | 
+
+Validation Error Count: 1
+[Context: getConfig]
+
+Prisma CLI Version : 6.19.1

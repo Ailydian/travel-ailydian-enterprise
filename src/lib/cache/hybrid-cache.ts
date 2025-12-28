@@ -9,6 +9,9 @@ import { LRUCache, globalLRUCache } from './lru-cache';
 import { measurePerformance, trackMetric } from '../monitoring/sentry';
 import { compress, decompress } from '../utils/compression';
 
+// Re-export for convenience
+export { CacheKeyBuilder } from './redis-client';
+
 // ==========================================
 // HYBRID CACHE MANAGER
 // ==========================================

@@ -14,14 +14,16 @@ const { withSentryConfig } = require('@sentry/nextjs');
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Internationalization
+  // i18n configuration for Pages Router
+  // Note: This is only for Pages Router. App Router pages should use next-intl
   i18n,
+
   // Fix workspace root detection issue
   outputFileTracingRoot: require('path').join(__dirname),
 
   // Strict mode for better SEO
   reactStrictMode: true,
-  swcMinify: true,
+  // swcMinify: true, // Removed - default in Next.js 15+
 
   // Experimental features for performance optimization
   experimental: {
