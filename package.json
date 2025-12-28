@@ -4,8 +4,8 @@
   "description": "Enterprise-grade AI-powered global tourism platform - Travel LyDian",
   "private": false,
   "engines": {
-    "node": "20",
-    "npm": ">=9.0.0"
+    "node": ">=20.0.0",
+    "npm": ">=10.0.0"
   },
   "scripts": {
     "dev": "next dev -p 3100",
