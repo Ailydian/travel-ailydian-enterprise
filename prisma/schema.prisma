@@ -9,9 +9,10 @@ generator client {
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
-  directUrl = env("DIRECT_URL") // Optional: for connection pooling (Supabase, etc.)
 
-  // Note: DIRECT_URL is optional for development, but required for Supabase in production
+  // DIRECT_URL is optional - falls back to DATABASE_URL if not set
+  // For Supabase production: use direct connection (port 5432)
+  // For local dev: can be omitted, will use DATABASE_URL
 }
 
 // NextAuth.js Models
