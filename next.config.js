@@ -60,7 +60,18 @@ const nextConfig = {
         tls: false,
         dns: false,
         child_process: false,
+        path: false,
+        os: false,
+        crypto: false,
       };
+
+      // Ignore server-only modules in client bundle
+      config.plugins = config.plugins || [];
+      config.plugins.push(
+        new (require('webpack').IgnorePlugin)({
+          resourceRegExp: /^(fs|path|crypto|os)$/,
+        })
+      );
     }
 
     // Production optimizations
@@ -225,9 +236,9 @@ const nextConfig = {
             value: [
               "default-src 'self'",
               "script-src 'self' 'unsafe-eval' 'unsafe-inline' https://vercel.live https://va.vercel-scripts.com",
-              "style-src 'self' 'unsafe-inline'",
+              "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
               "img-src 'self' data: https: blob:",
-              "font-src 'self' data:",
+              "font-src 'self' data: https://fonts.gstatic.com",
               "connect-src 'self' https://vercel.live https://*.vercel.app https://*.vercel-insights.com https://api.groq.com https://api.openai.com",
               "frame-src 'self' https://vercel.live",
               "media-src 'self' https:",
