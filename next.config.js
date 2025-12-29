@@ -36,6 +36,16 @@ const nextConfig = {
       'date-fns',
       'lodash',
     ],
+    // Externalize server-only packages for better performance
+    serverComponentsExternalPackages: [
+      'winston',
+      'puppeteer',
+      'sharp',
+      'prisma',
+      '@prisma/client',
+      'nodemailer',
+      'cloudinary',
+    ],
   },
 
   // ESLint configuration
@@ -50,32 +60,86 @@ const nextConfig = {
   },
 
   // Webpack configuration - Advanced optimization
-  webpack: (config, { dev, isServer }) => {
+  webpack: (config, { dev, isServer, webpack }) => {
+    // ==================================================
+    // CLIENT-SIDE: Node.js Polyfills & Optimizations
+    // ==================================================
     if (!isServer) {
-      // Provide mock implementations for Node.js built-in modules in browser
+      // Strategy 1: Alias - Replace with browser-compatible mocks
       config.resolve.alias = {
         ...config.resolve.alias,
+        // Node.js built-in modules with browser-compatible implementations
+        'path': require.resolve('./lib/polyfills/path-mock.js'),
         'os': require.resolve('./lib/os-mock.js'),
-        'fs': false,
-        'path': false,
-        'crypto': false,
+        'crypto': require.resolve('./lib/polyfills/crypto-mock.js'),
+        'stream': require.resolve('./lib/polyfills/stream-mock.js'),
+        'buffer': require.resolve('./lib/polyfills/buffer-mock.js'),
+        'util': require.resolve('./lib/polyfills/util-mock.js'),
       };
 
-      // Fallback for Node.js modules
+      // Strategy 2: Fallback - Disable modules that cannot work in browser
       config.resolve.fallback = {
         ...config.resolve.fallback,
+        // Modules that cannot be polyfilled (file system, network, etc.)
         fs: false,
         net: false,
         tls: false,
         dns: false,
+        http2: false,
+        https: false,
         child_process: false,
-        path: false,
-        os: false,
-        crypto: false,
-        stream: false,
-        buffer: false,
-        util: false,
+        worker_threads: false,
+        perf_hooks: false,
+        inspector: false,
+        trace_events: false,
+        // Redundant fallbacks (already aliased above - removed to use polyfills)
+        // path, os, crypto, stream, buffer, util now use polyfills via alias
+        // Additional edge cases
+        zlib: false,
+        readline: false,
+        repl: false,
+        vm: false,
+        module: false,
+        assert: false,
+        constants: false,
+        domain: false,
+        events: false,
+        string_decoder: false,
+        punycode: false,
+        querystring: false,
+        url: false,
+        timers: false,
+        console: false,
+        process: false,
       };
+
+      // Strategy 3: ProvidePlugin - Inject global polyfills
+      config.plugins.push(
+        new webpack.ProvidePlugin({
+          Buffer: ['buffer', 'Buffer'],
+          process: 'process/browser',
+        })
+      );
+
+      // Strategy 4: IgnorePlugin - Suppress warnings for optional dependencies
+      config.plugins.push(
+        new webpack.IgnorePlugin({
+          resourceRegExp: /^(bufferutil|utf-8-validate|encoding)$/,
+        })
+      );
+    }
+
+    // ==================================================
+    // SERVER-SIDE: External optimization
+    // ==================================================
+    if (isServer) {
+      // Mark heavy packages as external to reduce server bundle size
+      config.externals = config.externals || [];
+      config.externals.push({
+        'puppeteer': 'commonjs puppeteer',
+        'sharp': 'commonjs sharp',
+        'canvas': 'commonjs canvas',
+      });
     }
 
     // Production optimizations
