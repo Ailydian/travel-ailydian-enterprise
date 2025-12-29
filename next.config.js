@@ -52,6 +52,15 @@ const nextConfig = {
   // Webpack configuration - Advanced optimization
   webpack: (config, { dev, isServer }) => {
     if (!isServer) {
+      // Provide empty mock for Node.js built-in modules in browser
+      config.resolve.alias = {
+        ...config.resolve.alias,
+        'os': false,
+        'fs': false,
+        'path': false,
+        'crypto': false,
+      };
+
       // Fallback for Node.js modules
       config.resolve.fallback = {
         ...config.resolve.fallback,
@@ -63,15 +72,10 @@ const nextConfig = {
         path: false,
         os: false,
         crypto: false,
+        stream: false,
+        buffer: false,
+        util: false,
       };
-
-      // Ignore server-only modules in client bundle
-      config.plugins = config.plugins || [];
-      config.plugins.push(
-        new (require('webpack').IgnorePlugin)({
-          resourceRegExp: /^(fs|path|crypto|os)$/,
-        })
-      );
     }
 
     // Production optimizations
