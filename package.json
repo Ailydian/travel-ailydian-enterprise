@@ -8,7 +8,7 @@
   },
   "scripts": {
     "dev": "next dev -p 3100",
-    "build": "prisma generate && prisma migrate deploy && next build",
+    "build": "node scripts/prisma-generate-optional.js && next build",
     "build:vercel": "node scripts/prisma-generate-optional.js && next build",
     "start": "next start -p 3100",
     "postinstall": "node scripts/prisma-generate-optional.js",
