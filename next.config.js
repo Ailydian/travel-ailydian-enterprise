@@ -52,10 +52,10 @@ const nextConfig = {
   // Webpack configuration - Advanced optimization
   webpack: (config, { dev, isServer }) => {
     if (!isServer) {
-      // Provide empty mock for Node.js built-in modules in browser
+      // Provide mock implementations for Node.js built-in modules in browser
       config.resolve.alias = {
         ...config.resolve.alias,
-        'os': false,
+        'os': require.resolve('./lib/os-mock.js'),
         'fs': false,
         'path': false,
         'crypto': false,
