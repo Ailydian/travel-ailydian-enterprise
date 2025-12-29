@@ -1,0 +1,33 @@
+#!/bin/bash
+# Quick Build Test Script
+# Tests webpack configuration without full build
+
+echo "🔍 Testing webpack configuration..."
+
+# Check if polyfills exist
+echo "📦 Checking polyfills..."
+for file in lib/os-mock.js lib/polyfills/{crypto,buffer,stream,util}-mock.js; do
+  if [ -f "$file" ]; then
+    echo "✅ $file"
+  else
+    echo "❌ Missing: $file"
+    exit 1
+  fi
+done
+
+# Check next.config.js syntax
+echo "⚙️  Validating next.config.js..."
+node -c next.config.js && echo "✅ Syntax valid" || exit 1
+
+# Check if buffer and process are installed
+echo "📚 Checking dependencies..."
+npm list buffer process --depth=0 2>/dev/null | grep -E "(buffer|process)" && echo "✅ Dependencies installed" || echo "⚠️  Install: npm install buffer process"
+
+# Test require resolution
+echo "🔗 Testing require resolution..."
+node -e "try { require('./lib/os-mock.js'); console.log('✅ os-mock.js loadable'); } catch(e) { console.error('❌', e.message); process.exit(1); }"
+node -e "try { require('./lib/polyfills/crypto-mock.js'); console.log('✅ crypto-mock.js loadable'); } catch(e) { console.error('❌', e.message); process.exit(1); }"
+
+echo ""
+echo "✅ All checks passed!"
+echo "💡 Run 'npm run build' to test full build"
