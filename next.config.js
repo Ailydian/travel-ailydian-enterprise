@@ -36,17 +36,18 @@ const nextConfig = {
       'date-fns',
       'lodash',
     ],
-    // Externalize server-only packages for better performance
-    serverComponentsExternalPackages: [
-      'winston',
-      'puppeteer',
-      'sharp',
-      'prisma',
-      '@prisma/client',
-      'nodemailer',
-      'cloudinary',
-    ],
   },
+
+  // Externalize server-only packages for better performance (Next.js 15+)
+  serverExternalPackages: [
+    'winston',
+    'puppeteer',
+    'sharp',
+    'prisma',
+    '@prisma/client',
+    'nodemailer',
+    'cloudinary',
+  ],
 
   // ESLint configuration
   eslint: {
