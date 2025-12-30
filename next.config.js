@@ -66,22 +66,23 @@ const nextConfig = {
     // CLIENT-SIDE: Node.js Polyfills & Optimizations
     // ==================================================
     if (!isServer) {
-      // Strategy 1: Alias - Replace with browser-compatible mocks
+      // Strategy 1: Alias - Use polyfills for non-critical modules only
       config.resolve.alias = {
         ...config.resolve.alias,
-        // Node.js built-in modules with browser-compatible implementations
         'path': require.resolve('./lib/polyfills/path-mock.js'),
         'os': require.resolve('./lib/os-mock.js'),
-        'crypto': require.resolve('./lib/polyfills/crypto-mock.js'),
-        'stream': require.resolve('./lib/polyfills/stream-mock.js'),
-        'util': require.resolve('./lib/polyfills/util-mock.js'),
-        // Buffer uses npm package directly (no custom mock)
       };
 
-      // Strategy 2: Fallback - Disable modules that cannot work in browser
+      // Strategy 2: Fallback - Use npm packages for browser polyfills
       config.resolve.fallback = {
         ...config.resolve.fallback,
-        // Modules that cannot be polyfilled (file system, network, etc.)
+        // Core polyfills from npm packages
+        buffer: require.resolve('buffer/'),
+        process: require.resolve('process/browser.js'),
+        stream: require.resolve('stream-browserify'),
+        crypto: require.resolve('crypto-browserify'),
+        util: require.resolve('util/'),
+        // Disable server-only modules
         fs: false,
         net: false,
         tls: false,
@@ -89,29 +90,7 @@ const nextConfig = {
         http2: false,
         https: false,
         child_process: false,
-        worker_threads: false,
-        perf_hooks: false,
-        inspector: false,
-        trace_events: false,
-        // Additional edge cases
         zlib: false,
-        readline: false,
-        repl: false,
-        vm: false,
-        module: false,
-        assert: false,
-        constants: false,
-        domain: false,
-        events: false,
-        string_decoder: false,
-        punycode: false,
-        querystring: false,
-        url: false,
-        timers: false,
-        console: false,
-        // Use npm packages for these instead of false
-        buffer: require.resolve('buffer/'),
-        process: require.resolve('process/browser'),
       };
 
       // Strategy 3: ProvidePlugin - Inject global polyfills
