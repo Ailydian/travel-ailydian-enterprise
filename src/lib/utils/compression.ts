@@ -2,14 +2,25 @@ import { logger } from '../../lib/logger/winston';
 /**
  * Data Compression Utilities (Production-Grade)
  * Brotli compression for cache optimization
+ * SERVER-SIDE ONLY - Uses Node.js zlib and Buffer
  * Backend Architect Agent Implementation
  */
 
-import { promisify } from 'util';
-import { brotliCompress as brotliCompressCallback, brotliDecompress as brotliDecompressCallback, constants } from 'zlib';
+// SERVER-SIDE ONLY: Check if running on server
+const isServer = typeof window === 'undefined';
 
-const brotliCompressAsync = promisify(brotliCompressCallback);
-const brotliDecompressAsync = promisify(brotliDecompressCallback);
+// Lazy load Node.js modules only on server
+let brotliCompressAsync: any;
+let brotliDecompressAsync: any;
+let constants: any;
+
+if (isServer) {
+  const { promisify } = require('util');
+  const { brotliCompress, brotliDecompress, constants: zlibConstants } = require('zlib');
+  brotliCompressAsync = promisify(brotliCompress);
+  brotliDecompressAsync = promisify(brotliDecompress);
+  constants = zlibConstants;
+}
 
 // ==========================================
 // COMPRESSION FUNCTIONS
@@ -17,9 +28,16 @@ const brotliDecompressAsync = promisify(brotliDecompressCallback);
 
 /**
  * Compress string using Brotli (highest compression ratio)
+ * SERVER-SIDE ONLY
  */
 export async function compress(data: string): Promise<string> {
+  // Client-side: return data as-is (no compression)
+  if (!isServer) {
+    return data;
+  }
+
   try {
+    const { Buffer } = require('buffer');
     const buffer = Buffer.from(data, 'utf-8');
     const compressed = await brotliCompressAsync(buffer, {
       params: {
@@ -37,9 +55,16 @@ export async function compress(data: string): Promise<string> {
 
 /**
  * Decompress Brotli-compressed string
+ * SERVER-SIDE ONLY
  */
 export async function decompress(compressedData: string): Promise<string> {
+  // Client-side: return data as-is (assume it's not compressed)
+  if (!isServer) {
+    return compressedData;
+  }
+
   try {
+    const { Buffer } = require('buffer');
     const buffer = Buffer.from(compressedData, 'base64');
     const decompressed = await brotliDecompressAsync(buffer);
     return decompressed.toString('utf-8');
@@ -52,8 +77,15 @@ export async function decompress(compressedData: string): Promise<string> {
 
 /**
  * Calculate compression ratio
+ * SERVER-SIDE ONLY
  */
 export function getCompressionRatio(original: string, compressed: string): number {
+  // Client-side: return 1.0 (no compression)
+  if (!isServer) {
+    return 1.0;
+  }
+
+  const { Buffer } = require('buffer');
   const originalSize = Buffer.from(original, 'utf-8').length;
   const compressedSize = Buffer.from(compressed, 'base64').length;
   return compressedSize / originalSize;
@@ -61,8 +93,15 @@ export function getCompressionRatio(original: string, compressed: string): numbe
 
 /**
  * Check if compression is beneficial (> 20% size reduction)
+ * SERVER-SIDE ONLY
  */
 export async function shouldCompress(data: string): Promise<boolean> {
+  // Client-side: never compress
+  if (!isServer) {
+    return false;
+  }
+
+  const { Buffer } = require('buffer');
   const originalSize = Buffer.from(data, 'utf-8').length;
 
   // Don't compress small data (< 1KB)
