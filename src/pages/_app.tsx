@@ -1,3 +1,10 @@
+// CRITICAL: Buffer polyfill MUST be imported first for client-side compatibility
+import { Buffer } from 'buffer';
+if (typeof window !== 'undefined') {
+  (window as any).Buffer = Buffer;
+  (window as any).global = window;
+}
+
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { appWithTranslation } from 'next-i18next'

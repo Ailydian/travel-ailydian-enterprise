@@ -74,8 +74,8 @@ const nextConfig = {
         'os': require.resolve('./lib/os-mock.js'),
         'crypto': require.resolve('./lib/polyfills/crypto-mock.js'),
         'stream': require.resolve('./lib/polyfills/stream-mock.js'),
-        'buffer': require.resolve('./lib/polyfills/buffer-mock.js'),
         'util': require.resolve('./lib/polyfills/util-mock.js'),
+        // Buffer uses npm package directly (no custom mock)
       };
 
       // Strategy 2: Fallback - Disable modules that cannot work in browser
@@ -93,8 +93,6 @@ const nextConfig = {
         perf_hooks: false,
         inspector: false,
         trace_events: false,
-        // Redundant fallbacks (already aliased above - removed to use polyfills)
-        // path, os, crypto, stream, buffer, util now use polyfills via alias
         // Additional edge cases
         zlib: false,
         readline: false,
@@ -111,7 +109,9 @@ const nextConfig = {
         url: false,
         timers: false,
         console: false,
-        process: false,
+        // Use npm packages for these instead of false
+        buffer: require.resolve('buffer/'),
+        process: require.resolve('process/browser'),
       };
 
       // Strategy 3: ProvidePlugin - Inject global polyfills
