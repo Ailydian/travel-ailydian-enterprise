@@ -1,7 +1,8 @@
 import React, { Component, ErrorInfo } from 'react';
 import { motion } from 'framer-motion';
 import { ExclamationTriangleIcon, ArrowPathIcon } from '@heroicons/react/24/outline';
-import { browserLogger as logger } from '../logger/browser';
+import logger from '../logger';
+import { logger } from '../../lib/logger/winston';
 
 interface ErrorBoundaryState {
   hasError: boolean;

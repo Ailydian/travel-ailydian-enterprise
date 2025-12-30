@@ -1,4 +1,4 @@
-import { browserLogger as logger } from '../../lib/logger/browser';
+import { logger } from '../../lib/logger/winston';
 /**
  * Live Notifications Component
  * Displays real-time booking notifications with toast animations

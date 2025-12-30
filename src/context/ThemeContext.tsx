@@ -1,3 +1,4 @@
+import { logger } from '../lib/logger/winston';
 /**
  * Theme Context - Dark/Light Mode System
  * Enterprise-grade theme management with localStorage persistence
@@ -5,7 +6,6 @@
  */
 
 import React, { createContext, useContext, useEffect, useState, ReactNode } from 'react';
-import { browserLogger as logger } from '../lib/logger/browser';
 
 export type Theme = 'light' | 'dark' | 'system';
 export type ResolvedTheme = 'light' | 'dark';

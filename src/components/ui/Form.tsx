@@ -1,6 +1,6 @@
 'use client';
 
-import { browserLogger as logger } from '../../lib/logger/browser';
+import { logger } from '../../lib/logger/winston';
 /**
  * Form Component - Production-Grade Form Management
  * Features: Validation, error handling, submission states, field-level control

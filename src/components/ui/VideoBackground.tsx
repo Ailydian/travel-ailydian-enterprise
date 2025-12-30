@@ -1,8 +1,9 @@
+import { logger } from '../../lib/logger/winston';
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { browserLogger as logger } from '../../lib/logger/browser';
+import logger from '../../lib/logger';
 
 interface VideoBackgroundProps {
   autoPlay?: boolean;
