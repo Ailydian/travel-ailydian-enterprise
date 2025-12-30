@@ -1,4 +1,4 @@
-import { logger } from '../lib/logger/winston';
+import { browserLogger as logger } from '../lib/logger/browser';
 /**
  * Performance Optimization Hooks
  * Ultra-fast rendering and optimization utilities
