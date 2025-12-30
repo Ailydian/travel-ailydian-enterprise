@@ -342,7 +342,7 @@ const VirtualTourViewer: React.FC = () => {
           break;
         case 'showMedia':
           // Handle media display
-          logger.debug('Show media:', {component:'Virtualtourviewer',metadata:{hotspot.action.data}});
+          logger.debug('Show media:', {component:'VirtualTourViewer',metadata:{data: hotspot.action.data}});
           break;
         case 'showInfo':
           // Info is already shown in selectedHotspot

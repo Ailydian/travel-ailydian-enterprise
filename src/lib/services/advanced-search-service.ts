@@ -1,13 +1,12 @@
-import { 
 import { logger } from '../../lib/logger/winston';
-  AdvancedSearchFilters, 
-  PersonalizationData, 
+import {
+  AdvancedSearchFilters,
+  PersonalizationData,
   LocationRecommendation,
   TrendingData,
   SearchSuggestion
 } from '../search/advanced-search';
 import { Location, SearchLocationsResponse } from '../types/review-system';
-import logger from '../logger';
 
 export interface AdvancedSearchResponse extends SearchLocationsResponse {
   suggestions?: SearchSuggestion[];

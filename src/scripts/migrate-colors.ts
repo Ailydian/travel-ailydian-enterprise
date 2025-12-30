@@ -1,5 +1,5 @@
-import { logger } from '../lib/logger/winston';
 #!/usr/bin/env node
+import { logger } from '../lib/logger/winston';
 /**
  * 🤖 Automated Design System Migration Script
  *

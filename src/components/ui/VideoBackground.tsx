@@ -79,7 +79,7 @@ export const VideoBackground: React.FC<VideoBackgroundProps> = ({
 
   // Video yüklenme
   const handleVideoLoad = () => {
-    logger.debug('Video yüklendi:', {component:'Videobackground',metadata:{currentVideo.title}});
+    logger.debug('Video yüklendi:', {component:'VideoBackground',metadata:{title: currentVideo.title}});
     setIsLoading(false);
     setVideoError(false);
   };
