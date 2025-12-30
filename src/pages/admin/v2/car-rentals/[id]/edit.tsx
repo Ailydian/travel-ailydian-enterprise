@@ -1,10 +1,17 @@
-import { logger } from '../../../../../lib/logger/winston';
 /**
  * Car Rental Edit Page - Admin V2
  * Full CRUD edit interface for car rentals
  */
 
 import React, { useState, useEffect } from 'react';
+
+// Browser-safe logger for client-side
+const logger = {
+  info: (...args: any[]) => console.log('[INFO]', ...args),
+  error: (...args: any[]) => console.error('[ERROR]', ...args),
+  warn: (...args: any[]) => console.warn('[WARN]', ...args),
+  debug: (...args: any[]) => console.debug('[DEBUG]', ...args),
+};
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { motion } from 'framer-motion';

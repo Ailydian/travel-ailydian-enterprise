@@ -2,7 +2,13 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 import Link from 'next/link';
-import { logger } from '../../lib/logger/winston';
+// Browser-safe logger for client-side
+const logger = {
+  info: (...args: any[]) => console.log('[INFO]', ...args),
+  error: (...args: any[]) => console.error('[ERROR]', ...args),
+  warn: (...args: any[]) => console.warn('[WARN]', ...args),
+  debug: (...args: any[]) => console.debug('[DEBUG]', ...args),
+};
 import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
   LineChart, Line, PieChart, Pie, Cell, AreaChart, Area, RadialBarChart, RadialBar,
