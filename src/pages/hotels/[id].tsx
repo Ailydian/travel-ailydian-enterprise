@@ -9,7 +9,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import FuturisticHeader from '../../components/layout/FuturisticHeader';
+import ModernHeader from '../../components/layout/ModernHeader';
 import BookingFooter from '../../components/layout/BookingFooter';
 import { motion } from 'framer-motion';
 import {
@@ -70,7 +70,7 @@ const HotelDetailPage: NextPage<HotelDetailPageProps> = ({ hotel }) => {
         <meta property="og:type" content="website" />
       </Head>
 
-      <FuturisticHeader />
+      <ModernHeader />
 
       <main className="min-h-screen bg-lydian-glass-dark">
         {/* Breadcrumbs */}

@@ -17,7 +17,7 @@ import {
   Star,
   Rocket
 } from 'lucide-react';
-import { FuturisticHeader } from '../components/layout/FuturisticHeader';
+import { ModernHeader } from '../components/layout/ModernHeader';
 import { BookingFooter } from '../components/layout/BookingFooter';
 import { NeoHero, FuturisticCard, FuturisticButton, NeoSection } from '../components/neo-glass';
 
@@ -103,7 +103,7 @@ export default function About() {
         <meta name="keywords" content="lydian travel hakkında, seyahat platformu, ai seyahat, blockchain rezervasyon" />
       </Head>
 
-      <FuturisticHeader />
+      <ModernHeader />
 
       <main className="min-h-screen bg-lydian-glass-dark">
         {/* Hero Section with NeoHero */}

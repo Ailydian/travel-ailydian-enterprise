@@ -17,7 +17,7 @@ import {
   TrendingUp,
 } from 'lucide-react';
 import { FEATURE_REGISTRY, FeatureStatus, getFeatureSummary } from '../lib/feature-flags';
-import { FuturisticHeader } from '../components/layout/FuturisticHeader';
+import { ModernHeader } from '../components/layout/ModernHeader';
 import { BookingFooter } from '../components/layout/BookingFooter';
 
 interface FeatureCardProps {
@@ -145,7 +145,7 @@ const FeaturesPage: NextPage = () => {
         />
       </Head>
 
-      <FuturisticHeader />
+      <ModernHeader />
 
       <div className="min-h-screen bg-lydian-glass-dark py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

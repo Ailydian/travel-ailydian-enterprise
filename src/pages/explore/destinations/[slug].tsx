@@ -4,7 +4,7 @@ import Head from 'next/head';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
-import FuturisticHeader from '../../../components/layout/FuturisticHeader';
+import ModernHeader from '../../../components/layout/ModernHeader';
 import BookingFooter from '../../../components/layout/BookingFooter';
 import { destinations } from '../../../data/destinations';
 import { MapPin, Star, ThermometerSun, Calendar, TrendingUp } from 'lucide-react';
@@ -34,7 +34,7 @@ const DestinationPage: NextPage = () => {
         <meta property="og:image" content={destination.images.hero} />
       </Head>
 
-      <FuturisticHeader />
+      <ModernHeader />
 
       <main className="min-h-screen bg-lydian-glass-dark">
         {/* Hero Section */}

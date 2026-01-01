@@ -7,7 +7,7 @@ import { NextPage, GetStaticProps } from 'next';
 import Head from 'next/head';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
-import FuturisticHeader from '../../components/layout/FuturisticHeader';
+import ModernHeader from '../../components/layout/ModernHeader';
 import BookingFooter from '../../components/layout/BookingFooter';
 import { ExploreHero } from '../../components/explore/ExploreHero';
 import { ExploreCategoryGrid } from '../../components/explore/ExploreCategoryGrid';
@@ -61,7 +61,7 @@ const ExplorePage: NextPage = () => {
 
       </Head>
 
-      <FuturisticHeader />
+      <ModernHeader />
 
       <main className="min-h-screen bg-lydian-glass-dark">
         {/* Hero Section */}

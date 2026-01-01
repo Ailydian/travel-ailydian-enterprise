@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useSession, signOut } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import { motion } from 'framer-motion';
-import { FuturisticHeader } from '../../components/layout/FuturisticHeader';
+import { ModernHeader } from '../../components/layout/ModernHeader';
 import { FuturisticButton } from '../../components/neo-glass/FuturisticButton';
 import logger from '../../lib/logger';
 import {
@@ -169,7 +169,7 @@ const Dashboard: React.FC = () => {
         <meta name="robots" content="noindex, nofollow" />
       </Head>
 
-      <FuturisticHeader />
+      <ModernHeader />
 
       <div className="min-h-screen bg-gradient-to-br from-[#0A0118] via-[#1a0b2e] to-[#16213e]">
 

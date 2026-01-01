@@ -17,7 +17,7 @@ import {
   Tag,
   CheckCircle,
 } from 'lucide-react';
-import { FuturisticHeader } from '../components/layout/FuturisticHeader';
+import { ModernHeader } from '../components/layout/ModernHeader';
 import { FuturisticCard } from '../components/neo-glass/FuturisticCard';
 import { FuturisticButton } from '../components/neo-glass/FuturisticButton';
 
@@ -122,7 +122,7 @@ const Cart: React.FC = () => {
         />
       </Head>
 
-      <FuturisticHeader />
+      <ModernHeader />
 
       <main className="min-h-screen bg-lydian-glass-dark pt-8">
         <div className="max-w-7xl mx-auto px-3 sm:px-4 py-4 sm:py-8">

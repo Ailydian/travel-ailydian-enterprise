@@ -22,7 +22,7 @@ import {
   Shield,
   Globe,
 } from 'lucide-react';
-import { FuturisticHeader } from '../components/layout/FuturisticHeader';
+import { ModernHeader } from '../components/layout/ModernHeader';
 import { FuturisticButton } from '../components/neo-glass/FuturisticButton';
 
 const DashboardPage: React.FC = () => {
@@ -167,7 +167,7 @@ const DashboardPage: React.FC = () => {
         />
       </Head>
 
-      <FuturisticHeader />
+      <ModernHeader />
 
       <main className="min-h-screen py-8 bg-lydian-glass-dark">
         <div className="max-w-7xl mx-auto px-4">

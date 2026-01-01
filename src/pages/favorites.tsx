@@ -18,7 +18,7 @@ import {
   Award,
   ShoppingCart,
   CheckCircle } from 'lucide-react';
-import { FuturisticHeader } from '../components/layout/FuturisticHeader';
+import { ModernHeader } from '../components/layout/ModernHeader';
 import { useCart } from '../context/CartContext';
 
 // Premium LyDian themed favorites with REAL data and complete images
@@ -261,7 +261,7 @@ export default function Favorites() {
         <meta name="description" content="Beğendiğiniz seyahat deneyimlerini kaydedin ve kolayca erişin" />
       </Head>
 
-      <FuturisticHeader />
+      <ModernHeader />
 
       {/* Back Button */}
       <Link

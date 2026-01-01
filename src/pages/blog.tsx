@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
-import { FuturisticHeader } from '../components/layout/FuturisticHeader';
+import { ModernHeader } from '../components/layout/ModernHeader';
 import { BookingFooter } from '../components/layout/BookingFooter';
 import { Calendar, User, Clock, Tag, ArrowRight, TrendingUp, Search } from 'lucide-react';
 
@@ -141,7 +141,7 @@ export default function Blog() {
         <meta name="keywords" content="seyahat blogu, tatil rehberi, gezi yazıları, destinasyon önerileri, seyahat ipuçları" />
       </Head>
 
-      <FuturisticHeader />
+      <ModernHeader />
 
       <main className="min-h-screen bg-lydian-glass-dark">
         {/* Hero Section */}

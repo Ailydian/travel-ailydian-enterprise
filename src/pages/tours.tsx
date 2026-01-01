@@ -27,7 +27,7 @@ import {
   Zap,
   Eye } from 'lucide-react';
 import { useCart } from '../context/CartContext';
-import { FuturisticHeader } from '../components/layout/FuturisticHeader';
+import { ModernHeader } from '../components/layout/ModernHeader';
 import { allComprehensiveTours as importedComprehensiveTours } from '../data/marmaris-bodrum-cesme-tours';
 import { antalyaTours } from '../data/antalya-tours';
 import { greeceTours } from '../data/greece-tours';
@@ -408,7 +408,7 @@ export default function Tours() {
 
       </Head>
 
-      <FuturisticHeader />
+      <ModernHeader />
 
       <main className="min-h-screen">
         {/* 🎬 NEO-GLASS TOURS HERO */}

@@ -32,7 +32,7 @@ import {
   Calendar,
   Clock,
   Shield } from 'lucide-react';
-import { FuturisticHeader } from '@/components/layout/FuturisticHeader';
+import { ModernHeader } from '@/components/layout/ModernHeader';
 import TransferRouteSelector from '@/components/transfers/TransferRouteSelector';
 import type { AdvancedLocationSuggestion } from '@/lib/location-service-advanced';
 import { AnimatedCarSVG } from '@/components/icons/AnimatedCarSVG';
@@ -291,7 +291,7 @@ const TransfersPage: React.FC = () => {
 
       </Head>
 
-      <FuturisticHeader />
+      <ModernHeader />
 
       <main className="min-h-screen bg-lydian-glass-dark">
         {/* Hero Section - Full Width Search */}

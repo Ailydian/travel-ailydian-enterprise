@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { SEOHead } from '../components/seo/SEOHead';
 import { PAGE_SEO } from '../config/seo';
 import { Search, Plane, Calendar, Users, ArrowLeft, ArrowRight, Clock, Zap, Star, Filter, Shield, Wifi, SlidersHorizontal, TrendingDown, Award, Sparkles, MapPin } from 'lucide-react';
-import { FuturisticHeader } from '../components/layout/FuturisticHeader';
+import { ModernHeader } from '../components/layout/ModernHeader';
 import { NeoHero, FuturisticCard, FuturisticButton, NeoSection } from '../components/neo-glass';
 import AdvancedFilters from '../components/search/AdvancedFilters';
 import FilterChips from '../components/search/FilterChips';
@@ -207,7 +207,7 @@ export default function Flights() {
         type="website" />
 
 
-      <FuturisticHeader />
+      <ModernHeader />
 
       <main className="min-h-screen">
         {/* 🎬 NEO-GLASS HERO - COSMIC GRADIENT */}

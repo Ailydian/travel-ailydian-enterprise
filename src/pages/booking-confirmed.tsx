@@ -3,7 +3,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { motion } from 'framer-motion';
-import { FuturisticHeader } from '../components/layout/FuturisticHeader';
+import { ModernHeader } from '../components/layout/ModernHeader';
 import { FuturisticButton } from '../components/neo-glass/FuturisticButton';
 import logger from '../lib/logger';
 import { useToast } from '../context/ToastContext';
@@ -161,7 +161,7 @@ END:VCALENDAR`;
         <meta name="description" content="Your booking has been confirmed successfully" />
       </Head>
 
-      <FuturisticHeader />
+      <ModernHeader />
 
       <div className="min-h-screen bg-lydian-glass-dark py-12">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">

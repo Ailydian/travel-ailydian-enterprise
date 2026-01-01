@@ -33,7 +33,7 @@ import {
   UserCheck,
   Sparkles } from 'lucide-react';
 import { useCart } from '../context/CartContext';
-import { FuturisticHeader } from '../components/layout/FuturisticHeader';
+import { ModernHeader } from '../components/layout/ModernHeader';
 import { BookingFooter } from '../components/layout/BookingFooter';
 import { NeoHero } from '../components/neo-glass/NeoHero';
 import { FuturisticCard } from '../components/neo-glass/FuturisticCard';
@@ -246,7 +246,7 @@ const HotelsNewPage: React.FC = () => {
         type="website" />
 
 
-      <FuturisticHeader />
+      <ModernHeader />
 
       <Link
         href="/"

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Head from 'next/head';
-import { FuturisticHeader } from '../components/layout/FuturisticHeader';
+import { ModernHeader } from '../components/layout/ModernHeader';
 import { BookingFooter } from '../components/layout/BookingFooter';
 import { Briefcase, MapPin, Clock, TrendingUp, Users, Heart, Zap, Globe, Coffee, GraduationCap, Trophy, ChevronRight, Send } from 'lucide-react';
 
@@ -127,7 +127,7 @@ export default function Careers() {
         <meta name="keywords" content="kariyer, iş fırsatları, travel jobs, seyahat sektörü iş ilanları, açık pozisyonlar" />
       </Head>
 
-      <FuturisticHeader />
+      <ModernHeader />
 
       <main className="min-h-screen bg-lydian-glass-dark">
         {/* Hero Section */}

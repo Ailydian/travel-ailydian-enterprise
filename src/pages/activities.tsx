@@ -9,7 +9,7 @@ import AdvancedFilters from '../components/search/AdvancedFilters';
 import FilterChips from '../components/search/FilterChips';
 import { useFilters } from '../hooks/useFilters';
 import { ActivityFilters, DEFAULT_ACTIVITY_FILTERS } from '../types/filters';
-import { FuturisticHeader } from '../components/layout/FuturisticHeader';
+import { ModernHeader } from '../components/layout/ModernHeader';
 import { BookingFooter } from '../components/layout/BookingFooter';
 
 const activities = [
@@ -389,7 +389,7 @@ export default function Activities() {
         <meta name="description" content="Heyecan verici aktiviteler ve deneyimler. Maceradan wellness&apos;a kadar." />
       </Head>
 
-      <FuturisticHeader />
+      <ModernHeader />
 
       <div className="min-h-screen" style={{ backgroundColor: 'white' }}>
 

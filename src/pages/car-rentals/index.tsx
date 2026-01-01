@@ -32,7 +32,7 @@ import {
   Shield,
   Clock } from 'lucide-react';
 import { VEHICLE_CATEGORIES } from '@/data/vehicleCategories';
-import { FuturisticHeader } from '@/components/layout/FuturisticHeader';
+import { ModernHeader } from '@/components/layout/ModernHeader';
 import CarRentalSearchEngine, { type CarRentalSearchData } from '@/components/car-rentals/CarRentalSearchEngine';
 import { AnimatedCarSVG } from '@/components/icons/AnimatedCarSVG';
 import {
@@ -228,7 +228,7 @@ const CarRentalsPage: React.FC = () => {
 
       </Head>
 
-      <FuturisticHeader />
+      <ModernHeader />
 
       <main className="min-h-screen bg-lydian-glass-dark">
         {/* NeoHero Section */}

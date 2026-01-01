@@ -28,7 +28,7 @@ import {
   Award,
   Sparkles,
 } from 'lucide-react';
-import { FuturisticHeader } from '../../components/layout/FuturisticHeader';
+import { ModernHeader } from '../../components/layout/ModernHeader';
 import { NeoHero, FuturisticCard, FuturisticButton, NeoSection } from '../../components/neo-glass';
 import antalyaRentals, { type AntalyaRentalProperty } from '../../data/antalya-rentals';
 import { useToast } from '../../context/ToastContext';
@@ -132,7 +132,7 @@ const RentalsPage: React.FC = () => {
         <meta name="keywords" content="antalya villa, tatil evi, lüks konaklama, kiralık villa, penthouse" />
       </Head>
 
-      <FuturisticHeader />
+      <ModernHeader />
 
       {/* Hero Section */}
       <NeoHero

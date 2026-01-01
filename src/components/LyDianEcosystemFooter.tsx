@@ -127,27 +127,35 @@ export default function LyDianEcosystemFooter({
     domain => !domain.url.includes(currentDomain)
   );
 
-  const bgColor = theme === 'dark' ? 'bg-gradient-to-b from-black/50 to-black' : 'bg-lydian-bg';
-  const textColor = theme === 'dark' ? 'text-white' : 'text-white';
-  const borderColor = theme === 'dark' ? 'border-white/10' : 'border-lydian-border';
+  // Apple Vision Pro inspired glassmorphic design
+  const bgColor = theme === 'dark'
+    ? 'bg-gradient-to-b from-gray-900/80 via-gray-800/60 to-gray-900/80'
+    : 'bg-gradient-to-b from-gray-50/95 via-white/90 to-gray-50/95';
+  const textColor = theme === 'dark' ? 'text-white' : 'text-gray-900';
+  const borderColor = theme === 'dark' ? 'border-white/10' : 'border-gray-200/50';
 
   return (
     <div
-      className={`w-full ${bgColor} ${textColor} border-t ${borderColor} py-12 px-4 sm:px-6 lg:px-8`}
+      className={`w-full ${bgColor} ${textColor} border-t ${borderColor} py-12 px-4 sm:px-6 lg:px-8 backdrop-blur-2xl`}
       style={{
         fontFamily: 'system-ui, -apple-system, sans-serif',
         position: 'relative',
         zIndex: 50,
-        marginTop: '0'
+        marginTop: '0',
+        backdropFilter: 'blur(40px) saturate(180%)',
+        WebkitBackdropFilter: 'blur(40px) saturate(180%)',
+        boxShadow: theme === 'dark'
+          ? 'inset 0 1px 0 0 rgba(255, 255, 255, 0.05), 0 1px 3px 0 rgba(0, 0, 0, 0.1)'
+          : 'inset 0 1px 0 0 rgba(255, 255, 255, 0.8), 0 1px 3px 0 rgba(0, 0, 0, 0.05)'
       }}
     >
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-8">
-          <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+          <h3 className={`text-2xl font-bold ${theme === 'dark' ? 'bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent' : 'bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent'}`}>
             LyDian Ecosystem
           </h3>
-          <p className={`mt-2 text-sm ${theme === 'dark' ? 'text-lydian-text-muted' : 'text-lydian-text-dim'}`}>
+          <p className={`mt-2 text-sm font-medium ${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>
             AI-Powered Solutions Across Industries
           </p>
         </div>
@@ -161,9 +169,9 @@ export default function LyDianEcosystemFooter({
               target="_blank"
               rel="noopener noreferrer"
               className={`
-                group relative overflow-hidden rounded-xl border ${borderColor}
-                ${theme === 'dark' ? 'bg-lydian-bg/5 hover:bg-lydian-bg/10' : 'bg-black/5 hover:bg-black/10'}
-                p-4 transition-all duration-300 hover:scale-105 hover:shadow-xl
+                group relative overflow-hidden rounded-2xl border ${borderColor}
+                ${theme === 'dark' ? 'bg-white/5 hover:bg-white/10' : 'bg-white/60 hover:bg-white/80'}
+                p-4 transition-all duration-300 hover:scale-105 backdrop-blur-xl
               `}
               style={{
                 borderColor: domain.color + '40'
@@ -187,12 +195,12 @@ export default function LyDianEcosystemFooter({
                 />
 
                 {/* Name */}
-                <h4 className="font-semibold text-sm mb-1 text-center">
+                <h4 className={`font-semibold text-sm mb-1 text-center ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>
                   {domain.name}
                 </h4>
 
                 {/* Short Description */}
-                <p className={`text-xs text-center ${theme === 'dark' ? 'text-lydian-text-muted' : 'text-lydian-text-dim'}`}>
+                <p className={`text-xs text-center ${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'}`}>
                   {domain.shortDesc}
                 </p>
               </div>
@@ -205,7 +213,7 @@ export default function LyDianEcosystemFooter({
                   viewBox="0 0 16 16"
                   fill="none"
                   stroke="currentColor"
-                  className={theme === 'dark' ? 'text-white/60' : 'text-white/60'}
+                  className={theme === 'dark' ? 'text-white/70' : 'text-gray-600/70'}
                 >
                   <path d="M5 3l6 6-6 6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
@@ -222,8 +230,10 @@ export default function LyDianEcosystemFooter({
             rel="noopener noreferrer"
             className={`
               inline-flex items-center gap-2 px-6 py-3 rounded-full
-              ${theme === 'dark' ? 'bg-lydian-bg/10 hover:bg-lydian-bg/20' : 'bg-black/10 hover:bg-black/20'}
-              transition-all duration-300 font-medium hover:scale-105
+              ${theme === 'dark' ? 'bg-white/10 hover:bg-white/20 text-white' : 'bg-white/70 hover:bg-white/90 text-gray-900'}
+              transition-all duration-300 font-medium hover:scale-105 backdrop-blur-xl
+              border ${theme === 'dark' ? 'border-white/20' : 'border-gray-300/50'}
+              shadow-lg ${theme === 'dark' ? 'shadow-black/20' : 'shadow-gray-300/30'}
             `}
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -240,8 +250,8 @@ export default function LyDianEcosystemFooter({
         </div>
 
         {/* Footer Text */}
-        <div className={`text-center mt-6 text-xs ${theme === 'dark' ? 'text-lydian-text-muted' : 'text-lydian-text-muted'}`}>
-          <p>Powered by LyDian - AI-Driven Innovation</p>
+        <div className={`text-center mt-6 text-xs ${theme === 'dark' ? 'text-gray-400' : 'text-gray-500'}`}>
+          <p className="font-medium">Powered by LyDian - AI-Driven Innovation</p>
         </div>
       </div>
     </div>

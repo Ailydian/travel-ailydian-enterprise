@@ -15,7 +15,7 @@ import {
   Sparkles,
   Globe
 } from 'lucide-react';
-import { FuturisticHeader } from '../components/layout/FuturisticHeader';
+import { ModernHeader } from '../components/layout/ModernHeader';
 import { BookingFooter } from '../components/layout/BookingFooter';
 import { NeoHero, FuturisticButton, NeoSection } from '../components/neo-glass';
 
@@ -112,7 +112,7 @@ export default function Contact() {
         />
       </Head>
 
-      <FuturisticHeader />
+      <ModernHeader />
 
       <main className="min-h-screen bg-lydian-glass-dark">
         {/* Hero Section */}

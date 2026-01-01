@@ -15,7 +15,7 @@ import React, { useState, useMemo } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FuturisticHeader } from '../components/layout/FuturisticHeader';
+import { ModernHeader } from '../components/layout/ModernHeader';
 import { BookingFooter } from '../components/layout/BookingFooter';
 import {
   Search,
@@ -657,7 +657,7 @@ const HelpPage: React.FC = () => {
         <meta name="keywords" content="yardım merkezi, sıkça sorulan sorular, rezervasyon yardım, ödeme destek, tur bilgileri, transfer rehberi, müşteri hizmetleri" />
       </Head>
 
-      <FuturisticHeader />
+      <ModernHeader />
 
       <div className="min-h-screen bg-lydian-glass-dark">
         {/* Hero Section with Gradient */}

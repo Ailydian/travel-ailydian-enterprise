@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Head from 'next/head';
-import { FuturisticHeader } from '../components/layout/FuturisticHeader';
+import { ModernHeader } from '../components/layout/ModernHeader';
 import { BookingFooter } from '../components/layout/BookingFooter';
 import { Search, Calendar, User, Mail, Phone, MapPin, CreditCard, Download, Printer, AlertCircle, CheckCircle2, Clock, XCircle } from 'lucide-react';
 import { useToast } from '../context/ToastContext';
@@ -32,7 +32,7 @@ export default function ManageBooking() {
         <meta name="keywords" content="rezervasyon yönetimi, rezervasyon sorgulama, rezervasyon iptali, rezervasyon değiştirme" />
       </Head>
 
-      <FuturisticHeader />
+      <ModernHeader />
 
       <main className="min-h-screen bg-lydian-glass-dark">
         {/* Hero Section */}

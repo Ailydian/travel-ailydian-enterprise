@@ -1,6 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
-import { FuturisticHeader } from '../components/layout/FuturisticHeader';
+import { ModernHeader } from '../components/layout/ModernHeader';
 import { BookingFooter } from '../components/layout/BookingFooter';
 import { Newspaper, Download, Mail, Phone, Award, TrendingUp, Users, Globe, Calendar, ExternalLink, Image as ImageIcon } from 'lucide-react';
 
@@ -112,7 +112,7 @@ export default function Press() {
         <meta name="keywords" content="basın odası, basın bülteni, medya, şirket haberleri, ödüller, press kit" />
       </Head>
 
-      <FuturisticHeader />
+      <ModernHeader />
 
       <main className="min-h-screen bg-lydian-glass-dark">
         {/* Hero Section */}

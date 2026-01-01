@@ -6,7 +6,7 @@ import {
   Clock, CheckCircle, AlertCircle, FileText, Headphones, Monitor,
   Shield, CreditCard, MapPin, Plane, Hotel, Car, Star, User,
   ChevronDown, ChevronUp, Send, Zap, Globe, Calendar, Settings, Compass } from 'lucide-react';
-import { FuturisticHeader } from '../components/layout/FuturisticHeader';
+import { ModernHeader } from '../components/layout/ModernHeader';
 import { BookingFooter } from '../components/layout/BookingFooter';
 import { useToast } from '../context/ToastContext';
 
@@ -165,7 +165,7 @@ export default function Support() {
         <meta name="description" content="7/24 müşteri desteği, teknik yardım ve seyahat danışmanlığı." />
       </Head>
 
-      <FuturisticHeader />
+      <ModernHeader />
 
       <div className="min-h-screen" style={{ backgroundColor: 'white' }}>
 

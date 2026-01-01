@@ -26,7 +26,7 @@ import {
   Home,
   Ticket,
 } from 'lucide-react';
-import { FuturisticHeader } from '../components/layout/FuturisticHeader';
+import { ModernHeader } from '../components/layout/ModernHeader';
 import { FuturisticInput } from '../components/neo-glass/FuturisticInput';
 import { FuturisticButton } from '../components/neo-glass/FuturisticButton';
 import { NeoSection } from '../components/neo-glass/NeoSection';
@@ -533,7 +533,7 @@ const Checkout: React.FC = () => {
         <Head>
           <title>Ödeme Başarılı - AILYDIAN Holiday</title>
         </Head>
-        <FuturisticHeader />
+        <ModernHeader />
         <main className="pt-8 min-h-screen bg-lydian-glass-dark flex items-center justify-center px-3 sm:px-4">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
@@ -564,7 +564,7 @@ const Checkout: React.FC = () => {
         <Head>
           <title>Ödeme İşleniyor - AILYDIAN Holiday</title>
         </Head>
-        <FuturisticHeader />
+        <ModernHeader />
         <main className="pt-8 min-h-screen bg-lydian-glass-dark flex items-center justify-center px-3 sm:px-4">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
@@ -600,7 +600,7 @@ const Checkout: React.FC = () => {
         />
       </Head>
 
-      <FuturisticHeader />
+      <ModernHeader />
 
       <main className="min-h-screen bg-lydian-glass-dark pt-8">
         <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6 py-4 sm:py-6 lg:py-8">

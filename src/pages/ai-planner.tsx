@@ -31,7 +31,7 @@ import {
   Shield,
   Award
 } from 'lucide-react';
-import { FuturisticHeader } from '../components/layout/FuturisticHeader';
+import { ModernHeader } from '../components/layout/ModernHeader';
 import { NeoHero, FuturisticCard, FuturisticButton, NeoSection } from '../components/neo-glass';
 import { useToast } from '../context/ToastContext';
 
@@ -137,7 +137,7 @@ const AITravelPlanner: React.FC = () => {
         <meta property="og:description" content="Yapay zeka ile kişiselleştirilmiş seyahat planları" />
       </Head>
 
-      <FuturisticHeader />
+      <ModernHeader />
 
       <main className="min-h-screen bg-gradient-to-b from-gray-900 via-[#0a0a0f] to-gray-900 dark:from-gray-950 dark:via-black dark:to-gray-950">
 

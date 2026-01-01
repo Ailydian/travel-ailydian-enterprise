@@ -8,7 +8,7 @@ import Head from 'next/head';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
-import FuturisticHeader from '../../components/layout/FuturisticHeader';
+import ModernHeader from '../../components/layout/ModernHeader';
 import BookingFooter from '../../components/layout/BookingFooter';
 import { motion } from 'framer-motion';
 import {
@@ -90,7 +90,7 @@ const PlacesToStayPage: NextPage = () => {
 
       </Head>
 
-      <FuturisticHeader />
+      <ModernHeader />
 
       <main className="min-h-screen bg-lydian-glass-dark">
         {/* Page Header */}

@@ -1,6 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
-import { FuturisticHeader } from '../components/layout/FuturisticHeader';
+import { ModernHeader } from '../components/layout/ModernHeader';
 import { BookingFooter } from '../components/layout/BookingFooter';
 
 const Cookies: React.FC = () => {
@@ -11,7 +11,7 @@ const Cookies: React.FC = () => {
         <meta name="description" content="Holiday.AILYDIAN çerez kullanım politikası ve web sitesinde kullanılan çerez türleri hakkında bilgi." />
       </Head>
 
-      <FuturisticHeader />
+      <ModernHeader />
 
       <main className="min-h-screen bg-lydian-glass-dark">
         <div className="max-w-4xl mx-auto px-4 py-16">

@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import { motion } from 'framer-motion';
-import { FuturisticHeader } from '../components/layout/FuturisticHeader';
+import { ModernHeader } from '../components/layout/ModernHeader';
 import { FuturisticButton } from '../components/neo-glass/FuturisticButton';
 import logger from '../lib/logger';
 import { useToast } from '../context/ToastContext';
@@ -246,7 +246,7 @@ const Bookings: React.FC = () => {
         <meta name="description" content="Rezervasyonlarınızı yönetin ve takip edin" />
       </Head>
 
-      <FuturisticHeader />
+      <ModernHeader />
 
       <div className="min-h-screen bg-gradient-to-br from-[#0A0118] via-[#1a0b2e] to-[#16213e] py-6 sm:py-8 lg:py-12">
         <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6">

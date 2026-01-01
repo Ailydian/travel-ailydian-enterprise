@@ -3,7 +3,7 @@ import { NextPage, GetStaticProps } from 'next';
 import Head from 'next/head';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
-import FuturisticHeader from '../../components/layout/FuturisticHeader';
+import ModernHeader from '../../components/layout/ModernHeader';
 import BookingFooter from '../../components/layout/BookingFooter';
 import { ExploreCard } from '../../components/explore/ExploreCard';
 import { ExploreFilters } from '../../components/explore/ExploreFilters';
@@ -29,7 +29,7 @@ const ThingsToDoPage: NextPage = () => {
         <meta name="description" content={t('explore.thingsToDo.seo.description')} />
       </Head>
 
-      <FuturisticHeader />
+      <ModernHeader />
 
       <main className="min-h-screen bg-lydian-glass-dark">
         {/* Page Header */}

@@ -4,7 +4,7 @@ import React, { useState, useCallback, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 import { motion } from 'framer-motion';
-import { FuturisticHeader } from '@/components/layout/FuturisticHeader';
+import { ModernHeader } from '@/components/layout/ModernHeader';
 import { FuturisticInput } from '@/components/neo-glass/FuturisticInput';
 import { FuturisticButton } from '@/components/neo-glass/FuturisticButton';
 import logger from '../lib/logger';
@@ -218,7 +218,7 @@ export default function ReservationPage() {
 
   return (
     <div className="min-h-screen bg-lydian-glass-dark">
-      <FuturisticHeader />
+      <ModernHeader />
 
       <div className="container mx-auto px-4 py-12">
         <motion.div

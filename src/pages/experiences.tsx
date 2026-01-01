@@ -25,7 +25,7 @@ import {
   Eye,
   Globe,
   Zap } from 'lucide-react';
-import { FuturisticHeader } from '../components/layout/FuturisticHeader';
+import { ModernHeader } from '../components/layout/ModernHeader';
 import { NeoHero, FuturisticCard } from '../components/neo-glass';
 import { useCart } from '../context/CartContext';
 import { EXPERIENCES_TURKEY } from '../data/experiences-turkey';
@@ -156,7 +156,7 @@ const ExperiencesPage: React.FC = () => {
         <meta name="keywords" content="deneyim, tur, aktivite, AI rehber, VR önizleme, blockchain, Türkiye" />
       </Head>
 
-      <FuturisticHeader />
+      <ModernHeader />
 
       <main className="min-h-screen">
         {/* NEO-GLASS HERO SECTION */}
