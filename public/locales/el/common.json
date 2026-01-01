@@ -25,7 +25,9 @@
     "help": "Βοήθεια",
     "signIn": "Σύνδεση",
     "signUp": "Εγγραφή",
-    "myAccount": "Ο Λογαριασμός Μου"
+    "myAccount": "Ο Λογαριασμός Μου",
+    "becomePartner": "Γίνετε συνεργάτης",
+    "selectLanguage": "Επιλέξτε γλώσσα"
   },
   "search": {
     "placeholder": "Πού θέλετε να πάτε;",

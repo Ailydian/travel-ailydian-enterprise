@@ -1,11 +1,13 @@
 /**
  * Modern Header - Professional & Minimal Design
  * Clean, stable, no glitches - production-grade
+ * FULLY i18n ENABLED - All text translates automatically based on locale
  */
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { useTranslation } from 'next-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Search,
@@ -23,6 +25,7 @@ import { LyDianLogo } from '../branding/LyDianLogo';
 
 export const ModernHeader: React.FC = () => {
   const router = useRouter();
+  const { t } = useTranslation('common'); // Initialize i18n translation hook
   const { getItemCount } = useCart();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -56,12 +59,13 @@ export const ModernHeader: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Navigation items - using translation keys instead of hard-coded text
   const navigation = [
-    { name: 'Turlar', href: '/tours' },
-    { name: 'Transferler', href: '/transfers' },
-    { name: 'Araç Kiralama', href: '/car-rentals' },
-    { name: 'Oteller', href: '/hotels' },
-    { name: 'Konaklama', href: '/rentals' },
+    { name: t('navigation.tours'), href: '/tours' },
+    { name: t('navigation.transfers'), href: '/transfers' },
+    { name: t('navigation.carRentals'), href: '/car-rentals' },
+    { name: t('navigation.hotels'), href: '/hotels' },
+    { name: t('navigation.rentals'), href: '/rentals' },
   ];
 
   const languages = [
@@ -96,10 +100,10 @@ export const ModernHeader: React.FC = () => {
     setCurrentLang(lang);
     setLangMenuOpen(false);
 
-    // SIMPLEST APPROACH: Just change the URL with locale prefix
-    // Next.js will handle the rest automatically
-    const currentPath = router.asPath;
-    window.location.href = `/${lang.code}${currentPath.startsWith('/') ? currentPath : '/' + currentPath}`;
+    // PRODUCTION-READY: Use Next.js router.push with locale parameter
+    // This preserves the current path and switches the locale properly
+    // No page reload needed - seamless UX
+    router.push(router.asPath, router.asPath, { locale: lang.code });
   };
 
   return (
@@ -202,10 +206,10 @@ export const ModernHeader: React.FC = () => {
                 </AnimatePresence>
               </div>
 
-              {/* Partner Button */}
+              {/* Partner Button - i18n enabled */}
               <Link href="/partner">
                 <a className="hidden lg:flex items-center gap-2 px-6 h-11 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-bold text-sm hover:shadow-lg hover:shadow-blue-600/30 transition-all">
-                  Partner Ol
+                  {t('header.becomePartner') || 'Partner Ol'}
                 </a>
               </Link>
 
@@ -221,11 +225,11 @@ export const ModernHeader: React.FC = () => {
                 </a>
               </Link>
 
-              {/* Auth Buttons */}
+              {/* Auth Buttons - i18n enabled */}
               <Link href="/auth/signin">
                 <a className="hidden sm:flex items-center gap-2 px-5 h-11 rounded-xl bg-lydian-glass-light/40 hover:bg-lydian-glass-light/60 border border-lydian-border-light/20 transition-all">
                   <LogIn className="w-4 h-4 text-lydian-text-inverse" />
-                  <span className="font-semibold text-sm text-lydian-text-inverse">Giriş</span>
+                  <span className="font-semibold text-sm text-lydian-text-inverse">{t('header.signIn')}</span>
                 </a>
               </Link>
 
@@ -300,7 +304,7 @@ export const ModernHeader: React.FC = () => {
                 {/* Divider */}
                 <div className="border-t border-lydian-border-light/20" />
 
-                {/* Auth Buttons */}
+                {/* Auth Buttons - i18n enabled */}
                 <div className="space-y-3">
                   <Link href="/auth/signin">
                     <a
@@ -308,7 +312,7 @@ export const ModernHeader: React.FC = () => {
                       className="flex items-center justify-center gap-2 w-full px-5 py-3.5 bg-lydian-glass-light/40 text-lydian-text-inverse rounded-xl font-semibold hover:bg-lydian-glass-light/60 transition-all"
                     >
                       <LogIn className="w-5 h-5" />
-                      Giriş Yap
+                      {t('header.signIn')}
                     </a>
                   </Link>
 
@@ -318,7 +322,7 @@ export const ModernHeader: React.FC = () => {
                       className="flex items-center justify-center gap-2 w-full px-5 py-3.5 bg-gradient-to-r from-lydian-primary to-lydian-accent text-white rounded-xl font-semibold hover:shadow-lg hover:shadow-lydian-primary/30 transition-all"
                     >
                       <UserPlus className="w-5 h-5" />
-                      Kayıt Ol
+                      {t('header.signUp')}
                     </a>
                   </Link>
 
@@ -327,15 +331,15 @@ export const ModernHeader: React.FC = () => {
                       onClick={() => setMobileMenuOpen(false)}
                       className="flex items-center justify-center gap-2 w-full px-5 py-3.5 bg-lydian-glass-light/20 text-lydian-text-inverse rounded-xl font-semibold hover:bg-lydian-glass-light/40 transition-all"
                     >
-                      Partner Ol
+                      {t('header.becomePartner') || 'Partner Ol'}
                     </a>
                   </Link>
                 </div>
 
-                {/* Language Selector (Mobile) */}
+                {/* Language Selector (Mobile) - i18n enabled */}
                 <div className="space-y-2">
                   <p className="text-xs font-semibold text-lydian-text-muted uppercase tracking-wider px-2">
-                    Dil Seçimi
+                    {t('header.selectLanguage') || 'Dil Seçimi'}
                   </p>
                   <div className="grid grid-cols-2 gap-2">
                     {languages.map((lang) => (

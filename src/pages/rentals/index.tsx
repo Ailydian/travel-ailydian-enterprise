@@ -483,4 +483,17 @@ const RentalsPage: React.FC = () => {
   );
 };
 
+// CRITICAL: Add i18n support for this page
+// Without this, language changes won't work
+import { GetStaticProps } from 'next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale ?? 'tr', ['common'])),
+    },
+  };
+};
+
 export default RentalsPage;

@@ -25,7 +25,9 @@
     "help": "Yardım",
     "signIn": "Giriş Yap",
     "signUp": "Kayıt Ol",
-    "myAccount": "Hesabım"
+    "myAccount": "Hesabım",
+    "becomePartner": "Partner Ol",
+    "selectLanguage": "Dil Seçimi"
   },
   "search": {
     "placeholder": "Nereye gitmek istersiniz?",

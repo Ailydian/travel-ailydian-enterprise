@@ -27,7 +27,9 @@
     "help": "راهنما",
     "signIn": "ورود",
     "signUp": "ثبت‌نام",
-    "myAccount": "حساب من"
+    "myAccount": "حساب من",
+    "becomePartner": "شریک شوید",
+    "selectLanguage": "انتخاب زبان"
   },
   "search": {
     "placeholder": "کجا می‌خواهید بروید؟",

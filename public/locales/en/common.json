@@ -25,7 +25,9 @@
     "help": "Help",
     "signIn": "Sign In",
     "signUp": "Sign Up",
-    "myAccount": "My Account"
+    "myAccount": "My Account",
+    "becomePartner": "Become a Partner",
+    "selectLanguage": "Select Language"
   },
   "search": {
     "placeholder": "Where do you want to go?",
