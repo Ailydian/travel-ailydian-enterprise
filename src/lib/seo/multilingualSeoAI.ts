@@ -354,7 +354,7 @@ export class MultilingualSeoAI {
   private generateHreflangAlternates(path: string): any[] {
     return this.languages.map(lang => ({
       hreflang: lang,
-      href: `https://travel.lydian.com/${lang}${path}`
+      href: `https://holiday.ailydian.com/${lang}${path}`
     }));
   }
 

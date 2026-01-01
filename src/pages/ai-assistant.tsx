@@ -269,12 +269,12 @@ const AIAssistantPage: NextPage = () => {
                       <div className={`flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'}`}>
                       <div className={`max-w-xs lg:max-w-md px-4 py-3 rounded-2xl ${
                       message.sender === 'user' ?
-                      'bg-blue-600 text-white' :
-                      'bg-white/10 text-white'}`
+                      'bg-lydian-primary text-white' :
+                      'bg-lydian-bg/10 text-white'}`
                       }>
                         <p className="text-sm">{message.text}</p>
                         <p className={`text-xs mt-2 ${
-                        message.sender === 'user' ? 'text-blue-100' : 'text-gray-400'}`
+                        message.sender === 'user' ? 'text-blue-100' : 'text-lydian-text-muted'}`
                         }>
                           {message.timestamp.toLocaleTimeString('tr-TR', {
                             hour: '2-digit',
@@ -345,7 +345,7 @@ const AIAssistantPage: NextPage = () => {
                     className={`p-3 rounded-xl transition-colors ${
                     isListening ?
                     'bg-red-500 text-white' :
-                    'bg-white/10 hover:bg-gray-200 text-gray-300'}`
+                    'bg-lydian-bg/10 hover:bg-lydian-bg-surface-raised text-lydian-text-dim'}`
                     }>
 
                     <Mic className="w-5 h-5" />

@@ -127,10 +127,10 @@ const AITravelPlanner: React.FC = () => {
   return (
     <>
       <Head>
-        <title>AI Seyahat Planlama - Travel.LyDian | Akıllı Seyahat Planı</title>
+        <title>AI Seyahat Planlama - Holiday.AILYDIAN | Akıllı Seyahat Planı</title>
         <meta name="description" content="Yapay zeka destekli kişiselleştirilmiş seyahat planı oluşturun. AI algoritmaları ile size özel itineraryler ve öneriler." />
         <meta name="keywords" content="AI seyahat planlama, akıllı seyahat, yapay zeka turizm, otomatik itinerary, seyahat planlayıcı" />
-        <meta property="og:title" content="AI Seyahat Planlama - Travel.LyDian" />
+        <meta property="og:title" content="AI Seyahat Planlama - Holiday.AILYDIAN" />
         <meta property="og:description" content="Yapay zeka ile kişiselleştirilmiş seyahat planları" />
       </Head>
 
@@ -160,7 +160,7 @@ const AITravelPlanner: React.FC = () => {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: index * 0.1 }}
-                className="flex items-center gap-2 bg-white/5 dark:bg-white/5 backdrop-blur-xl border border-white/10 rounded-full px-5 py-3 shadow-lg"
+                className="flex items-center gap-2 bg-lydian-bg/5 dark:bg-lydian-bg/5 backdrop-blur-xl border border-white/10 rounded-full px-5 py-3 shadow-lg"
               >
                 <stat.icon className="w-5 h-5" style={{ color: stat.color }} />
                 <span className="text-white font-medium text-sm">{stat.text}</span>
@@ -183,13 +183,13 @@ const AITravelPlanner: React.FC = () => {
                       AI ile Kişisel Seyahat Planı
                     </h2>
                   </div>
-                  <span className="text-sm text-gray-400 dark:text-gray-500 font-mono">
+                  <span className="text-sm text-lydian-text-muted dark:text-lydian-text-muted font-mono">
                     {step}/4
                   </span>
                 </div>
 
                 {/* Animated Progress Bar */}
-                <div className="relative w-full h-3 bg-white/5 dark:bg-white/5 rounded-full overflow-hidden backdrop-blur-sm border border-white/10">
+                <div className="relative w-full h-3 bg-lydian-bg/5 dark:bg-lydian-bg/5 rounded-full overflow-hidden backdrop-blur-sm border border-white/10">
                   <motion.div
                     className="absolute inset-y-0 left-0 bg-gradient-to-r from-[#667EEA] via-[#00BAFF] to-[#667EEA] rounded-full"
                     initial={{ width: 0 }}
@@ -208,11 +208,11 @@ const AITravelPlanner: React.FC = () => {
                       <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold transition-all ${
                         step >= stepNumber
                           ? 'bg-gradient-to-br from-[#667EEA] to-[#00BAFF] text-white shadow-lg'
-                          : 'bg-white/5 text-gray-500 border border-white/10'
+                          : 'bg-lydian-bg/5 text-lydian-text-muted border border-white/10'
                       }`}>
                         {step > stepNumber ? <CheckCircle className="w-4 h-4" /> : stepNumber}
                       </div>
-                      <span className="text-xs text-gray-400 hidden md:block">
+                      <span className="text-xs text-lydian-text-muted hidden md:block">
                         {stepNumber === 1 && 'Temel'}
                         {stepNumber === 2 && 'İlgiler'}
                         {stepNumber === 3 && 'Tarz'}
@@ -248,7 +248,7 @@ const AITravelPlanner: React.FC = () => {
                         <h3 className="text-3xl font-bold text-white mb-3">
                           Nereye gitmek istiyorsunuz?
                         </h3>
-                        <p className="text-gray-400">
+                        <p className="text-lydian-text-muted">
                           Temel bilgileri verin, AI size en uygun planı oluştursun.
                         </p>
                       </div>
@@ -256,7 +256,7 @@ const AITravelPlanner: React.FC = () => {
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         {/* Destination Input */}
                         <div>
-                          <label className="block text-sm font-semibold text-gray-300 mb-3">
+                          <label className="block text-sm font-semibold text-lydian-text-dim mb-3">
                             <MapPin className="w-4 h-4 inline mr-2" />
                             Destinasyon
                           </label>
@@ -265,20 +265,20 @@ const AITravelPlanner: React.FC = () => {
                             value={formData.destination}
                             onChange={(e) => setFormData({ ...formData, destination: e.target.value })}
                             placeholder="Örn: İstanbul, Kapadokya, Paris..."
-                            className="w-full px-5 py-4 bg-white/5 dark:bg-white/5 border border-white/10 rounded-2xl text-white placeholder-gray-500 focus:border-[#667EEA] focus:ring-2 focus:ring-[#667EEA]/20 outline-none transition-all backdrop-blur-xl"
+                            className="w-full px-5 py-4 bg-lydian-bg/5 dark:bg-lydian-bg/5 border border-white/10 rounded-2xl text-white placeholder-gray-500 focus:border-[#667EEA] focus:ring-2 focus:ring-[#667EEA]/20 outline-none transition-all backdrop-blur-xl"
                           />
                         </div>
 
                         {/* Duration Select */}
                         <div>
-                          <label className="block text-sm font-semibold text-gray-300 mb-3">
+                          <label className="block text-sm font-semibold text-lydian-text-dim mb-3">
                             <Clock className="w-4 h-4 inline mr-2" />
                             Seyahat Süresi
                           </label>
                           <select
                             value={formData.duration}
                             onChange={(e) => setFormData({ ...formData, duration: e.target.value })}
-                            className="w-full px-5 py-4 bg-white/5 dark:bg-white/5 border border-white/10 rounded-2xl text-white focus:border-[#667EEA] focus:ring-2 focus:ring-[#667EEA]/20 outline-none transition-all backdrop-blur-xl"
+                            className="w-full px-5 py-4 bg-lydian-bg/5 dark:bg-lydian-bg/5 border border-white/10 rounded-2xl text-white focus:border-[#667EEA] focus:ring-2 focus:ring-[#667EEA]/20 outline-none transition-all backdrop-blur-xl"
                           >
                             <option value="" className="bg-gray-900">Seçin</option>
                             <option value="1-2" className="bg-gray-900">1-2 Gün</option>
@@ -291,7 +291,7 @@ const AITravelPlanner: React.FC = () => {
 
                         {/* Travelers Counter */}
                         <div>
-                          <label className="block text-sm font-semibold text-gray-300 mb-3">
+                          <label className="block text-sm font-semibold text-lydian-text-dim mb-3">
                             <Users className="w-4 h-4 inline mr-2" />
                             Kaç Kişi?
                           </label>
@@ -300,7 +300,7 @@ const AITravelPlanner: React.FC = () => {
                               whileHover={{ scale: 1.1 }}
                               whileTap={{ scale: 0.9 }}
                               onClick={() => setFormData({ ...formData, travelers: Math.max(1, formData.travelers - 1) })}
-                              className="p-3 bg-white/5 dark:bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 transition-all backdrop-blur-xl"
+                              className="p-3 bg-lydian-bg/5 dark:bg-lydian-bg/5 border border-white/10 rounded-xl hover:bg-lydian-bg/10 transition-all backdrop-blur-xl"
                             >
                               <Minus className="w-5 h-5 text-white" />
                             </motion.button>
@@ -311,7 +311,7 @@ const AITravelPlanner: React.FC = () => {
                               whileHover={{ scale: 1.1 }}
                               whileTap={{ scale: 0.9 }}
                               onClick={() => setFormData({ ...formData, travelers: formData.travelers + 1 })}
-                              className="p-3 bg-white/5 dark:bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 transition-all backdrop-blur-xl"
+                              className="p-3 bg-lydian-bg/5 dark:bg-lydian-bg/5 border border-white/10 rounded-xl hover:bg-lydian-bg/10 transition-all backdrop-blur-xl"
                             >
                               <Plus className="w-5 h-5 text-white" />
                             </motion.button>
@@ -320,14 +320,14 @@ const AITravelPlanner: React.FC = () => {
 
                         {/* Budget Select */}
                         <div>
-                          <label className="block text-sm font-semibold text-gray-300 mb-3">
+                          <label className="block text-sm font-semibold text-lydian-text-dim mb-3">
                             <TrendingUp className="w-4 h-4 inline mr-2" />
                             Bütçe (Kişi başı)
                           </label>
                           <select
                             value={formData.budget}
                             onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
-                            className="w-full px-5 py-4 bg-white/5 dark:bg-white/5 border border-white/10 rounded-2xl text-white focus:border-[#667EEA] focus:ring-2 focus:ring-[#667EEA]/20 outline-none transition-all backdrop-blur-xl"
+                            className="w-full px-5 py-4 bg-lydian-bg/5 dark:bg-lydian-bg/5 border border-white/10 rounded-2xl text-white focus:border-[#667EEA] focus:ring-2 focus:ring-[#667EEA]/20 outline-none transition-all backdrop-blur-xl"
                           >
                             <option value="" className="bg-gray-900">Seçin</option>
                             <option value="budget" className="bg-gray-900">Ekonomik (₺500-1500)</option>
@@ -361,7 +361,7 @@ const AITravelPlanner: React.FC = () => {
                         <h3 className="text-3xl font-bold text-white mb-3">
                           İlgi Alanlarınız
                         </h3>
-                        <p className="text-gray-400">
+                        <p className="text-lydian-text-muted">
                           Hangi aktiviteler sizi heyecanlandırıyor? (Birden fazla seçebilirsiniz)
                         </p>
                       </div>
@@ -378,7 +378,7 @@ const AITravelPlanner: React.FC = () => {
                               className={`relative p-4 rounded-2xl border-2 transition-all text-sm font-semibold overflow-hidden ${
                                 isSelected
                                   ? 'border-[#FF9500] bg-gradient-to-br from-[#FF9500]/20 to-[#FF9500]/10 text-white shadow-lg'
-                                  : 'border-white/10 bg-white/5 text-gray-400 hover:border-white/20 hover:bg-white/10'
+                                  : 'border-white/10 bg-lydian-bg/5 text-lydian-text-muted hover:border-white/20 hover:bg-lydian-bg/10'
                               }`}
                             >
                               {isSelected && (
@@ -396,7 +396,7 @@ const AITravelPlanner: React.FC = () => {
                       </div>
 
                       <div className="text-center">
-                        <p className="text-sm text-gray-500">
+                        <p className="text-sm text-lydian-text-muted">
                           {formData.interests.length} ilgi alanı seçildi
                         </p>
                       </div>
@@ -424,7 +424,7 @@ const AITravelPlanner: React.FC = () => {
                         <h3 className="text-3xl font-bold text-white mb-3">
                           Seyahat Tarzınız
                         </h3>
-                        <p className="text-gray-400">
+                        <p className="text-lydian-text-muted">
                           Nasıl bir deneyim yaşamak istiyorsunuz?
                         </p>
                       </div>
@@ -442,7 +442,7 @@ const AITravelPlanner: React.FC = () => {
                               className={`relative p-8 rounded-3xl border-2 transition-all text-left overflow-hidden group ${
                                 isSelected
                                   ? 'border-white/40 bg-gradient-to-br from-white/10 to-white/5 shadow-2xl'
-                                  : 'border-white/10 bg-white/5 hover:border-white/20 hover:bg-white/10'
+                                  : 'border-white/10 bg-lydian-bg/5 hover:border-white/20 hover:bg-lydian-bg/10'
                               }`}
                             >
                               {/* Background gradient */}
@@ -466,7 +466,7 @@ const AITravelPlanner: React.FC = () => {
                                     </motion.div>
                                   )}
                                 </div>
-                                <p className="text-gray-400 leading-relaxed">{style.desc}</p>
+                                <p className="text-lydian-text-muted leading-relaxed">{style.desc}</p>
                               </div>
                             </motion.button>
                           );
@@ -499,7 +499,7 @@ const AITravelPlanner: React.FC = () => {
                         <h3 className="text-3xl font-bold text-white mb-3">
                           AI Planınız Hazırlanıyor
                         </h3>
-                        <p className="text-gray-400">
+                        <p className="text-lydian-text-muted">
                           Son bir kontrol yapalım ve AI size mükemmel planı oluştursun!
                         </p>
                       </div>
@@ -514,35 +514,35 @@ const AITravelPlanner: React.FC = () => {
                           <div className="flex items-start gap-3">
                             <MapPin className="w-5 h-5 text-[#667EEA] mt-1" />
                             <div>
-                              <p className="text-sm text-gray-400">Destinasyon</p>
+                              <p className="text-sm text-lydian-text-muted">Destinasyon</p>
                               <p className="font-semibold text-white">{formData.destination || 'Belirtilmedi'}</p>
                             </div>
                           </div>
                           <div className="flex items-start gap-3">
                             <Clock className="w-5 h-5 text-[#00BAFF] mt-1" />
                             <div>
-                              <p className="text-sm text-gray-400">Süre</p>
+                              <p className="text-sm text-lydian-text-muted">Süre</p>
                               <p className="font-semibold text-white">{formData.duration || 'Belirtilmedi'}</p>
                             </div>
                           </div>
                           <div className="flex items-start gap-3">
                             <Users className="w-5 h-5 text-[#FF9500] mt-1" />
                             <div>
-                              <p className="text-sm text-gray-400">Kişi Sayısı</p>
+                              <p className="text-sm text-lydian-text-muted">Kişi Sayısı</p>
                               <p className="font-semibold text-white">{formData.travelers} Kişi</p>
                             </div>
                           </div>
                           <div className="flex items-start gap-3">
                             <TrendingUp className="w-5 h-5 text-[#10B981] mt-1" />
                             <div>
-                              <p className="text-sm text-gray-400">Bütçe</p>
+                              <p className="text-sm text-lydian-text-muted">Bütçe</p>
                               <p className="font-semibold text-white">{formData.budget || 'Belirtilmedi'}</p>
                             </div>
                           </div>
                           <div className="flex items-start gap-3 md:col-span-2">
                             <Star className="w-5 h-5 text-[#FFD700] mt-1" />
                             <div>
-                              <p className="text-sm text-gray-400">İlgi Alanları</p>
+                              <p className="text-sm text-lydian-text-muted">İlgi Alanları</p>
                               <p className="font-semibold text-white">
                                 {formData.interests.length > 0 ? formData.interests.join(', ') : 'Belirtilmedi'}
                               </p>
@@ -551,7 +551,7 @@ const AITravelPlanner: React.FC = () => {
                           <div className="flex items-start gap-3 md:col-span-2">
                             <Wand2 className="w-5 h-5 text-[#EC4899] mt-1" />
                             <div>
-                              <p className="text-sm text-gray-400">Seyahat Tarzı</p>
+                              <p className="text-sm text-lydian-text-muted">Seyahat Tarzı</p>
                               <p className="font-semibold text-white">
                                 {travelStyles.find(s => s.id === formData.travelStyle)?.name || 'Belirtilmedi'}
                               </p>
@@ -630,7 +630,7 @@ const AITravelPlanner: React.FC = () => {
                 <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
                   AI Planlama Avantajları
                 </h2>
-                <p className="text-xl text-gray-400">
+                <p className="text-xl text-lydian-text-muted">
                   Neden AI ile seyahat planlamak daha iyi?
                 </p>
               </motion.div>
@@ -670,7 +670,7 @@ const AITravelPlanner: React.FC = () => {
                         <feature.icon className="w-10 h-10 text-white" />
                       </div>
                       <h3 className="font-bold text-2xl text-white mb-4">{feature.title}</h3>
-                      <p className="text-gray-400 leading-relaxed">{feature.description}</p>
+                      <p className="text-lydian-text-muted leading-relaxed">{feature.description}</p>
                     </div>
                   </FuturisticCard>
                 </motion.div>

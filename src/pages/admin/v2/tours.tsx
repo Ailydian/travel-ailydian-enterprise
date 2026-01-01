@@ -211,10 +211,10 @@ const ToursManagementPage = () => {
 
   const getStatusColor = (status: string) => {
     switch (status) {
-      case 'active':return 'text-green-600 bg-green-50 border-green-200';
-      case 'inactive':return 'text-gray-300 bg-white/5 border-gray-200';
+      case 'active':return 'text-lydian-success bg-green-50 border-green-200';
+      case 'inactive':return 'text-lydian-text-dim bg-lydian-bg/5 border-lydian-border';
       case 'seasonal':return 'text-amber-600 bg-amber-50 border-amber-200';
-      default:return 'text-gray-300 bg-white/5 border-gray-200';
+      default:return 'text-lydian-text-dim bg-lydian-bg/5 border-lydian-border';
     }
   };
 
@@ -232,11 +232,11 @@ const ToursManagementPage = () => {
       adventure: 'bg-orange-50 text-orange-700 border-orange-200',
       cultural: 'bg-purple-50 text-purple-700 border-purple-200',
       nature: 'bg-green-50 text-green-700 border-green-200',
-      water: 'bg-blue-50 text-blue-700 border-blue-200',
+      water: 'bg-blue-50 text-lydian-primary-hover border-blue-200',
       food: 'bg-amber-50 text-amber-700 border-amber-200',
       historical: 'bg-indigo-50 text-indigo-700 border-indigo-200'
     };
-    return colors[category] || 'bg-white/5 text-gray-200 border-gray-200';
+    return colors[category] || 'bg-lydian-bg/5 text-gray-200 border-lydian-border';
   };
 
   return (
@@ -285,7 +285,7 @@ const ToursManagementPage = () => {
                 onClick={() => setActiveView(tab.id as any)}
                 className={`flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-lg font-medium transition-all ${
                 activeView === tab.id ?
-                'bg-blue-600 text-white shadow-lg' :
+                'bg-lydian-primary text-white shadow-lg' :
                 'text-slate-700 hover:bg-slate-50'}`
                 }>
 

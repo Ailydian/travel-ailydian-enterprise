@@ -3,12 +3,29 @@ import { GetStaticProps, GetStaticPaths } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import {
-  MapPin, Clock, Navigation, Star, Users, Shield,
-  CheckCircle2, ArrowRight, Calendar, Phone, Mail,
-  Car, ChevronRight, Home, TrendingDown, Globe } from
-'lucide-react';
+  MapPin,
+  Clock,
+  Navigation,
+  Star,
+  Users,
+  Shield,
+  CheckCircle2,
+  ArrowRight,
+  Calendar,
+  Phone,
+  Mail,
+  Car,
+  ChevronRight,
+  Home,
+  TrendingDown,
+  Globe,
+  Zap,
+  Heart,
+  Share2,
+  X
+} from 'lucide-react';
 import SimplifiedHeader from '@/components/layout/SimplifiedHeader';
 import AnimatedCarIcon from '@/components/icons/AnimatedCarIcon';
 import { antalyaAirportTransfers, AntalyaTransferRoute } from '@/data/antalya-transfers';
@@ -18,17 +35,47 @@ import {
   generateOpenGraphTags,
   generateTwitterCardTags,
   getLocalizedText,
-  type SupportedLanguage } from
-'@/utils/multilingualSEO';
+  type SupportedLanguage
+} from '@/utils/multilingualSEO';
 
 interface TransferDetailPageProps {
   transfer: AntalyaTransferRoute;
   relatedTransfers: AntalyaTransferRoute[];
 }
 
+// Animation variants
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.2
+    }
+  }
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.3, ease: 'easeOut' }
+  }
+};
+
+const cardHoverVariants = {
+  hover: {
+    y: -8,
+    transition: { duration: 0.3, ease: 'easeOut' }
+  }
+};
+
 export default function TransferDetailPage({ transfer, relatedTransfers }: TransferDetailPageProps) {
   const [selectedLanguage, setSelectedLanguage] = useState<SupportedLanguage>('tr');
   const [selectedVehicle, setSelectedVehicle] = useState<keyof AntalyaTransferRoute['pricing']>('economySedan');
+  const [isFavorite, setIsFavorite] = useState(false);
+  const [showShareModal, setShowShareModal] = useState(false);
 
   // Language labels
   const languageLabels = {
@@ -110,40 +157,64 @@ export default function TransferDetailPage({ transfer, relatedTransfers }: Trans
 
   // Get current slug for this language
   const currentSlug = transfer.seo.slug[selectedLanguage];
-  const baseUrl = 'https://travel.lydian.com';
+  const baseUrl = 'https://holiday.ailydian.com';
   const currentUrl = `${baseUrl}/transfers/${currentSlug}`;
 
   // Generate hreflang tags
   const hreflangTags = generateHreflangTags(`${baseUrl}/transfers`, transfer.seo.slug);
 
   // Generate Schema.org structured data
-  const schemaOrg = generateTransferSchemaOrg({
-    from: transfer.from,
-    to: transfer.to,
-    price: transfer.pricing[selectedVehicle],
-    currency: 'TRY',
-    distance: transfer.distance,
-    duration: transfer.duration,
-    rating: transfer.rating,
-    totalTransfers: transfer.totalTransfers,
-    slug: transfer.seo.slug
-  }, selectedLanguage);
+  const schemaOrg = generateTransferSchemaOrg(
+    {
+      from: transfer.from,
+      to: transfer.to,
+      price: transfer.pricing[selectedVehicle],
+      currency: 'TRY',
+      distance: transfer.distance,
+      duration: transfer.duration,
+      rating: transfer.rating,
+      totalTransfers: transfer.totalTransfers,
+      slug: transfer.seo.slug
+    },
+    selectedLanguage
+  );
 
   // Generate OpenGraph tags
-  const ogTags = generateOpenGraphTags({
-    title: transfer.seo.metaTitle,
-    description: transfer.seo.metaDescription,
-    images: transfer.images,
-    url: currentUrl,
-    type: 'website'
-  }, selectedLanguage);
+  const ogTags = generateOpenGraphTags(
+    {
+      title: transfer.seo.metaTitle,
+      description: transfer.seo.metaDescription,
+      images: transfer.images,
+      url: currentUrl,
+      type: 'website'
+    },
+    selectedLanguage
+  );
 
   // Generate Twitter Card tags
-  const twitterTags = generateTwitterCardTags({
-    title: transfer.seo.metaTitle,
-    description: transfer.seo.metaDescription,
-    images: transfer.images
-  }, selectedLanguage);
+  const twitterTags = generateTwitterCardTags(
+    {
+      title: transfer.seo.metaTitle,
+      description: transfer.seo.metaDescription,
+      images: transfer.images
+    },
+    selectedLanguage
+  );
+
+  const handleShare = async () => {
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: getLocalizedText(transfer.from, selectedLanguage) + ' → ' + getLocalizedText(transfer.to, selectedLanguage),
+          url: currentUrl
+        });
+      } catch (err) {
+        // User cancelled share
+      }
+    } else {
+      setShowShareModal(true);
+    }
+  };
 
   return (
     <>
@@ -155,9 +226,9 @@ export default function TransferDetailPage({ transfer, relatedTransfers }: Trans
         <link rel="canonical" href={currentUrl} />
 
         {/* Hreflang Tags */}
-        {hreflangTags.map((tag, idx) =>
-        <link key={idx} rel={tag.rel} hrefLang={tag.hrefLang} href={tag.href} />
-        )}
+        {hreflangTags.map((tag, idx) => (
+          <link key={idx} rel={tag.rel} hrefLang={tag.hrefLang} href={tag.href} />
+        ))}
 
         {/* Open Graph */}
         <meta property="og:title" content={ogTags.title} />
@@ -166,9 +237,9 @@ export default function TransferDetailPage({ transfer, relatedTransfers }: Trans
         <meta property="og:type" content={ogTags.type} />
         <meta property="og:site_name" content={ogTags.siteName} />
         <meta property="og:locale" content={ogTags.locale} />
-        {ogTags.images.map((img, idx) =>
-        <meta key={idx} property="og:image" content={img.url} />
-        )}
+        {ogTags.images.map((img, idx) => (
+          <meta key={idx} property="og:image" content={img.url} />
+        ))}
 
         {/* Twitter Card */}
         <meta name="twitter:card" content={twitterTags.cardType} />
@@ -176,27 +247,27 @@ export default function TransferDetailPage({ transfer, relatedTransfers }: Trans
         <meta name="twitter:description" content={twitterTags.description} />
         <meta name="twitter:site" content={twitterTags.site} />
         <meta name="twitter:creator" content={twitterTags.creator} />
-        {twitterTags.images.map((img, idx) =>
-        <meta key={idx} name="twitter:image" content={img} />
-        )}
+        {twitterTags.images.map((img, idx) => (
+          <meta key={idx} name="twitter:image" content={img} />
+        ))}
 
         {/* Schema.org JSON-LD */}
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaOrg) }} />
-
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaOrg) }}
+        />
       </Head>
 
       <SimplifiedHeader />
 
-      <div className="min-h-screen bg-gradient-to-b from-slate-50 via-white to-slate-50">
-        {/* Language Selector Bar */}
-        <div className="bg-lydian-bg-hover border-b border-lydian-border sticky top-0 z-40 shadow-sm">
+      <div className="min-h-screen bg-gradient-to-b from-gray-50 via-white to-gray-50 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950">
+        {/* Language & Breadcrumb Bar */}
+        <div className="sticky top-0 z-40 bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl border-b border-gray-200 dark:border-gray-800 shadow-sm">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
-            <div className="flex flex-wrap items-center justify-between gap-3">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
               {/* Breadcrumb */}
-              <div className="flex items-center gap-2 text-sm text-lydian-text-secondary">
-                <Link href="/" className="hover:text-lydian-primary transition-colors flex items-center gap-1">
+              <nav className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 flex-wrap">
+                <Link href="/" className="hover:text-red-600 dark:hover:text-red-400 transition-colors flex items-center gap-1">
                   <Home className="w-4 h-4" />
                   {selectedLanguage === 'tr' && 'Ana Sayfa'}
                   {selectedLanguage === 'en' && 'Home'}
@@ -206,7 +277,7 @@ export default function TransferDetailPage({ transfer, relatedTransfers }: Trans
                   {selectedLanguage === 'fr' && 'Accueil'}
                 </Link>
                 <ChevronRight className="w-4 h-4" />
-                <Link href="/transfers" className="hover:text-lydian-primary transition-colors">
+                <Link href="/transfers" className="hover:text-red-600 dark:hover:text-red-400 transition-colors">
                   {selectedLanguage === 'tr' && 'Transferler'}
                   {selectedLanguage === 'en' && 'Transfers'}
                   {selectedLanguage === 'ru' && 'Трансферы'}
@@ -215,29 +286,51 @@ export default function TransferDetailPage({ transfer, relatedTransfers }: Trans
                   {selectedLanguage === 'fr' && 'Transferts'}
                 </Link>
                 <ChevronRight className="w-4 h-4" />
-                <span className="text-lydian-text font-medium">
+                <span className="text-gray-900 dark:text-white font-medium">
                   {getLocalizedText(transfer.from, selectedLanguage)} → {getLocalizedText(transfer.to, selectedLanguage)}
                 </span>
-              </div>
+              </nav>
 
-              {/* Language Toggle */}
-              <div className="flex items-center gap-2">
-                <Globe className="w-4 h-4 text-lydian-text-tertiary" />
+              {/* Language Toggle + Actions */}
+              <div className="flex items-center gap-3 flex-wrap">
+                <Globe className="w-4 h-4 text-gray-400" />
                 <div className="flex flex-wrap gap-2">
-                  {Object.entries(languageLabels).map(([lang, { flag, name }]) =>
-                  <button
-                    key={lang}
-                    onClick={() => setSelectedLanguage(lang as SupportedLanguage)}
-                    className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-all ${
-                    selectedLanguage === lang ?
-                    'bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-lg' :
-                    'bg-slate-100 text-slate-700 hover:bg-slate-200'}`
-                    }>
-
+                  {Object.entries(languageLabels).map(([lang, { flag, name }]) => (
+                    <motion.button
+                      key={lang}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      onClick={() => setSelectedLanguage(lang as SupportedLanguage)}
+                      className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-all ${
+                        selectedLanguage === lang
+                          ? 'bg-gradient-to-r from-red-600 to-red-700 text-white shadow-lg'
+                          : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
+                      }`}
+                    >
                       <span className="mr-1">{flag}</span>
                       {name}
-                    </button>
-                  )}
+                    </motion.button>
+                  ))}
+                </div>
+
+                {/* Action Buttons */}
+                <div className="flex items-center gap-2 ml-2">
+                  <motion.button
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                    onClick={() => setIsFavorite(!isFavorite)}
+                    className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                  >
+                    <Heart className={`w-5 h-5 ${isFavorite ? 'fill-red-500 text-red-500' : 'text-gray-600 dark:text-gray-400'}`} />
+                  </motion.button>
+                  <motion.button
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                    onClick={handleShare}
+                    className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                  >
+                    <Share2 className="w-5 h-5 text-gray-600 dark:text-gray-400" />
+                  </motion.button>
                 </div>
               </div>
             </div>
@@ -245,26 +338,37 @@ export default function TransferDetailPage({ transfer, relatedTransfers }: Trans
         </div>
 
         {/* Hero Section */}
-        <div className="bg-gradient-to-r from-lydian-primary via-indigo-600 to-lydian-secondary text-lydian-text-inverse py-12">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6 }}
+          className="relative bg-gradient-to-r from-red-600 via-red-700 to-red-800 text-white py-12 sm:py-16 lg:py-20"
+        >
+          {/* Background Pattern */}
+          <div className="absolute inset-0 opacity-10">
+            <div
+              className="absolute inset-0"
+              style={{
+                backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
+              }}
+            />
+          </div>
 
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
+          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <motion.div variants={containerVariants} initial="hidden" animate="visible">
+              <motion.h1 variants={itemVariants} className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
                 {getLocalizedText(transfer.from, selectedLanguage)} → {getLocalizedText(transfer.to, selectedLanguage)}
-              </h1>
-              <p className="text-lg sm:text-xl text-blue-100 mb-6 max-w-3xl">
+              </motion.h1>
+              <motion.p variants={itemVariants} className="text-lg sm:text-xl text-red-100 mb-6 max-w-3xl">
                 {getLocalizedText(transfer.description, selectedLanguage)}
-              </p>
+              </motion.p>
 
               {/* Quick Stats */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-8">
-                <div className="bg-lydian-glass-dark-medium backdrop-blur-sm rounded-xl p-4 border border-lydian-border-light">
-                  <Navigation className="w-8 h-8 mb-2 text-blue-200" />
-                  <div className="text-2xl font-bold">{transfer.distance} km</div>
-                  <div className="text-sm text-blue-200">
+              <motion.div variants={itemVariants} className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 mt-8">
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+                  <Navigation className="w-6 h-6 sm:w-8 sm:h-8 mb-2 text-red-200" />
+                  <div className="text-xl sm:text-2xl font-bold">{transfer.distance} km</div>
+                  <div className="text-xs sm:text-sm text-red-200">
                     {selectedLanguage === 'tr' && 'Mesafe'}
                     {selectedLanguage === 'en' && 'Distance'}
                     {selectedLanguage === 'ru' && 'Расстояние'}
@@ -274,10 +378,10 @@ export default function TransferDetailPage({ transfer, relatedTransfers }: Trans
                   </div>
                 </div>
 
-                <div className="bg-lydian-glass-dark-medium backdrop-blur-sm rounded-xl p-4 border border-lydian-border-light">
-                  <Clock className="w-8 h-8 mb-2 text-blue-200" />
-                  <div className="text-2xl font-bold">{transfer.duration} dk</div>
-                  <div className="text-sm text-blue-200">
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+                  <Clock className="w-6 h-6 sm:w-8 sm:h-8 mb-2 text-red-200" />
+                  <div className="text-xl sm:text-2xl font-bold">{transfer.duration} dk</div>
+                  <div className="text-xs sm:text-sm text-red-200">
                     {selectedLanguage === 'tr' && 'Süre'}
                     {selectedLanguage === 'en' && 'Duration'}
                     {selectedLanguage === 'ru' && 'Время'}
@@ -287,10 +391,10 @@ export default function TransferDetailPage({ transfer, relatedTransfers }: Trans
                   </div>
                 </div>
 
-                <div className="bg-lydian-glass-dark-medium backdrop-blur-sm rounded-xl p-4 border border-lydian-border-light">
-                  <Star className="w-8 h-8 mb-2 text-yellow-300" />
-                  <div className="text-2xl font-bold">{transfer.rating}/5</div>
-                  <div className="text-sm text-blue-200">
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+                  <Star className="w-6 h-6 sm:w-8 sm:h-8 mb-2 text-yellow-300" />
+                  <div className="text-xl sm:text-2xl font-bold">{transfer.rating}/5</div>
+                  <div className="text-xs sm:text-sm text-red-200">
                     {selectedLanguage === 'tr' && 'Puan'}
                     {selectedLanguage === 'en' && 'Rating'}
                     {selectedLanguage === 'ru' && 'Рейтинг'}
@@ -300,10 +404,10 @@ export default function TransferDetailPage({ transfer, relatedTransfers }: Trans
                   </div>
                 </div>
 
-                <div className="bg-lydian-glass-dark-medium backdrop-blur-sm rounded-xl p-4 border border-lydian-border-light">
-                  <Users className="w-8 h-8 mb-2 text-blue-200" />
-                  <div className="text-2xl font-bold">{transfer.totalTransfers.toLocaleString()}+</div>
-                  <div className="text-sm text-blue-200">
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+                  <Users className="w-6 h-6 sm:w-8 sm:h-8 mb-2 text-red-200" />
+                  <div className="text-xl sm:text-2xl font-bold">{transfer.totalTransfers.toLocaleString()}+</div>
+                  <div className="text-xs sm:text-sm text-red-200">
                     {selectedLanguage === 'tr' && 'Transfer'}
                     {selectedLanguage === 'en' && 'Transfers'}
                     {selectedLanguage === 'ru' && 'Трансферов'}
@@ -312,35 +416,36 @@ export default function TransferDetailPage({ transfer, relatedTransfers }: Trans
                     {selectedLanguage === 'fr' && 'Transferts'}
                   </div>
                 </div>
-              </div>
+              </motion.div>
             </motion.div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Main Content */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <div className="grid lg:grid-cols-3 gap-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+          <div className="grid lg:grid-cols-3 gap-6 lg:gap-8">
             {/* Left Column - Details */}
-            <div className="lg:col-span-2 space-y-8">
+            <div className="lg:col-span-2 space-y-6 sm:space-y-8">
               {/* Animated Car Icon */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 }}>
-
-                <div className="relative bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 p-12 flex items-center justify-center min-h-[400px] rounded-2xl shadow-lg">
-                  <AnimatedCarIcon size="xl" />
-                </div>
+                transition={{ delay: 0.2 }}
+                className="relative bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 dark:from-gray-800 dark:via-purple-900/20 dark:to-pink-900/20 p-8 sm:p-12 flex items-center justify-center min-h-[300px] sm:min-h-[400px] rounded-2xl shadow-lg overflow-hidden"
+              >
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -skew-x-12" />
+                <AnimatedCarIcon size="xl" />
               </motion.div>
 
               {/* Description */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
                 transition={{ delay: 0.3 }}
-                className="bg-lydian-bg-hover rounded-2xl shadow-lg p-8">
-
-                <h2 className="text-2xl font-bold text-lydian-text mb-4">
+                className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 sm:p-8 border border-gray-200 dark:border-gray-700"
+              >
+                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
                   {selectedLanguage === 'tr' && 'Transfer Hakkında'}
                   {selectedLanguage === 'en' && 'About This Transfer'}
                   {selectedLanguage === 'ru' && 'О трансфере'}
@@ -348,8 +453,8 @@ export default function TransferDetailPage({ transfer, relatedTransfers }: Trans
                   {selectedLanguage === 'ar' && 'حول هذا النقل'}
                   {selectedLanguage === 'fr' && 'À propos de ce transfert'}
                 </h2>
-                <div className="prose prose-slate max-w-none">
-                  <p className="text-lydian-text-secondary leading-relaxed whitespace-pre-line">
+                <div className="prose prose-gray dark:prose-invert max-w-none">
+                  <p className="text-gray-600 dark:text-gray-300 leading-relaxed whitespace-pre-line">
                     {getLocalizedText(transfer.longDescription, selectedLanguage)}
                   </p>
                 </div>
@@ -358,11 +463,12 @@ export default function TransferDetailPage({ transfer, relatedTransfers }: Trans
               {/* Highlights */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
                 transition={{ delay: 0.4 }}
-                className="bg-lydian-bg-hover rounded-2xl shadow-lg p-8">
-
-                <h2 className="text-2xl font-bold text-lydian-text mb-6">
+                className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 sm:p-8 border border-gray-200 dark:border-gray-700"
+              >
+                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
                   {selectedLanguage === 'tr' && 'Öne Çıkan Özellikler'}
                   {selectedLanguage === 'en' && 'Key Features'}
                   {selectedLanguage === 'ru' && 'Основные преимущества'}
@@ -371,31 +477,39 @@ export default function TransferDetailPage({ transfer, relatedTransfers }: Trans
                   {selectedLanguage === 'fr' && 'Caractéristiques principales'}
                 </h2>
                 <div className="grid sm:grid-cols-2 gap-4">
-                  {transfer.highlights[selectedLanguage].map((highlight, idx) =>
-                  <div key={idx} className="flex items-start gap-3">
-                      <CheckCircle2 className="w-6 h-6 text-lydian-success flex-shrink-0 mt-0.5" />
-                      <span className="text-lydian-text-secondary">{highlight}</span>
-                    </div>
-                  )}
+                  {transfer.highlights[selectedLanguage].map((highlight, idx) => (
+                    <motion.div
+                      key={idx}
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: idx * 0.1 }}
+                      className="flex items-start gap-3 p-3 rounded-lg bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800"
+                    >
+                      <CheckCircle2 className="w-6 h-6 text-green-600 dark:text-green-400 flex-shrink-0 mt-0.5" />
+                      <span className="text-gray-700 dark:text-gray-200">{highlight}</span>
+                    </motion.div>
+                  ))}
                 </div>
               </motion.div>
 
               {/* Route Map */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
                 transition={{ delay: 0.5 }}
-                className="bg-lydian-bg-hover rounded-2xl shadow-lg p-8">
-
-                <h2 className="text-2xl font-bold text-lydian-text mb-6">
+                className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 sm:p-8 border border-gray-200 dark:border-gray-700"
+              >
+                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
                   {selectedLanguage === 'tr' && 'Rota Haritası'}
                   {selectedLanguage === 'en' && 'Route Map'}
                   {selectedLanguage === 'ru' && 'Карта маршрута'}
                   {selectedLanguage === 'de' && 'Routenkarte'}
                   {selectedLanguage === 'ar' && 'خريطة الطريق'}
-                  {selectedLanguage === 'fr' && 'Carte de l\'itinéraire'}
+                  {selectedLanguage === 'fr' && "Carte de l'itinéraire"}
                 </h2>
-                <div className="relative w-full h-96 bg-lydian-bg-surface-raised rounded-xl overflow-hidden">
+                <div className="relative w-full h-64 sm:h-96 bg-gray-100 dark:bg-gray-900 rounded-xl overflow-hidden">
                   <iframe
                     width="100%"
                     height="100%"
@@ -403,23 +517,27 @@ export default function TransferDetailPage({ transfer, relatedTransfers }: Trans
                     loading="lazy"
                     allowFullScreen
                     referrerPolicy="no-referrer-when-downgrade"
-                    src={`https://www.google.com/maps/embed/v1/directions?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&origin=${encodeURIComponent(getLocalizedText(transfer.from, 'en'))}&destination=${encodeURIComponent(getLocalizedText(transfer.to, 'en'))}&mode=driving`} />
-
+                    src={`https://www.google.com/maps/embed/v1/directions?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&origin=${encodeURIComponent(
+                      getLocalizedText(transfer.from, 'en')
+                    )}&destination=${encodeURIComponent(getLocalizedText(transfer.to, 'en'))}&mode=driving`}
+                  />
                 </div>
-                <div className="mt-4 flex gap-3">
+                <div className="mt-4">
                   <a
-                    href={`https://www.google.com/maps/dir/${encodeURIComponent(getLocalizedText(transfer.from, 'en'))}/${encodeURIComponent(getLocalizedText(transfer.to, 'en'))}`}
+                    href={`https://www.google.com/maps/dir/${encodeURIComponent(
+                      getLocalizedText(transfer.from, 'en')
+                    )}/${encodeURIComponent(getLocalizedText(transfer.to, 'en'))}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-1 bg-lydian-primary text-lydian-text-inverse px-6 py-3 rounded-xl font-semibold hover:bg-lydian-primary-dark transition-colors flex items-center justify-center gap-2">
-
+                    className="flex items-center justify-center gap-2 w-full bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-xl font-semibold transition-all shadow-md hover:shadow-lg"
+                  >
                     <Navigation className="w-5 h-5" />
                     {selectedLanguage === 'tr' && 'Yol Tarifi Al'}
                     {selectedLanguage === 'en' && 'Get Directions'}
                     {selectedLanguage === 'ru' && 'Получить маршрут'}
                     {selectedLanguage === 'de' && 'Route abrufen'}
                     {selectedLanguage === 'ar' && 'احصل على الاتجاهات'}
-                    {selectedLanguage === 'fr' && 'Obtenir l\'itinéraire'}
+                    {selectedLanguage === 'fr' && "Obtenir l'itinéraire"}
                   </a>
                 </div>
               </motion.div>
@@ -431,12 +549,12 @@ export default function TransferDetailPage({ transfer, relatedTransfers }: Trans
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.3 }}
-                className="bg-lydian-bg-hover rounded-2xl shadow-2xl p-6 sticky top-24">
-
+                className="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl p-6 sticky top-24 border border-gray-200 dark:border-gray-700"
+              >
                 {/* Price Badge */}
-                <div className="bg-gradient-to-r from-green-500 to-lydian-success text-lydian-text-inverse px-4 py-2 rounded-xl mb-6 flex items-center justify-center gap-2">
+                <div className="bg-gradient-to-r from-green-500 to-green-600 text-white px-4 py-2 rounded-xl mb-6 flex items-center justify-center gap-2 shadow-lg">
                   <TrendingDown className="w-5 h-5" />
-                  <span className="font-bold">
+                  <span className="font-bold text-sm">
                     {selectedLanguage === 'tr' && '%12 Daha Ucuz'}
                     {selectedLanguage === 'en' && '12% Cheaper'}
                     {selectedLanguage === 'ru' && 'На 12% дешевле'}
@@ -446,7 +564,7 @@ export default function TransferDetailPage({ transfer, relatedTransfers }: Trans
                   </span>
                 </div>
 
-                <h3 className="text-xl font-bold text-lydian-text mb-4">
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">
                   {selectedLanguage === 'tr' && 'Araç Seçimi'}
                   {selectedLanguage === 'en' && 'Select Vehicle'}
                   {selectedLanguage === 'ru' && 'Выберите автомобиль'}
@@ -457,38 +575,40 @@ export default function TransferDetailPage({ transfer, relatedTransfers }: Trans
 
                 {/* Vehicle Options */}
                 <div className="space-y-3 mb-6">
-                  {Object.entries(transfer.pricing).map(([vehicleType, price]) =>
-                  <button
-                    key={vehicleType}
-                    onClick={() => setSelectedVehicle(vehicleType as keyof AntalyaTransferRoute['pricing'])}
-                    className={`w-full text-left p-4 rounded-xl border-2 transition-all ${
-                    selectedVehicle === vehicleType ?
-                    'border-blue-600 bg-blue-50 shadow-lg' :
-                    'border-slate-200 hover:border-blue-300 hover:bg-slate-50'}`
-                    }>
-
+                  {Object.entries(transfer.pricing).map(([vehicleType, price]) => (
+                    <motion.button
+                      key={vehicleType}
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                      onClick={() => setSelectedVehicle(vehicleType as keyof AntalyaTransferRoute['pricing'])}
+                      className={`w-full text-left p-4 rounded-xl border-2 transition-all ${
+                        selectedVehicle === vehicleType
+                          ? 'border-red-600 bg-red-50 dark:bg-red-900/20 shadow-lg'
+                          : 'border-gray-200 dark:border-gray-700 hover:border-red-300 dark:hover:border-red-700 hover:bg-gray-50 dark:hover:bg-gray-700/50'
+                      }`}
+                    >
                       <div className="flex items-center justify-between mb-2">
                         <div className="flex items-center gap-2">
-                          <Car className={`w-5 h-5 ${selectedVehicle === vehicleType ? 'text-blue-600' : 'text-slate-400'}`} />
-                          <span className={`font-semibold text-sm ${selectedVehicle === vehicleType ? 'text-blue-900' : 'text-slate-700'}`}>
+                          <Car className={`w-5 h-5 ${selectedVehicle === vehicleType ? 'text-red-600' : 'text-gray-400'}`} />
+                          <span
+                            className={`font-semibold text-sm ${
+                              selectedVehicle === vehicleType ? 'text-red-900 dark:text-red-100' : 'text-gray-700 dark:text-gray-300'
+                            }`}
+                          >
                             {vehicleLabels[vehicleType as keyof typeof vehicleLabels][selectedLanguage]}
                           </span>
                         </div>
-                        {selectedVehicle === vehicleType &&
-                      <CheckCircle2 className="w-5 h-5 text-lydian-primary" />
-                      }
+                        {selectedVehicle === vehicleType && <CheckCircle2 className="w-5 h-5 text-red-600" />}
                       </div>
-                      <div className="text-2xl font-bold text-lydian-text">
-                        ₺{price.toLocaleString()}
-                      </div>
-                    </button>
-                  )}
+                      <div className="text-2xl font-bold text-gray-900 dark:text-white">₺{price.toLocaleString()}</div>
+                    </motion.button>
+                  ))}
                 </div>
 
                 {/* Selected Price Display */}
-                <div className="bg-gradient-to-r from-slate-50 to-blue-50 rounded-xl p-6 mb-6">
+                <div className="bg-gradient-to-r from-gray-50 to-blue-50 dark:from-gray-700 dark:to-blue-900/20 rounded-xl p-6 mb-6">
                   <div className="flex justify-between items-center mb-2">
-                    <span className="text-lydian-text-secondary">
+                    <span className="text-gray-600 dark:text-gray-300 font-medium">
                       {selectedLanguage === 'tr' && 'Toplam Fiyat'}
                       {selectedLanguage === 'en' && 'Total Price'}
                       {selectedLanguage === 'ru' && 'Общая стоимость'}
@@ -496,16 +616,16 @@ export default function TransferDetailPage({ transfer, relatedTransfers }: Trans
                       {selectedLanguage === 'ar' && 'السعر الإجمالي'}
                       {selectedLanguage === 'fr' && 'Prix total'}
                     </span>
-                    <div className="text-right">
-                      <div className="text-3xl font-bold text-lydian-text">
-                        ₺{transfer.pricing[selectedVehicle].toLocaleString()}
-                      </div>
-                    </div>
                   </div>
+                  <div className="text-3xl font-bold text-gray-900 dark:text-white">₺{transfer.pricing[selectedVehicle].toLocaleString()}</div>
                 </div>
 
                 {/* Book Button */}
-                <button className="w-full bg-gradient-to-r from-lydian-primary to-lydian-primary-dark text-lydian-text-inverse py-4 rounded-xl font-bold text-lg hover:shadow-xl transition-all flex items-center justify-center gap-2 group">
+                <motion.button
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="w-full bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-2 group"
+                >
                   <Calendar className="w-6 h-6" />
                   {selectedLanguage === 'tr' && 'Hemen Rezervasyon Yap'}
                   {selectedLanguage === 'en' && 'Book Now'}
@@ -514,21 +634,21 @@ export default function TransferDetailPage({ transfer, relatedTransfers }: Trans
                   {selectedLanguage === 'ar' && 'احجز الآن'}
                   {selectedLanguage === 'fr' && 'Réserver maintenant'}
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </button>
+                </motion.button>
 
                 {/* Trust Badges */}
-                <div className="mt-6 pt-6 border-t border-lydian-border space-y-3">
-                  <div className="flex items-center gap-3 text-sm text-lydian-text-secondary">
-                    <Shield className="w-5 h-5 text-lydian-success" />
+                <div className="mt-6 pt-6 border-t border-gray-200 dark:border-gray-700 space-y-3">
+                  <div className="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-300">
+                    <Shield className="w-5 h-5 text-green-600 dark:text-green-400" />
                     {selectedLanguage === 'tr' && 'Ücretsiz İptal - 24 Saat Öncesine Kadar'}
                     {selectedLanguage === 'en' && 'Free Cancellation - Up to 24 Hours'}
                     {selectedLanguage === 'ru' && 'Бесплатная отмена - До 24 часов'}
                     {selectedLanguage === 'de' && 'Kostenlose Stornierung - Bis 24 Stunden'}
                     {selectedLanguage === 'ar' && 'إلغاء مجاني - حتى 24 ساعة'}
-                    {selectedLanguage === 'fr' && 'Annulation gratuite - Jusqu\'à 24 heures'}
+                    {selectedLanguage === 'fr' && "Annulation gratuite - Jusqu'à 24 heures"}
                   </div>
-                  <div className="flex items-center gap-3 text-sm text-lydian-text-secondary">
-                    <CheckCircle2 className="w-5 h-5 text-lydian-success" />
+                  <div className="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-300">
+                    <CheckCircle2 className="w-5 h-5 text-green-600 dark:text-green-400" />
                     {selectedLanguage === 'tr' && 'Anında Onay - E-posta ile Voucher'}
                     {selectedLanguage === 'en' && 'Instant Confirmation - Email Voucher'}
                     {selectedLanguage === 'ru' && 'Мгновенное подтверждение - Ваучер по email'}
@@ -536,8 +656,8 @@ export default function TransferDetailPage({ transfer, relatedTransfers }: Trans
                     {selectedLanguage === 'ar' && 'تأكيد فوري - قسيمة بالبريد الإلكتروني'}
                     {selectedLanguage === 'fr' && 'Confirmation instantanée - Bon par email'}
                   </div>
-                  <div className="flex items-center gap-3 text-sm text-lydian-text-secondary">
-                    <Phone className="w-5 h-5 text-lydian-success" />
+                  <div className="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-300">
+                    <Phone className="w-5 h-5 text-green-600 dark:text-green-400" />
                     {selectedLanguage === 'tr' && '7/24 Müşteri Desteği'}
                     {selectedLanguage === 'en' && '24/7 Customer Support'}
                     {selectedLanguage === 'ru' && 'Поддержка 24/7'}
@@ -548,8 +668,8 @@ export default function TransferDetailPage({ transfer, relatedTransfers }: Trans
                 </div>
 
                 {/* Contact */}
-                <div className="mt-6 pt-6 border-t border-lydian-border">
-                  <p className="text-sm text-lydian-text-secondary mb-3">
+                <div className="mt-6 pt-6 border-t border-gray-200 dark:border-gray-700">
+                  <p className="text-sm text-gray-600 dark:text-gray-300 mb-3 font-medium">
                     {selectedLanguage === 'tr' && 'Sorularınız mı var?'}
                     {selectedLanguage === 'en' && 'Have questions?'}
                     {selectedLanguage === 'ru' && 'Есть вопросы?'}
@@ -558,11 +678,17 @@ export default function TransferDetailPage({ transfer, relatedTransfers }: Trans
                     {selectedLanguage === 'fr' && 'Vous avez des questions?'}
                   </p>
                   <div className="space-y-2">
-                    <a href="tel:+905551234567" className="flex items-center gap-2 text-lydian-primary hover:text-lydian-primary-dark font-medium">
+                    <a
+                      href="tel:+905551234567"
+                      className="flex items-center gap-2 text-red-600 hover:text-red-700 dark:text-red-400 dark:hover:text-red-300 font-medium text-sm"
+                    >
                       <Phone className="w-4 h-4" />
                       +90 555 123 45 67
                     </a>
-                    <a href="mailto:transfer@lydian.com" className="flex items-center gap-2 text-lydian-primary hover:text-lydian-primary-dark font-medium">
+                    <a
+                      href="mailto:transfer@lydian.com"
+                      className="flex items-center gap-2 text-red-600 hover:text-red-700 dark:text-red-400 dark:hover:text-red-300 font-medium text-sm"
+                    >
                       <Mail className="w-4 h-4" />
                       transfer@lydian.com
                     </a>
@@ -573,14 +699,15 @@ export default function TransferDetailPage({ transfer, relatedTransfers }: Trans
           </div>
 
           {/* Related Transfers */}
-          {relatedTransfers.length > 0 &&
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6 }}
-            className="mt-16">
-
-              <h2 className="text-3xl font-bold text-lydian-text mb-8">
+          {relatedTransfers.length > 0 && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.6 }}
+              className="mt-12 sm:mt-16"
+            >
+              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-6 sm:mb-8">
                 {selectedLanguage === 'tr' && 'Benzer Transferler'}
                 {selectedLanguage === 'en' && 'Related Transfers'}
                 {selectedLanguage === 'ru' && 'Похожие трансферы'}
@@ -588,59 +715,124 @@ export default function TransferDetailPage({ transfer, relatedTransfers }: Trans
                 {selectedLanguage === 'ar' && 'عمليات النقل ذات الصلة'}
                 {selectedLanguage === 'fr' && 'Transferts similaires'}
               </h2>
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {relatedTransfers.map((relatedTransfer) =>
-              <Link
-                key={relatedTransfer.id}
-                href={`/transfers/${relatedTransfer.seo.slug[selectedLanguage]}`}
-                className="group">
-
-                    <div className="bg-lydian-bg-hover rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all">
-                      <div className="relative h-48">
-                        <Image
-                      src={relatedTransfer.images[0]}
-                      alt={`${getLocalizedText(relatedTransfer.from, selectedLanguage)} - ${getLocalizedText(relatedTransfer.to, selectedLanguage)}`}
-                      fill
-                      className="object-cover group-hover:scale-110 transition-transform duration-500" />
-
-                      </div>
-                      <div className="p-6">
-                        <h3 className="text-lg font-bold text-lydian-text mb-2 group-hover:text-lydian-primary transition-colors">
-                          {getLocalizedText(relatedTransfer.from, selectedLanguage)} → {getLocalizedText(relatedTransfer.to, selectedLanguage)}
-                        </h3>
-                        <p className="text-sm text-lydian-text-secondary mb-4 line-clamp-2">
-                          {getLocalizedText(relatedTransfer.description, selectedLanguage)}
-                        </p>
-                        <div className="flex items-center justify-between">
-                          <div className="flex items-center gap-4 text-sm text-lydian-text-tertiary">
-                            <span className="flex items-center gap-1">
-                              <Navigation className="w-4 h-4" />
-                              {relatedTransfer.distance} km
-                            </span>
-                            <span className="flex items-center gap-1">
-                              <Clock className="w-4 h-4" />
-                              {relatedTransfer.duration} dk
-                            </span>
-                          </div>
-                          <div className="text-xl font-bold text-lydian-primary">
-                            ₺{relatedTransfer.pricing.economySedan.toLocaleString()}
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+                {relatedTransfers.map((relatedTransfer, idx) => (
+                  <motion.div
+                    key={relatedTransfer.id}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: idx * 0.1 }}
+                    variants={cardHoverVariants}
+                    whileHover="hover"
+                  >
+                    <Link href={`/transfers/${relatedTransfer.seo.slug[selectedLanguage]}`} className="group block">
+                      <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all border border-gray-200 dark:border-gray-700">
+                        <div className="relative h-40 sm:h-48">
+                          <Image
+                            src={relatedTransfer.images[0]}
+                            alt={`${getLocalizedText(relatedTransfer.from, selectedLanguage)} - ${getLocalizedText(
+                              relatedTransfer.to,
+                              selectedLanguage
+                            )}`}
+                            fill
+                            className="object-cover group-hover:scale-110 transition-transform duration-500"
+                          />
+                        </div>
+                        <div className="p-4 sm:p-6">
+                          <h3 className="text-base sm:text-lg font-bold text-gray-900 dark:text-white mb-2 group-hover:text-red-600 dark:group-hover:text-red-400 transition-colors">
+                            {getLocalizedText(relatedTransfer.from, selectedLanguage)} →{' '}
+                            {getLocalizedText(relatedTransfer.to, selectedLanguage)}
+                          </h3>
+                          <p className="text-sm text-gray-600 dark:text-gray-300 mb-4 line-clamp-2">
+                            {getLocalizedText(relatedTransfer.description, selectedLanguage)}
+                          </p>
+                          <div className="flex items-center justify-between">
+                            <div className="flex items-center gap-3 sm:gap-4 text-xs sm:text-sm text-gray-500 dark:text-gray-400">
+                              <span className="flex items-center gap-1">
+                                <Navigation className="w-4 h-4" />
+                                {relatedTransfer.distance} km
+                              </span>
+                              <span className="flex items-center gap-1">
+                                <Clock className="w-4 h-4" />
+                                {relatedTransfer.duration} dk
+                              </span>
+                            </div>
+                            <div className="text-lg sm:text-xl font-bold text-red-600 dark:text-red-400">
+                              ₺{relatedTransfer.pricing.economySedan.toLocaleString()}
+                            </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                  </Link>
-              )}
+                    </Link>
+                  </motion.div>
+                ))}
               </div>
             </motion.div>
-          }
+          )}
         </div>
       </div>
-    </>);
 
+      {/* Share Modal */}
+      <AnimatePresence>
+        {showShareModal && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4"
+            onClick={() => setShowShareModal(false)}
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              className="bg-white dark:bg-gray-800 rounded-2xl p-6 max-w-md w-full shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="flex items-center justify-between mb-4">
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white">
+                  {selectedLanguage === 'tr' && 'Paylaş'}
+                  {selectedLanguage === 'en' && 'Share'}
+                  {selectedLanguage === 'ru' && 'Поделиться'}
+                  {selectedLanguage === 'de' && 'Teilen'}
+                  {selectedLanguage === 'ar' && 'شارك'}
+                  {selectedLanguage === 'fr' && 'Partager'}
+                </h3>
+                <button
+                  onClick={() => setShowShareModal(false)}
+                  className="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"
+                >
+                  <X className="w-5 h-5 text-gray-600 dark:text-gray-400" />
+                </button>
+              </div>
+              <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-3 mb-4">
+                <input type="text" value={currentUrl} readOnly className="w-full bg-transparent text-sm text-gray-600 dark:text-gray-300 select-all" />
+              </div>
+              <button
+                onClick={() => {
+                  navigator.clipboard.writeText(currentUrl);
+                  setShowShareModal(false);
+                }}
+                className="w-full bg-red-600 hover:bg-red-700 text-white py-3 rounded-lg font-semibold transition-colors"
+              >
+                {selectedLanguage === 'tr' && 'Linki Kopyala'}
+                {selectedLanguage === 'en' && 'Copy Link'}
+                {selectedLanguage === 'ru' && 'Скопировать ссылку'}
+                {selectedLanguage === 'de' && 'Link kopieren'}
+                {selectedLanguage === 'ar' && 'نسخ الرابط'}
+                {selectedLanguage === 'fr' && 'Copier le lien'}
+              </button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
+  );
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths: Array<{params: {slug: string;};}> = [];
+  const paths: Array<{ params: { slug: string } }> = [];
 
   // Generate paths for all transfers in all 6 languages
   antalyaAirportTransfers.forEach((transfer) => {
@@ -661,9 +853,7 @@ export const getStaticProps: GetStaticProps<TransferDetailPageProps> = async ({ 
   const slug = params?.slug as string;
 
   // Find transfer by slug in any language
-  const transfer = antalyaAirportTransfers.find((t) =>
-  Object.values(t.seo.slug).includes(slug)
-  );
+  const transfer = antalyaAirportTransfers.find((t) => Object.values(t.seo.slug).includes(slug));
 
   if (!transfer) {
     return {
@@ -672,9 +862,7 @@ export const getStaticProps: GetStaticProps<TransferDetailPageProps> = async ({ 
   }
 
   // Get related transfers (same category, different routes)
-  const relatedTransfers = antalyaAirportTransfers.
-  filter((t) => t.id !== transfer.id && t.category === transfer.category).
-  slice(0, 3);
+  const relatedTransfers = antalyaAirportTransfers.filter((t) => t.id !== transfer.id && t.category === transfer.category).slice(0, 3);
 
   return {
     props: {

@@ -248,19 +248,19 @@ export default function LocationPage({
       <NextSeo
         title={seoTitle}
         description={seoDescription}
-        canonical={`https://travel.lydian.com/location/${location.slug}`}
+        canonical={`https://holiday.ailydian.com/location/${location.slug}`}
         openGraph={{
           type: 'business.business',
           title: seoTitle,
           description: seoDescription,
-          url: `https://travel.lydian.com/location/${location.slug}`,
+          url: `https://holiday.ailydian.com/location/${location.slug}`,
           images: photos.slice(0, 4).map((photo) => ({
             url: photo.url,
             width: photo.width || 800,
             height: photo.height || 600,
             alt: getLocalizedContent(photo.alt_text, locationName)
           })),
-          site_name: 'Travel.LyDian'
+          site_name: 'Holiday.AILYDIAN'
         }}
         twitter={{
           cardType: 'summary_large_image'
@@ -295,22 +295,22 @@ export default function LocationPage({
         {
           rel: 'alternate',
           hrefLang: 'x-default',
-          href: `https://travel.lydian.com/location/${location.slug}`
+          href: `https://holiday.ailydian.com/location/${location.slug}`
         },
         ...['en', 'tr', 'de', 'fr', 'es'].map((lang) => ({
           rel: 'alternate',
           hrefLang: lang,
-          href: `https://travel.lydian.com/${lang}/location/${location.slug}`
+          href: `https://holiday.ailydian.com/${lang}/location/${location.slug}`
         }))]
         } />
 
 
       <LocalBusinessJsonLd
         type={location.category?.slug === 'restaurants' ? 'Restaurant' : 'LocalBusiness'}
-        id={`https://travel.lydian.com/location/${location.slug}`}
+        id={`https://holiday.ailydian.com/location/${location.slug}`}
         name={locationName}
         description={locationDescription}
-        url={`https://travel.lydian.com/location/${location.slug}`}
+        url={`https://holiday.ailydian.com/location/${location.slug}`}
         telephone={location.phone}
         address={{
           streetAddress: locationAddress,
@@ -359,31 +359,31 @@ export default function LocationPage({
                 "@type": "ListItem",
                 "position": 1,
                 "name": "Home",
-                "item": "https://travel.lydian.com"
+                "item": "https://holiday.ailydian.com"
               },
               {
                 "@type": "ListItem",
                 "position": 2,
                 "name": countryName,
-                "item": `https://travel.lydian.com/country/${location.city?.country?.code?.toLowerCase()}`
+                "item": `https://holiday.ailydian.com/country/${location.city?.country?.code?.toLowerCase()}`
               },
               {
                 "@type": "ListItem",
                 "position": 3,
                 "name": cityName,
-                "item": `https://travel.lydian.com/city/${location.city?.slug}`
+                "item": `https://holiday.ailydian.com/city/${location.city?.slug}`
               },
               {
                 "@type": "ListItem",
                 "position": 4,
                 "name": categoryName,
-                "item": `https://travel.lydian.com/${location.category?.slug}`
+                "item": `https://holiday.ailydian.com/${location.category?.slug}`
               },
               {
                 "@type": "ListItem",
                 "position": 5,
                 "name": locationName,
-                "item": `https://travel.lydian.com/location/${location.slug}`
+                "item": `https://holiday.ailydian.com/location/${location.slug}`
               }]
 
             })
@@ -439,7 +439,7 @@ export default function LocationPage({
                         className={`h-5 w-5 ${
                         i < Math.floor(location.average_rating) ?
                         'text-yellow-400 fill-current' :
-                        'text-gray-300'}`
+                        'text-lydian-text-dim'}`
                         } />
 
                       )}
@@ -513,7 +513,7 @@ export default function LocationPage({
                   className={`flex items-center px-4 py-2 rounded-lg border ${
                   isFavorited ?
                   'bg-red-50 border-red-300 text-red-700' :
-                  'bg-white/5 border-white/20 text-gray-200 hover:bg-white/5'}`
+                  'bg-lydian-bg/5 border-white/20 text-gray-200 hover:bg-lydian-bg/5'}`
                   }>
 
                   <Heart className={`h-5 w-5 mr-2 ${isFavorited ? 'fill-current' : ''}`} />
@@ -593,7 +593,7 @@ export default function LocationPage({
                         className={`h-4 w-4 ${
                         i < Math.floor(location.average_rating) ?
                         'text-yellow-400 fill-current' :
-                        'text-gray-300'}`
+                        'text-lydian-text-dim'}`
                         } />
 
                       )}
@@ -759,7 +759,7 @@ export default function LocationPage({
                         <button
                       onClick={handleTripAdvisorSync}
                       disabled={syncingTripAdvisor}
-                      className="flex items-center px-3 py-1.5 bg-lydian-success text-lydian-text-inverse text-sm rounded-md hover:bg-green-700 disabled:opacity-50">
+                      className="flex items-center px-3 py-1.5 bg-lydian-success text-lydian-text-inverse text-sm rounded-md hover:bg-lydian-success-hover disabled:opacity-50">
 
                           <RefreshCw className={`h-3 w-3 mr-1 ${syncingTripAdvisor ? 'animate-spin' : ''}`} />
                           {syncingTripAdvisor ? 'Syncing...' : 'Sync'}

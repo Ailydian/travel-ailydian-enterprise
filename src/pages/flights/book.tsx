@@ -311,7 +311,7 @@ export default function FlightBooking() {
   return (
     <>
       <SEOHead
-        title="Uçuş Rezervasyonu - LyDian Travel"
+        title="Uçuş Rezervasyonu - AILYDIAN Holiday"
         description="Güvenli ve hızlı uçuş rezervasyonu yapın."
         type="website" />
 
@@ -354,13 +354,13 @@ export default function FlightBooking() {
                         'bg-green-500 text-white' :
                         isActive ?
                         'bg-lydian-primary text-white' :
-                        'bg-gray-200 text-gray-400'}`
+                        'bg-lydian-bg-surface-raised text-lydian-text-muted'}`
                         }>
 
                         {isCompleted ? <Check className="w-6 h-6" /> : <Icon className="w-6 h-6" />}
                       </div>
                       <div className="text-xs mt-2 text-center max-w-[80px]">
-                        <div className={`font-medium ${isActive ? 'text-lydian-primary' : 'text-gray-300'}`}>
+                        <div className={`font-medium ${isActive ? 'text-lydian-primary' : 'text-lydian-text-dim'}`}>
                           {step.title}
                         </div>
                       </div>
@@ -368,7 +368,7 @@ export default function FlightBooking() {
                     {idx < steps.length - 1 &&
                     <div
                       className={`flex-1 h-1 mx-2 rounded ${
-                      isCompleted ? 'bg-green-500' : 'bg-gray-200'}`
+                      isCompleted ? 'bg-green-500' : 'bg-lydian-bg-surface-raised'}`
                       } />
 
                     }
@@ -711,7 +711,7 @@ export default function FlightBooking() {
                               'bg-lydian-primary text-white' :
                               isExtraLegroom ?
                               'bg-green-200 border-2 border-green-500 hover:bg-green-300' :
-                              'bg-gray-200 hover:bg-gray-300'}`
+                              'bg-lydian-bg-surface-raised hover:bg-gray-300'}`
                               }>
 
                                   {seat}

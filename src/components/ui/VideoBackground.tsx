@@ -136,7 +136,7 @@ export const VideoBackground: React.FC<VideoBackgroundProps> = ({
         transition={{ delay: 0.5 }}
         className="absolute bottom-4 left-4 z-10"
       >
-        <div className="bg-white/10 backdrop-blur-md px-4 py-2 rounded-full border border-white/20">
+        <div className="bg-lydian-bg/10 backdrop-blur-md px-4 py-2 rounded-full border border-white/20">
           <div className="flex items-center gap-2">
             <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
             <span className="text-white text-sm font-medium">{currentVideo.title}</span>
@@ -146,7 +146,7 @@ export const VideoBackground: React.FC<VideoBackgroundProps> = ({
 
       {/* Video Progress Indicator */}
       <motion.div
-        className="absolute bottom-0 left-0 right-0 h-1 bg-white/20 z-10"
+        className="absolute bottom-0 left-0 right-0 h-1 bg-lydian-bg/20 z-10"
         initial={{ scaleX: 0 }}
         animate={{ scaleX: 1 }}
         transition={{ duration: changeInterval / 1000, ease: 'linear' }}
@@ -160,7 +160,7 @@ export const VideoBackground: React.FC<VideoBackgroundProps> = ({
         {[...Array(20)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute w-1 h-1 bg-white/5 rounded-full"
+            className="absolute w-1 h-1 bg-lydian-bg/5 rounded-full"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,

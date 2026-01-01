@@ -1,10 +1,11 @@
 /**
- * TRAVEL ULTRA-COMPETITIVE KEYWORD STRATEGY
+ * HOLIDAY ULTRA-COMPETITIVE KEYWORD STRATEGY
  *
- * Target: Top 3 rankings for airport transfer & car rental keywords
- * Domains: travel.lydian.com
- * Strategy: Multi-language, high-volume, competitive keywords
+ * Target: Top 3 rankings for holiday transfers & vacation rentals
+ * Domains: holiday.ailydian.com
+ * Strategy: Multi-language, high-volume, holiday-focused competitive keywords
  * Goal: First page, position 1-3 in all search engines
+ * Brand Focus: Holiday, Vacation, Leisure Travel
  */
 
 export interface CompetitiveKeyword {
@@ -48,11 +49,11 @@ export interface SEOStrategy {
 }
 
 /**
- * TÜRKÇE - AIRPORT TRANSFER KEYWORDS (Antalya/Alanya Focus)
+ * TÜRKÇE - HOLIDAY AIRPORT TRANSFER KEYWORDS (Antalya/Alanya Focus)
  */
 export const TURKISH_AIRPORT_TRANSFER_KEYWORDS: CompetitiveKeyword[] = [
   {
-    keyword: 'antalya havalimanı transfer',
+    keyword: 'antalya tatil havalimanı transferi',
     language: 'tr',
     searchVolume: 27100,
     competition: 'ultra-high',
@@ -62,17 +63,17 @@ export const TURKISH_AIRPORT_TRANSFER_KEYWORDS: CompetitiveKeyword[] = [
     difficulty: 78,
     userIntent: 'transactional',
     relatedKeywords: [
-      'antalya havalimanı transfer fiyatları',
-      'antalya havaalanı vip transfer',
-      'antalya airport transfer',
-      'antalya havalimanı özel transfer'
+      'antalya tatil havalimanı transfer fiyatları',
+      'antalya bayram tatili vip transfer',
+      'antalya holiday airport transfer',
+      'antalya tatil havalimanı özel transfer'
     ],
     longTailVariants: [
-      'antalya havalimanından alanya transfer',
-      'antalya havalimanı belek transfer',
-      'antalya havalimanı side transfer',
-      'antalya havalimanından kemer transfer',
-      'ucuz antalya havalimanı transfer'
+      'antalya havalimanından alanya tatil transferi',
+      'antalya havalimanı belek tatil transfer',
+      'antalya havalimanı side tatil transfer',
+      'antalya havalimanından kemer tatil transfer',
+      'ucuz antalya tatil havalimanı transfer'
     ],
     localModifiers: [
       'alanya', 'belek', 'side', 'kemer', 'lara',
@@ -80,7 +81,7 @@ export const TURKISH_AIRPORT_TRANSFER_KEYWORDS: CompetitiveKeyword[] = [
     ]
   },
   {
-    keyword: 'alanya transfer',
+    keyword: 'alanya tatil transferi',
     language: 'tr',
     searchVolume: 18900,
     competition: 'high',
@@ -90,16 +91,16 @@ export const TURKISH_AIRPORT_TRANSFER_KEYWORDS: CompetitiveKeyword[] = [
     difficulty: 72,
     userIntent: 'transactional',
     relatedKeywords: [
-      'alanya vip transfer',
-      'alanya havalimanı transfer',
-      'alanya özel transfer',
-      'alanya transfer fiyatları'
+      'alanya bayram tatili vip transfer',
+      'alanya tatil havalimanı transfer',
+      'alanya tatil özel transfer',
+      'alanya tatil transfer fiyatları'
     ],
     longTailVariants: [
-      'gazipaşa havalimanı alanya transfer',
-      'antalya havalimanı alanya transfer',
-      'alanya otel transfer',
-      'alanya şehir içi transfer'
+      'gazipaşa havalimanı alanya tatil transferi',
+      'antalya havalimanı alanya tatil transfer',
+      'alanya tatil oteli transfer',
+      'alanya şehir içi tatil transferi'
     ],
     localModifiers: [
       'oba', 'mahmutlar', 'avsallar', 'incekum',
@@ -107,7 +108,7 @@ export const TURKISH_AIRPORT_TRANSFER_KEYWORDS: CompetitiveKeyword[] = [
     ]
   },
   {
-    keyword: 'havalimanı transfer',
+    keyword: 'tatil havalimanı transferi',
     language: 'tr',
     searchVolume: 33500,
     competition: 'ultra-high',
@@ -117,16 +118,16 @@ export const TURKISH_AIRPORT_TRANSFER_KEYWORDS: CompetitiveKeyword[] = [
     difficulty: 82,
     userIntent: 'transactional',
     relatedKeywords: [
-      'havalimanı transfer hizmeti',
-      'havaalanı transfer araç kiralama',
-      'vip havalimanı transfer',
-      'özel havalimanı transfer'
+      'tatil havalimanı transfer hizmeti',
+      'bayram tatili havaalanı transfer',
+      'vip tatil havalimanı transfer',
+      'özel tatil havalimanı transfer'
     ],
     longTailVariants: [
-      'havalimanı transfer ücreti',
-      'havalimanı transfer rezervasyon',
-      'havalimanı transfer online',
-      'havalimanı transfer 7/24'
+      'tatil havalimanı transfer ücreti',
+      'tatil havalimanı transfer rezervasyon',
+      'online tatil havalimanı transfer',
+      'tatil havalimanı transfer 7/24'
     ],
     localModifiers: [
       'antalya', 'istanbul', 'izmir', 'bodrum',
@@ -134,7 +135,7 @@ export const TURKISH_AIRPORT_TRANSFER_KEYWORDS: CompetitiveKeyword[] = [
     ]
   },
   {
-    keyword: 'antalya araç kiralama',
+    keyword: 'antalya tatil araç kiralama',
     language: 'tr',
     searchVolume: 22400,
     competition: 'ultra-high',
@@ -144,16 +145,16 @@ export const TURKISH_AIRPORT_TRANSFER_KEYWORDS: CompetitiveKeyword[] = [
     difficulty: 81,
     userIntent: 'transactional',
     relatedKeywords: [
-      'antalya rent a car',
-      'antalya araba kiralama',
-      'antalya oto kiralama',
-      'antalya ucuz araç kiralama'
+      'antalya tatil rent a car',
+      'antalya bayram tatili araba kiralama',
+      'antalya tatil oto kiralama',
+      'antalya ucuz tatil araç kiralama'
     ],
     longTailVariants: [
-      'antalya havalimanı araç kiralama',
-      'antalya şehir merkezi araç kiralama',
-      'antalya günlük araç kiralama',
-      'antalya aylık araç kiralama'
+      'antalya havalimanı tatil araç kiralama',
+      'antalya şehir merkezi tatil araç kiralama',
+      'antalya günlük tatil araç kiralama',
+      'antalya aylık tatil araç kiralama'
     ],
     localModifiers: [
       'lara', 'kundu', 'konyaaltı', 'kepez', 'muratpaşa'
@@ -162,11 +163,11 @@ export const TURKISH_AIRPORT_TRANSFER_KEYWORDS: CompetitiveKeyword[] = [
 ];
 
 /**
- * ENGLISH - AIRPORT TRANSFER KEYWORDS
+ * ENGLISH - HOLIDAY AIRPORT TRANSFER KEYWORDS
  */
 export const ENGLISH_AIRPORT_TRANSFER_KEYWORDS: CompetitiveKeyword[] = [
   {
-    keyword: 'antalya airport transfer',
+    keyword: 'antalya holiday airport transfer',
     language: 'en',
     searchVolume: 49500,
     competition: 'ultra-high',
@@ -176,17 +177,17 @@ export const ENGLISH_AIRPORT_TRANSFER_KEYWORDS: CompetitiveKeyword[] = [
     difficulty: 84,
     userIntent: 'transactional',
     relatedKeywords: [
-      'antalya airport shuttle',
-      'antalya airport taxi',
-      'antalya airport transport',
-      'antalya airport private transfer'
+      'antalya holiday airport shuttle',
+      'antalya vacation airport taxi',
+      'antalya holiday airport transport',
+      'antalya airport private holiday transfer'
     ],
     longTailVariants: [
-      'antalya airport to alanya transfer',
-      'antalya airport to belek transfer',
-      'antalya airport to side transfer',
-      'cheap antalya airport transfer',
-      'antalya airport vip transfer'
+      'antalya airport to alanya holiday transfer',
+      'antalya airport to belek vacation transfer',
+      'antalya airport to side holiday transfer',
+      'cheap antalya holiday airport transfer',
+      'antalya airport vip holiday transfer'
     ],
     localModifiers: [
       'alanya', 'belek', 'side', 'kemer', 'lara',
@@ -194,7 +195,7 @@ export const ENGLISH_AIRPORT_TRANSFER_KEYWORDS: CompetitiveKeyword[] = [
     ]
   },
   {
-    keyword: 'alanya airport transfer',
+    keyword: 'alanya holiday airport transfer',
     language: 'en',
     searchVolume: 33200,
     competition: 'high',
@@ -204,23 +205,23 @@ export const ENGLISH_AIRPORT_TRANSFER_KEYWORDS: CompetitiveKeyword[] = [
     difficulty: 76,
     userIntent: 'transactional',
     relatedKeywords: [
-      'alanya transfer service',
-      'alanya private transfer',
-      'alanya shuttle service',
-      'alanya airport taxi'
+      'alanya holiday transfer service',
+      'alanya private vacation transfer',
+      'alanya holiday shuttle service',
+      'alanya airport holiday taxi'
     ],
     longTailVariants: [
-      'gazipasa airport alanya transfer',
-      'antalya to alanya transfer',
-      'alanya hotel transfer',
-      'alanya city center transfer'
+      'gazipasa airport alanya holiday transfer',
+      'antalya to alanya vacation transfer',
+      'alanya holiday hotel transfer',
+      'alanya city center holiday transfer'
     ],
     localModifiers: [
       'oba', 'mahmutlar', 'avsallar', 'incekum'
     ]
   },
   {
-    keyword: 'car rental antalya',
+    keyword: 'holiday car rental antalya',
     language: 'en',
     searchVolume: 40500,
     competition: 'ultra-high',
@@ -230,16 +231,16 @@ export const ENGLISH_AIRPORT_TRANSFER_KEYWORDS: CompetitiveKeyword[] = [
     difficulty: 86,
     userIntent: 'transactional',
     relatedKeywords: [
-      'rent a car antalya',
-      'antalya car hire',
-      'cheap car rental antalya',
-      'antalya airport car rental'
+      'vacation rent a car antalya',
+      'antalya holiday car hire',
+      'cheap holiday car rental antalya',
+      'antalya airport holiday car rental'
     ],
     longTailVariants: [
-      'antalya airport car rental cheap',
-      'luxury car rental antalya',
-      'antalya car rental no deposit',
-      'antalya car rental comparison'
+      'antalya airport holiday car rental cheap',
+      'luxury vacation car rental antalya',
+      'antalya holiday car rental no deposit',
+      'antalya vacation car rental comparison'
     ],
     localModifiers: [
       'airport', 'lara', 'konyaalti', 'city center'
@@ -248,11 +249,11 @@ export const ENGLISH_AIRPORT_TRANSFER_KEYWORDS: CompetitiveKeyword[] = [
 ];
 
 /**
- * РУССКИЙ - AIRPORT TRANSFER KEYWORDS
+ * РУССКИЙ - HOLIDAY AIRPORT TRANSFER KEYWORDS
  */
 export const RUSSIAN_AIRPORT_TRANSFER_KEYWORDS: CompetitiveKeyword[] = [
   {
-    keyword: 'трансфер анталия',
+    keyword: 'трансфер отпуск анталия',
     language: 'ru',
     searchVolume: 60500,
     competition: 'ultra-high',
@@ -262,24 +263,24 @@ export const RUSSIAN_AIRPORT_TRANSFER_KEYWORDS: CompetitiveKeyword[] = [
     difficulty: 79,
     userIntent: 'transactional',
     relatedKeywords: [
-      'трансфер из аэропорта анталии',
-      'трансфер анталия аланья',
-      'индивидуальный трансфер анталия',
-      'заказать трансфер анталия'
+      'трансфер из аэропорта отпуск анталии',
+      'трансфер каникулы анталия аланья',
+      'индивидуальный трансфер отпуск анталия',
+      'заказать трансфер отпуск анталия'
     ],
     longTailVariants: [
-      'трансфер анталия белек',
-      'трансфер анталия сиде',
-      'трансфер анталия кемер',
-      'дешевый трансфер анталия',
-      'vip трансфер анталия'
+      'трансфер отпуск анталия белек',
+      'трансфер каникулы анталия сиде',
+      'трансфер отпуск анталия кемер',
+      'дешевый трансфер отпуск анталия',
+      'vip трансфер отпуск анталия'
     ],
     localModifiers: [
       'аланья', 'белек', 'сиде', 'кемер', 'лара'
     ]
   },
   {
-    keyword: 'аренда авто анталия',
+    keyword: 'аренда авто отпуск анталия',
     language: 'ru',
     searchVolume: 44200,
     competition: 'ultra-high',
@@ -289,16 +290,16 @@ export const RUSSIAN_AIRPORT_TRANSFER_KEYWORDS: CompetitiveKeyword[] = [
     difficulty: 82,
     userIntent: 'transactional',
     relatedKeywords: [
-      'прокат машин анталия',
-      'аренда автомобиля анталия',
-      'rent a car анталия',
-      'дешевая аренда авто анталия'
+      'прокат машин отпуск анталия',
+      'аренда автомобиля каникулы анталия',
+      'rent a car отпуск анталия',
+      'дешевая аренда авто отпуск анталия'
     ],
     longTailVariants: [
-      'аренда авто анталия аэропорт',
-      'аренда авто анталия без депозита',
-      'аренда авто анталия цены',
-      'аренда премиум авто анталия'
+      'аренда авто отпуск анталия аэропорт',
+      'аренда авто каникулы анталия без депозита',
+      'аренда авто отпуск анталия цены',
+      'аренда премиум авто отпуск анталия'
     ],
     localModifiers: [
       'аэропорт', 'центр', 'лара', 'коньяалты'
@@ -307,11 +308,11 @@ export const RUSSIAN_AIRPORT_TRANSFER_KEYWORDS: CompetitiveKeyword[] = [
 ];
 
 /**
- * DEUTSCH - AIRPORT TRANSFER KEYWORDS
+ * DEUTSCH - HOLIDAY AIRPORT TRANSFER KEYWORDS
  */
 export const GERMAN_AIRPORT_TRANSFER_KEYWORDS: CompetitiveKeyword[] = [
   {
-    keyword: 'antalya flughafentransfer',
+    keyword: 'antalya urlaub flughafentransfer',
     language: 'de',
     searchVolume: 18900,
     competition: 'high',
@@ -321,23 +322,23 @@ export const GERMAN_AIRPORT_TRANSFER_KEYWORDS: CompetitiveKeyword[] = [
     difficulty: 74,
     userIntent: 'transactional',
     relatedKeywords: [
-      'transfer antalya',
-      'flughafentransfer türkei',
-      'privat transfer antalya',
-      'shuttle service antalya'
+      'transfer urlaub antalya',
+      'flughafentransfer ferien türkei',
+      'privat urlaub transfer antalya',
+      'shuttle service urlaub antalya'
     ],
     longTailVariants: [
-      'antalya flughafen nach alanya transfer',
-      'antalya flughafen belek transfer',
-      'günstiger flughafentransfer antalya',
-      'vip transfer antalya'
+      'antalya flughafen nach alanya urlaub transfer',
+      'antalya flughafen belek ferien transfer',
+      'günstiger urlaub flughafentransfer antalya',
+      'vip urlaub transfer antalya'
     ],
     localModifiers: [
       'alanya', 'belek', 'side', 'kemer'
     ]
   },
   {
-    keyword: 'mietwagen antalya',
+    keyword: 'urlaub mietwagen antalya',
     language: 'de',
     searchVolume: 27300,
     competition: 'ultra-high',
@@ -347,16 +348,16 @@ export const GERMAN_AIRPORT_TRANSFER_KEYWORDS: CompetitiveKeyword[] = [
     difficulty: 83,
     userIntent: 'transactional',
     relatedKeywords: [
-      'autovermietung antalya',
-      'auto mieten antalya',
-      'günstige mietwagen antalya',
-      'mietwagen antalya flughafen'
+      'autovermietung urlaub antalya',
+      'auto mieten ferien antalya',
+      'günstige urlaub mietwagen antalya',
+      'mietwagen urlaub antalya flughafen'
     ],
     longTailVariants: [
-      'mietwagen antalya ohne kreditkarte',
-      'mietwagen antalya vergleich',
-      'luxus mietwagen antalya',
-      'langzeit mietwagen antalya'
+      'urlaub mietwagen antalya ohne kreditkarte',
+      'mietwagen urlaub antalya vergleich',
+      'luxus urlaub mietwagen antalya',
+      'langzeit urlaub mietwagen antalya'
     ],
     localModifiers: [
       'flughafen', 'lara', 'stadtzentrum'
@@ -365,11 +366,11 @@ export const GERMAN_AIRPORT_TRANSFER_KEYWORDS: CompetitiveKeyword[] = [
 ];
 
 /**
- * FRANÇAIS - AIRPORT TRANSFER KEYWORDS
+ * FRANÇAIS - HOLIDAY AIRPORT TRANSFER KEYWORDS
  */
 export const FRENCH_AIRPORT_TRANSFER_KEYWORDS: CompetitiveKeyword[] = [
   {
-    keyword: 'transfert aéroport antalya',
+    keyword: 'transfert aéroport vacances antalya',
     language: 'fr',
     searchVolume: 14200,
     competition: 'high',
@@ -379,23 +380,23 @@ export const FRENCH_AIRPORT_TRANSFER_KEYWORDS: CompetitiveKeyword[] = [
     difficulty: 71,
     userIntent: 'transactional',
     relatedKeywords: [
-      'navette aéroport antalya',
-      'transfert privé antalya',
-      'transport antalya',
-      'taxi aéroport antalya'
+      'navette aéroport vacances antalya',
+      'transfert privé vacances antalya',
+      'transport vacances antalya',
+      'taxi aéroport vacances antalya'
     ],
     longTailVariants: [
-      'transfert antalya alanya',
-      'transfert antalya belek',
-      'transfert aéroport antalya pas cher',
-      'transfert vip antalya'
+      'transfert vacances antalya alanya',
+      'transfert vacances antalya belek',
+      'transfert aéroport vacances antalya pas cher',
+      'transfert vip vacances antalya'
     ],
     localModifiers: [
       'alanya', 'belek', 'side', 'kemer'
     ]
   },
   {
-    keyword: 'location voiture antalya',
+    keyword: 'location voiture vacances antalya',
     language: 'fr',
     searchVolume: 19800,
     competition: 'ultra-high',
@@ -405,16 +406,16 @@ export const FRENCH_AIRPORT_TRANSFER_KEYWORDS: CompetitiveKeyword[] = [
     difficulty: 80,
     userIntent: 'transactional',
     relatedKeywords: [
-      'louer voiture antalya',
-      'location auto antalya',
-      'rent a car antalya',
-      'location voiture pas cher antalya'
+      'louer voiture vacances antalya',
+      'location auto vacances antalya',
+      'rent a car vacances antalya',
+      'location voiture vacances pas cher antalya'
     ],
     longTailVariants: [
-      'location voiture aéroport antalya',
-      'location voiture antalya sans caution',
-      'location voiture luxe antalya',
-      'comparaison location voiture antalya'
+      'location voiture vacances aéroport antalya',
+      'location voiture vacances antalya sans caution',
+      'location voiture luxe vacances antalya',
+      'comparaison location voiture vacances antalya'
     ],
     localModifiers: [
       'aéroport', 'lara', 'centre-ville'

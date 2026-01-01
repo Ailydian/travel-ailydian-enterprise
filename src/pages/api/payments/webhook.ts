@@ -6,10 +6,8 @@ import { logger } from '../../../lib/logger/winston';
 
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { verifyWebhookSignature } from '@/lib/stripe/client';
-import { PrismaClient } from '@prisma/client';
+import { prisma } from '@/lib/prisma';
 import type Stripe from 'stripe';
-
-const prisma = new PrismaClient();
 
 // Disable body parsing, need raw body for signature verification
 export const config = {
@@ -95,8 +93,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     return res.status(500).json({
       error: error instanceof Error ? error.message : 'Webhook handler failed',
     });
-  } finally {
-    await prisma.$disconnect();
   }
 }
 

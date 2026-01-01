@@ -188,10 +188,10 @@ export default function AdminLocations() {
   const getStatusColor = (status: string) => {
     switch (status) {
       case 'active':return 'bg-green-100 text-green-800';
-      case 'inactive':return 'bg-white/10 text-gray-100';
+      case 'inactive':return 'bg-lydian-bg/10 text-gray-100';
       case 'pending':return 'bg-yellow-100 text-yellow-800';
       case 'blocked':return 'bg-red-100 text-red-800';
-      default:return 'bg-white/10 text-gray-100';
+      default:return 'bg-lydian-bg/10 text-gray-100';
     }
   };
 
@@ -632,8 +632,8 @@ export default function AdminLocations() {
                               onClick={() => setPagination((prev) => ({ ...prev, page: pageNum }))}
                               className={`relative inline-flex items-center px-4 py-2 border text-sm font-medium ${
                               pagination.page === pageNum ?
-                              'z-10 bg-blue-50 border-blue-500 text-blue-600' :
-                              'bg-white/5 border-white/20 text-gray-400 hover:bg-white/5'}`
+                              'z-10 bg-blue-50 border-lydian-primary text-lydian-primary' :
+                              'bg-lydian-bg/5 border-white/20 text-lydian-text-muted hover:bg-lydian-bg/5'}`
                               }>
 
                                   {pageNum}

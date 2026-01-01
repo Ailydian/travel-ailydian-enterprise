@@ -172,7 +172,7 @@ export function generateLandingPage(
       `${city.name.toLowerCase()} tatil`,
       `${city.name.toLowerCase()} rezervasyon`
     ],
-    canonicalUrl: `https://travel.lydian.com/${slug}`,
+    canonicalUrl: `https://holiday.ailydian.com/${slug}`,
     structuredData,
     breadcrumbs,
     faq
@@ -258,7 +258,7 @@ function generateStructuredData(cityName: string, category: any, slug: string): 
     '@type': 'WebPage',
     name: `${cityName} ${category.plural}`,
     description: `${cityName}'da ${category.plural.toLowerCase()} için en iyi seçenekler`,
-    url: `https://travel.lydian.com/${slug}`,
+    url: `https://holiday.ailydian.com/${slug}`,
     breadcrumb: {
       '@type': 'BreadcrumbList',
       itemListElement: [
@@ -266,27 +266,27 @@ function generateStructuredData(cityName: string, category: any, slug: string): 
           '@type': 'ListItem',
           position: 1,
           name: 'Ana Sayfa',
-          item: 'https://travel.lydian.com'
+          item: 'https://holiday.ailydian.com'
         },
         {
           '@type': 'ListItem',
           position: 2,
           name: cityName,
-          item: `https://travel.lydian.com/destinasyonlar/${slug.split('-')[0]}`
+          item: `https://holiday.ailydian.com/destinasyonlar/${slug.split('-')[0]}`
         },
         {
           '@type': 'ListItem',
           position: 3,
           name: category.plural,
-          item: `https://travel.lydian.com/${slug}`
+          item: `https://holiday.ailydian.com/${slug}`
         }
       ]
     },
     provider: {
       '@type': 'Organization',
       name: 'Travel LyDian',
-      url: 'https://travel.lydian.com',
-      logo: 'https://travel.lydian.com/logo.png'
+      url: 'https://holiday.ailydian.com',
+      logo: 'https://holiday.ailydian.com/logo.png'
     }
   };
 }

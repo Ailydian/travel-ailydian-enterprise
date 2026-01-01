@@ -200,18 +200,18 @@ export function Table<T = any>({
   const getSortIcon = (columnKey: string) => {
     if (sortConfig.key !== columnKey) {
       return (
-        <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="w-4 h-4 text-lydian-text-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4" />
         </svg>
       );
     }
 
     return sortConfig.direction === 'asc' ? (
-      <svg className="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <svg className="w-4 h-4 text-lydian-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
       </svg>
     ) : (
-      <svg className="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <svg className="w-4 h-4 text-lydian-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
       </svg>
     );
@@ -223,18 +223,18 @@ export function Table<T = any>({
 
   return (
     <div className={`w-full ${className}`}>
-      <div className={`overflow-x-auto rounded-lg border border-gray-200 ${stickyHeader ? 'max-h-[600px] overflow-y-auto' : ''}`}>
+      <div className={`overflow-x-auto rounded-lg border border-lydian-border ${stickyHeader ? 'max-h-[600px] overflow-y-auto' : ''}`}>
         <table className="w-full border-collapse">
           {/* Header */}
-          <thead className={`bg-gray-50 ${stickyHeader ? 'sticky top-0 z-10' : ''}`}>
+          <thead className={`bg-lydian-bg-surface ${stickyHeader ? 'sticky top-0 z-10' : ''}`}>
             <tr>
               {selectable && (
-                <th className={`border-b border-gray-200 ${compact ? 'px-3 py-2' : 'px-6 py-3'}`}>
+                <th className={`border-b border-lydian-border ${compact ? 'px-3 py-2' : 'px-6 py-3'}`}>
                   <input
                     type="checkbox"
                     checked={isAllSelected}
                     onChange={handleSelectAll}
-                    className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+                    className="w-4 h-4 text-lydian-primary border-lydian-border-medium rounded focus:ring-lydian-primary"
                   />
                 </th>
               )}
@@ -243,7 +243,7 @@ export function Table<T = any>({
                 <th
                   key={column.key}
                   className={`
-                    border-b border-gray-200 text-left font-semibold text-gray-700
+                    border-b border-lydian-border text-left font-semibold text-lydian-text-secondary
                     ${compact ? 'px-3 py-2 text-xs' : 'px-6 py-3 text-sm'}
                     ${column.align === 'center' ? 'text-center' : column.align === 'right' ? 'text-right' : ''}
                     ${column.headerClassName || ''}
@@ -271,7 +271,7 @@ export function Table<T = any>({
           <tbody>
             {loading ? (
               <tr>
-                <td colSpan={columns.length + (selectable ? 1 : 0)} className="px-6 py-8 text-center text-gray-500">
+                <td colSpan={columns.length + (selectable ? 1 : 0)} className="px-6 py-8 text-center text-lydian-text-muted">
                   <div className="flex items-center justify-center gap-2">
                     <div className="w-5 h-5 border-2 border-blue-600 border-t-transparent rounded-full animate-spin" />
                     Loading...
@@ -280,7 +280,7 @@ export function Table<T = any>({
               </tr>
             ) : paginatedData.length === 0 ? (
               <tr>
-                <td colSpan={columns.length + (selectable ? 1 : 0)} className="px-6 py-8 text-center text-gray-500">
+                <td colSpan={columns.length + (selectable ? 1 : 0)} className="px-6 py-8 text-center text-lydian-text-muted">
                   {emptyMessage}
                 </td>
               </tr>
@@ -294,8 +294,8 @@ export function Table<T = any>({
                     key={key}
                     onClick={() => onRowClick?.(row)}
                     className={`
-                      border-b border-gray-200 last:border-0
-                      ${striped && rowIndex % 2 === 1 ? 'bg-gray-50' : 'bg-white'}
+                      border-b border-lydian-border last:border-0
+                      ${striped && rowIndex % 2 === 1 ? 'bg-lydian-bg-surface' : 'bg-lydian-bg'}
                       ${hoverable ? 'hover:bg-blue-50 transition-colors' : ''}
                       ${onRowClick ? 'cursor-pointer' : ''}
                       ${isSelected ? 'bg-blue-100' : ''}
@@ -311,7 +311,7 @@ export function Table<T = any>({
                             handleSelectRow(row);
                           }}
                           onClick={(e) => e.stopPropagation()}
-                          className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+                          className="w-4 h-4 text-lydian-primary border-lydian-border-medium rounded focus:ring-lydian-primary"
                         />
                       </td>
                     )}
@@ -338,8 +338,8 @@ export function Table<T = any>({
 
       {/* Pagination */}
       {paginated && !loading && paginatedData.length > 0 && (
-        <div className="flex items-center justify-between px-4 py-3 border-t border-gray-200 bg-white rounded-b-lg">
-          <div className="text-sm text-gray-700">
+        <div className="flex items-center justify-between px-4 py-3 border-t border-lydian-border bg-lydian-bg rounded-b-lg">
+          <div className="text-sm text-lydian-text-secondary">
             Showing {(page - 1) * pageSize + 1} to {Math.min(page * pageSize, sortedData.length)} of {sortedData.length} results
           </div>
 
@@ -347,7 +347,7 @@ export function Table<T = any>({
             <button
               onClick={() => handlePageChange(page - 1)}
               disabled={page === 1}
-              className="px-3 py-1 rounded border border-gray-300 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="px-3 py-1 rounded border border-lydian-border-medium hover:bg-lydian-bg-surface disabled:opacity-50 disabled:cursor-not-allowed"
             >
               Previous
             </button>
@@ -371,8 +371,8 @@ export function Table<T = any>({
                   className={`
                     px-3 py-1 rounded border
                     ${page === pageNum
-                      ? 'bg-blue-600 text-white border-blue-600'
-                      : 'border-gray-300 hover:bg-gray-50'
+                      ? 'bg-lydian-primary text-white border-blue-600'
+                      : 'border-lydian-border-medium hover:bg-lydian-bg-surface'
                     }
                   `}
                 >
@@ -384,7 +384,7 @@ export function Table<T = any>({
             <button
               onClick={() => handlePageChange(page + 1)}
               disabled={page === totalPages}
-              className="px-3 py-1 rounded border border-gray-300 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="px-3 py-1 rounded border border-lydian-border-medium hover:bg-lydian-bg-surface disabled:opacity-50 disabled:cursor-not-allowed"
             >
               Next
             </button>

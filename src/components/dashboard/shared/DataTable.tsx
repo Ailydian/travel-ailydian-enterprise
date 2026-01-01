@@ -225,7 +225,7 @@ export function DataTable<T>({
                   key={column.key}
                   className={`px-6 py-3 text-${column.align || 'left'} text-xs font-medium text-lydian-text-muted uppercase tracking-wider ${
                   column.width || ''} ${
-                  column.sortable ? 'cursor-pointer select-none hover:bg-white/10' : ''}`}
+                  column.sortable ? 'cursor-pointer select-none hover:bg-lydian-bg/10' : ''}`}
                   onClick={() => column.sortable && handleSort(column.key)}>
 
                     <div className="flex items-center space-x-1">
@@ -306,7 +306,7 @@ export function DataTable<T>({
                                   }}
                                   className={`w-full px-4 py-2 text-left text-sm hover:bg-lydian-glass-dark-medium flex items-center space-x-2 ${
                                   action.danger ?
-                                  'text-red-600' :
+                                  'text-lydian-error' :
                                   'text-gray-200'}`
                                   }>
 
@@ -365,7 +365,7 @@ export function DataTable<T>({
                       className={`flex items-center space-x-1 px-3 py-1.5 rounded-lg text-sm font-medium ${
                       action.danger ?
                       'bg-red-100 text-red-700 hover:bg-red-200' :
-                      'bg-white/10 text-gray-200 hover:bg-gray-200'}`
+                      'bg-lydian-bg/10 text-gray-200 hover:bg-lydian-bg-surface-raised'}`
                       }>
 
                           {Icon && <Icon className="h-4 w-4" />}
@@ -417,8 +417,8 @@ export function DataTable<T>({
                   onClick={() => handlePageChange(pageNum)}
                   className={`px-3 py-1.5 rounded-lg text-sm font-medium focus:outline-none focus:ring-2 focus:ring-lydian-border-focus ${
                   currentPage === pageNum ?
-                  'bg-blue-600 text-white' :
-                  'bg-white/5 border border-gray-300 text-gray-200 hover:bg-white/5'}`
+                  'bg-lydian-primary text-white' :
+                  'bg-lydian-bg/5 border border-lydian-border-medium text-gray-200 hover:bg-lydian-bg/5'}`
                   }>
 
                     {pageNum}

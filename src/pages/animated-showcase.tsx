@@ -177,7 +177,7 @@ const AnimatedShowcase: React.FC = () => {
   return (
     <>
       <Head>
-        <title>Animated Components Showcase | Travel.LyDian</title>
+        <title>Animated Components Showcase | Holiday.AILYDIAN</title>
         <meta name="description" content="Interactive showcase of animated SVG components and sliders" />
       </Head>
 

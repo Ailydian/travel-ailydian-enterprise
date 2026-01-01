@@ -143,7 +143,7 @@ const AdminDashboardV2 = () => {
     change: 12.3,
     trend: 'up',
     icon: Calendar,
-    color: 'text-blue-600',
+    color: 'text-lydian-primary',
     bgColor: 'bg-blue-50',
     realtime: true
   },
@@ -455,7 +455,7 @@ const AdminDashboardV2 = () => {
             change: data.overview.monthlyGrowth.bookings || 0,
             trend: (data.overview.monthlyGrowth.bookings || 0) >= 0 ? 'up' : 'down',
             icon: Calendar,
-            color: 'text-blue-600',
+            color: 'text-lydian-primary',
             bgColor: 'bg-blue-50',
             realtime: true
           },
@@ -695,7 +695,7 @@ const AdminDashboardV2 = () => {
       case 'operational':
       case 'active':
       case 'confirmed':
-        return 'text-green-600 bg-green-50';
+        return 'text-lydian-success bg-green-50';
       case 'warning':
       case 'degraded':
       case 'pending':
@@ -704,9 +704,9 @@ const AdminDashboardV2 = () => {
       case 'down':
       case 'inactive':
       case 'cancelled':
-        return 'text-red-600 bg-red-50';
+        return 'text-lydian-error bg-red-50';
       default:
-        return 'text-gray-300 bg-white/5';
+        return 'text-lydian-text-dim bg-lydian-bg/5';
     }
   };
 
@@ -869,8 +869,8 @@ const AdminDashboardV2 = () => {
                 onClick={() => setActiveTab(tab.id as any)}
                 className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium text-sm transition-all whitespace-nowrap ${
                 activeTab === tab.id ?
-                'bg-blue-600 text-white shadow-lg shadow-blue-600/30' :
-                'bg-white/5 text-slate-700 hover:bg-slate-50'}`
+                'bg-lydian-primary text-white shadow-lg shadow-blue-600/30' :
+                'bg-lydian-bg/5 text-slate-700 hover:bg-slate-50'}`
                 }>
 
                 <Icon className="w-4 h-4" />
@@ -916,7 +916,7 @@ const AdminDashboardV2 = () => {
                       <TrendingDown className="w-4 h-4 text-lydian-primary" />
                       }
                         <span className={`text-sm font-semibold ${
-                      metric.trend === 'up' ? 'text-green-600' : 'text-red-600'}`
+                      metric.trend === 'up' ? 'text-lydian-success' : 'text-lydian-error'}`
                       }>
                           {metric.change}%
                         </span>
@@ -1151,7 +1151,7 @@ const AdminDashboardV2 = () => {
                             </div>
                             <div>
                               <span className="text-lydian-text-tertiary block text-xs mb-1">Büyüme</span>
-                              <p className={`font-semibold ${product.growth >= 0 ? 'text-green-600' : 'text-red-600'}`}>
+                              <p className={`font-semibold ${product.growth >= 0 ? 'text-lydian-success' : 'text-lydian-error'}`}>
                                 {product.growth >= 0 ? '+' : ''}{product.growth}%
                               </p>
                             </div>
@@ -1389,7 +1389,7 @@ const AdminDashboardV2 = () => {
                       <span className={`text-xs px-2 py-1 rounded-full font-semibold ${getStatusColor(product.status)}`}>
                         {product.status.toUpperCase()}
                       </span>
-                      <span className={`text-sm font-semibold ${product.growth >= 0 ? 'text-green-600' : 'text-red-600'}`}>
+                      <span className={`text-sm font-semibold ${product.growth >= 0 ? 'text-lydian-success' : 'text-lydian-error'}`}>
                         {product.growth >= 0 ? '+' : ''}{product.growth}%
                       </span>
                     </div>

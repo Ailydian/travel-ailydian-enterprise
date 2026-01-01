@@ -64,7 +64,7 @@ export const ExploreMenu: React.FC = () => {
           flex items-center gap-2 px-4 py-2 rounded-md font-medium text-sm transition-colors
           ${isOpen ?
         'text-lydian-primary bg-red-50' :
-        'text-gray-200 hover:text-lydian-primary hover:bg-white/5'}
+        'text-gray-200 hover:text-lydian-primary hover:bg-lydian-bg/5'}
         `
         }>
 

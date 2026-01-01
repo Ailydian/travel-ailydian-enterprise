@@ -412,7 +412,7 @@ export class ErrorMonitor {
   }
 
   // Scan site for broken links (basic implementation)
-  async scanForBrokenLinks(baseUrl: string = 'https://travel.lydian.com'): Promise<string[]> {
+  async scanForBrokenLinks(baseUrl: string = 'https://holiday.ailydian.com'): Promise<string[]> {
     const brokenLinks: string[] = [];
     
     // This is a placeholder - in a real implementation, you would:

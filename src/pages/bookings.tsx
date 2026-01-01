@@ -140,14 +140,14 @@ const Bookings: React.FC = () => {
         };
       case 'COMPLETED':
         return {
-          color: 'bg-gradient-to-r from-blue-500/20 to-cyan-500/20 text-blue-400 border-blue-500/30',
+          color: 'bg-gradient-to-r from-blue-500/20 to-cyan-500/20 text-blue-400 border-lydian-primary/30',
           bgGlow: 'shadow-[0_0_20px_rgba(59,130,246,0.3)]',
           icon: <CheckCircle className="w-4 h-4" />,
           text: 'Tamamlandı'
         };
       default:
         return {
-          color: 'bg-white/10 text-gray-100 border-white/20',
+          color: 'bg-lydian-bg/10 text-gray-100 border-white/20',
           bgGlow: '',
           icon: <AlertTriangle className="w-4 h-4" />,
           text: status
@@ -239,7 +239,7 @@ const Bookings: React.FC = () => {
   return (
     <>
       <Head>
-        <title>Rezervasyonlarım - Travel.LyDian</title>
+        <title>Rezervasyonlarım - Holiday.AILYDIAN</title>
         <meta name="description" content="Rezervasyonlarınızı yönetin ve takip edin" />
       </Head>
 
@@ -286,7 +286,7 @@ const Bookings: React.FC = () => {
                   placeholder="Rezervasyon kodu ile ara..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-9 sm:pl-10 pr-3 sm:pr-4 py-2 sm:py-3 bg-white/5 border border-white/10 rounded-xl text-sm sm:text-base text-white placeholder:text-white/40 focus:ring-2 focus:ring-[#00BAFF]/50 focus:border-[#00BAFF]/50 transition-all duration-300 hover:bg-white/10" />
+                  className="w-full pl-9 sm:pl-10 pr-3 sm:pr-4 py-2 sm:py-3 bg-lydian-bg/5 border border-white/10 rounded-xl text-sm sm:text-base text-white placeholder:text-white/40 focus:ring-2 focus:ring-[#00BAFF]/50 focus:border-[#00BAFF]/50 transition-all duration-300 hover:bg-lydian-bg/10" />
 
               </div>
 
@@ -296,7 +296,7 @@ const Bookings: React.FC = () => {
                 <select
                   value={filterStatus}
                   onChange={(e) => setFilterStatus(e.target.value)}
-                  className="w-full pl-9 sm:pl-10 pr-3 sm:pr-4 py-2 sm:py-3 bg-white/5 border border-white/10 rounded-xl text-sm sm:text-base text-white focus:ring-2 focus:ring-[#667EEA]/50 focus:border-[#667EEA]/50 appearance-none transition-all duration-300 hover:bg-white/10 cursor-pointer">
+                  className="w-full pl-9 sm:pl-10 pr-3 sm:pr-4 py-2 sm:py-3 bg-lydian-bg/5 border border-white/10 rounded-xl text-sm sm:text-base text-white focus:ring-2 focus:ring-[#667EEA]/50 focus:border-[#667EEA]/50 appearance-none transition-all duration-300 hover:bg-lydian-bg/10 cursor-pointer">
 
                   <option value="all" className="bg-[#1a0b2e]">Tüm Durumlar</option>
                   <option value="confirmed" className="bg-[#1a0b2e]">Onaylandı</option>
@@ -312,7 +312,7 @@ const Bookings: React.FC = () => {
                 <select
                   value={filterType}
                   onChange={(e) => setFilterType(e.target.value)}
-                  className="w-full pl-9 sm:pl-10 pr-3 sm:pr-4 py-2 sm:py-3 bg-white/5 border border-white/10 rounded-xl text-sm sm:text-base text-white focus:ring-2 focus:ring-[#667EEA]/50 focus:border-[#667EEA]/50 appearance-none transition-all duration-300 hover:bg-white/10 cursor-pointer">
+                  className="w-full pl-9 sm:pl-10 pr-3 sm:pr-4 py-2 sm:py-3 bg-lydian-bg/5 border border-white/10 rounded-xl text-sm sm:text-base text-white focus:ring-2 focus:ring-[#667EEA]/50 focus:border-[#667EEA]/50 appearance-none transition-all duration-300 hover:bg-lydian-bg/10 cursor-pointer">
 
                   <option value="all" className="bg-[#1a0b2e]">Tüm Tipler</option>
                   <option value="hotel" className="bg-[#1a0b2e]">Otel</option>
@@ -434,7 +434,7 @@ const Bookings: React.FC = () => {
 
                       {/* Special Requests */}
                       {booking.specialRequests &&
-                    <div className="mb-4 p-3 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl">
+                    <div className="mb-4 p-3 bg-lydian-bg/5 backdrop-blur-sm border border-white/10 rounded-xl">
                           <p className="text-sm text-white/80">
                             <span className="font-medium text-[#667EEA]">Özel İstekler:</span> {booking.specialRequests}
                           </p>
@@ -558,7 +558,7 @@ const Bookings: React.FC = () => {
                 setBookingToCancel(null);
                 setCancelReason('');
               }}
-              className="p-2 hover:bg-white/10 rounded-lg transition-colors text-white/60 hover:text-white">
+              className="p-2 hover:bg-lydian-bg/10 rounded-lg transition-colors text-white/60 hover:text-white">
 
                 <X className="w-5 h-5" />
               </button>
@@ -581,7 +581,7 @@ const Bookings: React.FC = () => {
                 <textarea
                 value={cancelReason}
                 onChange={(e) => setCancelReason(e.target.value)}
-                className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder:text-white/40 focus:ring-2 focus:ring-[#667EEA]/50 focus:border-[#667EEA]/50 resize-none transition-all duration-300"
+                className="w-full px-4 py-3 bg-lydian-bg/5 border border-white/10 rounded-xl text-white placeholder:text-white/40 focus:ring-2 focus:ring-[#667EEA]/50 focus:border-[#667EEA]/50 resize-none transition-all duration-300"
                 rows={4}
                 placeholder="Please let us know why you're cancelling..." />
 

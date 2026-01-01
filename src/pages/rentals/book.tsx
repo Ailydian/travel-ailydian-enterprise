@@ -422,10 +422,10 @@ const RentalBookingPage = () => {
                         {isCompleted ?
                         <Check className="w-6 h-6 text-lydian-text-inverse" /> :
 
-                        <Icon className={`w-6 h-6 ${isActive ? 'text-white' : 'text-gray-400'}`} />
+                        <Icon className={`w-6 h-6 ${isActive ? 'text-white' : 'text-lydian-text-muted'}`} />
                         }
                       </motion.div>
-                      <p className={`text-xs mt-2 font-medium ${isActive ? 'text-purple-600' : 'text-gray-300'}`}>
+                      <p className={`text-xs mt-2 font-medium ${isActive ? 'text-purple-600' : 'text-lydian-text-dim'}`}>
                         {step.title}
                       </p>
                     </div>

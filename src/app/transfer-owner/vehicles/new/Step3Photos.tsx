@@ -199,7 +199,7 @@ export default function Step3Photos({ data }: Step3Props) {
                 className={`p-4 border-2 rounded-xl text-left transition-all ${
                   isSelected
                     ? 'border-cyan-500 bg-cyan-50 shadow-md'
-                    : 'border-slate-200 bg-white/5 hover:border-slate-300'
+                    : 'border-slate-200 bg-lydian-bg/5 hover:border-slate-300'
                 }`}
               >
                 <div className="flex items-start gap-3">
@@ -357,7 +357,7 @@ export default function Step3Photos({ data }: Step3Props) {
                             <button
                               type="button"
                               onClick={() => removePhoto(photo.id)}
-                              className="p-2 bg-red-500 hover:bg-red-600 text-white rounded-lg transition-colors"
+                              className="p-2 bg-red-500 hover:bg-lydian-error text-white rounded-lg transition-colors"
                               title="Sil"
                             >
                               <X className="w-4 h-4" />
@@ -377,7 +377,7 @@ export default function Step3Photos({ data }: Step3Props) {
       {/* Validation Error */}
       {errors.photos && (
         <div className="p-4 bg-red-50 border border-red-200 rounded-lg flex items-start gap-3">
-          <AlertCircle className="w-5 h-5 text-red-600 mt-0.5" />
+          <AlertCircle className="w-5 h-5 text-lydian-error mt-0.5" />
           <div>
             <h4 className="font-semibold text-red-900 mb-1">Fotoğraf Gerekli</h4>
             <p className="text-sm text-red-700">{errors.photos.message?.toString()}</p>
@@ -393,29 +393,29 @@ export default function Step3Photos({ data }: Step3Props) {
         </h4>
         <ul className="text-sm text-blue-800 space-y-2">
           <li className="flex items-start gap-2">
-            <span className="text-blue-600 mt-0.5">•</span>
+            <span className="text-lydian-primary mt-0.5">•</span>
             <span>
               <strong>Dış Görünüm:</strong> Aracın önden, arkadan ve yanlardan net fotoğrafları
             </span>
           </li>
           <li className="flex items-start gap-2">
-            <span className="text-blue-600 mt-0.5">•</span>
+            <span className="text-lydian-primary mt-0.5">•</span>
             <span>
               <strong>İç Görünüm:</strong> Koltuklar, kokpit, bagaj alanı detayları
             </span>
           </li>
           <li className="flex items-start gap-2">
-            <span className="text-blue-600 mt-0.5">•</span>
+            <span className="text-lydian-primary mt-0.5">•</span>
             <span>
               <strong>VIP Özellikler:</strong> WiFi, TV, minibar gibi özel donanımların fotoğrafları
             </span>
           </li>
           <li className="flex items-start gap-2">
-            <span className="text-blue-600 mt-0.5">•</span>
+            <span className="text-lydian-primary mt-0.5">•</span>
             <span>Yüksek çözünürlüklü, iyi aydınlatılmış fotoğraflar kullanın</span>
           </li>
           <li className="flex items-start gap-2">
-            <span className="text-blue-600 mt-0.5">•</span>
+            <span className="text-lydian-primary mt-0.5">•</span>
             <span>Ana fotoğraf, araç listeleme sayfalarında gösterilecektir</span>
           </li>
         </ul>

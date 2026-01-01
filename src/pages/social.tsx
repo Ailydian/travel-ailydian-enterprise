@@ -220,8 +220,8 @@ const SocialPage: NextPage = () => {
                         onClick={() => setActiveTab(tab.id)}
                         className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-colors ${
                         activeTab === tab.id ?
-                        'bg-blue-50 text-blue-600' :
-                        'text-gray-300 hover:bg-white/10'}`
+                        'bg-blue-50 text-lydian-primary' :
+                        'text-lydian-text-dim hover:bg-lydian-bg/10'}`
                         }>
 
                         <Icon className="w-4 h-4" />
@@ -392,7 +392,7 @@ const SocialPage: NextPage = () => {
                             <button
                           onClick={() => handleLike(post.id)}
                           className={`flex items-center gap-2 transition-colors ${
-                          post.liked ? 'text-red-500' : 'text-gray-400 hover:text-red-500'}`
+                          post.liked ? 'text-red-500' : 'text-lydian-text-muted hover:text-red-500'}`
                           }>
 
                               <Heart className={`w-5 h-5 ${post.liked ? 'fill-current' : ''}`} />
@@ -410,7 +410,7 @@ const SocialPage: NextPage = () => {
                           <button
                         onClick={() => handleBookmark(post.id)}
                         className={`p-2 transition-colors ${
-                        post.bookmarked ? 'text-blue-500' : 'text-gray-400 hover:text-blue-500'}`
+                        post.bookmarked ? 'text-blue-500' : 'text-lydian-text-muted hover:text-blue-500'}`
                         }>
 
                             <Bookmark className={`w-5 h-5 ${post.bookmarked ? 'fill-current' : ''}`} />

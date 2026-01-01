@@ -203,7 +203,7 @@ export default function OwnerRegisterPage() {
   };
 
   return (
-    <div className="min-h-screen bg-white/5">
+    <div className="min-h-screen bg-lydian-bg/5">
       <div className="flex min-h-screen">
         {/* Left Column - Benefits & Info */}
         <motion.div
@@ -237,7 +237,7 @@ export default function OwnerRegisterPage() {
                   Topluluğumuza Katılın
                 </span>
               </h1>
-              <p className="text-gray-300 text-lg">
+              <p className="text-lydian-text-dim text-lg">
                 Binlerce mülk sahibinin tercih ettiği platformda yerinizi alın ve kazancınızı artırın.
               </p>
             </div>
@@ -257,7 +257,7 @@ export default function OwnerRegisterPage() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-white mb-1">{benefit.title}</h3>
-                    <p className="text-gray-300 text-sm">{benefit.description}</p>
+                    <p className="text-lydian-text-dim text-sm">{benefit.description}</p>
                   </div>
                 </motion.div>
               ))}
@@ -266,19 +266,19 @@ export default function OwnerRegisterPage() {
 
           {/* Bottom Stats */}
           <div className="relative z-10">
-            <div className="text-sm text-gray-300 mb-4">Güvenilir Platform</div>
+            <div className="text-sm text-lydian-text-dim mb-4">Güvenilir Platform</div>
             <div className="grid grid-cols-3 gap-6">
               <div>
                 <div className="text-2xl font-bold text-white">5000+</div>
-                <div className="text-gray-300 text-sm">Mülk Sahibi</div>
+                <div className="text-lydian-text-dim text-sm">Mülk Sahibi</div>
               </div>
               <div>
                 <div className="text-2xl font-bold text-white">50K+</div>
-                <div className="text-gray-300 text-sm">Rezervasyon</div>
+                <div className="text-lydian-text-dim text-sm">Rezervasyon</div>
               </div>
               <div>
                 <div className="text-2xl font-bold text-white">98%</div>
-                <div className="text-gray-300 text-sm">Memnuniyet</div>
+                <div className="text-lydian-text-dim text-sm">Memnuniyet</div>
               </div>
             </div>
           </div>
@@ -310,7 +310,7 @@ export default function OwnerRegisterPage() {
                         className={`w-10 h-10 rounded-full flex items-center justify-center font-semibold transition-all ${
                           currentStep >= step
                             ? 'bg-gradient-to-r from-[#FF214D] to-[#FF6A45] text-white'
-                            : 'bg-gray-200 text-gray-400'
+                            : 'bg-lydian-bg-surface-raised text-lydian-text-muted'
                         }`}
                       >
                         {currentStep > step ? (
@@ -322,7 +322,7 @@ export default function OwnerRegisterPage() {
                       {step < 3 && (
                         <div
                           className={`h-1 w-full ml-2 transition-all ${
-                            currentStep > step ? 'bg-gradient-to-r from-[#FF214D] to-[#FF6A45]' : 'bg-gray-200'
+                            currentStep > step ? 'bg-gradient-to-r from-[#FF214D] to-[#FF6A45]' : 'bg-lydian-bg-surface-raised'
                           }`}
                           style={{ width: 'calc(100% - 40px)' }}
                         />
@@ -332,13 +332,13 @@ export default function OwnerRegisterPage() {
                 ))}
               </div>
               <div className="flex justify-between text-sm">
-                <span className={currentStep >= 1 ? 'text-white font-medium' : 'text-gray-400'}>
+                <span className={currentStep >= 1 ? 'text-white font-medium' : 'text-lydian-text-muted'}>
                   Kişisel Bilgiler
                 </span>
-                <span className={currentStep >= 2 ? 'text-white font-medium' : 'text-gray-400'}>
+                <span className={currentStep >= 2 ? 'text-white font-medium' : 'text-lydian-text-muted'}>
                   Mülk Bilgileri
                 </span>
-                <span className={currentStep >= 3 ? 'text-white font-medium' : 'text-gray-400'}>
+                <span className={currentStep >= 3 ? 'text-white font-medium' : 'text-lydian-text-muted'}>
                   Onay
                 </span>
               </div>
@@ -351,7 +351,7 @@ export default function OwnerRegisterPage() {
                 {currentStep === 2 && 'Mülk Bilgileriniz'}
                 {currentStep === 3 && 'Son Adım'}
               </h2>
-              <p className="text-gray-300">
+              <p className="text-lydian-text-dim">
                 {currentStep === 1 && 'Kişisel bilgilerinizi girerek başlayın'}
                 {currentStep === 2 && 'Mülkleriniz hakkında bilgi verin'}
                 {currentStep === 3 && 'Koşulları onaylayarak kaydı tamamlayın'}
@@ -377,7 +377,7 @@ export default function OwnerRegisterPage() {
                       </label>
                       <div className="relative">
                         <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                          <User className="h-5 w-5 text-gray-400" />
+                          <User className="h-5 w-5 text-lydian-text-muted" />
                         </div>
                         <input
                           type="text"
@@ -386,8 +386,8 @@ export default function OwnerRegisterPage() {
                           value={formData.fullName}
                           onChange={handleInputChange}
                           className={`block w-full pl-10 pr-3 py-3 border ${
-                            errors.fullName ? 'border-red-500' : 'border-gray-300'
-                          } rounded-lg focus:ring-2 focus:ring-[#FF214D] focus:border-transparent outline-none transition-all bg-white/5 text-white`}
+                            errors.fullName ? 'border-red-500' : 'border-lydian-border-medium'
+                          } rounded-lg focus:ring-2 focus:ring-[#FF214D] focus:border-transparent outline-none transition-all bg-lydian-bg/5 text-white`}
                           placeholder="Ahmet Yılmaz"
                         />
                       </div>
@@ -403,7 +403,7 @@ export default function OwnerRegisterPage() {
                       </label>
                       <div className="relative">
                         <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                          <Mail className="h-5 w-5 text-gray-400" />
+                          <Mail className="h-5 w-5 text-lydian-text-muted" />
                         </div>
                         <input
                           type="email"
@@ -412,8 +412,8 @@ export default function OwnerRegisterPage() {
                           value={formData.email}
                           onChange={handleInputChange}
                           className={`block w-full pl-10 pr-3 py-3 border ${
-                            errors.email ? 'border-red-500' : 'border-gray-300'
-                          } rounded-lg focus:ring-2 focus:ring-[#FF214D] focus:border-transparent outline-none transition-all bg-white/5 text-white`}
+                            errors.email ? 'border-red-500' : 'border-lydian-border-medium'
+                          } rounded-lg focus:ring-2 focus:ring-[#FF214D] focus:border-transparent outline-none transition-all bg-lydian-bg/5 text-white`}
                           placeholder="ornek@email.com"
                         />
                       </div>
@@ -429,7 +429,7 @@ export default function OwnerRegisterPage() {
                       </label>
                       <div className="relative">
                         <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                          <Phone className="h-5 w-5 text-gray-400" />
+                          <Phone className="h-5 w-5 text-lydian-text-muted" />
                         </div>
                         <input
                           type="tel"
@@ -438,8 +438,8 @@ export default function OwnerRegisterPage() {
                           value={formData.phone}
                           onChange={handleInputChange}
                           className={`block w-full pl-10 pr-3 py-3 border ${
-                            errors.phone ? 'border-red-500' : 'border-gray-300'
-                          } rounded-lg focus:ring-2 focus:ring-[#FF214D] focus:border-transparent outline-none transition-all bg-white/5 text-white`}
+                            errors.phone ? 'border-red-500' : 'border-lydian-border-medium'
+                          } rounded-lg focus:ring-2 focus:ring-[#FF214D] focus:border-transparent outline-none transition-all bg-lydian-bg/5 text-white`}
                           placeholder="0555 123 4567"
                         />
                       </div>
@@ -477,7 +477,7 @@ export default function OwnerRegisterPage() {
                       </label>
                       <div className="relative">
                         <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                          <Lock className="h-5 w-5 text-gray-400" />
+                          <Lock className="h-5 w-5 text-lydian-text-muted" />
                         </div>
                         <input
                           type={showPassword ? 'text' : 'password'}
@@ -486,8 +486,8 @@ export default function OwnerRegisterPage() {
                           value={formData.password}
                           onChange={handleInputChange}
                           className={`block w-full pl-10 pr-10 py-3 border ${
-                            errors.password ? 'border-red-500' : 'border-gray-300'
-                          } rounded-lg focus:ring-2 focus:ring-[#FF214D] focus:border-transparent outline-none transition-all bg-white/5 text-white`}
+                            errors.password ? 'border-red-500' : 'border-lydian-border-medium'
+                          } rounded-lg focus:ring-2 focus:ring-[#FF214D] focus:border-transparent outline-none transition-all bg-lydian-bg/5 text-white`}
                           placeholder="••••••••"
                         />
                         <button
@@ -496,16 +496,16 @@ export default function OwnerRegisterPage() {
                           className="absolute inset-y-0 right-0 pr-3 flex items-center"
                         >
                           {showPassword ? (
-                            <EyeOff className="h-5 w-5 text-gray-400 hover:text-gray-300" />
+                            <EyeOff className="h-5 w-5 text-lydian-text-muted hover:text-lydian-text-dim" />
                           ) : (
-                            <Eye className="h-5 w-5 text-gray-400 hover:text-gray-300" />
+                            <Eye className="h-5 w-5 text-lydian-text-muted hover:text-lydian-text-dim" />
                           )}
                         </button>
                       </div>
                       {errors.password && (
                         <p className="mt-1 text-sm text-red-500">{errors.password}</p>
                       )}
-                      <p className="mt-1 text-xs text-gray-400">
+                      <p className="mt-1 text-xs text-lydian-text-muted">
                         En az 8 karakter, bir büyük harf, bir küçük harf ve bir rakam içermelidir
                       </p>
                     </div>
@@ -517,7 +517,7 @@ export default function OwnerRegisterPage() {
                       </label>
                       <div className="relative">
                         <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                          <Lock className="h-5 w-5 text-gray-400" />
+                          <Lock className="h-5 w-5 text-lydian-text-muted" />
                         </div>
                         <input
                           type={showConfirmPassword ? 'text' : 'password'}
@@ -526,8 +526,8 @@ export default function OwnerRegisterPage() {
                           value={formData.confirmPassword}
                           onChange={handleInputChange}
                           className={`block w-full pl-10 pr-10 py-3 border ${
-                            errors.confirmPassword ? 'border-red-500' : 'border-gray-300'
-                          } rounded-lg focus:ring-2 focus:ring-[#FF214D] focus:border-transparent outline-none transition-all bg-white/5 text-white`}
+                            errors.confirmPassword ? 'border-red-500' : 'border-lydian-border-medium'
+                          } rounded-lg focus:ring-2 focus:ring-[#FF214D] focus:border-transparent outline-none transition-all bg-lydian-bg/5 text-white`}
                           placeholder="••••••••"
                         />
                         <button
@@ -536,9 +536,9 @@ export default function OwnerRegisterPage() {
                           className="absolute inset-y-0 right-0 pr-3 flex items-center"
                         >
                           {showConfirmPassword ? (
-                            <EyeOff className="h-5 w-5 text-gray-400 hover:text-gray-300" />
+                            <EyeOff className="h-5 w-5 text-lydian-text-muted hover:text-lydian-text-dim" />
                           ) : (
-                            <Eye className="h-5 w-5 text-gray-400 hover:text-gray-300" />
+                            <Eye className="h-5 w-5 text-lydian-text-muted hover:text-lydian-text-dim" />
                           )}
                         </button>
                       </div>
@@ -569,15 +569,15 @@ export default function OwnerRegisterPage() {
                             }}
                             className={`p-4 border-2 rounded-lg flex flex-col items-center gap-2 transition-all ${
                               formData.propertyType === type.value
-                                ? 'border-[#FF214D] bg-red-50'
-                                : 'border-gray-200 hover:border-gray-300'
+                                ? 'border-lydian-primary bg-red-50'
+                                : 'border-lydian-border hover:border-lydian-border-medium'
                             }`}
                           >
                             <type.icon className={`w-6 h-6 ${
-                              formData.propertyType === type.value ? 'text-[#FF214D]' : 'text-gray-400'
+                              formData.propertyType === type.value ? 'text-lydian-primary' : 'text-lydian-text-muted'
                             }`} />
                             <span className={`text-sm font-medium ${
-                              formData.propertyType === type.value ? 'text-[#FF214D]' : 'text-gray-200'
+                              formData.propertyType === type.value ? 'text-lydian-primary' : 'text-gray-200'
                             }`}>
                               {type.label}
                             </span>
@@ -600,8 +600,8 @@ export default function OwnerRegisterPage() {
                         value={formData.numberOfProperties}
                         onChange={handleInputChange}
                         className={`block w-full px-3 py-3 border ${
-                          errors.numberOfProperties ? 'border-red-500' : 'border-gray-300'
-                        } rounded-lg focus:ring-2 focus:ring-[#FF214D] focus:border-transparent outline-none transition-all bg-white/5 text-white`}
+                          errors.numberOfProperties ? 'border-red-500' : 'border-lydian-border-medium'
+                        } rounded-lg focus:ring-2 focus:ring-[#FF214D] focus:border-transparent outline-none transition-all bg-lydian-bg/5 text-white`}
                       >
                         <option value="">Seçiniz</option>
                         {propertyCountOptions.map((option) => (
@@ -620,7 +620,7 @@ export default function OwnerRegisterPage() {
                       <button
                         type="button"
                         onClick={handleBack}
-                        className="flex-1 border-2 border-gray-300 text-gray-200 py-3 px-4 rounded-lg font-semibold hover:bg-white/5 transition-all duration-200 flex items-center justify-center gap-2"
+                        className="flex-1 border-2 border-lydian-border-medium text-gray-200 py-3 px-4 rounded-lg font-semibold hover:bg-lydian-bg/5 transition-all duration-200 flex items-center justify-center gap-2"
                       >
                         <ArrowLeft className="w-5 h-5" />
                         <span>Geri</span>
@@ -648,28 +648,28 @@ export default function OwnerRegisterPage() {
                     className="space-y-5"
                   >
                     {/* Summary */}
-                    <div className="bg-white/5 rounded-lg p-6 space-y-3">
+                    <div className="bg-lydian-bg/5 rounded-lg p-6 space-y-3">
                       <h3 className="font-semibold text-white mb-4">Kayıt Özeti</h3>
                       <div className="flex justify-between text-sm">
-                        <span className="text-gray-300">Ad Soyad:</span>
+                        <span className="text-lydian-text-dim">Ad Soyad:</span>
                         <span className="font-medium text-white">{formData.fullName}</span>
                       </div>
                       <div className="flex justify-between text-sm">
-                        <span className="text-gray-300">E-posta:</span>
+                        <span className="text-lydian-text-dim">E-posta:</span>
                         <span className="font-medium text-white">{formData.email}</span>
                       </div>
                       <div className="flex justify-between text-sm">
-                        <span className="text-gray-300">Telefon:</span>
+                        <span className="text-lydian-text-dim">Telefon:</span>
                         <span className="font-medium text-white">{formData.phone}</span>
                       </div>
                       <div className="flex justify-between text-sm">
-                        <span className="text-gray-300">Mülk Tipi:</span>
+                        <span className="text-lydian-text-dim">Mülk Tipi:</span>
                         <span className="font-medium text-white">
                           {propertyTypes.find(t => t.value === formData.propertyType)?.label}
                         </span>
                       </div>
                       <div className="flex justify-between text-sm">
-                        <span className="text-gray-300">Mülk Sayısı:</span>
+                        <span className="text-lydian-text-dim">Mülk Sayısı:</span>
                         <span className="font-medium text-white">
                           {propertyCountOptions.find(o => o.value === formData.numberOfProperties)?.label}
                         </span>
@@ -679,7 +679,7 @@ export default function OwnerRegisterPage() {
                     {/* Terms Acceptance */}
                     <div className="space-y-4">
                       <div className={`border-2 rounded-lg p-4 ${
-                        errors.termsAccepted ? 'border-red-500 bg-red-50' : 'border-gray-200'
+                        errors.termsAccepted ? 'border-red-500 bg-red-50' : 'border-lydian-border'
                       }`}>
                         <label className="flex items-start gap-3 cursor-pointer">
                           <input
@@ -687,14 +687,14 @@ export default function OwnerRegisterPage() {
                             name="termsAccepted"
                             checked={formData.termsAccepted}
                             onChange={handleInputChange}
-                            className="mt-1 h-5 w-5 text-[#FF214D] focus:ring-[#FF214D] border-gray-300 rounded cursor-pointer"
+                            className="mt-1 h-5 w-5 text-lydian-primary focus:ring-[#FF214D] border-lydian-border-medium rounded cursor-pointer"
                           />
                           <div className="flex-1">
                             <span className="text-white">
                               <Link
                                 href="/owner/auth/terms"
                                 target="_blank"
-                                className="font-medium text-[#FF214D] hover:text-[#FF6A45] underline"
+                                className="font-medium text-lydian-primary hover:text-[#FF6A45] underline"
                               >
                                 Kullanım Koşulları
                               </Link>
@@ -702,7 +702,7 @@ export default function OwnerRegisterPage() {
                               <Link
                                 href="/owner/auth/terms"
                                 target="_blank"
-                                className="font-medium text-[#FF214D] hover:text-[#FF6A45] underline"
+                                className="font-medium text-lydian-primary hover:text-[#FF6A45] underline"
                               >
                                 Mülk Sahibi Sözleşmesi
                               </Link>
@@ -716,7 +716,7 @@ export default function OwnerRegisterPage() {
                       </div>
 
                       <div className={`border-2 rounded-lg p-4 ${
-                        errors.kvkkAccepted ? 'border-red-500 bg-red-50' : 'border-gray-200'
+                        errors.kvkkAccepted ? 'border-red-500 bg-red-50' : 'border-lydian-border'
                       }`}>
                         <label className="flex items-start gap-3 cursor-pointer">
                           <input
@@ -724,7 +724,7 @@ export default function OwnerRegisterPage() {
                             name="kvkkAccepted"
                             checked={formData.kvkkAccepted}
                             onChange={handleInputChange}
-                            className="mt-1 h-5 w-5 text-[#FF214D] focus:ring-[#FF214D] border-gray-300 rounded cursor-pointer"
+                            className="mt-1 h-5 w-5 text-lydian-primary focus:ring-[#FF214D] border-lydian-border-medium rounded cursor-pointer"
                           />
                           <div className="flex-1">
                             <span className="text-white">
@@ -732,7 +732,7 @@ export default function OwnerRegisterPage() {
                               <Link
                                 href="/owner/auth/terms#kvkk"
                                 target="_blank"
-                                className="font-medium text-[#FF214D] hover:text-[#FF6A45] underline"
+                                className="font-medium text-lydian-primary hover:text-[#FF6A45] underline"
                               >
                                 KVKK Aydınlatma Metni
                               </Link>
@@ -751,7 +751,7 @@ export default function OwnerRegisterPage() {
                       <button
                         type="button"
                         onClick={handleBack}
-                        className="flex-1 border-2 border-gray-300 text-gray-200 py-3 px-4 rounded-lg font-semibold hover:bg-white/5 transition-all duration-200 flex items-center justify-center gap-2"
+                        className="flex-1 border-2 border-lydian-border-medium text-gray-200 py-3 px-4 rounded-lg font-semibold hover:bg-lydian-bg/5 transition-all duration-200 flex items-center justify-center gap-2"
                       >
                         <ArrowLeft className="w-5 h-5" />
                         <span>Geri</span>
@@ -781,11 +781,11 @@ export default function OwnerRegisterPage() {
 
             {/* Login Link */}
             <div className="mt-8 text-center">
-              <p className="text-gray-300">
+              <p className="text-lydian-text-dim">
                 Zaten hesabınız var mı?{' '}
                 <Link
                   href="/owner/auth/login"
-                  className="font-medium text-[#FF214D] hover:text-[#FF6A45] transition-colors"
+                  className="font-medium text-lydian-primary hover:text-[#FF6A45] transition-colors"
                 >
                   Giriş yapın
                 </Link>
@@ -796,7 +796,7 @@ export default function OwnerRegisterPage() {
             <div className="mt-4 text-center">
               <Link
                 href="/"
-                className="text-sm text-gray-300 hover:text-white transition-colors"
+                className="text-sm text-lydian-text-dim hover:text-white transition-colors"
               >
                 ← Ana sayfaya dön
               </Link>

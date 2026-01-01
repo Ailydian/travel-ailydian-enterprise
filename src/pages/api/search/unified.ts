@@ -1,6 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { prisma } from '@/lib/prisma';
 import logger from '../../../lib/logger';
+import { withRateLimit, publicRateLimiter } from '@/lib/middleware/rate-limiter';
 
 // AI-Powered Unified Search API
 // Tüm kategorilerde (otel, araç, uçuş, tur, transfer) arama yapar
@@ -166,7 +167,7 @@ function generateAISuggestions(
   return suggestions;
 }
 
-export default async function handler(
+async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
@@ -302,6 +303,8 @@ export default async function handler(
       return (b.rating || 0) - (a.rating || 0);
     });
 
+    // Set cache headers for better performance
+    res.setHeader('Cache-Control', 'public, max-age=300, s-maxage=600');
     return res.status(200).json({
       success: true,
       results,
@@ -319,3 +322,5 @@ export default async function handler(
     });
   }
 }
+
+export default withRateLimit(handler, publicRateLimiter);

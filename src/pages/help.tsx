@@ -1,5 +1,5 @@
 /**
- * Comprehensive Help Center Page - Travel.LyDian.com
+ * Comprehensive Help Center Page - Holiday.AILYDIAN.com
  * Inspired by GetYourGuide, Viator, Booking.com, TripAdvisor
  *
  * Features:
@@ -437,7 +437,7 @@ const faqs: FAQ[] = [
   id: 62,
   category: 'guvenlik',
   question: 'Phishing (dolandırıcılık) e-postalarından nasıl korunurum?',
-  answer: 'LyDian Travel asla e-posta ile şifre, kredi kartı bilgisi istemez! Şüpheli e-postalar için kontrol: 1) Gönderen adresi @lydian.com mi? 2) Kişisel bilgi isteniyor mu? 3) Acil eylem (hesabınız kapatılacak vb.) tehdidi var mı? Şüpheli e-posta aldıysanız açmayın, security@lydian.com adresine iletin.'
+  answer: 'AILYDIAN Holiday asla e-posta ile şifre, kredi kartı bilgisi istemez! Şüpheli e-postalar için kontrol: 1) Gönderen adresi @lydian.com mi? 2) Kişisel bilgi isteniyor mu? 3) Acil eylem (hesabınız kapatılacak vb.) tehdidi var mı? Şüpheli e-posta aldıysanız açmayın, security@lydian.com adresine iletin.'
 },
 {
   id: 63,
@@ -817,7 +817,7 @@ const HelpPage: React.FC = () => {
                       relative flex items-center gap-3 px-6 py-3 rounded-xl font-semibold transition-all
                       ${isActive ?
                     `bg-gradient-to-r ${category.color} text-white shadow-lg` :
-                    'bg-white/5 text-gray-200 hover:bg-white/5 shadow-md hover:shadow-lg'}
+                    'bg-lydian-bg/5 text-gray-200 hover:bg-lydian-bg/5 shadow-md hover:shadow-lg'}
                     `
                     }>
 
@@ -825,7 +825,7 @@ const HelpPage: React.FC = () => {
                     <span>{category.name}</span>
                     <span className={`
                       px-2 py-0.5 rounded-full text-xs font-bold
-                      ${isActive ? 'bg-white/20' : 'bg-white/10'}
+                      ${isActive ? 'bg-lydian-bg/20' : 'bg-lydian-bg/10'}
                     `}>
                       {category.count}
                     </span>

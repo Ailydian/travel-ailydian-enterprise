@@ -437,7 +437,7 @@ const FloatingActionButton: React.FC<FloatingActionButtonProps> = ({
           transition-all duration-300
           ${active ?
         'bg-gradient-to-br border-white/40' :
-        'bg-white/20 border-white/40 hover:bg-white/30'}
+        'bg-lydian-bg/20 border-white/40 hover:bg-lydian-bg/30'}
         `
         }
         style={{

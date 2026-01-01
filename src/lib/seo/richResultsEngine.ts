@@ -177,7 +177,7 @@ export class RichResultsEngine {
       'og:image:height': (pageData.imageHeight || 675).toString(),
       'og:image:alt': pageData.title,
       'og:url': pageData.url,
-      'og:site_name': 'LyDian Travel - Premium Tourism Platform',
+      'og:site_name': 'AILYDIAN Holiday - Premium Tourism Platform',
       'og:locale': pageData.locale || 'tr_TR'
     };
 
@@ -365,7 +365,7 @@ export class RichResultsEngine {
       image: productData.images.map((img, idx) => this.createImageObject(img, `${productData.name} - ${idx + 1}`)),
       brand: {
         '@type': 'Brand',
-        name: productData.brand || 'LyDian Travel'
+        name: productData.brand || 'AILYDIAN Holiday'
       },
       category: productData.category || 'Tourism & Travel Services',
       offers: {
@@ -479,7 +479,7 @@ export class RichResultsEngine {
       organizer: {
         '@type': 'Organization',
         name: eventData.organizer,
-        url: 'https://travel.lydian.com'
+        url: 'https://holiday.ailydian.com'
       },
       offers: eventData.price ? {
         '@type': 'Offer',
@@ -616,7 +616,7 @@ export class RichResultsEngine {
   private optimizeImageUrl(url: string): string {
     // Ensure absolute URL
     if (!url.startsWith('http')) {
-      url = `https://travel.lydian.com${url}`;
+      url = `https://holiday.ailydian.com${url}`;
     }
 
     // Add WebP optimization parameters if using Vercel or Cloudinary

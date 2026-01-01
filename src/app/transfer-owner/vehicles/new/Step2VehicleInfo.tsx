@@ -100,7 +100,7 @@ export default function Step2VehicleInfo({ data, allData }: Step2Props) {
           />
           <p className="mt-1 text-xs text-slate-500">Ticari sarı plaka numaranızı girin</p>
           {errors.licensePlate && (
-            <p className="mt-1 text-sm text-red-600">
+            <p className="mt-1 text-sm text-lydian-error">
               {errors.licensePlate.message?.toString()}
             </p>
           )}
@@ -117,7 +117,7 @@ export default function Step2VehicleInfo({ data, allData }: Step2Props) {
             className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-cyan-500 focus:ring-2 focus:ring-cyan-200 outline-none transition-all"
           />
           {errors.brand && (
-            <p className="mt-1 text-sm text-red-600">{errors.brand.message?.toString()}</p>
+            <p className="mt-1 text-sm text-lydian-error">{errors.brand.message?.toString()}</p>
           )}
         </div>
       </div>
@@ -135,7 +135,7 @@ export default function Step2VehicleInfo({ data, allData }: Step2Props) {
             className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-cyan-500 focus:ring-2 focus:ring-cyan-200 outline-none transition-all"
           />
           {errors.model && (
-            <p className="mt-1 text-sm text-red-600">{errors.model.message?.toString()}</p>
+            <p className="mt-1 text-sm text-lydian-error">{errors.model.message?.toString()}</p>
           )}
         </div>
 
@@ -155,7 +155,7 @@ export default function Step2VehicleInfo({ data, allData }: Step2Props) {
             ))}
           </select>
           {errors.year && (
-            <p className="mt-1 text-sm text-red-600">{errors.year.message?.toString()}</p>
+            <p className="mt-1 text-sm text-lydian-error">{errors.year.message?.toString()}</p>
           )}
         </div>
 
@@ -185,7 +185,7 @@ export default function Step2VehicleInfo({ data, allData }: Step2Props) {
             )}
           </div>
           {errors.color && (
-            <p className="mt-1 text-sm text-red-600">{errors.color.message?.toString()}</p>
+            <p className="mt-1 text-sm text-lydian-error">{errors.color.message?.toString()}</p>
           )}
         </div>
       </div>
@@ -213,7 +213,7 @@ export default function Step2VehicleInfo({ data, allData }: Step2Props) {
             />
             <p className="mt-1 text-xs text-slate-500">Maksimum yolcu sayısı</p>
             {errors.passengerCapacity && (
-              <p className="mt-1 text-sm text-red-600">
+              <p className="mt-1 text-sm text-lydian-error">
                 {errors.passengerCapacity.message?.toString()}
               </p>
             )}
@@ -238,7 +238,7 @@ export default function Step2VehicleInfo({ data, allData }: Step2Props) {
             />
             <p className="mt-1 text-xs text-slate-500">Standart valiz (23kg) sayısı</p>
             {errors.luggageCapacity && (
-              <p className="mt-1 text-sm text-red-600">
+              <p className="mt-1 text-sm text-lydian-error">
                 {errors.luggageCapacity.message?.toString()}
               </p>
             )}
@@ -268,7 +268,7 @@ export default function Step2VehicleInfo({ data, allData }: Step2Props) {
                 className={`p-4 border-2 rounded-xl text-left transition-all ${
                   isSelected
                     ? 'border-cyan-500 bg-cyan-50 shadow-md'
-                    : 'border-slate-200 bg-white/5 hover:border-slate-300'
+                    : 'border-slate-200 bg-lydian-bg/5 hover:border-slate-300'
                 }`}
               >
                 <div className="flex items-center gap-3">
@@ -332,7 +332,7 @@ export default function Step2VehicleInfo({ data, allData }: Step2Props) {
             />
             <p className="mt-1 text-xs text-slate-500">Turizm işletme belgesi numaranız</p>
             {errors.d2LicenseNumber && (
-              <p className="mt-1 text-sm text-red-600">
+              <p className="mt-1 text-sm text-lydian-error">
                 {errors.d2LicenseNumber.message?.toString()}
               </p>
             )}
@@ -375,22 +375,22 @@ export default function Step2VehicleInfo({ data, allData }: Step2Props) {
         <h4 className="font-semibold text-blue-900 mb-3">Önemli Bilgiler</h4>
         <ul className="text-sm text-blue-800 space-y-2">
           <li className="flex items-start gap-2">
-            <span className="text-blue-600 mt-0.5">•</span>
+            <span className="text-lydian-primary mt-0.5">•</span>
             <span>
               Tüm transfer araçları için <strong>ticari sarı plaka</strong> ve{' '}
               <strong>D2 turizm belgesi</strong> zorunludur
             </span>
           </li>
           <li className="flex items-start gap-2">
-            <span className="text-blue-600 mt-0.5">•</span>
+            <span className="text-lydian-primary mt-0.5">•</span>
             <span>Kapasite bilgileri, rezervasyon sisteminde kullanılacaktır</span>
           </li>
           <li className="flex items-start gap-2">
-            <span className="text-blue-600 mt-0.5">•</span>
+            <span className="text-lydian-primary mt-0.5">•</span>
             <span>Seçtiğiniz özellikler müşterilere gösterilecek ve fiyatlandırmayı etkileyebilir</span>
           </li>
           <li className="flex items-start gap-2">
-            <span className="text-blue-600 mt-0.5">•</span>
+            <span className="text-lydian-primary mt-0.5">•</span>
             <span>Araç bilgilerinin doğru olması, müşteri memnuniyeti için önemlidir</span>
           </li>
         </ul>

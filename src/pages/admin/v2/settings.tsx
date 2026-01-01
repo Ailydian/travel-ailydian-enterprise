@@ -158,7 +158,7 @@ const SystemSettings = () => {
 const GeneralSettings = ({ onSave, saving }: any) => {
   const [formData, setFormData] = useState({
     siteName: 'Travel LyDian',
-    siteUrl: 'https://travel.lydian.com',
+    siteUrl: 'https://holiday.ailydian.com',
     supportEmail: 'support@lydian.com',
     defaultLanguage: 'tr',
     defaultCurrency: 'TRY',

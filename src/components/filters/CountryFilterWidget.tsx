@@ -60,18 +60,18 @@ export const CountryFilterWidget: React.FC<CountryFilterWidgetProps> = ({
           className={`w-full flex items-center justify-between p-4 rounded-xl transition-all duration-300 ${
           selectedCountry === null ?
           'bg-gradient-to-r from-lydian-primary to-lydian-secondary text-white shadow-lg shadow-red-500/30' :
-          'bg-white/5 hover:bg-white/10 text-gray-200'}`
+          'bg-lydian-bg/5 hover:bg-lydian-bg/10 text-gray-200'}`
           }>
 
           <div className="flex items-center gap-3">
             <div className={`p-2 rounded-lg ${
-            selectedCountry === null ? 'bg-white/20' : 'bg-white'}`
+            selectedCountry === null ? 'bg-lydian-bg/20' : 'bg-lydian-bg'}`
             }>
               <Globe className={`w-5 h-5 ${selectedCountry === null ? 'text-white' : 'text-lydian-primary'}`} />
             </div>
             <div className="text-left">
               <p className="font-bold">{t('tours.allCountries') || 'Tüm Ülkeler'}</p>
-              <p className={`text-sm ${selectedCountry === null ? 'text-white/80' : 'text-gray-400'}`}>
+              <p className={`text-sm ${selectedCountry === null ? 'text-white/80' : 'text-lydian-text-muted'}`}>
                 {countries.reduce((sum, c) => sum + c.tourCount, 0)} {t('tours.tours') || 'tur'}
               </p>
             </div>
@@ -100,14 +100,14 @@ export const CountryFilterWidget: React.FC<CountryFilterWidgetProps> = ({
           className={`w-full flex items-center justify-between p-4 rounded-xl transition-all duration-300 ${
           selectedCountry === country.code ?
           'bg-gradient-to-r from-lydian-primary to-lydian-secondary text-white shadow-lg shadow-red-500/30' :
-          'bg-white/5 hover:bg-white/10 text-gray-200'}`
+          'bg-lydian-bg/5 hover:bg-lydian-bg/10 text-gray-200'}`
           }>
 
             <div className="flex items-center gap-3">
               <div className="text-3xl">{country.flag}</div>
               <div className="text-left">
                 <p className="font-bold">{country.name[currentLang]}</p>
-                <p className={`text-sm ${selectedCountry === country.code ? 'text-white/80' : 'text-gray-400'}`}>
+                <p className={`text-sm ${selectedCountry === country.code ? 'text-white/80' : 'text-lydian-text-muted'}`}>
                   {country.tourCount} {t('tours.tours') || 'tur'}
                 </p>
               </div>

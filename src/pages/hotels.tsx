@@ -278,7 +278,7 @@ const HotelsNewPage: React.FC = () => {
                     value={destination}
                     onChange={(e) => setDestination(e.target.value)}
                     placeholder="Nereye gidiyorsunuz?"
-                    className="w-full pl-10 pr-4 py-3 bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl text-lydian-text-inverse placeholder-lydian-text-muted focus:outline-none focus:ring-2 focus:ring-pink-500/50 focus:border-pink-500/50 transition-all hover:bg-white/10" />
+                    className="w-full pl-10 pr-4 py-3 bg-lydian-bg/5 backdrop-blur-xl border border-white/10 rounded-xl text-lydian-text-inverse placeholder-lydian-text-muted focus:outline-none focus:ring-2 focus:ring-pink-500/50 focus:border-pink-500/50 transition-all hover:bg-lydian-bg/10" />
 
                 </div>
 
@@ -288,7 +288,7 @@ const HotelsNewPage: React.FC = () => {
                     type="date"
                     value={checkIn}
                     onChange={(e) => setCheckIn(e.target.value)}
-                    className="w-full pl-10 pr-4 py-3 bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl text-lydian-text-inverse focus:outline-none focus:ring-2 focus:ring-pink-500/50 focus:border-pink-500/50 transition-all hover:bg-white/10" />
+                    className="w-full pl-10 pr-4 py-3 bg-lydian-bg/5 backdrop-blur-xl border border-white/10 rounded-xl text-lydian-text-inverse focus:outline-none focus:ring-2 focus:ring-pink-500/50 focus:border-pink-500/50 transition-all hover:bg-lydian-bg/10" />
 
                 </div>
 
@@ -298,7 +298,7 @@ const HotelsNewPage: React.FC = () => {
                     type="date"
                     value={checkOut}
                     onChange={(e) => setCheckOut(e.target.value)}
-                    className="w-full pl-10 pr-4 py-3 bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl text-lydian-text-inverse focus:outline-none focus:ring-2 focus:ring-pink-500/50 focus:border-pink-500/50 transition-all hover:bg-white/10" />
+                    className="w-full pl-10 pr-4 py-3 bg-lydian-bg/5 backdrop-blur-xl border border-white/10 rounded-xl text-lydian-text-inverse focus:outline-none focus:ring-2 focus:ring-pink-500/50 focus:border-pink-500/50 transition-all hover:bg-lydian-bg/10" />
 
                 </div>
 
@@ -307,7 +307,7 @@ const HotelsNewPage: React.FC = () => {
                   <select
                     value={guests}
                     onChange={(e) => setGuests(Number(e.target.value))}
-                    className="w-full pl-10 pr-4 py-3 bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl text-lydian-text-inverse focus:outline-none focus:ring-2 focus:ring-pink-500/50 focus:border-pink-500/50 transition-all hover:bg-white/10 appearance-none cursor-pointer">
+                    className="w-full pl-10 pr-4 py-3 bg-lydian-bg/5 backdrop-blur-xl border border-white/10 rounded-xl text-lydian-text-inverse focus:outline-none focus:ring-2 focus:ring-pink-500/50 focus:border-pink-500/50 transition-all hover:bg-lydian-bg/10 appearance-none cursor-pointer">
 
                     <option value={1} className="bg-lydian-bg text-lydian-text-inverse">1 Misafir</option>
                     <option value={2} className="bg-lydian-bg text-lydian-text-inverse">2 Misafir</option>
@@ -360,7 +360,7 @@ const HotelsNewPage: React.FC = () => {
                 <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
                   <button
                     onClick={() => setShowFilters(!showFilters)}
-                    className="flex items-center gap-2 px-5 py-3 bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl hover:bg-white/10 hover:border-pink-500/50 transition-all relative group">
+                    className="flex items-center gap-2 px-5 py-3 bg-lydian-bg/5 backdrop-blur-xl border border-white/10 rounded-xl hover:bg-lydian-bg/10 hover:border-pink-500/50 transition-all relative group">
 
                     <SlidersHorizontal className="w-4 h-4 text-pink-400 group-hover:rotate-90 transition-transform" />
                     <span className="text-lydian-text-inverse font-medium">Filtreler</span>
@@ -381,7 +381,7 @@ const HotelsNewPage: React.FC = () => {
                   <select
                     value={sortBy}
                     onChange={(e) => setSortBy(e.target.value)}
-                    className="pl-10 pr-4 py-3 bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl text-lydian-text-inverse hover:bg-white/10 hover:border-pink-500/50 transition-all appearance-none cursor-pointer focus:outline-none focus:ring-2 focus:ring-pink-500/50">
+                    className="pl-10 pr-4 py-3 bg-lydian-bg/5 backdrop-blur-xl border border-white/10 rounded-xl text-lydian-text-inverse hover:bg-lydian-bg/10 hover:border-pink-500/50 transition-all appearance-none cursor-pointer focus:outline-none focus:ring-2 focus:ring-pink-500/50">
 
                     <option value="popularity" className="bg-lydian-bg text-lydian-text-inverse">Popülerlik</option>
                     <option value="price-low" className="bg-lydian-bg text-lydian-text-inverse">Fiyat (Düşük-Yüksek)</option>
@@ -526,10 +526,10 @@ const HotelsNewPage: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="bg-lydian-glass-dark-medium backdrop-blur-xl border border-lydian-border-light rounded-3xl p-8 hover:border-blue-500/50 transition-all group">
+              className="bg-lydian-glass-dark-medium backdrop-blur-xl border border-lydian-border-light rounded-3xl p-8 hover:border-lydian-primary/50 transition-all group">
 
               <div className="flex items-center gap-4 mb-6">
-                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500/20 to-blue-600/20 border border-blue-500/30 flex items-center justify-center group-hover:scale-110 transition-transform">
+                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500/20 to-blue-600/20 border border-lydian-primary/30 flex items-center justify-center group-hover:scale-110 transition-transform">
                   <FileText className="w-7 h-7 text-blue-400" />
                 </div>
                 <h3 className="text-2xl font-bold text-lydian-text-inverse">Rezervasyon Koşulları</h3>

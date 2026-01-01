@@ -13,6 +13,8 @@ import {
   LogOut,
   HelpCircle } from
 'lucide-react';
+import { getHeaderHeightClasses, getHeaderContainerClasses, LAYOUT_CONSTANTS } from '@/config/layout-constants';
+import { ThemeToggle } from '@/components/theme/ThemeToggle';
 
 interface Breadcrumb {
   label: string;
@@ -87,9 +89,9 @@ const DashboardHeader: React.FC<DashboardHeaderProps> = ({
   };
 
   return (
-    <header className="sticky top-0 z-30 bg-lydian-glass-dark border-b border-lydian-border-light/10 shadow-sm">
-      <div className="px-4 sm:px-6 lg:px-8">
-        <div className="flex h-16 items-center justify-between">
+    <header className={`sticky top-0 ${LAYOUT_CONSTANTS.header.zIndex} bg-lydian-glass-dark dark:bg-gray-900/95 border-b border-lydian-border-light/10 dark:border-gray-800 shadow-sm transition-colors duration-300`}>
+      <div className={getHeaderContainerClasses()}>
+        <div className={`flex items-center justify-between ${getHeaderHeightClasses()}`}>
           {/* Left section: Mobile menu + Breadcrumbs */}
           <div className="flex items-center space-x-4 flex-1 min-w-0">
             {/* Mobile menu toggle */}
@@ -130,6 +132,9 @@ const DashboardHeader: React.FC<DashboardHeaderProps> = ({
 
           {/* Right section: Search + Notifications + User menu */}
           <div className="flex items-center space-x-4">
+            {/* Theme Toggle */}
+            <ThemeToggle variant="icon" />
+
             {/* Search bar */}
             <form onSubmit={handleSearch} className="hidden md:block">
               <div className="relative">

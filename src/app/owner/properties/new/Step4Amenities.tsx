@@ -55,7 +55,7 @@ export default function Step4Amenities({ data }: Step4Props) {
             </label>
             <select
               {...register('currency')}
-              className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all bg-white/5"
+              className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-lydian-primary focus:ring-2 focus:ring-blue-200 outline-none transition-all bg-lydian-bg/5"
             >
               <option value="">Para birimi seçin</option>
               {currencies.map((curr) => (
@@ -65,7 +65,7 @@ export default function Step4Amenities({ data }: Step4Props) {
               ))}
             </select>
             {errors.currency && (
-              <p className="mt-1 text-sm text-red-600">
+              <p className="mt-1 text-sm text-lydian-error">
                 {errors.currency.message?.toString()}
               </p>
             )}
@@ -84,11 +84,11 @@ export default function Step4Amenities({ data }: Step4Props) {
                 min={10}
                 step={1}
                 placeholder="100"
-                className="w-full pl-12 pr-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
+                className="w-full pl-12 pr-4 py-3 border-2 border-slate-200 rounded-lg focus:border-lydian-primary focus:ring-2 focus:ring-blue-200 outline-none transition-all"
               />
             </div>
             {errors.basePrice && (
-              <p className="mt-1 text-sm text-red-600">
+              <p className="mt-1 text-sm text-lydian-error">
                 {errors.basePrice.message?.toString()}
               </p>
             )}
@@ -100,7 +100,7 @@ export default function Step4Amenities({ data }: Step4Props) {
       <div className="border-2 border-slate-200 rounded-xl p-6">
         <div className="flex items-center gap-3 mb-4">
           <div className="p-2 bg-green-100 rounded-lg">
-            <TrendingDown className="w-5 h-5 text-green-600" />
+            <TrendingDown className="w-5 h-5 text-lydian-success" />
           </div>
           <h3 className="text-lg font-bold text-slate-900">Konaklama Süresi İndirimleri</h3>
         </div>
@@ -123,11 +123,11 @@ export default function Step4Amenities({ data }: Step4Props) {
                 max={100}
                 step={1}
                 placeholder="10"
-                className="w-full px-4 pr-12 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
+                className="w-full px-4 pr-12 py-3 border-2 border-slate-200 rounded-lg focus:border-lydian-primary focus:ring-2 focus:ring-blue-200 outline-none transition-all"
               />
             </div>
             {weeklyPrice && (
-              <p className="mt-1 text-sm text-green-600">
+              <p className="mt-1 text-sm text-lydian-success">
                 ≈ ${weeklyPrice.toFixed(0)} haftalık
               </p>
             )}
@@ -147,11 +147,11 @@ export default function Step4Amenities({ data }: Step4Props) {
                 max={100}
                 step={1}
                 placeholder="20"
-                className="w-full px-4 pr-12 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
+                className="w-full px-4 pr-12 py-3 border-2 border-slate-200 rounded-lg focus:border-lydian-primary focus:ring-2 focus:ring-blue-200 outline-none transition-all"
               />
             </div>
             {monthlyPrice && (
-              <p className="mt-1 text-sm text-green-600">
+              <p className="mt-1 text-sm text-lydian-success">
                 ≈ ${monthlyPrice.toFixed(0)} aylık
               </p>
             )}
@@ -171,7 +171,7 @@ export default function Step4Amenities({ data }: Step4Props) {
                 max={100}
                 step={1}
                 placeholder="5"
-                className="w-full px-4 pr-12 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
+                className="w-full px-4 pr-12 py-3 border-2 border-slate-200 rounded-lg focus:border-lydian-primary focus:ring-2 focus:ring-blue-200 outline-none transition-all"
               />
             </div>
             <p className="mt-1 text-xs text-slate-500">
@@ -199,7 +199,7 @@ export default function Step4Amenities({ data }: Step4Props) {
                 min={0}
                 step={1}
                 placeholder="50"
-                className="w-full pl-12 pr-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
+                className="w-full pl-12 pr-4 py-3 border-2 border-slate-200 rounded-lg focus:border-lydian-primary focus:ring-2 focus:ring-blue-200 outline-none transition-all"
               />
             </div>
             <p className="mt-1 text-xs text-slate-500">Rezervasyon başına tek seferlik ücret</p>
@@ -218,7 +218,7 @@ export default function Step4Amenities({ data }: Step4Props) {
                 min={0}
                 step={1}
                 placeholder="25"
-                className="w-full pl-12 pr-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
+                className="w-full pl-12 pr-4 py-3 border-2 border-slate-200 rounded-lg focus:border-lydian-primary focus:ring-2 focus:ring-blue-200 outline-none transition-all"
               />
             </div>
             <p className="mt-1 text-xs text-slate-500">Rezervasyon başına tek seferlik ücret</p>
@@ -238,7 +238,7 @@ export default function Step4Amenities({ data }: Step4Props) {
                 max={100}
                 step={0.1}
                 placeholder="10"
-                className="w-full px-4 pr-12 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
+                className="w-full px-4 pr-12 py-3 border-2 border-slate-200 rounded-lg focus:border-lydian-primary focus:ring-2 focus:ring-blue-200 outline-none transition-all"
               />
             </div>
             <p className="mt-1 text-xs text-slate-500">
@@ -259,7 +259,7 @@ export default function Step4Amenities({ data }: Step4Props) {
                 min={0}
                 step={1}
                 placeholder="30"
-                className="w-full pl-12 pr-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
+                className="w-full pl-12 pr-4 py-3 border-2 border-slate-200 rounded-lg focus:border-lydian-primary focus:ring-2 focus:ring-blue-200 outline-none transition-all"
               />
             </div>
             <div className="mt-2">
@@ -267,7 +267,7 @@ export default function Step4Amenities({ data }: Step4Props) {
                 <input
                   type="checkbox"
                   {...register('fees.petFeePerNight')}
-                  className="w-4 h-4 text-blue-600 rounded focus:ring-2 focus:ring-blue-500"
+                  className="w-4 h-4 text-lydian-primary rounded focus:ring-2 focus:ring-lydian-primary"
                 />
                 <span className="text-sm text-slate-700">Gecelik ücret</span>
               </label>
@@ -280,7 +280,7 @@ export default function Step4Amenities({ data }: Step4Props) {
       <div className="border-2 border-slate-200 rounded-xl p-6">
         <div className="flex items-center gap-3 mb-4">
           <div className="p-2 bg-blue-100 rounded-lg">
-            <Calendar className="w-5 h-5 text-blue-600" />
+            <Calendar className="w-5 h-5 text-lydian-primary" />
           </div>
           <h3 className="text-lg font-bold text-slate-900">Konaklama Gereksinimleri</h3>
         </div>
@@ -298,14 +298,14 @@ export default function Step4Amenities({ data }: Step4Props) {
                 min={1}
                 max={365}
                 placeholder="1"
-                className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
+                className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-lydian-primary focus:ring-2 focus:ring-blue-200 outline-none transition-all"
               />
               <span className="absolute right-4 top-1/2 -translate-y-1/2 text-sm text-slate-500">
                 gece
               </span>
             </div>
             {errors.availability?.minStay && (
-              <p className="mt-1 text-sm text-red-600">
+              <p className="mt-1 text-sm text-lydian-error">
                 {errors.availability.minStay.message?.toString()}
               </p>
             )}
@@ -323,14 +323,14 @@ export default function Step4Amenities({ data }: Step4Props) {
                 min={1}
                 max={365}
                 placeholder="Limit yok"
-                className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
+                className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-lydian-primary focus:ring-2 focus:ring-blue-200 outline-none transition-all"
               />
               <span className="absolute right-4 top-1/2 -translate-y-1/2 text-sm text-slate-500">
                 gece
               </span>
             </div>
             {errors.availability?.maxStay && (
-              <p className="mt-1 text-sm text-red-600">
+              <p className="mt-1 text-sm text-lydian-error">
                 {errors.availability.maxStay.message?.toString()}
               </p>
             )}
@@ -350,13 +350,13 @@ export default function Step4Amenities({ data }: Step4Props) {
             {weeklyDiscount > 0 && weeklyPrice && (
               <div className="flex justify-between">
                 <span className="text-slate-700">Haftalık ücret (%{weeklyDiscount} indirimli):</span>
-                <span className="font-semibold text-green-600">${weeklyPrice.toFixed(0)}</span>
+                <span className="font-semibold text-lydian-success">${weeklyPrice.toFixed(0)}</span>
               </div>
             )}
             {monthlyDiscount > 0 && monthlyPrice && (
               <div className="flex justify-between">
                 <span className="text-slate-700">Aylık ücret (%{monthlyDiscount} indirimli):</span>
-                <span className="font-semibold text-green-600">${monthlyPrice.toFixed(0)}</span>
+                <span className="font-semibold text-lydian-success">${monthlyPrice.toFixed(0)}</span>
               </div>
             )}
             {watch('fees.cleaningFee') > 0 && (

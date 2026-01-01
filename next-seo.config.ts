@@ -1,25 +1,25 @@
 import { DefaultSeoProps } from 'next-seo';
 
 const config: DefaultSeoProps = {
-  defaultTitle: 'LyDian Travel - AI-Powered Enterprise Travel Platform | Hotels, Flights & Transfers',
-  titleTemplate: '%s | LyDian Travel',
-  description: 'Discover the future of travel with LyDian AI. Book hotels, flights, and airport transfers worldwide. Blockchain-secured bookings, VR previews, and personalized AI travel planning.',
+  defaultTitle: 'AILYDIAN Holiday - AI-Powered Holiday Travel Platform | Hotels, Flights & Transfers',
+  titleTemplate: '%s | AILYDIAN Holiday',
+  description: 'Discover the future of travel with AILYDIAN AI. Book hotels, flights, and airport transfers worldwide. Blockchain-secured bookings, VR previews, and personalized AI travel planning.',
 
-  canonical: 'https://travel.lydian.com',
+  canonical: 'https://holiday.ailydian.com',
 
   openGraph: {
     type: 'website',
     locale: 'tr_TR',
-    url: 'https://travel.lydian.com',
-    siteName: 'LyDian Travel',
-    title: 'LyDian Travel - AI-Powered Enterprise Travel Platform',
+    url: 'https://holiday.ailydian.com',
+    siteName: 'AILYDIAN Holiday',
+    title: 'AILYDIAN Holiday - AI-Powered Holiday Travel Platform',
     description: 'Türkiye\'nin en gelişmiş AI destekli seyahat platformu. Oteller, uçuş biletleri ve havalimanı transferleri.',
     images: [
       {
-        url: 'https://travel.lydian.com/images/og-image.jpg',
+        url: 'https://holiday.ailydian.com/images/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'LyDian Travel Platform',
+        alt: 'AILYDIAN Holiday Platform',
         type: 'image/jpeg',
       },
     ],
@@ -38,7 +38,7 @@ const config: DefaultSeoProps = {
     },
     {
       name: 'author',
-      content: 'LyDian Travel',
+      content: 'AILYDIAN Holiday',
     },
     {
       name: 'viewport',
@@ -50,7 +50,7 @@ const config: DefaultSeoProps = {
     },
     {
       name: 'application-name',
-      content: 'LyDian Travel',
+      content: 'AILYDIAN Holiday',
     },
     {
       name: 'apple-mobile-web-app-capable',

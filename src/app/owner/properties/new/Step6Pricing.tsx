@@ -82,7 +82,7 @@ export default function Step6Pricing({ data }: Step6Props) {
       <div className="border-2 border-slate-200 rounded-xl p-6">
         <div className="flex items-center gap-3 mb-4">
           <div className="p-2 bg-blue-100 rounded-lg">
-            <Clock className="w-5 h-5 text-blue-600" />
+            <Clock className="w-5 h-5 text-lydian-primary" />
           </div>
           <h3 className="text-lg font-bold text-slate-900">Giriş ve Çıkış</h3>
         </div>
@@ -95,13 +95,13 @@ export default function Step6Pricing({ data }: Step6Props) {
             <input
               type="time"
               {...register('checkInTime')}
-              className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
+              className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-lydian-primary focus:ring-2 focus:ring-blue-200 outline-none transition-all"
             />
             <p className="mt-1 text-xs text-slate-500">
               Format: SS:dd (24 saat formatı)
             </p>
             {errors.checkInTime && (
-              <p className="mt-1 text-sm text-red-600">
+              <p className="mt-1 text-sm text-lydian-error">
                 {errors.checkInTime.message?.toString()}
               </p>
             )}
@@ -114,13 +114,13 @@ export default function Step6Pricing({ data }: Step6Props) {
             <input
               type="time"
               {...register('checkOutTime')}
-              className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
+              className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-lydian-primary focus:ring-2 focus:ring-blue-200 outline-none transition-all"
             />
             <p className="mt-1 text-xs text-slate-500">
               Format: SS:dd (24 saat formatı)
             </p>
             {errors.checkOutTime && (
-              <p className="mt-1 text-sm text-red-600">
+              <p className="mt-1 text-sm text-lydian-error">
                 {errors.checkOutTime.message?.toString()}
               </p>
             )}
@@ -137,7 +137,7 @@ export default function Step6Pricing({ data }: Step6Props) {
           <div className="flex items-center justify-between p-4 bg-slate-50 rounded-lg">
             <div className="flex items-center gap-3">
               <div className="p-2 bg-red-100 rounded-lg">
-                <Ban className="w-5 h-5 text-red-600" />
+                <Ban className="w-5 h-5 text-lydian-error" />
               </div>
               <div>
                 <label
@@ -155,7 +155,7 @@ export default function Step6Pricing({ data }: Step6Props) {
               type="checkbox"
               id="smokingAllowed"
               {...register('policies.smokingAllowed')}
-              className="w-6 h-6 text-blue-600 rounded focus:ring-2 focus:ring-blue-500"
+              className="w-6 h-6 text-lydian-primary rounded focus:ring-2 focus:ring-lydian-primary"
             />
           </div>
 
@@ -181,13 +181,13 @@ export default function Step6Pricing({ data }: Step6Props) {
               type="checkbox"
               id="petsAllowed"
               {...register('policies.petsAllowed')}
-              className="w-6 h-6 text-blue-600 rounded focus:ring-2 focus:ring-blue-500"
+              className="w-6 h-6 text-lydian-primary rounded focus:ring-2 focus:ring-lydian-primary"
             />
           </div>
 
           {/* Pet Types (conditional) */}
           {watch('policies.petsAllowed') && (
-            <div className="ml-14 p-4 bg-white/5 border border-slate-200 rounded-lg">
+            <div className="ml-14 p-4 bg-lydian-bg/5 border border-slate-200 rounded-lg">
               <label className="block text-sm font-medium text-slate-700 mb-2">
                 İzin Verilen Evcil Hayvan Türleri
               </label>
@@ -197,7 +197,7 @@ export default function Step6Pricing({ data }: Step6Props) {
                     type="checkbox"
                     value="dogs"
                     {...register('policies.petTypes')}
-                    className="w-4 h-4 text-blue-600 rounded"
+                    className="w-4 h-4 text-lydian-primary rounded"
                   />
                   <span className="text-sm text-slate-700">Köpekler</span>
                 </label>
@@ -206,7 +206,7 @@ export default function Step6Pricing({ data }: Step6Props) {
                     type="checkbox"
                     value="cats"
                     {...register('policies.petTypes')}
-                    className="w-4 h-4 text-blue-600 rounded"
+                    className="w-4 h-4 text-lydian-primary rounded"
                   />
                   <span className="text-sm text-slate-700">Kediler</span>
                 </label>
@@ -215,7 +215,7 @@ export default function Step6Pricing({ data }: Step6Props) {
                     type="checkbox"
                     value="other"
                     {...register('policies.petTypes')}
-                    className="w-4 h-4 text-blue-600 rounded"
+                    className="w-4 h-4 text-lydian-primary rounded"
                   />
                   <span className="text-sm text-slate-700">Diğer küçük evcil hayvanlar</span>
                 </label>
@@ -245,7 +245,7 @@ export default function Step6Pricing({ data }: Step6Props) {
               type="checkbox"
               id="eventsAllowed"
               {...register('policies.eventsAllowed')}
-              className="w-6 h-6 text-blue-600 rounded focus:ring-2 focus:ring-blue-500"
+              className="w-6 h-6 text-lydian-primary rounded focus:ring-2 focus:ring-lydian-primary"
             />
           </div>
 
@@ -271,7 +271,7 @@ export default function Step6Pricing({ data }: Step6Props) {
               type="checkbox"
               id="partiesAllowed"
               {...register('policies.partiesAllowed')}
-              className="w-6 h-6 text-blue-600 rounded focus:ring-2 focus:ring-blue-500"
+              className="w-6 h-6 text-lydian-primary rounded focus:ring-2 focus:ring-lydian-primary"
             />
           </div>
 
@@ -279,7 +279,7 @@ export default function Step6Pricing({ data }: Step6Props) {
           <div className="flex items-center justify-between p-4 bg-slate-50 rounded-lg">
             <div className="flex items-center gap-3">
               <div className="p-2 bg-green-100 rounded-lg">
-                <Camera className="w-5 h-5 text-green-600" />
+                <Camera className="w-5 h-5 text-lydian-success" />
               </div>
               <div>
                 <label
@@ -297,7 +297,7 @@ export default function Step6Pricing({ data }: Step6Props) {
               type="checkbox"
               id="commercialPhotographyAllowed"
               {...register('policies.commercialPhotographyAllowed')}
-              className="w-6 h-6 text-blue-600 rounded focus:ring-2 focus:ring-blue-500"
+              className="w-6 h-6 text-lydian-primary rounded focus:ring-2 focus:ring-lydian-primary"
             />
           </div>
         </div>
@@ -322,7 +322,7 @@ export default function Step6Pricing({ data }: Step6Props) {
               <button
                 type="button"
                 onClick={() => removeCustomRule(index)}
-                className="p-1 text-red-600 hover:bg-red-50 rounded"
+                className="p-1 text-lydian-error hover:bg-red-50 rounded"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -340,13 +340,13 @@ export default function Step6Pricing({ data }: Step6Props) {
             }
             placeholder="örn., Saat 22:00'den sonra yüksek sesle müzik yasaktır"
             maxLength={200}
-            className="flex-1 px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
+            className="flex-1 px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-lydian-primary focus:ring-2 focus:ring-blue-200 outline-none transition-all"
           />
           <button
             type="button"
             onClick={addCustomRule}
             disabled={!newRule.trim() || customRules.length >= 5}
-            className="px-6 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all flex items-center gap-2"
+            className="px-6 py-3 bg-lydian-primary text-white rounded-lg font-medium hover:bg-lydian-primary-hover disabled:opacity-50 disabled:cursor-not-allowed transition-all flex items-center gap-2"
           >
             <Plus className="w-5 h-5" />
             Ekle
@@ -360,7 +360,7 @@ export default function Step6Pricing({ data }: Step6Props) {
       <div className="border-2 border-slate-200 rounded-xl p-6">
         <div className="flex items-center gap-3 mb-4">
           <div className="p-2 bg-red-100 rounded-lg">
-            <Shield className="w-5 h-5 text-red-600" />
+            <Shield className="w-5 h-5 text-lydian-error" />
           </div>
           <h3 className="text-lg font-bold text-slate-900">İptal Politikası</h3>
         </div>
@@ -381,8 +381,8 @@ export default function Step6Pricing({ data }: Step6Props) {
                 }
                 className={`w-full p-4 border-2 rounded-lg text-left transition-all ${
                   isSelected
-                    ? 'border-blue-500 bg-blue-50'
-                    : 'border-slate-200 bg-white/5 hover:border-slate-300'
+                    ? 'border-lydian-primary bg-blue-50'
+                    : 'border-slate-200 bg-lydian-bg/5 hover:border-slate-300'
                 }`}
               >
                 <div className="flex items-start justify-between">
@@ -391,12 +391,12 @@ export default function Step6Pricing({ data }: Step6Props) {
                       <div
                         className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${
                           isSelected
-                            ? 'border-blue-500 bg-blue-500'
+                            ? 'border-lydian-primary bg-blue-500'
                             : 'border-slate-300'
                         }`}
                       >
                         {isSelected && (
-                          <div className="w-2 h-2 bg-white/5 rounded-full" />
+                          <div className="w-2 h-2 bg-lydian-bg/5 rounded-full" />
                         )}
                       </div>
                       <h4
@@ -409,7 +409,7 @@ export default function Step6Pricing({ data }: Step6Props) {
                     </div>
                     <p
                       className={`text-sm ml-8 ${
-                        isSelected ? 'text-blue-700' : 'text-slate-600'
+                        isSelected ? 'text-lydian-primary-hover' : 'text-slate-600'
                       }`}
                     >
                       {policy.description}
@@ -423,7 +423,7 @@ export default function Step6Pricing({ data }: Step6Props) {
 
         <input type="hidden" {...register('cancellationPolicy')} />
         {errors.cancellationPolicy && (
-          <p className="mt-2 text-sm text-red-600">
+          <p className="mt-2 text-sm text-lydian-error">
             {errors.cancellationPolicy.message?.toString()}
           </p>
         )}

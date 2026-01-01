@@ -213,11 +213,11 @@ const TravelBlockchain: React.FC = () => {
   // Get rarity color
   const getRarityColor = (rarity: string) => {
     switch (rarity) {
-      case 'common':return 'text-gray-300 bg-white/10';
-      case 'rare':return 'text-blue-600 bg-blue-100';
+      case 'common':return 'text-lydian-text-dim bg-lydian-bg/10';
+      case 'rare':return 'text-lydian-primary bg-blue-100';
       case 'epic':return 'text-purple-600 bg-purple-100';
-      case 'legendary':return 'text-yellow-600 bg-yellow-100';
-      default:return 'text-gray-300 bg-white/10';
+      case 'legendary':return 'text-lydian-warning bg-yellow-100';
+      default:return 'text-lydian-text-dim bg-lydian-bg/10';
     }
   };
 
@@ -384,8 +384,8 @@ const TravelBlockchain: React.FC = () => {
                 onClick={() => setActiveTab(tab.key as any)}
                 className={`flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-lg font-medium transition-colors transform hover:scale-105 ${
                 activeTab === tab.key ?
-                'bg-white/5 text-purple-600 shadow-sm' :
-                'text-gray-300 hover:text-white'}`
+                'bg-lydian-bg/5 text-purple-600 shadow-sm' :
+                'text-lydian-text-dim hover:text-white'}`
                 }>
 
                   <Icon className="w-5 h-5" />
@@ -515,8 +515,8 @@ const TravelBlockchain: React.FC = () => {
                 <h3 className="text-lg font-semibold text-lydian-text-inverse mb-4">Desteklenen Kripto Para Birimleri</h3>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                   {[
-              { name: 'Ethereum', symbol: 'ETH', icon: '🔷', color: 'bg-blue-100 text-blue-700' },
-              { name: 'USD Coin', symbol: 'USDC', icon: '💙', color: 'bg-blue-100 text-blue-700' },
+              { name: 'Ethereum', symbol: 'ETH', icon: '🔷', color: 'bg-blue-100 text-lydian-primary-hover' },
+              { name: 'USD Coin', symbol: 'USDC', icon: '💙', color: 'bg-blue-100 text-lydian-primary-hover' },
               { name: 'Tether', symbol: 'USDT', icon: '💚', color: 'bg-green-100 text-green-700' },
               { name: 'Bitcoin', symbol: 'BTC', icon: '₿', color: 'bg-orange-100 text-orange-700' }].
               map((crypto) =>

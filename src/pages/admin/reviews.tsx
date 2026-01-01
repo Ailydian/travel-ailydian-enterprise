@@ -266,7 +266,7 @@ export default function AdminReviews() {
           className={`w-4 h-4 ${
           star <= rating ?
           'fill-current text-yellow-400' :
-          'text-gray-300'}`
+          'text-lydian-text-dim'}`
           } />
 
         )}

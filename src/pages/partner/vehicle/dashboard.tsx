@@ -304,7 +304,7 @@ const VehicleOwnerDashboard: React.FC = () => {
                 className={`px-4 py-2 font-medium border-b-2 transition-colors ${
                 selectedTab === tab ?
                 'border-purple-600 text-purple-600' :
-                'border-transparent text-gray-300 hover:text-white'}`
+                'border-transparent text-lydian-text-dim hover:text-white'}`
                 }>
 
                   {tab === 'overview' && 'Genel Bakış'}
@@ -364,7 +364,7 @@ const VehicleOwnerDashboard: React.FC = () => {
                   <p className="text-2xl font-bold text-lydian-text-inverse">
                     ₺{stats.revenue.thisMonth.toLocaleString()}
                   </p>
-                  <p className={`text-xs mt-2 ${stats.revenue.growth > 0 ? 'text-green-600' : 'text-red-600'}`}>
+                  <p className={`text-xs mt-2 ${stats.revenue.growth > 0 ? 'text-lydian-success' : 'text-lydian-error'}`}>
                     {stats.revenue.growth > 0 ? '+' : ''}{stats.revenue.growth}% geçen aya göre
                   </p>
                 </motion.div>
@@ -434,7 +434,7 @@ const VehicleOwnerDashboard: React.FC = () => {
                       className={`h-4 w-4 ${
                       i < Math.floor(stats.performance.customerRating) ?
                       'text-yellow-400 fill-yellow-400' :
-                      'text-gray-300'}`
+                      'text-lydian-text-dim'}`
                       } />
 
                     )}
@@ -624,7 +624,7 @@ const VehicleOwnerDashboard: React.FC = () => {
                         'bg-green-100 text-green-800' :
                         driver.status === 'available' ?
                         'bg-blue-100 text-blue-800' :
-                        'bg-white/10 text-white'}`
+                        'bg-lydian-bg/10 text-white'}`
                         }>
 
                             {driver.status === 'active' ? 'Aktif' : driver.status === 'available' ? 'Müsait' : 'İzinli'}
@@ -696,7 +696,7 @@ const VehicleOwnerDashboard: React.FC = () => {
                     booking.status === 'confirmed' ?
                     'bg-green-100 text-green-800' :
                     booking.status === 'completed' ?
-                    'bg-white/10 text-white' :
+                    'bg-lydian-bg/10 text-white' :
                     'bg-red-100 text-red-800'}`
                     }>
 

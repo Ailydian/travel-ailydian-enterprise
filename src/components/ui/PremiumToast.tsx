@@ -248,7 +248,7 @@ const PremiumToast: React.FC<PremiumToastProps> = ({ toast, onClose, position = 
                   className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium text-sm transition-all ${
                   toast.action.variant === 'primary' ?
                   `bg-gradient-to-r ${config.gradient} text-white shadow-lg hover:shadow-xl` :
-                  'bg-white/10 text-gray-200 hover:bg-gray-200'}`
+                  'bg-lydian-bg/10 text-gray-200 hover:bg-lydian-bg-surface-raised'}`
                   }>
 
                     {toast.action.label}

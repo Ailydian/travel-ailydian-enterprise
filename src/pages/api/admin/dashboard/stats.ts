@@ -1,9 +1,9 @@
 import { NextApiResponse } from 'next';
 import { withAdminAuth, AuthenticatedRequest } from '../../../../lib/middleware/admin-auth';
-import { PrismaClient } from '@prisma/client';
+import { prisma } from '@/lib/prisma'; //  from '@prisma/client';
 import logger from '../../../../lib/logger';
 
-const prisma = new PrismaClient();
+// Using singleton prisma;
 
 interface DashboardStats {
   overview: {
@@ -332,7 +332,6 @@ async function handler(req: AuthenticatedRequest, res: NextApiResponse) {
       details: error instanceof Error ? error.message : 'Unknown error'
     });
   } finally {
-    await prisma.$disconnect();
   }
 }
 

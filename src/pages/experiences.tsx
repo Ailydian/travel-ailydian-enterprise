@@ -152,7 +152,7 @@ const ExperiencesPage: React.FC = () => {
   return (
     <>
       <Head>
-        <title>Deneyimler - LyDian Travel | AI Destekli Seyahat Deneyimleri</title>
+        <title>Deneyimler - AILYDIAN Holiday | AI Destekli Seyahat Deneyimleri</title>
         <meta name="description" content="Türkiye'nin en unutulmaz deneyimlerini yaşayın. AI rehberli turlar, VR önizleme ve blockchain doğrulaması ile güvenli rezervasyon." />
         <meta name="keywords" content="deneyim, tur, aktivite, AI rehber, VR önizleme, blockchain, Türkiye" />
       </Head>

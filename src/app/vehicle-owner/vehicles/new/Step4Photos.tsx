@@ -213,7 +213,7 @@ export default function Step4Photos({ data }: Step4Props) {
       >
         <div className="text-center">
           <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-            <Upload className="w-8 h-8 text-green-600" />
+            <Upload className="w-8 h-8 text-lydian-success" />
           </div>
           <h3 className="text-lg font-semibold text-slate-900 mb-2">
             Araç Fotoğraflarını Yükle
@@ -221,7 +221,7 @@ export default function Step4Photos({ data }: Step4Props) {
           <p className="text-sm text-slate-600 mb-4">
             Resimleri buraya sürükleyip bırakın veya göz atmak için tıklayın
           </p>
-          <label className="inline-block px-6 py-3 bg-green-600 text-white rounded-lg font-medium hover:bg-green-700 cursor-pointer transition-all">
+          <label className="inline-block px-6 py-3 bg-lydian-success text-white rounded-lg font-medium hover:bg-lydian-success-hover cursor-pointer transition-all">
             Dosya Seç
             <input
               type="file"
@@ -242,7 +242,7 @@ export default function Step4Photos({ data }: Step4Props) {
       {/* Photo Requirements */}
       <div className="p-4 bg-green-50 border border-green-200 rounded-lg">
         <div className="flex items-start gap-3">
-          <AlertCircle className="w-5 h-5 text-green-600 mt-0.5" />
+          <AlertCircle className="w-5 h-5 text-lydian-success mt-0.5" />
           <div>
             <h4 className="font-semibold text-green-900 mb-1">Fotoğraf Gereksinimleri:</h4>
             <ul className="text-sm text-green-800 space-y-1">
@@ -267,7 +267,7 @@ export default function Step4Photos({ data }: Step4Props) {
             </span>
           </div>
           {hasRequiredPhotos() ? (
-            <div className="flex items-center gap-2 text-green-600">
+            <div className="flex items-center gap-2 text-lydian-success">
               <Check className="w-5 h-5" />
               <span className="text-sm font-medium">Zorunlu fotoğraflar tamam</span>
             </div>
@@ -307,18 +307,18 @@ export default function Step4Photos({ data }: Step4Props) {
                       setDraggedIndex(index);
                     }
                   }}
-                  className="relative border-2 border-slate-200 rounded-xl overflow-hidden bg-white/5 hover:shadow-lg transition-all cursor-move"
+                  className="relative border-2 border-slate-200 rounded-xl overflow-hidden bg-lydian-bg/5 hover:shadow-lg transition-all cursor-move"
                 >
                   {/* Cover Photo Badge */}
                   {index === coverPhotoIndex && (
-                    <div className="absolute top-3 left-3 z-10 px-3 py-1 bg-yellow-500 text-white text-xs font-bold rounded-full flex items-center gap-1 shadow-lg">
+                    <div className="absolute top-3 left-3 z-10 px-3 py-1 bg-lydian-warning-hover text-white text-xs font-bold rounded-full flex items-center gap-1 shadow-lg">
                       <Star className="w-3 h-3 fill-current" />
                       Kapak Fotoğrafı
                     </div>
                   )}
 
                   {/* Drag Handle */}
-                  <div className="absolute top-3 right-3 z-10 p-2 bg-white/90 rounded-lg shadow">
+                  <div className="absolute top-3 right-3 z-10 p-2 bg-lydian-bg/90 rounded-lg shadow">
                     <GripVertical className="w-4 h-4 text-slate-600" />
                   </div>
 
@@ -341,7 +341,7 @@ export default function Step4Photos({ data }: Step4Props) {
                       <select
                         value={photo.category}
                         onChange={(e) => updateCategory(photo.id, e.target.value)}
-                        className="w-full px-3 py-2 text-sm border border-slate-200 rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-200 outline-none bg-white/5"
+                        className="w-full px-3 py-2 text-sm border border-slate-200 rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-200 outline-none bg-lydian-bg/5"
                       >
                         {photoCategories.map((cat) => (
                           <option key={cat.value} value={cat.value}>
@@ -372,7 +372,7 @@ export default function Step4Photos({ data }: Step4Props) {
                         <button
                           type="button"
                           onClick={() => setCoverPhoto(index)}
-                          className="flex-1 px-3 py-2 text-sm bg-green-50 text-green-600 rounded-lg hover:bg-green-100 transition-all font-medium"
+                          className="flex-1 px-3 py-2 text-sm bg-green-50 text-lydian-success rounded-lg hover:bg-green-100 transition-all font-medium"
                         >
                           Kapak Yap
                         </button>
@@ -380,7 +380,7 @@ export default function Step4Photos({ data }: Step4Props) {
                       <button
                         type="button"
                         onClick={() => removePhoto(photo.id)}
-                        className="px-3 py-2 text-sm bg-red-50 text-red-600 rounded-lg hover:bg-red-100 transition-all font-medium flex items-center gap-1"
+                        className="px-3 py-2 text-sm bg-red-50 text-lydian-error rounded-lg hover:bg-red-100 transition-all font-medium flex items-center gap-1"
                       >
                         <X className="w-4 h-4" />
                         Kaldır
@@ -412,7 +412,7 @@ export default function Step4Photos({ data }: Step4Props) {
             YouTube veya Vimeo araç tanıtım videosu linki
           </p>
           {errors.videoUrl && (
-            <p className="mt-1 text-sm text-red-600">
+            <p className="mt-1 text-sm text-lydian-error">
               {errors.videoUrl.message?.toString()}
             </p>
           )}
@@ -422,7 +422,7 @@ export default function Step4Photos({ data }: Step4Props) {
       {/* Validation Error */}
       {errors.photos && (
         <div className="p-4 bg-red-50 border border-red-200 rounded-lg">
-          <p className="text-sm text-red-600">{errors.photos.message?.toString()}</p>
+          <p className="text-sm text-lydian-error">{errors.photos.message?.toString()}</p>
         </div>
       )}
 

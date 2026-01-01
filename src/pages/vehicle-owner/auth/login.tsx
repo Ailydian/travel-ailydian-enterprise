@@ -254,7 +254,7 @@ export default function VehicleOwnerLoginPage() {
                     value={formData.email}
                     onChange={handleInputChange}
                     className={`block w-full pl-10 pr-3 py-3 border ${
-                    errors.email ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:ring-2 focus:ring-green-600 focus:border-lydian-border outline-none transition-all bg-lydian-glass-dark text-lydian-text-inverse`
+                    errors.email ? 'border-red-500' : 'border-lydian-border-medium'} rounded-lg focus:ring-2 focus:ring-green-600 focus:border-lydian-border outline-none transition-all bg-lydian-glass-dark text-lydian-text-inverse`
                     }
                     placeholder="ornek@email.com" />
 
@@ -280,7 +280,7 @@ export default function VehicleOwnerLoginPage() {
                     value={formData.password}
                     onChange={handleInputChange}
                     className={`block w-full pl-10 pr-10 py-3 border ${
-                    errors.password ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:ring-2 focus:ring-green-600 focus:border-lydian-border outline-none transition-all bg-lydian-glass-dark text-lydian-text-inverse`
+                    errors.password ? 'border-red-500' : 'border-lydian-border-medium'} rounded-lg focus:ring-2 focus:ring-green-600 focus:border-lydian-border outline-none transition-all bg-lydian-glass-dark text-lydian-text-inverse`
                     }
                     placeholder="••••••••" />
 

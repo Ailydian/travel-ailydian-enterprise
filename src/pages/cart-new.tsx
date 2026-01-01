@@ -129,14 +129,14 @@ const CartPage: React.FC = () => {
       case 'tour':return 'bg-green-500';
       case 'restaurant':return 'bg-orange-500';
       case 'activity':return 'bg-pink-500';
-      default:return 'bg-white/50';
+      default:return 'bg-lydian-bg/50';
     }
   };
 
   return (
     <>
       <Head>
-        <title>Sepetim - LyDian Travel | AI Destekli Rezervasyon</title>
+        <title>Sepetim - AILYDIAN Holiday | AI Destekli Rezervasyon</title>
         <meta name="description" content="Sepetinizdeki rezervasyonları inceleyin ve güvenli ödeme ile rezervasyonunuzu tamamlayın." />
         <meta name="keywords" content="sepet, rezervasyon, ödeme, travel, Türkiye" />
       </Head>
@@ -270,7 +270,7 @@ Türkiye&apos;nin en güzel destinasyonlarını ve benzersiz deneyimlerini keşf
                             {getTypeIcon(item.type)}
                           </div>
                           {item.rating &&
-                      <div className="absolute -bottom-3 -right-3 bg-yellow-500 text-lydian-text-inverse px-2 py-1 rounded-full text-sm font-bold flex items-center gap-1">
+                      <div className="absolute -bottom-3 -right-3 bg-lydian-warning-hover text-lydian-text-inverse px-2 py-1 rounded-full text-sm font-bold flex items-center gap-1">
                               <Star className="w-3 h-3 fill-current" />
                               {item.rating}
                             </div>

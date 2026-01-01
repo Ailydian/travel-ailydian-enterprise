@@ -126,7 +126,7 @@ export const antalyaTourismDistricts: TourismDistrict[] = [
       '@type': 'TouristDestination',
       'name': 'Antalya',
       'description': 'Türkiye\'nin turizm başkenti Antalya',
-      'image': 'https://travel.lydian.com/images/destinations/antalya.jpg'
+      'image': 'https://holiday.ailydian.com/images/destinations/antalya.jpg'
     }
   },
 

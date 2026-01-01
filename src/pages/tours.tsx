@@ -149,10 +149,10 @@ const tours = allComprehensiveTours;
 
 const categories = [
 { id: 'all', name: 'Tümü', icon: Globe, color: 'from-lydian-primary to-lydian-secondary' },
-{ id: 'cultural', name: 'Kültürel', icon: Camera, color: 'from-blue-500 to-cyan-500' },
-{ id: 'adventure', name: 'Macera', icon: Zap, color: 'from-orange-500 to-red-600' },
-{ id: 'nature', name: 'Doğa', icon: MapPin, color: 'from-green-500 to-emerald-600' },
-{ id: 'culinary', name: 'Gastronomi', icon: Utensils, color: 'from-purple-500 to-pink-500' }];
+{ id: 'cultural', name: 'Kültürel', icon: Camera, color: 'from-lydian-info to-lydian-info-hover' },
+{ id: 'adventure', name: 'Macera', icon: Zap, color: 'from-lydian-warning to-lydian-primary' },
+{ id: 'nature', name: 'Doğa', icon: MapPin, color: 'from-lydian-success to-lydian-success-hover' },
+{ id: 'culinary', name: 'Gastronomi', icon: Utensils, color: 'from-lydian-accent-purple to-lydian-primary' }];
 
 
 const difficulties = ['Tümü', 'Kolay', 'Orta', 'Zor'];
@@ -297,25 +297,25 @@ export default function Tours() {
 
   const getDifficultyColor = (difficulty: string) => {
     switch (difficulty) {
-      case 'Kolay':return 'from-green-500 to-emerald-600';
-      case 'Orta':return 'from-yellow-500 to-orange-500';
-      case 'Zor':return 'from-red-500 to-pink-600';
-      default:return 'from-gray-500 to-gray-600';
+      case 'Kolay':return 'from-lydian-success to-lydian-success-hover';
+      case 'Orta':return 'from-lydian-warning to-lydian-warning-hover';
+      case 'Zor':return 'from-lydian-error to-lydian-error-hover';
+      default:return 'from-lydian-text-muted to-lydian-text-dim';
     }
   };
 
   const getBadgeColor = (badge: string) => {
     const colors: any = {
       'Popüler': 'from-lydian-primary to-lydian-secondary',
-      'En Çok Satan': 'from-yellow-500 to-orange-500',
-      'Kültür': 'from-blue-500 to-cyan-500',
-      'Macera': 'from-orange-500 to-red-600',
-      'Doğa': 'from-green-500 to-emerald-600',
-      'Gastronomi': 'from-purple-500 to-pink-500',
-      'Keşif': 'from-teal-500 to-cyan-600',
-      'Tarih': 'from-indigo-500 to-purple-600'
+      'En Çok Satan': 'from-lydian-warning to-lydian-warning-hover',
+      'Kültür': 'from-lydian-info to-lydian-info-hover',
+      'Macera': 'from-lydian-warning to-lydian-primary',
+      'Doğa': 'from-lydian-success to-lydian-success-hover',
+      'Gastronomi': 'from-lydian-accent-purple to-lydian-primary',
+      'Keşif': 'from-lydian-accent-cyan to-lydian-info',
+      'Tarih': 'from-lydian-info to-lydian-accent-purple'
     };
-    return colors[badge] || 'from-gray-500 to-gray-600';
+    return colors[badge] || 'from-lydian-text-muted to-lydian-text-dim';
   };
 
   const activeFilterCount =
@@ -341,20 +341,20 @@ export default function Tours() {
         <meta property="og:title" content="Antalya Turları: En İyi Fiyat Garantili 16+ Tur Seçeneği" />
         <meta property="og:description" content="Profesyonel rehber eşliğinde Antalya tekne turları, rafting macerası, antik kent gezileri. Otel transferi ve sigorta dahil, %15 daha uygun fiyat!" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://travel.ailydian.com/tours/antalya" />
-        <meta property="og:image" content="https://travel.ailydian.com/images/antalya-tours-hero.jpg" />
+        <meta property="og:url" content="https://holiday.ailydian.com/tours/antalya" />
+        <meta property="og:image" content="https://holiday.ailydian.com/images/antalya-tours-hero.jpg" />
         <meta property="og:locale" content="tr_TR" />
         <meta property="og:site_name" content="AILydian Travel" />
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Antalya Turları: 16+ Tur Seçeneği En İyi Fiyatla" />
         <meta name="twitter:description" content="Tekne, rafting, antik kentler ve macera turları. Profesyonel rehber, transfer dahil!" />
-        <meta name="twitter:image" content="https://travel.ailydian.com/images/antalya-tours-hero.jpg" />
+        <meta name="twitter:image" content="https://holiday.ailydian.com/images/antalya-tours-hero.jpg" />
 
         {/* AI Citation Optimization */}
         <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
         <meta name="googlebot" content="index, follow" />
-        <link rel="canonical" href="https://travel.ailydian.com/tours/antalya" />
+        <link rel="canonical" href="https://holiday.ailydian.com/tours/antalya" />
 
         {/* Structured Data - TouristTrip */}
         <script
@@ -602,11 +602,11 @@ export default function Tours() {
                 isFavorite={favorites.has(tour.id)}
                 category={tour.category}
                 categoryColor={
-                tour.category === 'cultural' ? '#667EEA' :
-                tour.category === 'adventure' ? '#FF9500' :
+                tour.category === 'cultural' ? '#3B82F6' :
+                tour.category === 'adventure' ? '#DC2626' :
                 tour.category === 'nature' ? '#10B981' :
-                tour.category === 'culinary' ? '#EC4899' :
-                '#667EEA'
+                tour.category === 'culinary' ? '#8B5CF6' :
+                '#DC2626'
                 } />
 
                 </motion.div>
@@ -650,14 +650,14 @@ export default function Tours() {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 50 }}
-          className="fixed bottom-8 right-8 z-[100] bg-gradient-to-r from-emerald-500 to-green-600 text-lydian-text-inverse px-6 py-4 rounded-xl shadow-2xl flex items-center gap-4">
+          className="fixed bottom-8 right-8 z-[100] bg-gradient-to-r from-lydian-success to-lydian-success-hover text-lydian-text-inverse px-6 py-4 rounded-xl shadow-2xl flex items-center gap-4">
 
             <CheckCircle className="w-6 h-6" />
             <span className="font-semibold">{toastMessage}</span>
             {toastMessage.includes('sepete eklendi') &&
           <button
             onClick={() => router.push('/cart')}
-            className="flex items-center gap-2 px-4 py-2 bg-lydian-bg-hover text-emerald-600 rounded-lg font-semibold hover:bg-lydian-glass-dark-medium transition-colors ml-2">
+            className="flex items-center gap-2 px-4 py-2 bg-lydian-bg-hover text-lydian-success rounded-lg font-semibold hover:bg-lydian-glass-dark-medium transition-colors ml-2">
 
                 <Eye className="w-4 h-4" />
                 Sepeti Gör

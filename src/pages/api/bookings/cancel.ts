@@ -1,10 +1,8 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { getSession } from 'next-auth/react';
-import { PrismaClient } from '@prisma/client';
+import { prisma } from '@/lib/prisma';
 import logger from '../../../lib/logger';
 import { sendEmail } from '../../../lib/email-service';
-
-const prisma = new PrismaClient();
 
 /**
  * POST /api/bookings/cancel
@@ -159,7 +157,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             ${reason ? `<p><strong>Cancellation Reason:</strong> ${reason}</p>` : ''}
           </div>
           <div class="footer">
-            <p>&copy; 2025 Travel.LyDian</p>
+            <p>&copy; 2025 Holiday.AILYDIAN</p>
           </div>
         </div>
       </body>
@@ -193,7 +191,5 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       message: 'An error occurred while cancelling your booking',
       error: error instanceof Error ? error.message : 'Unknown error'
     });
-  } finally {
-    await prisma.$disconnect();
   }
 }

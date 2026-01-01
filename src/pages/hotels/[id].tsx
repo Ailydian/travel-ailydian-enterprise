@@ -115,7 +115,7 @@ const HotelDetailPage: NextPage<HotelDetailPageProps> = ({ hotel }) => {
                 {hotel.images.map((_, idx) =>
                 <div
                   key={idx}
-                  className={`w-2 h-2 rounded-full ${idx === currentImageIndex ? 'bg-white' : 'bg-white/50'}`} />
+                  className={`w-2 h-2 rounded-full ${idx === currentImageIndex ? 'bg-lydian-bg' : 'bg-lydian-bg/50'}`} />
 
                 )}
               </div>

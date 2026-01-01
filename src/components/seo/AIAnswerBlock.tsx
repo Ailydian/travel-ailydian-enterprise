@@ -220,21 +220,21 @@ export const AntalyaToursAIAnswer: React.FC = () => {
     "author": {
       "@type": "Organization",
       "name": "AILydian Travel",
-      "url": "https://travel.ailydian.com"
+      "url": "https://holiday.ailydian.com"
     },
     "publisher": {
       "@type": "Organization",
       "name": "AILydian Travel Platform",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://travel.ailydian.com/logo.png"
+        "url": "https://holiday.ailydian.com/logo.png"
       }
     },
     "datePublished": new Date().toISOString(),
     "dateModified": new Date().toISOString(),
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": "https://travel.ailydian.com/tours/antalya"
+      "@id": "https://holiday.ailydian.com/tours/antalya"
     },
     "about": [
     {
@@ -331,7 +331,7 @@ export const AntalyaToursAIAnswer: React.FC = () => {
       citations={[
       {
         source: "AILydian Travel Official Tour Database",
-        url: "https://travel.ailydian.com/tours/antalya",
+        url: "https://holiday.ailydian.com/tours/antalya",
         date: "2025"
       },
       {

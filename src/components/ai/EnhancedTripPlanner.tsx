@@ -355,7 +355,7 @@ const EnhancedTripPlanner: React.FC = () => {
                       }>
 
                         <Icon className={`w-6 h-6 mx-auto mb-2 ${
-                      preferences.travelStyle === style.value ? 'text-purple-600' : 'text-gray-400'}`
+                      preferences.travelStyle === style.value ? 'text-purple-600' : 'text-lydian-text-muted'}`
                       } />
                         <div className="text-sm font-medium">{style.label}</div>
                       </button>);
@@ -377,7 +377,7 @@ const EnhancedTripPlanner: React.FC = () => {
                   className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
                   preferences.interests.includes(interest) ?
                   'bg-purple-600 text-white' :
-                  'bg-white/10 text-gray-200 hover:bg-gray-200'}`
+                  'bg-lydian-bg/10 text-gray-200 hover:bg-lydian-bg-surface-raised'}`
                   }>
 
                       {interest}
@@ -529,7 +529,7 @@ const EnhancedTripPlanner: React.FC = () => {
                 className={`px-6 py-3 rounded-lg whitespace-nowrap transition-all ${
                 selectedDay === index ?
                 'bg-purple-600 text-white shadow-lg' :
-                'bg-white/10 text-gray-200 hover:bg-gray-200'}`
+                'bg-lydian-bg/10 text-gray-200 hover:bg-lydian-bg-surface-raised'}`
                 }>
 
                     <div className="font-semibold">Day {day.day}</div>

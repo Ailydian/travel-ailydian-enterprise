@@ -96,7 +96,7 @@ export const WelcomeEmail: React.FC<Readonly<WelcomeEmailProps>> = ({
           {/* Logo */}
           <Section style={logoSection}>
             <Img
-              src="https://travel.ailydian.com/logo.png"
+              src="https://holiday.ailydian.com/logo.png"
               width="150"
               height="50"
               alt="Travel.Ailydian"
@@ -131,7 +131,7 @@ export const WelcomeEmail: React.FC<Readonly<WelcomeEmailProps>> = ({
             <Section style={buttonSection}>
               <Button
                 style={button}
-                href={`https://travel.ailydian.com/${language}/dashboard`}
+                href={`https://holiday.ailydian.com/${language}/dashboard`}
               >
                 {t.cta}
               </Button>

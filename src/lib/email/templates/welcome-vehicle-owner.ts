@@ -66,7 +66,7 @@ export const welcomeVehicleOwnerTemplate = (name: string, companyName: string) =
               <table width="100%" cellpadding="0" cellspacing="0" style="margin: 30px 0;">
                 <tr>
                   <td align="center">
-                    <a href="https://travel.lydian.com/vehicle-owner" style="display: inline-block; background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: #ffffff; text-decoration: none; padding: 16px 40px; border-radius: 8px; font-size: 16px; font-weight: 600;">
+                    <a href="https://holiday.ailydian.com/vehicle-owner" style="display: inline-block; background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: #ffffff; text-decoration: none; padding: 16px 40px; border-radius: 8px; font-size: 16px; font-weight: 600;">
                       Dashboard'a Git →
                     </a>
                   </td>

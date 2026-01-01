@@ -94,9 +94,9 @@ export const BookingProductCard: React.FC<ProductCardProps> = ({
   };
 
   const getRatingColor = (score: number) => {
-    if (score >= 9) return 'bg-green-700';
-    if (score >= 8) return 'bg-green-600';
-    if (score >= 7) return 'bg-blue-600';
+    if (score >= 9) return 'bg-lydian-success-hover';
+    if (score >= 8) return 'bg-lydian-success';
+    if (score >= 7) return 'bg-lydian-primary';
     return 'bg-gray-600';
   };
 
@@ -157,7 +157,7 @@ export const BookingProductCard: React.FC<ProductCardProps> = ({
                 <div
                   key={index}
                   className={`w-1.5 h-1.5 rounded-full transition-all ${
-                  index === currentImageIndex ? 'bg-white/5 w-3' : 'bg-white/60'}`
+                  index === currentImageIndex ? 'bg-lydian-bg/5 w-3' : 'bg-lydian-bg/60'}`
                   } />
 
                 )}

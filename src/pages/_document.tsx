@@ -33,7 +33,7 @@ export default function Document() {
         <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
         <link rel="dns-prefetch" href="https://images.unsplash.com" />
         <link rel="dns-prefetch" href="https://cdn.lydian.com" />
-        <link rel="dns-prefetch" href="https://api.travel.lydian.com" />
+        <link rel="dns-prefetch" href="https://api.holiday.ailydian.com" />
 
         {/* Preconnect - High priority resources */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />

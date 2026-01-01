@@ -118,10 +118,10 @@ export default function Step1PropertyType({ data }: Step1Props) {
           type="text"
           {...register('propertyName')}
           placeholder="örn., Şehir Merkezinde Rahat Daire"
-          className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
+          className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-lydian-primary focus:ring-2 focus:ring-blue-200 outline-none transition-all"
         />
         {errors.propertyName && (
-          <p className="mt-1 text-sm text-red-600">
+          <p className="mt-1 text-sm text-lydian-error">
             {errors.propertyName.message?.toString()}
           </p>
         )}
@@ -146,8 +146,8 @@ export default function Step1PropertyType({ data }: Step1Props) {
                 whileTap={{ scale: 0.98 }}
                 className={`relative p-4 border-2 rounded-xl text-left transition-all ${
                   isSelected
-                    ? 'border-blue-500 bg-blue-50 shadow-md'
-                    : 'border-slate-200 bg-white/5 hover:border-slate-300 hover:shadow-sm'
+                    ? 'border-lydian-primary bg-blue-50 shadow-md'
+                    : 'border-slate-200 bg-lydian-bg/5 hover:border-slate-300 hover:shadow-sm'
                 }`}
               >
                 <div className="flex items-start gap-3">
@@ -168,7 +168,7 @@ export default function Step1PropertyType({ data }: Step1Props) {
                     </h3>
                     <p
                       className={`text-sm ${
-                        isSelected ? 'text-blue-700' : 'text-slate-600'
+                        isSelected ? 'text-lydian-primary-hover' : 'text-slate-600'
                       }`}
                     >
                       {type.description}
@@ -202,7 +202,7 @@ export default function Step1PropertyType({ data }: Step1Props) {
         </div>
         <input type="hidden" {...register('propertyType')} />
         {errors.propertyType && (
-          <p className="mt-2 text-sm text-red-600">
+          <p className="mt-2 text-sm text-lydian-error">
             {errors.propertyType.message?.toString()}
           </p>
         )}
@@ -221,10 +221,10 @@ export default function Step1PropertyType({ data }: Step1Props) {
             min={1}
             max={20}
             placeholder="1"
-            className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
+            className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-lydian-primary focus:ring-2 focus:ring-blue-200 outline-none transition-all"
           />
           {errors.numberOfRooms && (
-            <p className="mt-1 text-sm text-red-600">
+            <p className="mt-1 text-sm text-lydian-error">
               {errors.numberOfRooms.message?.toString()}
             </p>
           )}
@@ -242,10 +242,10 @@ export default function Step1PropertyType({ data }: Step1Props) {
             step={0.5}
             max={20}
             placeholder="1"
-            className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
+            className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-lydian-primary focus:ring-2 focus:ring-blue-200 outline-none transition-all"
           />
           {errors.numberOfBathrooms && (
-            <p className="mt-1 text-sm text-red-600">
+            <p className="mt-1 text-sm text-lydian-error">
               {errors.numberOfBathrooms.message?.toString()}
             </p>
           )}
@@ -262,10 +262,10 @@ export default function Step1PropertyType({ data }: Step1Props) {
             min={1}
             max={50}
             placeholder="2"
-            className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
+            className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-lydian-primary focus:ring-2 focus:ring-blue-200 outline-none transition-all"
           />
           {errors.maximumGuests && (
-            <p className="mt-1 text-sm text-red-600">
+            <p className="mt-1 text-sm text-lydian-error">
               {errors.maximumGuests.message?.toString()}
             </p>
           )}
@@ -281,19 +281,19 @@ export default function Step1PropertyType({ data }: Step1Props) {
           {...register('description')}
           rows={6}
           placeholder="Mülkünüzü detaylı bir şekilde açıklayın. Benzersiz özellikleri, yakındaki cazibe merkezlerini ve özel kılan yanlarını ekleyin..."
-          className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all resize-none"
+          className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-lydian-primary focus:ring-2 focus:ring-blue-200 outline-none transition-all resize-none"
         />
         <div className="flex justify-between items-center mt-1">
           <div>
             {errors.description && (
-              <p className="text-sm text-red-600">
+              <p className="text-sm text-lydian-error">
                 {errors.description.message?.toString()}
               </p>
             )}
           </div>
           <p
             className={`text-sm ${
-              description?.length >= 50 ? 'text-green-600' : 'text-slate-500'
+              description?.length >= 50 ? 'text-lydian-success' : 'text-slate-500'
             }`}
           >
             {description?.length || 0} / 50 karakter minimum
@@ -311,13 +311,13 @@ export default function Step1PropertyType({ data }: Step1Props) {
           {...register('highlightDescription')}
           placeholder="örn., Deniz Manzarası • Plaja Yürüme Mesafesinde"
           maxLength={60}
-          className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
+          className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-lydian-primary focus:ring-2 focus:ring-blue-200 outline-none transition-all"
         />
         <p className="mt-1 text-sm text-slate-500">
           Mülkünüzün en iyi özelliğini vurgulayan kısa, çekici bir açıklama
         </p>
         {errors.highlightDescription && (
-          <p className="mt-1 text-sm text-red-600">
+          <p className="mt-1 text-sm text-lydian-error">
             {errors.highlightDescription.message?.toString()}
           </p>
         )}

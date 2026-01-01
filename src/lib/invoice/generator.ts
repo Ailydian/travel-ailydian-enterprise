@@ -244,7 +244,7 @@ export async function generateInvoice(data: InvoiceData): Promise<Blob> {
   doc.text('Thank you for choosing Travel LyDian!', 105, pageHeight - 20, {
     align: 'center',
   })
-  doc.text('For any questions, please contact us at support@travel.lydian.com', 105, pageHeight - 15, {
+  doc.text('For any questions, please contact us at support@holiday.ailydian.com', 105, pageHeight - 15, {
     align: 'center',
   })
 

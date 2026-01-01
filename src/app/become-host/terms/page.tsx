@@ -55,7 +55,7 @@ export default function HostTermsPage() {
       id: 'hostAgreement',
       title: 'Host Service Agreement',
       icon: FileText,
-      color: 'text-blue-600',
+      color: 'text-lydian-primary',
       bgColor: 'bg-blue-50',
       description: 'Terms governing your use of our hosting platform',
       sections: [
@@ -86,7 +86,7 @@ export default function HostTermsPage() {
       id: 'communityStandards',
       title: 'Community Standards & Safety',
       icon: Shield,
-      color: 'text-green-600',
+      color: 'text-lydian-success',
       bgColor: 'bg-green-50',
       description: 'Our commitment to a safe and respectful community',
       sections: [
@@ -179,7 +179,7 @@ export default function HostTermsPage() {
       id: 'dataPrivacy',
       title: 'Data Privacy & Compliance',
       icon: Lock,
-      color: 'text-red-600',
+      color: 'text-lydian-error',
       bgColor: 'bg-red-50',
       description: 'How we handle data and your privacy obligations',
       sections: [
@@ -211,39 +211,39 @@ export default function HostTermsPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
       {/* Header */}
-      <div className="bg-white/5 border-b shadow-sm">
+      <div className="bg-lydian-bg/5 border-b shadow-sm">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="flex items-center gap-3 mb-4">
-            <div className="p-3 bg-blue-600 rounded-xl">
+            <div className="p-3 bg-lydian-primary rounded-xl">
               <Home className="h-8 w-8 text-white" />
             </div>
             <div>
               <h1 className="text-3xl font-bold text-white">Become a Host</h1>
-              <p className="text-gray-300 mt-1">Review and accept our hosting terms to get started</p>
+              <p className="text-lydian-text-dim mt-1">Review and accept our hosting terms to get started</p>
             </div>
           </div>
 
           {/* Progress Steps */}
           <div className="flex items-center gap-2 mt-6">
             <div className="flex items-center gap-2">
-              <div className="flex items-center justify-center w-8 h-8 rounded-full bg-blue-600 text-white font-semibold">
+              <div className="flex items-center justify-center w-8 h-8 rounded-full bg-lydian-primary text-white font-semibold">
                 1
               </div>
-              <span className="text-sm font-medium text-blue-600">Review Terms</span>
+              <span className="text-sm font-medium text-lydian-primary">Review Terms</span>
             </div>
             <div className="flex-1 h-0.5 bg-gray-300" />
             <div className="flex items-center gap-2">
-              <div className="flex items-center justify-center w-8 h-8 rounded-full bg-gray-300 text-gray-300 font-semibold">
+              <div className="flex items-center justify-center w-8 h-8 rounded-full bg-gray-300 text-lydian-text-dim font-semibold">
                 2
               </div>
-              <span className="text-sm font-medium text-gray-300">Add Property</span>
+              <span className="text-sm font-medium text-lydian-text-dim">Add Property</span>
             </div>
             <div className="flex-1 h-0.5 bg-gray-300" />
             <div className="flex items-center gap-2">
-              <div className="flex items-center justify-center w-8 h-8 rounded-full bg-gray-300 text-gray-300 font-semibold">
+              <div className="flex items-center justify-center w-8 h-8 rounded-full bg-gray-300 text-lydian-text-dim font-semibold">
                 3
               </div>
-              <span className="text-sm font-medium text-gray-300">Start Hosting</span>
+              <span className="text-sm font-medium text-lydian-text-dim">Start Hosting</span>
             </div>
           </div>
         </div>
@@ -254,7 +254,7 @@ export default function HostTermsPage() {
         {/* Error Banner */}
         {showError && !allTermsAccepted && (
           <div className="mb-8 p-4 bg-red-50 border border-red-200 rounded-xl flex items-start gap-3">
-            <AlertCircle className="h-5 w-5 text-red-600 flex-shrink-0 mt-0.5" />
+            <AlertCircle className="h-5 w-5 text-lydian-error flex-shrink-0 mt-0.5" />
             <div>
               <h3 className="font-semibold text-red-900">Action Required</h3>
               <p className="text-sm text-red-700 mt-1">
@@ -273,16 +273,16 @@ export default function HostTermsPage() {
             return (
               <div
                 key={category.id}
-                className={`bg-white/5 rounded-2xl shadow-lg border-2 transition-all ${
+                className={`bg-lydian-bg/5 rounded-2xl shadow-lg border-2 transition-all ${
                   isAccepted
                     ? 'border-green-500'
                     : showError
                     ? 'border-red-300'
-                    : 'border-gray-200 hover:border-gray-300'
+                    : 'border-lydian-border hover:border-lydian-border-medium'
                 }`}
               >
                 {/* Category Header */}
-                <div className="p-6 border-b border-gray-200">
+                <div className="p-6 border-b border-lydian-border">
                   <div className="flex items-start justify-between">
                     <div className="flex items-start gap-4">
                       <div className={`p-3 ${category.bgColor} rounded-xl`}>
@@ -290,11 +290,11 @@ export default function HostTermsPage() {
                       </div>
                       <div>
                         <h2 className="text-xl font-bold text-white">{category.title}</h2>
-                        <p className="text-sm text-gray-300 mt-1">{category.description}</p>
+                        <p className="text-sm text-lydian-text-dim mt-1">{category.description}</p>
                       </div>
                     </div>
                     {isAccepted && (
-                      <CheckCircle2 className="h-6 w-6 text-green-600 flex-shrink-0" />
+                      <CheckCircle2 className="h-6 w-6 text-lydian-success flex-shrink-0" />
                     )}
                   </div>
                 </div>
@@ -307,7 +307,7 @@ export default function HostTermsPage() {
                       <ul className="space-y-2">
                         {section.items.map((item, itemIdx) => (
                           <li key={itemIdx} className="flex items-start gap-3 text-sm text-gray-200">
-                            <CheckCircle2 className="h-4 w-4 text-blue-600 flex-shrink-0 mt-0.5" />
+                            <CheckCircle2 className="h-4 w-4 text-lydian-primary flex-shrink-0 mt-0.5" />
                             <span>{item}</span>
                           </li>
                         ))}
@@ -317,7 +317,7 @@ export default function HostTermsPage() {
                 </div>
 
                 {/* Acceptance Checkbox */}
-                <div className="p-6 bg-white/5 border-t border-gray-200 rounded-b-2xl">
+                <div className="p-6 bg-lydian-bg/5 border-t border-lydian-border rounded-b-2xl">
                   <label className="flex items-start gap-3 cursor-pointer group">
                     <Checkbox
                       checked={isAccepted}
@@ -331,10 +331,10 @@ export default function HostTermsPage() {
                       className="mt-1"
                     />
                     <div className="flex-1">
-                      <span className="text-sm font-medium text-white group-hover:text-blue-600">
+                      <span className="text-sm font-medium text-white group-hover:text-lydian-primary">
                         I have read and agree to the {category.title}
                       </span>
-                      <p className="text-xs text-gray-300 mt-1">
+                      <p className="text-xs text-lydian-text-dim mt-1">
                         By checking this box, you acknowledge that you have read, understood, and agree to be bound by these terms.
                       </p>
                     </div>
@@ -348,7 +348,7 @@ export default function HostTermsPage() {
         {/* Additional Information */}
         <div className="mt-8 p-6 bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl border border-blue-200">
           <div className="flex items-start gap-3">
-            <Star className="h-6 w-6 text-blue-600 flex-shrink-0" />
+            <Star className="h-6 w-6 text-lydian-primary flex-shrink-0" />
             <div>
               <h3 className="font-semibold text-white mb-2">Why These Terms Matter</h3>
               <p className="text-sm text-gray-200 mb-4">
@@ -357,19 +357,19 @@ export default function HostTermsPage() {
               </p>
               <ul className="space-y-2 text-sm text-gray-200">
                 <li className="flex items-start gap-2">
-                  <CheckCircle2 className="h-4 w-4 text-green-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-4 w-4 text-lydian-success flex-shrink-0 mt-0.5" />
                   <span>Clear expectations for both hosts and guests</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle2 className="h-4 w-4 text-green-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-4 w-4 text-lydian-success flex-shrink-0 mt-0.5" />
                   <span>Protection of your rights and property</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle2 className="h-4 w-4 text-green-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-4 w-4 text-lydian-success flex-shrink-0 mt-0.5" />
                   <span>Fair dispute resolution processes</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle2 className="h-4 w-4 text-green-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-4 w-4 text-lydian-success flex-shrink-0 mt-0.5" />
                   <span>Compliance with legal and regulatory requirements</span>
                 </li>
               </ul>
@@ -378,22 +378,22 @@ export default function HostTermsPage() {
         </div>
 
         {/* Action Buttons */}
-        <div className="mt-8 flex items-center justify-between gap-4 p-6 bg-white/5 rounded-2xl shadow-lg border border-gray-200">
+        <div className="mt-8 flex items-center justify-between gap-4 p-6 bg-lydian-bg/5 rounded-2xl shadow-lg border border-lydian-border">
           <div className="flex items-center gap-3">
             <div className={`flex items-center justify-center w-12 h-12 rounded-full ${
-              allTermsAccepted ? 'bg-green-100' : 'bg-white/10'
+              allTermsAccepted ? 'bg-green-100' : 'bg-lydian-bg/10'
             }`}>
               {allTermsAccepted ? (
-                <CheckCircle2 className="h-6 w-6 text-green-600" />
+                <CheckCircle2 className="h-6 w-6 text-lydian-success" />
               ) : (
-                <AlertCircle className="h-6 w-6 text-gray-400" />
+                <AlertCircle className="h-6 w-6 text-lydian-text-muted" />
               )}
             </div>
             <div>
               <p className="font-semibold text-white">
                 {allTermsAccepted ? 'All Terms Accepted' : 'Acceptance Required'}
               </p>
-              <p className="text-sm text-gray-300">
+              <p className="text-sm text-lydian-text-dim">
                 {allTermsAccepted
                   ? 'You can now proceed to add your property'
                   : `${Object.values(acceptedTerms).filter(Boolean).length} of ${Object.keys(acceptedTerms).length} accepted`
@@ -412,7 +412,7 @@ export default function HostTermsPage() {
             <Button
               onClick={handleSubmit}
               disabled={!allTermsAccepted}
-              className="bg-blue-600 hover:bg-blue-700 text-white px-8"
+              className="bg-lydian-primary hover:bg-lydian-primary-hover text-white px-8"
             >
               Accept & Continue
             </Button>
@@ -420,7 +420,7 @@ export default function HostTermsPage() {
         </div>
 
         {/* Footer Note */}
-        <p className="text-center text-sm text-gray-400 mt-6">
+        <p className="text-center text-sm text-lydian-text-muted mt-6">
           These terms were last updated on {new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
         </p>
       </div>

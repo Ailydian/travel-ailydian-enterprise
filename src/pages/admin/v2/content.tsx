@@ -357,7 +357,7 @@ const SectionsEditor = ({ data, onSave, saving }: any) => {
     <div className="bg-lydian-glass-dark rounded-xl shadow-sm p-6">
       <div className="flex items-center justify-between mb-6">
         <h2 className="text-xl font-bold text-lydian-text">Sayfa Bölümleri</h2>
-        <button className="flex items-center gap-2 px-4 py-2 bg-lydian-success text-lydian-text-inverse rounded-lg hover:bg-green-700 transition-all">
+        <button className="flex items-center gap-2 px-4 py-2 bg-lydian-success text-lydian-text-inverse rounded-lg hover:bg-lydian-success-hover transition-all">
           <Plus className="w-4 h-4" />
           Yeni Bölüm Ekle
         </button>

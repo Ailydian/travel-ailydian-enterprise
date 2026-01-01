@@ -156,7 +156,7 @@ export default function WriteReviewModal({ locationId, locationName, onClose, on
           className={`h-6 w-6 transition-colors ${
           rating <= value ?
           'text-yellow-400 fill-current' :
-          'text-gray-300 hover:text-yellow-200'}`
+          'text-lydian-text-dim hover:text-yellow-200'}`
           } />
 
           </button>
@@ -420,7 +420,7 @@ export default function WriteReviewModal({ locationId, locationName, onClose, on
               isDragActive ?
               'border-blue-400 bg-blue-50' :
               photos.length >= MAX_PHOTOS ?
-              'border-white/10 bg-white/5' :
+              'border-white/10 bg-lydian-bg/5' :
               'border-white/20 hover:border-blue-400 hover:bg-blue-50'} ${
               photos.length >= MAX_PHOTOS ? 'cursor-not-allowed' : 'cursor-pointer'}`}>
 
@@ -574,10 +574,10 @@ export default function WriteReviewModal({ locationId, locationName, onClose, on
             <React.Fragment key={step}>
                 <div className={`flex items-center justify-center w-8 h-8 rounded-full ${
               step === currentStep ?
-              'bg-blue-600 text-white' :
+              'bg-lydian-primary text-white' :
               step < currentStep ?
-              'bg-green-600 text-white' :
-              'bg-gray-200 text-gray-300'}`
+              'bg-lydian-success text-white' :
+              'bg-lydian-bg-surface-raised text-lydian-text-dim'}`
               }>
                   {step < currentStep ?
                 <CheckCircle className="h-4 w-4" /> :
@@ -587,7 +587,7 @@ export default function WriteReviewModal({ locationId, locationName, onClose, on
                 </div>
                 {step < 3 &&
               <div className={`flex-1 h-0.5 mx-2 ${
-              step < currentStep ? 'bg-green-600' : 'bg-gray-200'}`
+              step < currentStep ? 'bg-lydian-success' : 'bg-lydian-bg-surface-raised'}`
               } />
               }
               </React.Fragment>
@@ -641,7 +641,7 @@ export default function WriteReviewModal({ locationId, locationName, onClose, on
                 type="button"
                 onClick={handleSubmit}
                 disabled={!canProceedToNextStep() || isSubmitting}
-                className="px-6 py-2 bg-lydian-success text-lydian-text-inverse rounded-lg hover:bg-green-700 disabled:bg-gray-300 disabled:cursor-not-allowed font-medium flex items-center">
+                className="px-6 py-2 bg-lydian-success text-lydian-text-inverse rounded-lg hover:bg-lydian-success-hover disabled:bg-gray-300 disabled:cursor-not-allowed font-medium flex items-center">
 
                   {isSubmitting ?
                 <>

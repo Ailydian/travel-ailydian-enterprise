@@ -74,7 +74,7 @@ export default function Step2VehicleDetails({ data }: Step2Props) {
               </datalist>
             </div>
             {errors.brand && (
-              <p className="mt-1 text-sm text-red-600">
+              <p className="mt-1 text-sm text-lydian-error">
                 {errors.brand.message?.toString()}
               </p>
             )}
@@ -92,7 +92,7 @@ export default function Step2VehicleDetails({ data }: Step2Props) {
               className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-200 outline-none transition-all"
             />
             {errors.model && (
-              <p className="mt-1 text-sm text-red-600">
+              <p className="mt-1 text-sm text-lydian-error">
                 {errors.model.message?.toString()}
               </p>
             )}
@@ -115,7 +115,7 @@ export default function Step2VehicleDetails({ data }: Step2Props) {
               />
             </div>
             {errors.year && (
-              <p className="mt-1 text-sm text-red-600">
+              <p className="mt-1 text-sm text-lydian-error">
                 {errors.year.message?.toString()}
               </p>
             )}
@@ -136,7 +136,7 @@ export default function Step2VehicleDetails({ data }: Step2Props) {
               />
             </div>
             {errors.licensePlate && (
-              <p className="mt-1 text-sm text-red-600">
+              <p className="mt-1 text-sm text-lydian-error">
                 {errors.licensePlate.message?.toString()}
               </p>
             )}
@@ -157,7 +157,7 @@ export default function Step2VehicleDetails({ data }: Step2Props) {
               />
             </div>
             {errors.color && (
-              <p className="mt-1 text-sm text-red-600">
+              <p className="mt-1 text-sm text-lydian-error">
                 {errors.color.message?.toString()}
               </p>
             )}
@@ -217,7 +217,7 @@ export default function Step2VehicleDetails({ data }: Step2Props) {
             </div>
             <input type="hidden" {...register('transmission')} />
             {errors.transmission && (
-              <p className="mt-2 text-sm text-red-600">
+              <p className="mt-2 text-sm text-lydian-error">
                 {errors.transmission.message?.toString()}
               </p>
             )}
@@ -251,7 +251,7 @@ export default function Step2VehicleDetails({ data }: Step2Props) {
             </div>
             <input type="hidden" {...register('fuelType')} />
             {errors.fuelType && (
-              <p className="mt-2 text-sm text-red-600">
+              <p className="mt-2 text-sm text-lydian-error">
                 {errors.fuelType.message?.toString()}
               </p>
             )}
@@ -278,7 +278,7 @@ export default function Step2VehicleDetails({ data }: Step2Props) {
               className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-200 outline-none transition-all"
             />
             {errors.seats && (
-              <p className="mt-1 text-sm text-red-600">
+              <p className="mt-1 text-sm text-lydian-error">
                 {errors.seats.message?.toString()}
               </p>
             )}
@@ -298,7 +298,7 @@ export default function Step2VehicleDetails({ data }: Step2Props) {
               className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-200 outline-none transition-all"
             />
             {errors.doors && (
-              <p className="mt-1 text-sm text-red-600">
+              <p className="mt-1 text-sm text-lydian-error">
                 {errors.doors.message?.toString()}
               </p>
             )}
@@ -337,7 +337,7 @@ export default function Step2VehicleDetails({ data }: Step2Props) {
       <div className="border-2 border-slate-200 rounded-xl p-6">
         <div className="flex items-center gap-3 mb-4">
           <div className="p-2 bg-green-100 rounded-lg">
-            <MapPin className="w-5 h-5 text-green-600" />
+            <MapPin className="w-5 h-5 text-lydian-success" />
           </div>
           <h3 className="text-lg font-bold text-slate-900">Araç Konumu</h3>
         </div>
@@ -350,7 +350,7 @@ export default function Step2VehicleDetails({ data }: Step2Props) {
             </label>
             <select
               {...register('city')}
-              className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-200 outline-none transition-all bg-white/5"
+              className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-200 outline-none transition-all bg-lydian-bg/5"
             >
               <option value="">Şehir seçin</option>
               {turkishCities.map((city) => (
@@ -360,7 +360,7 @@ export default function Step2VehicleDetails({ data }: Step2Props) {
               ))}
             </select>
             {errors.city && (
-              <p className="mt-1 text-sm text-red-600">
+              <p className="mt-1 text-sm text-lydian-error">
                 {errors.city.message?.toString()}
               </p>
             )}
@@ -376,7 +376,7 @@ export default function Step2VehicleDetails({ data }: Step2Props) {
                 <input
                   type="checkbox"
                   {...register('airportPickup')}
-                  className="w-5 h-5 text-green-600 rounded focus:ring-2 focus:ring-green-500"
+                  className="w-5 h-5 text-lydian-success rounded focus:ring-2 focus:ring-green-500"
                 />
                 <div>
                   <span className="font-semibold text-slate-900">Havalimanı Teslim Alma</span>
@@ -388,7 +388,7 @@ export default function Step2VehicleDetails({ data }: Step2Props) {
                 <input
                   type="checkbox"
                   {...register('airportDelivery')}
-                  className="w-5 h-5 text-green-600 rounded focus:ring-2 focus:ring-green-500"
+                  className="w-5 h-5 text-lydian-success rounded focus:ring-2 focus:ring-green-500"
                 />
                 <div>
                   <span className="font-semibold text-slate-900">Havalimanı Teslim Etme</span>

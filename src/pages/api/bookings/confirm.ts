@@ -1,16 +1,15 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { getSession } from 'next-auth/react';
-import { PrismaClient } from '@prisma/client';
+import { withRateLimit, groqRateLimiter } from '@/lib/middleware/rate-limiter';
+import { prisma } from '@/lib/prisma';
 import logger from '../../../lib/logger';
 import { sendBookingConfirmation } from '../../../lib/email-service';
-
-const prisma = new PrismaClient();
 
 /**
  * POST /api/bookings/confirm
  * Confirm a booking and send confirmation email
  */
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== 'POST') {
     return res.status(405).json({ success: false, message: 'Method not allowed' });
   }
@@ -168,7 +167,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       message: 'An error occurred while confirming your booking',
       error: error instanceof Error ? error.message : 'Unknown error'
     });
-  } finally {
-    await prisma.$disconnect();
   }
+
 }
+
+export default withRateLimit(handler, groqRateLimiter);

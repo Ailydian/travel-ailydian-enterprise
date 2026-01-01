@@ -124,7 +124,7 @@ const getTourBySlug = (slug: string) => {
     description: isLegacyTour ? tour.description : tour.longDescription || tour.description,
     included: isLegacyTour ? tour.includes || [] : tour.included || [],
     excluded: isLegacyTour ? ['Kişisel harcamalar', 'Bahşiş'] : tour.excluded || [],
-    seoTitle: isLegacyTour ? `${tour.name} | LyDian Travel` : tour.seo?.metaTitle,
+    seoTitle: isLegacyTour ? `${tour.name} | AILYDIAN Holiday` : tour.seo?.metaTitle,
     seoDescription: isLegacyTour ? tour.description : tour.seo?.metaDescription,
     seoKeywords: isLegacyTour ? [tour.name, tour.location, 'tur'] : tour.seo?.keywords,
     requirements: [
@@ -278,16 +278,16 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
   return (
     <>
       <NextSeo
-        title={tour.seoTitle || `${tour.title} | En Uygun Fiyat Garantisi | LyDian Travel`}
+        title={tour.seoTitle || `${tour.title} | En Uygun Fiyat Garantisi | AILYDIAN Holiday`}
         description={tour.seoDescription || `${tour.subtitle} - ${tour.location}. Online rezervasyon, anında onay, ücretsiz iptal. En iyi fiyat garantisi ile şimdi rezervasyon yapın!`}
-        canonical={`https://travel.lydian.com/tours/${slug}`}
+        canonical={`https://holiday.ailydian.com/tours/${slug}`}
         openGraph={{
           title: tour.seoTitle || tour.title,
           description: tour.seoDescription || tour.subtitle,
           images: tour.images.map((img) => ({ url: img, alt: tour.title })),
           type: 'website',
-          url: `https://travel.lydian.com/tours/${slug}`,
-          siteName: 'LyDian Travel',
+          url: `https://holiday.ailydian.com/tours/${slug}`,
+          siteName: 'AILYDIAN Holiday',
           locale: 'tr_TR'
         }}
         twitter={{
@@ -302,7 +302,7 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
         },
         {
           name: 'author',
-          content: 'LyDian Travel'
+          content: 'AILYDIAN Holiday'
         },
         {
           name: 'robots',
@@ -325,43 +325,43 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
         {
           rel: 'alternate',
           hrefLang: 'tr-TR',
-          href: `https://travel.lydian.com/tours/${slug}`
+          href: `https://holiday.ailydian.com/tours/${slug}`
         },
         {
           rel: 'alternate',
           hrefLang: 'en-US',
-          href: `https://travel.lydian.com/en/tours/${slug}`
+          href: `https://holiday.ailydian.com/en/tours/${slug}`
         },
         {
           rel: 'alternate',
           hrefLang: 'ru-RU',
-          href: `https://travel.lydian.com/ru/tours/${slug}`
+          href: `https://holiday.ailydian.com/ru/tours/${slug}`
         },
         {
           rel: 'alternate',
           hrefLang: 'de-DE',
-          href: `https://travel.lydian.com/de/tours/${slug}`
+          href: `https://holiday.ailydian.com/de/tours/${slug}`
         },
         {
           rel: 'alternate',
           hrefLang: 'ar-SA',
-          href: `https://travel.lydian.com/ar/tours/${slug}`
+          href: `https://holiday.ailydian.com/ar/tours/${slug}`
         },
         {
           rel: 'alternate',
           hrefLang: 'fr-FR',
-          href: `https://travel.lydian.com/fr/tours/${slug}`
+          href: `https://holiday.ailydian.com/fr/tours/${slug}`
         },
         {
           rel: 'alternate',
           hrefLang: 'x-default',
-          href: `https://travel.lydian.com/en/tours/${slug}`
+          href: `https://holiday.ailydian.com/en/tours/${slug}`
         }]
         } />
 
 
       <Head>
-        <link rel="canonical" href={`https://travel.lydian.com/tours/${slug}`} />
+        <link rel="canonical" href={`https://holiday.ailydian.com/tours/${slug}`} />
         {/* Structured Data - Tour Schema */}
         <script
           type="application/ld+json"
@@ -377,13 +377,13 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
                 price: tour.price,
                 priceCurrency: 'TRY',
                 availability: 'https://schema.org/InStock',
-                url: `https://travel.lydian.com/tours/${slug}`,
+                url: `https://holiday.ailydian.com/tours/${slug}`,
                 validFrom: new Date().toISOString()
               },
               provider: {
                 '@type': 'Organization',
-                name: 'LyDian Travel',
-                url: 'https://travel.lydian.com'
+                name: 'AILYDIAN Holiday',
+                url: 'https://holiday.ailydian.com'
               },
               touristType: tour.category,
               duration: tour.duration,
@@ -418,19 +418,19 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
                 '@type': 'ListItem',
                 position: 1,
                 name: 'Ana Sayfa',
-                item: 'https://travel.lydian.com'
+                item: 'https://holiday.ailydian.com'
               },
               {
                 '@type': 'ListItem',
                 position: 2,
                 name: 'Turlar',
-                item: 'https://travel.lydian.com/tours'
+                item: 'https://holiday.ailydian.com/tours'
               },
               {
                 '@type': 'ListItem',
                 position: 3,
                 name: tour.title,
-                item: `https://travel.lydian.com/tours/${slug}`
+                item: `https://holiday.ailydian.com/tours/${slug}`
               }]
 
             })
@@ -486,7 +486,7 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
                   className="p-2 bg-lydian-bg/90 hover:bg-lydian-glass-dark rounded-lg transition-all">
 
                   <Heart
-                    className={`w-5 h-5 ${isFavorite ? 'fill-red-500 text-red-500' : 'text-white'}`} />
+                    className={`w-5 h-5 ${isFavorite ? 'fill-lydian-error text-lydian-error' : 'text-white'}`} />
 
                 </button>
               </div>
@@ -603,8 +603,8 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
                   </div>
 
                   <div className="flex items-center gap-3">
-                    <div className="p-3 bg-purple-50 rounded-lg">
-                      <Users className="w-6 h-6 text-purple-600" />
+                    <div className="p-3 bg-lydian-accent-purple/10 rounded-lg">
+                      <Users className="w-6 h-6 text-lydian-accent-purple" />
                     </div>
                     <div>
                       <p className="text-sm text-lydian-text-muted">Grup Boyutu</p>
@@ -623,8 +623,8 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
                   </div>
 
                   <div className="flex items-center gap-3">
-                    <div className="p-3 bg-orange-50 rounded-lg">
-                      <Shield className="w-6 h-6 text-orange-600" />
+                    <div className="p-3 bg-lydian-warning-lighter rounded-lg">
+                      <Shield className="w-6 h-6 text-lydian-warning" />
                     </div>
                     <div>
                       <p className="text-sm text-lydian-text-muted">İptal</p>
@@ -634,7 +634,7 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
                 </div>
 
                 {tour.mobileTicket &&
-                <div className="mt-4 p-3 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg flex items-center gap-2 text-sm">
+                <div className="mt-4 p-3 bg-gradient-to-r from-lydian-info-lighter to-lydian-info-light rounded-lg flex items-center gap-2 text-sm">
                     <Download className="w-5 h-5 text-lydian-primary" />
                     <span className="text-lydian-text-muted">
                       <strong>Mobil Bilet:</strong> Yazdırmanıza gerek yok, telefonunuzdan gösterin!
@@ -649,7 +649,7 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
                 <div className="grid sm:grid-cols-2 gap-3">
                   {tour.highlights.map((highlight, index) =>
                   <div key={index} className="flex items-start gap-2">
-                      <Check className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                      <Check className="w-5 h-5 text-lydian-success flex-shrink-0 mt-0.5" />
                       <span className="text-lydian-text-muted">{highlight}</span>
                     </div>
                   )}
@@ -679,11 +679,11 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
 
                       {/* Timeline */}
                       <div className="flex flex-col items-center">
-                        <div className="w-12 h-12 rounded-full bg-gradient-to-br from-lydian-primary to-indigo-500 flex items-center justify-center text-lydian-text-inverse font-bold flex-shrink-0">
+                        <div className="w-12 h-12 rounded-full bg-gradient-to-br from-lydian-primary to-lydian-primary-dark flex items-center justify-center text-lydian-text-inverse font-bold flex-shrink-0">
                           {index + 1}
                         </div>
                         {index !== tour.itinerary.length - 1 &&
-                      <div className="w-0.5 h-full bg-gradient-to-b from-lydian-primary to-indigo-500 mt-2" />
+                      <div className="w-0.5 h-full bg-gradient-to-b from-lydian-primary to-lydian-primary-dark mt-2" />
                       }
                       </div>
 
@@ -707,13 +707,13 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="bg-lydian-bg-hover rounded-2xl p-6 shadow-sm">
                   <h3 className="text-xl font-bold text-lydian-text-inverse mb-4 flex items-center gap-2">
-                    <Check className="w-6 h-6 text-green-500" />
+                    <Check className="w-6 h-6 text-lydian-success" />
                     Dahil Olanlar
                   </h3>
                   <ul className="space-y-2">
                     {tour.included.map((item, index) =>
                     <li key={index} className="flex items-start gap-2 text-lydian-text-muted">
-                        <Check className="w-4 h-4 text-green-500 flex-shrink-0 mt-1" />
+                        <Check className="w-4 h-4 text-lydian-success flex-shrink-0 mt-1" />
                         <span>{item}</span>
                       </li>
                     )}
@@ -739,7 +739,7 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
               {/* Requirements & Important Info */}
               <div className="bg-lydian-bg-hover rounded-2xl p-6 shadow-sm">
                 <h3 className="text-xl font-bold text-lydian-text-inverse mb-4 flex items-center gap-2">
-                  <AlertCircle className="w-6 h-6 text-orange-500" />
+                  <AlertCircle className="w-6 h-6 text-lydian-warning" />
                   Gereksinimler ve Önemli Bilgiler
                 </h3>
 
@@ -760,7 +760,7 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
                   <ul className="space-y-1">
                     {tour.importantInfo.map((info, index) =>
                     <li key={index} className="flex items-start gap-2 text-lydian-text-muted text-sm">
-                        <AlertCircle className="w-4 h-4 text-orange-500 flex-shrink-0 mt-0.5" />
+                        <AlertCircle className="w-4 h-4 text-lydian-warning flex-shrink-0 mt-0.5" />
                         <span>{info}</span>
                       </li>
                     )}
@@ -892,7 +892,7 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
                               className={`w-4 h-4 ${
                               i < review.rating ?
                               'fill-yellow-400 text-yellow-400' :
-                              'text-gray-300'}`
+                              'text-lydian-text-dim'}`
                               } />
 
                             )}
@@ -1066,7 +1066,7 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
                 {/* Trust Badges */}
                 <div className="mt-4 grid grid-cols-3 gap-2">
                   <div className="bg-lydian-bg-hover rounded-lg p-3 text-center shadow-sm">
-                    <Shield className="w-6 h-6 text-green-500 mx-auto mb-1" />
+                    <Shield className="w-6 h-6 text-lydian-success mx-auto mb-1" />
                     <p className="text-xs font-semibold text-lydian-text-muted">Güvenli Ödeme</p>
                   </div>
                   <div className="bg-lydian-bg-hover rounded-lg p-3 text-center shadow-sm">
@@ -1074,7 +1074,7 @@ const TourDetailPage = ({ slug }: TourDetailPageProps) => {
                     <p className="text-xs font-semibold text-lydian-text-muted">Anında Onay</p>
                   </div>
                   <div className="bg-lydian-bg-hover rounded-lg p-3 text-center shadow-sm">
-                    <Award className="w-6 h-6 text-yellow-500 mx-auto mb-1" />
+                    <Award className="w-6 h-6 text-lydian-warning mx-auto mb-1" />
                     <p className="text-xs font-semibold text-lydian-text-muted">En İyi Fiyat</p>
                   </div>
                 </div>

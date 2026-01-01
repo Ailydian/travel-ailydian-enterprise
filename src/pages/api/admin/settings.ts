@@ -1,13 +1,23 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { prisma } from '@/lib/prisma';
 import logger from '../../../lib/logger';
+import { withAdminAuth, AuthenticatedRequest } from '@/lib/middleware/admin-auth';
 
-// Settings API - manages system configuration
-export default async function handler(
-  req: NextApiRequest,
+/**
+ * SECURITY: V16 Critical Fix (CVSS 9.1) - Admin Authorization Added
+ * Settings API - manages system configuration
+ * This endpoint now requires valid admin authentication via JWT token
+ * Access: Admin role with 'settings:read' or 'settings:write' permission required
+ */
+
+async function handler(
+  req: AuthenticatedRequest,
   res: NextApiResponse
 ) {
   try {
+    // SECURITY V16: Admin authentication is now enforced by withAdminAuth middleware
+    // Only authenticated admins with proper permissions can access this endpoint
+
     if (req.method === 'GET') {
       // Return current system settings
       // In production, fetch from database
@@ -15,7 +25,7 @@ export default async function handler(
       const settings = {
         general: {
           siteName: 'Travel LyDian',
-          siteUrl: 'https://travel.lydian.com',
+          siteUrl: 'https://holiday.ailydian.com',
           supportEmail: 'support@lydian.com',
           defaultLanguage: 'tr',
           defaultCurrency: 'TRY',
@@ -54,6 +64,18 @@ export default async function handler(
     }
 
     if (req.method === 'PUT') {
+      // SECURITY V16: Verify admin has write permission for PUT requests
+      // This is an additional check beyond the middleware
+      const hasWritePermission = req.admin.permissions.includes('*') ||
+        req.admin.permissions.includes('settings:write');
+
+      if (!hasWritePermission) {
+        return res.status(403).json({
+          success: false,
+          error: 'Insufficient permissions - settings:write required',
+        });
+      }
+
       const { section, data } = req.body;
 
       // In production, save to database
@@ -75,3 +97,7 @@ export default async function handler(
     });
   }
 }
+
+// SECURITY V16: Wrap handler with admin authentication middleware
+// GET requires 'settings:read', PUT requires 'settings:write' (checked inside handler)
+export default withAdminAuth(handler, ['settings:read']);

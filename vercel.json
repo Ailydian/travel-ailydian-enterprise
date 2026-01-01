@@ -2,8 +2,9 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "version": 2,
   "framework": "nextjs",
-  "alias": ["travel.ailydian.com", "www.travel.ailydian.com"],
-  
+  "alias": ["holiday.ailydian.com"],
+  "name": "travel-ailydian-holiday",
+
   "build": {
     "env": {
       "NODE_ENV": "production",
@@ -65,6 +66,7 @@
   
   
   "env": {
-    "NEXT_PUBLIC_SITE_URL": "https://travel.ailydian.com"
+    "NEXT_PUBLIC_SITE_URL": "https://holiday.ailydian.com",
+    "NEXT_PUBLIC_API_URL": "https://holiday.ailydian.com/api"
   }
 }

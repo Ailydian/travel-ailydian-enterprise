@@ -115,7 +115,7 @@ export async function travelAssistant(userMessage: string): Promise<string> {
   const messages: AIMessage[] = [
     {
       role: 'system',
-      content: `Sen Travel.LyDian'ın AI seyahat asistanısın. Türkiye ve dünya genelinde seyahat, tur, otel, uçak bileti ve havalimanı transferi konularında uzman bir asistansın.
+      content: `Sen Holiday.AILYDIAN'ın AI seyahat asistanısın. Türkiye ve dünya genelinde seyahat, tur, otel, uçak bileti ve havalimanı transferi konularında uzman bir asistansın.
 
 Görevlerin:
 - Destinasyon önerileri sunmak

@@ -28,7 +28,7 @@ import {
 const MapWithNoSSR = dynamic(() => import('@/components/booking/MapSelector'), {
   ssr: false,
   loading: () => (
-    <div className="w-full h-[400px] bg-white/5 backdrop-blur-xl rounded-lg border border-white/10 flex items-center justify-center">
+    <div className="w-full h-[400px] bg-lydian-bg/5 backdrop-blur-xl rounded-lg border border-white/10 flex items-center justify-center">
       <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#00BAFF]"></div>
     </div>
   ),
@@ -239,7 +239,7 @@ export default function ReservationPage() {
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="mb-8 bg-white/5 backdrop-blur-xl rounded-2xl shadow-xl border border-white/10 p-6"
+              className="mb-8 bg-lydian-bg/5 backdrop-blur-xl rounded-2xl shadow-xl border border-white/10 p-6"
             >
               <div className="flex items-center gap-4 mb-4">
                 <Package className="w-6 h-6 text-[#667EEA]" />
@@ -323,7 +323,7 @@ export default function ReservationPage() {
                       className={`w-12 h-12 rounded-full flex items-center justify-center font-bold transition-all ${
                         currentStep >= step
                           ? 'bg-gradient-to-r from-[#667EEA] to-[#00BAFF] text-white shadow-lg shadow-[#667EEA]/50'
-                          : 'bg-white/10 backdrop-blur-xl border border-white/20 text-lydian-text-muted'
+                          : 'bg-lydian-bg/10 backdrop-blur-xl border border-white/20 text-lydian-text-muted'
                       }`}
                     >
                       {step}
@@ -339,7 +339,7 @@ export default function ReservationPage() {
                       className={`flex-1 h-1 mx-4 transition-all ${
                         currentStep > step
                           ? 'bg-gradient-to-r from-[#667EEA] to-[#00BAFF]'
-                          : 'bg-white/10'
+                          : 'bg-lydian-bg/10'
                       }`}
                     />
                   )}
@@ -355,7 +355,7 @@ export default function ReservationPage() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -20 }}
             transition={{ duration: 0.3 }}
-            className="bg-white/5 backdrop-blur-xl rounded-2xl shadow-2xl border border-white/10 p-8"
+            className="bg-lydian-bg/5 backdrop-blur-xl rounded-2xl shadow-2xl border border-white/10 p-8"
           >
             {/* Step 1: Location & Time */}
             {currentStep === 1 && (
@@ -405,7 +405,7 @@ export default function ReservationPage() {
                         }))
                       }
                       min={new Date().toISOString().split('T')[0]}
-                      className={`w-full px-4 py-3 bg-white/10 backdrop-blur-xl border-2 rounded-2xl text-lydian-text-inverse outline-none transition-all focus:ring-2 focus:ring-[#00BAFF] focus:border-[#00BAFF]/50 [color-scheme:dark] ${
+                      className={`w-full px-4 py-3 bg-lydian-bg/10 backdrop-blur-xl border-2 rounded-2xl text-lydian-text-inverse outline-none transition-all focus:ring-2 focus:ring-[#00BAFF] focus:border-[#00BAFF]/50 [color-scheme:dark] ${
                         errors.pickupDate ? 'border-red-500' : 'border-white/30'
                       }`}
                     />
@@ -428,7 +428,7 @@ export default function ReservationPage() {
                           pickupTime: e.target.value,
                         }))
                       }
-                      className={`w-full px-4 py-3 bg-white/10 backdrop-blur-xl border-2 rounded-2xl text-lydian-text-inverse outline-none transition-all focus:ring-2 focus:ring-[#00BAFF] focus:border-[#00BAFF]/50 ${
+                      className={`w-full px-4 py-3 bg-lydian-bg/10 backdrop-blur-xl border-2 rounded-2xl text-lydian-text-inverse outline-none transition-all focus:ring-2 focus:ring-[#00BAFF] focus:border-[#00BAFF]/50 ${
                         errors.pickupTime ? 'border-red-500' : 'border-white/30'
                       }`}
                     />
@@ -527,7 +527,7 @@ export default function ReservationPage() {
                           },
                         }))
                       }
-                      className={`w-full px-4 py-3 bg-white/10 backdrop-blur-xl border-2 rounded-2xl text-lydian-text-inverse outline-none transition-all focus:ring-2 focus:ring-[#00BAFF] focus:border-[#00BAFF]/50 ${
+                      className={`w-full px-4 py-3 bg-lydian-bg/10 backdrop-blur-xl border-2 rounded-2xl text-lydian-text-inverse outline-none transition-all focus:ring-2 focus:ring-[#00BAFF] focus:border-[#00BAFF]/50 ${
                         errors.passengerCount ? 'border-red-500' : 'border-white/30'
                       }`}
                     />
@@ -554,7 +554,7 @@ export default function ReservationPage() {
                         }))
                       }
                       max={new Date().toISOString().split('T')[0]}
-                      className={`w-full px-4 py-3 bg-white/10 backdrop-blur-xl border-2 rounded-2xl text-lydian-text-inverse outline-none transition-all focus:ring-2 focus:ring-[#00BAFF] focus:border-[#00BAFF]/50 [color-scheme:dark] ${
+                      className={`w-full px-4 py-3 bg-lydian-bg/10 backdrop-blur-xl border-2 rounded-2xl text-lydian-text-inverse outline-none transition-all focus:ring-2 focus:ring-[#00BAFF] focus:border-[#00BAFF]/50 [color-scheme:dark] ${
                         errors.dateOfBirth ? 'border-red-500' : 'border-white/30'
                       }`}
                     />
@@ -611,7 +611,7 @@ export default function ReservationPage() {
                         }))
                       }
                       min={new Date().toISOString().split('T')[0]}
-                      className={`w-full px-4 py-3 bg-white/10 backdrop-blur-xl border-2 rounded-2xl text-lydian-text-inverse outline-none transition-all focus:ring-2 focus:ring-[#667EEA] focus:border-[#667EEA]/50 [color-scheme:dark] ${
+                      className={`w-full px-4 py-3 bg-lydian-bg/10 backdrop-blur-xl border-2 rounded-2xl text-lydian-text-inverse outline-none transition-all focus:ring-2 focus:ring-[#667EEA] focus:border-[#667EEA]/50 [color-scheme:dark] ${
                         errors.passportExpiry ? 'border-red-500' : 'border-white/30'
                       }`}
                     />
@@ -654,7 +654,7 @@ export default function ReservationPage() {
                         }))
                       }
                       min={new Date().toISOString().split('T')[0]}
-                      className="w-full px-4 py-3 bg-white/10 backdrop-blur-xl border-2 border-white/30 rounded-2xl text-lydian-text-inverse outline-none transition-all focus:ring-2 focus:ring-[#00BAFF] focus:border-[#00BAFF]/50 [color-scheme:dark]"
+                      className="w-full px-4 py-3 bg-lydian-bg/10 backdrop-blur-xl border-2 border-white/30 rounded-2xl text-lydian-text-inverse outline-none transition-all focus:ring-2 focus:ring-[#00BAFF] focus:border-[#00BAFF]/50 [color-scheme:dark]"
                     />
                   </div>
 
@@ -713,7 +713,7 @@ export default function ReservationPage() {
                       }
                       rows={4}
                       placeholder="Özel isteklerinizi buraya yazın..."
-                      className="w-full px-4 py-3 bg-white/10 backdrop-blur-xl border-2 border-white/30 rounded-2xl text-lydian-text-inverse placeholder-gray-500 outline-none transition-all focus:ring-2 focus:ring-[#00BAFF] focus:border-[#00BAFF]/50"
+                      className="w-full px-4 py-3 bg-lydian-bg/10 backdrop-blur-xl border-2 border-white/30 rounded-2xl text-lydian-text-inverse placeholder-gray-500 outline-none transition-all focus:ring-2 focus:ring-[#00BAFF] focus:border-[#00BAFF]/50"
                     />
                   </div>
                 </div>

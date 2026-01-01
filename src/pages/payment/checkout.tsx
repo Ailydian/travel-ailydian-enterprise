@@ -44,15 +44,15 @@ export default function PaymentCheckoutPage() {
   // Validate required parameters
   if (!bookingId || !amount || !email) {
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
-        <div className="bg-white rounded-lg shadow-md p-8 max-w-md">
-          <h1 className="text-2xl font-bold text-red-600 mb-4">Invalid Payment Link</h1>
-          <p className="text-gray-600 mb-4">
+      <div className="min-h-screen bg-lydian-bg-surface flex items-center justify-center p-4">
+        <div className="bg-lydian-bg rounded-lg shadow-md p-8 max-w-md">
+          <h1 className="text-2xl font-bold text-lydian-error mb-4">Invalid Payment Link</h1>
+          <p className="text-lydian-text-secondary mb-4">
             This payment link is missing required information. Please go back and try again.
           </p>
           <button
             onClick={() => router.back()}
-            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg"
+            className="w-full bg-lydian-primary hover:bg-lydian-primary-hover text-white font-semibold py-3 px-6 rounded-lg"
           >
             Go Back
           </button>
@@ -68,46 +68,46 @@ export default function PaymentCheckoutPage() {
         <meta name="robots" content="noindex" />
       </Head>
 
-      <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+      <div className="min-h-screen bg-lydian-bg-surface py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl mx-auto">
           {/* Header */}
           <div className="text-center mb-8">
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">
+            <h1 className="text-3xl font-bold text-lydian-text mb-2">
               Complete Your Payment
             </h1>
-            <p className="text-gray-600">
+            <p className="text-lydian-text-secondary">
               Secure payment powered by Stripe
             </p>
           </div>
 
           {/* Booking Summary */}
-          <div className="bg-white rounded-lg shadow-md p-6 mb-6">
-            <h2 className="text-lg font-semibold text-gray-900 mb-4">
+          <div className="bg-lydian-bg rounded-lg shadow-md p-6 mb-6">
+            <h2 className="text-lg font-semibold text-lydian-text mb-4">
               Booking Summary
             </h2>
 
             <div className="space-y-3">
               <div className="flex justify-between">
-                <span className="text-gray-600">Booking ID:</span>
+                <span className="text-lydian-text-secondary">Booking ID:</span>
                 <span className="font-mono text-sm">{bookingId}</span>
               </div>
 
               {name && (
                 <div className="flex justify-between">
-                  <span className="text-gray-600">Customer:</span>
+                  <span className="text-lydian-text-secondary">Customer:</span>
                   <span className="font-medium">{name}</span>
                 </div>
               )}
 
               <div className="flex justify-between">
-                <span className="text-gray-600">Email:</span>
+                <span className="text-lydian-text-secondary">Email:</span>
                 <span className="font-medium">{email}</span>
               </div>
 
-              <div className="pt-3 border-t border-gray-200">
+              <div className="pt-3 border-t border-lydian-border">
                 <div className="flex justify-between items-center">
-                  <span className="text-lg font-semibold text-gray-900">Total:</span>
-                  <span className="text-2xl font-bold text-blue-600">
+                  <span className="text-lg font-semibold text-lydian-text">Total:</span>
+                  <span className="text-2xl font-bold text-lydian-primary">
                     ${parseFloat(amount as string).toFixed(2)}
                   </span>
                 </div>
@@ -116,8 +116,8 @@ export default function PaymentCheckoutPage() {
           </div>
 
           {/* Payment Form */}
-          <div className="bg-white rounded-lg shadow-md p-6">
-            <h2 className="text-lg font-semibold text-gray-900 mb-4">
+          <div className="bg-lydian-bg rounded-lg shadow-md p-6">
+            <h2 className="text-lg font-semibold text-lydian-text mb-4">
               Payment Details
             </h2>
 
@@ -133,7 +133,7 @@ export default function PaymentCheckoutPage() {
           </div>
 
           {/* Security Notice */}
-          <div className="mt-6 text-center text-sm text-gray-500">
+          <div className="mt-6 text-center text-sm text-lydian-text-muted">
             <p>
               Your payment information is encrypted and secured by Stripe.
               <br />

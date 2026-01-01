@@ -221,7 +221,7 @@ export default function Flights() {
 
           {/* Badge with Plane Icon */}
           <div className="inline-flex items-center gap-2 bg-lydian-glass-dark-medium backdrop-blur-xl border border-lydian-border-light px-6 py-3 rounded-full mb-8 shadow-lg">
-            <Plane className="w-5 h-5 text-[#00BAFF]" />
+            <Plane className="w-5 h-5 text-lydian-info" />
             <span className="text-sm font-semibold text-lydian-text-inverse">
               7/24 Dünya Çapında Uçuş Arama
             </span>
@@ -230,10 +230,10 @@ export default function Flights() {
           {/* Stats Cards with Glassmorphism */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-5xl mx-auto mt-8">
             {[
-              { icon: Award, value: '500+', label: 'Havayolu', color: '#667EEA' },
-              { icon: TrendingDown, value: '%30', label: 'Daha Ucuz', color: '#10B981' },
-              { icon: Star, value: '4.9', label: 'Müşteri Puanı', color: '#FF9500' },
-              { icon: Shield, value: '100%', label: 'Güvenli', color: '#00BAFF' }
+              { icon: Award, value: '500+', label: 'Havayolu', color: 'var(--lydian-info)' },
+              { icon: TrendingDown, value: '%30', label: 'Daha Ucuz', color: 'var(--lydian-success)' },
+              { icon: Star, value: '4.9', label: 'Müşteri Puanı', color: 'var(--lydian-warning)' },
+              { icon: Shield, value: '100%', label: 'Güvenli', color: 'var(--lydian-info)' }
             ].map((stat, idx) => (
               <motion.div
                 key={idx}
@@ -261,12 +261,12 @@ export default function Flights() {
               ].map((field, idx) => (
                 <div key={idx} className="relative group">
                   <label className="block text-sm font-semibold mb-2 text-lydian-text-inverse/90 flex items-center gap-2">
-                    <field.icon className="w-4 h-4 text-[#667EEA]" />
+                    <field.icon className="w-4 h-4 text-lydian-info" />
                     {field.label}
                   </label>
                   {field.type === 'select' ? (
                     <select
-                      className="w-full px-4 py-3 bg-white/10 backdrop-blur-xl border-2 border-lydian-border-light/30 rounded-xl text-lydian-text-inverse focus:outline-none focus:ring-2 focus:ring-[#667EEA] focus:border-[#667EEA] transition-all hover:border-lydian-border-light/50"
+                      className="w-full px-4 py-3 bg-lydian-bg/10 backdrop-blur-xl border-2 border-lydian-border-light/30 rounded-xl text-lydian-text-inverse focus:outline-none focus:ring-2 focus:ring-lydian-info focus:border-lydian-info transition-all hover:border-lydian-border-light/50"
                       value={searchData.passengers}
                       onChange={(e) => setSearchData({ ...searchData, passengers: e.target.value })}>
                       <option value="1" className="bg-lydian-bg text-lydian-text-inverse">1 Yolcu</option>
@@ -278,7 +278,7 @@ export default function Flights() {
                     <input
                       type={field.type}
                       placeholder={field.placeholder}
-                      className="w-full px-4 py-3 bg-white/10 backdrop-blur-xl border-2 border-lydian-border-light/30 rounded-xl text-lydian-text-inverse placeholder-lydian-text-inverse/50 focus:outline-none focus:ring-2 focus:ring-[#667EEA] focus:border-[#667EEA] transition-all hover:border-lydian-border-light/50"
+                      className="w-full px-4 py-3 bg-lydian-bg/10 backdrop-blur-xl border-2 border-lydian-border-light/30 rounded-xl text-lydian-text-inverse placeholder-lydian-text-inverse/50 focus:outline-none focus:ring-2 focus:ring-lydian-info focus:border-lydian-info transition-all hover:border-lydian-border-light/50"
                       value={field.value}
                       onChange={(e) => setSearchData({ ...searchData, [field.key]: e.target.value })} />
                   )}
@@ -306,7 +306,7 @@ export default function Flights() {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 className="text-2xl md:text-3xl font-black text-lydian-text-inverse flex items-center gap-3">
-                <Sparkles className="w-7 h-7 text-[#667EEA]" />
+                <Sparkles className="w-7 h-7 text-lydian-info" />
                 {filteredAndSortedFlights.length} Uçuş Bulundu
               </motion.h2>
 
@@ -315,14 +315,14 @@ export default function Flights() {
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={() => setShowFilters(!showFilters)}
-                  className="flex items-center gap-2 px-5 py-2.5 bg-lydian-glass-dark backdrop-blur-xl border-2 border-lydian-border-light/40 rounded-xl hover:border-[#667EEA] transition-all relative shadow-lg">
-                  <SlidersHorizontal className="w-5 h-5 text-[#667EEA]" />
+                  className="flex items-center gap-2 px-5 py-2.5 bg-lydian-glass-dark backdrop-blur-xl border-2 border-lydian-border-light/40 rounded-xl hover:border-lydian-info transition-all relative shadow-lg">
+                  <SlidersHorizontal className="w-5 h-5 text-lydian-info" />
                   <span className="font-semibold text-lydian-text-inverse">Gelişmiş Filtreler</span>
                   {activeFilterCount > 0 && (
                     <motion.span
                       initial={{ scale: 0 }}
                       animate={{ scale: 1 }}
-                      className="absolute -top-2 -right-2 px-2.5 py-0.5 bg-gradient-to-r from-[#667EEA] to-[#764BA2] text-lydian-text-inverse rounded-full text-xs font-bold shadow-lg">
+                      className="absolute -top-2 -right-2 px-2.5 py-0.5 bg-gradient-to-r from-lydian-info to-lydian-info-hover text-lydian-text-inverse rounded-full text-xs font-bold shadow-lg">
                       {activeFilterCount}
                     </motion.span>
                   )}
@@ -331,7 +331,7 @@ export default function Flights() {
                 <select
                   value={sortBy}
                   onChange={(e) => setSortBy(e.target.value)}
-                  className="px-5 py-2.5 bg-lydian-glass-dark backdrop-blur-xl border-2 border-lydian-border-light/40 rounded-xl text-lydian-text-inverse font-semibold focus:ring-2 focus:ring-[#667EEA] focus:border-[#667EEA] transition-all shadow-lg cursor-pointer">
+                  className="px-5 py-2.5 bg-lydian-glass-dark backdrop-blur-xl border-2 border-lydian-border-light/40 rounded-xl text-lydian-text-inverse font-semibold focus:ring-2 focus:ring-lydian-info focus:border-lydian-info transition-all shadow-lg cursor-pointer">
                   <option value="price" className="bg-lydian-bg text-lydian-text-inverse">Fiyata Göre</option>
                   <option value="duration" className="bg-lydian-bg text-lydian-text-inverse">Süreye Göre</option>
                   <option value="departure" className="bg-lydian-bg text-lydian-text-inverse">Kalkış Saatine Göre</option>
@@ -366,8 +366,8 @@ export default function Flights() {
                   onClick={() => setSelectedAirline(airline)}
                   className={`px-6 py-2.5 rounded-xl font-semibold transition-all shadow-lg ${
                     selectedAirline === airline
-                      ? 'bg-gradient-to-r from-[#667EEA] to-[#764BA2] text-lydian-text-inverse shadow-[0_10px_30px_-5px_rgba(102,126,234,0.5)]'
-                      : 'bg-white/10 backdrop-blur-xl border-2 border-lydian-border-light/30 text-lydian-text-inverse hover:border-[#667EEA] hover:bg-white/20'
+                      ? 'bg-gradient-to-r from-lydian-info to-lydian-info-hover text-lydian-text-inverse shadow-lydian-info/50'
+                      : 'bg-lydian-bg/10 backdrop-blur-xl border-2 border-lydian-border-light/30 text-lydian-text-inverse hover:border-lydian-info hover:bg-lydian-bg/20'
                   }`}>
                   {airline}
                 </motion.button>
@@ -396,12 +396,12 @@ export default function Flights() {
                   {filteredAndSortedFlights.map((flight, index) => {
                     // Airline color coding
                     const airlineColors: Record<string, string> = {
-                      'Turkish Airlines': '#E30A17',
-                      'Pegasus Airlines': '#FFD800',
-                      'SunExpress': '#FFCC00',
-                      'Anadolu Jet': '#0066B2'
+                      'Turkish Airlines': 'var(--lydian-primary)',
+                      'Pegasus Airlines': 'var(--lydian-warning)',
+                      'SunExpress': 'var(--lydian-warning)',
+                      'Anadolu Jet': 'var(--lydian-info)'
                     };
-                    const airlineColor = airlineColors[flight.airline] || '#667EEA';
+                    const airlineColor = airlineColors[flight.airline] || 'var(--lydian-info)';
 
                     // Calculate savings percentage
                     const savingsPercent = flight.originalPrice
@@ -423,7 +423,7 @@ export default function Flights() {
                             <div className="space-y-4">
                               {/* Airline Header with Logo */}
                               <div className="flex items-center gap-3 pb-3 border-b border-lydian-border-light/20">
-                                <div className="w-12 h-12 rounded-xl overflow-hidden bg-white/10 backdrop-blur-xl flex items-center justify-center ring-2 ring-white/20">
+                                <div className="w-12 h-12 rounded-xl overflow-hidden bg-lydian-bg/10 backdrop-blur-xl flex items-center justify-center ring-2 ring-white/20">
                                   <Image
                                     src={flight.logo}
                                     alt={flight.airline}
@@ -435,7 +435,7 @@ export default function Flights() {
                                   <h3 className="font-bold text-lg text-lydian-text-inverse">{flight.airline}</h3>
                                   <p className="text-sm text-lydian-text-muted">{flight.aircraft}</p>
                                 </div>
-                                <span className="px-3 py-1.5 bg-gradient-to-r from-[#10B981] to-[#059669] text-lydian-text-inverse rounded-xl text-xs font-bold shadow-lg">
+                                <span className="px-3 py-1.5 bg-gradient-to-r from-lydian-success to-lydian-success-hover text-lydian-text-inverse rounded-xl text-xs font-bold shadow-lg">
                                   {flight.type}
                                 </span>
                               </div>
@@ -443,12 +443,12 @@ export default function Flights() {
                               {/* Animated Flight Route Timeline */}
                               <div className="relative py-6">
                                 {/* Timeline Line */}
-                                <div className="absolute left-0 right-0 top-1/2 h-0.5 bg-gradient-to-r from-[#667EEA] via-[#00BAFF] to-[#667EEA]"></div>
+                                <div className="absolute left-0 right-0 top-1/2 h-0.5 bg-gradient-to-r from-lydian-info via-lydian-info-hover to-lydian-info"></div>
 
                                 <div className="relative grid grid-cols-3 gap-4 items-center">
                                   {/* Departure */}
                                   <div className="text-left">
-                                    <div className="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#667EEA] to-[#00BAFF] mb-1">
+                                    <div className="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-lydian-info to-lydian-info-hover mb-1">
                                       {flight.departure}
                                     </div>
                                     <div className="text-sm text-lydian-text-muted font-semibold">{flight.from}</div>
@@ -459,7 +459,7 @@ export default function Flights() {
                                     <motion.div
                                       animate={{ x: [0, 10, 0] }}
                                       transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-                                      className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-[#00BAFF] to-[#667EEA] shadow-lg mb-2">
+                                      className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-lydian-info to-lydian-info-hover shadow-lg mb-2">
                                       <Plane className="w-6 h-6 text-lydian-text-inverse" />
                                     </motion.div>
                                     <div className="text-xs text-lydian-text-muted flex items-center justify-center gap-1 font-semibold">
@@ -470,7 +470,7 @@ export default function Flights() {
 
                                   {/* Arrival */}
                                   <div className="text-right">
-                                    <div className="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#00BAFF] to-[#667EEA] mb-1">
+                                    <div className="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-lydian-info-hover to-lydian-info mb-1">
                                       {flight.arrival}
                                     </div>
                                     <div className="text-sm text-lydian-text-muted font-semibold">{flight.to}</div>
@@ -484,7 +484,7 @@ export default function Flights() {
                                   <motion.span
                                     key={amenity}
                                     whileHover={{ scale: 1.05, y: -2 }}
-                                    className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-gradient-to-r from-[#667EEA]/20 to-[#00BAFF]/20 border border-lydian-border-light/30 text-lydian-text-inverse text-xs rounded-xl font-semibold backdrop-blur-xl">
+                                    className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-gradient-to-r from-lydian-info/20 to-lydian-info-hover/20 border border-lydian-border-light/30 text-lydian-text-inverse text-xs rounded-xl font-semibold backdrop-blur-xl">
                                     {amenity === 'WiFi' && <Wifi className="w-3 h-3" />}
                                     {amenity === 'Yemek' && <span>🍽️</span>}
                                     {amenity === 'Eğlence' && <span>🎬</span>}
@@ -542,7 +542,7 @@ export default function Flights() {
                         animate={{ y: [0, -10, 0] }}
                         transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
                         className="mb-8">
-                        <Plane className="w-24 h-24 text-[#667EEA] mx-auto" />
+                        <Plane className="w-24 h-24 text-lydian-info mx-auto" />
                       </motion.div>
 
                       <h2 className="text-3xl font-black text-lydian-text-inverse mb-4">
@@ -596,7 +596,7 @@ export default function Flights() {
               viewport={{ once: true }}
               className="text-center mb-12">
               <h2 className="text-4xl md:text-5xl font-black text-lydian-text-inverse mb-4">
-                Neden LyDian Travel?
+                Neden AILYDIAN Holiday?
               </h2>
               <p className="text-xl text-lydian-text-muted max-w-3xl mx-auto">
                 AI destekli akıllı fiyat karşılaştırması ve blockchain güvenli rezervasyon
@@ -609,22 +609,22 @@ export default function Flights() {
                   icon: Zap,
                   title: 'AI Fiyat Karşılaştırması',
                   description: '500+ havayolu arasında en uygun fiyatları anında buluyoruz',
-                  color: '#FF9500',
-                  gradient: 'from-[#FF9500] to-[#FF6B00]'
+                  color: 'var(--lydian-warning)',
+                  gradient: 'from-lydian-warning to-lydian-warning-hover'
                 },
                 {
                   icon: Shield,
                   title: 'Blockchain Güvenli',
                   description: 'Tüm rezervasyonlarınız blockchain teknolojisi ile güvence altında',
-                  color: '#00BAFF',
-                  gradient: 'from-[#00BAFF] to-[#0088BD]'
+                  color: 'var(--lydian-info)',
+                  gradient: 'from-lydian-info to-lydian-info-hover'
                 },
                 {
                   icon: Award,
                   title: '%30 Daha Ucuz',
                   description: 'Rakiplerimize göre ortalama %30 daha uygun fiyat garantisi',
-                  color: '#10B981',
-                  gradient: 'from-[#10B981] to-[#059669]'
+                  color: 'var(--lydian-success)',
+                  gradient: 'from-lydian-success to-lydian-success-hover'
                 }
               ].map((feature, idx) => (
                 <motion.div
@@ -657,7 +657,7 @@ export default function Flights() {
                       </div>
                     </div>
 
-                    <h3 className="text-2xl font-bold text-lydian-text-inverse mb-3 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-pink-400 transition-all">
+                    <h3 className="text-2xl font-bold text-lydian-text-inverse mb-3 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-lydian-info group-hover:to-lydian-info-hover transition-all">
                       {feature.title}
                     </h3>
                     <p className="text-lydian-text-muted leading-relaxed">
@@ -676,16 +676,16 @@ export default function Flights() {
         </section>
 
         {/* 🎬 CTA SECTION - COSMIC GRADIENT */}
-        <section className="py-20 bg-gradient-to-r from-[#667EEA] via-[#764BA2] to-[#667EEA] text-lydian-text-inverse relative overflow-hidden">
+        <section className="py-20 bg-gradient-to-r from-lydian-info via-lydian-info-hover to-lydian-info text-lydian-text-inverse relative overflow-hidden">
           {/* Animated Background Orbs */}
           <motion.div
-            className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-gradient-to-br from-[#00BAFF]/30 to-transparent backdrop-blur-3xl"
+            className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-gradient-to-br from-lydian-info-hover/30 to-transparent backdrop-blur-3xl"
             animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
             transition={{ duration: 5, repeat: Infinity }}
             style={{ filter: 'blur(60px)' }} />
 
           <motion.div
-            className="absolute bottom-1/3 right-1/4 w-80 h-80 rounded-full bg-gradient-to-br from-[#FF9500]/30 to-transparent backdrop-blur-3xl"
+            className="absolute bottom-1/3 right-1/4 w-80 h-80 rounded-full bg-gradient-to-br from-lydian-warning/30 to-transparent backdrop-blur-3xl"
             animate={{ scale: [1.2, 1, 1.2], opacity: [0.5, 0.3, 0.5] }}
             transition={{ duration: 4, repeat: Infinity, delay: 1 }}
             style={{ filter: 'blur(50px)' }} />

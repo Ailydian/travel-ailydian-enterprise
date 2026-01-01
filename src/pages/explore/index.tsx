@@ -48,7 +48,7 @@ const ExplorePage: NextPage = () => {
               "@type": "TravelAgency",
               "name": "Travel LyDian",
               "description": t('explore.seo.description'),
-              "url": "https://travel.lydian.com/explore",
+              "url": "https://holiday.ailydian.com/explore",
               "offers": {
                 "@type": "AggregateOffer",
                 "offerCount": antalyaTours.length,

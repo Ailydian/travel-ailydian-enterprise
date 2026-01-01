@@ -260,7 +260,7 @@ export const BookingFooter: React.FC = () => {
               <Mail className="w-5 h-5 text-lydian-primary" />
               <div>
                 <div className="text-sm text-lydian-text-muted">E-posta</div>
-                <div className="text-lydian-text-inverse font-semibold">info@travel.lydian.com</div>
+                <div className="text-lydian-text-inverse font-semibold">info@holiday.ailydian.com</div>
               </div>
             </div>
 

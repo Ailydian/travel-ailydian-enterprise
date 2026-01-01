@@ -237,7 +237,7 @@ const AdvancedSearchDiscovery: React.FC<AdvancedSearchDiscoveryProps> = ({
       stars.push(
         <StarIcon
           key={i}
-          className={`${size} ${i <= Math.floor(rating) ? 'text-yellow-400 fill-current' : 'text-gray-300'}`} />
+          className={`${size} ${i <= Math.floor(rating) ? 'text-yellow-400 fill-current' : 'text-lydian-text-dim'}`} />
 
       );
     }

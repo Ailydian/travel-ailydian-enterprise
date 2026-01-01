@@ -32,22 +32,22 @@ import type { AppProps } from 'next/app'
 import type { Session } from 'next-auth'
 
 const seoConfig = {
-  title: 'Travel.LyDian - AI Destekli Turizm Platformu',
+  title: 'Holiday.AILYDIAN - AI Destekli Turizm Platformu',
   description: 'Yapay zeka destekli seyahat önerileri ile dünyayı keşfedin. Kişiselleştirilmiş öneriler ve güvenli rezervasyonlar.',
-  canonical: 'https://travel.lydian.com',
+  canonical: 'https://holiday.ailydian.com',
   openGraph: {
     type: 'website',
     locale: 'tr_TR',
-    url: 'https://travel.lydian.com',
-    siteName: 'Travel.LyDian',
-    title: 'Travel.LyDian - AI Destekli Turizm Platformu',
+    url: 'https://holiday.ailydian.com',
+    siteName: 'Holiday.AILYDIAN',
+    title: 'Holiday.AILYDIAN - AI Destekli Turizm Platformu',
     description: 'Yapay zeka destekli seyahat önerileri ile dünyayı keşfedin.',
     images: [
       {
-        url: 'https://travel.lydian.com/og-image.jpg',
+        url: 'https://holiday.ailydian.com/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Travel.LyDian',
+        alt: 'Holiday.AILYDIAN',
       },
     ],
   },
@@ -111,7 +111,7 @@ function MyApp({
                     <PageLoader isLoading={loading} />
                     <Component {...pageProps} />
                     <LyDianEcosystemFooter
-                      currentDomain="travel.lydian.com"
+                      currentDomain="holiday.ailydian.com"
                       theme="light"
                       position="above-footer"
                     />

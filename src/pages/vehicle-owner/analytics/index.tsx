@@ -58,7 +58,7 @@ const MetricCard: React.FC<MetricCardProps> = ({ title, value, change, icon, suf
         <div className="p-3 bg-gradient-to-br from-purple-500 to-lydian-secondary rounded-lg text-lydian-text-inverse shadow-md">
           {icon}
         </div>
-        <div className={`flex items-center gap-1 text-sm font-medium ${isPositive ? 'text-green-600' : 'text-red-600'}`}>
+        <div className={`flex items-center gap-1 text-sm font-medium ${isPositive ? 'text-lydian-success' : 'text-lydian-error'}`}>
           {isPositive ? <ArrowUpRight className="w-4 h-4" /> : <ArrowDownRight className="w-4 h-4" />}
           <span>{Math.abs(change)}%</span>
         </div>
@@ -99,7 +99,7 @@ const DateRangePicker: React.FC = () => {
             Özel Tarih
             <ChevronDown className="w-4 h-4" />
           </button>
-          <button className="flex items-center gap-2 px-4 py-2 bg-lydian-success text-lydian-text-inverse rounded-lg hover:bg-green-700 transition-colors font-medium text-sm">
+          <button className="flex items-center gap-2 px-4 py-2 bg-lydian-success text-lydian-text-inverse rounded-lg hover:bg-lydian-success-hover transition-colors font-medium text-sm">
             <Download className="w-4 h-4" />
             Dışa Aktar
           </button>

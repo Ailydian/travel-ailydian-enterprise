@@ -38,7 +38,7 @@ Disallow: /cart
 Disallow: /booking-success
 
 # Sitemap location
-Sitemap: https://travel.ailydian.com/sitemap.xml
-Sitemap: https://travel.ailydian.com/sitemap-rentals.xml
-Sitemap: https://travel.ailydian.com/sitemap-car-rentals.xml
-Sitemap: https://travel.ailydian.com/sitemap-transfers.xml
+Sitemap: https://holiday.ailydian.com/sitemap.xml
+Sitemap: https://holiday.ailydian.com/sitemap-rentals.xml
+Sitemap: https://holiday.ailydian.com/sitemap-car-rentals.xml
+Sitemap: https://holiday.ailydian.com/sitemap-transfers.xml

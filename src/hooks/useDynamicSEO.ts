@@ -121,7 +121,7 @@ export function useDynamicSEO(customConfig?: DynamicSEOConfig): SEOMetadata {
     // Custom config varsa birleştir
     const config = customConfig ? { ...pageTemplate, ...customConfig } : pageTemplate;
 
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://travel.lydian.com';
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://holiday.ailydian.com';
     const currentUrl = `${baseUrl}${asPath}`;
     const defaultImage = `${baseUrl}/images/og-travel-default.jpg`;
 

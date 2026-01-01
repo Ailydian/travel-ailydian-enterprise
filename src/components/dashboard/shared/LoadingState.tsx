@@ -148,7 +148,7 @@ export const LoadingState: React.FC<LoadingStateProps> = ({
       case 'card':
         return 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6';
       case 'table':
-        return 'bg-white/5 rounded-lg border border-gray-200 overflow-hidden';
+        return 'bg-lydian-bg/5 rounded-lg border border-lydian-border overflow-hidden';
       case 'list':
         return 'space-y-4';
       case 'text':

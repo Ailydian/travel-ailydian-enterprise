@@ -28,7 +28,7 @@ const GRADIENT_VARIANTS = {
   primary: 'bg-gradient-to-r from-[#00BAFF] to-[#667EEA]',
   secondary: 'bg-gradient-to-r from-[#FF9500] to-[#FF6B00]',
   success: 'bg-gradient-to-r from-[#10B981] to-[#059669]',
-  glass: 'bg-white/10 backdrop-blur-xl border-2 border-white/30',
+  glass: 'bg-lydian-bg/10 backdrop-blur-xl border-2 border-white/30',
   outline: 'bg-transparent border-2 border-[#667EEA]'
 };
 

@@ -66,7 +66,7 @@ export const FuturisticInput: React.FC<FuturisticInputProps> = ({
     w-full
     px-4 py-3
     ${icon ? 'pl-12' : 'px-4'}
-    bg-white/10 backdrop-blur-xl
+    bg-lydian-bg/10 backdrop-blur-xl
     border-2 border-white/30
     rounded-2xl
     text-white

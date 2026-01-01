@@ -203,7 +203,7 @@ export class AdvancedIndexNow {
         headers: {
           'Content-Type': 'application/json; charset=utf-8',
           'Content-Length': Buffer.byteLength(body, 'utf8').toString(),
-          'User-Agent': 'Travel-LyDian-SEO-Bot/2.0 (+https://travel.lydian.com/bot)',
+          'User-Agent': 'Travel-LyDian-SEO-Bot/2.0 (+https://holiday.ailydian.com/bot)',
           'Accept': 'application/json, */*',
           'Accept-Encoding': 'gzip, deflate, br'
         },

@@ -27,7 +27,7 @@ export default async function handler(
   try {
     logger.debug('Log', { component: 'ping-search-engines', metadata: { data: '🔔 Sitemap ping cron job başlatıldı...' } });
 
-    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://travel.lydian.com';
+    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://holiday.ailydian.com';
     const sitemapUrl = `${baseUrl}/sitemap.xml`;
 
     const results: PingResult = {

@@ -302,7 +302,7 @@ export default function TransferOwnerRegisterPage() {
                       className={`w-10 h-10 rounded-full flex items-center justify-center font-semibold transition-all ${
                       currentStep >= step ?
                       'bg-gradient-to-r from-blue-600 to-cyan-600 text-white' :
-                      'bg-gray-200 text-gray-400'}`
+                      'bg-lydian-bg-surface-raised text-lydian-text-muted'}`
                       }>
 
                         {currentStep > step ?
@@ -314,7 +314,7 @@ export default function TransferOwnerRegisterPage() {
                       {step < 3 &&
                     <div
                       className={`h-1 w-full ml-2 transition-all ${
-                      currentStep > step ? 'bg-gradient-to-r from-blue-600 to-cyan-600' : 'bg-gray-200'}`
+                      currentStep > step ? 'bg-gradient-to-r from-blue-600 to-cyan-600' : 'bg-lydian-bg-surface-raised'}`
                       }
                       style={{ width: 'calc(100% - 40px)' }} />
 
@@ -324,13 +324,13 @@ export default function TransferOwnerRegisterPage() {
                 )}
               </div>
               <div className="flex justify-between text-sm">
-                <span className={currentStep >= 1 ? 'text-white font-medium' : 'text-gray-400'}>
+                <span className={currentStep >= 1 ? 'text-white font-medium' : 'text-lydian-text-muted'}>
                   Kişisel Bilgiler
                 </span>
-                <span className={currentStep >= 2 ? 'text-white font-medium' : 'text-gray-400'}>
+                <span className={currentStep >= 2 ? 'text-white font-medium' : 'text-lydian-text-muted'}>
                   Firma Bilgileri
                 </span>
-                <span className={currentStep >= 3 ? 'text-white font-medium' : 'text-gray-400'}>
+                <span className={currentStep >= 3 ? 'text-white font-medium' : 'text-lydian-text-muted'}>
                   Onay
                 </span>
               </div>
@@ -378,7 +378,7 @@ export default function TransferOwnerRegisterPage() {
                         value={formData.fullName}
                         onChange={handleInputChange}
                         className={`block w-full pl-10 pr-3 py-3 border ${
-                        errors.fullName ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:ring-2 focus:ring-lydian-primary focus:border-lydian-border outline-none transition-all bg-lydian-glass-dark text-lydian-text-inverse`
+                        errors.fullName ? 'border-red-500' : 'border-lydian-border-medium'} rounded-lg focus:ring-2 focus:ring-lydian-primary focus:border-lydian-border outline-none transition-all bg-lydian-glass-dark text-lydian-text-inverse`
                         }
                         placeholder="Ahmet Yılmaz" />
 
@@ -404,7 +404,7 @@ export default function TransferOwnerRegisterPage() {
                         value={formData.email}
                         onChange={handleInputChange}
                         className={`block w-full pl-10 pr-3 py-3 border ${
-                        errors.email ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:ring-2 focus:ring-lydian-primary focus:border-lydian-border outline-none transition-all bg-lydian-glass-dark text-lydian-text-inverse`
+                        errors.email ? 'border-red-500' : 'border-lydian-border-medium'} rounded-lg focus:ring-2 focus:ring-lydian-primary focus:border-lydian-border outline-none transition-all bg-lydian-glass-dark text-lydian-text-inverse`
                         }
                         placeholder="ornek@email.com" />
 
@@ -430,7 +430,7 @@ export default function TransferOwnerRegisterPage() {
                         value={formData.phone}
                         onChange={handleInputChange}
                         className={`block w-full pl-10 pr-3 py-3 border ${
-                        errors.phone ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:ring-2 focus:ring-lydian-primary focus:border-lydian-border outline-none transition-all bg-lydian-glass-dark text-lydian-text-inverse`
+                        errors.phone ? 'border-red-500' : 'border-lydian-border-medium'} rounded-lg focus:ring-2 focus:ring-lydian-primary focus:border-lydian-border outline-none transition-all bg-lydian-glass-dark text-lydian-text-inverse`
                         }
                         placeholder="0555 123 4567" />
 
@@ -478,7 +478,7 @@ export default function TransferOwnerRegisterPage() {
                         value={formData.companyName}
                         onChange={handleInputChange}
                         className={`block w-full pl-10 pr-3 py-3 border ${
-                        errors.companyName ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:ring-2 focus:ring-lydian-primary focus:border-lydian-border outline-none transition-all bg-lydian-glass-dark text-lydian-text-inverse`
+                        errors.companyName ? 'border-red-500' : 'border-lydian-border-medium'} rounded-lg focus:ring-2 focus:ring-lydian-primary focus:border-lydian-border outline-none transition-all bg-lydian-glass-dark text-lydian-text-inverse`
                         }
                         placeholder="Örnek Transfer Hizmetleri" />
 
@@ -507,7 +507,7 @@ export default function TransferOwnerRegisterPage() {
                         value={formData.tourismLicense}
                         onChange={handleInputChange}
                         className={`block w-full pl-10 pr-3 py-3 border ${
-                        errors.tourismLicense ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:ring-2 focus:ring-lydian-primary focus:border-lydian-border outline-none transition-all bg-lydian-glass-dark text-lydian-text-inverse`
+                        errors.tourismLicense ? 'border-red-500' : 'border-lydian-border-medium'} rounded-lg focus:ring-2 focus:ring-lydian-primary focus:border-lydian-border outline-none transition-all bg-lydian-glass-dark text-lydian-text-inverse`
                         }
                         placeholder="D2-IST-2024-1234" />
 
@@ -536,7 +536,7 @@ export default function TransferOwnerRegisterPage() {
                         value={formData.password}
                         onChange={handleInputChange}
                         className={`block w-full pl-10 pr-10 py-3 border ${
-                        errors.password ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:ring-2 focus:ring-lydian-primary focus:border-lydian-border outline-none transition-all bg-lydian-glass-dark text-lydian-text-inverse`
+                        errors.password ? 'border-red-500' : 'border-lydian-border-medium'} rounded-lg focus:ring-2 focus:ring-lydian-primary focus:border-lydian-border outline-none transition-all bg-lydian-glass-dark text-lydian-text-inverse`
                         }
                         placeholder="••••••••" />
 
@@ -576,7 +576,7 @@ export default function TransferOwnerRegisterPage() {
                         value={formData.confirmPassword}
                         onChange={handleInputChange}
                         className={`block w-full pl-10 pr-10 py-3 border ${
-                        errors.confirmPassword ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:ring-2 focus:ring-lydian-primary focus:border-lydian-border outline-none transition-all bg-lydian-glass-dark text-lydian-text-inverse`
+                        errors.confirmPassword ? 'border-red-500' : 'border-lydian-border-medium'} rounded-lg focus:ring-2 focus:ring-lydian-primary focus:border-lydian-border outline-none transition-all bg-lydian-glass-dark text-lydian-text-inverse`
                         }
                         placeholder="••••••••" />
 
@@ -672,7 +672,7 @@ export default function TransferOwnerRegisterPage() {
                     {/* Terms Acceptance */}
                     <div className="space-y-4">
                       <div className={`border-2 rounded-lg p-4 ${
-                    errors.termsAccepted ? 'border-red-500 bg-red-50' : 'border-gray-200'}`
+                    errors.termsAccepted ? 'border-red-500 bg-red-50' : 'border-lydian-border'}`
                     }>
                         <label className="flex items-start gap-3 cursor-pointer">
                           <input
@@ -709,7 +709,7 @@ export default function TransferOwnerRegisterPage() {
                       </div>
 
                       <div className={`border-2 rounded-lg p-4 ${
-                    errors.kvkkAccepted ? 'border-red-500 bg-red-50' : 'border-gray-200'}`
+                    errors.kvkkAccepted ? 'border-red-500 bg-red-50' : 'border-lydian-border'}`
                     }>
                         <label className="flex items-start gap-3 cursor-pointer">
                           <input
@@ -739,7 +739,7 @@ export default function TransferOwnerRegisterPage() {
                       </div>
 
                       <div className={`border-2 rounded-lg p-4 ${
-                    errors.transferAgreementAccepted ? 'border-red-500 bg-red-50' : 'border-gray-200'}`
+                    errors.transferAgreementAccepted ? 'border-red-500 bg-red-50' : 'border-lydian-border'}`
                     }>
                         <label className="flex items-start gap-3 cursor-pointer">
                           <input

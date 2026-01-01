@@ -160,10 +160,10 @@ const DashboardPage: React.FC = () => {
   return (
     <>
       <Head>
-        <title>Dashboard | Travel.LyDian - Seyahat Hesabım</title>
+        <title>Dashboard | Holiday.AILYDIAN - Seyahat Hesabım</title>
         <meta
           name="description"
-          content="Travel.LyDian hesap dashboard'unuz. Rezervasyonlarınızı görün, seyahat geçmişinizi inceleyin ve AI önerilerini keşfedin."
+          content="Holiday.AILYDIAN hesap dashboard'unuz. Rezervasyonlarınızı görün, seyahat geçmişinizi inceleyin ve AI önerilerini keşfedin."
         />
       </Head>
 
@@ -186,14 +186,14 @@ const DashboardPage: React.FC = () => {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="p-3 rounded-xl bg-white/5 backdrop-blur-xl border border-white/10 transition-all hover:bg-white/10"
+                  className="p-3 rounded-xl bg-lydian-bg/5 backdrop-blur-xl border border-white/10 transition-all hover:bg-lydian-bg/10"
                 >
                   <Bell className="w-5 h-5 text-lydian-text-inverse" />
                 </motion.button>
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="p-3 rounded-xl bg-white/5 backdrop-blur-xl border border-white/10 transition-all hover:bg-white/10"
+                  className="p-3 rounded-xl bg-lydian-bg/5 backdrop-blur-xl border border-white/10 transition-all hover:bg-lydian-bg/10"
                 >
                   <Settings className="w-5 h-5 text-lydian-text-inverse" />
                 </motion.button>
@@ -221,7 +221,7 @@ const DashboardPage: React.FC = () => {
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: 0.1 + index * 0.05 }}
-                  className="rounded-2xl p-6 bg-white/5 backdrop-blur-xl border border-white/10 hover:bg-white/10 transition-all cursor-pointer group"
+                  className="rounded-2xl p-6 bg-lydian-bg/5 backdrop-blur-xl border border-white/10 hover:bg-lydian-bg/10 transition-all cursor-pointer group"
                 >
                   <div className="flex items-center justify-between mb-3">
                     <div
@@ -261,7 +261,7 @@ const DashboardPage: React.FC = () => {
                     className={`flex items-center gap-2 px-6 py-3 border-b-2 font-medium transition-all ${
                       activeTab === tab.id
                         ? 'border-[#667EEA] text-[#667EEA] bg-[#667EEA]/10'
-                        : 'border-transparent text-lydian-text-dim hover:text-lydian-text-inverse hover:bg-white/5'
+                        : 'border-transparent text-lydian-text-dim hover:text-lydian-text-inverse hover:bg-lydian-bg/5'
                     }`}
                   >
                     <Icon className="w-4 h-4" />
@@ -293,7 +293,7 @@ const DashboardPage: React.FC = () => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         whileHover={{ scale: 1.02 }}
-                        className="rounded-2xl overflow-hidden bg-white/5 backdrop-blur-xl border border-white/10 hover:bg-white/10 transition-all cursor-pointer"
+                        className="rounded-2xl overflow-hidden bg-lydian-bg/5 backdrop-blur-xl border border-white/10 hover:bg-lydian-bg/10 transition-all cursor-pointer"
                       >
                         <div className="h-32 relative">
                           <img
@@ -346,7 +346,7 @@ const DashboardPage: React.FC = () => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         whileHover={{ scale: 1.02 }}
-                        className="rounded-2xl overflow-hidden bg-white/5 backdrop-blur-xl border border-white/10 hover:bg-white/10 transition-all cursor-pointer"
+                        className="rounded-2xl overflow-hidden bg-lydian-bg/5 backdrop-blur-xl border border-white/10 hover:bg-lydian-bg/10 transition-all cursor-pointer"
                       >
                         <div className="flex">
                           <div className="w-1/3 h-24">
@@ -383,7 +383,7 @@ const DashboardPage: React.FC = () => {
                       key={booking.id}
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
-                      className="rounded-2xl p-6 bg-white/5 backdrop-blur-xl border border-white/10"
+                      className="rounded-2xl p-6 bg-lydian-bg/5 backdrop-blur-xl border border-white/10"
                     >
                       <div className="flex items-center justify-between">
                         <div className="flex items-center gap-4">
@@ -436,7 +436,7 @@ const DashboardPage: React.FC = () => {
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       whileHover={{ scale: 1.02 }}
-                      className="rounded-2xl overflow-hidden bg-white/5 backdrop-blur-xl border border-white/10 hover:bg-white/10 transition-all cursor-pointer"
+                      className="rounded-2xl overflow-hidden bg-lydian-bg/5 backdrop-blur-xl border border-white/10 hover:bg-lydian-bg/10 transition-all cursor-pointer"
                     >
                       <div className="h-40 relative">
                         <img
@@ -479,7 +479,7 @@ const DashboardPage: React.FC = () => {
                 <h2 className="text-2xl font-bold mb-6 text-lydian-text-inverse">
                   Favori Destinasyonlar
                 </h2>
-                <div className="text-center py-16 bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10">
+                <div className="text-center py-16 bg-lydian-bg/5 backdrop-blur-xl rounded-2xl border border-white/10">
                   <Heart className="w-16 h-16 mx-auto mb-4 text-lydian-text-muted" />
                   <h3 className="text-xl font-bold mb-2 text-lydian-text-inverse">
                     Henüz favori eklememişsiniz
@@ -500,7 +500,7 @@ const DashboardPage: React.FC = () => {
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                   {/* Profile Info */}
                   <div className="lg:col-span-1">
-                    <div className="rounded-2xl p-6 text-center bg-white/5 backdrop-blur-xl border border-white/10">
+                    <div className="rounded-2xl p-6 text-center bg-lydian-bg/5 backdrop-blur-xl border border-white/10">
                       <div className="w-24 h-24 rounded-full mx-auto mb-4 overflow-hidden border-4 border-[#667EEA]/30">
                         <img
                           src={userData.avatar}
@@ -521,7 +521,7 @@ const DashboardPage: React.FC = () => {
 
                   {/* Profile Form */}
                   <div className="lg:col-span-2">
-                    <div className="rounded-2xl p-6 bg-white/5 backdrop-blur-xl border border-white/10">
+                    <div className="rounded-2xl p-6 bg-lydian-bg/5 backdrop-blur-xl border border-white/10">
                       <form className="space-y-6">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                           <div>
@@ -529,7 +529,7 @@ const DashboardPage: React.FC = () => {
                             <input
                               type="text"
                               defaultValue="Ahmet"
-                              className="w-full px-4 py-3 rounded-xl bg-white/10 backdrop-blur-xl border-2 border-white/30 text-lydian-text-inverse outline-none transition-all focus:ring-2 focus:ring-[#00BAFF] focus:border-[#00BAFF]/50"
+                              className="w-full px-4 py-3 rounded-xl bg-lydian-bg/10 backdrop-blur-xl border-2 border-white/30 text-lydian-text-inverse outline-none transition-all focus:ring-2 focus:ring-[#00BAFF] focus:border-[#00BAFF]/50"
                             />
                           </div>
                           <div>
@@ -539,7 +539,7 @@ const DashboardPage: React.FC = () => {
                             <input
                               type="text"
                               defaultValue="Yılmaz"
-                              className="w-full px-4 py-3 rounded-xl bg-white/10 backdrop-blur-xl border-2 border-white/30 text-lydian-text-inverse outline-none transition-all focus:ring-2 focus:ring-[#00BAFF] focus:border-[#00BAFF]/50"
+                              className="w-full px-4 py-3 rounded-xl bg-lydian-bg/10 backdrop-blur-xl border-2 border-white/30 text-lydian-text-inverse outline-none transition-all focus:ring-2 focus:ring-[#00BAFF] focus:border-[#00BAFF]/50"
                             />
                           </div>
                         </div>
@@ -549,7 +549,7 @@ const DashboardPage: React.FC = () => {
                           <input
                             type="email"
                             defaultValue={userData.email}
-                            className="w-full px-4 py-3 rounded-xl bg-white/10 backdrop-blur-xl border-2 border-white/30 text-lydian-text-inverse outline-none transition-all focus:ring-2 focus:ring-[#00BAFF] focus:border-[#00BAFF]/50"
+                            className="w-full px-4 py-3 rounded-xl bg-lydian-bg/10 backdrop-blur-xl border-2 border-white/30 text-lydian-text-inverse outline-none transition-all focus:ring-2 focus:ring-[#00BAFF] focus:border-[#00BAFF]/50"
                           />
                         </div>
 
@@ -558,7 +558,7 @@ const DashboardPage: React.FC = () => {
                           <input
                             type="tel"
                             placeholder="+90 555 123 45 67"
-                            className="w-full px-4 py-3 rounded-xl bg-white/10 backdrop-blur-xl border-2 border-white/30 text-lydian-text-inverse placeholder-gray-500 outline-none transition-all focus:ring-2 focus:ring-[#00BAFF] focus:border-[#00BAFF]/50"
+                            className="w-full px-4 py-3 rounded-xl bg-lydian-bg/10 backdrop-blur-xl border-2 border-white/30 text-lydian-text-inverse placeholder-gray-500 outline-none transition-all focus:ring-2 focus:ring-[#00BAFF] focus:border-[#00BAFF]/50"
                           />
                         </div>
 

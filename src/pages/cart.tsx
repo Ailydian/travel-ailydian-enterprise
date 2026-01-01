@@ -115,7 +115,7 @@ const Cart: React.FC = () => {
   return (
     <>
       <Head>
-        <title>Sepetim - LyDian Travel | Güvenli Rezervasyon</title>
+        <title>Sepetim - AILYDIAN Holiday | Güvenli Rezervasyon</title>
         <meta
           name="description"
           content="Sepetinizdeki rezervasyonları inceleyin ve güvenli ödeme ile rezervasyonunuzu tamamlayın."
@@ -259,7 +259,7 @@ const Cart: React.FC = () => {
                                   onClick={() => updateGuestCount(item.id, item.guests - 1)}
                                   whileHover={{ scale: 1.1 }}
                                   whileTap={{ scale: 0.9 }}
-                                  className="w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center bg-white/10 backdrop-blur-xl border border-white/20 rounded-lg hover:bg-white/20 transition-colors"
+                                  className="w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center bg-lydian-bg/10 backdrop-blur-xl border border-white/20 rounded-lg hover:bg-lydian-bg/20 transition-colors"
                                 >
                                   <Minus className="w-3 h-3 sm:w-4 sm:h-4 text-lydian-text-inverse" />
                                 </motion.button>
@@ -270,7 +270,7 @@ const Cart: React.FC = () => {
                                   onClick={() => updateGuestCount(item.id, item.guests + 1)}
                                   whileHover={{ scale: 1.1 }}
                                   whileTap={{ scale: 0.9 }}
-                                  className="w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center bg-white/10 backdrop-blur-xl border border-white/20 rounded-lg hover:bg-white/20 transition-colors"
+                                  className="w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center bg-lydian-bg/10 backdrop-blur-xl border border-white/20 rounded-lg hover:bg-lydian-bg/20 transition-colors"
                                 >
                                   <Plus className="w-3 h-3 sm:w-4 sm:h-4 text-lydian-text-inverse" />
                                 </motion.button>
@@ -328,7 +328,7 @@ const Cart: React.FC = () => {
                         value={promoCode}
                         onChange={(e) => setPromoCode(e.target.value)}
                         placeholder="Promosyon kodu"
-                        className="flex-1 px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base bg-white/5 backdrop-blur-xl border border-white/10 rounded-lg text-lydian-text-inverse placeholder-gray-500 focus:ring-2 focus:ring-[#00BAFF] focus:border-[#00BAFF]/50 outline-none transition-all"
+                        className="flex-1 px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base bg-lydian-bg/5 backdrop-blur-xl border border-white/10 rounded-lg text-lydian-text-inverse placeholder-gray-500 focus:ring-2 focus:ring-[#00BAFF] focus:border-[#00BAFF]/50 outline-none transition-all"
                       />
                       <FuturisticButton variant="primary" size="md" onClick={applyPromoCode}>
                         Uygula
@@ -385,7 +385,7 @@ const Cart: React.FC = () => {
                   </div>
 
                   {/* Security Features */}
-                  <div className="space-y-2 sm:space-y-3 mb-4 sm:mb-6 p-3 sm:p-4 bg-white/5 backdrop-blur-xl rounded-xl border border-white/10">
+                  <div className="space-y-2 sm:space-y-3 mb-4 sm:mb-6 p-3 sm:p-4 bg-lydian-bg/5 backdrop-blur-xl rounded-xl border border-white/10">
                     <div className="flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm">
                       <Shield className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-green-400 flex-shrink-0" />
                       <span className="text-lydian-text-dim">SSL Güvenli Ödeme</span>

@@ -222,8 +222,8 @@ export const FilterBar: React.FC<FilterBarProps> = ({
             onClick={() => setIsStatusOpen(!isStatusOpen)}
             className={`w-full sm:w-auto px-4 py-2 border rounded-lg text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-lydian-border-focus flex items-center justify-between gap-2 min-w-[140px] ${
             filters.status ?
-            'border-blue-500 bg-blue-50 text-blue-700' :
-            'border-gray-300 bg-white/5 text-gray-200 hover:bg-white/5'}`
+            'border-lydian-primary bg-blue-50 text-lydian-primary-hover' :
+            'border-lydian-border-medium bg-lydian-bg/5 text-gray-200 hover:bg-lydian-bg/5'}`
             }>
 
               <div className="flex items-center gap-2">
@@ -246,7 +246,7 @@ export const FilterBar: React.FC<FilterBarProps> = ({
               }}
               className={`w-full px-4 py-2 text-left text-sm hover:bg-lydian-glass-dark-medium transition-colors ${
               filters.status === option.value ?
-              'bg-blue-50 text-blue-700 font-medium' :
+              'bg-blue-50 text-lydian-primary-hover font-medium' :
               'text-gray-200'}`
               }>
 
@@ -265,8 +265,8 @@ export const FilterBar: React.FC<FilterBarProps> = ({
             onClick={() => setIsPropertyOpen(!isPropertyOpen)}
             className={`w-full sm:w-auto px-4 py-2 border rounded-lg text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-lydian-border-focus flex items-center justify-between gap-2 min-w-[140px] ${
             filters.propertyId ?
-            'border-blue-500 bg-blue-50 text-blue-700' :
-            'border-gray-300 bg-white/5 text-gray-200 hover:bg-white/5'}`
+            'border-lydian-primary bg-blue-50 text-lydian-primary-hover' :
+            'border-lydian-border-medium bg-lydian-bg/5 text-gray-200 hover:bg-lydian-bg/5'}`
             }>
 
               <div className="flex items-center gap-2">
@@ -289,7 +289,7 @@ export const FilterBar: React.FC<FilterBarProps> = ({
               }}
               className={`w-full px-4 py-2 text-left text-sm hover:bg-lydian-glass-dark-medium transition-colors ${
               filters.propertyId === option.value ?
-              'bg-blue-50 text-blue-700 font-medium' :
+              'bg-blue-50 text-lydian-primary-hover font-medium' :
               'text-gray-200'}`
               }>
 

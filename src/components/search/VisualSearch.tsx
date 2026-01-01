@@ -227,8 +227,8 @@ const VisualSearch: React.FC<VisualSearchProps> = ({
           {...getRootProps()}
           className={`relative border-2 border-dashed rounded-2xl p-12 text-center cursor-pointer transition-all duration-300 ${
           isDragActive ?
-          'border-blue-500 bg-blue-50' :
-          'border-white/20 hover:border-blue-400 bg-white'}`
+          'border-lydian-primary bg-blue-50' :
+          'border-white/20 hover:border-blue-400 bg-lydian-bg'}`
           }>
 
             <input {...getInputProps()} />

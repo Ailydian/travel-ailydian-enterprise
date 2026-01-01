@@ -109,7 +109,7 @@ const ThemeSwitcher: React.FC = () => {
                       }}
                       className={`p-2 rounded-lg border transition-all ${
                       isActive ?
-                      'border-blue-500 bg-blue-50' :
+                      'border-lydian-primary bg-blue-50' :
                       'border-white/10 hover:border-white/20'}`
                       }>
 

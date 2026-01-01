@@ -1,10 +1,10 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { getServerSession } from 'next-auth'
 import { authOptions } from '@/pages/api/auth/[...nextauth]'
-import { PrismaClient } from '@prisma/client'
+import { prisma } from '@/lib/prisma'; //  from '@prisma/client'
 import { logger } from '../../../../../lib/logger/winston';
 
-const prisma = new PrismaClient()
+// Using singleton prisma
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== 'GET') {

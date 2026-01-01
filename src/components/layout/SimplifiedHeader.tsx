@@ -21,6 +21,8 @@ import {
 'lucide-react';
 import { useCart } from '../../context/CartContext';
 import LanguageSwitcher from '../LanguageSwitcher';
+import { ThemeToggle } from '../theme/ThemeToggle';
+import { LAYOUT_CONSTANTS } from '@/config/layout-constants';
 
 const SimplifiedHeader = () => {
   const router = useRouter();
@@ -56,9 +58,9 @@ const SimplifiedHeader = () => {
 
 
   return (
-    <header className="sticky top-0 z-50 bg-lydian-glass-dark border-b border-lydian-border-light/10 shadow-sm">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+    <header className={`sticky top-0 ${LAYOUT_CONSTANTS.header.zIndex} bg-lydian-glass-dark border-b border-lydian-border-light/10 shadow-sm`}>
+      <div className={`${LAYOUT_CONSTANTS.header.maxWidth} mx-auto ${LAYOUT_CONSTANTS.header.padding.x}`}>
+        <div className={`flex items-center justify-between ${LAYOUT_CONSTANTS.header.height.mobile} ${LAYOUT_CONSTANTS.header.height.desktop}`}>
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
             <div className="w-8 h-8 bg-gradient-to-br from-lydian-primary to-lydian-secondary rounded-lg flex items-center justify-center">
@@ -83,8 +85,8 @@ const SimplifiedHeader = () => {
                     relative px-4 py-2 rounded-lg transition-all duration-200
                     flex items-center space-x-2
                     ${isActive ?
-                  'bg-blue-50 text-blue-600 font-medium' :
-                  'text-gray-200 hover:bg-white/10'}
+                  'bg-blue-50 text-lydian-primary font-medium' :
+                  'text-gray-200 hover:bg-lydian-bg/10'}
                   `
                   }>
 
@@ -104,6 +106,8 @@ const SimplifiedHeader = () => {
 
           {/* Right Section */}
           <div className="flex items-center space-x-4">
+            {/* Theme Toggle */}
+            <ThemeToggle variant="icon" />
             {/* Language Switcher */}
             <div className="hidden md:block">
               <LanguageSwitcher />
@@ -175,8 +179,8 @@ const SimplifiedHeader = () => {
                 className={`
                     flex items-center space-x-3 px-4 py-3 rounded-lg
                     ${isActive ?
-                'bg-blue-50 text-blue-600 font-medium' :
-                'text-gray-200 hover:bg-white/10'}
+                'bg-blue-50 text-lydian-primary font-medium' :
+                'text-gray-200 hover:bg-lydian-bg/10'}
                   `
                 }>
 

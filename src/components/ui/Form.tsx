@@ -334,7 +334,7 @@ export const Form: React.FC<FormProps> = ({
               transition-all duration-200
               ${isSubmitting || isValidating
                 ? 'bg-gray-400 cursor-not-allowed'
-                : 'bg-blue-600 hover:bg-blue-700 active:scale-95'
+                : 'bg-lydian-primary hover:bg-lydian-primary-hover active:scale-95'
               }
             `}
           >
@@ -392,16 +392,16 @@ export const FormField: React.FC<FormFieldProps> = ({
 
   const baseInputClasses = `
     w-full px-4 py-2 rounded-lg border transition-all duration-200
-    focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50
-    disabled:bg-gray-100 disabled:cursor-not-allowed
-    ${error ? 'border-red-500' : 'border-gray-300'}
+    focus:outline-none focus:ring-2 focus:ring-lydian-primary focus:ring-opacity-50
+    disabled:bg-lydian-bg-surface-raised disabled:cursor-not-allowed
+    ${error ? 'border-red-500' : 'border-lydian-border-medium'}
     ${inputClassName}
   `;
 
   return (
     <div className={`flex flex-col gap-1.5 ${className}`}>
       {label && (
-        <label htmlFor={inputId} className="text-sm font-medium text-gray-700">
+        <label htmlFor={inputId} className="text-sm font-medium text-lydian-text-secondary">
           {label}
           {required && <span className="text-red-500 ml-1">*</span>}
         </label>
@@ -440,7 +440,7 @@ export const FormField: React.FC<FormFieldProps> = ({
       )}
 
       {error && (
-        <p id={`${inputId}-error`} className="text-xs text-red-600" role="alert">
+        <p id={`${inputId}-error`} className="text-xs text-lydian-error" role="alert">
           {error}
         </p>
       )}

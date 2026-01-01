@@ -129,8 +129,8 @@ const Dashboard: React.FC = () => {
 
   const getMembershipBadge = (type: string) => {
     const badges = {
-      BASIC: { color: 'bg-white/10 text-gray-200', text: 'Temel Üye' },
-      PREMIUM: { color: 'bg-blue-100 text-blue-700', text: 'Premium Üye' },
+      BASIC: { color: 'bg-lydian-bg/10 text-gray-200', text: 'Temel Üye' },
+      PREMIUM: { color: 'bg-blue-100 text-lydian-primary-hover', text: 'Premium Üye' },
       VIP: { color: 'bg-purple-100 text-purple-700', text: 'VIP Üye' },
       ENTERPRISE: { color: 'bg-yellow-100 text-yellow-700', text: 'Kurumsal Üye' }
     };
@@ -165,7 +165,7 @@ const Dashboard: React.FC = () => {
   return (
     <>
       <Head>
-        <title>Dashboard - LyDian Travel</title>
+        <title>Dashboard - AILYDIAN Holiday</title>
         <meta name="description" content="Kişisel travel dashboard'unuz. Rezervasyonlarınız, favorileriniz ve seyahat istatistikleriniz." />
         <meta name="robots" content="noindex, nofollow" />
       </Head>
@@ -202,8 +202,8 @@ const Dashboard: React.FC = () => {
                         href={item.href}
                         className={`flex items-center space-x-3 px-4 py-3 rounded-xl transition-colors duration-200 ${
                         item.active ?
-                        'bg-blue-50 text-blue-600 border border-blue-200' :
-                        'text-gray-200 hover:bg-white/5'}`
+                        'bg-blue-50 text-lydian-primary border border-blue-200' :
+                        'text-gray-200 hover:bg-lydian-bg/5'}`
                         }>
 
                         <Icon className="w-5 h-5" />
@@ -256,10 +256,10 @@ const Dashboard: React.FC = () => {
               {/* Stats Grid */}
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {[
-                { title: 'Toplam Rezervasyon', value: stats.totalBookings, icon: Calendar, color: 'text-blue-600', bg: 'bg-blue-50' },
-                { title: 'Tamamlanan Seyahat', value: stats.completedTrips, icon: CheckCircle, color: 'text-green-600', bg: 'bg-green-50' },
+                { title: 'Toplam Rezervasyon', value: stats.totalBookings, icon: Calendar, color: 'text-lydian-primary', bg: 'bg-blue-50' },
+                { title: 'Tamamlanan Seyahat', value: stats.completedTrips, icon: CheckCircle, color: 'text-lydian-success', bg: 'bg-green-50' },
                 { title: 'Tasarruf Edilen', value: `₺${stats.savedMoney}`, icon: DollarSign, color: 'text-purple-600', bg: 'bg-purple-50' },
-                { title: 'Loyalty Puanı', value: stats.loyaltyPoints, icon: Star, color: 'text-yellow-600', bg: 'bg-yellow-50' }].
+                { title: 'Loyalty Puanı', value: stats.loyaltyPoints, icon: Star, color: 'text-lydian-warning', bg: 'bg-yellow-50' }].
                 map((stat) => {
                   const Icon = stat.icon;
                   return (
@@ -288,9 +288,9 @@ const Dashboard: React.FC = () => {
                 <h3 className="text-lg font-bold text-lydian-text-inverse mb-4">Hızlı İşlemler</h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                   {[
-                  { title: 'Yeni Rezervasyon', href: '/', icon: Plus, color: 'bg-blue-500 hover:bg-blue-600' },
+                  { title: 'Yeni Rezervasyon', href: '/', icon: Plus, color: 'bg-blue-500 hover:bg-lydian-primary' },
                   { title: 'AI Asistan', href: '/ai-assistant', icon: Sparkles, color: 'bg-purple-500 hover:bg-purple-600' },
-                  { title: 'VR Turlar', href: '/virtual-tours', icon: Globe, color: 'bg-green-500 hover:bg-green-600' },
+                  { title: 'VR Turlar', href: '/virtual-tours', icon: Globe, color: 'bg-green-500 hover:bg-lydian-success' },
                   { title: 'Cüzdanım', href: '/profile/wallet', icon: Bitcoin, color: 'bg-orange-500 hover:bg-orange-600' }].
                   map((action) => {
                     const Icon = action.icon;

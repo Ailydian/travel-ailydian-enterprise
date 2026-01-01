@@ -2,9 +2,26 @@ import logger from '../lib/logger';
 import { logger } from '../lib/logger/winston';
 
 /**
+ * SECURITY WARNING - V2 Critical Fix (CVSS 9.8)
  * Mock Property Owner Authentication Data
- * Test kullanıcıları ve şifreleri
+ *
+ * This file contains hardcoded authentication credentials for testing purposes.
+ * MUST BE DISABLED IN PRODUCTION ENVIRONMENTS.
+ *
+ * Production deployments should:
+ * 1. Set NODE_ENV=production
+ * 2. Use real database authentication
+ * 3. Never rely on this mock data
  */
+
+// Fail-fast in production to prevent security breach
+if (process.env.NODE_ENV === 'production') {
+  throw new Error(
+    'SECURITY ERROR: Mock authentication is disabled in production. ' +
+    'This file (mockOwnerAuth.ts) contains hardcoded credentials and must not be used in production. ' +
+    'Please implement proper database-backed authentication.'
+  );
+}
 
 export interface MockOwner {
   id: string;
@@ -18,7 +35,7 @@ export interface MockOwner {
   status: 'active' | 'pending' | 'suspended';
 }
 
-// Test için hazır kullanıcılar
+// Test için hazır kullanıcılar (ONLY for development/testing - NODE_ENV !== 'production')
 export const MOCK_OWNERS: MockOwner[] = [
   {
     id: 'owner-001',
@@ -79,9 +96,28 @@ export const MOCK_OWNERS: MockOwner[] = [
 
 // Giriş doğrulama fonksiyonu
 export function authenticateOwner(email: string, password: string): MockOwner | null {
+  // SECURITY: Additional production check - V2 Critical Fix
+  if (process.env.NODE_ENV === 'production') {
+    throw new Error('Mock authentication is not available in production');
+  }
+
   const owner = MOCK_OWNERS.find(
     (o) => o.email.toLowerCase() === email.toLowerCase() && o.password === password
   );
+
+  // SECURITY: Log authentication attempts without exposing credentials - V10 Fix (CVSS 8.3)
+  if (owner) {
+    logger.info('Mock owner authentication successful', {
+      component: 'MockOwnerAuth',
+      ownerId: owner.id,
+      // Do NOT log email or password - PII protection
+    });
+  } else {
+    logger.warn('Mock owner authentication failed', {
+      component: 'MockOwnerAuth',
+      // Do NOT log email or password - PII protection
+    });
+  }
 
   return owner || null;
 }
@@ -129,20 +165,24 @@ export function registerOwner(data: {
   };
 }
 
-// Test kullanıcı bilgilerini konsola yazdırma
+// SECURITY: Test credential printing removed - V10 Critical Fix (CVSS 8.3)
+// Logging PII (Personally Identifiable Information) including emails and passwords
+// is a critical security vulnerability that can lead to credential exposure.
 export function printTestCredentials() {
-  logger.debug('\n=== MÜLK SAHİBİ TEST KULLANICI BİLGİLERİ ===\n', { component: 'Mockownerauth' });
+  // SECURITY: Do NOT log passwords, emails, or other PII
+  // This prevents credential leakage through log files, monitoring systems, etc.
 
-  MOCK_OWNERS.forEach((owner, index) => {
-    logger.debug(`${index + 1}. Kullanıcı:`, { component: 'Mockownerauth' });
-    logger.debug(`   E-posta: ${owner.email}`, { component: 'Mockownerauth' });
-    logger.debug(`   Şifre: ${owner.password}`, { component: 'Mockownerauth' });
-    logger.debug(`   Ad Soyad: ${owner.fullName}`, { component: 'Mockownerauth' });
-    logger.debug(`   Telefon: ${owner.phone}`, { component: 'Mockownerauth' });
-    logger.debug(`   Mülk Tipi: ${owner.propertyType}`, { component: 'Mockownerauth' });
-    logger.debug(`   Mülk Sayısı: ${owner.propertyCount}`, { component: 'Mockownerauth' });
-    logger.info('');
-  });
+  if (process.env.NODE_ENV === 'production') {
+    logger.error('SECURITY ERROR: printTestCredentials called in production', {
+      component: 'MockOwnerAuth'
+    });
+    return;
+  }
 
-  logger.debug('==========================================\n', { component: 'Mockownerauth' });
+  logger.debug('=== MOCK OWNER TEST DATA AVAILABLE ===', { component: 'MockOwnerAuth' });
+  logger.debug(`Total mock owners: ${MOCK_OWNERS.length}`, { component: 'MockOwnerAuth' });
+  logger.debug('Credentials available in development mode only', { component: 'MockOwnerAuth' });
+  logger.debug('For credential details, check the source code directly', { component: 'MockOwnerAuth' });
+  logger.debug('NEVER log actual passwords or emails to prevent PII exposure', { component: 'MockOwnerAuth' });
+  logger.debug('==========================================', { component: 'MockOwnerAuth' });
 }

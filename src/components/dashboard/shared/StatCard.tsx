@@ -25,28 +25,28 @@ export interface StatCardProps {
 
 const variantStyles = {
   default: {
-    container: 'bg-white/5 border-gray-200',
-    icon: 'bg-white/10 text-gray-300',
+    container: 'bg-lydian-bg/5 border-lydian-border',
+    icon: 'bg-lydian-bg/10 text-lydian-text-dim',
     text: 'text-white'
   },
   primary: {
-    container: 'bg-white/5 border-blue-200',
-    icon: 'bg-blue-100 text-blue-600',
+    container: 'bg-lydian-bg/5 border-blue-200',
+    icon: 'bg-blue-100 text-lydian-primary',
     text: 'text-white'
   },
   success: {
-    container: 'bg-white/5 border-green-200',
-    icon: 'bg-green-100 text-green-600',
+    container: 'bg-lydian-bg/5 border-green-200',
+    icon: 'bg-green-100 text-lydian-success',
     text: 'text-white'
   },
   warning: {
-    container: 'bg-white/5 border-yellow-200',
-    icon: 'bg-yellow-100 text-yellow-600',
+    container: 'bg-lydian-bg/5 border-yellow-200',
+    icon: 'bg-yellow-100 text-lydian-warning',
     text: 'text-white'
   },
   danger: {
-    container: 'bg-white/5 border-red-200',
-    icon: 'bg-red-100 text-red-600',
+    container: 'bg-lydian-bg/5 border-red-200',
+    icon: 'bg-red-100 text-lydian-error',
     text: 'text-white'
   }
 };
@@ -122,7 +122,7 @@ export const StatCard: React.FC<StatCardProps> = ({
             {trend !== undefined &&
             <div
               className={`flex items-center text-sm font-medium ${
-              isPositiveTrend ? 'text-green-600' : 'text-red-600'}`
+              isPositiveTrend ? 'text-lydian-success' : 'text-lydian-error'}`
               }>
 
                 <TrendIcon className="h-4 w-4 mr-1" />

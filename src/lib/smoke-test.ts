@@ -39,7 +39,7 @@ export class SmokeTestRunner {
   private results: TestResult[] = [];
   private testStartTime: number = 0;
 
-  constructor(baseUrl: string = 'https://travel.lydian.com') {
+  constructor(baseUrl: string = 'https://holiday.ailydian.com') {
     this.baseUrl = baseUrl;
   }
 

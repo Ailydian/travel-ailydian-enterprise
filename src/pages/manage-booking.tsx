@@ -56,7 +56,7 @@ export default function ManageBooking() {
                 className={`pb-4 px-4 font-semibold transition-colors relative ${
                 searchType === 'booking' ?
                 'text-lydian-primary' :
-                'text-gray-400 hover:text-gray-200'}`
+                'text-lydian-text-muted hover:text-gray-200'}`
                 }>
 
                 Rezervasyon Numarası ile
@@ -69,7 +69,7 @@ export default function ManageBooking() {
                 className={`pb-4 px-4 font-semibold transition-colors relative ${
                 searchType === 'email' ?
                 'text-lydian-primary' :
-                'text-gray-400 hover:text-gray-200'}`
+                'text-lydian-text-muted hover:text-gray-200'}`
                 }>
 
                 E-posta ile
@@ -267,8 +267,8 @@ export default function ManageBooking() {
                 <p className="text-lydian-text-dim mb-3">
                   Detaylı sorularınız için e-posta gönderin
                 </p>
-                <a href="mailto:destek@travel.lydian.com" className="text-lydian-primary font-semibold hover:underline">
-                  destek@travel.lydian.com
+                <a href="mailto:destek@holiday.ailydian.com" className="text-lydian-primary font-semibold hover:underline">
+                  destek@holiday.ailydian.com
                 </a>
               </div>
 

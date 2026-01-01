@@ -353,7 +353,7 @@ const CollaborativePlanning: React.FC<CollaborativePlanningProps> = ({ tripId, c
   const getStatusColor = (status: string) => {
     switch (status) {
       case 'active':return 'bg-green-400';
-      case 'pending':return 'bg-yellow-400';
+      case 'pending':return 'bg-lydian-warning';
       case 'offline':return 'bg-gray-400';
       default:return 'bg-gray-400';
     }
@@ -422,7 +422,7 @@ const CollaborativePlanning: React.FC<CollaborativePlanningProps> = ({ tripId, c
                     className={`flex items-center gap-2 px-4 py-2 border-b-2 transition-colors whitespace-nowrap ${
                     activeTab === tab.key ?
                     'border-purple-600 text-purple-600' :
-                    'border-transparent text-gray-300 hover:text-white'}`
+                    'border-transparent text-lydian-text-dim hover:text-white'}`
                     }>
 
                     <Icon className="w-4 h-4" />
@@ -465,7 +465,7 @@ const CollaborativePlanning: React.FC<CollaborativePlanningProps> = ({ tripId, c
                               <span className={`text-xs px-2 py-0.5 rounded-full ${
                             collaborator.status === 'active' ? 'bg-green-100 text-green-700' :
                             collaborator.status === 'pending' ? 'bg-yellow-100 text-yellow-700' :
-                            'bg-white/10 text-gray-200'}`
+                            'bg-lydian-bg/10 text-gray-200'}`
                             }>
                                 {collaborator.status}
                               </span>
@@ -509,7 +509,7 @@ const CollaborativePlanning: React.FC<CollaborativePlanningProps> = ({ tripId, c
                           <div className={`inline-block px-4 py-2 rounded-lg ${
                       msg.userId === currentUser.id ?
                       'bg-purple-600 text-white' :
-                      'bg-white/10 text-white'}`
+                      'bg-lydian-bg/10 text-white'}`
                       }>
                             {msg.message}
                           </div>
@@ -668,7 +668,7 @@ const CollaborativePlanning: React.FC<CollaborativePlanningProps> = ({ tripId, c
                                 Paid
                               </span> :
 
-                      <button className="px-3 py-1 bg-lydian-success hover:bg-green-700 text-lydian-text-inverse rounded text-sm transition-colors">
+                      <button className="px-3 py-1 bg-lydian-success hover:bg-lydian-success-hover text-lydian-text-inverse rounded text-sm transition-colors">
                                 Mark Paid
                               </button>
                       }

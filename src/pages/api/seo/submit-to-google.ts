@@ -34,7 +34,7 @@ export default async function handler(
       return res.status(400).json({ error: 'URLs array is required' });
     }
 
-    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://travel.lydian.com';
+    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://holiday.ailydian.com';
 
     // Google Indexing API'yi kullanmak için Google Cloud Console'dan
     // service account key gerekiyor. Şimdilik IndexNow kullanıyoruz.

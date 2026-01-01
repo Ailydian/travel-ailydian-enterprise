@@ -93,19 +93,19 @@ const supportStats = [
   title: 'Ortalama Yanıt Süresi',
   value: '2 saat',
   icon: Clock,
-  color: 'text-blue-600'
+  color: 'text-lydian-primary'
 },
 {
   title: 'Müşteri Memnuniyeti',
   value: '98%',
   icon: Star,
-  color: 'text-yellow-600'
+  color: 'text-lydian-warning'
 },
 {
   title: 'Çözüm Oranı',
   value: '99.2%',
   icon: CheckCircle,
-  color: 'text-green-600'
+  color: 'text-lydian-success'
 },
 {
   title: 'Aktif Temsilci',
@@ -135,7 +135,7 @@ export default function Support() {
       case 'open':return 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200';
       case 'in-progress':return 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200';
       case 'resolved':return 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200';
-      default:return 'bg-white/10 text-gray-100 dark:bg-gray-900 dark:text-gray-200';
+      default:return 'bg-lydian-bg/10 text-gray-100 dark:bg-gray-900 dark:text-gray-200';
     }
   };
 
@@ -143,7 +143,7 @@ export default function Support() {
     switch (priority) {
       case 'urgent':return 'border-l-4 border-red-500';
       case 'high':return 'border-l-4 border-orange-500';
-      case 'medium':return 'border-l-4 border-blue-500';
+      case 'medium':return 'border-l-4 border-lydian-primary';
       case 'low':return 'border-l-4 border-green-500';
       default:return 'border-l-4 border-gray-500';
     }
@@ -159,7 +159,7 @@ export default function Support() {
   return (
     <>
       <Head>
-        <title>Destek Merkezi - LyDian Travel</title>
+        <title>Destek Merkezi - AILYDIAN Holiday</title>
         <meta name="description" content="7/24 müşteri desteği, teknik yardım ve seyahat danışmanlığı." />
       </Head>
 
@@ -332,8 +332,8 @@ export default function Support() {
                   onClick={() => setSelectedCategory('all')}
                   className={`px-4 py-2 rounded-lg font-medium transition-colors ${
                   selectedCategory === 'all' ?
-                  'bg-blue-600 text-white' :
-                  'bg-white/5 dark:bg-gray-800 text-gray-200 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-700'}`
+                  'bg-lydian-primary text-white' :
+                  'bg-lydian-bg/5 dark:bg-gray-800 text-gray-200 dark:text-lydian-text-dim hover:bg-blue-50 dark:hover:bg-gray-700'}`
                   }>
 
                   Tümü
@@ -344,8 +344,8 @@ export default function Support() {
                   onClick={() => setSelectedCategory(category.id)}
                   className={`px-4 py-2 rounded-lg font-medium transition-colors ${
                   selectedCategory === category.id ?
-                  'bg-blue-600 text-white' :
-                  'bg-white/5 dark:bg-gray-800 text-gray-200 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-700'}`
+                  'bg-lydian-primary text-white' :
+                  'bg-lydian-bg/5 dark:bg-gray-800 text-gray-200 dark:text-lydian-text-dim hover:bg-blue-50 dark:hover:bg-gray-700'}`
                   }>
 
                     {category.title}

@@ -59,7 +59,7 @@ export { default as EmailVerificationEmail } from './templates/email-verificatio
  *   guests: 2,
  *   totalPrice: '1500.00',
  *   currency: 'USD',
- *   confirmationUrl: 'https://travel.ailydian.com/bookings/BK123456',
+ *   confirmationUrl: 'https://holiday.ailydian.com/bookings/BK123456',
  *   language: 'en',
  * });
  * ```

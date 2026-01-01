@@ -125,7 +125,7 @@ export default function WatchPriceButton({
           title={isWatching ? 'Watching price' : 'Watch price'}>
 
           <svg
-            className={`w-6 h-6 ${isWatching ? 'text-yellow-500 fill-current' : 'text-gray-300'}`}
+            className={`w-6 h-6 ${isWatching ? 'text-yellow-500 fill-current' : 'text-lydian-text-dim'}`}
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24">
@@ -158,7 +158,7 @@ export default function WatchPriceButton({
           className={`flex items-center gap-2 px-3 py-1.5 rounded-lg border ${
           isWatching ?
           'bg-yellow-50 border-yellow-300 text-yellow-700' :
-          'bg-white/5 border-white/20 text-gray-200 hover:bg-white/5'} transition-colors ${
+          'bg-lydian-bg/5 border-white/20 text-gray-200 hover:bg-lydian-bg/5'} transition-colors ${
           className}`}>
 
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -361,7 +361,7 @@ export default function WatchPriceButton({
         className={`flex items-center gap-2 px-6 py-3 rounded-lg font-semibold transition-all ${
         isWatching ?
         'bg-yellow-100 text-yellow-700 border-2 border-yellow-300 hover:bg-yellow-200' :
-        'bg-blue-600 text-white hover:bg-blue-700 shadow-lg hover:shadow-xl'} ${
+        'bg-lydian-primary text-white hover:bg-lydian-primary-hover shadow-lg hover:shadow-xl'} ${
         className}`}>
 
         <svg

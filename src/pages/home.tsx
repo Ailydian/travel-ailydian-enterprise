@@ -862,7 +862,7 @@ const GetYourGuideStyleHome: React.FC = () => {
         <section className="py-16 bg-lydian-glass-dark">
           <div className="max-w-7xl mx-auto px-4">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-lydian-text-inverse mb-4">Neden LyDian Travel?</h2>
+              <h2 className="text-3xl font-bold text-lydian-text-inverse mb-4">Neden AILYDIAN Holiday?</h2>
               <p className="text-lydian-text-dim">Gelişmiş özelliklerimizle seyahatin geleceğini yaşayın</p>
             </div>
 
@@ -872,7 +872,7 @@ const GetYourGuideStyleHome: React.FC = () => {
                 icon: Sparkles,
                 title: 'AI Destekli Öneriler',
                 description: 'Tercihleriniz ve davranış örüntülerinize dayanan kişiselleştirilmiş seyahat önerileri alın.',
-                color: 'bg-yellow-100 text-yellow-600'
+                color: 'bg-yellow-100 text-lydian-warning'
               },
               {
                 icon: Camera,

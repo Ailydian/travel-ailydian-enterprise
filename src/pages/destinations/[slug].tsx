@@ -59,7 +59,7 @@ export default function DestinationDetail({ destination, relatedDestinations, ex
     "name": destination.name,
     "description": destination.description,
     "image": destination.images.hero,
-    "url": `https://travel.lydian.com/destinations/${destination.slug}`,
+    "url": `https://holiday.ailydian.com/destinations/${destination.slug}`,
     "geo": {
       "@type": "GeoCoordinates",
       "latitude": destination.coordinates.lat,
@@ -77,7 +77,7 @@ export default function DestinationDetail({ destination, relatedDestinations, ex
       "bestRating": 5,
       "worstRating": 1
     },
-    "tourBookingPage": `https://travel.lydian.com/destinations/${destination.slug}`
+    "tourBookingPage": `https://holiday.ailydian.com/destinations/${destination.slug}`
   };
 
   const handleShare = async () => {
@@ -107,20 +107,20 @@ export default function DestinationDetail({ destination, relatedDestinations, ex
 
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
-        <meta property="og:url" content={`https://travel.lydian.com/destinations/${destination.slug}`} />
+        <meta property="og:url" content={`https://holiday.ailydian.com/destinations/${destination.slug}`} />
         <meta property="og:title" content={destination.seo.title} />
         <meta property="og:description" content={destination.seo.description} />
         <meta property="og:image" content={destination.seo.ogImage} />
 
         {/* Twitter */}
         <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content={`https://travel.lydian.com/destinations/${destination.slug}`} />
+        <meta property="twitter:url" content={`https://holiday.ailydian.com/destinations/${destination.slug}`} />
         <meta property="twitter:title" content={destination.seo.title} />
         <meta property="twitter:description" content={destination.seo.description} />
         <meta property="twitter:image" content={destination.seo.ogImage} />
 
         {/* Canonical URL */}
-        <link rel="canonical" href={`https://travel.lydian.com/destinations/${destination.slug}`} />
+        <link rel="canonical" href={`https://holiday.ailydian.com/destinations/${destination.slug}`} />
 
         {/* Structured Data */}
         <script
@@ -214,7 +214,7 @@ export default function DestinationDetail({ destination, relatedDestinations, ex
                   className={`relative px-6 py-3 rounded-xl font-bold transition-all duration-300 ${
                   activeTab === 'overview' ?
                   'bg-gradient-to-r from-lydian-primary to-lydian-secondary text-white shadow-lg shadow-red-500/30' :
-                  'bg-white/5 text-gray-200 hover:bg-white/5 border border-white/10 hover:border-lydian-primary/50'}`
+                  'bg-lydian-bg/5 text-gray-200 hover:bg-lydian-bg/5 border border-white/10 hover:border-lydian-primary/50'}`
                   }>
 
                   <span className="relative z-10">Genel Bakış</span>
@@ -233,7 +233,7 @@ export default function DestinationDetail({ destination, relatedDestinations, ex
                   className={`relative px-6 py-3 rounded-xl font-bold transition-all duration-300 ${
                   activeTab === 'places' ?
                   'bg-gradient-to-r from-lydian-primary to-lydian-secondary text-white shadow-lg shadow-red-500/30' :
-                  'bg-white/5 text-gray-200 hover:bg-white/5 border border-white/10 hover:border-lydian-primary/50'}`
+                  'bg-lydian-bg/5 text-gray-200 hover:bg-lydian-bg/5 border border-white/10 hover:border-lydian-primary/50'}`
                   }>
 
                   <span className="relative z-10">Gezilecek Yerler</span>
@@ -252,7 +252,7 @@ export default function DestinationDetail({ destination, relatedDestinations, ex
                   className={`relative px-6 py-3 rounded-xl font-bold transition-all duration-300 ${
                   activeTab === 'activities' ?
                   'bg-gradient-to-r from-lydian-primary to-lydian-secondary text-white shadow-lg shadow-red-500/30' :
-                  'bg-white/5 text-gray-200 hover:bg-white/5 border border-white/10 hover:border-lydian-primary/50'}`
+                  'bg-lydian-bg/5 text-gray-200 hover:bg-lydian-bg/5 border border-white/10 hover:border-lydian-primary/50'}`
                   }>
 
                   <span className="relative z-10">Aktiviteler</span>
@@ -271,7 +271,7 @@ export default function DestinationDetail({ destination, relatedDestinations, ex
                   className={`relative px-6 py-3 rounded-xl font-bold transition-all duration-300 ${
                   activeTab === 'tips' ?
                   'bg-gradient-to-r from-lydian-primary to-lydian-secondary text-white shadow-lg shadow-red-500/30' :
-                  'bg-white/5 text-gray-200 hover:bg-white/5 border border-white/10 hover:border-lydian-primary/50'}`
+                  'bg-lydian-bg/5 text-gray-200 hover:bg-lydian-bg/5 border border-white/10 hover:border-lydian-primary/50'}`
                   }>
 
                   <span className="relative z-10">İpuçları</span>
@@ -542,7 +542,7 @@ export default function DestinationDetail({ destination, relatedDestinations, ex
 
                     <span className="w-5 h-5" />
                     }
-                    <span className={destination.accessibility.wheelchairFriendly ? 'text-white' : 'text-gray-400'}>
+                    <span className={destination.accessibility.wheelchairFriendly ? 'text-white' : 'text-lydian-text-muted'}>
                       Tekerlekli Sandalye
                     </span>
                   </div>
@@ -552,7 +552,7 @@ export default function DestinationDetail({ destination, relatedDestinations, ex
 
                     <span className="w-5 h-5" />
                     }
-                    <span className={destination.accessibility.publicTransport ? 'text-white' : 'text-gray-400'}>
+                    <span className={destination.accessibility.publicTransport ? 'text-white' : 'text-lydian-text-muted'}>
                       Toplu Taşıma
                     </span>
                   </div>
@@ -562,7 +562,7 @@ export default function DestinationDetail({ destination, relatedDestinations, ex
 
                     <span className="w-5 h-5" />
                     }
-                    <span className={destination.accessibility.englishSpoken ? 'text-white' : 'text-gray-400'}>
+                    <span className={destination.accessibility.englishSpoken ? 'text-white' : 'text-lydian-text-muted'}>
                       İngilizce Konuşulur
                     </span>
                   </div>

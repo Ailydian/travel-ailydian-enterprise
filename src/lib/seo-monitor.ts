@@ -83,10 +83,10 @@ export class SEOMonitor {
     const imagesWithoutAlt = (html.match(/<img(?![^>]*alt=)[^>]*>/gi) || []).length;
     
     const internalLinks = (html.match(/<a[^>]*href=["\'][^"']*[^"']*["\'][^>]*>/gi) || [])
-      .filter(link => !link.includes('http') || link.includes('travel.lydian.com')).length;
+      .filter(link => !link.includes('http') || link.includes('holiday.ailydian.com')).length;
     
     const externalLinks = (html.match(/<a[^>]*href=["\']https?:\/\/[^"']*["\'][^>]*>/gi) || [])
-      .filter(link => !link.includes('travel.lydian.com')).length;
+      .filter(link => !link.includes('holiday.ailydian.com')).length;
 
     // Check for important elements
     const hasCanonical = html.includes('rel="canonical"');

@@ -68,7 +68,7 @@ export const Skeleton: React.FC<SkeletonProps> = ({
     rounded: 'rounded-lg',
   };
 
-  const baseClasses = 'bg-gray-200';
+  const baseClasses = 'bg-lydian-bg-surface-raised';
 
   const style: React.CSSProperties = {
     width: typeof width === 'number' ? `${width}px` : width,
@@ -123,7 +123,7 @@ export const SkeletonCard: React.FC<SkeletonCardProps> = ({
   className = '',
 }) => {
   return (
-    <div className={`p-6 bg-white rounded-lg border border-gray-200 ${className}`}>
+    <div className={`p-6 bg-lydian-bg rounded-lg border border-lydian-border ${className}`}>
       {/* Header with Avatar */}
       {showAvatar && (
         <div className="flex items-center gap-4 mb-4">
@@ -161,7 +161,7 @@ export const SkeletonList: React.FC<{
   return (
     <div className={`space-y-4 ${className}`}>
       {Array.from({ length: items }).map((_, index) => (
-        <div key={index} className="flex items-center gap-4 p-4 bg-white rounded-lg border border-gray-200">
+        <div key={index} className="flex items-center gap-4 p-4 bg-lydian-bg rounded-lg border border-lydian-border">
           {showAvatar && <Skeleton variant="circular" width={40} height={40} />}
           <div className="flex-1 space-y-2">
             <Skeleton variant="text" width="60%" />
@@ -184,10 +184,10 @@ export const SkeletonTable: React.FC<SkeletonTableProps> = ({
   className = '',
 }) => {
   return (
-    <div className={`overflow-hidden rounded-lg border border-gray-200 ${className}`}>
+    <div className={`overflow-hidden rounded-lg border border-lydian-border ${className}`}>
       <table className="w-full">
         {showHeader && (
-          <thead className="bg-gray-50">
+          <thead className="bg-lydian-bg-surface">
             <tr>
               {Array.from({ length: columns }).map((_, colIndex) => (
                 <th key={colIndex} className="px-6 py-3">
@@ -197,7 +197,7 @@ export const SkeletonTable: React.FC<SkeletonTableProps> = ({
             </tr>
           </thead>
         )}
-        <tbody className="bg-white divide-y divide-gray-200">
+        <tbody className="bg-lydian-bg divide-y divide-gray-200">
           {Array.from({ length: rows }).map((_, rowIndex) => (
             <tr key={rowIndex}>
               {Array.from({ length: columns }).map((_, colIndex) => (
@@ -219,7 +219,7 @@ export const SkeletonTable: React.FC<SkeletonTableProps> = ({
 
 export const SkeletonProductCard: React.FC<{ className?: string }> = ({ className = '' }) => {
   return (
-    <div className={`bg-white rounded-lg border border-gray-200 overflow-hidden ${className}`}>
+    <div className={`bg-lydian-bg rounded-lg border border-lydian-border overflow-hidden ${className}`}>
       {/* Image */}
       <Skeleton variant="rectangular" height={200} />
       
@@ -244,7 +244,7 @@ export const SkeletonProductCard: React.FC<{ className?: string }> = ({ classNam
 
 export const SkeletonProfile: React.FC<{ className?: string }> = ({ className = '' }) => {
   return (
-    <div className={`bg-white rounded-lg border border-gray-200 overflow-hidden ${className}`}>
+    <div className={`bg-lydian-bg rounded-lg border border-lydian-border overflow-hidden ${className}`}>
       {/* Cover */}
       <Skeleton variant="rectangular" height={120} />
       
@@ -263,7 +263,7 @@ export const SkeletonProfile: React.FC<{ className?: string }> = ({ className = 
         </div>
         
         {/* Stats */}
-        <div className="grid grid-cols-3 gap-4 mt-6 pt-6 border-t border-gray-200">
+        <div className="grid grid-cols-3 gap-4 mt-6 pt-6 border-t border-lydian-border">
           {[1, 2, 3].map((i) => (
             <div key={i} className="text-center space-y-2">
               <Skeleton variant="text" width="60%" className="mx-auto" />
@@ -286,7 +286,7 @@ export const SkeletonDashboard: React.FC<{ className?: string }> = ({ className 
       {/* Stats Grid */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
         {[1, 2, 3, 4].map((i) => (
-          <div key={i} className="p-6 bg-white rounded-lg border border-gray-200">
+          <div key={i} className="p-6 bg-lydian-bg rounded-lg border border-lydian-border">
             <Skeleton variant="text" width="60%" className="mb-3" />
             <Skeleton variant="text" width="40%" height={32} />
           </div>
@@ -294,7 +294,7 @@ export const SkeletonDashboard: React.FC<{ className?: string }> = ({ className 
       </div>
       
       {/* Chart */}
-      <div className="p-6 bg-white rounded-lg border border-gray-200">
+      <div className="p-6 bg-lydian-bg rounded-lg border border-lydian-border">
         <Skeleton variant="text" width="30%" className="mb-4" />
         <Skeleton variant="rectangular" height={300} />
       </div>

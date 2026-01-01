@@ -1,14 +1,15 @@
 /**
  * Airport Transfer Search API
+import { withRateLimit, publicRateLimiter } from '@/lib/middleware/rate-limiter';
  * Returns available transfer routes based on search criteria
  * NOW WITH REAL DATABASE INTEGRATION
  */
 
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { PrismaClient } from '@prisma/client';
+import { prisma } from '@/lib/prisma';;
 import logger from '../../../lib/logger';
 
-const prisma = new PrismaClient();
+// Using singleton prisma from @/lib/prisma
 
 // Keep mock data as fallback
 const mockTransfers = [
@@ -296,7 +297,7 @@ interface SearchQuery {
   region?: string;
 }
 
-export default async function handler(
+async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
@@ -425,6 +426,8 @@ export default async function handler(
       query: { from, to, passengers, isVIP, region },
     });
 
+    // Set cache headers for better performance
+    res.setHeader('Cache-Control', 'public, max-age=300, s-maxage=600');
     return res.status(200).json({
       success: true,
       count: results.length,
@@ -436,7 +439,7 @@ export default async function handler(
       error: 'Transfer search failed',
       message: error instanceof Error ? error.message : 'Unknown error',
     });
-  } finally {
-    await prisma.$disconnect();
   }
 }
+
+export default withRateLimit(handler, publicRateLimiter);

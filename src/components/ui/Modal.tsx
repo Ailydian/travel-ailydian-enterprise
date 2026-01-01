@@ -130,7 +130,7 @@ export const Modal: React.FC<ModalProps> = ({
         ref={modalRef}
         tabIndex={-1}
         className={`
-          bg-white rounded-2xl shadow-2xl w-full
+          bg-lydian-bg rounded-2xl shadow-2xl w-full
           transform transition-all duration-300 animate-slideUp
           ${sizeStyles[size]}
           ${className}
@@ -138,11 +138,11 @@ export const Modal: React.FC<ModalProps> = ({
       >
         {/* Header */}
         {(title || showCloseButton) && (
-          <div className="flex items-center justify-between px-6 py-4 border-b border-gray-200">
+          <div className="flex items-center justify-between px-6 py-4 border-b border-lydian-border">
             {title && (
               <h2
                 id="modal-title"
-                className="text-xl font-semibold text-gray-900"
+                className="text-xl font-semibold text-lydian-text"
               >
                 {title}
               </h2>
@@ -151,7 +151,7 @@ export const Modal: React.FC<ModalProps> = ({
             {showCloseButton && (
               <button
                 onClick={onClose}
-                className="ml-auto p-2 rounded-lg text-gray-400 hover:text-gray-600 hover:bg-gray-100 transition-colors"
+                className="ml-auto p-2 rounded-lg text-lydian-text-muted hover:text-lydian-text-secondary hover:bg-lydian-bg-surface-raised transition-colors"
                 aria-label="Close modal"
               >
                 <svg
@@ -177,7 +177,7 @@ export const Modal: React.FC<ModalProps> = ({
 
         {/* Footer */}
         {footer && (
-          <div className="flex items-center justify-end gap-3 px-6 py-4 border-t border-gray-200 bg-gray-50 rounded-b-2xl">
+          <div className="flex items-center justify-end gap-3 px-6 py-4 border-t border-lydian-border bg-lydian-bg-surface rounded-b-2xl">
             {footer}
           </div>
         )}

@@ -145,7 +145,7 @@ export const AIRecommendations: React.FC<AIRecommendationsProps> = ({
           <div className="flex items-center gap-2">
             <div className="relative">
               <Brain className="w-6 h-6" />
-              <div className="absolute -top-1 -right-1 bg-yellow-400 rounded-full p-0.5">
+              <div className="absolute -top-1 -right-1 bg-lydian-warning rounded-full p-0.5">
                 <Sparkles className="w-3 h-3 text-purple-600" />
               </div>
             </div>

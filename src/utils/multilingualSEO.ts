@@ -115,14 +115,14 @@ export const generateTourSchemaOrg = (tour: {
       price: tour.price,
       priceCurrency: tour.currency,
       availability: 'https://schema.org/InStock',
-      url: `https://travel.lydian.com/${lang}/tours/${getLocalizedText(tour.slug, lang)}`,
+      url: `https://holiday.ailydian.com/${lang}/tours/${getLocalizedText(tour.slug, lang)}`,
       validFrom: new Date().toISOString(),
     },
     provider: {
       '@type': 'Organization',
-      name: 'LyDian Travel',
-      url: 'https://travel.lydian.com',
-      logo: 'https://travel.lydian.com/logo.png'
+      name: 'AILYDIAN Holiday',
+      url: 'https://holiday.ailydian.com',
+      logo: 'https://holiday.ailydian.com/logo.png'
     },
     touristType: 'tourist',
     duration: tour.duration,
@@ -165,8 +165,8 @@ export const generateTransferSchemaOrg = (transfer: {
     description: `Professional transfer service from ${getLocalizedText(transfer.from, lang)} to ${getLocalizedText(transfer.to, lang)}`,
     provider: {
       '@type': 'Organization',
-      name: 'LyDian Travel',
-      url: 'https://travel.lydian.com',
+      name: 'AILYDIAN Holiday',
+      url: 'https://holiday.ailydian.com',
     },
     areaServed: {
       '@type': 'City',
@@ -178,7 +178,7 @@ export const generateTransferSchemaOrg = (transfer: {
       price: transfer.price,
       priceCurrency: transfer.currency,
       availability: 'https://schema.org/InStock',
-      url: `https://travel.lydian.com/${lang}/transfers/${getLocalizedText(transfer.slug, lang)}`,
+      url: `https://holiday.ailydian.com/${lang}/transfers/${getLocalizedText(transfer.slug, lang)}`,
     },
     aggregateRating: {
       '@type': 'AggregateRating',
@@ -255,7 +255,7 @@ export const generateOpenGraphTags = (content: {
     images: content.images.map(url => ({ url, alt: getLocalizedText(content.title, lang) })),
     url: content.url,
     type: content.type || 'website',
-    siteName: 'LyDian Travel',
+    siteName: 'AILYDIAN Holiday',
     locale: HREFLANG_CODES[lang],
   };
 };

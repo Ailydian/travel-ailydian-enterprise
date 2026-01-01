@@ -86,7 +86,7 @@ export default function Step5Legal({ data }: Step5Props) {
         className={`p-5 border-2 rounded-xl transition-all ${
           isUploaded
             ? 'border-green-500 bg-green-50'
-            : 'border-slate-200 bg-white/5 hover:border-cyan-300'
+            : 'border-slate-200 bg-lydian-bg/5 hover:border-cyan-300'
         }`}
       >
         <div className="flex items-start gap-4">
@@ -109,20 +109,20 @@ export default function Step5Legal({ data }: Step5Props) {
                 <p className="text-sm text-slate-600 mt-1">{description}</p>
               </div>
               {isUploaded && (
-                <CheckCircle2 className="w-6 h-6 text-green-600 flex-shrink-0" />
+                <CheckCircle2 className="w-6 h-6 text-lydian-success flex-shrink-0" />
               )}
             </div>
 
             {isUploaded ? (
-              <div className="flex items-center justify-between mt-3 p-3 bg-white/5 rounded-lg border border-green-200">
+              <div className="flex items-center justify-between mt-3 p-3 bg-lydian-bg/5 rounded-lg border border-green-200">
                 <div className="flex items-center gap-2">
-                  <FileText className="w-4 h-4 text-green-600" />
+                  <FileText className="w-4 h-4 text-lydian-success" />
                   <span className="text-sm font-medium text-slate-900">{doc.fileName}</span>
                 </div>
                 <button
                   type="button"
                   onClick={() => removeDocument(docType)}
-                  className="text-sm text-red-600 hover:text-red-700 font-semibold"
+                  className="text-sm text-lydian-error hover:text-red-700 font-semibold"
                 >
                   Kaldır
                 </button>
@@ -181,7 +181,7 @@ export default function Step5Legal({ data }: Step5Props) {
               />
             </div>
             {errors.tourismLicense?.issueDate && (
-              <p className="mt-1 text-sm text-red-600">
+              <p className="mt-1 text-sm text-lydian-error">
                 {errors.tourismLicense.issueDate.message?.toString()}
               </p>
             )}
@@ -202,7 +202,7 @@ export default function Step5Legal({ data }: Step5Props) {
               />
             </div>
             {errors.tourismLicense?.expiryDate && (
-              <p className="mt-1 text-sm text-red-600">
+              <p className="mt-1 text-sm text-lydian-error">
                 {errors.tourismLicense.expiryDate.message?.toString()}
               </p>
             )}
@@ -267,7 +267,7 @@ export default function Step5Legal({ data }: Step5Props) {
               className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-cyan-500 focus:ring-2 focus:ring-cyan-200 outline-none transition-all"
             />
             {errors.insurance?.provider && (
-              <p className="mt-1 text-sm text-red-600">
+              <p className="mt-1 text-sm text-lydian-error">
                 {errors.insurance.provider.message?.toString()}
               </p>
             )}
@@ -284,7 +284,7 @@ export default function Step5Legal({ data }: Step5Props) {
               className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-cyan-500 focus:ring-2 focus:ring-cyan-200 outline-none transition-all"
             />
             {errors.insurance?.policyNumber && (
-              <p className="mt-1 text-sm text-red-600">
+              <p className="mt-1 text-sm text-lydian-error">
                 {errors.insurance.policyNumber.message?.toString()}
               </p>
             )}
@@ -306,7 +306,7 @@ export default function Step5Legal({ data }: Step5Props) {
             />
             <p className="mt-1 text-xs text-slate-500">Minimum ₺100,000 (Önerilen: ₺500,000)</p>
             {errors.insurance?.coverage && (
-              <p className="mt-1 text-sm text-red-600">
+              <p className="mt-1 text-sm text-lydian-error">
                 {errors.insurance.coverage.message?.toString()}
               </p>
             )}
@@ -327,7 +327,7 @@ export default function Step5Legal({ data }: Step5Props) {
               />
             </div>
             {errors.insurance?.expiryDate && (
-              <p className="mt-1 text-sm text-red-600">
+              <p className="mt-1 text-sm text-lydian-error">
                 {errors.insurance.expiryDate.message?.toString()}
               </p>
             )}
@@ -364,7 +364,7 @@ export default function Step5Legal({ data }: Step5Props) {
               />
             </div>
             {errors.driver?.name && (
-              <p className="mt-1 text-sm text-red-600">
+              <p className="mt-1 text-sm text-lydian-error">
                 {errors.driver.name.message?.toString()}
               </p>
             )}
@@ -384,7 +384,7 @@ export default function Step5Legal({ data }: Step5Props) {
               />
             </div>
             {errors.driver?.phone && (
-              <p className="mt-1 text-sm text-red-600">
+              <p className="mt-1 text-sm text-lydian-error">
                 {errors.driver.phone.message?.toString()}
               </p>
             )}
@@ -401,7 +401,7 @@ export default function Step5Legal({ data }: Step5Props) {
               className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-cyan-500 focus:ring-2 focus:ring-cyan-200 outline-none transition-all"
             />
             {errors.driver?.licenseNumber && (
-              <p className="mt-1 text-sm text-red-600">
+              <p className="mt-1 text-sm text-lydian-error">
                 {errors.driver.licenseNumber.message?.toString()}
               </p>
             )}
@@ -422,7 +422,7 @@ export default function Step5Legal({ data }: Step5Props) {
               />
             </div>
             {errors.driver?.licenseExpiry && (
-              <p className="mt-1 text-sm text-red-600">
+              <p className="mt-1 text-sm text-lydian-error">
                 {errors.driver.licenseExpiry.message?.toString()}
               </p>
             )}
@@ -443,7 +443,7 @@ export default function Step5Legal({ data }: Step5Props) {
             </div>
             <p className="mt-1 text-xs text-slate-500">Mesleki Yeterlilik Belgesi</p>
             {errors.driver?.src4Number && (
-              <p className="mt-1 text-sm text-red-600">
+              <p className="mt-1 text-sm text-lydian-error">
                 {errors.driver.src4Number.message?.toString()}
               </p>
             )}
@@ -465,7 +465,7 @@ export default function Step5Legal({ data }: Step5Props) {
               />
             </div>
             {errors.driver?.psychotechNumber && (
-              <p className="mt-1 text-sm text-red-600">
+              <p className="mt-1 text-sm text-lydian-error">
                 {errors.driver.psychotechNumber.message?.toString()}
               </p>
             )}

@@ -296,7 +296,7 @@ const TransfersPage: React.FC = () => {
 
       <main className="min-h-screen bg-lydian-glass-dark">
         {/* Hero Section - Full Width Search */}
-        <section className="relative bg-gradient-to-br from-lydian-primary via-cyan-600 to-lydian-primary-dark text-lydian-text-inverse py-24">
+        <section className="relative bg-gradient-to-br from-lydian-primary via-lydian-accent-cyan to-lydian-primary-dark text-lydian-text-inverse py-24">
           <div className="max-w-7xl mx-auto px-4">
             <motion.div
               initial={{ opacity: 0, y: -20 }}
@@ -365,9 +365,9 @@ const TransfersPage: React.FC = () => {
                         <span>{route.from}</span>
                       </div>
                       <div className="flex items-center gap-2 my-3">
-                        <div className="h-px flex-1 bg-gradient-to-r from-blue-400 to-cyan-400"></div>
+                        <div className="h-px flex-1 bg-gradient-to-r from-lydian-info to-lydian-accent-cyan"></div>
                         <ArrowRight className="w-5 h-5 text-lydian-primary group-hover:translate-x-1 transition-transform" />
-                        <div className="h-px flex-1 bg-gradient-to-r from-cyan-400 to-blue-400"></div>
+                        <div className="h-px flex-1 bg-gradient-to-r from-lydian-accent-cyan to-lydian-info"></div>
                       </div>
                       <div className="flex items-center gap-2 text-lydian-text-muted text-sm">
                         <Hotel className="w-4 h-4" />
@@ -444,7 +444,7 @@ const TransfersPage: React.FC = () => {
                       className={`w-5 h-5 ${
                       favorites.has(transfer.id) ?
                       'fill-red-500 text-red-500' :
-                      'text-gray-300'}`
+                      'text-lydian-text-dim'}`
                       } />
 
                     </button>
@@ -570,7 +570,7 @@ const TransfersPage: React.FC = () => {
         </section>
 
         {/* Partner Program Section */}
-        <section className="py-20 bg-gradient-to-br from-lydian-primary via-indigo-600 to-lydian-secondary relative overflow-hidden">
+        <section className="py-20 bg-gradient-to-br from-lydian-primary via-lydian-accent-purple to-lydian-secondary relative overflow-hidden">
           {/* Background Pattern */}
           <div className="absolute inset-0 opacity-10">
             <div className="absolute inset-0" style={{
@@ -622,19 +622,19 @@ const TransfersPage: React.FC = () => {
                 icon: <TrendingUp className="w-8 h-8" />,
                 title: 'Yüksek Gelir',
                 description: 'Aylık ortalama ₺35,000 - ₺95,000 kazanç fırsatı',
-                color: 'from-yellow-400 to-orange-400'
+                color: 'from-lydian-warning to-lydian-warning-hover'
               },
               {
                 icon: <Shield className="w-8 h-8" />,
                 title: 'Güvenli Ödeme',
                 description: 'Otomatik ödeme sistemi ile garantili kazanç',
-                color: 'from-green-400 to-emerald-400'
+                color: 'from-lydian-success to-lydian-success-hover'
               },
               {
                 icon: <Users className="w-8 h-8" />,
                 title: 'Geniş Müşteri Ağı',
                 description: '50+ ülkeden binlerce potansiyel müşteri',
-                color: 'from-blue-400 to-cyan-400'
+                color: 'from-lydian-info to-lydian-accent-cyan'
               }].
               map((feature, index) =>
               <motion.div

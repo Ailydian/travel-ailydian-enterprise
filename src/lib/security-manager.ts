@@ -243,7 +243,7 @@ export class ErrorMonitor {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            text: `🚨 CRITICAL ERROR in Travel.LyDian`,
+            text: `🚨 CRITICAL ERROR in Holiday.AILYDIAN`,
             attachments: [{
               color: 'danger',
               fields: [

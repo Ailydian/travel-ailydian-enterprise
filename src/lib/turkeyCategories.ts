@@ -445,6 +445,6 @@ export function generateCategorySEO(category: TurkeyCategory) {
     description: `${category.description}. ${category.popularDestinations.slice(0, 3).join(', ')} ve daha fazla destinasyonda en iyi ${category.name.toLowerCase()} seçenekleri.`,
     keywords: category.seoKeywords.join(', '),
     ogImage: category.image,
-    canonical: `https://travel.lydian.com/kategoriler/${category.slug}`
+    canonical: `https://holiday.ailydian.com/kategoriler/${category.slug}`
   };
 }

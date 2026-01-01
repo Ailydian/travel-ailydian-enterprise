@@ -164,7 +164,7 @@ export default function Step3Features({ data }: Step3Props) {
                   <button
                     type="button"
                     onClick={() => selectAllInCategory(key)}
-                    className="px-3 py-1 text-sm font-semibold text-green-600 hover:bg-green-50 rounded-lg transition-all"
+                    className="px-3 py-1 text-sm font-semibold text-lydian-success hover:bg-green-50 rounded-lg transition-all"
                   >
                     Tümünü Seç
                   </button>
@@ -197,7 +197,7 @@ export default function Step3Features({ data }: Step3Props) {
                       <div className="flex items-start gap-3">
                         <div className="pt-0.5">
                           {isSelected ? (
-                            <CheckCircle2 className="w-5 h-5 text-green-600" />
+                            <CheckCircle2 className="w-5 h-5 text-lydian-success" />
                           ) : (
                             <Circle className="w-5 h-5 text-slate-400" />
                           )}
@@ -251,7 +251,7 @@ export default function Step3Features({ data }: Step3Props) {
                 .map((feature) => (
                   <span
                     key={feature.id}
-                    className="px-3 py-1 bg-white/5 border border-green-200 rounded-full text-sm font-medium text-green-900"
+                    className="px-3 py-1 bg-lydian-bg/5 border border-green-200 rounded-full text-sm font-medium text-green-900"
                   >
                     {feature.label}
                   </span>

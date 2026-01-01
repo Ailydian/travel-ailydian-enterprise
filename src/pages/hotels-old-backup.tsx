@@ -278,7 +278,7 @@ const HotelsPage: React.FC = () => {
   return (
     <>
       <Head>
-        <title>Oteller - LyDian Travel | AI Destekli Otel Rezervasyonu</title>
+        <title>Oteller - AILYDIAN Holiday | AI Destekli Otel Rezervasyonu</title>
         <meta name="description" content="Türkiye'nin en güzel otellerinde konaklama. AI önerileri, VR önizleme ve blockchain güvenli rezervasyon." />
         <meta name="keywords" content="otel, konaklama, rezervasyon, AI önerisi, VR önizleme, blockchain, Türkiye" />
       </Head>
@@ -476,7 +476,7 @@ const HotelsPage: React.FC = () => {
                     {/* Feature Buttons */}
                     <div className="absolute bottom-4 right-4 flex gap-2">
                       {(hotel.features.includes('VR Oda Turu') || hotel.features.includes('360° VR Önizleme')) &&
-                        <button className="p-2 bg-lydian-success text-lydian-text-inverse rounded-full hover:bg-green-700 transition-colors">
+                        <button className="p-2 bg-lydian-success text-lydian-text-inverse rounded-full hover:bg-lydian-success-hover transition-colors">
                           <Eye className="w-4 h-4" />
                         </button>
                         }

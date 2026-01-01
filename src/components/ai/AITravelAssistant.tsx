@@ -364,8 +364,8 @@ const AITravelAssistant: React.FC = () => {
                     onClick={() => setConversationMode(mode.key as any)}
                     className={`flex-1 px-3 py-2 rounded-lg text-xs font-medium transition-colors flex flex-col items-center ${
                     conversationMode === mode.key ?
-                    'bg-white/5 text-purple-600' :
-                    'bg-white/20 text-white hover:bg-white/30'}`
+                    'bg-lydian-bg/5 text-purple-600' :
+                    'bg-lydian-bg/20 text-white hover:bg-lydian-bg/30'}`
                     }>
 
                       <Icon className="w-3 h-3 mb-1" />
@@ -392,7 +392,7 @@ const AITravelAssistant: React.FC = () => {
                 className={`max-w-[80%] p-3 rounded-2xl ${
                 message.type === 'user' ?
                 'bg-gradient-to-r from-purple-600 to-blue-600 text-white' :
-                'bg-white/10 text-white'}`
+                'bg-lydian-bg/10 text-white'}`
                 }>
 
                     <p className="text-sm whitespace-pre-line">{message.content}</p>

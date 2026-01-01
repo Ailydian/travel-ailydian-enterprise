@@ -279,8 +279,8 @@ const VirtualToursPage: NextPage = () => {
                     onClick={() => setSelectedCategory(category.id)}
                     className={`flex items-center gap-2 px-6 py-3 rounded-full font-medium transition-all ${
                     selectedCategory === category.id ?
-                    'bg-blue-600 text-white shadow-md' :
-                    'bg-white/5 text-gray-200 hover:bg-blue-50 border border-gray-200'}`
+                    'bg-lydian-primary text-white shadow-md' :
+                    'bg-lydian-bg/5 text-gray-200 hover:bg-blue-50 border border-lydian-border'}`
                     }>
 
                     <Icon className="w-4 h-4" />
@@ -317,7 +317,7 @@ const VirtualToursPage: NextPage = () => {
                     {/* Badges */}
                     <div className="absolute top-4 left-4 flex flex-col gap-2">
                       {tour.featured &&
-                      <span className="bg-yellow-400 text-yellow-900 px-3 py-1 rounded-full text-xs font-bold">
+                      <span className="bg-lydian-warning text-yellow-900 px-3 py-1 rounded-full text-xs font-bold">
                           Öne Çıkan
                         </span>
                       }

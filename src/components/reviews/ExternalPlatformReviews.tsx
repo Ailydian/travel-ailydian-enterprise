@@ -40,14 +40,14 @@ export default function ExternalPlatformReviews({
   const platformConfig = {
     google: {
       name: 'Google Reviews',
-      color: 'text-red-600',
+      color: 'text-lydian-error',
       bgColor: 'bg-red-50',
       borderColor: 'border-red-200',
       logo: <Globe className="h-4 w-4" />
     },
     tripadvisor: {
       name: 'TripAdvisor Reviews',
-      color: 'text-green-600',
+      color: 'text-lydian-success',
       bgColor: 'bg-green-50',
       borderColor: 'border-green-200',
       logo: <Globe className="h-4 w-4" />
@@ -94,7 +94,7 @@ export default function ExternalPlatformReviews({
               className={`h-4 w-4 ${
               i < Math.floor(averageRating) ?
               'text-yellow-400 fill-current' :
-              'text-gray-300'}`
+              'text-lydian-text-dim'}`
               } />
 
             )}
@@ -149,7 +149,7 @@ export default function ExternalPlatformReviews({
                   className={`h-3 w-3 ${
                   i < review.rating ?
                   'text-yellow-400 fill-current' :
-                  'text-gray-300'}`
+                  'text-lydian-text-dim'}`
                   } />
 
                 )}

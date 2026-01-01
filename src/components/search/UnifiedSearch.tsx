@@ -51,12 +51,12 @@ const UnifiedSearch: React.FC = () => {
   {
     icon: Hotel,
     text: "İstanbul'da 3 gece otel + transfer",
-    color: 'text-blue-600'
+    color: 'text-lydian-primary'
   },
   {
     icon: Car,
     text: "Antalya araç kiralama + havaalanı karşılama",
-    color: 'text-green-600'
+    color: 'text-lydian-success'
   },
   {
     icon: Plane,
@@ -72,8 +72,8 @@ const UnifiedSearch: React.FC = () => {
 
   // Categories
   const categories = [
-  { id: 'hotels', name: 'Oteller', icon: Hotel, color: 'bg-blue-100 text-blue-600' },
-  { id: 'cars', name: 'Araç Kiralama', icon: Car, color: 'bg-green-100 text-green-600' },
+  { id: 'hotels', name: 'Oteller', icon: Hotel, color: 'bg-blue-100 text-lydian-primary' },
+  { id: 'cars', name: 'Araç Kiralama', icon: Car, color: 'bg-green-100 text-lydian-success' },
   { id: 'flights', name: 'Uçuşlar', icon: Plane, color: 'bg-purple-100 text-purple-600' },
   { id: 'tours', name: 'Turlar', icon: MapPin, color: 'bg-orange-100 text-orange-600' }];
 
@@ -168,7 +168,7 @@ const UnifiedSearch: React.FC = () => {
                 className={`flex items-center gap-2 px-4 py-2 rounded-full transition-all ${
                 isSelected ?
                 category.color :
-                'bg-white/10 text-gray-300 hover:bg-gray-200'}`
+                'bg-lydian-bg/10 text-lydian-text-dim hover:bg-lydian-bg-surface-raised'}`
                 }>
 
                 <Icon className="h-4 w-4" />
@@ -307,7 +307,7 @@ const UnifiedSearch: React.FC = () => {
 
                     {/* Rating */}
                     {result.rating &&
-                <div className="absolute top-3 right-3 bg-yellow-400 text-yellow-900 px-2 py-1 rounded-lg text-xs font-bold flex items-center gap-1">
+                <div className="absolute top-3 right-3 bg-lydian-warning text-yellow-900 px-2 py-1 rounded-lg text-xs font-bold flex items-center gap-1">
                         ⭐ {result.rating.toFixed(1)}
                       </div>
                 }

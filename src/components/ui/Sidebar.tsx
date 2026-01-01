@@ -201,7 +201,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
   // ========================================
 
   const sidebarClasses = `
-    fixed top-0 h-full bg-white shadow-2xl
+    fixed top-0 h-full bg-lydian-bg shadow-2xl
     transition-transform duration-300 ease-out
     z-40
     ${position === 'left' ? 'left-0' : 'right-0'}
@@ -276,9 +276,9 @@ export const SidebarToggle: React.FC<{
       onClick={toggle}
       className={`
         p-2 rounded-lg
-        text-gray-600 hover:text-gray-900 hover:bg-gray-100
+        text-lydian-text-secondary hover:text-lydian-text hover:bg-lydian-bg-surface-raised
         transition-colors
-        focus:outline-none focus:ring-2 focus:ring-blue-500
+        focus:outline-none focus:ring-2 focus:ring-lydian-primary
         ${className}
       `}
       aria-label={isOpen ? 'Close sidebar' : 'Open sidebar'}
@@ -312,7 +312,7 @@ export const SidebarHeader: React.FC<{
   className?: string;
 }> = ({ children, className = '' }) => {
   return (
-    <div className={`flex items-center justify-between px-6 py-4 border-b border-gray-200 ${className}`}>
+    <div className={`flex items-center justify-between px-6 py-4 border-b border-lydian-border ${className}`}>
       {children}
     </div>
   );
@@ -369,8 +369,8 @@ export const SidebarNavItem: React.FC<SidebarNavItemProps> = ({
     flex items-center gap-3 px-3 py-2.5 rounded-lg
     text-sm font-medium transition-all duration-200
     ${active
-      ? 'bg-blue-50 text-blue-700'
-      : 'text-gray-700 hover:bg-gray-100 hover:text-gray-900'
+      ? 'bg-blue-50 text-lydian-primary-hover'
+      : 'text-lydian-text-secondary hover:bg-lydian-bg-surface-raised hover:text-lydian-text'
     }
     ${className}
   `;
@@ -378,7 +378,7 @@ export const SidebarNavItem: React.FC<SidebarNavItemProps> = ({
   const content = (
     <>
       {icon && (
-        <span className={`flex-shrink-0 ${active ? 'text-blue-600' : 'text-gray-500'}`}>
+        <span className={`flex-shrink-0 ${active ? 'text-lydian-primary' : 'text-lydian-text-muted'}`}>
           {icon}
         </span>
       )}
@@ -386,7 +386,7 @@ export const SidebarNavItem: React.FC<SidebarNavItemProps> = ({
       {badge && (
         <span className={`
           px-2 py-0.5 text-xs font-semibold rounded-full
-          ${active ? 'bg-blue-100 text-blue-700' : 'bg-gray-200 text-gray-700'}
+          ${active ? 'bg-blue-100 text-lydian-primary-hover' : 'bg-lydian-bg-surface-raised text-lydian-text-secondary'}
         `}>
           {badge}
         </span>
@@ -418,7 +418,7 @@ export const SidebarFooter: React.FC<{
   className?: string;
 }> = ({ children, className = '' }) => {
   return (
-    <div className={`absolute bottom-0 left-0 right-0 px-6 py-4 border-t border-gray-200 bg-white ${className}`}>
+    <div className={`absolute bottom-0 left-0 right-0 px-6 py-4 border-t border-lydian-border bg-lydian-bg ${className}`}>
       {children}
     </div>
   );

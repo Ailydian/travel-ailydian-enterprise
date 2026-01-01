@@ -16,6 +16,7 @@ import {
   ChevronLeft,
   ChevronRight } from
 'lucide-react';
+import { getSidebarWidthClasses, LAYOUT_CONSTANTS } from '@/config/layout-constants';
 
 interface NavigationItem {
   name: string;
@@ -87,12 +88,12 @@ const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
       {/* Sidebar - mobile (drawer) and desktop */}
       <aside
         className={`
-          fixed inset-y-0 left-0 z-50 flex flex-col bg-lydian-glass-dark border-r border-lydian-border-light/10
-          transition-all duration-300 ease-in-out
+          fixed inset-y-0 left-0 ${LAYOUT_CONSTANTS.sidebar.zIndex} flex flex-col bg-lydian-glass-dark dark:bg-gray-900 border-r border-lydian-border-light/10 dark:border-gray-800
+          transition-all ${LAYOUT_CONSTANTS.sidebar.transitions.duration} ${LAYOUT_CONSTANTS.sidebar.transitions.timing}
           ${isOpen ? 'translate-x-0' : '-translate-x-full'}
           lg:translate-x-0 lg:static
-          ${isCollapsed ? 'lg:w-20' : 'lg:w-64'}
-          w-64
+          ${isCollapsed ? getSidebarWidthClasses(true) : getSidebarWidthClasses(false)}
+          ${LAYOUT_CONSTANTS.sidebar.width.mobile}
         `}
         aria-label="Sidebar navigation">
 
@@ -157,7 +158,7 @@ const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
                 }}
                 className={`w-full text-left px-4 py-2 text-sm hover:bg-lydian-glass-dark transition-colors ${
                 selectedProperty === property ?
-                'text-blue-600 font-medium bg-blue-50' :
+                'text-lydian-primary font-medium bg-blue-50' :
                 'text-gray-200'}`
                 }>
 
@@ -192,14 +193,14 @@ const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
                       ${isCollapsed ? 'justify-center' : 'space-x-3'}
                       ${
                     active ?
-                    'bg-blue-50 text-blue-700' :
-                    'text-gray-200 hover:bg-white/10 hover:text-white'}
+                    'bg-blue-50 text-lydian-primary-hover' :
+                    'text-gray-200 hover:bg-lydian-bg/10 hover:text-white'}
                     `
                     }
                     aria-current={active ? 'page' : undefined}
                     title={isCollapsed ? item.name : undefined}>
 
-                    <Icon className={`h-5 w-5 flex-shrink-0 ${active ? 'text-blue-700' : 'text-gray-400'}`} />
+                    <Icon className={`h-5 w-5 flex-shrink-0 ${active ? 'text-lydian-primary-hover' : 'text-lydian-text-muted'}`} />
                     {!isCollapsed && <span>{item.name}</span>}
                   </Link>
                 </li>);

@@ -260,8 +260,8 @@ const PropertyBookingForm: React.FC<BookingFormProps> = ({
               <div
               className={`w-10 h-10 rounded-full flex items-center justify-center font-bold transition-all ${
               step >= s ?
-              'bg-blue-600 text-white' :
-              'bg-gray-200 text-gray-400'}`
+              'bg-lydian-primary text-white' :
+              'bg-lydian-bg-surface-raised text-lydian-text-muted'}`
               }>
 
                 {step > s ? <Check className="w-6 h-6" /> : s}
@@ -269,7 +269,7 @@ const PropertyBookingForm: React.FC<BookingFormProps> = ({
               {s < 3 &&
             <div
               className={`flex-1 h-1 mx-2 transition-all ${
-              step > s ? 'bg-blue-600' : 'bg-gray-200'}`
+              step > s ? 'bg-lydian-primary' : 'bg-lydian-bg-surface-raised'}`
               } />
 
             }
@@ -277,13 +277,13 @@ const PropertyBookingForm: React.FC<BookingFormProps> = ({
           )}
         </div>
         <div className="flex justify-between text-sm">
-          <span className={step >= 1 ? 'text-blue-600 font-semibold' : 'text-gray-400'}>
+          <span className={step >= 1 ? 'text-lydian-primary font-semibold' : 'text-lydian-text-muted'}>
             Konaklama Detayları
           </span>
-          <span className={step >= 2 ? 'text-blue-600 font-semibold' : 'text-gray-400'}>
+          <span className={step >= 2 ? 'text-lydian-primary font-semibold' : 'text-lydian-text-muted'}>
             Misafir Bilgileri
           </span>
-          <span className={step >= 3 ? 'text-blue-600 font-semibold' : 'text-gray-400'}>
+          <span className={step >= 3 ? 'text-lydian-primary font-semibold' : 'text-lydian-text-muted'}>
             Ödeme & Onay
           </span>
         </div>

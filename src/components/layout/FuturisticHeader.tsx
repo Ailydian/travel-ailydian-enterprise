@@ -31,6 +31,7 @@ import { useCart } from '../../context/CartContext';
 import LanguageSwitcher from '../LanguageSwitcher';
 import { LyDianLogo } from '../branding/LyDianLogo';
 import { ThemeToggle } from '../theme/ThemeToggle';
+import { LAYOUT_CONSTANTS } from '@/config/layout-constants';
 
 export const FuturisticHeader: React.FC = () => {
   const router = useRouter();
@@ -108,8 +109,8 @@ export const FuturisticHeader: React.FC = () => {
           }} />
 
 
-        <div className="relative max-w-7xl mx-auto px-6">
-          <div className="flex items-center justify-between h-20">
+        <div className={`relative ${LAYOUT_CONSTANTS.header.maxWidth} mx-auto ${LAYOUT_CONSTANTS.header.padding.x}`}>
+          <div className={`flex items-center justify-between ${LAYOUT_CONSTANTS.header.height.mobile} ${LAYOUT_CONSTANTS.header.height.desktop}`}>
             {/* 🎨 Logo with 3D Depth */}
             <motion.div
               whileHover={{ scale: 1.05, rotateY: 5 }}
@@ -244,7 +245,7 @@ export const FuturisticHeader: React.FC = () => {
       </motion.header>
 
       {/* Spacer to prevent content jump */}
-      <div className="h-20" />
+      <div className={`${LAYOUT_CONSTANTS.header.height.mobile} ${LAYOUT_CONSTANTS.header.height.desktop}`} />
     </>);
 
 };
@@ -311,7 +312,7 @@ const FloatingNavOrb: React.FC<FloatingNavOrbProps> = ({ item, isActive, index, 
             relative flex items-center gap-3 px-5 py-3 rounded-2xl backdrop-blur-xl border transition-all
             ${isActive ?
           'bg-gradient-to-br from-white/20 to-white/10 border-white/40 shadow-lg' :
-          'bg-white/5 border-white/10 hover:bg-white/10 hover:border-white/30'}
+          'bg-lydian-bg/5 border-white/10 hover:bg-lydian-bg/10 hover:border-white/30'}
           `
           }>
 

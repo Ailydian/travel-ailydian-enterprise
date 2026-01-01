@@ -87,8 +87,8 @@ export default function Register() {
   return (
     <>
       <Head>
-        <title>Kayıt Ol - LyDian Travel</title>
-        <meta name="description" content="LyDian Travel'a üye olun ve özel avantajlardan yararlanın." />
+        <title>Kayıt Ol - AILYDIAN Holiday</title>
+        <meta name="description" content="AILYDIAN Holiday'a üye olun ve özel avantajlardan yararlanın." />
       </Head>
 
       {/* NeoHero as full-height background */}
@@ -102,7 +102,7 @@ export default function Register() {
         {/* Return to Home Button */}
         <Link
           href="/"
-          className="fixed top-6 left-6 z-50 flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-xl rounded-xl border border-white/20 text-white hover:bg-white/20 transition-all duration-200"
+          className="fixed top-6 left-6 z-50 flex items-center gap-2 px-4 py-2 bg-lydian-bg/10 backdrop-blur-xl rounded-xl border border-white/20 text-white hover:bg-lydian-bg/20 transition-all duration-200"
         >
           <ArrowLeft className="w-4 h-4" />
           <span className="font-medium">Ana Sayfaya Dön</span>
@@ -123,13 +123,13 @@ export default function Register() {
                     <span className="text-white font-bold text-xl">A</span>
                   </div>
                   <div>
-                    <h1 className="text-2xl font-bold text-white">LyDian Travel</h1>
+                    <h1 className="text-2xl font-bold text-white">AILYDIAN Holiday</h1>
                     <p className="text-xs text-white/70">AI-Powered Enterprise</p>
                   </div>
                 </div>
               </Link>
 
-              <h2 className="text-3xl font-bold text-white mb-2">LyDian Travel'a Katılın</h2>
+              <h2 className="text-3xl font-bold text-white mb-2">AILYDIAN Holiday'a Katılın</h2>
               <p className="text-white/80">Ücretsiz hesap oluşturun ve avantajlardan yararlanın</p>
             </motion.div>
 
@@ -255,7 +255,7 @@ export default function Register() {
                         <div className="w-full">
                           <label className="block text-sm font-semibold text-white/70 mb-2 px-4">Cinsiyet</label>
                           <select
-                            className="w-full px-4 py-3 bg-white/10 backdrop-blur-xl border-2 border-white/30 rounded-2xl text-white outline-none transition-all duration-300 focus:border-[#667EEA] focus:ring-4 focus:ring-[#667EEA]/20"
+                            className="w-full px-4 py-3 bg-lydian-bg/10 backdrop-blur-xl border-2 border-white/30 rounded-2xl text-white outline-none transition-all duration-300 focus:border-[#667EEA] focus:ring-4 focus:ring-[#667EEA]/20"
                             value={formData.gender}
                             onChange={(e) => setFormData({ ...formData, gender: e.target.value })}
                           >
@@ -276,7 +276,7 @@ export default function Register() {
                             type="checkbox"
                             checked={formData.terms}
                             onChange={(e) => setFormData({ ...formData, terms: e.target.checked })}
-                            className="mt-1 rounded border-white/30 bg-white/10 text-[#667EEA] focus:ring-[#667EEA] focus:ring-offset-0"
+                            className="mt-1 rounded border-white/30 bg-lydian-bg/10 text-[#667EEA] focus:ring-[#667EEA] focus:ring-offset-0"
                           />
                           <label htmlFor="terms" className="ml-3 text-sm text-white/70">
                             <Link href="/terms" className="text-transparent bg-clip-text bg-gradient-to-r from-[#00BAFF] to-[#667EEA] hover:from-[#667EEA] hover:to-[#764BA2]">
@@ -300,7 +300,7 @@ export default function Register() {
                             type="checkbox"
                             checked={formData.newsletter}
                             onChange={(e) => setFormData({ ...formData, newsletter: e.target.checked })}
-                            className="mt-1 rounded border-white/30 bg-white/10 text-[#667EEA] focus:ring-[#667EEA] focus:ring-offset-0"
+                            className="mt-1 rounded border-white/30 bg-lydian-bg/10 text-[#667EEA] focus:ring-[#667EEA] focus:ring-offset-0"
                           />
                           <label htmlFor="newsletter" className="ml-3 text-sm text-white/70">
                             Özel kampanya ve fırsatlardan haberdar olmak istiyorum
@@ -386,9 +386,9 @@ export default function Register() {
                       verileriniz asla üçüncü taraflarla paylaşılmaz.
                     </p>
                     <div className="flex flex-wrap gap-2 text-xs text-white/60">
-                      <span className="bg-white/10 px-2 py-1 rounded-lg">SSL Şifreleme</span>
-                      <span className="bg-white/10 px-2 py-1 rounded-lg">KVKK Uyumlu</span>
-                      <span className="bg-white/10 px-2 py-1 rounded-lg">Blockchain Güvenlik</span>
+                      <span className="bg-lydian-bg/10 px-2 py-1 rounded-lg">SSL Şifreleme</span>
+                      <span className="bg-lydian-bg/10 px-2 py-1 rounded-lg">KVKK Uyumlu</span>
+                      <span className="bg-lydian-bg/10 px-2 py-1 rounded-lg">Blockchain Güvenlik</span>
                     </div>
                   </div>
                 </FuturisticCard>

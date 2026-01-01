@@ -410,10 +410,10 @@ const MilesWallet: React.FC<MilesWalletProps> = ({ userId }) => {
                   <p
                 className={`text-sm font-bold ${
                 transaction.type === 'earn' || transaction.type === 'bonus' ?
-                'text-green-600' :
+                'text-lydian-success' :
                 transaction.type === 'redeem' ?
-                'text-blue-600' :
-                'text-red-600'}`
+                'text-lydian-primary' :
+                'text-lydian-error'}`
                 }>
 
                     {transaction.type === 'earn' || transaction.type === 'bonus' ? '+' : '-'}

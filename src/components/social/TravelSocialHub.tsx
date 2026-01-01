@@ -569,8 +569,8 @@ const TravelSocialHub: React.FC = () => {
                 onClick={() => setActiveTab(tab.key as any)}
                 className={`flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-lg font-medium transition-colors ${
                 activeTab === tab.key ?
-                'bg-white/5 text-blue-600 shadow-sm' :
-                'text-gray-300 hover:text-white'}`
+                'bg-lydian-bg/5 text-lydian-primary shadow-sm' :
+                'text-lydian-text-dim hover:text-white'}`
                 }>
 
               <Icon className="w-5 h-5" />

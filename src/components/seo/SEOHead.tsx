@@ -90,10 +90,10 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
       <meta name="twitter:creator" content={SEO_CONFIG.social.twitter} />
 
       {/* Additional Meta Tags */}
-      <meta name="author" content="LyDian Travel" />
-      <meta name="publisher" content="LyDian Travel" />
-      <meta name="copyright" content="© 2025 LyDian Travel" />
-      <meta name="application-name" content="LyDian Travel" />
+      <meta name="author" content="AILYDIAN Holiday" />
+      <meta name="publisher" content="AILYDIAN Holiday" />
+      <meta name="copyright" content="© 2025 AILYDIAN Holiday" />
+      <meta name="application-name" content="AILYDIAN Holiday" />
       <meta name="apple-mobile-web-app-title" content="LyDian" />
 
       {/* Mobile Meta Tags */}

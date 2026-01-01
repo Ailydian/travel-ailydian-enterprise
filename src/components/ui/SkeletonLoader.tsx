@@ -15,7 +15,7 @@ export const Skeleton: React.FC<SkeletonProps> = ({
   variant = 'rectangular',
   animation = 'wave'
 }) => {
-  const baseClasses = 'bg-gray-200 overflow-hidden relative';
+  const baseClasses = 'bg-lydian-bg-surface-raised overflow-hidden relative';
 
   const variantClasses = {
     text: 'h-4 rounded',

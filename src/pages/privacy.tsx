@@ -7,8 +7,8 @@ const Privacy: React.FC = () => {
   return (
     <>
       <Head>
-        <title>Gizlilik Politikası - Travel.LyDian | Kişisel Verilerin Korunması</title>
-        <meta name="description" content="Travel.LyDian gizlilik politikası ve kişisel verilerin korunması hakkında bilgilendirme." />
+        <title>Gizlilik Politikası - Holiday.AILYDIAN | Kişisel Verilerin Korunması</title>
+        <meta name="description" content="Holiday.AILYDIAN gizlilik politikası ve kişisel verilerin korunması hakkında bilgilendirme." />
       </Head>
 
       <FuturisticHeader />
@@ -21,7 +21,7 @@ const Privacy: React.FC = () => {
             <section>
               <h2 className="text-2xl font-bold text-lydian-text-inverse mb-4">1. Kişisel Verilerin Toplanması</h2>
               <p className="text-lydian-text-muted leading-relaxed">
-                Travel.LyDian olarak, size daha iyi hizmet verebilmek için gerekli kişisel verilerinizi KVKK uyarınca toplar ve işleriz. 
+                Holiday.AILYDIAN olarak, size daha iyi hizmet verebilmek için gerekli kişisel verilerinizi KVKK uyarınca toplar ve işleriz. 
                 Topladığımız veriler arasında ad-soyad, e-posta adresi, telefon numarası ve seyahat tercihleri yer alır.
               </p>
             </section>

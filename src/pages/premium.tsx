@@ -28,7 +28,7 @@ const Premium: React.FC = () => {
     'Standart iptal koşulları',
     '3 rezervasyon/ay sınırı'],
 
-    color: 'border-gray-200',
+    color: 'border-lydian-border',
     button: 'bg-gray-600 hover:bg-gray-700',
     popular: false
   },
@@ -46,8 +46,8 @@ const Premium: React.FC = () => {
     'Kripto ödeme avantajları',
     'Erken erişim yeni özellikler'],
 
-    color: 'border-blue-500 ring-2 ring-blue-500',
-    button: 'bg-blue-600 hover:bg-blue-700',
+    color: 'border-lydian-primary ring-2 ring-lydian-primary',
+    button: 'bg-lydian-primary hover:bg-lydian-primary-hover',
     popular: true
   },
   {
@@ -73,8 +73,8 @@ const Premium: React.FC = () => {
   return (
     <>
       <Head>
-        <title>Premium Üyelik - Travel.LyDian | AI Destekli Premium Seyahat</title>
-        <meta name="description" content="Travel.LyDian Premium ile AI destekli seyahat planlama, VR önizlemeler, blockchain güvenlik ve özel avantajlara sahip olun." />
+        <title>Premium Üyelik - Holiday.AILYDIAN | AI Destekli Premium Seyahat</title>
+        <meta name="description" content="Holiday.AILYDIAN Premium ile AI destekli seyahat planlama, VR önizlemeler, blockchain güvenlik ve özel avantajlara sahip olun." />
         <meta name="keywords" content="premium üyelik, VIP seyahat, AI planlama, VR turlar, blockchain güvenlik" />
       </Head>
 

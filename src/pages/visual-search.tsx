@@ -382,8 +382,8 @@ const VisualSearchPage: React.FC = () => {
                             onClick={() => setSelectedFilter(filter)}
                             className={`px-4 py-2 rounded-lg font-medium text-sm transition-colors duration-200 ${
                             selectedFilter === filter ?
-                            'bg-blue-600 text-white' :
-                            'bg-white/10 text-gray-200 hover:bg-gray-200'}`
+                            'bg-lydian-primary text-white' :
+                            'bg-lydian-bg/10 text-gray-200 hover:bg-lydian-bg-surface-raised'}`
                             }>
 
                                 {filter.charAt(0).toUpperCase() + filter.slice(1)}
@@ -476,7 +476,7 @@ const VisualSearchPage: React.FC = () => {
                             className={`w-4 h-4 ${
                             i < Math.floor(result.rating!) ?
                             'text-yellow-400' :
-                            'text-gray-300'}`
+                            'text-lydian-text-dim'}`
                             } />
 
                           )}

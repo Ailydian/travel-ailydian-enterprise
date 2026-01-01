@@ -7,7 +7,7 @@ const BillingPage: React.FC = () => {
   return (
     <>
       <Head>
-        <title>Billing & Crypto Payments - LyDian Travel</title>
+        <title>Billing & Crypto Payments - AILYDIAN Holiday</title>
         <meta name="description" content="Manage your payments, NFT travel memories, and cryptocurrency transactions securely" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />

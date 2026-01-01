@@ -131,7 +131,7 @@ export default function PriceChart({
       return (
         <div className="bg-lydian-glass-dark dark:bg-gray-800 p-4 rounded-lg shadow-lg border border-lydian-border-light/10 dark:border-gray-700">
           <p className="font-semibold text-lydian-text-inverse dark:text-lydian-text-inverse">{label}</p>
-          <p className={`text-sm ${isPredicted ? 'text-blue-600' : 'text-green-600'}`}>
+          <p className={`text-sm ${isPredicted ? 'text-lydian-primary' : 'text-lydian-success'}`}>
             {isPredicted ? 'Predicted: ' : 'Actual: '}
             {currency} {(data.price || data.predictedPrice)?.toFixed(2)}
           </p>
@@ -195,9 +195,9 @@ export default function PriceChart({
             </p>
             {stats.trend &&
           <p className={`text-xs mt-1 ${
-          stats.trend === 'decreasing' ? 'text-green-600' :
-          stats.trend === 'increasing' ? 'text-red-600' :
-          'text-gray-300'}`
+          stats.trend === 'decreasing' ? 'text-lydian-success' :
+          stats.trend === 'increasing' ? 'text-lydian-error' :
+          'text-lydian-text-dim'}`
           }>
                 {stats.trend === 'decreasing' ? '↓ Decreasing' :
             stats.trend === 'increasing' ? '↑ Increasing' :

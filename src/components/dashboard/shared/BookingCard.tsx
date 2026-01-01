@@ -259,7 +259,7 @@ export const BookingCard: React.FC<BookingCardProps> = ({
           {status === 'pending' && onConfirm &&
           <button
             onClick={() => onConfirm(id)}
-            className="px-4 py-2 bg-lydian-success text-lydian-text-inverse rounded-lg hover:bg-green-700 transition-colors text-sm font-medium focus:outline-none focus:ring-2 focus:ring-green-500 flex items-center justify-center">
+            className="px-4 py-2 bg-lydian-success text-lydian-text-inverse rounded-lg hover:bg-lydian-success-hover transition-colors text-sm font-medium focus:outline-none focus:ring-2 focus:ring-green-500 flex items-center justify-center">
 
               <CheckCircle className="h-4 w-4 mr-1" />
               Confirm

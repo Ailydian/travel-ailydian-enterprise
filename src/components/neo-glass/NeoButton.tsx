@@ -54,11 +54,11 @@ export const NeoButton: React.FC<NeoButtonProps> = ({
       hover:shadow-[0_15px_40px_-5px_rgba(255,149,0,0.4)]
     `,
     glass: `
-      bg-white/10 backdrop-blur-xl
+      bg-lydian-bg/10 backdrop-blur-xl
       border border-white/20
       text-white font-medium
       shadow-[0_8px_32px_0_rgba(31,38,135,0.15)]
-      hover:bg-white/20
+      hover:bg-lydian-bg/20
     `,
     neo: `
       bg-[#F1F5F9]

@@ -565,7 +565,7 @@ export default function AdminDashboard() {
                           className={`w-3 h-3 ${
                           star <= Math.floor(dashboardData.overview.averageRating) ?
                           'fill-current' :
-                          'text-gray-300'}`
+                          'text-lydian-text-dim'}`
                           }
                           style={{
                             color: star <= Math.floor(dashboardData.overview.averageRating) ?

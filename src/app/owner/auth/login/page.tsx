@@ -80,7 +80,7 @@ export default function OwnerLoginPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-white/5">
+    <div className="min-h-screen bg-lydian-bg/5">
       <div className="flex min-h-screen">
         {/* Left Column - Branding & Image */}
         <motion.div
@@ -114,7 +114,7 @@ export default function OwnerLoginPage() {
                   Dijitalleştirin
                 </span>
               </h1>
-              <p className="text-gray-300 text-lg mb-8">
+              <p className="text-lydian-text-dim text-lg mb-8">
                 Binlerce mülk sahibinin tercih ettiği platform ile rezervasyonlarınızı yönetin, gelirinizi artırın.
               </p>
 
@@ -142,15 +142,15 @@ export default function OwnerLoginPage() {
           <div className="relative z-10 grid grid-cols-3 gap-6">
             <div>
               <div className="text-3xl font-bold text-white">5000+</div>
-              <div className="text-gray-300 text-sm">Mülk Sahibi</div>
+              <div className="text-lydian-text-dim text-sm">Mülk Sahibi</div>
             </div>
             <div>
               <div className="text-3xl font-bold text-white">50K+</div>
-              <div className="text-gray-300 text-sm">Rezervasyon</div>
+              <div className="text-lydian-text-dim text-sm">Rezervasyon</div>
             </div>
             <div>
               <div className="text-3xl font-bold text-white">98%</div>
-              <div className="text-gray-300 text-sm">Memnuniyet</div>
+              <div className="text-lydian-text-dim text-sm">Memnuniyet</div>
             </div>
           </div>
         </motion.div>
@@ -176,7 +176,7 @@ export default function OwnerLoginPage() {
               <h2 className="text-3xl font-bold text-white mb-2">
                 Mülk Sahibi Girişi
               </h2>
-              <p className="text-gray-300">
+              <p className="text-lydian-text-dim">
                 Hesabınıza giriş yaparak mülklerinizi yönetin
               </p>
             </div>
@@ -190,7 +190,7 @@ export default function OwnerLoginPage() {
                 </label>
                 <div className="relative">
                   <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                    <Mail className="h-5 w-5 text-gray-400" />
+                    <Mail className="h-5 w-5 text-lydian-text-muted" />
                   </div>
                   <input
                     type="email"
@@ -199,8 +199,8 @@ export default function OwnerLoginPage() {
                     value={formData.email}
                     onChange={handleInputChange}
                     className={`block w-full pl-10 pr-3 py-3 border ${
-                      errors.email ? 'border-red-500' : 'border-gray-300'
-                    } rounded-lg focus:ring-2 focus:ring-[#FF214D] focus:border-transparent outline-none transition-all bg-white/5 text-white`}
+                      errors.email ? 'border-red-500' : 'border-lydian-border-medium'
+                    } rounded-lg focus:ring-2 focus:ring-[#FF214D] focus:border-transparent outline-none transition-all bg-lydian-bg/5 text-white`}
                     placeholder="ornek@email.com"
                   />
                 </div>
@@ -216,7 +216,7 @@ export default function OwnerLoginPage() {
                 </label>
                 <div className="relative">
                   <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                    <Lock className="h-5 w-5 text-gray-400" />
+                    <Lock className="h-5 w-5 text-lydian-text-muted" />
                   </div>
                   <input
                     type={showPassword ? 'text' : 'password'}
@@ -225,8 +225,8 @@ export default function OwnerLoginPage() {
                     value={formData.password}
                     onChange={handleInputChange}
                     className={`block w-full pl-10 pr-10 py-3 border ${
-                      errors.password ? 'border-red-500' : 'border-gray-300'
-                    } rounded-lg focus:ring-2 focus:ring-[#FF214D] focus:border-transparent outline-none transition-all bg-white/5 text-white`}
+                      errors.password ? 'border-red-500' : 'border-lydian-border-medium'
+                    } rounded-lg focus:ring-2 focus:ring-[#FF214D] focus:border-transparent outline-none transition-all bg-lydian-bg/5 text-white`}
                     placeholder="••••••••"
                   />
                   <button
@@ -235,9 +235,9 @@ export default function OwnerLoginPage() {
                     className="absolute inset-y-0 right-0 pr-3 flex items-center"
                   >
                     {showPassword ? (
-                      <EyeOff className="h-5 w-5 text-gray-400 hover:text-gray-300" />
+                      <EyeOff className="h-5 w-5 text-lydian-text-muted hover:text-lydian-text-dim" />
                     ) : (
-                      <Eye className="h-5 w-5 text-gray-400 hover:text-gray-300" />
+                      <Eye className="h-5 w-5 text-lydian-text-muted hover:text-lydian-text-dim" />
                     )}
                   </button>
                 </div>
@@ -255,7 +255,7 @@ export default function OwnerLoginPage() {
                     name="rememberMe"
                     checked={formData.rememberMe}
                     onChange={handleInputChange}
-                    className="h-4 w-4 text-[#FF214D] focus:ring-[#FF214D] border-gray-300 rounded cursor-pointer"
+                    className="h-4 w-4 text-lydian-primary focus:ring-[#FF214D] border-lydian-border-medium rounded cursor-pointer"
                   />
                   <label htmlFor="rememberMe" className="ml-2 block text-sm text-gray-200 cursor-pointer">
                     Beni hatırla
@@ -263,7 +263,7 @@ export default function OwnerLoginPage() {
                 </div>
                 <Link
                   href="/owner/auth/forgot-password"
-                  className="text-sm font-medium text-[#FF214D] hover:text-[#FF6A45] transition-colors"
+                  className="text-sm font-medium text-lydian-primary hover:text-[#FF6A45] transition-colors"
                 >
                   Şifremi unuttum?
                 </Link>
@@ -292,17 +292,17 @@ export default function OwnerLoginPage() {
             {/* Divider */}
             <div className="relative my-8">
               <div className="absolute inset-0 flex items-center">
-                <div className="w-full border-t border-gray-200"></div>
+                <div className="w-full border-t border-lydian-border"></div>
               </div>
               <div className="relative flex justify-center text-sm">
-                <span className="px-4 bg-white/5 text-gray-400">Hesabınız yok mu?</span>
+                <span className="px-4 bg-lydian-bg/5 text-lydian-text-muted">Hesabınız yok mu?</span>
               </div>
             </div>
 
             {/* Register Link */}
             <Link
               href="/owner/auth/register"
-              className="block w-full text-center py-3 px-4 border-2 border-gray-300 rounded-lg font-semibold text-white hover:bg-white/5 hover:border-gray-400 transition-all duration-200"
+              className="block w-full text-center py-3 px-4 border-2 border-lydian-border-medium rounded-lg font-semibold text-white hover:bg-lydian-bg/5 hover:border-gray-400 transition-all duration-200"
             >
               Mülk Sahibi Olarak Kayıt Ol
             </Link>
@@ -311,7 +311,7 @@ export default function OwnerLoginPage() {
             <div className="mt-6 text-center">
               <Link
                 href="/"
-                className="text-sm text-gray-300 hover:text-white transition-colors"
+                className="text-sm text-lydian-text-dim hover:text-white transition-colors"
               >
                 ← Ana sayfaya dön
               </Link>

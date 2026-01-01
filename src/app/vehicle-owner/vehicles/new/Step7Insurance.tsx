@@ -153,7 +153,7 @@ export default function Step7Insurance({ data }: Step7Props) {
       <div className="border-2 border-slate-200 rounded-xl p-6">
         <div className="flex items-center gap-3 mb-4">
           <div className="p-2 bg-blue-100 rounded-lg">
-            <Shield className="w-5 h-5 text-blue-600" />
+            <Shield className="w-5 h-5 text-lydian-primary" />
           </div>
           <h3 className="text-lg font-bold text-slate-900">Sigorta Bilgileri</h3>
         </div>
@@ -171,7 +171,7 @@ export default function Step7Insurance({ data }: Step7Props) {
               className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-200 outline-none transition-all"
             />
             {errors.insurance?.insuranceProvider && (
-              <p className="mt-1 text-sm text-red-600">
+              <p className="mt-1 text-sm text-lydian-error">
                 {errors.insurance.insuranceProvider.message?.toString()}
               </p>
             )}
@@ -190,7 +190,7 @@ export default function Step7Insurance({ data }: Step7Props) {
                 className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-200 outline-none transition-all"
               />
               {errors.insurance?.policyNumber && (
-                <p className="mt-1 text-sm text-red-600">
+                <p className="mt-1 text-sm text-lydian-error">
                   {errors.insurance.policyNumber.message?.toString()}
                 </p>
               )}
@@ -211,14 +211,14 @@ export default function Step7Insurance({ data }: Step7Props) {
                   <AlertTriangle
                     className={`w-4 h-4 ${
                       checkExpiryDate(insuranceExpiryDate)?.type === 'expired'
-                        ? 'text-red-600'
+                        ? 'text-lydian-error'
                         : 'text-amber-600'
                     }`}
                   />
                   <p
                     className={`text-sm ${
                       checkExpiryDate(insuranceExpiryDate)?.type === 'expired'
-                        ? 'text-red-600'
+                        ? 'text-lydian-error'
                         : 'text-amber-600'
                     }`}
                   >
@@ -227,7 +227,7 @@ export default function Step7Insurance({ data }: Step7Props) {
                 </div>
               )}
               {errors.insurance?.expiryDate && (
-                <p className="mt-1 text-sm text-red-600">
+                <p className="mt-1 text-sm text-lydian-error">
                   {errors.insurance.expiryDate.message?.toString()}
                 </p>
               )}
@@ -241,7 +241,7 @@ export default function Step7Insurance({ data }: Step7Props) {
             </label>
             <select
               {...register('insurance.coverageType')}
-              className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-200 outline-none transition-all bg-white/5"
+              className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-200 outline-none transition-all bg-lydian-bg/5"
             >
               <option value="">Seçiniz</option>
               {coverageTypes.map((type) => (
@@ -251,7 +251,7 @@ export default function Step7Insurance({ data }: Step7Props) {
               ))}
             </select>
             {errors.insurance?.coverageType && (
-              <p className="mt-1 text-sm text-red-600">
+              <p className="mt-1 text-sm text-lydian-error">
                 {errors.insurance.coverageType.message?.toString()}
               </p>
             )}
@@ -281,7 +281,7 @@ export default function Step7Insurance({ data }: Step7Props) {
               className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-200 outline-none transition-all"
             />
             {errors.registration?.registrationNumber && (
-              <p className="mt-1 text-sm text-red-600">
+              <p className="mt-1 text-sm text-lydian-error">
                 {errors.registration.registrationNumber.message?.toString()}
               </p>
             )}
@@ -299,7 +299,7 @@ export default function Step7Insurance({ data }: Step7Props) {
               className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-200 outline-none transition-all"
             />
             {errors.registration?.registeredOwner && (
-              <p className="mt-1 text-sm text-red-600">
+              <p className="mt-1 text-sm text-lydian-error">
                 {errors.registration.registeredOwner.message?.toString()}
               </p>
             )}
@@ -320,14 +320,14 @@ export default function Step7Insurance({ data }: Step7Props) {
                 <AlertTriangle
                   className={`w-4 h-4 ${
                     checkExpiryDate(registrationExpiryDate)?.type === 'expired'
-                      ? 'text-red-600'
+                      ? 'text-lydian-error'
                       : 'text-amber-600'
                   }`}
                 />
                 <p
                   className={`text-sm ${
                     checkExpiryDate(registrationExpiryDate)?.type === 'expired'
-                      ? 'text-red-600'
+                      ? 'text-lydian-error'
                       : 'text-amber-600'
                   }`}
                 >
@@ -343,7 +343,7 @@ export default function Step7Insurance({ data }: Step7Props) {
       <div className="border-2 border-slate-200 rounded-xl p-6">
         <div className="flex items-center gap-3 mb-4">
           <div className="p-2 bg-green-100 rounded-lg">
-            <CheckCircle2 className="w-5 h-5 text-green-600" />
+            <CheckCircle2 className="w-5 h-5 text-lydian-success" />
           </div>
           <h3 className="text-lg font-bold text-slate-900">
             Muayene Bilgileri (İsteğe Bağlı)
@@ -378,14 +378,14 @@ export default function Step7Insurance({ data }: Step7Props) {
                 <AlertTriangle
                   className={`w-4 h-4 ${
                     checkExpiryDate(inspectionExpiryDate)?.type === 'expired'
-                      ? 'text-red-600'
+                      ? 'text-lydian-error'
                       : 'text-amber-600'
                   }`}
                 />
                 <p
                   className={`text-sm ${
                     checkExpiryDate(inspectionExpiryDate)?.type === 'expired'
-                      ? 'text-red-600'
+                      ? 'text-lydian-error'
                       : 'text-amber-600'
                   }`}
                 >
@@ -431,13 +431,13 @@ export default function Step7Insurance({ data }: Step7Props) {
                   <div className="flex items-center justify-between p-3 bg-green-50 border border-green-200 rounded-lg">
                     <div className="flex items-center gap-3">
                       <div className="p-2 bg-green-100 rounded">
-                        <File className="w-5 h-5 text-green-600" />
+                        <File className="w-5 h-5 text-lydian-success" />
                       </div>
                       <div>
                         <p className="font-medium text-green-900 text-sm">
                           {uploadedDoc.fileName}
                         </p>
-                        <p className="text-xs text-green-600">
+                        <p className="text-xs text-lydian-success">
                           {new Date(uploadedDoc.uploadedAt).toLocaleDateString('tr-TR')}
                         </p>
                       </div>
@@ -445,7 +445,7 @@ export default function Step7Insurance({ data }: Step7Props) {
                     <button
                       type="button"
                       onClick={() => removeDocument(uploadedDoc.id)}
-                      className="p-2 text-red-600 hover:bg-red-50 rounded-lg transition-all"
+                      className="p-2 text-lydian-error hover:bg-red-50 rounded-lg transition-all"
                     >
                       <X className="w-5 h-5" />
                     </button>
@@ -484,7 +484,7 @@ export default function Step7Insurance({ data }: Step7Props) {
         <div className="space-y-3">
           <div className="flex items-center gap-3">
             {getDocumentForType('registration') ? (
-              <CheckCircle2 className="w-5 h-5 text-green-600" />
+              <CheckCircle2 className="w-5 h-5 text-lydian-success" />
             ) : (
               <div className="w-5 h-5 rounded-full border-2 border-slate-300" />
             )}
@@ -493,7 +493,7 @@ export default function Step7Insurance({ data }: Step7Props) {
 
           <div className="flex items-center gap-3">
             {getDocumentForType('insurance') ? (
-              <CheckCircle2 className="w-5 h-5 text-green-600" />
+              <CheckCircle2 className="w-5 h-5 text-lydian-success" />
             ) : (
               <div className="w-5 h-5 rounded-full border-2 border-slate-300" />
             )}
@@ -502,7 +502,7 @@ export default function Step7Insurance({ data }: Step7Props) {
 
           <div className="flex items-center gap-3">
             {getDocumentForType('trafficInsurance') ? (
-              <CheckCircle2 className="w-5 h-5 text-green-600" />
+              <CheckCircle2 className="w-5 h-5 text-lydian-success" />
             ) : (
               <div className="w-5 h-5 rounded-full border-2 border-slate-300" />
             )}
@@ -513,7 +513,7 @@ export default function Step7Insurance({ data }: Step7Props) {
             {watch('insurance.insuranceProvider') &&
             watch('insurance.policyNumber') &&
             watch('insurance.expiryDate') ? (
-              <CheckCircle2 className="w-5 h-5 text-green-600" />
+              <CheckCircle2 className="w-5 h-5 text-lydian-success" />
             ) : (
               <div className="w-5 h-5 rounded-full border-2 border-slate-300" />
             )}
@@ -523,7 +523,7 @@ export default function Step7Insurance({ data }: Step7Props) {
           <div className="flex items-center gap-3">
             {watch('registration.registrationNumber') &&
             watch('registration.registeredOwner') ? (
-              <CheckCircle2 className="w-5 h-5 text-green-600" />
+              <CheckCircle2 className="w-5 h-5 text-lydian-success" />
             ) : (
               <div className="w-5 h-5 rounded-full border-2 border-slate-300" />
             )}

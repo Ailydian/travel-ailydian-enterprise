@@ -329,7 +329,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
                     key={index}
                     className={`p-4 border-2 rounded-lg cursor-pointer transition-all ${
                     formData.roomType === room.name.tr ?
-                    'border-blue-500 bg-blue-50' :
+                    'border-lydian-primary bg-blue-50' :
                     'border-white/10 hover:border-white/20'}`
                     }
                     onClick={() => handleInputChange('roomType', room.name.tr)}>
@@ -419,7 +419,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
 
               </div>
               {couponDiscount.message &&
-                <p className={`text-sm mt-1 ${couponDiscount.isValid ? 'text-green-600' : 'text-red-600'}`}>
+                <p className={`text-sm mt-1 ${couponDiscount.isValid ? 'text-lydian-success' : 'text-lydian-error'}`}>
                   {couponDiscount.message}
                 </p>
                 }
@@ -437,7 +437,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
                   {pricing.breakdown.seasonalAdjustment !== 0 &&
                   <div className="flex justify-between">
                       <span>Sezonsal Ayarlama:</span>
-                      <span className={pricing.breakdown.seasonalAdjustment > 0 ? 'text-red-600' : 'text-green-600'}>
+                      <span className={pricing.breakdown.seasonalAdjustment > 0 ? 'text-lydian-error' : 'text-lydian-success'}>
                         {pricing.breakdown.seasonalAdjustment > 0 ? '+' : ''}{pricing.breakdown.seasonalAdjustment} TL
                       </span>
                     </div>
@@ -609,7 +609,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
                     key={method.id}
                     className={`p-4 border-2 rounded-lg cursor-pointer transition-all ${
                     paymentMethod === method.id ?
-                    'border-blue-500 bg-blue-50' :
+                    'border-lydian-primary bg-blue-50' :
                     'border-white/10 hover:border-white/20'}`
                     }
                     onClick={() => setPaymentMethod(method.id as any)}>
@@ -943,22 +943,22 @@ const BookingForm: React.FC<BookingFormProps> = ({
                       <div
                       className={`w-10 h-10 rounded-full flex items-center justify-center text-sm font-medium ${
                       currentStep >= step ?
-                      'bg-blue-600 text-white' :
-                      'bg-gray-200 text-gray-400'}`
+                      'bg-lydian-primary text-white' :
+                      'bg-lydian-bg-surface-raised text-lydian-text-muted'}`
                       }>
 
                         {step}
                       </div>
                       <div className="ml-3">
                         <p className={`text-sm font-medium ${
-                      currentStep >= step ? 'text-blue-600' : 'text-gray-400'}`
+                      currentStep >= step ? 'text-lydian-primary' : 'text-lydian-text-muted'}`
                       }>
                           {label}
                         </p>
                       </div>
                       {step < 3 &&
                     <div className={`flex-1 h-px mx-4 ${
-                    currentStep > step ? 'bg-blue-600' : 'bg-gray-200'}`
+                    currentStep > step ? 'bg-lydian-primary' : 'bg-lydian-bg-surface-raised'}`
                     } />
                     }
                     </div>
@@ -995,7 +995,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
                 <button
                   onClick={handlePayment}
                   disabled={!canProceedToNext() || isProcessingPayment}
-                  className="px-8 py-2 bg-lydian-success text-lydian-text-inverse rounded-lg hover:bg-green-700 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2">
+                  className="px-8 py-2 bg-lydian-success text-lydian-text-inverse rounded-lg hover:bg-lydian-success-hover disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2">
 
                     {isProcessingPayment ?
                   <>

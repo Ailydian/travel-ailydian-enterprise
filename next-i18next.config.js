@@ -28,10 +28,8 @@ module.exports = {
     bindI18nStore: 'added removed',
   },
 
-  // Load translation files from public folder
-  localePath: typeof window === 'undefined'
-    ? require('path').resolve('./public/locales')
-    : '/locales',
+  // Load translation files from public folder (server-side only)
+  localePath: require('path').resolve('./public/locales'),
 
   // Reload on change in development
   reloadOnPrerender: process.env.NODE_ENV === 'development',

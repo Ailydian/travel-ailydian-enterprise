@@ -121,8 +121,8 @@ export const VoiceMenu: React.FC<VoiceMenuProps> = ({ className = '' }) => {
 
     return {
       status: 'Hazır',
-      color: 'text-gray-400',
-      bgColor: 'bg-white/10',
+      color: 'text-lydian-text-muted',
+      bgColor: 'bg-lydian-bg/10',
       icon: Mic
     };
   };
@@ -142,8 +142,8 @@ export const VoiceMenu: React.FC<VoiceMenuProps> = ({ className = '' }) => {
             isListening ?
             'bg-gradient-to-r from-green-500 to-blue-500 text-white shadow-lg animate-pulse' :
             isSupported ?
-            'bg-white/10 hover:bg-gray-200 text-gray-200' :
-            'bg-white/5 text-gray-400 cursor-not-allowed'}`
+            'bg-lydian-bg/10 hover:bg-lydian-bg-surface-raised text-gray-200' :
+            'bg-lydian-bg/5 text-lydian-text-muted cursor-not-allowed'}`
             }
             title={isSupported ? 'Sesli komutları başlat/durdur' : 'Tarayıcı desteklemiyor'}>
 
@@ -176,8 +176,8 @@ export const VoiceMenu: React.FC<VoiceMenuProps> = ({ className = '' }) => {
           onClick={handleSpeechToggle}
           className={`p-2 rounded-lg transition-colors ${
           isSpeechEnabled ?
-          'text-blue-600 hover:bg-blue-100' :
-          'text-gray-400 hover:bg-white/10'}`
+          'text-lydian-primary hover:bg-blue-100' :
+          'text-lydian-text-muted hover:bg-lydian-bg/10'}`
           }
           title="Sesli geri bildirimi aç/kapat">
 
@@ -205,7 +205,7 @@ export const VoiceMenu: React.FC<VoiceMenuProps> = ({ className = '' }) => {
             <div className={`px-4 py-2 rounded-lg shadow-lg text-sm whitespace-nowrap ${
           error ?
           'bg-red-100 text-red-700 border border-red-200' :
-          'bg-blue-100 text-blue-700 border border-blue-200'}`
+          'bg-blue-100 text-lydian-primary-hover border border-blue-200'}`
           }>
             
             {error ?

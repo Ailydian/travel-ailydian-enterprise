@@ -32,22 +32,22 @@ const EarningStatCard: React.FC<EarningStatCardProps> = ({ title, amount, change
   const isPositive = change && change >= 0;
 
   return (
-    <div className="bg-white/5 rounded-xl border border-gray-200 p-4 md:p-6 hover:shadow-lg transition-shadow duration-200">
+    <div className="bg-lydian-bg/5 rounded-xl border border-lydian-border p-4 md:p-6 hover:shadow-lg transition-shadow duration-200">
       <div className="flex items-center justify-between mb-3 md:mb-4">
         <div className="p-2 md:p-3 bg-gradient-to-br from-green-500 to-green-600 rounded-lg text-white shadow-md">
           {icon}
         </div>
         {hasChange && (
-          <div className={`flex items-center gap-1 text-xs md:text-sm font-medium ${isPositive ? 'text-green-600' : 'text-red-600'}`}>
+          <div className={`flex items-center gap-1 text-xs md:text-sm font-medium ${isPositive ? 'text-lydian-success' : 'text-lydian-error'}`}>
             {isPositive ? <TrendingUp className="w-3 md:w-4 h-3 md:h-4" /> : <TrendingDown className="w-3 md:w-4 h-3 md:h-4" />}
             <span>{Math.abs(change)}%</span>
           </div>
         )}
       </div>
       <div>
-        <p className="text-xs md:text-sm text-gray-300 font-medium mb-1">{title}</p>
+        <p className="text-xs md:text-sm text-lydian-text-dim font-medium mb-1">{title}</p>
         <p className="text-xl md:text-2xl font-bold text-white mb-1">₺{amount}</p>
-        <p className="text-xs text-gray-400">{period}</p>
+        <p className="text-xs text-lydian-text-muted">{period}</p>
       </div>
     </div>
   );
@@ -77,19 +77,19 @@ const TransactionRow: React.FC<TransactionRowProps> = ({ transaction }) => {
   const StatusIcon = config.icon;
 
   return (
-    <tr className="border-b border-gray-100 hover:bg-white/5 transition-colors">
+    <tr className="border-b border-gray-100 hover:bg-lydian-bg/5 transition-colors">
       <td className="px-4 md:px-6 py-3 md:py-4">
         <div className="text-sm">
           <p className="font-medium text-white">{transaction.date.toLocaleDateString('tr-TR')}</p>
-          <p className="text-gray-400 text-xs md:text-sm">{transaction.date.toLocaleTimeString('tr-TR')}</p>
+          <p className="text-lydian-text-muted text-xs md:text-sm">{transaction.date.toLocaleTimeString('tr-TR')}</p>
         </div>
       </td>
       <td className="px-4 md:px-6 py-3 md:py-4">
         <p className="text-sm font-medium text-white mb-1">{transaction.propertyName}</p>
-        <p className="text-xs md:text-sm text-gray-400">{transaction.guestName}</p>
+        <p className="text-xs md:text-sm text-lydian-text-muted">{transaction.guestName}</p>
       </td>
       <td className="px-4 md:px-6 py-3 md:py-4">
-        <p className="text-xs md:text-sm text-gray-400">#{transaction.bookingId}</p>
+        <p className="text-xs md:text-sm text-lydian-text-muted">#{transaction.bookingId}</p>
       </td>
       <td className="px-4 md:px-6 py-3 md:py-4">
         <p className="text-base md:text-lg font-bold text-white">₺{transaction.amount.toLocaleString('tr-TR')}</p>
@@ -101,7 +101,7 @@ const TransactionRow: React.FC<TransactionRowProps> = ({ transaction }) => {
         </span>
       </td>
       <td className="px-4 md:px-6 py-3 md:py-4">
-        <button className="text-blue-600 hover:text-blue-700 font-medium text-xs md:text-sm flex items-center gap-1 hover:gap-2 transition-all">
+        <button className="text-lydian-primary hover:text-lydian-primary-hover font-medium text-xs md:text-sm flex items-center gap-1 hover:gap-2 transition-all">
           Görüntüle
           <ArrowUpRight className="w-3.5 h-3.5" />
         </button>
@@ -122,12 +122,12 @@ const TransactionCard: React.FC<{ transaction: TransactionRowProps['transaction'
   const StatusIcon = config.icon;
 
   return (
-    <div className="bg-white/5 border border-gray-200 rounded-xl p-4 hover:shadow-md transition-shadow">
+    <div className="bg-lydian-bg/5 border border-lydian-border rounded-xl p-4 hover:shadow-md transition-shadow">
       <div className="flex items-start justify-between mb-3 gap-2">
         <div className="flex-1 min-w-0">
           <p className="font-semibold text-white mb-1 truncate">{transaction.propertyName}</p>
-          <p className="text-sm text-gray-400 truncate">{transaction.guestName}</p>
-          <p className="text-xs text-gray-400 mt-1">
+          <p className="text-sm text-lydian-text-muted truncate">{transaction.guestName}</p>
+          <p className="text-xs text-lydian-text-muted mt-1">
             {transaction.date.toLocaleDateString('tr-TR')} • #{transaction.bookingId}
           </p>
         </div>
@@ -136,12 +136,12 @@ const TransactionCard: React.FC<{ transaction: TransactionRowProps['transaction'
           <span className="hidden sm:inline">{config.label}</span>
         </span>
       </div>
-      <div className="flex items-center justify-between pt-3 border-t border-gray-200">
+      <div className="flex items-center justify-between pt-3 border-t border-lydian-border">
         <div>
-          <p className="text-sm text-gray-400 mb-1">Tutar</p>
+          <p className="text-sm text-lydian-text-muted mb-1">Tutar</p>
           <p className="text-xl font-bold text-white">₺{transaction.amount.toLocaleString('tr-TR')}</p>
         </div>
-        <button className="text-blue-600 hover:text-blue-700 font-medium text-sm flex items-center gap-1 whitespace-nowrap">
+        <button className="text-lydian-primary hover:text-lydian-primary-hover font-medium text-sm flex items-center gap-1 whitespace-nowrap">
           Detaylar
           <ArrowUpRight className="w-4 h-4" />
         </button>
@@ -168,7 +168,7 @@ const PayoutStatus: React.FC<PayoutStatusProps> = ({ nextPayout, onRequestPayout
           <h3 className="text-base md:text-lg font-semibold text-white mb-2">Sonraki Ödeme</h3>
           <div className="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-2 mb-2">
             <span className="text-2xl md:text-3xl font-bold text-white">₺{nextPayout.amount.toLocaleString('tr-TR')}</span>
-            <span className="text-xs md:text-sm text-gray-300">{nextPayout.date.toLocaleDateString('tr-TR')} tarihinde planlandı</span>
+            <span className="text-xs md:text-sm text-lydian-text-dim">{nextPayout.date.toLocaleDateString('tr-TR')} tarihinde planlandı</span>
           </div>
           <div className="flex items-center gap-2">
             <div className="flex items-center gap-1.5 px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs font-semibold">
@@ -180,12 +180,12 @@ const PayoutStatus: React.FC<PayoutStatusProps> = ({ nextPayout, onRequestPayout
         <div className="flex flex-col sm:flex-row md:flex-col gap-2 w-full sm:w-auto md:w-auto">
           <button
             onClick={onRequestPayout}
-            className="px-4 md:px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium flex items-center justify-center gap-2 text-sm md:text-base touch-manipulation"
+            className="px-4 md:px-6 py-3 bg-lydian-primary text-white rounded-lg hover:bg-lydian-primary-hover transition-colors font-medium flex items-center justify-center gap-2 text-sm md:text-base touch-manipulation"
           >
             <DollarSign className="w-4 md:w-5 h-4 md:h-5" />
             Para Çek
           </button>
-          <button className="px-4 md:px-6 py-3 bg-white/5 border-2 border-gray-200 rounded-lg hover:border-blue-500 hover:text-blue-600 transition-colors font-medium text-sm md:text-base touch-manipulation">
+          <button className="px-4 md:px-6 py-3 bg-lydian-bg/5 border-2 border-lydian-border rounded-lg hover:border-lydian-primary hover:text-lydian-primary transition-colors font-medium text-sm md:text-base touch-manipulation">
             Ödeme Ayarları
           </button>
         </div>
@@ -199,37 +199,37 @@ const EarningsFilterBar: React.FC = () => {
   const [showFilters, setShowFilters] = useState(false);
 
   return (
-    <div className="bg-white/5 border border-gray-200 rounded-xl p-3 md:p-4 mb-6">
+    <div className="bg-lydian-bg/5 border border-lydian-border rounded-xl p-3 md:p-4 mb-6">
       <div className="flex flex-col sm:flex-row gap-3 md:gap-4 items-stretch sm:items-center justify-between">
         <div className="flex gap-2 flex-wrap">
-          <button className="px-3 md:px-4 py-2 bg-blue-600 text-white rounded-lg font-medium text-xs md:text-sm hover:bg-blue-700 transition-colors touch-manipulation">
+          <button className="px-3 md:px-4 py-2 bg-lydian-primary text-white rounded-lg font-medium text-xs md:text-sm hover:bg-lydian-primary-hover transition-colors touch-manipulation">
             Tüm Zamanlar
           </button>
-          <button className="px-3 md:px-4 py-2 bg-white/5 border border-gray-300 text-gray-200 rounded-lg font-medium text-xs md:text-sm hover:bg-white/5 transition-colors touch-manipulation">
+          <button className="px-3 md:px-4 py-2 bg-lydian-bg/5 border border-lydian-border-medium text-gray-200 rounded-lg font-medium text-xs md:text-sm hover:bg-lydian-bg/5 transition-colors touch-manipulation">
             Bu Yıl
           </button>
-          <button className="px-3 md:px-4 py-2 bg-white/5 border border-gray-300 text-gray-200 rounded-lg font-medium text-xs md:text-sm hover:bg-white/5 transition-colors touch-manipulation">
+          <button className="px-3 md:px-4 py-2 bg-lydian-bg/5 border border-lydian-border-medium text-gray-200 rounded-lg font-medium text-xs md:text-sm hover:bg-lydian-bg/5 transition-colors touch-manipulation">
             Bu Ay
           </button>
-          <button className="px-3 md:px-4 py-2 bg-white/5 border border-gray-300 text-gray-200 rounded-lg font-medium text-xs md:text-sm hover:bg-white/5 transition-colors touch-manipulation">
+          <button className="px-3 md:px-4 py-2 bg-lydian-bg/5 border border-lydian-border-medium text-gray-200 rounded-lg font-medium text-xs md:text-sm hover:bg-lydian-bg/5 transition-colors touch-manipulation">
             Özel
           </button>
         </div>
         <div className="flex gap-2 overflow-x-auto pb-1">
           <button
             onClick={() => setShowFilters(!showFilters)}
-            className="flex items-center gap-2 px-3 md:px-4 py-2 border border-gray-300 rounded-lg hover:bg-white/5 transition-colors font-medium text-xs md:text-sm whitespace-nowrap touch-manipulation"
+            className="flex items-center gap-2 px-3 md:px-4 py-2 border border-lydian-border-medium rounded-lg hover:bg-lydian-bg/5 transition-colors font-medium text-xs md:text-sm whitespace-nowrap touch-manipulation"
           >
             <Filter className="w-4 h-4" />
             Filtreler
             <ChevronDown className={`w-4 h-4 transition-transform ${showFilters ? 'rotate-180' : ''}`} />
           </button>
-          <button className="flex items-center gap-2 px-3 md:px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors font-medium text-xs md:text-sm whitespace-nowrap touch-manipulation">
+          <button className="flex items-center gap-2 px-3 md:px-4 py-2 bg-lydian-success text-white rounded-lg hover:bg-lydian-success-hover transition-colors font-medium text-xs md:text-sm whitespace-nowrap touch-manipulation">
             <Download className="w-4 h-4" />
             <span className="hidden sm:inline">CSV İndir</span>
             <span className="sm:hidden">CSV</span>
           </button>
-          <button className="flex items-center gap-2 px-3 md:px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors font-medium text-xs md:text-sm whitespace-nowrap touch-manipulation">
+          <button className="flex items-center gap-2 px-3 md:px-4 py-2 bg-lydian-error text-white rounded-lg hover:bg-lydian-error-hover transition-colors font-medium text-xs md:text-sm whitespace-nowrap touch-manipulation">
             <FileText className="w-4 h-4" />
             <span className="hidden sm:inline">PDF İndir</span>
             <span className="sm:hidden">PDF</span>
@@ -238,10 +238,10 @@ const EarningsFilterBar: React.FC = () => {
       </div>
 
       {showFilters && (
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4 pt-4 border-t border-gray-200">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4 pt-4 border-t border-lydian-border">
           <div>
             <label className="block text-sm font-medium text-gray-200 mb-2">Mülk</label>
-            <select className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm touch-manipulation">
+            <select className="w-full px-3 py-2 border border-lydian-border-medium rounded-lg focus:ring-2 focus:ring-lydian-primary focus:border-transparent text-sm touch-manipulation">
               <option value="">Tüm Mülkler</option>
               <option value="1">Sahil Villası</option>
               <option value="2">Dağ Evi</option>
@@ -250,7 +250,7 @@ const EarningsFilterBar: React.FC = () => {
           </div>
           <div>
             <label className="block text-sm font-medium text-gray-200 mb-2">Durum</label>
-            <select className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm touch-manipulation">
+            <select className="w-full px-3 py-2 border border-lydian-border-medium rounded-lg focus:ring-2 focus:ring-lydian-primary focus:border-transparent text-sm touch-manipulation">
               <option value="">Tüm Durumlar</option>
               <option value="completed">Tamamlanan</option>
               <option value="pending">Bekleyen</option>
@@ -259,7 +259,7 @@ const EarningsFilterBar: React.FC = () => {
           </div>
           <div>
             <label className="block text-sm font-medium text-gray-200 mb-2">Tutar Aralığı</label>
-            <select className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm touch-manipulation">
+            <select className="w-full px-3 py-2 border border-lydian-border-medium rounded-lg focus:ring-2 focus:ring-lydian-primary focus:border-transparent text-sm touch-manipulation">
               <option value="">Tüm Tutarlar</option>
               <option value="0-500">₺0 - ₺500</option>
               <option value="500-1000">₺500 - ₺1.000</option>
@@ -355,10 +355,10 @@ const EarningsPage: React.FC = () => {
         <div className="animate-pulse space-y-4">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
             {[1, 2, 3, 4].map((i) => (
-              <div key={i} className="h-28 md:h-32 bg-gray-200 rounded-xl"></div>
+              <div key={i} className="h-28 md:h-32 bg-lydian-bg-surface-raised rounded-xl"></div>
             ))}
           </div>
-          <div className="h-64 md:h-96 bg-gray-200 rounded-xl"></div>
+          <div className="h-64 md:h-96 bg-lydian-bg-surface-raised rounded-xl"></div>
         </div>
       </div>
     );
@@ -404,14 +404,14 @@ const EarningsPage: React.FC = () => {
       <PayoutStatus nextPayout={nextPayout} onRequestPayout={handleRequestPayout} />
 
       {/* Earnings Chart */}
-      <div className="bg-white/5 border border-gray-200 rounded-xl p-4 md:p-6 my-6 md:my-8">
+      <div className="bg-lydian-bg/5 border border-lydian-border rounded-xl p-4 md:p-6 my-6 md:my-8">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4 md:mb-6">
           <div>
             <h3 className="text-base md:text-lg font-semibold text-white">Kazanç Özeti</h3>
-            <p className="text-xs md:text-sm text-gray-400 mt-1">Geçtiğimiz yılın aylık kazançları</p>
+            <p className="text-xs md:text-sm text-lydian-text-muted mt-1">Geçtiğimiz yılın aylık kazançları</p>
           </div>
           <div className="flex items-center gap-2 text-xs md:text-sm">
-            <span className="text-gray-400">Toplam:</span>
+            <span className="text-lydian-text-muted">Toplam:</span>
             <span className="font-bold text-white">₺76.450</span>
           </div>
         </div>
@@ -449,36 +449,36 @@ const EarningsPage: React.FC = () => {
       <EarningsFilterBar />
 
       {/* Transactions Table - Desktop */}
-      <div className="hidden md:block bg-white/5 border border-gray-200 rounded-xl overflow-hidden">
-        <div className="p-4 md:p-6 border-b border-gray-200">
+      <div className="hidden md:block bg-lydian-bg/5 border border-lydian-border rounded-xl overflow-hidden">
+        <div className="p-4 md:p-6 border-b border-lydian-border">
           <h3 className="text-base md:text-lg font-semibold text-white">İşlem Geçmişi</h3>
-          <p className="text-xs md:text-sm text-gray-400 mt-1">Tüm kazançlarınız ve ödemeleriniz</p>
+          <p className="text-xs md:text-sm text-lydian-text-muted mt-1">Tüm kazançlarınız ve ödemeleriniz</p>
         </div>
         <div className="overflow-x-auto">
           <table className="w-full min-w-[800px]">
-            <thead className="bg-white/5 border-b border-gray-200">
+            <thead className="bg-lydian-bg/5 border-b border-lydian-border">
               <tr>
-                <th className="px-4 md:px-6 py-3 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider">
+                <th className="px-4 md:px-6 py-3 text-left text-xs font-semibold text-lydian-text-dim uppercase tracking-wider">
                   Tarih
                 </th>
-                <th className="px-4 md:px-6 py-3 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider">
+                <th className="px-4 md:px-6 py-3 text-left text-xs font-semibold text-lydian-text-dim uppercase tracking-wider">
                   Mülk / Misafir
                 </th>
-                <th className="px-4 md:px-6 py-3 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider">
+                <th className="px-4 md:px-6 py-3 text-left text-xs font-semibold text-lydian-text-dim uppercase tracking-wider">
                   Rezervasyon ID
                 </th>
-                <th className="px-4 md:px-6 py-3 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider">
+                <th className="px-4 md:px-6 py-3 text-left text-xs font-semibold text-lydian-text-dim uppercase tracking-wider">
                   Tutar
                 </th>
-                <th className="px-4 md:px-6 py-3 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider">
+                <th className="px-4 md:px-6 py-3 text-left text-xs font-semibold text-lydian-text-dim uppercase tracking-wider">
                   Durum
                 </th>
-                <th className="px-4 md:px-6 py-3 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider">
+                <th className="px-4 md:px-6 py-3 text-left text-xs font-semibold text-lydian-text-dim uppercase tracking-wider">
                   İşlemler
                 </th>
               </tr>
             </thead>
-            <tbody className="bg-white/5 divide-y divide-gray-100">
+            <tbody className="bg-lydian-bg/5 divide-y divide-gray-100">
               {mockTransactions.map((transaction) => (
                 <TransactionRow key={transaction.id} transaction={transaction} />
               ))}
@@ -490,7 +490,7 @@ const EarningsPage: React.FC = () => {
       {/* Transactions Cards - Mobile */}
       <div className="md:hidden space-y-3">
         <h3 className="text-base font-semibold text-white px-1">İşlem Geçmişi</h3>
-        <p className="text-xs text-gray-400 px-1 -mt-2">Tüm kazançlarınız ve ödemeleriniz</p>
+        <p className="text-xs text-lydian-text-muted px-1 -mt-2">Tüm kazançlarınız ve ödemeleriniz</p>
         {mockTransactions.map((transaction) => (
           <TransactionCard key={transaction.id} transaction={transaction} />
         ))}

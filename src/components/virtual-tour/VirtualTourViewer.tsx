@@ -173,7 +173,7 @@ const VirtualTourViewer: React.FC<VirtualTourViewerProps> = ({
             className={`px-4 py-2 rounded-lg font-medium transition-all ${
             index === currentSceneIndex ?
             'bg-purple-600 text-white' :
-            'bg-white/20 backdrop-blur-sm text-white hover:bg-white/30'}`
+            'bg-lydian-bg/20 backdrop-blur-sm text-white hover:bg-lydian-bg/30'}`
             }>
 
               {scene.title}
@@ -202,7 +202,7 @@ const VirtualTourViewer: React.FC<VirtualTourViewerProps> = ({
             <button
               onClick={() => setShowHotspots(!showHotspots)}
               className={`p-3 backdrop-blur-sm text-lydian-text-inverse rounded-lg transition-colors ${
-              showHotspots ? 'bg-purple-600' : 'bg-white/20 hover:bg-white/30'}`
+              showHotspots ? 'bg-purple-600' : 'bg-lydian-bg/20 hover:bg-lydian-bg/30'}`
               }
               title="Toggle Hotspots">
 

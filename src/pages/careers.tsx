@@ -282,7 +282,7 @@ export default function Careers() {
                 className={`px-6 py-2 rounded-full font-medium transition-colors ${
                 selectedDepartment === dept ?
                 'bg-lydian-primary text-white' :
-                'bg-white/5 text-gray-200 hover:bg-white/10'}`
+                'bg-lydian-bg/5 text-gray-200 hover:bg-lydian-bg/10'}`
                 }>
 
                   {dept === 'all' ? 'Tümü' : dept}
@@ -356,7 +356,7 @@ export default function Careers() {
                   açıldığında sizi bilgilendirmekten mutluluk duyarız.
                 </p>
                 <a
-                  href="mailto:kariyer@travel.lydian.com"
+                  href="mailto:kariyer@holiday.ailydian.com"
                   className="inline-flex items-center gap-2 bg-lydian-bg-hover text-lydian-primary px-8 py-4 rounded-lg font-semibold hover:bg-lydian-primary-lighter transition-colors">
 
                   <Send className="w-5 h-5" />

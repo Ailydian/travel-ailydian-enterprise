@@ -92,7 +92,7 @@ const CategoriesPage: React.FC = () => {
               className={`px-4 py-2 rounded-full font-medium transition-colors ${
               selectedFilter === 'all' ?
               'bg-purple-600 text-white' :
-              'bg-white/5 text-gray-200 hover:bg-white/10'}`
+              'bg-lydian-bg/5 text-gray-200 hover:bg-lydian-bg/10'}`
               }>
 
               Tüm Kategoriler ({categories.length})
@@ -102,7 +102,7 @@ const CategoriesPage: React.FC = () => {
               className={`px-4 py-2 rounded-full font-medium transition-colors ${
               selectedFilter === 'seasonal' ?
               'bg-purple-600 text-white' :
-              'bg-white/5 text-gray-200 hover:bg-white/10'}`
+              'bg-lydian-bg/5 text-gray-200 hover:bg-lydian-bg/10'}`
               }>
 
               <span className="flex items-center gap-2">

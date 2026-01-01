@@ -86,7 +86,7 @@ function DashboardHeader() {
     <header
       className={`
         fixed top-0 left-0 right-0 z-30
-        bg-white border-b border-gray-200
+        bg-lydian-bg border-b border-lydian-border
         transition-transform duration-300
         ${isHeaderVisible ? 'translate-y-0' : '-translate-y-full'}
       `}
@@ -139,7 +139,7 @@ function DashboardSidebarContent({ pathname }: { pathname: string }) {
       {/* Header */}
       <SidebarHeader className="bg-gradient-to-br from-blue-600 to-purple-600 text-white border-none">
         <div className="flex items-center gap-3 flex-1">
-          <div className="w-10 h-10 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center">
+          <div className="w-10 h-10 rounded-xl bg-lydian-bg/20 backdrop-blur-sm flex items-center justify-center">
             <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
               <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
             </svg>
@@ -149,7 +149,7 @@ function DashboardSidebarContent({ pathname }: { pathname: string }) {
             <p className="text-xs text-white/80">Travel Platform</p>
           </div>
         </div>
-        <SidebarToggle className="text-white hover:bg-white/10" />
+        <SidebarToggle className="text-white hover:bg-lydian-bg/10" />
       </SidebarHeader>
 
       {/* Navigation */}
@@ -196,7 +196,7 @@ function DashboardSidebarContent({ pathname }: { pathname: string }) {
           Analytics
         </SidebarNavItem>
 
-        <div className="my-3 border-t border-gray-200" />
+        <div className="my-3 border-t border-lydian-border" />
 
         <SidebarNavItem
           active={pathname === '/example-dashboard/settings'}
@@ -214,8 +214,8 @@ function DashboardSidebarContent({ pathname }: { pathname: string }) {
             JS
           </div>
           <div className="flex-1 min-w-0">
-            <p className="text-sm font-medium text-gray-900 truncate">John Smith</p>
-            <p className="text-xs text-gray-500 truncate">john@ailydian.com</p>
+            <p className="text-sm font-medium text-lydian-text truncate">John Smith</p>
+            <p className="text-xs text-lydian-text-muted truncate">john@ailydian.com</p>
           </div>
         </div>
         <Button variant="ghost" size="sm" fullWidth leftIcon={<LogoutIcon />}>
@@ -239,7 +239,7 @@ export default function ExampleDashboardLayout({
   const isMobile = useIsMobile();
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-lydian-bg-surface">
       {/* Route Progress Bar */}
       <RouteProgress color={colors.primary[600]} height={3} />
 

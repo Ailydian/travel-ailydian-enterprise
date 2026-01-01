@@ -40,7 +40,7 @@ export const generateSEOMetaTags = (config: PageSEOConfig): SEOMetaTags => {
     title,
     description,
     path,
-    imageUrl = 'https://travel.lydian.com/og-image.jpg',
+    imageUrl = 'https://holiday.ailydian.com/og-image.jpg',
     additionalKeywords = []
   } = config;
 
@@ -56,20 +56,20 @@ export const generateSEOMetaTags = (config: PageSEOConfig): SEOMetaTags => {
   // Generate title with primary keyword (natural placement)
   const defaultTitles = {
     tr: {
-      rentals: `${keywords.primary} | Airbnb Tarzı Konaklama - Travel.LyDian`,
-      tours: `${keywords.primary} | En İyi Turlar ve Aktiviteler - Travel.LyDian`,
-      hotels: `${keywords.primary} | Lüks Otel Rezervasyonu - Travel.LyDian`,
-      flights: `${keywords.primary} | Ucuz Uçak Bileti - Travel.LyDian`,
-      transfers: `${keywords.primary} | VIP Transfer Hizmeti - Travel.LyDian`,
-      destinations: `${keywords.primary} | Keşfedilecek Destinasyonlar - Travel.LyDian`
+      rentals: `${keywords.primary} | Airbnb Tarzı Konaklama - Holiday.AILYDIAN`,
+      tours: `${keywords.primary} | En İyi Turlar ve Aktiviteler - Holiday.AILYDIAN`,
+      hotels: `${keywords.primary} | Lüks Otel Rezervasyonu - Holiday.AILYDIAN`,
+      flights: `${keywords.primary} | Ucuz Uçak Bileti - Holiday.AILYDIAN`,
+      transfers: `${keywords.primary} | VIP Transfer Hizmeti - Holiday.AILYDIAN`,
+      destinations: `${keywords.primary} | Keşfedilecek Destinasyonlar - Holiday.AILYDIAN`
     },
     en: {
-      rentals: `${keywords.primary} | Airbnb-Style Vacation Rentals - Travel.LyDian`,
-      tours: `${keywords.primary} | Best Tours & Activities - Travel.LyDian`,
-      hotels: `${keywords.primary} | Luxury Hotel Booking - Travel.LyDian`,
-      flights: `${keywords.primary} | Cheap Flight Tickets - Travel.LyDian`,
-      transfers: `${keywords.primary} | VIP Transfer Service - Travel.LyDian`,
-      destinations: `${keywords.primary} | Explore Destinations - Travel.LyDian`
+      rentals: `${keywords.primary} | Airbnb-Style Vacation Rentals - Holiday.AILYDIAN`,
+      tours: `${keywords.primary} | Best Tours & Activities - Holiday.AILYDIAN`,
+      hotels: `${keywords.primary} | Luxury Hotel Booking - Holiday.AILYDIAN`,
+      flights: `${keywords.primary} | Cheap Flight Tickets - Holiday.AILYDIAN`,
+      transfers: `${keywords.primary} | VIP Transfer Service - Holiday.AILYDIAN`,
+      destinations: `${keywords.primary} | Explore Destinations - Holiday.AILYDIAN`
     }
   };
 
@@ -98,17 +98,17 @@ export const generateSEOMetaTags = (config: PageSEOConfig): SEOMetaTags => {
   const generatedDescription = description || (defaultDescriptions[language as keyof typeof defaultDescriptions]?.[pageName] || defaultDescriptions.tr[pageName]);
 
   // Generate canonical URL
-  const canonical = `https://travel.lydian.com${path}`;
+  const canonical = `https://holiday.ailydian.com${path}`;
 
   // Generate hreflang tags for international SEO
   const hreflang = [
-    { lang: 'tr', url: `https://travel.lydian.com/tr${path}` },
-    { lang: 'en', url: `https://travel.lydian.com/en${path}` },
-    { lang: 'de', url: `https://travel.lydian.com/de${path}` },
-    { lang: 'ru', url: `https://travel.lydian.com/ru${path}` },
-    { lang: 'ar', url: `https://travel.lydian.com/ar${path}` },
-    { lang: 'fr', url: `https://travel.lydian.com/fr${path}` },
-    { lang: 'es', url: `https://travel.lydian.com/es${path}` },
+    { lang: 'tr', url: `https://holiday.ailydian.com/tr${path}` },
+    { lang: 'en', url: `https://holiday.ailydian.com/en${path}` },
+    { lang: 'de', url: `https://holiday.ailydian.com/de${path}` },
+    { lang: 'ru', url: `https://holiday.ailydian.com/ru${path}` },
+    { lang: 'ar', url: `https://holiday.ailydian.com/ar${path}` },
+    { lang: 'fr', url: `https://holiday.ailydian.com/fr${path}` },
+    { lang: 'es', url: `https://holiday.ailydian.com/es${path}` },
     { lang: 'x-default', url: canonical }
   ];
 
@@ -150,10 +150,10 @@ const generateSchemaMarkup = (
     image: data.image,
     publisher: {
       '@type': 'Organization',
-      name: 'Travel.LyDian',
+      name: 'Holiday.AILYDIAN',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://travel.lydian.com/logo.png'
+        url: 'https://holiday.ailydian.com/logo.png'
       }
     }
   };
@@ -193,7 +193,7 @@ const generateSchemaMarkup = (
         serviceType: 'Flight Booking',
         provider: {
           '@type': 'Organization',
-          name: 'Travel.LyDian'
+          name: 'Holiday.AILYDIAN'
         }
       };
 

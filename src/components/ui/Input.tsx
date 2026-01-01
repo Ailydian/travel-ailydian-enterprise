@@ -34,17 +34,17 @@ const sizeStyles = {
 } as const;
 
 const stateStyles = {
-  default: 'border-gray-300 focus:border-blue-500 focus:ring-blue-500',
+  default: 'border-lydian-border-medium focus:border-lydian-primary focus:ring-lydian-primary',
   success: 'border-green-500 focus:border-green-600 focus:ring-green-500',
   warning: 'border-yellow-500 focus:border-yellow-600 focus:ring-yellow-500',
   error: 'border-red-500 focus:border-red-600 focus:ring-red-500',
 } as const;
 
 const stateTextColors = {
-  default: 'text-gray-600',
-  success: 'text-green-600',
-  warning: 'text-yellow-600',
-  error: 'text-red-600',
+  default: 'text-lydian-text-secondary',
+  success: 'text-lydian-success',
+  warning: 'text-lydian-warning',
+  error: 'text-lydian-error',
 } as const;
 
 /**
@@ -89,7 +89,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         {label && (
           <label
             htmlFor={inputId}
-            className="text-sm font-medium text-gray-700 flex items-center gap-1"
+            className="text-sm font-medium text-lydian-text-secondary flex items-center gap-1"
           >
             {label}
             {required && (
@@ -102,7 +102,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
 
         <div className="relative flex items-center">
           {leftIcon && (
-            <div className="absolute left-3 pointer-events-none text-gray-400">
+            <div className="absolute left-3 pointer-events-none text-lydian-text-muted">
               {leftIcon}
             </div>
           )}
@@ -116,7 +116,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
             className={`
               w-full rounded-lg border transition-all duration-200
               focus:outline-none focus:ring-2 focus:ring-opacity-50
-              disabled:bg-gray-100 disabled:cursor-not-allowed disabled:text-gray-500
+              disabled:bg-lydian-bg-surface-raised disabled:cursor-not-allowed disabled:text-lydian-text-muted
               ${sizeStyles[size]}
               ${stateStyles[effectiveState]}
               ${leftIcon ? 'pl-10' : ''}
@@ -127,7 +127,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           />
 
           {rightIcon && (
-            <div className="absolute right-3 pointer-events-none text-gray-400">
+            <div className="absolute right-3 pointer-events-none text-lydian-text-muted">
               {rightIcon}
             </div>
           )}

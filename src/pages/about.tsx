@@ -98,8 +98,8 @@ export default function About() {
   return (
     <>
       <Head>
-        <title>Hakkımızda - LyDian Travel | Seyahati Teknoloji ile Buluşturan Lider</title>
-        <meta name="description" content="LyDian Travel olarak 15 yıldır seyahat tutkusunu AI ve blockchain teknolojisi ile buluşturuyoruz. 150+ ülkede 2M+ mutlu müşteri." />
+        <title>Hakkımızda - AILYDIAN Holiday | Seyahati Teknoloji ile Buluşturan Lider</title>
+        <meta name="description" content="AILYDIAN Holiday olarak 15 yıldır seyahat tutkusunu AI ve blockchain teknolojisi ile buluşturuyoruz. 150+ ülkede 2M+ mutlu müşteri." />
         <meta name="keywords" content="lydian travel hakkında, seyahat platformu, ai seyahat, blockchain rezervasyon" />
       </Head>
 
@@ -108,7 +108,7 @@ export default function About() {
       <main className="min-h-screen bg-lydian-glass-dark">
         {/* Hero Section with NeoHero */}
         <NeoHero
-          title="LyDian Travel"
+          title="AILYDIAN Holiday"
           subtitle="Seyahati Teknoloji ile Buluşturan Lider"
           image="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=1920&h=1080&fit=crop&q=85"
           gradient="twilight"

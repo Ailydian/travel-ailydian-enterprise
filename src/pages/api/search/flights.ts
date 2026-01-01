@@ -1,8 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { PrismaClient } from '@prisma/client';
+import { prisma } from '@/lib/prisma';
 import logger from '../../../lib/logger';
-
-const prisma = new PrismaClient();
+import { withRateLimit, publicRateLimiter } from '@/lib/middleware/rate-limiter';
 
 interface FlightSearchRequest {
   originLocationCode: string;
@@ -18,7 +17,7 @@ interface FlightSearchRequest {
   max?: number;
 }
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+async function handler(req: NextApiRequest, res: NextApiResponse) {
   // Allow both GET and POST
   if (req.method !== 'GET' && req.method !== 'POST') {
     return res.status(405).json({
@@ -153,6 +152,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     }));
 
     // Return successful response
+    // Set cache headers for better performance
+    res.setHeader('Cache-Control', 'public, max-age=300, s-maxage=600');
     return res.status(200).json({
       success: true,
       data: {
@@ -183,7 +184,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         stack: error instanceof Error ? error.stack : 'No stack trace available'
       } : undefined
     });
-  } finally {
-    await prisma.$disconnect();
   }
 }
+
+export default withRateLimit(handler, publicRateLimiter);

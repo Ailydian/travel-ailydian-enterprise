@@ -218,7 +218,7 @@ const PropertyOwnerDashboard: React.FC = () => {
                 }
                 {syncStatus === 'syncing' &&
                 <>
-                    <div className="w-2 h-2 bg-yellow-500 rounded-full animate-pulse"></div>
+                    <div className="w-2 h-2 bg-lydian-warning-hover rounded-full animate-pulse"></div>
                     <span className="text-lydian-warning font-medium">Güncelleniyor...</span>
                   </>
                 }
@@ -527,8 +527,8 @@ const PropertyOwnerDashboard: React.FC = () => {
                 notification.urgent ?
                 'bg-red-50 border-red-500' :
                 notification.read ?
-                'bg-white/5 border-gray-300' :
-                'bg-blue-50 border-blue-500'}`
+                'bg-lydian-bg/5 border-lydian-border-medium' :
+                'bg-blue-50 border-lydian-primary'}`
                 }>
 
                   <div className="flex items-start gap-3">

@@ -97,7 +97,7 @@ export default function AdminContent() {
                 <button
                   key={f}
                   onClick={() => setFilter(f)}
-                  className={`px-4 py-2 rounded-lg ${filter === f ? 'bg-blue-600 text-white' : 'bg-gray-800 text-gray-300 hover:bg-gray-700'}`}>
+                  className={`px-4 py-2 rounded-lg ${filter === f ? 'bg-lydian-primary text-white' : 'bg-gray-800 text-lydian-text-dim hover:bg-gray-700'}`}>
 
                     {f === 'all' ? 'Tümü' : f === 'published' ? 'Yayında' : f === 'pending' ? 'Beklemede' : 'İşaretli'}
                   </button>
@@ -134,7 +134,7 @@ export default function AdminContent() {
                             <button className="p-2 bg-lydian-primary text-lydian-text-inverse rounded hover:bg-lydian-primary-dark">
                               <Eye className="w-4 h-4" />
                             </button>
-                            <button className="p-2 bg-lydian-success text-lydian-text-inverse rounded hover:bg-green-700">
+                            <button className="p-2 bg-lydian-success text-lydian-text-inverse rounded hover:bg-lydian-success-hover">
                               <CheckCircle className="w-4 h-4" />
                             </button>
                             <button className="p-2 bg-lydian-primary text-lydian-text-inverse rounded hover:bg-lydian-primary-dark">

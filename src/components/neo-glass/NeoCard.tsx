@@ -80,10 +80,10 @@ export const NeoCard: React.FC<NeoCardProps> = ({
       hover:shadow-[12px_12px_24px_rgba(0,0,0,0.15),-12px_-12px_24px_rgba(255,255,255,0.8)]
     `,
     glass: `
-      bg-white/60 backdrop-blur-2xl
+      bg-lydian-bg/60 backdrop-blur-2xl
       border border-white/30
       shadow-[0_8px_32px_0_rgba(31,38,135,0.15)]
-      hover:bg-white/70
+      hover:bg-lydian-bg/70
     `,
     gradient: `
       bg-gradient-to-br from-white/80 to-white/40
@@ -93,7 +93,7 @@ export const NeoCard: React.FC<NeoCardProps> = ({
       hover:from-white/90 hover:to-white/50
     `,
     minimal: `
-      bg-white
+      bg-lydian-bg
       border border-white/10
       shadow-lg
       hover:shadow-2xl

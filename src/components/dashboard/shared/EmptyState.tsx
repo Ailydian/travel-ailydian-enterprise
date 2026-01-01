@@ -49,8 +49,8 @@ const variantConfig: Record<
 {
   'no-data': {
     icon: Inbox,
-    iconColor: 'text-gray-400',
-    bgColor: 'bg-white/10'
+    iconColor: 'text-lydian-text-muted',
+    bgColor: 'bg-lydian-bg/10'
   },
   search: {
     icon: SearchX,
@@ -64,8 +64,8 @@ const variantConfig: Record<
   },
   'not-found': {
     icon: FileQuestion,
-    iconColor: 'text-gray-400',
-    bgColor: 'bg-white/10'
+    iconColor: 'text-lydian-text-muted',
+    bgColor: 'bg-lydian-bg/10'
   }
 };
 

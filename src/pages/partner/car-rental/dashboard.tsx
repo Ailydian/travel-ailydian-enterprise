@@ -178,7 +178,7 @@ const CarRentalDashboard: React.FC = () => {
                   </> :
 
                 <>
-                    <div className="w-2 h-2 bg-yellow-500 rounded-full animate-pulse"></div>
+                    <div className="w-2 h-2 bg-lydian-warning-hover rounded-full animate-pulse"></div>
                     <span className="text-lydian-warning font-medium">Güncelleniyor...</span>
                   </>
                 }
@@ -277,13 +277,13 @@ const CarRentalDashboard: React.FC = () => {
             className={`rounded-xl p-6 shadow-md ${
             maintenanceAlerts.length > 0 ?
             'bg-red-50 border-2 border-red-200' :
-            'bg-white'}`
+            'bg-lydian-bg'}`
             }>
 
             <div className="flex items-center justify-between mb-4">
               <Wrench
                 className={`h-8 w-8 ${
-                maintenanceAlerts.length > 0 ? 'text-red-600' : 'text-gray-400'}`
+                maintenanceAlerts.length > 0 ? 'text-lydian-error' : 'text-lydian-text-muted'}`
                 } />
 
               {maintenanceAlerts.length > 0 &&
@@ -292,7 +292,7 @@ const CarRentalDashboard: React.FC = () => {
             </div>
             <p className="text-lydian-text-dim text-sm mb-1">Bakım Uyarıları</p>
             <p className={`text-3xl font-bold ${
-            maintenanceAlerts.length > 0 ? 'text-red-600' : 'text-white'}`
+            maintenanceAlerts.length > 0 ? 'text-lydian-error' : 'text-white'}`
             }>
               {maintenanceAlerts.length}
             </p>

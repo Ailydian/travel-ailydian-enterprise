@@ -219,8 +219,8 @@ const AdvancedSearch: React.FC<AdvancedSearchProps> = ({
                   }}
                   className={`px-4 py-2 rounded-lg border transition-all duration-200 ${
                   filters.type.includes(type.key) ?
-                  'bg-blue-500 text-white border-blue-500' :
-                  'bg-white/5 text-gray-200 border-white/20 hover:border-blue-300'}`
+                  'bg-blue-500 text-white border-lydian-primary' :
+                  'bg-lydian-bg/5 text-gray-200 border-white/20 hover:border-blue-300'}`
                   }>
 
                     {type.label}

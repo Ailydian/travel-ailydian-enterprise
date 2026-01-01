@@ -81,8 +81,8 @@ const BookingSuccess: React.FC = () => {
   const handleShare = () => {
     if (navigator.share) {
       navigator.share({
-        title: 'LyDian Travel - Rezervasyonum Onaylandı!',
-        text: `LyDian Travel ile harika bir seyahat rezervasyonu yaptım! Onay numarası: ${bookingDetails.confirmationNumber}`,
+        title: 'AILYDIAN Holiday - Rezervasyonum Onaylandı!',
+        text: `AILYDIAN Holiday ile harika bir seyahat rezervasyonu yaptım! Onay numarası: ${bookingDetails.confirmationNumber}`,
         url: window.location.href,
       });
     } else {
@@ -94,7 +94,7 @@ const BookingSuccess: React.FC = () => {
   return (
     <>
       <Head>
-        <title>Rezervasyon Onaylandı - LyDian Travel | Başarılı Ödeme</title>
+        <title>Rezervasyon Onaylandı - AILYDIAN Holiday | Başarılı Ödeme</title>
         <meta
           name="description"
           content="Rezervasyonunuz başarıyla onaylandı. Blockchain teknologisi ile güvenceye alınmış seyahat deneyiminiz sizi bekliyor!"
@@ -172,7 +172,7 @@ const BookingSuccess: React.FC = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3 + index * 0.1 }}
-                  className="bg-white/5 backdrop-blur-xl rounded-2xl shadow-lg border border-white/10 overflow-hidden"
+                  className="bg-lydian-bg/5 backdrop-blur-xl rounded-2xl shadow-lg border border-white/10 overflow-hidden"
                 >
                   <div className="p-4 sm:p-6">
                     <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6">
@@ -302,7 +302,7 @@ const BookingSuccess: React.FC = () => {
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.4 }}
-                className="bg-white/5 backdrop-blur-xl rounded-2xl shadow-lg border border-white/10 p-4 sm:p-6"
+                className="bg-lydian-bg/5 backdrop-blur-xl rounded-2xl shadow-lg border border-white/10 p-4 sm:p-6"
               >
                 <h3 className="font-bold text-base sm:text-lg text-lydian-text-inverse mb-4 sm:mb-6">
                   Rezervasyon Bilgileri
@@ -364,7 +364,7 @@ const BookingSuccess: React.FC = () => {
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.5 }}
-                className="bg-white/5 backdrop-blur-xl rounded-2xl shadow-lg border border-white/10 p-6"
+                className="bg-lydian-bg/5 backdrop-blur-xl rounded-2xl shadow-lg border border-white/10 p-6"
               >
                 <h3 className="font-bold text-lg text-lydian-text-inverse mb-6">
                   Güvenlik & Destek

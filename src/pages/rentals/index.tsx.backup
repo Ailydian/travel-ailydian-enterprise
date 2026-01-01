@@ -344,27 +344,27 @@ const RentalsPage: React.FC = () => {
   return (
     <>
       <NextSeo
-        title="Kiralık Tatil Evleri ve Villalar | Travel.LyDian"
+        title="Kiralık Tatil Evleri ve Villalar | Holiday.AILYDIAN"
         description="Alanya, Antalya, Marmaris, Bodrum ve Çeşme'de lüks kiralık villa ve tatil evleri. En uygun fiyatlar, anında rezervasyon garantisi."
-        canonical="https://travel.lydian.com/rentals"
+        canonical="https://holiday.ailydian.com/rentals"
         openGraph={{
-          url: 'https://travel.lydian.com/rentals',
-          title: 'Kiralık Tatil Evleri ve Villalar | Travel.LyDian',
+          url: 'https://holiday.ailydian.com/rentals',
+          title: 'Kiralık Tatil Evleri ve Villalar | Holiday.AILYDIAN',
           description: 'Alanya, Antalya, Marmaris, Bodrum ve Çeşme\'de lüks kiralık villa ve tatil evleri.',
           images: [
           {
-            url: 'https://travel.lydian.com/og-rentals.jpg',
+            url: 'https://holiday.ailydian.com/og-rentals.jpg',
             width: 1200,
             height: 630,
-            alt: 'Travel.LyDian Rentals'
+            alt: 'Holiday.AILYDIAN Rentals'
           }],
 
-          site_name: 'Travel.LyDian'
+          site_name: 'Holiday.AILYDIAN'
         }} />
 
 
       <Head>
-        <title>Kiralık Tatil Evleri | Travel.LyDian</title>
+        <title>Kiralık Tatil Evleri | Holiday.AILYDIAN</title>
         <meta name="description" content="Türkiye'nin en popüler tatil bölgelerinde kiralık villa ve tatil evleri." />
         <meta name="keywords" content="kiralık villa, tatil evi, alanya villa, bodrum villa, marmaris villa, antalya kiralık daire" />
       </Head>

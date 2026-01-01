@@ -60,7 +60,7 @@ class AIServiceManager {
         messages: [
           {
             role: 'system',
-            content: 'Sen Travel.LyDian\'ın uzman seyahat AI asistanısın. Blockchain tabanlı ödemeler, VR turlar ve sürdürülebilir turizm konularında uzmanısın.'
+            content: 'Sen Holiday.AILYDIAN\'ın uzman seyahat AI asistanısın. Blockchain tabanlı ödemeler, VR turlar ve sürdürülebilir turizm konularında uzmanısın.'
           },
           {
             role: 'user',

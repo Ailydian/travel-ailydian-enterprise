@@ -196,7 +196,7 @@ async function handleInteractiveResponse(customerPhone: string, selectedId: stri
 
   switch (selectedId) {
     case 'booking':
-      response = '🎫 Rezervasyon yapmak için lütfen travel.lydian.com adresini ziyaret edin.\n\nVeya hangi hizmeti arıyorsunuz?\n\n🏨 Otel\n🚗 Araç\n🎭 Tur\n🚕 Transfer';
+      response = '🎫 Rezervasyon yapmak için lütfen holiday.ailydian.com adresini ziyaret edin.\n\nVeya hangi hizmeti arıyorsunuz?\n\n🏨 Otel\n🚗 Araç\n🎭 Tur\n🚕 Transfer';
       break;
 
     case 'support':
@@ -205,19 +205,19 @@ async function handleInteractiveResponse(customerPhone: string, selectedId: stri
       break;
 
     case 'info':
-      response = 'ℹ️ Travel LyDian hakkında:\n\n✅ Türkiye\'nin en kapsamlı seyahat platformu\n✅ AI-powered arama sistemi\n✅ Bundle pricing ile %20 indirim\n✅ LyDian Miles loyalty program\n✅ 7/24 destek\n\nWeb: travel.lydian.com';
+      response = 'ℹ️ Travel LyDian hakkında:\n\n✅ Türkiye\'nin en kapsamlı seyahat platformu\n✅ AI-powered arama sistemi\n✅ Bundle pricing ile %20 indirim\n✅ LyDian Miles loyalty program\n✅ 7/24 destek\n\nWeb: holiday.ailydian.com';
       break;
 
     case 'hotel':
-      response = '🏨 Otel Rezervasyonu\n\nBinlerce otel seçeneği travel.lydian.com\'da!\n\n• En uygun fiyat garantisi\n• Anında onay\n• Ücretsiz iptal seçeneği\n• Termal, Butik, Koy otelleri ve daha fazlası';
+      response = '🏨 Otel Rezervasyonu\n\nBinlerce otel seçeneği holiday.ailydian.com\'da!\n\n• En uygun fiyat garantisi\n• Anında onay\n• Ücretsiz iptal seçeneği\n• Termal, Butik, Koy otelleri ve daha fazlası';
       break;
 
     case 'car':
-      response = '🚗 Araç Kiralama\n\nGüvenilir araç kiralama hizmeti:\n\n• Sınırsız kilometre\n• Kasko dahil\n• Havalimanı teslimat\n• 7/24 yol yardım\n\nDetaylar: travel.lydian.com/arac-kiralama';
+      response = '🚗 Araç Kiralama\n\nGüvenilir araç kiralama hizmeti:\n\n• Sınırsız kilometre\n• Kasko dahil\n• Havalimanı teslimat\n• 7/24 yol yardım\n\nDetaylar: holiday.ailydian.com/arac-kiralama';
       break;
 
     case 'tour':
-      response = '🎭 Tur & Aktiviteler\n\nRehberli turlar ve unutulmaz deneyimler:\n\n• Kültür turları\n• Doğa gezileri\n• Macera aktiviteleri\n• Özel turlar\n\nDetaylar: travel.lydian.com/turlar';
+      response = '🎭 Tur & Aktiviteler\n\nRehberli turlar ve unutulmaz deneyimler:\n\n• Kültür turları\n• Doğa gezileri\n• Macera aktiviteleri\n• Özel turlar\n\nDetaylar: holiday.ailydian.com/turlar';
       break;
 
     case 'cancel':

@@ -73,7 +73,7 @@ const statusConfig: Record<Status, StatusConfig> = {
   inactive: {
     label: 'Inactive',
     icon: Power,
-    className: 'bg-white/10 text-white border-gray-200',
+    className: 'bg-lydian-bg/10 text-white border-lydian-border',
   },
   'checked-in': {
     label: 'Checked In',

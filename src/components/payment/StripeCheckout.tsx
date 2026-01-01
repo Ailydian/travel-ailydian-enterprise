@@ -145,10 +145,10 @@ function PaymentForm({
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
-      <div className="bg-gray-50 p-4 rounded-lg">
+      <div className="bg-lydian-bg-surface p-4 rounded-lg">
         <div className="flex justify-between items-center">
-          <span className="text-gray-700 font-medium">Total Amount:</span>
-          <span className="text-2xl font-bold text-gray-900">
+          <span className="text-lydian-text-secondary font-medium">Total Amount:</span>
+          <span className="text-2xl font-bold text-lydian-text">
             {formatAmount(amount * 100)}
           </span>
         </div>
@@ -169,7 +169,7 @@ function PaymentForm({
       <button
         type="submit"
         disabled={!stripe || loading}
-        className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200"
+        className="w-full bg-lydian-primary hover:bg-lydian-primary-hover disabled:bg-gray-400 disabled:cursor-not-allowed text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200"
       >
         {loading ? (
           <span className="flex items-center justify-center">
@@ -200,7 +200,7 @@ function PaymentForm({
         )}
       </button>
 
-      <p className="text-xs text-gray-500 text-center">
+      <p className="text-xs text-lydian-text-muted text-center">
         Your payment is secured by Stripe. We never store your card details.
       </p>
     </form>

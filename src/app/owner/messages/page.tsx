@@ -54,7 +54,7 @@ const ConversationItem: React.FC<ConversationItemProps> = ({ conversation, isAct
   return (
     <button
       onClick={onClick}
-      className={`w-full text-left p-4 border-b border-gray-200 hover:bg-white/5 transition-colors ${
+      className={`w-full text-left p-4 border-b border-lydian-border hover:bg-lydian-bg/5 transition-colors ${
         isActive ? 'bg-blue-50 border-l-4 border-l-blue-600' : ''
       }`}
     >
@@ -73,11 +73,11 @@ const ConversationItem: React.FC<ConversationItemProps> = ({ conversation, isAct
           <div className="flex items-center justify-between mb-1">
             <h4 className="font-semibold text-white truncate">{conversation.guestName}</h4>
             <div className="flex items-center gap-1">
-              {conversation.isPinned && <Pin className="w-3.5 h-3.5 text-blue-600" />}
-              <span className="text-xs text-gray-400">{timeAgo(conversation.lastMessageTime)}</span>
+              {conversation.isPinned && <Pin className="w-3.5 h-3.5 text-lydian-primary" />}
+              <span className="text-xs text-lydian-text-muted">{timeAgo(conversation.lastMessageTime)}</span>
             </div>
           </div>
-          <p className="text-sm text-gray-400 mb-1">{conversation.propertyName}</p>
+          <p className="text-sm text-lydian-text-muted mb-1">{conversation.propertyName}</p>
           <p className="text-sm text-gray-200 truncate">{conversation.lastMessage}</p>
         </div>
       </div>
@@ -103,27 +103,27 @@ const MessageBubble: React.FC<MessageBubbleProps> = ({ message, isOwnMessage }) 
     <div className={`flex ${isOwnMessage ? 'justify-end' : 'justify-start'} mb-4`}>
       <div className={`max-w-[70%] ${isOwnMessage ? 'order-2' : 'order-1'}`}>
         {!isOwnMessage && (
-          <p className="text-xs text-gray-400 mb-1 ml-1">{message.senderName}</p>
+          <p className="text-xs text-lydian-text-muted mb-1 ml-1">{message.senderName}</p>
         )}
         <div
           className={`rounded-2xl px-4 py-2.5 ${
             isOwnMessage
-              ? 'bg-blue-600 text-white rounded-br-sm'
-              : 'bg-white/10 text-white rounded-bl-sm'
+              ? 'bg-lydian-primary text-white rounded-br-sm'
+              : 'bg-lydian-bg/10 text-white rounded-bl-sm'
           }`}
         >
           <p className="text-sm leading-relaxed">{message.content}</p>
         </div>
         <div className={`flex items-center gap-1 mt-1 ${isOwnMessage ? 'justify-end' : 'justify-start'}`}>
-          <span className="text-xs text-gray-400">
+          <span className="text-xs text-lydian-text-muted">
             {message.createdAt.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
           </span>
           {isOwnMessage && (
             <span>
               {message.isRead ? (
-                <CheckCheck className="w-3.5 h-3.5 text-blue-600" />
+                <CheckCheck className="w-3.5 h-3.5 text-lydian-primary" />
               ) : (
-                <Check className="w-3.5 h-3.5 text-gray-400" />
+                <Check className="w-3.5 h-3.5 text-lydian-text-muted" />
               )}
             </span>
           )}
@@ -171,18 +171,18 @@ const MessageComposer: React.FC<MessageComposerProps> = ({ onSendMessage, disabl
   };
 
   return (
-    <form onSubmit={handleSubmit} className="border-t border-gray-200 bg-white/5 p-4">
+    <form onSubmit={handleSubmit} className="border-t border-lydian-border bg-lydian-bg/5 p-4">
       <div className="flex items-end gap-2">
         <button
           type="button"
-          className="p-2.5 text-gray-400 hover:text-gray-200 hover:bg-white/10 rounded-lg transition-colors"
+          className="p-2.5 text-lydian-text-muted hover:text-gray-200 hover:bg-lydian-bg/10 rounded-lg transition-colors"
           title="Add emoji"
         >
           <Smile className="w-5 h-5" />
         </button>
         <button
           type="button"
-          className="p-2.5 text-gray-400 hover:text-gray-200 hover:bg-white/10 rounded-lg transition-colors"
+          className="p-2.5 text-lydian-text-muted hover:text-gray-200 hover:bg-lydian-bg/10 rounded-lg transition-colors"
           title="Attach file"
         >
           <Paperclip className="w-5 h-5" />
@@ -196,13 +196,13 @@ const MessageComposer: React.FC<MessageComposerProps> = ({ onSendMessage, disabl
             placeholder="Type your message..."
             disabled={disabled}
             rows={1}
-            className="w-full px-4 py-2.5 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none max-h-32 disabled:bg-white/5 disabled:cursor-not-allowed"
+            className="w-full px-4 py-2.5 border border-lydian-border-medium rounded-xl focus:ring-2 focus:ring-lydian-primary focus:border-transparent resize-none max-h-32 disabled:bg-lydian-bg/5 disabled:cursor-not-allowed"
           />
         </div>
         <button
           type="submit"
           disabled={!message.trim() || disabled}
-          className="p-2.5 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition-colors disabled:bg-gray-300 disabled:cursor-not-allowed"
+          className="p-2.5 bg-lydian-primary text-white rounded-xl hover:bg-lydian-primary-hover transition-colors disabled:bg-gray-300 disabled:cursor-not-allowed"
           title="Send message"
         >
           <Send className="w-5 h-5" />
@@ -211,13 +211,13 @@ const MessageComposer: React.FC<MessageComposerProps> = ({ onSendMessage, disabl
       <div className="flex items-center gap-4 mt-2">
         <button
           type="button"
-          className="text-sm text-gray-400 hover:text-gray-200 transition-colors"
+          className="text-sm text-lydian-text-muted hover:text-gray-200 transition-colors"
         >
           Quick Replies
         </button>
         <button
           type="button"
-          className="text-sm text-gray-400 hover:text-gray-200 transition-colors"
+          className="text-sm text-lydian-text-muted hover:text-gray-200 transition-colors"
         >
           Templates
         </button>
@@ -240,7 +240,7 @@ const ConversationHeader: React.FC<ConversationHeaderProps> = ({ conversation, o
   if (!conversation) return null;
 
   return (
-    <div className="border-b border-gray-200 bg-white/5 p-4">
+    <div className="border-b border-lydian-border bg-lydian-bg/5 p-4">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white font-semibold">
@@ -248,38 +248,38 @@ const ConversationHeader: React.FC<ConversationHeaderProps> = ({ conversation, o
           </div>
           <div>
             <h3 className="font-semibold text-white">{conversation.guestName}</h3>
-            <p className="text-sm text-gray-400">{conversation.propertyName}</p>
+            <p className="text-sm text-lydian-text-muted">{conversation.propertyName}</p>
           </div>
         </div>
         <div className="flex items-center gap-2">
           <button
-            className="p-2 text-gray-400 hover:text-gray-200 hover:bg-white/10 rounded-lg transition-colors"
+            className="p-2 text-lydian-text-muted hover:text-gray-200 hover:bg-lydian-bg/10 rounded-lg transition-colors"
             title="Voice call"
           >
             <Phone className="w-5 h-5" />
           </button>
           <button
-            className="p-2 text-gray-400 hover:text-gray-200 hover:bg-white/10 rounded-lg transition-colors"
+            className="p-2 text-lydian-text-muted hover:text-gray-200 hover:bg-lydian-bg/10 rounded-lg transition-colors"
             title="Video call"
           >
             <Video className="w-5 h-5" />
           </button>
           <button
             onClick={onPin}
-            className="p-2 text-gray-400 hover:text-gray-200 hover:bg-white/10 rounded-lg transition-colors"
+            className="p-2 text-lydian-text-muted hover:text-gray-200 hover:bg-lydian-bg/10 rounded-lg transition-colors"
             title="Pin conversation"
           >
             <Pin className="w-5 h-5" />
           </button>
           <button
             onClick={onArchive}
-            className="p-2 text-gray-400 hover:text-gray-200 hover:bg-white/10 rounded-lg transition-colors"
+            className="p-2 text-lydian-text-muted hover:text-gray-200 hover:bg-lydian-bg/10 rounded-lg transition-colors"
             title="Archive"
           >
             <Archive className="w-5 h-5" />
           </button>
           <button
-            className="p-2 text-gray-400 hover:text-gray-200 hover:bg-white/10 rounded-lg transition-colors"
+            className="p-2 text-lydian-text-muted hover:text-gray-200 hover:bg-lydian-bg/10 rounded-lg transition-colors"
             title="More options"
           >
             <MoreVertical className="w-5 h-5" />
@@ -292,11 +292,11 @@ const ConversationHeader: React.FC<ConversationHeaderProps> = ({ conversation, o
 
 // Empty State Component
 const EmptyState: React.FC = () => (
-  <div className="flex-1 flex items-center justify-center bg-white/5">
+  <div className="flex-1 flex items-center justify-center bg-lydian-bg/5">
     <div className="text-center p-8">
-      <MessageSquare className="w-16 h-16 text-gray-300 mx-auto mb-4" />
+      <MessageSquare className="w-16 h-16 text-lydian-text-dim mx-auto mb-4" />
       <h3 className="text-xl font-semibold text-white mb-2">No Conversation Selected</h3>
-      <p className="text-gray-400">Select a conversation from the list to start messaging</p>
+      <p className="text-lydian-text-muted">Select a conversation from the list to start messaging</p>
     </div>
   </div>
 );
@@ -458,8 +458,8 @@ const MessagesPage: React.FC = () => {
           Messages
         </h1>
         <div className="animate-pulse flex h-[calc(100vh-200px)]">
-          <div className="w-1/3 border-r border-gray-200 bg-gray-200"></div>
-          <div className="flex-1 bg-white/10"></div>
+          <div className="w-1/3 border-r border-lydian-border bg-lydian-bg-surface-raised"></div>
+          <div className="flex-1 bg-lydian-bg/10"></div>
         </div>
       </div>
     );
@@ -470,20 +470,20 @@ const MessagesPage: React.FC = () => {
       <h1 className="text-3xl font-black mb-6 text-white">
         Messages
       </h1>
-      <div className="bg-white/5 border border-gray-200 rounded-xl overflow-hidden" style={{ height: 'calc(100vh - 200px)' }}>
+      <div className="bg-lydian-bg/5 border border-lydian-border rounded-xl overflow-hidden" style={{ height: 'calc(100vh - 200px)' }}>
         <div className="flex h-full">
           {/* Conversations Sidebar */}
-          <div className="w-full md:w-96 border-r border-gray-200 flex flex-col">
+          <div className="w-full md:w-96 border-r border-lydian-border flex flex-col">
             {/* Search */}
-            <div className="p-4 border-b border-gray-200">
+            <div className="p-4 border-b border-lydian-border">
               <div className="relative">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-lydian-text-muted w-5 h-5" />
                 <input
                   type="text"
                   placeholder="Search conversations..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-10 pr-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full pl-10 pr-4 py-2.5 border border-lydian-border-medium rounded-lg focus:ring-2 focus:ring-lydian-primary focus:border-transparent"
                 />
               </div>
             </div>
@@ -501,8 +501,8 @@ const MessagesPage: React.FC = () => {
                 ))
               ) : (
                 <div className="p-8 text-center">
-                  <MessageSquare className="w-12 h-12 text-gray-300 mx-auto mb-3" />
-                  <p className="text-gray-400">No conversations found</p>
+                  <MessageSquare className="w-12 h-12 text-lydian-text-dim mx-auto mb-3" />
+                  <p className="text-lydian-text-muted">No conversations found</p>
                 </div>
               )}
             </div>
@@ -518,7 +518,7 @@ const MessagesPage: React.FC = () => {
               />
 
               {/* Messages */}
-              <div className="flex-1 overflow-y-auto p-4 bg-white/5">
+              <div className="flex-1 overflow-y-auto p-4 bg-lydian-bg/5">
                 {messages.length > 0 ? (
                   <>
                     {messages.map((message) => (
@@ -533,9 +533,9 @@ const MessagesPage: React.FC = () => {
                 ) : (
                   <div className="flex items-center justify-center h-full">
                     <div className="text-center">
-                      <MessageSquare className="w-12 h-12 text-gray-300 mx-auto mb-3" />
-                      <p className="text-gray-400">No messages yet</p>
-                      <p className="text-sm text-gray-400 mt-1">Start the conversation!</p>
+                      <MessageSquare className="w-12 h-12 text-lydian-text-dim mx-auto mb-3" />
+                      <p className="text-lydian-text-muted">No messages yet</p>
+                      <p className="text-sm text-lydian-text-muted mt-1">Start the conversation!</p>
                     </div>
                   </div>
                 )}

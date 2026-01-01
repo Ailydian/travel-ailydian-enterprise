@@ -2,7 +2,7 @@
  * E-A-T Optimization System
  * Expertise, Authority, Trust - Google'ın en önemli ranking faktörleri
  *
- * Amaç: Travel.LyDian.com'u güvenilir, uzman ve otorite bir kaynak haline getirmek
+ * Amaç: Holiday.AILYDIAN.com'u güvenilir, uzman ve otorite bir kaynak haline getirmek
  */
 
 interface EATSignals {

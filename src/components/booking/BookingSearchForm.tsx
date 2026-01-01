@@ -129,8 +129,8 @@ export const BookingSearchForm: React.FC<SearchFormProps> = ({
                 className={`
                   relative flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 px-3 sm:px-6 py-2 sm:py-3 rounded-t-md font-bold transition-all whitespace-nowrap min-w-[70px] sm:min-w-0
                   ${isActive ?
-                'bg-white/5 text-lydian-primary shadow-lg' :
-                'bg-white/90 text-gray-200 hover:bg-white/5 hover:text-white'}
+                'bg-lydian-bg/5 text-lydian-primary shadow-lg' :
+                'bg-lydian-bg/90 text-gray-200 hover:bg-lydian-bg/5 hover:text-white'}
                 `
                 }>
 

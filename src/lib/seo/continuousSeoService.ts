@@ -205,7 +205,7 @@ class ContinuousSeoService {
   // Kritik sayfaları getir
   private async getCriticalPages(): Promise<PageSeoData[]> {
     const pages: PageSeoData[] = [];
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://travel.lydian.com';
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://holiday.ailydian.com';
 
     // Ana sayfa
     pages.push({
@@ -313,7 +313,7 @@ class ContinuousSeoService {
 
   // Sitemap doğrulama
   private async validateSitemap(): Promise<void> {
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://travel.lydian.com';
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://holiday.ailydian.com';
     try {
       const response = await fetch(`${baseUrl}/sitemap.xml`);
       if (!response.ok) {
@@ -328,7 +328,7 @@ class ContinuousSeoService {
 
   // Robots.txt doğrulama
   private async validateRobotsTxt(): Promise<void> {
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://travel.lydian.com';
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://holiday.ailydian.com';
     try {
       const response = await fetch(`${baseUrl}/robots.txt`);
       if (!response.ok) {
@@ -343,7 +343,7 @@ class ContinuousSeoService {
 
   // Ana sayfa kontrolü
   private async checkHomepage(): Promise<void> {
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://travel.lydian.com';
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://holiday.ailydian.com';
     try {
       const response = await fetch(baseUrl);
       if (!response.ok) {
@@ -408,7 +408,7 @@ let seoServiceInstance: ContinuousSeoService | null = null;
 
 export function getContinuousSeoService(): ContinuousSeoService {
   if (!seoServiceInstance) {
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://travel.lydian.com';
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://holiday.ailydian.com';
     const apiKey = process.env.SEO_API_KEY;
     seoServiceInstance = new ContinuousSeoService(baseUrl, apiKey);
   }

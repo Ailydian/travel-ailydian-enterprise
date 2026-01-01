@@ -102,13 +102,13 @@ const tripStats = [
   title: 'Tamamlanan Seyahat',
   value: '8',
   icon: CheckCircle,
-  color: 'text-green-600'
+  color: 'text-lydian-success'
 },
 {
   title: 'Yaklaşan Seyahat',
   value: '3',
   icon: Clock,
-  color: 'text-blue-600'
+  color: 'text-lydian-primary'
 },
 {
   title: 'Toplam Tasarruf',
@@ -120,7 +120,7 @@ const tripStats = [
   title: 'Sadakat Puanı',
   value: '1,250',
   icon: Star,
-  color: 'text-yellow-600'
+  color: 'text-lydian-warning'
 }];
 
 
@@ -155,7 +155,7 @@ export default function MyTrips() {
       case 'upcoming':return 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200';
       case 'cancelled':return 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200';
       case 'in-progress':return 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200';
-      default:return 'bg-white/10 text-gray-100 dark:bg-gray-900 dark:text-gray-200';
+      default:return 'bg-lydian-bg/10 text-gray-100 dark:bg-gray-900 dark:text-gray-200';
     }
   };
 
@@ -183,7 +183,7 @@ export default function MyTrips() {
   return (
     <>
       <Head>
-        <title>Seyahatlerim - LyDian Travel</title>
+        <title>Seyahatlerim - AILYDIAN Holiday</title>
         <meta name="description" content="Geçmiş ve gelecek seyahatlerinizi yönetin, rezervasyon detaylarını görüntüleyin." />
       </Head>
 
@@ -194,7 +194,7 @@ export default function MyTrips() {
             <div className="flex items-center justify-between">
               <div>
                 <Link href="/" className="text-2xl font-bold" style={{ color: '#0ea5e9' }}>
-                  LyDian Travel
+                  AILYDIAN Holiday
                 </Link>
               </div>
               <Link
@@ -248,8 +248,8 @@ export default function MyTrips() {
                   onClick={() => setSelectedTab(tab.key)}
                   className={`px-4 py-2 rounded-lg font-medium transition-colors ${
                   selectedTab === tab.key ?
-                  'bg-blue-600 text-white' :
-                  'bg-white/10 dark:bg-gray-700 text-gray-200 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-600'}`
+                  'bg-lydian-primary text-white' :
+                  'bg-lydian-bg/10 dark:bg-gray-700 text-gray-200 dark:text-lydian-text-dim hover:bg-blue-50 dark:hover:bg-gray-600'}`
                   }>
 
                     {tab.label}
@@ -352,7 +352,7 @@ export default function MyTrips() {
                           </button>
 
                           {trip.status === 'upcoming' &&
-                          <button className="bg-lydian-success text-lydian-text-inverse px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg hover:bg-green-700 transition-colors text-xs sm:text-sm flex items-center">
+                          <button className="bg-lydian-success text-lydian-text-inverse px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg hover:bg-lydian-success-hover transition-colors text-xs sm:text-sm flex items-center">
                               <Edit className="h-3 w-3 sm:h-4 sm:w-4 mr-1.5 sm:mr-2" />
                               Düzenle
                             </button>
@@ -392,7 +392,7 @@ export default function MyTrips() {
                             <Star
                               key={i}
                               className={`h-4 w-4 ${
-                              i < trip.rating ? 'text-yellow-400 fill-current' : 'text-gray-300'}`
+                              i < trip.rating ? 'text-yellow-400 fill-current' : 'text-lydian-text-dim'}`
                               } />
 
                             )}

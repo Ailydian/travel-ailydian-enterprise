@@ -19,19 +19,19 @@ export const metadata: Metadata = {
     'antalya transfer rezervasyon'
   ],
   alternates: {
-    canonical: 'https://travel.lydian.com/tr/antalya-havalimani-transfer',
+    canonical: 'https://holiday.ailydian.com/tr/antalya-havalimani-transfer',
     languages: {
-      'en': 'https://travel.lydian.com/en/antalya-airport-transfer',
-      'ru': 'https://travel.lydian.com/ru/transfer-antalya',
-      'de': 'https://travel.lydian.com/de/antalya-flughafentransfer',
-      'fr': 'https://travel.lydian.com/fr/transfert-aeroport-antalya'
+      'en': 'https://holiday.ailydian.com/en/antalya-airport-transfer',
+      'ru': 'https://holiday.ailydian.com/ru/transfer-antalya',
+      'de': 'https://holiday.ailydian.com/de/antalya-flughafentransfer',
+      'fr': 'https://holiday.ailydian.com/fr/transfert-aeroport-antalya'
     }
   },
   openGraph: {
     title: 'Antalya Havalimanı Transfer - En Güvenilir Transfer Hizmeti',
     description: 'Antalya Havalimanından tüm bölgelere 7/24 güvenli ve konforlu transfer hizmeti. VIP araçlar, profesyonel sürücüler, %30 indirim!',
-    url: 'https://travel.lydian.com/tr/antalya-havalimani-transfer',
-    siteName: 'LyDian Travel',
+    url: 'https://holiday.ailydian.com/tr/antalya-havalimani-transfer',
+    siteName: 'AILYDIAN Holiday',
     locale: 'tr_TR',
     type: 'website',
   }
@@ -131,7 +131,7 @@ export default function AntalyaHavalimanıTransferPage() {
             '@type': 'LocalBusiness',
             name: 'LyDian Transfer - Antalya Havalimanı Transfer',
             description: 'Antalya Havalimanı Transfer Hizmeti - Alanya, Belek, Side, Kemer',
-            url: 'https://travel.lydian.com/tr/antalya-havalimani-transfer',
+            url: 'https://holiday.ailydian.com/tr/antalya-havalimani-transfer',
             telephone: '+90-242-123-4567',
             priceRange: '€€',
             address: {
@@ -178,7 +178,7 @@ export default function AntalyaHavalimanıTransferPage() {
       <section className="relative bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-block bg-yellow-400 text-blue-900 px-4 py-2 rounded-full text-sm font-bold mb-4">
+            <div className="inline-block bg-lydian-warning text-blue-900 px-4 py-2 rounded-full text-sm font-bold mb-4">
               🔥 Erken Rezervasyonda %30 İNDİRİM!
             </div>
             <h1 className="text-5xl md:text-6xl font-bold mb-6">
@@ -190,14 +190,14 @@ export default function AntalyaHavalimanıTransferPage() {
             <div className="flex flex-wrap justify-center gap-4">
               <Link
                 href="#rezervasyon"
-                className="bg-yellow-400 text-blue-900 px-8 py-4 rounded-lg font-bold text-lg hover:bg-yellow-300 transition-all transform hover:scale-105 flex items-center gap-2"
+                className="bg-lydian-warning text-blue-900 px-8 py-4 rounded-lg font-bold text-lg hover:bg-yellow-300 transition-all transform hover:scale-105 flex items-center gap-2"
               >
                 <Car className="w-6 h-6" />
                 HEMEN REZERVASYON YAP
               </Link>
               <Link
                 href="#fiyatlar"
-                className="bg-white/20 backdrop-blur-sm text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white/30 transition-all flex items-center gap-2 border-2 border-white"
+                className="bg-lydian-bg/20 backdrop-blur-sm text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-lydian-bg/30 transition-all flex items-center gap-2 border-2 border-white"
               >
                 <TrendingUp className="w-6 h-6" />
                 FİYATLARI GÖR
@@ -222,7 +222,7 @@ export default function AntalyaHavalimanıTransferPage() {
       </section>
 
       {/* Features Section */}
-      <section className="py-16 bg-white/5">
+      <section className="py-16 bg-lydian-bg/5">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-white">
             Neden LyDian Transfer?
@@ -230,9 +230,9 @@ export default function AntalyaHavalimanıTransferPage() {
           <div className="grid md:grid-cols-3 gap-8">
             {features.map((feature, index) => (
               <div key={index} className="text-center p-6 rounded-xl bg-blue-50 hover:bg-blue-100 transition-all">
-                <feature.icon className="w-12 h-12 text-blue-600 mx-auto mb-4" />
+                <feature.icon className="w-12 h-12 text-lydian-primary mx-auto mb-4" />
                 <h3 className="text-xl font-bold mb-2 text-white">{feature.title}</h3>
-                <p className="text-gray-300">{feature.description}</p>
+                <p className="text-lydian-text-dim">{feature.description}</p>
               </div>
             ))}
           </div>
@@ -240,35 +240,35 @@ export default function AntalyaHavalimanıTransferPage() {
       </section>
 
       {/* Destinations & Pricing */}
-      <section id="fiyatlar" className="py-16 bg-white/5">
+      <section id="fiyatlar" className="py-16 bg-lydian-bg/5">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-4 text-white">
             Antalya Havalimanı Transfer Fiyatları 2025
           </h2>
-          <p className="text-center text-gray-300 mb-12 text-lg">
+          <p className="text-center text-lydian-text-dim mb-12 text-lg">
             Tüm destinasyonlar için net fiyatlar • Gizli ücret yok
           </p>
           <div className="grid md:grid-cols-3 gap-6">
             {destinations.map((dest, index) => (
-              <div key={index} className="bg-white/5 rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all">
+              <div key={index} className="bg-lydian-bg/5 rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all">
                 <div className="p-6">
                   <div className="flex items-center justify-between mb-4">
                     <h3 className="text-2xl font-bold text-white">{dest.name}</h3>
-                    <div className="text-3xl font-bold text-blue-600">{dest.price}</div>
+                    <div className="text-3xl font-bold text-lydian-primary">{dest.price}</div>
                   </div>
-                  <div className="space-y-2 text-gray-300">
+                  <div className="space-y-2 text-lydian-text-dim">
                     <div className="flex items-center gap-2">
-                      <MapPin className="w-5 h-5 text-gray-400" />
+                      <MapPin className="w-5 h-5 text-lydian-text-muted" />
                       <span>Mesafe: {dest.distance}</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <Clock className="w-5 h-5 text-gray-400" />
+                      <Clock className="w-5 h-5 text-lydian-text-muted" />
                       <span>Süre: {dest.duration}</span>
                     </div>
                   </div>
                   <Link
                     href={`#rezervasyon?destination=${dest.name}`}
-                    className="mt-6 block w-full bg-blue-600 text-white text-center py-3 rounded-lg font-bold hover:bg-blue-700 transition-colors"
+                    className="mt-6 block w-full bg-lydian-primary text-white text-center py-3 rounded-lg font-bold hover:bg-lydian-primary-hover transition-colors"
                   >
                     REZERVASYON YAP
                   </Link>
@@ -280,14 +280,14 @@ export default function AntalyaHavalimanıTransferPage() {
       </section>
 
       {/* Customer Reviews */}
-      <section className="py-16 bg-white/5">
+      <section className="py-16 bg-lydian-bg/5">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-white">
             Müşteri Yorumları ve Deneyimler
           </h2>
           <div className="grid md:grid-cols-3 gap-6">
             {reviews.map((review, index) => (
-              <div key={index} className="bg-white/5 rounded-xl p-6">
+              <div key={index} className="bg-lydian-bg/5 rounded-xl p-6">
                 <div className="flex items-center gap-1 mb-3">
                   {[...Array(review.rating)].map((_, i) => (
                     <Star key={i} className="w-5 h-5 text-yellow-400" fill="currentColor" />
@@ -296,7 +296,7 @@ export default function AntalyaHavalimanıTransferPage() {
                 <p className="text-gray-200 mb-4 italic">"{review.comment}"</p>
                 <div className="flex items-center justify-between text-sm">
                   <span className="font-bold text-white">{review.name}</span>
-                  <span className="text-gray-400">{review.date}</span>
+                  <span className="text-lydian-text-muted">{review.date}</span>
                 </div>
               </div>
             ))}
@@ -305,19 +305,19 @@ export default function AntalyaHavalimanıTransferPage() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-16 bg-white/5">
+      <section className="py-16 bg-lydian-bg/5">
         <div className="container mx-auto px-4 max-w-4xl">
           <h2 className="text-4xl font-bold text-center mb-12 text-white">
             Sıkça Sorulan Sorular
           </h2>
           <div className="space-y-4">
             {faqs.map((faq, index) => (
-              <details key={index} className="bg-white/5 rounded-xl p-6 shadow-sm">
+              <details key={index} className="bg-lydian-bg/5 rounded-xl p-6 shadow-sm">
                 <summary className="font-bold text-lg cursor-pointer text-white flex items-center gap-2">
-                  <MessageCircle className="w-5 h-5 text-blue-600" />
+                  <MessageCircle className="w-5 h-5 text-lydian-primary" />
                   {faq.question}
                 </summary>
-                <p className="mt-4 text-gray-300 pl-7">{faq.answer}</p>
+                <p className="mt-4 text-lydian-text-dim pl-7">{faq.answer}</p>
               </details>
             ))}
           </div>
@@ -336,14 +336,14 @@ export default function AntalyaHavalimanıTransferPage() {
           <div className="flex flex-wrap justify-center gap-4">
             <Link
               href="/booking"
-              className="bg-yellow-400 text-blue-900 px-8 py-4 rounded-lg font-bold text-lg hover:bg-yellow-300 transition-all transform hover:scale-105 flex items-center gap-2"
+              className="bg-lydian-warning text-blue-900 px-8 py-4 rounded-lg font-bold text-lg hover:bg-yellow-300 transition-all transform hover:scale-105 flex items-center gap-2"
             >
               <Car className="w-6 h-6" />
               HEMEN REZERVASYON YAP
             </Link>
             <a
               href="https://wa.me/902421234567"
-              className="bg-green-500 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-green-600 transition-all flex items-center gap-2"
+              className="bg-green-500 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-lydian-success transition-all flex items-center gap-2"
             >
               <Phone className="w-6 h-6" />
               WHATSAPP İLE İLETİŞİM

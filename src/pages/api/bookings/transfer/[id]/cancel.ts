@@ -4,7 +4,7 @@ import { authOptions } from '@/pages/api/auth/[...nextauth]'
 import { PrismaClient, BookingStatus, PaymentStatus } from '@prisma/client'
 import { canCancelBooking, calculateRefund } from '@/lib/utils/booking-utils'
 
-const prisma = new PrismaClient()
+// Using singleton prisma
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== 'DELETE' && req.method !== 'POST') {

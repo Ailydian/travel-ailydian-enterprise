@@ -2,7 +2,28 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import jwt from 'jsonwebtoken';
 import logger from '../logger';
 
-const JWT_SECRET = process.env.JWT_SECRET || 'your-super-secret-jwt-key-change-in-production';
+/**
+ * SECURITY: V16 Critical Fix (CVSS 9.1) - Admin Authorization Middleware
+ * Enforces proper JWT validation and removes weak secret fallback
+ */
+
+// SECURITY: Fail-fast if JWT_SECRET is not configured (no weak defaults)
+const JWT_SECRET = (() => {
+  const secret = process.env.JWT_SECRET;
+  if (!secret) {
+    throw new Error(
+      'JWT_SECRET environment variable is required for admin authentication. ' +
+      'Generate a secure secret with: openssl rand -base64 32'
+    );
+  }
+  if (secret.length < 32) {
+    throw new Error(
+      'JWT_SECRET must be at least 32 characters long for security. ' +
+      'Generate a secure secret with: openssl rand -base64 32'
+    );
+  }
+  return secret;
+})();
 
 export interface AdminAuthData {
   adminId: number;

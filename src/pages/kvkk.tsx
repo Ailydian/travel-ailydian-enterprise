@@ -98,7 +98,7 @@ export default function KVKK() {
             <div className="space-y-3 text-lydian-text-muted">
               <p><strong>Şirket Ünvanı:</strong> Travel.com Seyahat ve Turizm A.Ş.</p>
               <p><strong>Adres:</strong> Atatürk Bulvarı No: 456, Alanya Merkez, 07400 Alanya/Antalya</p>
-              <p><strong>E-posta:</strong> kvkk@travel.lydian.com</p>
+              <p><strong>E-posta:</strong> kvkk@holiday.ailydian.com</p>
               <p><strong>Telefon:</strong> +90 (850) 555 12 34</p>
             </div>
           </section>
@@ -437,8 +437,8 @@ export default function KVKK() {
                 <Mail className="w-5 h-5 flex-shrink-0 mt-0.5" />
                 <div>
                   <p className="font-semibold mb-1">E-posta</p>
-                  <a href="mailto:kvkk@travel.lydian.com" className="text-blue-100 hover:text-lydian-text-inverse">
-                    kvkk@travel.lydian.com
+                  <a href="mailto:kvkk@holiday.ailydian.com" className="text-blue-100 hover:text-lydian-text-inverse">
+                    kvkk@holiday.ailydian.com
                   </a>
                 </div>
               </div>

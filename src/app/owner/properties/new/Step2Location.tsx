@@ -101,7 +101,7 @@ export default function Step2Location({ data }: Step2Props) {
         </label>
         <select
           {...register('country')}
-          className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all bg-white/5"
+          className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-lydian-primary focus:ring-2 focus:ring-blue-200 outline-none transition-all bg-lydian-bg/5"
         >
           <option value="">Ülke seçin</option>
           {countries.map((country) => (
@@ -111,7 +111,7 @@ export default function Step2Location({ data }: Step2Props) {
           ))}
         </select>
         {errors.country && (
-          <p className="mt-1 text-sm text-red-600">
+          <p className="mt-1 text-sm text-lydian-error">
             {errors.country.message?.toString()}
           </p>
         )}
@@ -127,10 +127,10 @@ export default function Step2Location({ data }: Step2Props) {
             type="text"
             {...register('province')}
             placeholder="örn., İstanbul"
-            className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
+            className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-lydian-primary focus:ring-2 focus:ring-blue-200 outline-none transition-all"
           />
           {errors.province && (
-            <p className="mt-1 text-sm text-red-600">
+            <p className="mt-1 text-sm text-lydian-error">
               {errors.province.message?.toString()}
             </p>
           )}
@@ -144,10 +144,10 @@ export default function Step2Location({ data }: Step2Props) {
             type="text"
             {...register('city')}
             placeholder="örn., Kadıköy"
-            className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
+            className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-lydian-primary focus:ring-2 focus:ring-blue-200 outline-none transition-all"
           />
           {errors.city && (
-            <p className="mt-1 text-sm text-red-600">{errors.city.message?.toString()}</p>
+            <p className="mt-1 text-sm text-lydian-error">{errors.city.message?.toString()}</p>
           )}
         </div>
       </div>
@@ -162,10 +162,10 @@ export default function Step2Location({ data }: Step2Props) {
             type="text"
             {...register('district')}
             placeholder="örn., Moda"
-            className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
+            className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-lydian-primary focus:ring-2 focus:ring-blue-200 outline-none transition-all"
           />
           {errors.district && (
-            <p className="mt-1 text-sm text-red-600">
+            <p className="mt-1 text-sm text-lydian-error">
               {errors.district.message?.toString()}
             </p>
           )}
@@ -179,10 +179,10 @@ export default function Step2Location({ data }: Step2Props) {
             type="text"
             {...register('postalCode')}
             placeholder="örn., 34710"
-            className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
+            className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-lydian-primary focus:ring-2 focus:ring-blue-200 outline-none transition-all"
           />
           {errors.postalCode && (
-            <p className="mt-1 text-sm text-red-600">
+            <p className="mt-1 text-sm text-lydian-error">
               {errors.postalCode.message?.toString()}
             </p>
           )}
@@ -198,10 +198,10 @@ export default function Step2Location({ data }: Step2Props) {
           type="text"
           {...register('address')}
           placeholder="örn., Bağdat Caddesi No:123, Daire 4B"
-          className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
+          className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-lydian-primary focus:ring-2 focus:ring-blue-200 outline-none transition-all"
         />
         {errors.address && (
-          <p className="mt-1 text-sm text-red-600">
+          <p className="mt-1 text-sm text-lydian-error">
             {errors.address.message?.toString()}
           </p>
         )}
@@ -216,7 +216,7 @@ export default function Step2Location({ data }: Step2Props) {
           <Globe className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
           <select
             {...register('timezone')}
-            className="w-full pl-12 pr-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all bg-white/5"
+            className="w-full pl-12 pr-4 py-3 border-2 border-slate-200 rounded-lg focus:border-lydian-primary focus:ring-2 focus:ring-blue-200 outline-none transition-all bg-lydian-bg/5"
           >
             <option value="">Saat dilimi seçin</option>
             {timezones.map((tz) => (
@@ -227,7 +227,7 @@ export default function Step2Location({ data }: Step2Props) {
           </select>
         </div>
         {errors.timezone && (
-          <p className="mt-1 text-sm text-red-600">
+          <p className="mt-1 text-sm text-lydian-error">
             {errors.timezone.message?.toString()}
           </p>
         )}
@@ -243,7 +243,7 @@ export default function Step2Location({ data }: Step2Props) {
             type="button"
             onClick={handleGetCurrentLocation}
             disabled={isLocating}
-            className="flex items-center gap-2 px-4 py-2 text-sm bg-blue-50 text-blue-600 rounded-lg hover:bg-blue-100 transition-all disabled:opacity-50"
+            className="flex items-center gap-2 px-4 py-2 text-sm bg-blue-50 text-lydian-primary rounded-lg hover:bg-blue-100 transition-all disabled:opacity-50"
           >
             <Navigation className="w-4 h-4" />
             {isLocating ? 'Konum alınıyor...' : 'Mevcut Konumu Kullan'}
@@ -260,10 +260,10 @@ export default function Step2Location({ data }: Step2Props) {
               step="0.000001"
               {...register('coordinates.latitude', { valueAsNumber: true })}
               placeholder="41.0082"
-              className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
+              className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-lydian-primary focus:ring-2 focus:ring-blue-200 outline-none transition-all"
             />
             {errors.coordinates?.latitude && (
-              <p className="mt-1 text-sm text-red-600">
+              <p className="mt-1 text-sm text-lydian-error">
                 {errors.coordinates.latitude.message?.toString()}
               </p>
             )}
@@ -278,10 +278,10 @@ export default function Step2Location({ data }: Step2Props) {
               step="0.000001"
               {...register('coordinates.longitude', { valueAsNumber: true })}
               placeholder="28.9784"
-              className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
+              className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-lydian-primary focus:ring-2 focus:ring-blue-200 outline-none transition-all"
             />
             {errors.coordinates?.longitude && (
-              <p className="mt-1 text-sm text-red-600">
+              <p className="mt-1 text-sm text-lydian-error">
                 {errors.coordinates.longitude.message?.toString()}
               </p>
             )}
@@ -302,7 +302,7 @@ export default function Step2Location({ data }: Step2Props) {
             {/* Placeholder for map - In production, integrate Google Maps or Leaflet */}
             <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-blue-100 to-indigo-100">
               <div className="text-center">
-                <MapPin className="w-12 h-12 text-blue-600 mx-auto mb-2" />
+                <MapPin className="w-12 h-12 text-lydian-primary mx-auto mb-2" />
                 <p className="text-slate-700 font-medium">
                   {latitude.toFixed(6)}, {longitude.toFixed(6)}
                 </p>
@@ -330,7 +330,7 @@ export default function Step2Location({ data }: Step2Props) {
               min={0}
               max={20}
               defaultValue={0}
-              className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
+              className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-lydian-primary focus:ring-2 focus:ring-blue-200 outline-none transition-all"
             />
           </div>
 
@@ -344,7 +344,7 @@ export default function Step2Location({ data }: Step2Props) {
               min={0}
               max={20}
               defaultValue={0}
-              className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
+              className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-lydian-primary focus:ring-2 focus:ring-blue-200 outline-none transition-all"
             />
           </div>
 
@@ -358,7 +358,7 @@ export default function Step2Location({ data }: Step2Props) {
               min={0}
               max={20}
               defaultValue={0}
-              className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
+              className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-lydian-primary focus:ring-2 focus:ring-blue-200 outline-none transition-all"
             />
           </div>
 
@@ -372,12 +372,12 @@ export default function Step2Location({ data }: Step2Props) {
               min={0}
               max={20}
               defaultValue={0}
-              className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
+              className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-lydian-primary focus:ring-2 focus:ring-blue-200 outline-none transition-all"
             />
           </div>
         </div>
         {errors.bedrooms && (
-          <p className="mt-2 text-sm text-red-600">
+          <p className="mt-2 text-sm text-lydian-error">
             {errors.bedrooms.message?.toString()}
           </p>
         )}
@@ -392,7 +392,7 @@ export default function Step2Location({ data }: Step2Props) {
               type="checkbox"
               id="hasKitchen"
               {...register('livingAreas.hasKitchen')}
-              className="w-5 h-5 text-blue-600 rounded focus:ring-2 focus:ring-blue-500"
+              className="w-5 h-5 text-lydian-primary rounded focus:ring-2 focus:ring-lydian-primary"
             />
             <label htmlFor="hasKitchen" className="font-medium text-slate-700">
               Mutfak Var
@@ -406,7 +406,7 @@ export default function Step2Location({ data }: Step2Props) {
               </label>
               <select
                 {...register('livingAreas.kitchenType')}
-                className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all bg-white/5"
+                className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-lydian-primary focus:ring-2 focus:ring-blue-200 outline-none transition-all bg-lydian-bg/5"
               >
                 <option value="full">Tam Mutfak</option>
                 <option value="kitchenette">Mini Mutfak</option>
@@ -420,7 +420,7 @@ export default function Step2Location({ data }: Step2Props) {
               type="checkbox"
               id="hasLivingRoom"
               {...register('livingAreas.hasLivingRoom')}
-              className="w-5 h-5 text-blue-600 rounded focus:ring-2 focus:ring-blue-500"
+              className="w-5 h-5 text-lydian-primary rounded focus:ring-2 focus:ring-lydian-primary"
             />
             <label htmlFor="hasLivingRoom" className="font-medium text-slate-700">
               Oturma Odası Var
@@ -432,7 +432,7 @@ export default function Step2Location({ data }: Step2Props) {
               type="checkbox"
               id="hasDiningArea"
               {...register('livingAreas.hasDiningArea')}
-              className="w-5 h-5 text-blue-600 rounded focus:ring-2 focus:ring-blue-500"
+              className="w-5 h-5 text-lydian-primary rounded focus:ring-2 focus:ring-lydian-primary"
             />
             <label htmlFor="hasDiningArea" className="font-medium text-slate-700">
               Yemek Alanı Var

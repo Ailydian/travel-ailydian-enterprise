@@ -43,7 +43,7 @@ const statusConfig = {
     bgColor: 'bg-blue-50',
     borderColor: 'border-blue-200',
     textColor: 'text-blue-900',
-    badgeColor: 'bg-blue-100 text-blue-700',
+    badgeColor: 'bg-blue-100 text-lydian-primary-hover',
     icon: Beaker,
   },
   [FeatureStatus.DEMO]: {
@@ -67,10 +67,10 @@ const statusConfig = {
 const categoryConfig: Record<string, { icon: any; color: string }> = {
   blockchain: { icon: Coins, color: 'text-orange-600' },
   ai: { icon: Brain, color: 'text-purple-600' },
-  vr: { icon: Gamepad2, color: 'text-blue-600' },
+  vr: { icon: Gamepad2, color: 'text-lydian-primary' },
   search: { icon: Eye, color: 'text-indigo-600' },
-  payments: { icon: TrendingUp, color: 'text-green-600' },
-  core: { icon: Shield, color: 'text-red-600' },
+  payments: { icon: TrendingUp, color: 'text-lydian-success' },
+  core: { icon: Shield, color: 'text-lydian-error' },
 };
 
 const FeatureCard: React.FC<FeatureCardProps> = ({
@@ -98,7 +98,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
     >
       <div className="flex items-start justify-between mb-4">
         <div className="flex items-center gap-3">
-          <div className={`p-2 rounded-lg bg-white/50`}>
+          <div className={`p-2 rounded-lg bg-lydian-bg/50`}>
             <CategoryIcon className={`w-5 h-5 ${categoryConfig[category]?.color}`} />
           </div>
           <div>
@@ -117,7 +117,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
       <p className={`text-sm mb-3 ${config.textColor}/80`}>{description}</p>
 
       {notes && (
-        <div className={`text-xs p-3 rounded-lg bg-white/50 ${config.textColor}/70 italic`}>
+        <div className={`text-xs p-3 rounded-lg bg-lydian-bg/50 ${config.textColor}/70 italic`}>
           {notes}
         </div>
       )}
@@ -156,10 +156,10 @@ const FeaturesPage: NextPage = () => {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            <h1 className="text-4xl md:text-5xl font-bold text-lydian-text mb-4">
               Feature Status
             </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+            <p className="text-xl text-lydian-text-secondary max-w-3xl mx-auto mb-8">
               Comprehensive overview of Travel LyDian features - what's ready, what's in beta, what's
               simulated, and what's coming next.
             </p>
@@ -168,10 +168,10 @@ const FeaturesPage: NextPage = () => {
             <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mt-8">
               <motion.div
                 whileHover={{ scale: 1.05 }}
-                className="bg-white rounded-xl p-4 shadow-sm"
+                className="bg-lydian-bg rounded-xl p-4 shadow-sm"
               >
-                <p className="text-3xl font-bold text-gray-900">{summary.total}</p>
-                <p className="text-sm text-gray-600">Total Features</p>
+                <p className="text-3xl font-bold text-lydian-text">{summary.total}</p>
+                <p className="text-sm text-lydian-text-secondary">Total Features</p>
               </motion.div>
 
               <motion.div
@@ -187,7 +187,7 @@ const FeaturesPage: NextPage = () => {
                 className="bg-blue-50 rounded-xl p-4 shadow-sm border border-blue-200"
               >
                 <p className="text-3xl font-bold text-blue-900">{summary.beta}</p>
-                <p className="text-sm text-blue-700">Beta</p>
+                <p className="text-sm text-lydian-primary-hover">Beta</p>
               </motion.div>
 
               <motion.div
@@ -214,9 +214,9 @@ const FeaturesPage: NextPage = () => {
               <motion.h2
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                className="text-3xl font-bold text-gray-900 mb-6 flex items-center gap-3"
+                className="text-3xl font-bold text-lydian-text mb-6 flex items-center gap-3"
               >
-                <CheckCircle className="w-8 h-8 text-green-600" />
+                <CheckCircle className="w-8 h-8 text-lydian-success" />
                 Production Ready
               </motion.h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -233,9 +233,9 @@ const FeaturesPage: NextPage = () => {
               <motion.h2
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                className="text-3xl font-bold text-gray-900 mb-6 flex items-center gap-3"
+                className="text-3xl font-bold text-lydian-text mb-6 flex items-center gap-3"
               >
-                <Beaker className="w-8 h-8 text-blue-600" />
+                <Beaker className="w-8 h-8 text-lydian-primary" />
                 Beta Testing
               </motion.h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -252,7 +252,7 @@ const FeaturesPage: NextPage = () => {
               <motion.h2
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                className="text-3xl font-bold text-gray-900 mb-6 flex items-center gap-3"
+                className="text-3xl font-bold text-lydian-text mb-6 flex items-center gap-3"
               >
                 <Sparkles className="w-8 h-8 text-purple-600" />
                 Demo / Simulated Features
@@ -278,9 +278,9 @@ const FeaturesPage: NextPage = () => {
               <motion.h2
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                className="text-3xl font-bold text-gray-900 mb-6 flex items-center gap-3"
+                className="text-3xl font-bold text-lydian-text mb-6 flex items-center gap-3"
               >
-                <Clock className="w-8 h-8 text-yellow-600" />
+                <Clock className="w-8 h-8 text-lydian-warning" />
                 Coming Soon
               </motion.h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

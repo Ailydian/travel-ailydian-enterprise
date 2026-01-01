@@ -1,11 +1,14 @@
 /**
- * Rental Property Detail Page - Airbnb Style
- * Real API Integration with comprehensive property details
+ * ULTRA-PREMIUM Rental Property Detail Page
+ * Matches transfers quality - RED brand, 60fps animations, mobile-first
+ * Features: Glassmorphism, Framer Motion, Image lightbox, Live booking
  */
 
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
+import Link from 'next/link';
+import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import logger from '../../lib/logger';
@@ -34,8 +37,17 @@ import {
   MessageCircle,
   Award,
   Eye,
-  Loader2 } from
-'lucide-react';
+  Loader2,
+  Navigation,
+  CheckCircle2,
+  ArrowRight,
+  Phone,
+  Mail,
+  Maximize2,
+  TrendingDown,
+  Sparkles,
+  Zap
+} from 'lucide-react';
 
 // TypeScript interfaces
 interface RentalProperty {
@@ -120,6 +132,43 @@ interface PropertyDetailsPageProps {
   slug: string;
 }
 
+// Animation variants
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.08,
+      delayChildren: 0.1
+    }
+  }
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }
+  }
+};
+
+const imageHoverVariants = {
+  rest: { scale: 1 },
+  hover: {
+    scale: 1.05,
+    transition: { duration: 0.3, ease: 'easeOut' }
+  }
+};
+
+const cardHoverVariants = {
+  rest: { y: 0 },
+  hover: {
+    y: -8,
+    transition: { duration: 0.3, ease: 'easeOut' }
+  }
+};
+
 // Mock data function - matches database schema
 const getPropertyBySlug = (slug: string): RentalProperty => {
   const propertyData: Record<string, RentalProperty> = {
@@ -165,10 +214,13 @@ const getPropertyBySlug = (slug: string): RentalProperty => {
       checkOutTime: '11:00',
       mainImage: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200',
       images: [
-      'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200',
-      'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200',
-      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200'],
-
+        'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200',
+        'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200',
+        'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200',
+        'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1200',
+        'https://images.unsplash.com/photo-1600573472591-ee6b68d14c68?w=1200',
+        'https://images.unsplash.com/photo-1600607687644-c7171b42498b?w=1200'
+      ],
       virtualTourUrl: null,
       hostName: 'Mehmet Bey',
       hostSuperhost: true,
@@ -184,9 +236,9 @@ const getPropertyBySlug = (slug: string): RentalProperty => {
       location: '5.0',
       value: '4.7',
       reviewCount: 87,
-      airbnbPrice: null,
-      bookingPrice: null,
-      agodaPrice: null
+      airbnbPrice: '5100',
+      bookingPrice: '5200',
+      agodaPrice: '5150'
     }
   };
 
@@ -195,19 +247,43 @@ const getPropertyBySlug = (slug: string): RentalProperty => {
 
 const getSimilarProperties = (currentSlug: string): SimilarProperty[] => {
   return [
-  {
-    id: '2',
-    title: 'Kadıköy Modern Loft',
-    slug: 'kadikoy-modern-loft',
-    city: 'İstanbul',
-    mainImage: 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=600',
-    basePrice: '2500',
-    overall: '4.7',
-    reviewCount: 45,
-    bedrooms: 2,
-    bathrooms: 1
-  }].
-  filter((prop) => prop.slug !== currentSlug);
+    {
+      id: '2',
+      title: 'Kadıköy Modern Loft',
+      slug: 'kadikoy-modern-loft',
+      city: 'İstanbul',
+      mainImage: 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=600',
+      basePrice: '2500',
+      overall: '4.7',
+      reviewCount: 45,
+      bedrooms: 2,
+      bathrooms: 1
+    },
+    {
+      id: '3',
+      title: 'Moda Deniz Manzaralı Daire',
+      slug: 'moda-deniz-manzarali-daire',
+      city: 'İstanbul',
+      mainImage: 'https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=600',
+      basePrice: '3200',
+      overall: '4.8',
+      reviewCount: 62,
+      bedrooms: 3,
+      bathrooms: 2
+    },
+    {
+      id: '4',
+      title: 'Beyoğlu Tarihi Konak',
+      slug: 'beyoglu-tarihi-konak',
+      city: 'İstanbul',
+      mainImage: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600',
+      basePrice: '4500',
+      overall: '4.9',
+      reviewCount: 73,
+      bedrooms: 4,
+      bathrooms: 3
+    }
+  ].filter((prop) => prop.slug !== currentSlug);
 };
 
 const PropertyDetailsPage = ({ slug: initialSlug }: PropertyDetailsPageProps) => {
@@ -220,6 +296,7 @@ const PropertyDetailsPage = ({ slug: initialSlug }: PropertyDetailsPageProps) =>
   const [showGallery, setShowGallery] = useState(false);
   const [selectedImage, setSelectedImage] = useState(0);
   const [showAllAmenities, setShowAllAmenities] = useState(false);
+  const [showShareModal, setShowShareModal] = useState(false);
 
   // Booking States
   const [checkInDate, setCheckInDate] = useState('');
@@ -228,7 +305,7 @@ const PropertyDetailsPage = ({ slug: initialSlug }: PropertyDetailsPageProps) =>
   const [childrenCount, setChildrenCount] = useState(0);
   const [infantsCount, setInfantsCount] = useState(0);
 
-  // Get property data directly from mock function
+  // Get property data
   const property = slug ? getPropertyBySlug(slug as string) : null;
   const similarProperties = slug ? getSimilarProperties(slug as string) : [];
 
@@ -269,10 +346,10 @@ const PropertyDetailsPage = ({ slug: initialSlug }: PropertyDetailsPageProps) =>
   const getCompetitorAverage = () => {
     if (!property) return null;
     const prices = [
-    property.airbnbPrice ? parseInt(property.airbnbPrice) : null,
-    property.bookingPrice ? parseInt(property.bookingPrice) : null,
-    property.agodaPrice ? parseInt(property.agodaPrice) : null].
-    filter((p) => p !== null) as number[];
+      property.airbnbPrice ? parseInt(property.airbnbPrice) : null,
+      property.bookingPrice ? parseInt(property.bookingPrice) : null,
+      property.agodaPrice ? parseInt(property.agodaPrice) : null
+    ].filter((p) => p !== null) as number[];
 
     if (prices.length === 0) return null;
     return Math.round(prices.reduce((a, b) => a + b, 0) / prices.length);
@@ -283,28 +360,28 @@ const PropertyDetailsPage = ({ slug: initialSlug }: PropertyDetailsPageProps) =>
     if (!property) return { essentials: [], features: [], safety: [] };
 
     const essentials = [
-    { name: 'WiFi', available: property.wifi, icon: Wifi },
-    { name: 'Mutfak', available: property.kitchen, icon: ChefHat },
-    { name: 'Klima', available: property.airConditioning, icon: Wind },
-    { name: 'TV', available: property.tv, icon: Tv },
-    { name: 'Çamaşır Makinesi', available: property.washer, icon: Home },
-    { name: 'Isıtma', available: property.heating, icon: Wind }];
-
+      { name: 'WiFi', available: property.wifi, icon: Wifi },
+      { name: 'Mutfak', available: property.kitchen, icon: ChefHat },
+      { name: 'Klima', available: property.airConditioning, icon: Wind },
+      { name: 'TV', available: property.tv, icon: Tv },
+      { name: 'Çamaşır Makinesi', available: property.washer, icon: Home },
+      { name: 'Isıtma', available: property.heating, icon: Wind }
+    ];
 
     const features = [
-    { name: 'Havuz', available: property.pool, icon: Waves },
-    { name: 'Otopark', available: property.parking, icon: Car },
-    { name: 'Deniz Kenarı', available: property.beachfront, icon: Waves },
-    { name: 'Deniz Manzarası', available: property.seaview, icon: Eye },
-    { name: 'Balkon', available: property.balcony, icon: Home }];
-
+      { name: 'Havuz', available: property.pool, icon: Waves },
+      { name: 'Otopark', available: property.parking, icon: Car },
+      { name: 'Deniz Kenarı', available: property.beachfront, icon: Waves },
+      { name: 'Deniz Manzarası', available: property.seaview, icon: Eye },
+      { name: 'Balkon', available: property.balcony, icon: Home }
+    ];
 
     const safety = [
-    { name: 'Çocuk Dostu', available: property.childrenAllowed, icon: Shield },
-    { name: 'Evcil Hayvan', available: property.petsAllowed, icon: Heart },
-    { name: 'Sigara İçilmez', available: !property.smokingAllowed, icon: Shield },
-    { name: 'Parti Yapılmaz', available: !property.partiesAllowed, icon: Shield }];
-
+      { name: 'Çocuk Dostu', available: property.childrenAllowed, icon: Shield },
+      { name: 'Evcil Hayvan', available: property.petsAllowed, icon: Heart },
+      { name: 'Sigara İçilmez', available: !property.smokingAllowed, icon: Shield },
+      { name: 'Parti Yapılmaz', available: !property.partiesAllowed, icon: Shield }
+    ];
 
     return { essentials, features, safety };
   };
@@ -326,8 +403,7 @@ const PropertyDetailsPage = ({ slug: initialSlug }: PropertyDetailsPageProps) =>
         logger.debug('Share cancelled', { component: 'Slug' });
       }
     } else {
-      navigator.clipboard.writeText(window.location.href);
-      alert('Link kopyalandı!');
+      setShowShareModal(true);
     }
   };
 
@@ -349,13 +425,11 @@ const PropertyDetailsPage = ({ slug: initialSlug }: PropertyDetailsPageProps) =>
       return;
     }
 
-    // Validate dates are selected
     if (!checkInDate || !checkOutDate) {
       alert('Lütfen giriş ve çıkış tarihlerini seçiniz.');
       return;
     }
 
-    // Navigate to booking page with query parameters
     const bookingUrl = `/rentals/book?slug=${property?.slug}&checkIn=${checkInDate}&checkOut=${checkOutDate}&guests=${totalGuests}`;
     router.push(bookingUrl);
   };
@@ -363,364 +437,522 @@ const PropertyDetailsPage = ({ slug: initialSlug }: PropertyDetailsPageProps) =>
   // Error state
   if (!property) {
     return (
-      <div className="min-h-screen bg-lydian-glass-dark flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950 flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-2xl font-bold text-lydian-text-inverse mb-2">Özellik Bulunamadı</h1>
-          <p className="text-lydian-text-dim mb-6">Bu özellik mevcut değil.</p>
+          <h1 className="text-2xl font-bold text-white mb-2">Özellik Bulunamadı</h1>
+          <p className="text-gray-400 mb-6">Bu özellik mevcut değil.</p>
           <button
             onClick={() => router.push('/rentals')}
-            className="px-6 py-3 bg-lydian-primary text-lydian-text-inverse rounded-lg hover:bg-lydian-primary-dark transition-colors">
-
+            className="px-6 py-3 bg-gradient-to-r from-red-600 to-red-700 text-white rounded-lg hover:from-red-700 hover:to-red-800 transition-all shadow-lg"
+          >
             Tüm Özelliklere Dön
           </button>
         </div>
-      </div>);
-
+      </div>
+    );
   }
 
   const nights = calculateNights();
   const pricing = calculateTotal();
   const competitorAvg = getCompetitorAverage();
   const savings = competitorAvg ? competitorAvg - parseInt(property.basePrice) : 0;
-  const savingsPercent = competitorAvg ? Math.round(savings / competitorAvg * 100) : 0;
+  const savingsPercent = competitorAvg ? Math.round((savings / competitorAvg) * 100) : 0;
   const amenities = getAmenities();
+  const currentUrl = typeof window !== 'undefined' ? window.location.href : '';
 
   return (
     <>
       <Head>
         <title>{property.title} | Travel LyDian</title>
         <meta name="description" content={property.description} />
+        <meta property="og:title" content={property.title} />
+        <meta property="og:description" content={property.description} />
+        <meta property="og:image" content={property.mainImage} />
       </Head>
 
-      <div className="min-h-screen bg-lydian-glass-dark">
+      <div className="min-h-screen bg-gradient-to-b from-gray-50 via-white to-gray-50 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950">
         {/* Gallery Modal */}
         <AnimatePresence>
-          {showGallery &&
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center"
-            onClick={() => setShowGallery(false)}>
-
-              <button
+          {showGallery && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center"
               onClick={() => setShowGallery(false)}
-              className="absolute top-6 right-6 text-lydian-text-inverse hover:text-lydian-text-dim z-10">
-
+            >
+              <button
+                onClick={() => setShowGallery(false)}
+                className="absolute top-6 right-6 text-white hover:text-gray-300 z-10 p-2 hover:bg-white/10 rounded-lg transition-all"
+              >
                 <X className="w-8 h-8" />
               </button>
 
               <button
-              onClick={(e) => {
-                e.stopPropagation();
-                setSelectedImage((prev) => prev === 0 ? property.images.length - 1 : prev - 1);
-              }}
-              className="absolute left-6 text-lydian-text-inverse hover:text-lydian-text-dim z-10">
-
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setSelectedImage((prev) => (prev === 0 ? property.images.length - 1 : prev - 1));
+                }}
+                className="absolute left-6 text-white hover:text-gray-300 z-10 p-2 hover:bg-white/10 rounded-lg transition-all"
+              >
                 <ChevronLeft className="w-12 h-12" />
               </button>
 
               <button
-              onClick={(e) => {
-                e.stopPropagation();
-                setSelectedImage((prev) => prev === property.images.length - 1 ? 0 : prev + 1);
-              }}
-              className="absolute right-6 text-lydian-text-inverse hover:text-lydian-text-dim z-10">
-
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setSelectedImage((prev) => (prev === property.images.length - 1 ? 0 : prev + 1));
+                }}
+                className="absolute right-6 text-white hover:text-gray-300 z-10 p-2 hover:bg-white/10 rounded-lg transition-all"
+              >
                 <ChevronRight className="w-12 h-12" />
               </button>
 
               <img
-              src={property.images[selectedImage] || '/placeholder-property.jpg'}
-              alt={`${property.title} - ${selectedImage + 1}`}
-              className="max-w-7xl max-h-[90vh] object-contain"
-              onClick={(e) => e.stopPropagation()} />
+                src={property.images[selectedImage] || '/placeholder-property.jpg'}
+                alt={`${property.title} - ${selectedImage + 1}`}
+                className="max-w-7xl max-h-[90vh] object-contain"
+                onClick={(e) => e.stopPropagation()}
+              />
 
-
-              <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-lydian-text-inverse font-semibold">
+              <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white font-semibold bg-black/50 px-4 py-2 rounded-lg backdrop-blur-sm">
                 {selectedImage + 1} / {property.images.length}
               </div>
             </motion.div>
-          }
+          )}
         </AnimatePresence>
 
-        {/* Header */}
-        <div className="bg-lydian-bg-hover border-b border-lydian-border-light/10">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-            <div className="flex items-start justify-between gap-4">
-              <div className="flex-1">
-                <h1 className="text-3xl font-bold text-lydian-text-inverse mb-2">{property.title}</h1>
-                <div className="flex flex-wrap items-center gap-4 text-sm">
-                  <div className="flex items-center gap-1">
-                    <Star className="w-5 h-5 text-yellow-400 fill-yellow-400" />
-                    <span className="font-semibold">{parseFloat(property.overall).toFixed(1)}</span>
-                    <span className="text-lydian-text-dim">({property.reviewCount} değerlendirme)</span>
-                  </div>
-                  <span className="text-lydian-text-dim">•</span>
-                  <div className="flex items-center gap-1 text-lydian-text-dim">
-                    <MapPin className="w-4 h-4" />
-                    <span>{property.district}, {property.city}</span>
-                  </div>
-                  {property.hostSuperhost &&
-                  <>
-                      <span className="text-lydian-text-dim">•</span>
-                      <div className="flex items-center gap-1 text-purple-600 font-semibold">
-                        <Award className="w-5 h-5" />
-                        <span>Superhost</span>
-                      </div>
-                    </>
-                  }
+        {/* Share Modal */}
+        <AnimatePresence>
+          {showShareModal && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4"
+              onClick={() => setShowShareModal(false)}
+            >
+              <motion.div
+                initial={{ scale: 0.9, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.9, opacity: 0 }}
+                className="bg-white dark:bg-gray-800 rounded-2xl p-6 max-w-md w-full shadow-2xl"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <div className="flex items-center justify-between mb-4">
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white">Paylaş</h3>
+                  <button
+                    onClick={() => setShowShareModal(false)}
+                    className="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"
+                  >
+                    <X className="w-5 h-5 text-gray-600 dark:text-gray-400" />
+                  </button>
                 </div>
-              </div>
-
-              <div className="flex items-center gap-3">
+                <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-3 mb-4">
+                  <input
+                    type="text"
+                    value={currentUrl}
+                    readOnly
+                    className="w-full bg-transparent text-sm text-gray-600 dark:text-gray-300 select-all"
+                  />
+                </div>
                 <button
+                  onClick={() => {
+                    navigator.clipboard.writeText(currentUrl);
+                    setShowShareModal(false);
+                  }}
+                  className="w-full bg-red-600 hover:bg-red-700 text-white py-3 rounded-lg font-semibold transition-colors"
+                >
+                  Linki Kopyala
+                </button>
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        {/* Breadcrumb Bar */}
+        <div className="sticky top-0 z-40 bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl border-b border-gray-200 dark:border-gray-800 shadow-sm">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+            <div className="flex items-center justify-between gap-3">
+              <nav className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
+                <Link href="/" className="hover:text-red-600 dark:hover:text-red-400 transition-colors flex items-center gap-1">
+                  <Home className="w-4 h-4" />
+                  Ana Sayfa
+                </Link>
+                <ChevronRight className="w-4 h-4" />
+                <Link href="/rentals" className="hover:text-red-600 dark:hover:text-red-400 transition-colors">
+                  Konaklama
+                </Link>
+                <ChevronRight className="w-4 h-4" />
+                <span className="text-gray-900 dark:text-white font-medium">{property.title}</span>
+              </nav>
+
+              <div className="flex items-center gap-2">
+                <motion.button
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
                   onClick={handleShare}
-                  className="flex items-center gap-2 px-4 py-2 hover:bg-lydian-glass-dark-medium rounded-xl transition-all">
-
-                  <Share2 className="w-5 h-5" />
-                  <span className="hidden sm:inline">Paylaş</span>
-                </button>
-                <button
+                  className="flex items-center gap-2 px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors"
+                >
+                  <Share2 className="w-5 h-5 text-gray-600 dark:text-gray-400" />
+                  <span className="hidden sm:inline text-sm">Paylaş</span>
+                </motion.button>
+                <motion.button
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
                   onClick={handleFavorite}
-                  className="flex items-center gap-2 px-4 py-2 hover:bg-lydian-glass-dark-medium rounded-xl transition-all">
-
-                  <Heart className={`w-5 h-5 ${isFavorite ? 'fill-red-500 text-red-500' : ''}`} />
-                  <span className="hidden sm:inline">Kaydet</span>
-                </button>
+                  className="flex items-center gap-2 px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors"
+                >
+                  <Heart className={`w-5 h-5 ${isFavorite ? 'fill-red-500 text-red-500' : 'text-gray-600 dark:text-gray-400'}`} />
+                  <span className="hidden sm:inline text-sm">Kaydet</span>
+                </motion.button>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Photo Gallery */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <div
-            className="grid grid-cols-4 gap-2 rounded-2xl overflow-hidden cursor-pointer"
-            onClick={() => setShowGallery(true)}>
+        {/* Hero Section */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6 }}
+          className="relative bg-gradient-to-r from-red-600 via-red-700 to-red-800 text-white py-12 sm:py-16"
+        >
+          <div className="absolute inset-0 opacity-10">
+            <div
+              className="absolute inset-0"
+              style={{
+                backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
+              }}
+            />
+          </div>
 
-            <div className="col-span-4 md:col-span-2 md:row-span-2 relative h-64 md:h-96">
+          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <motion.div variants={containerVariants} initial="hidden" animate="visible">
+              <motion.h1 variants={itemVariants} className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
+                {property.title}
+              </motion.h1>
+              <motion.div variants={itemVariants} className="flex flex-wrap items-center gap-4 mb-6 text-red-100">
+                <div className="flex items-center gap-1">
+                  <Star className="w-5 h-5 text-yellow-300 fill-yellow-300" />
+                  <span className="font-semibold">{parseFloat(property.overall).toFixed(1)}</span>
+                  <span>({property.reviewCount} değerlendirme)</span>
+                </div>
+                <span>•</span>
+                <div className="flex items-center gap-1">
+                  <MapPin className="w-4 h-4" />
+                  <span>{property.district}, {property.city}</span>
+                </div>
+                {property.hostSuperhost && (
+                  <>
+                    <span>•</span>
+                    <div className="flex items-center gap-1">
+                      <Award className="w-5 h-5" />
+                      <span>Superhost</span>
+                    </div>
+                  </>
+                )}
+              </motion.div>
+
+              {/* Quick Stats */}
+              <motion.div variants={itemVariants} className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+                  <Users className="w-6 h-6 sm:w-8 sm:h-8 mb-2 text-red-200" />
+                  <div className="text-xl sm:text-2xl font-bold">{property.guests}</div>
+                  <div className="text-xs sm:text-sm text-red-200">Misafir</div>
+                </div>
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+                  <BedDouble className="w-6 h-6 sm:w-8 sm:h-8 mb-2 text-red-200" />
+                  <div className="text-xl sm:text-2xl font-bold">{property.bedrooms}</div>
+                  <div className="text-xs sm:text-sm text-red-200">Yatak Odası</div>
+                </div>
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+                  <Bath className="w-6 h-6 sm:w-8 sm:h-8 mb-2 text-red-200" />
+                  <div className="text-xl sm:text-2xl font-bold">{property.bathrooms}</div>
+                  <div className="text-xs sm:text-sm text-red-200">Banyo</div>
+                </div>
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+                  <Maximize2 className="w-6 h-6 sm:w-8 sm:h-8 mb-2 text-red-200" />
+                  <div className="text-xl sm:text-2xl font-bold">{property.squareMeters}</div>
+                  <div className="text-xs sm:text-sm text-red-200">m²</div>
+                </div>
+              </motion.div>
+            </motion.div>
+          </div>
+        </motion.div>
+
+        {/* Photo Gallery */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="grid grid-cols-4 gap-2 rounded-2xl overflow-hidden cursor-pointer"
+          >
+            <motion.div
+              variants={imageHoverVariants}
+              initial="rest"
+              whileHover="hover"
+              className="col-span-4 md:col-span-2 md:row-span-2 relative h-64 md:h-96 overflow-hidden"
+              onClick={() => {
+                setSelectedImage(0);
+                setShowGallery(true);
+              }}
+            >
               <img
                 src={property.images[0] || '/placeholder-property.jpg'}
                 alt={property.title}
-                className="w-full h-full object-cover hover:opacity-90 transition-opacity" />
-
-            </div>
-            {property.images.slice(1, 5).map((image, index) =>
-            <div key={index} className="col-span-2 md:col-span-1 relative h-32 md:h-48">
-                <img
-                src={image || '/placeholder-property.jpg'}
-                alt={`${property.title} - ${index + 2}`}
-                className="w-full h-full object-cover hover:opacity-90 transition-opacity" />
-
-                {index === 3 && property.images.length > 5 &&
-              <div className="absolute inset-0 bg-black/60 flex items-center justify-center text-lydian-text-inverse font-bold text-lg">
-                    +{property.images.length - 5} Fotoğraf
-                  </div>
-              }
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-black/0 hover:bg-black/10 transition-colors flex items-center justify-center opacity-0 hover:opacity-100">
+                <Maximize2 className="w-12 h-12 text-white" />
               </div>
-            )}
-          </div>
+            </motion.div>
+            {property.images.slice(1, 5).map((image, index) => (
+              <motion.div
+                key={index}
+                variants={imageHoverVariants}
+                initial="rest"
+                whileHover="hover"
+                className="col-span-2 md:col-span-1 relative h-32 md:h-48 overflow-hidden"
+                onClick={() => {
+                  setSelectedImage(index + 1);
+                  setShowGallery(true);
+                }}
+              >
+                <img src={image || '/placeholder-property.jpg'} alt={`${property.title} - ${index + 2}`} className="w-full h-full object-cover" />
+                {index === 3 && property.images.length > 5 && (
+                  <div className="absolute inset-0 bg-black/60 flex items-center justify-center text-white font-bold text-lg hover:bg-black/50 transition-colors">
+                    <div className="text-center">
+                      <Maximize2 className="w-8 h-8 mx-auto mb-2" />
+                      +{property.images.length - 5} Fotoğraf
+                    </div>
+                  </div>
+                )}
+                <div className="absolute inset-0 bg-black/0 hover:bg-black/10 transition-colors flex items-center justify-center opacity-0 hover:opacity-100">
+                  <Maximize2 className="w-8 h-8 text-white" />
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
 
         {/* Main Content */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {/* Left Column - 60% */}
-            <div className="lg:col-span-2 space-y-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
+            {/* Left Column - Details */}
+            <div className="lg:col-span-2 space-y-6 sm:space-y-8">
               {/* Property Overview */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="bg-lydian-bg-hover rounded-2xl shadow-md p-6">
-
-                <h2 className="text-2xl font-bold text-lydian-text-inverse mb-4">
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 sm:p-8 border border-gray-200 dark:border-gray-700"
+              >
+                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
                   {property.type === 'VILLA' ? 'Villa' : property.type === 'APARTMENT' ? 'Apartman' : 'Ev'} - {property.city}
                 </h2>
 
-                <div className="flex flex-wrap items-center gap-6 mb-6 text-lydian-text-muted">
+                <div className="flex flex-wrap items-center gap-6 mb-6 text-gray-600 dark:text-gray-300">
                   <div className="flex items-center gap-2">
-                    <Users className="w-5 h-5 text-lydian-text-muted" />
+                    <Users className="w-5 h-5" />
                     <span>{property.guests} misafir</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <BedDouble className="w-5 h-5 text-lydian-text-muted" />
+                    <BedDouble className="w-5 h-5" />
                     <span>{property.bedrooms} yatak odası</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <BedDouble className="w-5 h-5 text-lydian-text-muted" />
+                    <BedDouble className="w-5 h-5" />
                     <span>{property.beds} yatak</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <Bath className="w-5 h-5 text-lydian-text-muted" />
+                    <Bath className="w-5 h-5" />
                     <span>{property.bathrooms} banyo</span>
                   </div>
                 </div>
 
-                <div className="border-t border-lydian-border-light/10 pt-6">
+                <div className="border-t border-gray-200 dark:border-gray-700 pt-6">
                   <div className="flex items-center gap-4 mb-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-lydian-primary to-lydian-secondary rounded-full flex items-center justify-center text-lydian-text-inverse font-bold text-lg">
+                    <div className="w-12 h-12 bg-gradient-to-br from-red-600 to-red-700 rounded-full flex items-center justify-center text-white font-bold text-lg">
                       {property.hostName.charAt(0)}
                     </div>
                     <div>
-                      <h3 className="font-bold text-lydian-text-inverse">Ev sahibi: {property.hostName}</h3>
-                      <p className="text-sm text-lydian-text-dim">{property.hostResponseTime} yanıt verir</p>
+                      <h3 className="font-bold text-gray-900 dark:text-white">Ev sahibi: {property.hostName}</h3>
+                      <p className="text-sm text-gray-600 dark:text-gray-400">{property.hostResponseTime} yanıt verir</p>
                     </div>
                   </div>
 
                   <div className="flex flex-wrap gap-2 mb-4">
-                    {property.hostLanguages.map((lang, i) =>
-                    <span key={i} className="px-3 py-1 bg-lydian-glass-dark-medium text-lydian-text-muted rounded-full text-sm">
+                    {property.hostLanguages.map((lang, i) => (
+                      <span key={i} className="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full text-sm">
                         {lang}
                       </span>
-                    )}
+                    ))}
                   </div>
                 </div>
 
                 {/* Badges */}
-                <div className="flex flex-wrap gap-3 pt-6 border-t border-lydian-border-light/10">
-                  {property.instantBook &&
-                  <div className="flex items-center gap-2 px-4 py-2 bg-lydian-success-lighter rounded-xl">
-                      <Check className="w-5 h-5 text-lydian-success" />
-                      <span className="font-semibold text-green-900">Anında Rezervasyon</span>
+                <div className="flex flex-wrap gap-3 pt-6 border-t border-gray-200 dark:border-gray-700">
+                  {property.instantBook && (
+                    <div className="flex items-center gap-2 px-4 py-2 bg-green-50 dark:bg-green-900/20 rounded-xl border border-green-200 dark:border-green-800">
+                      <Zap className="w-5 h-5 text-green-600 dark:text-green-400" />
+                      <span className="font-semibold text-green-900 dark:text-green-100">Anında Rezervasyon</span>
                     </div>
-                  }
-                  {property.hostSuperhost &&
-                  <div className="flex items-center gap-2 px-4 py-2 bg-purple-50 rounded-xl">
-                      <Award className="w-5 h-5 text-purple-600" />
-                      <span className="font-semibold text-purple-900">Superhost</span>
+                  )}
+                  {property.hostSuperhost && (
+                    <div className="flex items-center gap-2 px-4 py-2 bg-purple-50 dark:bg-purple-900/20 rounded-xl border border-purple-200 dark:border-purple-800">
+                      <Award className="w-5 h-5 text-purple-600 dark:text-purple-400" />
+                      <span className="font-semibold text-purple-900 dark:text-purple-100">Superhost</span>
                     </div>
-                  }
+                  )}
                 </div>
               </motion.div>
 
               {/* Description */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
                 transition={{ delay: 0.1 }}
-                className="bg-lydian-bg-hover rounded-2xl shadow-md p-6">
-
-                <h2 className="text-xl font-bold text-lydian-text-inverse mb-4">Açıklama</h2>
-                <p className="text-lydian-text-muted leading-relaxed whitespace-pre-line">{property.description}</p>
+                className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 sm:p-8 border border-gray-200 dark:border-gray-700"
+              >
+                <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-4">Açıklama</h2>
+                <p className="text-gray-600 dark:text-gray-300 leading-relaxed whitespace-pre-line">{property.description}</p>
               </motion.div>
 
               {/* Rating Breakdown */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
                 transition={{ delay: 0.15 }}
-                className="bg-lydian-bg-hover rounded-2xl shadow-md p-6">
-
+                className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 sm:p-8 border border-gray-200 dark:border-gray-700"
+              >
                 <div className="flex items-center gap-2 mb-6">
                   <Star className="w-6 h-6 text-yellow-400 fill-yellow-400" />
-                  <h2 className="text-xl font-bold text-lydian-text-inverse">
+                  <h2 className="text-xl font-bold text-gray-900 dark:text-white">
                     {parseFloat(property.overall).toFixed(1)} · {property.reviewCount} değerlendirme
                   </h2>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {[
-                  { label: 'Temizlik', value: parseFloat(property.cleanliness) },
-                  { label: 'Doğruluk', value: parseFloat(property.accuracy) },
-                  { label: 'Giriş', value: parseFloat(property.checkIn) },
-                  { label: 'İletişim', value: parseFloat(property.communication) },
-                  { label: 'Konum', value: parseFloat(property.location) },
-                  { label: 'Fiyat-Performans', value: parseFloat(property.value) }].
-                  map((rating, index) =>
-                  <div key={index}>
+                    { label: 'Temizlik', value: parseFloat(property.cleanliness) },
+                    { label: 'Doğruluk', value: parseFloat(property.accuracy) },
+                    { label: 'Giriş', value: parseFloat(property.checkIn) },
+                    { label: 'İletişim', value: parseFloat(property.communication) },
+                    { label: 'Konum', value: parseFloat(property.location) },
+                    { label: 'Fiyat-Performans', value: parseFloat(property.value) }
+                  ].map((rating, index) => (
+                    <div key={index}>
                       <div className="flex items-center justify-between mb-2">
-                        <span className="text-sm font-medium text-lydian-text-muted">{rating.label}</span>
-                        <span className="text-sm font-bold text-lydian-text-inverse">{rating.value.toFixed(1)}</span>
+                        <span className="text-sm font-medium text-gray-600 dark:text-gray-400">{rating.label}</span>
+                        <span className="text-sm font-bold text-gray-900 dark:text-white">{rating.value.toFixed(1)}</span>
                       </div>
-                      <div className="h-2 bg-lydian-bg-active rounded-full overflow-hidden">
-                        <div
-                        className="h-full bg-gradient-to-r from-yellow-400 to-yellow-500"
-                        style={{ width: `${rating.value / 5 * 100}%` }} />
-
+                      <div className="h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+                        <motion.div
+                          initial={{ width: 0 }}
+                          whileInView={{ width: `${(rating.value / 5) * 100}%` }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 0.6, delay: index * 0.1 }}
+                          className="h-full bg-gradient-to-r from-yellow-400 to-yellow-500"
+                        />
                       </div>
                     </div>
-                  )}
+                  ))}
                 </div>
               </motion.div>
 
               {/* Amenities */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
                 transition={{ delay: 0.2 }}
-                className="bg-lydian-bg-hover rounded-2xl shadow-md p-6">
-
-                <h2 className="text-xl font-bold text-lydian-text-inverse mb-6">Olanaklar</h2>
+                className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 sm:p-8 border border-gray-200 dark:border-gray-700"
+              >
+                <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-6">Olanaklar</h2>
 
                 {/* Essentials */}
                 <div className="mb-6">
-                  <h3 className="font-semibold text-lydian-text-muted mb-3">Temel Olanaklar</h3>
+                  <h3 className="font-semibold text-gray-700 dark:text-gray-300 mb-3">Temel Olanaklar</h3>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     {amenities.essentials.map((amenity, index) => {
                       const Icon = amenity.icon;
                       return (
-                        <div
+                        <motion.div
                           key={index}
+                          initial={{ opacity: 0, x: -20 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          viewport={{ once: true }}
+                          transition={{ delay: index * 0.05 }}
                           className={`flex items-center gap-3 p-3 rounded-xl ${
-                          amenity.available ? 'bg-green-50' : 'bg-white/5 opacity-50'}`
-                          }>
-
-                          <Icon className={`w-5 h-5 ${amenity.available ? 'text-green-600' : 'text-gray-400'}`} />
-                          <span className={amenity.available ? 'text-white' : 'text-gray-400'}>
-                            {amenity.name}
-                          </span>
-                          {amenity.available && <Check className="w-4 h-4 text-lydian-success ml-auto" />}
-                        </div>);
-
+                            amenity.available
+                              ? 'bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800'
+                              : 'bg-gray-50 dark:bg-gray-700/50 border border-gray-200 dark:border-gray-600 opacity-50'
+                          }`}
+                        >
+                          <Icon className={`w-5 h-5 ${amenity.available ? 'text-green-600 dark:text-green-400' : 'text-gray-400'}`} />
+                          <span className={amenity.available ? 'text-gray-900 dark:text-white' : 'text-gray-500 dark:text-gray-400'}>{amenity.name}</span>
+                          {amenity.available && <CheckCircle2 className="w-4 h-4 text-green-600 dark:text-green-400 ml-auto" />}
+                        </motion.div>
+                      );
                     })}
                   </div>
                 </div>
 
                 {/* Features */}
                 <div className="mb-6">
-                  <h3 className="font-semibold text-lydian-text-muted mb-3">Özellikler</h3>
+                  <h3 className="font-semibold text-gray-700 dark:text-gray-300 mb-3">Özellikler</h3>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     {amenities.features.map((amenity, index) => {
                       const Icon = amenity.icon;
                       return (
-                        <div
+                        <motion.div
                           key={index}
+                          initial={{ opacity: 0, x: -20 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          viewport={{ once: true }}
+                          transition={{ delay: index * 0.05 }}
                           className={`flex items-center gap-3 p-3 rounded-xl ${
-                          amenity.available ? 'bg-blue-50' : 'bg-white/5 opacity-50'}`
-                          }>
-
-                          <Icon className={`w-5 h-5 ${amenity.available ? 'text-blue-600' : 'text-gray-400'}`} />
-                          <span className={amenity.available ? 'text-white' : 'text-gray-400'}>
-                            {amenity.name}
-                          </span>
-                          {amenity.available && <Check className="w-4 h-4 text-lydian-primary ml-auto" />}
-                        </div>);
-
+                            amenity.available
+                              ? 'bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800'
+                              : 'bg-gray-50 dark:bg-gray-700/50 border border-gray-200 dark:border-gray-600 opacity-50'
+                          }`}
+                        >
+                          <Icon className={`w-5 h-5 ${amenity.available ? 'text-blue-600 dark:text-blue-400' : 'text-gray-400'}`} />
+                          <span className={amenity.available ? 'text-gray-900 dark:text-white' : 'text-gray-500 dark:text-gray-400'}>{amenity.name}</span>
+                          {amenity.available && <CheckCircle2 className="w-4 h-4 text-blue-600 dark:text-blue-400 ml-auto" />}
+                        </motion.div>
+                      );
                     })}
                   </div>
                 </div>
 
                 {/* Safety */}
                 <div>
-                  <h3 className="font-semibold text-lydian-text-muted mb-3">Güvenlik & Kurallar</h3>
+                  <h3 className="font-semibold text-gray-700 dark:text-gray-300 mb-3">Güvenlik & Kurallar</h3>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     {amenities.safety.map((amenity, index) => {
                       const Icon = amenity.icon;
                       return (
-                        <div
+                        <motion.div
                           key={index}
+                          initial={{ opacity: 0, x: -20 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          viewport={{ once: true }}
+                          transition={{ delay: index * 0.05 }}
                           className={`flex items-center gap-3 p-3 rounded-xl ${
-                          amenity.available ? 'bg-purple-50' : 'bg-white/5 opacity-50'}`
-                          }>
-
-                          <Icon className={`w-5 h-5 ${amenity.available ? 'text-purple-600' : 'text-gray-400'}`} />
-                          <span className={amenity.available ? 'text-white' : 'text-gray-400'}>
-                            {amenity.name}
-                          </span>
-                          {amenity.available && <Check className="w-4 h-4 text-purple-600 ml-auto" />}
-                        </div>);
-
+                            amenity.available
+                              ? 'bg-purple-50 dark:bg-purple-900/20 border border-purple-200 dark:border-purple-800'
+                              : 'bg-gray-50 dark:bg-gray-700/50 border border-gray-200 dark:border-gray-600 opacity-50'
+                          }`}
+                        >
+                          <Icon className={`w-5 h-5 ${amenity.available ? 'text-purple-600 dark:text-purple-400' : 'text-gray-400'}`} />
+                          <span className={amenity.available ? 'text-gray-900 dark:text-white' : 'text-gray-500 dark:text-gray-400'}>{amenity.name}</span>
+                          {amenity.available && <CheckCircle2 className="w-4 h-4 text-purple-600 dark:text-purple-400 ml-auto" />}
+                        </motion.div>
+                      );
                     })}
                   </div>
                 </div>
@@ -729,75 +961,76 @@ const PropertyDetailsPage = ({ slug: initialSlug }: PropertyDetailsPageProps) =>
               {/* House Rules */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
                 transition={{ delay: 0.25 }}
-                className="bg-lydian-bg-hover rounded-2xl shadow-md p-6">
-
-                <h2 className="text-xl font-bold text-lydian-text-inverse mb-6">Ev Kuralları</h2>
+                className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 sm:p-8 border border-gray-200 dark:border-gray-700"
+              >
+                <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-6">Ev Kuralları</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="flex items-start gap-3">
-                    <Clock className="w-5 h-5 text-lydian-primary mt-0.5" />
+                    <Clock className="w-5 h-5 text-red-600 dark:text-red-400 mt-0.5" />
                     <div>
-                      <p className="font-semibold text-lydian-text-inverse">Giriş Saati</p>
-                      <p className="text-lydian-text-dim">{property.checkInTime}</p>
+                      <p className="font-semibold text-gray-900 dark:text-white">Giriş Saati</p>
+                      <p className="text-gray-600 dark:text-gray-400">{property.checkInTime}</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <Clock className="w-5 h-5 text-lydian-primary mt-0.5" />
+                    <Clock className="w-5 h-5 text-red-600 dark:text-red-400 mt-0.5" />
                     <div>
-                      <p className="font-semibold text-lydian-text-inverse">Çıkış Saati</p>
-                      <p className="text-lydian-text-dim">{property.checkOutTime}</p>
+                      <p className="font-semibold text-gray-900 dark:text-white">Çıkış Saati</p>
+                      <p className="text-gray-600 dark:text-gray-400">{property.checkOutTime}</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <Calendar className="w-5 h-5 text-lydian-primary mt-0.5" />
+                    <Calendar className="w-5 h-5 text-red-600 dark:text-red-400 mt-0.5" />
                     <div>
-                      <p className="font-semibold text-lydian-text-inverse">Minimum Konaklama</p>
-                      <p className="text-lydian-text-dim">{property.minimumStay} gece</p>
+                      <p className="font-semibold text-gray-900 dark:text-white">Minimum Konaklama</p>
+                      <p className="text-gray-600 dark:text-gray-400">{property.minimumStay} gece</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <Calendar className="w-5 h-5 text-lydian-primary mt-0.5" />
+                    <Calendar className="w-5 h-5 text-red-600 dark:text-red-400 mt-0.5" />
                     <div>
-                      <p className="font-semibold text-lydian-text-inverse">Maksimum Konaklama</p>
-                      <p className="text-lydian-text-dim">{property.maximumStay} gece</p>
+                      <p className="font-semibold text-gray-900 dark:text-white">Maksimum Konaklama</p>
+                      <p className="text-gray-600 dark:text-gray-400">{property.maximumStay} gece</p>
                     </div>
                   </div>
                 </div>
 
-                <div className="mt-6 pt-6 border-t border-lydian-border-light/10">
+                <div className="mt-6 pt-6 border-t border-gray-200 dark:border-gray-700">
                   <div className="grid grid-cols-2 gap-3">
                     <div className="flex items-center gap-2">
-                      {property.smokingAllowed ?
-                      <Check className="w-5 h-5 text-lydian-success" /> :
-
-                      <X className="w-5 h-5 text-lydian-primary" />
-                      }
-                      <span className="text-sm text-lydian-text-muted">Sigara içilir</span>
+                      {property.smokingAllowed ? (
+                        <CheckCircle2 className="w-5 h-5 text-green-600 dark:text-green-400" />
+                      ) : (
+                        <X className="w-5 h-5 text-red-600 dark:text-red-400" />
+                      )}
+                      <span className="text-sm text-gray-700 dark:text-gray-300">Sigara içilir</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      {property.petsAllowed ?
-                      <Check className="w-5 h-5 text-lydian-success" /> :
-
-                      <X className="w-5 h-5 text-lydian-primary" />
-                      }
-                      <span className="text-sm text-lydian-text-muted">Evcil hayvan kabul edilir</span>
+                      {property.petsAllowed ? (
+                        <CheckCircle2 className="w-5 h-5 text-green-600 dark:text-green-400" />
+                      ) : (
+                        <X className="w-5 h-5 text-red-600 dark:text-red-400" />
+                      )}
+                      <span className="text-sm text-gray-700 dark:text-gray-300">Evcil hayvan kabul edilir</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      {property.partiesAllowed ?
-                      <Check className="w-5 h-5 text-lydian-success" /> :
-
-                      <X className="w-5 h-5 text-lydian-primary" />
-                      }
-                      <span className="text-sm text-lydian-text-muted">Parti yapılır</span>
+                      {property.partiesAllowed ? (
+                        <CheckCircle2 className="w-5 h-5 text-green-600 dark:text-green-400" />
+                      ) : (
+                        <X className="w-5 h-5 text-red-600 dark:text-red-400" />
+                      )}
+                      <span className="text-sm text-gray-700 dark:text-gray-300">Parti yapılır</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      {property.childrenAllowed ?
-                      <Check className="w-5 h-5 text-lydian-success" /> :
-
-                      <X className="w-5 h-5 text-lydian-primary" />
-                      }
-                      <span className="text-sm text-lydian-text-muted">Çocuklar kabul edilir</span>
+                      {property.childrenAllowed ? (
+                        <CheckCircle2 className="w-5 h-5 text-green-600 dark:text-green-400" />
+                      ) : (
+                        <X className="w-5 h-5 text-red-600 dark:text-red-400" />
+                      )}
+                      <span className="text-sm text-gray-700 dark:text-gray-300">Çocuklar kabul edilir</span>
                     </div>
                   </div>
                 </div>
@@ -806,71 +1039,79 @@ const PropertyDetailsPage = ({ slug: initialSlug }: PropertyDetailsPageProps) =>
               {/* Location */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
                 transition={{ delay: 0.3 }}
-                className="bg-lydian-bg-hover rounded-2xl shadow-md p-6">
-
-                <h2 className="text-xl font-bold text-lydian-text-inverse mb-4">Konum</h2>
+                className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 sm:p-8 border border-gray-200 dark:border-gray-700"
+              >
+                <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-4">Konum</h2>
                 <div className="flex items-start gap-2 mb-4">
-                  <MapPin className="w-5 h-5 text-lydian-text-muted mt-0.5" />
+                  <MapPin className="w-5 h-5 text-gray-600 dark:text-gray-400 mt-0.5" />
                   <div>
-                    <p className="font-semibold text-lydian-text-inverse">{property.district}, {property.city}</p>
-                    <p className="text-sm text-lydian-text-dim">{property.address}</p>
+                    <p className="font-semibold text-gray-900 dark:text-white">
+                      {property.district}, {property.city}
+                    </p>
+                    <p className="text-sm text-gray-600 dark:text-gray-400">{property.address}</p>
                   </div>
                 </div>
-                <div className="h-96 bg-lydian-bg-active rounded-xl flex items-center justify-center">
-                  <p className="text-lydian-text-muted">Harita buraya gelecek (Google Maps/Mapbox)</p>
+                <div className="h-96 bg-gray-100 dark:bg-gray-900 rounded-xl overflow-hidden">
+                  <iframe
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    loading="lazy"
+                    allowFullScreen
+                    referrerPolicy="no-referrer-when-downgrade"
+                    src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=${encodeURIComponent(property.address + ', ' + property.city)}`}
+                  />
                 </div>
               </motion.div>
             </div>
 
-            {/* Right Column - 40% - Sticky Booking Card */}
+            {/* Right Column - Sticky Booking Card */}
             <div className="lg:col-span-1">
               <motion.div
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
-                className="sticky top-24 bg-lydian-bg-hover rounded-2xl shadow-2xl p-6 border border-lydian-border-light/10">
+                transition={{ delay: 0.3 }}
+                className="sticky top-24 bg-white dark:bg-gray-800 rounded-2xl shadow-2xl p-6 border border-gray-200 dark:border-gray-700"
+              >
+                {/* Price Badge */}
+                {competitorAvg && savings > 0 && (
+                  <div className="bg-gradient-to-r from-green-500 to-green-600 text-white px-4 py-2 rounded-xl mb-6 flex items-center justify-center gap-2 shadow-lg">
+                    <TrendingDown className="w-5 h-5" />
+                    <span className="font-bold text-sm">%{savingsPercent} Daha Ucuz</span>
+                  </div>
+                )}
 
                 {/* Price */}
                 <div className="mb-6">
-                  {competitorAvg && savings > 0 &&
-                  <div className="flex items-center justify-between mb-2">
-                      <p className="text-sm text-lydian-text-muted line-through">
-                        ₺{competitorAvg.toLocaleString('tr-TR')}
-                      </p>
-                      <span className="px-3 py-1 bg-lydian-error-light text-lydian-primary text-xs font-bold rounded-full">
+                  {competitorAvg && savings > 0 && (
+                    <div className="flex items-center justify-between mb-2">
+                      <p className="text-sm text-gray-500 dark:text-gray-400 line-through">₺{competitorAvg.toLocaleString('tr-TR')}</p>
+                      <span className="px-3 py-1 bg-red-100 dark:bg-red-900/20 text-red-600 dark:text-red-400 text-xs font-bold rounded-full">
                         %{savingsPercent} İndirim
                       </span>
                     </div>
-                  }
+                  )}
                   <div className="flex items-baseline gap-2">
-                    <span className="text-4xl font-bold text-lydian-text-inverse">
-                      ₺{parseInt(property.basePrice).toLocaleString('tr-TR')}
-                    </span>
-                    <span className="text-lydian-text-dim">/ gece</span>
+                    <span className="text-4xl font-bold text-gray-900 dark:text-white">₺{parseInt(property.basePrice).toLocaleString('tr-TR')}</span>
+                    <span className="text-gray-600 dark:text-gray-400">/ gece</span>
                   </div>
-                  {savings > 0 &&
-                  <p className="text-sm text-lydian-success font-semibold mt-1">
-                      ₺{savings.toLocaleString('tr-TR')} tasarruf ediyorsunuz!
-                    </p>
-                  }
-                  {property.weeklyDiscount &&
-                  <p className="text-xs text-lydian-primary mt-1">
-                      7+ gece %{property.weeklyDiscount} indirim
-                    </p>
-                  }
-                  {property.monthlyDiscount &&
-                  <p className="text-xs text-purple-600">
-                      30+ gece %{property.monthlyDiscount} indirim
-                    </p>
-                  }
+                  {savings > 0 && (
+                    <p className="text-sm text-green-600 dark:text-green-400 font-semibold mt-1">₺{savings.toLocaleString('tr-TR')} tasarruf ediyorsunuz!</p>
+                  )}
+                  {property.weeklyDiscount && (
+                    <p className="text-xs text-red-600 dark:text-red-400 mt-1">7+ gece %{property.weeklyDiscount} indirim</p>
+                  )}
+                  {property.monthlyDiscount && <p className="text-xs text-purple-600 dark:text-purple-400">30+ gece %{property.monthlyDiscount} indirim</p>}
                 </div>
 
                 {/* Date Pickers */}
                 <div className="space-y-4 mb-6">
                   <div className="grid grid-cols-2 gap-3">
                     <div>
-                      <label className="block text-sm font-medium text-lydian-text-muted mb-2">
+                      <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                         <Calendar className="w-4 h-4 inline mr-1" />
                         Giriş
                       </label>
@@ -878,11 +1119,11 @@ const PropertyDetailsPage = ({ slug: initialSlug }: PropertyDetailsPageProps) =>
                         type="date"
                         value={checkInDate}
                         onChange={(e) => setCheckInDate(e.target.value)}
-                        className="w-full px-3 py-2 border border-lydian-border-light rounded-lg focus:outline-none focus:ring-2 focus:ring-lydian-border-focus" />
-
+                        className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
+                      />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-lydian-text-muted mb-2">
+                      <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                         <Calendar className="w-4 h-4 inline mr-1" />
                         Çıkış
                       </label>
@@ -890,83 +1131,87 @@ const PropertyDetailsPage = ({ slug: initialSlug }: PropertyDetailsPageProps) =>
                         type="date"
                         value={checkOutDate}
                         onChange={(e) => setCheckOutDate(e.target.value)}
-                        className="w-full px-3 py-2 border border-lydian-border-light rounded-lg focus:outline-none focus:ring-2 focus:ring-lydian-border-focus" />
-
+                        className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
+                      />
                     </div>
                   </div>
 
                   {/* Guest Selector */}
                   <div>
-                    <label className="block text-sm font-medium text-lydian-text-muted mb-2">
+                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                       <Users className="w-4 h-4 inline mr-1" />
                       Misafirler
                     </label>
                     <div className="space-y-2">
-                      <div className="flex items-center justify-between p-3 bg-lydian-glass-dark rounded-lg">
+                      <div className="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-700 rounded-lg">
                         <div>
-                          <p className="text-sm font-medium text-lydian-text-inverse">Yetişkinler</p>
-                          <p className="text-xs text-lydian-text-muted">13 yaş ve üzeri</p>
+                          <p className="text-sm font-medium text-gray-900 dark:text-white">Yetişkinler</p>
+                          <p className="text-xs text-gray-600 dark:text-gray-400">13 yaş ve üzeri</p>
                         </div>
                         <div className="flex items-center gap-3">
-                          <button
+                          <motion.button
+                            whileTap={{ scale: 0.9 }}
                             onClick={() => setAdultsCount(Math.max(1, adultsCount - 1))}
-                            className="w-8 h-8 flex items-center justify-center border border-lydian-border-light rounded-full hover:border-lydian-border-heavy">
-
+                            className="w-8 h-8 flex items-center justify-center border border-gray-300 dark:border-gray-600 rounded-full hover:border-red-500 dark:hover:border-red-500 transition-colors"
+                          >
                             -
-                          </button>
-                          <span className="w-8 text-center font-semibold">{adultsCount}</span>
-                          <button
+                          </motion.button>
+                          <span className="w-8 text-center font-semibold text-gray-900 dark:text-white">{adultsCount}</span>
+                          <motion.button
+                            whileTap={{ scale: 0.9 }}
                             onClick={() => setAdultsCount(Math.min(property.guests, adultsCount + 1))}
-                            className="w-8 h-8 flex items-center justify-center border border-lydian-border-light rounded-full hover:border-lydian-border-heavy">
-
+                            className="w-8 h-8 flex items-center justify-center border border-gray-300 dark:border-gray-600 rounded-full hover:border-red-500 dark:hover:border-red-500 transition-colors"
+                          >
                             +
-                          </button>
+                          </motion.button>
                         </div>
                       </div>
 
-                      <div className="flex items-center justify-between p-3 bg-lydian-glass-dark rounded-lg">
+                      <div className="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-700 rounded-lg">
                         <div>
-                          <p className="text-sm font-medium text-lydian-text-inverse">Çocuklar</p>
-                          <p className="text-xs text-lydian-text-muted">2-12 yaş</p>
+                          <p className="text-sm font-medium text-gray-900 dark:text-white">Çocuklar</p>
+                          <p className="text-xs text-gray-600 dark:text-gray-400">2-12 yaş</p>
                         </div>
                         <div className="flex items-center gap-3">
-                          <button
+                          <motion.button
+                            whileTap={{ scale: 0.9 }}
                             onClick={() => setChildrenCount(Math.max(0, childrenCount - 1))}
-                            className="w-8 h-8 flex items-center justify-center border border-lydian-border-light rounded-full hover:border-lydian-border-heavy">
-
+                            className="w-8 h-8 flex items-center justify-center border border-gray-300 dark:border-gray-600 rounded-full hover:border-red-500 dark:hover:border-red-500 transition-colors"
+                          >
                             -
-                          </button>
-                          <span className="w-8 text-center font-semibold">{childrenCount}</span>
-                          <button
-                            onClick={() =>
-                            setChildrenCount(Math.min(property.guests - adultsCount, childrenCount + 1))
-                            }
-                            className="w-8 h-8 flex items-center justify-center border border-lydian-border-light rounded-full hover:border-lydian-border-heavy">
-
+                          </motion.button>
+                          <span className="w-8 text-center font-semibold text-gray-900 dark:text-white">{childrenCount}</span>
+                          <motion.button
+                            whileTap={{ scale: 0.9 }}
+                            onClick={() => setChildrenCount(Math.min(property.guests - adultsCount, childrenCount + 1))}
+                            className="w-8 h-8 flex items-center justify-center border border-gray-300 dark:border-gray-600 rounded-full hover:border-red-500 dark:hover:border-red-500 transition-colors"
+                          >
                             +
-                          </button>
+                          </motion.button>
                         </div>
                       </div>
 
-                      <div className="flex items-center justify-between p-3 bg-lydian-glass-dark rounded-lg">
+                      <div className="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-700 rounded-lg">
                         <div>
-                          <p className="text-sm font-medium text-lydian-text-inverse">Bebekler</p>
-                          <p className="text-xs text-lydian-text-muted">2 yaş altı</p>
+                          <p className="text-sm font-medium text-gray-900 dark:text-white">Bebekler</p>
+                          <p className="text-xs text-gray-600 dark:text-gray-400">2 yaş altı</p>
                         </div>
                         <div className="flex items-center gap-3">
-                          <button
+                          <motion.button
+                            whileTap={{ scale: 0.9 }}
                             onClick={() => setInfantsCount(Math.max(0, infantsCount - 1))}
-                            className="w-8 h-8 flex items-center justify-center border border-lydian-border-light rounded-full hover:border-lydian-border-heavy">
-
+                            className="w-8 h-8 flex items-center justify-center border border-gray-300 dark:border-gray-600 rounded-full hover:border-red-500 dark:hover:border-red-500 transition-colors"
+                          >
                             -
-                          </button>
-                          <span className="w-8 text-center font-semibold">{infantsCount}</span>
-                          <button
+                          </motion.button>
+                          <span className="w-8 text-center font-semibold text-gray-900 dark:text-white">{infantsCount}</span>
+                          <motion.button
+                            whileTap={{ scale: 0.9 }}
                             onClick={() => setInfantsCount(infantsCount + 1)}
-                            className="w-8 h-8 flex items-center justify-center border border-lydian-border-light rounded-full hover:border-lydian-border-heavy">
-
+                            className="w-8 h-8 flex items-center justify-center border border-gray-300 dark:border-gray-600 rounded-full hover:border-red-500 dark:hover:border-red-500 transition-colors"
+                          >
                             +
-                          </button>
+                          </motion.button>
                         </div>
                       </div>
                     </div>
@@ -974,144 +1219,162 @@ const PropertyDetailsPage = ({ slug: initialSlug }: PropertyDetailsPageProps) =>
                 </div>
 
                 {/* Price Breakdown */}
-                {nights > 0 &&
-                <div className="space-y-3 py-4 border-t border-b border-lydian-border-light/10 mb-4">
+                {nights > 0 && (
+                  <div className="space-y-3 py-4 border-t border-b border-gray-200 dark:border-gray-700 mb-4">
                     <div className="flex justify-between text-sm">
-                      <span className="text-lydian-text-dim">
+                      <span className="text-gray-600 dark:text-gray-400">
                         ₺{parseInt(property.basePrice).toLocaleString('tr-TR')} × {nights} gece
                       </span>
-                      <span className="font-semibold">₺{pricing.subtotal.toLocaleString('tr-TR')}</span>
+                      <span className="font-semibold text-gray-900 dark:text-white">₺{pricing.subtotal.toLocaleString('tr-TR')}</span>
                     </div>
                     <div className="flex justify-between text-sm">
-                      <span className="text-lydian-text-dim">Temizlik ücreti</span>
-                      <span className="font-semibold">₺{pricing.cleaning.toLocaleString('tr-TR')}</span>
+                      <span className="text-gray-600 dark:text-gray-400">Temizlik ücreti</span>
+                      <span className="font-semibold text-gray-900 dark:text-white">₺{pricing.cleaning.toLocaleString('tr-TR')}</span>
                     </div>
                     <div className="flex justify-between text-sm">
-                      <span className="text-lydian-text-dim">Hizmet bedeli</span>
-                      <span className="font-semibold">₺{pricing.service.toLocaleString('tr-TR')}</span>
+                      <span className="text-gray-600 dark:text-gray-400">Hizmet bedeli</span>
+                      <span className="font-semibold text-gray-900 dark:text-white">₺{pricing.service.toLocaleString('tr-TR')}</span>
                     </div>
-                    {pricing.discount > 0 &&
-                  <div className="flex justify-between text-sm">
-                        <span className="text-lydian-success">
-                          {nights >= 30 ? 'Aylık' : 'Haftalık'} indirim
-                        </span>
-                        <span className="font-semibold text-lydian-success">
-                          -₺{pricing.discount.toLocaleString('tr-TR')}
-                        </span>
+                    {pricing.discount > 0 && (
+                      <div className="flex justify-between text-sm">
+                        <span className="text-green-600 dark:text-green-400">{nights >= 30 ? 'Aylık' : 'Haftalık'} indirim</span>
+                        <span className="font-semibold text-green-600 dark:text-green-400">-₺{pricing.discount.toLocaleString('tr-TR')}</span>
                       </div>
-                  }
+                    )}
                   </div>
-                }
+                )}
 
-                {nights > 0 &&
-                <div className="flex justify-between text-lg font-bold mb-6">
-                    <span>Toplam</span>
-                    <span>₺{pricing.total.toLocaleString('tr-TR')}</span>
+                {nights > 0 && (
+                  <div className="bg-gradient-to-r from-gray-50 to-blue-50 dark:from-gray-700 dark:to-blue-900/20 rounded-xl p-4 mb-6">
+                    <div className="flex justify-between items-center">
+                      <span className="text-gray-700 dark:text-gray-300 font-medium">Toplam</span>
+                      <span className="text-3xl font-bold text-gray-900 dark:text-white">₺{pricing.total.toLocaleString('tr-TR')}</span>
+                    </div>
                   </div>
-                }
+                )}
 
                 {/* Reserve Button */}
-                <button
+                <motion.button
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
                   onClick={handleReservation}
                   disabled={!checkInDate || !checkOutDate || nights <= 0}
-                  className={`w-full py-4 rounded-xl font-bold shadow-lg transition-all transform ${
-                  !checkInDate || !checkOutDate || nights <= 0 ?
-                  'bg-gray-300 text-gray-400 cursor-not-allowed' :
-                  'bg-gradient-to-r from-[#667EEA] via-[#764BA2] to-[#667EEA] text-white hover:shadow-xl hover:-translate-y-1'}`
-                  }>
-
+                  className={`w-full py-4 rounded-xl font-bold text-lg shadow-lg transition-all flex items-center justify-center gap-2 group ${
+                    !checkInDate || !checkOutDate || nights <= 0
+                      ? 'bg-gray-300 dark:bg-gray-700 text-gray-500 dark:text-gray-400 cursor-not-allowed'
+                      : 'bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white hover:shadow-xl'
+                  }`}
+                >
+                  <Calendar className="w-6 h-6" />
                   {property.instantBook ? 'Rezervasyon Yap' : 'Rezervasyon Talebi Gönder'}
-                </button>
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </motion.button>
 
-                <p className="text-center text-xs text-lydian-text-muted mt-4">
-                  Şimdi ödeme yapılmayacak
-                </p>
+                <p className="text-center text-xs text-gray-600 dark:text-gray-400 mt-4">Şimdi ödeme yapılmayacak</p>
 
                 {/* Security Deposit */}
-                {property.securityDeposit && parseInt(property.securityDeposit) > 0 &&
-                <div className="mt-6 pt-6 border-t border-lydian-border-light/10">
-                    <div className="flex items-start gap-2 text-sm text-lydian-text-dim">
+                {property.securityDeposit && parseInt(property.securityDeposit) > 0 && (
+                  <div className="mt-6 pt-6 border-t border-gray-200 dark:border-gray-700">
+                    <div className="flex items-start gap-2 text-sm text-gray-600 dark:text-gray-400">
                       <Shield className="w-4 h-4 mt-0.5" />
                       <div>
-                        <p className="font-semibold text-lydian-text-inverse">Güvenlik Depozitosu</p>
+                        <p className="font-semibold text-gray-900 dark:text-white">Güvenlik Depozitosu</p>
                         <p>₺{parseInt(property.securityDeposit).toLocaleString('tr-TR')} (İade edilir)</p>
                       </div>
                     </div>
                   </div>
-                }
+                )}
 
-                {/* Host Response Info */}
-                <div className="mt-6 pt-6 border-t border-lydian-border-light/10 space-y-2">
-                  <div className="flex items-center gap-2 text-sm text-lydian-text-dim">
-                    <Clock className="w-4 h-4" />
-                    <span>Yanıt süresi: {property.hostResponseTime}</span>
+                {/* Trust Badges */}
+                <div className="mt-6 pt-6 border-t border-gray-200 dark:border-gray-700 space-y-3">
+                  <div className="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-300">
+                    <Shield className="w-5 h-5 text-green-600 dark:text-green-400" />
+                    Ücretsiz İptal - 24 Saat Öncesine Kadar
                   </div>
-                  <div className="flex items-center gap-2 text-sm text-lydian-text-dim">
-                    <MessageCircle className="w-4 h-4" />
-                    <span>Dil: {property.hostLanguages.join(', ')}</span>
+                  <div className="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-300">
+                    <CheckCircle2 className="w-5 h-5 text-green-600 dark:text-green-400" />
+                    Anında Onay - E-posta ile Voucher
+                  </div>
+                  <div className="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-300">
+                    <Clock className="w-5 h-5 text-green-600 dark:text-green-400" />
+                    Yanıt süresi: {property.hostResponseTime}
+                  </div>
+                  <div className="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-300">
+                    <MessageCircle className="w-5 h-5 text-green-600 dark:text-green-400" />
+                    Dil: {property.hostLanguages.join(', ')}
+                  </div>
+                </div>
+
+                {/* Contact */}
+                <div className="mt-6 pt-6 border-t border-gray-200 dark:border-gray-700">
+                  <p className="text-sm text-gray-600 dark:text-gray-300 mb-3 font-medium">Sorularınız mı var?</p>
+                  <div className="space-y-2">
+                    <a href="tel:+905551234567" className="flex items-center gap-2 text-red-600 hover:text-red-700 dark:text-red-400 dark:hover:text-red-300 font-medium text-sm">
+                      <Phone className="w-4 h-4" />
+                      +90 555 123 45 67
+                    </a>
+                    <a href="mailto:rental@lydian.com" className="flex items-center gap-2 text-red-600 hover:text-red-700 dark:text-red-400 dark:hover:text-red-300 font-medium text-sm">
+                      <Mail className="w-4 h-4" />
+                      rental@lydian.com
+                    </a>
                   </div>
                 </div>
               </motion.div>
 
               {/* Similar Properties */}
-              {similarProperties.length > 0 &&
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4 }}
-                className="mt-8 bg-lydian-bg-hover rounded-2xl shadow-md p-6">
-
-                  <h3 className="text-lg font-bold text-lydian-text-inverse mb-4">Benzer Özellikler</h3>
+              {similarProperties.length > 0 && (
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.4 }}
+                  className="mt-8 bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 border border-gray-200 dark:border-gray-700"
+                >
+                  <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4">Benzer Özellikler</h3>
                   <div className="space-y-4">
-                    {similarProperties.slice(0, 3).map((similar) =>
-                  <a
-                    key={similar.id}
-                    href={`/rentals/${similar.slug}`}
-                    className="block p-3 bg-lydian-glass-dark rounded-xl hover:bg-lydian-glass-dark-medium transition-colors">
-
-                        <div className="flex gap-3">
-                          <img
-                        src={similar.mainImage || '/placeholder-property.jpg'}
-                        alt={similar.title}
-                        className="w-20 h-20 object-cover rounded-lg" />
-
-                          <div className="flex-1">
-                            <h4 className="font-semibold text-sm text-lydian-text-inverse line-clamp-1">
-                              {similar.title}
-                            </h4>
-                            <p className="text-xs text-lydian-text-dim">{similar.city}</p>
-                            <div className="flex items-center gap-2 mt-1">
-                              <div className="flex items-center gap-1">
-                                <Star className="w-3 h-3 text-yellow-400 fill-yellow-400" />
-                                <span className="text-xs font-semibold">{parseFloat(similar.overall).toFixed(1)}</span>
+                    {similarProperties.slice(0, 3).map((similar) => (
+                      <Link key={similar.id} href={`/rentals/${similar.slug}`} className="block group">
+                        <motion.div
+                          variants={cardHoverVariants}
+                          initial="rest"
+                          whileHover="hover"
+                          className="p-3 bg-gray-50 dark:bg-gray-700/50 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                        >
+                          <div className="flex gap-3">
+                            <div className="relative w-20 h-20 flex-shrink-0 overflow-hidden rounded-lg">
+                              <img src={similar.mainImage || '/placeholder-property.jpg'} alt={similar.title} className="w-full h-full object-cover" />
+                            </div>
+                            <div className="flex-1">
+                              <h4 className="font-semibold text-sm text-gray-900 dark:text-white line-clamp-1 group-hover:text-red-600 dark:group-hover:text-red-400 transition-colors">
+                                {similar.title}
+                              </h4>
+                              <p className="text-xs text-gray-600 dark:text-gray-400">{similar.city}</p>
+                              <div className="flex items-center gap-2 mt-1">
+                                <div className="flex items-center gap-1">
+                                  <Star className="w-3 h-3 text-yellow-400 fill-yellow-400" />
+                                  <span className="text-xs font-semibold text-gray-900 dark:text-white">{parseFloat(similar.overall).toFixed(1)}</span>
+                                </div>
+                                <span className="text-xs text-gray-400">·</span>
+                                <span className="text-xs font-bold text-red-600 dark:text-red-400">₺{parseInt(similar.basePrice).toLocaleString('tr-TR')}/gece</span>
                               </div>
-                              <span className="text-xs text-lydian-text-muted">·</span>
-                              <span className="text-xs font-bold text-lydian-text-inverse">
-                                ₺{parseInt(similar.basePrice).toLocaleString('tr-TR')}/gece
-                              </span>
                             </div>
                           </div>
-                        </div>
-                      </a>
-                  )}
+                        </motion.div>
+                      </Link>
+                    ))}
                   </div>
                 </motion.div>
-              }
+              )}
             </div>
           </div>
         </div>
       </div>
-    </>);
-
+    </>
+  );
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const slugs = [
-  'istanbul-bogaz-manzarali-villa',
-  'bodrum-deniz-kenari-ev',
-  'antalya-lux-apart',
-  'cappadocia-cave-hotel'];
-
+  const slugs = ['istanbul-bogaz-manzarali-villa', 'bodrum-deniz-kenari-ev', 'antalya-lux-apart', 'cappadocia-cave-hotel'];
 
   const paths = slugs.map((slug) => ({
     params: { slug }
@@ -1130,7 +1393,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     props: {
       slug
     },
-    revalidate: 3600 // Revalidate every hour
+    revalidate: 3600
   };
 };
 

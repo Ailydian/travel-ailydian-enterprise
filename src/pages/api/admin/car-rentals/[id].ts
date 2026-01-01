@@ -1,8 +1,8 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { PrismaClient } from '@prisma/client';
+import { prisma } from '@/lib/prisma'; //  from '@prisma/client';
 import logger from '../../../../lib/logger';
 
-const prisma = new PrismaClient();
+// Using singleton prisma;
 
 /**
  * SINGLE CAR RENTAL API
@@ -229,6 +229,5 @@ export default async function handler(
       error: error.message || 'Internal server error',
     });
   } finally {
-    await prisma.$disconnect();
   }
 }

@@ -330,7 +330,7 @@ const VoiceController: React.FC<VoiceControllerProps> = ({
               className={`p-4 rounded-full shadow-lg transition-all duration-300 ${
               isEnabled ?
               'bg-gradient-to-r from-blue-500 to-purple-600 text-white' :
-              'bg-white/5 text-gray-300 hover:bg-white/5'}`
+              'bg-lydian-bg/5 text-lydian-text-dim hover:bg-lydian-bg/5'}`
               }>
 
             {isEnabled ?
@@ -424,8 +424,8 @@ const VoiceController: React.FC<VoiceControllerProps> = ({
                         onClick={() => setCurrentLanguage(lang.code)}
                         className={`p-2 rounded-lg text-sm font-medium transition-colors ${
                         currentLanguage === lang.code ?
-                        'bg-blue-100 text-blue-700' :
-                        'bg-white/10 text-gray-200 hover:bg-gray-200'}`
+                        'bg-blue-100 text-lydian-primary-hover' :
+                        'bg-lydian-bg/10 text-gray-200 hover:bg-lydian-bg-surface-raised'}`
                         }>
 
                           {lang.flag} {lang.name}
@@ -502,8 +502,8 @@ const VoiceController: React.FC<VoiceControllerProps> = ({
                     onClick={toggleListening}
                     className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-colors ${
                     isListening ?
-                    'bg-red-500 text-white hover:bg-red-600' :
-                    'bg-blue-500 text-white hover:bg-blue-600'}`
+                    'bg-red-500 text-white hover:bg-lydian-error' :
+                    'bg-blue-500 text-white hover:bg-lydian-primary'}`
                     }>
 
                     {isListening ? <MicOff className="w-4 h-4" /> : <Mic className="w-4 h-4" />}

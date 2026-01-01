@@ -4,6 +4,8 @@ import { useRouter } from 'next/router';
 import { useSession, signOut } from 'next-auth/react';
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
+import { getHeaderHeightClasses, getHeaderContainerClasses, LAYOUT_CONSTANTS } from '@/config/layout-constants';
+import { ThemeToggle } from '@/components/theme/ThemeToggle';
 import {
   Search,
   User,
@@ -62,38 +64,38 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
     const themes = {
       default: {
         logo: 'from-lydian-primary to-lydian-secondary',
-        aiButton: 'from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700',
-        activeLink: 'bg-blue-50 text-blue-600'
+        aiButton: 'from-lydian-primary to-lydian-secondary hover:from-lydian-primary-hover hover:to-lydian-secondary-hover',
+        activeLink: 'bg-lydian-primary-lighter text-lydian-primary'
       },
       blue: {
-        logo: 'from-blue-600 to-cyan-600',
-        aiButton: 'from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700',
-        activeLink: 'bg-blue-50 text-blue-600'
+        logo: 'from-lydian-info to-lydian-accent-cyan',
+        aiButton: 'from-lydian-info to-lydian-accent-cyan hover:from-lydian-info-hover hover:to-lydian-accent-cyan-hover',
+        activeLink: 'bg-lydian-info-lighter text-lydian-info'
       },
       cyan: {
-        logo: 'from-cyan-600 to-blue-600',
-        aiButton: 'from-cyan-600 to-blue-600 hover:from-cyan-700 hover:to-blue-700',
-        activeLink: 'bg-cyan-50 text-cyan-600'
+        logo: 'from-lydian-accent-cyan to-lydian-info',
+        aiButton: 'from-lydian-accent-cyan to-lydian-info hover:from-lydian-accent-cyan-hover hover:to-lydian-info-hover',
+        activeLink: 'bg-lydian-accent-cyan-lighter text-lydian-accent-cyan'
       },
       green: {
-        logo: 'from-green-600 to-emerald-600',
-        aiButton: 'from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700',
-        activeLink: 'bg-green-50 text-green-600'
+        logo: 'from-lydian-success to-lydian-success-hover',
+        aiButton: 'from-lydian-success to-lydian-success-hover hover:from-lydian-success-hover hover:to-lydian-success-darker',
+        activeLink: 'bg-lydian-success-lighter text-lydian-success'
       },
       purple: {
-        logo: 'from-purple-600 to-pink-600',
-        aiButton: 'from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700',
-        activeLink: 'bg-purple-50 text-purple-600'
+        logo: 'from-lydian-accent-purple to-lydian-primary',
+        aiButton: 'from-lydian-accent-purple to-lydian-primary hover:from-lydian-accent-purple-hover hover:to-lydian-primary-hover',
+        activeLink: 'bg-lydian-accent-purple-lighter text-lydian-accent-purple'
       },
       orange: {
-        logo: 'from-orange-600 to-amber-600',
-        aiButton: 'from-orange-600 to-amber-600 hover:from-orange-700 hover:to-amber-700',
-        activeLink: 'bg-orange-50 text-orange-600'
+        logo: 'from-lydian-warning to-lydian-primary',
+        aiButton: 'from-lydian-warning to-lydian-primary hover:from-lydian-warning-hover hover:to-lydian-primary-hover',
+        activeLink: 'bg-lydian-warning-lighter text-lydian-warning'
       },
       pink: {
-        logo: 'from-pink-600 to-rose-600',
-        aiButton: 'from-pink-600 to-rose-600 hover:from-pink-700 hover:to-rose-700',
-        activeLink: 'bg-pink-50 text-pink-600'
+        logo: 'from-lydian-primary to-lydian-error',
+        aiButton: 'from-lydian-primary to-lydian-error hover:from-lydian-primary-hover hover:to-lydian-error-hover',
+        activeLink: 'bg-lydian-primary-lighter text-lydian-primary'
       }
     };
     return themes[themeType];
@@ -139,13 +141,22 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
 
           const menus: NavItem[] = headerResult.data.
           filter((menu: any) => !menu.parentId) // Only top-level menus
-          .map((menu: any) => ({
-            title: menu.translations?.tr?.title || menu.title,
-            href: menu.href,
-            icon: iconMap[menu.icon || 'MapPin'] || MapPin,
-            description: menu.translations?.tr?.description || menu.description || '',
-            badge: menu.badge
-          }));
+          .map((menu: any) => {
+            let title = menu.translations?.tr?.title || menu.title;
+
+            // "Araç Kiralama" yazısını "Kiralama" olarak düzelt
+            if (title === 'Araç Kiralama') {
+              title = 'Kiralama';
+            }
+
+            return {
+              title,
+              href: menu.href,
+              icon: iconMap[menu.icon || 'MapPin'] || MapPin,
+              description: menu.translations?.tr?.description || menu.description || '',
+              badge: menu.badge
+            };
+          });
 
           setDynamicMenuItems(menus);
 
@@ -350,7 +361,7 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
     description: 'Villa, Daire ve Ev kiralama'
   },
   {
-    title: 'Araç Kiralama',
+    title: 'Kiralama',
     href: '/car-rentals',
     icon: Car,
     description: 'Ekonomik ve lüks araçlar'
@@ -519,9 +530,9 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
   const isActive = (path: string) => router.pathname === path;
 
   return (
-    <header className="booking-header sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
+    <header className={`booking-header sticky top-0 ${LAYOUT_CONSTANTS.header.zIndex} bg-white dark:bg-gray-900 border-b border-lydian-border-light/10 dark:border-gray-800 transition-colors duration-300`}>
+      <div className={getHeaderContainerClasses()}>
+        <div className={`flex items-center justify-between ${getHeaderHeightClasses()}`}>
           {/* Logo */}
           <Link href="/" className="flex items-center">
             <div className="flex flex-col">
@@ -581,8 +592,8 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
                           <button
                             key={result.id}
                             onClick={() => handleSearchSelect(result)}
-                            className={`w-full px-4 py-3 text-left hover:bg-lydian-glass-dark transition-colors flex items-center gap-3 ${
-                            selectedResultIndex === index ? 'bg-blue-50' : ''}`
+                            className={`w-full px-4 py-3 text-left hover:bg-lydian-primary-lighter dark:hover:bg-lydian-glass-dark transition-colors flex items-center gap-3 ${
+                            selectedResultIndex === index ? 'bg-lydian-primary-lighter dark:bg-lydian-glass-dark' : ''}`
                             }>
 
                               {result.image &&
@@ -729,7 +740,7 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
                                     <h4 className="font-semibold text-lydian-text-inverse group-hover:text-lydian-primary transition-colors">
                                       {tour.title}
                                     </h4>
-                                    <span className="text-xs font-medium px-2 py-0.5 rounded-full bg-gradient-to-r from-lydian-primary to-indigo-500 text-lydian-text-inverse">
+                                    <span className="text-xs font-medium px-2 py-0.5 rounded-full bg-gradient-to-r from-lydian-primary to-lydian-secondary text-lydian-text-inverse">
                                       {tour.badge}
                                     </span>
                                   </div>
@@ -745,17 +756,40 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
 
               }
 
+              const isCarRental = item.title === 'Kiralama';
+
               return (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`relative flex items-center space-x-2 px-4 py-2 rounded-lg transition-colors duration-200 ${
+                  className={`relative flex items-center space-x-2 px-4 py-2 rounded-lg transition-colors duration-200 group ${
                   isActive(item.href) ?
                   'nav-link-active' :
                   'nav-link'}`
                   }>
 
-                  <Icon className="w-4 h-4" />
+                  {isCarRental ? (
+                    <motion.div
+                      animate={{
+                        x: [0, 3, 0],
+                        rotate: [0, -2, 2, -2, 0]
+                      }}
+                      transition={{
+                        duration: 2,
+                        repeat: Infinity,
+                        ease: "easeInOut"
+                      }}
+                      className="relative">
+                      <Icon className="w-4 h-4 text-lydian-primary group-hover:scale-110 transition-transform" />
+                      <motion.div
+                        className="absolute -right-0.5 -top-0.5 w-1 h-1 bg-lydian-primary rounded-full"
+                        animate={{ scale: [1, 1.5, 1], opacity: [1, 0.5, 1] }}
+                        transition={{ duration: 1.5, repeat: Infinity }}
+                      />
+                    </motion.div>
+                  ) : (
+                    <Icon className="w-4 h-4" />
+                  )}
                   <span className="font-medium">{item.title}</span>
                   {item.badge &&
                   <span className="absolute -top-1 -right-1 text-xs bg-gradient-to-r from-green-500 to-emerald-500 text-lydian-text-inverse px-2 py-0.5 rounded-full font-semibold shadow-sm">
@@ -769,6 +803,9 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
 
           {/* Right side actions */}
           <div className="flex items-center space-x-3">
+            {/* Theme Toggle */}
+            <ThemeToggle variant="icon" className="hidden sm:block" />
+
             {/* Search Icon - Mobile & Tablet */}
             <button
               onClick={() => setIsSliderSearchOpen(true)}
@@ -780,10 +817,12 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
             {/* Partner Button */}
             <Link href="/partner">
               <button
-                className="relative flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-lydian-primary to-lydian-secondary hover:from-lydian-dark hover:to-lydian-primary text-lydian-text-inverse rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl">
+                className="relative flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-lydian-primary to-lydian-secondary hover:from-lydian-primary-hover hover:to-lydian-secondary-hover text-lydian-text-inverse rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl group overflow-hidden">
 
-                <Building2 className="w-4 h-4" />
-                <span className="hidden lg:inline font-semibold">Partner</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-lydian-secondary to-lydian-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <Building2 className="w-4 h-4 relative z-10 group-hover:scale-110 transition-transform duration-300" />
+                <span className="hidden lg:inline font-semibold relative z-10">Partner Ol</span>
+                <div className="absolute top-0 right-0 w-2 h-2 bg-lydian-warning rounded-full animate-ping"></div>
               </button>
             </Link>
 
@@ -793,18 +832,18 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
                 // AI Asistan'ı hero section üstünde aç
                 window.dispatchEvent(new CustomEvent('openAIAssistant'));
               }}
-              className="relative flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-lydian-primary to-lydian-secondary hover:from-lydian-primary-dark hover:to-purple-700 text-lydian-text-inverse rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl">
+              className={`relative flex items-center space-x-2 px-4 py-2 bg-gradient-to-r ${themeColors.aiButton} text-lydian-text-inverse rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl group`}>
 
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}>
 
                 <div className="flex items-center space-x-2">
-                  <Bot className="w-4 h-4" />
-                  <span className="text-sm font-medium hidden lg:inline">AI Asistan</span>
+                  <Bot className="w-4 h-4 group-hover:rotate-12 transition-transform duration-300" />
+                  <span className="text-sm font-semibold hidden lg:inline">AI Asistan</span>
                 </div>
               </motion.div>
-              <div className="absolute -top-1 -right-1 w-3 h-3 bg-green-500 rounded-full border-2 border-lydian-border-light animate-pulse"></div>
+              <div className="absolute -top-1 -right-1 w-3 h-3 bg-lydian-success rounded-full border-2 border-white dark:border-gray-900 animate-pulse shadow-sm"></div>
             </button>
 
             {/* Language Selector */}
@@ -831,8 +870,8 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
                       onClick={() => handleLanguageChange(language.code)}
                       className={`w-full flex items-center space-x-3 px-4 py-2 text-left transition-colors ${
                       currentLanguage.code === language.code ?
-                      'bg-red-50 text-lydian-primary' :
-                      'text-gray-200 hover:bg-white/5'}`
+                      'bg-lydian-primary-lighter dark:bg-lydian-glass-dark text-lydian-primary' :
+                      'text-lydian-text-secondary dark:text-lydian-text-dim hover:bg-lydian-glass-dark'}`
                       }>
 
                           <span className="text-xl">{language.flag}</span>
@@ -1060,14 +1099,37 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
 
                   }
 
+                  const isCarRental = item.title === 'Kiralama';
+
                   return (
                     <Link
                       key={item.href}
                       href={item.href}
-                      className="mobile-menu-link relative flex items-center space-x-3"
+                      className="mobile-menu-link relative flex items-center space-x-3 group"
                       onClick={() => setIsMenuOpen(false)}>
 
-                      <Icon className="w-5 h-5" />
+                      {isCarRental ? (
+                        <motion.div
+                          animate={{
+                            x: [0, 3, 0],
+                            rotate: [0, -2, 2, -2, 0]
+                          }}
+                          transition={{
+                            duration: 2,
+                            repeat: Infinity,
+                            ease: "easeInOut"
+                          }}
+                          className="relative">
+                          <Icon className="w-5 h-5 text-lydian-primary group-hover:scale-110 transition-transform" />
+                          <motion.div
+                            className="absolute -right-1 -top-1 w-1.5 h-1.5 bg-lydian-primary rounded-full"
+                            animate={{ scale: [1, 1.5, 1], opacity: [1, 0.5, 1] }}
+                            transition={{ duration: 1.5, repeat: Infinity }}
+                          />
+                        </motion.div>
+                      ) : (
+                        <Icon className="w-5 h-5" />
+                      )}
                       <div className="flex-1">
                         <div className="font-medium flex items-center gap-2">
                           {item.title}
@@ -1190,8 +1252,8 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
                               handleSearchSelect(result);
                               setIsSliderSearchOpen(false);
                             }}
-                            className={`w-full p-3 rounded-lg hover:bg-lydian-glass-dark transition-colors flex items-center gap-3 text-left ${
-                            selectedResultIndex === index ? 'bg-blue-50 border border-blue-200' : 'border border-gray-100'}`
+                            className={`w-full p-3 rounded-lg hover:bg-lydian-primary-lighter dark:hover:bg-lydian-glass-dark transition-colors flex items-center gap-3 text-left ${
+                            selectedResultIndex === index ? 'bg-lydian-primary-lighter dark:bg-lydian-glass-dark border border-lydian-primary' : 'border border-lydian-border-light'}`
                             }>
 
                             {result.image ?

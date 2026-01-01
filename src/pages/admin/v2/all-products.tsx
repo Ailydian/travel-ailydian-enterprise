@@ -233,7 +233,7 @@ const AllProductsManagement = () => {
                   ${
                 isActive ?
                 `bg-gradient-to-r from-${cat.color}-500 to-${cat.color}-600 text-white shadow-lg scale-105` :
-                'bg-white/5 text-slate-700 hover:bg-slate-50'}
+                'bg-lydian-bg/5 text-slate-700 hover:bg-slate-50'}
                 `
                 }>
 

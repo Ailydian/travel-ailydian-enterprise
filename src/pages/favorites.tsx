@@ -258,7 +258,7 @@ export default function Favorites() {
   return (
     <>
       <Head>
-        <title>Favorilerim - LyDian Travel Premium</title>
+        <title>Favorilerim - AILYDIAN Holiday Premium</title>
         <meta name="description" content="Beğendiğiniz seyahat deneyimlerini kaydedin ve kolayca erişin" />
       </Head>
 
@@ -355,13 +355,13 @@ export default function Favorites() {
                     className={`flex items-center gap-2 px-6 py-3 rounded-xl font-semibold transition-all shadow-lg ${
                     isActive ?
                     'bg-gradient-to-r from-lydian-primary to-lydian-secondary text-white shadow-neon' :
-                    'bg-white/5 text-gray-200 hover:shadow-xl border border-gray-200'}`
+                    'bg-lydian-bg/5 text-gray-200 hover:shadow-xl border border-lydian-border'}`
                     }>
 
                     <Icon className="w-5 h-5" />
                     <span>{filter.name}</span>
                     <span className={`px-2 py-0.5 rounded-full text-xs font-bold ${
-                    isActive ? 'bg-white/30' : 'bg-white/10'}`
+                    isActive ? 'bg-lydian-bg/30' : 'bg-lydian-bg/10'}`
                     }>
                       {filter.count}
                     </span>

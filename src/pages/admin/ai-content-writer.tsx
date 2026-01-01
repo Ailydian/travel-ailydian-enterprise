@@ -400,9 +400,9 @@ const AIContentWriterPage: React.FC = () => {
                           Kalite Skoru
                         </span>
                         <span className={`text-2xl font-bold ${
-                    quality.score >= 90 ? 'text-green-600' :
-                    quality.score >= 70 ? 'text-yellow-600' :
-                    'text-red-600'}`
+                    quality.score >= 90 ? 'text-lydian-success' :
+                    quality.score >= 70 ? 'text-lydian-warning' :
+                    'text-lydian-error'}`
                     }>
                           {quality.score}%
                         </span>
@@ -424,7 +424,7 @@ const AIContentWriterPage: React.FC = () => {
                     className={`px-4 py-2 font-medium border-b-2 transition-colors ${
                     activeTab === 'preview' ?
                     'border-purple-600 text-purple-600' :
-                    'border-transparent text-gray-300 hover:text-white'}`
+                    'border-transparent text-lydian-text-dim hover:text-white'}`
                     }>
 
                       <Eye className="h-4 w-4 inline mr-2" />
@@ -435,7 +435,7 @@ const AIContentWriterPage: React.FC = () => {
                     className={`px-4 py-2 font-medium border-b-2 transition-colors ${
                     activeTab === 'json' ?
                     'border-purple-600 text-purple-600' :
-                    'border-transparent text-gray-300 hover:text-white'}`
+                    'border-transparent text-lydian-text-dim hover:text-white'}`
                     }>
 
                       <FileText className="h-4 w-4 inline mr-2" />

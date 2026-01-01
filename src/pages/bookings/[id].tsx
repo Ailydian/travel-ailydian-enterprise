@@ -116,7 +116,7 @@ const BookingDetailPage: React.FC = () => {
       case 'COMPLETED':
         return 'bg-blue-100 text-blue-800 border-blue-200';
       default:
-        return 'bg-white/10 text-gray-100 border-white/10';
+        return 'bg-lydian-bg/10 text-gray-100 border-white/10';
     }
   };
 
@@ -163,7 +163,7 @@ const BookingDetailPage: React.FC = () => {
   return (
     <>
       <Head>
-        <title>Booking Details - {booking.bookingReference} - Travel.LyDian</title>
+        <title>Booking Details - {booking.bookingReference} - Holiday.AILYDIAN</title>
       </Head>
 
       <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 py-12">
@@ -394,7 +394,7 @@ const BookingDetailPage: React.FC = () => {
               </li>
               <li className="flex items-start gap-2">
                 <CheckCircle className="w-4 h-4 text-lydian-primary mt-0.5 flex-shrink-0" />
-                <span>For any questions, contact our 24/7 support at support@travel.lydian.com</span>
+                <span>For any questions, contact our 24/7 support at support@holiday.ailydian.com</span>
               </li>
             </ul>
           </motion.div>

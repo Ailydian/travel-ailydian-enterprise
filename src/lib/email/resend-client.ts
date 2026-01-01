@@ -3,8 +3,8 @@ import logger from '../logger';
 
 // Initialize Resend client
 const RESEND_API_KEY = process.env.RESEND_API_KEY;
-const FROM_EMAIL = process.env.RESEND_FROM_EMAIL || 'Travel.Ailydian <noreply@travel.ailydian.com>';
-const SUPPORT_EMAIL = process.env.RESEND_SUPPORT_EMAIL || 'support@travel.ailydian.com';
+const FROM_EMAIL = process.env.RESEND_FROM_EMAIL || 'Travel.Ailydian <noreply@holiday.ailydian.com>';
+const SUPPORT_EMAIL = process.env.RESEND_SUPPORT_EMAIL || 'support@holiday.ailydian.com';
 
 if (!RESEND_API_KEY && process.env.NODE_ENV === 'production') {
   throw new Error('RESEND_API_KEY must be set in production environment');

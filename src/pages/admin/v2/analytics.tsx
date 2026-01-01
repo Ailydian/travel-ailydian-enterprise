@@ -111,7 +111,7 @@ const AdvancedAnalytics = () => {
                       px-4 py-2 rounded-md text-sm font-medium transition-all
                       ${
                   timeRange === range.value ?
-                  'bg-white/5 text-blue-600 shadow-sm' :
+                  'bg-lydian-bg/5 text-lydian-primary shadow-sm' :
                   'text-slate-600 hover:text-slate-900'}
                     `
                   }>
@@ -287,8 +287,8 @@ const AdvancedAnalytics = () => {
 const MetricCard = ({ title, value, change, icon: Icon, color }: any) => {
   const isPositive = change >= 0;
   const colorClasses = {
-    green: 'bg-green-50 text-green-600',
-    blue: 'bg-blue-50 text-blue-600',
+    green: 'bg-green-50 text-lydian-success',
+    blue: 'bg-blue-50 text-lydian-primary',
     purple: 'bg-purple-50 text-purple-600',
     orange: 'bg-orange-50 text-orange-600'
   };
@@ -302,7 +302,7 @@ const MetricCard = ({ title, value, change, icon: Icon, color }: any) => {
         </div>
       </div>
       <div className="text-3xl font-bold text-lydian-text mb-2">{value}</div>
-      <div className={`flex items-center gap-1 text-sm font-medium ${isPositive ? 'text-green-600' : 'text-red-600'}`}>
+      <div className={`flex items-center gap-1 text-sm font-medium ${isPositive ? 'text-lydian-success' : 'text-lydian-error'}`}>
         {isPositive ? <TrendingUp className="w-4 h-4" /> : <TrendingDown className="w-4 h-4" />}
         <span>{isPositive ? '+' : ''}{change}%</span>
         <span className="text-lydian-text-tertiary ml-1">vs önceki dönem</span>
@@ -314,9 +314,9 @@ const MetricCard = ({ title, value, change, icon: Icon, color }: any) => {
 // Status Card Component
 const StatusCard = ({ label, value, icon: Icon, color }: any) => {
   const colorClasses = {
-    green: 'bg-green-50 text-green-600 border-green-200',
+    green: 'bg-green-50 text-lydian-success border-green-200',
     orange: 'bg-orange-50 text-orange-600 border-orange-200',
-    red: 'bg-red-50 text-red-600 border-red-200'
+    red: 'bg-red-50 text-lydian-error border-red-200'
   };
 
   return (

@@ -22,7 +22,7 @@ export default async function handler(
     logger.debug('🏥 SEO Health Check Cron Job başlatıldı...', { component: 'SeoHealthCheck' });
     const startTime = Date.now();
 
-    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://travel.lydian.com';
+    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://holiday.ailydian.com';
 
     // Auto SEO Monitor başlat
     const monitor = getAutoSeoMonitor({

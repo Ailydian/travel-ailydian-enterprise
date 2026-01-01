@@ -31,7 +31,7 @@ const AIAssistantPopup: React.FC<AIAssistantPopupProps> = ({ isOpen, onClose }) 
   {
     id: '1',
     type: 'ai',
-    content: `🤖 **Travel.LyDian AI Asistanı** (Gerçek Veriler)\n\nMerhaba! Ben sizin kişisel seyahat uzmanınızım. 🌟\n\n📊 **Gerçek Zamanlı Veri ile Hizmetlerim:**\n• 🏨 Otel rezervasyonları ve fiyat karşılaştırması\n• ✈️ Uçak bileti arama ve rezervasyon\n• 🍽️ Restoran önerileri ve rezervasyon\n• 🎯 Tur ve aktivite planlaması\n\n🗺️ **${Object.keys(COMPLETE_TURKEY_TOURISM_DATABASE).length}+ Türk şehri** hakkında detaylı bilgi verebilirim!\n\n💡 Hangi konuda yardım istiyorsunuz?`,
+    content: `🤖 **Holiday.AILYDIAN AI Asistanı** (Gerçek Veriler)\n\nMerhaba! Ben sizin kişisel seyahat uzmanınızım. 🌟\n\n📊 **Gerçek Zamanlı Veri ile Hizmetlerim:**\n• 🏨 Otel rezervasyonları ve fiyat karşılaştırması\n• ✈️ Uçak bileti arama ve rezervasyon\n• 🍽️ Restoran önerileri ve rezervasyon\n• 🎯 Tur ve aktivite planlaması\n\n🗺️ **${Object.keys(COMPLETE_TURKEY_TOURISM_DATABASE).length}+ Türk şehri** hakkında detaylı bilgi verebilirim!\n\n💡 Hangi konuda yardım istiyorsunuz?`,
     timestamp: new Date(),
     suggestions: [
     'İstanbul otelleri göster',
@@ -364,7 +364,7 @@ const AIAssistantPopup: React.FC<AIAssistantPopupProps> = ({ isOpen, onClose }) 
   const getDefaultResponse = (): string => {
     const topCities = Object.keys(COMPLETE_TURKEY_TOURISM_DATABASE).slice(0, 8);
 
-    return `🤖 **Travel.LyDian AI Asistanı** (Gerçek Veriler)\n\n` +
+    return `🤖 **Holiday.AILYDIAN AI Asistanı** (Gerçek Veriler)\n\n` +
     `Size şu konularda yardımcı olabilirim:\n\n` +
     `🏨 **Otel Rezervasyonu:** "İstanbul otelleri" yazın\n` +
     `✈️ **Uçak Bileti:** "İstanbul Antalya uçuşu" yazın\n` +
@@ -508,7 +508,7 @@ const AIAssistantPopup: React.FC<AIAssistantPopupProps> = ({ isOpen, onClose }) 
             <div ref={messagesContainerRef} className="flex-1 overflow-y-auto p-6 space-y-4 bg-lydian-glass-dark scroll-smooth">
               {messages.map((message) =>
                 <div key={message.id} className={`flex ${message.type === 'user' ? 'justify-end' : 'justify-start'}`}>
-                  <div className={`max-w-[80%] ${message.type === 'user' ? 'bg-blue-600 text-white' : 'bg-white/10 border border-white/20 text-gray-100'} rounded-2xl p-4 shadow-sm`}>
+                  <div className={`max-w-[80%] ${message.type === 'user' ? 'bg-lydian-primary text-white' : 'bg-lydian-bg/10 border border-white/20 text-gray-100'} rounded-2xl p-4 shadow-sm`}>
                     {message.type === 'ai' &&
                     <div className="flex items-center gap-2 mb-2">
                         <Bot className="w-4 h-4 text-lydian-primary" />
@@ -573,7 +573,7 @@ const AIAssistantPopup: React.FC<AIAssistantPopupProps> = ({ isOpen, onClose }) 
                   <button
                       onClick={toggleListening}
                       className={`absolute right-4 top-1/2 transform -translate-y-1/2 p-2 rounded-lg transition-colors ${
-                      isListening ? 'bg-red-100 text-red-600' : 'bg-white/10 text-gray-300 hover:bg-gray-200'}`
+                      isListening ? 'bg-red-100 text-lydian-error' : 'bg-lydian-bg/10 text-lydian-text-dim hover:bg-lydian-bg-surface-raised'}`
                       }>
 
                     {isListening ? <MicOff className="w-4 h-4" /> : <Mic className="w-4 h-4" />}

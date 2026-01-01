@@ -1,6 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { amadeusService, transformCarRentalData } from '@/lib/amadeus-service';
 import logger from '../../../lib/logger';
+import { withRateLimit, publicRateLimiter } from '@/lib/middleware/rate-limiter';
 
 interface CarRentalSearchRequest {
   pickUpLocationCode: string;
@@ -13,7 +14,7 @@ interface CarRentalSearchRequest {
   vehicleCategory?: string[];
 }
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+async function handler(req: NextApiRequest, res: NextApiResponse) {
   // Only allow POST requests
   if (req.method !== 'POST') {
     return res.status(405).json({ 
@@ -130,6 +131,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     }, {} as Record<string, any[]>);
 
     // Return successful response
+    // Set cache headers for better performance
+    res.setHeader('Cache-Control', 'public, max-age=300, s-maxage=600');
     return res.status(200).json({
       success: true,
       data: {
@@ -171,3 +174,5 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     });
   }
 }
+
+export default withRateLimit(handler, publicRateLimiter);

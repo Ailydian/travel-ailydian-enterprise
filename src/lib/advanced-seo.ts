@@ -1,32 +1,32 @@
 import { NextSeoProps } from 'next-seo';
 
-// LyDian SEO konfigürasyonu
+// AILYDIAN SEO konfigürasyonu
 export const AILYDIAN_SEO_CONFIG = {
-  defaultTitle: 'Travel.LyDian - AI Destekli Global Turizm Platformu',
-  titleTemplate: '%s | Travel.LyDian',
+  defaultTitle: 'Holiday.AILYDIAN - AI Destekli Global Turizm Platformu',
+  titleTemplate: '%s | Holiday.AILYDIAN',
   description: 'Yapay zeka destekli seyahat önerileri, blockchain ödemeler ve VR deneyimleri ile dünyayı keşfedin.',
-  canonical: 'https://travel.lydian.com',
-  
+  canonical: 'https://holiday.ailydian.com',
+
   openGraph: {
     type: 'website',
     locale: 'tr_TR',
-    url: 'https://travel.lydian.com',
-    siteName: 'Travel.LyDian',
-    title: 'Travel.LyDian - AI Destekli Global Turizm Platformu',
+    url: 'https://holiday.ailydian.com',
+    siteName: 'Holiday.AILYDIAN',
+    title: 'Holiday.AILYDIAN - AI Destekli Global Turizm Platformu',
     description: 'Enterprise-grade AI turizm platformu. Blockchain ödemeler, VR turlar ve akıllı seyahat planlama.',
     images: [
       {
-        url: 'https://travel.lydian.com/images/og-banner.jpg',
+        url: 'https://holiday.ailydian.com/images/og-banner.jpg',
         width: 1200,
         height: 630,
-        alt: 'Travel.LyDian - AI Tourism Platform',
+        alt: 'Holiday.AILYDIAN - AI Tourism Platform',
         type: 'image/jpeg',
       },
       {
-        url: 'https://travel.lydian.com/images/og-logo.jpg',
+        url: 'https://holiday.ailydian.com/images/og-logo.jpg',
         width: 800,
         height: 800,
-        alt: 'Travel.LyDian Logo',
+        alt: 'Holiday.AILYDIAN Logo',
         type: 'image/jpeg',
       },
     ],
@@ -45,7 +45,7 @@ export const AILYDIAN_SEO_CONFIG = {
     },
     {
       name: 'theme-color',
-      content: '#FF214D', // LyDian primary color
+      content: '#FF214D', // AILYDIAN primary color
     },
     {
       name: 'apple-mobile-web-app-capable',
@@ -57,11 +57,11 @@ export const AILYDIAN_SEO_CONFIG = {
     },
     {
       name: 'apple-mobile-web-app-title',
-      content: 'Travel.LyDian',
+      content: 'Holiday.AILYDIAN',
     },
     {
       name: 'application-name',
-      content: 'Travel.LyDian',
+      content: 'Holiday.AILYDIAN',
     },
     {
       name: 'msapplication-TileColor',
@@ -133,7 +133,7 @@ export class SEOManager {
       schema?: any;
     }
   ): NextSeoProps {
-    const canonical = `https://travel.lydian.com${path}`;
+    const canonical = `https://holiday.ailydian.com${path}`;
     
     return {
       title,
@@ -170,9 +170,9 @@ export class SEOManager {
     image?: string;
     keywords?: string[];
   }, lang: string = 'tr'): NextSeoProps {
-    const title = `${destination.name}, ${destination.country} - Seyahat Rehberi | Travel.LyDian`;
+    const title = `${destination.name}, ${destination.country} - Seyahat Rehberi | Holiday.AILYDIAN`;
     const description = `${destination.name} için AI destekli seyahat rehberi. ${destination.description}`;
-    
+
     return this.generatePageSEO(
       title,
       description,
@@ -181,7 +181,7 @@ export class SEOManager {
         type: 'article',
         images: destination.image ? [{
           url: destination.image,
-          alt: `${destination.name} - Travel.LyDian`,
+          alt: `${destination.name} - Holiday.AILYDIAN`,
         }] : undefined,
         keywords: [
           destination.name,
@@ -204,7 +204,7 @@ export class SEOManager {
     price?: string;
     image?: string;
   }): NextSeoProps {
-    const title = `${hotel.name} - ${hotel.city} ${hotel.rating ? `⭐${hotel.rating}` : ''} | Travel.LyDian`;
+    const title = `${hotel.name} - ${hotel.city} ${hotel.rating ? `⭐${hotel.rating}` : ''} | Holiday.AILYDIAN`;
     const description = `${hotel.name} oteli için rezervasyon, fiyatlar ve detaylar. AI destekli otel önerileri ile en uygun seçeneği bulun.`;
     
     return this.generatePageSEO(
@@ -230,22 +230,22 @@ export class SEOManager {
     return {
       '@context': 'https://schema.org',
       '@type': 'WebSite',
-      name: 'Travel.LyDian',
-      url: 'https://travel.lydian.com',
+      name: 'Holiday.AILYDIAN',
+      url: 'https://holiday.ailydian.com',
       description: 'Enterprise-grade AI turizm platformu',
       publisher: {
         '@type': 'Organization',
         name: 'LyDian AI Ecosystem',
         logo: {
           '@type': 'ImageObject',
-          url: 'https://travel.lydian.com/images/logo.png',
+          url: 'https://holiday.ailydian.com/images/logo.png',
         },
       },
       potentialAction: {
         '@type': 'SearchAction',
         target: {
           '@type': 'EntryPoint',
-          urlTemplate: 'https://travel.lydian.com/search?q={search_term_string}',
+          urlTemplate: 'https://holiday.ailydian.com/search?q={search_term_string}',
         },
         'query-input': 'required name=search_term_string',
       },
@@ -256,9 +256,9 @@ export class SEOManager {
     return {
       '@context': 'https://schema.org',
       '@type': 'TravelAgency',
-      name: 'Travel.LyDian',
-      url: 'https://travel.lydian.com',
-      logo: 'https://travel.lydian.com/images/logo.png',
+      name: 'Holiday.AILYDIAN',
+      url: 'https://holiday.ailydian.com',
+      logo: 'https://holiday.ailydian.com/images/logo.png',
       description: 'AI destekli global turizm platformu',
       contactPoint: {
         '@type': 'ContactPoint',

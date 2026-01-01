@@ -136,7 +136,7 @@ export const VoiceCommandWidget: React.FC = () => {
                   }
                     {isProcessing &&
                   <motion.div
-                    className="absolute -top-1 -right-1 w-5 h-5 bg-yellow-400 rounded-full border-2 border-lydian-border-light"
+                    className="absolute -top-1 -right-1 w-5 h-5 bg-lydian-warning rounded-full border-2 border-lydian-border-light"
                     animate={{ scale: [1, 1.3, 1] }}
                     transition={{ duration: 1, repeat: Infinity }} />
 

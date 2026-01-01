@@ -293,8 +293,8 @@ export default function TransferVehicleSubmissionWizard() {
                 step === currentStep ?
                 'border-cyan-500 bg-cyan-50' :
                 completedSteps.includes(step) ?
-                'border-blue-500 bg-blue-50' :
-                'border-slate-200 bg-white'}`
+                'border-lydian-primary bg-blue-50' :
+                'border-slate-200 bg-lydian-bg'}`
                 }>
 
                   <div className="flex items-center gap-2 mb-1">

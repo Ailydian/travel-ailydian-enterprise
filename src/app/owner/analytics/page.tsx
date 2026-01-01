@@ -44,21 +44,21 @@ const MetricCard: React.FC<MetricCardProps> = ({ title, value, change, icon, suf
   const isPositive = change >= 0;
 
   return (
-    <div className="bg-white/5 rounded-xl border border-gray-200 p-6 hover:shadow-lg transition-shadow duration-200">
+    <div className="bg-lydian-bg/5 rounded-xl border border-lydian-border p-6 hover:shadow-lg transition-shadow duration-200">
       <div className="flex items-center justify-between mb-4">
         <div className="p-3 bg-gradient-to-br from-purple-500 to-purple-600 rounded-lg text-white shadow-md">
           {icon}
         </div>
-        <div className={`flex items-center gap-1 text-sm font-medium ${isPositive ? 'text-green-600' : 'text-red-600'}`}>
+        <div className={`flex items-center gap-1 text-sm font-medium ${isPositive ? 'text-lydian-success' : 'text-lydian-error'}`}>
           {isPositive ? <ArrowUpRight className="w-4 h-4" /> : <ArrowDownRight className="w-4 h-4" />}
           <span>{Math.abs(change)}%</span>
         </div>
       </div>
       <div>
-        <p className="text-sm text-gray-300 font-medium mb-1">{title}</p>
+        <p className="text-sm text-lydian-text-dim font-medium mb-1">{title}</p>
         <p className="text-2xl font-bold text-white">
           {value}
-          {suffix && <span className="text-lg text-gray-400 ml-1">{suffix}</span>}
+          {suffix && <span className="text-lg text-lydian-text-muted ml-1">{suffix}</span>}
         </p>
       </div>
     </div>
@@ -68,29 +68,29 @@ const MetricCard: React.FC<MetricCardProps> = ({ title, value, change, icon, suf
 // Date Range Picker Component
 const DateRangePicker: React.FC = () => {
   return (
-    <div className="bg-white/5 border border-gray-200 rounded-xl p-4 mb-6">
+    <div className="bg-lydian-bg/5 border border-lydian-border rounded-xl p-4 mb-6">
       <div className="flex flex-col sm:flex-row gap-4 items-stretch sm:items-center justify-between">
         <div className="flex gap-2 flex-wrap">
-          <button className="px-4 py-2 bg-blue-600 text-white rounded-lg font-medium text-sm hover:bg-blue-700 transition-colors">
+          <button className="px-4 py-2 bg-lydian-primary text-white rounded-lg font-medium text-sm hover:bg-lydian-primary-hover transition-colors">
             Last 30 Days
           </button>
-          <button className="px-4 py-2 bg-white/5 border border-gray-300 text-gray-200 rounded-lg font-medium text-sm hover:bg-white/5 transition-colors">
+          <button className="px-4 py-2 bg-lydian-bg/5 border border-lydian-border-medium text-gray-200 rounded-lg font-medium text-sm hover:bg-lydian-bg/5 transition-colors">
             Last 7 Days
           </button>
-          <button className="px-4 py-2 bg-white/5 border border-gray-300 text-gray-200 rounded-lg font-medium text-sm hover:bg-white/5 transition-colors">
+          <button className="px-4 py-2 bg-lydian-bg/5 border border-lydian-border-medium text-gray-200 rounded-lg font-medium text-sm hover:bg-lydian-bg/5 transition-colors">
             This Month
           </button>
-          <button className="px-4 py-2 bg-white/5 border border-gray-300 text-gray-200 rounded-lg font-medium text-sm hover:bg-white/5 transition-colors">
+          <button className="px-4 py-2 bg-lydian-bg/5 border border-lydian-border-medium text-gray-200 rounded-lg font-medium text-sm hover:bg-lydian-bg/5 transition-colors">
             This Year
           </button>
         </div>
         <div className="flex gap-2">
-          <button className="flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-lg hover:bg-white/5 transition-colors font-medium text-sm">
+          <button className="flex items-center gap-2 px-4 py-2 border border-lydian-border-medium rounded-lg hover:bg-lydian-bg/5 transition-colors font-medium text-sm">
             <Calendar className="w-4 h-4" />
             Custom Range
             <ChevronDown className="w-4 h-4" />
           </button>
-          <button className="flex items-center gap-2 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors font-medium text-sm">
+          <button className="flex items-center gap-2 px-4 py-2 bg-lydian-success text-white rounded-lg hover:bg-lydian-success-hover transition-colors font-medium text-sm">
             <Download className="w-4 h-4" />
             Export
           </button>
@@ -114,38 +114,38 @@ interface PropertyPerformanceProps {
 
 const PropertyPerformanceTable: React.FC<PropertyPerformanceProps> = ({ properties }) => {
   return (
-    <div className="bg-white/5 border border-gray-200 rounded-xl overflow-hidden">
-      <div className="p-6 border-b border-gray-200">
+    <div className="bg-lydian-bg/5 border border-lydian-border rounded-xl overflow-hidden">
+      <div className="p-6 border-b border-lydian-border">
         <h3 className="text-lg font-semibold text-white">Property Performance Comparison</h3>
-        <p className="text-sm text-gray-400 mt-1">Compare metrics across all your properties</p>
+        <p className="text-sm text-lydian-text-muted mt-1">Compare metrics across all your properties</p>
       </div>
       <div className="overflow-x-auto">
         <table className="w-full">
-          <thead className="bg-white/5 border-b border-gray-200">
+          <thead className="bg-lydian-bg/5 border-b border-lydian-border">
             <tr>
-              <th className="px-6 py-3 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-semibold text-lydian-text-dim uppercase tracking-wider">
                 Property
               </th>
-              <th className="px-6 py-3 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-semibold text-lydian-text-dim uppercase tracking-wider">
                 Views
               </th>
-              <th className="px-6 py-3 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-semibold text-lydian-text-dim uppercase tracking-wider">
                 Bookings
               </th>
-              <th className="px-6 py-3 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-semibold text-lydian-text-dim uppercase tracking-wider">
                 Conversion
               </th>
-              <th className="px-6 py-3 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-semibold text-lydian-text-dim uppercase tracking-wider">
                 Revenue
               </th>
-              <th className="px-6 py-3 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-semibold text-lydian-text-dim uppercase tracking-wider">
                 Rating
               </th>
             </tr>
           </thead>
-          <tbody className="bg-white/5 divide-y divide-gray-100">
+          <tbody className="bg-lydian-bg/5 divide-y divide-gray-100">
             {properties.map((property, index) => (
-              <tr key={index} className="hover:bg-white/5 transition-colors">
+              <tr key={index} className="hover:bg-lydian-bg/5 transition-colors">
                 <td className="px-6 py-4">
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center text-white font-semibold">
@@ -162,9 +162,9 @@ const PropertyPerformanceTable: React.FC<PropertyPerformanceProps> = ({ properti
                 </td>
                 <td className="px-6 py-4">
                   <div className="flex items-center gap-2">
-                    <div className="flex-1 bg-gray-200 rounded-full h-2 max-w-[100px]">
+                    <div className="flex-1 bg-lydian-bg-surface-raised rounded-full h-2 max-w-[100px]">
                       <div
-                        className="bg-blue-600 h-2 rounded-full"
+                        className="bg-lydian-primary h-2 rounded-full"
                         style={{ width: `${property.conversionRate}%` }}
                       ></div>
                     </div>
@@ -200,7 +200,7 @@ const BookingSourceChart: React.FC = () => {
   ];
 
   return (
-    <div className="bg-white/5 border border-gray-200 rounded-xl p-6">
+    <div className="bg-lydian-bg/5 border border-lydian-border rounded-xl p-6">
       <h3 className="text-lg font-semibold text-white mb-4">Booking Sources</h3>
       <ResponsiveContainer width="100%" height={300}>
         <PieChart>
@@ -302,10 +302,10 @@ const AnalyticsPage: React.FC = () => {
         <div className="animate-pulse space-y-4">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[1, 2, 3, 4].map((i) => (
-              <div key={i} className="h-32 bg-gray-200 rounded-xl"></div>
+              <div key={i} className="h-32 bg-lydian-bg-surface-raised rounded-xl"></div>
             ))}
           </div>
-          <div className="h-96 bg-gray-200 rounded-xl"></div>
+          <div className="h-96 bg-lydian-bg-surface-raised rounded-xl"></div>
         </div>
       </div>
     );
@@ -349,14 +349,14 @@ const AnalyticsPage: React.FC = () => {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
         {/* Views Chart */}
-        <div className="bg-white/5 border border-gray-200 rounded-xl p-6">
+        <div className="bg-lydian-bg/5 border border-lydian-border rounded-xl p-6">
           <div className="flex items-center justify-between mb-6">
             <div>
               <h3 className="text-lg font-semibold text-white">Property Views</h3>
-              <p className="text-sm text-gray-400 mt-1">Views over the last 30 days</p>
+              <p className="text-sm text-lydian-text-muted mt-1">Views over the last 30 days</p>
             </div>
             <div className="flex items-center gap-2 text-sm">
-              <span className="text-gray-400">Total:</span>
+              <span className="text-lydian-text-muted">Total:</span>
               <span className="font-bold text-white">15,740</span>
             </div>
           </div>
@@ -386,14 +386,14 @@ const AnalyticsPage: React.FC = () => {
         </div>
 
         {/* Bookings Chart */}
-        <div className="bg-white/5 border border-gray-200 rounded-xl p-6">
+        <div className="bg-lydian-bg/5 border border-lydian-border rounded-xl p-6">
           <div className="flex items-center justify-between mb-6">
             <div>
               <h3 className="text-lg font-semibold text-white">Bookings Trend</h3>
-              <p className="text-sm text-gray-400 mt-1">Monthly bookings over 6 months</p>
+              <p className="text-sm text-lydian-text-muted mt-1">Monthly bookings over 6 months</p>
             </div>
             <div className="flex items-center gap-2 text-sm">
-              <span className="text-gray-400">Total:</span>
+              <span className="text-lydian-text-muted">Total:</span>
               <span className="font-bold text-white">130</span>
             </div>
           </div>

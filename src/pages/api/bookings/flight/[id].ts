@@ -3,7 +3,7 @@ import { getServerSession } from 'next-auth'
 import { authOptions } from '@/pages/api/auth/[...nextauth]'
 import { PrismaClient, BookingType } from '@prisma/client'
 
-const prisma = new PrismaClient()
+// Using singleton prisma
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== 'GET') {

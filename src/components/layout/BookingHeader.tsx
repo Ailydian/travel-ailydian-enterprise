@@ -26,6 +26,8 @@ import { useCart } from '../../context/CartContext';
 import LanguageSwitcher from '../LanguageSwitcher';
 import { ExploreMenu } from '../explore/ExploreMenu';
 import { LyDianLogo } from '../branding/LyDianLogo';
+import { getHeaderHeightClasses, getHeaderContainerClasses, LAYOUT_CONSTANTS } from '@/config/layout-constants';
+import { ThemeToggle } from '@/components/theme/ThemeToggle';
 
 export const BookingHeader: React.FC = () => {
   const router = useRouter();
@@ -43,7 +45,7 @@ export const BookingHeader: React.FC = () => {
   const isActive = (href: string) => router.pathname === href || router.pathname.startsWith(href + '/');
 
   return (
-    <header className="sticky top-0 z-50 bg-lydian-bg/70 backdrop-blur-xl border-b border-lydian-border-light shadow-lg">
+    <header className={`sticky top-0 ${LAYOUT_CONSTANTS.header.zIndex} bg-lydian-bg/70 dark:bg-gray-900/70 backdrop-blur-xl border-b border-lydian-border-light dark:border-gray-800 shadow-lg transition-colors duration-300`}>
       {/* 🎨 NEO-GLASS Top Bar */}
       <div className="relative overflow-hidden">
         {/* Ocean Gradient Background */}
@@ -91,8 +93,8 @@ export const BookingHeader: React.FC = () => {
       </div>
 
       {/* Main Navigation */}
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
+      <div className={getHeaderContainerClasses()}>
+        <div className={`flex items-center justify-between ${getHeaderHeightClasses()}`}>
           {/* Logo - Premium Design with LyDianLogo Component */}
           <Link href="/">
             <LyDianLogo variant="full" size="md" animated={true} />
@@ -115,7 +117,7 @@ export const BookingHeader: React.FC = () => {
                     relative flex items-center gap-2 px-4 py-2 rounded-md font-medium text-sm transition-colors
                     ${active ?
                   'text-lydian-primary bg-red-50' :
-                  'text-gray-200 hover:text-lydian-primary hover:bg-white/5'}
+                  'text-gray-200 hover:text-lydian-primary hover:bg-lydian-bg/5'}
                   `
                   }>
 
@@ -135,6 +137,9 @@ export const BookingHeader: React.FC = () => {
 
           {/* Right Actions */}
           <div className="flex items-center gap-2">
+            {/* Theme Toggle */}
+            <ThemeToggle variant="icon" className="hidden sm:block" />
+
             {/* Favorites */}
             <Link
               href="/favorites"
@@ -200,7 +205,7 @@ export const BookingHeader: React.FC = () => {
                       flex items-center gap-3 px-4 py-3 rounded-lg font-medium transition-colors
                       ${active ?
                   'text-lydian-primary bg-red-50' :
-                  'text-gray-200 hover:text-lydian-primary hover:bg-white/5'}
+                  'text-gray-200 hover:text-lydian-primary hover:bg-lydian-bg/5'}
                     `
                   }>
 

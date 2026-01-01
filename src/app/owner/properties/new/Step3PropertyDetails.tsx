@@ -176,7 +176,7 @@ export default function Step3PropertyDetails({ data }: Step3Props) {
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           placeholder="Olanakları ara..."
-          className="w-full pl-12 pr-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
+          className="w-full pl-12 pr-4 py-3 border-2 border-slate-200 rounded-lg focus:border-lydian-primary focus:ring-2 focus:ring-blue-200 outline-none transition-all"
         />
         {searchQuery && (
           <button
@@ -195,7 +195,7 @@ export default function Step3PropertyDetails({ data }: Step3Props) {
           {selectedAmenities.length + customAmenities.length} olanak seçildi
         </span>
         {selectedAmenities.length === 0 && (
-          <span className="text-sm text-red-600">En az bir olanak seçin</span>
+          <span className="text-sm text-lydian-error">En az bir olanak seçin</span>
         )}
       </div>
 
@@ -211,7 +211,7 @@ export default function Step3PropertyDetails({ data }: Step3Props) {
             <div key={key} className="border-2 border-slate-200 rounded-xl p-6">
               <div className="flex items-center gap-3 mb-4">
                 <div className="p-2 bg-blue-100 rounded-lg">
-                  <CategoryIcon className="w-5 h-5 text-blue-600" />
+                  <CategoryIcon className="w-5 h-5 text-lydian-primary" />
                 </div>
                 <h3 className="text-lg font-bold text-slate-900">{category.title}</h3>
               </div>
@@ -227,15 +227,15 @@ export default function Step3PropertyDetails({ data }: Step3Props) {
                       onClick={() => toggleAmenity(amenity)}
                       className={`p-3 border-2 rounded-lg text-left transition-all ${
                         isSelected
-                          ? 'border-blue-500 bg-blue-50 text-blue-900'
-                          : 'border-slate-200 bg-white/5 text-slate-700 hover:border-slate-300'
+                          ? 'border-lydian-primary bg-blue-50 text-blue-900'
+                          : 'border-slate-200 bg-lydian-bg/5 text-slate-700 hover:border-slate-300'
                       }`}
                     >
                       <div className="flex items-center gap-2">
                         <div
                           className={`w-5 h-5 rounded border-2 flex items-center justify-center ${
                             isSelected
-                              ? 'border-blue-500 bg-blue-500'
+                              ? 'border-lydian-primary bg-blue-500'
                               : 'border-slate-300'
                           }`}
                         >
@@ -269,7 +269,7 @@ export default function Step3PropertyDetails({ data }: Step3Props) {
       {/* Hidden input for validation */}
       <input type="hidden" {...register('amenities')} value={selectedAmenities} />
       {errors.amenities && (
-        <p className="text-sm text-red-600">{errors.amenities.message?.toString()}</p>
+        <p className="text-sm text-lydian-error">{errors.amenities.message?.toString()}</p>
       )}
 
       {/* Custom Amenities */}
@@ -287,13 +287,13 @@ export default function Step3PropertyDetails({ data }: Step3Props) {
             onKeyPress={(e) => e.key === 'Enter' && (e.preventDefault(), addCustomAmenity())}
             placeholder="örn., Espresso Makinesi, Piyano, vb."
             maxLength={100}
-            className="flex-1 px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
+            className="flex-1 px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-lydian-primary focus:ring-2 focus:ring-blue-200 outline-none transition-all"
           />
           <button
             type="button"
             onClick={addCustomAmenity}
             disabled={!customAmenity.trim() || customAmenities.length >= 10}
-            className="px-6 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+            className="px-6 py-3 bg-lydian-primary text-white rounded-lg font-medium hover:bg-lydian-primary-hover disabled:opacity-50 disabled:cursor-not-allowed transition-all"
           >
             Ekle
           </button>
@@ -343,7 +343,7 @@ export default function Step3PropertyDetails({ data }: Step3Props) {
                 type="checkbox"
                 id="hasWifi"
                 {...register('features.hasWifi')}
-                className="w-6 h-6 text-blue-600 rounded focus:ring-2 focus:ring-blue-500"
+                className="w-6 h-6 text-lydian-primary rounded focus:ring-2 focus:ring-lydian-primary"
               />
             </div>
 
@@ -356,7 +356,7 @@ export default function Step3PropertyDetails({ data }: Step3Props) {
                   type="text"
                   {...register('features.wifiSpeed')}
                   placeholder="örn., 100 Mbps"
-                  className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
+                  className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-lydian-primary focus:ring-2 focus:ring-blue-200 outline-none transition-all"
                 />
               </div>
             )}
@@ -372,7 +372,7 @@ export default function Step3PropertyDetails({ data }: Step3Props) {
                 type="checkbox"
                 id="hasParking"
                 {...register('features.hasParking')}
-                className="w-6 h-6 text-blue-600 rounded focus:ring-2 focus:ring-blue-500"
+                className="w-6 h-6 text-lydian-primary rounded focus:ring-2 focus:ring-lydian-primary"
               />
             </div>
 
@@ -383,7 +383,7 @@ export default function Step3PropertyDetails({ data }: Step3Props) {
                 </label>
                 <select
                   {...register('features.parkingType')}
-                  className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all bg-white/5"
+                  className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-lydian-primary focus:ring-2 focus:ring-blue-200 outline-none transition-all bg-lydian-bg/5"
                 >
                   <option value="free">Ücretsiz Otopark</option>
                   <option value="paid">Ücretli Otopark</option>
@@ -408,7 +408,7 @@ export default function Step3PropertyDetails({ data }: Step3Props) {
               type="checkbox"
               id="hasSmokeDetector"
               {...register('safetyFeatures.hasSmokeDector')}
-              className="w-5 h-5 text-blue-600 rounded focus:ring-2 focus:ring-blue-500"
+              className="w-5 h-5 text-lydian-primary rounded focus:ring-2 focus:ring-lydian-primary"
             />
             <label htmlFor="hasSmokeDetector" className="font-medium text-slate-700">
               Duman Dedektörü
@@ -420,7 +420,7 @@ export default function Step3PropertyDetails({ data }: Step3Props) {
               type="checkbox"
               id="hasCO2Detector"
               {...register('safetyFeatures.hasCO2Detector')}
-              className="w-5 h-5 text-blue-600 rounded focus:ring-2 focus:ring-blue-500"
+              className="w-5 h-5 text-lydian-primary rounded focus:ring-2 focus:ring-lydian-primary"
             />
             <label htmlFor="hasCO2Detector" className="font-medium text-slate-700">
               Karbonmonoksit Dedektörü
@@ -432,7 +432,7 @@ export default function Step3PropertyDetails({ data }: Step3Props) {
               type="checkbox"
               id="hasFirstAidKit"
               {...register('safetyFeatures.hasFirstAidKit')}
-              className="w-5 h-5 text-blue-600 rounded focus:ring-2 focus:ring-blue-500"
+              className="w-5 h-5 text-lydian-primary rounded focus:ring-2 focus:ring-lydian-primary"
             />
             <label htmlFor="hasFirstAidKit" className="font-medium text-slate-700">
               İlk Yardım Çantası
@@ -444,7 +444,7 @@ export default function Step3PropertyDetails({ data }: Step3Props) {
               type="checkbox"
               id="hasLock"
               {...register('safetyFeatures.hasLock')}
-              className="w-5 h-5 text-blue-600 rounded focus:ring-2 focus:ring-blue-500"
+              className="w-5 h-5 text-lydian-primary rounded focus:ring-2 focus:ring-lydian-primary"
             />
             <label htmlFor="hasLock" className="font-medium text-slate-700">
               Kapı Kilidi

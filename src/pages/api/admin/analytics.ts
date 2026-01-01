@@ -1,12 +1,22 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { prisma } from '@/lib/prisma';
 import logger from '../../../lib/logger';
+import { withAdminAuth, AuthenticatedRequest } from '@/lib/middleware/admin-auth';
 
-export default async function handler(
-  req: NextApiRequest,
+/**
+ * SECURITY: V16 Critical Fix (CVSS 9.1) - Admin Authorization Added
+ * This endpoint now requires valid admin authentication via JWT token
+ * Access: Admin role with 'analytics:read' permission required
+ */
+
+async function handler(
+  req: AuthenticatedRequest,
   res: NextApiResponse
 ) {
   try {
+    // SECURITY V16: Admin authentication is now enforced by withAdminAuth middleware
+    // Only authenticated admins with proper permissions can access this endpoint
+
     if (req.method === 'GET') {
       const { range = '30d' } = req.query;
 
@@ -103,3 +113,7 @@ export default async function handler(
     });
   }
 }
+
+// SECURITY V16: Wrap handler with admin authentication middleware
+// Requires 'analytics:read' permission
+export default withAdminAuth(handler, ['analytics:read']);

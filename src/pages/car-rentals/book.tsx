@@ -430,7 +430,7 @@ const CarRentalBookingPage: React.FC = () => {
   return (
     <>
       <Head>
-        <title>Araç Kiralama Rezervasyonu - {bookingData.carName || 'LyDian Travel'}</title>
+        <title>Araç Kiralama Rezervasyonu - {bookingData.carName || 'AILYDIAN Holiday'}</title>
         <meta name="description" content="Güvenli ve hızlı araç kiralama rezervasyonu" />
       </Head>
 
@@ -452,7 +452,7 @@ const CarRentalBookingPage: React.FC = () => {
                     className={`w-12 h-12 rounded-full flex items-center justify-center font-bold transition-all ${
                     currentStep >= step.number ?
                     'bg-gradient-to-r from-blue-600 to-cyan-600 text-white shadow-lg' :
-                    'bg-gray-200 text-gray-400'}`
+                    'bg-lydian-bg-surface-raised text-lydian-text-muted'}`
                     }>
 
                       {currentStep > step.number ?
@@ -689,7 +689,7 @@ const CarRentalBookingPage: React.FC = () => {
 
                               <div className="flex items-start gap-4">
                                 <div className={`w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 ${
-                              isSelected ? 'bg-purple-600 text-white' : 'bg-white/10 text-gray-300'}`
+                              isSelected ? 'bg-purple-600 text-white' : 'bg-lydian-bg/10 text-lydian-text-dim'}`
                               }>
                                   <extra.icon className="w-6 h-6" />
                                 </div>

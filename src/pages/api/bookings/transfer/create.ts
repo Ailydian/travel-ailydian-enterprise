@@ -1,12 +1,13 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { getServerSession } from 'next-auth'
+import { withRateLimit, groqRateLimiter } from '@/lib/middleware/rate-limiter';
 import { authOptions } from '@/pages/api/auth/[...nextauth]'
 import { PrismaClient, BookingStatus, PaymentStatus, TransferType } from '@prisma/client'
 import { generateBookingReference } from '@/lib/utils/booking-utils'
 
-const prisma = new PrismaClient()
+// Using singleton prisma
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' })
   }
@@ -211,3 +212,5 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     return res.status(500).json({ error: 'Internal server error' })
   }
 }
+
+export default withRateLimit(handler, groqRateLimiter);

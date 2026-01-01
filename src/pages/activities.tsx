@@ -373,7 +373,7 @@ export default function Activities() {
       case 'Kolay':return 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200';
       case 'Orta':return 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200';
       case 'Zor':return 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200';
-      default:return 'bg-white/10 text-gray-100 dark:bg-gray-700 dark:text-gray-200';
+      default:return 'bg-lydian-bg/10 text-gray-100 dark:bg-gray-700 dark:text-gray-200';
     }
   };
 
@@ -385,7 +385,7 @@ export default function Activities() {
   return (
     <>
       <Head>
-        <title>Aktiviteler - LyDian Travel</title>
+        <title>Aktiviteler - AILYDIAN Holiday</title>
         <meta name="description" content="Heyecan verici aktiviteler ve deneyimler. Maceradan wellness&apos;a kadar." />
       </Head>
 
@@ -470,7 +470,7 @@ export default function Activities() {
                         className={`flex items-center px-3 py-1 rounded-full text-sm font-medium transition-colors ${
                         selectedCategory === category.id ?
                         'bg-orange-500 text-white' :
-                        'bg-gray-200 dark:bg-gray-700 text-gray-200 dark:text-gray-300 hover:bg-orange-100 dark:hover:bg-gray-600'}`
+                        'bg-lydian-bg-surface-raised dark:bg-gray-700 text-gray-200 dark:text-lydian-text-dim hover:bg-orange-100 dark:hover:bg-gray-600'}`
                         }>
 
                         <IconComponent className="h-3 w-3 mr-1" />
@@ -585,7 +585,7 @@ export default function Activities() {
                             className={`h-5 w-5 ${
                             favorites.has(activity.id) ?
                             'text-red-500 fill-current' :
-                            'text-gray-300'}`
+                            'text-lydian-text-dim'}`
                             } />
 
                     </button>

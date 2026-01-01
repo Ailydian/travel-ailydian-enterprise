@@ -160,12 +160,12 @@ export default function CarRentalsManagement() {
       PREMIUM_SUV: 'bg-emerald-100 text-emerald-800',
       LUXURY: 'bg-amber-100 text-amber-800',
       SPORTS: 'bg-red-100 text-red-800',
-      VAN: 'bg-white/10 text-white',
+      VAN: 'bg-lydian-bg/10 text-white',
       MINIVAN: 'bg-slate-100 text-slate-800',
       COMPACT: 'bg-cyan-100 text-cyan-800',
       FULLSIZE: 'bg-indigo-100 text-indigo-800'
     };
-    return colors[category] || 'bg-white/10 text-white';
+    return colors[category] || 'bg-lydian-bg/10 text-white';
   };
 
   const formatCategory = (category: string) => {
@@ -371,7 +371,7 @@ export default function CarRentalsManagement() {
                       <td className="px-6 py-4 whitespace-nowrap">
                         <div className="flex flex-col space-y-1">
                           <span className={`inline-flex items-center px-2 py-0.5 rounded text-xs font-medium ${
-                      car.isActive ? 'bg-green-100 text-green-800' : 'bg-white/10 text-white'}`
+                      car.isActive ? 'bg-green-100 text-green-800' : 'bg-lydian-bg/10 text-white'}`
                       }>
                             {car.isActive ? 'Aktif' : 'Pasif'}
                           </span>
@@ -398,8 +398,8 @@ export default function CarRentalsManagement() {
                         onClick={() => toggleActive(car.id, car.isActive)}
                         className={`p-2 rounded-lg transition-colors ${
                         car.isActive ?
-                        'text-green-600 hover:bg-green-50' :
-                        'text-gray-300 hover:bg-white/5'}`
+                        'text-lydian-success hover:bg-green-50' :
+                        'text-lydian-text-dim hover:bg-lydian-bg/5'}`
                         }
                         title={car.isActive ? 'Pasif yap' : 'Aktif yap'}>
 
@@ -410,7 +410,7 @@ export default function CarRentalsManagement() {
                         className={`p-2 rounded-lg transition-colors ${
                         car.isFeatured ?
                         'text-amber-600 hover:bg-amber-50' :
-                        'text-gray-300 hover:bg-white/5'}`
+                        'text-lydian-text-dim hover:bg-lydian-bg/5'}`
                         }
                         title={car.isFeatured ? 'Öne çıkarma' : 'Öne çıkar'}>
 

@@ -1,8 +1,8 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { PrismaClient } from '@prisma/client';
+import { prisma } from '@/lib/prisma';;
 import logger from '../../../lib/logger';
 
-const prisma = new PrismaClient();
+// Using singleton prisma from @/lib/prisma
 
 export default async function handler(
   req: NextApiRequest,
@@ -101,7 +101,5 @@ export default async function handler(
       error: 'Failed to register vote',
       details: error.message
     });
-  } finally {
-    await prisma.$disconnect();
-  }
+}
 }

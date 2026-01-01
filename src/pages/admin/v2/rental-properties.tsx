@@ -171,7 +171,7 @@ export default function RentalPropertiesManagement() {
       PENTHOUSE: 'bg-amber-100 text-amber-800',
       COTTAGE: 'bg-emerald-100 text-emerald-800'
     };
-    return colors[type] || 'bg-white/10 text-white';
+    return colors[type] || 'bg-lydian-bg/10 text-white';
   };
 
   const formatType = (type: string) => {
@@ -437,7 +437,7 @@ export default function RentalPropertiesManagement() {
                       <td className="px-6 py-4 whitespace-nowrap">
                         <div className="flex flex-col space-y-1">
                           <span className={`inline-flex items-center px-2 py-0.5 rounded text-xs font-medium ${
-                      property.isActive ? 'bg-green-100 text-green-800' : 'bg-white/10 text-white'}`
+                      property.isActive ? 'bg-green-100 text-green-800' : 'bg-lydian-bg/10 text-white'}`
                       }>
                             {property.isActive ? 'Aktif' : 'Pasif'}
                           </span>
@@ -464,8 +464,8 @@ export default function RentalPropertiesManagement() {
                         onClick={() => toggleActive(property.id, property.isActive)}
                         className={`p-2 rounded-lg transition-colors ${
                         property.isActive ?
-                        'text-green-600 hover:bg-green-50' :
-                        'text-gray-300 hover:bg-white/5'}`
+                        'text-lydian-success hover:bg-green-50' :
+                        'text-lydian-text-dim hover:bg-lydian-bg/5'}`
                         }
                         title={property.isActive ? 'Pasif yap' : 'Aktif yap'}>
 
@@ -476,7 +476,7 @@ export default function RentalPropertiesManagement() {
                         className={`p-2 rounded-lg transition-colors ${
                         property.isFeatured ?
                         'text-amber-600 hover:bg-amber-50' :
-                        'text-gray-300 hover:bg-white/5'}`
+                        'text-lydian-text-dim hover:bg-lydian-bg/5'}`
                         }
                         title={property.isFeatured ? 'Öne çıkarma' : 'Öne çıkar'}>
 

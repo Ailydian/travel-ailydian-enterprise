@@ -78,7 +78,7 @@ export default function Step6Availability({ data }: Step6Props) {
       <div className="border-2 border-slate-200 rounded-xl p-6">
         <div className="flex items-center gap-3 mb-4">
           <div className="p-2 bg-blue-100 rounded-lg">
-            <Calendar className="w-5 h-5 text-blue-600" />
+            <Calendar className="w-5 h-5 text-lydian-primary" />
           </div>
           <h3 className="text-lg font-bold text-slate-900">Kiralama Süresi</h3>
         </div>
@@ -101,7 +101,7 @@ export default function Step6Availability({ data }: Step6Props) {
               Araç en az kaç gün kiralanmalı
             </p>
             {errors.minRentalDays && (
-              <p className="mt-1 text-sm text-red-600">
+              <p className="mt-1 text-sm text-lydian-error">
                 {errors.minRentalDays.message?.toString()}
               </p>
             )}
@@ -142,7 +142,7 @@ export default function Step6Availability({ data }: Step6Props) {
           </label>
           <select
             {...register('advanceNoticeHours')}
-            className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-200 outline-none transition-all bg-white/5"
+            className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-200 outline-none transition-all bg-lydian-bg/5"
           >
             <option value="0">Anında (0 saat)</option>
             <option value="3">3 saat önce</option>
@@ -184,14 +184,14 @@ export default function Step6Availability({ data }: Step6Props) {
             type="checkbox"
             id="instantBookingEnabled"
             {...register('instantBookingEnabled')}
-            className="w-6 h-6 text-green-600 rounded focus:ring-2 focus:ring-green-500"
+            className="w-6 h-6 text-lydian-success rounded focus:ring-2 focus:ring-green-500"
           />
         </div>
 
         {instantBooking && (
           <div className="mt-4 p-4 bg-green-50 border border-green-200 rounded-lg">
             <div className="flex items-start gap-2">
-              <Info className="w-5 h-5 text-green-600 mt-0.5" />
+              <Info className="w-5 h-5 text-lydian-success mt-0.5" />
               <p className="text-sm text-green-800">
                 Anında rezervasyon etkinleştirildiğinde, aracınız daha fazla görünürlük kazanır ve
                 kiracılar onay beklemeden rezervasyon yapabilir.
@@ -245,7 +245,7 @@ export default function Step6Availability({ data }: Step6Props) {
       <div className="border-2 border-slate-200 rounded-xl p-6">
         <div className="flex items-center gap-3 mb-4">
           <div className="p-2 bg-red-100 rounded-lg">
-            <Ban className="w-5 h-5 text-red-600" />
+            <Ban className="w-5 h-5 text-lydian-error" />
           </div>
           <h3 className="text-lg font-bold text-slate-900">Müsait Olmayan Tarihler</h3>
         </div>
@@ -279,7 +279,7 @@ export default function Step6Availability({ data }: Step6Props) {
                 <button
                   type="button"
                   onClick={() => removeBlockedDate(blocked.id)}
-                  className="p-2 text-red-600 hover:bg-red-50 rounded-lg transition-all"
+                  className="p-2 text-lydian-error hover:bg-red-50 rounded-lg transition-all"
                 >
                   <X className="w-5 h-5" />
                 </button>
@@ -289,7 +289,7 @@ export default function Step6Availability({ data }: Step6Props) {
         )}
 
         {/* Add New Blocked Date */}
-        <div className="space-y-4 p-4 bg-white/5 border-2 border-slate-200 rounded-lg">
+        <div className="space-y-4 p-4 bg-lydian-bg/5 border-2 border-slate-200 rounded-lg">
           <h4 className="font-semibold text-slate-900">Yeni Tarih Aralığı Ekle</h4>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -333,7 +333,7 @@ export default function Step6Availability({ data }: Step6Props) {
                     type: e.target.value as 'maintenance' | 'personal-use' | 'other',
                   })
                 }
-                className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-200 outline-none bg-white/5"
+                className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-200 outline-none bg-lydian-bg/5"
               >
                 <option value="maintenance">Bakım</option>
                 <option value="personal-use">Kişisel Kullanım</option>
@@ -365,7 +365,7 @@ export default function Step6Availability({ data }: Step6Props) {
               !newBlockedDate.endDate ||
               !newBlockedDate.reason
             }
-            className="w-full px-4 py-3 bg-green-600 text-white rounded-lg font-medium hover:bg-green-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all flex items-center justify-center gap-2"
+            className="w-full px-4 py-3 bg-lydian-success text-white rounded-lg font-medium hover:bg-lydian-success-hover disabled:opacity-50 disabled:cursor-not-allowed transition-all flex items-center justify-center gap-2"
           >
             <Plus className="w-5 h-5" />
             Tarih Ekle
@@ -406,7 +406,7 @@ export default function Step6Availability({ data }: Step6Props) {
               id="summerAvailable"
               {...register('seasonalAvailability.summer')}
               defaultChecked
-              className="w-6 h-6 text-green-600 rounded focus:ring-2 focus:ring-green-500"
+              className="w-6 h-6 text-lydian-success rounded focus:ring-2 focus:ring-green-500"
             />
           </div>
 
@@ -429,7 +429,7 @@ export default function Step6Availability({ data }: Step6Props) {
               id="winterAvailable"
               {...register('seasonalAvailability.winter')}
               defaultChecked
-              className="w-6 h-6 text-green-600 rounded focus:ring-2 focus:ring-green-500"
+              className="w-6 h-6 text-lydian-success rounded focus:ring-2 focus:ring-green-500"
             />
           </div>
         </div>
@@ -438,7 +438,7 @@ export default function Step6Availability({ data }: Step6Props) {
       {/* Info Box */}
       <div className="p-4 bg-blue-50 border border-blue-200 rounded-lg">
         <div className="flex items-start gap-3">
-          <AlertCircle className="w-5 h-5 text-blue-600 mt-0.5" />
+          <AlertCircle className="w-5 h-5 text-lydian-primary mt-0.5" />
           <div>
             <h4 className="font-semibold text-blue-900 mb-1">Müsaitlik İpuçları:</h4>
             <ul className="text-sm text-blue-800 space-y-1">

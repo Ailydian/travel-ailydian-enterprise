@@ -8,211 +8,211 @@
   
   <!-- Homepage - Highest Priority -->
   <url>
-    <loc>https://travel.ailydian.com/</loc>
-    <lastmod>2025-12-22</lastmod>
+    <loc>https://holiday.ailydian.com/</loc>
+    <lastmod>2026-01-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
-  
+
   <!-- Main Service Pages - High Priority -->
   <url>
-    <loc>https://travel.ailydian.com/rentals</loc>
-    <lastmod>2025-12-22</lastmod>
+    <loc>https://holiday.ailydian.com/rentals</loc>
+    <lastmod>2026-01-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
-  
+
   <url>
-    <loc>https://travel.ailydian.com/car-rentals</loc>
-    <lastmod>2025-12-22</lastmod>
+    <loc>https://holiday.ailydian.com/car-rentals</loc>
+    <lastmod>2026-01-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
-  
+
   <url>
-    <loc>https://travel.ailydian.com/transfers</loc>
-    <lastmod>2025-12-22</lastmod>
+    <loc>https://holiday.ailydian.com/transfers</loc>
+    <lastmod>2026-01-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
-  
+
   <!-- Additional Services -->
   <url>
-    <loc>https://travel.ailydian.com/hotels</loc>
-    <lastmod>2025-12-22</lastmod>
+    <loc>https://holiday.ailydian.com/hotels</loc>
+    <lastmod>2026-01-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
-  
+
   <url>
-    <loc>https://travel.ailydian.com/flights</loc>
-    <lastmod>2025-12-22</lastmod>
+    <loc>https://holiday.ailydian.com/flights</loc>
+    <lastmod>2026-01-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
-  
+
   <url>
-    <loc>https://travel.ailydian.com/activities</loc>
-    <lastmod>2025-12-22</lastmod>
+    <loc>https://holiday.ailydian.com/activities</loc>
+    <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
-  
+
   <url>
-    <loc>https://travel.ailydian.com/experiences</loc>
-    <lastmod>2025-12-22</lastmod>
+    <loc>https://holiday.ailydian.com/experiences</loc>
+    <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <!-- Explore Pages - High Priority Content -->
   <url>
-    <loc>https://travel.ailydian.com/explore</loc>
-    <lastmod>2025-12-26</lastmod>
+    <loc>https://holiday.ailydian.com/explore</loc>
+    <lastmod>2026-01-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://travel.ailydian.com/explore/things-to-do</loc>
-    <lastmod>2025-12-26</lastmod>
+    <loc>https://holiday.ailydian.com/explore/things-to-do</loc>
+    <lastmod>2026-01-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://travel.ailydian.com/explore/places-to-stay</loc>
-    <lastmod>2025-12-26</lastmod>
+    <loc>https://holiday.ailydian.com/explore/places-to-stay</loc>
+    <lastmod>2026-01-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://travel.ailydian.com/explore/transportation</loc>
-    <lastmod>2025-12-26</lastmod>
+    <loc>https://holiday.ailydian.com/explore/transportation</loc>
+    <lastmod>2026-01-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
 
   <!-- Partner Page -->
   <url>
-    <loc>https://travel.ailydian.com/partner</loc>
-    <lastmod>2025-12-26</lastmod>
+    <loc>https://holiday.ailydian.com/partner</loc>
+    <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <!-- Hotel Detail Pages -->
   <url>
-    <loc>https://travel.ailydian.com/hotels/lara-luxury-resort</loc>
-    <lastmod>2025-12-26</lastmod>
+    <loc>https://holiday.ailydian.com/hotels/lara-luxury-resort</loc>
+    <lastmod>2026-01-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://travel.ailydian.com/hotels/belek-villa</loc>
-    <lastmod>2025-12-26</lastmod>
+    <loc>https://holiday.ailydian.com/hotels/belek-villa</loc>
+    <lastmod>2026-01-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://travel.ailydian.com/hotels/kaleici-boutique</loc>
-    <lastmod>2025-12-26</lastmod>
+    <loc>https://holiday.ailydian.com/hotels/kaleici-boutique</loc>
+    <lastmod>2026-01-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://travel.ailydian.com/hotels/lara-sea-view</loc>
-    <lastmod>2025-12-26</lastmod>
+    <loc>https://holiday.ailydian.com/hotels/lara-sea-view</loc>
+    <lastmod>2026-01-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
 
   <!-- Owner/Partner Registration Pages - Public -->
   <url>
-    <loc>https://travel.ailydian.com/owner/auth/register</loc>
-    <lastmod>2025-12-22</lastmod>
+    <loc>https://holiday.ailydian.com/owner/auth/register</loc>
+    <lastmod>2026-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
-  
+
   <url>
-    <loc>https://travel.ailydian.com/owner/auth/login</loc>
-    <lastmod>2025-12-22</lastmod>
+    <loc>https://holiday.ailydian.com/owner/auth/login</loc>
+    <lastmod>2026-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
-  
+
   <url>
-    <loc>https://travel.ailydian.com/owner/auth/terms</loc>
-    <lastmod>2025-12-22</lastmod>
+    <loc>https://holiday.ailydian.com/owner/auth/terms</loc>
+    <lastmod>2026-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
-  
+
   <url>
-    <loc>https://travel.ailydian.com/vehicle-owner/auth/register</loc>
-    <lastmod>2025-12-22</lastmod>
+    <loc>https://holiday.ailydian.com/vehicle-owner/auth/register</loc>
+    <lastmod>2026-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
-  
+
   <url>
-    <loc>https://travel.ailydian.com/vehicle-owner/auth/login</loc>
-    <lastmod>2025-12-22</lastmod>
+    <loc>https://holiday.ailydian.com/vehicle-owner/auth/login</loc>
+    <lastmod>2026-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
-  
+
   <url>
-    <loc>https://travel.ailydian.com/vehicle-owner/auth/terms</loc>
-    <lastmod>2025-12-22</lastmod>
+    <loc>https://holiday.ailydian.com/vehicle-owner/auth/terms</loc>
+    <lastmod>2026-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
-  
+
   <url>
-    <loc>https://travel.ailydian.com/transfer-owner/auth/register</loc>
-    <lastmod>2025-12-22</lastmod>
+    <loc>https://holiday.ailydian.com/transfer-owner/auth/register</loc>
+    <lastmod>2026-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
-  
+
   <url>
-    <loc>https://travel.ailydian.com/transfer-owner/auth/login</loc>
-    <lastmod>2025-12-22</lastmod>
+    <loc>https://holiday.ailydian.com/transfer-owner/auth/login</loc>
+    <lastmod>2026-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
-  
+
   <url>
-    <loc>https://travel.ailydian.com/transfer-owner/auth/terms</loc>
-    <lastmod>2025-12-22</lastmod>
+    <loc>https://holiday.ailydian.com/transfer-owner/auth/terms</loc>
+    <lastmod>2026-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
-  
+
   <!-- Business Pages -->
   <url>
-    <loc>https://travel.ailydian.com/business</loc>
-    <lastmod>2025-12-22</lastmod>
+    <loc>https://holiday.ailydian.com/business</loc>
+    <lastmod>2026-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
-  
+
   <url>
-    <loc>https://travel.ailydian.com/about</loc>
-    <lastmod>2025-12-22</lastmod>
+    <loc>https://holiday.ailydian.com/about</loc>
+    <lastmod>2026-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
-  
+
   <url>
-    <loc>https://travel.ailydian.com/contact</loc>
-    <lastmod>2025-12-22</lastmod>
+    <loc>https://holiday.ailydian.com/contact</loc>
+    <lastmod>2026-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>

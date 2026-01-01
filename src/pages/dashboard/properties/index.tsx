@@ -613,7 +613,7 @@ const PropertyOwnerDashboard: React.FC = () => {
   return (
     <>
       <Head>
-        <title>Property Owner Dashboard | LyDian Travel</title>
+        <title>Property Owner Dashboard | AILYDIAN Holiday</title>
         <meta name="description" content="Manage your property listings, bookings, and earnings" />
       </Head>
 

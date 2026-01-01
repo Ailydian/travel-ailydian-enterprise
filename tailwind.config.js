@@ -8,7 +8,7 @@ module.exports = {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
     './src/layouts/**/*.{js,ts,jsx,tsx,mdx}'
   ],
-  darkMode: 'class',
+  darkMode: 'class', // Enable class-based dark mode
   theme: {
     extend: {
       // Import design tokens as single source of truth

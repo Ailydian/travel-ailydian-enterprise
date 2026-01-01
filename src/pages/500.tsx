@@ -69,7 +69,7 @@ const Custom500Page: React.FC = () => {
   return (
     <>
       <Head>
-        <title>{t('errors.500.title')} | Travel.LyDian</title>
+        <title>{t('errors.500.title')} | Holiday.AILYDIAN</title>
         <meta name="description" content={t('errors.500.description')} />
         <meta name="robots" content="noindex, nofollow" />
       </Head>
@@ -105,7 +105,7 @@ const Custom500Page: React.FC = () => {
                     color: 'var(--tx-1)',
                     textShadow: '0 0 15px var(--ac-1), 0 0 30px var(--ac-1)'
                   }}>
-                    Travel.LyDian
+                    Holiday.AILYDIAN
                   </span>
                 </Link>
 
@@ -260,10 +260,10 @@ const Custom500Page: React.FC = () => {
                       </div>
                     </div>
                     <a
-                        href="mailto:support@travel.lydian.com"
+                        href="mailto:support@holiday.ailydian.com"
                         className="text-lydian-primary hover:text-lydian-primary-dark font-medium text-sm">
 
-                      support@travel.lydian.com
+                      support@holiday.ailydian.com
                     </a>
                   </div>
 
@@ -293,7 +293,7 @@ const Custom500Page: React.FC = () => {
                     <div className="flex items-center justify-between">
                       <span className="text-lydian-text-dim">Rezervasyon Sistemi</span>
                       <span className="inline-flex items-center px-2 py-1 rounded-full text-xs bg-lydian-warning-light text-yellow-800">
-                        <div className="w-2 h-2 bg-yellow-500 rounded-full mr-1 animate-pulse"></div>
+                        <div className="w-2 h-2 bg-lydian-warning-hover rounded-full mr-1 animate-pulse"></div>
                         Bakım
                       </span>
                     </div>
@@ -327,7 +327,7 @@ const Custom500Page: React.FC = () => {
           <footer className="bg-lydian-bg/80 backdrop-blur-md border-t border-lydian-border/50 py-6">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="text-center text-lydian-text-dim">
-                <p>&copy; 2025 Travel.LyDian. Tüm hakları saklıdır.</p>
+                <p>&copy; 2025 Holiday.AILYDIAN. Tüm hakları saklıdır.</p>
                 <p className="mt-1 text-sm">AI Destekli Seyahat Platformu</p>
               </div>
             </div>

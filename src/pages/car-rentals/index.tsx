@@ -253,14 +253,14 @@ const CarRentalsPage: React.FC = () => {
         </NeoHero>
 
         {/* Owner CTA Banner */}
-        <section className="bg-gradient-to-r from-orange-50/50 to-amber-50/50 border-y border-[#FF9500]/20 backdrop-blur-xl">
+        <section className="bg-gradient-to-r from-lydian-bg-hover/50 to-lydian-glass-dark/50 border-y border-lydian-border-light/20 backdrop-blur-xl">
           <div className="max-w-7xl mx-auto px-4 py-8">
             <div className="flex flex-col md:flex-row items-center justify-between gap-6">
               <div className="flex items-center gap-4">
                 <motion.div
                   whileHover={{ rotate: 360, scale: 1.1 }}
                   transition={{ duration: 0.6 }}
-                  className="w-16 h-16 bg-gradient-to-br from-[#FF9500] to-[#FF6B00] rounded-2xl flex items-center justify-center shadow-lg shadow-[#FF9500]/30">
+                  className="w-16 h-16 bg-gradient-to-br from-lydian-primary to-lydian-primary-hover rounded-2xl flex items-center justify-center shadow-lg shadow-lydian-primary/30">
 
                   <Car className="w-8 h-8 text-lydian-text-inverse" />
                 </motion.div>
@@ -277,7 +277,7 @@ const CarRentalsPage: React.FC = () => {
               <div className="flex items-center gap-4">
                 <div className="text-right">
                   <div className="text-sm text-lydian-text-muted">Ortalama Aylık Gelir</div>
-                  <div className="text-2xl font-bold text-[#FF9500]">₺8,500</div>
+                  <div className="text-2xl font-bold text-lydian-primary">₺8,500</div>
                 </div>
                 <Link href="/vehicle-owner">
                   <FuturisticButton variant="secondary" size="md" icon={<ArrowRight className="w-5 h-5" />} iconPosition="right">
@@ -324,10 +324,10 @@ const CarRentalsPage: React.FC = () => {
                 <motion.div
                   animate={{ y: [0, -10, 0] }}
                   transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute top-4 right-4 w-24 h-24 bg-[#FF9500]/20 rounded-full opacity-50 blur-2xl" />
+                  className="absolute top-4 right-4 w-24 h-24 bg-lydian-primary/20 rounded-full opacity-50 blur-2xl" />
 
                 <div className="relative z-10">
-                  <div className="w-16 h-16 bg-gradient-to-br from-[#FF9500] to-[#FF6B00] rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-[#FF9500]/30">
+                  <div className="w-16 h-16 bg-gradient-to-br from-lydian-primary to-lydian-primary-hover rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-lydian-primary/30">
                     <CheckCircle className="w-8 h-8 text-lydian-text-inverse" />
                   </div>
                   <h3 className="text-2xl font-bold text-lydian-text-inverse mb-3">
@@ -336,7 +336,7 @@ const CarRentalsPage: React.FC = () => {
                   <p className="text-lydian-text-dim leading-relaxed">
                     Tüm araç sahiplerimiz kimlik doğrulamasından geçer. Sigortasız, ruhsatsız araç yok. %100 güvenilir platform.
                   </p>
-                  <div className="mt-6 flex items-center gap-2 text-sm text-[#FF9500] font-semibold">
+                  <div className="mt-6 flex items-center gap-2 text-sm text-lydian-primary font-semibold">
                     <Shield className="w-5 h-5" />
                     <span>1,200+ Doğrulanmış Araç</span>
                   </div>
@@ -354,10 +354,10 @@ const CarRentalsPage: React.FC = () => {
                 <motion.div
                   animate={{ scale: [1, 1.2, 1] }}
                   transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute bottom-4 left-4 w-32 h-32 bg-[#00BAFF]/20 rounded-full opacity-40 blur-3xl" />
+                  className="absolute bottom-4 left-4 w-32 h-32 bg-lydian-info/20 rounded-full opacity-40 blur-3xl" />
 
                 <div className="relative z-10">
-                  <div className="w-16 h-16 bg-gradient-to-br from-[#00BAFF] to-[#0088BD] rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-[#00BAFF]/30">
+                  <div className="w-16 h-16 bg-gradient-to-br from-lydian-info to-lydian-info-hover rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-lydian-info/30">
                     <Zap className="w-8 h-8 text-lydian-text-inverse" />
                   </div>
                   <h3 className="text-2xl font-bold text-lydian-text-inverse mb-3">
@@ -366,7 +366,7 @@ const CarRentalsPage: React.FC = () => {
                   <p className="text-lydian-text-dim leading-relaxed">
                     Beklemeden, onay süreçleri olmadan anında kiralayın. Araç sahibiyle görüşmeye gerek yok. Dijital anahtarla hemen yola çıkın.
                   </p>
-                  <div className="mt-6 flex items-center gap-2 text-sm text-[#00BAFF] font-semibold">
+                  <div className="mt-6 flex items-center gap-2 text-sm text-lydian-info font-semibold">
                     <Clock className="w-5 h-5" />
                     <span>2 Dakikada Kiralama</span>
                   </div>
@@ -384,10 +384,10 @@ const CarRentalsPage: React.FC = () => {
                 <motion.div
                   animate={{ rotate: [0, 360] }}
                   transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                  className="absolute top-1/2 right-1/2 w-40 h-40 bg-[#667EEA]/20 rounded-full opacity-30 blur-3xl" />
+                  className="absolute top-1/2 right-1/2 w-40 h-40 bg-lydian-success/20 rounded-full opacity-30 blur-3xl" />
 
                 <div className="relative z-10">
-                  <div className="w-16 h-16 bg-gradient-to-br from-[#667EEA] to-[#764BA2] rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-[#667EEA]/30">
+                  <div className="w-16 h-16 bg-gradient-to-br from-lydian-success to-lydian-success-hover rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-lydian-success/30">
                     <DollarSign className="w-8 h-8 text-lydian-text-inverse" />
                   </div>
                   <h3 className="text-2xl font-bold text-lydian-text-inverse mb-3">
@@ -396,7 +396,7 @@ const CarRentalsPage: React.FC = () => {
                   <p className="text-lydian-text-dim leading-relaxed">
                     Aracılık komisyonu yok. Doğrudan araç sahibinden kiralayın. Ekonomik sedan ₺350/gün, lüks araçlar ₺1,200/gün.
                   </p>
-                  <div className="mt-6 flex items-center gap-2 text-sm text-[#667EEA] font-semibold">
+                  <div className="mt-6 flex items-center gap-2 text-sm text-lydian-success font-semibold">
                     <TrendingUp className="w-5 h-5" />
                     <span>%40 Daha Ekonomik</span>
                   </div>
@@ -420,7 +420,7 @@ const CarRentalsPage: React.FC = () => {
                   <motion.div
                     whileHover={{ scale: 1.1, rotate: 360 }}
                     transition={{ duration: 0.6 }}
-                    className="w-16 h-16 bg-gradient-to-br from-[#FF9500] to-[#FF6B00] rounded-full flex items-center justify-center mx-auto mb-4 text-lydian-text-inverse text-2xl font-bold shadow-lg shadow-[#FF9500]/30">
+                    className="w-16 h-16 bg-gradient-to-br from-lydian-primary to-lydian-primary-hover rounded-full flex items-center justify-center mx-auto mb-4 text-lydian-text-inverse text-2xl font-bold shadow-lg shadow-lydian-primary/30">
 
                     1
                   </motion.div>
@@ -431,7 +431,7 @@ const CarRentalsPage: React.FC = () => {
                   <motion.div
                     whileHover={{ scale: 1.1, rotate: 360 }}
                     transition={{ duration: 0.6 }}
-                    className="w-16 h-16 bg-gradient-to-br from-[#FF9500] to-[#FF6B00] rounded-full flex items-center justify-center mx-auto mb-4 text-lydian-text-inverse text-2xl font-bold shadow-lg shadow-[#FF9500]/30">
+                    className="w-16 h-16 bg-gradient-to-br from-lydian-primary to-lydian-primary-hover rounded-full flex items-center justify-center mx-auto mb-4 text-lydian-text-inverse text-2xl font-bold shadow-lg shadow-lydian-primary/30">
 
                     2
                   </motion.div>
@@ -442,7 +442,7 @@ const CarRentalsPage: React.FC = () => {
                   <motion.div
                     whileHover={{ scale: 1.1, rotate: 360 }}
                     transition={{ duration: 0.6 }}
-                    className="w-16 h-16 bg-gradient-to-br from-[#FF9500] to-[#FF6B00] rounded-full flex items-center justify-center mx-auto mb-4 text-lydian-text-inverse text-2xl font-bold shadow-lg shadow-[#FF9500]/30">
+                    className="w-16 h-16 bg-gradient-to-br from-lydian-primary to-lydian-primary-hover rounded-full flex items-center justify-center mx-auto mb-4 text-lydian-text-inverse text-2xl font-bold shadow-lg shadow-lydian-primary/30">
 
                     3
                   </motion.div>
@@ -453,7 +453,7 @@ const CarRentalsPage: React.FC = () => {
                   <motion.div
                     whileHover={{ scale: 1.1, rotate: 360 }}
                     transition={{ duration: 0.6 }}
-                    className="w-16 h-16 bg-gradient-to-br from-[#FF9500] to-[#FF6B00] rounded-full flex items-center justify-center mx-auto mb-4 text-lydian-text-inverse text-2xl font-bold shadow-lg shadow-[#FF9500]/30">
+                    className="w-16 h-16 bg-gradient-to-br from-lydian-primary to-lydian-primary-hover rounded-full flex items-center justify-center mx-auto mb-4 text-lydian-text-inverse text-2xl font-bold shadow-lg shadow-lydian-primary/30">
 
                     4
                   </motion.div>
@@ -478,8 +478,8 @@ const CarRentalsPage: React.FC = () => {
                   whileTap={{ scale: 0.95 }}
                   className={`px-4 py-2 rounded-xl text-sm font-medium transition-all backdrop-blur-xl ${
                   filters.vehicleType === cat.value ?
-                  'bg-gradient-to-r from-[#FF9500] to-[#FF6B00] text-white shadow-lg shadow-[#FF9500]/30' :
-                  'bg-lydian-glass-dark-medium border border-lydian-border-light/30 text-lydian-text-inverse hover:border-[#FF9500]/50'}`
+                  'bg-gradient-to-r from-lydian-primary to-lydian-primary-hover text-white shadow-lg shadow-lydian-primary/30' :
+                  'bg-lydian-glass-dark-medium border border-lydian-border-light/30 text-lydian-text-inverse hover:border-lydian-primary/50'}`
                   }>
 
                     {cat.label}
@@ -491,7 +491,7 @@ const CarRentalsPage: React.FC = () => {
                 onClick={() => setShowFilters(!showFilters)}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="flex items-center gap-2 px-4 py-2 bg-lydian-glass-dark-medium backdrop-blur-xl border border-lydian-border-light/30 rounded-xl hover:border-[#FF9500]/50 transition-all">
+                className="flex items-center gap-2 px-4 py-2 bg-lydian-glass-dark-medium backdrop-blur-xl border border-lydian-border-light/30 rounded-xl hover:border-lydian-primary/50 transition-all">
 
                 <Filter className="w-5 h-5 text-lydian-text-inverse" />
                 <span className="text-sm font-medium text-lydian-text-inverse">Filtreler</span>
@@ -531,7 +531,7 @@ const CarRentalsPage: React.FC = () => {
                   vehicle.availableCount > 0 ? `${vehicle.availableCount} Müsait` : ''
                 ].filter(Boolean)}
                 category={vehicle.category}
-                categoryColor="#FF9500"
+                categoryColor="var(--lydian-primary)"
                 rating={parseFloat(vehicle.rating)}
                 reviews={vehicle.reviewCount}
                 metadata={[
@@ -579,7 +579,7 @@ const CarRentalsPage: React.FC = () => {
                     {vehicle.insuranceIncluded &&
                     <motion.span
                       whileHover={{ scale: 1.05 }}
-                      className="px-3 py-1 bg-gradient-to-r from-green-500/20 to-emerald-500/20 border border-green-500/30 text-green-300 rounded-xl text-xs font-medium flex items-center gap-1 backdrop-blur-xl">
+                      className="px-3 py-1 bg-gradient-to-r from-lydian-success/20 to-lydian-success-hover/20 border border-lydian-success/30 text-lydian-success rounded-xl text-xs font-medium flex items-center gap-1 backdrop-blur-xl">
 
                         <Shield className="w-3 h-3" />
                         Sigorta Dahil
@@ -588,7 +588,7 @@ const CarRentalsPage: React.FC = () => {
                     {vehicle.gps &&
                     <motion.span
                       whileHover={{ scale: 1.05 }}
-                      className="px-3 py-1 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 border border-blue-500/30 text-blue-300 rounded-xl text-xs font-medium flex items-center gap-1 backdrop-blur-xl">
+                      className="px-3 py-1 bg-gradient-to-r from-lydian-info/20 to-lydian-info-hover/20 border border-lydian-info/30 text-lydian-info rounded-xl text-xs font-medium flex items-center gap-1 backdrop-blur-xl">
 
                         🗺️ GPS
                       </motion.span>
@@ -596,7 +596,7 @@ const CarRentalsPage: React.FC = () => {
                     {vehicle.airConditioning &&
                     <motion.span
                       whileHover={{ scale: 1.05 }}
-                      className="px-3 py-1 bg-gradient-to-r from-purple-500/20 to-pink-500/20 border border-purple-500/30 text-purple-300 rounded-xl text-xs font-medium flex items-center gap-1 backdrop-blur-xl">
+                      className="px-3 py-1 bg-gradient-to-r from-lydian-warning/20 to-lydian-warning-hover/20 border border-lydian-warning/30 text-lydian-warning rounded-xl text-xs font-medium flex items-center gap-1 backdrop-blur-xl">
 
                         ❄️ Klima
                       </motion.span>
@@ -610,12 +610,12 @@ const CarRentalsPage: React.FC = () => {
 
         {/* Owner CTA Banner */}
         <section className="max-w-7xl mx-auto px-4 py-16">
-          <div className="relative bg-gradient-to-r from-[#FF9500] to-[#FF6B00] rounded-3xl overflow-hidden">
+          <div className="relative bg-gradient-to-r from-lydian-primary to-lydian-primary-hover rounded-3xl overflow-hidden">
             {/* Animated background orbs */}
             <motion.div
               animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
               transition={{ duration: 4, repeat: Infinity }}
-              className="absolute top-0 right-0 w-96 h-96 bg-white/20 rounded-full blur-3xl" />
+              className="absolute top-0 right-0 w-96 h-96 bg-lydian-bg/20 rounded-full blur-3xl" />
 
             <motion.div
               animate={{ scale: [1.2, 1, 1.2], opacity: [0.2, 0.4, 0.2] }}
@@ -632,7 +632,7 @@ const CarRentalsPage: React.FC = () => {
                 <motion.div
                   whileHover={{ rotate: 360, scale: 1.1 }}
                   transition={{ duration: 0.8 }}
-                  className="inline-flex items-center justify-center w-20 h-20 bg-white/20 backdrop-blur-xl rounded-2xl mb-6 shadow-lg">
+                  className="inline-flex items-center justify-center w-20 h-20 bg-lydian-bg/20 backdrop-blur-xl rounded-2xl mb-6 shadow-lg">
 
                   <Car className="w-10 h-10 text-white" />
                 </motion.div>
@@ -649,21 +649,21 @@ const CarRentalsPage: React.FC = () => {
                 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
                   <motion.div
                     whileHover={{ scale: 1.05 }}
-                    className="flex items-center gap-2 text-white bg-white/10 backdrop-blur-xl px-4 py-2 rounded-xl">
+                    className="flex items-center gap-2 text-white bg-lydian-bg/10 backdrop-blur-xl px-4 py-2 rounded-xl">
 
                     <CheckCircle className="w-5 h-5" />
                     <span className="font-medium">%12-15 Komisyon</span>
                   </motion.div>
                   <motion.div
                     whileHover={{ scale: 1.05 }}
-                    className="flex items-center gap-2 text-white bg-white/10 backdrop-blur-xl px-4 py-2 rounded-xl">
+                    className="flex items-center gap-2 text-white bg-lydian-bg/10 backdrop-blur-xl px-4 py-2 rounded-xl">
 
                     <CheckCircle className="w-5 h-5" />
                     <span className="font-medium">Güvenli Ödeme</span>
                   </motion.div>
                   <motion.div
                     whileHover={{ scale: 1.05 }}
-                    className="flex items-center gap-2 text-white bg-white/10 backdrop-blur-xl px-4 py-2 rounded-xl">
+                    className="flex items-center gap-2 text-white bg-lydian-bg/10 backdrop-blur-xl px-4 py-2 rounded-xl">
 
                     <CheckCircle className="w-5 h-5" />
                     <span className="font-medium">7/24 Destek</span>

@@ -128,7 +128,7 @@ export const BookingConfirmationEmail: React.FC<
           {/* Logo */}
           <Section style={logoSection}>
             <Img
-              src="https://travel.ailydian.com/logo.png"
+              src="https://holiday.ailydian.com/logo.png"
               width="150"
               height="50"
               alt="Travel.Ailydian"

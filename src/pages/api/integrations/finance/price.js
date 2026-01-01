@@ -58,7 +58,7 @@ export default async function handler(req, res) {
         pricing: priceData,
         availability: 'available',
         lastUpdated: new Date().toISOString(),
-        provider: 'Travel.LyDian',
+        provider: 'Holiday.AILYDIAN',
         features: language === 'tr' ? [
           'Ücretsiz iptal',
           'En iyi fiyat garantisi',

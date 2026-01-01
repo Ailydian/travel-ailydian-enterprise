@@ -21,8 +21,8 @@ const CryptoPayments: React.FC = () => {
   return (
     <>
       <Head>
-        <title>Kripto Ödemeler - Travel.LyDian | Bitcoin, Ethereum, USDT ile Ödeme</title>
-        <meta name="description" content="Travel.LyDian'da Bitcoin, Ethereum, USDT ve diğer kripto paralarla güvenli ödeme yapın. Blockchain teknolojisi ile güvenli seyahat rezervasyonları." />
+        <title>Kripto Ödemeler - Holiday.AILYDIAN | Bitcoin, Ethereum, USDT ile Ödeme</title>
+        <meta name="description" content="Holiday.AILYDIAN'da Bitcoin, Ethereum, USDT ve diğer kripto paralarla güvenli ödeme yapın. Blockchain teknolojisi ile güvenli seyahat rezervasyonları." />
         <meta name="keywords" content="kripto ödeme, bitcoin ödeme, ethereum, USDT, blockchain ödeme, kripto para seyahat" />
       </Head>
 
@@ -99,9 +99,9 @@ const CryptoPayments: React.FC = () => {
             <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
               {[
               { name: 'Bitcoin', symbol: 'BTC', color: 'bg-orange-100 text-orange-600' },
-              { name: 'Ethereum', symbol: 'ETH', color: 'bg-blue-100 text-blue-600' },
-              { name: 'Tether', symbol: 'USDT', color: 'bg-green-100 text-green-600' },
-              { name: 'Binance Coin', symbol: 'BNB', color: 'bg-yellow-100 text-yellow-600' },
+              { name: 'Ethereum', symbol: 'ETH', color: 'bg-blue-100 text-lydian-primary' },
+              { name: 'Tether', symbol: 'USDT', color: 'bg-green-100 text-lydian-success' },
+              { name: 'Binance Coin', symbol: 'BNB', color: 'bg-yellow-100 text-lydian-warning' },
               { name: 'Cardano', symbol: 'ADA', color: 'bg-indigo-100 text-indigo-600' },
               { name: 'Solana', symbol: 'SOL', color: 'bg-purple-100 text-purple-600' }].
               map((crypto, index) =>
@@ -138,14 +138,14 @@ const CryptoPayments: React.FC = () => {
                 title: 'Rezervasyon Seçin',
                 description: 'İstediğiniz tur, otel veya aktiviteyi sepete ekleyin.',
                 icon: CreditCard,
-                color: 'bg-blue-100 text-blue-600'
+                color: 'bg-blue-100 text-lydian-primary'
               },
               {
                 step: '2',
                 title: 'Kripto Para Seçin',
                 description: 'Ödeme sayfasında tercih ettiğiniz kripto parayı seçin.',
                 icon: Wallet,
-                color: 'bg-green-100 text-green-600'
+                color: 'bg-green-100 text-lydian-success'
               },
               {
                 step: '3',

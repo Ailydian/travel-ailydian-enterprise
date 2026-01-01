@@ -4,7 +4,7 @@ import { authOptions } from '@/pages/api/auth/[...nextauth]'
 import { PrismaClient, BookingStatus } from '@prisma/client'
 import { logger } from '../../../../../lib/logger/winston';
 
-const prisma = new PrismaClient()
+// Using singleton prisma
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== 'PUT') {

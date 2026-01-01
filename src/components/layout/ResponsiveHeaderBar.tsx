@@ -43,6 +43,8 @@ import ResponsiveMobileMenu from './ResponsiveMobileMenu';
 import AIAssistantPopup from '../ui/AIAssistantPopup';
 import PremiumVoiceButton from '../ui/PremiumVoiceButton';
 import QuickSearchModal from '../search/QuickSearchModal';
+import { ThemeToggle } from '../theme/ThemeToggle';
+import { LAYOUT_CONSTANTS } from '@/config/layout-constants';
 
 // Submenu structure
 interface SubMenuItem {
@@ -592,13 +594,13 @@ const ResponsiveHeaderBar: React.FC = () => {
         transition={{ type: 'spring', stiffness: 300, damping: 30 }}
         className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${
         isScrolled ?
-        'bg-white/95 backdrop-blur-xl shadow-lg' :
-        'bg-white/80 backdrop-blur-md'}`
+        'bg-lydian-bg/95 backdrop-blur-xl shadow-lg' :
+        'bg-lydian-bg/80 backdrop-blur-md'}`
         }>
 
         <div className="mobile-nav-safe">
-          <div className="container-responsive px-3 sm:px-4">
-            <div className="flex items-center justify-between h-14 sm:h-16 md:h-20">
+          <div className={`container-responsive ${LAYOUT_CONSTANTS.header.padding.x}`}>
+            <div className={`flex items-center justify-between ${LAYOUT_CONSTANTS.header.height.mobile} ${LAYOUT_CONSTANTS.header.height.desktop}`}>
               {/* Left: Toggle (Mobile Only) + Logo */}
               <div className="flex items-center gap-2 sm:gap-3 md:gap-4">
                 {/* Mobile Menu Button - ONLY MOBILE - Uses @media query for absolute hiding on desktop */}
@@ -710,6 +712,8 @@ const ResponsiveHeaderBar: React.FC = () => {
 
               {/* Right: Action Buttons */}
               <div className="flex items-center gap-1 sm:gap-1.5 md:gap-2">
+                {/* Theme Toggle */}
+                <ThemeToggle variant="icon" />
                 {/* Premium Search Button - Opens Quick Search Modal */}
                 <motion.button
                   onClick={() => setIsQuickSearchOpen(true)}
@@ -842,7 +846,7 @@ const ResponsiveHeaderBar: React.FC = () => {
 
 
       {/* Spacer to prevent content from being hidden under fixed header */}
-      <div className="h-14 sm:h-16 md:h-20" />
+      <div className={`${LAYOUT_CONSTANTS.header.height.mobile} ${LAYOUT_CONSTANTS.header.height.desktop}`} />
     </>);
 
 };
@@ -877,7 +881,7 @@ const NavLinkWithSubmenu: React.FC<{
         'text-gray-200'}`
         }>
 
-        <Icon className={`w-4 h-4 ${isActive ? 'text-lydian-primary' : 'text-gray-300'}`} />
+        <Icon className={`w-4 h-4 ${isActive ? 'text-lydian-primary' : 'text-lydian-text-dim'}`} />
         <span className="text-sm font-semibold">{label}</span>
         <ChevronDown
           className={`w-3 h-3 transition-transform ${isSubmenuOpen ? 'rotate-180' : ''}`} />

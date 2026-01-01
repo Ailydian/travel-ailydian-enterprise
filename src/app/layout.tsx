@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import LyDianEcosystemFooter from '@/components/LyDianEcosystemFooter'
 import { QueryProvider } from '@/components/providers/QueryProvider'
+import { ThemeProvider } from '@/providers/ThemeProvider'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -59,20 +60,22 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="tr">
+    <html lang="tr" suppressHydrationWarning>
       <body className={inter.className}>
-        <QueryProvider>
-          <div className="min-h-screen bg-white/5">
-            {children}
-          </div>
+        <ThemeProvider defaultTheme="system" storageKey="travel-lydian-theme">
+          <QueryProvider>
+            <div className="min-h-screen bg-lydian-bg/5 dark:bg-gray-900 transition-colors duration-300">
+              {children}
+            </div>
 
-          {/* LyDian Ecosystem Cross-Links - Güvenli ekleme, mevcut footer'a zarar vermez */}
-          <LyDianEcosystemFooter
-            currentDomain="travel.lydian.com"
-            theme="light"
-            position="above-footer"
-          />
-        </QueryProvider>
+            {/* LyDian Ecosystem Cross-Links - Güvenli ekleme, mevcut footer'a zarar vermez */}
+            <LyDianEcosystemFooter
+              currentDomain="holiday.ailydian.com"
+              theme="light"
+              position="above-footer"
+            />
+          </QueryProvider>
+        </ThemeProvider>
       </body>
     </html>
   )

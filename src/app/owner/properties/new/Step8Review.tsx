@@ -61,12 +61,12 @@ export default function Step8Review({ data, allData }: Step8Props) {
       <div className="border-2 border-slate-200 rounded-xl p-6">
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-3">
-            <Home className="w-5 h-5 text-blue-600" />
+            <Home className="w-5 h-5 text-lydian-primary" />
             <h3 className="text-lg font-bold text-slate-900">Temel Bilgiler</h3>
           </div>
           <button
             type="button"
-            className="flex items-center gap-2 px-4 py-2 text-sm text-blue-600 hover:bg-blue-50 rounded-lg transition-all"
+            className="flex items-center gap-2 px-4 py-2 text-sm text-lydian-primary hover:bg-blue-50 rounded-lg transition-all"
           >
             <Edit className="w-4 h-4" />
             Düzenle
@@ -110,12 +110,12 @@ export default function Step8Review({ data, allData }: Step8Props) {
       <div className="border-2 border-slate-200 rounded-xl p-6">
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-3">
-            <MapPin className="w-5 h-5 text-red-600" />
+            <MapPin className="w-5 h-5 text-lydian-error" />
             <h3 className="text-lg font-bold text-slate-900">Konum</h3>
           </div>
           <button
             type="button"
-            className="flex items-center gap-2 px-4 py-2 text-sm text-blue-600 hover:bg-blue-50 rounded-lg transition-all"
+            className="flex items-center gap-2 px-4 py-2 text-sm text-lydian-primary hover:bg-blue-50 rounded-lg transition-all"
           >
             <Edit className="w-4 h-4" />
             Düzenle
@@ -153,12 +153,12 @@ export default function Step8Review({ data, allData }: Step8Props) {
       <div className="border-2 border-slate-200 rounded-xl p-6">
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-3">
-            <CheckCircle2 className="w-5 h-5 text-green-600" />
+            <CheckCircle2 className="w-5 h-5 text-lydian-success" />
             <h3 className="text-lg font-bold text-slate-900">Olanaklar ve Özellikler</h3>
           </div>
           <button
             type="button"
-            className="flex items-center gap-2 px-4 py-2 text-sm text-blue-600 hover:bg-blue-50 rounded-lg transition-all"
+            className="flex items-center gap-2 px-4 py-2 text-sm text-lydian-primary hover:bg-blue-50 rounded-lg transition-all"
           >
             <Edit className="w-4 h-4" />
             Düzenle
@@ -202,12 +202,12 @@ export default function Step8Review({ data, allData }: Step8Props) {
       <div className="border-2 border-slate-200 rounded-xl p-6">
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-3">
-            <DollarSign className="w-5 h-5 text-green-600" />
+            <DollarSign className="w-5 h-5 text-lydian-success" />
             <h3 className="text-lg font-bold text-slate-900">Fiyatlandırma</h3>
           </div>
           <button
             type="button"
-            className="flex items-center gap-2 px-4 py-2 text-sm text-blue-600 hover:bg-blue-50 rounded-lg transition-all"
+            className="flex items-center gap-2 px-4 py-2 text-sm text-lydian-primary hover:bg-blue-50 rounded-lg transition-all"
           >
             <Edit className="w-4 h-4" />
             Düzenle
@@ -229,7 +229,7 @@ export default function Step8Review({ data, allData }: Step8Props) {
           {step4.discounts?.weeklyDiscount > 0 && (
             <div>
               <span className="text-slate-600">Haftalık İndirim:</span>
-              <p className="font-semibold text-green-600">
+              <p className="font-semibold text-lydian-success">
                 %{step4.discounts.weeklyDiscount} indirim
               </p>
             </div>
@@ -237,7 +237,7 @@ export default function Step8Review({ data, allData }: Step8Props) {
           {step4.discounts?.monthlyDiscount > 0 && (
             <div>
               <span className="text-slate-600">Aylık İndirim:</span>
-              <p className="font-semibold text-green-600">
+              <p className="font-semibold text-lydian-success">
                 %{step4.discounts.monthlyDiscount} indirim
               </p>
             </div>
@@ -254,7 +254,7 @@ export default function Step8Review({ data, allData }: Step8Props) {
           </div>
           <button
             type="button"
-            className="flex items-center gap-2 px-4 py-2 text-sm text-blue-600 hover:bg-blue-50 rounded-lg transition-all"
+            className="flex items-center gap-2 px-4 py-2 text-sm text-lydian-primary hover:bg-blue-50 rounded-lg transition-all"
           >
             <Edit className="w-4 h-4" />
             Düzenle
@@ -277,7 +277,7 @@ export default function Step8Review({ data, allData }: Step8Props) {
                     className="w-full h-full object-cover"
                   />
                   {index === step5.coverPhotoIndex && (
-                    <div className="absolute top-1 right-1 px-2 py-0.5 bg-yellow-500 text-white text-xs font-bold rounded">
+                    <div className="absolute top-1 right-1 px-2 py-0.5 bg-lydian-warning-hover text-white text-xs font-bold rounded">
                       Kapak
                     </div>
                   )}
@@ -302,7 +302,7 @@ export default function Step8Review({ data, allData }: Step8Props) {
           </div>
           <button
             type="button"
-            className="flex items-center gap-2 px-4 py-2 text-sm text-blue-600 hover:bg-blue-50 rounded-lg transition-all"
+            className="flex items-center gap-2 px-4 py-2 text-sm text-lydian-primary hover:bg-blue-50 rounded-lg transition-all"
           >
             <Edit className="w-4 h-4" />
             Düzenle
@@ -354,7 +354,7 @@ export default function Step8Review({ data, allData }: Step8Props) {
           <label
             className={`flex items-center gap-4 p-4 border-2 rounded-lg cursor-pointer transition-all ${
               submissionType === 'save_draft'
-                ? 'border-blue-500 bg-blue-50'
+                ? 'border-lydian-primary bg-blue-50'
                 : 'border-slate-200 hover:border-slate-300'
             }`}
           >
@@ -362,7 +362,7 @@ export default function Step8Review({ data, allData }: Step8Props) {
               type="radio"
               value="save_draft"
               {...register('submissionType')}
-              className="w-5 h-5 text-blue-600"
+              className="w-5 h-5 text-lydian-primary"
             />
             <div>
               <h4 className="font-semibold text-slate-900">Taslak Olarak Kaydet</h4>
@@ -375,7 +375,7 @@ export default function Step8Review({ data, allData }: Step8Props) {
           <label
             className={`flex items-center gap-4 p-4 border-2 rounded-lg cursor-pointer transition-all ${
               submissionType === 'submit_for_review'
-                ? 'border-blue-500 bg-blue-50'
+                ? 'border-lydian-primary bg-blue-50'
                 : 'border-slate-200 hover:border-slate-300'
             }`}
           >
@@ -383,7 +383,7 @@ export default function Step8Review({ data, allData }: Step8Props) {
               type="radio"
               value="submit_for_review"
               {...register('submissionType')}
-              className="w-5 h-5 text-blue-600"
+              className="w-5 h-5 text-lydian-primary"
             />
             <div>
               <h4 className="font-semibold text-slate-900">İnceleme İçin Gönder</h4>
@@ -395,7 +395,7 @@ export default function Step8Review({ data, allData }: Step8Props) {
         </div>
 
         {errors.submissionType && (
-          <p className="mt-2 text-sm text-red-600">
+          <p className="mt-2 text-sm text-lydian-error">
             {errors.submissionType.message?.toString()}
           </p>
         )}
@@ -410,10 +410,10 @@ export default function Step8Review({ data, allData }: Step8Props) {
           {...register('additionalNotes')}
           rows={4}
           placeholder="İnceleme ekibimizle paylaşmak istediğiniz ek bilgiler..."
-          className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all resize-none"
+          className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-lydian-primary focus:ring-2 focus:ring-blue-200 outline-none transition-all resize-none"
         />
         {errors.additionalNotes && (
-          <p className="mt-1 text-sm text-red-600">
+          <p className="mt-1 text-sm text-lydian-error">
             {errors.additionalNotes.message?.toString()}
           </p>
         )}
@@ -424,19 +424,19 @@ export default function Step8Review({ data, allData }: Step8Props) {
         <h3 className="text-lg font-bold text-green-900 mb-4">Son Kontrol Listesi</h3>
         <div className="space-y-2 text-sm">
           <div className="flex items-center gap-3">
-            <CheckCircle2 className="w-5 h-5 text-green-600" />
+            <CheckCircle2 className="w-5 h-5 text-lydian-success" />
             <span className="text-green-800">Tüm zorunlu bilgiler sağlandı</span>
           </div>
           <div className="flex items-center gap-3">
-            <CheckCircle2 className="w-5 h-5 text-green-600" />
+            <CheckCircle2 className="w-5 h-5 text-lydian-success" />
             <span className="text-green-800">Fotoğraflar yüklendi (minimum 5)</span>
           </div>
           <div className="flex items-center gap-3">
-            <CheckCircle2 className="w-5 h-5 text-green-600" />
+            <CheckCircle2 className="w-5 h-5 text-lydian-success" />
             <span className="text-green-800">Fiyatlandırma ve müsaitlik ayarlandı</span>
           </div>
           <div className="flex items-center gap-3">
-            <CheckCircle2 className="w-5 h-5 text-green-600" />
+            <CheckCircle2 className="w-5 h-5 text-lydian-success" />
             <span className="text-green-800">Şartlar ve sözleşmeler kabul edildi</span>
           </div>
         </div>

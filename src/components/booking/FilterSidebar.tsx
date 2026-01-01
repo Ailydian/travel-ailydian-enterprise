@@ -315,7 +315,7 @@ export const FilterSidebar: React.FC<FilterSidebarProps> = ({
             className={`flex items-center gap-3 p-3 rounded-lg border-2 cursor-pointer transition-all ${
             selectedAmenities.includes(amenity.id) ?
             'border-lydian-primary bg-red-50' :
-            'border-transparent hover:bg-white/5'}`
+            'border-transparent hover:bg-lydian-bg/5'}`
             }>
 
                   <input

@@ -14,7 +14,7 @@ interface SitemapUrl {
 }
 
 export class SitemapGenerator {
-  private baseUrl = 'https://travel.lydian.com';
+  private baseUrl = 'https://holiday.ailydian.com';
   private supportedLanguages = ['en', 'tr', 'de', 'fr', 'es', 'it', 'pt', 'ru', 'zh', 'ja', 'ko', 'ar', 'hi'];
 
   /**
@@ -443,7 +443,7 @@ Clean-param: utm_source&utm_medium&utm_campaign&fbclid&gclid`;
     return {
       "@context": "https://schema.org",
       "@type": "WebSite",
-      "name": "Travel.LyDian",
+      "name": "Holiday.AILYDIAN",
       "description": "Global AI-powered travel platform with reviews, recommendations, and bookings for restaurants, hotels, attractions worldwide.",
       "url": this.baseUrl,
       "potentialAction": {
@@ -478,7 +478,7 @@ Clean-param: utm_source&utm_medium&utm_campaign&fbclid&gclid`;
     return {
       "@context": "https://schema.org",
       "@type": "Organization",
-      "name": "Travel.LyDian",
+      "name": "Holiday.AILYDIAN",
       "description": "AI-powered global travel platform connecting travelers with authentic experiences worldwide.",
       "url": this.baseUrl,
       "logo": `${this.baseUrl}/logo.png`,

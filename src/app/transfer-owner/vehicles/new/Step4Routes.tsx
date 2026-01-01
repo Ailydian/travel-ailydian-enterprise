@@ -180,7 +180,7 @@ export default function Step4Routes({ data }: Step4Props) {
                 className={`p-4 border-2 rounded-xl text-left transition-all ${
                   isSelected
                     ? 'border-cyan-500 bg-cyan-50 shadow-md'
-                    : 'border-slate-200 bg-white/5 hover:border-slate-300'
+                    : 'border-slate-200 bg-lydian-bg/5 hover:border-slate-300'
                 }`}
               >
                 <div className="flex items-start gap-3">
@@ -252,7 +252,7 @@ export default function Step4Routes({ data }: Step4Props) {
         </div>
 
         {errors.airports && (
-          <p className="mt-2 text-sm text-red-600">{errors.airports.message?.toString()}</p>
+          <p className="mt-2 text-sm text-lydian-error">{errors.airports.message?.toString()}</p>
         )}
       </div>
 
@@ -276,8 +276,8 @@ export default function Step4Routes({ data }: Step4Props) {
                 whileTap={{ scale: 0.99 }}
                 className={`p-4 border-2 rounded-xl text-left transition-all ${
                   isSelected
-                    ? 'border-blue-500 bg-blue-50 shadow-md'
-                    : 'border-slate-200 bg-white/5 hover:border-slate-300'
+                    ? 'border-lydian-primary bg-blue-50 shadow-md'
+                    : 'border-slate-200 bg-lydian-bg/5 hover:border-slate-300'
                 }`}
               >
                 <div className="flex items-center justify-between">
@@ -382,7 +382,7 @@ export default function Step4Routes({ data }: Step4Props) {
             </div>
             <p className="mt-1 text-xs text-slate-500">Önerilen: ₺7.5 - ₺10.0</p>
             {errors.basePricePerKm && (
-              <p className="mt-1 text-sm text-red-600">
+              <p className="mt-1 text-sm text-lydian-error">
                 {errors.basePricePerKm.message?.toString()}
               </p>
             )}
@@ -408,7 +408,7 @@ export default function Step4Routes({ data }: Step4Props) {
             </div>
             <p className="mt-1 text-xs text-slate-500">Kısa mesafeler için minimum ücret</p>
             {errors.minimumFare && (
-              <p className="mt-1 text-sm text-red-600">
+              <p className="mt-1 text-sm text-lydian-error">
                 {errors.minimumFare.message?.toString()}
               </p>
             )}
@@ -435,7 +435,7 @@ export default function Step4Routes({ data }: Step4Props) {
             </div>
             <p className="mt-1 text-xs text-slate-500">22:00 - 06:00 arası (Önerilen: %15-25)</p>
             {errors.nightSurcharge && (
-              <p className="mt-1 text-sm text-red-600">
+              <p className="mt-1 text-sm text-lydian-error">
                 {errors.nightSurcharge.message?.toString()}
               </p>
             )}
@@ -464,7 +464,7 @@ export default function Step4Routes({ data }: Step4Props) {
               Cumartesi-Pazar (Önerilen: %10-20)
             </p>
             {errors.weekendSurcharge && (
-              <p className="mt-1 text-sm text-red-600">
+              <p className="mt-1 text-sm text-lydian-error">
                 {errors.weekendSurcharge.message?.toString()}
               </p>
             )}
@@ -512,19 +512,19 @@ export default function Step4Routes({ data }: Step4Props) {
         <h4 className="font-semibold text-blue-900 mb-3">Fiyatlandırma Bilgileri</h4>
         <ul className="text-sm text-blue-800 space-y-2">
           <li className="flex items-start gap-2">
-            <span className="text-blue-600 mt-0.5">•</span>
+            <span className="text-lydian-primary mt-0.5">•</span>
             <span>Seçtiğiniz araç tipinin fiyat çarpanı otomatik olarak uygulanacaktır</span>
           </li>
           <li className="flex items-start gap-2">
-            <span className="text-blue-600 mt-0.5">•</span>
+            <span className="text-lydian-primary mt-0.5">•</span>
             <span>Gece ek ücreti 22:00-06:00 saatleri arasında geçerlidir</span>
           </li>
           <li className="flex items-start gap-2">
-            <span className="text-blue-600 mt-0.5">•</span>
+            <span className="text-lydian-primary mt-0.5">•</span>
             <span>Hafta sonu ek ücreti Cumartesi-Pazar için uygulanır</span>
           </li>
           <li className="flex items-start gap-2">
-            <span className="text-blue-600 mt-0.5">•</span>
+            <span className="text-lydian-primary mt-0.5">•</span>
             <span>Popüler rotalarda özel fiyatlandırma yapabilirsiniz</span>
           </li>
         </ul>

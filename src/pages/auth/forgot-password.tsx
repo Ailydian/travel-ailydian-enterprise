@@ -38,13 +38,13 @@ export default function ForgotPassword() {
   return (
     <>
       <Head>
-        <title>Şifremi Unuttum | LyDian Travel - Güvenli Şifre Sıfırlama</title>
-        <meta name="description" content="LyDian Travel hesabınızın şifresini güvenli bir şekilde sıfırlayın. E-posta adresinize gönderilen link ile yeni şifre oluşturun." />
+        <title>Şifremi Unuttum | AILYDIAN Holiday - Güvenli Şifre Sıfırlama</title>
+        <meta name="description" content="AILYDIAN Holiday hesabınızın şifresini güvenli bir şekilde sıfırlayın. E-posta adresinize gönderilen link ile yeni şifre oluşturun." />
         <meta name="keywords" content="şifremi unuttum, şifre sıfırlama, lydian travel, hesap kurtarma, güvenli giriş" />
         <meta name="robots" content="noindex, nofollow" />
 
         {/* Open Graph */}
-        <meta property="og:title" content="Şifremi Unuttum | LyDian Travel" />
+        <meta property="og:title" content="Şifremi Unuttum | AILYDIAN Holiday" />
         <meta property="og:description" content="Hesabınızın şifresini güvenli bir şekilde sıfırlayın." />
         <meta property="og:type" content="website" />
       </Head>
@@ -60,7 +60,7 @@ export default function ForgotPassword() {
         {/* Return to Login */}
         <Link
           href="/auth/signin"
-          className="fixed top-6 left-6 z-50 flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-xl rounded-xl border border-white/20 text-white hover:bg-white/20 transition-all duration-200"
+          className="fixed top-6 left-6 z-50 flex items-center gap-2 px-4 py-2 bg-lydian-bg/10 backdrop-blur-xl rounded-xl border border-white/20 text-white hover:bg-lydian-bg/20 transition-all duration-200"
         >
           <ArrowLeft className="w-4 h-4" />
           <span className="font-medium">Giriş Sayfasına Dön</span>

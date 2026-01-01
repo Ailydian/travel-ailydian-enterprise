@@ -19,7 +19,7 @@ interface SectionProps {
 }
 
 const backgroundClasses = {
-  light: 'bg-white',
+  light: 'bg-lydian-bg',
   dark: 'bg-gradient-to-br from-gray-900 via-[#1a1a2e] to-gray-900',
   gradient: 'bg-gradient-to-br from-[#00BAFF]/10 via-[#667EEA]/10 to-[#FF9500]/10',
   neo: 'bg-gradient-to-br from-gray-50 via-white to-gray-50',

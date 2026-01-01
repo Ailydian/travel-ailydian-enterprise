@@ -1,6 +1,6 @@
 /**
  * Rentals Listing Page - Neo-Glass Futuristic Design
- * Redesigned to match travel.ailydian.com design system
+ * Redesigned to match holiday.ailydian.com design system
  * Features: FuturisticCard, NeoHero, Glassmorphism, 3D effects
  */
 
@@ -150,7 +150,7 @@ const RentalsPage: React.FC = () => {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Konum, özellik veya bölge ara..."
-              className="w-full pl-16 pr-16 py-5 bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/30 focus:border-white/30 transition-all text-lg"
+              className="w-full pl-16 pr-16 py-5 bg-lydian-bg/10 backdrop-blur-xl border border-white/20 rounded-2xl text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/30 focus:border-white/30 transition-all text-lg"
             />
             {searchQuery && (
               <button
@@ -170,8 +170,8 @@ const RentalsPage: React.FC = () => {
                 onClick={() => setSelectedType(type.value)}
                 className={`px-6 py-3 rounded-xl font-medium transition-all backdrop-blur-xl ${
                   selectedType === type.value
-                    ? 'bg-white text-blue-600 shadow-lg scale-105'
-                    : 'bg-white/10 text-white hover:bg-white/20 border border-white/20'
+                    ? 'bg-lydian-bg text-lydian-primary shadow-lg scale-105'
+                    : 'bg-lydian-bg/10 text-white hover:bg-lydian-bg/20 border border-white/20'
                 }`}
               >
                 {type.label}
@@ -189,11 +189,11 @@ const RentalsPage: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-center p-6 bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10"
+              className="text-center p-6 bg-lydian-bg/5 backdrop-blur-xl rounded-2xl border border-white/10"
             >
               <Home className="w-12 h-12 mx-auto mb-3 text-blue-400" />
               <div className="text-3xl font-bold text-white mb-1">{antalyaRentals.length}+</div>
-              <div className="text-gray-400">Özellik</div>
+              <div className="text-lydian-text-muted">Özellik</div>
             </motion.div>
 
             <motion.div
@@ -201,11 +201,11 @@ const RentalsPage: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="text-center p-6 bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10"
+              className="text-center p-6 bg-lydian-bg/5 backdrop-blur-xl rounded-2xl border border-white/10"
             >
               <TrendingUp className="w-12 h-12 mx-auto mb-3 text-green-400" />
               <div className="text-3xl font-bold text-white mb-1">%2</div>
-              <div className="text-gray-400">Daha Ucuz</div>
+              <div className="text-lydian-text-muted">Daha Ucuz</div>
             </motion.div>
 
             <motion.div
@@ -213,11 +213,11 @@ const RentalsPage: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="text-center p-6 bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10"
+              className="text-center p-6 bg-lydian-bg/5 backdrop-blur-xl rounded-2xl border border-white/10"
             >
               <Star className="w-12 h-12 mx-auto mb-3 text-yellow-400" />
               <div className="text-3xl font-bold text-white mb-1">4.8+</div>
-              <div className="text-gray-400">Ortalama Puan</div>
+              <div className="text-lydian-text-muted">Ortalama Puan</div>
             </motion.div>
 
             <motion.div
@@ -225,11 +225,11 @@ const RentalsPage: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.3 }}
-              className="text-center p-6 bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10"
+              className="text-center p-6 bg-lydian-bg/5 backdrop-blur-xl rounded-2xl border border-white/10"
             >
               <Shield className="w-12 h-12 mx-auto mb-3 text-purple-400" />
               <div className="text-3xl font-bold text-white mb-1">100%</div>
-              <div className="text-gray-400">Güvenli Ödeme</div>
+              <div className="text-lydian-text-muted">Güvenli Ödeme</div>
             </motion.div>
           </div>
         </div>
@@ -239,7 +239,7 @@ const RentalsPage: React.FC = () => {
       <div className="sticky top-20 z-30 bg-gray-900/95 backdrop-blur-xl border-b border-white/10 shadow-xl">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-4">
-            <div className="flex items-center gap-3 text-gray-300">
+            <div className="flex items-center gap-3 text-lydian-text-dim">
               <Filter className="w-5 h-5" />
               <span className="font-medium">{filteredProperties.length} özellik bulundu</span>
             </div>
@@ -253,7 +253,7 @@ const RentalsPage: React.FC = () => {
                   className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
                     selectedRegion === region.value
                       ? 'bg-gradient-to-r from-blue-500 to-cyan-500 text-white shadow-lg'
-                      : 'bg-white/5 text-gray-300 hover:bg-white/10 border border-white/10'
+                      : 'bg-lydian-bg/5 text-lydian-text-dim hover:bg-lydian-bg/10 border border-white/10'
                   }`}
                 >
                   {region.label}
@@ -277,12 +277,12 @@ const RentalsPage: React.FC = () => {
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: 'auto', opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
-              className="mt-4 p-6 bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10"
+              className="mt-4 p-6 bg-lydian-bg/5 backdrop-blur-xl rounded-2xl border border-white/10"
             >
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {/* Price Range */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">
+                  <label className="block text-sm font-medium text-lydian-text-dim mb-2">
                     Fiyat Aralığı (₺/gece)
                   </label>
                   <div className="flex items-center gap-3">
@@ -290,15 +290,15 @@ const RentalsPage: React.FC = () => {
                       type="number"
                       value={priceRange[0]}
                       onChange={(e) => setPriceRange([Number(e.target.value), priceRange[1]])}
-                      className="w-full px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full px-4 py-2 bg-lydian-bg/5 border border-white/10 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-lydian-primary"
                       placeholder="Min"
                     />
-                    <span className="text-gray-400">-</span>
+                    <span className="text-lydian-text-muted">-</span>
                     <input
                       type="number"
                       value={priceRange[1]}
                       onChange={(e) => setPriceRange([priceRange[0], Number(e.target.value)])}
-                      className="w-full px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full px-4 py-2 bg-lydian-bg/5 border border-white/10 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-lydian-primary"
                       placeholder="Max"
                     />
                   </div>
@@ -306,13 +306,13 @@ const RentalsPage: React.FC = () => {
 
                 {/* Min Guests */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">
+                  <label className="block text-sm font-medium text-lydian-text-dim mb-2">
                     Minimum Misafir Sayısı
                   </label>
                   <select
                     value={minGuests}
                     onChange={(e) => setMinGuests(Number(e.target.value))}
-                    className="w-full px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-4 py-2 bg-lydian-bg/5 border border-white/10 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-lydian-primary"
                   >
                     {[1, 2, 4, 6, 8, 10].map((num) => (
                       <option key={num} value={num}>{num}+ Kişi</option>
@@ -322,13 +322,13 @@ const RentalsPage: React.FC = () => {
 
                 {/* Region Dropdown */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">
+                  <label className="block text-sm font-medium text-lydian-text-dim mb-2">
                     Bölge
                   </label>
                   <select
                     value={selectedRegion}
                     onChange={(e) => setSelectedRegion(e.target.value)}
-                    className="w-full px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-4 py-2 bg-lydian-bg/5 border border-white/10 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-lydian-primary"
                   >
                     {regions.map((region) => (
                       <option key={region.value} value={region.value}>
@@ -348,7 +348,7 @@ const RentalsPage: React.FC = () => {
                     setPriceRange([0, 10000]);
                     setMinGuests(1);
                   }}
-                  className="px-6 py-2 bg-white/5 hover:bg-white/10 text-gray-300 rounded-lg font-medium transition-all border border-white/10"
+                  className="px-6 py-2 bg-lydian-bg/5 hover:bg-lydian-bg/10 text-lydian-text-dim rounded-lg font-medium transition-all border border-white/10"
                 >
                   Filtreleri Temizle
                 </button>
@@ -390,9 +390,9 @@ const RentalsPage: React.FC = () => {
 
           {filteredProperties.length === 0 && (
             <div className="text-center py-16">
-              <Home className="w-24 h-24 mx-auto mb-6 text-gray-600" />
+              <Home className="w-24 h-24 mx-auto mb-6 text-lydian-text-secondary" />
               <h3 className="text-2xl font-bold text-white mb-3">Özellik Bulunamadı</h3>
-              <p className="text-gray-400 mb-6">
+              <p className="text-lydian-text-muted mb-6">
                 Arama kriterlerinize uygun özellik bulunamadı. Filtreleri değiştirerek tekrar deneyin.
               </p>
               <button
@@ -429,7 +429,7 @@ const RentalsPage: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="text-xl text-gray-400"
+              className="text-xl text-lydian-text-muted"
             >
               Rakiplerimizden daha avantajlı konaklama deneyimi
             </motion.p>
@@ -440,11 +440,11 @@ const RentalsPage: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="p-8 bg-gradient-to-br from-blue-500/10 to-cyan-500/10 backdrop-blur-xl rounded-2xl border border-blue-500/20"
+              className="p-8 bg-gradient-to-br from-blue-500/10 to-cyan-500/10 backdrop-blur-xl rounded-2xl border border-lydian-primary/20"
             >
               <TrendingUp className="w-16 h-16 mb-4 text-blue-400" />
               <h3 className="text-2xl font-bold text-white mb-3">%2 Daha Ucuz</h3>
-              <p className="text-gray-400">
+              <p className="text-lydian-text-muted">
                 Airbnb, Booking.com ve Vrbo'dan %2 daha uygun fiyatlarla aynı özellikleri sunuyoruz.
               </p>
             </motion.div>
@@ -458,7 +458,7 @@ const RentalsPage: React.FC = () => {
             >
               <Shield className="w-16 h-16 mb-4 text-purple-400" />
               <h3 className="text-2xl font-bold text-white mb-3">Güvenli Ödeme</h3>
-              <p className="text-gray-400">
+              <p className="text-lydian-text-muted">
                 256-bit SSL şifreleme ile güvenli ödeme. Para iade garantisi.
               </p>
             </motion.div>
@@ -472,7 +472,7 @@ const RentalsPage: React.FC = () => {
             >
               <Award className="w-16 h-16 mb-4 text-green-400" />
               <h3 className="text-2xl font-bold text-white mb-3">Doğrulanmış Özellikler</h3>
-              <p className="text-gray-400">
+              <p className="text-lydian-text-muted">
                 Tüm özellikler ekibimiz tarafından doğrulanmış ve onaylanmıştır.
               </p>
             </motion.div>

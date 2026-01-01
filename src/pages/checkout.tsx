@@ -38,7 +38,7 @@ const LocationPicker = dynamic(() => import('../components/ui/LocationPicker'), 
   ssr: false,
   loading: () => (
     <div className="bg-lydian-glass-dark backdrop-blur-xl rounded-2xl border border-white/10 p-6">
-      <div className="h-96 bg-white/5 rounded-lg animate-pulse flex items-center justify-center">
+      <div className="h-96 bg-lydian-bg/5 rounded-lg animate-pulse flex items-center justify-center">
         <MapPin className="w-12 h-12 text-lydian-text-muted" />
       </div>
     </div>
@@ -528,7 +528,7 @@ const Checkout: React.FC = () => {
     return (
       <>
         <Head>
-          <title>Ödeme Başarılı - LyDian Travel</title>
+          <title>Ödeme Başarılı - AILYDIAN Holiday</title>
         </Head>
         <FuturisticHeader />
         <main className="pt-8 min-h-screen bg-lydian-glass-dark flex items-center justify-center px-3 sm:px-4">
@@ -559,7 +559,7 @@ const Checkout: React.FC = () => {
     return (
       <>
         <Head>
-          <title>Ödeme İşleniyor - LyDian Travel</title>
+          <title>Ödeme İşleniyor - AILYDIAN Holiday</title>
         </Head>
         <FuturisticHeader />
         <main className="pt-8 min-h-screen bg-lydian-glass-dark flex items-center justify-center px-3 sm:px-4">
@@ -590,7 +590,7 @@ const Checkout: React.FC = () => {
   return (
     <>
       <Head>
-        <title>Güvenli Ödeme - LyDian Travel | Blockchain Doğrulamalı</title>
+        <title>Güvenli Ödeme - AILYDIAN Holiday | Blockchain Doğrulamalı</title>
         <meta
           name="description"
           content="Güvenli SSL ödeme sayfası. Blockchain teknologisi ile doğrulanmış rezervasyon sistemi."
@@ -756,7 +756,7 @@ const Checkout: React.FC = () => {
                       <select
                         value={formData.expiryMonth}
                         onChange={(e) => handleInputChange('expiryMonth', e.target.value)}
-                        className={`w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base bg-white/10 backdrop-blur-xl border-2 rounded-2xl text-lydian-text-inverse outline-none transition-all ${
+                        className={`w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base bg-lydian-bg/10 backdrop-blur-xl border-2 rounded-2xl text-lydian-text-inverse outline-none transition-all ${
                           errors.expiryMonth ? 'border-red-500' : 'border-white/30'
                         }`}
                       >
@@ -781,7 +781,7 @@ const Checkout: React.FC = () => {
                       <select
                         value={formData.expiryYear}
                         onChange={(e) => handleInputChange('expiryYear', e.target.value)}
-                        className={`w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base bg-white/10 backdrop-blur-xl border-2 rounded-2xl text-lydian-text-inverse outline-none transition-all ${
+                        className={`w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base bg-lydian-bg/10 backdrop-blur-xl border-2 rounded-2xl text-lydian-text-inverse outline-none transition-all ${
                           errors.expiryYear ? 'border-red-500' : 'border-white/30'
                         }`}
                       >
@@ -885,7 +885,7 @@ const Checkout: React.FC = () => {
                     <select
                       value={formData.country}
                       onChange={(e) => handleInputChange('country', e.target.value)}
-                      className="w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base bg-white/10 backdrop-blur-xl border-2 border-white/30 rounded-2xl text-lydian-text-inverse outline-none transition-all"
+                      className="w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base bg-lydian-bg/10 backdrop-blur-xl border-2 border-white/30 rounded-2xl text-lydian-text-inverse outline-none transition-all"
                     >
                       <option value="TR" className="bg-gray-800">
                         Türkiye
@@ -1059,7 +1059,7 @@ const Checkout: React.FC = () => {
                 </div>
 
                 {/* Security Features */}
-                <div className="space-y-2 sm:space-y-3 mb-4 sm:mb-6 p-3 sm:p-4 bg-white/5 backdrop-blur-xl rounded-xl border border-white/10">
+                <div className="space-y-2 sm:space-y-3 mb-4 sm:mb-6 p-3 sm:p-4 bg-lydian-bg/5 backdrop-blur-xl rounded-xl border border-white/10">
                   <div className="flex items-center gap-2 text-xs sm:text-sm">
                     <Shield className="w-3 h-3 sm:w-4 sm:h-4 text-green-400" />
                     <span className="text-lydian-text-dim">256-bit SSL Güvenli</span>

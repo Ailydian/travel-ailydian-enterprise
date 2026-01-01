@@ -14,10 +14,10 @@
    CSS CUSTOM PROPERTIES (Design Tokens)
    ========================================================================= */
 :root {
-  /* Colors */
-  --color-primary-500: #0080FF;
-  --color-primary-600: #0066CC;
-  --color-primary-700: #004D99;
+  /* Colors - AILYDIAN RED Brand */
+  --color-primary-500: #DC2626;
+  --color-primary-600: #B91C1C;
+  --color-primary-700: #991B1B;
   
   /* Text Colors */
   --color-text-primary: #111827;
@@ -57,11 +57,41 @@
   --transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Dark Mode Variables (optional) */
+/* ============================================================================
+   DARK MODE VARIABLES
+   ========================================================================= */
+
+/* Dark mode class-based (manual control) */
+.dark {
+  /* Background Colors */
+  --color-bg-primary: #0a0a0f;
+  --color-bg-secondary: #111827;
+  --color-bg-tertiary: #1F2937;
+  --color-bg-surface: #1a1a24;
+  --color-bg-surface-raised: #2a2a34;
+
+  /* Text Colors */
+  --color-text-primary: #F9FAFB;
+  --color-text-secondary: #E5E7EB;
+  --color-text-tertiary: #D1D5DB;
+  --color-text-muted: #9CA3AF;
+  --color-text-dim: #6B7280;
+
+  /* Border Colors */
+  --color-border-light: #374151;
+  --color-border-default: #4B5563;
+
+  /* Shadows (darker for dark mode) */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.6);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.7);
+}
+
+/* System preference dark mode (fallback) */
 @media (prefers-color-scheme: dark) {
-  :root {
-    --color-bg-primary: #111827;
-    --color-bg-secondary: #1F2937;
+  :root:not(.light) {
+    --color-bg-primary: #0a0a0f;
+    --color-bg-secondary: #111827;
     --color-text-primary: #F9FAFB;
     --color-text-secondary: #D1D5DB;
   }
@@ -82,6 +112,10 @@
 * {
   margin: 0;
   padding: 0;
+  /* Smooth transitions for theme changes */
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-duration: 300ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* HTML & Body */
@@ -131,6 +165,10 @@ a {
 
 a:hover {
   color: var(--color-primary-600);
+}
+
+a:active {
+  color: var(--color-primary-700);
 }
 
 a:focus-visible {
@@ -480,4 +518,32 @@ button:focus-visible {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* ============================================================================
+   THEME TRANSITIONS
+   ========================================================================= */
+
+/* Smooth theme transitions (300ms) */
+html {
+  transition: background-color 300ms ease-out, color 300ms ease-out;
+}
+
+body {
+  transition: background-color 300ms ease-out, color 300ms ease-out;
+}
+
+/* Prevent transition on page load */
+html.no-transition,
+html.no-transition * {
+  transition: none !important;
+}
+
+/* Dark mode optimizations */
+.dark {
+  color-scheme: dark;
+}
+
+.light {
+  color-scheme: light;
 }

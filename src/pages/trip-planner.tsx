@@ -170,7 +170,7 @@ const TripPlannerPage: React.FC = () => {
                     className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-all ${
                     activeView === view.key ?
                     'bg-purple-600 text-white shadow-lg' :
-                    'bg-white/10 text-gray-200 hover:bg-gray-200'}`
+                    'bg-lydian-bg/10 text-gray-200 hover:bg-lydian-bg-surface-raised'}`
                     }>
 
                       <Icon className="w-4 h-4" />

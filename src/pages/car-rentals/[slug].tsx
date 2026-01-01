@@ -271,7 +271,7 @@ const CarDetailsPage = ({ slug: initialSlug, car: carProp }: CarDetailsPageProps
       MINIVAN: 'bg-teal-100 text-teal-800',
       COMPACT: 'bg-slate-100 text-slate-800'
     };
-    return colors[category] || 'bg-white/10 text-gray-100';
+    return colors[category] || 'bg-lydian-bg/10 text-gray-100';
   };
 
   if (!car) {

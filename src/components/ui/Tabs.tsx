@@ -180,7 +180,7 @@ export const Tabs: React.FC<TabsProps> = ({
   const getTabButtonClasses = (tab: Tab, isActive: boolean) => {
     const baseClasses = `
       relative px-4 py-2 font-medium transition-all duration-200
-      focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2
+      focus:outline-none focus:ring-2 focus:ring-lydian-primary focus:ring-offset-2
       disabled:opacity-50 disabled:cursor-not-allowed
       ${fullWidth ? 'flex-1' : ''}
     `;
@@ -190,8 +190,8 @@ export const Tabs: React.FC<TabsProps> = ({
         ${baseClasses}
         rounded-lg
         ${isActive
-          ? 'bg-blue-600 text-white shadow-md'
-          : 'text-gray-700 hover:bg-gray-100'
+          ? 'bg-lydian-primary text-white shadow-md'
+          : 'text-lydian-text-secondary hover:bg-lydian-bg-surface-raised'
         }
       `;
     }
@@ -201,8 +201,8 @@ export const Tabs: React.FC<TabsProps> = ({
         ${baseClasses}
         border-b-2
         ${isActive
-          ? 'border-blue-600 text-blue-600'
-          : 'border-transparent text-gray-600 hover:text-gray-900'
+          ? 'border-blue-600 text-lydian-primary'
+          : 'border-transparent text-lydian-text-secondary hover:text-lydian-text'
         }
       `;
     }
@@ -210,10 +210,10 @@ export const Tabs: React.FC<TabsProps> = ({
     // default variant
     return `
       ${baseClasses}
-      border border-gray-300 -ml-px first:ml-0 first:rounded-l-lg last:rounded-r-lg
+      border border-lydian-border-medium -ml-px first:ml-0 first:rounded-l-lg last:rounded-r-lg
       ${isActive
-        ? 'bg-white text-blue-600 border-blue-600 z-10'
-        : 'bg-gray-50 text-gray-700 hover:bg-gray-100'
+        ? 'bg-lydian-bg text-lydian-primary border-blue-600 z-10'
+        : 'bg-lydian-bg-surface text-lydian-text-secondary hover:bg-lydian-bg-surface-raised'
       }
     `;
   };
@@ -243,7 +243,7 @@ export const Tabs: React.FC<TabsProps> = ({
           className={`
             relative
             ${orientation === 'horizontal'
-              ? `flex ${centered ? 'justify-center' : ''} ${variant === 'underline' ? 'border-b border-gray-200' : ''}`
+              ? `flex ${centered ? 'justify-center' : ''} ${variant === 'underline' ? 'border-b border-lydian-border' : ''}`
               : 'flex flex-col space-y-1'
             }
           `}
@@ -273,7 +273,7 @@ export const Tabs: React.FC<TabsProps> = ({
                   {tab.badge && (
                     <span className={`
                       px-2 py-0.5 text-xs font-semibold rounded-full
-                      ${isActive ? 'bg-white/20' : 'bg-blue-100 text-blue-700'}
+                      ${isActive ? 'bg-lydian-bg/20' : 'bg-blue-100 text-lydian-primary-hover'}
                     `}>
                       {tab.badge}
                     </span>
@@ -288,7 +288,7 @@ export const Tabs: React.FC<TabsProps> = ({
             <div
               ref={indicatorRef}
               className={`
-                absolute bg-blue-600 transition-all duration-300
+                absolute bg-lydian-primary transition-all duration-300
                 ${orientation === 'horizontal'
                   ? 'bottom-0 h-0.5'
                   : 'left-0 w-0.5'
@@ -369,7 +369,7 @@ export const TabButton: React.FC<{
       onClick={() => setActiveId(id)}
       className={`
         px-4 py-2 rounded-lg font-medium transition-colors
-        ${isActive ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}
+        ${isActive ? 'bg-lydian-primary text-white' : 'bg-lydian-bg-surface-raised text-lydian-text-secondary hover:bg-lydian-bg-surface-raised'}
         ${className}
       `}
     >

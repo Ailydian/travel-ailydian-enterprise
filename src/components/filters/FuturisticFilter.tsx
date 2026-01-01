@@ -225,7 +225,7 @@ export const FuturisticFilter: React.FC<FuturisticFilterProps> = ({
                                 className={`w-full px-4 py-3 rounded-xl flex items-center justify-between transition-all ${
                                 isSelected ?
                                 'bg-gradient-to-r from-[#667EEA]/20 to-[#764BA2]/20 border-2 border-[#667EEA]' :
-                                'bg-white/40 border border-white/60 hover:bg-white/60'}`
+                                'bg-lydian-bg/40 border border-white/60 hover:bg-lydian-bg/60'}`
                                 }>
 
                                         <div className="flex items-center gap-3">

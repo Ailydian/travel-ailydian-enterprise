@@ -227,12 +227,12 @@ const CryptoPayment: React.FC<CryptoPaymentProps> = ({
           {steps.map((step, index) =>
           <div key={step.id} className="flex items-center">
               <div className={`flex items-center gap-3 ${index < steps.length - 1 ? 'flex-1' : ''}`}>
-                <div className={`flex flex-col items-center ${step.status === 'active' ? 'text-blue-600' : step.status === 'completed' ? 'text-green-600' : 'text-gray-400'}`}>
+                <div className={`flex flex-col items-center ${step.status === 'active' ? 'text-lydian-primary' : step.status === 'completed' ? 'text-lydian-success' : 'text-lydian-text-muted'}`}>
                   {getStepIcon(step)}
                   <span className="text-xs font-medium mt-1">{step.id}</span>
                 </div>
                 <div className="hidden md:block">
-                  <div className={`text-sm font-medium ${step.status === 'active' ? 'text-blue-600' : step.status === 'completed' ? 'text-green-600' : 'text-gray-400'}`}>
+                  <div className={`text-sm font-medium ${step.status === 'active' ? 'text-lydian-primary' : step.status === 'completed' ? 'text-lydian-success' : 'text-lydian-text-muted'}`}>
                     {step.title}
                   </div>
                   <div className="text-xs text-lydian-text-muted">
@@ -344,7 +344,7 @@ const CryptoPayment: React.FC<CryptoPaymentProps> = ({
                   onClick={() => setSelectedCrypto(option.symbol as any)}
                   className={`w-full p-4 rounded-xl border-2 transition-all transform hover:scale-105 ${
                   selectedCrypto === option.symbol ?
-                  'border-blue-500 bg-blue-50' :
+                  'border-lydian-primary bg-blue-50' :
                   'border-white/10 hover:border-white/20'}`
                   }>
 

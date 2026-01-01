@@ -2,7 +2,7 @@
  * NIRVANA SEO ORCHESTRATOR
  * Tüm SEO sistemlerini orkestrasyonu eden ana motor
  *
- * Amaç: travel.lydian.com'u Google'da 1. sayfa 1. sıraya çıkarmak
+ * Amaç: holiday.ailydian.com'u Google'da 1. sayfa 1. sıraya çıkarmak
  *
  * Stratejiler:
  * ✅ Nirvana SEO - Keyword Intelligence & Content Optimization
@@ -242,7 +242,7 @@ export class NirvanaSEOOrchestrator {
       travel: {
         keywords: this.nirvanaSEO.getTotalKeywords(),
         searchVolume: this.nirvanaSEO.getTotalSearchVolume(),
-        domain: 'travel.lydian.com'
+        domain: 'holiday.ailydian.com'
       },
       voice: {
         keywords: this.voiceSEO.getTotalKeywords(),
@@ -290,7 +290,7 @@ export class NirvanaSEOOrchestrator {
    * Submit all URLs to search engines
    */
   async submitToSearchEngines(urls: string[]): Promise<any> {
-    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://travel.lydian.com';
+    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://holiday.ailydian.com';
     const indexNowKey = process.env.INDEXNOW_KEY || 'travel-lydian-indexnow-key-2025-production';
 
     logger.info(`📤 Submitting ${urls.length} URLs to 5 search engines...`, { component: 'SEO' });
@@ -320,7 +320,7 @@ export class NirvanaSEOOrchestrator {
    * Generate complete orchestration report
    */
   async generateOrchestrationReport(): Promise<OrchestrationReport> {
-    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://travel.lydian.com';
+    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://holiday.ailydian.com';
 
     logger.info(`\n🎼 NIRVANA SEO ORCHESTRATION STARTING...\n`, { component: 'SEO' });
 

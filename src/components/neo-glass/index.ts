@@ -1,7 +1,7 @@
 /**
  * 🎨 NEO-GLASS COMPONENT LIBRARY
  * Neomorphism + Glassmorphism Hybrid Components
- * travel.ailydian.com design system
+ * holiday.ailydian.com design system
  */
 
 export { NeoButton } from './NeoButton';

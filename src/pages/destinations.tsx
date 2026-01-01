@@ -43,7 +43,7 @@ export default function Destinations() {
   return (
     <>
       <Head>
-        <title>Türkiye Destinasyonları | LyDian Travel - AI Destekli Seyahat Rehberi</title>
+        <title>Türkiye Destinasyonları | AILYDIAN Holiday - AI Destekli Seyahat Rehberi</title>
         <meta name="description" content="Türkiye'nin en güzel destinasyonlarını keşfedin. İstanbul, Kapadokya, Antalya ve daha fazlası. Detaylı rehberler, en iyi oteller ve turlar." />
         <meta name="keywords" content="türkiye destinasyonları, gezi rehberi, istanbul, kapadokya, antalya, seyahat, tatil" />
       </Head>

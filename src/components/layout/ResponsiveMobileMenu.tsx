@@ -358,7 +358,7 @@ const ResponsiveMobileMenu: React.FC<ResponsiveMobileMenuProps> = ({
               </div>
 
               <p className="text-center text-xs text-lydian-text-muted mt-6">
-                © 2025 LyDian Travel. Tüm hakları saklıdır.
+                © 2025 AILYDIAN Holiday. Tüm hakları saklıdır.
               </p>
             </div>
           </motion.div>

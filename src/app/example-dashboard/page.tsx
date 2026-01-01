@@ -42,22 +42,22 @@ function StatCard({ title, value, change, icon, color }: StatCardProps) {
   const colorMap = {
     primary: {
       bg: 'bg-blue-50',
-      text: 'text-blue-600',
+      text: 'text-lydian-primary',
       iconBg: 'bg-blue-100',
     },
     success: {
       bg: 'bg-green-50',
-      text: 'text-green-600',
+      text: 'text-lydian-success',
       iconBg: 'bg-green-100',
     },
     warning: {
       bg: 'bg-yellow-50',
-      text: 'text-yellow-600',
+      text: 'text-lydian-warning',
       iconBg: 'bg-yellow-100',
     },
     error: {
       bg: 'bg-red-50',
-      text: 'text-red-600',
+      text: 'text-lydian-error',
       iconBg: 'bg-red-100',
     },
   };
@@ -70,13 +70,13 @@ function StatCard({ title, value, change, icon, color }: StatCardProps) {
       <CardContent className="p-6">
         <div className="flex items-start justify-between">
           <div className="flex-1">
-            <p className="text-sm font-medium text-gray-600 mb-1">{title}</p>
-            <p className="text-3xl font-bold text-gray-900 mb-2">{value}</p>
+            <p className="text-sm font-medium text-lydian-text-secondary mb-1">{title}</p>
+            <p className="text-3xl font-bold text-lydian-text mb-2">{value}</p>
             <div className="flex items-center gap-1 text-sm">
-              <span className={isPositive ? 'text-green-600' : 'text-red-600'}>
+              <span className={isPositive ? 'text-lydian-success' : 'text-lydian-error'}>
                 {isPositive ? '↑' : '↓'} {Math.abs(change)}%
               </span>
-              <span className="text-gray-500">vs last month</span>
+              <span className="text-lydian-text-muted">vs last month</span>
             </div>
           </div>
           <div className={`p-3 rounded-xl ${iconBg}`}>
@@ -130,44 +130,44 @@ function RecentBookingsTable() {
       <CardContent className="p-0">
         <div className="overflow-x-auto">
           <table className="w-full">
-            <thead className="bg-gray-50 border-b border-gray-200">
+            <thead className="bg-lydian-bg-surface border-b border-lydian-border">
               <tr>
-                <th className="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-semibold text-lydian-text-secondary uppercase tracking-wider">
                   Booking ID
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-semibold text-lydian-text-secondary uppercase tracking-wider">
                   Customer
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-semibold text-lydian-text-secondary uppercase tracking-wider">
                   Tour
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-semibold text-lydian-text-secondary uppercase tracking-wider">
                   Date
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-semibold text-lydian-text-secondary uppercase tracking-wider">
                   Amount
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-semibold text-lydian-text-secondary uppercase tracking-wider">
                   Status
                 </th>
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-200">
               {recentBookings.map((booking) => (
-                <tr key={booking.id} className="hover:bg-gray-50 transition-colors">
-                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                <tr key={booking.id} className="hover:bg-lydian-bg-surface transition-colors">
+                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-lydian-text">
                     {booking.id}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700">
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-lydian-text-secondary">
                     {booking.customer}
                   </td>
-                  <td className="px-6 py-4 text-sm text-gray-700">
+                  <td className="px-6 py-4 text-sm text-lydian-text-secondary">
                     {booking.tour}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-lydian-text-secondary">
                     {booking.date}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm font-semibold text-gray-900">
+                  <td className="px-6 py-4 whitespace-nowrap text-sm font-semibold text-lydian-text">
                     ${booking.amount}
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
@@ -234,18 +234,18 @@ function QuickActions() {
           {actions.map((action, index) => (
             <button
               key={index}
-              className="w-full flex items-center gap-4 p-4 rounded-lg border-2 border-gray-200 hover:border-blue-300 hover:bg-blue-50 transition-all duration-200 text-left group"
+              className="w-full flex items-center gap-4 p-4 rounded-lg border-2 border-lydian-border hover:border-blue-300 hover:bg-blue-50 transition-all duration-200 text-left group"
             >
-              <div className="p-2 rounded-lg bg-gray-100 group-hover:bg-blue-100 transition-colors">
-                <div className="text-gray-600 group-hover:text-blue-600 transition-colors">
+              <div className="p-2 rounded-lg bg-lydian-bg-surface-raised group-hover:bg-blue-100 transition-colors">
+                <div className="text-lydian-text-secondary group-hover:text-lydian-primary transition-colors">
                   {action.icon}
                 </div>
               </div>
               <div className="flex-1">
-                <h4 className="font-semibold text-gray-900 mb-0.5">{action.title}</h4>
-                <p className="text-sm text-gray-600">{action.description}</p>
+                <h4 className="font-semibold text-lydian-text mb-0.5">{action.title}</h4>
+                <p className="text-sm text-lydian-text-secondary">{action.description}</p>
               </div>
-              <svg className="w-5 h-5 text-gray-400 group-hover:text-blue-600 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg className="w-5 h-5 text-lydian-text-muted group-hover:text-lydian-primary transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>
             </button>
@@ -266,10 +266,10 @@ export default function ExampleDashboardPage() {
       {/* Page Header */}
       <FadeInView>
         <div>
-          <h1 className="text-4xl font-bold text-gray-900 mb-2">
+          <h1 className="text-4xl font-bold text-lydian-text mb-2">
             Welcome back, John! 👋
           </h1>
-          <p className="text-lg text-gray-600">
+          <p className="text-lg text-lydian-text-secondary">
             Here's what's happening with your travel business today
           </p>
         </div>
@@ -354,7 +354,7 @@ export default function ExampleDashboardPage() {
             <div className="space-y-6">
               {/* Button Variants */}
               <div>
-                <h3 className="text-sm font-semibold text-gray-700 mb-3">Button Variants</h3>
+                <h3 className="text-sm font-semibold text-lydian-text-secondary mb-3">Button Variants</h3>
                 <div className="flex flex-wrap gap-3">
                   <Button variant="primary">Primary (8.6:1)</Button>
                   <Button variant="secondary">Secondary (9.2:1)</Button>
@@ -368,7 +368,7 @@ export default function ExampleDashboardPage() {
 
               {/* Button Sizes */}
               <div>
-                <h3 className="text-sm font-semibold text-gray-700 mb-3">Button Sizes</h3>
+                <h3 className="text-sm font-semibold text-lydian-text-secondary mb-3">Button Sizes</h3>
                 <div className="flex flex-wrap items-center gap-3">
                   <Button variant="primary" size="xs">Extra Small</Button>
                   <Button variant="primary" size="sm">Small</Button>
@@ -380,7 +380,7 @@ export default function ExampleDashboardPage() {
 
               {/* Button States */}
               <div>
-                <h3 className="text-sm font-semibold text-gray-700 mb-3">Button States</h3>
+                <h3 className="text-sm font-semibold text-lydian-text-secondary mb-3">Button States</h3>
                 <div className="flex flex-wrap gap-3">
                   <Button variant="primary" loading>Loading</Button>
                   <Button variant="primary" disabled>Disabled</Button>
@@ -400,7 +400,7 @@ export default function ExampleDashboardPage() {
 
               {/* Typography Scale */}
               <div>
-                <h3 className="text-sm font-semibold text-gray-700 mb-3">Typography Scale</h3>
+                <h3 className="text-sm font-semibold text-lydian-text-secondary mb-3">Typography Scale</h3>
                 <div className="space-y-2">
                   <p className="text-display">Display (72px)</p>
                   <p className="text-heading-1">Heading 1 (48px)</p>

@@ -48,7 +48,7 @@ export async function sendBookingConfirmation(data: BookingNotification): Promis
     }
 
     const mailOptions = {
-      from: `"Travel LyDian" <${process.env.SMTP_FROM || 'noreply@travel.lydian.com'}>`,
+      from: `"Travel LyDian" <${process.env.SMTP_FROM || 'noreply@holiday.ailydian.com'}>`,
       to: data.customerEmail,
       subject: emailSubject,
       html: emailBody,
@@ -71,7 +71,7 @@ export async function sendBookingReminder(data: BookingNotification): Promise<bo
     const emailBody = generateReminderEmail(data)
 
     const mailOptions = {
-      from: `"Travel LyDian" <${process.env.SMTP_FROM || 'noreply@travel.lydian.com'}>`,
+      from: `"Travel LyDian" <${process.env.SMTP_FROM || 'noreply@holiday.ailydian.com'}>`,
       to: data.customerEmail,
       subject: emailSubject,
       html: emailBody,
@@ -96,7 +96,7 @@ export async function sendCancellationConfirmation(
     const emailBody = generateCancellationEmail(data)
 
     const mailOptions = {
-      from: `"Travel LyDian" <${process.env.SMTP_FROM || 'noreply@travel.lydian.com'}>`,
+      from: `"Travel LyDian" <${process.env.SMTP_FROM || 'noreply@holiday.ailydian.com'}>`,
       to: data.customerEmail,
       subject: emailSubject,
       html: emailBody,
@@ -119,7 +119,7 @@ export async function sendPaymentConfirmation(data: BookingNotification): Promis
     const emailBody = generatePaymentConfirmationEmail(data)
 
     const mailOptions = {
-      from: `"Travel LyDian" <${process.env.SMTP_FROM || 'noreply@travel.lydian.com'}>`,
+      from: `"Travel LyDian" <${process.env.SMTP_FROM || 'noreply@holiday.ailydian.com'}>`,
       to: data.customerEmail,
       subject: emailSubject,
       html: emailBody,
@@ -165,12 +165,12 @@ function generatePropertyConfirmationEmail(data: BookingNotification): string {
       <p>We look forward to welcoming you!</p>
 
       <div style="margin-top: 30px; text-align: center;">
-        <a href="https://travel.lydian.com/bookings/${data.bookingRef}" style="background: #3b82f6; color: white; padding: 12px 30px; text-decoration: none; border-radius: 6px; display: inline-block;">View Booking</a>
+        <a href="https://holiday.ailydian.com/bookings/${data.bookingRef}" style="background: #3b82f6; color: white; padding: 12px 30px; text-decoration: none; border-radius: 6px; display: inline-block;">View Booking</a>
       </div>
     </div>
 
     <div style="text-align: center; margin-top: 20px; color: #888; font-size: 12px;">
-      <p>Travel LyDian | support@travel.lydian.com</p>
+      <p>Travel LyDian | support@holiday.ailydian.com</p>
     </div>
   </div>
 </body>
@@ -226,12 +226,12 @@ function generateTransferConfirmationEmail(data: BookingNotification): string {
       <p>Your driver will be waiting for you at the designated pickup point.</p>
 
       <div style="margin-top: 30px; text-align: center;">
-        <a href="https://travel.lydian.com/bookings/${data.bookingRef}" style="background: #3b82f6; color: white; padding: 12px 30px; text-decoration: none; border-radius: 6px; display: inline-block;">View Booking</a>
+        <a href="https://holiday.ailydian.com/bookings/${data.bookingRef}" style="background: #3b82f6; color: white; padding: 12px 30px; text-decoration: none; border-radius: 6px; display: inline-block;">View Booking</a>
       </div>
     </div>
 
     <div style="text-align: center; margin-top: 20px; color: #888; font-size: 12px;">
-      <p>Travel LyDian | support@travel.lydian.com</p>
+      <p>Travel LyDian | support@holiday.ailydian.com</p>
     </div>
   </div>
 </body>
@@ -273,12 +273,12 @@ function generateFlightConfirmationEmail(data: BookingNotification): string {
       <p>Please arrive at the airport at least 2 hours before departure for international flights.</p>
 
       <div style="margin-top: 30px; text-align: center;">
-        <a href="https://travel.lydian.com/bookings/${data.bookingRef}" style="background: #3b82f6; color: white; padding: 12px 30px; text-decoration: none; border-radius: 6px; display: inline-block;">View E-Ticket</a>
+        <a href="https://holiday.ailydian.com/bookings/${data.bookingRef}" style="background: #3b82f6; color: white; padding: 12px 30px; text-decoration: none; border-radius: 6px; display: inline-block;">View E-Ticket</a>
       </div>
     </div>
 
     <div style="text-align: center; margin-top: 20px; color: #888; font-size: 12px;">
-      <p>Travel LyDian | support@travel.lydian.com</p>
+      <p>Travel LyDian | support@holiday.ailydian.com</p>
     </div>
   </div>
 </body>
@@ -301,7 +301,7 @@ function generateReminderEmail(data: BookingNotification): string {
       <p>This is a friendly reminder that your booking ${data.bookingRef} is scheduled for tomorrow.</p>
 
       <div style="margin-top: 30px; text-align: center;">
-        <a href="https://travel.lydian.com/bookings/${data.bookingRef}" style="background: #3b82f6; color: white; padding: 12px 30px; text-decoration: none; border-radius: 6px; display: inline-block;">View Booking Details</a>
+        <a href="https://holiday.ailydian.com/bookings/${data.bookingRef}" style="background: #3b82f6; color: white; padding: 12px 30px; text-decoration: none; border-radius: 6px; display: inline-block;">View Booking Details</a>
       </div>
     </div>
   </div>
@@ -360,7 +360,7 @@ function generatePaymentConfirmationEmail(data: BookingNotification): string {
       <p>Thank you for choosing Travel LyDian!</p>
 
       <div style="margin-top: 30px; text-align: center;">
-        <a href="https://travel.lydian.com/bookings/${data.bookingRef}/invoice" style="background: #3b82f6; color: white; padding: 12px 30px; text-decoration: none; border-radius: 6px; display: inline-block;">Download Invoice</a>
+        <a href="https://holiday.ailydian.com/bookings/${data.bookingRef}/invoice" style="background: #3b82f6; color: white; padding: 12px 30px; text-decoration: none; border-radius: 6px; display: inline-block;">Download Invoice</a>
       </div>
     </div>
   </div>

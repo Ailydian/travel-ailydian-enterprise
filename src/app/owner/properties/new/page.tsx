@@ -331,15 +331,15 @@ export default function PropertySubmissionWizard() {
                   key={step}
                   className={`flex-1 min-w-[120px] p-3 rounded-lg border-2 transition-all ${
                     step === currentStep
-                      ? 'border-blue-500 bg-blue-50'
+                      ? 'border-lydian-primary bg-blue-50'
                       : completedSteps.includes(step)
                       ? 'border-green-500 bg-green-50'
-                      : 'border-slate-200 bg-white'
+                      : 'border-slate-200 bg-lydian-bg'
                   }`}
                 >
                   <div className="flex items-center gap-2 mb-1">
                     {completedSteps.includes(step) ? (
-                      <CheckCircle2 className="w-5 h-5 text-green-600" />
+                      <CheckCircle2 className="w-5 h-5 text-lydian-success" />
                     ) : (
                       <div
                         className={`w-6 h-6 rounded-full flex items-center justify-center text-sm font-semibold ${
@@ -353,7 +353,7 @@ export default function PropertySubmissionWizard() {
                     )}
                     <span
                       className={`text-xs font-medium ${
-                        step === currentStep ? 'text-blue-700' : 'text-slate-600'
+                        step === currentStep ? 'text-lydian-primary-hover' : 'text-slate-600'
                       }`}
                     >
                       Step {step}
@@ -361,7 +361,7 @@ export default function PropertySubmissionWizard() {
                   </div>
                   <p
                     className={`text-xs leading-tight ${
-                      step === currentStep ? 'text-blue-600' : 'text-slate-500'
+                      step === currentStep ? 'text-lydian-primary' : 'text-slate-500'
                     }`}
                   >
                     {stepTitles[step - 1]}
@@ -381,7 +381,7 @@ export default function PropertySubmissionWizard() {
 
           {/* Step Content */}
           <form onSubmit={handleSubmit(handleNext)}>
-            <div className="bg-white/5 rounded-xl shadow-lg p-8 mb-6">
+            <div className="bg-lydian-bg/5 rounded-xl shadow-lg p-8 mb-6">
               <div className="mb-6">
                 <h2 className="text-2xl font-bold text-slate-900 mb-2">
                   {stepTitles[currentStep - 1]}
@@ -406,7 +406,7 @@ export default function PropertySubmissionWizard() {
               {Object.keys(errors).length > 0 && (
                 <div className="mt-6 p-4 bg-red-50 border border-red-200 rounded-lg">
                   <div className="flex items-start gap-3">
-                    <AlertCircle className="w-5 h-5 text-red-600 mt-0.5" />
+                    <AlertCircle className="w-5 h-5 text-lydian-error mt-0.5" />
                     <div>
                       <h4 className="font-semibold text-red-900 mb-1">
                         Please fix the following errors:
@@ -431,7 +431,7 @@ export default function PropertySubmissionWizard() {
                   type="button"
                   onClick={handleBack}
                   disabled={currentStep === 1}
-                  className="px-6 py-3 bg-white/5 border-2 border-slate-300 rounded-lg font-semibold text-slate-700 hover:bg-slate-50 disabled:opacity-50 disabled:cursor-not-allowed transition-all flex items-center gap-2"
+                  className="px-6 py-3 bg-lydian-bg/5 border-2 border-slate-300 rounded-lg font-semibold text-slate-700 hover:bg-slate-50 disabled:opacity-50 disabled:cursor-not-allowed transition-all flex items-center gap-2"
                 >
                   <ChevronLeft className="w-5 h-5" />
                   Back
@@ -440,7 +440,7 @@ export default function PropertySubmissionWizard() {
                 <button
                   type="button"
                   onClick={handleSaveDraft}
-                  className="px-6 py-3 bg-white/5 border-2 border-slate-300 rounded-lg font-semibold text-slate-700 hover:bg-slate-50 transition-all flex items-center gap-2"
+                  className="px-6 py-3 bg-lydian-bg/5 border-2 border-slate-300 rounded-lg font-semibold text-slate-700 hover:bg-slate-50 transition-all flex items-center gap-2"
                 >
                   <Save className="w-5 h-5" />
                   Save Draft
@@ -487,7 +487,7 @@ export default function PropertySubmissionWizard() {
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
-              className="bg-white/5 rounded-2xl p-8 max-w-md w-full text-center"
+              className="bg-lydian-bg/5 rounded-2xl p-8 max-w-md w-full text-center"
             >
               <motion.div
                 initial={{ scale: 0 }}
@@ -495,7 +495,7 @@ export default function PropertySubmissionWizard() {
                 transition={{ delay: 0.2, type: 'spring' }}
                 className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6"
               >
-                <CheckCircle2 className="w-12 h-12 text-green-600" />
+                <CheckCircle2 className="w-12 h-12 text-lydian-success" />
               </motion.div>
 
               <h3 className="text-2xl font-bold text-slate-900 mb-3">

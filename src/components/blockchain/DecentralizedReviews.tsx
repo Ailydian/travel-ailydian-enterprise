@@ -231,11 +231,11 @@ const DecentralizedReviews: React.FC = () => {
 
   const getBusinessTypeColor = (type: string) => {
     switch (type) {
-      case 'hotel':return 'bg-blue-100 text-blue-700';
+      case 'hotel':return 'bg-blue-100 text-lydian-primary-hover';
       case 'restaurant':return 'bg-orange-100 text-orange-700';
       case 'attraction':return 'bg-purple-100 text-purple-700';
       case 'transport':return 'bg-green-100 text-green-700';
-      default:return 'bg-white/10 text-gray-200';
+      default:return 'bg-lydian-bg/10 text-gray-200';
     }
   };
 
@@ -244,7 +244,7 @@ const DecentralizedReviews: React.FC = () => {
     <Star
       key={i}
       className={`w-4 h-4 ${
-      i < rating ? 'text-yellow-500 fill-current' : 'text-gray-300'}`
+      i < rating ? 'text-yellow-500 fill-current' : 'text-lydian-text-dim'}`
       } />
 
     );

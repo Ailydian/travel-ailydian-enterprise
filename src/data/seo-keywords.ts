@@ -1,7 +1,8 @@
 /**
- * Advanced Multilingual SEO Keyword System
+ * Advanced Multilingual SEO Keyword System for holiday.ailydian.com
  * Comprehensive keyword database for all 49+ languages
  * White-hat SEO practices with natural language optimization
+ * Focus: Holiday, Vacation & Leisure Travel
  */
 
 export interface SEOKeyword {
@@ -22,307 +23,307 @@ export interface MultilingualKeywords {
   };
 }
 
-// Turkish Keywords (TR)
+// Turkish Keywords (TR) - Holiday Brand Focus
 const turkishKeywords = {
   rentals: {
-    primary: 'kiralık villa',
-    secondary: ['tatil evi kiralama', 'yazlık kiralama', 'apart kiralama', 'lüks villa', 'denize sıfır villa'],
+    primary: 'tatil villası kiralama',
+    secondary: ['tatil evi kiralama', 'bayram tatili villa', 'yazlık tatil evi', 'lüks tatil villası', 'denize sıfır tatil evi'],
     longtail: [
-      'alanya kiralık villa havuzlu',
-      'bodrum denize sıfır kiralık ev',
-      'marmaris özel havuzlu villa',
-      'çeşme kiralık yazlık daire',
-      'antalya lüks villa kiralama'
+      'alanya tatil villası havuzlu',
+      'bodrum denize sıfır tatil evi',
+      'marmaris özel havuzlu tatil villası',
+      'çeşme kiralık tatil dairesi',
+      'antalya lüks tatil villası kiralama'
     ],
-    localVariations: ['kiralık ev', 'tatil köyü', 'apart otel', 'pansiyon', 'bungalov']
+    localVariations: ['tatil evi', 'tatil köyü', 'tatil apart', 'tatil pansiyonu', 'tatil bungalovu']
   },
   tours: {
-    primary: 'günübirlik turlar',
-    secondary: ['tekne turu', 'kültür turu', 'doğa gezisi', 'safari', 'dalış turu'],
+    primary: 'tatil turları',
+    secondary: ['bayram tatili turları', 'tekne turu', 'kültür turu', 'tatil aktiviteleri', 'safari tatil'],
     longtail: [
-      'marmaris tekne turu fiyatları',
-      'bodrum günübirlik gezi',
-      'çeşme su sporları ve turlar',
-      'alanya mağara turu',
-      'pamukkale antik kentler turu'
+      'marmaris tatil tekne turu fiyatları',
+      'bodrum günübirlik tatil gezisi',
+      'çeşme tatil su sporları ve turlar',
+      'alanya tatil mağara turu',
+      'pamukkale tatil antik kentler turu'
     ],
-    localVariations: ['gezi', 'aktivite', 'macera turu', 'kültürel gezi', 'rehberli tur']
+    localVariations: ['tatil gezisi', 'tatil aktiviteleri', 'macera tatili', 'kültürel tatil', 'rehberli tatil turu']
   },
   hotels: {
-    primary: 'otel rezervasyonu',
-    secondary: ['butik otel', 'lüks otel', 'her şey dahil', 'spa oteli', 'plaj oteli'],
+    primary: 'tatil oteli rezervasyonu',
+    secondary: ['bayram tatili oteli', 'butik tatil oteli', 'lüks tatil oteli', 'her şey dahil tatil', 'plaj tatil oteli'],
     longtail: [
-      'antalya 5 yıldızlı otel',
-      'bodrum butik otel deniz manzaralı',
-      'marmaris her şey dahil tatil',
-      'çeşme spa oteli',
-      'alanya uygun fiyatlı otel'
+      'antalya 5 yıldızlı tatil oteli',
+      'bodrum butik tatil oteli deniz manzaralı',
+      'marmaris her şey dahil tatil paketi',
+      'çeşme spa tatil oteli',
+      'alanya uygun fiyatlı tatil oteli'
     ],
-    localVariations: ['konaklama', 'pansiyon', 'resort', 'tatil köyü', 'apart otel']
+    localVariations: ['tatil konaklaması', 'tatil pansiyonu', 'tatil resort', 'tatil köyü', 'tatil apart oteli']
   },
   flights: {
-    primary: 'uçak bileti',
-    secondary: ['ucuz uçak bileti', 'son dakika uçak', 'charter uçuş', 'iç hat uçak', 'dış hat uçak'],
+    primary: 'tatil uçak bileti',
+    secondary: ['bayram tatili uçak bileti', 'ucuz tatil uçuşu', 'son dakika tatil uçak', 'charter tatil uçuşu', 'yaz tatili uçak bileti'],
     longtail: [
-      'istanbul antalya uçak bileti',
-      'ankara bodrum ucuz bilet',
-      'izmir marmaris uçuş',
-      'en ucuz uçak bileti',
-      'online uçak bileti rezervasyon'
+      'istanbul antalya tatil uçak bileti',
+      'ankara bodrum bayram tatili uçak',
+      'izmir marmaris tatil uçuşu',
+      'en ucuz tatil uçak bileti',
+      'online tatil uçak bileti rezervasyon'
     ],
-    localVariations: ['havayolu bileti', 'uçuş', 'bilet rezervasyon', 'charter', 'tarifeli uçuş']
+    localVariations: ['tatil havayolu bileti', 'tatil uçuşu', 'tatil bilet rezervasyon', 'tatil charter', 'tatil tarifeli uçuş']
   },
   transfers: {
-    primary: 'havalimanı transferi',
-    secondary: ['özel transfer', 'vip transfer', 'shuttle servis', 'araç kiralama', 'lüks araç transfer'],
+    primary: 'tatil havalimanı transferi',
+    secondary: ['bayram tatili transfer', 'özel tatil transferi', 'vip tatil transfer', 'tatil shuttle servisi', 'tatil araç kiralama'],
     longtail: [
-      'antalya havalimanı otel transferi',
-      'bodrum milas transfer hizmeti',
-      'marmaris dalaman havalimanı transfer',
-      'çeşme izmir havalimanı servis',
-      'alanya gazipasa transfer'
+      'antalya havalimanı tatil oteli transferi',
+      'bodrum milas tatil transfer hizmeti',
+      'marmaris dalaman tatil havalimanı transfer',
+      'çeşme izmir tatil havalimanı servisi',
+      'alanya gazipasa tatil transferi'
     ],
-    localVariations: ['servis hizmeti', 'ulaşım', 'araç kiralama', 'shuttle', 'özel araç']
+    localVariations: ['tatil servis hizmeti', 'tatil ulaşım', 'tatil araç kiralama', 'tatil shuttle', 'tatil özel araç']
   },
   destinations: {
-    primary: 'tatil yerleri',
-    secondary: ['gezi rotası', 'turistik yerler', 'tatil beldesi', 'sahil kasabası', 'doğa turizmi'],
+    primary: 'tatil destinasyonları',
+    secondary: ['bayram tatili yerleri', 'yaz tatili rotası', 'turistik tatil yerleri', 'tatil beldesi', 'sahil tatil kasabası'],
     longtail: [
-      'türkiye en güzel tatil yerleri',
-      'akdeniz sahil kasabaları',
-      'ege tatil beldesi',
-      'karadeniz doğa turizmi',
-      'antalya gezilecek yerler'
+      'türkiye en güzel bayram tatili yerleri',
+      'akdeniz sahil tatil kasabaları',
+      'ege yaz tatili beldesi',
+      'karadeniz doğa tatili turizmi',
+      'antalya tatil gezilecek yerler'
     ],
-    localVariations: ['destinasyon', 'seyahat noktası', 'keşif rotası', 'gezi yeri', 'tatil rotası']
+    localVariations: ['tatil destinasyonu', 'tatil seyahat noktası', 'tatil keşif rotası', 'tatil gezi yeri', 'tatil rotası']
   }
 };
 
-// English Keywords (EN)
+// English Keywords (EN) - Holiday Brand Focus
 const englishKeywords = {
   rentals: {
-    primary: 'vacation rental',
-    secondary: ['holiday villa', 'beach house rental', 'luxury villa', 'private accommodation', 'beachfront property'],
+    primary: 'holiday villa rental',
+    secondary: ['vacation holiday home', 'beach holiday rental', 'luxury holiday villa', 'private holiday accommodation', 'beachfront holiday property'],
     longtail: [
-      'alanya villa rental with pool',
-      'bodrum beachfront holiday home',
-      'marmaris private pool villa',
-      'cesme vacation apartment rental',
-      'antalya luxury villa booking'
+      'alanya holiday villa rental with pool',
+      'bodrum beachfront holiday home rental',
+      'marmaris private pool holiday villa',
+      'cesme vacation holiday apartment rental',
+      'antalya luxury holiday villa booking'
     ],
-    localVariations: ['holiday home', 'vacation property', 'rental apartment', 'beach villa', 'summer house']
+    localVariations: ['holiday home', 'vacation holiday property', 'holiday rental apartment', 'beach holiday villa', 'summer holiday house']
   },
   tours: {
-    primary: 'day tours',
-    secondary: ['boat tour', 'cultural tour', 'adventure tour', 'safari excursion', 'diving trip'],
+    primary: 'holiday tours',
+    secondary: ['vacation holiday tours', 'boat holiday tour', 'cultural holiday tour', 'adventure holiday tour', 'safari holiday excursion'],
     longtail: [
-      'marmaris boat tour prices',
-      'bodrum daily excursions',
-      'cesme water sports tours',
-      'alanya cave tour',
-      'pamukkale ancient cities tour'
+      'marmaris holiday boat tour prices',
+      'bodrum daily holiday excursions',
+      'cesme water sports holiday tours',
+      'alanya cave holiday tour',
+      'pamukkale ancient cities holiday tour'
     ],
-    localVariations: ['excursion', 'sightseeing', 'guided tour', 'activity', 'adventure trip']
+    localVariations: ['holiday excursion', 'holiday sightseeing', 'guided holiday tour', 'holiday activity', 'adventure holiday trip']
   },
   hotels: {
-    primary: 'hotel booking',
-    secondary: ['boutique hotel', 'luxury resort', 'all inclusive', 'spa hotel', 'beach resort'],
+    primary: 'holiday hotel booking',
+    secondary: ['vacation holiday hotel', 'boutique holiday hotel', 'luxury holiday resort', 'all inclusive holiday', 'beach holiday resort'],
     longtail: [
-      'antalya 5 star hotel',
-      'bodrum boutique sea view hotel',
-      'marmaris all inclusive vacation',
-      'cesme spa resort',
-      'alanya budget friendly hotel'
+      'antalya 5 star holiday hotel',
+      'bodrum boutique sea view holiday hotel',
+      'marmaris all inclusive holiday vacation',
+      'cesme spa holiday resort',
+      'alanya budget friendly holiday hotel'
     ],
-    localVariations: ['accommodation', 'resort', 'guest house', 'hotel reservation', 'lodging']
+    localVariations: ['holiday accommodation', 'holiday resort', 'holiday guest house', 'holiday hotel reservation', 'holiday lodging']
   },
   flights: {
-    primary: 'flight tickets',
-    secondary: ['cheap flights', 'last minute flights', 'charter flight', 'domestic flight', 'international flight'],
+    primary: 'holiday flight tickets',
+    secondary: ['vacation holiday flights', 'cheap holiday flights', 'last minute holiday flights', 'charter holiday flight', 'holiday getaway flights'],
     longtail: [
-      'istanbul antalya flight tickets',
-      'ankara bodrum cheap flight',
-      'izmir marmaris flight',
-      'cheapest flight deals',
-      'online flight booking'
+      'istanbul antalya holiday flight tickets',
+      'ankara bodrum cheap holiday flight',
+      'izmir marmaris holiday flight',
+      'cheapest holiday flight deals',
+      'online holiday flight booking'
     ],
-    localVariations: ['airline tickets', 'air travel', 'flight reservation', 'charter', 'scheduled flight']
+    localVariations: ['holiday airline tickets', 'holiday air travel', 'holiday flight reservation', 'holiday charter', 'scheduled holiday flight']
   },
   transfers: {
-    primary: 'airport transfer',
-    secondary: ['private transfer', 'vip transfer', 'shuttle service', 'car rental', 'luxury car transfer'],
+    primary: 'holiday airport transfer',
+    secondary: ['vacation holiday transfer', 'private holiday transfer', 'vip holiday transfer', 'holiday shuttle service', 'holiday car rental'],
     longtail: [
-      'antalya airport hotel transfer',
-      'bodrum milas transfer service',
-      'marmaris dalaman airport transfer',
-      'cesme izmir airport shuttle',
-      'alanya gazipasa transfer'
+      'antalya airport holiday hotel transfer',
+      'bodrum milas holiday transfer service',
+      'marmaris dalaman holiday airport transfer',
+      'cesme izmir holiday airport shuttle',
+      'alanya gazipasa holiday transfer'
     ],
-    localVariations: ['shuttle service', 'transportation', 'car hire', 'private car', 'airport shuttle']
+    localVariations: ['holiday shuttle service', 'holiday transportation', 'holiday car hire', 'private holiday car', 'holiday airport shuttle']
   },
   destinations: {
-    primary: 'vacation destinations',
-    secondary: ['travel route', 'tourist attractions', 'holiday resort', 'coastal town', 'nature tourism'],
+    primary: 'holiday destinations',
+    secondary: ['vacation holiday route', 'tourist holiday attractions', 'holiday resort destinations', 'coastal holiday town', 'nature holiday tourism'],
     longtail: [
-      'best vacation spots in turkey',
-      'mediterranean coastal towns',
-      'aegean holiday resorts',
-      'black sea nature tourism',
-      'antalya places to visit'
+      'best holiday vacation spots in turkey',
+      'mediterranean coastal holiday towns',
+      'aegean summer holiday resorts',
+      'black sea nature holiday tourism',
+      'antalya holiday places to visit'
     ],
-    localVariations: ['destination', 'travel spot', 'discovery route', 'tourist location', 'holiday route']
+    localVariations: ['holiday destination', 'holiday travel spot', 'holiday discovery route', 'tourist holiday location', 'holiday vacation route']
   }
 };
 
-// German Keywords (DE)
+// German Keywords (DE) - Urlaub (Holiday) Brand Focus
 const germanKeywords = {
   rentals: {
-    primary: 'ferienwohnung',
-    secondary: ['ferienvilla', 'strandhaus mieten', 'luxusvilla', 'private unterkunft', 'villa am strand'],
+    primary: 'urlaub ferienwohnung',
+    secondary: ['urlaub ferienvilla', 'strandhaus urlaub mieten', 'luxusvilla urlaub', 'private urlaub unterkunft', 'villa am strand urlaub'],
     longtail: [
-      'alanya villa mieten mit pool',
-      'bodrum strandhaus ferienhaus',
-      'marmaris villa privat pool',
-      'cesme ferienwohnung mieten',
-      'antalya luxusvilla buchen'
+      'alanya urlaub villa mieten mit pool',
+      'bodrum strandhaus urlaub ferienhaus',
+      'marmaris villa urlaub privat pool',
+      'cesme ferienwohnung urlaub mieten',
+      'antalya luxusvilla urlaub buchen'
     ],
-    localVariations: ['ferienhaus', 'urlaubsunterkunft', 'mietapartment', 'strandvilla', 'sommerhaus']
+    localVariations: ['urlaub ferienhaus', 'urlaubsunterkunft', 'urlaub mietapartment', 'urlaub strandvilla', 'sommerurlaub haus']
   },
   tours: {
-    primary: 'tagestouren',
-    secondary: ['bootst our', 'kulturtour', 'abenteuertour', 'safari ausflug', 'tauchtour'],
+    primary: 'urlaub tagestouren',
+    secondary: ['urlaub bootstour', 'kulturtour urlaub', 'abenteuertour urlaub', 'safari urlaub ausflug', 'tauchtour urlaub'],
     longtail: [
-      'marmaris bootstour preise',
-      'bodrum tagesausflüge',
-      'cesme wassersport touren',
-      'alanya höhlentour',
-      'pamukkale antike städte tour'
+      'marmaris urlaub bootstour preise',
+      'bodrum urlaub tagesausflüge',
+      'cesme wassersport urlaub touren',
+      'alanya höhlentour urlaub',
+      'pamukkale antike städte urlaub tour'
     ],
-    localVariations: ['ausflug', 'sightseeing', 'geführte tour', 'aktivität', 'erlebnisreise']
+    localVariations: ['urlaub ausflug', 'urlaub sightseeing', 'geführte urlaub tour', 'urlaub aktivität', 'urlaub erlebnisreise']
   },
   hotels: {
-    primary: 'hotelbuchung',
-    secondary: ['boutique hotel', 'luxusresort', 'all inclusive', 'spa hotel', 'strandhotel'],
+    primary: 'urlaub hotelbuchung',
+    secondary: ['urlaub boutique hotel', 'luxusresort urlaub', 'all inclusive urlaub', 'spa hotel urlaub', 'strandhotel urlaub'],
     longtail: [
-      'antalya 5 sterne hotel',
-      'bodrum boutique hotel meerblick',
-      'marmaris all inclusive urlaub',
-      'cesme spa resort',
-      'alanya günstiges hotel'
+      'antalya 5 sterne urlaub hotel',
+      'bodrum boutique urlaub hotel meerblick',
+      'marmaris all inclusive urlaub ferien',
+      'cesme spa urlaub resort',
+      'alanya günstiges urlaub hotel'
     ],
-    localVariations: ['unterkunft', 'resort', 'pension', 'hotelreservierung', 'logis']
+    localVariations: ['urlaub unterkunft', 'urlaub resort', 'urlaub pension', 'urlaub hotelreservierung', 'urlaub logis']
   },
   flights: {
-    primary: 'flugtickets',
-    secondary: ['günstige flüge', 'last minute flug', 'charterflug', 'inlandsflug', 'auslandsflug'],
+    primary: 'urlaub flugtickets',
+    secondary: ['günstige urlaub flüge', 'last minute urlaub flug', 'charterflug urlaub', 'urlaub inlandsflug', 'ferien flug'],
     longtail: [
-      'istanbul antalya flugtickets',
-      'ankara bodrum günstiger flug',
-      'izmir marmaris flug',
-      'günstigste flugangebote',
-      'online flugbuchung'
+      'istanbul antalya urlaub flugtickets',
+      'ankara bodrum günstiger urlaub flug',
+      'izmir marmaris urlaub flug',
+      'günstigste urlaub flugangebote',
+      'online urlaub flugbuchung'
     ],
-    localVariations: ['flugtickts', 'flugreise', 'flugreservierung', 'charter', 'linienflug']
+    localVariations: ['urlaub flugtickets', 'urlaub flugreise', 'urlaub flugreservierung', 'urlaub charter', 'urlaub linienflug']
   },
   transfers: {
-    primary: 'flughafentransfer',
-    secondary: ['privattransfer', 'vip transfer', 'shuttle service', 'autovermietung', 'luxusauto transfer'],
+    primary: 'urlaub flughafentransfer',
+    secondary: ['urlaub privattransfer', 'vip urlaub transfer', 'shuttle service urlaub', 'urlaub autovermietung', 'luxusauto urlaub transfer'],
     longtail: [
-      'antalya flughafen hotel transfer',
-      'bodrum milas transfer service',
-      'marmaris dalaman flughafen transfer',
-      'cesme izmir flughafen shuttle',
-      'alanya gazipasa transfer'
+      'antalya flughafen urlaub hotel transfer',
+      'bodrum milas urlaub transfer service',
+      'marmaris dalaman urlaub flughafen transfer',
+      'cesme izmir urlaub flughafen shuttle',
+      'alanya gazipasa urlaub transfer'
     ],
-    localVariations: ['shuttle service', 'transport', 'mietwagen', 'privatauto', 'flughafen shuttle']
+    localVariations: ['urlaub shuttle service', 'urlaub transport', 'urlaub mietwagen', 'urlaub privatauto', 'urlaub flughafen shuttle']
   },
   destinations: {
-    primary: 'urlaubsziele',
-    secondary: ['reiseroute', 'touristenattraktionen', 'urlaubsort', 'küstenstadt', 'naturtourismus'],
+    primary: 'urlaub urlaubsziele',
+    secondary: ['urlaub reiseroute', 'touristenattraktionen urlaub', 'urlaubsort ferien', 'küstenstadt urlaub', 'naturtourismus urlaub'],
     longtail: [
-      'beste urlaubsorte türkei',
-      'mittelmeer küstenstädte',
-      'ägäis urlaubsorte',
-      'schwarzmeer naturtourismus',
-      'antalya sehenswürdigkeiten'
+      'beste urlaub urlaubsorte türkei',
+      'mittelmeer küstenstädte urlaub',
+      'ägäis urlaub urlaubsorte',
+      'schwarzmeer naturtourismus urlaub',
+      'antalya urlaub sehenswürdigkeiten'
     ],
-    localVariations: ['reiseziel', 'reiseort', 'entdeckungsroute', 'touristenort', 'urlaubsroute']
+    localVariations: ['urlaub reiseziel', 'urlaub reiseort', 'urlaub entdeckungsroute', 'urlaub touristenort', 'urlaubsroute ferien']
   }
 };
 
-// Russian Keywords (RU)
+// Russian Keywords (RU) - Отпуск (Holiday) & Каникулы (Vacation) Focus
 const russianKeywords = {
   rentals: {
-    primary: 'аренда виллы',
-    secondary: ['аренда дома для отдыха', 'аренда пляжного дома', 'роскошная вилла', 'частное жилье', 'вилла на берегу'],
+    primary: 'аренда виллы для отпуска',
+    secondary: ['аренда дома для отпуска', 'аренда пляжного дома каникулы', 'роскошная вилла отпуск', 'частное жилье для отдыха', 'вилла на берегу отпуск'],
     longtail: [
-      'аренда виллы в алании с бассейном',
-      'дом на пляже в бодруме',
-      'вилла с частным бассейном мармарис',
-      'аренда квартиры для отдыха чешме',
-      'бронирование роскошной виллы анталия'
+      'аренда виллы для отпуска в алании с бассейном',
+      'дом на пляже для каникул в бодруме',
+      'вилла для отпуска с частным бассейном мармарис',
+      'аренда квартиры для отпуска чешме',
+      'бронирование роскошной виллы отпуск анталия'
     ],
-    localVariations: ['дом для отдыха', 'недвижимость для отдыха', 'квартира в аренду', 'пляжная вилла', 'летний дом']
+    localVariations: ['дом для отпуска', 'недвижимость для каникул', 'квартира в аренду отпуск', 'пляжная вилла отдых', 'летний дом каникулы']
   },
   tours: {
-    primary: 'однодневные туры',
-    secondary: ['лодочная экскурсия', 'культурный тур', 'приключенческий тур', 'сафари', 'дайвинг тур'],
+    primary: 'туры на отпуск',
+    secondary: ['лодочная экскурсия отпуск', 'культурный тур каникулы', 'приключенческий тур отпуск', 'сафари отдых', 'дайвинг тур отпуск'],
     longtail: [
-      'цены на лодочную экскурсию мармарис',
-      'однодневные экскурсии бодрум',
-      'туры водных видов спорта чешме',
-      'экскурсия в пещеру алания',
-      'тур по древним городам памуккале'
+      'цены на лодочную экскурсию отпуск мармарис',
+      'однодневные экскурсии отпуск бодрум',
+      'туры водных видов спорта отпуск чешме',
+      'экскурсия в пещеру отпуск алания',
+      'тур по древним городам отпуск памуккале'
     ],
-    localVariations: ['экскурсия', 'осмотр достопримечательностей', 'экскурсия с гидом', 'активность', 'приключенческая поездка']
+    localVariations: ['экскурсия отпуск', 'осмотр достопримечательностей каникулы', 'экскурсия с гидом отдых', 'активность отпуск', 'приключенческая поездка каникулы']
   },
   hotels: {
-    primary: 'бронирование отеля',
-    secondary: ['бутик отель', 'роскошный курорт', 'все включено', 'спа отель', 'пляжный курорт'],
+    primary: 'бронирование отеля для отпуска',
+    secondary: ['бутик отель отпуск', 'роскошный курорт каникулы', 'все включено отпуск', 'спа отель отдых', 'пляжный курорт отпуск'],
     longtail: [
-      '5-звездочный отель анталия',
-      'бутик отель с видом на море бодрум',
-      'отдых все включено мармарис',
-      'спа курорт чешме',
-      'бюджетный отель алания'
+      '5-звездочный отель для отпуска анталия',
+      'бутик отель с видом на море отпуск бодрум',
+      'отдых все включено отпуск мармарис',
+      'спа курорт отпуск чешме',
+      'бюджетный отель отпуск алания'
     ],
-    localVariations: ['размещение', 'курорт', 'гостевой дом', 'резервирование отеля', 'проживание']
+    localVariations: ['размещение отпуск', 'курорт каникулы', 'гостевой дом отдых', 'резервирование отеля отпуск', 'проживание каникулы']
   },
   flights: {
-    primary: 'авиабилеты',
-    secondary: ['дешевые авиабилеты', 'авиабилеты последней минуты', 'чартерный рейс', 'внутренний рейс', 'международный рейс'],
+    primary: 'авиабилеты на отпуск',
+    secondary: ['дешевые авиабилеты отпуск', 'авиабилеты последней минуты каникулы', 'чартерный рейс отпуск', 'внутренний рейс отдых', 'международный рейс отпуск'],
     longtail: [
-      'авиабилеты стамбул анталия',
-      'дешевый рейс анкара бодрум',
-      'рейс измир мармарис',
-      'самые дешевые авиабилеты',
-      'онлайн бронирование авиабилетов'
+      'авиабилеты на отпуск стамбул анталия',
+      'дешевый рейс отпуск анкара бодрум',
+      'рейс каникулы измир мармарис',
+      'самые дешевые авиабилеты отпуск',
+      'онлайн бронирование авиабилетов отпуск'
     ],
-    localVariations: ['билеты авиакомпании', 'авиаперелет', 'бронирование рейса', 'чартер', 'регулярный рейс']
+    localVariations: ['билеты авиакомпании отпуск', 'авиаперелет каникулы', 'бронирование рейса отдых', 'чартер отпуск', 'регулярный рейс каникулы']
   },
   transfers: {
-    primary: 'трансфер из аэропорта',
-    secondary: ['частный трансфер', 'вип трансфер', 'шаттл сервис', 'аренда автомобиля', 'роскошный автомобиль трансфер'],
+    primary: 'трансфер из аэропорта отпуск',
+    secondary: ['частный трансфер отпуск', 'вип трансфер каникулы', 'шаттл сервис отдых', 'аренда автомобиля отпуск', 'роскошный автомобиль трансфер отпуск'],
     longtail: [
-      'трансфер из аэропорта анталии в отель',
-      'сервис трансфера бодрум милас',
-      'трансфер из аэропорта даламан мармарис',
-      'шаттл из аэропорта измир чешме',
-      'трансфер алания газипаша'
+      'трансфер из аэропорта отпуск анталии в отель',
+      'сервис трансфера отпуск бодрум милас',
+      'трансфер из аэропорта отпуск даламан мармарис',
+      'шаттл из аэропорта отпуск измир чешме',
+      'трансфер отпуск алания газипаша'
     ],
-    localVariations: ['шаттл сервис', 'транспорт', 'аренда автомобиля', 'частный автомобиль', 'аэропортный шаттл']
+    localVariations: ['шаттл сервис отпуск', 'транспорт каникулы', 'аренда автомобиля отдых', 'частный автомобиль отпуск', 'аэропортный шаттл каникулы']
   },
   destinations: {
-    primary: 'места отдыха',
-    secondary: ['маршрут путешествия', 'туристические достопримечательности', 'курорт', 'прибрежный город', 'природный туризм'],
+    primary: 'места для отпуска',
+    secondary: ['маршрут путешествия отпуск', 'туристические достопримечательности каникулы', 'курорт отпуск', 'прибрежный город отдых', 'природный туризм отпуск'],
     longtail: [
-      'лучшие места отдыха в турции',
-      'средиземноморские прибрежные города',
-      'курорты эгейского моря',
-      'природный туризм черное море',
-      'места для посещения анталия'
+      'лучшие места для отпуска в турции',
+      'средиземноморские прибрежные города отпуск',
+      'курорты эгейского моря каникулы',
+      'природный туризм отпуск черное море',
+      'места для посещения отпуск анталия'
     ],
-    localVariations: ['направление', 'место путешествия', 'маршрут открытия', 'туристическое место', 'маршрут отдыха']
+    localVariations: ['направление отпуск', 'место путешествия каникулы', 'маршрут открытия отдых', 'туристическое место отпуск', 'маршрут отпуска каникулы']
   }
 };
 

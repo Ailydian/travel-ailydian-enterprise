@@ -54,7 +54,7 @@ export default function Step6Review({ data, allData }: Step6Props) {
     icon: React.ElementType;
     children: React.ReactNode;
   }) => (
-    <div className="p-5 bg-white/5 border-2 border-slate-200 rounded-xl">
+    <div className="p-5 bg-lydian-bg/5 border-2 border-slate-200 rounded-xl">
       <div className="flex items-center gap-3 mb-4 pb-3 border-b border-slate-200">
         <div className="p-2 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-lg">
           <Icon className="w-5 h-5 text-white" />
@@ -87,7 +87,7 @@ export default function Step6Review({ data, allData }: Step6Props) {
               Aşağıdaki bilgileri kontrol edin ve yayınlamak için onaylayın
             </p>
           </div>
-          <div className="p-3 bg-white/20 rounded-xl">
+          <div className="p-3 bg-lydian-bg/20 rounded-xl">
             <Car className="w-8 h-8" />
           </div>
         </div>
@@ -280,7 +280,7 @@ export default function Step6Review({ data, allData }: Step6Props) {
             </div>
           </label>
           {errors.agreeToTerms && (
-            <p className="mt-2 text-sm text-red-600">{errors.agreeToTerms.message?.toString()}</p>
+            <p className="mt-2 text-sm text-lydian-error">{errors.agreeToTerms.message?.toString()}</p>
           )}
         </div>
 
@@ -304,7 +304,7 @@ export default function Step6Review({ data, allData }: Step6Props) {
             </div>
           </label>
           {errors.agreeToCommission && (
-            <p className="mt-2 text-sm text-red-600">
+            <p className="mt-2 text-sm text-lydian-error">
               {errors.agreeToCommission.message?.toString()}
             </p>
           )}
@@ -316,7 +316,7 @@ export default function Step6Review({ data, allData }: Step6Props) {
         <h3 className="text-lg font-bold text-blue-900 mb-4">Yayınlama Seçenekleri</h3>
 
         <div className="space-y-3">
-          <label className="flex items-start gap-3 p-4 border-2 border-blue-200 rounded-lg cursor-pointer hover:bg-white/5 transition-all">
+          <label className="flex items-start gap-3 p-4 border-2 border-blue-200 rounded-lg cursor-pointer hover:bg-lydian-bg/5 transition-all">
             <input
               type="radio"
               {...register('publishStatus')}
@@ -339,11 +339,11 @@ export default function Step6Review({ data, allData }: Step6Props) {
               type="radio"
               {...register('publishStatus')}
               value="publish"
-              className="mt-1 w-5 h-5 text-green-600 focus:ring-2 focus:ring-green-500"
+              className="mt-1 w-5 h-5 text-lydian-success focus:ring-2 focus:ring-green-500"
             />
             <div>
               <p className="font-semibold text-slate-900 flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-green-600" />
+                <CheckCircle2 className="w-4 h-4 text-lydian-success" />
                 Hemen Yayınla
               </p>
               <p className="text-sm text-slate-600 mt-1">
@@ -412,7 +412,7 @@ export default function Step6Review({ data, allData }: Step6Props) {
           className="p-5 bg-gradient-to-br from-red-50 to-pink-50 border-2 border-red-300 rounded-xl"
         >
           <div className="flex items-center gap-3">
-            <AlertCircle className="w-6 h-6 text-red-600" />
+            <AlertCircle className="w-6 h-6 text-lydian-error" />
             <div>
               <h4 className="font-bold text-red-900">Eksik Onaylar</h4>
               <p className="text-sm text-red-700">

@@ -33,10 +33,10 @@ export const NeoSection: React.FC<NeoSectionProps> = ({
   // Background styles - DARK THEME
   const backgrounds = {
     white: 'bg-transparent', // Transparent to show body gradient
-    gray: 'bg-white/5', // Subtle glassmorphism
+    gray: 'bg-lydian-bg/5', // Subtle glassmorphism
     gradient: 'bg-gradient-to-br from-purple-900/20 via-blue-900/20 to-cyan-900/20',
-    glass: 'bg-white/5 backdrop-blur-2xl border-y border-white/10',
-    neo: 'bg-white/5'
+    glass: 'bg-lydian-bg/5 backdrop-blur-2xl border-y border-white/10',
+    neo: 'bg-lydian-bg/5'
   };
 
   // Padding styles

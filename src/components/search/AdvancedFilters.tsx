@@ -151,7 +151,7 @@ const AdvancedFilters: React.FC<AdvancedFiltersProps> = ({
               className={`flex items-center gap-1 px-3 py-2 rounded-lg border-2 transition-all ${
               hotelFilters.starRating.includes(rating) ?
               'bg-lydian-primary text-white border-lydian-primary' :
-              'bg-white/5 text-gray-200 border-white/10 hover:border-lydian-primary'}`
+              'bg-lydian-bg/5 text-gray-200 border-white/10 hover:border-lydian-primary'}`
               }>
 
                 {Array.from({ length: rating }).map((_, i) =>
@@ -213,7 +213,7 @@ const AdvancedFilters: React.FC<AdvancedFiltersProps> = ({
               className={`px-3 py-2 rounded-lg border-2 text-sm transition-all ${
               hotelFilters.propertyTypes.includes(type.value) ?
               'bg-lydian-primary text-white border-lydian-primary' :
-              'bg-white/5 text-gray-200 border-white/10 hover:border-lydian-primary'}`
+              'bg-lydian-bg/5 text-gray-200 border-white/10 hover:border-lydian-primary'}`
               }>
 
                 {type.label}
@@ -481,7 +481,7 @@ const AdvancedFilters: React.FC<AdvancedFiltersProps> = ({
               className={`px-3 py-2 rounded-lg border-2 text-sm transition-all ${
               flightFilters.departureTime.includes(slot.value) ?
               'bg-lydian-primary text-white border-lydian-primary' :
-              'bg-white/5 text-gray-200 border-white/10 hover:border-lydian-primary'}`
+              'bg-lydian-bg/5 text-gray-200 border-white/10 hover:border-lydian-primary'}`
               }>
 
                 <div className="font-medium">{slot.label}</div>
@@ -512,7 +512,7 @@ const AdvancedFilters: React.FC<AdvancedFiltersProps> = ({
               className={`px-3 py-2 rounded-lg border-2 text-sm transition-all ${
               flightFilters.arrivalTime.includes(slot.value) ?
               'bg-lydian-primary text-white border-lydian-primary' :
-              'bg-white/5 text-gray-200 border-white/10 hover:border-lydian-primary'}`
+              'bg-lydian-bg/5 text-gray-200 border-white/10 hover:border-lydian-primary'}`
               }>
 
                 <div className="font-medium">{slot.label}</div>
@@ -674,7 +674,7 @@ const AdvancedFilters: React.FC<AdvancedFiltersProps> = ({
               className={`px-3 py-2 rounded-lg border-2 text-sm transition-all flex items-center gap-2 ${
               activityFilters.categories.includes(category.value) ?
               'bg-lydian-primary text-white border-lydian-primary' :
-              'bg-white/5 text-gray-200 border-white/10 hover:border-lydian-primary'}`
+              'bg-lydian-bg/5 text-gray-200 border-white/10 hover:border-lydian-primary'}`
               }>
 
                 <span>{category.icon}</span>
@@ -738,7 +738,7 @@ const AdvancedFilters: React.FC<AdvancedFiltersProps> = ({
                 className={`flex-1 py-2 px-3 rounded-lg text-sm font-medium transition-all ${
                 activityFilters.duration.unit === 'hours' ?
                 'bg-lydian-primary text-white' :
-                'bg-white/10 text-gray-200'}`
+                'bg-lydian-bg/10 text-gray-200'}`
                 }>
 
                 Hours
@@ -753,7 +753,7 @@ const AdvancedFilters: React.FC<AdvancedFiltersProps> = ({
                 className={`flex-1 py-2 px-3 rounded-lg text-sm font-medium transition-all ${
                 activityFilters.duration.unit === 'days' ?
                 'bg-lydian-primary text-white' :
-                'bg-white/10 text-gray-200'}`
+                'bg-lydian-bg/10 text-gray-200'}`
                 }>
 
                 Days

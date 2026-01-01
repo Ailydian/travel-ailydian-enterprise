@@ -50,8 +50,8 @@ const LoginPage: React.FC = () => {
   return (
     <>
       <Head>
-        <title>Giriş Yap | Travel.LyDian - AI Destekli Seyahat Platformu</title>
-        <meta name="description" content="Travel.LyDian hesabınıza giriş yapın. Kişiselleştirilmiş seyahat deneyimleri ve AI destekli planlamaya erişin." />
+        <title>Giriş Yap | Holiday.AILYDIAN - AI Destekli Seyahat Platformu</title>
+        <meta name="description" content="Holiday.AILYDIAN hesabınıza giriş yapın. Kişiselleştirilmiş seyahat deneyimleri ve AI destekli planlamaya erişin." />
         <meta name="keywords" content="giriş yap, oturum aç, travel lydian, seyahat hesap" />
       </Head>
 
@@ -66,7 +66,7 @@ const LoginPage: React.FC = () => {
         {/* Return to Home Button */}
         <Link
           href="/"
-          className="fixed top-6 left-6 z-50 flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-xl rounded-xl border border-white/20 text-white hover:bg-white/20 transition-all duration-200"
+          className="fixed top-6 left-6 z-50 flex items-center gap-2 px-4 py-2 bg-lydian-bg/10 backdrop-blur-xl rounded-xl border border-white/20 text-white hover:bg-lydian-bg/20 transition-all duration-200"
         >
           <ArrowLeft className="w-4 h-4" />
           <span className="font-medium">Ana Sayfaya Dön</span>
@@ -87,7 +87,7 @@ const LoginPage: React.FC = () => {
                     <span className="text-white font-bold text-xl">A</span>
                   </div>
                   <div>
-                    <h1 className="text-2xl font-bold text-white">Travel.LyDian</h1>
+                    <h1 className="text-2xl font-bold text-white">Holiday.AILYDIAN</h1>
                     <p className="text-xs text-white/70">AI Destekli Seyahat Platformu</p>
                   </div>
                 </div>
@@ -110,7 +110,7 @@ const LoginPage: React.FC = () => {
                 className="p-8"
               >
                 {/* Login Method Toggle */}
-                <div className="flex rounded-2xl p-1 mb-6 border-2 bg-white/5 backdrop-blur-xl border-white/20">
+                <div className="flex rounded-2xl p-1 mb-6 border-2 bg-lydian-bg/5 backdrop-blur-xl border-white/20">
                   <button
                     onClick={() => setLoginMethod('email')}
                     className={`flex-1 flex items-center justify-center gap-2 py-3 px-4 rounded-xl transition-all font-medium ${
@@ -175,7 +175,7 @@ const LoginPage: React.FC = () => {
                         type="checkbox"
                         checked={rememberMe}
                         onChange={(e) => setRememberMe(e.target.checked)}
-                        className="rounded border-white/30 bg-white/10 text-[#667EEA] focus:ring-[#667EEA] focus:ring-offset-0"
+                        className="rounded border-white/30 bg-lydian-bg/10 text-[#667EEA] focus:ring-[#667EEA] focus:ring-offset-0"
                       />
                       <span className="ml-2 text-sm text-white/80">Beni Hatırla</span>
                     </label>
@@ -201,9 +201,9 @@ const LoginPage: React.FC = () => {
 
                 {/* Divider */}
                 <div className="flex items-center gap-4 my-6">
-                  <div className="flex-1 h-px bg-white/20"></div>
+                  <div className="flex-1 h-px bg-lydian-bg/20"></div>
                   <span className="text-white/60 text-sm">veya devam et</span>
-                  <div className="flex-1 h-px bg-white/20"></div>
+                  <div className="flex-1 h-px bg-lydian-bg/20"></div>
                 </div>
 
                 {/* Social Login */}

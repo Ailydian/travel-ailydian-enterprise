@@ -329,7 +329,7 @@ export function generateAutomatedResponse(message: string): {
   // Booking related
   if (lowerMessage.match(/rezervasyon|booking|otel|araç|tur|transfer/)) {
     return {
-      response: '🎫 Rezervasyon yapmak için hangi hizmeti arıyorsunuz?\n\n🏨 Oteller\n🚗 Araç Kiralama\n🎭 Turlar\n🚕 Transferler\n🚙 Şoförlü Araç\n\nLütfen seçiminizi yapın veya daha fazla bilgi için travel.lydian.com adresini ziyaret edin.',
+      response: '🎫 Rezervasyon yapmak için hangi hizmeti arıyorsunuz?\n\n🏨 Oteller\n🚗 Araç Kiralama\n🎭 Turlar\n🚕 Transferler\n🚙 Şoförlü Araç\n\nLütfen seçiminizi yapın veya daha fazla bilgi için holiday.ailydian.com adresini ziyaret edin.',
       actionType: 'booking',
       buttons: [
         { id: 'hotel', title: '🏨 Otel' },
@@ -355,7 +355,7 @@ export function generateAutomatedResponse(message: string): {
   // Price/Fiyat
   if (lowerMessage.match(/fiyat|price|ücret|cost|ne kadar/)) {
     return {
-      response: '💰 Fiyat bilgisi almak için:\n\n1. travel.lydian.com adresini ziyaret edin\n2. İlgilendiğiniz hizmeti seçin\n3. Tarih ve detayları girin\n4. Anlık fiyatları görün\n\n✨ Bundle pricing ile %20\'ye varan indirim!\n\nYardımcı olmamı istediğiniz başka bir konu var mı?',
+      response: '💰 Fiyat bilgisi almak için:\n\n1. holiday.ailydian.com adresini ziyaret edin\n2. İlgilendiğiniz hizmeti seçin\n3. Tarih ve detayları girin\n4. Anlık fiyatları görün\n\n✨ Bundle pricing ile %20\'ye varan indirim!\n\nYardımcı olmamı istediğiniz başka bir konu var mı?',
       actionType: 'info'
     };
   }
@@ -363,7 +363,7 @@ export function generateAutomatedResponse(message: string): {
   // LyDian Miles
   if (lowerMessage.match(/miles|puan|point|loyalty/)) {
     return {
-      response: '🌟 LyDian Miles Loyalty Program!\n\nHer ₺1 harcamada 1 Miles kazanın.\n\n🥈 Silver (1,000+): %2 indirim\n🥇 Gold (5,000+): %5 indirim\n👑 VIP (10,000+): %10 indirim\n\nMiles\'larınızı rezervasyonlarınızda kullanabilirsiniz!\n\nDaha fazla bilgi: travel.lydian.com/miles',
+      response: '🌟 LyDian Miles Loyalty Program!\n\nHer ₺1 harcamada 1 Miles kazanın.\n\n🥈 Silver (1,000+): %2 indirim\n🥇 Gold (5,000+): %5 indirim\n👑 VIP (10,000+): %10 indirim\n\nMiles\'larınızı rezervasyonlarınızda kullanabilirsiniz!\n\nDaha fazla bilgi: holiday.ailydian.com/miles',
       actionType: 'info'
     };
   }

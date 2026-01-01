@@ -122,8 +122,8 @@ const SignIn: React.FC = () => {
   return (
     <>
       <Head>
-        <title>Giriş Yap - LyDian Travel</title>
-        <meta name="description" content="LyDian Travel hesabınıza giriş yapın ve seyahat deneyiminizi kişiselleştirin." />
+        <title>Giriş Yap - AILYDIAN Holiday</title>
+        <meta name="description" content="AILYDIAN Holiday hesabınıza giriş yapın ve seyahat deneyiminizi kişiselleştirin." />
         <meta name="robots" content="noindex, nofollow" />
       </Head>
 
@@ -138,7 +138,7 @@ const SignIn: React.FC = () => {
         {/* Return to Home Button */}
         <Link
           href="/"
-          className="fixed top-6 left-6 z-50 flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-xl rounded-xl border border-white/20 text-white hover:bg-white/20 transition-all duration-200"
+          className="fixed top-6 left-6 z-50 flex items-center gap-2 px-4 py-2 bg-lydian-glass-light backdrop-blur-xl rounded-xl border border-lydian-border-light/20 text-lydian-text-inverse hover:bg-lydian-glass-medium transition-all duration-200"
         >
           <ArrowLeft className="w-4 h-4" />
           <span className="font-medium">Ana Sayfaya Dön</span>
@@ -155,25 +155,25 @@ const SignIn: React.FC = () => {
             >
               <Link href="/" className="inline-block mb-6">
                 <div className="flex items-center justify-center space-x-3">
-                  <div className="w-12 h-12 bg-gradient-to-r from-[#667EEA] to-[#764BA2] rounded-xl flex items-center justify-center">
-                    <span className="text-white font-bold text-xl">A</span>
+                  <div className="w-12 h-12 bg-gradient-to-r from-lydian-primary to-lydian-primary-dark rounded-xl flex items-center justify-center">
+                    <span className="text-lydian-text-inverse font-bold text-xl">A</span>
                   </div>
                   <div>
-                    <h1 className="text-2xl font-bold text-white">LyDian Travel</h1>
-                    <p className="text-xs text-white/70">AI-Powered Enterprise</p>
+                    <h1 className="text-2xl font-bold text-lydian-text-inverse">AILYDIAN Holiday</h1>
+                    <p className="text-xs text-lydian-text-inverse/70">AI-Powered Enterprise</p>
                   </div>
                 </div>
               </Link>
 
-              <h2 className="text-3xl font-bold text-white mb-2">Tekrar Hoş Geldiniz!</h2>
-              <p className="text-white/80">Seyahat maceranıza kaldığınız yerden devam edin</p>
+              <h2 className="text-3xl font-bold text-lydian-text-inverse mb-2">Tekrar Hoş Geldiniz!</h2>
+              <p className="text-lydian-text-inverse/80">Seyahat maceranıza kaldığınız yerden devam edin</p>
             </motion.div>
 
             {/* Main Form Card */}
             <FuturisticCard
               title=""
               price=""
-              categoryColor="#667EEA"
+              categoryColor="#DC2626"
             >
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -186,10 +186,10 @@ const SignIn: React.FC = () => {
                   <motion.div
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    className="mb-6 p-4 bg-red-500/20 backdrop-blur-xl border border-red-500/30 rounded-xl flex items-center gap-3"
+                    className="mb-6 p-4 bg-lydian-error/20 backdrop-blur-xl border border-lydian-error/30 rounded-xl flex items-center gap-3"
                   >
-                    <AlertCircle className="w-5 h-5 text-red-400" />
-                    <p className="text-red-200 text-sm">{error}</p>
+                    <AlertCircle className="w-5 h-5 text-lydian-error" />
+                    <p className="text-lydian-error-lighter text-sm">{error}</p>
                   </motion.div>
                 )}
 
@@ -219,9 +219,9 @@ const SignIn: React.FC = () => {
                 </div>
 
                 <div className="flex items-center gap-4 mb-6">
-                  <div className="flex-1 h-px bg-white/20"></div>
-                  <span className="text-white/60 text-sm">veya</span>
-                  <div className="flex-1 h-px bg-white/20"></div>
+                  <div className="flex-1 h-px bg-lydian-border-light/20"></div>
+                  <span className="text-lydian-text-inverse/60 text-sm">veya</span>
+                  <div className="flex-1 h-px bg-lydian-border-light/20"></div>
                 </div>
 
                 {/* Email/Password Form */}
@@ -235,7 +235,7 @@ const SignIn: React.FC = () => {
                     icon={<Mail className="w-5 h-5" />}
                     error={errors.email}
                     required
-                    glowColor="#667EEA"
+                    glowColor="#DC2626"
                   />
 
                   {/* Password Field */}
@@ -248,12 +248,12 @@ const SignIn: React.FC = () => {
                       icon={<Lock className="w-5 h-5" />}
                       error={errors.password}
                       required
-                      glowColor="#667EEA"
+                      glowColor="#DC2626"
                     />
                     <button
                       type="button"
                       onClick={() => setShowPassword(!showPassword)}
-                      className="absolute right-3 top-10 text-white/60 hover:text-white transition-colors"
+                      className="absolute right-3 top-10 text-lydian-text-inverse/60 hover:text-lydian-text-inverse transition-colors"
                     >
                       {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
                     </button>
@@ -264,13 +264,13 @@ const SignIn: React.FC = () => {
                     <label className="flex items-center cursor-pointer">
                       <input
                         type="checkbox"
-                        className="rounded border-white/30 bg-white/10 text-[#667EEA] focus:ring-[#667EEA] focus:ring-offset-0"
+                        className="rounded border-lydian-border-light/30 bg-lydian-glass-light text-lydian-primary focus:ring-lydian-primary focus:ring-offset-0"
                       />
-                      <span className="ml-2 text-sm text-white/80">Beni hatırla</span>
+                      <span className="ml-2 text-sm text-lydian-text-inverse/80">Beni hatırla</span>
                     </label>
                     <Link
                       href="/auth/forgot-password"
-                      className="text-sm font-medium text-transparent bg-clip-text bg-gradient-to-r from-[#00BAFF] to-[#667EEA] hover:from-[#667EEA] hover:to-[#764BA2] transition-all"
+                      className="text-sm font-medium text-transparent bg-clip-text bg-gradient-to-r from-lydian-primary to-lydian-primary-dark hover:from-lydian-primary-hover hover:to-lydian-primary-darker transition-all"
                     >
                       Şifremi unuttum
                     </Link>
@@ -291,11 +291,11 @@ const SignIn: React.FC = () => {
 
                 {/* Sign Up Link */}
                 <div className="mt-6 text-center">
-                  <p className="text-white/70">
+                  <p className="text-lydian-text-inverse/70">
                     Henüz hesabınız yok mu?{' '}
                     <Link
                       href="/auth/signup"
-                      className="font-semibold text-transparent bg-clip-text bg-gradient-to-r from-[#00BAFF] to-[#667EEA] hover:from-[#667EEA] hover:to-[#764BA2] transition-all"
+                      className="font-semibold text-transparent bg-clip-text bg-gradient-to-r from-lydian-primary to-lydian-primary-dark hover:from-lydian-primary-hover hover:to-lydian-primary-darker transition-all"
                     >
                       Ücretsiz kayıt ol
                     </Link>

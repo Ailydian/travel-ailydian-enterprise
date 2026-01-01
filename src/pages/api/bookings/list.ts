@@ -1,9 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { getSession } from 'next-auth/react';
-import { PrismaClient } from '@prisma/client';
+import { prisma } from '@/lib/prisma';
 import logger from '../../../lib/logger';
-
-const prisma = new PrismaClient();
 
 /**
  * GET /api/bookings/list
@@ -80,7 +78,5 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       message: 'Rezervasyonlar yüklenirken bir hata oluştu',
       error: error instanceof Error ? error.message : 'Unknown error'
     });
-  } finally {
-    await prisma.$disconnect();
   }
 }

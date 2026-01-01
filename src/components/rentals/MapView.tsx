@@ -33,7 +33,7 @@ const createCustomIcon = (price: number, featured: boolean) => {
         <div class="${
     featured ?
     'bg-gradient-to-r from-red-600 to-orange-500' :
-    'bg-white'} px-3 py-2 rounded-full shadow-lg border-2 ${
+    'bg-lydian-bg'} px-3 py-2 rounded-full shadow-lg border-2 ${
 
     featured ? 'border-white' : 'border-red-600'} font-bold text-sm ${
     featured ? 'text-white' : 'text-white'} hover:scale-110 transition-transform cursor-pointer">

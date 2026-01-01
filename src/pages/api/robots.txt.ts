@@ -5,7 +5,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
 Allow: /
 
 # Sitemaps
-Sitemap: https://travel.lydian.com/api/sitemap.xml
+Sitemap: https://holiday.ailydian.com/api/sitemap.xml
 
 # SEO Bot specific rules
 User-agent: Googlebot
@@ -90,7 +90,7 @@ User-agent: *
 Crawl-delay: 1
 
 # Host directive
-Host: travel.lydian.com`;
+Host: holiday.ailydian.com`;
 
   res.setHeader('Content-Type', 'text/plain');
   res.setHeader('Cache-Control', 'public, s-maxage=86400, stale-while-revalidate');

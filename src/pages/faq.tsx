@@ -12,7 +12,7 @@ const FAQ_CATEGORIES = [
   questions: [
   {
     question: 'Nasıl rezervasyon yapabilirim?',
-    answer: 'LyDian Travel ile rezervasyon yapmak çok kolay! İstediğiniz oteli, turu veya aktiviteyi seçin, tarihlerinizi belirleyin ve ödeme işlemini tamamlayın. Rezervasyon onayınız e-posta ve SMS ile gönderilecektir.'
+    answer: 'AILYDIAN Holiday ile rezervasyon yapmak çok kolay! İstediğiniz oteli, turu veya aktiviteyi seçin, tarihlerinizi belirleyin ve ödeme işlemini tamamlayın. Rezervasyon onayınız e-posta ve SMS ile gönderilecektir.'
   },
   {
     question: 'Rezervasyonumu nasıl iptal edebilirim?',
@@ -112,7 +112,7 @@ const FAQ_CATEGORIES = [
   },
   {
     question: 'Yurt dışı seyahatlerinde roaming ücreti var mı?',
-    answer: 'Roaming ücretleri telekomünikasyon operatörünüze bağlıdır. LyDian Travel mobil uygulamamız offline çalışabilir ve Wi-Fi bağlantısı olmadan da rezervasyonlarınıza erişebilirsiniz.'
+    answer: 'Roaming ücretleri telekomünikasyon operatörünüze bağlıdır. AILYDIAN Holiday mobil uygulamamız offline çalışabilir ve Wi-Fi bağlantısı olmadan da rezervasyonlarınıza erişebilirsiniz.'
   }]
 
 },
@@ -169,19 +169,19 @@ export default function FAQ() {
   return (
     <>
       <Head>
-        <title>Sık Sorulan Sorular | LyDian Travel - Türkiye'nin AI Destekli Seyahat Platformu</title>
-        <meta name="description" content="LyDian Travel hakkında merak ettikleriniz: Rezervasyon, ödeme, iptal, AI asistan, VR önizleme, blockchain doğrulama ve daha fazlası." />
+        <title>Sık Sorulan Sorular | AILYDIAN Holiday - Türkiye'nin AI Destekli Seyahat Platformu</title>
+        <meta name="description" content="AILYDIAN Holiday hakkında merak ettikleriniz: Rezervasyon, ödeme, iptal, AI asistan, VR önizleme, blockchain doğrulama ve daha fazlası." />
         <meta name="keywords" content="sık sorulan sorular, faq, lydian travel, rezervasyon iptal, ödeme, müşteri hizmetleri, ai asistan, vr önizleme" />
 
         {/* Open Graph */}
-        <meta property="og:title" content="Sık Sorulan Sorular | LyDian Travel" />
+        <meta property="og:title" content="Sık Sorulan Sorular | AILYDIAN Holiday" />
         <meta property="og:description" content="Rezervasyon, ödeme, iptal ve tüm hizmetlerimiz hakkında merak ettikleriniz." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://travel.lydian.com/faq" />
+        <meta property="og:url" content="https://holiday.ailydian.com/faq" />
 
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Sık Sorulan Sorular | LyDian Travel" />
+        <meta name="twitter:title" content="Sık Sorulan Sorular | AILYDIAN Holiday" />
         <meta name="twitter:description" content="Rezervasyon, ödeme, iptal ve tüm hizmetlerimiz hakkında merak ettikleriniz." />
 
         {/* Structured Data */}

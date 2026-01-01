@@ -230,7 +230,7 @@ export default function ReviewSystemIntegration() {
                 <Star
                   key={i}
                   className={`h-4 w-4 ${
-                  i < review.rating ? 'text-yellow-400 fill-current' : 'text-gray-300'}`
+                  i < review.rating ? 'text-yellow-400 fill-current' : 'text-lydian-text-dim'}`
                   } />
 
                 )}
@@ -377,7 +377,7 @@ export default function ReviewSystemIntegration() {
               <div key={reviewer.id} className="bg-lydian-glass-dark dark:bg-gray-800 rounded-xl p-6 shadow-lg relative">
                   {/* Rank Badge */}
                   <div className={`absolute -top-3 -right-3 w-8 h-8 rounded-full flex items-center justify-center text-lydian-text-inverse font-bold text-sm ${
-                index === 0 ? 'bg-yellow-500' : index === 1 ? 'bg-gray-400' : 'bg-orange-500'}`
+                index === 0 ? 'bg-lydian-warning-hover' : index === 1 ? 'bg-gray-400' : 'bg-orange-500'}`
                 }>
                     {index + 1}
                   </div>

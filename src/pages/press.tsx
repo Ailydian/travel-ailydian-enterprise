@@ -166,9 +166,9 @@ export default function Press() {
                   Basın sorguları ve röportaj talepleri için bizimle iletişime geçin
                 </p>
                 <div className="space-y-3">
-                  <a href="mailto:basin@travel.lydian.com" className="flex items-center gap-3 text-lydian-text-inverse hover:text-blue-100 transition-colors">
+                  <a href="mailto:basin@holiday.ailydian.com" className="flex items-center gap-3 text-lydian-text-inverse hover:text-blue-100 transition-colors">
                     <Mail className="w-5 h-5" />
-                    <span>basin@travel.lydian.com</span>
+                    <span>basin@holiday.ailydian.com</span>
                   </a>
                   <a href="tel:+902121234567" className="flex items-center gap-3 text-lydian-text-inverse hover:text-blue-100 transition-colors">
                     <Phone className="w-5 h-5" />

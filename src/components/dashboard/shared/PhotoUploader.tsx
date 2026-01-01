@@ -527,8 +527,8 @@ export const PhotoUploader: React.FC<PhotoUploaderProps> = ({
       <div
         className={`border-2 border-dashed rounded-lg p-8 text-center transition-colors ${
         isDragging ?
-        'border-blue-500 bg-blue-50' :
-        'border-gray-300 bg-white/5'} ${
+        'border-lydian-primary bg-blue-50' :
+        'border-lydian-border-medium bg-lydian-bg/5'} ${
         disabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer hover:border-blue-400 hover:bg-blue-50'}`}
         onDragOver={handleDragOver}
         onDragLeave={handleDragLeave}
@@ -536,7 +536,7 @@ export const PhotoUploader: React.FC<PhotoUploaderProps> = ({
         onClick={() => !disabled && fileInputRef.current?.click()}>
 
           <Upload
-          className={`h-12 w-12 mx-auto mb-4 ${isDragging ? 'text-blue-500' : 'text-gray-400'}`} />
+          className={`h-12 w-12 mx-auto mb-4 ${isDragging ? 'text-blue-500' : 'text-lydian-text-muted'}`} />
 
           <p className="text-sm font-medium text-lydian-text-inverse mb-1">
             {isDragging ?
@@ -583,8 +583,8 @@ export const PhotoUploader: React.FC<PhotoUploaderProps> = ({
             onDragEnd={handleDragEnd}
             className={`relative group rounded-lg overflow-hidden border-2 transition-all ${
             image.isCover ?
-            'border-blue-500 ring-2 ring-blue-500' :
-            'border-gray-200 hover:border-gray-300'} ${
+            'border-lydian-primary ring-2 ring-lydian-primary' :
+            'border-lydian-border hover:border-lydian-border-medium'} ${
             draggedIndex === index ? 'opacity-50' : ''}`}>
 
                 {/* Image */}
@@ -604,8 +604,8 @@ export const PhotoUploader: React.FC<PhotoUploaderProps> = ({
                   onClick={() => handleSetCover(image.id)}
                   className={`p-2 rounded-full transition-colors ${
                   image.isCover ?
-                  'bg-blue-600 text-white' :
-                  'bg-white/5 text-gray-200 hover:bg-blue-600 hover:text-white'}`
+                  'bg-lydian-primary text-white' :
+                  'bg-lydian-bg/5 text-gray-200 hover:bg-lydian-primary hover:text-white'}`
                   }
                   title={image.isCover ? 'Cover photo' : 'Set as cover'}>
 

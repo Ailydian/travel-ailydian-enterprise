@@ -24,44 +24,44 @@ export default function PaymentSuccess({
 }: PaymentSuccessProps) {
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 to-blue-50 flex items-center justify-center p-4">
-      <div className="max-w-md w-full bg-white rounded-2xl shadow-xl p-8">
+      <div className="max-w-md w-full bg-lydian-bg rounded-2xl shadow-xl p-8">
         {/* Success Icon */}
         <div className="flex justify-center mb-6">
           <div className="bg-green-100 rounded-full p-3">
-            <CheckCircleIcon className="h-16 w-16 text-green-600" />
+            <CheckCircleIcon className="h-16 w-16 text-lydian-success" />
           </div>
         </div>
 
         {/* Success Message */}
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">
+          <h1 className="text-3xl font-bold text-lydian-text mb-2">
             Payment Successful!
           </h1>
-          <p className="text-gray-600">
+          <p className="text-lydian-text-secondary">
             Your booking has been confirmed and payment processed successfully.
           </p>
         </div>
 
         {/* Payment Details */}
-        <div className="bg-gray-50 rounded-lg p-6 mb-6 space-y-3">
+        <div className="bg-lydian-bg-surface rounded-lg p-6 mb-6 space-y-3">
           <div className="flex justify-between items-center">
-            <span className="text-gray-600">Booking ID:</span>
-            <span className="font-mono text-sm text-gray-900">{bookingId}</span>
+            <span className="text-lydian-text-secondary">Booking ID:</span>
+            <span className="font-mono text-sm text-lydian-text">{bookingId}</span>
           </div>
 
           {paymentIntentId && (
             <div className="flex justify-between items-center">
-              <span className="text-gray-600">Transaction ID:</span>
-              <span className="font-mono text-xs text-gray-900">
+              <span className="text-lydian-text-secondary">Transaction ID:</span>
+              <span className="font-mono text-xs text-lydian-text">
                 {paymentIntentId.substring(0, 20)}...
               </span>
             </div>
           )}
 
           {amount && (
-            <div className="flex justify-between items-center pt-3 border-t border-gray-200">
-              <span className="text-gray-600 font-medium">Amount Paid:</span>
-              <span className="text-2xl font-bold text-green-600">
+            <div className="flex justify-between items-center pt-3 border-t border-lydian-border">
+              <span className="text-lydian-text-secondary font-medium">Amount Paid:</span>
+              <span className="text-2xl font-bold text-lydian-success">
                 ${amount.toFixed(2)}
               </span>
             </div>
@@ -83,7 +83,7 @@ export default function PaymentSuccess({
         <div className="space-y-3">
           <Link
             href={`/bookings/${bookingId}`}
-            className="flex items-center justify-center w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200"
+            className="flex items-center justify-center w-full bg-lydian-primary hover:bg-lydian-primary-hover text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200"
           >
             <DocumentTextIcon className="h-5 w-5 mr-2" />
             View Booking Details
@@ -91,7 +91,7 @@ export default function PaymentSuccess({
 
           <Link
             href="/"
-            className="flex items-center justify-center w-full bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold py-3 px-6 rounded-lg transition-colors duration-200"
+            className="flex items-center justify-center w-full bg-lydian-bg-surface-raised hover:bg-lydian-bg-surface-raised text-lydian-text-secondary font-semibold py-3 px-6 rounded-lg transition-colors duration-200"
           >
             <HomeIcon className="h-5 w-5 mr-2" />
             Back to Home
@@ -99,14 +99,14 @@ export default function PaymentSuccess({
         </div>
 
         {/* Additional Info */}
-        <div className="mt-8 pt-6 border-t border-gray-200">
-          <p className="text-xs text-gray-500 text-center">
+        <div className="mt-8 pt-6 border-t border-lydian-border">
+          <p className="text-xs text-lydian-text-muted text-center">
             Need help? Contact our support team at{' '}
             <a
-              href="mailto:support@travel.ailydian.com"
-              className="text-blue-600 hover:underline"
+              href="mailto:support@holiday.ailydian.com"
+              className="text-lydian-primary hover:underline"
             >
-              support@travel.ailydian.com
+              support@holiday.ailydian.com
             </a>
           </p>
         </div>

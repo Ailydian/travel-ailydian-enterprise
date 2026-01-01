@@ -1,6 +1,6 @@
 /**
  * 🎨 MINIMALIST COMPONENTS
- * Option5.studio inspired components for travel.ailydian.com
+ * Option5.studio inspired components for holiday.ailydian.com
  * Clean, thoughtful, built to last
  */
 

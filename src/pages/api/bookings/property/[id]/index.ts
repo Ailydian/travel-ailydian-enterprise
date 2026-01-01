@@ -1,10 +1,23 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { getServerSession } from 'next-auth'
 import { authOptions } from '@/pages/api/auth/[...nextauth]'
-import { PrismaClient } from '@prisma/client'
+import { prisma } from '@/lib/prisma'; //  from '@prisma/client'
 import { logger } from '../../../../../lib/logger/winston';
 
-const prisma = new PrismaClient()
+/**
+ * SECURITY: V6 IDOR Protection Verified (CVSS 8.9)
+ * Get Booking by ID API
+ *
+ * This endpoint implements proper authorization checks to prevent
+ * Insecure Direct Object Reference (IDOR) vulnerabilities.
+ *
+ * Protection measures:
+ * 1. User authentication required (NextAuth session)
+ * 2. User ownership verification via userId matching
+ * 3. Explicit authorization check before returning data
+ */
+
+// Using singleton prisma
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== 'GET') {
@@ -12,6 +25,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   }
 
   try {
+    // SECURITY V6: Authenticate user session
     const session = await getServerSession(req, res, authOptions)
     if (!session?.user?.email) {
       return res.status(401).json({ error: 'Unauthorized' })
@@ -31,7 +45,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       return res.status(400).json({ error: 'Invalid booking ID' })
     }
 
-    // Get booking by ID or reference
+    // SECURITY V6: Get booking with ownership verification
     let booking
     if (id.startsWith('BK-')) {
       booking = await prisma.rentalPropertyBooking.findUnique({
@@ -59,7 +73,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       booking = await prisma.rentalPropertyBooking.findFirst({
         where: {
           id,
-          userId: user.id, // Ensure user owns this booking
+          // SECURITY V6 CRITICAL: Filter by userId to prevent IDOR
+          // This ensures users can ONLY access their own bookings
+          userId: user.id,
         },
         include: {
           property: {
@@ -86,8 +102,16 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       return res.status(404).json({ error: 'Booking not found' })
     }
 
-    // Check if user owns this booking
+    // SECURITY V6 CRITICAL: Double-check ownership (defense in depth)
+    // Even if the query above filters by userId, we verify again as a safety measure
+    // This prevents IDOR attacks where users try to access other users' bookings
     if (booking.userId !== user.id) {
+      logger.warn('IDOR attempt detected - booking access denied', {
+        userId: user.id,
+        bookingId: id,
+        bookingUserId: booking.userId,
+        component: 'BookingAPI',
+      });
       return res.status(403).json({ error: 'Access denied' })
     }
 

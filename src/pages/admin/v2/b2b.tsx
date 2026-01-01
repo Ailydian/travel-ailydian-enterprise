@@ -196,11 +196,11 @@ const B2BPartnersPage = () => {
 
   const getStatusColor = (status: string) => {
     switch (status) {
-      case 'active':return 'text-green-600 bg-green-50 border-green-200';
+      case 'active':return 'text-lydian-success bg-green-50 border-green-200';
       case 'pending':return 'text-amber-600 bg-amber-50 border-amber-200';
-      case 'inactive':return 'text-gray-300 bg-white/5 border-gray-200';
-      case 'suspended':return 'text-red-600 bg-red-50 border-red-200';
-      default:return 'text-gray-300 bg-white/5 border-gray-200';
+      case 'inactive':return 'text-lydian-text-dim bg-lydian-bg/5 border-lydian-border';
+      case 'suspended':return 'text-lydian-error bg-red-50 border-red-200';
+      default:return 'text-lydian-text-dim bg-lydian-bg/5 border-lydian-border';
     }
   };
 

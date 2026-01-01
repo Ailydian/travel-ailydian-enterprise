@@ -7,8 +7,8 @@ const Terms: React.FC = () => {
   return (
     <>
       <Head>
-        <title>Kullanım Şartları - Travel.LyDian | Hizmet Şartları</title>
-        <meta name="description" content="Travel.LyDian hizmet kullanım şartları ve koşulları hakkında detaylı bilgilendirme." />
+        <title>Kullanım Şartları - Holiday.AILYDIAN | Hizmet Şartları</title>
+        <meta name="description" content="Holiday.AILYDIAN hizmet kullanım şartları ve koşulları hakkında detaylı bilgilendirme." />
       </Head>
 
       <FuturisticHeader />
@@ -21,7 +21,7 @@ const Terms: React.FC = () => {
             <section>
               <h2 className="text-2xl font-bold text-lydian-text-inverse mb-4">1. Hizmet Koşulları</h2>
               <p className="text-lydian-text-muted leading-relaxed">
-                Travel.LyDian platformunu kullanarak bu şartları kabul etmiş sayılırsınız. 
+                Holiday.AILYDIAN platformunu kullanarak bu şartları kabul etmiş sayılırsınız. 
                 AI destekli seyahat planlama, VR önizlemeler ve blockchain güvenlik hizmetlerimiz bu şartlar kapsamındadır.
               </p>
             </section>
@@ -66,7 +66,7 @@ const Terms: React.FC = () => {
             <section>
               <h2 className="text-2xl font-bold text-lydian-text-inverse mb-4">6. Sorumluluk Sınırlaması</h2>
               <p className="text-lydian-text-muted leading-relaxed">
-                Travel.LyDian, üçüncü taraf hizmet sağlayıcılarının hataları veya doğal afetler gibi 
+                Holiday.AILYDIAN, üçüncü taraf hizmet sağlayıcılarının hataları veya doğal afetler gibi 
                 kontrol dışındaki durumlardan sorumlu değildir. Seyahat sigortası önerilir.
               </p>
             </section>
@@ -75,7 +75,7 @@ const Terms: React.FC = () => {
               <h2 className="text-2xl font-bold text-lydian-text-inverse mb-4">7. Fikri Mülkiyet</h2>
               <p className="text-lydian-text-muted leading-relaxed">
                 Platformdaki tüm içerik, AI algoritmaları, VR deneyimleri ve blockchain teknolojisi 
-                Travel.LyDian&apos;n fikri mülkiyetindedir ve korunmaktadır.
+                Holiday.AILYDIAN&apos;n fikri mülkiyetindedir ve korunmaktadır.
               </p>
             </section>
 

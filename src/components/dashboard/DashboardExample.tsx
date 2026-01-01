@@ -47,7 +47,7 @@ const StatCard: React.FC<StatCardProps> = ({
       </div>
       <div
       className={`flex items-center space-x-1 text-sm font-medium ${
-      isPositive ? 'text-green-600' : 'text-red-600'}`
+      isPositive ? 'text-lydian-success' : 'text-lydian-error'}`
       }>
 
         {isPositive ?

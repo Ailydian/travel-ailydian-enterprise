@@ -344,7 +344,7 @@ export default function VehicleSubmissionWizard() {
                 'border-green-500 bg-green-50' :
                 completedSteps.includes(step) ?
                 'border-emerald-500 bg-emerald-50' :
-                'border-slate-200 bg-white'}`
+                'border-slate-200 bg-lydian-bg'}`
                 }>
 
                   <div className="flex items-center gap-2 mb-1">
@@ -371,7 +371,7 @@ export default function VehicleSubmissionWizard() {
                   </div>
                   <p
                   className={`text-xs leading-tight ${
-                  step === currentStep ? 'text-green-600' : 'text-slate-500'}`
+                  step === currentStep ? 'text-lydian-success' : 'text-slate-500'}`
                   }>
 
                     {stepTitles[step - 1]}

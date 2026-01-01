@@ -1,7 +1,7 @@
 /**
  * NIRVANA SEO SYSTEM - Ultimate Premium SEO Engine
  *
- * Amaç: travel.lydian.com'u TÜM arama motorlarında 1. sayfa 1. sıralara çıkarmak
+ * Amaç: holiday.ailydian.com'u TÜM arama motorlarında 1. sayfa 1. sıralara çıkarmak
  *
  * Stratejiler:
  * 1. AI-Powered Content Optimization
@@ -248,9 +248,9 @@ export class NirvanaSEO {
         '@type': 'TravelAgency',
         'name': 'Travel LyDian',
         'description': 'AI Destekli Premium Seyahat Platformu - Türkiye\'nin En Gelişmiş Tatil Rezervasyon Sistemi',
-        'url': 'https://travel.lydian.com',
-        'logo': 'https://travel.lydian.com/logo.png',
-        'image': 'https://travel.lydian.com/og-image.jpg',
+        'url': 'https://holiday.ailydian.com',
+        'logo': 'https://holiday.ailydian.com/logo.png',
+        'image': 'https://holiday.ailydian.com/og-image.jpg',
         'telephone': '+90-850-XXX-XXXX',
         'email': 'info@lydian.com',
         'address': {
@@ -284,12 +284,12 @@ export class NirvanaSEO {
           '@context': 'https://schema.org',
           '@type': 'WebSite',
           'name': 'Travel LyDian',
-          'url': 'https://travel.lydian.com',
+          'url': 'https://holiday.ailydian.com',
           'potentialAction': {
             '@type': 'SearchAction',
             'target': {
               '@type': 'EntryPoint',
-              'urlTemplate': 'https://travel.lydian.com/search?q={search_term_string}'
+              'urlTemplate': 'https://holiday.ailydian.com/search?q={search_term_string}'
             },
             'query-input': 'required name=search_term_string'
           }
@@ -308,7 +308,7 @@ export class NirvanaSEO {
               '@type': 'ListItem',
               'position': 1,
               'name': 'Ana Sayfa',
-              'item': 'https://travel.lydian.com'
+              'item': 'https://holiday.ailydian.com'
             }
           ]
         }
@@ -435,7 +435,7 @@ export class NirvanaSEO {
             'name': 'Travel LyDian',
             'logo': {
               '@type': 'ImageObject',
-              'url': 'https://travel.lydian.com/logo.png'
+              'url': 'https://holiday.ailydian.com/logo.png'
             }
           },
           'datePublished': data.datePublished,
@@ -452,7 +452,7 @@ export class NirvanaSEO {
         '@context': 'https://schema.org',
         '@type': 'TravelAgency',
         'name': 'Travel LyDian',
-        'image': 'https://travel.lydian.com/logo.png',
+        'image': 'https://holiday.ailydian.com/logo.png',
         'address': {
           '@type': 'PostalAddress',
           'addressLocality': 'Antalya',
@@ -528,8 +528,8 @@ export class NirvanaSEO {
         'og:type': 'website',
         'og:title': title,
         'og:description': description,
-        'og:url': `https://travel.lydian.com/${page}`,
-        'og:image': 'https://travel.lydian.com/og-image.jpg',
+        'og:url': `https://holiday.ailydian.com/${page}`,
+        'og:image': 'https://holiday.ailydian.com/og-image.jpg',
         'og:image:width': '1200',
         'og:image:height': '630',
         'og:site_name': 'Travel LyDian',
@@ -541,7 +541,7 @@ export class NirvanaSEO {
         'twitter:site': '@lydian',
         'twitter:title': title,
         'twitter:description': description,
-        'twitter:image': 'https://travel.lydian.com/twitter-image.jpg',
+        'twitter:image': 'https://holiday.ailydian.com/twitter-image.jpg',
         'twitter:creator': '@lydian'
       }
     };

@@ -130,7 +130,7 @@ export const Pagination: React.FC<PaginationProps> = ({
   if (variant === 'simple') {
     return (
       <div className={`flex items-center justify-between ${className}`}>
-        <div className="text-sm text-gray-700">
+        <div className="text-sm text-lydian-text-secondary">
           {totalItems && itemsPerPage && (
             <span>
               Showing {(currentPage - 1) * itemsPerPage + 1} to{' '}
@@ -145,8 +145,8 @@ export const Pagination: React.FC<PaginationProps> = ({
             disabled={currentPage === 1}
             className={`
               ${sizeClasses[size]}
-              border border-gray-300 rounded-md
-              hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed
+              border border-lydian-border-medium rounded-md
+              hover:bg-lydian-bg-surface disabled:opacity-50 disabled:cursor-not-allowed
               transition-colors
             `}
           >
@@ -157,8 +157,8 @@ export const Pagination: React.FC<PaginationProps> = ({
             disabled={currentPage === totalPages}
             className={`
               ${sizeClasses[size]}
-              border border-gray-300 rounded-md
-              hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed
+              border border-lydian-border-medium rounded-md
+              hover:bg-lydian-bg-surface disabled:opacity-50 disabled:cursor-not-allowed
               transition-colors
             `}
           >
@@ -181,8 +181,8 @@ export const Pagination: React.FC<PaginationProps> = ({
           disabled={currentPage === 1}
           className={`
             ${sizeClasses[size]}
-            border border-gray-300 rounded-md
-            hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed
+            border border-lydian-border-medium rounded-md
+            hover:bg-lydian-bg-surface disabled:opacity-50 disabled:cursor-not-allowed
           `}
           aria-label="Previous page"
         >
@@ -191,7 +191,7 @@ export const Pagination: React.FC<PaginationProps> = ({
           </svg>
         </button>
 
-        <span className="text-sm text-gray-700">
+        <span className="text-sm text-lydian-text-secondary">
           Page {currentPage} of {totalPages}
         </span>
 
@@ -200,8 +200,8 @@ export const Pagination: React.FC<PaginationProps> = ({
           disabled={currentPage === totalPages}
           className={`
             ${sizeClasses[size]}
-            border border-gray-300 rounded-md
-            hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed
+            border border-lydian-border-medium rounded-md
+            hover:bg-lydian-bg-surface disabled:opacity-50 disabled:cursor-not-allowed
           `}
           aria-label="Next page"
         >
@@ -228,8 +228,8 @@ export const Pagination: React.FC<PaginationProps> = ({
               disabled={currentPage === 1}
               className={`
                 ${sizeClasses[size]}
-                border border-gray-300 rounded-md
-                hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed
+                border border-lydian-border-medium rounded-md
+                hover:bg-lydian-bg-surface disabled:opacity-50 disabled:cursor-not-allowed
                 transition-colors
               `}
               aria-label="First page"
@@ -249,8 +249,8 @@ export const Pagination: React.FC<PaginationProps> = ({
               disabled={currentPage === 1}
               className={`
                 ${sizeClasses[size]}
-                border border-gray-300 rounded-md
-                hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed
+                border border-lydian-border-medium rounded-md
+                hover:bg-lydian-bg-surface disabled:opacity-50 disabled:cursor-not-allowed
                 transition-colors
               `}
               aria-label="Previous page"
@@ -267,7 +267,7 @@ export const Pagination: React.FC<PaginationProps> = ({
           if (page === '...') {
             return (
               <li key={`dots-${index}`}>
-                <span className={`${sizeClasses[size]} text-gray-500`}>...</span>
+                <span className={`${sizeClasses[size]} text-lydian-text-muted`}>...</span>
               </li>
             );
           }
@@ -285,8 +285,8 @@ export const Pagination: React.FC<PaginationProps> = ({
                   min-w-[2.5rem] border rounded-md
                   transition-colors
                   ${isActive
-                    ? 'bg-blue-600 text-white border-blue-600'
-                    : 'border-gray-300 hover:bg-gray-50'
+                    ? 'bg-lydian-primary text-white border-blue-600'
+                    : 'border-lydian-border-medium hover:bg-lydian-bg-surface'
                   }
                 `}
               >
@@ -304,8 +304,8 @@ export const Pagination: React.FC<PaginationProps> = ({
               disabled={currentPage === totalPages}
               className={`
                 ${sizeClasses[size]}
-                border border-gray-300 rounded-md
-                hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed
+                border border-lydian-border-medium rounded-md
+                hover:bg-lydian-bg-surface disabled:opacity-50 disabled:cursor-not-allowed
                 transition-colors
               `}
               aria-label="Next page"
@@ -325,8 +325,8 @@ export const Pagination: React.FC<PaginationProps> = ({
               disabled={currentPage === totalPages}
               className={`
                 ${sizeClasses[size]}
-                border border-gray-300 rounded-md
-                hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed
+                border border-lydian-border-medium rounded-md
+                hover:bg-lydian-bg-surface disabled:opacity-50 disabled:cursor-not-allowed
                 transition-colors
               `}
               aria-label="Last page"
@@ -356,7 +356,7 @@ export const PaginationInfo: React.FC<{
   const end = Math.min(currentPage * itemsPerPage, totalItems);
 
   return (
-    <div className={`text-sm text-gray-700 ${className}`}>
+    <div className={`text-sm text-lydian-text-secondary ${className}`}>
       Showing <span className="font-medium">{start}</span> to <span className="font-medium">{end}</span> of{' '}
       <span className="font-medium">{totalItems}</span> results
     </div>

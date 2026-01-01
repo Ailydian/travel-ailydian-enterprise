@@ -6,9 +6,9 @@ import { logger } from '../../../lib/logger/winston';
 
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { retrievePaymentIntent } from '@/lib/stripe/client';
-import { PrismaClient } from '@prisma/client';
+import { prisma } from '@/lib/prisma';;
 
-const prisma = new PrismaClient();
+// Using singleton prisma from @/lib/prisma
 
 export interface ConfirmPaymentRequest {
   paymentIntentId: string;
@@ -110,7 +110,5 @@ export default async function handler(
       success: false,
       error: errorMessage,
     });
-  } finally {
-    await prisma.$disconnect();
   }
 }

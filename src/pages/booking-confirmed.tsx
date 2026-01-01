@@ -154,7 +154,7 @@ END:VCALENDAR`;
   return (
     <>
       <Head>
-        <title>Booking Confirmed - Travel.LyDian</title>
+        <title>Booking Confirmed - Holiday.AILYDIAN</title>
         <meta name="description" content="Your booking has been confirmed successfully" />
       </Head>
 
@@ -216,7 +216,7 @@ END:VCALENDAR`;
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.5 }}
-              className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 backdrop-blur-xl border border-white/20 rounded-full shadow-lg"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-lydian-bg/10 backdrop-blur-xl border border-white/20 rounded-full shadow-lg"
             >
               <Sparkles className="w-5 h-5 text-yellow-400" />
               <span className="font-semibold text-lydian-text-inverse">
@@ -231,7 +231,7 @@ END:VCALENDAR`;
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6 }}
-            className="bg-white/10 backdrop-blur-xl rounded-2xl shadow-xl border border-white/10 p-8 mb-6"
+            className="bg-lydian-bg/10 backdrop-blur-xl rounded-2xl shadow-xl border border-white/10 p-8 mb-6"
           >
             <div className="text-center mb-6">
               <p className="text-sm text-lydian-text-muted mb-2">Your Booking Reference</p>
@@ -241,7 +241,7 @@ END:VCALENDAR`;
                 </h2>
                 <button
                   onClick={copyBookingReference}
-                  className="p-2 hover:bg-white/10 rounded-lg transition-colors"
+                  className="p-2 hover:bg-lydian-bg/10 rounded-lg transition-colors"
                   title="Copy to clipboard"
                 >
                   {copied ? (
@@ -297,7 +297,7 @@ END:VCALENDAR`;
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7 }}
-            className="bg-white/10 backdrop-blur-xl rounded-2xl shadow-xl border border-white/10 p-8 mb-6"
+            className="bg-lydian-bg/10 backdrop-blur-xl rounded-2xl shadow-xl border border-white/10 p-8 mb-6"
           >
             <h3 className="text-2xl font-bold text-lydian-text-inverse mb-6">Booking Details</h3>
 
@@ -306,7 +306,7 @@ END:VCALENDAR`;
               {booking.metaData?.items?.map((item: any, index: number) => (
                 <div
                   key={index}
-                  className="flex justify-between items-start p-4 bg-white/5 backdrop-blur-xl rounded-xl border border-white/10"
+                  className="flex justify-between items-start p-4 bg-lydian-bg/5 backdrop-blur-xl rounded-xl border border-white/10"
                 >
                   <div>
                     <p className="font-semibold text-lydian-text-inverse">{item.title}</p>
@@ -374,7 +374,7 @@ END:VCALENDAR`;
           >
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-4">
-                <div className="w-16 h-16 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center">
+                <div className="w-16 h-16 bg-lydian-bg/10 backdrop-blur-sm rounded-full flex items-center justify-center">
                   <Gift className="w-8 h-8 text-[#FF9500]" />
                 </div>
                 <div>
@@ -422,7 +422,7 @@ END:VCALENDAR`;
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.0 }}
-            className="bg-white/10 backdrop-blur-xl rounded-2xl shadow-xl border border-white/10 p-8 mb-6"
+            className="bg-lydian-bg/10 backdrop-blur-xl rounded-2xl shadow-xl border border-white/10 p-8 mb-6"
           >
             <h3 className="text-2xl font-bold text-lydian-text-inverse mb-6">What's Next?</h3>
             <div className="space-y-4">
@@ -503,7 +503,7 @@ END:VCALENDAR`;
             transition={{ delay: 1.2 }}
             className="text-center mt-8 text-sm text-lydian-text-dim"
           >
-            <p>Need help? Contact our 24/7 support team at support@travel.lydian.com</p>
+            <p>Need help? Contact our 24/7 support team at support@holiday.ailydian.com</p>
           </motion.div>
         </div>
       </div>

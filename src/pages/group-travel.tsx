@@ -8,7 +8,7 @@ const GroupTravel: React.FC = () => {
   return (
     <>
       <Head>
-        <title>Grup Seyahatleri - Travel.LyDian | Kurumsal ve Grup Turları</title>
+        <title>Grup Seyahatleri - Holiday.AILYDIAN | Kurumsal ve Grup Turları</title>
         <meta name="description" content="Şirket gezileri, okul turları ve grup seyahatleri için özel planlar. Grup indirimleri ve kişiselleştirilmiş hizmetlerle unutulmaz deneyimler." />
       </Head>
 

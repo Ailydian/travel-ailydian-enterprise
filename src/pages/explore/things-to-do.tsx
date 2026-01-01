@@ -81,13 +81,13 @@ const ThingsToDoPage: NextPage = () => {
               <div className="hidden sm:flex items-center gap-2 bg-lydian-bg-hover border border-lydian-border-light rounded-lg p-1">
                 <button
                   onClick={() => setViewMode('grid')}
-                  className={`p-2 rounded ${viewMode === 'grid' ? 'bg-lydian-primary text-white' : 'text-gray-300'}`}>
+                  className={`p-2 rounded ${viewMode === 'grid' ? 'bg-lydian-primary text-white' : 'text-lydian-text-dim'}`}>
 
                   <Grid className="w-4 h-4" />
                 </button>
                 <button
                   onClick={() => setViewMode('list')}
-                  className={`p-2 rounded ${viewMode === 'list' ? 'bg-lydian-primary text-white' : 'text-gray-300'}`}>
+                  className={`p-2 rounded ${viewMode === 'list' ? 'bg-lydian-primary text-white' : 'text-lydian-text-dim'}`}>
 
                   <List className="w-4 h-4" />
                 </button>

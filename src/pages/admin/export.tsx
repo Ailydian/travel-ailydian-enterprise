@@ -105,7 +105,7 @@ export default function AdminExport() {
                         onClick={() => setSelectedType(type.id)}
                         className={`p-4 rounded-lg border-2 transition-all ${
                         selectedType === type.id ?
-                        'border-blue-500 bg-blue-900/30' :
+                        'border-lydian-primary bg-blue-900/30' :
                         'border-gray-700 bg-gray-700/30 hover:border-gray-600'}`
                         }>
 
@@ -128,8 +128,8 @@ export default function AdminExport() {
                     onClick={() => setSelectedFormat(format)}
                     className={`px-6 py-3 rounded-lg font-medium uppercase transition-colors ${
                     selectedFormat === format ?
-                    'bg-blue-600 text-white' :
-                    'bg-gray-700 text-gray-300 hover:bg-gray-600'}`
+                    'bg-lydian-primary text-white' :
+                    'bg-gray-700 text-lydian-text-dim hover:bg-gray-600'}`
                     }>
 
                       {format}

@@ -63,10 +63,10 @@ export default function ExperienceDetail({ experience, relatedExperiences }: Exp
     "name": experience.title,
     "description": experience.description,
     "image": experience.images.hero,
-    "url": `https://travel.lydian.com/experiences/${experience.slug}`,
+    "url": `https://holiday.ailydian.com/experiences/${experience.slug}`,
     "provider": {
       "@type": "Organization",
-      "name": "LyDian Travel"
+      "name": "AILYDIAN Holiday"
     },
     "offers": {
       "@type": "Offer",
@@ -126,7 +126,7 @@ export default function ExperienceDetail({ experience, relatedExperiences }: Exp
 
         {/* Open Graph */}
         <meta property="og:type" content="website" />
-        <meta property="og:url" content={`https://travel.lydian.com/experiences/${experience.slug}`} />
+        <meta property="og:url" content={`https://holiday.ailydian.com/experiences/${experience.slug}`} />
         <meta property="og:title" content={experience.seo.title} />
         <meta property="og:description" content={experience.seo.description} />
         <meta property="og:image" content={experience.seo.ogImage} />
@@ -137,7 +137,7 @@ export default function ExperienceDetail({ experience, relatedExperiences }: Exp
         <meta property="twitter:description" content={experience.seo.description} />
         <meta property="twitter:image" content={experience.seo.ogImage} />
 
-        <link rel="canonical" href={`https://travel.lydian.com/experiences/${experience.slug}`} />
+        <link rel="canonical" href={`https://holiday.ailydian.com/experiences/${experience.slug}`} />
 
         <script
           type="application/ld+json"

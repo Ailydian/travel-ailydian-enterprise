@@ -1,36 +1,37 @@
 /**
  * Enterprise SEO Configuration
- * Global travel platform optimization for travel.lydian.com
+ * Holiday travel platform optimization for holiday.ailydian.com
+ * Brand Focus: Holiday, Vacation & Leisure Travel
  */
 
 export const SEO_CONFIG = {
   // Primary domain
-  domain: 'travel.lydian.com',
-  url: 'https://travel.lydian.com',
+  domain: 'holiday.ailydian.com',
+  url: 'https://holiday.ailydian.com',
 
   // Default metadata
-  defaultTitle: 'LyDian Travel - AI-Powered Enterprise Travel Platform | Hotels, Flights & Transfers',
-  titleTemplate: '%s | LyDian Travel',
-  defaultDescription: 'Discover the future of travel with LyDian AI. Book hotels, flights, and airport transfers worldwide. Blockchain-secured bookings, VR previews, and personalized AI travel planning.',
+  defaultTitle: 'AILYDIAN Holiday - AI-Powered Holiday Travel Platform | Vacation Hotels, Flights & Holiday Transfers',
+  titleTemplate: '%s | AILYDIAN Holiday',
+  defaultDescription: 'Discover your perfect holiday with AILYDIAN AI. Book vacation hotels, holiday flights, and airport transfers worldwide. Blockchain-secured holiday bookings, VR previews, and personalized AI holiday planning.',
 
   // Brand information
-  siteName: 'LyDian Travel',
-  brandName: 'LyDian',
-  slogan: 'AI-Powered Enterprise Travel Solutions',
+  siteName: 'AILYDIAN Holiday',
+  brandName: 'AILYDIAN',
+  slogan: 'AI-Powered Holiday & Vacation Solutions',
 
   // Social media
   social: {
-    twitter: '@lydiantravel',
-    facebook: 'lydiantravel',
-    instagram: 'lydiantravel',
-    linkedin: 'company/lydian',
+    twitter: '@ailydianholiday',
+    facebook: 'ailydianholiday',
+    instagram: 'ailydianholiday',
+    linkedin: 'company/ailydian',
   },
 
   // Contact
   contact: {
-    email: 'info@lydian.com',
+    email: 'holiday@ailydian.com',
     phone: '+90-850-XXX-XXXX',
-    supportEmail: 'support@lydian.com',
+    supportEmail: 'support@ailydian.com',
   },
 
   // Geographic targeting
@@ -45,70 +46,72 @@ export const SEO_CONFIG = {
   languages: ['tr', 'en', 'de', 'ru', 'ar', 'zh'],
   defaultLanguage: 'tr',
 
-  // Keywords - High-value travel industry keywords
+  // Keywords - High-value holiday travel keywords
   primaryKeywords: [
-    // Turkish market
-    'otel rezervasyon',
-    'ucuz otel',
-    'ucuz uçak bileti',
-    'havalimanı transfer',
+    // Turkish market - Holiday focused
+    'tatil oteli rezervasyonu',
+    'bayram tatili oteli',
+    'ucuz tatil oteli',
+    'tatil uçak bileti',
+    'tatil havalimanı transferi',
     'tatil paketleri',
-    'antalya otelleri',
-    'istanbul otelleri',
-    'bodrum otelleri',
-    'all inclusive otel',
+    'antalya tatil otelleri',
+    'istanbul tatil otelleri',
+    'bodrum tatil otelleri',
+    'all inclusive tatil',
 
-    // International market
-    'hotel booking',
-    'cheap hotels',
-    'flight booking',
-    'airport transfer',
-    'holiday packages',
-    'turkey hotels',
-    'antalya hotels',
-    'istanbul hotels',
-    'all inclusive resorts',
+    // International market - Holiday focused
+    'holiday hotel booking',
+    'vacation hotel deals',
+    'cheap holiday hotels',
+    'holiday flight booking',
+    'holiday airport transfer',
+    'vacation packages',
+    'turkey holiday hotels',
+    'antalya holiday resorts',
+    'istanbul vacation hotels',
+    'all inclusive holiday resorts',
 
-    // AI/Tech differentiators
-    'ai travel planner',
-    'blockchain travel booking',
-    'vr hotel preview',
-    'smart travel assistant',
-    'lydian ai',
+    // AI/Tech differentiators - Holiday focused
+    'ai holiday planner',
+    'blockchain holiday booking',
+    'vr holiday preview',
+    'smart holiday assistant',
+    'ailydian holiday ai',
   ],
 
   secondaryKeywords: [
-    'luxury hotels turkey',
-    'budget hotels',
-    'business travel',
-    'group travel',
-    'airport shuttle',
-    'vip transfer',
-    'tour packages',
-    'belek hotels',
-    'side hotels',
-    'alanya hotels',
-    'kemer hotels',
-    'çeşme hotels',
-    'bodrum beach hotels',
-    'marmaris hotels',
-    'dalaman airport transfer',
-    'sabiha gökçen transfer',
-    'istanbul airport transfer',
-    'antalya airport transfer',
+    'luxury holiday hotels turkey',
+    'budget vacation hotels',
+    'family holiday travel',
+    'group vacation travel',
+    'holiday airport shuttle',
+    'vip holiday transfer',
+    'holiday tour packages',
+    'belek holiday hotels',
+    'side vacation hotels',
+    'alanya holiday resorts',
+    'kemer vacation hotels',
+    'çeşme holiday hotels',
+    'bodrum beach holiday hotels',
+    'marmaris vacation resorts',
+    'dalaman holiday airport transfer',
+    'sabiha gökçen holiday transfer',
+    'istanbul vacation airport transfer',
+    'antalya holiday airport transfer',
   ],
 
   // Structured data
   structuredData: {
     '@context': 'https://schema.org',
     '@type': 'TravelAgency',
-    name: 'LyDian Travel',
-    description: 'AI-powered enterprise travel platform offering hotels, flights, and transfers worldwide',
-    url: 'https://travel.lydian.com',
-    logo: 'https://travel.lydian.com/images/logo.png',
-    image: 'https://travel.lydian.com/images/og-image.jpg',
+    name: 'AILYDIAN Holiday',
+    description: 'AI-powered holiday travel platform offering vacation hotels, holiday flights, and holiday transfers worldwide',
+    url: 'https://holiday.ailydian.com',
+    logo: 'https://holiday.ailydian.com/images/logo.png',
+    image: 'https://holiday.ailydian.com/images/og-image.jpg',
     telephone: '+90-850-XXX-XXXX',
-    email: 'info@lydian.com',
+    email: 'holiday@ailydian.com',
     address: {
       '@type': 'PostalAddress',
       addressCountry: 'TR',
@@ -116,10 +119,10 @@ export const SEO_CONFIG = {
       addressLocality: 'Istanbul',
     },
     sameAs: [
-      'https://twitter.com/lydiantravel',
-      'https://facebook.com/lydiantravel',
-      'https://instagram.com/lydiantravel',
-      'https://linkedin.com/company/lydian',
+      'https://twitter.com/ailydianholiday',
+      'https://facebook.com/ailydianholiday',
+      'https://instagram.com/ailydianholiday',
+      'https://linkedin.com/company/ailydian',
     ],
     priceRange: '$$',
     areaServed: [
@@ -130,20 +133,21 @@ export const SEO_CONFIG = {
       'Worldwide',
     ],
     serviceType: [
-      'Hotel Booking',
-      'Flight Booking',
-      'Airport Transfer',
-      'Tour Packages',
-      'Travel Planning',
+      'Holiday Hotel Booking',
+      'Vacation Flight Booking',
+      'Holiday Airport Transfer',
+      'Holiday Tour Packages',
+      'Holiday Travel Planning',
     ],
     knowsAbout: [
-      'Hotels',
-      'Flights',
-      'Transfers',
-      'Tours',
-      'Travel',
+      'Holiday Hotels',
+      'Vacation Flights',
+      'Holiday Transfers',
+      'Holiday Tours',
+      'Vacation Travel',
       'Holidays',
       'Vacation',
+      'Leisure Travel',
     ],
   },
 
@@ -152,13 +156,13 @@ export const SEO_CONFIG = {
     type: 'website',
     locale: 'tr_TR',
     alternateLocales: ['en_US', 'de_DE', 'ru_RU', 'ar_SA', 'zh_CN'],
-    siteName: 'LyDian Travel',
+    siteName: 'AILYDIAN Holiday',
     images: [
       {
-        url: 'https://travel.lydian.com/images/og-image.jpg',
+        url: 'https://holiday.ailydian.com/images/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'LyDian Travel - AI-Powered Travel Platform',
+        alt: 'AILYDIAN Holiday - AI-Powered Holiday Travel Platform',
       },
     ],
   },
@@ -166,8 +170,8 @@ export const SEO_CONFIG = {
   // Twitter Card defaults
   twitter: {
     cardType: 'summary_large_image',
-    site: '@lydiantravel',
-    creator: '@lydiantravel',
+    site: '@ailydianholiday',
+    creator: '@ailydianholiday',
   },
 
   // Verification codes
@@ -262,29 +266,29 @@ export function generateSEO({
  */
 export const PAGE_SEO = {
   home: generateSEO({
-    title: 'Ana Sayfa',
-    description: 'Türkiye\'nin en gelişmiş AI destekli seyahat platformu. Oteller, uçak biletleri, havalimanı transferleri ve tur paketlerinde en uygun fiyatlar.',
-    keywords: ['otel rezervasyon', 'ucuz uçak bileti', 'havalimanı transfer', 'tatil paketi'],
+    title: 'Ana Sayfa - Tatil ve Bayram Planlaması',
+    description: 'Türkiye\'nin en gelişmiş AI destekli tatil platformu. Tatil otelleri, bayram tatili uçak biletleri, havalimanı transferleri ve tatil tur paketlerinde en uygun fiyatlar.',
+    keywords: ['tatil oteli rezervasyon', 'bayram tatili uçak bileti', 'tatil havalimanı transfer', 'tatil paketi'],
   }),
 
   hotels: generateSEO({
-    title: 'Oteller - En Uygun Otel Fiyatları',
-    description: 'Türkiye ve dünya genelinde 10,000+ otel seçeneği. Antalya, İstanbul, Bodrum, Alanya otelleri. All inclusive ve butik oteller.',
-    keywords: ['otel rezervasyon', 'ucuz otel', 'antalya otelleri', 'istanbul otelleri', 'all inclusive'],
+    title: 'Tatil Otelleri - En Uygun Tatil Oteli Fiyatları',
+    description: 'Türkiye ve dünya genelinde 10,000+ tatil oteli seçeneği. Antalya, İstanbul, Bodrum, Alanya tatil otelleri. All inclusive tatil ve butik tatil otelleri.',
+    keywords: ['tatil oteli rezervasyon', 'ucuz tatil oteli', 'antalya tatil otelleri', 'istanbul tatil otelleri', 'all inclusive tatil'],
     url: '/hotels',
   }),
 
   flights: generateSEO({
-    title: 'Uçak Biletleri - Ucuz Uçak Bileti Fırsatları',
-    description: 'Türk Hava Yolları, Pegasus, SunExpress ile en ucuz uçak biletleri. Yurtiçi ve yurtdışı uçuşlar.',
-    keywords: ['ucuz uçak bileti', 'uçak bileti', 'türk hava yolları', 'pegasus'],
+    title: 'Tatil Uçak Biletleri - Ucuz Tatil Uçuşu Fırsatları',
+    description: 'Türk Hava Yolları, Pegasus, SunExpress ile en ucuz tatil uçak biletleri. Bayram tatili yurtiçi ve yurtdışı uçuşlar.',
+    keywords: ['ucuz tatil uçak bileti', 'bayram tatili uçak', 'tatil uçuşu', 'yaz tatili uçak bileti'],
     url: '/flights',
   }),
 
   transfers: generateSEO({
-    title: 'Havalimanı Transfer - VIP & Standart Transfer Hizmetleri',
-    description: 'Antalya, İstanbul, Bodrum havalimanı transfer hizmetleri. 7/24 profesyonel şoför, VIP araçlar.',
-    keywords: ['havalimanı transfer', 'vip transfer', 'antalya transfer', 'istanbul transfer'],
+    title: 'Tatil Havalimanı Transfer - VIP & Standart Tatil Transfer Hizmetleri',
+    description: 'Antalya, İstanbul, Bodrum tatil havalimanı transfer hizmetleri. 7/24 profesyonel şoför, VIP tatil araçları.',
+    keywords: ['tatil havalimanı transfer', 'vip tatil transfer', 'antalya tatil transfer', 'bayram tatili transfer'],
     url: '/transfers',
   }),
 };

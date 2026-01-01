@@ -321,7 +321,7 @@ const TransferProviderDashboard: React.FC = () => {
               <p className="text-2xl font-bold text-lydian-text-inverse">
                 ₺{stats.revenue.today.toLocaleString()}
               </p>
-              <p className={`text-xs mt-2 ${stats.revenue.growth > 0 ? 'text-green-600' : 'text-red-600'}`}>
+              <p className={`text-xs mt-2 ${stats.revenue.growth > 0 ? 'text-lydian-success' : 'text-lydian-error'}`}>
                 {stats.revenue.growth > 0 ? '+' : ''}{stats.revenue.growth}% geçen haftaya göre
               </p>
             </motion.div>
@@ -389,7 +389,7 @@ const TransferProviderDashboard: React.FC = () => {
                     className={`h-4 w-4 ${
                     i < Math.floor(stats.performance.customerRating) ?
                     'text-yellow-400 fill-yellow-400' :
-                    'text-gray-300'}`
+                    'text-lydian-text-dim'}`
                     } />
 
                   )}
@@ -547,7 +547,7 @@ const TransferProviderDashboard: React.FC = () => {
                           {route.savings} dk (%{route.savingsPercentage})
                         </p>
                       </div>
-                      <button className="px-4 py-2 bg-lydian-success hover:bg-green-700 text-lydian-text-inverse text-sm font-medium rounded-lg transition-colors">
+                      <button className="px-4 py-2 bg-lydian-success hover:bg-lydian-success-hover text-lydian-text-inverse text-sm font-medium rounded-lg transition-colors">
                         Uygula
                       </button>
                     </div>
@@ -635,7 +635,7 @@ const TransferProviderDashboard: React.FC = () => {
                         'bg-green-100 text-green-800' :
                         driver.status === 'available' ?
                         'bg-blue-100 text-blue-800' :
-                        'bg-white/10 text-white'}`
+                        'bg-lydian-bg/10 text-white'}`
                         }>
 
                           {driver.status === 'active' ?

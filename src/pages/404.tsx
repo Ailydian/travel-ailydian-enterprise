@@ -100,7 +100,7 @@ const Custom404Page: React.FC = () => {
   return (
     <>
       <Head>
-        <title>{t('errors.404.title')} | Travel.LyDian</title>
+        <title>{t('errors.404.title')} | Holiday.AILYDIAN</title>
         <meta name="description" content={t('errors.404.description')} />
         <meta name="robots" content="noindex, nofollow" />
       </Head>
@@ -127,7 +127,7 @@ const Custom404Page: React.FC = () => {
                     <Globe className="w-6 h-6 text-lydian-text-inverse" />
                   </div>
                   <span className="text-2xl font-bold neon-text-strong" style={{ color: 'var(--tx-1)', textShadow: '0 0 10px var(--ac-1), 0 0 20px var(--ac-1)' }}>
-                    Travel.LyDian
+                    Holiday.AILYDIAN
                   </span>
                 </Link>
 
@@ -447,7 +447,7 @@ const Custom404Page: React.FC = () => {
           }}>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="text-center">
-                <p style={{ color: 'var(--tx-2)' }}>&copy; 2025 Travel.LyDian. Tüm hakları saklıdır.</p>
+                <p style={{ color: 'var(--tx-2)' }}>&copy; 2025 Holiday.AILYDIAN. Tüm hakları saklıdır.</p>
                 <p className="mt-1 text-sm" style={{
                   color: 'var(--ac-2)',
                   textShadow: '0 0 10px var(--ac-2)'

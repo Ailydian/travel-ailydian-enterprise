@@ -31,7 +31,7 @@ interface SubdomainInfo {
 const ALL_AILYDIAN_SUBDOMAINS: SubdomainInfo[] = [
   {
     name: "Travel AI",
-    url: "https://travel.lydian.com",
+    url: "https://holiday.ailydian.com",
     svgIcon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg>',
     description: "Akıllı Seyahat & Transfer Platformu",
     shortDesc: "AI Transfer",
@@ -127,9 +127,9 @@ export default function LyDianEcosystemFooter({
     domain => !domain.url.includes(currentDomain)
   );
 
-  const bgColor = theme === 'dark' ? 'bg-gradient-to-b from-black/50 to-black' : 'bg-white';
+  const bgColor = theme === 'dark' ? 'bg-gradient-to-b from-black/50 to-black' : 'bg-lydian-bg';
   const textColor = theme === 'dark' ? 'text-white' : 'text-white';
-  const borderColor = theme === 'dark' ? 'border-white/10' : 'border-gray-200';
+  const borderColor = theme === 'dark' ? 'border-white/10' : 'border-lydian-border';
 
   return (
     <div
@@ -147,7 +147,7 @@ export default function LyDianEcosystemFooter({
           <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
             LyDian Ecosystem
           </h3>
-          <p className={`mt-2 text-sm ${theme === 'dark' ? 'text-gray-400' : 'text-gray-300'}`}>
+          <p className={`mt-2 text-sm ${theme === 'dark' ? 'text-lydian-text-muted' : 'text-lydian-text-dim'}`}>
             AI-Powered Solutions Across Industries
           </p>
         </div>
@@ -162,7 +162,7 @@ export default function LyDianEcosystemFooter({
               rel="noopener noreferrer"
               className={`
                 group relative overflow-hidden rounded-xl border ${borderColor}
-                ${theme === 'dark' ? 'bg-white/5 hover:bg-white/10' : 'bg-black/5 hover:bg-black/10'}
+                ${theme === 'dark' ? 'bg-lydian-bg/5 hover:bg-lydian-bg/10' : 'bg-black/5 hover:bg-black/10'}
                 p-4 transition-all duration-300 hover:scale-105 hover:shadow-xl
               `}
               style={{
@@ -192,7 +192,7 @@ export default function LyDianEcosystemFooter({
                 </h4>
 
                 {/* Short Description */}
-                <p className={`text-xs text-center ${theme === 'dark' ? 'text-gray-400' : 'text-gray-300'}`}>
+                <p className={`text-xs text-center ${theme === 'dark' ? 'text-lydian-text-muted' : 'text-lydian-text-dim'}`}>
                   {domain.shortDesc}
                 </p>
               </div>
@@ -222,7 +222,7 @@ export default function LyDianEcosystemFooter({
             rel="noopener noreferrer"
             className={`
               inline-flex items-center gap-2 px-6 py-3 rounded-full
-              ${theme === 'dark' ? 'bg-white/10 hover:bg-white/20' : 'bg-black/10 hover:bg-black/20'}
+              ${theme === 'dark' ? 'bg-lydian-bg/10 hover:bg-lydian-bg/20' : 'bg-black/10 hover:bg-black/20'}
               transition-all duration-300 font-medium hover:scale-105
             `}
           >
@@ -240,7 +240,7 @@ export default function LyDianEcosystemFooter({
         </div>
 
         {/* Footer Text */}
-        <div className={`text-center mt-6 text-xs ${theme === 'dark' ? 'text-gray-400' : 'text-gray-400'}`}>
+        <div className={`text-center mt-6 text-xs ${theme === 'dark' ? 'text-lydian-text-muted' : 'text-lydian-text-muted'}`}>
           <p>Powered by LyDian - AI-Driven Innovation</p>
         </div>
       </div>

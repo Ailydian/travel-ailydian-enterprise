@@ -1,6 +1,6 @@
 /**
  * UI Component Library - Centralized Exports
- * Production-grade component library for travel.ailydian.com
+ * Production-grade component library for holiday.ailydian.com
  * Total Components: 12 production-grade components
  */
 

@@ -217,9 +217,9 @@ export default function OwnerTermsPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-white/5">
+    <div className="min-h-screen bg-lydian-bg/5">
       {/* Header */}
-      <header className="sticky top-0 z-50 bg-white/5 border-b border-gray-200">
+      <header className="sticky top-0 z-50 bg-lydian-bg/5 border-b border-lydian-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
@@ -234,7 +234,7 @@ export default function OwnerTermsPage() {
             <div className="flex items-center gap-3">
               <button
                 onClick={() => window.print()}
-                className="hidden sm:flex items-center gap-2 px-4 py-2 text-gray-200 hover:bg-white/10 rounded-lg transition-colors"
+                className="hidden sm:flex items-center gap-2 px-4 py-2 text-gray-200 hover:bg-lydian-bg/10 rounded-lg transition-colors"
               >
                 <Printer className="w-4 h-4" />
                 <span className="text-sm font-medium">Yazdır</span>
@@ -244,7 +244,7 @@ export default function OwnerTermsPage() {
                   // In a real app, this would trigger a PDF download
                   alert('PDF indirme özelliği yakında eklenecek');
                 }}
-                className="hidden sm:flex items-center gap-2 px-4 py-2 text-gray-200 hover:bg-white/10 rounded-lg transition-colors"
+                className="hidden sm:flex items-center gap-2 px-4 py-2 text-gray-200 hover:bg-lydian-bg/10 rounded-lg transition-colors"
               >
                 <Download className="w-4 h-4" />
                 <span className="text-sm font-medium">PDF İndir</span>
@@ -259,7 +259,7 @@ export default function OwnerTermsPage() {
         {/* Back Button */}
         <Link
           href="/owner/auth/register"
-          className="inline-flex items-center gap-2 text-gray-300 hover:text-white mb-8 transition-colors"
+          className="inline-flex items-center gap-2 text-lydian-text-dim hover:text-white mb-8 transition-colors"
         >
           <ArrowLeft className="w-4 h-4" />
           <span className="text-sm font-medium">Kayıt sayfasına dön</span>
@@ -282,7 +282,7 @@ export default function OwnerTermsPage() {
               </h1>
             </div>
           </div>
-          <div className="flex items-center gap-4 text-sm text-gray-300 mt-4">
+          <div className="flex items-center gap-4 text-sm text-lydian-text-dim mt-4">
             <span>Son Güncelleme: {lastUpdated}</span>
             <span>•</span>
             <span>Yürürlük Tarihi: 1 Ocak 2024</span>
@@ -299,7 +299,7 @@ export default function OwnerTermsPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="mb-12 bg-white/5 rounded-xl p-6 border border-gray-200"
+          className="mb-12 bg-lydian-bg/5 rounded-xl p-6 border border-lydian-border"
         >
           <h2 className="text-xl font-bold text-white mb-4">İçindekiler</h2>
           <div className="grid sm:grid-cols-2 gap-3">
@@ -307,10 +307,10 @@ export default function OwnerTermsPage() {
               <a
                 key={section.id}
                 href={`#${section.id}`}
-                className="flex items-center gap-3 p-3 bg-white/5 rounded-lg hover:bg-white/10 transition-colors group"
+                className="flex items-center gap-3 p-3 bg-lydian-bg/5 rounded-lg hover:bg-lydian-bg/10 transition-colors group"
               >
-                <section.icon className="w-5 h-5 text-[#FF214D] flex-shrink-0" />
-                <span className="text-sm font-medium text-white group-hover:text-[#FF214D] transition-colors">
+                <section.icon className="w-5 h-5 text-lydian-primary flex-shrink-0" />
+                <span className="text-sm font-medium text-white group-hover:text-lydian-primary transition-colors">
                   {section.title}
                 </span>
               </a>
@@ -338,7 +338,7 @@ export default function OwnerTermsPage() {
 
               <div className="space-y-6 pl-0 sm:pl-16">
                 {section.content.map((item, itemIndex) => (
-                  <div key={itemIndex} className="bg-white/5 border border-gray-200 rounded-lg p-6">
+                  <div key={itemIndex} className="bg-lydian-bg/5 border border-lydian-border rounded-lg p-6">
                     <h3 className="text-lg font-semibold text-white mb-3">
                       {item.subtitle}
                     </h3>
@@ -357,7 +357,7 @@ export default function OwnerTermsPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.8 }}
-          className="mt-12 bg-gradient-to-r from-gray-50 to-gray-100 rounded-xl p-8 border border-gray-200"
+          className="mt-12 bg-gradient-to-r from-gray-50 to-gray-100 rounded-xl p-8 border border-lydian-border"
         >
           <h2 className="text-2xl font-bold text-white mb-4">İletişim Bilgileri</h2>
           <div className="grid sm:grid-cols-2 gap-6">
@@ -385,11 +385,11 @@ export default function OwnerTermsPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.9 }}
-          className="mt-12 sticky bottom-0 bg-white/5 border-t border-gray-200 p-6 -mx-4 sm:-mx-6 lg:-mx-8"
+          className="mt-12 sticky bottom-0 bg-lydian-bg/5 border-t border-lydian-border p-6 -mx-4 sm:-mx-6 lg:-mx-8"
         >
           <div className="max-w-3xl mx-auto">
             {accepted ? (
-              <div className="flex items-center justify-center gap-3 text-green-600 bg-green-50 py-4 rounded-lg border border-green-200">
+              <div className="flex items-center justify-center gap-3 text-lydian-success bg-green-50 py-4 rounded-lg border border-green-200">
                 <CheckCircle2 className="w-6 h-6" />
                 <span className="font-semibold">Sözleşme kabul edildi! Yönlendiriliyorsunuz...</span>
               </div>
@@ -397,7 +397,7 @@ export default function OwnerTermsPage() {
               <div className="flex flex-col sm:flex-row gap-4">
                 <button
                   onClick={handleDecline}
-                  className="flex-1 flex items-center justify-center gap-2 px-6 py-4 border-2 border-gray-300 rounded-lg font-semibold text-gray-200 hover:bg-white/5 hover:border-gray-400 transition-all"
+                  className="flex-1 flex items-center justify-center gap-2 px-6 py-4 border-2 border-lydian-border-medium rounded-lg font-semibold text-gray-200 hover:bg-lydian-bg/5 hover:border-gray-400 transition-all"
                 >
                   <XCircle className="w-5 h-5" />
                   <span>Reddet ve Geri Dön</span>
@@ -412,7 +412,7 @@ export default function OwnerTermsPage() {
               </div>
             )}
 
-            <p className="text-center text-sm text-gray-400 mt-4">
+            <p className="text-center text-sm text-lydian-text-muted mt-4">
               Bu sözleşmeyi kabul ederek, yukarıda belirtilen tüm şartları okuduğunuzu ve kabul ettiğinizi beyan edersiniz.
             </p>
           </div>

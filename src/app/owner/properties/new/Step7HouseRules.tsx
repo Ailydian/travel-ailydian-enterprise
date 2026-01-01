@@ -43,7 +43,7 @@ export default function Step7HouseRules({ data }: Step7Props) {
             <h3 className="text-xl font-bold text-blue-900 mb-2">
               Şartlar ve Sözleşmeler
             </h3>
-            <p className="text-blue-700">
+            <p className="text-lydian-primary-hover">
               Mülkünüzü göndermeden önce lütfen aşağıdaki şartları inceleyin ve kabul edin.
               Bu sözleşmeler, tüm kullanıcılar için güvenli ve güvenilir bir topluluğun sürdürülmesine yardımcı olur.
             </p>
@@ -60,7 +60,7 @@ export default function Step7HouseRules({ data }: Step7Props) {
           className={`border-2 rounded-xl p-6 transition-all ${
             watch('agreeToTerms')
               ? 'border-green-500 bg-green-50'
-              : 'border-slate-200 bg-white'
+              : 'border-slate-200 bg-lydian-bg'
           }`}
         >
           <div className="flex items-start gap-4">
@@ -87,7 +87,7 @@ export default function Step7HouseRules({ data }: Step7Props) {
                   href="/terms"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm text-blue-600 hover:text-blue-800 flex items-center gap-1"
+                  className="text-sm text-lydian-primary hover:text-blue-800 flex items-center gap-1"
                 >
                   Şartları Oku
                   <ExternalLink className="w-3 h-3" />
@@ -101,14 +101,14 @@ export default function Step7HouseRules({ data }: Step7Props) {
                 <input
                   type="checkbox"
                   {...register('agreeToTerms')}
-                  className="w-5 h-5 text-blue-600 rounded focus:ring-2 focus:ring-blue-500"
+                  className="w-5 h-5 text-lydian-primary rounded focus:ring-2 focus:ring-lydian-primary"
                 />
                 <span className="text-sm font-medium text-slate-700 group-hover:text-slate-900">
                   Hizmet Şartlarını kabul ediyorum <span className="text-red-500">*</span>
                 </span>
               </label>
               {errors.agreeToTerms && (
-                <p className="mt-2 text-sm text-red-600">
+                <p className="mt-2 text-sm text-lydian-error">
                   {errors.agreeToTerms.message?.toString()}
                 </p>
               )}
@@ -121,7 +121,7 @@ export default function Step7HouseRules({ data }: Step7Props) {
           className={`border-2 rounded-xl p-6 transition-all ${
             watch('agreeToPrivacyPolicy')
               ? 'border-green-500 bg-green-50'
-              : 'border-slate-200 bg-white'
+              : 'border-slate-200 bg-lydian-bg'
           }`}
         >
           <div className="flex items-start gap-4">
@@ -148,7 +148,7 @@ export default function Step7HouseRules({ data }: Step7Props) {
                   href="/privacy"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm text-blue-600 hover:text-blue-800 flex items-center gap-1"
+                  className="text-sm text-lydian-primary hover:text-blue-800 flex items-center gap-1"
                 >
                   Politikayı Oku
                   <ExternalLink className="w-3 h-3" />
@@ -162,14 +162,14 @@ export default function Step7HouseRules({ data }: Step7Props) {
                 <input
                   type="checkbox"
                   {...register('agreeToPrivacyPolicy')}
-                  className="w-5 h-5 text-blue-600 rounded focus:ring-2 focus:ring-blue-500"
+                  className="w-5 h-5 text-lydian-primary rounded focus:ring-2 focus:ring-lydian-primary"
                 />
                 <span className="text-sm font-medium text-slate-700 group-hover:text-slate-900">
                   Gizlilik Politikasını kabul ediyorum <span className="text-red-500">*</span>
                 </span>
               </label>
               {errors.agreeToPrivacyPolicy && (
-                <p className="mt-2 text-sm text-red-600">
+                <p className="mt-2 text-sm text-lydian-error">
                   {errors.agreeToPrivacyPolicy.message?.toString()}
                 </p>
               )}
@@ -182,7 +182,7 @@ export default function Step7HouseRules({ data }: Step7Props) {
           className={`border-2 rounded-xl p-6 transition-all ${
             watch('agreeToHouseRules')
               ? 'border-green-500 bg-green-50'
-              : 'border-slate-200 bg-white'
+              : 'border-slate-200 bg-lydian-bg'
           }`}
         >
           <div className="flex items-start gap-4">
@@ -214,7 +214,7 @@ export default function Step7HouseRules({ data }: Step7Props) {
                 <input
                   type="checkbox"
                   {...register('agreeToHouseRules')}
-                  className="w-5 h-5 text-blue-600 rounded focus:ring-2 focus:ring-blue-500"
+                  className="w-5 h-5 text-lydian-primary rounded focus:ring-2 focus:ring-lydian-primary"
                 />
                 <span className="text-sm font-medium text-slate-700 group-hover:text-slate-900">
                   Ev sahibi sorumluluklarını yerine getirmeyi kabul ediyorum{' '}
@@ -222,7 +222,7 @@ export default function Step7HouseRules({ data }: Step7Props) {
                 </span>
               </label>
               {errors.agreeToHouseRules && (
-                <p className="mt-2 text-sm text-red-600">
+                <p className="mt-2 text-sm text-lydian-error">
                   {errors.agreeToHouseRules.message?.toString()}
                 </p>
               )}
@@ -235,7 +235,7 @@ export default function Step7HouseRules({ data }: Step7Props) {
           className={`border-2 rounded-xl p-6 transition-all ${
             watch('agreeToGuestCommunicationPolicy')
               ? 'border-green-500 bg-green-50'
-              : 'border-slate-200 bg-white'
+              : 'border-slate-200 bg-lydian-bg'
           }`}
         >
           <div className="flex items-start gap-4">
@@ -267,7 +267,7 @@ export default function Step7HouseRules({ data }: Step7Props) {
                 <input
                   type="checkbox"
                   {...register('agreeToGuestCommunicationPolicy')}
-                  className="w-5 h-5 text-blue-600 rounded focus:ring-2 focus:ring-blue-500"
+                  className="w-5 h-5 text-lydian-primary rounded focus:ring-2 focus:ring-lydian-primary"
                 />
                 <span className="text-sm font-medium text-slate-700 group-hover:text-slate-900">
                   İletişim politikasını kabul ediyorum{' '}
@@ -275,7 +275,7 @@ export default function Step7HouseRules({ data }: Step7Props) {
                 </span>
               </label>
               {errors.agreeToGuestCommunicationPolicy && (
-                <p className="mt-2 text-sm text-red-600">
+                <p className="mt-2 text-sm text-lydian-error">
                   {errors.agreeToGuestCommunicationPolicy.message?.toString()}
                 </p>
               )}
@@ -288,7 +288,7 @@ export default function Step7HouseRules({ data }: Step7Props) {
           className={`border-2 rounded-xl p-6 transition-all ${
             watch('guestVettingConsent')
               ? 'border-green-500 bg-green-50'
-              : 'border-slate-200 bg-white'
+              : 'border-slate-200 bg-lydian-bg'
           }`}
         >
           <div className="flex items-start gap-4">
@@ -318,7 +318,7 @@ export default function Step7HouseRules({ data }: Step7Props) {
                 <input
                   type="checkbox"
                   {...register('guestVettingConsent')}
-                  className="w-5 h-5 text-blue-600 rounded focus:ring-2 focus:ring-blue-500"
+                  className="w-5 h-5 text-lydian-primary rounded focus:ring-2 focus:ring-lydian-primary"
                 />
                 <span className="text-sm font-medium text-slate-700 group-hover:text-slate-900">
                   Misafir kontrol prosedürlerini kabul ediyorum{' '}
@@ -326,7 +326,7 @@ export default function Step7HouseRules({ data }: Step7Props) {
                 </span>
               </label>
               {errors.guestVettingConsent && (
-                <p className="mt-2 text-sm text-red-600">
+                <p className="mt-2 text-sm text-lydian-error">
                   {errors.guestVettingConsent.message?.toString()}
                 </p>
               )}
@@ -353,7 +353,7 @@ export default function Step7HouseRules({ data }: Step7Props) {
               type="text"
               {...register('legalInformation.licenseNumber')}
               placeholder="örn., STR-2024-001234"
-              className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
+              className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-lydian-primary focus:ring-2 focus:ring-blue-200 outline-none transition-all"
             />
           </div>
 
@@ -365,7 +365,7 @@ export default function Step7HouseRules({ data }: Step7Props) {
               type="text"
               {...register('legalInformation.businessRegistration')}
               placeholder="örn., BR-123456789"
-              className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
+              className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-lydian-primary focus:ring-2 focus:ring-blue-200 outline-none transition-all"
             />
           </div>
 
@@ -377,7 +377,7 @@ export default function Step7HouseRules({ data }: Step7Props) {
               type="text"
               {...register('legalInformation.taxId')}
               placeholder="örn., 12-3456789"
-              className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
+              className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-lydian-primary focus:ring-2 focus:ring-blue-200 outline-none transition-all"
             />
           </div>
 
@@ -389,7 +389,7 @@ export default function Step7HouseRules({ data }: Step7Props) {
               type="text"
               {...register('legalInformation.insuranceDetails')}
               placeholder="örn., Poliçe #ABC123"
-              className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
+              className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-lydian-primary focus:ring-2 focus:ring-blue-200 outline-none transition-all"
             />
           </div>
         </div>
@@ -405,7 +405,7 @@ export default function Step7HouseRules({ data }: Step7Props) {
       >
         <div className="flex items-start gap-4">
           {allAgreed ? (
-            <CheckCircle2 className="w-6 h-6 text-green-600 flex-shrink-0" />
+            <CheckCircle2 className="w-6 h-6 text-lydian-success flex-shrink-0" />
           ) : (
             <AlertTriangle className="w-6 h-6 text-amber-600 flex-shrink-0" />
           )}

@@ -116,7 +116,7 @@ export default function Step1VehicleCategory({ data }: Step1Props) {
                 className={`relative p-5 border-2 rounded-xl text-left transition-all ${
                   isSelected
                     ? 'border-cyan-500 bg-cyan-50 shadow-lg'
-                    : 'border-slate-200 bg-white/5 hover:border-slate-300 hover:shadow-md'
+                    : 'border-slate-200 bg-lydian-bg/5 hover:border-slate-300 hover:shadow-md'
                 }`}
               >
                 <div className="flex items-start gap-4">
@@ -263,7 +263,7 @@ export default function Step1VehicleCategory({ data }: Step1Props) {
 
         <input type="hidden" {...register('vehicleType', { required: 'Araç tipi seçmelisiniz' })} />
         {errors.vehicleType && (
-          <p className="mt-2 text-sm text-red-600">
+          <p className="mt-2 text-sm text-lydian-error">
             {errors.vehicleType.message?.toString()}
           </p>
         )}
@@ -323,7 +323,7 @@ export default function Step1VehicleCategory({ data }: Step1Props) {
               <p className="font-bold text-blue-900">
                 {vehicleTypeOptions.find((v) => v.id === selectedVehicleType)?.name}
               </p>
-              <p className="text-sm text-blue-700">
+              <p className="text-sm text-lydian-primary-hover">
                 {vehicleTypeOptions.find((v) => v.id === selectedVehicleType)?.description}
               </p>
             </div>
