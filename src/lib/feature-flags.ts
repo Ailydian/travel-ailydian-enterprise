@@ -82,7 +82,7 @@ export const FEATURE_REGISTRY: Record<string, Feature> = {
       staging: true,
       production: false,
     },
-    notes: 'Uses simulated responses. Real AI integration (GPT/Claude) coming soon.',
+    notes: 'Uses simulated responses. Real AI integration (GPT/Advanced LLMs) coming soon.',
   },
   ai_recommendations: {
     id: 'ai_recommendations',

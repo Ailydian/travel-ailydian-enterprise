@@ -300,7 +300,7 @@ const FeaturesPage: NextPage = () => {
                 <ul className="space-y-2 text-sm opacity-90">
                   <li>AR property previews integration</li>
                   <li>Advanced vision model deployment</li>
-                  <li>Real AI model integration (GPT/Claude)</li>
+                  <li>Real AI model integration (GPT/Advanced LLMs)</li>
                 </ul>
               </div>
               <div>
