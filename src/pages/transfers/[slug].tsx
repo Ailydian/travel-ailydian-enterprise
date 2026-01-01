@@ -1,3 +1,9 @@
+/**
+ * ULTRA-PREMIUM Transfer Detail Page
+ * Matches rentals quality - RED brand (#DC2626), 60fps animations, glassmorphism
+ * Features: Image lightbox, Sticky booking, Share modal, Competitor pricing
+ */
+
 import React, { useState } from 'react';
 import { GetStaticProps, GetStaticPaths } from 'next';
 import Head from 'next/head';
@@ -24,7 +30,11 @@ import {
   Zap,
   Heart,
   Share2,
-  X
+  X,
+  ChevronLeft,
+  Maximize2,
+  Award,
+  Sparkles
 } from 'lucide-react';
 import SimplifiedHeader from '@/components/layout/SimplifiedHeader';
 import AnimatedCarIcon from '@/components/icons/AnimatedCarIcon';
@@ -43,14 +53,14 @@ interface TransferDetailPageProps {
   relatedTransfers: AntalyaTransferRoute[];
 }
 
-// Animation variants
+// Animation variants - 60fps smooth
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.2
+      staggerChildren: 0.08,
+      delayChildren: 0.1
     }
   }
 };
@@ -60,11 +70,20 @@ const itemVariants = {
   visible: {
     opacity: 1,
     y: 0,
+    transition: { duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }
+  }
+};
+
+const imageHoverVariants = {
+  rest: { scale: 1 },
+  hover: {
+    scale: 1.05,
     transition: { duration: 0.3, ease: 'easeOut' }
   }
 };
 
 const cardHoverVariants = {
+  rest: { y: 0 },
   hover: {
     y: -8,
     transition: { duration: 0.3, ease: 'easeOut' }
@@ -76,94 +95,92 @@ export default function TransferDetailPage({ transfer, relatedTransfers }: Trans
   const [selectedVehicle, setSelectedVehicle] = useState<keyof AntalyaTransferRoute['pricing']>('economySedan');
   const [isFavorite, setIsFavorite] = useState(false);
   const [showShareModal, setShowShareModal] = useState(false);
+  const [showGallery, setShowGallery] = useState(false);
+  const [selectedImage, setSelectedImage] = useState(0);
 
   // Language labels
   const languageLabels = {
-    tr: { flag: '🇹🇷', name: 'Türkçe' },
-    en: { flag: '🇬🇧', name: 'English' },
-    ru: { flag: '🇷🇺', name: 'Русский' },
-    de: { flag: '🇩🇪', name: 'Deutsch' },
-    ar: { flag: '🇸🇦', name: 'العربية' },
-    fr: { flag: '🇫🇷', name: 'Français' }
+    tr: { flag: '🇹🇷', name: 'TR' },
+    en: { flag: '🇬🇧', name: 'EN' },
+    ru: { flag: '🇷🇺', name: 'RU' },
+    de: { flag: '🇩🇪', name: 'DE' },
+    ar: { flag: '🇸🇦', name: 'AR' },
+    fr: { flag: '🇫🇷', name: 'FR' }
   };
 
-  // Vehicle labels in 6 languages
+  // Vehicle labels
   const vehicleLabels: Record<keyof AntalyaTransferRoute['pricing'], Record<SupportedLanguage, string>> = {
     economySedan: {
-      tr: 'Ekonomi Sedan (1-3 kişi)',
-      en: 'Economy Sedan (1-3 pax)',
-      ru: 'Эконом Седан (1-3 чел.)',
-      de: 'Economy Limousine (1-3 Pers.)',
-      ar: 'سيدان اقتصادي (1-3 أشخاص)',
-      fr: 'Berline Économique (1-3 pers.)'
+      tr: 'Ekonomi Sedan (1-3)',
+      en: 'Economy Sedan (1-3)',
+      ru: 'Эконом Седан (1-3)',
+      de: 'Economy Limousine (1-3)',
+      ar: 'سيدان اقتصادي (1-3)',
+      fr: 'Berline Économique (1-3)'
     },
     comfortSedan: {
-      tr: 'Konfor Sedan (1-3 kişi)',
-      en: 'Comfort Sedan (1-3 pax)',
-      ru: 'Комфорт Седан (1-3 чел.)',
-      de: 'Komfort Limousine (1-3 Pers.)',
-      ar: 'سيدان مريح (1-3 أشخاص)',
-      fr: 'Berline Confort (1-3 pers.)'
+      tr: 'Konfor Sedan (1-3)',
+      en: 'Comfort Sedan (1-3)',
+      ru: 'Комфорт Седан (1-3)',
+      de: 'Komfort Limousine (1-3)',
+      ar: 'سيدان مريح (1-3)',
+      fr: 'Berline Confort (1-3)'
     },
     vipSedan: {
-      tr: 'VIP Sedan (1-3 kişi)',
-      en: 'VIP Sedan (1-3 pax)',
-      ru: 'VIP Седан (1-3 чел.)',
-      de: 'VIP Limousine (1-3 Pers.)',
-      ar: 'سيدان في آي بي (1-3 أشخاص)',
-      fr: 'Berline VIP (1-3 pers.)'
+      tr: 'VIP Sedan (1-3)',
+      en: 'VIP Sedan (1-3)',
+      ru: 'VIP Седан (1-3)',
+      de: 'VIP Limousine (1-3)',
+      ar: 'سيدان VIP (1-3)',
+      fr: 'Berline VIP (1-3)'
     },
     minivan: {
-      tr: 'Minivan (1-7 kişi)',
-      en: 'Minivan (1-7 pax)',
-      ru: 'Минивэн (1-7 чел.)',
-      de: 'Kleinbus (1-7 Pers.)',
-      ar: 'ميني فان (1-7 أشخاص)',
-      fr: 'Minibus (1-7 pers.)'
+      tr: 'Minivan (1-7)',
+      en: 'Minivan (1-7)',
+      ru: 'Минивэн (1-7)',
+      de: 'Kleinbus (1-7)',
+      ar: 'ميني فان (1-7)',
+      fr: 'Minibus (1-7)'
     },
     vipMinivan: {
-      tr: 'VIP Minivan (1-7 kişi)',
-      en: 'VIP Minivan (1-7 pax)',
-      ru: 'VIP Минивэн (1-7 чел.)',
-      de: 'VIP Kleinbus (1-7 Pers.)',
-      ar: 'ميني فان في آي بي (1-7 أشخاص)',
-      fr: 'Minibus VIP (1-7 pers.)'
+      tr: 'VIP Minivan (1-7)',
+      en: 'VIP Minivan (1-7)',
+      ru: 'VIP Минивэн (1-7)',
+      de: 'VIP Kleinbus (1-7)',
+      ar: 'ميني فان VIP (1-7)',
+      fr: 'Minibus VIP (1-7)'
     },
     minibus14: {
-      tr: 'Minibüs 14 Kişilik',
-      en: 'Minibus 14 Seats',
-      ru: 'Микроавтобус 14 мест',
-      de: 'Kleinbus 14 Sitze',
-      ar: 'حافلة صغيرة 14 مقعد',
-      fr: 'Minibus 14 Places'
+      tr: 'Minibüs (14 kişi)',
+      en: 'Minibus (14 pax)',
+      ru: 'Микроавтобус (14)',
+      de: 'Kleinbus (14)',
+      ar: 'حافلة صغيرة (14)',
+      fr: 'Minibus (14)'
     },
     minibus17: {
-      tr: 'Minibüs 17 Kişilik',
-      en: 'Minibus 17 Seats',
-      ru: 'Микроавтобус 17 мест',
-      de: 'Kleinbus 17 Sitze',
-      ar: 'حافلة صغيرة 17 مقعد',
-      fr: 'Minibus 17 Places'
+      tr: 'Minibüs (17 kişi)',
+      en: 'Minibus (17 pax)',
+      ru: 'Микроавтобус (17)',
+      de: 'Kleinbus (17)',
+      ar: 'حافلة صغيرة (17)',
+      fr: 'Minibus (17)'
     },
     vipSprinter: {
-      tr: 'VIP Sprinter (17 kişi)',
-      en: 'VIP Sprinter (17 pax)',
-      ru: 'VIP Спринтер (17 чел.)',
-      de: 'VIP Sprinter (17 Pers.)',
-      ar: 'سبرينتر في آي بي (17 شخص)',
-      fr: 'Sprinter VIP (17 pers.)'
+      tr: 'VIP Sprinter (17)',
+      en: 'VIP Sprinter (17)',
+      ru: 'VIP Спринтер (17)',
+      de: 'VIP Sprinter (17)',
+      ar: 'سبرينتر VIP (17)',
+      fr: 'Sprinter VIP (17)'
     }
   };
 
-  // Get current slug for this language
   const currentSlug = transfer.seo.slug[selectedLanguage];
   const baseUrl = 'https://holiday.ailydian.com';
   const currentUrl = `${baseUrl}/transfers/${currentSlug}`;
 
-  // Generate hreflang tags
   const hreflangTags = generateHreflangTags(`${baseUrl}/transfers`, transfer.seo.slug);
-
-  // Generate Schema.org structured data
   const schemaOrg = generateTransferSchemaOrg(
     {
       from: transfer.from,
@@ -179,7 +196,6 @@ export default function TransferDetailPage({ transfer, relatedTransfers }: Trans
     selectedLanguage
   );
 
-  // Generate OpenGraph tags
   const ogTags = generateOpenGraphTags(
     {
       title: transfer.seo.metaTitle,
@@ -191,7 +207,6 @@ export default function TransferDetailPage({ transfer, relatedTransfers }: Trans
     selectedLanguage
   );
 
-  // Generate Twitter Card tags
   const twitterTags = generateTwitterCardTags(
     {
       title: transfer.seo.metaTitle,
@@ -209,7 +224,7 @@ export default function TransferDetailPage({ transfer, relatedTransfers }: Trans
           url: currentUrl
         });
       } catch (err) {
-        // User cancelled share
+        // User cancelled
       }
     } else {
       setShowShareModal(true);
@@ -219,18 +234,15 @@ export default function TransferDetailPage({ transfer, relatedTransfers }: Trans
   return (
     <>
       <Head>
-        {/* Primary Meta Tags */}
         <title>{getLocalizedText(transfer.seo.metaTitle, selectedLanguage)}</title>
         <meta name="description" content={getLocalizedText(transfer.seo.metaDescription, selectedLanguage)} />
         <meta name="keywords" content={transfer.seo.keywords[selectedLanguage].join(', ')} />
         <link rel="canonical" href={currentUrl} />
 
-        {/* Hreflang Tags */}
         {hreflangTags.map((tag, idx) => (
           <link key={idx} rel={tag.rel} hrefLang={tag.hrefLang} href={tag.href} />
         ))}
 
-        {/* Open Graph */}
         <meta property="og:title" content={ogTags.title} />
         <meta property="og:description" content={ogTags.description} />
         <meta property="og:url" content={ogTags.url} />
@@ -241,7 +253,6 @@ export default function TransferDetailPage({ transfer, relatedTransfers }: Trans
           <meta key={idx} property="og:image" content={img.url} />
         ))}
 
-        {/* Twitter Card */}
         <meta name="twitter:card" content={twitterTags.cardType} />
         <meta name="twitter:title" content={twitterTags.title} />
         <meta name="twitter:description" content={twitterTags.description} />
@@ -251,7 +262,6 @@ export default function TransferDetailPage({ transfer, relatedTransfers }: Trans
           <meta key={idx} name="twitter:image" content={img} />
         ))}
 
-        {/* Schema.org JSON-LD */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaOrg) }}
@@ -261,11 +271,116 @@ export default function TransferDetailPage({ transfer, relatedTransfers }: Trans
       <SimplifiedHeader />
 
       <div className="min-h-screen bg-gradient-to-b from-gray-50 via-white to-gray-50 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950">
-        {/* Language & Breadcrumb Bar */}
+        {/* Gallery Modal */}
+        <AnimatePresence>
+          {showGallery && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center"
+              onClick={() => setShowGallery(false)}
+            >
+              <button
+                onClick={() => setShowGallery(false)}
+                className="absolute top-6 right-6 text-white hover:text-gray-300 z-10 p-2 hover:bg-white/10 rounded-lg transition-all"
+              >
+                <X className="w-8 h-8" />
+              </button>
+
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setSelectedImage((prev) => (prev === 0 ? transfer.images.length - 1 : prev - 1));
+                }}
+                className="absolute left-6 text-white hover:text-gray-300 z-10 p-2 hover:bg-white/10 rounded-lg transition-all"
+              >
+                <ChevronLeft className="w-12 h-12" />
+              </button>
+
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setSelectedImage((prev) => (prev === transfer.images.length - 1 ? 0 : prev + 1));
+                }}
+                className="absolute right-6 text-white hover:text-gray-300 z-10 p-2 hover:bg-white/10 rounded-lg transition-all"
+              >
+                <ChevronRight className="w-12 h-12" />
+              </button>
+
+              <img
+                src={transfer.images[selectedImage]}
+                alt={`${getLocalizedText(transfer.from, selectedLanguage)} - ${selectedImage + 1}`}
+                className="max-w-7xl max-h-[90vh] object-contain"
+                onClick={(e) => e.stopPropagation()}
+              />
+
+              <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white font-semibold bg-black/50 px-4 py-2 rounded-lg backdrop-blur-sm">
+                {selectedImage + 1} / {transfer.images.length}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        {/* Share Modal */}
+        <AnimatePresence>
+          {showShareModal && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4"
+              onClick={() => setShowShareModal(false)}
+            >
+              <motion.div
+                initial={{ scale: 0.9, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.9, opacity: 0 }}
+                className="bg-white dark:bg-gray-800 rounded-2xl p-6 max-w-md w-full shadow-2xl"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <div className="flex items-center justify-between mb-4">
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white">
+                    {selectedLanguage === 'tr' && 'Paylaş'}
+                    {selectedLanguage === 'en' && 'Share'}
+                    {selectedLanguage === 'ru' && 'Поделиться'}
+                    {selectedLanguage === 'de' && 'Teilen'}
+                    {selectedLanguage === 'ar' && 'شارك'}
+                    {selectedLanguage === 'fr' && 'Partager'}
+                  </h3>
+                  <button
+                    onClick={() => setShowShareModal(false)}
+                    className="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"
+                  >
+                    <X className="w-5 h-5 text-gray-600 dark:text-gray-400" />
+                  </button>
+                </div>
+                <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-3 mb-4">
+                  <input type="text" value={currentUrl} readOnly className="w-full bg-transparent text-sm text-gray-600 dark:text-gray-300 select-all" />
+                </div>
+                <button
+                  onClick={() => {
+                    navigator.clipboard.writeText(currentUrl);
+                    setShowShareModal(false);
+                  }}
+                  className="w-full bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white py-3 rounded-lg font-semibold transition-all shadow-lg hover:shadow-xl"
+                >
+                  {selectedLanguage === 'tr' && 'Linki Kopyala'}
+                  {selectedLanguage === 'en' && 'Copy Link'}
+                  {selectedLanguage === 'ru' && 'Скопировать ссылку'}
+                  {selectedLanguage === 'de' && 'Link kopieren'}
+                  {selectedLanguage === 'ar' && 'نسخ الرابط'}
+                  {selectedLanguage === 'fr' && 'Copier le lien'}
+                </button>
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        {/* Breadcrumb Bar */}
         <div className="sticky top-0 z-40 bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl border-b border-gray-200 dark:border-gray-800 shadow-sm">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
-              {/* Breadcrumb */}
               <nav className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 flex-wrap">
                 <Link href="/" className="hover:text-red-600 dark:hover:text-red-400 transition-colors flex items-center gap-1">
                   <Home className="w-4 h-4" />
@@ -291,30 +406,26 @@ export default function TransferDetailPage({ transfer, relatedTransfers }: Trans
                 </span>
               </nav>
 
-              {/* Language Toggle + Actions */}
-              <div className="flex items-center gap-3 flex-wrap">
-                <Globe className="w-4 h-4 text-gray-400" />
-                <div className="flex flex-wrap gap-2">
+              <div className="flex items-center gap-3">
+                <div className="flex gap-1">
                   {Object.entries(languageLabels).map(([lang, { flag, name }]) => (
                     <motion.button
                       key={lang}
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                       onClick={() => setSelectedLanguage(lang as SupportedLanguage)}
-                      className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-all ${
+                      className={`px-2 py-1 rounded text-xs font-medium transition-all ${
                         selectedLanguage === lang
-                          ? 'bg-gradient-to-r from-red-600 to-red-700 text-white shadow-lg'
+                          ? 'bg-gradient-to-r from-red-600 to-red-700 text-white shadow-md'
                           : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
                       }`}
                     >
-                      <span className="mr-1">{flag}</span>
-                      {name}
+                      {flag}
                     </motion.button>
                   ))}
                 </div>
 
-                {/* Action Buttons */}
-                <div className="flex items-center gap-2 ml-2">
+                <div className="flex items-center gap-2">
                   <motion.button
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
@@ -342,9 +453,8 @@ export default function TransferDetailPage({ transfer, relatedTransfers }: Trans
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6 }}
-          className="relative bg-gradient-to-r from-red-600 via-red-700 to-red-800 text-white py-12 sm:py-16 lg:py-20"
+          className="relative bg-gradient-to-r from-red-600 via-red-700 to-red-800 text-white py-12 sm:py-16"
         >
-          {/* Background Pattern */}
           <div className="absolute inset-0 opacity-10">
             <div
               className="absolute inset-0"
@@ -364,7 +474,7 @@ export default function TransferDetailPage({ transfer, relatedTransfers }: Trans
               </motion.p>
 
               {/* Quick Stats */}
-              <motion.div variants={itemVariants} className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 mt-8">
+              <motion.div variants={itemVariants} className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
                 <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
                   <Navigation className="w-6 h-6 sm:w-8 sm:h-8 mb-2 text-red-200" />
                   <div className="text-xl sm:text-2xl font-bold">{transfer.distance} km</div>
@@ -421,9 +531,64 @@ export default function TransferDetailPage({ transfer, relatedTransfers }: Trans
           </div>
         </motion.div>
 
+        {/* Photo Gallery */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="grid grid-cols-4 gap-2 rounded-2xl overflow-hidden cursor-pointer"
+          >
+            <motion.div
+              variants={imageHoverVariants}
+              initial="rest"
+              whileHover="hover"
+              className="col-span-4 md:col-span-2 md:row-span-2 relative h-64 md:h-96 overflow-hidden"
+              onClick={() => {
+                setSelectedImage(0);
+                setShowGallery(true);
+              }}
+            >
+              <img
+                src={transfer.images[0]}
+                alt={getLocalizedText(transfer.from, selectedLanguage)}
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-black/0 hover:bg-black/10 transition-colors flex items-center justify-center opacity-0 hover:opacity-100">
+                <Maximize2 className="w-12 h-12 text-white" />
+              </div>
+            </motion.div>
+            {transfer.images.slice(1, 5).map((image, index) => (
+              <motion.div
+                key={index}
+                variants={imageHoverVariants}
+                initial="rest"
+                whileHover="hover"
+                className="col-span-2 md:col-span-1 relative h-32 md:h-48 overflow-hidden"
+                onClick={() => {
+                  setSelectedImage(index + 1);
+                  setShowGallery(true);
+                }}
+              >
+                <img src={image} alt={`Transfer ${index + 2}`} className="w-full h-full object-cover" />
+                {index === 3 && transfer.images.length > 5 && (
+                  <div className="absolute inset-0 bg-black/60 flex items-center justify-center text-white font-bold text-lg hover:bg-black/50 transition-colors">
+                    <div className="text-center">
+                      <Maximize2 className="w-8 h-8 mx-auto mb-2" />
+                      +{transfer.images.length - 5} Fotoğraf
+                    </div>
+                  </div>
+                )}
+                <div className="absolute inset-0 bg-black/0 hover:bg-black/10 transition-colors flex items-center justify-center opacity-0 hover:opacity-100">
+                  <Maximize2 className="w-8 h-8 text-white" />
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+
         {/* Main Content */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
-          <div className="grid lg:grid-cols-3 gap-6 lg:gap-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
             {/* Left Column - Details */}
             <div className="lg:col-span-2 space-y-6 sm:space-y-8">
               {/* Animated Car Icon */}
@@ -529,7 +694,7 @@ export default function TransferDetailPage({ transfer, relatedTransfers }: Trans
                     )}/${encodeURIComponent(getLocalizedText(transfer.to, 'en'))}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 w-full bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-xl font-semibold transition-all shadow-md hover:shadow-lg"
+                    className="flex items-center justify-center gap-2 w-full bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white px-6 py-3 rounded-xl font-semibold transition-all shadow-lg hover:shadow-xl"
                   >
                     <Navigation className="w-5 h-5" />
                     {selectedLanguage === 'tr' && 'Yol Tarifi Al'}
@@ -543,13 +708,13 @@ export default function TransferDetailPage({ transfer, relatedTransfers }: Trans
               </motion.div>
             </div>
 
-            {/* Right Column - Booking Card */}
+            {/* Right Column - Sticky Booking Card */}
             <div className="lg:col-span-1">
               <motion.div
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.3 }}
-                className="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl p-6 sticky top-24 border border-gray-200 dark:border-gray-700"
+                className="sticky top-24 bg-white dark:bg-gray-800 rounded-2xl shadow-2xl p-6 border border-gray-200 dark:border-gray-700"
               >
                 {/* Price Badge */}
                 <div className="bg-gradient-to-r from-green-500 to-green-600 text-white px-4 py-2 rounded-xl mb-6 flex items-center justify-center gap-2 shadow-lg">
@@ -772,61 +937,6 @@ export default function TransferDetailPage({ transfer, relatedTransfers }: Trans
           )}
         </div>
       </div>
-
-      {/* Share Modal */}
-      <AnimatePresence>
-        {showShareModal && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4"
-            onClick={() => setShowShareModal(false)}
-          >
-            <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              className="bg-white dark:bg-gray-800 rounded-2xl p-6 max-w-md w-full shadow-2xl"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <div className="flex items-center justify-between mb-4">
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white">
-                  {selectedLanguage === 'tr' && 'Paylaş'}
-                  {selectedLanguage === 'en' && 'Share'}
-                  {selectedLanguage === 'ru' && 'Поделиться'}
-                  {selectedLanguage === 'de' && 'Teilen'}
-                  {selectedLanguage === 'ar' && 'شارك'}
-                  {selectedLanguage === 'fr' && 'Partager'}
-                </h3>
-                <button
-                  onClick={() => setShowShareModal(false)}
-                  className="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"
-                >
-                  <X className="w-5 h-5 text-gray-600 dark:text-gray-400" />
-                </button>
-              </div>
-              <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-3 mb-4">
-                <input type="text" value={currentUrl} readOnly className="w-full bg-transparent text-sm text-gray-600 dark:text-gray-300 select-all" />
-              </div>
-              <button
-                onClick={() => {
-                  navigator.clipboard.writeText(currentUrl);
-                  setShowShareModal(false);
-                }}
-                className="w-full bg-red-600 hover:bg-red-700 text-white py-3 rounded-lg font-semibold transition-colors"
-              >
-                {selectedLanguage === 'tr' && 'Linki Kopyala'}
-                {selectedLanguage === 'en' && 'Copy Link'}
-                {selectedLanguage === 'ru' && 'Скопировать ссылку'}
-                {selectedLanguage === 'de' && 'Link kopieren'}
-                {selectedLanguage === 'ar' && 'نسخ الرابط'}
-                {selectedLanguage === 'fr' && 'Copier le lien'}
-              </button>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </>
   );
 }
@@ -834,7 +944,6 @@ export default function TransferDetailPage({ transfer, relatedTransfers }: Trans
 export const getStaticPaths: GetStaticPaths = async () => {
   const paths: Array<{ params: { slug: string } }> = [];
 
-  // Generate paths for all transfers in all 6 languages
   antalyaAirportTransfers.forEach((transfer) => {
     Object.entries(transfer.seo.slug).forEach(([lang, slug]) => {
       paths.push({
@@ -852,7 +961,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps<TransferDetailPageProps> = async ({ params }) => {
   const slug = params?.slug as string;
 
-  // Find transfer by slug in any language
   const transfer = antalyaAirportTransfers.find((t) => Object.values(t.seo.slug).includes(slug));
 
   if (!transfer) {
@@ -861,7 +969,6 @@ export const getStaticProps: GetStaticProps<TransferDetailPageProps> = async ({ 
     };
   }
 
-  // Get related transfers (same category, different routes)
   const relatedTransfers = antalyaAirportTransfers.filter((t) => t.id !== transfer.id && t.category === transfer.category).slice(0, 3);
 
   return {
