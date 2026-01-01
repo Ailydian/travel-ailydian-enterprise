@@ -12,8 +12,13 @@ interface WhatsAppWidgetProps {
   responseTime?: string;
 }
 
+/**
+ * WhatsApp Widget Component
+ * DISABLED: Fixed bottom-right floating button removed per system optimization request
+ * Original functionality preserved in code but returns null to prevent rendering
+ */
 const WhatsAppWidget: React.FC<WhatsAppWidgetProps> = ({
-  phoneNumber = '+905551234567', // Travel LyDian support number
+  phoneNumber = '+905551234567',
   defaultMessage = 'Merhaba! Travel LyDian hakkında bilgi almak istiyorum.',
   position = 'bottom-right',
   agentName = 'Travel LyDian Destek',
@@ -36,151 +41,9 @@ const WhatsAppWidget: React.FC<WhatsAppWidgetProps> = ({
     'bottom-left': 'bottom-6 left-6'
   };
 
-  return (
-    <div className={`fixed ${positionClasses[position]} z-50`}>
-      <AnimatePresence>
-        {isOpen &&
-        <motion.div
-          initial={{ opacity: 0, y: 20, scale: 0.95 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          exit={{ opacity: 0, y: 20, scale: 0.95 }}
-          transition={{ duration: 0.2 }}
-          className="mb-4 bg-lydian-glass-dark rounded-2xl shadow-2xl w-80 overflow-hidden">
-
-            {/* Header */}
-            <div className="bg-gradient-to-r from-green-500 to-green-600 p-4 text-lydian-text-inverse">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 bg-lydian-glass-dark rounded-full flex items-center justify-center">
-                    <MessageCircle className="h-6 w-6 text-lydian-success" />
-                  </div>
-                  <div>
-                    <p className="font-bold text-sm">{agentName}</p>
-                    <p className="text-xs text-green-100">{agentTitle}</p>
-                  </div>
-                </div>
-                <button
-                onClick={() => setIsOpen(false)}
-                className="p-1 hover:bg-lydian-glass-dark-heavy rounded-full transition-colors">
-
-                  <X className="h-5 w-5" />
-                </button>
-              </div>
-            </div>
-
-            {/* Content */}
-            <div className="p-4 bg-lydian-glass-dark">
-              {/* Welcome Message */}
-              <div className="mb-4">
-                <div className="bg-lydian-glass-dark rounded-lg p-3 shadow-sm">
-                  <p className="text-sm text-lydian-text-dim mb-2">
-                    👋 Merhaba! Travel LyDian\'a hoş geldiniz.
-                  </p>
-                  <p className="text-xs text-lydian-text-dim">
-                    {responseTime}
-                  </p>
-                </div>
-              </div>
-
-              {/* Quick Actions */}
-              <div className="mb-4 space-y-2">
-                <p className="text-xs font-semibold text-lydian-text-dim mb-2">
-                  Hızlı Seçenekler:
-                </p>
-                <button
-                onClick={() => setMessage('Otel rezervasyonu hakkında bilgi almak istiyorum')}
-                className="w-full text-left text-sm bg-lydian-glass-dark hover:bg-lydian-glass-dark px-3 py-2 rounded-lg border border-lydian-border-light/10 transition-colors">
-
-                  🏨 Otel Rezervasyonu
-                </button>
-                <button
-                onClick={() => setMessage('Araç kiralama için fiyat bilgisi alabilir miyim?')}
-                className="w-full text-left text-sm bg-lydian-glass-dark hover:bg-lydian-glass-dark px-3 py-2 rounded-lg border border-lydian-border-light/10 transition-colors">
-
-                  🚗 Araç Kiralama
-                </button>
-                <button
-                onClick={() => setMessage('Tur seçenekleri hakkında bilgi istiyorum')}
-                className="w-full text-left text-sm bg-lydian-glass-dark hover:bg-lydian-glass-dark px-3 py-2 rounded-lg border border-lydian-border-light/10 transition-colors">
-
-                  🎭 Turlar
-                </button>
-              </div>
-
-              {/* Message Input */}
-              <div className="mb-2">
-                <textarea
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-                placeholder="Mesajınızı yazın..."
-                className="w-full px-3 py-2 border border-lydian-border-light rounded-lg focus:ring-2 focus:ring-green-500 focus:border-lydian-border resize-none text-sm"
-                rows={3} />
-
-              </div>
-
-              {/* Send Button */}
-              <button
-              onClick={handleSendMessage}
-              className="w-full flex items-center justify-center gap-2 bg-lydian-success hover:bg-lydian-success text-lydian-text-inverse font-medium py-3 px-4 rounded-lg transition-colors">
-
-                <Send className="h-4 w-4" />
-                WhatsApp ile Gönder
-              </button>
-
-              {/* Direct Call Option */}
-              <button
-              onClick={() => window.open(`tel:${phoneNumber}`, '_self')}
-              className="w-full flex items-center justify-center gap-2 bg-lydian-glass-dark hover:bg-lydian-glass-dark text-lydian-text-muted font-medium py-2 px-4 rounded-lg border border-lydian-border-light transition-colors mt-2">
-
-                <Phone className="h-4 w-4" />
-                Hemen Ara
-              </button>
-
-              {/* Privacy Note */}
-              <p className="text-xs text-lydian-text-muted text-center mt-3">
-                WhatsApp üzerinden güvenli iletişim
-              </p>
-            </div>
-          </motion.div>
-        }
-      </AnimatePresence>
-
-      {/* Floating Button */}
-      <motion.button
-        onClick={() => setIsOpen(!isOpen)}
-        className="w-16 h-16 bg-lydian-success hover:bg-lydian-success text-lydian-text-inverse rounded-full shadow-2xl flex items-center justify-center transition-colors"
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.95 }}>
-
-        {isOpen ?
-        <X className="h-7 w-7" /> :
-
-        <MessageCircle className="h-7 w-7" />
-        }
-      </motion.button>
-
-      {/* Notification Badge (optional) */}
-      {!isOpen &&
-      <motion.div
-        initial={{ scale: 0 }}
-        animate={{ scale: 1 }}
-        className="absolute -top-1 -right-1 w-5 h-5 bg-lydian-error rounded-full flex items-center justify-center">
-
-          <span className="text-lydian-text-inverse text-xs font-bold">1</span>
-        </motion.div>
-      }
-
-      {/* Pulse Animation */}
-      {!isOpen &&
-      <motion.div
-        className="absolute inset-0 bg-green-400 rounded-full"
-        initial={{ scale: 1, opacity: 0.5 }}
-        animate={{ scale: 1.4, opacity: 0 }}
-        transition={{ duration: 2, repeat: Infinity }} />
-
-      }
-    </div>);
-
+  // REMOVED: Fixed bottom-right WhatsApp widget per user request
+  // Component disabled to eliminate floating bottom-right buttons
+  return null;
 };
 
 export default WhatsAppWidget;

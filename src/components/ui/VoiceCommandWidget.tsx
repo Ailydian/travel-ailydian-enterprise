@@ -186,7 +186,8 @@ export const VoiceCommandWidget: React.FC = () => {
         }
       </AnimatePresence>
 
-      {/* Minimized Floating Button */}
+      {/* Minimized Floating Button - REMOVED: Fixed bottom-right button per user request */}
+      {false && (
       <AnimatePresence>
         {isMinimized &&
         <motion.button
@@ -209,6 +210,7 @@ export const VoiceCommandWidget: React.FC = () => {
           </motion.button>
         }
       </AnimatePresence>
+      )}
 
       {/* Quick Commands Panel - Opens at Top */}
       <AnimatePresence>

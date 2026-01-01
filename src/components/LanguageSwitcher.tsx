@@ -150,8 +150,8 @@ export const LanguageSwitcher: React.FC = () => {
                     onClick={() => handleLanguageChange(language.code)}
                     className={
                     'group flex w-full items-center justify-between rounded-lg px-3 py-2.5 text-sm transition-all ' + (
-                    active ? 'bg-red-50' : '') + ' ' + (
-                    isActive ? 'bg-red-50 text-lydian-primary font-bold' : 'text-white')
+                    active ? 'bg-lydian-glass-dark-medium' : '') + ' ' + (
+                    isActive ? 'bg-gradient-to-r from-lydian-primary/20 to-lydian-secondary/20 text-lydian-primary font-bold border border-lydian-primary/30' : 'text-white')
                     }>
 
                       <div className="flex items-center gap-3">

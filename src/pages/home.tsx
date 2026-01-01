@@ -915,40 +915,6 @@ const GetYourGuideStyleHome: React.FC = () => {
         </section>
       </main>
 
-      {/* Floating Signup Button */}
-      <motion.div
-        initial={{ scale: 0, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ delay: 2, type: "spring", stiffness: 200 }}
-        className="fixed bottom-8 right-8 z-50">
-
-        <Link href="/auth/signup">
-          <motion.button
-            whileHover={{ scale: 1.1, rotate: 5 }}
-            whileTap={{ scale: 0.9 }}
-            className="relative w-16 h-16 bg-gradient-to-r from-lydian-primary to-lydian-secondary rounded-full shadow-2xl flex items-center justify-center text-lydian-text-inverse group overflow-hidden">
-
-            {/* Background Animation */}
-            <div className="absolute inset-0 bg-gradient-to-r from-lydian-secondary to-lydian-primary rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-
-            {/* Icon */}
-            <UserPlus className="w-7 h-7 relative z-10 group-hover:rotate-12 transition-transform duration-300" />
-
-            {/* Tooltip */}
-            <div className="absolute right-full mr-4 top-1/2 transform -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none">
-              <div className="bg-lydian-bg-surface text-lydian-text text-sm px-3 py-2 rounded-lg whitespace-nowrap flex items-center gap-2 shadow-lg border border-lydian-border">
-                <Gift className="w-4 h-4 text-lydian-warning" />
-                <span>Ücretsiz Kayıt Ol!</span>
-                <div className="absolute left-full top-1/2 transform -translate-y-1/2 w-0 h-0 border-l-8 border-l-lydian-bg-surface border-y-4 border-y-transparent"></div>
-              </div>
-            </div>
-
-            {/* Pulsing Ring */}
-            <div className="absolute inset-0 rounded-full border-2 border-lydian-border-light animate-ping"></div>
-            <div className="absolute inset-0 rounded-full border-2 border-lydian-border animate-pulse"></div>
-          </motion.button>
-        </Link>
-      </motion.div>
 
       {/* Premium Style Footer */}
       <BookingFooter />

@@ -69,17 +69,34 @@ export const ModernHeader: React.FC = () => {
     { code: 'en', name: 'English', flag: '🇬🇧' },
     { code: 'de', name: 'Deutsch', flag: '🇩🇪' },
     { code: 'ru', name: 'Русский', flag: '🇷🇺' },
+    { code: 'ar', name: 'العربية', flag: '🇸🇦' },
+    { code: 'fa', name: 'فارسی', flag: '🇮🇷' },
+    { code: 'fr', name: 'Français', flag: '🇫🇷' },
+    { code: 'el', name: 'Ελληνικά', flag: '🇬🇷' },
   ];
 
-  const [currentLang, setCurrentLang] = useState(languages[0]);
+  // Get current language from router locale or default to 'tr'
+  const getCurrentLang = () => {
+    const currentLocale = router.locale || 'tr';
+    return languages.find(lang => lang.code === currentLocale) || languages[0];
+  };
+
+  const [currentLang, setCurrentLang] = useState(getCurrentLang());
+
+  // Update current language when router locale changes
+  useEffect(() => {
+    setCurrentLang(getCurrentLang());
+  }, [router.locale]);
 
   const isActive = (href: string) =>
     router.pathname === href || router.pathname.startsWith(href + '/');
 
-  const handleLangChange = (lang: typeof languages[0]) => {
+  const handleLangChange = async (lang: typeof languages[0]) => {
     setCurrentLang(lang);
     setLangMenuOpen(false);
-    // Add actual i18n implementation here
+
+    // FIX: Actually change the language using Next.js i18n routing
+    await router.push(router.asPath, router.asPath, { locale: lang.code });
   };
 
   return (
