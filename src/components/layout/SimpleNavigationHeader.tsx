@@ -10,8 +10,7 @@ import {
   Home,
   Car as CarIcon,
   Bus,
-  Building2 } from
-'lucide-react';
+  Building2 } from 'lucide-react';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
 import { ThemeToggle } from '@/components/theme/ThemeToggle';
 import { LAYOUT_CONSTANTS } from '@/config/layout-constants';

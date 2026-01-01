@@ -273,7 +273,7 @@ export function Table<T = any>({
               <tr>
                 <td colSpan={columns.length + (selectable ? 1 : 0)} className="px-6 py-8 text-center text-lydian-text-muted">
                   <div className="flex items-center justify-center gap-2">
-                    <div className="w-5 h-5 border-2 border-blue-600 border-t-transparent rounded-full animate-spin" />
+                    <div className="w-5 h-5 border-2 border-lydian-info-hover border-t-transparent rounded-full animate-spin" />
                     Loading...
                   </div>
                 </td>
@@ -371,7 +371,7 @@ export function Table<T = any>({
                   className={`
                     px-3 py-1 rounded border
                     ${page === pageNum
-                      ? 'bg-lydian-primary text-white border-blue-600'
+                      ? 'bg-lydian-primary text-white border-lydian-info-hover'
                       : 'border-lydian-border-medium hover:bg-lydian-bg-surface'
                     }
                   `}

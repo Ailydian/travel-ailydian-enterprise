@@ -18,8 +18,7 @@ import {
   Award,
   CreditCard,
   Headphones,
-  ChevronRight } from
-'lucide-react';
+  ChevronRight } from 'lucide-react';
 
 export const BookingFooter: React.FC = () => {
   const currentYear = 2025; // Fixed year to prevent hydration mismatch
@@ -205,7 +204,7 @@ export const BookingFooter: React.FC = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             <div className="flex items-center gap-3">
               <div className="w-12 h-12 rounded-full bg-green-500/10 flex items-center justify-center">
-                <Shield className="w-6 h-6 text-green-500" />
+                <Shield className="w-6 h-6 text-lydian-success" />
               </div>
               <div>
                 <div className="text-lydian-text-inverse font-semibold text-sm">Güvenli Ödeme</div>
@@ -225,7 +224,7 @@ export const BookingFooter: React.FC = () => {
 
             <div className="flex items-center gap-3">
               <div className="w-12 h-12 rounded-full bg-purple-500/10 flex items-center justify-center">
-                <CreditCard className="w-6 h-6 text-purple-500" />
+                <CreditCard className="w-6 h-6 text-lydian-accent-purple" />
               </div>
               <div>
                 <div className="text-lydian-text-inverse font-semibold text-sm">Esnek Ödeme</div>

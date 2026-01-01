@@ -15,6 +15,7 @@ import {
 '../../lib/pricingEngine';
 import { Tour, Hotel } from '../../data/turkeyTourismData';
 import logger from '../../lib/logger';
+import { useToast } from '../../context/ToastContext';
 
 interface BookingFormProps {
   item: Tour | Hotel;
@@ -48,6 +49,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
   onClose,
   className = ''
 }) => {
+  const { showSuccess, showError, showWarning, showInfo, showToast } = useToast();
   const [currentStep, setCurrentStep] = useState(1);
   const [formData, setFormData] = useState<BookingFormData>({
     itemId: item.id,
@@ -207,11 +209,11 @@ const BookingForm: React.FC<BookingFormProps> = ({
         setReservation(newReservation);
         setCurrentStep(4); // Başarı sayfasına geç
       } else {
-        alert(`Ödeme hatası: ${paymentResult.errorMessage}`);
+        showError('Ödeme hatası', '${paymentResult.errorMessage}');
       }
     } catch (error) {
       logger.error('Ödeme işlemi hatası:', error as Error, { component: 'Bookingform' });
-      alert('Ödeme işlemi sırasında bir hata oluştu.');
+      showToast({ type: 'error', title: 'Ödeme işlemi sırasında bir hata oluştu.' });
     } finally {
       setIsProcessingPayment(false);
     }

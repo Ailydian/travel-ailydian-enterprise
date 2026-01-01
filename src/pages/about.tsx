@@ -122,20 +122,16 @@ export default function About() {
           </p>
 
           <div className="flex flex-wrap gap-4 justify-center mt-8">
-            <FuturisticButton
-              variant="glass"
+            <FuturisticButton variant="glass"
               size="lg"
-              icon={<Rocket className="w-5 h-5" />}
-              iconPosition="left"
+              leftIcon={<Rocket className="w-5 h-5" />}
               onClick={() => window.location.href = '/'}
             >
               Seyahate Başla
             </FuturisticButton>
-            <FuturisticButton
-              variant="outline"
+            <FuturisticButton variant="outline"
               size="lg"
-              icon={<Users className="w-5 h-5" />}
-              iconPosition="left"
+              leftIcon={<Users className="w-5 h-5" />}
               onClick={() => window.location.href = '/contact'}
             >
               İletişime Geç
@@ -160,7 +156,7 @@ export default function About() {
                     className="bg-lydian-glass-dark-medium backdrop-blur-xl border border-lydian-border-light rounded-3xl p-6 md:p-8 text-center group cursor-default"
                   >
                     <div className={`w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br ${stat.color} rounded-2xl flex items-center justify-center mx-auto mb-4 md:mb-6 group-hover:scale-110 transition-transform shadow-lg`}>
-                      <IconComponent className="w-8 h-8 md:w-10 md:h-10 text-white" />
+                      <IconComponent className="w-8 h-8 md:w-10 md:h-10 text-lydian-text-inverse" />
                     </div>
                     <div className="text-3xl md:text-4xl font-black text-lydian-text-inverse mb-2">
                       {stat.value}
@@ -248,7 +244,7 @@ export default function About() {
                 className="bg-lydian-glass-dark-medium backdrop-blur-xl border border-lydian-border-light rounded-3xl p-8 group cursor-default"
               >
                 <div className={`w-16 h-16 bg-gradient-to-br ${value.color} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-lg`}>
-                  <value.icon className="w-8 h-8 text-white" />
+                  <value.icon className="w-8 h-8 text-lydian-text-inverse" />
                 </div>
                 <h3 className="text-2xl font-bold text-lydian-text-inverse mb-4">
                   {value.title}
@@ -289,7 +285,7 @@ export default function About() {
                     className="relative w-32 h-32 rounded-full mx-auto object-cover border-4 border-lydian-border-light"
                   />
                   <div className="absolute -bottom-2 -right-2 w-10 h-10 bg-gradient-to-br from-green-500 to-emerald-500 rounded-full border-4 border-lydian-bg flex items-center justify-center">
-                    <CheckCircle className="w-5 h-5 text-white" />
+                    <CheckCircle className="w-5 h-5 text-lydian-text-inverse" />
                   </div>
                 </div>
                 <h3 className="text-2xl font-bold text-lydian-text-inverse mb-2">
@@ -341,21 +337,16 @@ export default function About() {
               </p>
 
               <div className="flex flex-wrap gap-4 justify-center">
-                <FuturisticButton
-                  variant="primary"
+                <FuturisticButton variant="gradient"
                   size="xl"
-                  icon={<Rocket className="w-6 h-6" />}
-                  iconPosition="left"
-                  glow={true}
+                  leftIcon={<Rocket className="w-6 h-6" />}
                   onClick={() => window.location.href = '/'}
                 >
                   Seyahat Planlamaya Başla
                 </FuturisticButton>
-                <FuturisticButton
-                  variant="outline"
+                <FuturisticButton variant="outline"
                   size="xl"
-                  icon={<Heart className="w-6 h-6" />}
-                  iconPosition="left"
+                  leftIcon={<Heart className="w-6 h-6" />}
                   onClick={() => window.location.href = '/contact'}
                 >
                   Bize Ulaşın

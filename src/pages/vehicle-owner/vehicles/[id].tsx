@@ -38,6 +38,7 @@ import {
 } from 'lucide-react';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { useToast } from '../../../context/ToastContext';
 import {
   LineChart,
   Line,
@@ -118,6 +119,8 @@ interface Document {
 }
 
 export async function getServerSideProps({ locale, params }: any) {
+  const { showSuccess, showError, showWarning, showInfo, showToast } = useToast();
+
   return {
     props: {
       ...(await serverSideTranslations(locale ?? 'tr', ['vehicle-owner', 'common'])),
@@ -301,42 +304,42 @@ export default function VehicleDetailPage({ vehicleId }: { vehicleId: string }) 
   const COLORS = {
     primary: '#16A34A',
     secondary: '#14B8A6',
-    accent: '#3B82F6',
-    warning: '#F59E0B',
-    danger: '#EF4444',
-    success: '#10B981',
-    gray: '#6B7280'
+    accent: 'var(--lydian-info)',
+    warning: 'var(--lydian-warning)',
+    danger: 'var(--lydian-secondary)',
+    success: 'var(--lydian-success)',
+    gray: 'var(--lydian-text-tertiary)'
   };
 
-  const PIE_COLORS = [COLORS.primary, '#E5E7EB'];
+  const PIE_COLORS = [COLORS.primary, 'var(--lydian-border)'];
 
   const getStatusInfo = (status: VehicleDetail['status']) => {
     switch (status) {
       case 'available':
         return {
           bg: 'rgba(16, 185, 129, 0.1)',
-          text: '#10B981',
+          text: 'var(--lydian-success)',
           label: 'Müsait',
           icon: CheckCircle
         };
       case 'rented':
         return {
           bg: 'rgba(59, 130, 246, 0.1)',
-          text: '#3B82F6',
+          text: 'var(--lydian-info)',
           label: 'Kiralandı',
           icon: Clock
         };
       case 'maintenance':
         return {
           bg: 'rgba(245, 158, 11, 0.1)',
-          text: '#F59E0B',
+          text: 'var(--lydian-warning)',
           label: 'Bakımda',
           icon: Wrench
         };
       case 'inactive':
         return {
           bg: 'rgba(239, 68, 68, 0.1)',
-          text: '#EF4444',
+          text: 'var(--lydian-secondary)',
           label: 'Pasif',
           icon: PowerOff
         };
@@ -375,7 +378,7 @@ export default function VehicleDetailPage({ vehicleId }: { vehicleId: string }) 
   const copyToClipboard = (text: string) => {
     navigator.clipboard.writeText(text);
     // Show toast notification
-    alert('Link kopyalandı!');
+    showToast({ type: 'info', title: 'Link kopyalandı!' });
   };
 
   return (
@@ -396,8 +399,8 @@ export default function VehicleDetailPage({ vehicleId }: { vehicleId: string }) 
       {/* Header */}
       <div className="rounded-2xl border-2 p-6"
            style={{
-             backgroundColor: '#FFFFFF',
-             borderColor: '#E5E7EB',
+             backgroundColor: 'var(--lydian-text-inverse)',
+             borderColor: 'var(--lydian-border)',
              boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
            }}>
         <div className="flex flex-col lg:flex-row gap-6">
@@ -414,21 +417,21 @@ export default function VehicleDetailPage({ vehicleId }: { vehicleId: string }) 
               <button
                 onClick={() => handlePhotoChange('prev')}
                 className="absolute left-3 top-1/2 transform -translate-y-1/2 p-2 rounded-full backdrop-blur-lg transition-all hover:scale-110"
-                style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)', color: 'white' }}
+                style={{ backgroundColor: 'var(--lydian-bg-overlay)', color: 'white' }}
               >
                 <ChevronLeft className="w-6 h-6" />
               </button>
               <button
                 onClick={() => handlePhotoChange('next')}
                 className="absolute right-3 top-1/2 transform -translate-y-1/2 p-2 rounded-full backdrop-blur-lg transition-all hover:scale-110"
-                style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)', color: 'white' }}
+                style={{ backgroundColor: 'var(--lydian-bg-overlay)', color: 'white' }}
               >
                 <ChevronRight className="w-6 h-6" />
               </button>
 
               {/* Photo Counter */}
               <div className="absolute bottom-3 right-3 px-3 py-1 rounded-lg backdrop-blur-lg"
-                   style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)', color: 'white' }}>
+                   style={{ backgroundColor: 'var(--lydian-bg-overlay)', color: 'white' }}>
                 <span className="text-sm font-medium">
                   {currentPhotoIndex + 1} / {vehicle.photos.length}
                 </span>
@@ -456,7 +459,7 @@ export default function VehicleDetailPage({ vehicleId }: { vehicleId: string }) 
                   style={{
                     width: '80px',
                     height: '60px',
-                    borderColor: index === currentPhotoIndex ? COLORS.primary : '#E5E7EB'
+                    borderColor: index === currentPhotoIndex ? COLORS.primary : 'var(--lydian-border)'
                   }}
                 >
                   <img src={photo} alt="" className="w-full h-full object-cover" />
@@ -502,8 +505,8 @@ export default function VehicleDetailPage({ vehicleId }: { vehicleId: string }) 
               ].map((stat, index) => (
                 <div key={index} className="rounded-xl p-4 text-center border-2"
                      style={{
-                       backgroundColor: '#FFFFFF',
-                       borderColor: '#E5E7EB'
+                       backgroundColor: 'var(--lydian-text-inverse)',
+                       borderColor: 'var(--lydian-border)'
                      }}>
                   <div className="flex justify-center mb-2">
                     <div className="p-2 rounded-lg"
@@ -589,12 +592,12 @@ export default function VehicleDetailPage({ vehicleId }: { vehicleId: string }) 
       {/* Tabs */}
       <div className="rounded-2xl border-2 overflow-hidden"
            style={{
-             backgroundColor: '#FFFFFF',
-             borderColor: '#E5E7EB',
+             backgroundColor: 'var(--lydian-text-inverse)',
+             borderColor: 'var(--lydian-border)',
              boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
            }}>
         {/* Tab Headers */}
-        <div className="flex overflow-x-auto border-b-2" style={{ borderColor: '#E5E7EB' }}>
+        <div className="flex overflow-x-auto border-b-2" style={{ borderColor: 'var(--lydian-border)' }}>
           {tabs.map(tab => {
             const TabIcon = tab.icon;
             return (
@@ -637,7 +640,7 @@ export default function VehicleDetailPage({ vehicleId }: { vehicleId: string }) 
                     { label: 'Kilometre', value: `${vehicle.mileage.toLocaleString('tr-TR')} km`, icon: Gauge }
                   ].map((spec, index) => (
                     <div key={index} className="flex items-center justify-between p-3 rounded-lg"
-                         style={{ backgroundColor: '#F9FAFB' }}>
+                         style={{ backgroundColor: 'var(--lydian-bg-surface)' }}>
                       <div className="flex items-center gap-3">
                         <div className="p-2 rounded-lg"
                              style={{ backgroundColor: 'rgba(22, 163, 74, 0.1)', color: COLORS.primary }}>
@@ -658,7 +661,7 @@ export default function VehicleDetailPage({ vehicleId }: { vehicleId: string }) 
                   <div className="grid grid-cols-1 gap-2">
                     {vehicle.features.map((feature, index) => (
                       <div key={index} className="flex items-center gap-3 p-3 rounded-lg"
-                           style={{ backgroundColor: '#F9FAFB' }}>
+                           style={{ backgroundColor: 'var(--lydian-bg-surface)' }}>
                         <CheckCircle className="w-5 h-5 flex-shrink-0" style={{ color: COLORS.primary }} />
                         <span className="font-medium" style={{ color: '#000000' }}>{feature}</span>
                       </div>
@@ -679,8 +682,8 @@ export default function VehicleDetailPage({ vehicleId }: { vehicleId: string }) 
                 <select
                   className="px-4 py-2 rounded-lg border-2"
                   style={{
-                    backgroundColor: '#FFFFFF',
-                    borderColor: '#E5E7EB',
+                    backgroundColor: 'var(--lydian-text-inverse)',
+                    borderColor: 'var(--lydian-border)',
                     color: '#000000'
                   }}
                 >
@@ -695,8 +698,8 @@ export default function VehicleDetailPage({ vehicleId }: { vehicleId: string }) 
               {bookings.map(booking => (
                 <div key={booking.id} className="rounded-xl p-4 border-2 transition-all hover:scale-[1.01]"
                      style={{
-                       backgroundColor: '#FFFFFF',
-                       borderColor: '#E5E7EB'
+                       backgroundColor: 'var(--lydian-text-inverse)',
+                       borderColor: 'var(--lydian-border)'
                      }}>
                   <div className="flex items-start justify-between">
                     <div className="flex items-start gap-4">
@@ -757,8 +760,8 @@ export default function VehicleDetailPage({ vehicleId }: { vehicleId: string }) 
               </h3>
               <div className="rounded-xl p-8 text-center border-2"
                    style={{
-                     backgroundColor: '#F9FAFB',
-                     borderColor: '#E5E7EB'
+                     backgroundColor: 'var(--lydian-bg-surface)',
+                     borderColor: 'var(--lydian-border)'
                    }}>
                 <Calendar className="w-16 h-16 mx-auto mb-4" style={{ color: '#666666' }} />
                 <p className="text-lg font-bold mb-2" style={{ color: '#000000' }}>
@@ -800,8 +803,8 @@ export default function VehicleDetailPage({ vehicleId }: { vehicleId: string }) 
                 {/* Discounts */}
                 <div className="rounded-xl p-6 border-2"
                      style={{
-                       backgroundColor: '#FFFFFF',
-                       borderColor: '#E5E7EB'
+                       backgroundColor: 'var(--lydian-text-inverse)',
+                       borderColor: 'var(--lydian-border)'
                      }}>
                   <div className="flex items-center gap-3 mb-4">
                     <TrendingUp className="w-6 h-6" style={{ color: COLORS.secondary }} />
@@ -827,8 +830,8 @@ export default function VehicleDetailPage({ vehicleId }: { vehicleId: string }) 
               {/* Seasonal Pricing */}
               <div className="rounded-xl p-6 border-2"
                    style={{
-                     backgroundColor: '#FFFFFF',
-                     borderColor: '#E5E7EB'
+                     backgroundColor: 'var(--lydian-text-inverse)',
+                     borderColor: 'var(--lydian-border)'
                    }}>
                 <h4 className="font-bold mb-4" style={{ color: '#000000' }}>
                   Sezonluk Fiyatlandırma
@@ -840,7 +843,7 @@ export default function VehicleDetailPage({ vehicleId }: { vehicleId: string }) 
                     { season: 'Normal Sezon', dates: 'Diğer zamanlar', price: 900 }
                   ].map((pricing, index) => (
                     <div key={index} className="flex items-center justify-between p-3 rounded-lg"
-                         style={{ backgroundColor: '#F9FAFB' }}>
+                         style={{ backgroundColor: 'var(--lydian-bg-surface)' }}>
                       <div>
                         <p className="font-bold mb-1" style={{ color: '#000000' }}>{pricing.season}</p>
                         <p className="text-sm" style={{ color: '#666666' }}>{pricing.dates}</p>
@@ -873,8 +876,8 @@ export default function VehicleDetailPage({ vehicleId }: { vehicleId: string }) 
               {reviewsData.map(review => (
                 <div key={review.id} className="rounded-xl p-4 border-2"
                      style={{
-                       backgroundColor: '#FFFFFF',
-                       borderColor: '#E5E7EB'
+                       backgroundColor: 'var(--lydian-text-inverse)',
+                       borderColor: 'var(--lydian-border)'
                      }}>
                   <div className="flex items-start gap-4">
                     <div className="w-12 h-12 rounded-full flex items-center justify-center font-bold"
@@ -899,7 +902,7 @@ export default function VehicleDetailPage({ vehicleId }: { vehicleId: string }) 
                             <Star
                               key={i}
                               className="w-4 h-4"
-                              style={{ color: i < review.rating ? COLORS.warning : '#E5E7EB' }}
+                              style={{ color: i < review.rating ? COLORS.warning : 'var(--lydian-border)' }}
                               fill={i < review.rating ? COLORS.warning : 'none'}
                             />
                           ))}
@@ -923,8 +926,8 @@ export default function VehicleDetailPage({ vehicleId }: { vehicleId: string }) 
               {/* Revenue Chart */}
               <div className="rounded-xl p-6 border-2"
                    style={{
-                     backgroundColor: '#FFFFFF',
-                     borderColor: '#E5E7EB'
+                     backgroundColor: 'var(--lydian-text-inverse)',
+                     borderColor: 'var(--lydian-border)'
                    }}>
                 <h4 className="font-bold mb-4" style={{ color: '#000000' }}>
                   Gelir Trendi
@@ -937,12 +940,12 @@ export default function VehicleDetailPage({ vehicleId }: { vehicleId: string }) 
                         <stop offset="95%" stopColor={COLORS.primary} stopOpacity={0}/>
                       </linearGradient>
                     </defs>
-                    <CartesianGrid strokeDasharray="3 3" stroke="#E5E7EB" />
+                    <CartesianGrid strokeDasharray="3 3" stroke="var(--lydian-border)" />
                     <XAxis dataKey="month" stroke="#666666" />
                     <YAxis stroke="#666666" />
                     <Tooltip
                       contentStyle={{
-                        backgroundColor: '#FFFFFF',
+                        backgroundColor: 'var(--lydian-text-inverse)',
                         border: `2px solid ${COLORS.primary}`,
                         borderRadius: '8px'
                       }}
@@ -964,20 +967,20 @@ export default function VehicleDetailPage({ vehicleId }: { vehicleId: string }) 
                 {/* Performance Bar Chart */}
                 <div className="rounded-xl p-6 border-2"
                      style={{
-                       backgroundColor: '#FFFFFF',
-                       borderColor: '#E5E7EB'
+                       backgroundColor: 'var(--lydian-text-inverse)',
+                       borderColor: 'var(--lydian-border)'
                      }}>
                   <h4 className="font-bold mb-4" style={{ color: '#000000' }}>
                     Performans Metrikleri
                   </h4>
                   <ResponsiveContainer width="100%" height={250}>
                     <BarChart data={performanceData}>
-                      <CartesianGrid strokeDasharray="3 3" stroke="#E5E7EB" />
+                      <CartesianGrid strokeDasharray="3 3" stroke="var(--lydian-border)" />
                       <XAxis dataKey="name" stroke="#666666" />
                       <YAxis stroke="#666666" />
                       <Tooltip
                         contentStyle={{
-                          backgroundColor: '#FFFFFF',
+                          backgroundColor: 'var(--lydian-text-inverse)',
                           border: `2px solid ${COLORS.primary}`,
                           borderRadius: '8px'
                         }}
@@ -990,8 +993,8 @@ export default function VehicleDetailPage({ vehicleId }: { vehicleId: string }) 
                 {/* Occupancy Pie Chart */}
                 <div className="rounded-xl p-6 border-2"
                      style={{
-                       backgroundColor: '#FFFFFF',
-                       borderColor: '#E5E7EB'
+                       backgroundColor: 'var(--lydian-text-inverse)',
+                       borderColor: 'var(--lydian-border)'
                      }}>
                   <h4 className="font-bold mb-4" style={{ color: '#000000' }}>
                     Doluluk Oranı
@@ -1040,8 +1043,8 @@ export default function VehicleDetailPage({ vehicleId }: { vehicleId: string }) 
               {documents.map(doc => (
                 <div key={doc.id} className="rounded-xl p-4 border-2 transition-all hover:scale-[1.01]"
                      style={{
-                       backgroundColor: '#FFFFFF',
-                       borderColor: '#E5E7EB'
+                       backgroundColor: 'var(--lydian-text-inverse)',
+                       borderColor: 'var(--lydian-border)'
                      }}>
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-4">
@@ -1093,10 +1096,10 @@ export default function VehicleDetailPage({ vehicleId }: { vehicleId: string }) 
       {/* Share Modal */}
       {showShareModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4"
-             style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)' }}>
+             style={{ backgroundColor: 'var(--lydian-bg-overlay)' }}>
           <div className="rounded-2xl p-6 max-w-md w-full"
                style={{
-                 backgroundColor: '#FFFFFF',
+                 backgroundColor: 'var(--lydian-text-inverse)',
                  boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1)'
                }}>
             <div className="flex items-center justify-between mb-6">
@@ -1127,7 +1130,7 @@ export default function VehicleDetailPage({ vehicleId }: { vehicleId: string }) 
                     readOnly
                     className="flex-1 px-4 py-2 rounded-lg border-2"
                     style={{
-                      backgroundColor: '#F9FAFB',
+                      backgroundColor: 'var(--lydian-bg-surface)',
                       borderColor: '#E5E7EB',
                       color: '#000000'
                     }}

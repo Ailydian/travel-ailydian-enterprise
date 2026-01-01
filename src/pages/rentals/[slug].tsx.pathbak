@@ -1,0 +1,1402 @@
+/**
+ * ULTRA-PREMIUM Rental Property Detail Page
+ * Matches transfers quality - RED brand, 60fps animations, mobile-first
+ * Features: Glassmorphism, Framer Motion, Image lightbox, Live booking
+ */
+
+import React, { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
+import Head from 'next/head';
+import Link from 'next/link';
+import Image from 'next/image';
+import { motion, AnimatePresence } from 'framer-motion';
+import { GetStaticPaths, GetStaticProps } from 'next';
+import logger from '../../lib/logger';
+import { useToast } from '../context/ToastContext';
+  Heart,
+  Share2,
+  Star,
+  MapPin,
+  Users,
+  BedDouble,
+  Bath,
+  Wifi,
+  Car,
+  Waves,
+  Wind,
+  Tv,
+  ChefHat,
+  Check,
+  X,
+  ChevronLeft,
+  ChevronRight,
+  Calendar,
+  Clock,
+  Home,
+  Shield,
+  MessageCircle,
+  Award,
+  Eye,
+  Loader2,
+  Navigation,
+  CheckCircle2,
+  ArrowRight,
+  Phone,
+  Mail,
+  Maximize2,
+  TrendingDown,
+  Sparkles,
+  Zap
+} from 'lucide-react';
+
+// TypeScript interfaces
+interface RentalProperty {
+  id: string;
+  title: string;
+  slug: string;
+  description: string;
+  type: string;
+  city: string;
+  district: string;
+  address: string;
+  coordinates: {
+    lat: number;
+    lng: number;
+  };
+  guests: number;
+  bedrooms: number;
+  bathrooms: number;
+  beds: number;
+  squareMeters: number;
+  basePrice: string;
+  weeklyDiscount: string;
+  monthlyDiscount: string;
+  cleaningFee: string;
+  securityDeposit: string;
+  wifi: boolean;
+  kitchen: boolean;
+  parking: boolean;
+  pool: boolean;
+  airConditioning: boolean;
+  heating: boolean;
+  tv: boolean;
+  washer: boolean;
+  beachfront: boolean;
+  seaview: boolean;
+  balcony: boolean;
+  smokingAllowed: boolean;
+  petsAllowed: boolean;
+  partiesAllowed: boolean;
+  childrenAllowed: boolean;
+  instantBook: boolean;
+  minimumStay: number;
+  maximumStay: number;
+  checkInTime: string;
+  checkOutTime: string;
+  mainImage: string;
+  images: string[];
+  virtualTourUrl: string | null;
+  hostName: string;
+  hostSuperhost: boolean;
+  hostResponseTime: string;
+  hostLanguages: string[];
+  isActive: boolean;
+  isFeatured: boolean;
+  overall: string;
+  cleanliness: string;
+  accuracy: string;
+  checkIn: string;
+  communication: string;
+  location: string;
+  value: string;
+  reviewCount: number;
+  airbnbPrice: string | null;
+  bookingPrice: string | null;
+  agodaPrice: string | null;
+}
+
+interface SimilarProperty {
+  id: string;
+  title: string;
+  slug: string;
+  city: string;
+  mainImage: string;
+  basePrice: string;
+  overall: string;
+  reviewCount: number;
+  bedrooms: number;
+  bathrooms: number;
+}
+
+interface PropertyDetailsPageProps {
+  slug: string;
+}
+
+// Animation variants
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.08,
+      delayChildren: 0.1
+    }
+  }
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }
+  }
+};
+
+const imageHoverVariants = {
+  rest: { scale: 1 },
+  hover: {
+    scale: 1.05,
+    transition: { duration: 0.3, ease: 'easeOut' }
+  }
+};
+
+const cardHoverVariants = {
+  rest: { y: 0 },
+  hover: {
+    y: -8,
+    transition: { duration: 0.3, ease: 'easeOut' }
+  }
+};
+
+// Mock data function - matches database schema
+const getPropertyBySlug = (slug: string): RentalProperty => {
+  const { showSuccess, showError, showWarning, showInfo, showToast } = useToast();
+
+  const propertyData: Record<string, RentalProperty> = {
+    'istanbul-bogaz-manzarali-villa': {
+      id: '1',
+      title: 'İstanbul Boğaz Manzaralı Lüks Villa',
+      slug: 'istanbul-bogaz-manzarali-villa',
+      description: 'Boğaz manzaralı, modern ve lüks villa. Muhteşem manzara, geniş teraslar ve özel havuz ile unutulmaz bir tatil deneyimi.',
+      type: 'VILLA',
+      city: 'İstanbul',
+      district: 'Beşiktaş',
+      address: 'Bebek Mahallesi, Boğaz Caddesi',
+      coordinates: { lat: 41.0766, lng: 29.0433 },
+      guests: 8,
+      bedrooms: 4,
+      bathrooms: 3,
+      beds: 6,
+      squareMeters: 350,
+      basePrice: '5000',
+      weeklyDiscount: '15',
+      monthlyDiscount: '25',
+      cleaningFee: '800',
+      securityDeposit: '5000',
+      wifi: true,
+      kitchen: true,
+      parking: true,
+      pool: true,
+      airConditioning: true,
+      heating: true,
+      tv: true,
+      washer: true,
+      beachfront: false,
+      seaview: true,
+      balcony: true,
+      smokingAllowed: false,
+      petsAllowed: false,
+      partiesAllowed: false,
+      childrenAllowed: true,
+      instantBook: true,
+      minimumStay: 2,
+      maximumStay: 90,
+      checkInTime: '15:00',
+      checkOutTime: '11:00',
+      mainImage: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200',
+      images: [
+        'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200',
+        'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200',
+        'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200',
+        'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1200',
+        'https://images.unsplash.com/photo-1600573472591-ee6b68d14c68?w=1200',
+        'https://images.unsplash.com/photo-1600607687644-c7171b42498b?w=1200'
+      ],
+      virtualTourUrl: null,
+      hostName: 'Mehmet Bey',
+      hostSuperhost: true,
+      hostResponseTime: '1 saat içinde',
+      hostLanguages: ['Türkçe', 'İngilizce'],
+      isActive: true,
+      isFeatured: true,
+      overall: '4.9',
+      cleanliness: '5.0',
+      accuracy: '4.9',
+      checkIn: '4.8',
+      communication: '5.0',
+      location: '5.0',
+      value: '4.7',
+      reviewCount: 87,
+      airbnbPrice: '5100',
+      bookingPrice: '5200',
+      agodaPrice: '5150'
+    }
+  };
+
+  return propertyData[slug] || propertyData['istanbul-bogaz-manzarali-villa'];
+};
+
+const getSimilarProperties = (currentSlug: string): SimilarProperty[] => {
+  return [
+    {
+      id: '2',
+      title: 'Kadıköy Modern Loft',
+      slug: 'kadikoy-modern-loft',
+      city: 'İstanbul',
+      mainImage: 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=600',
+      basePrice: '2500',
+      overall: '4.7',
+      reviewCount: 45,
+      bedrooms: 2,
+      bathrooms: 1
+    },
+    {
+      id: '3',
+      title: 'Moda Deniz Manzaralı Daire',
+      slug: 'moda-deniz-manzarali-daire',
+      city: 'İstanbul',
+      mainImage: 'https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=600',
+      basePrice: '3200',
+      overall: '4.8',
+      reviewCount: 62,
+      bedrooms: 3,
+      bathrooms: 2
+    },
+    {
+      id: '4',
+      title: 'Beyoğlu Tarihi Konak',
+      slug: 'beyoglu-tarihi-konak',
+      city: 'İstanbul',
+      mainImage: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600',
+      basePrice: '4500',
+      overall: '4.9',
+      reviewCount: 73,
+      bedrooms: 4,
+      bathrooms: 3
+    }
+  ].filter((prop) => prop.slug !== currentSlug);
+};
+
+const PropertyDetailsPage = ({ slug: initialSlug }: PropertyDetailsPageProps) => {
+  const router = useRouter();
+  const { slug: routerSlug } = router.query;
+  const slug = initialSlug || routerSlug;
+
+  // UI States
+  const [isFavorite, setIsFavorite] = useState(false);
+  const [showGallery, setShowGallery] = useState(false);
+  const [selectedImage, setSelectedImage] = useState(0);
+  const [showAllAmenities, setShowAllAmenities] = useState(false);
+  const [showShareModal, setShowShareModal] = useState(false);
+
+  // Booking States
+  const [checkInDate, setCheckInDate] = useState('');
+  const [checkOutDate, setCheckOutDate] = useState('');
+  const [adultsCount, setAdultsCount] = useState(2);
+  const [childrenCount, setChildrenCount] = useState(0);
+  const [infantsCount, setInfantsCount] = useState(0);
+
+  // Get property data
+  const property = slug ? getPropertyBySlug(slug as string) : null;
+  const similarProperties = slug ? getSimilarProperties(slug as string) : [];
+
+  // Calculate nights
+  const calculateNights = () => {
+    if (!checkInDate || !checkOutDate) return 0;
+    const checkIn = new Date(checkInDate);
+    const checkOut = new Date(checkOutDate);
+    const diff = checkOut.getTime() - checkIn.getTime();
+    return Math.ceil(diff / (1000 * 60 * 60 * 24));
+  };
+
+  // Calculate total price
+  const calculateTotal = () => {
+    if (!property) return { subtotal: 0, cleaning: 0, service: 0, discount: 0, total: 0 };
+
+    const nights = calculateNights();
+    if (nights <= 0) return { subtotal: 0, cleaning: 0, service: 0, discount: 0, total: 0 };
+
+    const basePrice = parseInt(property.basePrice);
+    const subtotal = basePrice * nights;
+    const cleaning = parseInt(property.cleaningFee);
+    const service = Math.round(subtotal * 0.10); // 10% service fee
+
+    let discount = 0;
+    if (nights >= 30 && property.monthlyDiscount) {
+      discount = Math.round(subtotal * (parseInt(property.monthlyDiscount) / 100));
+    } else if (nights >= 7 && property.weeklyDiscount) {
+      discount = Math.round(subtotal * (parseInt(property.weeklyDiscount) / 100));
+    }
+
+    const total = subtotal + cleaning + service - discount;
+
+    return { subtotal, cleaning, service, discount, total };
+  };
+
+  // Calculate average competitor price
+  const getCompetitorAverage = () => {
+    if (!property) return null;
+    const prices = [
+      property.airbnbPrice ? parseInt(property.airbnbPrice) : null,
+      property.bookingPrice ? parseInt(property.bookingPrice) : null,
+      property.agodaPrice ? parseInt(property.agodaPrice) : null
+    ].filter((p) => p !== null) as number[];
+
+    if (prices.length === 0) return null;
+    return Math.round(prices.reduce((a, b) => a + b, 0) / prices.length);
+  };
+
+  // Get all amenities
+  const getAmenities = () => {
+    if (!property) return { essentials: [], features: [], safety: [] };
+
+    const essentials = [
+      { name: 'WiFi', available: property.wifi, icon: Wifi },
+      { name: 'Mutfak', available: property.kitchen, icon: ChefHat },
+      { name: 'Klima', available: property.airConditioning, icon: Wind },
+      { name: 'TV', available: property.tv, icon: Tv },
+      { name: 'Çamaşır Makinesi', available: property.washer, icon: Home },
+      { name: 'Isıtma', available: property.heating, icon: Wind }
+    ];
+
+    const features = [
+      { name: 'Havuz', available: property.pool, icon: Waves },
+      { name: 'Otopark', available: property.parking, icon: Car },
+      { name: 'Deniz Kenarı', available: property.beachfront, icon: Waves },
+      { name: 'Deniz Manzarası', available: property.seaview, icon: Eye },
+      { name: 'Balkon', available: property.balcony, icon: Home }
+    ];
+
+    const safety = [
+      { name: 'Çocuk Dostu', available: property.childrenAllowed, icon: Shield },
+      { name: 'Evcil Hayvan', available: property.petsAllowed, icon: Heart },
+      { name: 'Sigara İçilmez', available: !property.smokingAllowed, icon: Shield },
+      { name: 'Parti Yapılmaz', available: !property.partiesAllowed, icon: Shield }
+    ];
+
+    return { essentials, features, safety };
+  };
+
+  // Handle favorite toggle
+  const handleFavorite = () => {
+    setIsFavorite(!isFavorite);
+  };
+
+  // Handle share
+  const handleShare = async () => {
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: property?.title,
+          url: window.location.href
+        });
+      } catch (err) {
+        logger.debug('Share cancelled', { component: 'Slug' });
+      }
+    } else {
+      setShowShareModal(true);
+    }
+  };
+
+  // Handle booking
+  const handleReservation = () => {
+    const nights = calculateNights();
+    if (nights < (property?.minimumStay || 1)) {
+      showInfo('Minimum konaklama ${property?.minimumStay} gecedir.');
+      return;
+    }
+    if (nights > (property?.maximumStay || 365)) {
+      showInfo('Maximum konaklama ${property?.maximumStay} gecedir.');
+      return;
+    }
+
+    const totalGuests = adultsCount + childrenCount + infantsCount;
+    if (totalGuests > (property?.guests || 1)) {
+      showInfo('Maximum ${property?.guests} misafir kabul edilmektedir.');
+      return;
+    }
+
+    if (!checkInDate || !checkOutDate) {
+      showToast({ type: 'error', title: 'Lütfen giriş ve çıkış tarihlerini seçiniz.' });
+      return;
+    }
+
+    const bookingUrl = `/rentals/book?slug=${property?.slug}&checkIn=${checkInDate}&checkOut=${checkOutDate}&guests=${totalGuests}`;
+    router.push(bookingUrl);
+  };
+
+  // Error state
+  if (!property) {
+    return (
+      <div className="min-h-screen bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950 flex items-center justify-center">
+        <div className="text-center">
+          <h1 className="text-2xl font-bold text-lydian-text-inverse mb-2">Özellik Bulunamadı</h1>
+          <p className="text-lydian-text-muted mb-6">Bu özellik mevcut değil.</p>
+          <button
+            onClick={() => router.push('/rentals')}
+            className="px-6 py-3 bg-gradient-to-r from-red-600 to-red-700 text-lydian-text-inverse rounded-lg hover:from-red-700 hover:to-red-800 transition-all shadow-lg"
+          >
+            Tüm Özelliklere Dön
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  const nights = calculateNights();
+  const pricing = calculateTotal();
+  const competitorAvg = getCompetitorAverage();
+  const savings = competitorAvg ? competitorAvg - parseInt(property.basePrice) : 0;
+  const savingsPercent = competitorAvg ? Math.round((savings / competitorAvg) * 100) : 0;
+  const amenities = getAmenities();
+  const currentUrl = typeof window !== 'undefined' ? window.location.href : '';
+
+  return (
+    <>
+      <Head>
+        <title>{property.title} | Travel LyDian</title>
+        <meta name="description" content={property.description} />
+        <meta property="og:title" content={property.title} />
+        <meta property="og:description" content={property.description} />
+        <meta property="og:image" content={property.mainImage} />
+      </Head>
+
+      <div className="min-h-screen bg-gradient-to-b from-gray-50 via-white to-gray-50 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950">
+        {/* Gallery Modal */}
+        <AnimatePresence>
+          {showGallery && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center"
+              onClick={() => setShowGallery(false)}
+            >
+              <button
+                onClick={() => setShowGallery(false)}
+                className="absolute top-6 right-6 text-lydian-text-inverse hover:text-gray-300 z-10 p-2 hover:bg-lydian-bg/10 rounded-lg transition-all"
+              >
+                <X className="w-8 h-8" />
+              </button>
+
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setSelectedImage((prev) => (prev === 0 ? property.images.length - 1 : prev - 1));
+                }}
+                className="absolute left-6 text-lydian-text-inverse hover:text-gray-300 z-10 p-2 hover:bg-lydian-bg/10 rounded-lg transition-all"
+              >
+                <ChevronLeft className="w-12 h-12" />
+              </button>
+
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setSelectedImage((prev) => (prev === property.images.length - 1 ? 0 : prev + 1));
+                }}
+                className="absolute right-6 text-lydian-text-inverse hover:text-gray-300 z-10 p-2 hover:bg-lydian-bg/10 rounded-lg transition-all"
+              >
+                <ChevronRight className="w-12 h-12" />
+              </button>
+
+              <img
+                src={property.images[selectedImage] || '/placeholder-property.jpg'}
+                alt={`${property.title} - ${selectedImage + 1}`}
+                className="max-w-7xl max-h-[90vh] object-contain"
+                onClick={(e) => e.stopPropagation()}
+              />
+
+              <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-lydian-text-inverse font-semibold bg-black/50 px-4 py-2 rounded-lg backdrop-blur-sm">
+                {selectedImage + 1} / {property.images.length}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        {/* Share Modal */}
+        <AnimatePresence>
+          {showShareModal && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4"
+              onClick={() => setShowShareModal(false)}
+            >
+              <motion.div
+                initial={{ scale: 0.9, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.9, opacity: 0 }}
+                className="bg-lydian-bg dark:bg-gray-800 rounded-2xl p-6 max-w-md w-full shadow-2xl"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <div className="flex items-center justify-between mb-4">
+                  <h3 className="text-xl font-bold text-lydian-text dark:text-lydian-text-inverse">Paylaş</h3>
+                  <button
+                    onClick={() => setShowShareModal(false)}
+                    className="p-2 hover:bg-lydian-bg-surface-raised dark:hover:bg-gray-700 rounded-lg transition-colors"
+                  >
+                    <X className="w-5 h-5 text-lydian-text-secondary dark:text-lydian-text-muted" />
+                  </button>
+                </div>
+                <div className="bg-lydian-bg-surface dark:bg-gray-900 rounded-lg p-3 mb-4">
+                  <input
+                    type="text"
+                    value={currentUrl}
+                    readOnly
+                    className="w-full bg-transparent text-sm text-lydian-text-secondary dark:text-gray-300 select-all"
+                  />
+                </div>
+                <button
+                  onClick={() => {
+                    navigator.clipboard.writeText(currentUrl);
+                    setShowShareModal(false);
+                  }}
+                  className="w-full bg-lydian-primary hover:bg-lydian-primary-hover text-lydian-text-inverse py-3 rounded-lg font-semibold transition-colors"
+                >
+                  Linki Kopyala
+                </button>
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        {/* Breadcrumb Bar */}
+        <div className="sticky top-0 z-40 bg-lydian-bg/80 dark:bg-gray-900/80 backdrop-blur-xl border-b border-lydian-border dark:border-gray-800 shadow-sm">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+            <div className="flex items-center justify-between gap-3">
+              <nav className="flex items-center gap-2 text-sm text-lydian-text-secondary dark:text-lydian-text-muted">
+                <Link href="/" className="hover:text-lydian-primary dark:hover:text-red-400 transition-colors flex items-center gap-1">
+                  <Home className="w-4 h-4" />
+                  Ana Sayfa
+                </Link>
+                <ChevronRight className="w-4 h-4" />
+                <Link href="/rentals" className="hover:text-lydian-primary dark:hover:text-red-400 transition-colors">
+                  Konaklama
+                </Link>
+                <ChevronRight className="w-4 h-4" />
+                <span className="text-lydian-text dark:text-lydian-text-inverse font-medium">{property.title}</span>
+              </nav>
+
+              <div className="flex items-center gap-2">
+                <motion.button
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                  onClick={handleShare}
+                  className="flex items-center gap-2 px-3 py-2 hover:bg-lydian-bg-surface-raised dark:hover:bg-gray-800 rounded-lg transition-colors"
+                >
+                  <Share2 className="w-5 h-5 text-lydian-text-secondary dark:text-lydian-text-muted" />
+                  <span className="hidden sm:inline text-sm">Paylaş</span>
+                </motion.button>
+                <motion.button
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                  onClick={handleFavorite}
+                  className="flex items-center gap-2 px-3 py-2 hover:bg-lydian-bg-surface-raised dark:hover:bg-gray-800 rounded-lg transition-colors"
+                >
+                  <Heart className={`w-5 h-5 ${isFavorite ? 'fill-red-500 text-red-500' : 'text-lydian-text-secondary dark:text-lydian-text-muted'}`} />
+                  <span className="hidden sm:inline text-sm">Kaydet</span>
+                </motion.button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Hero Section */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6 }}
+          className="relative bg-gradient-to-r from-red-600 via-red-700 to-red-800 text-lydian-text-inverse py-12 sm:py-16"
+        >
+          <div className="absolute inset-0 opacity-10">
+            <div
+              className="absolute inset-0"
+              style={{
+                backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
+              }}
+            />
+          </div>
+
+          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <motion.div variants={containerVariants} initial="hidden" animate="visible">
+              <motion.h1 variants={itemVariants} className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
+                {property.title}
+              </motion.h1>
+              <motion.div variants={itemVariants} className="flex flex-wrap items-center gap-4 mb-6 text-red-100">
+                <div className="flex items-center gap-1">
+                  <Star className="w-5 h-5 text-yellow-300 fill-yellow-300" />
+                  <span className="font-semibold">{parseFloat(property.overall).toFixed(1)}</span>
+                  <span>({property.reviewCount} değerlendirme)</span>
+                </div>
+                <span>•</span>
+                <div className="flex items-center gap-1">
+                  <MapPin className="w-4 h-4" />
+                  <span>{property.district}, {property.city}</span>
+                </div>
+                {property.hostSuperhost && (
+                  <>
+                    <span>•</span>
+                    <div className="flex items-center gap-1">
+                      <Award className="w-5 h-5" />
+                      <span>Superhost</span>
+                    </div>
+                  </>
+                )}
+              </motion.div>
+
+              {/* Quick Stats */}
+              <motion.div variants={itemVariants} className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
+                <div className="bg-lydian-bg/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+                  <Users className="w-6 h-6 sm:w-8 sm:h-8 mb-2 text-red-200" />
+                  <div className="text-xl sm:text-2xl font-bold">{property.guests}</div>
+                  <div className="text-xs sm:text-sm text-red-200">Misafir</div>
+                </div>
+                <div className="bg-lydian-bg/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+                  <BedDouble className="w-6 h-6 sm:w-8 sm:h-8 mb-2 text-red-200" />
+                  <div className="text-xl sm:text-2xl font-bold">{property.bedrooms}</div>
+                  <div className="text-xs sm:text-sm text-red-200">Yatak Odası</div>
+                </div>
+                <div className="bg-lydian-bg/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+                  <Bath className="w-6 h-6 sm:w-8 sm:h-8 mb-2 text-red-200" />
+                  <div className="text-xl sm:text-2xl font-bold">{property.bathrooms}</div>
+                  <div className="text-xs sm:text-sm text-red-200">Banyo</div>
+                </div>
+                <div className="bg-lydian-bg/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+                  <Maximize2 className="w-6 h-6 sm:w-8 sm:h-8 mb-2 text-red-200" />
+                  <div className="text-xl sm:text-2xl font-bold">{property.squareMeters}</div>
+                  <div className="text-xs sm:text-sm text-red-200">m²</div>
+                </div>
+              </motion.div>
+            </motion.div>
+          </div>
+        </motion.div>
+
+        {/* Photo Gallery */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="grid grid-cols-4 gap-2 rounded-2xl overflow-hidden cursor-pointer"
+          >
+            <motion.div
+              variants={imageHoverVariants}
+              initial="rest"
+              whileHover="hover"
+              className="col-span-4 md:col-span-2 md:row-span-2 relative h-64 md:h-96 overflow-hidden"
+              onClick={() => {
+                setSelectedImage(0);
+                setShowGallery(true);
+              }}
+            >
+              <img
+                src={property.images[0] || '/placeholder-property.jpg'}
+                alt={property.title}
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-black/0 hover:bg-black/10 transition-colors flex items-center justify-center opacity-0 hover:opacity-100">
+                <Maximize2 className="w-12 h-12 text-lydian-text-inverse" />
+              </div>
+            </motion.div>
+            {property.images.slice(1, 5).map((image, index) => (
+              <motion.div
+                key={index}
+                variants={imageHoverVariants}
+                initial="rest"
+                whileHover="hover"
+                className="col-span-2 md:col-span-1 relative h-32 md:h-48 overflow-hidden"
+                onClick={() => {
+                  setSelectedImage(index + 1);
+                  setShowGallery(true);
+                }}
+              >
+                <img src={image || '/placeholder-property.jpg'} alt={`${property.title} - ${index + 2}`} className="w-full h-full object-cover" />
+                {index === 3 && property.images.length > 5 && (
+                  <div className="absolute inset-0 bg-black/60 flex items-center justify-center text-lydian-text-inverse font-bold text-lg hover:bg-black/50 transition-colors">
+                    <div className="text-center">
+                      <Maximize2 className="w-8 h-8 mx-auto mb-2" />
+                      +{property.images.length - 5} Fotoğraf
+                    </div>
+                  </div>
+                )}
+                <div className="absolute inset-0 bg-black/0 hover:bg-black/10 transition-colors flex items-center justify-center opacity-0 hover:opacity-100">
+                  <Maximize2 className="w-8 h-8 text-lydian-text-inverse" />
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+
+        {/* Main Content */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
+            {/* Left Column - Details */}
+            <div className="lg:col-span-2 space-y-6 sm:space-y-8">
+              {/* Property Overview */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="bg-lydian-bg dark:bg-gray-800 rounded-2xl shadow-lg p-6 sm:p-8 border border-lydian-border dark:border-gray-700"
+              >
+                <h2 className="text-2xl font-bold text-lydian-text dark:text-lydian-text-inverse mb-4">
+                  {property.type === 'VILLA' ? 'Villa' : property.type === 'APARTMENT' ? 'Apartman' : 'Ev'} - {property.city}
+                </h2>
+
+                <div className="flex flex-wrap items-center gap-6 mb-6 text-lydian-text-secondary dark:text-gray-300">
+                  <div className="flex items-center gap-2">
+                    <Users className="w-5 h-5" />
+                    <span>{property.guests} misafir</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <BedDouble className="w-5 h-5" />
+                    <span>{property.bedrooms} yatak odası</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <BedDouble className="w-5 h-5" />
+                    <span>{property.beds} yatak</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Bath className="w-5 h-5" />
+                    <span>{property.bathrooms} banyo</span>
+                  </div>
+                </div>
+
+                <div className="border-t border-lydian-border dark:border-gray-700 pt-6">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="w-12 h-12 bg-gradient-to-br from-red-600 to-red-700 rounded-full flex items-center justify-center text-lydian-text-inverse font-bold text-lg">
+                      {property.hostName.charAt(0)}
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-lydian-text dark:text-lydian-text-inverse">Ev sahibi: {property.hostName}</h3>
+                      <p className="text-sm text-lydian-text-secondary dark:text-lydian-text-muted">{property.hostResponseTime} yanıt verir</p>
+                    </div>
+                  </div>
+
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {property.hostLanguages.map((lang, i) => (
+                      <span key={i} className="px-3 py-1 bg-lydian-bg-surface-raised dark:bg-gray-700 text-lydian-text-secondary dark:text-gray-300 rounded-full text-sm">
+                        {lang}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Badges */}
+                <div className="flex flex-wrap gap-3 pt-6 border-t border-lydian-border dark:border-gray-700">
+                  {property.instantBook && (
+                    <div className="flex items-center gap-2 px-4 py-2 bg-lydian-success-lighter dark:bg-green-900/20 rounded-xl border border-green-200 dark:border-green-800">
+                      <Zap className="w-5 h-5 text-lydian-success-hover dark:text-green-400" />
+                      <span className="font-semibold text-green-900 dark:text-green-100">Anında Rezervasyon</span>
+                    </div>
+                  )}
+                  {property.hostSuperhost && (
+                    <div className="flex items-center gap-2 px-4 py-2 bg-purple-50 dark:bg-purple-900/20 rounded-xl border border-purple-200 dark:border-purple-800">
+                      <Award className="w-5 h-5 text-purple-600 dark:text-purple-400" />
+                      <span className="font-semibold text-purple-900 dark:text-purple-100">Superhost</span>
+                    </div>
+                  )}
+                </div>
+              </motion.div>
+
+              {/* Description */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 }}
+                className="bg-lydian-bg dark:bg-gray-800 rounded-2xl shadow-lg p-6 sm:p-8 border border-lydian-border dark:border-gray-700"
+              >
+                <h2 className="text-xl font-bold text-lydian-text dark:text-lydian-text-inverse mb-4">Açıklama</h2>
+                <p className="text-lydian-text-secondary dark:text-gray-300 leading-relaxed whitespace-pre-line">{property.description}</p>
+              </motion.div>
+
+              {/* Rating Breakdown */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.15 }}
+                className="bg-lydian-bg dark:bg-gray-800 rounded-2xl shadow-lg p-6 sm:p-8 border border-lydian-border dark:border-gray-700"
+              >
+                <div className="flex items-center gap-2 mb-6">
+                  <Star className="w-6 h-6 text-yellow-400 fill-yellow-400" />
+                  <h2 className="text-xl font-bold text-lydian-text dark:text-lydian-text-inverse">
+                    {parseFloat(property.overall).toFixed(1)} · {property.reviewCount} değerlendirme
+                  </h2>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {[
+                    { label: 'Temizlik', value: parseFloat(property.cleanliness) },
+                    { label: 'Doğruluk', value: parseFloat(property.accuracy) },
+                    { label: 'Giriş', value: parseFloat(property.checkIn) },
+                    { label: 'İletişim', value: parseFloat(property.communication) },
+                    { label: 'Konum', value: parseFloat(property.location) },
+                    { label: 'Fiyat-Performans', value: parseFloat(property.value) }
+                  ].map((rating, index) => (
+                    <div key={index}>
+                      <div className="flex items-center justify-between mb-2">
+                        <span className="text-sm font-medium text-lydian-text-secondary dark:text-lydian-text-muted">{rating.label}</span>
+                        <span className="text-sm font-bold text-lydian-text dark:text-lydian-text-inverse">{rating.value.toFixed(1)}</span>
+                      </div>
+                      <div className="h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+                        <motion.div
+                          initial={{ width: 0 }}
+                          whileInView={{ width: `${(rating.value / 5) * 100}%` }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 0.6, delay: index * 0.1 }}
+                          className="h-full bg-gradient-to-r from-yellow-400 to-yellow-500"
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+
+              {/* Amenities */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 }}
+                className="bg-lydian-bg dark:bg-gray-800 rounded-2xl shadow-lg p-6 sm:p-8 border border-lydian-border dark:border-gray-700"
+              >
+                <h2 className="text-xl font-bold text-lydian-text dark:text-lydian-text-inverse mb-6">Olanaklar</h2>
+
+                {/* Essentials */}
+                <div className="mb-6">
+                  <h3 className="font-semibold text-lydian-text-secondary dark:text-gray-300 mb-3">Temel Olanaklar</h3>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    {amenities.essentials.map((amenity, index) => {
+                      const Icon = amenity.icon;
+                      return (
+                        <motion.div
+                          key={index}
+                          initial={{ opacity: 0, x: -20 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          viewport={{ once: true }}
+                          transition={{ delay: index * 0.05 }}
+                          className={`flex items-center gap-3 p-3 rounded-xl ${
+                            amenity.available
+                              ? 'bg-lydian-success-lighter dark:bg-green-900/20 border border-green-200 dark:border-green-800'
+                              : 'bg-lydian-bg-surface dark:bg-gray-700/50 border border-lydian-border dark:border-gray-600 opacity-50'
+                          }`}
+                        >
+                          <Icon className={`w-5 h-5 ${amenity.available ? 'text-lydian-success-hover dark:text-green-400' : 'text-lydian-text-muted'}`} />
+                          <span className={amenity.available ? 'text-lydian-text dark:text-lydian-text-inverse' : 'text-lydian-text-tertiary dark:text-lydian-text-muted'}>{amenity.name}</span>
+                          {amenity.available && <CheckCircle2 className="w-4 h-4 text-lydian-success-hover dark:text-green-400 ml-auto" />}
+                        </motion.div>
+                      );
+                    })}
+                  </div>
+                </div>
+
+                {/* Features */}
+                <div className="mb-6">
+                  <h3 className="font-semibold text-lydian-text-secondary dark:text-gray-300 mb-3">Özellikler</h3>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    {amenities.features.map((amenity, index) => {
+                      const Icon = amenity.icon;
+                      return (
+                        <motion.div
+                          key={index}
+                          initial={{ opacity: 0, x: -20 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          viewport={{ once: true }}
+                          transition={{ delay: index * 0.05 }}
+                          className={`flex items-center gap-3 p-3 rounded-xl ${
+                            amenity.available
+                              ? 'bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800'
+                              : 'bg-lydian-bg-surface dark:bg-gray-700/50 border border-lydian-border dark:border-gray-600 opacity-50'
+                          }`}
+                        >
+                          <Icon className={`w-5 h-5 ${amenity.available ? 'text-lydian-info-hover dark:text-blue-400' : 'text-lydian-text-muted'}`} />
+                          <span className={amenity.available ? 'text-lydian-text dark:text-lydian-text-inverse' : 'text-lydian-text-tertiary dark:text-lydian-text-muted'}>{amenity.name}</span>
+                          {amenity.available && <CheckCircle2 className="w-4 h-4 text-lydian-info-hover dark:text-blue-400 ml-auto" />}
+                        </motion.div>
+                      );
+                    })}
+                  </div>
+                </div>
+
+                {/* Safety */}
+                <div>
+                  <h3 className="font-semibold text-lydian-text-secondary dark:text-gray-300 mb-3">Güvenlik & Kurallar</h3>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    {amenities.safety.map((amenity, index) => {
+                      const Icon = amenity.icon;
+                      return (
+                        <motion.div
+                          key={index}
+                          initial={{ opacity: 0, x: -20 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          viewport={{ once: true }}
+                          transition={{ delay: index * 0.05 }}
+                          className={`flex items-center gap-3 p-3 rounded-xl ${
+                            amenity.available
+                              ? 'bg-purple-50 dark:bg-purple-900/20 border border-purple-200 dark:border-purple-800'
+                              : 'bg-lydian-bg-surface dark:bg-gray-700/50 border border-lydian-border dark:border-gray-600 opacity-50'
+                          }`}
+                        >
+                          <Icon className={`w-5 h-5 ${amenity.available ? 'text-purple-600 dark:text-purple-400' : 'text-lydian-text-muted'}`} />
+                          <span className={amenity.available ? 'text-lydian-text dark:text-lydian-text-inverse' : 'text-lydian-text-tertiary dark:text-lydian-text-muted'}>{amenity.name}</span>
+                          {amenity.available && <CheckCircle2 className="w-4 h-4 text-purple-600 dark:text-purple-400 ml-auto" />}
+                        </motion.div>
+                      );
+                    })}
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* House Rules */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.25 }}
+                className="bg-lydian-bg dark:bg-gray-800 rounded-2xl shadow-lg p-6 sm:p-8 border border-lydian-border dark:border-gray-700"
+              >
+                <h2 className="text-xl font-bold text-lydian-text dark:text-lydian-text-inverse mb-6">Ev Kuralları</h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="flex items-start gap-3">
+                    <Clock className="w-5 h-5 text-lydian-primary dark:text-red-400 mt-0.5" />
+                    <div>
+                      <p className="font-semibold text-lydian-text dark:text-lydian-text-inverse">Giriş Saati</p>
+                      <p className="text-lydian-text-secondary dark:text-lydian-text-muted">{property.checkInTime}</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <Clock className="w-5 h-5 text-lydian-primary dark:text-red-400 mt-0.5" />
+                    <div>
+                      <p className="font-semibold text-lydian-text dark:text-lydian-text-inverse">Çıkış Saati</p>
+                      <p className="text-lydian-text-secondary dark:text-lydian-text-muted">{property.checkOutTime}</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <Calendar className="w-5 h-5 text-lydian-primary dark:text-red-400 mt-0.5" />
+                    <div>
+                      <p className="font-semibold text-lydian-text dark:text-lydian-text-inverse">Minimum Konaklama</p>
+                      <p className="text-lydian-text-secondary dark:text-lydian-text-muted">{property.minimumStay} gece</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <Calendar className="w-5 h-5 text-lydian-primary dark:text-red-400 mt-0.5" />
+                    <div>
+                      <p className="font-semibold text-lydian-text dark:text-lydian-text-inverse">Maksimum Konaklama</p>
+                      <p className="text-lydian-text-secondary dark:text-lydian-text-muted">{property.maximumStay} gece</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="mt-6 pt-6 border-t border-lydian-border dark:border-gray-700">
+                  <div className="grid grid-cols-2 gap-3">
+                    <div className="flex items-center gap-2">
+                      {property.smokingAllowed ? (
+                        <CheckCircle2 className="w-5 h-5 text-lydian-success-hover dark:text-green-400" />
+                      ) : (
+                        <X className="w-5 h-5 text-lydian-primary dark:text-red-400" />
+                      )}
+                      <span className="text-sm text-lydian-text-secondary dark:text-gray-300">Sigara içilir</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      {property.petsAllowed ? (
+                        <CheckCircle2 className="w-5 h-5 text-lydian-success-hover dark:text-green-400" />
+                      ) : (
+                        <X className="w-5 h-5 text-lydian-primary dark:text-red-400" />
+                      )}
+                      <span className="text-sm text-lydian-text-secondary dark:text-gray-300">Evcil hayvan kabul edilir</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      {property.partiesAllowed ? (
+                        <CheckCircle2 className="w-5 h-5 text-lydian-success-hover dark:text-green-400" />
+                      ) : (
+                        <X className="w-5 h-5 text-lydian-primary dark:text-red-400" />
+                      )}
+                      <span className="text-sm text-lydian-text-secondary dark:text-gray-300">Parti yapılır</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      {property.childrenAllowed ? (
+                        <CheckCircle2 className="w-5 h-5 text-lydian-success-hover dark:text-green-400" />
+                      ) : (
+                        <X className="w-5 h-5 text-lydian-primary dark:text-red-400" />
+                      )}
+                      <span className="text-sm text-lydian-text-secondary dark:text-gray-300">Çocuklar kabul edilir</span>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Location */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.3 }}
+                className="bg-lydian-bg dark:bg-gray-800 rounded-2xl shadow-lg p-6 sm:p-8 border border-lydian-border dark:border-gray-700"
+              >
+                <h2 className="text-xl font-bold text-lydian-text dark:text-lydian-text-inverse mb-4">Konum</h2>
+                <div className="flex items-start gap-2 mb-4">
+                  <MapPin className="w-5 h-5 text-lydian-text-secondary dark:text-lydian-text-muted mt-0.5" />
+                  <div>
+                    <p className="font-semibold text-lydian-text dark:text-lydian-text-inverse">
+                      {property.district}, {property.city}
+                    </p>
+                    <p className="text-sm text-lydian-text-secondary dark:text-lydian-text-muted">{property.address}</p>
+                  </div>
+                </div>
+                <div className="h-96 bg-lydian-bg-surface-raised dark:bg-gray-900 rounded-xl overflow-hidden">
+                  <iframe
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    loading="lazy"
+                    allowFullScreen
+                    referrerPolicy="no-referrer-when-downgrade"
+                    src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=${encodeURIComponent(property.address + ', ' + property.city)}`}
+                  />
+                </div>
+              </motion.div>
+            </div>
+
+            {/* Right Column - Sticky Booking Card */}
+            <div className="lg:col-span-1">
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.3 }}
+                className="sticky top-24 bg-lydian-bg dark:bg-gray-800 rounded-2xl shadow-2xl p-6 border border-lydian-border dark:border-gray-700"
+              >
+                {/* Price Badge */}
+                {competitorAvg && savings > 0 && (
+                  <div className="bg-gradient-to-r from-green-500 to-green-600 text-lydian-text-inverse px-4 py-2 rounded-xl mb-6 flex items-center justify-center gap-2 shadow-lg">
+                    <TrendingDown className="w-5 h-5" />
+                    <span className="font-bold text-sm">%{savingsPercent} Daha Ucuz</span>
+                  </div>
+                )}
+
+                {/* Price */}
+                <div className="mb-6">
+                  {competitorAvg && savings > 0 && (
+                    <div className="flex items-center justify-between mb-2">
+                      <p className="text-sm text-lydian-text-tertiary dark:text-lydian-text-muted line-through">₺{competitorAvg.toLocaleString('tr-TR')}</p>
+                      <span className="px-3 py-1 bg-lydian-primary-lighter dark:bg-red-900/20 text-lydian-primary dark:text-red-400 text-xs font-bold rounded-full">
+                        %{savingsPercent} İndirim
+                      </span>
+                    </div>
+                  )}
+                  <div className="flex items-baseline gap-2">
+                    <span className="text-4xl font-bold text-lydian-text dark:text-lydian-text-inverse">₺{parseInt(property.basePrice).toLocaleString('tr-TR')}</span>
+                    <span className="text-lydian-text-secondary dark:text-lydian-text-muted">/ gece</span>
+                  </div>
+                  {savings > 0 && (
+                    <p className="text-sm text-lydian-success-hover dark:text-green-400 font-semibold mt-1">₺{savings.toLocaleString('tr-TR')} tasarruf ediyorsunuz!</p>
+                  )}
+                  {property.weeklyDiscount && (
+                    <p className="text-xs text-lydian-primary dark:text-red-400 mt-1">7+ gece %{property.weeklyDiscount} indirim</p>
+                  )}
+                  {property.monthlyDiscount && <p className="text-xs text-purple-600 dark:text-purple-400">30+ gece %{property.monthlyDiscount} indirim</p>}
+                </div>
+
+                {/* Date Pickers */}
+                <div className="space-y-4 mb-6">
+                  <div className="grid grid-cols-2 gap-3">
+                    <div>
+                      <label className="block text-sm font-medium text-lydian-text-secondary dark:text-gray-300 mb-2">
+                        <Calendar className="w-4 h-4 inline mr-1" />
+                        Giriş
+                      </label>
+                      <input
+                        type="date"
+                        value={checkInDate}
+                        onChange={(e) => setCheckInDate(e.target.value)}
+                        className="w-full px-3 py-2 border border-lydian-border-medium dark:border-gray-600 bg-lydian-bg dark:bg-gray-700 text-lydian-text dark:text-lydian-text-inverse rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-lydian-text-secondary dark:text-gray-300 mb-2">
+                        <Calendar className="w-4 h-4 inline mr-1" />
+                        Çıkış
+                      </label>
+                      <input
+                        type="date"
+                        value={checkOutDate}
+                        onChange={(e) => setCheckOutDate(e.target.value)}
+                        className="w-full px-3 py-2 border border-lydian-border-medium dark:border-gray-600 bg-lydian-bg dark:bg-gray-700 text-lydian-text dark:text-lydian-text-inverse rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Guest Selector */}
+                  <div>
+                    <label className="block text-sm font-medium text-lydian-text-secondary dark:text-gray-300 mb-2">
+                      <Users className="w-4 h-4 inline mr-1" />
+                      Misafirler
+                    </label>
+                    <div className="space-y-2">
+                      <div className="flex items-center justify-between p-3 bg-lydian-bg-surface dark:bg-gray-700 rounded-lg">
+                        <div>
+                          <p className="text-sm font-medium text-lydian-text dark:text-lydian-text-inverse">Yetişkinler</p>
+                          <p className="text-xs text-lydian-text-secondary dark:text-lydian-text-muted">13 yaş ve üzeri</p>
+                        </div>
+                        <div className="flex items-center gap-3">
+                          <motion.button
+                            whileTap={{ scale: 0.9 }}
+                            onClick={() => setAdultsCount(Math.max(1, adultsCount - 1))}
+                            className="w-8 h-8 flex items-center justify-center border border-lydian-border-medium dark:border-gray-600 rounded-full hover:border-red-500 dark:hover:border-red-500 transition-colors"
+                          >
+                            -
+                          </motion.button>
+                          <span className="w-8 text-center font-semibold text-lydian-text dark:text-lydian-text-inverse">{adultsCount}</span>
+                          <motion.button
+                            whileTap={{ scale: 0.9 }}
+                            onClick={() => setAdultsCount(Math.min(property.guests, adultsCount + 1))}
+                            className="w-8 h-8 flex items-center justify-center border border-lydian-border-medium dark:border-gray-600 rounded-full hover:border-red-500 dark:hover:border-red-500 transition-colors"
+                          >
+                            +
+                          </motion.button>
+                        </div>
+                      </div>
+
+                      <div className="flex items-center justify-between p-3 bg-lydian-bg-surface dark:bg-gray-700 rounded-lg">
+                        <div>
+                          <p className="text-sm font-medium text-lydian-text dark:text-lydian-text-inverse">Çocuklar</p>
+                          <p className="text-xs text-lydian-text-secondary dark:text-lydian-text-muted">2-12 yaş</p>
+                        </div>
+                        <div className="flex items-center gap-3">
+                          <motion.button
+                            whileTap={{ scale: 0.9 }}
+                            onClick={() => setChildrenCount(Math.max(0, childrenCount - 1))}
+                            className="w-8 h-8 flex items-center justify-center border border-lydian-border-medium dark:border-gray-600 rounded-full hover:border-red-500 dark:hover:border-red-500 transition-colors"
+                          >
+                            -
+                          </motion.button>
+                          <span className="w-8 text-center font-semibold text-lydian-text dark:text-lydian-text-inverse">{childrenCount}</span>
+                          <motion.button
+                            whileTap={{ scale: 0.9 }}
+                            onClick={() => setChildrenCount(Math.min(property.guests - adultsCount, childrenCount + 1))}
+                            className="w-8 h-8 flex items-center justify-center border border-lydian-border-medium dark:border-gray-600 rounded-full hover:border-red-500 dark:hover:border-red-500 transition-colors"
+                          >
+                            +
+                          </motion.button>
+                        </div>
+                      </div>
+
+                      <div className="flex items-center justify-between p-3 bg-lydian-bg-surface dark:bg-gray-700 rounded-lg">
+                        <div>
+                          <p className="text-sm font-medium text-lydian-text dark:text-lydian-text-inverse">Bebekler</p>
+                          <p className="text-xs text-lydian-text-secondary dark:text-lydian-text-muted">2 yaş altı</p>
+                        </div>
+                        <div className="flex items-center gap-3">
+                          <motion.button
+                            whileTap={{ scale: 0.9 }}
+                            onClick={() => setInfantsCount(Math.max(0, infantsCount - 1))}
+                            className="w-8 h-8 flex items-center justify-center border border-lydian-border-medium dark:border-gray-600 rounded-full hover:border-red-500 dark:hover:border-red-500 transition-colors"
+                          >
+                            -
+                          </motion.button>
+                          <span className="w-8 text-center font-semibold text-lydian-text dark:text-lydian-text-inverse">{infantsCount}</span>
+                          <motion.button
+                            whileTap={{ scale: 0.9 }}
+                            onClick={() => setInfantsCount(infantsCount + 1)}
+                            className="w-8 h-8 flex items-center justify-center border border-lydian-border-medium dark:border-gray-600 rounded-full hover:border-red-500 dark:hover:border-red-500 transition-colors"
+                          >
+                            +
+                          </motion.button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Price Breakdown */}
+                {nights > 0 && (
+                  <div className="space-y-3 py-4 border-t border-b border-lydian-border dark:border-gray-700 mb-4">
+                    <div className="flex justify-between text-sm">
+                      <span className="text-lydian-text-secondary dark:text-lydian-text-muted">
+                        ₺{parseInt(property.basePrice).toLocaleString('tr-TR')} × {nights} gece
+                      </span>
+                      <span className="font-semibold text-lydian-text dark:text-lydian-text-inverse">₺{pricing.subtotal.toLocaleString('tr-TR')}</span>
+                    </div>
+                    <div className="flex justify-between text-sm">
+                      <span className="text-lydian-text-secondary dark:text-lydian-text-muted">Temizlik ücreti</span>
+                      <span className="font-semibold text-lydian-text dark:text-lydian-text-inverse">₺{pricing.cleaning.toLocaleString('tr-TR')}</span>
+                    </div>
+                    <div className="flex justify-between text-sm">
+                      <span className="text-lydian-text-secondary dark:text-lydian-text-muted">Hizmet bedeli</span>
+                      <span className="font-semibold text-lydian-text dark:text-lydian-text-inverse">₺{pricing.service.toLocaleString('tr-TR')}</span>
+                    </div>
+                    {pricing.discount > 0 && (
+                      <div className="flex justify-between text-sm">
+                        <span className="text-lydian-success-hover dark:text-green-400">{nights >= 30 ? 'Aylık' : 'Haftalık'} indirim</span>
+                        <span className="font-semibold text-lydian-success-hover dark:text-green-400">-₺{pricing.discount.toLocaleString('tr-TR')}</span>
+                      </div>
+                    )}
+                  </div>
+                )}
+
+                {nights > 0 && (
+                  <div className="bg-gradient-to-r from-gray-50 to-blue-50 dark:from-gray-700 dark:to-blue-900/20 rounded-xl p-4 mb-6">
+                    <div className="flex justify-between items-center">
+                      <span className="text-lydian-text-secondary dark:text-gray-300 font-medium">Toplam</span>
+                      <span className="text-3xl font-bold text-lydian-text dark:text-lydian-text-inverse">₺{pricing.total.toLocaleString('tr-TR')}</span>
+                    </div>
+                  </div>
+                )}
+
+                {/* Reserve Button */}
+                <motion.button
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  onClick={handleReservation}
+                  disabled={!checkInDate || !checkOutDate || nights <= 0}
+                  className={`w-full py-4 rounded-xl font-bold text-lg shadow-lg transition-all flex items-center justify-center gap-2 group ${
+                    !checkInDate || !checkOutDate || nights <= 0
+                      ? 'bg-gray-300 dark:bg-gray-700 text-lydian-text-tertiary dark:text-lydian-text-muted cursor-not-allowed'
+                      : 'bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-lydian-text-inverse hover:shadow-xl'
+                  }`}
+                >
+                  <Calendar className="w-6 h-6" />
+                  {property.instantBook ? 'Rezervasyon Yap' : 'Rezervasyon Talebi Gönder'}
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </motion.button>
+
+                <p className="text-center text-xs text-lydian-text-secondary dark:text-lydian-text-muted mt-4">Şimdi ödeme yapılmayacak</p>
+
+                {/* Security Deposit */}
+                {property.securityDeposit && parseInt(property.securityDeposit) > 0 && (
+                  <div className="mt-6 pt-6 border-t border-lydian-border dark:border-gray-700">
+                    <div className="flex items-start gap-2 text-sm text-lydian-text-secondary dark:text-lydian-text-muted">
+                      <Shield className="w-4 h-4 mt-0.5" />
+                      <div>
+                        <p className="font-semibold text-lydian-text dark:text-lydian-text-inverse">Güvenlik Depozitosu</p>
+                        <p>₺{parseInt(property.securityDeposit).toLocaleString('tr-TR')} (İade edilir)</p>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {/* Trust Badges */}
+                <div className="mt-6 pt-6 border-t border-lydian-border dark:border-gray-700 space-y-3">
+                  <div className="flex items-center gap-3 text-sm text-lydian-text-secondary dark:text-gray-300">
+                    <Shield className="w-5 h-5 text-lydian-success-hover dark:text-green-400" />
+                    Ücretsiz İptal - 24 Saat Öncesine Kadar
+                  </div>
+                  <div className="flex items-center gap-3 text-sm text-lydian-text-secondary dark:text-gray-300">
+                    <CheckCircle2 className="w-5 h-5 text-lydian-success-hover dark:text-green-400" />
+                    Anında Onay - E-posta ile Voucher
+                  </div>
+                  <div className="flex items-center gap-3 text-sm text-lydian-text-secondary dark:text-gray-300">
+                    <Clock className="w-5 h-5 text-lydian-success-hover dark:text-green-400" />
+                    Yanıt süresi: {property.hostResponseTime}
+                  </div>
+                  <div className="flex items-center gap-3 text-sm text-lydian-text-secondary dark:text-gray-300">
+                    <MessageCircle className="w-5 h-5 text-lydian-success-hover dark:text-green-400" />
+                    Dil: {property.hostLanguages.join(', ')}
+                  </div>
+                </div>
+
+                {/* Contact */}
+                <div className="mt-6 pt-6 border-t border-lydian-border dark:border-gray-700">
+                  <p className="text-sm text-lydian-text-secondary dark:text-gray-300 mb-3 font-medium">Sorularınız mı var?</p>
+                  <div className="space-y-2">
+                    <a href="tel:+905551234567" className="flex items-center gap-2 text-lydian-primary hover:text-lydian-primary-hover dark:text-red-400 dark:hover:text-red-300 font-medium text-sm">
+                      <Phone className="w-4 h-4" />
+                      +90 555 123 45 67
+                    </a>
+                    <a href="mailto:rental@lydian.com" className="flex items-center gap-2 text-lydian-primary hover:text-lydian-primary-hover dark:text-red-400 dark:hover:text-red-300 font-medium text-sm">
+                      <Mail className="w-4 h-4" />
+                      rental@lydian.com
+                    </a>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Similar Properties */}
+              {similarProperties.length > 0 && (
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.4 }}
+                  className="mt-8 bg-lydian-bg dark:bg-gray-800 rounded-2xl shadow-lg p-6 border border-lydian-border dark:border-gray-700"
+                >
+                  <h3 className="text-lg font-bold text-lydian-text dark:text-lydian-text-inverse mb-4">Benzer Özellikler</h3>
+                  <div className="space-y-4">
+                    {similarProperties.slice(0, 3).map((similar) => (
+                      <Link key={similar.id} href={`/rentals/${similar.slug}`} className="block group">
+                        <motion.div
+                          variants={cardHoverVariants}
+                          initial="rest"
+                          whileHover="hover"
+                          className="p-3 bg-lydian-bg-surface dark:bg-gray-700/50 rounded-xl hover:bg-lydian-bg-surface-raised dark:hover:bg-gray-700 transition-colors"
+                        >
+                          <div className="flex gap-3">
+                            <div className="relative w-20 h-20 flex-shrink-0 overflow-hidden rounded-lg">
+                              <img src={similar.mainImage || '/placeholder-property.jpg'} alt={similar.title} className="w-full h-full object-cover" />
+                            </div>
+                            <div className="flex-1">
+                              <h4 className="font-semibold text-sm text-lydian-text dark:text-lydian-text-inverse line-clamp-1 group-hover:text-lydian-primary dark:group-hover:text-red-400 transition-colors">
+                                {similar.title}
+                              </h4>
+                              <p className="text-xs text-lydian-text-secondary dark:text-lydian-text-muted">{similar.city}</p>
+                              <div className="flex items-center gap-2 mt-1">
+                                <div className="flex items-center gap-1">
+                                  <Star className="w-3 h-3 text-yellow-400 fill-yellow-400" />
+                                  <span className="text-xs font-semibold text-lydian-text dark:text-lydian-text-inverse">{parseFloat(similar.overall).toFixed(1)}</span>
+                                </div>
+                                <span className="text-xs text-lydian-text-muted">·</span>
+                                <span className="text-xs font-bold text-lydian-primary dark:text-red-400">₺{parseInt(similar.basePrice).toLocaleString('tr-TR')}/gece</span>
+                              </div>
+                            </div>
+                          </div>
+                        </motion.div>
+                      </Link>
+                    ))}
+                  </div>
+                </motion.div>
+              )}
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const slugs = ['istanbul-bogaz-manzarali-villa', 'bodrum-deniz-kenari-ev', 'antalya-lux-apart', 'cappadocia-cave-hotel'];
+
+  const paths = slugs.map((slug) => ({
+    params: { slug }
+  }));
+
+  return {
+    paths,
+    fallback: 'blocking'
+  };
+};
+
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const slug = params?.slug as string;
+
+  return {
+    props: {
+      slug
+    },
+    revalidate: 3600
+  };
+};
+
+export default PropertyDetailsPage;

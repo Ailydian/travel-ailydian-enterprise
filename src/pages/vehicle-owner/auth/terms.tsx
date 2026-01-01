@@ -13,12 +13,14 @@ import {
   XCircle,
   ArrowLeft,
   Download,
-  Printer } from
-'lucide-react';
+  Printer } from 'lucide-react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import { useToast } from '../../../context/ToastContext';
 
 export default function VehicleOwnerTermsPage() {
+  const { showSuccess, showError, showWarning, showInfo, showToast } = useToast();
+
   const router = useRouter();
   const [accepted, setAccepted] = useState(false);
   const lastUpdated = '21 Aralık 2025';
@@ -240,7 +242,7 @@ export default function VehicleOwnerTermsPage() {
               <button
                 onClick={() => {
                   // In a real app, this would trigger a PDF download
-                  alert('PDF indirme özelliği yakında eklenecek');
+                  showToast({ type: 'info', title: 'PDF indirme özelliği yakında eklenecek' });
                 }}
                 className="hidden sm:flex items-center gap-2 px-4 py-2 text-lydian-text-muted hover:bg-lydian-glass-dark-medium rounded-lg transition-colors">
 

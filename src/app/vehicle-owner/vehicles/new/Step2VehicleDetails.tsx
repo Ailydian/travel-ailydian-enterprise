@@ -56,7 +56,7 @@ export default function Step2VehicleDetails({ data }: Step2Props) {
           {/* Brand */}
           <div>
             <label className="block text-sm font-semibold text-slate-700 mb-2">
-              Marka <span className="text-red-500">*</span>
+              Marka <span className="text-lydian-secondary">*</span>
             </label>
             <div className="relative">
               <Car className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
@@ -83,7 +83,7 @@ export default function Step2VehicleDetails({ data }: Step2Props) {
           {/* Model */}
           <div>
             <label className="block text-sm font-semibold text-slate-700 mb-2">
-              Model <span className="text-red-500">*</span>
+              Model <span className="text-lydian-secondary">*</span>
             </label>
             <input
               type="text"
@@ -101,7 +101,7 @@ export default function Step2VehicleDetails({ data }: Step2Props) {
           {/* Year */}
           <div>
             <label className="block text-sm font-semibold text-slate-700 mb-2">
-              Yıl <span className="text-red-500">*</span>
+              Yıl <span className="text-lydian-secondary">*</span>
             </label>
             <div className="relative">
               <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
@@ -124,7 +124,7 @@ export default function Step2VehicleDetails({ data }: Step2Props) {
           {/* License Plate */}
           <div>
             <label className="block text-sm font-semibold text-slate-700 mb-2">
-              Plaka <span className="text-red-500">*</span>
+              Plaka <span className="text-lydian-secondary">*</span>
             </label>
             <div className="relative">
               <Hash className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
@@ -145,7 +145,7 @@ export default function Step2VehicleDetails({ data }: Step2Props) {
           {/* Color */}
           <div>
             <label className="block text-sm font-semibold text-slate-700 mb-2">
-              Renk <span className="text-red-500">*</span>
+              Renk <span className="text-lydian-secondary">*</span>
             </label>
             <div className="relative">
               <Palette className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
@@ -190,7 +190,7 @@ export default function Step2VehicleDetails({ data }: Step2Props) {
           {/* Transmission */}
           <div>
             <label className="block text-sm font-semibold text-slate-700 mb-3">
-              Vites Türü <span className="text-red-500">*</span>
+              Vites Türü <span className="text-lydian-secondary">*</span>
             </label>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
               {transmissionTypes.map((type) => (
@@ -200,7 +200,7 @@ export default function Step2VehicleDetails({ data }: Step2Props) {
                   onClick={() => setValue('transmission', type.value, { shouldValidate: true })}
                   className={`p-4 border-2 rounded-lg transition-all text-left ${
                     transmission === type.value
-                      ? 'border-green-500 bg-green-50'
+                      ? 'border-green-500 bg-lydian-success-lighter'
                       : 'border-slate-200 hover:border-slate-300'
                   }`}
                 >
@@ -226,7 +226,7 @@ export default function Step2VehicleDetails({ data }: Step2Props) {
           {/* Fuel Type */}
           <div>
             <label className="block text-sm font-semibold text-slate-700 mb-3">
-              Yakıt Türü <span className="text-red-500">*</span>
+              Yakıt Türü <span className="text-lydian-secondary">*</span>
             </label>
             <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
               {fuelTypes.map((type) => (
@@ -236,7 +236,7 @@ export default function Step2VehicleDetails({ data }: Step2Props) {
                   onClick={() => setValue('fuelType', type.value, { shouldValidate: true })}
                   className={`p-4 border-2 rounded-lg transition-all text-center ${
                     fuelType === type.value
-                      ? 'border-green-500 bg-green-50'
+                      ? 'border-green-500 bg-lydian-success-lighter'
                       : 'border-slate-200 hover:border-slate-300'
                   }`}
                 >
@@ -267,7 +267,7 @@ export default function Step2VehicleDetails({ data }: Step2Props) {
           {/* Seats */}
           <div>
             <label className="block text-sm font-semibold text-slate-700 mb-2">
-              Koltuk Sayısı <span className="text-red-500">*</span>
+              Koltuk Sayısı <span className="text-lydian-secondary">*</span>
             </label>
             <input
               type="number"
@@ -287,7 +287,7 @@ export default function Step2VehicleDetails({ data }: Step2Props) {
           {/* Doors */}
           <div>
             <label className="block text-sm font-semibold text-slate-700 mb-2">
-              Kapı Sayısı <span className="text-red-500">*</span>
+              Kapı Sayısı <span className="text-lydian-secondary">*</span>
             </label>
             <input
               type="number"
@@ -336,7 +336,7 @@ export default function Step2VehicleDetails({ data }: Step2Props) {
       {/* Location */}
       <div className="border-2 border-slate-200 rounded-xl p-6">
         <div className="flex items-center gap-3 mb-4">
-          <div className="p-2 bg-green-100 rounded-lg">
+          <div className="p-2 bg-lydian-success-light rounded-lg">
             <MapPin className="w-5 h-5 text-lydian-success" />
           </div>
           <h3 className="text-lg font-bold text-slate-900">Araç Konumu</h3>
@@ -346,7 +346,7 @@ export default function Step2VehicleDetails({ data }: Step2Props) {
           {/* City */}
           <div>
             <label className="block text-sm font-semibold text-slate-700 mb-2">
-              Şehir <span className="text-red-500">*</span>
+              Şehir <span className="text-lydian-secondary">*</span>
             </label>
             <select
               {...register('city')}
@@ -401,7 +401,7 @@ export default function Step2VehicleDetails({ data }: Step2Props) {
       </div>
 
       {/* Info Box */}
-      <div className="p-4 bg-green-50 border border-green-200 rounded-lg">
+      <div className="p-4 bg-lydian-success-lighter border border-green-200 rounded-lg">
         <h4 className="font-semibold text-green-900 mb-2">İpuçları:</h4>
         <ul className="text-sm text-green-800 space-y-1">
           <li>• Tüm bilgilerin doğru olduğundan emin olun - kiracılar bu bilgilere güvenir</li>

@@ -202,7 +202,7 @@ const PremiumVoiceButton: React.FC = () => {
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
           exit={{ scale: 0 }}
-          className="absolute -top-1 -right-1 w-4 h-4 bg-lydian-glass-dark rounded-full border-2 border-red-500 shadow-lg z-20">
+          className="absolute -top-1 -right-1 w-4 h-4 bg-lydian-glass-dark rounded-full border-2 border-lydian-secondary shadow-lg z-20">
 
             <motion.div
             animate={{

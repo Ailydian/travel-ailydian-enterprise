@@ -150,7 +150,11 @@ async function handler(req: AuthenticatedRequest, res: NextApiResponse) {
     ]);
 
     // Calculate total revenue
-    const calculateRevenue = (bookings: any[]) => {
+    interface BookingWithPrice {
+      totalPrice: number | string | null;
+      paymentStatus: string;
+    }
+    const calculateRevenue = (bookings: BookingWithPrice[]) => {
       return bookings
         .filter(b => b.paymentStatus === 'PAID' || b.paymentStatus === 'COMPLETED')
         .reduce((sum, b) => sum + Number(b.totalPrice || 0), 0);

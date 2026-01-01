@@ -173,7 +173,7 @@ const SignIn: React.FC = () => {
             <FuturisticCard
               title=""
               price=""
-              categoryColor="#DC2626"
+              categoryColor="var(--lydian-primary)"
             >
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -195,25 +195,21 @@ const SignIn: React.FC = () => {
 
                 {/* Social Sign In */}
                 <div className="space-y-3 mb-6">
-                  <FuturisticButton
-                    variant="glass"
+                  <FuturisticButton variant="glass"
                     fullWidth
                     onClick={() => handleSocialSignIn('google')}
                     disabled={isLoading}
-                    icon={<GoogleIcon />}
-                    iconPosition="left"
-                  >
+                    leftIcon={<GoogleIcon />}
+                    >
                     Google ile Giriş Yap
                   </FuturisticButton>
 
-                  <FuturisticButton
-                    variant="glass"
+                  <FuturisticButton variant="glass"
                     fullWidth
                     onClick={() => handleSocialSignIn('facebook')}
                     disabled={isLoading}
-                    icon={<FacebookIcon />}
-                    iconPosition="left"
-                  >
+                    leftIcon={<FacebookIcon />}
+                    >
                     Facebook ile Giriş Yap
                   </FuturisticButton>
                 </div>
@@ -232,10 +228,9 @@ const SignIn: React.FC = () => {
                     label="Email Adresi"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    icon={<Mail className="w-5 h-5" />}
+                    leftIcon={<Mail className="w-5 h-5" />}
                     error={errors.email}
-                    required
-                    glowColor="#DC2626"
+                    requiredColor="var(--lydian-primary)"
                   />
 
                   {/* Password Field */}
@@ -245,10 +240,9 @@ const SignIn: React.FC = () => {
                       label="Şifre"
                       value={formData.password}
                       onChange={(e) => setFormData({ ...formData, password: e.target.value })}
-                      icon={<Lock className="w-5 h-5" />}
+                      leftIcon={<Lock className="w-5 h-5" />}
                       error={errors.password}
-                      required
-                      glowColor="#DC2626"
+                      requiredColor="var(--lydian-primary)"
                     />
                     <button
                       type="button"
@@ -277,12 +271,11 @@ const SignIn: React.FC = () => {
                   </div>
 
                   {/* Submit Button */}
-                  <FuturisticButton
-                    type="submit"
+                  <FuturisticButton type="submit"
                     variant="ai"
                     fullWidth
                     loading={isLoading}
-                    icon={<ArrowRight className="w-5 h-5" />}
+                    leftIcon={<ArrowRight className="w-5 h-5" />}
                     iconPosition="right"
                   >
                     {isLoading ? 'Giriş yapılıyor...' : 'Giriş Yap'}

@@ -7,17 +7,17 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import {
   MapPin, Search, Loader2, Navigation, Clock, Star, TrendingUp,
-  Map as MapIcon, Plane, Building2, Globe, Target } from
-'lucide-react';
+  Map as MapIcon, Plane, Building2, Globe, Target } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import logger from '../../lib/logger';
+import { useToast } from '../../context/ToastContext';
 import {
   searchAdvancedLocations,
   getPopularLocations,
   getUserLocation,
   getNearbyLocations,
-  type AdvancedLocationSuggestion } from
-'@/lib/location-service-advanced';
+  type AdvancedLocationSuggestion
+} from '@/lib/location-service-advanced';
 
 interface LocationAutocompleteAdvancedProps {
   value: string;
@@ -62,6 +62,8 @@ export const LocationAutocompleteAdvanced: React.FC<LocationAutocompleteAdvanced
 
   // Load recent searches from localStorage
   useEffect(() => {
+    const { showSuccess, showError, showWarning, showInfo, showToast } = useToast();
+
     const stored = localStorage.getItem(RECENT_SEARCHES_KEY);
     if (stored) {
       try {
@@ -191,9 +193,9 @@ export const LocationAutocompleteAdvanced: React.FC<LocationAutocompleteAdvanced
         return <Plane className="w-4 h-4 text-lydian-primary" />;
       case 'hotel':
       case 'hotel_zone':
-        return <Building2 className="w-4 h-4 text-purple-500" />;
+        return <Building2 className="w-4 h-4 text-lydian-accent-purple" />;
       case 'region':
-        return <MapIcon className="w-4 h-4 text-green-500" />;
+        return <MapIcon className="w-4 h-4 text-lydian-success" />;
       case 'district':
       case 'town':
         return <MapIcon className="w-4 h-4 text-orange-500" />;
@@ -271,7 +273,7 @@ export const LocationAutocompleteAdvanced: React.FC<LocationAutocompleteAdvanced
                   setNearbyLocations(nearby);
                   setShowSuggestions(true);
                 }).
-                catch(() => alert('Konum bilgisi alınamadı'));
+                catch(() => showToast({ type: 'info', title: 'Konum bilgisi alınamadı' }));
               }
             }}
             className="p-1 hover:bg-lydian-glass-dark-medium rounded-lg transition-colors"
@@ -366,7 +368,7 @@ export const LocationAutocompleteAdvanced: React.FC<LocationAutocompleteAdvanced
                       <div className="flex items-center gap-2">
                         <span className="font-medium text-lydian-text-inverse">{location.name}</span>
                         {location.popular &&
-                  <Star className="w-3 h-3 text-yellow-500 fill-yellow-500" />
+                  <Star className="w-3 h-3 text-lydian-warning fill-yellow-500" />
                   }
                       </div>
                       <div className="text-xs text-lydian-text-dim">

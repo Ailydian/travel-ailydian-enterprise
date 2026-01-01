@@ -24,8 +24,7 @@ import {
   Crown,
   ChevronDown,
   TrendingUp,
-  MapPin } from
-'lucide-react';
+  MapPin } from 'lucide-react';
 import { exploreCategories, popularDestinations } from '../../data/explore-categories';
 import { useTranslation } from 'next-i18next';
 

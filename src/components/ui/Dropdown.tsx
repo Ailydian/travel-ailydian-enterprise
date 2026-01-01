@@ -196,7 +196,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
           className="block text-sm font-medium text-lydian-text-secondary mb-1.5"
         >
           {label}
-          {required && <span className="text-red-500 ml-1">*</span>}
+          {required && <span className="text-lydian-secondary ml-1">*</span>}
         </label>
       )}
 

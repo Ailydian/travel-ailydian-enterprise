@@ -8,8 +8,7 @@ import {
   AlertCircle,
   Star,
   GripVertical,
-  Loader } from
-'lucide-react';
+  Loader } from 'lucide-react';
 
 /**
  * Uploaded image with metadata
@@ -506,7 +505,7 @@ export const PhotoUploader: React.FC<PhotoUploaderProps> = ({
               <h4 className="text-sm font-semibold text-red-900 mb-1">
                 Upload Errors
               </h4>
-              <ul className="text-xs text-red-800 space-y-1">
+              <ul className="text-xs text-lydian-primary-active space-y-1">
                 {errors.map((error, index) =>
               <li key={index}>{error}</li>
               )}
@@ -514,7 +513,7 @@ export const PhotoUploader: React.FC<PhotoUploaderProps> = ({
             </div>
             <button
             onClick={() => setErrors([])}
-            className="text-lydian-primary hover:text-red-800">
+            className="text-lydian-primary hover:text-lydian-primary-active">
 
               <X className="h-4 w-4" />
             </button>
@@ -668,7 +667,7 @@ export const PhotoUploader: React.FC<PhotoUploaderProps> = ({
 
                 {/* Success Indicator */}
                 {image.status === 'success' && image.progress === 100 &&
-            <div className="absolute bottom-2 right-2 p-1 bg-green-500 rounded-full">
+            <div className="absolute bottom-2 right-2 p-1 bg-lydian-success rounded-full">
                     <CheckCircle className="h-4 w-4 text-lydian-text-inverse" />
                   </div>
             }

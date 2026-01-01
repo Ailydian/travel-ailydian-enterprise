@@ -1,0 +1,174 @@
+/**
+ * DESIGN SYSTEM CSS VARIABLES
+ *
+ * CSS Custom Properties for design tokens
+ * These map directly to the TypeScript tokens in design-system/tokens.ts
+ *
+ * Usage in components:
+ * - style={{ color: 'var(--lydian-primary)' }}
+ * - Or use Tailwind classes: className="bg-lydian-primary"
+ *
+ * @since 2025-01-01
+ */
+
+:root {
+  /* ========================================== */
+  /* PRIMARY BRAND COLORS */
+  /* ========================================== */
+  --lydian-primary: #DC2626;
+  --lydian-primary-hover: #B91C1C;
+  --lydian-primary-active: #991B1B;
+  --lydian-primary-light: #FCA5A5;
+  --lydian-primary-lighter: #FEE2E2;
+  --lydian-primary-dark: #991B1B;
+  --lydian-primary-darker: #7F1D1D;
+
+  --lydian-secondary: #EF4444;
+  --lydian-secondary-hover: #DC2626;
+  --lydian-secondary-active: #B91C1C;
+  --lydian-secondary-light: #FCA5A5;
+  --lydian-secondary-lighter: #FEE2E2;
+
+  --lydian-accent: #DC2626;
+  --lydian-accent-cyan: #06B6D4;
+  --lydian-accent-purple: #8B5CF6;
+  --lydian-accent-amber: #F59E0B;
+
+  /* ========================================== */
+  /* SEMANTIC COLORS */
+  /* ========================================== */
+  --lydian-success: #10B981;
+  --lydian-success-hover: #059669;
+  --lydian-success-active: #047857;
+  --lydian-success-light: #D1FAE5;
+  --lydian-success-lighter: #ECFDF5;
+  --lydian-success-text: #047857;
+
+  --lydian-warning: #F59E0B;
+  --lydian-warning-hover: #D97706;
+  --lydian-warning-active: #B45309;
+  --lydian-warning-light: #FEF3C7;
+  --lydian-warning-lighter: #FFFBEB;
+  --lydian-warning-text: #B45309;
+
+  --lydian-error: #EF4444;
+  --lydian-error-hover: #DC2626;
+  --lydian-error-active: #B91C1C;
+  --lydian-error-light: #FEE2E2;
+  --lydian-error-lighter: #FEF2F2;
+  --lydian-error-text: #B91C1C;
+
+  --lydian-info: #3B82F6;
+  --lydian-info-hover: #2563EB;
+  --lydian-info-active: #1D4ED8;
+  --lydian-info-light: #DBEAFE;
+  --lydian-info-lighter: #EFF6FF;
+  --lydian-info-text: #1D4ED8;
+
+  /* ========================================== */
+  /* NEUTRAL COLORS */
+  /* ========================================== */
+
+  /* Text Colors */
+  --lydian-text: #111827;
+  --lydian-text-secondary: #374151;
+  --lydian-text-tertiary: #6B7280;
+  --lydian-text-muted: #9CA3AF;
+  --lydian-text-dim: #D1D5DB;
+  --lydian-text-inverse: #FFFFFF;
+  --lydian-text-inverse-muted: #F3F4F6;
+
+  /* Background Colors */
+  --lydian-bg: #FFFFFF;
+  --lydian-bg-surface: #F9FAFB;
+  --lydian-bg-surface-raised: #F3F4F6;
+  --lydian-bg-overlay: rgba(0, 0, 0, 0.5);
+  --lydian-bg-overlay-light: rgba(0, 0, 0, 0.2);
+  --lydian-bg-hover: #F9FAFB;
+  --lydian-bg-active: #F3F4F6;
+  --lydian-bg-disabled: #E5E7EB;
+
+  /* Border Colors */
+  --lydian-border: #E5E7EB;
+  --lydian-border-light: #F3F4F6;
+  --lydian-border-medium: #D1D5DB;
+  --lydian-border-heavy: #9CA3AF;
+  --lydian-border-focus: #DC2626;
+
+  /* ========================================== */
+  /* GLASSMORPHISM */
+  /* ========================================== */
+  --lydian-glass-light: rgba(255, 255, 255, 0.1);
+  --lydian-glass-medium: rgba(255, 255, 255, 0.15);
+  --lydian-glass-heavy: rgba(255, 255, 255, 0.25);
+  --lydian-glass-dark: rgba(0, 0, 0, 0.1);
+  --lydian-glass-dark-medium: rgba(0, 0, 0, 0.15);
+  --lydian-glass-dark-heavy: rgba(0, 0, 0, 0.25);
+
+  /* ========================================== */
+  /* SHADOWS */
+  /* ========================================== */
+  --lydian-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --lydian-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+  --lydian-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  --lydian-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  --lydian-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  --lydian-shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+
+  /* Glow Shadows */
+  --lydian-glow-primary: 0 0 20px rgba(220, 38, 38, 0.5);
+  --lydian-glow-success: 0 0 20px rgba(16, 185, 129, 0.5);
+  --lydian-glow-warning: 0 0 20px rgba(245, 158, 11, 0.5);
+  --lydian-glow-error: 0 0 20px rgba(239, 68, 68, 0.5);
+  --lydian-glow-info: 0 0 20px rgba(59, 130, 246, 0.5);
+
+  /* ========================================== */
+  /* ANIMATION */
+  /* ========================================== */
+  --lydian-duration-fastest: 100ms;
+  --lydian-duration-fast: 200ms;
+  --lydian-duration-normal: 300ms;
+  --lydian-duration-slow: 500ms;
+  --lydian-duration-slowest: 700ms;
+
+  --lydian-easing-linear: linear;
+  --lydian-easing-ease: ease;
+  --lydian-easing-ease-in: ease-in;
+  --lydian-easing-ease-out: ease-out;
+  --lydian-easing-ease-in-out: ease-in-out;
+  --lydian-easing-spring: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --lydian-easing-bounce: cubic-bezier(0.68, -0.6, 0.32, 1.6);
+
+  /* ========================================== */
+  /* SPACING */
+  /* ========================================== */
+  --lydian-spacing-xs: 0.25rem;   /* 4px */
+  --lydian-spacing-sm: 0.5rem;    /* 8px */
+  --lydian-spacing-md: 1rem;      /* 16px */
+  --lydian-spacing-lg: 1.5rem;    /* 24px */
+  --lydian-spacing-xl: 2rem;      /* 32px */
+  --lydian-spacing-2xl: 3rem;     /* 48px */
+  --lydian-spacing-3xl: 4rem;     /* 64px */
+
+  /* ========================================== */
+  /* BORDER RADIUS */
+  /* ========================================== */
+  --lydian-radius-none: 0px;
+  --lydian-radius-sm: 0.125rem;   /* 2px */
+  --lydian-radius: 0.25rem;       /* 4px */
+  --lydian-radius-md: 0.375rem;   /* 6px */
+  --lydian-radius-lg: 0.5rem;     /* 8px */
+  --lydian-radius-xl: 0.75rem;    /* 12px */
+  --lydian-radius-2xl: 1rem;      /* 16px */
+  --lydian-radius-3xl: 1.5rem;    /* 24px */
+  --lydian-radius-full: 9999px;
+}
+
+/* ========================================== */
+/* DARK MODE (if needed in future) */
+/* ========================================== */
+@media (prefers-color-scheme: dark) {
+  .dark {
+    /* Dark mode overrides can go here */
+  }
+}

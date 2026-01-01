@@ -30,8 +30,7 @@ import {
   Gauge,
   Calendar,
   Shield,
-  Clock } from
-'lucide-react';
+  Clock } from 'lucide-react';
 import { VEHICLE_CATEGORIES } from '@/data/vehicleCategories';
 import { FuturisticHeader } from '@/components/layout/FuturisticHeader';
 import CarRentalSearchEngine, { type CarRentalSearchData } from '@/components/car-rentals/CarRentalSearchEngine';
@@ -280,7 +279,7 @@ const CarRentalsPage: React.FC = () => {
                   <div className="text-2xl font-bold text-lydian-primary">₺8,500</div>
                 </div>
                 <Link href="/vehicle-owner">
-                  <FuturisticButton variant="secondary" size="md" icon={<ArrowRight className="w-5 h-5" />} iconPosition="right">
+                  <FuturisticButton variant="secondary" size="md" leftIcon={<ArrowRight className="w-5 h-5" />} iconPosition="right">
                     Kayıt Ol
                   </FuturisticButton>
                 </Link>
@@ -478,7 +477,7 @@ const CarRentalsPage: React.FC = () => {
                   whileTap={{ scale: 0.95 }}
                   className={`px-4 py-2 rounded-xl text-sm font-medium transition-all backdrop-blur-xl ${
                   filters.vehicleType === cat.value ?
-                  'bg-gradient-to-r from-lydian-primary to-lydian-primary-hover text-white shadow-lg shadow-lydian-primary/30' :
+                  'bg-gradient-to-r from-lydian-primary to-lydian-primary-hover text-lydian-text-inverse shadow-lg shadow-lydian-primary/30' :
                   'bg-lydian-glass-dark-medium border border-lydian-border-light/30 text-lydian-text-inverse hover:border-lydian-primary/50'}`
                   }>
 
@@ -562,11 +561,10 @@ const CarRentalsPage: React.FC = () => {
                   {/* Custom CTA Button */}
                   <div className="mt-4">
                     <Link href={`/car-rentals/${vehicle.slug}`}>
-                      <FuturisticButton
-                      variant="secondary"
+                      <FuturisticButton variant="secondary"
                       size="md"
                       fullWidth
-                      icon={<ArrowRight className="w-4 h-4" />}
+                      leftIcon={<ArrowRight className="w-4 h-4" />}
                       iconPosition="right">
 
                         Kirala
@@ -634,14 +632,14 @@ const CarRentalsPage: React.FC = () => {
                   transition={{ duration: 0.8 }}
                   className="inline-flex items-center justify-center w-20 h-20 bg-lydian-bg/20 backdrop-blur-xl rounded-2xl mb-6 shadow-lg">
 
-                  <Car className="w-10 h-10 text-white" />
+                  <Car className="w-10 h-10 text-lydian-text-inverse" />
                 </motion.div>
 
-                <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                <h2 className="text-3xl md:text-4xl font-bold text-lydian-text-inverse mb-4">
                   Aracınızı Kiraya Vererek Para Kazanın
                 </h2>
 
-                <p className="text-lg text-white/90 mb-8 max-w-2xl mx-auto">
+                <p className="text-lg text-lydian-text-inverse/90 mb-8 max-w-2xl mx-auto">
                   Binlerce araç sahibi LyDian ile pasif gelir elde ediyor.
                   Siz de aracınızı listeleyerek aylık ortalama ₺8,500 kazanabilirsiniz.
                 </p>
@@ -649,21 +647,21 @@ const CarRentalsPage: React.FC = () => {
                 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
                   <motion.div
                     whileHover={{ scale: 1.05 }}
-                    className="flex items-center gap-2 text-white bg-lydian-bg/10 backdrop-blur-xl px-4 py-2 rounded-xl">
+                    className="flex items-center gap-2 text-lydian-text-inverse bg-lydian-bg/10 backdrop-blur-xl px-4 py-2 rounded-xl">
 
                     <CheckCircle className="w-5 h-5" />
                     <span className="font-medium">%12-15 Komisyon</span>
                   </motion.div>
                   <motion.div
                     whileHover={{ scale: 1.05 }}
-                    className="flex items-center gap-2 text-white bg-lydian-bg/10 backdrop-blur-xl px-4 py-2 rounded-xl">
+                    className="flex items-center gap-2 text-lydian-text-inverse bg-lydian-bg/10 backdrop-blur-xl px-4 py-2 rounded-xl">
 
                     <CheckCircle className="w-5 h-5" />
                     <span className="font-medium">Güvenli Ödeme</span>
                   </motion.div>
                   <motion.div
                     whileHover={{ scale: 1.05 }}
-                    className="flex items-center gap-2 text-white bg-lydian-bg/10 backdrop-blur-xl px-4 py-2 rounded-xl">
+                    className="flex items-center gap-2 text-lydian-text-inverse bg-lydian-bg/10 backdrop-blur-xl px-4 py-2 rounded-xl">
 
                     <CheckCircle className="w-5 h-5" />
                     <span className="font-medium">7/24 Destek</span>
@@ -672,10 +670,9 @@ const CarRentalsPage: React.FC = () => {
 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <Link href="/vehicle-owner/auth/register">
-                    <FuturisticButton
-                      variant="glass"
+                    <FuturisticButton variant="glass"
                       size="lg"
-                      icon={<ArrowRight className="w-5 h-5" />}
+                      leftIcon={<ArrowRight className="w-5 h-5" />}
                       iconPosition="right">
 
                       Ücretsiz Kayıt Ol
@@ -683,8 +680,7 @@ const CarRentalsPage: React.FC = () => {
                   </Link>
 
                   <Link href="/vehicle-owner/auth/login">
-                    <FuturisticButton
-                      variant="outline"
+                    <FuturisticButton variant="outline"
                       size="lg">
 
                       Giriş Yap
@@ -695,7 +691,7 @@ const CarRentalsPage: React.FC = () => {
                 <motion.p
                   animate={{ opacity: [0.7, 1, 0.7] }}
                   transition={{ duration: 2, repeat: Infinity }}
-                  className="text-sm text-white/90 mt-6 font-medium">
+                  className="text-sm text-lydian-text-inverse/90 mt-6 font-medium">
 
                   2000+ araç sahibi bize güveniyor
                 </motion.p>

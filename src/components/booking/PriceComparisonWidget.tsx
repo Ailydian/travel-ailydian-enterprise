@@ -12,8 +12,7 @@ import {
   Award,
   Shield,
   Zap,
-  Star } from
-'lucide-react';
+  Star } from 'lucide-react';
 
 interface CompetitorPrice {
   provider: string;
@@ -212,7 +211,7 @@ export const PriceComparisonWidget: React.FC<PriceComparisonWidgetProps> = ({
               <div className="mt-3 pt-3 border-t border-lydian-border-light grid grid-cols-2 gap-2">
                       {competitor.features.map((feature, idx) =>
                 <div key={idx} className="flex items-center gap-1 text-xs">
-                          <Check className="w-3 h-3 text-green-500 flex-shrink-0" />
+                          <Check className="w-3 h-3 text-lydian-success flex-shrink-0" />
                           <span className="text-lydian-text-dim">{feature}</span>
                         </div>
                 )}

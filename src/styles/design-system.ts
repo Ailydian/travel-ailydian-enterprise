@@ -47,16 +47,16 @@ export const colors = {
 
   // Neutral/Gray Scale
   neutral: {
-    50: '#F9FAFB',   // Lightest background
-    100: '#F3F4F6',  // Card background
-    200: '#E5E7EB',  // Border light
-    300: '#D1D5DB',  // Border default
-    400: '#9CA3AF',  // Placeholder text
-    500: '#6B7280',  // Secondary text
+    50: 'var(--lydian-bg-surface)',   // Lightest background
+    100: 'var(--lydian-bg-surface-raised)',  // Card background
+    200: 'var(--lydian-border)',  // Border light
+    300: 'var(--lydian-text-dim)',  // Border default
+    400: 'var(--lydian-text-muted)',  // Placeholder text
+    500: 'var(--lydian-text-tertiary)',  // Secondary text
     600: '#4B5563',  // Body text
-    700: '#374151',  // Headings
+    700: 'var(--lydian-text-secondary)',  // Headings
     800: '#1F2937',  // Dark text
-    900: '#111827',  // Darkest text
+    900: 'var(--lydian-text)',  // Darkest text
   },
 
   // Semantic Colors - Success
@@ -75,14 +75,14 @@ export const colors = {
 
   // Semantic Colors - Warning
   warning: {
-    50: '#FFFBEB',
-    100: '#FEF3C7',
+    50: 'var(--lydian-warning-lighter)',
+    100: 'var(--lydian-warning-light)',
     200: '#FDE68A',
     300: '#FCD34D',
     400: '#FBBF24',
-    500: '#F59E0B',
-    600: '#D97706', // Main warning
-    700: '#B45309',
+    500: 'var(--lydian-warning)',
+    600: 'var(--lydian-warning-hover)', // Main warning
+    700: 'var(--lydian-warning-active)',
     800: '#92400E',
     900: '#78350F',
   },
@@ -90,27 +90,27 @@ export const colors = {
   // Semantic Colors - Error
   error: {
     50: '#FEF2F2',
-    100: '#FEE2E2',
+    100: 'var(--lydian-primary-lighter)',
     200: '#FECACA',
-    300: '#FCA5A5',
+    300: 'var(--lydian-primary-light)',
     400: '#F87171',
-    500: '#EF4444',
-    600: '#DC2626', // Main error
-    700: '#B91C1C',
-    800: '#991B1B',
-    900: '#7F1D1D',
+    500: 'var(--lydian-secondary)',
+    600: 'var(--lydian-primary)', // Main error
+    700: 'var(--lydian-primary-hover)',
+    800: 'var(--lydian-primary-active)',
+    900: 'var(--lydian-primary-darker)',
   },
 
   // Semantic Colors - Info
   info: {
-    50: '#EFF6FF',
-    100: '#DBEAFE',
+    50: 'var(--lydian-info-lighter)',
+    100: 'var(--lydian-info-light)',
     200: '#BFDBFE',
     300: '#93C5FD',
     400: '#60A5FA',
-    500: '#3B82F6',
-    600: '#2563EB', // Main info
-    700: '#1D4ED8',
+    500: 'var(--lydian-info)',
+    600: 'var(--lydian-info-hover)', // Main info
+    700: 'var(--lydian-info-active)',
     800: '#1E40AF',
     900: '#1E3A8A',
   },
@@ -140,7 +140,7 @@ export const textColors = {
 
   // On Brand Colors
   onPrimary: {
-    primary: '#FFFFFF',               // Contrast: 8.6:1 ✅ WCAG AAA
+    primary: 'var(--lydian-text-inverse)',               // Contrast: 8.6:1 ✅ WCAG AAA
     secondary: colors.primary[50],    // Contrast: 10.2:1 ✅ WCAG AAA
   },
 } as const;

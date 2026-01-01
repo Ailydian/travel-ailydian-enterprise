@@ -4,6 +4,7 @@
  * holiday.ailydian.com design system
  */
 
+// DEPRECATED: Use Button from @/components/ui with variant="glass" or variant="neo"
 export { NeoButton } from './NeoButton';
 export type { NeoButtonProps } from './NeoButton';
 
@@ -13,6 +14,7 @@ export type { NeoCardProps } from './NeoCard';
 export { FuturisticCard } from './FuturisticCard';
 export type { FuturisticCardProps } from './FuturisticCard';
 
+// DEPRECATED: Use Button from @/components/ui with variant="gradient" or variant="ai"
 export { FuturisticButton } from './FuturisticButton';
 export type { FuturisticButtonProps } from './FuturisticButton';
 

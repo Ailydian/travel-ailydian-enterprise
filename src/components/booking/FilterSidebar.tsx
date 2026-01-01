@@ -20,8 +20,7 @@ import {
   ChevronDown,
   ChevronUp,
   TrendingDown,
-  Check } from
-'lucide-react';
+  Check } from 'lucide-react';
 
 interface FilterSection {
   id: string;
@@ -276,7 +275,7 @@ export const FilterSidebar: React.FC<FilterSidebarProps> = ({
               }
                   </div>
                   <div className="flex items-center gap-2 flex-1">
-                    <Star className="w-4 h-4 text-yellow-500 fill-yellow-500" />
+                    <Star className="w-4 h-4 text-lydian-warning fill-yellow-500" />
                     <span className="font-medium text-lydian-text-inverse">{rating}+ Puan</span>
                   </div>
                   <span className="text-sm text-lydian-text-muted">(245)</span>

@@ -6,8 +6,7 @@ import {
   TrendingUp,
   Gift,
   Sparkles,
-  Info } from
-'lucide-react';
+  Info } from 'lucide-react';
 import {
   calculateBundlePricing,
   formatCurrency,

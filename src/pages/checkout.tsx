@@ -32,6 +32,7 @@ import { FuturisticButton } from '../components/neo-glass/FuturisticButton';
 import { NeoSection } from '../components/neo-glass/NeoSection';
 import logger from '../lib/logger';
 import type { LocationData } from '../components/ui/LocationPicker';
+import { useToast } from '../context/ToastContext';
 
 // Dynamically import LocationPicker to avoid SSR issues
 const LocationPicker = dynamic(() => import('../components/ui/LocationPicker'), {
@@ -101,6 +102,8 @@ interface OrderSummary {
 
 // Normalization function to convert any product data to unified format
 const normalizeBookingData = (rawData: any): UnifiedBookingData | null => {
+  const { showSuccess, showError, showWarning, showInfo, showToast } = useToast();
+
   if (!rawData || !rawData.type) return null;
 
   const type = rawData.type as UnifiedBookingData['type'];
@@ -520,7 +523,7 @@ const Checkout: React.FC = () => {
     } catch (error) {
       logger.error('Payment error:', error as Error, { component: 'Checkout' });
       setIsProcessing(false);
-      alert('Payment failed. Please try again.');
+      showToast({ type: 'error', title: 'Payment failed. Please try again.' });
     }
   };
 
@@ -538,7 +541,7 @@ const Checkout: React.FC = () => {
             className="text-center bg-lydian-glass-dark backdrop-blur-xl rounded-3xl shadow-2xl border border-white/10 p-6 sm:p-8 lg:p-12 max-w-md w-full"
           >
             <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-r from-green-400 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6 shadow-lg shadow-green-500/50">
-              <CheckCircle className="w-10 h-10 sm:w-12 sm:h-12 text-white" />
+              <CheckCircle className="w-10 h-10 sm:w-12 sm:h-12 text-lydian-text-inverse" />
             </div>
             <h1 className="text-xl sm:text-2xl font-bold text-lydian-text-inverse mb-3 sm:mb-4">
               Ödeme Başarılı!
@@ -569,7 +572,7 @@ const Checkout: React.FC = () => {
             className="text-center bg-lydian-glass-dark backdrop-blur-xl rounded-3xl shadow-2xl border border-white/10 p-6 sm:p-8 lg:p-12 max-w-md w-full"
           >
             <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-r from-[#667EEA] to-[#00BAFF] rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6 animate-pulse shadow-lg shadow-[#667EEA]/50">
-              <Zap className="w-10 h-10 sm:w-12 sm:h-12 text-white" />
+              <Zap className="w-10 h-10 sm:w-12 sm:h-12 text-lydian-text-inverse" />
             </div>
             <h1 className="text-xl sm:text-2xl font-bold text-lydian-text-inverse mb-3 sm:mb-4">
               Ödeme İşleniyor
@@ -664,10 +667,9 @@ const Checkout: React.FC = () => {
                     label="Ad"
                     value={formData.firstName}
                     onChange={(e) => handleInputChange('firstName', e.target.value)}
-                    icon={<User className="w-4 h-4" />}
+                    leftIcon={<User className="w-4 h-4" />}
                     error={errors.firstName}
-                    required
-                    glowColor="#00BAFF"
+                    requiredColor="#00BAFF"
                   />
 
                   <FuturisticInput
@@ -675,10 +677,9 @@ const Checkout: React.FC = () => {
                     label="Soyad"
                     value={formData.lastName}
                     onChange={(e) => handleInputChange('lastName', e.target.value)}
-                    icon={<User className="w-4 h-4" />}
+                    leftIcon={<User className="w-4 h-4" />}
                     error={errors.lastName}
-                    required
-                    glowColor="#00BAFF"
+                    requiredColor="#00BAFF"
                   />
 
                   <FuturisticInput
@@ -686,10 +687,9 @@ const Checkout: React.FC = () => {
                     label="E-posta"
                     value={formData.email}
                     onChange={(e) => handleInputChange('email', e.target.value)}
-                    icon={<Mail className="w-4 h-4" />}
+                    leftIcon={<Mail className="w-4 h-4" />}
                     error={errors.email}
-                    required
-                    glowColor="#00BAFF"
+                    requiredColor="#00BAFF"
                   />
 
                   <FuturisticInput
@@ -697,10 +697,9 @@ const Checkout: React.FC = () => {
                     label="Telefon"
                     value={formData.phone}
                     onChange={(e) => handleInputChange('phone', e.target.value)}
-                    icon={<Phone className="w-4 h-4" />}
+                    leftIcon={<Phone className="w-4 h-4" />}
                     error={errors.phone}
-                    required
-                    glowColor="#00BAFF"
+                    requiredColor="#00BAFF"
                   />
                 </div>
               </motion.div>
@@ -741,10 +740,9 @@ const Checkout: React.FC = () => {
                     label="Kart Numarası"
                     value={formatCardNumber(formData.cardNumber)}
                     onChange={(e) => handleInputChange('cardNumber', e.target.value.replace(/\s/g, ''))}
-                    icon={<CreditCard className="w-4 h-4" />}
+                    leftIcon={<CreditCard className="w-4 h-4" />}
                     error={errors.cardNumber}
-                    required
-                    glowColor="#667EEA"
+                    requiredColor="#667EEA"
                   />
 
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
@@ -803,10 +801,9 @@ const Checkout: React.FC = () => {
                       label="CVV"
                       value={formData.cvv}
                       onChange={(e) => handleInputChange('cvv', e.target.value.replace(/\D/g, ''))}
-                      icon={<Lock className="w-4 h-4" />}
+                      leftIcon={<Lock className="w-4 h-4" />}
                       error={errors.cvv}
-                      required
-                      glowColor="#FF9500"
+                      requiredColor="#FF9500"
                     />
                   </div>
 
@@ -815,10 +812,9 @@ const Checkout: React.FC = () => {
                     label="Kart Üzerindeki İsim"
                     value={formData.cardName}
                     onChange={(e) => handleInputChange('cardName', e.target.value.toUpperCase())}
-                    icon={<User className="w-4 h-4" />}
+                    leftIcon={<User className="w-4 h-4" />}
                     error={errors.cardName}
-                    required
-                    glowColor="#667EEA"
+                    requiredColor="#667EEA"
                   />
                 </div>
               </motion.div>
@@ -846,10 +842,9 @@ const Checkout: React.FC = () => {
                       label="Adres"
                       value={formData.billingAddress}
                       onChange={(e) => handleInputChange('billingAddress', e.target.value)}
-                      icon={<MapPin className="w-4 h-4" />}
+                      leftIcon={<MapPin className="w-4 h-4" />}
                       error={errors.billingAddress}
-                      required
-                      glowColor="#00BAFF"
+                      requiredColor="#00BAFF"
                     />
                   </div>
 
@@ -858,10 +853,9 @@ const Checkout: React.FC = () => {
                     label="Şehir"
                     value={formData.city}
                     onChange={(e) => handleInputChange('city', e.target.value)}
-                    icon={<Building className="w-4 h-4" />}
+                    leftIcon={<Building className="w-4 h-4" />}
                     error={errors.city}
-                    required
-                    glowColor="#00BAFF"
+                    requiredColor="#00BAFF"
                   />
 
                   <FuturisticInput
@@ -871,10 +865,9 @@ const Checkout: React.FC = () => {
                     onChange={(e) =>
                       handleInputChange('postalCode', e.target.value.replace(/\D/g, ''))
                     }
-                    icon={<MapPin className="w-4 h-4" />}
+                    leftIcon={<MapPin className="w-4 h-4" />}
                     error={errors.postalCode}
-                    required
-                    glowColor="#00BAFF"
+                    requiredColor="#00BAFF"
                   />
 
                   <div className="md:col-span-2">
@@ -1074,14 +1067,11 @@ const Checkout: React.FC = () => {
                   </div>
                 </div>
 
-                <FuturisticButton
-                  variant="ai"
+                <FuturisticButton variant="ai"
                   size="lg"
                   fullWidth
                   onClick={handleSubmit}
-                  icon={<Lock className="w-4 h-4 sm:w-5 sm:h-5" />}
-                  iconPosition="left"
-                  glow
+                  leftIcon={<Lock className="w-4 h-4 sm:w-5 sm:h-5" />}
                 >
                   Güvenli Ödeme Yap
                 </FuturisticButton>

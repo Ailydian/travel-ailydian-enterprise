@@ -120,7 +120,7 @@ function DashboardHeader() {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
             </svg>
           </Button>
-          <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white text-sm font-semibold">
+          <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-lydian-text-inverse text-sm font-semibold">
             JS
           </div>
         </div>
@@ -137,7 +137,7 @@ function DashboardSidebarContent({ pathname }: { pathname: string }) {
   return (
     <>
       {/* Header */}
-      <SidebarHeader className="bg-gradient-to-br from-blue-600 to-purple-600 text-white border-none">
+      <SidebarHeader className="bg-gradient-to-br from-blue-600 to-purple-600 text-lydian-text-inverse border-none">
         <div className="flex items-center gap-3 flex-1">
           <div className="w-10 h-10 rounded-xl bg-lydian-bg/20 backdrop-blur-sm flex items-center justify-center">
             <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -146,10 +146,10 @@ function DashboardSidebarContent({ pathname }: { pathname: string }) {
           </div>
           <div>
             <h2 className="font-bold text-lg">Ailydian</h2>
-            <p className="text-xs text-white/80">Travel Platform</p>
+            <p className="text-xs text-lydian-text-inverse/80">Travel Platform</p>
           </div>
         </div>
-        <SidebarToggle className="text-white hover:bg-lydian-bg/10" />
+        <SidebarToggle className="text-lydian-text-inverse hover:bg-lydian-bg/10" />
       </SidebarHeader>
 
       {/* Navigation */}
@@ -210,7 +210,7 @@ function DashboardSidebarContent({ pathname }: { pathname: string }) {
       {/* Footer */}
       <SidebarFooter>
         <div className="flex items-center gap-3 mb-3">
-          <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white text-sm font-semibold">
+          <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-lydian-text-inverse text-sm font-semibold">
             JS
           </div>
           <div className="flex-1 min-w-0">

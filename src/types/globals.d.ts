@@ -1,16 +1,16 @@
 declare global {
   interface Window {
     ethereum?: {
-      request: (params: { method: string; params?: any[] }) => Promise<any>;
-      on: (event: string, callback: (params: any) => void) => void;
-      removeListener: (event: string, callback: (params: any) => void) => void;
+      request: (params: { method: string; params?: unknown[] }) => Promise<unknown>;
+      on: (event: string, callback: (params: unknown) => void) => void;
+      removeListener: (event: string, callback: (params: unknown) => void) => void;
       selectedAddress: string | null;
       isMetaMask?: boolean;
       isConnected: () => boolean;
       chainId: string;
     };
-    SpeechRecognition?: any;
-    webkitSpeechRecognition?: any;
+    SpeechRecognition?: typeof SpeechRecognition;
+    webkitSpeechRecognition?: typeof SpeechRecognition;
   }
 
   declare var SpeechRecognition: {

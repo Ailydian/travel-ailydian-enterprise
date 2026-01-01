@@ -2,6 +2,10 @@
  * 🔘 FUTURISTIC BUTTON 2025
  * Gradient + Glow + Spring Physics + Shimmer Loading
  * Apple Vision Pro Button Aesthetics
+ *
+ * @deprecated This component is deprecated. Use Button from @/components/ui instead.
+ * Migration: <FuturisticButton variant="ai" glow /> → <Button variant="ai" effect="glow" />
+ * See BUTTON_MIGRATION_GUIDE.md for details.
  */
 
 import React, { useState } from 'react';
@@ -27,7 +31,7 @@ const GRADIENT_VARIANTS = {
   ai: 'bg-gradient-to-r from-[#667EEA] via-[#764BA2] to-[#667EEA]',
   primary: 'bg-gradient-to-r from-[#00BAFF] to-[#667EEA]',
   secondary: 'bg-gradient-to-r from-[#FF9500] to-[#FF6B00]',
-  success: 'bg-gradient-to-r from-[#10B981] to-[#059669]',
+  success: 'bg-gradient-to-r from-[var(--lydian-success)] to-[var(--lydian-success-hover)]',
   glass: 'bg-lydian-bg/10 backdrop-blur-xl border-2 border-white/30',
   outline: 'bg-transparent border-2 border-[#667EEA]'
 };

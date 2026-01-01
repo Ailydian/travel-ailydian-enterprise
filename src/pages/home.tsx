@@ -47,8 +47,7 @@ import {
   Hotel,
   Plane,
   Home,
-  Bus } from
-'lucide-react';
+  Bus } from 'lucide-react';
 import { FuturisticHeader } from '../components/layout/FuturisticHeader';
 import { BookingFooter } from '../components/layout/BookingFooter';
 import antalyaTransfers from '@/data/antalya-transfers';
@@ -58,9 +57,13 @@ import { FilterSidebar } from '../components/booking/FilterSidebar';
 import { VideoHero } from '../components/ui/VideoHero';
 import { AnimatedCarSVG } from '../components/icons/AnimatedCarSVG';
 import { MinimalistHero, MinimalistCard, MinimalistButton, ScrollReveal } from '../components/minimalist';
-import { NeoHero, FuturisticCard, FuturisticButton, NeoSection } from '../components/neo-glass';
+import { NeoHero, FuturisticCard, NeoSection } from '../components/neo-glass';
+import { Button } from '../components/ui/button';
+import { useToast } from '../context/ToastContext';
 
 const GetYourGuideStyleHome: React.FC = () => {
+  const { showSuccess, showError, showWarning, showInfo, showToast } = useToast();
+
   // Translation
   const { t } = useTranslation('common');
 
@@ -117,8 +120,8 @@ const GetYourGuideStyleHome: React.FC = () => {
     addItem(cartItem);
 
     // Success notification
-    alert(`"${cartItem.title}" sepete eklendi! Toplam ürün: ${getItemCount() + 1}`);
-  }, [addItem, getItemCount]);
+    showInfo(`${cartItem.title} sepete eklendi`, `Toplam ürün: ${getItemCount() + 1}`);
+  }, [addItem, getItemCount, showInfo]);
 
   // Türkiye ve dünya destinasyonları - Türkçe içerikli
   const featuredDestinations = [
@@ -284,15 +287,13 @@ const GetYourGuideStyleHome: React.FC = () => {
           showFloatingElements={true}>
 
           <div className="flex flex-wrap gap-4">
-            <FuturisticButton
-              variant="glass"
+            <Button variant="glass"
               size="xl"
               onClick={() => router.push('/ai-planner')}
-              icon={<Sparkles className="w-6 h-6" />}
-              iconPosition="left">
+              leftIcon={<Sparkles className="w-6 h-6" />}>
 
               AI Planlayıcı
-            </FuturisticButton>
+            </Button>
           </div>
         </NeoHero>
 
@@ -375,7 +376,7 @@ const GetYourGuideStyleHome: React.FC = () => {
                       {result.rating &&
                   <div className="flex items-center gap-2 mb-3">
                           <div className="flex items-center gap-1">
-                            <Star className="w-4 h-4 text-yellow-500 fill-current" />
+                            <Star className="w-4 h-4 text-lydian-warning fill-current" />
                             <span className="font-medium">{result.rating}</span>
                           </div>
                           {result.reviews &&
@@ -505,7 +506,7 @@ const GetYourGuideStyleHome: React.FC = () => {
                 categoryColor={
                 experience.category === 'Macera' ? '#FF9500' :
                 experience.category === 'Kültür' ? '#667EEA' :
-                experience.category === 'Doğa' ? '#10B981' :
+                experience.category === 'Doğa' ? 'var(--lydian-success)' :
                 '#00BAFF'
                 } />
 
@@ -514,16 +515,14 @@ const GetYourGuideStyleHome: React.FC = () => {
           </div>
 
           <div className="text-center mt-16">
-            <FuturisticButton
-              variant="primary"
+            <Button variant="gradient"
               size="xl"
               onClick={() => router.push('/tours')}
-              icon={<ArrowRight className="w-6 h-6" />}
-              iconPosition="right"
-              glow={true}>
+              leftIcon={<ArrowRight className="w-6 h-6" />}
+              iconPosition="right">
 
               Tüm Deneyimleri Gör
-            </FuturisticButton>
+            </Button>
           </div>
         </NeoSection>
 
@@ -564,15 +563,13 @@ const GetYourGuideStyleHome: React.FC = () => {
           </div>
 
           <div className="text-center mt-12">
-            <FuturisticButton
-              variant="neo"
+            <Button variant="neo"
               size="lg"
               onClick={() => router.push('/transfers')}
-              icon={<Bus className="w-5 h-5" />}
-              iconPosition="left">
+              leftIcon={<Bus className="w-5 h-5" />}>
 
               Tüm Transferleri Gör
-            </FuturisticButton>
+            </Button>
           </div>
         </NeoSection>
 
@@ -617,16 +614,13 @@ const GetYourGuideStyleHome: React.FC = () => {
           </div>
 
           <div className="text-center mt-16">
-            <FuturisticButton
-              variant="primary"
+            <Button variant="gradient"
               size="xl"
               onClick={() => router.push('/car-rentals')}
-              icon={<Car className="w-6 h-6" />}
-              iconPosition="left"
-              glow={true}>
+              leftIcon={<Car className="w-6 h-6" />}>
 
               Tüm Araçları Gör
-            </FuturisticButton>
+            </Button>
           </div>
         </NeoSection>
 
@@ -659,23 +653,20 @@ const GetYourGuideStyleHome: React.FC = () => {
                 rating={destination.rating}
                 onClick={() => router.push(`/destinations/${destination.slug}`)}
                 category="destination"
-                categoryColor="#10B981" />
+                categoryColor="var(--lydian-success)" />
 
               </motion.div>
             )}
           </div>
 
           <div className="text-center mt-16">
-            <FuturisticButton
-              variant="primary"
+            <Button variant="gradient"
               size="xl"
               onClick={() => router.push('/destinations')}
-              icon={<Compass className="w-6 h-6" />}
-              iconPosition="left"
-              glow={true}>
+              leftIcon={<Compass className="w-6 h-6" />}>
 
               Tüm Destinasyonları Gör
-            </FuturisticButton>
+            </Button>
           </div>
         </NeoSection>
 
@@ -946,7 +937,7 @@ const GetYourGuideStyleHome: React.FC = () => {
             {/* Tooltip */}
             <div className="absolute right-full mr-4 top-1/2 transform -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none">
               <div className="bg-lydian-bg-surface text-lydian-text text-sm px-3 py-2 rounded-lg whitespace-nowrap flex items-center gap-2 shadow-lg border border-lydian-border">
-                <Gift className="w-4 h-4 text-yellow-500" />
+                <Gift className="w-4 h-4 text-lydian-warning" />
                 <span>Ücretsiz Kayıt Ol!</span>
                 <div className="absolute left-full top-1/2 transform -translate-y-1/2 w-0 h-0 border-l-8 border-l-lydian-bg-surface border-y-4 border-y-transparent"></div>
               </div>

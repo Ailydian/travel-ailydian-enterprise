@@ -17,8 +17,7 @@ import {
   Plus,
   Minus,
   ChevronDown,
-  Home } from
-'lucide-react';
+  Home } from 'lucide-react';
 import { useRouter } from 'next/router';
 
 type SearchTab = 'hotels' | 'flights' | 'cars' | 'tours' | 'transfers' | 'rentals';

@@ -35,8 +35,7 @@ import {
   Navigation,
   Home,
   Waves,
-  TreePine } from
-'lucide-react';
+  TreePine } from 'lucide-react';
 import { useSession } from 'next-auth/react';
 import { useCart } from '../../context/CartContext';
 import ResponsiveMobileMenu from './ResponsiveMobileMenu';
@@ -932,7 +931,7 @@ const NavLinkWithSubmenu: React.FC<{
                           <span className="w-1.5 h-1.5 rounded-full bg-orange-500 flex-shrink-0"></span>
                           }
                                 {item.badge &&
-                          <span className="px-1.5 py-0.5 bg-green-500 text-lydian-text-inverse text-[10px] font-bold rounded">
+                          <span className="px-1.5 py-0.5 bg-lydian-success text-lydian-text-inverse text-[10px] font-bold rounded">
                                     {item.badge}
                                   </span>
                           }

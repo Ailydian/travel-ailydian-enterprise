@@ -2,6 +2,7 @@
 
 import React, { useState, useCallback } from 'react';
 import { useFormContext } from 'react-hook-form';
+import { useToast } from '../../../../context/ToastContext';
 import {
   Shield,
   FileText,
@@ -62,6 +63,8 @@ const coverageTypes = [
 ];
 
 export default function Step7Insurance({ data }: Step7Props) {
+  const { showSuccess, showError, showWarning, showInfo, showToast } = useToast();
+
   const {
     register,
     watch,
@@ -82,13 +85,13 @@ export default function Step7Insurance({ data }: Step7Props) {
       // Validate file type
       const allowedTypes = ['application/pdf', 'image/jpeg', 'image/png', 'image/jpg'];
       if (!allowedTypes.includes(file.type)) {
-        alert('Sadece PDF, JPG ve PNG dosyaları yüklenebilir');
+        showToast({ type: 'info', title: 'Sadece PDF, JPG ve PNG dosyaları yüklenebilir' });
         return;
       }
 
       // Validate file size (max 5MB)
       if (file.size > 5 * 1024 * 1024) {
-        alert('Dosya boyutu 5MB\'dan küçük olmalıdır');
+        showToast({ type: 'info', title: 'Dosya boyutu 5MB\'dan küçük olmalıdır' });
         return;
       }
 
@@ -152,7 +155,7 @@ export default function Step7Insurance({ data }: Step7Props) {
       {/* Insurance Information */}
       <div className="border-2 border-slate-200 rounded-xl p-6">
         <div className="flex items-center gap-3 mb-4">
-          <div className="p-2 bg-blue-100 rounded-lg">
+          <div className="p-2 bg-lydian-info-light rounded-lg">
             <Shield className="w-5 h-5 text-lydian-primary" />
           </div>
           <h3 className="text-lg font-bold text-slate-900">Sigorta Bilgileri</h3>
@@ -162,13 +165,13 @@ export default function Step7Insurance({ data }: Step7Props) {
           {/* Insurance Provider */}
           <div>
             <label className="block text-sm font-semibold text-slate-700 mb-2">
-              Sigorta Şirketi <span className="text-red-500">*</span>
+              Sigorta Şirketi <span className="text-lydian-secondary">*</span>
             </label>
             <input
               type="text"
               {...register('insurance.insuranceProvider')}
               placeholder="örn., Anadolu Sigorta, Aksigorta"
-              className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-200 outline-none transition-all"
+              className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-lydian-success focus:ring-2 focus:ring-green-200 outline-none transition-all"
             />
             {errors.insurance?.insuranceProvider && (
               <p className="mt-1 text-sm text-lydian-error">
@@ -181,13 +184,13 @@ export default function Step7Insurance({ data }: Step7Props) {
             {/* Policy Number */}
             <div>
               <label className="block text-sm font-semibold text-slate-700 mb-2">
-                Poliçe Numarası <span className="text-red-500">*</span>
+                Poliçe Numarası <span className="text-lydian-secondary">*</span>
               </label>
               <input
                 type="text"
                 {...register('insurance.policyNumber')}
                 placeholder="örn., POL-2024-123456"
-                className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-200 outline-none transition-all"
+                className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-lydian-success focus:ring-2 focus:ring-green-200 outline-none transition-all"
               />
               {errors.insurance?.policyNumber && (
                 <p className="mt-1 text-sm text-lydian-error">
@@ -199,12 +202,12 @@ export default function Step7Insurance({ data }: Step7Props) {
             {/* Expiry Date */}
             <div>
               <label className="block text-sm font-semibold text-slate-700 mb-2">
-                Bitiş Tarihi <span className="text-red-500">*</span>
+                Bitiş Tarihi <span className="text-lydian-secondary">*</span>
               </label>
               <input
                 type="date"
                 {...register('insurance.expiryDate')}
-                className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-200 outline-none transition-all"
+                className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-lydian-success focus:ring-2 focus:ring-green-200 outline-none transition-all"
               />
               {checkExpiryDate(insuranceExpiryDate) && (
                 <div className="mt-2 flex items-center gap-2">
@@ -237,11 +240,11 @@ export default function Step7Insurance({ data }: Step7Props) {
           {/* Coverage Type */}
           <div>
             <label className="block text-sm font-semibold text-slate-700 mb-2">
-              Sigorta Türü <span className="text-red-500">*</span>
+              Sigorta Türü <span className="text-lydian-secondary">*</span>
             </label>
             <select
               {...register('insurance.coverageType')}
-              className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-200 outline-none transition-all bg-lydian-bg/5"
+              className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-lydian-success focus:ring-2 focus:ring-green-200 outline-none transition-all bg-lydian-bg/5"
             >
               <option value="">Seçiniz</option>
               {coverageTypes.map((type) => (
@@ -272,13 +275,13 @@ export default function Step7Insurance({ data }: Step7Props) {
           {/* Registration Number */}
           <div>
             <label className="block text-sm font-semibold text-slate-700 mb-2">
-              Ruhsat Numarası <span className="text-red-500">*</span>
+              Ruhsat Numarası <span className="text-lydian-secondary">*</span>
             </label>
             <input
               type="text"
               {...register('registration.registrationNumber')}
               placeholder="örn., TR-123456789"
-              className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-200 outline-none transition-all"
+              className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-lydian-success focus:ring-2 focus:ring-green-200 outline-none transition-all"
             />
             {errors.registration?.registrationNumber && (
               <p className="mt-1 text-sm text-lydian-error">
@@ -290,13 +293,13 @@ export default function Step7Insurance({ data }: Step7Props) {
           {/* Registered Owner */}
           <div>
             <label className="block text-sm font-semibold text-slate-700 mb-2">
-              Kayıtlı Malik <span className="text-red-500">*</span>
+              Kayıtlı Malik <span className="text-lydian-secondary">*</span>
             </label>
             <input
               type="text"
               {...register('registration.registeredOwner')}
               placeholder="örn., Ali Veli"
-              className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-200 outline-none transition-all"
+              className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-lydian-success focus:ring-2 focus:ring-green-200 outline-none transition-all"
             />
             {errors.registration?.registeredOwner && (
               <p className="mt-1 text-sm text-lydian-error">
@@ -313,7 +316,7 @@ export default function Step7Insurance({ data }: Step7Props) {
             <input
               type="date"
               {...register('registration.registrationExpiryDate')}
-              className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-200 outline-none transition-all"
+              className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-lydian-success focus:ring-2 focus:ring-green-200 outline-none transition-all"
             />
             {checkExpiryDate(registrationExpiryDate) && (
               <div className="mt-2 flex items-center gap-2">
@@ -342,7 +345,7 @@ export default function Step7Insurance({ data }: Step7Props) {
       {/* Inspection Information */}
       <div className="border-2 border-slate-200 rounded-xl p-6">
         <div className="flex items-center gap-3 mb-4">
-          <div className="p-2 bg-green-100 rounded-lg">
+          <div className="p-2 bg-lydian-success-light rounded-lg">
             <CheckCircle2 className="w-5 h-5 text-lydian-success" />
           </div>
           <h3 className="text-lg font-bold text-slate-900">
@@ -359,7 +362,7 @@ export default function Step7Insurance({ data }: Step7Props) {
             <input
               type="date"
               {...register('inspection.lastInspectionDate')}
-              className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-200 outline-none transition-all"
+              className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-lydian-success focus:ring-2 focus:ring-green-200 outline-none transition-all"
             />
           </div>
 
@@ -371,7 +374,7 @@ export default function Step7Insurance({ data }: Step7Props) {
             <input
               type="date"
               {...register('inspection.nextInspectionDate')}
-              className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-200 outline-none transition-all"
+              className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-lydian-success focus:ring-2 focus:ring-green-200 outline-none transition-all"
             />
             {checkExpiryDate(inspectionExpiryDate) && (
               <div className="mt-2 flex items-center gap-2">
@@ -420,7 +423,7 @@ export default function Step7Insurance({ data }: Step7Props) {
                     <div className="flex items-center gap-2 mb-1">
                       <h4 className="font-semibold text-slate-900">{docType.name}</h4>
                       {docType.required && (
-                        <span className="text-xs text-red-500 font-medium">Zorunlu</span>
+                        <span className="text-xs text-lydian-secondary font-medium">Zorunlu</span>
                       )}
                     </div>
                     <p className="text-sm text-slate-600">{docType.description}</p>
@@ -428,9 +431,9 @@ export default function Step7Insurance({ data }: Step7Props) {
                 </div>
 
                 {uploadedDoc ? (
-                  <div className="flex items-center justify-between p-3 bg-green-50 border border-green-200 rounded-lg">
+                  <div className="flex items-center justify-between p-3 bg-lydian-success-lighter border border-green-200 rounded-lg">
                     <div className="flex items-center gap-3">
-                      <div className="p-2 bg-green-100 rounded">
+                      <div className="p-2 bg-lydian-success-light rounded">
                         <File className="w-5 h-5 text-lydian-success" />
                       </div>
                       <div>
@@ -452,7 +455,7 @@ export default function Step7Insurance({ data }: Step7Props) {
                   </div>
                 ) : (
                   <label className="block">
-                    <div className="border-2 border-dashed border-slate-300 rounded-lg p-6 text-center hover:border-green-500 hover:bg-green-50 transition-all cursor-pointer">
+                    <div className="border-2 border-dashed border-slate-300 rounded-lg p-6 text-center hover:border-lydian-success hover:bg-lydian-success-lighter transition-all cursor-pointer">
                       <Upload className="w-8 h-8 text-slate-400 mx-auto mb-2" />
                       <p className="text-sm font-medium text-slate-700">
                         Belge Yükle
@@ -478,7 +481,7 @@ export default function Step7Insurance({ data }: Step7Props) {
       </div>
 
       {/* Verification Checklist */}
-      <div className="border-2 border-green-500 bg-green-50 rounded-xl p-6">
+      <div className="border-2 border-lydian-success bg-lydian-success-lighter rounded-xl p-6">
         <h3 className="text-lg font-bold text-green-900 mb-4">Doğrulama Kontrol Listesi</h3>
 
         <div className="space-y-3">
@@ -533,7 +536,7 @@ export default function Step7Insurance({ data }: Step7Props) {
       </div>
 
       {/* Important Info */}
-      <div className="p-4 bg-amber-50 border border-amber-200 rounded-lg">
+      <div className="p-4 bg-lydian-warning-lighter border border-amber-200 rounded-lg">
         <div className="flex items-start gap-3">
           <AlertCircle className="w-5 h-5 text-amber-600 mt-0.5" />
           <div>

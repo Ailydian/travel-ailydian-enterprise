@@ -14,14 +14,14 @@ export interface CreateBookingInput {
   checkOutDate?: Date
   guestCount?: number
   specialRequests?: string
-  metaData?: any
+  metaData?: Record<string, unknown>
 }
 
 export interface UpdateBookingInput {
   status?: BookingStatus
   paymentStatus?: PaymentStatus
   specialRequests?: string
-  metaData?: any
+  metaData?: Record<string, unknown>
 }
 
 export interface BookingFilters {
@@ -49,7 +49,7 @@ export class BookingService {
           bookingType: input.bookingType,
           totalAmount: input.totalAmount,
           currency: input.currency || 'TRY',
-          paymentMethod: input.paymentMethod as any,
+          paymentMethod: input.paymentMethod as 'CREDIT_CARD' | 'PAYPAL' | 'BANK_TRANSFER' | 'CASH',
           checkInDate: input.checkInDate,
           checkOutDate: input.checkOutDate,
           guestCount: input.guestCount,
@@ -89,7 +89,7 @@ export class BookingService {
    */
   static async getBookingById(bookingId: string, userId?: string) {
     try {
-      const where: any = { id: bookingId }
+      const where: { id: string; userId?: string } = { id: bookingId }
       if (userId) {
         where.userId = userId
       }

@@ -97,14 +97,14 @@ export default function Step5Legal({ data }: Step5Props) {
                 : 'bg-gradient-to-br from-slate-100 to-slate-200'
             }`}
           >
-            <Icon className={`w-6 h-6 ${isUploaded ? 'text-white' : 'text-slate-600'}`} />
+            <Icon className={`w-6 h-6 ${isUploaded ? 'text-lydian-text-inverse' : 'text-slate-600'}`} />
           </div>
           <div className="flex-1">
             <div className="flex items-start justify-between mb-2">
               <div>
                 <h4 className="font-bold text-slate-900 flex items-center gap-2">
                   {title}
-                  {required && <span className="text-red-500 text-sm">*</span>}
+                  {required && <span className="text-lydian-secondary text-sm">*</span>}
                 </h4>
                 <p className="text-sm text-slate-600 mt-1">{description}</p>
               </div>
@@ -122,7 +122,7 @@ export default function Step5Legal({ data }: Step5Props) {
                 <button
                   type="button"
                   onClick={() => removeDocument(docType)}
-                  className="text-sm text-lydian-error hover:text-red-700 font-semibold"
+                  className="text-sm text-lydian-error hover:text-lydian-primary-hover font-semibold"
                 >
                   Kaldır
                 </button>
@@ -142,7 +142,7 @@ export default function Step5Legal({ data }: Step5Props) {
                 />
                 <label
                   htmlFor={`upload-${docType}`}
-                  className="flex items-center justify-center gap-2 px-4 py-2 bg-gradient-to-r from-cyan-600 to-blue-600 text-white rounded-lg font-semibold hover:from-cyan-700 hover:to-blue-700 cursor-pointer transition-all"
+                  className="flex items-center justify-center gap-2 px-4 py-2 bg-gradient-to-r from-cyan-600 to-blue-600 text-lydian-text-inverse rounded-lg font-semibold hover:from-cyan-700 hover:to-blue-700 cursor-pointer transition-all"
                 >
                   <Upload className="w-4 h-4" />
                   Belge Yükle
@@ -168,7 +168,7 @@ export default function Step5Legal({ data }: Step5Props) {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
           <div>
             <label className="block text-sm font-semibold text-slate-700 mb-2">
-              Belge Veriliş Tarihi <span className="text-red-500">*</span>
+              Belge Veriliş Tarihi <span className="text-lydian-secondary">*</span>
             </label>
             <div className="relative">
               <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
@@ -189,7 +189,7 @@ export default function Step5Legal({ data }: Step5Props) {
 
           <div>
             <label className="block text-sm font-semibold text-slate-700 mb-2">
-              Belge Son Kullanma Tarihi <span className="text-red-500">*</span>
+              Belge Son Kullanma Tarihi <span className="text-lydian-secondary">*</span>
             </label>
             <div className="relative">
               <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
@@ -258,7 +258,7 @@ export default function Step5Legal({ data }: Step5Props) {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
           <div>
             <label className="block text-sm font-semibold text-slate-700 mb-2">
-              Sigorta Şirketi <span className="text-red-500">*</span>
+              Sigorta Şirketi <span className="text-lydian-secondary">*</span>
             </label>
             <input
               type="text"
@@ -275,7 +275,7 @@ export default function Step5Legal({ data }: Step5Props) {
 
           <div>
             <label className="block text-sm font-semibold text-slate-700 mb-2">
-              Poliçe Numarası <span className="text-red-500">*</span>
+              Poliçe Numarası <span className="text-lydian-secondary">*</span>
             </label>
             <input
               type="text"
@@ -292,7 +292,7 @@ export default function Step5Legal({ data }: Step5Props) {
 
           <div>
             <label className="block text-sm font-semibold text-slate-700 mb-2">
-              Yolcu Başı Teminat (₺) <span className="text-red-500">*</span>
+              Yolcu Başı Teminat (₺) <span className="text-lydian-secondary">*</span>
             </label>
             <input
               type="number"
@@ -314,7 +314,7 @@ export default function Step5Legal({ data }: Step5Props) {
 
           <div>
             <label className="block text-sm font-semibold text-slate-700 mb-2">
-              Sigorta Bitiş Tarihi <span className="text-red-500">*</span>
+              Sigorta Bitiş Tarihi <span className="text-lydian-secondary">*</span>
             </label>
             <div className="relative">
               <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
@@ -352,7 +352,7 @@ export default function Step5Legal({ data }: Step5Props) {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
             <label className="block text-sm font-semibold text-slate-700 mb-2">
-              Ad Soyad <span className="text-red-500">*</span>
+              Ad Soyad <span className="text-lydian-secondary">*</span>
             </label>
             <div className="relative">
               <User className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
@@ -372,7 +372,7 @@ export default function Step5Legal({ data }: Step5Props) {
 
           <div>
             <label className="block text-sm font-semibold text-slate-700 mb-2">
-              Telefon <span className="text-red-500">*</span>
+              Telefon <span className="text-lydian-secondary">*</span>
             </label>
             <div className="relative">
               <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
@@ -392,7 +392,7 @@ export default function Step5Legal({ data }: Step5Props) {
 
           <div>
             <label className="block text-sm font-semibold text-slate-700 mb-2">
-              Ehliyet Numarası <span className="text-red-500">*</span>
+              Ehliyet Numarası <span className="text-lydian-secondary">*</span>
             </label>
             <input
               type="text"
@@ -409,7 +409,7 @@ export default function Step5Legal({ data }: Step5Props) {
 
           <div>
             <label className="block text-sm font-semibold text-slate-700 mb-2">
-              Ehliyet Son Kullanma <span className="text-red-500">*</span>
+              Ehliyet Son Kullanma <span className="text-lydian-secondary">*</span>
             </label>
             <div className="relative">
               <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
@@ -430,7 +430,7 @@ export default function Step5Legal({ data }: Step5Props) {
 
           <div>
             <label className="block text-sm font-semibold text-slate-700 mb-2">
-              SRC-4 Belge No <span className="text-red-500">*</span>
+              SRC-4 Belge No <span className="text-lydian-secondary">*</span>
             </label>
             <div className="relative">
               <ClipboardCheck className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
@@ -451,7 +451,7 @@ export default function Step5Legal({ data }: Step5Props) {
 
           <div>
             <label className="block text-sm font-semibold text-slate-700 mb-2">
-              Psikoteknik Belge No <span className="text-red-500">*</span>
+              Psikoteknik Belge No <span className="text-lydian-secondary">*</span>
             </label>
             <div className="relative">
               <Brain className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />

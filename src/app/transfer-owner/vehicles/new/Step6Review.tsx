@@ -57,7 +57,7 @@ export default function Step6Review({ data, allData }: Step6Props) {
     <div className="p-5 bg-lydian-bg/5 border-2 border-slate-200 rounded-xl">
       <div className="flex items-center gap-3 mb-4 pb-3 border-b border-slate-200">
         <div className="p-2 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-lg">
-          <Icon className="w-5 h-5 text-white" />
+          <Icon className="w-5 h-5 text-lydian-text-inverse" />
         </div>
         <h3 className="text-lg font-bold text-slate-900">{title}</h3>
       </div>
@@ -78,7 +78,7 @@ export default function Step6Review({ data, allData }: Step6Props) {
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="p-6 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-xl text-white"
+        className="p-6 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-xl text-lydian-text-inverse"
       >
         <div className="flex items-start justify-between">
           <div>
@@ -100,7 +100,7 @@ export default function Step6Review({ data, allData }: Step6Props) {
             <div className="p-4 bg-gradient-to-br from-cyan-50 to-blue-50 rounded-lg mb-4">
               <div className="flex items-center gap-3">
                 <div className="p-3 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-lg">
-                  <Car className="w-6 h-6 text-white" />
+                  <Car className="w-6 h-6 text-lydian-text-inverse" />
                 </div>
                 <div>
                   <h4 className="font-bold text-cyan-900">{selectedVehicle.name}</h4>
@@ -183,7 +183,7 @@ export default function Step6Review({ data, allData }: Step6Props) {
                 {step4.airports.map((code: string) => (
                   <span
                     key={code}
-                    className="px-3 py-1 bg-blue-100 text-blue-800 text-xs font-bold rounded"
+                    className="px-3 py-1 bg-lydian-info-light text-blue-800 text-xs font-bold rounded"
                   >
                     {code}
                   </span>
@@ -271,7 +271,7 @@ export default function Step6Review({ data, allData }: Step6Props) {
             />
             <div className="flex-1">
               <p className="font-semibold text-slate-900">
-                Kullanım Şartları ve Koşulları <span className="text-red-500">*</span>
+                Kullanım Şartları ve Koşulları <span className="text-lydian-secondary">*</span>
               </p>
               <p className="text-sm text-slate-600 mt-1">
                 Transfer hizmeti sağlama şartlarını, sorumlulukları ve yasal yükümlülükleri okudum
@@ -295,7 +295,7 @@ export default function Step6Review({ data, allData }: Step6Props) {
             />
             <div className="flex-1">
               <p className="font-semibold text-slate-900">
-                Komisyon Yapısı <span className="text-red-500">*</span>
+                Komisyon Yapısı <span className="text-lydian-secondary">*</span>
               </p>
               <p className="text-sm text-slate-600 mt-1">
                 Platform komisyon oranının (%15) her rezervasyondan otomatik olarak kesileceğini
@@ -334,7 +334,7 @@ export default function Step6Review({ data, allData }: Step6Props) {
             </div>
           </label>
 
-          <label className="flex items-start gap-3 p-4 border-2 border-green-300 bg-green-50 rounded-lg cursor-pointer hover:bg-green-100 transition-all">
+          <label className="flex items-start gap-3 p-4 border-2 border-green-300 bg-lydian-success-lighter rounded-lg cursor-pointer hover:bg-green-100 transition-all">
             <input
               type="radio"
               {...register('publishStatus')}
@@ -393,11 +393,11 @@ export default function Step6Review({ data, allData }: Step6Props) {
         >
           <div className="flex items-center gap-3">
             <div className="p-3 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full">
-              <CheckCircle2 className="w-6 h-6 text-white" />
+              <CheckCircle2 className="w-6 h-6 text-lydian-text-inverse" />
             </div>
             <div>
               <h4 className="font-bold text-green-900">Hazırsınız!</h4>
-              <p className="text-sm text-green-700">
+              <p className="text-sm text-lydian-success-text">
                 {publishStatus === 'publish'
                   ? 'Aracınızı yayınlamak için "Aracı Yayınla" butonuna tıklayın'
                   : 'Taslak olarak kaydetmek için "Sonraki Adım" butonuna tıklayın'}
@@ -415,7 +415,7 @@ export default function Step6Review({ data, allData }: Step6Props) {
             <AlertCircle className="w-6 h-6 text-lydian-error" />
             <div>
               <h4 className="font-bold text-red-900">Eksik Onaylar</h4>
-              <p className="text-sm text-red-700">
+              <p className="text-sm text-lydian-primary-hover">
                 Devam etmek için kullanım şartlarını ve komisyon yapısını kabul etmelisiniz
               </p>
             </div>

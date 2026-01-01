@@ -495,7 +495,7 @@ export const LocationPicker: React.FC<LocationPickerProps> = ({
           className="bg-lydian-success-lighter border border-green-200 rounded-lg p-4">
 
             <div className="flex items-start gap-3">
-              <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
+              <CheckCircle className="w-5 h-5 text-lydian-success mt-0.5 flex-shrink-0" />
               <div className="flex-1 min-w-0">
                 <p className="font-medium text-green-900 text-sm mb-1">Seçili Konum:</p>
                 <p className="text-sm text-lydian-success-text">{selectedAddress}</p>

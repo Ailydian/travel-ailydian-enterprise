@@ -17,8 +17,7 @@ import {
   X,
   User,
   ShoppingCart,
-  Heart } from
-'lucide-react';
+  Heart } from 'lucide-react';
 import { useCart } from '../../context/CartContext';
 import LanguageSwitcher from '../LanguageSwitcher';
 import { ThemeToggle } from '../theme/ThemeToggle';

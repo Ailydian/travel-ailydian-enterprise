@@ -12,8 +12,7 @@ import {
   Award,
   Share2,
   History,
-  ChevronRight } from
-'lucide-react';
+  ChevronRight } from 'lucide-react';
 import logger from '../../lib/logger';
 import {
   calculateTierProgress,
@@ -161,7 +160,7 @@ const MilesWallet: React.FC<MilesWalletProps> = ({ userId }) => {
                 {tierProgress.milesNeeded.toLocaleString()} Miles daha kazanın
               </p>
             </div>
-            <Crown className="h-8 w-8 text-yellow-500" />
+            <Crown className="h-8 w-8 text-lydian-warning" />
           </div>
 
           {/* Progress Bar */}
@@ -348,7 +347,7 @@ const MilesWallet: React.FC<MilesWalletProps> = ({ userId }) => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.5 }}
-        className="bg-lydian-warning-lighter border-l-4 border-yellow-500 rounded-lg p-4">
+        className="bg-lydian-warning-lighter border-l-4 border-lydian-warning rounded-lg p-4">
 
           <div className="flex items-start gap-3">
             <AlertCircle className="h-5 w-5 text-lydian-warning flex-shrink-0 mt-0.5" />

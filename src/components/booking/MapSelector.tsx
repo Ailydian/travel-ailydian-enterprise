@@ -5,6 +5,7 @@ import { MapContainer, TileLayer, Marker, useMapEvents } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import logger from '../../lib/logger';
+import { useToast } from '../../context/ToastContext';
 
 // Fix for default marker icon in Next.js
 delete (L.Icon.Default.prototype as any)._getIconUrl;
@@ -31,10 +32,11 @@ interface MapSelectorProps {
 function LocationMarker({
   position,
   onPositionChange
-
-
-
-}: {position: Location | null;onPositionChange: (location: Location) => void;}) {
+}: {
+  position: Location | null;
+  onPositionChange: (location: Location) => void;
+}) {
+  const { showSuccess, showError, showWarning, showInfo, showToast } = useToast();
   const map = useMapEvents({
     click: async (e) => {
       const { lat, lng } = e.latlng;
@@ -205,11 +207,11 @@ const MapSelector: React.FC<MapSelectorProps> = ({
               },
               (error) => {
                 logger.error('Geolocation error:', error as Error, { component: 'Mapselector' });
-                alert('Konum bilgisi alınamadı. Lütfen tarayıcı izinlerini kontrol edin.');
+                showToast({ type: 'error', title: 'Konum bilgisi alınamadı. Lütfen tarayıcı izinlerini kontrol edin.' });
               }
             );
           } else {
-            alert('Tarayıcınız konum servislerini desteklemiyor.');
+            showToast({ type: 'info', title: 'Tarayıcınız konum servislerini desteklemiyor.' });
           }
         }}
         className="w-full px-4 py-2 bg-lydian-primary-lighter text-lydian-primary-dark rounded-lg hover:bg-lydian-primary-light transition-colors font-medium text-sm flex items-center justify-center gap-2">

@@ -6,8 +6,7 @@ import {
   User,
   MessageSquare,
   CheckCircle,
-  XCircle } from
-'lucide-react';
+  XCircle } from 'lucide-react';
 import { StatusBadge } from './StatusBadge';
 
 /**

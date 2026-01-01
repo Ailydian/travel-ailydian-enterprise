@@ -11,8 +11,7 @@ import {
   User,
   Settings,
   LogOut,
-  HelpCircle } from
-'lucide-react';
+  HelpCircle } from 'lucide-react';
 import { getHeaderHeightClasses, getHeaderContainerClasses, LAYOUT_CONSTANTS } from '@/config/layout-constants';
 import { ThemeToggle } from '@/components/theme/ThemeToggle';
 

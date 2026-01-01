@@ -13,8 +13,7 @@ import {
   Eye,
   X,
   ChevronLeft,
-  ChevronRight } from
-'lucide-react';
+  ChevronRight } from 'lucide-react';
 import type { VirtualTour, VirtualTourScene, VirtualTourHotspot } from '@/lib/videoReviews';
 
 interface VirtualTourViewerProps {

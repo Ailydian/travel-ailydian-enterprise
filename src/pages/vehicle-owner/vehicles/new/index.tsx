@@ -9,8 +9,7 @@ import {
   Save,
   CheckCircle2,
   Loader2,
-  AlertCircle } from
-'lucide-react';
+  AlertCircle } from 'lucide-react';
 import {
   Step1Schema,
   Step2Schema,
@@ -41,6 +40,7 @@ import Step8Review from '@/app/vehicle-owner/vehicles/new/Step8Review';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import logger from '../../../../lib/logger';
+import { useToast } from '../../../../context/ToastContext';
 
 export async function getStaticProps({ locale }: any) {
   return {
@@ -191,10 +191,10 @@ export default function VehicleSubmissionWizard() {
 
       localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(draftData));
       setLastSavedAt(new Date());
-      alert('Taslak başarıyla kaydedildi!');
+      showToast({ type: 'success', title: 'Taslak başarıyla kaydedildi!' });
     } catch (error) {
       logger.error('Failed to save draft:', error as Error, { component: 'Index' });
-      alert('Taslak kaydedilemedi. Lütfen tekrar deneyin.');
+      showToast({ type: 'error', title: 'Taslak kaydedilemedi. Lütfen tekrar deneyin.' });
     }
   }, [allFormData, currentStep, completedSteps]);
 
@@ -261,7 +261,7 @@ export default function VehicleSubmissionWizard() {
       }, 3000);
     } catch (error) {
       logger.error('Submission error:', error as Error, { component: 'Index' });
-      alert('Araç gönderilemedi. Lütfen tekrar deneyin.');
+      showToast({ type: 'error', title: 'Araç gönderilemedi. Lütfen tekrar deneyin.' });
     } finally {
       setIsSubmitting(false);
     }

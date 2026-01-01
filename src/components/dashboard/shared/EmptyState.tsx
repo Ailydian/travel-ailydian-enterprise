@@ -5,8 +5,7 @@ import {
   SearchX,
   AlertTriangle,
   FileQuestion,
-  Plus } from
-'lucide-react';
+  Plus } from 'lucide-react';
 
 /**
  * Empty state variant types

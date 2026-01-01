@@ -95,7 +95,7 @@ export default function Step1VehicleCategory({ data }: Step1Props) {
       {/* Vehicle Type Selection */}
       <div>
         <label className="block text-sm font-semibold text-slate-700 mb-4">
-          Araç Tipi Seçin <span className="text-red-500">*</span>
+          Araç Tipi Seçin <span className="text-lydian-secondary">*</span>
         </label>
         <p className="text-sm text-slate-600 mb-6">
           Transfer hizmeti vereceğiniz araç tipini seçin. Seçtiğiniz araç tipi, kapasite ve fiyatlandırmayı belirleyecektir.
@@ -127,7 +127,7 @@ export default function Step1VehicleCategory({ data }: Step1Props) {
                     } ${isSelected ? 'shadow-md' : ''}`}
                   >
                     <Icon
-                      className={`w-7 h-7 ${isSelected ? 'text-white' : 'text-slate-600'}`}
+                      className={`w-7 h-7 ${isSelected ? 'text-lydian-text-inverse' : 'text-slate-600'}`}
                     />
                   </div>
 
@@ -145,7 +145,7 @@ export default function Step1VehicleCategory({ data }: Step1Props) {
                         {getCategoryLabel(vehicle.category)}
                       </span>
                       {vehicle.popular && (
-                        <span className="text-xs font-semibold px-2 py-1 rounded-full bg-amber-100 text-amber-800">
+                        <span className="text-xs font-semibold px-2 py-1 rounded-full bg-lydian-warning-light text-amber-800">
                           Popüler
                         </span>
                       )}
@@ -242,7 +242,7 @@ export default function Step1VehicleCategory({ data }: Step1Props) {
                     className="absolute top-4 right-4 w-7 h-7 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-full flex items-center justify-center shadow-lg"
                   >
                     <svg
-                      className="w-4 h-4 text-white"
+                      className="w-4 h-4 text-lydian-text-inverse"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -316,7 +316,7 @@ export default function Step1VehicleCategory({ data }: Step1Props) {
               {(() => {
                 const selected = vehicleTypeOptions.find((v) => v.id === selectedVehicleType);
                 const SelectedIcon = selected?.icon || Car;
-                return <SelectedIcon className="w-6 h-6 text-white" />;
+                return <SelectedIcon className="w-6 h-6 text-lydian-text-inverse" />;
               })()}
             </div>
             <div>

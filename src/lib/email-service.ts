@@ -53,9 +53,9 @@ export async function sendWelcomeEmail(to: string, name: string): Promise<boolea
       <style>
         body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
         .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-        .header { background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%); color: white; padding: 30px; text-align: center; border-radius: 10px 10px 0 0; }
+        .header { background: linear-gradient(135deg, var(--lydian-info) 0%, var(--lydian-accent-purple) 100%); color: white; padding: 30px; text-align: center; border-radius: 10px 10px 0 0; }
         .content { background: #f8f9fa; padding: 30px; }
-        .button { display: inline-block; padding: 12px 30px; background: #3b82f6; color: white; text-decoration: none; border-radius: 5px; margin: 20px 0; }
+        .button { display: inline-block; padding: 12px 30px; background: var(--lydian-info); color: white; text-decoration: none; border-radius: 5px; margin: 20px 0; }
         .footer { text-align: center; padding: 20px; color: #666; font-size: 14px; }
       </style>
     </head>
@@ -119,11 +119,11 @@ export async function sendBookingConfirmation(
       <style>
         body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
         .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-        .header { background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: white; padding: 30px; text-align: center; border-radius: 10px 10px 0 0; }
+        .header { background: linear-gradient(135deg, var(--lydian-success) 0%, var(--lydian-success-hover) 100%); color: white; padding: 30px; text-align: center; border-radius: 10px 10px 0 0; }
         .content { background: #f8f9fa; padding: 30px; }
         .booking-details { background: white; padding: 20px; border-radius: 10px; margin: 20px 0; }
-        .detail-row { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #e5e7eb; }
-        .button { display: inline-block; padding: 12px 30px; background: #10b981; color: white; text-decoration: none; border-radius: 5px; margin: 20px 0; }
+        .detail-row { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid var(--lydian-border); }
+        .button { display: inline-block; padding: 12px 30px; background: var(--lydian-success); color: white; text-decoration: none; border-radius: 5px; margin: 20px 0; }
         .footer { text-align: center; padding: 20px; color: #666; font-size: 14px; }
       </style>
     </head>
@@ -206,12 +206,12 @@ export async function sendTransferConfirmation(
       <style>
         body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
         .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-        .header { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); color: white; padding: 30px; text-align: center; border-radius: 10px 10px 0 0; }
+        .header { background: linear-gradient(135deg, var(--lydian-warning) 0%, var(--lydian-warning-hover) 100%); color: white; padding: 30px; text-align: center; border-radius: 10px 10px 0 0; }
         .content { background: #f8f9fa; padding: 30px; }
         .vip-badge { background: #fbbf24; color: #78350f; padding: 5px 15px; border-radius: 20px; font-weight: bold; display: inline-block; margin: 10px 0; }
         .transfer-details { background: white; padding: 20px; border-radius: 10px; margin: 20px 0; }
-        .detail-row { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #e5e7eb; }
-        .button { display: inline-block; padding: 12px 30px; background: #f59e0b; color: white; text-decoration: none; border-radius: 5px; margin: 20px 0; }
+        .detail-row { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid var(--lydian-border); }
+        .button { display: inline-block; padding: 12px 30px; background: var(--lydian-warning); color: white; text-decoration: none; border-radius: 5px; margin: 20px 0; }
         .footer { text-align: center; padding: 20px; color: #666; font-size: 14px; }
       </style>
     </head>
@@ -257,7 +257,7 @@ export async function sendTransferConfirmation(
           </div>
 
           ${transfer.isVIP ? `
-          <div style="background: #fef3c7; padding: 15px; border-radius: 10px; margin: 20px 0;">
+          <div style="background: var(--lydian-warning-light); padding: 15px; border-radius: 10px; margin: 20px 0;">
             <h4>🌟 VIP Hizmetleriniz:</h4>
             <ul>
               <li>✅ Meet & Greet - Karşılama servisi</li>
@@ -309,10 +309,10 @@ export async function sendPasswordResetEmail(to: string, resetToken: string, nam
       <style>
         body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
         .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-        .header { background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%); color: white; padding: 30px; text-align: center; border-radius: 10px 10px 0 0; }
+        .header { background: linear-gradient(135deg, var(--lydian-secondary) 0%, var(--lydian-primary) 100%); color: white; padding: 30px; text-align: center; border-radius: 10px 10px 0 0; }
         .content { background: #f8f9fa; padding: 30px; }
-        .button { display: inline-block; padding: 12px 30px; background: #ef4444; color: white; text-decoration: none; border-radius: 5px; margin: 20px 0; }
-        .warning { background: #fef2f2; border-left: 4px solid #ef4444; padding: 15px; margin: 20px 0; }
+        .button { display: inline-block; padding: 12px 30px; background: var(--lydian-secondary); color: white; text-decoration: none; border-radius: 5px; margin: 20px 0; }
+        .warning { background: #fef2f2; border-left: 4px solid var(--lydian-secondary); padding: 15px; margin: 20px 0; }
         .footer { text-align: center; padding: 20px; color: #666; font-size: 14px; }
       </style>
     </head>
@@ -338,7 +338,7 @@ export async function sendPasswordResetEmail(to: string, resetToken: string, nam
           </div>
 
           <p>Link çalışmıyorsa aşağıdaki URL'yi tarayıcınıza kopyalayın:</p>
-          <p style="word-break: break-all; background: #e5e7eb; padding: 10px; border-radius: 5px; font-size: 12px;">${resetUrl}</p>
+          <p style="word-break: break-all; background: var(--lydian-border); padding: 10px; border-radius: 5px; font-size: 12px;">${resetUrl}</p>
         </div>
         <div class="footer">
           <p>&copy; 2025 Holiday.AILYDIAN</p>

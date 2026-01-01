@@ -57,13 +57,13 @@ export default function Step2VehicleInfo({ data, allData }: Step2Props) {
   const years = Array.from({ length: 15 }, (_, i) => currentYear - i);
 
   const colors = [
-    { value: 'white', label: 'Beyaz', hex: '#FFFFFF' },
+    { value: 'white', label: 'Beyaz', hex: 'var(--lydian-text-inverse)' },
     { value: 'black', label: 'Siyah', hex: '#000000' },
-    { value: 'gray', label: 'Gri', hex: '#6B7280' },
+    { value: 'gray', label: 'Gri', hex: 'var(--lydian-text-tertiary)' },
     { value: 'silver', label: 'Gümüş', hex: '#C0C0C0' },
-    { value: 'blue', label: 'Mavi', hex: '#3B82F6' },
-    { value: 'red', label: 'Kırmızı', hex: '#EF4444' },
-    { value: 'other', label: 'Diğer', hex: '#8B5CF6' },
+    { value: 'blue', label: 'Mavi', hex: 'var(--lydian-info)' },
+    { value: 'red', label: 'Kırmızı', hex: 'var(--lydian-secondary)' },
+    { value: 'other', label: 'Diğer', hex: 'var(--lydian-accent-purple)' },
   ];
 
   const toggleFeature = (featureId: string) => {
@@ -89,7 +89,7 @@ export default function Step2VehicleInfo({ data, allData }: Step2Props) {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
           <label className="block text-sm font-semibold text-slate-700 mb-2">
-            Plaka Numarası <span className="text-red-500">*</span>
+            Plaka Numarası <span className="text-lydian-secondary">*</span>
           </label>
           <input
             type="text"
@@ -108,7 +108,7 @@ export default function Step2VehicleInfo({ data, allData }: Step2Props) {
 
         <div>
           <label className="block text-sm font-semibold text-slate-700 mb-2">
-            Marka <span className="text-red-500">*</span>
+            Marka <span className="text-lydian-secondary">*</span>
           </label>
           <input
             type="text"
@@ -126,7 +126,7 @@ export default function Step2VehicleInfo({ data, allData }: Step2Props) {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div>
           <label className="block text-sm font-semibold text-slate-700 mb-2">
-            Model <span className="text-red-500">*</span>
+            Model <span className="text-lydian-secondary">*</span>
           </label>
           <input
             type="text"
@@ -141,7 +141,7 @@ export default function Step2VehicleInfo({ data, allData }: Step2Props) {
 
         <div>
           <label className="block text-sm font-semibold text-slate-700 mb-2">
-            Yıl <span className="text-red-500">*</span>
+            Yıl <span className="text-lydian-secondary">*</span>
           </label>
           <select
             {...register('year', { required: 'Yıl gerekli', valueAsNumber: true })}
@@ -161,7 +161,7 @@ export default function Step2VehicleInfo({ data, allData }: Step2Props) {
 
         <div>
           <label className="block text-sm font-semibold text-slate-700 mb-2">
-            Renk <span className="text-red-500">*</span>
+            Renk <span className="text-lydian-secondary">*</span>
           </label>
           <div className="relative">
             <select
@@ -196,7 +196,7 @@ export default function Step2VehicleInfo({ data, allData }: Step2Props) {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
             <label className="block text-sm font-semibold text-slate-700 mb-2">
-              Yolcu Kapasitesi <span className="text-red-500">*</span>
+              Yolcu Kapasitesi <span className="text-lydian-secondary">*</span>
             </label>
             <input
               type="number"
@@ -221,7 +221,7 @@ export default function Step2VehicleInfo({ data, allData }: Step2Props) {
 
           <div>
             <label className="block text-sm font-semibold text-slate-700 mb-2">
-              Bagaj Kapasitesi <span className="text-red-500">*</span>
+              Bagaj Kapasitesi <span className="text-lydian-secondary">*</span>
             </label>
             <input
               type="number"
@@ -277,7 +277,7 @@ export default function Step2VehicleInfo({ data, allData }: Step2Props) {
                       isSelected ? getCategoryColor(feature.category) : 'from-slate-100 to-slate-200'
                     }`}
                   >
-                    <Icon className={`w-5 h-5 ${isSelected ? 'text-white' : 'text-slate-600'}`} />
+                    <Icon className={`w-5 h-5 ${isSelected ? 'text-lydian-text-inverse' : 'text-slate-600'}`} />
                   </div>
                   <div className="flex-1">
                     <p
@@ -295,7 +295,7 @@ export default function Step2VehicleInfo({ data, allData }: Step2Props) {
                       className="w-5 h-5 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-full flex items-center justify-center"
                     >
                       <svg
-                        className="w-3 h-3 text-white"
+                        className="w-3 h-3 text-lydian-text-inverse"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
@@ -322,7 +322,7 @@ export default function Step2VehicleInfo({ data, allData }: Step2Props) {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
             <label className="block text-sm font-semibold text-slate-700 mb-2">
-              D2 Belge Numarası <span className="text-red-500">*</span>
+              D2 Belge Numarası <span className="text-lydian-secondary">*</span>
             </label>
             <input
               type="text"

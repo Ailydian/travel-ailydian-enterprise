@@ -18,8 +18,7 @@ import {
   Shield,
   TrendingUp,
   Award,
-  ChevronRight } from
-'lucide-react';
+  ChevronRight } from 'lucide-react';
 
 export interface ResponsiveCardProps {
   id: string;

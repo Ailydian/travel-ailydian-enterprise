@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { useFormContext } from 'react-hook-form';
 import { MapPin, Navigation, Globe } from 'lucide-react';
 import logger from '../../../../lib/logger';
+import { useToast } from '../../../../context/ToastContext';
 
 interface Step2Props {
   data?: any;
@@ -53,6 +54,8 @@ const timezones = [
 ];
 
 export default function Step2Location({ data }: Step2Props) {
+  const { showSuccess, showError, showWarning, showInfo, showToast } = useToast();
+
   const {
     register,
     watch,
@@ -82,12 +85,12 @@ export default function Step2Location({ data }: Step2Props) {
         },
         (error) => {
           logger.error('Error getting location:', error as Error, {component:'Step2location'});
-          alert('Konumunuz alınamadı. Lütfen koordinatları manuel olarak girin.');
+          showToast({ type: 'error', title: 'Konumunuz alınamadı. Lütfen koordinatları manuel olarak girin.' });
           setIsLocating(false);
         }
       );
     } else {
-      alert('Coğrafi konum tarayıcınız tarafından desteklenmiyor');
+      showToast({ type: 'info', title: 'Coğrafi konum tarayıcınız tarafından desteklenmiyor' });
       setIsLocating(false);
     }
   };
@@ -97,7 +100,7 @@ export default function Step2Location({ data }: Step2Props) {
       {/* Country */}
       <div>
         <label className="block text-sm font-semibold text-slate-700 mb-2">
-          Ülke <span className="text-red-500">*</span>
+          Ülke <span className="text-lydian-secondary">*</span>
         </label>
         <select
           {...register('country')}
@@ -121,7 +124,7 @@ export default function Step2Location({ data }: Step2Props) {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
           <label className="block text-sm font-semibold text-slate-700 mb-2">
-            İl/Eyalet <span className="text-red-500">*</span>
+            İl/Eyalet <span className="text-lydian-secondary">*</span>
           </label>
           <input
             type="text"
@@ -138,7 +141,7 @@ export default function Step2Location({ data }: Step2Props) {
 
         <div>
           <label className="block text-sm font-semibold text-slate-700 mb-2">
-            Şehir <span className="text-red-500">*</span>
+            Şehir <span className="text-lydian-secondary">*</span>
           </label>
           <input
             type="text"
@@ -156,7 +159,7 @@ export default function Step2Location({ data }: Step2Props) {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
           <label className="block text-sm font-semibold text-slate-700 mb-2">
-            İlçe/Mahalle <span className="text-red-500">*</span>
+            İlçe/Mahalle <span className="text-lydian-secondary">*</span>
           </label>
           <input
             type="text"
@@ -173,7 +176,7 @@ export default function Step2Location({ data }: Step2Props) {
 
         <div>
           <label className="block text-sm font-semibold text-slate-700 mb-2">
-            Posta Kodu <span className="text-red-500">*</span>
+            Posta Kodu <span className="text-lydian-secondary">*</span>
           </label>
           <input
             type="text"
@@ -192,7 +195,7 @@ export default function Step2Location({ data }: Step2Props) {
       {/* Street Address */}
       <div>
         <label className="block text-sm font-semibold text-slate-700 mb-2">
-          Sokak Adresi <span className="text-red-500">*</span>
+          Sokak Adresi <span className="text-lydian-secondary">*</span>
         </label>
         <input
           type="text"
@@ -210,7 +213,7 @@ export default function Step2Location({ data }: Step2Props) {
       {/* Timezone */}
       <div>
         <label className="block text-sm font-semibold text-slate-700 mb-2">
-          Saat Dilimi <span className="text-red-500">*</span>
+          Saat Dilimi <span className="text-lydian-secondary">*</span>
         </label>
         <div className="relative">
           <Globe className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
@@ -237,13 +240,13 @@ export default function Step2Location({ data }: Step2Props) {
       <div>
         <div className="flex items-center justify-between mb-2">
           <label className="block text-sm font-semibold text-slate-700">
-            GPS Koordinatları <span className="text-red-500">*</span>
+            GPS Koordinatları <span className="text-lydian-secondary">*</span>
           </label>
           <button
             type="button"
             onClick={handleGetCurrentLocation}
             disabled={isLocating}
-            className="flex items-center gap-2 px-4 py-2 text-sm bg-blue-50 text-lydian-primary rounded-lg hover:bg-blue-100 transition-all disabled:opacity-50"
+            className="flex items-center gap-2 px-4 py-2 text-sm bg-lydian-info-lighter text-lydian-primary rounded-lg hover:bg-blue-100 transition-all disabled:opacity-50"
           >
             <Navigation className="w-4 h-4" />
             {isLocating ? 'Konum alınıyor...' : 'Mevcut Konumu Kullan'}
@@ -442,7 +445,7 @@ export default function Step2Location({ data }: Step2Props) {
       </div>
 
       {/* Info Box */}
-      <div className="p-4 bg-amber-50 border border-amber-200 rounded-lg">
+      <div className="p-4 bg-lydian-warning-lighter border border-amber-200 rounded-lg">
         <h4 className="font-semibold text-amber-900 mb-2">Konum İpuçları:</h4>
         <ul className="text-sm text-amber-800 space-y-1">
           <li>• Doğru GPS koordinatları misafirlerin mülkünüzü kolayca bulmasına yardımcı olur</li>

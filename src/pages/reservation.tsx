@@ -463,10 +463,9 @@ export default function ReservationPage() {
                           },
                         }))
                       }
-                      icon={<User className="w-4 h-4" />}
+                      leftIcon={<User className="w-4 h-4" />}
                       error={errors.fullName}
-                      required
-                      glowColor="#00BAFF"
+                      requiredColor="#00BAFF"
                     />
                   </div>
 
@@ -483,10 +482,9 @@ export default function ReservationPage() {
                         },
                       }))
                     }
-                    icon={<Mail className="w-4 h-4" />}
+                    leftIcon={<Mail className="w-4 h-4" />}
                     error={errors.email}
-                    required
-                    glowColor="#00BAFF"
+                    requiredColor="#00BAFF"
                   />
 
                   <FuturisticInput
@@ -502,10 +500,9 @@ export default function ReservationPage() {
                         },
                       }))
                     }
-                    icon={<Phone className="w-4 h-4" />}
+                    leftIcon={<Phone className="w-4 h-4" />}
                     error={errors.phone}
-                    required
-                    glowColor="#00BAFF"
+                    requiredColor="#00BAFF"
                   />
 
                   <div>
@@ -588,10 +585,9 @@ export default function ReservationPage() {
                         },
                       }))
                     }
-                    icon={<FileText className="w-4 h-4" />}
+                    leftIcon={<FileText className="w-4 h-4" />}
                     error={errors.passportNumber}
-                    required
-                    glowColor="#667EEA"
+                    requiredColor="#667EEA"
                   />
 
                   <div>
@@ -633,8 +629,7 @@ export default function ReservationPage() {
                         },
                       }))
                     }
-                    icon={<Car className="w-4 h-4" />}
-                    glowColor="#00BAFF"
+                    leftIcon={<Car className="w-4 h-4" />}Color="#00BAFF"
                   />
 
                   <div>
@@ -671,10 +666,9 @@ export default function ReservationPage() {
                         },
                       }))
                     }
-                    icon={<User className="w-4 h-4" />}
+                    leftIcon={<User className="w-4 h-4" />}
                     error={errors.emergencyContact}
-                    required
-                    glowColor="#667EEA"
+                    requiredColor="#667EEA"
                   />
 
                   <FuturisticInput
@@ -690,10 +684,9 @@ export default function ReservationPage() {
                         },
                       }))
                     }
-                    icon={<Phone className="w-4 h-4" />}
+                    leftIcon={<Phone className="w-4 h-4" />}
                     error={errors.emergencyPhone}
-                    required
-                    glowColor="#667EEA"
+                    requiredColor="#667EEA"
                   />
 
                   <div className="md:col-span-2">
@@ -722,8 +715,7 @@ export default function ReservationPage() {
 
             {/* Navigation Buttons */}
             <div className="flex justify-between mt-8 pt-6 border-t border-white/10">
-              <FuturisticButton
-                variant="secondary"
+              <FuturisticButton variant="secondary"
                 size="md"
                 onClick={handleBack}
                 disabled={currentStep === 1}
@@ -731,13 +723,11 @@ export default function ReservationPage() {
                 Geri
               </FuturisticButton>
 
-              <FuturisticButton
-                variant="ai"
+              <FuturisticButton variant="ai"
                 size="md"
                 onClick={handleNext}
-                icon={currentStep === 3 ? <CreditCard className="w-5 h-5" /> : undefined}
+                leftIcon={currentStep === 3 ? <CreditCard className="w-5 h-5" /> : undefined}
                 iconPosition="right"
-                glow
               >
                 {currentStep === 3 ? 'Ödemeye Geç' : 'Devam Et'}
               </FuturisticButton>

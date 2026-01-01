@@ -17,10 +17,10 @@ import {
   Plane,
   Car,
   Compass,
-  Globe } from
-'lucide-react';
+  Globe } from 'lucide-react';
 import { LocationAutocomplete } from './LocationAutocomplete';
 import logger from '../../lib/logger';
+import { useToast } from '../../context/ToastContext';
 
 interface QuickSearchModalProps {
   isOpen: boolean;
@@ -45,6 +45,8 @@ const QuickSearchModal: React.FC<QuickSearchModalProps> = ({
 
   // Initialize default dates
   useEffect(() => {
+    const { showSuccess, showError, showWarning, showInfo, showToast } = useToast();
+
     const today = new Date();
     const tomorrow = new Date(today);
     const dayAfter = new Date(today);
@@ -77,7 +79,7 @@ const QuickSearchModal: React.FC<QuickSearchModalProps> = ({
   const handleAdvancedSearch = useCallback(async () => {
     // Validation
     if (!searchQuery.trim()) {
-      alert('⚠️ Lütfen bir destinasyon girin!');
+      showToast({ type: 'error', title: "⚠️ Lütfen bir destinasyon girin!" });
       return;
     }
 
@@ -88,19 +90,19 @@ const QuickSearchModal: React.FC<QuickSearchModalProps> = ({
     const checkOut = new Date(checkOutDate);
 
     if (checkIn < today) {
-      alert('⚠️ Giriş tarihi geçmiş bir tarih olamaz!');
+      showToast({ type: 'info', title: "⚠️ Giriş tarihi geçmiş bir tarih olamaz!" });
       return;
     }
 
     if (checkOut <= checkIn) {
-      alert('⚠️ Çıkış tarihi, giriş tarihinden sonra olmalıdır!');
+      showToast({ type: 'info', title: "⚠️ Çıkış tarihi, giriş tarihinden sonra olmalıdır!" });
       return;
     }
 
     // Traveler validation
     const travelerCount = parseInt(travelers);
     if (isNaN(travelerCount) || travelerCount < 1 || travelerCount > 20) {
-      alert('⚠️ Yolcu sayısı 1-20 arasında olmalıdır!');
+      showToast({ type: 'info', title: "⚠️ Yolcu sayısı 1-20 arasında olmalıdır!" });
       return;
     }
 
@@ -124,7 +126,7 @@ const QuickSearchModal: React.FC<QuickSearchModalProps> = ({
       onClose();
     } catch (error) {
       logger.error('❌ Arama hatası:', error as Error, { component: 'Quicksearchmodal' });
-      alert('⚠️ Arama sırasında bir hata oluştu. Lütfen tekrar deneyin.');
+      showToast({ type: 'error', title: "⚠️ Arama sırasında bir hata oluştu. Lütfen tekrar deneyin." });
     } finally {
       setIsSearching(false);
     }

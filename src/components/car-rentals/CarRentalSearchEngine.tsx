@@ -7,8 +7,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import {
   MapPin, Calendar, Users, Car, Search, ChevronDown,
-  Clock, Shield, Zap } from
-'lucide-react';
+  Clock, Shield, Zap } from 'lucide-react';
 
 interface CarRentalSearchEngineProps {
   onSearch: (searchData: CarRentalSearchData) => void;

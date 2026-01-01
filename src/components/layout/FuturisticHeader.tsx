@@ -25,8 +25,7 @@ import {
   Users,
   Search,
   Sparkles,
-  Zap } from
-'lucide-react';
+  Zap } from 'lucide-react';
 import { useCart } from '../../context/CartContext';
 import LanguageSwitcher from '../LanguageSwitcher';
 import { LyDianLogo } from '../branding/LyDianLogo';
@@ -63,7 +62,7 @@ export const FuturisticHeader: React.FC = () => {
   { name: 'Transferler', href: '/transfers', icon: Bus, color: '#00BAFF' },
   { name: 'Araç Kiralama', href: '/car-rentals', icon: Car, color: '#FF9500' },
   { name: 'Oteller', href: '/hotels', icon: Hotel, color: '#EC4899' },
-  { name: 'Konaklama', href: '/rentals', icon: Home, color: '#10B981' }];
+  { name: 'Konaklama', href: '/rentals', icon: Home, color: 'var(--lydian-success)' }];
 
 
   const isActive = (href: string) => router.pathname === href || router.pathname.startsWith(href + '/');
@@ -162,8 +161,8 @@ export const FuturisticHeader: React.FC = () => {
                   whileTap={{ scale: 0.95 }}
                   className="hidden md:flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#667EEA] to-[#00BAFF] rounded-xl shadow-lg cursor-pointer group relative overflow-hidden"
                 >
-                  <Users className="w-5 h-5 text-white" />
-                  <span className="text-sm font-bold text-white">Partner Ol</span>
+                  <Users className="w-5 h-5 text-lydian-text-inverse" />
+                  <span className="text-sm font-bold text-lydian-text-inverse">Partner Ol</span>
                   {/* Glow effect */}
                   <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </motion.div>
@@ -325,7 +324,7 @@ const FloatingNavOrb: React.FC<FloatingNavOrbProps> = ({ item, isActive, index, 
           </motion.div>
 
           {/* Text */}
-          <span className={`font-semibold text-sm ${isActive ? 'text-white' : 'text-white/80'}`}>
+          <span className={`font-semibold text-sm ${isActive ? 'text-lydian-text-inverse' : 'text-lydian-text-inverse/80'}`}>
             {item.name}
           </span>
 

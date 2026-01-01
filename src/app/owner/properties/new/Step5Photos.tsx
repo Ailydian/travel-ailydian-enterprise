@@ -13,6 +13,7 @@ import {
   GripVertical,
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useToast } from '../../../../context/ToastContext';
 
 interface Step5Props {
   data?: any;
@@ -41,6 +42,8 @@ const roomTypes = [
 ];
 
 export default function Step5Photos({ data }: Step5Props) {
+  const { showSuccess, showError, showWarning, showInfo, showToast } = useToast();
+
   const {
     register,
     watch,
@@ -65,13 +68,13 @@ export default function Step5Photos({ data }: Step5Props) {
       for (const file of fileArray) {
         // Validate file type
         if (!file.type.startsWith('image/')) {
-          alert(`${file.name} bir resim dosyası değil`);
+          showInfo('${file.name} bir resim dosyası değil');
           continue;
         }
 
         // Validate file size (max 10MB)
         if (file.size > 10 * 1024 * 1024) {
-          alert(`${file.name} 10MB boyut sınırını aşıyor`);
+          showInfo('${file.name} 10MB boyut sınırını aşıyor');
           continue;
         }
 
@@ -181,12 +184,12 @@ export default function Step5Photos({ data }: Step5Props) {
         onDrop={handleDrop}
         className={`border-2 border-dashed rounded-xl p-12 transition-all ${
           isDragging
-            ? 'border-lydian-primary bg-blue-50'
+            ? 'border-lydian-primary bg-lydian-info-lighter'
             : 'border-slate-300 bg-slate-50 hover:border-slate-400'
         }`}
       >
         <div className="text-center">
-          <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+          <div className="w-16 h-16 bg-lydian-info-light rounded-full flex items-center justify-center mx-auto mb-4">
             <Upload className="w-8 h-8 text-lydian-primary" />
           </div>
           <h3 className="text-lg font-semibold text-slate-900 mb-2">
@@ -195,7 +198,7 @@ export default function Step5Photos({ data }: Step5Props) {
           <p className="text-sm text-slate-600 mb-4">
             Resimleri buraya sürükleyip bırakın veya göz atmak için tıklayın
           </p>
-          <label className="inline-block px-6 py-3 bg-lydian-primary text-white rounded-lg font-medium hover:bg-lydian-primary-hover cursor-pointer transition-all">
+          <label className="inline-block px-6 py-3 bg-lydian-primary text-lydian-text-inverse rounded-lg font-medium hover:bg-lydian-primary-hover cursor-pointer transition-all">
             Dosya Seç
             <input
               type="file"
@@ -214,7 +217,7 @@ export default function Step5Photos({ data }: Step5Props) {
       </div>
 
       {/* Photo Requirements */}
-      <div className="p-4 bg-blue-50 border border-blue-200 rounded-lg">
+      <div className="p-4 bg-lydian-info-lighter border border-blue-200 rounded-lg">
         <div className="flex items-start gap-3">
           <AlertCircle className="w-5 h-5 text-lydian-primary mt-0.5" />
           <div>
@@ -278,7 +281,7 @@ export default function Step5Photos({ data }: Step5Props) {
                 >
                   {/* Cover Photo Badge */}
                   {index === coverPhotoIndex && (
-                    <div className="absolute top-3 left-3 z-10 px-3 py-1 bg-lydian-warning-hover text-white text-xs font-bold rounded-full flex items-center gap-1 shadow-lg">
+                    <div className="absolute top-3 left-3 z-10 px-3 py-1 bg-lydian-warning-hover text-lydian-text-inverse text-xs font-bold rounded-full flex items-center gap-1 shadow-lg">
                       <Star className="w-3 h-3 fill-current" />
                       Kapak Fotoğrafı
                     </div>
@@ -339,7 +342,7 @@ export default function Step5Photos({ data }: Step5Props) {
                         <button
                           type="button"
                           onClick={() => setCoverPhoto(index)}
-                          className="flex-1 px-3 py-2 text-sm bg-blue-50 text-lydian-primary rounded-lg hover:bg-blue-100 transition-all font-medium"
+                          className="flex-1 px-3 py-2 text-sm bg-lydian-info-lighter text-lydian-primary rounded-lg hover:bg-lydian-info-light transition-all font-medium"
                         >
                           Kapak Yap
                         </button>

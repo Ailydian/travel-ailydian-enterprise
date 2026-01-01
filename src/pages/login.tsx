@@ -66,7 +66,7 @@ const LoginPage: React.FC = () => {
         {/* Return to Home Button */}
         <Link
           href="/"
-          className="fixed top-6 left-6 z-50 flex items-center gap-2 px-4 py-2 bg-lydian-bg/10 backdrop-blur-xl rounded-xl border border-white/20 text-white hover:bg-lydian-bg/20 transition-all duration-200"
+          className="fixed top-6 left-6 z-50 flex items-center gap-2 px-4 py-2 bg-lydian-bg/10 backdrop-blur-xl rounded-xl border border-white/20 text-lydian-text-inverse hover:bg-lydian-bg/20 transition-all duration-200"
         >
           <ArrowLeft className="w-4 h-4" />
           <span className="font-medium">Ana Sayfaya Dön</span>
@@ -84,17 +84,17 @@ const LoginPage: React.FC = () => {
               <Link href="/" className="inline-block mb-6">
                 <div className="flex items-center justify-center space-x-3">
                   <div className="w-12 h-12 bg-gradient-to-r from-[#667EEA] to-[#764BA2] rounded-xl flex items-center justify-center">
-                    <span className="text-white font-bold text-xl">A</span>
+                    <span className="text-lydian-text-inverse font-bold text-xl">A</span>
                   </div>
                   <div>
-                    <h1 className="text-2xl font-bold text-white">Holiday.AILYDIAN</h1>
-                    <p className="text-xs text-white/70">AI Destekli Seyahat Platformu</p>
+                    <h1 className="text-2xl font-bold text-lydian-text-inverse">Holiday.AILYDIAN</h1>
+                    <p className="text-xs text-lydian-text-inverse/70">AI Destekli Seyahat Platformu</p>
                   </div>
                 </div>
               </Link>
 
-              <h2 className="text-3xl font-bold text-white mb-2">Tekrar Hoş Geldiniz!</h2>
-              <p className="text-white/80">Kişiselleştirilmiş seyahat deneyiminize devam edin</p>
+              <h2 className="text-3xl font-bold text-lydian-text-inverse mb-2">Tekrar Hoş Geldiniz!</h2>
+              <p className="text-lydian-text-inverse/80">Kişiselleştirilmiş seyahat deneyiminize devam edin</p>
             </motion.div>
 
             {/* Main Form Card */}
@@ -115,8 +115,8 @@ const LoginPage: React.FC = () => {
                     onClick={() => setLoginMethod('email')}
                     className={`flex-1 flex items-center justify-center gap-2 py-3 px-4 rounded-xl transition-all font-medium ${
                       loginMethod === 'email'
-                        ? 'bg-gradient-to-r from-[#667EEA] to-[#764BA2] text-white shadow-lg'
-                        : 'text-white/70 hover:text-white'
+                        ? 'bg-gradient-to-r from-[#667EEA] to-[#764BA2] text-lydian-text-inverse shadow-lg'
+                        : 'text-lydian-text-inverse/70 hover:text-lydian-text-inverse'
                     }`}
                   >
                     <Mail className="w-4 h-4" />
@@ -126,8 +126,8 @@ const LoginPage: React.FC = () => {
                     onClick={() => setLoginMethod('phone')}
                     className={`flex-1 flex items-center justify-center gap-2 py-3 px-4 rounded-xl transition-all font-medium ${
                       loginMethod === 'phone'
-                        ? 'bg-gradient-to-r from-[#667EEA] to-[#764BA2] text-white shadow-lg'
-                        : 'text-white/70 hover:text-white'
+                        ? 'bg-gradient-to-r from-[#667EEA] to-[#764BA2] text-lydian-text-inverse shadow-lg'
+                        : 'text-lydian-text-inverse/70 hover:text-lydian-text-inverse'
                     }`}
                   >
                     <Phone className="w-4 h-4" />
@@ -143,9 +143,8 @@ const LoginPage: React.FC = () => {
                     label={loginMethod === 'email' ? 'E-posta Adresi' : 'Telefon Numarası'}
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    icon={loginMethod === 'email' ? <Mail className="w-5 h-5" /> : <Phone className="w-5 h-5" />}
-                    required
-                    glowColor="#667EEA"
+                    leftIcon={loginMethod === 'email' ? <Mail className="w-5 h-5" /> : <Phone className="w-5 h-5" />}
+                    requiredColor="#667EEA"
                   />
 
                   {/* Password Field */}
@@ -155,14 +154,13 @@ const LoginPage: React.FC = () => {
                       label="Şifre"
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
-                      icon={<Lock className="w-5 h-5" />}
-                      required
-                      glowColor="#667EEA"
+                      leftIcon={<Lock className="w-5 h-5" />}
+                      requiredColor="#667EEA"
                     />
                     <button
                       type="button"
                       onClick={() => setShowPassword(!showPassword)}
-                      className="absolute right-3 top-10 text-white/60 hover:text-white transition-colors"
+                      className="absolute right-3 top-10 text-lydian-text-inverse/60 hover:text-lydian-text-inverse transition-colors"
                     >
                       {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
                     </button>
@@ -177,7 +175,7 @@ const LoginPage: React.FC = () => {
                         onChange={(e) => setRememberMe(e.target.checked)}
                         className="rounded border-white/30 bg-lydian-bg/10 text-[#667EEA] focus:ring-[#667EEA] focus:ring-offset-0"
                       />
-                      <span className="ml-2 text-sm text-white/80">Beni Hatırla</span>
+                      <span className="ml-2 text-sm text-lydian-text-inverse/80">Beni Hatırla</span>
                     </label>
                     <Link
                       href="/forgot-password"
@@ -188,11 +186,10 @@ const LoginPage: React.FC = () => {
                   </div>
 
                   {/* Login Button */}
-                  <FuturisticButton
-                    type="submit"
+                  <FuturisticButton type="submit"
                     variant="ai"
                     fullWidth
-                    icon={<ArrowRight className="w-5 h-5" />}
+                    leftIcon={<ArrowRight className="w-5 h-5" />}
                     iconPosition="right"
                   >
                     Giriş Yap
@@ -202,43 +199,37 @@ const LoginPage: React.FC = () => {
                 {/* Divider */}
                 <div className="flex items-center gap-4 my-6">
                   <div className="flex-1 h-px bg-lydian-bg/20"></div>
-                  <span className="text-white/60 text-sm">veya devam et</span>
+                  <span className="text-lydian-text-inverse/60 text-sm">veya devam et</span>
                   <div className="flex-1 h-px bg-lydian-bg/20"></div>
                 </div>
 
                 {/* Social Login */}
                 <div className="space-y-3">
-                  <FuturisticButton
-                    variant="glass"
+                  <FuturisticButton variant="glass"
                     fullWidth
-                    icon={<GoogleIcon />}
-                    iconPosition="left"
-                  >
+                    leftIcon={<GoogleIcon />}
+                    >
                     Google ile devam et
                   </FuturisticButton>
 
-                  <FuturisticButton
-                    variant="glass"
+                  <FuturisticButton variant="glass"
                     fullWidth
-                    icon={<AppleIcon />}
-                    iconPosition="left"
-                  >
+                    leftIcon={<AppleIcon />}
+                    >
                     Apple ile devam et
                   </FuturisticButton>
 
-                  <FuturisticButton
-                    variant="glass"
+                  <FuturisticButton variant="glass"
                     fullWidth
-                    icon={<FacebookIcon />}
-                    iconPosition="left"
-                  >
+                    leftIcon={<FacebookIcon />}
+                    >
                     Facebook ile devam et
                   </FuturisticButton>
                 </div>
 
                 {/* Sign Up Link */}
                 <div className="mt-6 text-center">
-                  <p className="text-white/70">
+                  <p className="text-lydian-text-inverse/70">
                     Hesabınız yok mu?{' '}
                     <Link
                       href="/register"

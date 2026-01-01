@@ -149,7 +149,7 @@ export const ThemeToggle: React.FC<ThemeToggleProps> = ({
             {resolvedTheme === 'dark' ? (
               <Moon className="w-6 h-6 text-blue-400 dark:text-blue-300" />
             ) : (
-              <Sun className="w-6 h-6 text-yellow-500" />
+              <Sun className="w-6 h-6 text-lydian-warning" />
             )}
           </motion.div>
         </AnimatePresence>

@@ -16,8 +16,7 @@ import {
   RefreshCw,
   Zap,
   Target,
-  Brain } from
-'lucide-react';
+  Brain } from 'lucide-react';
 
 interface Tour {
   id: string | number;
@@ -246,7 +245,7 @@ export const AIRecommendations: React.FC<AIRecommendationsProps> = ({
                     </div>
                     <div className="flex items-center justify-between mt-2">
                       <div className="flex items-center gap-1">
-                        <Star className="w-3 h-3 text-yellow-500 fill-yellow-500" />
+                        <Star className="w-3 h-3 text-lydian-warning fill-yellow-500" />
                         <span className="text-xs font-medium">{tour.rating}</span>
                       </div>
                       <div className="text-sm font-bold text-purple-600">

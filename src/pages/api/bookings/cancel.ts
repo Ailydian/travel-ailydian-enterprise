@@ -115,10 +115,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         <style>
           body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
           .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-          .header { background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%); color: white; padding: 30px; text-align: center; border-radius: 10px 10px 0 0; }
+          .header { background: linear-gradient(135deg, var(--lydian-secondary) 0%, var(--lydian-primary) 100%); color: white; padding: 30px; text-align: center; border-radius: 10px 10px 0 0; }
           .content { background: #f8f9fa; padding: 30px; }
           .booking-details { background: white; padding: 20px; border-radius: 10px; margin: 20px 0; }
-          .detail-row { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #e5e7eb; }
+          .detail-row { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid var(--lydian-border); }
           .footer { text-align: center; padding: 20px; color: #666; font-size: 14px; }
         </style>
       </head>

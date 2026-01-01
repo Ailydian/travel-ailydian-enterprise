@@ -116,7 +116,7 @@ function transformFile(filePath: string, config: MigrationConfig): { code: strin
         if (t.isJSXIdentifier(path.node.name) && path.node.name.name === 'className') {
           const value = path.node.value;
 
-          // Handle string literals: className="text-gray-900"
+          // Handle string literals: className="text-lydian-text"
           if (t.isStringLiteral(value)) {
             const { transformed, changed } = transformClassNameValue(value.value);
 
@@ -136,7 +136,7 @@ function transformFile(filePath: string, config: MigrationConfig): { code: strin
             }
           }
 
-          // Handle template literals: className={`text-gray-900 ${foo}`}
+          // Handle template literals: className={`text-lydian-text ${foo}`}
           else if (t.isJSXExpressionContainer(value)) {
             const expression = value.expression;
 

@@ -24,8 +24,7 @@ import {
   Sparkles,
   Package,
   Heart,
-  Star } from
-'lucide-react';
+  Star } from 'lucide-react';
 import { useRouter } from 'next/router';
 
 export type ToastType = 'success' | 'error' | 'warning' | 'info' | 'cart';
@@ -305,7 +304,7 @@ const PremiumToast: React.FC<PremiumToastProps> = ({ toast, onClose, position = 
             }}
             className="absolute top-2 right-2">
 
-              <Sparkles className="w-4 h-4 text-yellow-500 opacity-50" />
+              <Sparkles className="w-4 h-4 text-lydian-warning opacity-50" />
             </motion.div>
             <motion.div
             animate={{

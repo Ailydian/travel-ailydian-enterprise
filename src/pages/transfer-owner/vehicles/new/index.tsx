@@ -8,8 +8,7 @@ import {
   CheckCircle2,
   Loader2,
   AlertCircle,
-  Car } from
-'lucide-react';
+  Car } from 'lucide-react';
 
 import Step1VehicleCategory from '@/app/transfer-owner/vehicles/new/Step1VehicleCategory';
 import Step2VehicleInfo from '@/app/transfer-owner/vehicles/new/Step2VehicleInfo';
@@ -18,6 +17,7 @@ import Step4Routes from '@/app/transfer-owner/vehicles/new/Step4Routes';
 import Step5Legal from '@/app/transfer-owner/vehicles/new/Step5Legal';
 import Step6Review from '@/app/transfer-owner/vehicles/new/Step6Review';
 import logger from '../../../../lib/logger';
+import { useToast } from '../../../../context/ToastContext';
 
 const TOTAL_STEPS = 6;
 const LOCAL_STORAGE_KEY = 'transfer-vehicle-submission-draft';
@@ -51,6 +51,8 @@ const stepDescriptions = [
 
 
 export default function TransferVehicleSubmissionWizard() {
+  const { showSuccess, showError, showWarning, showInfo, showToast } = useToast();
+
   const [currentStep, setCurrentStep] = useState(1);
   const [completedSteps, setCompletedSteps] = useState<number[]>([]);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -139,10 +141,10 @@ export default function TransferVehicleSubmissionWizard() {
 
       localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(draftData));
       setLastSavedAt(new Date());
-      alert('Taslak başarıyla kaydedildi!');
+      showToast({ type: 'success', title: 'Taslak başarıyla kaydedildi!' });
     } catch (error) {
       logger.error('Taslak kaydedilemedi:', error as Error, { component: 'Index' });
-      alert('Taslak kaydedilemedi. Lütfen tekrar deneyin.');
+      showToast({ type: 'error', title: 'Taslak kaydedilemedi. Lütfen tekrar deneyin.' });
     }
   }, [allFormData, currentStep, completedSteps]);
 
@@ -208,7 +210,7 @@ export default function TransferVehicleSubmissionWizard() {
       }, 3000);
     } catch (error) {
       logger.error('Gönderim hatası:', error as Error, { component: 'Index' });
-      alert('Araç eklenemedi. Lütfen tekrar deneyin.');
+      showToast({ type: 'error', title: 'Araç eklenemedi. Lütfen tekrar deneyin.' });
     } finally {
       setIsSubmitting(false);
     }

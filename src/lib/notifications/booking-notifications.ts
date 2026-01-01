@@ -145,12 +145,12 @@ function generatePropertyConfirmationEmail(data: BookingNotification): string {
 </head>
 <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
   <div style="max-width: 600px; margin: 0 auto; padding: 20px;">
-    <div style="background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); color: white; padding: 30px; text-align: center; border-radius: 10px 10px 0 0;">
+    <div style="background: linear-gradient(135deg, var(--lydian-info) 0%, var(--lydian-info-hover) 100%); color: white; padding: 30px; text-align: center; border-radius: 10px 10px 0 0;">
       <h1 style="margin: 0;">Booking Confirmed!</h1>
       <p style="margin: 10px 0 0 0;">Booking Reference: ${data.bookingRef}</p>
     </div>
 
-    <div style="background: #f9fafb; padding: 30px; border-radius: 0 0 10px 10px;">
+    <div style="background: var(--lydian-bg-surface); padding: 30px; border-radius: 0 0 10px 10px;">
       <h2>Dear ${data.customerName},</h2>
       <p>Your property booking has been confirmed. Here are your booking details:</p>
 
@@ -165,7 +165,7 @@ function generatePropertyConfirmationEmail(data: BookingNotification): string {
       <p>We look forward to welcoming you!</p>
 
       <div style="margin-top: 30px; text-align: center;">
-        <a href="https://holiday.ailydian.com/bookings/${data.bookingRef}" style="background: #3b82f6; color: white; padding: 12px 30px; text-decoration: none; border-radius: 6px; display: inline-block;">View Booking</a>
+        <a href="https://holiday.ailydian.com/bookings/${data.bookingRef}" style="background: var(--lydian-info); color: white; padding: 12px 30px; text-decoration: none; border-radius: 6px; display: inline-block;">View Booking</a>
       </div>
     </div>
 
@@ -204,12 +204,12 @@ function generateTransferConfirmationEmail(data: BookingNotification): string {
 </head>
 <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
   <div style="max-width: 600px; margin: 0 auto; padding: 20px;">
-    <div style="background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); color: white; padding: 30px; text-align: center; border-radius: 10px 10px 0 0;">
+    <div style="background: linear-gradient(135deg, var(--lydian-info) 0%, var(--lydian-info-hover) 100%); color: white; padding: 30px; text-align: center; border-radius: 10px 10px 0 0;">
       <h1 style="margin: 0;">Transfer Booked!</h1>
       <p style="margin: 10px 0 0 0;">Booking Reference: ${data.bookingRef}</p>
     </div>
 
-    <div style="background: #f9fafb; padding: 30px; border-radius: 0 0 10px 10px;">
+    <div style="background: var(--lydian-bg-surface); padding: 30px; border-radius: 0 0 10px 10px;">
       <h2>Dear ${data.customerName},</h2>
       <p>Your airport transfer has been confirmed:</p>
 
@@ -226,7 +226,7 @@ function generateTransferConfirmationEmail(data: BookingNotification): string {
       <p>Your driver will be waiting for you at the designated pickup point.</p>
 
       <div style="margin-top: 30px; text-align: center;">
-        <a href="https://holiday.ailydian.com/bookings/${data.bookingRef}" style="background: #3b82f6; color: white; padding: 12px 30px; text-decoration: none; border-radius: 6px; display: inline-block;">View Booking</a>
+        <a href="https://holiday.ailydian.com/bookings/${data.bookingRef}" style="background: var(--lydian-info); color: white; padding: 12px 30px; text-decoration: none; border-radius: 6px; display: inline-block;">View Booking</a>
       </div>
     </div>
 
@@ -250,12 +250,12 @@ function generateFlightConfirmationEmail(data: BookingNotification): string {
 </head>
 <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
   <div style="max-width: 600px; margin: 0 auto; padding: 20px;">
-    <div style="background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); color: white; padding: 30px; text-align: center; border-radius: 10px 10px 0 0;">
+    <div style="background: linear-gradient(135deg, var(--lydian-info) 0%, var(--lydian-info-hover) 100%); color: white; padding: 30px; text-align: center; border-radius: 10px 10px 0 0;">
       <h1 style="margin: 0;">Flight Booked!</h1>
       <p style="margin: 10px 0 0 0;">Booking Reference: ${data.bookingRef}</p>
     </div>
 
-    <div style="background: #f9fafb; padding: 30px; border-radius: 0 0 10px 10px;">
+    <div style="background: var(--lydian-bg-surface); padding: 30px; border-radius: 0 0 10px 10px;">
       <h2>Dear ${data.customerName},</h2>
       <p>Your flight has been confirmed:</p>
 
@@ -273,7 +273,7 @@ function generateFlightConfirmationEmail(data: BookingNotification): string {
       <p>Please arrive at the airport at least 2 hours before departure for international flights.</p>
 
       <div style="margin-top: 30px; text-align: center;">
-        <a href="https://holiday.ailydian.com/bookings/${data.bookingRef}" style="background: #3b82f6; color: white; padding: 12px 30px; text-decoration: none; border-radius: 6px; display: inline-block;">View E-Ticket</a>
+        <a href="https://holiday.ailydian.com/bookings/${data.bookingRef}" style="background: var(--lydian-info); color: white; padding: 12px 30px; text-decoration: none; border-radius: 6px; display: inline-block;">View E-Ticket</a>
       </div>
     </div>
 
@@ -296,12 +296,12 @@ function generateReminderEmail(data: BookingNotification): string {
       <h1 style="margin: 0;">Booking Reminder</h1>
     </div>
 
-    <div style="background: #f9fafb; padding: 30px; border-radius: 0 0 10px 10px;">
+    <div style="background: var(--lydian-bg-surface); padding: 30px; border-radius: 0 0 10px 10px;">
       <h2>Dear ${data.customerName},</h2>
       <p>This is a friendly reminder that your booking ${data.bookingRef} is scheduled for tomorrow.</p>
 
       <div style="margin-top: 30px; text-align: center;">
-        <a href="https://holiday.ailydian.com/bookings/${data.bookingRef}" style="background: #3b82f6; color: white; padding: 12px 30px; text-decoration: none; border-radius: 6px; display: inline-block;">View Booking Details</a>
+        <a href="https://holiday.ailydian.com/bookings/${data.bookingRef}" style="background: var(--lydian-info); color: white; padding: 12px 30px; text-decoration: none; border-radius: 6px; display: inline-block;">View Booking Details</a>
       </div>
     </div>
   </div>
@@ -318,11 +318,11 @@ function generateCancellationEmail(
 <html>
 <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
   <div style="max-width: 600px; margin: 0 auto; padding: 20px;">
-    <div style="background: #ef4444; color: white; padding: 20px; text-align: center; border-radius: 10px 10px 0 0;">
+    <div style="background: var(--lydian-secondary); color: white; padding: 20px; text-align: center; border-radius: 10px 10px 0 0;">
       <h1 style="margin: 0;">Booking Cancelled</h1>
     </div>
 
-    <div style="background: #f9fafb; padding: 30px; border-radius: 0 0 10px 10px;">
+    <div style="background: var(--lydian-bg-surface); padding: 30px; border-radius: 0 0 10px 10px;">
       <h2>Dear ${data.customerName},</h2>
       <p>Your booking ${data.bookingRef} has been cancelled.</p>
 
@@ -349,18 +349,18 @@ function generatePaymentConfirmationEmail(data: BookingNotification): string {
 <html>
 <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
   <div style="max-width: 600px; margin: 0 auto; padding: 20px;">
-    <div style="background: #10b981; color: white; padding: 20px; text-align: center; border-radius: 10px 10px 0 0;">
+    <div style="background: var(--lydian-success); color: white; padding: 20px; text-align: center; border-radius: 10px 10px 0 0;">
       <h1 style="margin: 0;">Payment Received</h1>
     </div>
 
-    <div style="background: #f9fafb; padding: 30px; border-radius: 0 0 10px 10px;">
+    <div style="background: var(--lydian-bg-surface); padding: 30px; border-radius: 0 0 10px 10px;">
       <h2>Dear ${data.customerName},</h2>
       <p>We have received your payment for booking ${data.bookingRef}.</p>
 
       <p>Thank you for choosing Travel LyDian!</p>
 
       <div style="margin-top: 30px; text-align: center;">
-        <a href="https://holiday.ailydian.com/bookings/${data.bookingRef}/invoice" style="background: #3b82f6; color: white; padding: 12px 30px; text-decoration: none; border-radius: 6px; display: inline-block;">Download Invoice</a>
+        <a href="https://holiday.ailydian.com/bookings/${data.bookingRef}/invoice" style="background: var(--lydian-info); color: white; padding: 12px 30px; text-decoration: none; border-radius: 6px; display: inline-block;">Download Invoice</a>
       </div>
     </div>
   </div>

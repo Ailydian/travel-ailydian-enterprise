@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { useSession } from 'next-auth/react';
 import { format } from 'date-fns';
 import logger from '../../lib/logger';
+import { useToast } from '../../context/ToastContext';
 
 interface PriceAlert {
   id: string;
@@ -23,6 +24,8 @@ interface PriceAlert {
 }
 
 export default function PriceAlertsDashboard() {
+  const { showSuccess, showError, showWarning, showInfo, showToast } = useToast();
+
   const { data: session } = useSession();
   const [alerts, setAlerts] = useState<PriceAlert[]>([]);
   const [loading, setLoading] = useState(true);
@@ -64,11 +67,11 @@ export default function PriceAlertsDashboard() {
       if (data.success) {
         setAlerts(alerts.filter((alert) => alert.id !== alertId));
       } else {
-        alert('Failed to delete alert');
+        showToast({ type: 'error', title: 'Failed to delete alert' });
       }
     } catch (error) {
       logger.error('Error deleting alert:', error as Error, { component: 'Pricealertsdashboard' });
-      alert('Failed to delete alert');
+      showToast({ type: 'error', title: 'Failed to delete alert' });
     }
   };
 
@@ -91,11 +94,11 @@ export default function PriceAlertsDashboard() {
           )
         );
       } else {
-        alert('Failed to update alert');
+        showToast({ type: 'error', title: 'Failed to update alert' });
       }
     } catch (error) {
       logger.error('Error updating alert:', error as Error, { component: 'Pricealertsdashboard' });
-      alert('Failed to update alert');
+      showToast({ type: 'error', title: 'Failed to update alert' });
     }
   };
 

@@ -12,8 +12,7 @@ import {
   ChevronDown,
   AlertCircle,
   CheckCircle,
-  Loader } from
-'lucide-react';
+  Loader } from 'lucide-react';
 import useVoiceMenu from '@/hooks/useVoiceMenu';
 
 interface VoiceMenuProps {
@@ -245,7 +244,7 @@ export const VoiceMenu: React.FC<VoiceMenuProps> = ({ className = '' }) => {
             <div className="absolute top-full right-0 mt-2 w-72 bg-lydian-glass-dark rounded-xl shadow-xl border border-lydian-border-light/10 p-4 z-50">
             <div className="flex items-center justify-between mb-3">
               <h4 className="font-semibold text-lydian-text-inverse flex items-center gap-2">
-                <Zap className="w-4 h-4 text-yellow-500" />
+                <Zap className="w-4 h-4 text-lydian-warning" />
                 Deneyebileceğiniz komutlar
               </h4>
               <button

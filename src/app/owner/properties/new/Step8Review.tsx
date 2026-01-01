@@ -43,7 +43,7 @@ export default function Step8Review({ data, allData }: Step8Props) {
       <div className="p-6 bg-gradient-to-br from-indigo-50 to-purple-50 border-2 border-indigo-200 rounded-xl">
         <div className="flex items-start gap-4">
           <div className="p-3 bg-indigo-500 rounded-lg">
-            <Sparkles className="w-6 h-6 text-white" />
+            <Sparkles className="w-6 h-6 text-lydian-text-inverse" />
           </div>
           <div>
             <h3 className="text-xl font-bold text-indigo-900 mb-2">
@@ -171,7 +171,7 @@ export default function Step8Review({ data, allData }: Step8Props) {
               step3.amenities.map((amenity: string, index: number) => (
                 <span
                   key={index}
-                  className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs font-medium"
+                  className="px-3 py-1 bg-lydian-info-light text-blue-800 rounded-full text-xs font-medium"
                 >
                   {amenity}
                 </span>
@@ -277,7 +277,7 @@ export default function Step8Review({ data, allData }: Step8Props) {
                     className="w-full h-full object-cover"
                   />
                   {index === step5.coverPhotoIndex && (
-                    <div className="absolute top-1 right-1 px-2 py-0.5 bg-lydian-warning-hover text-white text-xs font-bold rounded">
+                    <div className="absolute top-1 right-1 px-2 py-0.5 bg-lydian-warning-hover text-lydian-text-inverse text-xs font-bold rounded">
                       Kapak
                     </div>
                   )}
@@ -443,7 +443,7 @@ export default function Step8Review({ data, allData }: Step8Props) {
       </div>
 
       {/* Warning */}
-      <div className="p-4 bg-amber-50 border border-amber-200 rounded-lg">
+      <div className="p-4 bg-lydian-warning-lighter border border-amber-200 rounded-lg">
         <div className="flex items-start gap-3">
           <AlertCircle className="w-5 h-5 text-amber-600 mt-0.5" />
           <div>

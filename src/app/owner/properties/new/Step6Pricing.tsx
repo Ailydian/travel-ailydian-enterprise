@@ -81,7 +81,7 @@ export default function Step6Pricing({ data }: Step6Props) {
       {/* Check-in/Check-out Times */}
       <div className="border-2 border-slate-200 rounded-xl p-6">
         <div className="flex items-center gap-3 mb-4">
-          <div className="p-2 bg-blue-100 rounded-lg">
+          <div className="p-2 bg-lydian-info-light rounded-lg">
             <Clock className="w-5 h-5 text-lydian-primary" />
           </div>
           <h3 className="text-lg font-bold text-slate-900">Giriş ve Çıkış</h3>
@@ -90,7 +90,7 @@ export default function Step6Pricing({ data }: Step6Props) {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
             <label className="block text-sm font-semibold text-slate-700 mb-2">
-              Giriş Saati <span className="text-red-500">*</span>
+              Giriş Saati <span className="text-lydian-secondary">*</span>
             </label>
             <input
               type="time"
@@ -109,7 +109,7 @@ export default function Step6Pricing({ data }: Step6Props) {
 
           <div>
             <label className="block text-sm font-semibold text-slate-700 mb-2">
-              Çıkış Saati <span className="text-red-500">*</span>
+              Çıkış Saati <span className="text-lydian-secondary">*</span>
             </label>
             <input
               type="time"
@@ -136,7 +136,7 @@ export default function Step6Pricing({ data }: Step6Props) {
           {/* Smoking */}
           <div className="flex items-center justify-between p-4 bg-slate-50 rounded-lg">
             <div className="flex items-center gap-3">
-              <div className="p-2 bg-red-100 rounded-lg">
+              <div className="p-2 bg-lydian-primary-lighter rounded-lg">
                 <Ban className="w-5 h-5 text-lydian-error" />
               </div>
               <div>
@@ -162,7 +162,7 @@ export default function Step6Pricing({ data }: Step6Props) {
           {/* Pets */}
           <div className="flex items-center justify-between p-4 bg-slate-50 rounded-lg">
             <div className="flex items-center gap-3">
-              <div className="p-2 bg-amber-100 rounded-lg">
+              <div className="p-2 bg-lydian-warning-light rounded-lg">
                 <PawPrint className="w-5 h-5 text-amber-600" />
               </div>
               <div>
@@ -278,7 +278,7 @@ export default function Step6Pricing({ data }: Step6Props) {
           {/* Commercial Photography */}
           <div className="flex items-center justify-between p-4 bg-slate-50 rounded-lg">
             <div className="flex items-center gap-3">
-              <div className="p-2 bg-green-100 rounded-lg">
+              <div className="p-2 bg-lydian-success-light rounded-lg">
                 <Camera className="w-5 h-5 text-lydian-success" />
               </div>
               <div>
@@ -346,7 +346,7 @@ export default function Step6Pricing({ data }: Step6Props) {
             type="button"
             onClick={addCustomRule}
             disabled={!newRule.trim() || customRules.length >= 5}
-            className="px-6 py-3 bg-lydian-primary text-white rounded-lg font-medium hover:bg-lydian-primary-hover disabled:opacity-50 disabled:cursor-not-allowed transition-all flex items-center gap-2"
+            className="px-6 py-3 bg-lydian-primary text-lydian-text-inverse rounded-lg font-medium hover:bg-lydian-primary-hover disabled:opacity-50 disabled:cursor-not-allowed transition-all flex items-center gap-2"
           >
             <Plus className="w-5 h-5" />
             Ekle
@@ -359,7 +359,7 @@ export default function Step6Pricing({ data }: Step6Props) {
       {/* Cancellation Policy */}
       <div className="border-2 border-slate-200 rounded-xl p-6">
         <div className="flex items-center gap-3 mb-4">
-          <div className="p-2 bg-red-100 rounded-lg">
+          <div className="p-2 bg-lydian-primary-lighter rounded-lg">
             <Shield className="w-5 h-5 text-lydian-error" />
           </div>
           <h3 className="text-lg font-bold text-slate-900">İptal Politikası</h3>

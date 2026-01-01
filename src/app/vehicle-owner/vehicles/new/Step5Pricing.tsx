@@ -75,7 +75,7 @@ export default function Step5Pricing({ data }: Step5Props) {
       {/* Currency Selection */}
       <div className="border-2 border-slate-200 rounded-xl p-6">
         <div className="flex items-center gap-3 mb-4">
-          <div className="p-2 bg-green-100 rounded-lg">
+          <div className="p-2 bg-lydian-success-light rounded-lg">
             <DollarSign className="w-5 h-5 text-lydian-success" />
           </div>
           <h3 className="text-lg font-bold text-slate-900">Para Birimi</h3>
@@ -89,7 +89,7 @@ export default function Step5Pricing({ data }: Step5Props) {
               onClick={() => setValue('currency', curr.value, { shouldValidate: true })}
               className={`p-4 border-2 rounded-lg font-semibold transition-all ${
                 currency === curr.value
-                  ? 'border-green-500 bg-green-50 text-green-900'
+                  ? 'border-lydian-success bg-lydian-success-lighter text-green-900'
                   : 'border-slate-200 bg-lydian-bg/5 text-slate-700 hover:border-slate-300'
               }`}
             >
@@ -103,7 +103,7 @@ export default function Step5Pricing({ data }: Step5Props) {
       {/* Daily Rate */}
       <div className="border-2 border-slate-200 rounded-xl p-6">
         <div className="flex items-center gap-3 mb-4">
-          <div className="p-2 bg-blue-100 rounded-lg">
+          <div className="p-2 bg-lydian-info-light rounded-lg">
             <DollarSign className="w-5 h-5 text-lydian-primary" />
           </div>
           <h3 className="text-lg font-bold text-slate-900">Günlük Ücret</h3>
@@ -111,7 +111,7 @@ export default function Step5Pricing({ data }: Step5Props) {
 
         <div>
           <label className="block text-sm font-semibold text-slate-700 mb-2">
-            Günlük Kiralama Ücreti <span className="text-red-500">*</span>
+            Günlük Kiralama Ücreti <span className="text-lydian-secondary">*</span>
           </label>
           <div className="relative">
             <span className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 font-semibold">
@@ -123,7 +123,7 @@ export default function Step5Pricing({ data }: Step5Props) {
               placeholder="0"
               min="0"
               step="10"
-              className="w-full pl-12 pr-4 py-3 border-2 border-slate-200 rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-200 outline-none transition-all text-lg font-semibold"
+              className="w-full pl-12 pr-4 py-3 border-2 border-slate-200 rounded-lg focus:border-lydian-success focus:ring-2 focus:ring-green-200 outline-none transition-all text-lg font-semibold"
             />
           </div>
           <p className="mt-1 text-xs text-slate-500">
@@ -140,7 +140,7 @@ export default function Step5Pricing({ data }: Step5Props) {
       {/* Discounts */}
       <div className="border-2 border-slate-200 rounded-xl p-6">
         <div className="flex items-center gap-3 mb-4">
-          <div className="p-2 bg-amber-100 rounded-lg">
+          <div className="p-2 bg-lydian-warning-light rounded-lg">
             <TrendingDown className="w-5 h-5 text-amber-600" />
           </div>
           <h3 className="text-lg font-bold text-slate-900">İndirimler</h3>
@@ -160,7 +160,7 @@ export default function Step5Pricing({ data }: Step5Props) {
                 min="0"
                 max="50"
                 step="5"
-                className="w-full pr-12 pl-4 py-3 border-2 border-slate-200 rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-200 outline-none transition-all"
+                className="w-full pr-12 pl-4 py-3 border-2 border-slate-200 rounded-lg focus:border-lydian-success focus:ring-2 focus:ring-green-200 outline-none transition-all"
               />
               <span className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-500 font-semibold">
                 %
@@ -181,7 +181,7 @@ export default function Step5Pricing({ data }: Step5Props) {
                 min="0"
                 max="50"
                 step="5"
-                className="w-full pr-12 pl-4 py-3 border-2 border-slate-200 rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-200 outline-none transition-all"
+                className="w-full pr-12 pl-4 py-3 border-2 border-slate-200 rounded-lg focus:border-lydian-success focus:ring-2 focus:ring-green-200 outline-none transition-all"
               />
               <span className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-500 font-semibold">
                 %
@@ -207,7 +207,7 @@ export default function Step5Pricing({ data }: Step5Props) {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
             <label className="block text-sm font-semibold text-slate-700 mb-2">
-              Depozito Tutarı <span className="text-red-500">*</span>
+              Depozito Tutarı <span className="text-lydian-secondary">*</span>
             </label>
             <div className="relative">
               <span className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 font-semibold">
@@ -219,7 +219,7 @@ export default function Step5Pricing({ data }: Step5Props) {
                 placeholder="0"
                 min="0"
                 step="100"
-                className="w-full pl-12 pr-4 py-3 border-2 border-slate-200 rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-200 outline-none transition-all"
+                className="w-full pl-12 pr-4 py-3 border-2 border-slate-200 rounded-lg focus:border-lydian-success focus:ring-2 focus:ring-green-200 outline-none transition-all"
               />
             </div>
             {errors.securityDeposit && (
@@ -239,7 +239,7 @@ export default function Step5Pricing({ data }: Step5Props) {
               placeholder="7"
               min="1"
               max="30"
-              className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-200 outline-none transition-all"
+              className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-lydian-success focus:ring-2 focus:ring-green-200 outline-none transition-all"
             />
           </div>
         </div>
@@ -248,7 +248,7 @@ export default function Step5Pricing({ data }: Step5Props) {
       {/* Mileage Limit */}
       <div className="border-2 border-slate-200 rounded-xl p-6">
         <div className="flex items-center gap-3 mb-4">
-          <div className="p-2 bg-red-100 rounded-lg">
+          <div className="p-2 bg-lydian-primary-lighter rounded-lg">
             <Gauge className="w-5 h-5 text-lydian-error" />
           </div>
           <h3 className="text-lg font-bold text-slate-900">Kilometre Limiti</h3>
@@ -262,7 +262,7 @@ export default function Step5Pricing({ data }: Step5Props) {
               onClick={() => setValue('mileageLimit.type', 'unlimited', { shouldValidate: true })}
               className={`flex-1 p-4 border-2 rounded-lg transition-all ${
                 mileageType === 'unlimited'
-                  ? 'border-green-500 bg-green-50'
+                  ? 'border-lydian-success bg-lydian-success-lighter'
                   : 'border-slate-200 bg-lydian-bg/5 hover:border-slate-300'
               }`}
             >
@@ -274,7 +274,7 @@ export default function Step5Pricing({ data }: Step5Props) {
               onClick={() => setValue('mileageLimit.type', 'limited', { shouldValidate: true })}
               className={`flex-1 p-4 border-2 rounded-lg transition-all ${
                 mileageType === 'limited'
-                  ? 'border-green-500 bg-green-50'
+                  ? 'border-lydian-success bg-lydian-success-lighter'
                   : 'border-slate-200 bg-lydian-bg/5 hover:border-slate-300'
               }`}
             >
@@ -297,7 +297,7 @@ export default function Step5Pricing({ data }: Step5Props) {
                   placeholder="200"
                   min="0"
                   step="50"
-                  className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-200 outline-none transition-all"
+                  className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-lydian-success focus:ring-2 focus:ring-green-200 outline-none transition-all"
                 />
               </div>
 
@@ -311,7 +311,7 @@ export default function Step5Pricing({ data }: Step5Props) {
                   placeholder="0.5"
                   min="0"
                   step="0.1"
-                  className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-200 outline-none transition-all"
+                  className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-lydian-success focus:ring-2 focus:ring-green-200 outline-none transition-all"
                 />
               </div>
             </div>
@@ -339,7 +339,7 @@ export default function Step5Pricing({ data }: Step5Props) {
                 onClick={() => setValue('fuelPolicy', policy.value, { shouldValidate: true })}
                 className={`w-full p-4 border-2 rounded-lg text-left transition-all ${
                   isSelected
-                    ? 'border-green-500 bg-green-50'
+                    ? 'border-lydian-success bg-lydian-success-lighter'
                     : 'border-slate-200 bg-lydian-bg/5 hover:border-slate-300'
                 }`}
               >
@@ -347,7 +347,7 @@ export default function Step5Pricing({ data }: Step5Props) {
                   <div
                     className={`w-5 h-5 rounded-full border-2 flex items-center justify-center mt-0.5 ${
                       isSelected
-                        ? 'border-green-500 bg-green-500'
+                        ? 'border-lydian-success bg-green-500'
                         : 'border-slate-300'
                     }`}
                   >
@@ -393,7 +393,7 @@ export default function Step5Pricing({ data }: Step5Props) {
                 placeholder="0"
                 min="0"
                 step="5"
-                className="w-full pl-12 pr-4 py-3 border-2 border-slate-200 rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-200 outline-none transition-all"
+                className="w-full pl-12 pr-4 py-3 border-2 border-slate-200 rounded-lg focus:border-lydian-success focus:ring-2 focus:ring-green-200 outline-none transition-all"
               />
             </div>
           </div>
@@ -414,7 +414,7 @@ export default function Step5Pricing({ data }: Step5Props) {
                 placeholder="0"
                 min="0"
                 step="5"
-                className="w-full pl-12 pr-4 py-3 border-2 border-slate-200 rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-200 outline-none transition-all"
+                className="w-full pl-12 pr-4 py-3 border-2 border-slate-200 rounded-lg focus:border-lydian-success focus:ring-2 focus:ring-green-200 outline-none transition-all"
               />
             </div>
           </div>
@@ -435,7 +435,7 @@ export default function Step5Pricing({ data }: Step5Props) {
                 placeholder="0"
                 min="0"
                 step="5"
-                className="w-full pl-12 pr-4 py-3 border-2 border-slate-200 rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-200 outline-none transition-all"
+                className="w-full pl-12 pr-4 py-3 border-2 border-slate-200 rounded-lg focus:border-lydian-success focus:ring-2 focus:ring-green-200 outline-none transition-all"
               />
             </div>
           </div>
@@ -456,7 +456,7 @@ export default function Step5Pricing({ data }: Step5Props) {
                 placeholder="0"
                 min="0"
                 step="5"
-                className="w-full pl-12 pr-4 py-3 border-2 border-slate-200 rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-200 outline-none transition-all"
+                className="w-full pl-12 pr-4 py-3 border-2 border-slate-200 rounded-lg focus:border-lydian-success focus:ring-2 focus:ring-green-200 outline-none transition-all"
               />
             </div>
           </div>
@@ -468,9 +468,9 @@ export default function Step5Pricing({ data }: Step5Props) {
       </div>
 
       {/* Price Calculator Preview */}
-      <div className="border-2 border-green-500 bg-green-50 rounded-xl p-6">
+      <div className="border-2 border-lydian-success bg-lydian-success-lighter rounded-xl p-6">
         <div className="flex items-center gap-3 mb-4">
-          <div className="p-2 bg-green-100 rounded-lg">
+          <div className="p-2 bg-lydian-success-light rounded-lg">
             <Calculator className="w-5 h-5 text-lydian-success" />
           </div>
           <h3 className="text-lg font-bold text-green-900">Fiyat Önizlemesi</h3>

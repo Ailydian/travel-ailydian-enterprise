@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 import { FuturisticHeader } from '../components/layout/FuturisticHeader';
 import { FuturisticButton } from '../components/neo-glass/FuturisticButton';
 import logger from '../lib/logger';
+import { useToast } from '../context/ToastContext';
 import {
   CheckCircle,
   Download,
@@ -21,7 +22,7 @@ import {
   FileText,
   Star,
   Gift,
-  Sparkles,
+  Sparkles
 } from 'lucide-react';
 
 interface BookingDetails {
@@ -38,6 +39,8 @@ interface BookingDetails {
 }
 
 const BookingConfirmed: React.FC = () => {
+  const { showSuccess, showError, showWarning, showInfo, showToast } = useToast();
+
   const router = useRouter();
   const { ref } = router.query;
   const [booking, setBooking] = useState<BookingDetails | null>(null);
@@ -81,7 +84,7 @@ const BookingConfirmed: React.FC = () => {
 
   const handleDownloadTicket = () => {
     // Implement ticket download
-    alert('Downloading ticket/invoice...');
+    showToast({ type: 'info', title: 'Downloading ticket/invoice...' });
   };
 
   const handleAddToCalendar = () => {
@@ -189,7 +192,7 @@ END:VCALENDAR`;
                   className="absolute inset-0 bg-gradient-to-r from-green-400 to-emerald-500 rounded-full blur-2xl opacity-50"
                 />
                 <div className="relative w-24 h-24 bg-gradient-to-r from-green-400 to-emerald-500 rounded-full flex items-center justify-center shadow-lg shadow-green-500/50">
-                  <CheckCircle className="w-16 h-16 text-white" strokeWidth={2} />
+                  <CheckCircle className="w-16 h-16 text-lydian-text-inverse" strokeWidth={2} />
                 </div>
               </div>
             </motion.div>
@@ -258,35 +261,29 @@ END:VCALENDAR`;
 
             {/* Quick Actions */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <FuturisticButton
-                variant="primary"
+              <FuturisticButton variant="gradient"
                 size="md"
                 fullWidth
                 onClick={handleDownloadTicket}
-                icon={<Download className="w-5 h-5" />}
-                iconPosition="left"
-              >
+                leftIcon={<Download className="w-5 h-5" />}
+                >
                 Download Ticket
               </FuturisticButton>
 
-              <FuturisticButton
-                variant="secondary"
+              <FuturisticButton variant="secondary"
                 size="md"
                 fullWidth
                 onClick={handleAddToCalendar}
-                icon={<Calendar className="w-5 h-5" />}
-                iconPosition="left"
-              >
+                leftIcon={<Calendar className="w-5 h-5" />}
+                >
                 Add to Calendar
               </FuturisticButton>
 
-              <FuturisticButton
-                variant="accent"
+              <FuturisticButton variant="accent"
                 size="md"
                 fullWidth
-                icon={<Share2 className="w-5 h-5" />}
-                iconPosition="left"
-              >
+                leftIcon={<Share2 className="w-5 h-5" />}
+                >
                 Share
               </FuturisticButton>
             </div>
@@ -427,7 +424,7 @@ END:VCALENDAR`;
             <h3 className="text-2xl font-bold text-lydian-text-inverse mb-6">What's Next?</h3>
             <div className="space-y-4">
               <div className="flex items-start gap-4">
-                <div className="w-8 h-8 bg-gradient-to-r from-[#667EEA] to-[#00BAFF] text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">
+                <div className="w-8 h-8 bg-gradient-to-r from-[#667EEA] to-[#00BAFF] text-lydian-text-inverse rounded-full flex items-center justify-center font-bold flex-shrink-0">
                   1
                 </div>
                 <div>
@@ -439,7 +436,7 @@ END:VCALENDAR`;
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="w-8 h-8 bg-gradient-to-r from-[#EC4899] to-[#FF9500] text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">
+                <div className="w-8 h-8 bg-gradient-to-r from-[#EC4899] to-[#FF9500] text-lydian-text-inverse rounded-full flex items-center justify-center font-bold flex-shrink-0">
                   2
                 </div>
                 <div>
@@ -451,7 +448,7 @@ END:VCALENDAR`;
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="w-8 h-8 bg-gradient-to-r from-green-400 to-emerald-500 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">
+                <div className="w-8 h-8 bg-gradient-to-r from-green-400 to-emerald-500 text-lydian-text-inverse rounded-full flex items-center justify-center font-bold flex-shrink-0">
                   3
                 </div>
                 <div>
@@ -472,12 +469,9 @@ END:VCALENDAR`;
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
             <Link href="/bookings">
-              <FuturisticButton
-                variant="ai"
+              <FuturisticButton variant="ai"
                 size="lg"
-                icon={<FileText className="w-5 h-5" />}
-                iconPosition="left"
-                glow
+                leftIcon={<FileText className="w-5 h-5" />}
               >
                 View My Bookings
                 <ArrowRight className="w-5 h-5 ml-2" />
@@ -485,12 +479,10 @@ END:VCALENDAR`;
             </Link>
 
             <Link href="/">
-              <FuturisticButton
-                variant="secondary"
+              <FuturisticButton variant="secondary"
                 size="lg"
-                icon={<Home className="w-5 h-5" />}
-                iconPosition="left"
-              >
+                leftIcon={<Home className="w-5 h-5" />}
+                >
                 Back to Home
               </FuturisticButton>
             </Link>

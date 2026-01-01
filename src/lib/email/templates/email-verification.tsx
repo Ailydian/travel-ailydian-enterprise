@@ -151,7 +151,7 @@ const main = {
 };
 
 const container = {
-  backgroundColor: '#ffffff',
+  backgroundColor: 'var(--lydian-text-inverse)',
   margin: '0 auto',
   padding: '20px 0 48px',
   marginBottom: '64px',
@@ -193,7 +193,7 @@ const buttonSection = {
 };
 
 const button = {
-  backgroundColor: '#10b981',
+  backgroundColor: 'var(--lydian-success)',
   borderRadius: '8px',
   color: '#fff',
   fontSize: '16px',
@@ -237,7 +237,7 @@ const expiryText = {
 };
 
 const hr = {
-  borderColor: '#e5e7eb',
+  borderColor: 'var(--lydian-border)',
   margin: '32px 0',
 };
 

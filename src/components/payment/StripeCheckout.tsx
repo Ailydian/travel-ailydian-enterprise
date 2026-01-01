@@ -138,7 +138,7 @@ function PaymentForm({
   if (!clientSecret) {
     return (
       <div className="flex items-center justify-center py-8">
-        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-lydian-info-hover"></div>
       </div>
     );
   }
@@ -161,7 +161,7 @@ function PaymentForm({
       />
 
       {error && (
-        <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg">
+        <div className="bg-red-50 border border-red-200 text-lydian-primary-hover px-4 py-3 rounded-lg">
           <p className="text-sm">{error}</p>
         </div>
       )}
@@ -169,12 +169,12 @@ function PaymentForm({
       <button
         type="submit"
         disabled={!stripe || loading}
-        className="w-full bg-lydian-primary hover:bg-lydian-primary-hover disabled:bg-gray-400 disabled:cursor-not-allowed text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200"
+        className="w-full bg-lydian-primary hover:bg-lydian-primary-hover disabled:bg-gray-400 disabled:cursor-not-allowed text-lydian-text-inverse font-semibold py-3 px-6 rounded-lg transition-colors duration-200"
       >
         {loading ? (
           <span className="flex items-center justify-center">
             <svg
-              className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
+              className="animate-spin -ml-1 mr-3 h-5 w-5 text-lydian-text-inverse"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
@@ -218,10 +218,10 @@ export default function StripeCheckout(props: StripeCheckoutProps) {
     appearance: {
       theme: 'stripe',
       variables: {
-        colorPrimary: '#2563eb',
-        colorBackground: '#ffffff',
+        colorPrimary: 'var(--lydian-info-hover)',
+        colorBackground: 'var(--lydian-text-inverse)',
         colorText: '#1f2937',
-        colorDanger: '#dc2626',
+        colorDanger: 'var(--lydian-primary)',
         fontFamily: 'system-ui, sans-serif',
         spacingUnit: '4px',
         borderRadius: '8px',

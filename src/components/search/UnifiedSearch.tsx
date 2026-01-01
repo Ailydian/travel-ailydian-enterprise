@@ -10,8 +10,7 @@ import {
   Calendar,
   Users,
   TrendingUp,
-  ChevronRight } from
-'lucide-react';
+  ChevronRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import logger from '../../lib/logger';
 
@@ -135,7 +134,7 @@ const UnifiedSearch: React.FC = () => {
       <div className="relative">
         <div className="relative">
           <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-            <Sparkles className="h-5 w-5 text-purple-500 animate-pulse" />
+            <Sparkles className="h-5 w-5 text-lydian-accent-purple animate-pulse" />
           </div>
 
           <input
@@ -237,7 +236,7 @@ const UnifiedSearch: React.FC = () => {
                       </h4>
                     </div>
                     {suggestion.savings &&
-                <div className="bg-green-500 text-lydian-text-inverse text-xs font-bold px-2 py-1 rounded-full">
+                <div className="bg-lydian-success text-lydian-text-inverse text-xs font-bold px-2 py-1 rounded-full">
                         -{suggestion.savings}%
                       </div>
                 }

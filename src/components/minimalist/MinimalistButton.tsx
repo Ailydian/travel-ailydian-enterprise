@@ -2,6 +2,10 @@
  * 🔘 MINIMALIST BUTTON COMPONENT
  * Option5.studio inspired buttons
  * Clean, purposeful, accessible
+ *
+ * @deprecated This component is deprecated. Use Button from @/components/ui instead.
+ * Migration: <MinimalistButton variant="primary" /> → <Button variant="primary" />
+ * See BUTTON_MIGRATION_GUIDE.md for details.
  */
 
 import React from 'react';

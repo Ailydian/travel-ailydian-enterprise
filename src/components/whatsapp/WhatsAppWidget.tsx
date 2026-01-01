@@ -121,7 +121,7 @@ const WhatsAppWidget: React.FC<WhatsAppWidgetProps> = ({
               {/* Send Button */}
               <button
               onClick={handleSendMessage}
-              className="w-full flex items-center justify-center gap-2 bg-green-500 hover:bg-lydian-success text-lydian-text-inverse font-medium py-3 px-4 rounded-lg transition-colors">
+              className="w-full flex items-center justify-center gap-2 bg-lydian-success hover:bg-lydian-success text-lydian-text-inverse font-medium py-3 px-4 rounded-lg transition-colors">
 
                 <Send className="h-4 w-4" />
                 WhatsApp ile Gönder
@@ -148,7 +148,7 @@ const WhatsAppWidget: React.FC<WhatsAppWidgetProps> = ({
       {/* Floating Button */}
       <motion.button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-16 h-16 bg-green-500 hover:bg-lydian-success text-lydian-text-inverse rounded-full shadow-2xl flex items-center justify-center transition-colors"
+        className="w-16 h-16 bg-lydian-success hover:bg-lydian-success text-lydian-text-inverse rounded-full shadow-2xl flex items-center justify-center transition-colors"
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}>
 

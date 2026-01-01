@@ -261,7 +261,7 @@ const main = {
 };
 
 const container = {
-  backgroundColor: '#ffffff',
+  backgroundColor: 'var(--lydian-text-inverse)',
   margin: '0 auto',
   padding: '20px 0 48px',
   marginBottom: '64px',
@@ -283,8 +283,8 @@ const badgeSection = {
 };
 
 const badge = {
-  backgroundColor: '#10b981',
-  color: '#ffffff',
+  backgroundColor: 'var(--lydian-success)',
+  color: 'var(--lydian-text-inverse)',
   fontSize: '48px',
   fontWeight: '700',
   width: '80px',
@@ -364,7 +364,7 @@ const totalRow = {
 };
 
 const totalValue = {
-  color: '#2563eb',
+  color: 'var(--lydian-info-hover)',
   fontSize: '18px',
   width: '60%',
   verticalAlign: 'top',
@@ -387,7 +387,7 @@ const buttonSection = {
 };
 
 const button = {
-  backgroundColor: '#2563eb',
+  backgroundColor: 'var(--lydian-info-hover)',
   borderRadius: '8px',
   color: '#fff',
   fontSize: '16px',
@@ -399,7 +399,7 @@ const button = {
 };
 
 const hr = {
-  borderColor: '#e5e7eb',
+  borderColor: 'var(--lydian-border)',
   margin: '24px 0',
 };
 

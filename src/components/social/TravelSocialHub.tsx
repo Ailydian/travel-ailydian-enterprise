@@ -29,8 +29,7 @@ import {
   Bell,
   Plus,
   X,
-  ChevronDown } from
-'lucide-react';
+  ChevronDown } from 'lucide-react';
 import { io, Socket } from 'socket.io-client';
 import logger from '../../lib/logger';
 
@@ -387,10 +386,10 @@ const TravelSocialHub: React.FC = () => {
 
             <button
               onClick={() => handleBookmarkPost(post.id)}
-              className="text-lydian-text-dim hover:text-yellow-500 transition-colors">
+              className="text-lydian-text-dim hover:text-lydian-warning transition-colors">
 
             <Bookmark
-                className={`w-5 h-5 ${post.isBookmarked ? 'fill-yellow-500 text-yellow-500' : ''}`} />
+                className={`w-5 h-5 ${post.isBookmarked ? 'fill-yellow-500 text-lydian-warning' : ''}`} />
 
             </button>
           </motion.div>
@@ -456,7 +455,7 @@ const TravelSocialHub: React.FC = () => {
             </div>
             <div className="flex items-center gap-2">
               <div className="flex items-center gap-1">
-                <Star className="w-4 h-4 text-yellow-500" />
+                <Star className="w-4 h-4 text-lydian-warning" />
                 <span className="text-sm font-medium text-lydian-text-muted">{user.compatibility}% uyumlu</span>
               </div>
             </div>

@@ -93,7 +93,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           >
             {label}
             {required && (
-              <span className="text-red-500" aria-label="required">
+              <span className="text-lydian-secondary" aria-label="required">
                 *
               </span>
             )}

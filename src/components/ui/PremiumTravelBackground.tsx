@@ -45,13 +45,13 @@ export const PremiumTravelBackground: React.FC<PremiumTravelBackgroundProps> = (
           </linearGradient>
 
           <linearGradient id="planeGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#3B82F6" />
-            <stop offset="100%" stopColor="#8B5CF6" />
+            <stop offset="0%" stopColor="var(--lydian-info)" />
+            <stop offset="100%" stopColor="var(--lydian-accent-purple)" />
           </linearGradient>
 
           <radialGradient id="sunGradient">
             <stop offset="0%" stopColor="#FCD34D" />
-            <stop offset="100%" stopColor="#F59E0B" stopOpacity="0.6" />
+            <stop offset="100%" stopColor="var(--lydian-warning)" stopOpacity="0.6" />
           </radialGradient>
 
           {/* Filters */}
@@ -210,7 +210,7 @@ export const PremiumTravelBackground: React.FC<PremiumTravelBackgroundProps> = (
           />
           <path
             d="M 0,850 L 300,700 L 500,750 L 700,650 L 900,700 L 1100,600 L 1300,680 L 1500,550 L 1700,650 L 1920,700 L 1920,1080 L 0,1080 Z"
-            fill="#8B5CF6"
+            fill="var(--lydian-accent-purple)"
             opacity="0.15"
           />
         </motion.g>
@@ -221,7 +221,7 @@ export const PremiumTravelBackground: React.FC<PremiumTravelBackgroundProps> = (
             <motion.path
               key={`wave-${i}`}
               d={`M -500,${900 + i * 30} Q 0,${880 + i * 30} 500,${900 + i * 30} T 1500,${900 + i * 30} T 2500,${900 + i * 30} L 2500,1080 L -500,1080 Z`}
-              fill={i === 0 ? '#3B82F6' : i === 1 ? '#60A5FA' : '#93C5FD'}
+              fill={i === 0 ? 'var(--lydian-info)' : i === 1 ? '#60A5FA' : '#93C5FD'}
               opacity={0.15 - i * 0.03}
               animate={{
                 d: [

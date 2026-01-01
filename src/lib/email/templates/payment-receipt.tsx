@@ -242,7 +242,7 @@ const main = {
 };
 
 const container = {
-  backgroundColor: '#ffffff',
+  backgroundColor: 'var(--lydian-text-inverse)',
   margin: '0 auto',
   padding: '20px 0 48px',
   marginBottom: '64px',
@@ -359,7 +359,7 @@ const buttonSection = {
 };
 
 const button = {
-  backgroundColor: '#2563eb',
+  backgroundColor: 'var(--lydian-info-hover)',
   borderRadius: '8px',
   color: '#fff',
   fontSize: '16px',
@@ -371,7 +371,7 @@ const button = {
 };
 
 const hr = {
-  borderColor: '#e5e7eb',
+  borderColor: 'var(--lydian-border)',
   margin: '24px 0',
 };
 

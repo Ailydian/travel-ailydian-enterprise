@@ -20,8 +20,7 @@ import {
   Car,
   Navigation,
   Baby,
-  AlertTriangle } from
-'lucide-react';
+  AlertTriangle } from 'lucide-react';
 
 interface CarRentalData {
   id: string;

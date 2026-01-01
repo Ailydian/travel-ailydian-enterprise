@@ -15,8 +15,7 @@ import {
   Zap,
   DollarSign,
   Bitcoin,
-  X } from
-'lucide-react';
+  X } from 'lucide-react';
 import { web3Utils, formatAddress, formatBalance, getExplorerUrl } from '../../utils/web3Utils';
 import logger from '../../lib/logger';
 
@@ -82,7 +81,7 @@ const CryptoPayment: React.FC<CryptoPaymentProps> = ({
   {
     symbol: 'USDT',
     name: 'Tether',
-    icon: <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center text-lydian-text-inverse text-xs font-bold">UT</div>,
+    icon: <div className="w-6 h-6 bg-lydian-success rounded-full flex items-center justify-center text-lydian-text-inverse text-xs font-bold">UT</div>,
     balance: balance.usdt,
     usdValue: balance.usdt,
     color: 'from-green-400 to-green-600'
@@ -198,7 +197,7 @@ const CryptoPayment: React.FC<CryptoPaymentProps> = ({
   const getStepIcon = (step: PaymentStep) => {
     switch (step.status) {
       case 'completed':
-        return <CheckCircle className="w-5 h-5 text-green-500" />;
+        return <CheckCircle className="w-5 h-5 text-lydian-success" />;
       case 'active':
         return <Clock className="w-5 h-5 text-lydian-primary animate-pulse" />;
       case 'error':
@@ -276,12 +275,12 @@ const CryptoPayment: React.FC<CryptoPaymentProps> = ({
               <div className="text-xs text-lydian-text-dim">End-to-end şifreli</div>
             </div>
             <div className="text-center p-4">
-              <Zap className="w-8 h-8 text-yellow-500 mx-auto mb-2" />
+              <Zap className="w-8 h-8 text-lydian-warning mx-auto mb-2" />
               <div className="text-sm font-medium text-lydian-text-inverse mb-1">Hızlı</div>
               <div className="text-xs text-lydian-text-dim">Anında işlem</div>
             </div>
             <div className="text-center p-4">
-              <Coins className="w-8 h-8 text-green-500 mx-auto mb-2" />
+              <Coins className="w-8 h-8 text-lydian-success mx-auto mb-2" />
               <div className="text-sm font-medium text-lydian-text-inverse mb-1">Düşük Ücret</div>
               <div className="text-xs text-lydian-text-dim">Minimum network fee</div>
             </div>
@@ -411,7 +410,7 @@ const CryptoPayment: React.FC<CryptoPaymentProps> = ({
           animate={{ opacity: 1, scale: 1 }}>
 
           <div className="w-20 h-20 bg-lydian-success-light rounded-full mx-auto mb-6 flex items-center justify-center">
-            <CheckCircle className="w-10 h-10 text-green-500" />
+            <CheckCircle className="w-10 h-10 text-lydian-success" />
           </div>
           
           <h2 className="text-2xl font-bold text-lydian-text-inverse mb-2">Ödeme Başarılı!</h2>

@@ -134,11 +134,11 @@ const DashboardPage: React.FC = () => {
   const getStatusColor = (status: string) => {
     switch (status) {
       case 'confirmed':
-        return '#10B981';
+        return 'var(--lydian-success)';
       case 'pending':
-        return '#F59E0B';
+        return 'var(--lydian-warning)';
       case 'cancelled':
-        return '#EF4444';
+        return 'var(--lydian-secondary)';
       default:
         return 'var(--tx-3)';
     }
@@ -324,7 +324,7 @@ const DashboardPage: React.FC = () => {
                           </div>
                           <div className="flex items-center justify-between">
                             <span className="font-bold text-lydian-text-inverse">{booking.price}</span>
-                            <FuturisticButton variant="primary" size="sm">
+                            <FuturisticButton variant="gradient" size="sm">
                               Detaylar
                             </FuturisticButton>
                           </div>
@@ -415,7 +415,7 @@ const DashboardPage: React.FC = () => {
                         </div>
                         <div className="text-right">
                           <div className="font-bold text-lg text-lydian-text-inverse">{booking.price}</div>
-                          <FuturisticButton variant="primary" size="sm">
+                          <FuturisticButton variant="gradient" size="sm">
                             Yönet
                           </FuturisticButton>
                         </div>
@@ -487,7 +487,7 @@ const DashboardPage: React.FC = () => {
                   <p className="mb-6 text-lydian-text-dim">
                     Beğendiğiniz destinasyonları kalp ikonuna tıklayarak favorilerinize ekleyin
                   </p>
-                  <FuturisticButton variant="ai" size="lg" glow>
+                  <FuturisticButton variant="ai" size="lg">
                     Destinasyonları Keşfet
                   </FuturisticButton>
                 </div>
@@ -563,7 +563,7 @@ const DashboardPage: React.FC = () => {
                         </div>
 
                         <div className="flex gap-4">
-                          <FuturisticButton type="submit" variant="ai" size="md" glow>
+                          <FuturisticButton type="submit" variant="ai" size="md">
                             Güncelle
                           </FuturisticButton>
                           <FuturisticButton type="button" variant="secondary" size="md">

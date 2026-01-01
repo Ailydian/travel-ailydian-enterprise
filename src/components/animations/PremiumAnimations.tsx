@@ -49,7 +49,7 @@ export const PremiumCard: React.FC<PremiumCardProps> = ({
       <motion.div
         style={{
           background: `linear-gradient(135deg, 
-            rgba(255, 255, 255, 0.1) 0%, 
+            var(--lydian-glass-light) 0%, 
             rgba(255, 255, 255, 0.05) 100%)`,
           boxShadow: `0 8px 32px 0 rgba(31, 38, 135, 0.37),
                       0 0 20px 0 ${glowColor}33`,

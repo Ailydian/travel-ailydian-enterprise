@@ -23,8 +23,7 @@ import {
   Clock,
   MoreVertical,
   Crown,
-  CheckCircle2 } from
-'lucide-react';
+  CheckCircle2 } from 'lucide-react';
 import { format } from 'date-fns';
 import logger from '../../lib/logger';
 

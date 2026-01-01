@@ -119,8 +119,8 @@ export default function PropertyOwnerDashboard() {
     return (
       <div className="rounded-2xl p-6 border-2 transition-all hover:scale-105 card-hover"
            style={{
-             backgroundColor: '#FFFFFF',
-             borderColor: '#E5E7EB',
+             backgroundColor: 'var(--lydian-text-inverse)',
+             borderColor: 'var(--lydian-border)',
              boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)'
            }}>
         <div className="flex items-start justify-between mb-4">
@@ -135,7 +135,7 @@ export default function PropertyOwnerDashboard() {
             <div className={`flex items-center gap-1 px-2 py-1 rounded-lg`}
                  style={{
                    backgroundColor: isPositive ? 'rgba(16, 185, 129, 0.1)' : 'rgba(239, 68, 68, 0.1)',
-                   color: isPositive ? '#10B981' : '#EF4444'
+                   color: isPositive ? 'var(--lydian-success)' : 'var(--lydian-secondary)'
                  }}>
               {isPositive ? <TrendingUp className="w-4 h-4" /> : <TrendingDown className="w-4 h-4" />}
               <span className="text-sm font-bold">{Math.abs(change)}%</span>
@@ -158,7 +158,7 @@ export default function PropertyOwnerDashboard() {
       <div className="rounded-xl sm:rounded-2xl p-4 sm:p-6 lg:p-8 border-2 relative overflow-hidden"
            style={{
              background: 'linear-gradient(135deg, rgba(255, 33, 77, 0.1), rgba(255, 106, 69, 0.1))',
-             borderColor: '#E5E7EB'
+             borderColor: 'var(--lydian-border)'
            }}>
         <div className="relative z-10">
           <h1 className="text-2xl sm:text-3xl lg:text-4xl font-black mb-2 neon-text-strong" style={{ color: '#000000' }}>
@@ -232,8 +232,8 @@ export default function PropertyOwnerDashboard() {
         {/* Revenue Chart */}
         <div className="rounded-2xl p-6 border-2"
              style={{
-               backgroundColor: '#FFFFFF',
-               borderColor: '#E5E7EB',
+               backgroundColor: 'var(--lydian-text-inverse)',
+               borderColor: 'var(--lydian-border)',
                boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)'
              }}>
           <div className="flex items-center justify-between mb-6">
@@ -245,8 +245,8 @@ export default function PropertyOwnerDashboard() {
               onChange={(e) => setTimeRange(e.target.value)}
               className="px-3 py-2 rounded-lg border-2"
               style={{
-                backgroundColor: '#FFFFFF',
-                borderColor: '#E5E7EB',
+                backgroundColor: 'var(--lydian-text-inverse)',
+                borderColor: 'var(--lydian-border)',
                 color: '#000000'
               }}
             >
@@ -263,13 +263,13 @@ export default function PropertyOwnerDashboard() {
                   <stop offset="95%" stopColor="#FF214D" stopOpacity={0}/>
                 </linearGradient>
               </defs>
-              <CartesianGrid strokeDasharray="3 3" stroke="#E5E7EB" />
+              <CartesianGrid strokeDasharray="3 3" stroke="var(--lydian-border)" />
               <XAxis dataKey="name" stroke="#666666" />
               <YAxis stroke="#666666" />
               <Tooltip
                 contentStyle={{
-                  backgroundColor: '#FFFFFF',
-                  border: '2px solid #E5E7EB',
+                  backgroundColor: 'var(--lydian-text-inverse)',
+                  border: '2px solid var(--lydian-border)',
                   borderRadius: '12px',
                   color: '#000000'
                 }}
@@ -289,8 +289,8 @@ export default function PropertyOwnerDashboard() {
         {/* Property Performance Pie Chart */}
         <div className="rounded-2xl p-6 border-2"
              style={{
-               backgroundColor: '#FFFFFF',
-               borderColor: '#E5E7EB',
+               backgroundColor: 'var(--lydian-text-inverse)',
+               borderColor: 'var(--lydian-border)',
                boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)'
              }}>
           <h3 className="text-xl font-bold mb-6 neon-text-strong" style={{ color: '#000000' }}>
@@ -314,8 +314,8 @@ export default function PropertyOwnerDashboard() {
               </Pie>
               <Tooltip
                 contentStyle={{
-                  backgroundColor: '#FFFFFF',
-                  border: '2px solid #E5E7EB',
+                  backgroundColor: 'var(--lydian-text-inverse)',
+                  border: '2px solid var(--lydian-border)',
                   borderRadius: '12px',
                   color: '#000000'
                 }}
@@ -330,8 +330,8 @@ export default function PropertyOwnerDashboard() {
         {/* Upcoming Bookings */}
         <div className="lg:col-span-2 rounded-2xl p-6 border-2"
              style={{
-               backgroundColor: '#FFFFFF',
-               borderColor: '#E5E7EB',
+               backgroundColor: 'var(--lydian-text-inverse)',
+               borderColor: 'var(--lydian-border)',
                boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)'
              }}>
           <div className="flex items-center justify-between mb-6">
@@ -354,8 +354,8 @@ export default function PropertyOwnerDashboard() {
                 key={booking.id}
                 className="rounded-xl p-4 border-2 transition-all hover:scale-[1.02]"
                 style={{
-                  backgroundColor: '#FFFFFF',
-                  borderColor: '#E5E7EB'
+                  backgroundColor: 'var(--lydian-text-inverse)',
+                  borderColor: 'var(--lydian-border)'
                 }}
               >
                 <div className="flex items-start justify-between mb-3">
@@ -372,7 +372,7 @@ export default function PropertyOwnerDashboard() {
                     className="px-3 py-1 rounded-lg text-xs font-bold"
                     style={{
                       backgroundColor: booking.status === 'confirmed' ? 'rgba(16, 185, 129, 0.1)' : 'rgba(245, 158, 11, 0.1)',
-                      color: booking.status === 'confirmed' ? '#10B981' : '#F59E0B'
+                      color: booking.status === 'confirmed' ? 'var(--lydian-success)' : 'var(--lydian-warning)'
                     }}
                   >
                     {booking.status === 'confirmed' ? 'Onaylandı' : 'Beklemede'}
@@ -401,8 +401,8 @@ export default function PropertyOwnerDashboard() {
         {/* Recent Activity */}
         <div className="rounded-2xl p-6 border-2"
              style={{
-               backgroundColor: '#FFFFFF',
-               borderColor: '#E5E7EB',
+               backgroundColor: 'var(--lydian-text-inverse)',
+               borderColor: 'var(--lydian-border)',
                boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)'
              }}>
           <h3 className="text-xl font-bold mb-6 neon-text-strong" style={{ color: '#000000' }}>

@@ -35,7 +35,7 @@ const ALL_AILYDIAN_SUBDOMAINS: SubdomainInfo[] = [
     svgIcon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg>',
     description: "Akıllı Seyahat & Transfer Platformu",
     shortDesc: "AI Transfer",
-    color: "#3b82f6",
+    color: "var(--lydian-info)",
     gradient: "from-blue-500 to-cyan-500"
   },
   {
@@ -44,7 +44,7 @@ const ALL_AILYDIAN_SUBDOMAINS: SubdomainInfo[] = [
     svgIcon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg>',
     description: "Ses Teknolojisi - TTS & STT",
     shortDesc: "Türkçe Ses",
-    color: "#8b5cf6",
+    color: "var(--lydian-accent-purple)",
     gradient: "from-purple-500 to-pink-500"
   },
   {
@@ -53,7 +53,7 @@ const ALL_AILYDIAN_SUBDOMAINS: SubdomainInfo[] = [
     svgIcon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg>',
     description: "Otonom Araç AI Sistemleri",
     shortDesc: "Otonom Araç",
-    color: "#10b981",
+    color: "var(--lydian-success)",
     gradient: "from-green-500 to-emerald-500"
   },
   {
@@ -80,7 +80,7 @@ const ALL_AILYDIAN_SUBDOMAINS: SubdomainInfo[] = [
     svgIcon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8"/><path d="M15 18h-5"/><path d="M10 6h8v4h-8V6Z"/></svg>',
     description: "Seyahat Deneyiminin Geleceği - Sadece Konuşun",
     shortDesc: "Sadece Konuşun",
-    color: "#ef4444",
+    color: "var(--lydian-secondary)",
     gradient: "from-red-500 to-rose-500"
   },
   {

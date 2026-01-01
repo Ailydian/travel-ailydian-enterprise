@@ -39,10 +39,10 @@ export interface PaginatedResult<T> {
 export async function paginatedQuery<T>(
   model: keyof Omit<PrismaClient, '$connect' | '$disconnect' | '$on' | '$transaction' | '$use' | '$extends'>,
   options: {
-    where?: any;
-    orderBy?: any;
-    include?: any;
-    select?: any;
+    where?: Prisma.InputJsonValue;
+    orderBy?: Prisma.InputJsonValue;
+    include?: Prisma.InputJsonValue;
+    select?: Prisma.InputJsonValue;
   } = {},
   pagination: PaginationParams = {}
 ): Promise<PaginatedResult<T>> {
@@ -79,16 +79,16 @@ export async function paginatedQuery<T>(
 export async function cursorPagination<T>(
   model: keyof Omit<PrismaClient, '$connect' | '$disconnect' | '$on' | '$transaction' | '$use' | '$extends'>,
   options: {
-    where?: any;
-    orderBy?: any;
-    include?: any;
-    select?: any;
-    cursor?: any;
+    where?: Prisma.InputJsonValue;
+    orderBy?: Prisma.InputJsonValue;
+    include?: Prisma.InputJsonValue;
+    select?: Prisma.InputJsonValue;
+    cursor?: Prisma.InputJsonValue;
     take: number;
   }
 ): Promise<{
   data: T[];
-  nextCursor: any;
+  nextCursor: Prisma.InputJsonValue;
   hasMore: boolean;
 }> {
   const items = await (prisma[model] as any).findMany({

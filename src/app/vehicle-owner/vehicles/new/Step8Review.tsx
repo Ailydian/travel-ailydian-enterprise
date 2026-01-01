@@ -46,14 +46,14 @@ export default function Step8Review({ data, allData }: Step8Props) {
       {/* Header */}
       <div className="p-6 bg-gradient-to-br from-green-50 to-emerald-50 border-2 border-green-200 rounded-xl">
         <div className="flex items-start gap-4">
-          <div className="p-3 bg-green-500 rounded-lg">
-            <Sparkles className="w-6 h-6 text-white" />
+          <div className="p-3 bg-lydian-success rounded-lg">
+            <Sparkles className="w-6 h-6 text-lydian-text-inverse" />
           </div>
           <div>
             <h3 className="text-xl font-bold text-green-900 mb-2">
               Araç İlanınızı Gözden Geçirin
             </h3>
-            <p className="text-green-700">
+            <p className="text-lydian-success-text">
               Göndermeden önce lütfen aşağıdaki tüm bilgileri gözden geçirin. Düzenle düğmesine
               tıklayarak herhangi bir bölümü düzenleyebilirsiniz.
             </p>
@@ -189,27 +189,27 @@ export default function Step8Review({ data, allData }: Step8Props) {
           <span className="text-slate-600">Seçilen Özellikler:</span>
           <div className="flex flex-wrap gap-2 mt-2">
             {step3.features?.hasAirConditioning && (
-              <span className="px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs font-medium">
+              <span className="px-3 py-1 bg-lydian-success-light text-green-800 rounded-full text-xs font-medium">
                 Klima
               </span>
             )}
             {step3.features?.hasGPS && (
-              <span className="px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs font-medium">
+              <span className="px-3 py-1 bg-lydian-success-light text-green-800 rounded-full text-xs font-medium">
                 GPS
               </span>
             )}
             {step3.features?.hasBluetoothAudio && (
-              <span className="px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs font-medium">
+              <span className="px-3 py-1 bg-lydian-success-light text-green-800 rounded-full text-xs font-medium">
                 Bluetooth
               </span>
             )}
             {step3.features?.hasRearCamera && (
-              <span className="px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs font-medium">
+              <span className="px-3 py-1 bg-lydian-success-light text-green-800 rounded-full text-xs font-medium">
                 Geri Görüş Kamerası
               </span>
             )}
             {step3.features?.hasParkingSensors && (
-              <span className="px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs font-medium">
+              <span className="px-3 py-1 bg-lydian-success-light text-green-800 rounded-full text-xs font-medium">
                 Park Sensörü
               </span>
             )}
@@ -252,7 +252,7 @@ export default function Step8Review({ data, allData }: Step8Props) {
                     className="w-full h-full object-cover"
                   />
                   {index === step4.coverPhotoIndex && (
-                    <div className="absolute top-1 right-1 px-2 py-0.5 bg-lydian-warning-hover text-white text-xs font-bold rounded">
+                    <div className="absolute top-1 right-1 px-2 py-0.5 bg-lydian-warning-hover text-lydian-text-inverse text-xs font-bold rounded">
                       Kapak
                     </div>
                   )}
@@ -488,7 +488,7 @@ export default function Step8Review({ data, allData }: Step8Props) {
             />
             <span className="text-sm text-slate-700 group-hover:text-slate-900">
               Hizmet şartlarını, araç kiralama politikasını ve topluluk kurallarını okudum ve kabul
-              ediyorum. <span className="text-red-500">*</span>
+              ediyorum. <span className="text-lydian-secondary">*</span>
             </span>
           </label>
           {errors.agreeToTerms && (
@@ -505,7 +505,7 @@ export default function Step8Review({ data, allData }: Step8Props) {
             />
             <span className="text-sm text-slate-700 group-hover:text-slate-900">
               Gizlilik politikasını kabul ediyorum ve kişisel verilerimin işlenmesine onay
-              veriyorum. <span className="text-red-500">*</span>
+              veriyorum. <span className="text-lydian-secondary">*</span>
             </span>
           </label>
           {errors.agreeToPrivacyPolicy && (
@@ -522,7 +522,7 @@ export default function Step8Review({ data, allData }: Step8Props) {
             />
             <span className="text-sm text-slate-700 group-hover:text-slate-900">
               Araç sigorta gereksinimlerini ve sorumluluk politikalarını anlıyorum ve kabul
-              ediyorum. <span className="text-red-500">*</span>
+              ediyorum. <span className="text-lydian-secondary">*</span>
             </span>
           </label>
           {errors.agreeToInsurancePolicy && (
@@ -539,7 +539,7 @@ export default function Step8Review({ data, allData }: Step8Props) {
             />
             <span className="text-sm text-slate-700 group-hover:text-slate-900">
               Kiracıların kimlik ve geçmiş kontrollerinin yapılmasına onay veriyorum.{' '}
-              <span className="text-red-500">*</span>
+              <span className="text-lydian-secondary">*</span>
             </span>
           </label>
           {errors.agreeToBackgroundCheck && (
@@ -596,7 +596,7 @@ export default function Step8Review({ data, allData }: Step8Props) {
       </div>
 
       {/* Warning */}
-      <div className="p-4 bg-amber-50 border border-amber-200 rounded-lg">
+      <div className="p-4 bg-lydian-warning-lighter border border-amber-200 rounded-lg">
         <div className="flex items-start gap-3">
           <AlertCircle className="w-5 h-5 text-amber-600 mt-0.5" />
           <div>

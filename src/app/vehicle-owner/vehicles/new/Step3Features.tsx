@@ -88,7 +88,7 @@ export default function Step3Features({ data }: Step3Props) {
               Aracınızın sahip olduğu özellikleri seçin
             </p>
           </div>
-          <div className="px-4 py-2 bg-green-50 border border-green-200 rounded-lg">
+          <div className="px-4 py-2 bg-lydian-success-lighter border border-green-200 rounded-lg">
             <span className="text-sm font-semibold text-green-900">
               {selectedFeatures.length} özellik seçildi
             </span>
@@ -164,7 +164,7 @@ export default function Step3Features({ data }: Step3Props) {
                   <button
                     type="button"
                     onClick={() => selectAllInCategory(key)}
-                    className="px-3 py-1 text-sm font-semibold text-lydian-success hover:bg-green-50 rounded-lg transition-all"
+                    className="px-3 py-1 text-sm font-semibold text-lydian-success hover:bg-lydian-success-lighter rounded-lg transition-all"
                   >
                     Tümünü Seç
                   </button>
@@ -190,7 +190,7 @@ export default function Step3Features({ data }: Step3Props) {
                       onClick={() => toggleFeature(feature.id)}
                       className={`relative p-4 border-2 rounded-lg text-left transition-all ${
                         isSelected
-                          ? 'border-green-500 bg-green-50'
+                          ? 'border-green-500 bg-lydian-success-lighter'
                           : 'border-slate-200 hover:border-slate-300'
                       }`}
                     >
@@ -207,7 +207,7 @@ export default function Step3Features({ data }: Step3Props) {
                             {feature.label}
                           </div>
                           {isPopular && (
-                            <span className="inline-block px-2 py-0.5 bg-amber-100 text-amber-700 text-xs font-semibold rounded">
+                            <span className="inline-block px-2 py-0.5 bg-lydian-warning-light text-lydian-warning-text text-xs font-semibold rounded">
                               Popüler
                             </span>
                           )}
@@ -262,7 +262,7 @@ export default function Step3Features({ data }: Step3Props) {
       )}
 
       {/* Info Box */}
-      <div className="p-4 bg-green-50 border border-green-200 rounded-lg">
+      <div className="p-4 bg-lydian-success-lighter border border-green-200 rounded-lg">
         <h4 className="font-semibold text-green-900 mb-2">İpuçları:</h4>
         <ul className="text-sm text-green-800 space-y-1">
           <li>• Daha fazla özellik seçmek, aracınızın daha çekici görünmesini sağlar</li>

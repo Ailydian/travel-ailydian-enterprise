@@ -17,8 +17,7 @@ import {
   X,
   TrendingUp,
   Clock,
-  ChevronRight } from
-'lucide-react';
+  ChevronRight } from 'lucide-react';
 import LocationAutocomplete from './LocationAutocomplete';
 
 interface ResponsiveSearchBarProps {

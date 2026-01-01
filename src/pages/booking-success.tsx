@@ -19,8 +19,11 @@ import {
 } from 'lucide-react';
 import { FuturisticHeader } from '../components/layout/FuturisticHeader';
 import { FuturisticButton } from '../components/neo-glass/FuturisticButton';
+import { useToast } from '../context/ToastContext';
 
 const BookingSuccess: React.FC = () => {
+  const { showSuccess, showError, showWarning, showInfo, showToast } = useToast();
+
   // Mock booking data
   const bookingDetails = {
     confirmationNumber: 'AILYDIAN-' + Math.random().toString(36).substr(2, 9).toUpperCase(),
@@ -75,7 +78,7 @@ const BookingSuccess: React.FC = () => {
 
   const handleDownloadTicket = () => {
     // In a real app, this would generate and download a PDF
-    alert('Biletiniz indirilecek... (Demo için gösterim)');
+    showInfo('Biletiniz indirilecek..', '(Demo için gösterim');
   };
 
   const handleShare = () => {
@@ -87,7 +90,7 @@ const BookingSuccess: React.FC = () => {
       });
     } else {
       navigator.clipboard.writeText(window.location.href);
-      alert('Bağlantı panoya kopyalandı!');
+      showToast({ type: 'info', title: 'Bağlantı panoya kopyalandı!' });
     }
   };
 
@@ -112,7 +115,7 @@ const BookingSuccess: React.FC = () => {
             className="text-center mb-8 sm:mb-10 lg:mb-12"
           >
             <div className="w-20 h-20 sm:w-24 sm:h-24 bg-gradient-to-r from-green-400 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6 shadow-lg shadow-green-500/50">
-              <CheckCircle className="w-12 h-12 sm:w-16 sm:h-16 text-white" />
+              <CheckCircle className="w-12 h-12 sm:w-16 sm:h-16 text-lydian-text-inverse" />
             </div>
             <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-lydian-text-inverse mb-3 sm:mb-4">
               Rezervasyonunuz Onaylandı!
@@ -132,31 +135,25 @@ const BookingSuccess: React.FC = () => {
             transition={{ delay: 0.2 }}
             className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4 mb-8 sm:mb-10 lg:mb-12"
           >
-            <FuturisticButton
-              variant="primary"
+            <FuturisticButton variant="gradient"
               size="md"
               onClick={handleDownloadTicket}
-              icon={<Download className="w-4 h-4 sm:w-5 sm:h-5" />}
-              iconPosition="left"
-            >
+              leftIcon={<Download className="w-4 h-4 sm:w-5 sm:h-5" />}
+              >
               Biletimi İndir
             </FuturisticButton>
-            <FuturisticButton
-              variant="secondary"
+            <FuturisticButton variant="secondary"
               size="md"
               onClick={handleShare}
-              icon={<Share2 className="w-4 h-4 sm:w-5 sm:h-5" />}
-              iconPosition="left"
-            >
+              leftIcon={<Share2 className="w-4 h-4 sm:w-5 sm:h-5" />}
+              >
               Paylaş
             </FuturisticButton>
             <Link href="/">
-              <FuturisticButton
-                variant="accent"
+              <FuturisticButton variant="accent"
                 size="md"
-                icon={<Home className="w-4 h-4 sm:w-5 sm:h-5" />}
-                iconPosition="left"
-              >
+                leftIcon={<Home className="w-4 h-4 sm:w-5 sm:h-5" />}
+                >
                 Ana Sayfa
               </FuturisticButton>
             </Link>
@@ -183,10 +180,10 @@ const BookingSuccess: React.FC = () => {
                           alt={item.title}
                           className="w-full sm:w-32 h-32 sm:h-24 object-cover rounded-xl"
                         />
-                        <div className="absolute -top-2 -left-2 w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-r from-[#667EEA] to-[#00BAFF] rounded-full flex items-center justify-center text-white text-lg sm:text-xl shadow-lg">
+                        <div className="absolute -top-2 -left-2 w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-r from-[#667EEA] to-[#00BAFF] rounded-full flex items-center justify-center text-lydian-text-inverse text-lg sm:text-xl shadow-lg">
                           {getTypeIcon(item.type)}
                         </div>
-                        <div className="absolute -bottom-2 -right-2 bg-green-500 text-white rounded-full p-1">
+                        <div className="absolute -bottom-2 -right-2 bg-lydian-success text-lydian-text-inverse rounded-full p-1">
                           <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4" />
                         </div>
                       </div>
@@ -235,10 +232,10 @@ const BookingSuccess: React.FC = () => {
                   </div>
 
                   {/* Status Bar */}
-                  <div className="bg-green-500/10 border-t border-green-400/30 p-4 backdrop-blur-xl">
+                  <div className="bg-lydian-success/10 border-t border-green-400/30 p-4 backdrop-blur-xl">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-2">
-                        <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+                        <div className="w-3 h-3 bg-lydian-success rounded-full animate-pulse"></div>
                         <span className="text-green-300 font-medium">
                           Onaylandı &amp; Blockchain'de Kayıtlı
                         </span>
@@ -259,7 +256,7 @@ const BookingSuccess: React.FC = () => {
                 <h3 className="text-xl font-bold text-lydian-text-inverse mb-4">Sonraki Adımlar</h3>
                 <div className="space-y-4">
                   <div className="flex items-start gap-3">
-                    <div className="w-6 h-6 bg-gradient-to-r from-[#667EEA] to-[#00BAFF] text-white rounded-full flex items-center justify-center text-sm font-bold">
+                    <div className="w-6 h-6 bg-gradient-to-r from-[#667EEA] to-[#00BAFF] text-lydian-text-inverse rounded-full flex items-center justify-center text-sm font-bold">
                       1
                     </div>
                     <div>
@@ -270,7 +267,7 @@ const BookingSuccess: React.FC = () => {
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <div className="w-6 h-6 bg-gradient-to-r from-[#EC4899] to-[#FF9500] text-white rounded-full flex items-center justify-center text-sm font-bold">
+                    <div className="w-6 h-6 bg-gradient-to-r from-[#EC4899] to-[#FF9500] text-lydian-text-inverse rounded-full flex items-center justify-center text-sm font-bold">
                       2
                     </div>
                     <div>
@@ -281,7 +278,7 @@ const BookingSuccess: React.FC = () => {
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <div className="w-6 h-6 bg-gradient-to-r from-green-400 to-emerald-500 text-white rounded-full flex items-center justify-center text-sm font-bold">
+                    <div className="w-6 h-6 bg-gradient-to-r from-green-400 to-emerald-500 text-lydian-text-inverse rounded-full flex items-center justify-center text-sm font-bold">
                       3
                     </div>
                     <div>
@@ -403,19 +400,17 @@ const BookingSuccess: React.FC = () => {
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.6 }}
-                className="bg-gradient-to-r from-[#667EEA] to-[#00BAFF] text-white rounded-2xl p-6 shadow-lg shadow-[#667EEA]/50"
+                className="bg-gradient-to-r from-[#667EEA] to-[#00BAFF] text-lydian-text-inverse rounded-2xl p-6 shadow-lg shadow-[#667EEA]/50"
               >
                 <h3 className="font-bold text-lg mb-4">Deneyiminizi Değerlendirin</h3>
-                <p className="text-white/90 text-sm mb-6">
+                <p className="text-lydian-text-inverse/90 text-sm mb-6">
                   Seyahatiniz tamamlandıktan sonra deneyiminizi paylaşmayı unutmayın!
                 </p>
-                <FuturisticButton
-                  variant="secondary"
+                <FuturisticButton variant="secondary"
                   size="md"
                   fullWidth
-                  icon={<Star className="w-5 h-5" />}
-                  iconPosition="left"
-                >
+                  leftIcon={<Star className="w-5 h-5" />}
+                  >
                   Değerlendirme Yap
                 </FuturisticButton>
               </motion.div>
@@ -431,12 +426,10 @@ const BookingSuccess: React.FC = () => {
           >
             <p className="text-lydian-text-dim mb-6">Başka bir seyahat planlamak ister misiniz?</p>
             <Link href="/">
-              <FuturisticButton
-                variant="ai"
+              <FuturisticButton variant="ai"
                 size="lg"
-                icon={<ArrowRight className="w-5 h-5" />}
+                leftIcon={<ArrowRight className="w-5 h-5" />}
                 iconPosition="right"
-                glow
               >
                 Yeni Seyahat Keşfet
               </FuturisticButton>

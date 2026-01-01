@@ -6,6 +6,7 @@ import { useDropzone } from 'react-dropzone';
 import { CreateReviewRequest } from '../../lib/types/review-system';
 import reviewService from '../../lib/services/review-service';
 import logger from '../../lib/logger';
+import { useToast } from '../../context/ToastContext';
 
 interface WriteReviewModalProps {
   locationId: number;
@@ -41,6 +42,8 @@ interface ReviewData {
 }
 
 export default function WriteReviewModal({ locationId, locationName, onClose, onSuccess }: WriteReviewModalProps) {
+  const { showSuccess, showError, showWarning, showInfo, showToast } = useToast();
+
   const { t, i18n } = useTranslation('common');
   const [currentStep, setCurrentStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -66,11 +69,11 @@ export default function WriteReviewModal({ locationId, locationName, onClose, on
     const newPhotos = acceptedFiles.
     filter((file) => {
       if (!ACCEPTED_IMAGE_TYPES.includes(file.type)) {
-        alert(t('errors.invalidFileType'));
+        showToast({ type: 'error', title: t('errors.invalidFileType') });
         return false;
       }
       if (file.size > MAX_FILE_SIZE) {
-        alert(t('errors.fileTooLarge'));
+        showToast({ type: 'error', title: t('errors.fileTooLarge') });
         return false;
       }
       return true;

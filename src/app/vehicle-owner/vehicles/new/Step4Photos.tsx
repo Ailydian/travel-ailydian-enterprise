@@ -16,6 +16,7 @@ import {
   Crop,
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useToast } from '../../../../context/ToastContext';
 
 interface Step4Props {
   data?: any;
@@ -50,6 +51,8 @@ const photoCategories = [
 ];
 
 export default function Step4Photos({ data }: Step4Props) {
+  const { showSuccess, showError, showWarning, showInfo, showToast } = useToast();
+
   const {
     register,
     watch,
@@ -70,7 +73,7 @@ export default function Step4Photos({ data }: Step4Props) {
 
       // Check max photos limit
       if (photos.length + files.length > 20) {
-        alert('Maksimum 20 fotoğraf yükleyebilirsiniz');
+        showToast({ type: 'info', title: 'Maksimum 20 fotoğraf yükleyebilirsiniz' });
         return;
       }
 
@@ -80,13 +83,13 @@ export default function Step4Photos({ data }: Step4Props) {
       for (const file of fileArray) {
         // Validate file type
         if (!file.type.startsWith('image/')) {
-          alert(`${file.name} bir resim dosyası değil`);
+          showInfo('${file.name} bir resim dosyası değil');
           continue;
         }
 
         // Validate file size (max 10MB)
         if (file.size > 10 * 1024 * 1024) {
-          alert(`${file.name} 10MB boyut sınırını aşıyor`);
+          showInfo('${file.name} 10MB boyut sınırını aşıyor');
           continue;
         }
 
@@ -207,12 +210,12 @@ export default function Step4Photos({ data }: Step4Props) {
         onDrop={handleDrop}
         className={`border-2 border-dashed rounded-xl p-12 transition-all ${
           isDragging
-            ? 'border-green-500 bg-green-50'
+            ? 'border-green-500 bg-lydian-success-lighter'
             : 'border-slate-300 bg-slate-50 hover:border-slate-400'
         }`}
       >
         <div className="text-center">
-          <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+          <div className="w-16 h-16 bg-lydian-success-light rounded-full flex items-center justify-center mx-auto mb-4">
             <Upload className="w-8 h-8 text-lydian-success" />
           </div>
           <h3 className="text-lg font-semibold text-slate-900 mb-2">
@@ -221,7 +224,7 @@ export default function Step4Photos({ data }: Step4Props) {
           <p className="text-sm text-slate-600 mb-4">
             Resimleri buraya sürükleyip bırakın veya göz atmak için tıklayın
           </p>
-          <label className="inline-block px-6 py-3 bg-lydian-success text-white rounded-lg font-medium hover:bg-lydian-success-hover cursor-pointer transition-all">
+          <label className="inline-block px-6 py-3 bg-lydian-success text-lydian-text-inverse rounded-lg font-medium hover:bg-lydian-success-hover cursor-pointer transition-all">
             Dosya Seç
             <input
               type="file"
@@ -240,7 +243,7 @@ export default function Step4Photos({ data }: Step4Props) {
       </div>
 
       {/* Photo Requirements */}
-      <div className="p-4 bg-green-50 border border-green-200 rounded-lg">
+      <div className="p-4 bg-lydian-success-lighter border border-green-200 rounded-lg">
         <div className="flex items-start gap-3">
           <AlertCircle className="w-5 h-5 text-lydian-success mt-0.5" />
           <div>
@@ -311,7 +314,7 @@ export default function Step4Photos({ data }: Step4Props) {
                 >
                   {/* Cover Photo Badge */}
                   {index === coverPhotoIndex && (
-                    <div className="absolute top-3 left-3 z-10 px-3 py-1 bg-lydian-warning-hover text-white text-xs font-bold rounded-full flex items-center gap-1 shadow-lg">
+                    <div className="absolute top-3 left-3 z-10 px-3 py-1 bg-lydian-warning-hover text-lydian-text-inverse text-xs font-bold rounded-full flex items-center gap-1 shadow-lg">
                       <Star className="w-3 h-3 fill-current" />
                       Kapak Fotoğrafı
                     </div>
@@ -336,7 +339,7 @@ export default function Step4Photos({ data }: Step4Props) {
                     {/* Category */}
                     <div>
                       <label className="block text-xs font-medium text-slate-600 mb-1">
-                        Fotoğraf Kategorisi <span className="text-red-500">*</span>
+                        Fotoğraf Kategorisi <span className="text-lydian-secondary">*</span>
                       </label>
                       <select
                         value={photo.category}
@@ -372,7 +375,7 @@ export default function Step4Photos({ data }: Step4Props) {
                         <button
                           type="button"
                           onClick={() => setCoverPhoto(index)}
-                          className="flex-1 px-3 py-2 text-sm bg-green-50 text-lydian-success rounded-lg hover:bg-green-100 transition-all font-medium"
+                          className="flex-1 px-3 py-2 text-sm bg-lydian-success-lighter text-lydian-success rounded-lg hover:bg-lydian-success-light transition-all font-medium"
                         >
                           Kapak Yap
                         </button>

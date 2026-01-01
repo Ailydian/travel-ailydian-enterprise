@@ -155,7 +155,7 @@ const Cart: React.FC = () => {
                 Harika deneyimler keşfetmek için alışverişe başlayın!
               </p>
               <Link href="/">
-                <FuturisticButton variant="primary" size="lg">
+                <FuturisticButton variant="gradient" size="lg">
                   Alışverişe Başla
                 </FuturisticButton>
               </Link>
@@ -330,7 +330,7 @@ const Cart: React.FC = () => {
                         placeholder="Promosyon kodu"
                         className="flex-1 px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base bg-lydian-bg/5 backdrop-blur-xl border border-white/10 rounded-lg text-lydian-text-inverse placeholder-gray-500 focus:ring-2 focus:ring-[#00BAFF] focus:border-[#00BAFF]/50 outline-none transition-all"
                       />
-                      <FuturisticButton variant="primary" size="md" onClick={applyPromoCode}>
+                      <FuturisticButton variant="gradient" size="md" onClick={applyPromoCode}>
                         Uygula
                       </FuturisticButton>
                     </div>
@@ -401,13 +401,10 @@ const Cart: React.FC = () => {
                   </div>
 
                   <Link href="/checkout">
-                    <FuturisticButton
-                      variant="ai"
+                    <FuturisticButton variant="ai"
                       size="lg"
                       fullWidth
-                      icon={<CreditCard className="w-4 h-4 sm:w-5 sm:h-5" />}
-                      iconPosition="left"
-                      glow
+                      leftIcon={<CreditCard className="w-4 h-4 sm:w-5 sm:h-5" />}
                     >
                       Ödemeye Geç
                     </FuturisticButton>

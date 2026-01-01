@@ -14,8 +14,7 @@ import {
   Plus,
   Building2,
   ChevronLeft,
-  ChevronRight } from
-'lucide-react';
+  ChevronRight } from 'lucide-react';
 import { getSidebarWidthClasses, LAYOUT_CONSTANTS } from '@/config/layout-constants';
 
 interface NavigationItem {

@@ -11,10 +11,10 @@ export const DESIGN_TOKENS = {
     transfers: '#00BAFF',  // Cyan
     cars: '#FF9500',       // Orange
     hotels: '#EC4899',     // Pink
-    rentals: '#10B981',    // Green
+    rentals: 'var(--lydian-success)',    // Green
     cultural: '#667EEA',
     adventure: '#FF9500',
-    nature: '#10B981',
+    nature: 'var(--lydian-success)',
     culinary: '#EC4899',
   },
 
@@ -30,9 +30,9 @@ export const DESIGN_TOKENS = {
     ai: 'from-[#667EEA] via-[#764BA2] to-[#667EEA]',  // Dark purple gradient
     primary: 'from-[#00BAFF] to-[#667EEA]',
     secondary: 'from-[#FF9500] to-[#FF6B00]',
-    success: 'from-[#10B981] to-[#059669]',
-    danger: 'from-[#EF4444] to-[#DC2626]',
-    warning: 'from-[#F59E0B] to-[#D97706]',
+    success: 'from-[var(--lydian-success)] to-[var(--lydian-success-hover)]',
+    danger: 'from-[var(--lydian-secondary)] to-[var(--lydian-primary)]',
+    warning: 'from-[var(--lydian-warning)] to-[var(--lydian-warning-hover)]',
   },
 
   // ✨ Glow Colors
@@ -127,7 +127,7 @@ export const DESIGN_TOKENS = {
     twilight: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
     ocean: 'linear-gradient(135deg, #00BAFF 0%, #0088BD 50%, #005580 100%)',
     sunset: 'linear-gradient(135deg, #FF9500 0%, #FF6B00 50%, #FF4500 100%)',
-    forest: 'linear-gradient(135deg, #10B981 0%, #059669 100%)',
+    forest: 'linear-gradient(135deg, var(--lydian-success) 0%, var(--lydian-success-hover) 100%)',
     aurora: 'linear-gradient(135deg, #00BAFF 0%, #667EEA 50%, #FF9500 100%)',
   },
 } as const;

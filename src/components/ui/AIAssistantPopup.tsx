@@ -7,8 +7,7 @@ import {
   Mic,
   MicOff,
   Sparkles,
-  Volume2 } from
-'lucide-react';
+  Volume2 } from 'lucide-react';
 import { tourismApiService, HotelData, FlightData, RestaurantData, TourData } from '../../lib/tourism-api-service';
 import { COMPLETE_TURKEY_TOURISM_DATABASE, getCitiesByActivity, getCitiesByCuisine } from '../../data/turkey-tourism-database';
 import logger from '../../lib/logger';
@@ -480,7 +479,7 @@ const AIAssistantPopup: React.FC<AIAssistantPopupProps> = ({ isOpen, onClose }) 
                     <div className="w-12 h-12 bg-lydian-glass-dark-heavy backdrop-blur-sm rounded-xl flex items-center justify-center">
                       <Bot className="w-6 h-6 text-lydian-text-inverse" />
                     </div>
-                    <div className="absolute -top-1 -right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-lydian-border-light animate-pulse"></div>
+                    <div className="absolute -top-1 -right-1 w-4 h-4 bg-lydian-success rounded-full border-2 border-lydian-border-light animate-pulse"></div>
                   </div>
                   <div>
                     <h3 className="text-xl font-bold">AI Seyahat Asistanı</h3>

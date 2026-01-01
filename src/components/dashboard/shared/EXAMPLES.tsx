@@ -29,8 +29,7 @@ import {
   Calendar,
   Edit,
   Trash,
-  Eye } from
-'lucide-react';
+  Eye } from 'lucide-react';
 
 // ============================================================================
 // Example 1: Dashboard Stats Overview

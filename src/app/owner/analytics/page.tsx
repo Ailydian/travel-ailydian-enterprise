@@ -46,7 +46,7 @@ const MetricCard: React.FC<MetricCardProps> = ({ title, value, change, icon, suf
   return (
     <div className="bg-lydian-bg/5 rounded-xl border border-lydian-border p-6 hover:shadow-lg transition-shadow duration-200">
       <div className="flex items-center justify-between mb-4">
-        <div className="p-3 bg-gradient-to-br from-purple-500 to-purple-600 rounded-lg text-white shadow-md">
+        <div className="p-3 bg-gradient-to-br from-purple-500 to-purple-600 rounded-lg text-lydian-text-inverse shadow-md">
           {icon}
         </div>
         <div className={`flex items-center gap-1 text-sm font-medium ${isPositive ? 'text-lydian-success' : 'text-lydian-error'}`}>
@@ -56,7 +56,7 @@ const MetricCard: React.FC<MetricCardProps> = ({ title, value, change, icon, suf
       </div>
       <div>
         <p className="text-sm text-lydian-text-dim font-medium mb-1">{title}</p>
-        <p className="text-2xl font-bold text-white">
+        <p className="text-2xl font-bold text-lydian-text-inverse">
           {value}
           {suffix && <span className="text-lg text-lydian-text-muted ml-1">{suffix}</span>}
         </p>
@@ -71,7 +71,7 @@ const DateRangePicker: React.FC = () => {
     <div className="bg-lydian-bg/5 border border-lydian-border rounded-xl p-4 mb-6">
       <div className="flex flex-col sm:flex-row gap-4 items-stretch sm:items-center justify-between">
         <div className="flex gap-2 flex-wrap">
-          <button className="px-4 py-2 bg-lydian-primary text-white rounded-lg font-medium text-sm hover:bg-lydian-primary-hover transition-colors">
+          <button className="px-4 py-2 bg-lydian-primary text-lydian-text-inverse rounded-lg font-medium text-sm hover:bg-lydian-primary-hover transition-colors">
             Last 30 Days
           </button>
           <button className="px-4 py-2 bg-lydian-bg/5 border border-lydian-border-medium text-gray-200 rounded-lg font-medium text-sm hover:bg-lydian-bg/5 transition-colors">
@@ -90,7 +90,7 @@ const DateRangePicker: React.FC = () => {
             Custom Range
             <ChevronDown className="w-4 h-4" />
           </button>
-          <button className="flex items-center gap-2 px-4 py-2 bg-lydian-success text-white rounded-lg hover:bg-lydian-success-hover transition-colors font-medium text-sm">
+          <button className="flex items-center gap-2 px-4 py-2 bg-lydian-success text-lydian-text-inverse rounded-lg hover:bg-lydian-success-hover transition-colors font-medium text-sm">
             <Download className="w-4 h-4" />
             Export
           </button>
@@ -116,7 +116,7 @@ const PropertyPerformanceTable: React.FC<PropertyPerformanceProps> = ({ properti
   return (
     <div className="bg-lydian-bg/5 border border-lydian-border rounded-xl overflow-hidden">
       <div className="p-6 border-b border-lydian-border">
-        <h3 className="text-lg font-semibold text-white">Property Performance Comparison</h3>
+        <h3 className="text-lg font-semibold text-lydian-text-inverse">Property Performance Comparison</h3>
         <p className="text-sm text-lydian-text-muted mt-1">Compare metrics across all your properties</p>
       </div>
       <div className="overflow-x-auto">
@@ -148,17 +148,17 @@ const PropertyPerformanceTable: React.FC<PropertyPerformanceProps> = ({ properti
               <tr key={index} className="hover:bg-lydian-bg/5 transition-colors">
                 <td className="px-6 py-4">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center text-white font-semibold">
+                    <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center text-lydian-text-inverse font-semibold">
                       {property.name.charAt(0)}
                     </div>
-                    <span className="font-medium text-white">{property.name}</span>
+                    <span className="font-medium text-lydian-text-inverse">{property.name}</span>
                   </div>
                 </td>
                 <td className="px-6 py-4">
-                  <span className="text-white">{property.views.toLocaleString()}</span>
+                  <span className="text-lydian-text-inverse">{property.views.toLocaleString()}</span>
                 </td>
                 <td className="px-6 py-4">
-                  <span className="text-white">{property.bookings}</span>
+                  <span className="text-lydian-text-inverse">{property.bookings}</span>
                 </td>
                 <td className="px-6 py-4">
                   <div className="flex items-center gap-2">
@@ -168,16 +168,16 @@ const PropertyPerformanceTable: React.FC<PropertyPerformanceProps> = ({ properti
                         style={{ width: `${property.conversionRate}%` }}
                       ></div>
                     </div>
-                    <span className="text-sm font-medium text-white">{property.conversionRate}%</span>
+                    <span className="text-sm font-medium text-lydian-text-inverse">{property.conversionRate}%</span>
                   </div>
                 </td>
                 <td className="px-6 py-4">
-                  <span className="font-semibold text-white">${property.revenue.toLocaleString()}</span>
+                  <span className="font-semibold text-lydian-text-inverse">${property.revenue.toLocaleString()}</span>
                 </td>
                 <td className="px-6 py-4">
                   <div className="flex items-center gap-1">
-                    <Star className="w-4 h-4 text-yellow-500 fill-yellow-500" />
-                    <span className="font-medium text-white">{property.rating}</span>
+                    <Star className="w-4 h-4 text-lydian-warning fill-yellow-500" />
+                    <span className="font-medium text-lydian-text-inverse">{property.rating}</span>
                   </div>
                 </td>
               </tr>
@@ -192,16 +192,16 @@ const PropertyPerformanceTable: React.FC<PropertyPerformanceProps> = ({ properti
 // Booking Source Chart Component
 const BookingSourceChart: React.FC = () => {
   const data = [
-    { name: 'Direct Booking', value: 35, color: '#3b82f6' },
+    { name: 'Direct Booking', value: 35, color: 'var(--lydian-info)' },
     { name: 'Airbnb', value: 30, color: '#ff5a5f' },
     { name: 'Booking.com', value: 20, color: '#003580' },
     { name: 'VRBO', value: 10, color: '#0057b8' },
-    { name: 'Other', value: 5, color: '#6b7280' },
+    { name: 'Other', value: 5, color: 'var(--lydian-text-tertiary)' },
   ];
 
   return (
     <div className="bg-lydian-bg/5 border border-lydian-border rounded-xl p-6">
-      <h3 className="text-lg font-semibold text-white mb-4">Booking Sources</h3>
+      <h3 className="text-lg font-semibold text-lydian-text-inverse mb-4">Booking Sources</h3>
       <ResponsiveContainer width="100%" height={300}>
         <PieChart>
           <Pie
@@ -226,7 +226,7 @@ const BookingSourceChart: React.FC = () => {
           <div key={index} className="flex items-center gap-2">
             <div className="w-3 h-3 rounded-full" style={{ backgroundColor: source.color }}></div>
             <span className="text-sm text-gray-200">{source.name}</span>
-            <span className="text-sm font-semibold text-white ml-auto">{source.value}%</span>
+            <span className="text-sm font-semibold text-lydian-text-inverse ml-auto">{source.value}%</span>
           </div>
         ))}
       </div>
@@ -296,7 +296,7 @@ const AnalyticsPage: React.FC = () => {
   if (isLoading) {
     return (
       <div className="space-y-6">
-        <h1 className="text-3xl font-black mb-6 text-white">
+        <h1 className="text-3xl font-black mb-6 text-lydian-text-inverse">
           Analytics
         </h1>
         <div className="animate-pulse space-y-4">
@@ -313,7 +313,7 @@ const AnalyticsPage: React.FC = () => {
 
   return (
     <div className="space-y-6">
-      <h1 className="text-3xl font-black mb-6 text-white">
+      <h1 className="text-3xl font-black mb-6 text-lydian-text-inverse">
         Analytics
       </h1>
       <DateRangePicker />
@@ -352,23 +352,23 @@ const AnalyticsPage: React.FC = () => {
         <div className="bg-lydian-bg/5 border border-lydian-border rounded-xl p-6">
           <div className="flex items-center justify-between mb-6">
             <div>
-              <h3 className="text-lg font-semibold text-white">Property Views</h3>
+              <h3 className="text-lg font-semibold text-lydian-text-inverse">Property Views</h3>
               <p className="text-sm text-lydian-text-muted mt-1">Views over the last 30 days</p>
             </div>
             <div className="flex items-center gap-2 text-sm">
               <span className="text-lydian-text-muted">Total:</span>
-              <span className="font-bold text-white">15,740</span>
+              <span className="font-bold text-lydian-text-inverse">15,740</span>
             </div>
           </div>
           <ResponsiveContainer width="100%" height={300}>
             <LineChart data={viewsChartData}>
               <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
-              <XAxis dataKey="date" stroke="#9ca3af" style={{ fontSize: '12px' }} />
-              <YAxis stroke="#9ca3af" style={{ fontSize: '12px' }} />
+              <XAxis dataKey="date" stroke="var(--lydian-text-muted)" style={{ fontSize: '12px' }} />
+              <YAxis stroke="var(--lydian-text-muted)" style={{ fontSize: '12px' }} />
               <Tooltip
                 contentStyle={{
                   backgroundColor: '#fff',
-                  border: '1px solid #e5e7eb',
+                  border: '1px solid var(--lydian-border)',
                   borderRadius: '8px',
                   boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
                 }}
@@ -376,9 +376,9 @@ const AnalyticsPage: React.FC = () => {
               <Line
                 type="monotone"
                 dataKey="views"
-                stroke="#8b5cf6"
+                stroke="var(--lydian-accent-purple)"
                 strokeWidth={3}
-                dot={{ fill: '#8b5cf6', r: 4 }}
+                dot={{ fill: 'var(--lydian-accent-purple)', r: 4 }}
                 activeDot={{ r: 6 }}
               />
             </LineChart>
@@ -389,23 +389,23 @@ const AnalyticsPage: React.FC = () => {
         <div className="bg-lydian-bg/5 border border-lydian-border rounded-xl p-6">
           <div className="flex items-center justify-between mb-6">
             <div>
-              <h3 className="text-lg font-semibold text-white">Bookings Trend</h3>
+              <h3 className="text-lg font-semibold text-lydian-text-inverse">Bookings Trend</h3>
               <p className="text-sm text-lydian-text-muted mt-1">Monthly bookings over 6 months</p>
             </div>
             <div className="flex items-center gap-2 text-sm">
               <span className="text-lydian-text-muted">Total:</span>
-              <span className="font-bold text-white">130</span>
+              <span className="font-bold text-lydian-text-inverse">130</span>
             </div>
           </div>
           <ResponsiveContainer width="100%" height={300}>
             <BarChart data={bookingsChartData}>
               <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
-              <XAxis dataKey="month" stroke="#9ca3af" style={{ fontSize: '12px' }} />
-              <YAxis stroke="#9ca3af" style={{ fontSize: '12px' }} />
+              <XAxis dataKey="month" stroke="var(--lydian-text-muted)" style={{ fontSize: '12px' }} />
+              <YAxis stroke="var(--lydian-text-muted)" style={{ fontSize: '12px' }} />
               <Tooltip
                 contentStyle={{
                   backgroundColor: '#fff',
-                  border: '1px solid #e5e7eb',
+                  border: '1px solid var(--lydian-border)',
                   borderRadius: '8px',
                   boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
                 }}
@@ -413,8 +413,8 @@ const AnalyticsPage: React.FC = () => {
               <Bar dataKey="bookings" fill="url(#colorBookings)" radius={[8, 8, 0, 0]} />
               <defs>
                 <linearGradient id="colorBookings" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%" stopColor="#8b5cf6" stopOpacity={0.9} />
-                  <stop offset="95%" stopColor="#8b5cf6" stopOpacity={0.6} />
+                  <stop offset="5%" stopColor="var(--lydian-accent-purple)" stopOpacity={0.9} />
+                  <stop offset="95%" stopColor="var(--lydian-accent-purple)" stopOpacity={0.6} />
                 </linearGradient>
               </defs>
             </BarChart>

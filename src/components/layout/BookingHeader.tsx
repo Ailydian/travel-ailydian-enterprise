@@ -20,8 +20,7 @@ import {
   X,
   HelpCircle,
   Globe,
-  Users } from
-'lucide-react';
+  Users } from 'lucide-react';
 import { useCart } from '../../context/CartContext';
 import LanguageSwitcher from '../LanguageSwitcher';
 import { ExploreMenu } from '../explore/ExploreMenu';

@@ -12,8 +12,7 @@ import {
   ArrowUpRight,
   ArrowDownRight,
   Download,
-  ChevronDown } from
-'lucide-react';
+  ChevronDown } from 'lucide-react';
 import {
   LineChart,
   Line,
@@ -185,7 +184,7 @@ const PropertyPerformanceTable: React.FC<PropertyPerformanceProps> = ({ properti
                 </td>
                 <td className="px-6 py-4">
                   <div className="flex items-center gap-1">
-                    <Star className="w-4 h-4 text-yellow-500 fill-yellow-500" />
+                    <Star className="w-4 h-4 text-lydian-warning fill-yellow-500" />
                     <span className="font-medium text-lydian-text-inverse">{property.rating}</span>
                   </div>
                 </td>
@@ -201,11 +200,11 @@ const PropertyPerformanceTable: React.FC<PropertyPerformanceProps> = ({ properti
 // Booking Source Chart Component
 const BookingSourceChart: React.FC = () => {
   const data = [
-  { name: 'Direct Booking', value: 35, color: '#3b82f6' },
+  { name: 'Direct Booking', value: 35, color: 'var(--lydian-info)' },
   { name: 'Airbnb', value: 30, color: '#ff5a5f' },
   { name: 'Booking.com', value: 20, color: '#003580' },
   { name: 'VRBO', value: 10, color: '#0057b8' },
-  { name: 'Other', value: 5, color: '#6b7280' }];
+  { name: 'Other', value: 5, color: 'var(--lydian-text-tertiary)' }];
 
 
   return (
@@ -372,12 +371,12 @@ const AnalyticsPage: React.FC = () => {
           <ResponsiveContainer width="100%" height={300}>
             <LineChart data={viewsChartData}>
               <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
-              <XAxis dataKey="date" stroke="#9ca3af" style={{ fontSize: '12px' }} />
-              <YAxis stroke="#9ca3af" style={{ fontSize: '12px' }} />
+              <XAxis dataKey="date" stroke="var(--lydian-text-muted)" style={{ fontSize: '12px' }} />
+              <YAxis stroke="var(--lydian-text-muted)" style={{ fontSize: '12px' }} />
               <Tooltip
                 contentStyle={{
                   backgroundColor: '#fff',
-                  border: '1px solid #e5e7eb',
+                  border: '1px solid var(--lydian-border)',
                   borderRadius: '8px',
                   boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
                 }} />
@@ -385,9 +384,9 @@ const AnalyticsPage: React.FC = () => {
               <Line
                 type="monotone"
                 dataKey="views"
-                stroke="#8b5cf6"
+                stroke="var(--lydian-accent-purple)"
                 strokeWidth={3}
-                dot={{ fill: '#8b5cf6', r: 4 }}
+                dot={{ fill: 'var(--lydian-accent-purple)', r: 4 }}
                 activeDot={{ r: 6 }} />
 
             </LineChart>
@@ -409,12 +408,12 @@ const AnalyticsPage: React.FC = () => {
           <ResponsiveContainer width="100%" height={300}>
             <BarChart data={bookingsChartData}>
               <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
-              <XAxis dataKey="month" stroke="#9ca3af" style={{ fontSize: '12px' }} />
-              <YAxis stroke="#9ca3af" style={{ fontSize: '12px' }} />
+              <XAxis dataKey="month" stroke="var(--lydian-text-muted)" style={{ fontSize: '12px' }} />
+              <YAxis stroke="var(--lydian-text-muted)" style={{ fontSize: '12px' }} />
               <Tooltip
                 contentStyle={{
                   backgroundColor: '#fff',
-                  border: '1px solid #e5e7eb',
+                  border: '1px solid var(--lydian-border)',
                   borderRadius: '8px',
                   boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
                 }} />
@@ -422,8 +421,8 @@ const AnalyticsPage: React.FC = () => {
               <Bar dataKey="bookings" fill="url(#colorBookings)" radius={[8, 8, 0, 0]} />
               <defs>
                 <linearGradient id="colorBookings" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%" stopColor="#8b5cf6" stopOpacity={0.9} />
-                  <stop offset="95%" stopColor="#8b5cf6" stopOpacity={0.6} />
+                  <stop offset="5%" stopColor="var(--lydian-accent-purple)" stopOpacity={0.9} />
+                  <stop offset="95%" stopColor="var(--lydian-accent-purple)" stopOpacity={0.6} />
                 </linearGradient>
               </defs>
             </BarChart>

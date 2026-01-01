@@ -403,7 +403,7 @@ export const FormField: React.FC<FormFieldProps> = ({
       {label && (
         <label htmlFor={inputId} className="text-sm font-medium text-lydian-text-secondary">
           {label}
-          {required && <span className="text-red-500 ml-1">*</span>}
+          {required && <span className="text-lydian-secondary ml-1">*</span>}
         </label>
       )}
 

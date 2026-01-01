@@ -16,7 +16,7 @@ export { CacheKeyBuilder } from './redis-client';
 // HYBRID CACHE MANAGER
 // ==========================================
 
-export class HybridCacheManager<T = any> {
+export class HybridCacheManager<T = unknown> {
   private l1Cache: LRUCache<T>;
 
   constructor(
@@ -90,7 +90,7 @@ export class HybridCacheManager<T = any> {
     if (options.compress) {
       const serialized = JSON.stringify(value);
       if (serialized.length > 1024) { // Compress if > 1KB
-        redisValue = await compress(serialized) as any;
+        redisValue = (await compress(serialized)) as T;
         compressed = true;
       }
     }

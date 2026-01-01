@@ -10,6 +10,7 @@ export type { MinimalistHeroProps } from './MinimalistHero';
 export { MinimalistCard } from './MinimalistCard';
 export type { MinimalistCardProps } from './MinimalistCard';
 
+// DEPRECATED: Use Button from @/components/ui instead
 export { MinimalistButton } from './MinimalistButton';
 export type { MinimalistButtonProps } from './MinimalistButton';
 

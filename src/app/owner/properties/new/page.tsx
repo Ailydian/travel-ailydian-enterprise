@@ -40,6 +40,7 @@ import Step6Pricing from './Step6Pricing';
 import Step7HouseRules from './Step7HouseRules';
 import Step8Review from './Step8Review';
 import logger from '../../../../lib/logger';
+import { useToast } from '../../../../context/ToastContext';
 
 const TOTAL_STEPS = 8;
 const LOCAL_STORAGE_KEY = 'property-submission-draft';
@@ -90,6 +91,8 @@ const stepDescriptions = [
 ];
 
 export default function PropertySubmissionWizard() {
+  const { showSuccess, showError, showWarning, showInfo, showToast } = useToast();
+
   const [currentStep, setCurrentStep] = useState(1);
   const [completedSteps, setCompletedSteps] = useState<number[]>([]);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -181,10 +184,10 @@ export default function PropertySubmissionWizard() {
 
       localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(draftData));
       setLastSavedAt(new Date());
-      alert('Draft saved successfully!');
+      showToast({ type: 'success', title: 'Draft saved successfully!' });
     } catch (error) {
       logger.error('Failed to save draft:', error as Error, { component: 'Page' });
-      alert('Failed to save draft. Please try again.');
+      showToast({ type: 'error', title: 'Failed to save draft. Please try again.' });
     }
   }, [allFormData, currentStep, completedSteps]);
 
@@ -251,7 +254,7 @@ export default function PropertySubmissionWizard() {
       }, 3000);
     } catch (error) {
       logger.error('Submission error:', error as Error, { component: 'Page' });
-      alert('Failed to submit property. Please try again.');
+      showToast({ type: 'error', title: 'Failed to submit property. Please try again.' });
     } finally {
       setIsSubmitting(false);
     }
@@ -344,7 +347,7 @@ export default function PropertySubmissionWizard() {
                       <div
                         className={`w-6 h-6 rounded-full flex items-center justify-center text-sm font-semibold ${
                           step === currentStep
-                            ? 'bg-blue-500 text-white'
+                            ? 'bg-blue-500 text-lydian-text-inverse'
                             : 'bg-slate-200 text-slate-600'
                         }`}
                       >
@@ -411,7 +414,7 @@ export default function PropertySubmissionWizard() {
                       <h4 className="font-semibold text-red-900 mb-1">
                         Please fix the following errors:
                       </h4>
-                      <ul className="text-sm text-red-700 space-y-1">
+                      <ul className="text-sm text-lydian-primary-hover space-y-1">
                         {Object.entries(errors).map(([field, error]) => (
                           <li key={field}>
                             {field}: {error?.message?.toString()}
@@ -450,7 +453,7 @@ export default function PropertySubmissionWizard() {
               <button
                 type="submit"
                 disabled={!isValid || isSubmitting}
-                className="px-8 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-lg font-semibold hover:from-blue-700 hover:to-indigo-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all flex items-center gap-2 shadow-lg"
+                className="px-8 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-lydian-text-inverse rounded-lg font-semibold hover:from-blue-700 hover:to-indigo-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all flex items-center gap-2 shadow-lg"
               >
                 {isSubmitting ? (
                   <>
@@ -493,7 +496,7 @@ export default function PropertySubmissionWizard() {
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
                 transition={{ delay: 0.2, type: 'spring' }}
-                className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6"
+                className="w-20 h-20 bg-lydian-success-light rounded-full flex items-center justify-center mx-auto mb-6"
               >
                 <CheckCircle2 className="w-12 h-12 text-lydian-success" />
               </motion.div>

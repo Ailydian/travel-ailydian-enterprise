@@ -16,8 +16,7 @@ import {
   DollarSign,
   Calendar,
   MapPin,
-  Filter as FilterIcon } from
-'lucide-react';
+  Filter as FilterIcon } from 'lucide-react';
 
 export interface FilterOption {
   id: string;

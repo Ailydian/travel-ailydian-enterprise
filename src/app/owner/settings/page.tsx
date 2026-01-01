@@ -42,7 +42,7 @@ const TabButton: React.FC<TabButtonProps> = ({ label, icon, isActive, onClick })
       onClick={onClick}
       className={`flex items-center gap-3 px-4 py-3 rounded-lg font-medium transition-all ${
         isActive
-          ? 'bg-blue-50 text-lydian-primary-hover border-2 border-blue-200'
+          ? 'bg-lydian-info-lighter text-lydian-primary-hover border-2 border-blue-200'
           : 'text-lydian-text-dim hover:bg-lydian-bg/5 border-2 border-transparent'
       }`}
     >
@@ -76,13 +76,13 @@ const ProfileTab: React.FC = () => {
     <div className="bg-lydian-bg/5 border border-lydian-border rounded-xl p-6">
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h2 className="text-xl font-semibold text-white">Profile Settings</h2>
+          <h2 className="text-xl font-semibold text-lydian-text-inverse">Profile Settings</h2>
           <p className="text-sm text-lydian-text-muted mt-1">Manage your personal information</p>
         </div>
         {!isEditing && (
           <button
             onClick={() => setIsEditing(true)}
-            className="flex items-center gap-2 px-4 py-2 text-lydian-primary hover:bg-blue-50 rounded-lg transition-colors font-medium"
+            className="flex items-center gap-2 px-4 py-2 text-lydian-primary hover:bg-lydian-info-lighter rounded-lg transition-colors font-medium"
           >
             <Edit className="w-4 h-4" />
             Edit Profile
@@ -93,7 +93,7 @@ const ProfileTab: React.FC = () => {
       <form onSubmit={handleSubmit} className="space-y-6">
         {/* Avatar Upload */}
         <div className="flex items-center gap-6">
-          <div className="w-24 h-24 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white text-3xl font-bold">
+          <div className="w-24 h-24 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-lydian-text-inverse text-3xl font-bold">
             {formData.name.charAt(0)}
           </div>
           <div>
@@ -176,7 +176,7 @@ const ProfileTab: React.FC = () => {
             </button>
             <button
               type="submit"
-              className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-lydian-primary text-white rounded-lg hover:bg-lydian-primary-hover font-medium transition-colors"
+              className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-lydian-primary text-lydian-text-inverse rounded-lg hover:bg-lydian-primary-hover font-medium transition-colors"
             >
               <Save className="w-4 h-4" />
               Save Changes
@@ -200,10 +200,10 @@ const PropertiesTab: React.FC = () => {
     <div className="bg-lydian-bg/5 border border-lydian-border rounded-xl p-6">
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h2 className="text-xl font-semibold text-white">My Properties</h2>
+          <h2 className="text-xl font-semibold text-lydian-text-inverse">My Properties</h2>
           <p className="text-sm text-lydian-text-muted mt-1">Manage your property listings</p>
         </div>
-        <button className="flex items-center gap-2 px-4 py-2 bg-lydian-primary text-white rounded-lg hover:bg-lydian-primary-hover transition-colors font-medium">
+        <button className="flex items-center gap-2 px-4 py-2 bg-lydian-primary text-lydian-text-inverse rounded-lg hover:bg-lydian-primary-hover transition-colors font-medium">
           <Plus className="w-4 h-4" />
           Add Property
         </button>
@@ -216,19 +216,19 @@ const PropertiesTab: React.FC = () => {
             className="flex items-center justify-between p-4 border border-lydian-border rounded-lg hover:shadow-md transition-shadow"
           >
             <div className="flex items-center gap-4">
-              <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center text-white font-semibold text-lg">
+              <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center text-lydian-text-inverse font-semibold text-lg">
                 {property.name.charAt(0)}
               </div>
               <div>
-                <h4 className="font-semibold text-white">{property.name}</h4>
+                <h4 className="font-semibold text-lydian-text-inverse">{property.name}</h4>
                 <p className="text-sm text-lydian-text-muted">{property.location}</p>
               </div>
             </div>
             <div className="flex items-center gap-2">
-              <span className="px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs font-semibold">
+              <span className="px-3 py-1 bg-lydian-success-light text-green-800 rounded-full text-xs font-semibold">
                 {property.status}
               </span>
-              <button className="p-2 text-lydian-primary hover:bg-blue-50 rounded-lg transition-colors">
+              <button className="p-2 text-lydian-primary hover:bg-lydian-info-lighter rounded-lg transition-colors">
                 <Edit className="w-4 h-4" />
               </button>
               <button className="p-2 text-lydian-error hover:bg-red-50 rounded-lg transition-colors">
@@ -261,14 +261,14 @@ const NotificationsTab: React.FC = () => {
   return (
     <div className="bg-lydian-bg/5 border border-lydian-border rounded-xl p-6">
       <div className="mb-6">
-        <h2 className="text-xl font-semibold text-white">Notification Settings</h2>
+        <h2 className="text-xl font-semibold text-lydian-text-inverse">Notification Settings</h2>
         <p className="text-sm text-lydian-text-muted mt-1">Manage how you receive notifications</p>
       </div>
 
       <div className="space-y-6">
         {/* Email Notifications */}
         <div>
-          <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
+          <h3 className="text-lg font-semibold text-lydian-text-inverse mb-4 flex items-center gap-2">
             <Mail className="w-5 h-5" />
             Email Notifications
           </h3>
@@ -281,7 +281,7 @@ const NotificationsTab: React.FC = () => {
             ].map((item) => (
               <div key={item.key} className="flex items-center justify-between p-4 border border-lydian-border rounded-lg">
                 <div>
-                  <p className="font-medium text-white">{item.label}</p>
+                  <p className="font-medium text-lydian-text-inverse">{item.label}</p>
                   <p className="text-sm text-lydian-text-muted">{item.desc}</p>
                 </div>
                 <button
@@ -303,7 +303,7 @@ const NotificationsTab: React.FC = () => {
 
         {/* Push Notifications */}
         <div>
-          <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
+          <h3 className="text-lg font-semibold text-lydian-text-inverse mb-4 flex items-center gap-2">
             <Bell className="w-5 h-5" />
             Push Notifications
           </h3>
@@ -314,7 +314,7 @@ const NotificationsTab: React.FC = () => {
             ].map((item) => (
               <div key={item.key} className="flex items-center justify-between p-4 border border-lydian-border rounded-lg">
                 <div>
-                  <p className="font-medium text-white">{item.label}</p>
+                  <p className="font-medium text-lydian-text-inverse">{item.label}</p>
                   <p className="text-sm text-lydian-text-muted">{item.desc}</p>
                 </div>
                 <button
@@ -334,7 +334,7 @@ const NotificationsTab: React.FC = () => {
           </div>
         </div>
 
-        <button className="w-full flex items-center justify-center gap-2 px-4 py-2.5 bg-lydian-primary text-white rounded-lg hover:bg-lydian-primary-hover font-medium transition-colors">
+        <button className="w-full flex items-center justify-center gap-2 px-4 py-2.5 bg-lydian-primary text-lydian-text-inverse rounded-lg hover:bg-lydian-primary-hover font-medium transition-colors">
           <Save className="w-4 h-4" />
           Save Notification Settings
         </button>
@@ -351,18 +351,18 @@ const PaymentsTab: React.FC = () => {
   return (
     <div className="bg-lydian-bg/5 border border-lydian-border rounded-xl p-6">
       <div className="mb-6">
-        <h2 className="text-xl font-semibold text-white">Payment Settings</h2>
+        <h2 className="text-xl font-semibold text-lydian-text-inverse">Payment Settings</h2>
         <p className="text-sm text-lydian-text-muted mt-1">Manage your payout methods and schedule</p>
       </div>
 
       <div className="space-y-6">
         {/* Bank Account */}
         <div>
-          <h3 className="text-lg font-semibold text-white mb-4">Bank Account</h3>
+          <h3 className="text-lg font-semibold text-lydian-text-inverse mb-4">Bank Account</h3>
           <div className="p-4 border-2 border-dashed border-lydian-border-medium rounded-lg text-center">
             <CreditCard className="w-12 h-12 text-lydian-text-muted mx-auto mb-3" />
             <p className="text-lydian-text-dim mb-4">No bank account connected</p>
-            <button className="px-4 py-2 bg-lydian-primary text-white rounded-lg hover:bg-lydian-primary-hover transition-colors font-medium">
+            <button className="px-4 py-2 bg-lydian-primary text-lydian-text-inverse rounded-lg hover:bg-lydian-primary-hover transition-colors font-medium">
               Add Bank Account
             </button>
           </div>
@@ -370,7 +370,7 @@ const PaymentsTab: React.FC = () => {
 
         {/* Payout Schedule */}
         <div>
-          <h3 className="text-lg font-semibold text-white mb-4">Payout Schedule</h3>
+          <h3 className="text-lg font-semibold text-lydian-text-inverse mb-4">Payout Schedule</h3>
           <select className="w-full px-4 py-2.5 border border-lydian-border-medium rounded-lg focus:ring-2 focus:ring-lydian-primary focus:border-transparent">
             <option value="weekly">Weekly</option>
             <option value="biweekly">Bi-weekly</option>
@@ -380,15 +380,15 @@ const PaymentsTab: React.FC = () => {
 
         {/* Payment Methods */}
         <div>
-          <h3 className="text-lg font-semibold text-white mb-4">Connected Accounts</h3>
+          <h3 className="text-lg font-semibold text-lydian-text-inverse mb-4">Connected Accounts</h3>
           <div className="space-y-3">
             <div className="flex items-center justify-between p-4 border border-lydian-border rounded-lg">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
+                <div className="w-10 h-10 bg-lydian-info-light rounded-lg flex items-center justify-center">
                   <CreditCard className="w-5 h-5 text-lydian-primary" />
                 </div>
                 <div>
-                  <p className="font-medium text-white">PayPal</p>
+                  <p className="font-medium text-lydian-text-inverse">PayPal</p>
                   <p className="text-sm text-lydian-text-muted">Not connected</p>
                 </div>
               </div>
@@ -402,7 +402,7 @@ const PaymentsTab: React.FC = () => {
                   <CreditCard className="w-5 h-5 text-purple-600" />
                 </div>
                 <div>
-                  <p className="font-medium text-white">Stripe</p>
+                  <p className="font-medium text-lydian-text-inverse">Stripe</p>
                   <p className="text-sm text-lydian-text-muted">Not connected</p>
                 </div>
               </div>
@@ -425,14 +425,14 @@ const SecurityTab: React.FC = () => {
   return (
     <div className="bg-lydian-bg/5 border border-lydian-border rounded-xl p-6">
       <div className="mb-6">
-        <h2 className="text-xl font-semibold text-white">Security Settings</h2>
+        <h2 className="text-xl font-semibold text-lydian-text-inverse">Security Settings</h2>
         <p className="text-sm text-lydian-text-muted mt-1">Manage your account security</p>
       </div>
 
       <div className="space-y-6">
         {/* Change Password */}
         <div>
-          <h3 className="text-lg font-semibold text-white mb-4">Change Password</h3>
+          <h3 className="text-lg font-semibold text-lydian-text-inverse mb-4">Change Password</h3>
           <div className="space-y-4">
             <div>
               <label className="block text-sm font-medium text-gray-200 mb-2">Current Password</label>
@@ -464,7 +464,7 @@ const SecurityTab: React.FC = () => {
                 className="w-full px-4 py-2.5 border border-lydian-border-medium rounded-lg focus:ring-2 focus:ring-lydian-primary focus:border-transparent"
               />
             </div>
-            <button className="px-4 py-2.5 bg-lydian-primary text-white rounded-lg hover:bg-lydian-primary-hover transition-colors font-medium">
+            <button className="px-4 py-2.5 bg-lydian-primary text-lydian-text-inverse rounded-lg hover:bg-lydian-primary-hover transition-colors font-medium">
               Update Password
             </button>
           </div>
@@ -474,7 +474,7 @@ const SecurityTab: React.FC = () => {
         <div className="pt-6 border-t border-lydian-border">
           <div className="flex items-center justify-between mb-4">
             <div>
-              <h3 className="text-lg font-semibold text-white flex items-center gap-2">
+              <h3 className="text-lg font-semibold text-lydian-text-inverse flex items-center gap-2">
                 <Shield className="w-5 h-5" />
                 Two-Factor Authentication
               </h3>
@@ -494,7 +494,7 @@ const SecurityTab: React.FC = () => {
             </button>
           </div>
           {twoFactorEnabled && (
-            <div className="p-4 bg-blue-50 border border-blue-200 rounded-lg">
+            <div className="p-4 bg-lydian-info-lighter border border-blue-200 rounded-lg">
               <p className="text-sm text-blue-900 mb-3">
                 Scan this QR code with your authenticator app to enable 2FA
               </p>
@@ -507,14 +507,14 @@ const SecurityTab: React.FC = () => {
 
         {/* Active Sessions */}
         <div className="pt-6 border-t border-lydian-border">
-          <h3 className="text-lg font-semibold text-white mb-4">Active Sessions</h3>
+          <h3 className="text-lg font-semibold text-lydian-text-inverse mb-4">Active Sessions</h3>
           <div className="space-y-3">
             <div className="flex items-center justify-between p-4 border border-lydian-border rounded-lg">
               <div>
-                <p className="font-medium text-white">Chrome on MacBook Pro</p>
+                <p className="font-medium text-lydian-text-inverse">Chrome on MacBook Pro</p>
                 <p className="text-sm text-lydian-text-muted">San Francisco, CA • Last active: Just now</p>
               </div>
-              <span className="px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs font-semibold">
+              <span className="px-3 py-1 bg-lydian-success-light text-green-800 rounded-full text-xs font-semibold">
                 Current
               </span>
             </div>
@@ -539,7 +539,7 @@ const SettingsPage: React.FC = () => {
 
   return (
     <div className="space-y-6">
-      <h1 className="text-3xl font-black mb-6 text-white">
+      <h1 className="text-3xl font-black mb-6 text-lydian-text-inverse">
         Settings
       </h1>
       <div className="flex flex-col lg:flex-row gap-6">

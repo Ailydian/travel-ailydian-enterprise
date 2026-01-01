@@ -18,8 +18,7 @@ import {
   Calendar,
   DollarSign,
   Users,
-  Home } from
-'lucide-react';
+  Home } from 'lucide-react';
 
 /**
  * Stat Card Component

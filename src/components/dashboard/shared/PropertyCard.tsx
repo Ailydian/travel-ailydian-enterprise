@@ -7,8 +7,7 @@ import {
   MoreVertical,
   Power,
   Bed,
-  Users } from
-'lucide-react';
+  Users } from 'lucide-react';
 import { StatusBadge } from './StatusBadge';
 
 /**

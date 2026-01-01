@@ -66,7 +66,7 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({
     if (metaThemeColor) {
       metaThemeColor.setAttribute(
         'content',
-        resolved === 'dark' ? '#0a0a0f' : '#ffffff'
+        resolved === 'dark' ? '#0a0a0f' : 'var(--lydian-text-inverse)'
       );
     }
   };

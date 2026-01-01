@@ -311,14 +311,14 @@ export default function PriceChart({
         </h3>
         <ResponsiveContainer width="100%" height={height}>
           <ComposedChart data={chartData}>
-            <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+            <CartesianGrid strokeDasharray="3 3" stroke="var(--lydian-border)" />
             <XAxis
               dataKey="date"
-              stroke="#6b7280"
+              stroke="var(--lydian-text-tertiary)"
               style={{ fontSize: '12px' }} />
 
             <YAxis
-              stroke="#6b7280"
+              stroke="var(--lydian-text-tertiary)"
               style={{ fontSize: '12px' }}
               tickFormatter={(value) => `${currency} ${value}`} />
 
@@ -328,24 +328,24 @@ export default function PriceChart({
             {/* Min/Max reference lines */}
             <ReferenceLine
               y={minPrice}
-              stroke="#10b981"
+              stroke="var(--lydian-success)"
               strokeDasharray="3 3"
-              label={{ value: 'Lowest', position: 'insideTopRight', fill: '#10b981' }} />
+              label={{ value: 'Lowest', position: 'insideTopRight', fill: 'var(--lydian-success)' }} />
 
             <ReferenceLine
               y={maxPrice}
-              stroke="#ef4444"
+              stroke="var(--lydian-secondary)"
               strokeDasharray="3 3"
-              label={{ value: 'Highest', position: 'insideBottomRight', fill: '#ef4444' }} />
+              label={{ value: 'Highest', position: 'insideBottomRight', fill: 'var(--lydian-secondary)' }} />
 
 
             {/* Actual prices */}
             <Line
               type="monotone"
               dataKey="price"
-              stroke="#10b981"
+              stroke="var(--lydian-success)"
               strokeWidth={3}
-              dot={{ fill: '#10b981', r: 4 }}
+              dot={{ fill: 'var(--lydian-success)', r: 4 }}
               name="Actual Price"
               connectNulls />
 
@@ -355,10 +355,10 @@ export default function PriceChart({
             <Line
               type="monotone"
               dataKey="predictedPrice"
-              stroke="#3b82f6"
+              stroke="var(--lydian-info)"
               strokeWidth={2}
               strokeDasharray="5 5"
-              dot={{ fill: '#3b82f6', r: 3 }}
+              dot={{ fill: 'var(--lydian-info)', r: 3 }}
               name="Predicted Price"
               connectNulls />
 
@@ -370,7 +370,7 @@ export default function PriceChart({
       {/* Legend */}
       <div className="flex items-center justify-center gap-6 text-sm">
         <div className="flex items-center gap-2">
-          <div className="w-4 h-1 bg-green-500"></div>
+          <div className="w-4 h-1 bg-lydian-success"></div>
           <span className="text-lydian-text-dim dark:text-lydian-text-muted">Actual Price</span>
         </div>
         {showPredictions &&

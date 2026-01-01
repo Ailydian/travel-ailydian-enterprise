@@ -190,7 +190,7 @@ export default function Step3PropertyDetails({ data }: Step3Props) {
       </div>
 
       {/* Selected Count */}
-      <div className="flex items-center justify-between p-4 bg-blue-50 border border-blue-200 rounded-lg">
+      <div className="flex items-center justify-between p-4 bg-lydian-info-lighter border border-blue-200 rounded-lg">
         <span className="text-sm font-medium text-blue-900">
           {selectedAmenities.length + customAmenities.length} olanak seçildi
         </span>
@@ -210,7 +210,7 @@ export default function Step3PropertyDetails({ data }: Step3Props) {
           return (
             <div key={key} className="border-2 border-slate-200 rounded-xl p-6">
               <div className="flex items-center gap-3 mb-4">
-                <div className="p-2 bg-blue-100 rounded-lg">
+                <div className="p-2 bg-lydian-info-light rounded-lg">
                   <CategoryIcon className="w-5 h-5 text-lydian-primary" />
                 </div>
                 <h3 className="text-lg font-bold text-slate-900">{category.title}</h3>
@@ -227,7 +227,7 @@ export default function Step3PropertyDetails({ data }: Step3Props) {
                       onClick={() => toggleAmenity(amenity)}
                       className={`p-3 border-2 rounded-lg text-left transition-all ${
                         isSelected
-                          ? 'border-lydian-primary bg-blue-50 text-blue-900'
+                          ? 'border-lydian-primary bg-lydian-info-lighter text-blue-900'
                           : 'border-slate-200 bg-lydian-bg/5 text-slate-700 hover:border-slate-300'
                       }`}
                     >
@@ -241,7 +241,7 @@ export default function Step3PropertyDetails({ data }: Step3Props) {
                         >
                           {isSelected && (
                             <svg
-                              className="w-3 h-3 text-white"
+                              className="w-3 h-3 text-lydian-text-inverse"
                               fill="none"
                               viewBox="0 0 24 24"
                               stroke="currentColor"
@@ -293,7 +293,7 @@ export default function Step3PropertyDetails({ data }: Step3Props) {
             type="button"
             onClick={addCustomAmenity}
             disabled={!customAmenity.trim() || customAmenities.length >= 10}
-            className="px-6 py-3 bg-lydian-primary text-white rounded-lg font-medium hover:bg-lydian-primary-hover disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+            className="px-6 py-3 bg-lydian-primary text-lydian-text-inverse rounded-lg font-medium hover:bg-lydian-primary-hover disabled:opacity-50 disabled:cursor-not-allowed transition-all"
           >
             Ekle
           </button>
@@ -454,7 +454,7 @@ export default function Step3PropertyDetails({ data }: Step3Props) {
       </div>
 
       {/* Info Box */}
-      <div className="p-4 bg-green-50 border border-green-200 rounded-lg">
+      <div className="p-4 bg-lydian-success-lighter border border-green-200 rounded-lg">
         <h4 className="font-semibold text-green-900 mb-2">Olanak İpuçları:</h4>
         <ul className="text-sm text-green-800 space-y-1">
           <li>• Daha fazla misafir çekmek için mevcut tüm olanakları listeleyin</li>

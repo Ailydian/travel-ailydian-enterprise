@@ -16,6 +16,7 @@ import WriteReviewModal from '../../components/reviews/WriteReviewModal';
 import LocationMap from '../../components/location/LocationMap';
 import ExternalPlatformReviews from '../../components/reviews/ExternalPlatformReviews';
 import logger from '../../lib/logger';
+import { useToast } from '../../context/ToastContext';
 
 interface LocationPageProps {
   location: Location;
@@ -32,6 +33,7 @@ export default function LocationPage({
   nearbyLocations,
   locale = 'en'
 }: LocationPageProps) {
+  const { showSuccess, showError, showWarning, showInfo, showToast } = useToast();
   const { t } = useTranslation('common');
   const [showAllPhotos, setShowAllPhotos] = useState(false);
   const [showWriteReview, setShowWriteReview] = useState(false);
@@ -192,7 +194,7 @@ export default function LocationPage({
   // Handle Google sync
   const handleGoogleSync = async () => {
     if (!location.google_place_id) {
-      alert('Google Place ID not configured for this location');
+      showToast({ type: 'info', title: 'Google Place ID not configured for this location' });
       return;
     }
 
@@ -203,14 +205,14 @@ export default function LocationPage({
         ...prev,
         google: { success: true, lastSync: new Date().toISOString() }
       }));
-      alert('Successfully synced with Google My Business!');
+      showToast({ type: 'success', title: 'Successfully synced with Google My Business!' });
     } catch (error) {
       logger.error('Google sync error:', error as Error, { component: 'Slug' });
       setSyncStatus((prev) => ({
         ...prev,
         google: { success: false, error: 'Sync failed. Please try again.' }
       }));
-      alert('Failed to sync with Google My Business. Please try again.');
+      showToast({ type: 'error', title: 'Failed to sync with Google My Business. Please try again.' });
     } finally {
       setSyncingGoogle(false);
     }
@@ -219,7 +221,7 @@ export default function LocationPage({
   // Handle TripAdvisor sync
   const handleTripAdvisorSync = async () => {
     if (!location.tripadvisor_id) {
-      alert('TripAdvisor ID not configured for this location');
+      showToast({ type: 'info', title: 'TripAdvisor ID not configured for this location' });
       return;
     }
 
@@ -230,14 +232,14 @@ export default function LocationPage({
         ...prev,
         tripAdvisor: { success: true, lastSync: new Date().toISOString() }
       }));
-      alert('Successfully synced with TripAdvisor!');
+      showToast({ type: 'success', title: 'Successfully synced with TripAdvisor!' });
     } catch (error) {
       logger.error('TripAdvisor sync error:', error as Error, { component: 'Slug' });
       setSyncStatus((prev) => ({
         ...prev,
         tripAdvisor: { success: false, error: 'Sync failed. Please try again.' }
       }));
-      alert('Failed to sync with TripAdvisor. Please try again.');
+      showToast({ type: 'error', title: 'Failed to sync with TripAdvisor. Please try again.' });
     } finally {
       setSyncingTripAdvisor(false);
     }

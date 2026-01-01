@@ -122,13 +122,13 @@ export default function PropertiesPage() {
   const getStatusColor = (status: string) => {
     switch (status) {
       case 'active':
-        return { bg: 'rgba(16, 185, 129, 0.1)', text: '#10B981', label: 'Aktif' };
+        return { bg: 'rgba(16, 185, 129, 0.1)', text: 'var(--lydian-success)', label: 'Aktif' };
       case 'inactive':
-        return { bg: 'rgba(239, 68, 68, 0.1)', text: '#EF4444', label: 'Pasif' };
+        return { bg: 'rgba(239, 68, 68, 0.1)', text: 'var(--lydian-secondary)', label: 'Pasif' };
       case 'maintenance':
-        return { bg: 'rgba(245, 158, 11, 0.1)', text: '#F59E0B', label: 'Bakımda' };
+        return { bg: 'rgba(245, 158, 11, 0.1)', text: 'var(--lydian-warning)', label: 'Bakımda' };
       default:
-        return { bg: 'rgba(107, 114, 128, 0.1)', text: '#6B7280', label: 'Bilinmiyor' };
+        return { bg: 'rgba(107, 114, 128, 0.1)', text: 'var(--lydian-text-tertiary)', label: 'Bilinmiyor' };
     }
   };
 
@@ -162,16 +162,16 @@ export default function PropertiesPage() {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {[
           { label: 'Toplam Mülk', value: stats.total, icon: Building2, color: 'var(--ac-1)' },
-          { label: 'Aktif', value: stats.active, icon: Power, color: '#10B981' },
-          { label: 'Pasif', value: stats.inactive, icon: PowerOff, color: '#EF4444' },
-          { label: 'Bakımda', value: stats.maintenance, icon: AlertCircle, color: '#F59E0B' }
+          { label: 'Aktif', value: stats.active, icon: Power, color: 'var(--lydian-success)' },
+          { label: 'Pasif', value: stats.inactive, icon: PowerOff, color: 'var(--lydian-secondary)' },
+          { label: 'Bakımda', value: stats.maintenance, icon: AlertCircle, color: 'var(--lydian-warning)' }
         ].map((stat, index) => (
           <div
             key={index}
             className="rounded-xl p-4 sm:p-5 border-2 transition-all hover:scale-105"
             style={{
-              backgroundColor: '#FFFFFF',
-              borderColor: '#E5E7EB',
+              backgroundColor: 'var(--lydian-text-inverse)',
+              borderColor: 'var(--lydian-border)',
               boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)'
             }}
           >
@@ -202,8 +202,8 @@ export default function PropertiesPage() {
             onChange={(e) => setSearchQuery(e.target.value)}
             className="w-full pl-10 pr-4 py-3 rounded-xl border-2 transition-all"
             style={{
-              backgroundColor: '#FFFFFF',
-              borderColor: '#E5E7EB',
+              backgroundColor: 'var(--lydian-text-inverse)',
+              borderColor: 'var(--lydian-border)',
               color: '#000000'
             }}
           />
@@ -214,8 +214,8 @@ export default function PropertiesPage() {
           onChange={(e) => setFilterStatus(e.target.value)}
           className="w-full sm:w-auto px-4 py-3 rounded-xl border-2 transition-all"
           style={{
-            backgroundColor: '#FFFFFF',
-            borderColor: '#E5E7EB',
+            backgroundColor: 'var(--lydian-text-inverse)',
+            borderColor: 'var(--lydian-border)',
             color: '#000000'
           }}
         >
@@ -244,8 +244,8 @@ export default function PropertiesPage() {
                 key={property.id}
                 className="rounded-2xl overflow-hidden border-2 transition-all hover:scale-[1.02] touch-manipulation"
                 style={{
-                  backgroundColor: '#FFFFFF',
-                  borderColor: '#E5E7EB',
+                  backgroundColor: 'var(--lydian-text-inverse)',
+                  borderColor: 'var(--lydian-border)',
                   boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)'
                 }}
               >
@@ -269,7 +269,7 @@ export default function PropertiesPage() {
                   <div
                     className="absolute top-3 left-3 px-3 py-1 rounded-lg text-xs font-bold backdrop-blur-lg"
                     style={{
-                      backgroundColor: 'rgba(0, 0, 0, 0.5)',
+                      backgroundColor: 'var(--lydian-bg-overlay)',
                       color: 'white'
                     }}
                   >
@@ -289,7 +289,7 @@ export default function PropertiesPage() {
                   </div>
 
                   {/* Stats */}
-                  <div className="grid grid-cols-2 gap-3 mb-4 pb-4 border-b" style={{ borderColor: '#E5E7EB' }}>
+                  <div className="grid grid-cols-2 gap-3 mb-4 pb-4 border-b" style={{ borderColor: 'var(--lydian-border)' }}>
                     <div>
                       <div className="flex items-center gap-1 mb-1">
                         <Star className="w-4 h-4" style={{ color: 'var(--ac-1)' }} />
@@ -362,7 +362,7 @@ export default function PropertiesPage() {
                       className="flex items-center justify-center px-4 py-2.5 sm:py-2 rounded-lg transition-all hover:scale-105 touch-manipulation"
                       style={{
                         backgroundColor: 'rgba(239, 68, 68, 0.1)',
-                        color: '#EF4444',
+                        color: 'var(--lydian-secondary)',
                         border: '1px solid rgba(239, 68, 68, 0.3)'
                       }}
                     >
@@ -383,7 +383,7 @@ export default function PropertiesPage() {
       {properties.filter(p => filterStatus === 'all' || p.status === filterStatus).length === 0 && (
         <div className="text-center py-16 rounded-2xl border-2"
              style={{
-               backgroundColor: '#FFFFFF',
+               backgroundColor: 'var(--lydian-text-inverse)',
                borderColor: '#E5E7EB'
              }}>
           <Building2 className="w-16 h-16 mx-auto mb-4" style={{ color: '#666666' }} />

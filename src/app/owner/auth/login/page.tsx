@@ -100,14 +100,14 @@ export default function OwnerLoginPage() {
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2 mb-12">
               <div className="w-10 h-10 bg-gradient-to-r from-[#FF214D] to-[#FF6A45] rounded-lg flex items-center justify-center">
-                <Home className="w-6 h-6 text-white" />
+                <Home className="w-6 h-6 text-lydian-text-inverse" />
               </div>
-              <span className="text-2xl font-bold text-white">LyDian</span>
+              <span className="text-2xl font-bold text-lydian-text-inverse">LyDian</span>
             </Link>
 
             {/* Main Content */}
             <div>
-              <h1 className="text-4xl font-bold text-white mb-4">
+              <h1 className="text-4xl font-bold text-lydian-text-inverse mb-4">
                 Mülk Yönetiminizi
                 <br />
                 <span className="bg-gradient-to-r from-[#FF214D] to-[#FF6A45] bg-clip-text text-transparent">
@@ -129,7 +129,7 @@ export default function OwnerLoginPage() {
                     className="flex items-center gap-3"
                   >
                     <div className="w-6 h-6 bg-gradient-to-r from-[#FF214D] to-[#FF6A45] rounded-full flex items-center justify-center flex-shrink-0">
-                      <CheckCircle2 className="w-4 h-4 text-white" />
+                      <CheckCircle2 className="w-4 h-4 text-lydian-text-inverse" />
                     </div>
                     <span className="text-gray-200 font-medium">{benefit}</span>
                   </motion.div>
@@ -141,15 +141,15 @@ export default function OwnerLoginPage() {
           {/* Bottom Stats */}
           <div className="relative z-10 grid grid-cols-3 gap-6">
             <div>
-              <div className="text-3xl font-bold text-white">5000+</div>
+              <div className="text-3xl font-bold text-lydian-text-inverse">5000+</div>
               <div className="text-lydian-text-dim text-sm">Mülk Sahibi</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-white">50K+</div>
+              <div className="text-3xl font-bold text-lydian-text-inverse">50K+</div>
               <div className="text-lydian-text-dim text-sm">Rezervasyon</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-white">98%</div>
+              <div className="text-3xl font-bold text-lydian-text-inverse">98%</div>
               <div className="text-lydian-text-dim text-sm">Memnuniyet</div>
             </div>
           </div>
@@ -166,14 +166,14 @@ export default function OwnerLoginPage() {
             {/* Mobile Logo */}
             <div className="lg:hidden flex items-center gap-2 mb-8">
               <div className="w-10 h-10 bg-gradient-to-r from-[#FF214D] to-[#FF6A45] rounded-lg flex items-center justify-center">
-                <Home className="w-6 h-6 text-white" />
+                <Home className="w-6 h-6 text-lydian-text-inverse" />
               </div>
-              <span className="text-2xl font-bold text-white">LyDian</span>
+              <span className="text-2xl font-bold text-lydian-text-inverse">LyDian</span>
             </div>
 
             {/* Header */}
             <div className="mb-8">
-              <h2 className="text-3xl font-bold text-white mb-2">
+              <h2 className="text-3xl font-bold text-lydian-text-inverse mb-2">
                 Mülk Sahibi Girişi
               </h2>
               <p className="text-lydian-text-dim">
@@ -185,7 +185,7 @@ export default function OwnerLoginPage() {
             <form onSubmit={handleSubmit} className="space-y-6">
               {/* Email Field */}
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-white mb-2">
+                <label htmlFor="email" className="block text-sm font-medium text-lydian-text-inverse mb-2">
                   E-posta Adresi
                 </label>
                 <div className="relative">
@@ -200,18 +200,18 @@ export default function OwnerLoginPage() {
                     onChange={handleInputChange}
                     className={`block w-full pl-10 pr-3 py-3 border ${
                       errors.email ? 'border-red-500' : 'border-lydian-border-medium'
-                    } rounded-lg focus:ring-2 focus:ring-[#FF214D] focus:border-transparent outline-none transition-all bg-lydian-bg/5 text-white`}
+                    } rounded-lg focus:ring-2 focus:ring-[#FF214D] focus:border-transparent outline-none transition-all bg-lydian-bg/5 text-lydian-text-inverse`}
                     placeholder="ornek@email.com"
                   />
                 </div>
                 {errors.email && (
-                  <p className="mt-1 text-sm text-red-500">{errors.email}</p>
+                  <p className="mt-1 text-sm text-lydian-secondary">{errors.email}</p>
                 )}
               </div>
 
               {/* Password Field */}
               <div>
-                <label htmlFor="password" className="block text-sm font-medium text-white mb-2">
+                <label htmlFor="password" className="block text-sm font-medium text-lydian-text-inverse mb-2">
                   Şifre
                 </label>
                 <div className="relative">
@@ -226,7 +226,7 @@ export default function OwnerLoginPage() {
                     onChange={handleInputChange}
                     className={`block w-full pl-10 pr-10 py-3 border ${
                       errors.password ? 'border-red-500' : 'border-lydian-border-medium'
-                    } rounded-lg focus:ring-2 focus:ring-[#FF214D] focus:border-transparent outline-none transition-all bg-lydian-bg/5 text-white`}
+                    } rounded-lg focus:ring-2 focus:ring-[#FF214D] focus:border-transparent outline-none transition-all bg-lydian-bg/5 text-lydian-text-inverse`}
                     placeholder="••••••••"
                   />
                   <button
@@ -242,7 +242,7 @@ export default function OwnerLoginPage() {
                   </button>
                 </div>
                 {errors.password && (
-                  <p className="mt-1 text-sm text-red-500">{errors.password}</p>
+                  <p className="mt-1 text-sm text-lydian-secondary">{errors.password}</p>
                 )}
               </div>
 
@@ -273,7 +273,7 @@ export default function OwnerLoginPage() {
               <button
                 type="submit"
                 disabled={isLoading}
-                className="w-full bg-gradient-to-r from-[#FF214D] to-[#FF6A45] text-white py-3 px-4 rounded-lg font-semibold hover:shadow-lg transform hover:scale-[1.02] transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none flex items-center justify-center gap-2"
+                className="w-full bg-gradient-to-r from-[#FF214D] to-[#FF6A45] text-lydian-text-inverse py-3 px-4 rounded-lg font-semibold hover:shadow-lg transform hover:scale-[1.02] transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none flex items-center justify-center gap-2"
               >
                 {isLoading ? (
                   <>
@@ -302,7 +302,7 @@ export default function OwnerLoginPage() {
             {/* Register Link */}
             <Link
               href="/owner/auth/register"
-              className="block w-full text-center py-3 px-4 border-2 border-lydian-border-medium rounded-lg font-semibold text-white hover:bg-lydian-bg/5 hover:border-gray-400 transition-all duration-200"
+              className="block w-full text-center py-3 px-4 border-2 border-lydian-border-medium rounded-lg font-semibold text-lydian-text-inverse hover:bg-lydian-bg/5 hover:border-gray-400 transition-all duration-200"
             >
               Mülk Sahibi Olarak Kayıt Ol
             </Link>
@@ -311,7 +311,7 @@ export default function OwnerLoginPage() {
             <div className="mt-6 text-center">
               <Link
                 href="/"
-                className="text-sm text-lydian-text-dim hover:text-white transition-colors"
+                className="text-sm text-lydian-text-dim hover:text-lydian-text-inverse transition-colors"
               >
                 ← Ana sayfaya dön
               </Link>

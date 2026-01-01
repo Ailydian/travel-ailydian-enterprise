@@ -13,6 +13,7 @@
 import React, { Component, type ReactNode, type ErrorInfo } from 'react';
 import logger from '../lib/logger';
 import * as Sentry from '@sentry/nextjs';
+import { captureException, addBreadcrumb } from '../lib/monitoring/sentry-advanced';
 
 interface ErrorBoundaryProps {
   readonly children: ReactNode;
@@ -53,6 +54,17 @@ export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundarySt
   }
 
   componentDidCatch(error: Error, errorInfo: ErrorInfo): void {
+    // Add breadcrumb for error context
+    addBreadcrumb(
+      'React component error caught by Error Boundary',
+      'error.boundary',
+      {
+        errorMessage: error.message,
+        errorName: error.name,
+      },
+      'error'
+    );
+
     // Log to enterprise logging system
     logger.error('React component error caught by Error Boundary', error, {
       component: 'ErrorBoundary',
@@ -64,20 +76,26 @@ export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundarySt
     // Call custom error handler if provided
     this.props.onError?.(error, errorInfo);
 
-    // Send to Sentry for error tracking and monitoring
+    // Send to Sentry with enhanced context using advanced tracking
     if (typeof window !== 'undefined' && process.env.NEXT_PUBLIC_SENTRY_DSN) {
-      Sentry.captureException(error, {
-        contexts: {
-          react: {
-            componentStack: errorInfo.componentStack,
-            errorBoundary: true
-          }
-        },
+      captureException(error, {
         tags: {
+          feature: 'ui',
           component: 'ErrorBoundary',
-          errorType: 'React Component Error'
+          error_type: 'React Component Error',
         },
-        level: 'error'
+        extra: {
+          componentStack: errorInfo.componentStack,
+          errorBoundary: true,
+          userAgent: navigator.userAgent,
+          viewport: {
+            width: window.innerWidth,
+            height: window.innerHeight,
+          },
+          url: window.location.href,
+        },
+        level: 'error',
+        fingerprint: ['react-error-boundary', error.name, error.message],
       });
     }
 

@@ -12,8 +12,7 @@ import {
   Calendar,
   Monitor,
   Sparkles,
-  ChevronDown } from
-'lucide-react';
+  ChevronDown } from 'lucide-react';
 import { useTheme, themes } from '@/hooks/useTheme';
 
 const themeIcons = {

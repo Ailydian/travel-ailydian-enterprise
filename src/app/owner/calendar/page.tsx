@@ -54,10 +54,10 @@ const CalendarDay: React.FC<CalendarDayProps> = ({
           : isBlocked
           ? 'bg-red-50 border-red-200 text-red-700'
           : isBooked
-          ? 'bg-blue-50 border-blue-200 text-lydian-primary-hover'
+          ? 'bg-lydian-info-lighter border-blue-200 text-lydian-primary-hover'
           : isToday
-          ? 'bg-green-50 border-green-400 text-green-700 font-semibold'
-          : 'bg-lydian-bg/5 border-lydian-border text-white hover:border-blue-300'
+          ? 'bg-lydian-success-lighter border-green-400 text-green-700 font-semibold'
+          : 'bg-lydian-bg/5 border-lydian-border text-lydian-text-inverse hover:border-blue-300'
       }`}
     >
       <div className="flex flex-col h-full">
@@ -67,7 +67,7 @@ const CalendarDay: React.FC<CalendarDayProps> = ({
         </div>
         {bookingInfo && (
           <div className="flex-1 flex flex-col justify-end">
-            <div className="text-[10px] sm:text-xs truncate bg-lydian-primary text-white px-0.5 sm:px-1 py-0.5 rounded">
+            <div className="text-[10px] sm:text-xs truncate bg-lydian-primary text-lydian-text-inverse px-0.5 sm:px-1 py-0.5 rounded">
               {bookingInfo.guestName}
             </div>
             {(bookingInfo.checkIn || bookingInfo.checkOut) && (
@@ -153,7 +153,7 @@ const QuickEditModal: React.FC<QuickEditModalProps> = ({ isOpen, date, onClose, 
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 p-4">
       <div className="bg-lydian-bg/5 rounded-xl shadow-2xl max-w-md w-full max-h-[90vh] overflow-y-auto">
         <div className="flex items-center justify-between p-4 sm:p-6 border-b border-lydian-border sticky top-0 bg-lydian-bg/5 z-10">
-          <h3 className="text-lg sm:text-xl font-semibold text-white">Müsaitlik Düzenle</h3>
+          <h3 className="text-lg sm:text-xl font-semibold text-lydian-text-inverse">Müsaitlik Düzenle</h3>
           <button
             onClick={onClose}
             className="p-2 hover:bg-lydian-bg/10 rounded-lg transition-colors touch-manipulation"
@@ -198,7 +198,7 @@ const QuickEditModal: React.FC<QuickEditModalProps> = ({ isOpen, date, onClose, 
                 <div
                   className={`p-3 sm:p-4 border-2 rounded-lg text-center transition-all touch-manipulation ${
                     action === 'unblock'
-                      ? 'border-green-500 bg-green-50 text-green-700'
+                      ? 'border-green-500 bg-lydian-success-lighter text-green-700'
                       : 'border-lydian-border hover:border-lydian-border-medium'
                   }`}
                 >
@@ -257,7 +257,7 @@ const QuickEditModal: React.FC<QuickEditModalProps> = ({ isOpen, date, onClose, 
             </button>
             <button
               type="submit"
-              className="flex-1 px-4 py-2.5 text-sm sm:text-base bg-lydian-primary text-white rounded-lg hover:bg-lydian-primary-hover font-medium transition-colors touch-manipulation"
+              className="flex-1 px-4 py-2.5 text-sm sm:text-base bg-lydian-primary text-lydian-text-inverse rounded-lg hover:bg-lydian-primary-hover font-medium transition-colors touch-manipulation"
             >
               Değişiklikleri Kaydet
             </button>
@@ -272,10 +272,10 @@ const QuickEditModal: React.FC<QuickEditModalProps> = ({ isOpen, date, onClose, 
 const CalendarLegend: React.FC = () => {
   return (
     <div className="bg-lydian-bg/5 border border-lydian-border rounded-xl p-3 sm:p-4 mb-4 sm:mb-6">
-      <h4 className="text-sm font-semibold text-white mb-3">Açıklama</h4>
+      <h4 className="text-sm font-semibold text-lydian-text-inverse mb-3">Açıklama</h4>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-3">
         <div className="flex items-center gap-2">
-          <div className="w-5 h-5 sm:w-6 sm:h-6 bg-blue-50 border-2 border-blue-200 rounded flex-shrink-0"></div>
+          <div className="w-5 h-5 sm:w-6 sm:h-6 bg-lydian-info-lighter border-2 border-blue-200 rounded flex-shrink-0"></div>
           <span className="text-xs sm:text-sm text-gray-200">Rezerve</span>
         </div>
         <div className="flex items-center gap-2">
@@ -283,7 +283,7 @@ const CalendarLegend: React.FC = () => {
           <span className="text-xs sm:text-sm text-gray-200">Blokeli</span>
         </div>
         <div className="flex items-center gap-2">
-          <div className="w-5 h-5 sm:w-6 sm:h-6 bg-green-50 border-2 border-green-400 rounded flex-shrink-0"></div>
+          <div className="w-5 h-5 sm:w-6 sm:h-6 bg-lydian-success-lighter border-2 border-green-400 rounded flex-shrink-0"></div>
           <span className="text-xs sm:text-sm text-gray-200">Bugün</span>
         </div>
         <div className="flex items-center gap-2">
@@ -407,7 +407,7 @@ const CalendarPage: React.FC = () => {
   if (propertiesLoading) {
     return (
       <div className="space-y-4 sm:space-y-6 px-4 sm:px-0">
-        <h1 className="text-2xl sm:text-3xl font-black mb-4 sm:mb-6 text-white">
+        <h1 className="text-2xl sm:text-3xl font-black mb-4 sm:mb-6 text-lydian-text-inverse">
           Takvim
         </h1>
         <div className="animate-pulse space-y-4">
@@ -420,7 +420,7 @@ const CalendarPage: React.FC = () => {
 
   return (
     <div className="space-y-4 sm:space-y-6 px-4 sm:px-0">
-      <h1 className="text-2xl sm:text-3xl font-black mb-4 sm:mb-6 text-white">
+      <h1 className="text-2xl sm:text-3xl font-black mb-4 sm:mb-6 text-lydian-text-inverse">
         Takvim
       </h1>
       <PropertySelector
@@ -435,7 +435,7 @@ const CalendarPage: React.FC = () => {
         {/* Calendar Header */}
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between p-4 sm:p-6 border-b border-lydian-border bg-gradient-to-r from-blue-50 to-indigo-50 gap-4">
           <div>
-            <h2 className="text-xl sm:text-2xl font-bold text-white">{monthName}</h2>
+            <h2 className="text-xl sm:text-2xl font-bold text-lydian-text-inverse">{monthName}</h2>
             <p className="text-xs sm:text-sm text-lydian-text-dim mt-1">Mülk müsaitliğinizi yönetin</p>
           </div>
           <div className="flex gap-2 justify-end">

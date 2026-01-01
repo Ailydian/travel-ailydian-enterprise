@@ -2,6 +2,10 @@
  * 🔘 NEO-GLASS BUTTON
  * Neomorphism + Glassmorphism Hybrid Button
  * 3D depth with glass blur effects
+ *
+ * @deprecated This component is deprecated. Use Button from @/components/ui instead.
+ * Migration: <NeoButton variant="glass" /> → <Button variant="glass" />
+ * See BUTTON_MIGRATION_GUIDE.md for details.
  */
 
 import React from 'react';

@@ -26,12 +26,12 @@ import {
   Copy,
   ExternalLink,
   X,
-  Users } from
-'lucide-react';
+  Users } from 'lucide-react';
 import { ethers } from 'ethers';
 import CryptoPayment from './CryptoPayment';
 import DecentralizedReviews from './DecentralizedReviews';
 import logger from '../../lib/logger';
+import { useToast } from '../../context/ToastContext';
 
 interface TravelNFT {
   id: string;
@@ -78,6 +78,8 @@ interface DecentralizedReview {
 }
 
 const TravelBlockchain: React.FC = () => {
+  const { showSuccess, showError, showWarning, showInfo, showToast } = useToast();
+
   const [isConnected, setIsConnected] = useState(false);
   const [walletAddress, setWalletAddress] = useState('');
   const [balance, setBalance] = useState({ eth: 0, usdc: 0 });
@@ -165,14 +167,14 @@ const TravelBlockchain: React.FC = () => {
         setIsLoading(false);
       }
     } else {
-      alert('MetaMask yüklü değil! Lütfen MetaMask kurun.');
+      showToast({ type: 'error', title: 'MetaMask yüklü değil! Lütfen MetaMask kurun.' });
     }
   };
 
   // Mint NFT function
   const mintTravelNFT = async () => {
     if (!mintingData.title || !mintingData.location) {
-      alert('Başlık ve lokasyon zorunludur!');
+      showToast({ type: 'info', title: 'Başlık ve lokasyon zorunludur!' });
       return;
     }
 
@@ -206,7 +208,7 @@ const TravelBlockchain: React.FC = () => {
       setShowMintModal(false);
       setIsLoading(false);
 
-      alert('🎉 NFT başarıyla mint edildi!');
+      showToast({ type: 'success', title: '🎉 NFT başarıyla mint edildi!' });
     }, 3000);
   };
 
@@ -252,7 +254,7 @@ const TravelBlockchain: React.FC = () => {
         </div>
         {nft.isListed &&
         <div className="absolute top-3 right-3">
-            <span className="px-2 py-1 bg-green-500 text-lydian-text-inverse rounded-full text-xs font-medium">
+            <span className="px-2 py-1 bg-lydian-success text-lydian-text-inverse rounded-full text-xs font-medium">
               SATILIKTA
             </span>
           </div>

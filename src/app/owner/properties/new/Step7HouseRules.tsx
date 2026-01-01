@@ -36,8 +36,8 @@ export default function Step7HouseRules({ data }: Step7Props) {
       {/* Header */}
       <div className="p-6 bg-gradient-to-br from-blue-50 to-indigo-50 border-2 border-blue-200 rounded-xl">
         <div className="flex items-start gap-4">
-          <div className="p-3 bg-blue-500 rounded-lg">
-            <Shield className="w-6 h-6 text-white" />
+          <div className="p-3 bg-lydian-info rounded-lg">
+            <Shield className="w-6 h-6 text-lydian-text-inverse" />
           </div>
           <div>
             <h3 className="text-xl font-bold text-blue-900 mb-2">
@@ -73,7 +73,7 @@ export default function Step7HouseRules({ data }: Step7Props) {
                 }`}
               >
                 {watch('agreeToTerms') && (
-                  <CheckCircle2 className="w-4 h-4 text-white" />
+                  <CheckCircle2 className="w-4 h-4 text-lydian-text-inverse" />
                 )}
               </div>
             </div>
@@ -104,7 +104,7 @@ export default function Step7HouseRules({ data }: Step7Props) {
                   className="w-5 h-5 text-lydian-primary rounded focus:ring-2 focus:ring-lydian-primary"
                 />
                 <span className="text-sm font-medium text-slate-700 group-hover:text-slate-900">
-                  Hizmet Şartlarını kabul ediyorum <span className="text-red-500">*</span>
+                  Hizmet Şartlarını kabul ediyorum <span className="text-lydian-secondary">*</span>
                 </span>
               </label>
               {errors.agreeToTerms && (
@@ -134,7 +134,7 @@ export default function Step7HouseRules({ data }: Step7Props) {
                 }`}
               >
                 {watch('agreeToPrivacyPolicy') && (
-                  <CheckCircle2 className="w-4 h-4 text-white" />
+                  <CheckCircle2 className="w-4 h-4 text-lydian-text-inverse" />
                 )}
               </div>
             </div>
@@ -165,7 +165,7 @@ export default function Step7HouseRules({ data }: Step7Props) {
                   className="w-5 h-5 text-lydian-primary rounded focus:ring-2 focus:ring-lydian-primary"
                 />
                 <span className="text-sm font-medium text-slate-700 group-hover:text-slate-900">
-                  Gizlilik Politikasını kabul ediyorum <span className="text-red-500">*</span>
+                  Gizlilik Politikasını kabul ediyorum <span className="text-lydian-secondary">*</span>
                 </span>
               </label>
               {errors.agreeToPrivacyPolicy && (
@@ -195,7 +195,7 @@ export default function Step7HouseRules({ data }: Step7Props) {
                 }`}
               >
                 {watch('agreeToHouseRules') && (
-                  <CheckCircle2 className="w-4 h-4 text-white" />
+                  <CheckCircle2 className="w-4 h-4 text-lydian-text-inverse" />
                 )}
               </div>
             </div>
@@ -218,7 +218,7 @@ export default function Step7HouseRules({ data }: Step7Props) {
                 />
                 <span className="text-sm font-medium text-slate-700 group-hover:text-slate-900">
                   Ev sahibi sorumluluklarını yerine getirmeyi kabul ediyorum{' '}
-                  <span className="text-red-500">*</span>
+                  <span className="text-lydian-secondary">*</span>
                 </span>
               </label>
               {errors.agreeToHouseRules && (
@@ -248,7 +248,7 @@ export default function Step7HouseRules({ data }: Step7Props) {
                 }`}
               >
                 {watch('agreeToGuestCommunicationPolicy') && (
-                  <CheckCircle2 className="w-4 h-4 text-white" />
+                  <CheckCircle2 className="w-4 h-4 text-lydian-text-inverse" />
                 )}
               </div>
             </div>
@@ -271,7 +271,7 @@ export default function Step7HouseRules({ data }: Step7Props) {
                 />
                 <span className="text-sm font-medium text-slate-700 group-hover:text-slate-900">
                   İletişim politikasını kabul ediyorum{' '}
-                  <span className="text-red-500">*</span>
+                  <span className="text-lydian-secondary">*</span>
                 </span>
               </label>
               {errors.agreeToGuestCommunicationPolicy && (
@@ -301,7 +301,7 @@ export default function Step7HouseRules({ data }: Step7Props) {
                 }`}
               >
                 {watch('guestVettingConsent') && (
-                  <CheckCircle2 className="w-4 h-4 text-white" />
+                  <CheckCircle2 className="w-4 h-4 text-lydian-text-inverse" />
                 )}
               </div>
             </div>
@@ -322,7 +322,7 @@ export default function Step7HouseRules({ data }: Step7Props) {
                 />
                 <span className="text-sm font-medium text-slate-700 group-hover:text-slate-900">
                   Misafir kontrol prosedürlerini kabul ediyorum{' '}
-                  <span className="text-red-500">*</span>
+                  <span className="text-lydian-secondary">*</span>
                 </span>
               </label>
               {errors.guestVettingConsent && (

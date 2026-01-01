@@ -51,7 +51,7 @@ export default function Step4Amenities({ data }: Step4Props) {
           {/* Currency */}
           <div>
             <label className="block text-sm font-semibold text-slate-700 mb-2">
-              Para Birimi <span className="text-red-500">*</span>
+              Para Birimi <span className="text-lydian-secondary">*</span>
             </label>
             <select
               {...register('currency')}
@@ -74,7 +74,7 @@ export default function Step4Amenities({ data }: Step4Props) {
           {/* Base Price */}
           <div>
             <label className="block text-sm font-semibold text-slate-700 mb-2">
-              Gecelik Temel Fiyat <span className="text-red-500">*</span>
+              Gecelik Temel Fiyat <span className="text-lydian-secondary">*</span>
             </label>
             <div className="relative">
               <DollarSign className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
@@ -99,7 +99,7 @@ export default function Step4Amenities({ data }: Step4Props) {
       {/* Discounts */}
       <div className="border-2 border-slate-200 rounded-xl p-6">
         <div className="flex items-center gap-3 mb-4">
-          <div className="p-2 bg-green-100 rounded-lg">
+          <div className="p-2 bg-lydian-success-light rounded-lg">
             <TrendingDown className="w-5 h-5 text-lydian-success" />
           </div>
           <h3 className="text-lg font-bold text-slate-900">Konaklama Süresi İndirimleri</h3>
@@ -279,7 +279,7 @@ export default function Step4Amenities({ data }: Step4Props) {
       {/* Availability */}
       <div className="border-2 border-slate-200 rounded-xl p-6">
         <div className="flex items-center gap-3 mb-4">
-          <div className="p-2 bg-blue-100 rounded-lg">
+          <div className="p-2 bg-lydian-info-light rounded-lg">
             <Calendar className="w-5 h-5 text-lydian-primary" />
           </div>
           <h3 className="text-lg font-bold text-slate-900">Konaklama Gereksinimleri</h3>
@@ -289,7 +289,7 @@ export default function Step4Amenities({ data }: Step4Props) {
           {/* Minimum Stay */}
           <div>
             <label className="block text-sm font-semibold text-slate-700 mb-2">
-              Minimum Konaklama <span className="text-red-500">*</span>
+              Minimum Konaklama <span className="text-lydian-secondary">*</span>
             </label>
             <div className="relative">
               <input

@@ -23,8 +23,7 @@ import {
   Home,
   Castle,
   Hotel as HotelIcon,
-  Mountain } from
-'lucide-react';
+  Mountain } from 'lucide-react';
 import {
   FilterType,
   HotelFilters,

@@ -20,13 +20,13 @@ export interface ApiError {
   message: string;
   statusCode: number;
   code?: string;
-  details?: any;
+  details?: Record<string, unknown>;
   timestamp: string;
   path?: string;
   requestId?: string;
 }
 
-export interface ApiSuccess<T = any> {
+export interface ApiSuccess<T = unknown> {
   success: true;
   data: T;
   message?: string;
@@ -38,7 +38,7 @@ export interface ApiSuccess<T = any> {
   };
 }
 
-export type ApiResponse<T = any> = ApiSuccess<T> | ApiError;
+export type ApiResponse<T = unknown> = ApiSuccess<T> | ApiError;
 
 /**
  * Error types with their HTTP status codes
@@ -78,7 +78,7 @@ export class AppError extends Error {
   constructor(
     public type: ErrorType,
     public message: string,
-    public details?: any,
+    public details?: Record<string, unknown>,
     public code?: string
   ) {
     super(message);
@@ -195,7 +195,7 @@ export function createErrorResponse(
 function parsePrismaError(error: Prisma.PrismaClientKnownRequestError): {
   type: ErrorType;
   message: string;
-  details: any;
+  details: Record<string, unknown>;
 } {
   switch (error.code) {
     case 'P2002': // Unique constraint violation
@@ -302,7 +302,7 @@ export function withErrorHandler(
 export function createSuccessResponse<T>(
   data: T,
   message?: string,
-  meta?: any
+  meta?: Record<string, unknown>
 ): ApiSuccess<T> {
   return {
     success: true,
@@ -323,7 +323,7 @@ export function sendSuccess<T>(
   data: T,
   statusCode: number = 200,
   message?: string,
-  meta?: any
+  meta?: Record<string, unknown>
 ): void {
   const response = createSuccessResponse(data, message, meta);
   res.status(statusCode).json(response);
@@ -336,7 +336,7 @@ export function sendError(
   res: NextApiResponse,
   type: ErrorType,
   message: string,
-  details?: any,
+  details?: Record<string, unknown>,
   code?: string
 ): void {
   const error = new AppError(type, message, details, code);
@@ -364,7 +364,7 @@ function generateRequestId(): string {
  * Async error boundary for API routes
  */
 export function asyncHandler(
-  fn: (req: NextApiRequest, res: NextApiResponse) => Promise<any>
+  fn: (req: NextApiRequest, res: NextApiResponse) => Promise<void>
 ) {
   return (req: NextApiRequest, res: NextApiResponse) => {
     Promise.resolve(fn(req, res)).catch((error) => {
@@ -386,33 +386,33 @@ export function asyncHandler(
  * Common error factories
  */
 export const Errors = {
-  notFound: (message = 'Resource not found', details?: any) =>
+  notFound: (message = 'Resource not found', details?: Record<string, unknown>) =>
     new AppError(ErrorType.NOT_FOUND, message, details),
 
-  unauthorized: (message = 'Authentication required', details?: any) =>
+  unauthorized: (message = 'Authentication required', details?: Record<string, unknown>) =>
     new AppError(ErrorType.AUTHENTICATION_ERROR, message, details),
 
-  forbidden: (message = 'Access denied', details?: any) =>
+  forbidden: (message = 'Access denied', details?: Record<string, unknown>) =>
     new AppError(ErrorType.AUTHORIZATION_ERROR, message, details),
 
-  validation: (message = 'Validation failed', details?: any) =>
+  validation: (message = 'Validation failed', details?: Record<string, unknown>) =>
     new AppError(ErrorType.VALIDATION_ERROR, message, details),
 
-  conflict: (message = 'Resource conflict', details?: any) =>
+  conflict: (message = 'Resource conflict', details?: Record<string, unknown>) =>
     new AppError(ErrorType.CONFLICT, message, details),
 
-  rateLimit: (message = 'Rate limit exceeded', details?: any) =>
+  rateLimit: (message = 'Rate limit exceeded', details?: Record<string, unknown>) =>
     new AppError(ErrorType.RATE_LIMIT, message, details),
 
-  database: (message = 'Database error', details?: any) =>
+  database: (message = 'Database error', details?: Record<string, unknown>) =>
     new AppError(ErrorType.DATABASE_ERROR, message, details),
 
-  externalService: (message = 'External service error', details?: any) =>
+  externalService: (message = 'External service error', details?: Record<string, unknown>) =>
     new AppError(ErrorType.EXTERNAL_SERVICE_ERROR, message, details),
 
-  timeout: (message = 'Request timeout', details?: any) =>
+  timeout: (message = 'Request timeout', details?: Record<string, unknown>) =>
     new AppError(ErrorType.TIMEOUT, message, details),
 
-  badRequest: (message = 'Bad request', details?: any) =>
+  badRequest: (message = 'Bad request', details?: Record<string, unknown>) =>
     new AppError(ErrorType.BAD_REQUEST, message, details),
 };

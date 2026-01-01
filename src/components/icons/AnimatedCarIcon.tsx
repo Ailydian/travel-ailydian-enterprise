@@ -44,8 +44,8 @@ export const AnimatedCarIcon: React.FC<AnimatedCarIconProps> = ({
               ease: "linear"
             }}>
 
-            <line x1="0" y1="90" x2="200" y2="90" stroke="#E5E7EB" strokeWidth="1" opacity="0.5" />
-            <line x1="0" y1="95" x2="200" y2="95" stroke="#E5E7EB" strokeWidth="2" strokeDasharray="10 5" opacity="0.3" />
+            <line x1="0" y1="90" x2="200" y2="90" stroke="var(--lydian-border)" strokeWidth="1" opacity="0.5" />
+            <line x1="0" y1="95" x2="200" y2="95" stroke="var(--lydian-border)" strokeWidth="2" strokeDasharray="10 5" opacity="0.3" />
           </motion.g>
 
           {/* Car Body */}
@@ -65,13 +65,13 @@ export const AnimatedCarIcon: React.FC<AnimatedCarIconProps> = ({
             {/* Main Body Gradient */}
             <defs>
               <linearGradient id="carGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#3B82F6" />
-                <stop offset="50%" stopColor="#8B5CF6" />
+                <stop offset="0%" stopColor="var(--lydian-info)" />
+                <stop offset="50%" stopColor="var(--lydian-accent-purple)" />
                 <stop offset="100%" stopColor="#EC4899" />
               </linearGradient>
               <linearGradient id="windowGradient" x1="0%" y1="0%" x2="0%" y2="100%">
                 <stop offset="0%" stopColor="#60A5FA" stopOpacity="0.8" />
-                <stop offset="100%" stopColor="#3B82F6" stopOpacity="0.4" />
+                <stop offset="100%" stopColor="var(--lydian-info)" stopOpacity="0.4" />
               </linearGradient>
             </defs>
 
@@ -97,7 +97,7 @@ export const AnimatedCarIcon: React.FC<AnimatedCarIconProps> = ({
               cx="155"
               cy="72"
               r="4"
-              fill="#FEF3C7"
+              fill="var(--lydian-warning-light)"
               animate={{ opacity: [0.6, 1, 0.6] }}
               transition={{ duration: 1.5, repeat: Infinity }} />
 
@@ -105,22 +105,22 @@ export const AnimatedCarIcon: React.FC<AnimatedCarIconProps> = ({
               cx="155"
               cy="72"
               r="6"
-              fill="#FEF3C7"
+              fill="var(--lydian-warning-light)"
               opacity="0.3"
               animate={{ r: [6, 8, 6], opacity: [0.3, 0.1, 0.3] }}
               transition={{ duration: 1.5, repeat: Infinity }} />
 
 
             {/* Taillights */}
-            <circle cx="40" cy="72" r="3" fill="#DC2626" opacity="0.8" />
+            <circle cx="40" cy="72" r="3" fill="var(--lydian-primary)" opacity="0.8" />
 
             {/* Door Handle */}
             <rect x="75" y="68" width="8" height="2" rx="1" fill="#1E40AF" opacity="0.6" />
             <rect x="115" y="68" width="8" height="2" rx="1" fill="#1E40AF" opacity="0.6" />
 
             {/* Side Mirror */}
-            <ellipse cx="50" cy="60" rx="4" ry="3" fill="#3B82F6" stroke="#1E40AF" strokeWidth="0.5" />
-            <ellipse cx="150" cy="60" rx="4" ry="3" fill="#3B82F6" stroke="#1E40AF" strokeWidth="0.5" />
+            <ellipse cx="50" cy="60" rx="4" ry="3" fill="var(--lydian-info)" stroke="#1E40AF" strokeWidth="0.5" />
+            <ellipse cx="150" cy="60" rx="4" ry="3" fill="var(--lydian-info)" stroke="#1E40AF" strokeWidth="0.5" />
 
             {/* Wheels with Animation */}
             <g>
@@ -130,9 +130,9 @@ export const AnimatedCarIcon: React.FC<AnimatedCarIconProps> = ({
                 transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
                 style={{ originX: '130px', originY: '85px' }}>
 
-                <circle cx="130" cy="85" r="12" fill="#1F2937" stroke="#374151" strokeWidth="2" />
-                <circle cx="130" cy="85" r="8" fill="#6B7280" />
-                <circle cx="130" cy="85" r="4" fill="#9CA3AF" />
+                <circle cx="130" cy="85" r="12" fill="#1F2937" stroke="var(--lydian-text-secondary)" strokeWidth="2" />
+                <circle cx="130" cy="85" r="8" fill="var(--lydian-text-tertiary)" />
+                <circle cx="130" cy="85" r="4" fill="var(--lydian-text-muted)" />
                 {[0, 45, 90, 135, 180, 225, 270, 315].map((angle) =>
                 <line
                   key={angle}
@@ -140,7 +140,7 @@ export const AnimatedCarIcon: React.FC<AnimatedCarIconProps> = ({
                   y1="85"
                   x2={130 + Math.cos(angle * Math.PI / 180) * 8}
                   y2={85 + Math.sin(angle * Math.PI / 180) * 8}
-                  stroke="#374151"
+                  stroke="var(--lydian-text-secondary)"
                   strokeWidth="1" />
 
                 )}
@@ -152,9 +152,9 @@ export const AnimatedCarIcon: React.FC<AnimatedCarIconProps> = ({
                 transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
                 style={{ originX: '70px', originY: '85px' }}>
 
-                <circle cx="70" cy="85" r="12" fill="#1F2937" stroke="#374151" strokeWidth="2" />
-                <circle cx="70" cy="85" r="8" fill="#6B7280" />
-                <circle cx="70" cy="85" r="4" fill="#9CA3AF" />
+                <circle cx="70" cy="85" r="12" fill="#1F2937" stroke="var(--lydian-text-secondary)" strokeWidth="2" />
+                <circle cx="70" cy="85" r="8" fill="var(--lydian-text-tertiary)" />
+                <circle cx="70" cy="85" r="4" fill="var(--lydian-text-muted)" />
                 {[0, 45, 90, 135, 180, 225, 270, 315].map((angle) =>
                 <line
                   key={angle}
@@ -162,7 +162,7 @@ export const AnimatedCarIcon: React.FC<AnimatedCarIconProps> = ({
                   y1="85"
                   x2={70 + Math.cos(angle * Math.PI / 180) * 8}
                   y2={85 + Math.sin(angle * Math.PI / 180) * 8}
-                  stroke="#374151"
+                  stroke="var(--lydian-text-secondary)"
                   strokeWidth="1" />
 
                 )}
@@ -172,7 +172,7 @@ export const AnimatedCarIcon: React.FC<AnimatedCarIconProps> = ({
             {/* Premium Shine Effect */}
             <motion.path
               d="M 60 55 Q 100 50 140 55"
-              stroke="#FFFFFF"
+              stroke="var(--lydian-text-inverse)"
               strokeWidth="2"
               fill="none"
               opacity="0.3"

@@ -223,14 +223,14 @@ export default function OwnerRegisterPage() {
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2 mb-12">
               <div className="w-10 h-10 bg-gradient-to-r from-[#FF214D] to-[#FF6A45] rounded-lg flex items-center justify-center">
-                <Home className="w-6 h-6 text-white" />
+                <Home className="w-6 h-6 text-lydian-text-inverse" />
               </div>
-              <span className="text-2xl font-bold text-white">LyDian</span>
+              <span className="text-2xl font-bold text-lydian-text-inverse">LyDian</span>
             </Link>
 
             {/* Header */}
             <div className="mb-8">
-              <h1 className="text-4xl font-bold text-white mb-4">
+              <h1 className="text-4xl font-bold text-lydian-text-inverse mb-4">
                 Mülk Sahibi
                 <br />
                 <span className="bg-gradient-to-r from-[#FF214D] to-[#FF6A45] bg-clip-text text-transparent">
@@ -253,10 +253,10 @@ export default function OwnerRegisterPage() {
                   className="flex gap-4"
                 >
                   <div className="w-12 h-12 bg-gradient-to-r from-[#FF214D] to-[#FF6A45] rounded-lg flex items-center justify-center flex-shrink-0">
-                    <benefit.icon className="w-6 h-6 text-white" />
+                    <benefit.icon className="w-6 h-6 text-lydian-text-inverse" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-white mb-1">{benefit.title}</h3>
+                    <h3 className="font-semibold text-lydian-text-inverse mb-1">{benefit.title}</h3>
                     <p className="text-lydian-text-dim text-sm">{benefit.description}</p>
                   </div>
                 </motion.div>
@@ -269,15 +269,15 @@ export default function OwnerRegisterPage() {
             <div className="text-sm text-lydian-text-dim mb-4">Güvenilir Platform</div>
             <div className="grid grid-cols-3 gap-6">
               <div>
-                <div className="text-2xl font-bold text-white">5000+</div>
+                <div className="text-2xl font-bold text-lydian-text-inverse">5000+</div>
                 <div className="text-lydian-text-dim text-sm">Mülk Sahibi</div>
               </div>
               <div>
-                <div className="text-2xl font-bold text-white">50K+</div>
+                <div className="text-2xl font-bold text-lydian-text-inverse">50K+</div>
                 <div className="text-lydian-text-dim text-sm">Rezervasyon</div>
               </div>
               <div>
-                <div className="text-2xl font-bold text-white">98%</div>
+                <div className="text-2xl font-bold text-lydian-text-inverse">98%</div>
                 <div className="text-lydian-text-dim text-sm">Memnuniyet</div>
               </div>
             </div>
@@ -295,9 +295,9 @@ export default function OwnerRegisterPage() {
             {/* Mobile Logo */}
             <div className="lg:hidden flex items-center gap-2 mb-8">
               <div className="w-10 h-10 bg-gradient-to-r from-[#FF214D] to-[#FF6A45] rounded-lg flex items-center justify-center">
-                <Home className="w-6 h-6 text-white" />
+                <Home className="w-6 h-6 text-lydian-text-inverse" />
               </div>
-              <span className="text-2xl font-bold text-white">LyDian</span>
+              <span className="text-2xl font-bold text-lydian-text-inverse">LyDian</span>
             </div>
 
             {/* Progress Steps */}
@@ -309,7 +309,7 @@ export default function OwnerRegisterPage() {
                       <div
                         className={`w-10 h-10 rounded-full flex items-center justify-center font-semibold transition-all ${
                           currentStep >= step
-                            ? 'bg-gradient-to-r from-[#FF214D] to-[#FF6A45] text-white'
+                            ? 'bg-gradient-to-r from-[#FF214D] to-[#FF6A45] text-lydian-text-inverse'
                             : 'bg-lydian-bg-surface-raised text-lydian-text-muted'
                         }`}
                       >
@@ -332,13 +332,13 @@ export default function OwnerRegisterPage() {
                 ))}
               </div>
               <div className="flex justify-between text-sm">
-                <span className={currentStep >= 1 ? 'text-white font-medium' : 'text-lydian-text-muted'}>
+                <span className={currentStep >= 1 ? 'text-lydian-text-inverse font-medium' : 'text-lydian-text-muted'}>
                   Kişisel Bilgiler
                 </span>
-                <span className={currentStep >= 2 ? 'text-white font-medium' : 'text-lydian-text-muted'}>
+                <span className={currentStep >= 2 ? 'text-lydian-text-inverse font-medium' : 'text-lydian-text-muted'}>
                   Mülk Bilgileri
                 </span>
-                <span className={currentStep >= 3 ? 'text-white font-medium' : 'text-lydian-text-muted'}>
+                <span className={currentStep >= 3 ? 'text-lydian-text-inverse font-medium' : 'text-lydian-text-muted'}>
                   Onay
                 </span>
               </div>
@@ -346,7 +346,7 @@ export default function OwnerRegisterPage() {
 
             {/* Header */}
             <div className="mb-6">
-              <h2 className="text-3xl font-bold text-white mb-2">
+              <h2 className="text-3xl font-bold text-lydian-text-inverse mb-2">
                 {currentStep === 1 && 'Hesap Oluştur'}
                 {currentStep === 2 && 'Mülk Bilgileriniz'}
                 {currentStep === 3 && 'Son Adım'}
@@ -372,7 +372,7 @@ export default function OwnerRegisterPage() {
                   >
                     {/* Full Name */}
                     <div>
-                      <label htmlFor="fullName" className="block text-sm font-medium text-white mb-2">
+                      <label htmlFor="fullName" className="block text-sm font-medium text-lydian-text-inverse mb-2">
                         Ad Soyad
                       </label>
                       <div className="relative">
@@ -387,18 +387,18 @@ export default function OwnerRegisterPage() {
                           onChange={handleInputChange}
                           className={`block w-full pl-10 pr-3 py-3 border ${
                             errors.fullName ? 'border-red-500' : 'border-lydian-border-medium'
-                          } rounded-lg focus:ring-2 focus:ring-[#FF214D] focus:border-transparent outline-none transition-all bg-lydian-bg/5 text-white`}
+                          } rounded-lg focus:ring-2 focus:ring-[#FF214D] focus:border-transparent outline-none transition-all bg-lydian-bg/5 text-lydian-text-inverse`}
                           placeholder="Ahmet Yılmaz"
                         />
                       </div>
                       {errors.fullName && (
-                        <p className="mt-1 text-sm text-red-500">{errors.fullName}</p>
+                        <p className="mt-1 text-sm text-lydian-secondary">{errors.fullName}</p>
                       )}
                     </div>
 
                     {/* Email */}
                     <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-white mb-2">
+                      <label htmlFor="email" className="block text-sm font-medium text-lydian-text-inverse mb-2">
                         E-posta Adresi
                       </label>
                       <div className="relative">
@@ -413,18 +413,18 @@ export default function OwnerRegisterPage() {
                           onChange={handleInputChange}
                           className={`block w-full pl-10 pr-3 py-3 border ${
                             errors.email ? 'border-red-500' : 'border-lydian-border-medium'
-                          } rounded-lg focus:ring-2 focus:ring-[#FF214D] focus:border-transparent outline-none transition-all bg-lydian-bg/5 text-white`}
+                          } rounded-lg focus:ring-2 focus:ring-[#FF214D] focus:border-transparent outline-none transition-all bg-lydian-bg/5 text-lydian-text-inverse`}
                           placeholder="ornek@email.com"
                         />
                       </div>
                       {errors.email && (
-                        <p className="mt-1 text-sm text-red-500">{errors.email}</p>
+                        <p className="mt-1 text-sm text-lydian-secondary">{errors.email}</p>
                       )}
                     </div>
 
                     {/* Phone */}
                     <div>
-                      <label htmlFor="phone" className="block text-sm font-medium text-white mb-2">
+                      <label htmlFor="phone" className="block text-sm font-medium text-lydian-text-inverse mb-2">
                         Telefon Numarası
                       </label>
                       <div className="relative">
@@ -439,12 +439,12 @@ export default function OwnerRegisterPage() {
                           onChange={handleInputChange}
                           className={`block w-full pl-10 pr-3 py-3 border ${
                             errors.phone ? 'border-red-500' : 'border-lydian-border-medium'
-                          } rounded-lg focus:ring-2 focus:ring-[#FF214D] focus:border-transparent outline-none transition-all bg-lydian-bg/5 text-white`}
+                          } rounded-lg focus:ring-2 focus:ring-[#FF214D] focus:border-transparent outline-none transition-all bg-lydian-bg/5 text-lydian-text-inverse`}
                           placeholder="0555 123 4567"
                         />
                       </div>
                       {errors.phone && (
-                        <p className="mt-1 text-sm text-red-500">{errors.phone}</p>
+                        <p className="mt-1 text-sm text-lydian-secondary">{errors.phone}</p>
                       )}
                     </div>
 
@@ -452,7 +452,7 @@ export default function OwnerRegisterPage() {
                     <button
                       type="button"
                       onClick={handleNext}
-                      className="w-full bg-gradient-to-r from-[#FF214D] to-[#FF6A45] text-white py-3 px-4 rounded-lg font-semibold hover:shadow-lg transform hover:scale-[1.02] transition-all duration-200 flex items-center justify-center gap-2 mt-6"
+                      className="w-full bg-gradient-to-r from-[#FF214D] to-[#FF6A45] text-lydian-text-inverse py-3 px-4 rounded-lg font-semibold hover:shadow-lg transform hover:scale-[1.02] transition-all duration-200 flex items-center justify-center gap-2 mt-6"
                     >
                       <span>Devam Et</span>
                       <ArrowRight className="w-5 h-5" />
@@ -472,7 +472,7 @@ export default function OwnerRegisterPage() {
                   >
                     {/* Password */}
                     <div>
-                      <label htmlFor="password" className="block text-sm font-medium text-white mb-2">
+                      <label htmlFor="password" className="block text-sm font-medium text-lydian-text-inverse mb-2">
                         Şifre
                       </label>
                       <div className="relative">
@@ -487,7 +487,7 @@ export default function OwnerRegisterPage() {
                           onChange={handleInputChange}
                           className={`block w-full pl-10 pr-10 py-3 border ${
                             errors.password ? 'border-red-500' : 'border-lydian-border-medium'
-                          } rounded-lg focus:ring-2 focus:ring-[#FF214D] focus:border-transparent outline-none transition-all bg-lydian-bg/5 text-white`}
+                          } rounded-lg focus:ring-2 focus:ring-[#FF214D] focus:border-transparent outline-none transition-all bg-lydian-bg/5 text-lydian-text-inverse`}
                           placeholder="••••••••"
                         />
                         <button
@@ -503,7 +503,7 @@ export default function OwnerRegisterPage() {
                         </button>
                       </div>
                       {errors.password && (
-                        <p className="mt-1 text-sm text-red-500">{errors.password}</p>
+                        <p className="mt-1 text-sm text-lydian-secondary">{errors.password}</p>
                       )}
                       <p className="mt-1 text-xs text-lydian-text-muted">
                         En az 8 karakter, bir büyük harf, bir küçük harf ve bir rakam içermelidir
@@ -512,7 +512,7 @@ export default function OwnerRegisterPage() {
 
                     {/* Confirm Password */}
                     <div>
-                      <label htmlFor="confirmPassword" className="block text-sm font-medium text-white mb-2">
+                      <label htmlFor="confirmPassword" className="block text-sm font-medium text-lydian-text-inverse mb-2">
                         Şifre Tekrar
                       </label>
                       <div className="relative">
@@ -527,7 +527,7 @@ export default function OwnerRegisterPage() {
                           onChange={handleInputChange}
                           className={`block w-full pl-10 pr-10 py-3 border ${
                             errors.confirmPassword ? 'border-red-500' : 'border-lydian-border-medium'
-                          } rounded-lg focus:ring-2 focus:ring-[#FF214D] focus:border-transparent outline-none transition-all bg-lydian-bg/5 text-white`}
+                          } rounded-lg focus:ring-2 focus:ring-[#FF214D] focus:border-transparent outline-none transition-all bg-lydian-bg/5 text-lydian-text-inverse`}
                           placeholder="••••••••"
                         />
                         <button
@@ -543,13 +543,13 @@ export default function OwnerRegisterPage() {
                         </button>
                       </div>
                       {errors.confirmPassword && (
-                        <p className="mt-1 text-sm text-red-500">{errors.confirmPassword}</p>
+                        <p className="mt-1 text-sm text-lydian-secondary">{errors.confirmPassword}</p>
                       )}
                     </div>
 
                     {/* Property Type */}
                     <div>
-                      <label className="block text-sm font-medium text-white mb-3">
+                      <label className="block text-sm font-medium text-lydian-text-inverse mb-3">
                         Mülk Tipi
                       </label>
                       <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
@@ -585,13 +585,13 @@ export default function OwnerRegisterPage() {
                         ))}
                       </div>
                       {errors.propertyType && (
-                        <p className="mt-2 text-sm text-red-500">{errors.propertyType}</p>
+                        <p className="mt-2 text-sm text-lydian-secondary">{errors.propertyType}</p>
                       )}
                     </div>
 
                     {/* Number of Properties */}
                     <div>
-                      <label htmlFor="numberOfProperties" className="block text-sm font-medium text-white mb-2">
+                      <label htmlFor="numberOfProperties" className="block text-sm font-medium text-lydian-text-inverse mb-2">
                         Kaç Mülkünüz Var?
                       </label>
                       <select
@@ -601,7 +601,7 @@ export default function OwnerRegisterPage() {
                         onChange={handleInputChange}
                         className={`block w-full px-3 py-3 border ${
                           errors.numberOfProperties ? 'border-red-500' : 'border-lydian-border-medium'
-                        } rounded-lg focus:ring-2 focus:ring-[#FF214D] focus:border-transparent outline-none transition-all bg-lydian-bg/5 text-white`}
+                        } rounded-lg focus:ring-2 focus:ring-[#FF214D] focus:border-transparent outline-none transition-all bg-lydian-bg/5 text-lydian-text-inverse`}
                       >
                         <option value="">Seçiniz</option>
                         {propertyCountOptions.map((option) => (
@@ -611,7 +611,7 @@ export default function OwnerRegisterPage() {
                         ))}
                       </select>
                       {errors.numberOfProperties && (
-                        <p className="mt-1 text-sm text-red-500">{errors.numberOfProperties}</p>
+                        <p className="mt-1 text-sm text-lydian-secondary">{errors.numberOfProperties}</p>
                       )}
                     </div>
 
@@ -628,7 +628,7 @@ export default function OwnerRegisterPage() {
                       <button
                         type="button"
                         onClick={handleNext}
-                        className="flex-1 bg-gradient-to-r from-[#FF214D] to-[#FF6A45] text-white py-3 px-4 rounded-lg font-semibold hover:shadow-lg transform hover:scale-[1.02] transition-all duration-200 flex items-center justify-center gap-2"
+                        className="flex-1 bg-gradient-to-r from-[#FF214D] to-[#FF6A45] text-lydian-text-inverse py-3 px-4 rounded-lg font-semibold hover:shadow-lg transform hover:scale-[1.02] transition-all duration-200 flex items-center justify-center gap-2"
                       >
                         <span>Devam Et</span>
                         <ArrowRight className="w-5 h-5" />
@@ -649,28 +649,28 @@ export default function OwnerRegisterPage() {
                   >
                     {/* Summary */}
                     <div className="bg-lydian-bg/5 rounded-lg p-6 space-y-3">
-                      <h3 className="font-semibold text-white mb-4">Kayıt Özeti</h3>
+                      <h3 className="font-semibold text-lydian-text-inverse mb-4">Kayıt Özeti</h3>
                       <div className="flex justify-between text-sm">
                         <span className="text-lydian-text-dim">Ad Soyad:</span>
-                        <span className="font-medium text-white">{formData.fullName}</span>
+                        <span className="font-medium text-lydian-text-inverse">{formData.fullName}</span>
                       </div>
                       <div className="flex justify-between text-sm">
                         <span className="text-lydian-text-dim">E-posta:</span>
-                        <span className="font-medium text-white">{formData.email}</span>
+                        <span className="font-medium text-lydian-text-inverse">{formData.email}</span>
                       </div>
                       <div className="flex justify-between text-sm">
                         <span className="text-lydian-text-dim">Telefon:</span>
-                        <span className="font-medium text-white">{formData.phone}</span>
+                        <span className="font-medium text-lydian-text-inverse">{formData.phone}</span>
                       </div>
                       <div className="flex justify-between text-sm">
                         <span className="text-lydian-text-dim">Mülk Tipi:</span>
-                        <span className="font-medium text-white">
+                        <span className="font-medium text-lydian-text-inverse">
                           {propertyTypes.find(t => t.value === formData.propertyType)?.label}
                         </span>
                       </div>
                       <div className="flex justify-between text-sm">
                         <span className="text-lydian-text-dim">Mülk Sayısı:</span>
-                        <span className="font-medium text-white">
+                        <span className="font-medium text-lydian-text-inverse">
                           {propertyCountOptions.find(o => o.value === formData.numberOfProperties)?.label}
                         </span>
                       </div>
@@ -690,7 +690,7 @@ export default function OwnerRegisterPage() {
                             className="mt-1 h-5 w-5 text-lydian-primary focus:ring-[#FF214D] border-lydian-border-medium rounded cursor-pointer"
                           />
                           <div className="flex-1">
-                            <span className="text-white">
+                            <span className="text-lydian-text-inverse">
                               <Link
                                 href="/owner/auth/terms"
                                 target="_blank"
@@ -711,7 +711,7 @@ export default function OwnerRegisterPage() {
                           </div>
                         </label>
                         {errors.termsAccepted && (
-                          <p className="mt-2 text-sm text-red-500 ml-8">{errors.termsAccepted}</p>
+                          <p className="mt-2 text-sm text-lydian-secondary ml-8">{errors.termsAccepted}</p>
                         )}
                       </div>
 
@@ -727,7 +727,7 @@ export default function OwnerRegisterPage() {
                             className="mt-1 h-5 w-5 text-lydian-primary focus:ring-[#FF214D] border-lydian-border-medium rounded cursor-pointer"
                           />
                           <div className="flex-1">
-                            <span className="text-white">
+                            <span className="text-lydian-text-inverse">
                               Kişisel verilerimin işlenmesine ilişkin{' '}
                               <Link
                                 href="/owner/auth/terms#kvkk"
@@ -741,7 +741,7 @@ export default function OwnerRegisterPage() {
                           </div>
                         </label>
                         {errors.kvkkAccepted && (
-                          <p className="mt-2 text-sm text-red-500 ml-8">{errors.kvkkAccepted}</p>
+                          <p className="mt-2 text-sm text-lydian-secondary ml-8">{errors.kvkkAccepted}</p>
                         )}
                       </div>
                     </div>
@@ -759,7 +759,7 @@ export default function OwnerRegisterPage() {
                       <button
                         type="submit"
                         disabled={isLoading}
-                        className="flex-1 bg-gradient-to-r from-[#FF214D] to-[#FF6A45] text-white py-3 px-4 rounded-lg font-semibold hover:shadow-lg transform hover:scale-[1.02] transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none flex items-center justify-center gap-2"
+                        className="flex-1 bg-gradient-to-r from-[#FF214D] to-[#FF6A45] text-lydian-text-inverse py-3 px-4 rounded-lg font-semibold hover:shadow-lg transform hover:scale-[1.02] transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none flex items-center justify-center gap-2"
                       >
                         {isLoading ? (
                           <>
@@ -796,7 +796,7 @@ export default function OwnerRegisterPage() {
             <div className="mt-4 text-center">
               <Link
                 href="/"
-                className="text-sm text-lydian-text-dim hover:text-white transition-colors"
+                className="text-sm text-lydian-text-dim hover:text-lydian-text-inverse transition-colors"
               >
                 ← Ana sayfaya dön
               </Link>

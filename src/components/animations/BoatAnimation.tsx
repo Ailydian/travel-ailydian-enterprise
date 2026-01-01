@@ -19,13 +19,13 @@ export const BoatAnimation: React.FC<BoatAnimationProps> = ({ className = '' }) 
           {/* Deniz Dalgaları */}
           <defs>
             <linearGradient id="boatGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#FFFFFF" />
+              <stop offset="0%" stopColor="var(--lydian-text-inverse)" />
               <stop offset="50%" stopColor="#E0F7FA" />
               <stop offset="100%" stopColor="#B3E5FC" />
             </linearGradient>
             
             <linearGradient id="sailGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#FFFFFF" />
+              <stop offset="0%" stopColor="var(--lydian-text-inverse)" />
               <stop offset="100%" stopColor="#F0F8FF" />
             </linearGradient>
             

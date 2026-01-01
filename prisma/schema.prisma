@@ -44,33 +44,33 @@ model Session {
 }
 
 model User {
-  id              String    @id @default(cuid())
-  name            String?
-  email           String    @unique
-  emailVerified   DateTime?
-  image           String?
-  password        String?
-  phone           String?
-  dateOfBirth     DateTime?
-  gender          String?
-  address         String?
-  city            String?
-  country         String?
-  postalCode      String?
-  preferredLanguage String @default("tr")
-  preferredCurrency String @default("TRY")
-  isEmailVerified Boolean @default(false)
-  isPhoneVerified Boolean @default(false)
-  membershipType  MembershipType @default(BASIC)
-  loyaltyPoints   Int       @default(0)
-  createdAt       DateTime  @default(now())
-  updatedAt       DateTime  @updatedAt
-  lastLoginAt     DateTime?
-  isActive        Boolean   @default(true)
-  twoFactorEnabled Boolean  @default(false)
+  id                String         @id @default(cuid())
+  name              String?
+  email             String         @unique
+  emailVerified     DateTime?
+  image             String?
+  password          String?
+  phone             String?
+  dateOfBirth       DateTime?
+  gender            String?
+  address           String?
+  city              String?
+  country           String?
+  postalCode        String?
+  preferredLanguage String         @default("tr")
+  preferredCurrency String         @default("TRY")
+  isEmailVerified   Boolean        @default(false)
+  isPhoneVerified   Boolean        @default(false)
+  membershipType    MembershipType @default(BASIC)
+  loyaltyPoints     Int            @default(0)
+  createdAt         DateTime       @default(now())
+  updatedAt         DateTime       @updatedAt
+  lastLoginAt       DateTime?
+  isActive          Boolean        @default(true)
+  twoFactorEnabled  Boolean        @default(false)
 
   // AI Profile Fields
-  travelProfile   Json?     // Travel DNA Profile from AI analysis
+  travelProfile     Json? // Travel DNA Profile from AI analysis
   profileAnalyzedAt DateTime? // When profile was last analyzed
 
   // Relations
@@ -101,119 +101,119 @@ model VerificationToken {
 
 // Travel-specific Models
 model Booking {
-  id              String      @id @default(cuid())
-  userId          String
-  bookingType     BookingType
-  status          BookingStatus @default(PENDING)
-  totalAmount     Decimal
-  currency        String      @default("TRY")
-  paymentMethod   PaymentMethod
-  paymentStatus   PaymentStatus @default(PENDING)
-  checkInDate     DateTime?
-  checkOutDate    DateTime?
-  guestCount      Int?
-  specialRequests String?
-  bookingReference String     @unique
-  metaData        Json?       // Store booking-specific data
-  createdAt       DateTime    @default(now())
-  updatedAt       DateTime    @updatedAt
-  
-  user            User        @relation(fields: [userId], references: [id])
-  reviews         Review[]
-  
+  id               String        @id @default(cuid())
+  userId           String
+  bookingType      BookingType
+  status           BookingStatus @default(PENDING)
+  totalAmount      Decimal
+  currency         String        @default("TRY")
+  paymentMethod    PaymentMethod
+  paymentStatus    PaymentStatus @default(PENDING)
+  checkInDate      DateTime?
+  checkOutDate     DateTime?
+  guestCount       Int?
+  specialRequests  String?
+  bookingReference String        @unique
+  metaData         Json? // Store booking-specific data
+  createdAt        DateTime      @default(now())
+  updatedAt        DateTime      @updatedAt
+
+  user    User     @relation(fields: [userId], references: [id])
+  reviews Review[]
+
   @@map("bookings")
 }
 
 model Review {
-  id          String   @id @default(cuid())
-  userId      String
-  bookingId   String?
-  entityType  String   // hotel, activity, flight, etc.
-  entityId    String
-  rating      Int      // 1-5
-  title       String?
-  content     String
-  images      String[] @default([])
-  isVerified  Boolean  @default(false)
-  isBlockchain Boolean @default(false)
+  id             String   @id @default(cuid())
+  userId         String
+  bookingId      String?
+  entityType     String // hotel, activity, flight, etc.
+  entityId       String
+  rating         Int // 1-5
+  title          String?
+  content        String
+  images         String[] @default([])
+  isVerified     Boolean  @default(false)
+  isBlockchain   Boolean  @default(false)
   blockchainHash String?
-  helpfulVotes Int     @default(0)
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-  
-  user        User     @relation(fields: [userId], references: [id])
-  booking     Booking? @relation(fields: [bookingId], references: [id])
-  
+  helpfulVotes   Int      @default(0)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  user    User     @relation(fields: [userId], references: [id])
+  booking Booking? @relation(fields: [bookingId], references: [id])
+
   @@map("reviews")
 }
 
 model Favorite {
   id         String   @id @default(cuid())
   userId     String
-  entityType String   // hotel, activity, destination, etc.
+  entityType String // hotel, activity, destination, etc.
   entityId   String
   createdAt  DateTime @default(now())
-  
-  user       User     @relation(fields: [userId], references: [id])
-  
+
+  user User @relation(fields: [userId], references: [id])
+
   @@unique([userId, entityType, entityId])
   @@map("favorites")
 }
 
 model Notification {
-  id        String            @id @default(cuid())
+  id        String           @id @default(cuid())
   userId    String
   type      NotificationType
   title     String
   message   String
-  data      Json?             // Additional notification data
-  isRead    Boolean           @default(false)
-  createdAt DateTime          @default(now())
-  
-  user      User              @relation(fields: [userId], references: [id])
-  
+  data      Json? // Additional notification data
+  isRead    Boolean          @default(false)
+  createdAt DateTime         @default(now())
+
+  user User @relation(fields: [userId], references: [id])
+
   @@map("notifications")
 }
 
 model WalletTransaction {
-  id              String            @id @default(cuid())
-  userId          String
-  type            TransactionType
-  amount          Decimal
-  currency        String
-  cryptoCurrency  String?           // BTC, ETH, etc.
-  cryptoAmount    Decimal?
-  status          TransactionStatus @default(PENDING)
-  description     String
-  reference       String?           @unique
+  id               String            @id @default(cuid())
+  userId           String
+  type             TransactionType
+  amount           Decimal
+  currency         String
+  cryptoCurrency   String? // BTC, ETH, etc.
+  cryptoAmount     Decimal?
+  status           TransactionStatus @default(PENDING)
+  description      String
+  reference        String?           @unique
   blockchainTxHash String?
-  metaData        Json?
-  createdAt       DateTime          @default(now())
-  updatedAt       DateTime          @updatedAt
-  
-  user            User              @relation(fields: [userId], references: [id])
-  
+  metaData         Json?
+  createdAt        DateTime          @default(now())
+  updatedAt        DateTime          @updatedAt
+
+  user User @relation(fields: [userId], references: [id])
+
   @@map("wallet_transactions")
 }
 
 model AIPreference {
-  id              String   @id @default(cuid())
-  userId          String   @unique
-  travelStyle     String[] @default([])
-  budgetRange     String?
+  id                    String   @id @default(cuid())
+  userId                String   @unique
+  travelStyle           String[] @default([])
+  budgetRange           String?
   preferredDestinations String[] @default([])
-  interests       String[] @default([])
-  groupSize       String?
-  travelFrequency String?
-  accommodationType String?
-  transportPreference String?
-  dietaryRestrictions String[] @default([])
-  accessibilityNeeds String[] @default([])
-  createdAt       DateTime @default(now())
-  updatedAt       DateTime @updatedAt
-  
-  user            User     @relation(fields: [userId], references: [id])
-  
+  interests             String[] @default([])
+  groupSize             String?
+  travelFrequency       String?
+  accommodationType     String?
+  transportPreference   String?
+  dietaryRestrictions   String[] @default([])
+  accessibilityNeeds    String[] @default([])
+  createdAt             DateTime @default(now())
+  updatedAt             DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id])
+
   @@map("ai_preferences")
 }
 
@@ -296,60 +296,60 @@ enum TransactionStatus {
 
 // Airport Transfer Models
 model AirportTransfer {
-  id              String   @id @default(cuid())
-  name            String
-  description     String   @db.Text
-  fromLocation    String   // Airport code or location name
-  toLocation      String   // Destination location
-  distance        Float    // Distance in KM
-  duration        Int      // Duration in minutes
-  region          String   // Antalya, Alanya, etc.
-  isActive        Boolean  @default(true)
-  createdAt       DateTime @default(now())
-  updatedAt       DateTime @updatedAt
+  id           String   @id @default(cuid())
+  name         String
+  description  String   @db.Text
+  fromLocation String // Airport code or location name
+  toLocation   String // Destination location
+  distance     Float // Distance in KM
+  duration     Int // Duration in minutes
+  region       String // Antalya, Alanya, etc.
+  isActive     Boolean  @default(true)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
 
   // Relations
-  vehicles        TransferVehicle[]
-  bookings        TransferBooking[]
+  vehicles TransferVehicle[]
+  bookings TransferBooking[]
 
-  @@map("airport_transfers")
   @@index([region])
   @@index([fromLocation])
+  @@map("airport_transfers")
 }
 
 model TransferVehicle {
-  id              String          @id @default(cuid())
+  id              String      @id @default(cuid())
   transferId      String
   vehicleType     VehicleType
-  name            String          // e.g., "Mercedes Vito VIP"
-  capacity        Int             // Passenger capacity
-  luggageCapacity Int             // Luggage capacity
-  priceStandard   Decimal         // Standard price
-  priceVIP        Decimal         // VIP price
-  features        String[]        @default([])
+  name            String // e.g., "Mercedes Vito VIP"
+  capacity        Int // Passenger capacity
+  luggageCapacity Int // Luggage capacity
+  priceStandard   Decimal // Standard price
+  priceVIP        Decimal // VIP price
+  features        String[]    @default([])
   image           String?
-  isAvailable     Boolean         @default(true)
-  createdAt       DateTime        @default(now())
-  updatedAt       DateTime        @updatedAt
+  isAvailable     Boolean     @default(true)
+  createdAt       DateTime    @default(now())
+  updatedAt       DateTime    @updatedAt
 
   // Relations
-  transfer        AirportTransfer @relation(fields: [transferId], references: [id], onDelete: Cascade)
-  bookings        TransferBooking[]
+  transfer AirportTransfer   @relation(fields: [transferId], references: [id], onDelete: Cascade)
+  bookings TransferBooking[]
 
-  @@map("transfer_vehicles")
   @@index([transferId])
   @@index([vehicleType])
+  @@map("transfer_vehicles")
 }
 
 model TransferBooking {
-  id              String          @id @default(cuid())
-  userId          String
-  transferId      String
-  vehicleId       String
-  bookingRef      String          @unique
+  id         String @id @default(cuid())
+  userId     String
+  transferId String
+  vehicleId  String
+  bookingRef String @unique
 
   // Trip Details
-  transferType    TransferType    @default(ONE_WAY)
+  transferType    TransferType @default(ONE_WAY)
   pickupLocation  String
   dropoffLocation String
   pickupDate      DateTime
@@ -360,48 +360,48 @@ model TransferBooking {
   // Passenger Details
   passengerCount  Int
   luggageCount    Int
-  specialRequests String?         @db.Text
+  specialRequests String? @db.Text
 
   // Flight Details
-  flightNumber    String?
-  arrivalTime     String?
+  flightNumber String?
+  arrivalTime  String?
 
   // Pricing
-  basePrice       Decimal
-  totalPrice      Decimal
-  currency        String          @default("TRY")
-  isVIP           Boolean         @default(false)
+  basePrice  Decimal
+  totalPrice Decimal
+  currency   String  @default("TRY")
+  isVIP      Boolean @default(false)
 
   // Status
-  status          BookingStatus   @default(PENDING)
-  paymentStatus   PaymentStatus   @default(PENDING)
+  status          BookingStatus  @default(PENDING)
+  paymentStatus   PaymentStatus  @default(PENDING)
   paymentMethod   PaymentMethod?
-  paymentIntentId String?         // Stripe payment intent ID
+  paymentIntentId String? // Stripe payment intent ID
 
   // Timestamps
-  createdAt       DateTime        @default(now())
-  updatedAt       DateTime        @updatedAt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   // Relations
-  user            User            @relation(fields: [userId], references: [id])
-  transfer        AirportTransfer @relation(fields: [transferId], references: [id])
-  vehicle         TransferVehicle @relation(fields: [vehicleId], references: [id])
+  user     User            @relation(fields: [userId], references: [id])
+  transfer AirportTransfer @relation(fields: [transferId], references: [id])
+  vehicle  TransferVehicle @relation(fields: [vehicleId], references: [id])
 
-  @@map("transfer_bookings")
   @@index([userId])
   @@index([transferId])
   @@index([pickupDate])
   @@index([status])
+  @@map("transfer_bookings")
 }
 
 // Enums for Airport Transfer
 enum VehicleType {
-  SEDAN          // 1-3 passengers
-  VAN            // 4-8 passengers
-  MINIBUS        // 9-14 passengers
-  BUS            // 15+ passengers
-  LUXURY_SEDAN   // VIP Sedan
-  LUXURY_VAN     // VIP Van
+  SEDAN // 1-3 passengers
+  VAN // 4-8 passengers
+  MINIBUS // 9-14 passengers
+  BUS // 15+ passengers
+  LUXURY_SEDAN // VIP Sedan
+  LUXURY_VAN // VIP Van
 }
 
 enum TransferType {
@@ -411,19 +411,19 @@ enum TransferType {
 
 // Admin User Model
 model Admin {
-  id            String    @id @default(cuid())
-  email         String    @unique
-  passwordHash  String
-  role          AdminRole @default(MODERATOR)
-  permissions   String[]  // Array of permission strings
-  isActive      Boolean   @default(true)
-  lastLogin     DateTime?
-  createdAt     DateTime  @default(now())
-  updatedAt     DateTime  @updatedAt
+  id           String    @id @default(cuid())
+  email        String    @unique
+  passwordHash String
+  role         AdminRole @default(MODERATOR)
+  permissions  String[] // Array of permission strings
+  isActive     Boolean   @default(true)
+  lastLogin    DateTime?
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
 
-  @@map("admins")
   @@index([email])
   @@index([role])
+  @@map("admins")
 }
 
 enum AdminRole {
@@ -434,53 +434,53 @@ enum AdminRole {
 
 // Price Tracking Models
 model PriceHistory {
-  id          String   @id @default(cuid())
-  entityType  String   // HOTEL, FLIGHT, TOUR
-  entityId    String   // External ID (hotel ID, flight ID, etc.)
-  price       Decimal
-  currency    String   @default("TRY")
-  metadata    Json?    // Store additional data like room type, flight class, etc.
-  source      String?  // Where the price was fetched from
-  checkInDate DateTime? // For hotels
+  id           String    @id @default(cuid())
+  entityType   String // HOTEL, FLIGHT, TOUR
+  entityId     String // External ID (hotel ID, flight ID, etc.)
+  price        Decimal
+  currency     String    @default("TRY")
+  metadata     Json? // Store additional data like room type, flight class, etc.
+  source       String? // Where the price was fetched from
+  checkInDate  DateTime? // For hotels
   checkOutDate DateTime? // For hotels
-  travelDate  DateTime? // For flights/tours
-  createdAt   DateTime @default(now())
+  travelDate   DateTime? // For flights/tours
+  createdAt    DateTime  @default(now())
 
-  @@map("price_history")
   @@index([entityType, entityId])
   @@index([entityType, entityId, createdAt])
   @@index([createdAt])
+  @@map("price_history")
 }
 
 model PriceAlert {
-  id              String          @id @default(cuid())
-  userId          String
-  entityType      String          // HOTEL, FLIGHT, TOUR
-  entityId        String          // External ID
-  entityName      String          // Display name
-  targetPrice     Decimal
-  currentPrice    Decimal
-  currency        String          @default("TRY")
-  status          PriceAlertStatus @default(ACTIVE)
-  notificationMethod String[]     @default(["EMAIL"]) // EMAIL, PUSH, SMS
-  metadata        Json?           // Store search criteria, dates, etc.
+  id                 String           @id @default(cuid())
+  userId             String
+  entityType         String // HOTEL, FLIGHT, TOUR
+  entityId           String // External ID
+  entityName         String // Display name
+  targetPrice        Decimal
+  currentPrice       Decimal
+  currency           String           @default("TRY")
+  status             PriceAlertStatus @default(ACTIVE)
+  notificationMethod String[]         @default(["EMAIL"]) // EMAIL, PUSH, SMS
+  metadata           Json? // Store search criteria, dates, etc.
 
   // Alert settings
-  priceDropPercentage Decimal?    // Notify when price drops by X%
-  expiresAt       DateTime?       // Auto-disable after this date
-  lastNotifiedAt  DateTime?       // Track last notification sent
-  notificationCount Int           @default(0)
+  priceDropPercentage Decimal? // Notify when price drops by X%
+  expiresAt           DateTime? // Auto-disable after this date
+  lastNotifiedAt      DateTime? // Track last notification sent
+  notificationCount   Int       @default(0)
 
-  createdAt       DateTime        @default(now())
-  updatedAt       DateTime        @updatedAt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
-  user            User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
-  @@map("price_alerts")
   @@index([userId])
   @@index([entityType, entityId])
   @@index([status])
   @@index([expiresAt])
+  @@map("price_alerts")
 }
 
 enum PriceAlertStatus {
@@ -492,161 +492,161 @@ enum PriceAlertStatus {
 
 // Trip Planner Models
 model Trip {
-  id              String          @id @default(cuid())
-  userId          String          // Creator of the trip
-  title           String
-  description     String?         @db.Text
-  destination     String
-  startDate       DateTime
-  endDate         DateTime
-  budget          Decimal
-  currency        String          @default("TRY")
-  travelers       Int             @default(1)
-  status          TripStatus      @default(DRAFT)
-  preferences     Json?           // Travel preferences, interests
-  aiGenerated     Boolean         @default(false)
-  isPublic        Boolean         @default(false)
-  shareLink       String?         @unique
+  id          String     @id @default(cuid())
+  userId      String // Creator of the trip
+  title       String
+  description String?    @db.Text
+  destination String
+  startDate   DateTime
+  endDate     DateTime
+  budget      Decimal
+  currency    String     @default("TRY")
+  travelers   Int        @default(1)
+  status      TripStatus @default(DRAFT)
+  preferences Json? // Travel preferences, interests
+  aiGenerated Boolean    @default(false)
+  isPublic    Boolean    @default(false)
+  shareLink   String?    @unique
 
   // Collaboration Fields
-  isCollaborative Boolean         @default(false)
-  shareCode       String?         // Short code for joining
-  collaborationData Json?         // Full collaboration room data
+  isCollaborative   Boolean @default(false)
+  shareCode         String? // Short code for joining
+  collaborationData Json? // Full collaboration room data
 
-  createdAt       DateTime        @default(now())
-  updatedAt       DateTime        @updatedAt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   // Relations
-  user            User            @relation(fields: [userId], references: [id], onDelete: Cascade)
-  itinerary       TripItinerary[]
-  collaborators   TripCollaborator[]
-  activities      TripActivity[]
-  comments        TripComment[]
-  votes           TripVote[]
+  user          User               @relation(fields: [userId], references: [id], onDelete: Cascade)
+  itinerary     TripItinerary[]
+  collaborators TripCollaborator[]
+  activities    TripActivity[]
+  comments      TripComment[]
+  votes         TripVote[]
 
-  @@map("trips")
   @@index([userId])
   @@index([status])
   @@index([startDate])
   @@index([shareLink])
   @@index([shareCode])
   @@index([isCollaborative])
+  @@map("trips")
 }
 
 model TripItinerary {
-  id              String          @id @default(cuid())
-  tripId          String
-  day             Int
-  date            DateTime
-  title           String
-  description     String?         @db.Text
-  activities      Json[]          // Array of activities with time, location, cost
-  totalCost       Decimal         @default(0)
-  weather         Json?           // Weather data
-  notes           String?         @db.Text
+  id          String   @id @default(cuid())
+  tripId      String
+  day         Int
+  date        DateTime
+  title       String
+  description String?  @db.Text
+  activities  Json[] // Array of activities with time, location, cost
+  totalCost   Decimal  @default(0)
+  weather     Json? // Weather data
+  notes       String?  @db.Text
 
-  createdAt       DateTime        @default(now())
-  updatedAt       DateTime        @updatedAt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
-  trip            Trip            @relation(fields: [tripId], references: [id], onDelete: Cascade)
+  trip Trip @relation(fields: [tripId], references: [id], onDelete: Cascade)
 
-  @@map("trip_itineraries")
   @@index([tripId])
   @@index([day])
+  @@map("trip_itineraries")
 }
 
 model TripCollaborator {
-  id              String                  @id @default(cuid())
-  tripId          String
-  userId          String?                 // Null if invited by email not yet signed up
-  email           String
-  role            CollaboratorRole        @default(VIEWER)
-  status          CollaboratorStatus      @default(PENDING)
-  invitedBy       String
-  invitedAt       DateTime                @default(now())
-  joinedAt        DateTime?
-  permissions     String[]                @default([])
+  id          String             @id @default(cuid())
+  tripId      String
+  userId      String? // Null if invited by email not yet signed up
+  email       String
+  role        CollaboratorRole   @default(VIEWER)
+  status      CollaboratorStatus @default(PENDING)
+  invitedBy   String
+  invitedAt   DateTime           @default(now())
+  joinedAt    DateTime?
+  permissions String[]           @default([])
 
-  trip            Trip                    @relation(fields: [tripId], references: [id], onDelete: Cascade)
+  trip Trip @relation(fields: [tripId], references: [id], onDelete: Cascade)
 
   @@unique([tripId, email])
-  @@map("trip_collaborators")
   @@index([tripId])
   @@index([userId])
   @@index([email])
+  @@map("trip_collaborators")
 }
 
 model TripActivity {
-  id              String          @id @default(cuid())
-  tripId          String
-  title           String
-  description     String?         @db.Text
-  type            ActivityType
-  location        String
-  address         String?
-  coordinates     Json?           // {lat, lng}
-  startTime       DateTime
-  endTime         DateTime?
-  duration        Int?            // Duration in minutes
-  cost            Decimal         @default(0)
-  currency        String          @default("TRY")
-  bookingUrl      String?
-  bookingStatus   String?         @default("PENDING")
-  notes           String?         @db.Text
-  addedBy         String
-  aiSuggested     Boolean         @default(false)
+  id            String       @id @default(cuid())
+  tripId        String
+  title         String
+  description   String?      @db.Text
+  type          ActivityType
+  location      String
+  address       String?
+  coordinates   Json? // {lat, lng}
+  startTime     DateTime
+  endTime       DateTime?
+  duration      Int? // Duration in minutes
+  cost          Decimal      @default(0)
+  currency      String       @default("TRY")
+  bookingUrl    String?
+  bookingStatus String?      @default("PENDING")
+  notes         String?      @db.Text
+  addedBy       String
+  aiSuggested   Boolean      @default(false)
 
-  createdAt       DateTime        @default(now())
-  updatedAt       DateTime        @updatedAt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
-  trip            Trip            @relation(fields: [tripId], references: [id], onDelete: Cascade)
-  votes           TripVote[]
+  trip  Trip       @relation(fields: [tripId], references: [id], onDelete: Cascade)
+  votes TripVote[]
 
-  @@map("trip_activities")
   @@index([tripId])
   @@index([type])
   @@index([startTime])
+  @@map("trip_activities")
 }
 
 model TripComment {
-  id              String          @id @default(cuid())
-  tripId          String
-  userId          String
-  activityId      String?         // Optional: comment on specific activity
-  content         String          @db.Text
-  parentId        String?         // For nested comments
-  createdAt       DateTime        @default(now())
-  updatedAt       DateTime        @updatedAt
+  id         String   @id @default(cuid())
+  tripId     String
+  userId     String
+  activityId String? // Optional: comment on specific activity
+  content    String   @db.Text
+  parentId   String? // For nested comments
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
 
-  trip            Trip            @relation(fields: [tripId], references: [id], onDelete: Cascade)
+  trip Trip @relation(fields: [tripId], references: [id], onDelete: Cascade)
 
-  @@map("trip_comments")
   @@index([tripId])
   @@index([userId])
   @@index([activityId])
   @@index([parentId])
+  @@map("trip_comments")
 }
 
 model TripVote {
-  id              String          @id @default(cuid())
-  tripId          String
-  activityId      String          // Activity being voted on
-  userId          String
-  value           Int             // 1 for up, -1 for down, 0 for neutral
-  comment         String?
+  id         String  @id @default(cuid())
+  tripId     String
+  activityId String // Activity being voted on
+  userId     String
+  value      Int // 1 for up, -1 for down, 0 for neutral
+  comment    String?
 
-  createdAt       DateTime        @default(now())
-  updatedAt       DateTime        @updatedAt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
-  trip            Trip            @relation(fields: [tripId], references: [id], onDelete: Cascade)
-  activity        TripActivity?   @relation(fields: [activityId], references: [id], onDelete: Cascade)
-  user            User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+  trip     Trip          @relation(fields: [tripId], references: [id], onDelete: Cascade)
+  activity TripActivity? @relation(fields: [activityId], references: [id], onDelete: Cascade)
+  user     User          @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([tripId, activityId, userId])
-  @@map("trip_votes")
   @@index([tripId])
   @@index([activityId])
   @@index([userId])
+  @@map("trip_votes")
 }
 
 // Trip Planner Enums
@@ -694,127 +694,127 @@ enum VoteType {
 
 // Hotel Models
 model Hotel {
-  id              String          @id @default(cuid())
-  name            String
-  slug            String          @unique
-  description     String          @db.Text
-  shortDescription String?        @db.Text
+  id               String  @id @default(cuid())
+  name             String
+  slug             String  @unique
+  description      String  @db.Text
+  shortDescription String? @db.Text
 
   // Location
-  country         String          @default("Turkey")
-  city            String
-  region          String          // Antalya, Alanya, Belek, etc.
-  address         String
-  coordinates     Json?           // {lat, lng}
-  distanceToAirport Float?        // km
-  distanceToBeach Float?          // km
-  distanceToCenter Float?         // km
+  country           String @default("Turkey")
+  city              String
+  region            String // Antalya, Alanya, Belek, etc.
+  address           String
+  coordinates       Json? // {lat, lng}
+  distanceToAirport Float? // km
+  distanceToBeach   Float? // km
+  distanceToCenter  Float? // km
 
   // Hotel Info
-  stars           Int             // 1-5
-  rating          Decimal         @default(0)
-  reviewCount     Int             @default(0)
-  hotelType       HotelType
-  checkInTime     String          @default("14:00")
-  checkOutTime    String          @default("12:00")
-  yearBuilt       Int?
-  yearRenovated   Int?
-  roomCount       Int
-  floorCount      Int?
+  stars         Int // 1-5
+  rating        Decimal   @default(0)
+  reviewCount   Int       @default(0)
+  hotelType     HotelType
+  checkInTime   String    @default("14:00")
+  checkOutTime  String    @default("12:00")
+  yearBuilt     Int?
+  yearRenovated Int?
+  roomCount     Int
+  floorCount    Int?
 
   // Images
-  mainImage       String
-  images          String[]        @default([])
-  virtualTourUrl  String?
+  mainImage      String
+  images         String[] @default([])
+  virtualTourUrl String?
 
   // Features & Amenities
-  amenities       String[]        @default([])
-  facilities      String[]        @default([])
-  roomFeatures    String[]        @default([])
+  amenities    String[] @default([])
+  facilities   String[] @default([])
+  roomFeatures String[] @default([])
 
   // Policies
-  cancellationPolicy String?      @db.Text
-  childPolicy     String?         @db.Text
-  petPolicy       String?         @db.Text
+  cancellationPolicy String? @db.Text
+  childPolicy        String? @db.Text
+  petPolicy          String? @db.Text
 
   // Pricing
-  priceMin        Decimal         // Minimum room price per night
-  priceMax        Decimal         // Maximum room price per night
-  currency        String          @default("TRY")
+  priceMin Decimal // Minimum room price per night
+  priceMax Decimal // Maximum room price per night
+  currency String  @default("TRY")
 
   // Contact
-  phone           String?
-  email           String?
-  website         String?
+  phone   String?
+  email   String?
+  website String?
 
   // Status
-  isActive        Boolean         @default(true)
-  isFeatured      Boolean         @default(false)
-  isRecommended   Boolean         @default(false)
+  isActive      Boolean @default(true)
+  isFeatured    Boolean @default(false)
+  isRecommended Boolean @default(false)
 
   // SEO
   metaTitle       String?
   metaDescription String?
-  keywords        String[]        @default([])
+  keywords        String[] @default([])
 
-  createdAt       DateTime        @default(now())
-  updatedAt       DateTime        @updatedAt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   // Relations
-  rooms           HotelRoom[]
+  rooms HotelRoom[]
 
-  @@map("hotels")
   @@index([city])
   @@index([region])
   @@index([stars])
   @@index([rating])
   @@index([isActive])
   @@index([isFeatured])
+  @@map("hotels")
 }
 
 model HotelRoom {
-  id              String          @id @default(cuid())
-  hotelId         String
+  id      String @id @default(cuid())
+  hotelId String
 
   // Room Info
-  name            String
-  slug            String
-  description     String          @db.Text
-  roomType        RoomType
-  size            Float?          // Square meters
-  bedType         String          // King, Queen, Twin, etc.
-  maxOccupancy    Int
-  maxAdults       Int
-  maxChildren     Int
+  name         String
+  slug         String
+  description  String   @db.Text
+  roomType     RoomType
+  size         Float? // Square meters
+  bedType      String // King, Queen, Twin, etc.
+  maxOccupancy Int
+  maxAdults    Int
+  maxChildren  Int
 
   // Images
-  images          String[]        @default([])
+  images String[] @default([])
 
   // Amenities
-  amenities       String[]        @default([])
-  view            String[]        @default([]) // Sea view, Mountain view, etc.
+  amenities String[] @default([])
+  view      String[] @default([]) // Sea view, Mountain view, etc.
 
   // Pricing
-  pricePerNight   Decimal
-  currency        String          @default("TRY")
+  pricePerNight Decimal
+  currency      String  @default("TRY")
 
   // Availability
-  roomCount       Int             // Number of this room type
-  isAvailable     Boolean         @default(true)
+  roomCount   Int // Number of this room type
+  isAvailable Boolean @default(true)
 
   // Meal Options
-  mealPlans       String[]        @default([]) // Room Only, Breakfast, Half Board, Full Board, All Inclusive
+  mealPlans String[] @default([]) // Room Only, Breakfast, Half Board, Full Board, All Inclusive
 
-  createdAt       DateTime        @default(now())
-  updatedAt       DateTime        @updatedAt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   // Relations
-  hotel           Hotel           @relation(fields: [hotelId], references: [id], onDelete: Cascade)
+  hotel Hotel @relation(fields: [hotelId], references: [id], onDelete: Cascade)
 
-  @@map("hotel_rooms")
   @@index([hotelId])
   @@index([roomType])
   @@index([isAvailable])
+  @@map("hotel_rooms")
 }
 
 // Hotel Enums
@@ -841,19 +841,19 @@ enum RoomType {
 
 // Flight Models
 model Flight {
-  id              String          @id @default(cuid())
+  id String @id @default(cuid())
 
   // Flight Info
-  flightNumber    String
-  airline         String
-  airlineCode     String          // TK, PC, XQ, etc.
-  airlineLogo     String?
+  flightNumber String
+  airline      String
+  airlineCode  String // TK, PC, XQ, etc.
+  airlineLogo  String?
 
   // Departure
-  departureAirport String         // AYT, IST, SAW, etc.
-  departureCity   String
-  departureCountry String         @default("Turkey")
-  departureTime   DateTime
+  departureAirport  String // AYT, IST, SAW, etc.
+  departureCity     String
+  departureCountry  String   @default("Turkey")
+  departureTime     DateTime
   departureTerminal String?
 
   // Arrival
@@ -864,53 +864,53 @@ model Flight {
   arrivalTerminal String?
 
   // Flight Details
-  duration        Int             // Minutes
-  distance        Float?          // KM
-  aircraft        String?         // Boeing 737, Airbus A320, etc.
-  flightType      FlightType
-  cabinClass      CabinClass
+  duration   Int // Minutes
+  distance   Float? // KM
+  aircraft   String? // Boeing 737, Airbus A320, etc.
+  flightType FlightType
+  cabinClass CabinClass
 
   // Stops
-  stops           Int             @default(0)
-  stopAirports    String[]        @default([])
+  stops        Int      @default(0)
+  stopAirports String[] @default([])
 
   // Pricing
-  priceAdult      Decimal
-  priceChild      Decimal
-  priceInfant     Decimal
-  currency        String          @default("TRY")
-  taxIncluded     Boolean         @default(true)
+  priceAdult  Decimal
+  priceChild  Decimal
+  priceInfant Decimal
+  currency    String  @default("TRY")
+  taxIncluded Boolean @default(true)
 
   // Baggage
-  carryOnBaggage  String?         // "1x8kg"
-  checkedBaggage  String?         // "1x23kg" or "2x23kg"
+  carryOnBaggage    String? // "1x8kg"
+  checkedBaggage    String? // "1x23kg" or "2x23kg"
   extraBaggagePrice Decimal?
 
   // Seat & Services
-  availableSeats  Int
-  mealService     Boolean         @default(false)
-  wifiAvailable   Boolean         @default(false)
-  entertainmentSystem Boolean     @default(false)
-  powerOutlets    Boolean         @default(false)
+  availableSeats      Int
+  mealService         Boolean @default(false)
+  wifiAvailable       Boolean @default(false)
+  entertainmentSystem Boolean @default(false)
+  powerOutlets        Boolean @default(false)
 
   // Booking
-  isRefundable    Boolean         @default(false)
+  isRefundable    Boolean  @default(false)
   cancellationFee Decimal?
   changeFee       Decimal?
 
   // Status
-  isActive        Boolean         @default(true)
-  operatingDays   String[]        @default([]) // ["Mon", "Wed", "Fri"]
+  isActive      Boolean  @default(true)
+  operatingDays String[] @default([]) // ["Mon", "Wed", "Fri"]
 
-  createdAt       DateTime        @default(now())
-  updatedAt       DateTime        @updatedAt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
-  @@map("flights")
   @@index([departureAirport, arrivalAirport])
   @@index([departureTime])
   @@index([airline])
   @@index([flightType])
   @@index([isActive])
+  @@map("flights")
 }
 
 // Flight Enums
@@ -928,102 +928,102 @@ enum CabinClass {
 
 // Tour Package Models
 model TourPackage {
-  id              String          @id @default(cuid())
+  id String @id @default(cuid())
 
   // Basic Info
-  name            String
-  slug            String          @unique
-  description     String          @db.Text
-  shortDescription String?        @db.Text
+  name             String
+  slug             String  @unique
+  description      String  @db.Text
+  shortDescription String? @db.Text
 
   // Category
-  category        TourCategory
-  tags            String[]        @default([])
+  category TourCategory
+  tags     String[]     @default([])
 
   // Location
-  destination     String
-  destinations    String[]        @default([]) // Multiple destinations
-  region          String
-  country         String          @default("Turkey")
+  destination  String
+  destinations String[] @default([]) // Multiple destinations
+  region       String
+  country      String   @default("Turkey")
 
   // Duration
-  duration        Int             // Days
-  nights          Int
+  duration Int // Days
+  nights   Int
 
   // Group
-  minGroupSize    Int             @default(1)
-  maxGroupSize    Int
+  minGroupSize Int @default(1)
+  maxGroupSize Int
 
   // Pricing
-  priceAdult      Decimal
-  priceChild      Decimal
-  priceInfant     Decimal
-  currency        String          @default("TRY")
+  priceAdult  Decimal
+  priceChild  Decimal
+  priceInfant Decimal
+  currency    String  @default("TRY")
 
   // Inclusions
-  includes        String[]        @default([])
-  excludes        String[]        @default([])
+  includes String[] @default([])
+  excludes String[] @default([])
 
   // Itinerary (stored as JSON array)
-  itinerary       Json            // Daily program
+  itinerary Json // Daily program
 
   // Schedule
-  availableDays   String[]        @default([]) // Days of week
-  startDates      DateTime[]      @default([])
+  availableDays String[]   @default([]) // Days of week
+  startDates    DateTime[] @default([])
 
   // Images
-  mainImage       String
-  images          String[]        @default([])
-  videoUrl        String?
+  mainImage String
+  images    String[] @default([])
+  videoUrl  String?
 
   // Difficulty & Physical
   difficultyLevel DifficultyLevel @default(EASY)
   physicalRating  Int             @default(1) // 1-5
 
   // Requirements
-  minimumAge      Int?
-  requiredDocs    String[]        @default([])
+  minimumAge   Int?
+  requiredDocs String[] @default([])
 
   // Meals
-  mealsIncluded   String[]        @default([]) // Breakfast, Lunch, Dinner
+  mealsIncluded String[] @default([]) // Breakfast, Lunch, Dinner
 
   // Transportation
-  transportType   String?         // Bus, Car, Boat, etc.
-  pickupIncluded  Boolean         @default(false)
-  pickupLocations String[]        @default([])
+  transportType   String? // Bus, Car, Boat, etc.
+  pickupIncluded  Boolean  @default(false)
+  pickupLocations String[] @default([])
 
   // Guide
-  guideLanguages  String[]        @default([])
-  guideIncluded   Boolean         @default(true)
+  guideLanguages String[] @default([])
+  guideIncluded  Boolean  @default(true)
 
   // Status & Featured
-  isActive        Boolean         @default(true)
-  isFeatured      Boolean         @default(false)
-  isPopular       Boolean         @default(false)
+  isActive   Boolean @default(true)
+  isFeatured Boolean @default(false)
+  isPopular  Boolean @default(false)
 
   // Ratings
-  rating          Decimal         @default(0)
-  reviewCount     Int             @default(0)
+  rating      Decimal @default(0)
+  reviewCount Int     @default(0)
 
   // SEO
   metaTitle       String?
   metaDescription String?
-  keywords        String[]        @default([])
+  keywords        String[] @default([])
 
   // Cancellation
-  cancellationPolicy String?      @db.Text
-  refundable      Boolean         @default(true)
+  cancellationPolicy String? @db.Text
+  refundable         Boolean @default(true)
 
-  createdAt       DateTime        @default(now())
-  updatedAt       DateTime        @updatedAt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
-  @@map("tour_packages")
   @@index([category])
   @@index([destination])
   @@index([region])
   @@index([isActive])
   @@index([isFeatured])
   @@index([rating])
+  @@map("tour_packages")
 }
 
 // Tour Enums
@@ -1055,51 +1055,51 @@ enum DifficultyLevel {
 
 // Airport Models - Global Coverage
 model Airport {
-  id              String          @id @default(cuid())
+  id String @id @default(cuid())
 
   // Airport Identification
-  code            String          @unique // IATA code: IST, AYT, JFK
-  icaoCode        String?         // ICAO code
-  name            String
-  nameLocal       String?
+  code      String  @unique // IATA code: IST, AYT, JFK
+  icaoCode  String? // ICAO code
+  name      String
+  nameLocal String?
 
   // Location
-  city            String
-  country         String
-  countryCode     String          // ISO 2-letter
-  continent       String
-  timezone        String
+  city        String
+  country     String
+  countryCode String // ISO 2-letter
+  continent   String
+  timezone    String
 
   // Coordinates
-  latitude        Float
-  longitude       Float
-  elevation       Int?
+  latitude  Float
+  longitude Float
+  elevation Int?
 
   // Airport Details
-  airportType     AirportType     @default(INTERNATIONAL)
-  terminals       Int             @default(1)
-  runways         Int             @default(1)
+  airportType AirportType @default(INTERNATIONAL)
+  terminals   Int         @default(1)
+  runways     Int         @default(1)
 
   // Services
-  hasCustoms      Boolean         @default(true)
-  hasWifi         Boolean         @default(true)
-  hasLounge       Boolean         @default(false)
+  hasCustoms Boolean @default(true)
+  hasWifi    Boolean @default(true)
+  hasLounge  Boolean @default(false)
 
   // Transfer Info
-  distanceToCity  Float?          // KM
-  avgTransferTime Int?            // Minutes
+  distanceToCity  Float? // KM
+  avgTransferTime Int? // Minutes
 
   // Status
-  isActive        Boolean         @default(true)
-  isHub           Boolean         @default(false)
+  isActive Boolean @default(true)
+  isHub    Boolean @default(false)
 
-  createdAt       DateTime        @default(now())
-  updatedAt       DateTime        @updatedAt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
-  @@map("airports")
   @@index([code])
   @@index([country])
   @@index([city])
+  @@map("airports")
 }
 
 enum AirportType {
@@ -1114,40 +1114,40 @@ enum AirportType {
 
 // Navigation Menu Model - Database-Driven Menus
 model NavigationMenu {
-  id            String   @id @default(cuid())
-  type          MenuType @default(HEADER)
-  title         String
-  slug          String   @unique
-  href          String
-  icon          String?
-  description   String?
-  badge         String?
-  order         Int      @default(0)
-  isActive      Boolean  @default(true)
-  parentId      String?
+  id          String   @id @default(cuid())
+  type        MenuType @default(HEADER)
+  title       String
+  slug        String   @unique
+  href        String
+  icon        String?
+  description String?
+  badge       String?
+  order       Int      @default(0)
+  isActive    Boolean  @default(true)
+  parentId    String?
 
   // Multi-language support
-  translations  Json?    // {tr: {title: "", description: ""}, en: {...}}
+  translations Json? // {tr: {title: "", description: ""}, en: {...}}
 
   // Role-based access
-  requiredRole  String?
-  permissions   String[]  @default([])
+  requiredRole String?
+  permissions  String[] @default([])
 
   // Metadata
-  metadata      Json?
-  openInNewTab  Boolean  @default(false)
+  metadata     Json?
+  openInNewTab Boolean @default(false)
 
-  createdAt     DateTime  @default(now())
-  updatedAt     DateTime  @updatedAt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   // Self-referencing relation for nested menus
-  parent        NavigationMenu?  @relation("MenuHierarchy", fields: [parentId], references: [id], onDelete: Cascade)
-  children      NavigationMenu[] @relation("MenuHierarchy")
+  parent   NavigationMenu?  @relation("MenuHierarchy", fields: [parentId], references: [id], onDelete: Cascade)
+  children NavigationMenu[] @relation("MenuHierarchy")
 
-  @@map("navigation_menus")
   @@index([type, order])
   @@index([isActive])
   @@index([slug])
+  @@map("navigation_menus")
 }
 
 enum MenuType {
@@ -1159,30 +1159,30 @@ enum MenuType {
 
 // Featured Content Model - Homepage Featured Items
 model FeaturedContent {
-  id            String          @id @default(cuid())
-  type          ContentType     @default(DESTINATION)
-  title         String
-  slug          String          @unique
-  description   String?         @db.Text
-  image         String
-  link          String?
-  order         Int             @default(0)
-  isActive      Boolean         @default(true)
+  id          String      @id @default(cuid())
+  type        ContentType @default(DESTINATION)
+  title       String
+  slug        String      @unique
+  description String?     @db.Text
+  image       String
+  link        String?
+  order       Int         @default(0)
+  isActive    Boolean     @default(true)
 
   // Metadata
-  metadata      Json?           // rating, badge, experiences, etc.
-  translations  Json?
+  metadata     Json? // rating, badge, experiences, etc.
+  translations Json?
 
   // Display settings
-  displayFrom   DateTime?
-  displayUntil  DateTime?
+  displayFrom  DateTime?
+  displayUntil DateTime?
 
-  createdAt     DateTime        @default(now())
-  updatedAt     DateTime        @updatedAt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
-  @@map("featured_content")
   @@index([type, order])
   @@index([isActive])
+  @@map("featured_content")
 }
 
 enum ContentType {
@@ -1198,98 +1198,98 @@ enum ContentType {
 // ============================================
 
 model CarRental {
-  id              String          @id @default(cuid())
+  id String @id @default(cuid())
 
   // Basic Info
-  name            String
-  slug            String          @unique
-  description     String          @db.Text
-  shortDescription String?        @db.Text
+  name             String
+  slug             String  @unique
+  description      String  @db.Text
+  shortDescription String? @db.Text
 
   // Vehicle Details
-  brand           String          // Mercedes, BMW, Toyota, etc.
-  model           String          // Vito, E-Class, Corolla, etc.
-  year            Int
-  category        CarCategory
-  transmission    TransmissionType @default(AUTOMATIC)
-  fuelType        FuelType        @default(GASOLINE)
+  brand        String // Mercedes, BMW, Toyota, etc.
+  model        String // Vito, E-Class, Corolla, etc.
+  year         Int
+  category     CarCategory
+  transmission TransmissionType @default(AUTOMATIC)
+  fuelType     FuelType         @default(GASOLINE)
 
   // Capacity
-  seats           Int
-  doors           Int
-  luggage         Int             // Number of suitcases
+  seats   Int
+  doors   Int
+  luggage Int // Number of suitcases
 
   // Features
-  features        String[]        @default([])
-  airConditioning Boolean         @default(true)
-  gps             Boolean         @default(false)
-  bluetooth       Boolean         @default(false)
-  usbCharger      Boolean         @default(false)
+  features        String[] @default([])
+  airConditioning Boolean  @default(true)
+  gps             Boolean  @default(false)
+  bluetooth       Boolean  @default(false)
+  usbCharger      Boolean  @default(false)
 
   // Pricing
-  pricePerDay     Decimal
-  pricePerWeek    Decimal?
-  pricePerMonth   Decimal?
-  currency        String          @default("TRY")
-  deposit         Decimal         @default(0)
+  pricePerDay   Decimal
+  pricePerWeek  Decimal?
+  pricePerMonth Decimal?
+  currency      String   @default("TRY")
+  deposit       Decimal  @default(0)
 
   // Insurance
-  insuranceIncluded Boolean       @default(true)
-  insuranceType   String?
+  insuranceIncluded Boolean @default(true)
+  insuranceType     String?
 
   // Location
-  pickupLocations String[]        @default([])
-  allowDifferentDropoff Boolean   @default(true)
+  pickupLocations       String[] @default([])
+  allowDifferentDropoff Boolean  @default(true)
 
   // Availability
-  availableCount  Int             @default(1)
-  isAvailable     Boolean         @default(true)
+  availableCount Int     @default(1)
+  isAvailable    Boolean @default(true)
 
   // Images
-  mainImage       String
-  images          String[]        @default([])
+  mainImage String
+  images    String[] @default([])
 
   // Requirements
-  minimumAge      Int             @default(21)
-  drivingLicenseYears Int         @default(1)
-  requiredDocuments String[]      @default([])
+  minimumAge          Int      @default(21)
+  drivingLicenseYears Int      @default(1)
+  requiredDocuments   String[] @default([])
 
   // Mileage
-  unlimitedMileage Boolean        @default(true)
-  mileageLimit    Int?            // Per day if limited
+  unlimitedMileage Boolean @default(true)
+  mileageLimit     Int? // Per day if limited
 
   // Status & Featured
-  isActive        Boolean         @default(true)
-  isFeatured      Boolean         @default(false)
-  isPopular       Boolean         @default(false)
+  isActive   Boolean @default(true)
+  isFeatured Boolean @default(false)
+  isPopular  Boolean @default(false)
 
   // Ratings
-  rating          Decimal         @default(0)
-  reviewCount     Int             @default(0)
+  rating      Decimal @default(0)
+  reviewCount Int     @default(0)
 
   // SEO
   metaTitle       String?
   metaDescription String?
-  keywords        String[]        @default([])
+  keywords        String[] @default([])
 
-  createdAt       DateTime        @default(now())
-  updatedAt       DateTime        @updatedAt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   // Relations
-  bookings        CarRentalBooking[]
+  bookings CarRentalBooking[]
 
-  @@map("car_rentals")
   @@index([category])
   @@index([brand])
   @@index([isActive])
   @@index([isFeatured])
+  @@map("car_rentals")
 }
 
 model CarRentalBooking {
-  id              String          @id @default(cuid())
-  userId          String
-  carId           String
-  bookingRef      String          @unique
+  id         String @id @default(cuid())
+  userId     String
+  carId      String
+  bookingRef String @unique
 
   // Rental Details
   pickupLocation  String
@@ -1300,47 +1300,47 @@ model CarRentalBooking {
   dropoffTime     String
 
   // Pricing
-  dailyRate       Decimal
-  numberOfDays    Int
-  subtotal        Decimal
-  tax             Decimal         @default(0)
-  deposit         Decimal         @default(0)
-  totalPrice      Decimal
-  currency        String          @default("TRY")
+  dailyRate    Decimal
+  numberOfDays Int
+  subtotal     Decimal
+  tax          Decimal @default(0)
+  deposit      Decimal @default(0)
+  totalPrice   Decimal
+  currency     String  @default("TRY")
 
   // Extras
-  gpsRequested    Boolean         @default(false)
-  childSeatRequested Boolean      @default(false)
-  additionalDriver Boolean        @default(false)
-  extrasTotal     Decimal         @default(0)
+  gpsRequested       Boolean @default(false)
+  childSeatRequested Boolean @default(false)
+  additionalDriver   Boolean @default(false)
+  extrasTotal        Decimal @default(0)
 
   // Driver Info
-  driverName      String
-  driverLicense   String
-  driverPhone     String
-  driverEmail     String
+  driverName    String
+  driverLicense String
+  driverPhone   String
+  driverEmail   String
 
   // Status
-  status          BookingStatus   @default(PENDING)
-  paymentStatus   PaymentStatus   @default(PENDING)
+  status          BookingStatus  @default(PENDING)
+  paymentStatus   PaymentStatus  @default(PENDING)
   paymentMethod   PaymentMethod?
   paymentIntentId String?
 
   // Special Requests
-  specialRequests String?         @db.Text
+  specialRequests String? @db.Text
 
   // Timestamps
-  createdAt       DateTime        @default(now())
-  updatedAt       DateTime        @updatedAt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   // Relations
-  car             CarRental       @relation(fields: [carId], references: [id])
+  car CarRental @relation(fields: [carId], references: [id])
 
-  @@map("car_rental_bookings")
   @@index([userId])
   @@index([carId])
   @@index([pickupDate])
   @@index([status])
+  @@map("car_rental_bookings")
 }
 
 enum CarCategory {
@@ -1375,163 +1375,163 @@ enum FuelType {
 // ============================================
 
 model RentalProperty {
-  id              String          @id @default(cuid())
+  id String @id @default(cuid())
 
   // Basic Info
-  title           String
-  slug            String          @unique
-  description     String          @db.Text
-  shortDescription String?        @db.Text
+  title            String
+  slug             String  @unique
+  description      String  @db.Text
+  shortDescription String? @db.Text
 
   // Property Type
-  type            PropertyType
+  type PropertyType
 
   // Location
-  city            String
-  district        String
-  address         String
-  coordinates     Json?           // {lat, lng}
+  city        String
+  district    String
+  address     String
+  coordinates Json? // {lat, lng}
 
   // Capacity
-  guests          Int
-  bedrooms        Int
-  bathrooms       Int
-  beds            Int
+  guests    Int
+  bedrooms  Int
+  bathrooms Int
+  beds      Int
 
   // Size
-  squareMeters    Float?
+  squareMeters Float?
 
   // Pricing
-  basePrice       Decimal         // Per night
-  weeklyDiscount  Decimal?        // Percentage
-  monthlyDiscount Decimal?        // Percentage
-  currency        String          @default("TRY")
-  cleaningFee     Decimal         @default(0)
-  securityDeposit Decimal         @default(0)
+  basePrice       Decimal // Per night
+  weeklyDiscount  Decimal? // Percentage
+  monthlyDiscount Decimal? // Percentage
+  currency        String   @default("TRY")
+  cleaningFee     Decimal  @default(0)
+  securityDeposit Decimal  @default(0)
 
   // Features
-  wifi            Boolean         @default(false)
-  kitchen         Boolean         @default(false)
-  parking         Boolean         @default(false)
-  pool            Boolean         @default(false)
-  airConditioning Boolean         @default(false)
-  heating         Boolean         @default(false)
-  tv              Boolean         @default(false)
-  washer          Boolean         @default(false)
-  beachfront      Boolean         @default(false)
-  seaview         Boolean         @default(false)
-  balcony         Boolean         @default(false)
+  wifi            Boolean @default(false)
+  kitchen         Boolean @default(false)
+  parking         Boolean @default(false)
+  pool            Boolean @default(false)
+  airConditioning Boolean @default(false)
+  heating         Boolean @default(false)
+  tv              Boolean @default(false)
+  washer          Boolean @default(false)
+  beachfront      Boolean @default(false)
+  seaview         Boolean @default(false)
+  balcony         Boolean @default(false)
 
   // House Rules
-  smokingAllowed  Boolean         @default(false)
-  petsAllowed     Boolean         @default(false)
-  partiesAllowed  Boolean         @default(false)
-  childrenAllowed Boolean         @default(true)
+  smokingAllowed  Boolean @default(false)
+  petsAllowed     Boolean @default(false)
+  partiesAllowed  Boolean @default(false)
+  childrenAllowed Boolean @default(true)
 
   // Availability
-  instantBook     Boolean         @default(false)
-  minimumStay     Int             @default(1)
-  maximumStay     Int?
+  instantBook Boolean @default(false)
+  minimumStay Int     @default(1)
+  maximumStay Int?
 
   // Check-in/out
-  checkInTime     String          @default("15:00")
-  checkOutTime    String          @default("11:00")
+  checkInTime  String @default("15:00")
+  checkOutTime String @default("11:00")
 
   // Images
-  mainImage       String
-  images          String[]        @default([])
-  virtualTourUrl  String?
+  mainImage      String
+  images         String[] @default([])
+  virtualTourUrl String?
 
   // Host Info
-  hostName        String
-  hostSuperhost   Boolean         @default(false)
+  hostName         String
+  hostSuperhost    Boolean  @default(false)
   hostResponseTime String?
-  hostLanguages   String[]        @default([])
+  hostLanguages    String[] @default([])
 
   // Status & Featured
-  isActive        Boolean         @default(true)
-  isFeatured      Boolean         @default(false)
+  isActive   Boolean @default(true)
+  isFeatured Boolean @default(false)
 
   // Ratings
-  overall         Decimal         @default(0)
-  cleanliness     Decimal         @default(0)
-  accuracy        Decimal         @default(0)
-  checkIn         Decimal         @default(0)
-  communication   Decimal         @default(0)
-  location        Decimal         @default(0)
-  value           Decimal         @default(0)
-  reviewCount     Int             @default(0)
+  overall       Decimal @default(0)
+  cleanliness   Decimal @default(0)
+  accuracy      Decimal @default(0)
+  checkIn       Decimal @default(0)
+  communication Decimal @default(0)
+  location      Decimal @default(0)
+  value         Decimal @default(0)
+  reviewCount   Int     @default(0)
 
   // Competitor Prices (for comparison)
-  airbnbPrice     Decimal?
-  bookingPrice    Decimal?
-  agodaPrice      Decimal?
+  airbnbPrice  Decimal?
+  bookingPrice Decimal?
+  agodaPrice   Decimal?
 
   // SEO
   metaTitle       String?
   metaDescription String?
-  keywords        String[]        @default([])
+  keywords        String[] @default([])
 
-  createdAt       DateTime        @default(now())
-  updatedAt       DateTime        @updatedAt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   // Relations
-  bookings        RentalPropertyBooking[]
+  bookings RentalPropertyBooking[]
 
-  @@map("rental_properties")
   @@index([type])
   @@index([city])
   @@index([isActive])
   @@index([isFeatured])
+  @@map("rental_properties")
 }
 
 model RentalPropertyBooking {
-  id              String          @id @default(cuid())
-  userId          String
-  propertyId      String
-  bookingRef      String          @unique
+  id         String @id @default(cuid())
+  userId     String
+  propertyId String
+  bookingRef String @unique
 
   // Booking Details
-  checkIn         DateTime
-  checkOut        DateTime
-  numberOfNights  Int
-  numberOfGuests  Int
+  checkIn        DateTime
+  checkOut       DateTime
+  numberOfNights Int
+  numberOfGuests Int
 
   // Pricing
-  nightlyRate     Decimal
-  subtotal        Decimal
-  cleaningFee     Decimal         @default(0)
-  serviceFee      Decimal         @default(0)
-  tax             Decimal         @default(0)
-  totalPrice      Decimal
-  currency        String          @default("TRY")
+  nightlyRate Decimal
+  subtotal    Decimal
+  cleaningFee Decimal @default(0)
+  serviceFee  Decimal @default(0)
+  tax         Decimal @default(0)
+  totalPrice  Decimal
+  currency    String  @default("TRY")
 
   // Guest Info
-  guestName       String
-  guestPhone      String
-  guestEmail      String
+  guestName  String
+  guestPhone String
+  guestEmail String
 
   // Status
-  status          BookingStatus   @default(PENDING)
-  paymentStatus   PaymentStatus   @default(PENDING)
+  status          BookingStatus  @default(PENDING)
+  paymentStatus   PaymentStatus  @default(PENDING)
   paymentMethod   PaymentMethod?
   paymentIntentId String?
 
   // Special Requests
-  specialRequests String?         @db.Text
+  specialRequests String? @db.Text
 
   // Timestamps
-  createdAt       DateTime        @default(now())
-  updatedAt       DateTime        @updatedAt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   // Relations
-  property        RentalProperty  @relation(fields: [propertyId], references: [id])
+  property RentalProperty @relation(fields: [propertyId], references: [id])
 
-  @@map("rental_property_bookings")
   @@index([userId])
   @@index([propertyId])
   @@index([checkIn])
   @@index([status])
+  @@map("rental_property_bookings")
 }
 
 enum PropertyType {
@@ -1548,18 +1548,18 @@ enum PropertyType {
 // ============================================
 
 model SystemSettings {
-  id              String          @id @default(cuid())
-  key             String          @unique
-  value           Json
-  description     String?
-  category        SettingsCategory @default(GENERAL)
-  isPublic        Boolean         @default(false)
+  id          String           @id @default(cuid())
+  key         String           @unique
+  value       Json
+  description String?
+  category    SettingsCategory @default(GENERAL)
+  isPublic    Boolean          @default(false)
 
-  createdAt       DateTime        @default(now())
-  updatedAt       DateTime        @updatedAt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
-  @@map("system_settings")
   @@index([category])
+  @@map("system_settings")
 }
 
 enum SettingsCategory {
@@ -1580,85 +1580,85 @@ enum SettingsCategory {
 // ============================================
 
 model AilydianMilesAccount {
-  id              String          @id @default(cuid())
-  userId          String          @unique
+  id     String @id @default(cuid())
+  userId String @unique
 
   // Miles Balance
-  totalEarned     Decimal         @default(0)
-  totalSpent      Decimal         @default(0)
-  currentBalance  Decimal         @default(0)
+  totalEarned    Decimal @default(0)
+  totalSpent     Decimal @default(0)
+  currentBalance Decimal @default(0)
 
   // Tier Information
-  tier            LoyaltyTier     @default(BRONZE)
-  tierProgress    Decimal         @default(0) // Progress to next tier
-  nextTier        LoyaltyTier?
-  tierExpiresAt   DateTime?
+  tier          LoyaltyTier  @default(BRONZE)
+  tierProgress  Decimal      @default(0) // Progress to next tier
+  nextTier      LoyaltyTier?
+  tierExpiresAt DateTime?
 
   // Statistics
-  lifetimeBookings Int            @default(0)
-  lifetimeValue   Decimal         @default(0)
+  lifetimeBookings Int     @default(0)
+  lifetimeValue    Decimal @default(0)
 
-  createdAt       DateTime        @default(now())
-  updatedAt       DateTime        @updatedAt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   // Relations
-  user            User            @relation(fields: [userId], references: [id], onDelete: Cascade)
-  transactions    MilesTransaction[]
+  user         User               @relation(fields: [userId], references: [id], onDelete: Cascade)
+  transactions MilesTransaction[]
 
-  @@map("ailydian_miles_accounts")
   @@index([userId])
   @@index([tier])
+  @@map("ailydian_miles_accounts")
 }
 
 model MilesTransaction {
-  id              String          @id @default(cuid())
-  accountId       String
-  userId          String
+  id        String @id @default(cuid())
+  accountId String
+  userId    String
 
   // Transaction Details
-  type            MilesTransactionType
-  amount          Decimal
-  description     String
-  reference       String?         // Booking ID, etc.
+  type        MilesTransactionType
+  amount      Decimal
+  description String
+  reference   String? // Booking ID, etc.
 
   // Balance Snapshot
-  balanceBefore   Decimal
-  balanceAfter    Decimal
+  balanceBefore Decimal
+  balanceAfter  Decimal
 
   // Expiration (for earned miles)
-  expiresAt       DateTime?
-  expired         Boolean         @default(false)
+  expiresAt DateTime?
+  expired   Boolean   @default(false)
 
   // Metadata
-  metadata        Json?
+  metadata Json?
 
-  createdAt       DateTime        @default(now())
+  createdAt DateTime @default(now())
 
   // Relations
-  account         AilydianMilesAccount @relation(fields: [accountId], references: [id], onDelete: Cascade)
+  account AilydianMilesAccount @relation(fields: [accountId], references: [id], onDelete: Cascade)
 
-  @@map("miles_transactions")
   @@index([accountId])
   @@index([userId])
   @@index([type])
   @@index([createdAt])
+  @@map("miles_transactions")
 }
 
 enum LoyaltyTier {
-  BRONZE      // 0-999 miles
-  SILVER      // 1,000-4,999 miles (2% discount)
-  GOLD        // 5,000-9,999 miles (5% discount)
-  VIP         // 10,000+ miles (10% discount)
+  BRONZE // 0-999 miles
+  SILVER // 1,000-4,999 miles (2% discount)
+  GOLD // 5,000-9,999 miles (5% discount)
+  VIP // 10,000+ miles (10% discount)
 }
 
 enum MilesTransactionType {
-  EARNED_BOOKING     // Earned from booking
-  EARNED_REFERRAL    // Earned from referral
-  EARNED_PROMOTION   // Earned from promotion
-  EARNED_BONUS       // Bonus miles
-  SPENT_REDEMPTION   // Spent on booking
-  EXPIRED            // Miles expired
-  ADJUSTED           // Manual adjustment
+  EARNED_BOOKING // Earned from booking
+  EARNED_REFERRAL // Earned from referral
+  EARNED_PROMOTION // Earned from promotion
+  EARNED_BONUS // Bonus miles
+  SPENT_REDEMPTION // Spent on booking
+  EXPIRED // Miles expired
+  ADJUSTED // Manual adjustment
 }
 
 // ============================================
@@ -1666,74 +1666,74 @@ enum MilesTransactionType {
 // ============================================
 
 model WhatsAppConversation {
-  id              String          @id @default(cuid())
-  customerPhone   String
-  customerName    String?
+  id            String  @id @default(cuid())
+  customerPhone String
+  customerName  String?
 
   // Conversation Status
-  status          ConversationStatus @default(ACTIVE)
-  lastMessageAt   DateTime        @default(now())
+  status        ConversationStatus @default(ACTIVE)
+  lastMessageAt DateTime           @default(now())
 
   // Assignment
-  assignedTo      String?         // Support agent ID
-  assignedAt      DateTime?
+  assignedTo String? // Support agent ID
+  assignedAt DateTime?
 
   // Tags & Categories
-  tags            String[]        @default([])
-  category        String?         // Booking, Support, Inquiry, etc.
+  tags     String[] @default([])
+  category String? // Booking, Support, Inquiry, etc.
 
   // Metadata
-  metadata        Json?
+  metadata Json?
 
-  createdAt       DateTime        @default(now())
-  updatedAt       DateTime        @updatedAt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   // Relations
-  messages        WhatsAppMessage[]
+  messages WhatsAppMessage[]
 
-  @@map("whatsapp_conversations")
   @@index([customerPhone])
   @@index([status])
   @@index([lastMessageAt])
+  @@map("whatsapp_conversations")
 }
 
 model WhatsAppMessage {
-  id              String          @id @default(cuid())
-  conversationId  String
+  id             String @id @default(cuid())
+  conversationId String
 
   // Message Details
-  messageId       String?         @unique // WhatsApp message ID
-  from            String
-  to              String
-  direction       MessageDirection
-  type            MessageType     @default(TEXT)
+  messageId String?          @unique // WhatsApp message ID
+  from      String
+  to        String
+  direction MessageDirection
+  type      MessageType      @default(TEXT)
 
   // Content
-  text            String?         @db.Text
-  mediaUrl        String?
-  caption         String?
+  text     String? @db.Text
+  mediaUrl String?
+  caption  String?
 
   // Status
-  status          MessageStatus   @default(SENT)
-  deliveredAt     DateTime?
-  readAt          DateTime?
+  status      MessageStatus @default(SENT)
+  deliveredAt DateTime?
+  readAt      DateTime?
 
   // Interactive Messages
-  buttons         Json?
-  listItems       Json?
+  buttons   Json?
+  listItems Json?
 
   // Metadata
-  metadata        Json?
+  metadata Json?
 
-  createdAt       DateTime        @default(now())
+  createdAt DateTime @default(now())
 
   // Relations
-  conversation    WhatsAppConversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+  conversation WhatsAppConversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
 
-  @@map("whatsapp_messages")
   @@index([conversationId])
   @@index([direction])
   @@index([createdAt])
+  @@map("whatsapp_messages")
 }
 
 enum ConversationStatus {
@@ -1744,8 +1744,8 @@ enum ConversationStatus {
 }
 
 enum MessageDirection {
-  INBOUND   // From customer
-  OUTBOUND  // To customer
+  INBOUND // From customer
+  OUTBOUND // To customer
 }
 
 enum MessageType {
@@ -1771,159 +1771,159 @@ enum MessageStatus {
 // ============================================
 
 model VideoReview {
-  id              String          @id @default(cuid())
-  userId          String
+  id     String @id @default(cuid())
+  userId String
 
   // Listing Info
-  listingType     String          // hotel, car, tour, transfer, vehicle, property
-  listingId       String
+  listingType String // hotel, car, tour, transfer, vehicle, property
+  listingId   String
 
   // Video Details
-  videoUrl        String
-  thumbnailUrl    String
-  duration        Int             // seconds
-  title           String
-  description     String?         @db.Text
+  videoUrl     String
+  thumbnailUrl String
+  duration     Int // seconds
+  title        String
+  description  String? @db.Text
 
   // Rating
-  rating          Int             // 1-5
-  tags            String[]        @default([])
+  rating Int // 1-5
+  tags   String[] @default([])
 
   // Engagement
-  views           Int             @default(0)
-  likes           Int             @default(0)
+  views Int @default(0)
+  likes Int @default(0)
 
   // Verification
-  verifiedBooking Boolean         @default(false)
+  verifiedBooking Boolean @default(false)
   bookingRef      String?
 
   // Language
-  language        String          @default("tr")
+  language String @default("tr")
 
   // Status
-  isApproved      Boolean         @default(false)
-  isActive        Boolean         @default(true)
+  isApproved Boolean @default(false)
+  isActive   Boolean @default(true)
 
-  createdAt       DateTime        @default(now())
-  updatedAt       DateTime        @updatedAt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   // Relations
-  likes_relation  VideoLike[]
+  likes_relation VideoLike[]
 
-  @@map("video_reviews")
   @@index([listingType, listingId])
   @@index([userId])
   @@index([isApproved])
   @@index([createdAt])
+  @@map("video_reviews")
 }
 
 model VideoLike {
-  id              String          @id @default(cuid())
-  videoId         String
-  userId          String
+  id      String @id @default(cuid())
+  videoId String
+  userId  String
 
-  createdAt       DateTime        @default(now())
+  createdAt DateTime @default(now())
 
   // Relations
-  video           VideoReview     @relation(fields: [videoId], references: [id], onDelete: Cascade)
+  video VideoReview @relation(fields: [videoId], references: [id], onDelete: Cascade)
 
   @@unique([videoId, userId])
-  @@map("video_likes")
   @@index([videoId])
   @@index([userId])
+  @@map("video_likes")
 }
 
 model VirtualTour {
-  id              String          @id @default(cuid())
+  id String @id @default(cuid())
 
   // Listing Info
-  listingType     String          // hotel, property, vehicle
-  listingId       String
+  listingType String // hotel, property, vehicle
+  listingId   String
 
   // Tour Details
-  title           String
-  description     String          @db.Text
-  coverImage      String
+  title       String
+  description String @db.Text
+  coverImage  String
 
   // Engagement
-  views           Int             @default(0)
-  featured        Boolean         @default(false)
+  views    Int     @default(0)
+  featured Boolean @default(false)
 
   // Status
-  isActive        Boolean         @default(true)
+  isActive Boolean @default(true)
 
-  createdAt       DateTime        @default(now())
-  updatedAt       DateTime        @updatedAt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   // Relations
-  scenes          VirtualTourScene[]
+  scenes VirtualTourScene[]
 
-  @@map("virtual_tours")
   @@index([listingType, listingId])
   @@index([featured])
   @@index([isActive])
+  @@map("virtual_tours")
 }
 
 model VirtualTourScene {
-  id              String          @id @default(cuid())
-  tourId          String
+  id     String @id @default(cuid())
+  tourId String
 
   // Scene Details
-  title           String
-  panoramaUrl     String
-  type            PanoramaType    @default(EQUIRECTANGULAR)
-  order           Int             @default(0)
+  title       String
+  panoramaUrl String
+  type        PanoramaType @default(EQUIRECTANGULAR)
+  order       Int          @default(0)
 
   // Initial View
-  initialPitch    Float           @default(0)
-  initialYaw      Float           @default(0)
-  initialFov      Float           @default(90)
+  initialPitch Float @default(0)
+  initialYaw   Float @default(0)
+  initialFov   Float @default(90)
 
   // Metadata
-  metadata        Json?
+  metadata Json?
 
-  createdAt       DateTime        @default(now())
-  updatedAt       DateTime        @updatedAt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   // Relations
-  tour            VirtualTour     @relation(fields: [tourId], references: [id], onDelete: Cascade)
-  hotspots        VirtualTourHotspot[]
+  tour     VirtualTour          @relation(fields: [tourId], references: [id], onDelete: Cascade)
+  hotspots VirtualTourHotspot[]
 
-  @@map("virtual_tour_scenes")
   @@index([tourId])
   @@index([order])
+  @@map("virtual_tour_scenes")
 }
 
 model VirtualTourHotspot {
-  id              String          @id @default(cuid())
-  sceneId         String
+  id      String @id @default(cuid())
+  sceneId String
 
   // Hotspot Details
-  type            HotspotType
-  title           String
-  content         String?         @db.Text
+  type    HotspotType
+  title   String
+  content String?     @db.Text
 
   // Position
-  pitch           Float
-  yaw             Float
+  pitch Float
+  yaw   Float
 
   // Links
-  imageUrl        String?
-  videoUrl        String?
-  linkToSceneId   String?
-  icon            String?
+  imageUrl      String?
+  videoUrl      String?
+  linkToSceneId String?
+  icon          String?
 
   // Metadata
-  metadata        Json?
+  metadata Json?
 
-  createdAt       DateTime        @default(now())
+  createdAt DateTime @default(now())
 
   // Relations
-  scene           VirtualTourScene @relation(fields: [sceneId], references: [id], onDelete: Cascade)
+  scene VirtualTourScene @relation(fields: [sceneId], references: [id], onDelete: Cascade)
 
-  @@map("virtual_tour_hotspots")
   @@index([sceneId])
   @@index([type])
+  @@map("virtual_tour_hotspots")
 }
 
 enum PanoramaType {
@@ -1943,57 +1943,57 @@ enum HotspotType {
 // ============================================
 
 model SEOLandingPage {
-  id              String          @id @default(cuid())
+  id String @id @default(cuid())
 
   // Page Info
-  slug            String          @unique
-  title           String
-  description     String          @db.Text
+  slug        String @unique
+  title       String
+  description String @db.Text
 
   // SEO
   metaTitle       String
   metaDescription String
-  keywords        String[]        @default([])
+  keywords        String[] @default([])
 
   // Page Type
-  pageType        SEOPageType
-  category        String          // hotels, cars, tours, etc.
+  pageType SEOPageType
+  category String // hotels, cars, tours, etc.
 
   // Filters (JSON encoded for flexibility)
-  filters         Json            // {city: "Istanbul", type: "luxury", stars: 5}
+  filters Json // {city: "Istanbul", type: "luxury", stars: 5}
 
   // Content
-  h1              String
-  content         String          @db.Text
-  faq             Json?           // FAQ section
+  h1      String
+  content String @db.Text
+  faq     Json? // FAQ section
 
   // Stats
-  views           Int             @default(0)
-  lastCrawled     DateTime?
+  views       Int       @default(0)
+  lastCrawled DateTime?
 
   // Status
-  isActive        Boolean         @default(true)
-  isIndexed       Boolean         @default(false)
+  isActive  Boolean @default(true)
+  isIndexed Boolean @default(false)
 
-  createdAt       DateTime        @default(now())
-  updatedAt       DateTime        @updatedAt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
-  @@map("seo_landing_pages")
   @@index([slug])
   @@index([pageType])
   @@index([category])
   @@index([isActive])
+  @@map("seo_landing_pages")
 }
 
 enum SEOPageType {
-  CITY_HOTELS          // "Istanbul Hotels"
-  CATEGORY_HOTELS      // "Luxury Hotels Turkey"
-  CITY_CARS            // "Istanbul Car Rental"
-  CITY_TOURS           // "Istanbul Tours"
-  CATEGORY_TOURS       // "Cultural Tours Turkey"
-  CITY_TRANSFERS       // "Istanbul Airport Transfer"
-  DESTINATION          // "Antalya Travel Guide"
-  ROUTE                // "Istanbul to Cappadocia"
+  CITY_HOTELS // "Istanbul Hotels"
+  CATEGORY_HOTELS // "Luxury Hotels Turkey"
+  CITY_CARS // "Istanbul Car Rental"
+  CITY_TOURS // "Istanbul Tours"
+  CATEGORY_TOURS // "Cultural Tours Turkey"
+  CITY_TRANSFERS // "Istanbul Airport Transfer"
+  DESTINATION // "Antalya Travel Guide"
+  ROUTE // "Istanbul to Cappadocia"
 }
 
 // ============================================
@@ -2001,115 +2001,115 @@ enum SEOPageType {
 // ============================================
 
 model PartnerProfile {
-  id              String          @id @default(cuid())
-  userId          String          @unique
+  id     String @id @default(cuid())
+  userId String @unique
 
   // Business Info
-  businessName    String
-  businessType    PartnerType
-  taxId           String?
-  licenseNumber   String?
+  businessName  String
+  businessType  PartnerType
+  taxId         String?
+  licenseNumber String?
 
   // Contact
-  contactPerson   String
-  phone           String
-  email           String
-  address         String?
+  contactPerson String
+  phone         String
+  email         String
+  address       String?
 
   // Verification
-  isVerified      Boolean         @default(false)
-  verifiedAt      DateTime?
-  documents       Json?           // Uploaded documents
+  isVerified Boolean   @default(false)
+  verifiedAt DateTime?
+  documents  Json? // Uploaded documents
 
   // Payment Info
-  bankName        String?
-  accountNumber   String?
-  iban            String?
+  bankName      String?
+  accountNumber String?
+  iban          String?
 
   // Statistics
-  totalListings   Int             @default(0)
-  totalBookings   Int             @default(0)
-  totalRevenue    Decimal         @default(0)
-  rating          Decimal         @default(0)
+  totalListings Int     @default(0)
+  totalBookings Int     @default(0)
+  totalRevenue  Decimal @default(0)
+  rating        Decimal @default(0)
 
   // Status
-  isActive        Boolean         @default(true)
-  suspendedUntil  DateTime?
+  isActive       Boolean   @default(true)
+  suspendedUntil DateTime?
 
-  createdAt       DateTime        @default(now())
-  updatedAt       DateTime        @updatedAt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   // Relations
-  listings        PartnerListing[]
-  payouts         PartnerPayout[]
+  listings PartnerListing[]
+  payouts  PartnerPayout[]
 
-  @@map("partner_profiles")
   @@index([userId])
   @@index([businessType])
   @@index([isVerified])
+  @@map("partner_profiles")
 }
 
 model PartnerListing {
-  id              String          @id @default(cuid())
-  partnerId       String
+  id        String @id @default(cuid())
+  partnerId String
 
   // Listing Info
-  listingType     String          // hotel, car, tour, transfer, vehicle, property
-  listingId       String
+  listingType String // hotel, car, tour, transfer, vehicle, property
+  listingId   String
 
   // Status
-  status          ListingStatus   @default(DRAFT)
-  isActive        Boolean         @default(true)
+  status   ListingStatus @default(DRAFT)
+  isActive Boolean       @default(true)
 
   // Performance
-  views           Int             @default(0)
-  bookings        Int             @default(0)
-  revenue         Decimal         @default(0)
+  views    Int     @default(0)
+  bookings Int     @default(0)
+  revenue  Decimal @default(0)
 
-  createdAt       DateTime        @default(now())
-  updatedAt       DateTime        @updatedAt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   // Relations
-  partner         PartnerProfile  @relation(fields: [partnerId], references: [id], onDelete: Cascade)
+  partner PartnerProfile @relation(fields: [partnerId], references: [id], onDelete: Cascade)
 
-  @@map("partner_listings")
   @@index([partnerId])
   @@index([listingType])
   @@index([status])
+  @@map("partner_listings")
 }
 
 model PartnerPayout {
-  id              String          @id @default(cuid())
-  partnerId       String
+  id        String @id @default(cuid())
+  partnerId String
 
   // Payout Details
-  amount          Decimal
-  currency        String          @default("TRY")
-  period          String          // "2025-01" for January 2025
+  amount   Decimal
+  currency String  @default("TRY")
+  period   String // "2025-01" for January 2025
 
   // Status
-  status          PayoutStatus    @default(PENDING)
-  requestedAt     DateTime        @default(now())
-  processedAt     DateTime?
-  paidAt          DateTime?
+  status      PayoutStatus @default(PENDING)
+  requestedAt DateTime     @default(now())
+  processedAt DateTime?
+  paidAt      DateTime?
 
   // Payment Details
-  paymentMethod   String?
-  transactionId   String?
+  paymentMethod String?
+  transactionId String?
 
   // Metadata
-  metadata        Json?           // Breakdown of earnings
+  metadata Json? // Breakdown of earnings
 
-  createdAt       DateTime        @default(now())
-  updatedAt       DateTime        @updatedAt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   // Relations
-  partner         PartnerProfile  @relation(fields: [partnerId], references: [id], onDelete: Cascade)
+  partner PartnerProfile @relation(fields: [partnerId], references: [id], onDelete: Cascade)
 
-  @@map("partner_payouts")
   @@index([partnerId])
   @@index([status])
   @@index([period])
+  @@map("partner_payouts")
 }
 
 enum PartnerType {
@@ -2135,4 +2135,535 @@ enum PayoutStatus {
   COMPLETED
   FAILED
   CANCELLED
+}
+
+// ============================================
+// AI & VISION ANALYTICS MODELS
+// ============================================
+
+model AIUsageLog {
+  id String @id @default(cuid())
+
+  // Request Info
+  provider    String // openai, anthropic, google, groq
+  model       String
+  requestType String // vision, chat, completion, embedding
+
+  // Performance
+  responseTime Int // Milliseconds
+  tokensUsed   Int
+  cost         Float // USD
+
+  // Status
+  success      Boolean
+  errorMessage String? @db.Text
+  statusCode   Int?
+
+  // Metadata
+  userId   String?
+  endpoint String?
+  metadata Json?
+
+  createdAt DateTime @default(now())
+
+  @@index([provider])
+  @@index([createdAt])
+  @@index([success])
+  @@index([userId])
+  @@map("ai_usage_logs")
+}
+
+model VisionSearchQuery {
+  id String @id @default(cuid())
+
+  // Query Info
+  imageUrl String  @db.Text
+  query    String? @db.Text
+
+  // AI Provider
+  provider String // openai, anthropic, google, groq
+  model    String
+
+  // Results
+  resultsCount Int
+  confidence   Float // 0.0 - 1.0
+  results      Json // Array of search results
+
+  // Performance
+  responseTime Int // Milliseconds
+  cost         Float // USD
+  tokensUsed   Int   @default(0)
+
+  // User Info
+  userId    String?
+  sessionId String?
+
+  // Metadata
+  metadata Json?
+
+  createdAt DateTime @default(now())
+
+  @@index([provider])
+  @@index([userId])
+  @@index([createdAt])
+  @@map("vision_search_queries")
+}
+
+// ============================================
+// ADMINV2 CMS MODELS
+// ============================================
+
+// Media Library - File Management
+model MediaFile {
+  id String @id @default(cuid())
+
+  // File Info
+  filename         String // Actual stored filename (hash-based)
+  originalFilename String // Original uploaded filename
+  mimetype         String
+  size             Int // Bytes
+  category         MediaCategory @default(IMAGE)
+
+  // URL & Storage
+  url          String // CDN URL or local path
+  thumbnailUrl String? // For images/videos
+  cdnUrl       String? // Azure Blob / AWS S3 URL
+
+  // Organization
+  folder      String   @default("general")
+  tags        String[] @default([])
+  description String?  @db.Text
+
+  // Image-specific
+  width       Int?
+  height      Int?
+  aspectRatio String? // "16:9", "4:3", etc.
+
+  // Usage Tracking
+  usageCount Int   @default(0)
+  usedIn     Json? // {tours: [id1, id2], blog: [id3]}
+
+  // Metadata
+  uploadedBy      String // Admin ID or User ID
+  uploadedByEmail String
+  metadata        Json? // Additional file metadata
+
+  // SEO
+  altText String?
+  caption String?
+
+  // Status
+  isPublic    Boolean @default(true)
+  isProcessed Boolean @default(true) // For async processing
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([category])
+  @@index([folder])
+  @@index([uploadedBy])
+  @@index([createdAt])
+  @@map("media_files")
+}
+
+enum MediaCategory {
+  IMAGE
+  DOCUMENT
+  VIDEO
+  AUDIO
+  OTHER
+}
+
+// AI Vision Request Tracking
+model AIVisionRequest {
+  id String @id @default(cuid())
+
+  // Request Info
+  imageUrl String  @db.Text
+  prompt   String? @db.Text
+  provider String // openai, anthropic, google
+  model    String // gpt-4-vision, claude-3, gemini-pro-vision
+
+  // Response
+  response   String   @db.Text
+  confidence Float? // 0.0 - 1.0
+  tags       String[] @default([])
+
+  // Performance
+  responseTime Int // Milliseconds
+  tokensUsed   Int
+  cost         Float // USD
+
+  // Context
+  userId   String?
+  purpose  String? // "visual_search", "content_generation", "moderation"
+  metadata Json?
+
+  // Status
+  success      Boolean @default(true)
+  errorMessage String? @db.Text
+
+  createdAt DateTime @default(now())
+
+  @@index([provider])
+  @@index([userId])
+  @@index([purpose])
+  @@index([createdAt])
+  @@map("ai_vision_requests")
+}
+
+// AI Content Generation Tracking
+model AIContentGeneration {
+  id String @id @default(cuid())
+
+  // Request
+  prompt   String @db.Text
+  provider String // openai, anthropic, google, groq
+  model    String
+
+  // Generated Content
+  content     String         @db.Text
+  contentType ContentGenType @default(BLOG_POST)
+  language    String         @default("tr")
+
+  // Performance
+  responseTime Int // Milliseconds
+  tokensUsed   Int
+  cost         Float // USD
+
+  // Context
+  userId      String?
+  relatedId   String? // Tour ID, Hotel ID, etc.
+  relatedType String? // "tour", "hotel", "blog"
+
+  // Quality Metrics
+  qualityScore Float? // 0.0 - 1.0
+  edited       Boolean @default(false)
+  approved     Boolean @default(false)
+
+  // Metadata
+  metadata Json?
+
+  // Status
+  success      Boolean @default(true)
+  errorMessage String? @db.Text
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([provider])
+  @@index([contentType])
+  @@index([userId])
+  @@index([createdAt])
+  @@map("ai_content_generations")
+}
+
+enum ContentGenType {
+  BLOG_POST
+  TOUR_DESCRIPTION
+  HOTEL_DESCRIPTION
+  META_DESCRIPTION
+  EMAIL_TEMPLATE
+  SOCIAL_MEDIA
+  SEO_CONTENT
+}
+
+// Blog Management
+model BlogPost {
+  id String @id @default(cuid())
+
+  // Content
+  title   String
+  slug    String  @unique
+  excerpt String? @db.Text
+  content String  @db.Text
+
+  // Media
+  featuredImage String?
+  images        String[] @default([])
+
+  // Organization
+  category String
+  tags     String[] @default([])
+
+  // Author
+  authorId    String
+  authorName  String
+  authorImage String?
+
+  // SEO
+  metaTitle       String?
+  metaDescription String?
+  keywords        String[] @default([])
+
+  // Publishing
+  status       PostStatus @default(DRAFT)
+  publishedAt  DateTime?
+  scheduledFor DateTime?
+
+  // Engagement
+  views         Int @default(0)
+  likes         Int @default(0)
+  commentsCount Int @default(0)
+
+  // AI Generated
+  aiGenerated Boolean @default(false)
+  aiProvider  String?
+  aiPrompt    String? @db.Text
+
+  // Multi-language
+  language     String @default("tr")
+  translations Json? // {en: {title, content}, de: {...}}
+
+  // Featured
+  isFeatured    Boolean @default(false)
+  featuredOrder Int?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  comments BlogComment[]
+
+  @@index([slug])
+  @@index([category])
+  @@index([status])
+  @@index([publishedAt])
+  @@index([isFeatured])
+  @@map("blog_posts")
+}
+
+model BlogComment {
+  id     String @id @default(cuid())
+  postId String
+
+  // Author
+  userId      String? // Null if guest comment
+  authorName  String
+  authorEmail String
+  authorImage String?
+
+  // Content
+  content String @db.Text
+
+  // Moderation
+  status      CommentStatus @default(PENDING)
+  moderatedBy String?
+  moderatedAt DateTime?
+
+  // Engagement
+  likes Int @default(0)
+
+  // Nested Comments
+  parentId String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  post BlogPost @relation(fields: [postId], references: [id], onDelete: Cascade)
+
+  @@index([postId])
+  @@index([userId])
+  @@index([status])
+  @@index([parentId])
+  @@map("blog_comments")
+}
+
+enum PostStatus {
+  DRAFT
+  PUBLISHED
+  SCHEDULED
+  ARCHIVED
+}
+
+enum CommentStatus {
+  PENDING
+  APPROVED
+  REJECTED
+  SPAM
+}
+
+// Page Management (CMS Pages)
+model Page {
+  id String @id @default(cuid())
+
+  // Content
+  title   String
+  slug    String @unique
+  content String @db.Text
+
+  // Layout
+  template String @default("default") // default, landing, full-width
+  blocks   Json? // Page builder blocks
+
+  // SEO
+  metaTitle       String?
+  metaDescription String?
+  keywords        String[] @default([])
+
+  // Media
+  featuredImage String?
+
+  // Publishing
+  status      PostStatus @default(DRAFT)
+  publishedAt DateTime?
+
+  // Multi-language
+  language     String @default("tr")
+  translations Json?
+
+  // Access
+  isPublic     Boolean @default(true)
+  requiredRole String?
+
+  // Metadata
+  metadata Json?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  updatedBy String?
+
+  @@index([slug])
+  @@index([status])
+  @@index([isPublic])
+  @@map("pages")
+}
+
+// Newsletter Management
+model Newsletter {
+  id String @id @default(cuid())
+
+  // Content
+  subject     String
+  previewText String?
+  content     String  @db.Text
+
+  // Design
+  template   String @default("default")
+  designJson Json? // Email builder JSON
+
+  // Targeting
+  audienceType   AudienceType @default(ALL)
+  audienceFilter Json? // Custom filters
+
+  // Scheduling
+  status       NewsletterStatus @default(DRAFT)
+  scheduledFor DateTime?
+  sentAt       DateTime?
+
+  // Stats
+  recipientsCount   Int @default(0)
+  opensCount        Int @default(0)
+  clicksCount       Int @default(0)
+  unsubscribesCount Int @default(0)
+
+  // Sender
+  fromName  String  @default("AILYDIAN Holiday")
+  fromEmail String  @default("info@ailydian.com")
+  replyTo   String?
+
+  // Metadata
+  metadata Json?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  createdBy String
+
+  @@index([status])
+  @@index([scheduledFor])
+  @@index([sentAt])
+  @@map("newsletters")
+}
+
+model NewsletterSubscriber {
+  id String @id @default(cuid())
+
+  // Contact
+  email String  @unique
+  name  String?
+
+  // Preferences
+  language  String   @default("tr")
+  interests String[] @default([])
+
+  // Status
+  status         SubscriberStatus @default(ACTIVE)
+  confirmedAt    DateTime?
+  unsubscribedAt DateTime?
+
+  // Source
+  source   String? // "website", "booking", "manual"
+  metadata Json?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([email])
+  @@index([status])
+  @@map("newsletter_subscribers")
+}
+
+enum NewsletterStatus {
+  DRAFT
+  SCHEDULED
+  SENDING
+  SENT
+  FAILED
+}
+
+enum AudienceType {
+  ALL
+  SUBSCRIBERS
+  CUSTOMERS
+  CUSTOM
+}
+
+enum SubscriberStatus {
+  ACTIVE
+  UNSUBSCRIBED
+  BOUNCED
+  COMPLAINED
+}
+
+// AI Prompt Templates Library
+model AIPromptTemplate {
+  id String @id @default(cuid())
+
+  // Template Info
+  name        String
+  description String @db.Text
+  category    String // "content", "vision", "chat", "translation"
+
+  // Prompt
+  template  String   @db.Text
+  variables String[] @default([]) // ["{destination}", "{duration}"]
+
+  // Config
+  provider    String? // Preferred provider
+  model       String? // Preferred model
+  temperature Float?
+  maxTokens   Int?
+
+  // Usage
+  usageCount Int       @default(0)
+  lastUsedAt DateTime?
+
+  // Tags
+  tags String[] @default([])
+
+  // Status
+  isActive Boolean @default(true)
+  isPublic Boolean @default(false)
+
+  // Author
+  createdBy String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([category])
+  @@index([isActive])
+  @@index([createdBy])
+  @@map("ai_prompt_templates")
 }

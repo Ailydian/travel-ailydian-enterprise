@@ -215,10 +215,10 @@ export default function HostTermsPage() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="flex items-center gap-3 mb-4">
             <div className="p-3 bg-lydian-primary rounded-xl">
-              <Home className="h-8 w-8 text-white" />
+              <Home className="h-8 w-8 text-lydian-text-inverse" />
             </div>
             <div>
-              <h1 className="text-3xl font-bold text-white">Become a Host</h1>
+              <h1 className="text-3xl font-bold text-lydian-text-inverse">Become a Host</h1>
               <p className="text-lydian-text-dim mt-1">Review and accept our hosting terms to get started</p>
             </div>
           </div>
@@ -226,7 +226,7 @@ export default function HostTermsPage() {
           {/* Progress Steps */}
           <div className="flex items-center gap-2 mt-6">
             <div className="flex items-center gap-2">
-              <div className="flex items-center justify-center w-8 h-8 rounded-full bg-lydian-primary text-white font-semibold">
+              <div className="flex items-center justify-center w-8 h-8 rounded-full bg-lydian-primary text-lydian-text-inverse font-semibold">
                 1
               </div>
               <span className="text-sm font-medium text-lydian-primary">Review Terms</span>
@@ -257,7 +257,7 @@ export default function HostTermsPage() {
             <AlertCircle className="h-5 w-5 text-lydian-error flex-shrink-0 mt-0.5" />
             <div>
               <h3 className="font-semibold text-red-900">Action Required</h3>
-              <p className="text-sm text-red-700 mt-1">
+              <p className="text-sm text-lydian-primary-hover mt-1">
                 Please accept all terms and conditions before proceeding.
               </p>
             </div>
@@ -289,7 +289,7 @@ export default function HostTermsPage() {
                         <Icon className={`h-6 w-6 ${category.color}`} />
                       </div>
                       <div>
-                        <h2 className="text-xl font-bold text-white">{category.title}</h2>
+                        <h2 className="text-xl font-bold text-lydian-text-inverse">{category.title}</h2>
                         <p className="text-sm text-lydian-text-dim mt-1">{category.description}</p>
                       </div>
                     </div>
@@ -303,7 +303,7 @@ export default function HostTermsPage() {
                 <div className="p-6 space-y-6">
                   {category.sections.map((section, sectionIdx) => (
                     <div key={sectionIdx}>
-                      <h3 className="font-semibold text-white mb-3">{section.title}</h3>
+                      <h3 className="font-semibold text-lydian-text-inverse mb-3">{section.title}</h3>
                       <ul className="space-y-2">
                         {section.items.map((item, itemIdx) => (
                           <li key={itemIdx} className="flex items-start gap-3 text-sm text-gray-200">
@@ -331,7 +331,7 @@ export default function HostTermsPage() {
                       className="mt-1"
                     />
                     <div className="flex-1">
-                      <span className="text-sm font-medium text-white group-hover:text-lydian-primary">
+                      <span className="text-sm font-medium text-lydian-text-inverse group-hover:text-lydian-primary">
                         I have read and agree to the {category.title}
                       </span>
                       <p className="text-xs text-lydian-text-dim mt-1">
@@ -350,7 +350,7 @@ export default function HostTermsPage() {
           <div className="flex items-start gap-3">
             <Star className="h-6 w-6 text-lydian-primary flex-shrink-0" />
             <div>
-              <h3 className="font-semibold text-white mb-2">Why These Terms Matter</h3>
+              <h3 className="font-semibold text-lydian-text-inverse mb-2">Why These Terms Matter</h3>
               <p className="text-sm text-gray-200 mb-4">
                 Our hosting terms are designed to create a safe, fair, and trustworthy platform for both hosts and guests.
                 They are based on industry best practices from platforms like Airbnb, Booking.com, and Agoda, and ensure:
@@ -390,7 +390,7 @@ export default function HostTermsPage() {
               )}
             </div>
             <div>
-              <p className="font-semibold text-white">
+              <p className="font-semibold text-lydian-text-inverse">
                 {allTermsAccepted ? 'All Terms Accepted' : 'Acceptance Required'}
               </p>
               <p className="text-sm text-lydian-text-dim">
@@ -412,7 +412,7 @@ export default function HostTermsPage() {
             <Button
               onClick={handleSubmit}
               disabled={!allTermsAccepted}
-              className="bg-lydian-primary hover:bg-lydian-primary-hover text-white px-8"
+              className="bg-lydian-primary hover:bg-lydian-primary-hover text-lydian-text-inverse px-8"
             >
               Accept & Continue
             </Button>

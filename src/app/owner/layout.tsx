@@ -53,12 +53,12 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
   };
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: '#FFFFFF' }}>
+    <div className="min-h-screen" style={{ backgroundColor: 'var(--lydian-text-inverse)' }}>
       {/* Top Header */}
       <header className="fixed top-0 right-0 left-0 z-50 border-b backdrop-blur-lg"
               style={{
                 backgroundColor: 'rgba(255, 255, 255, 0.95)',
-                borderColor: '#E5E7EB'
+                borderColor: 'var(--lydian-border)'
               }}>
         <div className="flex items-center justify-between h-16 px-4">
           <div className="flex items-center gap-4">
@@ -100,8 +100,8 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
                 placeholder="Mülk, rezervasyon veya misafir ara..."
                 className="w-full pl-10 pr-4 py-2 rounded-xl border-2 transition-all focus:outline-none"
                 style={{
-                  backgroundColor: '#FFFFFF',
-                  borderColor: '#E5E7EB',
+                  backgroundColor: 'var(--lydian-text-inverse)',
+                  borderColor: 'var(--lydian-border)',
                   color: '#000000'
                 }}
               />
@@ -163,10 +163,10 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
                 <div className="absolute right-0 mt-2 w-64 rounded-xl border-2 overflow-hidden shadow-2xl"
                      style={{
                        backgroundColor: '#FFFFFF',
-                       borderColor: '#E5E7EB'
+                       borderColor: 'var(--lydian-border)'
                      }}>
                   <div className="p-4 border-b"
-                       style={{ borderColor: '#E5E7EB' }}>
+                       style={{ borderColor: 'var(--lydian-border)' }}>
                     <p className="font-bold" style={{ color: '#000000' }}>Ahmet Yılmaz</p>
                     <p className="text-sm" style={{ color: '#666666' }}>ahmet@example.com</p>
                     <div className="mt-2 flex items-center gap-2">
@@ -209,8 +209,8 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
           sidebarOpen ? 'w-64' : 'w-0 -translate-x-full'
         }`}
         style={{
-          backgroundColor: '#F9FAFB',
-          borderColor: '#E5E7EB'
+          backgroundColor: 'var(--lydian-bg-surface)',
+          borderColor: 'var(--lydian-border)'
         }}
       >
         <nav className="h-full overflow-y-auto p-4 space-y-2">
@@ -253,7 +253,7 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
 
         {/* Sidebar Footer */}
         <div className="absolute bottom-0 left-0 right-0 p-4 border-t"
-             style={{ borderColor: '#E5E7EB' }}>
+             style={{ borderColor: 'var(--lydian-border)' }}>
           <div className="rounded-xl p-4"
                style={{
                  background: 'linear-gradient(135deg, rgba(255, 33, 77, 0.1), rgba(255, 106, 69, 0.1))',

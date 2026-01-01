@@ -77,7 +77,7 @@ export default function Step6Availability({ data }: Step6Props) {
       {/* Rental Duration */}
       <div className="border-2 border-slate-200 rounded-xl p-6">
         <div className="flex items-center gap-3 mb-4">
-          <div className="p-2 bg-blue-100 rounded-lg">
+          <div className="p-2 bg-lydian-info-light rounded-lg">
             <Calendar className="w-5 h-5 text-lydian-primary" />
           </div>
           <h3 className="text-lg font-bold text-slate-900">Kiralama Süresi</h3>
@@ -87,7 +87,7 @@ export default function Step6Availability({ data }: Step6Props) {
           {/* Minimum Rental Days */}
           <div>
             <label className="block text-sm font-semibold text-slate-700 mb-2">
-              Minimum Kiralama Süresi (gün) <span className="text-red-500">*</span>
+              Minimum Kiralama Süresi (gün) <span className="text-lydian-secondary">*</span>
             </label>
             <input
               type="number"
@@ -162,7 +162,7 @@ export default function Step6Availability({ data }: Step6Props) {
       {/* Instant Booking */}
       <div className="border-2 border-slate-200 rounded-xl p-6">
         <div className="flex items-center gap-3 mb-4">
-          <div className="p-2 bg-amber-100 rounded-lg">
+          <div className="p-2 bg-lydian-warning-light rounded-lg">
             <Zap className="w-5 h-5 text-amber-600" />
           </div>
           <h3 className="text-lg font-bold text-slate-900">Anında Rezervasyon</h3>
@@ -189,7 +189,7 @@ export default function Step6Availability({ data }: Step6Props) {
         </div>
 
         {instantBooking && (
-          <div className="mt-4 p-4 bg-green-50 border border-green-200 rounded-lg">
+          <div className="mt-4 p-4 bg-lydian-success-lighter border border-green-200 rounded-lg">
             <div className="flex items-start gap-2">
               <Info className="w-5 h-5 text-lydian-success mt-0.5" />
               <p className="text-sm text-green-800">
@@ -244,7 +244,7 @@ export default function Step6Availability({ data }: Step6Props) {
       {/* Blocked Dates */}
       <div className="border-2 border-slate-200 rounded-xl p-6">
         <div className="flex items-center gap-3 mb-4">
-          <div className="p-2 bg-red-100 rounded-lg">
+          <div className="p-2 bg-lydian-primary-lighter rounded-lg">
             <Ban className="w-5 h-5 text-lydian-error" />
           </div>
           <h3 className="text-lg font-bold text-slate-900">Müsait Olmayan Tarihler</h3>
@@ -365,7 +365,7 @@ export default function Step6Availability({ data }: Step6Props) {
               !newBlockedDate.endDate ||
               !newBlockedDate.reason
             }
-            className="w-full px-4 py-3 bg-lydian-success text-white rounded-lg font-medium hover:bg-lydian-success-hover disabled:opacity-50 disabled:cursor-not-allowed transition-all flex items-center justify-center gap-2"
+            className="w-full px-4 py-3 bg-lydian-success text-lydian-text-inverse rounded-lg font-medium hover:bg-lydian-success-hover disabled:opacity-50 disabled:cursor-not-allowed transition-all flex items-center justify-center gap-2"
           >
             <Plus className="w-5 h-5" />
             Tarih Ekle
@@ -413,7 +413,7 @@ export default function Step6Availability({ data }: Step6Props) {
           {/* Winter Availability */}
           <div className="flex items-center justify-between p-4 bg-slate-50 rounded-lg">
             <div className="flex items-center gap-3">
-              <Snowflake className="w-5 h-5 text-blue-500" />
+              <Snowflake className="w-5 h-5 text-lydian-info" />
               <div>
                 <label
                   htmlFor="winterAvailable"
@@ -436,7 +436,7 @@ export default function Step6Availability({ data }: Step6Props) {
       </div>
 
       {/* Info Box */}
-      <div className="p-4 bg-blue-50 border border-blue-200 rounded-lg">
+      <div className="p-4 bg-lydian-info-lighter border border-blue-200 rounded-lg">
         <div className="flex items-start gap-3">
           <AlertCircle className="w-5 h-5 text-lydian-primary mt-0.5" />
           <div>

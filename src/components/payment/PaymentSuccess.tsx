@@ -27,7 +27,7 @@ export default function PaymentSuccess({
       <div className="max-w-md w-full bg-lydian-bg rounded-2xl shadow-xl p-8">
         {/* Success Icon */}
         <div className="flex justify-center mb-6">
-          <div className="bg-green-100 rounded-full p-3">
+          <div className="bg-lydian-success-light rounded-full p-3">
             <CheckCircleIcon className="h-16 w-16 text-lydian-success" />
           </div>
         </div>
@@ -70,7 +70,7 @@ export default function PaymentSuccess({
 
         {/* Confirmation Email Notice */}
         {customerEmail && (
-          <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
+          <div className="bg-lydian-info-lighter border border-blue-200 rounded-lg p-4 mb-6">
             <p className="text-sm text-blue-800">
               <span className="font-semibold">Confirmation sent!</span>
               <br />
@@ -83,7 +83,7 @@ export default function PaymentSuccess({
         <div className="space-y-3">
           <Link
             href={`/bookings/${bookingId}`}
-            className="flex items-center justify-center w-full bg-lydian-primary hover:bg-lydian-primary-hover text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200"
+            className="flex items-center justify-center w-full bg-lydian-primary hover:bg-lydian-primary-hover text-lydian-text-inverse font-semibold py-3 px-6 rounded-lg transition-colors duration-200"
           >
             <DocumentTextIcon className="h-5 w-5 mr-2" />
             View Booking Details

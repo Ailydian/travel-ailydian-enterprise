@@ -5,8 +5,7 @@ import {
   Filter,
   X,
   ChevronDown,
-  MapPin } from
-'lucide-react';
+  MapPin } from 'lucide-react';
 
 /**
  * Filter value type

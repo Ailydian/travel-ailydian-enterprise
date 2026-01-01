@@ -15,8 +15,7 @@ import {
   CheckCircle,
   AlertCircle,
   Loader,
-  X } from
-'lucide-react';
+  X } from 'lucide-react';
 
 interface VoiceCommand {
   trigger: string[];
@@ -358,7 +357,7 @@ const VoiceController: React.FC<VoiceControllerProps> = ({
               animate={{ opacity: [0.5, 1, 0.5] }}
               transition={{ repeat: Infinity, duration: 0.8 }}>
 
-                <div className="absolute -top-2 -left-2 w-4 h-4 bg-green-500 rounded-full" />
+                <div className="absolute -top-2 -left-2 w-4 h-4 bg-lydian-success rounded-full" />
               </motion.div>
             }
           </>
@@ -451,7 +450,7 @@ const VoiceController: React.FC<VoiceControllerProps> = ({
                   }
                   {isSpeaking &&
                   <span className="flex items-center gap-1 text-xs text-lydian-success">
-                      <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
+                      <div className="w-2 h-2 bg-lydian-success rounded-full animate-pulse" />
                       Konuşuyor
                     </span>
                   }

@@ -45,7 +45,7 @@ export default function Step7Documents() {
       {/* Header */}
       <div className="text-center">
         <Shield className="w-16 h-16 text-lydian-success mx-auto mb-4" />
-        <h2 className="text-3xl font-bold text-white">
+        <h2 className="text-3xl font-bold text-lydian-text-inverse">
           {t('vehicleSubmission.step7.title')}
         </h2>
         <p className="text-lydian-text-dim mt-2">
@@ -57,17 +57,17 @@ export default function Step7Documents() {
       <div className="bg-lydian-bg/5 rounded-xl shadow-sm border border-lydian-border p-6">
         <div className="flex items-center gap-3 mb-6">
           <Shield className="w-6 h-6 text-lydian-success" />
-          <h3 className="text-xl font-semibold text-white">
+          <h3 className="text-xl font-semibold text-lydian-text-inverse">
             {t('vehicleSubmission.step7.insurance.title')}
           </h3>
         </div>
 
         {/* Traffic Insurance */}
         <div className="space-y-4 mb-6 pb-6 border-b border-lydian-border">
-          <h4 className="font-medium text-white flex items-center gap-2">
+          <h4 className="font-medium text-lydian-text-inverse flex items-center gap-2">
             <Shield className="w-5 h-5 text-lydian-primary" />
             {t('vehicleSubmission.step7.insurance.traffic.title')}
-            <span className="text-red-500">*</span>
+            <span className="text-lydian-secondary">*</span>
           </h4>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -82,7 +82,7 @@ export default function Step7Documents() {
                 placeholder="12345678901234"
               />
               {errors.insurance?.trafficInsurance?.policyNumber && (
-                <p className="text-red-500 text-sm mt-1">
+                <p className="text-lydian-secondary text-sm mt-1">
                   {errors.insurance.trafficInsurance.policyNumber.message as string}
                 </p>
               )}
@@ -156,7 +156,7 @@ export default function Step7Documents() {
 
         {/* Comprehensive Insurance (Optional) */}
         <div className="space-y-4">
-          <h4 className="font-medium text-white flex items-center gap-2">
+          <h4 className="font-medium text-lydian-text-inverse flex items-center gap-2">
             <Shield className="w-5 h-5 text-lydian-success" />
             {t('vehicleSubmission.step7.insurance.comprehensive.title')}
             <span className="text-sm text-lydian-text-muted">({t('common.optional')})</span>
@@ -234,7 +234,7 @@ export default function Step7Documents() {
       <div className="bg-lydian-bg/5 rounded-xl shadow-sm border border-lydian-border p-6">
         <div className="flex items-center gap-3 mb-6">
           <FileText className="w-6 h-6 text-lydian-success" />
-          <h3 className="text-xl font-semibold text-white">
+          <h3 className="text-xl font-semibold text-lydian-text-inverse">
             {t('vehicleSubmission.step7.documents.title')}
           </h3>
         </div>
@@ -244,7 +244,7 @@ export default function Step7Documents() {
           <div>
             <label className="block text-sm font-medium text-gray-200 mb-2">
               {t('vehicleSubmission.step7.documents.registration')}
-              <span className="text-red-500 ml-1">*</span>
+              <span className="text-lydian-secondary ml-1">*</span>
             </label>
             <label className="relative cursor-pointer group">
               <input
@@ -318,7 +318,7 @@ export default function Step7Documents() {
           <div>
             <label className="block text-sm font-medium text-gray-200 mb-2">
               {t('vehicleSubmission.step7.documents.ownership')}
-              <span className="text-red-500 ml-1">*</span>
+              <span className="text-lydian-secondary ml-1">*</span>
             </label>
             <label className="relative cursor-pointer group">
               <input
@@ -357,7 +357,7 @@ export default function Step7Documents() {
       <div className="bg-lydian-bg/5 rounded-xl shadow-sm border border-lydian-border p-6">
         <div className="flex items-center gap-3 mb-6">
           <User className="w-6 h-6 text-lydian-success" />
-          <h3 className="text-xl font-semibold text-white">
+          <h3 className="text-xl font-semibold text-lydian-text-inverse">
             {t('vehicleSubmission.step7.driverRequirements.title')}
           </h3>
         </div>
@@ -421,7 +421,7 @@ export default function Step7Documents() {
       </div>
 
       {/* Info Alert */}
-      <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 flex gap-3">
+      <div className="bg-lydian-info-lighter border border-blue-200 rounded-lg p-4 flex gap-3">
         <AlertCircle className="w-5 h-5 text-lydian-primary flex-shrink-0 mt-0.5" />
         <div className="text-sm text-blue-900">
           <p className="font-medium mb-1">{t('vehicleSubmission.step7.infoTitle')}</p>

@@ -61,7 +61,7 @@ export const GlassmorphismCard: React.FC<GlassmorphismCardProps> = ({
         style={{
           background: 'rgba(255, 255, 255, 0.05)',
           backdropFilter: 'blur(10px)',
-          border: '1px solid rgba(255, 255, 255, 0.1)',
+          border: '1px solid var(--lydian-glass-light)',
           boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3)'
         }}
         {...glowOnHover ? immersiveAnimations.cardHover : {}}
@@ -105,7 +105,7 @@ export const GlassmorphismCard: React.FC<GlassmorphismCardProps> = ({
           <motion.div
             className="absolute top-4 right-4 px-3 py-1.5 rounded-lg text-xs font-medium backdrop-blur-md"
             style={{
-              background: 'rgba(255, 255, 255, 0.15)',
+              background: 'var(--lydian-glass-medium)',
               color: 'white',
               border: '1px solid rgba(255, 255, 255, 0.2)'
             }}

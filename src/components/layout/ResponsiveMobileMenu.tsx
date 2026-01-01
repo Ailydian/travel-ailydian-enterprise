@@ -24,8 +24,7 @@ import {
   CreditCard,
   Headphones,
   Globe,
-  ChevronRight } from
-'lucide-react';
+  ChevronRight } from 'lucide-react';
 import { useSession, signOut } from 'next-auth/react';
 import { useCart } from '../../context/CartContext';
 

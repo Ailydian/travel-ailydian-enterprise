@@ -20,8 +20,7 @@ import {
   ChevronRight,
   AlertCircle,
   CheckCircle,
-  DollarSign } from
-'lucide-react';
+  DollarSign } from 'lucide-react';
 import ResponsiveHeaderBar from '../../components/layout/ResponsiveHeaderBar';
 import {
   Experience,
@@ -32,6 +31,7 @@ import {
 '../../data/experiences-turkey';
 import { getDestinationById } from '../../data/destinations-turkey';
 import logger from '../../lib/logger';
+import { useToast } from '../../context/ToastContext';
 
 interface ExperienceDetailProps {
   experience: Experience;
@@ -39,6 +39,8 @@ interface ExperienceDetailProps {
 }
 
 export default function ExperienceDetail({ experience, relatedExperiences }: ExperienceDetailProps) {
+  const { showSuccess, showError, showWarning, showInfo, showToast } = useToast();
+
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   const [isFavorite, setIsFavorite] = useState(false);
   const [selectedDate, setSelectedDate] = useState('');
@@ -98,7 +100,7 @@ export default function ExperienceDetail({ experience, relatedExperiences }: Exp
       }
     } else {
       navigator.clipboard.writeText(window.location.href);
-      alert('Link kopyalandı!');
+      showToast({ type: 'info', title: 'Link kopyalandı!' });
     }
   };
 

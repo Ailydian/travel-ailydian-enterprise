@@ -12,6 +12,7 @@ import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import logger from '../../lib/logger';
+import { useToast } from '../../context/ToastContext';
 import {
   Heart,
   Share2,
@@ -171,6 +172,8 @@ const cardHoverVariants = {
 
 // Mock data function - matches database schema
 const getPropertyBySlug = (slug: string): RentalProperty => {
+  const { showSuccess, showError, showWarning, showInfo, showToast } = useToast();
+
   const propertyData: Record<string, RentalProperty> = {
     'istanbul-bogaz-manzarali-villa': {
       id: '1',
@@ -411,22 +414,22 @@ const PropertyDetailsPage = ({ slug: initialSlug }: PropertyDetailsPageProps) =>
   const handleReservation = () => {
     const nights = calculateNights();
     if (nights < (property?.minimumStay || 1)) {
-      alert(`Minimum konaklama ${property?.minimumStay} gecedir.`);
+      showInfo('Minimum konaklama ${property?.minimumStay} gecedir.');
       return;
     }
     if (nights > (property?.maximumStay || 365)) {
-      alert(`Maximum konaklama ${property?.maximumStay} gecedir.`);
+      showInfo('Maximum konaklama ${property?.maximumStay} gecedir.');
       return;
     }
 
     const totalGuests = adultsCount + childrenCount + infantsCount;
     if (totalGuests > (property?.guests || 1)) {
-      alert(`Maximum ${property?.guests} misafir kabul edilmektedir.`);
+      showInfo('Maximum ${property?.guests} misafir kabul edilmektedir.');
       return;
     }
 
     if (!checkInDate || !checkOutDate) {
-      alert('Lütfen giriş ve çıkış tarihlerini seçiniz.');
+      showToast({ type: 'error', title: 'Lütfen giriş ve çıkış tarihlerini seçiniz.' });
       return;
     }
 
@@ -439,11 +442,11 @@ const PropertyDetailsPage = ({ slug: initialSlug }: PropertyDetailsPageProps) =>
     return (
       <div className="min-h-screen bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950 flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-2xl font-bold text-white mb-2">Özellik Bulunamadı</h1>
-          <p className="text-gray-400 mb-6">Bu özellik mevcut değil.</p>
+          <h1 className="text-2xl font-bold text-lydian-text-inverse mb-2">Özellik Bulunamadı</h1>
+          <p className="text-lydian-text-muted mb-6">Bu özellik mevcut değil.</p>
           <button
             onClick={() => router.push('/rentals')}
-            className="px-6 py-3 bg-gradient-to-r from-red-600 to-red-700 text-white rounded-lg hover:from-red-700 hover:to-red-800 transition-all shadow-lg"
+            className="px-6 py-3 bg-gradient-to-r from-red-600 to-red-700 text-lydian-text-inverse rounded-lg hover:from-red-700 hover:to-red-800 transition-all shadow-lg"
           >
             Tüm Özelliklere Dön
           </button>
@@ -483,7 +486,7 @@ const PropertyDetailsPage = ({ slug: initialSlug }: PropertyDetailsPageProps) =>
             >
               <button
                 onClick={() => setShowGallery(false)}
-                className="absolute top-6 right-6 text-white hover:text-gray-300 z-10 p-2 hover:bg-white/10 rounded-lg transition-all"
+                className="absolute top-6 right-6 text-lydian-text-inverse hover:text-gray-300 z-10 p-2 hover:bg-lydian-bg/10 rounded-lg transition-all"
               >
                 <X className="w-8 h-8" />
               </button>
@@ -493,7 +496,7 @@ const PropertyDetailsPage = ({ slug: initialSlug }: PropertyDetailsPageProps) =>
                   e.stopPropagation();
                   setSelectedImage((prev) => (prev === 0 ? property.images.length - 1 : prev - 1));
                 }}
-                className="absolute left-6 text-white hover:text-gray-300 z-10 p-2 hover:bg-white/10 rounded-lg transition-all"
+                className="absolute left-6 text-lydian-text-inverse hover:text-gray-300 z-10 p-2 hover:bg-lydian-bg/10 rounded-lg transition-all"
               >
                 <ChevronLeft className="w-12 h-12" />
               </button>
@@ -503,7 +506,7 @@ const PropertyDetailsPage = ({ slug: initialSlug }: PropertyDetailsPageProps) =>
                   e.stopPropagation();
                   setSelectedImage((prev) => (prev === property.images.length - 1 ? 0 : prev + 1));
                 }}
-                className="absolute right-6 text-white hover:text-gray-300 z-10 p-2 hover:bg-white/10 rounded-lg transition-all"
+                className="absolute right-6 text-lydian-text-inverse hover:text-gray-300 z-10 p-2 hover:bg-lydian-bg/10 rounded-lg transition-all"
               >
                 <ChevronRight className="w-12 h-12" />
               </button>
@@ -515,7 +518,7 @@ const PropertyDetailsPage = ({ slug: initialSlug }: PropertyDetailsPageProps) =>
                 onClick={(e) => e.stopPropagation()}
               />
 
-              <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white font-semibold bg-black/50 px-4 py-2 rounded-lg backdrop-blur-sm">
+              <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-lydian-text-inverse font-semibold bg-black/50 px-4 py-2 rounded-lg backdrop-blur-sm">
                 {selectedImage + 1} / {property.images.length}
               </div>
             </motion.div>
@@ -536,24 +539,24 @@ const PropertyDetailsPage = ({ slug: initialSlug }: PropertyDetailsPageProps) =>
                 initial={{ scale: 0.9, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 exit={{ scale: 0.9, opacity: 0 }}
-                className="bg-white dark:bg-gray-800 rounded-2xl p-6 max-w-md w-full shadow-2xl"
+                className="bg-lydian-bg dark:bg-gray-800 rounded-2xl p-6 max-w-md w-full shadow-2xl"
                 onClick={(e) => e.stopPropagation()}
               >
                 <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-white">Paylaş</h3>
+                  <h3 className="text-xl font-bold text-lydian-text dark:text-lydian-text-inverse">Paylaş</h3>
                   <button
                     onClick={() => setShowShareModal(false)}
-                    className="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"
+                    className="p-2 hover:bg-lydian-bg-surface-raised dark:hover:bg-gray-700 rounded-lg transition-colors"
                   >
-                    <X className="w-5 h-5 text-gray-600 dark:text-gray-400" />
+                    <X className="w-5 h-5 text-lydian-text-secondary dark:text-lydian-text-muted" />
                   </button>
                 </div>
-                <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-3 mb-4">
+                <div className="bg-lydian-bg-surface dark:bg-gray-900 rounded-lg p-3 mb-4">
                   <input
                     type="text"
                     value={currentUrl}
                     readOnly
-                    className="w-full bg-transparent text-sm text-gray-600 dark:text-gray-300 select-all"
+                    className="w-full bg-transparent text-sm text-lydian-text-secondary dark:text-gray-300 select-all"
                   />
                 </div>
                 <button
@@ -561,7 +564,7 @@ const PropertyDetailsPage = ({ slug: initialSlug }: PropertyDetailsPageProps) =>
                     navigator.clipboard.writeText(currentUrl);
                     setShowShareModal(false);
                   }}
-                  className="w-full bg-red-600 hover:bg-red-700 text-white py-3 rounded-lg font-semibold transition-colors"
+                  className="w-full bg-lydian-primary hover:bg-lydian-primary-hover text-lydian-text-inverse py-3 rounded-lg font-semibold transition-colors"
                 >
                   Linki Kopyala
                 </button>
@@ -571,20 +574,20 @@ const PropertyDetailsPage = ({ slug: initialSlug }: PropertyDetailsPageProps) =>
         </AnimatePresence>
 
         {/* Breadcrumb Bar */}
-        <div className="sticky top-0 z-40 bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl border-b border-gray-200 dark:border-gray-800 shadow-sm">
+        <div className="sticky top-0 z-40 bg-lydian-bg/80 dark:bg-gray-900/80 backdrop-blur-xl border-b border-lydian-border dark:border-gray-800 shadow-sm">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
             <div className="flex items-center justify-between gap-3">
-              <nav className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
-                <Link href="/" className="hover:text-red-600 dark:hover:text-red-400 transition-colors flex items-center gap-1">
+              <nav className="flex items-center gap-2 text-sm text-lydian-text-secondary dark:text-lydian-text-muted">
+                <Link href="/" className="hover:text-lydian-primary dark:hover:text-red-400 transition-colors flex items-center gap-1">
                   <Home className="w-4 h-4" />
                   Ana Sayfa
                 </Link>
                 <ChevronRight className="w-4 h-4" />
-                <Link href="/rentals" className="hover:text-red-600 dark:hover:text-red-400 transition-colors">
+                <Link href="/rentals" className="hover:text-lydian-primary dark:hover:text-red-400 transition-colors">
                   Konaklama
                 </Link>
                 <ChevronRight className="w-4 h-4" />
-                <span className="text-gray-900 dark:text-white font-medium">{property.title}</span>
+                <span className="text-lydian-text dark:text-lydian-text-inverse font-medium">{property.title}</span>
               </nav>
 
               <div className="flex items-center gap-2">
@@ -592,18 +595,18 @@ const PropertyDetailsPage = ({ slug: initialSlug }: PropertyDetailsPageProps) =>
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
                   onClick={handleShare}
-                  className="flex items-center gap-2 px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors"
+                  className="flex items-center gap-2 px-3 py-2 hover:bg-lydian-bg-surface-raised dark:hover:bg-gray-800 rounded-lg transition-colors"
                 >
-                  <Share2 className="w-5 h-5 text-gray-600 dark:text-gray-400" />
+                  <Share2 className="w-5 h-5 text-lydian-text-secondary dark:text-lydian-text-muted" />
                   <span className="hidden sm:inline text-sm">Paylaş</span>
                 </motion.button>
                 <motion.button
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
                   onClick={handleFavorite}
-                  className="flex items-center gap-2 px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors"
+                  className="flex items-center gap-2 px-3 py-2 hover:bg-lydian-bg-surface-raised dark:hover:bg-gray-800 rounded-lg transition-colors"
                 >
-                  <Heart className={`w-5 h-5 ${isFavorite ? 'fill-red-500 text-red-500' : 'text-gray-600 dark:text-gray-400'}`} />
+                  <Heart className={`w-5 h-5 ${isFavorite ? 'fill-red-500 text-red-500' : 'text-lydian-text-secondary dark:text-lydian-text-muted'}`} />
                   <span className="hidden sm:inline text-sm">Kaydet</span>
                 </motion.button>
               </div>
@@ -616,7 +619,7 @@ const PropertyDetailsPage = ({ slug: initialSlug }: PropertyDetailsPageProps) =>
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6 }}
-          className="relative bg-gradient-to-r from-red-600 via-red-700 to-red-800 text-white py-12 sm:py-16"
+          className="relative bg-gradient-to-r from-red-600 via-red-700 to-red-800 text-lydian-text-inverse py-12 sm:py-16"
         >
           <div className="absolute inset-0 opacity-10">
             <div
@@ -656,22 +659,22 @@ const PropertyDetailsPage = ({ slug: initialSlug }: PropertyDetailsPageProps) =>
 
               {/* Quick Stats */}
               <motion.div variants={itemVariants} className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
-                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+                <div className="bg-lydian-bg/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
                   <Users className="w-6 h-6 sm:w-8 sm:h-8 mb-2 text-red-200" />
                   <div className="text-xl sm:text-2xl font-bold">{property.guests}</div>
                   <div className="text-xs sm:text-sm text-red-200">Misafir</div>
                 </div>
-                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+                <div className="bg-lydian-bg/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
                   <BedDouble className="w-6 h-6 sm:w-8 sm:h-8 mb-2 text-red-200" />
                   <div className="text-xl sm:text-2xl font-bold">{property.bedrooms}</div>
                   <div className="text-xs sm:text-sm text-red-200">Yatak Odası</div>
                 </div>
-                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+                <div className="bg-lydian-bg/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
                   <Bath className="w-6 h-6 sm:w-8 sm:h-8 mb-2 text-red-200" />
                   <div className="text-xl sm:text-2xl font-bold">{property.bathrooms}</div>
                   <div className="text-xs sm:text-sm text-red-200">Banyo</div>
                 </div>
-                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+                <div className="bg-lydian-bg/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
                   <Maximize2 className="w-6 h-6 sm:w-8 sm:h-8 mb-2 text-red-200" />
                   <div className="text-xl sm:text-2xl font-bold">{property.squareMeters}</div>
                   <div className="text-xs sm:text-sm text-red-200">m²</div>
@@ -704,7 +707,7 @@ const PropertyDetailsPage = ({ slug: initialSlug }: PropertyDetailsPageProps) =>
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-black/0 hover:bg-black/10 transition-colors flex items-center justify-center opacity-0 hover:opacity-100">
-                <Maximize2 className="w-12 h-12 text-white" />
+                <Maximize2 className="w-12 h-12 text-lydian-text-inverse" />
               </div>
             </motion.div>
             {property.images.slice(1, 5).map((image, index) => (
@@ -721,7 +724,7 @@ const PropertyDetailsPage = ({ slug: initialSlug }: PropertyDetailsPageProps) =>
               >
                 <img src={image || '/placeholder-property.jpg'} alt={`${property.title} - ${index + 2}`} className="w-full h-full object-cover" />
                 {index === 3 && property.images.length > 5 && (
-                  <div className="absolute inset-0 bg-black/60 flex items-center justify-center text-white font-bold text-lg hover:bg-black/50 transition-colors">
+                  <div className="absolute inset-0 bg-black/60 flex items-center justify-center text-lydian-text-inverse font-bold text-lg hover:bg-black/50 transition-colors">
                     <div className="text-center">
                       <Maximize2 className="w-8 h-8 mx-auto mb-2" />
                       +{property.images.length - 5} Fotoğraf
@@ -729,7 +732,7 @@ const PropertyDetailsPage = ({ slug: initialSlug }: PropertyDetailsPageProps) =>
                   </div>
                 )}
                 <div className="absolute inset-0 bg-black/0 hover:bg-black/10 transition-colors flex items-center justify-center opacity-0 hover:opacity-100">
-                  <Maximize2 className="w-8 h-8 text-white" />
+                  <Maximize2 className="w-8 h-8 text-lydian-text-inverse" />
                 </div>
               </motion.div>
             ))}
@@ -746,13 +749,13 @@ const PropertyDetailsPage = ({ slug: initialSlug }: PropertyDetailsPageProps) =>
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 sm:p-8 border border-gray-200 dark:border-gray-700"
+                className="bg-lydian-bg dark:bg-gray-800 rounded-2xl shadow-lg p-6 sm:p-8 border border-lydian-border dark:border-gray-700"
               >
-                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+                <h2 className="text-2xl font-bold text-lydian-text dark:text-lydian-text-inverse mb-4">
                   {property.type === 'VILLA' ? 'Villa' : property.type === 'APARTMENT' ? 'Apartman' : 'Ev'} - {property.city}
                 </h2>
 
-                <div className="flex flex-wrap items-center gap-6 mb-6 text-gray-600 dark:text-gray-300">
+                <div className="flex flex-wrap items-center gap-6 mb-6 text-lydian-text-secondary dark:text-gray-300">
                   <div className="flex items-center gap-2">
                     <Users className="w-5 h-5" />
                     <span>{property.guests} misafir</span>
@@ -771,20 +774,20 @@ const PropertyDetailsPage = ({ slug: initialSlug }: PropertyDetailsPageProps) =>
                   </div>
                 </div>
 
-                <div className="border-t border-gray-200 dark:border-gray-700 pt-6">
+                <div className="border-t border-lydian-border dark:border-gray-700 pt-6">
                   <div className="flex items-center gap-4 mb-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-red-600 to-red-700 rounded-full flex items-center justify-center text-white font-bold text-lg">
+                    <div className="w-12 h-12 bg-gradient-to-br from-red-600 to-red-700 rounded-full flex items-center justify-center text-lydian-text-inverse font-bold text-lg">
                       {property.hostName.charAt(0)}
                     </div>
                     <div>
-                      <h3 className="font-bold text-gray-900 dark:text-white">Ev sahibi: {property.hostName}</h3>
-                      <p className="text-sm text-gray-600 dark:text-gray-400">{property.hostResponseTime} yanıt verir</p>
+                      <h3 className="font-bold text-lydian-text dark:text-lydian-text-inverse">Ev sahibi: {property.hostName}</h3>
+                      <p className="text-sm text-lydian-text-secondary dark:text-lydian-text-muted">{property.hostResponseTime} yanıt verir</p>
                     </div>
                   </div>
 
                   <div className="flex flex-wrap gap-2 mb-4">
                     {property.hostLanguages.map((lang, i) => (
-                      <span key={i} className="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full text-sm">
+                      <span key={i} className="px-3 py-1 bg-lydian-bg-surface-raised dark:bg-gray-700 text-lydian-text-secondary dark:text-gray-300 rounded-full text-sm">
                         {lang}
                       </span>
                     ))}
@@ -792,10 +795,10 @@ const PropertyDetailsPage = ({ slug: initialSlug }: PropertyDetailsPageProps) =>
                 </div>
 
                 {/* Badges */}
-                <div className="flex flex-wrap gap-3 pt-6 border-t border-gray-200 dark:border-gray-700">
+                <div className="flex flex-wrap gap-3 pt-6 border-t border-lydian-border dark:border-gray-700">
                   {property.instantBook && (
-                    <div className="flex items-center gap-2 px-4 py-2 bg-green-50 dark:bg-green-900/20 rounded-xl border border-green-200 dark:border-green-800">
-                      <Zap className="w-5 h-5 text-green-600 dark:text-green-400" />
+                    <div className="flex items-center gap-2 px-4 py-2 bg-lydian-success-lighter dark:bg-green-900/20 rounded-xl border border-green-200 dark:border-green-800">
+                      <Zap className="w-5 h-5 text-lydian-success-hover dark:text-green-400" />
                       <span className="font-semibold text-green-900 dark:text-green-100">Anında Rezervasyon</span>
                     </div>
                   )}
@@ -814,10 +817,10 @@ const PropertyDetailsPage = ({ slug: initialSlug }: PropertyDetailsPageProps) =>
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.1 }}
-                className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 sm:p-8 border border-gray-200 dark:border-gray-700"
+                className="bg-lydian-bg dark:bg-gray-800 rounded-2xl shadow-lg p-6 sm:p-8 border border-lydian-border dark:border-gray-700"
               >
-                <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-4">Açıklama</h2>
-                <p className="text-gray-600 dark:text-gray-300 leading-relaxed whitespace-pre-line">{property.description}</p>
+                <h2 className="text-xl font-bold text-lydian-text dark:text-lydian-text-inverse mb-4">Açıklama</h2>
+                <p className="text-lydian-text-secondary dark:text-gray-300 leading-relaxed whitespace-pre-line">{property.description}</p>
               </motion.div>
 
               {/* Rating Breakdown */}
@@ -826,11 +829,11 @@ const PropertyDetailsPage = ({ slug: initialSlug }: PropertyDetailsPageProps) =>
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.15 }}
-                className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 sm:p-8 border border-gray-200 dark:border-gray-700"
+                className="bg-lydian-bg dark:bg-gray-800 rounded-2xl shadow-lg p-6 sm:p-8 border border-lydian-border dark:border-gray-700"
               >
                 <div className="flex items-center gap-2 mb-6">
                   <Star className="w-6 h-6 text-yellow-400 fill-yellow-400" />
-                  <h2 className="text-xl font-bold text-gray-900 dark:text-white">
+                  <h2 className="text-xl font-bold text-lydian-text dark:text-lydian-text-inverse">
                     {parseFloat(property.overall).toFixed(1)} · {property.reviewCount} değerlendirme
                   </h2>
                 </div>
@@ -846,8 +849,8 @@ const PropertyDetailsPage = ({ slug: initialSlug }: PropertyDetailsPageProps) =>
                   ].map((rating, index) => (
                     <div key={index}>
                       <div className="flex items-center justify-between mb-2">
-                        <span className="text-sm font-medium text-gray-600 dark:text-gray-400">{rating.label}</span>
-                        <span className="text-sm font-bold text-gray-900 dark:text-white">{rating.value.toFixed(1)}</span>
+                        <span className="text-sm font-medium text-lydian-text-secondary dark:text-lydian-text-muted">{rating.label}</span>
+                        <span className="text-sm font-bold text-lydian-text dark:text-lydian-text-inverse">{rating.value.toFixed(1)}</span>
                       </div>
                       <div className="h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
                         <motion.div
@@ -869,13 +872,13 @@ const PropertyDetailsPage = ({ slug: initialSlug }: PropertyDetailsPageProps) =>
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.2 }}
-                className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 sm:p-8 border border-gray-200 dark:border-gray-700"
+                className="bg-lydian-bg dark:bg-gray-800 rounded-2xl shadow-lg p-6 sm:p-8 border border-lydian-border dark:border-gray-700"
               >
-                <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-6">Olanaklar</h2>
+                <h2 className="text-xl font-bold text-lydian-text dark:text-lydian-text-inverse mb-6">Olanaklar</h2>
 
                 {/* Essentials */}
                 <div className="mb-6">
-                  <h3 className="font-semibold text-gray-700 dark:text-gray-300 mb-3">Temel Olanaklar</h3>
+                  <h3 className="font-semibold text-lydian-text-secondary dark:text-gray-300 mb-3">Temel Olanaklar</h3>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     {amenities.essentials.map((amenity, index) => {
                       const Icon = amenity.icon;
@@ -888,13 +891,13 @@ const PropertyDetailsPage = ({ slug: initialSlug }: PropertyDetailsPageProps) =>
                           transition={{ delay: index * 0.05 }}
                           className={`flex items-center gap-3 p-3 rounded-xl ${
                             amenity.available
-                              ? 'bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800'
-                              : 'bg-gray-50 dark:bg-gray-700/50 border border-gray-200 dark:border-gray-600 opacity-50'
+                              ? 'bg-lydian-success-lighter dark:bg-green-900/20 border border-green-200 dark:border-green-800'
+                              : 'bg-lydian-bg-surface dark:bg-gray-700/50 border border-lydian-border dark:border-gray-600 opacity-50'
                           }`}
                         >
-                          <Icon className={`w-5 h-5 ${amenity.available ? 'text-green-600 dark:text-green-400' : 'text-gray-400'}`} />
-                          <span className={amenity.available ? 'text-gray-900 dark:text-white' : 'text-gray-500 dark:text-gray-400'}>{amenity.name}</span>
-                          {amenity.available && <CheckCircle2 className="w-4 h-4 text-green-600 dark:text-green-400 ml-auto" />}
+                          <Icon className={`w-5 h-5 ${amenity.available ? 'text-lydian-success-hover dark:text-green-400' : 'text-lydian-text-muted'}`} />
+                          <span className={amenity.available ? 'text-lydian-text dark:text-lydian-text-inverse' : 'text-lydian-text-tertiary dark:text-lydian-text-muted'}>{amenity.name}</span>
+                          {amenity.available && <CheckCircle2 className="w-4 h-4 text-lydian-success-hover dark:text-green-400 ml-auto" />}
                         </motion.div>
                       );
                     })}
@@ -903,7 +906,7 @@ const PropertyDetailsPage = ({ slug: initialSlug }: PropertyDetailsPageProps) =>
 
                 {/* Features */}
                 <div className="mb-6">
-                  <h3 className="font-semibold text-gray-700 dark:text-gray-300 mb-3">Özellikler</h3>
+                  <h3 className="font-semibold text-lydian-text-secondary dark:text-gray-300 mb-3">Özellikler</h3>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     {amenities.features.map((amenity, index) => {
                       const Icon = amenity.icon;
@@ -917,12 +920,12 @@ const PropertyDetailsPage = ({ slug: initialSlug }: PropertyDetailsPageProps) =>
                           className={`flex items-center gap-3 p-3 rounded-xl ${
                             amenity.available
                               ? 'bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800'
-                              : 'bg-gray-50 dark:bg-gray-700/50 border border-gray-200 dark:border-gray-600 opacity-50'
+                              : 'bg-lydian-bg-surface dark:bg-gray-700/50 border border-lydian-border dark:border-gray-600 opacity-50'
                           }`}
                         >
-                          <Icon className={`w-5 h-5 ${amenity.available ? 'text-blue-600 dark:text-blue-400' : 'text-gray-400'}`} />
-                          <span className={amenity.available ? 'text-gray-900 dark:text-white' : 'text-gray-500 dark:text-gray-400'}>{amenity.name}</span>
-                          {amenity.available && <CheckCircle2 className="w-4 h-4 text-blue-600 dark:text-blue-400 ml-auto" />}
+                          <Icon className={`w-5 h-5 ${amenity.available ? 'text-lydian-info-hover dark:text-blue-400' : 'text-lydian-text-muted'}`} />
+                          <span className={amenity.available ? 'text-lydian-text dark:text-lydian-text-inverse' : 'text-lydian-text-tertiary dark:text-lydian-text-muted'}>{amenity.name}</span>
+                          {amenity.available && <CheckCircle2 className="w-4 h-4 text-lydian-info-hover dark:text-blue-400 ml-auto" />}
                         </motion.div>
                       );
                     })}
@@ -931,7 +934,7 @@ const PropertyDetailsPage = ({ slug: initialSlug }: PropertyDetailsPageProps) =>
 
                 {/* Safety */}
                 <div>
-                  <h3 className="font-semibold text-gray-700 dark:text-gray-300 mb-3">Güvenlik & Kurallar</h3>
+                  <h3 className="font-semibold text-lydian-text-secondary dark:text-gray-300 mb-3">Güvenlik & Kurallar</h3>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     {amenities.safety.map((amenity, index) => {
                       const Icon = amenity.icon;
@@ -945,11 +948,11 @@ const PropertyDetailsPage = ({ slug: initialSlug }: PropertyDetailsPageProps) =>
                           className={`flex items-center gap-3 p-3 rounded-xl ${
                             amenity.available
                               ? 'bg-purple-50 dark:bg-purple-900/20 border border-purple-200 dark:border-purple-800'
-                              : 'bg-gray-50 dark:bg-gray-700/50 border border-gray-200 dark:border-gray-600 opacity-50'
+                              : 'bg-lydian-bg-surface dark:bg-gray-700/50 border border-lydian-border dark:border-gray-600 opacity-50'
                           }`}
                         >
-                          <Icon className={`w-5 h-5 ${amenity.available ? 'text-purple-600 dark:text-purple-400' : 'text-gray-400'}`} />
-                          <span className={amenity.available ? 'text-gray-900 dark:text-white' : 'text-gray-500 dark:text-gray-400'}>{amenity.name}</span>
+                          <Icon className={`w-5 h-5 ${amenity.available ? 'text-purple-600 dark:text-purple-400' : 'text-lydian-text-muted'}`} />
+                          <span className={amenity.available ? 'text-lydian-text dark:text-lydian-text-inverse' : 'text-lydian-text-tertiary dark:text-lydian-text-muted'}>{amenity.name}</span>
                           {amenity.available && <CheckCircle2 className="w-4 h-4 text-purple-600 dark:text-purple-400 ml-auto" />}
                         </motion.div>
                       );
@@ -964,73 +967,73 @@ const PropertyDetailsPage = ({ slug: initialSlug }: PropertyDetailsPageProps) =>
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.25 }}
-                className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 sm:p-8 border border-gray-200 dark:border-gray-700"
+                className="bg-lydian-bg dark:bg-gray-800 rounded-2xl shadow-lg p-6 sm:p-8 border border-lydian-border dark:border-gray-700"
               >
-                <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-6">Ev Kuralları</h2>
+                <h2 className="text-xl font-bold text-lydian-text dark:text-lydian-text-inverse mb-6">Ev Kuralları</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="flex items-start gap-3">
-                    <Clock className="w-5 h-5 text-red-600 dark:text-red-400 mt-0.5" />
+                    <Clock className="w-5 h-5 text-lydian-primary dark:text-red-400 mt-0.5" />
                     <div>
-                      <p className="font-semibold text-gray-900 dark:text-white">Giriş Saati</p>
-                      <p className="text-gray-600 dark:text-gray-400">{property.checkInTime}</p>
+                      <p className="font-semibold text-lydian-text dark:text-lydian-text-inverse">Giriş Saati</p>
+                      <p className="text-lydian-text-secondary dark:text-lydian-text-muted">{property.checkInTime}</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <Clock className="w-5 h-5 text-red-600 dark:text-red-400 mt-0.5" />
+                    <Clock className="w-5 h-5 text-lydian-primary dark:text-red-400 mt-0.5" />
                     <div>
-                      <p className="font-semibold text-gray-900 dark:text-white">Çıkış Saati</p>
-                      <p className="text-gray-600 dark:text-gray-400">{property.checkOutTime}</p>
+                      <p className="font-semibold text-lydian-text dark:text-lydian-text-inverse">Çıkış Saati</p>
+                      <p className="text-lydian-text-secondary dark:text-lydian-text-muted">{property.checkOutTime}</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <Calendar className="w-5 h-5 text-red-600 dark:text-red-400 mt-0.5" />
+                    <Calendar className="w-5 h-5 text-lydian-primary dark:text-red-400 mt-0.5" />
                     <div>
-                      <p className="font-semibold text-gray-900 dark:text-white">Minimum Konaklama</p>
-                      <p className="text-gray-600 dark:text-gray-400">{property.minimumStay} gece</p>
+                      <p className="font-semibold text-lydian-text dark:text-lydian-text-inverse">Minimum Konaklama</p>
+                      <p className="text-lydian-text-secondary dark:text-lydian-text-muted">{property.minimumStay} gece</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <Calendar className="w-5 h-5 text-red-600 dark:text-red-400 mt-0.5" />
+                    <Calendar className="w-5 h-5 text-lydian-primary dark:text-red-400 mt-0.5" />
                     <div>
-                      <p className="font-semibold text-gray-900 dark:text-white">Maksimum Konaklama</p>
-                      <p className="text-gray-600 dark:text-gray-400">{property.maximumStay} gece</p>
+                      <p className="font-semibold text-lydian-text dark:text-lydian-text-inverse">Maksimum Konaklama</p>
+                      <p className="text-lydian-text-secondary dark:text-lydian-text-muted">{property.maximumStay} gece</p>
                     </div>
                   </div>
                 </div>
 
-                <div className="mt-6 pt-6 border-t border-gray-200 dark:border-gray-700">
+                <div className="mt-6 pt-6 border-t border-lydian-border dark:border-gray-700">
                   <div className="grid grid-cols-2 gap-3">
                     <div className="flex items-center gap-2">
                       {property.smokingAllowed ? (
-                        <CheckCircle2 className="w-5 h-5 text-green-600 dark:text-green-400" />
+                        <CheckCircle2 className="w-5 h-5 text-lydian-success-hover dark:text-green-400" />
                       ) : (
-                        <X className="w-5 h-5 text-red-600 dark:text-red-400" />
+                        <X className="w-5 h-5 text-lydian-primary dark:text-red-400" />
                       )}
-                      <span className="text-sm text-gray-700 dark:text-gray-300">Sigara içilir</span>
+                      <span className="text-sm text-lydian-text-secondary dark:text-gray-300">Sigara içilir</span>
                     </div>
                     <div className="flex items-center gap-2">
                       {property.petsAllowed ? (
-                        <CheckCircle2 className="w-5 h-5 text-green-600 dark:text-green-400" />
+                        <CheckCircle2 className="w-5 h-5 text-lydian-success-hover dark:text-green-400" />
                       ) : (
-                        <X className="w-5 h-5 text-red-600 dark:text-red-400" />
+                        <X className="w-5 h-5 text-lydian-primary dark:text-red-400" />
                       )}
-                      <span className="text-sm text-gray-700 dark:text-gray-300">Evcil hayvan kabul edilir</span>
+                      <span className="text-sm text-lydian-text-secondary dark:text-gray-300">Evcil hayvan kabul edilir</span>
                     </div>
                     <div className="flex items-center gap-2">
                       {property.partiesAllowed ? (
-                        <CheckCircle2 className="w-5 h-5 text-green-600 dark:text-green-400" />
+                        <CheckCircle2 className="w-5 h-5 text-lydian-success-hover dark:text-green-400" />
                       ) : (
-                        <X className="w-5 h-5 text-red-600 dark:text-red-400" />
+                        <X className="w-5 h-5 text-lydian-primary dark:text-red-400" />
                       )}
-                      <span className="text-sm text-gray-700 dark:text-gray-300">Parti yapılır</span>
+                      <span className="text-sm text-lydian-text-secondary dark:text-gray-300">Parti yapılır</span>
                     </div>
                     <div className="flex items-center gap-2">
                       {property.childrenAllowed ? (
-                        <CheckCircle2 className="w-5 h-5 text-green-600 dark:text-green-400" />
+                        <CheckCircle2 className="w-5 h-5 text-lydian-success-hover dark:text-green-400" />
                       ) : (
-                        <X className="w-5 h-5 text-red-600 dark:text-red-400" />
+                        <X className="w-5 h-5 text-lydian-primary dark:text-red-400" />
                       )}
-                      <span className="text-sm text-gray-700 dark:text-gray-300">Çocuklar kabul edilir</span>
+                      <span className="text-sm text-lydian-text-secondary dark:text-gray-300">Çocuklar kabul edilir</span>
                     </div>
                   </div>
                 </div>
@@ -1042,19 +1045,19 @@ const PropertyDetailsPage = ({ slug: initialSlug }: PropertyDetailsPageProps) =>
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.3 }}
-                className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 sm:p-8 border border-gray-200 dark:border-gray-700"
+                className="bg-lydian-bg dark:bg-gray-800 rounded-2xl shadow-lg p-6 sm:p-8 border border-lydian-border dark:border-gray-700"
               >
-                <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-4">Konum</h2>
+                <h2 className="text-xl font-bold text-lydian-text dark:text-lydian-text-inverse mb-4">Konum</h2>
                 <div className="flex items-start gap-2 mb-4">
-                  <MapPin className="w-5 h-5 text-gray-600 dark:text-gray-400 mt-0.5" />
+                  <MapPin className="w-5 h-5 text-lydian-text-secondary dark:text-lydian-text-muted mt-0.5" />
                   <div>
-                    <p className="font-semibold text-gray-900 dark:text-white">
+                    <p className="font-semibold text-lydian-text dark:text-lydian-text-inverse">
                       {property.district}, {property.city}
                     </p>
-                    <p className="text-sm text-gray-600 dark:text-gray-400">{property.address}</p>
+                    <p className="text-sm text-lydian-text-secondary dark:text-lydian-text-muted">{property.address}</p>
                   </div>
                 </div>
-                <div className="h-96 bg-gray-100 dark:bg-gray-900 rounded-xl overflow-hidden">
+                <div className="h-96 bg-lydian-bg-surface-raised dark:bg-gray-900 rounded-xl overflow-hidden">
                   <iframe
                     width="100%"
                     height="100%"
@@ -1074,11 +1077,11 @@ const PropertyDetailsPage = ({ slug: initialSlug }: PropertyDetailsPageProps) =>
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.3 }}
-                className="sticky top-24 bg-white dark:bg-gray-800 rounded-2xl shadow-2xl p-6 border border-gray-200 dark:border-gray-700"
+                className="sticky top-24 bg-lydian-bg dark:bg-gray-800 rounded-2xl shadow-2xl p-6 border border-lydian-border dark:border-gray-700"
               >
                 {/* Price Badge */}
                 {competitorAvg && savings > 0 && (
-                  <div className="bg-gradient-to-r from-green-500 to-green-600 text-white px-4 py-2 rounded-xl mb-6 flex items-center justify-center gap-2 shadow-lg">
+                  <div className="bg-gradient-to-r from-green-500 to-green-600 text-lydian-text-inverse px-4 py-2 rounded-xl mb-6 flex items-center justify-center gap-2 shadow-lg">
                     <TrendingDown className="w-5 h-5" />
                     <span className="font-bold text-sm">%{savingsPercent} Daha Ucuz</span>
                   </div>
@@ -1088,21 +1091,21 @@ const PropertyDetailsPage = ({ slug: initialSlug }: PropertyDetailsPageProps) =>
                 <div className="mb-6">
                   {competitorAvg && savings > 0 && (
                     <div className="flex items-center justify-between mb-2">
-                      <p className="text-sm text-gray-500 dark:text-gray-400 line-through">₺{competitorAvg.toLocaleString('tr-TR')}</p>
-                      <span className="px-3 py-1 bg-red-100 dark:bg-red-900/20 text-red-600 dark:text-red-400 text-xs font-bold rounded-full">
+                      <p className="text-sm text-lydian-text-tertiary dark:text-lydian-text-muted line-through">₺{competitorAvg.toLocaleString('tr-TR')}</p>
+                      <span className="px-3 py-1 bg-lydian-primary-lighter dark:bg-red-900/20 text-lydian-primary dark:text-red-400 text-xs font-bold rounded-full">
                         %{savingsPercent} İndirim
                       </span>
                     </div>
                   )}
                   <div className="flex items-baseline gap-2">
-                    <span className="text-4xl font-bold text-gray-900 dark:text-white">₺{parseInt(property.basePrice).toLocaleString('tr-TR')}</span>
-                    <span className="text-gray-600 dark:text-gray-400">/ gece</span>
+                    <span className="text-4xl font-bold text-lydian-text dark:text-lydian-text-inverse">₺{parseInt(property.basePrice).toLocaleString('tr-TR')}</span>
+                    <span className="text-lydian-text-secondary dark:text-lydian-text-muted">/ gece</span>
                   </div>
                   {savings > 0 && (
-                    <p className="text-sm text-green-600 dark:text-green-400 font-semibold mt-1">₺{savings.toLocaleString('tr-TR')} tasarruf ediyorsunuz!</p>
+                    <p className="text-sm text-lydian-success-hover dark:text-green-400 font-semibold mt-1">₺{savings.toLocaleString('tr-TR')} tasarruf ediyorsunuz!</p>
                   )}
                   {property.weeklyDiscount && (
-                    <p className="text-xs text-red-600 dark:text-red-400 mt-1">7+ gece %{property.weeklyDiscount} indirim</p>
+                    <p className="text-xs text-lydian-primary dark:text-red-400 mt-1">7+ gece %{property.weeklyDiscount} indirim</p>
                   )}
                   {property.monthlyDiscount && <p className="text-xs text-purple-600 dark:text-purple-400">30+ gece %{property.monthlyDiscount} indirim</p>}
                 </div>
@@ -1111,7 +1114,7 @@ const PropertyDetailsPage = ({ slug: initialSlug }: PropertyDetailsPageProps) =>
                 <div className="space-y-4 mb-6">
                   <div className="grid grid-cols-2 gap-3">
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                      <label className="block text-sm font-medium text-lydian-text-secondary dark:text-gray-300 mb-2">
                         <Calendar className="w-4 h-4 inline mr-1" />
                         Giriş
                       </label>
@@ -1119,11 +1122,11 @@ const PropertyDetailsPage = ({ slug: initialSlug }: PropertyDetailsPageProps) =>
                         type="date"
                         value={checkInDate}
                         onChange={(e) => setCheckInDate(e.target.value)}
-                        className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
+                        className="w-full px-3 py-2 border border-lydian-border-medium dark:border-gray-600 bg-lydian-bg dark:bg-gray-700 text-lydian-text dark:text-lydian-text-inverse rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                      <label className="block text-sm font-medium text-lydian-text-secondary dark:text-gray-300 mb-2">
                         <Calendar className="w-4 h-4 inline mr-1" />
                         Çıkış
                       </label>
@@ -1131,84 +1134,84 @@ const PropertyDetailsPage = ({ slug: initialSlug }: PropertyDetailsPageProps) =>
                         type="date"
                         value={checkOutDate}
                         onChange={(e) => setCheckOutDate(e.target.value)}
-                        className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
+                        className="w-full px-3 py-2 border border-lydian-border-medium dark:border-gray-600 bg-lydian-bg dark:bg-gray-700 text-lydian-text dark:text-lydian-text-inverse rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
                       />
                     </div>
                   </div>
 
                   {/* Guest Selector */}
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                    <label className="block text-sm font-medium text-lydian-text-secondary dark:text-gray-300 mb-2">
                       <Users className="w-4 h-4 inline mr-1" />
                       Misafirler
                     </label>
                     <div className="space-y-2">
-                      <div className="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-700 rounded-lg">
+                      <div className="flex items-center justify-between p-3 bg-lydian-bg-surface dark:bg-gray-700 rounded-lg">
                         <div>
-                          <p className="text-sm font-medium text-gray-900 dark:text-white">Yetişkinler</p>
-                          <p className="text-xs text-gray-600 dark:text-gray-400">13 yaş ve üzeri</p>
+                          <p className="text-sm font-medium text-lydian-text dark:text-lydian-text-inverse">Yetişkinler</p>
+                          <p className="text-xs text-lydian-text-secondary dark:text-lydian-text-muted">13 yaş ve üzeri</p>
                         </div>
                         <div className="flex items-center gap-3">
                           <motion.button
                             whileTap={{ scale: 0.9 }}
                             onClick={() => setAdultsCount(Math.max(1, adultsCount - 1))}
-                            className="w-8 h-8 flex items-center justify-center border border-gray-300 dark:border-gray-600 rounded-full hover:border-red-500 dark:hover:border-red-500 transition-colors"
+                            className="w-8 h-8 flex items-center justify-center border border-lydian-border-medium dark:border-gray-600 rounded-full hover:border-red-500 dark:hover:border-red-500 transition-colors"
                           >
                             -
                           </motion.button>
-                          <span className="w-8 text-center font-semibold text-gray-900 dark:text-white">{adultsCount}</span>
+                          <span className="w-8 text-center font-semibold text-lydian-text dark:text-lydian-text-inverse">{adultsCount}</span>
                           <motion.button
                             whileTap={{ scale: 0.9 }}
                             onClick={() => setAdultsCount(Math.min(property.guests, adultsCount + 1))}
-                            className="w-8 h-8 flex items-center justify-center border border-gray-300 dark:border-gray-600 rounded-full hover:border-red-500 dark:hover:border-red-500 transition-colors"
+                            className="w-8 h-8 flex items-center justify-center border border-lydian-border-medium dark:border-gray-600 rounded-full hover:border-red-500 dark:hover:border-red-500 transition-colors"
                           >
                             +
                           </motion.button>
                         </div>
                       </div>
 
-                      <div className="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-700 rounded-lg">
+                      <div className="flex items-center justify-between p-3 bg-lydian-bg-surface dark:bg-gray-700 rounded-lg">
                         <div>
-                          <p className="text-sm font-medium text-gray-900 dark:text-white">Çocuklar</p>
-                          <p className="text-xs text-gray-600 dark:text-gray-400">2-12 yaş</p>
+                          <p className="text-sm font-medium text-lydian-text dark:text-lydian-text-inverse">Çocuklar</p>
+                          <p className="text-xs text-lydian-text-secondary dark:text-lydian-text-muted">2-12 yaş</p>
                         </div>
                         <div className="flex items-center gap-3">
                           <motion.button
                             whileTap={{ scale: 0.9 }}
                             onClick={() => setChildrenCount(Math.max(0, childrenCount - 1))}
-                            className="w-8 h-8 flex items-center justify-center border border-gray-300 dark:border-gray-600 rounded-full hover:border-red-500 dark:hover:border-red-500 transition-colors"
+                            className="w-8 h-8 flex items-center justify-center border border-lydian-border-medium dark:border-gray-600 rounded-full hover:border-red-500 dark:hover:border-red-500 transition-colors"
                           >
                             -
                           </motion.button>
-                          <span className="w-8 text-center font-semibold text-gray-900 dark:text-white">{childrenCount}</span>
+                          <span className="w-8 text-center font-semibold text-lydian-text dark:text-lydian-text-inverse">{childrenCount}</span>
                           <motion.button
                             whileTap={{ scale: 0.9 }}
                             onClick={() => setChildrenCount(Math.min(property.guests - adultsCount, childrenCount + 1))}
-                            className="w-8 h-8 flex items-center justify-center border border-gray-300 dark:border-gray-600 rounded-full hover:border-red-500 dark:hover:border-red-500 transition-colors"
+                            className="w-8 h-8 flex items-center justify-center border border-lydian-border-medium dark:border-gray-600 rounded-full hover:border-red-500 dark:hover:border-red-500 transition-colors"
                           >
                             +
                           </motion.button>
                         </div>
                       </div>
 
-                      <div className="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-700 rounded-lg">
+                      <div className="flex items-center justify-between p-3 bg-lydian-bg-surface dark:bg-gray-700 rounded-lg">
                         <div>
-                          <p className="text-sm font-medium text-gray-900 dark:text-white">Bebekler</p>
-                          <p className="text-xs text-gray-600 dark:text-gray-400">2 yaş altı</p>
+                          <p className="text-sm font-medium text-lydian-text dark:text-lydian-text-inverse">Bebekler</p>
+                          <p className="text-xs text-lydian-text-secondary dark:text-lydian-text-muted">2 yaş altı</p>
                         </div>
                         <div className="flex items-center gap-3">
                           <motion.button
                             whileTap={{ scale: 0.9 }}
                             onClick={() => setInfantsCount(Math.max(0, infantsCount - 1))}
-                            className="w-8 h-8 flex items-center justify-center border border-gray-300 dark:border-gray-600 rounded-full hover:border-red-500 dark:hover:border-red-500 transition-colors"
+                            className="w-8 h-8 flex items-center justify-center border border-lydian-border-medium dark:border-gray-600 rounded-full hover:border-red-500 dark:hover:border-red-500 transition-colors"
                           >
                             -
                           </motion.button>
-                          <span className="w-8 text-center font-semibold text-gray-900 dark:text-white">{infantsCount}</span>
+                          <span className="w-8 text-center font-semibold text-lydian-text dark:text-lydian-text-inverse">{infantsCount}</span>
                           <motion.button
                             whileTap={{ scale: 0.9 }}
                             onClick={() => setInfantsCount(infantsCount + 1)}
-                            className="w-8 h-8 flex items-center justify-center border border-gray-300 dark:border-gray-600 rounded-full hover:border-red-500 dark:hover:border-red-500 transition-colors"
+                            className="w-8 h-8 flex items-center justify-center border border-lydian-border-medium dark:border-gray-600 rounded-full hover:border-red-500 dark:hover:border-red-500 transition-colors"
                           >
                             +
                           </motion.button>
@@ -1220,25 +1223,25 @@ const PropertyDetailsPage = ({ slug: initialSlug }: PropertyDetailsPageProps) =>
 
                 {/* Price Breakdown */}
                 {nights > 0 && (
-                  <div className="space-y-3 py-4 border-t border-b border-gray-200 dark:border-gray-700 mb-4">
+                  <div className="space-y-3 py-4 border-t border-b border-lydian-border dark:border-gray-700 mb-4">
                     <div className="flex justify-between text-sm">
-                      <span className="text-gray-600 dark:text-gray-400">
+                      <span className="text-lydian-text-secondary dark:text-lydian-text-muted">
                         ₺{parseInt(property.basePrice).toLocaleString('tr-TR')} × {nights} gece
                       </span>
-                      <span className="font-semibold text-gray-900 dark:text-white">₺{pricing.subtotal.toLocaleString('tr-TR')}</span>
+                      <span className="font-semibold text-lydian-text dark:text-lydian-text-inverse">₺{pricing.subtotal.toLocaleString('tr-TR')}</span>
                     </div>
                     <div className="flex justify-between text-sm">
-                      <span className="text-gray-600 dark:text-gray-400">Temizlik ücreti</span>
-                      <span className="font-semibold text-gray-900 dark:text-white">₺{pricing.cleaning.toLocaleString('tr-TR')}</span>
+                      <span className="text-lydian-text-secondary dark:text-lydian-text-muted">Temizlik ücreti</span>
+                      <span className="font-semibold text-lydian-text dark:text-lydian-text-inverse">₺{pricing.cleaning.toLocaleString('tr-TR')}</span>
                     </div>
                     <div className="flex justify-between text-sm">
-                      <span className="text-gray-600 dark:text-gray-400">Hizmet bedeli</span>
-                      <span className="font-semibold text-gray-900 dark:text-white">₺{pricing.service.toLocaleString('tr-TR')}</span>
+                      <span className="text-lydian-text-secondary dark:text-lydian-text-muted">Hizmet bedeli</span>
+                      <span className="font-semibold text-lydian-text dark:text-lydian-text-inverse">₺{pricing.service.toLocaleString('tr-TR')}</span>
                     </div>
                     {pricing.discount > 0 && (
                       <div className="flex justify-between text-sm">
-                        <span className="text-green-600 dark:text-green-400">{nights >= 30 ? 'Aylık' : 'Haftalık'} indirim</span>
-                        <span className="font-semibold text-green-600 dark:text-green-400">-₺{pricing.discount.toLocaleString('tr-TR')}</span>
+                        <span className="text-lydian-success-hover dark:text-green-400">{nights >= 30 ? 'Aylık' : 'Haftalık'} indirim</span>
+                        <span className="font-semibold text-lydian-success-hover dark:text-green-400">-₺{pricing.discount.toLocaleString('tr-TR')}</span>
                       </div>
                     )}
                   </div>
@@ -1247,8 +1250,8 @@ const PropertyDetailsPage = ({ slug: initialSlug }: PropertyDetailsPageProps) =>
                 {nights > 0 && (
                   <div className="bg-gradient-to-r from-gray-50 to-blue-50 dark:from-gray-700 dark:to-blue-900/20 rounded-xl p-4 mb-6">
                     <div className="flex justify-between items-center">
-                      <span className="text-gray-700 dark:text-gray-300 font-medium">Toplam</span>
-                      <span className="text-3xl font-bold text-gray-900 dark:text-white">₺{pricing.total.toLocaleString('tr-TR')}</span>
+                      <span className="text-lydian-text-secondary dark:text-gray-300 font-medium">Toplam</span>
+                      <span className="text-3xl font-bold text-lydian-text dark:text-lydian-text-inverse">₺{pricing.total.toLocaleString('tr-TR')}</span>
                     </div>
                   </div>
                 )}
@@ -1261,8 +1264,8 @@ const PropertyDetailsPage = ({ slug: initialSlug }: PropertyDetailsPageProps) =>
                   disabled={!checkInDate || !checkOutDate || nights <= 0}
                   className={`w-full py-4 rounded-xl font-bold text-lg shadow-lg transition-all flex items-center justify-center gap-2 group ${
                     !checkInDate || !checkOutDate || nights <= 0
-                      ? 'bg-gray-300 dark:bg-gray-700 text-gray-500 dark:text-gray-400 cursor-not-allowed'
-                      : 'bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white hover:shadow-xl'
+                      ? 'bg-gray-300 dark:bg-gray-700 text-lydian-text-tertiary dark:text-lydian-text-muted cursor-not-allowed'
+                      : 'bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-lydian-text-inverse hover:shadow-xl'
                   }`}
                 >
                   <Calendar className="w-6 h-6" />
@@ -1270,15 +1273,15 @@ const PropertyDetailsPage = ({ slug: initialSlug }: PropertyDetailsPageProps) =>
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </motion.button>
 
-                <p className="text-center text-xs text-gray-600 dark:text-gray-400 mt-4">Şimdi ödeme yapılmayacak</p>
+                <p className="text-center text-xs text-lydian-text-secondary dark:text-lydian-text-muted mt-4">Şimdi ödeme yapılmayacak</p>
 
                 {/* Security Deposit */}
                 {property.securityDeposit && parseInt(property.securityDeposit) > 0 && (
-                  <div className="mt-6 pt-6 border-t border-gray-200 dark:border-gray-700">
-                    <div className="flex items-start gap-2 text-sm text-gray-600 dark:text-gray-400">
+                  <div className="mt-6 pt-6 border-t border-lydian-border dark:border-gray-700">
+                    <div className="flex items-start gap-2 text-sm text-lydian-text-secondary dark:text-lydian-text-muted">
                       <Shield className="w-4 h-4 mt-0.5" />
                       <div>
-                        <p className="font-semibold text-gray-900 dark:text-white">Güvenlik Depozitosu</p>
+                        <p className="font-semibold text-lydian-text dark:text-lydian-text-inverse">Güvenlik Depozitosu</p>
                         <p>₺{parseInt(property.securityDeposit).toLocaleString('tr-TR')} (İade edilir)</p>
                       </div>
                     </div>
@@ -1286,34 +1289,34 @@ const PropertyDetailsPage = ({ slug: initialSlug }: PropertyDetailsPageProps) =>
                 )}
 
                 {/* Trust Badges */}
-                <div className="mt-6 pt-6 border-t border-gray-200 dark:border-gray-700 space-y-3">
-                  <div className="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-300">
-                    <Shield className="w-5 h-5 text-green-600 dark:text-green-400" />
+                <div className="mt-6 pt-6 border-t border-lydian-border dark:border-gray-700 space-y-3">
+                  <div className="flex items-center gap-3 text-sm text-lydian-text-secondary dark:text-gray-300">
+                    <Shield className="w-5 h-5 text-lydian-success-hover dark:text-green-400" />
                     Ücretsiz İptal - 24 Saat Öncesine Kadar
                   </div>
-                  <div className="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-300">
-                    <CheckCircle2 className="w-5 h-5 text-green-600 dark:text-green-400" />
+                  <div className="flex items-center gap-3 text-sm text-lydian-text-secondary dark:text-gray-300">
+                    <CheckCircle2 className="w-5 h-5 text-lydian-success-hover dark:text-green-400" />
                     Anında Onay - E-posta ile Voucher
                   </div>
-                  <div className="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-300">
-                    <Clock className="w-5 h-5 text-green-600 dark:text-green-400" />
+                  <div className="flex items-center gap-3 text-sm text-lydian-text-secondary dark:text-gray-300">
+                    <Clock className="w-5 h-5 text-lydian-success-hover dark:text-green-400" />
                     Yanıt süresi: {property.hostResponseTime}
                   </div>
-                  <div className="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-300">
-                    <MessageCircle className="w-5 h-5 text-green-600 dark:text-green-400" />
+                  <div className="flex items-center gap-3 text-sm text-lydian-text-secondary dark:text-gray-300">
+                    <MessageCircle className="w-5 h-5 text-lydian-success-hover dark:text-green-400" />
                     Dil: {property.hostLanguages.join(', ')}
                   </div>
                 </div>
 
                 {/* Contact */}
-                <div className="mt-6 pt-6 border-t border-gray-200 dark:border-gray-700">
-                  <p className="text-sm text-gray-600 dark:text-gray-300 mb-3 font-medium">Sorularınız mı var?</p>
+                <div className="mt-6 pt-6 border-t border-lydian-border dark:border-gray-700">
+                  <p className="text-sm text-lydian-text-secondary dark:text-gray-300 mb-3 font-medium">Sorularınız mı var?</p>
                   <div className="space-y-2">
-                    <a href="tel:+905551234567" className="flex items-center gap-2 text-red-600 hover:text-red-700 dark:text-red-400 dark:hover:text-red-300 font-medium text-sm">
+                    <a href="tel:+905551234567" className="flex items-center gap-2 text-lydian-primary hover:text-lydian-primary-hover dark:text-red-400 dark:hover:text-red-300 font-medium text-sm">
                       <Phone className="w-4 h-4" />
                       +90 555 123 45 67
                     </a>
-                    <a href="mailto:rental@lydian.com" className="flex items-center gap-2 text-red-600 hover:text-red-700 dark:text-red-400 dark:hover:text-red-300 font-medium text-sm">
+                    <a href="mailto:rental@lydian.com" className="flex items-center gap-2 text-lydian-primary hover:text-lydian-primary-hover dark:text-red-400 dark:hover:text-red-300 font-medium text-sm">
                       <Mail className="w-4 h-4" />
                       rental@lydian.com
                     </a>
@@ -1328,9 +1331,9 @@ const PropertyDetailsPage = ({ slug: initialSlug }: PropertyDetailsPageProps) =>
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.4 }}
-                  className="mt-8 bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 border border-gray-200 dark:border-gray-700"
+                  className="mt-8 bg-lydian-bg dark:bg-gray-800 rounded-2xl shadow-lg p-6 border border-lydian-border dark:border-gray-700"
                 >
-                  <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4">Benzer Özellikler</h3>
+                  <h3 className="text-lg font-bold text-lydian-text dark:text-lydian-text-inverse mb-4">Benzer Özellikler</h3>
                   <div className="space-y-4">
                     {similarProperties.slice(0, 3).map((similar) => (
                       <Link key={similar.id} href={`/rentals/${similar.slug}`} className="block group">
@@ -1338,24 +1341,24 @@ const PropertyDetailsPage = ({ slug: initialSlug }: PropertyDetailsPageProps) =>
                           variants={cardHoverVariants}
                           initial="rest"
                           whileHover="hover"
-                          className="p-3 bg-gray-50 dark:bg-gray-700/50 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                          className="p-3 bg-lydian-bg-surface dark:bg-gray-700/50 rounded-xl hover:bg-lydian-bg-surface-raised dark:hover:bg-gray-700 transition-colors"
                         >
                           <div className="flex gap-3">
                             <div className="relative w-20 h-20 flex-shrink-0 overflow-hidden rounded-lg">
                               <img src={similar.mainImage || '/placeholder-property.jpg'} alt={similar.title} className="w-full h-full object-cover" />
                             </div>
                             <div className="flex-1">
-                              <h4 className="font-semibold text-sm text-gray-900 dark:text-white line-clamp-1 group-hover:text-red-600 dark:group-hover:text-red-400 transition-colors">
+                              <h4 className="font-semibold text-sm text-lydian-text dark:text-lydian-text-inverse line-clamp-1 group-hover:text-lydian-primary dark:group-hover:text-red-400 transition-colors">
                                 {similar.title}
                               </h4>
-                              <p className="text-xs text-gray-600 dark:text-gray-400">{similar.city}</p>
+                              <p className="text-xs text-lydian-text-secondary dark:text-lydian-text-muted">{similar.city}</p>
                               <div className="flex items-center gap-2 mt-1">
                                 <div className="flex items-center gap-1">
                                   <Star className="w-3 h-3 text-yellow-400 fill-yellow-400" />
-                                  <span className="text-xs font-semibold text-gray-900 dark:text-white">{parseFloat(similar.overall).toFixed(1)}</span>
+                                  <span className="text-xs font-semibold text-lydian-text dark:text-lydian-text-inverse">{parseFloat(similar.overall).toFixed(1)}</span>
                                 </div>
-                                <span className="text-xs text-gray-400">·</span>
-                                <span className="text-xs font-bold text-red-600 dark:text-red-400">₺{parseInt(similar.basePrice).toLocaleString('tr-TR')}/gece</span>
+                                <span className="text-xs text-lydian-text-muted">·</span>
+                                <span className="text-xs font-bold text-lydian-primary dark:text-red-400">₺{parseInt(similar.basePrice).toLocaleString('tr-TR')}/gece</span>
                               </div>
                             </div>
                           </div>

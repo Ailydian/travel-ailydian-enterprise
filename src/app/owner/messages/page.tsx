@@ -60,18 +60,18 @@ const ConversationItem: React.FC<ConversationItemProps> = ({ conversation, isAct
     >
       <div className="flex items-start gap-3">
         <div className="relative flex-shrink-0">
-          <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white font-semibold text-lg">
+          <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-lydian-text-inverse font-semibold text-lg">
             {conversation.guestName.charAt(0)}
           </div>
           {conversation.unreadCount > 0 && (
-            <div className="absolute -top-1 -right-1 w-5 h-5 bg-red-500 rounded-full flex items-center justify-center text-white text-xs font-bold">
+            <div className="absolute -top-1 -right-1 w-5 h-5 bg-red-500 rounded-full flex items-center justify-center text-lydian-text-inverse text-xs font-bold">
               {conversation.unreadCount}
             </div>
           )}
         </div>
         <div className="flex-1 min-w-0">
           <div className="flex items-center justify-between mb-1">
-            <h4 className="font-semibold text-white truncate">{conversation.guestName}</h4>
+            <h4 className="font-semibold text-lydian-text-inverse truncate">{conversation.guestName}</h4>
             <div className="flex items-center gap-1">
               {conversation.isPinned && <Pin className="w-3.5 h-3.5 text-lydian-primary" />}
               <span className="text-xs text-lydian-text-muted">{timeAgo(conversation.lastMessageTime)}</span>
@@ -108,8 +108,8 @@ const MessageBubble: React.FC<MessageBubbleProps> = ({ message, isOwnMessage }) 
         <div
           className={`rounded-2xl px-4 py-2.5 ${
             isOwnMessage
-              ? 'bg-lydian-primary text-white rounded-br-sm'
-              : 'bg-lydian-bg/10 text-white rounded-bl-sm'
+              ? 'bg-lydian-primary text-lydian-text-inverse rounded-br-sm'
+              : 'bg-lydian-bg/10 text-lydian-text-inverse rounded-bl-sm'
           }`}
         >
           <p className="text-sm leading-relaxed">{message.content}</p>
@@ -202,7 +202,7 @@ const MessageComposer: React.FC<MessageComposerProps> = ({ onSendMessage, disabl
         <button
           type="submit"
           disabled={!message.trim() || disabled}
-          className="p-2.5 bg-lydian-primary text-white rounded-xl hover:bg-lydian-primary-hover transition-colors disabled:bg-gray-300 disabled:cursor-not-allowed"
+          className="p-2.5 bg-lydian-primary text-lydian-text-inverse rounded-xl hover:bg-lydian-primary-hover transition-colors disabled:bg-gray-300 disabled:cursor-not-allowed"
           title="Send message"
         >
           <Send className="w-5 h-5" />
@@ -243,11 +243,11 @@ const ConversationHeader: React.FC<ConversationHeaderProps> = ({ conversation, o
     <div className="border-b border-lydian-border bg-lydian-bg/5 p-4">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white font-semibold">
+          <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-lydian-text-inverse font-semibold">
             {conversation.guestName.charAt(0)}
           </div>
           <div>
-            <h3 className="font-semibold text-white">{conversation.guestName}</h3>
+            <h3 className="font-semibold text-lydian-text-inverse">{conversation.guestName}</h3>
             <p className="text-sm text-lydian-text-muted">{conversation.propertyName}</p>
           </div>
         </div>
@@ -295,7 +295,7 @@ const EmptyState: React.FC = () => (
   <div className="flex-1 flex items-center justify-center bg-lydian-bg/5">
     <div className="text-center p-8">
       <MessageSquare className="w-16 h-16 text-lydian-text-dim mx-auto mb-4" />
-      <h3 className="text-xl font-semibold text-white mb-2">No Conversation Selected</h3>
+      <h3 className="text-xl font-semibold text-lydian-text-inverse mb-2">No Conversation Selected</h3>
       <p className="text-lydian-text-muted">Select a conversation from the list to start messaging</p>
     </div>
   </div>
@@ -454,7 +454,7 @@ const MessagesPage: React.FC = () => {
   if (isLoading) {
     return (
       <div className="space-y-6">
-        <h1 className="text-3xl font-black mb-6 text-white">
+        <h1 className="text-3xl font-black mb-6 text-lydian-text-inverse">
           Messages
         </h1>
         <div className="animate-pulse flex h-[calc(100vh-200px)]">
@@ -467,7 +467,7 @@ const MessagesPage: React.FC = () => {
 
   return (
     <div className="space-y-6">
-      <h1 className="text-3xl font-black mb-6 text-white">
+      <h1 className="text-3xl font-black mb-6 text-lydian-text-inverse">
         Messages
       </h1>
       <div className="bg-lydian-bg/5 border border-lydian-border rounded-xl overflow-hidden" style={{ height: 'calc(100vh - 200px)' }}>

@@ -139,7 +139,7 @@ export const VideoBackground: React.FC<VideoBackgroundProps> = ({
         <div className="bg-lydian-bg/10 backdrop-blur-md px-4 py-2 rounded-full border border-white/20">
           <div className="flex items-center gap-2">
             <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
-            <span className="text-white text-sm font-medium">{currentVideo.title}</span>
+            <span className="text-lydian-text-inverse text-sm font-medium">{currentVideo.title}</span>
           </div>
         </div>
       </motion.div>

@@ -148,7 +148,7 @@ export default function Step4Routes({ data }: Step4Props) {
       {/* Airport Selection */}
       <div>
         <h3 className="text-lg font-bold text-slate-900 mb-2">
-          Havalimanı Transferi <span className="text-red-500">*</span>
+          Havalimanı Transferi <span className="text-lydian-secondary">*</span>
         </h3>
         <p className="text-sm text-slate-600 mb-4">
           Hizmet vereceğiniz havalimanlarını seçin. En az bir havalimanı seçmelisiniz.
@@ -192,7 +192,7 @@ export default function Step4Routes({ data }: Step4Props) {
                     }`}
                   >
                     <Plane
-                      className={`w-5 h-5 ${isSelected ? 'text-white' : 'text-slate-600'}`}
+                      className={`w-5 h-5 ${isSelected ? 'text-lydian-text-inverse' : 'text-slate-600'}`}
                     />
                   </div>
                   <div className="flex-1">
@@ -229,7 +229,7 @@ export default function Step4Routes({ data }: Step4Props) {
                           className="w-5 h-5 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-full flex items-center justify-center"
                         >
                           <svg
-                            className="w-3 h-3 text-white"
+                            className="w-3 h-3 text-lydian-text-inverse"
                             fill="none"
                             viewBox="0 0 24 24"
                             stroke="currentColor"
@@ -290,7 +290,7 @@ export default function Step4Routes({ data }: Step4Props) {
                       }`}
                     >
                       <Route
-                        className={`w-6 h-6 ${isSelected ? 'text-white' : 'text-slate-600'}`}
+                        className={`w-6 h-6 ${isSelected ? 'text-lydian-text-inverse' : 'text-slate-600'}`}
                       />
                     </div>
                     <div className="flex-1">
@@ -335,7 +335,7 @@ export default function Step4Routes({ data }: Step4Props) {
                       className="w-6 h-6 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-full flex items-center justify-center"
                     >
                       <svg
-                        className="w-4 h-4 text-white"
+                        className="w-4 h-4 text-lydian-text-inverse"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
@@ -364,7 +364,7 @@ export default function Step4Routes({ data }: Step4Props) {
           {/* Base Price Per KM */}
           <div>
             <label className="block text-sm font-semibold text-slate-700 mb-2">
-              Kilometre Başı Ücret (₺) <span className="text-red-500">*</span>
+              Kilometre Başı Ücret (₺) <span className="text-lydian-secondary">*</span>
             </label>
             <div className="relative">
               <DollarSign className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
@@ -391,7 +391,7 @@ export default function Step4Routes({ data }: Step4Props) {
           {/* Minimum Fare */}
           <div>
             <label className="block text-sm font-semibold text-slate-700 mb-2">
-              Minimum Ücret (₺) <span className="text-red-500">*</span>
+              Minimum Ücret (₺) <span className="text-lydian-secondary">*</span>
             </label>
             <div className="relative">
               <TrendingUp className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
@@ -417,7 +417,7 @@ export default function Step4Routes({ data }: Step4Props) {
           {/* Night Surcharge */}
           <div>
             <label className="block text-sm font-semibold text-slate-700 mb-2">
-              Gece Ek Ücreti (%) <span className="text-red-500">*</span>
+              Gece Ek Ücreti (%) <span className="text-lydian-secondary">*</span>
             </label>
             <div className="relative">
               <Moon className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
@@ -444,7 +444,7 @@ export default function Step4Routes({ data }: Step4Props) {
           {/* Weekend Surcharge */}
           <div>
             <label className="block text-sm font-semibold text-slate-700 mb-2">
-              Hafta Sonu Ek Ücreti (%) <span className="text-red-500">*</span>
+              Hafta Sonu Ek Ücreti (%) <span className="text-lydian-secondary">*</span>
             </label>
             <div className="relative">
               <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />

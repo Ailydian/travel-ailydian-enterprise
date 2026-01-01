@@ -286,12 +286,9 @@ export default function Flights() {
               ))}
             </div>
             <div className="mt-6 flex justify-center">
-              <FuturisticButton
-                variant="primary"
+              <FuturisticButton variant="gradient"
                 size="lg"
-                icon={<Search className="w-5 h-5" />}
-                iconPosition="left"
-                glow={true}>
+                leftIcon={<Search className="w-5 h-5" />}>
                 Uçak Bileti Ara
               </FuturisticButton>
             </div>
@@ -511,13 +508,10 @@ export default function Flights() {
 
                           {/* Custom CTA Button */}
                           <div className="mt-4 pt-4 border-t border-lydian-border-light/20">
-                            <FuturisticButton
-                              variant="primary"
+                            <FuturisticButton variant="gradient"
                               size="md"
                               fullWidth
-                              icon={<Plane className="w-4 h-4" />}
-                              iconPosition="left"
-                              glow={true}>
+                              leftIcon={<Plane className="w-4 h-4" />}>
                               Bileti Seç ve Rezerve Et
                             </FuturisticButton>
                             <p className="text-center text-xs text-lydian-text-muted mt-2">
@@ -552,13 +546,11 @@ export default function Flights() {
                         Aradığınız kriterlerde uçuş bulunamadı. Filtrelerinizi değiştirerek tekrar deneyin.
                       </p>
 
-                      <FuturisticButton
-                        variant="primary"
+                      <FuturisticButton variant="gradient"
                         size="lg"
                         onClick={resetFilters}
-                        icon={<ArrowRight className="w-5 h-5" />}
-                        iconPosition="right"
-                        glow={true}>
+                        leftIcon={<ArrowRight className="w-5 h-5" />}
+                        iconPosition="right">
                         Filtreleri Temizle
                       </FuturisticButton>
                     </div>
@@ -568,12 +560,10 @@ export default function Flights() {
                 {/* 🚀 LOAD MORE - FUTURISTIC BUTTON */}
                 {filteredAndSortedFlights.length > 0 && (
                   <div className="text-center mt-12">
-                    <FuturisticButton
-                      variant="outline"
+                    <FuturisticButton variant="outline"
                       size="lg"
-                      icon={<ArrowRight className="w-5 h-5" />}
-                      iconPosition="right"
-                      glow={false}>
+                      leftIcon={<ArrowRight className="w-5 h-5" />}
+                      iconPosition="right">
                       Daha Fazla Uçuş Yükle
                     </FuturisticButton>
 
@@ -704,21 +694,16 @@ export default function Flights() {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <FuturisticButton
-                  variant="glass"
+                <FuturisticButton variant="glass"
                   size="xl"
-                  icon={<Search className="w-6 h-6" />}
-                  iconPosition="left"
-                  glow={true}>
+                  leftIcon={<Search className="w-6 h-6" />}>
                   Uçuş Ara
                 </FuturisticButton>
 
-                <FuturisticButton
-                  variant="outline"
+                <FuturisticButton variant="outline"
                   size="xl"
-                  icon={<ArrowRight className="w-6 h-6" />}
-                  iconPosition="right"
-                  glow={false}>
+                  leftIcon={<ArrowRight className="w-6 h-6" />}
+                  iconPosition="right">
                   Tüm Destinasyonlar
                 </FuturisticButton>
               </div>

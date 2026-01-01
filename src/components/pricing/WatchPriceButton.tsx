@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSession } from 'next-auth/react';
 import logger from '../../lib/logger';
+import { useToast } from '../../context/ToastContext';
 
 interface WatchPriceButtonProps {
   entityType: 'HOTEL' | 'FLIGHT' | 'TOUR';
@@ -27,6 +28,7 @@ export default function WatchPriceButton({
   variant = 'default',
   className = ''
 }: WatchPriceButtonProps) {
+  const { showSuccess, showError, showWarning, showInfo, showToast } = useToast();
   const { data: session } = useSession();
   const [isWatching, setIsWatching] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -60,7 +62,7 @@ export default function WatchPriceButton({
 
   const handleWatchPrice = async () => {
     if (!session) {
-      alert('Please sign in to track prices');
+      showToast({ type: 'error', title: 'Please sign in to track prices' });
       return;
     }
 
@@ -105,11 +107,11 @@ export default function WatchPriceButton({
         setShowModal(false);
         if (onSuccess) onSuccess();
       } else {
-        alert('Failed to set price alert: ' + data.error);
+        showError('Failed to set price alert', ' + data.error');
       }
     } catch (error) {
       logger.error('Error setting price alert:', error as Error, { component: 'Watchpricebutton' });
-      alert('Failed to set price alert');
+      showToast({ type: 'error', title: 'Failed to set price alert' });
     } finally {
       setLoading(false);
     }

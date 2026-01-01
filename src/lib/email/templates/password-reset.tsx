@@ -146,7 +146,7 @@ const main = {
 };
 
 const container = {
-  backgroundColor: '#ffffff',
+  backgroundColor: 'var(--lydian-text-inverse)',
   margin: '0 auto',
   padding: '20px 0 48px',
   marginBottom: '64px',
@@ -196,7 +196,7 @@ const buttonSection = {
 };
 
 const button = {
-  backgroundColor: '#dc2626',
+  backgroundColor: 'var(--lydian-primary)',
   borderRadius: '8px',
   color: '#fff',
   fontSize: '16px',
@@ -215,7 +215,7 @@ const expiryText = {
 };
 
 const hr = {
-  borderColor: '#e5e7eb',
+  borderColor: 'var(--lydian-border)',
   margin: '32px 0',
 };
 
@@ -224,7 +224,7 @@ const warningText = {
   fontSize: '14px',
   lineHeight: '1.6',
   textAlign: 'center' as const,
-  backgroundColor: '#fef3c7',
+  backgroundColor: 'var(--lydian-warning-light)',
   padding: '16px',
   borderRadius: '8px',
   border: '1px solid #fbbf24',
@@ -252,7 +252,7 @@ const manualText = {
 };
 
 const urlText = {
-  color: '#2563eb',
+  color: 'var(--lydian-info-hover)',
   fontSize: '12px',
   textAlign: 'center' as const,
   wordBreak: 'break-all' as const,

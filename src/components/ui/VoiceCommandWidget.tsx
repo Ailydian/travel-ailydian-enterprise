@@ -235,7 +235,7 @@ export const VoiceCommandWidget: React.FC = () => {
                   <div className="flex items-center gap-6">
                     <div className="w-24 h-24 bg-lydian-glass-dark rounded-full flex items-center justify-center shadow-2xl relative">
                       <span className="text-5xl">🎙️</span>
-                      <div className="absolute -bottom-2 -right-2 bg-green-500 w-8 h-8 rounded-full border-4 border-lydian-border-light flex items-center justify-center">
+                      <div className="absolute -bottom-2 -right-2 bg-lydian-success w-8 h-8 rounded-full border-4 border-lydian-border-light flex items-center justify-center">
                         <span className="text-xs">AI</span>
                       </div>
                     </div>

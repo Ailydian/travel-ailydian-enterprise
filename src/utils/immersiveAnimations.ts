@@ -269,19 +269,19 @@ export const glassmorphismStyles = {
   light: {
     background: 'rgba(255, 255, 255, 0.05)',
     backdropFilter: 'blur(10px)',
-    border: '1px solid rgba(255, 255, 255, 0.1)',
+    border: '1px solid var(--lydian-glass-light)',
     boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3)'
   },
   medium: {
     background: 'rgba(255, 255, 255, 0.08)',
     backdropFilter: 'blur(15px)',
-    border: '1px solid rgba(255, 255, 255, 0.15)',
+    border: '1px solid var(--lydian-glass-medium)',
     boxShadow: '0 8px 32px rgba(0, 0, 0, 0.4)'
   },
   heavy: {
     background: 'rgba(255, 255, 255, 0.12)',
     backdropFilter: 'blur(20px)',
     border: '1px solid rgba(255, 255, 255, 0.2)',
-    boxShadow: '0 8px 32px rgba(0, 0, 0, 0.5)'
+    boxShadow: '0 8px 32px var(--lydian-bg-overlay)'
   }
 };

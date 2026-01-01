@@ -203,10 +203,10 @@ export class PriceAlertNotificationService {
     .container { max-width: 600px; margin: 0 auto; padding: 20px; }
     .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px; text-align: center; border-radius: 10px 10px 0 0; }
     .content { background: #f9f9f9; padding: 30px; }
-    .price-box { background: white; border-left: 4px solid #10b981; padding: 20px; margin: 20px 0; border-radius: 5px; }
+    .price-box { background: white; border-left: 4px solid var(--lydian-success); padding: 20px; margin: 20px 0; border-radius: 5px; }
     .old-price { text-decoration: line-through; color: #999; font-size: 18px; }
-    .new-price { color: #10b981; font-size: 32px; font-weight: bold; margin: 10px 0; }
-    .savings { background: #10b981; color: white; padding: 10px 20px; border-radius: 5px; display: inline-block; margin: 10px 0; }
+    .new-price { color: var(--lydian-success); font-size: 32px; font-weight: bold; margin: 10px 0; }
+    .savings { background: var(--lydian-success); color: white; padding: 10px 20px; border-radius: 5px; display: inline-block; margin: 10px 0; }
     .cta-button { background: #667eea; color: white; padding: 15px 30px; text-decoration: none; border-radius: 5px; display: inline-block; margin: 20px 0; }
     .footer { text-align: center; padding: 20px; color: #666; font-size: 12px; }
   </style>

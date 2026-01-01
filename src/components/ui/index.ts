@@ -70,11 +70,14 @@ export {
 export type { SkeletonProps, SkeletonCardProps, SkeletonTableProps } from './Skeleton';
 
 // ============================================================================
-// BUTTON COMPONENT
+// BUTTON COMPONENTS
 // ============================================================================
 
 export { Button } from './button';
-export type { ButtonProps } from './button';
+export type { ButtonProps, LinkButtonProps, UnifiedButtonProps } from './button';
+
+export { IconButton } from './IconButton';
+export type { IconButtonProps } from './IconButton';
 
 // ============================================================================
 // LAYOUT & NAVIGATION (PHASE 2)

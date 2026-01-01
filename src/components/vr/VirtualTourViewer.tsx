@@ -179,10 +179,10 @@ const HotspotMarker: React.FC<{
   const getHotspotColor = (type: string) => {
     switch (type) {
       case 'navigation': return '#FF214D';
-      case 'info': return '#3B82F6';
-      case 'media': return '#10B981';
-      case 'poi': return '#F59E0B';
-      default: return '#6B7280';
+      case 'info': return 'var(--lydian-info)';
+      case 'media': return 'var(--lydian-success)';
+      case 'poi': return 'var(--lydian-warning)';
+      default: return 'var(--lydian-text-tertiary)';
     }
   };
 
@@ -219,7 +219,7 @@ const HotspotMarker: React.FC<{
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
         >
-          <div className="bg-black/80 text-white px-3 py-2 rounded-lg text-sm font-medium backdrop-blur-sm pointer-events-none">
+          <div className="bg-black/80 text-lydian-text-inverse px-3 py-2 rounded-lg text-sm font-medium backdrop-blur-sm pointer-events-none">
             {hotspot.title}
           </div>
         </motion.div>
@@ -406,7 +406,7 @@ const VirtualTourViewer: React.FC = () => {
             exit={{ opacity: 0 }}
           >
             <div className="absolute inset-0 bg-black/80 flex items-center justify-center z-20">
-              <div className="text-center text-white">
+              <div className="text-center text-lydian-text-inverse">
                 <motion.div
                   animate={{ rotate: 360 }}
                   transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
@@ -431,7 +431,7 @@ const VirtualTourViewer: React.FC = () => {
             <div className="absolute inset-0 pointer-events-none z-10">
             {/* Top Bar */}
             <div className="absolute top-4 left-4 right-4 flex items-center justify-between pointer-events-auto">
-              <div className="bg-black/50 backdrop-blur-md rounded-xl px-4 py-2 text-white">
+              <div className="bg-black/50 backdrop-blur-md rounded-xl px-4 py-2 text-lydian-text-inverse">
                 <h3 className="font-semibold">{currentScene.title}</h3>
                 <p className="text-sm text-lydian-text-dim">{currentScene.description}</p>
               </div>
@@ -443,7 +443,7 @@ const VirtualTourViewer: React.FC = () => {
                 >
                   <button
                     onClick={() => setIsVRMode(!isVRMode)}
-                    className="p-3 bg-black/50 backdrop-blur-md rounded-xl text-white hover:bg-black/70 transition-colors"
+                    className="p-3 bg-black/50 backdrop-blur-md rounded-xl text-lydian-text-inverse hover:bg-black/70 transition-colors"
                     title="VR Modu"
                   >
                     <Move3D className="w-5 h-5" />
@@ -456,7 +456,7 @@ const VirtualTourViewer: React.FC = () => {
                 >
                   <button
                     onClick={toggleFullscreen}
-                    className="p-3 bg-black/50 backdrop-blur-md rounded-xl text-white hover:bg-black/70 transition-colors"
+                    className="p-3 bg-black/50 backdrop-blur-md rounded-xl text-lydian-text-inverse hover:bg-black/70 transition-colors"
                   >
                     {isFullscreen ? <Minimize className="w-5 h-5" /> : <Maximize className="w-5 h-5" />}
                   </button>
@@ -478,8 +478,8 @@ const VirtualTourViewer: React.FC = () => {
                       onClick={() => handleSceneNavigation(scene.id)}
                       className={`px-4 py-2 rounded-xl text-sm font-medium transition-colors ${
                         currentSceneId === scene.id
-                          ? 'bg-lydian-primary text-white'
-                          : 'bg-black/50 backdrop-blur-md text-white hover:bg-black/70'
+                          ? 'bg-lydian-primary text-lydian-text-inverse'
+                          : 'bg-black/50 backdrop-blur-md text-lydian-text-inverse hover:bg-black/70'
                       }`}
                     >
                       {scene.title}
@@ -497,7 +497,7 @@ const VirtualTourViewer: React.FC = () => {
                   >
                     <button
                       onClick={() => setIsMuted(!isMuted)}
-                      className="p-3 bg-black/50 backdrop-blur-md rounded-xl text-white hover:bg-black/70 transition-colors"
+                      className="p-3 bg-black/50 backdrop-blur-md rounded-xl text-lydian-text-inverse hover:bg-black/70 transition-colors"
                     >
                       {isMuted ? <VolumeX className="w-5 h-5" /> : <Volume2 className="w-5 h-5" />}
                     </button>
@@ -514,7 +514,7 @@ const VirtualTourViewer: React.FC = () => {
                       text: currentScene.description,
                       url: window.location.href
                     })}
-                    className="p-3 bg-black/50 backdrop-blur-md rounded-xl text-white hover:bg-black/70 transition-colors"
+                    className="p-3 bg-black/50 backdrop-blur-md rounded-xl text-lydian-text-inverse hover:bg-black/70 transition-colors"
                   >
                     <Share2 className="w-5 h-5" />
                   </button>
@@ -537,7 +537,7 @@ const VirtualTourViewer: React.FC = () => {
             <div className="absolute top-4 right-4 w-80 bg-lydian-bg/5 rounded-2xl shadow-2xl overflow-hidden z-20">
             <div className="p-6">
               <div className="flex items-center justify-between mb-4">
-                <h3 className="text-xl font-bold text-white">{selectedHotspot.title}</h3>
+                <h3 className="text-xl font-bold text-lydian-text-inverse">{selectedHotspot.title}</h3>
                 <button
                   onClick={() => setSelectedHotspot(null)}
                   className="p-2 hover:bg-lydian-bg/10 rounded-lg transition-colors"
@@ -555,7 +555,7 @@ const VirtualTourViewer: React.FC = () => {
                 >
                   <button
                     onClick={() => handleHotspotClick(selectedHotspot)}
-                    className="w-full p-3 bg-lydian-primary text-white rounded-xl font-medium hover:bg-lydian-primary-hover transition-colors"
+                    className="w-full p-3 bg-lydian-primary text-lydian-text-inverse rounded-xl font-medium hover:bg-lydian-primary-hover transition-colors"
                   >
                     {selectedHotspot.action.type === 'navigate' ? 'Buraya Git' : 'Devamını Gör'}
                   </button>
@@ -579,7 +579,7 @@ const VirtualTourViewer: React.FC = () => {
 
       {/* VR Mode Indicator */}
       {isVRMode && (
-        <div className="absolute top-4 left-1/2 transform -translate-x-1/2 bg-lydian-success text-white px-4 py-2 rounded-full text-sm font-medium z-30">
+        <div className="absolute top-4 left-1/2 transform -translate-x-1/2 bg-lydian-success text-lydian-text-inverse px-4 py-2 rounded-full text-sm font-medium z-30">
           🥽 VR Modu Aktif
         </div>
       )}

@@ -31,8 +31,7 @@ import {
   Car,
   Bus,
   Home,
-  Building2 } from
-'lucide-react';
+  Building2 } from 'lucide-react';
 import { searchInData, popularSearches, categoryConfig, type SearchResult } from '../../data/searchData';
 import { useCart } from '../../context/CartContext';
 import AIAssistantPopup from '../ui/AIAssistantPopup';
@@ -613,7 +612,7 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
                                   <span className="font-medium text-lydian-text-inverse truncate">{result.title}</span>
                                   {result.rating &&
                                 <div className="flex items-center gap-1 text-xs">
-                                      <Star className="w-3 h-3 text-yellow-500 fill-current" />
+                                      <Star className="w-3 h-3 text-lydian-warning fill-current" />
                                       <span className="text-lydian-text-dim">{result.rating}</span>
                                     </div>
                                 }
@@ -1272,7 +1271,7 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
                                 <span className="font-medium text-lydian-text-inverse truncate">{result.title}</span>
                                 {result.rating &&
                                 <div className="flex items-center gap-1 text-xs">
-                                    <Star className="w-3 h-3 text-yellow-500 fill-current" />
+                                    <Star className="w-3 h-3 text-lydian-warning fill-current" />
                                     <span className="text-lydian-text-dim">{result.rating}</span>
                                   </div>
                                 }

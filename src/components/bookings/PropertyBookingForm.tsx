@@ -21,8 +21,7 @@ import {
   AlertTriangle,
   Shield,
   Baby,
-  Info } from
-'lucide-react';
+  Info } from 'lucide-react';
 
 interface PropertyData {
   id: string;

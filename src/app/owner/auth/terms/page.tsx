@@ -19,8 +19,11 @@ import {
 } from 'lucide-react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import { useToast } from '../../../../context/ToastContext';
 
 export default function OwnerTermsPage() {
+  const { showSuccess, showError, showWarning, showInfo, showToast } = useToast();
+
   const router = useRouter();
   const [accepted, setAccepted] = useState(false);
   const lastUpdated = '21 Aralık 2025';
@@ -225,9 +228,9 @@ export default function OwnerTermsPage() {
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2">
               <div className="w-10 h-10 bg-gradient-to-r from-[#FF214D] to-[#FF6A45] rounded-lg flex items-center justify-center">
-                <Home className="w-6 h-6 text-white" />
+                <Home className="w-6 h-6 text-lydian-text-inverse" />
               </div>
-              <span className="text-xl font-bold text-white">LyDian</span>
+              <span className="text-xl font-bold text-lydian-text-inverse">LyDian</span>
             </Link>
 
             {/* Actions */}
@@ -242,7 +245,7 @@ export default function OwnerTermsPage() {
               <button
                 onClick={() => {
                   // In a real app, this would trigger a PDF download
-                  alert('PDF indirme özelliği yakında eklenecek');
+                  showToast({ type: 'info', title: 'PDF indirme özelliği yakında eklenecek' });
                 }}
                 className="hidden sm:flex items-center gap-2 px-4 py-2 text-gray-200 hover:bg-lydian-bg/10 rounded-lg transition-colors"
               >
@@ -259,7 +262,7 @@ export default function OwnerTermsPage() {
         {/* Back Button */}
         <Link
           href="/owner/auth/register"
-          className="inline-flex items-center gap-2 text-lydian-text-dim hover:text-white mb-8 transition-colors"
+          className="inline-flex items-center gap-2 text-lydian-text-dim hover:text-lydian-text-inverse mb-8 transition-colors"
         >
           <ArrowLeft className="w-4 h-4" />
           <span className="text-sm font-medium">Kayıt sayfasına dön</span>
@@ -274,10 +277,10 @@ export default function OwnerTermsPage() {
         >
           <div className="flex items-center gap-4 mb-4">
             <div className="w-16 h-16 bg-gradient-to-r from-[#FF214D] to-[#FF6A45] rounded-2xl flex items-center justify-center">
-              <FileText className="w-8 h-8 text-white" />
+              <FileText className="w-8 h-8 text-lydian-text-inverse" />
             </div>
             <div>
-              <h1 className="text-4xl font-bold text-white">
+              <h1 className="text-4xl font-bold text-lydian-text-inverse">
                 Mülk Sahibi Kullanım Koşulları ve Sözleşmesi
               </h1>
             </div>
@@ -287,7 +290,7 @@ export default function OwnerTermsPage() {
             <span>•</span>
             <span>Yürürlük Tarihi: 1 Ocak 2024</span>
           </div>
-          <div className="mt-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
+          <div className="mt-6 p-4 bg-lydian-info-lighter border border-blue-200 rounded-lg">
             <p className="text-sm text-gray-200">
               <strong>Önemli Not:</strong> Lütfen bu sözleşmeyi dikkatlice okuyunuz. LyDian platformuna mülk sahibi olarak kayıt olmadan önce tüm maddeleri anladığınızdan emin olun. Bu sözleşme sizinle LyDian arasındaki yasal ilişkiyi düzenlemektedir.
             </p>
@@ -301,7 +304,7 @@ export default function OwnerTermsPage() {
           transition={{ duration: 0.6, delay: 0.1 }}
           className="mb-12 bg-lydian-bg/5 rounded-xl p-6 border border-lydian-border"
         >
-          <h2 className="text-xl font-bold text-white mb-4">İçindekiler</h2>
+          <h2 className="text-xl font-bold text-lydian-text-inverse mb-4">İçindekiler</h2>
           <div className="grid sm:grid-cols-2 gap-3">
             {sections.map((section, index) => (
               <a
@@ -310,7 +313,7 @@ export default function OwnerTermsPage() {
                 className="flex items-center gap-3 p-3 bg-lydian-bg/5 rounded-lg hover:bg-lydian-bg/10 transition-colors group"
               >
                 <section.icon className="w-5 h-5 text-lydian-primary flex-shrink-0" />
-                <span className="text-sm font-medium text-white group-hover:text-lydian-primary transition-colors">
+                <span className="text-sm font-medium text-lydian-text-inverse group-hover:text-lydian-primary transition-colors">
                   {section.title}
                 </span>
               </a>
@@ -331,15 +334,15 @@ export default function OwnerTermsPage() {
             >
               <div className="flex items-center gap-4 mb-6">
                 <div className="w-12 h-12 bg-gradient-to-r from-[#FF214D] to-[#FF6A45] rounded-xl flex items-center justify-center">
-                  <section.icon className="w-6 h-6 text-white" />
+                  <section.icon className="w-6 h-6 text-lydian-text-inverse" />
                 </div>
-                <h2 className="text-2xl font-bold text-white">{section.title}</h2>
+                <h2 className="text-2xl font-bold text-lydian-text-inverse">{section.title}</h2>
               </div>
 
               <div className="space-y-6 pl-0 sm:pl-16">
                 {section.content.map((item, itemIndex) => (
                   <div key={itemIndex} className="bg-lydian-bg/5 border border-lydian-border rounded-lg p-6">
-                    <h3 className="text-lg font-semibold text-white mb-3">
+                    <h3 className="text-lg font-semibold text-lydian-text-inverse mb-3">
                       {item.subtitle}
                     </h3>
                     <p className="text-gray-200 leading-relaxed whitespace-pre-line">
@@ -359,10 +362,10 @@ export default function OwnerTermsPage() {
           transition={{ duration: 0.6, delay: 0.8 }}
           className="mt-12 bg-gradient-to-r from-gray-50 to-gray-100 rounded-xl p-8 border border-lydian-border"
         >
-          <h2 className="text-2xl font-bold text-white mb-4">İletişim Bilgileri</h2>
+          <h2 className="text-2xl font-bold text-lydian-text-inverse mb-4">İletişim Bilgileri</h2>
           <div className="grid sm:grid-cols-2 gap-6">
             <div>
-              <h3 className="font-semibold text-white mb-2">Genel İletişim</h3>
+              <h3 className="font-semibold text-lydian-text-inverse mb-2">Genel İletişim</h3>
               <div className="space-y-2 text-gray-200">
                 <p>E-posta: info@lydian.com</p>
                 <p>Telefon: 0850 XXX XX XX</p>
@@ -370,7 +373,7 @@ export default function OwnerTermsPage() {
               </div>
             </div>
             <div>
-              <h3 className="font-semibold text-white mb-2">Yasal İşlemler</h3>
+              <h3 className="font-semibold text-lydian-text-inverse mb-2">Yasal İşlemler</h3>
               <div className="space-y-2 text-gray-200">
                 <p>E-posta: legal@lydian.com</p>
                 <p>KVKK İletişim: kvkk@lydian.com</p>
@@ -389,7 +392,7 @@ export default function OwnerTermsPage() {
         >
           <div className="max-w-3xl mx-auto">
             {accepted ? (
-              <div className="flex items-center justify-center gap-3 text-lydian-success bg-green-50 py-4 rounded-lg border border-green-200">
+              <div className="flex items-center justify-center gap-3 text-lydian-success bg-lydian-success-lighter py-4 rounded-lg border border-green-200">
                 <CheckCircle2 className="w-6 h-6" />
                 <span className="font-semibold">Sözleşme kabul edildi! Yönlendiriliyorsunuz...</span>
               </div>
@@ -404,7 +407,7 @@ export default function OwnerTermsPage() {
                 </button>
                 <button
                   onClick={handleAccept}
-                  className="flex-1 flex items-center justify-center gap-2 px-6 py-4 bg-gradient-to-r from-[#FF214D] to-[#FF6A45] text-white rounded-lg font-semibold hover:shadow-lg transform hover:scale-[1.02] transition-all"
+                  className="flex-1 flex items-center justify-center gap-2 px-6 py-4 bg-gradient-to-r from-[#FF214D] to-[#FF6A45] text-lydian-text-inverse rounded-lg font-semibold hover:shadow-lg transform hover:scale-[1.02] transition-all"
                 >
                   <CheckCircle2 className="w-5 h-5" />
                   <span>Kabul Ediyorum</span>

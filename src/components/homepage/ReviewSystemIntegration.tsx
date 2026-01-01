@@ -17,8 +17,7 @@ import {
   ChevronRight,
   Badge,
   Zap,
-  Globe } from
-'lucide-react';
+  Globe } from 'lucide-react';
 import reviewService from '../../lib/services/review-service';
 
 // Mock data - in production, these would come from API calls

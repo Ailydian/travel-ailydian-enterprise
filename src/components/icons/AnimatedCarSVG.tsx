@@ -19,8 +19,8 @@ export const AnimatedCarSVG: React.FC<AnimatedCarSVGProps> = ({
       {gradient && (
         <defs>
           <linearGradient id="carGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#dc2626" />
-            <stop offset="50%" stopColor="#ef4444" />
+            <stop offset="0%" stopColor="var(--lydian-primary)" />
+            <stop offset="50%" stopColor="var(--lydian-secondary)" />
             <stop offset="100%" stopColor="#f87171" />
           </linearGradient>
 
@@ -31,7 +31,7 @@ export const AnimatedCarSVG: React.FC<AnimatedCarSVGProps> = ({
 
           <radialGradient id="windowGradient" cx="50%" cy="50%" r="50%">
             <stop offset="0%" stopColor="#60a5fa" stopOpacity="0.3" />
-            <stop offset="100%" stopColor="#3b82f6" stopOpacity="0.6" />
+            <stop offset="100%" stopColor="var(--lydian-info)" stopOpacity="0.6" />
           </radialGradient>
         </defs>
       )}
@@ -45,8 +45,8 @@ export const AnimatedCarSVG: React.FC<AnimatedCarSVGProps> = ({
         {/* Main body */}
         <path
           d="M 50 70 L 65 50 L 95 45 L 135 45 L 150 70 Z"
-          fill={gradient ? "url(#carGradient)" : "#dc2626"}
-          stroke="#991b1b"
+          fill={gradient ? "url(#carGradient)" : "var(--lydian-primary)"}
+          stroke="var(--lydian-primary-active)"
           strokeWidth="2"
         />
 
@@ -57,15 +57,15 @@ export const AnimatedCarSVG: React.FC<AnimatedCarSVGProps> = ({
           width="110"
           height="15"
           rx="3"
-          fill={gradient ? "url(#carGradient)" : "#dc2626"}
-          stroke="#991b1b"
+          fill={gradient ? "url(#carGradient)" : "var(--lydian-primary)"}
+          stroke="var(--lydian-primary-active)"
           strokeWidth="2"
         />
 
         {/* Front window */}
         <motion.path
           d="M 70 52 L 80 52 L 85 65 L 70 65 Z"
-          fill={gradient ? "url(#windowGradient)" : "#3b82f6"}
+          fill={gradient ? "url(#windowGradient)" : "var(--lydian-info)"}
           opacity="0.7"
           animate={{ opacity: [0.7, 0.9, 0.7] }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
@@ -74,7 +74,7 @@ export const AnimatedCarSVG: React.FC<AnimatedCarSVGProps> = ({
         {/* Back window */}
         <motion.path
           d="M 110 52 L 130 52 L 135 65 L 115 65 Z"
-          fill={gradient ? "url(#windowGradient)" : "#3b82f6"}
+          fill={gradient ? "url(#windowGradient)" : "var(--lydian-info)"}
           opacity="0.7"
           animate={{ opacity: [0.7, 0.9, 0.7] }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", delay: 0.3 }}
@@ -97,7 +97,7 @@ export const AnimatedCarSVG: React.FC<AnimatedCarSVGProps> = ({
           width="8"
           height="2"
           rx="1"
-          fill="#991b1b"
+          fill="var(--lydian-primary-active)"
         />
       </motion.g>
 
@@ -122,11 +122,11 @@ export const AnimatedCarSVG: React.FC<AnimatedCarSVGProps> = ({
             cy="85"
             r="6"
             fill="#4b5563"
-            stroke="#6b7280"
+            stroke="var(--lydian-text-tertiary)"
             strokeWidth="1"
           />
-          <line x1="125" y1="79" x2="125" y2="91" stroke="#9ca3af" strokeWidth="2" />
-          <line x1="119" y1="85" x2="131" y2="85" stroke="#9ca3af" strokeWidth="2" />
+          <line x1="125" y1="79" x2="125" y2="91" stroke="var(--lydian-text-muted)" strokeWidth="2" />
+          <line x1="119" y1="85" x2="131" y2="85" stroke="var(--lydian-text-muted)" strokeWidth="2" />
         </motion.g>
 
         {/* Back wheel */}
@@ -148,11 +148,11 @@ export const AnimatedCarSVG: React.FC<AnimatedCarSVGProps> = ({
             cy="85"
             r="6"
             fill="#4b5563"
-            stroke="#6b7280"
+            stroke="var(--lydian-text-tertiary)"
             strokeWidth="1"
           />
-          <line x1="70" y1="79" x2="70" y2="91" stroke="#9ca3af" strokeWidth="2" />
-          <line x1="64" y1="85" x2="76" y2="85" stroke="#9ca3af" strokeWidth="2" />
+          <line x1="70" y1="79" x2="70" y2="91" stroke="var(--lydian-text-muted)" strokeWidth="2" />
+          <line x1="64" y1="85" x2="76" y2="85" stroke="var(--lydian-text-muted)" strokeWidth="2" />
         </motion.g>
       </g>
 

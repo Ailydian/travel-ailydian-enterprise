@@ -60,7 +60,7 @@ export default function ForgotPassword() {
         {/* Return to Login */}
         <Link
           href="/auth/signin"
-          className="fixed top-6 left-6 z-50 flex items-center gap-2 px-4 py-2 bg-lydian-bg/10 backdrop-blur-xl rounded-xl border border-white/20 text-white hover:bg-lydian-bg/20 transition-all duration-200"
+          className="fixed top-6 left-6 z-50 flex items-center gap-2 px-4 py-2 bg-lydian-bg/10 backdrop-blur-xl rounded-xl border border-white/20 text-lydian-text-inverse hover:bg-lydian-bg/20 transition-all duration-200"
         >
           <ArrowLeft className="w-4 h-4" />
           <span className="font-medium">Giriş Sayfasına Dön</span>
@@ -84,12 +84,12 @@ export default function ForgotPassword() {
                   {/* Header */}
                   <div className="text-center mb-8">
                     <div className="w-16 h-16 bg-gradient-to-r from-[#667EEA] to-[#764BA2] rounded-full flex items-center justify-center mx-auto mb-4">
-                      <Mail className="w-8 h-8 text-white" />
+                      <Mail className="w-8 h-8 text-lydian-text-inverse" />
                     </div>
-                    <h1 className="text-3xl font-bold text-white mb-2">
+                    <h1 className="text-3xl font-bold text-lydian-text-inverse mb-2">
                       Şifremi Unuttum
                     </h1>
-                    <p className="text-white/70">
+                    <p className="text-lydian-text-inverse/70">
                       E-posta adresinize şifre sıfırlama linki göndereceğiz
                     </p>
                   </div>
@@ -114,14 +114,12 @@ export default function ForgotPassword() {
                       label="E-posta Adresi"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      icon={<Mail className="w-5 h-5" />}
-                      required
-                      glowColor="#667EEA"
+                      leftIcon={<Mail className="w-5 h-5" />}
+                      requiredColor="#667EEA"
                     />
 
                     {/* Submit Button */}
-                    <FuturisticButton
-                      type="submit"
+                    <FuturisticButton type="submit"
                       variant="ai"
                       fullWidth
                       loading={isLoading}
@@ -132,13 +130,13 @@ export default function ForgotPassword() {
 
                   {/* Footer */}
                   <div className="mt-6 text-center space-y-2">
-                    <p className="text-sm text-white/70">
+                    <p className="text-sm text-lydian-text-inverse/70">
                       Şifrenizi hatırladınız mı?{' '}
                       <Link href="/auth/signin" className="font-semibold text-transparent bg-clip-text bg-gradient-to-r from-[#00BAFF] to-[#667EEA] hover:from-[#667EEA] hover:to-[#764BA2]">
                         Giriş Yap
                       </Link>
                     </p>
-                    <p className="text-sm text-white/70">
+                    <p className="text-sm text-lydian-text-inverse/70">
                       Hesabınız yok mu?{' '}
                       <Link href="/auth/signup" className="font-semibold text-transparent bg-clip-text bg-gradient-to-r from-[#00BAFF] to-[#667EEA] hover:from-[#667EEA] hover:to-[#764BA2]">
                         Kayıt Ol
@@ -151,7 +149,7 @@ export default function ForgotPassword() {
               <FuturisticCard
                 title=""
                 price=""
-                categoryColor="#10B981"
+                categoryColor="var(--lydian-success)"
               >
                 <div className="p-8 text-center">
                   {/* Success State */}
@@ -163,11 +161,11 @@ export default function ForgotPassword() {
                   >
                     <CheckCircle className="w-12 h-12 text-green-400" />
                   </motion.div>
-                  <h2 className="text-2xl font-bold text-white mb-4">
+                  <h2 className="text-2xl font-bold text-lydian-text-inverse mb-4">
                     E-posta Gönderildi!
                   </h2>
-                  <p className="text-white/70 mb-6">
-                    <strong className="text-white">{email}</strong> adresine şifre sıfırlama linki gönderdik.
+                  <p className="text-lydian-text-inverse/70 mb-6">
+                    <strong className="text-lydian-text-inverse">{email}</strong> adresine şifre sıfırlama linki gönderdik.
                     Lütfen e-postanızı kontrol edin ve linke tıklayarak yeni şifrenizi oluşturun.
                   </p>
                   <div className="bg-[#00BAFF]/10 backdrop-blur-xl border border-[#00BAFF]/30 rounded-xl p-4 mb-6">
@@ -177,16 +175,14 @@ export default function ForgotPassword() {
                     </p>
                   </div>
                   <div className="flex flex-col gap-3">
-                    <FuturisticButton
-                      variant="ai"
+                    <FuturisticButton variant="ai"
                       fullWidth
                       onClick={() => setIsSubmitted(false)}
                     >
                       Yeni E-posta Gönder
                     </FuturisticButton>
                     <Link href="/auth/signin">
-                      <FuturisticButton
-                        variant="glass"
+                      <FuturisticButton variant="glass"
                         fullWidth
                       >
                         Giriş Sayfasına Dön
@@ -198,7 +194,7 @@ export default function ForgotPassword() {
             )}
 
             {/* Help Section */}
-            <div className="mt-6 text-center text-white">
+            <div className="mt-6 text-center text-lydian-text-inverse">
               <p className="text-sm mb-2">Sorun mu yaşıyorsunuz?</p>
               <Link
                 href="/support"

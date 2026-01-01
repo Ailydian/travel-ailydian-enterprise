@@ -25,8 +25,7 @@ import {
   TrendingUp,
   ThumbsUp,
   Navigation,
-  Globe } from
-'lucide-react';
+  Globe } from 'lucide-react';
 import { format, addDays, differenceInDays } from 'date-fns';
 import logger from '../../lib/logger';
 
@@ -389,7 +388,7 @@ const EnhancedTripPlanner: React.FC = () => {
               {error &&
             <div className="bg-lydian-error-lighter border border-red-200 rounded-lg p-4 flex items-start gap-3">
                   <AlertCircle className="w-5 h-5 text-lydian-primary flex-shrink-0 mt-0.5" />
-                  <p className="text-sm text-red-800">{error}</p>
+                  <p className="text-sm text-lydian-primary-active">{error}</p>
                 </div>
             }
 

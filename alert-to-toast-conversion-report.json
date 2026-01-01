@@ -1,0 +1,663 @@
+{
+  "timestamp": "2026-01-01T15:11:51.991Z",
+  "totalConversions": 93,
+  "filesProcessed": 42,
+  "breakdownByType": {
+    "info": 35,
+    "error": 43,
+    "success": 15
+  },
+  "conversions": [
+    {
+      "file": "src/app/owner/auth/terms/page.tsx",
+      "line": 245,
+      "original": "alert('PDF indirme özelliği yakında eklenecek')",
+      "converted": "showToast({ type: 'info', title: PDF indirme özelliği yakında eklenecek })",
+      "toastType": "info"
+    },
+    {
+      "file": "src/app/owner/properties/new/Step2Location.tsx",
+      "line": 85,
+      "original": "alert('Konumunuz alınamadı. Lütfen koordinatları manuel olarak girin.')",
+      "converted": "showToast({ type: 'error', title: Konumunuz alınamadı. Lütfen koordinatları manuel olarak girin. })",
+      "toastType": "error"
+    },
+    {
+      "file": "src/app/owner/properties/new/Step2Location.tsx",
+      "line": 90,
+      "original": "alert('Coğrafi konum tarayıcınız tarafından desteklenmiyor')",
+      "converted": "showToast({ type: 'info', title: Coğrafi konum tarayıcınız tarafından desteklenmiyor })",
+      "toastType": "info"
+    },
+    {
+      "file": "src/app/owner/properties/new/page.tsx",
+      "line": 184,
+      "original": "alert('Draft saved successfully!')",
+      "converted": "showToast({ type: 'success', title: Draft saved successfully! })",
+      "toastType": "success"
+    },
+    {
+      "file": "src/app/owner/properties/new/page.tsx",
+      "line": 187,
+      "original": "alert('Failed to save draft. Please try again.')",
+      "converted": "showToast({ type: 'error', title: Failed to save draft. Please try again. })",
+      "toastType": "error"
+    },
+    {
+      "file": "src/app/owner/properties/new/page.tsx",
+      "line": 254,
+      "original": "alert('Failed to submit property. Please try again.')",
+      "converted": "showToast({ type: 'error', title: Failed to submit property. Please try again. })",
+      "toastType": "error"
+    },
+    {
+      "file": "src/app/owner/properties/new/Step5Photos.tsx",
+      "line": 68,
+      "original": "alert(`${file.name} bir resim dosyası değil`)",
+      "converted": "showInfo('${file.name} bir resim dosyası değil')",
+      "toastType": "info"
+    },
+    {
+      "file": "src/app/owner/properties/new/Step5Photos.tsx",
+      "line": 74,
+      "original": "alert(`${file.name} 10MB boyut sınırını aşıyor`)",
+      "converted": "showInfo('${file.name} 10MB boyut sınırını aşıyor')",
+      "toastType": "info"
+    },
+    {
+      "file": "src/app/vehicle-owner/vehicles/new/Step7Insurance.tsx",
+      "line": 85,
+      "original": "alert('Sadece PDF, JPG ve PNG dosyaları yüklenebilir')",
+      "converted": "showToast({ type: 'info', title: Sadece PDF, JPG ve PNG dosyaları yüklenebilir })",
+      "toastType": "info"
+    },
+    {
+      "file": "src/app/vehicle-owner/vehicles/new/Step7Insurance.tsx",
+      "line": 91,
+      "original": "alert('Dosya boyutu 5MB\\'dan küçük olmalıdır')",
+      "converted": "showToast({ type: 'info', title: Dosya boyutu 5MB\\'dan küçük olmalıdır })",
+      "toastType": "info"
+    },
+    {
+      "file": "src/app/vehicle-owner/vehicles/new/Step4Photos.tsx",
+      "line": 73,
+      "original": "alert('Maksimum 20 fotoğraf yükleyebilirsiniz')",
+      "converted": "showToast({ type: 'info', title: Maksimum 20 fotoğraf yükleyebilirsiniz })",
+      "toastType": "info"
+    },
+    {
+      "file": "src/app/vehicle-owner/vehicles/new/Step4Photos.tsx",
+      "line": 83,
+      "original": "alert(`${file.name} bir resim dosyası değil`)",
+      "converted": "showInfo('${file.name} bir resim dosyası değil')",
+      "toastType": "info"
+    },
+    {
+      "file": "src/app/vehicle-owner/vehicles/new/Step4Photos.tsx",
+      "line": 89,
+      "original": "alert(`${file.name} 10MB boyut sınırını aşıyor`)",
+      "converted": "showInfo('${file.name} 10MB boyut sınırını aşıyor')",
+      "toastType": "info"
+    },
+    {
+      "file": "src/app/transfer-owner/vehicles/new/Step3Photos.tsx",
+      "line": 110,
+      "original": "alert(`Maksimum ${MAX_TOTAL_PHOTOS} fotoğraf yükleyebilirsiniz.`)",
+      "converted": "showInfo('Maksimum ${MAX_TOTAL_PHOTOS} fotoğraf yükleyebilirsiniz.')",
+      "toastType": "info"
+    },
+    {
+      "file": "src/app/transfer-owner/vehicles/new/Step3Photos.tsx",
+      "line": 115,
+      "original": "alert(`Bu kategori için maksimum ${categoryLimit} fotoğraf yükleyebilirsiniz.`)",
+      "converted": "showInfo('Bu kategori için maksimum ${categoryLimit} fotoğraf yükleyebilirsiniz.')",
+      "toastType": "info"
+    },
+    {
+      "file": "src/app/transfer-owner/vehicles/new/Step3Photos.tsx",
+      "line": 121,
+      "original": "alert(`${file.name} geçerli bir resim dosyası değil.`)",
+      "converted": "showInfo('${file.name} geçerli bir resim dosyası değil.')",
+      "toastType": "info"
+    },
+    {
+      "file": "src/app/transfer-owner/vehicles/new/Step3Photos.tsx",
+      "line": 125,
+      "original": "alert(`${file.name} çok büyük. Maksimum 5MB olmalıdır.`)",
+      "converted": "showInfo('${file.name} çok büyük', 'Maksimum 5MB olmalıdır.')",
+      "toastType": "info"
+    },
+    {
+      "file": "src/components/booking/BookingForm.tsx",
+      "line": 210,
+      "original": "alert(`Ödeme hatası: ${paymentResult.errorMessage}`)",
+      "converted": "showError('Ödeme hatası', '${paymentResult.errorMessage}')",
+      "toastType": "error"
+    },
+    {
+      "file": "src/components/booking/BookingForm.tsx",
+      "line": 214,
+      "original": "alert('Ödeme işlemi sırasında bir hata oluştu.')",
+      "converted": "showToast({ type: 'error', title: Ödeme işlemi sırasında bir hata oluştu. })",
+      "toastType": "error"
+    },
+    {
+      "file": "src/components/booking/MapSelector.tsx",
+      "line": 208,
+      "original": "alert('Konum bilgisi alınamadı. Lütfen tarayıcı izinlerini kontrol edin.')",
+      "converted": "showToast({ type: 'error', title: Konum bilgisi alınamadı. Lütfen tarayıcı izinlerini kontrol edin. })",
+      "toastType": "error"
+    },
+    {
+      "file": "src/components/booking/MapSelector.tsx",
+      "line": 212,
+      "original": "alert('Tarayıcınız konum servislerini desteklemiyor.')",
+      "converted": "showToast({ type: 'info', title: Tarayıcınız konum servislerini desteklemiyor. })",
+      "toastType": "info"
+    },
+    {
+      "file": "src/components/search/LocationAutocompleteAdvanced.tsx",
+      "line": 274,
+      "original": "alert('Konum bilgisi alınamadı')",
+      "converted": "showToast({ type: 'info', title: Konum bilgisi alınamadı })",
+      "toastType": "info"
+    },
+    {
+      "file": "src/components/search/QuickSearchModal.tsx",
+      "line": 80,
+      "original": "alert('⚠️ Lütfen bir destinasyon girin!')",
+      "converted": "showToast({ type: 'error', title: ⚠️ Lütfen bir destinasyon girin! })",
+      "toastType": "error"
+    },
+    {
+      "file": "src/components/search/QuickSearchModal.tsx",
+      "line": 91,
+      "original": "alert('⚠️ Giriş tarihi geçmiş bir tarih olamaz!')",
+      "converted": "showToast({ type: 'info', title: ⚠️ Giriş tarihi geçmiş bir tarih olamaz! })",
+      "toastType": "info"
+    },
+    {
+      "file": "src/components/search/QuickSearchModal.tsx",
+      "line": 96,
+      "original": "alert('⚠️ Çıkış tarihi, giriş tarihinden sonra olmalıdır!')",
+      "converted": "showToast({ type: 'info', title: ⚠️ Çıkış tarihi, giriş tarihinden sonra olmalıdır! })",
+      "toastType": "info"
+    },
+    {
+      "file": "src/components/search/QuickSearchModal.tsx",
+      "line": 103,
+      "original": "alert('⚠️ Yolcu sayısı 1-20 arasında olmalıdır!')",
+      "converted": "showToast({ type: 'info', title: ⚠️ Yolcu sayısı 1-20 arasında olmalıdır! })",
+      "toastType": "info"
+    },
+    {
+      "file": "src/components/search/QuickSearchModal.tsx",
+      "line": 127,
+      "original": "alert('⚠️ Arama sırasında bir hata oluştu. Lütfen tekrar deneyin.')",
+      "converted": "showToast({ type: 'error', title: ⚠️ Arama sırasında bir hata oluştu. Lütfen tekrar deneyin. })",
+      "toastType": "error"
+    },
+    {
+      "file": "src/components/blockchain/TravelBlockchain.tsx",
+      "line": 168,
+      "original": "alert('MetaMask yüklü değil! Lütfen MetaMask kurun.')",
+      "converted": "showToast({ type: 'error', title: MetaMask yüklü değil! Lütfen MetaMask kurun. })",
+      "toastType": "error"
+    },
+    {
+      "file": "src/components/blockchain/TravelBlockchain.tsx",
+      "line": 175,
+      "original": "alert('Başlık ve lokasyon zorunludur!')",
+      "converted": "showToast({ type: 'info', title: Başlık ve lokasyon zorunludur! })",
+      "toastType": "info"
+    },
+    {
+      "file": "src/components/blockchain/TravelBlockchain.tsx",
+      "line": 209,
+      "original": "alert('🎉 NFT başarıyla mint edildi!')",
+      "converted": "showToast({ type: 'success', title: 🎉 NFT başarıyla mint edildi! })",
+      "toastType": "success"
+    },
+    {
+      "file": "src/components/pricing/PriceAlertsDashboard.tsx",
+      "line": 67,
+      "original": "alert('Failed to delete alert')",
+      "converted": "showToast({ type: 'error', title: Failed to delete alert })",
+      "toastType": "error"
+    },
+    {
+      "file": "src/components/pricing/PriceAlertsDashboard.tsx",
+      "line": 71,
+      "original": "alert('Failed to delete alert')",
+      "converted": "showToast({ type: 'error', title: Failed to delete alert })",
+      "toastType": "error"
+    },
+    {
+      "file": "src/components/pricing/PriceAlertsDashboard.tsx",
+      "line": 94,
+      "original": "alert('Failed to update alert')",
+      "converted": "showToast({ type: 'error', title: Failed to update alert })",
+      "toastType": "error"
+    },
+    {
+      "file": "src/components/pricing/PriceAlertsDashboard.tsx",
+      "line": 98,
+      "original": "alert('Failed to update alert')",
+      "converted": "showToast({ type: 'error', title: Failed to update alert })",
+      "toastType": "error"
+    },
+    {
+      "file": "src/components/pricing/WatchPriceButton.tsx",
+      "line": 63,
+      "original": "alert('Please sign in to track prices')",
+      "converted": "showToast({ type: 'error', title: Please sign in to track prices })",
+      "toastType": "error"
+    },
+    {
+      "file": "src/components/pricing/WatchPriceButton.tsx",
+      "line": 108,
+      "original": "alert('Failed to set price alert: ' + data.error)",
+      "converted": "showError('Failed to set price alert', ' + data.error')",
+      "toastType": "error"
+    },
+    {
+      "file": "src/components/pricing/WatchPriceButton.tsx",
+      "line": 112,
+      "original": "alert('Failed to set price alert')",
+      "converted": "showToast({ type: 'error', title: Failed to set price alert })",
+      "toastType": "error"
+    },
+    {
+      "file": "src/components/reviews/WriteReviewModal.tsx",
+      "line": 69,
+      "original": "alert(t('errors.invalidFileType')",
+      "converted": "showToast({ type: 'error', title: t('errors.invalidFileType' })",
+      "toastType": "error"
+    },
+    {
+      "file": "src/components/reviews/WriteReviewModal.tsx",
+      "line": 73,
+      "original": "alert(t('errors.fileTooLarge')",
+      "converted": "showToast({ type: 'error', title: t('errors.fileTooLarge' })",
+      "toastType": "error"
+    },
+    {
+      "file": "src/pages/booking-confirmed.tsx",
+      "line": 84,
+      "original": "alert('Downloading ticket/invoice...')",
+      "converted": "showToast({ type: 'info', title: Downloading ticket/invoice... })",
+      "toastType": "info"
+    },
+    {
+      "file": "src/pages/rentals/[slug].tsx",
+      "line": 414,
+      "original": "alert(`Minimum konaklama ${property?.minimumStay} gecedir.`)",
+      "converted": "showInfo('Minimum konaklama ${property?.minimumStay} gecedir.')",
+      "toastType": "info"
+    },
+    {
+      "file": "src/pages/rentals/[slug].tsx",
+      "line": 418,
+      "original": "alert(`Maximum konaklama ${property?.maximumStay} gecedir.`)",
+      "converted": "showInfo('Maximum konaklama ${property?.maximumStay} gecedir.')",
+      "toastType": "info"
+    },
+    {
+      "file": "src/pages/rentals/[slug].tsx",
+      "line": 424,
+      "original": "alert(`Maximum ${property?.guests} misafir kabul edilmektedir.`)",
+      "converted": "showInfo('Maximum ${property?.guests} misafir kabul edilmektedir.')",
+      "toastType": "info"
+    },
+    {
+      "file": "src/pages/rentals/[slug].tsx",
+      "line": 429,
+      "original": "alert('Lütfen giriş ve çıkış tarihlerini seçiniz.')",
+      "converted": "showToast({ type: 'error', title: Lütfen giriş ve çıkış tarihlerini seçiniz. })",
+      "toastType": "error"
+    },
+    {
+      "file": "src/pages/support.tsx",
+      "line": 154,
+      "original": "alert('Destek talebiniz başarıyla oluşturuldu! Size en kısa sürede dönüş yapacağız.')",
+      "converted": "showToast({ type: 'success', title: Destek talebiniz başarıyla oluşturuldu! Size en kısa sürede dönüş yapacağız. })",
+      "toastType": "success"
+    },
+    {
+      "file": "src/pages/vehicle-owner/auth/terms.tsx",
+      "line": 243,
+      "original": "alert('PDF indirme özelliği yakında eklenecek')",
+      "converted": "showToast({ type: 'info', title: PDF indirme özelliği yakında eklenecek })",
+      "toastType": "info"
+    },
+    {
+      "file": "src/pages/vehicle-owner/vehicles/new/index.tsx",
+      "line": 194,
+      "original": "alert('Taslak başarıyla kaydedildi!')",
+      "converted": "showToast({ type: 'success', title: Taslak başarıyla kaydedildi! })",
+      "toastType": "success"
+    },
+    {
+      "file": "src/pages/vehicle-owner/vehicles/new/index.tsx",
+      "line": 197,
+      "original": "alert('Taslak kaydedilemedi. Lütfen tekrar deneyin.')",
+      "converted": "showToast({ type: 'error', title: Taslak kaydedilemedi. Lütfen tekrar deneyin. })",
+      "toastType": "error"
+    },
+    {
+      "file": "src/pages/vehicle-owner/vehicles/new/index.tsx",
+      "line": 264,
+      "original": "alert('Araç gönderilemedi. Lütfen tekrar deneyin.')",
+      "converted": "showToast({ type: 'error', title: Araç gönderilemedi. Lütfen tekrar deneyin. })",
+      "toastType": "error"
+    },
+    {
+      "file": "src/pages/vehicle-owner/vehicles/[id].tsx",
+      "line": 378,
+      "original": "alert('Link kopyalandı!')",
+      "converted": "showToast({ type: 'info', title: Link kopyalandı! })",
+      "toastType": "info"
+    },
+    {
+      "file": "src/pages/ai-planner.tsx",
+      "line": 121,
+      "original": "alert('AI Planınız oluşturuldu! (Demo mode)",
+      "converted": "showSuccess('AI Planınız oluşturuldu', '(Demo mode')",
+      "toastType": "success"
+    },
+    {
+      "file": "src/pages/destinations/[slug].tsx",
+      "line": 97,
+      "original": "alert('Link kopyalandı!')",
+      "converted": "showToast({ type: 'info', title: Link kopyalandı! })",
+      "toastType": "info"
+    },
+    {
+      "file": "src/pages/location/[...slug].tsx",
+      "line": 195,
+      "original": "alert('Google Place ID not configured for this location')",
+      "converted": "showToast({ type: 'info', title: Google Place ID not configured for this location })",
+      "toastType": "info"
+    },
+    {
+      "file": "src/pages/location/[...slug].tsx",
+      "line": 206,
+      "original": "alert('Successfully synced with Google My Business!')",
+      "converted": "showToast({ type: 'success', title: Successfully synced with Google My Business! })",
+      "toastType": "success"
+    },
+    {
+      "file": "src/pages/location/[...slug].tsx",
+      "line": 213,
+      "original": "alert('Failed to sync with Google My Business. Please try again.')",
+      "converted": "showToast({ type: 'error', title: Failed to sync with Google My Business. Please try again. })",
+      "toastType": "error"
+    },
+    {
+      "file": "src/pages/location/[...slug].tsx",
+      "line": 222,
+      "original": "alert('TripAdvisor ID not configured for this location')",
+      "converted": "showToast({ type: 'info', title: TripAdvisor ID not configured for this location })",
+      "toastType": "info"
+    },
+    {
+      "file": "src/pages/location/[...slug].tsx",
+      "line": 233,
+      "original": "alert('Successfully synced with TripAdvisor!')",
+      "converted": "showToast({ type: 'success', title: Successfully synced with TripAdvisor! })",
+      "toastType": "success"
+    },
+    {
+      "file": "src/pages/location/[...slug].tsx",
+      "line": 240,
+      "original": "alert('Failed to sync with TripAdvisor. Please try again.')",
+      "converted": "showToast({ type: 'error', title: Failed to sync with TripAdvisor. Please try again. })",
+      "toastType": "error"
+    },
+    {
+      "file": "src/pages/home.tsx",
+      "line": 120,
+      "original": "alert(`\"${cartItem.title}\" sepete eklendi! Toplam ürün: ${getItemCount()",
+      "converted": "showInfo('${cartItem.title} sepete eklendi', 'Toplam ürün ${getItemCount(')",
+      "toastType": "info"
+    },
+    {
+      "file": "src/pages/checkout.tsx",
+      "line": 523,
+      "original": "alert('Payment failed. Please try again.')",
+      "converted": "showToast({ type: 'error', title: Payment failed. Please try again. })",
+      "toastType": "error"
+    },
+    {
+      "file": "src/pages/admin/locations.tsx",
+      "line": 184,
+      "original": "alert(err.message || 'Bulk action failed')",
+      "converted": "showToast({ type: 'error', title: err.message || 'Bulk action failed' })",
+      "toastType": "error"
+    },
+    {
+      "file": "src/pages/admin/ai-content-writer.tsx",
+      "line": 55,
+      "original": "alert('İçerik oluşturma başarısız oldu')",
+      "converted": "showToast({ type: 'error', title: İçerik oluşturma başarısız oldu })",
+      "toastType": "error"
+    },
+    {
+      "file": "src/pages/admin/v2/settings.tsx",
+      "line": 58,
+      "original": "alert('Kaydetme başarısız')",
+      "converted": "showToast({ type: 'error', title: Kaydetme başarısız })",
+      "toastType": "error"
+    },
+    {
+      "file": "src/pages/admin/v2/content.tsx",
+      "line": 63,
+      "original": "alert('Kaydetme başarısız')",
+      "converted": "showToast({ type: 'error', title: Kaydetme başarısız })",
+      "toastType": "error"
+    },
+    {
+      "file": "src/pages/admin/v2/rental-properties.tsx",
+      "line": 154,
+      "original": "alert('Mülk başarıyla silindi')",
+      "converted": "showToast({ type: 'success', title: Mülk başarıyla silindi })",
+      "toastType": "success"
+    },
+    {
+      "file": "src/pages/admin/v2/rental-properties.tsx",
+      "line": 157,
+      "original": "alert(data.error || 'Mülk silinemedi')",
+      "converted": "showToast({ type: 'error', title: data.error || 'Mülk silinemedi' })",
+      "toastType": "error"
+    },
+    {
+      "file": "src/pages/admin/v2/rental-properties.tsx",
+      "line": 161,
+      "original": "alert('Bir hata oluştu')",
+      "converted": "showToast({ type: 'error', title: Bir hata oluştu })",
+      "toastType": "error"
+    },
+    {
+      "file": "src/pages/admin/v2/all-products.tsx",
+      "line": 143,
+      "original": "alert('Ürün başarıyla silindi')",
+      "converted": "showToast({ type: 'success', title: Ürün başarıyla silindi })",
+      "toastType": "success"
+    },
+    {
+      "file": "src/pages/admin/v2/all-products.tsx",
+      "line": 147,
+      "original": "alert('Silme işlemi başarısız')",
+      "converted": "showToast({ type: 'error', title: Silme işlemi başarısız })",
+      "toastType": "error"
+    },
+    {
+      "file": "src/pages/admin/v2/all-products.tsx",
+      "line": 483,
+      "original": "alert('Ürün başarıyla eklendi')",
+      "converted": "showToast({ type: 'success', title: Ürün başarıyla eklendi })",
+      "toastType": "success"
+    },
+    {
+      "file": "src/pages/admin/v2/all-products.tsx",
+      "line": 486,
+      "original": "alert('Ekleme başarısız')",
+      "converted": "showToast({ type: 'error', title: Ekleme başarısız })",
+      "toastType": "error"
+    },
+    {
+      "file": "src/pages/admin/v2/all-products.tsx",
+      "line": 490,
+      "original": "alert('Bir hata oluştu')",
+      "converted": "showToast({ type: 'error', title: Bir hata oluştu })",
+      "toastType": "error"
+    },
+    {
+      "file": "src/pages/admin/v2/car-rentals.tsx",
+      "line": 144,
+      "original": "alert('Araç başarıyla silindi')",
+      "converted": "showToast({ type: 'success', title: Araç başarıyla silindi })",
+      "toastType": "success"
+    },
+    {
+      "file": "src/pages/admin/v2/car-rentals.tsx",
+      "line": 147,
+      "original": "alert(data.error || 'Araç silinemedi')",
+      "converted": "showToast({ type: 'error', title: data.error || 'Araç silinemedi' })",
+      "toastType": "error"
+    },
+    {
+      "file": "src/pages/admin/v2/car-rentals.tsx",
+      "line": 151,
+      "original": "alert('Bir hata oluştu')",
+      "converted": "showToast({ type: 'error', title: Bir hata oluştu })",
+      "toastType": "error"
+    },
+    {
+      "file": "src/pages/admin/v2/navigation.tsx",
+      "line": 97,
+      "original": "alert(editingMenu ? 'Menü güncellendi!' : 'Menü oluşturuldu!')",
+      "converted": "showToast({ type: 'success', title: editingMenu ? 'Menü güncellendi!' : 'Menü oluşturuldu!' })",
+      "toastType": "success"
+    },
+    {
+      "file": "src/pages/admin/v2/navigation.tsx",
+      "line": 99,
+      "original": "alert('Hata: ' + result.error)",
+      "converted": "showError('Hata', ' + result.error')",
+      "toastType": "error"
+    },
+    {
+      "file": "src/pages/admin/v2/navigation.tsx",
+      "line": 103,
+      "original": "alert('Kaydetme başarısız')",
+      "converted": "showToast({ type: 'error', title: Kaydetme başarısız })",
+      "toastType": "error"
+    },
+    {
+      "file": "src/pages/admin/v2/navigation.tsx",
+      "line": 121,
+      "original": "alert('Menü silindi')",
+      "converted": "showToast({ type: 'info', title: Menü silindi })",
+      "toastType": "info"
+    },
+    {
+      "file": "src/pages/admin/v2/navigation.tsx",
+      "line": 123,
+      "original": "alert('Hata: ' + result.error)",
+      "converted": "showError('Hata', ' + result.error')",
+      "toastType": "error"
+    },
+    {
+      "file": "src/pages/admin/v2/navigation.tsx",
+      "line": 127,
+      "original": "alert('Silme başarısız')",
+      "converted": "showToast({ type: 'error', title: Silme başarısız })",
+      "toastType": "error"
+    },
+    {
+      "file": "src/pages/register.tsx",
+      "line": 70,
+      "original": "alert('Kayıt başarılı! E-posta adresinize doğrulama linki gönderildi.')",
+      "converted": "showToast({ type: 'success', title: Kayıt başarılı! E-posta adresinize doğrulama linki gönderildi. })",
+      "toastType": "success"
+    },
+    {
+      "file": "src/pages/bookings.tsx",
+      "line": 179,
+      "original": "alert('Booking cancelled successfully. Refund will be processed within 5-7 business days.')",
+      "converted": "showToast({ type: 'success', title: Booking cancelled successfully. Refund will be processed within 5-7 business days. })",
+      "toastType": "success"
+    },
+    {
+      "file": "src/pages/bookings.tsx",
+      "line": 189,
+      "original": "alert('Failed to cancel booking. Please try again.')",
+      "converted": "showToast({ type: 'error', title: Failed to cancel booking. Please try again. })",
+      "toastType": "error"
+    },
+    {
+      "file": "src/pages/transfer-owner/auth/terms.tsx",
+      "line": 299,
+      "original": "alert('PDF indirme özelliği yakında eklenecek')",
+      "converted": "showToast({ type: 'info', title: PDF indirme özelliği yakında eklenecek })",
+      "toastType": "info"
+    },
+    {
+      "file": "src/pages/transfer-owner/vehicles/new/index.tsx",
+      "line": 142,
+      "original": "alert('Taslak başarıyla kaydedildi!')",
+      "converted": "showToast({ type: 'success', title: Taslak başarıyla kaydedildi! })",
+      "toastType": "success"
+    },
+    {
+      "file": "src/pages/transfer-owner/vehicles/new/index.tsx",
+      "line": 145,
+      "original": "alert('Taslak kaydedilemedi. Lütfen tekrar deneyin.')",
+      "converted": "showToast({ type: 'error', title: Taslak kaydedilemedi. Lütfen tekrar deneyin. })",
+      "toastType": "error"
+    },
+    {
+      "file": "src/pages/transfer-owner/vehicles/new/index.tsx",
+      "line": 211,
+      "original": "alert('Araç eklenemedi. Lütfen tekrar deneyin.')",
+      "converted": "showToast({ type: 'error', title: Araç eklenemedi. Lütfen tekrar deneyin. })",
+      "toastType": "error"
+    },
+    {
+      "file": "src/pages/experiences/[slug].tsx",
+      "line": 101,
+      "original": "alert('Link kopyalandı!')",
+      "converted": "showToast({ type: 'info', title: Link kopyalandı! })",
+      "toastType": "info"
+    },
+    {
+      "file": "src/pages/manage-booking.tsx",
+      "line": 20,
+      "original": "alert('Rezervasyon arama işlemi başlatıldı')",
+      "converted": "showToast({ type: 'info', title: Rezervasyon arama işlemi başlatıldı })",
+      "toastType": "info"
+    },
+    {
+      "file": "src/pages/booking-success.tsx",
+      "line": 78,
+      "original": "alert('Biletiniz indirilecek... (Demo için gösterim)",
+      "converted": "showInfo('Biletiniz indirilecek..', '(Demo için gösterim')",
+      "toastType": "info"
+    },
+    {
+      "file": "src/pages/booking-success.tsx",
+      "line": 90,
+      "original": "alert('Bağlantı panoya kopyalandı!')",
+      "converted": "showToast({ type: 'info', title: Bağlantı panoya kopyalandı! })",
+      "toastType": "info"
+    },
+    {
+      "file": "src/pages/cart-new.tsx",
+      "line": 74,
+      "original": "alert('Geçersiz indirim kodu! Geçerli kodlar: WELCOME10, SUMMER20, TURKEY15, NEWUSER25, HOLIDAY30')",
+      "converted": "showToast({ type: 'error', title: Geçersiz indirim kodu! Geçerli kodlar: WELCOME10, SUMMER20, TURKEY15, NEWUSER25, HOLIDAY30 })",
+      "toastType": "error"
+    }
+  ]
+}

@@ -24,8 +24,7 @@ import {
   Eye,
   Clock,
   Zap,
-  Flame } from
-'lucide-react';
+  Flame } from 'lucide-react';
 
 interface ProductImage {
   url: string;

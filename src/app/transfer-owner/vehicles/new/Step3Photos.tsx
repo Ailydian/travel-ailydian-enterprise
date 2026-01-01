@@ -3,6 +3,7 @@
 import React, { useState, useCallback } from 'react';
 import { useFormContext } from 'react-hook-form';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useToast } from '../../../../context/ToastContext';
 import {
   Upload,
   X,
@@ -60,6 +61,8 @@ interface Step3Props {
 }
 
 export default function Step3Photos({ data }: Step3Props) {
+  const { showSuccess, showError, showWarning, showInfo, showToast } = useToast();
+
   const {
     setValue,
     watch,
@@ -107,22 +110,22 @@ export default function Step3Photos({ data }: Step3Props) {
     const categoryLimit = photoCategories.find((c) => c.id === selectedCategory)?.maxPhotos || 6;
 
     if (photos.length >= MAX_TOTAL_PHOTOS) {
-      alert(`Maksimum ${MAX_TOTAL_PHOTOS} fotoğraf yükleyebilirsiniz.`);
+      showInfo('Maksimum ${MAX_TOTAL_PHOTOS} fotoğraf yükleyebilirsiniz.');
       return;
     }
 
     if (categoryPhotos.length >= categoryLimit) {
-      alert(`Bu kategori için maksimum ${categoryLimit} fotoğraf yükleyebilirsiniz.`);
+      showInfo('Bu kategori için maksimum ${categoryLimit} fotoğraf yükleyebilirsiniz.');
       return;
     }
 
     const validFiles = Array.from(files).filter((file) => {
       if (!file.type.startsWith('image/')) {
-        alert(`${file.name} geçerli bir resim dosyası değil.`);
+        showInfo('${file.name} geçerli bir resim dosyası değil.');
         return false;
       }
       if (file.size > MAX_FILE_SIZE) {
-        alert(`${file.name} çok büyük. Maksimum 5MB olmalıdır.`);
+        showInfo('${file.name} çok büyük', 'Maksimum 5MB olmalıdır.');
         return false;
       }
       return true;
@@ -210,7 +213,7 @@ export default function Step3Photos({ data }: Step3Props) {
                         : 'bg-slate-100'
                     }`}
                   >
-                    <Icon className={`w-6 h-6 ${isSelected ? 'text-white' : 'text-slate-600'}`} />
+                    <Icon className={`w-6 h-6 ${isSelected ? 'text-lydian-text-inverse' : 'text-slate-600'}`} />
                   </div>
                   <div className="flex-1">
                     <h4
@@ -336,7 +339,7 @@ export default function Step3Photos({ data }: Step3Props) {
 
                           {/* Primary Badge */}
                           {photo.isPrimary && (
-                            <div className="absolute top-2 left-2 px-2 py-1 bg-amber-500 text-white text-xs font-semibold rounded-lg flex items-center gap-1 shadow-lg">
+                            <div className="absolute top-2 left-2 px-2 py-1 bg-lydian-warning text-lydian-text-inverse text-xs font-semibold rounded-lg flex items-center gap-1 shadow-lg">
                               <Star className="w-3 h-3 fill-white" />
                               Ana Fotoğraf
                             </div>
@@ -348,7 +351,7 @@ export default function Step3Photos({ data }: Step3Props) {
                               <button
                                 type="button"
                                 onClick={() => setPrimaryPhoto(photo.id)}
-                                className="p-2 bg-amber-500 hover:bg-amber-600 text-white rounded-lg transition-colors"
+                                className="p-2 bg-lydian-warning hover:bg-amber-600 text-lydian-text-inverse rounded-lg transition-colors"
                                 title="Ana fotoğraf yap"
                               >
                                 <Star className="w-4 h-4" />
@@ -357,7 +360,7 @@ export default function Step3Photos({ data }: Step3Props) {
                             <button
                               type="button"
                               onClick={() => removePhoto(photo.id)}
-                              className="p-2 bg-red-500 hover:bg-lydian-error text-white rounded-lg transition-colors"
+                              className="p-2 bg-red-500 hover:bg-lydian-error text-lydian-text-inverse rounded-lg transition-colors"
                               title="Sil"
                             >
                               <X className="w-4 h-4" />
@@ -380,7 +383,7 @@ export default function Step3Photos({ data }: Step3Props) {
           <AlertCircle className="w-5 h-5 text-lydian-error mt-0.5" />
           <div>
             <h4 className="font-semibold text-red-900 mb-1">Fotoğraf Gerekli</h4>
-            <p className="text-sm text-red-700">{errors.photos.message?.toString()}</p>
+            <p className="text-sm text-lydian-primary-hover">{errors.photos.message?.toString()}</p>
           </div>
         </div>
       )}

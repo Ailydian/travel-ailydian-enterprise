@@ -55,7 +55,7 @@ const analyzeImageWithAI = async (imageUrl: string): Promise<ImageAnalysis> => {
       sceneryType: ['city', 'urban'],
       architectureStyle: ['modern', 'contemporary'],
       colorPalette: ['blue', 'white', 'gray'],
-      dominantColors: ['#4A90E2', '#FFFFFF', '#808080'],
+      dominantColors: ['#4A90E2', 'var(--lydian-text-inverse)', '#808080'],
       detectedObjects: ['buildings', 'hotels', 'restaurants'],
       atmosphere: 'vibrant',
       timeOfDay: 'afternoon',

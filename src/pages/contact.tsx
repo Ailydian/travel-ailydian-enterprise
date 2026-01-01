@@ -126,20 +126,16 @@ export default function Contact() {
           showFloatingElements={true}
         >
           <div className="flex flex-wrap gap-4 justify-center mt-8">
-            <FuturisticButton
-              variant="glass"
+            <FuturisticButton variant="glass"
               size="lg"
-              icon={<MessageCircle className="w-5 h-5" />}
-              iconPosition="left"
-            >
+              leftIcon={<MessageCircle className="w-5 h-5" />}
+              >
               Canlı Destek
             </FuturisticButton>
-            <FuturisticButton
-              variant="outline"
+            <FuturisticButton variant="outline"
               size="lg"
-              icon={<Phone className="w-5 h-5" />}
-              iconPosition="left"
-            >
+              leftIcon={<Phone className="w-5 h-5" />}
+              >
               Bizi Arayın
             </FuturisticButton>
           </div>
@@ -227,15 +223,12 @@ export default function Contact() {
                     />
                   </div>
 
-                  <FuturisticButton
-                    type="submit"
-                    variant="primary"
+                  <FuturisticButton type="submit"
+                    variant="gradient"
                     size="lg"
                     fullWidth
                     loading={isSubmitting}
-                    icon={<Send className="w-5 h-5" />}
-                    iconPosition="left"
-                    glow={true}
+                    leftIcon={<Send className="w-5 h-5" />}
                   >
                     {isSubmitting ? 'Gönderiliyor...' : 'Mesaj Gönder'}
                   </FuturisticButton>
@@ -277,7 +270,7 @@ export default function Contact() {
                       <div
                         className={`w-14 h-14 bg-gradient-to-br ${info.color} rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform shadow-lg`}
                       >
-                        <info.icon className="w-7 h-7 text-white" />
+                        <info.icon className="w-7 h-7 text-lydian-text-inverse" />
                       </div>
                       <div className="flex-1">
                         <h3 className="text-xl font-bold text-lydian-text-inverse mb-3">
@@ -318,7 +311,7 @@ export default function Contact() {
                 <div
                   className={`w-20 h-20 bg-gradient-to-br ${channel.color} rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform shadow-lg`}
                 >
-                  <channel.icon className="w-10 h-10 text-white" />
+                  <channel.icon className="w-10 h-10 text-lydian-text-inverse" />
                 </div>
                 <h3 className="text-2xl font-bold text-lydian-text-inverse mb-3">
                   {channel.title}

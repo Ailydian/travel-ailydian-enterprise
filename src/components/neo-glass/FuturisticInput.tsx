@@ -86,7 +86,7 @@ export const FuturisticInput: React.FC<FuturisticInputProps> = ({
         animate={{
           top: isActive ? '-10px' : '16px',
           fontSize: isActive ? '12px' : '16px',
-          color: isFocused ? glowColor : error ? '#EF4444' : '#6B7280'
+          color: isFocused ? glowColor : error ? 'var(--lydian-secondary)' : 'var(--lydian-text-tertiary)'
         }}
         transition={{ duration: 0.2 }}
         className={`

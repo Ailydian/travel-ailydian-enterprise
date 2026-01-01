@@ -23,11 +23,11 @@ import {
   VolumeX,
   Settings,
   Download,
-  Share } from
-'lucide-react';
+  Share } from 'lucide-react';
 import { useSpeechSynthesis, useSpeechRecognition } from 'react-speech-kit';
 import Webcam from 'react-webcam';
 import logger from '../../lib/logger';
+import { v4 as uuidv4 } from 'uuid';
 
 interface Message {
   id: string;
@@ -68,6 +68,7 @@ interface AIResponse {
 }
 
 const AITravelAssistant: React.FC = () => {
+  const [sessionId] = useState(() => uuidv4());
   const [messages, setMessages] = useState<Message[]>([
   {
     id: '1',
@@ -93,6 +94,7 @@ const AITravelAssistant: React.FC = () => {
   const [showCamera, setShowCamera] = useState(false);
   const [cameraRef, setCameraRef] = useState<Webcam | null>(null);
   const [conversationMode, setConversationMode] = useState<'text' | 'voice' | 'visual'>('text');
+  const [locale] = useState<'en' | 'tr' | 'de' | 'ru'>('tr'); // Default Turkish
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -107,69 +109,59 @@ const AITravelAssistant: React.FC = () => {
     }
   });
 
-  // AI Response Simulation - In real app, this would call OpenAI API
-  const generateAIResponse = async (userMessage: string, context?: any): Promise<AIResponse> => {
-    // Simulate API delay
-    await new Promise((resolve) => setTimeout(resolve, 1000 + Math.random() * 2000));
+  // Real AI Response using backend API
+  const generateAIResponse = async (userMessage: string): Promise<AIResponse> => {
+    try {
+      // Build conversation history for context
+      const conversationHistory = messages
+        .filter(m => m.type === 'user' || m.type === 'ai')
+        .map(m => ({
+          role: m.type === 'user' ? 'user' as const : 'assistant' as const,
+          content: m.content
+        }))
+        .slice(-10); // Last 10 messages for context
 
-    // Smart response generation based on keywords
-    const lowerMessage = userMessage.toLowerCase();
+      const response = await fetch('/api/ai/chat', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          message: userMessage,
+          sessionId,
+          locale,
+          conversationHistory,
+          userPreferences: {
+            // Extract from user context if available
+            language: locale,
+          },
+        }),
+      });
 
-    if (lowerMessage.includes('istanbul') || lowerMessage.includes('istanbul')) {
+      if (!response.ok) {
+        throw new Error(`API error: ${response.status}`);
+      }
+
+      const data = await response.json();
+
       return {
-        message: `İstanbul için harika bir seçim! 🏛️ Size özel olarak hazırladığım öneriler:\n\n🎯 **En Popüler Rotalar:**\n• Sultanahmet Camii → Ayasofya → Topkapı Sarayı\n• Galata Kulesi → Taksim → İstiklal Caddesi\n• Boğaziçi Turu → Çamlıca Tepesi\n\n🏨 **Premium Oteller:**\n• Çırağan Palace Kempinski (Lüks)\n• Four Seasons Sultanahmet (Tarihi)\n• Raffles Istanbul (Modern)\n\n💡 **Pro İpuçları:**\n• Müze geçidi alın (3 gün geçerli)\n• Yerel lezzetler: Balık ekmek, künefe, Türk kahvesi\n• En iyi fotoğraf zamanı: Gün batımı`,
-        confidence: 0.95,
-        suggestions: [
-        'İstanbul 3 günlük detay plan',
-        'En iyi İstanbul otelleri',
-        'İstanbul ulaşım rehberi',
-        'Yerel lezzetler haritası'],
+        message: data.message,
+        confidence: data.confidence,
+        suggestions: data.suggestions || [],
+        actions: data.actions || [],
+        personalizedRecommendations: data.recommendations || [],
+      };
+    } catch (error) {
+      logger.error('AI API call failed', error as Error);
 
-        actions: [
-        { type: 'search', label: 'İstanbul Otelleri Ara', data: { destination: 'istanbul', type: 'hotels' } },
-        { type: 'search', label: 'Müze Biletleri', data: { destination: 'istanbul', type: 'tickets' } },
-        { type: 'navigate', label: 'Harita Göster', data: { lat: 41.0082, lng: 28.9784 } }],
-
-        personalizedRecommendations: [
-        { type: 'destination', name: 'Sultanahmet Meydanı', score: 0.98, reason: 'Tarih severlerin favorisi' },
-        { type: 'hotel', name: 'Çırağan Palace', score: 0.92, reason: 'Boğaz manzaralı lüks konaklama' },
-        { type: 'activity', name: 'Boğaziçi Turu', score: 0.89, reason: 'Eşsiz manzara deneyimi' }]
-
+      // Fallback response
+      return {
+        message: 'Üzgünüm, şu anda bir teknik sorun yaşıyorum. Lütfen daha sonra tekrar deneyin.',
+        confidence: 0.0,
+        suggestions: ['Tekrar deneyin', 'Destek ile iletişim'],
+        actions: [],
       };
     }
-
-    if (lowerMessage.includes('kapadokya') || lowerMessage.includes('balon')) {
-      return {
-        message: `Kapadokya balon turu - mükemmel bir seçim! 🎈\n\n🌅 **Balon Turu Detayları:**\n• En iyi zaman: Nisan-Kasım arası\n• Uçuş süresi: 60-90 dakika\n• Fiyat aralığı: ₺800-2000\n• Rezervasyon: 48 saat önceden\n\n🏨 **Önerilen Oteller:**\n• Argos in Cappadocia (Cave Hotel)\n• Sultan Cave Suites (Manzaralı)\n• Kelebek Special Cave Hotel (Bütçe dostu)\n\n📸 **Fotoğraf İpuçları:**\n• Sunrise flight tercih edin\n• GoPro veya geniş açı lens kullanın\n• Güvenlik talimatlarına uyun`,
-        confidence: 0.93,
-        suggestions: [
-        'Balon turu rezervasyon',
-        'Kapadokya cave otel önerileri',
-        'Jeep safari + balon paketi',
-        'Kapadokya hava durumu'],
-
-        actions: [
-        { type: 'book', label: 'Balon Turu Rezerve Et', data: { service: 'balloon-tour', location: 'cappadocia' } },
-        { type: 'search', label: 'Cave Oteller', data: { destination: 'cappadocia', type: 'cave-hotels' } }]
-
-      };
-    }
-
-    // Default intelligent response
-    return {
-      message: `Anlıyorum! "${userMessage}" konusunda size yardımcı olmaktan mutluluk duyarım. 🤖\n\nSize daha spesifik öneriler verebilmem için lütfen bana şunları söyleyin:\n\n📍 **Nereyi ziyaret etmek istiyorsunuz?**\n📅 **Seyahat tarihiniz nedir?**\n💰 **Bütçeniz ne kadar?**\n👥 **Kaç kişi seyahat edeceksiniz?**\n\nBu bilgiler ile size kişiselleştirilmiş öneriler hazırlayabilirim!`,
-      confidence: 0.75,
-      suggestions: [
-      'Popüler destinasyonlar',
-      'Bütçe dostu seyahat ipuçları',
-      'Aile seyahatleri önerileri',
-      'Macera turları'],
-
-      actions: [
-      { type: 'search', label: 'Popüler Destinasyonlar', data: { type: 'popular-destinations' } },
-      { type: 'navigate', label: 'Seyahat Planlayıcı', data: { page: 'trip-planner' } }]
-
-    };
   };
 
   const handleSendMessage = async (message: string = inputMessage) => {
@@ -304,7 +296,7 @@ const AITravelAssistant: React.FC = () => {
             backgroundColor: 'white',
             borderRadius: '1rem',
             boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
-            border: '1px solid #e5e7eb',
+            border: '1px solid var(--lydian-border)',
             display: 'flex',
             flexDirection: 'column',
             overflow: 'hidden'
@@ -574,7 +566,7 @@ const AITravelAssistant: React.FC = () => {
             style={{
               width: '64px',
               height: '64px',
-              background: 'linear-gradient(to right, #9333ea, #2563eb)',
+              background: 'linear-gradient(to right, #9333ea, var(--lydian-info-hover))',
               borderRadius: '50%',
               boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
               position: 'relative',

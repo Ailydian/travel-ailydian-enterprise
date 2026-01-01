@@ -234,7 +234,7 @@ const DefaultErrorFallback: React.FC<ErrorFallbackProps> = ({
             >
               <button
                 onClick={retry}
-                className="w-full bg-gradient-to-r from-lydian-primary to-lydian-secondary text-white font-semibold py-3 px-6 rounded-lg shadow-neon hover:shadow-neon-lg transition-all duration-300"
+                className="w-full bg-gradient-to-r from-lydian-primary to-lydian-secondary text-lydian-text-inverse font-semibold py-3 px-6 rounded-lg shadow-neon hover:shadow-neon-lg transition-all duration-300"
               >
                 <ArrowPathIcon className="w-5 h-5 inline-block mr-2" />
                 Tekrar Dene {retryCount > 0 && `(${retryCount}/${maxRetries})`}

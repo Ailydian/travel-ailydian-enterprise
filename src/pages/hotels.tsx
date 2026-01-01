@@ -31,8 +31,7 @@ import {
   ArrowRight,
   FileText,
   UserCheck,
-  Sparkles } from
-'lucide-react';
+  Sparkles } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 import { FuturisticHeader } from '../components/layout/FuturisticHeader';
 import { BookingFooter } from '../components/layout/BookingFooter';
@@ -319,15 +318,12 @@ const HotelsNewPage: React.FC = () => {
               </div>
 
               <div className="mt-6 flex justify-center">
-                <FuturisticButton
-                  onClick={searchHotels}
+                <FuturisticButton onClick={searchHotels}
                   disabled={loading}
                   loading={loading}
-                  variant="primary"
+                  variant="gradient"
                   size="lg"
-                  icon={<Search className="w-5 h-5" />}
-                  iconPosition="left"
-                  glow={true}>
+                  leftIcon={<Search className="w-5 h-5" />}>
 
                   {loading ? 'Aranıyor...' : 'Otel Ara'}
                 </FuturisticButton>
@@ -483,18 +479,16 @@ const HotelsNewPage: React.FC = () => {
                   <p className="text-lydian-text-muted mb-8 text-lg">
                     Filtrelerinizi değiştirerek tekrar deneyin veya farklı bir destinasyon seçin
                   </p>
-                  <FuturisticButton
-                    onClick={() => {
+                  <FuturisticButton onClick={() => {
                       setPriceRange([0, 50000]);
                       setStarRating([]);
                       setGuestRating([0, 10]);
                       setPropertyTypes([]);
                       setSelectedAmenities([]);
                     }}
-                    variant="primary"
+                    variant="gradient"
                     size="lg"
-                    icon={<ArrowLeft className="w-5 h-5" />}
-                    iconPosition="left">
+                    leftIcon={<ArrowLeft className="w-5 h-5" />}>
 
                     Filtreleri Temizle
                   </FuturisticButton>

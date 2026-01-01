@@ -306,7 +306,7 @@ async function handler(
   }
 
   try {
-    const { from, to, passengers, isVIP, region } = req.query as any;
+    const { from, to, passengers, isVIP, region } = req.query as Partial<Record<string, string>>;
 
     logger.info('Transfer search request', { from, to, passengers, isVIP, region });
 
@@ -314,7 +314,12 @@ async function handler(
     let results = [];
 
     try {
-      const where: any = { isActive: true };
+      const where: {
+        isActive: boolean;
+        fromLocation?: { contains: string; mode: 'insensitive' };
+        toLocation?: { contains: string; mode: 'insensitive' };
+        region?: { contains: string; mode: 'insensitive' };
+      } = { isActive: true };
 
       // Location filters
       if (from) {

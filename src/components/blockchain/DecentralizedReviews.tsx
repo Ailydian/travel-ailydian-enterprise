@@ -20,8 +20,7 @@ import {
   Filter,
   X,
   Search,
-  Plus } from
-'lucide-react';
+  Plus } from 'lucide-react';
 
 interface DecentralizedReview {
   id: string;
@@ -244,7 +243,7 @@ const DecentralizedReviews: React.FC = () => {
     <Star
       key={i}
       className={`w-4 h-4 ${
-      i < rating ? 'text-yellow-500 fill-current' : 'text-lydian-text-dim'}`
+      i < rating ? 'text-lydian-warning fill-current' : 'text-lydian-text-dim'}`
       } />
 
     );
@@ -267,17 +266,17 @@ const DecentralizedReviews: React.FC = () => {
             <div className="flex items-center gap-2">
               <span className="font-semibold text-lydian-text-inverse">{review.reviewer.nickname}</span>
               {review.reviewer.verifiedTraveler &&
-              <CheckCircle className="w-4 h-4 text-green-500" />
+              <CheckCircle className="w-4 h-4 text-lydian-success" />
               }
               {review.nftProof &&
-              <Award className="w-4 h-4 text-purple-500" />
+              <Award className="w-4 h-4 text-lydian-accent-purple" />
               }
             </div>
             <div className="flex items-center gap-2 text-xs text-lydian-text-muted">
               <span>{review.reviewer.totalReviews} yorum</span>
               <span>•</span>
               <div className="flex items-center gap-1">
-                <Star className="w-3 h-3 text-yellow-500 fill-current" />
+                <Star className="w-3 h-3 text-lydian-warning fill-current" />
                 <span>{review.reviewer.reputation}</span>
               </div>
             </div>

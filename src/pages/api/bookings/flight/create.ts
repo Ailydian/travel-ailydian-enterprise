@@ -69,7 +69,15 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
       infants: 0,
     }
 
-    passengers.forEach((passenger: any) => {
+    interface PassengerInfo {
+      type: 'adult' | 'child' | 'infant';
+      firstName: string;
+      lastName: string;
+      dateOfBirth?: string;
+      passportNumber?: string;
+    }
+
+    passengers.forEach((passenger: PassengerInfo) => {
       if (passenger.type === 'adult') {
         totalPrice += parseFloat(flight.priceAdult.toString())
         passengerBreakdown.adults++
@@ -100,7 +108,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
         bookingReference: bookingRef,
         totalAmount: totalPrice,
         currency: flight.currency,
-        paymentMethod: paymentMethod as any,
+        paymentMethod: paymentMethod as 'CREDIT_CARD' | 'PAYPAL' | 'BANK_TRANSFER',
         status: BookingStatus.PENDING,
         paymentStatus: PaymentStatus.PENDING,
         guestCount: passengers.length,
