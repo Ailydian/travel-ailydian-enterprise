@@ -23,6 +23,7 @@ import LyDianEcosystemFooter from '../components/LyDianEcosystemFooter'
 import RTLWrapper from '../components/RTLWrapper'
 import Head from 'next/head'
 import '../lib/i18n' // i18n konfigürasyonunu yükle
+import { generateMultilingualSEO } from '../lib/seo'
 import '../styles/globals.css'
 import '../styles/responsive.css'
 import '../styles/lydian-theme.css'
@@ -31,27 +32,8 @@ import 'leaflet/dist/leaflet.css'
 import type { AppProps } from 'next/app'
 import type { Session } from 'next-auth'
 
-const seoConfig = {
-  title: 'Holiday.AILYDIAN - AI Destekli Turizm Platformu',
-  description: 'Yapay zeka destekli seyahat önerileri ile dünyayı keşfedin. Kişiselleştirilmiş öneriler ve güvenli rezervasyonlar.',
-  canonical: 'https://holiday.ailydian.com',
-  openGraph: {
-    type: 'website',
-    locale: 'tr_TR',
-    url: 'https://holiday.ailydian.com',
-    siteName: 'Holiday.AILYDIAN',
-    title: 'Holiday.AILYDIAN - AI Destekli Turizm Platformu',
-    description: 'Yapay zeka destekli seyahat önerileri ile dünyayı keşfedin.',
-    images: [
-      {
-        url: 'https://holiday.ailydian.com/og-image.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Holiday.AILYDIAN',
-      },
-    ],
-  },
-}
+// SEO config will be generated dynamically based on locale
+// Removed static config in favor of multilingual SEO system
 
 function MyApp({
   Component,
@@ -61,6 +43,10 @@ function MyApp({
 }) {
   const router = useRouter()
   const [loading, setLoading] = useState(false)
+
+  // Generate dynamic SEO based on current locale
+  const currentLocale = router.locale || 'tr'
+  const seoConfig = generateMultilingualSEO('/', currentLocale)
 
   useEffect(() => {
     const handleStart = () => setLoading(true)

@@ -88,15 +88,43 @@ export const ModernHeader: React.FC = () => {
     setCurrentLang(getCurrentLang());
   }, [router.locale]);
 
+  // Load preferred locale on mount and redirect if needed
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const savedLocale = localStorage.getItem('preferredLocale');
+      if (savedLocale && savedLocale !== router.locale && languages.find(l => l.code === savedLocale)) {
+        // User has a saved preference different from current locale
+        router.push(router.pathname, router.asPath, { locale: savedLocale, scroll: false });
+      }
+    }
+  }, []);
+
   const isActive = (href: string) =>
     router.pathname === href || router.pathname.startsWith(href + '/');
 
   const handleLangChange = async (lang: typeof languages[0]) => {
-    setCurrentLang(lang);
-    setLangMenuOpen(false);
+    try {
+      setCurrentLang(lang);
+      setLangMenuOpen(false);
 
-    // FIX: Actually change the language using Next.js i18n routing
-    await router.push(router.asPath, router.asPath, { locale: lang.code });
+      // REAL FIX: Change language with proper Next.js i18n routing
+      // Use pathname instead of asPath to avoid query string issues
+      const currentPath = router.pathname;
+      const currentQuery = router.query;
+
+      await router.push(
+        { pathname: currentPath, query: currentQuery },
+        undefined,
+        { locale: lang.code, scroll: false }
+      );
+
+      // Also save to localStorage for persistence
+      if (typeof window !== 'undefined') {
+        localStorage.setItem('preferredLocale', lang.code);
+      }
+    } catch (error) {
+      console.error('Language change error:', error);
+    }
   };
 
   return (
