@@ -38,6 +38,19 @@ const nextConfig = {
       'date-fns',
       'lodash',
     ],
+    // Mobile performance optimizations
+    optimizeCss: true,
+    scrollRestoration: true,
+  },
+
+  // Compiler optimizations for better mobile performance
+  compiler: {
+    // Remove console logs in production
+    removeConsole: process.env.NODE_ENV === 'production',
+    // Minify emotion CSS
+    emotion: true,
+    // React compiler optimizations
+    reactRemoveProperties: process.env.NODE_ENV === 'production',
   },
 
   // Externalize server-only packages for better performance (Next.js 15+)
@@ -201,12 +214,18 @@ const nextConfig = {
     return config;
   },
 
-  // Image optimization - Production grade
+  // Image optimization - Mobile-first, aggressive caching
   images: {
     formats: ['image/avif', 'image/webp'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
-    minimumCacheTTL: 60 * 60 * 24 * 30, // 30 days
+    minimumCacheTTL: 60 * 60 * 24 * 60, // 60 days for better mobile caching
+    // Quality settings for mobile
+    quality: 80, // Balanced quality/size
+    // Loader config for better performance
+    loader: 'default',
+    // Optimize for mobile networks
+    disableStaticImages: false,
     remotePatterns: [
       {
         protocol: 'https',

@@ -28,16 +28,27 @@ export const ModernHeader: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
   const [langMenuOpen, setLangMenuOpen] = useState(false);
 
-  // Scroll detection - stable, no jitter
+  // Scroll detection - optimized for mobile, no jitter
   useEffect(() => {
     let ticking = false;
+    let lastScrollY = 0;
+    const threshold = 30;
+
     const handleScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          setScrolled(window.scrollY > 30);
-          ticking = false;
-        });
-        ticking = true;
+      const currentScrollY = window.scrollY;
+
+      // Only update if crossed threshold to prevent unnecessary re-renders
+      if ((lastScrollY <= threshold && currentScrollY > threshold) ||
+          (lastScrollY > threshold && currentScrollY <= threshold)) {
+
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            setScrolled(currentScrollY > threshold);
+            lastScrollY = currentScrollY;
+            ticking = false;
+          });
+          ticking = true;
+        }
       }
     };
 
@@ -224,18 +235,28 @@ export const ModernHeader: React.FC = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
               onClick={() => setMobileMenuOpen(false)}
               className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 lg:hidden"
-              style={{ top: '96px' }}
+              style={{ top: '96px', willChange: 'opacity' }}
             />
 
-            {/* Menu Panel */}
+            {/* Menu Panel - iOS-style slide */}
             <motion.div
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
-              transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+              transition={{
+                type: 'spring',
+                stiffness: 400,
+                damping: 40,
+                mass: 0.8,
+              }}
               className="fixed top-24 right-0 bottom-0 w-full sm:w-80 bg-lydian-glass-dark/98 backdrop-blur-2xl border-l border-lydian-border-light/20 z-50 overflow-y-auto"
+              style={{
+                willChange: 'transform',
+                WebkitOverflowScrolling: 'touch',
+              }}
             >
               <div className="p-6 space-y-6">
                 {/* Navigation Links */}

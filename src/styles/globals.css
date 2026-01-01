@@ -10,6 +10,9 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Mobile performance optimizations */
+@import './mobile-optimizations.css';
+
 /* ============================================================================
    DESIGN SYSTEM TOKENS (Import from design-tokens.css)
    ========================================================================= */

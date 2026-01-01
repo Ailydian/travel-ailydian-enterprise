@@ -1,0 +1,201 @@
+/**
+ * Mobile Performance Optimizations
+ * Smooth scrolling, reduced motion support, touch optimization
+ */
+
+/* Enable hardware acceleration */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Smooth scrolling for iOS */
+html {
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+}
+
+/* Prevent text size adjustment on iOS */
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+/* Optimize touch targets for mobile */
+button,
+a,
+input,
+select,
+textarea {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Prevent layout shift */
+img,
+video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Optimize animations for mobile */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* GPU acceleration for transforms */
+.gpu-accelerated {
+  transform: translateZ(0);
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+/* Smooth scrolling containers */
+.smooth-scroll {
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-y: contain;
+}
+
+/* Prevent bounce effect on iOS */
+body {
+  overscroll-behavior-y: none;
+}
+
+/* Optimize backdrop blur for mobile */
+.mobile-backdrop-blur {
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  transform: translateZ(0);
+}
+
+/* Fast tap response */
+.fast-tap {
+  cursor: pointer;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+  tap-highlight-color: rgba(0, 0, 0, 0.1);
+}
+
+.fast-tap:active {
+  transform: scale(0.98);
+  transition: transform 0.1s ease;
+}
+
+/* Prevent selection on tap */
+.no-select {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Safe area insets for notched devices */
+@supports (padding: max(0px)) {
+  body {
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+
+  header {
+    padding-top: env(safe-area-inset-top);
+  }
+
+  footer {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+
+/* Dark mode optimizations */
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+}
+
+/* Reduce transparency on low-end devices */
+@media (prefers-reduced-transparency: reduce) {
+  * {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+}
+
+/* Optimize for touch devices */
+@media (hover: none) and (pointer: coarse) {
+  /* Larger touch targets */
+  button,
+  a {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Remove hover effects */
+  *:hover {
+    transition: none !important;
+  }
+}
+
+/* Loading skeleton optimization */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.skeleton {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  background: linear-gradient(90deg, #1a1a1a 25%, #2a2a2a 50%, #1a1a1a 75%);
+  background-size: 200% 100%;
+}
+
+/* Optimize fixed positioning for mobile */
+.fixed-mobile {
+  position: fixed;
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* Prevent rubber band scrolling */
+.prevent-overscroll {
+  overscroll-behavior: contain;
+}
+
+/* Native-like transitions */
+.ios-transition {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+}
+
+/* Material design ripple effect */
+.ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.ripple:active::after {
+  width: 300px;
+  height: 300px;
+}
