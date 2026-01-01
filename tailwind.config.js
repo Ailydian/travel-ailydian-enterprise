@@ -18,18 +18,18 @@ module.exports = {
         // Legacy tokens (DEPRECATED - will be removed in Phase 6)
         // Keep temporarily for backward compatibility during migration
 
-        // Extended Red Palette (Booking.com style)
+        // Extended Blue/Purple Palette (Lydian style)
         primary: {
-          50: '#FEF2F2',   // Lightest red
-          100: '#FEE2E2',
-          200: '#FECACA',
-          300: '#FCA5A5',
-          400: '#F87171',
-          500: '#EF4444',
-          600: '#DC2626',  // Main primary
-          700: '#B91C1C',
-          800: '#991B1B',
-          900: '#7F1D1D',  // Darkest red
+          50: '#EEF2FF',   // Lightest blue
+          100: '#E0E7FF',
+          200: '#C7D2FE',
+          300: '#A5B4FC',
+          400: '#818CF8',
+          500: '#667EEA',  // Main primary (indigo)
+          600: '#5568D3',  // Lydian primary
+          700: '#4C51BF',
+          800: '#434190',
+          900: '#3730A3',  // Darkest purple
         },
 
         // Neutral Grays (for text, borders, backgrounds)
@@ -89,8 +89,8 @@ module.exports = {
         'card-hover': '0 4px 16px rgba(0, 0, 0, 0.12)',
         'header': '0 2px 4px rgba(0, 0, 0, 0.06)',
         'dropdown': '0 10px 25px rgba(0, 0, 0, 0.15)',
-        'red': '0 4px 12px rgba(220, 38, 38, 0.2)',
-        'red-lg': '0 8px 24px rgba(220, 38, 38, 0.25)',
+        'primary-shadow': '0 4px 12px rgba(102, 126, 234, 0.2)',
+        'primary-shadow-lg': '0 8px 24px rgba(102, 126, 234, 0.25)',
       },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-in-out',

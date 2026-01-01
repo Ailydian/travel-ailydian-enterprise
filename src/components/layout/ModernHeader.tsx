@@ -116,15 +116,6 @@ export const ModernHeader: React.FC = () => {
 
             {/* Right Actions */}
             <div className="flex items-center gap-3">
-              {/* Search */}
-              <button
-                onClick={() => router.push('/search')}
-                className="hidden sm:flex items-center justify-center w-11 h-11 rounded-xl bg-lydian-glass-light/40 hover:bg-lydian-glass-light/60 border border-lydian-border-light/20 transition-all"
-                aria-label="Search"
-              >
-                <Search className="w-5 h-5 text-lydian-text-inverse" />
-              </button>
-
               {/* Language Switcher - Fully functional */}
               <div className="hidden md:block relative">
                 <button
@@ -182,7 +173,7 @@ export const ModernHeader: React.FC = () => {
 
               {/* Partner Button */}
               <Link href="/partner">
-                <a className="hidden lg:flex items-center gap-2 px-6 h-11 bg-gradient-to-r from-lydian-primary to-lydian-accent text-white rounded-xl font-bold text-sm hover:shadow-lg hover:shadow-lydian-primary/30 transition-all">
+                <a className="hidden lg:flex items-center gap-2 px-6 h-11 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-bold text-sm hover:shadow-lg hover:shadow-blue-600/30 transition-all">
                   Partner Ol
                 </a>
               </Link>
@@ -192,7 +183,7 @@ export const ModernHeader: React.FC = () => {
                 <a className="relative flex items-center justify-center w-11 h-11 rounded-xl bg-lydian-glass-light/40 hover:bg-lydian-glass-light/60 border border-lydian-border-light/20 transition-all">
                   <ShoppingCart className="w-5 h-5 text-lydian-text-inverse" />
                   {getItemCount() > 0 && (
-                    <span className="absolute -top-1 -right-1 min-w-[20px] h-5 px-1.5 bg-gradient-to-br from-lydian-primary to-lydian-accent text-white text-xs font-bold rounded-full flex items-center justify-center">
+                    <span className="absolute -top-1 -right-1 min-w-[20px] h-5 px-1.5 bg-gradient-to-br from-blue-600 to-purple-600 text-white text-xs font-bold rounded-full flex items-center justify-center">
                       {getItemCount()}
                     </span>
                   )}

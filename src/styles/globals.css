@@ -19,10 +19,10 @@
    CSS CUSTOM PROPERTIES (Design Tokens)
    ========================================================================= */
 :root {
-  /* Colors - AILYDIAN RED Brand */
-  --color-primary-500: #DC2626;
-  --color-primary-600: #B91C1C;
-  --color-primary-700: #991B1B;
+  /* Colors - LYDIAN BLUE/PURPLE Brand */
+  --color-primary-500: #667EEA;
+  --color-primary-600: #5568D3;
+  --color-primary-700: #4C51BF;
   
   /* Text Colors */
   --color-text-primary: #111827;
