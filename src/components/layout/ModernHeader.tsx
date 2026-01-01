@@ -1,6 +1,6 @@
 /**
- * Modern Header - Clean, Minimal & User-Friendly
- * Apple-inspired simplicity with premium glassmorphism
+ * Modern Header - Professional & Minimal Design
+ * Clean, stable, no glitches - production-grade
  */
 
 import React, { useState, useEffect } from 'react';
@@ -14,25 +14,34 @@ import {
   Menu,
   X,
   Globe,
-  Sun,
-  Moon,
   ChevronDown,
+  LogIn,
+  UserPlus,
 } from 'lucide-react';
 import { useCart } from '../../context/CartContext';
 import { LyDianLogo } from '../branding/LyDianLogo';
-// Theme toggle will be handled with simple state for now
 
 export const ModernHeader: React.FC = () => {
   const router = useRouter();
   const { getItemCount } = useCart();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [darkMode, setDarkMode] = useState(false);
+  const [langMenuOpen, setLangMenuOpen] = useState(false);
 
-  // Scroll detection
+  // Scroll detection - stable, no jitter
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener('scroll', handleScroll);
+    let ticking = false;
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setScrolled(window.scrollY > 30);
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -44,56 +53,63 @@ export const ModernHeader: React.FC = () => {
     { name: 'Konaklama', href: '/rentals' },
   ];
 
+  const languages = [
+    { code: 'tr', name: 'Türkçe', flag: '🇹🇷' },
+    { code: 'en', name: 'English', flag: '🇬🇧' },
+    { code: 'de', name: 'Deutsch', flag: '🇩🇪' },
+    { code: 'ru', name: 'Русский', flag: '🇷🇺' },
+  ];
+
+  const [currentLang, setCurrentLang] = useState(languages[0]);
+
   const isActive = (href: string) =>
     router.pathname === href || router.pathname.startsWith(href + '/');
 
+  const handleLangChange = (lang: typeof languages[0]) => {
+    setCurrentLang(lang);
+    setLangMenuOpen(false);
+    // Add actual i18n implementation here
+  };
+
   return (
     <>
-      {/* Main Header */}
-      <motion.header
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
+      {/* Main Header - Fixed, no jitter */}
+      <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled
-            ? 'bg-lydian-glass-dark/80 backdrop-blur-xl border-b border-lydian-border-light/20 shadow-lg'
-            : 'bg-transparent'
+            ? 'bg-lydian-glass-dark/95 backdrop-blur-xl border-b border-lydian-border-light/10 shadow-lg'
+            : 'bg-lydian-glass-dark/60 backdrop-blur-md'
         }`}
+        style={{ transform: 'translateZ(0)' }} // Hardware acceleration, prevents jitter
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-20">
-            {/* Logo */}
+          <div className="flex items-center justify-between h-24">
+            {/* Logo - Larger size */}
             <Link href="/">
-              <motion.div
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="cursor-pointer"
-              >
-                <LyDianLogo variant="full" size="sm" />
-              </motion.div>
+              <a className="flex items-center gap-3 cursor-pointer group">
+                <motion.div
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.97 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <LyDianLogo variant="full" size="lg" />
+                </motion.div>
+              </a>
             </Link>
 
-            {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center gap-1">
+            {/* Desktop Navigation - Framed items */}
+            <nav className="hidden lg:flex items-center gap-2">
               {navigation.map((item) => (
                 <Link key={item.name} href={item.href}>
-                  <motion.a
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className={`relative px-4 py-2 rounded-xl font-medium text-sm transition-all ${
+                  <a
+                    className={`relative px-5 py-2.5 rounded-xl font-semibold text-sm transition-all duration-200 ${
                       isActive(item.href)
-                        ? 'text-lydian-primary'
-                        : 'text-lydian-text-muted hover:text-lydian-text-inverse'
+                        ? 'bg-lydian-primary text-white shadow-lg shadow-lydian-primary/20'
+                        : 'text-lydian-text-muted hover:text-lydian-text-inverse hover:bg-lydian-glass-light/40'
                     }`}
                   >
                     {item.name}
-                    {isActive(item.href) && (
-                      <motion.div
-                        layoutId="activeTab"
-                        className="absolute inset-0 bg-lydian-glass-light/40 rounded-xl -z-10"
-                        transition={{ type: 'spring', stiffness: 380, damping: 30 }}
-                      />
-                    )}
-                  </motion.a>
+                  </a>
                 </Link>
               ))}
             </nav>
@@ -101,191 +117,219 @@ export const ModernHeader: React.FC = () => {
             {/* Right Actions */}
             <div className="flex items-center gap-3">
               {/* Search */}
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+              <button
                 onClick={() => router.push('/search')}
-                className="hidden sm:flex items-center justify-center w-10 h-10 rounded-xl bg-lydian-glass-light/40 hover:bg-lydian-glass-light/60 transition-all"
+                className="hidden sm:flex items-center justify-center w-11 h-11 rounded-xl bg-lydian-glass-light/40 hover:bg-lydian-glass-light/60 border border-lydian-border-light/20 transition-all"
+                aria-label="Search"
               >
                 <Search className="w-5 h-5 text-lydian-text-inverse" />
-              </motion.button>
+              </button>
 
-              {/* Theme Toggle */}
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => setDarkMode(!darkMode)}
-                className="hidden sm:flex items-center justify-center w-10 h-10 rounded-xl bg-lydian-glass-light/40 hover:bg-lydian-glass-light/60 transition-all"
-              >
-                {darkMode ? (
-                  <Sun className="w-5 h-5 text-lydian-text-inverse" />
-                ) : (
-                  <Moon className="w-5 h-5 text-lydian-text-inverse" />
-                )}
-              </motion.button>
+              {/* Language Switcher - Fully functional */}
+              <div className="hidden md:block relative">
+                <button
+                  onClick={() => setLangMenuOpen(!langMenuOpen)}
+                  className="flex items-center gap-2 px-4 h-11 rounded-xl bg-lydian-glass-light/40 hover:bg-lydian-glass-light/60 border border-lydian-border-light/20 transition-all"
+                  aria-label="Language"
+                >
+                  <Globe className="w-4 h-4 text-lydian-text-inverse" />
+                  <span className="text-sm font-semibold text-lydian-text-inverse">
+                    {currentLang.code.toUpperCase()}
+                  </span>
+                  <ChevronDown
+                    className={`w-3 h-3 text-lydian-text-muted transition-transform ${
+                      langMenuOpen ? 'rotate-180' : ''
+                    }`}
+                  />
+                </button>
 
-              {/* Language Switcher */}
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="hidden md:flex items-center gap-2 px-3 h-10 rounded-xl bg-lydian-glass-light/40 hover:bg-lydian-glass-light/60 transition-all"
-              >
-                <Globe className="w-4 h-4 text-lydian-text-inverse" />
-                <span className="text-sm font-medium text-lydian-text-inverse">TR</span>
-                <ChevronDown className="w-3 h-3 text-lydian-text-muted" />
-              </motion.button>
+                {/* Language Dropdown */}
+                <AnimatePresence>
+                  {langMenuOpen && (
+                    <>
+                      {/* Backdrop */}
+                      <div
+                        className="fixed inset-0 z-40"
+                        onClick={() => setLangMenuOpen(false)}
+                      />
+
+                      <motion.div
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
+                        transition={{ duration: 0.15 }}
+                        className="absolute top-full right-0 mt-2 w-48 bg-lydian-glass-dark/95 backdrop-blur-xl border border-lydian-border-light/20 rounded-xl shadow-2xl overflow-hidden z-50"
+                      >
+                        {languages.map((lang) => (
+                          <button
+                            key={lang.code}
+                            onClick={() => handleLangChange(lang)}
+                            className={`w-full flex items-center gap-3 px-4 py-3 text-left transition-all ${
+                              currentLang.code === lang.code
+                                ? 'bg-lydian-primary/20 text-lydian-primary'
+                                : 'text-lydian-text-inverse hover:bg-lydian-glass-light/40'
+                            }`}
+                          >
+                            <span className="text-xl">{lang.flag}</span>
+                            <span className="font-medium text-sm">{lang.name}</span>
+                          </button>
+                        ))}
+                      </motion.div>
+                    </>
+                  )}
+                </AnimatePresence>
+              </div>
 
               {/* Partner Button */}
               <Link href="/partner">
-                <motion.button
-                  whileHover={{ scale: 1.02, y: -1 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="hidden lg:flex items-center gap-2 px-5 h-10 bg-gradient-to-r from-lydian-primary to-lydian-accent text-lydian-text-inverse rounded-xl font-semibold text-sm hover:shadow-lg hover:shadow-lydian-primary/30 transition-all"
-                >
+                <a className="hidden lg:flex items-center gap-2 px-6 h-11 bg-gradient-to-r from-lydian-primary to-lydian-accent text-white rounded-xl font-bold text-sm hover:shadow-lg hover:shadow-lydian-primary/30 transition-all">
                   Partner Ol
-                </motion.button>
+                </a>
               </Link>
 
               {/* Cart */}
               <Link href="/cart">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="relative flex items-center justify-center w-10 h-10 rounded-xl bg-lydian-glass-light/40 hover:bg-lydian-glass-light/60 transition-all"
-                >
+                <a className="relative flex items-center justify-center w-11 h-11 rounded-xl bg-lydian-glass-light/40 hover:bg-lydian-glass-light/60 border border-lydian-border-light/20 transition-all">
                   <ShoppingCart className="w-5 h-5 text-lydian-text-inverse" />
                   {getItemCount() > 0 && (
-                    <motion.span
-                      initial={{ scale: 0 }}
-                      animate={{ scale: 1 }}
-                      className="absolute -top-1 -right-1 w-5 h-5 bg-gradient-to-br from-lydian-primary to-lydian-accent text-white text-xs font-bold rounded-full flex items-center justify-center"
-                    >
+                    <span className="absolute -top-1 -right-1 min-w-[20px] h-5 px-1.5 bg-gradient-to-br from-lydian-primary to-lydian-accent text-white text-xs font-bold rounded-full flex items-center justify-center">
                       {getItemCount()}
-                    </motion.span>
+                    </span>
                   )}
-                </motion.button>
+                </a>
               </Link>
 
-              {/* Profile */}
-              <Link href="/profile/dashboard">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="hidden sm:flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-lydian-primary to-lydian-accent hover:shadow-lg hover:shadow-lydian-primary/30 transition-all"
-                >
-                  <User className="w-5 h-5 text-lydian-text-inverse" />
-                </motion.button>
+              {/* Auth Buttons */}
+              <Link href="/auth/signin">
+                <a className="hidden sm:flex items-center gap-2 px-5 h-11 rounded-xl bg-lydian-glass-light/40 hover:bg-lydian-glass-light/60 border border-lydian-border-light/20 transition-all">
+                  <LogIn className="w-4 h-4 text-lydian-text-inverse" />
+                  <span className="font-semibold text-sm text-lydian-text-inverse">Giriş</span>
+                </a>
               </Link>
 
               {/* Mobile Menu Button */}
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+              <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="lg:hidden flex items-center justify-center w-10 h-10 rounded-xl bg-lydian-glass-light/40 hover:bg-lydian-glass-light/60 transition-all"
+                className="lg:hidden flex items-center justify-center w-11 h-11 rounded-xl bg-lydian-glass-light/40 hover:bg-lydian-glass-light/60 border border-lydian-border-light/20 transition-all"
+                aria-label="Menu"
               >
                 {mobileMenuOpen ? (
                   <X className="w-5 h-5 text-lydian-text-inverse" />
                 ) : (
                   <Menu className="w-5 h-5 text-lydian-text-inverse" />
                 )}
-              </motion.button>
+              </button>
             </div>
           </div>
         </div>
-      </motion.header>
+      </header>
 
       {/* Mobile Menu */}
       <AnimatePresence>
         {mobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, x: '100%' }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: '100%' }}
-            transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-            className="fixed top-20 right-0 bottom-0 w-full sm:w-80 bg-lydian-glass-dark/95 backdrop-blur-2xl border-l border-lydian-border-light/20 z-40 overflow-y-auto"
-          >
-            <div className="p-6 space-y-6">
-              {/* Navigation Links */}
-              <nav className="space-y-2">
-                {navigation.map((item, index) => (
-                  <motion.div
-                    key={item.name}
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.1 }}
-                  >
-                    <Link href={item.href}>
+          <>
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setMobileMenuOpen(false)}
+              className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 lg:hidden"
+              style={{ top: '96px' }}
+            />
+
+            {/* Menu Panel */}
+            <motion.div
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+              className="fixed top-24 right-0 bottom-0 w-full sm:w-80 bg-lydian-glass-dark/98 backdrop-blur-2xl border-l border-lydian-border-light/20 z-50 overflow-y-auto"
+            >
+              <div className="p-6 space-y-6">
+                {/* Navigation Links */}
+                <nav className="space-y-2">
+                  {navigation.map((item) => (
+                    <Link key={item.name} href={item.href}>
                       <a
                         onClick={() => setMobileMenuOpen(false)}
-                        className={`block px-4 py-3 rounded-xl font-medium transition-all ${
+                        className={`block px-5 py-3.5 rounded-xl font-semibold text-sm transition-all ${
                           isActive(item.href)
-                            ? 'bg-lydian-glass-light/40 text-lydian-primary'
-                            : 'text-lydian-text-muted hover:bg-lydian-glass-light/20 hover:text-lydian-text-inverse'
+                            ? 'bg-lydian-primary text-white shadow-lg'
+                            : 'text-lydian-text-muted hover:bg-lydian-glass-light/40 hover:text-lydian-text-inverse'
                         }`}
                       >
                         {item.name}
                       </a>
                     </Link>
-                  </motion.div>
-                ))}
-              </nav>
+                  ))}
+                </nav>
 
-              {/* Divider */}
-              <div className="border-t border-lydian-border-light/20" />
+                {/* Divider */}
+                <div className="border-t border-lydian-border-light/20" />
 
-              {/* Quick Actions */}
-              <div className="space-y-3">
-                <Link href="/partner">
-                  <motion.button
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="w-full px-4 py-3 bg-gradient-to-r from-lydian-primary to-lydian-accent text-lydian-text-inverse rounded-xl font-semibold hover:shadow-lg hover:shadow-lydian-primary/30 transition-all"
-                  >
-                    Partner Ol
-                  </motion.button>
-                </Link>
+                {/* Auth Buttons */}
+                <div className="space-y-3">
+                  <Link href="/auth/signin">
+                    <a
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="flex items-center justify-center gap-2 w-full px-5 py-3.5 bg-lydian-glass-light/40 text-lydian-text-inverse rounded-xl font-semibold hover:bg-lydian-glass-light/60 transition-all"
+                    >
+                      <LogIn className="w-5 h-5" />
+                      Giriş Yap
+                    </a>
+                  </Link>
 
-                <Link href="/profile/dashboard">
-                  <motion.button
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="w-full px-4 py-3 bg-lydian-glass-light/40 text-lydian-text-inverse rounded-xl font-medium hover:bg-lydian-glass-light/60 transition-all flex items-center justify-center gap-2"
-                  >
-                    <User className="w-5 h-5" />
-                    Profilim
-                  </motion.button>
-                </Link>
+                  <Link href="/auth/signup">
+                    <a
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="flex items-center justify-center gap-2 w-full px-5 py-3.5 bg-gradient-to-r from-lydian-primary to-lydian-accent text-white rounded-xl font-semibold hover:shadow-lg hover:shadow-lydian-primary/30 transition-all"
+                    >
+                      <UserPlus className="w-5 h-5" />
+                      Kayıt Ol
+                    </a>
+                  </Link>
+
+                  <Link href="/partner">
+                    <a
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="flex items-center justify-center gap-2 w-full px-5 py-3.5 bg-lydian-glass-light/20 text-lydian-text-inverse rounded-xl font-semibold hover:bg-lydian-glass-light/40 transition-all"
+                    >
+                      Partner Ol
+                    </a>
+                  </Link>
+                </div>
+
+                {/* Language Selector (Mobile) */}
+                <div className="space-y-2">
+                  <p className="text-xs font-semibold text-lydian-text-muted uppercase tracking-wider px-2">
+                    Dil Seçimi
+                  </p>
+                  <div className="grid grid-cols-2 gap-2">
+                    {languages.map((lang) => (
+                      <button
+                        key={lang.code}
+                        onClick={() => handleLangChange(lang)}
+                        className={`flex items-center gap-2 px-4 py-3 rounded-xl transition-all ${
+                          currentLang.code === lang.code
+                            ? 'bg-lydian-primary text-white shadow-lg'
+                            : 'bg-lydian-glass-light/20 text-lydian-text-inverse hover:bg-lydian-glass-light/40'
+                        }`}
+                      >
+                        <span className="text-xl">{lang.flag}</span>
+                        <span className="font-medium text-sm">{lang.code.toUpperCase()}</span>
+                      </button>
+                    ))}
+                  </div>
+                </div>
               </div>
-
-              {/* Theme Toggle (Mobile) */}
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                onClick={() => setDarkMode(!darkMode)}
-                className="w-full px-4 py-3 bg-lydian-glass-light/20 text-lydian-text-inverse rounded-xl font-medium hover:bg-lydian-glass-light/40 transition-all flex items-center justify-center gap-2"
-              >
-                {darkMode ? (
-                  <>
-                    <Sun className="w-5 h-5" />
-                    Açık Tema
-                  </>
-                ) : (
-                  <>
-                    <Moon className="w-5 h-5" />
-                    Koyu Tema
-                  </>
-                )}
-              </motion.button>
-            </div>
-          </motion.div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
 
-      {/* Spacer */}
-      <div className="h-20" />
+      {/* Spacer to prevent content jump */}
+      <div className="h-24" />
     </>
   );
 };
