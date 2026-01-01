@@ -17,7 +17,7 @@ const nextConfig = {
   i18n: {
     locales: ['tr', 'en', 'de', 'ru', 'ar', 'fa', 'fr', 'el'],
     defaultLocale: 'tr',
-    localeDetection: false,
+    localeDetection: true, // Enable automatic locale detection
   },
 
   // Fix workspace root detection issue
