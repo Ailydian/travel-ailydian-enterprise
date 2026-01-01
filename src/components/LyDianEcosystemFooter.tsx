@@ -30,67 +30,175 @@ interface SubdomainInfo {
 
 const ALL_AILYDIAN_SUBDOMAINS: SubdomainInfo[] = [
   {
-    name: "Travel AI",
-    url: "https://holiday.ailydian.com",
-    svgIcon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg>',
-    description: "Akıllı Seyahat & Transfer Platformu",
-    shortDesc: "AI Transfer",
-    color: "var(--lydian-info)",
-    gradient: "from-blue-500 to-cyan-500"
+    name: "AILYDIAN",
+    url: "https://www.ailydian.com/",
+    svgIcon: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v12M6 12h12"/></svg>',
+    description: "Main AI Platform",
+    shortDesc: "AI Platform",
+    color: "#667EEA",
+    gradient: "from-indigo-500 to-purple-500"
+  },
+  {
+    name: "OS AI",
+    url: "https://os.ailydian.com/tr",
+    svgIcon: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>',
+    description: "Operating System",
+    shortDesc: "AI OS",
+    color: "#8B5CF6",
+    gradient: "from-violet-500 to-purple-500"
   },
   {
     name: "Voice AI",
-    url: "https://voice.lydian.com",
-    svgIcon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg>',
-    description: "Ses Teknolojisi - TTS & STT",
-    shortDesc: "Türkçe Ses",
-    color: "var(--lydian-accent-purple)",
+    url: "https://voice.ailydian.com/",
+    svgIcon: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/></svg>',
+    description: "Voice Technology",
+    shortDesc: "Voice AI",
+    color: "#A855F7",
     gradient: "from-purple-500 to-pink-500"
   },
   {
-    name: "Oto AI",
-    url: "https://otoai.lydian.com",
-    svgIcon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg>',
-    description: "Otonom Araç AI Sistemleri",
-    shortDesc: "Otonom Araç",
-    color: "var(--lydian-success)",
-    gradient: "from-green-500 to-emerald-500"
+    name: "Travel AI",
+    url: "https://travel.ailydian.com/",
+    svgIcon: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg>',
+    description: "Travel Platform",
+    shortDesc: "Travel",
+    color: "#3B82F6",
+    gradient: "from-blue-500 to-cyan-500"
+  },
+  {
+    name: "Video AI",
+    url: "https://video.ailydian.com/",
+    svgIcon: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>',
+    description: "Video Processing",
+    shortDesc: "Video AI",
+    color: "#EC4899",
+    gradient: "from-pink-500 to-rose-500"
+  },
+  {
+    name: "Borsa AI",
+    url: "https://borsa.ailydian.com/",
+    svgIcon: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>',
+    description: "Stock Market AI",
+    shortDesc: "Finance",
+    color: "#10B981",
+    gradient: "from-emerald-500 to-teal-500"
   },
   {
     name: "Mimar AI",
-    url: "https://mimar.lydian.com",
-    svgIcon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="20" x="4" y="2" rx="2" ry="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M12 6h.01"/><path d="M12 10h.01"/><path d="M12 14h.01"/><path d="M16 10h.01"/><path d="M16 14h.01"/><path d="M8 10h.01"/><path d="M8 14h.01"/></svg>',
-    description: "AI Destekli Mimari Tasarım",
-    shortDesc: "Akıllı Mimari",
-    color: "#14b8a6",
+    url: "https://mimar.ailydian.com/",
+    svgIcon: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="16" height="20" x="4" y="2" rx="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01M16 6h.01M12 6h.01"/></svg>',
+    description: "Architecture AI",
+    shortDesc: "Architecture",
+    color: "#14B8A6",
     gradient: "from-teal-500 to-cyan-500"
   },
   {
+    name: "Oto AI",
+    url: "https://otoai.ailydian.com/",
+    svgIcon: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg>',
+    description: "Autonomous Vehicle",
+    shortDesc: "Auto AI",
+    color: "#F59E0B",
+    gradient: "from-amber-500 to-orange-500"
+  },
+  {
     name: "Tarım AI",
-    url: "https://tarim.lydian.com",
-    svgIcon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>',
-    description: "Akıllı Tarım Çözümleri",
-    shortDesc: "Precision Ag",
-    color: "#22c55e",
+    url: "https://tarim.ailydian.com/",
+    svgIcon: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>',
+    description: "Agriculture AI",
+    shortDesc: "AgTech",
+    color: "#22C55E",
     gradient: "from-lime-500 to-green-500"
   },
   {
     name: "Turkey AI",
-    url: "https://turkey.lydian.com",
-    svgIcon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8"/><path d="M15 18h-5"/><path d="M10 6h8v4h-8V6Z"/></svg>',
-    description: "Seyahat Deneyiminin Geleceği - Sadece Konuşun",
-    shortDesc: "Sadece Konuşun",
-    color: "var(--lydian-secondary)",
-    gradient: "from-red-500 to-rose-500"
+    url: "https://turkey.ailydian.com/",
+    svgIcon: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8M15 18h-5M10 6h8v4h-8V6Z"/></svg>',
+    description: "Turkey Travel",
+    shortDesc: "Turkey",
+    color: "#EF4444",
+    gradient: "from-red-500 to-pink-500"
   },
   {
-    name: "Borsa AI",
-    url: "https://borsa.lydian.com",
-    svgIcon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>',
-    description: "Borsa AI",
-    shortDesc: "Borsa AI",
-    color: "#6366f1",
-    gradient: "from-indigo-500 to-blue-500"
+    name: "Oyun AI",
+    url: "https://oyun.ailydian.com/",
+    svgIcon: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="6" y1="12" x2="10" y2="12"/><line x1="8" y1="10" x2="8" y2="14"/><line x1="15" y1="13" x2="15.01" y2="13"/><line x1="18" y1="11" x2="18.01" y2="11"/><rect x="2" y="6" width="20" height="12" rx="2"/></svg>',
+    description: "Gaming AI",
+    shortDesc: "Gaming",
+    color: "#8B5CF6",
+    gradient: "from-purple-500 to-indigo-500"
+  },
+  {
+    name: "Medical AI",
+    url: "https://medical.ailydian.com/",
+    svgIcon: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>',
+    description: "Healthcare AI",
+    shortDesc: "Medical",
+    color: "#06B6D4",
+    gradient: "from-cyan-500 to-blue-500"
+  },
+  {
+    name: "Agent AI",
+    url: "https://agent.ailydian.com/",
+    svgIcon: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>',
+    description: "AI Agents",
+    shortDesc: "Agents",
+    color: "#7C3AED",
+    gradient: "from-violet-500 to-purple-500"
+  },
+  {
+    name: "Payream",
+    url: "https://www.payream.xyz/",
+    svgIcon: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>',
+    description: "Payment Platform",
+    shortDesc: "Payment",
+    color: "#F97316",
+    gradient: "from-orange-500 to-red-500"
+  },
+  {
+    name: "Blockchain",
+    url: "https://blockchain.ailydian.com/dashboard",
+    svgIcon: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="8" y="8" width="8" height="8" rx="1"/><path d="M4 10a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2M14 20a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2"/></svg>',
+    description: "Blockchain Platform",
+    shortDesc: "Blockchain",
+    color: "#FCD34D",
+    gradient: "from-yellow-500 to-amber-500"
+  },
+  {
+    name: "News AI",
+    url: "https://newsai.earth/tr",
+    svgIcon: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="18" rx="2"/><path d="M7 7h10M7 12h10M7 17h6"/></svg>',
+    description: "AI News Platform",
+    shortDesc: "News",
+    color: "#14B8A6",
+    gradient: "from-teal-500 to-emerald-500"
+  },
+  {
+    name: "Atty AI",
+    url: "https://atty.ailydian.com/",
+    svgIcon: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>',
+    description: "Legal AI Assistant",
+    shortDesc: "Legal",
+    color: "#6366F1",
+    gradient: "from-indigo-500 to-violet-500"
+  },
+  {
+    name: "Median",
+    url: "https://median.ailydian.com/en",
+    svgIcon: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"/></svg>',
+    description: "Analytics Platform",
+    shortDesc: "Analytics",
+    color: "#10B981",
+    gradient: "from-emerald-500 to-green-500"
+  },
+  {
+    name: "Medi AI",
+    url: "https://medi.ailydian.com/tr",
+    svgIcon: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>',
+    description: "Medical Intelligence",
+    shortDesc: "Med AI",
+    color: "#EC4899",
+    gradient: "from-pink-500 to-rose-500"
   }
 ];
 

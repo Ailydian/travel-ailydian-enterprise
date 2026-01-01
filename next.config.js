@@ -47,8 +47,6 @@ const nextConfig = {
   compiler: {
     // Remove console logs in production
     removeConsole: process.env.NODE_ENV === 'production',
-    // Minify emotion CSS
-    emotion: true,
     // React compiler optimizations
     reactRemoveProperties: process.env.NODE_ENV === 'production',
   },
