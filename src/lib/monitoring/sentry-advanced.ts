@@ -243,13 +243,16 @@ export function trackMetric(
 
 /**
  * Increment counter metric
+ * Note: Using metrics.distribution instead of deprecated metrics.increment
  */
 export function incrementCounter(
   name: string,
   value: number = 1,
   tags?: Record<string, string>
 ): void {
-  Sentry.metrics.increment(name, value, {
+  // Use distribution metric instead of increment (Sentry v8 compatible)
+  Sentry.metrics.distribution(name, value, {
+    unit: 'none',
     tags,
   });
 }

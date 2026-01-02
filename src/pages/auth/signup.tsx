@@ -1,3 +1,23 @@
+/**
+ * Sign Up Page - Production Ready
+ *
+ * Features:
+ * - ModernHeader integration
+ * - Clean glassmorphism design
+ * - User registration with validation
+ * - Password strength validation
+ * - Form validation
+ * - Error handling
+ * - Loading states
+ * - Terms acceptance
+ * - Success state with redirect
+ * - Responsive design (mobile-first)
+ * - i18n ready
+ * - Lydian design system compliant
+ *
+ * NO NeoHero, NO FuturisticCard - Simple, stable, production-grade
+ */
+
 import React, { useState } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
@@ -12,9 +32,10 @@ import {
   ArrowRight,
   AlertCircle,
   CheckCircle,
-  ArrowLeft
 } from 'lucide-react';
-import { NeoHero, FuturisticCard, FuturisticButton, FuturisticInput } from '../../components/neo-glass';
+import { ModernHeader } from '@/components/layout/ModernHeader';
+import { useTranslation } from 'next-i18next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 interface FormData {
   name: string;
@@ -26,6 +47,7 @@ interface FormData {
 
 const SignUp: React.FC = () => {
   const router = useRouter();
+  const { t } = useTranslation('common');
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -37,7 +59,7 @@ const SignUp: React.FC = () => {
     email: '',
     password: '',
     confirmPassword: '',
-    termsAccepted: false
+    termsAccepted: false,
   });
 
   const [errors, setErrors] = useState<Partial<FormData>>({});
@@ -88,13 +110,13 @@ const SignUp: React.FC = () => {
       const response = await fetch('/api/auth/register', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify({
           name: formData.name,
           email: formData.email,
-          password: formData.password
-        })
+          password: formData.password,
+        }),
       });
 
       const data = await response.json();
@@ -107,7 +129,6 @@ const SignUp: React.FC = () => {
       setTimeout(() => {
         router.push('/auth/signin');
       }, 2000);
-
     } catch (err: any) {
       setError(err.message || 'Hesap oluşturulurken bir hata oluştu');
     } finally {
@@ -115,36 +136,30 @@ const SignUp: React.FC = () => {
     }
   };
 
+  // Success State
   if (success) {
     return (
       <>
         <Head>
           <title>Kayıt Başarılı - AILYDIAN Holiday</title>
         </Head>
-        <NeoHero
-          title=""
-          gradient="cosmic"
-          height="100vh"
-          showFloatingElements={true}
-          overlayOpacity={0.5}
-        >
-          <div className="absolute inset-0 flex items-center justify-center p-4">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              className="bg-lydian-glass-light backdrop-blur-xl rounded-3xl border border-lydian-border-light/20 p-8 max-w-md w-full text-center"
-            >
-              <div className="w-16 h-16 bg-lydian-success/20 rounded-full flex items-center justify-center mx-auto mb-4 border border-lydian-success/30">
-                <CheckCircle className="w-8 h-8 text-lydian-success" />
-              </div>
-              <h2 className="text-2xl font-bold text-lydian-text-inverse mb-2">Hesabınız Oluşturuldu!</h2>
-              <p className="text-lydian-text-inverse/70 mb-6">
-                Giriş sayfasına yönlendiriliyorsunuz...
-              </p>
-              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-lydian-text-inverse mx-auto"></div>
-            </motion.div>
-          </div>
-        </NeoHero>
+
+        <ModernHeader />
+
+        <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-purple-900 pt-24 flex items-center justify-center p-4">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-8 max-w-md w-full text-center"
+          >
+            <div className="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-4 border border-green-500/30">
+              <CheckCircle className="w-8 h-8 text-green-400" />
+            </div>
+            <h2 className="text-2xl font-bold text-white mb-2">Hesabınız Oluşturuldu!</h2>
+            <p className="text-white/70 mb-6">Giriş sayfasına yönlendiriliyorsunuz...</p>
+            <div className="w-8 h-8 border-2 border-white/30 border-t-white rounded-full animate-spin mx-auto"></div>
+          </motion.div>
+        </div>
       </>
     );
   }
@@ -157,195 +172,230 @@ const SignUp: React.FC = () => {
         <meta name="robots" content="noindex, nofollow" />
       </Head>
 
-      {/* NeoHero as full-height background */}
-      <NeoHero
-        title=""
-        gradient="cosmic"
-        height="100vh"
-        showFloatingElements={true}
-        overlayOpacity={0.5}
-      >
-        {/* Return to Home Button */}
-        <Link
-          href="/"
-          className="fixed top-6 left-6 z-50 flex items-center gap-2 px-4 py-2 bg-lydian-glass-light backdrop-blur-xl rounded-xl border border-lydian-border-light/20 text-lydian-text-inverse hover:bg-lydian-glass-medium transition-all duration-200"
-        >
-          <ArrowLeft className="w-4 h-4" />
-          <span className="font-medium">Ana Sayfaya Dön</span>
-        </Link>
+      {/* Modern Header */}
+      <ModernHeader />
 
-        {/* Centered Form Container */}
-        <div className="absolute inset-0 flex items-center justify-center px-4 py-12 overflow-y-auto">
-          <div className="max-w-md w-full my-12">
-            {/* Header */}
-            <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="text-center mb-8"
-            >
-              <Link href="/" className="inline-block mb-6">
-                <div className="flex items-center justify-center space-x-3">
-                  <div className="w-12 h-12 bg-gradient-to-r from-lydian-primary to-lydian-primary-dark rounded-xl flex items-center justify-center">
-                    <span className="text-lydian-text-inverse font-bold text-xl">A</span>
-                  </div>
-                  <div>
-                    <h1 className="text-2xl font-bold text-lydian-text-inverse">AILYDIAN Holiday</h1>
-                    <p className="text-xs text-lydian-text-inverse/70">AI-Powered Enterprise</p>
-                  </div>
+      {/* Main Container - Gradient Background */}
+      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-purple-900 pt-24">
+        <div className="max-w-md mx-auto px-4 py-12">
+          {/* Logo & Title */}
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="text-center mb-8"
+          >
+            <Link href="/">
+              <a className="inline-flex items-center gap-3 mb-6 group">
+                <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-purple-600 rounded-2xl flex items-center justify-center shadow-xl group-hover:shadow-2xl transition-shadow">
+                  <span className="text-white font-bold text-2xl">A</span>
                 </div>
-              </Link>
+                <div className="text-left">
+                  <h1 className="text-2xl font-bold text-white">AILYDIAN Holiday</h1>
+                  <p className="text-sm text-white/70">AI-Powered Travel</p>
+                </div>
+              </a>
+            </Link>
 
-              <h2 className="text-3xl font-bold text-lydian-text-inverse mb-2">Hesap Oluştur</h2>
-              <p className="text-lydian-text-inverse/80">Seyahat maceranıza bugün başlayın</p>
-            </motion.div>
+            <h2 className="text-3xl font-bold text-white mb-2">Hesap Oluştur</h2>
+            <p className="text-white/80">Seyahat maceranıza bugün başlayın</p>
+          </motion.div>
 
-            {/* Main Form Card */}
-            <FuturisticCard
-              title=""
-              price=""
-              categoryColor="var(--lydian-primary)"
-            >
+          {/* Form Card - Glassmorphism */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-8 shadow-2xl"
+          >
+            {/* Error Message */}
+            {error && (
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1 }}
-                className="p-8"
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                className="mb-6 p-4 bg-red-500/20 border border-red-500/30 rounded-xl flex items-center gap-3"
               >
-                {/* Error Message */}
-                {error && (
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    className="mb-6 p-4 bg-lydian-error/20 backdrop-blur-xl border border-lydian-error/30 rounded-xl flex items-center gap-3"
-                  >
-                    <AlertCircle className="w-5 h-5 text-lydian-error" />
-                    <p className="text-lydian-error-lighter text-sm">{error}</p>
-                  </motion.div>
-                )}
+                <AlertCircle className="w-5 h-5 text-red-300 flex-shrink-0" />
+                <p className="text-red-300 text-sm">{error}</p>
+              </motion.div>
+            )}
 
-                {/* Registration Form */}
-                <form onSubmit={onSubmit} className="space-y-5">
-                  {/* Name Field */}
-                  <FuturisticInput
+            {/* Registration Form */}
+            <form onSubmit={onSubmit} className="space-y-5">
+              {/* Name Field */}
+              <div>
+                <label htmlFor="name" className="block text-sm font-medium text-white/80 mb-2">
+                  Ad ve Soyad
+                </label>
+                <div className="relative">
+                  <User className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-white/40 pointer-events-none" />
+                  <input
+                    id="name"
                     type="text"
-                    label="Ad ve Soyad"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    icon={<User className="w-5 h-5" />}
-                    error={errors.name}
-                    required
-                    glowColor="var(--lydian-primary)"
+                    className="w-full pl-12 pr-4 py-3 bg-white/5 border border-white/20 rounded-xl text-white placeholder-white/40 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/50 transition-all outline-none"
+                    placeholder="John Doe"
                   />
+                </div>
+                {errors.name && <p className="mt-1 text-sm text-red-300">{errors.name}</p>}
+              </div>
 
-                  {/* Email Field */}
-                  <FuturisticInput
+              {/* Email Field */}
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium text-white/80 mb-2">
+                  Email Adresi
+                </label>
+                <div className="relative">
+                  <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-white/40 pointer-events-none" />
+                  <input
+                    id="email"
                     type="email"
-                    label="Email Adresi"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    icon={<Mail className="w-5 h-5" />}
-                    error={errors.email}
-                    required
-                    glowColor="var(--lydian-primary)"
+                    className="w-full pl-12 pr-4 py-3 bg-white/5 border border-white/20 rounded-xl text-white placeholder-white/40 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/50 transition-all outline-none"
+                    placeholder="ornek@email.com"
                   />
-
-                  {/* Password Field */}
-                  <div className="relative">
-                    <FuturisticInput
-                      type={showPassword ? 'text' : 'password'}
-                      label="Şifre"
-                      placeholder="En az 8 karakter"
-                      value={formData.password}
-                      onChange={(e) => setFormData({ ...formData, password: e.target.value })}
-                      icon={<Lock className="w-5 h-5" />}
-                      error={errors.password}
-                      required
-                      glowColor="var(--lydian-primary)"
-                    />
-                    <button
-                      type="button"
-                      onClick={() => setShowPassword(!showPassword)}
-                      className="absolute right-3 top-10 text-lydian-text-inverse/60 hover:text-lydian-text-inverse transition-colors"
-                    >
-                      {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
-                    </button>
-                  </div>
-
-                  {/* Confirm Password Field */}
-                  <div className="relative">
-                    <FuturisticInput
-                      type={showConfirmPassword ? 'text' : 'password'}
-                      label="Şifre Tekrar"
-                      placeholder="Şifrenizi tekrar girin"
-                      value={formData.confirmPassword}
-                      onChange={(e) => setFormData({ ...formData, confirmPassword: e.target.value })}
-                      icon={<Lock className="w-5 h-5" />}
-                      error={errors.confirmPassword}
-                      required
-                      glowColor="var(--lydian-primary)"
-                    />
-                    <button
-                      type="button"
-                      onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                      className="absolute right-3 top-10 text-lydian-text-inverse/60 hover:text-lydian-text-inverse transition-colors"
-                    >
-                      {showConfirmPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
-                    </button>
-                  </div>
-
-                  {/* Terms Checkbox */}
-                  <div className="flex items-start">
-                    <input
-                      type="checkbox"
-                      id="terms"
-                      checked={formData.termsAccepted}
-                      onChange={(e) => setFormData({ ...formData, termsAccepted: e.target.checked })}
-                      className="mt-1 rounded border-lydian-border-light/30 bg-lydian-glass-light text-lydian-primary focus:ring-lydian-primary focus:ring-offset-0"
-                    />
-                    <label htmlFor="terms" className="ml-2 text-sm text-lydian-text-inverse/70">
-                      <Link href="/terms" className="text-transparent bg-clip-text bg-gradient-to-r from-lydian-primary to-lydian-primary-dark hover:from-lydian-primary-hover hover:to-lydian-primary-darker">
-                        Kullanım şartlarını
-                      </Link>{' '}
-                      ve{' '}
-                      <Link href="/privacy" className="text-transparent bg-clip-text bg-gradient-to-r from-lydian-primary to-lydian-primary-dark hover:from-lydian-primary-hover hover:to-lydian-primary-darker">
-                        gizlilik politikasını
-                      </Link>{' '}
-                      kabul ediyorum
-                    </label>
-                  </div>
-
-                  {/* Submit Button */}
-                  <FuturisticButton
-                    type="submit"
-                    variant="ai"
-                    fullWidth
-                    loading={isLoading}
-                    icon={<ArrowRight className="w-5 h-5" />}
-                    iconPosition="right"
-                  >
-                    {isLoading ? 'Hesap oluşturuluyor...' : 'Hesap Oluştur'}
-                  </FuturisticButton>
-                </form>
-
-                {/* Sign In Link */}
-                <div className="mt-6 text-center">
-                  <p className="text-lydian-text-inverse/70">
-                    Zaten hesabınız var mı?{' '}
-                    <Link
-                      href="/auth/signin"
-                      className="font-semibold text-transparent bg-clip-text bg-gradient-to-r from-lydian-primary to-lydian-primary-dark hover:from-lydian-primary-hover hover:to-lydian-primary-darker transition-all"
-                    >
-                      Giriş yapın
-                    </Link>
-                  </p>
                 </div>
-              </motion.div>
-            </FuturisticCard>
-          </div>
+                {errors.email && <p className="mt-1 text-sm text-red-300">{errors.email}</p>}
+              </div>
+
+              {/* Password Field */}
+              <div>
+                <label htmlFor="password" className="block text-sm font-medium text-white/80 mb-2">
+                  Şifre
+                </label>
+                <div className="relative">
+                  <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-white/40 pointer-events-none" />
+                  <input
+                    id="password"
+                    type={showPassword ? 'text' : 'password'}
+                    value={formData.password}
+                    onChange={(e) => setFormData({ ...formData, password: e.target.value })}
+                    className="w-full pl-12 pr-12 py-3 bg-white/5 border border-white/20 rounded-xl text-white placeholder-white/40 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/50 transition-all outline-none"
+                    placeholder="En az 8 karakter"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setShowPassword(!showPassword)}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-white/40 hover:text-white/80 transition-colors"
+                  >
+                    {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
+                  </button>
+                </div>
+                {errors.password && <p className="mt-1 text-sm text-red-300">{errors.password}</p>}
+              </div>
+
+              {/* Confirm Password Field */}
+              <div>
+                <label htmlFor="confirmPassword" className="block text-sm font-medium text-white/80 mb-2">
+                  Şifre Tekrar
+                </label>
+                <div className="relative">
+                  <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-white/40 pointer-events-none" />
+                  <input
+                    id="confirmPassword"
+                    type={showConfirmPassword ? 'text' : 'password'}
+                    value={formData.confirmPassword}
+                    onChange={(e) => setFormData({ ...formData, confirmPassword: e.target.value })}
+                    className="w-full pl-12 pr-12 py-3 bg-white/5 border border-white/20 rounded-xl text-white placeholder-white/40 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/50 transition-all outline-none"
+                    placeholder="Şifrenizi tekrar girin"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-white/40 hover:text-white/80 transition-colors"
+                  >
+                    {showConfirmPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
+                  </button>
+                </div>
+                {errors.confirmPassword && <p className="mt-1 text-sm text-red-300">{errors.confirmPassword}</p>}
+              </div>
+
+              {/* Terms Checkbox */}
+              <div className="flex items-start">
+                <input
+                  type="checkbox"
+                  id="terms"
+                  checked={formData.termsAccepted}
+                  onChange={(e) => setFormData({ ...formData, termsAccepted: e.target.checked })}
+                  className="mt-1 rounded border-white/20 bg-white/5 text-blue-600 focus:ring-blue-500 focus:ring-offset-0"
+                />
+                <label htmlFor="terms" className="ml-2 text-sm text-white/70">
+                  <Link href="/terms">
+                    <a className="text-blue-400 hover:text-blue-300 transition-colors">
+                      Kullanım şartlarını
+                    </a>
+                  </Link>{' '}
+                  ve{' '}
+                  <Link href="/privacy">
+                    <a className="text-blue-400 hover:text-blue-300 transition-colors">
+                      gizlilik politikasını
+                    </a>
+                  </Link>{' '}
+                  kabul ediyorum
+                </label>
+              </div>
+
+              {/* Submit Button */}
+              <button
+                type="submit"
+                disabled={isLoading}
+                className="w-full flex items-center justify-center gap-2 px-6 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {isLoading ? (
+                  <>
+                    <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                    Hesap oluşturuluyor...
+                  </>
+                ) : (
+                  <>
+                    Hesap Oluştur
+                    <ArrowRight className="w-5 h-5" />
+                  </>
+                )}
+              </button>
+            </form>
+
+            {/* Sign In Link */}
+            <div className="mt-6 text-center">
+              <p className="text-white/70">
+                Zaten hesabınız var mı?{' '}
+                <Link href="/auth/signin">
+                  <a className="text-blue-400 hover:text-blue-300 font-semibold transition-colors">
+                    Giriş yapın
+                  </a>
+                </Link>
+              </p>
+            </div>
+          </motion.div>
+
+          {/* Additional Links */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="mt-8 text-center"
+          >
+            <Link href="/">
+              <a className="text-white/60 hover:text-white/90 text-sm transition-colors">
+                Ana Sayfaya Dön
+              </a>
+            </Link>
+          </motion.div>
         </div>
-      </NeoHero>
+      </div>
     </>
   );
 };
+
+// i18n Support - CRITICAL for multi-language
+export async function getStaticProps({ locale }: { locale: string }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale ?? 'tr', ['common'])),
+    },
+  };
+}
 
 export default SignUp;

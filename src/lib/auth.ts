@@ -1,11 +1,29 @@
 import { NextAuthOptions } from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
+import GoogleProvider from 'next-auth/providers/google';
+import FacebookProvider from 'next-auth/providers/facebook';
+import { PrismaAdapter } from '@next-auth/prisma-adapter';
+import bcrypt from 'bcryptjs';
+import { prisma } from './prisma';
+import logger from './logger';
 
-// Simplified auth without Prisma dependency - prevents 500 errors
+/**
+ * NextAuth Configuration - Production Ready
+ *
+ * Features:
+ * - Credentials authentication with bcrypt
+ * - Google OAuth (configured via env)
+ * - Facebook OAuth (configured via env)
+ * - Prisma adapter for session persistence
+ * - JWT strategy for scalability
+ * - Role-based access control (RBAC)
+ * - Comprehensive error handling
+ */
 export const authOptions: NextAuthOptions = {
-  // No adapter - using JWT only for now
+  adapter: PrismaAdapter(prisma),
+
   providers: [
-    // Credentials Provider - simplified without database
+    // Credentials Provider - Email/Password authentication
     CredentialsProvider({
       name: 'credentials',
       credentials: {
@@ -13,57 +31,194 @@ export const authOptions: NextAuthOptions = {
         password: { label: 'Password', type: 'password' }
       },
       async authorize(credentials) {
-        // SECURITY: Hardcoded credentials removed - V1 Critical Fix (CVSS 9.8)
-        // All authentication must go through proper database validation
-        // Test users should be created in the database, not hardcoded
+        try {
+          if (!credentials?.email || !credentials?.password) {
+            logger.warn('Missing credentials in auth attempt');
+            return null;
+          }
 
-        if (!credentials?.email || !credentials?.password) {
+          // Find user by email
+          const user = await prisma.user.findUnique({
+            where: { email: credentials.email }
+          });
+
+          if (!user) {
+            logger.warn('User not found', { email: credentials.email });
+            return null;
+          }
+
+          // Check if user has a password (social login users won't)
+          if (!user.password) {
+            logger.warn('User has no password - social login account', { email: credentials.email });
+            return null;
+          }
+
+          // Verify password
+          const isValidPassword = await bcrypt.compare(credentials.password, user.password);
+
+          if (!isValidPassword) {
+            logger.warn('Invalid password', { email: credentials.email });
+            return null;
+          }
+
+          logger.info('User authenticated successfully', { userId: user.id, email: user.email });
+
+          // Return user object for session
+          return {
+            id: user.id,
+            name: user.name,
+            email: user.email,
+            image: user.image,
+            role: user.role || 'user',
+            membershipType: user.membershipType || 'BASIC',
+          };
+        } catch (error) {
+          logger.error('Authorization error', error);
           return null;
         }
-
-        // TODO: Implement proper database authentication
-        // Example:
-        // const user = await prisma.user.findUnique({ where: { email: credentials.email } });
-        // if (!user) return null;
-        // const isValid = await bcrypt.compare(credentials.password, user.passwordHash);
-        // if (!isValid) return null;
-        // return { id: user.id, email: user.email, name: user.name, image: user.image };
-
-        // Return null - no hardcoded authentication bypass
-        return null;
       }
     }),
+
+    // Google OAuth Provider (optional - requires env vars)
+    ...(process.env.GOOGLE_CLIENT_ID && process.env.GOOGLE_CLIENT_SECRET
+      ? [
+          GoogleProvider({
+            clientId: process.env.GOOGLE_CLIENT_ID,
+            clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+            authorization: {
+              params: {
+                prompt: "consent",
+                access_type: "offline",
+                response_type: "code"
+              }
+            }
+          })
+        ]
+      : []),
+
+    // Facebook OAuth Provider (optional - requires env vars)
+    ...(process.env.FACEBOOK_CLIENT_ID && process.env.FACEBOOK_CLIENT_SECRET
+      ? [
+          FacebookProvider({
+            clientId: process.env.FACEBOOK_CLIENT_ID,
+            clientSecret: process.env.FACEBOOK_CLIENT_SECRET
+          })
+        ]
+      : []),
   ],
-  
+
   session: {
     strategy: 'jwt',
     maxAge: 30 * 24 * 60 * 60, // 30 days
+    updateAge: 24 * 60 * 60, // 24 hours - refresh session every day
   },
 
   pages: {
     signIn: '/auth/signin',
+    signOut: '/auth/signout',
     error: '/auth/error',
+    verifyRequest: '/auth/verify-request',
   },
 
   callbacks: {
-    async jwt({ token, user }) {
+    /**
+     * JWT Callback - Adds custom fields to token
+     */
+    async jwt({ token, user, account, trigger }) {
+      // Initial sign in
       if (user) {
         token.id = user.id;
+        token.role = (user as any).role || 'user';
+        token.membershipType = (user as any).membershipType || 'BASIC';
       }
+
+      // Update token when session is updated
+      if (trigger === 'update') {
+        const updatedUser = await prisma.user.findUnique({
+          where: { id: token.id as string },
+          select: {
+            id: true,
+            name: true,
+            email: true,
+            image: true,
+            role: true,
+            membershipType: true
+          }
+        });
+
+        if (updatedUser) {
+          token.name = updatedUser.name;
+          token.email = updatedUser.email;
+          token.picture = updatedUser.image;
+          token.role = updatedUser.role || 'user';
+          token.membershipType = updatedUser.membershipType || 'BASIC';
+        }
+      }
+
       return token;
     },
 
+    /**
+     * Session Callback - Adds custom fields to session
+     */
     async session({ session, token }) {
       if (session.user) {
-        (session.user as { id?: string }).id = token.id as string;
+        (session.user as any).id = token.id;
+        (session.user as any).role = token.role;
+        (session.user as any).membershipType = token.membershipType;
       }
       return session;
     },
+
+    /**
+     * Redirect Callback - Custom redirect logic after sign in
+     */
+    async redirect({ url, baseUrl }) {
+      // Allows relative callback URLs
+      if (url.startsWith("/")) return `${baseUrl}${url}`;
+
+      // Allows callback URLs on the same origin
+      else if (new URL(url).origin === baseUrl) return url;
+
+      return baseUrl;
+    },
   },
 
-  // SECURITY: Weak JWT secret fallback removed - V3 Critical Fix (CVSS 9.1)
-  // Application will fail fast if NEXTAUTH_SECRET is not set in environment
-  // This prevents deployment with weak/default secrets
+  events: {
+    async signIn({ user, account, profile, isNewUser }) {
+      logger.info('User signed in', {
+        userId: user.id,
+        email: user.email,
+        provider: account?.provider,
+        isNewUser
+      });
+
+      // Create AI preferences for new users
+      if (isNewUser && user.id) {
+        try {
+          await prisma.aIPreference.create({
+            data: {
+              userId: user.id,
+              travelStyle: [],
+              interests: [],
+              preferredDestinations: [],
+              dietaryRestrictions: [],
+              accessibilityNeeds: [],
+            }
+          });
+          logger.info('AI preferences created for new user', { userId: user.id });
+        } catch (error) {
+          logger.error('Failed to create AI preferences', error, { userId: user.id });
+        }
+      }
+    },
+
+    async signOut({ token }) {
+      logger.info('User signed out', { userId: token.id });
+    },
+  },
+
+  // Security: Strong secret required
   secret: (() => {
     const secret = process.env.NEXTAUTH_SECRET;
     if (!secret) {
@@ -80,5 +235,6 @@ export const authOptions: NextAuthOptions = {
     }
     return secret;
   })(),
-  debug: false, // Disable debug to prevent console errors
+
+  debug: process.env.NODE_ENV === 'development',
 };

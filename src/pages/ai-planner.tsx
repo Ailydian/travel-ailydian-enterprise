@@ -34,6 +34,8 @@ import {
 import { ModernHeader } from '../components/layout/ModernHeader';
 import { NeoHero, FuturisticCard, FuturisticButton, NeoSection } from '../components/neo-glass';
 import { useToast } from '../context/ToastContext';
+import { useTranslation } from 'next-i18next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 // Types
 interface FormData {
@@ -55,6 +57,7 @@ interface TravelStyle {
 }
 
 const AITravelPlanner: React.FC = () => {
+  const { t } = useTranslation('common');
   const { showSuccess, showError, showWarning, showInfo, showToast } = useToast();
 
   const [step, setStep] = useState(1);
@@ -682,5 +685,14 @@ const AITravelPlanner: React.FC = () => {
     </>
   );
 };
+
+// CRITICAL: i18n support for multi-language
+export async function getStaticProps({ locale }: { locale: string }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale ?? 'tr', ['common'])),
+    },
+  };
+}
 
 export default AITravelPlanner;

@@ -32,9 +32,11 @@ import { ModernHeader } from '../../components/layout/ModernHeader';
 import { NeoHero, FuturisticCard, FuturisticButton, NeoSection } from '../../components/neo-glass';
 import antalyaRentals, { type AntalyaRentalProperty } from '../../data/antalya-rentals';
 import { useToast } from '../../context/ToastContext';
+import { useTranslation } from 'next-i18next';
 
 const RentalsPage: React.FC = () => {
   const router = useRouter();
+  const { t } = useTranslation('common');
   const { addToast } = useToast();
 
   // State management

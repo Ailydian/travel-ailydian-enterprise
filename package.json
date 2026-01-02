@@ -17,6 +17,7 @@
     "db:migrate": "prisma migrate dev",
     "db:seed": "prisma db seed",
     "db:studio": "prisma studio",
+    "db:create-test-user": "ts-node scripts/create-test-user.ts",
     "lint": "next lint --fix",
     "type-check": "tsc --noEmit",
     "analyze": "ANALYZE=true npm run build",

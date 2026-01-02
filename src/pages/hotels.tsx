@@ -39,9 +39,11 @@ import { NeoHero } from '../components/neo-glass/NeoHero';
 import { FuturisticCard } from '../components/neo-glass/FuturisticCard';
 import { FuturisticButton } from '../components/neo-glass/FuturisticButton';
 import logger from '../lib/logger';
+import { useTranslation } from 'next-i18next';
 
 const HotelsNewPage: React.FC = () => {
   const router = useRouter();
+  const { t } = useTranslation('common');
   const { addItem, isInCart } = useCart();
 
   // Search state - Initialize from URL params
